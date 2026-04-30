@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { execSync } from "node:child_process";
-import { readdirSync, readFileSync, writeFileSync, unlinkSync } from "node:fs";
+import { execSync, spawnSync } from "node:child_process";
+import { readdirSync, readFileSync, writeFileSync, unlinkSync, mkdirSync } from "node:fs";
 import { join, extname } from "node:path";
 import { tmpdir } from "node:os";
 import { kv } from "@vercel/kv";
@@ -9,21 +9,16 @@ import { put } from "@vercel/blob";
 const COLLECTION_ID = "17979154316722015";
 const WORK_DIR = join(tmpdir(), "image-harvest-sync");
 
-// Fail fast if required env vars are missing
 const REQUIRED_ENV = ["INSTAGRAM_COOKIES", "KV_REST_API_URL", "KV_REST_API_TOKEN", "BLOB_READ_WRITE_TOKEN"];
 for (const key of REQUIRED_ENV) {
-  if (!process.env[key]) {
-    console.error(`Missing required env var: ${key}`);
-    process.exit(1);
-  }
+  if (!process.env[key]) { console.error(`Missing required env var: ${key}`); process.exit(1); }
 }
 
-function run(cmd) {
+function run(cmd, opts = {}) {
   console.log(`$ ${cmd}`);
-  execSync(cmd, { stdio: "inherit", cwd: WORK_DIR });
+  execSync(cmd, { stdio: "inherit", cwd: WORK_DIR, ...opts });
 }
 
-// Parse cookies.txt and extract a specific cookie value
 function parseCookie(cookiesTxt, name) {
   for (const line of cookiesTxt.split("\n")) {
     if (line.startsWith("#") || !line.trim()) continue;
@@ -33,44 +28,59 @@ function parseCookie(cookiesTxt, name) {
   return null;
 }
 
-// Fetch all media codes from the saved collection via Instagram private API
-async function getCollectionMediaCodes(cookiesTxt) {
+// Get reel shortcodes from collection using Instagram's web GraphQL endpoint
+async function getCollectionShortcodes(cookiesTxt) {
   const sessionid = parseCookie(cookiesTxt, "sessionid");
   const csrftoken = parseCookie(cookiesTxt, "csrftoken");
+  const dsUserId = parseCookie(cookiesTxt, "ds_user_id");
 
-  if (!sessionid) throw new Error("sessionid not found in cookies — re-export your Instagram cookies");
+  if (!sessionid) throw new Error("sessionid not found in cookies");
 
   const codes = [];
-  let nextMaxId = null;
+  let after = null;
 
   do {
-    const url = new URL(`https://www.instagram.com/api/v1/feed/collection/${COLLECTION_ID}/posts/`);
-    url.searchParams.set("count", "50");
-    if (nextMaxId) url.searchParams.set("max_id", nextMaxId);
+    const variables = JSON.stringify({
+      collection_id: COLLECTION_ID,
+      first: 50,
+      ...(after ? { after } : {}),
+    });
 
-    const res = await fetch(url.toString(), {
+    const url = `https://www.instagram.com/graphql/query/?query_hash=e04f8f20f702c6c8e3d26f2f1e86d65e&variables=${encodeURIComponent(variables)}`;
+
+    const res = await fetch(url, {
       headers: {
-        Cookie: `sessionid=${sessionid}; csrftoken=${csrftoken}`,
+        "Cookie": `sessionid=${sessionid}; csrftoken=${csrftoken}; ds_user_id=${dsUserId}`,
+        "X-CSRFToken": csrftoken ?? "",
         "X-IG-App-ID": "936619743392459",
-        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15",
-        "Accept": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+        "Referer": "https://www.instagram.com/",
+        "Origin": "https://www.instagram.com",
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Dest": "empty",
       },
     });
 
     if (!res.ok) {
       const text = await res.text();
-      throw new Error(`Instagram API error ${res.status}: ${text.slice(0, 200)}`);
+      throw new Error(`GraphQL error ${res.status}: ${text.slice(0, 300)}`);
     }
 
     const data = await res.json();
-    for (const item of data.items ?? []) {
-      const code = item.media?.code;
+    const edges = data?.data?.collection_media?.edges ?? [];
+    for (const edge of edges) {
+      const code = edge?.node?.shortcode;
       if (code) codes.push(code);
     }
 
-    nextMaxId = data.more_available ? data.next_max_id : null;
-    console.log(`  fetched ${codes.length} items so far...`);
-  } while (nextMaxId);
+    const pageInfo = data?.data?.collection_media?.page_info;
+    after = pageInfo?.has_next_page ? pageInfo.end_cursor : null;
+    console.log(`  fetched ${codes.length} items...`);
+  } while (after);
 
   return codes;
 }
@@ -81,11 +91,7 @@ async function getExistingIds() {
 }
 
 async function uploadAndRegister(videoPath, code, existingIds) {
-  // Use the shortcode as the ID for deduplication
-  if (existingIds.has(code)) {
-    console.log(`  skip ${code} (already synced)`);
-    return;
-  }
+  if (existingIds.has(code)) { console.log(`  skip ${code}`); return; }
 
   console.log(`  uploading ${code}...`);
   const videoBuffer = readFileSync(videoPath);
@@ -95,20 +101,11 @@ async function uploadAndRegister(videoPath, code, existingIds) {
     token: process.env.BLOB_READ_WRITE_TOKEN,
   });
 
-  const reel = {
-    id: code,
-    blobUrl: blob.url,
-    caption: "",
-    postedAt: new Date().toISOString(),
-    order: Date.now(),
-    weight: 2,
-    hidden: false,
-  };
+  const reel = { id: code, blobUrl: blob.url, caption: "", postedAt: new Date().toISOString(), order: Date.now(), weight: 2, hidden: false };
 
-  // Try to read caption from info json if present
-  const infoPath = join(WORK_DIR, `${code}.info.json`);
+  // Enrich with info json if available
   try {
-    const info = JSON.parse(readFileSync(infoPath, "utf8"));
+    const info = JSON.parse(readFileSync(join(WORK_DIR, `${code}.info.json`), "utf8"));
     reel.caption = info.description ?? info.title ?? "";
     if (info.timestamp) reel.postedAt = new Date(info.timestamp * 1000).toISOString();
   } catch {}
@@ -119,33 +116,35 @@ async function uploadAndRegister(videoPath, code, existingIds) {
 }
 
 async function main() {
-  execSync(`mkdir -p ${WORK_DIR}`);
+  try { mkdirSync(WORK_DIR, { recursive: true }); } catch {}
 
   const cookiesTxt = process.env.INSTAGRAM_COOKIES;
-  const cookiesPath = join(WORK_DIR, "cookies.txt");
-  writeFileSync(cookiesPath, cookiesTxt);
+  writeFileSync(join(WORK_DIR, "cookies.txt"), cookiesTxt);
 
   try {
-    console.log("Fetching collection from Instagram API...");
-    const codes = await getCollectionMediaCodes(cookiesTxt);
+    console.log("Fetching collection from Instagram GraphQL...");
+    const codes = await getCollectionShortcodes(cookiesTxt);
     console.log(`Found ${codes.length} reels in collection.`);
+
+    if (codes.length === 0) {
+      console.log("No reels found — cookies may be expired or collection is empty.");
+      return;
+    }
 
     const existingIds = await getExistingIds();
     const newCodes = codes.filter((c) => !existingIds.has(c));
     console.log(`${newCodes.length} new reels to download.`);
 
     for (const code of newCodes) {
-      const reelUrl = `https://www.instagram.com/reel/${code}/`;
       console.log(`Downloading ${code}...`);
       try {
         run(
           `yt-dlp --cookies cookies.txt --no-progress --write-info-json ` +
           `--format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" ` +
-          `--output "${code}.%(ext)s" "${reelUrl}"`
+          `--output "${code}.%(ext)s" "https://www.instagram.com/reel/${code}/"`
         );
 
-        const freshFiles = readdirSync(WORK_DIR);
-        const videoFile = freshFiles.find(
+        const videoFile = readdirSync(WORK_DIR).find(
           (f) => f.startsWith(code) && [".mp4", ".webm", ".mkv"].includes(extname(f))
         );
 
@@ -162,9 +161,7 @@ async function main() {
 
     console.log("Sync complete.");
   } finally {
-    try {
-      for (const f of readdirSync(WORK_DIR)) unlinkSync(join(WORK_DIR, f));
-    } catch {}
+    try { for (const f of readdirSync(WORK_DIR)) unlinkSync(join(WORK_DIR, f)); } catch {}
   }
 }
 
