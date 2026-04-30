@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { execSync, spawnSync } from "node:child_process";
-import { readdirSync, readFileSync, writeFileSync, unlinkSync, mkdirSync } from "node:fs";
+import { execSync } from "node:child_process";
+import { readdirSync, readFileSync, writeFileSync, unlinkSync, mkdirSync, existsSync } from "node:fs";
 import { join, extname } from "node:path";
 import { tmpdir } from "node:os";
 import { kv } from "@vercel/kv";
@@ -9,7 +9,7 @@ import { put } from "@vercel/blob";
 const COLLECTION_ID = "17979154316722015";
 const WORK_DIR = join(tmpdir(), "image-harvest-sync");
 
-const REQUIRED_ENV = ["INSTAGRAM_COOKIES", "KV_REST_API_URL", "KV_REST_API_TOKEN", "BLOB_READ_WRITE_TOKEN"];
+const REQUIRED_ENV = ["KV_REST_API_URL", "KV_REST_API_TOKEN", "BLOB_READ_WRITE_TOKEN"];
 for (const key of REQUIRED_ENV) {
   if (!process.env[key]) { console.error(`Missing required env var: ${key}`); process.exit(1); }
 }
@@ -28,13 +28,30 @@ function parseCookie(cookiesTxt, name) {
   return null;
 }
 
-// Get reel shortcodes from collection via Instagram mobile API
+// Export Chrome Instagram cookies to a netscape cookies.txt file
+function extractChromeCookies() {
+  const cookiesFile = join(WORK_DIR, "cookies.txt");
+  // Use yt-dlp to export Chrome cookies; --skip-download means no video is fetched
+  try {
+    execSync(
+      `yt-dlp --cookies-from-browser chrome --cookies "${cookiesFile}" --skip-download "https://www.instagram.com/"`,
+      { stdio: "pipe", cwd: WORK_DIR }
+    );
+  } catch (e) {
+    // Ignore errors — yt-dlp may complain about the URL but still writes cookies
+  }
+  if (!existsSync(cookiesFile)) {
+    throw new Error("Could not extract cookies from Chrome. Make sure Chrome is installed and you are logged into Instagram.");
+  }
+  return readFileSync(cookiesFile, "utf8");
+}
+
 async function getCollectionShortcodes(cookiesTxt) {
   const sessionid = parseCookie(cookiesTxt, "sessionid");
   const csrftoken = parseCookie(cookiesTxt, "csrftoken");
   const dsUserId = parseCookie(cookiesTxt, "ds_user_id");
 
-  if (!sessionid) throw new Error("sessionid not found in cookies");
+  if (!sessionid) throw new Error("sessionid not found in Chrome cookies. Make sure you are logged into Instagram in Chrome.");
 
   const codes = [];
   let nextMaxId = null;
@@ -46,7 +63,7 @@ async function getCollectionShortcodes(cookiesTxt) {
 
     const res = await fetch(url.toString(), {
       headers: {
-        "Cookie": `sessionid=${sessionid}; csrftoken=${csrftoken}; ds_user_id=${dsUserId ?? ""}`,
+        "Cookie": `sessionid=${sessionid}; csrftoken=${csrftoken ?? ""}; ds_user_id=${dsUserId ?? ""}`,
         "X-CSRFToken": csrftoken ?? "",
         "X-IG-App-ID": "567067343352427",
         "X-IG-Capabilities": "3brTvw==",
@@ -95,7 +112,6 @@ async function uploadAndRegister(videoPath, code, existingIds) {
 
   const reel = { id: code, blobUrl: blob.url, caption: "", postedAt: new Date().toISOString(), order: Date.now(), weight: 2, hidden: false };
 
-  // Enrich with info json if available
   try {
     const info = JSON.parse(readFileSync(join(WORK_DIR, `${code}.info.json`), "utf8"));
     reel.caption = info.description ?? info.title ?? "";
@@ -110,16 +126,16 @@ async function uploadAndRegister(videoPath, code, existingIds) {
 async function main() {
   try { mkdirSync(WORK_DIR, { recursive: true }); } catch {}
 
-  const cookiesTxt = process.env.INSTAGRAM_COOKIES;
-  writeFileSync(join(WORK_DIR, "cookies.txt"), cookiesTxt);
-
   try {
-    console.log("Fetching collection from Instagram mobile API...");
+    console.log("Extracting Chrome cookies for Instagram...");
+    const cookiesTxt = extractChromeCookies();
+
+    console.log("Fetching collection from Instagram API...");
     const codes = await getCollectionShortcodes(cookiesTxt);
     console.log(`Found ${codes.length} reels in collection.`);
 
     if (codes.length === 0) {
-      console.log("No reels found — cookies may be expired or collection is empty.");
+      console.log("No reels found — make sure you are logged into Instagram in Chrome.");
       return;
     }
 
@@ -131,7 +147,7 @@ async function main() {
       console.log(`Downloading ${code}...`);
       try {
         run(
-          `yt-dlp --cookies cookies.txt --no-progress --write-info-json ` +
+          `yt-dlp --cookies-from-browser chrome --no-progress --write-info-json ` +
           `--format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" ` +
           `--output "${code}.%(ext)s" "https://www.instagram.com/reel/${code}/"`
         );
