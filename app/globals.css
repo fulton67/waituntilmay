@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-gray-300: oklch(72.8% 0.009 264);
+  --color-gray-400: oklch(60.0% 0.011 264);
+  --color-gray-500: oklch(49.5% 0.010 264);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background: #fff;
+  color: #000;
+  font-family: "Courier New", Courier, monospace;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+input, textarea, button {
+  font-family: "Courier New", Courier, monospace;
+  color: inherit;
+}
