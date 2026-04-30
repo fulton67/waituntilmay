@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 import { kv } from "@vercel/kv";
 import { put } from "@vercel/blob";
 
-const COLLECTION_URL = "https://www.instagram.com/waituntilmay/saved/digital-blackness/17979154316722015/";
+const COLLECTION_ID = "17979154316722015";
 const WORK_DIR = join(tmpdir(), "image-harvest-sync");
 
 // Fail fast if required env vars are missing
@@ -23,96 +23,145 @@ function run(cmd) {
   execSync(cmd, { stdio: "inherit", cwd: WORK_DIR });
 }
 
+// Parse cookies.txt and extract a specific cookie value
+function parseCookie(cookiesTxt, name) {
+  for (const line of cookiesTxt.split("\n")) {
+    if (line.startsWith("#") || !line.trim()) continue;
+    const parts = line.split("\t");
+    if (parts.length >= 7 && parts[5] === name) return parts[6]?.trim();
+  }
+  return null;
+}
+
+// Fetch all media codes from the saved collection via Instagram private API
+async function getCollectionMediaCodes(cookiesTxt) {
+  const sessionid = parseCookie(cookiesTxt, "sessionid");
+  const csrftoken = parseCookie(cookiesTxt, "csrftoken");
+
+  if (!sessionid) throw new Error("sessionid not found in cookies — re-export your Instagram cookies");
+
+  const codes = [];
+  let nextMaxId = null;
+
+  do {
+    const url = new URL(`https://www.instagram.com/api/v1/feed/collection/${COLLECTION_ID}/posts/`);
+    url.searchParams.set("count", "50");
+    if (nextMaxId) url.searchParams.set("max_id", nextMaxId);
+
+    const res = await fetch(url.toString(), {
+      headers: {
+        Cookie: `sessionid=${sessionid}; csrftoken=${csrftoken}`,
+        "X-IG-App-ID": "936619743392459",
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15",
+        "Accept": "application/json",
+      },
+    });
+
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(`Instagram API error ${res.status}: ${text.slice(0, 200)}`);
+    }
+
+    const data = await res.json();
+    for (const item of data.items ?? []) {
+      const code = item.media?.code;
+      if (code) codes.push(code);
+    }
+
+    nextMaxId = data.more_available ? data.next_max_id : null;
+    console.log(`  fetched ${codes.length} items so far...`);
+  } while (nextMaxId);
+
+  return codes;
+}
+
 async function getExistingIds() {
   const ids = await kv.lrange("reels:index", 0, -1);
   return new Set(ids);
 }
 
-async function uploadAndRegister(videoPath, infoPath, existingIds) {
-  const info = JSON.parse(readFileSync(infoPath, "utf8"));
-  const id = info.id;
-
-  if (existingIds.has(id)) {
-    console.log(`  skip ${id} (already synced)`);
+async function uploadAndRegister(videoPath, code, existingIds) {
+  // Use the shortcode as the ID for deduplication
+  if (existingIds.has(code)) {
+    console.log(`  skip ${code} (already synced)`);
     return;
   }
 
-  console.log(`  uploading ${id}...`);
+  console.log(`  uploading ${code}...`);
   const videoBuffer = readFileSync(videoPath);
-  const blob = await put(`reels/${id}.mp4`, videoBuffer, {
+  const blob = await put(`reels/${code}.mp4`, videoBuffer, {
     access: "public",
     contentType: "video/mp4",
     token: process.env.BLOB_READ_WRITE_TOKEN,
   });
 
   const reel = {
-    id,
+    id: code,
     blobUrl: blob.url,
-    caption: info.description ?? info.title ?? "",
-    postedAt: info.timestamp ? new Date(info.timestamp * 1000).toISOString() : new Date().toISOString(),
+    caption: "",
+    postedAt: new Date().toISOString(),
     order: Date.now(),
     weight: 2,
     hidden: false,
   };
 
-  await kv.set(`reel:${id}`, reel);
-  await kv.rpush("reels:index", id);
-  console.log(`  registered ${id} → ${blob.url}`);
+  // Try to read caption from info json if present
+  const infoPath = join(WORK_DIR, `${code}.info.json`);
+  try {
+    const info = JSON.parse(readFileSync(infoPath, "utf8"));
+    reel.caption = info.description ?? info.title ?? "";
+    if (info.timestamp) reel.postedAt = new Date(info.timestamp * 1000).toISOString();
+  } catch {}
+
+  await kv.set(`reel:${code}`, reel);
+  await kv.rpush("reels:index", code);
+  console.log(`  registered ${code} → ${blob.url}`);
 }
 
 async function main() {
   execSync(`mkdir -p ${WORK_DIR}`);
 
+  const cookiesTxt = process.env.INSTAGRAM_COOKIES;
   const cookiesPath = join(WORK_DIR, "cookies.txt");
-  writeFileSync(cookiesPath, process.env.INSTAGRAM_COOKIES);
+  writeFileSync(cookiesPath, cookiesTxt);
 
   try {
-    console.log("Fetching collection metadata...");
-    try {
-      run(
-        `yt-dlp --cookies cookies.txt --write-info-json --skip-download ` +
-        `--no-progress --output "%(id)s.%(ext)s" "${COLLECTION_URL}"`
-      );
-    } catch (err) {
-      console.error("yt-dlp metadata fetch failed:", err.message);
-    }
+    console.log("Fetching collection from Instagram API...");
+    const codes = await getCollectionMediaCodes(cookiesTxt);
+    console.log(`Found ${codes.length} reels in collection.`);
 
     const existingIds = await getExistingIds();
-    const infoFiles = readdirSync(WORK_DIR).filter((f) => f.endsWith(".info.json"));
+    const newCodes = codes.filter((c) => !existingIds.has(c));
+    console.log(`${newCodes.length} new reels to download.`);
 
-    for (const infoFile of infoFiles) {
-      const id = infoFile.replace(".info.json", "");
-      if (existingIds.has(id)) continue;
-
-      console.log(`Downloading new reel ${id}...`);
+    for (const code of newCodes) {
+      const reelUrl = `https://www.instagram.com/reel/${code}/`;
+      console.log(`Downloading ${code}...`);
       try {
         run(
-          `yt-dlp --cookies cookies.txt --no-progress ` +
+          `yt-dlp --cookies cookies.txt --no-progress --write-info-json ` +
           `--format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" ` +
-          `--output "${id}.%(ext)s" "https://www.instagram.com/reel/${id}/"`
+          `--output "${code}.%(ext)s" "${reelUrl}"`
         );
 
         const freshFiles = readdirSync(WORK_DIR);
         const videoFile = freshFiles.find(
-          (f) => f.startsWith(id) && [".mp4", ".webm", ".mkv"].includes(extname(f))
+          (f) => f.startsWith(code) && [".mp4", ".webm", ".mkv"].includes(extname(f))
         );
 
         if (videoFile) {
-          await uploadAndRegister(
-            join(WORK_DIR, videoFile),
-            join(WORK_DIR, infoFile),
-            existingIds
-          );
-          existingIds.add(id);
+          await uploadAndRegister(join(WORK_DIR, videoFile), code, existingIds);
+          existingIds.add(code);
+        } else {
+          console.error(`  no video file found for ${code}`);
         }
       } catch (err) {
-        console.error(`  failed to download ${id}:`, err.message);
+        console.error(`  failed ${code}:`, err.message);
       }
     }
 
     console.log("Sync complete.");
   } finally {
-    // Always clean up — ensures cookies.txt is deleted even on error
     try {
       for (const f of readdirSync(WORK_DIR)) unlinkSync(join(WORK_DIR, f));
     } catch {}
