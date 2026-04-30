@@ -28,7 +28,7 @@ function parseCookie(cookiesTxt, name) {
   return null;
 }
 
-// Get reel shortcodes from collection using Instagram's web GraphQL endpoint
+// Get reel shortcodes from collection via Instagram mobile API
 async function getCollectionShortcodes(cookiesTxt) {
   const sessionid = parseCookie(cookiesTxt, "sessionid");
   const csrftoken = parseCookie(cookiesTxt, "csrftoken");
@@ -37,50 +37,42 @@ async function getCollectionShortcodes(cookiesTxt) {
   if (!sessionid) throw new Error("sessionid not found in cookies");
 
   const codes = [];
-  let after = null;
+  let nextMaxId = null;
 
   do {
-    const variables = JSON.stringify({
-      collection_id: COLLECTION_ID,
-      first: 50,
-      ...(after ? { after } : {}),
-    });
+    const url = new URL(`https://i.instagram.com/api/v1/feed/collection/${COLLECTION_ID}/posts/`);
+    url.searchParams.set("count", "50");
+    if (nextMaxId) url.searchParams.set("max_id", nextMaxId);
 
-    const url = `https://www.instagram.com/graphql/query/?query_hash=e04f8f20f702c6c8e3d26f2f1e86d65e&variables=${encodeURIComponent(variables)}`;
-
-    const res = await fetch(url, {
+    const res = await fetch(url.toString(), {
       headers: {
-        "Cookie": `sessionid=${sessionid}; csrftoken=${csrftoken}; ds_user_id=${dsUserId}`,
+        "Cookie": `sessionid=${sessionid}; csrftoken=${csrftoken}; ds_user_id=${dsUserId ?? ""}`,
         "X-CSRFToken": csrftoken ?? "",
-        "X-IG-App-ID": "936619743392459",
-        "X-Requested-With": "XMLHttpRequest",
-        "Referer": "https://www.instagram.com/",
-        "Origin": "https://www.instagram.com",
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "X-IG-App-ID": "567067343352427",
+        "X-IG-Capabilities": "3brTvw==",
+        "X-IG-Connection-Type": "WIFI",
+        "User-Agent": "Instagram 219.0.0.12.117 Android (26/8.0.0; 480dpi; 1080x1920; OnePlus; 6T; OnePlus6T; qcom; en_US; 314665256)",
         "Accept": "*/*",
-        "Accept-Language": "en-US,en;q=0.9",
-        "Sec-Fetch-Site": "same-origin",
-        "Sec-Fetch-Mode": "cors",
-        "Sec-Fetch-Dest": "empty",
+        "Accept-Language": "en-US",
+        "Accept-Encoding": "gzip, deflate",
+        "Connection": "keep-alive",
       },
     });
 
     if (!res.ok) {
       const text = await res.text();
-      throw new Error(`GraphQL error ${res.status}: ${text.slice(0, 300)}`);
+      throw new Error(`Instagram API error ${res.status}: ${text.slice(0, 300)}`);
     }
 
     const data = await res.json();
-    const edges = data?.data?.collection_media?.edges ?? [];
-    for (const edge of edges) {
-      const code = edge?.node?.shortcode;
+    for (const item of data.items ?? []) {
+      const code = item.media?.code ?? item.code;
       if (code) codes.push(code);
     }
 
-    const pageInfo = data?.data?.collection_media?.page_info;
-    after = pageInfo?.has_next_page ? pageInfo.end_cursor : null;
+    nextMaxId = data.more_available ? data.next_max_id : null;
     console.log(`  fetched ${codes.length} items...`);
-  } while (after);
+  } while (nextMaxId);
 
   return codes;
 }
@@ -122,7 +114,7 @@ async function main() {
   writeFileSync(join(WORK_DIR, "cookies.txt"), cookiesTxt);
 
   try {
-    console.log("Fetching collection from Instagram GraphQL...");
+    console.log("Fetching collection from Instagram mobile API...");
     const codes = await getCollectionShortcodes(cookiesTxt);
     console.log(`Found ${codes.length} reels in collection.`);
 
