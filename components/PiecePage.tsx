@@ -10,12 +10,12 @@ function ScrollDots({ total, active }: { total: number; active: number }) {
   if (total <= 1) return null;
   return (
     <div style={{
-      position: "fixed", right: 20, top: "50%", transform: "translateY(-50%)",
-      display: "flex", flexDirection: "column", gap: 8, zIndex: 50,
+      position: "fixed", right: 24, top: "50%", transform: "translateY(-50%)",
+      display: "flex", flexDirection: "column", gap: 10, zIndex: 50,
     }}>
       {Array.from({ length: total }).map((_, i) => (
         <div key={i} style={{
-          width: 4, height: 4, borderRadius: "50%",
+          width: 3, height: 3, borderRadius: "50%",
           background: i === active ? "#000" : "#ccc",
           transition: "background 0.3s",
         }} />
@@ -29,16 +29,22 @@ function TitleSection({ item }: { item: WorkItem }) {
   const ref = useFadeIn();
   return (
     <section style={{
-      height: "100svh", display: "flex", flexDirection: "column",
-      justifyContent: "flex-start", alignItems: "flex-start",
-      padding: "18vh 48px 60px",
-      scrollSnapAlign: "start", opacity: 0, transition: "opacity 0.7s ease",
+      height: "100svh",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      textAlign: "center",
+      padding: "0 clamp(32px, 8vw, 120px)",
+      scrollSnapAlign: "start",
+      opacity: 0,
+      transition: "opacity 0.7s ease",
     }} ref={ref}>
       <h1 style={{
-        fontSize: "clamp(48px, 10vw, 96px)",
+        fontSize: "clamp(52px, 9vw, 108px)",
         fontFamily: "Georgia, 'Times New Roman', serif",
         fontWeight: "normal",
-        letterSpacing: "0.04em",
+        letterSpacing: "0.06em",
         textTransform: "uppercase",
         lineHeight: 1,
         margin: 0,
@@ -46,14 +52,28 @@ function TitleSection({ item }: { item: WorkItem }) {
         {item.title}
       </h1>
       {item.year && (
-        <p style={{ fontSize: 10, letterSpacing: "0.14em", color: "#bbb", marginTop: 20, fontFamily: "'Courier New', Courier, monospace" }}>
+        <p style={{
+          fontSize: 10,
+          letterSpacing: "0.18em",
+          color: "#bbb",
+          marginTop: 28,
+          fontFamily: "'Courier New', Courier, monospace",
+          textTransform: "uppercase",
+        }}>
           {item.year}
         </p>
       )}
       <p style={{
-        position: "absolute", bottom: 40, left: "50%", transform: "translateX(-50%)",
-        fontSize: 9, letterSpacing: "0.14em", color: "#ccc", textTransform: "uppercase",
+        position: "absolute",
+        bottom: "clamp(28px, 4vh, 48px)",
+        left: "50%",
+        transform: "translateX(-50%)",
+        fontSize: 9,
+        letterSpacing: "0.16em",
+        color: "#ccc",
+        textTransform: "uppercase",
         fontFamily: "'Courier New', Courier, monospace",
+        whiteSpace: "nowrap",
       }}>
         scroll ↓
       </p>
@@ -65,14 +85,24 @@ function TitleSection({ item }: { item: WorkItem }) {
 function ImageSection({ src, index }: { src: string; index: number }) {
   return (
     <section style={{
-      height: "100svh", scrollSnapAlign: "start",
-      position: "relative", overflow: "hidden",
+      height: "100svh",
+      scrollSnapAlign: "start",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: "clamp(0px, 4vw, 56px)",
+      boxSizing: "border-box",
     }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
         alt={`image ${index + 1}`}
-        style={{ width: "100%", height: "100%", objectFit: "contain", display: "block", background: "#fff" }}
+        style={{
+          maxWidth: "100%",
+          maxHeight: "100%",
+          objectFit: "contain",
+          display: "block",
+        }}
       />
     </section>
   );
@@ -92,16 +122,17 @@ function VideoSection({ src }: { src: string }) {
   return (
     <section style={{
       height: "100svh", scrollSnapAlign: "start",
-      position: "relative", overflow: "hidden", cursor: "pointer",
-      background: "#000",
+      display: "flex", alignItems: "center", justifyContent: "center",
+      padding: "clamp(0px, 4vw, 56px)", boxSizing: "border-box",
+      cursor: "pointer", background: "#000",
     }} onClick={toggle}>
       <video
         ref={ref} src={src} playsInline loop
-        style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
+        style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain", display: "block" }}
         onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)}
       />
       {!playing && (
-        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none" }}>
+        <div style={{ position: "absolute", display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none" }}>
           <div style={{ width: 44, height: 44, borderRadius: "50%", background: "rgba(255,255,255,0.85)", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <div style={{ width: 0, height: 0, borderTop: "8px solid transparent", borderBottom: "8px solid transparent", borderLeft: "14px solid #000", marginLeft: 4 }} />
           </div>
@@ -136,21 +167,42 @@ function ContextSection({ item }: { item: WorkItem }) {
 
   return (
     <section style={{
-      minHeight: "100svh", scrollSnapAlign: "start",
-      display: "flex", flexDirection: "column", justifyContent: "center",
-      padding: "80px 48px",
+      minHeight: "100svh",
+      scrollSnapAlign: "start",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: "80px clamp(32px, 8vw, 120px)",
       fontFamily: "'Courier New', Courier, monospace",
     }}>
-      <div style={{ maxWidth: 440, width: "100%" }}>
+      <div style={{ maxWidth: 480, width: "100%" }}>
 
         {item.context && (
-          <p style={{ fontSize: 12, letterSpacing: "0.04em", lineHeight: 2.2, color: "#333", fontStyle: "italic", whiteSpace: "pre-wrap", marginBottom: 40 }}>
+          <p style={{
+            fontSize: 12,
+            letterSpacing: "0.04em",
+            lineHeight: 2.2,
+            color: "#333",
+            fontStyle: "italic",
+            whiteSpace: "pre-wrap",
+            marginBottom: 40,
+            textAlign: "left",
+          }}>
             {item.context}
           </p>
         )}
 
         {item.bio && (
-          <p style={{ fontSize: 12, letterSpacing: "0.04em", lineHeight: 2.2, color: "#333", fontStyle: "italic", whiteSpace: "pre-wrap", marginBottom: 40 }}>
+          <p style={{
+            fontSize: 12,
+            letterSpacing: "0.04em",
+            lineHeight: 2.2,
+            color: "#333",
+            fontStyle: "italic",
+            whiteSpace: "pre-wrap",
+            marginBottom: 40,
+          }}>
             {item.bio}
           </p>
         )}
@@ -225,8 +277,8 @@ export default function PiecePage({ item }: { item: WorkItem }) {
       <div style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
         display: "flex", justifyContent: "space-between", alignItems: "center",
-        padding: "20px 28px",
-        background: "linear-gradient(to bottom, rgba(255,255,255,0.9) 0%, transparent 100%)",
+        padding: "20px clamp(24px, 4vw, 48px)",
+        background: "linear-gradient(to bottom, rgba(255,255,255,0.92) 0%, transparent 100%)",
       }}>
         <Link href="/work" style={{ fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb", fontFamily: "'Courier New', Courier, monospace" }}>
           ← work

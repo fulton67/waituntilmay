@@ -57,7 +57,6 @@ const DEFAULT_ITEMS: WorkItem[] = [
       "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/work/boli/2.jpg",
       "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/work/boli/0.jpg",
       "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/work/boli/12.jpg",
-      "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/work/boli/6.jpg",
       "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/work/boli/13.jpg",
     ],
     context: "A boli is a type of Bamana power object, an object charged with spiritual energy that can affect human life. The primary function of a boli is to accumulate and control the naturally occurring life force called nyama for the spiritual benefit of the community. The composition of the encrusted patina varies, but all the ingredients possess this inherent and important spiritual energy. A boli can be created with images.",
@@ -67,6 +66,7 @@ const DEFAULT_ITEMS: WorkItem[] = [
     title: "Pobrane", role: "", year: "2026",
     category: "fine-arts", visible: true, sold: true,
     images: [
+      "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/work/boli/6.jpg",
       "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/work/boli/5.jpg",
       "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/work/boli/4.jpg",
       "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/work/boli/7.jpg",
