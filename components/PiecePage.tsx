@@ -1,31 +1,9 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import type { WorkItem } from "@/app/api/work/route";
 import { useFadeIn } from "@/lib/useFadeIn";
-
-function Expandable({ label, children }: { label: string; children: React.ReactNode }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div>
-      <button
-        onClick={() => setOpen(o => !o)}
-        style={{ background: "none", border: "none", padding: 0, cursor: "pointer", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "#bbb", fontFamily: "'Courier New', Courier, monospace" }}
-      >
-        {label} {open ? "−" : "+"}
-      </button>
-      {open && <div style={{ marginTop: 20 }}>{children}</div>}
-    </div>
-  );
-}
-
-const CATEGORY_LABELS: Record<string, string> = {
-  "clothing-production": "clothing production",
-  "movies-video":        "movies & video",
-  "fine-arts":           "fine arts",
-  "consulting":          "consulting",
-};
 
 // ── Scroll dots ───────────────────────────────────────────────────────────────
 function ScrollDots({ total, active }: { total: number; active: number }) {
@@ -52,26 +30,31 @@ function TitleSection({ item }: { item: WorkItem }) {
   return (
     <section style={{
       height: "100svh", display: "flex", flexDirection: "column",
-      justifyContent: "center", alignItems: "center", padding: "80px 40px",
+      justifyContent: "flex-start", alignItems: "flex-start",
+      padding: "18vh 48px 60px",
       scrollSnapAlign: "start", opacity: 0, transition: "opacity 0.7s ease",
     }} ref={ref}>
-      <p style={{ fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "#bbb", marginBottom: 28 }}>
-        {CATEGORY_LABELS[item.category] ?? item.category}
-        {item.year ? ` — ${item.year}` : ""}
-      </p>
       <h1 style={{
-        fontSize: "clamp(28px, 6vw, 64px)", letterSpacing: "0.12em",
-        textTransform: "uppercase", fontWeight: "normal", textAlign: "center",
-        lineHeight: 1.2,
+        fontSize: "clamp(48px, 10vw, 96px)",
+        fontFamily: "Georgia, 'Times New Roman', serif",
+        fontWeight: "normal",
+        letterSpacing: "0.04em",
+        textTransform: "uppercase",
+        lineHeight: 1,
+        margin: 0,
       }}>
         {item.title}
       </h1>
-      {item.role && (
-        <p style={{ fontSize: 10, letterSpacing: "0.1em", color: "#aaa", marginTop: 16 }}>
-          {item.role}
+      {item.year && (
+        <p style={{ fontSize: 10, letterSpacing: "0.14em", color: "#bbb", marginTop: 20, fontFamily: "'Courier New', Courier, monospace" }}>
+          {item.year}
         </p>
       )}
-      <p style={{ fontSize: 9, letterSpacing: "0.14em", color: "#ddd", marginTop: 48, textTransform: "uppercase" }}>
+      <p style={{
+        position: "absolute", bottom: 40, left: "50%", transform: "translateX(-50%)",
+        fontSize: 9, letterSpacing: "0.14em", color: "#ccc", textTransform: "uppercase",
+        fontFamily: "'Courier New', Courier, monospace",
+      }}>
         scroll ↓
       </p>
     </section>
@@ -161,41 +144,31 @@ function ContextSection({ item }: { item: WorkItem }) {
       minHeight: "100svh", scrollSnapAlign: "start",
       opacity: 0, transition: "opacity 0.7s ease",
       display: "flex", flexDirection: "column", justifyContent: "center",
-      padding: "80px 40px",
+      padding: "80px 48px",
+      fontFamily: "'Courier New', Courier, monospace",
     }} ref={fadeRef}>
-      <div style={{ maxWidth: 480, width: "100%", margin: "0 auto" }}>
+      <div style={{ maxWidth: 440, width: "100%" }}>
 
-        {/* Context disclosure */}
         {item.context && (
-          <div style={{ marginBottom: 40 }}>
-            <Expandable label="context">
-              <p style={{ fontSize: 12, letterSpacing: "0.04em", lineHeight: 2, color: "#333", fontStyle: "italic", whiteSpace: "pre-wrap" }}>
-                {item.context}
-              </p>
-            </Expandable>
-          </div>
+          <p style={{ fontSize: 12, letterSpacing: "0.04em", lineHeight: 2.2, color: "#333", fontStyle: "italic", whiteSpace: "pre-wrap", marginBottom: 40 }}>
+            {item.context}
+          </p>
         )}
 
         {item.bio && (
-          <div style={{ marginBottom: 40 }}>
-            <Expandable label="statement">
-              <p style={{ fontSize: 12, letterSpacing: "0.04em", lineHeight: 2, color: "#333", fontStyle: "italic", whiteSpace: "pre-wrap" }}>
-                {item.bio}
-              </p>
-            </Expandable>
-          </div>
+          <p style={{ fontSize: 12, letterSpacing: "0.04em", lineHeight: 2.2, color: "#333", fontStyle: "italic", whiteSpace: "pre-wrap", marginBottom: 40 }}>
+            {item.bio}
+          </p>
         )}
 
         <div style={{ borderTop: "1px solid #efefef", marginBottom: 28 }} />
 
-        {/* Sold */}
         {item.sold && (
           <p style={{ fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "#ccc", marginBottom: 20 }}>
             sold
           </p>
         )}
 
-        {/* Inquiry */}
         {sent ? (
           <p style={{ fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase", color: "#aaa" }}>
             received — i will be in touch.
@@ -237,13 +210,10 @@ export default function PiecePage({ item }: { item: WorkItem }) {
   const [activeSection, setActiveSection] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Build the list of sections for dot counting
   const allImages = item.images?.length ? item.images : item.image ? [item.image] : [];
   const hasVideo  = !!item.video;
-  // title + images + (video if present) + context/inquiry
   const totalSections = 1 + allImages.length + (hasVideo ? 1 : 0) + 1;
 
-  // Track active section via scroll position
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -258,7 +228,6 @@ export default function PiecePage({ item }: { item: WorkItem }) {
 
   return (
     <>
-      {/* Fixed nav */}
       <div style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
         display: "flex", justifyContent: "space-between", alignItems: "center",
@@ -275,14 +244,12 @@ export default function PiecePage({ item }: { item: WorkItem }) {
 
       <ScrollDots total={totalSections} active={activeSection} />
 
-      {/* Scroll container */}
       <div
         ref={containerRef}
         style={{
           height: "100svh",
           overflowY: "scroll",
           scrollSnapType: "y mandatory",
-          fontFamily: "'Courier New', Courier, monospace",
           background: "#fff",
           color: "#000",
         }}
