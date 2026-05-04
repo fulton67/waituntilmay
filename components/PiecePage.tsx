@@ -63,18 +63,16 @@ function TitleSection({ item }: { item: WorkItem }) {
 
 // ── Image section ─────────────────────────────────────────────────────────────
 function ImageSection({ src, index }: { src: string; index: number }) {
-  const ref = useFadeIn();
   return (
     <section style={{
       height: "100svh", scrollSnapAlign: "start",
-      opacity: 0, transition: "opacity 0.7s ease",
       position: "relative", overflow: "hidden",
-    }} ref={ref}>
+    }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
         alt={`image ${index + 1}`}
-        style={{ width: "100%", height: "100%", objectFit: "contain", display: "block", background: "#fafafa" }}
+        style={{ width: "100%", height: "100%", objectFit: "contain", display: "block", background: "#fff" }}
       />
     </section>
   );
@@ -83,7 +81,6 @@ function ImageSection({ src, index }: { src: string; index: number }) {
 // ── Video section ─────────────────────────────────────────────────────────────
 function VideoSection({ src }: { src: string }) {
   const ref = useRef<HTMLVideoElement>(null);
-  const fadeRef = useFadeIn();
   const [playing, setPlaying] = useState(false);
 
   function toggle() {
@@ -95,10 +92,9 @@ function VideoSection({ src }: { src: string }) {
   return (
     <section style={{
       height: "100svh", scrollSnapAlign: "start",
-      opacity: 0, transition: "opacity 0.7s ease",
       position: "relative", overflow: "hidden", cursor: "pointer",
       background: "#000",
-    }} ref={fadeRef} onClick={toggle}>
+    }} onClick={toggle}>
       <video
         ref={ref} src={src} playsInline loop
         style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
@@ -117,7 +113,6 @@ function VideoSection({ src }: { src: string }) {
 
 // ── Context + Inquiry section ─────────────────────────────────────────────────
 function ContextSection({ item }: { item: WorkItem }) {
-  const fadeRef = useFadeIn();
   const [name, setName]       = useState("");
   const [email, setEmail]     = useState("");
   const [message, setMessage] = useState("");
@@ -142,11 +137,10 @@ function ContextSection({ item }: { item: WorkItem }) {
   return (
     <section style={{
       minHeight: "100svh", scrollSnapAlign: "start",
-      opacity: 0, transition: "opacity 0.7s ease",
       display: "flex", flexDirection: "column", justifyContent: "center",
       padding: "80px 48px",
       fontFamily: "'Courier New', Courier, monospace",
-    }} ref={fadeRef}>
+    }}>
       <div style={{ maxWidth: 440, width: "100%" }}>
 
         {item.context && (
