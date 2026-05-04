@@ -1,39 +1,141 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import type { WorkItem } from "@/app/api/work/route";
 
 const CATEGORY_LABELS: Record<string, string> = {
   "clothing-production": "clothing production",
-  "movies-video": "movies & video",
-  "fine-arts": "fine arts",
-  "consulting": "consulting",
+  "movies-video":        "movies & video",
+  "fine-arts":           "fine arts",
+  "consulting":          "consulting",
 };
 
-function VideoPlayer({ src }: { src: string }) {
+// ── Intersection Observer fade-in ─────────────────────────────────────────────
+function useFadeIn() {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) el.style.opacity = "1"; },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  return ref;
+}
+
+// ── Scroll dots ───────────────────────────────────────────────────────────────
+function ScrollDots({ total, active }: { total: number; active: number }) {
+  if (total <= 1) return null;
+  return (
+    <div style={{
+      position: "fixed", right: 20, top: "50%", transform: "translateY(-50%)",
+      display: "flex", flexDirection: "column", gap: 8, zIndex: 50,
+    }}>
+      {Array.from({ length: total }).map((_, i) => (
+        <div key={i} style={{
+          width: 4, height: 4, borderRadius: "50%",
+          background: i === active ? "#000" : "#ccc",
+          transition: "background 0.3s",
+        }} />
+      ))}
+    </div>
+  );
+}
+
+// ── Title section ─────────────────────────────────────────────────────────────
+function TitleSection({ item }: { item: WorkItem }) {
+  const ref = useFadeIn();
+  return (
+    <section style={{
+      height: "100svh", display: "flex", flexDirection: "column",
+      justifyContent: "center", alignItems: "center", padding: "80px 40px",
+      scrollSnapAlign: "start", opacity: 0, transition: "opacity 0.7s ease",
+    }} ref={ref}>
+      <p style={{ fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "#bbb", marginBottom: 28 }}>
+        {CATEGORY_LABELS[item.category] ?? item.category}
+        {item.year ? ` — ${item.year}` : ""}
+      </p>
+      <h1 style={{
+        fontSize: "clamp(28px, 6vw, 64px)", letterSpacing: "0.12em",
+        textTransform: "uppercase", fontWeight: "normal", textAlign: "center",
+        lineHeight: 1.2,
+      }}>
+        {item.title}
+      </h1>
+      {item.role && (
+        <p style={{ fontSize: 10, letterSpacing: "0.1em", color: "#aaa", marginTop: 16 }}>
+          {item.role}
+        </p>
+      )}
+      <p style={{ fontSize: 9, letterSpacing: "0.14em", color: "#ddd", marginTop: 48, textTransform: "uppercase" }}>
+        scroll ↓
+      </p>
+    </section>
+  );
+}
+
+// ── Image section ─────────────────────────────────────────────────────────────
+function ImageSection({ src, index }: { src: string; index: number }) {
+  const ref = useFadeIn();
+  return (
+    <section style={{
+      height: "100svh", scrollSnapAlign: "start",
+      opacity: 0, transition: "opacity 0.7s ease",
+      position: "relative", overflow: "hidden",
+    }} ref={ref}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={src}
+        alt={`image ${index + 1}`}
+        style={{ width: "100%", height: "100%", objectFit: "contain", display: "block", background: "#fafafa" }}
+      />
+    </section>
+  );
+}
+
+// ── Video section ─────────────────────────────────────────────────────────────
+function VideoSection({ src }: { src: string }) {
   const ref = useRef<HTMLVideoElement>(null);
+  const fadeRef = useFadeIn();
   const [playing, setPlaying] = useState(false);
+
   function toggle() {
     if (!ref.current) return;
     if (ref.current.paused) { ref.current.play(); setPlaying(true); }
     else { ref.current.pause(); setPlaying(false); }
   }
+
   return (
-    <div style={{ position: "relative", width: "100%", height: "100%", cursor: "pointer" }} onClick={toggle}>
-      <video ref={ref} src={src} playsInline loop style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} />
+    <section style={{
+      height: "100svh", scrollSnapAlign: "start",
+      opacity: 0, transition: "opacity 0.7s ease",
+      position: "relative", overflow: "hidden", cursor: "pointer",
+      background: "#000",
+    }} ref={fadeRef} onClick={toggle}>
+      <video
+        ref={ref} src={src} playsInline loop
+        style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
+        onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)}
+      />
       {!playing && (
         <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none" }}>
-          <div style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(255,255,255,0.85)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div style={{ width: 0, height: 0, borderTop: "7px solid transparent", borderBottom: "7px solid transparent", borderLeft: "12px solid #000", marginLeft: 3 }} />
+          <div style={{ width: 44, height: 44, borderRadius: "50%", background: "rgba(255,255,255,0.85)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: 0, height: 0, borderTop: "8px solid transparent", borderBottom: "8px solid transparent", borderLeft: "14px solid #000", marginLeft: 4 }} />
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 }
 
-export default function PiecePage({ item }: { item: WorkItem }) {
+// ── Context + Inquiry section ─────────────────────────────────────────────────
+function ContextSection({ item }: { item: WorkItem }) {
+  const fadeRef = useFadeIn();
   const [name, setName]       = useState("");
   const [email, setEmail]     = useState("");
   const [message, setMessage] = useState("");
@@ -42,17 +144,12 @@ export default function PiecePage({ item }: { item: WorkItem }) {
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (!name || !email || !message) return;
     setSending(true);
     try {
       await fetch("/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          message: `[re: ${item.title}]\n\n${message}`,
-        }),
+        body: JSON.stringify({ name, email, message: `[re: ${item.title}]\n\n${message}` }),
       });
       setSent(true);
     } finally {
@@ -61,76 +158,73 @@ export default function PiecePage({ item }: { item: WorkItem }) {
   }
 
   return (
-    <main
-      style={{ fontFamily: "'Courier New', Courier, monospace", minHeight: "100vh", background: "#fff", color: "#000" }}
-    >
-      {/* Nav */}
-      <div style={{ padding: "28px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <Link href="/work" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb" }}>
-          ← work
-        </Link>
-        <Link href="/" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb" }}>
-          waituntilmay
-        </Link>
-      </div>
+    <section style={{
+      minHeight: "100svh", scrollSnapAlign: "start",
+      opacity: 0, transition: "opacity 0.7s ease",
+      display: "flex", flexDirection: "column", justifyContent: "center",
+      padding: "80px 40px",
+    }} ref={fadeRef}>
+      <div style={{ maxWidth: 480, width: "100%", margin: "0 auto" }}>
 
-      {/* Media */}
-      {(item.image || item.video) && (
-        <div style={{ display: "flex", justifyContent: "center", padding: "0 24px 40px" }}>
-          <div style={{
-            width: "min(480px, 90vw)",
-            aspectRatio: "8.5 / 11",
-            background: "#f7f7f7",
-            overflow: "hidden",
-            position: "relative",
-          }}>
-            {item.video ? (
-              <VideoPlayer src={item.video} />
-            ) : (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={item.image}
-                alt={item.title}
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-              />
-            )}
+        {/* Context disclosure */}
+        {item.context && (
+          <div style={{ marginBottom: 40 }}>
+            <Disclosure>
+              <DisclosureButton style={{
+                background: "none", border: "none", padding: 0, cursor: "pointer",
+                fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase",
+                color: "#bbb", fontFamily: "'Courier New', Courier, monospace",
+                display: "flex", alignItems: "center", gap: 10,
+              }}>
+                {({ open }: { open: boolean }) => (
+                  <span>context {open ? "−" : "+"}</span>
+                )}
+              </DisclosureButton>
+              <DisclosurePanel style={{ marginTop: 20 }}>
+                <p style={{
+                  fontSize: 12, letterSpacing: "0.04em", lineHeight: 2,
+                  color: "#333", fontStyle: "italic", whiteSpace: "pre-wrap",
+                }}>
+                  {item.context}
+                </p>
+              </DisclosurePanel>
+            </Disclosure>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Info */}
-      <div style={{ maxWidth: 480, margin: "0 auto", padding: "0 32px 80px" }}>
+        {/* Bio / artist statement */}
+        {item.bio && (
+          <div style={{ marginBottom: 40 }}>
+            <Disclosure>
+              <DisclosureButton style={{
+                background: "none", border: "none", padding: 0, cursor: "pointer",
+                fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase",
+                color: "#bbb", fontFamily: "'Courier New', Courier, monospace",
+              }}>
+                {({ open }: { open: boolean }) => (
+                  <span>statement {open ? "−" : "+"}</span>
+                )}
+              </DisclosureButton>
+              <DisclosurePanel style={{ marginTop: 20 }}>
+                <p style={{
+                  fontSize: 12, letterSpacing: "0.04em", lineHeight: 2,
+                  color: "#333", fontStyle: "italic", whiteSpace: "pre-wrap",
+                }}>
+                  {item.bio}
+                </p>
+              </DisclosurePanel>
+            </Disclosure>
+          </div>
+        )}
 
-        {/* Category + year */}
-        <p style={{ fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "#bbb", marginBottom: 12 }}>
-          {CATEGORY_LABELS[item.category] ?? item.category}
-          {item.year ? ` — ${item.year}` : ""}
-        </p>
+        <div style={{ borderTop: "1px solid #efefef", marginBottom: 28 }} />
 
-        {/* Title */}
-        <h1 style={{ fontSize: 14, letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: "normal", lineHeight: 1.6, marginBottom: 8 }}>
-          {item.title}
-        </h1>
-
-        {/* Role */}
-        {item.role && (
-          <p style={{ fontSize: 10, letterSpacing: "0.08em", color: "#aaa", marginBottom: 32 }}>
-            {item.role}
+        {/* Sold */}
+        {item.sold && (
+          <p style={{ fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "#ccc", marginBottom: 20 }}>
+            sold
           </p>
         )}
-
-        {/* Bio / statement */}
-        {item.bio && (
-          <>
-            <div style={{ borderTop: "1px solid #efefef", marginBottom: 28 }} />
-            <p style={{ fontSize: 12, letterSpacing: "0.04em", lineHeight: 2, color: "#333", fontStyle: "italic", whiteSpace: "pre-wrap", marginBottom: 40 }}>
-              {item.bio}
-            </p>
-          </>
-        )}
-
-        {/* Divider */}
-        <div style={{ borderTop: "1px solid #efefef", marginBottom: 28 }} />
 
         {/* Inquiry */}
         {sent ? (
@@ -143,56 +237,98 @@ export default function PiecePage({ item }: { item: WorkItem }) {
               inquire
             </p>
             <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-              <input
-                value={name}
-                onChange={e => setName(e.target.value)}
-                placeholder="name"
-                required
-                style={inputStyle}
-              />
-              <input
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                placeholder="email"
-                type="email"
-                required
-                style={inputStyle}
-              />
-              <textarea
-                value={message}
-                onChange={e => setMessage(e.target.value)}
-                placeholder="message"
-                required
-                rows={4}
-                style={{ ...inputStyle, resize: "none", lineHeight: 1.8 }}
-              />
-              <button
-                type="submit"
-                disabled={sending}
-                style={{
-                  background: "none",
-                  border: "1px solid #000",
-                  padding: "12px 0",
-                  fontSize: 10,
-                  letterSpacing: "0.16em",
-                  textTransform: "uppercase",
-                  cursor: "pointer",
-                  color: "#000",
-                  transition: "all 0.2s",
-                }}
-              >
+              <input value={name} onChange={e => setName(e.target.value)} placeholder="name" required style={inputStyle} />
+              <input value={email} onChange={e => setEmail(e.target.value)} placeholder="email" type="email" required style={inputStyle} />
+              <textarea value={message} onChange={e => setMessage(e.target.value)} placeholder="message" required rows={4} style={{ ...inputStyle, resize: "none", lineHeight: 1.8 }} />
+              <button type="submit" disabled={sending} style={{
+                background: "none", border: "1px solid #000", padding: "12px 0",
+                fontSize: 10, letterSpacing: "0.16em", textTransform: "uppercase",
+                cursor: "pointer", color: "#000", fontFamily: "'Courier New', Courier, monospace",
+              }}>
                 {sending ? "sending..." : "send"}
               </button>
             </form>
           </>
         )}
 
-        {/* Footer url */}
-        <p style={{ fontSize: 9, letterSpacing: "0.12em", color: "#ddd", marginTop: 48 }}>
-          waituntilmay.com/work
-        </p>
+        <div style={{ borderTop: "1px solid #efefef", margin: "40px 0 20px" }} />
+
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Link href="/work" style={{ fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb" }}>← work</Link>
+          <Link href="/" style={{ fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb" }}>waituntilmay</Link>
+        </div>
+
       </div>
-    </main>
+    </section>
+  );
+}
+
+// ── Main ──────────────────────────────────────────────────────────────────────
+export default function PiecePage({ item }: { item: WorkItem }) {
+  const [activeSection, setActiveSection] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Build the list of sections for dot counting
+  const allImages = item.images?.length ? item.images : item.image ? [item.image] : [];
+  const hasVideo  = !!item.video;
+  // title + images + (video if present) + context/inquiry
+  const totalSections = 1 + allImages.length + (hasVideo ? 1 : 0) + 1;
+
+  // Track active section via scroll position
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    function onScroll() {
+      const h = window.innerHeight;
+      const idx = Math.round(container!.scrollTop / h);
+      setActiveSection(idx);
+    }
+    container.addEventListener("scroll", onScroll, { passive: true });
+    return () => container.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <>
+      {/* Fixed nav */}
+      <div style={{
+        position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
+        display: "flex", justifyContent: "space-between", alignItems: "center",
+        padding: "20px 28px",
+        background: "linear-gradient(to bottom, rgba(255,255,255,0.9) 0%, transparent 100%)",
+      }}>
+        <Link href="/work" style={{ fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb", fontFamily: "'Courier New', Courier, monospace" }}>
+          ← work
+        </Link>
+        <Link href="/" style={{ fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb", fontFamily: "'Courier New', Courier, monospace" }}>
+          waituntilmay
+        </Link>
+      </div>
+
+      <ScrollDots total={totalSections} active={activeSection} />
+
+      {/* Scroll container */}
+      <div
+        ref={containerRef}
+        style={{
+          height: "100svh",
+          overflowY: "scroll",
+          scrollSnapType: "y mandatory",
+          fontFamily: "'Courier New', Courier, monospace",
+          background: "#fff",
+          color: "#000",
+        }}
+      >
+        <TitleSection item={item} />
+
+        {allImages.map((src, i) => (
+          <ImageSection key={src} src={src} index={i} />
+        ))}
+
+        {hasVideo && <VideoSection src={item.video!} />}
+
+        <ContextSection item={item} />
+      </div>
+    </>
   );
 }
 

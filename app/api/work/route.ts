@@ -13,9 +13,12 @@ export interface WorkItem {
   category: "clothing-production" | "movies-video" | "fine-arts" | "consulting";
   visible: boolean;
   image?: string;
+  images?: string[];
   video?: string;
   preface?: boolean;
   bio?: string;
+  context?: string;
+  sold?: boolean;
   slug?: string;
   listed?: boolean;
 }
@@ -44,6 +47,20 @@ const DEFAULT_ITEMS: WorkItem[] = [
   { id: "9",  title: "Europa Gallery — Brandon Morris Dresses",      role: "direction & production",                            year: "2025", category: "movies-video",        visible: true, video: "https://freight.cargo.site/i/J2777072704122690667669648549071/INHALE_PROMO.MOV" },
   { id: "10", title: "YN SHIT by Noon",                              role: "styling & location scout",                          year: "",     category: "movies-video",        visible: true, video: "https://freight.cargo.site/i/B2777023214957882046726348973263/d8bf0f0ca67f4560a93a874cf88b2ea0.MOV" },
   // ── fine arts ──────────────────────────────────────────────────────────────
+  {
+    id: "boli", slug: "boli",
+    title: "Boli", role: "", year: "2026",
+    category: "fine-arts", visible: true, sold: true,
+    images: [],
+    context: "A boli is a type of Bamana power object, an object charged with spiritual energy that can affect human life. The primary function of a boli is to accumulate and control the naturally occurring life force called nyama for the spiritual benefit of the community. The composition of the encrusted patina varies, but all the ingredients possess this inherent and important spiritual energy. A boli can be created with images.",
+  },
+  {
+    id: "pobrane", slug: "pobrane",
+    title: "Pobrane", role: "", year: "2026",
+    category: "fine-arts", visible: true, sold: true,
+    images: [],
+    context: "Pobrane is a Polish word meaning downloaded, taken, or collected.",
+  },
   { id: "fa1",  title: "Homogeny pt. 1 and 2",                             role: "", year: "2026", category: "fine-arts", visible: true, image: img("G2776540655308697249529089991887", "book-2-main_Page_08.jpg") },
   { id: "fa2",  title: "Untitled pt. 1 and 2",                             role: "", year: "",     category: "fine-arts", visible: true, image: img("M2776540655271803761381670888655", "book-2-main_Page_06.jpg") },
   { id: "fa4",  title: "Screen Poem",                                      role: "", year: "",     category: "fine-arts", visible: true, image: "https://freight.cargo.site/w/1000/i/N2776538228510387144521608045775/burn_this_image_into_the_screen_1e0d200e-7448-4078-adc2-c7eb54d644de.jpeg" },
