@@ -98,7 +98,7 @@ const DEFAULT_ITEMS: WorkItem[] = [
   { id: "c4",  title: "X",                                           role: "consulting",  year: "",     category: "consulting", visible: true },
 ];
 
-async function readItems(): Promise<WorkItem[]> {
+export async function readItems(): Promise<WorkItem[]> {
   try {
     const { blobs } = await list({ prefix: DATA_PATH, limit: 1 });
     if (blobs.length === 0) return DEFAULT_ITEMS;
