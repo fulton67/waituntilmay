@@ -9,11 +9,11 @@ const PDF_PATH = "C:\\Users\\naimj\\Downloads\\Boli probrane (1).pdf";
 const OUT_DIR = join(tmpdir(), "pdf-slides");
 mkdirSync(OUT_DIR, { recursive: true });
 
-// slide 7 = pobrane, slide 8 = boli, slide 9 = crowd (both)
+// slides 1-3 = boli, 4-7 = pobrane, 8 = boli main, 9 = crowd
 const SLIDES = {
-  pobrane: [7],
-  boli:    [8],
-  both:    [9],
+  boli:    [1, 2, 3],
+  pobrane: [4, 5, 6],
+  both:    [],
 };
 
 const convert = fromPath(PDF_PATH, {
@@ -26,7 +26,7 @@ const convert = fromPath(PDF_PATH, {
 });
 
 async function main() {
-  const allSlides = [...new Set(Object.values(SLIDES).flat())].sort((a,b)=>a-b);
+  const allSlides = [1,2,3,4,5,6];
   console.log(`Converting slides: ${allSlides.join(", ")}...`);
 
   const urls = {};
