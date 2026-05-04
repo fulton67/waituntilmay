@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import type { WorkItem } from "@/app/api/work/route";
+import { useFadeIn } from "@/lib/useFadeIn";
 
 const CATEGORY_LABELS: Record<string, string> = {
   "clothing-production": "clothing production",
@@ -11,22 +12,6 @@ const CATEGORY_LABELS: Record<string, string> = {
   "fine-arts":           "fine arts",
   "consulting":          "consulting",
 };
-
-// ── Intersection Observer fade-in ─────────────────────────────────────────────
-function useFadeIn() {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) el.style.opacity = "1"; },
-      { threshold: 0.15 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-  return ref;
-}
 
 // ── Scroll dots ───────────────────────────────────────────────────────────────
 function ScrollDots({ total, active }: { total: number; active: number }) {
