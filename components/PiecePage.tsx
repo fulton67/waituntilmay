@@ -2,9 +2,23 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import type { WorkItem } from "@/app/api/work/route";
 import { useFadeIn } from "@/lib/useFadeIn";
+
+function Expandable({ label, children }: { label: string; children: React.ReactNode }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <button
+        onClick={() => setOpen(o => !o)}
+        style={{ background: "none", border: "none", padding: 0, cursor: "pointer", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "#bbb", fontFamily: "'Courier New', Courier, monospace" }}
+      >
+        {label} {open ? "−" : "+"}
+      </button>
+      {open && <div style={{ marginTop: 20 }}>{children}</div>}
+    </div>
+  );
+}
 
 const CATEGORY_LABELS: Record<string, string> = {
   "clothing-production": "clothing production",
@@ -154,47 +168,21 @@ function ContextSection({ item }: { item: WorkItem }) {
         {/* Context disclosure */}
         {item.context && (
           <div style={{ marginBottom: 40 }}>
-            <Disclosure>
-              {({ open }: { open: boolean }) => (
-                <>
-                  <DisclosureButton style={{
-                    background: "none", border: "none", padding: 0, cursor: "pointer",
-                    fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase",
-                    color: "#bbb", fontFamily: "'Courier New', Courier, monospace",
-                  }}>
-                    context {open ? "−" : "+"}
-                  </DisclosureButton>
-                  <DisclosurePanel style={{ marginTop: 20 }}>
-                    <p style={{ fontSize: 12, letterSpacing: "0.04em", lineHeight: 2, color: "#333", fontStyle: "italic", whiteSpace: "pre-wrap" }}>
-                      {item.context}
-                    </p>
-                  </DisclosurePanel>
-                </>
-              )}
-            </Disclosure>
+            <Expandable label="context">
+              <p style={{ fontSize: 12, letterSpacing: "0.04em", lineHeight: 2, color: "#333", fontStyle: "italic", whiteSpace: "pre-wrap" }}>
+                {item.context}
+              </p>
+            </Expandable>
           </div>
         )}
 
         {item.bio && (
           <div style={{ marginBottom: 40 }}>
-            <Disclosure>
-              {({ open }: { open: boolean }) => (
-                <>
-                  <DisclosureButton style={{
-                    background: "none", border: "none", padding: 0, cursor: "pointer",
-                    fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase",
-                    color: "#bbb", fontFamily: "'Courier New', Courier, monospace",
-                  }}>
-                    statement {open ? "−" : "+"}
-                  </DisclosureButton>
-                  <DisclosurePanel style={{ marginTop: 20 }}>
-                    <p style={{ fontSize: 12, letterSpacing: "0.04em", lineHeight: 2, color: "#333", fontStyle: "italic", whiteSpace: "pre-wrap" }}>
-                      {item.bio}
-                    </p>
-                  </DisclosurePanel>
-                </>
-              )}
-            </Disclosure>
+            <Expandable label="statement">
+              <p style={{ fontSize: 12, letterSpacing: "0.04em", lineHeight: 2, color: "#333", fontStyle: "italic", whiteSpace: "pre-wrap" }}>
+                {item.bio}
+              </p>
+            </Expandable>
           </div>
         )}
 
