@@ -155,49 +155,45 @@ function ContextSection({ item }: { item: WorkItem }) {
         {item.context && (
           <div style={{ marginBottom: 40 }}>
             <Disclosure>
-              <DisclosureButton style={{
-                background: "none", border: "none", padding: 0, cursor: "pointer",
-                fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase",
-                color: "#bbb", fontFamily: "'Courier New', Courier, monospace",
-                display: "flex", alignItems: "center", gap: 10,
-              }}>
-                {({ open }: { open: boolean }) => (
-                  <span>context {open ? "−" : "+"}</span>
-                )}
-              </DisclosureButton>
-              <DisclosurePanel style={{ marginTop: 20 }}>
-                <p style={{
-                  fontSize: 12, letterSpacing: "0.04em", lineHeight: 2,
-                  color: "#333", fontStyle: "italic", whiteSpace: "pre-wrap",
-                }}>
-                  {item.context}
-                </p>
-              </DisclosurePanel>
+              {({ open }: { open: boolean }) => (
+                <>
+                  <DisclosureButton style={{
+                    background: "none", border: "none", padding: 0, cursor: "pointer",
+                    fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase",
+                    color: "#bbb", fontFamily: "'Courier New', Courier, monospace",
+                  }}>
+                    context {open ? "−" : "+"}
+                  </DisclosureButton>
+                  <DisclosurePanel style={{ marginTop: 20 }}>
+                    <p style={{ fontSize: 12, letterSpacing: "0.04em", lineHeight: 2, color: "#333", fontStyle: "italic", whiteSpace: "pre-wrap" }}>
+                      {item.context}
+                    </p>
+                  </DisclosurePanel>
+                </>
+              )}
             </Disclosure>
           </div>
         )}
 
-        {/* Bio / artist statement */}
         {item.bio && (
           <div style={{ marginBottom: 40 }}>
             <Disclosure>
-              <DisclosureButton style={{
-                background: "none", border: "none", padding: 0, cursor: "pointer",
-                fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase",
-                color: "#bbb", fontFamily: "'Courier New', Courier, monospace",
-              }}>
-                {({ open }: { open: boolean }) => (
-                  <span>statement {open ? "−" : "+"}</span>
-                )}
-              </DisclosureButton>
-              <DisclosurePanel style={{ marginTop: 20 }}>
-                <p style={{
-                  fontSize: 12, letterSpacing: "0.04em", lineHeight: 2,
-                  color: "#333", fontStyle: "italic", whiteSpace: "pre-wrap",
-                }}>
-                  {item.bio}
-                </p>
-              </DisclosurePanel>
+              {({ open }: { open: boolean }) => (
+                <>
+                  <DisclosureButton style={{
+                    background: "none", border: "none", padding: 0, cursor: "pointer",
+                    fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase",
+                    color: "#bbb", fontFamily: "'Courier New', Courier, monospace",
+                  }}>
+                    statement {open ? "−" : "+"}
+                  </DisclosureButton>
+                  <DisclosurePanel style={{ marginTop: 20 }}>
+                    <p style={{ fontSize: 12, letterSpacing: "0.04em", lineHeight: 2, color: "#333", fontStyle: "italic", whiteSpace: "pre-wrap" }}>
+                      {item.bio}
+                    </p>
+                  </DisclosurePanel>
+                </>
+              )}
             </Disclosure>
           </div>
         )}
