@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useFadeIn } from "@/lib/useFadeIn";
+import { FONT_DISPLAY } from "@/lib/theme";
 
 export default function HomePage() {
   const [name, setName]       = useState("");
@@ -42,7 +43,7 @@ export default function HomePage() {
 
           <div ref={logoRef} className="flex flex-col items-center gap-4">
             <Image src="/logo.jpg" alt="waituntilmay" width={72} height={72} style={{ objectFit: "contain" }} />
-            <h1 className="text-xs tracking-widest uppercase">waituntilmay</h1>
+            <h1 style={{ fontFamily: FONT_DISPLAY }} className="text-xs tracking-widest uppercase">waituntilmay</h1>
             <p className="text-xs tracking-widest text-gray-400 uppercase">image harvest</p>
           </div>
 

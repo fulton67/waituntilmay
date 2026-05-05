@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import type { WorkItem } from "@/app/api/work/route";
 import { useFadeIn } from "@/lib/useFadeIn";
+import { FONT_DISPLAY, FONT_MONO } from "@/lib/theme";
 
 // ── Scroll dots ───────────────────────────────────────────────────────────────
 function ScrollDots({ total, active }: { total: number; active: number }) {
@@ -42,7 +43,7 @@ function TitleSection({ item }: { item: WorkItem }) {
     }} ref={ref}>
       <h1 style={{
         fontSize: "clamp(52px, 9vw, 108px)",
-        fontFamily: "Georgia, 'Times New Roman', serif",
+        fontFamily: FONT_DISPLAY,
         fontWeight: "normal",
         letterSpacing: "0.06em",
         textTransform: "uppercase",
@@ -57,7 +58,7 @@ function TitleSection({ item }: { item: WorkItem }) {
           letterSpacing: "0.18em",
           color: "#bbb",
           marginTop: 28,
-          fontFamily: "'Courier New', Courier, monospace",
+          fontFamily: FONT_MONO,
           textTransform: "uppercase",
         }}>
           {item.year}
@@ -72,7 +73,7 @@ function TitleSection({ item }: { item: WorkItem }) {
         letterSpacing: "0.16em",
         color: "#ccc",
         textTransform: "uppercase",
-        fontFamily: "'Courier New', Courier, monospace",
+        fontFamily: FONT_MONO,
         whiteSpace: "nowrap",
       }}>
         scroll ↓
@@ -174,7 +175,7 @@ function ContextSection({ item }: { item: WorkItem }) {
       justifyContent: "center",
       alignItems: "center",
       padding: "80px clamp(32px, 8vw, 120px)",
-      fontFamily: "'Courier New', Courier, monospace",
+      fontFamily: FONT_MONO,
     }}>
       <div style={{ maxWidth: 480, width: "100%" }}>
 
@@ -231,7 +232,7 @@ function ContextSection({ item }: { item: WorkItem }) {
               <button type="submit" disabled={sending} style={{
                 background: "none", border: "1px solid #000", padding: "12px 0",
                 fontSize: 10, letterSpacing: "0.16em", textTransform: "uppercase",
-                cursor: "pointer", color: "#000", fontFamily: "'Courier New', Courier, monospace",
+                cursor: "pointer", color: "#000", fontFamily: FONT_MONO,
               }}>
                 {sending ? "sending..." : "send"}
               </button>
@@ -283,10 +284,10 @@ export default function PiecePage({ item }: { item: WorkItem }) {
         padding: "20px clamp(24px, 4vw, 48px)",
         background: "linear-gradient(to bottom, rgba(255,255,255,0.92) 0%, transparent 100%)",
       }}>
-        <Link href="/work" style={{ fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb", fontFamily: "'Courier New', Courier, monospace" }}>
+        <Link href="/work" style={{ fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb", fontFamily: FONT_MONO }}>
           ← work
         </Link>
-        <Link href="/" style={{ fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb", fontFamily: "'Courier New', Courier, monospace" }}>
+        <Link href="/" style={{ fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb", fontFamily: FONT_MONO }}>
           waituntilmay
         </Link>
       </div>
@@ -327,5 +328,5 @@ const inputStyle: React.CSSProperties = {
   color: "#000",
   outline: "none",
   width: "100%",
-  fontFamily: "'Courier New', Courier, monospace",
+  fontFamily: FONT_MONO,
 };
