@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useFadeIn } from "@/lib/useFadeIn";
 import { FONT_DISPLAY } from "@/lib/theme";
+import HarvestStrip from "@/components/HarvestStrip";
 
 export default function HomePage() {
   const [name, setName]       = useState("");
@@ -86,7 +87,9 @@ export default function HomePage() {
             </form>
           )}
 
-          <a ref={linkRef} href="/work" className="text-xs tracking-widest text-gray-300 hover:text-black transition-colors uppercase">work →</a>
+          <HarvestStrip />
+
+        <a ref={linkRef} href="/work" className="text-xs tracking-widest text-gray-300 hover:text-black transition-colors uppercase">work →</a>
 
           <p className="text-xs text-gray-200 tracking-widest">waituntilmay.com</p>
 
