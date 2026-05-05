@@ -34,7 +34,7 @@ const img = (hash: string, file: string) =>
 
 const DEFAULT_ITEMS: WorkItem[] = [
   // ── clothing production ────────────────────────────────────────────────────
-  { id: "1",  title: "Hollywood Bounty Matt Ox Casting",            role: "production & casting",                              year: "2022", category: "clothing-production", visible: true },
+  { id: "1",  title: "Hollywood Bounty Matt Ox Casting",            role: "production & casting",                              year: "2022", category: "clothing-production", visible: true, image: "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/work/mattox/IMG_7536.jpg" },
   { id: "2",  title: "Animation & Score Production",                 role: "production",                                        year: "2024", category: "clothing-production", visible: true, video: "https://freight.cargo.site/i/Q2777014219310900781894955672783/MMA-short.MOV" },
   { id: "3",  title: "Lazerdim Atlanta Concert Merch",               role: "merch production",                                  year: "2024", category: "clothing-production", visible: true, image: img("N2777044489846076672984161428687", "IMG_3378.jpg") },
   { id: "3b", title: "Country Artist Lazerdim in Said Merch",        role: "",                                                  year: "2024", category: "clothing-production", visible: true, image: img("K2777044408735742980883262973135", "IMG_3377.jpg") },
