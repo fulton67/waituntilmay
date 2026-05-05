@@ -33,3 +33,22 @@ input, textarea, button {
   font-family: "Courier New", Courier, monospace;
   color: inherit;
 }
+
+.wum-corner-logo {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .wum-corner-logo {
+    display: block;
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    opacity: 0.55;
+    z-index: 200;
+    pointer-events: none;
+  }
+}

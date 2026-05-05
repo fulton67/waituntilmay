@@ -213,6 +213,7 @@ export default function WorkPage() {
   }
 
   return (
+    <>
     <main style={{ fontFamily: "'Courier New', Courier, monospace" }} className="min-h-screen bg-white text-black flex flex-col items-center px-5 py-14">
       <div style={{ width: "100%", maxWidth: 560, margin: "0 auto", padding: "0 20px" }}>
 
@@ -279,5 +280,9 @@ export default function WorkPage() {
 
       </div>
     </main>
+
+    {/* eslint-disable-next-line @next/next/no-img-element */}
+    <img src="/wum-logo.png" alt="" className="wum-corner-logo" />
+    </>
   );
 }

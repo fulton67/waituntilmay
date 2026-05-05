@@ -274,6 +274,9 @@ export default function PiecePage({ item }: { item: WorkItem }) {
 
   return (
     <>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/wum-logo.png" alt="" className="wum-corner-logo" />
+
       <div style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
         display: "flex", justifyContent: "space-between", alignItems: "center",
