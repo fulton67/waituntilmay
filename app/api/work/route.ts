@@ -33,20 +33,7 @@ const img = (hash: string, file: string) =>
   `https://freight.cargo.site/w/1000/i/${hash}/${file}`;
 
 const DEFAULT_ITEMS: WorkItem[] = [
-  // ── clothing production ────────────────────────────────────────────────────
-  { id: "1",  title: "Hollywood Bounty Matt Ox Casting",            role: "production & casting",                              year: "2022", category: "clothing-production", visible: true, image: "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/work/mattox/IMG_7536.jpg" },
-  { id: "2",  title: "Animation & Score Production",                 role: "production",                                        year: "2024", category: "clothing-production", visible: true, video: "https://freight.cargo.site/i/Q2777014219310900781894955672783/MMA-short.MOV" },
-  { id: "3",  title: "Lazerdim Atlanta Concert Merch",               role: "merch production",                                  year: "2024", category: "clothing-production", visible: true, image: img("N2777044489846076672984161428687", "IMG_3378.jpg") },
-  { id: "3b", title: "Country Artist Lazerdim in Said Merch",        role: "",                                                  year: "2024", category: "clothing-production", visible: true, image: img("K2777044408735742980883262973135", "IMG_3377.jpg") },
-  { id: "4",  title: "6Supreme Concept Graphic",                     role: "graphic design",                                    year: "2023", category: "clothing-production", visible: true, image: img("O2777042011673584322695578232015", "IMG_2570.JPG") },
-  { id: "5",  title: "Hollywood Bounty",                             role: "production logistics & manufacturing",               year: "",     category: "clothing-production", visible: true, image: img("O2777014219200220317452698363087", "IMG_7519.jpg") },
-  { id: "6",  title: "Great4life",                                   role: "production, casting, location scout & coordinator", year: "2024", category: "clothing-production", visible: true, image: img("H2777025075478042576998015411407", "CleanShot-2026-02-03-at-04.27.042x.png") },
-  { id: "7",  title: "Coffeys",                                      role: "casting & production",                              year: "2025", category: "clothing-production", visible: true, image: img("K2777044101173179039923908879567", "IMG_3380.jpg") },
-  { id: "8",  title: "Waituntilmay Bespoke Twitter Shoe Commission", role: "Shelly, Fewture, Diego",                            year: "2024", category: "clothing-production", visible: true, image: img("I2777050745985542295283753788623", "IMG_0610.JPEG") },
-  // ── movies & video ─────────────────────────────────────────────────────────
-  { id: "9",  title: "Europa Gallery — Brandon Morris Dresses",      role: "direction & production",                            year: "2025", category: "movies-video",        visible: true, video: "https://freight.cargo.site/i/J2777072704122690667669648549071/INHALE_PROMO.MOV" },
-  { id: "10", title: "YN SHIT by Noon",                              role: "styling & location scout",                          year: "",     category: "movies-video",        visible: true, video: "https://freight.cargo.site/i/B2777023214957882046726348973263/d8bf0f0ca67f4560a93a874cf88b2ea0.MOV" },
-  // ── fine arts ──────────────────────────────────────────────────────────────
+  // ── fine arts (latest — always first) ─────────────────────────────────────
   {
     id: "boli", slug: "boli",
     title: "Boli", role: "", year: "2026",
@@ -100,6 +87,19 @@ const DEFAULT_ITEMS: WorkItem[] = [
   { id: "fa13", title: "Untitled",                                         role: "", year: "",     category: "fine-arts", visible: true, image: img("K2776540655216463529160542233807", "book-2-main_Page_02.jpg") },
   { id: "fa14", title: "Untitled",                                         role: "", year: "",     category: "fine-arts", visible: true, image: img("J2777044007131677752152614741199", "IMG_3379.jpg") },
   { id: "fa15", title: "Untitled",                                         role: "", year: "",     category: "fine-arts", visible: true, image: img("G2777051306508307719022189192399", "IMG_3381.jpg") },
+  // ── clothing production ────────────────────────────────────────────────────
+  { id: "1",  title: "Hollywood Bounty Matt Ox Casting",            role: "production & casting",                              year: "2022", category: "clothing-production", visible: true, image: "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/work/mattox/IMG_7536.jpg" },
+  { id: "2",  title: "Animation & Score Production",                 role: "production",                                        year: "2024", category: "clothing-production", visible: true, video: "https://freight.cargo.site/i/Q2777014219310900781894955672783/MMA-short.MOV" },
+  { id: "3",  title: "Lazerdim Atlanta Concert Merch",               role: "merch production",                                  year: "2024", category: "clothing-production", visible: true, image: img("N2777044489846076672984161428687", "IMG_3378.jpg") },
+  { id: "3b", title: "Country Artist Lazerdim in Said Merch",        role: "",                                                  year: "2024", category: "clothing-production", visible: true, image: img("K2777044408735742980883262973135", "IMG_3377.jpg") },
+  { id: "4",  title: "6Supreme Concept Graphic",                     role: "graphic design",                                    year: "2023", category: "clothing-production", visible: true, image: img("O2777042011673584322695578232015", "IMG_2570.JPG") },
+  { id: "5",  title: "Hollywood Bounty",                             role: "production logistics & manufacturing",               year: "",     category: "clothing-production", visible: true, image: img("O2777014219200220317452698363087", "IMG_7519.jpg") },
+  { id: "6",  title: "Great4life",                                   role: "production, casting, location scout & coordinator", year: "2024", category: "clothing-production", visible: true, image: img("H2777025075478042576998015411407", "CleanShot-2026-02-03-at-04.27.042x.png") },
+  { id: "7",  title: "Coffeys",                                      role: "casting & production",                              year: "2025", category: "clothing-production", visible: true, image: img("K2777044101173179039923908879567", "IMG_3380.jpg") },
+  { id: "8",  title: "Waituntilmay Bespoke Twitter Shoe Commission", role: "Shelly, Fewture, Diego",                            year: "2024", category: "clothing-production", visible: true, image: img("I2777050745985542295283753788623", "IMG_0610.JPEG") },
+  // ── movies & video ─────────────────────────────────────────────────────────
+  { id: "9",  title: "Europa Gallery — Brandon Morris Dresses",      role: "direction & production",                            year: "2025", category: "movies-video",        visible: true, video: "https://freight.cargo.site/i/J2777072704122690667669648549071/INHALE_PROMO.MOV" },
+  { id: "10", title: "YN SHIT by Noon",                              role: "styling & location scout",                          year: "",     category: "movies-video",        visible: true, video: "https://freight.cargo.site/i/B2777023214957882046726348973263/d8bf0f0ca67f4560a93a874cf88b2ea0.MOV" },
   // ── consulting ─────────────────────────────────────────────────────────────
   { id: "c1",  title: "Post Modern Essay on Estrangement on Names",  role: "consulting",  year: "2025", category: "consulting", visible: true, image: img("G2776538276508815224313861350607", "Copy-of-Instructions-.png"), preface: true },
   { id: "c2",  title: "Peak NYU Ad Campaign",                        role: "consulting",  year: "2026", category: "consulting", visible: true, image: "https://freight.cargo.site/w/1000/i/H2776538801816746211340762719439/make_this_image_wheat_pasted_on_the_wall_aefd6b78-0a61-4b25-adf9-c03b3c50ca60.jpeg" },

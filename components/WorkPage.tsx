@@ -126,7 +126,7 @@ function GalleryView({ items, onClose }: { items: WorkItem[]; onClose: () => voi
       <p style={{ fontSize: 9, letterSpacing: "0.16em", textTransform: "uppercase", color: "#bbb", marginBottom: titleSize === "sm" ? 6 : 10, fontFamily: FONT_MONO }}>
         {CATEGORY_LABELS[item.category]}{item.year ? ` — ${item.year}` : ""}
       </p>
-      <p style={{ fontFamily: FONT_DISPLAY, fontSize: titleSize === "sm" ? 12 : "clamp(18px, 2.2vw, 26px)", textTransform: "uppercase", letterSpacing: "0.04em", lineHeight: 1.1, marginBottom: item.role ? 6 : 0 }}>
+      <p style={{ fontFamily: FONT_DISPLAY, fontSize: titleSize === "sm" ? 16 : "clamp(18px, 2.2vw, 26px)", textTransform: "uppercase", letterSpacing: "0.04em", lineHeight: 1.1, marginBottom: item.role ? 6 : 0 }}>
         {item.title}
       </p>
       {item.role && <p style={{ fontSize: 10, letterSpacing: "0.05em", color: "#aaa", fontFamily: FONT_MONO, marginTop: 4 }}>{item.role}</p>}
@@ -193,21 +193,21 @@ function GalleryView({ items, onClose }: { items: WorkItem[]; onClose: () => voi
         <button onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", fontSize: 9, letterSpacing: "0.16em", textTransform: "uppercase", color: "#bbb", fontFamily: FONT_MONO }}>list</button>
       </div>
 
-      <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 60px", minHeight: 0, transition: "opacity 0.18s ease, transform 0.18s ease", opacity, transform }}>
+      <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 clamp(24px, 8vw, 56px)", minHeight: 0, transition: "opacity 0.18s ease, transform 0.18s ease", opacity, transform }}>
         {(item.image || item.video || item.images?.length) ? (
-          <div style={{ height: "min(68vh, 480px)", aspectRatio: "8.5 / 11", background: "#f5f5f5", overflow: "hidden", flexShrink: 0 }}>
+          <div style={{ width: "100%", maxHeight: "62vh", aspectRatio: "8.5 / 11", background: "#f5f5f5", overflow: "hidden", flexShrink: 0 }}>
             {item.video ? <VideoPlayer src={item.video} /> :
              item.images?.[0] ? <img src={item.images[0]} alt={item.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} /> :
              item.image    ? <img src={item.image}    alt={item.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} /> : null}
           </div>
         ) : (
-          <div style={{ height: "min(68vh, 480px)", aspectRatio: "8.5 / 11", background: "#f5f5f5", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div style={{ width: "100%", maxHeight: "62vh", aspectRatio: "8.5 / 11", background: "#f5f5f5", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <span style={{ fontSize: 9, letterSpacing: "0.12em", color: "#ccc", textTransform: "uppercase", fontFamily: FONT_MONO }}>no image</span>
           </div>
         )}
       </div>
 
-      <div style={{ flexShrink: 0, padding: "20px 28px 32px", display: "flex", justifyContent: "space-between", alignItems: "flex-end", transition: "opacity 0.18s ease", opacity }}>
+      <div style={{ flexShrink: 0, padding: "16px 24px 32px", display: "flex", justifyContent: "space-between", alignItems: "flex-end", transition: "opacity 0.18s ease", opacity }}>
         {infoBlock("sm")}
         {navButtons(18, 0)}
       </div>
