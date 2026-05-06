@@ -267,6 +267,9 @@ export default function WorkPage() {
     ? [...visible].sort((a, b) => (CAT_PRIORITY[a.category] ?? 99) - (CAT_PRIORITY[b.category] ?? 99))
     : visible;
 
+  // Gallery only shows items that have visual media
+  const galleryItems = sorted.filter(i => !!(i.image || i.video || i.images?.length));
+
   async function copyLink() {
     await navigator.clipboard.writeText("https://waituntilmay.com/work");
     setCopied(true);
@@ -275,8 +278,8 @@ export default function WorkPage() {
 
   return (
     <>
-      {mode === "gallery" && sorted.length > 0
-        ? <GalleryView items={sorted} onClose={() => setMode("list")} />
+      {mode === "gallery" && galleryItems.length > 0
+        ? <GalleryView items={galleryItems} onClose={() => setMode("list")} />
         : (
           <main style={{ fontFamily: FONT_MONO }} className="min-h-screen bg-white text-black flex flex-col items-center px-5 py-14">
             <div style={{ width: "100%", maxWidth: 620, margin: "0 auto", padding: "0 20px" }}>
