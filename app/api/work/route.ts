@@ -103,7 +103,7 @@ const DEFAULT_ITEMS: WorkItem[] = [
   // ── consulting ─────────────────────────────────────────────────────────────
   { id: "c1",  title: "Post Modern Essay on Estrangement on Names",  role: "consulting",  year: "2025", category: "consulting", visible: true, image: img("G2776538276508815224313861350607", "Copy-of-Instructions-.png"), preface: true },
   { id: "c2",  title: "Peak NYU Ad Campaign",                        role: "consulting",  year: "2026", category: "consulting", visible: true, image: "https://freight.cargo.site/w/1000/i/H2776538801816746211340762719439/make_this_image_wheat_pasted_on_the_wall_aefd6b78-0a61-4b25-adf9-c03b3c50ca60.jpeg" },
-  { id: "c3",  title: "Shelly",                                      role: "consulting",  year: "",     category: "consulting", visible: true },
+  { id: "c3",  title: "Shelly",                                      role: "consulting",  year: "",     category: "consulting", visible: true, images: ["https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/work/shelly/IMG_0612.jpg","https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/work/shelly/IMG_0610.jpg"] },
   { id: "c4",  title: "X",                                           role: "consulting",  year: "",     category: "consulting", visible: true },
 ];
 
