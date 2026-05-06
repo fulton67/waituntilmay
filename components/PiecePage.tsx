@@ -91,7 +91,10 @@ function ImageSection({ src, index }: { src: string; index: number }) {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      padding: "clamp(0px, 4vw, 56px)",
+      paddingTop: "clamp(64px, 10vh, 100px)",
+      paddingBottom: "clamp(32px, 6vh, 64px)",
+      paddingLeft: "clamp(24px, 6vw, 80px)",
+      paddingRight: "clamp(24px, 6vw, 80px)",
       boxSizing: "border-box",
     }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -124,7 +127,11 @@ function VideoSection({ src }: { src: string }) {
     <section style={{
       height: "100svh", scrollSnapAlign: "start",
       display: "flex", alignItems: "center", justifyContent: "center",
-      padding: "clamp(0px, 4vw, 56px)", boxSizing: "border-box",
+      paddingTop: "clamp(64px, 10vh, 100px)",
+      paddingBottom: "clamp(32px, 6vh, 64px)",
+      paddingLeft: "clamp(24px, 6vw, 80px)",
+      paddingRight: "clamp(24px, 6vw, 80px)",
+      boxSizing: "border-box",
       cursor: "pointer", background: "#000",
     }} onClick={toggle}>
       <video
