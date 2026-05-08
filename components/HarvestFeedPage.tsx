@@ -19,10 +19,10 @@ function padNum(n: number) {
   return String(n).padStart(5, "0");
 }
 
-// Layout thresholds — as the organism grows, the grid opens up
+// Layout thresholds — grid from the start, expands to 3-col at 24+
 function getLayout(count: number): "book" | "two" | "three" {
-  if (count < 8)  return "book";
-  if (count < 24) return "two";
+  if (count === 0) return "book";
+  if (count < 24)  return "two";
   return "three";
 }
 
@@ -557,6 +557,17 @@ export default function HarvestFeedPage({
 
   const apiTheme = storageTheme ?? theme;
   const layout = getLayout(submissions.length);
+
+  // Client-side refresh — catches any SSR cache miss
+  useEffect(() => {
+    fetch(`/api/harvest/submissions?theme=${theme}`)
+      .then(r => r.json())
+      .then((fresh: HarvestSubmission[]) => {
+        if (fresh.length > submissions.length) setSubmissions(fresh);
+      })
+      .catch(() => {});
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [theme]);
 
   const handleSubmitted = useCallback((s: HarvestSubmission) => {
     setSubmissions(prev => [...prev, s]);

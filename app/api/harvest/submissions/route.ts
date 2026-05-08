@@ -12,25 +12,41 @@ export interface HarvestSubmission {
   visible: boolean;
 }
 
+// Themes that aggregate multiple blob sources
+const THEME_SOURCES: Record<string, string[]> = {
+  "im-starting-to-become-a-hoarder": ["something-to-eat", "im-starting-to-become-a-hoarder"],
+};
+
 function prefix(theme: string) {
   return `harvest/${theme}/submissions/`;
+}
+
+async function fetchFromPrefix(p: string): Promise<HarvestSubmission[]> {
+  const { blobs } = await list({ prefix: p });
+  const results = await Promise.all(
+    blobs.map(b =>
+      fetch(b.url, { cache: "no-store" })
+        .then(r => r.json())
+        .catch(() => null)
+    )
+  );
+  return (results.filter(Boolean) as HarvestSubmission[]).filter(s => s.visible !== false);
 }
 
 export async function GET(req: NextRequest) {
   const theme = req.nextUrl.searchParams.get("theme") ?? "im-starting-to-become-a-hoarder";
   try {
-    const { blobs } = await list({ prefix: prefix(theme) });
-    const submissions = await Promise.all(
-      blobs.map(b =>
-        fetch(b.url, { cache: "no-store" })
-          .then(r => r.json())
-          .catch(() => null)
-      )
-    );
-    const sorted = (submissions.filter(Boolean) as HarvestSubmission[])
-      .filter(s => s.visible !== false)
-      .sort((a, b) => new Date(a.submittedAt).getTime() - new Date(b.submittedAt).getTime());
-    return NextResponse.json(sorted);
+    const sources = THEME_SOURCES[theme] ?? [theme];
+    const batches = await Promise.all(sources.map(t => fetchFromPrefix(prefix(t))));
+    const seen = new Set<string>();
+    const merged: HarvestSubmission[] = [];
+    for (const batch of batches) {
+      for (const sub of batch) {
+        if (!seen.has(sub.id)) { seen.add(sub.id); merged.push(sub); }
+      }
+    }
+    merged.sort((a, b) => new Date(a.submittedAt).getTime() - new Date(b.submittedAt).getTime());
+    return NextResponse.json(merged);
   } catch {
     return NextResponse.json([]);
   }
