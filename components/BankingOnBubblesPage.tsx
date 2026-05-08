@@ -44,7 +44,7 @@ function Lightbox({ startIdx, onClose }: { startIdx: number; onClose: () => void
 
   return (
     <div
-      style={{ position: "fixed", inset: 0, zIndex: 400, background: "#000", display: "flex", flexDirection: "column" }}
+      style={{ position: "fixed", inset: 0, zIndex: 400, background: "#fff", display: "flex", flexDirection: "column" }}
       onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}
     >
       {/* Header */}
@@ -53,10 +53,10 @@ function Lightbox({ startIdx, onClose }: { startIdx: number; onClose: () => void
         padding: "18px clamp(20px,4vw,48px)", fontFamily: FONT_MONO,
         opacity, transition: "opacity 0.2s ease",
       }}>
-        <p style={{ fontSize: 8, letterSpacing: "0.14em", textTransform: "uppercase", color: "#555" }}>
+        <p style={{ fontSize: 8, letterSpacing: "0.14em", textTransform: "uppercase", color: "#aaa" }}>
           {String(idx + 1).padStart(2, "0")} / {String(IMAGES.length).padStart(2, "0")}
         </p>
-        <button onClick={onClose} style={{ background: "none", border: "none", fontFamily: FONT_MONO, fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", cursor: "pointer", color: "#555" }}>
+        <button onClick={onClose} style={{ background: "none", border: "none", fontFamily: FONT_MONO, fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", cursor: "pointer", color: "#aaa" }}>
           close
         </button>
       </div>
@@ -76,9 +76,9 @@ function Lightbox({ startIdx, onClose }: { startIdx: number; onClose: () => void
       {/* Nav */}
       <div style={{ flexShrink: 0, display: "flex", justifyContent: "center", gap: 32, padding: "12px 0 28px", fontFamily: FONT_MONO }}>
         <button onClick={() => go("up")} disabled={idx === 0}
-          style={{ background: "none", border: "none", fontSize: 18, color: idx === 0 ? "#333" : "#666", cursor: idx === 0 ? "default" : "pointer", transition: "color 0.2s" }}>↑</button>
+          style={{ background: "none", border: "none", fontSize: 18, color: idx === 0 ? "#ddd" : "#aaa", cursor: idx === 0 ? "default" : "pointer", transition: "color 0.2s" }}>↑</button>
         <button onClick={() => go("down")} disabled={idx === IMAGES.length - 1}
-          style={{ background: "none", border: "none", fontSize: 18, color: idx === IMAGES.length - 1 ? "#333" : "#666", cursor: idx === IMAGES.length - 1 ? "default" : "pointer", transition: "color 0.2s" }}>↓</button>
+          style={{ background: "none", border: "none", fontSize: 18, color: idx === IMAGES.length - 1 ? "#ddd" : "#aaa", cursor: idx === IMAGES.length - 1 ? "default" : "pointer", transition: "color 0.2s" }}>↓</button>
       </div>
     </div>
   );
@@ -108,7 +108,7 @@ function BubbleCard({ src, index, onClick }: { src: string; index: number; onCli
   }, [index]);
 
   return (
-    <div ref={ref} onClick={onClick} style={{ cursor: "pointer", aspectRatio: "1 / 1", background: "#000", overflow: "hidden", position: "relative" }}
+    <div ref={ref} onClick={onClick} style={{ cursor: "pointer", aspectRatio: "1 / 1", background: "#fff", overflow: "hidden", position: "relative" }}
       onMouseEnter={e => { (e.currentTarget.querySelector("img") as HTMLImageElement).style.transform = "scale(1.03)"; }}
       onMouseLeave={e => { (e.currentTarget.querySelector("img") as HTMLImageElement).style.transform = "scale(1)"; }}
     >
@@ -134,24 +134,24 @@ export default function BankingOnBubblesPage() {
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
         display: "flex", justifyContent: "space-between", alignItems: "center",
         padding: "18px clamp(20px,4vw,48px)",
-        background: "linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 100%)",
+        background: "linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, transparent 100%)",
         fontFamily: FONT_MONO,
       }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 3 }}>
-          <p style={{ fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "#fff", fontFamily: FONT_DISPLAY }}>
+          <p style={{ fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "#000", fontFamily: FONT_DISPLAY }}>
             banking on bubbles
           </p>
           <p style={{ fontSize: 7, letterSpacing: "0.12em", textTransform: "uppercase", color: "#555" }}>
             {String(IMAGES.length).padStart(2, "0")} works — waituntilmay
           </p>
         </div>
-        <Link href="/work" style={{ fontSize: 8, letterSpacing: "0.14em", textTransform: "uppercase", color: "#444", textDecoration: "none" }}>
+        <Link href="/work" style={{ fontSize: 8, letterSpacing: "0.14em", textTransform: "uppercase", color: "#aaa", textDecoration: "none" }}>
           ← work
         </Link>
       </div>
 
       {/* Full-bleed black grid */}
-      <div style={{ background: "#000", minHeight: "100svh" }}>
+      <div style={{ background: "#fff", minHeight: "100svh" }}>
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(2, 1fr)",
@@ -165,7 +165,7 @@ export default function BankingOnBubblesPage() {
 
         {/* Footer */}
         <div style={{ padding: "40px clamp(20px,4vw,48px)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <p style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(16px,2.5vw,24px)", letterSpacing: "0.08em", textTransform: "uppercase", color: "#222" }}>
+          <p style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(16px,2.5vw,24px)", letterSpacing: "0.08em", textTransform: "uppercase", color: "#ccc" }}>
             banking on bubbles
           </p>
           <p style={{ fontFamily: FONT_MONO, fontSize: 8, letterSpacing: "0.14em", color: "#333", textTransform: "uppercase" }}>
