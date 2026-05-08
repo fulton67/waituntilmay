@@ -63,8 +63,10 @@ const ROUTES = [
   { url: "/essdee",       label: "essdee",        description: "download + browse" },
   { url: "/lunch-bells",  label: "lunch bells",   description: "download + browse, 159 pages" },
   { url: "/pixelate",     label: "pixelate",      description: "pixel stretch tool" },
+  { url: "/balloon",      label: "balloon mockup", description: "12.5″ mylar UV print layout tool" },
   { url: "/harvest", label: "harvest — library", description: "all image harvests — public index" },
   { url: "/harvest/im-starting-to-become-a-hoarder", label: "harvest — im starting to become a hoarder,", description: "anthology of all harvests" },
+  { url: "/banking-on-bubbles", label: "banking on bubbles", description: "22 balloon artworks — 2-col grid + lightbox" },
   { url: "/studio",       label: "studio",        description: "private backend" },
 ];
 
@@ -630,6 +632,9 @@ function BuilderTab() {
         </a>
         <a href="/lab" target="_blank" rel="noopener noreferrer" className="text-xs tracking-widest hover:underline">
           video lab →
+        </a>
+        <a href="/balloon" target="_blank" rel="noopener noreferrer" className="text-xs tracking-widest hover:underline">
+          balloon mockup →
         </a>
       </div>
 
