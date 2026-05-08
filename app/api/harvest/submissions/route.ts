@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { list, put, del } from "@vercel/blob";
+import { getThemeSources } from "@/lib/books";
 
 export const dynamic = "force-dynamic";
 
@@ -11,11 +12,6 @@ export interface HarvestSubmission {
   submittedAt: string;
   visible: boolean;
 }
-
-// Themes that aggregate multiple blob sources
-const THEME_SOURCES: Record<string, string[]> = {
-  "im-starting-to-become-a-hoarder": ["something-to-eat", "im-starting-to-become-a-hoarder"],
-};
 
 function prefix(theme: string) {
   return `harvest/${theme}/submissions/`;
@@ -36,7 +32,7 @@ async function fetchFromPrefix(p: string): Promise<HarvestSubmission[]> {
 export async function GET(req: NextRequest) {
   const theme = req.nextUrl.searchParams.get("theme") ?? "im-starting-to-become-a-hoarder";
   try {
-    const sources = THEME_SOURCES[theme] ?? [theme];
+    const sources = getThemeSources(theme);
     const batches = await Promise.all(sources.map(t => fetchFromPrefix(prefix(t))));
     const seen = new Set<string>();
     const merged: HarvestSubmission[] = [];

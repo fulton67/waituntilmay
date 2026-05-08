@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { upload } from "@vercel/blob/client";
 import { track } from "@/lib/track";
+import { BOOKS, ANTHOLOGY_SLUG, ANTHOLOGY_TITLE } from "@/lib/books";
 
 const PASSWORD = "waituntilmay";
 const DOMAIN = "https://waituntilmay.com";
@@ -62,7 +63,8 @@ const ROUTES = [
   { url: "/essdee",       label: "essdee",        description: "download + browse" },
   { url: "/lunch-bells",  label: "lunch bells",   description: "download + browse, 159 pages" },
   { url: "/pixelate",     label: "pixelate",      description: "pixel stretch tool" },
-  { url: "/harvest/im-starting-to-become-a-hoarder", label: "harvest — im starting to become a hoarder,", description: "public participatory feed + submission form" },
+  { url: "/harvest", label: "harvest — library", description: "all image harvests — public index" },
+  { url: "/harvest/im-starting-to-become-a-hoarder", label: "harvest — im starting to become a hoarder,", description: "anthology of all harvests" },
   { url: "/studio",       label: "studio",        description: "private backend" },
 ];
 
@@ -89,7 +91,7 @@ export default function StudioPage() {
   const [authed, setAuthed] = useState(false);
   const [pw, setPw] = useState("");
   const [pwError, setPwError] = useState(false);
-  const [tab, setTab] = useState<"notifications" | "links" | "contacts" | "history" | "schedule" | "sitemap" | "builder" | "arena" | "artsy" | "metadata" | "analytics" | "work" | "homework" | "harvest">("notifications");
+  const [tab, setTab] = useState<"notifications" | "links" | "contacts" | "history" | "schedule" | "sitemap" | "builder" | "arena" | "artsy" | "metadata" | "analytics" | "work" | "homework" | "books">("notifications");
   const [inquiries, setInquiries] = useState<Inquiry[]>([]);
   const [inquiriesLoaded, setInquiriesLoaded] = useState(false);
   const [downloads, setDownloads] = useState<DownloadEvent[]>([]);
@@ -153,7 +155,7 @@ export default function StudioPage() {
     );
   }
 
-  const TABS = ["notifications", "links", "contacts", "history", "schedule", "sitemap", "builder", "arena", "artsy", "metadata", "analytics", "work", "homework", "harvest"] as const;
+  const TABS = ["notifications", "links", "contacts", "history", "schedule", "sitemap", "builder", "arena", "artsy", "metadata", "analytics", "work", "homework", "books"] as const;
 
   return (
     <main style={{ fontFamily: "'Courier New', Courier, monospace" }} className="min-h-screen bg-white text-black flex flex-col items-center px-6 py-16">
@@ -192,7 +194,7 @@ export default function StudioPage() {
         {tab === "analytics" && <AnalyticsTab />}
         {tab === "work" && <WorkTab />}
         {tab === "homework" && <HomeworkTab />}
-        {tab === "harvest" && <HarvestStudioTab />}
+        {tab === "books" && <HarvestStudioTab />}
       </div>
     </main>
   );
@@ -2209,36 +2211,43 @@ function HarvestBook({
   );
 }
 
-// ─── Harvest studio tab (two books) ──────────────────────────────────────────
+// ─── Books studio tab ────────────────────────────────────────────────────────
 
-const HARVEST_BOOKS = [
+// Built from lib/books registry — add books there, not here
+const STUDIO_BOOKS = [
+  ...BOOKS.map(b => ({
+    id: b.slug,
+    label: b.title,
+    themes: [b.slug],
+    title: b.title,
+    publicUrl: `/harvest/${b.slug}`,
+  })),
   {
-    id: "something-to-eat",
-    label: "something to eat",
-    themes: ["something-to-eat"],
-    title: "something to eat",
-    publicUrl: undefined,
-  },
-  {
-    id: "hoarder",
-    label: "im starting to become a hoarder,",
-    themes: ["something-to-eat", "im-starting-to-become-a-hoarder"],
-    title: "im starting to become a hoarder,",
-    publicUrl: "/harvest/im-starting-to-become-a-hoarder",
+    id: ANTHOLOGY_SLUG,
+    label: ANTHOLOGY_TITLE,
+    themes: BOOKS.map(b => b.slug),
+    title: ANTHOLOGY_TITLE,
+    publicUrl: `/harvest/${ANTHOLOGY_SLUG}`,
   },
 ];
 
 function HarvestStudioTab() {
-  const [activeBook, setActiveBook] = useState<typeof HARVEST_BOOKS[number]["id"]>("something-to-eat");
-  const book = HARVEST_BOOKS.find(b => b.id === activeBook)!;
+  const [activeBook, setActiveBook] = useState(STUDIO_BOOKS[0].id);
+  const book = STUDIO_BOOKS.find(b => b.id === activeBook) ?? STUDIO_BOOKS[0];
 
   return (
     <div className="flex flex-col gap-6">
       {/* Book selector */}
       <div className="flex flex-col gap-4">
-        <p className="text-xs tracking-widest uppercase">harvest</p>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+          <p className="text-xs tracking-widest uppercase">books</p>
+          <a href="/harvest" target="_blank" rel="noopener noreferrer"
+            className="text-xs tracking-widest uppercase text-gray-400 hover:text-black">
+            public library →
+          </a>
+        </div>
         <div style={{ display: "flex", gap: 0, borderBottom: "1px solid #f0f0f0" }}>
-          {HARVEST_BOOKS.map(b => (
+          {STUDIO_BOOKS.map(b => (
             <button
               key={b.id}
               onClick={() => setActiveBook(b.id)}

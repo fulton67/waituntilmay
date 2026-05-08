@@ -1,13 +1,9 @@
 import { list } from "@vercel/blob";
 import HarvestFeedPage from "@/components/HarvestFeedPage";
 import type { HarvestSubmission } from "@/app/api/harvest/submissions/route";
+import { getThemeSources } from "@/lib/books";
 
 export const dynamic = "force-dynamic";
-
-// Hoarder book absorbs all something-to-eat submissions + its own
-const THEME_SOURCES: Record<string, string[]> = {
-  "im-starting-to-become-a-hoarder": ["something-to-eat", "im-starting-to-become-a-hoarder"],
-};
 
 async function fetchTheme(storageTheme: string): Promise<HarvestSubmission[]> {
   const { blobs } = await list({ prefix: `harvest/${storageTheme}/submissions/` });
@@ -23,7 +19,7 @@ async function fetchTheme(storageTheme: string): Promise<HarvestSubmission[]> {
 
 async function getSubmissions(theme: string): Promise<HarvestSubmission[]> {
   try {
-    const sources = THEME_SOURCES[theme] ?? [theme];
+    const sources = getThemeSources(theme);
     const batches = await Promise.all(sources.map(fetchTheme));
     const seen = new Set<string>();
     const merged: HarvestSubmission[] = [];
