@@ -55,13 +55,15 @@ const PROJECTS = [
 ];
 
 const ROUTES = [
-  { url: "/",          label: "homepage",      description: "inquiry + harvest form" },
-  { url: "/work",      label: "work",          description: "selected work — accordion view" },
-  { url: "/projects",  label: "projects",      description: "public grid of all collections" },
-  { url: "/essdee",    label: "essdee",        description: "download + browse" },
-  { url: "/lunch-bells", label: "lunch bells", description: "download + browse, 159 pages" },
-  { url: "/pixelate",  label: "pixelate",      description: "pixel stretch tool" },
-  { url: "/studio",    label: "studio",        description: "private backend" },
+  { url: "/",             label: "homepage",      description: "inquiry form + image harvest strip" },
+  { url: "/work",         label: "work",          description: "gallery swipe + flat list, fine arts first" },
+  { url: "/work/boli",    label: "work / boli",   description: "piece page — scroll snap, images + inquiry" },
+  { url: "/projects",     label: "projects",      description: "public grid of all collections" },
+  { url: "/essdee",       label: "essdee",        description: "download + browse" },
+  { url: "/lunch-bells",  label: "lunch bells",   description: "download + browse, 159 pages" },
+  { url: "/pixelate",     label: "pixelate",      description: "pixel stretch tool" },
+  { url: "/harvest/im-starting-to-become-a-hoarder", label: "harvest — im starting to become a hoarder,", description: "public participatory feed + submission form" },
+  { url: "/studio",       label: "studio",        description: "private backend" },
 ];
 
 // ─── Local storage hook ───────────────────────────────────────────────────────
@@ -87,7 +89,7 @@ export default function StudioPage() {
   const [authed, setAuthed] = useState(false);
   const [pw, setPw] = useState("");
   const [pwError, setPwError] = useState(false);
-  const [tab, setTab] = useState<"notifications" | "links" | "contacts" | "history" | "schedule" | "sitemap" | "builder" | "arena" | "artsy" | "metadata" | "analytics" | "work" | "homework">("notifications");
+  const [tab, setTab] = useState<"notifications" | "links" | "contacts" | "history" | "schedule" | "sitemap" | "builder" | "arena" | "artsy" | "metadata" | "analytics" | "work" | "homework" | "harvest">("notifications");
   const [inquiries, setInquiries] = useState<Inquiry[]>([]);
   const [inquiriesLoaded, setInquiriesLoaded] = useState(false);
   const [downloads, setDownloads] = useState<DownloadEvent[]>([]);
@@ -151,7 +153,7 @@ export default function StudioPage() {
     );
   }
 
-  const TABS = ["notifications", "links", "contacts", "history", "schedule", "sitemap", "builder", "arena", "artsy", "metadata", "analytics", "work", "homework"] as const;
+  const TABS = ["notifications", "links", "contacts", "history", "schedule", "sitemap", "builder", "arena", "artsy", "metadata", "analytics", "work", "homework", "harvest"] as const;
 
   return (
     <main style={{ fontFamily: "'Courier New', Courier, monospace" }} className="min-h-screen bg-white text-black flex flex-col items-center px-6 py-16">
@@ -190,6 +192,7 @@ export default function StudioPage() {
         {tab === "analytics" && <AnalyticsTab />}
         {tab === "work" && <WorkTab />}
         {tab === "homework" && <HomeworkTab />}
+        {tab === "harvest" && <HarvestStudioTab />}
       </div>
     </main>
   );
@@ -1797,6 +1800,468 @@ function HomeworkRow({ item, onStatus, onDelete }: { item: HomeworkItem; onStatu
           <button onClick={() => onDelete(item.id)} className="text-xs tracking-widest text-gray-300 hover:text-black cursor-pointer bg-transparent border-none">×</button>
         </div>
       </div>
+    </div>
+  );
+}
+
+// ─── Harvest studio tab ───────────────────────────────────────────────────────
+
+interface HarvestSub {
+  id: string;
+  theme: string;
+  name: string;
+  images: string[];
+  submittedAt: string;
+  visible: boolean;
+}
+
+async function imgToJpegBytes(url: string): Promise<ArrayBuffer> {
+  return new Promise((resolve, reject) => {
+    const el = new Image();
+    el.crossOrigin = "anonymous";
+    el.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width  = el.naturalWidth;
+      canvas.height = el.naturalHeight;
+      canvas.getContext("2d")!.drawImage(el, 0, 0);
+      canvas.toBlob(blob => {
+        if (!blob) return reject(new Error("canvas blob failed"));
+        blob.arrayBuffer().then(resolve).catch(reject);
+      }, "image/jpeg", 0.92);
+    };
+    el.onerror = reject;
+    el.src = url;
+  });
+}
+
+// ─── Book viewer ─────────────────────────────────────────────────────────────
+
+const BOOK_MONO = "'Courier New', Courier, monospace";
+const PAGE_W = 210;
+const PAGE_H = 272; // 8.5:11 ratio
+
+function BookViewer({ subs, title, subtitle }: { subs: HarvestSub[]; title: string; subtitle?: string }) {
+  const [spread, setSpread] = useState(-1); // -1 = cover
+  const [animDir, setAnimDir] = useState<"fwd" | "back" | null>(null);
+  const visible = subs.filter(s => s.visible !== false);
+  const totalSpreads = Math.ceil(visible.length / 2);
+
+  function go(dir: "fwd" | "back") {
+    const next = dir === "fwd" ? spread + 1 : spread - 1;
+    if (next < -1 || next >= totalSpreads) return;
+    setAnimDir(dir);
+    setTimeout(() => { setSpread(next); setAnimDir(null); }, 240);
+  }
+
+  const leftIdx  = spread === -1 ? -1 : spread * 2;
+  const rightIdx = leftIdx + 1;
+  const leftSub  = leftIdx >= 0 ? visible[leftIdx]  : null;
+  const rightSub = rightIdx >= 0 ? visible[rightIdx] : null;
+
+  const contentOpacity  = animDir ? 0 : 1;
+  const bookTransform   = animDir === "fwd"
+    ? "perspective(900px) rotateY(-5deg) scale(0.98)"
+    : animDir === "back"
+    ? "perspective(900px) rotateY(5deg) scale(0.98)"
+    : "perspective(900px) rotateY(0deg) scale(1)";
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 28, padding: "32px 0 16px" }}>
+      <div style={{ position: "relative" }}>
+        {/* Book thickness — stacked page edges */}
+        {[6, 4, 2].map(offset => (
+          <div key={offset} style={{
+            position: "absolute",
+            left: -offset, top: offset * 0.6,
+            width: PAGE_W * 2,
+            height: PAGE_H,
+            background: offset === 6 ? "#e2ddd8" : offset === 4 ? "#ede9e4" : "#f4f1ee",
+            boxShadow: "inset -2px 0 4px rgba(0,0,0,0.06)",
+            borderRadius: 1,
+          }} />
+        ))}
+
+        {/* Main spread */}
+        <div style={{
+          position: "relative",
+          display: "flex",
+          width: PAGE_W * 2,
+          height: PAGE_H,
+          boxShadow: "0 24px 64px rgba(0,0,0,0.28), 0 6px 18px rgba(0,0,0,0.12), -4px 0 12px rgba(0,0,0,0.08)",
+          transform: bookTransform,
+          transition: "transform 0.24s cubic-bezier(0.4,0,0.2,1)",
+          willChange: "transform",
+        }}>
+          {/* Left page */}
+          <div style={{
+            width: PAGE_W, height: PAGE_H,
+            background: spread === -1 ? "#161614" : "#faf8f5",
+            position: "relative",
+            overflow: "hidden",
+            flexShrink: 0,
+          }}>
+            {spread === -1 ? (
+              <div style={{
+                padding: 20, height: "100%", boxSizing: "border-box",
+                display: "flex", flexDirection: "column", justifyContent: "flex-end",
+                color: "#fff",
+              }}>
+                <p style={{
+                  fontFamily: BOOK_MONO, fontSize: 11, letterSpacing: "0.04em",
+                  lineHeight: 1.4, textTransform: "lowercase", color: "rgba(255,255,255,0.9)",
+                  maxWidth: 160,
+                }}>
+                  {title}
+                </p>
+                <p style={{ fontFamily: BOOK_MONO, fontSize: 7, letterSpacing: "0.16em", marginTop: 14, color: "rgba(255,255,255,0.3)", textTransform: "uppercase" }}>
+                  waituntilmay
+                </p>
+              </div>
+            ) : leftSub ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={leftSub.images[0]} alt={leftSub.name}
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block",
+                  opacity: contentOpacity, transition: "opacity 0.24s ease" }} />
+            ) : (
+              <div style={{ width: "100%", height: "100%", background: "#f0ece6" }} />
+            )}
+            {/* Left-page inner shadow (spine side) */}
+            <div style={{
+              position: "absolute", top: 0, right: 0, bottom: 0, width: 28,
+              background: "linear-gradient(to right, transparent, rgba(0,0,0,0.09))",
+              pointerEvents: "none",
+            }} />
+            {/* Left-page outer edge shadow */}
+            <div style={{
+              position: "absolute", top: 0, bottom: 0, left: 0, width: 6,
+              background: "linear-gradient(to right, rgba(0,0,0,0.1), transparent)",
+              pointerEvents: "none",
+            }} />
+          </div>
+
+          {/* Spine gutter */}
+          <div style={{
+            position: "absolute", left: PAGE_W - 1, top: 0, bottom: 0, width: 2, zIndex: 2,
+            background: "linear-gradient(to right, rgba(0,0,0,0.18), rgba(0,0,0,0.04))",
+            pointerEvents: "none",
+          }} />
+
+          {/* Right page */}
+          <div style={{
+            width: PAGE_W, height: PAGE_H,
+            background: "#faf8f5",
+            position: "relative",
+            overflow: "hidden",
+            flexShrink: 0,
+          }}>
+            {spread === -1 ? (
+              <div style={{
+                padding: 20, height: "100%", boxSizing: "border-box",
+                display: "flex", flexDirection: "column", justifyContent: "center",
+              }}>
+                <p style={{ fontFamily: BOOK_MONO, fontSize: 7, letterSpacing: "0.12em", lineHeight: 2.4, color: "#b0ab9e", textTransform: "uppercase" }}>
+                  image harvest<br />
+                  {subtitle ?? title}<br />
+                  {visible.length} contributions
+                </p>
+              </div>
+            ) : rightSub ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={rightSub.images[0]} alt={rightSub.name}
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block",
+                  opacity: contentOpacity, transition: "opacity 0.24s ease" }} />
+            ) : null}
+            {/* Right-page inner shadow (spine side) */}
+            <div style={{
+              position: "absolute", top: 0, left: 0, bottom: 0, width: 28,
+              background: "linear-gradient(to left, transparent, rgba(0,0,0,0.06))",
+              pointerEvents: "none",
+            }} />
+            {/* Right-page outer edge shadow */}
+            <div style={{
+              position: "absolute", top: 0, bottom: 0, right: 0, width: 6,
+              background: "linear-gradient(to left, rgba(0,0,0,0.07), transparent)",
+              pointerEvents: "none",
+            }} />
+          </div>
+        </div>
+
+        {/* Page labels */}
+        <div style={{
+          display: "flex", justifyContent: "space-between",
+          paddingTop: 10, width: PAGE_W * 2,
+          fontFamily: BOOK_MONO, fontSize: 7, letterSpacing: "0.1em", color: "#b0ab9e",
+          textTransform: "uppercase",
+          opacity: contentOpacity, transition: "opacity 0.24s ease",
+        }}>
+          <span style={{ maxWidth: "45%", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+            {spread === -1 ? "" : leftSub?.name ?? ""}
+          </span>
+          <span style={{ color: "#ccc" }}>
+            {spread === -1 ? "cover" : `${spread * 2 + 1}${rightSub ? `–${spread * 2 + 2}` : ""} / ${visible.length}`}
+          </span>
+          <span style={{ maxWidth: "45%", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", textAlign: "right" }}>
+            {spread === -1 ? "" : rightSub?.name ?? ""}
+          </span>
+        </div>
+      </div>
+
+      {/* Controls */}
+      <div style={{ display: "flex", gap: 40, alignItems: "center" }}>
+        <button onClick={() => go("back")} disabled={spread === -1}
+          style={{
+            background: "none", border: "none", fontFamily: BOOK_MONO, fontSize: 8,
+            letterSpacing: "0.16em", textTransform: "uppercase", cursor: spread === -1 ? "default" : "pointer",
+            color: spread === -1 ? "#ddd" : "#999", padding: 0,
+          }}>← prev</button>
+        <span style={{ fontFamily: BOOK_MONO, fontSize: 7, letterSpacing: "0.12em", color: "#ccc" }}>
+          {spread === -1 ? "cover" : `${spread + 1} / ${totalSpreads}`}
+        </span>
+        <button onClick={() => go("fwd")} disabled={spread >= totalSpreads - 1}
+          style={{
+            background: "none", border: "none", fontFamily: BOOK_MONO, fontSize: 8,
+            letterSpacing: "0.16em", textTransform: "uppercase",
+            cursor: spread >= totalSpreads - 1 ? "default" : "pointer",
+            color: spread >= totalSpreads - 1 ? "#ddd" : "#999", padding: 0,
+          }}>next →</button>
+      </div>
+    </div>
+  );
+}
+
+// ─── Single harvest book panel ────────────────────────────────────────────────
+
+function HarvestBook({
+  themes, title, publicUrl,
+}: {
+  themes: string[];
+  title: string;
+  publicUrl?: string;
+}) {
+  const [subs, setSubs]           = useState<HarvestSub[]>([]);
+  const [loaded, setLoaded]       = useState(false);
+  const [pdfStatus, setPdfStatus] = useState<"idle" | "building" | "done">("idle");
+  const [toggling, setToggling]   = useState<string | null>(null);
+  const [view, setView]           = useState<"book" | "grid">("book");
+  const primaryTheme              = themes[0];
+
+  useEffect(() => {
+    Promise.all(
+      themes.map(t =>
+        fetch(`/api/harvest/submissions?theme=${t}`)
+          .then(r => r.json())
+          .catch(() => [] as HarvestSub[])
+      )
+    ).then(results => {
+      const seen = new Set<string>();
+      const merged: HarvestSub[] = [];
+      for (const batch of results) {
+        for (const sub of batch as HarvestSub[]) {
+          if (!seen.has(sub.id)) { seen.add(sub.id); merged.push(sub); }
+        }
+      }
+      merged.sort((a, b) => new Date(a.submittedAt).getTime() - new Date(b.submittedAt).getTime());
+      setSubs(merged);
+      setLoaded(true);
+    });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [themes.join(",")]);
+
+  async function toggleVisible(sub: HarvestSub) {
+    setToggling(sub.id);
+    await fetch("/api/harvest/submissions", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ theme: sub.theme || primaryTheme, id: sub.id, visible: !sub.visible }),
+    });
+    setSubs(prev => prev.map(s => s.id === sub.id ? { ...s, visible: !s.visible } : s));
+    setToggling(null);
+  }
+
+  async function remove(sub: HarvestSub) {
+    if (!confirm(`Remove ${sub.name}'s submission?`)) return;
+    await fetch("/api/harvest/submissions", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ theme: sub.theme || primaryTheme, id: sub.id }),
+    });
+    setSubs(prev => prev.filter(s => s.id !== sub.id));
+  }
+
+  async function downloadPDF() {
+    setPdfStatus("building");
+    try {
+      const { PDFDocument, rgb, StandardFonts } = await import("pdf-lib");
+      const pdf  = await PDFDocument.create();
+      const font = await pdf.embedFont(StandardFonts.Courier);
+      const visible = subs.filter(s => s.visible);
+
+      for (let i = 0; i < visible.length; i++) {
+        const sub = visible[i];
+        for (const imgUrl of sub.images) {
+          const bytes = await imgToJpegBytes(imgUrl);
+          const img   = await pdf.embedJpg(bytes);
+          const page  = pdf.addPage([612, 792]);
+          const margin = 48;
+          const maxW  = 612 - margin * 2;
+          const maxH  = 792 - margin * 2 - 32;
+          const scale = Math.min(maxW / img.width, maxH / img.height);
+          const w = img.width  * scale;
+          const h = img.height * scale;
+          page.drawImage(img, { x: (612 - w) / 2, y: (792 - h) / 2 + 16, width: w, height: h });
+          page.drawText(sub.name.toUpperCase(), { x: margin, y: margin - 12, size: 7, font, color: rgb(0, 0, 0) });
+          page.drawText(String(i + 1).padStart(5, "0"), { x: 612 - margin - 30, y: margin - 12, size: 7, font, color: rgb(0.7, 0.7, 0.7) });
+        }
+      }
+
+      const pdfBytes = await pdf.save();
+      const blob = new Blob([pdfBytes.buffer.slice(0) as ArrayBuffer], { type: "application/pdf" });
+      const a = Object.assign(document.createElement("a"), {
+        href: URL.createObjectURL(blob),
+        download: `harvest-${primaryTheme}-${new Date().toISOString().slice(0, 10)}.pdf`,
+      });
+      a.click();
+      setPdfStatus("done");
+      setTimeout(() => setPdfStatus("idle"), 3000);
+    } catch (err) {
+      console.error(err);
+      setPdfStatus("idle");
+    }
+  }
+
+  const visible = subs.filter(s => s.visible);
+
+  return (
+    <div className="flex flex-col gap-6">
+      <div className="flex items-center justify-between flex-wrap gap-4">
+        <p className="text-xs tracking-widest text-gray-400 mt-1">{visible.length} visible · {subs.length} total</p>
+        <div className="flex gap-3 flex-wrap">
+          <div style={{ display: "flex", border: "1px solid #e5e5e5" }}>
+            {(["book", "grid"] as const).map(v => (
+              <button key={v} onClick={() => setView(v)}
+                className="text-xs tracking-widest uppercase px-4 py-2 cursor-pointer bg-transparent border-none"
+                style={{ color: view === v ? "#000" : "#bbb", background: view === v ? "#f5f5f5" : "transparent" }}>
+                {v}
+              </button>
+            ))}
+          </div>
+          {publicUrl && (
+            <a href={publicUrl} target="_blank" rel="noopener noreferrer"
+              className="text-xs tracking-widest uppercase text-gray-400 hover:text-black border border-gray-200 px-4 py-2">
+              view public →
+            </a>
+          )}
+          <button
+            onClick={downloadPDF}
+            disabled={pdfStatus === "building" || visible.length === 0}
+            className="text-xs tracking-widest uppercase border border-black px-4 py-2 hover:bg-black hover:text-white transition-colors cursor-pointer bg-transparent disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            {pdfStatus === "building" ? "building..." : pdfStatus === "done" ? "downloaded ✓" : `pdf (${visible.length})`}
+          </button>
+        </div>
+      </div>
+
+      {!loaded ? (
+        <p className="text-xs tracking-widest text-gray-400">loading...</p>
+      ) : subs.length === 0 ? (
+        <p className="text-xs tracking-widest text-gray-400">no submissions yet.</p>
+      ) : view === "book" ? (
+        <BookViewer subs={subs} title={title} />
+      ) : (
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))", gap: 12 }}>
+          {subs.map((sub, i) => (
+            <div key={sub.id} style={{ display: "flex", flexDirection: "column", gap: 6, opacity: sub.visible ? 1 : 0.35 }}>
+              <div style={{ aspectRatio: "8.5 / 11", background: "#f5f5f5", overflow: "hidden", position: "relative" }}>
+                {sub.images[0] && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={sub.images[0]} alt={sub.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                )}
+                {!sub.visible && (
+                  <div style={{ position: "absolute", inset: 0, background: "rgba(255,255,255,0.6)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <span style={{ fontSize: 8, letterSpacing: "0.12em", textTransform: "uppercase", fontFamily: "'Courier New',monospace" }}>hidden</span>
+                  </div>
+                )}
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+                <p style={{ fontSize: 8, letterSpacing: "0.1em", textTransform: "uppercase", fontFamily: "'Courier New',monospace", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: "70%" }}>{sub.name}</p>
+                <p style={{ fontSize: 7, color: "#ccc", fontFamily: "'Courier New',monospace" }}>{String(i + 1).padStart(5, "0")}</p>
+              </div>
+              <div style={{ display: "flex", gap: 8 }}>
+                <button
+                  onClick={() => toggleVisible(sub)}
+                  disabled={toggling === sub.id}
+                  style={{ fontSize: 7, letterSpacing: "0.1em", textTransform: "uppercase", fontFamily: "'Courier New',monospace", background: "none", border: "none", cursor: "pointer", color: "#999", padding: 0 }}
+                >
+                  {sub.visible ? "hide" : "show"}
+                </button>
+                <button
+                  onClick={() => remove(sub)}
+                  style={{ fontSize: 7, letterSpacing: "0.1em", textTransform: "uppercase", fontFamily: "'Courier New',monospace", background: "none", border: "none", cursor: "pointer", color: "#ddd", padding: 0 }}
+                >
+                  delete
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Harvest studio tab (two books) ──────────────────────────────────────────
+
+const HARVEST_BOOKS = [
+  {
+    id: "something-to-eat",
+    label: "something to eat",
+    themes: ["something-to-eat"],
+    title: "something to eat",
+    publicUrl: undefined,
+  },
+  {
+    id: "hoarder",
+    label: "im starting to become a hoarder,",
+    themes: ["something-to-eat", "im-starting-to-become-a-hoarder"],
+    title: "im starting to become a hoarder,",
+    publicUrl: "/harvest/im-starting-to-become-a-hoarder",
+  },
+];
+
+function HarvestStudioTab() {
+  const [activeBook, setActiveBook] = useState<typeof HARVEST_BOOKS[number]["id"]>("something-to-eat");
+  const book = HARVEST_BOOKS.find(b => b.id === activeBook)!;
+
+  return (
+    <div className="flex flex-col gap-6">
+      {/* Book selector */}
+      <div className="flex flex-col gap-4">
+        <p className="text-xs tracking-widest uppercase">harvest</p>
+        <div style={{ display: "flex", gap: 0, borderBottom: "1px solid #f0f0f0" }}>
+          {HARVEST_BOOKS.map(b => (
+            <button
+              key={b.id}
+              onClick={() => setActiveBook(b.id)}
+              className="text-xs tracking-widest uppercase bg-transparent border-none cursor-pointer"
+              style={{
+                padding: "8px 20px 10px",
+                color: activeBook === b.id ? "#000" : "#ccc",
+                borderBottom: activeBook === b.id ? "1px solid #000" : "1px solid transparent",
+                marginBottom: -1,
+              }}
+            >
+              {b.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <HarvestBook
+        key={book.id}
+        themes={book.themes}
+        title={book.title}
+        publicUrl={book.publicUrl}
+      />
     </div>
   );
 }

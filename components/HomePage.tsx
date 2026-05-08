@@ -89,6 +89,14 @@ export default function HomePage() {
 
           <HarvestStrip />
 
+          <a
+            href="/harvest/im-starting-to-become-a-hoarder"
+            className="text-xs tracking-widest text-gray-400 hover:text-black transition-colors uppercase"
+            style={{ borderBottom: "1px solid #e8e8e8", paddingBottom: 16, width: "100%", textAlign: "center", display: "block" }}
+          >
+            image harvest — im starting to become a hoarder, →
+          </a>
+
         <a ref={linkRef} href="/work" className="text-xs tracking-widest text-gray-300 hover:text-black transition-colors uppercase">work →</a>
 
           <p className="text-xs text-gray-200 tracking-widest">waituntilmay.com</p>
