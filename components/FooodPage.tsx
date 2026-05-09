@@ -5,67 +5,35 @@ import { upload } from "@vercel/blob/client";
 import { useFadeIn } from "@/lib/useFadeIn";
 import { FONT_DISPLAY, FONT_MONO } from "@/lib/theme";
 
+// ── Shared book constants ─────────────────────────────────────────────────────
+
+const TEXTURE_URL = "https://d2w9rnfcy7mm78.cloudfront.net/8424147/original_545e5e9598db3920be3e81593d502120.jpg";
+const CREST_URL   = "https://d2w9rnfcy7mm78.cloudfront.net/45960173/original_ca1280adc59a5fb17a12589ee119d422.png";
+
 // ── Tasks ─────────────────────────────────────────────────────────────────────
 
 const TASKS = [
-  {
-    id: "buckets",
-    label: "set up mop buckets",
-    detail: "grab the squeeze combo from the mop sink — put one in, split between two buckets",
-    link: "https://www.bakedeco.com/detail.asp?id=9834",
-    linkLabel: "squeeze combo →",
-  },
-  {
-    id: "cambro",
-    label: "fill medium cambro with dish soap",
-    detail: "fill from the sink — bring to the front sink station with a bus bin and dirty cup rack",
-  },
-  {
-    id: "white-towels",
-    label: "white towels near the oven",
-    detail: "place them where cooks will be working",
-  },
-  {
-    id: "sani-buckets",
-    label: "brown towels + sani buckets",
-    detail: "brown towels in yellow bucket. red bucket = sani. both go under back sink AND under front sink",
-  },
-  {
-    id: "windows",
-    label: "clean all windows",
-    detail: "warm soapy water in blue bucket + squeeze combo (next to mop sink). dry with microfiber — towels are in black containers with yellow rim, back of basement",
-  },
-  {
-    id: "counters",
-    label: "spray down counters",
-    detail: "use the yellow cleaner next to the chef sink",
-  },
-  {
-    id: "walk",
-    label: "walk the space",
-    detail: "look for what can be improved. the restaurant is a gallery. there is always something dirty — clean it",
-  },
+  { id: "buckets",      label: "set up mop buckets",            detail: "grab the squeeze combo from the mop sink — put one in, split between two buckets", link: "https://www.bakedeco.com/detail.asp?id=9834", linkLabel: "squeeze combo →" },
+  { id: "cambro",       label: "fill medium cambro with dish soap", detail: "fill from the sink — bring to the front sink station with a bus bin and dirty cup rack" },
+  { id: "white-towels", label: "white towels near the oven",    detail: "place them where cooks will be working" },
+  { id: "sani-buckets", label: "brown towels + sani buckets",   detail: "brown towels in yellow bucket. red bucket = sani. both go under back sink AND under front sink" },
+  { id: "windows",      label: "clean all windows",             detail: "warm soapy water in blue bucket + squeeze combo (next to mop sink). dry with microfiber — towels are in black containers with yellow rim, back of basement" },
+  { id: "counters",     label: "spray down counters",           detail: "use the yellow cleaner next to the chef sink" },
+  { id: "walk",         label: "walk the space",                detail: "look for what can be improved. the restaurant is a gallery. there is always something dirty — clean it" },
 ];
-
 const TASK_IDS = TASKS.map(t => t.id);
 
 // ── Storage ───────────────────────────────────────────────────────────────────
 
-const STORAGE_KEY = "foood-shift";
-const TODAY_KEY = () => new Date().toISOString().slice(0, 10);
-
-interface BlockData {
-  type: "text" | "photo";
-  content: string;
-  x: number;
-  y: number;
-  w: number;
-}
+const STORAGE_KEY = "foood-shift-v2";
+const TODAY_KEY   = () => new Date().toISOString().slice(0, 10);
 
 interface JournalEntry {
   id: string;
-  time: string;
-  blocks: BlockData[];
+  time: string;       // "9:14 AM"
+  date: string;       // "2026-05-09"
+  note?: string;
+  photoUrl?: string;
 }
 
 interface ShiftData {
@@ -79,670 +47,534 @@ function loadData(): ShiftData {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
-      const parsed: ShiftData = JSON.parse(raw);
-      if (parsed.date === TODAY_KEY()) return parsed;
+      const p: ShiftData = JSON.parse(raw);
+      if (p.date === TODAY_KEY()) return p;
     }
   } catch {}
   return { date: TODAY_KEY(), checked: [], entries: [] };
 }
 
-function saveData(data: ShiftData) {
+function saveData(d: ShiftData) {
   if (typeof window === "undefined") return;
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(d));
+}
+
+// ── Book paper components — same system as harvest ───────────────────────────
+
+function TextureOverlay() {
+  return (
+    <div style={{
+      position: "absolute", inset: 0, zIndex: 6, pointerEvents: "none",
+      backgroundImage: `url(${TEXTURE_URL})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      mixBlendMode: "multiply",
+      opacity: 0.055,
+    }} />
+  );
+}
+
+// Verso — left page: metadata, time, page number
+function ShiftVerso({
+  entry,
+  index,
+  isLast,
+  isCover,
+  totalEntries,
+}: {
+  entry?: JournalEntry;
+  index?: number;
+  isLast?: boolean;
+  isCover?: boolean;
+  totalEntries: number;
+}) {
+  return (
+    <div style={{
+      width: "min(41vw, 300px)",
+      aspectRatio: "8.5 / 11",
+      background: "#faf9f7",
+      position: "relative",
+      overflow: "hidden",
+      flexShrink: 0,
+      boxShadow: "inset -6px 0 12px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.08)",
+    }}>
+      <TextureOverlay />
+      <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: 3, background: "linear-gradient(to right, rgba(0,0,0,0.04), transparent)", pointerEvents: "none", zIndex: 7 }} />
+
+      <div style={{ position: "absolute", inset: 0, padding: "10% 12% 12% 9%", display: "flex", flexDirection: "column", zIndex: 8 }}>
+        {isCover ? (
+          <div style={{ display: "flex", flexDirection: "column", height: "100%", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              <div style={{ borderTop: "0.5px solid #c8c5bf", paddingTop: 10 }}>
+                <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(5px,1vw,7px)", letterSpacing: "0.22em", textTransform: "uppercase", color: "#aaa" }}>field notes</p>
+              </div>
+              <p style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(10px,2vw,15px)", letterSpacing: "0.05em", textTransform: "uppercase", lineHeight: 1.3, color: "#2a2824" }}>foood</p>
+              <div style={{ borderBottom: "0.5px solid #c8c5bf", marginTop: 4 }} />
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(5px,0.9vw,7px)", letterSpacing: "0.08em", lineHeight: 2, color: "#888", fontStyle: "italic" }}>
+                {"the restaurant\nis a gallery.\nalways something to improve."}
+              </p>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(4px,0.8vw,6px)", letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb" }}>
+                {new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}
+              </p>
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(4px,0.8vw,6px)", letterSpacing: "0.1em", color: "#ccc" }}>— waituntilmay</p>
+            </div>
+          </div>
+        ) : (
+          <div style={{ display: "flex", flexDirection: "column", height: "100%", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              <div style={{ borderTop: "0.5px solid #c8c5bf", paddingTop: 8 }}>
+                <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(5px,1vw,7px)", letterSpacing: "0.2em", textTransform: "uppercase", color: "#aaa" }}>field notes</p>
+              </div>
+              <p style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(9px,1.8vw,13px)", letterSpacing: "0.04em", textTransform: "uppercase", lineHeight: 1.3, color: "#2a2824" }}>foood</p>
+            </div>
+
+            {/* Large editorial page number */}
+            <p style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(36px,8vw,64px)", color: "#ede9e3", lineHeight: 1, letterSpacing: "-0.02em", userSelect: "none" }}>
+              {index !== undefined ? String(index + 1).padStart(2, "0") : "—"}
+            </p>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+              {entry && (
+                <>
+                  <div style={{ borderTop: "0.5px solid #c8c5bf", paddingTop: 8 }}>
+                    <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(5px,1vw,7px)", letterSpacing: "0.12em", textTransform: "uppercase", color: "#888" }}>{entry.time}</p>
+                  </div>
+                  <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(4px,0.8vw,6px)", letterSpacing: "0.1em", color: "#bbb" }}>
+                    {new Date(entry.date + "T12:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+                  </p>
+                </>
+              )}
+              {isLast && (
+                <div style={{ marginTop: 10 }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={CREST_URL} alt="" style={{ width: "clamp(22px,4vw,34px)", opacity: 0.45, filter: "grayscale(1)" }} />
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// Recto — right page: the content (photo + note)
+function ShiftRecto({
+  entry,
+  index,
+  isLast,
+  isCover,
+  totalEntries,
+  onClick,
+}: {
+  entry?: JournalEntry;
+  index?: number;
+  isLast?: boolean;
+  isCover?: boolean;
+  totalEntries: number;
+  onClick?: () => void;
+}) {
+  return (
+    <div
+      onClick={onClick}
+      style={{
+        width: "min(41vw, 300px)",
+        aspectRatio: "8.5 / 11",
+        background: "#faf9f7",
+        position: "relative",
+        overflow: "hidden",
+        flexShrink: 0,
+        cursor: onClick ? "pointer" : "default",
+        boxShadow: "inset 6px 0 12px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.09), 4px 0 8px rgba(0,0,0,0.04)",
+      }}
+    >
+      <TextureOverlay />
+      <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, width: 3, background: "linear-gradient(to left, rgba(0,0,0,0.03), transparent)", pointerEvents: "none", zIndex: 7 }} />
+
+      <div style={{ position: "absolute", inset: 0, padding: "10% 9% 12% 12%", display: "flex", flexDirection: "column", zIndex: 8 }}>
+        {isCover ? (
+          /* Cover recto */
+          <div style={{ display: "flex", flexDirection: "column", height: "100%", justifyContent: "space-between" }}>
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", gap: 12 }}>
+              <div style={{ borderTop: "1px solid #2a2824", paddingTop: 10 }}>
+                <p style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(14px,3vw,22px)", letterSpacing: "0.06em", textTransform: "uppercase", lineHeight: 1.2, color: "#2a2824" }}>am shift</p>
+              </div>
+              <div style={{ borderBottom: "0.5px solid #c8c5bf" }} />
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(5px,0.9vw,7px)", letterSpacing: "0.18em", textTransform: "uppercase", color: "#aaa" }}>a daily record</p>
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(4px,0.8vw,6px)", letterSpacing: "0.12em", color: "#ccc" }}>
+                {String(totalEntries).padStart(5, "0")} {totalEntries === 1 ? "entry" : "entries"} today
+              </p>
+            </div>
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={CREST_URL} alt="" style={{ width: "clamp(26px,4.5vw,40px)", opacity: 0.35, filter: "grayscale(1)" }} />
+            </div>
+          </div>
+        ) : (
+          /* Entry recto */
+          <div style={{ display: "flex", flexDirection: "column", height: "100%", gap: 8 }}>
+            {/* Photo — framed, takes most of page if present */}
+            {entry?.photoUrl && (
+              <div style={{
+                flex: entry.note ? "0 0 55%" : 1,
+                border: "0.5px solid #d4cfc8",
+                overflow: "hidden",
+                background: "#f0ede8",
+                minHeight: 0,
+              }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={entry.photoUrl} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+              </div>
+            )}
+
+            {/* Note text */}
+            {entry?.note && (
+              <div style={{
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                borderTop: entry.photoUrl ? "0.5px solid #d4cfc8" : undefined,
+                paddingTop: entry.photoUrl ? 8 : 0,
+                minHeight: 0,
+                overflow: "hidden",
+              }}>
+                <p style={{
+                  fontFamily: FONT_MONO,
+                  fontSize: "clamp(6px,1.1vw,8px)",
+                  lineHeight: 1.9,
+                  color: "#444",
+                  letterSpacing: "0.03em",
+                  whiteSpace: "pre-wrap",
+                  wordBreak: "break-word",
+                  overflow: "hidden",
+                  display: "-webkit-box",
+                  WebkitLineClamp: entry.photoUrl ? 6 : 14,
+                  WebkitBoxOrient: "vertical",
+                }}>
+                  {entry.note}
+                </p>
+              </div>
+            )}
+
+            {/* Empty state */}
+            {!entry?.photoUrl && !entry?.note && (
+              <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <p style={{ fontFamily: FONT_MONO, fontSize: 7, color: "#ccc", letterSpacing: "0.12em", textTransform: "uppercase" }}>empty</p>
+              </div>
+            )}
+
+            {/* Bottom bar */}
+            <div style={{ flexShrink: 0, display: "flex", justifyContent: "space-between", alignItems: "baseline", borderTop: "0.5px solid #e8e5df", paddingTop: 6 }}>
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(4px,0.85vw,6px)", letterSpacing: "0.1em", textTransform: "uppercase", color: "#888" }}>foood</p>
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(4px,0.8vw,6px)", letterSpacing: "0.08em", color: "#bbb" }}>
+                {index !== undefined ? String(index + 1).padStart(5, "0") : ""}
+              </p>
+            </div>
+
+            {isLast && (
+              <div style={{ display: "flex", justifyContent: "center", paddingTop: 4 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={CREST_URL} alt="" style={{ width: "clamp(18px,3.2vw,28px)", opacity: 0.38, filter: "grayscale(1)" }} />
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ── Gutter / spine between pages ──────────────────────────────────────────────
+
+function Gutter() {
+  return (
+    <div style={{
+      width: 6, flexShrink: 0, alignSelf: "stretch",
+      background: "linear-gradient(to right, rgba(0,0,0,0.13) 0%, rgba(0,0,0,0.04) 50%, rgba(0,0,0,0.09) 100%)",
+    }} />
+  );
+}
+
+// ── Spread — one pair of pages ────────────────────────────────────────────────
+
+function Spread({ verso, recto }: { verso: React.ReactNode; recto: React.ReactNode }) {
+  return (
+    <div style={{
+      display: "flex",
+      filter: "drop-shadow(0 16px 48px rgba(0,0,0,0.14))",
+    }}>
+      {verso}
+      <Gutter />
+      {recto}
+    </div>
+  );
+}
+
+// ── Composer overlay ──────────────────────────────────────────────────────────
+
+function Composer({ onAdd, onClose }: { onAdd: (e: JournalEntry) => void; onClose: () => void }) {
+  const [note, setNote]         = useState("");
+  const [photoUrl, setPhotoUrl] = useState<string | null>(null);
+  const [photoFile, setPhotoFile] = useState<File | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const [preview, setPreview]   = useState<string | null>(null);
+  const fileRef = useRef<HTMLInputElement>(null);
+
+  function pickPhoto(file: File) {
+    setPhotoFile(file);
+    setPreview(URL.createObjectURL(file));
+    setPhotoUrl(null);
+  }
+
+  async function submit() {
+    if (!note.trim() && !photoFile && !photoUrl) return;
+    setUploading(true);
+    let finalUrl: string | undefined;
+    if (photoFile) {
+      try {
+        const blob = await upload(`foood/${Date.now()}-${photoFile.name}`, photoFile, { access: "public", handleUploadUrl: "/api/upload" });
+        finalUrl = blob.url;
+      } catch {
+        finalUrl = preview ?? undefined;
+      }
+    } else if (photoUrl) {
+      finalUrl = photoUrl;
+    }
+    const now = new Date();
+    onAdd({
+      id: Date.now().toString(),
+      time: now.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true }),
+      date: TODAY_KEY(),
+      note: note.trim() || undefined,
+      photoUrl: finalUrl,
+    });
+    setUploading(false);
+    onClose();
+  }
+
+  const hasContent = note.trim() || preview || photoUrl;
+
+  return (
+    <div style={{
+      position: "fixed", inset: 0, zIndex: 300,
+      background: "#f0ede8",
+      display: "flex", flexDirection: "column",
+    }}>
+      {/* Header */}
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 24px", borderBottom: "0.5px solid #c8c5bf" }}>
+        <p style={{ fontFamily: FONT_MONO, fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "#888" }}>new entry</p>
+        <button onClick={onClose} style={{ background: "none", border: "none", fontFamily: FONT_MONO, fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb", cursor: "pointer" }}>cancel</button>
+      </div>
+
+      {/* Live preview — mini spread */}
+      <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(20px,4vh,40px) 20px", minHeight: 0 }}>
+        <Spread
+          verso={
+            <ShiftVerso
+              isCover={false}
+              totalEntries={0}
+              entry={{ id: "preview", time: new Date().toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true }), date: TODAY_KEY(), note, photoUrl: preview ?? undefined }}
+              index={0}
+            />
+          }
+          recto={
+            <ShiftRecto
+              isCover={false}
+              totalEntries={0}
+              entry={{ id: "preview", time: "", date: TODAY_KEY(), note: note || undefined, photoUrl: preview ?? undefined }}
+              index={0}
+            />
+          }
+        />
+      </div>
+
+      {/* Input area */}
+      <div style={{ flexShrink: 0, background: "#faf9f7", borderTop: "0.5px solid #c8c5bf", padding: "20px 24px 32px", display: "flex", flexDirection: "column", gap: 14 }}>
+        <textarea
+          value={note}
+          onChange={e => setNote(e.target.value)}
+          placeholder="write something..."
+          rows={3}
+          style={{
+            width: "100%", border: "none", borderBottom: "0.5px solid #c8c5bf",
+            background: "transparent", padding: "8px 0",
+            fontSize: 12, lineHeight: 1.8, color: "#333",
+            resize: "none", outline: "none", fontFamily: FONT_MONO,
+            letterSpacing: "0.02em",
+          }}
+        />
+
+        {preview && (
+          <div style={{ position: "relative", width: 72, height: 72, background: "#f0ede8", overflow: "hidden", border: "0.5px solid #d4cfc8" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={preview} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <button
+              onClick={() => { setPreview(null); setPhotoFile(null); if (fileRef.current) fileRef.current.value = ""; }}
+              style={{ position: "absolute", top: 2, right: 2, width: 18, height: 18, background: "rgba(0,0,0,0.55)", border: "none", color: "#fff", fontSize: 10, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: FONT_MONO }}
+            >×</button>
+          </div>
+        )}
+
+        <div style={{ display: "flex", gap: 10 }}>
+          <input type="file" accept="image/*" ref={fileRef} style={{ display: "none" }} onChange={e => { const f = e.target.files?.[0]; if (f) pickPhoto(f); e.target.value = ""; }} />
+          <button
+            onClick={() => fileRef.current?.click()}
+            style={{ flex: 1, border: "0.5px solid #c8c5bf", background: "none", padding: "11px", fontFamily: FONT_MONO, fontSize: 8, letterSpacing: "0.16em", textTransform: "uppercase", cursor: "pointer", color: "#888" }}
+          >
+            + photo
+          </button>
+          <button
+            onClick={submit}
+            disabled={uploading || !hasContent}
+            style={{
+              flex: 2, background: "#2a2824", color: "#faf9f7", border: "none",
+              padding: "11px", fontFamily: FONT_MONO, fontSize: 8,
+              letterSpacing: "0.18em", textTransform: "uppercase",
+              cursor: (uploading || !hasContent) ? "default" : "pointer",
+              opacity: (uploading || !hasContent) ? 0.4 : 1,
+              transition: "opacity 0.15s",
+            }}
+          >
+            {uploading ? "saving..." : "add to book →"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Book reader — flip through spreads ────────────────────────────────────────
+
+type FlipPhase = "idle" | "fold-out" | "fold-in";
+
+function ShiftBookReader({
+  entries,
+  onNewEntry,
+}: {
+  entries: JournalEntry[];
+  onNewEntry: () => void;
+}) {
+  const [pageIdx, setPageIdx] = useState(0);
+  const [shown, setShown]     = useState(0);
+  const [phase, setPhase]     = useState<FlipPhase>("idle");
+  const [flipDir, setFlipDir] = useState<"fwd" | "back">("fwd");
+  const touchX                = useRef<number | null>(null);
+  const busy                  = useRef(false);
+  const total                 = entries.length + 1; // +1 for cover
+
+  const goTo = useCallback((next: number) => {
+    if (busy.current || next < 0 || next >= total) return;
+    busy.current = true;
+    const dir: "fwd" | "back" = next > pageIdx ? "fwd" : "back";
+    setFlipDir(dir);
+    setPhase("fold-out");
+    setTimeout(() => {
+      setShown(next);
+      setPageIdx(next);
+      setPhase("fold-in");
+      setTimeout(() => { setPhase("idle"); busy.current = false; }, 240);
+    }, 240);
+  }, [pageIdx, total]);
+
+  const goNext = useCallback(() => goTo(pageIdx + 1), [goTo, pageIdx]);
+  const goPrev = useCallback(() => goTo(pageIdx - 1), [goTo, pageIdx]);
+
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") goNext();
+      if (e.key === "ArrowLeft"  || e.key === "ArrowUp")   goPrev();
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [goNext, goPrev]);
+
+  function onTouchStart(e: React.TouchEvent) { touchX.current = e.touches[0].clientX; }
+  function onTouchEnd(e: React.TouchEvent) {
+    if (touchX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchX.current;
+    if (Math.abs(dx) > 44) dx < 0 ? goNext() : goPrev();
+    touchX.current = null;
+  }
+
+  let spreadTransform = "none";
+  let spreadOrigin    = "center center";
+  let spreadOpacity   = 1;
+  if (phase === "fold-out") {
+    spreadOrigin    = flipDir === "fwd" ? "right center" : "left center";
+    spreadTransform = flipDir === "fwd" ? "perspective(1200px) rotateY(-12deg) scale(0.97)" : "perspective(1200px) rotateY(12deg) scale(0.97)";
+    spreadOpacity   = 0.55;
+  } else if (phase === "fold-in") {
+    spreadOrigin    = flipDir === "fwd" ? "left center" : "right center";
+    spreadTransform = "perspective(1200px) rotateY(0deg) scale(1)";
+  }
+  const transition = phase === "idle" ? "none" : "transform 0.24s cubic-bezier(0.4,0,0.2,1), opacity 0.24s ease";
+
+  const entry  = shown > 0 ? entries[shown - 1] : undefined;
+  const isLast = shown === entries.length && entries.length > 0;
+  const isCover = shown === 0;
+
+  return (
+    <div
+      style={{ position: "fixed", inset: 0, background: "#f0ede8", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}
+      onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}
+    >
+      {/* Counter */}
+      <div style={{ position: "absolute", top: 64, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
+        <p style={{ fontFamily: FONT_MONO, fontSize: 8, letterSpacing: "0.14em", color: "#aaa", textTransform: "uppercase" }}>
+          {isCover ? "field notes" : `${String(shown).padStart(2,"0")} / ${String(entries.length).padStart(2,"0")}`}
+        </p>
+      </div>
+
+      {/* Spread */}
+      <div style={{ transformOrigin: spreadOrigin, transform: spreadTransform, transition, opacity: spreadOpacity, willChange: "transform, opacity" }}>
+        <Spread
+          verso={<ShiftVerso entry={entry} index={entry ? shown - 1 : undefined} isLast={isLast} isCover={isCover} totalEntries={entries.length} />}
+          recto={<ShiftRecto entry={entry} index={entry ? shown - 1 : undefined} isLast={isLast} isCover={isCover} totalEntries={entries.length} />}
+        />
+      </div>
+
+      {/* Tap zones */}
+      <button onClick={goPrev} disabled={pageIdx === 0} aria-label="previous" style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "16%", background: "none", border: "none", cursor: pageIdx === 0 ? "default" : "pointer", zIndex: 10 }} />
+      <button onClick={goNext} disabled={pageIdx >= total - 1} aria-label="next" style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "16%", background: "none", border: "none", cursor: pageIdx >= total - 1 ? "default" : "pointer", zIndex: 10 }} />
+
+      {/* Nav bar */}
+      <div style={{ position: "absolute", bottom: 28, left: 0, right: 0, display: "flex", justifyContent: "center", alignItems: "center", gap: 32 }}>
+        <button onClick={goPrev} disabled={pageIdx === 0} style={{ background: "none", border: "none", fontFamily: FONT_MONO, fontSize: 18, color: pageIdx === 0 ? "#d4cfc8" : "#888", cursor: pageIdx === 0 ? "default" : "pointer" }}>‹</button>
+        <button
+          onClick={onNewEntry}
+          style={{ background: "none", border: "0.5px solid #c8c5bf", fontFamily: FONT_MONO, fontSize: 7, letterSpacing: "0.18em", textTransform: "uppercase", padding: "7px 18px", cursor: "pointer", color: "#888" }}
+        >
+          + entry
+        </button>
+        <button onClick={goNext} disabled={pageIdx >= total - 1} style={{ background: "none", border: "none", fontFamily: FONT_MONO, fontSize: 18, color: pageIdx >= total - 1 ? "#d4cfc8" : "#888", cursor: pageIdx >= total - 1 ? "default" : "pointer" }}>›</button>
+      </div>
+    </div>
+  );
 }
 
 // ── FadeIn ────────────────────────────────────────────────────────────────────
 
-function FadeIn({ children, delay = 0, style }: { children: React.ReactNode; delay?: number; style?: React.CSSProperties }) {
+function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useFadeIn(0.05, delay);
-  return <div ref={ref} style={style}>{children}</div>;
-}
-
-// ── Draggable block on a book page ────────────────────────────────────────────
-
-interface DragState {
-  startX: number;
-  startY: number;
-  origX: number;
-  origY: number;
-}
-
-function DraggableBlock({
-  block,
-  pageW,
-  pageH,
-  onMove,
-  onResize,
-  onDelete,
-  readOnly,
-}: {
-  block: BlockData;
-  pageW: number;
-  pageH: number;
-  onMove: (x: number, y: number) => void;
-  onResize: (w: number) => void;
-  onDelete: () => void;
-  readOnly?: boolean;
-}) {
-  const dragRef = useRef<DragState | null>(null);
-  const elRef = useRef<HTMLDivElement>(null);
-
-  const clampX = (x: number, w: number) => Math.max(0, Math.min(x, pageW - w));
-  const clampY = (y: number) => Math.max(0, Math.min(y, pageH - 60));
-
-  const startDrag = useCallback((clientX: number, clientY: number) => {
-    if (readOnly) return;
-    dragRef.current = { startX: clientX, startY: clientY, origX: block.x, origY: block.y };
-
-    const onPointerMove = (e: MouseEvent | TouchEvent) => {
-      if (!dragRef.current) return;
-      const cx = "touches" in e ? e.touches[0].clientX : e.clientX;
-      const cy = "touches" in e ? e.touches[0].clientY : e.clientY;
-      const dx = cx - dragRef.current.startX;
-      const dy = cy - dragRef.current.startY;
-      onMove(clampX(dragRef.current.origX + dx, block.w * pageW), clampY(dragRef.current.origY + dy));
-    };
-
-    const onEnd = () => {
-      dragRef.current = null;
-      window.removeEventListener("mousemove", onPointerMove);
-      window.removeEventListener("touchmove", onPointerMove);
-      window.removeEventListener("mouseup", onEnd);
-      window.removeEventListener("touchend", onEnd);
-    };
-
-    window.addEventListener("mousemove", onPointerMove);
-    window.addEventListener("touchmove", onPointerMove, { passive: false });
-    window.addEventListener("mouseup", onEnd);
-    window.addEventListener("touchend", onEnd);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [block.x, block.y, block.w, pageW, pageH, readOnly]);
-
-  const widthPct = block.w;
-  const left = block.x;
-  const top = block.y;
-
-  return (
-    <div
-      ref={elRef}
-      style={{
-        position: "absolute",
-        left,
-        top,
-        width: `${widthPct * 100}%`,
-        cursor: readOnly ? "default" : "grab",
-        userSelect: "none",
-        touchAction: "none",
-      }}
-      onMouseDown={e => { e.preventDefault(); startDrag(e.clientX, e.clientY); }}
-      onTouchStart={e => { e.preventDefault(); startDrag(e.touches[0].clientX, e.touches[0].clientY); }}
-    >
-      {!readOnly && (
-        <button
-          onClick={e => { e.stopPropagation(); onDelete(); }}
-          style={{
-            position: "absolute", top: -10, right: -10, zIndex: 10,
-            width: 20, height: 20, borderRadius: "50%",
-            background: "#000", color: "#fff", border: "none",
-            fontSize: 10, cursor: "pointer", display: "flex",
-            alignItems: "center", justifyContent: "center",
-            lineHeight: 1,
-          }}
-        >×</button>
-      )}
-
-      {block.type === "photo" ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={block.content}
-          alt=""
-          draggable={false}
-          style={{ width: "100%", display: "block", objectFit: "cover" }}
-        />
-      ) : (
-        <p style={{
-          fontFamily: FONT_MONO,
-          fontSize: "clamp(9px, 1.6vw, 11px)",
-          lineHeight: 1.85,
-          color: "#333",
-          whiteSpace: "pre-wrap",
-          wordBreak: "break-word",
-          padding: 2,
-          borderBottom: readOnly ? "none" : "1px dashed #e0e0e0",
-        }}>
-          {block.content}
-        </p>
-      )}
-
-      {/* Resize handle */}
-      {!readOnly && (
-        <div
-          onMouseDown={e => {
-            e.stopPropagation();
-            e.preventDefault();
-            const startX = e.clientX;
-            const origW = widthPct;
-            const onMv = (ev: MouseEvent) => {
-              const delta = (ev.clientX - startX) / pageW;
-              onResize(Math.max(0.2, Math.min(1, origW + delta)));
-            };
-            const onUp = () => {
-              window.removeEventListener("mousemove", onMv);
-              window.removeEventListener("mouseup", onUp);
-            };
-            window.addEventListener("mousemove", onMv);
-            window.addEventListener("mouseup", onUp);
-          }}
-          onTouchStart={e => {
-            e.stopPropagation();
-            const startX = e.touches[0].clientX;
-            const origW = widthPct;
-            const onMv = (ev: TouchEvent) => {
-              const delta = (ev.touches[0].clientX - startX) / pageW;
-              onResize(Math.max(0.2, Math.min(1, origW + delta)));
-            };
-            const onUp = () => {
-              window.removeEventListener("touchmove", onMv);
-              window.removeEventListener("touchend", onUp);
-            };
-            window.addEventListener("touchmove", onMv, { passive: false });
-            window.addEventListener("touchend", onUp);
-          }}
-          style={{
-            position: "absolute", bottom: -6, right: -6,
-            width: 14, height: 14,
-            background: "#000", cursor: "ew-resize",
-            opacity: 0.25,
-          }}
-        />
-      )}
-    </div>
-  );
-}
-
-// ── Book page ─────────────────────────────────────────────────────────────────
-
-const PAGE_ASPECT = 8.5 / 11;
-
-function BookPage({
-  entry,
-  pageNum,
-  editable,
-  onUpdateBlock,
-  onDeleteBlock,
-}: {
-  entry: JournalEntry;
-  pageNum: number;
-  editable?: boolean;
-  onUpdateBlock?: (blockIdx: number, patch: Partial<BlockData>) => void;
-  onDeleteBlock?: (blockIdx: number) => void;
-}) {
-  const pageRef = useRef<HTMLDivElement>(null);
-  const [dims, setDims] = useState({ w: 320, h: 320 / PAGE_ASPECT });
-
-  useEffect(() => {
-    const el = pageRef.current;
-    if (!el) return;
-    const obs = new ResizeObserver(([e]) => {
-      const w = e.contentRect.width;
-      setDims({ w, h: w / PAGE_ASPECT });
-    });
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
-  return (
-    <section style={{
-      height: "100svh",
-      scrollSnapAlign: "start",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      padding: "clamp(56px,9vh,96px) clamp(24px,6vw,80px) clamp(40px,6vh,72px)",
-      boxSizing: "border-box",
-    }}>
-      {/* The paper */}
-      <div
-        ref={pageRef}
-        style={{
-          width: "min(72vw, 420px)",
-          aspectRatio: `${PAGE_ASPECT}`,
-          background: "#fafafa",
-          position: "relative",
-          overflow: "hidden",
-          boxShadow: "0 8px 32px rgba(0,0,0,0.10), -3px 0 8px rgba(0,0,0,0.06)",
-        }}
-      >
-        {/* Spine shadow */}
-        <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: 10, background: "linear-gradient(to right, rgba(0,0,0,0.10), transparent)", pointerEvents: "none", zIndex: 2 }} />
-
-        {/* Header stripe */}
-        <div style={{
-          position: "absolute", top: 0, left: 0, right: 0,
-          padding: "10px 14px 8px",
-          display: "flex", justifyContent: "space-between", alignItems: "center",
-          borderBottom: "1px solid #ebebeb",
-          background: "#fafafa",
-          zIndex: 1,
-        }}>
-          <span style={{ fontFamily: FONT_MONO, fontSize: 7, letterSpacing: "0.16em", textTransform: "uppercase", color: "#ccc" }}>
-            foood — {entry.time}
-          </span>
-          <span style={{ fontFamily: FONT_MONO, fontSize: 7, letterSpacing: "0.12em", color: "#ccc" }}>{pageNum}</span>
-        </div>
-
-        {/* Footer stripe */}
-        <div style={{
-          position: "absolute", bottom: 0, left: 0, right: 0,
-          padding: "8px 14px",
-          borderTop: "1px solid #ebebeb",
-          background: "#fafafa",
-          zIndex: 1,
-        }}>
-          <p style={{ fontFamily: FONT_MONO, fontSize: 7, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e0e0e0", textAlign: "center" }}>waituntilmay</p>
-        </div>
-
-        {/* Content canvas — blocks are positioned absolutely inside here */}
-        <div style={{
-          position: "absolute",
-          top: 34, left: 0, right: 0, bottom: 28,
-          overflow: "hidden",
-        }}>
-          {entry.blocks.map((block, i) => (
-            <DraggableBlock
-              key={i}
-              block={block}
-              pageW={dims.w}
-              pageH={dims.h - 34 - 28}
-              readOnly={!editable}
-              onMove={(x, y) => onUpdateBlock?.(i, { x, y })}
-              onResize={w => onUpdateBlock?.(i, { w })}
-              onDelete={() => onDeleteBlock?.(i)}
-            />
-          ))}
-          {entry.blocks.length === 0 && (
-            <div style={{
-              position: "absolute", inset: 0, display: "flex",
-              alignItems: "center", justifyContent: "center",
-            }}>
-              <p style={{ fontFamily: FONT_MONO, fontSize: 8, letterSpacing: "0.12em", textTransform: "uppercase", color: "#e0e0e0" }}>
-                {editable ? "add text or photos below" : "empty page"}
-              </p>
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Caption below page */}
-      <div style={{ marginTop: 16, width: "min(72vw, 420px)", display: "flex", justifyContent: "space-between" }}>
-        <span style={{ fontFamily: FONT_MONO, fontSize: 8, letterSpacing: "0.12em", textTransform: "uppercase", color: "#bbb" }}>
-          {entry.time}
-        </span>
-        <span style={{ fontFamily: FONT_MONO, fontSize: 8, letterSpacing: "0.1em", color: "#ccc" }}>
-          {String(pageNum).padStart(2, "0")}
-        </span>
-      </div>
-    </section>
-  );
-}
-
-// ── New entry composer ────────────────────────────────────────────────────────
-
-function EntryComposer({
-  onAdd,
-}: {
-  onAdd: (entry: JournalEntry) => void;
-}) {
-  const [draft, setDraft] = useState<BlockData[]>([]);
-  const [note, setNote] = useState("");
-  const [uploading, setUploading] = useState(false);
-  const [added, setAdded] = useState(false);
-  const fileRef = useRef<HTMLInputElement>(null);
-
-  function addText() {
-    if (!note.trim()) return;
-    setDraft(prev => [...prev, {
-      type: "text",
-      content: note.trim(),
-      x: 14,
-      y: Math.max(0, prev.length * 60),
-      w: 0.85,
-    }]);
-    setNote("");
-  }
-
-  async function addPhoto(file: File) {
-    setUploading(true);
-    try {
-      let photoUrl: string;
-      try {
-        const blob = await upload(`foood/${Date.now()}-${file.name}`, file, {
-          access: "public",
-          handleUploadUrl: "/api/upload",
-        });
-        photoUrl = blob.url;
-      } catch {
-        photoUrl = URL.createObjectURL(file);
-      }
-      setDraft(prev => [...prev, {
-        type: "photo",
-        content: photoUrl,
-        x: 14,
-        y: Math.max(0, prev.length * 60),
-        w: 0.75,
-      }]);
-    } finally {
-      setUploading(false);
-    }
-  }
-
-  function updateDraftBlock(i: number, patch: Partial<BlockData>) {
-    setDraft(prev => prev.map((b, idx) => idx === i ? { ...b, ...patch } : b));
-  }
-
-  function deleteDraftBlock(i: number) {
-    setDraft(prev => prev.filter((_, idx) => idx !== i));
-  }
-
-  function commit() {
-    if (!draft.length) return;
-    const entry: JournalEntry = {
-      id: Date.now().toString(),
-      time: new Date().toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true }),
-      blocks: draft,
-    };
-    onAdd(entry);
-    setDraft([]);
-    setAdded(true);
-    setTimeout(() => setAdded(false), 1500);
-  }
-
-  // Preview page for the draft
-  const draftEntry: JournalEntry = {
-    id: "draft",
-    time: new Date().toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true }),
-    blocks: draft,
-  };
-
-  return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      {/* Live preview of the draft page — editable */}
-      {draft.length > 0 && (
-        <section style={{
-          height: "100svh",
-          scrollSnapAlign: "start",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "clamp(56px,9vh,96px) clamp(24px,6vw,80px) clamp(40px,6vh,72px)",
-          boxSizing: "border-box",
-        }}>
-          <p style={{ fontFamily: FONT_MONO, fontSize: 8, letterSpacing: "0.14em", textTransform: "uppercase", color: "#aaa", marginBottom: 12 }}>
-            draft — drag to arrange
-          </p>
-          <div style={{ width: "min(72vw, 420px)", aspectRatio: `${PAGE_ASPECT}`, background: "#fafafa", position: "relative", overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.10)", border: "1px dashed #ddd" }}>
-            <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: 10, background: "linear-gradient(to right, rgba(0,0,0,0.08), transparent)", pointerEvents: "none", zIndex: 2 }} />
-            <div style={{ position: "absolute", top: 0, left: 0, right: 0, padding: "10px 14px 8px", display: "flex", justifyContent: "space-between", borderBottom: "1px solid #ebebeb", background: "#fafafa", zIndex: 1 }}>
-              <span style={{ fontFamily: FONT_MONO, fontSize: 7, letterSpacing: "0.16em", textTransform: "uppercase", color: "#ccc" }}>foood — now</span>
-              <span style={{ fontFamily: FONT_MONO, fontSize: 7, color: "#ccc" }}>draft</span>
-            </div>
-            <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "8px 14px", borderTop: "1px solid #ebebeb", background: "#fafafa", zIndex: 1 }}>
-              <p style={{ fontFamily: FONT_MONO, fontSize: 7, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e0e0e0", textAlign: "center" }}>waituntilmay</p>
-            </div>
-            <DraftCanvas blocks={draft} onUpdate={updateDraftBlock} onDelete={deleteDraftBlock} />
-          </div>
-          <button
-            onClick={commit}
-            style={{
-              marginTop: 16, background: "#000", color: "#fff", border: "none",
-              padding: "10px 28px", fontFamily: FONT_MONO, fontSize: 9,
-              letterSpacing: "0.16em", textTransform: "uppercase", cursor: "pointer",
-              width: "min(72vw, 420px)",
-            }}
-          >
-            {added ? "saved ✓" : "add page →"}
-          </button>
-        </section>
-      )}
-
-      {/* Compose tools */}
-      <section style={{
-        height: "100svh",
-        scrollSnapAlign: "start",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "clamp(56px,9vh,96px) clamp(24px,6vw,80px) clamp(40px,6vh,72px)",
-        boxSizing: "border-box",
-        gap: 0,
-      }}>
-        <div style={{ width: "min(72vw, 420px)", display: "flex", flexDirection: "column", gap: 14 }}>
-          <p style={{ fontFamily: FONT_MONO, fontSize: 8, letterSpacing: "0.18em", textTransform: "uppercase", color: "#bbb" }}>
-            add to your page
-          </p>
-
-          <textarea
-            value={note}
-            onChange={e => setNote(e.target.value)}
-            placeholder="write something..."
-            rows={4}
-            style={{
-              width: "100%",
-              border: "none",
-              borderBottom: "1px solid #e8e8e8",
-              background: "transparent",
-              padding: "10px 0",
-              fontSize: 11,
-              lineHeight: 1.8,
-              color: "#333",
-              resize: "none",
-              outline: "none",
-              fontFamily: FONT_MONO,
-            }}
-            onKeyDown={e => {
-              if ((e.metaKey || e.ctrlKey) && e.key === "Enter") { e.preventDefault(); addText(); }
-            }}
-          />
-
-          <div style={{ display: "flex", gap: 10 }}>
-            <button
-              onClick={addText}
-              disabled={!note.trim()}
-              style={{
-                flex: 1, border: "1px solid #e0e0e0", background: "none",
-                padding: "10px", fontFamily: FONT_MONO, fontSize: 9,
-                letterSpacing: "0.14em", textTransform: "uppercase", cursor: note.trim() ? "pointer" : "default",
-                color: note.trim() ? "#000" : "#ddd", transition: "color 0.15s",
-              }}
-            >
-              + text
-            </button>
-
-            <button
-              onClick={() => fileRef.current?.click()}
-              disabled={uploading}
-              style={{
-                flex: 1, border: "1px solid #e0e0e0", background: "none",
-                padding: "10px", fontFamily: FONT_MONO, fontSize: 9,
-                letterSpacing: "0.14em", textTransform: "uppercase",
-                cursor: uploading ? "wait" : "pointer", color: uploading ? "#bbb" : "#000",
-              }}
-            >
-              {uploading ? "uploading..." : "+ photo"}
-            </button>
-          </div>
-
-          <input
-            type="file"
-            accept="image/*"
-            ref={fileRef}
-            style={{ display: "none" }}
-            onChange={e => {
-              const file = e.target.files?.[0];
-              if (file) addPhoto(file);
-              e.target.value = "";
-            }}
-          />
-
-          {draft.length > 0 && (
-            <p style={{ fontFamily: FONT_MONO, fontSize: 8, letterSpacing: "0.12em", color: "#bbb", textTransform: "uppercase" }}>
-              ↑ scroll up to arrange your page
-            </p>
-          )}
-        </div>
-      </section>
-    </div>
-  );
-}
-
-// ── DraftCanvas — uses actual measured dimensions ─────────────────────────────
-
-function DraftCanvas({
-  blocks,
-  onUpdate,
-  onDelete,
-}: {
-  blocks: BlockData[];
-  onUpdate: (i: number, patch: Partial<BlockData>) => void;
-  onDelete: (i: number) => void;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [dims, setDims] = useState({ w: 300, h: 300 / PAGE_ASPECT });
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new ResizeObserver(([e]) => {
-      const w = e.contentRect.width;
-      setDims({ w, h: w / PAGE_ASPECT });
-    });
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
-  return (
-    <div ref={ref} style={{ position: "absolute", top: 34, left: 0, right: 0, bottom: 28, overflow: "hidden" }}>
-      {blocks.map((block, i) => (
-        <DraggableBlock
-          key={i}
-          block={block}
-          pageW={dims.w}
-          pageH={dims.h - 34 - 28}
-          onMove={(x, y) => onUpdate(i, { x, y })}
-          onResize={w => onUpdate(i, { w })}
-          onDelete={() => onDelete(i)}
-        />
-      ))}
-      {blocks.length === 0 && (
-        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <p style={{ fontFamily: FONT_MONO, fontSize: 8, letterSpacing: "0.12em", textTransform: "uppercase", color: "#e0e0e0" }}>add text or photos below</p>
-        </div>
-      )}
-    </div>
-  );
-}
-
-// ── Journal section ───────────────────────────────────────────────────────────
-
-function JournalSection({ data, setData }: { data: ShiftData; setData: (d: ShiftData) => void }) {
-  function updateBlock(entryId: string, blockIdx: number, patch: Partial<BlockData>) {
-    setData({
-      ...data,
-      entries: data.entries.map(e =>
-        e.id === entryId
-          ? { ...e, blocks: e.blocks.map((b, i) => i === blockIdx ? { ...b, ...patch } : b) }
-          : e
-      ),
-    });
-  }
-
-  function deleteBlock(entryId: string, blockIdx: number) {
-    setData({
-      ...data,
-      entries: data.entries.map(e =>
-        e.id === entryId
-          ? { ...e, blocks: e.blocks.filter((_, i) => i !== blockIdx) }
-          : e
-      ),
-    });
-  }
-
-  function addEntry(entry: JournalEntry) {
-    const updated = { ...data, entries: [...data.entries, entry] };
-    setData(updated);
-    saveData(updated);
-  }
-
-  return (
-    <div style={{ scrollSnapType: "y mandatory", overflowY: "scroll", height: "100svh" }}>
-      {/* Intro page */}
-      <section style={{
-        height: "100svh",
-        scrollSnapAlign: "start",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "clamp(64px,10vh,100px) clamp(32px,8vw,80px)",
-        boxSizing: "border-box",
-      }}>
-        <div style={{ maxWidth: 420, width: "100%", display: "flex", flexDirection: "column", gap: 20 }}>
-          <p style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(24px,5vw,40px)", letterSpacing: "0.06em", textTransform: "uppercase", lineHeight: 1.1 }}>
-            field notes
-          </p>
-          <div style={{ borderTop: "1px solid #efefef" }} />
-          <p style={{ fontFamily: FONT_MONO, fontSize: 10, letterSpacing: "0.04em", lineHeight: 2.1, color: "#555", fontStyle: "italic" }}>
-            {"the restaurant is a gallery.\na constant and active project."}
-          </p>
-          <p style={{ fontFamily: FONT_MONO, fontSize: 8, letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb" }}>
-            — scroll to add your first page ↓
-          </p>
-        </div>
-      </section>
-
-      {/* Existing pages */}
-      {data.entries.map((entry, i) => (
-        <BookPage
-          key={entry.id}
-          entry={entry}
-          pageNum={i + 1}
-          editable
-          onUpdateBlock={(bi, patch) => updateBlock(entry.id, bi, patch)}
-          onDeleteBlock={bi => deleteBlock(entry.id, bi)}
-        />
-      ))}
-
-      {/* Composer */}
-      <EntryComposer onAdd={addEntry} />
-    </div>
-  );
+  return <div ref={ref}>{children}</div>;
 }
 
 // ── Checklist ─────────────────────────────────────────────────────────────────
 
-function Checklist({
-  data,
-  onToggle,
-  onOpenJournal,
-}: {
-  data: ShiftData;
-  onToggle: (id: string) => void;
-  onOpenJournal: () => void;
-}) {
+function Checklist({ data, onToggle, onOpenBook }: { data: ShiftData; onToggle: (id: string) => void; onOpenBook: () => void }) {
   const [expanded, setExpanded] = useState<string | null>(null);
   const headerRef = useFadeIn(0.05, 0);
-  const allDone = TASK_IDS.every(id => data.checked.includes(id));
-  const progress = data.checked.length / TASKS.length;
+  const allDone   = TASK_IDS.every(id => data.checked.includes(id));
+  const progress  = data.checked.length / TASKS.length;
   const dateLabel = new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
 
   return (
     <main style={{ fontFamily: FONT_MONO, minHeight: "100svh", background: "#fff", color: "#000" }}>
       <div style={{ maxWidth: 560, margin: "0 auto", padding: "56px 24px 80px" }}>
 
-        {/* Header */}
         <div ref={headerRef} style={{ textAlign: "center", marginBottom: 40 }}>
           <p style={{ fontFamily: FONT_DISPLAY, fontSize: 32, fontWeight: "bold", letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1, marginBottom: 6 }}>FOOOD</p>
           <p style={{ fontSize: 8, letterSpacing: "0.22em", textTransform: "uppercase", color: "#bbb", marginBottom: 14 }}>waituntilmay</p>
@@ -754,48 +586,30 @@ function Checklist({
           <p style={{ fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", color: "#bbb", marginBottom: 20 }}>am shift</p>
         </FadeIn>
 
-        {/* Progress bar */}
         <FadeIn delay={80}>
           <div style={{ marginBottom: 32 }}>
             <div style={{ height: 1, background: "#f0f0f0", marginBottom: 6 }}>
               <div style={{ height: "100%", background: "#000", width: `${progress * 100}%`, transition: "width 0.4s ease" }} />
             </div>
-            <p style={{ fontSize: 8, letterSpacing: "0.14em", color: "#ccc", textAlign: "right" }}>
-              {data.checked.length} / {TASKS.length}
-            </p>
+            <p style={{ fontSize: 8, letterSpacing: "0.14em", color: "#ccc", textAlign: "right" }}>{data.checked.length} / {TASKS.length}</p>
           </div>
         </FadeIn>
 
-        {/* Tasks */}
         <div style={{ display: "flex", flexDirection: "column", marginBottom: 48 }}>
           {TASKS.map((task, i) => {
             const done = data.checked.includes(task.id);
-            const exp = expanded === task.id;
+            const exp  = expanded === task.id;
             return (
               <FadeIn key={task.id} delay={100 + i * 40}>
                 <div style={{ borderBottom: "1px solid #f0f0f0" }}>
-                  <div
-                    style={{ display: "flex", alignItems: "flex-start", gap: 14, padding: "16px 0", cursor: "pointer" }}
-                    onClick={() => setExpanded(exp ? null : task.id)}
-                  >
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: 14, padding: "16px 0", cursor: "pointer" }} onClick={() => setExpanded(exp ? null : task.id)}>
                     <button
                       onClick={e => { e.stopPropagation(); onToggle(task.id); }}
-                      style={{
-                        width: 16, height: 16, border: `1px solid ${done ? "#000" : "#ccc"}`,
-                        background: done ? "#000" : "transparent",
-                        cursor: "pointer", flexShrink: 0, marginTop: 1,
-                        display: "flex", alignItems: "center", justifyContent: "center",
-                        transition: "all 0.15s ease",
-                      }}
+                      style={{ width: 16, height: 16, border: `1px solid ${done ? "#000" : "#ccc"}`, background: done ? "#000" : "transparent", cursor: "pointer", flexShrink: 0, marginTop: 1, display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.15s ease" }}
                     >
                       {done && <span style={{ color: "#fff", fontSize: 9 }}>✓</span>}
                     </button>
-                    <p style={{
-                      flex: 1, fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase",
-                      lineHeight: 1.5, color: done ? "#ccc" : "#000",
-                      textDecoration: done ? "line-through" : "none",
-                      textDecorationColor: "#ccc", transition: "all 0.2s ease",
-                    }}>
+                    <p style={{ flex: 1, fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1.5, color: done ? "#ccc" : "#000", textDecoration: done ? "line-through" : "none", textDecorationColor: "#ccc", transition: "all 0.2s ease" }}>
                       {task.label}
                     </p>
                     <span style={{ fontSize: 9, color: "#ddd", paddingTop: 2 }}>{exp ? "−" : "+"}</span>
@@ -804,9 +618,7 @@ function Checklist({
                     <div style={{ paddingLeft: 30, paddingBottom: 16 }}>
                       <p style={{ fontSize: 10, letterSpacing: "0.04em", color: "#888", lineHeight: 1.7 }}>{task.detail}</p>
                       {task.link && (
-                        <a href={task.link} target="_blank" rel="noopener noreferrer"
-                          style={{ display: "inline-block", marginTop: 8, fontSize: 9, letterSpacing: "0.12em", textTransform: "uppercase", color: "#aaa", textDecoration: "underline", textUnderlineOffset: "3px" }}
-                        >
+                        <a href={task.link} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 8, fontSize: 9, letterSpacing: "0.12em", textTransform: "uppercase", color: "#aaa", textDecoration: "underline", textUnderlineOffset: "3px" }}>
                           {task.linkLabel}
                         </a>
                       )}
@@ -818,30 +630,23 @@ function Checklist({
           })}
         </div>
 
-        {/* Journal entry */}
+        {/* Field notes entry */}
         <div style={{ borderTop: "1px solid #e8e8e8", paddingTop: 32 }}>
           {!allDone ? (
             <FadeIn delay={400}>
               <div style={{ textAlign: "center", padding: "20px 0" }}>
                 <p style={{ fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "#bbb", lineHeight: 2.2, maxWidth: 320, margin: "0 auto" }}>
-                  this is just something to prime<br />your writing practice.<br />
-                  your work should not be a distraction.
+                  this is just something to prime<br />your writing practice.<br />your work should not be a distraction.
                 </p>
               </div>
             </FadeIn>
           ) : (
             <FadeIn delay={60}>
               <div style={{ textAlign: "center" }}>
-                <p style={{ fontSize: 9, letterSpacing: "0.14em", color: "#888", marginBottom: 20, lineHeight: 1.8 }}>
-                  shift complete — open your field notes
-                </p>
+                <p style={{ fontSize: 9, letterSpacing: "0.14em", color: "#888", marginBottom: 20, lineHeight: 1.8 }}>shift complete — open your field notes</p>
                 <button
-                  onClick={onOpenJournal}
-                  style={{
-                    background: "#000", color: "#fff", border: "none",
-                    padding: "12px 32px", fontFamily: FONT_MONO, fontSize: 9,
-                    letterSpacing: "0.18em", textTransform: "uppercase", cursor: "pointer",
-                  }}
+                  onClick={onOpenBook}
+                  style={{ background: "#000", color: "#fff", border: "none", padding: "12px 32px", fontFamily: FONT_MONO, fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", cursor: "pointer" }}
                 >
                   field notes →
                 </button>
@@ -866,46 +671,53 @@ function Checklist({
 // ── Root ──────────────────────────────────────────────────────────────────────
 
 export default function FooodPage() {
-  const [data, setData] = useState<ShiftData>({ date: TODAY_KEY(), checked: [], entries: [] });
-  const [view, setView] = useState<"checklist" | "journal">("checklist");
+  const [data, setData]         = useState<ShiftData>({ date: TODAY_KEY(), checked: [], entries: [] });
+  const [view, setView]         = useState<"checklist" | "book">("checklist");
+  const [composing, setComposing] = useState(false);
 
-  useEffect(() => {
-    setData(loadData());
-  }, []);
+  useEffect(() => { setData(loadData()); }, []);
 
   function toggleTask(id: string) {
     setData(prev => {
-      const next = prev.checked.includes(id)
-        ? prev.checked.filter(c => c !== id)
-        : [...prev.checked, id];
+      const next    = prev.checked.includes(id) ? prev.checked.filter(c => c !== id) : [...prev.checked, id];
       const updated = { ...prev, checked: next };
       saveData(updated);
       return updated;
     });
   }
 
-  function updateData(d: ShiftData) {
-    setData(d);
-    saveData(d);
+  function addEntry(entry: JournalEntry) {
+    setData(prev => {
+      const updated = { ...prev, entries: [...prev.entries, entry] };
+      saveData(updated);
+      return updated;
+    });
+    setComposing(false);
   }
 
-  if (view === "journal") {
+  if (view === "book") {
     return (
-      <div style={{ position: "relative" }}>
-        {/* Back to checklist */}
+      <>
+        {/* Back button */}
         <button
           onClick={() => setView("checklist")}
-          style={{
-            position: "fixed", top: 18, left: 20, zIndex: 200,
-            background: "none", border: "none", fontFamily: FONT_MONO,
-            fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase",
-            color: "#bbb", cursor: "pointer",
-          }}
+          style={{ position: "fixed", top: 18, left: 20, zIndex: 200, background: "none", border: "none", fontFamily: FONT_MONO, fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "#aaa", cursor: "pointer" }}
         >
           ← checklist
         </button>
-        <JournalSection data={data} setData={updateData} />
-      </div>
+
+        <ShiftBookReader
+          entries={data.entries}
+          onNewEntry={() => setComposing(true)}
+        />
+
+        {composing && (
+          <Composer
+            onAdd={addEntry}
+            onClose={() => setComposing(false)}
+          />
+        )}
+      </>
     );
   }
 
@@ -913,7 +725,7 @@ export default function FooodPage() {
     <Checklist
       data={data}
       onToggle={toggleTask}
-      onOpenJournal={() => setView("journal")}
+      onOpenBook={() => setView("book")}
     />
   );
 }
