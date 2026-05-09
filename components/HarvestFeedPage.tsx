@@ -5,7 +5,10 @@ import Link from "next/link";
 import type { HarvestSubmission } from "@/app/api/harvest/submissions/route";
 import { FONT_DISPLAY, FONT_MONO } from "@/lib/theme";
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
+// ── Constants ─────────────────────────────────────────────────────────────────
+
+const TEXTURE_URL = "https://d2w9rnfcy7mm78.cloudfront.net/8424147/original_545e5e9598db3920be3e81593d502120.jpg";
+const CREST_URL   = "https://d2w9rnfcy7mm78.cloudfront.net/45960173/original_ca1280adc59a5fb17a12589ee119d422.png";
 
 const DISPLAY_NAMES: Record<string, string> = {
   "im-starting-to-become-a-hoarder": "im starting to become a hoarder,",
@@ -14,25 +17,19 @@ const DISPLAY_NAMES: Record<string, string> = {
 function fmtTheme(slug: string) {
   return DISPLAY_NAMES[slug] ?? slug.replace(/-/g, " ");
 }
-
-function padNum(n: number) {
-  return String(n).padStart(5, "0");
-}
-
+function padNum(n: number) { return String(n).padStart(5, "0"); }
 function getLayout(count: number): "book" | "two" | "three" {
   if (count === 0) return "book";
   if (count < 24)  return "two";
   return "three";
 }
 
-// ── Download helper ───────────────────────────────────────────────────────────
-
 async function downloadImg(url: string, name: string) {
   try {
     const res  = await fetch(url);
     const blob = await res.blob();
     const a    = Object.assign(document.createElement("a"), {
-      href:     URL.createObjectURL(blob),
+      href: URL.createObjectURL(blob),
       download: `${name.toLowerCase().replace(/\s+/g, "-")}.jpg`,
     });
     a.click();
@@ -42,38 +39,24 @@ async function downloadImg(url: string, name: string) {
   }
 }
 
-// ── Book icon SVG ─────────────────────────────────────────────────────────────
+// ── Texture overlay — applied to every page ───────────────────────────────────
 
-function BookIcon({ size = 28 }: { size?: number }) {
+function TextureOverlay() {
   return (
-    <svg width={size} height={size} viewBox="0 0 28 28" fill="none" style={{ display: "block" }}>
-      {/* Spine */}
-      <rect x="13" y="4" width="1.5" height="20" fill="#ccc" />
-      {/* Left cover */}
-      <path d="M13 5 C10 5 5 6 4 8 L4 22 C5 20 10 19 13 19 Z" fill="#e8e8e8" stroke="#ccc" strokeWidth="0.5"/>
-      {/* Right cover */}
-      <path d="M14.5 5 C17.5 5 22 6 23 8 L23 22 C22 20 17.5 19 14.5 19 Z" fill="#e8e8e8" stroke="#ccc" strokeWidth="0.5"/>
-      {/* Left lines */}
-      <line x1="6.5" y1="10" x2="12" y2="9.5" stroke="#bbb" strokeWidth="0.6"/>
-      <line x1="6.5" y1="13" x2="12" y2="12.5" stroke="#bbb" strokeWidth="0.6"/>
-      <line x1="6.5" y1="16" x2="12" y2="15.5" stroke="#bbb" strokeWidth="0.6"/>
-      {/* Right lines */}
-      <line x1="21" y1="10" x2="15.5" y2="9.5" stroke="#bbb" strokeWidth="0.6"/>
-      <line x1="21" y1="13" x2="15.5" y2="12.5" stroke="#bbb" strokeWidth="0.6"/>
-      <line x1="21" y1="16" x2="15.5" y2="15.5" stroke="#bbb" strokeWidth="0.6"/>
-    </svg>
+    <div style={{
+      position: "absolute", inset: 0, zIndex: 6, pointerEvents: "none",
+      backgroundImage: `url(${TEXTURE_URL})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      mixBlendMode: "multiply",
+      opacity: 0.055,
+    }} />
   );
 }
 
 // ── Lightbox ──────────────────────────────────────────────────────────────────
 
-function Lightbox({
-  submissions, startIdx, onClose,
-}: {
-  submissions: HarvestSubmission[];
-  startIdx: number;
-  onClose: () => void;
-}) {
+function Lightbox({ submissions, startIdx, onClose }: { submissions: HarvestSubmission[]; startIdx: number; onClose: () => void }) {
   const [idx, setIdx]         = useState(startIdx);
   const [animDir, setAnimDir] = useState<"up" | "down" | null>(null);
   const touchY                = useRef<number | null>(null);
@@ -81,9 +64,7 @@ function Lightbox({
   const img                   = sub?.images[0];
 
   const go = useCallback((dir: "up" | "down") => {
-    const next = dir === "down"
-      ? Math.min(idx + 1, submissions.length - 1)
-      : Math.max(idx - 1, 0);
+    const next = dir === "down" ? Math.min(idx + 1, submissions.length - 1) : Math.max(idx - 1, 0);
     if (next === idx) return;
     setAnimDir(dir);
     setTimeout(() => { setIdx(next); setAnimDir(null); }, 200);
@@ -91,13 +72,17 @@ function Lightbox({
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape")                               onClose();
-      if (e.key === "ArrowDown" || e.key === "ArrowRight")  go("down");
-      if (e.key === "ArrowUp"   || e.key === "ArrowLeft")   go("up");
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowDown" || e.key === "ArrowRight") go("down");
+      if (e.key === "ArrowUp"   || e.key === "ArrowLeft")  go("up");
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [go, onClose]);
+
+  if (!sub) return null;
+  const opacity   = animDir ? 0 : 1;
+  const translate = animDir === "down" ? "translateY(-28px)" : animDir === "up" ? "translateY(28px)" : "translateY(0)";
 
   function onTouchStart(e: React.TouchEvent) { touchY.current = e.touches[0].clientY; }
   function onTouchEnd(e: React.TouchEvent) {
@@ -107,34 +92,22 @@ function Lightbox({
     touchY.current = null;
   }
 
-  if (!sub) return null;
-  const opacity   = animDir ? 0 : 1;
-  const translate = animDir === "down" ? "translateY(-28px)" : animDir === "up" ? "translateY(28px)" : "translateY(0)";
-
   return (
-    <div
-      style={{ position: "fixed", inset: 0, zIndex: 400, background: "#fff", display: "flex", flexDirection: "column" }}
-      onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}
-    >
+    <div style={{ position: "fixed", inset: 0, zIndex: 400, background: "#fff", display: "flex", flexDirection: "column" }} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
       <div style={{ flexShrink: 0, display: "flex", justifyContent: "space-between", alignItems: "center", padding: "18px clamp(20px,4vw,48px)", fontFamily: FONT_MONO, opacity, transition: "opacity 0.2s ease" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <p style={{ fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase" }}>{sub.name}</p>
           <p style={{ fontSize: 8, letterSpacing: "0.1em", color: "#bbb" }}>{padNum(idx + 1)} / {padNum(submissions.length)}</p>
         </div>
         <div style={{ display: "flex", gap: 20, alignItems: "center" }}>
-          <button onClick={() => img && downloadImg(img, sub.name)}
-            style={{ background: "none", border: "1px solid #e0e0e0", padding: "6px 16px", fontFamily: FONT_MONO, fontSize: 8, letterSpacing: "0.14em", textTransform: "uppercase", cursor: "pointer", color: "#555" }}>
-            download ↓
-          </button>
-          <button onClick={onClose} style={{ background: "none", border: "none", fontFamily: FONT_MONO, fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", cursor: "pointer", color: "#bbb" }}>
-            close
-          </button>
+          <button onClick={() => img && downloadImg(img, sub.name)} style={{ background: "none", border: "1px solid #e0e0e0", padding: "6px 16px", fontFamily: FONT_MONO, fontSize: 8, letterSpacing: "0.14em", textTransform: "uppercase", cursor: "pointer", color: "#555" }}>download ↓</button>
+          <button onClick={onClose} style={{ background: "none", border: "none", fontFamily: FONT_MONO, fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", cursor: "pointer", color: "#bbb" }}>close</button>
         </div>
       </div>
       <div style={{ flex: 1, minHeight: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 clamp(24px,6vw,80px) clamp(32px,5vh,56px)", opacity, transform: translate, transition: "opacity 0.2s ease, transform 0.2s cubic-bezier(0,0,0.3,1)" }}>
         {img && <img src={img} alt={sub.name} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain", display: "block" }} />}
       </div>
-      <div style={{ flexShrink: 0, display: "flex", justifyContent: "center", gap: 32, padding: "12px 0 28px", fontFamily: FONT_MONO }}>
+      <div style={{ flexShrink: 0, display: "flex", justifyContent: "center", gap: 32, padding: "12px 0 28px" }}>
         <button onClick={() => go("up")} disabled={idx === 0} style={{ background: "none", border: "none", fontSize: 18, color: idx === 0 ? "#e0e0e0" : "#999", cursor: idx === 0 ? "default" : "pointer" }}>↑</button>
         <button onClick={() => go("down")} disabled={idx === submissions.length - 1} style={{ background: "none", border: "none", fontSize: 18, color: idx === submissions.length - 1 ? "#e0e0e0" : "#999", cursor: idx === submissions.length - 1 ? "default" : "pointer" }}>↓</button>
       </div>
@@ -142,7 +115,7 @@ function Lightbox({
   );
 }
 
-// ── Scroll progress bar ───────────────────────────────────────────────────────
+// ── Scroll progress ───────────────────────────────────────────────────────────
 
 function ScrollProgress() {
   const barRef = useRef<HTMLDivElement>(null);
@@ -162,17 +135,233 @@ function ScrollProgress() {
   );
 }
 
-// ── Intro copy ────────────────────────────────────────────────────────────────
+// ── VERSO page (left) — editorial info side ───────────────────────────────────
+
+function VersoPage({
+  submission,
+  index,
+  isLast,
+  isIntro,
+  theme,
+}: {
+  submission?: HarvestSubmission;
+  index?: number;
+  isLast?: boolean;
+  isIntro?: boolean;
+  theme: string;
+}) {
+  return (
+    <div style={{
+      width: "min(40vw, 310px)",
+      aspectRatio: "8.5 / 11",
+      background: "#faf9f7",
+      position: "relative",
+      overflow: "hidden",
+      flexShrink: 0,
+      // Left page: spine shadow on RIGHT edge
+      boxShadow: "inset -6px 0 12px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.08)",
+    }}>
+      <TextureOverlay />
+
+      {/* Page edge — fore edge on left */}
+      <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: 3, background: "linear-gradient(to right, rgba(0,0,0,0.04), transparent)", pointerEvents: "none", zIndex: 7 }} />
+
+      {/* Content — mirrored margins (wider on right / spine side) */}
+      <div style={{ position: "absolute", inset: 0, padding: "10% 12% 12% 9%", display: "flex", flexDirection: "column", zIndex: 8 }}>
+
+        {isIntro ? (
+          /* ── Intro verso: title page text ── */
+          <div style={{ display: "flex", flexDirection: "column", height: "100%", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              <div style={{ borderTop: "0.5px solid #c8c5bf", paddingTop: 10 }}>
+                <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(5px,1vw,7px)", letterSpacing: "0.22em", textTransform: "uppercase", color: "#aaa" }}>image harvest</p>
+              </div>
+              <p style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(10px,2vw,14px)", letterSpacing: "0.05em", textTransform: "uppercase", lineHeight: 1.3, color: "#2a2824" }}>
+                {fmtTheme(theme)}
+              </p>
+              <div style={{ borderBottom: "0.5px solid #c8c5bf", marginTop: 4 }} />
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(5px,0.9vw,7px)", letterSpacing: "0.08em", lineHeight: 2, color: "#888", fontStyle: "italic" }}>
+                {"food without faces.\nnames without context."}
+              </p>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(5px,0.8vw,6px)", letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb" }}>
+                contributions considered for a limited edition book — june 2026
+              </p>
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(5px,0.8vw,6px)", letterSpacing: "0.1em", color: "#ccc" }}>— waituntilmay</p>
+            </div>
+          </div>
+        ) : (
+          /* ── Submission verso: editorial info ── */
+          <div style={{ display: "flex", flexDirection: "column", height: "100%", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              <div style={{ borderTop: "0.5px solid #c8c5bf", paddingTop: 8 }}>
+                <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(5px,1vw,7px)", letterSpacing: "0.2em", textTransform: "uppercase", color: "#aaa" }}>image harvest</p>
+              </div>
+              <p style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(8px,1.6vw,12px)", letterSpacing: "0.04em", textTransform: "uppercase", lineHeight: 1.3, color: "#2a2824" }}>
+                {fmtTheme(theme)}
+              </p>
+            </div>
+
+            {/* Large page number — editorial anchor */}
+            <p style={{
+              fontFamily: FONT_DISPLAY,
+              fontSize: "clamp(32px,7vw,56px)",
+              color: "#ede9e3",
+              lineHeight: 1,
+              letterSpacing: "-0.02em",
+              userSelect: "none",
+            }}>
+              {index !== undefined ? String(index + 1).padStart(2, "0") : "—"}
+            </p>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+              {submission && (
+                <>
+                  <div style={{ borderTop: "0.5px solid #c8c5bf", paddingTop: 8 }}>
+                    <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(5px,1vw,7px)", letterSpacing: "0.12em", textTransform: "uppercase", color: "#888" }}>
+                      {submission.name}
+                    </p>
+                  </div>
+                  <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(4px,0.8vw,6px)", letterSpacing: "0.1em", color: "#bbb" }}>
+                    {new Date(submission.submittedAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+                  </p>
+                </>
+              )}
+
+              {/* Crest on last page verso */}
+              {isLast && (
+                <div style={{ display: "flex", justifyContent: "flex-start", marginTop: 12 }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={CREST_URL} alt="" style={{ width: "clamp(24px,4vw,36px)", opacity: 0.5, filter: "grayscale(1)" }} />
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ── RECTO page (right) — photo side ──────────────────────────────────────────
+
+function RectoPage({
+  submission,
+  index,
+  total,
+  isIntro,
+  isLast,
+  onClick,
+}: {
+  submission?: HarvestSubmission;
+  index?: number;
+  total: number;
+  isIntro?: boolean;
+  isLast?: boolean;
+  onClick?: () => void;
+}) {
+  const img = submission?.images[0];
+
+  return (
+    <div
+      onClick={onClick}
+      style={{
+        width: "min(40vw, 310px)",
+        aspectRatio: "8.5 / 11",
+        background: "#faf9f7",
+        position: "relative",
+        overflow: "hidden",
+        flexShrink: 0,
+        cursor: onClick ? "pointer" : "default",
+        // Right page: spine shadow on LEFT edge
+        boxShadow: "inset 6px 0 12px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.09), 4px 0 8px rgba(0,0,0,0.04)",
+      }}
+    >
+      <TextureOverlay />
+
+      {/* Page edge — fore edge on right */}
+      <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, width: 3, background: "linear-gradient(to left, rgba(0,0,0,0.03), transparent)", pointerEvents: "none", zIndex: 7 }} />
+
+      <div style={{ position: "absolute", inset: 0, padding: "10% 9% 12% 12%", display: "flex", flexDirection: "column", zIndex: 8 }}>
+
+        {isIntro ? (
+          /* ── Intro recto: cover page ── */
+          <div style={{ display: "flex", flexDirection: "column", height: "100%", justifyContent: "space-between" }}>
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", gap: 16 }}>
+              <div style={{ borderTop: "1px solid #2a2824", paddingTop: 12 }}>
+                <p style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(14px,2.8vw,22px)", letterSpacing: "0.06em", textTransform: "uppercase", lineHeight: 1.2, color: "#2a2824" }}>
+                  {fmtTheme(theme_placeholder)}
+                </p>
+              </div>
+              <div style={{ borderBottom: "0.5px solid #c8c5bf" }} />
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(5px,0.9vw,7px)", letterSpacing: "0.18em", textTransform: "uppercase", color: "#aaa" }}>
+                a collective archive
+              </p>
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(4px,0.8vw,6px)", letterSpacing: "0.12em", color: "#ccc" }}>
+                {padNum(total)} contributions
+              </p>
+            </div>
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={CREST_URL} alt="" style={{ width: "clamp(28px,5vw,44px)", opacity: 0.35, filter: "grayscale(1)" }} />
+            </div>
+          </div>
+        ) : (
+          /* ── Submission recto: framed photo ── */
+          <div style={{ display: "flex", flexDirection: "column", height: "100%", gap: 0 }}>
+            {/* Framed image — takes most of the page */}
+            <div style={{
+              flex: 1,
+              border: "0.5px solid #d4cfc8",
+              overflow: "hidden",
+              background: "#f0ede8",
+              minHeight: 0,
+            }}>
+              {img ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={img} alt={submission!.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+              ) : (
+                <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <p style={{ fontFamily: FONT_MONO, fontSize: 7, color: "#ccc", letterSpacing: "0.12em", textTransform: "uppercase" }}>no image</p>
+                </div>
+              )}
+            </div>
+
+            {/* Bottom margin — name + number */}
+            <div style={{ flexShrink: 0, paddingTop: 8, display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(5px,1vw,7px)", letterSpacing: "0.1em", textTransform: "uppercase", color: "#555", lineHeight: 1 }}>
+                {submission?.name}
+              </p>
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(4px,0.8vw,6px)", letterSpacing: "0.08em", color: "#bbb", lineHeight: 1 }}>
+                {index !== undefined ? padNum(index + 1) : ""}
+              </p>
+            </div>
+
+            {/* Crest on last page recto */}
+            {isLast && (
+              <div style={{ display: "flex", justifyContent: "center", paddingTop: 6 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={CREST_URL} alt="" style={{ width: "clamp(20px,3.5vw,32px)", opacity: 0.4, filter: "grayscale(1)" }} />
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// Placeholder used inside RectoPage JSX for the intro — resolved at runtime
+const theme_placeholder = ""; // overridden via prop drilling below
+
+// ── Intro copy for grid mode ──────────────────────────────────────────────────
 
 function IntroText({ theme }: { theme: string }) {
   return (
     <>
-      <p style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(28px,5vw,52px)", letterSpacing: "0.06em", textTransform: "uppercase", lineHeight: 1.1 }}>
-        {fmtTheme(theme)}
-      </p>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <BookIcon size={32} />
-      </div>
+      <p style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(28px,5vw,52px)", letterSpacing: "0.06em", textTransform: "uppercase", lineHeight: 1.1 }}>{fmtTheme(theme)}</p>
       <div style={{ borderTop: "1px solid #efefef" }} />
       <p style={{ fontFamily: FONT_MONO, fontSize: 11, letterSpacing: "0.04em", lineHeight: 2.2, color: "#111", fontStyle: "italic" }}>
         {"this is a collective archive — food without faces, names without context.\n\nsubmit a photograph of what you have eaten. your name will accompany it."}
@@ -185,89 +374,7 @@ function IntroText({ theme }: { theme: string }) {
   );
 }
 
-// ── Book page ─────────────────────────────────────────────────────────────────
-// A single 8.5/11 sheet: generous margin around the image, name + number inside
-
-function BookPage({
-  submission,
-  index,
-  onClick,
-}: {
-  submission: HarvestSubmission;
-  index: number;
-  onClick: () => void;
-}) {
-  const img = submission.images[0];
-
-  return (
-    <div
-      onClick={onClick}
-      style={{
-        width: "min(68vw, 400px)",
-        aspectRatio: "8.5 / 11",
-        background: "#fff",
-        position: "relative",
-        cursor: "pointer",
-        flexShrink: 0,
-        // Book-like shadow: deeper on spine side, soft lift on fore-edge
-        boxShadow: "4px 0 2px -2px rgba(0,0,0,0.04), 0 12px 48px rgba(0,0,0,0.13), -4px 0 10px rgba(0,0,0,0.07)",
-        overflow: "hidden",
-      }}
-    >
-      {/* Spine shadow */}
-      <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: 12, background: "linear-gradient(to right, rgba(0,0,0,0.12), transparent)", pointerEvents: "none", zIndex: 2 }} />
-
-      {/* Page-edge highlight */}
-      <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, width: 3, background: "linear-gradient(to left, rgba(255,255,255,0.9), transparent)", pointerEvents: "none", zIndex: 2 }} />
-
-      {/* Outer margin / border frame — 10% on sides, 8% top, 18% bottom */}
-      <div style={{
-        position: "absolute",
-        top: "8%", left: "10%", right: "10%", bottom: "18%",
-        border: "0.5px solid #e0e0e0",
-        overflow: "hidden",
-      }}>
-        {img ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={img}
-            alt={submission.name}
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-          />
-        ) : (
-          <div style={{ width: "100%", height: "100%", background: "#f5f5f5", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <span style={{ fontFamily: FONT_MONO, fontSize: 8, color: "#ccc", letterSpacing: "0.12em", textTransform: "uppercase" }}>no image</span>
-          </div>
-        )}
-      </div>
-
-      {/* Bottom caption — sits in the bottom margin */}
-      <div style={{
-        position: "absolute",
-        bottom: "5%", left: "10%", right: "10%",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "baseline",
-      }}>
-        <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(7px,1.4vw,9px)", letterSpacing: "0.12em", textTransform: "uppercase", color: "#555", lineHeight: 1 }}>
-          {submission.name}
-        </p>
-        <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(6px,1.2vw,8px)", letterSpacing: "0.1em", color: "#ccc", lineHeight: 1 }}>
-          {padNum(index + 1)}
-        </p>
-      </div>
-
-      {/* Top label */}
-      <div style={{ position: "absolute", top: "3%", left: "10%", right: "10%", display: "flex", justifyContent: "center" }}>
-        <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(5px,1vw,7px)", letterSpacing: "0.16em", textTransform: "uppercase", color: "#ccc" }}>
-          image harvest
-        </p>
-      </div>
-    </div>
-  );
-}
-
-// ── Book reader — state-driven with 3D page flip ──────────────────────────────
+// ── Book reader — two-page spread with 3D flip ────────────────────────────────
 
 type FlipPhase = "idle" | "fold-out" | "fold-in";
 
@@ -282,14 +389,13 @@ function BookReader({
   onSubmit: () => void;
   theme: string;
 }) {
-  // pageIdx 0 = intro, 1..n = submissions
-  const [pageIdx, setPageIdx]   = useState(0);
-  const [shown, setShown]       = useState(0);       // what's actually rendered during flip
-  const [phase, setPhase]       = useState<FlipPhase>("idle");
-  const [flipDir, setFlipDir]   = useState<"fwd" | "back">("fwd");
-  const touchX                  = useRef<number | null>(null);
-  const busy                    = useRef(false);
-  const total                   = submissions.length + 1; // +1 for intro
+  const [pageIdx, setPageIdx] = useState(0);   // 0 = intro, 1..n = submission index
+  const [shown, setShown]     = useState(0);
+  const [phase, setPhase]     = useState<FlipPhase>("idle");
+  const [flipDir, setFlipDir] = useState<"fwd" | "back">("fwd");
+  const touchX                = useRef<number | null>(null);
+  const busy                  = useRef(false);
+  const total                 = submissions.length + 1;
 
   const goTo = useCallback((next: number) => {
     if (busy.current || next < 0 || next >= total) return;
@@ -301,11 +407,8 @@ function BookReader({
       setShown(next);
       setPageIdx(next);
       setPhase("fold-in");
-      setTimeout(() => {
-        setPhase("idle");
-        busy.current = false;
-      }, 220);
-    }, 220);
+      setTimeout(() => { setPhase("idle"); busy.current = false; }, 240);
+    }, 240);
   }, [pageIdx, total]);
 
   const goNext = useCallback(() => goTo(pageIdx + 1), [goTo, pageIdx]);
@@ -328,131 +431,167 @@ function BookReader({
     touchX.current = null;
   }
 
-  // Build the transform for the flip animation
-  // fold-out: current page folds away. fold-in: new page comes in.
-  // Forward: page turns left (rotateY negative from right edge)
-  // Backward: page turns right (rotateY positive from left edge)
-  let transform = "rotateY(0deg)";
-  let origin    = "center center";
+  // The flip transforms the RECTO (right) page going forward,
+  // and the VERSO (left) page going back.
+  // Forward: recto folds left (origin: left center), new recto unfolds from right
+  // Backward: verso folds right (origin: right center), new verso unfolds from left
+  let spreadTransform = "none";
+  let spreadOrigin    = "center center";
+  let spreadOpacity   = 1;
 
   if (phase === "fold-out") {
-    origin    = flipDir === "fwd" ? "right center" : "left center";
-    transform = flipDir === "fwd" ? "rotateY(-90deg)" : "rotateY(90deg)";
+    spreadOrigin    = flipDir === "fwd" ? "right center" : "left center";
+    spreadTransform = flipDir === "fwd" ? "perspective(1200px) rotateY(-12deg) scale(0.98)" : "perspective(1200px) rotateY(12deg) scale(0.98)";
+    spreadOpacity   = 0.6;
   } else if (phase === "fold-in") {
-    origin    = flipDir === "fwd" ? "left center" : "right center";
-    transform = "rotateY(0deg)";
+    spreadOrigin    = flipDir === "fwd" ? "left center" : "right center";
+    spreadTransform = "perspective(1200px) rotateY(0deg) scale(1)";
+    spreadOpacity   = 1;
   }
 
-  const transition = phase === "idle"
-    ? "none"
-    : "transform 0.22s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.22s ease";
+  const transition = phase === "idle" ? "none" : "transform 0.24s cubic-bezier(0.4,0,0.2,1), opacity 0.24s ease";
 
-  const opacity = phase === "fold-out" ? 0 : 1;
-
-  const sub = shown > 0 ? submissions[shown - 1] : null;
+  const sub    = shown > 0 ? submissions[shown - 1] : undefined;
+  const isLast = shown === submissions.length;
 
   return (
     <div
-      style={{ position: "fixed", inset: 0, background: "#fff", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden" }}
+      style={{ position: "fixed", inset: 0, background: "#f0ede8", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}
       onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}
     >
       {/* Page counter */}
       <div style={{ position: "absolute", top: 64, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
-        <p style={{ fontFamily: FONT_MONO, fontSize: 8, letterSpacing: "0.14em", color: "#ccc", textTransform: "uppercase" }}>
-          {shown === 0 ? "—" : `${padNum(shown)} / ${padNum(submissions.length)}`}
+        <p style={{ fontFamily: FONT_MONO, fontSize: 8, letterSpacing: "0.14em", color: "#aaa", textTransform: "uppercase" }}>
+          {shown === 0 ? "image harvest" : `${padNum(shown)} / ${padNum(submissions.length)}`}
         </p>
       </div>
 
-      {/* 3D stage */}
-      <div style={{ perspective: "1400px", perspectiveOrigin: "50% 50%" }}>
-        <div style={{
-          transformOrigin: phase === "idle" ? "center center" : origin,
-          transform,
+      {/* Spread */}
+      <div
+        style={{
+          display: "flex",
+          transformOrigin: spreadOrigin,
+          transform: spreadTransform,
           transition,
-          opacity,
+          opacity: spreadOpacity,
           willChange: "transform, opacity",
-        }}>
-          {shown === 0 ? (
-            /* ── Intro page ── */
-            <div style={{
-              width: "min(68vw, 400px)",
-              aspectRatio: "8.5 / 11",
-              background: "#fff",
-              boxShadow: "4px 0 2px -2px rgba(0,0,0,0.04), 0 12px 48px rgba(0,0,0,0.13), -4px 0 10px rgba(0,0,0,0.07)",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              padding: "10%",
-              boxSizing: "border-box",
-              position: "relative",
-              overflow: "hidden",
-            }}>
-              {/* Spine shadow */}
-              <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: 12, background: "linear-gradient(to right, rgba(0,0,0,0.10), transparent)", pointerEvents: "none" }} />
-              <div style={{ display: "flex", flexDirection: "column", gap: "clamp(10px,2vh,18px)" }}>
-                <p style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(13px,2.5vw,19px)", letterSpacing: "0.06em", textTransform: "uppercase", lineHeight: 1.2 }}>
-                  {fmtTheme(theme)}
-                </p>
-                <BookIcon size={22} />
-                <div style={{ borderTop: "0.5px solid #e8e8e8" }} />
-                <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(7px,1.3vw,9px)", letterSpacing: "0.04em", lineHeight: 2, color: "#666", fontStyle: "italic" }}>
-                  {"food without faces.\nnames without context."}
-                </p>
-                <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(6px,1.1vw,8px)", letterSpacing: "0.12em", color: "#bbb", textTransform: "uppercase" }}>
-                  image harvest
-                </p>
-                <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(6px,1.1vw,8px)", letterSpacing: "0.1em", color: "#ccc" }}>
-                  — waituntilmay
-                </p>
-                {submissions.length > 0 && (
-                  <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(6px,1.1vw,7px)", letterSpacing: "0.12em", color: "#ddd", textTransform: "uppercase", marginTop: 4 }}>
-                    {padNum(submissions.length)} contributions →
-                  </p>
-                )}
-              </div>
-            </div>
-          ) : sub ? (
-            <BookPage
-              submission={sub}
-              index={shown - 1}
-              onClick={() => onOpenLightbox(shown - 1)}
-            />
-          ) : null}
-        </div>
+          // Gutter shadow between pages
+          filter: "drop-shadow(0 16px 48px rgba(0,0,0,0.14))",
+        }}
+      >
+        {/* VERSO — left page */}
+        <VersoPage
+          submission={sub}
+          index={shown > 0 ? shown - 1 : undefined}
+          isLast={isLast}
+          isIntro={shown === 0}
+          theme={theme}
+        />
+
+        {/* Center gutter — spine */}
+        <div style={{
+          width: 6,
+          background: "linear-gradient(to right, rgba(0,0,0,0.14) 0%, rgba(0,0,0,0.04) 50%, rgba(0,0,0,0.10) 100%)",
+          flexShrink: 0,
+          alignSelf: "stretch",
+        }} />
+
+        {/* RECTO — right page */}
+        <RectoPageWrapper
+          submission={sub}
+          index={shown > 0 ? shown - 1 : undefined}
+          total={submissions.length}
+          isIntro={shown === 0}
+          isLast={isLast}
+          theme={theme}
+          onClick={sub ? () => onOpenLightbox(shown - 1) : undefined}
+        />
       </div>
 
-      {/* Tap zones — left / right sides */}
-      <button
-        onClick={goPrev}
-        disabled={pageIdx === 0}
-        aria-label="previous"
-        style={{
-          position: "absolute", left: 0, top: 0, bottom: 0, width: "20%",
-          background: "none", border: "none", cursor: pageIdx === 0 ? "default" : "pointer",
-          zIndex: 10,
-        }}
-      />
-      <button
-        onClick={goNext}
-        disabled={pageIdx >= total - 1}
-        aria-label="next"
-        style={{
-          position: "absolute", right: 0, top: 0, bottom: 0, width: "20%",
-          background: "none", border: "none", cursor: pageIdx >= total - 1 ? "default" : "pointer",
-          zIndex: 10,
-        }}
-      />
+      {/* Tap zones */}
+      <button onClick={goPrev} disabled={pageIdx === 0} aria-label="previous" style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "18%", background: "none", border: "none", cursor: pageIdx === 0 ? "default" : "pointer", zIndex: 10 }} />
+      <button onClick={goNext} disabled={pageIdx >= total - 1} aria-label="next" style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "18%", background: "none", border: "none", cursor: pageIdx >= total - 1 ? "default" : "pointer", zIndex: 10 }} />
 
-      {/* Nav arrows */}
-      <div style={{ position: "absolute", bottom: 32, left: 0, right: 0, display: "flex", justifyContent: "center", gap: 40 }}>
-        <button onClick={goPrev} disabled={pageIdx === 0} style={{ background: "none", border: "none", fontFamily: FONT_MONO, fontSize: 16, color: pageIdx === 0 ? "#e8e8e8" : "#999", cursor: pageIdx === 0 ? "default" : "pointer" }}>‹</button>
-        <button
-          onClick={onSubmit}
-          style={{ background: "none", border: "1px solid #e0e0e0", fontFamily: FONT_MONO, fontSize: 8, letterSpacing: "0.16em", textTransform: "uppercase", padding: "7px 18px", cursor: "pointer", color: "#555" }}
-        >
+      {/* Nav */}
+      <div style={{ position: "absolute", bottom: 28, left: 0, right: 0, display: "flex", justifyContent: "center", alignItems: "center", gap: 36 }}>
+        <button onClick={goPrev} disabled={pageIdx === 0} style={{ background: "none", border: "none", fontFamily: FONT_MONO, fontSize: 18, color: pageIdx === 0 ? "#d4cfc8" : "#888", cursor: pageIdx === 0 ? "default" : "pointer" }}>‹</button>
+        <button onClick={onSubmit} style={{ background: "none", border: "1px solid #c8c5bf", fontFamily: FONT_MONO, fontSize: 7, letterSpacing: "0.18em", textTransform: "uppercase", padding: "7px 18px", cursor: "pointer", color: "#888" }}>
           add yours
         </button>
-        <button onClick={goNext} disabled={pageIdx >= total - 1} style={{ background: "none", border: "none", fontFamily: FONT_MONO, fontSize: 16, color: pageIdx >= total - 1 ? "#e8e8e8" : "#999", cursor: pageIdx >= total - 1 ? "default" : "pointer" }}>›</button>
+        <button onClick={goNext} disabled={pageIdx >= total - 1} style={{ background: "none", border: "none", fontFamily: FONT_MONO, fontSize: 18, color: pageIdx >= total - 1 ? "#d4cfc8" : "#888", cursor: pageIdx >= total - 1 ? "default" : "pointer" }}>›</button>
+      </div>
+    </div>
+  );
+}
+
+// Wrapper to pass theme into RectoPage (avoids the placeholder hack)
+function RectoPageWrapper({
+  submission, index, total, isIntro, isLast, theme, onClick,
+}: {
+  submission?: HarvestSubmission; index?: number; total: number;
+  isIntro?: boolean; isLast?: boolean; theme: string; onClick?: () => void;
+}) {
+  const img = submission?.images[0];
+
+  return (
+    <div
+      onClick={onClick}
+      style={{
+        width: "min(40vw, 310px)",
+        aspectRatio: "8.5 / 11",
+        background: "#faf9f7",
+        position: "relative",
+        overflow: "hidden",
+        flexShrink: 0,
+        cursor: onClick ? "pointer" : "default",
+        boxShadow: "inset 6px 0 12px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.09), 4px 0 8px rgba(0,0,0,0.04)",
+      }}
+    >
+      <TextureOverlay />
+      <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, width: 3, background: "linear-gradient(to left, rgba(0,0,0,0.03), transparent)", pointerEvents: "none", zIndex: 7 }} />
+      <div style={{ position: "absolute", inset: 0, padding: "10% 9% 12% 12%", display: "flex", flexDirection: "column", zIndex: 8 }}>
+
+        {isIntro ? (
+          <div style={{ display: "flex", flexDirection: "column", height: "100%", justifyContent: "space-between" }}>
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", gap: 12 }}>
+              <div style={{ borderTop: "1px solid #2a2824", paddingTop: 10 }}>
+                <p style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(12px,2.4vw,19px)", letterSpacing: "0.06em", textTransform: "uppercase", lineHeight: 1.2, color: "#2a2824" }}>
+                  {fmtTheme(theme)}
+                </p>
+              </div>
+              <div style={{ borderBottom: "0.5px solid #c8c5bf" }} />
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(5px,0.9vw,7px)", letterSpacing: "0.18em", textTransform: "uppercase", color: "#aaa" }}>a collective archive</p>
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(4px,0.8vw,6px)", letterSpacing: "0.12em", color: "#ccc" }}>{padNum(total)} contributions</p>
+            </div>
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={CREST_URL} alt="" style={{ width: "clamp(28px,5vw,44px)", opacity: 0.35, filter: "grayscale(1)" }} />
+            </div>
+          </div>
+        ) : (
+          <div style={{ display: "flex", flexDirection: "column", height: "100%", gap: 0 }}>
+            <div style={{ flex: 1, border: "0.5px solid #d4cfc8", overflow: "hidden", background: "#f0ede8", minHeight: 0 }}>
+              {img ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={img} alt={submission!.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+              ) : (
+                <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <p style={{ fontFamily: FONT_MONO, fontSize: 7, color: "#ccc", letterSpacing: "0.12em", textTransform: "uppercase" }}>no image</p>
+                </div>
+              )}
+            </div>
+            <div style={{ flexShrink: 0, paddingTop: 8, display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(5px,1vw,7px)", letterSpacing: "0.1em", textTransform: "uppercase", color: "#555", lineHeight: 1 }}>{submission?.name}</p>
+              <p style={{ fontFamily: FONT_MONO, fontSize: "clamp(4px,0.8vw,6px)", letterSpacing: "0.08em", color: "#bbb", lineHeight: 1 }}>{index !== undefined ? padNum(index + 1) : ""}</p>
+            </div>
+            {isLast && (
+              <div style={{ display: "flex", justifyContent: "center", paddingTop: 6 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={CREST_URL} alt="" style={{ width: "clamp(20px,3.5vw,32px)", opacity: 0.4, filter: "grayscale(1)" }} />
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -462,7 +601,6 @@ function BookReader({
 
 function GridCard({ submission, index, layout, onClick }: { submission: HarvestSubmission; index: number; layout: "two" | "three"; onClick: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -482,7 +620,6 @@ function GridCard({ submission, index, layout, onClick }: { submission: HarvestS
   }, [index, layout]);
 
   const img = submission.images[0];
-
   return (
     <div ref={ref} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       <div onClick={onClick} style={{ width: "100%", aspectRatio: "8.5 / 11", background: "#f5f5f5", overflow: "hidden", cursor: "pointer" }}>
@@ -547,9 +684,7 @@ function SubmitForm({ theme, onSubmitted, onClose }: { theme: string; onSubmitte
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!name.trim() || !files.length) return;
-    setStatus("uploading");
-    setErrMsg("");
-
+    setStatus("uploading"); setErrMsg("");
     try {
       const urls: string[] = [];
       for (let i = 0; i < files.length; i++) {
@@ -564,7 +699,6 @@ function SubmitForm({ theme, onSubmitted, onClose }: { theme: string; onSubmitte
         if (!r.ok || !j.url) throw new Error(j.error || `photo ${i + 1} failed`);
         urls.push(j.url as string);
       }
-
       setProgress("saving…");
       const res  = await fetch("/api/harvest/submissions", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ theme, name: name.trim(), images: urls }) });
       const data = await res.json();
@@ -593,19 +727,11 @@ function SubmitForm({ theme, onSubmitted, onClose }: { theme: string; onSubmitte
         <button type="button" onClick={onClose} style={{ ...ghostBtn, border: "none", padding: 0, color: "#bbb" }}>✕</button>
       </div>
       <input value={name} onChange={e => setName(e.target.value)} placeholder="your name" required style={inputStyle} />
-      <div
-        onClick={() => inputRef.current?.click()}
-        onDragOver={e => { e.preventDefault(); setDrag(true); }}
-        onDragLeave={() => setDrag(false)}
-        onDrop={e => { e.preventDefault(); setDrag(false); pickFiles(e.dataTransfer.files); }}
-        style={{ border: `1px dashed ${drag ? "#000" : "#ddd"}`, padding: "clamp(24px,5vh,40px) 20px", display: "flex", flexDirection: "column", alignItems: "center", gap: 8, cursor: "pointer", transition: "border-color 0.2s", background: drag ? "#fafafa" : "transparent" }}
-      >
+      <div onClick={() => inputRef.current?.click()} onDragOver={e => { e.preventDefault(); setDrag(true); }} onDragLeave={() => setDrag(false)} onDrop={e => { e.preventDefault(); setDrag(false); pickFiles(e.dataTransfer.files); }}
+        style={{ border: `1px dashed ${drag ? "#000" : "#ddd"}`, padding: "clamp(24px,5vh,40px) 20px", display: "flex", flexDirection: "column", alignItems: "center", gap: 8, cursor: "pointer", transition: "border-color 0.2s", background: drag ? "#fafafa" : "transparent" }}>
         {previews.length ? (
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center" }}>
-            {previews.map((p, i) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img key={i} src={p} alt="" style={{ height: 80, width: "auto", objectFit: "cover" }} />
-            ))}
+            {previews.map((p, i) => <img key={i} src={p} alt="" style={{ height: 80, width: "auto", objectFit: "cover" }} />)}
           </div>
         ) : (
           <>
@@ -623,7 +749,7 @@ function SubmitForm({ theme, onSubmitted, onClose }: { theme: string; onSubmitte
   );
 }
 
-// ── Main feed page ────────────────────────────────────────────────────────────
+// ── Main page ─────────────────────────────────────────────────────────────────
 
 export default function HarvestFeedPage({
   theme,
@@ -644,18 +770,13 @@ export default function HarvestFeedPage({
   useEffect(() => {
     fetch(`/api/harvest/submissions?theme=${theme}`)
       .then(r => r.json())
-      .then((fresh: HarvestSubmission[]) => {
-        if (fresh.length > submissions.length) setSubmissions(fresh);
-      })
+      .then((fresh: HarvestSubmission[]) => { if (fresh.length > submissions.length) setSubmissions(fresh); })
       .catch(() => {});
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme]);
 
-  const handleSubmitted = useCallback((s: HarvestSubmission) => {
-    setSubmissions(prev => [...prev, s]);
-  }, []);
-
-  const closeForm = useCallback(() => setShowForm(false), []);
+  const handleSubmitted = useCallback((s: HarvestSubmission) => { setSubmissions(prev => [...prev, s]); }, []);
+  const closeForm       = useCallback(() => setShowForm(false), []);
 
   return (
     <>
@@ -664,13 +785,7 @@ export default function HarvestFeedPage({
       )}
 
       {/* Fixed header */}
-      <div style={{
-        position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-        display: "flex", justifyContent: "space-between", alignItems: "center",
-        padding: "18px clamp(20px,4vw,48px)",
-        background: "linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, transparent 100%)",
-        fontFamily: FONT_MONO,
-      }}>
+      <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, display: "flex", justifyContent: "space-between", alignItems: "center", padding: "18px clamp(20px,4vw,48px)", background: layout === "book" ? "linear-gradient(to bottom, rgba(240,237,232,0.95), transparent)" : "linear-gradient(to bottom, rgba(255,255,255,0.95), transparent)", fontFamily: FONT_MONO }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <p style={{ fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "#000" }}>{fmtTheme(theme)}</p>
           <p style={{ fontSize: 8, letterSpacing: "0.12em", textTransform: "uppercase", color: "#bbb" }}>image harvest — {String(submissions.length).padStart(5, "0")} contributions</p>
@@ -687,14 +802,8 @@ export default function HarvestFeedPage({
         </div>
       )}
 
-      {/* Feed */}
       {layout === "book" ? (
-        <BookReader
-          submissions={submissions}
-          onOpenLightbox={setLightboxIdx}
-          onSubmit={() => setShowForm(true)}
-          theme={theme}
-        />
+        <BookReader submissions={submissions} onOpenLightbox={setLightboxIdx} onSubmit={() => setShowForm(true)} theme={theme} />
       ) : (
         <>
           <ScrollProgress />
@@ -722,16 +831,5 @@ export default function HarvestFeedPage({
   );
 }
 
-// ── Shared styles ─────────────────────────────────────────────────────────────
-
-const inputStyle: React.CSSProperties = {
-  background: "none", border: "none", borderBottom: "1px solid #e0e0e0",
-  padding: "8px 0", fontSize: 11, letterSpacing: "0.06em", color: "#000",
-  outline: "none", width: "100%", fontFamily: FONT_MONO,
-};
-
-const ghostBtn: React.CSSProperties = {
-  background: "none", border: "1px solid #e0e0e0", padding: "10px 24px",
-  fontFamily: FONT_MONO, fontSize: 9, letterSpacing: "0.16em",
-  textTransform: "uppercase", cursor: "pointer", color: "#555",
-};
+const inputStyle: React.CSSProperties = { background: "none", border: "none", borderBottom: "1px solid #e0e0e0", padding: "8px 0", fontSize: 11, letterSpacing: "0.06em", color: "#000", outline: "none", width: "100%", fontFamily: FONT_MONO };
+const ghostBtn: React.CSSProperties   = { background: "none", border: "1px solid #e0e0e0", padding: "10px 24px", fontFamily: FONT_MONO, fontSize: 9, letterSpacing: "0.16em", textTransform: "uppercase", cursor: "pointer", color: "#555" };
