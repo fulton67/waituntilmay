@@ -567,7 +567,6 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 function Checklist({ data, onToggle, onOpenBook }: { data: ShiftData; onToggle: (id: string) => void; onOpenBook: () => void }) {
   const [expanded, setExpanded] = useState<string | null>(null);
   const headerRef = useFadeIn(0.05, 0);
-  const allDone   = TASK_IDS.every(id => data.checked.includes(id));
   const progress  = data.checked.length / TASKS.length;
   const dateLabel = new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
 
@@ -630,33 +629,22 @@ function Checklist({ data, onToggle, onOpenBook }: { data: ShiftData; onToggle: 
           })}
         </div>
 
-        {/* Field notes entry */}
-        <div style={{ borderTop: "1px solid #e8e8e8", paddingTop: 32 }}>
-          {!allDone ? (
-            <FadeIn delay={400}>
-              <div style={{ textAlign: "center", padding: "20px 0" }}>
-                <p style={{ fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "#bbb", lineHeight: 2.2, maxWidth: 320, margin: "0 auto" }}>
-                  this is just something to prime<br />your writing practice.<br />your work should not be a distraction.
-                </p>
-              </div>
-            </FadeIn>
+        <div style={{ borderTop: "1px solid #e8e8e8", marginTop: 16, paddingTop: 56, display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
+          <div style={{ width: 1, height: 40, background: "#e8e8e8" }} />
+          <button
+            onClick={onOpenBook}
+            style={{ background: "#000", color: "#fff", border: "none", padding: "13px 36px", fontFamily: FONT_MONO, fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", cursor: "pointer" }}
+          >
+            field notes →
+          </button>
+          {data.entries.length > 0 ? (
+            <p style={{ fontSize: 8, letterSpacing: "0.12em", color: "#ccc", textTransform: "uppercase" }}>
+              {data.entries.length} {data.entries.length === 1 ? "entry" : "entries"} today
+            </p>
           ) : (
-            <FadeIn delay={60}>
-              <div style={{ textAlign: "center" }}>
-                <p style={{ fontSize: 9, letterSpacing: "0.14em", color: "#888", marginBottom: 20, lineHeight: 1.8 }}>shift complete — open your field notes</p>
-                <button
-                  onClick={onOpenBook}
-                  style={{ background: "#000", color: "#fff", border: "none", padding: "12px 32px", fontFamily: FONT_MONO, fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", cursor: "pointer" }}
-                >
-                  field notes →
-                </button>
-                {data.entries.length > 0 && (
-                  <p style={{ marginTop: 12, fontSize: 8, letterSpacing: "0.12em", color: "#ccc", textTransform: "uppercase" }}>
-                    {data.entries.length} {data.entries.length === 1 ? "page" : "pages"} today
-                  </p>
-                )}
-              </div>
-            </FadeIn>
+            <p style={{ fontSize: 8, letterSpacing: "0.12em", color: "#ddd", textTransform: "uppercase", textAlign: "center", lineHeight: 2 }}>
+              document the shift
+            </p>
           )}
         </div>
 

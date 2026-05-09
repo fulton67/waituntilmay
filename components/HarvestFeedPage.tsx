@@ -763,6 +763,7 @@ export default function HarvestFeedPage({
   const [submissions, setSubmissions] = useState<HarvestSubmission[]>(initialSubmissions);
   const [showForm, setShowForm]       = useState(false);
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+  const [bookMode, setBookMode]       = useState(false);
 
   const apiTheme = storageTheme ?? theme;
   const layout   = getLayout(submissions.length);
@@ -802,8 +803,18 @@ export default function HarvestFeedPage({
         </div>
       )}
 
-      {layout === "book" ? (
-        <BookReader submissions={submissions} onOpenLightbox={setLightboxIdx} onSubmit={() => setShowForm(true)} theme={theme} />
+      {(layout === "book" || bookMode) ? (
+        <>
+          {bookMode && (
+            <button
+              onClick={() => setBookMode(false)}
+              style={{ position: "fixed", top: 18, left: 20, zIndex: 200, background: "none", border: "none", fontFamily: FONT_MONO, fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "#aaa", cursor: "pointer" }}
+            >
+              ← grid
+            </button>
+          )}
+          <BookReader submissions={submissions} onOpenLightbox={setLightboxIdx} onSubmit={() => setShowForm(true)} theme={theme} />
+        </>
       ) : (
         <>
           <ScrollProgress />
@@ -812,7 +823,7 @@ export default function HarvestFeedPage({
               add yours →
             </button>
           )}
-          <div style={{ minHeight: "100svh", padding: "clamp(80px,12vh,120px) clamp(20px,4vw,60px) 120px" }}>
+          <div style={{ minHeight: "100svh", padding: "clamp(80px,12vh,120px) clamp(20px,4vw,60px) 160px" }}>
             <div style={{ maxWidth: 480, margin: "0 auto clamp(48px,8vh,80px)", display: "flex", flexDirection: "column", gap: 20 }}>
               <IntroText theme={theme} />
             </div>
@@ -820,6 +831,17 @@ export default function HarvestFeedPage({
               {submissions.map((s, i) => (
                 <GridCard key={s.id} submission={s} index={i} layout={layout} onClick={() => setLightboxIdx(i)} />
               ))}
+            </div>
+            {/* Open as book — at the bottom after scrolling all photos */}
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14, marginTop: "clamp(60px,10vh,100px)", paddingBottom: 40 }}>
+              <div style={{ width: 1, height: 48, background: "#e8e8e8" }} />
+              <button
+                onClick={() => setBookMode(true)}
+                style={{ background: "none", border: "1px solid #000", padding: "13px 36px", fontFamily: FONT_MONO, fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", cursor: "pointer", color: "#000" }}
+              >
+                open as book →
+              </button>
+              <p style={{ fontFamily: FONT_MONO, fontSize: 8, letterSpacing: "0.1em", color: "#ccc", textTransform: "uppercase" }}>two-page spread</p>
             </div>
           </div>
         </>
