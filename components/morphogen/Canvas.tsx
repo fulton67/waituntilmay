@@ -15,7 +15,6 @@ interface CanvasProps {
 
 export default function Canvas({ canvasRef, parsedImageRef, distFieldRef, simRef }: CanvasProps) {
   const rafRef = useRef<number>(0)
-  const store = useSimStore()
 
   const getActivePalette = useCallback((): number[] => {
     const s = useSimStore.getState()
@@ -36,14 +35,18 @@ export default function Canvas({ canvasRef, parsedImageRef, distFieldRef, simRef
         return paletteToUniform(colors)
       }
     }
-    return Array(15).fill(1)
+    // Default: black → violet → white
+    return [0,0,0, 0.2,0,0.4, 0.5,0,0.8, 0.8,0.4,1, 1,1,1]
   }, [])
 
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
     const gl = canvas.getContext('webgl2')
-    if (!gl) { console.error('WebGL 2 not supported'); return }
+    if (!gl) {
+      console.error('[MORPHOGEN] WebGL 2 not supported in this browser')
+      return
+    }
 
     const sim = new MorphogenSimulation(gl)
     simRef.current = sim
@@ -52,6 +55,31 @@ export default function Canvas({ canvasRef, parsedImageRef, distFieldRef, simRef
       sim.init(parsedImageRef.current, distFieldRef.current)
     }
 
+    // Start render loop immediately after sim is created
+    const startLoop = () => {
+      cancelAnimationFrame(rafRef.current)
+      const loop = () => {
+        const s = useSimStore.getState()
+        if (s.running) {
+          const steps = Math.max(1, Math.round(s.speed))
+          for (let i = 0; i < steps; i++) {
+            sim.step({
+              attractionRadius: s.attractionRadius,
+              attractionWeight: s.phase === 'reconstruction' ? 1.0 : 0.0,
+              turing: s.turingParams,
+              ec: s.ecParams,
+            })
+            useSimStore.setState({ iteration: s.iteration + i + 1 })
+          }
+        }
+        sim.render(canvas, useSimStore.getState().weights, getActivePalette())
+        rafRef.current = requestAnimationFrame(loop)
+      }
+      rafRef.current = requestAnimationFrame(loop)
+    }
+
+    startLoop()
+
     return () => {
       cancelAnimationFrame(rafRef.current)
       sim.dispose()
@@ -59,40 +87,12 @@ export default function Canvas({ canvasRef, parsedImageRef, distFieldRef, simRef
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  useEffect(() => {
-    const canvas = canvasRef.current
-    const sim = simRef.current
-    if (!canvas || !sim) return
-
-    cancelAnimationFrame(rafRef.current)
-
-    const loop = () => {
-      const s = useSimStore.getState()
-      if (s.running) {
-        const steps = Math.max(1, Math.round(s.speed))
-        for (let i = 0; i < steps; i++) {
-          sim.step({
-            attractionRadius: s.attractionRadius,
-            attractionWeight: s.phase === 'reconstruction' ? 1.0 : 0.0,
-            turing: s.turingParams,
-            ec: s.ecParams,
-          })
-          useSimStore.setState({ iteration: s.iteration + i + 1 })
-        }
-      }
-      sim.render(canvas, useSimStore.getState().weights, getActivePalette())
-      rafRef.current = requestAnimationFrame(loop)
-    }
-
-    rafRef.current = requestAnimationFrame(loop)
-    return () => cancelAnimationFrame(rafRef.current)
-  }, [store.running, store.speed, getActivePalette])
-
   return (
     <canvas
       ref={canvasRef}
       width={SIM_SIZE}
       height={SIM_SIZE}
+      style={{ background: '#000' }}
       className="w-full h-full object-contain rounded-lg"
     />
   )

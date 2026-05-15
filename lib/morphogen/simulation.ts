@@ -147,10 +147,13 @@ export class MorphogenSimulation {
   render(canvas: HTMLCanvasElement, weights: LayerWeights, palette: number[]) {
     const gl = this.gl
     const paddedPalette = [...palette]
-    while (paddedPalette.length < 15) paddedPalette.push(1, 1, 1)
+    // Default palette: black → violet → white (5 vec3s = 15 floats)
+    while (paddedPalette.length < 15) paddedPalette.push(0, 0, 0)
 
     twgl.bindFramebufferInfo(gl, null)
     gl.viewport(0, 0, canvas.width, canvas.height)
+    gl.clearColor(0, 0, 0, 1)
+    gl.clear(gl.COLOR_BUFFER_BIT)
     gl.useProgram(this.blendProgram.program)
     twgl.setBuffersAndAttributes(gl, this.blendProgram, this.quadBuffer)
     twgl.setUniforms(this.blendProgram, {
@@ -160,7 +163,7 @@ export class MorphogenSimulation {
       u_wGol:    weights.gol,
       u_wTuring: weights.turing,
       u_wEc:     weights.ec,
-      'u_palette[0]': paddedPalette,
+      u_palette: paddedPalette,
     })
     twgl.drawBufferInfo(gl, this.quadBuffer)
   }
