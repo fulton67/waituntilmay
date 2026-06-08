@@ -1,0 +1,324 @@
+/* ── Blob background shapes ────────────────────────────────────────── */
+.work-canvas {
+  position: relative;
+  min-height: 100svh;
+  background: #fafafa;
+  overflow: hidden;
+}
+
+.work-blob {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+  background: radial-gradient(circle, #ebebeb 0%, transparent 70%);
+  filter: blur(1px);
+}
+
+/* Dot stipple overlay on blobs */
+.work-blob::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-image: radial-gradient(circle, #d8d8d8 1px, transparent 1px);
+  background-size: 8px 8px;
+  opacity: 0.4;
+}
+
+/* ── Metadata panel ────────────────────────────────────────────────── */
+.work-meta {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 12px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.work-meta-label { color: #aaa; white-space: nowrap; }
+.work-meta-value { color: #111; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 220px; }
+
+/* ── Mode toggle ───────────────────────────────────────────────────── */
+.work-mode-toggle {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 20;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.work-mode-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: "Courier New", monospace;
+  color: #bbb;
+  transition: color 0.15s;
+}
+
+.work-mode-btn.active { color: #111; text-decoration: underline; text-underline-offset: 3px; }
+.work-mode-btn:hover:not(.active) { color: #666; }
+
+/* ── Category filters ──────────────────────────────────────────────── */
+.work-filters {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.work-filter-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: "Courier New", monospace;
+  color: #bbb;
+  transition: color 0.15s;
+}
+
+.work-filter-btn.active { color: #111; }
+
+/* ── Cloud view ────────────────────────────────────────────────────── */
+.work-cloud {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.work-cloud-item {
+  position: absolute;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.work-cloud-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Carousel view ─────────────────────────────────────────────────── */
+.work-carousel {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 80px;
+  cursor: grab;
+  user-select: none;
+}
+
+.work-carousel:active { cursor: grabbing; }
+
+.work-carousel-track {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 0 calc(50vw - 140px);
+  will-change: transform;
+}
+
+.work-carousel-item {
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #f0f0f0;
+  transition: width 0.4s cubic-bezier(0.25,0.46,0.45,0.94),
+              height 0.4s cubic-bezier(0.25,0.46,0.45,0.94),
+              opacity 0.4s ease;
+}
+
+.work-carousel-item img,
+.work-carousel-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+/* ── Canvas view ───────────────────────────────────────────────────── */
+.work-canvas-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.work-canvas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  container-type: inline-size;
+}
+
+@container (max-width: 600px) {
+  .work-canvas-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+  }
+}
+
+.work-canvas-item {
+  position: relative;
+  overflow: hidden;
+  background: #f0f0f0;
+  cursor: pointer;
+}
+
+.work-canvas-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 1;
+}
+
+/* ── Tooltip ───────────────────────────────────────────────────────── */
+.work-tooltip {
+  position: fixed;
+  z-index: 30;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  padding: 10px 14px;
+  pointer-events: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  max-width: 220px;
+}
+
+.work-tooltip-title {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: 3px;
+}
+
+.work-tooltip-sub {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #aaa;
+}
+
+/* ── Lightbox ──────────────────────────────────────────────────────── */
+.work-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(250,250,250,0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.work-lightbox-inner {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  max-width: 90vw;
+  max-height: 90svh;
+}
+
+.work-lightbox-img {
+  max-height: 80svh;
+  max-width: 65vw;
+  object-fit: contain;
+  display: block;
+}
+
+.work-lightbox-meta {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.work-lightbox-close {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-family: "Courier New", monospace;
+  color: #999;
+  z-index: 51;
+}
+
+.work-lightbox-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 28px;
+  color: #ccc;
+  z-index: 51;
+  padding: 16px;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.work-lightbox-nav:hover { color: #555; }
+.work-lightbox-nav:disabled { color: #eee; cursor: default; }
+.work-lightbox-nav.prev { left: 16px; }
+.work-lightbox-nav.next { right: 16px; }
+
+/* ── Scrollbar ─────────────────────────────────────────────────────── */
+.work-scrollbar {
+  position: fixed;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e8e8e8;
+  z-index: 20;
+}
+
+.work-scrollbar-thumb {
+  height: 100%;
+  background: #aaa;
+  transition: width 0.1s, left 0.1s;
+}
+
+/* ── Mobile ────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .work-meta { display: none; }
+  .work-mode-toggle { top: 16px; right: 16px; gap: 12px; }
+  .work-filters { bottom: 20px; gap: 12px; }
+
+  .work-carousel-track { padding: 0 calc(50vw - 45vw); gap: 8px; }
+
+  .work-canvas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 8px;
+  }
+}
