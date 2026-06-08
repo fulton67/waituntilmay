@@ -204,7 +204,9 @@ export default function CloudView({
                 transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
                 whileHover={{ scale: 1.1, zIndex: 10, transition: { duration: 0.16 } }}
                 onHoverStart={(e) => {
-                  const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+                  const el = (e.currentTarget ?? e.target) as HTMLElement | null;
+                  if (!el) return;
+                  const rect = el.getBoundingClientRect();
                   setTooltip({
                     x: rect.right,
                     y: rect.top + rect.height / 2,
