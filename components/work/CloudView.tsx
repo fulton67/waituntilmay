@@ -81,6 +81,9 @@ export default function CloudView({
     curY: number;
     moved: boolean;
   } | null>(null);
+  // Persists the moved flag after onPointerUp clears itemDragRef,
+  // so onClick (which fires after pointerup) can still check it
+  const lastDragMovedRef = useRef(false);
 
   // ── Measure container ──────────────────────────────────────────────
   useEffect(() => {
@@ -212,6 +215,7 @@ export default function CloudView({
     isPanningRef.current = false;
     const g = itemDragRef.current;
     if (!g) return;
+    lastDragMovedRef.current = g.moved;
     itemDragRef.current = null;
     const node = nodesRef.current.find((n) => n.id === g.id);
     if (node) {
@@ -276,8 +280,7 @@ export default function CloudView({
                 }}
                 onHoverEnd={() => setTooltip(null)}
                 onClick={() => {
-                  // Only open if pointer didn't move significantly (not a drag)
-                  if (!itemDragRef.current?.moved) onSelect(item);
+                  if (!lastDragMovedRef.current) onSelect(item);
                 }}
               >
                 {src ? (
