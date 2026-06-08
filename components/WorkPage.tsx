@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { AnimatePresence } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { WorkItem } from "@/app/api/work/route";
@@ -54,7 +53,9 @@ export default function WorkPage() {
 
   const openLightbox = useCallback(
     (item: WorkItem) => {
+      console.log("[wum] openLightbox called", item.id, "mediaItems:", mediaItems.length);
       const idx = mediaItems.findIndex((i) => i.id === item.id);
+      console.log("[wum] idx:", idx);
       if (idx !== -1) setLightbox({ items: mediaItems, index: idx });
     },
     [mediaItems]
@@ -101,16 +102,14 @@ export default function WorkPage() {
         ))}
       </div>
 
-      <AnimatePresence>
-        {lightbox && (
+      {lightbox && (
         <WorkLightbox
           items={lightbox.items}
           index={lightbox.index}
           onClose={() => setLightbox(null)}
           onNavigate={(i) => setLightbox((prev) => prev ? { ...prev, index: i } : null)}
         />
-        )}
-      </AnimatePresence>
+      )}
 
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/wum-logo.png" alt="" className="wum-corner-logo" />

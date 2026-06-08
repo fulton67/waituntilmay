@@ -1,14 +1,16 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { Fragment, useEffect, useCallback } from "react";
+import { motion } from "motion/react";
 import type { WorkItem } from "@/app/api/work/route";
 import { FONT_MONO, FONT_DISPLAY } from "@/lib/theme";
 
+const CAT_ORDER = ["fine-arts", "clothing-production", "movies-video", "consulting"];
+
 const CATEGORY_LABELS: Record<string, string> = {
+  "fine-arts": "fine arts",
   "clothing-production": "clothing production",
   "movies-video": "movies & video",
-  "fine-arts": "fine arts",
   "consulting": "consulting",
 };
 
@@ -35,9 +37,9 @@ export default function WorkLightbox({
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape")      onClose();
-      if (e.key === "ArrowLeft")   prev();
-      if (e.key === "ArrowRight")  next();
+      if (e.key === "Escape")     onClose();
+      if (e.key === "ArrowLeft")  prev();
+      if (e.key === "ArrowRight") next();
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -47,16 +49,20 @@ export default function WorkLightbox({
 
   const src = item.images?.[0] ?? item.image ?? "";
 
+  // Build grouped dot data
+  const groups = CAT_ORDER.map((cat) => ({
+    cat,
+    indices: items.reduce<number[]>((acc, it, i) => {
+      if (it.category === cat) acc.push(i);
+      return acc;
+    }, []),
+  })).filter((g) => g.indices.length > 0);
+
   return (
-    <AnimatePresence>
-      <motion.div
-        className="work-lightbox-overlay"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.2 }}
-        onClick={onClose}
-      >
+    <motion.div
+      className="work-lightbox-overlay"
+      onClick={onClose}
+    >
         <button className="work-lightbox-close" onClick={onClose}>close</button>
 
         <button
@@ -83,10 +89,7 @@ export default function WorkLightbox({
           {item.video ? (
             <video
               src={item.video}
-              autoPlay
-              loop
-              playsInline
-              muted
+              autoPlay loop playsInline muted
               className="work-lightbox-img"
             />
           ) : src ? (
@@ -94,7 +97,9 @@ export default function WorkLightbox({
             <img src={src} alt={item.title} className="work-lightbox-img" />
           ) : (
             <div style={{ width: 300, height: 300, background: "#f0f0f0", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span style={{ fontSize: 9, color: "#ccc", letterSpacing: "0.12em", textTransform: "uppercase", fontFamily: FONT_MONO }}>no image</span>
+              <span style={{ fontSize: 9, color: "#ccc", letterSpacing: "0.12em", textTransform: "uppercase", fontFamily: FONT_MONO }}>
+                no image
+              </span>
             </div>
           )}
 
@@ -116,12 +121,35 @@ export default function WorkLightbox({
                 {item.context}
               </p>
             )}
-            <p style={{ fontSize: 9, color: "#bbb", letterSpacing: "0.1em", fontFamily: FONT_MONO }}>
-              {index + 1} / {items.length}
-            </p>
+            <a
+              href={`/?inquire=${encodeURIComponent(item.title)}`}
+              style={{ fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", fontFamily: FONT_MONO, color: "#111", textDecoration: "none", borderBottom: "1px solid #111", paddingBottom: 1 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              inquire
+            </a>
           </div>
         </motion.div>
-      </motion.div>
-    </AnimatePresence>
+
+        {/* Dot progress strip */}
+        <div className="work-lightbox-dots" onClick={(e) => e.stopPropagation()}>
+          {groups.map((group, gi) => (
+            <Fragment key={group.cat}>
+              {gi > 0 && <div className="work-lightbox-dot-sep" />}
+              <div className="work-lightbox-dot-group">
+                {group.indices.map((itemIdx) => (
+                  <button
+                    key={itemIdx}
+                    className={`work-lightbox-dot${itemIdx === index ? " current" : ""}`}
+                    onClick={(e) => { e.stopPropagation(); onNavigate(itemIdx); }}
+                    aria-label={`Go to item ${itemIdx + 1}`}
+                    style={{ border: "none", cursor: "pointer", padding: 0, background: "none" }}
+                  />
+                ))}
+              </div>
+            </Fragment>
+          ))}
+        </div>
+    </motion.div>
   );
 }
