@@ -13,7 +13,7 @@ import type { WorkItem } from "@/app/api/work/route";
 
 const ITEM_W = 140;
 const COLLISION_R = 76;
-const CLICK_THRESHOLD = 5;
+const CLICK_THRESHOLD = 6;
 
 interface CloudNode extends SimulationNodeDatum {
   id: string;
@@ -49,6 +49,16 @@ function hashColor(id: string): string {
 
 interface Viewport { scale: number; x: number; y: number; }
 
+interface Gesture {
+  type: "item" | "canvas";
+  itemId: string | null;
+  startX: number;
+  startY: number;
+  curX: number;
+  curY: number;
+  moved: boolean;
+}
+
 export default function CloudView({
   items,
   onSelect,
@@ -65,20 +75,11 @@ export default function CloudView({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const simRef = useRef<any>(null);
   const nodesRef = useRef<CloudNode[]>([]);
-  const isPanning = useRef(false);
-  const lastPan = useRef({ x: 0, y: 0 });
+  const gestureRef = useRef<Gesture | null>(null);
   const vpRef = useRef<Viewport>(viewport);
+  const onSelectRef = useRef(onSelect);
   useEffect(() => { vpRef.current = viewport; }, [viewport]);
-
-  // Per-item drag tracking
-  const itemDragRef = useRef<{
-    id: string;
-    startX: number;
-    startY: number;
-    curX: number;
-    curY: number;
-    moved: boolean;
-  } | null>(null);
+  useEffect(() => { onSelectRef.current = onSelect; }, [onSelect]);
 
   // ── Measure container ──────────────────────────────────────────────
   useEffect(() => {
@@ -141,7 +142,7 @@ export default function CloudView({
     return () => simRef.current?.stop();
   }, [items, size]);
 
-  // ── Wheel zoom ────────────────────────────────────────────────────
+  // ── Wheel zoom ─────────────────────────────────────────────────────
   const onWheel = useCallback((e: WheelEvent) => {
     e.preventDefault();
     const { scale, x, y } = vpRef.current;
@@ -162,94 +163,93 @@ export default function CloudView({
     return () => el.removeEventListener("wheel", onWheel);
   }, [onWheel]);
 
-  // ── Canvas pan ────────────────────────────────────────────────────
-  const onCanvasPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
-    if ((e.target as HTMLElement).closest(".work-cloud-item")) return;
-    isPanning.current = true;
-    lastPan.current = { x: e.clientX, y: e.clientY };
-    e.currentTarget.setPointerCapture(e.pointerId);
-  }, []);
+  // ── All gestures handled on wrapper ───────────────────────────────
+  const onPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    const itemEl = (e.target as HTMLElement).closest<HTMLElement>("[data-item-id]");
+    const itemId = itemEl?.dataset.itemId ?? null;
 
-  const onCanvasPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
-    if (!isPanning.current) return;
-    const dx = e.clientX - lastPan.current.x;
-    const dy = e.clientY - lastPan.current.y;
-    lastPan.current = { x: e.clientX, y: e.clientY };
-    setViewport((prev) => ({ ...prev, x: prev.x + dx, y: prev.y + dy }));
-  }, []);
-
-  const onCanvasPointerUp = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
-    isPanning.current = false;
-    try { e.currentTarget.releasePointerCapture(e.pointerId); } catch { /* ignore */ }
-  }, []);
-
-  // ── Per-item drag (also handles click detection) ──────────────────
-  const onItemPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>, item: WorkItem) => {
-    e.stopPropagation();
-    itemDragRef.current = {
-      id: item.id,
+    gestureRef.current = {
+      type: itemId ? "item" : "canvas",
+      itemId,
       startX: e.clientX,
       startY: e.clientY,
       curX: e.clientX,
       curY: e.clientY,
       moved: false,
     };
-    e.currentTarget.setPointerCapture(e.pointerId);
+    try { e.currentTarget.setPointerCapture(e.pointerId); } catch { /* ignore */ }
   }, []);
 
-  const onItemPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>, item: WorkItem) => {
-    const drag = itemDragRef.current;
-    if (!drag || drag.id !== item.id) return;
+  const onPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    const g = gestureRef.current;
+    if (!g) return;
 
-    const totalDx = e.clientX - drag.startX;
-    const totalDy = e.clientY - drag.startY;
-    if (!drag.moved && Math.abs(totalDx) + Math.abs(totalDy) > CLICK_THRESHOLD) {
-      drag.moved = true;
+    const dx = e.clientX - g.curX;
+    const dy = e.clientY - g.curY;
+    const totalDx = e.clientX - g.startX;
+    const totalDy = e.clientY - g.startY;
+
+    if (!g.moved && Math.abs(totalDx) + Math.abs(totalDy) > CLICK_THRESHOLD) {
+      g.moved = true;
     }
 
-    if (!drag.moved) return;
+    g.curX = e.clientX;
+    g.curY = e.clientY;
 
-    // Move node by screen-space delta, converted to canvas space
-    const scale = vpRef.current.scale;
-    const node = nodesRef.current.find((n) => n.id === item.id);
-    if (!node) return;
+    if (!g.moved) return;
 
-    const dx = e.clientX - drag.curX;
-    const dy = e.clientY - drag.curY;
-    drag.curX = e.clientX;
-    drag.curY = e.clientY;
-
-    node.fx = (node.fx ?? node.x) + dx / scale;
-    node.fy = (node.fy ?? node.y) + dy / scale;
-
-    simRef.current?.alpha(0.3).restart();
+    if (g.type === "canvas") {
+      setViewport((prev) => ({ ...prev, x: prev.x + dx, y: prev.y + dy }));
+    } else if (g.type === "item" && g.itemId) {
+      const scale = vpRef.current.scale;
+      const node = nodesRef.current.find((n) => n.id === g.itemId);
+      if (node) {
+        node.fx = (node.fx ?? node.x) + dx / scale;
+        node.fy = (node.fy ?? node.y) + dy / scale;
+        simRef.current?.alpha(0.3).restart();
+      }
+    }
   }, []);
 
-  const onItemPointerUp = useCallback((e: React.PointerEvent<HTMLDivElement>, item: WorkItem) => {
-    const drag = itemDragRef.current;
-    if (!drag || drag.id !== item.id) return;
-    const moved = drag.moved;
-    itemDragRef.current = null;
+  const onPointerUp = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    const g = gestureRef.current;
+    gestureRef.current = null;
+    try { e.currentTarget.releasePointerCapture(e.pointerId); } catch { /* ignore */ }
 
-    // Release the fixed position so the simulation can settle
-    const node = nodesRef.current.find((n) => n.id === item.id);
-    if (node) {
-      node.fx = null;
-      node.fy = null;
-      if (moved) simRef.current?.alpha(0.1).restart();
+    if (!g) return;
+
+    if (g.type === "item" && g.itemId) {
+      const node = nodesRef.current.find((n) => n.id === g.itemId);
+      if (node) {
+        node.fx = null;
+        node.fy = null;
+        if (g.moved) simRef.current?.alpha(0.1).restart();
+      }
+      if (!g.moved) {
+        // It's a click — find the full item and open lightbox
+        const workItem = items.find((i) => i.id === g.itemId);
+        if (workItem) onSelectRef.current(workItem);
+      }
     }
+  }, [items]);
 
-    if (!moved) onSelect(item);
-  }, [onSelect]);
+  const onPointerLeave = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    // Release canvas pan state if pointer leaves; item drags continue via capture
+    const g = gestureRef.current;
+    if (g?.type === "canvas") {
+      gestureRef.current = null;
+      try { e.currentTarget.releasePointerCapture(e.pointerId); } catch { /* ignore */ }
+    }
+  }, []);
 
   return (
     <div
       ref={wrapperRef}
       className="work-cloud-wrapper"
-      onPointerDown={onCanvasPointerDown}
-      onPointerMove={onCanvasPointerMove}
-      onPointerUp={onCanvasPointerUp}
-      onPointerLeave={onCanvasPointerUp}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerLeave={onPointerLeave}
     >
       {/* Transform layer */}
       <div
@@ -271,6 +271,7 @@ export default function CloudView({
             return (
               <motion.div
                 key={item.id}
+                data-item-id={item.id}
                 className="work-cloud-item"
                 style={{
                   width: ITEM_W,
@@ -300,9 +301,6 @@ export default function CloudView({
                   });
                 }}
                 onHoverEnd={() => setTooltip(null)}
-                onPointerDown={(e) => onItemPointerDown(e, item)}
-                onPointerMove={(e) => onItemPointerMove(e, item)}
-                onPointerUp={(e) => onItemPointerUp(e, item)}
               >
                 {src ? (
                   // eslint-disable-next-line @next/next/no-img-element

@@ -46,7 +46,7 @@ export default function WorkPage() {
     (i) => i.visible && i.listed !== false && (category === "all" || i.category === category)
   );
 
-  const sorted = visible.toSorted(
+  const sorted = [...visible].sort(
     (a, b) => (CAT_PRIORITY[a.category] ?? 99) - (CAT_PRIORITY[b.category] ?? 99)
   );
 
