@@ -13,7 +13,6 @@ import type { WorkItem } from "@/app/api/work/route";
 
 const ITEM_W = 140;
 const COLLISION_R = 76;
-const DRAG_THRESHOLD = 6;
 
 interface CloudNode extends SimulationNodeDatum {
   id: string;
@@ -21,8 +20,6 @@ interface CloudNode extends SimulationNodeDatum {
   y: number;
   vx: number;
   vy: number;
-  fx?: number | null;
-  fy?: number | null;
 }
 
 interface Tooltip {
@@ -64,27 +61,11 @@ export default function CloudView({
   const wrapperRef = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const simRef = useRef<any>(null);
-  const nodesRef = useRef<CloudNode[]>([]);
-
-  // Always-current refs so native listeners never go stale
-  const itemsRef = useRef(items);
-  const onSelectRef = useRef(onSelect);
-  useEffect(() => { itemsRef.current = items; }, [items]);
-  useEffect(() => { onSelectRef.current = onSelect; }, [onSelect]);
-
   const vpRef = useRef<Viewport>(viewport);
   useEffect(() => { vpRef.current = viewport; }, [viewport]);
 
-  // Drag tracking (shared between native pointer and React handlers)
-  const dragRef = useRef<{
-    isItem: boolean;
-    itemId: string | null;
-    startX: number;
-    startY: number;
-    curX: number;
-    curY: number;
-    moved: boolean;
-  } | null>(null);
+  // Canvas pan state — only active when drag starts on background (not an item)
+  const panRef = useRef<{ curX: number; curY: number } | null>(null);
 
   // ── Measure container ──────────────────────────────────────────────
   useEffect(() => {
@@ -128,7 +109,6 @@ export default function CloudView({
       vx: 0,
       vy: 0,
     }));
-    nodesRef.current = nodes;
     simRef.current = forceSimulation(nodes)
       .force("collide", forceCollide(COLLISION_R))
       .force("center", forceCenter(cx, cy))
@@ -142,13 +122,11 @@ export default function CloudView({
     return () => simRef.current?.stop();
   }, [items, size]);
 
-  // ── All native pointer + click listeners on wrapper ────────────────
+  // ── Wheel zoom ─────────────────────────────────────────────────────
   useEffect(() => {
     const el = wrapperRef.current;
     if (!el) return;
-
-    // Wheel zoom
-    const onWheel = (e: WheelEvent) => {
+    const handler = (e: WheelEvent) => {
       e.preventDefault();
       const { scale, x, y } = vpRef.current;
       const delta = e.deltaMode === 1 ? e.deltaY * 20 : e.deltaY;
@@ -160,93 +138,40 @@ export default function CloudView({
       const ratio = newScale / scale;
       setViewport({ scale: newScale, x: mx - ratio * (mx - x), y: my - ratio * (my - y) });
     };
+    el.addEventListener("wheel", handler, { passive: false });
+    return () => el.removeEventListener("wheel", handler);
+  }, []);
 
-    // Pointer down — detect item vs canvas
-    const onPointerDown = (e: PointerEvent) => {
-      const itemEl = (e.target as HTMLElement).closest<HTMLElement>("[data-item-id]");
-      dragRef.current = {
-        isItem: !!itemEl,
-        itemId: itemEl?.dataset.itemId ?? null,
-        startX: e.clientX,
-        startY: e.clientY,
-        curX: e.clientX,
-        curY: e.clientY,
-        moved: false,
-      };
-    };
+  // ── Canvas pan — only fires when pointer goes down on background ────
+  function onWrapperPointerDown(e: React.PointerEvent<HTMLDivElement>) {
+    if ((e.target as HTMLElement).closest(".work-cloud-item")) return;
+    panRef.current = { curX: e.clientX, curY: e.clientY };
+    e.currentTarget.setPointerCapture(e.pointerId);
+  }
 
-    // Pointer move — pan or drag item
-    const onPointerMove = (e: PointerEvent) => {
-      const g = dragRef.current;
-      if (!g) return;
-      const dx = e.clientX - g.curX;
-      const dy = e.clientY - g.curY;
-      g.curX = e.clientX;
-      g.curY = e.clientY;
-      if (!g.moved) {
-        const dist = Math.abs(e.clientX - g.startX) + Math.abs(e.clientY - g.startY);
-        if (dist > DRAG_THRESHOLD) g.moved = true;
-      }
-      if (!g.moved) return;
-      if (!g.isItem) {
-        // Canvas pan
-        setViewport((prev) => ({ ...prev, x: prev.x + dx, y: prev.y + dy }));
-      } else if (g.itemId) {
-        // Item drag — update D3 node
-        const node = nodesRef.current.find((n) => n.id === g.itemId);
-        if (node) {
-          node.fx = (node.fx ?? node.x) + dx / vpRef.current.scale;
-          node.fy = (node.fy ?? node.y) + dy / vpRef.current.scale;
-          simRef.current?.alpha(0.3).restart();
-        }
-      }
-    };
+  function onWrapperPointerMove(e: React.PointerEvent<HTMLDivElement>) {
+    if (!panRef.current) return;
+    const dx = e.clientX - panRef.current.curX;
+    const dy = e.clientY - panRef.current.curY;
+    panRef.current.curX = e.clientX;
+    panRef.current.curY = e.clientY;
+    setViewport((prev) => ({ ...prev, x: prev.x + dx, y: prev.y + dy }));
+  }
 
-    // Pointer up — release item drag
-    const onPointerUp = () => {
-      const g = dragRef.current;
-      if (!g) return;
-      dragRef.current = null;
-      if (g.isItem && g.itemId) {
-        const node = nodesRef.current.find((n) => n.id === g.itemId);
-        if (node) {
-          node.fx = null;
-          node.fy = null;
-          if (g.moved) simRef.current?.alpha(0.1).restart();
-        }
-      }
-    };
-
-    // Native click — fires after pointerup, most reliable open trigger
-    const onClick = (e: MouseEvent) => {
-      const itemEl = (e.target as HTMLElement).closest<HTMLElement>("[data-item-id]");
-      if (!itemEl) return;
-      const itemId = itemEl.dataset.itemId;
-      // Suppress if this gesture was a drag
-      if (dragRef.current?.moved) return;
-      const item = itemsRef.current.find((i) => i.id === itemId);
-      if (item) onSelectRef.current(item);
-    };
-
-    el.addEventListener("wheel", onWheel, { passive: false });
-    el.addEventListener("pointerdown", onPointerDown);
-    el.addEventListener("pointermove", onPointerMove);
-    el.addEventListener("pointerup", onPointerUp);
-    el.addEventListener("pointerleave", onPointerUp);
-    el.addEventListener("click", onClick);
-
-    return () => {
-      el.removeEventListener("wheel", onWheel);
-      el.removeEventListener("pointerdown", onPointerDown);
-      el.removeEventListener("pointermove", onPointerMove);
-      el.removeEventListener("pointerup", onPointerUp);
-      el.removeEventListener("pointerleave", onPointerUp);
-      el.removeEventListener("click", onClick);
-    };
-  }, []); // runs once — uses refs for live values
+  function onWrapperPointerUp(e: React.PointerEvent<HTMLDivElement>) {
+    panRef.current = null;
+    try { e.currentTarget.releasePointerCapture(e.pointerId); } catch { /* ok */ }
+  }
 
   return (
-    <div ref={wrapperRef} className="work-cloud-wrapper">
+    <div
+      ref={wrapperRef}
+      className="work-cloud-wrapper"
+      onPointerDown={onWrapperPointerDown}
+      onPointerMove={onWrapperPointerMove}
+      onPointerUp={onWrapperPointerUp}
+      onPointerLeave={onWrapperPointerUp}
+    >
       <div
         className="work-cloud-scene"
         style={{
@@ -266,14 +191,12 @@ export default function CloudView({
             return (
               <motion.div
                 key={item.id}
-                data-item-id={item.id}
                 className="work-cloud-item"
                 style={{
                   width: ITEM_W,
                   left: pos.x - ITEM_W / 2,
                   top: pos.y - COLLISION_R / 2,
                   background: color,
-                  cursor: "pointer",
                 }}
                 initial={{ scale: 0.6, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -293,24 +216,39 @@ export default function CloudView({
                 }}
                 onHoverEnd={() => setTooltip(null)}
               >
-                {src ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={src}
-                    alt={item.title}
-                    style={{ display: "block", width: "100%", height: "auto", pointerEvents: "none" }}
-                    loading="lazy"
-                    draggable={false}
-                  />
-                ) : (
-                  <div style={{ width: ITEM_W, height: Math.round(ITEM_W * 0.72) }} />
-                )}
+                {/* Plain button — most reliable click target in the browser */}
+                <button
+                  onClick={() => onSelect(item)}
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    background: "none",
+                    border: "none",
+                    padding: 0,
+                    margin: 0,
+                    cursor: "pointer",
+                  }}
+                >
+                  {src ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={src}
+                      alt={item.title}
+                      style={{ display: "block", width: "100%", height: "auto" }}
+                      loading="lazy"
+                      draggable={false}
+                    />
+                  ) : (
+                    <div style={{ width: ITEM_W, height: Math.round(ITEM_W * 0.72) }} />
+                  )}
+                </button>
               </motion.div>
             );
           })}
         </AnimatePresence>
       </div>
 
+      {/* Tooltip */}
       <AnimatePresence>
         {tooltip && (
           <motion.div
