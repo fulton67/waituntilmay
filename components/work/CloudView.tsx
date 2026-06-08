@@ -13,7 +13,7 @@ import type { WorkItem } from "@/app/api/work/route";
 
 const ITEM_W = 140;
 const COLLISION_R = 76;
-const CLICK_THRESHOLD = 6;
+const DRAG_THRESHOLD = 6;
 
 interface CloudNode extends SimulationNodeDatum {
   id: string;
@@ -49,16 +49,6 @@ function hashColor(id: string): string {
 
 interface Viewport { scale: number; x: number; y: number; }
 
-interface Gesture {
-  type: "item" | "canvas";
-  itemId: string | null;
-  startX: number;
-  startY: number;
-  curX: number;
-  curY: number;
-  moved: boolean;
-}
-
 export default function CloudView({
   items,
   onSelect,
@@ -75,11 +65,22 @@ export default function CloudView({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const simRef = useRef<any>(null);
   const nodesRef = useRef<CloudNode[]>([]);
-  const gestureRef = useRef<Gesture | null>(null);
   const vpRef = useRef<Viewport>(viewport);
-  const onSelectRef = useRef(onSelect);
   useEffect(() => { vpRef.current = viewport; }, [viewport]);
-  useEffect(() => { onSelectRef.current = onSelect; }, [onSelect]);
+
+  // Pan state
+  const isPanningRef = useRef(false);
+  const panCurRef = useRef({ x: 0, y: 0 });
+
+  // Item drag state
+  const itemDragRef = useRef<{
+    id: string;
+    startX: number;
+    startY: number;
+    curX: number;
+    curY: number;
+    moved: boolean;
+  } | null>(null);
 
   // ── Measure container ──────────────────────────────────────────────
   useEffect(() => {
@@ -163,82 +164,60 @@ export default function CloudView({
     return () => el.removeEventListener("wheel", onWheel);
   }, [onWheel]);
 
-  // ── All gestures handled on wrapper ───────────────────────────────
+  // ── Pointer handlers on wrapper (pan + item drag via bubbling) ─────
   const onPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     const itemEl = (e.target as HTMLElement).closest<HTMLElement>("[data-item-id]");
-    const itemId = itemEl?.dataset.itemId ?? null;
-
-    gestureRef.current = {
-      type: itemId ? "item" : "canvas",
-      itemId,
-      startX: e.clientX,
-      startY: e.clientY,
-      curX: e.clientX,
-      curY: e.clientY,
-      moved: false,
-    };
-    try { e.currentTarget.setPointerCapture(e.pointerId); } catch { /* ignore */ }
+    if (itemEl) {
+      itemDragRef.current = {
+        id: itemEl.dataset.itemId!,
+        startX: e.clientX, startY: e.clientY,
+        curX: e.clientX, curY: e.clientY,
+        moved: false,
+      };
+    } else {
+      isPanningRef.current = true;
+      panCurRef.current = { x: e.clientX, y: e.clientY };
+    }
   }, []);
 
   const onPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
-    const g = gestureRef.current;
+    if (isPanningRef.current) {
+      const dx = e.clientX - panCurRef.current.x;
+      const dy = e.clientY - panCurRef.current.y;
+      panCurRef.current = { x: e.clientX, y: e.clientY };
+      setViewport((prev) => ({ ...prev, x: prev.x + dx, y: prev.y + dy }));
+      return;
+    }
+    const g = itemDragRef.current;
     if (!g) return;
-
     const dx = e.clientX - g.curX;
     const dy = e.clientY - g.curY;
-    const totalDx = e.clientX - g.startX;
-    const totalDy = e.clientY - g.startY;
-
-    if (!g.moved && Math.abs(totalDx) + Math.abs(totalDy) > CLICK_THRESHOLD) {
-      g.moved = true;
-    }
-
     g.curX = e.clientX;
     g.curY = e.clientY;
-
-    if (!g.moved) return;
-
-    if (g.type === "canvas") {
-      setViewport((prev) => ({ ...prev, x: prev.x + dx, y: prev.y + dy }));
-    } else if (g.type === "item" && g.itemId) {
-      const scale = vpRef.current.scale;
-      const node = nodesRef.current.find((n) => n.id === g.itemId);
+    if (!g.moved) {
+      const totalDist = Math.abs(e.clientX - g.startX) + Math.abs(e.clientY - g.startY);
+      if (totalDist > DRAG_THRESHOLD) g.moved = true;
+    }
+    if (g.moved) {
+      const node = nodesRef.current.find((n) => n.id === g.id);
       if (node) {
-        node.fx = (node.fx ?? node.x) + dx / scale;
-        node.fy = (node.fy ?? node.y) + dy / scale;
+        node.fx = (node.fx ?? node.x) + dx / vpRef.current.scale;
+        node.fy = (node.fy ?? node.y) + dy / vpRef.current.scale;
         simRef.current?.alpha(0.3).restart();
       }
     }
   }, []);
 
-  const onPointerUp = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
-    const g = gestureRef.current;
-    gestureRef.current = null;
-    try { e.currentTarget.releasePointerCapture(e.pointerId); } catch { /* ignore */ }
-
+  const onPointerUp = useCallback(() => {
+    isPanningRef.current = false;
+    const g = itemDragRef.current;
     if (!g) return;
-
-    if (g.type === "item" && g.itemId) {
-      const node = nodesRef.current.find((n) => n.id === g.itemId);
-      if (node) {
-        node.fx = null;
-        node.fy = null;
-        if (g.moved) simRef.current?.alpha(0.1).restart();
-      }
-      if (!g.moved) {
-        // It's a click — find the full item and open lightbox
-        const workItem = items.find((i) => i.id === g.itemId);
-        if (workItem) onSelectRef.current(workItem);
-      }
-    }
-  }, [items]);
-
-  const onPointerLeave = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
-    // Release canvas pan state if pointer leaves; item drags continue via capture
-    const g = gestureRef.current;
-    if (g?.type === "canvas") {
-      gestureRef.current = null;
-      try { e.currentTarget.releasePointerCapture(e.pointerId); } catch { /* ignore */ }
+    itemDragRef.current = null;
+    const node = nodesRef.current.find((n) => n.id === g.id);
+    if (node) {
+      node.fx = null;
+      node.fy = null;
+      if (g.moved) simRef.current?.alpha(0.1).restart();
     }
   }, []);
 
@@ -249,9 +228,8 @@ export default function CloudView({
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
-      onPointerLeave={onPointerLeave}
+      onPointerLeave={onPointerUp}
     >
-      {/* Transform layer */}
       <div
         className="work-cloud-scene"
         style={{
@@ -284,11 +262,7 @@ export default function CloudView({
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.5, opacity: 0, transition: { duration: 0.25 } }}
                 transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
-                whileHover={{
-                  scale: 1.1,
-                  zIndex: 10,
-                  transition: { duration: 0.16, ease: "easeOut" },
-                }}
+                whileHover={{ scale: 1.1, zIndex: 10, transition: { duration: 0.16 } }}
                 onHoverStart={(e) => {
                   const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
                   setTooltip({
@@ -301,14 +275,19 @@ export default function CloudView({
                   });
                 }}
                 onHoverEnd={() => setTooltip(null)}
+                onClick={() => {
+                  // Only open if pointer didn't move significantly (not a drag)
+                  if (!itemDragRef.current?.moved) onSelect(item);
+                }}
               >
                 {src ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={src}
                     alt={item.title}
-                    style={{ display: "block", width: "100%", height: "auto" }}
+                    style={{ display: "block", width: "100%", height: "auto", pointerEvents: "none" }}
                     loading="lazy"
+                    draggable={false}
                   />
                 ) : (
                   <div style={{ width: ITEM_W, height: Math.round(ITEM_W * 0.72) }} />
@@ -319,7 +298,6 @@ export default function CloudView({
         </AnimatePresence>
       </div>
 
-      {/* Tooltip — screen-space, outside the transform */}
       <AnimatePresence>
         {tooltip && (
           <motion.div
