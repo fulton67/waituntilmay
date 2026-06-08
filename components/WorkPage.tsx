@@ -1,14 +1,13 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { AnimatePresence } from "motion/react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { WorkItem } from "@/app/api/work/route";
 import { FONT_MONO } from "@/lib/theme";
 import BlobBackground from "./work/BlobBackground";
-import MetadataPanel, { type WorkMeta } from "./work/MetadataPanel";
-import ModeToggle, { type ViewMode } from "./work/ModeToggle";
 import CloudView from "./work/CloudView";
-import CarouselView from "./work/CarouselView";
-import CanvasView from "./work/CanvasView";
 import WorkLightbox from "./work/WorkLightbox";
 
 const CAT_PRIORITY: Record<string, number> = {
@@ -28,12 +27,16 @@ const CATEGORIES = [
 
 type CatId = (typeof CATEGORIES)[number]["id"];
 
+const NAV_LINKS = [
+  { href: "/",     label: "home" },
+  { href: "/work", label: "work" },
+];
+
 export default function WorkPage() {
   const [items, setItems]       = useState<WorkItem[]>([]);
   const [category, setCategory] = useState<CatId>("all");
-  const [mode, setMode]         = useState<ViewMode>("carousel");
-  const [hoveredMeta, setHoveredMeta] = useState<WorkMeta | null>(null);
   const [lightbox, setLightbox] = useState<{ items: WorkItem[]; index: number } | null>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     fetch("/api/work").then((r) => r.json()).then(setItems).catch(() => {});
@@ -43,10 +46,9 @@ export default function WorkPage() {
     (i) => i.visible && i.listed !== false && (category === "all" || i.category === category)
   );
 
-  const sorted =
-    category === "all"
-      ? visible.toSorted((a, b) => (CAT_PRIORITY[a.category] ?? 99) - (CAT_PRIORITY[b.category] ?? 99))
-      : visible;
+  const sorted = visible.toSorted(
+    (a, b) => (CAT_PRIORITY[a.category] ?? 99) - (CAT_PRIORITY[b.category] ?? 99)
+  );
 
   const mediaItems = sorted.filter((i) => !!(i.image || i.video || i.images?.length));
 
@@ -63,58 +65,52 @@ export default function WorkPage() {
       <div className="work-canvas">
         <BlobBackground />
 
-        <MetadataPanel meta={hoveredMeta} />
+        {/* Top navigation */}
+        <nav className="work-topnav">
+          <Link href="/" className="work-topnav-logo" style={{ fontFamily: FONT_MONO }}>
+            waituntilmay
+          </Link>
+          <div className="work-topnav-links">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`work-topnav-link${pathname === link.href ? " active" : ""}`}
+                style={{ fontFamily: FONT_MONO }}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </nav>
 
-        <ModeToggle mode={mode} onChange={setMode} />
-
-        {mode === "cloud" && (
-          <CloudView
-            items={mediaItems}
-            onHover={setHoveredMeta}
-            onSelect={openLightbox}
-          />
-        )}
-
-        {mode === "carousel" && (
-          <CarouselView
-            items={mediaItems}
-            onHover={setHoveredMeta}
-            onSelect={openLightbox}
-          />
-        )}
-
-        {mode === "canvas" && (
-          <CanvasView
-            items={mediaItems}
-            onHover={setHoveredMeta}
-            onSelect={openLightbox}
-          />
-        )}
-
-        {/* Category filters — bottom center */}
-        <div className="work-filters">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat.id}
-              className={`work-filter-btn${category === cat.id ? " active" : ""}`}
-              style={{ fontFamily: FONT_MONO }}
-              onClick={() => setCategory(cat.id)}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
+        <CloudView items={mediaItems} onSelect={openLightbox} />
       </div>
 
-      {/* Lightbox — rendered outside work-canvas to avoid z-index stacking */}
-      {lightbox && (
+      {/* Category filters — fixed, outside canvas so nothing blocks events */}
+      <div className="work-filters">
+        {CATEGORIES.map((cat) => (
+          <button
+            key={cat.id}
+            className={`work-filter-btn${category === cat.id ? " active" : ""}`}
+            style={{ fontFamily: FONT_MONO }}
+            onClick={() => setCategory(cat.id)}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
+      <AnimatePresence>
+        {lightbox && (
         <WorkLightbox
           items={lightbox.items}
           index={lightbox.index}
           onClose={() => setLightbox(null)}
           onNavigate={(i) => setLightbox((prev) => prev ? { ...prev, index: i } : null)}
         />
-      )}
+        )}
+      </AnimatePresence>
 
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/wum-logo.png" alt="" className="wum-corner-logo" />
