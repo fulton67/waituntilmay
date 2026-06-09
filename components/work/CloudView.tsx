@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import {
   forceSimulation,
   forceCollide,
@@ -59,22 +59,20 @@ export default function CloudView({
   const [size, setSize] = useState<{ w: number; h: number } | null>(null);
 
   const wrapperRef = useRef<HTMLDivElement>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const simRef = useRef<any>(null);
-  const vpRef = useRef<Viewport>(viewport);
+  const simRef = useRef<ReturnType<typeof forceSimulation> | null>(null);
+  const vpRef = useRef(viewport);
   useEffect(() => { vpRef.current = viewport; }, [viewport]);
 
-  // Canvas pan state — only active when drag starts on background (not an item)
   const panRef = useRef<{ curX: number; curY: number } | null>(null);
 
-  // ── Measure container ──────────────────────────────────────────────
+  // Measure container
   useEffect(() => {
     const el = wrapperRef.current;
     if (!el) return;
     const obs = new ResizeObserver(([entry]) => {
       const { width, height } = entry.contentRect;
       if (width > 0 && height > 0) {
-        setSize((prev) => {
+        setSize(prev => {
           if (prev && Math.abs(prev.w - width) < 2 && Math.abs(prev.h - height) < 2) return prev;
           return { w: width, h: height };
         });
@@ -84,30 +82,24 @@ export default function CloudView({
     return () => obs.disconnect();
   }, []);
 
-  // ── Initial viewport centering ─────────────────────────────────────
+  // Center viewport initially
   useEffect(() => {
     if (!size) return;
     const s = 0.82;
-    setViewport({
-      scale: s,
-      x: (size.w * (1 - s)) / 2,
-      y: (size.h * (1 - s)) / 2,
-    });
+    setViewport({ scale: s, x: (size.w * (1 - s)) / 2, y: (size.h * (1 - s)) / 2 });
   }, [size]);
 
-  // ── D3 simulation ──────────────────────────────────────────────────
+  // D3 simulation
   useEffect(() => {
     if (!size || items.length === 0) return;
     simRef.current?.stop();
     const { w, h } = size;
-    const cx = w / 2;
-    const cy = h / 2;
-    const nodes: CloudNode[] = items.map((item) => ({
+    const cx = w / 2, cy = h / 2;
+    const nodes: CloudNode[] = items.map(item => ({
       id: item.id,
       x: cx + (Math.random() - 0.5) * w * 0.55,
       y: cy + (Math.random() - 0.5) * h * 0.55,
-      vx: 0,
-      vy: 0,
+      vx: 0, vy: 0,
     }));
     simRef.current = forceSimulation(nodes)
       .force("collide", forceCollide(COLLISION_R))
@@ -122,7 +114,7 @@ export default function CloudView({
     return () => simRef.current?.stop();
   }, [items, size]);
 
-  // ── Wheel zoom ─────────────────────────────────────────────────────
+  // Wheel zoom
   useEffect(() => {
     const el = wrapperRef.current;
     if (!el) return;
@@ -142,23 +134,22 @@ export default function CloudView({
     return () => el.removeEventListener("wheel", handler);
   }, []);
 
-  // ── Canvas pan — only fires when pointer goes down on background ────
-  function onWrapperPointerDown(e: React.PointerEvent<HTMLDivElement>) {
-    if ((e.target as HTMLElement).closest(".work-cloud-item")) return;
+  function onPointerDown(e: React.PointerEvent<HTMLDivElement>) {
+    if ((e.target as HTMLElement).closest(".cloud-item")) return;
     panRef.current = { curX: e.clientX, curY: e.clientY };
     e.currentTarget.setPointerCapture(e.pointerId);
   }
 
-  function onWrapperPointerMove(e: React.PointerEvent<HTMLDivElement>) {
+  function onPointerMove(e: React.PointerEvent<HTMLDivElement>) {
     if (!panRef.current) return;
     const dx = e.clientX - panRef.current.curX;
     const dy = e.clientY - panRef.current.curY;
     panRef.current.curX = e.clientX;
     panRef.current.curY = e.clientY;
-    setViewport((prev) => ({ ...prev, x: prev.x + dx, y: prev.y + dy }));
+    setViewport(prev => ({ ...prev, x: prev.x + dx, y: prev.y + dy }));
   }
 
-  function onWrapperPointerUp(e: React.PointerEvent<HTMLDivElement>) {
+  function onPointerUp(e: React.PointerEvent<HTMLDivElement>) {
     panRef.current = null;
     try { e.currentTarget.releasePointerCapture(e.pointerId); } catch { /* ok */ }
   }
@@ -167,76 +158,76 @@ export default function CloudView({
     <div
       ref={wrapperRef}
       className="work-cloud-wrapper"
-      onPointerDown={onWrapperPointerDown}
-      onPointerMove={onWrapperPointerMove}
-      onPointerUp={onWrapperPointerUp}
-      onPointerLeave={onWrapperPointerUp}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerLeave={onPointerUp}
     >
       <div
         className="work-cloud-scene"
         style={{
-          transform: `translate(${viewport.x}px, ${viewport.y}px) scale(${viewport.scale})`,
+          transform: `translate(${viewport.x}px,${viewport.y}px) scale(${viewport.scale})`,
           transformOrigin: "0 0",
           width: size ? size.w : "100%",
           height: size ? size.h : "100%",
         }}
       >
-        <AnimatePresence>
-          {items.map((item) => {
-            const pos = positions[item.id];
-            if (!pos) return null;
-            const color = hashColor(item.id);
-            const src = item.images?.[0] ?? item.image ?? null;
+        {items.map(item => {
+          const pos = positions[item.id];
+          if (!pos) return null;
+          const src = item.images?.[0] ?? item.image ?? null;
 
-            return (
-              <motion.div
-                key={item.id}
-                className="work-cloud-item"
-                style={{
-                  width: ITEM_W,
-                  left: pos.x - ITEM_W / 2,
-                  top: pos.y - COLLISION_R / 2,
-                  background: color,
-                  cursor: "pointer",
-                }}
-                initial={{ scale: 0.6, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.5, opacity: 0, transition: { duration: 0.25 } }}
-                transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
-                whileHover={{ scale: 1.1, zIndex: 10, transition: { duration: 0.16 } }}
-                onClick={() => onSelect(item)}
-                onMouseEnter={(e) => {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  setTooltip({
-                    x: rect.right,
-                    y: rect.top + rect.height / 2,
-                    title: item.title,
-                    year: item.year,
-                    category: CATEGORY_LABELS[item.category] ?? item.category,
-                    role: item.role,
-                  });
-                }}
-                onMouseLeave={() => setTooltip(null)}
-              >
-                {src ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={src}
-                    alt={item.title}
-                    style={{ display: "block", width: "100%", height: "auto" }}
-                    loading="lazy"
-                    draggable={false}
-                  />
-                ) : (
-                  <div style={{ width: ITEM_W, height: Math.round(ITEM_W * 0.72) }} />
-                )}
-              </motion.div>
-            );
-          })}
-        </AnimatePresence>
+          return (
+            <div
+              key={item.id}
+              className="cloud-item"
+              style={{
+                position: "absolute",
+                width: ITEM_W,
+                left: pos.x - ITEM_W / 2,
+                top: pos.y - COLLISION_R / 2,
+                background: hashColor(item.id),
+                cursor: "pointer",
+                overflow: "hidden",
+                transition: "transform 0.15s ease",
+              }}
+              onClick={() => onSelect(item)}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = "scale(1.1)";
+                (e.currentTarget as HTMLElement).style.zIndex = "10";
+                const rect = e.currentTarget.getBoundingClientRect();
+                setTooltip({
+                  x: rect.right,
+                  y: rect.top + rect.height / 2,
+                  title: item.title,
+                  year: item.year,
+                  category: CATEGORY_LABELS[item.category] ?? item.category,
+                  role: item.role,
+                });
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = "";
+                (e.currentTarget as HTMLElement).style.zIndex = "";
+                setTooltip(null);
+              }}
+            >
+              {src ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={src}
+                  alt={item.title}
+                  style={{ display: "block", width: "100%", height: "auto", pointerEvents: "none", userSelect: "none" }}
+                  loading="lazy"
+                  draggable={false}
+                />
+              ) : (
+                <div style={{ width: ITEM_W, height: Math.round(ITEM_W * 0.72) }} />
+              )}
+            </div>
+          );
+        })}
       </div>
 
-      {/* Tooltip */}
       <AnimatePresence>
         {tooltip && (
           <motion.div
