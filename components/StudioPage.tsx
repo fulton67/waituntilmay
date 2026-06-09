@@ -1308,18 +1308,19 @@ function MediaDropZone({ value, onChange }: { value: string; onChange: (url: str
   const [dragging, setDragging] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [error, setError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   async function handleFile(file: File) {
+    setError(null);
+    const mb = file.size / (1024 * 1024);
     if (file.size > 500 * 1024 * 1024) {
-      alert("File exceeds 500 MB limit.");
+      setError(`file is ${mb.toFixed(0)} MB — max is 500 MB. compress the video first.`);
       return;
     }
     setUploading(true);
     setProgress(0);
     try {
-      // Browsers sometimes fail to detect MIME type for files with compound
-      // extensions like "name.ia.mp4". Resolve it from the actual last extension.
       const ext = file.name.split(".").pop()?.toLowerCase() ?? "";
       const mimeByExt: Record<string, string> = {
         mp4: "video/mp4", mov: "video/quicktime", webm: "video/webm",
@@ -1344,7 +1345,7 @@ function MediaDropZone({ value, onChange }: { value: string; onChange: (url: str
       onChange(blob.url);
     } catch (err) {
       console.error("Upload error:", err);
-      alert(`upload failed: ${String(err)}`);
+      setError(String(err));
     } finally {
       setUploading(false);
       setProgress(0);
@@ -1389,6 +1390,9 @@ function MediaDropZone({ value, onChange }: { value: string; onChange: (url: str
         </span>
         <input ref={inputRef} type="file" accept="image/*,video/*" style={{ display: "none" }} onChange={e => { const f = e.target.files?.[0]; if (f) handleFile(f); }} />
       </div>
+      {error && (
+        <p style={{ fontSize: 9, letterSpacing: "0.08em", color: "#c00", fontFamily: "monospace" }}>{error}</p>
+      )}
       <input
         className="border-b border-gray-200 bg-transparent py-1 text-xs tracking-widest outline-none placeholder-gray-300 focus:border-black transition-colors w-full"
         value={value}
