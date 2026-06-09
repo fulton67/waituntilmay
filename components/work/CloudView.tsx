@@ -205,10 +205,8 @@ export default function CloudView({
                 transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
                 whileHover={{ scale: 1.1, zIndex: 10, transition: { duration: 0.16 } }}
                 onClick={() => onSelect(item)}
-                onHoverStart={(e) => {
-                  const el = (e.currentTarget ?? e.target) as HTMLElement | null;
-                  if (!el) return;
-                  const rect = el.getBoundingClientRect();
+                onMouseEnter={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
                   setTooltip({
                     x: rect.right,
                     y: rect.top + rect.height / 2,
@@ -218,7 +216,7 @@ export default function CloudView({
                     role: item.role,
                   });
                 }}
-                onHoverEnd={() => setTooltip(null)}
+                onMouseLeave={() => setTooltip(null)}
               >
                 {src ? (
                   // eslint-disable-next-line @next/next/no-img-element
