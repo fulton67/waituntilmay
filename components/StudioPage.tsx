@@ -1273,9 +1273,11 @@ interface WorkItem {
   category: "clothing-production" | "movies-video" | "fine-arts" | "consulting";
   visible: boolean;
   image?: string;
+  images?: string[];
   video?: string;
   preface?: boolean;
   bio?: string;
+  context?: string;
   slug?: string;
   listed?: boolean;
 }
@@ -1294,7 +1296,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   "consulting": "consulting",
 };
 
-const BLANK_WORK: Omit<WorkItem, "id"> = { title: "", role: "", year: "", category: "clothing-production", visible: true, listed: true, image: "", bio: "" };
+const BLANK_WORK: Omit<WorkItem, "id"> = { title: "", role: "", year: "", category: "clothing-production", visible: true, listed: true, image: "", bio: "", images: [], context: "" };
 
 function itemSlug(item: WorkItem): string {
   if (item.slug) return item.slug;
@@ -1305,21 +1307,29 @@ function itemSlug(item: WorkItem): string {
 function MediaDropZone({ value, onChange }: { value: string; onChange: (url: string) => void }) {
   const [dragging, setDragging] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [progress, setProgress] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
 
   async function handleFile(file: File) {
     setUploading(true);
+    setProgress(0);
     try {
       const blob = await upload(
         `work/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g, "_")}`,
         file,
-        { access: "public", handleUploadUrl: "/api/upload", multipart: true }
+        {
+          access: "public",
+          handleUploadUrl: "/api/upload",
+          multipart: true,
+          onUploadProgress: ({ percentage }) => setProgress(Math.round(percentage)),
+        }
       );
       onChange(blob.url);
     } catch (err) {
       alert(`upload failed: ${err}`);
     } finally {
       setUploading(false);
+      setProgress(0);
     }
   }
 
@@ -1357,7 +1367,7 @@ function MediaDropZone({ value, onChange }: { value: string; onChange: (url: str
           <span style={{ fontSize: 9, letterSpacing: "0.1em", color: "#999" }}>video</span>
         ) : null}
         <span style={{ fontSize: 10, letterSpacing: "0.12em", color: uploading ? "#aaa" : "#bbb" }}>
-          {uploading ? "uploading..." : value ? "drop to replace" : "drop image or video, or click to upload"}
+          {uploading ? `uploading… ${progress}%` : value ? "drop to replace" : "drop image or video, or click to upload"}
         </span>
         <input ref={inputRef} type="file" accept="image/*,video/*" style={{ display: "none" }} onChange={e => { const f = e.target.files?.[0]; if (f) handleFile(f); }} />
       </div>
@@ -1367,6 +1377,66 @@ function MediaDropZone({ value, onChange }: { value: string; onChange: (url: str
         onChange={e => onChange(e.target.value)}
         placeholder="or paste url"
       />
+    </div>
+  );
+}
+
+function MultiImageUpload({ values, onChange }: { values: string[]; onChange: (urls: string[]) => void }) {
+  const [uploading, setUploading] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  async function handleFiles(files: FileList) {
+    setUploading(true);
+    const added: string[] = [];
+    for (const file of Array.from(files)) {
+      try {
+        const blob = await upload(
+          `work/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g, "_")}`,
+          file,
+          { access: "public", handleUploadUrl: "/api/upload", multipart: true }
+        );
+        added.push(blob.url);
+      } catch { /* skip failed */ }
+    }
+    setUploading(false);
+    onChange([...values, ...added]);
+  }
+
+  function removeAt(i: number) {
+    onChange(values.filter((_, idx) => idx !== i));
+  }
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+        {values.map((url, i) => (
+          <div key={i} style={{ position: "relative", width: 64, height: 64, flexShrink: 0 }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={url} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <button
+              onClick={() => removeAt(i)}
+              style={{ position: "absolute", top: 2, right: 2, background: "rgba(0,0,0,0.55)", color: "#fff", border: "none", borderRadius: "50%", width: 16, height: 16, fontSize: 9, cursor: "pointer", lineHeight: 1, display: "flex", alignItems: "center", justifyContent: "center" }}
+            >×</button>
+          </div>
+        ))}
+        <div
+          onClick={() => !uploading && inputRef.current?.click()}
+          style={{ width: 64, height: 64, border: "1px dashed #ddd", display: "flex", alignItems: "center", justifyContent: "center", cursor: uploading ? "default" : "pointer", flexShrink: 0 }}
+        >
+          <span style={{ fontSize: 18, color: "#ccc" }}>{uploading ? "…" : "+"}</span>
+        </div>
+      </div>
+      <input
+        className="border-b border-gray-200 bg-transparent py-1 text-xs tracking-widest outline-none placeholder-gray-300 focus:border-black transition-colors w-full"
+        placeholder="or paste image url and press enter"
+        onKeyDown={e => {
+          if (e.key === "Enter") {
+            const v = (e.target as HTMLInputElement).value.trim();
+            if (v) { onChange([...values, v]); (e.target as HTMLInputElement).value = ""; }
+          }
+        }}
+      />
+      <input ref={inputRef} type="file" accept="image/*" multiple style={{ display: "none" }} onChange={e => { if (e.target.files?.length) handleFiles(e.target.files); }} />
     </div>
   );
 }
@@ -1441,7 +1511,7 @@ function WorkTab() {
 
   function startEdit(item: WorkItem) {
     setEditId(item.id);
-    setForm({ title: item.title, role: item.role ?? "", year: item.year ?? "", category: item.category, visible: item.visible, listed: item.listed ?? true, image: item.image ?? "", video: item.video ?? "", bio: item.bio ?? "", slug: item.slug ?? "" });
+    setForm({ title: item.title, role: item.role ?? "", year: item.year ?? "", category: item.category, visible: item.visible, listed: item.listed ?? true, image: item.image ?? "", video: item.video ?? "", bio: item.bio ?? "", slug: item.slug ?? "", images: item.images ?? [], context: item.context ?? "" });
     setAdding(false);
   }
 
@@ -1475,7 +1545,7 @@ function WorkTab() {
       <div style={{ borderTop: "2px solid #000", padding: "20px 0 8px", marginTop: 2 }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
           <div>
-            <p style={{ fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb", marginBottom: 8 }}>image</p>
+            <p style={{ fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb", marginBottom: 8 }}>cover image</p>
             <MediaDropZone value={form.image ?? ""} onChange={url => setForm(p => ({ ...p, image: url }))} />
           </div>
           <div>
@@ -1485,6 +1555,11 @@ function WorkTab() {
               <video src={form.video} style={{ width: "100%", aspectRatio: "4/3", objectFit: "cover", marginTop: 8, background: "#f5f5f5" }} muted playsInline />
             )}
           </div>
+        </div>
+
+        <div style={{ marginBottom: 16 }}>
+          <p style={{ fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb", marginBottom: 8 }}>gallery images (multiple photos — shown on piece page)</p>
+          <MultiImageUpload values={form.images ?? []} onChange={urls => setForm(p => ({ ...p, images: urls }))} />
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "2fr 2fr 1fr", gap: 12, marginBottom: 12 }}>
@@ -1499,6 +1574,14 @@ function WorkTab() {
           value={form.bio ?? ""}
           onChange={e => setForm(p => ({ ...p, bio: e.target.value }))}
           placeholder="artist statement"
+          style={{ marginBottom: 12 }}
+        />
+        <textarea
+          className="border-b border-gray-200 bg-transparent py-2 text-xs tracking-widest outline-none placeholder-gray-300 focus:border-black transition-colors w-full resize-none"
+          rows={3}
+          value={form.context ?? ""}
+          onChange={e => setForm(p => ({ ...p, context: e.target.value }))}
+          placeholder="piece description / context (shown on piece page)"
           style={{ marginBottom: 12 }}
         />
 

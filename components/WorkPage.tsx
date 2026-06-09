@@ -31,6 +31,13 @@ export default function WorkPage() {
     fetch("/api/work").then(r => r.json()).then(setItems).catch(() => {});
   }, []);
 
+  // Prevent body scroll while on the work canvas
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
+  }, []);
+
   const visible = items.filter(i => i.visible && i.listed !== false && (cat === "all" || i.category === cat));
   const sorted  = [...visible].sort((a, b) => (CAT_PRIORITY[a.category] ?? 99) - (CAT_PRIORITY[b.category] ?? 99));
   const media   = sorted.filter(i => !!(i.image || i.video || i.images?.length));

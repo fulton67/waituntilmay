@@ -78,11 +78,21 @@ export default function ReferenceCluster({
       y: cy + (Math.random() - 0.5) * h * 0.5,
     }));
     nodesRef.current = nodes;
+    let t = 0;
     simRef.current = forceSimulation(nodes)
       .force("collide", forceCollide(REF_PAD))
       .force("center",  forceCenter(cx, cy))
       .force("charge",  forceManyBody().strength(-20))
-      .alphaDecay(0.02)
+      .force("wobble", () => {
+        t += 0.004;
+        for (const n of nodes) {
+          const phase = Math.abs(n.id.split("").reduce((a, c) => a + c.charCodeAt(0), 0)) * 0.37;
+          n.vx = (n.vx ?? 0) + Math.sin(t + phase) * 0.06;
+          n.vy = (n.vy ?? 0) + Math.cos(t + phase * 0.8) * 0.06;
+        }
+      })
+      .alphaDecay(0)
+      .velocityDecay(0.72)
       .on("tick", () => {
         const p: Record<string, { x: number; y: number }> = {};
         for (const n of nodes) p[n.id] = { x: n.x ?? cx, y: n.y ?? cy };
@@ -169,8 +179,7 @@ export default function ReferenceCluster({
         overflow: "hidden",
         cursor: draggingId ? "grabbing" : "grab",
         touchAction: "none",
-        marginTop: 20,
-        borderTop: "1px solid #f0f0f0",
+        marginTop: 24,
       }}
       onPointerDown={e => {
         activePtrsRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
@@ -215,16 +224,16 @@ export default function ReferenceCluster({
                 style={{
                   position: "absolute",
                   width: REF_W,
+                  height: REF_W,
                   left: p.x - REF_W / 2,
                   top:  p.y - REF_W / 2,
-                  background: nodeColor(url),
                   cursor: isDragging ? "grabbing" : "pointer",
                   overflow: "hidden",
                   zIndex: isDragging ? 10 : undefined,
                   boxShadow: isDragging
                     ? "0 8px 32px rgba(0,0,0,0.18)"
                     : linkedWork
-                      ? "0 0 0 2px #c9b99a"  // gold-ish ring on portfolio works
+                      ? "0 0 0 2px #c9b99a"
                       : undefined,
                 }}
                 initial={{ x: idx % 2 === 0 ? -80 : 80, opacity: 0 }}
@@ -233,18 +242,11 @@ export default function ReferenceCluster({
                 transition={{ duration: 0.45, delay: idx * 0.06 }}
                 whileHover={!isDragging ? { scale: 1.08, transition: { duration: 0.13 } } : undefined}
               >
-                <div style={{
-                  width: REF_W,
-                  height: REF_W,
-                  overflow: "hidden",
-                  animation: isDragging ? "none" : `wum-breathe ${3.5 + (idx % 3) * 0.9}s ease-in-out ${(idx % 7) * 0.45}s infinite`,
-                }}>
-                  {vid
-                    ? <video src={url} autoPlay loop playsInline muted style={{ display:"block", width:"100%", height:"100%", objectFit:"cover", pointerEvents:"none" }} />
-                    : /* eslint-disable-next-line @next/next/no-img-element */
-                      <img src={url} alt="" style={{ display:"block", width:"100%", height:"100%", objectFit:"cover", pointerEvents:"none", userSelect:"none" }} draggable={false} loading="lazy" />
-                  }
-                </div>
+                {vid
+                  ? <video src={url} autoPlay loop playsInline muted style={{ display:"block", width:"100%", height:"100%", objectFit:"cover", pointerEvents:"none" }} />
+                  : /* eslint-disable-next-line @next/next/no-img-element */
+                    <img src={url} alt="" style={{ display:"block", width:"100%", height:"100%", objectFit:"cover", pointerEvents:"none", userSelect:"none" }} draggable={false} loading="lazy" />
+                }
               </motion.div>
             );
           })}

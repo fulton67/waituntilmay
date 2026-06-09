@@ -77,11 +77,21 @@ export default function CloudView({
       y: cy + (Math.random() - .5) * h * .55,
     }));
     nodesRef.current = nodes;
+    let t = 0;
     simRef.current = forceSimulation(nodes)
       .force("collide", forceCollide(PAD))
       .force("center",  forceCenter(cx, cy))
       .force("charge",  forceManyBody().strength(-20))
-      .alphaDecay(0.02)
+      .force("wobble", () => {
+        t += 0.004;
+        for (const n of nodes) {
+          const phase = Math.abs(n.id.split("").reduce((a, c) => a + c.charCodeAt(0), 0)) * 0.37;
+          n.vx = (n.vx ?? 0) + Math.sin(t + phase) * 0.06;
+          n.vy = (n.vy ?? 0) + Math.cos(t + phase * 0.8) * 0.06;
+        }
+      })
+      .alphaDecay(0)
+      .velocityDecay(0.72)
       .on("tick", () => {
         const p: Record<string, { x: number; y: number }> = {};
         for (const n of nodes) p[n.id] = { x: n.x ?? cx, y: n.y ?? cy };
@@ -252,16 +262,12 @@ export default function CloudView({
                 transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94], delay: idx * 0.04 }}
                 whileHover={!isDragging ? { scale: 1.08, transition: { duration: 0.15 } } : undefined}
               >
-                <div style={{
-                  animation: isDragging ? "none" : `wum-breathe ${3.5 + (idx % 3) * 0.9}s ease-in-out ${(idx % 7) * 0.45}s infinite`,
-                }}>
-                  {src
-                    ? <img src={src} alt={item.title} style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none", userSelect:"none" }} loading="lazy" draggable={false} />
-                    : vid
-                      ? <video src={vid} autoPlay loop playsInline muted style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none" }} />
-                      : <div style={{ width: ITEM_W, height: 100 }} />
-                  }
-                </div>
+                {src
+                  ? <img src={src} alt={item.title} style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none", userSelect:"none" }} loading="lazy" draggable={false} />
+                  : vid
+                    ? <video src={vid} autoPlay loop playsInline muted style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none" }} />
+                    : <div style={{ width: ITEM_W, height: 100 }} />
+                }
               </motion.div>
             );
           })}

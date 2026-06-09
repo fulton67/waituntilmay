@@ -35,6 +35,11 @@ export default function WorkDetailOverlay({
 
   const [showRefs, setShowRefs] = useState(false);
   const [muted, setMuted] = useState(true);
+  const [showInquiry, setShowInquiry] = useState(false);
+  const [iqName,  setIqName]  = useState("");
+  const [iqEmail, setIqEmail] = useState("");
+  const [iqMsg,   setIqMsg]   = useState("");
+  const [iqStatus, setIqStatus] = useState<"idle"|"sending"|"sent"|"error">("idle");
   const [isMobile, setIsMobile] = useState(() => typeof window !== "undefined" && window.innerWidth < 768);
 
   useEffect(() => {
@@ -47,7 +52,25 @@ export default function WorkDetailOverlay({
   useEffect(() => {
     setNavStack([item]);
     setShowRefs(false);
+    setShowInquiry(false);
+    setIqStatus("idle");
   }, [item.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  async function submitInquiry(e: React.FormEvent) {
+    e.preventDefault();
+    setIqStatus("sending");
+    try {
+      const res = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: iqName.trim(), email: iqEmail.trim(), message: iqMsg.trim() }),
+      });
+      if (!res.ok) throw new Error();
+      setIqStatus("sent");
+    } catch {
+      setIqStatus("error");
+    }
+  }
 
   useEffect(() => {
     const fn = (e: KeyboardEvent) => {
@@ -179,13 +202,39 @@ export default function WorkDetailOverlay({
               {current.year && <p style={{ fontSize:10, letterSpacing:"0.18em", color:"#bbb", fontFamily:FONT_MONO, textTransform:"uppercase", marginBottom:6 }}>{current.year}</p>}
               {current.role && <p style={{ fontSize:10, letterSpacing:"0.10em", color:"#ccc", fontFamily:FONT_MONO, marginBottom:18 }}>{current.role}</p>}
               {current.context && <p style={{ fontSize:9, letterSpacing:"0.04em", color:"#777", fontFamily:FONT_MONO, lineHeight:1.7, marginBottom:20 }}>{current.context}</p>}
-              <a
-                href={`/?inquire=${encodeURIComponent(current.title)}`}
-                onClick={e => e.stopPropagation()}
-                style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", fontFamily:FONT_MONO, color:"#111", textDecoration:"none", borderBottom:"1px solid #111", paddingBottom:1 }}
+              <button
+                onClick={e => { e.stopPropagation(); setShowInquiry(v => !v); setIqMsg(showInquiry ? iqMsg : `Inquiry regarding: ${current.title}\n\n`); setIqStatus("idle"); }}
+                style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", fontFamily:FONT_MONO, color:"#111", background:"none", border:"none", borderBottom:"1px solid #111", paddingBottom:1, cursor:"pointer", padding:0 }}
               >
                 inquire
-              </a>
+              </button>
+
+              <AnimatePresence>
+                {showInquiry && (
+                  <motion.div
+                    initial={{ opacity:0, height:0 }} animate={{ opacity:1, height:"auto" }} exit={{ opacity:0, height:0 }}
+                    transition={{ duration:0.22 }} style={{ overflow:"hidden", marginTop:16 }}
+                    onClick={e => e.stopPropagation()}
+                  >
+                    {iqStatus === "sent" ? (
+                      <p style={{ fontSize:9, letterSpacing:"0.1em", color:"#aaa", fontFamily:FONT_MONO }}>sent.</p>
+                    ) : (
+                      <form onSubmit={submitInquiry} style={{ display:"flex", flexDirection:"column", gap:10 }}>
+                        <input required placeholder="name" value={iqName} onChange={e => setIqName(e.target.value)}
+                          style={{ borderBottom:"1px solid #e0e0e0", background:"none", outline:"none", fontSize:9, letterSpacing:"0.1em", fontFamily:FONT_MONO, color:"#111", padding:"4px 0", width:"100%" }} />
+                        <input required type="email" placeholder="email" value={iqEmail} onChange={e => setIqEmail(e.target.value)}
+                          style={{ borderBottom:"1px solid #e0e0e0", background:"none", outline:"none", fontSize:9, letterSpacing:"0.1em", fontFamily:FONT_MONO, color:"#111", padding:"4px 0", width:"100%" }} />
+                        <textarea required rows={3} placeholder="message" value={iqMsg} onChange={e => setIqMsg(e.target.value)}
+                          style={{ border:"none", borderBottom:"1px solid #e0e0e0", background:"none", outline:"none", fontSize:9, letterSpacing:"0.1em", fontFamily:FONT_MONO, color:"#111", padding:"4px 0", resize:"none", width:"100%" }} />
+                        <button type="submit" disabled={iqStatus === "sending"}
+                          style={{ fontSize:8, letterSpacing:"0.14em", textTransform:"uppercase", fontFamily:FONT_MONO, color: iqStatus === "sending" ? "#aaa" : "#111", background:"none", border:"none", borderBottom:"1px solid currentColor", paddingBottom:1, cursor:"pointer", padding:0, alignSelf:"flex-start" }}>
+                          {iqStatus === "sending" ? "sending…" : iqStatus === "error" ? "retry" : "send"}
+                        </button>
+                      </form>
+                    )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               {hasRefs && (
                 <div style={{ marginTop:28 }}>
