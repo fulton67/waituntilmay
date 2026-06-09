@@ -9,7 +9,12 @@ import type { WorkItem } from "@/app/api/work/route";
 const ITEM_W = 140;
 const PAD    = 76;
 
-interface Node extends SimulationNodeDatum { id: string }
+interface Node extends SimulationNodeDatum {
+  id: string;
+  x: number; y: number;
+  fx?: number | null;
+  fy?: number | null;
+}
 
 const COLORS = ["#c9b99a","#8a9bb0","#b0a28a","#9ab09a","#a09ab0","#b08a8a","#8ab0a0"];
 function nodeColor(id: string) {
@@ -23,17 +28,22 @@ export default function CloudView({
   items: WorkItem[];
   onSelect: (item: WorkItem) => void;
 }) {
-  const wrapRef = useRef<HTMLDivElement>(null);
+  const wrapRef  = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const simRef  = useRef<any>(null);
-  const vpRef   = useRef({ scale: 1, x: 0, y: 0 });
-  // pan only active when mouse is held on background
-  const panRef  = useRef<{ x: number; y: number; dragging: boolean } | null>(null);
+  const simRef   = useRef<any>(null);
+  const nodesRef = useRef<Node[]>([]);
+  const vpRef    = useRef({ scale: 1, x: 0, y: 0 });
+
+  // pan: background drag
+  const panRef  = useRef<{ x: number; y: number } | null>(null);
+  // item drag: tracks which node is being dragged and whether it moved
+  const dragRef = useRef<{ id: string; item: WorkItem; moved: boolean } | null>(null);
 
   const [pos,  setPos]  = useState<Record<string, { x: number; y: number }>>({});
   const [vp,   setVp]   = useState({ scale: 1, x: 0, y: 0 });
   const [size, setSize] = useState<{ w: number; h: number } | null>(null);
   const [tip,  setTip]  = useState<{ x: number; y: number; item: WorkItem } | null>(null);
+  const [draggingId, setDraggingId] = useState<string | null>(null);
 
   useEffect(() => { vpRef.current = vp; }, [vp]);
 
@@ -67,11 +77,12 @@ export default function CloudView({
       x: cx + (Math.random() - .5) * w * .55,
       y: cy + (Math.random() - .5) * h * .55,
     }));
+    nodesRef.current = nodes;
     simRef.current = forceSimulation(nodes)
       .force("collide", forceCollide(PAD))
       .force("center",  forceCenter(cx, cy))
       .force("charge",  forceManyBody().strength(-20))
-      .alphaDecay(0.035)
+      .alphaDecay(0.02)   // slow decay — keeps simulation alive longer
       .on("tick", () => {
         const p: Record<string, { x: number; y: number }> = {};
         for (const n of nodes) p[n.id] = { x: n.x ?? cx, y: n.y ?? cy };
@@ -80,15 +91,14 @@ export default function CloudView({
     return () => { simRef.current?.stop(); };
   }, [items, size]);
 
-  // Wheel zoom — native listener so we can call preventDefault
+  // Wheel zoom
   useEffect(() => {
     const el = wrapRef.current; if (!el) return;
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       const { scale, x, y } = vpRef.current;
       const delta  = e.deltaMode === 1 ? e.deltaY * 20 : e.deltaY;
-      const factor = 1 + (-delta * 0.0005);
-      const ns     = Math.max(0.15, Math.min(5, scale * factor));
+      const ns     = Math.max(0.15, Math.min(5, scale * (1 + (-delta * 0.0005))));
       const r      = el.getBoundingClientRect();
       const mx = e.clientX - r.left, my = e.clientY - r.top;
       const ratio  = ns / scale;
@@ -98,43 +108,67 @@ export default function CloudView({
     return () => el.removeEventListener("wheel", onWheel);
   }, []);
 
-  // Pan — use native mouse events (NOT setPointerCapture) so clicks reach children
+  // Global mouse events — handles both item drag and background pan
   useEffect(() => {
-    const el = wrapRef.current; if (!el) return;
-
-    const onDown = (e: MouseEvent) => {
-      const t = e.target as HTMLElement;
-      if (t.closest("[data-item]")) return;          // ignore item clicks
-      panRef.current = { x: e.clientX, y: e.clientY, dragging: false };
-    };
     const onMove = (e: MouseEvent) => {
-      if (!panRef.current) return;
-      const dx = e.clientX - panRef.current.x;
-      const dy = e.clientY - panRef.current.y;
-      panRef.current.x = e.clientX;
-      panRef.current.y = e.clientY;
-      if (Math.abs(dx) > 2 || Math.abs(dy) > 2) panRef.current.dragging = true;
-      setVp(v => ({ ...v, x: v.x + dx, y: v.y + dy }));
+      if (dragRef.current) {
+        // Item drag — convert screen → scene coordinates
+        const wrap = wrapRef.current;
+        if (!wrap) return;
+        const { scale, x: vpX, y: vpY } = vpRef.current;
+        const r = wrap.getBoundingClientRect();
+        const sceneX = (e.clientX - r.left - vpX) / scale;
+        const sceneY = (e.clientY - r.top  - vpY) / scale;
+        const node = nodesRef.current.find(n => n.id === dragRef.current!.id);
+        if (node) {
+          node.fx = sceneX;
+          node.fy = sceneY;
+          dragRef.current.moved = true;
+          simRef.current?.alphaTarget(0.3).restart();
+        }
+      } else if (panRef.current) {
+        // Background pan
+        const dx = e.clientX - panRef.current.x;
+        const dy = e.clientY - panRef.current.y;
+        panRef.current = { x: e.clientX, y: e.clientY };
+        setVp(v => ({ ...v, x: v.x + dx, y: v.y + dy }));
+      }
     };
-    const onUp = () => { panRef.current = null; };
 
-    el.addEventListener("mousedown", onDown);
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseup",  onUp);
-    return () => {
-      el.removeEventListener("mousedown", onDown);
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mouseup",  onUp);
+    const onUp = () => {
+      if (dragRef.current) {
+        const node = nodesRef.current.find(n => n.id === dragRef.current!.id);
+        if (node) { node.fx = null; node.fy = null; }
+        simRef.current?.alphaTarget(0).restart();
+        // If barely moved — it was a click, open overlay
+        if (!dragRef.current.moved) onSelect(dragRef.current.item);
+        dragRef.current = null;
+        setDraggingId(null);
+      }
+      panRef.current = null;
     };
-  }, []);
+
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup",   onUp);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup",   onUp);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [onSelect]);
 
   return (
     <div
       ref={wrapRef}
-      style={{ position:"absolute", inset:0, overflow:"hidden", cursor:"grab", zIndex:1 }}
+      style={{ position:"absolute", inset:0, overflow:"hidden", cursor: draggingId ? "grabbing" : "grab", zIndex:1 }}
+      onMouseDown={e => {
+        const t = e.target as HTMLElement;
+        if (t.closest("[data-item]")) return;   // item handles its own mousedown
+        panRef.current = { x: e.clientX, y: e.clientY };
+      }}
     >
       <div style={{
-        position: "absolute", top: 0, left: 0,
+        position:"absolute", top:0, left:0,
         width:  size?.w ?? "100%",
         height: size?.h ?? "100%",
         transform: `translate(${vp.x}px,${vp.y}px) scale(${vp.scale})`,
@@ -145,30 +179,39 @@ export default function CloudView({
           {items.map(item => {
             const p   = pos[item.id]; if (!p) return null;
             const src = item.images?.[0] ?? item.image ?? null;
+            const isDragging = draggingId === item.id;
             return (
               <motion.div
                 key={item.id}
                 data-item="1"
-                onClick={() => onSelect(item)}
+                onMouseDown={e => {
+                  e.stopPropagation();
+                  dragRef.current = { id: item.id, item, moved: false };
+                  setDraggingId(item.id);
+                  setTip(null);
+                }}
                 onMouseEnter={e => {
+                  if (dragRef.current) return;
                   const r = e.currentTarget.getBoundingClientRect();
                   setTip({ x: r.right, y: r.top + r.height / 2, item });
                 }}
                 onMouseLeave={() => setTip(null)}
                 style={{
-                  position:   "absolute",
-                  width:       ITEM_W,
-                  left:        p.x - ITEM_W / 2,
-                  top:         p.y - PAD / 2,
-                  background:  nodeColor(item.id),
-                  cursor:      "pointer",
-                  overflow:    "hidden",
+                  position:  "absolute",
+                  width:      ITEM_W,
+                  left:       p.x - ITEM_W / 2,
+                  top:        p.y - PAD / 2,
+                  background: nodeColor(item.id),
+                  cursor:     isDragging ? "grabbing" : "pointer",
+                  overflow:   "hidden",
+                  zIndex:     isDragging ? 20 : undefined,
+                  boxShadow:  isDragging ? "0 8px 32px rgba(0,0,0,0.18)" : undefined,
                 }}
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1,   opacity: 1 }}
-                exit={{    scale: 0.4, opacity: 0 }}
+                exit={{    scale: 0.4, opacity: 0, transition: { duration: 0.2 } }}
                 transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                whileHover={{ scale: 1.1, zIndex: 10, transition: { duration: 0.15 } }}
+                whileHover={!isDragging ? { scale: 1.08, transition: { duration: 0.15 } } : undefined}
               >
                 {src
                   ? <img src={src} alt={item.title} style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none", userSelect:"none" }} loading="lazy" draggable={false} />
@@ -182,7 +225,7 @@ export default function CloudView({
 
       {/* Tooltip */}
       <AnimatePresence>
-        {tip && (
+        {tip && !draggingId && (
           <motion.div
             style={{ position:"fixed", left: tip.x + 14, top: tip.y, transform:"translateY(-50%)", background:"#fff", border:"1px solid #e8e8e8", borderRadius:4, padding:"10px 14px", pointerEvents:"none", zIndex:30, boxShadow:"0 4px 24px rgba(0,0,0,0.08)", maxWidth:200 }}
             initial={{ opacity:0, x:-6 }} animate={{ opacity:1, x:0 }} exit={{ opacity:0, x:-6 }} transition={{ duration: 0.13 }}

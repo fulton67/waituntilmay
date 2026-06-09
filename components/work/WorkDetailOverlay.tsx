@@ -58,7 +58,7 @@ export default function WorkDetailOverlay({ item, onClose }: { item: WorkItem; o
         {/* Image */}
         <div style={{ flex:1, display:"flex", alignItems:"center", justifyContent:"center" }}>
           {item.video
-            ? <video src={item.video} autoPlay loop playsInline muted style={{ maxHeight:"80svh", maxWidth:"100%", objectFit:"contain", display:"block" }} />
+            ? <video src={item.video} autoPlay loop playsInline style={{ maxHeight:"80svh", maxWidth:"100%", objectFit:"contain", display:"block" }} />
             : (
               <AnimatePresence mode="wait">
                 <motion.img
