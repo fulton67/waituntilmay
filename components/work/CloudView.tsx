@@ -59,10 +59,10 @@ export default function CloudView({
     return () => ro.disconnect();
   }, []);
 
-  // Centre viewport once
+  // Centre viewport once — zoom out more on mobile
   useEffect(() => {
     if (!size) return;
-    const s = 0.82;
+    const s = size.w < 768 ? 0.52 : 0.82;
     setVp({ scale: s, x: (size.w * (1 - s)) / 2, y: (size.h * (1 - s)) / 2 });
   }, [size]);
 
