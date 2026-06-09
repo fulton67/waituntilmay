@@ -113,7 +113,7 @@ export default function WorkDetailOverlay({
   return (
     <div
       onClick={onClose}
-      style={{ position:"fixed", inset:0, zIndex:50, background:"rgba(250,250,250,0.97)", display:"flex", alignItems:"center", justifyContent:"center" }}
+      style={{ position:"fixed", inset:0, zIndex:50, background:"#fafafa", display:"flex", alignItems:"center", justifyContent:"center" }}
     >
       {/* Close / Back */}
       <button

@@ -48,20 +48,24 @@ input, textarea, button {
 }
 
 .wum-corner-logo {
-  display: none;
+  display: block;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  opacity: 0.5;
+  z-index: 200;
+  pointer-events: none;
 }
 
 @media (min-width: 768px) {
   .wum-corner-logo {
-    display: block;
-    position: fixed;
     bottom: 24px;
     right: 24px;
     width: 36px;
     height: 36px;
-    object-fit: contain;
     opacity: 0.55;
-    z-index: 200;
-    pointer-events: none;
   }
 }

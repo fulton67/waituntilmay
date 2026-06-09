@@ -84,16 +84,22 @@ export default function ReferenceCluster({
       .force("center",  forceCenter(cx, cy))
       .force("charge",  forceManyBody().strength(-20))
       .force("wobble", () => {
-        t += 0.004;
+        t += 0.003;
         for (const n of nodes) {
           const phase = Math.abs(n.id.split("").reduce((a, c) => a + c.charCodeAt(0), 0)) * 0.37;
-          n.vx = (n.vx ?? 0) + Math.sin(t + phase) * 0.06;
-          n.vy = (n.vy ?? 0) + Math.cos(t + phase * 0.8) * 0.06;
+          n.vx = (n.vx ?? 0) + Math.sin(t + phase) * 0.025;
+          n.vy = (n.vy ?? 0) + Math.cos(t + phase * 0.8) * 0.025;
         }
       })
       .alphaDecay(0)
-      .velocityDecay(0.72)
+      .velocityDecay(0.82)
       .on("tick", () => {
+        // Clamp within container bounds
+        const margin = REF_W / 2 + 8;
+        for (const n of nodes) {
+          if (n.x !== undefined) n.x = Math.max(margin, Math.min(w - margin, n.x));
+          if (n.y !== undefined) n.y = Math.max(margin, Math.min(h - margin, n.y));
+        }
         const p: Record<string, { x: number; y: number }> = {};
         for (const n of nodes) p[n.id] = { x: n.x ?? cx, y: n.y ?? cy };
         setPos({ ...p });
