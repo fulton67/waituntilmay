@@ -191,18 +191,19 @@ export default function WorkDetailOverlay({
             }}
             initial={{ opacity:0, x:30 }} animate={{ opacity:1, x:0 }} exit={{ opacity:0, x:-20 }} transition={{ duration:0.25 }}
           >
-            {/* Image / video — fills the screen */}
+            {/* Image / video — fills the screen with breathing room top/bottom */}
             <div style={{
               flex: isMobile ? "none" : 1,
               height: isMobile ? "55svh" : "100%",
               position:"relative",
               display:"flex", alignItems:"center", justifyContent:"center",
-              overflow:"hidden",
+              padding: isMobile ? "12px 0" : "48px 0",
+              boxSizing:"border-box",
             }}>
               {current.video
                 ? <>
-                    <video src={current.video} autoPlay loop playsInline muted={muted} style={{ width:"100%", height:"100%", objectFit:"contain", display:"block" }} />
-                    <button onClick={e => { e.stopPropagation(); setMuted(m => !m); }} style={{ position:"absolute", bottom:12, right:12, background:"rgba(0,0,0,0.35)", border:"none", borderRadius:2, color:"#fff", fontSize:8, letterSpacing:"0.12em", textTransform:"uppercase", cursor:"pointer", padding:"4px 8px", fontFamily:FONT_MONO }}>
+                    <video src={current.video} autoPlay loop playsInline muted={muted} style={{ maxWidth:"100%", maxHeight:"100%", objectFit:"contain", display:"block" }} />
+                    <button onClick={e => { e.stopPropagation(); setMuted(m => !m); }} style={{ position:"absolute", bottom:16, right:16, background:"rgba(0,0,0,0.35)", border:"none", borderRadius:2, color:"#fff", fontSize:8, letterSpacing:"0.12em", textTransform:"uppercase", cursor:"pointer", padding:"4px 8px", fontFamily:FONT_MONO }}>
                       {muted ? "unmute" : "mute"}
                     </button>
                   </>
@@ -212,7 +213,7 @@ export default function WorkDetailOverlay({
                       key={mainSrc}
                       src={mainSrc}
                       alt={current.title}
-                      style={{ width:"100%", height:"100%", objectFit:"contain", display:"block" }}
+                      style={{ maxWidth:"100%", maxHeight:"100%", objectFit:"contain", display:"block" }}
                       initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} transition={{ duration:0.18 }}
                       draggable={false}
                     />
