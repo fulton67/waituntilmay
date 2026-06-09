@@ -24,6 +24,13 @@ export default function WorkDetailOverlay({ item, onClose }: { item: WorkItem; o
   const firstSrc = item.images?.[0] ?? item.image ?? "";
   const [active, setActive] = useState(firstSrc);
   const [showRefs, setShowRefs] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== "undefined" && window.innerWidth < 768);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   useEffect(() => {
     setActive(item.images?.[0] ?? item.image ?? "");
@@ -53,21 +60,34 @@ export default function WorkDetailOverlay({ item, onClose }: { item: WorkItem; o
       {/* Content — column: [top row] + [reference world below] */}
       <div
         onClick={e => e.stopPropagation()}
-        style={{ display:"flex", flexDirection:"column", maxWidth:1100, width:"100%", padding:"80px 60px 60px", boxSizing:"border-box", maxHeight:"100svh", overflowY:"auto" }}
+        style={{
+          display:"flex", flexDirection:"column",
+          maxWidth: isMobile ? "100%" : 1100,
+          width:"100%",
+          padding: isMobile ? "64px 24px 40px" : "80px 60px 60px",
+          boxSizing:"border-box",
+          maxHeight:"100svh",
+          overflowY:"auto",
+        }}
       >
-        {/* Top row: info left, image right */}
-        <div style={{ display:"flex", flexDirection:"row-reverse", alignItems:"center", gap:52 }}>
+        {/* Top row: image top on mobile, image right on desktop */}
+        <div style={{
+          display:"flex",
+          flexDirection: isMobile ? "column" : "row-reverse",
+          alignItems: isMobile ? "flex-start" : "center",
+          gap: isMobile ? 24 : 52,
+        }}>
           {/* Image */}
-          <div style={{ flex:1, display:"flex", alignItems:"center", justifyContent:"center" }}>
+          <div style={{ flex: isMobile ? "none" : 1, width: isMobile ? "100%" : undefined, display:"flex", alignItems:"center", justifyContent:"center" }}>
             {item.video
-              ? <video src={item.video} autoPlay loop playsInline style={{ maxHeight:"70svh", maxWidth:"100%", objectFit:"contain", display:"block" }} />
+              ? <video src={item.video} autoPlay loop playsInline style={{ maxHeight: isMobile ? "45svh" : "70svh", maxWidth:"100%", width: isMobile ? "100%" : undefined, objectFit:"contain", display:"block" }} />
               : (
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={active}
                     src={active}
                     alt={item.title}
-                    style={{ maxHeight:"70svh", maxWidth:"100%", objectFit:"contain", display:"block" }}
+                    style={{ maxHeight: isMobile ? "45svh" : "70svh", maxWidth:"100%", width: isMobile ? "100%" : undefined, objectFit:"contain", display:"block" }}
                     initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} transition={{ duration:0.18 }}
                     draggable={false}
                   />
@@ -77,7 +97,7 @@ export default function WorkDetailOverlay({ item, onClose }: { item: WorkItem; o
           </div>
 
           {/* Info */}
-          <div style={{ width:220, flexShrink:0 }}>
+          <div style={{ width: isMobile ? "100%" : 220, flexShrink:0 }}>
             <p style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", color:"#bbb", fontFamily:FONT_MONO, marginBottom:18 }}>
               {CAT[item.category] ?? item.category}
             </p>
