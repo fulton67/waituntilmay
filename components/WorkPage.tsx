@@ -1,13 +1,15 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AnimatePresence } from "motion/react";
 import type { WorkItem } from "@/app/api/work/route";
 import { FONT_MONO } from "@/lib/theme";
 import BlobBackground from "./work/BlobBackground";
 import CloudView from "./work/CloudView";
-import WorkLightbox from "./work/WorkLightbox";
+import WorkDetailOverlay from "./work/WorkDetailOverlay";
 
 const CAT_PRIORITY: Record<string, number> = {
   "fine-arts": 0,
@@ -32,9 +34,9 @@ const NAV_LINKS = [
 ];
 
 export default function WorkPage() {
-  const [items, setItems]       = useState<WorkItem[]>([]);
-  const [category, setCategory] = useState<CatId>("all");
-  const [lightbox, setLightbox] = useState<{ items: WorkItem[]; index: number } | null>(null);
+  const [items, setItems]           = useState<WorkItem[]>([]);
+  const [category, setCategory]     = useState<CatId>("all");
+  const [selectedItem, setSelectedItem] = useState<WorkItem | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -51,22 +53,15 @@ export default function WorkPage() {
 
   const mediaItems = sorted.filter((i) => !!(i.image || i.video || i.images?.length));
 
-  const openLightbox = useCallback(
-    (item: WorkItem) => {
-      console.log("[wum] openLightbox called", item.id, "mediaItems:", mediaItems.length);
-      const idx = mediaItems.findIndex((i) => i.id === item.id);
-      console.log("[wum] idx:", idx);
-      if (idx !== -1) setLightbox({ items: mediaItems, index: idx });
-    },
-    [mediaItems]
-  );
+  const openItem = useCallback((item: WorkItem) => {
+    setSelectedItem(item);
+  }, []);
 
   return (
     <>
       <div className="work-canvas">
         <BlobBackground />
 
-        {/* Top navigation */}
         <nav className="work-topnav">
           <Link href="/" className="work-topnav-logo" style={{ fontFamily: FONT_MONO }}>
             waituntilmay
@@ -85,10 +80,9 @@ export default function WorkPage() {
           </div>
         </nav>
 
-        <CloudView items={mediaItems} onSelect={openLightbox} />
+        <CloudView items={mediaItems} onSelect={openItem} />
       </div>
 
-      {/* Category filters — fixed, outside canvas so nothing blocks events */}
       <div className="work-filters">
         {CATEGORIES.map((cat) => (
           <button
@@ -102,14 +96,15 @@ export default function WorkPage() {
         ))}
       </div>
 
-      {lightbox && (
-        <WorkLightbox
-          items={lightbox.items}
-          index={lightbox.index}
-          onClose={() => setLightbox(null)}
-          onNavigate={(i) => setLightbox((prev) => prev ? { ...prev, index: i } : null)}
-        />
-      )}
+      <AnimatePresence>
+        {selectedItem && (
+          <WorkDetailOverlay
+            key={selectedItem.id}
+            item={selectedItem}
+            onClose={() => setSelectedItem(null)}
+          />
+        )}
+      </AnimatePresence>
 
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/wum-logo.png" alt="" className="wum-corner-logo" />
