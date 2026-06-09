@@ -59,7 +59,8 @@ export default function CloudView({
   const [size, setSize] = useState<{ w: number; h: number } | null>(null);
 
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const simRef = useRef<ReturnType<typeof forceSimulation> | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const simRef = useRef<any>(null);
   const vpRef = useRef(viewport);
   useEffect(() => { vpRef.current = viewport; }, [viewport]);
 
@@ -111,7 +112,7 @@ export default function CloudView({
         for (const n of nodes) pos[n.id] = { x: n.x ?? cx, y: n.y ?? cy };
         setPositions({ ...pos });
       });
-    return () => simRef.current?.stop();
+    return () => { simRef.current?.stop(); };
   }, [items, size]);
 
   // Wheel zoom
