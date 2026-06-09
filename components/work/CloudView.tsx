@@ -197,12 +197,14 @@ export default function CloudView({
                   left: pos.x - ITEM_W / 2,
                   top: pos.y - COLLISION_R / 2,
                   background: color,
+                  cursor: "pointer",
                 }}
                 initial={{ scale: 0.6, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.5, opacity: 0, transition: { duration: 0.25 } }}
                 transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
                 whileHover={{ scale: 1.1, zIndex: 10, transition: { duration: 0.16 } }}
+                onClick={() => onSelect(item)}
                 onHoverStart={(e) => {
                   const el = (e.currentTarget ?? e.target) as HTMLElement | null;
                   if (!el) return;
@@ -218,32 +220,18 @@ export default function CloudView({
                 }}
                 onHoverEnd={() => setTooltip(null)}
               >
-                {/* Plain button — most reliable click target in the browser */}
-                <button
-                  onClick={() => onSelect(item)}
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    background: "none",
-                    border: "none",
-                    padding: 0,
-                    margin: 0,
-                    cursor: "pointer",
-                  }}
-                >
-                  {src ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={src}
-                      alt={item.title}
-                      style={{ display: "block", width: "100%", height: "auto" }}
-                      loading="lazy"
-                      draggable={false}
-                    />
-                  ) : (
-                    <div style={{ width: ITEM_W, height: Math.round(ITEM_W * 0.72) }} />
-                  )}
-                </button>
+                {src ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={src}
+                    alt={item.title}
+                    style={{ display: "block", width: "100%", height: "auto" }}
+                    loading="lazy"
+                    draggable={false}
+                  />
+                ) : (
+                  <div style={{ width: ITEM_W, height: Math.round(ITEM_W * 0.72) }} />
+                )}
               </motion.div>
             );
           })}
