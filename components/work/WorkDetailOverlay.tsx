@@ -35,6 +35,8 @@ export default function WorkDetailOverlay({
 
   // "info" = detail view, "refs" = full-screen cloud of references
   const [mode, setMode] = useState<"info" | "refs">("info");
+  // tracks whether each nav entry was reached from the refs cloud
+  const [fromRefsStack, setFromRefsStack] = useState<boolean[]>([false]);
   const [muted, setMuted] = useState(true);
   const [showInquiry, setShowInquiry] = useState(false);
   const [iqName,  setIqName]  = useState("");
@@ -51,6 +53,7 @@ export default function WorkDetailOverlay({
 
   useEffect(() => {
     setNavStack([item]);
+    setFromRefsStack([false]);
     setMode("info");
     setShowInquiry(false);
     setIqStatus("idle");
@@ -78,17 +81,6 @@ export default function WorkDetailOverlay({
       setIqStatus("error");
     }
   }
-
-  useEffect(() => {
-    const fn = (e: KeyboardEvent) => {
-      if (e.key !== "Escape") return;
-      if (mode === "refs") { setMode("info"); return; }
-      if (navStack.length > 1) { setNavStack(s => s.slice(0, -1)); return; }
-      onClose();
-    };
-    window.addEventListener("keydown", fn);
-    return () => window.removeEventListener("keydown", fn);
-  }, [onClose, navStack.length, mode]);
 
   const mainSrc  = current.images?.[0] ?? current.image ?? "";
   const refUrls  = (current.images ?? []).slice(1);
@@ -118,9 +110,24 @@ export default function WorkDetailOverlay({
 
   const goBack = useCallback(() => {
     if (mode === "refs") { setMode("info"); return; }
-    if (navStack.length > 1) { setNavStack(s => s.slice(0, -1)); return; }
+    if (navStack.length > 1) {
+      const cameFromRefs = fromRefsStack[fromRefsStack.length - 1];
+      setNavStack(s => s.slice(0, -1));
+      setFromRefsStack(s => s.slice(0, -1));
+      if (cameFromRefs) setMode("refs");
+      return;
+    }
     onClose();
-  }, [mode, navStack.length, onClose]);
+  }, [mode, navStack.length, fromRefsStack, onClose]);
+
+  useEffect(() => {
+    const fn = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      goBack();
+    };
+    window.addEventListener("keydown", fn);
+    return () => window.removeEventListener("keydown", fn);
+  }, [goBack]);
 
   const backLabel = mode === "refs"
     ? `← ${current.title || "back"}`
@@ -158,12 +165,14 @@ export default function WorkDetailOverlay({
             key="refs"
             style={{ position:"absolute", inset:0 }}
             initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} transition={{ duration:0.22 }}
+            onClick={e => e.stopPropagation()}
           >
             <BlobBackground />
             <CloudView
               items={refItems}
               onSelect={ref => {
                 setNavStack(s => [...s, ref]);
+                setFromRefsStack(s => [...s, true]);
                 setMode("info");
               }}
             />
