@@ -251,10 +251,14 @@ export default function CloudView({
                 transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94], delay: idx * 0.04 }}
                 whileHover={!isDragging ? { scale: 1.08, transition: { duration: 0.15 } } : undefined}
               >
-                {src
-                  ? <img src={src} alt={item.title} style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none", userSelect:"none" }} loading="lazy" draggable={false} />
-                  : <div style={{ width: ITEM_W, height: 100 }} />
-                }
+                <div style={{
+                  animation: isDragging ? "none" : `wum-breathe ${3.5 + (idx % 3) * 0.9}s ease-in-out ${(idx % 7) * 0.45}s infinite`,
+                }}>
+                  {src
+                    ? <img src={src} alt={item.title} style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none", userSelect:"none" }} loading="lazy" draggable={false} />
+                    : <div style={{ width: ITEM_W, height: 100 }} />
+                  }
+                </div>
               </motion.div>
             );
           })}

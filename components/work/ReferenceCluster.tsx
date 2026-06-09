@@ -233,11 +233,15 @@ export default function ReferenceCluster({
                 transition={{ duration: 0.45, delay: idx * 0.06 }}
                 whileHover={!isDragging ? { scale: 1.08, transition: { duration: 0.13 } } : undefined}
               >
-                {vid
-                  ? <video src={url} autoPlay loop playsInline muted style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none" }} />
-                  : /* eslint-disable-next-line @next/next/no-img-element */
-                    <img src={url} alt="" style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none", userSelect:"none" }} draggable={false} loading="lazy" />
-                }
+                <div style={{
+                  animation: isDragging ? "none" : `wum-breathe ${3.5 + (idx % 3) * 0.9}s ease-in-out ${(idx % 7) * 0.45}s infinite`,
+                }}>
+                  {vid
+                    ? <video src={url} autoPlay loop playsInline muted style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none" }} />
+                    : /* eslint-disable-next-line @next/next/no-img-element */
+                      <img src={url} alt="" style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none", userSelect:"none" }} draggable={false} loading="lazy" />
+                  }
+                </div>
               </motion.div>
             );
           })}

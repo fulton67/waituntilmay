@@ -18,6 +18,12 @@
 }
 
 
+/* ── Breathing float animation ─────────────────────────────────────── */
+@keyframes wum-breathe {
+  0%,100% { transform: translateY(0px) scale(1); }
+  50%     { transform: translateY(-6px) scale(1.018); }
+}
+
 /* ── Top navigation ────────────────────────────────────────────────── */
 .work-topnav {
   position: fixed;
