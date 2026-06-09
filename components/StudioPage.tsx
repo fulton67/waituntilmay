@@ -1550,10 +1550,7 @@ function WorkTab() {
           </div>
           <div>
             <p style={{ fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "#bbb", marginBottom: 8 }}>video</p>
-            <input className={inputCls} value={form.video ?? ""} onChange={e => setForm(p => ({ ...p, video: e.target.value }))} placeholder="paste video url" />
-            {form.video && (
-              <video src={form.video} style={{ width: "100%", aspectRatio: "4/3", objectFit: "cover", marginTop: 8, background: "#f5f5f5" }} muted playsInline />
-            )}
+            <MediaDropZone value={form.video ?? ""} onChange={url => setForm(p => ({ ...p, video: url }))} />
           </div>
         </div>
 

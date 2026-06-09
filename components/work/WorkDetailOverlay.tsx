@@ -170,107 +170,105 @@ export default function WorkDetailOverlay({
           </motion.div>
         )}
 
-        {/* ── INFO MODE: detail view ── */}
+        {/* ── INFO MODE: full-screen detail ── */}
         {mode === "info" && (
           <motion.div
             key={current.id}
             onClick={e => e.stopPropagation()}
             style={{
-              display:"flex", alignItems:"center", justifyContent:"center",
-              position:"absolute", inset:0, overflowY:"auto",
+              position:"absolute", inset:0,
+              display:"flex",
+              flexDirection: isMobile ? "column" : "row",
             }}
             initial={{ opacity:0, x:30 }} animate={{ opacity:1, x:0 }} exit={{ opacity:0, x:-20 }} transition={{ duration:0.25 }}
           >
+            {/* Image / video — fills the screen */}
             <div style={{
-              display:"flex", flexDirection:"column",
-              maxWidth: isMobile ? "100%" : 1100,
-              width:"100%",
-              padding: isMobile ? "64px 24px 40px" : "80px 60px 60px",
-              boxSizing:"border-box",
+              flex: isMobile ? "none" : 1,
+              height: isMobile ? "55svh" : "100%",
+              position:"relative",
+              display:"flex", alignItems:"center", justifyContent:"center",
+              overflow:"hidden",
             }}>
-              {/* Top row */}
-              <div style={{
-                display:"flex",
-                flexDirection: isMobile ? "column" : "row-reverse",
-                alignItems: isMobile ? "flex-start" : "center",
-                gap: isMobile ? 24 : 52,
-              }}>
-                {/* Image / video */}
-                <div style={{ flex: isMobile ? "none" : 1, width: isMobile ? "100%" : undefined, display:"flex", alignItems:"center", justifyContent:"center", position:"relative" }}>
-                  {current.video
-                    ? <>
-                        <video src={current.video} autoPlay loop playsInline muted={muted} style={{ maxHeight: isMobile ? "45svh" : "70svh", maxWidth:"100%", width: isMobile ? "100%" : undefined, objectFit:"contain", display:"block" }} />
-                        <button onClick={e => { e.stopPropagation(); setMuted(m => !m); }} style={{ position:"absolute", bottom:10, right:10, background:"rgba(0,0,0,0.35)", border:"none", borderRadius:2, color:"#fff", fontSize:8, letterSpacing:"0.12em", textTransform:"uppercase", cursor:"pointer", padding:"4px 8px", fontFamily:FONT_MONO }}>
-                          {muted ? "unmute" : "mute"}
-                        </button>
-                      </>
-                    : (
-                      <AnimatePresence mode="wait">
-                        <motion.img
-                          key={mainSrc}
-                          src={mainSrc}
-                          alt={current.title}
-                          style={{ maxHeight: isMobile ? "45svh" : "70svh", maxWidth:"100%", width: isMobile ? "100%" : undefined, objectFit:"contain", display:"block" }}
-                          initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} transition={{ duration:0.18 }}
-                          draggable={false}
-                        />
-                      </AnimatePresence>
-                    )
-                  }
-                </div>
-
-                {/* Info */}
-                <div style={{ width: isMobile ? "100%" : 220, flexShrink:0 }}>
-                  <p style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", color:"#bbb", fontFamily:FONT_MONO, marginBottom:18 }}>
-                    {CAT[current.category] ?? current.category}
-                  </p>
-                  <h2 style={{ fontFamily:FONT_DISPLAY, fontSize:titleSize(current.title), fontWeight:"normal", letterSpacing:"0.06em", textTransform:"uppercase", lineHeight:1.1, margin:"0 0 14px" }}>
-                    {current.title}
-                  </h2>
-                  {current.year && <p style={{ fontSize:10, letterSpacing:"0.18em", color:"#bbb", fontFamily:FONT_MONO, textTransform:"uppercase", marginBottom:6 }}>{current.year}</p>}
-                  {current.role && <p style={{ fontSize:10, letterSpacing:"0.10em", color:"#ccc", fontFamily:FONT_MONO, marginBottom:18 }}>{current.role}</p>}
-                  {current.context && <p style={{ fontSize:9, letterSpacing:"0.04em", color:"#777", fontFamily:FONT_MONO, lineHeight:1.7, marginBottom:20 }}>{current.context}</p>}
-
-                  {/* Inquire */}
-                  <button
-                    onClick={e => { e.stopPropagation(); setShowInquiry(v => !v); if (!showInquiry) setIqMsg(`Inquiry regarding: ${current.title}\n\n`); setIqStatus("idle"); }}
-                    style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", fontFamily:FONT_MONO, color:"#111", background:"none", border:"none", borderBottom:"1px solid #111", paddingBottom:1, cursor:"pointer", padding:0 }}
-                  >
-                    inquire
-                  </button>
-
-                  <AnimatePresence>
-                    {showInquiry && (
-                      <motion.div initial={{ opacity:0, height:0 }} animate={{ opacity:1, height:"auto" }} exit={{ opacity:0, height:0 }} transition={{ duration:0.22 }} style={{ overflow:"hidden", marginTop:16 }} onClick={e => e.stopPropagation()}>
-                        {iqStatus === "sent" ? (
-                          <p style={{ fontSize:9, letterSpacing:"0.1em", color:"#aaa", fontFamily:FONT_MONO }}>sent.</p>
-                        ) : (
-                          <form onSubmit={submitInquiry} style={{ display:"flex", flexDirection:"column", gap:10 }}>
-                            <input required placeholder="name" value={iqName} onChange={e => setIqName(e.target.value)} style={{ borderBottom:"1px solid #e0e0e0", background:"none", outline:"none", fontSize:9, letterSpacing:"0.1em", fontFamily:FONT_MONO, color:"#111", padding:"4px 0", width:"100%" }} />
-                            <input required type="email" placeholder="email" value={iqEmail} onChange={e => setIqEmail(e.target.value)} style={{ borderBottom:"1px solid #e0e0e0", background:"none", outline:"none", fontSize:9, letterSpacing:"0.1em", fontFamily:FONT_MONO, color:"#111", padding:"4px 0", width:"100%" }} />
-                            <textarea required rows={3} placeholder="message" value={iqMsg} onChange={e => setIqMsg(e.target.value)} style={{ border:"none", borderBottom:"1px solid #e0e0e0", background:"none", outline:"none", fontSize:9, letterSpacing:"0.1em", fontFamily:FONT_MONO, color:"#111", padding:"4px 0", resize:"none", width:"100%" }} />
-                            <button type="submit" disabled={iqStatus === "sending"} style={{ fontSize:8, letterSpacing:"0.14em", textTransform:"uppercase", fontFamily:FONT_MONO, color: iqStatus === "sending" ? "#aaa" : "#111", background:"none", border:"none", borderBottom:"1px solid currentColor", cursor:"pointer", padding:0, alignSelf:"flex-start" }}>
-                              {iqStatus === "sending" ? "sending…" : iqStatus === "error" ? "retry" : "send"}
-                            </button>
-                          </form>
-                        )}
-                      </motion.div>
-                    )}
+              {current.video
+                ? <>
+                    <video src={current.video} autoPlay loop playsInline muted={muted} style={{ width:"100%", height:"100%", objectFit:"contain", display:"block" }} />
+                    <button onClick={e => { e.stopPropagation(); setMuted(m => !m); }} style={{ position:"absolute", bottom:12, right:12, background:"rgba(0,0,0,0.35)", border:"none", borderRadius:2, color:"#fff", fontSize:8, letterSpacing:"0.12em", textTransform:"uppercase", cursor:"pointer", padding:"4px 8px", fontFamily:FONT_MONO }}>
+                      {muted ? "unmute" : "mute"}
+                    </button>
+                  </>
+                : (
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={mainSrc}
+                      src={mainSrc}
+                      alt={current.title}
+                      style={{ width:"100%", height:"100%", objectFit:"contain", display:"block" }}
+                      initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} transition={{ duration:0.18 }}
+                      draggable={false}
+                    />
                   </AnimatePresence>
+                )
+              }
+            </div>
 
-                  {/* References — enter full-screen cloud */}
-                  {hasRefs && (
-                    <div style={{ marginTop:28 }}>
-                      <button
-                        onClick={e => { e.stopPropagation(); setMode("refs"); }}
-                        style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", fontFamily:FONT_MONO, color:"#aaa", background:"none", border:"none", cursor:"pointer", padding:0 }}
-                      >
-                        + {refUrls.length} reference{refUrls.length > 1 ? "s" : ""}
-                      </button>
-                    </div>
-                  )}
+            {/* Info panel — narrow sidebar on desktop, strip below on mobile */}
+            <div style={{
+              width: isMobile ? "100%" : 200,
+              flexShrink: 0,
+              overflowY: "auto",
+              padding: isMobile ? "20px 24px 48px" : "64px 28px 40px",
+              borderLeft: isMobile ? "none" : "1px solid #f0f0f0",
+              borderTop: isMobile ? "1px solid #f0f0f0" : "none",
+            }}>
+              <p style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", color:"#bbb", fontFamily:FONT_MONO, marginBottom:18 }}>
+                {CAT[current.category] ?? current.category}
+              </p>
+              <h2 style={{ fontFamily:FONT_DISPLAY, fontSize:titleSize(current.title), fontWeight:"normal", letterSpacing:"0.06em", textTransform:"uppercase", lineHeight:1.1, margin:"0 0 14px" }}>
+                {current.title}
+              </h2>
+              {current.year && <p style={{ fontSize:10, letterSpacing:"0.18em", color:"#bbb", fontFamily:FONT_MONO, textTransform:"uppercase", marginBottom:6 }}>{current.year}</p>}
+              {current.role && <p style={{ fontSize:10, letterSpacing:"0.10em", color:"#ccc", fontFamily:FONT_MONO, marginBottom:18 }}>{current.role}</p>}
+              {current.context && <p style={{ fontSize:9, letterSpacing:"0.04em", color:"#777", fontFamily:FONT_MONO, lineHeight:1.7, marginBottom:20 }}>{current.context}</p>}
+
+              {/* Inquire */}
+              <button
+                onClick={e => { e.stopPropagation(); setShowInquiry(v => !v); if (!showInquiry) setIqMsg(`Inquiry regarding: ${current.title}\n\n`); setIqStatus("idle"); }}
+                style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", fontFamily:FONT_MONO, color:"#111", background:"none", border:"none", borderBottom:"1px solid #111", paddingBottom:1, cursor:"pointer", padding:0 }}
+              >
+                inquire
+              </button>
+
+              <AnimatePresence>
+                {showInquiry && (
+                  <motion.div initial={{ opacity:0, height:0 }} animate={{ opacity:1, height:"auto" }} exit={{ opacity:0, height:0 }} transition={{ duration:0.22 }} style={{ overflow:"hidden", marginTop:16 }} onClick={e => e.stopPropagation()}>
+                    {iqStatus === "sent" ? (
+                      <p style={{ fontSize:9, letterSpacing:"0.1em", color:"#aaa", fontFamily:FONT_MONO }}>sent.</p>
+                    ) : (
+                      <form onSubmit={submitInquiry} style={{ display:"flex", flexDirection:"column", gap:10 }}>
+                        <input required placeholder="name" value={iqName} onChange={e => setIqName(e.target.value)} style={{ borderBottom:"1px solid #e0e0e0", background:"none", outline:"none", fontSize:9, letterSpacing:"0.1em", fontFamily:FONT_MONO, color:"#111", padding:"4px 0", width:"100%" }} />
+                        <input required type="email" placeholder="email" value={iqEmail} onChange={e => setIqEmail(e.target.value)} style={{ borderBottom:"1px solid #e0e0e0", background:"none", outline:"none", fontSize:9, letterSpacing:"0.1em", fontFamily:FONT_MONO, color:"#111", padding:"4px 0", width:"100%" }} />
+                        <textarea required rows={3} placeholder="message" value={iqMsg} onChange={e => setIqMsg(e.target.value)} style={{ border:"none", borderBottom:"1px solid #e0e0e0", background:"none", outline:"none", fontSize:9, letterSpacing:"0.1em", fontFamily:FONT_MONO, color:"#111", padding:"4px 0", resize:"none", width:"100%" }} />
+                        <button type="submit" disabled={iqStatus === "sending"} style={{ fontSize:8, letterSpacing:"0.14em", textTransform:"uppercase", fontFamily:FONT_MONO, color: iqStatus === "sending" ? "#aaa" : "#111", background:"none", border:"none", borderBottom:"1px solid currentColor", cursor:"pointer", padding:0, alignSelf:"flex-start" }}>
+                          {iqStatus === "sending" ? "sending…" : iqStatus === "error" ? "retry" : "send"}
+                        </button>
+                      </form>
+                    )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* References — enter full-screen cloud */}
+              {hasRefs && (
+                <div style={{ marginTop:28 }}>
+                  <button
+                    onClick={e => { e.stopPropagation(); setMode("refs"); }}
+                    style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", fontFamily:FONT_MONO, color:"#aaa", background:"none", border:"none", cursor:"pointer", padding:0 }}
+                  >
+                    + {refUrls.length} reference{refUrls.length > 1 ? "s" : ""}
+                  </button>
                 </div>
-              </div>
+              )}
             </div>
           </motion.div>
         )}

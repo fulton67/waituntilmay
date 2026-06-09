@@ -93,12 +93,6 @@ export default function CloudView({
       .alphaDecay(0)
       .velocityDecay(0.82)
       .on("tick", () => {
-        // Clamp nodes within container so they never drift off-screen
-        const margin = PAD + ITEM_W / 2;
-        for (const n of nodes) {
-          if (n.x !== undefined) n.x = Math.max(margin, Math.min(w - margin, n.x));
-          if (n.y !== undefined) n.y = Math.max(margin, Math.min(h - margin, n.y));
-        }
         const p: Record<string, { x: number; y: number }> = {};
         for (const n of nodes) p[n.id] = { x: n.x ?? cx, y: n.y ?? cy };
         setPos({ ...p });
