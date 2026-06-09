@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import type { WorkItem } from "@/app/api/work/route";
 import { FONT_MONO, FONT_DISPLAY } from "@/lib/theme";
@@ -20,9 +20,19 @@ function titleSize(t: string) {
   return "clamp(13px,2vw,19px)";
 }
 
-export default function WorkDetailOverlay({ item, onClose }: { item: WorkItem; onClose: () => void }) {
-  const firstSrc = item.images?.[0] ?? item.image ?? "";
-  const [active, setActive] = useState(firstSrc);
+export default function WorkDetailOverlay({
+  item,
+  allItems,
+  onClose,
+}: {
+  item: WorkItem;
+  allItems: WorkItem[];
+  onClose: () => void;
+}) {
+  // Navigation stack — each click on a linked reference pushes a new item
+  const [navStack, setNavStack] = useState<WorkItem[]>([item]);
+  const current = navStack[navStack.length - 1];
+
   const [showRefs, setShowRefs] = useState(false);
   const [isMobile, setIsMobile] = useState(() => typeof window !== "undefined" && window.innerWidth < 768);
 
@@ -32,113 +42,175 @@ export default function WorkDetailOverlay({ item, onClose }: { item: WorkItem; o
     return () => window.removeEventListener("resize", check);
   }, []);
 
+  // Reset when the root item changes from outside
   useEffect(() => {
-    setActive(item.images?.[0] ?? item.image ?? "");
+    setNavStack([item]);
     setShowRefs(false);
-  }, [item.id]);
+  }, [item.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    const fn = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    const fn = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (navStack.length > 1) setNavStack(s => s.slice(0, -1));
+        else onClose();
+      }
+    };
     window.addEventListener("keydown", fn);
     return () => window.removeEventListener("keydown", fn);
-  }, [onClose]);
+  }, [onClose, navStack.length]);
 
-  const hasRefs = (item.images?.length ?? 0) > 1;
-  const refs = (item.images ?? []).filter(u => u !== active);
-  const totalRefs = (item.images?.length ?? 1) - 1;
+  const mainSrc = current.images?.[0] ?? current.image ?? "";
+  const refs    = (current.images ?? []).slice(1); // all images except first are refs
+  const hasRefs = refs.length > 0;
+  const totalRefs = refs.length;
+
+  // When a reference is clicked: if it's another work → navigate; else just open that image
+  const onRefNavigate = useCallback((url: string) => {
+    // Find work that has this URL as its primary image or in its images array
+    const linked = allItems.find(w =>
+      w.id !== current.id && (w.image === url || w.images?.[0] === url || w.images?.includes(url))
+    );
+    if (linked) {
+      setNavStack(s => [...s, linked]);
+      setShowRefs(false);
+    }
+    // If not a linked work — the URL is just another angle, already shown in the cluster
+  }, [allItems, current.id]);
+
+  const goBack = useCallback(() => {
+    if (navStack.length > 1) {
+      setNavStack(s => s.slice(0, -1));
+      setShowRefs(false);
+    } else {
+      onClose();
+    }
+  }, [navStack.length, onClose]);
 
   return (
     <div
       onClick={onClose}
       style={{ position:"fixed", inset:0, zIndex:50, background:"rgba(250,250,250,0.97)", display:"flex", alignItems:"center", justifyContent:"center" }}
     >
-      {/* Close */}
-      <button onClick={onClose} style={{ position:"fixed", top:24, right:24, background:"none", border:"none", cursor:"pointer", fontSize:9, letterSpacing:"0.16em", textTransform:"uppercase", fontFamily:FONT_MONO, color:"#999", zIndex:51 }}>
-        close
+      {/* Close / Back */}
+      <button
+        onClick={e => { e.stopPropagation(); goBack(); }}
+        style={{ position:"fixed", top:24, right:24, background:"none", border:"none", cursor:"pointer", fontSize:9, letterSpacing:"0.16em", textTransform:"uppercase", fontFamily:FONT_MONO, color:"#999", zIndex:51 }}
+      >
+        {navStack.length > 1 ? "← back" : "close"}
       </button>
 
-      {/* Content — column: [top row] + [reference world below] */}
-      <div
-        onClick={e => e.stopPropagation()}
-        style={{
-          display:"flex", flexDirection:"column",
-          maxWidth: isMobile ? "100%" : 1100,
-          width:"100%",
-          padding: isMobile ? "64px 24px 40px" : "80px 60px 60px",
-          boxSizing:"border-box",
-          maxHeight:"100svh",
-          overflowY:"auto",
-        }}
-      >
-        {/* Top row: image top on mobile, image right on desktop */}
-        <div style={{
-          display:"flex",
-          flexDirection: isMobile ? "column" : "row-reverse",
-          alignItems: isMobile ? "flex-start" : "center",
-          gap: isMobile ? 24 : 52,
-        }}>
-          {/* Image */}
-          <div style={{ flex: isMobile ? "none" : 1, width: isMobile ? "100%" : undefined, display:"flex", alignItems:"center", justifyContent:"center" }}>
-            {item.video
-              ? <video src={item.video} autoPlay loop playsInline style={{ maxHeight: isMobile ? "45svh" : "70svh", maxWidth:"100%", width: isMobile ? "100%" : undefined, objectFit:"contain", display:"block" }} />
-              : (
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={active}
-                    src={active}
-                    alt={item.title}
-                    style={{ maxHeight: isMobile ? "45svh" : "70svh", maxWidth:"100%", width: isMobile ? "100%" : undefined, objectFit:"contain", display:"block" }}
-                    initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} transition={{ duration:0.18 }}
-                    draggable={false}
-                  />
-                </AnimatePresence>
-              )
-            }
-          </div>
-
-          {/* Info */}
-          <div style={{ width: isMobile ? "100%" : 220, flexShrink:0 }}>
-            <p style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", color:"#bbb", fontFamily:FONT_MONO, marginBottom:18 }}>
-              {CAT[item.category] ?? item.category}
-            </p>
-            <h2 style={{ fontFamily:FONT_DISPLAY, fontSize:titleSize(item.title), fontWeight:"normal", letterSpacing:"0.06em", textTransform:"uppercase", lineHeight:1.1, margin:"0 0 14px" }}>
-              {item.title}
-            </h2>
-            {item.year && <p style={{ fontSize:10, letterSpacing:"0.18em", color:"#bbb", fontFamily:FONT_MONO, textTransform:"uppercase", marginBottom:6 }}>{item.year}</p>}
-            {item.role && <p style={{ fontSize:10, letterSpacing:"0.10em", color:"#ccc", fontFamily:FONT_MONO, marginBottom:18 }}>{item.role}</p>}
-            {item.context && <p style={{ fontSize:9, letterSpacing:"0.04em", color:"#777", fontFamily:FONT_MONO, lineHeight:1.7, marginBottom:20 }}>{item.context}</p>}
-            <a href={`/?inquire=${encodeURIComponent(item.title)}`} onClick={e => e.stopPropagation()} style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", fontFamily:FONT_MONO, color:"#111", textDecoration:"none", borderBottom:"1px solid #111", paddingBottom:1 }}>
-              inquire
-            </a>
-
-            {hasRefs && (
-              <div style={{ marginTop:28 }}>
-                <button
-                  onClick={() => setShowRefs(v => !v)}
-                  style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", fontFamily:FONT_MONO, color:"#aaa", background:"none", border:"none", cursor:"pointer", padding:0 }}
-                >
-                  {showRefs ? "− hide" : `+ ${totalRefs} references`}
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Reference world — full-width D3 cloud below the row */}
-        <AnimatePresence>
-          {showRefs && (
-            <motion.div
-              initial={{ opacity:0, height:0 }}
-              animate={{ opacity:1, height:"auto" }}
-              exit={{ opacity:0, height:0 }}
-              transition={{ duration:0.3 }}
-              style={{ overflow:"hidden" }}
+      {/* Breadcrumb trail when navigated deep */}
+      {navStack.length > 1 && (
+        <div style={{ position:"fixed", top:24, left:28, fontSize:8, letterSpacing:"0.12em", textTransform:"uppercase", fontFamily:FONT_MONO, color:"#ccc", zIndex:51 }}>
+          {navStack.slice(0, -1).map((w, i) => (
+            <span
+              key={w.id}
+              onClick={e => { e.stopPropagation(); setNavStack(s => s.slice(0, i + 1)); setShowRefs(false); }}
+              style={{ cursor:"pointer", marginRight:8 }}
             >
-              <ReferenceCluster images={refs} onSelect={url => { setActive(url); setShowRefs(false); }} />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+              {w.title.length > 18 ? w.title.slice(0, 16) + "…" : w.title} →
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* Content */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current.id}
+          onClick={e => e.stopPropagation()}
+          style={{
+            display:"flex", flexDirection:"column",
+            maxWidth: isMobile ? "100%" : 1100,
+            width:"100%",
+            padding: isMobile ? "64px 24px 40px" : "80px 60px 60px",
+            boxSizing:"border-box",
+            maxHeight:"100svh",
+            overflowY:"auto",
+          }}
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{    opacity: 0, x: -20 }}
+          transition={{ duration: 0.25 }}
+        >
+          {/* Top row */}
+          <div style={{
+            display:"flex",
+            flexDirection: isMobile ? "column" : "row-reverse",
+            alignItems: isMobile ? "flex-start" : "center",
+            gap: isMobile ? 24 : 52,
+          }}>
+            {/* Main image / video */}
+            <div style={{ flex: isMobile ? "none" : 1, width: isMobile ? "100%" : undefined, display:"flex", alignItems:"center", justifyContent:"center" }}>
+              {current.video
+                ? <video src={current.video} autoPlay loop playsInline style={{ maxHeight: isMobile ? "45svh" : "70svh", maxWidth:"100%", width: isMobile ? "100%" : undefined, objectFit:"contain", display:"block" }} />
+                : (
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={mainSrc}
+                      src={mainSrc}
+                      alt={current.title}
+                      style={{ maxHeight: isMobile ? "45svh" : "70svh", maxWidth:"100%", width: isMobile ? "100%" : undefined, objectFit:"contain", display:"block" }}
+                      initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} transition={{ duration:0.18 }}
+                      draggable={false}
+                    />
+                  </AnimatePresence>
+                )
+              }
+            </div>
+
+            {/* Info */}
+            <div style={{ width: isMobile ? "100%" : 220, flexShrink:0 }}>
+              <p style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", color:"#bbb", fontFamily:FONT_MONO, marginBottom:18 }}>
+                {CAT[current.category] ?? current.category}
+              </p>
+              <h2 style={{ fontFamily:FONT_DISPLAY, fontSize:titleSize(current.title), fontWeight:"normal", letterSpacing:"0.06em", textTransform:"uppercase", lineHeight:1.1, margin:"0 0 14px" }}>
+                {current.title}
+              </h2>
+              {current.year && <p style={{ fontSize:10, letterSpacing:"0.18em", color:"#bbb", fontFamily:FONT_MONO, textTransform:"uppercase", marginBottom:6 }}>{current.year}</p>}
+              {current.role && <p style={{ fontSize:10, letterSpacing:"0.10em", color:"#ccc", fontFamily:FONT_MONO, marginBottom:18 }}>{current.role}</p>}
+              {current.context && <p style={{ fontSize:9, letterSpacing:"0.04em", color:"#777", fontFamily:FONT_MONO, lineHeight:1.7, marginBottom:20 }}>{current.context}</p>}
+              <a
+                href={`/?inquire=${encodeURIComponent(current.title)}`}
+                onClick={e => e.stopPropagation()}
+                style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", fontFamily:FONT_MONO, color:"#111", textDecoration:"none", borderBottom:"1px solid #111", paddingBottom:1 }}
+              >
+                inquire
+              </a>
+
+              {hasRefs && (
+                <div style={{ marginTop:28 }}>
+                  <button
+                    onClick={() => setShowRefs(v => !v)}
+                    style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", fontFamily:FONT_MONO, color:"#aaa", background:"none", border:"none", cursor:"pointer", padding:0 }}
+                  >
+                    {showRefs ? "− hide" : `+ ${totalRefs} reference${totalRefs > 1 ? "s" : ""}`}
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Reference world — full-width, same-size D3 cloud */}
+          <AnimatePresence>
+            {showRefs && (
+              <motion.div
+                initial={{ opacity:0, height:0 }}
+                animate={{ opacity:1, height:"auto" }}
+                exit={{ opacity:0, height:0 }}
+                transition={{ duration:0.3 }}
+                style={{ overflow:"hidden" }}
+              >
+                <ReferenceCluster
+                  images={refs}
+                  allItems={allItems}
+                  onNavigate={onRefNavigate}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }

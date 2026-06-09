@@ -64,7 +64,7 @@ export default function WorkPage() {
           <button
             key={c.id}
             onClick={() => setCat(c.id)}
-            style={{ background:"none", border:"none", cursor:"pointer", fontSize:9, letterSpacing:"0.18em", textTransform:"uppercase", fontFamily:FONT_MONO, color: cat === c.id ? "#111" : "#bbb", padding:"4px 0", transition:"color 0.2s" }}
+            style={{ background:"none", border:"none", cursor:"pointer", fontSize:9, letterSpacing:"0.18em", textTransform:"uppercase", fontFamily:FONT_MONO, color: cat === c.id ? "#111" : "#888", padding:"4px 0", transition:"color 0.2s" }}
           >
             {c.label}
           </button>
@@ -72,7 +72,7 @@ export default function WorkPage() {
       </div>
 
       {/* Overlay */}
-      {open && <WorkDetailOverlay item={open} onClose={() => setOpen(null)} />}
+      {open && <WorkDetailOverlay item={open} allItems={items} onClose={() => setOpen(null)} />}
 
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/wum-logo.png" alt="" className="wum-corner-logo" />

@@ -17,15 +17,6 @@
   filter: blur(1px);
 }
 
-.work-blob::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background-image: radial-gradient(circle, #d8d8d8 1px, transparent 1px);
-  background-size: 8px 8px;
-  opacity: 0.4;
-}
 
 /* ── Top navigation ────────────────────────────────────────────────── */
 .work-topnav {

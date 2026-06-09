@@ -245,10 +245,10 @@ export default function CloudView({
                   zIndex:     isDragging ? 20 : undefined,
                   boxShadow:  isDragging ? "0 8px 32px rgba(0,0,0,0.18)" : undefined,
                 }}
-                initial={{ scale: 0.5, opacity: 0 }}
-                animate={{ scale: 1,   opacity: 1 }}
-                exit={{    scale: 0.4, opacity: 0, transition: { duration: 0.2 } }}
-                transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94], delay: idx * 0.04 }}
+                initial={{ x: idx % 2 === 0 ? -80 : 80, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{    x: idx % 2 === 0 ? -60 : 60, opacity: 0, transition: { duration: 0.2 } }}
+                transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94], delay: idx * 0.04 }}
                 whileHover={!isDragging ? { scale: 1.08, transition: { duration: 0.15 } } : undefined}
               >
                 {src
