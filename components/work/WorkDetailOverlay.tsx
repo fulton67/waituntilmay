@@ -34,6 +34,7 @@ export default function WorkDetailOverlay({
   const current = navStack[navStack.length - 1];
 
   const [showRefs, setShowRefs] = useState(false);
+  const [muted, setMuted] = useState(true);
   const [isMobile, setIsMobile] = useState(() => typeof window !== "undefined" && window.innerWidth < 768);
 
   useEffect(() => {
@@ -141,9 +142,17 @@ export default function WorkDetailOverlay({
             gap: isMobile ? 24 : 52,
           }}>
             {/* Main image / video */}
-            <div style={{ flex: isMobile ? "none" : 1, width: isMobile ? "100%" : undefined, display:"flex", alignItems:"center", justifyContent:"center" }}>
+            <div style={{ flex: isMobile ? "none" : 1, width: isMobile ? "100%" : undefined, display:"flex", alignItems:"center", justifyContent:"center", position:"relative" }}>
               {current.video
-                ? <video src={current.video} autoPlay loop playsInline style={{ maxHeight: isMobile ? "45svh" : "70svh", maxWidth:"100%", width: isMobile ? "100%" : undefined, objectFit:"contain", display:"block" }} />
+                ? <>
+                    <video src={current.video} autoPlay loop playsInline muted={muted} style={{ maxHeight: isMobile ? "45svh" : "70svh", maxWidth:"100%", width: isMobile ? "100%" : undefined, objectFit:"contain", display:"block" }} />
+                    <button
+                      onClick={e => { e.stopPropagation(); setMuted(m => !m); }}
+                      style={{ position:"absolute", bottom:10, right:10, background:"rgba(0,0,0,0.35)", border:"none", borderRadius:2, color:"#fff", fontSize:8, letterSpacing:"0.12em", textTransform:"uppercase", cursor:"pointer", padding:"4px 8px", fontFamily:FONT_MONO }}
+                    >
+                      {muted ? "unmute" : "mute"}
+                    </button>
+                  </>
                 : (
                   <AnimatePresence mode="wait">
                     <motion.img
@@ -195,11 +204,10 @@ export default function WorkDetailOverlay({
           <AnimatePresence>
             {showRefs && (
               <motion.div
-                initial={{ opacity:0, height:0 }}
-                animate={{ opacity:1, height:"auto" }}
-                exit={{ opacity:0, height:0 }}
-                transition={{ duration:0.3 }}
-                style={{ overflow:"hidden" }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
               >
                 <ReferenceCluster
                   images={refs}

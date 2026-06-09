@@ -216,7 +216,7 @@ export default function ReferenceCluster({
                   position: "absolute",
                   width: REF_W,
                   left: p.x - REF_W / 2,
-                  top:  p.y - REF_PAD / 2,
+                  top:  p.y - REF_W / 2,
                   background: nodeColor(url),
                   cursor: isDragging ? "grabbing" : "pointer",
                   overflow: "hidden",
@@ -234,12 +234,15 @@ export default function ReferenceCluster({
                 whileHover={!isDragging ? { scale: 1.08, transition: { duration: 0.13 } } : undefined}
               >
                 <div style={{
+                  width: REF_W,
+                  height: REF_W,
+                  overflow: "hidden",
                   animation: isDragging ? "none" : `wum-breathe ${3.5 + (idx % 3) * 0.9}s ease-in-out ${(idx % 7) * 0.45}s infinite`,
                 }}>
                   {vid
-                    ? <video src={url} autoPlay loop playsInline muted style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none" }} />
+                    ? <video src={url} autoPlay loop playsInline muted style={{ display:"block", width:"100%", height:"100%", objectFit:"cover", pointerEvents:"none" }} />
                     : /* eslint-disable-next-line @next/next/no-img-element */
-                      <img src={url} alt="" style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none", userSelect:"none" }} draggable={false} loading="lazy" />
+                      <img src={url} alt="" style={{ display:"block", width:"100%", height:"100%", objectFit:"cover", pointerEvents:"none", userSelect:"none" }} draggable={false} loading="lazy" />
                   }
                 </div>
               </motion.div>

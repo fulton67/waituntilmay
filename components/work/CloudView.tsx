@@ -205,6 +205,7 @@ export default function CloudView({
           {items.map((item, idx) => {
             const p   = pos[item.id]; if (!p) return null;
             const src = item.images?.[0] ?? item.image ?? null;
+            const vid = !src ? (item.video ?? null) : null;
             const isDragging = draggingId === item.id;
             return (
               <motion.div
@@ -256,7 +257,9 @@ export default function CloudView({
                 }}>
                   {src
                     ? <img src={src} alt={item.title} style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none", userSelect:"none" }} loading="lazy" draggable={false} />
-                    : <div style={{ width: ITEM_W, height: 100 }} />
+                    : vid
+                      ? <video src={vid} autoPlay loop playsInline muted style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none" }} />
+                      : <div style={{ width: ITEM_W, height: 100 }} />
                   }
                 </div>
               </motion.div>
