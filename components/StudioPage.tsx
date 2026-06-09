@@ -1311,12 +1311,29 @@ function MediaDropZone({ value, onChange }: { value: string; onChange: (url: str
   const inputRef = useRef<HTMLInputElement>(null);
 
   async function handleFile(file: File) {
+    if (file.size > 500 * 1024 * 1024) {
+      alert("File exceeds 500 MB limit.");
+      return;
+    }
     setUploading(true);
     setProgress(0);
     try {
+      // Browsers sometimes fail to detect MIME type for files with compound
+      // extensions like "name.ia.mp4". Resolve it from the actual last extension.
+      const ext = file.name.split(".").pop()?.toLowerCase() ?? "";
+      const mimeByExt: Record<string, string> = {
+        mp4: "video/mp4", mov: "video/quicktime", webm: "video/webm",
+        jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png",
+        gif: "image/gif", webp: "image/webp", avif: "image/avif",
+      };
+      const resolvedType = file.type || mimeByExt[ext] || "application/octet-stream";
+      const body = resolvedType !== file.type
+        ? new File([file], file.name, { type: resolvedType })
+        : file;
+
       const blob = await upload(
         `work/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g, "_")}`,
-        file,
+        body,
         {
           access: "public",
           handleUploadUrl: "/api/upload",
@@ -1326,7 +1343,8 @@ function MediaDropZone({ value, onChange }: { value: string; onChange: (url: str
       );
       onChange(blob.url);
     } catch (err) {
-      alert(`upload failed: ${err}`);
+      console.error("Upload error:", err);
+      alert(`upload failed: ${String(err)}`);
     } finally {
       setUploading(false);
       setProgress(0);

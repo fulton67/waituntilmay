@@ -10,7 +10,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       body,
       request: req,
       onBeforeGenerateToken: async () => ({
-        allowedContentTypes: ["image/jpeg", "image/png", "image/gif", "image/webp", "image/avif", "video/mp4", "video/quicktime", "video/webm", "video/mov"],
+        allowedContentTypes: ["image/jpeg", "image/png", "image/gif", "image/webp", "image/avif", "video/mp4", "video/mpeg", "video/quicktime", "video/webm", "video/mov", "application/octet-stream"],
         maximumSizeInBytes: 500 * 1024 * 1024, // 500MB
       }),
       onUploadCompleted: async () => {},
