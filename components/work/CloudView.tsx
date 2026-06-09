@@ -108,9 +108,9 @@ export default function CloudView({
     return () => el.removeEventListener("wheel", onWheel);
   }, []);
 
-  // Global mouse events — handles both item drag and background pan
+  // Global pointer events — handles both item drag and background pan (mouse + touch)
   useEffect(() => {
-    const onMove = (e: MouseEvent) => {
+    const onMove = (e: PointerEvent) => {
       if (dragRef.current) {
         // Item drag — convert screen → scene coordinates
         const wrap = wrapRef.current;
@@ -148,11 +148,11 @@ export default function CloudView({
       panRef.current = null;
     };
 
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseup",   onUp);
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup",   onUp);
     return () => {
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mouseup",   onUp);
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup",   onUp);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onSelect]);
@@ -160,10 +160,10 @@ export default function CloudView({
   return (
     <div
       ref={wrapRef}
-      style={{ position:"absolute", inset:0, overflow:"hidden", cursor: draggingId ? "grabbing" : "grab", zIndex:1 }}
-      onMouseDown={e => {
+      style={{ position:"absolute", inset:0, overflow:"hidden", cursor: draggingId ? "grabbing" : "grab", zIndex:1, touchAction:"none" }}
+      onPointerDown={e => {
         const t = e.target as HTMLElement;
-        if (t.closest("[data-item]")) return;   // item handles its own mousedown
+        if (t.closest("[data-item]")) return;   // item handles its own pointerdown
         panRef.current = { x: e.clientX, y: e.clientY };
       }}
     >
@@ -176,7 +176,7 @@ export default function CloudView({
         willChange: "transform",
       }}>
         <AnimatePresence>
-          {items.map(item => {
+          {items.map((item, idx) => {
             const p   = pos[item.id]; if (!p) return null;
             const src = item.images?.[0] ?? item.image ?? null;
             const isDragging = draggingId === item.id;
@@ -184,7 +184,7 @@ export default function CloudView({
               <motion.div
                 key={item.id}
                 data-item="1"
-                onMouseDown={e => {
+                onPointerDown={e => {
                   e.stopPropagation();
                   dragRef.current = { id: item.id, item, moved: false };
                   setDraggingId(item.id);
@@ -210,7 +210,7 @@ export default function CloudView({
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1,   opacity: 1 }}
                 exit={{    scale: 0.4, opacity: 0, transition: { duration: 0.2 } }}
-                transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94], delay: idx * 0.04 }}
                 whileHover={!isDragging ? { scale: 1.08, transition: { duration: 0.15 } } : undefined}
               >
                 {src

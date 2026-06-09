@@ -50,63 +50,74 @@ export default function WorkDetailOverlay({ item, onClose }: { item: WorkItem; o
         close
       </button>
 
-      {/* Content */}
+      {/* Content — column: [top row] + [reference world below] */}
       <div
         onClick={e => e.stopPropagation()}
-        style={{ display:"flex", flexDirection:"row-reverse", alignItems:"center", gap:52, maxWidth:1100, width:"100%", padding:"80px 60px 60px", boxSizing:"border-box" }}
+        style={{ display:"flex", flexDirection:"column", maxWidth:1100, width:"100%", padding:"80px 60px 60px", boxSizing:"border-box", maxHeight:"100svh", overflowY:"auto" }}
       >
-        {/* Image */}
-        <div style={{ flex:1, display:"flex", alignItems:"center", justifyContent:"center" }}>
-          {item.video
-            ? <video src={item.video} autoPlay loop playsInline style={{ maxHeight:"80svh", maxWidth:"100%", objectFit:"contain", display:"block" }} />
-            : (
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={active}
-                  src={active}
-                  alt={item.title}
-                  style={{ maxHeight:"80svh", maxWidth:"100%", objectFit:"contain", display:"block" }}
-                  initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} transition={{ duration:0.18 }}
-                  draggable={false}
-                />
-              </AnimatePresence>
-            )
-          }
+        {/* Top row: info left, image right */}
+        <div style={{ display:"flex", flexDirection:"row-reverse", alignItems:"center", gap:52 }}>
+          {/* Image */}
+          <div style={{ flex:1, display:"flex", alignItems:"center", justifyContent:"center" }}>
+            {item.video
+              ? <video src={item.video} autoPlay loop playsInline style={{ maxHeight:"70svh", maxWidth:"100%", objectFit:"contain", display:"block" }} />
+              : (
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={active}
+                    src={active}
+                    alt={item.title}
+                    style={{ maxHeight:"70svh", maxWidth:"100%", objectFit:"contain", display:"block" }}
+                    initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} transition={{ duration:0.18 }}
+                    draggable={false}
+                  />
+                </AnimatePresence>
+              )
+            }
+          </div>
+
+          {/* Info */}
+          <div style={{ width:220, flexShrink:0 }}>
+            <p style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", color:"#bbb", fontFamily:FONT_MONO, marginBottom:18 }}>
+              {CAT[item.category] ?? item.category}
+            </p>
+            <h2 style={{ fontFamily:FONT_DISPLAY, fontSize:titleSize(item.title), fontWeight:"normal", letterSpacing:"0.06em", textTransform:"uppercase", lineHeight:1.1, margin:"0 0 14px" }}>
+              {item.title}
+            </h2>
+            {item.year && <p style={{ fontSize:10, letterSpacing:"0.18em", color:"#bbb", fontFamily:FONT_MONO, textTransform:"uppercase", marginBottom:6 }}>{item.year}</p>}
+            {item.role && <p style={{ fontSize:10, letterSpacing:"0.10em", color:"#ccc", fontFamily:FONT_MONO, marginBottom:18 }}>{item.role}</p>}
+            {item.context && <p style={{ fontSize:9, letterSpacing:"0.04em", color:"#777", fontFamily:FONT_MONO, lineHeight:1.7, marginBottom:20 }}>{item.context}</p>}
+            <a href={`/?inquire=${encodeURIComponent(item.title)}`} onClick={e => e.stopPropagation()} style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", fontFamily:FONT_MONO, color:"#111", textDecoration:"none", borderBottom:"1px solid #111", paddingBottom:1 }}>
+              inquire
+            </a>
+
+            {hasRefs && (
+              <div style={{ marginTop:28 }}>
+                <button
+                  onClick={() => setShowRefs(v => !v)}
+                  style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", fontFamily:FONT_MONO, color:"#aaa", background:"none", border:"none", cursor:"pointer", padding:0 }}
+                >
+                  {showRefs ? "− hide" : `+ ${totalRefs} references`}
+                </button>
+              </div>
+            )}
+          </div>
         </div>
 
-        {/* Info */}
-        <div style={{ width:220, flexShrink:0 }}>
-          <p style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", color:"#bbb", fontFamily:FONT_MONO, marginBottom:18 }}>
-            {CAT[item.category] ?? item.category}
-          </p>
-          <h2 style={{ fontFamily:FONT_DISPLAY, fontSize:titleSize(item.title), fontWeight:"normal", letterSpacing:"0.06em", textTransform:"uppercase", lineHeight:1.1, margin:"0 0 14px" }}>
-            {item.title}
-          </h2>
-          {item.year && <p style={{ fontSize:10, letterSpacing:"0.18em", color:"#bbb", fontFamily:FONT_MONO, textTransform:"uppercase", marginBottom:6 }}>{item.year}</p>}
-          {item.role && <p style={{ fontSize:10, letterSpacing:"0.10em", color:"#ccc", fontFamily:FONT_MONO, marginBottom:18 }}>{item.role}</p>}
-          {item.context && <p style={{ fontSize:9, letterSpacing:"0.04em", color:"#777", fontFamily:FONT_MONO, lineHeight:1.7, marginBottom:20 }}>{item.context}</p>}
-          <a href={`/?inquire=${encodeURIComponent(item.title)}`} onClick={e => e.stopPropagation()} style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", fontFamily:FONT_MONO, color:"#111", textDecoration:"none", borderBottom:"1px solid #111", paddingBottom:1 }}>
-            inquire
-          </a>
-
-          {hasRefs && (
-            <div style={{ marginTop:28 }}>
-              <button
-                onClick={() => setShowRefs(v => !v)}
-                style={{ fontSize:9, letterSpacing:"0.14em", textTransform:"uppercase", fontFamily:FONT_MONO, color:"#aaa", background:"none", border:"none", cursor:"pointer", padding:0 }}
-              >
-                {showRefs ? "− hide" : `+ ${totalRefs} references`}
-              </button>
-              <AnimatePresence>
-                {showRefs && (
-                  <motion.div initial={{ opacity:0, height:0 }} animate={{ opacity:1, height:"auto" }} exit={{ opacity:0, height:0 }} transition={{ duration:0.25 }} style={{ overflow:"hidden" }}>
-                    <ReferenceCluster images={refs} onSelect={setActive} />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+        {/* Reference world — full-width D3 cloud below the row */}
+        <AnimatePresence>
+          {showRefs && (
+            <motion.div
+              initial={{ opacity:0, height:0 }}
+              animate={{ opacity:1, height:"auto" }}
+              exit={{ opacity:0, height:0 }}
+              transition={{ duration:0.3 }}
+              style={{ overflow:"hidden" }}
+            >
+              <ReferenceCluster images={refs} onSelect={url => { setActive(url); setShowRefs(false); }} />
+            </motion.div>
           )}
-        </div>
+        </AnimatePresence>
       </div>
     </div>
   );
