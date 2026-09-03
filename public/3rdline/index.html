@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rana Begum, Taking Form — The Third Line</title>
+<meta name="description" content="Taking Form. The Third Line, Dubai. 23 September – 10 November 2026">
+<meta name="theme-color" content="#e9e9e9">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rana Begum, Taking Form — The Third Line">
+<meta property="og:description" content="Taking Form. The Third Line, Dubai. 23 September – 10 November 2026">
+<meta property="og:image" content="https://waituntilmay.com/3rdline/img/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="The Third Line">
+<meta property="og:url" content="https://waituntilmay.com/3rdline">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Must mirror the <picture> exactly: same type, same srcset, same sizes.
+     Without imagesizes the browser assumes 100vw and preloads the 2400 tier,
+     and a jpg-only preload can never match the webp <source> the page uses -
+     either mistake downloads a large file the page then ignores. -->
+<link rel="preload" as="image" type="image/webp"
+      imagesrcset="/3rdline/img/no-1641/01-front-1200.webp 1200w, /3rdline/img/no-1641/01-front-2400.webp 2400w" imagesizes="(min-aspect-ratio: 3165/4748) calc((100dvh - 12px) * 3165 / 4748), calc(100vw - 12px)" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="/3rdline/fonts/lyon-display-light.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/3rdline/fonts/value-sans-regular.woff2" crossorigin>
+<style>
+@font-face{font-family:'Lyon Display';src:url('/3rdline/fonts/lyon-display-light.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Lyon Display';src:url('/3rdline/fonts/lyon-display-light-italic.woff2') format('woff2');font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:'Value Sans Pro';src:url('/3rdline/fonts/value-sans-regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Value Sans Pro';src:url('/3rdline/fonts/value-sans-medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Graphik Arabic';src:url('/3rdline/fonts/graphik-arabic-regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+
+
+:root{
+  --u: 8px;
+  --gap: 6px;                    /* hairline side margin (brief section 3: 4-8px).
+                                    Mirrored as GAP_PX in build-shell.py for `sizes`. */
+  --s-xs: calc(var(--u) * .5);
+  --s-sm: var(--u);
+  --s-md: calc(var(--u) * 2);
+  --s-lg: calc(var(--u) * 4);
+  --s-xl: calc(var(--u) * 8);
+
+  /* --field-global is the edition's own neutral: text beats, and the surfaces
+     that must not borrow a photograph's wall -- the metadata layer (step 4) and
+     the index grid (step 6). Only a work beat uses a sampled colour, and only
+     on itself. */
+  --field-global: #f1f1ef;
+  --ink: #14140f;
+  --ink-soft: #55554e;
+  --rule: #cfcfca;
+
+  --display: 'Lyon Display', 'Times New Roman', Times, serif;
+  --sans: 'Value Sans Pro', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --arabic: 'Graphik Arabic', 'Geeza Pro', sans-serif;
+
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur: 320ms;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;height:100%;background:var(--field-global)}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  -webkit-text-size-adjust:100%;
+  overscroll-behavior:none;
+}
+
+/* ---- vertical axis -------------------------------------------------------
+   A container rather than the document: step 4 can freeze one element, and the
+   viewport stops resizing mid-scroll. See the SCROLLER note in build-shell.py
+   for the iOS URL-bar consequence. */
+.edition{
+  height:100dvh;
+  overflow-y:auto;
+  overflow-x:hidden;
+  scroll-snap-type:y mandatory;
+  overscroll-behavior:contain;     /* both axes: rubber-band at either end does
+                                      not drag the document, and horizontal
+                                      overscroll does not reach back-swipe */
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.edition::-webkit-scrollbar{display:none}
+@supports not (height:100dvh){ .edition{height:100vh} }
+
+.beat{
+  height:100dvh;
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
+  padding:var(--gap);
+  position:relative;
+  background-color:var(--field, var(--field-global));
+}
+@supports not (height:100dvh){ .beat{height:100vh} }
+
+/* Adjacent beats carry different sampled walls. The widest gap in the current
+   set is #e9e9e9 -> #fafafa: dL* 5.93, well past the ~2.3 just-noticeable
+   difference for adjacent patches, and the letterbox above and below a work is
+   a large flat field, so at the snap boundary the two meet as a full-width
+   step. Each beat therefore starts at its predecessor's field and reaches its
+   own by the time it fills the viewport, so the boundary is always same-on-same.
+   Scroll-driven, no JS. Degrades to the hard step without view() support. */
+@supports (animation-timeline: view()){
+  @keyframes field-crossfade{
+    from{ background-color:var(--field-prev, var(--field-global)); }
+    to  { background-color:var(--field, var(--field-global)); }
+  }
+  .beat{
+    animation:field-crossfade linear both;
+    animation-timeline:view();
+    animation-range:entry 0% entry 50%;   /* entry 50% = beat exactly fills the scrollport */
+  }
+}
+
+/* ---- horizontal axis (step 3) --------------------------------------------
+   Native nested scroller. No touch-action here on purpose: `pan-x` would stop a
+   vertical drag that begins inside the track, which is most of the screen. The
+   browser's own axis-lock already routes the gesture correctly. */
+.track{
+  display:flex;
+  height:100%;
+  width:100%;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.track::-webkit-scrollbar{display:none}
+.track:focus{outline:none}
+.track:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
+
+.frame{
+  flex:0 0 100%;
+  height:100%;
+  display:grid;
+  place-items:center;
+  scroll-snap-align:center;
+  scroll-snap-stop:always;
+  background-color:var(--frame-field, var(--field));
+}
+
+/* Same seam, same fix, on the inline axis: a Front and a Back shot carry
+   different walls, and mid-swipe they meet as a full-height vertical step.
+   view(inline) resolves against the track. The first frame's predecessor is the
+   beat's own field, so nothing moves at rest. */
+@supports (animation-timeline: view()){
+  @keyframes frame-crossfade{
+    from{ background-color:var(--frame-field-prev, var(--field)); }
+    to  { background-color:var(--frame-field, var(--field)); }
+  }
+  .frame{
+    animation:frame-crossfade linear both;
+    animation-timeline:view(inline);
+    animation-range:entry 0% entry 50%;
+  }
+}
+
+.frame picture{display:contents}
+.frame img{
+  display:block;
+  max-width:100%;
+  max-height:100%;
+  width:auto;
+  height:auto;
+  object-fit:contain;              /* fit-within, never cropped */
+  background-size:cover;           /* blur placeholder sits here until paint */
+  background-position:center;
+  /* No box-shadow. These are installation photographs: wall, cast shadow and
+     object edge are already in the picture, and --field is sampled from each
+     shot's own wall, so the photo edge disappears into the beat. A CSS shadow
+     would draw a second, rectangular shadow around the photograph. Reinstate
+     only if the gallery supplies cut-out works on a flat ground. */
+}
+
+/* ---- reading beats ------------------------------------------------------- */
+.beat--text{
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  padding:calc(var(--s-xl) + env(safe-area-inset-top)) var(--s-lg) var(--s-xl);
+}
+.reading{
+  max-width:34em;
+  margin:0 auto;
+  font-family:var(--display);
+  font-weight:300;
+  font-size:17px;
+  line-height:1.5;
+  letter-spacing:.002em;
+}
+.reading p{margin:0 0 1.05em}
+.reading p:last-child{margin-bottom:0}
+.reading em{font-style:italic}
+.reading h2{
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:11px;
+  line-height:1;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin:var(--s-lg) 0 var(--s-md);
+  padding-bottom:var(--s-sm);
+  border-bottom:1px solid var(--rule);
+}
+.reading h2:first-child{margin-top:0}
+
+.colophon-meta{
+  font-family:var(--sans);
+  font-size:13px;
+  line-height:1.45;
+  margin:var(--s-lg) 0 0;
+  display:grid;
+  grid-template-columns:5.5em 1fr;
+  gap:var(--s-xs) var(--s-md);
+}
+.colophon-meta dt{color:var(--ink-soft);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding-top:.25em}
+.colophon-meta dd{margin:0}
+.colophon-meta a{color:inherit}
+.courtesy{font-family:var(--sans);font-size:12px;line-height:1.45;color:var(--ink-soft);margin:var(--s-lg) 0 0}
+.wordmark{
+  display:flex;align-items:baseline;gap:var(--s-md);
+  margin:var(--s-xl) 0 0;padding-top:var(--s-md);border-top:1px solid var(--rule);
+}
+.wordmark-latin{font-family:var(--display);font-size:19px;letter-spacing:.01em}
+.wordmark-ar{font-family:var(--arabic);font-size:19px}
+
+@media (prefers-reduced-motion:reduce){
+  .edition,.track{scroll-behavior:auto}
+  .beat{animation:none}
+  *{transition-duration:0s !important}
+}
+
+</style>
+</head>
+<body>
+<main class="edition" data-beat="0">
+<section class="beat beat--work" id="no-1641" data-index="0" data-frames="1" data-pending="2" data-frame="0" aria-label="No. 1641, 2026" style="--field:#e9e9e9;--field-prev:#f1f1ef"><div class="track" tabindex="0" aria-label="No. 1641, additional views"><div class="frame" data-view="Front" data-frame="0" style="--frame-field:#e9e9e9;--frame-field-prev:#e9e9e9"><picture><source type="image/webp" srcset="/3rdline/img/no-1641/01-front-1200.webp 1200w, /3rdline/img/no-1641/01-front-2400.webp 2400w" sizes="(min-aspect-ratio: 3165/4748) calc((100dvh - 12px) * 3165 / 4748), calc(100vw - 12px)"><img src="/3rdline/img/no-1641/01-front-1200.jpg" srcset="/3rdline/img/no-1641/01-front-1200.jpg 1200w, /3rdline/img/no-1641/01-front-2400.jpg 2400w" sizes="(min-aspect-ratio: 3165/4748) calc((100dvh - 12px) * 3165 / 4748), calc(100vw - 12px)" width="3165" height="4748" alt="Rana Begum, No. 1641, Front" fetchpriority="high" decoding="sync" style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAkABgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDpHuY43KsWyPRSaT7ZD6t/3yaqXJxcv+H8qjYALuHSsnN3si+XS5opcxSOEUncemVIorPsmJu0z6H+VFXF3RAl2+LuT04/lVYzbjweKsXtrcS3DNGgKnHO4DtVcafdD/lmP++hWPLLmbL5tLFiybN2n0P8qKWytbiK4VpEAUA87gaK3WxBorTqKKYCGiiigD//2Q==)"></picture></div></div></section>
+<section class="beat beat--text beat--exhibition" data-index="1" style="--field:#f1f1ef;--field-prev:#e9e9e9"><div class="reading"><p>The Third Line is pleased to present Rana Begum&#x27;s fifth solo exhibition at the gallery, featuring a new body of works across linen, textile, wood, and paper. The exhibition continues Begum&#x27;s exploration of textiles, bringing the medium into dialogue with her ongoing interest in light, color, and material. While embracing a turn towards softness and delicacy, the works in <em>Taking Form</em> build on Begum&#x27;s longstanding engagement with abstraction and Minimalism, continuing her exploration of light through new materials and forms. This engagement with geometry runs throughout: forms suggest patterns that extend beyond their physical boundaries. Drawing on Islamic geometry, the square and rectangle establish defined perimeters, while the configurations within them suggest a sense of continuation. The geometry is never truly contained.</p><p>Begum moves fluidly across various media such as metal, paper, wood, terracotta, and mesh. Her latest work with wool, creating large-scale tapestries, is a testament to this versatility. Suspended from the ceiling in Gallery 1, Begum&#x27;s nearly five-meter-tall tapestries draw the viewer&#x27;s gaze upwards, transforming the gallery into a vast, immersive field of cascading color.</p><p>Begum&#x27;s interest in woven surfaces dates back to 2022, when she was commissioned to design seat covers and tapestries as part of the Bristol Beacon&#x27;s transformation project. Her collaboration with the textile studio Dash &amp; Miller for the project has continued through the large-scale tapestries in <em>Taking Form</em>, exploring how material, color, and scale come together to create a sense of expansion within the gallery space. The tapestries are composed of colored triangles, drawing on the geometric abstraction that characterizes Begum&#x27;s visual language. These colors are not just layered but woven together using the ridging technique, resulting in a dual pattern that is revealed only as the viewer moves around them.</p><p>Adjacent to the monumental tapestries, the paper works are studies of color interaction, using watercolor marks to explore how hues respond to one another. Their pale, aqueous tones echo the labor-intensive process of combining colors in the tapestries, distilled here into just a few strokes and creating a visual link between the two rooms.</p><p>Begum continues her exploration of textiles through a series of large-scale linen paintings in Gallery 2. These works extend her longstanding interest in how paint interacts with different surfaces, from reflective mirror and glass to more absorbent materials such as wood, paper, and canvas. Here, this structure, particularly the use of overlapping triangles, is translated onto linen through layers of diluted acrylic paint. The natural, unprocessed tone and texture of the linen influence the color as it is absorbed into the weave, creating a sense of rawness and an organic quality across the surface. The resulting interplay of paint and linen allows the works to evoke the shifting qualities of light through color. Alongside the linens, a set of wooden panel paintings punctuate the space with playful accents through their smaller scale and subtle shifts in color. Though the colors themselves are light, they build upon one another, creating changes in density as more layers accumulate. The smooth surface of the wooden panels holds the paint differently, allowing for a more consistent veil of color across the surface. Together, both series create a luminous field across the gallery, with a gentle rhythm that shifts as the viewer moves through the space.</p><p>Begum has explored light throughout her practice, considering the shifting sensory effects it produces through different combinations of color, material, and scale. The works in <em>Taking Form</em> continue this exploration, inviting viewers to move through the galleries at their own pace and discover changing hues, forms, and rhythms along the way.</p></div></section>
+<section class="beat beat--work" id="no-1635" data-index="2" data-frames="1" data-pending="3" data-frame="0" aria-label="No. 1635, 2026" style="--field:#f2f1ef;--field-prev:#f1f1ef"><div class="track" tabindex="0" aria-label="No. 1635, additional views"><div class="frame" data-view="Front" data-frame="0" style="--frame-field:#f2f1ef;--frame-field-prev:#f2f1ef"><picture><source type="image/webp" srcset="/3rdline/img/no-1635/01-front-1200.webp 1200w, /3rdline/img/no-1635/01-front-2400.webp 2400w" sizes="(min-aspect-ratio: 3243/4054) calc((100dvh - 12px) * 3243 / 4054), calc(100vw - 12px)"><img src="/3rdline/img/no-1635/01-front-1200.jpg" srcset="/3rdline/img/no-1635/01-front-1200.jpg 1200w, /3rdline/img/no-1635/01-front-2400.jpg 2400w" sizes="(min-aspect-ratio: 3243/4054) calc((100dvh - 12px) * 3243 / 4054), calc(100vw - 12px)" width="3243" height="4054" alt="Rana Begum, No. 1635, Front" loading="lazy" decoding="async" style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAeABgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDpLy9js9nmKzb842+1V/7ag/55SfpVfxFwLf6t/Ss2D96ee3Wk9Fc1iotanR2l2l2GKIyhf73eiq+k/wDLX8KKSd0Zy3KviM8Ww92/pWSkgTG0iuka5ifG+INjpkA03zrf/n3T/vkVV0PUh0WQSLKQfT+tFTrcxr9yILn0AFFSrITuz//Z)"></picture></div></div></section>
+<section class="beat beat--work" id="no-1670" data-index="3" data-frames="1" data-pending="2" data-frame="0" aria-label="No. 1670, 2026" style="--field:#fafafa;--field-prev:#f2f1ef"><div class="track" tabindex="0" aria-label="No. 1670, additional views"><div class="frame" data-view="Scale" data-frame="0" style="--frame-field:#fafafa;--frame-field-prev:#fafafa"><picture><source type="image/webp" srcset="/3rdline/img/no-1670/02-front-2-scale-1200.webp 1200w, /3rdline/img/no-1670/02-front-2-scale-2400.webp 2400w" sizes="(min-aspect-ratio: 5285/6606) calc((100dvh - 12px) * 5285 / 6606), calc(100vw - 12px)"><img src="/3rdline/img/no-1670/02-front-2-scale-1200.jpg" srcset="/3rdline/img/no-1670/02-front-2-scale-1200.jpg 1200w, /3rdline/img/no-1670/02-front-2-scale-2400.jpg 2400w" sizes="(min-aspect-ratio: 5285/6606) calc((100dvh - 12px) * 5285 / 6606), calc(100vw - 12px)" width="5285" height="6606" alt="Rana Begum, No. 1670, Scale" loading="lazy" decoding="async" style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAeABgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDrmY7W+hriS90G3faJtn/XQ12bN8jf7p/lXGwXKyxYxzjkVLdmjWmt2dtuwB9KKYTwPpRVGQzIKH6GvPYxscEMQa7RZpCOo/KsAaAwP/HyOD/c/wDr0KSNI+Z1UU6zRBlIxyODnpRWRpiS2to0RZT+8dhgcAE5oqbk2P/Z)"></picture></div></div></section>
+<section class="beat beat--work" id="no-1676" data-index="4" data-frames="2" data-pending="5" data-frame="0" aria-label="No. 1676, 2026" style="--field:#f8f8f8;--field-prev:#fafafa"><div class="track" tabindex="0" aria-label="No. 1676, additional views"><div class="frame" data-view="Front" data-frame="0" style="--frame-field:#f8f8f8;--frame-field-prev:#f8f8f8"><picture><source type="image/webp" srcset="/3rdline/img/no-1676/01-front-1200.webp 1200w, /3rdline/img/no-1676/01-front-2400.webp 2400w" sizes="(min-aspect-ratio: 5160/6451) calc((100dvh - 12px) * 5160 / 6451), calc(100vw - 12px)"><img src="/3rdline/img/no-1676/01-front-1200.jpg" srcset="/3rdline/img/no-1676/01-front-1200.jpg 1200w, /3rdline/img/no-1676/01-front-2400.jpg 2400w" sizes="(min-aspect-ratio: 5160/6451) calc((100dvh - 12px) * 5160 / 6451), calc(100vw - 12px)" width="5160" height="6451" alt="Rana Begum, No. 1676, Front" loading="lazy" decoding="async" style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAeABgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDrnJ2N9DXERXE7dZ5c/wC+a7PcSjfQ1wyA9qTvujei43szvNxCD6UUxz8g+lFMwGgjY30NcZHhhgV04mfaRheRisRdInT5RLH+tNPQ0jaLuzqGI2D6UVTkuH24wOlFRcix/9k=)"></picture></div><div class="frame" data-view="Back" data-frame="1" style="--frame-field:#f8f8f8;--frame-field-prev:#f8f8f8"><picture><source type="image/webp" srcset="/3rdline/img/no-1676/05-back-1200.webp 1200w, /3rdline/img/no-1676/05-back-2400.webp 2400w" sizes="(min-aspect-ratio: 5221/6527) calc((100dvh - 12px) * 5221 / 6527), calc(100vw - 12px)"><img src="/3rdline/img/no-1676/05-back-1200.jpg" srcset="/3rdline/img/no-1676/05-back-1200.jpg 1200w, /3rdline/img/no-1676/05-back-2400.jpg 2400w" sizes="(min-aspect-ratio: 5221/6527) calc((100dvh - 12px) * 5221 / 6527), calc(100vw - 12px)" width="5221" height="6527" alt="Rana Begum, No. 1676, Back" loading="lazy" decoding="async" style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAeABgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDr2JwfpXL2N2bgbXkkEg6/vG59+tdJuyD9K4RC8bh0JBB4NNG1KPNc73JAH0oprNwPpRSMRq4wfpXMwG3ntNiD5e47g1tJNJj+GsGDQ7yCXctxFg9Rg8ilc1hodW2MD6UVTe4fpgUUXM7H/9k=)"></picture></div></div></section>
+<section class="beat beat--text beat--colophon" data-index="5" style="--field:#f1f1ef;--field-prev:#f8f8f8"><div class="reading"><h2>About the artist</h2><p>Rana Begum was born in 1977, Sylhet, Bangladesh and lives and works in London. Begum&#x27;s work focuses on the interplay between light and color, blurring the boundaries between sculpture, painting and architecture. Her visual language draws from the urban landscape as well as geometric patterns from traditional Islamic art and architecture. Light is fundamental to her process. Her work moves across a wide range of media—from metal, glass, and stone to paper, wood and textiles—each absorbing or reflecting light to produce an experience that is at once temporal and sensorial.</p><p>Begum&#x27;s work has been shown at institutions including the SCAD Museum of Modern Art, Sainsbury&#x27;s Visual Art Centre, Tate St Ives, the Taipei Biennial, and Desert X, and is held in collections including the Museum of Fine Arts Boston, the Ashmolean Museum, Queensland Art Gallery | Gallery of Modern Art (QAGOMA), and the Museum of Old and New Art, Australia, Government Art Collection (UK), Royal Academy of Arts, Samdani Art Foundation and Paul Ege Art Collection.</p><h2>About the gallery</h2><p>Founded in 2005, The Third Line is a Dubai-based gallery that represents contemporary artists locally, regionally, and internationally. With 20 years of dedicated commitment to the arts, it has become a pioneering platform for established talent and emerging voices from the region and its diaspora, building a dynamic program that explores the diversity of practices in the region.</p><p>In addition to its exhibitions, The Third Line engages in the production of art publications in English and Arabic and hosts numerous non-profit, alternative programs that add to the discourse on art, film, music, and literature in the region.</p><dl class="colophon-meta"><dt>Press</dt><dd>Insun Woo &middot; <a href="mailto:insun@thethirdline.com">insun@thethirdline.com</a></dd><dt>Gallery</dt><dd>The Third Line, Alserkal Avenue, Al Quoz 1, Dubai, UAE</dd><dt>Dates</dt><dd>23 September – 10 November 2026</dd></dl><p class="courtesy">Courtesy Rana Begum Studio and The Third Line, Dubai</p><p class="wordmark"><span class="wordmark-latin">The Third Line</span><span class="wordmark-ar" lang="ar" dir="rtl">الخط الثالث</span></p></div></section>
+</main>
+<script>
+(function(){
+  var edition = document.querySelector('.edition');
+  var beats = [].slice.call(document.querySelectorAll('.beat'));
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- neighbour prefetch ------------------------------------------------
+     Must read the <source>, not the <img>. The img's srcset is the JPEG list;
+     the WebP the page actually renders lives on the <source>. Copying
+     img.srcset fetched every neighbour a second time, as JPEG. */
+  var warmed = Object.create(null);
+  function warm(beat){
+    if(!beat) return;
+    var pic = beat.querySelector('picture');
+    if(!pic) return;
+    var src = pic.querySelector('source[type="image/webp"]');
+    var img = pic.querySelector('img');
+    var pre = new Image();
+    if(src && src.srcset){
+      if(warmed[src.srcset]) return;
+      warmed[src.srcset] = 1;
+      pre.sizes = src.sizes || '';
+      pre.srcset = src.srcset;
+    } else if(img){
+      if(warmed[img.src]) return;
+      warmed[img.src] = 1;
+      pre.sizes = img.sizes || '';
+      if(img.srcset) pre.srcset = img.srcset;
+      pre.src = img.src;
+    }
+  }
+
+  /* ---- lateral hint ------------------------------------------------------
+     Two beats out and back, once per work per session, so the horizontal axis
+     teaches itself. Snap is suspended for the duration -- a mandatory snapport
+     fights an animated scrollLeft -- and restored on the final frame. */
+  function hint(track){
+    if(reduced) return;
+    var beat = track.closest('.beat');
+    var key = 'hint:' + beat.id;
+    try { if(sessionStorage.getItem(key)) return; sessionStorage.setItem(key, '1'); } catch(e){}
+    if(track.scrollWidth <= track.clientWidth + 4) return;
+
+    var amp = Math.min(34, track.clientWidth * 0.09);
+    var dur = 1100, t0 = null;
+    var prevSnap = track.style.scrollSnapType;
+    track.style.scrollSnapType = 'none';
+    function frame(t){
+      if(t0 === null) t0 = t;
+      var p = Math.min(1, (t - t0) / dur);
+      var x = Math.sin(p * Math.PI * 2) * amp * (1 - p);   /* two decaying beats */
+      track.scrollLeft = Math.max(0, x);
+      if(p < 1){ requestAnimationFrame(frame); }
+      else {
+        /* A fractional scrollLeft left over from the sine decay makes Safari
+           jump when a mandatory snapport is restored. Zero it first, in this
+           order, always. */
+        track.scrollLeft = 0;
+        track.style.scrollSnapType = prevSnap || '';
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* ---- which frame is current (step 4 reads this) ------------------------ */
+  beats.forEach(function(beat){
+    var track = beat.querySelector('.track');
+    if(!track) return;
+    var frames = [].slice.call(track.querySelectorAll('.frame'));
+    if(frames.length < 2) return;
+    var fo = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.intersectionRatio > 0.6){
+          beat.dataset.frame = e.target.dataset.frame;
+          beat.dataset.view = e.target.dataset.view;
+        }
+      });
+    }, {root: track, threshold: [0.6]});
+    frames.forEach(function(f){ fo.observe(f); });
+  });
+
+  /* ---- vertical position: prefetch neighbours, fire the hint ------------- */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var i = beats.indexOf(e.target);
+      edition.dataset.beat = String(i);
+      warm(beats[i + 1]);
+      warm(beats[i - 1]);
+      var track = e.target.querySelector('.track');
+      if(track) hint(track);
+    });
+  }, {root: edition, threshold: 0.6});
+  beats.forEach(function(b){ io.observe(b); });
+
+  warm(beats[1]);
+
+  /* ---- desktop keyboard (step 8 will extend this) ------------------------ */
+  document.addEventListener('keydown', function(e){
+    var i = parseInt(edition.dataset.beat || '0', 10);
+    var beat = beats[i];
+    var track = beat && beat.querySelector('.track');
+    if(e.key === 'ArrowRight' && track){
+      e.preventDefault(); track.scrollBy({left: track.clientWidth, behavior: 'smooth'});
+    } else if(e.key === 'ArrowLeft' && track){
+      e.preventDefault(); track.scrollBy({left: -track.clientWidth, behavior: 'smooth'});
+    } else if((e.key === 'ArrowDown' || e.key === 'PageDown') && beats[i+1]){
+      e.preventDefault(); beats[i+1].scrollIntoView({behavior:'smooth'});
+    } else if((e.key === 'ArrowUp' || e.key === 'PageUp') && beats[i-1]){
+      e.preventDefault(); beats[i-1].scrollIntoView({behavior:'smooth'});
+    }
+  });
+})();
+</script>
+</body>
+</html>
