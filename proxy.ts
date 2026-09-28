@@ -4,7 +4,8 @@ import { devAuthEnabled, supabaseConfig } from "./crm/lib/env";
 import { refreshSupabaseSession } from "./crm/lib/supabase/proxy";
 
 const LUNCH_BELLS_COOKIE = "lb-auth";
-const CRM_PUBLIC = ["/crm/sign-in", "/crm/auth/callback"];
+// Sign-in, the magic-link landing, and static brand assets (the sign-in page needs the wordmark).
+const CRM_PUBLIC = ["/crm/sign-in", "/crm/auth/callback", "/crm/brand/"];
 
 function lunchBells(req: NextRequest) {
   if (req.nextUrl.pathname === "/lunch-bells/login") return NextResponse.next();
