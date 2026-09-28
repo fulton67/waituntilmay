@@ -82,11 +82,9 @@ Running list of calls made while building `/crm` without stopping to ask.
     field, and a phone field in the attributes.
 
 ## UI
-30. **Brand assets are placeholders.** `docs/fomo_Brand_Kit.pdf`, the prototype HTML and the real
-    logo masks weren't in the repo. `public/crm/brand/wordmark.png` and `eyes.png` are generated
-    stand-in masks (alpha only, rendered through `mask-image` with `--logo`). Drop the real files in
-    at the same paths and nothing else needs to change. If the real wordmark's aspect ratio isn't
-    1080:380, update `.crm-wordmark` in `crm.css`.
+30. **Brand assets (updated in v2).** The wordmark mask and `eyes-sprite.png` are now derived from
+    the official files in `fomo-intro.zip`. See v2 decision 52. `docs/fomo_Brand_Kit.pdf` and the
+    prototype HTML still aren't in the repo.
 31. **DM Sans stands in for Aeonik** (`crm/ui/fonts.ts`), because the licensed woff2 files aren't in
     `public/fonts/`. The file has the exact `next/font/local` swap in a comment. `next/font/local`
     needs the files at build time, so it can't be switched on automatically.
@@ -110,3 +108,70 @@ Running list of calls made while building `/crm` without stopping to ask.
 37. **`next build` fails locally on the existing `/reels/admin` page** without `KV_REST_API_*`
     credentials (it prerenders from Vercel KV). With that page set aside, the build succeeds, and
     all CRM routes compile as dynamic. It should build on Vercel, where the KV env exists.
+
+## Production deploy (v1)
+38. **The Vercel project has no Git integration** (`link: null`), so pushing main doesn't deploy.
+    Production deploys run from the CLI (`vercel deploy --prod`), the same way every earlier deploy
+    was made.
+39. **Supabase pooler host is `aws-1-us-west-2.pooler.supabase.com`.** The `aws-0-…` host from the
+    Connect string answered "tenant/user not found".
+40. **`CRM_FORCE_LOCAL=1`** (ignored in production) makes a dev server ignore the Supabase keys in
+    `.env.local`, so Playwright never touches the production project.
+
+## v2: rankings, campaigns, interns
+41. **Migrations 0001/0002.** 0001 adds every new column and table and converts v1 data: fit and
+    skill scores go 0–100 → 1–10 (rounded), existing areas become `core`, and the settings row is
+    created. 0002 drops `fit_score`. The split avoids drizzle-kit's interactive rename prompt.
+42. **`interviews.fit_before`** (added beyond the spec) stores the candidate's fit just before that
+    interview was first scored. The ↑/↓ delta is `fit − fit_before` of the latest scored interview,
+    and the hollow baseline dot is the first scored interview's `fit_before`. This avoids storing a
+    fit history table.
+43. **Seed v2.** `seed.json` gains a campaign, ten tasks, five more interviews (two scored, in the
+    past), two small jobs, three sessions (one still open) and one report. Fits are replayed from
+    interview scores, so the pool spreads across tiers: Kerem 9, Arya 8.5, Pranav 8 (priority);
+    Golam 7, Hammaad 6 (standard).
+44. **Seed candidate emails moved to `@example.edu`.** In v2 a matching candidate email grants
+    intern sign-in, so real-looking addresses like `pranav.r@nyu.edu` could have let a stranger into
+    the demo.
+45. **Who counts as an intern:** anyone whose email matches a candidate. The proxy only checks that
+    someone is signed in; layouts send interns to `/crm/me`, and every server action re-checks the
+    role (`interviewerOnly()` / `internOnly()`). Interns can only set status on, clock into and
+    report on their own rows.
+46. **Clock in / out and reports are intern-only.** Interviewers can change a task's status but
+    can't clock in on anyone's behalf; "View as" is read-only. One open session per intern is
+    enforced by the action (with an advisory lock) and a partial unique index.
+47. **Reassigning a task** closes the previous intern's running session on it (note "Task
+    reassigned").
+48. **Interns (for rows, stats and proposals)** = candidates with at least one assigned task in the
+    current campaign. The Assignments section lists every non-benched candidate, plus benched ones
+    that already have tasks.
+49. **Tier group headers** use the spec's absolute-band wording ("8 and up", "5–7", "4 and below")
+    with short action notes. The percentile phrasing in the spec contradicted "absolute bands, not a
+    curve", so I didn't use it.
+50. **Leaderboard scale** is floor→10. The spec's "floor→100" is read as a typo, since everything is
+    on 1–10.
+51. **Rail (per the correction):** eyes (theme toggle), Overview, Schedule, Campaign & assignments,
+    Candidates, Areas & goals (drawer), Rankings & tiers (drawer); theme and settings at the bottom.
+    Recent activity stays a dashboard card; its "See all" and the bell go to `/crm/activity`.
+    Settings is a modal (the `/crm/settings` page still works as a deep link). On mobile the bottom
+    bar has eyes, the four sections, Rankings, theme and settings; Areas is reached from the Open
+    areas card's "Manage".
+52. **Eyes sprite** = frames 2–29 of the official 59-frame `fomo-eyes-turn.webp` (the turn from
+    looking right to looking left), cropped square around the mark, 128px per frame, alpha only.
+    The rail shows frame 0 in light and frame 27 in dark, and plays `steps(27)` over 1.1s on switch.
+    Two keyframe names (to-dark / to-light) guarantee the animation restarts every time.
+53. **Intro splash** (your `IntroSplash.tsx`) renders once per browser session at the top of the CRM
+    layout, sign-in included, with assets in `public/anim/`. Its font now points at the CRM font
+    variable. Its gate-before-paint `setState` is lint-annotated, not rewritten.
+54. **Card reveal** hides top-level cards until they enter the viewport. Under
+    `prefers-reduced-motion` they show immediately. Drawers and modals don't use it.
+55. **The e2e server builds into `.next-e2e`** (`NEXT_DIST_DIR`), because Next 16 allows only one
+    `next dev` per build directory and another one was already running on :3005. On first run, Next
+    added the `.next-e2e` type paths to `tsconfig.json`.
+56. **`/crm/api/intern/[id]`** returns an intern's page data as JSON: 401 signed out, 403 for an
+    intern asking for someone else, 200 for their own or for any interviewer. `/crm/me` is rendered
+    from the same server-side loader, which selects only that intern's rows.
+57. **Timesheet CSV** (`/crm/api/timesheet?day=`) is interviewer-only and has exactly the columns
+    intern, task, start, end, minutes and note.
+58. **Next up proposals** recompute on every state change and on the clock tick, which is 20s, not
+    60s; that's cheaper than it sounds for this pool size.
