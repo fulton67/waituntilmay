@@ -42,3 +42,11 @@ next-env.d.ts
 
 .vercel
 .env*.local
+
+# crm local data
+/crm/.pglite*
+/crm/.uploads
+/crm/e2e/.results
+/test-results
+/playwright-report
+!.env.example

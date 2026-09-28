@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // PGlite (local-dev database) loads its WASM from node_modules at runtime.
+  serverExternalPackages: ["@electric-sql/pglite"],
   async headers() {
     return [
       {
