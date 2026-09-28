@@ -1,0 +1,78 @@
+{
+ "_comment": "Tile labels for the /sie video grid. Rendered as 'artist — title', lowercase, body size. The YouTube channel handle is never shown on the page. New uploads that appear on a channel but are absent from `videos` fall back to channelDefaults[handle] for the artist, and to the cleaned video title; those are flagged in the build Action summary so a human can name them properly.",
+ "updated": "2026-09-28",
+ "channelDefaults": {
+  "hunnakay": "hunnakay",
+  "kllhhr": "kllhhr",
+  "comeheadtapme19": "sheroy",
+  "suckrballll": "suckrball",
+  "ibeenhip": "tazparis"
+ },
+ "titleRules": [
+  "strip a trailing '(official music video)' or '(official video)', case-insensitive",
+  "collapse whitespace, lowercase",
+  "strip a leading '<artist> -' or '<channel handle> -' prefix"
+ ],
+ "videos": {
+  "W6n73KxSkn0": {
+   "artist": "hunnakay",
+   "title": "triple krosssss"
+  },
+  "hY4yIF5t618": {
+   "artist": "hunnakay",
+   "title": "no one left"
+  },
+  "OIUexrJQ89A": {
+   "artist": "hunnakay",
+   "title": "numb"
+  },
+  "cm8-lW25-e4": {
+   "artist": "kllhhr",
+   "title": "skin"
+  },
+  "2L9ZwUIzAX8": {
+   "artist": "kllhhr",
+   "title": "be cool"
+  },
+  "3KxkXT0U6PM": {
+   "artist": "tazparis",
+   "title": "on my terms"
+  },
+  "q0cq_Ny0Hkg": {
+   "artist": "kllhhr",
+   "title": "tweak"
+  },
+  "Vf-I12GW8Pk": {
+   "artist": "sheroy",
+   "title": "fate"
+  },
+  "_swh-ZVvAro": {
+   "artist": "sheroy",
+   "title": "lastyear"
+  },
+  "P1fFSZUrW3k": {
+   "artist": "sheroy wit suckrball",
+   "title": "not my v"
+  },
+  "E5zMqyOE61o": {
+   "artist": "sheroy",
+   "title": "18"
+  },
+  "QNqd8_XWc58": {
+   "artist": "suckrball",
+   "title": "alone"
+  },
+  "wETb3ybNNKg": {
+   "artist": "suckrball",
+   "title": "moss"
+  },
+  "S_OO6kivZ8Y": {
+   "artist": "tazparis",
+   "title": "disgusted"
+  },
+  "gTsLN7wq9DY": {
+   "artist": "tazparis",
+   "title": "onestopshop"
+  }
+ }
+}
