@@ -4,7 +4,8 @@ import { and, desc, eq, inArray, isNotNull, notInArray, sql } from "drizzle-orm"
 import { refresh } from "next/cache";
 import { z } from "zod";
 import { getDb, schema, type Db } from "../db";
-import { requireInterviewer } from "./auth";
+import { getViewer } from "./auth";
+import { autoTier, firstName, fmtLogged, round1, sessionMinutes } from "./ranking";
 import { AVATAR_COLORS } from "./colors";
 import { devToolsEnabled } from "./env";
 import { findClash, interviewPhase, statusAfterCompleted, statusAfterSchedule } from "./rules";
@@ -18,6 +19,9 @@ import {
   type ActionResult,
   type ActivityKind,
   type Status,
+  type Tier,
+  TIER_LABEL,
+  TASK_STATUS_LABEL,
 } from "./types";
 
 type Tx = Parameters<Parameters<Db["transaction"]>[0]>[0];
@@ -26,7 +30,7 @@ const ACTIVITY_KEEP = 500;
 
 async function logActivity(
   db: Db | Tx,
-  entry: { kind: ActivityKind; title: string; subtitle: string; candidateId?: string | null; actorId: string },
+  entry: { kind: ActivityKind; title: string; subtitle: string; candidateId?: string | null; actorId: string | null },
 ) {
   await db.insert(schema.activity).values({ ...entry, candidateId: entry.candidateId ?? null });
   const keep = db.select({ id: schema.activity.id }).from(schema.activity).orderBy(desc(schema.activity.createdAt)).limit(ACTIVITY_KEEP);
@@ -50,6 +54,36 @@ async function run<T>(fn: () => Promise<T>): Promise<ActionResult<T>> {
 }
 
 class UserError extends Error {}
+
+/** Every interviewer-only write starts here. Interns get a clear refusal, not a redirect. */
+async function interviewerOnly() {
+  const viewer = await getViewer();
+  if (!viewer) throw new UserError("Your session has ended. Sign in again.");
+  if (viewer.role !== "interviewer") throw new UserError("Only interviewers can do that.");
+  return viewer.interviewer;
+}
+
+/** The signed-in intern (candidate). Interviewers can't clock in or report on someone's behalf. */
+async function internOnly() {
+  const viewer = await getViewer();
+  if (!viewer) throw new UserError("Your session has ended. Sign in again.");
+  if (viewer.role !== "intern") throw new UserError("Only the intern can do that — use their own sign-in.");
+  return viewer.candidate;
+}
+
+async function loadSettings(db: Db | Tx) {
+  const [row] = await db.select().from(schema.settings);
+  return { priorityAt: row?.priorityAt ?? 8, benchAt: row?.benchAt ?? 4 };
+}
+
+async function isBenched(db: Db | Tx, candidateId: string) {
+  const [c] = await db
+    .select({ fit: schema.candidates.fit, tierOverride: schema.candidates.tierOverride })
+    .from(schema.candidates)
+    .where(eq(schema.candidates.id, candidateId));
+  if (!c) throw new UserError("That candidate no longer exists.");
+  return (c.tierOverride ?? autoTier(c.fit, await loadSettings(db))) === "bench";
+}
 
 const id = z.string().uuid();
 const trimmed = (max: number) => z.string().trim().max(max);
@@ -84,7 +118,7 @@ const newCandidateInput = z.object({
 
 export async function createCandidate(input: z.input<typeof newCandidateInput>) {
   return run(async () => {
-    const me = await requireInterviewer();
+    const me = await interviewerOnly();
     const v = newCandidateInput.parse(input);
     const db = await getDb();
     return db.transaction(async (tx) => {
@@ -125,14 +159,15 @@ const candidatePatch = z
     portfolioUrl: trimmed(300),
     phone: trimmed(40).nullable(),
     status: z.enum(STATUSES),
-    fitScore: z.number().int().min(0).max(100),
+    fit: z.number().min(1, "Fit is 1–10").max(10, "Fit is 1–10").transform(round1),
+    tierOverride: z.enum(["priority", "standard", "bench"]).nullable(),
     summary: trimmed(400),
   })
   .partial();
 
 export async function updateCandidate(candidateId: string, patch: z.input<typeof candidatePatch>) {
   return run(async () => {
-    const me = await requireInterviewer();
+    const me = await interviewerOnly();
     id.parse(candidateId);
     const v = candidatePatch.parse(patch);
     const db = await getDb();
@@ -145,6 +180,15 @@ export async function updateCandidate(candidateId: string, patch: z.input<typeof
         .update(schema.candidates)
         .set({ ...fields, ...(summary !== undefined ? { resumeJson: { ...before.resumeJson, summary } } : {}) })
         .where(eq(schema.candidates.id, candidateId));
+      if (v.tierOverride !== undefined && v.tierOverride !== before.tierOverride) {
+        await logActivity(tx, {
+          kind: "status",
+          title: v.tierOverride ? `Tier set to ${TIER_LABEL[v.tierOverride as Tier].toLowerCase()}` : "Tier back to automatic",
+          subtitle: `${before.name} · by ${me.name}`,
+          candidateId,
+          actorId: me.id,
+        });
+      }
       if (v.status && v.status !== before.status) {
         await logActivity(tx, {
           kind: v.status === "awaiting" ? "awaiting" : "status",
@@ -160,7 +204,7 @@ export async function updateCandidate(candidateId: string, patch: z.input<typeof
 
 export async function deleteCandidate(candidateId: string) {
   return run(async () => {
-    await requireInterviewer();
+    await interviewerOnly();
     id.parse(candidateId);
     const db = await getDb();
     await db.delete(schema.candidates).where(eq(schema.candidates.id, candidateId));
@@ -171,12 +215,12 @@ export async function deleteCandidate(candidateId: string) {
 
 const skillInput = z.object({
   skill: trimmed(80).min(1, "Skill name is required"),
-  score: z.number().int().min(0, "Score is 0–100").max(100, "Score is 0–100"),
+  score: z.number().int().min(1, "Score is 1–10").max(10, "Score is 1–10"),
 });
 
 export async function addSkill(candidateId: string, input: z.input<typeof skillInput>) {
   return run(async () => {
-    await requireInterviewer();
+    await interviewerOnly();
     id.parse(candidateId);
     const v = skillInput.parse(input);
     const db = await getDb();
@@ -188,7 +232,7 @@ export async function addSkill(candidateId: string, input: z.input<typeof skillI
 
 export async function updateSkill(skillId: string, input: Partial<z.input<typeof skillInput>>) {
   return run(async () => {
-    await requireInterviewer();
+    await interviewerOnly();
     id.parse(skillId);
     const v = skillInput.partial().parse(input);
     const db = await getDb();
@@ -198,7 +242,7 @@ export async function updateSkill(skillId: string, input: Partial<z.input<typeof
 
 export async function removeSkill(skillId: string) {
   return run(async () => {
-    await requireInterviewer();
+    await interviewerOnly();
     id.parse(skillId);
     const db = await getDb();
     await db.delete(schema.candidateSkills).where(eq(schema.candidateSkills.id, skillId));
@@ -209,7 +253,7 @@ export async function removeSkill(skillId: string) {
 
 export async function attachArea(candidateId: string, areaId: string) {
   return run(async () => {
-    const me = await requireInterviewer();
+    const me = await interviewerOnly();
     id.parse(candidateId);
     id.parse(areaId);
     const db = await getDb();
@@ -217,6 +261,9 @@ export async function attachArea(candidateId: string, areaId: string) {
       const [area] = await tx.select().from(schema.areas).where(eq(schema.areas.id, areaId));
       if (!area) throw new UserError("That area no longer exists.");
       const name = await candidateName(tx, candidateId);
+      if (area.kind === "area" && area.level !== "small" && (await isBenched(tx, candidateId))) {
+        throw new UserError(`${name} is benched — benched candidates can only be attached to small jobs.`);
+      }
       const inserted = await tx.insert(schema.candidateAreas).values({ candidateId, areaId }).onConflictDoNothing().returning();
       if (inserted.length) {
         await logActivity(tx, {
@@ -233,7 +280,7 @@ export async function attachArea(candidateId: string, areaId: string) {
 
 export async function detachArea(candidateId: string, areaId: string) {
   return run(async () => {
-    await requireInterviewer();
+    await interviewerOnly();
     id.parse(candidateId);
     id.parse(areaId);
     const db = await getDb();
@@ -245,23 +292,27 @@ export async function detachArea(candidateId: string, areaId: string) {
 
 const areaInput = z.object({
   kind: z.enum(["area", "goal"]),
+  level: z.enum(["core", "small"]).nullable().optional(),
   name: trimmed(80).min(1, "Name is required"),
   description: trimmed(200),
 });
 
 export async function createArea(input: z.input<typeof areaInput>) {
   return run(async () => {
-    await requireInterviewer();
+    await interviewerOnly();
     const v = areaInput.parse(input);
     const db = await getDb();
-    const [row] = await db.insert(schema.areas).values(v).returning();
+    const [row] = await db
+      .insert(schema.areas)
+      .values({ ...v, level: v.kind === "goal" ? null : (v.level ?? "core") })
+      .returning();
     return { id: row.id };
   });
 }
 
 export async function updateArea(areaId: string, input: Partial<z.input<typeof areaInput>>) {
   return run(async () => {
-    await requireInterviewer();
+    await interviewerOnly();
     id.parse(areaId);
     const v = areaInput.partial().parse(input);
     const db = await getDb();
@@ -271,7 +322,7 @@ export async function updateArea(areaId: string, input: Partial<z.input<typeof a
 
 export async function deleteArea(areaId: string) {
   return run(async () => {
-    await requireInterviewer();
+    await interviewerOnly();
     id.parse(areaId);
     const db = await getDb();
     await db.delete(schema.areas).where(eq(schema.areas.id, areaId));
@@ -292,7 +343,7 @@ const scheduleInput = z.object({
 
 export async function scheduleInterview(input: z.input<typeof scheduleInput>) {
   return run(async () => {
-    const me = await requireInterviewer();
+    const me = await interviewerOnly();
     const v = scheduleInput.parse(input);
     const startMin = toMin(v.start);
     const endMin = startMin + v.length;
@@ -332,6 +383,7 @@ export async function scheduleInterview(input: z.input<typeof scheduleInput>) {
 
       const [cand] = await tx.select().from(schema.candidates).where(eq(schema.candidates.id, v.candidateId));
       if (!cand) throw new UserError("That candidate no longer exists.");
+      if (await isBenched(tx, cand.id)) throw new UserError(`${cand.name} is benched — change their tier in Rankings first.`);
 
       const [row] = await tx
         .insert(schema.interviews)
@@ -362,13 +414,14 @@ export async function scheduleInterview(input: z.input<typeof scheduleInput>) {
 }
 
 const logInput = z.object({
+  score: z.number().int().min(1, "Score is 1–10").max(10, "Score is 1–10").nullable().optional(),
   actualMinutes: z.number().int().min(1, "Minutes must be at least 1").max(600, "That's over 10 hours").nullable().optional(),
   debrief: trimmed(280).nullable().optional(),
 });
 
 export async function logInterview(interviewId: string, input: z.input<typeof logInput>) {
   return run(async () => {
-    const me = await requireInterviewer();
+    const me = await interviewerOnly();
     id.parse(interviewId);
     const v = logInput.parse(input);
     const db = await getDb();
@@ -388,8 +441,36 @@ export async function logInterview(interviewId: string, input: z.input<typeof lo
         .set({
           ...(v.actualMinutes !== undefined ? { actualMinutes: v.actualMinutes } : {}),
           ...(v.debrief !== undefined ? { debrief: v.debrief || null } : {}),
+          ...(v.score !== undefined
+            ? {
+                score: v.score,
+                // Remember the fit just before this interview was first scored (drives the ↑/↓ delta).
+                fitBefore: v.score == null ? null : (iv.fitBefore ?? cand.fit),
+              }
+            : {}),
         })
         .where(eq(schema.interviews.id, interviewId));
+
+      if (v.score !== undefined && v.score !== iv.score) {
+        // Scoring moves fit to the average of the scored interviews and clears any tier override.
+        const scored = await tx
+          .select({ score: schema.interviews.score })
+          .from(schema.interviews)
+          .where(and(eq(schema.interviews.candidateId, iv.candidateId), isNotNull(schema.interviews.score)));
+        if (scored.length) {
+          const avg = round1(scored.reduce((sum, r) => sum + (r.score ?? 0), 0) / scored.length);
+          await tx.update(schema.candidates).set({ fit: avg, tierOverride: null }).where(eq(schema.candidates.id, cand.id));
+        }
+        if (v.score != null) {
+          await logActivity(tx, {
+            kind: "time",
+            title: "Interview scored",
+            subtitle: `${cand.name} · ${INTERVIEW_TYPE_LABEL[iv.type]} ${v.score}/10 by ${me.name}`,
+            candidateId: cand.id,
+            actorId: me.id,
+          });
+        }
+      }
 
       if (v.actualMinutes != null && v.actualMinutes !== iv.actualMinutes) {
         const completedBefore = await tx
@@ -420,7 +501,7 @@ export async function logInterview(interviewId: string, input: z.input<typeof lo
 
 export async function cancelInterview(interviewId: string) {
   return run(async () => {
-    const me = await requireInterviewer();
+    const me = await interviewerOnly();
     id.parse(interviewId);
     const db = await getDb();
     await db.transaction(async (tx) => {
@@ -443,7 +524,7 @@ export async function cancelInterview(interviewId: string) {
 
 export async function addNote(candidateId: string, body: string) {
   return run(async () => {
-    const me = await requireInterviewer();
+    const me = await interviewerOnly();
     id.parse(candidateId);
     const text = trimmed(4000).min(1, "Write something first").parse(body);
     const db = await getDb();
@@ -460,7 +541,7 @@ export async function addNote(candidateId: string, body: string) {
 
 export async function setResumeFile(candidateId: string, path: string | null) {
   return run(async () => {
-    await requireInterviewer();
+    await interviewerOnly();
     id.parse(candidateId);
     if (path !== null) z.string().regex(/^[0-9a-f-]{36}\/[\w.-]+\.pdf$/i, "Invalid file path").parse(path);
     const db = await getDb();
@@ -472,7 +553,7 @@ export async function setResumeFile(candidateId: string, path: string | null) {
 
 export async function updateMyName(name: string) {
   return run(async () => {
-    const me = await requireInterviewer();
+    const me = await interviewerOnly();
     const v = trimmed(60).min(1, "Name is required").parse(name);
     const db = await getDb();
     await db.update(schema.interviewers).set({ name: v }).where(eq(schema.interviewers.id, me.id));
@@ -481,7 +562,7 @@ export async function updateMyName(name: string) {
 
 export async function addInterviewer(input: { name: string; email: string }) {
   return run(async () => {
-    await requireInterviewer();
+    await interviewerOnly();
     const v = z
       .object({ name: trimmed(60).min(1, "Name is required"), email: z.string().trim().toLowerCase().email("Enter a valid email") })
       .parse(input);
@@ -498,7 +579,7 @@ export async function addInterviewer(input: { name: string; email: string }) {
 
 export async function removeInterviewer(interviewerId: string) {
   return run(async () => {
-    const me = await requireInterviewer();
+    const me = await interviewerOnly();
     id.parse(interviewerId);
     if (interviewerId === me.id) throw new UserError("You can't remove yourself.");
     const db = await getDb();
@@ -518,9 +599,239 @@ export async function removeInterviewer(interviewerId: string) {
 
 export async function resetDemoData() {
   return run(async () => {
-    const me = await requireInterviewer();
+    const me = await interviewerOnly();
     if (!devToolsEnabled()) throw new UserError("Reset is only available in development.");
     const db = await getDb();
     await seedDatabase(db, { reset: true, ownerEmail: me.email });
+  });
+}
+
+// ─── Rankings settings ─────────────────────────────────────────────────────
+
+export async function updateSettings(input: { priorityAt: number; benchAt: number }) {
+  return run(async () => {
+    await interviewerOnly();
+    const v = z
+      .object({ priorityAt: z.number().int().min(2).max(10), benchAt: z.number().int().min(1).max(9) })
+      .refine((x) => x.benchAt < x.priorityAt, "Bench must be below priority")
+      .parse(input);
+    const db = await getDb();
+    await db.insert(schema.settings).values({ id: 1, ...v }).onConflictDoUpdate({ target: schema.settings.id, set: v });
+  });
+}
+
+// ─── Campaign & tasks ──────────────────────────────────────────────────────
+
+export async function updateCampaign(campaignId: string, input: { name?: string; goal?: string; brief?: string; targets?: string[] }) {
+  return run(async () => {
+    await interviewerOnly();
+    id.parse(campaignId);
+    const v = z
+      .object({
+        name: trimmed(120).min(1, "Name is required"),
+        goal: trimmed(200),
+        brief: trimmed(2000),
+        targets: z.array(trimmed(80).min(1)).max(20),
+      })
+      .partial()
+      .parse(input);
+    const db = await getDb();
+    await db.update(schema.campaigns).set(v).where(eq(schema.campaigns.id, campaignId));
+  });
+}
+
+const taskInput = z.object({
+  title: trimmed(160).min(1, "Title is required"),
+  detail: trimmed(1000),
+  kind: z.enum(["work", "interview"]),
+  day: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Pick a day"),
+  areaId: id.nullable(),
+  candidateId: id.nullable(),
+});
+
+async function checkAssignable(tx: Tx, candidateId: string | null, areaId: string | null) {
+  if (!candidateId || !areaId) return;
+  if (!(await isBenched(tx, candidateId))) return;
+  const [area] = await tx.select().from(schema.areas).where(eq(schema.areas.id, areaId));
+  if (area?.kind === "area" && area.level !== "small") {
+    throw new UserError(`${await candidateName(tx, candidateId)} is benched — benched candidates only take small jobs.`);
+  }
+}
+
+export async function createTask(input: z.input<typeof taskInput>) {
+  return run(async () => {
+    const me = await interviewerOnly();
+    const v = taskInput.parse(input);
+    const db = await getDb();
+    return db.transaction(async (tx) => {
+      const [campaign] = await tx.select().from(schema.campaigns).where(eq(schema.campaigns.isCurrent, true)).limit(1);
+      if (!campaign) throw new UserError("There's no current campaign to add tasks to.");
+      await checkAssignable(tx, v.candidateId, v.areaId);
+      const [row] = await tx.insert(schema.tasks).values({ ...v, campaignId: campaign.id, createdBy: me.id }).returning();
+      await logActivity(tx, {
+        kind: "task",
+        title: v.candidateId ? "Task assigned" : "Task added",
+        subtitle: `${v.title} · ${v.candidateId ? await candidateName(tx, v.candidateId) : "unassigned"}`,
+        candidateId: v.candidateId,
+        actorId: me.id,
+      });
+      return { id: row.id };
+    });
+  });
+}
+
+export async function updateTask(taskId: string, input: Partial<z.input<typeof taskInput>>) {
+  return run(async () => {
+    const me = await interviewerOnly();
+    id.parse(taskId);
+    const v = taskInput.partial().parse(input);
+    const db = await getDb();
+    await db.transaction(async (tx) => {
+      const [before] = await tx.select().from(schema.tasks).where(eq(schema.tasks.id, taskId));
+      if (!before) throw new UserError("That task no longer exists.");
+      const candidateId = v.candidateId !== undefined ? v.candidateId : before.candidateId;
+      await checkAssignable(tx, candidateId, v.areaId !== undefined ? v.areaId : before.areaId);
+      await tx.update(schema.tasks).set(v).where(eq(schema.tasks.id, taskId));
+      if (v.candidateId !== undefined && v.candidateId !== before.candidateId) {
+        // Reassigning ends the previous intern's running session on it.
+        await tx
+          .update(schema.sessions)
+          .set({ endedAt: new Date(), note: "Task reassigned" })
+          .where(and(eq(schema.sessions.taskId, taskId), sql`${schema.sessions.endedAt} is null`));
+        await logActivity(tx, {
+          kind: "task",
+          title: v.candidateId ? "Task assigned" : "Task unassigned",
+          subtitle: `${before.title}${v.candidateId ? ` · ${await candidateName(tx, v.candidateId)}` : ""} · by ${me.name}`,
+          candidateId: v.candidateId ?? before.candidateId,
+          actorId: me.id,
+        });
+      }
+    });
+  });
+}
+
+export async function deleteTask(taskId: string) {
+  return run(async () => {
+    await interviewerOnly();
+    id.parse(taskId);
+    const db = await getDb();
+    await db.delete(schema.tasks).where(eq(schema.tasks.id, taskId));
+  });
+}
+
+/** Interviewers can set any task's status; an intern only their own. */
+export async function setTaskStatus(taskId: string, status: "todo" | "doing" | "done") {
+  return run(async () => {
+    id.parse(taskId);
+    z.enum(["todo", "doing", "done"]).parse(status);
+    const viewer = await getViewer();
+    if (!viewer) throw new UserError("Your session has ended. Sign in again.");
+    const db = await getDb();
+    await db.transaction(async (tx) => {
+      const [task] = await tx.select().from(schema.tasks).where(eq(schema.tasks.id, taskId));
+      if (!task) throw new UserError("That task no longer exists.");
+      if (viewer.role === "intern" && task.candidateId !== viewer.candidate.id) throw new UserError("That isn't your task.");
+      if (task.status === status) return;
+      await tx.update(schema.tasks).set({ status, completedAt: status === "done" ? new Date() : null }).where(eq(schema.tasks.id, taskId));
+      const who = viewer.role === "intern" ? viewer.candidate.name : viewer.interviewer.name;
+      await logActivity(tx, {
+        kind: "task",
+        title: `Task ${TASK_STATUS_LABEL[status].toLowerCase()}`,
+        subtitle: `${task.title} · by ${who}`,
+        candidateId: task.candidateId,
+        actorId: viewer.role === "interviewer" ? viewer.interviewer.id : null,
+      });
+    });
+  });
+}
+
+// ─── Clock in / out, reports (interns only) ────────────────────────────────
+
+async function closeOpenSession(tx: Tx, candidateId: string, note: string) {
+  const openRows = await tx
+    .select()
+    .from(schema.sessions)
+    .where(and(eq(schema.sessions.candidateId, candidateId), sql`${schema.sessions.endedAt} is null`));
+  for (const s of openRows) {
+    await tx.update(schema.sessions).set({ endedAt: new Date(), note: s.note ?? note }).where(eq(schema.sessions.id, s.id));
+  }
+  return openRows;
+}
+
+export async function clockIn(taskId: string) {
+  return run(async () => {
+    const me = await internOnly();
+    id.parse(taskId);
+    const db = await getDb();
+    return db.transaction(async (tx) => {
+      await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${me.id}))`);
+      const [task] = await tx.select().from(schema.tasks).where(eq(schema.tasks.id, taskId));
+      if (!task || task.candidateId !== me.id) throw new UserError("That isn't your task.");
+      if (task.status === "done") throw new UserError("That task is already done.");
+      // One task at a time, rigidly: switching closes whatever was running.
+      const closed = await closeOpenSession(tx, me.id, `Switched to "${task.title}"`);
+      const [row] = await tx.insert(schema.sessions).values({ taskId, candidateId: me.id }).returning();
+      if (task.status === "todo") await tx.update(schema.tasks).set({ status: "doing" }).where(eq(schema.tasks.id, taskId));
+      await logActivity(tx, {
+        kind: "clock",
+        title: "Clocked in",
+        subtitle: `${me.name} · ${task.title}${closed.length ? " (switched tasks)" : ""}`,
+        candidateId: me.id,
+        actorId: null,
+      });
+      return { id: row.id };
+    });
+  });
+}
+
+export async function clockOut(input: { note: string; done: boolean }) {
+  return run(async () => {
+    const me = await internOnly();
+    const v = z.object({ note: trimmed(1000).min(1, "Say what you got done"), done: z.boolean() }).parse(input);
+    const db = await getDb();
+    await db.transaction(async (tx) => {
+      const [session] = await tx
+        .select()
+        .from(schema.sessions)
+        .where(and(eq(schema.sessions.candidateId, me.id), sql`${schema.sessions.endedAt} is null`));
+      if (!session) throw new UserError("You're not clocked in.");
+      const ended = new Date();
+      await tx.update(schema.sessions).set({ endedAt: ended, note: v.note }).where(eq(schema.sessions.id, session.id));
+      const [task] = await tx.select().from(schema.tasks).where(eq(schema.tasks.id, session.taskId));
+      if (v.done && task && task.status !== "done") {
+        await tx.update(schema.tasks).set({ status: "done", completedAt: ended }).where(eq(schema.tasks.id, task.id));
+      }
+      const minutes = sessionMinutes({ startedAt: session.startedAt.toISOString(), endedAt: ended.toISOString() }, ended.getTime());
+      await logActivity(tx, {
+        kind: "clock",
+        title: v.done ? "Clocked out · task done" : "Clocked out",
+        subtitle: `${me.name} · ${task?.title ?? "task"} · ${fmtLogged(minutes)}`,
+        candidateId: me.id,
+        actorId: null,
+      });
+    });
+  });
+}
+
+export async function submitReport(summary: string) {
+  return run(async () => {
+    const me = await internOnly();
+    const text = trimmed(4000).min(1, "Write a line or two first").parse(summary);
+    const day = todayIn(CRM_TZ);
+    const db = await getDb();
+    await db.transaction(async (tx) => {
+      const closed = await closeOpenSession(tx, me.id, "Clocked out with the day's report");
+      await tx
+        .insert(schema.reports)
+        .values({ candidateId: me.id, day, summary: text })
+        .onConflictDoUpdate({ target: [schema.reports.candidateId, schema.reports.day], set: { summary: text, submittedAt: new Date() } });
+      await logActivity(tx, {
+        kind: "report",
+        title: "Report submitted",
+        subtitle: `${firstName(me.name)} · ${formatDay(day)}${closed.length ? " · clocked out" : ""}`,
+        candidateId: me.id,
+        actorId: null,
+      });
+    });
   });
 }

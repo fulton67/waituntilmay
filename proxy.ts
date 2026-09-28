@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { DEV_COOKIE, readDevToken } from "./crm/lib/dev-session";
-import { devAuthEnabled, isAllowed } from "./crm/lib/env";
+import { devAuthEnabled, supabaseConfig } from "./crm/lib/env";
 import { refreshSupabaseSession } from "./crm/lib/supabase/proxy";
 
 const LUNCH_BELLS_COOKIE = "lb-auth";
@@ -26,18 +26,19 @@ async function crm(req: NextRequest) {
 
   if (devAuthEnabled()) {
     email = readDevToken(req.cookies.get(DEV_COOKIE)?.value);
-  } else if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
+  } else if (supabaseConfig()) {
     ({ response, email } = await refreshSupabaseSession(req));
   } else {
     email = null;
   }
 
   if (CRM_PUBLIC.some((p) => pathname.startsWith(p))) return response;
-  if (email && isAllowed(email)) return response;
+  // Signed in is enough here; layouts and server actions decide interviewer vs intern vs no access.
+  if (email) return response;
 
   const url = req.nextUrl.clone();
   url.pathname = "/crm/sign-in";
-  url.search = email ? "?denied=1" : "";
+  url.search = "";
   return NextResponse.redirect(url);
 }
 

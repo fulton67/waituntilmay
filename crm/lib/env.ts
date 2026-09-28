@@ -11,6 +11,8 @@ export function isAllowed(email: string | null | undefined): boolean {
 }
 
 export function supabaseConfig(): { url: string; anonKey: string } | null {
+  // e2e / offline dev: ignore the Supabase keys in .env.local and use local sign-in + PGlite.
+  if (process.env.CRM_FORCE_LOCAL === "1" && process.env.NODE_ENV !== "production") return null;
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   return url && anonKey ? { url, anonKey } : null;
