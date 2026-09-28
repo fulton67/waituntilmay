@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { devAuthEnabled } from "@/crm/lib/env";
+import { signInErrorMessage } from "@/crm/lib/sign-in-errors";
 import { SignInForm } from "@/crm/ui/SignInForm";
 
 export const metadata: Metadata = { title: "Sign in" };
@@ -20,7 +21,7 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
             ? "Local mode: allowlisted emails sign in directly."
             : "We'll email you a magic link. Only invited interviewers can sign in."}
         </p>
-        <SignInForm devMode={devAuthEnabled()} denied={sp.denied === "1"} linkError={sp.error === "link"} />
+        <SignInForm devMode={devAuthEnabled()} denied={sp.denied === "1"} errorMessage={signInErrorMessage(sp.error)} errorReason={sp.error ?? null} />
       </div>
     </main>
   );

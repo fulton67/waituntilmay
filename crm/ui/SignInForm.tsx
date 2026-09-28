@@ -3,10 +3,20 @@
 import { useActionState } from "react";
 import { requestSignIn, type SignInState } from "../lib/auth-actions";
 
-export function SignInForm({ devMode, denied, linkError }: { devMode: boolean; denied: boolean; linkError: boolean }) {
+export function SignInForm({
+  devMode,
+  denied,
+  errorMessage,
+  errorReason,
+}: {
+  devMode: boolean;
+  denied: boolean;
+  errorMessage: string | null;
+  errorReason: string | null;
+}) {
   const [state, action, pending] = useActionState<SignInState, FormData>(requestSignIn, {
-    status: denied ? "denied" : linkError ? "error" : "idle",
-    message: linkError ? "That link has expired. Request a new one." : undefined,
+    status: denied ? "denied" : errorMessage ? "error" : "idle",
+    message: errorMessage ?? undefined,
   });
 
   if (state.status === "sent") {
@@ -38,7 +48,7 @@ export function SignInForm({ devMode, denied, linkError }: { devMode: boolean; d
         </p>
       )}
       {state.status === "error" && state.message && (
-        <p className="text-(--highlight)" role="alert">
+        <p className="text-(--highlight)" role="alert" data-reason={errorReason ?? undefined} data-testid="sign-in-error">
           {state.message}
         </p>
       )}
