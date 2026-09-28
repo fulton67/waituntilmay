@@ -62,9 +62,9 @@ test("duration format", () => {
 
 test("area suggestion from skills", () => {
   const areas = [
-    { id: "a1", kind: "area" as const, name: "Web & creative dev", description: "Sites, 3D, Shopify builds" },
-    { id: "a4", kind: "area" as const, name: "Brand & design", description: "Identity, print, apparel graphics" },
-    { id: "g1", kind: "goal" as const, name: "Merch drop", description: "" },
+    { id: "a1", kind: "area" as const, level: "core" as const, name: "Web & creative dev", description: "Sites, 3D, Shopify builds" },
+    { id: "a4", kind: "area" as const, level: "core" as const, name: "Brand & design", description: "Identity, print, apparel graphics" },
+    { id: "g1", kind: "goal" as const, level: null, name: "Merch drop", description: "" },
   ];
   const resume = { summary: "", education: [], experience: [], skills: [] };
   const dev = suggestArea({ skills: [{ id: "s", skill: "Frontend & creative dev", score: 92 }], resumeJson: resume }, areas);
