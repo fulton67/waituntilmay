@@ -1,113 +1,49 @@
-/* fomo Intern CRM — brand tokens and the few styles utilities can't express.
-   Everything is scoped to [data-crm] so the portfolio site is untouched. */
+/* fomo Intern CRM — glue around prototype.css (generated from docs/crm-prototype-styles.css).
+   Every visual value lives in prototype.css; this file only keeps the site's globals out,
+   aliases older token names onto the prototype's tokens, and adds behaviour hooks. */
 
-/* The site's global `* { margin: 0; padding: 0 }` is unlayered and would beat Tailwind's layered
-   spacing utilities. Inside the CRM, roll those two properties back to the layered values. */
+/* The site's globals.css has unlayered `* { margin:0; padding:0 }` and
+   `input, textarea, button { font-family: Courier; color: inherit }`, which would beat the
+   layered prototype/Tailwind styles. Inside the CRM, roll exactly those back to the layers. */
 [data-crm] *,
 [data-crm] *::before,
 [data-crm] *::after {
   margin: revert-layer;
   padding: revert-layer;
 }
-/* Same for the site's unlayered `input, textarea, button { font-family; color }`. */
-[data-crm] :is(input, textarea, button) {
+[data-crm] :is(input, textarea, button, select) {
   font-family: revert-layer;
   color: revert-layer;
 }
 
 [data-crm] {
-  --canvas: #eaedff;
-  --canvas-glow: radial-gradient(60% 45% at 50% -8%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 70%);
-  --card: #ffffff;
-  --card-2: #f1f3ff;
-  --line: #e1e5fb;
-  --ink: #0b091f;
-  --muted: #6f739a;
-  --brand: #516af6;
-  --brand-ink: #ffffff;
-  --highlight: #4a36ff;
-  --highlight-ink: #ffffff;
-  --glow: #acb8f9;
-  --logo: #516af6;
-  --shadow: 0 24px 48px -20px rgba(81, 106, 246, 0.35);
-  --line-2: #cfd5f5;
-  --tint: #dce2fe;
-  --fill-standard: #c4cdfb;
-  --bench-chip: #eaedff;
-  --bench-chip-ink: #6f739a;
-
-  --iv-intro: #eaedff;
-  --iv-intro-ink: #0b091f;
-  --iv-portfolio: #acb8f9;
-  --iv-portfolio-ink: #0b091f;
-  --iv-technical: #516af6;
-  --iv-technical-ink: #ffffff;
-  --iv-ops_case: #dce2fe;
-  --iv-ops_case-ink: #0b091f;
-  --iv-content_review: #c4cdfb;
-  --iv-content_review-ink: #0b091f;
-  --iv-final: #221d4b;
-  --iv-final-ink: #ffffff;
-
-  --st-new: #eaedff;
-  --st-new-ink: #516af6;
-  --st-queued: #acb8f9;
-  --st-queued-ink: #0b091f;
-  --st-inprocess: #516af6;
-  --st-inprocess-ink: #ffffff;
-  --st-awaiting: #4a36ff;
-  --st-awaiting-ink: #ffffff;
-  --st-decided: #0b091f;
-  --st-decided-ink: #ffffff;
-
-  color-scheme: light;
-  font-family: var(--font-crm), "DM Sans", system-ui, sans-serif;
-  font-size: 14px;
-  line-height: 1.45;
-  font-weight: 400;
-  color: var(--ink);
-  background: var(--canvas-glow), var(--canvas);
-  background-attachment: fixed;
+  font-family: var(--font-crm), "DM Sans", ui-sans-serif, system-ui, sans-serif;
   min-height: 100vh;
+  color-scheme: light;
+
+  /* Aliases: component code written against these names resolves to the prototype's tokens. */
+  --highlight: var(--hi);
+  --highlight-ink: #ffffff;
+  --tint: var(--soft);
+  --fill-standard: var(--t-mid);
+  --bench-chip: var(--t-pale);
+  --bench-chip-ink: var(--t-pale-ink);
+  --iv-intro: var(--t-pale);
+  --iv-intro-ink: var(--t-pale-ink);
+  --iv-portfolio: var(--t-light);
+  --iv-portfolio-ink: var(--t-light-ink);
+  --iv-technical: var(--t-blue);
+  --iv-technical-ink: var(--t-blue-ink);
+  --iv-ops_case: var(--t-soft);
+  --iv-ops_case-ink: var(--t-soft-ink);
+  --iv-content_review: var(--t-mid);
+  --iv-content_review-ink: var(--t-mid-ink);
+  --iv-final: var(--t-navy);
+  --iv-final-ink: var(--t-navy-ink);
 }
-
 html[data-theme="dark"] [data-crm] {
-  --canvas: #0b091f;
-  --canvas-glow: radial-gradient(60% 45% at 50% -8%, rgba(34, 29, 75, 0.95), rgba(34, 29, 75, 0) 72%);
-  --card: #14112b;
-  --card-2: #1d1940;
-  --line: #27234e;
-  --ink: #ffffff;
-  --muted: #9296c4;
-  --highlight: #acb8f9;
-  --highlight-ink: #0b091f;
-  --logo: #ffffff;
-  --shadow: 0 24px 48px -20px rgba(81, 106, 246, 0.25);
-  --line-2: #3a3570;
-  --tint: #221d4b;
-  --fill-standard: #3b3f9c;
-  --bench-chip: #221d4b;
-  --bench-chip-ink: #acb8f9;
-
-  --iv-intro: #221d4b;
-  --iv-intro-ink: #ffffff;
-  --iv-portfolio: #acb8f9;
-  --iv-portfolio-ink: #0b091f;
-  --iv-technical: #516af6;
-  --iv-technical-ink: #ffffff;
-  --iv-ops_case: #2b2668;
-  --iv-ops_case-ink: #ffffff;
-  --iv-content_review: #3b3f9c;
-  --iv-content_review-ink: #ffffff;
-  --iv-final: #eaedff;
-  --iv-final-ink: #0b091f;
-
-  --st-new: #221d4b;
-  --st-new-ink: #acb8f9;
-  --st-decided: #eaedff;
-  --st-decided-ink: #0b091f;
-
   color-scheme: dark;
+  --highlight-ink: #0b091f;
 }
 
 [data-crm] ::selection {
@@ -115,53 +51,12 @@ html[data-theme="dark"] [data-crm] {
   color: #0b091f;
 }
 
-[data-crm] :focus-visible {
-  outline: 2px solid var(--brand);
-  outline-offset: 2px;
-}
-
-/* Layered so Tailwind utilities (text colours on buttons etc.) still win. */
-@layer base {
-  [data-crm] input,
-  [data-crm] select,
-  [data-crm] textarea,
-  [data-crm] button {
-    font: inherit;
-    color: inherit;
-  }
-}
-
-/* Logos: one mask asset, filled with the theme's --logo token. Never recolour, never stretch. */
-.crm-mark {
-  display: inline-block;
-  background: var(--logo);
-  -webkit-mask: var(--mark) center / contain no-repeat;
-  mask: var(--mark) center / contain no-repeat;
-  flex: none;
-}
-.crm-wordmark {
-  --mark: url("/crm/brand/wordmark.png");
-  aspect-ratio: 499 / 160;
-  height: 22px;
-}
-/* Eyes: frame 0 of the 28-frame sprite in light (looking right), frame 27 in dark (looking left). */
-.crm-eyes {
-  --mark: url("/crm/brand/eyes-sprite.png");
-  aspect-ratio: 1;
-  width: 40px;
-  -webkit-mask-size: 2800% 100%;
-  mask-size: 2800% 100%;
-  -webkit-mask-position: 0% 0;
-  mask-position: 0% 0;
-}
-html[data-theme="dark"] .crm-eyes {
-  -webkit-mask-position: 100% 0;
-  mask-position: 100% 0;
-}
-html[data-eyes="to-dark"] .crm-eyes {
+/* Rail eyes turn on theme switch (prototype: steps(27) over 1.1s). The data-eyes attribute on
+   <html> is set by the theme toggle; two keyframe names make it restart on every switch. */
+html[data-eyes="to-dark"] [data-crm] .rail .logo {
   animation: crm-eyes-to-dark 1.1s steps(27) forwards;
 }
-html[data-eyes="to-light"] .crm-eyes {
+html[data-eyes="to-light"] [data-crm] .rail .logo {
   animation: crm-eyes-to-light 1.1s steps(27) forwards;
 }
 @keyframes crm-eyes-to-dark {
@@ -173,170 +68,211 @@ html[data-eyes="to-light"] .crm-eyes {
   to { -webkit-mask-position: 0% 0; mask-position: 0% 0; }
 }
 
-/* The one focal point: the first KPI card. */
-.crm-focal {
-  background:
-    radial-gradient(90% 60% at 30% 0%, rgba(172, 184, 249, 0.85), rgba(172, 184, 249, 0) 70%),
-    #516af6;
-  color: #ffffff;
-  box-shadow: var(--shadow);
-}
-.crm-focal .crm-sub {
-  color: #eaedff;
+/* Header wordmark keeps its aspect ratio inside the prototype's 78×26 box. */
+[data-crm] .wordmark {
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: left center;
+  mask-position: left center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 
-.crm-kpi {
-  font-size: 52px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1;
+/* Text never spills out of its box: text-bearing grid/flex children can shrink, single-line
+   labels ellipsize, multi-line copy wraps anywhere. */
+[data-crm] .card > *,
+[data-crm] .card-head > *,
+[data-crm] .kpis > *,
+[data-crm] .mid > *,
+[data-crm] .content > *,
+[data-crm] .task > *,
+[data-crm] .arow > *,
+[data-crm] .iv > *,
+[data-crm] .rk > *,
+[data-crm] .nx-row > *,
+[data-crm] .ev > *,
+[data-crm] .dl > *,
+[data-crm] .attr > * {
+  min-width: 0;
 }
-
-.crm-scroll {
-  scrollbar-width: thin;
-  scrollbar-color: var(--line) transparent;
-}
-
-/* Skill bars / load bars */
-.crm-bar {
-  height: 6px;
-  border-radius: 99px;
-  background: var(--card-2);
+[data-crm] .one-line {
+  white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
-.crm-bar > span {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: var(--brand);
-}
-
-/* Range input in brand colour */
-[data-crm] input[type="range"] {
-  accent-color: var(--brand);
+[data-crm] .wrap-any {
+  overflow-wrap: anywhere;
+  min-width: 0;
 }
 
-/* Motion only in response to actions. */
+/* Area card focus when the Areas drawer is opened on a specific area. */
+[data-crm] .area-card.focus {
+  animation: crm-area-focus 1.2s ease-out;
+}
+@keyframes crm-area-focus {
+  0% { box-shadow: 0 0 0 0 rgba(81, 106, 246, 0.55); }
+  100% { box-shadow: 0 0 0 14px rgba(81, 106, 246, 0); }
+}
+
+/* Drawer + scrim entry (prototype: transform .22s, scrim opacity .2s). */
 @keyframes crm-drawer-in {
-  from {
-    transform: translateX(24px);
-    opacity: 0;
+  from { transform: translateX(102%); }
+}
+@keyframes crm-scrim-in {
+  from { opacity: 0; }
+}
+[data-crm] .drawer.on {
+  animation: crm-drawer-in 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+[data-crm] .scrim.on {
+  animation: crm-scrim-in 0.2s ease;
+}
+
+/* Several toasts can be up at once; the prototype's single .toast is stacked here. */
+[data-crm] .toast-stack {
+  position: fixed;
+  left: 50%;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+[data-crm] .toast-stack .toast {
+  position: static;
+  transform: none;
+  opacity: 1;
+  pointer-events: auto;
+  max-width: min(520px, calc(100vw - 32px));
+}
+[data-crm] .toast-stack .toast.warn {
+  background: var(--card);
+  color: var(--hi);
+  outline: 1px solid var(--hi);
+}
+@media (max-width: 900px) {
+  [data-crm] .toast-stack {
+    bottom: calc(84px + env(safe-area-inset-bottom, 0px));
   }
-}
-@keyframes crm-toast-in {
-  from {
-    transform: translateY(8px);
-    opacity: 0;
-  }
-}
-@keyframes crm-fade-in {
-  from {
-    opacity: 0;
-  }
-}
-.crm-drawer {
-  animation: crm-drawer-in 180ms cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-.crm-toast {
-  animation: crm-toast-in 160ms ease-out;
-}
-.crm-backdrop {
-  animation: crm-fade-in 160ms ease-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .crm-drawer,
-  .crm-toast,
-  .crm-backdrop {
+  [data-crm] .drawer.on,
+  [data-crm] .scrim.on,
+  [data-crm] .area-card.focus,
+  html[data-eyes] [data-crm] .rail .logo {
     animation: none;
   }
 }
 
-/* Intro sting: already seen this session or reduced motion (set pre-paint by IntroOverlay). */
+/* Mobile bar at 390px: nine 44px buttons don't fit, so the theme toggle (the eyes also toggle)
+   and Areas (also reachable from the Open areas card) step out below 600px. */
+@media (max-width: 600px) {
+  [data-crm] .rail .tog,
+  [data-crm] .rail .rail-areas {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  [data-crm] .top .search {
+    margin-left: 0 !important;
+  }
+}
+
+/* Rankings rows: the prototype's six-column .rk grid needs ~560px; narrower, fit/rank/tier wrap
+   under the name so nothing leaves the drawer. */
+@media (max-width: 700px) {
+  [data-crm] .rk {
+    grid-template-columns: 28px 30px minmax(0, 1fr) auto;
+  }
+  [data-crm] .rk .p {
+    display: none;
+  }
+  [data-crm] .rk > :last-child {
+    grid-column: 3 / -1;
+  }
+}
+
+/* The prototype's reduced-motion rule is `* { animation: none }`, which doesn't reach pseudo-
+   elements — so the drifting spotlights (.kpi.wash::before, .hero::before), the live dot
+   (.blk.live::after) and the ambient blobs are stopped explicitly here. */
+@media (prefers-reduced-motion: reduce) {
+  [data-crm]::before,
+  [data-crm]::after,
+  [data-crm] *::before,
+  [data-crm] *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Intro sting: the pre-paint script marks <html data-crm-intro="skip"> when it was already seen
+   this session or motion is reduced, so the server-rendered overlay never flashes. */
 html[data-crm-intro="skip"] [data-crm-intro-overlay] {
   display: none;
 }
 
-/* ─── v2 motion: every animation answers an action; nothing loops ─── */
-
-/* Theme crossfade while html.theming is set (~650ms). */
-html.theming [data-crm],
-html.theming [data-crm] * {
-  transition:
-    background-color 650ms ease,
-    color 650ms ease,
-    border-color 650ms ease !important;
+/* Ambient blobs (decisions): paused while any drawer or modal is open, softer blur on small
+   screens. Everything else about them is the prototype's. */
+[data-crm]:has(.drawer.on, .modal.on)::before,
+[data-crm]:has(.drawer.on, .modal.on)::after {
+  animation-play-state: paused;
 }
-
-/* Rail indicator: one pill that slides to the active icon with a slight overshoot. */
-.crm-rail-pill {
-  transition: transform 450ms cubic-bezier(0.3, 1.4, 0.4, 1);
-  z-index: 0;
-}
-
-/* One-off ring pulse on the card a rail click scrolled to. */
-@keyframes crm-pulse {
-  0% { box-shadow: 0 0 0 0 rgba(81, 106, 246, 0.55); }
-  100% { box-shadow: 0 0 0 14px rgba(81, 106, 246, 0); }
-}
-.crm-pulse {
-  animation: crm-pulse 800ms ease-out;
-}
-
-/* Card reveal: once, when it first enters the viewport. KPI cards stagger via --i. */
-.crm-reveal {
-  opacity: 0;
-  transform: translateY(14px);
-}
-.crm-reveal.is-in {
-  opacity: 1;
-  transform: none;
-  transition:
-    opacity 450ms ease,
-    transform 450ms cubic-bezier(0.2, 0.7, 0.2, 1);
-  transition-delay: calc(var(--i, 0) * 60ms);
-}
-
-/* Button press. */
-[data-crm] button:not(:disabled):active {
-  transform: scale(0.92);
-}
-[data-crm] button {
-  transition-property: color, background-color, border-color, filter, transform;
-  transition-duration: 120ms;
-}
-
-/* Toasts sit above the mobile bottom bar. */
-.crm-toasts {
-  bottom: 20px;
-}
-@media (max-width: 899px) {
-  .crm-toasts {
-    bottom: calc(76px + env(safe-area-inset-bottom));
-  }
-}
-@media (max-width: 599px) {
-  [data-crm] .crm-cta {
-    width: 100%;
+@media (max-width: 900px) {
+  [data-crm]::before,
+  [data-crm]::after {
+    filter: blur(30px);
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .crm-reveal,
-  .crm-reveal.is-in {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-  .crm-rail-pill,
-  html.theming [data-crm],
-  html.theming [data-crm] * {
-    transition: none !important;
-  }
-  .crm-pulse,
-  html[data-eyes] .crm-eyes {
-    animation: none;
-  }
-  [data-crm] button:not(:disabled):active {
-    transform: none;
-  }
+/* Live pulses (decision): the prototype animated box-shadow; these rings animate only transform
+   and opacity so they stay on the compositor. */
+[data-crm] .blk.live::after {
+  animation: none;
+}
+[data-crm] .blk.live::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 2px solid var(--hi);
+  box-sizing: border-box;
+  pointer-events: none;
+  animation: crm-ring-dot 2s ease-out infinite;
+}
+@keyframes crm-ring-dot {
+  0% { transform: scale(1); opacity: 0.55; }
+  100% { transform: scale(3.6); opacity: 0; }
+}
+[data-crm] .task.live {
+  position: relative;
+  animation: none;
+}
+[data-crm] .task.live::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  border: 2px solid rgba(74, 54, 255, 0.35);
+  pointer-events: none;
+  animation: crm-ring-task 2.4s ease-out infinite;
+}
+@keyframes crm-ring-task {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.035); opacity: 0; }
+}
+
+/* Hard 1.5s cap measured from first paint, not from hydration: the overlay fades itself out on
+   its own clock (1150ms + 250ms fade = 1.4s, leaving headroom under 1.5s) even if JavaScript is slow; JS still removes it early. */
+[data-crm-intro-overlay] {
+  animation: crm-intro-out 250ms ease-out 1150ms forwards;
+}
+@keyframes crm-intro-out {
+  to { opacity: 0; visibility: hidden; pointer-events: none; }
 }
