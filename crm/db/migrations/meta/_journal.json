@@ -8,6 +8,20 @@
       "when": 1790623880042,
       "tag": "0000_init",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1790632021999,
+      "tag": "0001_v2_campaigns_rankings",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1790632033108,
+      "tag": "0002_v2_drop_fit_score",
+      "breakpoints": true
     }
   ]
 }

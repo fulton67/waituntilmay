@@ -6,6 +6,8 @@ import seed from "../seed.json";
 import { CRM_TZ, addDays, daysBetween, todayIn } from "./time";
 import type { ActivityKind, InterviewType, Status } from "./types";
 
+const to10 = (n: number) => Math.max(1, Math.min(10, Math.round(n / 10)));
+
 /** Stable uuid for a seed id so re-running the seed hits the same rows. */
 export function seedUuid(id: string): string {
   const h = createHash("sha1").update(`fomo-crm-seed:${id}`).digest("hex");
@@ -67,7 +69,7 @@ export async function seedDatabase(db: Db, opts: SeedOptions = {}) {
   await db.transaction(async (tx) => {
     if (opts.reset) {
       await tx.execute(
-        sql`TRUNCATE activity, notes, interviews, candidate_areas, candidate_skills, candidates, areas RESTART IDENTITY CASCADE`,
+        sql`TRUNCATE sessions, reports, tasks, campaigns, activity, notes, interviews, candidate_areas, candidate_skills, candidates, areas RESTART IDENTITY CASCADE`,
       );
     }
 
@@ -89,8 +91,36 @@ export async function seedDatabase(db: Db, opts: SeedOptions = {}) {
 
     await tx
       .insert(schema.areas)
-      .values(seed.areas.map((a) => ({ id: seedUuid(a.id), kind: a.kind as "area" | "goal", name: a.name, description: a.desc })))
+      .values(
+        seed.areas.map((a) => ({
+          id: seedUuid(a.id),
+          kind: a.kind as "area" | "goal",
+          level: "level" in a ? (a.level as "core" | "small") : null,
+          name: a.name,
+          description: a.desc,
+        })),
+      )
       .onConflictDoNothing();
+
+    await tx.insert(schema.settings).values({ id: 1 }).onConflictDoNothing();
+
+    // Fit replay: each scored interview records the fit just before it, then fit becomes the
+    // running average of scores — the same rule the logInterview action applies.
+    const fitBefore = new Map<string, number>();
+    const finalFit = new Map<string, number>();
+    for (const c of seed.candidates) {
+      let fit = c.fit / 10;
+      const scored = seed.interviews
+        .filter((v) => v.candidateId === c.id && v.score != null)
+        .sort((a, b) => `${a.date}${a.start}`.localeCompare(`${b.date}${b.start}`));
+      const seen: number[] = [];
+      for (const v of scored) {
+        fitBefore.set(v.id, fit);
+        seen.push(v.score!);
+        fit = Math.round((seen.reduce((x, y) => x + y, 0) / seen.length) * 10) / 10;
+      }
+      finalFit.set(c.id, fit);
+    }
 
     for (const [i, c] of seed.candidates.entries()) {
       const id = seedUuid(c.id);
@@ -107,7 +137,7 @@ export async function seedDatabase(db: Db, opts: SeedOptions = {}) {
           instagramHandle: c.instagram,
           portfolioUrl: c.portfolio,
           status: c.status as Status,
-          fitScore: c.fit,
+          fit: finalFit.get(c.id)!,
           resumeJson: c.resume,
           createdBy: interviewerIds.get(seed.interviewers[0].id),
           createdAt,
@@ -116,7 +146,7 @@ export async function seedDatabase(db: Db, opts: SeedOptions = {}) {
         .onConflictDoNothing();
       await tx
         .insert(schema.candidateSkills)
-        .values(c.bestAt.map((s, j) => ({ id: seedUuid(`${c.id}:skill:${j}`), candidateId: id, skill: s.skill, score: s.score })))
+        .values(c.bestAt.map((s, j) => ({ id: seedUuid(`${c.id}:skill:${j}`), candidateId: id, skill: s.skill, score: to10(s.score) })))
         .onConflictDoNothing();
       const links = [...c.areas, ...c.goals];
       if (links.length) {
@@ -139,6 +169,8 @@ export async function seedDatabase(db: Db, opts: SeedOptions = {}) {
           endTime: v.end,
           type: TYPE_MAP[v.type] ?? "intro",
           actualMinutes: v.took,
+          score: v.score ?? null,
+          fitBefore: fitBefore.get(v.id) ?? null,
           debrief: v.note || null,
         })),
       )
@@ -178,6 +210,73 @@ export async function seedDatabase(db: Db, opts: SeedOptions = {}) {
             updatedAt: at,
           };
         }),
+      )
+      .onConflictDoNothing();
+
+    const k = seed.campaign;
+    const campaignId = seedUuid(k.id);
+    await tx
+      .insert(schema.campaigns)
+      .values({
+        id: campaignId,
+        name: k.name,
+        goal: k.goal,
+        brief: k.brief,
+        targets: k.targets,
+        startDate: addDays(k.start, shift),
+        endDate: addDays(k.end, shift),
+        isCurrent: true,
+      })
+      .onConflictDoNothing();
+
+    await tx
+      .insert(schema.tasks)
+      .values(
+        seed.tasks.map((t) => ({
+          id: seedUuid(t.id),
+          campaignId,
+          title: t.title,
+          detail: t.detail,
+          kind: t.kind as "work" | "interview",
+          areaId: t.areaId ? seedUuid(t.areaId) : null,
+          candidateId: t.candidateId ? seedUuid(t.candidateId) : null,
+          day: addDays(t.day, shift),
+          status: t.status as "todo" | "doing" | "done",
+          createdBy: interviewerIds.get(seed.interviewers[0].id),
+          completedAt: t.status === "done" ? localToDate(`${t.day}T12:30:00`, shift, tz) : null,
+        })),
+      )
+      .onConflictDoNothing();
+
+    const now = Date.now();
+    await tx
+      .insert(schema.sessions)
+      .values(
+        seed.sessions.map((x) => {
+          // An open session must not start in the future when seeding early in the day.
+          const start = new Date(Math.min(localToDate(`${x.day}T${x.start}:00`, shift, tz).getTime(), now - 47 * 60_000));
+          return {
+            id: seedUuid(x.id),
+            taskId: seedUuid(x.taskId),
+            candidateId: seedUuid(x.candidateId),
+            startedAt: start,
+            endedAt: x.end ? localToDate(`${x.day}T${x.end}:00`, shift, tz) : null,
+            note: x.note,
+          };
+        }),
+      )
+      .onConflictDoNothing();
+
+    await tx
+      .insert(schema.reports)
+      .values(
+        seed.reports.map((r) => ({
+          id: seedUuid(r.id),
+          candidateId: seedUuid(r.candidateId),
+          day: addDays(r.day, shift),
+          summary: r.summary,
+          submittedAt: localToDate(`${r.day}T18:10:00`, shift, tz),
+        })),
       )
       .onConflictDoNothing();
   });

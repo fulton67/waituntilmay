@@ -3,6 +3,8 @@ import {
   pgEnum,
   uuid,
   text,
+  numeric,
+  boolean,
   integer,
   serial,
   jsonb,
@@ -12,6 +14,7 @@ import {
   uniqueIndex,
   index,
 } from "drizzle-orm/pg-core";
+import { sql } from "drizzle-orm";
 
 export const candidateStatus = pgEnum("candidate_status", ["new", "queued", "inprocess", "awaiting", "decided"]);
 export const areaKind = pgEnum("area_kind", ["area", "goal"]);
@@ -23,7 +26,24 @@ export const interviewType = pgEnum("interview_type", [
   "content_review",
   "final",
 ]);
-export const activityKind = pgEnum("activity_kind", ["note", "new", "time", "status", "area", "awaiting"]);
+export const activityKind = pgEnum("activity_kind", [
+  "note",
+  "new",
+  "time",
+  "status",
+  "area",
+  "awaiting",
+  "task",
+  "clock",
+  "report",
+]);
+export const tierKind = pgEnum("tier", ["priority", "standard", "bench"]);
+export const areaLevel = pgEnum("area_level", ["core", "small"]);
+export const taskKind = pgEnum("task_kind", ["work", "interview"]);
+export const taskStatus = pgEnum("task_status", ["todo", "doing", "done"]);
+
+/** numeric(3,1) arrives from postgres as a string; map it to a number. */
+const fitColumn = (name: string) => numeric(name, { precision: 3, scale: 1, mode: "number" });
 
 const timestamps = {
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
@@ -61,7 +81,10 @@ export const candidates = pgTable("candidates", {
   portfolioUrl: text("portfolio_url").notNull().default(""),
   phone: text("phone"),
   status: candidateStatus("status").notNull().default("new"),
-  fitScore: integer("fit_score").notNull().default(50),
+  /** 1–10, one decimal. Set by hand, or moved to the interview average whenever an interview is scored. */
+  fit: fitColumn("fit").notNull().default(5),
+  /** null = automatic tier from the settings bands. */
+  tierOverride: tierKind("tier_override"),
   resumeJson: jsonb("resume_json").$type<ResumeJson>().notNull(),
   resumeFileUrl: text("resume_file_url"),
   createdBy: uuid("created_by").references(() => interviewers.id, { onDelete: "set null" }),
@@ -76,7 +99,7 @@ export const candidateSkills = pgTable(
       .notNull()
       .references(() => candidates.id, { onDelete: "cascade" }),
     skill: text("skill").notNull(),
-    score: integer("score").notNull(),
+    score: integer("score").notNull(), // 1–10
     ...timestamps,
   },
   (t) => [index("candidate_skills_candidate_idx").on(t.candidateId)],
@@ -85,6 +108,8 @@ export const candidateSkills = pgTable(
 export const areas = pgTable("areas", {
   id: uuid("id").primaryKey().defaultRandom(),
   kind: areaKind("kind").notNull(),
+  /** core or small job; null for goals. Benched candidates can only attach to small jobs. */
+  level: areaLevel("level"),
   name: text("name").notNull(),
   description: text("description").notNull().default(""),
   ...timestamps,
@@ -121,6 +146,10 @@ export const interviews = pgTable(
     type: interviewType("type").notNull(),
     location: text("location"),
     actualMinutes: integer("actual_minutes"),
+    /** Interviewer's rating, 1–10. */
+    score: integer("score"),
+    /** The candidate's fit just before this interview was scored — drives the ↑/↓ delta and baseline. */
+    fitBefore: fitColumn("fit_before"),
     debrief: text("debrief"),
     ...timestamps,
   },
@@ -158,4 +187,83 @@ export const activity = pgTable(
     ...timestamps,
   },
   (t) => [index("activity_created_idx").on(t.createdAt)],
+);
+
+/** Single row. Absolute bands on the 1–10 fit, never percentiles. */
+export const settings = pgTable("settings", {
+  id: integer("id").primaryKey().default(1),
+  priorityAt: integer("priority_at").notNull().default(8),
+  benchAt: integer("bench_at").notNull().default(4),
+  ...timestamps,
+});
+
+export const campaigns = pgTable("campaigns", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  name: text("name").notNull(),
+  goal: text("goal").notNull().default(""),
+  brief: text("brief").notNull().default(""),
+  targets: text("targets").array().notNull().default([]),
+  startDate: date("start_date", { mode: "string" }).notNull(),
+  endDate: date("end_date", { mode: "string" }).notNull(),
+  isCurrent: boolean("is_current").notNull().default(false),
+  ...timestamps,
+});
+
+export const tasks = pgTable(
+  "tasks",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    campaignId: uuid("campaign_id")
+      .notNull()
+      .references(() => campaigns.id, { onDelete: "cascade" }),
+    title: text("title").notNull(),
+    detail: text("detail").notNull().default(""),
+    kind: taskKind("kind").notNull().default("work"),
+    areaId: uuid("area_id").references(() => areas.id, { onDelete: "set null" }),
+    /** null = unassigned */
+    candidateId: uuid("candidate_id").references(() => candidates.id, { onDelete: "set null" }),
+    day: date("day", { mode: "string" }).notNull(),
+    status: taskStatus("status").notNull().default("todo"),
+    createdBy: uuid("created_by").references(() => interviewers.id, { onDelete: "set null" }),
+    completedAt: timestamp("completed_at", { withTimezone: true }),
+    ...timestamps,
+  },
+  (t) => [index("tasks_candidate_day_idx").on(t.candidateId, t.day), index("tasks_day_idx").on(t.day)],
+);
+
+export const sessions = pgTable(
+  "sessions",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    taskId: uuid("task_id")
+      .notNull()
+      .references(() => tasks.id, { onDelete: "cascade" }),
+    candidateId: uuid("candidate_id")
+      .notNull()
+      .references(() => candidates.id, { onDelete: "cascade" }),
+    startedAt: timestamp("started_at", { withTimezone: true }).notNull().defaultNow(),
+    endedAt: timestamp("ended_at", { withTimezone: true }),
+    note: text("note"),
+    ...timestamps,
+  },
+  (t) => [
+    index("sessions_candidate_idx").on(t.candidateId, t.startedAt),
+    // One open session per candidate, enforced by the database as well as the server action.
+    uniqueIndex("sessions_one_open_idx").on(t.candidateId).where(sql`${t.endedAt} is null`),
+  ],
+);
+
+export const reports = pgTable(
+  "reports",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    candidateId: uuid("candidate_id")
+      .notNull()
+      .references(() => candidates.id, { onDelete: "cascade" }),
+    day: date("day", { mode: "string" }).notNull(),
+    summary: text("summary").notNull(),
+    submittedAt: timestamp("submitted_at", { withTimezone: true }).notNull().defaultNow(),
+    ...timestamps,
+  },
+  (t) => [uniqueIndex("reports_candidate_day_idx").on(t.candidateId, t.day)],
 );

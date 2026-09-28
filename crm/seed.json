@@ -27,31 +27,50 @@
       "id": "a1",
       "kind": "area",
       "name": "Web & creative dev",
-      "desc": "Sites, 3D, Shopify builds"
+      "desc": "Sites, 3D, Shopify builds",
+      "level": "core"
     },
     {
       "id": "a2",
       "kind": "area",
       "name": "Event production",
-      "desc": "Run-of-show, vendors, on-site"
+      "desc": "Run-of-show, vendors, on-site",
+      "level": "core"
     },
     {
       "id": "a3",
       "kind": "area",
       "name": "Short-form content",
-      "desc": "Clipping, editing, posting"
+      "desc": "Clipping, editing, posting",
+      "level": "core"
     },
     {
       "id": "a4",
       "kind": "area",
       "name": "Brand & design",
-      "desc": "Identity, print, apparel graphics"
+      "desc": "Identity, print, apparel graphics",
+      "level": "core"
     },
     {
       "id": "a5",
       "kind": "area",
       "name": "Ops & research",
-      "desc": "Scheduling, outreach, decks"
+      "desc": "Scheduling, outreach, decks",
+      "level": "core"
+    },
+    {
+      "id": "s1",
+      "kind": "area",
+      "level": "small",
+      "name": "Campus street team",
+      "desc": "Flyering, tabling, event door"
+    },
+    {
+      "id": "s2",
+      "kind": "area",
+      "level": "small",
+      "name": "Clip sourcing",
+      "desc": "Finding moments in long streams"
     },
     {
       "id": "g1",
@@ -91,7 +110,7 @@
       "school": "NYU Tandon",
       "major": "Computer Science",
       "program": "BS, junior",
-      "email": "pranav.r@nyu.edu",
+      "email": "pranav.r@example.edu",
       "instagram": "pranav.builds",
       "portfolio": "pranavr.dev",
       "status": "inprocess",
@@ -160,7 +179,7 @@
       "school": "Baruch College (CUNY)",
       "major": "Marketing",
       "program": "BBA, senior",
-      "email": "golam.h@baruchmail.cuny.edu",
+      "email": "golam.h@example.edu",
       "instagram": "golam.shoots",
       "portfolio": "golamh.cargo.site",
       "status": "queued",
@@ -228,7 +247,7 @@
       "school": "Pratt Institute",
       "major": "Communications Design",
       "program": "BFA, junior",
-      "email": "kerem.a@pratt.edu",
+      "email": "kerem.a@example.edu",
       "instagram": "kerem.type",
       "portfolio": "keremaydin.design",
       "status": "inprocess",
@@ -297,7 +316,7 @@
       "school": "Columbia University",
       "major": "Economics, film minor",
       "program": "BA, senior",
-      "email": "hs3421@columbia.edu",
+      "email": "hs3421@example.edu",
       "instagram": "hammaad.s",
       "portfolio": "hammaad.site",
       "status": "queued",
@@ -365,7 +384,7 @@
       "school": "Parsons School of Design",
       "major": "Strategic Design & Management",
       "program": "BBA, sophomore",
-      "email": "arya.m@newschool.edu",
+      "email": "arya.m@example.edu",
       "instagram": "arya.mp",
       "portfolio": "aryam.co",
       "status": "new",
@@ -436,7 +455,8 @@
       "end": "10:15",
       "type": "Portfolio review",
       "took": 50,
-      "note": "Ran over on the R3F configurator walkthrough; clear on scoping."
+      "note": "Ran over on the R3F configurator walkthrough; clear on scoping.",
+      "score": 8
     },
     {
       "id": "v2",
@@ -447,7 +467,8 @@
       "end": "11:45",
       "type": "Portfolio review",
       "took": 48,
-      "note": "Went long on print process. Strong."
+      "note": "Went long on print process. Strong.",
+      "score": 9
     },
     {
       "id": "v3",
@@ -458,7 +479,8 @@
       "end": "13:30",
       "type": "Intro call",
       "took": null,
-      "note": ""
+      "note": "",
+      "score": null
     },
     {
       "id": "v4",
@@ -469,7 +491,8 @@
       "end": "15:15",
       "type": "Ops case",
       "took": null,
-      "note": ""
+      "note": "",
+      "score": null
     },
     {
       "id": "v5",
@@ -480,7 +503,8 @@
       "end": "16:30",
       "type": "Intro call",
       "took": null,
-      "note": ""
+      "note": "",
+      "score": null
     },
     {
       "id": "v6",
@@ -491,7 +515,8 @@
       "end": "10:45",
       "type": "Technical",
       "took": null,
-      "note": ""
+      "note": "",
+      "score": null
     },
     {
       "id": "v7",
@@ -502,6 +527,67 @@
       "end": "15:45",
       "type": "Content review",
       "took": null,
+      "note": "",
+      "score": null
+    },
+    {
+      "id": "v8",
+      "candidateId": "c4",
+      "interviewerId": "i3",
+      "date": "2026-09-25",
+      "start": "11:00",
+      "end": "11:30",
+      "type": "Intro call",
+      "took": 32,
+      "score": 6,
+      "note": "Organized; thin on content instincts."
+    },
+    {
+      "id": "v9",
+      "candidateId": "c2",
+      "interviewerId": "i2",
+      "date": "2026-09-26",
+      "start": "14:00",
+      "end": "14:30",
+      "type": "Intro call",
+      "took": 30,
+      "score": 7,
+      "note": "Fast editor, needs to show range beyond sports."
+    },
+    {
+      "id": "v10",
+      "candidateId": "c3",
+      "interviewerId": "i1",
+      "date": "2026-09-30",
+      "start": "11:00",
+      "end": "12:00",
+      "type": "Final",
+      "took": null,
+      "score": null,
+      "note": ""
+    },
+    {
+      "id": "v11",
+      "candidateId": "c1",
+      "interviewerId": "i1",
+      "date": "2026-10-01",
+      "start": "14:00",
+      "end": "15:00",
+      "type": "Final",
+      "took": null,
+      "score": null,
+      "note": ""
+    },
+    {
+      "id": "v12",
+      "candidateId": "c5",
+      "interviewerId": "i2",
+      "date": "2026-10-02",
+      "start": "10:30",
+      "end": "11:15",
+      "type": "Ops case",
+      "took": null,
+      "score": null,
       "note": ""
     }
   ],
@@ -557,6 +643,160 @@
       "title": "Interview time changed",
       "sub": "Hammaad S. · Ops case",
       "at": "2026-09-27T09:15:00"
+    }
+  ],
+  "campaign": {
+    "id": "k1",
+    "name": "Go-to-market: party colleges",
+    "goal": "500 campus sign-ups before Halloween weekend",
+    "brief": "Launch fomo at five big party schools in three weeks. Interns build the campus page, clip the moments people share, make merch worth wearing to a tailgate, and line up one pop-up per school. Every task should end in something a student can see or scan.",
+    "targets": [
+      "Syracuse",
+      "Penn State",
+      "Arizona State",
+      "Florida State",
+      "West Virginia"
+    ],
+    "start": "2026-09-27",
+    "end": "2026-10-18"
+  },
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "Build the campus landing page",
+      "detail": "Fork the archive grid into /campus with a school picker and sign-up form",
+      "kind": "work",
+      "areaId": "a1",
+      "candidateId": "c1",
+      "day": "2026-09-28",
+      "status": "doing"
+    },
+    {
+      "id": "t2",
+      "title": "Clip five moments from Friday's stream",
+      "detail": "Vertical, captioned, under 30s each; post drafts to the shared folder",
+      "kind": "work",
+      "areaId": "a3",
+      "candidateId": "c2",
+      "day": "2026-09-28",
+      "status": "todo"
+    },
+    {
+      "id": "t3",
+      "title": "Tee graphic: party-college edition",
+      "detail": "Two directions, one color each, print-ready films by Thursday",
+      "kind": "work",
+      "areaId": "a4",
+      "candidateId": "c3",
+      "day": "2026-09-28",
+      "status": "doing"
+    },
+    {
+      "id": "t4",
+      "title": "Venue shortlist for the Syracuse pop-up",
+      "detail": "Three options near campus with capacity, dates and a contact",
+      "kind": "work",
+      "areaId": "a2",
+      "candidateId": "c4",
+      "day": "2026-09-29",
+      "status": "todo"
+    },
+    {
+      "id": "t5",
+      "title": "Competitor teardown deck",
+      "detail": "Four apps students already use: onboarding, referral hooks, campus presence",
+      "kind": "work",
+      "areaId": "a5",
+      "candidateId": "c5",
+      "day": "2026-09-27",
+      "status": "done"
+    },
+    {
+      "id": "t6",
+      "title": "Walk through the R3F configurator",
+      "detail": "Be ready to explain how you scoped it and what you'd cut",
+      "kind": "interview",
+      "areaId": null,
+      "candidateId": "c1",
+      "day": "2026-09-29",
+      "status": "todo"
+    },
+    {
+      "id": "t7",
+      "title": "Bring three hooks you'd test",
+      "detail": "Openers for a clip about campus sign-ups; we'll pick one live",
+      "kind": "interview",
+      "areaId": null,
+      "candidateId": "c2",
+      "day": "2026-09-29",
+      "status": "todo"
+    },
+    {
+      "id": "t8",
+      "title": "Draft the campus ambassador outreach email",
+      "detail": "Short, specific, one ask; include the sign-up link",
+      "kind": "work",
+      "areaId": "a5",
+      "candidateId": null,
+      "day": "2026-09-28",
+      "status": "todo"
+    },
+    {
+      "id": "t9",
+      "title": "Flyer layout for tabling",
+      "detail": "Half-letter, QR to /campus, works in one color on the Riso",
+      "kind": "work",
+      "areaId": "s1",
+      "candidateId": null,
+      "day": "2026-09-30",
+      "status": "todo"
+    },
+    {
+      "id": "t10",
+      "title": "Home-game calendar for target schools",
+      "detail": "Dates and kickoff times through Halloween for all five schools",
+      "kind": "work",
+      "areaId": "a5",
+      "candidateId": null,
+      "day": "2026-09-27",
+      "status": "todo"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "x1",
+      "taskId": "t5",
+      "candidateId": "c5",
+      "day": "2026-09-27",
+      "start": "10:00",
+      "end": "12:30",
+      "note": "Finished the teardown of four apps; referral loops section is the strongest."
+    },
+    {
+      "id": "x2",
+      "taskId": "t3",
+      "candidateId": "c3",
+      "day": "2026-09-28",
+      "start": "09:30",
+      "end": "10:40",
+      "note": "Two directions sketched; picked the stacked-type one."
+    },
+    {
+      "id": "x3",
+      "taskId": "t1",
+      "candidateId": "c1",
+      "day": "2026-09-28",
+      "start": "10:05",
+      "end": null,
+      "note": null
+    }
+  ],
+  "reports": [
+    {
+      "id": "r1",
+      "candidateId": "c5",
+      "day": "2026-09-27",
+      "summary": "Shipped the competitor teardown. Biggest takeaway: every app that won a campus did it with a physical moment first."
     }
   ]
 }
