@@ -1,4 +1,4 @@
--- Supabase-only setup. Run once in the SQL editor AFTER `npm run crm:migrate`.
+-- Supabase-only setup. Run in the SQL editor AFTER `npm run crm:migrate`; safe to re-run after new migrations.
 -- (Kept out of drizzle migrations because PGlite has no auth/storage schemas.)
 
 -- 1. Row-level security. The app itself connects as the postgres role via DATABASE_URL and is
@@ -12,15 +12,24 @@ $$;
 do $$
 declare t text;
 begin
-  foreach t in array array['interviewers','candidates','candidate_skills','areas','candidate_areas','interviews','notes','activity'] loop
+  foreach t in array array['interviewers','candidates','candidate_skills','areas','candidate_areas','interviews','notes','activity',
+                         'settings','campaigns','tasks','sessions','reports'] loop
     execute format('alter table public.%I enable row level security', t);
     execute format('drop policy if exists crm_read on public.%I', t);
     execute format('create policy crm_read on public.%I for select to authenticated using (public.crm_is_interviewer())', t);
   end loop;
 end $$;
 
--- 2. Realtime: broadcast changes on the four live tables.
-alter publication supabase_realtime add table public.interviews, public.notes, public.candidates, public.activity;
+-- 2. Realtime: broadcast changes on the live tables (idempotent).
+do $$
+declare t text;
+begin
+  foreach t in array array['interviews','notes','candidates','activity','tasks','sessions','reports'] loop
+    if not exists (select 1 from pg_publication_tables where pubname = 'supabase_realtime' and schemaname = 'public' and tablename = t) then
+      execute format('alter publication supabase_realtime add table public.%I', t);
+    end if;
+  end loop;
+end $$;
 
 -- 3. Storage: private "resumes" bucket, PDF only, 10 MB max.
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)

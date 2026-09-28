@@ -115,7 +115,7 @@ function useLiveUpdates(realtime: CrmData["realtime"], refresh: () => void) {
     if (realtime) {
       const supabase = supabaseBrowser(realtime);
       const channel = supabase.channel("crm-live");
-      for (const table of ["interviews", "notes", "candidates", "activity"]) {
+      for (const table of ["interviews", "notes", "candidates", "activity", "tasks", "sessions", "reports"]) {
         channel.on("postgres_changes", { event: "*", schema: "public", table }, soon);
       }
       channel.subscribe();
