@@ -31,3 +31,32 @@ export function devAuthEnabled(): boolean {
 export function devToolsEnabled(): boolean {
   return process.env.NODE_ENV !== "production" || process.env.CRM_DEV_AUTH === "1";
 }
+
+/** Public origin of the site, for links that leave the app (magic links). */
+export function siteUrl(): string {
+  return (process.env.NEXT_PUBLIC_SITE_URL || "https://waituntilmay.com").replace(/\/+$/, "");
+}
+
+/**
+ * Origin to put in the magic link: the request's own origin when it is this site or local dev,
+ * otherwise the configured site URL. A forged Origin header can't point links elsewhere.
+ */
+export function trustedOrigin(requestOrigin: string | null): string {
+  const site = siteUrl();
+  if (!requestOrigin) return site;
+  try {
+    const u = new URL(requestOrigin);
+    if (u.origin === new URL(site).origin) return u.origin;
+    if (process.env.NODE_ENV !== "production" && (u.hostname === "localhost" || u.hostname === "127.0.0.1")) return u.origin;
+  } catch {
+    // malformed header — fall through
+  }
+  return site;
+}
+
+/** Only same-site paths under /crm are allowed as a post-sign-in destination. */
+export function safeCrmPath(next: string | null | undefined): string | null {
+  if (!next || !next.startsWith("/crm") || next.startsWith("//") || next.includes("\\")) return null;
+  if (next !== "/crm" && !next.startsWith("/crm/") && !next.startsWith("/crm?")) return null;
+  return next;
+}

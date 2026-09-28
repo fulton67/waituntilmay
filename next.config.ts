@@ -1,5 +1,15 @@
 import type { NextConfig } from "next";
 
+// Printed in every build log so the deployed Supabase project is never a guess.
+const supabaseRef = (() => {
+  try {
+    return new URL(process.env.NEXT_PUBLIC_SUPABASE_URL ?? "").hostname.split(".")[0] || "not set";
+  } catch {
+    return "not set";
+  }
+})();
+console.log(`[crm] Supabase project ref: ${supabaseRef} · site URL: ${process.env.NEXT_PUBLIC_SITE_URL ?? "(default https://waituntilmay.com)"}`);
+
 const nextConfig: NextConfig = {
   // The CRM e2e server builds into its own folder so it can run beside a normal `next dev`.
   ...(process.env.NEXT_DIST_DIR ? { distDir: process.env.NEXT_DIST_DIR } : {}),

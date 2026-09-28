@@ -4,7 +4,7 @@ import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { DEV_COOKIE, createDevToken } from "./dev-session";
-import { devAuthEnabled, isAllowed } from "./env";
+import { devAuthEnabled, isAllowed, trustedOrigin } from "./env";
 import { supabaseServer } from "./supabase/server";
 import { candidateByEmail } from "./auth";
 
@@ -33,10 +33,11 @@ export async function requestSignIn(_prev: SignInState, form: FormData): Promise
   const supabase = await supabaseServer();
   if (!supabase) return { status: "error", message: "Sign-in isn't configured. Set the Supabase env vars." };
   const h = await headers();
-  const origin = h.get("origin") ?? `https://${h.get("host")}`;
+  // Always pass the callback explicitly; never rely on the Supabase project's Site URL default.
+  const emailRedirectTo = `${trustedOrigin(h.get("origin"))}/crm/auth/callback?next=/crm`;
   const { error } = await supabase.auth.signInWithOtp({
     email,
-    options: { emailRedirectTo: `${origin}/crm/auth/callback`, shouldCreateUser: true },
+    options: { emailRedirectTo, shouldCreateUser: true },
   });
   if (error) return { status: "error", message: error.message };
   return { status: "sent", email };
