@@ -5,6 +5,8 @@ import { createCandidate } from "../lib/actions";
 import { formatDay, formatDuration } from "../lib/time";
 import { EMPTY_RESUME, STATUS_LABEL, type Candidate, type Status } from "../lib/types";
 import { candidateRows, type Row } from "./derive";
+import { poolFloor, onScale, tierOf } from "../lib/ranking";
+import { TierChip } from "./bits";
 import { colorFor } from "../lib/colors";
 import { Avatar, Button, Card, Field, Icon, Modal, StatusPill, cx, inputClass } from "./primitives";
 import { useClock, useCrm } from "./store";
@@ -44,13 +46,15 @@ export function CandidatesTable({ initialQuery = "", title = "Candidates" }: { i
   const searched = rows.filter((r) => matches(r, q) && (areaFilter === "all" || r.candidate.areaIds.includes(areaFilter)));
   const visible = searched.filter((r) => tab === "all" || r.candidate.status === tab);
   const interviewerById = new Map(data.interviewers.map((i) => [i.id, i]));
+  const floor = poolFloor(data.candidates, data.interviews);
 
   return (
     <Card
       title={title}
+      className="crm-reveal"
       bodyClassName="pb-2"
       action={
-        <Button variant="primary" onClick={() => setCreating(true)}>
+        <Button variant="primary" className="crm-cta" onClick={() => setCreating(true)}>
           <Icon name="plus" size={16} /> New candidate
         </Button>
       }
@@ -148,9 +152,10 @@ export function CandidatesTable({ initialQuery = "", title = "Candidates" }: { i
                     <div className="flex items-center gap-3">
                       <Avatar name={c.name} color={colorFor(c.id)} size={34} />
                       <div className="min-w-0">
+                        <span className="flex items-center gap-1.5">
                         <button
                           type="button"
-                          className="block max-w-[220px] truncate text-left font-bold hover:underline"
+                          className="block max-w-[200px] truncate text-left font-bold hover:underline"
                           onClick={(e) => {
                             e.stopPropagation();
                             openCandidate(c.id);
@@ -158,6 +163,8 @@ export function CandidatesTable({ initialQuery = "", title = "Candidates" }: { i
                         >
                           {c.name}
                         </button>
+                        <TierChip tier={tierOf(c, data.settings)} />
+                        </span>
                         <div className="max-w-[240px] truncate text-[13px] text-(--muted)">
                           {[c.school, c.major].filter(Boolean).join(" · ") || "—"}
                         </div>
@@ -199,9 +206,9 @@ export function CandidatesTable({ initialQuery = "", title = "Candidates" }: { i
                   <td className="whitespace-nowrap px-3 tabular-nums">{formatDuration(r.spent)}</td>
                   <td className="py-3 pl-3 pr-5">
                     <span className="flex items-center gap-2">
-                      <span className="w-7 font-bold tabular-nums">{c.fitScore}</span>
+                      <span className="w-8 font-bold tabular-nums">{c.fit.toFixed(1)}</span>
                       <span className="crm-bar w-16">
-                        <span style={{ width: `${c.fitScore}%` }} />
+                        <span style={{ width: `${onScale(c.fit, floor)}%` }} />
                       </span>
                     </span>
                   </td>
@@ -247,7 +254,8 @@ function NewCandidateModal({ onClose }: { onClose: () => void }) {
       portfolioUrl: input.portfolio,
       phone: null,
       status: "new",
-      fitScore: 50,
+      fit: 5,
+      tierOverride: null,
       resumeJson: { ...EMPTY_RESUME, summary: input.summary },
       resumeFileUrl: null,
       createdAt: new Date().toISOString(),

@@ -6,7 +6,10 @@ import { findClash, interviewPhase, plannedMinutes, type Phase } from "../lib/ru
 import { supabaseBrowser } from "../lib/supabase/browser";
 import { formatDay, fromMin, relativeTime, toMin } from "../lib/time";
 import { INTERVIEW_TYPES, INTERVIEW_TYPE_LABEL, type Candidate, type Interview, type InterviewType } from "../lib/types";
+import Link from "next/link";
+import { firstName, tierOf } from "../lib/ranking";
 import { candidateInterviews } from "./derive";
+import { TaskCard } from "./Tasks";
 import { Avatar, Button, Field, Icon, Segmented, cx, inputClass, typeStyle } from "./primitives";
 import { useClock, useCrm, type RecordTab } from "./store";
 
@@ -16,10 +19,12 @@ export function RecordTabs({ candidate, initialTab }: { candidate: Candidate; in
   const counts = {
     notes: data.notes.filter((n) => n.candidateId === candidate.id).length,
     interviews: candidateInterviews(data, candidate.id).length,
+    assignments: data.tasks.filter((t) => t.candidateId === candidate.id && t.status !== "done").length,
   };
   const tabs: { value: RecordTab; label: string; count?: number }[] = [
     { value: "notes", label: "Notes", count: counts.notes },
     { value: "interviews", label: "Interviews", count: counts.interviews },
+    { value: "assignments", label: "Assignments", count: counts.assignments },
     { value: "resume", label: "Resume" },
   ];
 
@@ -47,6 +52,7 @@ export function RecordTabs({ candidate, initialTab }: { candidate: Candidate; in
         {tab === "notes" && <Notes candidate={candidate} />}
         {tab === "interviews" && <Interviews candidate={candidate} />}
         {tab === "resume" && <Resume candidate={candidate} />}
+        {tab === "assignments" && <Assignments candidate={candidate} />}
       </div>
     </section>
   );
@@ -202,17 +208,40 @@ function CancelButton({ interview }: { interview: Interview }) {
 function LogRow({ interview: iv }: { interview: Interview }) {
   const { mutate } = useCrm();
   const [minutes, setMinutes] = useState(iv.actualMinutes != null ? String(iv.actualMinutes) : "");
+  const [score, setScore] = useState(iv.score != null ? String(iv.score) : "");
+  const scoreOk = score === "" || (/^\d+$/.test(score) && +score >= 1 && +score <= 10);
   const [debrief, setDebrief] = useState(iv.debrief ?? "");
-  const dirty = minutes !== (iv.actualMinutes != null ? String(iv.actualMinutes) : "") || debrief !== (iv.debrief ?? "");
+  const dirty =
+    minutes !== (iv.actualMinutes != null ? String(iv.actualMinutes) : "") ||
+    debrief !== (iv.debrief ?? "") ||
+    score !== (iv.score != null ? String(iv.score) : "");
   const minutesOk = minutes === "" || (/^\d+$/.test(minutes) && +minutes >= 1 && +minutes <= 600);
 
   const save = () => {
-    if (!dirty || !minutesOk) return;
+    if (!dirty || !minutesOk || !scoreOk) return;
     const actualMinutes = minutes === "" ? null : Number(minutes);
+    const newScore = score === "" ? null : Number(score);
+    const scoreChanged = newScore !== iv.score;
     mutate(
-      (d) => ({ ...d, interviews: d.interviews.map((x) => (x.id === iv.id ? { ...x, actualMinutes, debrief: debrief || null } : x)) }),
-      () => logInterview(iv.id, { actualMinutes, debrief }),
-      "Interview logged",
+      (d) => {
+        const current = d.candidates.find((c) => c.id === iv.candidateId);
+        const interviews = d.interviews.map((x) =>
+          x.id === iv.id
+            ? { ...x, actualMinutes, debrief: debrief || null, score: newScore, fitBefore: newScore == null ? null : (x.fitBefore ?? current?.fit ?? null) }
+            : x,
+        );
+        // Same rule as the server: fit moves to the average of scored interviews and the override clears.
+        const scores = interviews.filter((x) => x.candidateId === iv.candidateId && x.score != null).map((x) => x.score!);
+        const candidates =
+          scoreChanged && scores.length
+            ? d.candidates.map((c) =>
+                c.id === iv.candidateId ? { ...c, fit: Math.round((scores.reduce((a, b) => a + b, 0) / scores.length) * 10) / 10, tierOverride: null } : c,
+              )
+            : d.candidates;
+        return { ...d, interviews, candidates };
+      },
+      () => logInterview(iv.id, { actualMinutes, debrief, ...(scoreChanged ? { score: newScore } : {}) }),
+      scoreChanged && newScore != null ? "Scored — rankings updated" : "Interview logged",
     );
   };
 
@@ -237,6 +266,17 @@ function LogRow({ interview: iv }: { interview: Interview }) {
         />
         min
       </label>
+      <label className="inline-flex items-center gap-2 text-[13px] text-(--muted)">
+        score
+        <input
+          value={score}
+          onChange={(e) => setScore(e.target.value)}
+          inputMode="numeric"
+          placeholder="1–10"
+          aria-label="Score 1–10"
+          className={cx(inputClass, "h-8 w-14 text-center text-(--ink)", !scoreOk && "border-(--highlight)")}
+        />
+      </label>
       <input
         value={debrief}
         onChange={(e) => setDebrief(e.target.value)}
@@ -245,7 +285,7 @@ function LogRow({ interview: iv }: { interview: Interview }) {
         maxLength={280}
         className={cx(inputClass, "h-8 min-w-[180px] flex-1")}
       />
-      <Button type="submit" size="sm" disabled={!dirty || !minutesOk}>
+      <Button type="submit" size="sm" disabled={!dirty || !minutesOk || !scoreOk}>
         Save
       </Button>
     </form>
@@ -261,7 +301,8 @@ function nextHalfHour(nowMin: number | null) {
 export function ScheduleForm({ candidate }: { candidate: Candidate }) {
   const { data, mutate } = useCrm();
   const clock = useClock();
-  const [candidateId, setCandidateId] = useState(candidate.id);
+  const schedulable = data.candidates.filter((c) => tierOf(c, data.settings) !== "bench");
+  const [candidateId, setCandidateId] = useState(schedulable.some((c) => c.id === candidate.id) ? candidate.id : (schedulable[0]?.id ?? ""));
   const [interviewerId, setInterviewerId] = useState(data.me.id);
   const [date, setDate] = useState(data.today);
   const [start, setStart] = useState(() => nextHalfHour(clock?.nowMin ?? null));
@@ -292,6 +333,8 @@ export function ScheduleForm({ candidate }: { candidate: Candidate }) {
       type,
       location: location || null,
       actualMinutes: null,
+      score: null,
+      fitBefore: null,
       debrief: null,
     };
     const res = await mutate(
@@ -317,10 +360,15 @@ export function ScheduleForm({ candidate }: { candidate: Candidate }) {
       data-testid="schedule-form"
     >
       <h3 className="mb-3 font-bold">Schedule an interview</h3>
+      {tierOf(candidate, data.settings) === "bench" && (
+        <p className="mb-3 text-[13px] text-(--highlight)" data-testid="benched-note">
+          {firstName(candidate.name)} is benched — change their tier in Rankings first.
+        </p>
+      )}
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <Field label="Candidate">
           <select aria-label="Candidate" value={candidateId} onChange={(e) => setCandidateId(e.target.value)} className={inputClass}>
-            {data.candidates.map((c) => (
+            {schedulable.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.name}
               </option>
@@ -505,6 +553,33 @@ function Resume({ candidate: c }: { candidate: Candidate }) {
       {!r.summary && !r.experience.length && !r.education.length && !r.skills.length && (
         <p className="text-(--muted)">No resume details yet. Upload a PDF to keep it on file.</p>
       )}
+    </div>
+  );
+}
+
+function Assignments({ candidate }: { candidate: Candidate }) {
+  const { data, openAssign, closeDrawer } = useCrm();
+  const tasks = data.tasks
+    .filter((t) => t.candidateId === candidate.id)
+    .sort((a, b) => Number(a.status === "done") - Number(b.status === "done") || a.day.localeCompare(b.day));
+  return (
+    <div className="space-y-3" data-testid="record-assignments">
+      <div className="flex flex-wrap gap-2">
+        <Button variant="primary" size="sm" onClick={() => openAssign({ candidateId: candidate.id })}>
+          Assign task
+        </Button>
+        <Link
+          href={`/crm/me?as=${candidate.id}`}
+          onClick={closeDrawer}
+          className="inline-flex h-8 items-center rounded-xl border border-(--line) bg-(--card) px-3 text-[13px] font-bold hover:bg-(--card-2)"
+        >
+          See it as {firstName(candidate.name)}
+        </Link>
+      </div>
+      {tasks.map((t) => (
+        <TaskCard key={t.id} task={t} showAssignee={false} />
+      ))}
+      {!tasks.length && <p className="py-4 text-center text-(--muted)">No assignments yet.</p>}
     </div>
   );
 }

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { attachArea, createArea, deleteArea, detachArea, updateArea } from "../lib/actions";
 import { colorFor } from "../lib/colors";
-import type { Area, AreaKind } from "../lib/types";
+import type { Area } from "../lib/types";
 import { patchCandidate } from "./CandidateRecord";
 import { Avatar, Button, Card, Chip, Field, InlineField, Segmented, inputClass } from "./primitives";
 import { useCrm } from "./store";
@@ -31,21 +31,30 @@ export function AreasView() {
 
 function NewAreaForm() {
   const { mutate } = useCrm();
-  const [kind, setKind] = useState<AreaKind>("area");
+  const [kind, setKind] = useState<"area" | "small" | "goal">("area");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 
   const submit = async () => {
     if (!name.trim()) return;
-    const temp: Area = { id: crypto.randomUUID(), kind, name: name.trim(), description: description.trim() };
+    const temp: Area = {
+      id: crypto.randomUUID(),
+      kind: kind === "goal" ? "goal" : "area",
+      level: kind === "goal" ? null : kind === "small" ? "small" : "core",
+      name: name.trim(),
+      description: description.trim(),
+    };
     setName("");
     setDescription("");
-    await mutate((d) => ({ ...d, areas: [...d.areas, temp] }), () => createArea({ kind, name: temp.name, description: temp.description }), `Created ${temp.name}`);
+    await mutate((d) => ({ ...d, areas: [...d.areas, temp] }), () => createArea({ kind: temp.kind, level: temp.level, name: temp.name, description: temp.description }), `Created ${temp.name}`);
   };
 
   return (
     <Card title="Areas & goals">
-      <p className="mb-4 max-w-[640px] text-(--muted)">Areas are the jobs and roles we hire into. Goals are outcomes a candidate could help with.</p>
+      <p className="mb-4 max-w-[640px] text-(--muted)">
+        Areas are the jobs and roles we hire into; small jobs are the ones benched candidates can still take. Goals are outcomes a candidate could help
+        with.
+      </p>
       <form
         className="grid grid-cols-1 items-end gap-3 md:grid-cols-[auto_1fr_1.4fr_auto]"
         onSubmit={(e) => {
@@ -59,6 +68,7 @@ function NewAreaForm() {
           onChange={setKind}
           options={[
             { value: "area", label: "Area" },
+            { value: "small", label: "Small job" },
             { value: "goal", label: "Goal" },
           ]}
         />
@@ -90,6 +100,7 @@ function AreaCard({ area }: { area: Area }) {
           <InlineField label="Area name" value={area.name} onSave={(v) => v && patchArea({ name: v })} className="text-[17px] font-bold" />
           <InlineField label="Description" value={area.description} placeholder="Add a description" onSave={(v) => patchArea({ description: v })} className="mt-0.5 text-(--muted)" />
         </div>
+        {area.level === "small" && <span className="rounded-full border border-(--line) px-2 py-0.5 text-[11px] font-medium text-(--muted)">small job</span>}
         <span className="rounded-full bg-(--card-2) px-2 py-0.5 text-[12px] font-medium tabular-nums">{attached.length}</span>
       </div>
 

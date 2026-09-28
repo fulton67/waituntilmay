@@ -15,6 +15,9 @@ const RULE: Record<ActivityKind, string> = {
   time: "#7C8CF8",
   status: "var(--ink)",
   area: "#C4CDFB",
+  task: "var(--brand)",
+  clock: "#7C8CF8",
+  report: "var(--glow)",
 };
 
 /** Relative times re-render each minute, and only after mount so SSR and client agree. */
@@ -60,7 +63,10 @@ export function ActivityList({ items, onPick }: { items: ActivityItem[]; onPick?
                 style={{ borderLeftColor: RULE[a.kind] }}
                 onClick={() => {
                   onPick?.();
-                  openCandidate(a.candidateId!, a.kind === "note" ? "notes" : a.kind === "time" ? "interviews" : "notes");
+                  openCandidate(
+                    a.candidateId!,
+                    a.kind === "time" ? "interviews" : a.kind === "task" || a.kind === "clock" || a.kind === "report" ? "assignments" : "notes",
+                  );
                 }}
               >
                 {body}
@@ -81,6 +87,7 @@ export function ActivityCard() {
   const { data } = useCrm();
   return (
     <Card
+      className="crm-reveal"
       title="Recent activity"
       action={
         <Link href="/crm/activity" className="text-[13px] font-medium text-(--brand)">

@@ -29,6 +29,8 @@ const PATHS = {
   file: "M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8zM14 3v5h5",
   check: "M20 6 9 17l-5-5",
   menu: "M4 6h16M4 12h16M4 18h16",
+  flag: "M5 21V4M5 4h11l-2 4 2 4H5",
+  rank: "M4 20h4v-7H4zM10 20h4V6h-4zM16 20h4v-10h-4z",
 } as const;
 
 export type IconName = keyof typeof PATHS;
@@ -287,7 +289,7 @@ export function InlineField({
   );
 }
 
-export function Modal({ title, onClose, children }: { title: string; onClose: () => void; children: React.ReactNode }) {
+export function Modal({ title, onClose, children, wide = false }: { title: string; onClose: () => void; children: React.ReactNode; wide?: boolean }) {
   const id = useId();
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
@@ -301,7 +303,7 @@ export function Modal({ title, onClose, children }: { title: string; onClose: ()
         role="dialog"
         aria-modal
         aria-labelledby={id}
-        className="crm-drawer relative max-h-[90vh] w-full max-w-[560px] overflow-y-auto rounded-[22px] border border-(--line) bg-(--card) p-6 shadow-(--shadow)"
+        className={cx("crm-drawer relative max-h-[90vh] w-full overflow-y-auto rounded-[22px] border border-(--line) bg-(--card) p-6 shadow-(--shadow)", wide ? "max-w-[1040px] bg-(--canvas)" : "max-w-[560px]")}
       >
         <div className="mb-4 flex items-center justify-between">
           <h2 id={id} className="text-[17px] font-bold">

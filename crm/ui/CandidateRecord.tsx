@@ -12,6 +12,9 @@ import {
 } from "../lib/actions";
 import { colorFor } from "../lib/colors";
 import { suggestArea } from "../lib/suggest";
+import { interviewAverage, rankMap, scoredInterviews, tierOf } from "../lib/ranking";
+import { TierChip } from "./bits";
+import { TierControl } from "./RankingsPanel";
 import { formatDuration } from "../lib/time";
 import { STATUSES, STATUS_LABEL, type AreaKind, type Candidate, type CrmData, type Status } from "../lib/types";
 import { candidateInterviews, timeSpent } from "./derive";
@@ -78,6 +81,7 @@ export function CandidateRecord({
             />
             <span className="tabular-nums text-(--muted)">#{String(c.seq).padStart(4, "0")}</span>
             <StatusPill status={c.status} />
+            <TierChip tier={tierOf(c, data.settings)} />
           </div>
           <p className="mt-1 text-(--muted)">{[c.school, c.program].filter(Boolean).join(" · ") || "No school yet"}</p>
           <p className="mt-2 text-[13px]">
@@ -135,12 +139,6 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 function Attributes({ candidate: c, save }: { candidate: Candidate; save: (p: Parameters<typeof updateCandidate>[1]) => unknown }) {
   const { data, mutate } = useCrm();
-  const [fit, setFit] = useState<number | null>(null);
-  const shownFit = fit ?? c.fitScore;
-  const commitFit = () => {
-    if (fit != null && fit !== c.fitScore) save({ fitScore: fit });
-    setFit(null);
-  };
 
   return (
     <aside className="space-y-4 self-start rounded-[22px] border border-(--line) bg-(--card) p-5">
@@ -210,29 +208,22 @@ function Attributes({ candidate: c, save }: { candidate: Candidate; save: (p: Pa
         <Row label="Degree / year">
           <InlineField label="Degree / year" value={c.program} onSave={(v) => save({ program: v })} />
         </Row>
-        <Row label="Fit score">
-          <div className="flex items-center gap-3">
-            <input
-              type="range"
-              min={0}
-              max={100}
-              value={shownFit}
-              aria-label="Fit score"
-              onChange={(e) => setFit(Number(e.target.value))}
-              onPointerUp={commitFit}
-              onKeyUp={commitFit}
-              onBlur={commitFit}
-              className="min-w-0 flex-1"
-            />
-            <span className="w-8 text-right font-bold tabular-nums">{shownFit}</span>
-          </div>
-        </Row>
+
       </div>
 
+      <FitRow candidate={c} save={save} />
+      <Section title="Tier">
+        <TierControl candidate={c} />
+      </Section>
       <AreaChips candidate={c} kind="area" title="Areas" />
       <AreaChips candidate={c} kind="goal" title="Goals" />
       <Skills candidate={c} />
-      <Suggestion candidate={c} areas={data.areas} onAttach={(areaId) => attach(mutate, c.id, areaId)} />
+      <Suggestion
+        candidate={c}
+        areas={data.areas}
+        benched={tierOf(c, data.settings) === "bench"}
+        onAttach={(areaId) => attach(mutate, c.id, areaId)}
+      />
     </aside>
   );
 }
@@ -248,7 +239,9 @@ function AreaChips({ candidate: c, kind, title }: { candidate: Candidate; kind: 
   const { data, mutate } = useCrm();
   const all = data.areas.filter((a) => a.kind === kind);
   const attached = all.filter((a) => c.areaIds.includes(a.id));
-  const available = all.filter((a) => !c.areaIds.includes(a.id));
+  const benched = tierOf(c, data.settings) === "bench";
+  // Benched candidates can only be attached to small jobs (goals are unaffected).
+  const available = all.filter((a) => !c.areaIds.includes(a.id) && (kind === "goal" || !benched || a.level === "small"));
 
   return (
     <Section title={title}>
@@ -265,6 +258,7 @@ function AreaChips({ candidate: c, kind, title }: { candidate: Candidate; kind: 
             }
           >
             {a.name}
+            {a.level === "small" && <span className="ml-1 text-[11px] text-(--muted)">small</span>}
           </Chip>
         ))}
         {available.length > 0 && (
@@ -291,8 +285,8 @@ function AreaChips({ candidate: c, kind, title }: { candidate: Candidate; kind: 
 function Skills({ candidate: c }: { candidate: Candidate }) {
   const { mutate } = useCrm();
   const [name, setName] = useState("");
-  const [score, setScore] = useState("70");
-  const scoreOk = (v: string) => (/^\d+$/.test(v) && +v >= 0 && +v <= 100 ? null : "0–100");
+  const [score, setScore] = useState("7");
+  const scoreOk = (v: string) => (/^\d+$/.test(v) && +v >= 1 && +v <= 10 ? null : "1–10");
 
   const add = async () => {
     const skill = name.trim();
@@ -349,7 +343,7 @@ function Skills({ candidate: c }: { candidate: Candidate }) {
               </button>
             </div>
             <div className="crm-bar mt-1">
-              <span style={{ width: `${s.score}%` }} />
+              <span style={{ width: `${s.score * 10}%` }} />
             </div>
           </li>
         ))}
@@ -380,13 +374,16 @@ function Skills({ candidate: c }: { candidate: Candidate }) {
 function Suggestion({
   candidate,
   areas,
+  benched,
   onAttach,
 }: {
   candidate: Candidate;
   areas: CrmData["areas"];
+  benched: boolean;
   onAttach: (areaId: string) => void;
 }) {
-  const best = suggestArea(candidate, areas);
+  // Benched candidates get the best small job.
+  const best = suggestArea(candidate, areas, benched);
   if (!best) return null;
   const attached = candidate.areaIds.includes(best.id);
   return (
@@ -403,6 +400,62 @@ function Suggestion({
           Attach
         </Button>
       )}
+    </div>
+  );
+}
+
+function FitRow({ candidate: c, save }: { candidate: Candidate; save: (p: Parameters<typeof updateCandidate>[1]) => unknown }) {
+  const { data } = useCrm();
+  const rank = rankMap(data.candidates).get(c.id);
+  const scored = scoredInterviews(c.id, data.interviews);
+  const avg = interviewAverage(scored);
+  return (
+    <div className="border-t border-(--line) pt-4" data-testid="fit-row">
+      <div className="flex items-baseline gap-2">
+        <span className="text-[40px] font-bold leading-none tracking-[-0.03em] tabular-nums" data-testid="fit-value">
+          {c.fit.toFixed(1)}
+        </span>
+        <span className="text-[13px] text-(--muted)">
+          / 10 · #{rank} of {data.candidates.length} · tap a number to set it
+        </span>
+      </div>
+      <div className="mt-3 grid grid-cols-10 gap-1" role="radiogroup" aria-label="Fit">
+        {Array.from({ length: 10 }, (_, i) => i + 1).map((n) => {
+          const on = Math.round(c.fit) === n;
+          return (
+            <button
+              key={n}
+              type="button"
+              role="radio"
+              aria-checked={on}
+              aria-label={`Fit ${n}`}
+              onClick={() => n !== c.fit && save({ fit: n })}
+              className={cx(
+                "h-8 rounded-lg text-[13px] font-bold tabular-nums transition-colors",
+                on ? "bg-(--brand) text-white" : "bg-(--card-2) text-(--muted) hover:text-(--ink)",
+              )}
+            >
+              {n}
+            </button>
+          );
+        })}
+      </div>
+      <p className="mt-2 text-[13px] text-(--muted)" data-testid="fit-average">
+        {avg == null ? (
+          "No scored interviews yet — scoring one sets the fit to the average."
+        ) : (
+          <>
+            Interviews average <span className="font-bold text-(--ink)">{avg}</span> ({scored.length} scored) ·{" "}
+            {avg === c.fit ? (
+              "matches"
+            ) : (
+              <button type="button" onClick={() => save({ fit: avg })} className="font-bold text-(--brand)">
+                use {avg}
+              </button>
+            )}
+          </>
+        )}
+      </p>
     </div>
   );
 }

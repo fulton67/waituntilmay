@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { addInterviewer, removeInterviewer, resetDemoData, updateMyName } from "../lib/actions";
 import { signOut } from "../lib/auth-actions";
@@ -13,9 +14,10 @@ export function SettingsView({ allowlist }: { allowlist: string[] }) {
   const [newName, setNewName] = useState("");
   const [newEmail, setNewEmail] = useState("");
   const [confirmReset, setConfirmReset] = useState(false);
+  const [viewAs, setViewAs] = useState(data.candidates[0]?.id ?? "");
 
   return (
-    <div className="grid max-w-[980px] grid-cols-1 gap-4 min-[1100px]:grid-cols-2">
+    <div className="grid grid-cols-1 gap-4 min-[1000px]:grid-cols-2">
       <Card title="You">
         <form
           className="flex items-end gap-2"
@@ -106,8 +108,28 @@ export function SettingsView({ allowlist }: { allowlist: string[] }) {
         <p className="mt-2 text-[13px] text-(--muted)">New interviewers also need their email in CRM_ALLOWED_EMAILS to sign in.</p>
       </Card>
 
+      <Card title="View as intern">
+        <p className="mb-3 text-(--muted)">See exactly what an intern sees on their page: their brief, assignments and interviews, nothing else.</p>
+        <div className="flex gap-2">
+          <select aria-label="Intern to view as" value={viewAs} onChange={(e) => setViewAs(e.target.value)} className="h-10 min-w-0 flex-1 rounded-xl border border-(--line) bg-(--card) px-3">
+            {data.candidates.map((c) => (
+              <option key={c.id} value={c.id}>
+                {c.name}
+              </option>
+            ))}
+          </select>
+          <Link
+            href={`/crm/me?as=${viewAs}`}
+            className="inline-flex h-10 items-center rounded-xl bg-(--brand) px-4 font-bold text-white"
+            data-testid="view-as"
+          >
+            View
+          </Link>
+        </div>
+      </Card>
+
       {data.devTools && (
-        <Card title="Demo data" className="min-[1100px]:col-span-2">
+        <Card title="Demo data" className="min-[1000px]:col-span-2">
           <p className="mb-3 text-(--muted)">
             Wipes candidates, interviews, notes, areas and activity, then reloads crm/seed.json shifted to today. Development only.
           </p>

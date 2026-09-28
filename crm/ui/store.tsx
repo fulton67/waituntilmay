@@ -18,7 +18,9 @@ import { CRM_TZ, nowMinutesIn, todayIn } from "../lib/time";
 import type { ActionResult, CrmData } from "../lib/types";
 
 export type Patch = (d: CrmData) => CrmData;
-export type RecordTab = "notes" | "interviews" | "resume";
+export type RecordTab = "notes" | "interviews" | "resume" | "assignments";
+export type Panel = "rankings" | "areas" | "daylog" | "settings";
+export type AssignTarget = { taskId?: string; candidateId?: string; areaId?: string; day?: string };
 type Toast = { id: number; message: string; tone: "info" | "warn" };
 
 type Ctx = {
@@ -29,6 +31,12 @@ type Ctx = {
   drawer: { candidateId: string; tab: RecordTab } | null;
   openCandidate: (candidateId: string, tab?: RecordTab) => void;
   closeDrawer: () => void;
+  panel: { name: Panel; day?: string } | null;
+  openPanel: (name: Panel, day?: string) => void;
+  closePanel: () => void;
+  assign: AssignTarget | null;
+  openAssign: (target?: AssignTarget) => void;
+  closeAssign: () => void;
   toasts: Toast[];
   toast: (message: string, tone?: Toast["tone"]) => void;
 };
@@ -46,6 +54,8 @@ export function CrmProvider({ data: serverData, children }: { data: CrmData; chi
   const [pending, startTransition] = useTransition();
   const [data, addOptimistic] = useOptimistic(serverData, (state: CrmData, patch: Patch) => patch(state));
   const [drawer, setDrawer] = useState<Ctx["drawer"]>(null);
+  const [panel, setPanel] = useState<Ctx["panel"]>(null);
+  const [assign, setAssign] = useState<AssignTarget | null>(null);
   const [toasts, setToasts] = useState<Toast[]>([]);
   const toastId = useRef(0);
 
@@ -76,12 +86,16 @@ export function CrmProvider({ data: serverData, children }: { data: CrmData; chi
 
   const openCandidate = useCallback((candidateId: string, tab: RecordTab = "notes") => setDrawer({ candidateId, tab }), []);
   const closeDrawer = useCallback(() => setDrawer(null), []);
+  const openPanel = useCallback((name: Panel, day?: string) => setPanel({ name, day }), []);
+  const closePanel = useCallback(() => setPanel(null), []);
+  const openAssign = useCallback((target: AssignTarget = {}) => setAssign(target), []);
+  const closeAssign = useCallback(() => setAssign(null), []);
 
   useLiveUpdates(serverData.realtime, router.refresh);
 
   const value = useMemo(
-    () => ({ data, pending, mutate, drawer, openCandidate, closeDrawer, toasts, toast }),
-    [data, pending, mutate, drawer, openCandidate, closeDrawer, toasts, toast],
+    () => ({ data, pending, mutate, drawer, openCandidate, closeDrawer, panel, openPanel, closePanel, assign, openAssign, closeAssign, toasts, toast }),
+    [data, pending, mutate, drawer, openCandidate, closeDrawer, panel, openPanel, closePanel, assign, openAssign, closeAssign, toasts, toast],
   );
   return <CrmContext.Provider value={value}>{children}</CrmContext.Provider>;
 }
@@ -127,7 +141,7 @@ function useLiveUpdates(realtime: CrmData["realtime"], refresh: () => void) {
 // ─── Clock: today + minutes since midnight in the CRM timezone. null during SSR. ────────────
 
 let clockKey = "";
-let clockSnap: { today: string; nowMin: number } | null = null;
+let clockSnap: { today: string; nowMin: number; nowMs: number } | null = null;
 function readClock() {
   const now = new Date();
   const today = todayIn(CRM_TZ, now);
@@ -135,7 +149,7 @@ function readClock() {
   const key = `${today}|${nowMin}`;
   if (key !== clockKey) {
     clockKey = key;
-    clockSnap = { today, nowMin };
+    clockSnap = { today, nowMin, nowMs: now.getTime() };
   }
   return clockSnap;
 }
@@ -151,6 +165,7 @@ export function useClock() {
 // ─── Theme: data-theme on <html>, persisted in localStorage. ────────────────────────────────
 
 export type Theme = "light" | "dark";
+let themingTimer = 0;
 
 function subscribeTheme(cb: () => void) {
   const obs = new MutationObserver(cb);
@@ -165,8 +180,14 @@ export function useTheme(): [Theme, () => void] {
     () => "light" as Theme,
   );
   const toggle = useCallback(() => {
-    const next: Theme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", next);
+    const root = document.documentElement;
+    const next: Theme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    // ~650ms colour crossfade, and tell the eyes which way to turn.
+    root.classList.add("theming");
+    root.setAttribute("data-eyes", next === "dark" ? "to-dark" : "to-light");
+    window.clearTimeout(themingTimer);
+    themingTimer = window.setTimeout(() => root.classList.remove("theming"), 650);
+    root.setAttribute("data-theme", next);
     try {
       localStorage.setItem("crm-theme", next);
     } catch {
