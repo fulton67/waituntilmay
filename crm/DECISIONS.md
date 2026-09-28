@@ -160,7 +160,7 @@ Running list of calls made while building `/crm` without stopping to ask.
     looking right to looking left), cropped square around the mark, 128px per frame, alpha only.
     The rail shows frame 0 in light and frame 27 in dark, and plays `steps(27)` over 1.1s on switch.
     Two keyframe names (to-dark / to-light) guarantee the animation restarts every time.
-53. **Intro splash** (your `IntroSplash.tsx`) renders once per browser session at the top of the CRM
+53. **Intro splash** (superseded by 67: `IntroSplash` was removed) (your `IntroSplash.tsx`) renders once per browser session at the top of the CRM
     layout, sign-in included, with assets in `public/anim/`. Its font now points at the CRM font
     variable. Its gate-before-paint `setState` is lint-annotated, not rewritten.
 54. **Card reveal** hides top-level cards until they enter the viewport. Under
@@ -180,3 +180,33 @@ Running list of calls made while building `/crm` without stopping to ask.
 59. **`supabase.sql` now covers the v2 tables** (row-level security plus the `crm_read` policy on settings, campaigns, tasks, sessions and reports; tasks, sessions and reports added to live updates). It is idempotent, so re-run it after future migrations; new tables are otherwise readable through the anon key.
 60. **`/crm/brand/*` is public in the proxy**, so the sign-in page can load the wordmark and eyes before anyone signs in.
 61. **Production was reseeded with `--reset`** on deploy; interviewer rows were kept.
+
+## Prototype port (styles are the prototype's, unchanged)
+62. **`docs/crm-prototype-styles.css` is the source of truth.** `crm/scripts/port-prototype-css.mjs`
+    generates `app/(crm)/crm/prototype.css` from it without changing any values: selectors are
+    scoped to `[data-crm]`, and everything sits in `@layer components` so Tailwind utilities can
+    still override it. Components use the prototype's class names (`.app`, `.rail`, `.card`,
+    `.kpis`, `.srow`/`.lane`/`.blk`, `.drawer`/`.d-body`, …). `crm.css` holds only glue (token
+    aliases, keeping the site's globals out, behaviour hooks) and the documented deviations below.
+63. **Deviations from the prototype:**
+    - Under 600px the mobile bar hides the moon/sun toggle (the eyes still toggle the theme) and
+      Areas (reachable from Open areas), because nine 44px buttons don't fit in 390px.
+    - `.rk` rankings rows wrap under 700px.
+    - The prototype's reduced-motion `*` rule doesn't reach pseudo-elements, so they're stopped
+      explicitly.
+64. **Verification scripts:** `crm/scripts/measure-layout.mjs` compares measured values to the
+    prototype and checks nothing leaves its card at 1440/1280/1024/768/390 (including single words
+    broken across lines). `crm/scripts/verify-interactions.mjs` is the 57-item interaction
+    checklist.
+65. **Interviewers can clock an intern in or out from the candidate drawer** (Assignments tab). The
+    activity entry adds "by <interviewer>". Reports stay intern-only.
+66. **Ambient motion (decisions):** the blobs pause while any drawer or modal is open, and their
+    blur drops to 30px under 900px. The live pulses are `::before`/`::after` rings animated on
+    transform and opacity only, replacing the prototype's box-shadow keyframes.
+67. **Intro:** `IntroSplash` was removed. `IntroOverlay` referenced `/anim/fomo-intro.mp4`, which
+    was never in the repo, so production only showed a navy flash. It now plays the official fomo
+    eyes-turn animation (`public/anim/fomo-eyes-turn.webm`) at 1.79× so the full turn fits in
+    1.4s, with a CSS fade that ends 1.4s after first paint even if JavaScript is slow (limit
+    1.5s). It plays once per session, click or any key skips it, it never plays on `/crm/me` or
+    sign-in (it only mounts in the interviewer layout), and it never plays under reduced motion
+    (the pre-paint script hides it before first paint).
