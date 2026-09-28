@@ -175,3 +175,8 @@ Running list of calls made while building `/crm` without stopping to ask.
     intern, task, start, end, minutes and note.
 58. **Next up proposals** recompute on every state change and on the clock tick, which is 20s, not
     60s; that's cheaper than it sounds for this pool size.
+
+## v2 production deploy
+59. **`supabase.sql` now covers the v2 tables** (row-level security plus the `crm_read` policy on settings, campaigns, tasks, sessions and reports; tasks, sessions and reports added to live updates). It is idempotent, so re-run it after future migrations; new tables are otherwise readable through the anon key.
+60. **`/crm/brand/*` is public in the proxy**, so the sign-in page can load the wordmark and eyes before anyone signs in.
+61. **Production was reseeded with `--reset`** on deploy; interviewer rows were kept.
