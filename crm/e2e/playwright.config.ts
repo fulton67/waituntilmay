@@ -28,8 +28,9 @@ export default defineConfig({
     env: {
       DATABASE_URL: "pglite:crm/.pglite-e2e",
       CRM_ALLOWED_EMAILS: "e2e@fomo.test",
-      NEXT_PUBLIC_SUPABASE_URL: "",
-      NEXT_PUBLIC_SUPABASE_ANON_KEY: "",
+      // .env.local may hold real Supabase keys; this forces local sign-in and PGlite.
+      CRM_FORCE_LOCAL: "1",
+      NEXT_DIST_DIR: ".next-e2e",
     },
   },
 });
