@@ -1,13 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
+import { DEV_COOKIE, readDevToken } from "./crm/lib/dev-session";
+import { devAuthEnabled, isAllowed } from "./crm/lib/env";
+import { refreshSupabaseSession } from "./crm/lib/supabase/proxy";
 
-const COOKIE = "lb-auth";
+const LUNCH_BELLS_COOKIE = "lb-auth";
+const CRM_PUBLIC = ["/crm/sign-in", "/crm/auth/callback"];
 
-export function middleware(req: NextRequest) {
-  const { pathname } = req.nextUrl;
+function lunchBells(req: NextRequest) {
+  if (req.nextUrl.pathname === "/lunch-bells/login") return NextResponse.next();
 
-  if (pathname === "/lunch-bells/login") return NextResponse.next();
-
-  const auth = req.cookies.get(COOKIE)?.value;
+  const auth = req.cookies.get(LUNCH_BELLS_COOKIE)?.value;
   const password = process.env.LUNCH_BELLS_PASSWORD;
 
   if (password && auth === password) return NextResponse.next();
@@ -17,6 +19,33 @@ export function middleware(req: NextRequest) {
   return NextResponse.redirect(loginUrl);
 }
 
+async function crm(req: NextRequest) {
+  const { pathname } = req.nextUrl;
+  let response = NextResponse.next();
+  let email: string | null;
+
+  if (devAuthEnabled()) {
+    email = readDevToken(req.cookies.get(DEV_COOKIE)?.value);
+  } else if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
+    ({ response, email } = await refreshSupabaseSession(req));
+  } else {
+    email = null;
+  }
+
+  if (CRM_PUBLIC.some((p) => pathname.startsWith(p))) return response;
+  if (email && isAllowed(email)) return response;
+
+  const url = req.nextUrl.clone();
+  url.pathname = "/crm/sign-in";
+  url.search = email ? "?denied=1" : "";
+  return NextResponse.redirect(url);
+}
+
+export async function proxy(req: NextRequest) {
+  if (req.nextUrl.pathname.startsWith("/crm")) return crm(req);
+  return lunchBells(req);
+}
+
 export const config = {
-  matcher: ["/lunch-bells", "/lunch-bells/:path*"],
+  matcher: ["/lunch-bells", "/lunch-bells/:path*", "/crm", "/crm/:path*"],
 };
