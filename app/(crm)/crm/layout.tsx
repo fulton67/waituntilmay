@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { crmFont } from "@/crm/ui/fonts";
+import IntroSplash from "@/crm/ui/IntroSplash";
 import { INTRO_SKIP_SCRIPT } from "@/crm/ui/intro";
 import "./crm.css";
 
@@ -17,6 +18,7 @@ export default function CrmRootLayout({ children }: { children: React.ReactNode 
     <>
       <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT + ";" + INTRO_SKIP_SCRIPT }} />
       <div data-crm className={crmFont.variable}>
+        <IntroSplash />
         {children}
       </div>
     </>
