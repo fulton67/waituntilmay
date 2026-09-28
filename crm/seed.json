@@ -1,0 +1,562 @@
+{
+  "baseDate": "2026-09-28",
+  "interviewers": [
+    {
+      "id": "i1",
+      "name": "Naim J.",
+      "color": "#516AF6"
+    },
+    {
+      "id": "i2",
+      "name": "Sasha T.",
+      "color": "#ACB8F9"
+    },
+    {
+      "id": "i3",
+      "name": "Jordan P.",
+      "color": "#221D4B"
+    },
+    {
+      "id": "i4",
+      "name": "Mira K.",
+      "color": "#7C8CF8"
+    }
+  ],
+  "areas": [
+    {
+      "id": "a1",
+      "kind": "area",
+      "name": "Web & creative dev",
+      "desc": "Sites, 3D, Shopify builds"
+    },
+    {
+      "id": "a2",
+      "kind": "area",
+      "name": "Event production",
+      "desc": "Run-of-show, vendors, on-site"
+    },
+    {
+      "id": "a3",
+      "kind": "area",
+      "name": "Short-form content",
+      "desc": "Clipping, editing, posting"
+    },
+    {
+      "id": "a4",
+      "kind": "area",
+      "name": "Brand & design",
+      "desc": "Identity, print, apparel graphics"
+    },
+    {
+      "id": "a5",
+      "kind": "area",
+      "name": "Ops & research",
+      "desc": "Scheduling, outreach, decks"
+    },
+    {
+      "id": "g1",
+      "kind": "goal",
+      "name": "Archive site relaunch",
+      "desc": "Ship the new archive grid by Nov"
+    },
+    {
+      "id": "g2",
+      "kind": "goal",
+      "name": "NYFW event support",
+      "desc": "February show week crew"
+    },
+    {
+      "id": "g3",
+      "kind": "goal",
+      "name": "Clipper pipeline",
+      "desc": "Daily clips from long-form streams"
+    },
+    {
+      "id": "g4",
+      "kind": "goal",
+      "name": "Merch drop",
+      "desc": "Tee + hoodie run, print-ready by Oct"
+    },
+    {
+      "id": "g5",
+      "kind": "goal",
+      "name": "Fall research sprint",
+      "desc": "Competitor and audience decks"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "c1",
+      "name": "Pranav R.",
+      "school": "NYU Tandon",
+      "major": "Computer Science",
+      "program": "BS, junior",
+      "email": "pranav.r@nyu.edu",
+      "instagram": "pranav.builds",
+      "portfolio": "pranavr.dev",
+      "status": "inprocess",
+      "fit": 88,
+      "bestAt": [
+        {
+          "skill": "Frontend & creative dev",
+          "score": 92
+        },
+        {
+          "skill": "Three.js / R3F",
+          "score": 78
+        },
+        {
+          "skill": "Motion & interaction",
+          "score": 70
+        }
+      ],
+      "areas": [
+        "a1"
+      ],
+      "goals": [
+        "g1"
+      ],
+      "resume": {
+        "summary": "Front-end developer who ships interactive sites for small brands; comfortable with React, WebGL and headless commerce.",
+        "education": [
+          {
+            "school": "NYU Tandon School of Engineering",
+            "degree": "BS Computer Science",
+            "years": "2024–2028"
+          }
+        ],
+        "experience": [
+          {
+            "org": "Loop Studio (Brooklyn)",
+            "role": "Front-end intern",
+            "years": "Summer 2026",
+            "bullets": [
+              "Built a 3D product configurator in React Three Fiber for a footwear client",
+              "Cut homepage load time from 4.1s to 1.6s by lazy-loading models and textures"
+            ]
+          },
+          {
+            "org": "HackNYU",
+            "role": "Team lead",
+            "years": "2025",
+            "bullets": [
+              "Won best UI for a scrolling-globe events map built in 36 hours"
+            ]
+          }
+        ],
+        "skills": [
+          "React",
+          "Next.js",
+          "Three.js",
+          "TypeScript",
+          "Shopify Storefront API",
+          "Blender basics"
+        ]
+      }
+    },
+    {
+      "id": "c2",
+      "name": "Golam H.",
+      "school": "Baruch College (CUNY)",
+      "major": "Marketing",
+      "program": "BBA, senior",
+      "email": "golam.h@baruchmail.cuny.edu",
+      "instagram": "golam.shoots",
+      "portfolio": "golamh.cargo.site",
+      "status": "queued",
+      "fit": 84,
+      "bestAt": [
+        {
+          "skill": "Short-form editing",
+          "score": 90
+        },
+        {
+          "skill": "Hooks & captions",
+          "score": 85
+        },
+        {
+          "skill": "Community management",
+          "score": 72
+        }
+      ],
+      "areas": [
+        "a3"
+      ],
+      "goals": [
+        "g3"
+      ],
+      "resume": {
+        "summary": "Editor and content operator; runs a clipping channel that grew to 40k followers in eight months.",
+        "education": [
+          {
+            "school": "Baruch College, CUNY",
+            "degree": "BBA Marketing",
+            "years": "2023–2027"
+          }
+        ],
+        "experience": [
+          {
+            "org": "Self-run clipping channel",
+            "role": "Editor / operator",
+            "years": "2025–present",
+            "bullets": [
+              "Publishes 5–8 clips a day across TikTok, Reels and Shorts from long-form streams",
+              "Built a CapCut + Premiere template system so each clip takes under 12 minutes"
+            ]
+          },
+          {
+            "org": "Brooklyn Nets social team",
+            "role": "Content intern",
+            "years": "Spring 2026",
+            "bullets": [
+              "Cut game-night recaps and courtside vertical video for Reels"
+            ]
+          }
+        ],
+        "skills": [
+          "Premiere",
+          "CapCut",
+          "After Effects basics",
+          "Trend research",
+          "Scheduling tools"
+        ]
+      }
+    },
+    {
+      "id": "c3",
+      "name": "Kerem A.",
+      "school": "Pratt Institute",
+      "major": "Communications Design",
+      "program": "BFA, junior",
+      "email": "kerem.a@pratt.edu",
+      "instagram": "kerem.type",
+      "portfolio": "keremaydin.design",
+      "status": "inprocess",
+      "fit": 86,
+      "bestAt": [
+        {
+          "skill": "Brand & graphic design",
+          "score": 91
+        },
+        {
+          "skill": "Typography",
+          "score": 88
+        },
+        {
+          "skill": "Print production",
+          "score": 76
+        }
+      ],
+      "areas": [
+        "a4"
+      ],
+      "goals": [
+        "g4"
+      ],
+      "resume": {
+        "summary": "Graphic designer with a type-first practice; has taken two apparel runs from sketch to screen-printed product.",
+        "education": [
+          {
+            "school": "Pratt Institute",
+            "degree": "BFA Communications Design",
+            "years": "2024–2028"
+          }
+        ],
+        "experience": [
+          {
+            "org": "Pratt Print Lab",
+            "role": "Student technician",
+            "years": "2025–present",
+            "bullets": [
+              "Preps separations and films for screen printing; runs the Riso and large-format printers",
+              "Designed the lab's poster series for the 2026 open studios"
+            ]
+          },
+          {
+            "org": "Freelance",
+            "role": "Designer",
+            "years": "2024–present",
+            "bullets": [
+              "Identity and merch for two Bushwick music collectives"
+            ]
+          }
+        ],
+        "skills": [
+          "Illustrator",
+          "InDesign",
+          "Figma",
+          "Screen printing",
+          "Riso",
+          "Glyphs basics"
+        ]
+      }
+    },
+    {
+      "id": "c4",
+      "name": "Hammaad S.",
+      "school": "Columbia University",
+      "major": "Economics, film minor",
+      "program": "BA, senior",
+      "email": "hs3421@columbia.edu",
+      "instagram": "hammaad.s",
+      "portfolio": "hammaad.site",
+      "status": "queued",
+      "fit": 82,
+      "bestAt": [
+        {
+          "skill": "Event production",
+          "score": 87
+        },
+        {
+          "skill": "Logistics & vendors",
+          "score": 84
+        },
+        {
+          "skill": "Research",
+          "score": 80
+        }
+      ],
+      "areas": [
+        "a2"
+      ],
+      "goals": [
+        "g2"
+      ],
+      "resume": {
+        "summary": "Producer-minded operator; has run load-in, run-of-show and vendor coordination for events up to 600 people.",
+        "education": [
+          {
+            "school": "Columbia University",
+            "degree": "BA Economics, minor in Film",
+            "years": "2023–2027"
+          }
+        ],
+        "experience": [
+          {
+            "org": "Columbia Arts Initiative",
+            "role": "Production assistant",
+            "years": "2025–present",
+            "bullets": [
+              "Coordinated vendors, security and AV for a 600-person spring showcase",
+              "Maintained the run-of-show and radio plan for a two-stage event"
+            ]
+          },
+          {
+            "org": "Sono Events",
+            "role": "Event intern",
+            "years": "Summer 2026",
+            "bullets": [
+              "Built load-in schedules and handled guest list check-in for brand dinners"
+            ]
+          }
+        ],
+        "skills": [
+          "Run-of-show",
+          "Vendor coordination",
+          "Excel / Sheets",
+          "Notion",
+          "Radio ops"
+        ]
+      }
+    },
+    {
+      "id": "c5",
+      "name": "Arya M.",
+      "school": "Parsons School of Design",
+      "major": "Strategic Design & Management",
+      "program": "BBA, sophomore",
+      "email": "arya.m@newschool.edu",
+      "instagram": "arya.mp",
+      "portfolio": "aryam.co",
+      "status": "new",
+      "fit": 85,
+      "bestAt": [
+        {
+          "skill": "Research & strategy",
+          "score": 89
+        },
+        {
+          "skill": "Writing",
+          "score": 83
+        },
+        {
+          "skill": "Ops & scheduling",
+          "score": 75
+        }
+      ],
+      "areas": [
+        "a5"
+      ],
+      "goals": [],
+      "resume": {
+        "summary": "Strategy student who turns interviews and audience data into clear decks; organized and fast with outreach.",
+        "education": [
+          {
+            "school": "Parsons School of Design",
+            "degree": "BBA Strategic Design & Management",
+            "years": "2025–2029"
+          }
+        ],
+        "experience": [
+          {
+            "org": "Parsons Entrepreneurship Lab",
+            "role": "Research assistant",
+            "years": "2026–present",
+            "bullets": [
+              "Ran 24 user interviews and synthesized them into a 30-page opportunity map",
+              "Manages the lab's outreach calendar and speaker scheduling"
+            ]
+          },
+          {
+            "org": "Glossier retail",
+            "role": "Editor (sales associate)",
+            "years": "2025",
+            "bullets": [
+              "Top-quartile on customer feedback scores across the SoHo store"
+            ]
+          }
+        ],
+        "skills": [
+          "Interviewing",
+          "Figma",
+          "Keynote",
+          "Airtable",
+          "Writing"
+        ]
+      }
+    }
+  ],
+  "interviews": [
+    {
+      "id": "v1",
+      "candidateId": "c1",
+      "interviewerId": "i1",
+      "date": "2026-09-28",
+      "start": "09:30",
+      "end": "10:15",
+      "type": "Portfolio review",
+      "took": 50,
+      "note": "Ran over on the R3F configurator walkthrough; clear on scoping."
+    },
+    {
+      "id": "v2",
+      "candidateId": "c3",
+      "interviewerId": "i2",
+      "date": "2026-09-28",
+      "start": "11:00",
+      "end": "11:45",
+      "type": "Portfolio review",
+      "took": 48,
+      "note": "Went long on print process. Strong."
+    },
+    {
+      "id": "v3",
+      "candidateId": "c2",
+      "interviewerId": "i3",
+      "date": "2026-09-28",
+      "start": "13:00",
+      "end": "13:30",
+      "type": "Intro call",
+      "took": null,
+      "note": ""
+    },
+    {
+      "id": "v4",
+      "candidateId": "c4",
+      "interviewerId": "i1",
+      "date": "2026-09-28",
+      "start": "14:30",
+      "end": "15:15",
+      "type": "Ops case",
+      "took": null,
+      "note": ""
+    },
+    {
+      "id": "v5",
+      "candidateId": "c5",
+      "interviewerId": "i4",
+      "date": "2026-09-28",
+      "start": "16:00",
+      "end": "16:30",
+      "type": "Intro call",
+      "took": null,
+      "note": ""
+    },
+    {
+      "id": "v6",
+      "candidateId": "c1",
+      "interviewerId": "i3",
+      "date": "2026-09-29",
+      "start": "10:00",
+      "end": "10:45",
+      "type": "Technical",
+      "took": null,
+      "note": ""
+    },
+    {
+      "id": "v7",
+      "candidateId": "c2",
+      "interviewerId": "i1",
+      "date": "2026-09-29",
+      "start": "15:00",
+      "end": "15:45",
+      "type": "Content review",
+      "took": null,
+      "note": ""
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "candidateId": "c1",
+      "author": "Sasha T.",
+      "at": "2026-09-27T17:40:00",
+      "text": "Portfolio is strong on interaction; ask about how he scopes a build and works with a designer."
+    },
+    {
+      "id": "n2",
+      "candidateId": "c3",
+      "author": "Naim J.",
+      "at": "2026-09-27T12:10:00",
+      "text": "Type work is the best of the pool. Print lab experience means he can own the merch films."
+    },
+    {
+      "id": "n3",
+      "candidateId": "c4",
+      "author": "Jordan P.",
+      "at": "2026-09-26T09:20:00",
+      "text": "Very organized in the intro call. Check availability for February show week before we commit."
+    }
+  ],
+  "events": [
+    {
+      "id": "e1",
+      "kind": "awaiting",
+      "title": "Awaiting decision",
+      "sub": "Kerem A. · Brand & design",
+      "at": "2026-09-28T09:05:00",
+      "badge": "by 19:00"
+    },
+    {
+      "id": "e2",
+      "kind": "note",
+      "title": "Note added",
+      "sub": "Pranav R. · Portfolio review",
+      "at": "2026-09-27T17:40:00"
+    },
+    {
+      "id": "e3",
+      "kind": "new",
+      "title": "New candidate #0005",
+      "sub": "Arya M. · Parsons",
+      "at": "2026-09-27T15:36:00"
+    },
+    {
+      "id": "e4",
+      "kind": "time",
+      "title": "Interview time changed",
+      "sub": "Hammaad S. · Ops case",
+      "at": "2026-09-27T09:15:00"
+    }
+  ]
+}
