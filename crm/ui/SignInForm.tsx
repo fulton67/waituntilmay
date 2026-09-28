@@ -39,7 +39,7 @@ export function SignInForm({
           autoComplete="email"
           defaultValue={state.email}
           placeholder="you@fomo.com"
-          className="h-11 w-full rounded-xl border border-(--line) bg-(--card) px-3.5 outline-none focus:border-(--brand)"
+          className="field"
         />
       </label>
       {state.status === "denied" && (
@@ -55,7 +55,7 @@ export function SignInForm({
       <button
         type="submit"
         disabled={pending}
-        className="h-11 w-full rounded-xl bg-(--brand) font-bold text-white transition-opacity disabled:opacity-60"
+        className="btn-black w-full justify-center disabled:opacity-60"
       >
         {pending ? "One moment…" : devMode ? "Sign in" : "Send magic link"}
       </button>

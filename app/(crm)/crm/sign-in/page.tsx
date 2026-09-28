@@ -9,11 +9,11 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
   const sp = await searchParams;
   return (
     <main className="grid min-h-screen place-items-center px-4">
-      <div className="w-full max-w-[400px] rounded-[22px] border border-(--line) bg-(--card) p-8 shadow-(--shadow)">
-        <div className="flex items-center gap-3">
-          <span className="crm-mark crm-wordmark" role="img" aria-label="fomo" />
-          <span className="h-5 w-px bg-(--line)" />
-          <span className="font-medium text-(--muted)">Intern CRM</span>
+      <div className="card w-full max-w-[400px]">
+        <div className="brand">
+          <span className="mark wordmark" role="img" aria-label="fomo" />
+          <span className="sep" aria-hidden />
+          <span style={{ fontWeight: 500, color: "var(--muted)" }}>Intern CRM</span>
         </div>
         <h1 className="mt-8 text-[22px] font-bold tracking-[-0.01em]">Sign in</h1>
         <p className="mt-1 text-(--muted)">

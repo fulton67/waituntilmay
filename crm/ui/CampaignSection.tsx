@@ -7,7 +7,7 @@ import { tierOf, weekOf } from "../lib/ranking";
 import { formatDay } from "../lib/time";
 import type { Campaign, Candidate, Task } from "../lib/types";
 import { TierChip, WeekStrip } from "./bits";
-import { Avatar, Button, Card, Field, Icon, Modal, inputClass } from "./primitives";
+import { Avatar, Button, Modal } from "./primitives";
 import { useCrm } from "./store";
 import { TaskCard } from "./Tasks";
 
@@ -21,116 +21,102 @@ export function CampaignSection() {
 
   if (!k) {
     return (
-      <Card title="Campaign">
-        <p className="text-(--muted)">No current campaign. Run the seed or add one to the campaigns table.</p>
-      </Card>
+      <section className="card reveal">
+        <h2>Campaign</h2>
+        <p className="empty">No current campaign. Run the seed or add one to the campaigns table.</p>
+      </section>
     );
   }
 
   const week = weekOf(day);
   const tasksFor = (candidateId: string | null) =>
-    data.tasks.filter(
-      (t) => t.candidateId === candidateId && (t.day === day || (day === data.today && isOpen(t) && t.day < data.today)),
-    );
+    data.tasks.filter((t) => t.candidateId === candidateId && (t.day === day || (day === data.today && isOpen(t) && t.day < data.today)));
   const rows = data.candidates.filter((c) => tierOf(c, data.settings) !== "bench" || data.tasks.some((t) => t.candidateId === c.id));
   const unassigned = tasksFor(null);
 
   return (
-    <Card
-      className="crm-reveal"
-      title={
-        <span className="flex flex-wrap items-center gap-2">
-          {k.name}
-          {k.goal && <span className="rounded-full bg-(--brand) px-2.5 py-0.5 text-[12px] font-bold text-white">{k.goal}</span>}
-        </span>
-      }
-      action={
-        <div className="flex flex-wrap gap-2">
+    <section className="card reveal" data-testid="campaign-card">
+      <div className="camp-head">
+        <div style={{ minWidth: 0 }}>
+          <h2 className="wrap-any">{k.name}</h2>
+          <p className="brief wrap-any">{k.brief}</p>
+          {k.goal && <span className="goal">{k.goal}</span>}
+          <div className="targets">
+            <span style={{ background: "transparent", paddingLeft: 0, color: "var(--muted)" }}>
+              {formatDay(k.startDate)} – {formatDay(k.endDate)} · targets
+            </span>
+            {k.targets.map((t) => (
+              <span key={t}>{t}</span>
+            ))}
+          </div>
+        </div>
+        <div className="tools" style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "flex-end" }}>
           <Button onClick={() => setEditing(true)}>Edit brief</Button>
-          <Button onClick={() => openPanel("daylog", day)} data-testid="open-daylog">
+          <Button onClick={() => openPanel("daylog", { day })} data-testid="open-daylog">
             Day log
           </Button>
-          <Button variant="primary" className="crm-cta" onClick={() => openAssign({ day })} data-testid="assign-task">
-            <Icon name="plus" size={16} /> Assign task
+          <Button variant="primary" onClick={() => openAssign({ day })} data-testid="assign-task">
+            Assign task
           </Button>
         </div>
-      }
-    >
-      <p className="max-w-[860px] leading-relaxed">{k.brief}</p>
-      <div className="mt-3 flex flex-wrap items-center gap-1.5">
-        <span className="text-[13px] text-(--muted)">
-          {formatDay(k.startDate)} – {formatDay(k.endDate)} · targets
-        </span>
-        {k.targets.map((t) => (
-          <span key={t} className="rounded-full border border-(--line) bg-(--card-2) px-2.5 py-0.5 text-[12px] font-medium">
-            {t}
-          </span>
-        ))}
       </div>
 
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-(--line) pt-4">
-        <h3 className="font-bold">
-          Assignments · <span className="font-medium text-(--muted)">{day === data.today ? "today" : formatDay(day)}</span>
-        </h3>
-        <WeekStrip
-          label="Assignment day"
-          days={week}
-          selected={day}
-          today={data.today}
-          hasDot={(d) => data.tasks.some((t) => t.day === d && isOpen(t))}
-          onPick={setDay}
-        />
+      <div className="card-head" style={{ marginTop: 18 }}>
+        <h2 style={{ fontSize: 15 }}>
+          Assignments · <span style={{ color: "var(--muted)", fontWeight: 500 }}>{day === data.today ? "today" : formatDay(day)}</span>
+        </h2>
+        <WeekStrip label="Assignment day" days={week} selected={day} today={data.today} hasDot={(d) => data.tasks.some((t) => t.day === d && isOpen(t))} onPick={setDay} />
       </div>
 
-      <div className="mt-3 space-y-3" data-testid="assignments">
+      <div className="assign" data-testid="assignments">
         {rows.map((c) => (
-          <InternRow key={c.id} candidate={c} tasks={tasksFor(c.id)} onAssign={() => openAssign({ candidateId: c.id, day })} />
+          <InternRow key={c.id} candidate={c} tasks={tasksFor(c.id)} />
         ))}
-        <div className="rounded-2xl bg-(--card-2) p-3" data-testid="unassigned-row">
-          <div className="mb-2 flex items-center justify-between">
-            <p className="font-bold">
-              Unassigned <span className="font-medium text-(--muted)">· {unassigned.filter(isOpen).length}</span>
-            </p>
+        <div className="arow" data-testid="unassigned-row">
+          <div className="who" style={{ cursor: "default" }}>
+            <span className="mini" style={{ width: 32, height: 32, background: "var(--card-2)", color: "var(--muted)" }}>
+              ?
+            </span>
+            <span style={{ minWidth: 0 }}>
+              <b>Unassigned</b>
+              <small>{unassigned.filter(isOpen).length} open</small>
+            </span>
           </div>
-          <div className="grid grid-cols-1 gap-2 min-[1100px]:grid-cols-2">
+          <div className="tasks">
             {unassigned.map((t) => (
               <TaskCard key={t.id} task={t} />
             ))}
-            {!unassigned.length && <p className="text-[13px] text-(--muted)">Nothing unassigned for this day.</p>}
+            {!unassigned.length && <div className="assign-empty">Nothing unassigned for this day.</div>}
           </div>
         </div>
       </div>
       {editing && <EditBrief campaign={k} onClose={() => setEditing(false)} />}
-    </Card>
+    </section>
   );
 }
 
-function InternRow({ candidate: c, tasks, onAssign }: { candidate: Candidate; tasks: Task[]; onAssign: () => void }) {
-  const { data } = useCrm();
+function InternRow({ candidate: c, tasks }: { candidate: Candidate; tasks: Task[] }) {
+  const { data, openCandidate } = useCrm();
   const openCount = data.tasks.filter((t) => t.candidateId === c.id && isOpen(t)).length;
   return (
-    <div className="grid grid-cols-1 gap-3 rounded-2xl border border-(--line) p-3 min-[900px]:grid-cols-[220px_1fr]" data-testid="intern-row" data-candidate={c.id}>
-      <div className="flex items-start gap-2.5">
-        <Avatar name={c.name} color={colorFor(c.id)} size={32} />
-        <div className="min-w-0">
-          <p className="flex items-center gap-1.5 font-bold">
-            <span className="truncate">{c.name}</span>
+    <div className="arow" data-testid="intern-row" data-candidate={c.id}>
+      <div className="who" role="button" tabIndex={0} onClick={() => openCandidate(c.id, "assignments")} onKeyDown={(e) => e.key === "Enter" && openCandidate(c.id, "assignments")}>
+        <Avatar name={c.name} color={colorFor(c.id)} size={32} className="mini" />
+        <span style={{ minWidth: 0 }}>
+          <b className="one-line">
+            {c.name}
             <TierChip tier={tierOf(c, data.settings)} />
-          </p>
-          <p className="truncate text-[12px] text-(--muted)">{c.skills[0]?.skill ?? "No skills yet"}</p>
-          <p className="text-[12px] text-(--muted)">
-            {openCount} open ·{" "}
-            <button type="button" onClick={onAssign} className="font-medium text-(--brand)">
-              assign
-            </button>
-          </p>
-        </div>
+          </b>
+          <small className="one-line">
+            {c.skills[0]?.skill ?? "No skills yet"} · {openCount} open
+          </small>
+        </span>
       </div>
-      <div className="grid grid-cols-1 gap-2 min-[1100px]:grid-cols-2">
+      <div className="tasks">
         {tasks.map((t) => (
           <TaskCard key={t.id} task={t} />
         ))}
-        {!tasks.length && <p className="self-center text-[13px] text-(--muted)">Nothing for this day.</p>}
+        {!tasks.length && <div className="assign-empty">Nothing for this day.</div>}
       </div>
     </div>
   );
@@ -145,7 +131,7 @@ function EditBrief({ campaign, onClose }: { campaign: Campaign; onClose: () => v
   return (
     <Modal title="Edit brief" onClose={onClose}>
       <form
-        className="space-y-3"
+        className="form"
         onSubmit={(e) => {
           e.preventDefault();
           const input = { name: name.trim(), goal: goal.trim(), brief: brief.trim(), targets: targets.split(",").map((t) => t.trim()).filter(Boolean) };
@@ -153,19 +139,23 @@ function EditBrief({ campaign, onClose }: { campaign: Campaign; onClose: () => v
           mutate((d) => ({ ...d, campaign: d.campaign && { ...d.campaign, ...input } }), () => updateCampaign(campaign.id, input), "Brief updated");
         }}
       >
-        <Field label="Campaign name">
-          <input value={name} onChange={(e) => setName(e.target.value)} className={inputClass} />
-        </Field>
-        <Field label="Goal">
-          <input value={goal} onChange={(e) => setGoal(e.target.value)} className={inputClass} />
-        </Field>
-        <Field label="Brief">
-          <textarea value={brief} onChange={(e) => setBrief(e.target.value)} rows={5} className={`${inputClass} h-auto py-2`} />
-        </Field>
-        <Field label="Target schools (comma-separated)">
-          <input value={targets} onChange={(e) => setTargets(e.target.value)} className={inputClass} />
-        </Field>
-        <div className="flex justify-end gap-2 pt-2">
+        <label className="wide">
+          Campaign name
+          <input className="field" value={name} onChange={(e) => setName(e.target.value)} />
+        </label>
+        <label className="wide">
+          Goal
+          <input className="field" value={goal} onChange={(e) => setGoal(e.target.value)} />
+        </label>
+        <label className="wide">
+          Brief
+          <textarea value={brief} onChange={(e) => setBrief(e.target.value)} rows={5} />
+        </label>
+        <label className="wide">
+          Target schools (comma-separated)
+          <input className="field" value={targets} onChange={(e) => setTargets(e.target.value)} />
+        </label>
+        <div className="r">
           <Button onClick={onClose}>Cancel</Button>
           <Button variant="primary" type="submit">
             Save brief

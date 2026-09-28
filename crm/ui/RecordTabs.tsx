@@ -1,17 +1,17 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { addNote, cancelInterview, logInterview, scheduleInterview, setResumeFile } from "../lib/actions";
+import { firstName, tierOf } from "../lib/ranking";
 import { findClash, interviewPhase, plannedMinutes, type Phase } from "../lib/rules";
 import { supabaseBrowser } from "../lib/supabase/browser";
 import { formatDay, fromMin, relativeTime, toMin } from "../lib/time";
 import { INTERVIEW_TYPES, INTERVIEW_TYPE_LABEL, type Candidate, type Interview, type InterviewType } from "../lib/types";
-import Link from "next/link";
-import { firstName, tierOf } from "../lib/ranking";
 import { candidateInterviews } from "./derive";
-import { TaskCard } from "./Tasks";
-import { Avatar, Button, Field, Icon, Segmented, cx, inputClass, typeStyle } from "./primitives";
+import { Button, Icon, Segmented, cx } from "./primitives";
 import { useClock, useCrm, type RecordTab } from "./store";
+import { TaskCard } from "./Tasks";
 
 export function RecordTabs({ candidate, initialTab }: { candidate: Candidate; initialTab: RecordTab }) {
   const { data } = useCrm();
@@ -29,32 +29,20 @@ export function RecordTabs({ candidate, initialTab }: { candidate: Candidate; in
   ];
 
   return (
-    <section className="min-w-0 rounded-[22px] border border-(--line) bg-(--card)">
-      <div role="tablist" aria-label="Record" className="flex gap-1 border-b border-(--line) px-4 pt-3">
+    <div>
+      <div role="tablist" aria-label="Record" className="d-tabs" style={{ maxWidth: "100%", overflowX: "auto" }}>
         {tabs.map((t) => (
-          <button
-            key={t.value}
-            role="tab"
-            type="button"
-            aria-selected={tab === t.value}
-            onClick={() => setTab(t.value)}
-            className={cx(
-              "-mb-px inline-flex h-10 items-center gap-1.5 border-b-2 px-3 font-medium",
-              tab === t.value ? "border-(--brand) text-(--ink)" : "border-transparent text-(--muted) hover:text-(--ink)",
-            )}
-          >
+          <button key={t.value} role="tab" type="button" aria-selected={tab === t.value} onClick={() => setTab(t.value)} className={cx(tab === t.value && "on", "whitespace-nowrap")}>
             {t.label}
-            {t.count != null && <span className="text-[12px] tabular-nums text-(--muted)">{t.count}</span>}
+            {t.count != null && <span style={{ marginLeft: 6, fontSize: 11, color: "var(--muted)" }}>{t.count}</span>}
           </button>
         ))}
       </div>
-      <div className="p-5">
-        {tab === "notes" && <Notes candidate={candidate} />}
-        {tab === "interviews" && <Interviews candidate={candidate} />}
-        {tab === "resume" && <Resume candidate={candidate} />}
-        {tab === "assignments" && <Assignments candidate={candidate} />}
-      </div>
-    </section>
+      {tab === "notes" && <Notes candidate={candidate} />}
+      {tab === "interviews" && <Interviews candidate={candidate} />}
+      {tab === "assignments" && <Assignments candidate={candidate} />}
+      {tab === "resume" && <Resume candidate={candidate} />}
+    </div>
   );
 }
 
@@ -78,11 +66,11 @@ function Notes({ candidate }: { candidate: Candidate }) {
   return (
     <div>
       <form
+        className="composer"
         onSubmit={(e) => {
           e.preventDefault();
           submit();
         }}
-        className="rounded-2xl border border-(--line) bg-(--card-2) p-3"
       >
         <textarea
           value={body}
@@ -90,38 +78,32 @@ function Notes({ candidate }: { candidate: Candidate }) {
           onKeyDown={(e) => {
             if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) submit();
           }}
-          rows={3}
-          placeholder={`What do you think of ${candidate.name.split(" ")[0]}?`}
+          placeholder={`What do you think of ${firstName(candidate.name)}? Visible to all interviewers.`}
           aria-label="New note"
-          className="w-full resize-y bg-transparent outline-none placeholder:text-(--muted)"
         />
-        <div className="flex items-center justify-between">
-          <span className="text-[12px] text-(--muted)">Visible to all interviewers · Ctrl+Enter to post</span>
-          <Button type="submit" variant="primary" size="sm" disabled={!body.trim()}>
+        <div className="r">
+          <Button type="submit" variant="primary" disabled={!body.trim()}>
             Add note
           </Button>
         </div>
       </form>
-      <ul className="mt-4 space-y-3" data-testid="notes">
+      <div style={{ marginTop: 14 }} data-testid="notes">
         {notes.map((n) => {
           const author = byId.get(n.authorId);
           return (
-            <li key={n.id} className="flex gap-3">
-              <Avatar name={author?.name ?? "?"} color={author?.color ?? "#ACB8F9"} size={30} />
-              <div className="min-w-0 flex-1">
-                <p className="text-[13px]">
-                  <span className="font-bold">{author?.name ?? "Former interviewer"}</span>{" "}
-                  <span className="text-(--muted)" suppressHydrationWarning>
-                    · {relativeTime(n.createdAt)}
-                  </span>
-                </p>
-                <p className="mt-0.5 whitespace-pre-wrap">{n.body}</p>
+            <div key={n.id} className="nt">
+              <div className="m">
+                <b>{author?.name ?? "Former interviewer"}</b>
+                <span suppressHydrationWarning>{relativeTime(n.createdAt)}</span>
               </div>
-            </li>
+              <p className="wrap-any" style={{ whiteSpace: "pre-wrap" }}>
+                {n.body}
+              </p>
+            </div>
           );
         })}
-        {!notes.length && <li className="py-6 text-center text-(--muted)">No notes yet.</li>}
-      </ul>
+        {!notes.length && <div className="empty">No notes yet.</div>}
+      </div>
     </div>
   );
 }
@@ -137,42 +119,35 @@ function Interviews({ candidate }: { candidate: Candidate }) {
   const byId = new Map(data.interviewers.map((i) => [i.id, i]));
 
   return (
-    <div className="space-y-5">
-      <ul className="space-y-2.5" data-testid="interviews">
+    <div>
+      <div data-testid="interviews">
         {ivs.map((iv) => {
           const phase = clock ? interviewPhase(iv, clock.today, clock.nowMin) : iv.date < data.today ? "past" : "upcoming";
           const who = byId.get(iv.interviewerId);
+          const [wd, md] = formatDay(iv.date).split(", ");
           return (
-            <li key={iv.id} className="rounded-2xl border border-(--line) p-3" data-testid="interview-item" data-phase={phase}>
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="rounded-lg px-2 py-1 text-[12px] font-bold" style={typeStyle(iv.type)}>
-                  {INTERVIEW_TYPE_LABEL[iv.type]}
-                </span>
-                <span className="font-medium">
-                  {formatDay(iv.date)}, {iv.startTime}–{iv.endTime}
-                </span>
-                {who && (
-                  <span className="inline-flex items-center gap-1.5 text-(--muted)">
-                    <Avatar name={who.name} color={who.color} size={20} /> {who.name}
-                  </span>
-                )}
-                {iv.location && <span className="truncate text-[13px] text-(--muted)">{iv.location}</span>}
-                <span
-                  className={cx(
-                    "ml-auto rounded-full px-2 py-0.5 text-[12px] font-medium",
-                    phase === "live" ? "bg-(--highlight) text-(--highlight-ink)" : "bg-(--card-2) text-(--muted)",
-                  )}
-                >
-                  {PHASE_LABEL[phase]}
-                </span>
-                {phase === "upcoming" && <CancelButton interview={iv} />}
+            <div key={iv.id} className="iv" data-testid="interview-item" data-phase={phase}>
+              <div className="d">
+                {wd}
+                <b>{md}</b>
               </div>
-              {phase !== "upcoming" && <LogRow key={`${iv.id}:${iv.actualMinutes}:${iv.debrief}`} interview={iv} />}
-            </li>
+              <div className="x" style={{ minWidth: 0 }}>
+                <span className="one-line" style={{ display: "block", fontWeight: 700 }}>
+                  {INTERVIEW_TYPE_LABEL[iv.type]} · {formatDay(iv.date)}, {iv.startTime}–{iv.endTime}
+                </span>
+                <small className="one-line">
+                  {who ? `with ${who.name}` : ""}
+                  {iv.location ? ` · ${iv.location}` : ""} · <span style={{ color: phase === "live" ? "var(--hi)" : undefined, fontWeight: phase === "live" ? 700 : 400 }}>{PHASE_LABEL[phase]}</span>
+                </small>
+              </div>
+              {phase === "upcoming" ? <CancelButton interview={iv} /> : <span />}
+              {phase !== "upcoming" && <LogRow key={`${iv.id}:${iv.actualMinutes}:${iv.debrief}:${iv.score}`} interview={iv} />}
+            </div>
           );
         })}
-        {!ivs.length && <li className="py-4 text-center text-(--muted)">No interviews yet.</li>}
-      </ul>
+        {!ivs.length && <div className="empty">No interviews yet.</div>}
+      </div>
+      <h4 style={{ margin: "16px 0 8px", fontSize: 12, fontWeight: 700, color: "var(--muted)" }}>Schedule an interview</h4>
       <ScheduleForm candidate={candidate} />
     </div>
   );
@@ -183,24 +158,24 @@ function CancelButton({ interview }: { interview: Interview }) {
   const [confirming, setConfirming] = useState(false);
   if (!confirming) {
     return (
-      <Button variant="ghost" size="sm" onClick={() => setConfirming(true)}>
+      <button type="button" className="rm" onClick={() => setConfirming(true)}>
         Cancel
-      </Button>
+      </button>
     );
   }
   return (
-    <span className="inline-flex gap-1">
-      <Button
-        size="sm"
-        onClick={() =>
-          mutate((d) => ({ ...d, interviews: d.interviews.filter((x) => x.id !== interview.id) }), () => cancelInterview(interview.id), "Interview cancelled")
-        }
+    <span className="flex gap-2">
+      <button
+        type="button"
+        className="rm"
+        style={{ color: "var(--hi)", fontWeight: 700 }}
+        onClick={() => mutate((d) => ({ ...d, interviews: d.interviews.filter((x) => x.id !== interview.id) }), () => cancelInterview(interview.id), "Interview cancelled")}
       >
         Confirm cancel
-      </Button>
-      <Button variant="ghost" size="sm" onClick={() => setConfirming(false)}>
+      </button>
+      <button type="button" className="rm" onClick={() => setConfirming(false)}>
         Keep
-      </Button>
+      </button>
     </span>
   );
 }
@@ -209,13 +184,10 @@ function LogRow({ interview: iv }: { interview: Interview }) {
   const { mutate } = useCrm();
   const [minutes, setMinutes] = useState(iv.actualMinutes != null ? String(iv.actualMinutes) : "");
   const [score, setScore] = useState(iv.score != null ? String(iv.score) : "");
-  const scoreOk = score === "" || (/^\d+$/.test(score) && +score >= 1 && +score <= 10);
   const [debrief, setDebrief] = useState(iv.debrief ?? "");
-  const dirty =
-    minutes !== (iv.actualMinutes != null ? String(iv.actualMinutes) : "") ||
-    debrief !== (iv.debrief ?? "") ||
-    score !== (iv.score != null ? String(iv.score) : "");
   const minutesOk = minutes === "" || (/^\d+$/.test(minutes) && +minutes >= 1 && +minutes <= 600);
+  const scoreOk = score === "" || (/^\d+$/.test(score) && +score >= 1 && +score <= 10);
+  const dirty = minutes !== (iv.actualMinutes != null ? String(iv.actualMinutes) : "") || debrief !== (iv.debrief ?? "") || score !== (iv.score != null ? String(iv.score) : "");
 
   const save = () => {
     if (!dirty || !minutesOk || !scoreOk) return;
@@ -226,17 +198,13 @@ function LogRow({ interview: iv }: { interview: Interview }) {
       (d) => {
         const current = d.candidates.find((c) => c.id === iv.candidateId);
         const interviews = d.interviews.map((x) =>
-          x.id === iv.id
-            ? { ...x, actualMinutes, debrief: debrief || null, score: newScore, fitBefore: newScore == null ? null : (x.fitBefore ?? current?.fit ?? null) }
-            : x,
+          x.id === iv.id ? { ...x, actualMinutes, debrief: debrief || null, score: newScore, fitBefore: newScore == null ? null : (x.fitBefore ?? current?.fit ?? null) } : x,
         );
         // Same rule as the server: fit moves to the average of scored interviews and the override clears.
         const scores = interviews.filter((x) => x.candidateId === iv.candidateId && x.score != null).map((x) => x.score!);
         const candidates =
           scoreChanged && scores.length
-            ? d.candidates.map((c) =>
-                c.id === iv.candidateId ? { ...c, fit: Math.round((scores.reduce((a, b) => a + b, 0) / scores.length) * 10) / 10, tierOverride: null } : c,
-              )
+            ? d.candidates.map((c) => (c.id === iv.candidateId ? { ...c, fit: Math.round((scores.reduce((a, b) => a + b, 0) / scores.length) * 10) / 10, tierOverride: null } : c))
             : d.candidates;
         return { ...d, interviews, candidates };
       },
@@ -247,44 +215,25 @@ function LogRow({ interview: iv }: { interview: Interview }) {
 
   return (
     <form
-      className="mt-3 flex flex-wrap items-center gap-2 border-t border-(--line) pt-3"
+      className="log"
+      style={{ gridTemplateColumns: "auto auto 1fr auto" }}
       onSubmit={(e) => {
         e.preventDefault();
         save();
       }}
       data-testid="log-row"
     >
-      <label className="inline-flex items-center gap-2 text-[13px] text-(--muted)">
+      <label className="took" style={!minutesOk ? { outline: "1px solid var(--hi)" } : undefined}>
         took
-        <input
-          value={minutes}
-          onChange={(e) => setMinutes(e.target.value)}
-          inputMode="numeric"
-          placeholder={String(plannedMinutes(iv))}
-          aria-label="Minutes it took"
-          className={cx(inputClass, "h-8 w-16 text-center text-(--ink)", !minutesOk && "border-(--highlight)")}
-        />
+        <input value={minutes} onChange={(e) => setMinutes(e.target.value)} inputMode="numeric" placeholder={String(plannedMinutes(iv))} aria-label="Minutes it took" />
         min
       </label>
-      <label className="inline-flex items-center gap-2 text-[13px] text-(--muted)">
+      <label className="took" style={!scoreOk ? { outline: "1px solid var(--hi)" } : undefined}>
         score
-        <input
-          value={score}
-          onChange={(e) => setScore(e.target.value)}
-          inputMode="numeric"
-          placeholder="1–10"
-          aria-label="Score 1–10"
-          className={cx(inputClass, "h-8 w-14 text-center text-(--ink)", !scoreOk && "border-(--highlight)")}
-        />
+        <input value={score} onChange={(e) => setScore(e.target.value)} inputMode="numeric" placeholder="–" aria-label="Score 1–10" style={{ width: 24 }} />
+        /10
       </label>
-      <input
-        value={debrief}
-        onChange={(e) => setDebrief(e.target.value)}
-        placeholder="One line on how it went"
-        aria-label="Debrief"
-        maxLength={280}
-        className={cx(inputClass, "h-8 min-w-[180px] flex-1")}
-      />
+      <input className="txt" value={debrief} onChange={(e) => setDebrief(e.target.value)} placeholder="One line on how it went" aria-label="Debrief" maxLength={280} />
       <Button type="submit" size="sm" disabled={!dirty || !minutesOk || !scoreOk}>
         Save
       </Button>
@@ -298,13 +247,14 @@ function nextHalfHour(nowMin: number | null) {
   return fromMin(m);
 }
 
-export function ScheduleForm({ candidate }: { candidate: Candidate }) {
+/** .form scheduler with the overlap check. `bare` = used in the schedule card's modal. */
+export function ScheduleForm({ candidate, bare = false, onDone, defaultDate }: { candidate?: Candidate; bare?: boolean; onDone?: () => void; defaultDate?: string }) {
   const { data, mutate } = useCrm();
   const clock = useClock();
   const schedulable = data.candidates.filter((c) => tierOf(c, data.settings) !== "bench");
-  const [candidateId, setCandidateId] = useState(schedulable.some((c) => c.id === candidate.id) ? candidate.id : (schedulable[0]?.id ?? ""));
+  const [candidateId, setCandidateId] = useState(candidate && schedulable.some((c) => c.id === candidate.id) ? candidate.id : (schedulable[0]?.id ?? ""));
   const [interviewerId, setInterviewerId] = useState(data.me.id);
-  const [date, setDate] = useState(data.today);
+  const [date, setDate] = useState(defaultDate ?? data.today);
   const [start, setStart] = useState(() => nextHalfHour(clock?.nowMin ?? null));
   const [length, setLength] = useState<30 | 45 | 60>(45);
   const [type, setType] = useState<InterviewType>("intro");
@@ -313,14 +263,14 @@ export function ScheduleForm({ candidate }: { candidate: Candidate }) {
 
   const submit = async () => {
     setError(null);
+    if (!candidateId) return setError("Pick a candidate.");
     const end = fromMin(toMin(start) + length);
     // Same rule as the server, checked first so the message is instant.
     const clash = findClash({ interviewerId, date, startTime: start, endTime: end }, data.interviews);
     if (clash) {
       const who = data.interviewers.find((i) => i.id === clash.interviewerId)?.name;
       const cand = data.candidates.find((c) => c.id === clash.candidateId)?.name;
-      const msg = `${who} already has ${cand} (${INTERVIEW_TYPE_LABEL[clash.type]}) ${clash.startTime}–${clash.endTime} on ${formatDay(date)}.`;
-      setError(msg);
+      setError(`${who} already has ${cand} (${INTERVIEW_TYPE_LABEL[clash.type]}) ${clash.startTime}–${clash.endTime} on ${formatDay(date)}.`);
       return;
     }
     const temp: Interview = {
@@ -347,88 +297,121 @@ export function ScheduleForm({ candidate }: { candidate: Candidate }) {
       "Interview scheduled",
     );
     if (!res.ok) setError(res.error);
-    else setLocation("");
+    else {
+      setLocation("");
+      onDone?.();
+    }
   };
 
+  const benchedHere = candidate && tierOf(candidate, data.settings) === "bench" && !bare;
   return (
     <form
+      className="form"
+      style={bare ? undefined : { background: "var(--card-2)", borderRadius: 14, padding: "12px 14px" }}
       onSubmit={(e) => {
         e.preventDefault();
         submit();
       }}
-      className="rounded-2xl bg-(--card-2) p-4"
       data-testid="schedule-form"
     >
-      <h3 className="mb-3 font-bold">Schedule an interview</h3>
-      {tierOf(candidate, data.settings) === "bench" && (
-        <p className="mb-3 text-[13px] text-(--highlight)" data-testid="benched-note">
+      {benchedHere && (
+        <p className="late" style={{ gridColumn: "1/-1", margin: 0 }} data-testid="benched-note">
           {firstName(candidate.name)} is benched — change their tier in Rankings first.
         </p>
       )}
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <Field label="Candidate">
-          <select aria-label="Candidate" value={candidateId} onChange={(e) => setCandidateId(e.target.value)} className={inputClass}>
-            {schedulable.map((c) => (
-              <option key={c.id} value={c.id}>
-                {c.name}
-              </option>
-            ))}
-          </select>
-        </Field>
-        <Field label="Interviewer">
-          <select aria-label="Interviewer" value={interviewerId} onChange={(e) => setInterviewerId(e.target.value)} className={inputClass}>
-            {data.interviewers.map((i) => (
-              <option key={i.id} value={i.id}>
-                {i.name}
-              </option>
-            ))}
-          </select>
-        </Field>
-        <Field label="Date">
-          <input aria-label="Date" type="date" required value={date} onChange={(e) => setDate(e.target.value)} className={inputClass} />
-        </Field>
-        <Field label="Start">
-          <input aria-label="Start" type="time" required step={300} value={start} onChange={(e) => setStart(e.target.value)} className={inputClass} />
-        </Field>
-        <div>
-          <span className="mb-1 block text-[13px] font-medium text-(--muted)">Length</span>
-          <Segmented
-            label="Length"
-            value={length}
-            onChange={setLength}
-            options={[
-              { value: 30, label: "30 min" },
-              { value: 45, label: "45 min" },
-              { value: 60, label: "60 min" },
-            ]}
-          />
-        </div>
-        <Field label="Type">
-          <select aria-label="Type" value={type} onChange={(e) => setType(e.target.value as InterviewType)} className={inputClass}>
-            {INTERVIEW_TYPES.map((t) => (
-              <option key={t} value={t}>
-                {INTERVIEW_TYPE_LABEL[t]}
-              </option>
-            ))}
-          </select>
-        </Field>
-        <div className="sm:col-span-2">
-          <Field label="Location (optional)">
-            <input aria-label="Location" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Room or call link" className={inputClass} />
-          </Field>
-        </div>
-      </div>
+      <label>
+        Candidate
+        <select className="field" aria-label="Candidate" value={candidateId} onChange={(e) => setCandidateId(e.target.value)}>
+          {schedulable.map((c) => (
+            <option key={c.id} value={c.id}>
+              {c.name}
+            </option>
+          ))}
+        </select>
+      </label>
+      <label>
+        Interviewer
+        <select className="field" aria-label="Interviewer" value={interviewerId} onChange={(e) => setInterviewerId(e.target.value)}>
+          {data.interviewers.map((i) => (
+            <option key={i.id} value={i.id}>
+              {i.name}
+            </option>
+          ))}
+        </select>
+      </label>
+      <label>
+        Date
+        <input className="field" aria-label="Date" type="date" required value={date} onChange={(e) => setDate(e.target.value)} />
+      </label>
+      <label>
+        Start
+        <input className="field" aria-label="Start" type="time" required step={300} value={start} onChange={(e) => setStart(e.target.value)} />
+      </label>
+      <label>
+        Length
+        <Segmented
+          label="Length"
+          value={length}
+          onChange={setLength}
+          options={[
+            { value: 30, label: "30 min" },
+            { value: 45, label: "45 min" },
+            { value: 60, label: "60 min" },
+          ]}
+        />
+      </label>
+      <label>
+        Type
+        <select className="field" aria-label="Type" value={type} onChange={(e) => setType(e.target.value as InterviewType)}>
+          {INTERVIEW_TYPES.map((t) => (
+            <option key={t} value={t}>
+              {INTERVIEW_TYPE_LABEL[t]}
+            </option>
+          ))}
+        </select>
+      </label>
+      <label className="wide">
+        Location (optional)
+        <input className="field" aria-label="Location" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Room or call link" />
+      </label>
       {error && (
-        <p className="mt-3 font-medium text-(--highlight)" role="alert" data-testid="schedule-error">
+        <p className="late wrap-any" style={{ gridColumn: "1/-1", margin: 0, fontSize: 13 }} role="alert" data-testid="schedule-error">
           {error}
         </p>
       )}
-      <div className="mt-4 flex justify-end">
+      <div className="r">
         <Button type="submit" variant="primary">
           Schedule
         </Button>
       </div>
     </form>
+  );
+}
+
+// ─── Assignments ───────────────────────────────────────────────────────────
+
+function Assignments({ candidate }: { candidate: Candidate }) {
+  const { data, openAssign, closeDrawer } = useCrm();
+  const tasks = data.tasks
+    .filter((t) => t.candidateId === candidate.id)
+    .sort((a, b) => Number(a.status === "done") - Number(b.status === "done") || a.day.localeCompare(b.day));
+  return (
+    <div data-testid="record-assignments">
+      <div className="flex flex-wrap gap-2" style={{ marginBottom: 12 }}>
+        <Button variant="primary" size="sm" onClick={() => openAssign({ candidateId: candidate.id })}>
+          Assign task
+        </Button>
+        <Link href={`/crm/me?as=${candidate.id}`} onClick={closeDrawer} className="btn-ghost sm" style={{ display: "inline-flex", alignItems: "center" }}>
+          See it as {firstName(candidate.name)}
+        </Link>
+      </div>
+      <div className="tasks">
+        {tasks.map((t) => (
+          <TaskCard key={t.id} task={t} showAssignee={false} clock />
+        ))}
+      </div>
+      {!tasks.length && <div className="empty">No assignments yet.</div>}
+    </div>
   );
 }
 
@@ -448,9 +431,7 @@ function Resume({ candidate: c }: { candidate: Candidate }) {
     try {
       const path = `${c.id}/${crypto.randomUUID()}.pdf`;
       if (data.storage === "supabase" && data.realtime) {
-        const { error } = await supabaseBrowser(data.realtime)
-          .storage.from("resumes")
-          .upload(path, file, { contentType: "application/pdf", upsert: false });
+        const { error } = await supabaseBrowser(data.realtime).storage.from("resumes").upload(path, file, { contentType: "application/pdf", upsert: false });
         if (error) throw new Error(error.message);
       } else {
         const body = new FormData();
@@ -468,118 +449,85 @@ function Resume({ candidate: c }: { candidate: Candidate }) {
   }
 
   return (
-    <div className="space-y-5">
-      <div className="flex flex-wrap items-center gap-2 rounded-2xl bg-(--card-2) p-3">
-        <Icon name="file" className="text-(--muted)" />
-        <span className="flex-1 font-medium">{c.resumeFileUrl ? "Resume PDF on file" : "No PDF uploaded"}</span>
-        {c.resumeFileUrl && (
-          <a
-            href={`/crm/api/resume/${c.id}`}
-            className="inline-flex h-8 items-center rounded-xl border border-(--line) bg-(--card) px-3 text-[13px] font-bold hover:bg-(--card-2)"
-          >
-            Download
-          </a>
-        )}
-        <label className="inline-flex h-8 cursor-pointer items-center rounded-xl bg-(--brand) px-3 text-[13px] font-bold text-white">
-          {busy ? "Uploading…" : c.resumeFileUrl ? "Replace" : "Upload PDF"}
-          <input
-            type="file"
-            accept="application/pdf"
-            className="sr-only"
-            disabled={busy}
-            onChange={(e) => {
-              const f = e.target.files?.[0];
-              e.target.value = "";
-              if (f) upload(f);
-            }}
-          />
-        </label>
-        {c.resumeFileUrl && (
-          <Button variant="ghost" size="sm" onClick={() => mutate(null, () => setResumeFile(c.id, null), "Resume removed")}>
-            Remove
-          </Button>
-        )}
+    <div className="resume">
+      <div className="suggest" style={{ background: "var(--card-2)", color: "var(--ink)", marginBottom: 14 }}>
+        <span className="flex min-w-0 items-center gap-2">
+          <Icon name="file" size={16} />
+          <span className="one-line">{c.resumeFileUrl ? "Resume PDF on file" : "No PDF uploaded"}</span>
+        </span>
+        <span className="flex flex-none gap-1.5">
+          {c.resumeFileUrl && (
+            <a href={`/crm/api/resume/${c.id}`} className="btn-ghost sm" style={{ display: "inline-flex", alignItems: "center", background: "var(--card)" }}>
+              Download
+            </a>
+          )}
+          <label className="btn-accent sm" style={{ display: "inline-flex", alignItems: "center", cursor: "pointer" }}>
+            {busy ? "Uploading…" : c.resumeFileUrl ? "Replace" : "Upload PDF"}
+            <input
+              type="file"
+              accept="application/pdf"
+              className="sr-only"
+              disabled={busy}
+              onChange={(e) => {
+                const f = e.target.files?.[0];
+                e.target.value = "";
+                if (f) upload(f);
+              }}
+            />
+          </label>
+        </span>
       </div>
-
-      {r.summary && <p className="text-[15px] leading-relaxed">{r.summary}</p>}
-
+      {r.summary && (
+        <>
+          <h4>Summary</h4>
+          <p className="wrap-any">{r.summary}</p>
+        </>
+      )}
       {r.experience.length > 0 && (
-        <div>
-          <h3 className="mb-2 font-bold">Experience</h3>
-          <ul className="space-y-3">
-            {r.experience.map((e, i) => (
-              <li key={i}>
-                <p className="font-medium">
-                  {e.role} · {e.org}
-                </p>
-                <p className="text-[13px] text-(--muted)">{e.years}</p>
-                <ul className="mt-1 list-disc space-y-0.5 pl-5">
-                  {e.bullets.map((b, j) => (
-                    <li key={j}>{b}</li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <>
+          <h4>Experience</h4>
+          {r.experience.map((e, i) => (
+            <div key={i} className="x">
+              <b>
+                {e.role} · {e.org}
+              </b>
+              <small>{e.years}</small>
+              <ul>
+                {e.bullets.map((b, j) => (
+                  <li key={j} className="wrap-any">
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </>
       )}
-
       {r.education.length > 0 && (
-        <div>
-          <h3 className="mb-2 font-bold">Education</h3>
-          <ul className="space-y-1.5">
-            {r.education.map((e, i) => (
-              <li key={i}>
-                <span className="font-medium">{e.school}</span> <span className="text-(--muted)">· {e.degree} · {e.years}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <>
+          <h4>Education</h4>
+          {r.education.map((e, i) => (
+            <div key={i} className="x">
+              <b>{e.school}</b>
+              <small>
+                {e.degree} · {e.years}
+              </small>
+            </div>
+          ))}
+        </>
       )}
-
       {r.skills.length > 0 && (
-        <div>
-          <h3 className="mb-2 font-bold">Skills</h3>
-          <div className="flex flex-wrap gap-1.5">
+        <>
+          <h4>Skills</h4>
+          <div className="sk">
             {r.skills.map((s) => (
-              <span key={s} className="rounded-full bg-(--card-2) px-3 py-1 text-[13px] font-medium">
-                {s}
-              </span>
+              <span key={s}>{s}</span>
             ))}
           </div>
-        </div>
+        </>
       )}
-
-      {!r.summary && !r.experience.length && !r.education.length && !r.skills.length && (
-        <p className="text-(--muted)">No resume details yet. Upload a PDF to keep it on file.</p>
-      )}
+      {!r.summary && !r.experience.length && !r.education.length && !r.skills.length && <p className="empty">No resume details yet. Upload a PDF to keep it on file.</p>}
     </div>
   );
 }
 
-function Assignments({ candidate }: { candidate: Candidate }) {
-  const { data, openAssign, closeDrawer } = useCrm();
-  const tasks = data.tasks
-    .filter((t) => t.candidateId === candidate.id)
-    .sort((a, b) => Number(a.status === "done") - Number(b.status === "done") || a.day.localeCompare(b.day));
-  return (
-    <div className="space-y-3" data-testid="record-assignments">
-      <div className="flex flex-wrap gap-2">
-        <Button variant="primary" size="sm" onClick={() => openAssign({ candidateId: candidate.id })}>
-          Assign task
-        </Button>
-        <Link
-          href={`/crm/me?as=${candidate.id}`}
-          onClick={closeDrawer}
-          className="inline-flex h-8 items-center rounded-xl border border-(--line) bg-(--card) px-3 text-[13px] font-bold hover:bg-(--card-2)"
-        >
-          See it as {firstName(candidate.name)}
-        </Link>
-      </div>
-      {tasks.map((t) => (
-        <TaskCard key={t.id} task={t} showAssignee={false} />
-      ))}
-      {!tasks.length && <p className="py-4 text-center text-(--muted)">No assignments yet.</p>}
-    </div>
-  );
-}

@@ -31,8 +31,8 @@ type Ctx = {
   drawer: { candidateId: string; tab: RecordTab } | null;
   openCandidate: (candidateId: string, tab?: RecordTab) => void;
   closeDrawer: () => void;
-  panel: { name: Panel; day?: string } | null;
-  openPanel: (name: Panel, day?: string) => void;
+  panel: { name: Panel; day?: string; areaId?: string } | null;
+  openPanel: (name: Panel, opts?: { day?: string; areaId?: string }) => void;
   closePanel: () => void;
   assign: AssignTarget | null;
   openAssign: (target?: AssignTarget) => void;
@@ -86,7 +86,7 @@ export function CrmProvider({ data: serverData, children }: { data: CrmData; chi
 
   const openCandidate = useCallback((candidateId: string, tab: RecordTab = "notes") => setDrawer({ candidateId, tab }), []);
   const closeDrawer = useCallback(() => setDrawer(null), []);
-  const openPanel = useCallback((name: Panel, day?: string) => setPanel({ name, day }), []);
+  const openPanel = useCallback((name: Panel, opts: { day?: string; areaId?: string } = {}) => setPanel({ name, ...opts }), []);
   const closePanel = useCallback(() => setPanel(null), []);
   const openAssign = useCallback((target: AssignTarget = {}) => setAssign(target), []);
   const closeAssign = useCallback(() => setAssign(null), []);

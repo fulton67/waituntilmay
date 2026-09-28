@@ -27,7 +27,7 @@ const PANELS: { id: Panel; label: string; icon: IconName }[] = [
 
 const reduceMotion = () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// ─── Section navigation: smooth scroll + one-off ring pulse + scroll-spy ─────────────────────
+// ─── Section navigation: smooth scroll + one-off ring pulse (.card.focus) + scroll-spy ───────
 
 let spyPausedUntil = 0;
 
@@ -36,11 +36,11 @@ export function goToSection(id: SectionId) {
   if (!el) return false;
   spyPausedUntil = Date.now() + 700;
   el.scrollIntoView({ behavior: reduceMotion() ? "auto" : "smooth", block: "start" });
-  const card = (el.querySelector("section") as HTMLElement | null) ?? el;
-  card.classList.remove("crm-pulse");
+  const card = el.classList.contains("card") ? el : ((el.querySelector(".card") as HTMLElement | null) ?? el);
+  card.classList.remove("focus");
   void card.offsetWidth;
-  card.classList.add("crm-pulse");
-  window.setTimeout(() => card.classList.remove("crm-pulse"), 820);
+  card.classList.add("focus");
+  window.setTimeout(() => card.classList.remove("focus"), 820);
   return true;
 }
 
@@ -82,13 +82,13 @@ function useScrollSpy(enabled: boolean, onChange: (id: SectionId) => void) {
   }, [enabled, onChange]);
 }
 
-/** Cards fade up once when they first enter the viewport; never re-run on scroll-up. */
+/** Cards fade up once when they first enter the viewport (.card.reveal → .in); never re-run. */
 function useReveal() {
   const pathname = usePathname();
   useEffect(() => {
-    const show = (el: Element) => el.classList.add("is-in");
+    const show = (el: Element) => el.classList.add("in");
     if (reduceMotion()) {
-      document.querySelectorAll(".crm-reveal").forEach(show);
+      document.querySelectorAll(".card.reveal").forEach(show);
       return;
     }
     const io = new IntersectionObserver(
@@ -102,7 +102,7 @@ function useReveal() {
       },
       { rootMargin: "0px 0px -6% 0px" },
     );
-    const scan = () => document.querySelectorAll(".crm-reveal:not(.is-in)").forEach((el) => io.observe(el));
+    const scan = () => document.querySelectorAll(".card.reveal:not(.in)").forEach((el) => io.observe(el));
     scan();
     const mo = new MutationObserver(scan);
     mo.observe(document.body, { childList: true, subtree: true });
@@ -113,64 +113,37 @@ function useReveal() {
   }, [pathname]);
 }
 
-// ─── Eyes mark: sprite frame by theme, plays the turn on switch ─────────────────────────────
+// ─── Rail: eyes, sections, drawers, theme, settings ────────────────────────
 
-function Eyes({ className, onClick }: { className?: string; onClick?: () => void }) {
-  return (
-    <button type="button" onClick={onClick} aria-label="Switch theme" title="Switch theme" className={cx("grid place-items-center", className)}>
-      <span className="crm-mark crm-eyes" data-testid="eyes" />
-    </button>
-  );
-}
-
-function ThemeButton({ className }: { className?: string }) {
-  const [theme, toggle] = useTheme();
-  return (
-    <button
-      type="button"
-      onClick={toggle}
-      aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
-      data-testid="theme-toggle"
-      className={cx("grid size-10 place-items-center rounded-xl text-(--muted) hover:bg-(--card-2) hover:text-(--ink)", className)}
-    >
-      <Icon name={theme === "dark" ? "sun" : "moon"} />
-    </button>
-  );
-}
-
-// ─── Rail (desktop) / bottom bar (mobile) ──────────────────────────────────
-
-function useActiveSection(): [SectionId | "settings" | null, (id: SectionId) => void] {
+function useActiveSection(): [SectionId | null, (id: SectionId) => void] {
   const pathname = usePathname();
   const onOverview = pathname === "/crm";
   const [spy, setSpy] = useState<SectionId>("overview");
   const onChange = useCallback((id: SectionId) => setSpy(id), []);
   useScrollSpy(onOverview, onChange);
-  const routeActive: SectionId | "settings" | null = pathname.startsWith("/crm/schedule")
-    ? "schedule"
-    : pathname.startsWith("/crm/candidates")
-      ? "candidates"
-      : pathname.startsWith("/crm/settings")
-        ? "settings"
-        : null;
+  const routeActive: SectionId | null = pathname.startsWith("/crm/schedule") ? "schedule" : pathname.startsWith("/crm/candidates") ? "candidates" : null;
   return [onOverview ? spy : routeActive, setSpy];
 }
 
-function NavItems({ orientation }: { orientation: "vertical" | "horizontal" }) {
+function Rail() {
   const pathname = usePathname();
   const router = useRouter();
   const { panel, openPanel } = useCrm();
+  const [theme, toggleTheme] = useTheme();
   const [active, setActive] = useActiveSection();
-  const [, toggleTheme] = useTheme();
-  const listRef = useRef<HTMLDivElement>(null);
-  const [pill, setPill] = useState<{ x: number; y: number } | null>(null);
-  const panels = orientation === "vertical" ? PANELS : PANELS.filter((p) => p.id === "rankings");
+  const navRef = useRef<HTMLElement>(null);
+  const [ind, setInd] = useState<{ x: number; y: number } | null>(null);
 
-  // Measure the active icon; the pill slides there with a slight overshoot.
+  // One pill slides to the active icon (prototype: .45s cubic-bezier(.3,1.4,.4,1)).
   useLayoutEffect(() => {
-    const el = listRef.current?.querySelector<HTMLElement>(`[data-nav="${active}"]`);
-    setPill(el ? { x: el.offsetLeft, y: el.offsetTop } : null);
-  }, [active, orientation]);
+    const measure = () => {
+      const el = navRef.current?.querySelector<HTMLElement>(`[data-nav="${active}"]`);
+      setInd(el ? { x: el.offsetLeft, y: el.offsetTop } : null);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [active]);
 
   const go = (id: SectionId) => {
     setActive(id);
@@ -178,103 +151,62 @@ function NavItems({ orientation }: { orientation: "vertical" | "horizontal" }) {
     router.push(id === "overview" ? "/crm" : `/crm#${id}`);
   };
 
-  const iconCls = (on: boolean, tint = false) =>
-    cx(
-      "relative z-[1] grid size-11 flex-none place-items-center rounded-2xl transition-colors",
-      on ? "text-white" : tint ? "bg-(--tint) text-(--brand)" : "text-(--muted) hover:text-(--ink)",
-    );
-
   return (
-    <div
-      ref={listRef}
-      className={cx("relative flex items-center", orientation === "vertical" ? "flex-col gap-2" : "w-full justify-between gap-1")}
-      data-testid={orientation === "vertical" ? "rail" : "bottom-bar"}
-    >
-      {pill && (
-        <span
-          aria-hidden
-          className="crm-rail-pill absolute left-0 top-0 size-11 rounded-2xl bg-(--brand)"
-          style={{ transform: `translate(${pill.x}px, ${pill.y}px)` }}
-          data-testid="rail-indicator"
-        />
-      )}
-      {orientation === "horizontal" && <Eyes className="size-11 flex-none" onClick={toggleTheme} />}
-      {SECTIONS.map((n) => (
-        <button
-          key={n.id}
-          type="button"
-          data-nav={n.id}
-          aria-label={n.label}
-          title={n.label}
-          aria-current={active === n.id ? "location" : undefined}
-          onClick={() => go(n.id)}
-          className={iconCls(active === n.id)}
-        >
-          <Icon name={n.icon} />
-        </button>
-      ))}
-      {panels.map((n) => (
-        <button
-          key={n.id}
-          type="button"
-          data-nav={n.id}
-          aria-label={n.label}
-          title={n.label}
-          aria-expanded={panel?.name === n.id}
-          onClick={() => openPanel(n.id)}
-          className={iconCls(false, panel?.name === n.id)}
-        >
-          <Icon name={n.icon} />
-        </button>
-      ))}
-      {orientation === "horizontal" && (
-        <>
-          <ThemeButton className="size-11 flex-none" />
-          <button type="button" aria-label="Settings" onClick={() => openPanel("settings")} className={iconCls(false, panel?.name === "settings")}>
-            <Icon name="settings" />
+    <aside className="rail" aria-label="CRM" data-testid="rail">
+      <button type="button" className="mark logo" onClick={toggleTheme} aria-label="Switch theme" title="Switch theme" data-testid="eyes" />
+      <nav ref={navRef}>
+        <span className={cx("ind", ind && "show")} style={ind ? { transform: `translate(${ind.x}px, ${ind.y}px)` } : undefined} data-testid="rail-indicator" aria-hidden />
+        {SECTIONS.map((n) => (
+          <button
+            key={n.id}
+            type="button"
+            data-nav={n.id}
+            aria-label={n.label}
+            title={n.label}
+            aria-current={active === n.id ? "location" : undefined}
+            className={active === n.id ? "on" : undefined}
+            onClick={() => go(n.id)}
+          >
+            <Icon name={n.icon} />
           </button>
-        </>
-      )}
-    </div>
-  );
-}
-
-function Rail() {
-  const [, toggleTheme] = useTheme();
-  const { panel, openPanel } = useCrm();
-  return (
-    <nav aria-label="CRM" className="sticky top-0 hidden h-screen w-[72px] flex-none flex-col items-center gap-2 py-5 min-[900px]:flex">
-      <Eyes className="mb-4 size-11" onClick={toggleTheme} />
-      <NavItems orientation="vertical" />
-      <div className="mt-auto flex flex-col items-center gap-2">
-        <ThemeButton />
-        <button
-          type="button"
-          aria-label="Settings"
-          title="Settings"
-          aria-expanded={panel?.name === "settings"}
-          onClick={() => openPanel("settings")}
-          className={cx(
-            "grid size-10 place-items-center rounded-xl",
-            panel?.name === "settings" ? "bg-(--tint) text-(--brand)" : "text-(--muted) hover:bg-(--card-2) hover:text-(--ink)",
-          )}
-        >
-          <Icon name="settings" />
-        </button>
-      </div>
-    </nav>
-  );
-}
-
-function BottomBar() {
-  return (
-    <nav
-      aria-label="CRM mobile"
-      className="fixed inset-x-0 bottom-0 z-30 border-t border-(--line) bg-(--card) px-2 pt-1.5 min-[900px]:hidden"
-      style={{ paddingBottom: "max(6px, env(safe-area-inset-bottom))" }}
-    >
-      <NavItems orientation="horizontal" />
-    </nav>
+        ))}
+        {PANELS.map((n) => (
+          <button
+            key={n.id}
+            type="button"
+            data-nav={n.id}
+            aria-label={n.label}
+            title={n.label}
+            aria-expanded={panel?.name === n.id}
+            className={cx(panel?.name === n.id && "lit", n.id === "areas" && "rail-areas")}
+            onClick={() => openPanel(n.id)}
+          >
+            <Icon name={n.icon} />
+          </button>
+        ))}
+      </nav>
+      <div className="spacer" />
+      <button
+        type="button"
+        className="tog"
+        onClick={toggleTheme}
+        aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+        title="Theme"
+        data-testid="theme-toggle"
+      >
+        <Icon name={theme === "dark" ? "sun" : "moon"} />
+      </button>
+      <button
+        type="button"
+        aria-label="Settings"
+        title="Settings"
+        aria-expanded={panel?.name === "settings"}
+        className={panel?.name === "settings" ? "lit" : undefined}
+        onClick={() => openPanel("settings")}
+      >
+        <Icon name="settings" />
+      </button>
+    </aside>
   );
 }
 
@@ -297,6 +229,8 @@ function usePopover() {
   return { open, setOpen, ref };
 }
 
+const popCls = "absolute right-0 top-12 z-40 rounded-[22px] bg-(--card) p-4 shadow-(--shadow)";
+
 function Bell() {
   const { data } = useCrm();
   const { open, setOpen, ref } = usePopover();
@@ -307,26 +241,22 @@ function Bell() {
     <div ref={ref} className="relative">
       <button
         type="button"
+        className="icon-btn"
         aria-label={`Activity${fresh ? `, ${fresh} new` : ""}`}
         aria-expanded={open}
         onClick={() => {
           setOpen(!open);
           setSeen(latest);
         }}
-        className="relative grid size-10 place-items-center rounded-xl text-(--muted) hover:bg-(--card) hover:text-(--ink)"
       >
         <Icon name="bell" />
-        {fresh > 0 && (
-          <span className="absolute right-1.5 top-1.5 grid h-4 min-w-4 place-items-center rounded-full bg-(--highlight) px-1 text-[10px] font-bold text-(--highlight-ink)">
-            {fresh}
-          </span>
-        )}
+        {fresh > 0 && <span className="dot">{fresh}</span>}
       </button>
       {open && (
-        <div className="absolute right-0 top-12 z-40 w-[340px] max-w-[calc(100vw-32px)] rounded-[22px] border border-(--line) bg-(--card) p-4 shadow-(--shadow)">
-          <div className="mb-2 flex items-center justify-between">
-            <p className="font-bold">Recent activity</p>
-            <Link href="/crm/activity" onClick={() => setOpen(false)} className="text-[13px] font-medium text-(--brand)">
+        <div className={popCls} style={{ width: 340, maxWidth: "calc(100vw - 32px)" }}>
+          <div className="card-head">
+            <h2>Recent activity</h2>
+            <Link href="/crm/activity" onClick={() => setOpen(false)} className="link">
               See all
             </Link>
           </div>
@@ -342,25 +272,25 @@ function UserChip() {
   const { open, setOpen, ref } = usePopover();
   return (
     <div ref={ref} className="relative">
-      <button
-        type="button"
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-        className="flex h-10 items-center gap-2 rounded-xl border border-(--line) bg-(--card) pl-1.5 pr-3 hover:bg-(--card-2)"
-      >
-        <Avatar name={data.me.name} color={data.me.color} size={28} />
-        <span className="hidden font-medium sm:inline">{data.me.name}</span>
+      <button type="button" className="me" onClick={() => setOpen(!open)} aria-expanded={open}>
+        <Avatar name={data.me.name} color={data.me.color} size={28} className="avatar" />
+        <span className="who text-left">
+          <b>{data.me.name}</b>
+          <small>Interviewer</small>
+        </span>
       </button>
       {open && (
-        <div className="absolute right-0 top-12 z-40 w-56 rounded-2xl border border-(--line) bg-(--card) p-1.5 shadow-(--shadow)">
-          <p className="truncate px-3 py-2 text-[13px] text-(--muted)">{data.me.email}</p>
+        <div className={popCls} style={{ width: 224, padding: 6 }}>
+          <p className="one-line" style={{ padding: "8px 12px", fontSize: 13, color: "var(--muted)" }}>
+            {data.me.email}
+          </p>
           <button
             type="button"
+            className="block w-full rounded-xl px-3 py-2 text-left font-medium hover:bg-(--card-2)"
             onClick={() => {
               setOpen(false);
               openPanel("settings");
             }}
-            className="block w-full rounded-xl px-3 py-2 text-left font-medium hover:bg-(--card-2)"
           >
             Settings
           </button>
@@ -375,53 +305,42 @@ function UserChip() {
   );
 }
 
-function SearchBox({ className }: { className?: string }) {
+function Header() {
+  const { data } = useCrm();
   const router = useRouter();
   const [q, setQ] = useState("");
   return (
-    <form
-      role="search"
-      onSubmit={(e) => {
-        e.preventDefault();
-        router.push(`/crm/candidates${q.trim() ? `?q=${encodeURIComponent(q.trim())}` : ""}`);
-      }}
-      className={cx("relative", className)}
-    >
-      <Icon name="search" size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-(--muted)" />
-      <input
-        value={q}
-        onChange={(e) => setQ(e.target.value)}
-        placeholder="Search candidates"
-        aria-label="Search candidates"
-        className="h-10 w-full rounded-xl border border-(--line) bg-(--card) pl-9 pr-3 outline-none placeholder:text-(--muted) focus:border-(--brand)"
-      />
-    </form>
-  );
-}
-
-function Header() {
-  const { data } = useCrm();
-  return (
-    <header className="flex flex-wrap items-center gap-3 px-4 py-4 min-[900px]:px-6">
-      <Link href="/crm" className="flex items-center gap-3" aria-label="fomo Intern CRM">
-        <span className="crm-mark crm-wordmark" />
-      </Link>
-      <span className="h-5 w-px bg-(--line)" aria-hidden />
-      <p className="min-w-0 truncate font-medium">
-        Intern CRM <span className="hidden text-(--muted) min-[900px]:inline">· Today, {formatDay(data.today, "long")}</span>
-      </p>
-      <div className="ml-auto flex items-center gap-2">
-        <SearchBox className="hidden w-[240px] min-[900px]:block" />
+    <header className="top">
+      <div className="brand">
+        <Link href="/crm" aria-label="fomo Intern CRM">
+          <span className="mark wordmark" />
+        </Link>
+        <span className="sep" aria-hidden />
+        <h1>
+          Intern CRM <span>Today, {formatDay(data.today, "long")}</span>
+        </h1>
+      </div>
+      <form
+        role="search"
+        className="search"
+        style={{ marginLeft: "auto" }}
+        onSubmit={(e) => {
+          e.preventDefault();
+          router.push(`/crm/candidates${q.trim() ? `?q=${encodeURIComponent(q.trim())}` : ""}`);
+        }}
+      >
+        <Icon name="search" size={16} className="flex-none text-(--muted)" />
+        <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search candidates" aria-label="Search candidates" />
+      </form>
+      <div className="actions">
         <Bell />
-        <ThemeButton />
         <UserChip />
       </div>
-      <SearchBox className="w-full min-[900px]:hidden" />
     </header>
   );
 }
 
-// ─── Drawers, toasts ───────────────────────────────────────────────────────
+// ─── Drawer, toasts ────────────────────────────────────────────────────────
 
 function Drawer() {
   const { drawer, closeDrawer } = useCrm();
@@ -433,34 +352,21 @@ function Drawer() {
   }, [drawer, closeDrawer]);
   if (!drawer) return null;
   return (
-    <div className="fixed inset-0 z-40">
-      <div className="crm-backdrop absolute inset-0 bg-[rgba(11,9,31,0.35)]" onClick={closeDrawer} />
-      <aside
-        role="dialog"
-        aria-modal
-        aria-label="Candidate"
-        data-testid="drawer"
-        className="crm-drawer absolute inset-y-0 right-0 w-full overflow-y-auto border-l border-(--line) bg-(--canvas) shadow-(--shadow) min-[900px]:w-[min(940px,92vw)]"
-      >
+    <>
+      <div className="scrim on" onClick={closeDrawer} />
+      <aside role="dialog" aria-modal aria-label="Candidate" data-testid="drawer" className="drawer on">
         <CandidateRecord key={drawer.candidateId + drawer.tab} candidateId={drawer.candidateId} initialTab={drawer.tab} variant="drawer" />
       </aside>
-    </div>
+    </>
   );
 }
 
 function Toasts() {
   const { toasts } = useCrm();
   return (
-    <div className="crm-toasts pointer-events-none fixed left-1/2 z-[60] flex -translate-x-1/2 flex-col items-center gap-2" aria-live="polite">
+    <div className="toast-stack" aria-live="polite">
       {toasts.map((t) => (
-        <div
-          key={t.id}
-          role={t.tone === "warn" ? "alert" : "status"}
-          className={cx(
-            "crm-toast pointer-events-auto max-w-[min(520px,calc(100vw-32px))] rounded-2xl border px-4 py-3 font-medium shadow-(--shadow)",
-            t.tone === "warn" ? "border-(--highlight) bg-(--card) text-(--highlight)" : "border-(--line) bg-(--ink) text-(--canvas)",
-          )}
-        >
+        <div key={t.id} role={t.tone === "warn" ? "alert" : "status"} className={cx("toast", t.tone === "warn" && "warn")}>
           {t.message}
         </div>
       ))}
@@ -472,13 +378,12 @@ export function Shell({ children }: { children: React.ReactNode }) {
   const { pending } = useCrm();
   useReveal();
   return (
-    <div className="flex min-h-screen" data-testid="crm-shell" data-pending={pending || undefined} aria-busy={pending || undefined}>
+    <div className="app" data-testid="crm-shell" data-pending={pending || undefined} aria-busy={pending || undefined}>
       <Rail />
-      <div className="min-w-0 flex-1">
+      <div className="content">
         <Header />
-        <main className="px-4 pb-28 min-[900px]:pb-12 min-[900px]:pl-2 min-[900px]:pr-6">{children}</main>
+        {children}
       </div>
-      <BottomBar />
       <Drawer />
       <Panels />
       <AssignModal />

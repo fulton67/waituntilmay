@@ -1,22 +1,40 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { attachArea, createArea, deleteArea, detachArea, updateArea } from "../lib/actions";
 import { colorFor } from "../lib/colors";
+import { tierOf } from "../lib/ranking";
 import type { Area } from "../lib/types";
 import { patchCandidate } from "./CandidateRecord";
-import { Avatar, Button, Card, Chip, Field, InlineField, Segmented, inputClass } from "./primitives";
+import { Avatar, Button, InlineField, Segmented, cx } from "./primitives";
 import { useCrm } from "./store";
 
-export function AreasView() {
+/** Areas & goals drawer: every area/goal with its people, attach/remove, create new. */
+export function AreasView({ focusAreaId }: { focusAreaId?: string }) {
   const { data } = useCrm();
+  const listRef = useRef<HTMLDivElement>(null);
+
+  // Opened from an Open areas row: scroll to that area and pulse it once.
+  useEffect(() => {
+    if (!focusAreaId) return;
+    const el = listRef.current?.querySelector<HTMLElement>(`[data-area="${focusAreaId}"]`);
+    if (!el) return;
+    el.scrollIntoView({ block: "center" });
+    el.classList.add("focus");
+    const t = window.setTimeout(() => el.classList.remove("focus"), 1300);
+    return () => window.clearTimeout(t);
+  }, [focusAreaId]);
+
   return (
-    <div className="space-y-4">
+    <div ref={listRef}>
       <NewAreaForm />
       {(["area", "goal"] as const).map((kind) => (
-        <section key={kind}>
-          <h2 className="mb-3 mt-6 text-[17px] font-bold">{kind === "area" ? "Areas" : "Goals"}</h2>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 min-[1300px]:grid-cols-3">
+        <section key={kind} style={{ marginTop: 18 }}>
+          <div className="rk-group" style={{ marginTop: 0 }}>
+            <b>{kind === "area" ? "Areas" : "Goals"}</b>
+            <span>{kind === "area" ? "Jobs we hire into; small jobs stay open to benched candidates" : "Outcomes a candidate could help with"}</span>
+          </div>
+          <div className="areas-list">
             {data.areas
               .filter((a) => a.kind === kind)
               .map((a) => (
@@ -46,22 +64,25 @@ function NewAreaForm() {
     };
     setName("");
     setDescription("");
-    await mutate((d) => ({ ...d, areas: [...d.areas, temp] }), () => createArea({ kind: temp.kind, level: temp.level, name: temp.name, description: temp.description }), `Created ${temp.name}`);
+    await mutate(
+      (d) => ({ ...d, areas: [...d.areas, temp] }),
+      () => createArea({ kind: temp.kind, level: temp.level, name: temp.name, description: temp.description }),
+      `Created ${temp.name}`,
+    );
   };
 
   return (
-    <Card title="Areas & goals">
-      <p className="mb-4 max-w-[640px] text-(--muted)">
-        Areas are the jobs and roles we hire into; small jobs are the ones benched candidates can still take. Goals are outcomes a candidate could help
-        with.
-      </p>
-      <form
-        className="grid grid-cols-1 items-end gap-3 md:grid-cols-[auto_1fr_1.4fr_auto]"
-        onSubmit={(e) => {
-          e.preventDefault();
-          submit();
-        }}
-      >
+    <form
+      className="form"
+      style={{ background: "var(--card-2)", borderRadius: 14, padding: "12px 14px" }}
+      onSubmit={(e) => {
+        e.preventDefault();
+        submit();
+      }}
+      data-testid="new-area-form"
+    >
+      <label className="wide">
+        Kind
         <Segmented
           label="Kind"
           value={kind}
@@ -72,68 +93,93 @@ function NewAreaForm() {
             { value: "goal", label: "Goal" },
           ]}
         />
-        <Field label="Name">
-          <input value={name} onChange={(e) => setName(e.target.value)} placeholder={kind === "area" ? "Web & creative dev" : "Merch drop"} className={inputClass} />
-        </Field>
-        <Field label="Description">
-          <input value={description} onChange={(e) => setDescription(e.target.value)} placeholder="One line" className={inputClass} />
-        </Field>
-        <Button type="submit" variant="primary" disabled={!name.trim()}>
+      </label>
+      <label>
+        Name
+        <input className="field" aria-label="Name" value={name} onChange={(e) => setName(e.target.value)} placeholder={kind === "goal" ? "Merch drop" : "Web & creative dev"} />
+      </label>
+      <label>
+        Description
+        <input className="field" aria-label="Description" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="One line" />
+      </label>
+      <div className="r">
+        <Button variant="primary" type="submit" disabled={!name.trim()}>
           Create
         </Button>
-      </form>
-    </Card>
+      </div>
+    </form>
   );
 }
 
 function AreaCard({ area }: { area: Area }) {
-  const { data, mutate } = useCrm();
+  const { data, mutate, openCandidate, closePanel } = useCrm();
   const [confirm, setConfirm] = useState(false);
   const attached = data.candidates.filter((c) => c.areaIds.includes(area.id));
-  const others = data.candidates.filter((c) => !c.areaIds.includes(area.id));
+  // Benched candidates can only join small jobs (goals are unaffected).
+  const others = data.candidates.filter(
+    (c) => !c.areaIds.includes(area.id) && (area.kind === "goal" || area.level === "small" || tierOf(c, data.settings) !== "bench"),
+  );
   const patchArea = (p: Partial<Area>) => mutate((d) => ({ ...d, areas: d.areas.map((a) => (a.id === area.id ? { ...a, ...p } : a)) }), () => updateArea(area.id, p));
 
   return (
-    <section className="flex min-w-0 flex-col rounded-[22px] border border-(--line) bg-(--card) p-5" data-testid="area-card">
-      <div className="flex items-start gap-2">
-        <div className="min-w-0 flex-1">
-          <InlineField label="Area name" value={area.name} onSave={(v) => v && patchArea({ name: v })} className="text-[17px] font-bold" />
-          <InlineField label="Description" value={area.description} placeholder="Add a description" onSave={(v) => patchArea({ description: v })} className="mt-0.5 text-(--muted)" />
+    <div className="area-card" data-testid="area-card" data-area={area.id}>
+      <div className="h">
+        <div style={{ minWidth: 0, flex: 1 }}>
+          <InlineField label="Area name" value={area.name} onSave={(v) => v && patchArea({ name: v })} inputClassName="txt font-bold" className="attr" />
+          <small>
+            <InlineField label="Description" value={area.description} placeholder="Add a description" onSave={(v) => patchArea({ description: v })} className="attr" />
+          </small>
         </div>
-        {area.level === "small" && <span className="rounded-full border border-(--line) px-2 py-0.5 text-[11px] font-medium text-(--muted)">small job</span>}
-        <span className="rounded-full bg-(--card-2) px-2 py-0.5 text-[12px] font-medium tabular-nums">{attached.length}</span>
+        {area.level === "small" && <span className="small-tag">small job</span>}
+        <span className="status new">{attached.length}</span>
       </div>
-
-      <div className="mt-4 flex flex-1 flex-wrap content-start gap-1.5">
+      <div className="members">
         {attached.map((c) => (
-          <Chip
+          <span
             key={c.id}
-            removeLabel={`Remove ${c.name}`}
-            onRemove={() =>
-              mutate(patchCandidate(c.id, (x) => ({ ...x, areaIds: x.areaIds.filter((id) => id !== area.id) })), () => detachArea(c.id, area.id))
-            }
+            className="person"
+            role="button"
+            tabIndex={0}
+            onClick={() => {
+              closePanel();
+              openCandidate(c.id);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                closePanel();
+                openCandidate(c.id);
+              }
+            }}
           >
-            <span className="inline-flex items-center gap-1.5">
-              <Avatar name={c.name} color={colorFor(c.id)} size={18} />
-              {c.name}
-            </span>
-          </Chip>
+            <Avatar name={c.name} color={colorFor(c.id)} size={22} />
+            <span className="one-line">{c.name}</span>
+            <button
+              type="button"
+              aria-label={`Remove ${c.name}`}
+              style={{ opacity: 0.6, fontSize: 14, lineHeight: 1 }}
+              onClick={(e) => {
+                e.stopPropagation();
+                mutate(patchCandidate(c.id, (x) => ({ ...x, areaIds: x.areaIds.filter((id) => id !== area.id) })), () => detachArea(c.id, area.id));
+              }}
+            >
+              ×
+            </button>
+          </span>
         ))}
-        {!attached.length && <p className="text-[13px] text-(--muted)">No candidates yet.</p>}
+        {!attached.length && <span className="assign-empty">No candidates yet.</span>}
       </div>
-
-      <div className="mt-4 flex items-center gap-2 border-t border-(--line) pt-3">
+      <div className="flex flex-wrap items-center gap-2" style={{ marginTop: 10 }}>
         {others.length > 0 && (
           <select
             aria-label={`Add candidate to ${area.name}`}
             value=""
+            className="inline"
             onChange={(e) => {
               const id = e.target.value;
               if (id) mutate(patchCandidate(id, (x) => ({ ...x, areaIds: [...x.areaIds, area.id] })), () => attachArea(id, area.id));
             }}
-            className="h-8 min-w-0 flex-1 rounded-lg border border-(--line) bg-(--card) px-2 text-[13px]"
           >
-            <option value="">+ Add candidate</option>
+            <option value="">+ Attach candidate</option>
             {others.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.name}
@@ -141,21 +187,23 @@ function AreaCard({ area }: { area: Area }) {
             ))}
           </select>
         )}
-        {confirm ? (
-          <>
-            <Button size="sm" onClick={() => mutate((d) => ({ ...d, areas: d.areas.filter((a) => a.id !== area.id) }), () => deleteArea(area.id), `Deleted ${area.name}`)}>
-              Delete
-            </Button>
-            <Button size="sm" variant="ghost" onClick={() => setConfirm(false)}>
-              Keep
-            </Button>
-          </>
-        ) : (
-          <Button size="sm" variant="ghost" className="ml-auto" onClick={() => setConfirm(true)}>
-            Delete…
-          </Button>
-        )}
+        <span className={cx("ml-auto flex gap-1.5")}>
+          {confirm ? (
+            <>
+              <Button size="sm" onClick={() => mutate((d) => ({ ...d, areas: d.areas.filter((a) => a.id !== area.id) }), () => deleteArea(area.id), `Deleted ${area.name}`)}>
+                Delete
+              </Button>
+              <Button size="sm" onClick={() => setConfirm(false)}>
+                Keep
+              </Button>
+            </>
+          ) : (
+            <button type="button" className="link" style={{ color: "var(--muted)" }} onClick={() => setConfirm(true)}>
+              Delete…
+            </button>
+          )}
+        </span>
       </div>
-    </section>
+    </div>
   );
 }

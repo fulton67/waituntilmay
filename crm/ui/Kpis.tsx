@@ -2,78 +2,87 @@
 
 import { useMemo, useState } from "react";
 import { updateTask } from "../lib/actions";
-import { boardSummary, firstName, fitDelta, fmtLogged, poolFloor, proposals, ranked, scoredInterviews, tierOf, type Proposal } from "../lib/ranking";
-import { Axis, Delta, FitBar } from "./bits";
+import { initials } from "../lib/colors";
+import {
+  boardSummary,
+  firstName,
+  fitDelta,
+  fmtLogged,
+  onScale,
+  poolFloor,
+  proposals,
+  ranked,
+  scoredInterviews,
+  tierOf,
+  type Proposal,
+} from "../lib/ranking";
 import { kpis } from "./derive";
-import { Button, Icon, cx } from "./primitives";
+import { Icon, cx } from "./primitives";
+import { goToSection } from "./Shell";
 import { useClock, useCrm } from "./store";
 
-function Stat({ label, value }: { label: string; value: number }) {
+export function Delta({ value }: { value: number | null }) {
+  if (value == null) return <span className="d none">·</span>;
+  if (value === 0) return <span className="d flat">·</span>;
+  return <span className={cx("d", value > 0 ? "up" : "down")}>{value > 0 ? `↑${value}` : `↓${Math.abs(value)}`}</span>;
+}
+
+export function KpiCards() {
   return (
-    <div className="flex items-center justify-between gap-2 text-[13px]">
-      <span className="crm-sub">{label}</span>
-      <span className="font-bold tabular-nums">{value}</span>
+    <div className="kpis">
+      <InterviewsCard />
+      <NextUpCard />
+      <LeaderboardCard />
+      <OpenAreasCard />
     </div>
   );
 }
 
-const cardCls = "crm-reveal min-w-0 rounded-[22px] border border-(--line) bg-(--card) p-5";
+// ─── Interviews today (the one focal card) ─────────────────────────────────
 
-export function KpiCards() {
-  const { data, openPanel } = useCrm();
+function InterviewsCard() {
+  const { data } = useCrm();
   const clock = useClock();
   const k = kpis(data, clock && clock.today === data.today ? clock.nowMin : null);
-
   return (
-    <div className="grid grid-cols-1 gap-4 min-[900px]:grid-cols-2 min-[1280px]:grid-cols-[1fr_1fr_1.55fr_1.1fr]">
-      <section className={`${cardCls} crm-focal border-transparent`} style={{ ["--i" as string]: 0 }} data-testid="kpi-interviews">
-        <h2 className="text-[17px] font-bold">Interviews today</h2>
-        <div className="mt-3 flex items-end gap-3">
-          <span className="crm-kpi">{k.today}</span>
-          <span className="crm-sub mb-1 font-medium">+{k.tomorrow} tomorrow</span>
-        </div>
-        <div className="mt-4 space-y-1.5">
-          <Stat label="In progress" value={k.inProgress} />
-          <Stat label="Still to come" value={k.toCome} />
-          <Stat label="Finished" value={k.finished} />
-          <Stat label="Need scheduling" value={k.needScheduling} />
-          <Stat label="Awaiting decision" value={k.awaiting} />
-        </div>
-      </section>
-      <NextUpCard />
-      <LeaderboardCard />
-      <section className={cardCls} style={{ ["--i" as string]: 3 }}>
-        <div className="flex items-center justify-between">
-          <h2 className="text-[17px] font-bold">Open areas</h2>
-          <button type="button" onClick={() => openPanel("areas")} className="text-[13px] font-medium text-(--brand)">
-            Manage
-          </button>
-        </div>
-        <div className="mt-3 flex items-end gap-2">
-          <span className="crm-kpi">{k.areaCounts.filter((a) => a.area.kind === "area").length}</span>
-          <span className="mb-1 text-(--muted)">areas · {k.areaCounts.filter((a) => a.area.kind === "goal").length} goals</span>
-        </div>
-        <ul className="mt-4 space-y-1.5">
-          {k.areaCounts
-            .filter((a) => a.area.kind === "area")
-            .map(({ area, count }) => (
-              <li key={area.id} className="flex items-center justify-between gap-2 text-[13px]">
-                <span className="truncate font-medium">
-                  {area.name}
-                  {area.level === "small" && <span className="ml-1.5 text-[11px] font-medium text-(--muted)">small job</span>}
-                </span>
-                <span className="rounded-full bg-(--card-2) px-2 py-0.5 text-[12px] font-medium tabular-nums">{count}</span>
-              </li>
-            ))}
-        </ul>
-      </section>
-    </div>
+    <section
+      className="card kpi wash reveal"
+      role="button"
+      tabIndex={0}
+      aria-label="Interviews today — go to the schedule"
+      style={{ cursor: "pointer" }}
+      onClick={() => goToSection("schedule")}
+      onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && goToSection("schedule")}
+      data-testid="kpi-interviews"
+    >
+      <div className="big">
+        {k.today} <small className="up">+{k.tomorrow} tomorrow</small>
+      </div>
+      <div className="label">Interviews today</div>
+      <div className="rows">
+        {(
+          [
+            ["In progress", k.inProgress],
+            ["Still to come", k.toCome],
+            ["Finished", k.finished],
+            ["Need scheduling", k.needScheduling],
+            ["Awaiting decision", k.awaiting],
+          ] as const
+        ).map(([label, n]) => (
+          <div key={label}>
+            <span className="one-line">{label}</span>
+            <b>{n}</b>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
 // ─── Next up ───────────────────────────────────────────────────────────────
 
-const DOT: Record<Proposal["priority"], string> = { 1: "var(--highlight)", 2: "var(--brand)", 3: "var(--glow)" };
+/** Urgency → the prototype's dot classes (.p3 = highlight, .p2 = brand, default = line-2). */
+const DOT_CLASS: Record<Proposal["priority"], string> = { 1: "p3", 2: "p2", 3: "p1" };
 
 function NextUpCard() {
   const { data, mutate, openCandidate, openAssign } = useCrm();
@@ -82,10 +91,9 @@ function NextUpCard() {
 
   const { list, summary } = useMemo(() => {
     if (!clock) return { list: [] as Proposal[], summary: null };
-    const board = { ...data };
     return {
-      list: proposals(board, { today: clock.today, nowMin: clock.nowMin, nowMs: clock.nowMs, tz: data.tz }),
-      summary: boardSummary(board, clock.today, data.tz, clock.nowMs),
+      list: proposals(data, { today: clock.today, nowMin: clock.nowMin, nowMs: clock.nowMs, tz: data.tz }),
+      summary: boardSummary(data, clock.today, data.tz, clock.nowMs),
     };
   }, [data, clock]);
 
@@ -104,34 +112,34 @@ function NextUpCard() {
 
   const shown = expanded ? list : list.slice(0, 5);
   return (
-    <section className={cardCls} style={{ ["--i" as string]: 1 }} data-testid="next-up">
-      <div className="flex items-center justify-between">
-        <h2 className="text-[17px] font-bold">Next up</h2>
-        <span className="rounded-full bg-(--card-2) px-2 py-0.5 text-[12px] font-bold tabular-nums" data-testid="next-up-count">
+    <section className="card kpi nextup reveal" data-testid="next-up">
+      <div className="card-head">
+        <div>
+          <h2>Next up</h2>
+          <div className="sub" suppressHydrationWarning>
+            {summary
+              ? `${summary.clockedIn} clocked in · ${fmtLogged(summary.minutesToday)} logged today · ${summary.openTasks} open task${summary.openTasks === 1 ? "" : "s"}`
+              : " "}
+          </div>
+        </div>
+        <span className="count" data-testid="next-up-count">
           {list.length}
         </span>
       </div>
-      <p className="mt-1 text-[13px] text-(--muted)" suppressHydrationWarning>
-        {summary
-          ? `${summary.clockedIn} clocked in · ${fmtLogged(summary.minutesToday)} logged today · ${summary.openTasks} open task${summary.openTasks === 1 ? "" : "s"}`
-          : " "}
-      </p>
-      {clock && !list.length && <p className="mt-6 text-center text-(--muted)">Nothing waiting. Everyone has work and it&apos;s moving.</p>}
-      <ul className="mt-3 space-y-3">
+      {clock && !list.length && <p className="empty">Nothing waiting. Everyone has work and it&apos;s moving.</p>}
+      <div className="nx">
         {shown.map((p) => (
-          <li key={p.id} className="flex items-start gap-2.5" data-testid="proposal" data-priority={p.priority}>
-            <span className="mt-1.5 size-2 flex-none rounded-full" style={{ background: DOT[p.priority] }} aria-label={`Priority ${p.priority}`} />
-            <div className="min-w-0 flex-1">
-              <p className="text-[13px] leading-snug">{p.text}</p>
-              <Button size="sm" className="mt-1 h-7 max-w-full px-2.5 text-[12px]" onClick={() => act(p)}>
-                <span className="truncate">{p.action.label}</span>
-              </Button>
-            </div>
-          </li>
+          <div key={p.id} className={cx("nx-row", DOT_CLASS[p.priority])} data-testid="proposal" data-priority={p.priority}>
+            <i aria-label={`Priority ${p.priority}`} />
+            <span className="wrap-any">{p.text}</span>
+            <button type="button" className="link" onClick={() => act(p)}>
+              {p.action.label}
+            </button>
+          </div>
         ))}
-      </ul>
+      </div>
       {list.length > 5 && (
-        <button type="button" onClick={() => setExpanded(!expanded)} className="mt-2 text-[13px] font-medium text-(--brand)">
+        <button type="button" className="link" style={{ marginTop: 8, alignSelf: "flex-start" }} onClick={() => setExpanded(!expanded)}>
           {expanded ? "Show fewer" : `+${list.length - 5} more`}
         </button>
       )}
@@ -142,56 +150,125 @@ function NextUpCard() {
 // ─── Fit rankings leaderboard ──────────────────────────────────────────────
 
 function LeaderboardCard() {
-  const { data, openPanel } = useCrm();
+  const { data, openPanel, openCandidate } = useCrm();
   const floor = poolFloor(data.candidates, data.interviews);
   const rows = ranked(data.candidates);
   const scoredCount = data.candidates.filter((c) => scoredInterviews(c.id, data.interviews).length).length;
   const benched = data.candidates.filter((c) => tierOf(c, data.settings) === "bench").length;
+  const mid = Math.round(((floor + 10) / 2) * 10) / 10;
 
   return (
-    <section
-      className={cx(cardCls, "cursor-pointer transition-colors hover:border-(--brand)")}
-      style={{ ["--i" as string]: 2 }}
-      onClick={() => openPanel("rankings")}
-      data-testid="leaderboard"
-    >
-      <div className="flex items-start justify-between gap-2">
+    <section className="card kpi rank reveal" onClick={() => openPanel("rankings")} data-testid="leaderboard">
+      <div className="card-head">
         <div>
-          <h2 className="text-[17px] font-bold">Fit rankings</h2>
-          <p className="mt-0.5 text-[13px] text-(--muted)">
+          <h2>Fit rankings</h2>
+          <div className="sub">
             {scoredCount} scored · {benched} benched · ↑↓ since last interview
-          </p>
+          </div>
         </div>
         <button
           type="button"
+          className="open-btn"
           aria-label="Open rankings & tiers"
           onClick={(e) => {
             e.stopPropagation();
             openPanel("rankings");
           }}
-          className="grid size-8 place-items-center rounded-xl text-(--muted) hover:bg-(--card-2) hover:text-(--ink)"
         >
-          <Icon name="right" size={16} />
+          <Icon name="right" />
         </button>
       </div>
-      <ol className="mt-3 space-y-1.5" data-testid="leaderboard-rows">
+      <div className="lb" data-testid="leaderboard-rows">
         {rows.map((c, i) => (
-          <li key={c.id} className="grid grid-cols-[18px_64px_1fr_30px_30px] items-center gap-2 text-[13px]" data-candidate={c.id}>
-            <span className="tabular-nums text-(--muted)">{i + 1}</span>
-            <span className="truncate font-medium">{firstName(c.name)}</span>
-            <FitBar fit={c.fit} floor={floor} tier={tierOf(c, data.settings)} />
-            <span className="text-right font-bold tabular-nums">{c.fit.toFixed(1)}</span>
-            <span className="text-right">
-              <Delta value={fitDelta(c, data.interviews)} />
+          <div
+            key={c.id}
+            className={cx("lb-row", tierOf(c, data.settings))}
+            data-candidate={c.id}
+            role="button"
+            tabIndex={0}
+            onClick={(e) => {
+              e.stopPropagation();
+              openCandidate(c.id);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.stopPropagation();
+                openCandidate(c.id);
+              }
+            }}
+          >
+            <span className="r">{i + 1}</span>
+            <span className="nm">{firstName(c.name)}</span>
+            <span className="track">
+              <i style={{ width: `${onScale(c.fit, floor)}%` }} />
             </span>
-          </li>
+            <span className="v">{c.fit.toFixed(1)}</span>
+            <Delta value={fitDelta(c, data.interviews)} />
+          </div>
         ))}
-      </ol>
-      <div className="mt-1 grid grid-cols-[18px_64px_1fr_30px_30px] gap-2">
-        <span />
-        <span />
-        <Axis floor={floor} />
+        <div className="lb-row scale" aria-hidden>
+          <span />
+          <span />
+          <span className="s">
+            <span>{floor}</span>
+            <span>{mid}</span>
+            <span>10</span>
+          </span>
+          <span />
+          <span />
+        </div>
       </div>
+    </section>
+  );
+}
+
+// ─── Open areas ────────────────────────────────────────────────────────────
+
+function OpenAreasCard() {
+  const { data, openPanel } = useCrm();
+  const counts = data.areas.map((a) => ({ area: a, count: data.candidates.filter((c) => c.areaIds.includes(a.id)).length }));
+  const areas = counts.filter((a) => a.area.kind === "area").sort((a, b) => b.count - a.count || a.area.name.localeCompare(b.area.name));
+  const shown = areas.slice(0, 3);
+  return (
+    <section className="card kpi reveal" data-testid="open-areas">
+      <div className="card-head">
+        <div>
+          <h2>Open areas</h2>
+          <div className="sub" style={{ fontSize: 12, color: "var(--muted)", marginTop: 2 }}>
+            {areas.length} areas · {counts.length - areas.length} goals
+          </div>
+        </div>
+        <button type="button" className="open-btn" aria-label="Open areas & goals" onClick={() => openPanel("areas")}>
+          <Icon name="right" />
+        </button>
+      </div>
+      <div className="promo">
+        {shown.map(({ area, count }) => (
+          <div
+            key={area.id}
+            className="row"
+            role="button"
+            tabIndex={0}
+            data-area={area.id}
+            onClick={() => openPanel("areas", { areaId: area.id })}
+            onKeyDown={(e) => e.key === "Enter" && openPanel("areas", { areaId: area.id })}
+          >
+            <span className="thumb">{initials(area.name)}</span>
+            <span className="txt" style={{ minWidth: 0 }}>
+              <b className="one-line">{area.name}</b>
+              <small className="one-line" style={{ display: "block" }}>
+                {area.level === "small" ? "Small job" : area.description || "Core role"}
+              </small>
+            </span>
+            <span className="count">{count}</span>
+          </div>
+        ))}
+      </div>
+      {areas.length > shown.length && (
+        <button type="button" className="link" style={{ marginTop: 10, alignSelf: "flex-start" }} onClick={() => openPanel("areas")}>
+          +{areas.length - shown.length} more
+        </button>
+      )}
     </section>
   );
 }
