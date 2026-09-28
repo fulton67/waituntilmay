@@ -1,0 +1,50 @@
+{
+ "home": {
+  "route": "/",
+  "file": "site/build/home.html",
+  "bytes": 2478,
+  "hashLinksRewritten": 1,
+  "hashLinksRemaining": 0,
+  "assetsStillRelative": [],
+  "assetsSwapped": [
+   {
+    "from": "assets/sie-logo.png",
+    "to": "https://cdn.prod.website-files.com/6ab09c2043ba16c77bec74be/6ab3d8b049b603070109fb47_sie-logo.png"
+   },
+   {
+    "from": "assets/cd-open.webp",
+    "to": "https://cdn.prod.website-files.com/6ab09c2043ba16c77bec74be/6ab3d8afe57dcfa31f5b7330_cd-open.webp"
+   },
+   {
+    "from": "assets/disc.webp",
+    "to": "https://cdn.prod.website-files.com/6ab09c2043ba16c77bec74be/6ab3d8afdc4c1a4d7fcc4ea8_disc.webp"
+   },
+   {
+    "from": "assets/cd-back.webp",
+    "to": "https://cdn.prod.website-files.com/6ab09c2043ba16c77bec74be/6ab3d8af54b8758a6c28f79d_cd-back.webp"
+   },
+   {
+    "from": "assets/cd-poster.webp",
+    "to": "https://cdn.prod.website-files.com/6ab09c2043ba16c77bec74be/6ab3d8af5b64ffd16806145a_cd-poster.webp"
+   },
+   {
+    "from": "assets/cd-front.webp",
+    "to": "https://cdn.prod.website-files.com/6ab09c2043ba16c77bec74be/6ab3d8aff6323daaf60b18c3_cd-front.webp"
+   }
+  ]
+ },
+ "sie": {
+  "route": "/videos",
+  "file": "site/build/sie.html",
+  "bytes": 6297,
+  "hashLinksRewritten": 1,
+  "hashLinksRemaining": 0,
+  "assetsStillRelative": [],
+  "assetsSwapped": [
+   {
+    "from": "assets/sie-logo.png",
+    "to": "https://cdn.prod.website-files.com/6ab09c2043ba16c77bec74be/6ab3d8b049b603070109fb47_sie-logo.png"
+   }
+  ]
+ }
+}
