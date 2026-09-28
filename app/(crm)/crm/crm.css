@@ -1,0 +1,224 @@
+/* fomo Intern CRM — brand tokens and the few styles utilities can't express.
+   Everything is scoped to [data-crm] so the portfolio site is untouched. */
+
+/* The site's global `* { margin: 0; padding: 0 }` is unlayered and would beat Tailwind's layered
+   spacing utilities. Inside the CRM, roll those two properties back to the layered values. */
+[data-crm] *,
+[data-crm] *::before,
+[data-crm] *::after {
+  margin: revert-layer;
+  padding: revert-layer;
+}
+/* Same for the site's unlayered `input, textarea, button { font-family; color }`. */
+[data-crm] :is(input, textarea, button) {
+  font-family: revert-layer;
+  color: revert-layer;
+}
+
+[data-crm] {
+  --canvas: #eaedff;
+  --canvas-glow: radial-gradient(60% 45% at 50% -8%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 70%);
+  --card: #ffffff;
+  --card-2: #f1f3ff;
+  --line: #e1e5fb;
+  --ink: #0b091f;
+  --muted: #6f739a;
+  --brand: #516af6;
+  --brand-ink: #ffffff;
+  --highlight: #4a36ff;
+  --highlight-ink: #ffffff;
+  --glow: #acb8f9;
+  --logo: #516af6;
+  --shadow: 0 24px 48px -20px rgba(81, 106, 246, 0.35);
+
+  --iv-intro: #eaedff;
+  --iv-intro-ink: #0b091f;
+  --iv-portfolio: #acb8f9;
+  --iv-portfolio-ink: #0b091f;
+  --iv-technical: #516af6;
+  --iv-technical-ink: #ffffff;
+  --iv-ops_case: #dce2fe;
+  --iv-ops_case-ink: #0b091f;
+  --iv-content_review: #c4cdfb;
+  --iv-content_review-ink: #0b091f;
+  --iv-final: #221d4b;
+  --iv-final-ink: #ffffff;
+
+  --st-new: #eaedff;
+  --st-new-ink: #516af6;
+  --st-queued: #acb8f9;
+  --st-queued-ink: #0b091f;
+  --st-inprocess: #516af6;
+  --st-inprocess-ink: #ffffff;
+  --st-awaiting: #4a36ff;
+  --st-awaiting-ink: #ffffff;
+  --st-decided: #0b091f;
+  --st-decided-ink: #ffffff;
+
+  color-scheme: light;
+  font-family: var(--font-crm), "DM Sans", system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--canvas-glow), var(--canvas);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+html[data-theme="dark"] [data-crm] {
+  --canvas: #0b091f;
+  --canvas-glow: radial-gradient(60% 45% at 50% -8%, rgba(34, 29, 75, 0.95), rgba(34, 29, 75, 0) 72%);
+  --card: #14112b;
+  --card-2: #1d1940;
+  --line: #27234e;
+  --ink: #ffffff;
+  --muted: #9296c4;
+  --highlight: #acb8f9;
+  --highlight-ink: #0b091f;
+  --logo: #ffffff;
+  --shadow: 0 24px 48px -20px rgba(81, 106, 246, 0.25);
+
+  --iv-intro: #221d4b;
+  --iv-intro-ink: #ffffff;
+  --iv-portfolio: #acb8f9;
+  --iv-portfolio-ink: #0b091f;
+  --iv-technical: #516af6;
+  --iv-technical-ink: #ffffff;
+  --iv-ops_case: #2b2668;
+  --iv-ops_case-ink: #ffffff;
+  --iv-content_review: #3b3f9c;
+  --iv-content_review-ink: #ffffff;
+  --iv-final: #eaedff;
+  --iv-final-ink: #0b091f;
+
+  --st-new: #221d4b;
+  --st-new-ink: #acb8f9;
+  --st-decided: #eaedff;
+  --st-decided-ink: #0b091f;
+
+  color-scheme: dark;
+}
+
+[data-crm] ::selection {
+  background: var(--glow);
+  color: #0b091f;
+}
+
+[data-crm] :focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Layered so Tailwind utilities (text colours on buttons etc.) still win. */
+@layer base {
+  [data-crm] input,
+  [data-crm] select,
+  [data-crm] textarea,
+  [data-crm] button {
+    font: inherit;
+    color: inherit;
+  }
+}
+
+/* Logos: one mask asset, filled with the theme's --logo token. Never recolour, never stretch. */
+.crm-mark {
+  display: inline-block;
+  background: var(--logo);
+  -webkit-mask: var(--mark) center / contain no-repeat;
+  mask: var(--mark) center / contain no-repeat;
+  flex: none;
+}
+.crm-wordmark {
+  --mark: url("/crm/brand/wordmark.png");
+  aspect-ratio: 1080 / 380;
+  height: 22px;
+}
+.crm-eyes {
+  --mark: url("/crm/brand/eyes.png");
+  aspect-ratio: 1;
+  width: 34px;
+}
+
+/* The one focal point: the first KPI card. */
+.crm-focal {
+  background:
+    radial-gradient(90% 60% at 30% 0%, rgba(172, 184, 249, 0.85), rgba(172, 184, 249, 0) 70%),
+    #516af6;
+  color: #ffffff;
+  box-shadow: var(--shadow);
+}
+.crm-focal .crm-sub {
+  color: #eaedff;
+}
+
+.crm-kpi {
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.crm-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+/* Skill bars / load bars */
+.crm-bar {
+  height: 6px;
+  border-radius: 99px;
+  background: var(--card-2);
+  overflow: hidden;
+}
+.crm-bar > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--brand);
+}
+
+/* Range input in brand colour */
+[data-crm] input[type="range"] {
+  accent-color: var(--brand);
+}
+
+/* Motion only in response to actions. */
+@keyframes crm-drawer-in {
+  from {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+}
+@keyframes crm-toast-in {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+}
+@keyframes crm-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+.crm-drawer {
+  animation: crm-drawer-in 180ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.crm-toast {
+  animation: crm-toast-in 160ms ease-out;
+}
+.crm-backdrop {
+  animation: crm-fade-in 160ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .crm-drawer,
+  .crm-toast,
+  .crm-backdrop {
+    animation: none;
+  }
+}
+
+/* Intro sting: already seen this session or reduced motion (set pre-paint by IntroOverlay). */
+html[data-crm-intro="skip"] [data-crm-intro-overlay] {
+  display: none;
+}
