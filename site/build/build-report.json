@@ -2,7 +2,7 @@
  "home": {
   "route": "/",
   "file": "site/build/home.html",
-  "bytes": 2478,
+  "bytes": 2523,
   "hashLinksRewritten": 1,
   "hashLinksRemaining": 0,
   "assetsStillRelative": [],
