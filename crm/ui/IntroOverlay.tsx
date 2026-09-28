@@ -3,9 +3,11 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { INTRO_SEEN_KEY } from "./intro";
 
-const FADE_MS = 400;
-// Safety net for a video that neither ends nor errors (autoplay blocked, stalled network).
-const MAX_MS = 8000;
+/** The official fomo eyes-turn animation (VP9 with alpha, 2.5s). */
+const SRC = "/anim/fomo-eyes-turn.webm";
+const MAX_MS = 1400; // JS cap; CSS also fades the overlay out by 1.4s after first paint (limit 1.5s)
+const RATE = 2.5 / (MAX_MS / 1000); // play the whole turn-and-back inside the cap
+const FADE_MS = 250;
 
 function shouldSkip() {
   try {
@@ -15,7 +17,12 @@ function shouldSkip() {
   }
 }
 
-/** 4s logo sting over the CRM on the first load of a session; fades into the app when it ends. */
+/**
+ * Once per session, the fomo eyes turn over the navy field for at most 1.5s, then fade into the
+ * app. Click or press any key to skip. Mounted only in the interviewer layout, so it never plays
+ * on /crm/me or the sign-in page; skipped entirely under prefers-reduced-motion (the pre-paint
+ * script in the CRM layout hides it before first paint on repeat visits).
+ */
 export function IntroOverlay() {
   const [phase, setPhase] = useState<"playing" | "fading" | "done">("playing");
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -35,15 +42,21 @@ export function IntroOverlay() {
       }
     }
     if (skip.current) {
+      // Decide before paint so a skipped intro never flashes.
       setPhase("done");
       return;
     }
     const video = videoRef.current;
-    // ended/error can fire before hydration attaches handlers; catch those here.
     if (!video || video.error || video.ended) return finish();
+    video.playbackRate = RATE;
     video.play().catch(finish);
     const timer = setTimeout(finish, MAX_MS);
-    return () => clearTimeout(timer);
+    const onKey = () => finish();
+    window.addEventListener("keydown", onKey);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("keydown", onKey);
+    };
   }, []);
 
   useEffect(() => {
@@ -57,8 +70,11 @@ export function IntroOverlay() {
   return (
     <div
       data-crm-intro-overlay
-      aria-hidden
-      className="fixed inset-0 z-[100] bg-[#221D4B]"
+      role="button"
+      tabIndex={-1}
+      aria-label="Skip intro"
+      onClick={finish}
+      className="fixed inset-0 z-[100] grid cursor-pointer place-items-center bg-[#221D4B]"
       style={{ opacity: phase === "fading" ? 0 : 1, transition: `opacity ${FADE_MS}ms ease-out` }}
     >
       <video
@@ -66,10 +82,12 @@ export function IntroOverlay() {
         autoPlay
         muted
         playsInline
-        src="/anim/fomo-intro.mp4"
+        preload="auto"
+        src={SRC}
+        onLoadedMetadata={(e) => (e.currentTarget.playbackRate = RATE)}
         onEnded={finish}
         onError={finish}
-        className="h-full w-full object-cover"
+        style={{ width: "min(46vw, 320px)", height: "auto" }}
       />
     </div>
   );
