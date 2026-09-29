@@ -58,6 +58,7 @@ export function InternView({ data }: { data: InternData }) {
           <button
             type="button"
             className="icon-btn"
+            title="Light / dark"
             onClick={toggleTheme}
             data-testid="theme-toggle"
             aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}

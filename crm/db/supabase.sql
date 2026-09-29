@@ -3,22 +3,29 @@
 
 -- 1. Row-level security. The app itself connects as the postgres role via DATABASE_URL and is
 --    not affected; these policies only govern the anon/authenticated keys used by the browser
---    for Realtime and Storage. Only interviewers (rows created on allowlisted sign-in) can read.
+--    for Realtime and Storage. Only interviewers (on the interviewers table and not removed) can read.
 create or replace function public.crm_is_interviewer() returns boolean
 language sql stable security definer set search_path = public as $$
-  select exists (select 1 from public.interviewers where lower(email) = lower(auth.jwt() ->> 'email'))
+  select exists (
+    select 1 from public.interviewers
+    where lower(email) = lower(auth.jwt() ->> 'email') and removed_at is null
+  )
 $$;
 
 do $$
 declare t text;
 begin
   foreach t in array array['interviewers','candidates','candidate_skills','areas','candidate_areas','interviews','notes','activity',
-                         'settings','campaigns','tasks','sessions','reports'] loop
+                         'settings','campaigns','tasks','sessions','reports','dismissals'] loop
     execute format('alter table public.%I enable row level security', t);
     execute format('drop policy if exists crm_read on public.%I', t);
     execute format('create policy crm_read on public.%I for select to authenticated using (public.crm_is_interviewer())', t);
   end loop;
 end $$;
+
+-- Join forms and rate-limit counters are server-only: RLS on, no policies, so the browser keys see nothing.
+alter table public.pending_joins enable row level security;
+alter table public.auth_attempts enable row level security;
 
 -- 2. Realtime: broadcast changes on the live tables (idempotent).
 do $$

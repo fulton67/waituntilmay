@@ -3,22 +3,24 @@
 import { useEffect } from "react";
 import { AreasView } from "./AreasView";
 import { DayLog } from "./DayLog";
+import { NextUpPanel } from "./NextUp";
 import { Icon, Modal } from "./primitives";
 import { RankingsPanel } from "./RankingsPanel";
 import { SettingsView } from "./SettingsView";
 import { useCrm } from "./store";
 
-const TITLE = { rankings: "Rankings & tiers", areas: "Areas & goals", daylog: "Day log", settings: "Settings" } as const;
+const TITLE = { rankings: "Rankings & tiers", areas: "Areas & goals", daylog: "Day log", settings: "Settings", nextup: "Next up" } as const;
 const SUB = {
   rankings: "Fit on a 1–10 scale, grouped by tier",
   areas: "Jobs, small jobs and goals, with who's attached",
   daylog: "The campaign's running record, from sessions, tasks and reports",
   settings: "",
+  nextup: "Everything the board is waiting on, most urgent first",
 } as const;
 
 /** .drawer panels for Areas & goals, Rankings & tiers and the Day log; Settings is a .modal. */
 export function Panels() {
-  const { panel, closePanel, data } = useCrm();
+  const { panel, closePanel } = useCrm();
   useEffect(() => {
     if (!panel) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && closePanel();
@@ -29,7 +31,7 @@ export function Panels() {
   if (panel.name === "settings") {
     return (
       <Modal title="Settings" onClose={closePanel}>
-        <SettingsView allowlist={data.allowlist} />
+        <SettingsView />
       </Modal>
     );
   }
@@ -50,6 +52,7 @@ export function Panels() {
           {panel.name === "rankings" && <RankingsPanel />}
           {panel.name === "areas" && <AreasView focusAreaId={panel.areaId} />}
           {panel.name === "daylog" && <DayLog initialDay={panel.day} />}
+          {panel.name === "nextup" && <NextUpPanel />}
         </div>
       </aside>
     </>

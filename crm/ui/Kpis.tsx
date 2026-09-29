@@ -1,24 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { updateTask } from "../lib/actions";
 import { initials } from "../lib/colors";
-import {
-  boardSummary,
-  firstName,
-  fitDelta,
-  fmtLogged,
-  onScale,
-  poolFloor,
-  proposals,
-  ranked,
-  scoredInterviews,
-  tierOf,
-  type Proposal,
-} from "../lib/ranking";
+import { firstName, fitDelta, fmtLogged, onScale, poolFloor, ranked, scoredInterviews, tierOf } from "../lib/ranking";
 import { kpis } from "./derive";
 import { Icon, cx } from "./primitives";
 import { goToSection } from "./Shell";
+import { NextUpRow, useProposals } from "./NextUp";
 import { useClock, useCrm } from "./store";
 
 export function Delta({ value }: { value: number | null }) {
@@ -81,66 +68,36 @@ function InterviewsCard() {
 
 // ─── Next up ───────────────────────────────────────────────────────────────
 
-/** Urgency → the prototype's dot classes (.p3 = highlight, .p2 = brand, default = line-2). */
-const DOT_CLASS: Record<Proposal["priority"], string> = { 1: "p3", 2: "p2", 3: "p1" };
-
 function NextUpCard() {
-  const { data, mutate, openCandidate, openAssign } = useCrm();
-  const clock = useClock();
-  const [expanded, setExpanded] = useState(false);
-
-  const { list, summary } = useMemo(() => {
-    if (!clock) return { list: [] as Proposal[], summary: null };
-    return {
-      list: proposals(data, { today: clock.today, nowMin: clock.nowMin, nowMs: clock.nowMs, tz: data.tz }),
-      summary: boardSummary(data, clock.today, data.tz, clock.nowMs),
-    };
-  }, [data, clock]);
-
-  const act = (p: Proposal) => {
-    const a = p.action;
-    if (a.type === "assign") {
-      const who = data.candidates.find((c) => c.id === a.candidateId);
-      mutate(
-        (d) => ({ ...d, tasks: d.tasks.map((t) => (t.id === a.taskId ? { ...t, candidateId: a.candidateId } : t)) }),
-        () => updateTask(a.taskId, { candidateId: a.candidateId }),
-        who ? `Assigned to ${firstName(who.name)}` : undefined,
-      );
-    } else if (a.type === "openAssign") openAssign({ taskId: a.taskId, candidateId: a.candidateId });
-    else openCandidate(a.candidateId, a.tab);
-  };
-
-  const shown = expanded ? list : list.slice(0, 5);
+  const { openPanel } = useCrm();
+  const { visible, summary, ready } = useProposals();
+  const openDrawer = () => openPanel("nextup");
   return (
     <section className="card kpi nextup reveal" data-testid="next-up">
       <div className="card-head">
         <div>
-          <h2>Next up</h2>
+          <h2 role="button" tabIndex={0} onClick={openDrawer} onKeyDown={(e) => e.key === "Enter" && openDrawer()} data-testid="next-up-title">
+            Next up
+          </h2>
           <div className="sub" suppressHydrationWarning>
             {summary
               ? `${summary.clockedIn} clocked in · ${fmtLogged(summary.minutesToday)} logged today · ${summary.openTasks} open task${summary.openTasks === 1 ? "" : "s"}`
               : " "}
           </div>
         </div>
-        <span className="count" data-testid="next-up-count">
-          {list.length}
+        <span className="count" role="button" tabIndex={0} onClick={openDrawer} onKeyDown={(e) => e.key === "Enter" && openDrawer()} aria-label="Open Next up" data-testid="next-up-count">
+          {visible.length}
         </span>
       </div>
-      {clock && !list.length && <p className="empty">Nothing waiting. Everyone has work and it&apos;s moving.</p>}
+      {ready && !visible.length && <p className="empty">Nothing waiting. Everyone has work and it&apos;s moving.</p>}
       <div className="nx">
-        {shown.map((p) => (
-          <div key={p.id} className={cx("nx-row", DOT_CLASS[p.priority])} data-testid="proposal" data-priority={p.priority}>
-            <i aria-label={`Priority ${p.priority}`} />
-            <span className="wrap-any">{p.text}</span>
-            <button type="button" className="link" onClick={() => act(p)}>
-              {p.action.label}
-            </button>
-          </div>
+        {visible.slice(0, 5).map((p) => (
+          <NextUpRow key={p.id} p={p} />
         ))}
       </div>
-      {list.length > 5 && (
-        <button type="button" className="link" style={{ marginTop: 8, alignSelf: "flex-start" }} onClick={() => setExpanded(!expanded)}>
-          {expanded ? "Show fewer" : `+${list.length - 5} more`}
+      {visible.length > 5 && (
+        <button type="button" className="link" style={{ marginTop: 8, alignSelf: "flex-start" }} onClick={openDrawer}>
+          +{visible.length - 5} more
         </button>
       )}
     </section>
@@ -178,7 +135,8 @@ function LeaderboardCard() {
           <Icon name="right" />
         </button>
       </div>
-      <div className="lb" data-testid="leaderboard-rows">
+      {!rows.length && <p className="empty">No candidates yet.</p>}
+      <div className="lb" data-testid="leaderboard-rows" style={rows.length ? undefined : { display: "none" }}>
         {rows.map((c, i) => (
           <div
             key={c.id}
@@ -242,6 +200,14 @@ function OpenAreasCard() {
           <Icon name="right" />
         </button>
       </div>
+      {!areas.length && (
+        <p className="empty">
+          No areas yet.{" "}
+          <button type="button" className="link" onClick={() => openPanel("areas")}>
+            Create one
+          </button>
+        </p>
+      )}
       <div className="promo">
         {shown.map(({ area, count }) => (
           <div

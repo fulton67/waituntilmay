@@ -24,7 +24,7 @@ test.beforeEach(async ({ page }) => skipIntro(page));
 
 async function signIn(page: Page, email: string) {
   await page.goto("/crm/sign-in");
-  await page.getByLabel("Work email").fill(email);
+  await page.getByLabel("Email", { exact: true }).fill(email);
   await page.getByRole("button", { name: "Sign in" }).click();
 }
 
@@ -71,6 +71,7 @@ function seedCandidates(): Candidate[] {
     resumeJson: c.resume,
     resumeFileUrl: null,
     createdAt: "",
+    selfJoined: false,
     skills: c.bestAt.map((s, i) => ({ id: String(i), skill: s.skill, score: Math.max(1, Math.min(10, Math.round(s.score / 10))) })),
     areaIds: [],
   }));
@@ -82,13 +83,13 @@ test("smoke: interviewer + intern flows end to end", async ({ page, browser }) =
   const tomorrow = addDays(today, 1);
   const yesterday = addDays(today, -1);
 
-  // ── Sign-in and allowlist ──
+  // ── Sign-in: only people already in the CRM ──
   await page.goto("/crm");
   await expect(page).toHaveURL(/\/crm\/sign-in/);
-  await page.getByLabel("Work email").fill("stranger@example.com");
+  await page.getByLabel("Email", { exact: true }).fill("stranger@example.com");
   await page.getByRole("button", { name: "Sign in" }).click();
-  await expect(page.getByText("Ask Naim for access.")).toBeVisible();
-  await page.getByLabel("Work email").fill(EMAIL);
+  await expect(page.getByText("You're not in the CRM yet — use the invite link you were sent.")).toBeVisible();
+  await page.getByLabel("Email", { exact: true }).fill(EMAIL);
   await page.getByRole("button", { name: "Sign in" }).click();
   await expect(page).toHaveURL(/\/crm$/);
 
@@ -321,4 +322,92 @@ test("overlap rule is enforced by the server, not just the form", async ({ brows
   const schedB = await book(b, "16:30");
   await expect(schedB.getByTestId("schedule-error")).toContainText("already has Kerem A.");
   await context.close();
+});
+
+test("invite links: interviewer and intern join, remove signs out, regenerate kills the old link", async ({ page, browser }) => {
+  const stamp = Date.now().toString(36);
+  const guestEmail = `guest.${stamp}@example.com`;
+  const internEmail = `intern.${stamp}@example.edu`;
+  const internName = `Joiner ${stamp}`;
+
+  await signIn(page, EMAIL);
+  await expect(page).toHaveURL(/\/crm$/);
+  await page.goto("/crm/settings");
+  const invites = page.getByTestId("invites");
+  const interviewerUrl = await invites.getByLabel("Interviewer invite link").inputValue();
+  const internUrl = await invites.getByLabel("Intern invite link").inputValue();
+  expect(interviewerUrl).toMatch(/\/crm\/join\/interviewer\/[A-Za-z0-9]{32}$/);
+  expect(internUrl).toMatch(/\/crm\/join\/intern\/[A-Za-z0-9]{32}$/);
+  await expect(invites.getByTestId("invite-interviewer")).toContainText("Expires");
+  const path = (url: string) => new URL(url).pathname;
+
+  // The owner can't be removed.
+  const ownerRow = page.locator(`[data-testid="interviewer-row"][data-email="${EMAIL}"]`);
+  await expect(ownerRow).toContainText("owner");
+  await expect(ownerRow.getByTestId("remove-interviewer")).toHaveCount(0);
+
+  // ── Interviewer joins in a fresh browser ──
+  const guestCtx = await browser.newContext();
+  const guest = await guestCtx.newPage();
+  await skipIntro(guest);
+  await guest.goto(path(interviewerUrl));
+  const jf = guest.getByTestId("join-form");
+  await jf.getByLabel("Your name").fill("Guest Interviewer");
+  await jf.getByLabel("Email").fill(guestEmail);
+  await jf.getByRole("button", { name: "Join" }).click();
+  await expect(guest).toHaveURL(/\/crm$/);
+
+  // Settings lists them; Remove signs them out on their next request.
+  await page.reload();
+  const row = page.locator(`[data-testid="interviewer-row"][data-email="${guestEmail}"]`);
+  // Emails are editable in place.
+  await expect(row.getByLabel("Guest Interviewer's email")).toHaveValue(guestEmail);
+  await expect(row).toHaveCount(1);
+  await row.getByTestId("remove-interviewer").click();
+  await settled(page);
+  await expect(row).toHaveCount(0);
+  await guest.goto("/crm/candidates");
+  await expect(guest).toHaveURL(/\/crm\/sign-in\?error=removed/);
+  await expect(guest.getByTestId("sign-in-error")).toContainText("no longer have access");
+  await guestCtx.close();
+
+  // ── Intern joins: new candidate, "joined themselves", Next-up proposal ──
+  const internCtx = await browser.newContext();
+  const intern = await internCtx.newPage();
+  await skipIntro(intern);
+  await intern.goto(path(internUrl));
+  const inf = intern.getByTestId("join-form");
+  await inf.getByLabel("Your name").fill(internName);
+  await inf.getByLabel("Email").fill(internEmail);
+  await inf.getByLabel("School").fill("Pratt");
+  await inf.getByLabel("Major").fill("Industrial design");
+  await inf.getByRole("button", { name: "Join" }).click();
+  await expect(intern).toHaveURL(/\/crm\/me$/);
+  await internCtx.close();
+
+  await page.goto("/crm/candidates");
+  const newRow = page.getByTestId("candidate-row").filter({ hasText: internName });
+  await expect(newRow.getByTestId("joined-chip")).toBeVisible();
+  await page.goto("/crm");
+  await page.getByTestId("next-up-count").click();
+  await expect(page.getByTestId("nextup-panel").getByTestId("proposal").filter({ hasText: `Fill in ${internName}'s record` })).toBeVisible();
+
+  // Plain sign-in now works for them, with no role picker.
+  const againCtx = await browser.newContext();
+  const again = await againCtx.newPage();
+  await skipIntro(again);
+  await signIn(again, internEmail);
+  await expect(again).toHaveURL(/\/crm\/me$/);
+  await againCtx.close();
+
+  // ── Regenerating turns the old intern link off ──
+  await page.goto("/crm/settings");
+  await page.getByTestId("regenerate-intern-invite").click();
+  await page.getByTestId("confirm-regenerate-intern").click();
+  await settled(page);
+  await expect(page.getByLabel("Intern invite link")).not.toHaveValue(internUrl);
+  await page.goto(path(internUrl));
+  await expect(page.getByTestId("invite-expired")).toHaveText("This invite has expired — ask whoever runs the CRM for a new link.");
+  await page.goto("/crm/join/interviewer/not-a-real-token");
+  await expect(page.getByTestId("invite-expired")).toBeVisible();
 });

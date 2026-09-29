@@ -15,6 +15,16 @@ export function TierChip({ tier }: { tier: Tier; className?: string }) {
   );
 }
 
+/** Grey chip on candidates who came in through the intern invite link. */
+export function JoinedChip({ show }: { show: boolean }) {
+  if (!show) return null;
+  return (
+    <span className="tier standard" data-testid="joined-chip" title="Signed up through the intern invite link">
+      Joined themselves
+    </span>
+  );
+}
+
 const NEXT: Record<TaskStatus, TaskStatus> = { todo: "doing", doing: "done", done: "todo" };
 
 /** .task .chk — cycles to-do → in progress (half-filled) → done (filled). */

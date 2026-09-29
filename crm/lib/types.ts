@@ -34,7 +34,20 @@ export type TaskStatus = "todo" | "doing" | "done";
 export type TaskKind = "work" | "interview";
 export const TASK_STATUS_LABEL: Record<TaskStatus, string> = { todo: "To do", doing: "In progress", done: "Done" };
 
-export type Interviewer = { id: string; name: string; email: string; color: string };
+export type Interviewer = {
+  id: string;
+  name: string;
+  email: string;
+  color: string;
+  /** Removed in Settings: kept so their name still shows on interviews and notes, but no access. */
+  removed?: boolean;
+};
+
+/** The two join links. The interviewer one expires; the intern one doesn't. */
+export type Invites = {
+  interviewer: { url: string; expiresAt: string | null };
+  intern: { url: string };
+};
 
 export type Skill = { id: string; skill: string; score: number };
 
@@ -56,6 +69,8 @@ export type Candidate = {
   resumeJson: ResumeJson;
   resumeFileUrl: string | null;
   createdAt: string;
+  /** Came in through the intern invite link rather than being added by an interviewer. */
+  selfJoined: boolean;
   skills: Skill[];
   areaIds: string[];
 };
@@ -134,8 +149,11 @@ export type CrmData = {
   notes: Note[];
   activity: ActivityItem[];
   settings: Settings;
-  /** CRM_ALLOWED_EMAILS, for the Settings interviewer list. */
-  allowlist: string[];
+  /** Next-up proposal keys the signed-in interviewer dismissed for today. */
+  dismissed: string[];
+  /** CRM_ALLOWED_EMAILS — owners always have access and can't be removed. */
+  owners: string[];
+  invites: Invites;
   campaign: Campaign | null;
   tasks: Task[];
   sessions: Session[];

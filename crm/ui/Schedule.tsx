@@ -94,13 +94,13 @@ export function Schedule() {
               { value: "week", label: "Week" },
             ]}
           />
-          <button type="button" className="pill-btn sq" aria-label={mode === "day" ? "Previous day" : "Previous week"} onClick={() => setDay(addDays(day, mode === "day" ? -1 : -7))}>
+          <button type="button" className="pill-btn sq prev" aria-label={mode === "day" ? "Previous day" : "Previous week"} onClick={() => setDay(addDays(day, mode === "day" ? -1 : -7))}>
             <Icon name="left" />
           </button>
           <span className="one-line" style={{ fontSize: 13, fontWeight: 500, minWidth: 96, textAlign: "center" }} data-testid="schedule-day">
             {mode === "day" ? formatDay(day) : `${formatDay(week[0])} – ${formatDay(week[6]).split(", ")[1]}`}
           </span>
-          <button type="button" className="pill-btn sq" aria-label={mode === "day" ? "Next day" : "Next week"} onClick={() => setDay(addDays(day, mode === "day" ? 1 : 7))}>
+          <button type="button" className="pill-btn sq next" aria-label={mode === "day" ? "Next day" : "Next week"} onClick={() => setDay(addDays(day, mode === "day" ? 1 : 7))}>
             <Icon name="right" />
           </button>
           {day !== today && (
@@ -110,7 +110,7 @@ export function Schedule() {
           )}
           <select aria-label="Interviewer" value={who} onChange={(e) => setWho(e.target.value)} className="pill-btn">
             <option value="all">All interviewers</option>
-            {data.interviewers.map((i) => (
+            {data.interviewers.filter((i) => !i.removed || i.id === who).map((i) => (
               <option key={i.id} value={i.id}>
                 {i.name}
               </option>

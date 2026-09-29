@@ -58,6 +58,8 @@ export const interviewers = pgTable("interviewers", {
   name: text("name").notNull(),
   email: text("email").notNull().unique(),
   color: text("color").notNull(),
+  /** Set when removed in Settings: no access, but their name stays on interviews and notes. */
+  removedAt: timestamp("removed_at", { withTimezone: true }),
   ...timestamps,
 });
 
@@ -88,6 +90,8 @@ export const candidates = pgTable("candidates", {
   resumeJson: jsonb("resume_json").$type<ResumeJson>().notNull(),
   resumeFileUrl: text("resume_file_url"),
   createdBy: uuid("created_by").references(() => interviewers.id, { onDelete: "set null" }),
+  /** Created from the intern invite link rather than by an interviewer. */
+  selfJoined: boolean("self_joined").notNull().default(false),
   ...timestamps,
 });
 
@@ -194,6 +198,10 @@ export const settings = pgTable("settings", {
   id: integer("id").primaryKey().default(1),
   priorityAt: integer("priority_at").notNull().default(8),
   benchAt: integer("bench_at").notNull().default(4),
+  /** Invite links: /crm/join/interviewer/<token> (expires) and /crm/join/intern/<token> (doesn't). */
+  interviewerInvite: text("interviewer_invite"),
+  interviewerInviteExpiresAt: timestamp("interviewer_invite_expires_at", { withTimezone: true }),
+  internInvite: text("intern_invite"),
   ...timestamps,
 });
 
@@ -266,4 +274,46 @@ export const reports = pgTable(
     ...timestamps,
   },
   (t) => [uniqueIndex("reports_candidate_day_idx").on(t.candidateId, t.day)],
+);
+
+/** "Next up" proposals an interviewer dismissed for a day (keyed by the proposal's stable key). */
+export const dismissals = pgTable(
+  "dismissals",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    interviewerId: uuid("interviewer_id")
+      .notNull()
+      .references(() => interviewers.id, { onDelete: "cascade" }),
+    day: date("day", { mode: "string" }).notNull(),
+    key: text("key").notNull(),
+    ...timestamps,
+  },
+  (t) => [uniqueIndex("dismissals_unique_idx").on(t.interviewerId, t.day, t.key)],
+);
+
+export const joinRole = pgEnum("join_role", ["interviewer", "intern"]);
+
+/**
+ * What someone typed on a join page, held until they verify their email (link or code). The
+ * invite token is re-checked at verification, so regenerating a link also voids pending joins.
+ */
+export const pendingJoins = pgTable("pending_joins", {
+  email: text("email").primaryKey(),
+  role: joinRole("role").notNull(),
+  token: text("token").notNull(),
+  name: text("name").notNull(),
+  school: text("school").notNull().default(""),
+  major: text("major").notNull().default(""),
+  ...timestamps,
+});
+
+/** One row per sign-in, join or code attempt; counted over a sliding window for rate limits. */
+export const authAttempts = pgTable(
+  "auth_attempts",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    bucket: text("bucket").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [index("auth_attempts_bucket_idx").on(t.bucket, t.createdAt)],
 );

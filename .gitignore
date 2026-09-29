@@ -51,3 +51,7 @@ next-env.d.ts
 /playwright-report
 !.env.example
 /.next-e2e/
+
+# fomo brand kit — fomo's, not ours to publish; keep a local copy only
+/docs/fomo_Brand_Kit.pdf
+*Brand_Kit*.pdf
