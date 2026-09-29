@@ -758,11 +758,30 @@ async function closeOpenSession(tx: Tx, candidateId: string, note: string) {
   return openRows;
 }
 
+/**
+ * Who a clock action is for: the signed-in intern, or — for an interviewer working from the
+ * candidate drawer — the intern the task belongs to. Returns the intern and a "by …" suffix.
+ */
+async function clockActor(candidateIdForInterviewer: string | null) {
+  const viewer = await getViewer();
+  if (!viewer) throw new UserError("Your session has ended. Sign in again.");
+  if (viewer.role === "intern") return { intern: viewer.candidate, by: "" };
+  if (!candidateIdForInterviewer) throw new UserError("That task isn't assigned to anyone.");
+  const db = await getDb();
+  const [c] = await db
+    .select({ id: schema.candidates.id, name: schema.candidates.name, email: schema.candidates.email })
+    .from(schema.candidates)
+    .where(eq(schema.candidates.id, candidateIdForInterviewer));
+  if (!c) throw new UserError("That candidate no longer exists.");
+  return { intern: c, by: ` · by ${viewer.interviewer.name}` };
+}
+
 export async function clockIn(taskId: string) {
   return run(async () => {
-    const me = await internOnly();
     id.parse(taskId);
     const db = await getDb();
+    const [owner] = await db.select({ candidateId: schema.tasks.candidateId }).from(schema.tasks).where(eq(schema.tasks.id, taskId));
+    const { intern: me, by } = await clockActor(owner?.candidateId ?? null);
     return db.transaction(async (tx) => {
       await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${me.id}))`);
       const [task] = await tx.select().from(schema.tasks).where(eq(schema.tasks.id, taskId));
@@ -775,7 +794,7 @@ export async function clockIn(taskId: string) {
       await logActivity(tx, {
         kind: "clock",
         title: "Clocked in",
-        subtitle: `${me.name} · ${task.title}${closed.length ? " (switched tasks)" : ""}`,
+        subtitle: `${me.name} · ${task.title}${closed.length ? " (switched tasks)" : ""}${by}`,
         candidateId: me.id,
         actorId: null,
       });
@@ -784,10 +803,12 @@ export async function clockIn(taskId: string) {
   });
 }
 
-export async function clockOut(input: { note: string; done: boolean }) {
+export async function clockOut(input: { note: string; done: boolean; candidateId?: string }) {
   return run(async () => {
-    const me = await internOnly();
-    const v = z.object({ note: trimmed(1000).min(1, "Say what you got done"), done: z.boolean() }).parse(input);
+    const v = z
+      .object({ note: trimmed(1000).min(1, "Say what you got done"), done: z.boolean(), candidateId: id.optional() })
+      .parse(input);
+    const { intern: me, by } = await clockActor(v.candidateId ?? null);
     const db = await getDb();
     await db.transaction(async (tx) => {
       const [session] = await tx
@@ -805,7 +826,7 @@ export async function clockOut(input: { note: string; done: boolean }) {
       await logActivity(tx, {
         kind: "clock",
         title: v.done ? "Clocked out · task done" : "Clocked out",
-        subtitle: `${me.name} · ${task?.title ?? "task"} · ${fmtLogged(minutes)}`,
+        subtitle: `${me.name} · ${task?.title ?? "task"} · ${fmtLogged(minutes)}${by}`,
         candidateId: me.id,
         actorId: null,
       });

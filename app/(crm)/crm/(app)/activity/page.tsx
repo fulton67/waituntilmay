@@ -7,7 +7,7 @@ import { useCrm } from "@/crm/ui/store";
 export default function ActivityPage() {
   const { data } = useCrm();
   return (
-    <Card title="Activity" className="max-w-[760px]">
+    <Card title="Activity" style={{ maxWidth: 760 }}>
       <ActivityList items={data.activity} />
     </Card>
   );

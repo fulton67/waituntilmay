@@ -8,9 +8,9 @@ import { dayOf, firstName, fmtLogged, sessionMinutes, weekOf } from "../lib/rank
 import { formatDay } from "../lib/time";
 import { INTERVIEW_TYPE_LABEL, type ActionResult, type InternData, type Task, type TaskStatus } from "../lib/types";
 import { TaskStatusButton } from "./bits";
-import { Avatar, Button, Icon, Modal, cx } from "./primitives";
+import { Avatar, Icon, cx } from "./primitives";
 import { useClock, useTheme } from "./store";
-import { Chip2 } from "./Tasks";
+import { ClockOutModal } from "./Tasks";
 
 const timeOf = (iso: string, tz: string) => new Date(iso).toLocaleTimeString("en-GB", { timeZone: tz, hour: "2-digit", minute: "2-digit" });
 
@@ -45,161 +45,178 @@ export function InternView({ data }: { data: InternData }) {
     });
 
   return (
-    <div className="mx-auto max-w-[880px] px-4 pb-16 pt-5" data-testid="intern-view" data-intern={data.intern.id}>
-      <header className="flex items-center gap-3">
-        <span className="crm-mark crm-wordmark" role="img" aria-label="fomo" />
-        <span className="h-5 w-px bg-(--line)" />
-        <span className="font-medium text-(--muted)">Intern CRM</span>
-        <div className="ml-auto flex items-center gap-1">
+    <div className="content" style={{ maxWidth: 920, margin: "0 auto", padding: "28px 24px 48px" }} data-testid="intern-view" data-intern={data.intern.id}>
+      <header className="top">
+        <div className="brand">
+          <span className="mark wordmark" role="img" aria-label="fomo" />
+          <span className="sep" aria-hidden />
+          <h1>
+            Intern CRM <span>Today, {formatDay(today, "long")}</span>
+          </h1>
+        </div>
+        <div className="actions">
           <button
             type="button"
+            className="icon-btn"
             onClick={toggleTheme}
             data-testid="theme-toggle"
             aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
-            className="grid size-10 place-items-center rounded-xl text-(--muted) hover:bg-(--card-2) hover:text-(--ink)"
           >
             <Icon name={theme === "dark" ? "sun" : "moon"} />
           </button>
           {readOnly ? (
-            <Link href="/crm" className="inline-flex h-9 items-center rounded-xl border border-(--line) bg-(--card) px-3 text-[13px] font-bold">
+            <Link href="/crm" className="btn-ghost" style={{ display: "inline-flex", alignItems: "center" }}>
               Back to CRM
             </Link>
           ) : (
             <form action={signOut}>
-              <Button type="submit" variant="ghost" size="sm">
+              <button type="submit" className="btn-ghost">
                 Sign out
-              </Button>
+              </button>
             </form>
           )}
         </div>
       </header>
 
       {readOnly && (
-        <p className="mt-4 rounded-2xl border border-(--line) bg-(--card-2) px-4 py-3 text-[13px]">
-          Viewing as <span className="font-bold">{data.intern.name}</span> — exactly what they see. Buttons are read-only here.
-        </p>
+        <div className="intern-banner">
+          <span>
+            Viewing as <b>{data.intern.name}</b> — exactly what they see. Buttons are read-only here.
+          </span>
+          <Link href="/crm">Exit</Link>
+        </div>
       )}
 
-      <h1 className="mt-8 text-[30px] font-bold tracking-[-0.02em]">Hi {firstName(data.intern.name)}</h1>
+      <h1 style={{ margin: "6px 4px 0", fontSize: 26, fontWeight: 700, letterSpacing: "-.02em" }}>Hi {firstName(data.intern.name)}</h1>
 
       {data.campaign && (
-        <section className="crm-focal mt-4 rounded-[22px] p-6" data-testid="intern-campaign">
-          <p className="crm-sub text-[13px] font-medium">Current campaign</p>
-          <h2 className="mt-1 text-[22px] font-bold">{data.campaign.name}</h2>
-          <p className="crm-sub mt-2 max-w-[640px] leading-relaxed">{data.campaign.brief}</p>
-          <div className="mt-4 flex flex-wrap items-center gap-1.5">
-            {data.campaign.goal && <span className="rounded-full bg-white px-2.5 py-0.5 text-[12px] font-bold text-[#516AF6]">{data.campaign.goal}</span>}
+        <section className="card hero" data-testid="intern-campaign">
+          <h2 className="wrap-any">{data.campaign.name}</h2>
+          <p className="wrap-any">{data.campaign.brief}</p>
+          {data.campaign.goal && <span className="goal">{data.campaign.goal}</span>}
+          <div className="targets">
             {data.campaign.targets.map((t) => (
-              <span key={t} className="rounded-full border border-white/40 px-2.5 py-0.5 text-[12px] font-medium">
-                {t}
-              </span>
+              <span key={t}>{t}</span>
             ))}
           </div>
         </section>
       )}
 
-      {/* Clock card */}
-      <section className="mt-4 flex flex-wrap items-center gap-4 rounded-[22px] border border-(--line) bg-(--card) p-5" data-testid="clock-card">
-        {open ? (
-          <>
-            <span className="size-2.5 flex-none rounded-full bg-(--highlight)" aria-hidden />
-            <div className="min-w-0 flex-1" suppressHydrationWarning>
-              <p className="font-bold">You&apos;re clocked in · {openTask?.title}</p>
-              <p className="text-[13px] text-(--muted)">
-                since {timeOf(open.startedAt, data.tz)} · <span data-testid="clock-minutes">{sessionMinutes(open, nowMs)} min</span> · {fmtLogged(minutesToday)} today
-              </p>
-            </div>
-            <Button variant="primary" disabled={readOnly || pending} onClick={() => setClockingOut(true)} data-testid="clock-out">
-              Clock out
-            </Button>
-          </>
-        ) : (
-          <div className="flex-1">
-            <p className="font-bold">Not clocked in</p>
-            <p className="text-[13px] text-(--muted)">
-              Pick a task and clock in{minutesToday ? ` · ${fmtLogged(minutesToday)} today` : ""}.
-            </p>
+      <section className={cx("card nowcard", open && "on")} data-testid="clock-card">
+        <div className="card-head">
+          <div style={{ minWidth: 0 }} suppressHydrationWarning>
+            {open ? (
+              <>
+                <h2 className="wrap-any">You&apos;re clocked in · {openTask?.title}</h2>
+                <div className="sub">
+                  since {timeOf(open.startedAt, data.tz)} · <span data-testid="clock-minutes">{sessionMinutes(open, nowMs)} min</span> · {fmtLogged(minutesToday)} today
+                </div>
+              </>
+            ) : (
+              <>
+                <h2>Not clocked in</h2>
+                <div className="sub">Pick a task and clock in{minutesToday ? ` · ${fmtLogged(minutesToday)} today` : ""}.</div>
+              </>
+            )}
           </div>
-        )}
+          {open && (
+            <button type="button" className="btn-accent" disabled={readOnly || pending} onClick={() => setClockingOut(true)} data-testid="clock-out">
+              Clock out
+            </button>
+          )}
+        </div>
       </section>
 
       {message && (
-        <p className={cx("mt-3 rounded-xl px-4 py-2.5 text-[13px] font-medium", message.warn ? "border border-(--highlight) text-(--highlight)" : "bg-(--card-2)")} role={message.warn ? "alert" : "status"}>
+        <div className="banner" role={message.warn ? "alert" : "status"} style={message.warn ? { color: "var(--hi)", fontWeight: 700 } : undefined}>
           {message.text}
-        </p>
+        </div>
       )}
 
-      <Section title="Your assignments today">
-        <TaskList tasks={todays} data={data} openTaskId={open?.taskId} readOnly={readOnly} pending={pending} run={run} onClockOut={() => setClockingOut(true)} />
-        {later.length > 0 && (
-          <>
-            <h3 className="mb-2 mt-5 font-medium text-(--muted)">Later this week</h3>
-            <TaskList tasks={later} data={data} openTaskId={open?.taskId} readOnly={readOnly} pending={pending} run={run} onClockOut={() => setClockingOut(true)} />
-          </>
-        )}
-      </Section>
+      <div className="two">
+        <section className="card">
+          <h2>Your assignments today</h2>
+          <TaskList tasks={todays} data={data} openTaskId={open?.taskId} readOnly={readOnly} pending={pending} run={run} onClockOut={() => setClockingOut(true)} />
+          {later.length > 0 && (
+            <>
+              <h4 style={{ margin: "16px 0 8px", fontSize: 12, fontWeight: 700, color: "var(--muted)" }}>Later this week</h4>
+              <TaskList tasks={later} data={data} openTaskId={open?.taskId} readOnly={readOnly} pending={pending} run={run} onClockOut={() => setClockingOut(true)} />
+            </>
+          )}
+        </section>
 
-      <Section title="Your interviews">
-        <ul className="space-y-2" data-testid="intern-interviews">
-          {upcoming.map((iv) => {
-            const prep = data.tasks.filter((t) => t.kind === "interview" && t.day === iv.date);
-            return (
-              <li key={iv.id} className="rounded-2xl border border-(--line) bg-(--card) p-4" data-interview-id={iv.id}>
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="font-bold">
-                    {formatDay(iv.date)}, {iv.startTime}–{iv.endTime}
-                  </span>
-                  <span className="text-(--muted)">{INTERVIEW_TYPE_LABEL[iv.type]}</span>
-                  <span className="ml-auto inline-flex items-center gap-1.5 text-[13px]">
-                    <Avatar name={iv.interviewer.name} color={iv.interviewer.color} size={22} /> {iv.interviewer.name}
-                  </span>
+        <section className="card">
+          <h2>Your interviews</h2>
+          <div data-testid="intern-interviews" style={{ marginTop: 10 }}>
+            {upcoming.map((iv) => {
+              const prep = data.tasks.filter((t) => t.kind === "interview" && t.day === iv.date);
+              const [wd, md] = formatDay(iv.date).split(", ");
+              return (
+                <div key={iv.id} className="my-iv" data-interview-id={iv.id}>
+                  <div className="d">
+                    {wd}
+                    <b>{md}</b>
+                  </div>
+                  <div className="x" style={{ minWidth: 0 }}>
+                    <b className="one-line" style={{ display: "block" }}>
+                      {INTERVIEW_TYPE_LABEL[iv.type]} · {iv.startTime}–{iv.endTime}
+                    </b>
+                    <small className="flex items-center gap-1.5">
+                      <Avatar name={iv.interviewer.name} color={iv.interviewer.color} size={18} /> with {iv.interviewer.name}
+                      {iv.location ? ` · ${iv.location}` : ""}
+                    </small>
+                    {prep.map((t) => (
+                      <span key={t.id} className="prep wrap-any">
+                        Prepare: {t.title}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                {iv.location && <p className="mt-1 text-[13px] text-(--muted)">{iv.location}</p>}
-                {prep.map((t) => (
-                  <p key={t.id} className="mt-2 text-[13px]">
-                    <span className="font-bold">Prepare:</span> {t.title}
-                  </p>
-                ))}
-              </li>
-            );
-          })}
-          {!upcoming.length && <li className="text-(--muted)">No interviews coming up.</li>}
-        </ul>
-      </Section>
+              );
+            })}
+            {!upcoming.length && <div className="empty">No interviews coming up.</div>}
+          </div>
+        </section>
+      </div>
 
-      <Section title="End your day">
-        <div className="rounded-[22px] border border-(--line) bg-(--card) p-5" data-testid="end-day">
-          <ul className="space-y-2">
+      <section className="card">
+        <h2>End your day</h2>
+        <div className="eod" style={{ marginTop: 12 }} data-testid="end-day">
+          <div className="eod-list">
             {todaySessions.map((s) => (
-              <li key={s.id} className="grid grid-cols-[96px_1fr_auto] gap-3 text-[13px]" suppressHydrationWarning>
-                <span className="tabular-nums text-(--muted)">
+              <div key={s.id} suppressHydrationWarning>
+                <b>{fmtLogged(sessionMinutes(s, nowMs))}</b>
+                {data.tasks.find((t) => t.id === s.taskId)?.title}
+                <small className="wrap-any">
                   {timeOf(s.startedAt, data.tz)}–{s.endedAt ? timeOf(s.endedAt, data.tz) : "now"}
-                </span>
-                <span>
-                  <span className="font-medium">{data.tasks.find((t) => t.id === s.taskId)?.title}</span>
-                  {s.note && <span className="block text-(--muted)">{s.note}</span>}
-                </span>
-                <span className="tabular-nums">{fmtLogged(sessionMinutes(s, nowMs))}</span>
-              </li>
+                  {s.note ? ` · ${s.note}` : ""}
+                </small>
+              </div>
             ))}
-            {!todaySessions.length && <li className="text-[13px] text-(--muted)">No time logged today yet.</li>}
-          </ul>
-          {finishedToday.length > 0 && <p className="mt-3 text-[13px]">Finished today: {finishedToday.map((t) => t.title).join(", ")}</p>}
-          <ReportForm key={report?.submittedAt ?? "new"} initial={report?.summary ?? ""} submitted={!!report} disabled={readOnly || pending} onSubmit={(text) => run(() => submitReport(text), "Report submitted — you're clocked out. Nice work.")} />
+            {!todaySessions.length && <div style={{ color: "var(--muted)" }}>No time logged today yet.</div>}
+          </div>
+          {finishedToday.length > 0 && <div className="eod-done">Finished today: {finishedToday.map((t) => t.title).join(", ")}</div>}
         </div>
-      </Section>
+        <ReportForm
+          key={report?.submittedAt ?? "new"}
+          initial={report?.summary ?? ""}
+          submitted={!!report}
+          disabled={readOnly || pending}
+          onSubmit={(text) => run(() => submitReport(text), "Report submitted — you're clocked out. Nice work.")}
+        />
+      </section>
 
       {data.areas.length > 0 && (
-        <Section title="You're attached to">
-          <div className="flex flex-wrap gap-1.5">
+        <section className="card">
+          <h2>You&apos;re attached to</h2>
+          <div className="chips" style={{ marginTop: 10 }}>
             {data.areas.map((a) => (
-              <span key={a.id} className="rounded-full border border-(--line) bg-(--card) px-3 py-1 text-[13px] font-medium" title={a.description}>
+              <span key={a.id} className={cx("chip", a.kind === "goal" ? "goal" : "area")} title={a.description}>
                 {a.name}
-                <span className="ml-1.5 text-[11px] text-(--muted)">{a.kind === "goal" ? "goal" : "area"}</span>
               </span>
             ))}
           </div>
-        </Section>
+        </section>
       )}
 
       {clockingOut && open && (
@@ -214,15 +231,6 @@ export function InternView({ data }: { data: InternData }) {
         />
       )}
     </div>
-  );
-}
-
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <section className="mt-8">
-      <h2 className="mb-3 text-[17px] font-bold">{title}</h2>
-      {children}
-    </section>
   );
 }
 
@@ -243,37 +251,39 @@ function TaskList({
   run: (fn: () => Promise<ActionResult<unknown>>, ok?: string) => void;
   onClockOut: () => void;
 }) {
-  if (!tasks.length) return <p className="text-(--muted)">Nothing assigned. Check back soon.</p>;
+  if (!tasks.length) return <div className="assign-empty">Nothing assigned. Check back soon.</div>;
   return (
-    <ul className="space-y-2" data-testid="intern-tasks">
+    <div className="tasks" style={{ marginTop: 10 }} data-testid="intern-tasks">
       {tasks.map((t) => {
         const active = t.id === openTaskId;
         return (
-          <li key={t.id} className={cx("flex gap-3 rounded-2xl border bg-(--card) p-4", active ? "border-(--brand)" : "border-(--line)")} data-testid="intern-task" data-task-id={t.id} data-status={t.status}>
+          <div key={t.id} className={cx("task", t.status === "done" && "done", active && "live")} data-testid="intern-task" data-task-id={t.id} data-status={t.status}>
             <TaskStatusButton status={t.status} disabled={readOnly || pending} onChange={(s: TaskStatus) => run(() => setTaskStatus(t.id, s))} />
-            <div className="min-w-0 flex-1">
-              <p className={cx("font-medium", t.status === "done" && "text-(--muted) line-through")}>{t.title}</p>
-              {t.detail && <p className="mt-0.5 text-[13px] text-(--muted)">{t.detail}</p>}
-              <div className="mt-2 flex flex-wrap gap-1.5">
-                <Chip2>{t.kind === "interview" ? "Interview prep" : "Work"}</Chip2>
-                <Chip2>{formatDay(t.day)}</Chip2>
-                {t.status !== "done" && t.day < data.today && <Chip2 tone="warn">Overdue</Chip2>}
+            <div className="t" style={{ minWidth: 0 }}>
+              <b className="wrap-any">{t.title}</b>
+              {t.detail && <small className="wrap-any">{t.detail}</small>}
+              <div className="meta">
+                <span className={cx("kind", t.kind)}>{t.kind === "interview" ? "Interview prep" : "Work"}</span>
+                <span>{formatDay(t.day)}</span>
+                {t.status !== "done" && t.day < data.today && <span className="late">Overdue</span>}
               </div>
             </div>
-            {t.status !== "done" &&
-              (active ? (
-                <Button size="sm" disabled={readOnly || pending} onClick={onClockOut}>
-                  Clock out
-                </Button>
-              ) : (
-                <Button size="sm" variant="primary" disabled={readOnly || pending} onClick={() => run(() => clockIn(t.id), `Clocked in on "${t.title}".`)} data-testid="clock-in">
-                  Clock in
-                </Button>
-              ))}
-          </li>
+            <div className="act">
+              {t.status !== "done" &&
+                (active ? (
+                  <button type="button" className="btn-ghost sm" disabled={readOnly || pending} onClick={onClockOut}>
+                    Clock out
+                  </button>
+                ) : (
+                  <button type="button" className="btn-accent sm" disabled={readOnly || pending} onClick={() => run(() => clockIn(t.id), `Clocked in on "${t.title}".`)} data-testid="clock-in">
+                    Clock in
+                  </button>
+                ))}
+            </div>
+          </div>
         );
       })}
-    </ul>
+    </div>
   );
 }
 
@@ -281,81 +291,20 @@ function ReportForm({ initial, submitted, disabled, onSubmit }: { initial: strin
   const [text, setText] = useState(initial);
   return (
     <form
-      className="mt-4 border-t border-(--line) pt-4"
+      className="composer"
+      style={{ marginTop: 12 }}
       onSubmit={(e) => {
         e.preventDefault();
         if (text.trim()) onSubmit(text.trim());
       }}
     >
-      <label className="block">
-        <span className="mb-1.5 block font-medium">What did you accomplish today?</span>
-        <textarea
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          rows={4}
-          aria-label="What did you accomplish today?"
-          className="w-full rounded-xl border border-(--line) bg-(--card) p-3 outline-none focus:border-(--brand)"
-        />
-      </label>
-      <div className="mt-2 flex items-center justify-between gap-3">
-        <span className="text-[12px] text-(--muted)">{submitted ? "Submitted — you can edit and resubmit." : "Submitting also clocks you out."}</span>
-        <Button type="submit" variant="primary" disabled={disabled || !text.trim()} data-testid="submit-report">
+      <textarea value={text} onChange={(e) => setText(e.target.value)} aria-label="What did you accomplish today?" placeholder="What did you accomplish today?" />
+      <div className="r" style={{ justifyContent: "space-between", alignItems: "center" }}>
+        <span style={{ fontSize: 12, color: "var(--muted)" }}>{submitted ? "Submitted — you can edit and resubmit." : "Submitting also clocks you out."}</span>
+        <button type="submit" className="btn-accent" disabled={disabled || !text.trim()} data-testid="submit-report">
           {submitted ? "Resubmit report" : "Submit report"}
-        </Button>
+        </button>
       </div>
     </form>
-  );
-}
-
-function ClockOutModal({
-  minutes,
-  taskTitle,
-  onClose,
-  onSubmit,
-}: {
-  minutes: number;
-  taskTitle: string;
-  onClose: () => void;
-  onSubmit: (note: string, done: boolean) => void;
-}) {
-  const [note, setNote] = useState("");
-  const [done, setDone] = useState(false);
-  return (
-    <Modal title="Clock out" onClose={onClose}>
-      <form
-        className="space-y-3"
-        data-testid="clock-out-form"
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (note.trim()) onSubmit(note.trim(), done);
-        }}
-      >
-        <p className="text-(--muted)">
-          {minutes} min on <span className="font-bold text-(--ink)">{taskTitle}</span> so far.
-        </p>
-        <label className="block">
-          <span className="mb-1.5 block font-medium">What did you get done?</span>
-          <textarea
-            value={note}
-            onChange={(e) => setNote(e.target.value)}
-            rows={3}
-            required
-            autoFocus
-            aria-label="What did you get done?"
-            className="w-full rounded-xl border border-(--line) bg-(--card) p-3 outline-none focus:border-(--brand)"
-          />
-        </label>
-        <label className="flex items-center gap-2">
-          <input type="checkbox" checked={done} onChange={(e) => setDone(e.target.checked)} className="size-4 accent-(--brand)" />
-          Mark the task done
-        </label>
-        <div className="flex justify-end gap-2 pt-2">
-          <Button onClick={onClose}>Keep working</Button>
-          <Button variant="primary" type="submit" disabled={!note.trim()}>
-            Clock out
-          </Button>
-        </div>
-      </form>
-    </Modal>
   );
 }

@@ -5,23 +5,24 @@ import { HashScroll } from "@/crm/ui/HashScroll";
 import { KpiCards } from "@/crm/ui/Kpis";
 import { Schedule } from "@/crm/ui/Schedule";
 
+/** Sections are direct children of the shell's .content column (flex, gap 14px). */
 export default function OverviewPage() {
   return (
-    <div className="space-y-4">
+    <>
       <HashScroll />
-      <div id="overview" className="scroll-mt-4">
+      <div id="overview">
         <KpiCards />
       </div>
-      <div id="schedule" className="grid scroll-mt-4 grid-cols-1 items-start gap-4 min-[1200px]:grid-cols-[minmax(0,1fr)_372px]">
+      <div id="schedule" className="mid">
         <Schedule />
         <ActivityCard />
       </div>
-      <div id="campaign" className="scroll-mt-4">
+      <div id="campaign">
         <CampaignSection />
       </div>
-      <div id="candidates" className="scroll-mt-4">
+      <div id="candidates">
         <CandidatesTable />
       </div>
-    </div>
+    </>
   );
 }

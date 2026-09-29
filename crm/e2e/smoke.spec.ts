@@ -17,7 +17,7 @@ test.describe.configure({ timeout: 240_000 });
 
 /** The intro splash plays once per browser session; tests skip it. */
 async function skipIntro(page: Page) {
-  await page.addInitScript(() => sessionStorage.setItem("fomo-intro-seen", "1"));
+  await page.addInitScript(() => sessionStorage.setItem("crm-intro-seen", "1"));
 }
 
 test.beforeEach(async ({ page }) => skipIntro(page));
@@ -110,7 +110,7 @@ test("smoke: interviewer + intern flows end to end", async ({ page, browser }) =
   await form.getByRole("button", { name: "Create candidate" }).click();
   let drawer = page.getByTestId("drawer");
   await expect(drawer.getByTestId("candidate-record")).toBeVisible();
-  await expect(drawer.getByRole("button", { name: "Edit name" })).toHaveText(name);
+  await expect(drawer.getByLabel("Name", { exact: true })).toHaveValue(name);
   await expect(drawer.getByRole("link", { name: "@test.handle" })).toHaveAttribute("href", "https://instagram.com/test.handle");
   await settled(page);
   const newId = (await drawer.getByTestId("candidate-record").getAttribute("data-candidate-id"))!;
@@ -160,11 +160,11 @@ test("smoke: interviewer + intern flows end to end", async ({ page, browser }) =
   ];
   const expectedOrder = ranked(fits).map((c) => c.id);
   await page.goto("/crm");
-  const rows = page.getByTestId("leaderboard-rows").locator("li");
+  const rows = page.getByTestId("leaderboard-rows").locator(".lb-row[data-candidate]");
   await expect(rows).toHaveCount(fits.length);
   expect(await rows.evaluateAll((els) => els.map((e) => e.getAttribute("data-candidate")))).toEqual(expectedOrder);
 
-  await page.getByTestId("leaderboard").click();
+  await page.getByRole("button", { name: "Open rankings & tiers" }).click();
   const panel = page.getByTestId("panel-rankings");
   for (const c of fits) {
     await expect(panel.getByTestId(`tier-${autoTier(c.fit, S)}`).locator(`[data-candidate="${c.id}"]`)).toBeVisible();
@@ -247,7 +247,7 @@ test("smoke: interviewer + intern flows end to end", async ({ page, browser }) =
   const pranavLog = log.locator(`[data-testid="daylog-intern"][data-candidate="${PRANAV}"]`);
   const session = pranavLog.locator("li").filter({ hasText: "Wired the school picker" });
   await expect(session).toContainText(taskTitle);
-  await expect(session).toContainText(/\d+m$/);
+  await expect(session).toContainText(/^\d+(h \d+)?m/);
   await expect(log.getByTestId("narrative")).toContainText("Pranav: Shipped the campus picker.");
   await page.keyboard.press("Escape");
 

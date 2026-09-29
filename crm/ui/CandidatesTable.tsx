@@ -2,13 +2,13 @@
 
 import { useMemo, useState } from "react";
 import { createCandidate } from "../lib/actions";
+import { colorFor } from "../lib/colors";
+import { tierOf } from "../lib/ranking";
 import { formatDay, formatDuration } from "../lib/time";
 import { EMPTY_RESUME, STATUS_LABEL, type Candidate, type Status } from "../lib/types";
-import { candidateRows, type Row } from "./derive";
-import { poolFloor, onScale, tierOf } from "../lib/ranking";
 import { TierChip } from "./bits";
-import { colorFor } from "../lib/colors";
-import { Avatar, Button, Card, Field, Icon, Modal, StatusPill, cx, inputClass } from "./primitives";
+import { candidateRows, type Row } from "./derive";
+import { Avatar, Button, Icon, Modal, StatusPill, cx } from "./primitives";
 import { useClock, useCrm } from "./store";
 
 type Tab = "all" | Status;
@@ -24,9 +24,7 @@ const TABS: { value: Tab; label: string }[] = [
 function matches(row: Row, q: string) {
   if (!q) return true;
   const c = row.candidate;
-  const hay = [c.name, c.school, c.major, c.program, ...c.skills.map((s) => s.skill), ...(c.resumeJson?.skills ?? [])]
-    .join(" ")
-    .toLowerCase();
+  const hay = [c.name, c.school, c.major, c.program, ...c.skills.map((s) => s.skill), ...(c.resumeJson?.skills ?? [])].join(" ").toLowerCase();
   return q
     .toLowerCase()
     .split(/\s+/)
@@ -46,58 +44,17 @@ export function CandidatesTable({ initialQuery = "", title = "Candidates" }: { i
   const searched = rows.filter((r) => matches(r, q) && (areaFilter === "all" || r.candidate.areaIds.includes(areaFilter)));
   const visible = searched.filter((r) => tab === "all" || r.candidate.status === tab);
   const interviewerById = new Map(data.interviewers.map((i) => [i.id, i]));
-  const floor = poolFloor(data.candidates, data.interviews);
 
   return (
-    <Card
-      title={title}
-      className="crm-reveal"
-      bodyClassName="pb-2"
-      action={
-        <Button variant="primary" className="crm-cta" onClick={() => setCreating(true)}>
-          <Icon name="plus" size={16} /> New candidate
-        </Button>
-      }
-    >
-      <div className="flex flex-wrap items-center gap-3 px-5 pb-3">
-        <div role="tablist" aria-label="Status" className="crm-scroll flex gap-1 overflow-x-auto">
-          {TABS.map((t) => {
-            const count = searched.filter((r) => t.value === "all" || r.candidate.status === t.value).length;
-            return (
-              <button
-                key={t.value}
-                role="tab"
-                type="button"
-                aria-selected={tab === t.value}
-                onClick={() => setTab(t.value)}
-                className={cx(
-                  "inline-flex h-8 flex-none items-center gap-1.5 rounded-lg px-3 text-[13px] font-medium",
-                  tab === t.value ? "bg-(--ink) text-(--canvas)" : "text-(--muted) hover:bg-(--card-2) hover:text-(--ink)",
-                )}
-              >
-                {t.label}
-                <span className="tabular-nums opacity-70">{count}</span>
-              </button>
-            );
-          })}
-        </div>
-        <div className="ml-auto flex flex-wrap gap-2">
-          <div className="relative">
-            <Icon name="search" size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-(--muted)" />
-            <input
-              value={q}
-              onChange={(e) => setQ(e.target.value)}
-              placeholder="Name, school, skill…"
-              aria-label="Filter candidates"
-              className="h-9 w-[220px] rounded-xl border border-(--line) bg-(--card) pl-9 pr-3 text-[13px] outline-none placeholder:text-(--muted) focus:border-(--brand)"
-            />
-          </div>
-          <select
-            aria-label="Area or goal"
-            value={areaFilter}
-            onChange={(e) => setAreaFilter(e.target.value)}
-            className="h-9 rounded-xl border border-(--line) bg-(--card) px-2 text-[13px]"
-          >
+    <section className="card reveal" data-testid="candidates-card">
+      <div className="card-head">
+        <h2>{title}</h2>
+        <div className="tools">
+          <label className="search" style={{ boxShadow: "none", background: "var(--card-2)", width: 220 }}>
+            <Icon name="search" size={15} className="flex-none text-(--muted)" />
+            <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Name, school, skill…" aria-label="Filter candidates" />
+          </label>
+          <select aria-label="Area or goal" value={areaFilter} onChange={(e) => setAreaFilter(e.target.value)} className="pill-btn">
             <option value="all">All areas & goals</option>
             <optgroup label="Areas">
               {data.areas
@@ -118,22 +75,37 @@ export function CandidatesTable({ initialQuery = "", title = "Candidates" }: { i
                 ))}
             </optgroup>
           </select>
+          <button type="button" className="btn-black" onClick={() => setCreating(true)}>
+            <Icon name="plus" /> New candidate
+          </button>
         </div>
       </div>
 
-      <div className="crm-scroll overflow-x-auto">
-        <table className="w-full min-w-[1080px] border-collapse text-left" data-testid="candidates-table">
+      <div role="tablist" aria-label="Status" className="tabs" style={{ marginTop: 14 }}>
+        {TABS.map((t) => {
+          const count = searched.filter((r) => t.value === "all" || r.candidate.status === t.value).length;
+          return (
+            <button key={t.value} role="tab" type="button" aria-selected={tab === t.value} onClick={() => setTab(t.value)} className={tab === t.value ? "on" : undefined}>
+              <span className="one-line">{t.label}</span>
+              <span className={cx("n", t.value !== "all" && t.value)}>{count}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="tbl-wrap">
+        <table data-testid="candidates-table">
           <thead>
-            <tr className="border-y border-(--line) text-[12px] font-medium text-(--muted)">
-              <th className="py-2.5 pl-5 pr-3 font-medium">Candidate</th>
-              <th className="px-3 font-medium">ID</th>
-              <th className="px-3 font-medium">Best at</th>
-              <th className="px-3 font-medium">Status</th>
-              <th className="px-3 font-medium">Area</th>
-              <th className="px-3 font-medium">Interviewer</th>
-              <th className="px-3 font-medium">Next interview</th>
-              <th className="px-3 font-medium">Time spent</th>
-              <th className="py-2.5 pl-3 pr-5 font-medium">Fit</th>
+            <tr>
+              <th>Candidate</th>
+              <th>ID</th>
+              <th>Best at</th>
+              <th>Status</th>
+              <th>Area</th>
+              <th>Interviewer</th>
+              <th>Next interview</th>
+              <th>Time spent</th>
+              <th>Fit</th>
             </tr>
           </thead>
           <tbody>
@@ -142,85 +114,59 @@ export function CandidatesTable({ initialQuery = "", title = "Candidates" }: { i
               const top = c.skills[0];
               const person = r.interviewerId ? interviewerById.get(r.interviewerId) : undefined;
               return (
-                <tr
-                  key={c.id}
-                  onClick={() => openCandidate(c.id)}
-                  className="cursor-pointer border-b border-(--line) last:border-0 hover:bg-(--card-2)"
-                  data-testid="candidate-row"
-                >
-                  <td className="py-3 pl-5 pr-3">
-                    <div className="flex items-center gap-3">
-                      <Avatar name={c.name} color={colorFor(c.id)} size={34} />
-                      <div className="min-w-0">
-                        <span className="flex items-center gap-1.5">
-                        <button
-                          type="button"
-                          className="block max-w-[200px] truncate text-left font-bold hover:underline"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            openCandidate(c.id);
-                          }}
-                        >
+                <tr key={c.id} className="row" onClick={() => openCandidate(c.id)} data-testid="candidate-row">
+                  <td style={{ maxWidth: 260 }}>
+                    <div className="who-cell">
+                      <Avatar name={c.name} color={colorFor(c.id)} size={30} />
+                      <span style={{ minWidth: 0 }}>
+                        <span className="nm one-line">
                           {c.name}
-                        </button>
-                        <TierChip tier={tierOf(c, data.settings)} />
+                          <TierChip tier={tierOf(c, data.settings)} />
                         </span>
-                        <div className="max-w-[240px] truncate text-[13px] text-(--muted)">
-                          {[c.school, c.major].filter(Boolean).join(" · ") || "—"}
-                        </div>
-                      </div>
+                        <span className="sub one-line">{[c.school, c.major].filter(Boolean).join(" · ") || "—"}</span>
+                      </span>
                     </div>
                   </td>
-                  <td className="px-3 tabular-nums text-(--muted)">#{String(c.seq).padStart(4, "0")}</td>
-                  <td className="px-3">
+                  <td style={{ color: "var(--muted)", whiteSpace: "nowrap" }}>#{String(c.seq).padStart(4, "0")}</td>
+                  <td style={{ maxWidth: 190 }}>
                     {top ? (
-                      <span className="inline-flex max-w-[200px] items-center gap-2">
-                        <span className="truncate">{top.skill}</span>
-                        <span className="text-[12px] tabular-nums text-(--muted)">{top.score}</span>
+                      <span className="one-line" style={{ display: "block" }}>
+                        {top.skill} <span style={{ color: "var(--muted)" }}>{top.score}</span>
                       </span>
                     ) : (
-                      <span className="text-(--muted)">—</span>
+                      <span style={{ color: "var(--muted)" }}>—</span>
                     )}
                   </td>
-                  <td className="px-3">
+                  <td>
                     <StatusPill status={c.status} />
                   </td>
-                  <td className="max-w-[170px] truncate px-3">{r.areaName ?? <span className="text-(--muted)">—</span>}</td>
-                  <td className="px-3">
-                    {person ? (
-                      <span className="inline-flex items-center gap-2">
-                        <Avatar name={person.name} color={person.color} size={22} />
-                        <span className="truncate">{person.name}</span>
-                      </span>
-                    ) : (
-                      <span className="text-(--muted)">—</span>
-                    )}
-                  </td>
-                  <td className="whitespace-nowrap px-3">
-                    {r.next ? (
-                      `${formatDay(r.next.date)}, ${r.next.startTime}`
-                    ) : (
-                      <span className="text-(--muted)">—</span>
-                    )}
-                  </td>
-                  <td className="whitespace-nowrap px-3 tabular-nums">{formatDuration(r.spent)}</td>
-                  <td className="py-3 pl-3 pr-5">
-                    <span className="flex items-center gap-2">
-                      <span className="w-8 font-bold tabular-nums">{c.fit.toFixed(1)}</span>
-                      <span className="crm-bar w-16">
-                        <span style={{ width: `${onScale(c.fit, floor)}%` }} />
-                      </span>
+                  <td style={{ maxWidth: 160 }}>
+                    <span className="one-line" style={{ display: "block" }}>
+                      {r.areaName ?? "—"}
                     </span>
                   </td>
+                  <td style={{ maxWidth: 150 }}>
+                    {person ? (
+                      <span className="who-cell">
+                        <Avatar name={person.name} color={person.color} size={22} className="mini" />
+                        <span className="one-line">{person.name}</span>
+                      </span>
+                    ) : (
+                      <span style={{ color: "var(--muted)" }}>—</span>
+                    )}
+                  </td>
+                  <td style={{ whiteSpace: "nowrap" }}>{r.next ? `${formatDay(r.next.date)}, ${r.next.startTime}` : <span style={{ color: "var(--muted)" }}>—</span>}</td>
+                  <td style={{ whiteSpace: "nowrap" }}>{formatDuration(r.spent)}</td>
+                  <td className="fit">{c.fit.toFixed(1)}</td>
                 </tr>
               );
             })}
           </tbody>
         </table>
-        {!visible.length && <p className="py-8 text-center text-(--muted)">No candidates match.</p>}
+        {!visible.length && <div className="empty">No candidates match.</div>}
       </div>
       {creating && <NewCandidateModal onClose={() => setCreating(false)} />}
-    </Card>
+    </section>
   );
 }
 
@@ -241,9 +187,8 @@ function NewCandidateModal({ onClose }: { onClose: () => void }) {
       summary: get("summary"),
     };
     if (!input.name.trim()) return setError("Name is required");
-    const tempId = crypto.randomUUID();
     const temp: Candidate = {
-      id: tempId,
+      id: crypto.randomUUID(),
       seq: 0,
       name: input.name.trim(),
       school: input.school,
@@ -264,44 +209,50 @@ function NewCandidateModal({ onClose }: { onClose: () => void }) {
     };
     onClose();
     const res = await mutate((d) => ({ ...d, candidates: [...d.candidates, temp] }), () => createCandidate(input), `Added ${temp.name}`);
-    if (res.ok && res.data) {
-      openCandidate(res.data.id);
-    }
+    if (res.ok && res.data) openCandidate(res.data.id);
   }
 
   return (
     <Modal title="New candidate" onClose={onClose}>
-      <form action={submit} className="grid grid-cols-1 gap-3 sm:grid-cols-2" data-testid="new-candidate-form">
-        <div className="sm:col-span-2">
-          <Field label="Name">
-            <input name="name" required autoFocus className={inputClass} />
-          </Field>
-        </div>
-        <Field label="School">
-          <input name="school" className={inputClass} />
-        </Field>
-        <Field label="Major">
-          <input name="major" className={inputClass} />
-        </Field>
-        <Field label="Degree / year">
-          <input name="program" placeholder="BFA, junior" className={inputClass} />
-        </Field>
-        <Field label="Email">
-          <input name="email" type="email" className={inputClass} />
-        </Field>
-        <Field label="Instagram">
-          <input name="instagram" placeholder="handle" className={inputClass} />
-        </Field>
-        <Field label="Portfolio">
-          <input name="portfolio" placeholder="site.com" className={inputClass} />
-        </Field>
-        <div className="sm:col-span-2">
-          <Field label="One-line summary">
-            <input name="summary" className={inputClass} />
-          </Field>
-        </div>
-        {error && <p className="text-(--highlight) sm:col-span-2">{error}</p>}
-        <div className="flex justify-end gap-2 pt-2 sm:col-span-2">
+      <form action={submit} className="form" data-testid="new-candidate-form">
+        <label className="wide">
+          Name
+          <input name="name" required autoFocus className="field" />
+        </label>
+        <label>
+          School
+          <input name="school" className="field" />
+        </label>
+        <label>
+          Major
+          <input name="major" className="field" />
+        </label>
+        <label>
+          Degree / year
+          <input name="program" placeholder="BFA, junior" className="field" />
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" className="field" />
+        </label>
+        <label>
+          Instagram
+          <input name="instagram" placeholder="handle" className="field" />
+        </label>
+        <label>
+          Portfolio
+          <input name="portfolio" placeholder="site.com" className="field" />
+        </label>
+        <label className="wide">
+          One-line summary
+          <input name="summary" className="field" />
+        </label>
+        {error && (
+          <p className="late" style={{ gridColumn: "1/-1" }}>
+            {error}
+          </p>
+        )}
+        <div className="r">
           <Button onClick={onClose}>Cancel</Button>
           <Button variant="primary" type="submit">
             Create candidate

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { initials, textOn } from "../lib/colors";
 import { STATUS_LABEL, type InterviewType, type Status } from "../lib/types";
 
@@ -35,7 +35,8 @@ const PATHS = {
 
 export type IconName = keyof typeof PATHS;
 
-export function Icon({ name, size = 20, className }: { name: IconName; size?: number; className?: string }) {
+/** Sized by CSS (.rail svg 19px, .icon-btn svg 18px, .pill-btn svg 15px…) unless `size` is given. */
+export function Icon({ name, size, className }: { name: IconName; size?: number; className?: string }) {
   return (
     <svg
       width={size}
@@ -56,11 +57,23 @@ export function Icon({ name, size = 20, className }: { name: IconName; size?: nu
 
 // ─── Avatar, pills, chips ──────────────────────────────────────────────────
 
-export function Avatar({ name, color, size = 28 }: { name: string; color: string; size?: number }) {
+export function Avatar({
+  name,
+  color,
+  size = 28,
+  radius = "50%",
+  className,
+}: {
+  name: string;
+  color: string;
+  size?: number;
+  radius?: string;
+  className?: string;
+}) {
   return (
     <span
-      className="inline-grid flex-none place-items-center rounded-full font-bold"
-      style={{ background: color, color: textOn(color), width: size, height: size, fontSize: Math.round(size * 0.38) }}
+      className={cx("inline-grid flex-none place-items-center font-bold", className)}
+      style={{ background: color, color: textOn(color), width: size, height: size, borderRadius: radius, fontSize: Math.max(8.5, Math.round(size * 0.36)) }}
       aria-hidden
     >
       {initials(name)}
@@ -70,32 +83,52 @@ export function Avatar({ name, color, size = 28 }: { name: string; color: string
 
 export function StatusPill({ status }: { status: Status }) {
   return (
-    <span
-      className="inline-flex h-6 items-center whitespace-nowrap rounded-full px-2.5 text-[12px] font-medium"
-      style={{ background: `var(--st-${status})`, color: `var(--st-${status}-ink)` }}
-      data-status={status}
-    >
+    <span className={`status ${status}`} data-status={status}>
       {STATUS_LABEL[status]}
     </span>
   );
 }
 
+/** Interview-type tint class from the prototype (.blk.pale / .light / .blue / .soft / .mid / .navy). */
+export const TYPE_TINT: Record<InterviewType, string> = {
+  intro: "pale",
+  portfolio: "light",
+  technical: "blue",
+  ops_case: "soft",
+  content_review: "mid",
+  final: "navy",
+};
+
 export function typeStyle(type: InterviewType) {
   return { background: `var(--iv-${type})`, color: `var(--iv-${type}-ink)` };
 }
 
-export function Chip({ children, onRemove, removeLabel }: { children: React.ReactNode; onRemove?: () => void; removeLabel?: string }) {
+export function Chip({
+  children,
+  onRemove,
+  removeLabel,
+  variant,
+  onClick,
+}: {
+  children: React.ReactNode;
+  onRemove?: () => void;
+  removeLabel?: string;
+  variant?: "area" | "goal";
+  onClick?: () => void;
+}) {
   return (
-    <span className="inline-flex h-7 items-center gap-1 rounded-full border border-(--line) bg-(--card-2) pl-3 pr-1.5 text-[13px] font-medium">
-      <span className={onRemove ? "" : "pr-1.5"}>{children}</span>
+    <span className={cx("chip", variant)} onClick={onClick} style={onClick ? { cursor: "pointer" } : undefined}>
+      <span className="one-line">{children}</span>
       {onRemove && (
         <button
           type="button"
-          onClick={onRemove}
+          onClick={(e) => {
+            e.stopPropagation();
+            onRemove();
+          }}
           aria-label={removeLabel ?? "Remove"}
-          className="grid size-5 place-items-center rounded-full text-(--muted) hover:bg-(--line) hover:text-(--ink)"
         >
-          <Icon name="x" size={12} />
+          ×
         </button>
       )}
     </span>
@@ -104,63 +137,75 @@ export function Chip({ children, onRemove, removeLabel }: { children: React.Reac
 
 // ─── Layout ────────────────────────────────────────────────────────────────
 
+/** .card with the prototype's .card-head (h2 17px/700 + .tools). */
 export function Card({
   title,
   action,
   children,
   className,
-  bodyClassName,
+  sub,
+  ...rest
 }: {
   title?: React.ReactNode;
   action?: React.ReactNode;
   children: React.ReactNode;
   className?: string;
-  bodyClassName?: string;
-}) {
+  sub?: React.ReactNode;
+} & Omit<React.HTMLAttributes<HTMLElement>, "title">) {
   return (
-    <section className={cx("min-w-0 rounded-[22px] border border-(--line) bg-(--card)", className)}>
+    <section className={cx("card", className)} {...rest}>
       {(title || action) && (
-        <header className="flex flex-wrap items-center justify-between gap-3 px-5 pb-3 pt-4">
-          {title && <h2 className="text-[17px] font-bold tracking-[-0.01em]">{title}</h2>}
-          {action}
-        </header>
+        <div className="card-head">
+          <div style={{ minWidth: 0 }}>
+            {title && <h2 className="wrap-any">{title}</h2>}
+            {sub && (
+              <div className="sub" style={{ fontSize: 12, color: "var(--muted)", marginTop: 2 }}>
+                {sub}
+              </div>
+            )}
+          </div>
+          {action && <div className="tools">{action}</div>}
+        </div>
       )}
-      <div className={bodyClassName ?? "px-5 pb-5"}>{children}</div>
+      {children}
     </section>
   );
 }
 
 // ─── Buttons & inputs ──────────────────────────────────────────────────────
 
+/** primary = .btn-accent, secondary = .btn-ghost, black = .btn-black (40px CTA), ghost = .pill-btn. */
 export function Button({
   variant = "secondary",
   size = "md",
   className,
   ...props
-}: React.ButtonHTMLAttributes<HTMLButtonElement> & { variant?: "primary" | "secondary" | "ghost"; size?: "sm" | "md" }) {
+}: React.ButtonHTMLAttributes<HTMLButtonElement> & { variant?: "primary" | "secondary" | "ghost" | "black"; size?: "sm" | "md" }) {
   return (
     <button
       type="button"
       {...props}
       className={cx(
-        "inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-xl font-bold transition-colors disabled:opacity-50",
-        size === "sm" ? "h-8 px-3 text-[13px]" : "h-10 px-4",
-        variant === "primary" && "bg-(--brand) text-white hover:brightness-110",
-        variant === "secondary" && "border border-(--line) bg-(--card) hover:bg-(--card-2)",
-        variant === "ghost" && "text-(--muted) hover:bg-(--card-2) hover:text-(--ink)",
+        variant === "primary" && "btn-accent",
+        variant === "secondary" && "btn-ghost",
+        variant === "black" && "btn-black",
+        variant === "ghost" && "pill-btn",
+        size === "sm" && (variant === "primary" || variant === "secondary") && "sm",
+        "whitespace-nowrap disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
     />
   );
 }
 
-export const inputClass =
-  "h-10 w-full min-w-0 rounded-xl border border-(--line) bg-(--card) px-3 outline-none placeholder:text-(--muted) focus:border-(--brand)";
+/** input.field / select.field (38px, card-2, radius 10). */
+export const inputClass = "field";
 
-export function Field({ label, children }: { label: string; children: React.ReactNode }) {
+/** A label inside the prototype's .form grid; `wide` spans both columns. */
+export function Field({ label, children, wide }: { label: string; children: React.ReactNode; wide?: boolean }) {
   return (
-    <label className="block min-w-0">
-      <span className="mb-1 block text-[13px] font-medium text-(--muted)">{label}</span>
+    <label className={wide ? "wide" : undefined}>
+      {label}
       {children}
     </label>
   );
@@ -171,14 +216,16 @@ export function Segmented<T extends string | number>({
   options,
   onChange,
   label,
+  className = "seg",
 }: {
   value: T;
   options: { value: T; label: string }[];
   onChange: (v: T) => void;
   label: string;
+  className?: string;
 }) {
   return (
-    <div role="radiogroup" aria-label={label} className="inline-flex rounded-xl bg-(--card-2) p-1">
+    <div role="radiogroup" aria-label={label} className={className}>
       {options.map((o) => (
         <button
           key={String(o.value)}
@@ -186,10 +233,7 @@ export function Segmented<T extends string | number>({
           role="radio"
           aria-checked={o.value === value}
           onClick={() => onChange(o.value)}
-          className={cx(
-            "h-8 rounded-lg px-3 text-[13px] font-medium",
-            o.value === value ? "bg-(--card) text-(--ink) shadow-[0_1px_2px_rgba(11,9,31,0.08)]" : "text-(--muted) hover:text-(--ink)",
-          )}
+          className={cx(o.value === value && "on", className === "tierctl" && o.value === value && String(o.value))}
         >
           {o.label}
         </button>
@@ -199,8 +243,9 @@ export function Segmented<T extends string | number>({
 }
 
 /**
- * Click-to-edit text. Enter or blur saves, Escape cancels. `display` renders the resting state
- * (e.g. as a link) — clicking the pencil area still edits.
+ * Click-to-edit text in the prototype's style (.attr input.txt / .skill input): it reads as plain
+ * text until focused. Enter or blur saves, Escape reverts. With `display`, the resting state is a
+ * link plus an "edit" control.
  */
 export function InlineField({
   label,
@@ -210,8 +255,8 @@ export function InlineField({
   display,
   type = "text",
   className,
-  inputClassName,
   validate,
+  inputClassName = "txt",
 }: {
   label: string;
   value: string;
@@ -220,71 +265,69 @@ export function InlineField({
   display?: React.ReactNode;
   type?: "text" | "email" | "number" | "url";
   className?: string;
-  inputClassName?: string;
   validate?: (v: string) => string | null;
+  inputClassName?: string;
 }) {
-  const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(value);
+  const [editing, setEditing] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const ref = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (editing) ref.current?.select();
-  }, [editing]);
+  const [synced, setSynced] = useState(value);
+  if (!editing && value !== synced) {
+    setSynced(value);
+    setDraft(value);
+  }
 
   const commit = () => {
     const v = draft.trim();
-    if (v === value) return setEditing(false);
+    if (v === value) return true;
     const err = validate?.(v) ?? null;
-    if (err) return setError(err);
-    setEditing(false);
+    if (err) {
+      setError(err);
+      return false;
+    }
     setError(null);
     onSave(v);
+    return true;
   };
 
-  if (editing) {
+  if (display && value && !editing) {
     return (
-      <span className={cx("block min-w-0", className)}>
-        <input
-          ref={ref}
-          type={type}
-          aria-label={label}
-          value={draft}
-          onChange={(e) => setDraft(e.target.value)}
-          onBlur={commit}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") commit();
-            if (e.key === "Escape") {
-              setDraft(value);
-              setError(null);
-              setEditing(false);
-            }
-          }}
-          className={cx("h-8 w-full rounded-lg border border-(--brand) bg-(--card) px-2 outline-none", inputClassName)}
-        />
-        {error && <span className="mt-0.5 block text-[12px] text-(--highlight)">{error}</span>}
+      <span className={cx("flex min-w-0 items-center gap-1.5", className)}>
+        <span className="one-line">{display}</span>
+        <button type="button" className="link" style={{ fontSize: 11.5, whiteSpace: "nowrap", flex: "none" }} aria-label={`Edit ${label.toLowerCase()}`} onClick={() => setEditing(true)}>
+          edit
+        </button>
       </span>
     );
   }
 
   return (
-    <span className={cx("group flex min-w-0 items-center gap-1", className)}>
-      {display && value ? <span className="min-w-0 truncate">{display}</span> : null}
-      <button
-        type="button"
-        aria-label={`Edit ${label.toLowerCase()}`}
-        onClick={() => {
-          setDraft(value);
-          setEditing(true);
+    <span className={cx("block min-w-0", className)}>
+      <input
+        className={inputClassName}
+        type={type}
+        aria-label={label}
+        value={draft}
+        placeholder={placeholder}
+        autoFocus={!!display && editing}
+        onFocus={() => setEditing(true)}
+        onChange={(e) => setDraft(e.target.value)}
+        onBlur={() => {
+          if (!commit()) setDraft(value);
+          setEditing(false);
         }}
-        className={cx(
-          "min-w-0 truncate rounded-md px-1 -mx-1 text-left hover:bg-(--card-2)",
-          display && value ? "text-(--muted) opacity-0 group-hover:opacity-100 focus:opacity-100 text-[12px]" : "",
-          !value && "text-(--muted)",
-        )}
-      >
-        {display && value ? "Edit" : value || placeholder}
-      </button>
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            if (commit()) e.currentTarget.blur();
+          }
+          if (e.key === "Escape") {
+            setDraft(value);
+            setError(null);
+            e.currentTarget.blur();
+          }
+        }}
+      />
+      {error && <span className="late">{error}</span>}
     </span>
   );
 }
@@ -297,21 +340,20 @@ export function Modal({ title, onClose, children, wide = false }: { title: strin
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
   return (
-    <div className="fixed inset-0 z-50 grid place-items-center p-4">
-      <div className="crm-backdrop absolute inset-0 bg-[rgba(11,9,31,0.45)]" onClick={onClose} />
+    <div className="modal on">
+      <div className="scrim on" onClick={onClose} />
       <div
         role="dialog"
         aria-modal
         aria-labelledby={id}
-        className={cx("crm-drawer relative max-h-[90vh] w-full overflow-y-auto rounded-[22px] border border-(--line) bg-(--card) p-6 shadow-(--shadow)", wide ? "max-w-[1040px] bg-(--canvas)" : "max-w-[560px]")}
+        className="box"
+        style={{ position: "relative", zIndex: 31, ...(wide ? { width: "min(880px, 100%)" } : {}) }}
       >
-        <div className="mb-4 flex items-center justify-between">
-          <h2 id={id} className="text-[17px] font-bold">
-            {title}
-          </h2>
-          <Button variant="ghost" size="sm" onClick={onClose} aria-label="Close">
-            <Icon name="x" size={16} />
-          </Button>
+        <div className="flex items-start justify-between gap-3">
+          <h3 id={id}>{title}</h3>
+          <button type="button" className="open-btn" onClick={onClose} aria-label="Close">
+            <Icon name="x" />
+          </button>
         </div>
         {children}
       </div>
