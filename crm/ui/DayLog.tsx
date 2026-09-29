@@ -27,11 +27,11 @@ export function DayLog({ initialDay }: { initialDay?: string }) {
     <div data-testid="daylog">
       <div className="card-head" style={{ marginBottom: 14 }}>
         <div className="flex items-center gap-1.5">
-          <button type="button" className="pill-btn sq" aria-label="Previous week" onClick={() => setDay(addDays(day, -7))}>
+          <button type="button" className="pill-btn sq prev" aria-label="Previous week" onClick={() => setDay(addDays(day, -7))}>
             <Icon name="left" />
           </button>
           <WeekStrip label="Day" days={weekOf(day)} selected={day} today={data.today} hasDot={(d) => dayStats(d, data, data.tz, nowMs).totals.minutes > 0} onPick={setDay} />
-          <button type="button" className="pill-btn sq" aria-label="Next week" onClick={() => setDay(addDays(day, 7))}>
+          <button type="button" className="pill-btn sq next" aria-label="Next week" onClick={() => setDay(addDays(day, 7))}>
             <Icon name="right" />
           </button>
         </div>

@@ -40,7 +40,7 @@ const drawer = () => page.getByTestId("drawer");
 const toastSeen = (re) => expect(page.locator(".toast").filter({ hasText: re }).first()).toBeVisible();
 
 await page.goto(`${BASE}/crm/sign-in`);
-await page.getByLabel("Work email").fill("e2e@fomo.test");
+await page.getByLabel("Email", { exact: true }).fill("e2e@fomo.test");
 await page.getByRole("button", { name: /Sign in/ }).click();
 await page.waitForURL(/\/crm$/);
 // Fresh seeded data.
@@ -580,19 +580,17 @@ await check("Display name", async () => {
   await settled();
   return "saved";
 });
-await check("Interviewers add/remove", async () => {
+await check("Invite links copy and regenerate", async () => {
   await page.locator(".rail").getByRole("button", { name: "Settings" }).click();
   const s = page.getByTestId("settings");
-  await s.getByLabel("New interviewer name").fill("Checklist Interviewer");
-  await s.getByLabel("New interviewer email").fill(`check.${Date.now()}@example.com`);
-  await s.getByRole("button", { name: "Add interviewer" }).click();
+  const link = s.getByLabel("Intern invite link");
+  const before = await link.inputValue();
+  await s.getByTestId("copy-intern-invite").click();
+  await s.getByTestId("regenerate-intern-invite").click();
+  await s.getByTestId("confirm-regenerate-intern").click();
   await settled();
-  const item = s.locator(".settings-list .it").filter({ hasText: "Checklist Interviewer" });
-  await expect(item).toHaveCount(1);
-  await item.getByRole("button", { name: "Remove" }).click();
-  await settled();
-  await expect(item).toHaveCount(0);
-  return "added and removed";
+  await expect(link).not.toHaveValue(before);
+  return "new intern link";
 });
 await check("View as intern", async () => {
   await page.locator(".rail").getByRole("button", { name: "Settings" }).click();
@@ -604,6 +602,153 @@ await check("View as intern", async () => {
   return `viewing as ${who}`;
 });
 
+// ─── Next up: row click, dismiss, restore, drawer ──────────────────────────
+section("Next up");
+await page.goto(`${BASE}/crm`);
+await page.waitForSelector(".kpis .card");
+const card = page.getByTestId("next-up");
+await check("Whole row runs its action", async () => {
+  const row = card.getByTestId("proposal").first();
+  const text = (await row.locator("span.wrap-any").textContent()).trim();
+  await row.locator("span.wrap-any").click(); // the sentence, not the action link — the row itself must act
+  await page.waitForTimeout(300);
+  const acted = (await drawer().count()) || (await page.getByTestId("assign-form").count()) || (await page.locator(".toast").count());
+  if (!acted) throw new Error(`clicking "${text}" did nothing`);
+  await page.keyboard.press("Escape");
+  await settled();
+  return `"${text.slice(0, 50)}" → ${(await drawer().count()) ? "drawer" : "action ran"}`;
+});
+let dismissedKey = "";
+await check("× dismisses that proposal for today", async () => {
+  const before = Number(await card.getByTestId("next-up-count").textContent());
+  const row = card.getByTestId("proposal").first();
+  dismissedKey = await row.getAttribute("data-key");
+  await row.hover();
+  await row.getByTestId("dismiss").click();
+  await settled();
+  await expect(card.locator(`[data-key="${dismissedKey}"]`)).toHaveCount(0);
+  const after = Number(await card.getByTestId("next-up-count").textContent());
+  if (after !== before - 1) throw new Error(`count ${before} → ${after}`);
+  await page.reload();
+  await page.waitForSelector(".kpis .card");
+  await expect(card.locator(`[data-key="${dismissedKey}"]`)).toHaveCount(0);
+  return `${dismissedKey} hidden (count ${before} → ${after}), still hidden after reload`;
+});
+await check("Title and count open the Next up drawer, grouped", async () => {
+  await card.getByTestId("next-up-count").click();
+  await expect(page.getByTestId("panel-nextup")).toBeVisible();
+  const groups = await page.getByTestId("panel-nextup").locator(".rk-group b").allTextContents();
+  await page.keyboard.press("Escape");
+  await card.getByTestId("next-up-title").click();
+  await expect(page.getByTestId("panel-nextup")).toBeVisible();
+  return groups.join(" · ");
+});
+await check("Restore brings a dismissed proposal back", async () => {
+  await card.getByTestId("next-up-count").click();
+  const panel = page.getByTestId("panel-nextup");
+  const item = panel.getByTestId("nextup-dismissed").locator(`[data-key="${dismissedKey}"]`);
+  await expect(item).toHaveCount(1);
+  await item.getByTestId("restore").click();
+  await settled();
+  await expect(panel.getByTestId("nextup-dismissed").locator(`[data-key="${dismissedKey}"]`)).toHaveCount(0);
+  await expect(panel.locator(`[data-testid="proposal"][data-key="${dismissedKey}"]`)).toHaveCount(1);
+  await page.keyboard.press("Escape");
+  return `${dismissedKey} back in the list`;
+});
+
+// ─── Deletion ──────────────────────────────────────────────────────────────
+section("Deletion");
+const counts = async (candidate) => (await page.request.get(`${BASE}/crm/api/dev/counts${candidate ? `?candidate=${candidate}` : ""}`)).json();
+await check("Delete note", async () => {
+  await table.getByTestId("candidate-row").filter({ hasText: "Kerem A." }).click();
+  const notes = drawer().getByTestId("note");
+  const n = await notes.count();
+  if (!n) throw new Error("no notes to delete");
+  await notes.first().hover();
+  await notes.first().getByRole("button", { name: "Delete note" }).click();
+  await settled();
+  await expect(drawer().getByTestId("note")).toHaveCount(n - 1);
+  return `${n} → ${n - 1} notes`;
+});
+await check("Delete candidate cascades interviews, notes, tasks, sessions, reports", async () => {
+  await page.keyboard.press("Escape");
+  const row = table.getByTestId("candidate-row").filter({ hasText: "Pranav R." });
+  await row.click();
+  const cid = await drawer().getByTestId("candidate-record").getAttribute("data-candidate-id");
+  const before = await counts(cid);
+  const f = before.forCandidate;
+  if (!(f.interviews && f.tasks && f.sessions)) throw new Error(`fixture too thin: ${JSON.stringify(f)}`);
+  await drawer().getByTestId("delete-candidate").click();
+  await drawer().getByTestId("confirm-delete-candidate").click();
+  await settled();
+  const after = await counts(cid);
+  const left = Object.entries(after.forCandidate).filter(([, v]) => v !== 0);
+  if (left.length) throw new Error(`left behind: ${JSON.stringify(after.forCandidate)}`);
+  for (const t of ["interviews", "notes", "tasks", "sessions", "reports"]) {
+    if (before.tables[t] - after.tables[t] !== f[t]) throw new Error(`${t}: ${before.tables[t]} → ${after.tables[t]}, expected −${f[t]}`);
+  }
+  await expect(table.getByTestId("candidate-row").filter({ hasText: "Pranav R." })).toHaveCount(0);
+  return `removed ${f.interviews} interviews, ${f.notes} notes, ${f.tasks} tasks, ${f.sessions} sessions, ${f.reports} reports; 0 left for ${cid.slice(0, 8)}`;
+});
+await check("Delete area detaches it from candidates and tasks", async () => {
+  await page.locator(".rail nav").getByRole("button", { name: "Areas & goals" }).click();
+  // Pick the area with the most people so the detach is visible in the counts.
+  const cards = page.getByTestId("area-card");
+  let best = 0;
+  let people = -1;
+  for (let i = 0; i < (await cards.count()); i++) {
+    const n = await cards.nth(i).locator(".person").count();
+    if (n > people) [best, people] = [i, n];
+  }
+  const areaId = await cards.nth(best).getAttribute("data-area");
+  const areaCard = page.locator(`[data-testid="area-card"][data-area="${areaId}"]`);
+  const before = await counts();
+  await areaCard.getByRole("button", { name: "Delete…" }).click();
+  await areaCard.getByRole("button", { name: "Delete", exact: true }).click();
+  await settled();
+  const after = await counts();
+  await expect(areaCard).toHaveCount(0);
+  await page.keyboard.press("Escape");
+  if (before.tables.areas - after.tables.areas !== 1) throw new Error(`areas ${before.tables.areas} → ${after.tables.areas}`);
+  if (before.tables.candidate_areas - after.tables.candidate_areas !== people) throw new Error(`links ${before.tables.candidate_areas} → ${after.tables.candidate_areas}, expected −${people}`);
+  if (after.tables.tasks !== before.tables.tasks) throw new Error(`tasks ${before.tables.tasks} → ${after.tables.tasks}`);
+  return `areas ${before.tables.areas} → ${after.tables.areas}, candidate links ${before.tables.candidate_areas} → ${after.tables.candidate_areas} (−${people}), tasks kept ${after.tables.tasks}`;
+});
+await check("Delete all data leaves the expected tables empty and the app renders", async () => {
+  const before = await counts();
+  await page.locator(".rail").getByRole("button", { name: "Settings" }).click();
+  const zone = page.getByTestId("danger-zone");
+  await expect(zone.getByTestId("delete-all")).toBeDisabled();
+  await zone.getByLabel("Type DELETE to confirm").fill("delete");
+  await expect(zone.getByTestId("delete-all")).toBeDisabled();
+  await zone.getByLabel("Type DELETE to confirm").fill("DELETE");
+  await zone.getByTestId("delete-all").click();
+  await settled();
+  const after = await counts();
+  const emptied = ["candidates", "candidate_skills", "candidate_areas", "areas", "interviews", "notes", "tasks", "sessions", "reports", "dismissals"];
+  const notEmpty = emptied.filter((t) => after.tables[t] !== 0);
+  if (notEmpty.length) throw new Error(`not empty: ${notEmpty.map((t) => `${t}=${after.tables[t]}`).join(", ")}`);
+  if (after.tables.interviewers !== before.tables.interviewers) throw new Error(`interviewers ${before.tables.interviewers} → ${after.tables.interviewers}`);
+  if (after.tables.settings !== 1 || after.tables.campaigns !== 1 || after.tables.activity !== 1) throw new Error(`settings ${after.tables.settings}, campaigns ${after.tables.campaigns}, activity ${after.tables.activity}`);
+  const k = after.campaign;
+  if (!k.name || k.goal || k.brief || k.targets.length) throw new Error(`campaign not blanked: ${JSON.stringify(k)}`);
+  await page.keyboard.press("Escape");
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await page.goto(`${BASE}/crm`);
+  await page.waitForSelector(".kpis .card");
+  await expect(page.getByTestId("candidates-card")).toContainText("No candidates yet");
+  await expect(page.getByTestId("open-areas")).toContainText("No areas yet");
+  await expect(page.getByTestId("activity-card")).toContainText("All data deleted");
+  if (errors.length) throw new Error(errors[0]);
+  return `emptied ${emptied.length} tables; kept ${after.tables.interviewers} interviewers, settings, campaign "${k.name}" (name only); dashboard shows empty states`;
+});
+
+// Leave the dev database seeded again for the other scripts.
+await page.locator(".rail").getByRole("button", { name: "Settings" }).click();
+await page.getByRole("button", { name: "Reset demo data" }).click();
+await page.getByTestId("confirm-reset").click();
+await settled();
 await browser.close();
 
 // ─── Report ────────────────────────────────────────────────────────────────

@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { addSkill, attachArea, detachArea, removeSkill, updateCandidate, updateSkill } from "../lib/actions";
+import { addSkill, attachArea, deleteCandidate, detachArea, removeSkill, updateCandidate, updateSkill } from "../lib/actions";
 import { colorFor } from "../lib/colors";
 import { interviewAverage, rankMap, scoredInterviews, tierOf } from "../lib/ranking";
 import { suggestArea } from "../lib/suggest";
 import { formatDuration } from "../lib/time";
 import { STATUSES, STATUS_LABEL, type AreaKind, type Candidate, type CrmData, type Status } from "../lib/types";
-import { TierChip } from "./bits";
+import { JoinedChip, TierChip } from "./bits";
 import { candidateInterviews, timeSpent } from "./derive";
 import { Avatar, Chip, Icon, InlineField, StatusPill, cx } from "./primitives";
 import { TierControl } from "./RankingsPanel";
@@ -63,6 +63,7 @@ export function CandidateRecord({ candidateId, initialTab = "notes", variant }: 
             <span style={{ fontSize: 13, fontWeight: 500, color: "var(--muted)" }}>#{String(c.seq).padStart(4, "0")}</span>
             <StatusPill status={c.status} />
             <TierChip tier={tierOf(c, data.settings)} />
+            <JoinedChip show={c.selfJoined} />
           </h3>
           <p className="one-line">
             {[c.school, c.program].filter(Boolean).join(" · ") || "No school yet"} · Time with us{" "}
@@ -177,6 +178,7 @@ function Attributes({ candidate: c, save }: { candidate: Candidate; save: Save }
       <AreaChips candidate={c} kind="goal" title="Goals" benched={benched} />
       <Skills candidate={c} />
       <Suggestion candidate={c} areas={data.areas} benched={benched} onAttach={(areaId) => attach(mutate, c.id, areaId)} />
+      <DeleteCandidate candidate={c} />
     </div>
   );
 }
@@ -348,6 +350,63 @@ function FitRow({ candidate: c, save }: { candidate: Candidate; save: Save }) {
             </>
           )}
         </p>
+      </div>
+    </div>
+  );
+}
+
+/** Deletes the candidate with their interviews, notes, tasks, sessions and reports. */
+function DeleteCandidate({ candidate: c }: { candidate: Candidate }) {
+  const { data, mutate, closeDrawer, toast } = useCrm();
+  const [confirming, setConfirming] = useState(false);
+  const counts = {
+    interviews: data.interviews.filter((x) => x.candidateId === c.id).length,
+    notes: data.notes.filter((x) => x.candidateId === c.id).length,
+    tasks: data.tasks.filter((x) => x.candidateId === c.id).length,
+    sessions: data.sessions.filter((x) => x.candidateId === c.id).length,
+    reports: data.reports.filter((x) => x.candidateId === c.id).length,
+  };
+  if (!confirming) {
+    return (
+      <button type="button" className="link danger-link" style={{ alignSelf: "flex-start" }} onClick={() => setConfirming(true)} data-testid="delete-candidate">
+        Delete candidate…
+      </button>
+    );
+  }
+  return (
+    <div className="danger" style={{ marginTop: 0 }} data-testid="delete-candidate-confirm">
+      <h4>Delete {c.name}?</h4>
+      <p>
+        Also removes {counts.interviews} interview{counts.interviews === 1 ? "" : "s"}, {counts.notes} note{counts.notes === 1 ? "" : "s"}, {counts.tasks} task
+        {counts.tasks === 1 ? "" : "s"}, {counts.sessions} session{counts.sessions === 1 ? "" : "s"} and {counts.reports} report{counts.reports === 1 ? "" : "s"}. This can&apos;t be undone.
+      </p>
+      <div className="flex gap-2">
+        <button
+          type="button"
+          className="btn-danger"
+          onClick={async () => {
+            closeDrawer();
+            const res = await mutate(
+              (d) => ({
+                ...d,
+                candidates: d.candidates.filter((x) => x.id !== c.id),
+                interviews: d.interviews.filter((x) => x.candidateId !== c.id),
+                notes: d.notes.filter((x) => x.candidateId !== c.id),
+                tasks: d.tasks.filter((x) => x.candidateId !== c.id),
+                sessions: d.sessions.filter((x) => x.candidateId !== c.id),
+                reports: d.reports.filter((x) => x.candidateId !== c.id),
+              }),
+              () => deleteCandidate(c.id),
+            );
+            if (res.ok && res.data) toast(`Deleted ${c.name} · ${res.data.interviews} interviews, ${res.data.notes} notes, ${res.data.tasks} tasks`);
+          }}
+          data-testid="confirm-delete-candidate"
+        >
+          Delete
+        </button>
+        <button type="button" className="btn-ghost" onClick={() => setConfirming(false)}>
+          Keep
+        </button>
       </div>
     </div>
   );

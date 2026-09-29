@@ -34,6 +34,7 @@ const cand = (id: string, name: string, fit: number, skills: [string, number][] 
   resumeJson: resume,
   resumeFileUrl: null,
   createdAt: "2026-09-01T00:00:00Z",
+  selfJoined: false,
   skills: skills.map(([skill, score], i) => ({ id: `${id}${i}`, skill, score })),
   areaIds: [],
 });

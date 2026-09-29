@@ -1,13 +1,14 @@
 "use server";
 
-import { and, desc, eq, inArray, isNotNull, notInArray, sql } from "drizzle-orm";
+import { and, desc, eq, isNotNull, notInArray, sql } from "drizzle-orm";
 import { refresh } from "next/cache";
 import { z } from "zod";
 import { getDb, schema, type Db } from "../db";
 import { getViewer } from "./auth";
 import { autoTier, firstName, fmtLogged, round1, sessionMinutes } from "./ranking";
-import { AVATAR_COLORS } from "./colors";
-import { devToolsEnabled } from "./env";
+import { devToolsEnabled, isOwner } from "./env";
+import { regenerateInvite } from "./invites";
+import { INVITE_ROLES } from "./invite-token";
 import { findClash, interviewPhase, statusAfterCompleted, statusAfterSchedule } from "./rules";
 import { seedDatabase } from "./seed";
 import { CRM_TZ, formatDay, fromMin, hhmm, nowMinutesIn, toMin, todayIn } from "./time";
@@ -120,8 +121,13 @@ export async function createCandidate(input: z.input<typeof newCandidateInput>) 
   return run(async () => {
     const me = await interviewerOnly();
     const v = newCandidateInput.parse(input);
+    v.email = v.email.toLowerCase();
     const db = await getDb();
     return db.transaction(async (tx) => {
+      if (v.email) {
+        const [taken] = await tx.select({ name: schema.candidates.name }).from(schema.candidates).where(sql`lower(${schema.candidates.email}) = ${v.email}`);
+        if (taken) throw new UserError(`${taken.name} already uses ${v.email}. Each intern signs in with their own email.`);
+      }
       const [row] = await tx
         .insert(schema.candidates)
         .values({
@@ -175,6 +181,14 @@ export async function updateCandidate(candidateId: string, patch: z.input<typeof
       const [before] = await tx.select().from(schema.candidates).where(eq(schema.candidates.id, candidateId));
       if (!before) throw new UserError("That candidate no longer exists.");
       const { summary, ...fields } = v;
+      if (fields.email) {
+        fields.email = fields.email.toLowerCase();
+        const [taken] = await tx
+          .select({ name: schema.candidates.name })
+          .from(schema.candidates)
+          .where(and(sql`lower(${schema.candidates.email}) = ${fields.email}`, sql`${schema.candidates.id} <> ${candidateId}`));
+        if (taken) throw new UserError(`${taken.name} already uses ${fields.email}. Each intern signs in with their own email.`);
+      }
       if (fields.instagramHandle !== undefined) fields.instagramHandle = igHandle(fields.instagramHandle);
       await tx
         .update(schema.candidates)
@@ -202,12 +216,45 @@ export async function updateCandidate(candidateId: string, patch: z.input<typeof
   });
 }
 
+/**
+ * Deletes a candidate and everything that belongs to them — interviews, notes, tasks, sessions,
+ * reports (plus skills and area links) — in one transaction. Returns what was removed.
+ */
 export async function deleteCandidate(candidateId: string) {
   return run(async () => {
-    await interviewerOnly();
+    const me = await interviewerOnly();
     id.parse(candidateId);
     const db = await getDb();
-    await db.delete(schema.candidates).where(eq(schema.candidates.id, candidateId));
+    return db.transaction(async (tx) => {
+      const [c] = await tx.select({ name: schema.candidates.name }).from(schema.candidates).where(eq(schema.candidates.id, candidateId));
+      if (!c) throw new UserError("That candidate no longer exists.");
+      const removed = {
+        sessions: (await tx.delete(schema.sessions).where(eq(schema.sessions.candidateId, candidateId)).returning({ id: schema.sessions.id })).length,
+        reports: (await tx.delete(schema.reports).where(eq(schema.reports.candidateId, candidateId)).returning({ id: schema.reports.id })).length,
+        tasks: (await tx.delete(schema.tasks).where(eq(schema.tasks.candidateId, candidateId)).returning({ id: schema.tasks.id })).length,
+        interviews: (await tx.delete(schema.interviews).where(eq(schema.interviews.candidateId, candidateId)).returning({ id: schema.interviews.id })).length,
+        notes: (await tx.delete(schema.notes).where(eq(schema.notes.candidateId, candidateId)).returning({ id: schema.notes.id })).length,
+      };
+      await tx.delete(schema.candidates).where(eq(schema.candidates.id, candidateId)); // skills + area links cascade
+      await logActivity(tx, {
+        kind: "status",
+        title: "Candidate deleted",
+        subtitle: `${c.name} · ${removed.interviews} interviews, ${removed.notes} notes, ${removed.tasks} tasks removed · by ${me.name}`,
+        candidateId: null,
+        actorId: me.id,
+      });
+      return removed;
+    });
+  });
+}
+
+export async function deleteNote(noteId: string) {
+  return run(async () => {
+    await interviewerOnly();
+    id.parse(noteId);
+    const db = await getDb();
+    const gone = await db.delete(schema.notes).where(eq(schema.notes.id, noteId)).returning({ id: schema.notes.id });
+    if (!gone.length) throw new UserError("That note no longer exists.");
   });
 }
 
@@ -320,12 +367,26 @@ export async function updateArea(areaId: string, input: Partial<z.input<typeof a
   });
 }
 
+/** Deletes an area/goal: detaches it from every candidate and task, then removes it. */
 export async function deleteArea(areaId: string) {
   return run(async () => {
-    await interviewerOnly();
+    const me = await interviewerOnly();
     id.parse(areaId);
     const db = await getDb();
-    await db.delete(schema.areas).where(eq(schema.areas.id, areaId));
+    return db.transaction(async (tx) => {
+      const [area] = await tx.select().from(schema.areas).where(eq(schema.areas.id, areaId));
+      if (!area) throw new UserError("That area no longer exists.");
+      const candidates = (await tx.delete(schema.candidateAreas).where(eq(schema.candidateAreas.areaId, areaId)).returning({ id: schema.candidateAreas.id })).length;
+      const tasks = (await tx.update(schema.tasks).set({ areaId: null }).where(eq(schema.tasks.areaId, areaId)).returning({ id: schema.tasks.id })).length;
+      await tx.delete(schema.areas).where(eq(schema.areas.id, areaId));
+      await logActivity(tx, {
+        kind: "area",
+        title: `${area.kind === "goal" ? "Goal" : "Area"} deleted`,
+        subtitle: `${area.name} · detached from ${candidates} candidate${candidates === 1 ? "" : "s"} and ${tasks} task${tasks === 1 ? "" : "s"} · by ${me.name}`,
+        actorId: me.id,
+      });
+      return { candidates, tasks };
+    });
   });
 }
 
@@ -560,40 +621,53 @@ export async function updateMyName(name: string) {
   });
 }
 
-export async function addInterviewer(input: { name: string; email: string }) {
+/**
+ * Change an interviewer's sign-in email. Their access moves with it: the old address stops working.
+ * Owners' emails come from CRM_ALLOWED_EMAILS, so they can't be changed here — nor can your own.
+ */
+export async function updateInterviewerEmail(interviewerId: string, email: string) {
   return run(async () => {
-    await interviewerOnly();
-    const v = z
-      .object({ name: trimmed(60).min(1, "Name is required"), email: z.string().trim().toLowerCase().email("Enter a valid email") })
-      .parse(input);
+    const me = await interviewerOnly();
+    id.parse(interviewerId);
+    const v = z.string().trim().toLowerCase().email("Enter a valid email").parse(email);
+    if (interviewerId === me.id) throw new UserError("Ask another interviewer to change your email — you'd be signed out mid-edit.");
     const db = await getDb();
-    const all = await db.select({ id: schema.interviewers.id }).from(schema.interviewers);
-    const inserted = await db
-      .insert(schema.interviewers)
-      .values({ ...v, color: AVATAR_COLORS[all.length % AVATAR_COLORS.length] })
-      .onConflictDoNothing()
-      .returning();
-    if (!inserted.length) throw new UserError(`${v.email} is already an interviewer.`);
+    const [row] = await db.select().from(schema.interviewers).where(eq(schema.interviewers.id, interviewerId));
+    if (!row || row.removedAt) throw new UserError("That interviewer no longer exists.");
+    if (isOwner(row.email)) throw new UserError("Owner emails are set in CRM_ALLOWED_EMAILS, not here.");
+    if (v === row.email) return;
+    const [taken] = await db.select({ id: schema.interviewers.id }).from(schema.interviewers).where(sql`lower(${schema.interviewers.email}) = ${v}`);
+    if (taken) throw new UserError(`${v} already belongs to another interviewer.`);
+    await db.update(schema.interviewers).set({ email: v }).where(eq(schema.interviewers.id, interviewerId));
   });
 }
 
+/**
+ * Removes an interviewer's access. Their row stays (marked removed) so their name still shows on
+ * the interviews and notes they wrote; their next request signs them out. Owners can't be removed.
+ */
 export async function removeInterviewer(interviewerId: string) {
   return run(async () => {
     const me = await interviewerOnly();
     id.parse(interviewerId);
     if (interviewerId === me.id) throw new UserError("You can't remove yourself.");
     const db = await getDb();
-    const [ivs, ns] = await Promise.all([
-      db.select({ id: schema.interviews.id }).from(schema.interviews).where(eq(schema.interviews.interviewerId, interviewerId)),
-      db.select({ id: schema.notes.id }).from(schema.notes).where(eq(schema.notes.authorId, interviewerId)),
-    ]);
-    if (ivs.length || ns.length) {
-      throw new UserError(
-        `They have ${ivs.length} interview${ivs.length === 1 ? "" : "s"} and ${ns.length} note${ns.length === 1 ? "" : "s"}; ` +
-          "those keep their name, so they can't be removed.",
-      );
-    }
-    await db.delete(schema.interviewers).where(inArray(schema.interviewers.id, [interviewerId]));
+    const [row] = await db.select().from(schema.interviewers).where(eq(schema.interviewers.id, interviewerId));
+    if (!row || row.removedAt) throw new UserError("That interviewer was already removed.");
+    if (isOwner(row.email)) throw new UserError("Owners can't be removed.");
+    await db.transaction(async (tx) => {
+      await tx.update(schema.interviewers).set({ removedAt: new Date() }).where(eq(schema.interviewers.id, interviewerId));
+      await tx.delete(schema.pendingJoins).where(eq(schema.pendingJoins.email, row.email));
+      await logActivity(tx, { kind: "status", title: "Interviewer removed", subtitle: `${row.name} · by ${me.name}`, actorId: me.id });
+    });
+  });
+}
+
+/** New invite link for interviewers or interns; the old one stops working straight away. */
+export async function regenerateInviteLink(role: "interviewer" | "intern") {
+  return run(async () => {
+    await interviewerOnly();
+    await regenerateInvite(z.enum(INVITE_ROLES).parse(role));
   });
 }
 
@@ -853,6 +927,59 @@ export async function submitReport(summary: string) {
         candidateId: me.id,
         actorId: null,
       });
+    });
+  });
+}
+
+// ─── Next up dismissals ────────────────────────────────────────────────────
+
+const proposalKey = z.string().regex(/^(assign|overdue|idle|score|report|stalled|schedule|fill):[0-9a-f-]{36}$/, "Unknown proposal");
+
+/** Hide a Next-up proposal for the rest of today (per interviewer). */
+export async function dismissProposal(key: string) {
+  return run(async () => {
+    const me = await interviewerOnly();
+    const k = proposalKey.parse(key);
+    const db = await getDb();
+    await db.insert(schema.dismissals).values({ interviewerId: me.id, day: todayIn(CRM_TZ), key: k }).onConflictDoNothing();
+  });
+}
+
+export async function restoreProposal(key: string) {
+  return run(async () => {
+    const me = await interviewerOnly();
+    const k = proposalKey.parse(key);
+    const db = await getDb();
+    await db
+      .delete(schema.dismissals)
+      .where(and(eq(schema.dismissals.interviewerId, me.id), eq(schema.dismissals.day, todayIn(CRM_TZ)), eq(schema.dismissals.key, k)));
+  });
+}
+
+// ─── Danger zone ───────────────────────────────────────────────────────────
+
+/**
+ * Deletes all CRM data: every table except interviewers and settings is emptied, and the current
+ * campaign is kept but blanked to its name. Requires the literal confirmation "DELETE". The one
+ * activity row left behind records who did it.
+ */
+export async function deleteAllData(confirmation: string) {
+  return run(async () => {
+    const me = await interviewerOnly();
+    if (confirmation !== "DELETE") throw new UserError('Type DELETE to confirm.');
+    const db = await getDb();
+    await db.transaction(async (tx) => {
+      const [current] = await tx.select().from(schema.campaigns).where(eq(schema.campaigns.isCurrent, true)).limit(1);
+      await tx.execute(
+        sql`TRUNCATE dismissals, sessions, reports, tasks, activity, notes, interviews, candidate_areas, candidate_skills, candidates, areas RESTART IDENTITY CASCADE`,
+      );
+      if (current) {
+        await tx.delete(schema.campaigns).where(sql`${schema.campaigns.id} <> ${current.id}`);
+        await tx.update(schema.campaigns).set({ goal: "", brief: "", targets: [] }).where(eq(schema.campaigns.id, current.id));
+      } else {
+        await tx.delete(schema.campaigns);
+      }
+      await logActivity(tx, { kind: "status", title: "All data deleted", subtitle: `by ${me.name}`, actorId: me.id });
     });
   });
 }

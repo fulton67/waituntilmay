@@ -28,7 +28,7 @@ await page.addInitScript(() => {
   } catch {}
 });
 await page.goto(`${BASE}/crm/sign-in`);
-await page.getByLabel("Work email").fill(EMAIL);
+await page.getByLabel("Email", { exact: true }).fill(EMAIL);
 await page.getByRole("button", { name: /Sign in/ }).click();
 await page.waitForURL(/\/crm$/);
 await page.emulateMedia({ reducedMotion: "reduce" }); // reveal/pulse animations settle instantly

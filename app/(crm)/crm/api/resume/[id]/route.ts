@@ -3,8 +3,8 @@ import path from "node:path";
 import { eq } from "drizzle-orm";
 import { NextResponse, type NextRequest } from "next/server";
 import { getDb, schema } from "@/crm/db";
-import { getSessionEmail } from "@/crm/lib/auth";
-import { isAllowed, supabaseConfig } from "@/crm/lib/env";
+import { getViewer } from "@/crm/lib/auth";
+import { supabaseConfig } from "@/crm/lib/env";
 import { supabaseServer } from "@/crm/lib/supabase/server";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -12,7 +12,7 @@ const LOCAL_DIR = path.join(process.cwd(), "crm", ".uploads");
 const MAX_PDF = 10 * 1024 * 1024;
 
 async function authorised() {
-  return isAllowed(await getSessionEmail());
+  return (await getViewer())?.role === "interviewer";
 }
 
 /** Download a candidate's resume PDF. Supabase: short-lived signed URL. Local: streamed from disk. */

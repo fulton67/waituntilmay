@@ -6,7 +6,7 @@ import { colorFor } from "../lib/colors";
 import { tierOf } from "../lib/ranking";
 import { formatDay, formatDuration } from "../lib/time";
 import { EMPTY_RESUME, STATUS_LABEL, type Candidate, type Status } from "../lib/types";
-import { TierChip } from "./bits";
+import { JoinedChip, TierChip } from "./bits";
 import { candidateRows, type Row } from "./derive";
 import { Avatar, Button, Icon, Modal, StatusPill, cx } from "./primitives";
 import { useClock, useCrm } from "./store";
@@ -122,6 +122,7 @@ export function CandidatesTable({ initialQuery = "", title = "Candidates" }: { i
                         <span className="nm one-line">
                           {c.name}
                           <TierChip tier={tierOf(c, data.settings)} />
+                          <JoinedChip show={c.selfJoined} />
                         </span>
                         <span className="sub one-line">{[c.school, c.major].filter(Boolean).join(" · ") || "—"}</span>
                       </span>
@@ -163,7 +164,20 @@ export function CandidatesTable({ initialQuery = "", title = "Candidates" }: { i
             })}
           </tbody>
         </table>
-        {!visible.length && <div className="empty">No candidates match.</div>}
+        {!visible.length && (
+          <div className="empty">
+            {data.candidates.length ? (
+              "No candidates match."
+            ) : (
+              <>
+                No candidates yet.{" "}
+                <button type="button" className="link" onClick={() => setCreating(true)}>
+                  Add the first one
+                </button>
+              </>
+            )}
+          </div>
+        )}
       </div>
       {creating && <NewCandidateModal onClose={() => setCreating(false)} />}
     </section>
@@ -204,6 +218,7 @@ function NewCandidateModal({ onClose }: { onClose: () => void }) {
       resumeJson: { ...EMPTY_RESUME, summary: input.summary },
       resumeFileUrl: null,
       createdAt: new Date().toISOString(),
+      selfJoined: false,
       skills: [],
       areaIds: [],
     };

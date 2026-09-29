@@ -5,6 +5,7 @@ import { SignInForm } from "@/crm/ui/SignInForm";
 
 export const metadata: Metadata = { title: "Sign in" };
 
+/** "I already have an account": email only. New people join through an invite link instead. */
 export default async function SignInPage({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
   const sp = await searchParams;
   return (
@@ -18,10 +19,10 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
         <h1 className="mt-8 text-[22px] font-bold tracking-[-0.01em]">Sign in</h1>
         <p className="mt-1 text-(--muted)">
           {devAuthEnabled()
-            ? "Local mode: allowlisted emails sign in directly."
-            : "We'll email you a magic link. Only invited interviewers can sign in."}
+            ? "Local mode: people already in the CRM sign in directly."
+            : "Already in the CRM? Enter your email and we'll send you a link and a code. New here? Use the invite link you were sent."}
         </p>
-        <SignInForm devMode={devAuthEnabled()} denied={sp.denied === "1"} errorMessage={signInErrorMessage(sp.error)} errorReason={sp.error ?? null} />
+        <SignInForm devMode={devAuthEnabled()} errorMessage={signInErrorMessage(sp.error)} errorReason={sp.error ?? null} />
       </div>
     </main>
   );

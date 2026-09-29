@@ -251,6 +251,12 @@ export type ProposalAction =
   | { type: "openAssign"; taskId?: string; candidateId?: string; label: string }
   | { type: "openCandidate"; candidateId: string; tab: "notes" | "interviews" | "resume" | "assignments"; label: string };
 
+/**
+ * `id` is the proposal's stable key — assign:<taskId>, overdue:<taskId>, idle:<candidateId>,
+ * score:<interviewId>, report:<candidateId>, stalled:<taskId>, schedule:<candidateId>,
+ * fill:<candidateId> — so a
+ * dismissal survives recomputation for the rest of the day.
+ */
 export type Proposal = { id: string; priority: 1 | 2 | 3; text: string; action: ProposalAction };
 
 export type BoardState = {
@@ -279,7 +285,7 @@ export function proposals(state: BoardState, clock: { today: string; nowMin: num
   for (const t of unassigned.filter((t) => t.day <= today).sort((a, b) => a.day.localeCompare(b.day))) {
     const s = suggestAssignee(t.areaId ? areaById.get(t.areaId) : null, state.candidates, state.settings);
     out.push({
-      id: `unassigned:${t.id}`,
+      id: `assign:${t.id}`,
       priority: 1,
       text: `"${t.title}" is ${t.day < today ? `overdue (due ${formatDay(t.day)})` : "due today"} and unassigned.`,
       action: s.pick
@@ -350,7 +356,7 @@ export function proposals(state: BoardState, clock: { today: string; nowMin: num
       const c = byId.get(t.candidateId!);
       if (!c) continue;
       out.push({
-        id: `unstarted:${t.id}`,
+        id: `stalled:${t.id}`,
         priority: 3,
         text: `"${t.title}" (${firstName(c.name)}) is due today and hasn't been started.`,
         action: { type: "openCandidate", candidateId: c.id, tab: "assignments", label: "Open" },
@@ -358,12 +364,22 @@ export function proposals(state: BoardState, clock: { today: string; nowMin: num
     }
   }
 
+  // 2 · Someone who joined through the intern link and whose record is still bare.
+  for (const c of state.candidates.filter((c) => c.selfJoined && !c.skills.length && !c.areaIds.length)) {
+    out.push({
+      id: `fill:${c.id}`,
+      priority: 2,
+      text: `Fill in ${c.name}'s record — they joined themselves.`,
+      action: { type: "openCandidate", candidateId: c.id, tab: "notes", label: "Fill in" },
+    });
+  }
+
   // 3 · Non-benched candidate with no next interview.
   for (const c of state.candidates.filter((c) => tier(c) !== "bench" && c.status !== "decided")) {
     const next = state.interviews.some((iv) => iv.candidateId === c.id && interviewPhase(iv, today, nowMin) !== "past");
     if (next) continue;
     out.push({
-      id: `unscheduled:${c.id}`,
+      id: `schedule:${c.id}`,
       priority: 3,
       text: `${c.name} has no next interview.`,
       action: { type: "openCandidate", candidateId: c.id, tab: "interviews", label: "Schedule" },

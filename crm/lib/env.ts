@@ -1,13 +1,16 @@
-/** Emails allowed to sign in, from CRM_ALLOWED_EMAILS (comma-separated). */
-export function allowedEmails(): string[] {
+/**
+ * The owners, from CRM_ALLOWED_EMAILS (comma-separated). Owners always have interviewer access and
+ * can't be removed in Settings. Everyone else gets in through an invite link.
+ */
+export function ownerEmails(): string[] {
   return (process.env.CRM_ALLOWED_EMAILS ?? "")
     .split(",")
     .map((e) => e.trim().toLowerCase())
     .filter(Boolean);
 }
 
-export function isAllowed(email: string | null | undefined): boolean {
-  return !!email && allowedEmails().includes(email.trim().toLowerCase());
+export function isOwner(email: string | null | undefined): boolean {
+  return !!email && ownerEmails().includes(email.trim().toLowerCase());
 }
 
 export function supabaseConfig(): { url: string; anonKey: string } | null {

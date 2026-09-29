@@ -1,7 +1,7 @@
 /* Reference stylesheet from the approved prototype. Every value here is the target; port them, do not approximate. */
 
 :root{
-  --canvas:#EAEDFF; --canvas-glow:rgba(255,255,255,.85); --blob-a:rgba(172,184,249,.55); --blob-b:rgba(255,255,255,.9); --glass:rgba(255,255,255,.72);
+  --canvas:#EAEDFF; --canvas-glow:rgba(255,255,255,.85); --blob-a:rgba(172,184,249,.55); --blob-b:rgba(255,255,255,.9); --glass:rgba(255,255,255,.72); --spot:rgba(172,184,249,.32);
   --card:#FFFFFF; --card-2:#F1F3FF; --ink:#0B091F; --ink-2:#3B3B60; --muted:#6F739A;
   --line:#E1E5FB; --line-2:#CDD3F7;
   --brand:#516AF6; --on-brand:#FFFFFF; --hi:#4A36FF; --glow:#ACB8F9; --soft:#EAEDFF; --soft-ink:#516AF6;
@@ -18,7 +18,7 @@
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --canvas:#0B091F; --canvas-glow:#221D4B; --blob-a:rgba(34,29,75,.95); --blob-b:rgba(43,38,104,.7); --glass:rgba(20,17,43,.72);
+    --canvas:#0B091F; --canvas-glow:#221D4B; --blob-a:rgba(34,29,75,.95); --blob-b:rgba(43,38,104,.7); --glass:rgba(20,17,43,.72); --spot:rgba(81,106,246,.22);
     --card:#14112B; --card-2:#1D1940; --ink:#FFFFFF; --ink-2:#D6D9F5; --muted:#9296C4;
     --line:#27234E; --line-2:#363168;
     --brand:#516AF6; --on-brand:#FFFFFF; --hi:#ACB8F9; --glow:#ACB8F9; --soft:#221D4B; --soft-ink:#ACB8F9;
@@ -32,7 +32,7 @@
   }
 }
 :root[data-theme="dark"]{
-    --canvas:#0B091F; --canvas-glow:#221D4B; --blob-a:rgba(34,29,75,.95); --blob-b:rgba(43,38,104,.7); --glass:rgba(20,17,43,.72);
+    --canvas:#0B091F; --canvas-glow:#221D4B; --blob-a:rgba(34,29,75,.95); --blob-b:rgba(43,38,104,.7); --glass:rgba(20,17,43,.72); --spot:rgba(81,106,246,.22);
     --card:#14112B; --card-2:#1D1940; --ink:#FFFFFF; --ink-2:#D6D9F5; --muted:#9296C4;
     --line:#27234E; --line-2:#363168;
     --brand:#516AF6; --on-brand:#FFFFFF; --hi:#ACB8F9; --glow:#ACB8F9; --soft:#221D4B; --soft-ink:#ACB8F9;
@@ -49,8 +49,8 @@ body{position:relative; isolation:isolate}
 body::before, body::after{content:""; position:fixed; z-index:-1; pointer-events:none; border-radius:50%; filter:blur(70px); will-change:transform}
 body::before{width:60vw; height:60vw; max-width:900px; max-height:900px; left:-10vw; top:-25vw; background:radial-gradient(circle at 50% 50%, var(--blob-a) 0%, transparent 65%); animation:driftA 34s ease-in-out infinite alternate}
 body::after{width:50vw; height:50vw; max-width:760px; max-height:760px; right:-12vw; top:-8vw; background:radial-gradient(circle at 50% 50%, var(--blob-b) 0%, transparent 65%); animation:driftB 46s ease-in-out infinite alternate}
-@keyframes driftA{0%{transform:translate(0,0) scale(1)}50%{transform:translate(18vw,10vh) scale(1.12)}100%{transform:translate(38vw,-4vh) scale(.95)}}
-@keyframes driftB{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-22vw,14vh) scale(1.08)}100%{transform:translate(-6vw,30vh) scale(1.15)}}
+@keyframes driftA{0%{transform:translate(var(--mx,0px),var(--my,0px)) scale(1)}50%{transform:translate(calc(18vw + var(--mx,0px)),calc(10vh + var(--my,0px))) scale(1.12)}100%{transform:translate(calc(38vw + var(--mx,0px)),calc(-4vh + var(--my,0px))) scale(.95)}}
+@keyframes driftB{0%{transform:translate(calc(var(--mx,0px) * -.6),calc(var(--my,0px) * -.6)) scale(1)}50%{transform:translate(calc(-22vw - var(--mx,0px) * .6),calc(14vh - var(--my,0px) * .6)) scale(1.08)}100%{transform:translate(calc(-6vw - var(--mx,0px) * .6),calc(30vh - var(--my,0px) * .6)) scale(1.15)}}
 *,*::before,*::after{box-sizing:inherit}
 body{
   margin:0; min-height:100%; color:var(--ink);
@@ -71,7 +71,7 @@ a{color:inherit}
 @keyframes pulse{0%{box-shadow:var(--shadow),0 0 0 0 rgba(81,106,246,.55)}100%{box-shadow:var(--shadow),0 0 0 14px rgba(81,106,246,0)}}
 .card.focus{animation:pulse .8s ease-out}
 html.theming body, html.theming .card, html.theming .rail, html.theming .drawer, html.theming .pill-btn, html.theming .seg, html.theming .tabs, html.theming .icon-btn, html.theming .search, html.theming .me{transition:background-color .5s ease, color .5s ease, border-color .5s ease}
-@media (prefers-reduced-motion: reduce){ *{transition:none!important; animation:none!important} .card.reveal{opacity:1; transform:none} body::before, body::after{animation:none} }
+@media (prefers-reduced-motion: reduce){ *{transition:none!important; animation:none!important} .card.reveal{opacity:1; transform:none} body::before, body::after{animation:none} .rail button svg{transform:none!important} }
 
 /* ---------- shell ---------- */
 .app{max-width:1440px; margin:0 auto; padding:28px 24px 48px; display:grid; grid-template-columns:72px 1fr; gap:18px}
@@ -119,7 +119,39 @@ html.theming body, html.theming .card, html.theming .rail, html.theming .drawer,
 .me .who small{font-size:10.5px;color:var(--muted)}
 
 /* ---------- cards ---------- */
-.card{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px 24px; min-width:0}
+.card{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px 24px; min-width:0; position:relative; isolation:isolate}
+.card::after{content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:-1; opacity:0; transition:opacity .3s; background:radial-gradient(260px circle at var(--px,50%) var(--py,50%), var(--spot) 0%, transparent 70%)}
+.card:hover::after{opacity:1}
+/* hover system: every control answers the cursor the same way */
+button svg{transition:transform .18s cubic-bezier(.3,1.3,.4,1)}
+.rail button svg{transform:translate(var(--tx,0px),var(--ty,0px))}
+.rail button:hover svg{transform:translate(var(--tx,0px),var(--ty,0px)) scale(1.12)}
+.rail button[title="Settings"]:hover svg, .icon-btn[title="Settings"]:hover svg{transform:rotate(35deg) scale(1.08)}
+.rail button.tog:hover svg{transform:rotate(90deg) scale(1.08)}
+.icon-btn:hover svg{transform:scale(1.1)}
+.icon-btn[title="Activity"]:hover svg{animation:ring .55s ease-in-out}
+@keyframes ring{0%,100%{transform:rotate(0)}20%{transform:rotate(-16deg)}45%{transform:rotate(12deg)}70%{transform:rotate(-7deg)}}
+.icon-btn[title="Light / dark"]:hover svg{transform:rotate(-25deg) scale(1.1)}
+.open-btn:hover svg{transform:translate(2px,-2px)}
+.btn-black:hover svg, .btn-accent:hover svg{transform:rotate(90deg)}
+.pill-btn.prev:hover svg{transform:translateX(-2px)} .pill-btn.next:hover svg{transform:translateX(2px)}
+.pill-btn, .btn-ghost, .btn-black, .btn-accent, .seg button, .tabs button, .weekstrip button, .promo .row, .lb-row, .nx-row, .task, .ev, .person, .chip, .hist{transition:background-color .18s, color .18s, transform .18s, box-shadow .18s}
+.btn-black:hover, .btn-accent:hover{transform:translateY(-1px); box-shadow:0 8px 20px -10px rgba(81,106,246,.7)}
+.btn-ghost:hover, .pill-btn:hover{transform:translateY(-1px)}
+.btn-black:active, .btn-accent:active, .btn-ghost:active, .pill-btn:active, .icon-btn:active{transform:translateY(0) scale(.97)}
+.promo .row:hover .thumb{transform:scale(1.06)} .promo .thumb{transition:transform .18s}
+.task .chk{transition:transform .15s, background-color .15s} .task .chk:hover{transform:scale(1.1)}
+.lb-row:hover{transform:translateX(2px)}
+.nx-row{cursor:pointer} .nx-row:hover{background:var(--line); transform:translateX(2px)}
+.nx-row .x{color:var(--muted); font-size:14px; line-height:1; opacity:0; transition:opacity .15s} .nx-row:hover .x{opacity:1} .nx-row .x:hover{color:var(--hi)}
+.ev{cursor:pointer} .ev:hover{background:var(--card-2)}
+.nt{position:relative} .nt .rm{position:absolute; top:10px; right:12px; color:var(--muted); font-size:14px; opacity:0} .nt:hover .rm{opacity:1} .nt .rm:hover{color:var(--hi)}
+.danger{border:1px solid rgba(74,54,255,.35); border-radius:14px; padding:12px 14px; margin-top:18px}
+.danger h4{margin:0 0 6px; font-size:13px; color:var(--hi)} .danger p{margin:0 0 10px; font-size:12.5px; color:var(--muted)}
+.btn-danger{height:36px; padding:0 14px; border-radius:12px; background:var(--hi); color:#fff; font-weight:700; font-size:13px}
+.btn-danger:disabled{opacity:.4; cursor:not-allowed}
+.link.danger-link{color:var(--hi)}
+@media (prefers-reduced-motion: reduce){ .card::after{display:none} }
 .card h2{margin:0; font-size:17px; font-weight:700; letter-spacing:-.01em}
 .kpis{display:grid; grid-template-columns:1fr 1.45fr 1.35fr 1fr; gap:14px}
 .kpi{position:relative; overflow:hidden; display:flex; flex-direction:column; min-height:230px}
@@ -171,7 +203,7 @@ html.theming body, html.theming .card, html.theming .rail, html.theming .drawer,
 .legend .dot{width:9px;height:9px;border-radius:50%;background:var(--brand);border:2px solid var(--card);box-sizing:border-box} .legend .avg{width:3px;height:14px;background:var(--ink);border-radius:2px} .legend .base{width:7px;height:7px;border-radius:50%;border:1.5px solid var(--muted);box-sizing:border-box}
 .kpi .card-head{flex-wrap:nowrap; align-items:flex-start} .kpi .card-head > div{min-width:0}
 .kpi.nextup .sub{font-size:12px; color:var(--muted); margin-top:2px}
-.kpi.nextup .count{font-size:26px; font-weight:700; letter-spacing:-.02em; color:var(--brand)}
+.kpi.nextup .count{font-size:26px; font-weight:700; letter-spacing:-.02em; color:var(--brand); cursor:pointer} .kpi.nextup h2{cursor:pointer}
 .nx{display:flex; flex-direction:column; gap:6px; margin-top:12px}
 .nx-row{display:grid; grid-template-columns:8px 1fr auto; gap:8px; align-items:start; font-size:12.5px; line-height:1.35; padding:7px 9px; border-radius:10px; background:var(--card-2)}
 .nx-row i{width:8px; height:8px; border-radius:50%; margin-top:5px; background:var(--line-2)} .nx-row.p3 i{background:var(--hi)} .nx-row.p2 i{background:var(--brand)}

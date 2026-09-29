@@ -14,11 +14,12 @@ Running list of calls made while building `/crm` without stopping to ask.
    and seeds itself on first use, so dev and e2e run without a Supabase project or Docker. PGlite is
    refused in production.
 4. **Local sign-in when Supabase isn't configured.** With no `NEXT_PUBLIC_SUPABASE_*` env and
-   `NODE_ENV !== production`, allowlisted emails sign in straight away with an HMAC-signed cookie
-   (`CRM_DEV_SECRET`, which has a default). The allowlist still applies. Production never does this
+   `NODE_ENV !== production`, people already in the CRM (and invite-link joiners) sign in straight
+   away with an HMAC-signed cookie (`CRM_DEV_SECRET`, which has a default). Roles still apply. Production never does this
    unless `CRM_DEV_AUTH=1` is set explicitly. The Playwright test uses this mode.
-5. **Magic links only go to allowlisted emails.** The allowlist is checked before `signInWithOtp`, so
-   nobody else is sent a link, and the proxy, the layout and every server action check it again.
+5. **Magic links only go to people already in the CRM** (owner, interviewer, or candidate email), or
+   to someone who just filled in a join form with a current invite. The layout and every server
+   action check the role again on each request. (Superseded by 68.)
 6. **Supabase-specific SQL** (RLS, the Realtime publication, the storage bucket and its policies)
    lives in `crm/db/supabase.sql`, not in Drizzle migrations, because PGlite has no
    `auth`/`storage` schemas. Run it once in the Supabase SQL editor after `crm:migrate`.
@@ -32,8 +33,9 @@ Running list of calls made while building `/crm` without stopping to ask.
 ## Data model
 10. **`candidates.seq`** (serial) was added for the human-facing `#0001` ID column and the
     "New candidate #0005" activity titles.
-11. **Removing an interviewer is blocked** when they have interviews or notes: the FKs are `restrict`
-    so history keeps its author. The error says why.
+11. **Removing an interviewer marks them removed** (`interviewers.removed_at`) instead of deleting the
+    row, so interviews and notes keep their author. Removed people drop out of Settings and the
+    interviewer pickers. (Replaces "removal is blocked when they have history".)
 12. **Seed interviewers have no emails in `seed.json`.** "Naim J." gets the first
     `CRM_ALLOWED_EMAILS` entry, so the owner's sign-in lands on the seeded row. The others get
     `<name>@seed.crm.local`.
@@ -75,8 +77,7 @@ Running list of calls made while building `/crm` without stopping to ask.
     action stores the path. Downloads go through `/crm/api/resume/[id]`, which checks the allowlist
     and redirects to a 60-second signed URL. In local mode, files go to `crm/.uploads`. The PDF type,
     10 MB size and (locally) `%PDF-` magic bytes are checked.
-27. **Adding an interviewer in Settings doesn't grant sign-in.** The allowlist is still the
-    `CRM_ALLOWED_EMAILS` env var, as specified. The Settings list flags people who aren't on it.
+27. **Interviewers join through the invite link, not a form in Settings.** See 68.
 28. **Reset demo data** shows when `NODE_ENV !== production` (or `CRM_DEV_AUTH=1`).
 29. **Extras beyond the spec:** cancel an upcoming interview (with confirm), an optional location
     field, and a phone field in the attributes.
@@ -210,3 +211,77 @@ Running list of calls made while building `/crm` without stopping to ask.
     1.5s). It plays once per session, click or any key skips it, it never plays on `/crm/me` or
     sign-in (it only mounts in the interviewer layout), and it never plays under reduced motion
     (the pre-paint script hides it before first paint).
+68. **Invite links replace the email allowlist and join codes.**
+    - `settings` holds `interviewer_invite` (32 chars, expires 7 days after it's generated) and
+      `intern_invite` (32 chars, no expiry). Both are generated the first time an interviewer loads
+      the CRM. Regenerating replaces the token and deletes pending joins for that role, so the old
+      link and anything waiting on it stop working at once.
+    - Role comes from which table the email is in: `CRM_ALLOWED_EMAILS` (owners, always interviewer,
+      can't be removed or have their email changed in Settings) → `interviewers` (not removed) →
+      a candidate's email (intern). Interviewer wins if an email is in both.
+    - A join form is saved in `pending_joins` until the email is verified (link or code, within
+      24h). The token is checked again at verification. An interviewer join creates (or restores)
+      the interviewer row; an intern join creates a candidate (status new, fit 5,
+      `self_joined = true`) unless the email is already on one.
+    - Self-joined candidates show a "Joined themselves" chip, and Next up proposes "Fill in <name>'s
+      record" (`fill:<candidateId>`, priority 2) until they have a skill or an area.
+    - Removal is enforced per request: a removed interviewer's next page load goes through
+      `/crm/auth/sign-out?error=removed`, which ends their session and says why. RLS
+      (`crm_is_interviewer`) also ignores removed rows.
+    - The email link goes to `/crm/auth/confirm?token_hash=…&type=email` (works in any browser,
+      needs the email templates below). It still accepts `?code=` (PKCE) if the templates are left
+      at `{{ .ConfirmationURL }}`, and `/crm/auth/callback` still works for older emails. The 6-digit
+      code in the same email is the fallback when the link opens in another browser or app.
+    - Rate limits live in Postgres (`auth_attempts`, sliding window): 10 join submissions per IP
+      per 15 min, 20 sign-in requests per IP per 15 min, 5 emails per address per hour, and 10 code
+      tries per address (30 per IP) per 15 min. Supabase's own email limits apply on top. Limits are
+      off in local mode (no email is sent), so e2e and the checklist can sign in repeatedly.
+    - Candidate emails are unique (case-insensitive) when created or edited, since each intern signs
+      in with their own. Interviewer emails can be edited in Settings (not the owner's, not your own).
+
+## Cursor, hover, Next up, deletion
+68. **Eyes follow the cursor** (`crm/ui/Eyes.tsx`, from the prototype):
+    - Within 260px of the mark, the horizontal offset (clamped to ±140px) maps linearly from
+      frame 0 (full right) to frame 27 (full left); outside the radius the eyes target the theme's
+      rest frame. They step one frame per 26ms, written to `--eyes-pos`.
+    - The theme turn now uses the prototype's `.turn`/`.rev` classes, triggered by a
+      `crm:theme-turn` event from the toggle. Stepping pauses while `.turn` is on; on
+      `animationend` the eyes re-sync to the rest frame, then to the cursor's frame if it's still
+      within the radius.
+    - Off under reduced motion and `(hover: none)`; the eyes still toggle the theme.
+69. **Cursor effects** (`crm/ui/CursorFx.tsx`, mounted in the CRM root layout, so `/crm/me` gets
+    them too):
+    - `--mx`/`--my` on `<html>` (±35px / ±25px, lerped in rAF) feed the blob drift keyframes.
+    - `--px`/`--py` on the hovered `.card` position its `::after` spotlight.
+    - `--tx`/`--ty` on the hovered rail button lean its icon up to 7px.
+    - Off under reduced motion and `(hover: none)`.
+70. **Hover system:** the prototype's rules are used verbatim. `crm.css` adds only what they leave
+    out, in the same 180ms lift and tint: segmented controls, tabs, week strip and tier buttons,
+    selects, the user chip, the first activity row, the wordmark link, rankings names, and the × on
+    area people. The rankings `.fitsel` gets a hover ring because its background is `!important`
+    inside the prototype's layer. `crm/scripts/audit-hover.mjs` hovers one of every control kind
+    on the dashboard and in every drawer and modal, and fails if nothing visibly changes.
+71. **Next up:**
+    - Proposals carry stable keys: `assign:`, `overdue:`, `idle:`, `score:`, `report:`,
+      `stalled:`, `schedule:`.
+    - The whole row runs its action; × dismisses that key for today (table `dismissals`, unique on
+      interviewer + day + key, migration 0003).
+    - The title and count open a Next up drawer grouped Do now / Today / When you get to it, with a
+      Dismissed-today list and Restore.
+    - Long action labels ellipsize at 140px, with the full text in the tooltip.
+72. **Deletion** (interviewer-only, one transaction each, each logs who did it):
+    - **Candidate:** explicitly deletes their sessions, reports, tasks, interviews and notes (skills
+      and area links cascade), and returns the counts.
+    - **Area:** detaches it from candidates and nulls it on tasks.
+    - **Note:** deletes the note.
+    - **Settings → Danger zone → "Delete all data":** requires typing DELETE (also checked on the
+      server). It truncates everything except interviewers and settings, and keeps the current
+      campaign with only its name. It's available in production; "Reset demo data" stays dev-only.
+    - Empty states cover the table, campaign, leaderboard and Open areas.
+    - `GET /crm/api/dev/counts` (dev only, interviewer only, 404 otherwise) gives the checklist
+      real row counts.
+73. **`supabase.sql` covers `dismissals`.** Re-run it in Supabase after applying migration 0003 in
+    production.
+69. **Reset demo data clears Next-up dismissals too.** Seed rows get the same ids every time, so
+    dismissals left over from before a reset hid different proposals on each run (this made the
+    checklist's Restore step fail intermittently).

@@ -19,7 +19,7 @@ import type { ActionResult, CrmData } from "../lib/types";
 
 export type Patch = (d: CrmData) => CrmData;
 export type RecordTab = "notes" | "interviews" | "resume" | "assignments";
-export type Panel = "rankings" | "areas" | "daylog" | "settings";
+export type Panel = "rankings" | "areas" | "daylog" | "settings" | "nextup";
 export type AssignTarget = { taskId?: string; candidateId?: string; areaId?: string; day?: string };
 type Toast = { id: number; message: string; tone: "info" | "warn" };
 
@@ -165,6 +165,7 @@ export function useClock() {
 // ─── Theme: data-theme on <html>, persisted in localStorage. ────────────────────────────────
 
 export type Theme = "light" | "dark";
+export const THEME_TURN_EVENT = "crm:theme-turn";
 let themingTimer = 0;
 
 function subscribeTheme(cb: () => void) {
@@ -184,7 +185,8 @@ export function useTheme(): [Theme, () => void] {
     const next: Theme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
     // ~650ms colour crossfade, and tell the eyes which way to turn.
     root.classList.add("theming");
-    root.setAttribute("data-eyes", next === "dark" ? "to-dark" : "to-light");
+    // The rail's eyes play the prototype's .turn animation (see Eyes.tsx).
+    window.dispatchEvent(new CustomEvent(THEME_TURN_EVENT, { detail: next }));
     window.clearTimeout(themingTimer);
     themingTimer = window.setTimeout(() => root.classList.remove("theming"), 650);
     root.setAttribute("data-theme", next);

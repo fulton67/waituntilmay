@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { addNote, cancelInterview, logInterview, scheduleInterview, setResumeFile } from "../lib/actions";
+import { addNote, cancelInterview, deleteNote, logInterview, scheduleInterview, setResumeFile } from "../lib/actions";
 import { firstName, tierOf } from "../lib/ranking";
 import { findClash, interviewPhase, plannedMinutes, type Phase } from "../lib/rules";
 import { supabaseBrowser } from "../lib/supabase/browser";
@@ -91,8 +91,17 @@ function Notes({ candidate }: { candidate: Candidate }) {
         {notes.map((n) => {
           const author = byId.get(n.authorId);
           return (
-            <div key={n.id} className="nt">
-              <div className="m">
+            <div key={n.id} className="nt" data-testid="note">
+              <button
+                type="button"
+                className="rm"
+                aria-label="Delete note"
+                title="Delete note"
+                onClick={() => mutate((d) => ({ ...d, notes: d.notes.filter((x) => x.id !== n.id) }), () => deleteNote(n.id), "Note deleted")}
+              >
+                ×
+              </button>
+              <div className="m" style={{ paddingRight: 20 }}>
                 <b>{author?.name ?? "Former interviewer"}</b>
                 <span suppressHydrationWarning>{relativeTime(n.createdAt)}</span>
               </div>
@@ -332,7 +341,7 @@ export function ScheduleForm({ candidate, bare = false, onDone, defaultDate }: {
       <label>
         Interviewer
         <select className="field" aria-label="Interviewer" value={interviewerId} onChange={(e) => setInterviewerId(e.target.value)}>
-          {data.interviewers.map((i) => (
+          {data.interviewers.filter((i) => !i.removed || i.id === interviewerId).map((i) => (
             <option key={i.id} value={i.id}>
               {i.name}
             </option>

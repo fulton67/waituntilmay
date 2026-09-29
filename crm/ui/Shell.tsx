@@ -11,6 +11,7 @@ import { Panels } from "./Panels";
 import { Avatar, Icon, cx, type IconName } from "./primitives";
 import { useCrm, useTheme, type Panel } from "./store";
 import { AssignModal } from "./Tasks";
+import { EyesMark } from "./Eyes";
 
 export type SectionId = "overview" | "schedule" | "campaign" | "candidates";
 const SECTIONS: { id: SectionId; label: string; icon: IconName }[] = [
@@ -153,7 +154,7 @@ function Rail() {
 
   return (
     <aside className="rail" aria-label="CRM" data-testid="rail">
-      <button type="button" className="mark logo" onClick={toggleTheme} aria-label="Switch theme" title="Switch theme" data-testid="eyes" />
+      <EyesMark />
       <nav ref={navRef}>
         <span className={cx("ind", ind && "show")} style={ind ? { transform: `translate(${ind.x}px, ${ind.y}px)` } : undefined} data-testid="rail-indicator" aria-hidden />
         {SECTIONS.map((n) => (
@@ -242,6 +243,7 @@ function Bell() {
       <button
         type="button"
         className="icon-btn"
+        title="Activity"
         aria-label={`Activity${fresh ? `, ${fresh} new` : ""}`}
         aria-expanded={open}
         onClick={() => {

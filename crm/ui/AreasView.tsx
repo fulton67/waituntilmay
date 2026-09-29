@@ -156,7 +156,7 @@ function AreaCard({ area }: { area: Area }) {
             <button
               type="button"
               aria-label={`Remove ${c.name}`}
-              style={{ opacity: 0.6, fontSize: 14, lineHeight: 1 }}
+              className="person-x"
               onClick={(e) => {
                 e.stopPropagation();
                 mutate(patchCandidate(c.id, (x) => ({ ...x, areaIds: x.areaIds.filter((id) => id !== area.id) })), () => detachArea(c.id, area.id));

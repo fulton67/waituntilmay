@@ -7,6 +7,7 @@ import { tierOf, weekOf } from "../lib/ranking";
 import { formatDay } from "../lib/time";
 import type { Campaign, Candidate, Task } from "../lib/types";
 import { TierChip, WeekStrip } from "./bits";
+import { InviteLink } from "./InviteLink";
 import { Avatar, Button, Modal } from "./primitives";
 import { useCrm } from "./store";
 import { TaskCard } from "./Tasks";
@@ -39,15 +40,29 @@ export function CampaignSection() {
       <div className="camp-head">
         <div style={{ minWidth: 0 }}>
           <h2 className="wrap-any">{k.name}</h2>
-          <p className="brief wrap-any">{k.brief}</p>
+          {k.brief ? (
+            <p className="brief wrap-any">{k.brief}</p>
+          ) : (
+            <p className="brief" style={{ color: "var(--muted)" }}>
+              No brief yet.{" "}
+              <button type="button" className="link" onClick={() => setEditing(true)}>
+                Write one
+              </button>
+            </p>
+          )}
           {k.goal && <span className="goal">{k.goal}</span>}
           <div className="targets">
             <span style={{ background: "transparent", paddingLeft: 0, color: "var(--muted)" }}>
-              {formatDay(k.startDate)} – {formatDay(k.endDate)} · targets
+              {formatDay(k.startDate)} – {formatDay(k.endDate)}
+              {k.targets.length ? " · targets" : " · no target schools yet"}
             </span>
             {k.targets.map((t) => (
               <span key={t}>{t}</span>
             ))}
+          </div>
+          <div style={{ marginTop: 12, maxWidth: 520 }} data-testid="campaign-intern-invite">
+            <span style={{ display: "block", fontSize: 12, color: "var(--muted)", marginBottom: 6 }}>Intern invite link — send it to new interns</span>
+            <InviteLink role="intern" copyOnly />
           </div>
         </div>
         <div className="tools" style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "flex-end" }}>
@@ -72,6 +87,7 @@ export function CampaignSection() {
         {rows.map((c) => (
           <InternRow key={c.id} candidate={c} tasks={tasksFor(c.id)} />
         ))}
+        {!rows.length && <div className="assign-empty">No candidates yet — add one in the table below, then assign them a task.</div>}
         <div className="arow" data-testid="unassigned-row">
           <div className="who" style={{ cursor: "default" }}>
             <span className="mini" style={{ width: 32, height: 32, background: "var(--card-2)", color: "var(--muted)" }}>

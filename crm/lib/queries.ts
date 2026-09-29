@@ -1,7 +1,8 @@
 import "server-only";
 import { and, asc, desc, eq, inArray, isNotNull } from "drizzle-orm";
 import { getDb, schema } from "../db";
-import { allowedEmails, devToolsEnabled, supabaseConfig } from "./env";
+import { devToolsEnabled, ownerEmails, supabaseConfig } from "./env";
+import { loadInvites } from "./invites";
 import { CRM_TZ, hhmm, todayIn } from "./time";
 import type { Campaign, CrmData, InternData, Interviewer, Report, Session, Task } from "./types";
 
@@ -25,15 +26,20 @@ export async function loadCrmData(me: Interviewer): Promise<CrmData> {
     db.select().from(schema.settings),
     currentCampaign(),
   ]);
-  const [tasks, sessions, reports] = await Promise.all([
+  const [tasks, sessions, reports, dismissed, invites] = await Promise.all([
     campaign ? db.select().from(schema.tasks).where(eq(schema.tasks.campaignId, campaign.id)).orderBy(asc(schema.tasks.day), asc(schema.tasks.createdAt)) : [],
     db.select().from(schema.sessions).orderBy(asc(schema.sessions.startedAt)),
     db.select().from(schema.reports).orderBy(desc(schema.reports.day)),
+    db
+      .select({ key: schema.dismissals.key })
+      .from(schema.dismissals)
+      .where(and(eq(schema.dismissals.interviewerId, me.id), eq(schema.dismissals.day, todayIn(CRM_TZ)))),
+    loadInvites(),
   ]);
 
   return {
     me,
-    interviewers: interviewers.map((i) => ({ id: i.id, name: i.name, email: i.email, color: i.color })),
+    interviewers: interviewers.map((i) => ({ id: i.id, name: i.name, email: i.email, color: i.color, ...(i.removedAt ? { removed: true } : {}) })),
     candidates: candidates.map((c) => ({
       id: c.id,
       seq: c.seq,
@@ -51,6 +57,7 @@ export async function loadCrmData(me: Interviewer): Promise<CrmData> {
       resumeJson: c.resumeJson,
       resumeFileUrl: c.resumeFileUrl,
       createdAt: iso(c.createdAt),
+      selfJoined: c.selfJoined,
       skills: skills.filter((s) => s.candidateId === c.id).map((s) => ({ id: s.id, skill: s.skill, score: s.score })),
       areaIds: links.filter((l) => l.candidateId === c.id).map((l) => l.areaId),
     })),
@@ -80,7 +87,9 @@ export async function loadCrmData(me: Interviewer): Promise<CrmData> {
       createdAt: iso(a.createdAt),
     })),
     settings: { priorityAt: settingsRows[0]?.priorityAt ?? 8, benchAt: settingsRows[0]?.benchAt ?? 4 },
-    allowlist: allowedEmails(),
+    dismissed: dismissed.map((d) => d.key),
+    owners: ownerEmails(),
+    invites,
     campaign,
     tasks: tasks.map(mapTask),
     sessions: sessions.map(mapSession),

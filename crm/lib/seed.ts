@@ -56,7 +56,7 @@ export type SeedOptions = { today?: string; reset?: boolean; ownerEmail?: string
 
 /**
  * Loads crm/seed.json. Idempotent: rows get deterministic ids and inserts skip existing rows, so a
- * second run changes nothing. `reset: true` wipes candidate data first (interviewers are kept).
+ * second run changes nothing. `reset: true` wipes candidate data and Next-up dismissals first (interviewers are kept).
  * Dates are shifted so the seed's baseDate lands on today.
  */
 export async function seedDatabase(db: Db, opts: SeedOptions = {}) {
@@ -69,7 +69,7 @@ export async function seedDatabase(db: Db, opts: SeedOptions = {}) {
   await db.transaction(async (tx) => {
     if (opts.reset) {
       await tx.execute(
-        sql`TRUNCATE sessions, reports, tasks, campaigns, activity, notes, interviews, candidate_areas, candidate_skills, candidates, areas RESTART IDENTITY CASCADE`,
+        sql`TRUNCATE dismissals, sessions, reports, tasks, campaigns, activity, notes, interviews, candidate_areas, candidate_skills, candidates, areas RESTART IDENTITY CASCADE`,
       );
     }
 

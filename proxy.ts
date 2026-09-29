@@ -4,8 +4,10 @@ import { devAuthEnabled, supabaseConfig } from "./crm/lib/env";
 import { refreshSupabaseSession } from "./crm/lib/supabase/proxy";
 
 const LUNCH_BELLS_COOKIE = "lb-auth";
-// Sign-in, the magic-link landing, and static brand assets (the sign-in page needs the wordmark).
-const CRM_PUBLIC = ["/crm/sign-in", "/crm/auth/callback", "/crm/brand/", "/crm/api/health"];
+// Sign-in, invite links, the magic-link landings, sign-out, and static brand assets (the sign-in page needs the wordmark).
+const CRM_PUBLIC = ["/crm/sign-in", "/crm/join/", "/crm/auth/", "/crm/brand/", "/crm/api/health"];
+// These set their own auth cookies; refreshing first could clear the PKCE code verifier they need.
+const CRM_OWN_COOKIES = ["/crm/auth/callback", "/crm/auth/confirm", "/crm/auth/sign-out"];
 
 function lunchBells(req: NextRequest) {
   if (req.nextUrl.pathname === "/lunch-bells/login") return NextResponse.next();
@@ -22,8 +24,7 @@ function lunchBells(req: NextRequest) {
 
 async function crm(req: NextRequest) {
   const { pathname } = req.nextUrl;
-  // The callback sets its own auth cookies; refreshing here could clear the PKCE code verifier it needs.
-  if (pathname.startsWith("/crm/auth/callback")) return NextResponse.next();
+  if (CRM_OWN_COOKIES.some((p) => pathname.startsWith(p))) return NextResponse.next();
   let response = NextResponse.next();
   let email: string | null;
 

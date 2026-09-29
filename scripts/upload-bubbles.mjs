@@ -2,7 +2,12 @@ import { put } from "@vercel/blob";
 import { readFileSync, existsSync } from "fs";
 import { join } from "path";
 
-const TOKEN = "vercel_blob_rw_6gOu1uItBmKd2UVc_Fh8IZYQaaKo4PBfty9T6AfCNzDrBJ0";
+// Run with: node --env-file=.env.local scripts/upload-bubbles.mjs  (the token comes from `vercel env pull`)
+if (!process.env.BLOB_READ_WRITE_TOKEN) {
+  console.error("BLOB_READ_WRITE_TOKEN is not set. Run: node --env-file=.env.local scripts/upload-bubbles.mjs");
+  process.exit(1);
+}
+const TOKEN = process.env.BLOB_READ_WRITE_TOKEN;
 const DOWNLOADS = "C:/Users/naimj/Downloads";
 
 const FILES = [
