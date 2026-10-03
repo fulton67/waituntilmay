@@ -480,7 +480,10 @@ export default function CloudView({
               >
                 {src
                   ? <img src={src} alt={item.title} style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none", userSelect:"none" }} loading="lazy" draggable={false} />
-                  : <div style={{ width: ITEM_W, height: 100 }} />
+                  : item.video
+                    // muted + playsInline are what let iOS and Chrome autoplay
+                    ? <video src={item.video} muted playsInline autoPlay loop preload="metadata" aria-label={item.title} style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none" }} />
+                    : <div style={{ width: ITEM_W, height: 100 }} />
                 }
               </motion.div>
             );
