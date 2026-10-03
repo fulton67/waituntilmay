@@ -45,6 +45,35 @@ function nodeColor(id: string) {
 
 const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
 
+const VIDEO_DWELL_MS = 250;
+const SETTLED_ALPHA  = 0.1;   // below this the opening spread has mostly finished
+
+// A video tile fetches nothing until it has been on screen for a moment, then plays
+// only while visible — tiles that just fly past during a pan never start a download.
+// `armed` holds off the first load until the opening spread settles, since every
+// tile starts near the centre and crosses the screen on its way out.
+function TileVideo({ src, title, armed }: { src: string; title: string; armed: boolean }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [load, setLoad] = useState(false);
+  useEffect(() => {
+    const v = ref.current; if (!v || (!armed && !load)) return;
+    let dwell: ReturnType<typeof setTimeout> | null = null;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        dwell = setTimeout(() => { setLoad(true); v.play().catch(() => {}); }, VIDEO_DWELL_MS);
+      } else {
+        if (dwell) { clearTimeout(dwell); dwell = null; }
+        v.pause();
+      }
+    });
+    io.observe(v);
+    return () => { io.disconnect(); if (dwell) clearTimeout(dwell); };
+  }, [armed, load]);
+  // muted + playsInline are what let iOS and Chrome autoplay
+  return <video ref={ref} src={load ? src : undefined} muted playsInline autoPlay loop preload="metadata" aria-label={title}
+    style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none" }} />;
+}
+
 // Past a limit, scale keeps moving but with heavy resistance; it springs back on release
 function rubber(s: number, min: number, max: number) {
   if (s > max) return max * Math.pow(s / max, 0.15);
@@ -78,6 +107,7 @@ export default function CloudView({
   const [size, setSize] = useState<{ w: number; h: number } | null>(null);
   const [tip,  setTip]  = useState<{ x: number; y: number; item: WorkItem } | null>(null);
   const [draggingId, setDraggingId] = useState<string | null>(null);
+  const [settled, setSettled] = useState(false);
 
   useEffect(() => { onSelectRef.current = onSelect; }, [onSelect]);
 
@@ -118,6 +148,8 @@ export default function CloudView({
         const p: Record<string, { x: number; y: number }> = {};
         for (const n of nodes) p[n.id] = { x: n.x ?? cx, y: n.y ?? cy };
         setPos({ ...p });
+        const s = (simRef.current?.alpha() ?? 0) < SETTLED_ALPHA;
+        setSettled(prev => prev || s);
       });
     return () => { simRef.current?.stop(); };
   }, [items, size]);
@@ -504,8 +536,7 @@ export default function CloudView({
                 {src
                   ? <img src={src} alt={item.title} style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none", userSelect:"none" }} loading="lazy" draggable={false} />
                   : item.video
-                    // muted + playsInline are what let iOS and Chrome autoplay
-                    ? <video src={item.video} muted playsInline autoPlay loop preload="metadata" aria-label={item.title} style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none" }} />
+                    ? <TileVideo src={item.video} title={item.title} armed={settled} />
                     : <div style={{ width: ITEM_W, height: 100 }} />
                 }
               </motion.div>
