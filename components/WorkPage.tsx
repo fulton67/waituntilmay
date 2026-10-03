@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { WorkItem } from "@/app/api/work/route";
@@ -8,6 +8,7 @@ import { FONT_MONO } from "@/lib/theme";
 import BlobBackground from "./work/BlobBackground";
 import CloudView from "./work/CloudView";
 import WorkDetailOverlay from "./work/WorkDetailOverlay";
+import ImageViewer, { type Slide } from "./work/ImageViewer";
 
 const CAT_PRIORITY: Record<string, number> = { "fine-arts":0, "clothing-production":1, "movies-video":2, "consulting":3 };
 
@@ -25,6 +26,7 @@ export default function WorkPage() {
   const [items, setItems]     = useState<WorkItem[]>([]);
   const [cat, setCat]         = useState<CatId>("all");
   const [open, setOpen]       = useState<WorkItem | null>(null);
+  const [viewing, setViewing] = useState<number | null>(null);
   const pathname              = usePathname();
 
   useEffect(() => {
@@ -34,11 +36,24 @@ export default function WorkPage() {
   const visible = items.filter(i => i.visible && i.listed !== false && (cat === "all" || i.category === cat));
   const sorted  = [...visible].sort((a, b) => (CAT_PRIORITY[a.category] ?? 99) - (CAT_PRIORITY[b.category] ?? 99));
   const media   = sorted.filter(i => !!(i.image || i.video || i.images?.length));
+  const mediaKey = media.map(i => i.id).join("|");
+
+  // Every image across the visible works, in cloud order, for next/previous in the viewer
+  const slides = useMemo(() => media.flatMap<Slide>(item =>
+    item.images?.length ? item.images.map(src => ({ src, kind: "image" as const, item }))
+    : item.image ? [{ src: item.image, kind: "image" as const, item }]
+    : item.video ? [{ src: item.video, kind: "video" as const, item }]
+    : []
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  ), [mediaKey]);
+
+  const tileRect = (id: string) =>
+    document.querySelector(`[data-item-id="${CSS.escape(id)}"]`)?.getBoundingClientRect() ?? null;
 
   return (
     <>
       {/* Canvas */}
-      <div style={{ position:"relative", width:"100%", height:"100svh", background:"#fafafa", overflow:"hidden" }}>
+      <div style={{ position:"relative", width:"100%", height:"100dvh", background:"#fafafa", overflow:"hidden" }}>
         <BlobBackground />
 
         {/* Nav */}
@@ -55,7 +70,7 @@ export default function WorkPage() {
           </div>
         </nav>
 
-        <CloudView items={media} onSelect={setOpen} />
+        <CloudView items={media} onSelect={item => setViewing(Math.max(0, slides.findIndex(s => s.item.id === item.id)))} />
       </div>
 
       {/* Filters */}
@@ -72,6 +87,15 @@ export default function WorkPage() {
       </div>
 
       {/* Overlay */}
+      {viewing !== null && slides.length > 0 && (
+        <ImageViewer
+          slides={slides}
+          start={viewing}
+          getTileRect={tileRect}
+          onClose={() => setViewing(null)}
+          onInfo={item => { setViewing(null); setOpen(item); }}
+        />
+      )}
       {open && <WorkDetailOverlay item={open} onClose={() => setOpen(null)} />}
 
       {/* eslint-disable-next-line @next/next/no-img-element */}
