@@ -368,10 +368,22 @@ export default function CloudView({
       doubleTap(local(e.clientX, e.clientY));
     };
 
+    // A notched mouse wheel reports whole lines/pages, or a large whole-number deltaY with
+    // no deltaX (Chrome: ±100 per notch, scaled by page zoom). Trackpads send small or
+    // fractional deltas, often with deltaX. Once a scroll reads as trackpad it stays that
+    // way until the wheel goes quiet, so a fast flick's big deltas don't flip into zoom.
+    let trackpadUntil = 0;
+    const isMouseWheel = (e: WheelEvent) => {
+      const now = performance.now();
+      if (now < trackpadUntil) { trackpadUntil = now + 200; return false; }
+      const mouse = e.deltaMode !== 0 || (e.deltaX === 0 && Number.isInteger(e.deltaY) && Math.abs(e.deltaY) >= 40);
+      if (!mouse) trackpadUntil = now + 200;
+      return mouse;
+    };
+
     // ctrl/⌘+wheel is a trackpad pinch: zoom toward the cursor, matching the fingers
     // (Chrome reports a pinch as deltaY = -100·ln(scale), so k = 0.01 is 1:1).
-    // Plain wheel keeps the existing desktop behaviour — vertical zooms, so mouse wheels
-    // still zoom — and a mostly-horizontal scroll (two-finger trackpad swipe) pans.
+    // A mouse wheel zooms toward the cursor; a trackpad two-finger scroll pans.
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       interrupt();
@@ -379,7 +391,8 @@ export default function CloudView({
       const dx = lineOrPage(e.deltaX, wrap.clientWidth);
       const dy = lineOrPage(e.deltaY, wrap.clientHeight);
       const pinch = e.ctrlKey || e.metaKey;
-      if (!pinch && Math.abs(dx) > Math.abs(dy)) {
+      // A tilt wheel's sideways click has nothing to zoom with, so it pans too
+      if (!pinch && (!isMouseWheel(e) || dy === 0)) {
         view.x -= dx; view.y -= dy;
         return;
       }
