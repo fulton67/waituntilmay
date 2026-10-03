@@ -24,6 +24,12 @@ function rubber(z: number) {
   return z;
 }
 
+// Cargo URLs in the work data point at its 1000px resize (/w/1000/i/...); the viewer
+// fills the screen, so it asks cargo for the original (/i/...) instead.
+function fullRes(src: string) {
+  return src.replace(/^(https:\/\/freight\.cargo\.site)\/w\/\d+\/(i\/)/, "$1/$2");
+}
+
 // Largest box with the slide's aspect ratio that fits the stage, centred in it
 function fitBox(ar: number, stage: { w: number; h: number }): Rect {
   const width = Math.min(stage.w, stage.h * ar);
@@ -411,7 +417,7 @@ export default function ImageViewer({
               ? <video src={s.src} autoPlay muted loop playsInline onLoadedMetadata={e => setRatio(s.src, e.currentTarget.videoWidth, e.currentTarget.videoHeight)}
                   style={{ display: "block", width: "100%", height: "100%", objectFit: "contain", pointerEvents: "none" }} />
               // eslint-disable-next-line @next/next/no-img-element
-              : <img src={s.src} alt={s.item.title} draggable={false} decoding="async"
+              : <img src={fullRes(s.src)} alt={s.item.title} draggable={false} decoding="async"
                   data-viewer-image={current ? "current" : undefined}
                   onLoad={e => setRatio(s.src, e.currentTarget.naturalWidth, e.currentTarget.naturalHeight)}
                   style={{ display: "block", width: "100%", height: "100%", objectFit: "contain", pointerEvents: "none" }} />;
