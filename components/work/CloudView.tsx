@@ -368,13 +368,23 @@ export default function CloudView({
       doubleTap(local(e.clientX, e.clientY));
     };
 
-    // Wheel zooms toward the cursor; ctrl+wheel is a trackpad pinch and gets a finer ratio
+    // ctrl/⌘+wheel is a trackpad pinch: zoom toward the cursor, matching the fingers
+    // (Chrome reports a pinch as deltaY = -100·ln(scale), so k = 0.01 is 1:1).
+    // Plain wheel keeps the existing desktop behaviour — vertical zooms, so mouse wheels
+    // still zoom — and a mostly-horizontal scroll (two-finger trackpad swipe) pans.
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       interrupt();
+      const lineOrPage = (d: number, page: number) => e.deltaMode === 1 ? d * 16 : e.deltaMode === 2 ? d * page : d;
+      const dx = lineOrPage(e.deltaX, wrap.clientWidth);
+      const dy = lineOrPage(e.deltaY, wrap.clientHeight);
+      const pinch = e.ctrlKey || e.metaKey;
+      if (!pinch && Math.abs(dx) > Math.abs(dy)) {
+        view.x -= dx; view.y -= dy;
+        return;
+      }
       const { min, max } = boundsRef.current;
-      const dy = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaMode === 2 ? e.deltaY * 400 : e.deltaY;
-      const k = e.ctrlKey ? 0.01 : 0.0015;
+      const k = pinch ? 0.01 : 0.0015;
       const base = wheelRaw ?? goalRef.current?.s ?? view.s;
       wheelRaw = clamp(base * Math.exp(-dy * k), min * 0.5, max * 2);
       const at = local(e.clientX, e.clientY);
