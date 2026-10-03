@@ -37,7 +37,7 @@ function seedRatios(slides: Slide[]) {
   if (typeof document === "undefined") return out;
   const wanted = new Set(slides.map(s => s.src));
   document.querySelectorAll<HTMLImageElement>("img").forEach(img => {
-    const src = img.getAttribute("src");
+    const src = img.dataset.fullSrc ?? img.getAttribute("src");
     if (src && wanted.has(src) && img.complete && img.naturalWidth) out[src] = img.naturalWidth / img.naturalHeight;
   });
   return out;

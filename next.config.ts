@@ -15,6 +15,15 @@ const nextConfig: NextConfig = {
   ...(process.env.NEXT_DIST_DIR ? { distDir: process.env.NEXT_DIST_DIR } : {}),
   // PGlite (local-dev database) loads its WASM from node_modules at runtime.
   serverExternalPackages: ["@electric-sql/pglite"],
+  // /work tiles are served as small optimized renditions of these originals
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "6gou1uitbmkd2uvc.public.blob.vercel-storage.com", pathname: "/work/**" },
+      { protocol: "https", hostname: "freight.cargo.site", pathname: "/w/**" },
+      { protocol: "https", hostname: "freight.cargo.site", pathname: "/i/**" },
+    ],
+    qualities: [75],
+  },
   async headers() {
     return [
       {

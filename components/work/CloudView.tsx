@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { getImageProps } from "next/image";
 import { forceSimulation, forceCollide, forceCenter, forceManyBody } from "d3-force";
 import type { Simulation, SimulationNodeDatum } from "d3-force";
 import type { WorkItem } from "@/app/api/work/route";
@@ -44,6 +45,14 @@ function nodeColor(id: string) {
 }
 
 const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
+
+// Tiles are 140px wide and zoom to a few times that, so they get a 384px (1x) /
+// 640px (2x) optimized rendition instead of the multi-megabyte original.
+const TILE_SRC_W = 320;
+function tileImage(src: string) {
+  const { props } = getImageProps({ src, alt: "", width: TILE_SRC_W, height: TILE_SRC_W, quality: 75 });
+  return { src: props.src, srcSet: props.srcSet };
+}
 
 const VIDEO_DWELL_MS = 250;
 const SETTLED_ALPHA  = 0.1;   // below this the opening spread has mostly finished
@@ -534,7 +543,7 @@ export default function CloudView({
                 whileHover={!isDragging ? { scale: 1.08, transition: { duration: 0.15 } } : undefined}
               >
                 {src
-                  ? <img src={src} alt={item.title} style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none", userSelect:"none" }} loading="lazy" draggable={false} />
+                  ? <img {...tileImage(src)} data-full-src={src} alt={item.title} style={{ display:"block", width:"100%", height:"auto", pointerEvents:"none", userSelect:"none" }} loading="lazy" draggable={false} />
                   : item.video
                     ? <TileVideo src={item.video} title={item.title} armed={settled} />
                     : <div style={{ width: ITEM_W, height: 100 }} />
