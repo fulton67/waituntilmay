@@ -1,0 +1,57 @@
+name: videos
+
+on:
+  schedule:
+    - cron: '0 * * * *'      # hourly
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: videos
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install tools
+        run: |
+          python -m pip install --upgrade --quiet yt-dlp pillow playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Refresh videos.json and posters
+        run: python scripts/refresh_feed.py
+
+      - name: Rebuild the grid markup
+        run: python scripts/build_video_grid.py || true
+
+      - name: Re-capture the /videos previews
+        run: python scripts/capture_videos_page.py
+
+      - name: Commit when changed
+        id: commit
+        run: |
+          if [ -z "$(git status --porcelain site/videos.json site/assets/yt site/assets/preview-videos-1280.webp site/assets/preview-videos-390.webp)" ]; then
+            echo "no change"; exit 0
+          fi
+          git config user.name  "sie-feed"
+          git config user.email "noreply@anthropic.com"
+          git add site/videos.json site/assets/yt site/assets/preview-videos-*.webp
+          git commit -m "chore(videos): refresh feed, posters and page previews"
+          git push
+
+      - name: Summary
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('site/videos.json',encoding='utf-8'))
+          print(f"items: {d['count']}  channels: {len(d['channels'])}  generated: {d['generated']}")
+          PY

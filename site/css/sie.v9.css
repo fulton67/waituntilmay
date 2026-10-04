@@ -1,0 +1,277 @@
+/* sie.v9.css — sie.market
+   Ground black, near-white type, system Helvetica stack (matches ear-music.org /
+   shop.ear-music.org, which load no webfonts).
+   Type law measured on the references: clamp(11px, 3.136vw, 16px).
+
+   §3 tokens come from Naim's own source, not the live site:
+     webflow-migration/dauan-jacari/myth-head.v2.html:136-160  (.myth-index)
+     webflow-migration/dauan-jacari/nav-index.css              (its nav adaptation)
+   See reference/dj-index-language.md for the citation of every value below. */
+
+:root{
+  --bg:#000; --fg:#ededed; --fg-2:#8a8a8a; --line:#2a2a2a;
+  --base:clamp(11px, 3.136vw, 16px);
+  --gutter:6vw;
+
+  /* ---- index language, inverted onto black. Alpha hairlines keep their ratios. ---- */
+  --idx-rule:      rgba(255,255,255,.06);   /* row separator          myth:149 */
+  --idx-rule-head: rgba(255,255,255,.14);   /* head underline         myth:147 */
+  --idx-edge:      rgba(255,255,255,.08);   /* control border         myth:138 */
+  --idx-fill:      rgba(255,255,255,.05);   /* control ground         myth:138 */
+  --idx-fill-hi:   rgba(255,255,255,.12);   /* control hover          myth:139 */
+  --idx-row-hi:    rgba(255,255,255,.07);   /* row hover              myth:151 */
+  --idx-pill:      999px;                   /* control radius         myth:138 */
+  --idx-t-row:     160ms;                   /* row transition         myth:149 */
+  --idx-t-ctrl:    200ms;                   /* control transition     myth:138 */
+  /* the myth ratios 12 / 11.5 / 11 / 10 / 9px, carried as em not px */
+  --idx-ctrl:1em; --idx-title:.96em; --idx-val:.92em; --idx-num:.84em; --idx-head:.75em;
+
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#000; --fg:#ededed; } }
+:root[data-theme="dark"]{ --bg:#000; --fg:#ededed; }
+html{ height:100%; scroll-padding-top:env(safe-area-inset-top,0px); }
+html,body{ overflow-x:hidden; }
+*,*::before,*::after{ box-sizing:inherit; }
+body{ margin:0; min-height:100%; background:var(--bg); color:var(--fg);
+      font:var(--base)/1.4 "Helvetica Neue",Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+a{ color:inherit; text-decoration:none; }
+a:focus-visible,button:focus-visible{ outline:1px solid var(--fg); outline-offset:4px; }
+img{ display:block; max-width:100%; }
+
+.page{ max-width:560px; margin:0 auto; min-height:100dvh; display:flex; flex-direction:column; }
+.page[hidden]{ display:none; }
+
+/* ---- wordmark stays top-left and still goes home ---- */
+header{ position:relative; height:30vw; }
+.markbox{ position:fixed; top:calc(12px + env(safe-area-inset-top,0px)); left:var(--gutter); display:block; z-index:3; }
+.mark{ width:22vw; max-width:150px; height:auto; margin:0; }
+
+/* ---- §3 corner nav: an index row in the opposite corner — a hairline above, the
+   labelled row, a hairline below. Three lines, and the row keeps the myth grid.
+   Words, never a hamburger: nav-index.css:34-36 deletes the three-bar icon. ---- */
+.corner{
+  /* myth-collection hover button: myth-head.v2.html:138 (.myth-index__toggle),
+     hover at :139. Values literal, only position and min-height are ours. */
+  position:fixed; z-index:3;
+  top:calc(12px + env(safe-area-inset-top,0px)); right:var(--gutter);
+  appearance:none; -webkit-appearance:none;
+  background:rgba(255,255,255,0.72);
+  border:1px solid rgba(0,0,0,0.08);
+  -webkit-backdrop-filter:blur(8px) saturate(1.2);
+  backdrop-filter:blur(8px) saturate(1.2);
+  border-radius:999px;
+  padding:8px 18px;
+  min-height:44px;
+  cursor:pointer;
+  font:500 12px/1 "Helvetica Neue",Helvetica,Arial,sans-serif;
+  text-transform:lowercase;
+  letter-spacing:0.02em;
+  color:#000;
+  display:inline-flex; align-items:center; gap:8px;
+  transition:background 200ms ease;
+}
+.corner .n{ color:#666; font:400 10px/1 "Helvetica Neue",Helvetica,Arial,sans-serif; }
+/* myth-head.v2.html:139 */
+.corner:hover,.corner:focus-visible{ background:rgba(255,255,255,0.9); }
+.corner[aria-current="page"]{ text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:6px; }
+@media (min-width:700px){
+  :root{ --gutter:32px; }
+  header{ height:180px; }
+  .markbox{ top:22px; left:28px; }
+  .mark{ width:9vw; min-width:110px; max-width:150px; }
+  .corner{ top:22px; right:28px; }
+}
+
+/* ---- gallery: one centred object, air on every side ---- */
+.stage{ flex:1; display:flex; flex-direction:column; justify-content:center; padding:calc(var(--base)*2) 0; }
+.gal{ display:flex; overflow-x:auto; scroll-snap-type:x mandatory; overscroll-behavior-x:contain; scrollbar-width:none; }
+.gal::-webkit-scrollbar{ display:none; }
+.slide{ flex:0 0 100%; width:100%; scroll-snap-align:center; display:grid; place-items:center; min-height:64vw; }
+.slide > img{ width:66%; height:auto; }
+.slide.wide > img{ width:88%; }
+@media (min-width:700px){ .slide{ min-height:420px; } }
+
+/* the disc already in the photo, cut out and laid back over itself so only it turns.
+   geometry from the 3243x1515 original: centre (2447,743), r=710 */
+.case{ position:relative; width:88%; }
+.case > img:first-child{ width:100%; }
+.case .disc{ position:absolute; left:53.685%; top:2.442%; width:43.54%; height:auto; border-radius:50%;
+             animation:spin 12s linear infinite; touch-action:none; user-select:none; -webkit-user-drag:none; will-change:transform; }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+@media (prefers-reduced-motion:reduce){ .case .disc{ animation:none; } }
+
+.dots{ display:flex; justify-content:center; gap:8px; margin-top:calc(var(--base)*1.6); }
+.dots button{ width:5px; height:5px; padding:0; border:0; border-radius:50%; background:var(--line); }
+.dots button[aria-current="true"]{ background:var(--fg); }
+
+/* ================= §1 CHOREOGRAPHY =================
+   Resting state is the default. The `seq` classes only exist while it plays, so a
+   session that has seen it — or reduced motion — renders the final state with no
+   transform and no hidden gallery. The buy control is outside all of it. */
+.product{ text-align:center; padding:0 var(--gutter) calc(var(--base)*2.6); }
+.product p{ margin:0; }
+
+.title{ margin:0; font-size:1em; font-weight:400; line-height:1.4;
+        transform-origin:50% 50%; will-change:transform; }
+.title .w{ display:inline-block; }
+.cap{ margin-top:calc(var(--base)*.9); color:var(--fg-2); transition:opacity .25s;
+      min-height:calc(var(--base)*1.4*2); }
+.cap.fade{ opacity:0; }
+.price{ margin-top:calc(var(--base)*1.2); }
+
+/* while the sequence runs: gallery held at 0, words start low and clear */
+body.seq .stage{ opacity:0; }
+body.seq .title{ font-size:2.4em; }
+body.seq .title .w{ opacity:0; transform:translateY(.38em);
+                    transition:opacity 220ms ease, transform 220ms cubic-bezier(.2,.8,.2,1); }
+body.seq .title.in .w{ opacity:1; transform:none; }
+body.seq .cap,body.seq .price{ opacity:0; }
+body.seq-settling .stage{ opacity:1; transition:opacity 600ms cubic-bezier(.2,.8,.2,1); }
+body.seq-settling .title{ font-size:1em; }   /* eased by the inline transition set in JS */
+body.seq-settling .cap,body.seq-settling .price{ opacity:1; transition:opacity 600ms ease 200ms; }
+@media (prefers-reduced-motion:reduce){
+  body.seq .stage,body.seq .cap,body.seq .price{ opacity:1; }
+  body.seq .title{ font-size:1em; }
+  body.seq .title .w{ opacity:1; transform:none; transition:none; }
+}
+
+/* ================= §3 BUY + CHECKOUT SUMMARY =================
+   Pill control (myth:138 border-radius 999px), 1px hairline edge, lowercase,
+   hover is a BACKGROUND change over 200ms — never an opacity fade. */
+.buy{
+  /* dauanjacari index notes -> reference/dj-index-language.md, "Radius" + "States and
+     timing", both citing myth-head.v2.html:138 (.myth-index__toggle). Values literal. */
+  appearance:none; -webkit-appearance:none;
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  width:100%; min-height:44px; margin-top:calc(var(--base)*1.4);
+  background:rgba(255,255,255,0.72);
+  border:1px solid rgba(0,0,0,0.08);
+  -webkit-backdrop-filter:blur(8px) saturate(1.2);
+  backdrop-filter:blur(8px) saturate(1.2);
+  border-radius:999px;
+  padding:8px 18px;
+  cursor:pointer;
+  font:500 12px/1 "Helvetica Neue",Helvetica,Arial,sans-serif;
+  text-transform:lowercase;
+  letter-spacing:0.02em;
+  color:#000;
+  transition:background 200ms ease;
+}
+/* myth-head.v2.html:139 */
+.buy:hover,.buy:focus-visible{ background:rgba(255,255,255,0.9); }
+
+/* the pre-checkout summary, on the myth row grid: 28px 1fr 60px (myth:149) */
+.desc{ margin-top:calc(var(--base)*1.8); text-align:left; }
+.desc p{ margin:0 0 calc(var(--base)*.9); color:var(--fg-2); font-size:var(--idx-val);
+         text-align:justify; text-align-last:left; hyphens:auto; -webkit-hyphens:auto; }
+.summary{ margin-top:calc(var(--base)*1.8); text-align:left; }
+.summary .head{
+  display:grid; grid-template-columns:28px 1fr 60px; gap:0;
+  padding:6px 8px 4px;
+  font-size:var(--idx-head); font-weight:500; line-height:1.2;
+  text-transform:uppercase; letter-spacing:.08em;   /* myth:147 */
+  color:var(--fg-2);
+  border-bottom:1px solid var(--idx-rule-head);
+}
+.summary .head span:last-child{ text-align:right; }
+.summary .row{
+  display:grid; grid-template-columns:28px 1fr 60px; align-items:center;
+  padding:12px 8px;                           /* nav-index.css:96 — the tap-target padding */
+  border-top:1px solid var(--idx-rule);
+  transition:background var(--idx-t-row) ease;
+}
+.summary .row:first-of-type{ border-top:0; }   /* myth:150 */
+.summary .row:hover{ background:var(--idx-row-hi); }
+.summary .n{ font-size:var(--idx-num); color:var(--fg-2); font-variant-numeric:tabular-nums; }
+.summary .t{ font-size:var(--idx-title); text-transform:lowercase;
+             overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }  /* myth:153 */
+.summary .v{ text-align:right; font-size:var(--idx-val); color:var(--fg-2); }  /* myth:154 */
+
+.details-toggle{
+  appearance:none; -webkit-appearance:none; background:none; border:0;
+  display:block; width:100%; text-align:left;
+  padding:12px 8px; min-height:44px;
+  border-top:1px solid var(--idx-rule);
+  font:inherit; font-size:var(--idx-title); text-transform:lowercase;
+  color:var(--fg-2); cursor:pointer;
+  text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:6px;
+  transition:color var(--idx-t-row) ease;
+}
+.details-toggle:hover{ color:var(--fg); }
+.details{ overflow:hidden; max-height:0; transition:max-height 250ms cubic-bezier(.2,.8,.2,1); }
+.details[hidden]{ display:none; }
+.details p{ margin:0; padding:0 8px calc(var(--base)*.9);
+            color:var(--fg-2); font-size:var(--idx-val);
+            text-align:justify; text-align-last:left; hyphens:auto; -webkit-hyphens:auto; }
+@media (prefers-reduced-motion:reduce){ .details{ transition:none; } }
+
+/* ---- sie page: lowercase sentences, no dividers, lots of air ---- */
+.sie{ padding:calc(var(--base)*1.2) var(--gutter) calc(var(--base)*3); flex:1; }
+.sentences a{ display:flex; align-items:center; min-height:44px; padding:calc(var(--base)*.3) 0;
+              color:var(--fg-2); transition:color var(--idx-t-row) ease; }
+.sentences a:hover,.sentences a:focus-visible{ color:var(--fg); }
+
+/* ================= §2 THE WALL =================
+   Tile aspect 3:2 and gaps 16/24 from clintonvanarnam.net (reference/video-wall.md).
+   Column count is ours: that reference runs 8 cols at 390 because its 120 tiles carry
+   no labels. With a body-size label, 4 cols at 390 gives a 73.8px tile under a 2.7-line
+   caption; 2 cols gives 163.6px and one line. */
+.vids{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px;
+       margin-top:calc(var(--base)*2.4); }
+@media (min-width:560px){ .vids{ grid-template-columns:repeat(3,1fr); } }
+@media (min-width:900px){
+  #sie.page,.page[data-route="/sie"]{ max-width:1200px; }
+  .vids{ grid-template-columns:repeat(4,1fr); gap:24px; }
+}
+@media (min-width:1200px){ .vids{ grid-template-columns:repeat(5,1fr); } }
+
+.vid{ display:block; color:var(--fg); }
+.vid-thumb{ position:relative; display:block; aspect-ratio:3/2; background:#161616; overflow:hidden; }
+.vid-thumb img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.vid-thumb iframe{ position:absolute; inset:0; width:100%; height:100%; border:0;
+                   pointer-events:none; }      /* the preview must not eat the tap */
+/* label: one line, ellipsis — myth:153, the title role */
+.vid-label{ display:block; margin-top:calc(var(--base)*.45);
+            font-size:var(--idx-title); color:var(--fg-2); line-height:1.3;
+            text-transform:lowercase;
+            overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+            transition:color var(--idx-t-row) ease; }
+.vid:hover .vid-label,.vid:focus-visible .vid-label{ color:var(--fg); }
+
+/* ---- the large in-place player ---- */
+body.playing-large{ overflow:hidden; }
+.player{ position:fixed; inset:0; z-index:50; background:#000;
+         display:grid; place-items:center; }
+/* the largest true 16:9 box that fits — this is also the landscape fill */
+.player-frame{ position:relative; width:min(100vw, calc(100dvh * 16 / 9)); aspect-ratio:16/9;
+               background:#000; max-height:100dvh; }
+.player-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+/* close: two 1px hairlines crossed. No box, no radius — the index has no icon buttons. */
+.player-x{ position:fixed; z-index:51;
+           top:calc(8px + env(safe-area-inset-top,0px)); right:8px;
+           width:44px; height:44px; padding:0;
+           appearance:none; -webkit-appearance:none; background:none; border:0;
+           cursor:pointer; opacity:.7; transition:opacity var(--idx-t-row) ease; }
+.player-x:hover,.player-x:focus-visible{ opacity:1; }
+.player-x span{ position:absolute; left:50%; top:50%; width:18px; height:1px;
+                background:var(--fg); }
+.player-x span:first-child{ transform:translate(-50%,-50%) rotate(45deg); }
+.player-x span:last-child{  transform:translate(-50%,-50%) rotate(-45deg); }
+@media (orientation:landscape) and (max-height:500px){
+  .player-x{ top:4px; right:4px; }
+}
+.player:fullscreen .player-frame,.player:-webkit-full-screen .player-frame{
+  width:min(100vw, calc(100vh * 16 / 9)); max-height:100vh;
+}
+
+/* ---- intro: the slam plays full-screen once per visit, then fades into the site ---- */
+#intro{ position:fixed; inset:0; z-index:9; background:#000; display:grid; place-items:center; transition:opacity .55s ease; }
+#intro.out{ opacity:0; pointer-events:none; }
+#intro video{ width:88vw; max-width:560px; height:auto; background:#000; }
+#intro img{ width:62vw; max-width:400px; height:auto; animation:pop .9s cubic-bezier(.2,.8,.2,1) both; }
+#intro [hidden]{ display:none; }
+@keyframes pop{ from{ transform:scale(1.7); opacity:0; } to{ transform:scale(1); opacity:1; } }
+body.intro{ overflow:hidden; }
