@@ -2,10 +2,12 @@
  "home": {
   "route": "/",
   "file": "site/build/home.html",
-  "bytes": 2523,
+  "bytes": 2725,
   "hashLinksRewritten": 1,
   "hashLinksRemaining": 0,
-  "assetsStillRelative": [],
+  "assetsStillRelative": [
+   "assets/cd-bundle.webp"
+  ],
   "assetsSwapped": [
    {
     "from": "assets/sie-logo.png",
@@ -36,7 +38,7 @@
  "sie": {
   "route": "/videos",
   "file": "site/build/sie.html",
-  "bytes": 6297,
+  "bytes": 7107,
   "hashLinksRewritten": 1,
   "hashLinksRemaining": 0,
   "assetsStillRelative": [],

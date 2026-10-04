@@ -1,6 +1,6 @@
 {
  "_comment": "Tile labels for the /sie video grid. Rendered as 'artist — title', lowercase, body size. The YouTube channel handle is never shown on the page. New uploads that appear on a channel but are absent from `videos` fall back to channelDefaults[handle] for the artist, and to the cleaned video title; those are flagged in the build Action summary so a human can name them properly.",
- "updated": "2026-09-28",
+ "updated": "2026-10-04",
  "channelDefaults": {
   "hunnakay": "hunnakay",
   "kllhhr": "kllhhr",
@@ -73,6 +73,14 @@
   "gTsLN7wq9DY": {
    "artist": "tazparis",
    "title": "onestopshop"
+  },
+  "k3JJfNnI7ss": {
+   "artist": "hunnakay",
+   "title": "lost my sanity"
+  },
+  "Izu3k-agHEM": {
+   "artist": "suckrball",
+   "title": "i feel alone"
   }
  }
 }
