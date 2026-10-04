@@ -45,8 +45,10 @@ def main():
     try:
         with sync_playwright() as p:
             b = p.chromium.launch()
-            for w in (1280, 390):
-                pg = b.new_page(viewport={"width": w, "height": 900}, device_scale_factor=2)
+            # One viewport, not full-page: the panel shows the first screen of the grid.
+            # 1280x838 is the panel's 721x472 aspect (1.53); 390x600 is 70vh of an 844 screen.
+            for w, h in ((1280, 838), (390, 600)):
+                pg = b.new_page(viewport={"width": w, "height": h}, device_scale_factor=2)
                 pg.goto(f"http://127.0.0.1:{port}/index.html#sie", wait_until="load")
                 pg.evaluate("()=>{try{sessionStorage.setItem('sie-intro','1');"
                             "sessionStorage.setItem('sie-desc','1')}catch(e){}}")
@@ -56,7 +58,7 @@ def main():
                 pg.evaluate("()=>{document.querySelectorAll('[id=\"corner-mount\"]')"
                             ".forEach(e=>e.style.visibility='hidden')}")
                 png = os.path.join(OUT, f"_cap{w}.png")
-                pg.screenshot(path=png, full_page=True)
+                pg.screenshot(path=png)  # viewport only
                 im = Image.open(png).convert("RGB")
                 dest = os.path.join(OUT, f"preview-videos-{w}.webp")
                 im.save(dest, "WEBP", quality=82, method=6)
