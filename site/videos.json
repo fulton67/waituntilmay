@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-28T05:35:46.242737Z",
+ "generated": "2026-10-04T01:37:30.348442Z",
  "source": "yt-dlp --flat-playlist (no API key)",
  "channels": {
   "hunnakay": "UCpOKlbytrloVDlmRCIHEaZQ",
@@ -8,15 +8,24 @@
   "suckrballll": "UCJlRoA4XP52agvg8_RFvPpw",
   "ibeenhip": "UCgPY_2IpwMXYCu2gzJ9CKHg"
  },
- "count": 15,
+ "count": 17,
  "videos": [
+  {
+   "id": "k3JJfNnI7ss",
+   "title": "lostmysanity148_unmixed_prod_aghast_kickn_myrlu.wav",
+   "channel": "hunnakay",
+   "channelId": "UCpOKlbytrloVDlmRCIHEaZQ",
+   "duration": 81,
+   "views": 8700,
+   "thumb": "https://i.ytimg.com/vi/k3JJfNnI7ss/hqdefault.jpg"
+  },
   {
    "id": "W6n73KxSkn0",
    "title": "hunnakay - triple krosssss",
    "channel": "hunnakay",
    "channelId": "UCpOKlbytrloVDlmRCIHEaZQ",
-   "duration": 124.0,
-   "views": null,
+   "duration": 124,
+   "views": 51000,
    "thumb": "https://i.ytimg.com/vi/W6n73KxSkn0/hqdefault.jpg"
   },
   {
@@ -24,8 +33,8 @@
    "title": "hunnakay - no one left (official music video)",
    "channel": "hunnakay",
    "channelId": "UCpOKlbytrloVDlmRCIHEaZQ",
-   "duration": 79.0,
-   "views": null,
+   "duration": 79,
+   "views": 9600,
    "thumb": "https://i.ytimg.com/vi/hY4yIF5t618/hqdefault.jpg"
   },
   {
@@ -33,8 +42,8 @@
    "title": "hunnakay - numb (official music video)",
    "channel": "hunnakay",
    "channelId": "UCpOKlbytrloVDlmRCIHEaZQ",
-   "duration": 150.0,
-   "views": null,
+   "duration": 150,
+   "views": 6900,
    "thumb": "https://i.ytimg.com/vi/OIUexrJQ89A/hqdefault.jpg"
   },
   {
@@ -42,8 +51,8 @@
    "title": "skin",
    "channel": "kllhhr",
    "channelId": "UClq2bqiaWtwI7lPLZZz3GIg",
-   "duration": 108.0,
-   "views": null,
+   "duration": 108,
+   "views": 944000,
    "thumb": "https://i.ytimg.com/vi/cm8-lW25-e4/hqdefault.jpg"
   },
   {
@@ -51,8 +60,8 @@
    "title": "be cool",
    "channel": "kllhhr",
    "channelId": "UClq2bqiaWtwI7lPLZZz3GIg",
-   "duration": 121.0,
-   "views": null,
+   "duration": 121,
+   "views": 106000,
    "thumb": "https://i.ytimg.com/vi/2L9ZwUIzAX8/hqdefault.jpg"
   },
   {
@@ -60,8 +69,8 @@
    "title": "tazparis on my terms",
    "channel": "kllhhr",
    "channelId": "UClq2bqiaWtwI7lPLZZz3GIg",
-   "duration": 114.0,
-   "views": null,
+   "duration": 114,
+   "views": 144000,
    "thumb": "https://i.ytimg.com/vi/3KxkXT0U6PM/hqdefault.jpg"
   },
   {
@@ -69,8 +78,8 @@
    "title": "tweak",
    "channel": "kllhhr",
    "channelId": "UClq2bqiaWtwI7lPLZZz3GIg",
-   "duration": 121.0,
-   "views": null,
+   "duration": 121,
+   "views": 140000,
    "thumb": "https://i.ytimg.com/vi/q0cq_Ny0Hkg/hqdefault.jpg"
   },
   {
@@ -78,8 +87,8 @@
    "title": "fate",
    "channel": "comeheadtapme19",
    "channelId": "UCA7-59fGvLjA0j6X_BBYrXQ",
-   "duration": 137.0,
-   "views": null,
+   "duration": 137,
+   "views": 5200,
    "thumb": "https://i.ytimg.com/vi/Vf-I12GW8Pk/hqdefault.jpg"
   },
   {
@@ -87,8 +96,8 @@
    "title": "lastyear",
    "channel": "comeheadtapme19",
    "channelId": "UCA7-59fGvLjA0j6X_BBYrXQ",
-   "duration": 127.0,
-   "views": null,
+   "duration": 127,
+   "views": 1200,
    "thumb": "https://i.ytimg.com/vi/_swh-ZVvAro/hqdefault.jpg"
   },
   {
@@ -96,8 +105,8 @@
    "title": "not my v wit suckrball",
    "channel": "comeheadtapme19",
    "channelId": "UCA7-59fGvLjA0j6X_BBYrXQ",
-   "duration": 96.0,
-   "views": null,
+   "duration": 96,
+   "views": 22000,
    "thumb": "https://i.ytimg.com/vi/P1fFSZUrW3k/hqdefault.jpg"
   },
   {
@@ -105,17 +114,26 @@
    "title": "18 by sheroy",
    "channel": "comeheadtapme19",
    "channelId": "UCA7-59fGvLjA0j6X_BBYrXQ",
-   "duration": 102.0,
-   "views": null,
+   "duration": 102,
+   "views": 2400,
    "thumb": "https://i.ytimg.com/vi/E5zMqyOE61o/hqdefault.jpg"
+  },
+  {
+   "id": "Izu3k-agHEM",
+   "title": "suckrball - i feel alone",
+   "channel": "suckrballll",
+   "channelId": "UCJlRoA4XP52agvg8_RFvPpw",
+   "duration": 103,
+   "views": 1300,
+   "thumb": "https://i.ytimg.com/vi/Izu3k-agHEM/hqdefault.jpg"
   },
   {
    "id": "QNqd8_XWc58",
    "title": "suckrball - alone",
    "channel": "suckrballll",
    "channelId": "UCJlRoA4XP52agvg8_RFvPpw",
-   "duration": 130.0,
-   "views": null,
+   "duration": 130,
+   "views": 31000,
    "thumb": "https://i.ytimg.com/vi/QNqd8_XWc58/hqdefault.jpg"
   },
   {
@@ -123,8 +141,8 @@
    "title": "suckrball - moss, shot by @nulted",
    "channel": "suckrballll",
    "channelId": "UCJlRoA4XP52agvg8_RFvPpw",
-   "duration": 156.0,
-   "views": null,
+   "duration": 156,
+   "views": 24000,
    "thumb": "https://i.ytimg.com/vi/wETb3ybNNKg/hqdefault.jpg"
   },
   {
@@ -132,8 +150,8 @@
    "title": "ibeenhip - onestopshop",
    "channel": "ibeenhip",
    "channelId": "UCgPY_2IpwMXYCu2gzJ9CKHg",
-   "duration": 107.0,
-   "views": null,
+   "duration": 107,
+   "views": 1400,
    "thumb": "https://i.ytimg.com/vi/gTsLN7wq9DY/hqdefault.jpg"
   },
   {
@@ -141,8 +159,8 @@
    "title": "ibeenhip - disgusted w tazparis",
    "channel": "ibeenhip",
    "channelId": "UCgPY_2IpwMXYCu2gzJ9CKHg",
-   "duration": 118.0,
-   "views": null,
+   "duration": 118,
+   "views": 19000,
    "thumb": "https://i.ytimg.com/vi/S_OO6kivZ8Y/hqdefault.jpg"
   }
  ]
