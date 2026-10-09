@@ -42,3 +42,21 @@ next-env.d.ts
 
 .vercel
 .env*.local
+
+# --- journey-to-the-center-of-the-internet (python/ffmpeg pipeline) ---
+.venv/
+__pycache__/
+audio/
+cache/
+renders/
+cuts_test/
+cuts_test_padded/
+transcript/_raw_whisperx.json
+
+# journey: large media (manifest.json IS committed)
+tools/pixelated-test/native.mp4
+public/journey/*.mp4
+
+# scratch
+.playwright-mcp/
+.seeds.txt

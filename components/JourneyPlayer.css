@@ -1,0 +1,92 @@
+/* Layout measured from thecorrectdistance.com at 1440x900:
+     image  949 x 714   = 65.9vw wide, 79.3vh tall, side margins 238/238 (centred)
+     block  top 68, bottom 68.3  -> image+caption vertically centred
+     caption  9.72px / 11.664 lh, weight 300, rgba(0,0,0,.85), centred, 39px below
+   At 390x844 the image goes edge to edge (full content width, 0 side margins).
+   The video is 16:9 rather than 4:3, so it is bound by BOTH the reference
+   width (65.9vw) and the reference height (79.3vh); width binds on desktop,
+   which reproduces the 238px side margins exactly. */
+
+.jrn {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jrn-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jrn-stage {
+  position: relative;
+  width: min(65.9vw, calc(79.3vh * 16 / 9));
+  aspect-ratio: 16 / 9;
+  background: #fff;
+  overflow: hidden;
+}
+
+.jrn-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #fff;
+  opacity: 0;
+  /* no transition: the swap between versions is a cut, not a fade */
+}
+
+.jrn-video.is-front {
+  opacity: 1;
+}
+
+.jrn-caption {
+  margin-top: clamp(10px, 4.33vh, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+  text-align: center;
+  font-family: ui-sans-serif, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(8px, 0.675vw, 11px);
+  line-height: 1.2;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.85);
+  letter-spacing: normal;
+}
+
+.jrn-start {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: ui-sans-serif, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(8px, 0.675vw, 11px);
+  line-height: 1.2;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.jrn-start:disabled {
+  cursor: default;
+}
+
+/* mobile: the reference runs the image edge to edge */
+@media (max-width: 640px) {
+  .jrn-stage {
+    width: 100vw;
+  }
+}

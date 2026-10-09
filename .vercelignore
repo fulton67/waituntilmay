@@ -1,0 +1,25 @@
+# Python/ffmpeg pipeline - none of this is needed to build or run the site.
+# public/journey/manifest.json IS needed and is NOT ignored.
+.venv/
+__pycache__/
+audio/
+cache/
+renders/
+cuts_test/
+cuts_test_padded/
+.playwright-mcp/
+tools/
+pipeline/
+scripts/*.py
+scripts/*.mjs
+transcript/
+concept.md
+README-journey.md
+.seeds.txt
+*.wav
+*.raw
+randomize.py
+.env
+.env.local
+.env*.local
+.seeds.txt

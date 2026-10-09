@@ -1,0 +1,30 @@
+{
+  "floor_db": -47.143554711954096,
+  "quiet_db": -39.143554711954096,
+  "UNPADDED": {
+    "head": {
+      "SILENT": 39,
+      "ONSET": 638,
+      "INSIDE": 689
+    },
+    "tail": {
+      "SILENT": 107,
+      "ONSET": 461,
+      "INSIDE": 798
+    },
+    "safe_pct": 20.863836017569547
+  },
+  "PADDED 0.05s": {
+    "head": {
+      "SILENT": 257,
+      "ONSET": 393,
+      "INSIDE": 716
+    },
+    "tail": {
+      "SILENT": 294,
+      "ONSET": 405,
+      "INSIDE": 667
+    },
+    "safe_pct": 23.865300146412885
+  }
+}
