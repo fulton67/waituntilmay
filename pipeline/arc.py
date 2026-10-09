@@ -45,11 +45,26 @@ def _score(u, rng, beat=None):
 
 
 def pick_refrain(rng, pools):
+    """Weighted random, not max().
+
+    The refrain is the anchor and repeats twice per version, so taking the
+    top-scoring line made 24 of 30 versions open and close with the same
+    words. Sampling in proportion to score keeps the good lines likely
+    without making one of them inevitable.
+    """
     cands = [u for u in pools["refrain"] if 0.8 <= u["duration"] <= 3.0] \
             or pools["refrain"]
     if not cands:
         return None
-    return max(cands, key=lambda u: _score(u, rng))
+    weights = [max(0.01, _score(u, rng)) for u in cands]
+    total = sum(weights)
+    r = rng.random() * total
+    acc = 0.0
+    for u, w in zip(cands, weights):
+        acc += w
+        if acc >= r:
+            return u
+    return cands[-1]
 
 
 def plan_arc(rng, units, pools, seed_refrain=None):
