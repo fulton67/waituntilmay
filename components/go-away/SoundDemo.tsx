@@ -1,135 +1,74 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Director } from "./director";
+import { FRAG, VERT } from "./shader";
 
-// Port of the "phase shift and rotation experiments" Shadertoy image pass.
-// The original stepped its geometry on floor(iTime); here every step is driven
-// by kicks detected live from the MP3 through a Web Audio analyser.
+// Vertical (9:16) audio-reactive raymarch. Load any song; record straight to a short-form video.
 
-const TRACK_SRC = "/audio/go-away.mp3";
-const LABEL = "go away";
+const DEFAULT_TRACK = { src: "/audio/go-away.mp3", title: "go away" };
+const PREVIEW_MAX_H = 1280; // on-screen render height cap (720x1280)
+const RECORD_W = 1080;
+const RECORD_H = 1920;
 
-const VERT = `#version 300 es
-in vec2 a_pos;
-void main() { gl_Position = vec4(a_pos, 0., 1.); }`;
-
-const FRAG = `#version 300 es
-precision highp float;
-uniform vec2 iResolution;
-uniform float uBeat;   // count of detected kicks
-uniform float uKick;   // 1 on a kick, decays to 0
-uniform float uPhase;  // 0 -> 1 sawtooth between kicks (camera slide)
-uniform float uSpin;   // accumulated rotation, faster when the track is loud
-uniform float uHigh;   // high-band energy (hats / air)
-uniform sampler2D uText;
-out vec4 fragColor;
-
-#define dmin(a, b) ((a.x < b.x) ? a : b)
-#define minkowski(v, m) pow(dot(pow(v, v * 0. + m), v * 0. + 1.), 1. / m)
-
-vec2 pR(in vec2 p, float a) {
-  p = cos(a) * p + sin(a) * vec2(p.y, -p.x);
-  return p;
-}
-vec3 crt(in vec3 p) {
-  float r = .5 * 6.2831 / 6.;
-  float pa = r - atan(p.x, p.y);
-  pa += mod(pa, -2. * r);
-  return vec3(pR(p.xy, pa), p.z);
-}
-vec2 f(vec3 p) {
-  vec3 v_bb = p;
-  v_bb.xz = pR(v_bb.xz, uSpin);
-  return dmin(
-    vec2(minkowski(abs(abs(crt(abs(p) - vec3(1, .1, 3. + mod(uBeat, 3.)))) - vec3(.7 + mod(floor(.5 * uBeat), 3.), 4.2, 1.3)), 1.55) - 1.25, 3.),
-    vec2(minkowski(abs(v_bb), 3.05) - (.9 + fract(.2 * uBeat) + .35 * uKick), 5.)
-  );
-}
-vec3 N(in vec3 pos) {
-  const vec3 eps = vec3(.001, 0, 0);
-  return normalize(vec3(
-    f(pos + eps.xyy).x - f(pos - eps.xyy).x,
-    f(pos + eps.yxy).x - f(pos - eps.yxy).x,
-    f(pos + eps.yyx).x - f(pos - eps.yyx).x));
-}
-
-void main() {
-  vec2 fragCoord = gl_FragCoord.xy;
-  vec2 R = iResolution.xy;
-  vec2 st = -1. + 2. * fragCoord / R;
-  float y = texture(uText, fragCoord / R).r;
-
-  float h, aspct = max(R.x / R.y, R.y / R.x);
-  vec3 rd, p, c,
-       ro = vec3(uPhase, uPhase, 7. - .8 * uKick),
-       gc = normalize(-ro),
-       u = normalize(cross(gc, vec3(0, 1, 0))),
-       v = normalize(cross(u, gc));
-  u *= tan(1.2);
-  v *= tan(1.2) / aspct;
-  rd = normalize(gc + st.x * u + st.y * v);
-  c = (1. - y) * vec3(1);
-  h = 1.;
-  vec2 d = vec2(0.);
-  for (int i = 0; i < 32; ++i) {
-    p = ro + rd * h;
-    d = f(p);
-    if (abs(d.x) < .001) {
-      float fr;
-      vec3 n = N(p);
-      if (d.y == 3.) {
-        fr = sqrt(1. - dot(-rd, n));
-        c *= fr;
-        ro = p + n * .01;
-        rd = reflect(rd, n);
-        h = 0.;
-      }
-      if (d.y == 5.) {
-        fr = 1. - dot(-rd, n);
-        c *= fr;
-        ro = p + n * .001;
-        rd = reflect(rd, n);
-        h = 0.;
-      }
-    }
-    h += d.x;
-  }
-  c *= 1. + .35 * uHigh;
-  fragColor = vec4(c, 1);
-}`;
+const RECORDER_TYPES = [
+  "video/mp4;codecs=avc1.640028,mp4a.40.2",
+  "video/mp4;codecs=avc1,mp4a.40.2",
+  "video/webm;codecs=vp9,opus",
+  "video/webm;codecs=vp8,opus",
+  "video/webm",
+  "video/mp4", // last: some builds report this but mux VP9 into it, which apps reject
+];
 
 function compile(gl: WebGL2RenderingContext, type: number, src: string) {
   const s = gl.createShader(type)!;
   gl.shaderSource(s, src);
   gl.compileShader(s);
-  if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
-    throw new Error(gl.getShaderInfoLog(s) ?? "shader compile failed");
-  }
+  if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s) ?? "shader compile failed");
   return s;
 }
+
+const titleFromFile = (name: string) =>
+  name
+    .replace(/\.[^.]+$/, "")
+    .replace(/[_-]+/g, " ")
+    .trim()
+    .toLowerCase();
 
 export default function SoundDemo() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const analyserRef = useRef<AnalyserNode | null>(null);
+  const fileRef = useRef<HTMLInputElement>(null);
   const ctxRef = useRef<AudioContext | null>(null);
-  const [started, setStarted] = useState(false);
-  const [playing, setPlaying] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const analyserRef = useRef<AnalyserNode | null>(null);
+  const streamDestRef = useRef<MediaStreamAudioDestinationNode | null>(null);
+  const directorRef = useRef<Director | null>(null);
+  const titleRef = useRef(DEFAULT_TRACK.title);
+  const redrawTextRef = useRef<() => void>(() => {});
+  const recorderRef = useRef<MediaRecorder | null>(null);
+  const recordingRef = useRef(false);
+  const objectUrlRef = useRef<string | null>(null);
 
+  const [playing, setPlaying] = useState(false);
+  const [recording, setRecording] = useState(false);
+  const [dragging, setDragging] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
+
+  // ---------- render loop ----------
   useEffect(() => {
     const canvas = canvasRef.current!;
-    const gl = canvas.getContext("webgl2", { antialias: false, preserveDrawingBuffer: false });
+    const gl = canvas.getContext("webgl2", { antialias: false });
     if (!gl) {
       setError("this needs WebGL2");
       return;
     }
-
     let prog: WebGLProgram;
     try {
       prog = gl.createProgram()!;
       gl.attachShader(prog, compile(gl, gl.VERTEX_SHADER, VERT));
       gl.attachShader(prog, compile(gl, gl.FRAGMENT_SHADER, FRAG));
+      gl.bindAttribLocation(prog, 0, "a_pos");
       gl.linkProgram(prog);
       if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog) ?? "link failed");
     } catch (e) {
@@ -137,19 +76,19 @@ export default function SoundDemo() {
       return;
     }
     gl.useProgram(prog);
-
     const buf = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, buf);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
-    const loc = gl.getAttribLocation(prog, "a_pos");
-    gl.enableVertexAttribArray(loc);
-    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(0);
+    gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
 
-    const U = (n: string) => gl.getUniformLocation(prog, n);
-    const uRes = U("iResolution"), uBeat = U("uBeat"), uKick = U("uKick"), uPhase = U("uPhase"),
-      uSpin = U("uSpin"), uHigh = U("uHigh"), uText = U("uText");
+    const uniformCache = new Map<string, WebGLUniformLocation | null>();
+    const U = (n: string) => {
+      if (!uniformCache.has(n)) uniformCache.set(n, gl.getUniformLocation(prog, n));
+      return uniformCache.get(n)!;
+    };
 
-    // Text overlay: drawn on a 2D canvas (replaces Shadertoy's font texture on iChannel3).
+    // Title text is drawn on a 2D canvas and multiplied into the image in the shader.
     const tex = gl.createTexture();
     const textCanvas = document.createElement("canvas");
     const drawText = () => {
@@ -158,11 +97,14 @@ export default function SoundDemo() {
       const c2 = textCanvas.getContext("2d")!;
       c2.fillStyle = "#000";
       c2.fillRect(0, 0, textCanvas.width, textCanvas.height);
-      const size = Math.round(canvas.height / 20);
+      const size = Math.round(canvas.height / 34);
+      const pad = Math.round(size * 1.6);
       c2.font = `${size}px ui-monospace, Menlo, Consolas, monospace`;
       c2.fillStyle = "#fff";
       c2.textBaseline = "bottom";
-      c2.fillText(LABEL, size * 0.9, canvas.height - size * 0.9);
+      let text = titleRef.current;
+      while (text.length > 1 && c2.measureText(text).width > canvas.width - pad * 2) text = text.slice(0, -2) + "…";
+      c2.fillText(text, pad, canvas.height - pad);
       gl.activeTexture(gl.TEXTURE0);
       gl.bindTexture(gl.TEXTURE_2D, tex);
       gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
@@ -171,107 +113,97 @@ export default function SoundDemo() {
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-      gl.uniform1i(uText, 0);
+      gl.uniform1i(U("uText"), 0);
     };
+    redrawTextRef.current = drawText;
 
+    // preview resolution adapts to frame time so phones stay smooth; recording is always 1080x1920
+    let scale = 1;
+    let frameAvg = 16;
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      const w = Math.floor(canvas.clientWidth * dpr), h = Math.floor(canvas.clientHeight * dpr);
-      if (canvas.width !== w || canvas.height !== h) {
+      let w: number, h: number;
+      if (recordingRef.current) {
+        w = RECORD_W;
+        h = RECORD_H;
+      } else {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        h = Math.round(Math.min(Math.floor(canvas.clientHeight * dpr), PREVIEW_MAX_H) * scale);
+        // match the on-screen box (9:16 on desktop, full screen on phones) so nothing stretches
+        w = Math.round((h * canvas.clientWidth) / Math.max(1, canvas.clientHeight));
+      }
+      if (h > 0 && (canvas.width !== w || canvas.height !== h)) {
         canvas.width = w;
         canvas.height = h;
         gl.viewport(0, 0, w, h);
         drawText();
       }
     };
-    resize();
-    window.addEventListener("resize", resize);
 
-    // Audio-driven state
-    let beat = 0, kick = 0, spin = 0, high = 0;
-    let lastBeatT = 0, beatInterval = 0.5;
-    let prevBass = -100, fluxAvg = 0, level = 0, lastAnalysis = 0;
     let freq: Float32Array<ArrayBuffer> | null = null;
     let last = performance.now();
+    let lastAnalysis = 0;
     let raf = 0;
 
     const frame = (now: number) => {
       const dt = Math.min((now - last) / 1000, 0.1);
       last = now;
       const t = now / 1000;
+      frameAvg += (dt * 1000 - frameAvg) * 0.05;
+      if (!recordingRef.current) {
+        if (frameAvg > 24 && scale > 0.45) {
+          scale = Math.max(0.45, scale * 0.85);
+          frameAvg = 16;
+        } else if (frameAvg < 14 && scale < 1) {
+          scale = Math.min(1, scale * 1.1);
+          frameAvg = 16;
+        }
+      }
       resize();
 
+      const director = (directorRef.current ??= new Director());
       const analyser = analyserRef.current;
       const audio = audioRef.current;
       if (analyser && audio && !audio.paused) {
-        // Analyse at ~60 Hz regardless of display refresh so the per-step dB jump
-        // (and so the kick threshold) means the same thing on 60, 120 and 144 Hz screens.
-        if (t - lastAnalysis >= 0.0155) {
+        // analyse at a fixed ~60 Hz so onset thresholds mean the same thing on any refresh rate
+        const step = t - lastAnalysis;
+        if (step >= 0.0155) {
           lastAnalysis = t;
-          // Float dB data: this master is loud enough that byte data clips the low end flat.
           if (!freq || freq.length !== analyser.frequencyBinCount) freq = new Float32Array(analyser.frequencyBinCount);
           analyser.getFloatFrequencyData(freq);
-          const binHz = analyser.context.sampleRate / analyser.fftSize;
-          const bandDb = (lo: number, hi: number) => {
-            const a = Math.max(1, Math.floor(lo / binHz)), b = Math.max(a + 1, Math.ceil(hi / binHz));
-            let s = 0;
-            for (let i = a; i < b; i++) s += Math.pow(10, freq![i] / 10);
-            return 10 * Math.log10(s / (b - a) + 1e-12);
-          };
-          const bass = bandDb(40, 120);
-          const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
-          const highs = clamp01((bandDb(6000, 14000) + 80) / 40);
-          level = clamp01((bandDb(40, 14000) + 70) / 50);
-
-          // Kick onset: jump in bass dB well above its recent average jump (tuned offline on this track).
-          const flux = Math.max(0, bass - prevBass);
-          prevBass = bass;
-          fluxAvg += (flux - fluxAvg) * 0.05;
-          const since = t - lastBeatT;
-          if (since > 0.18 && flux > fluxAvg * 3 + 2) {
-            beat += 1;
-            kick = 1;
-            if (since < 2) beatInterval += (since - beatInterval) * 0.3;
-            lastBeatT = t;
-          }
-          high += (highs - high) * 0.3;
+          const progress = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.currentTime / audio.duration : 0;
+          director.update(freq, analyser.context.sampleRate / analyser.fftSize, t, Math.min(step, 0.1), progress);
         }
       } else {
-        // Idle: the original's once-a-second stepping.
-        if (t - lastBeatT >= 1) {
-          beat += 1;
-          kick = 0.6;
-          lastBeatT = t;
-          beatInterval = 1;
-        }
-        high *= 0.9;
-        level = 0;
+        director.idle(t, dt);
       }
 
-      kick *= Math.exp(-dt * 7);
-      spin += dt * (1 + level * 4);
-      const phase = Math.min(1, (t - lastBeatT) / Math.max(beatInterval, 0.2));
-
-      gl.uniform2f(uRes, canvas.width, canvas.height);
-      gl.uniform1f(uBeat, beat);
-      gl.uniform1f(uKick, kick);
-      gl.uniform1f(uPhase, phase);
-      gl.uniform1f(uSpin, spin);
-      gl.uniform1f(uHigh, high);
+      const u = director.uniforms();
+      gl.uniform2f(U("iResolution"), canvas.width, canvas.height);
+      gl.uniform1f(U("uTime"), t % 10000);
+      for (const [k, v] of Object.entries(u)) {
+        if (Array.isArray(v)) {
+          if (v.length === 3) gl.uniform3f(U(k), v[0], v[1], v[2]);
+          else gl.uniform4f(U(k), v[0], v[1], v[2], v[3]);
+        } else gl.uniform1f(U(k), v);
+      }
       gl.drawArrays(gl.TRIANGLES, 0, 3);
       raf = requestAnimationFrame(frame);
     };
     raf = requestAnimationFrame(frame);
-
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("resize", resize);
-    };
+    return () => cancelAnimationFrame(raf);
   }, []);
 
-  useEffect(() => () => void ctxRef.current?.close(), []);
+  useEffect(
+    () => () => {
+      if (recorderRef.current?.state === "recording") recorderRef.current.stop();
+      void ctxRef.current?.close();
+      if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
+    },
+    [],
+  );
 
-  const toggle = async () => {
+  // ---------- audio ----------
+  const ensureAudioGraph = useCallback(async () => {
     const audio = audioRef.current!;
     if (!ctxRef.current) {
       const ctx = new AudioContext();
@@ -279,47 +211,186 @@ export default function SoundDemo() {
       const analyser = ctx.createAnalyser();
       analyser.fftSize = 2048;
       analyser.smoothingTimeConstant = 0.3;
+      const streamDest = ctx.createMediaStreamDestination();
       src.connect(analyser);
       analyser.connect(ctx.destination);
+      analyser.connect(streamDest);
       ctxRef.current = ctx;
       analyserRef.current = analyser;
+      streamDestRef.current = streamDest;
     }
     await ctxRef.current.resume();
-    if (audio.paused) {
+  }, []);
+
+  const togglePlay = useCallback(async () => {
+    const audio = audioRef.current!;
+    await ensureAudioGraph();
+    if (audio.paused) await audio.play();
+    else audio.pause();
+  }, [ensureAudioGraph]);
+
+  const loadFile = useCallback(
+    async (file: File | undefined) => {
+      if (!file || recordingRef.current) return;
+      if (!file.type.startsWith("audio/") && !/\.(mp3|wav|m4a|aac|ogg|flac|opus|webm)$/i.test(file.name)) {
+        setNotice("that isn't an audio file");
+        return;
+      }
+      const audio = audioRef.current!;
+      if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
+      objectUrlRef.current = URL.createObjectURL(file);
+      audio.src = objectUrlRef.current;
+      const name = titleFromFile(file.name) || "untitled";
+      titleRef.current = name;
+      redrawTextRef.current();
+      directorRef.current = new Director(); // fresh build-up for the new song
+      setNotice(null);
+      await ensureAudioGraph();
       await audio.play();
-      setStarted(true);
-    } else {
-      audio.pause();
+    },
+    [ensureAudioGraph],
+  );
+
+  // ---------- recording ----------
+  const stopRecording = useCallback(() => {
+    if (recorderRef.current?.state === "recording") recorderRef.current.stop();
+  }, []);
+
+  const startRecording = useCallback(async () => {
+    const canvas = canvasRef.current!;
+    const audio = audioRef.current!;
+    if (typeof MediaRecorder === "undefined" || !canvas.captureStream) {
+      setNotice("recording isn't supported in this browser");
+      return;
     }
-  };
+    await ensureAudioGraph();
+    const mimeType = RECORDER_TYPES.find((t) => MediaRecorder.isTypeSupported(t)) ?? "";
+    recordingRef.current = true; // render loop switches to 1080x1920 on its next frame
+    // let the canvas resize before capture starts, so the video track opens at full size
+    await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r())));
+    const stream = new MediaStream([
+      ...canvas.captureStream(30).getVideoTracks(),
+      ...streamDestRef.current!.stream.getAudioTracks(),
+    ]);
+    const rec = new MediaRecorder(stream, { mimeType: mimeType || undefined, videoBitsPerSecond: 14_000_000 });
+    const chunks: Blob[] = [];
+    rec.ondataavailable = (e) => {
+      if (e.data.size) chunks.push(e.data);
+    };
+    rec.onstop = () => {
+      recordingRef.current = false;
+      setRecording(false);
+      audio.loop = true;
+      audio.pause();
+      stream.getVideoTracks().forEach((tr) => tr.stop());
+      const type = rec.mimeType || mimeType || "video/webm";
+      const blob = new Blob(chunks, { type });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `${titleRef.current.replace(/\s+/g, "-")}-waituntilmay.${type.includes("mp4") ? "mp4" : "webm"}`;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 10_000);
+      setNotice(type.includes("mp4") ? "saved mp4" : "saved webm — convert to mp4 if your app needs it");
+    };
+    recorderRef.current = rec;
+    directorRef.current = new Director();
+    audio.loop = false;
+    audio.currentTime = 0;
+    setNotice(null);
+    setRecording(true);
+    rec.start(1000);
+    await audio.play();
+  }, [ensureAudioGraph]);
+
+  // ---------- drag & drop ----------
+  useEffect(() => {
+    const over = (e: DragEvent) => {
+      e.preventDefault();
+      setDragging(true);
+    };
+    const leave = (e: DragEvent) => {
+      if (!e.relatedTarget) setDragging(false);
+    };
+    const drop = (e: DragEvent) => {
+      e.preventDefault();
+      setDragging(false);
+      void loadFile(e.dataTransfer?.files?.[0]);
+    };
+    window.addEventListener("dragover", over);
+    window.addEventListener("dragleave", leave);
+    window.addEventListener("drop", drop);
+    return () => {
+      window.removeEventListener("dragover", over);
+      window.removeEventListener("dragleave", leave);
+      window.removeEventListener("drop", drop);
+    };
+  }, [loadFile]);
+
+  const btn =
+    "px-3 py-1.5 border border-black bg-white text-black font-mono text-[11px] tracking-widest uppercase disabled:opacity-40";
 
   return (
-    <main className="fixed inset-0 bg-white select-none" onClick={started ? toggle : undefined}>
-      <canvas ref={canvasRef} className="block w-full h-full" />
+    <main className="fixed inset-0 flex items-center justify-center bg-neutral-200 select-none">
+      <div
+        className="relative h-[100dvh] max-w-[100vw] aspect-[9/16] bg-white overflow-hidden"
+        onClick={(e) => {
+          if (e.target === canvasRef.current && !recording) void togglePlay();
+        }}
+      >
+        <canvas ref={canvasRef} className="block w-full h-full" />
+
+        {recording && (
+          <span className="absolute top-3 right-3 pointer-events-none font-mono text-[11px] bg-black text-white px-2 py-1 animate-pulse">
+            ● rec
+          </span>
+        )}
+
+        <div className="absolute bottom-3 inset-x-3 flex items-center justify-end gap-2">
+          <button className={btn} onClick={() => void togglePlay()} disabled={recording}>
+            {playing ? "pause" : "play"}
+          </button>
+          <button className={btn} onClick={() => fileRef.current?.click()} disabled={recording}>
+            song
+          </button>
+          <button className={btn} onClick={() => (recording ? stopRecording() : void startRecording())}>
+            {recording ? "stop" : "rec"}
+          </button>
+        </div>
+
+        {notice && (
+          <div className="absolute bottom-14 inset-x-3 font-mono text-[11px] text-black bg-white px-2 py-1">{notice}</div>
+        )}
+        {error && (
+          <div className="absolute inset-0 flex items-center justify-center font-mono text-xs text-black bg-white">
+            {error}
+          </div>
+        )}
+        {dragging && (
+          <div className="absolute inset-0 flex items-center justify-center bg-white/80 font-mono text-xs tracking-widest text-black pointer-events-none">
+            DROP A SONG
+          </div>
+        )}
+      </div>
+
       <audio
         ref={audioRef}
-        src={TRACK_SRC}
+        src={DEFAULT_TRACK.src}
         loop
         preload="auto"
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
+        onEnded={stopRecording}
       />
-      {!started && !error && (
-        <button
-          onClick={toggle}
-          className="absolute inset-0 flex items-center justify-center font-mono text-sm tracking-widest text-black"
-        >
-          <span className="bg-white px-4 py-2 border border-black">▶ play</span>
-        </button>
-      )}
-      {started && !playing && (
-        <div className="pointer-events-none absolute top-4 right-4 font-mono text-xs text-black bg-white px-2 py-1">
-          paused — tap to play
-        </div>
-      )}
-      {error && (
-        <div className="absolute inset-0 flex items-center justify-center font-mono text-xs text-black">{error}</div>
-      )}
+      <input
+        ref={fileRef}
+        type="file"
+        accept="audio/*"
+        className="hidden"
+        onChange={(e) => {
+          void loadFile(e.target.files?.[0]);
+          e.target.value = "";
+        }}
+      />
     </main>
   );
 }
