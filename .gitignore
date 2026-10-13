@@ -78,3 +78,8 @@ public/journey/*.mp4
 # mosh-lab render scratch
 .mosh-frames/
 .mosh-compare/
+
+# ffglitch binaries (downloaded, not ours to vendor)
+.tools/
+.mosh-mv/
+.mosh-full.log

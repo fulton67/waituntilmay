@@ -107,6 +107,10 @@ export class MoshRenderer {
   private timerExt: { TIME_ELAPSED_EXT: number; GPU_DISJOINT_EXT: number } | null = null;
   private pendingQuery: WebGLQuery | null = null;
   private suspendPerFrameQuery = false;
+  /** Force the lattice passes even when the composite would not need them.
+      The motion field lives in Buffer A, so exporting it at a low intensity
+      (the faces layer) requires A to be written regardless. */
+  alwaysLattice = false;
 
   constructor(canvas: HTMLCanvasElement) {
     const gl = canvas.getContext("webgl2", {
@@ -276,6 +280,67 @@ export class MoshRenderer {
     return true;
   }
 
+  /**
+   * The shader's motion field, averaged per macroblock.
+   *
+   * Buffer A holds, for a held pixel, the coordinate that pixel's surface
+   * point occupied at the reference time. coord - fragCoord is therefore
+   * (reference position - current position), which is the same convention an
+   * MPEG forward motion vector uses, so the field can be handed to ffedit
+   * once it is scaled to half-pel.
+   *
+   * Override pixels (w < 0) carry a stamp UV rather than a coordinate and are
+   * excluded; `coverage` reports what fraction of each block was usable.
+   *
+   * Rows are returned top-down to match the macroblock grid, while GL reads
+   * bottom-up, so the row order is flipped and the y component negated.
+   */
+  readMotionField(mb = 16) {
+    const gl = this.gl;
+    const w = this.width, h = this.height;
+    const buf = new Float32Array(w * h * 4);
+    // after renderFrame the pair has been swapped, so the fresh A is `read`
+    gl.bindFramebuffer(gl.FRAMEBUFFER, this.bufA.read.fb);
+    gl.readPixels(0, 0, w, h, gl.RGBA, gl.FLOAT, buf);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+
+    const cols = Math.ceil(w / mb);
+    const rows = Math.ceil(h / mb);
+    const sx = new Float64Array(cols * rows);
+    const sy = new Float64Array(cols * rows);
+    const cnt = new Int32Array(cols * rows);
+
+    for (let y = 0; y < h; y++) {
+      const by = Math.floor((h - 1 - y) / mb);      // flip to top-down rows
+      for (let x = 0; x < w; x++) {
+        const i = (y * w + x) * 4;
+        if (buf[i + 3] <= 0) continue;              // override pixel
+        const bi = by * cols + Math.floor(x / mb);
+        sx[bi] += buf[i] - x;
+        sy[bi] += buf[i + 1] - y;
+        cnt[bi]++;
+      }
+    }
+
+    const mv: number[][][] = [];
+    let covered = 0;
+    for (let r = 0; r < rows; r++) {
+      const row: number[][] = [];
+      for (let c = 0; c < cols; c++) {
+        const bi = r * cols + c;
+        if (cnt[bi] > 0) {
+          covered++;
+          // negate y: GL y grows upward, the macroblock grid grows downward
+          row.push([sx[bi] / cnt[bi], -(sy[bi] / cnt[bi])]);
+        } else {
+          row.push([0, 0]);
+        }
+      }
+      mv.push(row);
+    }
+    return { cols, rows, mv, coverage: covered / (cols * rows) };
+  }
+
   /** Read the composited canvas back as raw RGBA (bottom-up, GL order). */
   readPixels(): Uint8Array {
     const gl = this.gl;
@@ -348,7 +413,7 @@ export class MoshRenderer {
     gl.disable(gl.BLEND);
     gl.disable(gl.DEPTH_TEST);
 
-    const needsLattice = fp.intensity > 1 / 3 - 1e-6 || fp.frame < 3;
+    const needsLattice = this.alwaysLattice || fp.intensity > 1 / 3 - 1e-6 || fp.frame < 3;
     const needsFaces = fp.intensity > 1e-6 && fp.intensity < 2 / 3 + 1e-6;
 
     // ---- Buffer A (reprojection)

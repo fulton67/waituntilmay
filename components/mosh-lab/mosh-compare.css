@@ -1,0 +1,24 @@
+.mc-root { min-height: 100vh; background: #0a0a0a; color: #e8e8e8;
+  font: 400 12px/1.4 ui-monospace, Menlo, Consolas, monospace; padding: 0 0 40px; }
+
+.mc-bar { position: sticky; top: 0; z-index: 5; display: flex; gap: 12px;
+  align-items: center; flex-wrap: wrap; padding: 10px 14px;
+  background: rgba(10,10,10,.94); border-bottom: 1px solid #242424; }
+.mc-bar h1 { font-size: 12px; font-weight: 400; margin: 0; letter-spacing: .18em;
+  text-transform: uppercase; color: #8fe39a; }
+.mc-bar button, .mc-bar a { background: #141414; color: #e8e8e8; border: 1px solid #333;
+  padding: 6px 10px; border-radius: 3px; cursor: pointer; font: inherit; text-decoration: none; }
+.mc-bar button[aria-pressed="true"] { border-color: #8fe39a; color: #8fe39a; }
+.mc-bar input[type="range"] { flex: 1 1 200px; accent-color: #8fe39a; }
+.mc-time { color: #8a8a8a; min-width: 110px; }
+
+.mc-err { padding: 16px; color: #ffb3b3; }
+
+.mc-grid { display: grid; gap: 10px; padding: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.mc-cell { margin: 0; background: #000; border: 1px solid #222; }
+.mc-cell video { width: 100%; display: block; background: #000; }
+.mc-cell figcaption { display: flex; gap: 10px; flex-wrap: wrap;
+  padding: 6px 8px; color: #9a9a9a; border-top: 1px solid #1c1c1c; }
+.mc-cell b { color: #fff; font-weight: 400; }
+.mc-drift { margin-left: auto; color: #8fe39a; }

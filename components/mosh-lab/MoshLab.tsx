@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { MoshRenderer, type FrameParams, type StampMode } from "./MoshRenderer";
 import "./mosh-lab.css";
 
-const DEFAULT_SRC = "/mosh-lab/test-clip.mp4";
+const DEFAULT_SRC = "/mosh-lab/blum-clip.mp4";
 const DPR_CAP = 1.5;
 
 /** rVFC is widely but not universally available, so it is probed at runtime. */
@@ -44,9 +44,9 @@ export default function MoshLab() {
 
   const [intensity, setIntensity] = useState(0.66);
   const [stampMode, setStampMode] = useState<StampMode>("faces");
-  const [refresh, setRefresh] = useState(8);
+  const [refresh, setRefresh] = useState(48);
   const [freeze, setFreeze] = useState(false);
-  const [camSpeed, setCamSpeed] = useState(1);
+  const [camSpeed, setCamSpeed] = useState(2.2);
   const [scale, setScale] = useState(1);
   const [playing, setPlaying] = useState(true);
   const [duration, setDuration] = useState(0);
@@ -55,8 +55,8 @@ export default function MoshLab() {
 
   // live values for the rAF loop, so it never re-subscribes
   const params = useRef<FrameParams>({
-    time: 0, frame: 0, intensity: 0.66, stampMode: "faces", refresh: 8,
-    freeze: false, camSpeed: 1, scale: 1, forceOverride: false,
+    time: 0, frame: 0, intensity: 0.66, stampMode: "faces", refresh: 48,
+    freeze: false, camSpeed: 2.2, scale: 1, forceOverride: false,
   });
   useEffect(() => {
     params.current.intensity = intensity;
@@ -227,6 +227,8 @@ export default function MoshLab() {
         renderer.setFrameImage(img, flipY),
       renderFrame: (fp: FrameParams) => renderer.renderFrame(fp),
       readPixels: () => renderer.readPixels(),
+      readMotionField: (mb = 16) => renderer.readMotionField(mb),
+      setAlwaysLattice: (on: boolean) => { renderer.alwaysLattice = on; },
       resize: (w2: number, h2: number) => renderer.resize(w2, h2),
       reset: () => renderer.reset(),
       renderMode,

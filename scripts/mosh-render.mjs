@@ -24,7 +24,7 @@ const args = process.argv.slice(2);
 const argOf = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : d; };
 const has = (n) => args.includes(n);
 
-const SRC = argOf("--src", "public/mosh-lab/test-clip.mp4");
+const SRC = argOf("--src", "public/mosh-lab/blum-clip.mp4");
 const OUT = argOf("--out", "public/mosh-lab/shader-mosh.mp4");
 const SETTINGS = argOf("--settings", null);
 const URL_BASE = argOf("--url", "http://localhost:3000/mosh-lab");
@@ -32,6 +32,7 @@ const FRAME_DIR = argOf("--framedir", ".mosh-frames");
 const LIMIT = argOf("--frames", null);
 const KEEP = has("--keep-frames");
 const INTENSITY = argOf("--intensity", null);
+const MV_OUT = argOf("--mv-out", null);   // also dump the shader motion field
 
 if (!existsSync(SRC)) { console.error(`source not found: ${SRC}`); process.exit(1); }
 
@@ -62,8 +63,8 @@ console.log(`decoded ${frameFiles.length} frames in ${((Date.now() - tDecode) / 
 
 // ------------------------------------------------------------- 3. settings
 let settings = {
-  intensity: 0.66, mode: "faces", scale: 1, refresh: 8,
-  freeze: false, camSpeed: 1, events: [],
+  intensity: 0.66, mode: "faces", scale: 1, refresh: 48,
+  freeze: false, camSpeed: 2.2, events: [],
 };
 if (SETTINGS) {
   settings = { ...settings, ...JSON.parse(await readFile(SETTINGS, "utf8")) };
@@ -106,12 +107,15 @@ if (!env.renderMode) { console.error("page did not enter render mode"); process.
 if (!env.float.rgba32f) console.warn(`  warning: ${env.float.message}`);
 console.log(`render mode on, ${env.float.message}, page ${env.visibility}`);
 
-await page.evaluate(({ w, h }) => {
+await page.evaluate(({ w, h, mv }) => {
   document.querySelector("video")?.pause();
   document.querySelector(".ml-panel")?.remove();
   document.querySelector(".ml-toggle")?.remove();
   window.__mosh.setCanvasSize(w, h);
-}, { w: W, h: H });
+  // the motion field lives in Buffer A, which the composite skips at low
+  // intensity, so force the lattice when exporting it
+  if (mv) window.__mosh.setAlwaysLattice(true);
+}, { w: W, h: H, mv: !!MV_OUT });
 
 // --------------------------------------------------------------- 5. encode
 await mkdir(path.dirname(OUT), { recursive: true });
@@ -124,6 +128,7 @@ const ff = spawn("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error",
 const canvas = await page.$("canvas");
 const tRender = Date.now();
 let wrote = 0;
+const mvFrames = [];
 
 for (let n = 0; n < TOTAL; n++) {
   await page.evaluate(async ({ n, s }) => {
@@ -148,6 +153,9 @@ for (let n = 0; n < TOTAL; n++) {
     forceOverride: false,
   }, events: settings.events, fps: FPS } });
 
+  if (MV_OUT) {
+    mvFrames.push(await page.evaluate(() => window.__mosh.readMotionField(16)));
+  }
   const png = await canvas.screenshot({ type: "png" });
   if (!ff.stdin.write(png)) await new Promise((r) => ff.stdin.once("drain", r));
   wrote++;
@@ -177,5 +185,26 @@ console.log(`  ${os_.width}x${os_.height} @ ${os_.r_frame_rate}  frames=${os_.nb
 console.log(`  source: frames=${frameFiles.length} dur=${srcDuration.toFixed(3)}s`);
 const frameMatch = Number(os_.nb_read_frames) === TOTAL;
 console.log(`  frame count matches render: ${frameMatch ? "yes" : "NO"}`);
+
+if (MV_OUT) {
+  const { writeFile } = await import("node:fs/promises");
+  const cov = mvFrames.reduce((a, f) => a + f.coverage, 0) / Math.max(mvFrames.length, 1);
+  const mags = mvFrames.map((f) => {
+    let s = 0, n = 0;
+    for (const row of f.mv) for (const [x, y] of row) { s += Math.hypot(x, y); n++; }
+    return n ? s / n : 0;
+  });
+  await writeFile(MV_OUT, JSON.stringify({
+    width: W, height: H, fps: FPS, mb: 16,
+    cols: mvFrames[0]?.cols ?? 0, rows: mvFrames[0]?.rows ?? 0,
+    units: "pixels (reference position - current position), same sign as an MPEG forward MV",
+    frames: mvFrames.map((f) => f.mv),
+  }));
+  const mean = mags.reduce((a, b) => a + b, 0) / Math.max(mags.length, 1);
+  console.log(`motion field -> ${MV_OUT}`);
+  console.log(`  grid ${mvFrames[0]?.cols}x${mvFrames[0]?.rows} macroblocks, `
+    + `mean |mv| ${mean.toFixed(2)} px, max frame mean ${Math.max(...mags).toFixed(2)} px`);
+  console.log(`  mean macroblock coverage (non-override): ${(cov * 100).toFixed(1)}%`);
+}
 
 if (!KEEP) await rm(FRAME_DIR, { recursive: true, force: true });
