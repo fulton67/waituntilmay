@@ -95,6 +95,9 @@ export class MoshRenderer {
   private video: HTMLVideoElement | null = null;
   private ffmpegVideo: HTMLVideoElement | null = null;
   private hasFfmpegFrame = false;
+  private frameImage: TexImageSource | null = null;
+  private frameFlipY = true;
+  private frameSize = { w: 0, h: 0 };
 
   /** CPU time around the draw calls (submission, not necessarily GPU work) */
   lastFrameMs = 0;
@@ -236,14 +239,50 @@ export class MoshRenderer {
     if (!v) this.hasFfmpegFrame = false;
   }
 
+  /**
+   * Offline render path: supply an exact decoded frame instead of the video
+   * element. Seeking a <video> is not frame-exact - the browser lands on the
+   * nearest decodable frame - so the render script decodes the source to
+   * numbered images and hands them over one at a time, which makes output
+   * frame n provably source frame n.
+   */
+  setFrameImage(img: TexImageSource | null, flipY = true) {
+    this.frameImage = img;
+    // UNPACK_FLIP_Y_WEBGL is honoured for <video> but not reliably for an
+    // ImageBitmap on this driver, which silently flipped every rendered frame.
+    // The caller states the orientation it is handing over instead of the
+    // renderer guessing from the source type.
+    this.frameFlipY = flipY;
+    if (img) this.frameSize = {
+      w: (img as { width?: number }).width ?? 0,
+      h: (img as { height?: number }).height ?? 0,
+    };
+  }
+  get sourceSize() {
+    if (this.frameImage) return this.frameSize;
+    return { w: this.video?.videoWidth ?? 0, h: this.video?.videoHeight ?? 0 };
+  }
+
   private uploadVideo(tex: WebGLTexture, v: HTMLVideoElement | null): boolean {
-    if (!v || v.readyState < 2 || v.videoWidth === 0) return false;
     const gl = this.gl;
+    const src: TexImageSource | null = this.frameImage
+      ?? ((v && v.readyState >= 2 && v.videoWidth > 0) ? v : null);
+    if (!src) return false;
+    const flip = this.frameImage ? this.frameFlipY : true;
     gl.bindTexture(gl.TEXTURE_2D, tex);
-    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, v);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, flip);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, src);
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
     return true;
+  }
+
+  /** Read the composited canvas back as raw RGBA (bottom-up, GL order). */
+  readPixels(): Uint8Array {
+    const gl = this.gl;
+    const buf = new Uint8Array(this.width * this.height * 4);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+    gl.readPixels(0, 0, this.width, this.height, gl.RGBA, gl.UNSIGNED_BYTE, buf);
+    return buf;
   }
 
   private loc(p: WebGLProgram, name: string) {
@@ -352,8 +391,9 @@ export class MoshRenderer {
     gl.uniform3f(this.loc(p, "iResolution"), this.width, this.height, 1);
     gl.uniform1f(this.loc(p, "uIntensity"), fp.intensity);
     gl.uniform1i(this.loc(p, "uHasFfmpeg"), this.hasFfmpegFrame ? 1 : 0);
-    const vw = this.video?.videoWidth || 16;
-    const vh = this.video?.videoHeight || 9;
+    const ss = this.sourceSize;
+    const vw = ss.w || 16;
+    const vh = ss.h || 9;
     gl.uniform2f(this.loc(p, "uVideoSize"), vw, vh);
     this.bindTex(p, "uVideo", 0, this.videoTex);
     this.bindTex(p, "uFaces", 1, this.faces.tex);

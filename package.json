@@ -13,7 +13,9 @@
     "crm:generate": "drizzle-kit generate",
     "crm:e2e": "playwright test -c crm/e2e/playwright.config.ts",
     "crm:test": "tsx --test crm/lib/rules.test.ts crm/lib/ranking.test.ts crm/lib/env.test.ts crm/lib/invite-token.test.ts",
-    "crm:lint": "eslint crm proxy.ts \"app/(crm)\" drizzle.config.ts"
+    "crm:lint": "eslint crm proxy.ts \"app/(crm)\" drizzle.config.ts",
+    "mosh": "node scripts/mosh.mjs",
+    "mosh:bench": "node scripts/mosh-bench.mjs"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.8",

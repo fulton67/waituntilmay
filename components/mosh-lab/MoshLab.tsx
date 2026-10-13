@@ -30,6 +30,8 @@ export default function MoshLab() {
   const rendererRef = useRef<MoshRenderer | null>(null);
   const fileRef = useRef<HTMLInputElement | null>(null);
   const frameRef = useRef(0);
+  const srcRef = useRef<string>("");
+  const labelRef = useRef<string>("test clip");
   const startRef = useRef(0);
 
   const [ready, setReady] = useState(false);
@@ -65,9 +67,55 @@ export default function MoshLab() {
     params.current.scale = scale;
   }, [intensity, stampMode, refresh, freeze, camSpeed, scale]);
 
+  // The shader mosh is path dependent: what you see depends on every refresh
+  // and freeze that happened before this frame. Recording them against a frame
+  // number is what lets the offline render replay the same state from frame 0.
+  const events = useRef<{ frame: number; type: string; value: number | boolean }[]>([]);
+  const recordEvent = useCallback((type: string, value: number | boolean) => {
+    const last = events.current[events.current.length - 1];
+    if (last && last.type === type && last.value === value) return;
+    events.current.push({ frame: frameRef.current, type, value });
+  }, []);
+
   const setForce = useCallback((on: boolean) => {
     params.current.forceOverride = on;
+    recordEvent("forceOverride", on);
+  }, [recordEvent]);
+
+  const buildSettings = useCallback(() => {
+    const v = videoRef.current;
+    const p = params.current;
+    return {
+      version: 1,
+      source: srcRef.current,
+      sourceLabel: labelRef.current,
+      fps: 30,
+      width: v?.videoWidth ?? 0,
+      height: v?.videoHeight ?? 0,
+      intensity: p.intensity,
+      mode: p.stampMode,
+      scale: p.scale,
+      refresh: p.refresh,
+      freeze: p.freeze,
+      camSpeed: p.camSpeed,
+      events: events.current.slice(),
+      exportedAtFrame: frameRef.current,
+    };
   }, []);
+
+  // the setup effect has empty deps, so it reaches the latest builder via a ref
+  const buildSettingsRef = useRef(buildSettings);
+  useEffect(() => { buildSettingsRef.current = buildSettings; }, [buildSettings]);
+
+  const exportSettings = useCallback(() => {
+    const blob = new Blob([JSON.stringify(buildSettings(), null, 2)],
+      { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "mosh-settings.json";
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }, [buildSettings]);
 
   // ---------------------------------------------------------------- setup
   useEffect(() => {
@@ -92,6 +140,10 @@ export default function MoshLab() {
       queueMicrotask(() => setFloatMsg(msg));
     }
 
+    // ?render=1 hands the canvas, the clock and the frame source to the render
+    // script. Nothing may drive the loop or resize behind its back.
+    const renderMode = new URLSearchParams(window.location.search).get("render") === "1";
+
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, DPR_CAP);
       const w = Math.round(canvas.clientWidth * dpr);
@@ -106,7 +158,7 @@ export default function MoshLab() {
     };
     resize();
     const ro = new ResizeObserver(resize);
-    ro.observe(canvas);
+    if (!renderMode) ro.observe(canvas);
 
     // ---- driving the clock from the video keeps every layer in sync
     let rafId = 0;
@@ -155,9 +207,11 @@ export default function MoshLab() {
       draw();
       vfcId = vv.requestVideoFrameCallback!(loopVfc);
     };
-    if (useVfc) loopVfc(); else rafId = requestAnimationFrame(loopRaf);
+    if (!renderMode) {
+      if (useVfc) loopVfc(); else rafId = requestAnimationFrame(loopRaf);
+    }
     // a paused video stops firing rVFC, so keep a rAF heartbeat as well
-    const heartbeat = useVfc
+    const heartbeat = (!renderMode && useVfc)
       ? window.setInterval(() => { if (video.paused) draw(); }, 1000 / 30)
       : 0;
 
@@ -168,6 +222,26 @@ export default function MoshLab() {
     w.__mosh = {
       renderer,
       video,
+      getSettings: () => buildSettingsRef.current(),
+      setFrameImage: (img: TexImageSource | null, flipY = true) =>
+        renderer.setFrameImage(img, flipY),
+      renderFrame: (fp: FrameParams) => renderer.renderFrame(fp),
+      readPixels: () => renderer.readPixels(),
+      resize: (w2: number, h2: number) => renderer.resize(w2, h2),
+      reset: () => renderer.reset(),
+      renderMode,
+      getFrame: () => frameRef.current,
+      resetFrames: () => { frameRef.current = 0; renderer.reset(); },
+      getTime: () => video.currentTime,
+      /** size the real canvas so readPixels covers the whole output frame */
+      setCanvasSize: (w2: number, h2: number) => {
+        canvas.width = w2;
+        canvas.height = h2;
+        canvas.style.width = `${w2}px`;
+        canvas.style.height = `${h2}px`;
+        renderer.resize(w2, h2);
+        renderer.reset();
+      },
       bench: (frames = 120, opts: Partial<FrameParams> = {}) =>
         renderer.benchmark(frames, { ...params.current, ...opts }),
     };
@@ -191,6 +265,8 @@ export default function MoshLab() {
     if (!v) return;
     v.src = src;
     v.load();
+    srcRef.current = src;
+    labelRef.current = label;
     setSrcLabel(label);
     frameRef.current = 0;
     rendererRef.current?.reset();
@@ -227,7 +303,7 @@ export default function MoshLab() {
     const down = (e: KeyboardEvent) => {
       if ((e.target as HTMLElement)?.tagName === "INPUT") return;
       if (e.code === "Space") { e.preventDefault(); setForce(true); }
-      if (e.key === "f" || e.key === "F") setFreeze((v) => !v);
+      if (e.key === "f" || e.key === "F") setFreeze((v) => { recordEvent("freeze", !v); return !v; });
     };
     const up = (e: KeyboardEvent) => {
       if (e.code === "Space") setForce(false);
@@ -238,7 +314,7 @@ export default function MoshLab() {
       window.removeEventListener("keydown", down);
       window.removeEventListener("keyup", up);
     };
-  }, [setForce]);
+  }, [setForce, recordEvent]);
 
   const togglePlay = () => {
     const v = videoRef.current;
@@ -301,7 +377,7 @@ export default function MoshLab() {
             onPointerUp={() => setForce(false)}
             onPointerLeave={() => setForce(false)}
           >hold to refresh</button>
-          <button onClick={() => setFreeze((v) => !v)} aria-pressed={freeze}>
+          <button onClick={() => setFreeze((v) => { recordEvent("freeze", !v); return !v; })} aria-pressed={freeze}>
             freeze ref: {freeze ? "on" : "off"}
           </button>
         </div>
@@ -309,7 +385,10 @@ export default function MoshLab() {
         <label className="ml-row">
           <span>refresh every <b>{refresh}</b> frames</span>
           <input type="range" min={1} max={60} step={1} value={refresh}
-            onChange={(e) => setRefresh(parseInt(e.target.value, 10))} />
+            onChange={(e) => {
+              const n = parseInt(e.target.value, 10);
+              setRefresh(n); recordEvent("refresh", n);
+            }} />
         </label>
 
         <label className="ml-row">
@@ -339,6 +418,7 @@ export default function MoshLab() {
           <button type="button" onClick={() => fileRef.current?.click()}>
             load video
           </button>
+          <button type="button" onClick={exportSettings}>export render settings</button>
           <input ref={fileRef} type="file" accept="video/*" hidden
             onChange={(e) => { const f = e.target.files?.[0]; if (f) onFile(f); }} />
           <small className="ml-src">{srcLabel}</small>
