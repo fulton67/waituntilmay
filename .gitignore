@@ -90,3 +90,5 @@ public/mosh-lab/**/*.mp4
 !public/mosh-lab/blum-clip.mp4
 !public/mosh-lab/blum-clip-internet.mp4
 !public/mosh-lab/test-clip.mp4
+# mosh-lab: elementary-stream intermediates the composite reads vectors from
+public/mosh-lab/**/*.m4v

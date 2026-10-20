@@ -22,3 +22,7 @@
   padding: 6px 8px; color: #9a9a9a; border-top: 1px solid #1c1c1c; }
 .mc-cell b { color: #fff; font-weight: 400; }
 .mc-drift { margin-left: auto; color: #8fe39a; }
+
+/* the composite is what this page exists to show */
+.mc-cell--hero { border-color: #8fe39a; }
+.mc-cell--hero b { color: #8fe39a; }

@@ -26,6 +26,8 @@ const PREFIX = (argOf("--prefix", "mosh-lab")).replace(/^\/|\/$/g, "");
 
 /** inputs, not outputs - these stay in git */
 const KEEP_LOCAL = new Set(["blum-clip.mp4", "blum-clip-internet.mp4", "test-clip.mp4"]);
+/** measurement references the page never loads - no reason to ship them */
+const SKIP_UPLOAD = /-journey-control\.mp4$/;
 
 const token = process.env.BLOB_READ_WRITE_TOKEN;
 if (!token && !dryRun) {
@@ -35,7 +37,8 @@ if (!token && !dryRun) {
   process.exit(1);
 }
 
-const top = (await readdir(DIR)).filter((f) => f.endsWith(".mp4") && !KEEP_LOCAL.has(f));
+const top = (await readdir(DIR))
+  .filter((f) => f.endsWith(".mp4") && !KEEP_LOCAL.has(f) && !SKIP_UPLOAD.test(f));
 const prevDir = path.join(DIR, "previews");
 const prev = existsSync(prevDir)
   ? (await readdir(prevDir)).filter((f) => f.endsWith(".mp4")).map((f) => path.join("previews", f))

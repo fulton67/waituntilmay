@@ -36,6 +36,7 @@ const FG = ".tools/ffglitch-0.10.2-windows-x86_64";
 const FCODE = Number(argOf("--fcode", "7"));
 const GOP = Number(argOf("--gop", "1000"));          // 1000 = one I-frame, the faces render
 const DROP_I = args.includes("--drop-iframes");
+const DUP_P = Number(argOf("--dup-p", "0"));      // repeat a P-VOP every N frames
 const TRIGGER_WORD = argOf("--trigger-word", null);
 const CLIP_START = Number(argOf("--clip-start", "0"));
 const TMP = ".mosh-mv";
@@ -218,7 +219,7 @@ transcript triggers for "${TRIGGER_WORD}" in this window: `
 }
 
 let moved = applied;
-if (DROP_I || triggers.length) {
+if (DROP_I || DUP_P > 0 || triggers.length) {
   const { header, frames: vops } = parseVops(await readFile(applied));
   const out2 = vops.map((f) => f.buf);
   let dropped = 0, bloomed = 0;
@@ -228,6 +229,17 @@ if (DROP_I || triggers.length) {
       let j = i - 1;
       while (j > 0 && vops[j].type !== 1) j--;
       out2[i] = vops[j].buf; dropped++;
+    }
+  }
+  // repeating a P-VOP every N frames keeps re-applying the same displacement,
+  // so the shader's field compounds into a drag instead of resetting
+  let duped = 0;
+  if (DUP_P > 0) {
+    for (let i = DUP_P; i < vops.length; i += DUP_P) {
+      let donor = i - 1;
+      while (donor > 0 && vops[donor].type !== 1) donor--;
+      if (vops[donor].type !== 1) continue;
+      out2[i] = vops[donor].buf; duped++;
     }
   }
   for (const t of triggers) {
@@ -240,12 +252,13 @@ if (DROP_I || triggers.length) {
   }
   moved = path.join(TMP, "moved.mpeg4");
   await writeFile(moved, Buffer.concat([header, ...out2]));
-  console.log(`moves: ${dropped} I-frames replaced, ${bloomed} frames bloomed `
-    + `at ${triggers.length} trigger(s), frame count unchanged (${vops.length})`);
+  console.log(`moves: ${dropped} I-frames replaced, ${duped} P-VOPs duplicated `
+    + `(every ${DUP_P || "-"}), ${bloomed} frames bloomed at ${triggers.length} `
+    + `trigger(s), frame count unchanged (${vops.length})`);
 }
 
 // ---- 4. back to H.264 at the source's rate and frame count
-const out = path.join(OUTDIR, `${NAME}-mv-transfer.mp4`);
+const out = path.join(OUTDIR, `${argOf("--out-name", `${NAME}-mv-transfer`)}.mp4`);
 sh("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-fflags", "+genpts",
   "-r", src.fps, "-f", "m4v", "-i", moved,
   "-vf", `scale=${src.w}:${src.h}`, "-frames:v", String(NFRAMES),

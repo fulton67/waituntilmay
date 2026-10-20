@@ -41,6 +41,12 @@ const LAYERS = [
   { key: "mosh-medium", label: "ffmpeg mosh medium", file: `${NAME}-ffmpeg-mosh-medium.mp4` },
   { key: "mosh-full", label: "ffmpeg mosh full", file: `${NAME}-ffmpeg-mosh-full.mp4` },
   { key: "mv-transfer", label: "mv transfer", file: `${NAME}-mv-transfer.mp4` },
+  { key: "journey-mosh", label: "A journey mosh", file: `${NAME}-journey-mosh.mp4` },
+  { key: "mv-dup4", label: "B mv transfer +dupP4", file: `${NAME}-mv-dup4.mp4` },
+  // already written at the web CRF by the composite pass; re-encoding it
+  // again would only soften the hard block edges that are the whole point
+  { key: "composite", label: "A x B through the mask",
+    file: `${NAME}-journey-composite.mp4`, webReady: true },
 ];
 
 await mkdir(PREVIEW_DIR, { recursive: true });
@@ -53,7 +59,7 @@ for (const l of present) {
   const src = path.join(DIR, l.file);
   // re-encode the layer for the web in place; mosh output is high entropy and
   // comes out of the render at a bitrate far too high to ship
-  if (l.key !== "source") {
+  if (l.key !== "source" && !l.webReady) {
     const tmp = path.join(DIR, ".webenc.mp4");
     sh("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-i", src,
       "-c:v", "libx264", "-preset", "slow", "-crf", String(WEB_CRF),
@@ -83,7 +89,7 @@ await writeFile(path.join(DIR, `${NAME}-compare.json`), JSON.stringify(manifest,
 console.log(`\nmanifest -> ${DIR}/${NAME}-compare.json`);
 
 // ---- preview grid: every layer tiled, labelled, as one MP4
-const tiles = manifest.layers.slice(0, 6);
+const tiles = manifest.layers.slice(0, 9);
 const cols = 3, rows = Math.ceil(tiles.length / cols);
 const TW = 426, TH = 240;
 const inputs = tiles.flatMap((l) => ["-t", String(SECONDS), "-i", path.join(DIR, path.basename(l.video))]);

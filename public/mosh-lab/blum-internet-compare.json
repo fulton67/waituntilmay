@@ -32,7 +32,7 @@
    "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-shader-mosh-mv.mp4",
    "frames": 300,
    "duration": 10,
-   "mb": 9.729033,
+   "mb": 9.491808,
    "width": 640,
    "height": 360,
    "fps": "30/1"
@@ -44,7 +44,7 @@
    "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-ffmpeg-mosh-medium-mv.mp4",
    "frames": 300,
    "duration": 10,
-   "mb": 10.068249,
+   "mb": 9.847785,
    "width": 640,
    "height": 360,
    "fps": "30/1"
@@ -56,7 +56,7 @@
    "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-ffmpeg-mosh-full-mv.mp4",
    "frames": 300,
    "duration": 10,
-   "mb": 10.889309,
+   "mb": 10.65114,
    "width": 640,
    "height": 360,
    "fps": "30/1"
@@ -68,7 +68,43 @@
    "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-mv-transfer-mv.mp4",
    "frames": 300,
    "duration": 10,
-   "mb": 11.902833,
+   "mb": 11.664754,
+   "width": 640,
+   "height": 360,
+   "fps": "30/1"
+  },
+  {
+   "key": "journey-mosh",
+   "label": "A journey mosh",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-journey-mosh.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-journey-mosh-mv.mp4",
+   "frames": 300,
+   "duration": 10,
+   "mb": 0.195867,
+   "width": 640,
+   "height": 360,
+   "fps": "30/1"
+  },
+  {
+   "key": "mv-dup4",
+   "label": "B mv transfer +dupP4",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-mv-dup4.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-mv-dup4-mv.mp4",
+   "frames": 300,
+   "duration": 10,
+   "mb": 11.94485,
+   "width": 640,
+   "height": 360,
+   "fps": "30/1"
+  },
+  {
+   "key": "composite",
+   "label": "A x B through the mask",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-journey-composite.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-journey-composite-mv.mp4",
+   "frames": 300,
+   "duration": 10,
+   "mb": 2.995266,
    "width": 640,
    "height": 360,
    "fps": "30/1"

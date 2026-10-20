@@ -34,6 +34,14 @@ def run(cmd):
     return subprocess.run(cmd, check=True, capture_output=True)
 
 
+def _has_audio(path):
+    """The journey edits always carry voice; a bare test clip may not."""
+    r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "a",
+                        "-show_entries", "stream=index", "-of", "csv=p=0", path],
+                       check=True, capture_output=True, text=True)
+    return bool(r.stdout.strip())
+
+
 def _start_positions(buf):
     pos, i, n = [], 0, len(buf)
     while True:
@@ -79,7 +87,7 @@ def curve(i, n, gamma, peak):
 
 
 def datamosh(src_mp4, out_mp4, triggers=(), n_frames=720, gamma=2.0, peak=0.7,
-             cfg=None, seed=0, keep_intermediate=False):
+             cfg=None, seed=0, keep_intermediate=False, fps=24):
     rng = random.Random(seed ^ 0x5EED)
     base = os.path.splitext(out_mp4)[0]
     m4v = base + "_src.m4v"
@@ -148,14 +156,17 @@ def datamosh(src_mp4, out_mp4, triggers=(), n_frames=720, gamma=2.0, peak=0.7,
     open(moshed, "wb").write(header + b"".join(out))
 
     # 4. remux with the clean audio; re-encode video to H.264 for the web
-    run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
-         "-fflags", "+genpts", "-r", "24", "-f", "m4v", "-i", moshed,
-         "-i", src_mp4,
-         "-map", "0:v:0", "-map", "1:a:0",
-         "-c:v", "libx264", "-preset", "medium", "-crf", "20",
-         "-pix_fmt", "yuv420p", "-r", "24",
-         "-c:a", "aac", "-b:a", "192k",
-         "-movflags", "+faststart", "-shortest", out_mp4])
+    r = str(fps)
+    cmd = ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+           "-fflags", "+genpts", "-r", r, "-f", "m4v", "-i", moshed]
+    if _has_audio(src_mp4):
+        cmd += ["-i", src_mp4, "-map", "0:v:0", "-map", "1:a:0",
+                "-c:a", "aac", "-b:a", "192k", "-shortest"]
+    else:
+        cmd += ["-an"]
+    cmd += ["-c:v", "libx264", "-preset", "medium", "-crf", "20",
+            "-pix_fmt", "yuv420p", "-r", r, "-movflags", "+faststart", out_mp4]
+    run(cmd)
 
     if not keep_intermediate:
         for f in (m4v, moshed):
@@ -164,4 +175,8 @@ def datamosh(src_mp4, out_mp4, triggers=(), n_frames=720, gamma=2.0, peak=0.7,
             except OSError:
                 pass
     return {"moshed_frames": len(moshed_idx), "total_vops": n,
-            "keyframes": sum(1 for t in types if t == I_VOP)}
+            "keyframes": sum(1 for t in types if t == I_VOP),
+            # which frames were touched, for anything that needs ground truth
+            "moshed_index": sorted(moshed_idx),
+            "intermediate": {"clean_m4v": m4v, "moshed_m4v": moshed}
+                            if keep_intermediate else None}
