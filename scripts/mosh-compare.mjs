@@ -20,6 +20,7 @@ const NAME = argOf("--name", "blum");
 const DIR = argOf("--dir", "public/mosh-lab");
 const PREVIEW_DIR = path.join(DIR, "previews");
 const SECONDS = Number(argOf("--seconds", "6"));
+const SOURCE_FILE = argOf("--source", `${NAME}-clip.mp4`);
 
 const sh = (c, a) => execFileSync(c, a, { encoding: "utf8", maxBuffer: 1 << 28 });
 const probe = (p) => {
@@ -34,7 +35,7 @@ const probe = (p) => {
 };
 
 const LAYERS = [
-  { key: "source", label: "source", file: `${NAME}-clip.mp4` },
+  { key: "source", label: "source", file: SOURCE_FILE },
   { key: "faces", label: "live faces", file: `${NAME}-faces.mp4` },
   { key: "shader", label: "shader mosh", file: `${NAME}-shader-mosh.mp4` },
   { key: "mosh-medium", label: "ffmpeg mosh medium", file: `${NAME}-ffmpeg-mosh-medium.mp4` },
@@ -46,7 +47,7 @@ await mkdir(PREVIEW_DIR, { recursive: true });
 const present = LAYERS.filter((l) => existsSync(path.join(DIR, l.file)));
 console.log(`layers found: ${present.length}/${LAYERS.length}`);
 
-const WEB_CRF = Number(argOf("--crf", "31"));
+const WEB_CRF = Number(argOf("--crf", "23"));
 const manifest = { name: NAME, layers: [] };
 for (const l of present) {
   const src = path.join(DIR, l.file);
@@ -64,9 +65,8 @@ for (const l of present) {
   console.log(`  ${l.label}: motion-vector overlay ...`);
   sh("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error",
     "-flags2", "+export_mvs", "-i", src,
-    // the overlay is diagnostic, so it ships at half size and a low bitrate
-    "-vf", "codecview=mv=pf+bf+bb,scale=480:270",
-    "-c:v", "libx264", "-preset", "slow", "-crf", "31",
+    "-vf", "codecview=mv=pf+bf+bb",
+    "-c:v", "libx264", "-preset", "slow", "-crf", String(WEB_CRF),
     "-pix_fmt", "yuv420p", "-movflags", "+faststart", mvPath]);
   const p = probe(src);
   manifest.layers.push({
@@ -77,6 +77,8 @@ for (const l of present) {
   });
 }
 
+manifest.previews = { grid: `/mosh-lab/previews/${NAME}-compare-grid.mp4`,
+  gridMv: `/mosh-lab/previews/${NAME}-compare-grid-mv.mp4` };
 await writeFile(path.join(DIR, `${NAME}-compare.json`), JSON.stringify(manifest, null, 1));
 console.log(`\nmanifest -> ${DIR}/${NAME}-compare.json`);
 
@@ -95,7 +97,7 @@ const preview = path.join(PREVIEW_DIR, previewName);
 sh("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", ...inputs,
   "-filter_complex",
   `${filters};${tiles.map((_, i) => `[v${i}]`).join("")}xstack=inputs=${tiles.length}:layout=${layout}[out]`,
-  "-map", "[out]", "-c:v", "libx264", "-preset", "medium", "-crf", "24",
+  "-map", "[out]", "-c:v", "libx264", "-preset", "medium", "-crf", String(WEB_CRF),
   "-pix_fmt", "yuv420p", "-movflags", "+faststart", preview]);
 
 // ---- the same grid, but of the motion-vector overlays
@@ -105,7 +107,7 @@ const mvPreview = path.join(PREVIEW_DIR, mvPreviewName);
 sh("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", ...mvInputs,
   "-filter_complex",
   `${filters};${tiles.map((_, i) => `[v${i}]`).join("")}xstack=inputs=${tiles.length}:layout=${layout}[out]`,
-  "-map", "[out]", "-c:v", "libx264", "-preset", "medium", "-crf", "24",
+  "-map", "[out]", "-c:v", "libx264", "-preset", "medium", "-crf", String(WEB_CRF),
   "-pix_fmt", "yuv420p", "-movflags", "+faststart", mvPreview]);
 
 console.log("\n=== layers ===");

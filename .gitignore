@@ -83,3 +83,10 @@ public/journey/*.mp4
 .tools/
 .mosh-mv/
 .mosh-full.log
+
+# mosh-lab: generated layers, mv overlays and preview grids live in Vercel Blob
+# (the *-compare.json manifests ARE committed; the source clips stay in git)
+public/mosh-lab/**/*.mp4
+!public/mosh-lab/blum-clip.mp4
+!public/mosh-lab/blum-clip-internet.mp4
+!public/mosh-lab/test-clip.mp4

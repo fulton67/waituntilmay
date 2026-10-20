@@ -5,7 +5,7 @@
    "key": "source",
    "label": "source",
    "video": "/mosh-lab/blum-clip.mp4",
-   "mv": "/mosh-lab/blum-clip-mv.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-clip-mv.mp4",
    "frames": 300,
    "duration": 10,
    "mb": 0.216345,
@@ -16,11 +16,11 @@
   {
    "key": "faces",
    "label": "live faces",
-   "video": "/mosh-lab/blum-faces.mp4",
-   "mv": "/mosh-lab/blum-faces-mv.mp4",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-faces.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-faces-mv.mp4",
    "frames": 300,
    "duration": 10,
-   "mb": 7.994037,
+   "mb": 4.327387,
    "width": 640,
    "height": 360,
    "fps": "30/1"
@@ -28,11 +28,11 @@
   {
    "key": "shader",
    "label": "shader mosh",
-   "video": "/mosh-lab/blum-shader-mosh.mp4",
-   "mv": "/mosh-lab/blum-shader-mosh-mv.mp4",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-shader-mosh.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-shader-mosh-mv.mp4",
    "frames": 300,
    "duration": 10,
-   "mb": 15.356668,
+   "mb": 8.956522,
    "width": 640,
    "height": 360,
    "fps": "30/1"
@@ -40,11 +40,11 @@
   {
    "key": "mosh-medium",
    "label": "ffmpeg mosh medium",
-   "video": "/mosh-lab/blum-ffmpeg-mosh-medium.mp4",
-   "mv": "/mosh-lab/blum-ffmpeg-mosh-medium-mv.mp4",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-ffmpeg-mosh-medium.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-ffmpeg-mosh-medium-mv.mp4",
    "frames": 300,
    "duration": 10,
-   "mb": 12.767143,
+   "mb": 9.135416,
    "width": 640,
    "height": 360,
    "fps": "30/1"
@@ -52,11 +52,11 @@
   {
    "key": "mosh-full",
    "label": "ffmpeg mosh full",
-   "video": "/mosh-lab/blum-ffmpeg-mosh-full.mp4",
-   "mv": "/mosh-lab/blum-ffmpeg-mosh-full-mv.mp4",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-ffmpeg-mosh-full.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-ffmpeg-mosh-full-mv.mp4",
    "frames": 300,
    "duration": 10,
-   "mb": 13.95366,
+   "mb": 10.063354,
    "width": 640,
    "height": 360,
    "fps": "30/1"
@@ -64,14 +64,19 @@
   {
    "key": "mv-transfer",
    "label": "mv transfer",
-   "video": "/mosh-lab/blum-mv-transfer.mp4",
-   "mv": "/mosh-lab/blum-mv-transfer-mv.mp4",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-mv-transfer.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-mv-transfer-mv.mp4",
    "frames": 300,
    "duration": 10,
-   "mb": 12.200063,
+   "mb": 10.911131,
    "width": 640,
    "height": 360,
    "fps": "30/1"
   }
- ]
+ ],
+ "previews": {
+  "grid": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-compare-grid.mp4",
+  "gridMv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-compare-grid-mv.mp4"
+ },
+ "blobPrefix": "mosh-lab"
 }

@@ -1,0 +1,82 @@
+{
+ "name": "blum-internet",
+ "layers": [
+  {
+   "key": "source",
+   "label": "source",
+   "video": "/mosh-lab/blum-clip-internet.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-clip-internet-mv.mp4",
+   "frames": 300,
+   "duration": 10,
+   "mb": 0.227712,
+   "width": 640,
+   "height": 360,
+   "fps": "30/1"
+  },
+  {
+   "key": "faces",
+   "label": "live faces",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-faces.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-faces-mv.mp4",
+   "frames": 300,
+   "duration": 10,
+   "mb": 4.828883,
+   "width": 640,
+   "height": 360,
+   "fps": "30/1"
+  },
+  {
+   "key": "shader",
+   "label": "shader mosh",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-shader-mosh.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-shader-mosh-mv.mp4",
+   "frames": 300,
+   "duration": 10,
+   "mb": 9.729033,
+   "width": 640,
+   "height": 360,
+   "fps": "30/1"
+  },
+  {
+   "key": "mosh-medium",
+   "label": "ffmpeg mosh medium",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-ffmpeg-mosh-medium.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-ffmpeg-mosh-medium-mv.mp4",
+   "frames": 300,
+   "duration": 10,
+   "mb": 10.068249,
+   "width": 640,
+   "height": 360,
+   "fps": "30/1"
+  },
+  {
+   "key": "mosh-full",
+   "label": "ffmpeg mosh full",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-ffmpeg-mosh-full.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-ffmpeg-mosh-full-mv.mp4",
+   "frames": 300,
+   "duration": 10,
+   "mb": 10.889309,
+   "width": 640,
+   "height": 360,
+   "fps": "30/1"
+  },
+  {
+   "key": "mv-transfer",
+   "label": "mv transfer",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-mv-transfer.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-mv-transfer-mv.mp4",
+   "frames": 300,
+   "duration": 10,
+   "mb": 11.902833,
+   "width": 640,
+   "height": 360,
+   "fps": "30/1"
+  }
+ ],
+ "previews": {
+  "grid": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-compare-grid.mp4",
+  "gridMv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-compare-grid-mv.mp4"
+ },
+ "blobPrefix": "mosh-lab"
+}

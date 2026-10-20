@@ -11,10 +11,15 @@ interface Layer {
   width: number; height: number; fps: string;
 }
 
-const MANIFEST = "/mosh-lab/blum-compare.json";
+/** one entry per source clip; the layers themselves come from Blob */
+const CLIPS = [
+  { name: "blum", label: "fibre clip", manifest: "/mosh-lab/blum-compare.json" },
+  { name: "blum-internet", label: "internet clip", manifest: "/mosh-lab/blum-internet-compare.json" },
+];
 const DRIFT_FRAMES = 1;          // correct any layer more than a frame out
 
 export default function MoshCompare() {
+  const [clip, setClip] = useState(0);
   const [layers, setLayers] = useState<Layer[]>([]);
   const [err, setErr] = useState<string | null>(null);
   const [showMv, setShowMv] = useState(false);
@@ -24,11 +29,14 @@ export default function MoshCompare() {
   const refs = useRef<Record<string, HTMLVideoElement | null>>({});
 
   useEffect(() => {
-    fetch(MANIFEST, { cache: "no-store" })
+    let live = true;
+    setLayers([]); setErr(null); setPlaying(false); setT(0);
+    fetch(CLIPS[clip].manifest, { cache: "no-store" })
       .then((r) => { if (!r.ok) throw new Error(`manifest ${r.status}`); return r.json(); })
-      .then((m) => setLayers(m.layers ?? []))
-      .catch((e) => setErr(String(e.message ?? e)));
-  }, []);
+      .then((m) => { if (live) setLayers(m.layers ?? []); })
+      .catch((e) => { if (live) setErr(String(e.message ?? e)); });
+    return () => { live = false; };
+  }, [clip]);
 
   // one master clock: the first layer. Everything else is corrected to it.
   useEffect(() => {
@@ -75,6 +83,11 @@ export default function MoshCompare() {
     <main className="mc-root">
       <header className="mc-bar">
         <h1>mosh lab &middot; compare</h1>
+        {CLIPS.map((c, i) => (
+          <button key={c.name} onClick={() => setClip(i)} aria-pressed={i === clip}>
+            {c.label}
+          </button>
+        ))}
         <button onClick={toggle}>{playing ? "pause" : "play all"}</button>
         <button onClick={() => setShowMv((v) => !v)} aria-pressed={showMv}>
           {showMv ? "showing motion vectors" : "show motion vectors"}
@@ -85,12 +98,12 @@ export default function MoshCompare() {
         <Link href="/mosh-lab">&larr; lab</Link>
       </header>
 
-      {err && <p className="mc-err">could not load {MANIFEST}: {err}</p>}
+      {err && <p className="mc-err">could not load {CLIPS[clip].manifest}: {err}</p>}
       {!err && !layers.length && <p className="mc-err">loading layers&hellip;</p>}
 
       <div className="mc-grid">
         {layers.map((l) => (
-          <figure key={l.key} className="mc-cell">
+          <figure key={`${CLIPS[clip].name}:${l.key}`} className="mc-cell">
             <video
               ref={(el) => { refs.current[l.key] = el; }}
               src={showMv ? l.mv : l.video}
