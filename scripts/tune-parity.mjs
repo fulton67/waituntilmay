@@ -98,7 +98,7 @@ async function captureLive(conf, outDir, label) {
   // assert, do not assume: the page also loads config/composite.json, and a
   // silent overwrite here makes every run below compare the same two files
   const got = await page.evaluate(() => window.__tune.getConfig());
-  for (const k of ["squares", "reveals", "bloom", "flash", "life"]) {
+  for (const k of ["squares", "reveals", "bloom", "drag", "life"]) {
     if (JSON.stringify(got[k]) !== JSON.stringify(conf[k])) {
       throw new Error(`config did not take effect for "${k}" in the ${label} `
         + `pass:
@@ -152,7 +152,9 @@ console.log("=== live preview, bloom as configured ===");
 const live = await captureLive(cfg, path.join(WORK, "live"), "live");
 
 const noBloom = JSON.parse(JSON.stringify(cfg));
+// both feedback buffers off, so the deterministic path stands alone
 noBloom.bloom = { ...noBloom.bloom, mix: 0, strength: 0 };
+noBloom.drag = { ...noBloom.drag, amount: 0 };
 console.log("\n=== live preview, bloom disabled ===");
 const liveNB = await captureLive(noBloom, path.join(WORK, "liveNoBloom"), "noBloom");
 
@@ -180,8 +182,8 @@ console.log("\n=== decode floor (layer A only, no composite) ===");
 const floorCfg = JSON.parse(JSON.stringify(cfg));
 floorCfg.squares = { ...floorCfg.squares, threshold: 1e9, baseline: 0 };
 floorCfg.reveals = { ...floorCfg.reveals, peak: 0, growRadius: 0, gain: 0 };
-floorCfg.flash = { ...floorCfg.flash, amount: 0 };
 floorCfg.bloom = { ...floorCfg.bloom, mix: 0, strength: 0 };
+floorCfg.drag = { ...floorCfg.drag, amount: 0 };
 await mkdir(path.join(WORK, "liveFloor"), { recursive: true });
 const liveFloor = await captureLive(floorCfg, path.join(WORK, "liveFloor"), "floor");
 const framesF = [...new Set(liveFloor.map((l) => l.frame))].sort((a, b) => a - b);
@@ -232,8 +234,8 @@ console.log("\n" + "=".repeat(70));
 console.log("PARITY: live preview vs offline render, same config, same frames");
 console.log("=".repeat(70));
 show(rowsFloor, "decode floor - no composite at all (layer A straight through)");
-show(rowsNB, "deterministic path - mask, squares, reveals, flash; bloom OFF");
-show(rowsFull, "everything, bloom ON (feedback buffer: path dependent)");
+show(rowsNB, "deterministic path - mask, squares, reveals; bloom and drag OFF");
+show(rowsFull, "everything on (bloom and drag are feedback buffers: path dependent)");
 
 const meanOf = (rows) => {
   const ok = rows.filter((r) => Number.isFinite(r.mean));

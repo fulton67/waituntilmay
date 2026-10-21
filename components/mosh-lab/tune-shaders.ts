@@ -27,7 +27,8 @@
  *   DIFF     |A - C| averaged per macroblock      -> R32F, block grid
  *   DILATE   one step of outward growth            -> ping-pong, block grid
  *   BLOOM    feedback buffer displaced by B's mv   -> ping-pong, full res
- *   COMP     mask + dissolve + flash + composite   -> screen
+ *   COMP     mask + dissolve + composite            -> offscreen
+ *   DRAG     grab and smear out of the squares     -> ping-pong, screen
  */
 
 export const VERT = `#version 300 es
@@ -194,18 +195,6 @@ uniform float uPeak;         // peak coverage share, 0-1
 uniform float uGrowRadius;   // blocks a reveal may grow outward
 uniform float uOnset;        // onset sharpness, shapes the leading edge
 
-// --- flash / attack
-uniform float uFlashAmt;     // 0 = off
-uniform float uFlashDur;     // frames
-uniform float uFlashFreq;    // random flashes per 100 frames
-uniform float uFlashRand;
-uniform float uFlashBright;
-uniform float uFlashInvert;
-uniform float uFlashChroma;  // px of chroma split
-uniform float uHoldAmt;      // frame hold / stutter inside squares
-uniform float uConceptFlash; // 0-1, how strongly a concept onset fires
-uniform float uNearestOnset; // frames since the nearest concept onset
-
 // --- bloom
 uniform float uBloomMix;     // how much bloom replaces B behind a square
 uniform float uBloomLead;    // frames before opening that bloom shows
@@ -351,55 +340,129 @@ void main() {
     Bsrc = mix(B, bl, clamp(uBloomMix * max(lead, 0.35), 0.0, 1.0));
   }
 
-  // ---- frame hold / stutter inside squares
-  if (uHoldAmt > 0.0 && on) {
-    float hb = hash13(vec3(blk, floor(uFrame / max(2.0, 8.0 * (1.0 - uHoldAmt)))));
-    if (hb < uHoldAmt) {
-      // hold: sample B from a position frozen on the block, which reads as
-      // the inside of the square stalling while the frame moves on
-      vec2 froz = (blk + 0.5) * uMb / uRes;
-      Bsrc = mix(Bsrc, texture(uB, mix(uv, froz, 0.35)).rgb, 0.85);
-    }
-  }
-
   vec3 col = on ? Bsrc : A;
 
-  // ---- flash / attack
-  if (uFlashAmt > 0.0) {
-    // concept onsets fire, plus random moments at uFlashFreq per 100 frames
-    float conceptF = uConceptFlash
-      * clamp(1.0 - uNearestOnset / max(uFlashDur, 1.0), 0.0, 1.0);
-    float bucket = floor(uFrame / max(uFlashDur, 1.0));
-    float rnd = hash11(bucket * 3.77 + uSeed * 19.0);
-    float randomF = rnd < (uFlashFreq / 100.0 * uFlashDur)
-      ? clamp(1.0 - mod(uFrame, max(uFlashDur, 1.0)) / max(uFlashDur, 1.0), 0.0, 1.0)
-      : 0.0;
-    // randomness decides how much of the fire is the random source
-    float f = max(conceptF, randomF * uFlashRand) * uFlashAmt;
-    if (f > 0.0) {
-      // per-block variation so a flash is not a flat full-frame event
-      float bv = mix(1.0, hash12(blk * 9.1 + floor(uFrame)), uFlashRand);
-      float fb = f * bv;
-      if (uFlashChroma > 0.0) {
-        // GLSL ES 3.0 has no sampler expressions, so the branch is on the
-        // fetch rather than on the sampler
-        float d = uFlashChroma * fb / uRes.x;
-        vec3 lo, hi;
-        if (on) {
-          lo = texture(uB, uv + vec2(d, 0.0)).rgb;
-          hi = texture(uB, uv - vec2(d, 0.0)).rgb;
-        } else {
-          lo = texture(uA, uv + vec2(d, 0.0)).rgb;
-          hi = texture(uA, uv - vec2(d, 0.0)).rgb;
-        }
-        col = vec3(lo.r, col.g, hi.b);
-      }
-      col = mix(col, vec3(1.0) - col, clamp(uFlashInvert * fb, 0.0, 1.0));
-      col += uFlashBright * fb;
-    }
+  outColor = vec4(clamp(col, 0.0, 1.0), on ? 1.0 : 0.0);
+}
+`;
+
+/* ------------------------------------------------------------------ drag */
+/**
+ * Datamosh drag: the surface is grabbed and pulled, not blurred.
+ *
+ * A blur averages its neighbourhood. This repeats one pixel - the trailing
+ * edge of the square the streak came from - all the way along the drag path,
+ * so the result is a hard constant streak with the edge's own colour, which
+ * is what a stalled P-frame actually looks like.
+ *
+ * Finding that edge is a march UPSTREAM: step backwards along the drag
+ * direction until a square pixel is hit (the composite's alpha is the square
+ * mask), and take its colour. A pixel with no square behind it inside the
+ * streak length is not in the drag at all. That is also what makes the drag
+ * start inside existing squares and pull outward, rather than being its own
+ * independent region.
+ *
+ * Streaks are bands across the perpendicular axis, with a gap between them,
+ * and in the gaps layer B shows through directly - so the drag tears the
+ * surface open instead of painting over it.
+ *
+ * The feedback term is the only path-dependent part, and it is why the parity
+ * check reports drag separately: like the bloom, a seeked preview has no
+ * history to carry.
+ */
+export const FRAG_DRAG = `#version 300 es
+precision highp float;
+${HASH}
+uniform sampler2D uComp;      // this frame's composite; alpha = square mask
+uniform sampler2D uB;
+uniform sampler2D uPrevDrag;
+uniform sampler2D uMv;
+uniform vec2  uRes;
+uniform vec2  uGrid;
+uniform float uFire;          // drag activity this frame, 0-1, decided on the CPU
+uniform float uCoverage;      // share of streaks that actually drag
+uniform int   uDirMode;       // 0 = B's vectors, 1 = vertical melt, 2 = mixed
+uniform float uMelt;          // melt weight when mixed
+uniform float uLength;        // streak length, px
+uniform float uWidth;         // streak width, px
+uniform float uGap;           // gap between streaks, px
+uniform float uPersist;
+uniform float uDecay;
+uniform float uSeed;
+uniform float uFrame;
+uniform bool  uReset;
+out vec4 outColor;
+
+void main() {
+  vec2 px = gl_FragCoord.xy;
+  vec2 uv = px / uRes;
+  vec4 comp = texture(uComp, uv);
+
+  if (uFire <= 0.0 || uLength < 1.0 || uCoverage <= 0.0) {
+    outColor = comp;
+    return;
   }
 
-  outColor = vec4(clamp(col, 0.0, 1.0), on ? 1.0 : 0.0);
+  // ---- direction
+  vec2 cell = uRes / uGrid;
+  vec2 blk = floor(px / cell);
+  vec2 mv = texelFetch(uMv, ivec2(blk), 0).rg;
+  // the field is (reference - current), so the content travels along -mv
+  vec2 dmv = length(mv) > 1e-4 ? normalize(-mv) : vec2(0.0, -1.0);
+  vec2 dmelt = vec2(0.0, -1.0);                  // down the screen
+  vec2 d = uDirMode == 0 ? dmv
+         : uDirMode == 1 ? dmelt
+         : normalize(mix(dmv, dmelt, clamp(uMelt, 0.0, 1.0)));
+  if (length(d) < 1e-4) d = dmelt;
+
+  // ---- which streak, and is this pixel in the band or the gap
+  vec2 perp = vec2(-d.y, d.x);
+  float period = max(uWidth + uGap, 2.0);
+  float across = dot(px, perp);
+  float sIdx = floor(across / period);
+  float w = uWidth * mix(0.55, 1.45, hash11(sIdx * 1.7 + uSeed));
+  bool inStreak = fract(across / period) < clamp(w / period, 0.0, 1.0);
+
+  // only a share of the streaks drag, and only while the trigger is up
+  if (hash11(sIdx * 3.3 + uSeed * 7.0) > uCoverage * uFire) {
+    outColor = comp;
+    return;
+  }
+
+  // a square keeps its own content; the drag extends past it
+  if (comp.a > 0.5) {
+    outColor = comp;
+    return;
+  }
+
+  // ---- march upstream for the trailing edge this streak repeats
+  float lenS = uLength * mix(0.4, 1.0, hash11(sIdx * 5.1 + uSeed * 3.0));
+  vec3 srcCol = vec3(0.0);
+  float found = -1.0;
+  for (int i = 1; i <= 64; i++) {
+    float t = float(i) * 2.0;
+    if (t > lenS) break;
+    vec2 q = px - d * t;
+    if (q.x < 0.0 || q.y < 0.0 || q.x > uRes.x || q.y > uRes.y) break;
+    vec4 s = texture(uComp, q / uRes);
+    if (s.a > 0.5) { found = t; srcCol = s.rgb; break; }
+  }
+  if (found < 0.0) {
+    outColor = comp;
+    return;
+  }
+
+  // ---- in the band, repeat the edge; in the gap, tear through to B
+  vec3 col = inStreak ? srcCol : texture(uB, uv).rgb;
+
+  // ---- persistence: carry the streak forward along its own direction
+  if (!uReset && uPersist > 0.0) {
+    vec3 held = texture(uPrevDrag, clamp((px - d) / uRes, vec2(0.0), vec2(1.0))).rgb;
+    col = mix(col, held, clamp(uPersist * uDecay, 0.0, 0.95));
+  }
+
+  // the drag region is torn open, so it counts as showing B-derived content
+  outColor = vec4(clamp(col, 0.0, 1.0), 1.0);
 }
 `;
 

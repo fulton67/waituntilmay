@@ -12,10 +12,41 @@
  * from wherever the playhead used to be.
  */
 import {
-  FRAG_BLOOM, FRAG_COMP, FRAG_DIFF, FRAG_DILATE, FRAG_REDUCE, FRAG_SEED, VERT,
+  FRAG_BLOOM, FRAG_COMP, FRAG_DIFF, FRAG_DILATE, FRAG_DRAG, FRAG_REDUCE,
+  FRAG_SEED, VERT,
 } from "./tune-shaders";
 
 export type Dissolve = "stepped" | "half-filled" | "broken-edges";
+export type DragDir = "motion-vectors" | "vertical-melt" | "mixed";
+export type DragTrigger = "envelope" | "concept-words" | "random";
+
+/** The one hash the CPU-side gates use. Only implementation, so any is fine. */
+function hash11(p: number) {
+  let x = (p * 0.1031) % 1;
+  if (x < 0) x += 1;
+  x *= x + 33.33;
+  x *= x + x;
+  return x - Math.floor(x);
+}
+
+/** The drag gate for one frame, 0-1, from whichever trigger is selected. */
+export function dragFireAt(cfg: TuneConfig, frame: number, shaped: number,
+                           framesSinceOnset: number) {
+  const d = cfg.drag;
+  if (d.amount <= 0) return 0;
+  let g = 0;
+  if (d.trigger === "envelope") {
+    g = shaped;
+  } else if (d.trigger === "concept-words") {
+    g = Math.min(1, Math.max(0, 1 - framesSinceOnset / Math.max(d.hold, 1)));
+  } else {
+    const hold = Math.max(d.hold, 1);
+    const bucket = Math.floor(frame / hold);
+    g = hash11(bucket * 5.21 + cfg.seed * 11) < d.rate / 100 * hold
+      ? Math.min(1, Math.max(0, 1 - (frame % hold) / hold)) : 0;
+  }
+  return Math.min(1, g * d.amount);
+}
 
 export interface TuneConfig {
   seed: number;
@@ -39,10 +70,19 @@ export interface TuneConfig {
     onset: number;              // leading-edge exponent
   };
   bloom: { lead: number; strength: number; decay: number; scale: number; mix: number };
-  flash: {
-    amount: number; duration: number; frequency: number; randomness: number;
-    brightness: number; invert: number; chroma: number; hold: number;
-    concept: number;
+  drag: {
+    amount: number;            // 0 = off
+    coverage: number;          // share of streaks that drag
+    direction: DragDir;
+    melt: number;              // melt weight when direction is mixed
+    length: number;            // streak length, px
+    width: number;             // streak width, px
+    gap: number;               // gap between streaks, px - where B shows
+    persistence: number;
+    decay: number;
+    trigger: DragTrigger;
+    hold: number;              // frames a trigger stays up
+    rate: number;              // random triggers per 100 frames
   };
   life: { timeJitter: number; spaceJitter: number };
   b: { speed: number; dupP: number };
@@ -63,12 +103,43 @@ export const DEFAULTS: TuneConfig = {
     knee: 0.6, peak: 0.45, growRadius: 12, onset: 1.6,
   },
   bloom: { lead: 6, strength: 0.65, decay: 0.85, scale: 0.35, mix: 0.6 },
-  flash: {
-    amount: 0.5, duration: 6, frequency: 6, randomness: 0.6,
-    brightness: 0.25, invert: 0.35, chroma: 2.0, hold: 0.15, concept: 1.0,
+  drag: {
+    amount: 0.8, coverage: 0.7, direction: "mixed", melt: 0.45,
+    length: 42, width: 5, gap: 4, persistence: 0.5, decay: 0.8,
+    trigger: "envelope", hold: 10, rate: 8,
   },
   life: { timeJitter: 0.15, spaceJitter: 0.1 },
   b: { speed: 1.0, dupP: 4 },
+};
+
+/**
+ * Keep only the groups this build knows about.
+ *
+ * Presets and config/composite.json on disk still carry a `flash` block from
+ * when that module existed. Spreading one of those over the defaults would
+ * drag the dead key back in, and a stricter reader would throw on it. This
+ * drops anything unrecognised instead, so an old preset loads and simply
+ * loses the part that no longer exists.
+ */
+export function sanitizeConfig(c: unknown): TuneConfig {
+  const inc = (c ?? {}) as Record<string, unknown>;
+  const out = JSON.parse(JSON.stringify(DEFAULTS)) as TuneConfig;
+  if (typeof inc.seed === "number") out.seed = inc.seed;
+  for (const k of ["squares", "reveals", "bloom", "drag", "life", "b"] as const) {
+    const g = inc[k];
+    if (g && typeof g === "object") {
+      // only keys the group already has, so a stale field cannot sneak in
+      const target = out[k] as Record<string, unknown>;
+      for (const [kk, vv] of Object.entries(g as Record<string, unknown>)) {
+        if (kk in target) target[kk] = vv;
+      }
+    }
+  }
+  return out;
+}
+
+const DIR_ID: Record<DragDir, number> = {
+  "motion-vectors": 0, "vertical-melt": 1, mixed: 2,
 };
 
 const DISSOLVE_ID: Record<Dissolve, number> = {
@@ -110,6 +181,7 @@ export class TuneRenderer {
   private texMv: WebGLTexture;
   private diff!: Target; private distA!: Target; private distB!: Target;
   private bloomA!: Target; private bloomB!: Target;
+  private dragA!: Target; private dragB!: Target;
   private comp!: Target;
   private reduce: Target[] = [];
   private w = 0; private h = 0; private cols = 0; private rows = 0;
@@ -117,6 +189,8 @@ export class TuneRenderer {
   private mvFrames = 0; private mvRows = 0; private mvCols = 0;
   private mv: Float32Array | null = null;
   private bloomPrimed = false;
+  private dragPrimed = false;
+  lastDragFire = 0;
   float: { ok: boolean; message: string };
   lastCoverage = 0;
 
@@ -134,7 +208,8 @@ export class TuneRenderer {
 
     for (const [k, f] of Object.entries({
       diff: FRAG_DIFF, seed: FRAG_SEED, dilate: FRAG_DILATE,
-      bloom: FRAG_BLOOM, comp: FRAG_COMP, reduce: FRAG_REDUCE,
+      bloom: FRAG_BLOOM, comp: FRAG_COMP, drag: FRAG_DRAG,
+      reduce: FRAG_REDUCE,
     })) this.progs[k] = program(gl, f);
 
     this.vao = gl.createVertexArray()!;
@@ -195,6 +270,8 @@ export class TuneRenderer {
     this.distB = this.target(this.cols, this.rows);
     this.bloomA = this.target(w, h, false, false);
     this.bloomB = this.target(w, h, false, false);
+    this.dragA = this.target(w, h, false, false);
+    this.dragB = this.target(w, h, false, false);
     this.comp = this.target(w, h, false, false);
     // a reduction chain down to 1x1 so coverage comes back as one pixel
     this.reduce = [];
@@ -243,7 +320,8 @@ export class TuneRenderer {
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 0);
   }
 
-  resetBloom() { this.bloomPrimed = false; }
+  /** Both feedback buffers: a scrub has no history for either of them. */
+  resetBloom() { this.bloomPrimed = false; this.dragPrimed = false; }
 
   private use(name: string) {
     const gl = this.gl;
@@ -362,18 +440,6 @@ export class TuneRenderer {
       gl.uniform1f(this.u(p, "uGrowRadius"), r.growRadius);
       gl.uniform1f(this.u(p, "uOnset"), r.onset);
 
-      const f = cfg.flash;
-      gl.uniform1f(this.u(p, "uFlashAmt"), f.amount);
-      gl.uniform1f(this.u(p, "uFlashDur"), f.duration);
-      gl.uniform1f(this.u(p, "uFlashFreq"), f.frequency);
-      gl.uniform1f(this.u(p, "uFlashRand"), f.randomness);
-      gl.uniform1f(this.u(p, "uFlashBright"), f.brightness);
-      gl.uniform1f(this.u(p, "uFlashInvert"), f.invert);
-      gl.uniform1f(this.u(p, "uFlashChroma"), f.chroma);
-      gl.uniform1f(this.u(p, "uHoldAmt"), f.hold);
-      gl.uniform1f(this.u(p, "uConceptFlash"), f.concept);
-      gl.uniform1f(this.u(p, "uNearestOnset"), framesSinceOnset);
-
       gl.uniform1f(this.u(p, "uBloomMix"), cfg.bloom.mix);
       gl.uniform1f(this.u(p, "uBloomLead"), cfg.bloom.lead);
       gl.uniform1f(this.u(p, "uTJitter"), cfg.life.timeJitter);
@@ -384,8 +450,40 @@ export class TuneRenderer {
       this.draw(this.comp);
     }
 
-    // ---- coverage, by reducing the composite's alpha to one pixel
-    let rsrc: Target = this.comp;
+    // ---- drag: grab the surface and pull it out of the squares
+    const dcfg = cfg.drag;
+    const dragFire = dragFireAt(cfg, frame, shaped, framesSinceOnset);
+    this.lastDragFire = dragFire;
+    {
+      const p = this.use("drag");
+      this.bind(p, "uComp", 0, this.comp.tex);
+      this.bind(p, "uB", 1, this.texB);
+      this.bind(p, "uPrevDrag", 2, this.dragA.tex);
+      this.bind(p, "uMv", 3, this.texMv);
+      gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
+      gl.uniform2f(this.u(p, "uGrid"), this.mvCols || this.cols,
+        this.mvRows || this.rows);
+      gl.uniform1f(this.u(p, "uFire"), dragFire);
+      gl.uniform1f(this.u(p, "uCoverage"), dcfg.coverage);
+      gl.uniform1i(this.u(p, "uDirMode"), DIR_ID[dcfg.direction] ?? 2);
+      gl.uniform1f(this.u(p, "uMelt"), dcfg.melt);
+      gl.uniform1f(this.u(p, "uLength"), dcfg.length);
+      gl.uniform1f(this.u(p, "uWidth"), dcfg.width);
+      gl.uniform1f(this.u(p, "uGap"), dcfg.gap);
+      gl.uniform1f(this.u(p, "uPersist"), dcfg.persistence);
+      gl.uniform1f(this.u(p, "uDecay"), dcfg.decay);
+      gl.uniform1f(this.u(p, "uSeed"), cfg.seed);
+      gl.uniform1f(this.u(p, "uFrame"), frame);
+      gl.uniform1i(this.u(p, "uReset"), this.dragPrimed ? 0 : 1);
+      this.draw(this.dragB);
+      const t = this.dragA; this.dragA = this.dragB; this.dragB = t;
+      this.dragPrimed = true;
+    }
+    // what reaches the screen, and what coverage is measured from
+    const final = this.dragA;
+
+    // ---- coverage, by reducing the final alpha to one pixel
+    let rsrc: Target = final;
     for (let s = 0; s < this.reduce.length; s++) {
       const t = this.reduce[s];
       const p = this.use("reduce");
@@ -401,7 +499,7 @@ export class TuneRenderer {
     this.lastCoverage = px[1] > 0 ? px[0] / px[1] : 0;
 
     // ---- to the canvas
-    this.blit(this.comp);
+    this.blit(final);
   }
 
   /**
@@ -411,9 +509,10 @@ export class TuneRenderer {
    */
   debug() {
     const gl = this.gl;
-    const px = new Uint8Array(this.comp.w * this.comp.h * 4);
-    gl.bindFramebuffer(gl.FRAMEBUFFER, this.comp.fb);
-    gl.readPixels(0, 0, this.comp.w, this.comp.h, gl.RGBA, gl.UNSIGNED_BYTE, px);
+    const shown = this.dragPrimed ? this.dragA : this.comp;
+    const px = new Uint8Array(shown.w * shown.h * 4);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, shown.fb);
+    gl.readPixels(0, 0, shown.w, shown.h, gl.RGBA, gl.UNSIGNED_BYTE, px);
     let on = 0;
     for (let i = 3; i < px.length; i += 4) if (px[i] > 127) on++;
     const nblk = this.diff.w * this.diff.h;
@@ -425,8 +524,9 @@ export class TuneRenderer {
     diffs.sort((a, b) => a - b);
     gl.bindFramebuffer(gl.FRAMEBUFFER, null);
     return {
-      alphaCoverage: on / (this.comp.w * this.comp.h),
+      alphaCoverage: on / (shown.w * shown.h),
       reducedCoverage: this.lastCoverage,
+      dragFire: this.lastDragFire,
       diffMin: diffs[0], diffMedian: diffs[nblk >> 1],
       diffP90: diffs[Math.floor(nblk * 0.9)], diffMax: diffs[nblk - 1],
       blocks: nblk,

@@ -51,7 +51,23 @@ const layers = ["a", "b", "c"];
 const files = {};
 await rm(FRAMEDIR, { recursive: true, force: true });
 for (const L of layers) {
-  const src = path.join("public", data.layers[L].replace(/^\//, ""));
+  // Once the layers are uploaded, the manifest points at Blob - the live page
+  // needs that. The offline render still wants bytes on disk, so an absolute
+  // URL falls back to the same basename under DIR, and only downloads when
+  // that is missing too (a fresh clone has the manifest but not the mp4).
+  const ref = data.layers[L];
+  let src = /^https?:\/\//.test(ref)
+    ? path.join(DIR, path.basename(new URL(ref).pathname))
+    : path.join("public", ref.replace(/^\//, ""));
+  if (!existsSync(src) && /^https?:\/\//.test(ref)) {
+    await mkdir(path.join(FRAMEDIR, "dl"), { recursive: true });
+    const dl = path.join(FRAMEDIR, "dl", path.basename(new URL(ref).pathname));
+    console.log(`  layer ${L.toUpperCase()}: fetching ${ref}`);
+    const r = await fetch(ref);
+    if (!r.ok) throw new Error(`layer ${L}: ${r.status} fetching ${ref}`);
+    await writeFile(dl, Buffer.from(await r.arrayBuffer()));
+    src = dl;
+  }
   if (!existsSync(src)) throw new Error(`missing layer ${L}: ${src}`);
   const dir = path.join(FRAMEDIR, L);
   await mkdir(dir, { recursive: true });
@@ -98,7 +114,7 @@ await page.evaluate((c) => {
 }, cfg);
 {
   const got = await page.evaluate(() => window.__tune.getConfig());
-  for (const k of ["squares", "reveals", "bloom", "flash", "life"]) {
+  for (const k of ["squares", "reveals", "bloom", "drag", "life"]) {
     if (JSON.stringify(got[k]) !== JSON.stringify(cfg[k])) {
       throw new Error(`config did not take effect for "${k}": sent `
         + `${JSON.stringify(cfg[k])}, live ${JSON.stringify(got[k])}`);

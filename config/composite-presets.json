@@ -30,16 +30,19 @@
       "scale": 0.35,
       "mix": 0.6
     },
-    "flash": {
-      "amount": 0.5,
-      "duration": 6,
-      "frequency": 6,
-      "randomness": 0.6,
-      "brightness": 0.25,
-      "invert": 0.35,
-      "chroma": 2,
-      "hold": 0.15,
-      "concept": 1
+    "drag": {
+      "amount": 0.8,
+      "coverage": 0.7,
+      "direction": "mixed",
+      "melt": 0.45,
+      "length": 42,
+      "width": 5,
+      "gap": 4,
+      "persistence": 0.5,
+      "decay": 0.8,
+      "trigger": "envelope",
+      "hold": 10,
+      "rate": 8
     },
     "life": {
       "timeJitter": 0.15,
@@ -81,16 +84,19 @@
       "scale": 0.35,
       "mix": 0.4
     },
-    "flash": {
-      "amount": 0.22,
-      "duration": 6,
-      "frequency": 6,
-      "randomness": 0.6,
-      "brightness": 0.12,
-      "invert": 0.1,
-      "chroma": 1.0,
-      "hold": 0.08,
-      "concept": 1
+    "drag": {
+      "amount": 0.35,
+      "coverage": 0.45,
+      "direction": "mixed",
+      "melt": 0.45,
+      "length": 24,
+      "width": 5,
+      "gap": 6,
+      "persistence": 0.3,
+      "decay": 0.8,
+      "trigger": "envelope",
+      "hold": 10,
+      "rate": 8
     },
     "life": {
       "timeJitter": 0.15,
@@ -132,16 +138,19 @@
       "scale": 0.35,
       "mix": 0.85
     },
-    "flash": {
-      "amount": 0.85,
-      "duration": 6,
-      "frequency": 14,
-      "randomness": 0.6,
-      "brightness": 0.45,
-      "invert": 0.6,
-      "chroma": 5.0,
-      "hold": 0.35,
-      "concept": 1
+    "drag": {
+      "amount": 1.0,
+      "coverage": 0.95,
+      "direction": "motion-vectors",
+      "melt": 0.45,
+      "length": 84,
+      "width": 8,
+      "gap": 3,
+      "persistence": 0.8,
+      "decay": 0.9,
+      "trigger": "envelope",
+      "hold": 10,
+      "rate": 8
     },
     "life": {
       "timeJitter": 0.35,
@@ -183,16 +192,19 @@
       "scale": 0.35,
       "mix": 0.6
     },
-    "flash": {
-      "amount": 0.5,
-      "duration": 6,
-      "frequency": 6,
-      "randomness": 0.6,
-      "brightness": 0.25,
-      "invert": 0.35,
-      "chroma": 2,
-      "hold": 0.15,
-      "concept": 1
+    "drag": {
+      "amount": 0.6,
+      "coverage": 0.8,
+      "direction": "vertical-melt",
+      "melt": 1.0,
+      "length": 30,
+      "width": 2,
+      "gap": 2,
+      "persistence": 0.5,
+      "decay": 0.8,
+      "trigger": "envelope",
+      "hold": 10,
+      "rate": 8
     },
     "life": {
       "timeJitter": 0.3,

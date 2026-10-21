@@ -15,7 +15,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import {
-  DEFAULTS, followEnvelope, TuneRenderer, type Dissolve, type TuneConfig,
+  DEFAULTS, dragFireAt, followEnvelope, sanitizeConfig, TuneRenderer,
+  type Dissolve, type DragDir, type DragTrigger, type TuneConfig,
 } from "./TuneRenderer";
 import "./mosh-tune.css";
 
@@ -73,16 +74,17 @@ const GROUPS: { name: string; path: keyof TuneConfig | "seed"; specs: Spec[] }[]
     ],
   },
   {
-    name: "flash / attack", path: "flash", specs: [
+    name: "drag", path: "drag", specs: [
       { key: "amount", label: "amount", min: 0, max: 1, step: 0.01 },
-      { key: "duration", label: "duration (frames)", min: 1, max: 30, step: 1 },
-      { key: "frequency", label: "per 100 frames", min: 0, max: 40, step: 0.5 },
-      { key: "randomness", label: "randomness", min: 0, max: 1, step: 0.01 },
-      { key: "brightness", label: "brightness spike", min: 0, max: 1, step: 0.01 },
-      { key: "invert", label: "inversion", min: 0, max: 1, step: 0.01 },
-      { key: "chroma", label: "chroma split (px)", min: 0, max: 12, step: 0.1 },
-      { key: "hold", label: "hold / stutter", min: 0, max: 1, step: 0.01 },
-      { key: "concept", label: "on concept words", min: 0, max: 1, step: 0.01 },
+      { key: "coverage", label: "coverage", min: 0, max: 1, step: 0.01 },
+      { key: "melt", label: "melt bias (mixed)", min: 0, max: 1, step: 0.01 },
+      { key: "length", label: "streak length (px)", min: 0, max: 96, step: 1 },
+      { key: "width", label: "streak width (px)", min: 1, max: 32, step: 1 },
+      { key: "gap", label: "gap, B shows (px)", min: 0, max: 32, step: 1 },
+      { key: "persistence", label: "persistence", min: 0, max: 1, step: 0.01 },
+      { key: "decay", label: "decay", min: 0, max: 1, step: 0.01 },
+      { key: "hold", label: "trigger hold (frames)", min: 1, max: 40, step: 1 },
+      { key: "rate", label: "random per 100 frames", min: 0, max: 40, step: 0.5 },
     ],
   },
   {
@@ -162,7 +164,7 @@ export default function MoshTune() {
         setWritable(!!s.writable);
         if (s.presets && typeof s.presets === "object") setPresets(s.presets);
         if (s.config) {
-          const merged = { ...DEFAULTS, ...s.config } as TuneConfig;
+          const merged = sanitizeConfig(s.config);
           baseline.current = clone(merged);
           if (!overridden.current) setCfg(merged);
         }
@@ -199,6 +201,18 @@ export default function MoshTune() {
     }
     return d;
   }, [data]);
+
+  // The same gate the shader is handed, evaluated over the whole clip so the
+  // timeline can show when the drag is actually up. The flash module whose
+  // indicator used to live here was removed, so there is no flash row.
+  const dragTrack = useMemo(() => {
+    if (!data || !envelope || !onsetDistance) return null;
+    const t = new Float32Array(data.frames);
+    for (let i = 0; i < data.frames; i++) {
+      t[i] = dragFireAt(cfg, i, envelope.shaped[i], onsetDistance[i]);
+    }
+    return t;
+  }, [data, cfg, envelope, onsetDistance]);
 
   /* ----------------------------------------------------------- one frame */
   const drawFrame = useCallback((f: number) => {
@@ -330,6 +344,20 @@ export default function MoshTune() {
     plot(envelope.env, "#4aa3ff", 26, 46);
     plot(covHist.current, "#5bd75b", 74, 46, 1 / Math.max(cfg.reveals.peak, 0.05));
 
+    // drag activity: a solid run means the drag never lets go
+    if (dragTrack) {
+      for (let f = 0; f < d.frames; f++) {
+        const v = dragTrack[f];
+        if (v <= 0) continue;
+        g.fillStyle = `rgba(255,120,220,${0.25 + 0.75 * v})`;
+        g.fillRect(x(f), H - 12, Math.max(1, W / d.frames), 10);
+      }
+      g.fillStyle = "#ff78dc";
+      g.fillText("drag", 4, H - 3);
+      const up = dragTrack.reduce((a, v) => a + (v > 0 ? 1 : 0), 0);
+      g.fillText(`${(up / d.frames * 100).toFixed(0)}% of frames`, 34, H - 3);
+    }
+
     // playhead
     g.strokeStyle = "#fff";
     g.beginPath(); g.moveTo(x(frame), 0); g.lineTo(x(frame), H); g.stroke();
@@ -337,7 +365,7 @@ export default function MoshTune() {
     g.fillStyle = "#4aa3ff"; g.fillText("envelope", 4, 36);
     g.fillStyle = "#5bd75b";
     g.fillText(`coverage (full = ${(cfg.reveals.peak * 100).toFixed(0)}%)`, 4, 84);
-  }, [data, envelope, frame, loopOn, loop, cfg.reveals.peak]);
+  }, [data, envelope, frame, loopOn, loop, cfg.reveals.peak, dragTrack]);
 
   /* ------------------------------------------------------------- setters */
   const setIn = (group: string, key: string, v: number) =>
@@ -408,7 +436,7 @@ export default function MoshTune() {
       mode: render ? "render" : "live",
       frames: data.frames, fps: data.fps, width: data.width, height: data.height,
       setConfig: (c: Partial<TuneConfig>) => {
-        const merged = { ...DEFAULTS, ...c } as TuneConfig;
+        const merged = sanitizeConfig(c);
         overridden.current = true;
         cfgRef.current = merged;
         setCfg(merged);
@@ -462,7 +490,9 @@ export default function MoshTune() {
         <span className="mt-time">
           f {Math.round(frame)}/{data.frames - 1} &nbsp;
           {(frame / data.fps).toFixed(2)}s &nbsp;
-          cov <b>{(coverage * 100).toFixed(2)}%</b>
+          cov <b>{(coverage * 100).toFixed(2)}%</b> &nbsp;
+          drag <b>{dragTrack
+            ? (dragTrack[Math.round(frame)] ?? 0).toFixed(2) : "-"}</b>
         </span>
       </header>
 
@@ -503,7 +533,7 @@ export default function MoshTune() {
         }}>save preset</button>
         <select value="" onChange={(e) => {
           const p = presets[e.target.value];
-          if (p) setCfg({ ...DEFAULTS, ...p });
+          if (p) setCfg(sanitizeConfig(p));
         }}>
           <option value="">load preset&hellip;</option>
           {Object.keys(presets).map((k) => <option key={k} value={k}>{k}</option>)}
@@ -535,6 +565,36 @@ export default function MoshTune() {
                   <option value="broken-edges">broken edges</option>
                 </select>
               </label>
+            )}
+            {grp.name === "drag" && (
+              <>
+                <label className="mt-sel">
+                  <span>direction source</span>
+                  <select value={cfg.drag.direction} onChange={(e) =>
+                    setCfg((c) => {
+                      const n = clone(c);
+                      n.drag.direction = e.target.value as DragDir;
+                      return n;
+                    })}>
+                    <option value="motion-vectors">B&rsquo;s motion vectors</option>
+                    <option value="vertical-melt">vertical melt</option>
+                    <option value="mixed">mixed</option>
+                  </select>
+                </label>
+                <label className="mt-sel">
+                  <span>trigger</span>
+                  <select value={cfg.drag.trigger} onChange={(e) =>
+                    setCfg((c) => {
+                      const n = clone(c);
+                      n.drag.trigger = e.target.value as DragTrigger;
+                      return n;
+                    })}>
+                    <option value="envelope">envelope</option>
+                    <option value="concept-words">concept words</option>
+                    <option value="random">random</option>
+                  </select>
+                </label>
+              </>
             )}
             {grp.specs.map((s) => {
               // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -29,16 +29,19 @@
     "scale": 0.35,
     "mix": 0.6
   },
-  "flash": {
-    "amount": 0.5,
-    "duration": 6,
-    "frequency": 6,
-    "randomness": 0.6,
-    "brightness": 0.25,
-    "invert": 0.35,
-    "chroma": 2,
-    "hold": 0.15,
-    "concept": 1
+  "drag": {
+    "amount": 0.8,
+    "coverage": 0.7,
+    "direction": "mixed",
+    "melt": 0.45,
+    "length": 42,
+    "width": 5,
+    "gap": 4,
+    "persistence": 0.5,
+    "decay": 0.8,
+    "trigger": "envelope",
+    "hold": 10,
+    "rate": 8
   },
   "life": {
     "timeJitter": 0.15,
