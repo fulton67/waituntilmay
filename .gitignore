@@ -104,3 +104,6 @@ rerender_v2.log
 .tune-parity/
 .tune-frames/
 .tune-caps/
+public/mosh-lab/*.mp4
+.openings-mv/
+.mv4test/

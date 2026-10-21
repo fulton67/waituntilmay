@@ -1,0 +1,31 @@
+{
+ "src": "public/mosh-lab/blum-clip-internet.mp4",
+ "frames": 300,
+ "grid": [
+  40,
+  23
+ ],
+ "organic": {
+  "amount": 0.85,
+  "scale": 0.9,
+  "wobble": 0.55,
+  "soft": 1.5
+ },
+ "forced": {
+  "total": 252520,
+  "oneMv": 250389,
+  "fourMv": 2131,
+  "edge4mv": 1886
+ },
+ "neighbour": {
+  "max": 8.04405501656644,
+  "median": 0.5615924557296063,
+  "p99": 2.712698726761121,
+  "n": 464738
+ },
+ "edge": {
+  "pixels": 741605,
+  "on16Pct": 6.917024561592761,
+  "on8Pct": 14.187606609987796
+ }
+}
