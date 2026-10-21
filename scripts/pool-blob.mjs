@@ -28,16 +28,21 @@ const seedOf = (u) => {
   return m ? Number(m[1]) : null;
 };
 
+// process.exit() here would land on top of the keep-alive socket the Blob
+// fetch leaves open: on Windows that aborts during handle teardown, after
+// stdout has already flushed, so the caller sees correct output and a 127.
+// Returning instead lets the loop drain and the real code survive.
+async function main() {
 if (args.includes("--list")) {
   const man = await readManifest(prefix, token);
   const seeds = (man?.files ?? []).map(seedOf).filter((s) => s !== null);
   console.log(JSON.stringify({ count: seeds.length, seeds }));
-  process.exit(0);
+  return 0;
 }
 
 if (!args.includes("--append")) {
   console.error("pass --list or --append");
-  process.exit(1);
+  return 1;
 }
 
 const SRC = argOf("--src", ".pool/web");
@@ -48,14 +53,14 @@ const before = man?.files ?? [];
 if (!man) {
   console.error(`no live manifest at ${prefix}/manifest.json - run `
     + `upload_blob.mjs for the full batch first`);
-  process.exit(1);
+  return 1;
 }
 
 const files = (await readdir(SRC)).filter((f) => f.endsWith(".mp4")).sort();
 if (!files.length) {
   console.log(`nothing to append: no mp4 in ${SRC}`);
   console.log(JSON.stringify({ before: before.length, after: before.length, added: 0 }));
-  process.exit(0);
+  return 0;
 }
 
 const known = new Set(before);
@@ -79,3 +84,7 @@ if (out) {
 }
 console.log(JSON.stringify({ before: before.length, after: after.length,
   added: added.length }));
+return 0;
+}
+
+process.exitCode = await main();

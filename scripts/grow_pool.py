@@ -100,8 +100,13 @@ def main():
     ap.add_argument("--prefix", default="journey-v2")
     ap.add_argument("--workdir", default=".pool")
     ap.add_argument("--log", default="logs/pool.log")
-    ap.add_argument("--crf", type=int, default=20)
+    # these must match the settings the shipped pool was built with, or a
+    # version that joins overnight arrives several times the size of its
+    # neighbours: the composite costs ~9x the bits of the v1 mosh per CRF
+    ap.add_argument("--crf", type=int, default=30)
     ap.add_argument("--height", type=int, default=720)
+    ap.add_argument("--maxrate-kbps", type=int, default=2000)
+    ap.add_argument("--budget-mb", type=float, default=8.0)
     ap.add_argument("--keep-workdir", action="store_true")
     ap.add_argument("--no-upload", action="store_true")
     args = ap.parse_args()
@@ -164,12 +169,17 @@ def main():
             return 0
 
         # ---- web encode only the survivors
-        log(f"web-encoding {len(accepted)} renders at {args.height}p crf {args.crf}")
+        log(f"web-encoding {len(accepted)} renders at {args.height}p "
+            f"crf {args.crf} capped at {args.maxrate_kbps}k")
         webdir = os.path.join(work, "web")
-        subprocess.run([PY, "scripts/build_web.py", "--src", work,
-                        "--out", webdir, "--height", str(args.height),
-                        "--crf", str(args.crf)],
-                       cwd=ROOT, check=True, capture_output=True, text=True)
+        wb = subprocess.run([PY, "scripts/build_web.py", "--src", work,
+                             "--out", webdir, "--height", str(args.height),
+                             "--crf", str(args.crf),
+                             "--maxrate-kbps", str(args.maxrate_kbps),
+                             "--budget-mb", str(args.budget_mb)],
+                            cwd=ROOT, check=True, capture_output=True, text=True)
+        for line in wb.stdout.strip().splitlines()[-4:]:
+            log("  " + line)
 
         if args.no_upload:
             log(f"--no-upload: {len(accepted)} renders left in {webdir}")
