@@ -1,0 +1,288 @@
+{
+ "frames": 300,
+ "fps": 30.0,
+ "grid": {
+  "mb": [
+   40,
+   23
+  ],
+  "sub": [
+   160,
+   90
+  ],
+  "sub_px": 4
+ },
+ "detector": {
+  "gate": "|A-C| per macroblock",
+  "floor_p99_5": 2.465,
+  "threshold": 2.465,
+  "a_glitched_pct_mean": 7.58,
+  "mv_detector_pct_mean": 0.07
+ },
+ "coverage": {
+  "per_second": [
+   {
+    "second": 0,
+    "mean_pct": 1.51,
+    "max_pct": 2.5,
+    "env_mean": 0.203
+   },
+   {
+    "second": 1,
+    "mean_pct": 0.61,
+    "max_pct": 2.22,
+    "env_mean": 0.292
+   },
+   {
+    "second": 2,
+    "mean_pct": 0.14,
+    "max_pct": 0.17,
+    "env_mean": 0.24
+   },
+   {
+    "second": 3,
+    "mean_pct": 13.29,
+    "max_pct": 30.42,
+    "env_mean": 0.716
+   },
+   {
+    "second": 4,
+    "mean_pct": 9.14,
+    "max_pct": 22.89,
+    "env_mean": 0.685
+   },
+   {
+    "second": 5,
+    "mean_pct": 23.11,
+    "max_pct": 35.76,
+    "env_mean": 0.87
+   },
+   {
+    "second": 6,
+    "mean_pct": 22.26,
+    "max_pct": 33.18,
+    "env_mean": 0.793
+   },
+   {
+    "second": 7,
+    "mean_pct": 2.26,
+    "max_pct": 8.02,
+    "env_mean": 0.453
+   },
+   {
+    "second": 8,
+    "mean_pct": 1.07,
+    "max_pct": 2.09,
+    "env_mean": 0.321
+   },
+   {
+    "second": 9,
+    "mean_pct": 1.37,
+    "max_pct": 2.06,
+    "env_mean": 0.271
+   }
+  ],
+  "mean_pct": 7.48,
+  "max_pct": 35.76,
+  "min_pct": 0.02,
+  "at_concept_words": [
+   {
+    "frame": 101,
+    "second": 3,
+    "word": "internet",
+    "coverage_pct": 1.01,
+    "env": 0.685,
+    "peak_next_1s_pct": 30.42
+   },
+   {
+    "frame": 150,
+    "second": 5,
+    "word": "internet",
+    "coverage_pct": 1.52,
+    "env": 0.646,
+    "peak_next_1s_pct": 35.76
+   },
+   {
+    "frame": 175,
+    "second": 5,
+    "word": "internet",
+    "coverage_pct": 17.17,
+    "env": 0.82,
+    "peak_next_1s_pct": 33.18
+   }
+  ],
+  "max_frame_jump_pct": 4.77,
+  "flat_runs_over_1s": 0
+ },
+ "squares": {
+  "spawned": 1467,
+  "from_ring_pct": 86.6,
+  "life_frames": {
+   "min": 6,
+   "max": 50,
+   "mean": 23.5
+  },
+  "fade_frames": {
+   "min": 2,
+   "max": 12,
+   "mean": 8.1
+  },
+  "fade_clamped_pct": 50.9,
+  "live_mean": 447.8,
+  "live_max": 1912
+ },
+ "clusters": {
+  "sampled_frames": 150,
+  "min": 1,
+  "max": 490,
+  "mean": 89.3,
+  "regions_min": 1,
+  "regions_max": 104,
+  "regions_mean": 21.2
+ },
+ "target": {
+  "knee": 0.6,
+  "gamma": 1.6,
+  "fill_efficiency": 0.75,
+  "mean_pct": 7.22,
+  "max_pct": 34.92
+ },
+ "output": "public/mosh-lab\\blum-internet-decay.mp4",
+ "name": "blum-internet",
+ "src": "public/mosh-lab/blum-clip-internet.mp4",
+ "clip_start": 385.649,
+ "triggers": [
+  101,
+  150
+ ],
+ "layers": {
+  "a": "public/mosh-lab\\blum-internet-decay-A.mp4",
+  "b": "public/mosh-lab\\blum-internet-decay-B.mp4",
+  "c": ".decay-test\\blum-internet-C.mp4",
+  "control": ".decay-test\\blum-internet-ctl.mp4",
+  "composite": "public/mosh-lab\\blum-internet-decay.mp4"
+ },
+ "a_moshed_frames": 58,
+ "motion": {
+  "raw": {
+   "medianMean": 71.33524076174076,
+   "minMean": 0,
+   "maxMean": 138.99552635275475,
+   "minRelToMedian": 0,
+   "maxFrameDelta": 707106.7811865525,
+   "maxFrameDeltaFrame": 3,
+   "worstLowFrame": 0,
+   "meanFrameDelta": 2365.047177711888,
+   "okLevel": false,
+   "okContinuity": false
+  },
+  "smoothed": {
+   "medianMean": 69.05683365493528,
+   "minMean": 61.92179569486414,
+   "maxMean": 75.87950056836499,
+   "minRelToMedian": 0.8966787559979414,
+   "maxFrameDelta": 0.008547926952702695,
+   "maxFrameDeltaFrame": 52,
+   "worstLowFrame": 73,
+   "meanFrameDelta": 0.0041310075365297684,
+   "okLevel": true,
+   "okContinuity": true
+  },
+  "smoothing": {
+   "radius": 3,
+   "wander": 0.1,
+   "drift": 0.6
+  }
+ },
+ "envelope": {
+  "per_second": [
+   {
+    "second": 0,
+    "env_mean": 0.2026,
+    "env_max": 0.3191
+   },
+   {
+    "second": 1,
+    "env_mean": 0.2921,
+    "env_max": 0.3213
+   },
+   {
+    "second": 2,
+    "env_mean": 0.2398,
+    "env_max": 0.2872
+   },
+   {
+    "second": 3,
+    "env_mean": 0.7162,
+    "env_max": 0.9781
+   },
+   {
+    "second": 4,
+    "env_mean": 0.6851,
+    "env_max": 0.8925
+   },
+   {
+    "second": 5,
+    "env_mean": 0.8697,
+    "env_max": 0.9824
+   },
+   {
+    "second": 6,
+    "env_mean": 0.7931,
+    "env_max": 0.9875
+   },
+   {
+    "second": 7,
+    "env_mean": 0.4534,
+    "env_max": 0.5733
+   },
+   {
+    "second": 8,
+    "env_mean": 0.3208,
+    "env_max": 0.38
+   },
+   {
+    "second": 9,
+    "env_mean": 0.2714,
+    "env_max": 0.2987
+   }
+  ],
+  "concept_hits": [
+   {
+    "word": "internet",
+    "stem": "internet",
+    "src_t": 389.016,
+    "frame": 101,
+    "second": 3
+   },
+   {
+    "word": "internet",
+    "stem": "internet",
+    "src_t": 390.637,
+    "frame": 150,
+    "second": 5
+   },
+   {
+    "word": "internet's",
+    "stem": "internet",
+    "src_t": 391.498,
+    "frame": 175,
+    "second": 5
+   }
+  ],
+  "params": {
+   "concept_weight": 1.0,
+   "phrase_weight": 0.45,
+   "loudness_weight": 0.35,
+   "attack_frames": 3.0,
+   "release_seconds": 1.5,
+   "phrase_pools": [
+    "physical",
+    "question"
+   ]
+  },
+  "mean": 0.4844,
+  "max": 0.9875,
+  "max_frame_jump": 0.1401
+ }
+}

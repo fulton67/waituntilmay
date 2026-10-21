@@ -100,3 +100,4 @@ renders_v2.log
 .pool/
 logs/
 rerender_v2.log
+.decay-test/

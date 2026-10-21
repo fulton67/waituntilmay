@@ -21,6 +21,8 @@ import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 
+import { smoothField, motionStats, printMotionStats } from "./mv-smooth.mjs";
+
 const args = process.argv.slice(2);
 const argOf = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : d; };
 
@@ -40,6 +42,15 @@ const DUP_P = Number(argOf("--dup-p", "0"));      // repeat a P-VOP every N fram
 const TRIGGER_WORD = argOf("--trigger-word", null);
 const CLIP_START = Number(argOf("--clip-start", "0"));
 const TMP = ".mosh-mv";
+// The faces render is the slow part (a real browser, a real GPU, ~0.6 s a
+// frame). Its motion field is deterministic for a given source, so a cache
+// lets the smoothing and the composite be re-tuned without paying for it.
+const MV_CACHE = argOf("--mv-cache", null);
+const NO_SMOOTH = args.includes("--no-smooth");
+const SM_RADIUS = Number(argOf("--smooth-radius", "3"));
+const SM_WANDER = Number(argOf("--smooth-wander", "0.10"));
+const SM_DRIFT = Number(argOf("--smooth-drift", "0.6"));
+const STATS_OUT = argOf("--stats-out", null);
 
 const sh = (c, a, o = {}) => execFileSync(c, a, { encoding: "utf8", maxBuffer: 1 << 28, ...o });
 const shq = (c, a) => {
@@ -109,11 +120,41 @@ console.log(`mix k=${K}  (0 = video's own vectors, 1 = all shader)`);
 // ---- 1. faces render + shader motion field, from one deterministic pass
 const facesMp4 = path.join(OUTDIR, `${NAME}-faces.mp4`);
 const mvJson = path.join(TMP, "shader-mv.json");
+const cacheMv = MV_CACHE ? `${MV_CACHE}.mv.json` : null;
+const cacheFaces = MV_CACHE ? `${MV_CACHE}.faces.mp4` : null;
+let shaderMv = null;
+if (cacheMv && existsSync(cacheMv) && existsSync(cacheFaces)) {
+  console.log(`  reusing the cached motion field: ${cacheMv}`);
+  shaderMv = JSON.parse(await readFile(cacheMv, "utf8"));
+  sh("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-i", cacheFaces,
+    "-c", "copy", facesMp4]);
+}
+if (!shaderMv) {
 console.log("\n--- faces render + shader motion field ---");
 sh("node", ["scripts/mosh-render.mjs", "--src", SRC, "--out", facesMp4,
   "--intensity", "0.33", "--mv-out", mvJson, "--url", URL_,
   ...(LIMIT ? ["--frames", String(NFRAMES)] : [])], { stdio: "inherit" });
-const shaderMv = JSON.parse(await readFile(mvJson, "utf8"));
+  shaderMv = JSON.parse(await readFile(mvJson, "utf8"));
+  if (cacheMv) {
+    await mkdir(path.dirname(cacheMv), { recursive: true });
+    await writeFile(cacheMv, JSON.stringify(shaderMv));
+    sh("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-i", facesMp4,
+      "-c", "copy", cacheFaces]);
+    console.log(`  cached the motion field -> ${cacheMv}`);
+  }
+}
+
+// ---- 1b. make the field continuous before it reaches the bitstream
+const rawStats = motionStats(shaderMv.frames);
+printMotionStats("raw shader field", rawStats);
+let smoothStats = rawStats;
+if (!NO_SMOOTH) {
+  shaderMv.frames = smoothField(shaderMv.frames, {
+    radius: SM_RADIUS, wander: SM_WANDER, drift: SM_DRIFT });
+  smoothStats = motionStats(shaderMv.frames);
+  printMotionStats(`smoothed (R=${SM_RADIUS}, wander=${SM_WANDER}, drift=${SM_DRIFT}px)`,
+    smoothStats);
+}
 
 // ---- 2. encode the faces render with ffgac, long GOP, blocks kept inter
 console.log("\n--- ffgac encode (long GOP, forced inter) ---");
@@ -293,4 +334,14 @@ const okF = got.frames === NFRAMES;
 const okD = Math.abs(got.duration - NFRAMES / (eval(src.fps))) <= 1 / 24;
 console.log(`  frame count matches : ${okF} (${got.frames} vs ${NFRAMES})`);
 console.log(`  duration matches    : ${okD} (${got.duration.toFixed(3)}s)`);
+if (STATS_OUT) {
+  await writeFile(STATS_OUT, JSON.stringify({
+    raw: { ...rawStats, perFrameMean: undefined },
+    smoothed: { ...smoothStats, perFrameMean: undefined },
+    perFrameMean: smoothStats.perFrameMean,
+    smoothing: NO_SMOOTH ? null
+      : { radius: SM_RADIUS, wander: SM_WANDER, drift: SM_DRIFT },
+  }, null, 1));
+  console.log(`  motion stats -> ${STATS_OUT}`);
+}
 void TRIGGERS; void BLOOM;

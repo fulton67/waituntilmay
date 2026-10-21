@@ -41,12 +41,15 @@ const LAYERS = [
   { key: "mosh-medium", label: "ffmpeg mosh medium", file: `${NAME}-ffmpeg-mosh-medium.mp4` },
   { key: "mosh-full", label: "ffmpeg mosh full", file: `${NAME}-ffmpeg-mosh-full.mp4` },
   { key: "mv-transfer", label: "mv transfer", file: `${NAME}-mv-transfer.mp4` },
-  { key: "journey-mosh", label: "A journey mosh", file: `${NAME}-journey-mosh.mp4` },
-  { key: "mv-dup4", label: "B mv transfer +dupP4", file: `${NAME}-mv-dup4.mp4` },
-  // already written at the web CRF by the composite pass; re-encoding it
-  // again would only soften the hard block edges that are the whole point
-  { key: "composite", label: "A x B through the mask",
-    file: `${NAME}-journey-composite.mp4`, webReady: true },
+  // The decay revision. All three are webReady: these are the layers being
+  // judged by eye, and a second pass at the web CRF would soften the hard
+  // block edges and the stepped dissolve that are the whole point of them.
+  { key: "decay-a", label: "A - the live journey look",
+    file: `${NAME}-decay-A.mp4`, webReady: true },
+  { key: "decay-b", label: "B - mv transfer, continuous field",
+    file: `${NAME}-decay-B.mp4`, webReady: true },
+  { key: "decay", label: "A x B through short-lived squares",
+    file: `${NAME}-decay.mp4`, webReady: true },
 ];
 
 await mkdir(PREVIEW_DIR, { recursive: true });
