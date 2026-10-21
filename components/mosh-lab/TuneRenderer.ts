@@ -13,12 +13,14 @@
  */
 import {
   FRAG_BLOOM, FRAG_CENTROID, FRAG_COMP, FRAG_DIFF, FRAG_DILATE, FRAG_DRAG,
-  FRAG_FOLD, FRAG_INSIDE, FRAG_REDUCE, FRAG_SEED, VERT,
+  FRAG_FOLD, FRAG_INSIDE, FRAG_REDUCE, FRAG_SEED, FRAG_STRETCH,
+  VERT, VERT_STRETCH,
 } from "./tune-shaders";
+import { StretchSim, STRETCH_DEFAULTS, type StretchCfg } from "./StretchSim";
+
+export type { StretchCfg } from "./StretchSim";
 
 export type Dissolve = "stepped" | "half-filled" | "broken-edges";
-export type DragDir = "motion-vectors" | "vertical-melt" | "mixed";
-export type DragTrigger = "envelope" | "concept-words" | "random";
 export type InsideLook = "current" | "crystal";
 export type FoldWhere = "reveal-edges" | "inside-reveals" | "whole-frame";
 export type FoldCenter = "damage" | "motion" | "face" | "frame";
@@ -31,25 +33,6 @@ function hash11(p: number) {
   x *= x + 33.33;
   x *= x + x;
   return x - Math.floor(x);
-}
-
-/** The drag gate for one frame, 0-1, from whichever trigger is selected. */
-export function dragFireAt(cfg: TuneConfig, frame: number, shaped: number,
-                           framesSinceOnset: number) {
-  const d = cfg.drag;
-  if (d.amount <= 0) return 0;
-  let g = 0;
-  if (d.trigger === "envelope") {
-    g = shaped;
-  } else if (d.trigger === "concept-words") {
-    g = Math.min(1, Math.max(0, 1 - framesSinceOnset / Math.max(d.hold, 1)));
-  } else {
-    const hold = Math.max(d.hold, 1);
-    const bucket = Math.floor(frame / hold);
-    g = hash11(bucket * 5.21 + cfg.seed * 11) < d.rate / 100 * hold
-      ? Math.min(1, Math.max(0, 1 - (frame % hold) / hold)) : 0;
-  }
-  return Math.min(1, g * d.amount);
 }
 
 export interface TuneConfig {
@@ -74,20 +57,7 @@ export interface TuneConfig {
     onset: number;              // leading-edge exponent
   };
   bloom: { lead: number; strength: number; decay: number; scale: number; mix: number };
-  drag: {
-    amount: number;            // 0 = off
-    coverage: number;          // share of streaks that drag
-    direction: DragDir;
-    melt: number;              // melt weight when direction is mixed
-    length: number;            // streak length, px
-    width: number;             // streak width, px
-    gap: number;               // gap between streaks, px - where B shows
-    persistence: number;
-    decay: number;
-    trigger: DragTrigger;
-    hold: number;              // frames a trigger stays up
-    rate: number;              // random triggers per 100 frames
-  };
+  stretch: StretchCfg;
   inside: {
     look: InsideLook;
     hueShift: number; saturation: number; bands: number;
@@ -163,12 +133,13 @@ export interface Macros {
   inside: number;
   followsWords: number;
   foldIn: number;
+  loose: number;
   look: InsideLook;
 }
 
 export const DEFAULT_MACROS: Macros = {
   damage: 0.5, squareSize: 0.5, alive: 0.5, drag: 0.55, inside: 0.5,
-  followsWords: 0.6, foldIn: 0, look: "current",
+  followsWords: 0.6, foldIn: 0, loose: 0.55, look: "current",
 };
 
 export const DEFAULTS: TuneConfig = {
@@ -186,11 +157,7 @@ export const DEFAULTS: TuneConfig = {
     knee: 0.6, peak: 0.45, growRadius: 12, onset: 1.6,
   },
   bloom: { lead: 6, strength: 0.65, decay: 0.85, scale: 0.35, mix: 0.6 },
-  drag: {
-    amount: 0.8, coverage: 0.7, direction: "mixed", melt: 0.45,
-    length: 42, width: 5, gap: 4, persistence: 0.5, decay: 0.8,
-    trigger: "envelope", hold: 10, rate: 8,
-  },
+  stretch: { ...STRETCH_DEFAULTS },
   inside: {
     // bands and black were solved by measuring the hue histogram of the
     // crystal layer on its own: at 1.0 there is no orange at all, at 2.5 it
@@ -301,18 +268,24 @@ export function resolveMacros(m: Macros, base: TuneConfig = DEFAULTS): TuneConfi
   c.life.timeJitter = lerp(0.03, 0.55, al);
   c.life.spaceJitter = lerp(0.02, 0.4, al);
 
-  // ---- drag
-  c.drag.amount = dr <= 0.02 ? 0 : lerp(0.15, 1.0, dr);
-  c.drag.coverage = lerp(0.3, 0.95, dr);
-  c.drag.length = Math.round(lerp(10, 90, dr));
-  c.drag.persistence = lerp(0.15, 0.85, dr);
-  c.drag.decay = lerp(0.6, 0.92, dr);
+  // ---- pixel stretch (the dial is still called drag in the macro set, so
+  // a saved look from before this module keeps working)
+  const lo = clamp01(m.loose ?? 0.55);
+  c.stretch.amount = dr <= 0.02 ? 0 : lerp(0.2, 1.0, dr);
+  c.stretch.rate = lerp(6, 52, dr);
+  c.stretch.maxTrail = Math.round(lerp(60, 300, dr));
+  c.stretch.loose = lo;
+  c.stretch.gravity = lerp(0.03, 0.14, lo);
+  c.stretch.wobble = lerp(0.12, 1.1, lo);
+  c.stretch.stall = lerp(0.03, 0.004, lo);   // stiff stalls more, falls less
+  c.stretch.lifeMax = Math.round(lerp(70, 190, lo));
 
   // ---- inside
   c.squares.fadeRatio = lerp(0.48, 0.1, ins);   // shorter ramp = commits faster
   c.squares.steps = Math.round(lerp(9, 2, ins)); // fewer steps = more fully on
-  c.drag.gap = Math.round(lerp(1, 14, ins));     // wider gaps = more B between
   c.bloom.mix = lerp(0.25, 0.9, ins);
+  // a wider head shows more of the underlayer before the trail takes over
+  c.stretch.headMax = Math.round(lerp(14, 40, ins));
 
   // ---- follows words
   c.reveals.gain = lerp(0.55, 2.0, fw);
@@ -320,7 +293,6 @@ export function resolveMacros(m: Macros, base: TuneConfig = DEFAULTS): TuneConfi
   c.reveals.attack = lerp(10, 2, fw);
   c.reveals.release = lerp(3.0, 0.8, fw);
   c.reveals.onset = lerp(3.0, 0.8, fw);
-  c.drag.trigger = fw > 0.75 ? "concept-words" : fw < 0.25 ? "random" : "envelope";
 
   // ---- fold in: none, through folding inside the reveals, to a fractal
   // tunnel over the whole frame. The dial owns amount, zoom, band density
@@ -361,7 +333,7 @@ export function sanitizeConfig(c: unknown): TuneConfig {
   }
   if (typeof inc.curveEnabled === "boolean") out.curveEnabled = inc.curveEnabled;
   if (typeof inc.curveBlend === "boolean") out.curveBlend = inc.curveBlend;
-  for (const k of ["squares", "reveals", "bloom", "drag", "inside",
+  for (const k of ["squares", "reveals", "bloom", "stretch", "inside",
                    "fold", "life", "b"] as const) {
     const g = inc[k];
     if (g && typeof g === "object") {
@@ -375,9 +347,6 @@ export function sanitizeConfig(c: unknown): TuneConfig {
   return out;
 }
 
-const DIR_ID: Record<DragDir, number> = {
-  "motion-vectors": 0, "vertical-melt": 1, mixed: 2,
-};
 
 const DISSOLVE_ID: Record<Dissolve, number> = {
   stepped: 0, "half-filled": 1, "broken-edges": 2,
@@ -396,15 +365,19 @@ function compile(gl: WebGL2RenderingContext, type: number, src: string) {
   return s;
 }
 
-function program(gl: WebGL2RenderingContext, frag: string) {
+function programV(gl: WebGL2RenderingContext, vert: string, frag: string) {
   const p = gl.createProgram()!;
-  gl.attachShader(p, compile(gl, gl.VERTEX_SHADER, VERT));
+  gl.attachShader(p, compile(gl, gl.VERTEX_SHADER, vert));
   gl.attachShader(p, compile(gl, gl.FRAGMENT_SHADER, frag));
   gl.linkProgram(p);
   if (!gl.getProgramParameter(p, gl.LINK_STATUS)) {
     throw new Error(`link failed: ${gl.getProgramInfoLog(p)}`);
   }
   return p;
+}
+
+function program(gl: WebGL2RenderingContext, frag: string) {
+  return programV(gl, VERT, frag);
 }
 
 interface Target { fb: WebGLFramebuffer; tex: WebGLTexture; w: number; h: number }
@@ -438,6 +411,12 @@ export class TuneRenderer {
   private dragPrimed: boolean[] = [];
   readonly slots: number;
   lastDragFire = 0;
+  /** One simulation per slot, so a variation tile has its own population. */
+  sims: StretchSim[] = [];
+  private instVao: WebGLVertexArrayObject | null = null;
+  private instBuf: WebGLBuffer | null = null;
+  private instData: Float32Array = new Float32Array(0);
+  private diffRead: Float32Array = new Float32Array(0);
   lastFold: { c: [number, number]; zoom: number; center: number[];
     spread: number } | null = null;
   private fps = 30;
@@ -464,7 +443,9 @@ export class TuneRenderer {
       bloom: FRAG_BLOOM, inside: FRAG_INSIDE, comp: FRAG_COMP,
       fold: FRAG_FOLD, centroid: FRAG_CENTROID, drag: FRAG_DRAG,
       reduce: FRAG_REDUCE,
-    })) this.progs[k] = program(gl, f);
+    })) this.progs[k] = program(gl, f as string);
+    // the stretch draws instanced quads, so it brings its own vertex shader
+    this.progs.stretch = programV(gl, VERT_STRETCH, FRAG_STRETCH);
 
     this.vao = gl.createVertexArray()!;
     gl.bindVertexArray(this.vao);
@@ -476,10 +457,34 @@ export class TuneRenderer {
     gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
     gl.bindVertexArray(null);
 
+    for (let i = 0; i < this.slots; i++) this.sims.push(new StretchSim());
+    this.setupInstances();
     this.texA = this.videoTex();
     this.texB = this.videoTex();
     this.texC = this.videoTex();
     this.texMv = gl.createTexture()!;
+  }
+
+  /** A unit quad plus a per-instance buffer of eight floats per stretch. */
+  private setupInstances() {
+    const gl = this.gl;
+    this.instVao = gl.createVertexArray()!;
+    gl.bindVertexArray(this.instVao);
+    const quad = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, quad);
+    gl.bufferData(gl.ARRAY_BUFFER,
+      new Float32Array([0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1]), gl.STATIC_DRAW);
+    gl.enableVertexAttribArray(0);
+    gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+    this.instBuf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.instBuf);
+    gl.bufferData(gl.ARRAY_BUFFER, 8 * 4 * 1024, gl.DYNAMIC_DRAW);
+    for (let i = 0; i < 2; i++) {
+      gl.enableVertexAttribArray(1 + i);
+      gl.vertexAttribPointer(1 + i, 4, gl.FLOAT, false, 32, i * 16);
+      gl.vertexAttribDivisor(1 + i, 1);
+    }
+    gl.bindVertexArray(null);
   }
 
   private videoTex() {
@@ -809,38 +814,58 @@ export class TuneRenderer {
       this.lastFold = { c, zoom, center: [cx, cy], spread };
     }
 
-    // ---- drag: grab the surface and pull it out of the squares
-    const dcfg = cfg.drag;
-    const dragFire = dragFireAt(cfg, frame, shaped, framesSinceOnset);
-    this.lastDragFire = dragFire;
-    {
-      const p = this.use("drag");
-      this.bind(p, "uComp", 0, folded.tex);
-      this.bind(p, "uB", 1, bTex);
-      this.bind(p, "uPrevDrag", 2, this.dragA[sl].tex);
-      this.bind(p, "uMv", 3, this.texMv);
-      gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
-      gl.uniform2f(this.u(p, "uGrid"), mvGrid[0], mvGrid[1]);
-      gl.uniform1f(this.u(p, "uFire"), dragFire);
-      gl.uniform1f(this.u(p, "uCoverage"), dcfg.coverage);
-      gl.uniform1i(this.u(p, "uDirMode"), DIR_ID[dcfg.direction] ?? 2);
-      gl.uniform1f(this.u(p, "uMelt"), dcfg.melt);
-      gl.uniform1f(this.u(p, "uLength"), dcfg.length);
-      gl.uniform1f(this.u(p, "uWidth"), dcfg.width);
-      gl.uniform1f(this.u(p, "uGap"), dcfg.gap);
-      gl.uniform1f(this.u(p, "uPersist"), dcfg.persistence);
-      gl.uniform1f(this.u(p, "uDecay"), dcfg.decay);
-      gl.uniform1f(this.u(p, "uSeed"), cfg.seed);
-      gl.uniform1f(this.u(p, "uFrame"), frame);
-      gl.uniform1i(this.u(p, "uReset"), this.dragPrimed[sl] ? 0 : 1);
-      this.draw(this.dragB[sl]);
-      const t = this.dragA[sl];
-      this.dragA[sl] = this.dragB[sl]; this.dragB[sl] = t;
-      this.dragPrimed[sl] = true;
+    // ---- live pixel stretch: every glitch is a head plus a trail made by
+    // repeating the head's edge row. Simulated on the CPU, drawn as one
+    // instanced quad each.
+    const sim = this.sims[sl];
+    sim.setSize(this.w, this.h);
+    sim.cfg = cfg.stretch;
+    sim.seed = cfg.seed + sl * 7919;
+    this.lastDragFire = cfg.stretch.amount > 0 ? shaped : 0;
+
+    // copy the folded picture forward, then draw the stretches over it
+    this.blitTo(folded, this.dragB[sl]);
+
+    if (cfg.stretch.amount > 0.001) {
+      // heads are cut where the picture is broken, so the block map comes
+      // back once per frame on the main slot and is shared with the tiles
+      if (sl === 0) {
+        const need = this.diff.w * this.diff.h * 4;
+        if (this.diffRead.length !== need) this.diffRead = new Float32Array(need);
+        gl.bindFramebuffer(gl.FRAMEBUFFER, this.diff.fb);
+        gl.readPixels(0, 0, this.diff.w, this.diff.h, gl.RGBA, gl.FLOAT,
+          this.diffRead);
+        gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+      }
+      sim.setWeights(this.diffRead, this.diff.w, this.diff.h,
+        cfg.squares.threshold);
+      // a jump re-runs the simulation rather than guessing where it would be
+      if (frame !== sim.frame + 1) sim.seekTo(frame, () => env, this.fps);
+      else sim.step(frame, env, this.fps);
+
+      const { buf, count } = sim.pack(this.instData);
+      this.instData = buf;
+      if (count > 0) {
+        gl.bindVertexArray(this.instVao);
+        gl.bindBuffer(gl.ARRAY_BUFFER, this.instBuf);
+        gl.bufferData(gl.ARRAY_BUFFER, buf.subarray(0, count * 8),
+          gl.DYNAMIC_DRAW);
+        const p = this.progs.stretch;
+        gl.useProgram(p);
+        this.bind(p, "uSrc", 0, bTex);
+        gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
+        gl.uniform1f(this.u(p, "uMetal"), cfg.stretch.metal);
+        gl.bindFramebuffer(gl.FRAMEBUFFER, this.dragB[sl].fb);
+        gl.viewport(0, 0, this.w, this.h);
+        gl.enable(gl.BLEND);
+        gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+        gl.drawArraysInstanced(gl.TRIANGLES, 0, 6, count);
+        gl.disable(gl.BLEND);
+        gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+        gl.bindVertexArray(null);
+      }
     }
-    // what reaches the screen, and what coverage is measured from
-    const final = this.dragA[sl];
-    void folded;
+    const final = this.dragB[sl];
 
     // ---- coverage, by reducing the final alpha to one pixel
     let rsrc: Target = final;
@@ -902,6 +927,16 @@ export class TuneRenderer {
    * palette rather than as a blend.
    */
   blitInside() { this.blit(this.inside); }
+
+  /** Straight copy of one target into another. */
+  private blitTo(from: Target, to: Target) {
+    const gl = this.gl;
+    gl.bindFramebuffer(gl.READ_FRAMEBUFFER, from.fb);
+    gl.bindFramebuffer(gl.DRAW_FRAMEBUFFER, to.fb);
+    gl.blitFramebuffer(0, 0, from.w, from.h, 0, 0, to.w, to.h,
+      gl.COLOR_BUFFER_BIT, gl.NEAREST);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+  }
 
   /** Straight copy of a target to the canvas, no resampling. */
   private blit(t: Target) {

@@ -20,9 +20,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import {
-  CURVE_SAMPLES, curveAt, DEFAULT_MACROS, DEFAULTS, dragFireAt,
+  CURVE_SAMPLES, curveAt, DEFAULT_MACROS, DEFAULTS,
   followEnvelope, resolveMacros, sanitizeConfig, shapeEnvelope, TuneRenderer,
-  type CPath, type Dissolve, type DragDir, type DragTrigger, type FoldCenter,
+  type CPath, type Dissolve, type FoldCenter,
   type FoldWhere, type InsideLook, type Macros, type TuneConfig,
 } from "./TuneRenderer";
 import "./mosh-tune.css";
@@ -52,8 +52,10 @@ const MACROS: { key: keyof Macros; label: string; hint: string }[] = [
     hint: "The size of the broken blocks. Left is fine grit, right is big chunky tiles." },
   { key: "alive", label: "Alive",
     hint: "How fast the damage moves around. Left sits still, right flickers and churns." },
-  { key: "drag", label: "Drag",
-    hint: "Whether the surface gets pulled into streaks. Left is none, right melts and smears." },
+  { key: "drag", label: "Pixel stretch",
+    hint: "How much of the picture is pulled into falling metal tubes. Each one is a block of glitch with its edge row smeared down behind it." },
+  { key: "loose", label: "Loose",
+    hint: "Stiff holds the stretches almost still and makes them stall often. Free lets them accelerate, sway and fall right out of frame." },
   { key: "inside", label: "Inside",
     hint: "How much of the layer underneath shows through a hole, instead of staying half-closed." },
   { key: "followsWords", label: "Follows words",
@@ -108,17 +110,24 @@ const GROUPS: { name: string; path: keyof TuneConfig; specs: Spec[] }[] = [
     ],
   },
   {
-    name: "drag", path: "drag", specs: [
+    name: "pixel stretch", path: "stretch", specs: [
       { key: "amount", label: "amount", min: 0, max: 1, step: 0.01 },
-      { key: "coverage", label: "coverage", min: 0, max: 1, step: 0.01 },
-      { key: "melt", label: "melt bias (mixed)", min: 0, max: 1, step: 0.01 },
-      { key: "length", label: "streak length (px)", min: 0, max: 96, step: 1 },
-      { key: "width", label: "streak width (px)", min: 1, max: 32, step: 1 },
-      { key: "gap", label: "gap, B shows (px)", min: 0, max: 32, step: 1 },
-      { key: "persistence", label: "persistence", min: 0, max: 1, step: 0.01 },
-      { key: "decay", label: "decay", min: 0, max: 1, step: 0.01 },
-      { key: "hold", label: "trigger hold (frames)", min: 1, max: 40, step: 1 },
-      { key: "rate", label: "random per 100 frames", min: 0, max: 40, step: 0.5 },
+      { key: "loose", label: "loose", min: 0, max: 1, step: 0.01 },
+      { key: "rate", label: "spawns per second", min: 0, max: 90, step: 1 },
+      { key: "widthMin", label: "width min (px)", min: 1, max: 20, step: 0.5 },
+      { key: "widthMax", label: "width max (px)", min: 2, max: 40, step: 0.5 },
+      { key: "headMin", label: "head height min", min: 2, max: 40, step: 1 },
+      { key: "headMax", label: "head height max", min: 4, max: 90, step: 1 },
+      { key: "gravity", label: "gravity", min: 0, max: 0.4, step: 0.005 },
+      { key: "wobble", label: "horizontal wobble", min: 0, max: 3, step: 0.02 },
+      { key: "stall", label: "stall chance", min: 0, max: 0.12, step: 0.001 },
+      { key: "decay", label: "decay", min: 0.002, max: 0.2, step: 0.002 },
+      { key: "lifeMin", label: "life min (frames)", min: 4, max: 120, step: 1 },
+      { key: "lifeMax", label: "life max (frames)", min: 10, max: 400, step: 5 },
+      { key: "bend", label: "bend with B motion", min: 0, max: 2, step: 0.02 },
+      { key: "maxTrail", label: "max trail (px)", min: 10, max: 400, step: 5 },
+      { key: "metal", label: "metallic shading", min: 0, max: 1.5, step: 0.02 },
+      { key: "maxLive", label: "max at once", min: 20, max: 900, step: 10 },
     ],
   },
   {
@@ -306,14 +315,17 @@ export default function MoshTune() {
     return { env, shaped: shapeEnvelope(env, cfg.reveals.knee) };
   }, [data, wordEnv, curve, curveOn, curveBlend, cfg.reveals.knee]);
 
+  // How hard the stretch system is spawning: exactly the factor that scales
+  // the Poisson rate, so the band shows what the simulation is actually told.
   const dragTrack = useMemo(() => {
-    if (!data || !envelope || !onsetDistance) return null;
+    if (!data || !envelope) return null;
     const t = new Float32Array(data.frames);
     for (let i = 0; i < data.frames; i++) {
-      t[i] = dragFireAt(cfg, i, envelope.shaped[i], onsetDistance[i]);
+      t[i] = cfg.stretch.amount
+        * (0.25 + 0.75 * Math.min(1, Math.max(0, envelope.shaped[i])));
     }
     return t;
-  }, [data, cfg, envelope, onsetDistance]);
+  }, [data, cfg.stretch.amount, envelope]);
 
   /* ----------------------------------------------------------- one frame */
   const drawFrame = useCallback((f: number) => {
@@ -617,6 +629,7 @@ export default function MoshTune() {
       coverage: () => rendRef.current?.lastCoverage ?? 0,
       debug: () => rendRef.current?.debug() ?? null,
       showInside: () => rendRef.current?.blitInside(),
+      stretchStats: () => rendRef.current?.sims?.[0]?.stats() ?? null,
       foldState: () => {
         const r = rendRef.current;
         if (!r) return null;
@@ -824,6 +837,7 @@ export default function MoshTune() {
           damage: Math.random(), squareSize: Math.random(), alive: Math.random(),
           drag: Math.random(), inside: Math.random(), followsWords: Math.random(),
           foldIn: Math.random() < 0.5 ? 0 : Math.random(),
+          loose: Math.random(),
           look: Math.random() < 0.5 ? "current" : "crystal",
         })}>randomize all</button>
         <button onClick={() => {
@@ -918,36 +932,6 @@ export default function MoshTune() {
                       <option value="cardioid">cardioid edge</option>
                       <option value="lissajous">lissajous</option>
                       <option value="spiral">spiral</option>
-                    </select>
-                  </label>
-                </>
-              )}
-              {grp.name === "drag" && (
-                <>
-                  <label className="mt-sel">
-                    <span>direction source</span>
-                    <select value={cfg.drag.direction} onChange={(e) =>
-                      setCfg((c) => {
-                        const n = clone(c);
-                        n.drag.direction = e.target.value as DragDir;
-                        return n;
-                      })}>
-                      <option value="motion-vectors">B&rsquo;s motion vectors</option>
-                      <option value="vertical-melt">vertical melt</option>
-                      <option value="mixed">mixed</option>
-                    </select>
-                  </label>
-                  <label className="mt-sel">
-                    <span>trigger</span>
-                    <select value={cfg.drag.trigger} onChange={(e) =>
-                      setCfg((c) => {
-                        const n = clone(c);
-                        n.drag.trigger = e.target.value as DragTrigger;
-                        return n;
-                      })}>
-                      <option value="envelope">envelope</option>
-                      <option value="concept-words">concept words</option>
-                      <option value="random">random</option>
                     </select>
                   </label>
                 </>

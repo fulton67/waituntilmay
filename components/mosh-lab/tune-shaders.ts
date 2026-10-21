@@ -861,3 +861,78 @@ void main() {
                   clamp(mix(comp.a, sel, w), 0.0, 1.0));
 }
 `;
+
+/* -------------------------------------------------------------- stretch */
+/**
+ * LIVE PIXEL STRETCH: a head block, and a trail made by repeating the head's
+ * edge row all the way down.
+ *
+ * Repeating ONE row is the whole trick. The row has structure across its
+ * width and none along the trail, so the result reads as a brushed metal
+ * tube - the same thing a stalled P-frame does when it keeps pushing the
+ * last line it had with no fresh keyframe to correct it.
+ *
+ * Drawn as instanced quads rather than a full-screen pass: there are
+ * hundreds of these, each with its own position, width and length, and a
+ * fragment shader looping over them would cost the whole frame per pixel.
+ * One quad per stretch costs only the pixels it covers.
+ */
+export const VERT_STRETCH = `#version 300 es
+in vec2 aPos;              // unit quad, 0-1
+in vec4 iRect;             // x, headY, width, headHeight   (px)
+in vec4 iMotion;           // trailLength, bendX, alpha, headSrcY
+uniform vec2 uRes;
+out vec2 vLocal;           // 0-1 across the quad
+out vec4 vRect;
+out vec4 vMotion;
+void main() {
+  vLocal = aPos;
+  vRect = iRect;
+  vMotion = iMotion;
+  // the quad spans the head plus the trail, leaning by the bend
+  float total = iRect.w + iMotion.x;
+  float lean = iMotion.y * aPos.y;
+  vec2 px = vec2(iRect.x + lean + aPos.x * iRect.z,
+                 iRect.y - aPos.y * total);
+  vec2 clip = (px / uRes) * 2.0 - 1.0;
+  gl_Position = vec4(clip, 0.0, 1.0);
+}
+`;
+
+export const FRAG_STRETCH = `#version 300 es
+precision highp float;
+uniform sampler2D uSrc;    // what the head is cut from
+uniform vec2  uRes;
+uniform float uMetal;      // how much the trail is shaded like a tube
+in vec2 vLocal;
+in vec4 vRect;
+in vec4 vMotion;
+out vec4 outColor;
+
+void main() {
+  float total = vRect.w + vMotion.x;
+  float down = vLocal.y * total;              // distance below the head top
+  float lean = vMotion.y * vLocal.y;
+  float sx = vRect.x + lean + vLocal.x * vRect.z;
+
+  float sy;
+  if (down <= vRect.w) {
+    // inside the head: the block itself, unstretched
+    sy = vRect.y - down;
+  } else {
+    // the trail: the head's bottom edge row, repeated
+    sy = vMotion.w;
+  }
+  vec3 c = texture(uSrc, vec2(sx, sy) / uRes).rgb;
+
+  // a soft lengthwise shade so a long trail reads as a tube rather than a
+  // flat band; the cross-section structure is already there from the row
+  if (down > vRect.w && uMetal > 0.0) {
+    float t = (down - vRect.w) / max(vMotion.x, 1.0);
+    float sheen = 1.0 + uMetal * (0.18 * sin(vLocal.x * 6.2831 - 1.2)
+                                  - 0.25 * t);
+    c *= clamp(sheen, 0.0, 2.0);
+  }
+  outColor = vec4(clamp(c, 0.0, 1.0), vMotion.z);
+}
+`;

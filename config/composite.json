@@ -29,19 +29,24 @@
     "scale": 0.35,
     "mix": 0.575
   },
-  "drag": {
-    "amount": 0.9575,
-    "coverage": 0.9175,
-    "direction": "mixed",
-    "melt": 0.45,
-    "length": 86,
-    "width": 5,
-    "gap": 8,
-    "persistence": 0.815,
-    "decay": 0.904,
-    "trigger": "envelope",
-    "hold": 10,
-    "rate": 8
+  "stretch": {
+    "amount": 0.96,
+    "loose": 0.55,
+    "rate": 50,
+    "widthMin": 2,
+    "widthMax": 12,
+    "headMin": 6,
+    "headMax": 26,
+    "gravity": 0.075,
+    "wobble": 0.5,
+    "stall": 0.012,
+    "decay": 0.035,
+    "lifeMin": 24,
+    "lifeMax": 150,
+    "bend": 0.35,
+    "maxTrail": 288,
+    "metal": 0.6,
+    "maxLive": 420
   },
   "inside": {
     "look": "current",
@@ -86,7 +91,8 @@
     "inside": 0.5,
     "followsWords": 0.28,
     "look": "current",
-    "foldIn": 0
+    "foldIn": 0,
+    "loose": 0.55
   },
   "curveEnabled": true,
   "curveBlend": false,
