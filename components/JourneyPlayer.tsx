@@ -14,7 +14,7 @@ const BASE = process.env.NEXT_PUBLIC_JOURNEY_BASE ?? "/journey";
 // as soon as it is uploaded, with no deploy. It is written with a short
 // max-age; the videos it points at are immutable and cached for a year.
 const LIVE_MANIFEST = process.env.NEXT_PUBLIC_JOURNEY_MANIFEST
-  ?? "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-v2/manifest.json";
+  ?? "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey/manifest.json";
 
 /** Resolve once the element can render a frame; never hang forever. */
 function whenReady(v: HTMLVideoElement, timeoutMs = 8000): Promise<void> {
