@@ -104,7 +104,7 @@ export default function MoshCompare() {
       <div className="mc-grid">
         {layers.map((l) => (
           <figure key={`${CLIPS[clip].name}:${l.key}`}
-            className={l.key === "composite" ? "mc-cell mc-cell--hero" : "mc-cell"}>
+            className={l.key === "decay" ? "mc-cell mc-cell--hero" : "mc-cell"}>
             <video
               ref={(el) => { refs.current[l.key] = el; }}
               src={showMv ? l.mv : l.video}
