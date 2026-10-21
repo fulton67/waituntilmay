@@ -44,6 +44,17 @@
       "hold": 10,
       "rate": 8
     },
+    "inside": {
+      "look": "current",
+      "hueShift": 0.0,
+      "saturation": 1.0,
+      "bands": 2.0,
+      "filament": 0.9,
+      "filScale": 30,
+      "stretch": 9.0,
+      "edge": 0.9,
+      "black": 0.72
+    },
     "life": {
       "timeJitter": 0.15,
       "spaceJitter": 0.1
@@ -51,7 +62,18 @@
     "b": {
       "speed": 1,
       "dupP": 4
-    }
+    },
+    "macros": {
+      "damage": 0.5,
+      "squareSize": 0.5,
+      "alive": 0.5,
+      "drag": 0.55,
+      "inside": 0.5,
+      "followsWords": 0.6,
+      "look": "current"
+    },
+    "curveEnabled": false,
+    "curveBlend": true
   },
   "quiet decay": {
     "seed": 7,
@@ -98,6 +120,17 @@
       "hold": 10,
       "rate": 8
     },
+    "inside": {
+      "look": "current",
+      "hueShift": 0.0,
+      "saturation": 1.0,
+      "bands": 2.0,
+      "filament": 0.9,
+      "filScale": 30,
+      "stretch": 9.0,
+      "edge": 0.9,
+      "black": 0.72
+    },
     "life": {
       "timeJitter": 0.15,
       "spaceJitter": 0.1
@@ -105,7 +138,18 @@
     "b": {
       "speed": 1,
       "dupP": 4
-    }
+    },
+    "macros": {
+      "damage": 0.3,
+      "squareSize": 0.5,
+      "alive": 0.25,
+      "drag": 0.3,
+      "inside": 0.35,
+      "followsWords": 0.5,
+      "look": "current"
+    },
+    "curveEnabled": false,
+    "curveBlend": true
   },
   "hard break": {
     "seed": 7,
@@ -152,6 +196,17 @@
       "hold": 10,
       "rate": 8
     },
+    "inside": {
+      "look": "current",
+      "hueShift": 0.0,
+      "saturation": 1.0,
+      "bands": 2.0,
+      "filament": 0.9,
+      "filScale": 30,
+      "stretch": 9.0,
+      "edge": 0.9,
+      "black": 0.72
+    },
     "life": {
       "timeJitter": 0.35,
       "spaceJitter": 0.25
@@ -159,7 +214,18 @@
     "b": {
       "speed": 1,
       "dupP": 4
-    }
+    },
+    "macros": {
+      "damage": 0.9,
+      "squareSize": 0.7,
+      "alive": 0.8,
+      "drag": 0.95,
+      "inside": 0.85,
+      "followsWords": 0.8,
+      "look": "current"
+    },
+    "curveEnabled": false,
+    "curveBlend": true
   },
   "fine grain": {
     "seed": 7,
@@ -206,6 +272,17 @@
       "hold": 10,
       "rate": 8
     },
+    "inside": {
+      "look": "current",
+      "hueShift": 0.0,
+      "saturation": 1.0,
+      "bands": 2.0,
+      "filament": 0.9,
+      "filScale": 30,
+      "stretch": 9.0,
+      "edge": 0.9,
+      "black": 0.72
+    },
     "life": {
       "timeJitter": 0.3,
       "spaceJitter": 0.18
@@ -213,6 +290,93 @@
     "b": {
       "speed": 1,
       "dupP": 4
-    }
+    },
+    "macros": {
+      "damage": 0.55,
+      "squareSize": 0.1,
+      "alive": 0.7,
+      "drag": 0.5,
+      "inside": 0.5,
+      "followsWords": 0.6,
+      "look": "current"
+    },
+    "curveEnabled": false,
+    "curveBlend": true
+  },
+  "crystal inside": {
+    "seed": 7,
+    "squares": {
+      "weight16": 0.34,
+      "weight8": 0.33,
+      "weight4": 0.33,
+      "threshold": 2.0,
+      "baseline": 0.9,
+      "lifeMin": 6,
+      "lifeMax": 20,
+      "fadeRatio": 0.45,
+      "dissolve": "broken-edges",
+      "steps": 5
+    },
+    "reveals": {
+      "attack": 3,
+      "release": 1.5,
+      "gain": 1,
+      "loudnessWeight": 0.35,
+      "knee": 0.6,
+      "peak": 0.45,
+      "growRadius": 12,
+      "onset": 1.6
+    },
+    "bloom": {
+      "lead": 6,
+      "strength": 0.65,
+      "decay": 0.85,
+      "scale": 0.35,
+      "mix": 0.6
+    },
+    "drag": {
+      "amount": 0.8,
+      "coverage": 0.7,
+      "direction": "mixed",
+      "melt": 0.45,
+      "length": 42,
+      "width": 5,
+      "gap": 4,
+      "persistence": 0.5,
+      "decay": 0.8,
+      "trigger": "envelope",
+      "hold": 10,
+      "rate": 8
+    },
+    "inside": {
+      "look": "crystal",
+      "hueShift": 0.0,
+      "saturation": 1.0,
+      "bands": 2.0,
+      "filament": 0.9,
+      "filScale": 30,
+      "stretch": 9.0,
+      "edge": 0.9,
+      "black": 0.72
+    },
+    "life": {
+      "timeJitter": 0.15,
+      "spaceJitter": 0.1
+    },
+    "b": {
+      "speed": 1,
+      "dupP": 4
+    },
+    "macros": {
+      "damage": 0.6,
+      "squareSize": 0.5,
+      "alive": 0.5,
+      "drag": 0.55,
+      "inside": 0.7,
+      "followsWords": 0.6,
+      "look": "crystal"
+    },
+    "curveEnabled": false,
+    "curveBlend": true
   }
 }

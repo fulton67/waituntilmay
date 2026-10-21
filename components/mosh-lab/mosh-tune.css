@@ -126,3 +126,177 @@
   .mt-slider { grid-template-columns: 1fr 80px 42px; }
   .mt-time { margin-left: 0; }
 }
+
+/* ------------------------------------------------------------ simple mode */
+.mt-simple {
+  margin: 12px 0;
+  padding: 10px 12px 12px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+}
+.mt-look {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.mt-look-label { color: var(--ink); font-weight: 500; }
+
+.mt-macro {
+  display: grid;
+  grid-template-columns: 130px 1fr 36px;
+  grid-template-areas: "name slider value" ". hint hint";
+  align-items: center;
+  gap: 2px 10px;
+  padding: 7px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
+}
+.mt-macro:last-child { border-bottom: 0; }
+.mt-macro-name { grid-area: name; color: var(--ink); font-size: 13px; }
+.mt-macro input[type="range"] { grid-area: slider; width: 100%; }
+.mt-macro b { grid-area: value; text-align: right; color: var(--dim); font-weight: 500; }
+.mt-macro .mt-hint { grid-area: hint; }
+
+.mt-hint {
+  color: var(--dim);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+/* ------------------------------------------------------------ variations */
+.mt-variations { margin: 12px 0; }
+.mt-var-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.mt-var-head .mt-hint { flex: 1 1 260px; }
+
+.mt-var-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  max-width: 960px;
+}
+.mt-var {
+  display: block;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #000;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+}
+.mt-var:hover { border-color: var(--accent); }
+.mt-var canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+.mt-var span {
+  display: block;
+  padding: 3px 6px;
+  font-size: 10px;
+  color: var(--dim);
+  background: var(--panel);
+}
+
+.mt-history {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.mt-hist {
+  width: 64px;
+  height: 36px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: #000;
+}
+.mt-hist img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ----------------------------------------------------- damage over time */
+.mt-curve { margin: 12px 0; max-width: 960px; }
+.mt-curve-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+.mt-curve-head strong { color: var(--ink); }
+.mt-curve-head .mt-hint { flex: 1 1 300px; }
+.mt-curve .mt-timeline {
+  height: 150px;
+  /* the canvas is a drawing surface: no scroll-to-pan stealing the stroke */
+  touch-action: none;
+  cursor: crosshair;
+}
+.mt-curve-foot {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+/* -------------------------------------------------------------- advanced */
+.mt-adv {
+  margin-top: 16px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+.mt-adv summary {
+  cursor: pointer;
+  color: var(--dim);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding: 4px 0;
+}
+.mt-adv summary:hover { color: var(--accent); }
+.mt-adv > .mt-hint { display: block; margin: 4px 0 10px; max-width: 700px; }
+
+/* ----------------------------------------------------------------- phone */
+@media (max-width: 760px) {
+  .mt-root { padding: 8px 10px 32px; }
+  /* the picture stays at the top and stays visible while the dials move */
+  .mt-stage {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    margin: 6px -10px;
+    padding: 4px 10px 6px;
+    background: var(--bg);
+  }
+  .mt-bar { font-size: 11px; gap: 5px; }
+  .mt-bar .mt-time { margin-left: 0; width: 100%; }
+
+  /* one dial per row, label over the slider, hint under it */
+  .mt-macro {
+    grid-template-columns: 1fr 40px;
+    grid-template-areas: "name value" "slider slider" "hint hint";
+    gap: 3px 8px;
+    padding: 9px 0;
+  }
+  .mt-macro input[type="range"] { height: 28px; }
+
+  .mt-var-grid { grid-template-columns: repeat(2, 1fr); }
+  .mt-curve { max-width: none; }
+  .mt-curve .mt-timeline { height: 170px; }
+  .mt-groups { grid-template-columns: 1fr; }
+  .mt-slider { grid-template-columns: 1fr 90px 40px; }
+  .mt-presets { gap: 5px; }
+  .mt-hist { width: 54px; height: 30px; }
+}

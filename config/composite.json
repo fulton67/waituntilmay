@@ -43,6 +43,17 @@
     "hold": 10,
     "rate": 8
   },
+  "inside": {
+    "look": "current",
+    "hueShift": 0.0,
+    "saturation": 1.0,
+    "bands": 2.0,
+    "filament": 0.9,
+    "filScale": 30,
+    "stretch": 9.0,
+    "edge": 0.9,
+    "black": 0.72
+  },
   "life": {
     "timeJitter": 0.15,
     "spaceJitter": 0.1
@@ -50,5 +61,16 @@
   "b": {
     "speed": 1,
     "dupP": 4
-  }
+  },
+  "macros": {
+    "damage": 0.5,
+    "squareSize": 0.5,
+    "alive": 0.5,
+    "drag": 0.55,
+    "inside": 0.5,
+    "followsWords": 0.6,
+    "look": "current"
+  },
+  "curveEnabled": false,
+  "curveBlend": true
 }

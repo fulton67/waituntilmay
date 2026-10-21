@@ -12,13 +12,14 @@
  * from wherever the playhead used to be.
  */
 import {
-  FRAG_BLOOM, FRAG_COMP, FRAG_DIFF, FRAG_DILATE, FRAG_DRAG, FRAG_REDUCE,
-  FRAG_SEED, VERT,
+  FRAG_BLOOM, FRAG_COMP, FRAG_DIFF, FRAG_DILATE, FRAG_DRAG, FRAG_INSIDE,
+  FRAG_REDUCE, FRAG_SEED, VERT,
 } from "./tune-shaders";
 
 export type Dissolve = "stepped" | "half-filled" | "broken-edges";
 export type DragDir = "motion-vectors" | "vertical-melt" | "mixed";
 export type DragTrigger = "envelope" | "concept-words" | "random";
+export type InsideLook = "current" | "crystal";
 
 /** The one hash the CPU-side gates use. Only implementation, so any is fine. */
 function hash11(p: number) {
@@ -84,9 +85,71 @@ export interface TuneConfig {
     hold: number;              // frames a trigger stays up
     rate: number;              // random triggers per 100 frames
   };
+  inside: {
+    look: InsideLook;
+    hueShift: number; saturation: number; bands: number;
+    filament: number; filScale: number; stretch: number;
+    edge: number; black: number;
+  };
   life: { timeJitter: number; spaceJitter: number };
   b: { speed: number; dupP: number };
+  /** The six plain-language dials, kept so the lab can reload them. */
+  macros?: Macros;
+  /**
+   * "Damage over time", drawn by hand. 101 samples across the clip whatever
+   * its length, so the same curve transfers to a render of a different
+   * duration. Travels inside the config so one setConfig carries it to the
+   * offline renderer along with everything else.
+   */
+  damageCurve?: number[];
+  curveEnabled?: boolean;
+  curveBlend?: boolean;
 }
+
+export const CURVE_SAMPLES = 101;
+
+/** Read the hand-drawn curve at a frame, linearly between its samples. */
+export function curveAt(curve: number[] | undefined, frame: number,
+                        frames: number) {
+  if (!curve || !curve.length) return 0;
+  const t = frames > 1 ? frame / (frames - 1) : 0;
+  const x = Math.min(1, Math.max(0, t)) * (curve.length - 1);
+  const i = Math.floor(x);
+  const f = x - i;
+  const a = curve[i] ?? 0;
+  const b = curve[Math.min(curve.length - 1, i + 1)] ?? a;
+  return a + (b - a) * f;
+}
+
+/**
+ * The knee, on its own, so an envelope from any source can be shaped the
+ * same way the word-driven one is.
+ */
+export function shapeEnvelope(env: ArrayLike<number>, knee: number) {
+  const k = Math.min(0.99, Math.max(0, knee));
+  const out = new Float32Array(env.length);
+  for (let i = 0; i < env.length; i++) {
+    const v = Math.min(1, Math.max(0, env[i]));
+    out[i] = Math.pow(Math.min(1, Math.max(0, (v - k) / (1 - k))), 1.6);
+  }
+  return out;
+}
+
+/** Simple mode. Every value 0-1; resolveMacros turns these into a config. */
+export interface Macros {
+  damage: number;
+  squareSize: number;
+  alive: number;
+  drag: number;
+  inside: number;
+  followsWords: number;
+  look: InsideLook;
+}
+
+export const DEFAULT_MACROS: Macros = {
+  damage: 0.5, squareSize: 0.5, alive: 0.5, drag: 0.55, inside: 0.5,
+  followsWords: 0.6, look: "current",
+};
 
 export const DEFAULTS: TuneConfig = {
   seed: 7,
@@ -108,9 +171,93 @@ export const DEFAULTS: TuneConfig = {
     length: 42, width: 5, gap: 4, persistence: 0.5, decay: 0.8,
     trigger: "envelope", hold: 10, rate: 8,
   },
+  inside: {
+    // bands and black were solved by measuring the hue histogram of the
+    // crystal layer on its own: at 1.0 there is no orange at all, at 2.5 it
+    // is 57% orange, and 2.0 lands every family in the palette at once
+    look: "current", hueShift: 0.0, saturation: 1.0, bands: 2.0,
+    filament: 0.9, filScale: 30, stretch: 9.0, edge: 0.9, black: 0.72,
+  },
   life: { timeJitter: 0.15, spaceJitter: 0.1 },
   b: { speed: 1.0, dupP: 4 },
 };
+
+const LOOK_ID: Record<InsideLook, number> = { current: 0, crystal: 1 };
+
+/* ------------------------------------------------------------- macros */
+const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
+
+/**
+ * The six dials, expanded into the full parameter set.
+ *
+ * This is the only place the mapping lives, so simple mode, the variations
+ * generator, the export and the offline render all agree by construction.
+ * Each dial is chosen to move one thing you can see and not to fight the
+ * others:
+ *
+ *   damage        how much of the surface is broken at all. Drops the
+ *                 detection threshold and widens how far a reveal grows.
+ *   squareSize    the 16/8/4 mix, from all-small to all-chunky.
+ *   alive         how fast damage turns over: short lives and high jitter at
+ *                 the frantic end, long and steady at the calm end.
+ *   drag          the drag module from off to melting.
+ *   inside        how completely an opened square commits to B - the ramp
+ *                 length, how many steps it arrives in, and how wide the
+ *                 gaps between drag streaks are.
+ *   followsWords  how much the speech drives it: gain and knee at one end,
+ *                 a flat always-on envelope at the other.
+ */
+export function resolveMacros(m: Macros, base: TuneConfig = DEFAULTS): TuneConfig {
+  const c = JSON.parse(JSON.stringify(base)) as TuneConfig;
+  const d = clamp01(m.damage), sz = clamp01(m.squareSize);
+  const al = clamp01(m.alive), dr = clamp01(m.drag);
+  const ins = clamp01(m.inside), fw = clamp01(m.followsWords);
+
+  // ---- damage: the |A-C| gate is bimodal, so this end of the range is the
+  // one that matters - 2.6 leaves whole seconds with nothing eligible, 1.5
+  // makes most of the moving picture eligible
+  c.squares.threshold = lerp(2.6, 1.5, d);
+  c.squares.baseline = lerp(0.25, 1.0, d);
+  c.reveals.growRadius = Math.round(lerp(3, 20, d));
+  c.reveals.peak = lerp(0.12, 0.75, d);
+
+  // ---- square size: a weight triple, normalised by the shader anyway
+  c.squares.weight16 = lerp(0.05, 0.75, sz);
+  c.squares.weight8 = lerp(0.25, 0.22, sz);
+  c.squares.weight4 = lerp(0.70, 0.03, sz);
+
+  // ---- alive
+  c.squares.lifeMin = Math.round(lerp(14, 3, al));
+  c.squares.lifeMax = Math.round(lerp(44, 11, al));
+  c.life.timeJitter = lerp(0.03, 0.55, al);
+  c.life.spaceJitter = lerp(0.02, 0.4, al);
+
+  // ---- drag
+  c.drag.amount = dr <= 0.02 ? 0 : lerp(0.15, 1.0, dr);
+  c.drag.coverage = lerp(0.3, 0.95, dr);
+  c.drag.length = Math.round(lerp(10, 90, dr));
+  c.drag.persistence = lerp(0.15, 0.85, dr);
+  c.drag.decay = lerp(0.6, 0.92, dr);
+
+  // ---- inside
+  c.squares.fadeRatio = lerp(0.48, 0.1, ins);   // shorter ramp = commits faster
+  c.squares.steps = Math.round(lerp(9, 2, ins)); // fewer steps = more fully on
+  c.drag.gap = Math.round(lerp(1, 14, ins));     // wider gaps = more B between
+  c.bloom.mix = lerp(0.25, 0.9, ins);
+
+  // ---- follows words
+  c.reveals.gain = lerp(0.55, 2.0, fw);
+  c.reveals.knee = lerp(0.9, 0.3, fw);
+  c.reveals.attack = lerp(10, 2, fw);
+  c.reveals.release = lerp(3.0, 0.8, fw);
+  c.reveals.onset = lerp(3.0, 0.8, fw);
+  c.drag.trigger = fw > 0.75 ? "concept-words" : fw < 0.25 ? "random" : "envelope";
+
+  c.inside.look = m.look;
+  c.macros = JSON.parse(JSON.stringify(m));
+  return c;
+}
 
 /**
  * Keep only the groups this build knows about.
@@ -125,7 +272,17 @@ export function sanitizeConfig(c: unknown): TuneConfig {
   const inc = (c ?? {}) as Record<string, unknown>;
   const out = JSON.parse(JSON.stringify(DEFAULTS)) as TuneConfig;
   if (typeof inc.seed === "number") out.seed = inc.seed;
-  for (const k of ["squares", "reveals", "bloom", "drag", "life", "b"] as const) {
+  if (inc.macros && typeof inc.macros === "object") {
+    out.macros = { ...DEFAULT_MACROS, ...(inc.macros as Macros) };
+  }
+  if (Array.isArray(inc.damageCurve)) {
+    out.damageCurve = (inc.damageCurve as unknown[])
+      .map((v) => Math.min(1, Math.max(0, Number(v) || 0)));
+  }
+  if (typeof inc.curveEnabled === "boolean") out.curveEnabled = inc.curveEnabled;
+  if (typeof inc.curveBlend === "boolean") out.curveBlend = inc.curveBlend;
+  for (const k of ["squares", "reveals", "bloom", "drag", "inside",
+                   "life", "b"] as const) {
     const g = inc[k];
     if (g && typeof g === "object") {
       // only keys the group already has, so a stale field cannot sneak in
@@ -180,22 +337,31 @@ export class TuneRenderer {
   private texA: WebGLTexture; private texB: WebGLTexture; private texC: WebGLTexture;
   private texMv: WebGLTexture;
   private diff!: Target; private distA!: Target; private distB!: Target;
-  private bloomA!: Target; private bloomB!: Target;
-  private dragA!: Target; private dragB!: Target;
+  // One pair of feedback buffers PER SLOT. The variation tiles all render
+  // through this one context, and bloom and drag are feedback buffers, so
+  // sharing a pair would have each tile inheriting the previous tile's smear
+  // - six previews that differ for the wrong reason.
+  private bloomA: Target[] = []; private bloomB: Target[] = [];
+  private dragA: Target[] = []; private dragB: Target[] = [];
+  private inside!: Target;
   private comp!: Target;
   private reduce: Target[] = [];
   private w = 0; private h = 0; private cols = 0; private rows = 0;
   private mb = 16;
   private mvFrames = 0; private mvRows = 0; private mvCols = 0;
   private mv: Float32Array | null = null;
-  private bloomPrimed = false;
-  private dragPrimed = false;
+  private bloomPrimed: boolean[] = [];
+  private dragPrimed: boolean[] = [];
+  readonly slots: number;
   lastDragFire = 0;
   float: { ok: boolean; message: string };
   lastCoverage = 0;
 
-  constructor(canvas: HTMLCanvasElement) {
+  constructor(canvas: HTMLCanvasElement, slots = 1) {
     this.canvas = canvas;
+    this.slots = Math.max(1, slots);
+    this.bloomPrimed = new Array(this.slots).fill(false);
+    this.dragPrimed = new Array(this.slots).fill(false);
     const gl = canvas.getContext("webgl2", {
       antialias: false, preserveDrawingBuffer: true, premultipliedAlpha: false,
     });
@@ -208,8 +374,8 @@ export class TuneRenderer {
 
     for (const [k, f] of Object.entries({
       diff: FRAG_DIFF, seed: FRAG_SEED, dilate: FRAG_DILATE,
-      bloom: FRAG_BLOOM, comp: FRAG_COMP, drag: FRAG_DRAG,
-      reduce: FRAG_REDUCE,
+      bloom: FRAG_BLOOM, inside: FRAG_INSIDE, comp: FRAG_COMP,
+      drag: FRAG_DRAG, reduce: FRAG_REDUCE,
     })) this.progs[k] = program(gl, f);
 
     this.vao = gl.createVertexArray()!;
@@ -268,10 +434,14 @@ export class TuneRenderer {
     this.diff = this.target(this.cols, this.rows);
     this.distA = this.target(this.cols, this.rows);
     this.distB = this.target(this.cols, this.rows);
-    this.bloomA = this.target(w, h, false, false);
-    this.bloomB = this.target(w, h, false, false);
-    this.dragA = this.target(w, h, false, false);
-    this.dragB = this.target(w, h, false, false);
+    this.bloomA = []; this.bloomB = []; this.dragA = []; this.dragB = [];
+    for (let i = 0; i < this.slots; i++) {
+      this.bloomA.push(this.target(w, h, false, false));
+      this.bloomB.push(this.target(w, h, false, false));
+      this.dragA.push(this.target(w, h, false, false));
+      this.dragB.push(this.target(w, h, false, false));
+    }
+    this.inside = this.target(w, h, false, false);
     this.comp = this.target(w, h, false, false);
     // a reduction chain down to 1x1 so coverage comes back as one pixel
     this.reduce = [];
@@ -282,7 +452,8 @@ export class TuneRenderer {
       rw = Math.max(1, Math.ceil(rw / 2));
       rh = Math.max(1, Math.ceil(rh / 2));
     }
-    this.bloomPrimed = false;
+    // reallocating the targets throws away whatever history they held
+    this.resetBloom();
   }
 
   /** The motion field, as produced by scripts/tune_prep.py. */
@@ -320,8 +491,11 @@ export class TuneRenderer {
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 0);
   }
 
-  /** Both feedback buffers: a scrub has no history for either of them. */
-  resetBloom() { this.bloomPrimed = false; this.dragPrimed = false; }
+  /** Both feedback buffers, every slot: a scrub has no history for any. */
+  resetBloom() {
+    this.bloomPrimed = new Array(this.slots).fill(false);
+    this.dragPrimed = new Array(this.slots).fill(false);
+  }
 
   private use(name: string) {
     const gl = this.gl;
@@ -356,9 +530,12 @@ export class TuneRenderer {
    * follower runs over the whole track, not per frame.
    */
   renderFrame(cfg: TuneConfig, frame: number, env: number, shaped: number,
-              framesSinceOnset: number) {
+              framesSinceOnset: number, slot = 0) {
     const gl = this.gl;
     const grid: [number, number] = [this.cols, this.rows];
+    const sl = Math.min(Math.max(slot, 0), this.slots - 1);
+    const mvGrid: [number, number] = [this.mvCols || this.cols,
+      this.mvRows || this.rows];
 
     // ---- |A - C| per block
     {
@@ -389,34 +566,58 @@ export class TuneRenderer {
     }
     const dist = src;
 
-    // ---- bloom feedback
+    // ---- the inside look: restyle B before anything reads it, so the
+    // composite, the bloom and the drag all see the same B
     this.uploadMv(frame);
     {
+      const ic = cfg.inside;
+      const p = this.use("inside");
+      this.bind(p, "uB", 0, this.texB);
+      this.bind(p, "uMv", 1, this.texMv);
+      gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
+      gl.uniform2f(this.u(p, "uGrid"), mvGrid[0], mvGrid[1]);
+      gl.uniform1f(this.u(p, "uFrame"), frame);
+      gl.uniform1f(this.u(p, "uSeed"), cfg.seed);
+      gl.uniform1i(this.u(p, "uLook"), LOOK_ID[ic.look] ?? 0);
+      gl.uniform1f(this.u(p, "uHueShift"), ic.hueShift);
+      gl.uniform1f(this.u(p, "uSat"), ic.saturation);
+      gl.uniform1f(this.u(p, "uBandScale"), ic.bands);
+      gl.uniform1f(this.u(p, "uFilament"), ic.filament);
+      gl.uniform1f(this.u(p, "uFilScale"), ic.filScale);
+      gl.uniform1f(this.u(p, "uStretch"), ic.stretch);
+      gl.uniform1f(this.u(p, "uEdge"), ic.edge);
+      gl.uniform1f(this.u(p, "uBlack"), ic.black);
+      this.draw(this.inside);
+    }
+    const bTex = this.inside.tex;
+
+    // ---- bloom feedback
+    {
       const p = this.use("bloom");
-      this.bind(p, "uPrev", 0, this.bloomA.tex);
-      this.bind(p, "uB", 1, this.texB);
+      this.bind(p, "uPrev", 0, this.bloomA[sl].tex);
+      this.bind(p, "uB", 1, bTex);
       this.bind(p, "uMv", 2, this.texMv);
       gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
-      gl.uniform2f(this.u(p, "uGrid"), this.mvCols || this.cols,
-        this.mvRows || this.rows);
+      gl.uniform2f(this.u(p, "uGrid"), mvGrid[0], mvGrid[1]);
       gl.uniform1f(this.u(p, "uStrength"), cfg.bloom.strength);
       gl.uniform1f(this.u(p, "uDecay"), cfg.bloom.decay);
       gl.uniform1f(this.u(p, "uScale"), cfg.bloom.scale);
-      gl.uniform1i(this.u(p, "uReset"), this.bloomPrimed ? 0 : 1);
-      this.draw(this.bloomB);
-      const t = this.bloomA; this.bloomA = this.bloomB; this.bloomB = t;
-      this.bloomPrimed = true;
+      gl.uniform1i(this.u(p, "uReset"), this.bloomPrimed[sl] ? 0 : 1);
+      this.draw(this.bloomB[sl]);
+      const t = this.bloomA[sl];
+      this.bloomA[sl] = this.bloomB[sl]; this.bloomB[sl] = t;
+      this.bloomPrimed[sl] = true;
     }
 
     // ---- the composite
     {
       const p = this.use("comp");
       this.bind(p, "uA", 0, this.texA);
-      this.bind(p, "uB", 1, this.texB);
+      this.bind(p, "uB", 1, bTex);
       this.bind(p, "uC", 2, this.texC);
       this.bind(p, "uDiff", 3, this.diff.tex);
       this.bind(p, "uDist", 4, dist.tex);
-      this.bind(p, "uBloom", 5, this.bloomA.tex);
+      this.bind(p, "uBloom", 5, this.bloomA[sl].tex);
       gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
       gl.uniform2f(this.u(p, "uGrid"), grid[0], grid[1]);
       gl.uniform1f(this.u(p, "uMb"), this.mb);
@@ -457,12 +658,11 @@ export class TuneRenderer {
     {
       const p = this.use("drag");
       this.bind(p, "uComp", 0, this.comp.tex);
-      this.bind(p, "uB", 1, this.texB);
-      this.bind(p, "uPrevDrag", 2, this.dragA.tex);
+      this.bind(p, "uB", 1, bTex);
+      this.bind(p, "uPrevDrag", 2, this.dragA[sl].tex);
       this.bind(p, "uMv", 3, this.texMv);
       gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
-      gl.uniform2f(this.u(p, "uGrid"), this.mvCols || this.cols,
-        this.mvRows || this.rows);
+      gl.uniform2f(this.u(p, "uGrid"), mvGrid[0], mvGrid[1]);
       gl.uniform1f(this.u(p, "uFire"), dragFire);
       gl.uniform1f(this.u(p, "uCoverage"), dcfg.coverage);
       gl.uniform1i(this.u(p, "uDirMode"), DIR_ID[dcfg.direction] ?? 2);
@@ -474,13 +674,14 @@ export class TuneRenderer {
       gl.uniform1f(this.u(p, "uDecay"), dcfg.decay);
       gl.uniform1f(this.u(p, "uSeed"), cfg.seed);
       gl.uniform1f(this.u(p, "uFrame"), frame);
-      gl.uniform1i(this.u(p, "uReset"), this.dragPrimed ? 0 : 1);
-      this.draw(this.dragB);
-      const t = this.dragA; this.dragA = this.dragB; this.dragB = t;
-      this.dragPrimed = true;
+      gl.uniform1i(this.u(p, "uReset"), this.dragPrimed[sl] ? 0 : 1);
+      this.draw(this.dragB[sl]);
+      const t = this.dragA[sl];
+      this.dragA[sl] = this.dragB[sl]; this.dragB[sl] = t;
+      this.dragPrimed[sl] = true;
     }
     // what reaches the screen, and what coverage is measured from
-    const final = this.dragA;
+    const final = this.dragA[sl];
 
     // ---- coverage, by reducing the final alpha to one pixel
     let rsrc: Target = final;
@@ -509,7 +710,7 @@ export class TuneRenderer {
    */
   debug() {
     const gl = this.gl;
-    const shown = this.dragPrimed ? this.dragA : this.comp;
+    const shown = this.dragPrimed[0] ? this.dragA[0] : this.comp;
     const px = new Uint8Array(shown.w * shown.h * 4);
     gl.bindFramebuffer(gl.FRAMEBUFFER, shown.fb);
     gl.readPixels(0, 0, shown.w, shown.h, gl.RGBA, gl.UNSIGNED_BYTE, px);
@@ -532,6 +733,16 @@ export class TuneRenderer {
       blocks: nblk,
     };
   }
+
+  /**
+   * Put the restyled B on the canvas on its own.
+   *
+   * The composite is mostly layer A, which is warm stage footage, so a hue
+   * histogram of a composited frame measures the talk and not the look. This
+   * exposes the inside pass by itself so the palette can be measured as the
+   * palette rather than as a blend.
+   */
+  blitInside() { this.blit(this.inside); }
 
   /** Straight copy of a target to the canvas, no resampling. */
   private blit(t: Target) {

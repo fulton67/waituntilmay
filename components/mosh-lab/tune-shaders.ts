@@ -500,3 +500,165 @@ void main() {
   outColor = vec4(s, n, 0.0, 1.0);
 }
 `;
+
+/* ---------------------------------------------------------------- inside */
+/**
+ * "Inside look": what the B layer looks like through the holes.
+ *
+ * `current` passes B through untouched. `crystal` restyles it as polarized
+ * light through a thin crystal section - the look a petrographic microscope
+ * gives you - without touching its motion, which is the part that took the
+ * most work to make continuous. Every spatial feature here is derived from
+ * the motion field or from B's own luma, so the restyle rides the same
+ * movement rather than adding a second, unrelated one.
+ *
+ * Four things make the look, and they are separable so they can be measured:
+ *
+ *   interference  a thin-film palette. Film thickness maps to hue through a
+ *                 cosine ramp, which is why oil slicks and crystal sections
+ *                 cycle through the same order - purple, blue, teal, orange.
+ *                 Thickness here is B's luma plus the filament field, so the
+ *                 bands follow the content.
+ *   dendrites     anisotropic value noise, stretched ALONG the motion
+ *                 direction, several octaves. Stretching is what turns noise
+ *                 into filaments rather than clouds, and aligning the stretch
+ *                 to the field is what makes them look grown rather than
+ *                 painted on.
+ *   edges         the gradient of the filament field, added as white. Thin
+ *                 film is brightest where thickness changes fastest, so this
+ *                 is also where the real thing is brightest.
+ *   black         a floor, so the gaps go to near-black instead of grey. The
+ *                 reference look is mostly black; without this the palette
+ *                 reads as a pastel wash.
+ */
+export const FRAG_INSIDE = `#version 300 es
+precision highp float;
+${HASH}
+uniform sampler2D uB;
+uniform sampler2D uMv;
+uniform vec2  uRes;
+uniform vec2  uGrid;
+uniform float uFrame;
+uniform float uSeed;
+uniform int   uLook;         // 0 = current, 1 = crystal
+uniform float uHueShift;
+uniform float uSat;
+uniform float uBandScale;    // how many interference bands across the range
+uniform float uFilament;     // dendrite strength
+uniform float uFilScale;     // dendrite frequency
+uniform float uStretch;      // how far noise is stretched along the motion
+uniform float uEdge;         // bright edge gain
+uniform float uBlack;        // black floor
+out vec4 outColor;
+
+float luma(vec3 c) { return dot(c, vec3(0.299, 0.587, 0.114)); }
+
+float vnoise(vec2 p) {
+  vec2 i = floor(p), f = fract(p);
+  f = f * f * (3.0 - 2.0 * f);
+  float a = hash12(i), b = hash12(i + vec2(1.0, 0.0));
+  float c = hash12(i + vec2(0.0, 1.0)), d = hash12(i + vec2(1.0, 1.0));
+  return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+}
+
+/** Octaves of noise in a frame stretched along the motion: filaments. */
+float dendrite(vec2 p, vec2 dir, float stretch) {
+  vec2 perp = vec2(-dir.y, dir.x);
+  // compress across the direction and leave it long along it
+  vec2 q = vec2(dot(p, dir) / max(stretch, 0.001), dot(p, perp));
+  float a = 0.0, amp = 0.5, fq = 1.0;
+  for (int i = 0; i < 5; i++) {
+    a += amp * vnoise(q * fq);
+    fq *= 2.03;
+    amp *= 0.55;
+  }
+  return a;
+}
+
+/**
+ * Thin-film interference ramp, as explicit stops rather than a cosine.
+ *
+ * A cosine palette is compact but it sweeps every hue on the way round, so
+ * it spends real area in olive and yellow - measured at 95% orange on a
+ * first attempt, because it also cannot be stopped from pinning to one place
+ * when its input has a narrow range. Explicit stops say exactly which hues
+ * exist and how much of the cycle each one owns.
+ *
+ * The dark stop between teal and orange is not a cheat to avoid muddy
+ * mixing, though it does that too: crossed polars really do show extinction
+ * bands, where the section goes black between orders.
+ */
+vec3 crystalRamp(float t) {
+  t = fract(t);
+  const vec3 violet = vec3(0.28, 0.06, 0.52);
+  const vec3 blue   = vec3(0.08, 0.34, 0.98);
+  const vec3 teal   = vec3(0.04, 0.82, 0.74);
+  const vec3 dark   = vec3(0.02, 0.03, 0.07);
+  const vec3 orange = vec3(0.95, 0.47, 0.13);
+  const vec3 magenta= vec3(0.72, 0.10, 0.66);
+  // Leg widths are the palette's proportions, so they are set from the
+  // measured histogram rather than spaced evenly. Orange returns to the dark
+  // stop instead of running into magenta: that leg passed through red, which
+  // measured 22% of the frame and is not in this palette at all.
+  // Orange is the most saturated stop and the histogram weights by
+  // saturation x value, so equal leg widths do not give equal area - two 10%
+  // orange legs measured 38% of the palette, and widening the magenta legs
+  // to compensate overshot to 44% magenta. These widths were solved
+  // numerically against the same weighting the measurement uses, for a
+  // target of roughly 26% purple, 28% blue, 16% teal, 24% orange.
+  if (t < 0.120) return mix(violet, blue, t / 0.120);
+  if (t < 0.289) return mix(blue, teal, (t - 0.120) / 0.169);
+  if (t < 0.380) return mix(teal, dark, (t - 0.289) / 0.091);
+  if (t < 0.550) return mix(dark, orange, (t - 0.380) / 0.170);
+  if (t < 0.720) return mix(orange, dark, (t - 0.550) / 0.170);
+  if (t < 0.800) return mix(dark, magenta, (t - 0.720) / 0.080);
+  return mix(magenta, violet, (t - 0.800) / 0.200);
+}
+
+void main() {
+  vec2 px = gl_FragCoord.xy;
+  vec2 uv = px / uRes;
+  vec3 B = texture(uB, uv).rgb;
+  if (uLook == 0) { outColor = vec4(B, 1.0); return; }
+
+  // ---- the motion this look rides on, unchanged
+  vec2 cell = uRes / uGrid;
+  vec2 mv = texelFetch(uMv, ivec2(floor(px / cell)), 0).rg;
+  vec2 dir = length(mv) > 1e-4 ? normalize(-mv) : vec2(0.0, -1.0);
+
+  float l = luma(B);
+
+  // ---- dendrites, grown along the field and carried by it
+  vec2 p = px * (uFilScale / 64.0) - dir * (uFrame * 0.35);
+  float f = dendrite(p + uSeed * 13.0, dir, uStretch);
+  float fx = dendrite(p + vec2(1.2, 0.0) + uSeed * 13.0, dir, uStretch);
+  float fy = dendrite(p + vec2(0.0, 1.2) + uSeed * 13.0, dir, uStretch);
+
+  // The filament field sits in a narrow band around its own mean, so it is
+  // stretched to fill 0-1 before anything reads it. Without this the hue
+  // ramp is sampled over a tiny slice of itself and the whole frame comes
+  // out one colour - measured, on the first attempt, at 95% orange.
+  float fn = clamp((f - 0.34) / 0.30, 0.0, 1.0);
+
+  // ---- film thickness. The filaments lead and B's luma only nudges: B is
+  // bright (mean 149) and nearly flat, so letting it lead pins the palette.
+  float thick = fn * uBandScale + l * 0.22 + uHueShift;
+  vec3 col = crystalRamp(thick);
+
+  // desaturate toward the luma when asked, so the dial has a neutral end
+  col = mix(vec3(luma(col)), col, clamp(uSat, 0.0, 2.0));
+
+  // ---- brightness: only the ridges carry light, the rest goes to black.
+  // The exponent is the dial, so "black floor" moves from a wash to the
+  // mostly-black field the reference look actually is.
+  float body = pow(clamp(fn * 1.12, 0.0, 1.0), mix(1.0, 6.0, clamp(uBlack, 0.0, 1.0)));
+  body *= 0.4 + 0.6 * l;
+  col *= body;
+
+  // ---- sharp bright edges where thickness changes fastest
+  float e = length(vec2(fx - f, fy - f)) * 14.0;
+  col += vec3(1.0, 0.98, 0.95) * pow(clamp(e, 0.0, 1.0), 1.6) * uEdge * body;
+
+  outColor = vec4(clamp(col, 0.0, 1.0), 1.0);
+}
+`;

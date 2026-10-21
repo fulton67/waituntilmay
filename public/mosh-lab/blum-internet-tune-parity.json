@@ -44,6 +44,17 @@
    "hold": 10,
    "rate": 8
   },
+  "inside": {
+   "look": "current",
+   "hueShift": 0,
+   "saturation": 1,
+   "bands": 2,
+   "filament": 0.9,
+   "filScale": 30,
+   "stretch": 9,
+   "edge": 0.9,
+   "black": 0.72
+  },
   "life": {
    "timeJitter": 0.15,
    "spaceJitter": 0.1
@@ -51,7 +62,18 @@
   "b": {
    "speed": 1,
    "dupP": 4
-  }
+  },
+  "macros": {
+   "damage": 0.5,
+   "squareSize": 0.5,
+   "alive": 0.5,
+   "drag": 0.55,
+   "inside": 0.5,
+   "followsWords": 0.6,
+   "look": "current"
+  },
+  "curveEnabled": false,
+  "curveBlend": true
  },
  "timestamps": [
   0.4,
@@ -149,12 +171,12 @@
   {
    "label": "floor",
    "requested": 8.2,
-   "frame": 245,
-   "mediaTime": 8.1667,
+   "frame": 246,
+   "mediaTime": 8.2,
    "coverage": 0,
-   "mean": 0.8751099537037037,
+   "mean": 0.8755164930555556,
    "max": 31,
-   "pctOver8": 0.37225115740740744
+   "pctOver8": 0.37239583333333337
   },
   {
    "label": "floor",
@@ -251,12 +273,12 @@
   {
    "label": "noBloom",
    "requested": 8.2,
-   "frame": 245,
-   "mediaTime": 8.1667,
+   "frame": 246,
+   "mediaTime": 8.2,
    "coverage": 1.44,
-   "mean": 1.2962861689814815,
-   "max": 240,
-   "pctOver8": 0.9036458333333334
+   "mean": 1.6509620949074073,
+   "max": 252,
+   "pctOver8": 1.8230613425925926
   },
   {
    "label": "noBloom",
@@ -316,7 +338,7 @@
    "frame": 108,
    "mediaTime": 3.6,
    "coverage": 57.96,
-   "mean": 4.6738888888888885,
+   "mean": 4.6738903356481485,
    "max": 253,
    "pctOver8": 12.241608796296296
   },
@@ -353,12 +375,12 @@
   {
    "label": "full",
    "requested": 8.2,
-   "frame": 245,
-   "mediaTime": 8.1667,
+   "frame": 246,
+   "mediaTime": 8.2,
    "coverage": 1.44,
-   "mean": 1.3204904513888889,
-   "max": 235,
-   "pctOver8": 1.0180844907407407
+   "mean": 1.5630063657407407,
+   "max": 212,
+   "pctOver8": 1.7942708333333335
   },
   {
    "label": "full",
@@ -372,8 +394,8 @@
   }
  ],
  "summary": {
-  "decode_floor_mean": 0.9481,
-  "deterministic_mean": 1.258,
-  "with_bloom_mean": 2.1625
+  "decode_floor_mean": 0.9482,
+  "deterministic_mean": 1.2935,
+  "with_bloom_mean": 2.1867
  }
 }
