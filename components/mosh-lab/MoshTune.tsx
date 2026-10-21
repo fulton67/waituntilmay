@@ -468,10 +468,18 @@ export default function MoshTune() {
 
       <div className="mt-stage">
         <canvas ref={canvasRef} className="mt-canvas" />
+        {/* crossOrigin is not optional: the layers are served from Blob, and
+            texImage2D from a cross-origin video throws rather than degrading,
+            which takes the whole composite down. Blob answers with
+            Access-Control-Allow-Origin: *, so the request is honoured and the
+            canvas stays untainted - which toDataURL also needs. */}
         <div className="mt-sources">
-          <video ref={aRef} src={data.layers.a} muted playsInline preload="auto" />
-          <video ref={bRef} src={data.layers.b} muted playsInline preload="auto" />
-          <video ref={cRef} src={data.layers.c} muted playsInline preload="auto" />
+          <video ref={aRef} src={data.layers.a} crossOrigin="anonymous"
+                 muted playsInline preload="auto" />
+          <video ref={bRef} src={data.layers.b} crossOrigin="anonymous"
+                 muted playsInline preload="auto" />
+          <video ref={cRef} src={data.layers.c} crossOrigin="anonymous"
+                 muted playsInline preload="auto" />
         </div>
       </div>
 
