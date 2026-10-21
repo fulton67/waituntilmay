@@ -96,4 +96,19 @@ for (const m of manifests) {
 }
 
 console.log(`\nuploaded ${urls.size} files, ${mb(total)} MB`);
+// ---- the tuning lab's own manifest: its three layers are mp4 too, and the
+// lab is useless on the deployed page if they 404
+const tunes = (await readdir(DIR)).filter((f) => f.endsWith("-tune.json"));
+for (const t of tunes) {
+  const p = path.join(DIR, t);
+  const j = JSON.parse(await readFile(p, "utf8"));
+  let n = 0;
+  for (const k of Object.keys(j.layers ?? {})) {
+    const base = path.basename(j.layers[k]);
+    if (urls.has(base)) { j.layers[k] = urls.get(base); n++; }
+  }
+  await writeFile(p, JSON.stringify(j, null, 1));
+  console.log(`  rewrote ${t}: ${n} layer urls -> blob`);
+}
+
 console.log("manifests stay local and committed; the layers now come from Blob.");

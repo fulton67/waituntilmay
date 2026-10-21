@@ -1,0 +1,51 @@
+{
+  "seed": 7,
+  "squares": {
+    "weight16": 0.34,
+    "weight8": 0.33,
+    "weight4": 0.33,
+    "threshold": 2.0,
+    "baseline": 0.9,
+    "lifeMin": 6,
+    "lifeMax": 20,
+    "fadeRatio": 0.45,
+    "dissolve": "broken-edges",
+    "steps": 5
+  },
+  "reveals": {
+    "attack": 3,
+    "release": 1.5,
+    "gain": 1,
+    "loudnessWeight": 0.35,
+    "knee": 0.6,
+    "peak": 0.45,
+    "growRadius": 12,
+    "onset": 1.6
+  },
+  "bloom": {
+    "lead": 6,
+    "strength": 0.65,
+    "decay": 0.85,
+    "scale": 0.35,
+    "mix": 0.6
+  },
+  "flash": {
+    "amount": 0.5,
+    "duration": 6,
+    "frequency": 6,
+    "randomness": 0.6,
+    "brightness": 0.25,
+    "invert": 0.35,
+    "chroma": 2,
+    "hold": 0.15,
+    "concept": 1
+  },
+  "life": {
+    "timeJitter": 0.15,
+    "spaceJitter": 0.1
+  },
+  "b": {
+    "speed": 1,
+    "dupP": 4
+  }
+}

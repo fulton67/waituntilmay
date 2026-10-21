@@ -1,0 +1,206 @@
+{
+  "default (shipped)": {
+    "seed": 7,
+    "squares": {
+      "weight16": 0.34,
+      "weight8": 0.33,
+      "weight4": 0.33,
+      "threshold": 2.0,
+      "baseline": 0.9,
+      "lifeMin": 6,
+      "lifeMax": 20,
+      "fadeRatio": 0.45,
+      "dissolve": "broken-edges",
+      "steps": 5
+    },
+    "reveals": {
+      "attack": 3,
+      "release": 1.5,
+      "gain": 1,
+      "loudnessWeight": 0.35,
+      "knee": 0.6,
+      "peak": 0.45,
+      "growRadius": 12,
+      "onset": 1.6
+    },
+    "bloom": {
+      "lead": 6,
+      "strength": 0.65,
+      "decay": 0.85,
+      "scale": 0.35,
+      "mix": 0.6
+    },
+    "flash": {
+      "amount": 0.5,
+      "duration": 6,
+      "frequency": 6,
+      "randomness": 0.6,
+      "brightness": 0.25,
+      "invert": 0.35,
+      "chroma": 2,
+      "hold": 0.15,
+      "concept": 1
+    },
+    "life": {
+      "timeJitter": 0.15,
+      "spaceJitter": 0.1
+    },
+    "b": {
+      "speed": 1,
+      "dupP": 4
+    }
+  },
+  "quiet decay": {
+    "seed": 7,
+    "squares": {
+      "weight16": 0.34,
+      "weight8": 0.33,
+      "weight4": 0.33,
+      "threshold": 2.2,
+      "baseline": 0.6,
+      "lifeMin": 6,
+      "lifeMax": 14,
+      "fadeRatio": 0.45,
+      "dissolve": "broken-edges",
+      "steps": 5
+    },
+    "reveals": {
+      "attack": 3,
+      "release": 1.5,
+      "gain": 1,
+      "loudnessWeight": 0.35,
+      "knee": 0.68,
+      "peak": 0.22,
+      "growRadius": 7,
+      "onset": 1.6
+    },
+    "bloom": {
+      "lead": 6,
+      "strength": 0.5,
+      "decay": 0.85,
+      "scale": 0.35,
+      "mix": 0.4
+    },
+    "flash": {
+      "amount": 0.22,
+      "duration": 6,
+      "frequency": 6,
+      "randomness": 0.6,
+      "brightness": 0.12,
+      "invert": 0.1,
+      "chroma": 1.0,
+      "hold": 0.08,
+      "concept": 1
+    },
+    "life": {
+      "timeJitter": 0.15,
+      "spaceJitter": 0.1
+    },
+    "b": {
+      "speed": 1,
+      "dupP": 4
+    }
+  },
+  "hard break": {
+    "seed": 7,
+    "squares": {
+      "weight16": 0.34,
+      "weight8": 0.33,
+      "weight4": 0.33,
+      "threshold": 1.6,
+      "baseline": 1.0,
+      "lifeMin": 5,
+      "lifeMax": 24,
+      "fadeRatio": 0.45,
+      "dissolve": "stepped",
+      "steps": 3
+    },
+    "reveals": {
+      "attack": 3,
+      "release": 1.5,
+      "gain": 1,
+      "loudnessWeight": 0.35,
+      "knee": 0.5,
+      "peak": 0.7,
+      "growRadius": 16,
+      "onset": 0.9
+    },
+    "bloom": {
+      "lead": 10,
+      "strength": 0.85,
+      "decay": 0.92,
+      "scale": 0.35,
+      "mix": 0.85
+    },
+    "flash": {
+      "amount": 0.85,
+      "duration": 6,
+      "frequency": 14,
+      "randomness": 0.6,
+      "brightness": 0.45,
+      "invert": 0.6,
+      "chroma": 5.0,
+      "hold": 0.35,
+      "concept": 1
+    },
+    "life": {
+      "timeJitter": 0.35,
+      "spaceJitter": 0.25
+    },
+    "b": {
+      "speed": 1,
+      "dupP": 4
+    }
+  },
+  "fine grain": {
+    "seed": 7,
+    "squares": {
+      "weight16": 0.1,
+      "weight8": 0.3,
+      "weight4": 0.6,
+      "threshold": 2.0,
+      "baseline": 0.9,
+      "lifeMin": 4,
+      "lifeMax": 12,
+      "fadeRatio": 0.45,
+      "dissolve": "half-filled",
+      "steps": 8
+    },
+    "reveals": {
+      "attack": 3,
+      "release": 1.5,
+      "gain": 1,
+      "loudnessWeight": 0.35,
+      "knee": 0.6,
+      "peak": 0.3,
+      "growRadius": 9,
+      "onset": 1.6
+    },
+    "bloom": {
+      "lead": 6,
+      "strength": 0.65,
+      "decay": 0.85,
+      "scale": 0.35,
+      "mix": 0.6
+    },
+    "flash": {
+      "amount": 0.5,
+      "duration": 6,
+      "frequency": 6,
+      "randomness": 0.6,
+      "brightness": 0.25,
+      "invert": 0.35,
+      "chroma": 2,
+      "hold": 0.15,
+      "concept": 1
+    },
+    "life": {
+      "timeJitter": 0.3,
+      "spaceJitter": 0.18
+    },
+    "b": {
+      "speed": 1,
+      "dupP": 4
+    }
+  }
+}

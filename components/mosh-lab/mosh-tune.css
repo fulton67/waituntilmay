@@ -1,0 +1,128 @@
+/* /mosh-lab/tune - a workbench, not a page: dense, monospaced, no decoration
+   that competes with the picture being judged. */
+.mt-root {
+  --bg: #0a0a0a;
+  --panel: #141414;
+  --line: #262626;
+  --ink: #e8e8e8;
+  --dim: #8a8a8a;
+  --accent: #ffd200;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font: 12px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  padding: 10px 12px 40px;
+}
+
+.mt-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.mt-bar strong { color: var(--accent); letter-spacing: 0.08em; }
+.mt-dim { color: var(--dim); }
+.mt-time { margin-left: auto; color: var(--dim); }
+.mt-time b { color: var(--ink); }
+
+.mt-root button,
+.mt-root select,
+.mt-root input[type="text"],
+.mt-presets input {
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 3px 8px;
+  font: inherit;
+  cursor: pointer;
+}
+.mt-root button:hover { border-color: var(--dim); }
+.mt-root button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.mt-root button:disabled { opacity: 0.4; cursor: default; }
+
+.mt-stage { margin: 10px 0 6px; }
+.mt-canvas {
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  height: auto;
+  background: #000;
+  /* the whole point is hard block edges; never let the browser smooth them */
+  image-rendering: pixelated;
+}
+/* the three layers are texture sources, never shown directly */
+.mt-sources { position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none; }
+.mt-sources video { width: 1px; height: 1px; }
+
+.mt-scrub { display: block; width: 100%; max-width: 960px; margin: 2px 0; }
+.mt-timeline {
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  height: 128px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+}
+
+.mt-presets {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+  padding: 8px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+}
+.mt-ok { color: #5bd75b; }
+.mt-err { color: #ff6b6b; }
+
+.mt-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 10px;
+}
+.mt-group {
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--panel);
+  padding: 6px 10px 10px;
+  min-width: 0;
+}
+.mt-group legend {
+  color: var(--accent);
+  padding: 0 4px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.mt-slider,
+.mt-sel {
+  display: grid;
+  grid-template-columns: 1fr 110px 46px;
+  align-items: center;
+  gap: 6px;
+  padding: 1px 0;
+}
+.mt-sel { grid-template-columns: 1fr 160px; }
+.mt-slider span,
+.mt-sel span { color: var(--dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mt-slider b { text-align: right; font-weight: 500; }
+.mt-slider input[type="range"] { width: 100%; }
+
+.mt-note {
+  max-width: 960px;
+  margin-top: 16px;
+  color: var(--dim);
+  line-height: 1.6;
+}
+
+@media (max-width: 720px) {
+  .mt-slider { grid-template-columns: 1fr 80px 42px; }
+  .mt-time { margin-left: 0; }
+}
