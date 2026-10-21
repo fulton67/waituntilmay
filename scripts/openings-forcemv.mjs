@@ -187,7 +187,7 @@ const gac = path.join(TMP, "src.mpeg4");
 console.log("\n--- ffgac encode (+forcemv, +mv4, long GOP) ---");
 sh(`${FG}/ffgac.exe`, ["-i", SRC, "-an",
   "-mpv_flags", "+nopimb+forcemv", "-flags", "+mv4",
-  "-qscale:v", "6", "-g", String(GOP), "-sc_threshold", "1000000000",
+  "-qscale:v", "6", "-g", String(GOP), "-sc_threshold", "max",
   "-me_range", "1023", "-fcode", String(FCODE),
   ...(LIMIT ? ["-frames:v", String(N)] : []),
   "-vcodec", "mpeg4", "-f", "rawvideo", "-y", gac], { stdio: "pipe" });

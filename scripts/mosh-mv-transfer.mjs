@@ -160,8 +160,8 @@ if (!NO_SMOOTH) {
 console.log("\n--- ffgac encode (long GOP, forced inter) ---");
 const gac = path.join(TMP, "faces.mpeg4");
 sh(`${FG}/ffgac.exe`, ["-i", facesMp4, "-an",
-  "-mpv_flags", "+nopimb+forcemv", "-qscale:v", "6",
-  "-g", String(GOP), "-sc_threshold", "1000000000", "-me_range", "1023",
+  "-mpv_flags", "+forcemv+nopimb", "-qscale:v", "6",
+  "-g", "max", "-sc_threshold", "max", "-me_range", "1023",
   // ffedit will not rewrite fcode, so the stream must be encoded with a range
   // wide enough for the shader's vectors or they corrupt the bitstream.
   // fcode 7 gives +/-1024 half-pel; fcode 1 (the default here) gives +/-16.

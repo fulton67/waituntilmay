@@ -300,3 +300,18 @@
   .mt-presets { gap: 5px; }
   .mt-hist { width: 54px; height: 30px; }
 }
+
+/* the preview and the real render, side by side */
+.mt-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  max-width: 1300px;
+}
+.mt-pair figure { margin: 0; min-width: 0; }
+.mt-pair figcaption {
+  margin-top: 3px;
+  color: var(--dim);
+  font-size: 10px;
+}
+.mt-pair video.mt-canvas { max-width: none; width: 100%; }

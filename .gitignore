@@ -107,3 +107,7 @@ rerender_v2.log
 public/mosh-lab/*.mp4
 .openings-mv/
 .mv4test/
+.ffgac/
+.ffgac-mosh/
+public/mosh-lab/real/
+public/mosh-lab/real-render-config.json

@@ -221,6 +221,10 @@ export default function MoshTune() {
   const [presetName, setPresetName] = useState("");
   const [status, setStatus] = useState("");
   const [writable, setWritable] = useState(false);
+  const [realOk, setRealOk] = useState(false);
+  const [realBusy, setRealBusy] = useState(false);
+  const [realUrl, setRealUrl] = useState<string | null>(null);
+  const [realMsg, setRealMsg] = useState("");
 
   const [curve, setCurve] = useState<number[]>(
     () => new Array(CURVE_SAMPLES).fill(0.25));
@@ -284,6 +288,10 @@ export default function MoshTune() {
           }
         }
       } catch { /* the lab still works on its built-in defaults */ }
+      try {
+        const r = await (await fetch("/api/render-real", { cache: "no-store" })).json();
+        if (alive) setRealOk(!!r.available);
+      } catch { /* the button just stays disabled */ }
     })();
     return () => { alive = false; };
   }, []);
@@ -596,6 +604,31 @@ export default function MoshTune() {
     setTimeout(() => setStatus(""), 4000);
   };
 
+  /**
+   * Run the real thing: ffgac encodes an MPEG-4 stream with +forcemv+nopimb
+   * and keyframes where the curve dips, and the result plays beside the
+   * preview. It is a different pipeline, not a higher-quality version of
+   * this one, so the two are not expected to match pixel for pixel.
+   */
+  const renderReal = async () => {
+    setRealBusy(true);
+    setRealMsg("encoding with ffgac…");
+    try {
+      const r = await fetch("/api/render-real", {
+        method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify({ config: resolved(), frames: data?.frames ?? 300 }),
+      });
+      const j = await r.json();
+      if (!r.ok) { setRealMsg(`failed: ${j.error ?? r.status}`); return; }
+      setRealUrl(j.video);
+      setRealMsg(`rendered in ${Number(j.seconds).toFixed(1)}s`);
+    } catch (e) {
+      setRealMsg(`failed: ${(e as Error).message}`);
+    } finally {
+      setRealBusy(false);
+    }
+  };
+
   const exportConfig = () => {
     const out = resolved();
     if (writable) { save("config", out); return; }
@@ -693,7 +726,21 @@ export default function MoshTune() {
       </header>
 
       <div className="mt-stage">
-        <canvas ref={canvasRef} className="mt-canvas" />
+        <div className="mt-pair">
+          <figure>
+            <canvas ref={canvasRef} className="mt-canvas" />
+            <figcaption>preview &mdash; composited live in WebGL</figcaption>
+          </figure>
+          {realUrl && (
+            <figure>
+              <video className="mt-canvas" src={realUrl} controls loop muted
+                     playsInline autoPlay />
+              <figcaption>
+                real &mdash; ffgac, +forcemv+nopimb, keyframes on the dips
+              </figcaption>
+            </figure>
+          )}
+        </div>
         {/* crossOrigin is not optional: the layers come from Blob, and
             texImage2D on a cross-origin video throws rather than degrading. */}
         <div className="mt-sources">
@@ -867,6 +914,12 @@ export default function MoshTune() {
           setMacros(b.macros ?? DEFAULT_MACROS);
         }}>reset</button>
         <button onClick={exportConfig}>export settings</button>
+        <button onClick={renderReal} disabled={!realOk || realBusy}
+                title={realOk ? "run the ffgac pipeline on these settings"
+                  : "needs ffgac, which only exists in development"}>
+          {realBusy ? "rendering…" : "render real"}
+        </button>
+        {realMsg && <span className="mt-ok">{realMsg}</span>}
         <button onClick={() => setCfg((c) => ({
           ...clone(c), seed: Math.floor(Math.random() * 1e6),
         }))}>reroll ({cfg.seed})</button>

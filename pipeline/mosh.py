@@ -30,6 +30,9 @@ VOP = 0xB6
 I_VOP, P_VOP = 0, 1
 
 
+FFGAC = os.path.join(".tools", "ffglitch-0.10.2-windows-x86_64",
+                     "ffgac.exe")
+
 def run(cmd):
     return subprocess.run(cmd, check=True, capture_output=True)
 
@@ -93,11 +96,22 @@ def datamosh(src_mp4, out_mp4, triggers=(), n_frames=720, gamma=2.0, peak=0.7,
     m4v = base + "_src.m4v"
     moshed = base + "_mosh.m4v"
 
-    # 1. encode to a raw MPEG-4 part 2 stream with regular I-frames to attack,
-    #    and no B-frames so VOP order == display order.
-    run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-i", src_mp4,
-         "-an", "-c:v", "mpeg4", "-q:v", "3", "-g", "12", "-bf", "0",
-         "-sc_threshold", "0", "-f", "m4v", m4v])
+    # 1. encode to a raw MPEG-4 part 2 stream with ffgac rather than ffmpeg,
+    #    so the glitch flags are available: +forcemv puts a motion vector on
+    #    every macroblock, +nopimb keeps the encoder from repairing error
+    #    with intra macroblocks inside a P frame.
+    #
+    #    -g stays at 12 here, deliberately, where everything else in the
+    #    pipeline uses max. This mosh works by REPLACING I-VOPs, so it needs
+    #    I-VOPs to exist; -g max leaves exactly one, at frame 0, and the
+    #    effect disappears. -sc_threshold max does apply: the encoder must
+    #    not add its own keyframes on a cut.
+    #
+    #    No B-frames, so VOP order == display order.
+    run([FFGAC, "-y", "-hide_banner", "-loglevel", "error", "-i", src_mp4,
+         "-an", "-c:v", "mpeg4", "-mpv_flags", "+forcemv+nopimb",
+         "-q:v", "3", "-g", "12", "-bf", "0",
+         "-sc_threshold", "max", "-f", "m4v", m4v])
 
     buf = open(m4v, "rb").read()
     header, frames = parse_vops(buf)
