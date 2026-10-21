@@ -67,10 +67,25 @@ out vec4 outColor;
 
 float luma(vec3 c) { return dot(c, vec3(0.299, 0.587, 0.114)); }
 
+/**
+ * Crude skin-chroma test, in the YCbCr box that most of the literature uses.
+ * It is not a face detector; on a talking head framed like this one it finds
+ * the face anyway, and the fold's "face" centre reports where it landed so
+ * the claim can be checked rather than believed.
+ */
+float skin(vec3 c) {
+  float Y  = luma(c);
+  float Cb = 0.564 * (c.b - Y) + 0.5;
+  float Cr = 0.713 * (c.r - Y) + 0.5;
+  bool ok = Cb > 0.30 && Cb < 0.50 && Cr > 0.52 && Cr < 0.68 && Y > 0.15;
+  return ok ? 1.0 : 0.0;
+}
+
 void main() {
-  // one output texel per macroblock; average |A-C| luma inside it
+  // one output texel per macroblock; average |A-C| luma inside it, and the
+  // skin fraction of A, which the fold's centre pass reads from G
   vec2 blk = floor(gl_FragCoord.xy);
-  float acc = 0.0, cnt = 0.0;
+  float acc = 0.0, cnt = 0.0, sk = 0.0;
   for (float y = 0.5; y < 16.0; y += 1.0) {
     if (y >= uMb) break;
     for (float x = 0.5; x < 16.0; x += 1.0) {
@@ -78,12 +93,15 @@ void main() {
       vec2 px = blk * uMb + vec2(x, y);
       if (px.x > uRes.x || px.y > uRes.y) continue;
       vec2 uv = px / uRes;
-      acc += abs(luma(texture(uA, uv).rgb) - luma(texture(uC, uv).rgb));
+      vec3 a = texture(uA, uv).rgb;
+      acc += abs(luma(a) - luma(texture(uC, uv).rgb));
+      sk += skin(a);
       cnt += 1.0;
     }
   }
   // stored in 0-255 luma units, the same scale the offline floor was measured in
-  outColor = vec4(cnt > 0.0 ? (acc / cnt) * 255.0 : 0.0, 0.0, 0.0, 1.0);
+  outColor = vec4(cnt > 0.0 ? (acc / cnt) * 255.0 : 0.0,
+                  cnt > 0.0 ? sk / cnt : 0.0, 0.0, 1.0);
 }
 `;
 
@@ -660,5 +678,186 @@ void main() {
   col += vec3(1.0, 0.98, 0.95) * pow(clamp(e, 0.0, 1.0), 1.6) * uEdge * body;
 
   outColor = vec4(clamp(col, 0.0, 1.0), 1.0);
+}
+`;
+
+/* ----------------------------------------------------------------- fold */
+/**
+ * Where the fractal should sit, measured rather than guessed.
+ *
+ * One pass, one 1x1 output, two loops over the macroblock grid: the first
+ * for the weighted centroid, the second for the spread about it. The grid is
+ * 920 texels, so looping it twice inside a single fragment is cheaper than a
+ * reduction chain and costs exactly one readback.
+ *
+ * The weight is selectable because "the region" means different things: the
+ * damage itself, the fastest-moving part of the picture, or the face. The
+ * face weight is a skin-chroma fraction computed per block by the diff pass,
+ * which is a crude detector but an honest one on a talking head, and its
+ * result is reported so it can be checked rather than trusted.
+ */
+export const FRAG_CENTROID = `#version 300 es
+precision highp float;
+uniform sampler2D uDiff;     // R = |A-C| per block, G = skin fraction
+uniform sampler2D uMv;
+uniform vec2  uGrid;
+uniform vec2  uMvGrid;
+uniform float uThreshold;
+uniform int   uMode;         // 0 damage, 1 motion, 2 face, 3 frame centre
+out vec4 outColor;
+
+float weightAt(ivec2 p) {
+  if (uMode == 3) return 1.0;
+  if (uMode == 1) {
+    vec2 g = vec2(p) / max(uGrid - 1.0, vec2(1.0)) * max(uMvGrid - 1.0, vec2(1.0));
+    vec2 mv = texelFetch(uMv, ivec2(g + 0.5), 0).rg;
+    return length(mv);
+  }
+  vec2 d = texelFetch(uDiff, p, 0).rg;
+  if (uMode == 2) return d.g;
+  return max(d.r - uThreshold, 0.0);
+}
+
+void main() {
+  int cols = int(uGrid.x), rows = int(uGrid.y);
+  float sw = 0.0;
+  vec2 acc = vec2(0.0);
+  for (int y = 0; y < 128; y++) {
+    if (y >= rows) break;
+    for (int x = 0; x < 128; x++) {
+      if (x >= cols) break;
+      float w = weightAt(ivec2(x, y));
+      sw += w;
+      acc += w * (vec2(float(x), float(y)) + 0.5);
+    }
+  }
+  vec2 c = sw > 1e-6 ? acc / sw : uGrid * 0.5;
+  float sp = 0.0;
+  for (int y = 0; y < 128; y++) {
+    if (y >= rows) break;
+    for (int x = 0; x < 128; x++) {
+      if (x >= cols) break;
+      float w = weightAt(ivec2(x, y));
+      vec2 d = (vec2(float(x), float(y)) + 0.5 - c) / uGrid;
+      sp += w * dot(d, d);
+    }
+  }
+  sp = sw > 1e-6 ? sqrt(sp / sw) : 0.5;
+  // centre in 0-1 of the frame, then the spread, then the total weight
+  outColor = vec4(c / uGrid, sp, sw);
+}
+`;
+
+/**
+ * FOLD: the surface mapped onto a Julia set.
+ *
+ * The technique behind the reference: iterate z -> z^2 + c per pixel, and use
+ * two quantities from the escape as texture coordinates.
+ *
+ *   u  the SMOOTH iteration count. The raw count is an integer and bands
+ *      hard; subtracting log2(log|z| / log(bailout)) makes it continuous, so
+ *      the image maps across the bands instead of stepping between them.
+ *   v  the field-line angle, arg(z) at the moment of escape. Field lines run
+ *      outward perpendicular to the bands, so (u, v) is a curvilinear grid
+ *      that follows the set's own structure - which is what makes a mapped
+ *      image look folded into the fractal rather than printed on it.
+ *
+ * Tiling is mirrored so the image meets itself at every band boundary
+ * instead of cutting. Bands alternate between the surface (A) and the
+ * underlayer (B), so the surface folds through into what is underneath, and
+ * points that never escape - the interior of the set - are all B.
+ *
+ * Stateless by construction: everything here is a function of this pixel,
+ * this frame's textures and the uniforms. Nothing carries over, so a scrub
+ * and a playthrough give the same frame.
+ */
+export const FRAG_FOLD = `#version 300 es
+precision highp float;
+uniform sampler2D uComp;     // the composite so far; alpha is the mask
+uniform sampler2D uA;
+uniform sampler2D uB;
+uniform vec2  uRes;
+uniform float uAmount;       // 0 = off
+uniform vec2  uC;            // the Julia constant
+uniform float uIter;
+uniform float uBandDensity;
+uniform float uField;        // field-line repeat
+uniform float uZoom;
+uniform vec2  uCenter;       // 0-1 of the frame
+uniform int   uWhere;        // 0 edges, 1 inside reveals, 2 whole frame
+uniform float uAlternate;    // how much the field lines also alternate A/B
+uniform float uEdge;         // edge band width, px
+out vec4 outColor;
+
+const float PI = 3.14159265359;
+const float BAIL = 256.0;
+
+vec2 cmul(vec2 a, vec2 b) { return vec2(a.x * b.x - a.y * b.y, a.x * b.y + a.y * b.x); }
+
+/** 0,1,2,3 -> 0,1,0,1 with no seam: the image meets itself at every edge. */
+float mirror(float t) {
+  t = fract(t * 0.5) * 2.0;
+  return t > 1.0 ? 2.0 - t : t;
+}
+
+void main() {
+  vec2 px = gl_FragCoord.xy;
+  vec2 uv = px / uRes;
+  vec4 comp = texture(uComp, uv);
+  if (uAmount <= 0.001) { outColor = comp; return; }
+
+  // ---- where it applies
+  float w = 1.0;
+  if (uWhere == 1) {
+    w = comp.a;
+  } else if (uWhere == 0) {
+    // the boundary of the mask: where alpha disagrees with its neighbours
+    float e = 0.0;
+    vec2 o = vec2(max(uEdge, 1.0)) / uRes;
+    e = max(e, abs(texture(uComp, uv + vec2(o.x, 0.0)).a - comp.a));
+    e = max(e, abs(texture(uComp, uv - vec2(o.x, 0.0)).a - comp.a));
+    e = max(e, abs(texture(uComp, uv + vec2(0.0, o.y)).a - comp.a));
+    e = max(e, abs(texture(uComp, uv - vec2(0.0, o.y)).a - comp.a));
+    w = e;
+  }
+  w *= uAmount;
+  if (w <= 0.002) { outColor = comp; return; }
+
+  // ---- iterate, in a frame centred on the region
+  float asp = uRes.x / uRes.y;
+  vec2 z = (uv - uCenter) * vec2(asp, 1.0) / max(uZoom, 1e-4);
+  float n = -1.0;
+  for (int i = 0; i < 512; i++) {
+    if (float(i) >= uIter) break;
+    z = cmul(z, z) + uC;
+    if (dot(z, z) > BAIL * BAIL) { n = float(i); break; }
+  }
+
+  if (n < 0.0) {
+    // never escaped: the interior of the set is all underlayer
+    vec3 b = texture(uB, uv).rgb;
+    outColor = vec4(mix(comp.rgb, b, w), clamp(mix(comp.a, 1.0, w), 0.0, 1.0));
+    return;
+  }
+
+  // ---- smooth iteration count, and the field-line angle at escape
+  float sn = n + 1.0 - log2(log(length(z)) / log(BAIL));
+  float ang = atan(z.y, z.x) / (2.0 * PI) + 0.5;
+
+  float u = sn / max(uBandDensity, 0.01);
+  float v = ang * max(uField, 0.01);
+  vec2 st = vec2(mirror(u), mirror(v));
+
+  // ---- alternate surface and underlayer by band, and by field line
+  float byBand = mod(floor(u), 2.0);
+  float byField = step(0.5, fract(v));
+  float sel = mix(byBand, mod(byBand + byField, 2.0), clamp(uAlternate, 0.0, 1.0));
+
+  vec3 sa = texture(uA, st).rgb;
+  vec3 sb = texture(uB, st).rgb;
+  vec3 folded = mix(sa, sb, sel);
+
+  outColor = vec4(mix(comp.rgb, folded, w),
+                  clamp(mix(comp.a, sel, w), 0.0, 1.0));
 }
 `;

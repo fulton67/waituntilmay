@@ -12,14 +12,17 @@
  * from wherever the playhead used to be.
  */
 import {
-  FRAG_BLOOM, FRAG_COMP, FRAG_DIFF, FRAG_DILATE, FRAG_DRAG, FRAG_INSIDE,
-  FRAG_REDUCE, FRAG_SEED, VERT,
+  FRAG_BLOOM, FRAG_CENTROID, FRAG_COMP, FRAG_DIFF, FRAG_DILATE, FRAG_DRAG,
+  FRAG_FOLD, FRAG_INSIDE, FRAG_REDUCE, FRAG_SEED, VERT,
 } from "./tune-shaders";
 
 export type Dissolve = "stepped" | "half-filled" | "broken-edges";
 export type DragDir = "motion-vectors" | "vertical-melt" | "mixed";
 export type DragTrigger = "envelope" | "concept-words" | "random";
 export type InsideLook = "current" | "crystal";
+export type FoldWhere = "reveal-edges" | "inside-reveals" | "whole-frame";
+export type FoldCenter = "damage" | "motion" | "face" | "frame";
+export type CPath = "circle" | "cardioid" | "lissajous" | "spiral";
 
 /** The one hash the CPU-side gates use. Only implementation, so any is fine. */
 function hash11(p: number) {
@@ -91,6 +94,22 @@ export interface TuneConfig {
     filament: number; filScale: number; stretch: number;
     edge: number; black: number;
   };
+  fold: {
+    amount: number;            // 0 = off
+    where: FoldWhere;
+    center: FoldCenter;
+    cPath: CPath;
+    cSpeed: number;            // how fast c walks its path
+    cPush: number;             // how far the word envelope shoves it
+    cRadius: number;
+    iterations: number;
+    bandDensity: number;
+    field: number;             // field-line repeats
+    zoom: number;
+    alternate: number;         // how much field lines also swap A/B
+    edge: number;              // edge band width in px, for reveal-edges
+    followZoom: number;        // how much the region's spread sets the zoom
+  };
   life: { timeJitter: number; spaceJitter: number };
   b: { speed: number; dupP: number };
   /** The six plain-language dials, kept so the lab can reload them. */
@@ -143,12 +162,13 @@ export interface Macros {
   drag: number;
   inside: number;
   followsWords: number;
+  foldIn: number;
   look: InsideLook;
 }
 
 export const DEFAULT_MACROS: Macros = {
   damage: 0.5, squareSize: 0.5, alive: 0.5, drag: 0.55, inside: 0.5,
-  followsWords: 0.6, look: "current",
+  followsWords: 0.6, foldIn: 0, look: "current",
 };
 
 export const DEFAULTS: TuneConfig = {
@@ -178,9 +198,57 @@ export const DEFAULTS: TuneConfig = {
     look: "current", hueShift: 0.0, saturation: 1.0, bands: 2.0,
     filament: 0.9, filScale: 30, stretch: 9.0, edge: 0.9, black: 0.72,
   },
+  fold: {
+    amount: 0, where: "inside-reveals", center: "damage", cPath: "circle",
+    cSpeed: 0.22, cPush: 0.35, cRadius: 0.7885, iterations: 96,
+    bandDensity: 7, field: 3, zoom: 1.1, alternate: 0.45, edge: 6,
+    followZoom: 0.6,
+  },
   life: { timeJitter: 0.15, spaceJitter: 0.1 },
   b: { speed: 1.0, dupP: 4 },
 };
+
+const WHERE_ID: Record<FoldWhere, number> = {
+  "reveal-edges": 0, "inside-reveals": 1, "whole-frame": 2,
+};
+const CENTER_ID: Record<FoldCenter, number> = {
+  damage: 0, motion: 1, face: 2, frame: 3,
+};
+
+/**
+ * Where c sits this frame.
+ *
+ * A pure function of the frame index and the envelope, so the fold stays
+ * stateless: a scrub to frame 240 puts c exactly where playing to 240 would.
+ * The envelope term shoves c along its own path rather than off it, so a
+ * loud word changes the shape of the set without throwing it somewhere
+ * unrelated.
+ */
+export function cAt(cfg: TuneConfig, frame: number, fps: number, env: number) {
+  const f = cfg.fold;
+  const t = (frame / Math.max(fps, 1)) * f.cSpeed + env * f.cPush;
+  const r = f.cRadius;
+  switch (f.cPath) {
+    case "cardioid": {
+      // on the boundary of the main cardioid: the most structured place to be
+      const th = t * 2 * Math.PI;
+      return [0.5 * Math.cos(th) - 0.25 * Math.cos(2 * th),
+        0.5 * Math.sin(th) - 0.25 * Math.sin(2 * th)] as [number, number];
+    }
+    case "lissajous":
+      return [r * 0.62 * Math.cos(t * 2 * Math.PI),
+        r * 0.62 * Math.sin(t * 2 * Math.PI * 1.3)] as [number, number];
+    case "spiral": {
+      const th = t * 2 * Math.PI;
+      const rr = r * (0.82 + 0.18 * Math.sin(t * 2 * Math.PI * 0.37));
+      return [rr * Math.cos(th), rr * Math.sin(th)] as [number, number];
+    }
+    default: {
+      const th = t * 2 * Math.PI;
+      return [r * Math.cos(th), r * Math.sin(th)] as [number, number];
+    }
+  }
+}
 
 const LOOK_ID: Record<InsideLook, number> = { current: 0, crystal: 1 };
 
@@ -254,6 +322,18 @@ export function resolveMacros(m: Macros, base: TuneConfig = DEFAULTS): TuneConfi
   c.reveals.onset = lerp(3.0, 0.8, fw);
   c.drag.trigger = fw > 0.75 ? "concept-words" : fw < 0.25 ? "random" : "envelope";
 
+  // ---- fold in: none, through folding inside the reveals, to a fractal
+  // tunnel over the whole frame. The dial owns amount, zoom, band density
+  // and iterations; the shape of the set is left to the advanced controls.
+  const fo = clamp01(m.foldIn ?? 0);
+  c.fold.amount = fo <= 0.02 ? 0 : fo;
+  c.fold.zoom = lerp(1.6, 0.42, fo);          // further in as it opens up
+  c.fold.bandDensity = lerp(14, 4, fo);
+  c.fold.iterations = Math.round(lerp(48, 160, fo));
+  // past the top of the range it stops being a detail and becomes the frame
+  c.fold.where = fo > 0.85 ? "whole-frame"
+    : fo > 0.02 ? "inside-reveals" : c.fold.where;
+
   c.inside.look = m.look;
   c.macros = JSON.parse(JSON.stringify(m));
   return c;
@@ -282,7 +362,7 @@ export function sanitizeConfig(c: unknown): TuneConfig {
   if (typeof inc.curveEnabled === "boolean") out.curveEnabled = inc.curveEnabled;
   if (typeof inc.curveBlend === "boolean") out.curveBlend = inc.curveBlend;
   for (const k of ["squares", "reveals", "bloom", "drag", "inside",
-                   "life", "b"] as const) {
+                   "fold", "life", "b"] as const) {
     const g = inc[k];
     if (g && typeof g === "object") {
       // only keys the group already has, so a stale field cannot sneak in
@@ -345,6 +425,10 @@ export class TuneRenderer {
   private dragA: Target[] = []; private dragB: Target[] = [];
   private inside!: Target;
   private comp!: Target;
+  private folded!: Target;
+  private centroid!: Target;
+  /** Last measured region: centre in 0-1, spread, total weight. */
+  lastCenter: [number, number, number, number] = [0.5, 0.5, 0.5, 0];
   private reduce: Target[] = [];
   private w = 0; private h = 0; private cols = 0; private rows = 0;
   private mb = 16;
@@ -354,6 +438,9 @@ export class TuneRenderer {
   private dragPrimed: boolean[] = [];
   readonly slots: number;
   lastDragFire = 0;
+  lastFold: { c: [number, number]; zoom: number; center: number[];
+    spread: number } | null = null;
+  private fps = 30;
   float: { ok: boolean; message: string };
   lastCoverage = 0;
 
@@ -375,7 +462,8 @@ export class TuneRenderer {
     for (const [k, f] of Object.entries({
       diff: FRAG_DIFF, seed: FRAG_SEED, dilate: FRAG_DILATE,
       bloom: FRAG_BLOOM, inside: FRAG_INSIDE, comp: FRAG_COMP,
-      drag: FRAG_DRAG, reduce: FRAG_REDUCE,
+      fold: FRAG_FOLD, centroid: FRAG_CENTROID, drag: FRAG_DRAG,
+      reduce: FRAG_REDUCE,
     })) this.progs[k] = program(gl, f);
 
     this.vao = gl.createVertexArray()!;
@@ -443,6 +531,8 @@ export class TuneRenderer {
     }
     this.inside = this.target(w, h, false, false);
     this.comp = this.target(w, h, false, false);
+    this.folded = this.target(w, h, false, false);
+    this.centroid = this.target(1, 1);
     // a reduction chain down to 1x1 so coverage comes back as one pixel
     this.reduce = [];
     let rw = Math.ceil(w / 2), rh = Math.ceil(h / 2);
@@ -457,6 +547,8 @@ export class TuneRenderer {
   }
 
   /** The motion field, as produced by scripts/tune_prep.py. */
+  setFps(f: number) { this.fps = f || 30; }
+
   setMotion(buf: ArrayBuffer) {
     const head = new Int32Array(buf, 0, 4);
     this.mvFrames = head[0]; this.mvRows = head[1]; this.mvCols = head[2];
@@ -651,13 +743,79 @@ export class TuneRenderer {
       this.draw(this.comp);
     }
 
+    // ---- where the region is, for the fold to centre on. Measured once
+    // per frame on the main slot and shared with the variation tiles: they
+    // are variations of the same moment, so the region is the same, and a
+    // readback per tile would be seven stalls a frame instead of one.
+    if (sl === 0 && cfg.fold.amount > 0.001) {
+      const p = this.use("centroid");
+      this.bind(p, "uDiff", 0, this.diff.tex);
+      this.bind(p, "uMv", 1, this.texMv);
+      gl.uniform2f(this.u(p, "uGrid"), grid[0], grid[1]);
+      gl.uniform2f(this.u(p, "uMvGrid"), mvGrid[0], mvGrid[1]);
+      gl.uniform1f(this.u(p, "uThreshold"), cfg.squares.threshold);
+      gl.uniform1i(this.u(p, "uMode"), CENTER_ID[cfg.fold.center] ?? 0);
+      this.draw(this.centroid);
+      const c = new Float32Array(4);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, this.centroid.fb);
+      gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.FLOAT, c);
+      // Snap the centre and the spread to a grid, so the structure cannot
+      // move on centroid noise finer than about 5 px.
+      //
+      // This does NOT make the content-derived centres reproduce between the
+      // preview and the offline render, and the measurement says so: with
+      // centre=face the two differ by 39.96/255 even with this in place,
+      // because the skin weight is a hard threshold and the browser's
+      // decoder and ffmpeg's disagree on enough pixels to move the centroid
+      // further than one cell. centre=motion reads the motion field, which
+      // is the same bytes in both paths, and lands at 0.8847 - the decode
+      // floor. centre=frame is constant and lands at 0.9102. So a fold that
+      // has to match an offline render should be centred on motion or on
+      // the frame; damage and face follow the picture more closely and are
+      // preview-only in that sense.
+      const Q = 1 / 128, QS = 1 / 64;
+      this.lastCenter = c[3] > 1e-6
+        ? [Math.round(c[0] / Q) * Q, Math.round(c[1] / Q) * Q,
+          Math.round(c[2] / QS) * QS, c[3]]
+        : [0.5, 0.5, 0.5, 0];
+    }
+
+    // ---- fold: the surface mapped onto a Julia set
+    let folded = this.comp;
+    if (cfg.fold.amount > 0.001) {
+      const fc = cfg.fold;
+      const [cx, cy, spread] = this.lastCenter;
+      // the tighter the region, the further in the fold zooms
+      const zoom = fc.zoom / Math.max(0.12,
+        1 - fc.followZoom * (1 - Math.min(1, spread * 2.2)));
+      const c = cAt(cfg, frame, this.fps || 30, env);
+      const p = this.use("fold");
+      this.bind(p, "uComp", 0, this.comp.tex);
+      this.bind(p, "uA", 1, this.texA);
+      this.bind(p, "uB", 2, bTex);
+      gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
+      gl.uniform1f(this.u(p, "uAmount"), fc.amount);
+      gl.uniform2f(this.u(p, "uC"), c[0], c[1]);
+      gl.uniform1f(this.u(p, "uIter"), fc.iterations);
+      gl.uniform1f(this.u(p, "uBandDensity"), fc.bandDensity);
+      gl.uniform1f(this.u(p, "uField"), fc.field);
+      gl.uniform1f(this.u(p, "uZoom"), zoom);
+      gl.uniform2f(this.u(p, "uCenter"), cx, cy);
+      gl.uniform1i(this.u(p, "uWhere"), WHERE_ID[fc.where] ?? 1);
+      gl.uniform1f(this.u(p, "uAlternate"), fc.alternate);
+      gl.uniform1f(this.u(p, "uEdge"), fc.edge);
+      this.draw(this.folded);
+      folded = this.folded;
+      this.lastFold = { c, zoom, center: [cx, cy], spread };
+    }
+
     // ---- drag: grab the surface and pull it out of the squares
     const dcfg = cfg.drag;
     const dragFire = dragFireAt(cfg, frame, shaped, framesSinceOnset);
     this.lastDragFire = dragFire;
     {
       const p = this.use("drag");
-      this.bind(p, "uComp", 0, this.comp.tex);
+      this.bind(p, "uComp", 0, folded.tex);
       this.bind(p, "uB", 1, bTex);
       this.bind(p, "uPrevDrag", 2, this.dragA[sl].tex);
       this.bind(p, "uMv", 3, this.texMv);
@@ -682,6 +840,7 @@ export class TuneRenderer {
     }
     // what reaches the screen, and what coverage is measured from
     const final = this.dragA[sl];
+    void folded;
 
     // ---- coverage, by reducing the final alpha to one pixel
     let rsrc: Target = final;

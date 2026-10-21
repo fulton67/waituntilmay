@@ -114,7 +114,7 @@ await page.evaluate((c) => {
 }, cfg);
 {
   const got = await page.evaluate(() => window.__tune.getConfig());
-  for (const k of ["squares", "reveals", "bloom", "drag", "life"]) {
+  for (const k of ["squares", "reveals", "bloom", "drag", "inside", "fold", "life"]) {
     if (JSON.stringify(got[k]) !== JSON.stringify(cfg[k])) {
       throw new Error(`config did not take effect for "${k}": sent `
         + `${JSON.stringify(cfg[k])}, live ${JSON.stringify(got[k])}`);

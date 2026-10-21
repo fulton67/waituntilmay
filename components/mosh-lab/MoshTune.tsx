@@ -22,8 +22,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   CURVE_SAMPLES, curveAt, DEFAULT_MACROS, DEFAULTS, dragFireAt,
   followEnvelope, resolveMacros, sanitizeConfig, shapeEnvelope, TuneRenderer,
-  type Dissolve, type DragDir, type DragTrigger, type InsideLook,
-  type Macros, type TuneConfig,
+  type CPath, type Dissolve, type DragDir, type DragTrigger, type FoldCenter,
+  type FoldWhere, type InsideLook, type Macros, type TuneConfig,
 } from "./TuneRenderer";
 import "./mosh-tune.css";
 
@@ -58,6 +58,8 @@ const MACROS: { key: keyof Macros; label: string; hint: string }[] = [
     hint: "How much of the layer underneath shows through a hole, instead of staying half-closed." },
   { key: "followsWords", label: "Follows words",
     hint: "How much the speech drives it. Left ignores the talk, right bursts open on words like “internet”." },
+  { key: "foldIn", label: "Fold in",
+    hint: "Folds the picture into a fractal, so the surface and the layer underneath interleave along its bands. Past about 85 it takes the whole frame instead of just the holes." },
 ];
 
 const LOOKS: { v: InsideLook; label: string; hint: string }[] = [
@@ -129,6 +131,21 @@ const GROUPS: { name: string; path: keyof TuneConfig; specs: Spec[] }[] = [
       { key: "stretch", label: "stretch along motion", min: 1, max: 24, step: 0.5 },
       { key: "edge", label: "bright edges", min: 0, max: 3, step: 0.02 },
       { key: "black", label: "black floor", min: 0, max: 0.9, step: 0.01 },
+    ],
+  },
+  {
+    name: "fold", path: "fold", specs: [
+      { key: "amount", label: "amount", min: 0, max: 1, step: 0.01 },
+      { key: "cSpeed", label: "c path speed", min: 0, max: 2, step: 0.01 },
+      { key: "cPush", label: "c push from words", min: 0, max: 2, step: 0.01 },
+      { key: "cRadius", label: "c radius", min: 0.1, max: 1.2, step: 0.005 },
+      { key: "iterations", label: "iterations", min: 8, max: 400, step: 1 },
+      { key: "bandDensity", label: "band density", min: 0.5, max: 40, step: 0.5 },
+      { key: "field", label: "field-line strength", min: 0.1, max: 16, step: 0.1 },
+      { key: "zoom", label: "zoom", min: 0.05, max: 4, step: 0.01 },
+      { key: "followZoom", label: "zoom follows region", min: 0, max: 1, step: 0.01 },
+      { key: "alternate", label: "A/B alternation", min: 0, max: 1, step: 0.01 },
+      { key: "edge", label: "edge width (px)", min: 1, max: 40, step: 1 },
     ],
   },
   {
@@ -600,6 +617,12 @@ export default function MoshTune() {
       coverage: () => rendRef.current?.lastCoverage ?? 0,
       debug: () => rendRef.current?.debug() ?? null,
       showInside: () => rendRef.current?.blitInside(),
+      foldState: () => {
+        const r = rendRef.current;
+        if (!r) return null;
+        const f = r.lastFold;
+        return f ? { ...f, center: f.center, spread: f.spread } : null;
+      },
     };
   }, [data, envelope, onsetDistance, renderMode]);
 
@@ -800,6 +823,7 @@ export default function MoshTune() {
         <button onClick={() => applyMacros({
           damage: Math.random(), squareSize: Math.random(), alive: Math.random(),
           drag: Math.random(), inside: Math.random(), followsWords: Math.random(),
+          foldIn: Math.random() < 0.5 ? 0 : Math.random(),
           look: Math.random() < 0.5 ? "current" : "crystal",
         })}>randomize all</button>
         <button onClick={() => {
@@ -852,6 +876,51 @@ export default function MoshTune() {
                     <option value="crystal">crystal</option>
                   </select>
                 </label>
+              )}
+              {grp.name === "fold" && (
+                <>
+                  <label className="mt-sel">
+                    <span>where</span>
+                    <select value={cfg.fold.where} onChange={(e) =>
+                      setCfg((c) => {
+                        const n = clone(c);
+                        n.fold.where = e.target.value as FoldWhere;
+                        return n;
+                      })}>
+                      <option value="reveal-edges">reveal edges</option>
+                      <option value="inside-reveals">inside reveals</option>
+                      <option value="whole-frame">whole frame</option>
+                    </select>
+                  </label>
+                  <label className="mt-sel">
+                    <span>centre on</span>
+                    <select value={cfg.fold.center} onChange={(e) =>
+                      setCfg((c) => {
+                        const n = clone(c);
+                        n.fold.center = e.target.value as FoldCenter;
+                        return n;
+                      })}>
+                      <option value="damage">centroid of the damage</option>
+                      <option value="motion">strongest motion</option>
+                      <option value="face">face (skin chroma)</option>
+                      <option value="frame">frame centre</option>
+                    </select>
+                  </label>
+                  <label className="mt-sel">
+                    <span>c path</span>
+                    <select value={cfg.fold.cPath} onChange={(e) =>
+                      setCfg((c) => {
+                        const n = clone(c);
+                        n.fold.cPath = e.target.value as CPath;
+                        return n;
+                      })}>
+                      <option value="circle">circle</option>
+                      <option value="cardioid">cardioid edge</option>
+                      <option value="lissajous">lissajous</option>
+                      <option value="spiral">spiral</option>
+                    </select>
+                  </label>
+                </>
               )}
               {grp.name === "drag" && (
                 <>

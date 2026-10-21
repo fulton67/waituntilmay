@@ -98,7 +98,7 @@ async function captureLive(conf, outDir, label) {
   // assert, do not assume: the page also loads config/composite.json, and a
   // silent overwrite here makes every run below compare the same two files
   const got = await page.evaluate(() => window.__tune.getConfig());
-  for (const k of ["squares", "reveals", "bloom", "drag", "life"]) {
+  for (const k of ["squares", "reveals", "bloom", "drag", "inside", "fold", "life"]) {
     if (JSON.stringify(got[k]) !== JSON.stringify(conf[k])) {
       throw new Error(`config did not take effect for "${k}" in the ${label} `
         + `pass:
@@ -184,6 +184,7 @@ floorCfg.squares = { ...floorCfg.squares, threshold: 1e9, baseline: 0 };
 floorCfg.reveals = { ...floorCfg.reveals, peak: 0, growRadius: 0, gain: 0 };
 floorCfg.bloom = { ...floorCfg.bloom, mix: 0, strength: 0 };
 floorCfg.drag = { ...floorCfg.drag, amount: 0 };
+floorCfg.fold = { ...floorCfg.fold, amount: 0 };
 await mkdir(path.join(WORK, "liveFloor"), { recursive: true });
 const liveFloor = await captureLive(floorCfg, path.join(WORK, "liveFloor"), "floor");
 const framesF = [...new Set(liveFloor.map((l) => l.frame))].sort((a, b) => a - b);

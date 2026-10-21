@@ -1,0 +1,33 @@
+decoded 280 frames of each layer
+
+=== feedback-off ===  fold amount 1, where whole-frame
+   frame  mean |d|  max |d|  identical  scrub / play
+      12    0.0000        0       true  ec4fb15c74 / ec4fb15c74
+      36    0.0000        0       true  d09e382d3d / d09e382d3d
+      60    0.0000        0       true  8ec623ebbb / 8ec623ebbb
+      93    0.0000        0       true  8db322c12b / 8db322c12b
+     108    0.0000        0       true  2f4903a74a / 2f4903a74a
+     153    0.0000        0       true  590dd41a97 / 590dd41a97
+     168    0.0000        0       true  d54a1743bb / d54a1743bb
+     192    0.0000        0       true  58b9523852 / 58b9523852
+     246    0.0000        0       true  2c65178f08 / 2c65178f08
+     279    0.0000        0       true  02f9a448ec / 02f9a448ec
+  byte-identical: 10/10   mean of means 0.0000
+
+=== feedback-on ===  fold amount 1, where whole-frame
+   frame  mean |d|  max |d|  identical  scrub / play
+      12    7.1584      166      false  8ea0627e32 / 45b927d59e
+      36    1.5109      188      false  21dc24fdc6 / fd7617450b
+      60    0.0000        0       true  8ec623ebbb / 8ec623ebbb
+      93    0.0000        0       true  8db322c12b / 8db322c12b
+     108    0.0000        0       true  2f4903a74a / 2f4903a74a
+     153    0.0000        0       true  590dd41a97 / 590dd41a97
+     168    0.0000        0       true  d54a1743bb / d54a1743bb
+     192    0.0000        0       true  58b9523852 / 58b9523852
+     246    0.0000        0       true  2c65178f08 / 2c65178f08
+     279    0.0000        0       true  02f9a448ec / 02f9a448ec
+  byte-identical: 8/10   mean of means 0.8669
+
+report -> public/mosh-lab/fold-stateless.json
+
+PASS: with the feedback buffers off, scrubbing and playing are byte-identical
