@@ -142,6 +142,14 @@ const GROUPS: { name: string; path: keyof TuneConfig; specs: Spec[] }[] = [
     ],
   },
   {
+    name: "organic openings", path: "organic", specs: [
+      { key: "amount", label: "amount", min: 0, max: 1, step: 0.01 },
+      { key: "scale", label: "radius (blocks)", min: 0.1, max: 4, step: 0.05 },
+      { key: "wobble", label: "outline wobble", min: 0, max: 1.5, step: 0.02 },
+      { key: "soft", label: "edge softness (px)", min: 0.5, max: 12, step: 0.5 },
+    ],
+  },
+  {
     name: "inside look", path: "inside", specs: [
       { key: "hueShift", label: "hue shift", min: 0, max: 1, step: 0.01 },
       { key: "saturation", label: "saturation", min: 0, max: 2, step: 0.01 },
@@ -166,6 +174,7 @@ const GROUPS: { name: string; path: keyof TuneConfig; specs: Spec[] }[] = [
       { key: "followZoom", label: "zoom follows region", min: 0, max: 1, step: 0.01 },
       { key: "alternate", label: "A/B alternation", min: 0, max: 1, step: 0.01 },
       { key: "edge", label: "edge width (px)", min: 1, max: 40, step: 1 },
+      { key: "soft", label: "rim softness (px)", min: 1, max: 40, step: 1 },
     ],
   },
   {
@@ -641,6 +650,7 @@ export default function MoshTune() {
       debug: () => rendRef.current?.debug() ?? null,
       showInside: () => rendRef.current?.blitInside(),
       stretchStats: () => rendRef.current?.sims?.[0]?.stats() ?? null,
+      damageSplit: () => rendRef.current?.lastSplit ?? null,
       foldState: () => {
         const r = rendRef.current;
         if (!r) return null;

@@ -17,6 +17,10 @@ import {
   VERT, VERT_STRETCH,
 } from "./tune-shaders";
 import { StretchSim, STRETCH_DEFAULTS, type StretchCfg } from "./StretchSim";
+import {
+  FRAG_COPY, FRAG_DAMAGE, FRAG_DMGSTAT, FRAG_FOLDSTAT, FRAG_OPENINGS,
+  FRAG_SUM4,
+} from "./damage-shaders";
 
 export type { StretchCfg } from "./StretchSim";
 
@@ -58,6 +62,12 @@ export interface TuneConfig {
   };
   bloom: { lead: number; strength: number; decay: number; scale: number; mix: number };
   stretch: StretchCfg;
+  organic: {
+    amount: number;          // 0 = openings stay square
+    scale: number;           // radius in macroblocks
+    wobble: number;          // how far the radius departs from a circle
+    soft: number;            // edge softness, px
+  };
   inside: {
     look: InsideLook;
     hueShift: number; saturation: number; bands: number;
@@ -79,6 +89,7 @@ export interface TuneConfig {
     alternate: number;         // how much field lines also swap A/B
     edge: number;              // edge band width in px, for reveal-edges
     followZoom: number;        // how much the region's spread sets the zoom
+    soft: number;              // px over which the fold eases in at a rim
   };
   life: { timeJitter: number; spaceJitter: number };
   b: { speed: number; dupP: number };
@@ -161,6 +172,7 @@ export const DEFAULTS: TuneConfig = {
   },
   bloom: { lead: 6, strength: 0.65, decay: 0.85, scale: 0.35, mix: 0.6 },
   stretch: { ...STRETCH_DEFAULTS },
+  organic: { amount: 0.85, scale: 0.9, wobble: 0.55, soft: 1.5 },
   inside: {
     // bands and black were solved by measuring the hue histogram of the
     // crystal layer on its own: at 1.0 there is no orange at all, at 2.5 it
@@ -172,7 +184,7 @@ export const DEFAULTS: TuneConfig = {
     amount: 0, where: "inside-reveals", center: "damage", cPath: "circle",
     cSpeed: 0.22, cPush: 0.35, cRadius: 0.7885, iterations: 96,
     bandDensity: 7, field: 3, zoom: 1.1, alternate: 0.45, edge: 6,
-    followZoom: 0.6,
+    followZoom: 0.6, soft: 6,
   },
   life: { timeJitter: 0.15, spaceJitter: 0.1 },
   b: { speed: 1.0, dupP: 4 },
@@ -343,8 +355,8 @@ export function sanitizeConfig(c: unknown): TuneConfig {
   }
   if (typeof inc.curveEnabled === "boolean") out.curveEnabled = inc.curveEnabled;
   if (typeof inc.curveBlend === "boolean") out.curveBlend = inc.curveBlend;
-  for (const k of ["squares", "reveals", "bloom", "stretch", "inside",
-                   "fold", "life", "b"] as const) {
+  for (const k of ["squares", "reveals", "bloom", "stretch", "organic",
+                   "inside", "fold", "life", "b"] as const) {
     const g = inc[k];
     if (g && typeof g === "object") {
       // only keys the group already has, so a stale field cannot sneak in
@@ -408,6 +420,11 @@ export class TuneRenderer {
   private dragA: Target[] = []; private dragB: Target[] = [];
   private inside!: Target;
   private comp!: Target;
+  /** THE damage map: R block, G organic, B stretch. */
+  damage!: Target;
+  private work: Target[] = [];
+  private statA!: Target;
+  private statChain: Target[] = [];
   private folded!: Target;
   private centroid!: Target;
   /** Last measured region: centre in 0-1, spread, total weight. */
@@ -429,6 +446,13 @@ export class TuneRenderer {
   private diffRead: Float32Array = new Float32Array(0);
   lastFold: { c: [number, number]; zoom: number; center: number[];
     spread: number } | null = null;
+  /**
+   * How the fold's attention divides between the three kinds of damage, and
+   * how the map itself divides. If the fold is really following the map
+   * rather than the block mask it used to read, these two agree.
+   */
+  lastSplit: { fold: number[]; map: number[]; foldTotal: number;
+    mapTotal: number } | null = null;
   private fps = 30;
   float: { ok: boolean; message: string };
   lastCoverage = 0;
@@ -452,7 +476,9 @@ export class TuneRenderer {
       diff: FRAG_DIFF, seed: FRAG_SEED, dilate: FRAG_DILATE,
       bloom: FRAG_BLOOM, inside: FRAG_INSIDE, comp: FRAG_COMP,
       fold: FRAG_FOLD, centroid: FRAG_CENTROID, drag: FRAG_DRAG,
-      reduce: FRAG_REDUCE,
+      reduce: FRAG_REDUCE, damage: FRAG_DAMAGE, openings: FRAG_OPENINGS,
+      sum4: FRAG_SUM4, foldstat: FRAG_FOLDSTAT, dmgstat: FRAG_DMGSTAT,
+      copy: FRAG_COPY,
     })) this.progs[k] = program(gl, f as string);
     // the stretch draws instanced quads, so it brings its own vertex shader
     this.progs.stretch = programV(gl, VERT_STRETCH, FRAG_STRETCH);
@@ -546,6 +572,23 @@ export class TuneRenderer {
     }
     this.inside = this.target(w, h, false, false);
     this.comp = this.target(w, h, false, false);
+    // float, because the map carries weights rather than just on/off
+    this.damage = this.target(w, h);
+    this.work = [];
+    for (let i = 0; i < this.slots; i++) {
+      this.work.push(this.target(w, h, false, false));
+    }
+    this.statA = this.target(w, h);
+    this.statChain = [];
+    {
+      let rw = Math.ceil(w / 2), rh = Math.ceil(h / 2);
+      for (;;) {
+        this.statChain.push(this.target(rw, rh));
+        if (rw === 1 && rh === 1) break;
+        rw = Math.max(1, Math.ceil(rw / 2));
+        rh = Math.max(1, Math.ceil(rh / 2));
+      }
+    }
     this.folded = this.target(w, h, false, false);
     this.centroid = this.target(1, 1);
     // a reduction chain down to 1x1 so coverage comes back as one pixel
@@ -698,6 +741,43 @@ export class TuneRenderer {
     }
     const bTex = this.inside.tex;
 
+    // ---- THE damage map, built once, read by everything after it
+    {
+      const p = this.use("damage");
+      this.bind(p, "uDiff", 0, this.diff.tex);
+      this.bind(p, "uDist", 1, dist.tex);
+      gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
+      gl.uniform2f(this.u(p, "uGrid"), grid[0], grid[1]);
+      gl.uniform1f(this.u(p, "uMb"), this.mb);
+      gl.uniform1f(this.u(p, "uFrame"), frame);
+      gl.uniform1f(this.u(p, "uSeed"), cfg.seed);
+      const sq = cfg.squares;
+      gl.uniform3f(this.u(p, "uSizeW"), sq.weight16, sq.weight8, sq.weight4);
+      gl.uniform1f(this.u(p, "uThreshold"), sq.threshold);
+      gl.uniform1f(this.u(p, "uBaseline"), sq.baseline);
+      gl.uniform1f(this.u(p, "uLifeMin"), sq.lifeMin);
+      gl.uniform1f(this.u(p, "uLifeMax"), Math.max(sq.lifeMax, sq.lifeMin + 1));
+      gl.uniform1f(this.u(p, "uFadeRatio"), sq.fadeRatio);
+      gl.uniform1i(this.u(p, "uDissolve"), DISSOLVE_ID[sq.dissolve] ?? 2);
+      gl.uniform1f(this.u(p, "uSteps"), Math.max(1, sq.steps));
+      gl.uniform1f(this.u(p, "uTJitter"), cfg.life.timeJitter);
+      gl.uniform1f(this.u(p, "uSJitter"), cfg.life.spaceJitter);
+      const rv = cfg.reveals;
+      gl.uniform1f(this.u(p, "uShaped"), shaped);
+      gl.uniform1f(this.u(p, "uPeak"), rv.peak);
+      gl.uniform1f(this.u(p, "uGrowRadius"), rv.growRadius);
+      gl.uniform1f(this.u(p, "uOnset"), rv.onset);
+      const og = cfg.organic;
+      gl.uniform1f(this.u(p, "uOrganic"), og.amount);
+      gl.uniform1f(this.u(p, "uOrgScale"), og.scale);
+      gl.uniform1f(this.u(p, "uOrgWobble"), og.wobble);
+      gl.uniform1f(this.u(p, "uOrgSoft"), og.soft);
+      this.draw(this.damage);
+    }
+
+    // the stretches are part of the map, not an overlay on it
+    this.drawStretches(cfg, sl, frame, env, bTex, true);
+
     // ---- bloom feedback
     {
       const p = this.use("bloom");
@@ -709,53 +789,12 @@ export class TuneRenderer {
       gl.uniform1f(this.u(p, "uStrength"), cfg.bloom.strength);
       gl.uniform1f(this.u(p, "uDecay"), cfg.bloom.decay);
       gl.uniform1f(this.u(p, "uScale"), cfg.bloom.scale);
+      this.bind(p, "uDamage", 4, this.damage.tex);
       gl.uniform1i(this.u(p, "uReset"), this.bloomPrimed[sl] ? 0 : 1);
       this.draw(this.bloomB[sl]);
       const t = this.bloomA[sl];
       this.bloomA[sl] = this.bloomB[sl]; this.bloomB[sl] = t;
       this.bloomPrimed[sl] = true;
-    }
-
-    // ---- the composite
-    {
-      const p = this.use("comp");
-      this.bind(p, "uA", 0, this.texA);
-      this.bind(p, "uB", 1, bTex);
-      this.bind(p, "uC", 2, this.texC);
-      this.bind(p, "uDiff", 3, this.diff.tex);
-      this.bind(p, "uDist", 4, dist.tex);
-      this.bind(p, "uBloom", 5, this.bloomA[sl].tex);
-      gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
-      gl.uniform2f(this.u(p, "uGrid"), grid[0], grid[1]);
-      gl.uniform1f(this.u(p, "uMb"), this.mb);
-      gl.uniform1f(this.u(p, "uFrame"), frame);
-      gl.uniform1f(this.u(p, "uSeed"), cfg.seed);
-
-      const s = cfg.squares;
-      gl.uniform3f(this.u(p, "uSizeW"), s.weight16, s.weight8, s.weight4);
-      gl.uniform1f(this.u(p, "uThreshold"), s.threshold);
-      gl.uniform1f(this.u(p, "uBaseline"), s.baseline);
-      gl.uniform1f(this.u(p, "uLifeMin"), s.lifeMin);
-      gl.uniform1f(this.u(p, "uLifeMax"), Math.max(s.lifeMax, s.lifeMin + 1));
-      gl.uniform1f(this.u(p, "uFadeRatio"), s.fadeRatio);
-      gl.uniform1i(this.u(p, "uDissolve"), DISSOLVE_ID[s.dissolve] ?? 2);
-      gl.uniform1f(this.u(p, "uSteps"), Math.max(1, s.steps));
-
-      const r = cfg.reveals;
-      gl.uniform1f(this.u(p, "uEnv"), env);
-      gl.uniform1f(this.u(p, "uShaped"), shaped);
-      gl.uniform1f(this.u(p, "uPeak"), r.peak);
-      gl.uniform1f(this.u(p, "uGrowRadius"), r.growRadius);
-      gl.uniform1f(this.u(p, "uOnset"), r.onset);
-
-      gl.uniform1f(this.u(p, "uBloomMix"), cfg.bloom.mix);
-      gl.uniform1f(this.u(p, "uBloomLead"), cfg.bloom.lead);
-      gl.uniform1f(this.u(p, "uTJitter"), cfg.life.timeJitter);
-      gl.uniform1f(this.u(p, "uSJitter"), cfg.life.spaceJitter);
-
-      // to an offscreen target first, so coverage can be reduced from its
-      // alpha before the same texture is blitted to the canvas
-      this.draw(this.comp);
     }
 
     // ---- where the region is, for the fold to centre on. Measured once
@@ -795,8 +834,30 @@ export class TuneRenderer {
         : [0.5, 0.5, 0.5, 0];
     }
 
+    // ---- the picture: A, then the stretches, then B opened through
+    // the map. The openings step aside where the stretch channel is already
+    // set, so drawing the stretches first does not get them painted over.
+    {
+      const p = this.use("copy");
+      this.bind(p, "uSrc", 0, this.texA);
+      gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
+      this.draw(this.work[sl]);
+    }
+    this.drawStretches(cfg, sl, frame, env, bTex, false);
+    {
+      const p = this.use("openings");
+      this.bind(p, "uB", 0, bTex);
+      this.bind(p, "uBloom", 1, this.bloomA[sl].tex);
+      this.bind(p, "uDamage", 2, this.damage.tex);
+      this.bind(p, "uUnder", 3, this.work[sl].tex);
+      gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
+      gl.uniform1f(this.u(p, "uBloomMix"), cfg.bloom.mix);
+      this.draw(this.comp);
+    }
+    const opened = this.comp;
+
     // ---- fold: the surface mapped onto a Julia set
-    let folded = this.comp;
+    let folded = opened;
     if (cfg.fold.amount > 0.001) {
       const fc = cfg.fold;
       const [cx, cy, spread] = this.lastCenter;
@@ -805,9 +866,11 @@ export class TuneRenderer {
         1 - fc.followZoom * (1 - Math.min(1, spread * 2.2)));
       const c = cAt(cfg, frame, this.fps || 30, env);
       const p = this.use("fold");
-      this.bind(p, "uComp", 0, this.comp.tex);
+      this.bind(p, "uComp", 0, opened.tex);
       this.bind(p, "uA", 1, this.texA);
       this.bind(p, "uB", 2, bTex);
+      this.bind(p, "uDamage", 3, this.damage.tex);
+      gl.uniform1f(this.u(p, "uSoft"), cfg.fold.soft);
       gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
       gl.uniform1f(this.u(p, "uAmount"), fc.amount);
       gl.uniform2f(this.u(p, "uC"), c[0], c[1]);
@@ -824,63 +887,57 @@ export class TuneRenderer {
       this.lastFold = { c, zoom, center: [cx, cy], spread };
     }
 
-    // ---- live pixel stretch: every glitch is a head plus a trail made by
-    // repeating the head's edge row. Simulated on the CPU, drawn as one
-    // instanced quad each.
-    const sim = this.sims[sl];
-    sim.setSize(this.w, this.h);
-    sim.cfg = cfg.stretch;
-    sim.seed = cfg.seed + sl * 7919;
-    this.lastDragFire = cfg.stretch.amount > 0 ? shaped : 0;
+    const final = folded;
 
-    // copy the folded picture forward, then draw the stretches over it
-    this.blitTo(folded, this.dragB[sl]);
-
-    if (cfg.stretch.amount > 0.001) {
-      // heads are cut where the picture is broken, so the block map comes
-      // back once per frame on the main slot and is shared with the tiles
-      if (sl === 0) {
-        const need = this.diff.w * this.diff.h * 4;
-        if (this.diffRead.length !== need) this.diffRead = new Float32Array(need);
-        gl.bindFramebuffer(gl.FRAMEBUFFER, this.diff.fb);
-        gl.readPixels(0, 0, this.diff.w, this.diff.h, gl.RGBA, gl.FLOAT,
-          this.diffRead);
+    // ---- how the fold's attention divides, against how the map divides
+    if (sl === 0 && cfg.fold.amount > 0.001) {
+      const sum4 = (src: Target) => {
+        let cur = src;
+        for (const t of this.statChain) {
+          const p = this.use("sum4");
+          this.bind(p, "uSrc", 0, cur.tex);
+          gl.uniform2f(this.u(p, "uSrcSize"), cur.w, cur.h);
+          this.draw(t);
+          cur = t;
+        }
+        const px = new Float32Array(4);
+        gl.bindFramebuffer(gl.FRAMEBUFFER, cur.fb);
+        gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.FLOAT, px);
         gl.bindFramebuffer(gl.FRAMEBUFFER, null);
-      }
-      sim.setWeights(this.diffRead, this.diff.w, this.diff.h,
-        cfg.squares.threshold);
-      // a jump re-runs the simulation rather than guessing where it would be
-      if (frame !== sim.frame + 1) sim.seekTo(frame, () => env, this.fps);
-      else sim.step(frame, env, this.fps);
-
-      // the stretches follow B's motion field, so hand it over
-      if (this.mv) sim.setFlow(this.mv, this.mvFrames, this.mvRows, this.mvCols);
-      const { buf, count } = sim.pack(this.instData);
-      this.instData = buf;
-      if (count > 0) {
-        gl.bindVertexArray(this.instVao);
-        gl.bindBuffer(gl.ARRAY_BUFFER, this.instBuf);
-        gl.bufferData(gl.ARRAY_BUFFER, buf.subarray(0, count * 16),
-          gl.DYNAMIC_DRAW);
-        const p = this.progs.stretch;
-        gl.useProgram(p);
-        this.bind(p, "uSrc", 0, bTex);
+        return Array.from(px);
+      };
+      {
+        const p = this.use("foldstat");
+        this.bind(p, "uDamage", 0, this.damage.tex);
         gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
-        gl.uniform1f(this.u(p, "uMetal"), cfg.stretch.metal);
-        gl.bindFramebuffer(gl.FRAMEBUFFER, this.dragB[sl].fb);
-        gl.viewport(0, 0, this.w, this.h);
-        gl.enable(gl.BLEND);
-        gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-        gl.drawArraysInstanced(gl.TRIANGLES, 0, 6, count);
-        gl.disable(gl.BLEND);
-        gl.bindFramebuffer(gl.FRAMEBUFFER, null);
-        gl.bindVertexArray(null);
+        gl.uniform1f(this.u(p, "uAmount"), cfg.fold.amount);
+        gl.uniform1f(this.u(p, "uSoft"), cfg.fold.soft);
+        this.draw(this.statA);
       }
+      const fold = sum4(this.statA);
+      {
+        const p = this.use("dmgstat");
+        this.bind(p, "uDamage", 0, this.damage.tex);
+        gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
+        this.draw(this.statA);
+      }
+      const map = sum4(this.statA);
+      this.lastSplit = {
+        fold: fold.slice(0, 3), map: map.slice(0, 3),
+        foldTotal: fold[0] + fold[1] + fold[2],
+        mapTotal: map[0] + map[1] + map[2],
+      };
     }
-    const final = this.dragB[sl];
 
-    // ---- coverage, by reducing the final alpha to one pixel
-    let rsrc: Target = final;
+    // ---- coverage, from the damage map rather than the image's alpha:
+    // "how much of the frame is damaged" is a question about the map
+    {
+      const p = this.use("dmgstat");
+      this.bind(p, "uDamage", 0, this.damage.tex);
+      gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
+      this.draw(this.statA);
+    }
+    let rsrc: Target = this.statA;
     for (let s = 0; s < this.reduce.length; s++) {
       const t = this.reduce[s];
       const p = this.use("reduce");
@@ -939,6 +996,74 @@ export class TuneRenderer {
    * palette rather than as a blend.
    */
   blitInside() { this.blit(this.inside); }
+
+  /**
+   * The stretches, drawn twice from one simulation: once into the shared
+   * damage map's blue channel behind a colour mask, and once as colour.
+   * Same geometry both times, so what the map calls damaged is exactly what
+   * gets drawn. The simulation only steps on the damage pass; the colour
+   * pass reuses that step rather than advancing time twice.
+   */
+  private drawStretches(cfg: TuneConfig, sl: number, frame: number,
+                        env: number, bTex: WebGLTexture, damagePass: boolean) {
+    const gl = this.gl;
+    const sim = this.sims[sl];
+    if (cfg.stretch.amount <= 0.001) return;
+
+    if (damagePass) {
+      sim.setSize(this.w, this.h);
+      sim.cfg = cfg.stretch;
+      sim.seed = cfg.seed + sl * 7919;
+      // heads are cut where the picture is broken, so the block map comes
+      // back once per frame on the main slot and is shared with the tiles
+      if (sl === 0) {
+        const need = this.diff.w * this.diff.h * 4;
+        if (this.diffRead.length !== need) this.diffRead = new Float32Array(need);
+        gl.bindFramebuffer(gl.FRAMEBUFFER, this.diff.fb);
+        gl.readPixels(0, 0, this.diff.w, this.diff.h, gl.RGBA, gl.FLOAT,
+          this.diffRead);
+        gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+      }
+      sim.setWeights(this.diffRead, this.diff.w, this.diff.h,
+        cfg.squares.threshold);
+      if (this.mv) sim.setFlow(this.mv, this.mvFrames, this.mvRows, this.mvCols);
+      // a jump re-runs the simulation rather than guessing where it would be
+      if (frame !== sim.frame + 1) sim.seekTo(frame, () => env, this.fps);
+      else sim.step(frame, env, this.fps);
+    }
+
+    const { buf, count } = sim.pack(this.instData);
+    this.instData = buf;
+    if (count <= 0) return;
+
+    gl.bindVertexArray(this.instVao);
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.instBuf);
+    gl.bufferData(gl.ARRAY_BUFFER, buf.subarray(0, count * 16), gl.DYNAMIC_DRAW);
+    const p = this.progs.stretch;
+    gl.useProgram(p);
+    this.bind(p, "uSrc", 0, bTex);
+    gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
+    gl.uniform1f(this.u(p, "uMetal"), cfg.stretch.metal);
+    gl.uniform1i(this.u(p, "uDamagePass"), damagePass ? 1 : 0);
+
+    const target = damagePass ? this.damage : this.work[sl];
+    gl.bindFramebuffer(gl.FRAMEBUFFER, target.fb);
+    gl.viewport(0, 0, this.w, this.h);
+    if (damagePass) {
+      // only the blue channel: the block and organic channels belong to the
+      // damage pass and must survive this draw untouched
+      gl.colorMask(false, false, true, false);
+    } else {
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    }
+    gl.drawArraysInstanced(gl.TRIANGLES, 0, 6, count);
+    if (damagePass) gl.colorMask(true, true, true, true);
+    else gl.disable(gl.BLEND);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+    gl.bindVertexArray(null);
+    this.lastDragFire = cfg.stretch.amount;
+  }
 
   /** Straight copy of one target into another. */
   private blitTo(from: Target, to: Target) {

@@ -773,9 +773,11 @@ void main() {
  */
 export const FRAG_FOLD = `#version 300 es
 precision highp float;
-uniform sampler2D uComp;     // the composite so far; alpha is the mask
+uniform sampler2D uComp;     // the picture so far
 uniform sampler2D uA;
 uniform sampler2D uB;
+uniform sampler2D uDamage;   // THE damage map: R block, G organic, B stretch
+uniform float uSoft;         // how far inside a shape the weight ramps up
 uniform vec2  uRes;
 uniform float uAmount;       // 0 = off
 uniform vec2  uC;            // the Julia constant
@@ -806,19 +808,33 @@ void main() {
   vec4 comp = texture(uComp, uv);
   if (uAmount <= 0.001) { outColor = comp; return; }
 
-  // ---- where it applies
+  // ---- where it applies, from the ONE damage map
+  //
+  // This used to read the composite's alpha, which was a block mask, which
+  // is why the fold only ever folded squares. The map carries organic
+  // openings and stretch trails in their own channels, so taking the union
+  // here is what puts the fold on all three.
+  vec4 dmg = texture(uDamage, uv);
+  float un = max(max(dmg.r, dmg.g), dmg.b);
+
+  // Soft-weighted by distance inside the shape: a 9-tap average of the
+  // union is near 1 deep inside and falls off at an edge, so the fold eases
+  // in across an organic rim instead of switching on at it.
+  float soft = 0.0;
+  vec2 so = vec2(max(uSoft, 1.0)) / uRes;
+  for (int i = 0; i < 9; i++) {
+    vec2 q = uv + vec2(float(i % 3) - 1.0, float(i / 3) - 1.0) * so;
+    vec4 t = texture(uDamage, q);
+    soft += max(max(t.r, t.g), t.b);
+  }
+  soft /= 9.0;
+
   float w = 1.0;
   if (uWhere == 1) {
-    w = comp.a;
+    w = un * soft;
   } else if (uWhere == 0) {
-    // the boundary of the mask: where alpha disagrees with its neighbours
-    float e = 0.0;
-    vec2 o = vec2(max(uEdge, 1.0)) / uRes;
-    e = max(e, abs(texture(uComp, uv + vec2(o.x, 0.0)).a - comp.a));
-    e = max(e, abs(texture(uComp, uv - vec2(o.x, 0.0)).a - comp.a));
-    e = max(e, abs(texture(uComp, uv + vec2(0.0, o.y)).a - comp.a));
-    e = max(e, abs(texture(uComp, uv - vec2(0.0, o.y)).a - comp.a));
-    w = e;
+    // the rim of the damage, wherever it is and whatever shape it is
+    w = clamp(un - soft, 0.0, 1.0) * 3.0;
   }
   w *= uAmount;
   if (w <= 0.002) { outColor = comp; return; }
@@ -836,7 +852,7 @@ void main() {
   if (n < 0.0) {
     // never escaped: the interior of the set is all underlayer
     vec3 b = texture(uB, uv).rgb;
-    outColor = vec4(mix(comp.rgb, b, w), clamp(mix(comp.a, 1.0, w), 0.0, 1.0));
+    outColor = vec4(mix(comp.rgb, b, w), 1.0);
     return;
   }
 
@@ -857,8 +873,7 @@ void main() {
   vec3 sb = texture(uB, st).rgb;
   vec3 folded = mix(sa, sb, sel);
 
-  outColor = vec4(mix(comp.rgb, folded, w),
-                  clamp(mix(comp.a, sel, w), 0.0, 1.0));
+  outColor = vec4(mix(comp.rgb, folded, w), 1.0);
 }
 `;
 
@@ -925,6 +940,10 @@ precision highp float;
 uniform sampler2D uSrc;
 uniform vec2  uRes;
 uniform float uMetal;
+// the same geometry is drawn twice: once for colour, once into the shared
+// damage map's blue channel behind a colour mask, so heads and trails are
+// in the map every other module reads rather than painted on after it
+uniform bool  uDamagePass;
 in vec2 vLocal;
 in vec4 vA;
 in vec4 vB;
@@ -985,6 +1004,10 @@ void main() {
     float sheen = 1.0 + uMetal * (0.18 * sin(vLocal.x * 6.2831 - 1.2)
                                   - 0.25 * u);
     c *= clamp(sheen, 0.0, 2.0);
+  }
+  if (uDamagePass) {
+    outColor = vec4(0.0, 0.0, vB.w, 1.0);
+    return;
   }
   outColor = vec4(clamp(c, 0.0, 1.0), vB.w);
 }

@@ -81,7 +81,8 @@
       "zoom": 1.1,
       "alternate": 0.45,
       "edge": 6,
-      "followZoom": 0.6
+      "followZoom": 0.6,
+      "soft": 6
     },
     "life": {
       "timeJitter": 0.3004,
@@ -208,7 +209,13 @@
       0.668,
       0.819,
       0.825
-    ]
+    ],
+    "organic": {
+      "amount": 0.85,
+      "scale": 0.9,
+      "wobble": 0.55,
+      "soft": 1.5
+    }
   },
   "default (shipped)": {
     "seed": 7,
@@ -292,7 +299,8 @@
       "zoom": 1.1,
       "alternate": 0.45,
       "edge": 6,
-      "followZoom": 0.6
+      "followZoom": 0.6,
+      "soft": 6
     },
     "life": {
       "timeJitter": 0.15,
@@ -316,7 +324,13 @@
       "together": 0.45
     },
     "curveEnabled": false,
-    "curveBlend": true
+    "curveBlend": true,
+    "organic": {
+      "amount": 0.85,
+      "scale": 0.9,
+      "wobble": 0.55,
+      "soft": 1.5
+    }
   },
   "quiet decay": {
     "seed": 7,
@@ -400,7 +414,8 @@
       "zoom": 1.1,
       "alternate": 0.45,
       "edge": 6,
-      "followZoom": 0.6
+      "followZoom": 0.6,
+      "soft": 6
     },
     "life": {
       "timeJitter": 0.15,
@@ -424,7 +439,13 @@
       "together": 0.45
     },
     "curveEnabled": false,
-    "curveBlend": true
+    "curveBlend": true,
+    "organic": {
+      "amount": 0.85,
+      "scale": 0.9,
+      "wobble": 0.55,
+      "soft": 1.5
+    }
   },
   "hard break": {
     "seed": 7,
@@ -508,7 +529,8 @@
       "zoom": 1.1,
       "alternate": 0.45,
       "edge": 6,
-      "followZoom": 0.6
+      "followZoom": 0.6,
+      "soft": 6
     },
     "life": {
       "timeJitter": 0.35,
@@ -532,7 +554,13 @@
       "together": 0.45
     },
     "curveEnabled": false,
-    "curveBlend": true
+    "curveBlend": true,
+    "organic": {
+      "amount": 0.85,
+      "scale": 0.9,
+      "wobble": 0.55,
+      "soft": 1.5
+    }
   },
   "fine grain": {
     "seed": 7,
@@ -616,7 +644,8 @@
       "zoom": 1.1,
       "alternate": 0.45,
       "edge": 6,
-      "followZoom": 0.6
+      "followZoom": 0.6,
+      "soft": 6
     },
     "life": {
       "timeJitter": 0.3,
@@ -640,7 +669,13 @@
       "together": 0.45
     },
     "curveEnabled": false,
-    "curveBlend": true
+    "curveBlend": true,
+    "organic": {
+      "amount": 0.85,
+      "scale": 0.9,
+      "wobble": 0.55,
+      "soft": 1.5
+    }
   },
   "crystal inside": {
     "seed": 7,
@@ -724,7 +759,8 @@
       "zoom": 1.1,
       "alternate": 0.45,
       "edge": 6,
-      "followZoom": 0.6
+      "followZoom": 0.6,
+      "soft": 6
     },
     "life": {
       "timeJitter": 0.15,
@@ -748,7 +784,13 @@
       "together": 0.45
     },
     "curveEnabled": false,
-    "curveBlend": true
+    "curveBlend": true,
+    "organic": {
+      "amount": 0.85,
+      "scale": 0.9,
+      "wobble": 0.55,
+      "soft": 1.5
+    }
   },
   "fold tunnel": {
     "seed": 7,
@@ -832,7 +874,8 @@
       "zoom": 0.42,
       "alternate": 0.45,
       "edge": 6,
-      "followZoom": 0.6
+      "followZoom": 0.6,
+      "soft": 6
     },
     "life": {
       "timeJitter": 0.3004,
@@ -959,7 +1002,13 @@
       0.668,
       0.819,
       0.825
-    ]
+    ],
+    "organic": {
+      "amount": 0.85,
+      "scale": 0.9,
+      "wobble": 0.55,
+      "soft": 1.5
+    }
   },
   "live pixel stretch": {
     "seed": 7,
@@ -1043,7 +1092,8 @@
       "zoom": 1.1,
       "alternate": 0.45,
       "edge": 6,
-      "followZoom": 0.6
+      "followZoom": 0.6,
+      "soft": 6
     },
     "life": {
       "timeJitter": 0.3004,
@@ -1170,6 +1220,12 @@
       0.668,
       0.819,
       0.825
-    ]
+    ],
+    "organic": {
+      "amount": 0.85,
+      "scale": 0.9,
+      "wobble": 0.55,
+      "soft": 1.5
+    }
   }
 }
