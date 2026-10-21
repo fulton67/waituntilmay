@@ -88,7 +88,7 @@ console.log(`  live at once            min ${Math.min(...live)}  `
   + `max ${Math.max(...live)}`);
 console.log(`  trail length (px)       min ${f(last.length.min)}  `
   + `median ${f(last.length.median)}  max ${f(last.length.max)}`);
-console.log(`  fall speed (px/frame)   min ${f(last.speed.min)}  `
+console.log(`  speed (px/frame)        min ${f(last.speed.min)}  `
   + `median ${f(last.speed.median)}  max ${f(last.speed.max)}`);
 console.log(`    of the ones moving    min ${f(last.speedMoving.min)}  `
   + `median ${f(last.speedMoving.median)}  max ${f(last.speedMoving.max)}`);
@@ -97,6 +97,16 @@ console.log(`  width (px)              min ${f(last.width.min)}  `
 console.log(`  spawn interval          mean ${f(last.spawnGapMean)} frames  `
   + `sd ${f(last.spawnGapSd)}  CV ${f(last.spawnCV)}`);
 console.log(`  on the 16 px grid       ${f(last.onGridPct)}%`);
+console.log(`  rounded, non-rect tips  ${f(last.roundTipPct)}%`);
+console.log(`  direction circular var  ${f(last.circVar)}  `
+  + `(0 = all one way, 1 = no preference)`);
+console.log(`  path curvature (rad/fr) min ${f(last.curvature.min)}  `
+  + `median ${f(last.curvature.median)}  max ${f(last.curvature.max)}`);
+console.log(`  merges                  ${last.merges} total, `
+  + `${f(last.mergesPerSec)} per second`);
+console.log(`  splits                  ${last.splits} total, `
+  + `${f(last.splitsPerSec)} per second`);
+
 // Chance level, not zero, is what "near 0" has to mean: x is continuous and
 // the tolerance is half a pixel, so about 1 in 32 lands on a multiple of 16
 // by luck. A grid-locked system sits near 100%.

@@ -130,8 +130,21 @@ def find_stretches(img, eps=EPS, min_run=MIN_RUN, min_hgrad=3.0, max_width=64):
             cols.append(cx)
             cx += 1
         if len(cols) <= max_width:
+            # Is the tip cut square or rounded? Collect the end row of every
+            # column in this stretch: a rectangle ends them all on the same
+            # row, a droplet ends them on a curve. Measured from the pixels,
+            # not asserted from the parameter that drew them.
+            ends = []
+            for cc in cols:
+                for j in by_col.get(cc, []):
+                    _, aa, bb = runs[j]
+                    if min(hi, bb) - max(lo, aa) > 0:
+                        ends.append(bb)
+            spread = float(np.std(ends)) if len(ends) > 2 else 0.0
             out.append({"x": int(min(cols)), "width": len(cols),
-                        "y0": int(lo), "y1": int(hi), "length": int(hi - lo)})
+                        "y0": int(lo), "y1": int(hi), "length": int(hi - lo),
+                        "tip_spread": spread,
+                        "rounded": bool(len(ends) > 2 and spread > 0.75)})
     return out
 
 
@@ -198,6 +211,11 @@ def main():
             cv = float(gaps.std() / max(gaps.mean(), 1e-9))
             print(f"  {'spawn interval':<22} mean {gaps.mean():.2f} frames  "
                   f"sd {gaps.std():.2f}  CV {cv:.3f}  n={len(gaps)}")
+    wide = [x for x in all_s if x["width"] > 2]
+    if wide:
+        rp = 100.0 * float(np.mean([x["rounded"] for x in wide]))
+        print(f"  {'non-rectangular tips':<22} {rp:5.1f}% of {len(wide)} "
+              f"stretches wider than 2 px  (end-row spread > 0.75 px)")
     print(f"\n  on the {args.grid} px grid (x mod {args.grid} == 0): {aligned:.1f}%"
           f"   (a hashed grid system sits near {100.0 / args.grid * args.grid:.0f}%)")
     hist = np.bincount(np.array(mods), minlength=args.grid) if mods else np.zeros(args.grid)

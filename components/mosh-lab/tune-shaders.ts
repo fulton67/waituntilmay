@@ -878,61 +878,114 @@ void main() {
  * One quad per stretch costs only the pixels it covers.
  */
 export const VERT_STRETCH = `#version 300 es
-in vec2 aPos;              // unit quad, 0-1
-in vec4 iRect;             // x, headY, width, headHeight   (px)
-in vec4 iMotion;           // trailLength, bendX, alpha, headSrcY
+in vec2 aPos;              // unit quad: x across, y along
+in vec4 iA;                // headX, headY, width, headHeight
+in vec4 iB;                // trailLen, dirX, dirY, alpha
+in vec4 iC;                // bendX, bendY, srcY0, srcY1
+in vec4 iD;                // swell, taper, tipRound, headMix
 uniform vec2 uRes;
-out vec2 vLocal;           // 0-1 across the quad
-out vec4 vRect;
-out vec4 vMotion;
+out vec2 vLocal;
+out vec4 vA;
+out vec4 vB;
+out vec4 vC;
+out vec4 vD;
+
 void main() {
   vLocal = aPos;
-  vRect = iRect;
-  vMotion = iMotion;
-  // the quad spans the head plus the trail, leaning by the bend
-  float total = iRect.w + iMotion.x;
-  float lean = iMotion.y * aPos.y;
-  vec2 px = vec2(iRect.x + lean + aPos.x * iRect.z,
-                 iRect.y - aPos.y * total);
-  vec2 clip = (px / uRes) * 2.0 - 1.0;
-  gl_Position = vec4(clip, 0.0, 1.0);
+  vA = iA; vB = iB; vC = iC; vD = iD;
+  float total = iA.w + iB.x;
+  float t = aPos.y;                       // 0 at the head, 1 at the tip
+  vec2 dir = normalize(iB.yz + vec2(1e-6, 0.0));
+  vec2 across = vec2(-dir.y, dir.x);
+  // the path bends quadratically, so a trail curves instead of leaning
+  vec2 along = dir * (t * total) + iC.xy * (t * t);
+  // widen the quad enough to hold the swell; the shape is cut in the
+  // fragment stage, so the quad only has to be big enough
+  float halfW = iA.z * 0.5 * (1.0 + max(iD.x, 0.0)) + 2.0;
+  vec2 px = iA.xy + along + across * ((aPos.x - 0.5) * 2.0 * halfW);
+  gl_Position = vec4((px / uRes) * 2.0 - 1.0, 0.0, 1.0);
 }
 `;
 
+/**
+ * The outline is cut here rather than being the quad.
+ *
+ * A quad gives square ends, which is the thing the reference does not have.
+ * The width along the stretch is a profile - a swell near the head, a taper
+ * toward the tip - and both ends close with a rounded cap, so the silhouette
+ * is a droplet. The interior stays pixel-sharp: the test is a hard in/out,
+ * never a blur, so the metal texture inside is untouched.
+ *
+ * A merged stretch carries two source rows. Which one a pixel gets is
+ * decided across the width, so the two heads' pixels run side by side down
+ * one shared trail rather than one overwriting the other.
+ */
 export const FRAG_STRETCH = `#version 300 es
 precision highp float;
-uniform sampler2D uSrc;    // what the head is cut from
+uniform sampler2D uSrc;
 uniform vec2  uRes;
-uniform float uMetal;      // how much the trail is shaded like a tube
+uniform float uMetal;
 in vec2 vLocal;
-in vec4 vRect;
-in vec4 vMotion;
+in vec4 vA;
+in vec4 vB;
+in vec4 vC;
+in vec4 vD;
 out vec4 outColor;
 
 void main() {
-  float total = vRect.w + vMotion.x;
-  float down = vLocal.y * total;              // distance below the head top
-  float lean = vMotion.y * vLocal.y;
-  float sx = vRect.x + lean + vLocal.x * vRect.z;
+  float total = vA.w + vB.x;
+  float t = vLocal.y;
+  float swell = vD.x, taper = vD.y, tipRound = vD.z;
 
-  float sy;
-  if (down <= vRect.w) {
-    // inside the head: the block itself, unstretched
-    sy = vRect.y - down;
-  } else {
-    // the trail: the head's bottom edge row, repeated
-    sy = vMotion.w;
+  // ---- the width profile: swell, then taper to the tip
+  float prof = 1.0 + swell * sin(3.14159 * pow(t, 0.7)) - taper * t;
+  prof = max(prof, 0.02);
+  float halfQuad = vA.z * 0.5 * (1.0 + max(swell, 0.0)) + 2.0;
+  float across = (vLocal.x - 0.5) * 2.0 * halfQuad;   // px from the centre
+  float halfW = vA.z * 0.5 * prof;
+
+  // ---- rounded caps at both ends, so neither end is a cut rectangle
+  float capLen = tipRound * vA.z * 0.9;
+  float lenPx = t * total;
+  float inside = 1.0;
+  if (capLen > 0.5) {
+    if (lenPx > total - capLen) {
+      float d = (lenPx - (total - capLen)) / capLen;
+      inside *= step(abs(across), halfW * sqrt(max(0.0, 1.0 - d * d)));
+    }
+    // the head end gets a shallower meniscus, not a full dome
+    float hc = capLen * 0.45;
+    if (lenPx < hc) {
+      float d = (hc - lenPx) / hc;
+      inside *= step(abs(across), halfW * sqrt(max(0.0, 1.0 - 0.75 * d * d)));
+    }
   }
-  vec3 c = texture(uSrc, vec2(sx, sy) / uRes).rgb;
+  if (abs(across) > halfW) inside = 0.0;
+  if (inside < 0.5) discard;
 
-  // a soft lengthwise shade so a long trail reads as a tube rather than a
-  // flat band; the cross-section structure is already there from the row
-  if (down > vRect.w && uMetal > 0.0) {
-    float t = (down - vRect.w) / max(vMotion.x, 1.0);
+  // ---- where the pixels come from
+  vec2 dir = normalize(vB.yz + vec2(1e-6, 0.0));
+  vec2 perp = vec2(-dir.y, dir.x);
+  // a merged stretch splits its width between the two heads it came from
+  float pick = step(vD.w, vLocal.x);
+  float srcY = mix(vC.z, vC.w, pick);
+
+  vec2 sp;
+  if (lenPx <= vA.w) {
+    // inside the head: the block itself, unstretched and pixel sharp
+    sp = vA.xy + dir * lenPx + perp * across;
+  } else {
+    // the trail: the head's edge row, repeated along the path
+    sp = vec2(vA.x + across, srcY) + perp * 0.0;
+  }
+  vec3 c = texture(uSrc, sp / uRes).rgb;
+
+  if (lenPx > vA.w && uMetal > 0.0) {
+    float u = (lenPx - vA.w) / max(vB.x, 1.0);
     float sheen = 1.0 + uMetal * (0.18 * sin(vLocal.x * 6.2831 - 1.2)
-                                  - 0.25 * t);
+                                  - 0.25 * u);
     c *= clamp(sheen, 0.0, 2.0);
   }
-  outColor = vec4(clamp(c, 0.0, 1.0), vMotion.z);
+  outColor = vec4(clamp(c, 0.0, 1.0), vB.w);
 }
 `;

@@ -43,10 +43,17 @@
     "decay": 0.035,
     "lifeMin": 24,
     "lifeMax": 150,
-    "bend": 0.35,
     "maxTrail": 288,
     "metal": 0.6,
-    "maxLive": 420
+    "maxLive": 420,
+    "flow": 0.5,
+    "together": 0.45,
+    "curl": 0.6,
+    "mergeDist": 0.75,
+    "splitChance": 0.004,
+    "swell": 0.35,
+    "taper": 0.55,
+    "tipRound": 0.9
   },
   "inside": {
     "look": "current",
@@ -92,7 +99,9 @@
     "followsWords": 0.28,
     "look": "current",
     "foldIn": 0,
-    "loose": 0.55
+    "loose": 0.55,
+    "flow": 0.5,
+    "together": 0.45
   },
   "curveEnabled": true,
   "curveBlend": false,

@@ -134,12 +134,15 @@ export interface Macros {
   followsWords: number;
   foldIn: number;
   loose: number;
+  flow: number;
+  together: number;
   look: InsideLook;
 }
 
 export const DEFAULT_MACROS: Macros = {
   damage: 0.5, squareSize: 0.5, alive: 0.5, drag: 0.55, inside: 0.5,
-  followsWords: 0.6, foldIn: 0, loose: 0.55, look: "current",
+  followsWords: 0.6, foldIn: 0, loose: 0.55, flow: 0.5, together: 0.45,
+  look: "current",
 };
 
 export const DEFAULTS: TuneConfig = {
@@ -279,6 +282,13 @@ export function resolveMacros(m: Macros, base: TuneConfig = DEFAULTS): TuneConfi
   c.stretch.wobble = lerp(0.12, 1.1, lo);
   c.stretch.stall = lerp(0.03, 0.004, lo);   // stiff stalls more, falls less
   c.stretch.lifeMax = Math.round(lerp(70, 190, lo));
+  const fl = clamp01(m.flow ?? 0.5);
+  c.stretch.flow = fl;
+  c.stretch.curl = lerp(0.05, 1.3, fl);
+  const tg = clamp01(m.together ?? 0.45);
+  c.stretch.together = tg;
+  c.stretch.mergeDist = lerp(0.3, 1.5, tg);
+  c.stretch.splitChance = lerp(0.001, 0.012, tg);
 
   // ---- inside
   c.squares.fadeRatio = lerp(0.48, 0.1, ins);   // shorter ramp = commits faster
@@ -478,10 +488,10 @@ export class TuneRenderer {
     gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
     this.instBuf = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, this.instBuf);
-    gl.bufferData(gl.ARRAY_BUFFER, 8 * 4 * 1024, gl.DYNAMIC_DRAW);
-    for (let i = 0; i < 2; i++) {
+    gl.bufferData(gl.ARRAY_BUFFER, 16 * 4 * 1024, gl.DYNAMIC_DRAW);
+    for (let i = 0; i < 4; i++) {
       gl.enableVertexAttribArray(1 + i);
-      gl.vertexAttribPointer(1 + i, 4, gl.FLOAT, false, 32, i * 16);
+      gl.vertexAttribPointer(1 + i, 4, gl.FLOAT, false, 64, i * 16);
       gl.vertexAttribDivisor(1 + i, 1);
     }
     gl.bindVertexArray(null);
@@ -843,12 +853,14 @@ export class TuneRenderer {
       if (frame !== sim.frame + 1) sim.seekTo(frame, () => env, this.fps);
       else sim.step(frame, env, this.fps);
 
+      // the stretches follow B's motion field, so hand it over
+      if (this.mv) sim.setFlow(this.mv, this.mvFrames, this.mvRows, this.mvCols);
       const { buf, count } = sim.pack(this.instData);
       this.instData = buf;
       if (count > 0) {
         gl.bindVertexArray(this.instVao);
         gl.bindBuffer(gl.ARRAY_BUFFER, this.instBuf);
-        gl.bufferData(gl.ARRAY_BUFFER, buf.subarray(0, count * 8),
+        gl.bufferData(gl.ARRAY_BUFFER, buf.subarray(0, count * 16),
           gl.DYNAMIC_DRAW);
         const p = this.progs.stretch;
         gl.useProgram(p);
