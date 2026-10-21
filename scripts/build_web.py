@@ -36,6 +36,11 @@ def main():
                     help="ffmpeg swscale flag; 'neighbor' keeps the datamosh "
                          "blocks hard-edged instead of interpolating them away")
     ap.add_argument("--crf", type=int, default=23)
+    ap.add_argument("--maxrate-kbps", type=int, default=0,
+                    help="0 = plain CRF. Otherwise cap the video bitrate so a "
+                         "hard render cannot blow the budget: the v2 composite "
+                         "is all hard 16x16 block edges, which cost ~9x the "
+                         "bits of the v1 mosh's smooth blooms at the same CRF")
     ap.add_argument("--audio-kbps", type=int, default=128)
     ap.add_argument("--budget-mb", type=float, default=6.0)
     args = ap.parse_args()
@@ -59,6 +64,9 @@ def main():
              "-vf", ",".join(vf),
              "-c:v", "libx264", "-profile:v", "high", "-level", "4.0",
              "-preset", "slow", "-crf", str(args.crf),
+             *(["-maxrate", f"{args.maxrate_kbps}k",
+                "-bufsize", f"{args.maxrate_kbps * 2}k"]
+               if args.maxrate_kbps else []),
              "-c:a", "aac", "-b:a", f"{args.audio_kbps}k",
              "-movflags", "+faststart", dst])
         rows.append({

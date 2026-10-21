@@ -24,6 +24,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from pipeline import arc as ARC
 from pipeline import media as M
 from pipeline import mosh as MOSH
+from pipeline import moshv2 as MOSHV2
 from pipeline import overlay as OV
 from pipeline import units as U
 
@@ -106,7 +107,7 @@ def render_one(seed, phase=None, outdir=OUT_DIR, keep_clean=False, quiet=False):
     plan = ARC.plan_arc(rng, us, pools)
     tw = trigger_word_ids(words, cfg)
     voice, placement, triggers, media_cache = ARC.build_audio(
-        rng, SRC, plan, tone, dur_limit, tw, words)
+        rng, SRC, plan, tone, dur_limit, tw, words, cfg=cfg)
     frames, vops = ARC.build_video(rng, plan, media_cache, spec)
 
     # a quiet bed so silence reads as intentional rather than empty
@@ -123,9 +124,12 @@ def render_one(seed, phase=None, outdir=OUT_DIR, keep_clean=False, quiet=False):
 
     M.assemble(frames, audio, clean, base + "_frames.txt",
                overlay_filter=OV.cam_overlay(OUT_SECONDS))
-    moshed = MOSH.datamosh(clean, final, triggers=triggers, n_frames=OUT_FRAMES,
-                           gamma=spec["mosh_gamma"], peak=spec["mosh_peak"],
-                           cfg=cfg, seed=seed)
+    # v2: the v1 mosh becomes the base, and its own glitched blocks become
+    # windows onto a motion-vector-transferred version of the same edit
+    moshed = MOSHV2.datamosh_v2(clean, final, triggers=triggers,
+                                n_frames=OUT_FRAMES, gamma=spec["mosh_gamma"],
+                                peak=spec["mosh_peak"], cfg=cfg, seed=seed,
+                                fps=M.FPS, quiet=quiet)
 
     meas = M.measure(final)
     sm = speech_metrics(voice)
@@ -157,6 +161,15 @@ def render_one(seed, phase=None, outdir=OUT_DIR, keep_clean=False, quiet=False):
         "internet_triggers": len(triggers),
         "trigger_frames": triggers,
         "moshed_frames": moshed["moshed_frames"],
+        "mosh_version": 2,
+        "b_detector": moshed["b_detector"],
+        "b_coverage_final_pct": moshed["b_coverage_final_pct"],
+        "b_coverage_per_second": moshed["b_coverage_per_second"],
+        "b_opened_by": moshed["mask"]["opened_by"],
+        "b_coverage_monotone": moshed["mask"]["coverage_monotone"],
+        "b_block_agreement_pct": (moshed["mask"]["verify"] or {}).get(
+            "block_agreement_pct"),
+        "b_trigger_coverage": moshed["mask"]["triggers"],
         "picture_cuts": len(vops),
         "picture_ops": vops,
         "audio_track": [{"frame": p["frame"],
@@ -180,6 +193,7 @@ def render_one(seed, phase=None, outdir=OUT_DIR, keep_clean=False, quiet=False):
               f"src {source_seconds:5.2f}s  speech {sm['speech_pct']:4.1f}%  "
               f"gap {sm['longest_silence_s']:.2f}s  cuts {len(vops):>3}  "
               f"trig {len(triggers)}  mosh {moshed['moshed_frames']:>3}  "
+              f"B {moshed['b_coverage_final_pct']:5.1f}%  "
               f"out {meas['container_duration']:.3f}s")
     return log
 
@@ -194,13 +208,26 @@ def main():
     args = ap.parse_args()
 
     t0 = time.time()
+    failures = []
     for n in range(args.count):
         seed = args.seed if args.seed is not None else random.randrange(1, 10 ** 9)
         if args.seed is not None and args.count > 1:
             seed = args.seed + n
-        render_one(seed, args.phase, args.outdir, args.keep_clean)
-    print(f"done in {time.time()-t0:.1f}s")
+        # one bad render must not cost the rest of the batch: the mosh goes
+        # through a browser and a GPU, and those fail in ways a rerun fixes
+        try:
+            render_one(seed, args.phase, args.outdir, args.keep_clean)
+        except Exception as e:
+            print(f"  seed {seed:>10}  FAILED: {e}")
+            failures.append((seed, str(e)))
+    print(f"done in {time.time()-t0:.1f}s  "
+          f"({args.count - len(failures)}/{args.count} rendered)")
+    if failures:
+        print("\nfailed seeds (rerun them with --seed):")
+        for seed, why in failures:
+            print(f"  {seed}: {why.splitlines()[0]}")
+    return 1 if failures else 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

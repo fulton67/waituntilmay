@@ -92,3 +92,11 @@ public/mosh-lab/**/*.mp4
 !public/mosh-lab/test-clip.mp4
 # mosh-lab: elementary-stream intermediates the composite reads vectors from
 public/mosh-lab/**/*.m4v
+
+# journey v2: render scratch, the nightly pool workdir and its log
+renders_v2/
+renders_v2.log
+.mosh-v2/
+.pool/
+logs/
+rerender_v2.log

@@ -10,6 +10,12 @@ type Manifest = { files: string[] };
 // to point at Blob/CDN storage instead of the static /public folder.
 const BASE = process.env.NEXT_PUBLIC_JOURNEY_BASE ?? "/journey";
 
+// The live manifest sits on Blob so a newly rendered version is in rotation
+// as soon as it is uploaded, with no deploy. It is written with a short
+// max-age; the videos it points at are immutable and cached for a year.
+const LIVE_MANIFEST = process.env.NEXT_PUBLIC_JOURNEY_MANIFEST
+  ?? "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-v2/manifest.json";
+
 /** Resolve once the element can render a frame; never hang forever. */
 function whenReady(v: HTMLVideoElement, timeoutMs = 8000): Promise<void> {
   if (v.readyState >= 2) return Promise.resolve();
@@ -53,17 +59,19 @@ export default function JourneyPlayer() {
 
   useEffect(() => {
     let alive = true;
-    fetch(`${BASE}/manifest.json`, { cache: "no-store" })
-      .then((r) => {
-        if (!r.ok) throw new Error(`manifest ${r.status}`);
-        return r.json() as Promise<Manifest>;
-      })
-      .then((m) => {
-        if (!alive) return;
-        const list = (m.files ?? []).filter(Boolean);
-        if (list.length === 0) throw new Error("manifest is empty");
-        setFiles(list);
-      })
+    const load = async (url: string) => {
+      const r = await fetch(url, { cache: "no-store" });
+      if (!r.ok) throw new Error(`manifest ${r.status}`);
+      const m = (await r.json()) as Manifest;
+      const list = (m.files ?? []).filter(Boolean);
+      if (list.length === 0) throw new Error("manifest is empty");
+      return list;
+    };
+    // the live manifest grows without a deploy; the bundled one is the
+    // fallback, so the piece never goes dark because Blob is unreachable
+    load(LIVE_MANIFEST)
+      .catch(() => load(`${BASE}/manifest.json`))
+      .then((list) => alive && setFiles(list))
       .catch((e) => alive && setFailed(String(e.message ?? e)));
     return () => {
       alive = false;

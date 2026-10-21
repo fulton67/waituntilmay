@@ -128,7 +128,8 @@ def plan_arc(rng, units, pools, seed_refrain=None):
 
 
 # --------------------------------------------------------------- audio
-def build_audio(rng, src, plan, tone, dur_limit, trigger_word_ids, words):
+def build_audio(rng, src, plan, tone, dur_limit, trigger_word_ids, words,
+                cfg=None):
     """One continuous voice line: units in arc order, breaths between beats.
 
     The 30s is filled by widening the breaths between beats, not by dumping
@@ -218,6 +219,15 @@ def build_audio(rng, src, plan, tone, dur_limit, trigger_word_ids, words):
     for t in sorted(set(hits)):
         if not triggers or t - triggers[-1] > 8:
             triggers.append(t)
+
+    # config/triggers.json declares how many triggers a render may carry, and
+    # until now nothing read it: an edit that happened to say the word five
+    # times fired five times. The word count is a property of the selection,
+    # so the cap is applied here by thinning rather than by re-rolling the
+    # edit - a random subset, so the kept triggers are not all early ones.
+    cap = ((cfg or {}).get("triggers_per_render") or {}).get("max")
+    if cap and len(triggers) > cap:
+        triggers = sorted(rng.sample(triggers, cap))
     return voice, placement, triggers, media_cache
 
 
