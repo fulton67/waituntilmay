@@ -111,3 +111,6 @@ public/mosh-lab/*.mp4
 .ffgac-mosh/
 public/mosh-lab/real/
 public/mosh-lab/real-render-config.json
+.ffgac-b1/
+.frames/
+public/mosh-lab/blum-internet-tune-offline-probes.json

@@ -27,7 +27,8 @@ import { execFileSync } from "node:child_process";
 import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
-import { openingMask } from "./lib/organic.mjs";
+import { GEOM, detectPicture, interestField, makeDrive, makeOpenings }
+  from "./lib/organic.mjs";
 
 const args = process.argv.slice(2);
 const argOf = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : d; };
@@ -200,6 +201,41 @@ const healDir = path.join(OUTDIR, "heal");
 await mkdir(healDir, { recursive: true });
 const org = cfg.organic ?? { amount: 1, scale: 0.9, wobble: 0.55, soft: 1.5 };
 const seed = cfg.seed ?? 7;
+
+// The same openings the composite opens, from the same module: the picture
+// detected per frame, the word envelope and the concept words driving the
+// spawn chance, the picture's own edges weighting where they land. Healing
+// through a different set of shapes than the ones that opened would be a
+// different effect wearing the same name.
+const geom = { ...GEOM, ...(cfg.openings ?? {}) };
+const pic = detectPicture(SRC, W, H);
+let ENV = new Float32Array(N).fill(0.5);
+let HITS = [];
+try {
+  const tune = JSON.parse(await readFile(
+    argOf("--tune", "public/mosh-lab/blum-internet-tune.json"), "utf8"));
+  const rv = cfg.reveals ?? {};
+  const lw = rv.loudnessWeight ?? 0.35;
+  const ka = 1 - Math.exp(-1 / Math.max(rv.attack ?? 3, 0.5));
+  const kr = 1 - Math.exp(-1 / Math.max((rv.release ?? 1.5) * FPS, 1));
+  let e = 0;
+  ENV = new Float32Array(tune.frames);
+  for (let i = 0; i < tune.frames; i++) {
+    const raw0 = Math.min(1, Math.max(0,
+      (tune.rawNoLoudness[i] ?? 0) + lw * (tune.loudness[i] ?? 0)));
+    e += (raw0 - e) * (raw0 > e ? ka : kr);
+    ENV[i] = Math.min(1, Math.max(0, e * (rv.gain ?? 1)));
+  }
+  HITS = (tune.conceptHits ?? []).map((h) => h.frame);
+} catch { /* flat envelope, no concept words */ }
+const interest = interestField(SRC, W, H, N, COLS, ROWS, pic, geom);
+const drive = makeDrive({ env: ENV, curve, hits: HITS, frames: N, geom });
+const openings = makeOpenings({ W, H, N, MB: 16, org, seed, picture: pic,
+  interest, drive, geom });
+console.log(`
+openings: picture ${pic.w}x${pic.h} most of the time `
+  + `(bars in ${(100 * pic.presentInFrames).toFixed(0)}% of frames), `
+  + `radius ${geom.rMin}-${geom.rMax}px, life ${geom.lifeMin}-${geom.lifeMax} frames`);
 const moshedMp4 = path.join(OUTDIR, "moshed.mp4");
 sh("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-fflags", "+genpts",
   "-r", String(FPS), "-f", "m4v", "-i", m4v, "-frames:v", String(N),
@@ -217,7 +253,7 @@ let healedPx = 0, healFrames = 0;
     const hv = healAt(f);
     if (hv <= 0.001) continue;
     healFrames++;
-    const m = openingMask(f, W, H, org, seed);
+    const m = openings.mask(f).pix;
     for (let k = 0; k < W * H; k++) {
       const v = Math.round(m[k] * hv * 255);
       buf[f * W * H + k] = v;
@@ -261,6 +297,9 @@ await writeFile(REPORT, JSON.stringify({
   mvPct: { min: minMv, max: maxMv, allHundred },
   healing: { frames: healFrames, pixels: healedPx, output: healed,
     note: "pixel domain; -mb_type_script is broken in this build" },
+  openings: { geom, picture: { x0: pic.x0, x1: pic.x1, y0: pic.y0, y1: pic.y1,
+    bars: pic.bars, barsInFrames: pic.presentInFrames, perFrame: true },
+    conceptHits: HITS },
   perFrame: perFrame.map((f) => ({ frame: f.frame, type: f.type,
     intra: f.intra, mvPct: f.mvPct })),
 }, null, 1));

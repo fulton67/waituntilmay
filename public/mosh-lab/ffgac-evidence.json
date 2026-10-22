@@ -68,9 +68,59 @@
  },
  "healing": {
   "frames": 16,
-  "pixels": 1347714,
+  "pixels": 115216,
   "output": ".ffgac-mosh\\healed.mp4",
   "note": "pixel domain; -mb_type_script is broken in this build"
+ },
+ "openings": {
+  "geom": {
+   "rMin": 8,
+   "rMax": 26,
+   "rBurst": 40,
+   "rDriveMix": 0.3,
+   "rDriveRef": 0.6,
+   "lifeMin": 30,
+   "lifeMax": 90,
+   "restMin": 10,
+   "restMax": 46,
+   "pMin": 0.022,
+   "pMax": 0.6,
+   "gamma": 2.3,
+   "envTerm": 0.18,
+   "conceptPre": 4,
+   "conceptAtk": 6,
+   "conceptDec": 28,
+   "edgeMix": 0.6,
+   "interestBase": 0.2,
+   "interestMin": 0.15,
+   "interestMax": 2.2,
+   "rim": 0.15,
+   "sinkPx": 4,
+   "sinkPeriod": 22,
+   "closeFrac": 0.38,
+   "healBase": 0.35,
+   "healQuiet": 0.65,
+   "source": 0.7
+  },
+  "picture": {
+   "x0": 98,
+   "x1": 542,
+   "y0": 13,
+   "y1": 347,
+   "bars": {
+    "top": 13,
+    "bottom": 13,
+    "left": 98,
+    "right": 98
+   },
+   "barsInFrames": 0.7566666666666667,
+   "perFrame": true
+  },
+  "conceptHits": [
+   101,
+   150,
+   175
+  ]
  },
  "perFrame": [
   {
