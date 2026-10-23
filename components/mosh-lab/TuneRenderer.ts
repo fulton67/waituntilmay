@@ -107,10 +107,19 @@ export interface TuneConfig {
     bResponse: number;    // the underlayer's own gain on the same field
     bAccum: number;       // and its memory, which is the longer one
     bSmooth: number;      // blocks of blur on it, which is what makes it fluid
-    strength: number;     // most a pixel can be asked to flip
-    ref: number;          // px of A-B disagreement that counts as strong
-    gammaX: number;
     envTerm: number; conceptPre: number; conceptAtk: number; conceptDec: number;
+    xFloor: number; xPeak: number; dOn: number; dFull: number;
+    moveRef: number; moveDecay: number; moveDilate: number;
+    quietThresh: number; quietMin: number; breakMax: number;
+    breakRamp: number; breakEvery: number;
+    /**
+     * Recursion, off by default. At 1 this is the look as it stands; above
+     * it, each generation's finished composite is re-encoded as the next
+     * one's source. genDecay is how much of the gain each later pass keeps,
+     * so the fifth adds detail instead of another full-strength throw.
+     */
+    generations: number;
+    genDecay: number;
   };
   /** The six plain-language dials, kept so the lab can reload them. */
   macros?: Macros;
@@ -161,6 +170,8 @@ export interface Macros {
   accumulate?: number;
   underResponse?: number;
   exchange?: number;
+  /** how many times the whole thing is run back into itself. 1 = off. */
+  generations?: number;
   damage: number;
   squareSize: number;
   alive: number;
@@ -178,6 +189,7 @@ export const DEFAULT_MACROS: Macros = {
   damage: 0.5, squareSize: 0.5, alive: 0.5, drag: 0.55, inside: 0.5,
   followsWords: 0.6, foldIn: 0, loose: 0.55, flow: 0.5, together: 0.45,
   amplify: 0.54, accumulate: 0.61, underResponse: 0.5, exchange: 0.6,
+  generations: 1,
   look: "current",
 };
 
@@ -220,8 +232,11 @@ export const DEFAULTS: TuneConfig = {
     // Measured at 0.6 the exchange stopped being scattered pixels and
     // became one connected sheet of 106403 of them, so the dial's top end
     // stays below it on purpose.
-    strength: 0.3, ref: 14, gammaX: 1.1,
     envTerm: 0.07, conceptPre: 4, conceptAtk: 6, conceptDec: 12,
+    xFloor: 0.45, xPeak: 0.74, dOn: 0.15, dFull: 0.7,
+    moveRef: 2.5, moveDecay: 0.8, moveDilate: 1,
+    quietThresh: 0.14, quietMin: 36, breakMax: 50, breakRamp: 9, breakEvery: 8,
+    generations: 1, genDecay: 0.7,
   },
 };
 
@@ -376,9 +391,16 @@ export function resolveMacros(m: Macros, base: TuneConfig = DEFAULTS): TuneConfi
   c.exchange.bSmooth = ur > 0.6 ? 2 : 1;
   const ex = clamp01(m.exchange ?? 0.6);
   // the top of this range is 0.5, deliberately short of the 0.5927 where a
-  // random per-pixel mask percolates into one connected region
-  c.exchange.strength = lerp(0, 0.5, ex);
-  c.exchange.ref = lerp(26, 6, ex);
+  // random per-pixel mask percolates into one connected region. The peak a
+  // concept word reaches is allowed over it, briefly and on purpose.
+  c.exchange.xFloor = lerp(0, 0.5, ex);
+  c.exchange.xPeak = Math.min(0.78, c.exchange.xFloor + lerp(0.1, 0.32, ex));
+  c.exchange.dOn = lerp(0.6, 0.08, ex);
+  c.exchange.dFull = lerp(2.4, 0.4, ex);
+
+  // ---- generations. Not a 0-1 dial: it is a count, and 1 means off.
+  c.exchange.generations = Math.max(1, Math.min(5,
+    Math.round(m.generations ?? 1)));
 
   c.inside.look = m.look;
   c.macros = JSON.parse(JSON.stringify(m));

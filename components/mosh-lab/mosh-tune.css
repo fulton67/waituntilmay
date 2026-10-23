@@ -331,3 +331,7 @@
 }
 .mt-older[open] > summary { opacity: 0.85; margin-bottom: 0.4rem; }
 .mt-older > p { margin: 0.2rem 0 0.7rem; max-width: 56ch; }
+
+/* Generations is a count, not a 0-100 dial, so it reads differently */
+.mt-gens { border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 0.6rem; }
+.mt-gens > b { font-variant-numeric: tabular-nums; }

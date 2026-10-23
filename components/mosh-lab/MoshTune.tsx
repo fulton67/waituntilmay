@@ -132,9 +132,17 @@ const GROUPS: { name: string; path: keyof TuneConfig; specs: Spec[] }[] = [
       { key: "bResponse", label: "underlayer gain", min: 0, max: 3, step: 0.05 },
       { key: "bAccum", label: "underlayer memory", min: 0, max: 0.97, step: 0.01 },
       { key: "bSmooth", label: "underlayer smooth (blocks)", min: 0, max: 4, step: 1 },
-      { key: "strength", label: "exchange ceiling", min: 0, max: 0.59, step: 0.01 },
-      { key: "ref", label: "A-B difference that is strong (px)", min: 1, max: 40, step: 0.5 },
-      { key: "gammaX", label: "exchange falloff", min: 0.3, max: 3, step: 0.05 },
+      { key: "xFloor", label: "exchange floor", min: 0, max: 0.55, step: 0.01 },
+      { key: "xPeak", label: "exchange peak on a word", min: 0, max: 0.8, step: 0.01 },
+      { key: "dOn", label: "A-B difference that wakes it (px)", min: 0.02, max: 4, step: 0.02 },
+      { key: "dFull", label: "...and that opens it fully (px)", min: 0.1, max: 12, step: 0.1 },
+      { key: "moveRef", label: "real motion that counts (px)", min: 0.2, max: 12, step: 0.1 },
+      { key: "moveDecay", label: "motion memory", min: 0, max: 0.97, step: 0.01 },
+      { key: "moveDilate", label: "motion dilate (blocks)", min: 0, max: 3, step: 1 },
+      { key: "quietThresh", label: "quiet below", min: 0, max: 0.6, step: 0.01 },
+      { key: "breakMax", label: "longest break (frames)", min: 10, max: 120, step: 1 },
+      { key: "breakEvery", label: "at most one break per (s)", min: 2, max: 30, step: 1 },
+      { key: "genDecay", label: "gain kept per generation", min: 0.2, max: 1, step: 0.01 },
       { key: "envTerm", label: "envelope term", min: 0, max: 1, step: 0.01 },
       { key: "conceptAtk", label: "word attack (frames)", min: 1, max: 30, step: 1 },
       { key: "conceptDec", label: "word decay (frames)", min: 1, max: 90, step: 1 },
@@ -822,6 +830,25 @@ export default function MoshTune() {
             <span className="mt-hint">{m.hint}</span>
           </label>
         ))}
+        <label className="mt-macro mt-gens">
+          <span className="mt-macro-name">Generations</span>
+          <input type="range" min={1} max={5} step={1}
+                 value={Math.round(macros.generations ?? 1)}
+                 onChange={(e) => applyMacros({
+                   ...macros, generations: Number(e.target.value),
+                 } as Macros)} />
+          <b>{Math.round(macros.generations ?? 1)}</b>
+          <span className="mt-hint">
+            How many times the finished result is fed back in as the source
+            and run again. 1 is the look as it stands and changes nothing.
+            Above 1 the encoder meets the last pass&rsquo;s drag and grain as
+            if it were footage and finds its own motion inside it, so the
+            fold lands within the grain instead of beside it. Later passes
+            keep less of the gain, so they add structure rather than noise.
+            The still parts of the room stay still at any setting.
+            Takes the real render, not the preview.
+          </span>
+        </label>
         <details className="mt-older">
           <summary>older dials &mdash; drips, stretches and opening shapes</summary>
           <p className="mt-hint">

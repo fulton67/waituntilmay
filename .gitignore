@@ -120,3 +120,6 @@ public/mosh-lab/blum-internet-tune-offline-probes.json
 .exchange-journey/
 .exchange-real/
 .journey-src/
+.exchange-gentest/
+.exchange-closest/
+.exchange-probe/
