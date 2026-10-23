@@ -45,7 +45,28 @@ interface TuneData {
 const clone = <T,>(c: T): T => JSON.parse(JSON.stringify(c));
 
 /* --------------------------------------------------------- simple mode */
+/**
+ * Five dials, one per relationship plus the fold. The drip, stretch and
+ * opening-shape dials are not here any more - they spawned things, and
+ * nothing in the base look spawns anything now. They are still live and
+ * still saved, one fold down under "older dials", so a look built on them
+ * keeps working.
+ */
 const MACROS: { key: keyof Macros; label: string; hint: string }[] = [
+  { key: "amplify", label: "Amplify",
+    hint: "How hard the picture's own motion is multiplied. Left leaves the footage alone, right throws anything that moved across the frame. Anything that was still stays still at either end." },
+  { key: "accumulate", label: "Accumulate",
+    hint: "How long a push keeps going after the motion that caused it has stopped. Left stops with the movement, right drags on for a second or more." },
+  { key: "underResponse", label: "Underlayer response",
+    hint: "How the layer underneath answers the same motion. Right makes it softer, slower and more fluid, so it lags behind the surface instead of matching it." },
+  { key: "exchange", label: "Exchange",
+    hint: "How readily single pixels flip between the surface and the layer underneath, where the two disagree about where the picture went. It is per pixel, so it reads as grain rather than as holes." },
+  { key: "foldIn", label: "Fold in",
+    hint: "Folds the picture into a fractal, so the surface and the layer underneath interleave along its bands. Past about 85 it takes the whole frame instead of just the holes." },
+];
+
+/** Still here, still saved, just not in the way. */
+const OLDER_MACROS: { key: keyof Macros; label: string; hint: string }[] = [
   { key: "damage", label: "Damage",
     hint: "How broken the picture gets. Left leaves it clean, right tears most of it apart." },
   { key: "squareSize", label: "Square size",
@@ -64,8 +85,6 @@ const MACROS: { key: keyof Macros; label: string; hint: string }[] = [
     hint: "How much of the layer underneath shows through a hole, instead of staying half-closed." },
   { key: "followsWords", label: "Follows words",
     hint: "How much the speech drives it. Left ignores the talk, right bursts open on words like “internet”." },
-  { key: "foldIn", label: "Fold in",
-    hint: "Folds the picture into a fractal, so the surface and the layer underneath interleave along its bands. Past about 85 it takes the whole frame instead of just the holes." },
 ];
 
 const LOOKS: { v: InsideLook; label: string; hint: string }[] = [
@@ -102,6 +121,23 @@ const GROUPS: { name: string; path: keyof TuneConfig; specs: Spec[] }[] = [
       { key: "peak", label: "peak coverage", min: 0.02, max: 1, step: 0.01 },
       { key: "growRadius", label: "growth radius (blocks)", min: 0, max: 24, step: 1 },
       { key: "onset", label: "onset sharpness", min: 0.1, max: 6, step: 0.05 },
+    ],
+  },
+  {
+    name: "the three relationships", path: "exchange", specs: [
+      { key: "calmGain", label: "gain when calm", min: 0.5, max: 4, step: 0.05 },
+      { key: "amplify", label: "gain on a concept word", min: 1, max: 60, step: 0.5 },
+      { key: "accum", label: "accumulate (surface)", min: 0, max: 0.95, step: 0.01 },
+      { key: "clampPx", label: "longest throw (px)", min: 16, max: 511, step: 1 },
+      { key: "bResponse", label: "underlayer gain", min: 0, max: 3, step: 0.05 },
+      { key: "bAccum", label: "underlayer memory", min: 0, max: 0.97, step: 0.01 },
+      { key: "bSmooth", label: "underlayer smooth (blocks)", min: 0, max: 4, step: 1 },
+      { key: "strength", label: "exchange ceiling", min: 0, max: 0.59, step: 0.01 },
+      { key: "ref", label: "A-B difference that is strong (px)", min: 1, max: 40, step: 0.5 },
+      { key: "gammaX", label: "exchange falloff", min: 0.3, max: 3, step: 0.05 },
+      { key: "envTerm", label: "envelope term", min: 0, max: 1, step: 0.01 },
+      { key: "conceptAtk", label: "word attack (frames)", min: 1, max: 30, step: 1 },
+      { key: "conceptDec", label: "word decay (frames)", min: 1, max: 90, step: 1 },
     ],
   },
   {
@@ -786,6 +822,26 @@ export default function MoshTune() {
             <span className="mt-hint">{m.hint}</span>
           </label>
         ))}
+        <details className="mt-older">
+          <summary>older dials &mdash; drips, stretches and opening shapes</summary>
+          <p className="mt-hint">
+            These drove the look this one replaces. They still work and they
+            are still saved with a preset; they just do not describe what the
+            base mosh does any more.
+          </p>
+          {OLDER_MACROS.map((m) => (
+            <label key={m.key} className="mt-macro">
+              <span className="mt-macro-name">{m.label}</span>
+              <input type="range" min={0} max={1} step={0.01}
+                     value={macros[m.key] as number}
+                     onChange={(e) => applyMacros({
+                       ...macros, [m.key]: Number(e.target.value),
+                     } as Macros)} />
+              <b>{Math.round((macros[m.key] as number) * 100)}</b>
+              <span className="mt-hint">{m.hint}</span>
+            </label>
+          ))}
+        </details>
       </section>
 
       <section className="mt-variations">

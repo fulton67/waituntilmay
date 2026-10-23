@@ -1,0 +1,54 @@
+{
+ "name": "journey-30s",
+ "layers": [
+  {
+   "key": "source",
+   "label": "source · 30s edit, 12 cuts",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/journey-30s.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/journey-30s-mv.mp4",
+   "frames": 900,
+   "duration": 30,
+   "mb": 2.830274,
+   "width": 640,
+   "height": 360,
+   "fps": "30/1"
+  },
+  {
+   "key": "exchange-a",
+   "label": "exchange · surface (A)",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/journey-30s-exchange-A.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/journey-30s-exchange-A-mv.mp4",
+   "frames": 900,
+   "duration": 30,
+   "mb": 6.757916,
+   "width": 640,
+   "height": 360,
+   "fps": "30/1"
+  },
+  {
+   "key": "exchange-b",
+   "label": "exchange · underlayer (B)",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/journey-30s-exchange-B.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/journey-30s-exchange-B-mv.mp4",
+   "frames": 900,
+   "duration": 30,
+   "mb": 6.848339,
+   "width": 640,
+   "height": 360,
+   "fps": "30/1"
+  },
+  {
+   "key": "exchange",
+   "label": "exchange · composite",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/journey-30s-exchange.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/journey-30s-exchange-mv.mp4",
+   "frames": 900,
+   "duration": 30,
+   "mb": 39.511359,
+   "width": 640,
+   "height": 360,
+   "fps": "30/1"
+  }
+ ],
+ "blobPrefix": "mosh-lab"
+}

@@ -93,6 +93,25 @@ export interface TuneConfig {
   };
   life: { timeJitter: number; spaceJitter: number };
   b: { speed: number; dupP: number };
+  /**
+   * The three relationships, all of them read off the footage's own
+   * motion. These travel to scripts/exchange-mosh.mjs, which is where they
+   * actually do something: the WebGL preview cannot amplify a motion
+   * vector, because by the time a frame reaches it the vectors are gone.
+   */
+  exchange: {
+    calmGain: number;     // gain where nobody is speaking
+    amplify: number;      // gain on a concept word
+    accum: number;        // how long the push the gain added keeps going
+    clampPx: number;      // longest a single block may be thrown
+    bResponse: number;    // the underlayer's own gain on the same field
+    bAccum: number;       // and its memory, which is the longer one
+    bSmooth: number;      // blocks of blur on it, which is what makes it fluid
+    strength: number;     // most a pixel can be asked to flip
+    ref: number;          // px of A-B disagreement that counts as strong
+    gammaX: number;
+    envTerm: number; conceptPre: number; conceptAtk: number; conceptDec: number;
+  };
   /** The six plain-language dials, kept so the lab can reload them. */
   macros?: Macros;
   /**
@@ -137,6 +156,11 @@ export function shapeEnvelope(env: ArrayLike<number>, knee: number) {
 
 /** Simple mode. Every value 0-1; resolveMacros turns these into a config. */
 export interface Macros {
+  /** the three relationships */
+  amplify?: number;
+  accumulate?: number;
+  underResponse?: number;
+  exchange?: number;
   damage: number;
   squareSize: number;
   alive: number;
@@ -153,6 +177,7 @@ export interface Macros {
 export const DEFAULT_MACROS: Macros = {
   damage: 0.5, squareSize: 0.5, alive: 0.5, drag: 0.55, inside: 0.5,
   followsWords: 0.6, foldIn: 0, loose: 0.55, flow: 0.5, together: 0.45,
+  amplify: 0.54, accumulate: 0.61, underResponse: 0.5, exchange: 0.6,
   look: "current",
 };
 
@@ -188,6 +213,16 @@ export const DEFAULTS: TuneConfig = {
   },
   life: { timeJitter: 0.15, spaceJitter: 0.1 },
   b: { speed: 1.0, dupP: 4 },
+  exchange: {
+    calmGain: 1, amplify: 22, accum: 0.55, clampPx: 150,
+    bResponse: 1.2, bAccum: 0.85, bSmooth: 1,
+    // 0.5927 is where site percolation on a square lattice goes critical.
+    // Measured at 0.6 the exchange stopped being scattered pixels and
+    // became one connected sheet of 106403 of them, so the dial's top end
+    // stays below it on purpose.
+    strength: 0.3, ref: 14, gammaX: 1.1,
+    envTerm: 0.07, conceptPre: 4, conceptAtk: 6, conceptDec: 12,
+  },
 };
 
 const WHERE_ID: Record<FoldWhere, number> = {
@@ -327,6 +362,23 @@ export function resolveMacros(m: Macros, base: TuneConfig = DEFAULTS): TuneConfi
   // past the top of the range it stops being a detail and becomes the frame
   c.fold.where = fo > 0.85 ? "whole-frame"
     : fo > 0.02 ? "inside-reveals" : c.fold.where;
+
+  // ---- the three relationships. Amplify and Accumulate belong to the
+  // surface, Underlayer response to B, Exchange to the per-pixel swap
+  // between them. None of them spawns anything; they only decide how hard
+  // the footage's own motion is read.
+  const amp = clamp01(m.amplify ?? 0.54);
+  c.exchange.amplify = lerp(1, 40, amp);
+  c.exchange.accum = lerp(0, 0.9, clamp01(m.accumulate ?? 0.61));
+  const ur = clamp01(m.underResponse ?? 0.5);
+  c.exchange.bResponse = lerp(0.2, 2.2, ur);
+  c.exchange.bAccum = lerp(0.5, 0.94, ur);
+  c.exchange.bSmooth = ur > 0.6 ? 2 : 1;
+  const ex = clamp01(m.exchange ?? 0.6);
+  // the top of this range is 0.5, deliberately short of the 0.5927 where a
+  // random per-pixel mask percolates into one connected region
+  c.exchange.strength = lerp(0, 0.5, ex);
+  c.exchange.ref = lerp(26, 6, ex);
 
   c.inside.look = m.look;
   c.macros = JSON.parse(JSON.stringify(m));

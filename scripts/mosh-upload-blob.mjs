@@ -23,6 +23,16 @@ const argOf = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1]
 const dryRun = args.includes("--dry-run");
 const DIR = argOf("--dir", "public/mosh-lab");
 const PREFIX = (argOf("--prefix", "mosh-lab")).replace(/^\/|\/$/g, "");
+/**
+ * --only <substring,substring> uploads just the files whose name contains
+ * one of them. Everything else in the directory is already on Blob at a
+ * stable URL, and re-pushing 200 MB to change three files is not a thing
+ * worth doing. The manifest rewrite below still runs over every manifest,
+ * so entries that were already pointing at Blob keep pointing at Blob.
+ */
+const ONLY = args.indexOf("--only") >= 0
+  ? argOf("--only", "").split(",").map((s2) => s2.trim()).filter(Boolean)
+  : null;
 
 /** inputs, not outputs - these stay in git */
 const KEEP_LOCAL = new Set(["blum-clip.mp4", "blum-clip-internet.mp4", "test-clip.mp4"]);
@@ -38,9 +48,10 @@ if (!token && !dryRun) {
 }
 
 const top = (await readdir(DIR))
-  .filter((f) => f.endsWith(".mp4") && !KEEP_LOCAL.has(f) && !SKIP_UPLOAD.test(f));
+  .filter((f) => f.endsWith(".mp4") && !KEEP_LOCAL.has(f) && !SKIP_UPLOAD.test(f))
+  .filter((f) => !ONLY || ONLY.some((o) => f.includes(o)));
 const prevDir = path.join(DIR, "previews");
-const prev = existsSync(prevDir)
+const prev = existsSync(prevDir) && !ONLY
   ? (await readdir(prevDir)).filter((f) => f.endsWith(".mp4")).map((f) => path.join("previews", f))
   : [];
 const files = [...top, ...prev];

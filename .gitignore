@@ -114,3 +114,9 @@ public/mosh-lab/real-render-config.json
 .ffgac-b1/
 .frames/
 public/mosh-lab/blum-internet-tune-offline-probes.json
+
+# the three relationships
+.exchange/
+.exchange-journey/
+.exchange-real/
+.journey-src/

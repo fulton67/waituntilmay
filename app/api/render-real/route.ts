@@ -1,10 +1,14 @@
 /**
  * Run the real ffgac pipeline on the settings the lab currently has.
  *
- * The preview is a WebGL composite of decoded frames. This is the other
- * thing entirely: ffgac encodes an MPEG-4 elementary stream with
- * +forcemv+nopimb, keyframes are placed where the damage curve dips, and
- * the result is a real datamosh rather than a picture of one.
+ * The preview is a WebGL composite of decoded frames, and there is one
+ * thing it structurally cannot show: by the time a frame reaches WebGL its
+ * motion vectors are gone, so a preview can only draw a picture of a
+ * datamosh. This encodes one. The surface multiplies the vectors the
+ * encoder emitted itself, the underlayer is driven by that same amplified
+ * field, and single pixels exchange between the two where they disagree -
+ * which is why the button is worth pressing rather than trusting the
+ * preview.
  *
  * Dev only, like the config write: the deployment has no ffmpeg, no ffgac
  * and no business running either on request. On the deployed page the
@@ -49,16 +53,20 @@ export async function POST(request: Request) {
   const started = Date.now();
   try {
     const { stdout } = await run("node", [
-      "scripts/ffgac-mosh.mjs",
+      "scripts/exchange-mosh.mjs",
       "--config", path.relative(process.cwd(), cfgPath),
       "--frames", String(frames),
-      "--outdir", path.relative(process.cwd(), OUT_DIR),
+      "--outdir", ".exchange-real",
+      "--pubdir", path.relative(process.cwd(), OUT_DIR),
+      "--name", "real",
       "--report", "public/mosh-lab/real/evidence.json",
     ], { cwd: process.cwd(), maxBuffer: 1 << 26 });
     return Response.json({
       ok: true,
       // cache-busted, because the file is overwritten in place every run
-      video: `/mosh-lab/real/healed.mp4?t=${Date.now()}`,
+      video: `/mosh-lab/real/real.mp4?t=${Date.now()}`,
+      surface: `/mosh-lab/real/real-A.mp4?t=${Date.now()}`,
+      underlayer: `/mosh-lab/real/real-B.mp4?t=${Date.now()}`,
       evidence: `/mosh-lab/real/evidence.json?t=${Date.now()}`,
       seconds: (Date.now() - started) / 1000,
       log: stdout.split("\n").slice(-24).join("\n"),

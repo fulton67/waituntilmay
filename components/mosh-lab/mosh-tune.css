@@ -315,3 +315,19 @@
   font-size: 10px;
 }
 .mt-pair video.mt-canvas { max-width: none; width: 100%; }
+
+/* the dials the three relationships replaced, folded away but still live */
+.mt-older {
+  grid-column: 1 / -1;
+  margin-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 0.6rem;
+}
+.mt-older > summary {
+  cursor: pointer;
+  opacity: 0.62;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+.mt-older[open] > summary { opacity: 0.85; margin-bottom: 0.4rem; }
+.mt-older > p { margin: 0.2rem 0 0.7rem; max-width: 56ch; }

@@ -108,6 +108,42 @@
    "width": 640,
    "height": 360,
    "fps": "30/1"
+  },
+  {
+   "key": "exchange-a",
+   "label": "exchange · surface (A)",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-exchange-A.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-exchange-A-mv.mp4",
+   "frames": 300,
+   "duration": 10,
+   "mb": 0.678575,
+   "width": 640,
+   "height": 360,
+   "fps": "30/1"
+  },
+  {
+   "key": "exchange-b",
+   "label": "exchange · underlayer (B)",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-exchange-B.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-exchange-B-mv.mp4",
+   "frames": 300,
+   "duration": 10,
+   "mb": 21.141694,
+   "width": 640,
+   "height": 360,
+   "fps": "30/1"
+  },
+  {
+   "key": "exchange",
+   "label": "exchange · composite",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-exchange.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-exchange-mv.mp4",
+   "frames": 300,
+   "duration": 10,
+   "mb": 4.303472,
+   "width": 640,
+   "height": 360,
+   "fps": "30/1"
   }
  ],
  "previews": {
