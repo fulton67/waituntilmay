@@ -155,3 +155,42 @@ The upload writes `public/journey/manifest.json` holding absolute Blob URLs.
 The manifest stays local so the page has no cross-origin fetch before it can
 start. Manifest entries may be bare filenames or absolute URLs, so changing
 host is a manifest change, never a code change.
+
+## Which pool is live
+
+`journey-multi/` — 29 versions drawn across blum, lackner and swartz.
+
+One line in `components/JourneyPlayer.tsx` decides, and it moves the live
+Blob manifest and the bundled fallback together:
+
+```ts
+const POOL = process.env.NEXT_PUBLIC_JOURNEY_POOL ?? "journey-multi";
+```
+
+`journey/` is the original single-source pool, still on Blob with its 61
+objects untouched, so switching back is that one line — or
+`NEXT_PUBLIC_JOURNEY_POOL=journey` with no code change at all. The pools are
+separate prefixes; uploading to one never touches the other.
+
+To rebuild the live pool from scratch:
+
+```
+python randomize.py --count 30 --outdir renders_multi
+python scripts/verify_renders.py --dir renders_multi --no-text
+python scripts/build_web.py --src renders_multi --out renders_multi/web \
+  --height 720 --crf 30 --maxrate-kbps 2000 --budget-mb 8.0
+node --env-file=.env.local scripts/upload_blob.mjs --prefix journey-multi \
+  --src renders_multi/web --manifest public/journey-multi/manifest.json \
+  --mix renders_multi
+node scripts/mosh-codec-audit.mjs
+node scripts/verify-journey-live.mjs
+```
+
+Only versions that pass every gate ship: move a failure out of the renders
+directory before encoding. `--mix` reads each version's `source_mix` into the
+manifest, which is what lets `verify-journey-live.mjs` prove a version from
+every source actually decodes in the live page rather than just one.
+
+The nightly job (`scripts/register-pool-task.ps1`, 03:00, idle + AC only) runs
+the same gates before a version joins the rotation, so the pool grows
+unattended against the same bar as this batch.
