@@ -1,0 +1,404 @@
+{
+ "0": [
+  "scale"
+ ],
+ "1": [
+  "abstract",
+  "attack",
+  "cut",
+  "people",
+  "physical",
+  "water"
+ ],
+ "10": [
+  "inside"
+ ],
+ "100": [
+  "attack",
+  "definition",
+  "doubt",
+  "people",
+  "physical"
+ ],
+ "101": [
+  "filler"
+ ],
+ "11": [
+  "filler"
+ ],
+ "12": [
+  "filler"
+ ],
+ "13": [
+  "cut",
+  "people",
+  "physical"
+ ],
+ "14": [
+  "filler"
+ ],
+ "15": [
+  "water"
+ ],
+ "16": [
+  "cut",
+  "definition",
+  "scale",
+  "water"
+ ],
+ "17": [
+  "filler"
+ ],
+ "18": [
+  "filler"
+ ],
+ "19": [
+  "abstract",
+  "definition"
+ ],
+ "2": [
+  "attack",
+  "people"
+ ],
+ "20": [
+  "filler"
+ ],
+ "21": [
+  "cut",
+  "physical"
+ ],
+ "22": [
+  "filler"
+ ],
+ "23": [
+  "filler"
+ ],
+ "24": [
+  "cut",
+  "definition",
+  "physical"
+ ],
+ "25": [
+  "filler"
+ ],
+ "26": [
+  "filler"
+ ],
+ "27": [
+  "cut",
+  "definition",
+  "physical",
+  "scale"
+ ],
+ "28": [
+  "filler"
+ ],
+ "29": [
+  "scale"
+ ],
+ "3": [
+  "cut",
+  "water"
+ ],
+ "30": [
+  "definition"
+ ],
+ "31": [
+  "cut",
+  "definition",
+  "people"
+ ],
+ "32": [
+  "definition",
+  "doubt"
+ ],
+ "33": [
+  "cut",
+  "definition",
+  "inside",
+  "physical"
+ ],
+ "34": [
+  "scale"
+ ],
+ "35": [
+  "cut",
+  "physical"
+ ],
+ "36": [
+  "filler"
+ ],
+ "37": [
+  "cut",
+  "definition",
+  "scale"
+ ],
+ "38": [
+  "scale"
+ ],
+ "39": [
+  "filler"
+ ],
+ "4": [
+  "definition",
+  "people"
+ ],
+ "40": [
+  "cut",
+  "physical"
+ ],
+ "41": [
+  "attack",
+  "people"
+ ],
+ "42": [
+  "people"
+ ],
+ "43": [
+  "cut",
+  "scale"
+ ],
+ "44": [
+  "people"
+ ],
+ "45": [
+  "people",
+  "scale"
+ ],
+ "46": [
+  "people"
+ ],
+ "47": [
+  "attack",
+  "definition",
+  "people"
+ ],
+ "48": [
+  "people"
+ ],
+ "49": [
+  "physical"
+ ],
+ "5": [
+  "filler"
+ ],
+ "50": [
+  "abstract",
+  "cut",
+  "physical",
+  "water"
+ ],
+ "51": [
+  "physical"
+ ],
+ "52": [
+  "definition"
+ ],
+ "53": [
+  "abstract",
+  "doubt"
+ ],
+ "54": [
+  "scale"
+ ],
+ "55": [
+  "cut",
+  "physical",
+  "water"
+ ],
+ "56": [
+  "abstract",
+  "scale"
+ ],
+ "57": [
+  "doubt",
+  "people",
+  "scale"
+ ],
+ "58": [
+  "definition",
+  "people"
+ ],
+ "59": [
+  "attack",
+  "doubt"
+ ],
+ "6": [
+  "abstract",
+  "cut",
+  "physical",
+  "scale",
+  "water"
+ ],
+ "60": [
+  "cut",
+  "definition",
+  "physical"
+ ],
+ "61": [
+  "inside",
+  "scale"
+ ],
+ "62": [
+  "people"
+ ],
+ "63": [
+  "filler"
+ ],
+ "64": [
+  "definition",
+  "inside",
+  "water"
+ ],
+ "65": [
+  "cut",
+  "physical"
+ ],
+ "66": [
+  "cut",
+  "people",
+  "real"
+ ],
+ "67": [
+  "scale"
+ ],
+ "68": [
+  "definition",
+  "doubt",
+  "people"
+ ],
+ "69": [
+  "attack",
+  "people",
+  "scale"
+ ],
+ "7": [
+  "cut",
+  "definition"
+ ],
+ "70": [
+  "attack",
+  "people"
+ ],
+ "71": [
+  "physical",
+  "water"
+ ],
+ "72": [
+  "attack",
+  "physical"
+ ],
+ "73": [
+  "people"
+ ],
+ "74": [
+  "definition",
+  "people",
+  "scale"
+ ],
+ "75": [
+  "attack",
+  "people",
+  "physical"
+ ],
+ "76": [
+  "attack",
+  "people",
+  "water"
+ ],
+ "77": [
+  "attack",
+  "people",
+  "physical",
+  "water"
+ ],
+ "78": [
+  "cut",
+  "water"
+ ],
+ "79": [
+  "water"
+ ],
+ "8": [
+  "filler"
+ ],
+ "80": [
+  "scale",
+  "water"
+ ],
+ "81": [
+  "filler"
+ ],
+ "82": [
+  "filler"
+ ],
+ "83": [
+  "cut"
+ ],
+ "84": [
+  "filler"
+ ],
+ "85": [
+  "attack",
+  "physical",
+  "scale"
+ ],
+ "86": [
+  "people"
+ ],
+ "87": [
+  "filler"
+ ],
+ "88": [
+  "attack",
+  "definition",
+  "people",
+  "physical"
+ ],
+ "89": [
+  "attack"
+ ],
+ "9": [
+  "filler"
+ ],
+ "90": [
+  "filler"
+ ],
+ "91": [
+  "people"
+ ],
+ "92": [
+  "people"
+ ],
+ "93": [
+  "abstract",
+  "attack",
+  "cut",
+  "people",
+  "physical",
+  "water"
+ ],
+ "94": [
+  "definition",
+  "people"
+ ],
+ "95": [
+  "cut",
+  "physical"
+ ],
+ "96": [
+  "people"
+ ],
+ "97": [
+  "inside"
+ ],
+ "98": [
+  "doubt",
+  "people",
+  "scale"
+ ],
+ "99": [
+  "people",
+  "water"
+ ]
+}

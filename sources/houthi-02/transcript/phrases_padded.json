@@ -1,0 +1,1695 @@
+[
+ {
+  "id": 0,
+  "text": "Just weeks after reports first",
+  "start": 2.96,
+  "end": 4.661,
+  "duration": 1.701,
+  "word_ids": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": 1,
+  "text": "emerged that the Houthis might attack undersea internet cables,",
+  "start": 4.701,
+  "end": 7.743,
+  "duration": 3.042,
+  "word_ids": [
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13
+  ]
+ },
+ {
+  "id": 2,
+  "text": "the Yemeni group appears to have started this next phase of its offensive.",
+  "start": 8.063,
+  "end": 11.806,
+  "duration": 3.743,
+  "word_ids": [
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26
+  ]
+ },
+ {
+  "id": 3,
+  "text": "After already disrupting commercial shipping traffic,",
+  "start": 13.727,
+  "end": 16.389,
+  "duration": 2.662,
+  "word_ids": [
+   27,
+   28,
+   29,
+   30,
+   31,
+   32
+  ]
+ },
+ {
+  "id": 4,
+  "text": "the Houthis are reportedly setting their sights",
+  "start": 16.629,
+  "end": 18.97,
+  "duration": 2.341,
+  "word_ids": [
+   33,
+   34,
+   35,
+   36,
+   37,
+   38,
+   39
+  ]
+ },
+ {
+  "id": 5,
+  "text": "on holding global communication systems to ransom.",
+  "start": 19.25,
+  "end": 21.852,
+  "duration": 2.602,
+  "word_ids": [
+   40,
+   41,
+   42,
+   43,
+   44,
+   45,
+   46
+  ]
+ },
+ {
+  "id": 6,
+  "text": "At least four important undersea internet cables",
+  "start": 23.273,
+  "end": 25.995,
+  "duration": 2.722,
+  "word_ids": [
+   47,
+   48,
+   49,
+   50,
+   51,
+   52,
+   53
+  ]
+ },
+ {
+  "id": 7,
+  "text": "were recently damaged,",
+  "start": 26.215,
+  "end": 27.436,
+  "duration": 1.221,
+  "word_ids": [
+   54,
+   55,
+   56
+  ]
+ },
+ {
+  "id": 8,
+  "text": "according to reports in Israeli media.",
+  "start": 27.616,
+  "end": 29.537,
+  "duration": 1.921,
+  "word_ids": [
+   57,
+   58,
+   59,
+   60,
+   61,
+   62
+  ]
+ },
+ {
+  "id": 9,
+  "text": "These cables were damaged in",
+  "start": 31.304,
+  "end": 32.765,
+  "duration": 1.461,
+  "word_ids": [
+   63,
+   64,
+   65,
+   66,
+   67
+  ]
+ },
+ {
+  "id": 10,
+  "text": "areas between the Middle Eastern country of Saudi Arabia",
+  "start": 32.785,
+  "end": 35.567,
+  "duration": 2.782,
+  "word_ids": [
+   68,
+   69,
+   70,
+   71,
+   72,
+   73,
+   74,
+   75,
+   76
+  ]
+ },
+ {
+  "id": 11,
+  "text": "and East African nation Djibouti,",
+  "start": 36.447,
+  "end": 38.188,
+  "duration": 1.741,
+  "word_ids": [
+   77,
+   78,
+   79,
+   80,
+   81
+  ]
+ },
+ {
+  "id": 12,
+  "text": "according to news outlet Globes.",
+  "start": 38.229,
+  "end": 39.81,
+  "duration": 1.581,
+  "word_ids": [
+   82,
+   83,
+   84,
+   85,
+   86
+  ]
+ },
+ {
+  "id": 13,
+  "text": "The report said that the damage to the cables had caused severe disruption",
+  "start": 41.351,
+  "end": 44.993,
+  "duration": 3.642,
+  "word_ids": [
+   87,
+   88,
+   89,
+   90,
+   91,
+   92,
+   93,
+   94,
+   95,
+   96,
+   97,
+   98,
+   99
+  ]
+ },
+ {
+  "id": 14,
+  "text": "of communication between Europe and Asia,",
+  "start": 45.033,
+  "end": 47.134,
+  "duration": 2.101,
+  "word_ids": [
+   100,
+   101,
+   102,
+   103,
+   104,
+   105
+  ]
+ },
+ {
+  "id": 15,
+  "text": "and the biggest victims have been Gulf countries and India.",
+  "start": 47.975,
+  "end": 50.797,
+  "duration": 2.822,
+  "word_ids": [
+   106,
+   107,
+   108,
+   109,
+   110,
+   111,
+   112,
+   113,
+   114,
+   115
+  ]
+ },
+ {
+  "id": 16,
+  "text": "One of the damaged undersea systems is the AAE-1,",
+  "start": 67.358,
+  "end": 70.479,
+  "duration": 3.121,
+  "word_ids": [
+   116,
+   117,
+   118,
+   119,
+   120,
+   121,
+   122,
+   123,
+   124
+  ]
+ },
+ {
+  "id": 17,
+  "text": "which connects East Asia to Europe.",
+  "start": 70.859,
+  "end": 72.88,
+  "duration": 2.021,
+  "word_ids": [
+   125,
+   126,
+   127,
+   128,
+   129,
+   130
+  ]
+ },
+ {
+  "id": 18,
+  "text": "It links China to the West via countries like Pakistan and Qatar.",
+  "start": 73.32,
+  "end": 76.921,
+  "duration": 3.601,
+  "word_ids": [
+   131,
+   132,
+   133,
+   134,
+   135,
+   136,
+   137,
+   138,
+   139,
+   140,
+   141,
+   142
+  ]
+ },
+ {
+  "id": 19,
+  "text": "Then there is the Europe-India Gateway or EIG system,",
+  "start": 77.781,
+  "end": 81.082,
+  "duration": 3.301,
+  "word_ids": [
+   143,
+   144,
+   145,
+   146,
+   147,
+   148,
+   149,
+   150,
+   151
+  ]
+ },
+ {
+  "id": 20,
+  "text": "which links Europe to Asia and Africa.",
+  "start": 81.522,
+  "end": 83.683,
+  "duration": 2.161,
+  "word_ids": [
+   152,
+   153,
+   154,
+   155,
+   156,
+   157,
+   158
+  ]
+ },
+ {
+  "id": 21,
+  "text": "The cable connects Southern Europe to Egypt, Saudi Arabia,",
+  "start": 84.403,
+  "end": 87.714,
+  "duration": 3.311,
+  "word_ids": [
+   159,
+   160,
+   161,
+   162,
+   163,
+   164,
+   165,
+   166,
+   167
+  ]
+ },
+ {
+  "id": 22,
+  "text": "Djibouti,",
+  "start": 87.694,
+  "end": 88.604,
+  "duration": 0.91,
+  "word_ids": [
+   168
+  ]
+ },
+ {
+  "id": 23,
+  "text": "the United Arab Emirates and India.",
+  "start": 88.824,
+  "end": 90.785,
+  "duration": 1.961,
+  "word_ids": [
+   169,
+   170,
+   171,
+   172,
+   173,
+   174
+  ]
+ },
+ {
+  "id": 24,
+  "text": "Another damaged cable is the CCOM,",
+  "start": 91.807,
+  "end": 93.688,
+  "duration": 1.881,
+  "word_ids": [
+   175,
+   176,
+   177,
+   178,
+   179,
+   180
+  ]
+ },
+ {
+  "id": 25,
+  "text": "which links European,",
+  "start": 94.108,
+  "end": 95.369,
+  "duration": 1.261,
+  "word_ids": [
+   181,
+   182,
+   183
+  ]
+ },
+ {
+  "id": 26,
+  "text": "African and Asian countries like South Africa and India.",
+  "start": 95.509,
+  "end": 98.47,
+  "duration": 2.961,
+  "word_ids": [
+   184,
+   185,
+   186,
+   187,
+   188,
+   189,
+   190,
+   191,
+   192
+  ]
+ },
+ {
+  "id": 27,
+  "text": "The fourth damaged cable is the TGN, which was deployed in 2001",
+  "start": 99.01,
+  "end": 103.072,
+  "duration": 4.062,
+  "word_ids": [
+   193,
+   194,
+   195,
+   196,
+   197,
+   198,
+   199,
+   200,
+   201,
+   202,
+   203,
+   204
+  ]
+ },
+ {
+  "id": 28,
+  "text": "by American company Tyco and sold in",
+  "start": 103.232,
+  "end": 105.794,
+  "duration": 2.562,
+  "word_ids": [
+   205,
+   206,
+   207,
+   208,
+   209,
+   210,
+   211
+  ]
+ },
+ {
+  "id": 29,
+  "text": "2005 for $130 million to Indian firm VSNL,",
+  "start": 105.954,
+  "end": 109.455,
+  "duration": 3.501,
+  "word_ids": [
+   212,
+   213,
+   214,
+   215,
+   216,
+   217,
+   218,
+   219
+  ]
+ },
+ {
+  "id": 30,
+  "text": "which is now Tata Communications.",
+  "start": 109.756,
+  "end": 111.376,
+  "duration": 1.62,
+  "word_ids": [
+   220,
+   221,
+   222,
+   223,
+   224
+  ]
+ },
+ {
+  "id": 31,
+  "text": "The Globe's report has said that while the damage is severe,",
+  "start": 113.697,
+  "end": 116.499,
+  "duration": 2.802,
+  "word_ids": [
+   225,
+   226,
+   227,
+   228,
+   229,
+   230,
+   231,
+   232,
+   233,
+   234,
+   235
+  ]
+ },
+ {
+  "id": 32,
+  "text": "the situation is not yet critical.",
+  "start": 116.719,
+  "end": 118.54,
+  "duration": 1.821,
+  "word_ids": [
+   236,
+   237,
+   238,
+   239,
+   240,
+   241
+  ]
+ },
+ {
+  "id": 33,
+  "text": "This is because many other cables pass through the same location",
+  "start": 119.29,
+  "end": 122.513,
+  "duration": 3.223,
+  "word_ids": [
+   242,
+   243,
+   244,
+   245,
+   246,
+   247,
+   248,
+   249,
+   250,
+   251,
+   252
+  ]
+ },
+ {
+  "id": 34,
+  "text": "connecting the three continents.",
+  "start": 122.793,
+  "end": 124.214,
+  "duration": 1.421,
+  "word_ids": [
+   253,
+   254,
+   255,
+   256
+  ]
+ },
+ {
+  "id": 35,
+  "text": "But repairing the damaged cables might be a difficult and dangerous task.",
+  "start": 124.995,
+  "end": 128.598,
+  "duration": 3.603,
+  "word_ids": [
+   257,
+   258,
+   259,
+   260,
+   261,
+   262,
+   263,
+   264,
+   265,
+   266,
+   267,
+   268
+  ]
+ },
+ {
+  "id": 36,
+  "text": "Firstly,",
+  "start": 129.258,
+  "end": 129.789,
+  "duration": 0.531,
+  "word_ids": [
+   269
+  ]
+ },
+ {
+  "id": 37,
+  "text": "the repair work is expected to take many weeks,",
+  "start": 129.748,
+  "end": 132.341,
+  "duration": 2.593,
+  "word_ids": [
+   270,
+   271,
+   272,
+   273,
+   274,
+   275,
+   276,
+   277,
+   278
+  ]
+ },
+ {
+  "id": 38,
+  "text": "at least 8 weeks or 2 months according to some estimates.",
+  "start": 132.701,
+  "end": 135.743,
+  "duration": 3.042,
+  "word_ids": [
+   279,
+   280,
+   281,
+   282,
+   283,
+   284,
+   285,
+   286,
+   287,
+   288,
+   289
+  ]
+ },
+ {
+  "id": 39,
+  "text": "Secondly,",
+  "start": 137.805,
+  "end": 138.365,
+  "duration": 0.56,
+  "word_ids": [
+   290
+  ]
+ },
+ {
+  "id": 40,
+  "text": "communication companies might find it difficult to hire firms to repair the cables",
+  "start": 138.346,
+  "end": 142.389,
+  "duration": 4.043,
+  "word_ids": [
+   291,
+   292,
+   293,
+   294,
+   295,
+   296,
+   297,
+   298,
+   299,
+   300,
+   301,
+   302,
+   303
+  ]
+ },
+ {
+  "id": 41,
+  "text": "because of the threat of Houthi attacks.",
+  "start": 142.529,
+  "end": 144.31,
+  "duration": 1.781,
+  "word_ids": [
+   304,
+   305,
+   306,
+   307,
+   308,
+   309,
+   310
+  ]
+ },
+ {
+  "id": 42,
+  "text": "This would make the work costlier as they would charge a higher risk premium.",
+  "start": 145.031,
+  "end": 148.614,
+  "duration": 3.583,
+  "word_ids": [
+   311,
+   312,
+   313,
+   314,
+   315,
+   316,
+   317,
+   318,
+   319,
+   320,
+   321,
+   322,
+   323,
+   324
+  ]
+ },
+ {
+  "id": 43,
+  "text": "Reports about the damage have emerged just weeks",
+  "start": 152.051,
+  "end": 154.632,
+  "duration": 2.581,
+  "word_ids": [
+   325,
+   326,
+   327,
+   328,
+   329,
+   330,
+   331,
+   332
+  ]
+ },
+ {
+  "id": 44,
+  "text": "after Yemen's internationally recognized government",
+  "start": 154.672,
+  "end": 157.212,
+  "duration": 2.54,
+  "word_ids": [
+   333,
+   334,
+   335,
+   336,
+   337
+  ]
+ },
+ {
+  "id": 45,
+  "text": "first raised an alert about the Houthi plan.",
+  "start": 157.512,
+  "end": 159.733,
+  "duration": 2.221,
+  "word_ids": [
+   338,
+   339,
+   340,
+   341,
+   342,
+   343,
+   344,
+   345
+  ]
+ },
+ {
+  "id": 46,
+  "text": "The Yemeni government,",
+  "start": 160.393,
+  "end": 161.413,
+  "duration": 1.02,
+  "word_ids": [
+   346,
+   347,
+   348
+  ]
+ },
+ {
+  "id": 47,
+  "text": "which is fighting a civil war with the Houthis,",
+  "start": 161.673,
+  "end": 163.894,
+  "duration": 2.221,
+  "word_ids": [
+   349,
+   350,
+   351,
+   352,
+   353,
+   354,
+   355,
+   356,
+   357
+  ]
+ },
+ {
+  "id": 48,
+  "text": "had cited a Telegram channel linked to the Houthis.",
+  "start": 164.134,
+  "end": 166.635,
+  "duration": 2.501,
+  "word_ids": [
+   358,
+   359,
+   360,
+   361,
+   362,
+   363,
+   364,
+   365,
+   366
+  ]
+ },
+ {
+  "id": 49,
+  "text": "The Telegram channel had posted a map purportedly showing the location of",
+  "start": 168.155,
+  "end": 171.736,
+  "duration": 3.581,
+  "word_ids": [
+   367,
+   368,
+   369,
+   370,
+   371,
+   372,
+   373,
+   374,
+   375,
+   376,
+   377,
+   378
+  ]
+ },
+ {
+  "id": 50,
+  "text": "undersea internet cables running near Yemen.",
+  "start": 171.756,
+  "end": 174.097,
+  "duration": 2.341,
+  "word_ids": [
+   379,
+   380,
+   381,
+   382,
+   383,
+   384
+  ]
+ },
+ {
+  "id": 51,
+  "text": "The caption on the map had a sinister message,",
+  "start": 174.837,
+  "end": 176.937,
+  "duration": 2.1,
+  "word_ids": [
+   385,
+   386,
+   387,
+   388,
+   389,
+   390,
+   391,
+   392,
+   393
+  ]
+ },
+ {
+  "id": 52,
+  "text": "saying that Yemen is in a strategic location.",
+  "start": 177.277,
+  "end": 179.618,
+  "duration": 2.341,
+  "word_ids": [
+   394,
+   395,
+   396,
+   397,
+   398,
+   399,
+   400,
+   401
+  ]
+ },
+ {
+  "id": 53,
+  "text": "with internet lines connecting not just countries,",
+  "start": 180.013,
+  "end": 182.514,
+  "duration": 2.501,
+  "word_ids": [
+   402,
+   403,
+   404,
+   405,
+   406,
+   407,
+   408
+  ]
+ },
+ {
+  "id": 54,
+  "text": "but entire continents passing near it.",
+  "start": 182.754,
+  "end": 184.935,
+  "duration": 2.181,
+  "word_ids": [
+   409,
+   410,
+   411,
+   412,
+   413,
+   414
+  ]
+ },
+ {
+  "id": 55,
+  "text": "Reports suggest that cables in the Red Sea carry around",
+  "start": 186.476,
+  "end": 189.137,
+  "duration": 2.661,
+  "word_ids": [
+   415,
+   416,
+   417,
+   418,
+   419,
+   420,
+   421,
+   422,
+   423,
+   424
+  ]
+ },
+ {
+  "id": 56,
+  "text": "17% of the world's internet traffic.",
+  "start": 189.137,
+  "end": 191.538,
+  "duration": 2.401,
+  "word_ids": [
+   425,
+   426,
+   427,
+   428,
+   429,
+   430
+  ]
+ },
+ {
+  "id": 57,
+  "text": "When the Houthi threat first grabbed headlines,",
+  "start": 193.458,
+  "end": 195.599,
+  "duration": 2.141,
+  "word_ids": [
+   431,
+   432,
+   433,
+   434,
+   435,
+   436,
+   437
+  ]
+ },
+ {
+  "id": 58,
+  "text": "experts were skeptical about whether the Yemeni group",
+  "start": 195.879,
+  "end": 198.56,
+  "duration": 2.681,
+  "word_ids": [
+   438,
+   439,
+   440,
+   441,
+   442,
+   443,
+   444,
+   445
+  ]
+ },
+ {
+  "id": 59,
+  "text": "would be able to carry out the attacks.",
+  "start": 198.761,
+  "end": 200.521,
+  "duration": 1.76,
+  "word_ids": [
+   446,
+   447,
+   448,
+   449,
+   450,
+   451,
+   452,
+   453
+  ]
+ },
+ {
+  "id": 60,
+  "text": "This is because these fiber optic cables",
+  "start": 200.721,
+  "end": 202.822,
+  "duration": 2.101,
+  "word_ids": [
+   454,
+   455,
+   456,
+   457,
+   458,
+   459,
+   460
+  ]
+ },
+ {
+  "id": 61,
+  "text": "lie hundreds of meters below the surface,",
+  "start": 203.062,
+  "end": 205.163,
+  "duration": 2.101,
+  "word_ids": [
+   461,
+   462,
+   463,
+   464,
+   465,
+   466,
+   467
+  ]
+ },
+ {
+  "id": 62,
+  "text": "so divers cannot reach them.",
+  "start": 205.663,
+  "end": 207.144,
+  "duration": 1.481,
+  "word_ids": [
+   468,
+   469,
+   470,
+   471,
+   472
+  ]
+ },
+ {
+  "id": 63,
+  "text": "Countries like",
+  "start": 208.593,
+  "end": 209.314,
+  "duration": 0.721,
+  "word_ids": [
+   473,
+   474
+  ]
+ },
+ {
+  "id": 64,
+  "text": "America and Russia have deep-sea submersibles which are deployed from a mothership.",
+  "start": 209.334,
+  "end": 213.357,
+  "duration": 4.023,
+  "word_ids": [
+   475,
+   476,
+   477,
+   478,
+   479,
+   480,
+   481,
+   482,
+   483,
+   484,
+   485,
+   486
+  ]
+ },
+ {
+  "id": 65,
+  "text": "The submersibles then dive to the cables",
+  "start": 213.937,
+  "end": 215.939,
+  "duration": 2.002,
+  "word_ids": [
+   487,
+   488,
+   489,
+   490,
+   491,
+   492,
+   493
+  ]
+ },
+ {
+  "id": 66,
+  "text": "and literally cut them with tools",
+  "start": 216.259,
+  "end": 218.0,
+  "duration": 1.741,
+  "word_ids": [
+   494,
+   495,
+   496,
+   497,
+   498,
+   499
+  ]
+ },
+ {
+  "id": 67,
+  "text": "which work like a giant pair of scissors.",
+  "start": 218.161,
+  "end": 220.002,
+  "duration": 1.841,
+  "word_ids": [
+   500,
+   501,
+   502,
+   503,
+   504,
+   505,
+   506,
+   507
+  ]
+ },
+ {
+  "id": 68,
+  "text": "While it's not clear whether the Houthis have such submersibles,",
+  "start": 220.843,
+  "end": 223.845,
+  "duration": 3.002,
+  "word_ids": [
+   508,
+   509,
+   510,
+   511,
+   512,
+   513,
+   514,
+   515,
+   516,
+   517
+  ]
+ },
+ {
+  "id": 69,
+  "text": "the US military did make a chilling announcement on February 18.",
+  "start": 224.145,
+  "end": 227.228,
+  "duration": 3.083,
+  "word_ids": [
+   518,
+   519,
+   520,
+   521,
+   522,
+   523,
+   524,
+   525,
+   526,
+   527,
+   528
+  ]
+ },
+ {
+  "id": 70,
+  "text": "The American military said that it had destroyed an unmanned",
+  "start": 229.568,
+  "end": 232.689,
+  "duration": 3.121,
+  "word_ids": [
+   529,
+   530,
+   531,
+   532,
+   533,
+   534,
+   535,
+   536,
+   537,
+   538
+  ]
+ },
+ {
+  "id": 71,
+  "text": "underwater vessel",
+  "start": 232.769,
+  "end": 233.77,
+  "duration": 1.001,
+  "word_ids": [
+   539,
+   540
+  ]
+ },
+ {
+  "id": 72,
+  "text": "or a drone submarine",
+  "start": 234.09,
+  "end": 235.27,
+  "duration": 1.18,
+  "word_ids": [
+   541,
+   542,
+   543,
+   544
+  ]
+ },
+ {
+  "id": 73,
+  "text": "in Houthi-controlled territory.",
+  "start": 235.471,
+  "end": 236.751,
+  "duration": 1.28,
+  "word_ids": [
+   545,
+   546,
+   547
+  ]
+ },
+ {
+  "id": 74,
+  "text": "The US forces said that this was the first known use",
+  "start": 237.371,
+  "end": 240.473,
+  "duration": 3.102,
+  "word_ids": [
+   548,
+   549,
+   550,
+   551,
+   552,
+   553,
+   554,
+   555,
+   556,
+   557,
+   558
+  ]
+ },
+ {
+  "id": 75,
+  "text": "of a drone submarine by the Houthis",
+  "start": 240.673,
+  "end": 242.434,
+  "duration": 1.761,
+  "word_ids": [
+   559,
+   560,
+   561,
+   562,
+   563,
+   564,
+   565
+  ]
+ },
+ {
+  "id": 76,
+  "text": "since they began their attacks in the Red Sea over the Gaza war.",
+  "start": 242.714,
+  "end": 245.955,
+  "duration": 3.241,
+  "word_ids": [
+   566,
+   567,
+   568,
+   569,
+   570,
+   571,
+   572,
+   573,
+   574,
+   575,
+   576,
+   577,
+   578
+  ]
+ },
+ {
+  "id": 77,
+  "text": "Houthi attacks on commercial ships in the Red Sea have",
+  "start": 247.676,
+  "end": 250.097,
+  "duration": 2.421,
+  "word_ids": [
+   579,
+   580,
+   581,
+   582,
+   583,
+   584,
+   585,
+   586,
+   587,
+   588
+  ]
+ },
+ {
+  "id": 78,
+  "text": "already caused severe disruption of maritime trade.",
+  "start": 250.117,
+  "end": 252.698,
+  "duration": 2.581,
+  "word_ids": [
+   589,
+   590,
+   591,
+   592,
+   593,
+   594,
+   595
+  ]
+ },
+ {
+  "id": 79,
+  "text": "The Red Sea route accounts for around",
+  "start": 255.488,
+  "end": 257.368,
+  "duration": 1.88,
+  "word_ids": [
+   596,
+   597,
+   598,
+   599,
+   600,
+   601,
+   602
+  ]
+ },
+ {
+  "id": 80,
+  "text": "15% of global shipping traffic,",
+  "start": 257.428,
+  "end": 259.629,
+  "duration": 2.201,
+  "word_ids": [
+   603,
+   604,
+   605,
+   606,
+   607
+  ]
+ },
+ {
+  "id": 81,
+  "text": "and many companies have decided to avoid the route",
+  "start": 260.089,
+  "end": 262.549,
+  "duration": 2.46,
+  "word_ids": [
+   608,
+   609,
+   610,
+   611,
+   612,
+   613,
+   614,
+   615,
+   616
+  ]
+ },
+ {
+  "id": 82,
+  "text": "and sail all the way around Africa instead.",
+  "start": 262.829,
+  "end": 265.19,
+  "duration": 2.361,
+  "word_ids": [
+   617,
+   618,
+   619,
+   620,
+   621,
+   622,
+   623,
+   624
+  ]
+ },
+ {
+  "id": 83,
+  "text": "But this has severely increased costs",
+  "start": 265.87,
+  "end": 268.05,
+  "duration": 2.18,
+  "word_ids": [
+   625,
+   626,
+   627,
+   628,
+   629,
+   630
+  ]
+ },
+ {
+  "id": 84,
+  "text": "and also caused delays in shipments.",
+  "start": 268.39,
+  "end": 270.271,
+  "duration": 1.881,
+  "word_ids": [
+   631,
+   632,
+   633,
+   634,
+   635,
+   636
+  ]
+ },
+ {
+  "id": 85,
+  "text": "Even regular airstrikes since January by America and some of its allies",
+  "start": 271.991,
+  "end": 275.871,
+  "duration": 3.88,
+  "word_ids": [
+   637,
+   638,
+   639,
+   640,
+   641,
+   642,
+   643,
+   644,
+   645,
+   646,
+   647,
+   648
+  ]
+ },
+ {
+  "id": 86,
+  "text": "have failed to deter the Houthis.",
+  "start": 276.092,
+  "end": 277.592,
+  "duration": 1.5,
+  "word_ids": [
+   649,
+   650,
+   651,
+   652,
+   653,
+   654
+  ]
+ },
+ {
+  "id": 87,
+  "text": "Now,",
+  "start": 278.372,
+  "end": 278.672,
+  "duration": 0.3,
+  "word_ids": [
+   655
+  ]
+ },
+ {
+  "id": 88,
+  "text": "if they are attacking global communication infrastructure,",
+  "start": 278.772,
+  "end": 281.552,
+  "duration": 2.78,
+  "word_ids": [
+   656,
+   657,
+   658,
+   659,
+   660,
+   661,
+   662
+  ]
+ },
+ {
+  "id": 89,
+  "text": "it would mark a serious escalation of the conflict.",
+  "start": 281.893,
+  "end": 284.473,
+  "duration": 2.58,
+  "word_ids": [
+   663,
+   664,
+   665,
+   666,
+   667,
+   668,
+   669,
+   670,
+   671
+  ]
+ },
+ {
+  "id": 90,
+  "text": "Recently,",
+  "start": 286.052,
+  "end": 286.622,
+  "duration": 0.57,
+  "word_ids": [
+   672
+  ]
+ },
+ {
+  "id": 91,
+  "text": "the leader of the Ansarullah or Houthi group,",
+  "start": 286.582,
+  "end": 289.114,
+  "duration": 2.532,
+  "word_ids": [
+   673,
+   674,
+   675,
+   676,
+   677,
+   678,
+   679,
+   680
+  ]
+ },
+ {
+  "id": 92,
+  "text": "Abdul Malik Al-Houthi,",
+  "start": 289.374,
+  "end": 290.595,
+  "duration": 1.221,
+  "word_ids": [
+   681,
+   682,
+   683
+  ]
+ },
+ {
+  "id": 93,
+  "text": "denied that he had any plans to start attacking undersea internet cables.",
+  "start": 290.795,
+  "end": 294.597,
+  "duration": 3.802,
+  "word_ids": [
+   684,
+   685,
+   686,
+   687,
+   688,
+   689,
+   690,
+   691,
+   692,
+   693,
+   694,
+   695
+  ]
+ },
+ {
+  "id": 94,
+  "text": "Al-Houthi called the earlier reports confusion and distortion of his plans.",
+  "start": 295.557,
+  "end": 299.359,
+  "duration": 3.802,
+  "word_ids": [
+   696,
+   697,
+   698,
+   699,
+   700,
+   701,
+   702,
+   703,
+   704,
+   705,
+   706
+  ]
+ },
+ {
+  "id": 95,
+  "text": "But if any fibre optic cables near Yemen have suffered damage,",
+  "start": 300.84,
+  "end": 304.322,
+  "duration": 3.482,
+  "word_ids": [
+   707,
+   708,
+   709,
+   710,
+   711,
+   712,
+   713,
+   714,
+   715,
+   716,
+   717
+  ]
+ },
+ {
+  "id": 96,
+  "text": "the needle of suspicion would immediately swing towards the Houthis.",
+  "start": 304.622,
+  "end": 307.784,
+  "duration": 3.162,
+  "word_ids": [
+   718,
+   719,
+   720,
+   721,
+   722,
+   723,
+   724,
+   725,
+   726,
+   727
+  ]
+ },
+ {
+  "id": 97,
+  "text": "This also carries the risk of drawing other affected countries into the conflict.",
+  "start": 308.725,
+  "end": 312.787,
+  "duration": 4.062,
+  "word_ids": [
+   728,
+   729,
+   730,
+   731,
+   732,
+   733,
+   734,
+   735,
+   736,
+   737,
+   738,
+   739,
+   740
+  ]
+ },
+ {
+  "id": 98,
+  "text": "Just two days after Abdul Malik al-Houthi's claim,",
+  "start": 314.436,
+  "end": 316.919,
+  "duration": 2.483,
+  "word_ids": [
+   741,
+   742,
+   743,
+   744,
+   745,
+   746,
+   747,
+   748
+  ]
+ },
+ {
+  "id": 99,
+  "text": "the chief of the Indian Navy said that Indian warships deployed near Yemen",
+  "start": 317.259,
+  "end": 320.884,
+  "duration": 3.625,
+  "word_ids": [
+   749,
+   750,
+   751,
+   752,
+   753,
+   754,
+   755,
+   756,
+   757,
+   758,
+   759,
+   760,
+   761
+  ]
+ },
+ {
+  "id": 100,
+  "text": "are tracking Houthi missiles and drones",
+  "start": 321.144,
+  "end": 322.886,
+  "duration": 1.742,
+  "word_ids": [
+   762,
+   763,
+   764,
+   765,
+   766,
+   767
+  ]
+ },
+ {
+  "id": 101,
+  "text": "and stand ready to respond if threatened.",
+  "start": 323.206,
+  "end": 325.309,
+  "duration": 2.103,
+  "word_ids": [
+   768,
+   769,
+   770,
+   771,
+   772,
+   773,
+   774
+  ]
+ }
+]

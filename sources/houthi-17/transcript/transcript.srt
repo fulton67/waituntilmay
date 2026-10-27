@@ -1,0 +1,356 @@
+1
+00:00:00,031 --> 00:00:04,175
+Well, it's time now for our science and
+tech segment. And today we're looking at
+
+2
+00:00:04,435 --> 00:00:09,260
+underwater warfare, particularly
+concerning fibre optic cables. Now,
+
+3
+00:00:09,300 --> 00:00:11,883
+we've taken this issue to look at because
+the
+
+4
+00:00:12,083 --> 00:00:16,787
+Houthis in Yemen attacked a ship called
+the Rubimar earlier this year. And
+
+5
+00:00:17,167 --> 00:00:20,328
+three internet cables were cut afterwards.
+Now,
+
+6
+00:00:20,368 --> 00:00:22,569
+most maritime experts believe it was an
+
+7
+00:00:22,829 --> 00:00:25,830
+accident that the cables were damaged as
+the ship drifted.
+
+8
+00:00:26,250 --> 00:00:30,872
+But with over 90% of Europe-Asia internet
+traffic running through the Red Sea,
+
+9
+00:00:31,172 --> 00:00:32,732
+it's still a major concern. Now,
+
+10
+00:00:32,772 --> 00:00:35,113
+Julia Seager has been looking into this.
+She's with me now. Julia,
+
+11
+00:00:35,133 --> 00:00:38,755
+do we know what happened in this particular
+incident I mentioned? We don't really know, actually,
+
+12
+00:00:38,775 --> 00:00:42,958
+but as you said, Nadia, the official
+version is that the anchor of the ship,
+
+13
+00:00:43,098 --> 00:00:47,082
+of the Ruby Mar, could have scrapped the
+bottom and severed those cables.
+
+14
+00:00:47,522 --> 00:00:50,364
+The Houthi rebel group has denied any
+implication in an attack,
+
+15
+00:00:50,384 --> 00:00:54,608
+but Washington continues to think that there's
+an act of sabotage there. Now, why?
+
+16
+00:00:54,688 --> 00:00:58,091
+Because there was actually a message that
+was posted in a telegram group linked
+
+17
+00:00:58,311 --> 00:01:01,614
+to the Houthis, in which they show this
+map that you can see here,
+
+18
+00:01:02,334 --> 00:01:06,978
+showing all of the undersea cables that
+are trans, that are that transit
+
+19
+00:01:07,239 --> 00:01:09,341
+next to Yemen. And in this message,
+
+20
+00:01:09,381 --> 00:01:11,103
+they say that they recognize the fact that
+they're
+
+21
+00:01:11,403 --> 00:01:14,947
+really on a strategic route there. So indeed, when
+you look at the world, you have about
+
+22
+00:01:15,207 --> 00:01:15,608
+450
+
+23
+00:01:16,649 --> 00:01:18,771
+fiber optic cables crisscrossing the seas,
+
+24
+00:01:19,052 --> 00:01:21,414
+connecting all continents and facilitating
+nearly
+
+25
+00:01:22,175 --> 00:01:25,399
+99% of all global internet traffic
+compared to only 1%
+
+26
+00:01:25,799 --> 00:01:29,342
+that transit through satellites. And when
+you look at the Red Sea region,
+
+27
+00:01:29,363 --> 00:01:33,907
+you have about 15 cables that transit
+through the Bab al-Mandab Strait,
+
+28
+00:01:34,748 --> 00:01:40,233
+so next to Yemen. Now, the incident didn't
+really affect the global
+
+29
+00:01:40,534 --> 00:01:42,396
+internet traffic, and the reason why is
+because
+
+30
+00:01:42,536 --> 00:01:46,460
+operators today can really identify very
+quickly and repair cables thanks
+
+31
+00:01:46,580 --> 00:01:49,622
+to smart sensors. And also during their
+intervention,
+
+32
+00:01:49,642 --> 00:01:52,744
+they can also reroute all of the internet
+on other cables.
+
+33
+00:01:52,785 --> 00:01:57,288
+So if you really wanted to provoke a
+blackout, a total blackout,
+
+34
+00:01:57,308 --> 00:02:02,051
+you would really have to severe many, many
+cables indeed. Now these operators,
+
+35
+00:02:02,091 --> 00:02:06,899
+they often do these these repairs on these
+cables because there are often accidents
+
+36
+00:02:07,179 --> 00:02:11,321
+due to underwater earthquakes, marine
+anchors,
+
+37
+00:02:11,361 --> 00:02:13,662
+fishing nets and even shark attacks. Now
+these are
+
+38
+00:02:14,082 --> 00:02:17,803
+very vulnerable cables as you can see
+here. They're as big as garden hose and
+
+39
+00:02:18,543 --> 00:02:21,704
+they also just lie there at the bottom of
+the sea. They're not even
+
+40
+00:02:22,265 --> 00:02:25,946
+buried in any way. Now, this particular
+incident, as you say, Julia,
+
+41
+00:02:26,026 --> 00:02:30,747
+didn't cause a lot of damage, but nonetheless,
+the issue has sort of reawoken fears
+
+42
+00:02:31,307 --> 00:02:34,848
+of underwater warfare. Tell us a bit about
+what you mean by that. The fear is that
+
+43
+00:02:35,369 --> 00:02:36,529
+the prospect that this
+
+44
+00:02:37,149 --> 00:02:40,870
+infrastructure of fiber optic is going to
+be increasingly targeted, not just by states,
+
+45
+00:02:40,910 --> 00:02:43,471
+but also by armed groups. The reason why
+is because...
+
+46
+00:02:43,791 --> 00:02:46,813
+Attribution is very difficult because it
+happens underwater and because the
+
+47
+00:02:46,893 --> 00:02:52,437
+impact is still very much there. I mean,
+these cables do facilitate, as I said,
+
+48
+00:02:52,477 --> 00:02:56,820
+the transfer of a lot of data, let it be
+financial, industrial, administrative,
+
+49
+00:02:56,900 --> 00:03:00,962
+but also more and more because of
+connectivity, it's very much linked to
+
+50
+00:03:01,442 --> 00:03:04,665
+the supply of electricity, natural gas,
+and even oil supply.
+
+51
+00:03:04,705 --> 00:03:07,987
+So it's very strategic and it's very much
+linked to state sovereignty.
+
+52
+00:03:08,607 --> 00:03:10,689
+And just finally, is it really, do you
+think,
+
+53
+00:03:10,729 --> 00:03:13,812
+within the reach of these armed groups to
+sabotage cables under the sea? Well,
+
+54
+00:03:13,832 --> 00:03:15,774
+degrading a sea cable is actually quite
+easy.
+
+55
+00:03:15,794 --> 00:03:19,017
+You can do it in a very frugal way with
+scuba divers and huge scissors,
+
+56
+00:03:19,077 --> 00:03:22,980
+like literally. And especially in the deep
+sea, in the Red Sea, because
+
+57
+00:03:23,340 --> 00:03:26,203
+the depth of the water doesn't exceed 300
+meters. But
+
+58
+00:03:26,523 --> 00:03:28,705
+severing it completely takes a little bit
+more skills. Now,
+
+59
+00:03:28,725 --> 00:03:30,207
+when you operate near the shores,
+
+60
+00:03:30,307 --> 00:03:32,589
+it's easier because it's shallower, but
+you have more...
+
+61
+00:03:33,209 --> 00:03:34,692
+surveillance. And if you operate
+
+62
+00:03:35,493 --> 00:03:40,540
+offshore, then you have to have tech capabilities
+to go deeper to get those cables.
+
+63
+00:03:41,021 --> 00:03:45,607
+And when it comes to that, these devices
+that are that are being developed now,
+
+64
+00:03:45,667 --> 00:03:48,652
+like let's say these mini drones or mini
+submarines are actually
+
+65
+00:03:49,172 --> 00:03:52,533
+becoming more available, more affordable
+and in reach of certain groups
+
+66
+00:03:52,933 --> 00:03:55,294
+because there's a democratization of those
+technologies.
+
+67
+00:03:55,334 --> 00:03:59,215
+I'm just going to show you one last image.
+This is an under
+
+68
+00:03:59,355 --> 00:04:03,337
+what's called a surface kamikaze sea drone that
+was developed by the Ukrainian army that's now
+
+69
+00:04:03,477 --> 00:04:06,818
+used against ships, Russian ships in the
+Black Sea. Well,
+
+70
+00:04:06,838 --> 00:04:09,278
+these types of drones, they could actually
+
+71
+00:04:09,758 --> 00:04:12,559
+be used tomorrow by armed groups because
+they're affordable
+
+72
+00:04:13,360 --> 00:04:17,481
+to target undersea cables. So that's
+really the prospect that today
+
+73
+00:04:18,785 --> 00:04:21,656
+marine experts are looking at. Julia
+Seager, thanks very much.
+

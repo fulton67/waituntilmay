@@ -1,0 +1,230 @@
+{
+ "0": [
+  "scale",
+  "water"
+ ],
+ "1": [
+  "cut",
+  "physical",
+  "water"
+ ],
+ "10": [
+  "water"
+ ],
+ "11": [
+  "filler"
+ ],
+ "12": [
+  "definition",
+  "doubt"
+ ],
+ "13": [
+  "inside",
+  "water"
+ ],
+ "14": [
+  "cut",
+  "doubt"
+ ],
+ "15": [
+  "attack",
+  "cut",
+  "definition",
+  "physical"
+ ],
+ "16": [
+  "people"
+ ],
+ "17": [
+  "attack"
+ ],
+ "18": [
+  "people"
+ ],
+ "19": [
+  "attack"
+ ],
+ "2": [
+  "abstract"
+ ],
+ "20": [
+  "cut",
+  "inside",
+  "water"
+ ],
+ "21": [
+  "filler"
+ ],
+ "22": [
+  "filler"
+ ],
+ "23": [
+  "attack",
+  "cut"
+ ],
+ "24": [
+  "scale"
+ ],
+ "25": [
+  "filler"
+ ],
+ "26": [
+  "cut"
+ ],
+ "27": [
+  "scale"
+ ],
+ "28": [
+  "inside",
+  "water"
+ ],
+ "29": [
+  "abstract",
+  "water"
+ ],
+ "3": [
+  "filler"
+ ],
+ "30": [
+  "people"
+ ],
+ "31": [
+  "filler"
+ ],
+ "32": [
+  "scale"
+ ],
+ "33": [
+  "filler"
+ ],
+ "34": [
+  "people"
+ ],
+ "35": [
+  "attack",
+  "cut",
+  "physical"
+ ],
+ "36": [
+  "cut",
+  "definition",
+  "scale"
+ ],
+ "37": [
+  "filler"
+ ],
+ "38": [
+  "abstract"
+ ],
+ "39": [
+  "filler"
+ ],
+ "4": [
+  "inside"
+ ],
+ "40": [
+  "scale"
+ ],
+ "41": [
+  "filler"
+ ],
+ "42": [
+  "attack",
+  "cut",
+  "people",
+  "physical"
+ ],
+ "43": [
+  "attack",
+  "cut",
+  "people"
+ ],
+ "44": [
+  "doubt"
+ ],
+ "45": [
+  "filler"
+ ],
+ "46": [
+  "attack",
+  "cut",
+  "doubt",
+  "people",
+  "physical"
+ ],
+ "47": [
+  "definition",
+  "doubt",
+  "people"
+ ],
+ "48": [
+  "attack"
+ ],
+ "49": [
+  "inside",
+  "scale",
+  "water"
+ ],
+ "5": [
+  "attack",
+  "definition",
+  "water"
+ ],
+ "50": [
+  "filler"
+ ],
+ "51": [
+  "cut",
+  "physical"
+ ],
+ "52": [
+  "attack",
+  "physical"
+ ],
+ "53": [
+  "filler"
+ ],
+ "54": [
+  "physical",
+  "water"
+ ],
+ "55": [
+  "cut",
+  "definition",
+  "inside",
+  "people",
+  "physical",
+  "scale",
+  "water"
+ ],
+ "56": [
+  "filler"
+ ],
+ "57": [
+  "cut",
+  "inside",
+  "people",
+  "physical"
+ ],
+ "58": [
+  "people"
+ ],
+ "59": [
+  "filler"
+ ],
+ "6": [
+  "people"
+ ],
+ "60": [
+  "people"
+ ],
+ "7": [
+  "filler"
+ ],
+ "8": [
+  "scale"
+ ],
+ "9": [
+  "filler"
+ ]
+}

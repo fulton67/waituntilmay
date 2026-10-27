@@ -1,0 +1,1049 @@
+[
+ {
+  "id": 0,
+  "text": "On to a critical question in this widening war.",
+  "start": 0.141,
+  "end": 2.622,
+  "duration": 2.481,
+  "word_ids": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "id": 1,
+  "text": "After oil, after gas, after airline,",
+  "start": 3.202,
+  "end": 6.464,
+  "duration": 3.262,
+  "word_ids": [
+   9,
+   10,
+   11,
+   12,
+   13,
+   14
+  ]
+ },
+ {
+  "id": 2,
+  "text": "fertilizers, health supplies, could your internet",
+  "start": 6.464,
+  "end": 10.045,
+  "duration": 3.581,
+  "word_ids": [
+   15,
+   16,
+   17,
+   18,
+   19,
+   20
+  ]
+ },
+ {
+  "id": 3,
+  "text": "be next?",
+  "start": 10.666,
+  "end": 11.246,
+  "duration": 0.58,
+  "word_ids": [
+   21,
+   22
+  ]
+ },
+ {
+  "id": 4,
+  "text": "Because beyond missiles and markets,",
+  "start": 12.066,
+  "end": 13.937,
+  "duration": 1.871,
+  "word_ids": [
+   23,
+   24,
+   25,
+   26,
+   27
+  ]
+ },
+ {
+  "id": 5,
+  "text": "the real choke point lies underwater.",
+  "start": 13.917,
+  "end": 17.009,
+  "duration": 3.092,
+  "word_ids": [
+   28,
+   29,
+   30,
+   31,
+   32,
+   33
+  ]
+ },
+ {
+  "id": 6,
+  "text": "The Red Sea and the Strait of Hormuz are now",
+  "start": 17.749,
+  "end": 20.25,
+  "duration": 2.501,
+  "word_ids": [
+   34,
+   35,
+   36,
+   37,
+   38,
+   39,
+   40,
+   41,
+   42,
+   43
+  ]
+ },
+ {
+  "id": 7,
+  "text": "not just energy lifelines, they are also",
+  "start": 20.71,
+  "end": 23.672,
+  "duration": 2.962,
+  "word_ids": [
+   44,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50
+  ]
+ },
+ {
+  "id": 8,
+  "text": "global data arteries.",
+  "start": 23.932,
+  "end": 26.253,
+  "duration": 2.321,
+  "word_ids": [
+   51,
+   52,
+   53
+  ]
+ },
+ {
+  "id": 9,
+  "text": "over",
+  "start": 27.334,
+  "end": 27.595,
+  "duration": 0.261,
+  "word_ids": [
+   54
+  ]
+ },
+ {
+  "id": 10,
+  "text": "20 subsea cables run through these conflict zones",
+  "start": 27.756,
+  "end": 31.166,
+  "duration": 3.41,
+  "word_ids": [
+   55,
+   56,
+   57,
+   58,
+   59,
+   60,
+   61,
+   62
+  ]
+ },
+ {
+  "id": 11,
+  "text": "with at least",
+  "start": 31.528,
+  "end": 32.189,
+  "duration": 0.661,
+  "word_ids": [
+   63,
+   64,
+   65
+  ]
+ },
+ {
+  "id": 12,
+  "text": "17 cutting across the Red Sea.",
+  "start": 32.39,
+  "end": 34.256,
+  "duration": 1.866,
+  "word_ids": [
+   66,
+   67,
+   68,
+   69,
+   70,
+   71
+  ]
+ },
+ {
+  "id": 13,
+  "text": "alone carrying",
+  "start": 35.428,
+  "end": 37.408,
+  "duration": 1.98,
+  "word_ids": [
+   72,
+   73
+  ]
+ },
+ {
+  "id": 14,
+  "text": "massive volumes of internet traffic between Europe, Asia,",
+  "start": 37.668,
+  "end": 41.189,
+  "duration": 3.521,
+  "word_ids": [
+   74,
+   75,
+   76,
+   77,
+   78,
+   79,
+   80,
+   81
+  ]
+ },
+ {
+  "id": 15,
+  "text": "Africa, all of it that you see.",
+  "start": 41.269,
+  "end": 42.969,
+  "duration": 1.7,
+  "word_ids": [
+   82,
+   83,
+   84,
+   85,
+   86,
+   87,
+   88
+  ]
+ },
+ {
+  "id": 16,
+  "text": "These cables power",
+  "start": 43.349,
+  "end": 44.61,
+  "duration": 1.261,
+  "word_ids": [
+   89,
+   90,
+   91
+  ]
+ },
+ {
+  "id": 17,
+  "text": "everything from financial transactions to communication networks,",
+  "start": 44.67,
+  "end": 48.41,
+  "duration": 3.74,
+  "word_ids": [
+   92,
+   93,
+   94,
+   95,
+   96,
+   97,
+   98
+  ]
+ },
+ {
+  "id": 18,
+  "text": "even the data centres that keep the digital",
+  "start": 48.43,
+  "end": 51.571,
+  "duration": 3.141,
+  "word_ids": [
+   99,
+   100,
+   101,
+   102,
+   103,
+   104,
+   105,
+   106
+  ]
+ },
+ {
+  "id": 19,
+  "text": "world running.",
+  "start": 51.651,
+  "end": 52.591,
+  "duration": 0.94,
+  "word_ids": [
+   107,
+   108
+  ]
+ },
+ {
+  "id": 20,
+  "text": "The risk is stark.",
+  "start": 53.191,
+  "end": 54.611,
+  "duration": 1.42,
+  "word_ids": [
+   109,
+   110,
+   111,
+   112
+  ]
+ },
+ {
+  "id": 21,
+  "text": "Any strike,",
+  "start": 55.071,
+  "end": 55.972,
+  "duration": 0.901,
+  "word_ids": [
+   113,
+   114
+  ]
+ },
+ {
+  "id": 22,
+  "text": "sabotage or blockade",
+  "start": 56.032,
+  "end": 57.592,
+  "duration": 1.56,
+  "word_ids": [
+   115,
+   116,
+   117
+  ]
+ },
+ {
+  "id": 23,
+  "text": "could snap these cables and halt the repair operations",
+  "start": 57.832,
+  "end": 61.473,
+  "duration": 3.641,
+  "word_ids": [
+   118,
+   119,
+   120,
+   121,
+   122,
+   123,
+   124,
+   125,
+   126
+  ]
+ },
+ {
+  "id": 24,
+  "text": "in a conflict zone.",
+  "start": 61.793,
+  "end": 63.173,
+  "duration": 1.38,
+  "word_ids": [
+   127,
+   128,
+   129,
+   130
+  ]
+ },
+ {
+  "id": 25,
+  "text": "The result?",
+  "start": 64.073,
+  "end": 64.674,
+  "duration": 0.601,
+  "word_ids": [
+   131,
+   132
+  ]
+ },
+ {
+  "id": 26,
+  "text": "Internet disruptions that could lead",
+  "start": 65.455,
+  "end": 67.557,
+  "duration": 2.102,
+  "word_ids": [
+   133,
+   134,
+   135,
+   136,
+   137
+  ]
+ },
+ {
+  "id": 27,
+  "text": "and also in fact impact everyone last weeks",
+  "start": 68.098,
+  "end": 71.441,
+  "duration": 3.343,
+  "word_ids": [
+   138,
+   139,
+   140,
+   141,
+   142,
+   143,
+   144,
+   145
+  ]
+ },
+ {
+  "id": 28,
+  "text": "even longer.",
+  "start": 72.042,
+  "end": 72.682,
+  "duration": 0.64,
+  "word_ids": [
+   146,
+   147
+  ]
+ },
+ {
+  "id": 29,
+  "text": "The hidden front line with real global",
+  "start": 73.463,
+  "end": 77.027,
+  "duration": 3.564,
+  "word_ids": [
+   148,
+   149,
+   150,
+   151,
+   152,
+   153,
+   154
+  ]
+ },
+ {
+  "id": 30,
+  "text": "consequences and just see the extent to which these cables go.",
+  "start": 77.127,
+  "end": 81.132,
+  "duration": 4.005,
+  "word_ids": [
+   155,
+   156,
+   157,
+   158,
+   159,
+   160,
+   161,
+   162,
+   163,
+   164,
+   165
+  ]
+ },
+ {
+  "id": 31,
+  "text": "Aishwarya Patil now from Business Today joins us to",
+  "start": 83.275,
+  "end": 85.698,
+  "duration": 2.423,
+  "word_ids": [
+   166,
+   167,
+   168,
+   169,
+   170,
+   171,
+   172,
+   173,
+   174
+  ]
+ },
+ {
+  "id": 32,
+  "text": "help us understand this in a little bit more detail. Aishwarya,",
+  "start": 86.038,
+  "end": 88.762,
+  "duration": 2.724,
+  "word_ids": [
+   175,
+   176,
+   177,
+   178,
+   179,
+   180,
+   181,
+   182,
+   183,
+   184,
+   185
+  ]
+ },
+ {
+  "id": 33,
+  "text": "how exactly do these cables work?",
+  "start": 89.443,
+  "end": 92.806,
+  "duration": 3.363,
+  "word_ids": [
+   186,
+   187,
+   188,
+   189,
+   190,
+   191
+  ]
+ },
+ {
+  "id": 34,
+  "text": "How are they placed and",
+  "start": 92.827,
+  "end": 94.268,
+  "duration": 1.441,
+  "word_ids": [
+   192,
+   193,
+   194,
+   195,
+   196
+  ]
+ },
+ {
+  "id": 35,
+  "text": "so far what are we hearing about the safety and security of these cables?",
+  "start": 94.308,
+  "end": 98.173,
+  "duration": 3.865,
+  "word_ids": [
+   197,
+   198,
+   199,
+   200,
+   201,
+   202,
+   203,
+   204,
+   205,
+   206,
+   207,
+   208,
+   209,
+   210
+  ]
+ },
+ {
+  "id": 36,
+  "text": "Well,",
+  "start": 105.062,
+  "end": 105.312,
+  "duration": 0.25,
+  "word_ids": [
+   211
+  ]
+ },
+ {
+  "id": 37,
+  "text": "collateral damage of this war,",
+  "start": 105.292,
+  "end": 107.624,
+  "duration": 2.332,
+  "word_ids": [
+   212,
+   213,
+   214,
+   215,
+   216
+  ]
+ },
+ {
+  "id": 38,
+  "text": "specifically the Strait of Hormuz,",
+  "start": 107.924,
+  "end": 109.716,
+  "duration": 1.792,
+  "word_ids": [
+   217,
+   218,
+   219,
+   220,
+   221
+  ]
+ },
+ {
+  "id": 39,
+  "text": "if we talk about the lesser known fact is,",
+  "start": 109.696,
+  "end": 112.168,
+  "duration": 2.472,
+  "word_ids": [
+   222,
+   223,
+   224,
+   225,
+   226,
+   227,
+   228,
+   229,
+   230
+  ]
+ },
+ {
+  "id": 40,
+  "text": "as you rightly mentioned,",
+  "start": 112.849,
+  "end": 114.3,
+  "duration": 1.451,
+  "word_ids": [
+   231,
+   232,
+   233,
+   234
+  ]
+ },
+ {
+  "id": 41,
+  "text": "this is a choke point for global data as well.",
+  "start": 114.26,
+  "end": 117.562,
+  "duration": 3.302,
+  "word_ids": [
+   235,
+   236,
+   237,
+   238,
+   239,
+   240,
+   241,
+   242,
+   243,
+   244
+  ]
+ },
+ {
+  "id": 42,
+  "text": "So subsea cables run throughout",
+  "start": 117.542,
+  "end": 119.554,
+  "duration": 2.012,
+  "word_ids": [
+   245,
+   246,
+   247,
+   248,
+   249
+  ]
+ },
+ {
+  "id": 43,
+  "text": "the world at",
+  "start": 121.216,
+  "end": 122.236,
+  "duration": 1.02,
+  "word_ids": [
+   250,
+   251,
+   252
+  ]
+ },
+ {
+  "id": 44,
+  "text": "different speeds.",
+  "start": 122.397,
+  "end": 123.517,
+  "duration": 1.12,
+  "word_ids": [
+   253,
+   254
+  ]
+ },
+ {
+  "id": 45,
+  "text": "countries and points as well.",
+  "start": 125.739,
+  "end": 128.201,
+  "duration": 2.462,
+  "word_ids": [
+   255,
+   256,
+   257,
+   258,
+   259
+  ]
+ },
+ {
+  "id": 46,
+  "text": "Now these are sitting right at the seabed as well. But",
+  "start": 128.161,
+  "end": 131.683,
+  "duration": 3.522,
+  "word_ids": [
+   260,
+   261,
+   262,
+   263,
+   264,
+   265,
+   266,
+   267,
+   268,
+   269,
+   270
+  ]
+ },
+ {
+  "id": 47,
+  "text": "what this war",
+  "start": 132.364,
+  "end": 133.985,
+  "duration": 1.621,
+  "word_ids": [
+   271,
+   272,
+   273
+  ]
+ },
+ {
+  "id": 48,
+  "text": "brings in is a risk to",
+  "start": 134.546,
+  "end": 136.687,
+  "duration": 2.141,
+  "word_ids": [
+   274,
+   275,
+   276,
+   277,
+   278,
+   279
+  ]
+ },
+ {
+  "id": 49,
+  "text": "some of our digital infrastructure.",
+  "start": 136.987,
+  "end": 139.389,
+  "duration": 2.402,
+  "word_ids": [
+   280,
+   281,
+   282,
+   283,
+   284
+  ]
+ },
+ {
+  "id": 50,
+  "text": "We are talking about cable power.",
+  "start": 139.369,
+  "end": 141.03,
+  "duration": 1.661,
+  "word_ids": [
+   285,
+   286,
+   287,
+   288,
+   289,
+   290
+  ]
+ },
+ {
+  "id": 51,
+  "text": "Under the Strait of Hormuz,",
+  "start": 142.411,
+  "end": 144.232,
+  "duration": 1.821,
+  "word_ids": [
+   291,
+   292,
+   293,
+   294,
+   295
+  ]
+ },
+ {
+  "id": 52,
+  "text": "which runs and powers",
+  "start": 144.192,
+  "end": 145.733,
+  "duration": 1.541,
+  "word_ids": [
+   296,
+   297,
+   298,
+   299
+  ]
+ },
+ {
+  "id": 53,
+  "text": "Asia and Africa's digital links as well,",
+  "start": 145.813,
+  "end": 148.435,
+  "duration": 2.622,
+  "word_ids": [
+   300,
+   301,
+   302,
+   303,
+   304,
+   305,
+   306
+  ]
+ },
+ {
+  "id": 54,
+  "text": "data centers are also",
+  "start": 148.695,
+  "end": 150.616,
+  "duration": 1.921,
+  "word_ids": [
+   307,
+   308,
+   309,
+   310
+  ]
+ },
+ {
+  "id": 55,
+  "text": "connected to some of these subsea cables that depend on these routes.",
+  "start": 150.956,
+  "end": 154.598,
+  "duration": 3.642,
+  "word_ids": [
+   311,
+   312,
+   313,
+   314,
+   315,
+   316,
+   317,
+   318,
+   319,
+   320,
+   321,
+   322
+  ]
+ },
+ {
+  "id": 56,
+  "text": "We're also talking if there is any kind of damage, we're talking about",
+  "start": 154.899,
+  "end": 158.521,
+  "duration": 3.622,
+  "word_ids": [
+   323,
+   324,
+   325,
+   326,
+   327,
+   328,
+   329,
+   330,
+   331,
+   332,
+   333,
+   334,
+   335
+  ]
+ },
+ {
+  "id": 57,
+  "text": "blockade in repairing",
+  "start": 158.861,
+  "end": 160.524,
+  "duration": 1.663,
+  "word_ids": [
+   336,
+   337,
+   338
+  ]
+ },
+ {
+  "id": 58,
+  "text": "some of these subsea cables.",
+  "start": 160.864,
+  "end": 162.076,
+  "duration": 1.212,
+  "word_ids": [
+   339,
+   340,
+   341,
+   342,
+   343
+  ]
+ },
+ {
+  "id": 59,
+  "text": "So there could be outages on multiple fronts.",
+  "start": 162.036,
+  "end": 164.63,
+  "duration": 2.594,
+  "word_ids": [
+   344,
+   345,
+   346,
+   347,
+   348,
+   349,
+   350,
+   351
+  ]
+ },
+ {
+  "id": 60,
+  "text": "Data centers could stop working or internet access. We could",
+  "start": 164.591,
+  "end": 168.216,
+  "duration": 3.625,
+  "word_ids": [
+   352,
+   353,
+   354,
+   355,
+   356,
+   357,
+   358,
+   359,
+   360,
+   361
+  ]
+ },
+ {
+  "id": 61,
+  "text": "also see some outages in terms of the applications that we use.",
+  "start": 168.838,
+  "end": 172.784,
+  "duration": 3.946,
+  "word_ids": [
+   362,
+   363,
+   364,
+   365,
+   366,
+   367,
+   368,
+   369,
+   370,
+   371,
+   372,
+   373
+  ]
+ },
+ {
+  "id": 62,
+  "text": "Any strike or cut can disrupt the internet links",
+  "start": 173.762,
+  "end": 176.685,
+  "duration": 2.923,
+  "word_ids": [
+   374,
+   375,
+   376,
+   377,
+   378,
+   379,
+   380,
+   381,
+   382
+  ]
+ },
+ {
+  "id": 63,
+  "text": "100%. Of course, that depends",
+  "start": 177.826,
+  "end": 180.127,
+  "duration": 2.301,
+  "word_ids": [
+   383,
+   384,
+   385,
+   386,
+   387
+  ]
+ },
+ {
+  "id": 64,
+  "text": "if that risk is still looming.",
+  "start": 180.948,
+  "end": 182.75,
+  "duration": 1.802,
+  "word_ids": [
+   388,
+   389,
+   390,
+   391,
+   392,
+   393
+  ]
+ },
+ {
+  "id": 65,
+  "text": "But this is",
+  "start": 183.45,
+  "end": 184.531,
+  "duration": 1.081,
+  "word_ids": [
+   394,
+   395,
+   396
+  ]
+ },
+ {
+  "id": 66,
+  "text": "overall the outlook as to the 20 subsea cables that",
+  "start": 184.852,
+  "end": 188.915,
+  "duration": 4.063,
+  "word_ids": [
+   397,
+   398,
+   399,
+   400,
+   401,
+   402,
+   403,
+   404,
+   405,
+   406
+  ]
+ },
+ {
+  "id": 67,
+  "text": "underlie",
+  "start": 189.676,
+  "end": 190.316,
+  "duration": 0.64,
+  "word_ids": [
+   407
+  ]
+ },
+ {
+  "id": 68,
+  "text": "as far as",
+  "start": 191.137,
+  "end": 192.018,
+  "duration": 0.881,
+  "word_ids": [
+   408,
+   409,
+   410
+  ]
+ },
+ {
+  "id": 69,
+  "text": "the Strait of Hormuz is concerned.",
+  "start": 193.199,
+  "end": 194.68,
+  "duration": 1.481,
+  "word_ids": [
+   411,
+   412,
+   413,
+   414,
+   415,
+   416
+  ]
+ }
+]

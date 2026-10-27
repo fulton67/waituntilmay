@@ -1,0 +1,947 @@
+[
+ {
+  "id": 0,
+  "text": "News of course from the Red Sea and three",
+  "start": 0.121,
+  "end": 2.564,
+  "duration": 2.443,
+  "word_ids": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "id": 1,
+  "text": "undersea cables in the Red Sea have been cut as a result of global",
+  "start": 2.624,
+  "end": 6.629,
+  "duration": 4.005,
+  "word_ids": [
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22
+  ]
+ },
+ {
+  "id": 2,
+  "text": "internet and telecommunication traffic for Asia",
+  "start": 6.649,
+  "end": 9.413,
+  "duration": 2.764,
+  "word_ids": [
+   23,
+   24,
+   25,
+   26,
+   27,
+   28
+  ]
+ },
+ {
+  "id": 3,
+  "text": "including India,",
+  "start": 9.813,
+  "end": 10.834,
+  "duration": 1.021,
+  "word_ids": [
+   29,
+   30
+  ]
+ },
+ {
+  "id": 4,
+  "text": "Europe and the Middle East has been rerouted.",
+  "start": 10.895,
+  "end": 13.267,
+  "duration": 2.372,
+  "word_ids": [
+   31,
+   32,
+   33,
+   34,
+   35,
+   36,
+   37,
+   38
+  ]
+ },
+ {
+  "id": 5,
+  "text": "The Red Sea is the chief target for Yemen's",
+  "start": 13.247,
+  "end": 16.561,
+  "duration": 3.314,
+  "word_ids": [
+   39,
+   40,
+   41,
+   42,
+   43,
+   44,
+   45,
+   46,
+   47
+  ]
+ },
+ {
+  "id": 6,
+  "text": "Houthi rebels. Now,",
+  "start": 16.682,
+  "end": 18.103,
+  "duration": 1.421,
+  "word_ids": [
+   48,
+   49,
+   50
+  ]
+ },
+ {
+  "id": 7,
+  "text": "as per Hong Kong-based HGC Global Communications,",
+  "start": 18.063,
+  "end": 21.437,
+  "duration": 3.374,
+  "word_ids": [
+   51,
+   52,
+   53,
+   54,
+   55,
+   56,
+   57
+  ]
+ },
+ {
+  "id": 8,
+  "text": "the cutlines include Asia, Africa, Europe 1,",
+  "start": 21.417,
+  "end": 24.29,
+  "duration": 2.873,
+  "word_ids": [
+   58,
+   59,
+   60,
+   61,
+   62,
+   63,
+   64
+  ]
+ },
+ {
+  "id": 9,
+  "text": "the Europe-India Gateway, SECOM,",
+  "start": 24.63,
+  "end": 27.193,
+  "duration": 2.563,
+  "word_ids": [
+   65,
+   66,
+   67,
+   68
+  ]
+ },
+ {
+  "id": 10,
+  "text": "and the TGN Gulf.",
+  "start": 27.293,
+  "end": 28.714,
+  "duration": 1.421,
+  "word_ids": [
+   69,
+   70,
+   71,
+   72
+  ]
+ },
+ {
+  "id": 11,
+  "text": "Tata Communications",
+  "start": 28.735,
+  "end": 30.016,
+  "duration": 1.281,
+  "word_ids": [
+   73,
+   74
+  ]
+ },
+ {
+  "id": 12,
+  "text": "is also part of the Indian grouping",
+  "start": 30.436,
+  "end": 32.538,
+  "duration": 2.102,
+  "word_ids": [
+   75,
+   76,
+   77,
+   78,
+   79,
+   80,
+   81
+  ]
+ },
+ {
+  "id": 13,
+  "text": "and behind the SECOM-TGN Gulf line.",
+  "start": 32.839,
+  "end": 35.401,
+  "duration": 2.562,
+  "word_ids": [
+   82,
+   83,
+   84,
+   85,
+   86,
+   87
+  ]
+ },
+ {
+  "id": 14,
+  "text": "Now what cut the lines remains unclear.",
+  "start": 36.022,
+  "end": 38.464,
+  "duration": 2.442,
+  "word_ids": [
+   88,
+   89,
+   90,
+   91,
+   92,
+   93,
+   94
+  ]
+ },
+ {
+  "id": 15,
+  "text": "There is concern about the cables being targeted",
+  "start": 38.624,
+  "end": 40.926,
+  "duration": 2.302,
+  "word_ids": [
+   95,
+   96,
+   97,
+   98,
+   99,
+   100,
+   101,
+   102
+  ]
+ },
+ {
+  "id": 16,
+  "text": "in the Houthi campaign that the rebels described",
+  "start": 40.946,
+  "end": 43.607,
+  "duration": 2.661,
+  "word_ids": [
+   103,
+   104,
+   105,
+   106,
+   107,
+   108,
+   109,
+   110
+  ]
+ },
+ {
+  "id": 17,
+  "text": "as an effort to pressure Israel to end its war on Hamas in Gaza.",
+  "start": 43.688,
+  "end": 47.49,
+  "duration": 3.802,
+  "word_ids": [
+   111,
+   112,
+   113,
+   114,
+   115,
+   116,
+   117,
+   118,
+   119,
+   120,
+   121,
+   122,
+   123,
+   124
+  ]
+ },
+ {
+  "id": 18,
+  "text": "The Houthis, however,",
+  "start": 47.891,
+  "end": 48.861,
+  "duration": 0.97,
+  "word_ids": [
+   125,
+   126,
+   127
+  ]
+ },
+ {
+  "id": 19,
+  "text": "have denied attacking the lines.",
+  "start": 48.821,
+  "end": 50.693,
+  "duration": 1.872,
+  "word_ids": [
+   128,
+   129,
+   130,
+   131,
+   132
+  ]
+ },
+ {
+  "id": 20,
+  "text": "Global shipping has been disrupted through the Red Sea as crucial routes",
+  "start": 51.253,
+  "end": 54.996,
+  "duration": 3.743,
+  "word_ids": [
+   133,
+   134,
+   135,
+   136,
+   137,
+   138,
+   139,
+   140,
+   141,
+   142,
+   143,
+   144
+  ]
+ },
+ {
+  "id": 21,
+  "text": "for cargo",
+  "start": 55.016,
+  "end": 55.876,
+  "duration": 0.86,
+  "word_ids": [
+   145,
+   146
+  ]
+ },
+ {
+  "id": 22,
+  "text": "and energy shipments from Asia and West Asia to Europe.",
+  "start": 55.996,
+  "end": 59.119,
+  "duration": 3.123,
+  "word_ids": [
+   147,
+   148,
+   149,
+   150,
+   151,
+   152,
+   153,
+   154,
+   155,
+   156
+  ]
+ },
+ {
+  "id": 23,
+  "text": "The sabotage of the telecommunication lines could further escalate",
+  "start": 59.459,
+  "end": 63.041,
+  "duration": 3.582,
+  "word_ids": [
+   157,
+   158,
+   159,
+   160,
+   161,
+   162,
+   163,
+   164,
+   165
+  ]
+ },
+ {
+  "id": 24,
+  "text": "in the coming months.",
+  "start": 63.202,
+  "end": 64.723,
+  "duration": 1.521,
+  "word_ids": [
+   166,
+   167,
+   168,
+   169
+  ]
+ },
+ {
+  "id": 25,
+  "text": "Now,",
+  "start": 65.323,
+  "end": 65.513,
+  "duration": 0.19,
+  "word_ids": [
+   170
+  ]
+ },
+ {
+  "id": 26,
+  "text": "Hong Kong-based SGC Global Communications described the cuts",
+  "start": 65.493,
+  "end": 69.371,
+  "duration": 3.878,
+  "word_ids": [
+   171,
+   172,
+   173,
+   174,
+   175,
+   176,
+   177,
+   178
+  ]
+ },
+ {
+  "id": 27,
+  "text": "as affecting 25%",
+  "start": 69.371,
+  "end": 70.753,
+  "duration": 1.382,
+  "word_ids": [
+   179,
+   180,
+   181
+  ]
+ },
+ {
+  "id": 28,
+  "text": "of the traffic flowing through the Red Sea.",
+  "start": 71.255,
+  "end": 73.258,
+  "duration": 2.003,
+  "word_ids": [
+   182,
+   183,
+   184,
+   185,
+   186,
+   187,
+   188,
+   189
+  ]
+ },
+ {
+  "id": 29,
+  "text": "It described the Red Sea route as crucial for data moving from",
+  "start": 74.423,
+  "end": 77.605,
+  "duration": 3.182,
+  "word_ids": [
+   190,
+   191,
+   192,
+   193,
+   194,
+   195,
+   196,
+   197,
+   198,
+   199,
+   200,
+   201
+  ]
+ },
+ {
+  "id": 30,
+  "text": "Asia to Europe and said it had begun",
+  "start": 77.685,
+  "end": 80.187,
+  "duration": 2.502,
+  "word_ids": [
+   202,
+   203,
+   204,
+   205,
+   206,
+   207,
+   208,
+   209
+  ]
+ },
+ {
+  "id": 31,
+  "text": "rerouting traffic.",
+  "start": 80.547,
+  "end": 81.728,
+  "duration": 1.181,
+  "word_ids": [
+   210,
+   211
+  ]
+ },
+ {
+  "id": 32,
+  "text": "In early February,",
+  "start": 82.268,
+  "end": 83.139,
+  "duration": 0.871,
+  "word_ids": [
+   212,
+   213,
+   214
+  ]
+ },
+ {
+  "id": 33,
+  "text": "Yemen's internationally recognized government in",
+  "start": 83.099,
+  "end": 85.23,
+  "duration": 2.131,
+  "word_ids": [
+   215,
+   216,
+   217,
+   218,
+   219
+  ]
+ },
+ {
+  "id": 34,
+  "text": "exile alleged that the Houthis planned",
+  "start": 85.27,
+  "end": 87.231,
+  "duration": 1.961,
+  "word_ids": [
+   220,
+   221,
+   222,
+   223,
+   224,
+   225
+  ]
+ },
+ {
+  "id": 35,
+  "text": "to attack cables.",
+  "start": 87.332,
+  "end": 88.692,
+  "duration": 1.36,
+  "word_ids": [
+   226,
+   227,
+   228
+  ]
+ },
+ {
+  "id": 36,
+  "text": "The lines were cut on February 24th.",
+  "start": 88.933,
+  "end": 90.954,
+  "duration": 2.021,
+  "word_ids": [
+   229,
+   230,
+   231,
+   232,
+   233,
+   234,
+   235
+  ]
+ },
+ {
+  "id": 37,
+  "text": "The organization NetBlocks noticed",
+  "start": 91.354,
+  "end": 93.816,
+  "duration": 2.462,
+  "word_ids": [
+   236,
+   237,
+   238,
+   239
+  ]
+ },
+ {
+  "id": 38,
+  "text": "internet access",
+  "start": 94.496,
+  "end": 95.617,
+  "duration": 1.121,
+  "word_ids": [
+   240,
+   241
+  ]
+ },
+ {
+  "id": 39,
+  "text": "in the East African nation of Djibouti suffering from",
+  "start": 95.717,
+  "end": 98.719,
+  "duration": 3.002,
+  "word_ids": [
+   242,
+   243,
+   244,
+   245,
+   246,
+   247,
+   248,
+   249,
+   250
+  ]
+ },
+ {
+  "id": 40,
+  "text": "interruptions. Two days later, SECOM serves...",
+  "start": 99.26,
+  "end": 102.422,
+  "duration": 3.162,
+  "word_ids": [
+   251,
+   252,
+   253,
+   254,
+   255,
+   256
+  ]
+ },
+ {
+  "id": 41,
+  "text": "but",
+  "start": 103.702,
+  "end": 104.202,
+  "duration": 0.5,
+  "word_ids": [
+   257
+  ]
+ },
+ {
+  "id": 42,
+  "text": "the Houthis have however denied targeting the cables.",
+  "start": 104.683,
+  "end": 107.324,
+  "duration": 2.641,
+  "word_ids": [
+   258,
+   259,
+   260,
+   261,
+   262,
+   263,
+   264,
+   265
+  ]
+ },
+ {
+  "id": 43,
+  "text": "The rebels blamed the disruptions on British and US military operations",
+  "start": 107.304,
+  "end": 110.725,
+  "duration": 3.421,
+  "word_ids": [
+   266,
+   267,
+   268,
+   269,
+   270,
+   271,
+   272,
+   273,
+   274,
+   275,
+   276
+  ]
+ },
+ {
+  "id": 44,
+  "text": "but didn't offer evidence to support these allegations.",
+  "start": 111.065,
+  "end": 114.006,
+  "duration": 2.941,
+  "word_ids": [
+   277,
+   278,
+   279,
+   280,
+   281,
+   282,
+   283,
+   284
+  ]
+ },
+ {
+  "id": 45,
+  "text": "Also,",
+  "start": 114.647,
+  "end": 114.997,
+  "duration": 0.35,
+  "word_ids": [
+   285
+  ]
+ },
+ {
+  "id": 46,
+  "text": "it remains unclear how the Houthis could attack subsea cables.",
+  "start": 114.977,
+  "end": 118.228,
+  "duration": 3.251,
+  "word_ids": [
+   286,
+   287,
+   288,
+   289,
+   290,
+   291,
+   292,
+   293,
+   294,
+   295
+  ]
+ },
+ {
+  "id": 47,
+  "text": "The rebels are not known to have",
+  "start": 118.888,
+  "end": 120.549,
+  "duration": 1.661,
+  "word_ids": [
+   296,
+   297,
+   298,
+   299,
+   300,
+   301,
+   302
+  ]
+ },
+ {
+  "id": 48,
+  "text": "the diving or salvage capability to target these lines",
+  "start": 121.169,
+  "end": 124.471,
+  "duration": 3.302,
+  "word_ids": [
+   303,
+   304,
+   305,
+   306,
+   307,
+   308,
+   309,
+   310,
+   311
+  ]
+ },
+ {
+  "id": 49,
+  "text": "that sit hundreds of meters below the surface of the sea.",
+  "start": 124.731,
+  "end": 127.852,
+  "duration": 3.121,
+  "word_ids": [
+   312,
+   313,
+   314,
+   315,
+   316,
+   317,
+   318,
+   319,
+   320,
+   321,
+   322
+  ]
+ },
+ {
+  "id": 50,
+  "text": "However,",
+  "start": 129.064,
+  "end": 129.564,
+  "duration": 0.5,
+  "word_ids": [
+   323
+  ]
+ },
+ {
+  "id": 51,
+  "text": "subsea cables can be cut by anchors,",
+  "start": 129.584,
+  "end": 132.325,
+  "duration": 2.741,
+  "word_ids": [
+   324,
+   325,
+   326,
+   327,
+   328,
+   329,
+   330
+  ]
+ },
+ {
+  "id": 52,
+  "text": "including those dropped by ships disabled in attacks.",
+  "start": 132.305,
+  "end": 135.486,
+  "duration": 3.181,
+  "word_ids": [
+   331,
+   332,
+   333,
+   334,
+   335,
+   336,
+   337,
+   338
+  ]
+ },
+ {
+  "id": 53,
+  "text": "Now,",
+  "start": 136.206,
+  "end": 136.486,
+  "duration": 0.28,
+  "word_ids": [
+   339
+  ]
+ },
+ {
+  "id": 54,
+  "text": "a drifting ship with its anchor scraping the sea could be a culprit.",
+  "start": 136.446,
+  "end": 140.047,
+  "duration": 3.601,
+  "word_ids": [
+   340,
+   341,
+   342,
+   343,
+   344,
+   345,
+   346,
+   347,
+   348,
+   349,
+   350,
+   351,
+   352
+  ]
+ },
+ {
+  "id": 55,
+  "text": "Experts say 14 cables are now running through the Red Sea.",
+  "start": 140.067,
+  "end": 143.008,
+  "duration": 2.941,
+  "word_ids": [
+   353,
+   354,
+   355,
+   356,
+   357,
+   358,
+   359,
+   360,
+   361,
+   362,
+   363
+  ]
+ },
+ {
+  "id": 56,
+  "text": "The Houthis have warned that",
+  "start": 143.248,
+  "end": 144.568,
+  "duration": 1.32,
+  "word_ids": [
+   364,
+   365,
+   366,
+   367,
+   368
+  ]
+ },
+ {
+  "id": 57,
+  "text": "any cable-laying ship entering Yemeni waters needs",
+  "start": 144.828,
+  "end": 148.329,
+  "duration": 3.501,
+  "word_ids": [
+   369,
+   370,
+   371,
+   372,
+   373,
+   374,
+   375
+  ]
+ },
+ {
+  "id": 58,
+  "text": "a permit from the rebels.",
+  "start": 148.729,
+  "end": 150.65,
+  "duration": 1.921,
+  "word_ids": [
+   376,
+   377,
+   378,
+   379,
+   380
+  ]
+ },
+ {
+  "id": 59,
+  "text": "For all the latest news,",
+  "start": 154.269,
+  "end": 155.456,
+  "duration": 1.187,
+  "word_ids": [
+   381,
+   382,
+   383,
+   384,
+   385
+  ]
+ },
+ {
+  "id": 60,
+  "text": "download the Vyond app and subscribe to our YouTube channel.",
+  "start": 155.416,
+  "end": 159.14,
+  "duration": 3.724,
+  "word_ids": [
+   386,
+   387,
+   388,
+   389,
+   390,
+   391,
+   392,
+   393,
+   394,
+   395
+  ]
+ }
+]

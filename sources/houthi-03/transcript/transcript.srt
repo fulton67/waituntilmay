@@ -1,0 +1,711 @@
+1
+00:00:00,151 --> 00:00:02,613
+On today's episode of What's Going On With
+Shipping,
+
+2
+00:00:03,153 --> 00:00:08,256
+undersea cables crisscross the world's
+oceans, carrying 99% of
+
+3
+00:00:08,536 --> 00:00:13,399
+all the information sent over water.
+However, those cables converge at
+
+4
+00:00:13,659 --> 00:00:17,542
+one key strategic point, that's right,
+right off the coast of Yemen.
+
+5
+00:00:18,302 --> 00:00:22,284
+Will the Houthi attack the internet? I'm
+your host, Sal McCogliano.
+
+6
+00:00:22,304 --> 00:00:27,226
+Welcome to today's episode. So this is a
+terrible scenario that's being played out
+
+7
+00:00:27,846 --> 00:00:31,168
+on the news and unfortunately across the
+internet. So
+
+8
+00:00:31,768 --> 00:00:34,810
+I know about submarine cables. I talk
+about them. I teach them in my classes,
+
+9
+00:00:35,150 --> 00:00:37,731
+but I don't like to discuss this potential
+threat
+
+10
+00:00:37,991 --> 00:00:41,913
+for fear of giving the Houthi an idea.
+Unfortunately, that cat is out of the bag.
+
+11
+00:00:42,433 --> 00:00:46,117
+because the government in Yemen is talking
+about this.
+
+12
+00:00:46,638 --> 00:00:49,961
+The media is talking about it. It's all
+over the internet. So once it's out, I
+
+13
+00:00:50,481 --> 00:00:52,223
+feel kind of safe to talk about it.
+
+14
+00:00:52,583 --> 00:00:54,605
+But I want to let you know, be educated
+about it,
+
+15
+00:00:54,645 --> 00:00:57,989
+because if all of a sudden the internet
+goes down between Europe and Asia,
+
+16
+00:00:58,149 --> 00:00:58,950
+this is why.
+
+17
+00:00:59,370 --> 00:01:02,992
+We like to think that when we use our
+good old cell phones and communicate with people,
+
+18
+00:01:03,032 --> 00:01:07,114
+we think that we're calling via satellite
+or something, but that's not true.
+
+19
+00:01:07,635 --> 00:01:10,596
+In truth, your phone is just connected to
+a cell phone tower.
+
+20
+00:01:10,997 --> 00:01:14,058
+That cell phone tower is connected to
+another cell phone tower,
+
+21
+00:01:14,239 --> 00:01:17,240
+even though it may be a continental way
+across oceans,
+
+22
+00:01:17,621 --> 00:01:19,642
+there is a thin cable that connects those.
+
+23
+00:01:19,922 --> 00:01:22,323
+Those fiber optic cables, which actually
+aren't that thin, but
+
+24
+00:01:22,723 --> 00:01:25,285
+they are connected together by string.
+
+25
+00:01:25,705 --> 00:01:27,586
+And we really haven't changed that since
+1858.
+
+26
+00:01:28,827 --> 00:01:33,153
+when the first submarine cable was bridged
+across the Atlantic Ocean.
+
+27
+00:01:33,173 --> 00:01:36,177
+We're going to look at the story, what may
+be the potential here for the Houthi,
+
+28
+00:01:36,537 --> 00:01:39,341
+and what is the history behind this. If
+you're new to this channel,
+
+29
+00:01:39,861 --> 00:01:41,223
+take a moment, subscribe to the channel,
+
+30
+00:01:41,263 --> 00:01:43,967
+and hit the bell so you'll be alerted
+about new videos as they come out.
+
+31
+00:01:45,472 --> 00:01:50,474
+This site is aptly titled
+www.submarinecablemap.com and it shows you
+
+32
+00:01:50,674 --> 00:01:52,255
+all the underwater cables that exist.
+
+33
+00:01:52,295 --> 00:01:55,296
+You can see how the entire world is strung
+together
+
+34
+00:01:55,876 --> 00:01:59,438
+by these thin cables across the Atlantic,
+across the Pacific.
+
+35
+00:01:59,818 --> 00:02:03,379
+But the one we want to look at is right
+here off the coast of Yemen.
+
+36
+00:02:03,699 --> 00:02:07,421
+And you can see all these European cables
+coming through the Strait of Gibraltar,
+
+37
+00:02:07,821 --> 00:02:11,984
+through the Mediterranean, across Egypt,
+down the Red Sea and
+
+38
+00:02:12,164 --> 00:02:14,927
+all the way down here to right off the
+coast of Yemen,
+
+39
+00:02:14,947 --> 00:02:16,248
+where we're seeing these attacks.
+
+40
+00:02:16,729 --> 00:02:20,153
+Nearly 20 cables are laid out across the
+Gulf of Aden
+
+41
+00:02:20,693 --> 00:02:24,217
+and a similar amount, a little bit less,
+across the Red Sea,
+
+42
+00:02:24,438 --> 00:02:28,843
+all coming together here at the Bab
+el-Mandab. Everybody take your drink.
+
+43
+00:02:29,383 --> 00:02:34,710
+This is not an ideal situation, obviously,
+because while we keep talking about
+
+44
+00:02:35,131 --> 00:02:39,456
+trade and ships coming through, we should
+also be talking about communication
+
+45
+00:02:39,957 --> 00:02:45,103
+and information, because the Internet, as
+derived here, has a key role to play.
+
+46
+00:02:45,874 --> 00:02:51,296
+One of the best defenses these underwater
+cables have is the depth that they're at.
+
+47
+00:02:51,836 --> 00:02:54,357
+These cables, and particularly off the
+coast of Yemen,
+
+48
+00:02:54,698 --> 00:02:57,018
+are down in about 100 meters of water.
+
+49
+00:02:57,038 --> 00:03:00,020
+They are laid down the deep channel that
+separates
+
+50
+00:03:00,360 --> 00:03:03,161
+the Arabian Peninsula from the Horn of
+Africa.
+
+51
+00:03:04,101 --> 00:03:08,483
+So 300 feet down, the Houthi would require
+a larger vessel
+
+52
+00:03:09,074 --> 00:03:11,775
+with winch and cables to be able to hoist
+this up.
+
+53
+00:03:11,815 --> 00:03:14,456
+This is not a few people in a boat with a
+hook and a rope
+
+54
+00:03:14,937 --> 00:03:18,498
+just hoisting up 300 feet of cable and
+then chopping them in half.
+
+55
+00:03:18,938 --> 00:03:22,280
+This would be a fairly large operation,
+easy to be seen,
+
+56
+00:03:22,560 --> 00:03:27,302
+and hopefully the navies are monitoring
+for such vessels in their operation.
+
+57
+00:03:27,362 --> 00:03:31,264
+And once one cable was cut, it'd be very
+difficult for the Houthi to commence an
+
+58
+00:03:31,544 --> 00:03:33,425
+operation to cut multiple cables.
+
+59
+00:03:34,920 --> 00:03:38,243
+Here's the story over in Business Insider,
+and there's a slew of these
+
+60
+00:03:38,684 --> 00:03:42,748
+that are out now that are communicating and
+talking about this. The Houthi could cut
+
+61
+00:03:43,308 --> 00:03:48,714
+undersea global internet cables, Minister
+warned. Yemen's UN-recognized government,
+
+62
+00:03:48,734 --> 00:03:51,697
+this is the government down in Aden, said
+there is a serious threat
+
+63
+00:03:52,057 --> 00:03:54,139
+to global digital infrastructure.
+
+64
+00:03:54,539 --> 00:03:57,863
+The Houthis have previously disavowed this
+notion that they wouldn't attack this.
+
+65
+00:03:58,243 --> 00:04:02,186
+however that may they and they may not
+have the technology to reach the the cables
+
+66
+00:04:02,486 --> 00:04:06,409
+the example of that comes from the bbc
+back in 2017
+
+67
+00:04:07,010 --> 00:04:10,172
+on the 100th anniversary of world war one
+lots of stories about world war
+
+68
+00:04:10,333 --> 00:04:14,976
+one were being uh discussed but this one
+how britain pioneered cable cutting
+
+69
+00:04:15,457 --> 00:04:20,040
+in world war one after britain declared
+war in august of 1914
+
+70
+00:04:20,541 --> 00:04:25,424
+they sent out a royal mail ship the alert
+and And this cable ship, the Alert,
+
+71
+00:04:25,764 --> 00:04:28,746
+went out into the English Channel right in
+the Straits of Dover,
+
+72
+00:04:29,347 --> 00:04:31,648
+threw out some gear, and was able to fish
+up
+
+73
+00:04:31,789 --> 00:04:34,971
+five cables that belonged to the Imperial
+German government.
+
+74
+00:04:35,431 --> 00:04:39,154
+They sawed through them, cutting Germany
+off from its overseas colonies
+
+75
+00:04:39,554 --> 00:04:43,617
+and its ability to communicate with its
+ships on the high seas.
+
+76
+00:04:45,036 --> 00:04:49,160
+This ability to sever cables is not new.
+We've seen this happen before.
+
+77
+00:04:49,200 --> 00:04:53,424
+The island of Tonga, for example, has been
+subjected to two cable cuttings
+
+78
+00:04:53,905 --> 00:04:55,106
+within the last decade.
+
+79
+00:04:55,286 --> 00:04:58,189
+One was due to a ship dropping an anchor,
+severing the cable.
+
+80
+00:04:58,209 --> 00:05:03,335
+The second was because of a volcanic explosion
+that severed the cable to the island.
+
+81
+00:05:03,915 --> 00:05:09,139
+Now, what goes through the region in and
+around Yemen is about, again, 20 cables,
+
+82
+00:05:09,680 --> 00:05:13,583
+all of them vitally essential to maintaining the
+flow. Now, if you cut those cables,
+
+83
+00:05:13,623 --> 00:05:17,746
+we will still have communication around the planet.
+You would have to put that load
+
+84
+00:05:18,246 --> 00:05:20,688
+onto other cables, and there may be...
+
+85
+00:05:21,529 --> 00:05:25,455
+brownouts and inactivity where you cannot
+communicate as normal.
+
+86
+00:05:25,515 --> 00:05:29,220
+This is really essential for communication
+between Europe, Africa,
+
+87
+00:05:29,340 --> 00:05:34,167
+and Asia more than anything else. Now,
+understand the history behind this
+
+88
+00:05:34,747 --> 00:05:36,550
+and why cables are so important.
+
+89
+00:05:38,148 --> 00:05:43,614
+As far back as 1858, we had the
+first trans-oceanic cable with a cable being laid
+
+90
+00:05:44,135 --> 00:05:48,319
+from Newfoundland to Ireland. Now, other
+cables had been laid in the past,
+
+91
+00:05:48,740 --> 00:05:51,062
+but those cables had been fairly small
+
+92
+00:05:51,422 --> 00:05:55,346
+and across things like the English
+Channel. However, in 1858,
+
+93
+00:05:55,386 --> 00:05:59,969
+you saw the construction of this new
+cable. Two vessels, a British vessel,
+
+94
+00:05:59,989 --> 00:06:03,191
+the HMS Agamemnon and the USS Niagara
+
+95
+00:06:03,531 --> 00:06:07,094
+were used in this initial laying of the
+cable across. However,
+
+96
+00:06:07,134 --> 00:06:09,435
+there were issues with that cable. The
+biggest
+
+97
+00:06:09,655 --> 00:06:12,997
+one was the fact that you couldn't get a
+lot of words across.
+
+98
+00:06:13,458 --> 00:06:16,139
+The reception was terrible. And as you
+amped up the power,
+
+99
+00:06:16,500 --> 00:06:18,861
+the line eventually corroded and broke.
+
+100
+00:06:19,181 --> 00:06:24,024
+And so the cable did not last very long.
+It isn't until after the Civil War
+
+101
+00:06:24,585 --> 00:06:27,346
+that we see the change. 1865, the Great
+Eastern,
+
+102
+00:06:27,647 --> 00:06:31,269
+the largest ship at the time ever built by
+Isamard, Kingdom Brunel,
+
+103
+00:06:31,749 --> 00:06:35,071
+was used to lay a cable across. It
+initially laid one cable,
+
+104
+00:06:35,411 --> 00:06:38,553
+but that cable broke 600 miles off the
+coast of Newfoundland.
+
+105
+00:06:39,054 --> 00:06:40,915
+It laid a second cable across
+
+106
+00:06:41,235 --> 00:06:45,097
+and then was actually able to fish up the
+first cable and hook up another cable. Now,
+
+107
+00:06:45,117 --> 00:06:47,419
+they could only send six to eight words a
+minute.
+
+108
+00:06:47,859 --> 00:06:50,001
+And the charge for each word was $5
+
+109
+00:06:50,941 --> 00:06:54,123
+in 1866. But fast forward to today,
+
+110
+00:06:54,604 --> 00:06:58,626
+and underwater submarine cables provide
+really the basis
+
+111
+00:06:58,947 --> 00:07:01,789
+of our worldwide telecommunication
+ability.
+
+112
+00:07:02,189 --> 00:07:04,110
+I know we like to think we're connected by
+satellites,
+
+113
+00:07:04,150 --> 00:07:08,373
+but it's underwater cables that do this.
+And this threat by the Houthi
+
+114
+00:07:08,653 --> 00:07:12,536
+is a significant one. The world's navies
+have been doing a lot to
+
+115
+00:07:13,536 --> 00:07:15,338
+create defenses against this.
+
+116
+00:07:15,958 --> 00:07:19,242
+We've seen issues with underwater
+pipelines and cables before.
+
+117
+00:07:19,983 --> 00:07:21,605
+We had a cable strike off the coast
+
+118
+00:07:21,845 --> 00:07:25,249
+of Southern California during the supply
+chain crisis. Of course,
+
+119
+00:07:25,349 --> 00:07:27,992
+Nord Stream is one of the biggest
+controversies that exists
+
+120
+00:07:28,352 --> 00:07:33,518
+with several of those pipelines being
+destroyed. We had a cable strike
+
+121
+00:07:33,979 --> 00:07:37,843
+and severing up in the Baltic. And both
+the Royal Navy and the U.S.
+
+122
+00:07:37,883 --> 00:07:41,587
+Navy are outfitting ships right now for
+cable defense.
+
+123
+00:07:42,107 --> 00:07:45,871
+The British have a new ship and the U.S.
+has a ship, the Petrel, which is
+
+124
+00:07:46,132 --> 00:07:48,915
+the old ship used by Paul Allen of
+Microsoft
+
+125
+00:07:49,175 --> 00:07:52,118
+that was used for underwater research. The
+ship suffered
+
+126
+00:07:52,458 --> 00:07:55,341
+damage in the dry dock up in Scotland. You
+can check out the story here.
+
+127
+00:07:56,102 --> 00:07:59,345
+It is down in a shipyard in Tampa right
+now being fixed. However,
+
+128
+00:07:59,485 --> 00:08:03,929
+defending against cables is a really tough
+proposition because they are obviously
+
+129
+00:08:04,189 --> 00:08:09,274
+thousands of miles long and it doesn't
+take much to earth them up. I mean,
+
+130
+00:08:09,294 --> 00:08:12,937
+literally all you need is a rope, a hook
+and a saw and you're good to go.
+
+131
+00:08:12,957 --> 00:08:16,821
+You need a boat too. But there's not a lot
+to prevent this from happening.
+
+132
+00:08:17,301 --> 00:08:22,025
+And if the Houthi do this, This could
+impact global trade in a way that's
+
+133
+00:08:22,466 --> 00:08:25,068
+potentially more significant because now
+you're talking about
+
+134
+00:08:25,368 --> 00:08:29,832
+the flow of information across the world.
+Understand what makes us
+
+135
+00:08:30,532 --> 00:08:35,877
+such a dynamic society is our ability to
+communicate across multiple continents
+
+136
+00:08:36,177 --> 00:08:40,161
+in almost instantaneous fashion. And
+severing these cables will not
+
+137
+00:08:40,461 --> 00:08:43,103
+obviously create the entire blackout of
+the world by any means,
+
+138
+00:08:43,483 --> 00:08:46,186
+even if all those cables should be cut.
+There are other cables,
+
+139
+00:08:46,246 --> 00:08:50,450
+but it will slow down severely and require
+new cables to be laid,
+
+140
+00:08:50,751 --> 00:08:52,232
+which would be expensive.
+
+141
+00:08:53,073 --> 00:08:55,175
+I hope you enjoyed today's episode. If you
+did, hey, take a moment,
+
+142
+00:08:55,195 --> 00:08:56,336
+subscribe to the channel and hit the bell
+
+143
+00:08:56,617 --> 00:08:59,199
+so you'll be alerted about new videos as
+they come out. Leave a comment,
+
+144
+00:08:59,239 --> 00:09:02,463
+share it across social media, and if you
+can, support the page. How do you do that?
+
+145
+00:09:02,823 --> 00:09:06,447
+You can hit that super thanks button down
+below or head on over to Patreon
+
+146
+00:09:06,767 --> 00:09:10,411
+and become a monthly or yearly subscriber.
+Until our next episode,
+
+147
+00:09:10,431 --> 00:09:11,312
+this is Sal signing off.
+

@@ -1,0 +1,1179 @@
+1
+00:00:00,251 --> 00:00:04,433
+Today we look at how the internet that you
+rely on could be disrupted
+
+2
+00:00:04,753 --> 00:00:05,953
+by the war in West Asia.
+
+3
+00:00:13,916 --> 00:00:18,518
+The US-Israeli war on Iran has already
+disrupted commercial shipping in the Gulf.
+
+4
+00:00:20,139 --> 00:00:23,100
+And the conflict involving Iran-backed
+Houthi rebels
+
+5
+00:00:24,700 --> 00:00:28,762
+and Saudi Arabia is increasing the threat
+to global shipping even more.
+
+6
+00:00:30,645 --> 00:00:34,209
+But the next phase of this conflict could
+take aim at something you cannot see.
+
+7
+00:00:35,130 --> 00:00:38,013
+Buried beneath the sea are the fibre optic
+cables,
+
+8
+00:00:38,393 --> 00:00:43,799
+who have carried the world's internet
+traffic, connecting countries, powering apps
+
+9
+00:00:44,179 --> 00:00:46,121
+and keeping digital services running.
+
+10
+00:00:47,422 --> 00:00:50,823
+And Tehran is warning that these cables
+could become targets
+
+11
+00:00:52,023 --> 00:00:56,284
+if the United States strikes Iran again.
+More than
+
+12
+00:00:56,464 --> 00:01:01,245
+90% of data capacity between Europe and
+Asia passes through cables
+
+13
+00:01:01,525 --> 00:01:02,526
+under the Red Sea.
+
+14
+00:01:04,566 --> 00:01:08,687
+So how vulnerable is the undersea digital
+network the world depends on?
+
+15
+00:01:15,978 --> 00:01:18,299
+Yes, the internet may feel wireless,
+
+16
+00:01:18,379 --> 00:01:21,481
+but the infrastructure carrying it is
+hidden deep under the sea,
+
+17
+00:01:21,982 --> 00:01:26,384
+with fibre optic cables carrying the
+billions of messages and information
+
+18
+00:01:26,624 --> 00:01:31,127
+that powers digital services across continents.
+According to the United Nations,
+
+19
+00:01:31,187 --> 00:01:37,091
+around 99% of global data traffic is carried
+by undersea cables. And there are only
+
+20
+00:01:37,251 --> 00:01:40,773
+so many routes connecting the world's
+biggest digital markets.
+
+21
+00:01:41,193 --> 00:01:44,655
+More than 90% of data capacity between
+Europe and Asia
+
+22
+00:01:45,015 --> 00:01:50,378
+passes through cables under the Red Sea.
+These cables pass through Bab al-Mandeb,
+
+23
+00:01:50,619 --> 00:01:55,802
+a narrow strait connecting the Red Sea to
+the Gulf of Aden. At its narrowest,
+
+24
+00:01:55,862 --> 00:02:01,387
+it's about 26 kilometers wide. If a cable
+is damaged, then data can sometimes be
+
+25
+00:02:01,707 --> 00:02:03,348
+rerouted through other connections.
+
+26
+00:02:03,629 --> 00:02:06,872
+But that depends on how much alternative
+capacity is available,
+
+27
+00:02:07,172 --> 00:02:08,173
+where the damage occurs,
+
+28
+00:02:08,653 --> 00:02:12,556
+and whether the remaining network can
+handle the additional traffic. The result
+
+29
+00:02:12,977 --> 00:02:15,899
+of such damage may not be a total internet
+blackout.
+
+30
+00:02:16,380 --> 00:02:20,483
+It could instead mean slower connections,
+interrupted services, and disruptions
+
+31
+00:02:20,804 --> 00:02:22,285
+that spread across countries.
+
+32
+00:02:23,211 --> 00:02:27,032
+There are around 500 submarine cables,
+give or take. The number
+
+33
+00:02:27,553 --> 00:02:30,994
+is changing as the new cables are being
+built, all the ones that are commissioned.
+
+34
+00:02:31,574 --> 00:02:32,114
+And then
+
+35
+00:02:33,195 --> 00:02:37,176
+the estimate is that it's around 1.4
+million kilometers
+
+36
+00:02:37,736 --> 00:02:40,437
+around the world of them. So it's a lot of
+kilometers.
+
+37
+00:02:40,817 --> 00:02:42,318
+But in terms of the number of the cables,
+
+38
+00:02:42,338 --> 00:02:45,019
+there are not so many of them. Therefore,
+even
+
+39
+00:02:45,319 --> 00:02:48,300
+when a few of those are cut or a few of
+those are damaged,
+
+40
+00:02:48,660 --> 00:02:50,301
+the impact can be really noticeable.
+
+41
+00:02:54,568 --> 00:02:56,909
+An undersea cable can be deliberately
+damaged
+
+42
+00:02:56,989 --> 00:03:00,510
+by an advanced submarine or a
+sophisticated military operation.
+
+43
+00:03:01,130 --> 00:03:05,812
+Cables can also be damaged by ship
+anchors, fishing activity or accidents.
+
+44
+00:03:06,272 --> 00:03:11,634
+The International Telecommunication Union
+says around 80% of undersea cable cuts
+
+45
+00:03:12,014 --> 00:03:16,856
+recorded in recent years can be attributed
+to fishing and commercial anchoring.
+
+46
+00:03:17,656 --> 00:03:21,059
+In the remaining cases, even when sabotage
+is suspected,
+
+47
+00:03:21,419 --> 00:03:25,903
+identifying the actor can be difficult.
+And the next challenge is repair.
+
+48
+00:03:26,283 --> 00:03:28,645
+Specialised vessels must locate the
+damage,
+
+49
+00:03:29,006 --> 00:03:32,609
+reach the site and carry out the repairs.
+In a conflict zone,
+
+50
+00:03:32,709 --> 00:03:38,134
+access permission, security risks and
+active hostilities can delay that process.
+
+51
+00:03:38,954 --> 00:03:43,137
+Back in February 2024, three cables in the
+Red Sea were damaged,
+
+52
+00:03:43,598 --> 00:03:47,180
+probably caused by the dragging anchor of
+a cargo ship
+
+53
+00:03:47,580 --> 00:03:51,824
+which was damaged by a Houthi missile. The
+Iran-backed group, however,
+
+54
+00:03:52,044 --> 00:03:57,047
+denied responsibility for that cable
+damage. The United Nations, meanwhile,
+
+55
+00:03:57,147 --> 00:03:59,910
+says it's well aware of the issues.
+Normally,
+
+56
+00:04:00,811 --> 00:04:04,695
+we see around 150 to 200 incidents a year.
+And this is
+
+57
+00:04:05,496 --> 00:04:11,482
+around three incidents a week. And this is
+rather frequent, let's say,
+
+58
+00:04:11,522 --> 00:04:13,805
+occurrence, regretfully frequent
+occurrence that
+
+59
+00:04:14,065 --> 00:04:16,488
+impacts the resilience of the cables all
+around the world.
+
+60
+00:04:20,000 --> 00:04:23,743
+Iran's security chief, Mohsen Rezaei, has
+warned that undersea cables,
+
+61
+00:04:23,823 --> 00:04:27,586
+in addition to data centers across the
+region, could be targeted
+
+62
+00:04:28,046 --> 00:04:33,030
+if the war with the United States resumes
+or intensifies. Right now, the U.S.
+
+63
+00:04:33,190 --> 00:04:36,733
+and Iran are not directly striking each
+other's military or strategic
+
+64
+00:04:36,893 --> 00:04:42,237
+sites, but this pause in direct strikes
+may not last. U.S. President Donald Trump
+
+65
+00:04:42,577 --> 00:04:44,939
+has suggested that further action against
+Iran
+
+66
+00:04:45,239 --> 00:04:47,781
+could follow the November 3 midterm
+elections.
+
+67
+00:04:48,583 --> 00:04:51,865
+Wait till you see what we do to Iran.
+We're going to do a number. Wait
+
+68
+00:04:52,905 --> 00:04:55,827
+till you see. They're just waiting.
+They're waiting.
+
+69
+00:04:56,167 --> 00:04:57,828
+Wait till you see what we do to Iran.
+
+70
+00:04:58,909 --> 00:05:00,149
+Because we sort of had it.
+
+71
+00:05:00,870 --> 00:05:04,232
+You know, we've had it. But, you know, it
+doesn't matter. The big thing is
+
+72
+00:05:04,732 --> 00:05:07,774
+they were not going to have a nuclear
+weapon, and they won't. That's buried under
+
+73
+00:05:08,654 --> 00:05:09,855
+thousands of tons of
+
+74
+00:05:11,576 --> 00:05:11,816
+rock.
+
+75
+00:05:13,524 --> 00:05:16,047
+So in preparation for potential direct US
+strikes,
+
+76
+00:05:16,107 --> 00:05:21,092
+Iran is now warning that its retaliation
+could extend to the undersea cables
+
+77
+00:05:21,392 --> 00:05:22,794
+that keep the world connected.
+
+78
+00:05:23,254 --> 00:05:26,738
+The Iranian threat raises concerns for
+commercial technology networks
+
+79
+00:05:27,319 --> 00:05:31,263
+that US security partners in the Gulf have
+spent years trying to build.
+
+80
+00:05:31,583 --> 00:05:34,085
+And it's not a one-off threat. Back in
+March,
+
+81
+00:05:34,225 --> 00:05:39,467
+Iranian state media reported that the IRGC
+had identified cloud infrastructure
+
+82
+00:05:39,827 --> 00:05:43,248
+associated with Google, Microsoft and
+Oracle in Israel
+
+83
+00:05:43,628 --> 00:05:46,029
+and some Gulf states as potential targets.
+
+84
+00:05:46,769 --> 00:05:50,690
+The IRGC also named 17 American firms in a
+Telegram post,
+
+85
+00:05:51,130 --> 00:05:55,892
+including Google, Meta and Apple,
+alongside the Emirati AI company G42.
+
+86
+00:05:58,465 --> 00:06:01,527
+What makes Mohsen Rezaei's warning
+particularly significant
+
+87
+00:06:01,827 --> 00:06:04,668
+is that he is not simply threatening
+another set of targets.
+
+88
+00:06:04,969 --> 00:06:08,250
+He is identifying a new category of
+strategic infrastructure
+
+89
+00:06:08,450 --> 00:06:10,632
+that connects Gulf economic
+diversification
+
+90
+00:06:10,772 --> 00:06:13,193
+directly to American technological power.
+
+91
+00:06:14,575 --> 00:06:18,056
+The threat to the Gulf's undersea cable
+infrastructure is significant
+
+92
+00:06:18,496 --> 00:06:22,916
+because the region is trying to build its
+next economic future around technology.
+
+93
+00:06:23,357 --> 00:06:28,917
+The United Arab Emirates is developing Stargate
+UAE, an AI project involving OpenAI,
+
+94
+00:06:29,278 --> 00:06:32,918
+Nvidia and other partners. Saudi Arabia
+has launched Humane,
+
+95
+00:06:33,418 --> 00:06:38,919
+an AI company set to build data centres
+and develop an Arabic language AI model.
+
+96
+00:06:39,139 --> 00:06:42,860
+And Qatar has also attracted investment
+into data centres.
+
+97
+00:06:43,420 --> 00:06:47,242
+While Microsoft has announced major
+investment plans across the region,
+
+98
+00:06:47,522 --> 00:06:52,305
+these are part of a much larger economic
+strategy of the oil-producing economies
+
+99
+00:06:52,825 --> 00:06:57,887
+to diversify away from oil and establish
+the Gulf as a center for cloud computing
+
+100
+00:06:58,268 --> 00:07:02,530
+and artificial intelligence. But that
+strategy depends on reliability.
+
+101
+00:07:03,130 --> 00:07:06,771
+Tech companies need power and secure
+facilities, but above all,
+
+102
+00:07:07,171 --> 00:07:10,651
+they need connectivity, and that depends
+on the undersea cables
+
+103
+00:07:10,991 --> 00:07:15,872
+Iran is now threatening. The UAE may be
+especially exposed because of its
+
+104
+00:07:16,052 --> 00:07:19,053
+close integration with American technology
+companies.
+
+105
+00:07:19,733 --> 00:07:22,613
+The UAE is punching above its weight in
+terms of a very small country
+
+106
+00:07:22,933 --> 00:07:24,674
+that really wants to be at the forefront.
+
+107
+00:07:25,554 --> 00:07:27,914
+Also because of its geographical location,
+right?
+
+108
+00:07:28,234 --> 00:07:32,655
+We're at that center point between Asia,
+Africa, and Europe to some extent.
+
+109
+00:07:34,469 --> 00:07:38,312
+Since the rise of oil and gas-driven
+prosperity in the Gulf, the region has
+
+110
+00:07:38,672 --> 00:07:43,196
+sold itself as a gateway to the future,
+where now artificial intelligence,
+
+111
+00:07:43,336 --> 00:07:48,260
+cloud computing and global connectivity
+can thrive. That future depends on
+
+112
+00:07:48,400 --> 00:07:52,223
+infrastructure that crosses borders and
+runs beneath the sea, but that
+
+113
+00:07:52,603 --> 00:07:57,427
+could be disrupted by the threat of
+a relatively small number of successful attacks.
+
+114
+00:07:59,060 --> 00:08:03,464
+For more on this, we have Aaron
+Eton-Meyer, author and West Asia expert,
+
+115
+00:08:03,504 --> 00:08:07,547
+joining us live from New York. Good to
+have you with us. Firstly,
+
+116
+00:08:07,567 --> 00:08:09,749
+can you explain just how vital these
+
+117
+00:08:10,269 --> 00:08:13,592
+undersea cables are to world economies and
+connectivity?
+
+118
+00:08:15,934 --> 00:08:19,016
+Thank you for having me. These cables are
+absolutely critical,
+
+119
+00:08:19,897 --> 00:08:21,839
+most primarily for the Gulf states,
+
+120
+00:08:21,879 --> 00:08:27,227
+but also for the transmission of data to
+and from Asia generally. And it's no
+
+121
+00:08:27,387 --> 00:08:31,831
+coincidence that that is what Iran and
+their Houthi proxies are looking to target.
+
+122
+00:08:32,772 --> 00:08:34,233
+They're well aware of the fact
+
+123
+00:08:34,493 --> 00:08:37,696
+that the Gulf states in particular are
+totally reliant on
+
+124
+00:08:38,177 --> 00:08:42,240
+these specific cables for information, for
+data, and for development.
+
+125
+00:08:43,141 --> 00:08:48,025
+So it's no coincidence that they've now
+decided that this, along with
+
+126
+00:08:48,626 --> 00:08:50,147
+the general threats of
+
+127
+00:08:51,308 --> 00:08:54,591
+kinetic warfare, which is to say
+blockading the Strait of Hormuz,
+
+128
+00:08:54,611 --> 00:08:55,672
+the Bab al-Mandab Strait.
+
+129
+00:08:56,673 --> 00:09:01,958
+This is their next step in how they're
+going to not only force the world generally,
+
+130
+00:09:02,318 --> 00:09:07,123
+but more specifically the Gulf states and
+really the Arab Middle East
+
+131
+00:09:07,543 --> 00:09:08,745
+to achieve their goals.
+
+132
+00:09:09,585 --> 00:09:13,631
+How much leverage then does Iran, and
+indeed the Houthis in Yemen,
+
+133
+00:09:13,791 --> 00:09:16,514
+as you mentioned there, have at the
+moment, especially in the
+
+134
+00:09:16,895 --> 00:09:19,498
+run-up to the US midterm elections? I
+mean, is the US
+
+135
+00:09:19,939 --> 00:09:22,042
+limited by what can be done now?
+
+136
+00:09:24,865 --> 00:09:26,267
+Well, to date, Iran has...
+
+137
+00:09:27,445 --> 00:09:29,926
+been under the assumption that the United
+States
+
+138
+00:09:30,347 --> 00:09:33,829
+will succumb to political and economic
+pressure more than anything else.
+
+139
+00:09:34,149 --> 00:09:39,092
+So the timing of this is highly significant and
+it has to be taken as a real threat.
+
+140
+00:09:39,492 --> 00:09:41,553
+You already saw the information about
+
+141
+00:09:42,074 --> 00:09:45,355
+cutting undersea cables by ship anchors,
+which can cause
+
+142
+00:09:45,696 --> 00:09:49,238
+months of delay and disruptions in traffic
+even when inadvertently done.
+
+143
+00:09:50,138 --> 00:09:53,200
+Here, when they could conceivably knock
+out
+
+144
+00:09:53,601 --> 00:09:57,784
+cables in two areas with the threat of
+violence
+
+145
+00:09:58,304 --> 00:10:02,227
+preventing any sort of repairs, that could
+have an even bigger impact
+
+146
+00:10:02,707 --> 00:10:06,010
+in some ways than the oil that's already
+been going on.
+
+147
+00:10:06,250 --> 00:10:09,452
+So it's a very real threat and it seems
+directed at the U.S.
+
+148
+00:10:09,472 --> 00:10:10,673
+midterm elections for sure.
+
+149
+00:10:11,594 --> 00:10:14,636
+And let's not forget, these cables,
+they're not protected.
+
+150
+00:10:14,676 --> 00:10:18,018
+They're not buried in the ground beneath
+the seafloor. they are,
+
+151
+00:10:18,038 --> 00:10:21,099
+for all intents and purposes, largely
+exposed. Now,
+
+152
+00:10:21,119 --> 00:10:23,740
+I'm not saying you're a scientist or
+anything, but on a practical front,
+
+153
+00:10:24,480 --> 00:10:25,621
+people might ask,
+
+154
+00:10:25,801 --> 00:10:29,342
+why are these cables installed under the
+sea in the first place? I mean, it's not
+
+155
+00:10:29,922 --> 00:10:32,843
+exactly an easy location for maintenance
+or repair.
+
+156
+00:10:35,182 --> 00:10:38,424
+True, but how many different options do we
+have? The only
+
+157
+00:10:38,684 --> 00:10:42,486
+real alternative option would be overland
+routes, which, to be clear,
+
+158
+00:10:42,506 --> 00:10:44,767
+the Gulf states in particular have been
+developing,
+
+159
+00:10:45,387 --> 00:10:47,569
+especially over the last eight years or
+so,
+
+160
+00:10:47,849 --> 00:10:49,710
+and even more so over the last two years,
+
+161
+00:10:50,670 --> 00:10:54,772
+as a means of keeping them safe. But there
+are dangers to having overland
+
+162
+00:10:55,173 --> 00:10:58,174
+cables as well. The routes are different.
+
+163
+00:10:58,194 --> 00:11:01,196
+You're still going to have places where
+the cables have to cross
+
+164
+00:11:01,716 --> 00:11:06,659
+potentially dangerous territory. That's
+not an ideal solution either. You know,
+
+165
+00:11:06,719 --> 00:11:11,142
+for the old model of having them on the
+sea floor, the idea was, well,
+
+166
+00:11:11,162 --> 00:11:15,645
+they're at the bottom of the sea. They're
+insulated essentially by that water.
+
+167
+00:11:16,106 --> 00:11:19,488
+And there's no real way to bury them
+further under the seabed.
+
+168
+00:11:20,068 --> 00:11:23,971
+So we're kind of at a point where we have
+to see where that next step of technology and
+
+169
+00:11:24,191 --> 00:11:27,534
+technological infrastructure development
+is going to go.
+
+170
+00:11:27,574 --> 00:11:29,155
+And maybe this will be the catalyst
+
+171
+00:11:29,775 --> 00:11:34,599
+for better protection for our systems across
+the board. And if these undersea cables
+
+172
+00:11:34,859 --> 00:11:39,642
+were significantly damaged, I mean, how
+much of a blow would that be for
+
+173
+00:11:39,882 --> 00:11:45,246
+Gulf nations who have been trying to pivot
+away from total reliance
+
+174
+00:11:45,947 --> 00:11:47,708
+on oil and gas exports?
+
+175
+00:11:49,912 --> 00:11:53,614
+And that's one of the most dangerous parts
+of this.
+
+176
+00:11:53,694 --> 00:11:56,836
+Iran is targeting them on both ends. On
+the one hand,
+
+177
+00:11:56,856 --> 00:12:00,918
+they're targeting the oil tankers and the
+shipments of oil around the region.
+
+178
+00:12:01,458 --> 00:12:04,640
+And on the other, they're saying, well,
+you also can't look to the future
+
+179
+00:12:05,180 --> 00:12:06,801
+because we're going to target this data
+
+180
+00:12:07,502 --> 00:12:10,183
+and this infrastructure that you've now
+pivoted to
+
+181
+00:12:10,663 --> 00:12:12,404
+as a means of looking forward to the
+future.
+
+182
+00:12:12,424 --> 00:12:14,866
+We're going to try to take that away too.
+Really,
+
+183
+00:12:14,906 --> 00:12:18,047
+this underscores the enduring threat that
+Iran poses
+
+184
+00:12:19,508 --> 00:12:21,410
+to not only the region, but to the world.
+
+185
+00:12:22,792 --> 00:12:27,216
+And this is something which could potentially
+affect anyone who depends on the
+
+186
+00:12:27,637 --> 00:12:30,700
+internet for their livelihoods and
+connectivity. It's not just
+
+187
+00:12:31,201 --> 00:12:35,145
+some kind of fire-off problem, is it?
+Anyone watching this now could be affected.
+
+188
+00:12:36,958 --> 00:12:41,421
+Absolutely. You know, when I was younger,
+I remember there was a telecom commercial
+
+189
+00:12:41,821 --> 00:12:43,843
+and the slogan was, we're all connected.
+
+190
+00:12:45,123 --> 00:12:47,125
+And this was, you know, decades ago
+already.
+
+191
+00:12:47,845 --> 00:12:50,207
+That's only grown over the years. So if
+you have
+
+192
+00:12:50,947 --> 00:12:53,389
+a severe internet disruption in one
+region,
+
+193
+00:12:54,358 --> 00:12:59,123
+or two, which is certainly possible here
+if Iran attacks one set of undersea cables
+
+194
+00:12:59,503 --> 00:13:03,547
+and the Houthis attack the other, the effects
+of that are going to span the world.
+
+195
+00:13:03,627 --> 00:13:08,892
+It's going to affect the Gulf states and
+that region primarily, first and foremost.
+
+196
+00:13:09,453 --> 00:13:14,618
+But data delays, lags, other disruptions,
+they're going to affect everybody.
+
+197
+00:13:16,018 --> 00:13:18,339
+it would be extremely dangerous
+
+198
+00:13:19,699 --> 00:13:23,561
+to all of us. What is the solution then to
+all of this, presumably
+
+199
+00:13:23,941 --> 00:13:25,081
+finding an end to the war?
+
+200
+00:13:27,122 --> 00:13:28,702
+Well, there are a couple of easy
+solutions.
+
+201
+00:13:29,802 --> 00:13:31,603
+And I say easy very sarcastically.
+
+202
+00:13:32,483 --> 00:13:34,004
+One, of course, is to
+
+203
+00:13:34,364 --> 00:13:38,105
+keep moving to eliminate the Iranian
+threat. You know, as I said earlier,
+
+204
+00:13:38,803 --> 00:13:43,284
+This underscores the threat that Iran
+poses. To a nation like Iran,
+
+205
+00:13:44,164 --> 00:13:50,146
+it doesn't matter that the world economy,
+technology, development, progress,
+
+206
+00:13:50,206 --> 00:13:54,507
+all of these things rely on this
+infrastructure that it will threaten willy-nilly.
+
+207
+00:13:55,167 --> 00:13:58,008
+It doesn't matter to them. That is really
+
+208
+00:13:58,868 --> 00:14:02,549
+the underlying principle of the threat
+that Iran poses.
+
+209
+00:14:02,589 --> 00:14:05,229
+It's not simply a nuclear threat. It's a
+threat
+
+210
+00:14:05,589 --> 00:14:08,410
+to basically anything and everything that
+it can threaten.
+
+211
+00:14:09,247 --> 00:14:13,049
+So in terms of a response, one would be,
+of course, to
+
+212
+00:14:13,429 --> 00:14:17,951
+levy international law. These are threats
+on a global infrastructure that
+
+213
+00:14:18,672 --> 00:14:21,793
+certainly the international community can,
+should, and must
+
+214
+00:14:22,554 --> 00:14:27,036
+condemn, not only specifically here, but
+also consolidate that
+
+215
+00:14:27,576 --> 00:14:31,478
+and turn that into law. Put real
+restrictions so that when a country
+
+216
+00:14:31,938 --> 00:14:35,660
+threatens global infrastructure, the rest
+of the world steps in.
+
+217
+00:14:36,380 --> 00:14:39,081
+Iran might say, if I just jump in there,
+Iran might say,
+
+218
+00:14:39,101 --> 00:14:41,902
+you mentioned international law there, I
+mean, they might say that U.S. and Israel
+
+219
+00:14:42,322 --> 00:14:43,703
+attacked Iran in the first place.
+
+220
+00:14:47,817 --> 00:14:51,882
+Let's say arguendo that there's any
+credence to that. I mean, there isn't.
+
+221
+00:14:52,523 --> 00:14:56,027
+Iran has been waging a proxy war against
+the United States, against Israel,
+
+222
+00:14:56,688 --> 00:14:57,048
+and against
+
+223
+00:14:57,849 --> 00:15:01,814
+most of the rest of the world in various
+capacities for quite some time. But
+
+224
+00:15:02,094 --> 00:15:06,987
+let's say arguendo that that's accurate.
+does that still give them the right
+
+225
+00:15:07,488 --> 00:15:12,552
+to flagrantly ignore international law
+across the board, right? Closing
+
+226
+00:15:13,032 --> 00:15:17,255
+navigable straits, trying to demand tolls,
+now attacking global infrastructure.
+
+227
+00:15:17,836 --> 00:15:20,418
+None of these have any validity under
+international law
+
+228
+00:15:21,118 --> 00:15:25,282
+by any reasonable interpretation. And it
+is Iran saying, well,
+
+229
+00:15:25,502 --> 00:15:28,724
+we can do whatever we want. The word for
+that is impunity.
+
+230
+00:15:29,125 --> 00:15:32,247
+And that's what has to be taken away, both
+domestically and internationally.
+
+231
+00:15:33,134 --> 00:15:35,095
+Okay, we'll leave it there. Aaron Eaton,
+Mayor,
+
+232
+00:15:35,115 --> 00:15:38,215
+we appreciate your time. Thank you very
+much indeed for joining us.
+
+233
+00:15:39,256 --> 00:15:39,556
+Thank you.
+
+234
+00:15:40,556 --> 00:15:41,336
+50 states.
+
+235
+00:15:43,937 --> 00:15:44,717
+Two parties.
+
+236
+00:15:47,518 --> 00:15:48,358
+One election.
+
+237
+00:15:50,419 --> 00:15:52,479
+The biggest name at the heart of the
+battle.
+
+238
+00:15:56,040 --> 00:15:56,760
+Donald Trump.
+
+239
+00:15:59,501 --> 00:16:02,282
+This November, America steps into the
+voting booth.
+
+240
+00:16:05,203 --> 00:16:07,705
+Whoever wins controls the US Congress.
+
+241
+00:16:10,327 --> 00:16:14,530
+Trump 2.0 faces a make-or-break moment.
+
+242
+00:16:14,570 --> 00:16:17,532
+Can the Republicans keep a hold on their
+grip on power?
+
+243
+00:16:19,814 --> 00:16:21,996
+Or will Democrats make a comeback?
+
+244
+00:16:24,157 --> 00:16:27,340
+The results will ripple far beyond US
+borders.
+
+245
+00:16:29,181 --> 00:16:31,463
+We'll track the numbers and the
+narratives.
+
+246
+00:16:33,853 --> 00:16:36,838
+Tune in to First Force for our special
+mid-term coverage.
+

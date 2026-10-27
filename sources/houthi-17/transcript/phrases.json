@@ -1,0 +1,1823 @@
+[
+ {
+  "id": 0,
+  "text": "Well,",
+  "start": 0.031,
+  "end": 0.131,
+  "duration": 0.1,
+  "word_ids": [
+   0
+  ]
+ },
+ {
+  "id": 1,
+  "text": "it's time now for our science and tech segment.",
+  "start": 0.151,
+  "end": 2.774,
+  "duration": 2.623,
+  "word_ids": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ]
+ },
+ {
+  "id": 2,
+  "text": "And today we're looking at",
+  "start": 2.854,
+  "end": 4.175,
+  "duration": 1.321,
+  "word_ids": [
+   10,
+   11,
+   12,
+   13,
+   14
+  ]
+ },
+ {
+  "id": 3,
+  "text": "underwater warfare,",
+  "start": 4.435,
+  "end": 5.797,
+  "duration": 1.362,
+  "word_ids": [
+   15,
+   16
+  ]
+ },
+ {
+  "id": 4,
+  "text": "particularly concerning fibre optic cables. Now,",
+  "start": 6.077,
+  "end": 9.26,
+  "duration": 3.183,
+  "word_ids": [
+   17,
+   18,
+   19,
+   20,
+   21,
+   22
+  ]
+ },
+ {
+  "id": 5,
+  "text": "we've taken this issue to look at because the",
+  "start": 9.3,
+  "end": 11.883,
+  "duration": 2.583,
+  "word_ids": [
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31
+  ]
+ },
+ {
+  "id": 6,
+  "text": "Houthis in Yemen attacked a ship called the Rubimar earlier this year.",
+  "start": 12.083,
+  "end": 16.067,
+  "duration": 3.984,
+  "word_ids": [
+   32,
+   33,
+   34,
+   35,
+   36,
+   37,
+   38,
+   39,
+   40,
+   41,
+   42,
+   43
+  ]
+ },
+ {
+  "id": 7,
+  "text": "And",
+  "start": 16.647,
+  "end": 16.787,
+  "duration": 0.14,
+  "word_ids": [
+   44
+  ]
+ },
+ {
+  "id": 8,
+  "text": "three internet cables were cut afterwards. Now,",
+  "start": 17.167,
+  "end": 20.328,
+  "duration": 3.161,
+  "word_ids": [
+   45,
+   46,
+   47,
+   48,
+   49,
+   50,
+   51
+  ]
+ },
+ {
+  "id": 9,
+  "text": "most maritime experts believe it was an",
+  "start": 20.368,
+  "end": 22.569,
+  "duration": 2.201,
+  "word_ids": [
+   52,
+   53,
+   54,
+   55,
+   56,
+   57,
+   58
+  ]
+ },
+ {
+  "id": 10,
+  "text": "accident that the cables were damaged as the ship drifted.",
+  "start": 22.829,
+  "end": 25.83,
+  "duration": 3.001,
+  "word_ids": [
+   59,
+   60,
+   61,
+   62,
+   63,
+   64,
+   65,
+   66,
+   67,
+   68
+  ]
+ },
+ {
+  "id": 11,
+  "text": "But with over 90% of Europe-Asia",
+  "start": 26.25,
+  "end": 28.791,
+  "duration": 2.541,
+  "word_ids": [
+   69,
+   70,
+   71,
+   72,
+   73,
+   74
+  ]
+ },
+ {
+  "id": 12,
+  "text": "internet traffic running through the Red Sea,",
+  "start": 28.951,
+  "end": 30.872,
+  "duration": 1.921,
+  "word_ids": [
+   75,
+   76,
+   77,
+   78,
+   79,
+   80,
+   81
+  ]
+ },
+ {
+  "id": 13,
+  "text": "it's still a major concern. Now,",
+  "start": 31.172,
+  "end": 32.732,
+  "duration": 1.56,
+  "word_ids": [
+   82,
+   83,
+   84,
+   85,
+   86,
+   87
+  ]
+ },
+ {
+  "id": 14,
+  "text": "Julia Seager has been looking into this. She's with me now. Julia,",
+  "start": 32.772,
+  "end": 35.113,
+  "duration": 2.341,
+  "word_ids": [
+   88,
+   89,
+   90,
+   91,
+   92,
+   93,
+   94,
+   95,
+   96,
+   97,
+   98,
+   99
+  ]
+ },
+ {
+  "id": 15,
+  "text": "do we know what happened in this particular incident I mentioned? We don't really know, actually,",
+  "start": 35.133,
+  "end": 38.755,
+  "duration": 3.622,
+  "word_ids": [
+   100,
+   101,
+   102,
+   103,
+   104,
+   105,
+   106,
+   107,
+   108,
+   109,
+   110,
+   111,
+   112,
+   113,
+   114,
+   115
+  ]
+ },
+ {
+  "id": 16,
+  "text": "but as you said, Nadia, the official",
+  "start": 38.775,
+  "end": 40.616,
+  "duration": 1.841,
+  "word_ids": [
+   116,
+   117,
+   118,
+   119,
+   120,
+   121,
+   122
+  ]
+ },
+ {
+  "id": 17,
+  "text": "version is that the anchor of the ship,",
+  "start": 41.057,
+  "end": 42.958,
+  "duration": 1.901,
+  "word_ids": [
+   123,
+   124,
+   125,
+   126,
+   127,
+   128,
+   129,
+   130
+  ]
+ },
+ {
+  "id": 18,
+  "text": "of the Ruby Mar, could have",
+  "start": 43.098,
+  "end": 44.72,
+  "duration": 1.622,
+  "word_ids": [
+   131,
+   132,
+   133,
+   134,
+   135,
+   136
+  ]
+ },
+ {
+  "id": 19,
+  "text": "scrapped the bottom and severed those cables.",
+  "start": 45.12,
+  "end": 47.082,
+  "duration": 1.962,
+  "word_ids": [
+   137,
+   138,
+   139,
+   140,
+   141,
+   142,
+   143
+  ]
+ },
+ {
+  "id": 20,
+  "text": "The Houthi rebel group has denied any implication in an attack,",
+  "start": 47.522,
+  "end": 50.364,
+  "duration": 2.842,
+  "word_ids": [
+   144,
+   145,
+   146,
+   147,
+   148,
+   149,
+   150,
+   151,
+   152,
+   153,
+   154
+  ]
+ },
+ {
+  "id": 21,
+  "text": "but Washington continues to think that there's an act of sabotage there.",
+  "start": 50.384,
+  "end": 53.247,
+  "duration": 2.863,
+  "word_ids": [
+   155,
+   156,
+   157,
+   158,
+   159,
+   160,
+   161,
+   162,
+   163,
+   164,
+   165,
+   166
+  ]
+ },
+ {
+  "id": 22,
+  "text": "Now, why?",
+  "start": 54.007,
+  "end": 54.608,
+  "duration": 0.601,
+  "word_ids": [
+   167,
+   168
+  ]
+ },
+ {
+  "id": 23,
+  "text": "Because there was actually a message that was posted in a telegram group linked",
+  "start": 54.688,
+  "end": 58.091,
+  "duration": 3.403,
+  "word_ids": [
+   169,
+   170,
+   171,
+   172,
+   173,
+   174,
+   175,
+   176,
+   177,
+   178,
+   179,
+   180,
+   181,
+   182
+  ]
+ },
+ {
+  "id": 24,
+  "text": "to the Houthis,",
+  "start": 58.311,
+  "end": 59.172,
+  "duration": 0.861,
+  "word_ids": [
+   183,
+   184,
+   185
+  ]
+ },
+ {
+  "id": 25,
+  "text": "in which they show this map that you can see here,",
+  "start": 59.492,
+  "end": 61.614,
+  "duration": 2.122,
+  "word_ids": [
+   186,
+   187,
+   188,
+   189,
+   190,
+   191,
+   192,
+   193,
+   194,
+   195,
+   196
+  ]
+ },
+ {
+  "id": 26,
+  "text": "showing all of the undersea cables that are trans, that are",
+  "start": 62.334,
+  "end": 65.597,
+  "duration": 3.263,
+  "word_ids": [
+   197,
+   198,
+   199,
+   200,
+   201,
+   202,
+   203,
+   204,
+   205,
+   206,
+   207
+  ]
+ },
+ {
+  "id": 27,
+  "text": "that transit",
+  "start": 66.237,
+  "end": 66.978,
+  "duration": 0.741,
+  "word_ids": [
+   208,
+   209
+  ]
+ },
+ {
+  "id": 28,
+  "text": "next to Yemen. And in this message,",
+  "start": 67.239,
+  "end": 69.341,
+  "duration": 2.102,
+  "word_ids": [
+   210,
+   211,
+   212,
+   213,
+   214,
+   215,
+   216
+  ]
+ },
+ {
+  "id": 29,
+  "text": "they say that they recognize the fact that they're",
+  "start": 69.381,
+  "end": 71.103,
+  "duration": 1.722,
+  "word_ids": [
+   217,
+   218,
+   219,
+   220,
+   221,
+   222,
+   223,
+   224,
+   225
+  ]
+ },
+ {
+  "id": 30,
+  "text": "really on a strategic route there. So indeed, when you look at the world, you have about",
+  "start": 71.403,
+  "end": 74.947,
+  "duration": 3.544,
+  "word_ids": [
+   226,
+   227,
+   228,
+   229,
+   230,
+   231,
+   232,
+   233,
+   234,
+   235,
+   236,
+   237,
+   238,
+   239,
+   240,
+   241,
+   242
+  ]
+ },
+ {
+  "id": 31,
+  "text": "450",
+  "start": 75.207,
+  "end": 75.608,
+  "duration": 0.401,
+  "word_ids": [
+   243
+  ]
+ },
+ {
+  "id": 32,
+  "text": "fiber optic cables crisscrossing the seas,",
+  "start": 76.649,
+  "end": 78.771,
+  "duration": 2.122,
+  "word_ids": [
+   244,
+   245,
+   246,
+   247,
+   248,
+   249
+  ]
+ },
+ {
+  "id": 33,
+  "text": "connecting all continents and facilitating nearly",
+  "start": 79.052,
+  "end": 81.414,
+  "duration": 2.362,
+  "word_ids": [
+   250,
+   251,
+   252,
+   253,
+   254,
+   255
+  ]
+ },
+ {
+  "id": 34,
+  "text": "99% of all global internet traffic compared to only 1%",
+  "start": 82.175,
+  "end": 85.399,
+  "duration": 3.224,
+  "word_ids": [
+   256,
+   257,
+   258,
+   259,
+   260,
+   261,
+   262,
+   263,
+   264,
+   265
+  ]
+ },
+ {
+  "id": 35,
+  "text": "that transit through satellites.",
+  "start": 85.799,
+  "end": 87.34,
+  "duration": 1.541,
+  "word_ids": [
+   266,
+   267,
+   268,
+   269
+  ]
+ },
+ {
+  "id": 36,
+  "text": "And when you look at the Red Sea region,",
+  "start": 87.801,
+  "end": 89.342,
+  "duration": 1.541,
+  "word_ids": [
+   270,
+   271,
+   272,
+   273,
+   274,
+   275,
+   276,
+   277,
+   278
+  ]
+ },
+ {
+  "id": 37,
+  "text": "you have about 15 cables that transit through",
+  "start": 89.363,
+  "end": 91.725,
+  "duration": 2.362,
+  "word_ids": [
+   279,
+   280,
+   281,
+   282,
+   283,
+   284,
+   285,
+   286
+  ]
+ },
+ {
+  "id": 38,
+  "text": "the Bab al-Mandab Strait,",
+  "start": 92.426,
+  "end": 93.907,
+  "duration": 1.481,
+  "word_ids": [
+   287,
+   288,
+   289,
+   290
+  ]
+ },
+ {
+  "id": 39,
+  "text": "so next to Yemen. Now,",
+  "start": 94.748,
+  "end": 96.65,
+  "duration": 1.902,
+  "word_ids": [
+   291,
+   292,
+   293,
+   294,
+   295
+  ]
+ },
+ {
+  "id": 40,
+  "text": "the incident didn't really affect the global",
+  "start": 97.351,
+  "end": 100.233,
+  "duration": 2.882,
+  "word_ids": [
+   296,
+   297,
+   298,
+   299,
+   300,
+   301,
+   302
+  ]
+ },
+ {
+  "id": 41,
+  "text": "internet traffic,",
+  "start": 100.534,
+  "end": 101.355,
+  "duration": 0.821,
+  "word_ids": [
+   303,
+   304
+  ]
+ },
+ {
+  "id": 42,
+  "text": "and the reason why is because",
+  "start": 101.375,
+  "end": 102.396,
+  "duration": 1.021,
+  "word_ids": [
+   305,
+   306,
+   307,
+   308,
+   309,
+   310
+  ]
+ },
+ {
+  "id": 43,
+  "text": "operators today can really identify very quickly and repair cables thanks",
+  "start": 102.536,
+  "end": 106.46,
+  "duration": 3.924,
+  "word_ids": [
+   311,
+   312,
+   313,
+   314,
+   315,
+   316,
+   317,
+   318,
+   319,
+   320,
+   321
+  ]
+ },
+ {
+  "id": 44,
+  "text": "to smart sensors.",
+  "start": 106.58,
+  "end": 107.601,
+  "duration": 1.021,
+  "word_ids": [
+   322,
+   323,
+   324
+  ]
+ },
+ {
+  "id": 45,
+  "text": "And also during their intervention,",
+  "start": 108.121,
+  "end": 109.622,
+  "duration": 1.501,
+  "word_ids": [
+   325,
+   326,
+   327,
+   328,
+   329
+  ]
+ },
+ {
+  "id": 46,
+  "text": "they can also reroute all of the internet on other cables.",
+  "start": 109.642,
+  "end": 112.744,
+  "duration": 3.102,
+  "word_ids": [
+   330,
+   331,
+   332,
+   333,
+   334,
+   335,
+   336,
+   337,
+   338,
+   339,
+   340
+  ]
+ },
+ {
+  "id": 47,
+  "text": "So if you really wanted to provoke a",
+  "start": 112.785,
+  "end": 115.466,
+  "duration": 2.681,
+  "word_ids": [
+   341,
+   342,
+   343,
+   344,
+   345,
+   346,
+   347,
+   348
+  ]
+ },
+ {
+  "id": 48,
+  "text": "blackout, a total blackout,",
+  "start": 115.967,
+  "end": 117.288,
+  "duration": 1.321,
+  "word_ids": [
+   349,
+   350,
+   351,
+   352
+  ]
+ },
+ {
+  "id": 49,
+  "text": "you would really have to severe many, many cables indeed. Now",
+  "start": 117.308,
+  "end": 120.67,
+  "duration": 3.362,
+  "word_ids": [
+   353,
+   354,
+   355,
+   356,
+   357,
+   358,
+   359,
+   360,
+   361,
+   362,
+   363
+  ]
+ },
+ {
+  "id": 50,
+  "text": "these operators,",
+  "start": 121.31,
+  "end": 122.051,
+  "duration": 0.741,
+  "word_ids": [
+   364,
+   365
+  ]
+ },
+ {
+  "id": 51,
+  "text": "they often do these",
+  "start": 122.091,
+  "end": 123.152,
+  "duration": 1.061,
+  "word_ids": [
+   366,
+   367,
+   368,
+   369
+  ]
+ },
+ {
+  "id": 52,
+  "text": "these repairs on these cables because there are often accidents",
+  "start": 123.798,
+  "end": 126.899,
+  "duration": 3.101,
+  "word_ids": [
+   370,
+   371,
+   372,
+   373,
+   374,
+   375,
+   376,
+   377,
+   378,
+   379
+  ]
+ },
+ {
+  "id": 53,
+  "text": "due to underwater earthquakes, marine",
+  "start": 127.179,
+  "end": 130.26,
+  "duration": 3.081,
+  "word_ids": [
+   380,
+   381,
+   382,
+   383,
+   384
+  ]
+ },
+ {
+  "id": 54,
+  "text": "anchors,",
+  "start": 130.961,
+  "end": 131.321,
+  "duration": 0.36,
+  "word_ids": [
+   385
+  ]
+ },
+ {
+  "id": 55,
+  "text": "fishing nets and even shark attacks. Now these are",
+  "start": 131.361,
+  "end": 133.662,
+  "duration": 2.301,
+  "word_ids": [
+   386,
+   387,
+   388,
+   389,
+   390,
+   391,
+   392,
+   393,
+   394
+  ]
+ },
+ {
+  "id": 56,
+  "text": "very vulnerable cables as you can see here.",
+  "start": 134.082,
+  "end": 136.002,
+  "duration": 1.92,
+  "word_ids": [
+   395,
+   396,
+   397,
+   398,
+   399,
+   400,
+   401,
+   402
+  ]
+ },
+ {
+  "id": 57,
+  "text": "They're as big as garden hose and",
+  "start": 136.022,
+  "end": 137.803,
+  "duration": 1.781,
+  "word_ids": [
+   403,
+   404,
+   405,
+   406,
+   407,
+   408,
+   409
+  ]
+ },
+ {
+  "id": 58,
+  "text": "they also just lie there at the bottom of the sea. They're not even",
+  "start": 138.543,
+  "end": 141.704,
+  "duration": 3.161,
+  "word_ids": [
+   410,
+   411,
+   412,
+   413,
+   414,
+   415,
+   416,
+   417,
+   418,
+   419,
+   420,
+   421,
+   422,
+   423
+  ]
+ },
+ {
+  "id": 59,
+  "text": "buried in any way.",
+  "start": 142.265,
+  "end": 143.085,
+  "duration": 0.82,
+  "word_ids": [
+   424,
+   425,
+   426,
+   427
+  ]
+ },
+ {
+  "id": 60,
+  "text": "Now,",
+  "start": 143.825,
+  "end": 143.965,
+  "duration": 0.14,
+  "word_ids": [
+   428
+  ]
+ },
+ {
+  "id": 61,
+  "text": "this particular incident, as you say, Julia,",
+  "start": 144.005,
+  "end": 145.946,
+  "duration": 1.941,
+  "word_ids": [
+   429,
+   430,
+   431,
+   432,
+   433,
+   434,
+   435
+  ]
+ },
+ {
+  "id": 62,
+  "text": "didn't cause a lot of damage, but nonetheless, the issue",
+  "start": 146.026,
+  "end": 148.747,
+  "duration": 2.721,
+  "word_ids": [
+   436,
+   437,
+   438,
+   439,
+   440,
+   441,
+   442,
+   443,
+   444,
+   445
+  ]
+ },
+ {
+  "id": 63,
+  "text": "has sort of reawoken fears",
+  "start": 149.027,
+  "end": 150.747,
+  "duration": 1.72,
+  "word_ids": [
+   446,
+   447,
+   448,
+   449,
+   450
+  ]
+ },
+ {
+  "id": 64,
+  "text": "of",
+  "start": 151.307,
+  "end": 151.387,
+  "duration": 0.08,
+  "word_ids": [
+   451
+  ]
+ },
+ {
+  "id": 65,
+  "text": "underwater warfare.",
+  "start": 151.687,
+  "end": 152.868,
+  "duration": 1.181,
+  "word_ids": [
+   452,
+   453
+  ]
+ },
+ {
+  "id": 66,
+  "text": "Tell us a bit about what you mean by that. The fear is that",
+  "start": 152.888,
+  "end": 154.848,
+  "duration": 1.96,
+  "word_ids": [
+   454,
+   455,
+   456,
+   457,
+   458,
+   459,
+   460,
+   461,
+   462,
+   463,
+   464,
+   465,
+   466,
+   467
+  ]
+ },
+ {
+  "id": 67,
+  "text": "the prospect that this",
+  "start": 155.369,
+  "end": 156.529,
+  "duration": 1.16,
+  "word_ids": [
+   468,
+   469,
+   470,
+   471
+  ]
+ },
+ {
+  "id": 68,
+  "text": "infrastructure of fiber optic is going to be increasingly targeted, not just by states,",
+  "start": 157.149,
+  "end": 160.87,
+  "duration": 3.721,
+  "word_ids": [
+   472,
+   473,
+   474,
+   475,
+   476,
+   477,
+   478,
+   479,
+   480,
+   481,
+   482,
+   483,
+   484,
+   485
+  ]
+ },
+ {
+  "id": 69,
+  "text": "but also by armed groups.",
+  "start": 160.91,
+  "end": 162.291,
+  "duration": 1.381,
+  "word_ids": [
+   486,
+   487,
+   488,
+   489,
+   490
+  ]
+ },
+ {
+  "id": 70,
+  "text": "The reason why is because...",
+  "start": 162.371,
+  "end": 163.471,
+  "duration": 1.1,
+  "word_ids": [
+   491,
+   492,
+   493,
+   494,
+   495
+  ]
+ },
+ {
+  "id": 71,
+  "text": "Attribution is very difficult because it happens underwater and because the",
+  "start": 163.791,
+  "end": 166.813,
+  "duration": 3.022,
+  "word_ids": [
+   496,
+   497,
+   498,
+   499,
+   500,
+   501,
+   502,
+   503,
+   504,
+   505,
+   506
+  ]
+ },
+ {
+  "id": 72,
+  "text": "impact is still very much there.",
+  "start": 166.893,
+  "end": 168.414,
+  "duration": 1.521,
+  "word_ids": [
+   507,
+   508,
+   509,
+   510,
+   511,
+   512
+  ]
+ },
+ {
+  "id": 73,
+  "text": "I mean,",
+  "start": 169.054,
+  "end": 169.535,
+  "duration": 0.481,
+  "word_ids": [
+   513,
+   514
+  ]
+ },
+ {
+  "id": 74,
+  "text": "these cables do facilitate, as I said,",
+  "start": 169.655,
+  "end": 172.437,
+  "duration": 2.782,
+  "word_ids": [
+   515,
+   516,
+   517,
+   518,
+   519,
+   520,
+   521
+  ]
+ },
+ {
+  "id": 75,
+  "text": "the transfer of a lot of data, let it be financial, industrial,",
+  "start": 172.477,
+  "end": 176.179,
+  "duration": 3.702,
+  "word_ids": [
+   522,
+   523,
+   524,
+   525,
+   526,
+   527,
+   528,
+   529,
+   530,
+   531,
+   532,
+   533
+  ]
+ },
+ {
+  "id": 76,
+  "text": "administrative,",
+  "start": 176.219,
+  "end": 176.82,
+  "duration": 0.601,
+  "word_ids": [
+   534
+  ]
+ },
+ {
+  "id": 77,
+  "text": "but also more and more because of connectivity,",
+  "start": 176.9,
+  "end": 179.061,
+  "duration": 2.161,
+  "word_ids": [
+   535,
+   536,
+   537,
+   538,
+   539,
+   540,
+   541,
+   542
+  ]
+ },
+ {
+  "id": 78,
+  "text": "it's very much linked to",
+  "start": 179.461,
+  "end": 180.962,
+  "duration": 1.501,
+  "word_ids": [
+   543,
+   544,
+   545,
+   546,
+   547
+  ]
+ },
+ {
+  "id": 79,
+  "text": "the supply of electricity, natural gas,",
+  "start": 181.442,
+  "end": 183.564,
+  "duration": 2.122,
+  "word_ids": [
+   548,
+   549,
+   550,
+   551,
+   552,
+   553
+  ]
+ },
+ {
+  "id": 80,
+  "text": "and even oil supply.",
+  "start": 183.584,
+  "end": 184.665,
+  "duration": 1.081,
+  "word_ids": [
+   554,
+   555,
+   556,
+   557
+  ]
+ },
+ {
+  "id": 81,
+  "text": "So it's very strategic and it's very much linked to state sovereignty.",
+  "start": 184.705,
+  "end": 187.987,
+  "duration": 3.282,
+  "word_ids": [
+   558,
+   559,
+   560,
+   561,
+   562,
+   563,
+   564,
+   565,
+   566,
+   567,
+   568,
+   569
+  ]
+ },
+ {
+  "id": 82,
+  "text": "And just finally, is it really, do you think,",
+  "start": 188.607,
+  "end": 190.689,
+  "duration": 2.082,
+  "word_ids": [
+   570,
+   571,
+   572,
+   573,
+   574,
+   575,
+   576,
+   577,
+   578
+  ]
+ },
+ {
+  "id": 83,
+  "text": "within the reach of these armed groups to sabotage cables under the sea? Well,",
+  "start": 190.729,
+  "end": 193.812,
+  "duration": 3.083,
+  "word_ids": [
+   579,
+   580,
+   581,
+   582,
+   583,
+   584,
+   585,
+   586,
+   587,
+   588,
+   589,
+   590,
+   591,
+   592
+  ]
+ },
+ {
+  "id": 84,
+  "text": "degrading a sea cable is actually quite easy.",
+  "start": 193.832,
+  "end": 195.774,
+  "duration": 1.942,
+  "word_ids": [
+   593,
+   594,
+   595,
+   596,
+   597,
+   598,
+   599,
+   600
+  ]
+ },
+ {
+  "id": 85,
+  "text": "You can do it in a very frugal way with scuba divers and huge scissors,",
+  "start": 195.794,
+  "end": 199.017,
+  "duration": 3.223,
+  "word_ids": [
+   601,
+   602,
+   603,
+   604,
+   605,
+   606,
+   607,
+   608,
+   609,
+   610,
+   611,
+   612,
+   613,
+   614,
+   615
+  ]
+ },
+ {
+  "id": 86,
+  "text": "like literally.",
+  "start": 199.077,
+  "end": 199.837,
+  "duration": 0.76,
+  "word_ids": [
+   616,
+   617
+  ]
+ },
+ {
+  "id": 87,
+  "text": "And especially in the deep sea, in the Red Sea, because",
+  "start": 200.598,
+  "end": 202.98,
+  "duration": 2.382,
+  "word_ids": [
+   618,
+   619,
+   620,
+   621,
+   622,
+   623,
+   624,
+   625,
+   626,
+   627,
+   628
+  ]
+ },
+ {
+  "id": 88,
+  "text": "the depth of the water doesn't exceed 300 meters. But",
+  "start": 203.34,
+  "end": 206.203,
+  "duration": 2.863,
+  "word_ids": [
+   629,
+   630,
+   631,
+   632,
+   633,
+   634,
+   635,
+   636,
+   637,
+   638
+  ]
+ },
+ {
+  "id": 89,
+  "text": "severing it completely takes a little bit more skills. Now,",
+  "start": 206.523,
+  "end": 208.705,
+  "duration": 2.182,
+  "word_ids": [
+   639,
+   640,
+   641,
+   642,
+   643,
+   644,
+   645,
+   646,
+   647,
+   648
+  ]
+ },
+ {
+  "id": 90,
+  "text": "when you operate near the shores,",
+  "start": 208.725,
+  "end": 210.207,
+  "duration": 1.482,
+  "word_ids": [
+   649,
+   650,
+   651,
+   652,
+   653,
+   654
+  ]
+ },
+ {
+  "id": 91,
+  "text": "it's easier because it's shallower, but you have more...",
+  "start": 210.307,
+  "end": 212.589,
+  "duration": 2.282,
+  "word_ids": [
+   655,
+   656,
+   657,
+   658,
+   659,
+   660,
+   661,
+   662,
+   663
+  ]
+ },
+ {
+  "id": 92,
+  "text": "surveillance. And if you operate",
+  "start": 213.209,
+  "end": 214.692,
+  "duration": 1.483,
+  "word_ids": [
+   664,
+   665,
+   666,
+   667,
+   668
+  ]
+ },
+ {
+  "id": 93,
+  "text": "offshore,",
+  "start": 215.493,
+  "end": 216.014,
+  "duration": 0.521,
+  "word_ids": [
+   669
+  ]
+ },
+ {
+  "id": 94,
+  "text": "then you have to have tech capabilities",
+  "start": 216.054,
+  "end": 218.397,
+  "duration": 2.343,
+  "word_ids": [
+   670,
+   671,
+   672,
+   673,
+   674,
+   675,
+   676
+  ]
+ },
+ {
+  "id": 95,
+  "text": "to go deeper to get those cables.",
+  "start": 218.717,
+  "end": 220.54,
+  "duration": 1.823,
+  "word_ids": [
+   677,
+   678,
+   679,
+   680,
+   681,
+   682,
+   683
+  ]
+ },
+ {
+  "id": 96,
+  "text": "And when it comes to that,",
+  "start": 221.021,
+  "end": 222.223,
+  "duration": 1.202,
+  "word_ids": [
+   684,
+   685,
+   686,
+   687,
+   688,
+   689
+  ]
+ },
+ {
+  "id": 97,
+  "text": "these devices that are that are being developed now,",
+  "start": 222.443,
+  "end": 225.607,
+  "duration": 3.164,
+  "word_ids": [
+   690,
+   691,
+   692,
+   693,
+   694,
+   695,
+   696,
+   697,
+   698
+  ]
+ },
+ {
+  "id": 98,
+  "text": "like let's say these mini drones or mini submarines are actually",
+  "start": 225.667,
+  "end": 228.652,
+  "duration": 2.985,
+  "word_ids": [
+   699,
+   700,
+   701,
+   702,
+   703,
+   704,
+   705,
+   706,
+   707,
+   708,
+   709
+  ]
+ },
+ {
+  "id": 99,
+  "text": "becoming more available,",
+  "start": 229.172,
+  "end": 230.212,
+  "duration": 1.04,
+  "word_ids": [
+   710,
+   711,
+   712
+  ]
+ },
+ {
+  "id": 100,
+  "text": "more affordable and in reach of certain groups",
+  "start": 230.252,
+  "end": 232.533,
+  "duration": 2.281,
+  "word_ids": [
+   713,
+   714,
+   715,
+   716,
+   717,
+   718,
+   719,
+   720
+  ]
+ },
+ {
+  "id": 101,
+  "text": "because there's a democratization of those technologies.",
+  "start": 232.933,
+  "end": 235.294,
+  "duration": 2.361,
+  "word_ids": [
+   721,
+   722,
+   723,
+   724,
+   725,
+   726,
+   727
+  ]
+ },
+ {
+  "id": 102,
+  "text": "I'm just going to show you one last image.",
+  "start": 235.334,
+  "end": 237.015,
+  "duration": 1.681,
+  "word_ids": [
+   728,
+   729,
+   730,
+   731,
+   732,
+   733,
+   734,
+   735,
+   736
+  ]
+ },
+ {
+  "id": 103,
+  "text": "This is an under",
+  "start": 237.535,
+  "end": 239.215,
+  "duration": 1.68,
+  "word_ids": [
+   737,
+   738,
+   739,
+   740
+  ]
+ },
+ {
+  "id": 104,
+  "text": "what's called a surface kamikaze sea drone that was developed by the Ukrainian army that's now",
+  "start": 239.355,
+  "end": 243.337,
+  "duration": 3.982,
+  "word_ids": [
+   741,
+   742,
+   743,
+   744,
+   745,
+   746,
+   747,
+   748,
+   749,
+   750,
+   751,
+   752,
+   753,
+   754,
+   755,
+   756
+  ]
+ },
+ {
+  "id": 105,
+  "text": "used against ships,",
+  "start": 243.477,
+  "end": 244.177,
+  "duration": 0.7,
+  "word_ids": [
+   757,
+   758,
+   759
+  ]
+ },
+ {
+  "id": 106,
+  "text": "Russian ships in the Black Sea. Well,",
+  "start": 244.557,
+  "end": 246.818,
+  "duration": 2.261,
+  "word_ids": [
+   760,
+   761,
+   762,
+   763,
+   764,
+   765,
+   766
+  ]
+ },
+ {
+  "id": 107,
+  "text": "these types of drones, they could actually",
+  "start": 246.838,
+  "end": 249.278,
+  "duration": 2.44,
+  "word_ids": [
+   767,
+   768,
+   769,
+   770,
+   771,
+   772,
+   773
+  ]
+ },
+ {
+  "id": 108,
+  "text": "be used tomorrow by armed groups because they're affordable",
+  "start": 249.758,
+  "end": 252.559,
+  "duration": 2.801,
+  "word_ids": [
+   774,
+   775,
+   776,
+   777,
+   778,
+   779,
+   780,
+   781,
+   782
+  ]
+ },
+ {
+  "id": 109,
+  "text": "to",
+  "start": 253.36,
+  "end": 253.58,
+  "duration": 0.22,
+  "word_ids": [
+   783
+  ]
+ },
+ {
+  "id": 110,
+  "text": "target undersea cables. So that's really",
+  "start": 253.9,
+  "end": 255.76,
+  "duration": 1.86,
+  "word_ids": [
+   784,
+   785,
+   786,
+   787,
+   788,
+   789
+  ]
+ },
+ {
+  "id": 111,
+  "text": "the prospect that today",
+  "start": 256.14,
+  "end": 257.481,
+  "duration": 1.341,
+  "word_ids": [
+   790,
+   791,
+   792,
+   793
+  ]
+ },
+ {
+  "id": 112,
+  "text": "marine experts are looking at. Julia Seager, thanks very much.",
+  "start": 258.785,
+  "end": 261.656,
+  "duration": 2.871,
+  "word_ids": [
+   794,
+   795,
+   796,
+   797,
+   798,
+   799,
+   800,
+   801,
+   802,
+   803
+  ]
+ }
+]

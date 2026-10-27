@@ -1,0 +1,143 @@
+{
+ "0": [
+  "filler"
+ ],
+ "1": [
+  "filler"
+ ],
+ "10": [
+  "people"
+ ],
+ "11": [
+  "filler"
+ ],
+ "12": [
+  "cut",
+  "physical"
+ ],
+ "13": [
+  "abstract",
+  "attack",
+  "people"
+ ],
+ "14": [
+  "cut",
+  "physical"
+ ],
+ "15": [
+  "water"
+ ],
+ "16": [
+  "inside",
+  "water"
+ ],
+ "17": [
+  "filler"
+ ],
+ "18": [
+  "inside",
+  "water"
+ ],
+ "19": [
+  "cut",
+  "physical",
+  "water"
+ ],
+ "2": [
+  "definition",
+  "doubt",
+  "scale"
+ ],
+ "20": [
+  "abstract",
+  "physical"
+ ],
+ "21": [
+  "cut",
+  "people",
+  "physical"
+ ],
+ "22": [
+  "attack",
+  "cut",
+  "people",
+  "water"
+ ],
+ "23": [
+  "filler"
+ ],
+ "24": [
+  "cut",
+  "inside",
+  "physical",
+  "water"
+ ],
+ "25": [
+  "physical"
+ ],
+ "26": [
+  "people",
+  "physical"
+ ],
+ "27": [
+  "water"
+ ],
+ "28": [
+  "cut"
+ ],
+ "29": [
+  "cut",
+  "physical",
+  "water"
+ ],
+ "3": [
+  "cut",
+  "physical",
+  "water"
+ ],
+ "30": [
+  "people"
+ ],
+ "31": [
+  "filler"
+ ],
+ "32": [
+  "filler"
+ ],
+ "33": [
+  "scale"
+ ],
+ "34": [
+  "filler"
+ ],
+ "35": [
+  "people"
+ ],
+ "36": [
+  "filler"
+ ],
+ "37": [
+  "filler"
+ ],
+ "4": [
+  "filler"
+ ],
+ "5": [
+  "cut",
+  "physical"
+ ],
+ "6": [
+  "filler"
+ ],
+ "7": [
+  "filler"
+ ],
+ "8": [
+  "physical"
+ ],
+ "9": [
+  "abstract",
+  "cut",
+  "physical"
+ ]
+}

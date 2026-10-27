@@ -1,0 +1,401 @@
+1
+00:00:03,010 --> 00:00:04,611
+Just weeks after reports first
+
+2
+00:00:04,751 --> 00:00:07,693
+emerged that the Houthis might attack
+undersea internet cables,
+
+3
+00:00:08,113 --> 00:00:11,756
+the Yemeni group appears to have started
+this next phase of its offensive.
+
+4
+00:00:13,777 --> 00:00:16,339
+After already disrupting commercial
+shipping traffic,
+
+5
+00:00:16,679 --> 00:00:18,920
+the Houthis are reportedly setting their
+sights
+
+6
+00:00:19,300 --> 00:00:21,802
+on holding global communication systems to
+ransom.
+
+7
+00:00:23,323 --> 00:00:27,386
+At least four important undersea internet
+cables were recently damaged,
+
+8
+00:00:27,666 --> 00:00:29,487
+according to reports in Israeli media.
+
+9
+00:00:31,354 --> 00:00:32,715
+These cables were damaged in
+
+10
+00:00:32,835 --> 00:00:35,517
+areas between the Middle Eastern country
+of Saudi Arabia
+
+11
+00:00:36,497 --> 00:00:39,760
+and East African nation Djibouti,
+according to news outlet Globes.
+
+12
+00:00:41,401 --> 00:00:44,943
+The report said that the damage to the
+cables had caused severe disruption
+
+13
+00:00:45,083 --> 00:00:47,084
+of communication between Europe and Asia,
+
+14
+00:00:48,025 --> 00:00:50,747
+and the biggest victims have been Gulf
+countries and India.
+
+15
+00:01:07,408 --> 00:01:10,429
+One of the damaged undersea systems is the
+AAE-1,
+
+16
+00:01:10,909 --> 00:01:12,830
+which connects East Asia to Europe.
+
+17
+00:01:13,370 --> 00:01:16,871
+It links China to the West via countries
+like Pakistan and Qatar.
+
+18
+00:01:17,831 --> 00:01:21,032
+Then there is the Europe-India Gateway or
+EIG system,
+
+19
+00:01:21,572 --> 00:01:23,633
+which links Europe to Asia and Africa.
+
+20
+00:01:24,453 --> 00:01:28,554
+The cable connects Southern Europe to
+Egypt, Saudi Arabia, Djibouti,
+
+21
+00:01:28,874 --> 00:01:30,735
+the United Arab Emirates and India.
+
+22
+00:01:31,857 --> 00:01:35,319
+Another damaged cable is the CCOM, which
+links European,
+
+23
+00:01:35,559 --> 00:01:38,420
+African and Asian countries like South
+Africa and India.
+
+24
+00:01:39,060 --> 00:01:43,022
+The fourth damaged cable is the TGN, which
+was deployed in 2001
+
+25
+00:01:43,282 --> 00:01:45,744
+by American company Tyco and sold in
+
+26
+00:01:46,004 --> 00:01:51,326
+2005 for $130 million to Indian firm VSNL,
+which is now Tata Communications.
+
+27
+00:01:53,747 --> 00:01:56,449
+The Globe's report has said that while the
+damage is severe,
+
+28
+00:01:56,769 --> 00:01:58,490
+the situation is not yet critical.
+
+29
+00:01:59,340 --> 00:02:02,463
+This is because many other cables pass
+through the same location
+
+30
+00:02:02,843 --> 00:02:04,164
+connecting the three continents.
+
+31
+00:02:05,045 --> 00:02:09,748
+But repairing the damaged cables might be
+a difficult and dangerous task. Firstly,
+
+32
+00:02:09,789 --> 00:02:12,291
+the repair work is expected to take many
+weeks,
+
+33
+00:02:12,751 --> 00:02:15,693
+at least 8 weeks or 2 months according to
+some estimates.
+
+34
+00:02:17,855 --> 00:02:18,315
+Secondly,
+
+35
+00:02:18,396 --> 00:02:22,339
+communication companies might find it difficult to
+hire firms to repair the cables
+
+36
+00:02:22,579 --> 00:02:24,260
+because of the threat of Houthi attacks.
+
+37
+00:02:25,081 --> 00:02:28,564
+This would make the work costlier as they
+would charge a higher risk premium.
+
+38
+00:02:32,101 --> 00:02:34,582
+Reports about the damage have emerged just
+weeks
+
+39
+00:02:34,722 --> 00:02:37,162
+after Yemen's internationally recognized
+government
+
+40
+00:02:37,562 --> 00:02:41,363
+first raised an alert about the Houthi
+plan. The Yemeni government,
+
+41
+00:02:41,723 --> 00:02:43,844
+which is fighting a civil war with the
+Houthis,
+
+42
+00:02:44,184 --> 00:02:46,585
+had cited a Telegram channel linked to the
+Houthis.
+
+43
+00:02:48,205 --> 00:02:51,686
+The Telegram channel had posted a map
+purportedly showing the location of
+
+44
+00:02:51,806 --> 00:02:54,047
+undersea internet cables running near
+Yemen.
+
+45
+00:02:54,887 --> 00:02:56,887
+The caption on the map had a sinister
+message,
+
+46
+00:02:57,327 --> 00:02:59,568
+saying that Yemen is in a strategic
+location.
+
+47
+00:03:00,063 --> 00:03:02,464
+with internet lines connecting not just
+countries,
+
+48
+00:03:02,804 --> 00:03:04,885
+but entire continents passing near it.
+
+49
+00:03:06,526 --> 00:03:09,087
+Reports suggest that cables in the Red Sea
+carry around
+
+50
+00:03:09,187 --> 00:03:11,488
+17% of the world's internet traffic.
+
+51
+00:03:13,508 --> 00:03:15,549
+When the Houthi threat first grabbed
+headlines,
+
+52
+00:03:15,929 --> 00:03:18,510
+experts were skeptical about whether the
+Yemeni group
+
+53
+00:03:18,811 --> 00:03:22,772
+would be able to carry out the attacks.
+This is because these fiber optic cables
+
+54
+00:03:23,112 --> 00:03:27,094
+lie hundreds of meters below the surface,
+so divers cannot reach them.
+
+55
+00:03:28,643 --> 00:03:29,264
+Countries like
+
+56
+00:03:29,384 --> 00:03:33,307
+America and Russia have deep-sea submersibles
+which are deployed from a mothership.
+
+57
+00:03:33,987 --> 00:03:37,950
+The submersibles then dive to the cables
+and literally cut them with tools
+
+58
+00:03:38,211 --> 00:03:39,952
+which work like a giant pair of scissors.
+
+59
+00:03:40,893 --> 00:03:43,795
+While it's not clear whether the Houthis
+have such submersibles,
+
+60
+00:03:44,195 --> 00:03:47,178
+the US military did make a chilling
+announcement on February 18.
+
+61
+00:03:49,618 --> 00:03:53,720
+The American military said that it had
+destroyed an unmanned underwater vessel
+
+62
+00:03:54,140 --> 00:03:56,701
+or a drone submarine in Houthi-controlled
+territory.
+
+63
+00:03:57,421 --> 00:04:00,423
+The US forces said that this was the first
+known use
+
+64
+00:04:00,723 --> 00:04:02,384
+of a drone submarine by the Houthis
+
+65
+00:04:02,764 --> 00:04:05,905
+since they began their attacks in the Red
+Sea over the Gaza war.
+
+66
+00:04:07,726 --> 00:04:10,047
+Houthi attacks on commercial ships in the
+Red Sea have
+
+67
+00:04:10,167 --> 00:04:12,648
+already caused severe disruption of
+maritime trade.
+
+68
+00:04:15,538 --> 00:04:19,579
+The Red Sea route accounts for around 15%
+of global shipping traffic,
+
+69
+00:04:20,139 --> 00:04:22,499
+and many companies have decided to avoid
+the route
+
+70
+00:04:22,879 --> 00:04:28,000
+and sail all the way around Africa
+instead. But this has severely increased costs
+
+71
+00:04:28,440 --> 00:04:30,221
+and also caused delays in shipments.
+
+72
+00:04:32,041 --> 00:04:35,821
+Even regular airstrikes since January by
+America and some of its allies
+
+73
+00:04:36,142 --> 00:04:37,542
+have failed to deter the Houthis.
+
+74
+00:04:38,422 --> 00:04:41,502
+Now, if they are attacking global
+communication infrastructure,
+
+75
+00:04:41,943 --> 00:04:44,423
+it would mark a serious escalation of the
+conflict.
+
+76
+00:04:46,102 --> 00:04:50,545
+Recently, the leader of the Ansarullah or
+Houthi group, Abdul Malik Al-Houthi,
+
+77
+00:04:50,845 --> 00:04:54,547
+denied that he had any plans to start
+attacking undersea internet cables.
+
+78
+00:04:55,607 --> 00:04:59,309
+Al-Houthi called the earlier reports
+confusion and distortion of his plans.
+
+79
+00:05:00,890 --> 00:05:04,272
+But if any fibre optic cables near Yemen
+have suffered damage,
+
+80
+00:05:04,672 --> 00:05:07,734
+the needle of suspicion would immediately
+swing towards the Houthis.
+
+81
+00:05:08,775 --> 00:05:12,737
+This also carries the risk of drawing
+other affected countries into the conflict.
+
+82
+00:05:14,486 --> 00:05:16,869
+Just two days after Abdul Malik
+al-Houthi's claim,
+
+83
+00:05:17,309 --> 00:05:20,834
+the chief of the Indian Navy said that
+Indian warships deployed near Yemen
+
+84
+00:05:21,194 --> 00:05:25,259
+are tracking Houthi missiles and drones
+and stand ready to respond if threatened.
+

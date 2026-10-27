@@ -1,0 +1,91 @@
+[00:00:00] Today we look at how the internet that you rely on could be disrupted by the war in West Asia.
+
+[00:00:13] The US-Israeli war on Iran has already disrupted commercial shipping in the Gulf.
+
+[00:00:20] And the conflict involving Iran-backed Houthi rebels and Saudi Arabia is increasing the threat to global shipping even more.
+
+[00:00:30] But the next phase of this conflict could take aim at something you cannot see. Buried beneath the sea are the fibre optic cables, who have carried the world's internet traffic, connecting countries, powering apps and keeping digital services running.
+
+[00:00:47] And Tehran is warning that these cables could become targets if the United States strikes Iran again. More than 90% of data capacity between Europe and Asia passes through cables under the Red Sea.
+
+[00:01:04] So how vulnerable is the undersea digital network the world depends on?
+
+[00:01:15] Yes, the internet may feel wireless, but the infrastructure carrying it is hidden deep under the sea, with fibre optic cables carrying the billions of messages and information that powers digital services across continents. According to the United Nations, around 99% of global data traffic is carried by undersea cables. And there are only so many routes connecting the world's biggest digital markets. More than 90% of data capacity between Europe and Asia passes through cables under the Red Sea. These cables pass through Bab al-Mandeb, a narrow strait connecting the Red Sea to the Gulf of Aden.
+
+[00:01:54] At its narrowest, it's about 26 kilometers wide. If a cable is damaged, then data can sometimes be rerouted through other connections. But that depends on how much alternative capacity is available, where the damage occurs, and whether the remaining network can handle the additional traffic. The result of such damage may not be a total internet blackout. It could instead mean slower connections, interrupted services, and disruptions that spread across countries. There are around 500 submarine cables, give or take. The number is changing as the new cables are being built, all the ones that are commissioned.
+
+[00:02:31] And then the estimate is that it's around 1.4 million kilometers around the world of them. So it's a lot of kilometers. But in terms of the number of the cables, there are not so many of them. Therefore, even when a few of those are cut or a few of those are damaged, the impact can be really noticeable.
+
+[00:02:54] An undersea cable can be deliberately damaged by an advanced submarine or a sophisticated military operation. Cables can also be damaged by ship anchors, fishing activity or accidents. The International Telecommunication Union says around 80% of undersea cable cuts recorded in recent years can be attributed to fishing and commercial anchoring. In the remaining cases, even when sabotage is suspected, identifying the actor can be difficult. And the next challenge is repair. Specialised vessels must locate the damage, reach the site and carry out the repairs.
+
+[00:03:31] In a conflict zone, access permission, security risks and active hostilities can delay that process. Back in February 2024, three cables in the Red Sea were damaged, probably caused by the dragging anchor of a cargo ship which was damaged by a Houthi missile. The Iran-backed group, however, denied responsibility for that cable damage. The United Nations, meanwhile, says it's well aware of the issues. Normally, we see around 150 to 200 incidents a year. And this is around three incidents a week.
+
+[00:04:07] And this is rather frequent, let's say, occurrence, regretfully frequent occurrence that impacts the resilience of the cables all around the world.
+
+[00:04:20] Iran's security chief, Mohsen Rezaei, has warned that undersea cables, in addition to data centers across the region, could be targeted if the war with the United States resumes or intensifies. Right now, the U.S. and Iran are not directly striking each other's military or strategic sites, but this pause in direct strikes may not last. U.S. President Donald Trump has suggested that further action against Iran could follow the November 3 midterm elections. Wait till you see what we do to Iran. We're going to do a number. Wait till you see. They're just waiting. They're waiting.
+
+[00:04:56] Wait till you see what we do to Iran. Because we sort of had it. You know, we've had it. But, you know, it doesn't matter. The big thing is they were not going to have a nuclear weapon, and they won't. That's buried under thousands of tons of rock.
+
+[00:05:13] So in preparation for potential direct US strikes, Iran is now warning that its retaliation could extend to the undersea cables that keep the world connected. The Iranian threat raises concerns for commercial technology networks that US security partners in the Gulf have spent years trying to build. And it's not a one-off threat. Back in March, Iranian state media reported that the IRGC had identified cloud infrastructure associated with Google, Microsoft and Oracle in Israel and some Gulf states as potential targets. The IRGC also named 17 American firms in a Telegram post, including Google, Meta and Apple, alongside the Emirati AI company G42.
+
+[00:05:58] What makes Mohsen Rezaei's warning particularly significant is that he is not simply threatening another set of targets. He is identifying a new category of strategic infrastructure that connects Gulf economic diversification directly to American technological power.
+
+[00:06:14] The threat to the Gulf's undersea cable infrastructure is significant because the region is trying to build its next economic future around technology. The United Arab Emirates is developing Stargate UAE, an AI project involving OpenAI, Nvidia and other partners. Saudi Arabia has launched Humane, an AI company set to build data centres and develop an Arabic language AI model. And Qatar has also attracted investment into data centres. While Microsoft has announced major investment plans across the region, these are part of a much larger economic strategy of the oil-producing economies to diversify away from oil and establish the Gulf as a center for cloud computing and artificial intelligence.
+
+[00:06:59] But that strategy depends on reliability. Tech companies need power and secure facilities, but above all, they need connectivity, and that depends on the undersea cables Iran is now threatening. The UAE may be especially exposed because of its close integration with American technology companies. The UAE is punching above its weight in terms of a very small country that really wants to be at the forefront. Also because of its geographical location, right? We're at that center point between Asia, Africa, and Europe to some extent.
+
+[00:07:34] Since the rise of oil and gas-driven prosperity in the Gulf, the region has sold itself as a gateway to the future, where now artificial intelligence, cloud computing and global connectivity can thrive. That future depends on infrastructure that crosses borders and runs beneath the sea, but that could be disrupted by the threat of a relatively small number of successful attacks.
+
+[00:07:59] For more on this, we have Aaron Eton-Meyer, author and West Asia expert, joining us live from New York. Good to have you with us. Firstly, can you explain just how vital these undersea cables are to world economies and connectivity?
+
+[00:08:15] Thank you for having me. These cables are absolutely critical, most primarily for the Gulf states, but also for the transmission of data to and from Asia generally. And it's no coincidence that that is what Iran and their Houthi proxies are looking to target. They're well aware of the fact that the Gulf states in particular are totally reliant on these specific cables for information, for data, and for development. So it's no coincidence that they've now decided that this, along with the general threats of kinetic warfare, which is to say blockading the Strait of Hormuz, the Bab al-Mandab Strait.
+
+[00:08:56] This is their next step in how they're going to not only force the world generally, but more specifically the Gulf states and really the Arab Middle East to achieve their goals. How much leverage then does Iran, and indeed the Houthis in Yemen, as you mentioned there, have at the moment, especially in the run-up to the US midterm elections? I mean, is the US limited by what can be done now?
+
+[00:09:24] Well, to date, Iran has... been under the assumption that the United States will succumb to political and economic pressure more than anything else. So the timing of this is highly significant and it has to be taken as a real threat. You already saw the information about cutting undersea cables by ship anchors, which can cause months of delay and disruptions in traffic even when inadvertently done. Here, when they could conceivably knock out cables in two areas with the threat of violence preventing any sort of repairs, that could have an even bigger impact in some ways than the oil that's already been going on.
+
+[00:10:06] So it's a very real threat and it seems directed at the U.S. midterm elections for sure. And let's not forget, these cables, they're not protected. They're not buried in the ground beneath the seafloor. they are, for all intents and purposes, largely exposed. Now, I'm not saying you're a scientist or anything, but on a practical front, people might ask, why are these cables installed under the sea in the first place? I mean, it's not exactly an easy location for maintenance or repair.
+
+[00:10:35] True, but how many different options do we have? The only real alternative option would be overland routes, which, to be clear, the Gulf states in particular have been developing, especially over the last eight years or so, and even more so over the last two years, as a means of keeping them safe. But there are dangers to having overland cables as well. The routes are different. You're still going to have places where the cables have to cross potentially dangerous territory. That's not an ideal solution either. You know, for the old model of having them on the sea floor, the idea was, well, they're at the bottom of the sea. They're insulated essentially by that water.
+
+[00:11:16] And there's no real way to bury them further under the seabed. So we're kind of at a point where we have to see where that next step of technology and technological infrastructure development is going to go. And maybe this will be the catalyst for better protection for our systems across the board. And if these undersea cables were significantly damaged, I mean, how much of a blow would that be for Gulf nations who have been trying to pivot away from total reliance on oil and gas exports?
+
+[00:11:49] And that's one of the most dangerous parts of this. Iran is targeting them on both ends. On the one hand, they're targeting the oil tankers and the shipments of oil around the region. And on the other, they're saying, well, you also can't look to the future because we're going to target this data and this infrastructure that you've now pivoted to as a means of looking forward to the future. We're going to try to take that away too. Really, this underscores the enduring threat that Iran poses to not only the region, but to the world.
+
+[00:12:22] And this is something which could potentially affect anyone who depends on the internet for their livelihoods and connectivity. It's not just some kind of fire-off problem, is it? Anyone watching this now could be affected.
+
+[00:12:36] Absolutely. You know, when I was younger, I remember there was a telecom commercial and the slogan was, we're all connected.
+
+[00:12:45] And this was, you know, decades ago already. That's only grown over the years. So if you have a severe internet disruption in one region, or two, which is certainly possible here if Iran attacks one set of undersea cables and the Houthis attack the other, the effects of that are going to span the world. It's going to affect the Gulf states and that region primarily, first and foremost. But data delays, lags, other disruptions, they're going to affect everybody.
+
+[00:13:16] it would be extremely dangerous to all of us. What is the solution then to all of this, presumably finding an end to the war?
+
+[00:13:27] Well, there are a couple of easy solutions. And I say easy very sarcastically. One, of course, is to keep moving to eliminate the Iranian threat. You know, as I said earlier, This underscores the threat that Iran poses. To a nation like Iran, it doesn't matter that the world economy, technology, development, progress, all of these things rely on this infrastructure that it will threaten willy-nilly. It doesn't matter to them. That is really the underlying principle of the threat that Iran poses.
+
+[00:14:02] It's not simply a nuclear threat. It's a threat to basically anything and everything that it can threaten. So in terms of a response, one would be, of course, to levy international law. These are threats on a global infrastructure that certainly the international community can, should, and must condemn, not only specifically here, but also consolidate that and turn that into law. Put real restrictions so that when a country threatens global infrastructure, the rest of the world steps in. Iran might say, if I just jump in there, Iran might say, you mentioned international law there, I mean, they might say that U.S. and Israel attacked Iran in the first place.
+
+[00:14:47] Let's say arguendo that there's any credence to that. I mean, there isn't. Iran has been waging a proxy war against the United States, against Israel, and against most of the rest of the world in various capacities for quite some time. But let's say arguendo that that's accurate. does that still give them the right to flagrantly ignore international law across the board, right? Closing navigable straits, trying to demand tolls, now attacking global infrastructure. None of these have any validity under international law by any reasonable interpretation.
+
+[00:15:23] And it is Iran saying, well, we can do whatever we want. The word for that is impunity. And that's what has to be taken away, both domestically and internationally. Okay, we'll leave it there. Aaron Eaton, Mayor, we appreciate your time. Thank you very much indeed for joining us. Thank you. 50 states.
+
+[00:15:43] Two parties.
+
+[00:15:47] One election.
+
+[00:15:50] The biggest name at the heart of the battle.
+
+[00:15:56] Donald Trump.
+
+[00:15:59] This November, America steps into the voting booth.
+
+[00:16:05] Whoever wins controls the US Congress.
+
+[00:16:10] Trump 2.0 faces a make-or-break moment. Can the Republicans keep a hold on their grip on power?
+
+[00:16:19] Or will Democrats make a comeback?
+
+[00:16:24] The results will ripple far beyond US borders.
+
+[00:16:29] We'll track the numbers and the narratives.
+
+[00:16:33] Tune in to First Force for our special mid-term coverage.

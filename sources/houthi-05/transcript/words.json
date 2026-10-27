@@ -1,0 +1,12536 @@
+[
+ {
+  "i": 0,
+  "word": "We",
+  "start": 1.027,
+  "end": 1.127
+ },
+ {
+  "i": 1,
+  "word": "received",
+  "start": 1.187,
+  "end": 1.487
+ },
+ {
+  "i": 2,
+  "word": "some",
+  "start": 1.507,
+  "end": 1.627
+ },
+ {
+  "i": 3,
+  "word": "breaking",
+  "start": 1.667,
+  "end": 1.988
+ },
+ {
+  "i": 4,
+  "word": "news",
+  "start": 2.028,
+  "end": 2.188
+ },
+ {
+  "i": 5,
+  "word": "from",
+  "start": 2.228,
+  "end": 2.368
+ },
+ {
+  "i": 6,
+  "word": "CENTCOM",
+  "start": 2.428,
+  "end": 2.848
+ },
+ {
+  "i": 7,
+  "word": "right",
+  "start": 2.908,
+  "end": 3.068
+ },
+ {
+  "i": 8,
+  "word": "before",
+  "start": 3.108,
+  "end": 3.348
+ },
+ {
+  "i": 9,
+  "word": "airtime,",
+  "start": 3.428,
+  "end": 3.829
+ },
+ {
+  "i": 10,
+  "word": "and",
+  "start": 4.029,
+  "end": 4.109
+ },
+ {
+  "i": 11,
+  "word": "that's",
+  "start": 4.149,
+  "end": 4.429
+ },
+ {
+  "i": 12,
+  "word": "that",
+  "start": 4.469,
+  "end": 4.609
+ },
+ {
+  "i": 13,
+  "word": "yesterday",
+  "start": 4.649,
+  "end": 5.169
+ },
+ {
+  "i": 14,
+  "word": "three",
+  "start": 5.289,
+  "end": 5.55
+ },
+ {
+  "i": 15,
+  "word": "crew",
+  "start": 5.61,
+  "end": 5.81
+ },
+ {
+  "i": 16,
+  "word": "members",
+  "start": 5.85,
+  "end": 6.13
+ },
+ {
+  "i": 17,
+  "word": "were",
+  "start": 6.17,
+  "end": 6.31
+ },
+ {
+  "i": 18,
+  "word": "killed",
+  "start": 6.37,
+  "end": 6.71
+ },
+ {
+  "i": 19,
+  "word": "and",
+  "start": 6.83,
+  "end": 6.91
+ },
+ {
+  "i": 20,
+  "word": "four",
+  "start": 6.97,
+  "end": 7.15
+ },
+ {
+  "i": 21,
+  "word": "others",
+  "start": 7.19,
+  "end": 7.411
+ },
+ {
+  "i": 22,
+  "word": "injured",
+  "start": 7.531,
+  "end": 7.891
+ },
+ {
+  "i": 23,
+  "word": "when",
+  "start": 8.011,
+  "end": 8.131
+ },
+ {
+  "i": 24,
+  "word": "a",
+  "start": 8.171,
+  "end": 8.211
+ },
+ {
+  "i": 25,
+  "word": "Houthi",
+  "start": 8.251,
+  "end": 8.571
+ },
+ {
+  "i": 26,
+  "word": "ballistic",
+  "start": 8.611,
+  "end": 9.031
+ },
+ {
+  "i": 27,
+  "word": "missile",
+  "start": 9.071,
+  "end": 9.372
+ },
+ {
+  "i": 28,
+  "word": "struck",
+  "start": 9.412,
+  "end": 9.712
+ },
+ {
+  "i": 29,
+  "word": "the",
+  "start": 9.772,
+  "end": 9.892
+ },
+ {
+  "i": 30,
+  "word": "merchant",
+  "start": 9.972,
+  "end": 10.272
+ },
+ {
+  "i": 31,
+  "word": "vessel",
+  "start": 10.312,
+  "end": 10.612
+ },
+ {
+  "i": 32,
+  "word": "True",
+  "start": 10.692,
+  "end": 10.892
+ },
+ {
+  "i": 33,
+  "word": "Confidence,",
+  "start": 10.953,
+  "end": 11.493
+ },
+ {
+  "i": 34,
+  "word": "a",
+  "start": 11.773,
+  "end": 11.813
+ },
+ {
+  "i": 35,
+  "word": "Barbados-flagged,",
+  "start": 11.833,
+  "end": 12.934
+ },
+ {
+  "i": 36,
+  "word": "Liberian-owned",
+  "start": 13.134,
+  "end": 13.954
+ },
+ {
+  "i": 37,
+  "word": "bulk",
+  "start": 14.054,
+  "end": 14.294
+ },
+ {
+  "i": 38,
+  "word": "carrier.",
+  "start": 14.334,
+  "end": 14.735
+ },
+ {
+  "i": 39,
+  "word": "The",
+  "start": 14.975,
+  "end": 15.075
+ },
+ {
+  "i": 40,
+  "word": "ship",
+  "start": 15.135,
+  "end": 15.355
+ },
+ {
+  "i": 41,
+  "word": "has",
+  "start": 15.395,
+  "end": 15.515
+ },
+ {
+  "i": 42,
+  "word": "since",
+  "start": 15.555,
+  "end": 15.755
+ },
+ {
+  "i": 43,
+  "word": "been",
+  "start": 15.795,
+  "end": 15.935
+ },
+ {
+  "i": 44,
+  "word": "abandoned,",
+  "start": 15.975,
+  "end": 16.476
+ },
+ {
+  "i": 45,
+  "word": "and",
+  "start": 16.556,
+  "end": 16.656
+ },
+ {
+  "i": 46,
+  "word": "Operation",
+  "start": 16.736,
+  "end": 17.216
+ },
+ {
+  "i": 47,
+  "word": "Prosperity",
+  "start": 17.256,
+  "end": 17.796
+ },
+ {
+  "i": 48,
+  "word": "Guardian",
+  "start": 17.836,
+  "end": 18.197
+ },
+ {
+  "i": 49,
+  "word": "warships",
+  "start": 18.217,
+  "end": 18.697
+ },
+ {
+  "i": 50,
+  "word": "are",
+  "start": 18.777,
+  "end": 18.877
+ },
+ {
+  "i": 51,
+  "word": "on",
+  "start": 18.957,
+  "end": 19.037
+ },
+ {
+  "i": 52,
+  "word": "scene",
+  "start": 19.137,
+  "end": 19.377
+ },
+ {
+  "i": 53,
+  "word": "assessing",
+  "start": 19.437,
+  "end": 19.837
+ },
+ {
+  "i": 54,
+  "word": "the",
+  "start": 19.877,
+  "end": 19.938
+ },
+ {
+  "i": 55,
+  "word": "situation.",
+  "start": 19.978,
+  "end": 20.598
+ },
+ {
+  "i": 56,
+  "word": "The",
+  "start": 20.858,
+  "end": 20.938
+ },
+ {
+  "i": 57,
+  "word": "casualties",
+  "start": 20.978,
+  "end": 21.579
+ },
+ {
+  "i": 58,
+  "word": "are",
+  "start": 21.639,
+  "end": 21.699
+ },
+ {
+  "i": 59,
+  "word": "the",
+  "start": 21.719,
+  "end": 21.799
+ },
+ {
+  "i": 60,
+  "word": "first",
+  "start": 21.839,
+  "end": 22.099
+ },
+ {
+  "i": 61,
+  "word": "among",
+  "start": 22.159,
+  "end": 22.399
+ },
+ {
+  "i": 62,
+  "word": "commercial",
+  "start": 22.439,
+  "end": 22.84
+ },
+ {
+  "i": 63,
+  "word": "ship",
+  "start": 22.9,
+  "end": 23.14
+ },
+ {
+  "i": 64,
+  "word": "mariners",
+  "start": 23.18,
+  "end": 23.54
+ },
+ {
+  "i": 65,
+  "word": "in",
+  "start": 23.6,
+  "end": 23.661
+ },
+ {
+  "i": 66,
+  "word": "the",
+  "start": 23.681,
+  "end": 23.761
+ },
+ {
+  "i": 67,
+  "word": "months",
+  "start": 23.821,
+  "end": 24.061
+ },
+ {
+  "i": 68,
+  "word": "of",
+  "start": 24.121,
+  "end": 24.181
+ },
+ {
+  "i": 69,
+  "word": "Houthi",
+  "start": 24.221,
+  "end": 24.501
+ },
+ {
+  "i": 70,
+  "word": "attacks",
+  "start": 24.541,
+  "end": 24.902
+ },
+ {
+  "i": 71,
+  "word": "following",
+  "start": 25.042,
+  "end": 25.482
+ },
+ {
+  "i": 72,
+  "word": "the",
+  "start": 25.522,
+  "end": 25.602
+ },
+ {
+  "i": 73,
+  "word": "Israel-Hamas",
+  "start": 25.722,
+  "end": 26.403
+ },
+ {
+  "i": 74,
+  "word": "war",
+  "start": 26.443,
+  "end": 26.623
+ },
+ {
+  "i": 75,
+  "word": "that",
+  "start": 26.643,
+  "end": 26.763
+ },
+ {
+  "i": 76,
+  "word": "broke",
+  "start": 26.783,
+  "end": 27.004
+ },
+ {
+  "i": 77,
+  "word": "out",
+  "start": 27.084,
+  "end": 27.184
+ },
+ {
+  "i": 78,
+  "word": "on",
+  "start": 27.244,
+  "end": 27.304
+ },
+ {
+  "i": 79,
+  "word": "October",
+  "start": 27.364,
+  "end": 27.744
+ },
+ {
+  "i": 80,
+  "word": "7th.",
+  "start": 27.804,
+  "end": 28.165
+ },
+ {
+  "i": 81,
+  "word": "Since",
+  "start": 28.525,
+  "end": 28.705
+ },
+ {
+  "i": 82,
+  "word": "that",
+  "start": 28.745,
+  "end": 28.905
+ },
+ {
+  "i": 83,
+  "word": "time,",
+  "start": 28.965,
+  "end": 29.326
+ },
+ {
+  "i": 84,
+  "word": "the",
+  "start": 29.406,
+  "end": 29.506
+ },
+ {
+  "i": 85,
+  "word": "Houthis",
+  "start": 29.546,
+  "end": 29.906
+ },
+ {
+  "i": 86,
+  "word": "have",
+  "start": 29.926,
+  "end": 30.026
+ },
+ {
+  "i": 87,
+  "word": "launched",
+  "start": 30.046,
+  "end": 30.347
+ },
+ {
+  "i": 88,
+  "word": "more",
+  "start": 30.387,
+  "end": 30.507
+ },
+ {
+  "i": 89,
+  "word": "than",
+  "start": 30.547,
+  "end": 30.667
+ },
+ {
+  "i": 90,
+  "word": "45",
+  "start": 31.087,
+  "end": 31.307
+ },
+ {
+  "i": 91,
+  "word": "missile",
+  "start": 31.367,
+  "end": 31.688
+ },
+ {
+  "i": 92,
+  "word": "and",
+  "start": 31.708,
+  "end": 31.768
+ },
+ {
+  "i": 93,
+  "word": "drone",
+  "start": 31.788,
+  "end": 32.028
+ },
+ {
+  "i": 94,
+  "word": "attacks",
+  "start": 32.068,
+  "end": 32.468
+ },
+ {
+  "i": 95,
+  "word": "against",
+  "start": 32.709,
+  "end": 32.969
+ },
+ {
+  "i": 96,
+  "word": "commercial",
+  "start": 33.029,
+  "end": 33.509
+ },
+ {
+  "i": 97,
+  "word": "and",
+  "start": 33.61,
+  "end": 33.67
+ },
+ {
+  "i": 98,
+  "word": "U.S.",
+  "start": 33.79,
+  "end": 34.03
+ },
+ {
+  "i": 99,
+  "word": "coalition",
+  "start": 34.07,
+  "end": 34.53
+ },
+ {
+  "i": 100,
+  "word": "naval",
+  "start": 34.57,
+  "end": 34.811
+ },
+ {
+  "i": 101,
+  "word": "vessels",
+  "start": 34.871,
+  "end": 35.231
+ },
+ {
+  "i": 102,
+  "word": "operating",
+  "start": 35.451,
+  "end": 35.832
+ },
+ {
+  "i": 103,
+  "word": "in",
+  "start": 35.872,
+  "end": 35.912
+ },
+ {
+  "i": 104,
+  "word": "the",
+  "start": 35.952,
+  "end": 36.012
+ },
+ {
+  "i": 105,
+  "word": "Red",
+  "start": 36.052,
+  "end": 36.192
+ },
+ {
+  "i": 106,
+  "word": "Sea.",
+  "start": 36.272,
+  "end": 36.512
+ },
+ {
+  "i": 107,
+  "word": "Most",
+  "start": 36.912,
+  "end": 37.133
+ },
+ {
+  "i": 108,
+  "word": "of",
+  "start": 37.173,
+  "end": 37.233
+ },
+ {
+  "i": 109,
+  "word": "those",
+  "start": 37.273,
+  "end": 37.433
+ },
+ {
+  "i": 110,
+  "word": "attacks",
+  "start": 37.473,
+  "end": 37.853
+ },
+ {
+  "i": 111,
+  "word": "were",
+  "start": 37.913,
+  "end": 38.033
+ },
+ {
+  "i": 112,
+  "word": "effectively",
+  "start": 38.074,
+  "end": 38.534
+ },
+ {
+  "i": 113,
+  "word": "countered",
+  "start": 38.594,
+  "end": 38.874
+ },
+ {
+  "i": 114,
+  "word": "by",
+  "start": 38.914,
+  "end": 39.014
+ },
+ {
+  "i": 115,
+  "word": "U.S.",
+  "start": 39.114,
+  "end": 39.335
+ },
+ {
+  "i": 116,
+  "word": "or",
+  "start": 39.375,
+  "end": 39.455
+ },
+ {
+  "i": 117,
+  "word": "coalition",
+  "start": 39.495,
+  "end": 39.995
+ },
+ {
+  "i": 118,
+  "word": "destroyers",
+  "start": 40.015,
+  "end": 40.556
+ },
+ {
+  "i": 119,
+  "word": "or",
+  "start": 40.856,
+  "end": 40.976
+ },
+ {
+  "i": 120,
+  "word": "carrier-based",
+  "start": 41.056,
+  "end": 41.617
+ },
+ {
+  "i": 121,
+  "word": "fighters",
+  "start": 41.697,
+  "end": 42.117
+ },
+ {
+  "i": 122,
+  "word": "or",
+  "start": 42.397,
+  "end": 42.538
+ },
+ {
+  "i": 123,
+  "word": "landed",
+  "start": 42.598,
+  "end": 42.898
+ },
+ {
+  "i": 124,
+  "word": "harmlessly",
+  "start": 42.938,
+  "end": 43.378
+ },
+ {
+  "i": 125,
+  "word": "in",
+  "start": 43.418,
+  "end": 43.478
+ },
+ {
+  "i": 126,
+  "word": "the",
+  "start": 43.498,
+  "end": 43.578
+ },
+ {
+  "i": 127,
+  "word": "water.",
+  "start": 43.619,
+  "end": 43.899
+ },
+ {
+  "i": 128,
+  "word": "To",
+  "start": 44.179,
+  "end": 44.259
+ },
+ {
+  "i": 129,
+  "word": "date,",
+  "start": 44.299,
+  "end": 44.579
+ },
+ {
+  "i": 130,
+  "word": "no",
+  "start": 44.659,
+  "end": 44.799
+ },
+ {
+  "i": 131,
+  "word": "military",
+  "start": 44.839,
+  "end": 45.219
+ },
+ {
+  "i": 132,
+  "word": "vessels",
+  "start": 45.259,
+  "end": 45.579
+ },
+ {
+  "i": 133,
+  "word": "have",
+  "start": 45.599,
+  "end": 45.719
+ },
+ {
+  "i": 134,
+  "word": "been",
+  "start": 45.739,
+  "end": 45.859
+ },
+ {
+  "i": 135,
+  "word": "hit",
+  "start": 45.899,
+  "end": 46.06
+ },
+ {
+  "i": 136,
+  "word": "by",
+  "start": 46.1,
+  "end": 46.22
+ },
+ {
+  "i": 137,
+  "word": "Houthi",
+  "start": 46.28,
+  "end": 46.56
+ },
+ {
+  "i": 138,
+  "word": "UAVs",
+  "start": 46.64,
+  "end": 47.04
+ },
+ {
+  "i": 139,
+  "word": "or",
+  "start": 47.1,
+  "end": 47.16
+ },
+ {
+  "i": 140,
+  "word": "missiles.",
+  "start": 47.2,
+  "end": 47.56
+ },
+ {
+  "i": 141,
+  "word": "One",
+  "start": 48.04,
+  "end": 48.18
+ },
+ {
+  "i": 142,
+  "word": "did",
+  "start": 48.24,
+  "end": 48.42
+ },
+ {
+  "i": 143,
+  "word": "get",
+  "start": 48.46,
+  "end": 48.58
+ },
+ {
+  "i": 144,
+  "word": "close",
+  "start": 48.62,
+  "end": 48.86
+ },
+ {
+  "i": 145,
+  "word": "enough",
+  "start": 48.88,
+  "end": 49.06
+ },
+ {
+  "i": 146,
+  "word": "to",
+  "start": 49.08,
+  "end": 49.12
+ },
+ {
+  "i": 147,
+  "word": "the",
+  "start": 49.14,
+  "end": 49.2
+ },
+ {
+  "i": 148,
+  "word": "USS",
+  "start": 49.26,
+  "end": 49.641
+ },
+ {
+  "i": 149,
+  "word": "Gravely",
+  "start": 49.681,
+  "end": 50.061
+ },
+ {
+  "i": 150,
+  "word": "to",
+  "start": 50.101,
+  "end": 50.181
+ },
+ {
+  "i": 151,
+  "word": "force",
+  "start": 50.221,
+  "end": 50.481
+ },
+ {
+  "i": 152,
+  "word": "the",
+  "start": 50.541,
+  "end": 50.621
+ },
+ {
+  "i": 153,
+  "word": "destroyer",
+  "start": 50.661,
+  "end": 51.021
+ },
+ {
+  "i": 154,
+  "word": "to",
+  "start": 51.041,
+  "end": 51.101
+ },
+ {
+  "i": 155,
+  "word": "use",
+  "start": 51.201,
+  "end": 51.321
+ },
+ {
+  "i": 156,
+  "word": "its",
+  "start": 51.361,
+  "end": 51.461
+ },
+ {
+  "i": 157,
+  "word": "close-in",
+  "start": 51.501,
+  "end": 51.901
+ },
+ {
+  "i": 158,
+  "word": "weapon",
+  "start": 51.941,
+  "end": 52.221
+ },
+ {
+  "i": 159,
+  "word": "system.",
+  "start": 52.261,
+  "end": 52.581
+ },
+ {
+  "i": 160,
+  "word": "But",
+  "start": 52.841,
+  "end": 52.981
+ },
+ {
+  "i": 161,
+  "word": "more",
+  "start": 53.041,
+  "end": 53.221
+ },
+ {
+  "i": 162,
+  "word": "than",
+  "start": 53.261,
+  "end": 53.422
+ },
+ {
+  "i": 163,
+  "word": "a",
+  "start": 53.442,
+  "end": 53.502
+ },
+ {
+  "i": 164,
+  "word": "dozen",
+  "start": 53.562,
+  "end": 53.902
+ },
+ {
+  "i": 165,
+  "word": "commercial",
+  "start": 53.942,
+  "end": 54.302
+ },
+ {
+  "i": 166,
+  "word": "ships,",
+  "start": 54.342,
+  "end": 54.602
+ },
+ {
+  "i": 167,
+  "word": "including",
+  "start": 54.882,
+  "end": 55.282
+ },
+ {
+  "i": 168,
+  "word": "several",
+  "start": 55.382,
+  "end": 55.702
+ },
+ {
+  "i": 169,
+  "word": "US-owned",
+  "start": 55.842,
+  "end": 56.302
+ },
+ {
+  "i": 170,
+  "word": "vessels,",
+  "start": 56.342,
+  "end": 56.722
+ },
+ {
+  "i": 171,
+  "word": "have",
+  "start": 56.963,
+  "end": 57.163
+ },
+ {
+  "i": 172,
+  "word": "been",
+  "start": 57.203,
+  "end": 57.363
+ },
+ {
+  "i": 173,
+  "word": "hit",
+  "start": 57.403,
+  "end": 57.563
+ },
+ {
+  "i": 174,
+  "word": "since",
+  "start": 57.603,
+  "end": 57.783
+ },
+ {
+  "i": 175,
+  "word": "October.",
+  "start": 57.883,
+  "end": 58.343
+ },
+ {
+  "i": 176,
+  "word": "In",
+  "start": 58.623,
+  "end": 58.703
+ },
+ {
+  "i": 177,
+  "word": "spite",
+  "start": 58.743,
+  "end": 58.943
+ },
+ {
+  "i": 178,
+  "word": "of",
+  "start": 58.963,
+  "end": 59.023
+ },
+ {
+  "i": 179,
+  "word": "the",
+  "start": 59.043,
+  "end": 59.103
+ },
+ {
+  "i": 180,
+  "word": "robust",
+  "start": 59.143,
+  "end": 59.563
+ },
+ {
+  "i": 181,
+  "word": "naval",
+  "start": 59.623,
+  "end": 59.903
+ },
+ {
+  "i": 182,
+  "word": "presence",
+  "start": 59.943,
+  "end": 60.283
+ },
+ {
+  "i": 183,
+  "word": "in",
+  "start": 60.303,
+  "end": 60.363
+ },
+ {
+  "i": 184,
+  "word": "the",
+  "start": 60.403,
+  "end": 60.463
+ },
+ {
+  "i": 185,
+  "word": "region,",
+  "start": 60.503,
+  "end": 60.824
+ },
+ {
+  "i": 186,
+  "word": "anchored",
+  "start": 61.004,
+  "end": 61.264
+ },
+ {
+  "i": 187,
+  "word": "by",
+  "start": 61.284,
+  "end": 61.384
+ },
+ {
+  "i": 188,
+  "word": "the",
+  "start": 61.424,
+  "end": 61.504
+ },
+ {
+  "i": 189,
+  "word": "aircraft",
+  "start": 61.564,
+  "end": 61.904
+ },
+ {
+  "i": 190,
+  "word": "carrier",
+  "start": 61.924,
+  "end": 62.224
+ },
+ {
+  "i": 191,
+  "word": "Eisenhower",
+  "start": 62.344,
+  "end": 62.924
+ },
+ {
+  "i": 192,
+  "word": "and",
+  "start": 63.144,
+  "end": 63.244
+ },
+ {
+  "i": 193,
+  "word": "four",
+  "start": 63.324,
+  "end": 63.584
+ },
+ {
+  "i": 194,
+  "word": "guided",
+  "start": 63.624,
+  "end": 63.904
+ },
+ {
+  "i": 195,
+  "word": "missile",
+  "start": 63.964,
+  "end": 64.244
+ },
+ {
+  "i": 196,
+  "word": "destroyers",
+  "start": 64.285,
+  "end": 64.745
+ },
+ {
+  "i": 197,
+  "word": "in",
+  "start": 64.865,
+  "end": 64.945
+ },
+ {
+  "i": 198,
+  "word": "the",
+  "start": 64.985,
+  "end": 65.065
+ },
+ {
+  "i": 199,
+  "word": "strike",
+  "start": 65.105,
+  "end": 65.345
+ },
+ {
+  "i": 200,
+  "word": "group,",
+  "start": 65.385,
+  "end": 65.585
+ },
+ {
+  "i": 201,
+  "word": "along",
+  "start": 65.645,
+  "end": 65.945
+ },
+ {
+  "i": 202,
+  "word": "with",
+  "start": 65.985,
+  "end": 66.105
+ },
+ {
+  "i": 203,
+  "word": "warships",
+  "start": 66.165,
+  "end": 66.625
+ },
+ {
+  "i": 204,
+  "word": "from",
+  "start": 66.645,
+  "end": 66.785
+ },
+ {
+  "i": 205,
+  "word": "several",
+  "start": 66.825,
+  "end": 67.085
+ },
+ {
+  "i": 206,
+  "word": "partner",
+  "start": 67.125,
+  "end": 67.465
+ },
+ {
+  "i": 207,
+  "word": "nations,",
+  "start": 67.485,
+  "end": 67.845
+ },
+ {
+  "i": 208,
+  "word": "including",
+  "start": 67.885,
+  "end": 68.266
+ },
+ {
+  "i": 209,
+  "word": "the",
+  "start": 68.286,
+  "end": 68.346
+ },
+ {
+  "i": 210,
+  "word": "UK,",
+  "start": 68.526,
+  "end": 68.886
+ },
+ {
+  "i": 211,
+  "word": "France,",
+  "start": 69.006,
+  "end": 69.346
+ },
+ {
+  "i": 212,
+  "word": "and",
+  "start": 69.386,
+  "end": 69.466
+ },
+ {
+  "i": 213,
+  "word": "India,",
+  "start": 69.546,
+  "end": 69.866
+ },
+ {
+  "i": 214,
+  "word": "the",
+  "start": 70.086,
+  "end": 70.206
+ },
+ {
+  "i": 215,
+  "word": "Houthi",
+  "start": 70.246,
+  "end": 70.546
+ },
+ {
+  "i": 216,
+  "word": "threat",
+  "start": 70.586,
+  "end": 70.826
+ },
+ {
+  "i": 217,
+  "word": "to",
+  "start": 70.846,
+  "end": 70.946
+ },
+ {
+  "i": 218,
+  "word": "traffic",
+  "start": 70.986,
+  "end": 71.346
+ },
+ {
+  "i": 219,
+  "word": "in",
+  "start": 71.386,
+  "end": 71.446
+ },
+ {
+  "i": 220,
+  "word": "the",
+  "start": 71.466,
+  "end": 71.526
+ },
+ {
+  "i": 221,
+  "word": "Red",
+  "start": 71.567,
+  "end": 71.727
+ },
+ {
+  "i": 222,
+  "word": "Sea",
+  "start": 71.787,
+  "end": 71.947
+ },
+ {
+  "i": 223,
+  "word": "and",
+  "start": 71.987,
+  "end": 72.067
+ },
+ {
+  "i": 224,
+  "word": "Gulf",
+  "start": 72.087,
+  "end": 72.307
+ },
+ {
+  "i": 225,
+  "word": "of",
+  "start": 72.347,
+  "end": 72.387
+ },
+ {
+  "i": 226,
+  "word": "Aden",
+  "start": 72.467,
+  "end": 72.667
+ },
+ {
+  "i": 227,
+  "word": "remains.",
+  "start": 72.707,
+  "end": 73.147
+ },
+ {
+  "i": 228,
+  "word": "Even",
+  "start": 73.587,
+  "end": 73.747
+ },
+ {
+  "i": 229,
+  "word": "four",
+  "start": 73.907,
+  "end": 74.147
+ },
+ {
+  "i": 230,
+  "word": "waves",
+  "start": 74.208,
+  "end": 74.468
+ },
+ {
+  "i": 231,
+  "word": "of",
+  "start": 74.508,
+  "end": 74.568
+ },
+ {
+  "i": 232,
+  "word": "airstrikes",
+  "start": 74.628,
+  "end": 75.128
+ },
+ {
+  "i": 233,
+  "word": "by",
+  "start": 75.188,
+  "end": 75.328
+ },
+ {
+  "i": 234,
+  "word": "UK",
+  "start": 75.508,
+  "end": 75.809
+ },
+ {
+  "i": 235,
+  "word": "and",
+  "start": 75.849,
+  "end": 75.929
+ },
+ {
+  "i": 236,
+  "word": "US",
+  "start": 76.009,
+  "end": 76.249
+ },
+ {
+  "i": 237,
+  "word": "jets",
+  "start": 76.329,
+  "end": 76.589
+ },
+ {
+  "i": 238,
+  "word": "against",
+  "start": 76.629,
+  "end": 76.869
+ },
+ {
+  "i": 239,
+  "word": "targets",
+  "start": 76.949,
+  "end": 77.27
+ },
+ {
+  "i": 240,
+  "word": "around",
+  "start": 77.31,
+  "end": 77.57
+ },
+ {
+  "i": 241,
+  "word": "the",
+  "start": 77.59,
+  "end": 77.67
+ },
+ {
+  "i": 242,
+  "word": "capital",
+  "start": 77.69,
+  "end": 78.09
+ },
+ {
+  "i": 243,
+  "word": "of",
+  "start": 78.11,
+  "end": 78.15
+ },
+ {
+  "i": 244,
+  "word": "Sana'a",
+  "start": 78.21,
+  "end": 78.65
+ },
+ {
+  "i": 245,
+  "word": "haven't",
+  "start": 78.951,
+  "end": 79.251
+ },
+ {
+  "i": 246,
+  "word": "stopped",
+  "start": 79.311,
+  "end": 79.631
+ },
+ {
+  "i": 247,
+  "word": "them.",
+  "start": 79.651,
+  "end": 79.811
+ },
+ {
+  "i": 248,
+  "word": "And",
+  "start": 80.091,
+  "end": 80.171
+ },
+ {
+  "i": 249,
+  "word": "the",
+  "start": 80.191,
+  "end": 80.251
+ },
+ {
+  "i": 250,
+  "word": "Pentagon",
+  "start": 80.291,
+  "end": 80.672
+ },
+ {
+  "i": 251,
+  "word": "still",
+  "start": 80.732,
+  "end": 80.952
+ },
+ {
+  "i": 252,
+  "word": "does",
+  "start": 80.992,
+  "end": 81.132
+ },
+ {
+  "i": 253,
+  "word": "not",
+  "start": 81.192,
+  "end": 81.352
+ },
+ {
+  "i": 254,
+  "word": "have",
+  "start": 81.392,
+  "end": 81.572
+ },
+ {
+  "i": 255,
+  "word": "a",
+  "start": 81.592,
+  "end": 81.612
+ },
+ {
+  "i": 256,
+  "word": "quote",
+  "start": 81.973,
+  "end": 82.213
+ },
+ {
+  "i": 257,
+  "word": "unquote",
+  "start": 82.253,
+  "end": 82.593
+ },
+ {
+  "i": 258,
+  "word": "denominator",
+  "start": 82.653,
+  "end": 83.353
+ },
+ {
+  "i": 259,
+  "word": "that",
+  "start": 83.554,
+  "end": 83.674
+ },
+ {
+  "i": 260,
+  "word": "gives",
+  "start": 83.734,
+  "end": 83.954
+ },
+ {
+  "i": 261,
+  "word": "an",
+  "start": 84.014,
+  "end": 84.054
+ },
+ {
+  "i": 262,
+  "word": "assessment",
+  "start": 84.114,
+  "end": 84.514
+ },
+ {
+  "i": 263,
+  "word": "of",
+  "start": 84.554,
+  "end": 84.594
+ },
+ {
+  "i": 264,
+  "word": "the",
+  "start": 84.614,
+  "end": 84.694
+ },
+ {
+  "i": 265,
+  "word": "percentage",
+  "start": 84.734,
+  "end": 85.175
+ },
+ {
+  "i": 266,
+  "word": "of",
+  "start": 85.215,
+  "end": 85.255
+ },
+ {
+  "i": 267,
+  "word": "Houthi",
+  "start": 85.295,
+  "end": 85.595
+ },
+ {
+  "i": 268,
+  "word": "equipment",
+  "start": 85.635,
+  "end": 85.975
+ },
+ {
+  "i": 269,
+  "word": "the",
+  "start": 86.015,
+  "end": 86.095
+ },
+ {
+  "i": 270,
+  "word": "coalition",
+  "start": 86.115,
+  "end": 86.576
+ },
+ {
+  "i": 271,
+  "word": "has",
+  "start": 86.596,
+  "end": 86.716
+ },
+ {
+  "i": 272,
+  "word": "actually",
+  "start": 86.876,
+  "end": 87.176
+ },
+ {
+  "i": 273,
+  "word": "destroyed",
+  "start": 87.236,
+  "end": 87.696
+ },
+ {
+  "i": 274,
+  "word": "with",
+  "start": 87.756,
+  "end": 87.956
+ },
+ {
+  "i": 275,
+  "word": "the",
+  "start": 87.976,
+  "end": 88.057
+ },
+ {
+  "i": 276,
+  "word": "airstrikes.",
+  "start": 88.117,
+  "end": 88.597
+ },
+ {
+  "i": 277,
+  "word": "Deputy",
+  "start": 88.997,
+  "end": 89.378
+ },
+ {
+  "i": 278,
+  "word": "Pentagon",
+  "start": 89.438,
+  "end": 89.838
+ },
+ {
+  "i": 279,
+  "word": "Press",
+  "start": 89.878,
+  "end": 90.098
+ },
+ {
+  "i": 280,
+  "word": "Secretary",
+  "start": 90.118,
+  "end": 90.679
+ },
+ {
+  "i": 281,
+  "word": "Sabrina",
+  "start": 90.759,
+  "end": 91.199
+ },
+ {
+  "i": 282,
+  "word": "Singh",
+  "start": 91.259,
+  "end": 91.539
+ },
+ {
+  "i": 283,
+  "word": "said",
+  "start": 91.579,
+  "end": 91.78
+ },
+ {
+  "i": 284,
+  "word": "last",
+  "start": 91.84,
+  "end": 92.06
+ },
+ {
+  "i": 285,
+  "word": "week,",
+  "start": 92.12,
+  "end": 92.32
+ },
+ {
+  "i": 286,
+  "word": "we",
+  "start": 92.82,
+  "end": 92.961
+ },
+ {
+  "i": 287,
+  "word": "know",
+  "start": 93.001,
+  "end": 93.161
+ },
+ {
+  "i": 288,
+  "word": "that",
+  "start": 93.201,
+  "end": 93.321
+ },
+ {
+  "i": 289,
+  "word": "the",
+  "start": 93.341,
+  "end": 93.421
+ },
+ {
+  "i": 290,
+  "word": "Houthis",
+  "start": 93.461,
+  "end": 93.901
+ },
+ {
+  "i": 291,
+  "word": "maintain",
+  "start": 93.961,
+  "end": 94.482
+ },
+ {
+  "i": 292,
+  "word": "a",
+  "start": 94.582,
+  "end": 94.642
+ },
+ {
+  "i": 293,
+  "word": "large",
+  "start": 94.702,
+  "end": 94.982
+ },
+ {
+  "i": 294,
+  "word": "arsenal.",
+  "start": 95.142,
+  "end": 95.543
+ },
+ {
+  "i": 295,
+  "word": "They",
+  "start": 95.923,
+  "end": 96.043
+ },
+ {
+  "i": 296,
+  "word": "are",
+  "start": 96.083,
+  "end": 96.183
+ },
+ {
+  "i": 297,
+  "word": "very",
+  "start": 96.243,
+  "end": 96.484
+ },
+ {
+  "i": 298,
+  "word": "capable.",
+  "start": 96.544,
+  "end": 96.984
+ },
+ {
+  "i": 299,
+  "word": "They",
+  "start": 97.404,
+  "end": 97.544
+ },
+ {
+  "i": 300,
+  "word": "have",
+  "start": 97.584,
+  "end": 97.705
+ },
+ {
+  "i": 301,
+  "word": "sophisticated",
+  "start": 97.745,
+  "end": 98.445
+ },
+ {
+  "i": 302,
+  "word": "weapons,",
+  "start": 98.505,
+  "end": 98.866
+ },
+ {
+  "i": 303,
+  "word": "and",
+  "start": 98.886,
+  "end": 98.966
+ },
+ {
+  "i": 304,
+  "word": "that's",
+  "start": 99.006,
+  "end": 99.246
+ },
+ {
+  "i": 305,
+  "word": "because",
+  "start": 99.286,
+  "end": 99.586
+ },
+ {
+  "i": 306,
+  "word": "they",
+  "start": 99.626,
+  "end": 99.766
+ },
+ {
+  "i": 307,
+  "word": "continue",
+  "start": 99.786,
+  "end": 100.127
+ },
+ {
+  "i": 308,
+  "word": "to",
+  "start": 100.147,
+  "end": 100.207
+ },
+ {
+  "i": 309,
+  "word": "get",
+  "start": 100.247,
+  "end": 100.387
+ },
+ {
+  "i": 310,
+  "word": "them",
+  "start": 100.407,
+  "end": 100.567
+ },
+ {
+  "i": 311,
+  "word": "from",
+  "start": 100.627,
+  "end": 100.747
+ },
+ {
+  "i": 312,
+  "word": "Iran.",
+  "start": 100.827,
+  "end": 101.148
+ },
+ {
+  "i": 313,
+  "word": "Another",
+  "start": 101.628,
+  "end": 101.988
+ },
+ {
+  "i": 314,
+  "word": "senior",
+  "start": 102.028,
+  "end": 102.309
+ },
+ {
+  "i": 315,
+  "word": "defense",
+  "start": 102.329,
+  "end": 102.649
+ },
+ {
+  "i": 316,
+  "word": "official",
+  "start": 102.689,
+  "end": 103.049
+ },
+ {
+  "i": 317,
+  "word": "told",
+  "start": 103.109,
+  "end": 103.289
+ },
+ {
+  "i": 318,
+  "word": "the",
+  "start": 103.309,
+  "end": 103.389
+ },
+ {
+  "i": 319,
+  "word": "Pentagon",
+  "start": 103.409,
+  "end": 103.81
+ },
+ {
+  "i": 320,
+  "word": "Press",
+  "start": 103.85,
+  "end": 104.07
+ },
+ {
+  "i": 321,
+  "word": "Corps",
+  "start": 104.11,
+  "end": 104.31
+ },
+ {
+  "i": 322,
+  "word": "that,",
+  "start": 104.35,
+  "end": 104.51
+ },
+ {
+  "i": 323,
+  "word": "quote,",
+  "start": 104.59,
+  "end": 104.871
+ },
+ {
+  "i": 324,
+  "word": "they",
+  "start": 105.071,
+  "end": 105.211
+ },
+ {
+  "i": 325,
+  "word": "continue",
+  "start": 105.251,
+  "end": 105.671
+ },
+ {
+  "i": 326,
+  "word": "to",
+  "start": 105.691,
+  "end": 105.811
+ },
+ {
+  "i": 327,
+  "word": "surprise",
+  "start": 105.852,
+  "end": 106.312
+ },
+ {
+  "i": 328,
+  "word": "us.",
+  "start": 106.392,
+  "end": 106.472
+ },
+ {
+  "i": 329,
+  "word": "We",
+  "start": 106.732,
+  "end": 106.852
+ },
+ {
+  "i": 330,
+  "word": "just",
+  "start": 106.932,
+  "end": 107.173
+ },
+ {
+  "i": 331,
+  "word": "don't",
+  "start": 107.193,
+  "end": 107.373
+ },
+ {
+  "i": 332,
+  "word": "have",
+  "start": 107.413,
+  "end": 107.533
+ },
+ {
+  "i": 333,
+  "word": "a",
+  "start": 107.553,
+  "end": 107.593
+ },
+ {
+  "i": 334,
+  "word": "good",
+  "start": 107.613,
+  "end": 107.773
+ },
+ {
+  "i": 335,
+  "word": "idea",
+  "start": 107.833,
+  "end": 108.073
+ },
+ {
+  "i": 336,
+  "word": "of",
+  "start": 108.093,
+  "end": 108.153
+ },
+ {
+  "i": 337,
+  "word": "what",
+  "start": 108.194,
+  "end": 108.314
+ },
+ {
+  "i": 338,
+  "word": "they",
+  "start": 108.334,
+  "end": 108.474
+ },
+ {
+  "i": 339,
+  "word": "still",
+  "start": 108.514,
+  "end": 108.754
+ },
+ {
+  "i": 340,
+  "word": "have,",
+  "start": 108.794,
+  "end": 109.014
+ },
+ {
+  "i": 341,
+  "word": "end",
+  "start": 109.274,
+  "end": 109.395
+ },
+ {
+  "i": 342,
+  "word": "quote.",
+  "start": 109.455,
+  "end": 109.695
+ },
+ {
+  "i": 343,
+  "word": "I",
+  "start": 110.372,
+  "end": 110.432
+ },
+ {
+  "i": 344,
+  "word": "learned",
+  "start": 110.472,
+  "end": 110.672
+ },
+ {
+  "i": 345,
+  "word": "a",
+  "start": 110.712,
+  "end": 110.732
+ },
+ {
+  "i": 346,
+  "word": "lot",
+  "start": 110.772,
+  "end": 110.932
+ },
+ {
+  "i": 347,
+  "word": "at",
+  "start": 110.952,
+  "end": 111.012
+ },
+ {
+  "i": 348,
+  "word": "the",
+  "start": 111.032,
+  "end": 111.112
+ },
+ {
+  "i": 349,
+  "word": "Naval",
+  "start": 111.152,
+  "end": 111.392
+ },
+ {
+  "i": 350,
+  "word": "Academy,",
+  "start": 111.432,
+  "end": 111.813
+ },
+ {
+  "i": 351,
+  "word": "but",
+  "start": 111.833,
+  "end": 111.933
+ },
+ {
+  "i": 352,
+  "word": "one",
+  "start": 112.033,
+  "end": 112.133
+ },
+ {
+  "i": 353,
+  "word": "thing",
+  "start": 112.173,
+  "end": 112.353
+ },
+ {
+  "i": 354,
+  "word": "I",
+  "start": 112.413,
+  "end": 112.473
+ },
+ {
+  "i": 355,
+  "word": "didn't",
+  "start": 112.573,
+  "end": 112.813
+ },
+ {
+  "i": 356,
+  "word": "learn",
+  "start": 112.853,
+  "end": 113.053
+ },
+ {
+  "i": 357,
+  "word": "was",
+  "start": 113.073,
+  "end": 113.213
+ },
+ {
+  "i": 358,
+  "word": "money",
+  "start": 113.253,
+  "end": 113.493
+ },
+ {
+  "i": 359,
+  "word": "management.",
+  "start": 113.533,
+  "end": 114.033
+ },
+ {
+  "i": 360,
+  "word": "And",
+  "start": 114.173,
+  "end": 114.233
+ },
+ {
+  "i": 361,
+  "word": "when",
+  "start": 114.273,
+  "end": 114.374
+ },
+ {
+  "i": 362,
+  "word": "I",
+  "start": 114.414,
+  "end": 114.454
+ },
+ {
+  "i": 363,
+  "word": "got",
+  "start": 114.494,
+  "end": 114.634
+ },
+ {
+  "i": 364,
+  "word": "to",
+  "start": 114.654,
+  "end": 114.714
+ },
+ {
+  "i": 365,
+  "word": "Pensacola",
+  "start": 114.754,
+  "end": 115.254
+ },
+ {
+  "i": 366,
+  "word": "for",
+  "start": 115.274,
+  "end": 115.374
+ },
+ {
+  "i": 367,
+  "word": "flight",
+  "start": 115.414,
+  "end": 115.674
+ },
+ {
+  "i": 368,
+  "word": "school,",
+  "start": 115.714,
+  "end": 116.014
+ },
+ {
+  "i": 369,
+  "word": "my",
+  "start": 116.054,
+  "end": 116.174
+ },
+ {
+  "i": 370,
+  "word": "credit",
+  "start": 116.314,
+  "end": 116.594
+ },
+ {
+  "i": 371,
+  "word": "card",
+  "start": 116.634,
+  "end": 116.834
+ },
+ {
+  "i": 372,
+  "word": "collection",
+  "start": 116.874,
+  "end": 117.275
+ },
+ {
+  "i": 373,
+  "word": "started",
+  "start": 117.295,
+  "end": 117.555
+ },
+ {
+  "i": 374,
+  "word": "growing",
+  "start": 117.595,
+  "end": 117.835
+ },
+ {
+  "i": 375,
+  "word": "along",
+  "start": 117.895,
+  "end": 118.175
+ },
+ {
+  "i": 376,
+  "word": "with",
+  "start": 118.195,
+  "end": 118.315
+ },
+ {
+  "i": 377,
+  "word": "my",
+  "start": 118.355,
+  "end": 118.495
+ },
+ {
+  "i": 378,
+  "word": "debt.",
+  "start": 118.555,
+  "end": 118.835
+ },
+ {
+  "i": 379,
+  "word": "Debt",
+  "start": 119.155,
+  "end": 119.375
+ },
+ {
+  "i": 380,
+  "word": "for",
+  "start": 119.395,
+  "end": 119.575
+ },
+ {
+  "i": 381,
+  "word": "a",
+  "start": 119.615,
+  "end": 119.656
+ },
+ {
+  "i": 382,
+  "word": "car,",
+  "start": 119.736,
+  "end": 120.116
+ },
+ {
+  "i": 383,
+  "word": "furniture",
+  "start": 120.256,
+  "end": 120.656
+ },
+ {
+  "i": 384,
+  "word": "for",
+  "start": 120.676,
+  "end": 120.796
+ },
+ {
+  "i": 385,
+  "word": "my",
+  "start": 120.836,
+  "end": 120.916
+ },
+ {
+  "i": 386,
+  "word": "first",
+  "start": 120.956,
+  "end": 121.156
+ },
+ {
+  "i": 387,
+  "word": "apartment,",
+  "start": 121.236,
+  "end": 121.676
+ },
+ {
+  "i": 388,
+  "word": "a",
+  "start": 121.836,
+  "end": 121.876
+ },
+ {
+  "i": 389,
+  "word": "landline,",
+  "start": 121.936,
+  "end": 122.477
+ },
+ {
+  "i": 390,
+  "word": "remember",
+  "start": 122.537,
+  "end": 122.857
+ },
+ {
+  "i": 391,
+  "word": "those?",
+  "start": 122.897,
+  "end": 123.197
+ },
+ {
+  "i": 392,
+  "word": "And",
+  "start": 123.577,
+  "end": 123.677
+ },
+ {
+  "i": 393,
+  "word": "other",
+  "start": 123.717,
+  "end": 123.877
+ },
+ {
+  "i": 394,
+  "word": "utilities.",
+  "start": 123.977,
+  "end": 124.497
+ },
+ {
+  "i": 395,
+  "word": "That",
+  "start": 124.697,
+  "end": 124.857
+ },
+ {
+  "i": 396,
+  "word": "high-end",
+  "start": 124.917,
+  "end": 125.318
+ },
+ {
+  "i": 397,
+  "word": "stereo",
+  "start": 125.378,
+  "end": 125.778
+ },
+ {
+  "i": 398,
+  "word": "I",
+  "start": 125.818,
+  "end": 125.858
+ },
+ {
+  "i": 399,
+  "word": "always",
+  "start": 125.898,
+  "end": 126.118
+ },
+ {
+  "i": 400,
+  "word": "wanted.",
+  "start": 126.158,
+  "end": 126.398
+ },
+ {
+  "i": 401,
+  "word": "A",
+  "start": 126.718,
+  "end": 126.758
+ },
+ {
+  "i": 402,
+  "word": "sailboard.",
+  "start": 126.818,
+  "end": 127.338
+ },
+ {
+  "i": 403,
+  "word": "All",
+  "start": 127.739,
+  "end": 127.879
+ },
+ {
+  "i": 404,
+  "word": "kinds",
+  "start": 127.939,
+  "end": 128.199
+ },
+ {
+  "i": 405,
+  "word": "of",
+  "start": 128.259,
+  "end": 128.319
+ },
+ {
+  "i": 406,
+  "word": "stuff.",
+  "start": 128.359,
+  "end": 128.619
+ },
+ {
+  "i": 407,
+  "word": "Before",
+  "start": 129.039,
+  "end": 129.299
+ },
+ {
+  "i": 408,
+  "word": "I",
+  "start": 129.319,
+  "end": 129.359
+ },
+ {
+  "i": 409,
+  "word": "knew",
+  "start": 129.399,
+  "end": 129.539
+ },
+ {
+  "i": 410,
+  "word": "it,",
+  "start": 129.599,
+  "end": 129.659
+ },
+ {
+  "i": 411,
+  "word": "my",
+  "start": 129.699,
+  "end": 129.839
+ },
+ {
+  "i": 412,
+  "word": "instant",
+  "start": 129.899,
+  "end": 130.179
+ },
+ {
+  "i": 413,
+  "word": "salary",
+  "start": 130.199,
+  "end": 130.5
+ },
+ {
+  "i": 414,
+  "word": "wasn't",
+  "start": 130.56,
+  "end": 130.8
+ },
+ {
+  "i": 415,
+  "word": "enough",
+  "start": 130.84,
+  "end": 131.04
+ },
+ {
+  "i": 416,
+  "word": "to",
+  "start": 131.06,
+  "end": 131.14
+ },
+ {
+  "i": 417,
+  "word": "pay",
+  "start": 131.18,
+  "end": 131.38
+ },
+ {
+  "i": 418,
+  "word": "my",
+  "start": 131.42,
+  "end": 131.54
+ },
+ {
+  "i": 419,
+  "word": "credit",
+  "start": 131.6,
+  "end": 131.84
+ },
+ {
+  "i": 420,
+  "word": "card",
+  "start": 131.86,
+  "end": 132.08
+ },
+ {
+  "i": 421,
+  "word": "bill",
+  "start": 132.1,
+  "end": 132.3
+ },
+ {
+  "i": 422,
+  "word": "balances,",
+  "start": 132.36,
+  "end": 132.82
+ },
+ {
+  "i": 423,
+  "word": "and",
+  "start": 132.881,
+  "end": 132.961
+ },
+ {
+  "i": 424,
+  "word": "paying",
+  "start": 132.981,
+  "end": 133.241
+ },
+ {
+  "i": 425,
+  "word": "the",
+  "start": 133.261,
+  "end": 133.341
+ },
+ {
+  "i": 426,
+  "word": "minimum",
+  "start": 133.381,
+  "end": 133.761
+ },
+ {
+  "i": 427,
+  "word": "just",
+  "start": 133.801,
+  "end": 134.021
+ },
+ {
+  "i": 428,
+  "word": "made",
+  "start": 134.061,
+  "end": 134.241
+ },
+ {
+  "i": 429,
+  "word": "the",
+  "start": 134.281,
+  "end": 134.361
+ },
+ {
+  "i": 430,
+  "word": "hole",
+  "start": 134.421,
+  "end": 134.601
+ },
+ {
+  "i": 431,
+  "word": "deeper.",
+  "start": 134.661,
+  "end": 135.001
+ },
+ {
+  "i": 432,
+  "word": "I",
+  "start": 135.341,
+  "end": 135.421
+ },
+ {
+  "i": 433,
+  "word": "so",
+  "start": 135.522,
+  "end": 135.702
+ },
+ {
+  "i": 434,
+  "word": "wish",
+  "start": 135.742,
+  "end": 135.942
+ },
+ {
+  "i": 435,
+  "word": "the",
+  "start": 135.962,
+  "end": 136.042
+ },
+ {
+  "i": 436,
+  "word": "sponsor",
+  "start": 136.062,
+  "end": 136.422
+ },
+ {
+  "i": 437,
+  "word": "of",
+  "start": 136.442,
+  "end": 136.502
+ },
+ {
+  "i": 438,
+  "word": "this",
+  "start": 136.522,
+  "end": 136.662
+ },
+ {
+  "i": 439,
+  "word": "episode,",
+  "start": 136.722,
+  "end": 137.122
+ },
+ {
+  "i": 440,
+  "word": "PDS",
+  "start": 137.162,
+  "end": 137.602
+ },
+ {
+  "i": 441,
+  "word": "Debt,",
+  "start": 137.622,
+  "end": 137.802
+ },
+ {
+  "i": 442,
+  "word": "had",
+  "start": 137.822,
+  "end": 137.922
+ },
+ {
+  "i": 443,
+  "word": "been",
+  "start": 137.942,
+  "end": 138.082
+ },
+ {
+  "i": 444,
+  "word": "around",
+  "start": 138.123,
+  "end": 138.443
+ },
+ {
+  "i": 445,
+  "word": "in",
+  "start": 138.483,
+  "end": 138.543
+ },
+ {
+  "i": 446,
+  "word": "those",
+  "start": 138.583,
+  "end": 138.803
+ },
+ {
+  "i": 447,
+  "word": "days.",
+  "start": 138.863,
+  "end": 139.163
+ },
+ {
+  "i": 448,
+  "word": "And",
+  "start": 139.543,
+  "end": 139.603
+ },
+ {
+  "i": 449,
+  "word": "if",
+  "start": 139.623,
+  "end": 139.683
+ },
+ {
+  "i": 450,
+  "word": "your",
+  "start": 139.703,
+  "end": 139.843
+ },
+ {
+  "i": 451,
+  "word": "credit",
+  "start": 139.883,
+  "end": 140.143
+ },
+ {
+  "i": 452,
+  "word": "card",
+  "start": 140.163,
+  "end": 140.423
+ },
+ {
+  "i": 453,
+  "word": "balances",
+  "start": 140.463,
+  "end": 140.904
+ },
+ {
+  "i": 454,
+  "word": "aren't",
+  "start": 140.944,
+  "end": 141.104
+ },
+ {
+  "i": 455,
+  "word": "going",
+  "start": 141.124,
+  "end": 141.344
+ },
+ {
+  "i": 456,
+  "word": "down",
+  "start": 141.384,
+  "end": 141.584
+ },
+ {
+  "i": 457,
+  "word": "now,",
+  "start": 141.664,
+  "end": 141.944
+ },
+ {
+  "i": 458,
+  "word": "this",
+  "start": 142.284,
+  "end": 142.464
+ },
+ {
+  "i": 459,
+  "word": "program",
+  "start": 142.524,
+  "end": 142.884
+ },
+ {
+  "i": 460,
+  "word": "is",
+  "start": 142.904,
+  "end": 142.984
+ },
+ {
+  "i": 461,
+  "word": "for",
+  "start": 143.024,
+  "end": 143.144
+ },
+ {
+  "i": 462,
+  "word": "you.",
+  "start": 143.184,
+  "end": 143.405
+ },
+ {
+  "i": 463,
+  "word": "PDS",
+  "start": 143.665,
+  "end": 144.045
+ },
+ {
+  "i": 464,
+  "word": "Debt",
+  "start": 144.085,
+  "end": 144.265
+ },
+ {
+  "i": 465,
+  "word": "has",
+  "start": 144.285,
+  "end": 144.445
+ },
+ {
+  "i": 466,
+  "word": "customized",
+  "start": 144.485,
+  "end": 145.025
+ },
+ {
+  "i": 467,
+  "word": "options",
+  "start": 145.145,
+  "end": 145.425
+ },
+ {
+  "i": 468,
+  "word": "for",
+  "start": 145.465,
+  "end": 145.585
+ },
+ {
+  "i": 469,
+  "word": "anyone",
+  "start": 145.705,
+  "end": 146.026
+ },
+ {
+  "i": 470,
+  "word": "struggling",
+  "start": 146.066,
+  "end": 146.426
+ },
+ {
+  "i": 471,
+  "word": "with",
+  "start": 146.446,
+  "end": 146.566
+ },
+ {
+  "i": 472,
+  "word": "credit",
+  "start": 146.626,
+  "end": 146.886
+ },
+ {
+  "i": 473,
+  "word": "cards,",
+  "start": 146.906,
+  "end": 147.206
+ },
+ {
+  "i": 474,
+  "word": "personal",
+  "start": 147.326,
+  "end": 147.706
+ },
+ {
+  "i": 475,
+  "word": "loans,",
+  "start": 147.726,
+  "end": 148.006
+ },
+ {
+  "i": 476,
+  "word": "collections,",
+  "start": 148.086,
+  "end": 148.647
+ },
+ {
+  "i": 477,
+  "word": "or",
+  "start": 148.807,
+  "end": 148.927
+ },
+ {
+  "i": 478,
+  "word": "medical",
+  "start": 148.987,
+  "end": 149.347
+ },
+ {
+  "i": 479,
+  "word": "bills.",
+  "start": 149.367,
+  "end": 149.627
+ },
+ {
+  "i": 480,
+  "word": "PDS",
+  "start": 149.927,
+  "end": 150.327
+ },
+ {
+  "i": 481,
+  "word": "Debt",
+  "start": 150.347,
+  "end": 150.547
+ },
+ {
+  "i": 482,
+  "word": "provides",
+  "start": 150.587,
+  "end": 150.947
+ },
+ {
+  "i": 483,
+  "word": "options",
+  "start": 151.127,
+  "end": 151.388
+ },
+ {
+  "i": 484,
+  "word": "that",
+  "start": 151.428,
+  "end": 151.528
+ },
+ {
+  "i": 485,
+  "word": "consolidate",
+  "start": 151.568,
+  "end": 152.108
+ },
+ {
+  "i": 486,
+  "word": "your",
+  "start": 152.128,
+  "end": 152.268
+ },
+ {
+  "i": 487,
+  "word": "debts",
+  "start": 152.288,
+  "end": 152.508
+ },
+ {
+  "i": 488,
+  "word": "into",
+  "start": 152.548,
+  "end": 152.708
+ },
+ {
+  "i": 489,
+  "word": "one",
+  "start": 152.888,
+  "end": 153.028
+ },
+ {
+  "i": 490,
+  "word": "low",
+  "start": 153.068,
+  "end": 153.268
+ },
+ {
+  "i": 491,
+  "word": "monthly",
+  "start": 153.308,
+  "end": 153.608
+ },
+ {
+  "i": 492,
+  "word": "payment.",
+  "start": 153.648,
+  "end": 153.988
+ },
+ {
+  "i": 493,
+  "word": "Everyone",
+  "start": 154.309,
+  "end": 154.649
+ },
+ {
+  "i": 494,
+  "word": "with",
+  "start": 154.689,
+  "end": 155.089
+ },
+ {
+  "i": 495,
+  "word": "$10,000",
+  "start": 155.209,
+  "end": 155.769
+ },
+ {
+  "i": 496,
+  "word": "or",
+  "start": 155.829,
+  "end": 155.929
+ },
+ {
+  "i": 497,
+  "word": "more",
+  "start": 155.949,
+  "end": 156.169
+ },
+ {
+  "i": 498,
+  "word": "in",
+  "start": 156.269,
+  "end": 156.349
+ },
+ {
+  "i": 499,
+  "word": "eligible",
+  "start": 156.469,
+  "end": 156.869
+ },
+ {
+  "i": 500,
+  "word": "debt",
+  "start": 156.909,
+  "end": 157.13
+ },
+ {
+  "i": 501,
+  "word": "qualifies,",
+  "start": 157.19,
+  "end": 157.77
+ },
+ {
+  "i": 502,
+  "word": "and",
+  "start": 158.09,
+  "end": 158.17
+ },
+ {
+  "i": 503,
+  "word": "there",
+  "start": 158.19,
+  "end": 158.33
+ },
+ {
+  "i": 504,
+  "word": "is",
+  "start": 158.37,
+  "end": 158.45
+ },
+ {
+  "i": 505,
+  "word": "no",
+  "start": 158.55,
+  "end": 158.75
+ },
+ {
+  "i": 506,
+  "word": "minimum",
+  "start": 158.79,
+  "end": 159.13
+ },
+ {
+  "i": 507,
+  "word": "credit",
+  "start": 159.19,
+  "end": 159.45
+ },
+ {
+  "i": 508,
+  "word": "score",
+  "start": 159.47,
+  "end": 159.69
+ },
+ {
+  "i": 509,
+  "word": "required.",
+  "start": 159.73,
+  "end": 160.231
+ },
+ {
+  "i": 510,
+  "word": "Bad",
+  "start": 160.651,
+  "end": 160.991
+ },
+ {
+  "i": 511,
+  "word": "and",
+  "start": 161.111,
+  "end": 161.211
+ },
+ {
+  "i": 512,
+  "word": "fair",
+  "start": 161.271,
+  "end": 161.471
+ },
+ {
+  "i": 513,
+  "word": "credit",
+  "start": 161.531,
+  "end": 161.811
+ },
+ {
+  "i": 514,
+  "word": "accepted.",
+  "start": 161.891,
+  "end": 162.391
+ },
+ {
+  "i": 515,
+  "word": "They're",
+  "start": 162.811,
+  "end": 162.972
+ },
+ {
+  "i": 516,
+  "word": "a",
+  "start": 162.992,
+  "end": 163.052
+ },
+ {
+  "i": 517,
+  "word": "top-rated",
+  "start": 163.072,
+  "end": 163.572
+ },
+ {
+  "i": 518,
+  "word": "company",
+  "start": 163.632,
+  "end": 163.952
+ },
+ {
+  "i": 519,
+  "word": "on",
+  "start": 164.012,
+  "end": 164.092
+ },
+ {
+  "i": 520,
+  "word": "Google",
+  "start": 164.132,
+  "end": 164.472
+ },
+ {
+  "i": 521,
+  "word": "and",
+  "start": 164.512,
+  "end": 164.592
+ },
+ {
+  "i": 522,
+  "word": "have",
+  "start": 164.632,
+  "end": 164.752
+ },
+ {
+  "i": 523,
+  "word": "an",
+  "start": 164.772,
+  "end": 164.832
+ },
+ {
+  "i": 524,
+  "word": "A-plus",
+  "start": 164.972,
+  "end": 165.372
+ },
+ {
+  "i": 525,
+  "word": "rating",
+  "start": 165.432,
+  "end": 165.672
+ },
+ {
+  "i": 526,
+  "word": "with",
+  "start": 165.692,
+  "end": 165.792
+ },
+ {
+  "i": 527,
+  "word": "the",
+  "start": 165.812,
+  "end": 165.893
+ },
+ {
+  "i": 528,
+  "word": "Better",
+  "start": 165.933,
+  "end": 166.153
+ },
+ {
+  "i": 529,
+  "word": "Business",
+  "start": 166.193,
+  "end": 166.513
+ },
+ {
+  "i": 530,
+  "word": "Bureau.",
+  "start": 166.533,
+  "end": 166.813
+ },
+ {
+  "i": 531,
+  "word": "PDS",
+  "start": 167.133,
+  "end": 167.533
+ },
+ {
+  "i": 532,
+  "word": "Debt",
+  "start": 167.553,
+  "end": 167.733
+ },
+ {
+  "i": 533,
+  "word": "is",
+  "start": 167.773,
+  "end": 167.853
+ },
+ {
+  "i": 534,
+  "word": "offering",
+  "start": 167.893,
+  "end": 168.193
+ },
+ {
+  "i": 535,
+  "word": "free",
+  "start": 168.313,
+  "end": 168.553
+ },
+ {
+  "i": 536,
+  "word": "debt",
+  "start": 168.573,
+  "end": 168.753
+ },
+ {
+  "i": 537,
+  "word": "analysis,",
+  "start": 168.794,
+  "end": 169.314
+ },
+ {
+  "i": 538,
+  "word": "and",
+  "start": 169.414,
+  "end": 169.514
+ },
+ {
+  "i": 539,
+  "word": "it",
+  "start": 169.554,
+  "end": 169.614
+ },
+ {
+  "i": 540,
+  "word": "only",
+  "start": 169.754,
+  "end": 169.954
+ },
+ {
+  "i": 541,
+  "word": "takes",
+  "start": 169.994,
+  "end": 170.194
+ },
+ {
+  "i": 542,
+  "word": "30",
+  "start": 170.294,
+  "end": 170.454
+ },
+ {
+  "i": 543,
+  "word": "seconds.",
+  "start": 170.514,
+  "end": 170.874
+ },
+ {
+  "i": 544,
+  "word": "Head",
+  "start": 171.334,
+  "end": 171.474
+ },
+ {
+  "i": 545,
+  "word": "on",
+  "start": 171.514,
+  "end": 171.574
+ },
+ {
+  "i": 546,
+  "word": "over",
+  "start": 171.614,
+  "end": 171.735
+ },
+ {
+  "i": 547,
+  "word": "to",
+  "start": 171.775,
+  "end": 171.835
+ },
+ {
+  "i": 548,
+  "word": "pdsdebt.com",
+  "start": 171.875,
+  "end": 173.015
+ },
+ {
+  "i": 549,
+  "word": "slash",
+  "start": 173.035,
+  "end": 173.355
+ },
+ {
+  "i": 550,
+  "word": "ward",
+  "start": 173.415,
+  "end": 173.735
+ },
+ {
+  "i": 551,
+  "word": "to",
+  "start": 173.975,
+  "end": 174.055
+ },
+ {
+  "i": 552,
+  "word": "get",
+  "start": 174.095,
+  "end": 174.275
+ },
+ {
+  "i": 553,
+  "word": "your",
+  "start": 174.295,
+  "end": 174.575
+ },
+ {
+  "i": 554,
+  "word": "free",
+  "start": 174.676,
+  "end": 174.896
+ },
+ {
+  "i": 555,
+  "word": "debt",
+  "start": 174.936,
+  "end": 175.096
+ },
+ {
+  "i": 556,
+  "word": "analysis",
+  "start": 175.136,
+  "end": 175.616
+ },
+ {
+  "i": 557,
+  "word": "today.",
+  "start": 175.676,
+  "end": 175.996
+ },
+ {
+  "i": 558,
+  "word": "The",
+  "start": 176.316,
+  "end": 176.416
+ },
+ {
+  "i": 559,
+  "word": "link",
+  "start": 176.456,
+  "end": 176.636
+ },
+ {
+  "i": 560,
+  "word": "is",
+  "start": 176.696,
+  "end": 176.776
+ },
+ {
+  "i": 561,
+  "word": "in",
+  "start": 176.796,
+  "end": 176.856
+ },
+ {
+  "i": 562,
+  "word": "the",
+  "start": 176.876,
+  "end": 176.936
+ },
+ {
+  "i": 563,
+  "word": "episode",
+  "start": 176.976,
+  "end": 177.296
+ },
+ {
+  "i": 564,
+  "word": "description",
+  "start": 177.316,
+  "end": 177.737
+ },
+ {
+  "i": 565,
+  "word": "below,",
+  "start": 177.757,
+  "end": 178.017
+ },
+ {
+  "i": 566,
+  "word": "so",
+  "start": 178.037,
+  "end": 178.197
+ },
+ {
+  "i": 567,
+  "word": "check",
+  "start": 178.237,
+  "end": 178.437
+ },
+ {
+  "i": 568,
+  "word": "it",
+  "start": 178.477,
+  "end": 178.517
+ },
+ {
+  "i": 569,
+  "word": "out.",
+  "start": 178.597,
+  "end": 178.717
+ },
+ {
+  "i": 570,
+  "word": "Now",
+  "start": 179.81,
+  "end": 179.95
+ },
+ {
+  "i": 571,
+  "word": "it",
+  "start": 180.01,
+  "end": 180.05
+ },
+ {
+  "i": 572,
+  "word": "looks",
+  "start": 180.07,
+  "end": 180.25
+ },
+ {
+  "i": 573,
+  "word": "like",
+  "start": 180.27,
+  "end": 180.39
+ },
+ {
+  "i": 574,
+  "word": "the",
+  "start": 180.41,
+  "end": 180.47
+ },
+ {
+  "i": 575,
+  "word": "Houthis",
+  "start": 180.51,
+  "end": 180.87
+ },
+ {
+  "i": 576,
+  "word": "might",
+  "start": 180.93,
+  "end": 181.11
+ },
+ {
+  "i": 577,
+  "word": "have",
+  "start": 181.13,
+  "end": 181.23
+ },
+ {
+  "i": 578,
+  "word": "added",
+  "start": 181.27,
+  "end": 181.47
+ },
+ {
+  "i": 579,
+  "word": "another",
+  "start": 181.531,
+  "end": 181.831
+ },
+ {
+  "i": 580,
+  "word": "tactic",
+  "start": 181.891,
+  "end": 182.271
+ },
+ {
+  "i": 581,
+  "word": "to",
+  "start": 182.311,
+  "end": 182.371
+ },
+ {
+  "i": 582,
+  "word": "their",
+  "start": 182.391,
+  "end": 182.531
+ },
+ {
+  "i": 583,
+  "word": "attempts",
+  "start": 182.551,
+  "end": 182.871
+ },
+ {
+  "i": 584,
+  "word": "to",
+  "start": 182.891,
+  "end": 182.991
+ },
+ {
+  "i": 585,
+  "word": "disrupt",
+  "start": 183.011,
+  "end": 183.391
+ },
+ {
+  "i": 586,
+  "word": "global",
+  "start": 183.411,
+  "end": 183.731
+ },
+ {
+  "i": 587,
+  "word": "commerce.",
+  "start": 183.771,
+  "end": 184.171
+ },
+ {
+  "i": 588,
+  "word": "They",
+  "start": 184.771,
+  "end": 184.891
+ },
+ {
+  "i": 589,
+  "word": "were",
+  "start": 184.911,
+  "end": 185.031
+ },
+ {
+  "i": 590,
+  "word": "recently",
+  "start": 185.072,
+  "end": 185.392
+ },
+ {
+  "i": 591,
+  "word": "accused",
+  "start": 185.412,
+  "end": 185.752
+ },
+ {
+  "i": 592,
+  "word": "of",
+  "start": 185.812,
+  "end": 185.872
+ },
+ {
+  "i": 593,
+  "word": "cutting",
+  "start": 185.952,
+  "end": 186.212
+ },
+ {
+  "i": 594,
+  "word": "four",
+  "start": 186.332,
+  "end": 186.612
+ },
+ {
+  "i": 595,
+  "word": "underwater",
+  "start": 186.732,
+  "end": 187.212
+ },
+ {
+  "i": 596,
+  "word": "internet",
+  "start": 187.292,
+  "end": 187.592
+ },
+ {
+  "i": 597,
+  "word": "cables",
+  "start": 187.632,
+  "end": 187.972
+ },
+ {
+  "i": 598,
+  "word": "in",
+  "start": 188.012,
+  "end": 188.072
+ },
+ {
+  "i": 599,
+  "word": "the",
+  "start": 188.092,
+  "end": 188.172
+ },
+ {
+  "i": 600,
+  "word": "Red",
+  "start": 188.212,
+  "end": 188.372
+ },
+ {
+  "i": 601,
+  "word": "Sea.",
+  "start": 188.452,
+  "end": 188.693
+ },
+ {
+  "i": 602,
+  "word": "The",
+  "start": 188.893,
+  "end": 188.993
+ },
+ {
+  "i": 603,
+  "word": "four",
+  "start": 189.033,
+  "end": 189.273
+ },
+ {
+  "i": 604,
+  "word": "cables",
+  "start": 189.313,
+  "end": 189.613
+ },
+ {
+  "i": 605,
+  "word": "cut",
+  "start": 189.673,
+  "end": 189.893
+ },
+ {
+  "i": 606,
+  "word": "were",
+  "start": 189.913,
+  "end": 190.173
+ },
+ {
+  "i": 607,
+  "word": "AAE-1,",
+  "start": 190.513,
+  "end": 191.593
+ },
+ {
+  "i": 608,
+  "word": "and",
+  "start": 191.713,
+  "end": 191.813
+ },
+ {
+  "i": 609,
+  "word": "AAE",
+  "start": 192.013,
+  "end": 192.654
+ },
+ {
+  "i": 610,
+  "word": "stands",
+  "start": 192.674,
+  "end": 192.974
+ },
+ {
+  "i": 611,
+  "word": "for",
+  "start": 193.014,
+  "end": 193.294
+ },
+ {
+  "i": 612,
+  "word": "Asia,",
+  "start": 193.614,
+  "end": 194.074
+ },
+ {
+  "i": 613,
+  "word": "Africa,",
+  "start": 194.474,
+  "end": 194.914
+ },
+ {
+  "i": 614,
+  "word": "and",
+  "start": 195.034,
+  "end": 195.134
+ },
+ {
+  "i": 615,
+  "word": "Europe,",
+  "start": 195.234,
+  "end": 195.514
+ },
+ {
+  "i": 616,
+  "word": "which",
+  "start": 195.755,
+  "end": 195.915
+ },
+ {
+  "i": 617,
+  "word": "is",
+  "start": 196.075,
+  "end": 196.195
+ },
+ {
+  "i": 618,
+  "word": "a",
+  "start": 197.215,
+  "end": 197.335
+ },
+ {
+  "i": 619,
+  "word": "15,535-mile",
+  "start": 197.415,
+  "end": 198.615
+ },
+ {
+  "i": 620,
+  "word": "system",
+  "start": 198.695,
+  "end": 199.035
+ },
+ {
+  "i": 621,
+  "word": "that",
+  "start": 199.075,
+  "end": 199.176
+ },
+ {
+  "i": 622,
+  "word": "connects",
+  "start": 199.196,
+  "end": 199.556
+ },
+ {
+  "i": 623,
+  "word": "East",
+  "start": 199.756,
+  "end": 199.936
+ },
+ {
+  "i": 624,
+  "word": "Asia",
+  "start": 200.136,
+  "end": 200.416
+ },
+ {
+  "i": 625,
+  "word": "to",
+  "start": 200.476,
+  "end": 200.596
+ },
+ {
+  "i": 626,
+  "word": "Europe",
+  "start": 200.716,
+  "end": 200.936
+ },
+ {
+  "i": 627,
+  "word": "through",
+  "start": 200.976,
+  "end": 201.196
+ },
+ {
+  "i": 628,
+  "word": "Egypt",
+  "start": 201.336,
+  "end": 201.636
+ },
+ {
+  "i": 629,
+  "word": "and",
+  "start": 202.036,
+  "end": 202.116
+ },
+ {
+  "i": 630,
+  "word": "China",
+  "start": 202.216,
+  "end": 202.616
+ },
+ {
+  "i": 631,
+  "word": "to",
+  "start": 202.696,
+  "end": 202.837
+ },
+ {
+  "i": 632,
+  "word": "the",
+  "start": 202.857,
+  "end": 202.917
+ },
+ {
+  "i": 633,
+  "word": "West",
+  "start": 202.957,
+  "end": 203.197
+ },
+ {
+  "i": 634,
+  "word": "through",
+  "start": 203.217,
+  "end": 203.417
+ },
+ {
+  "i": 635,
+  "word": "Pakistan",
+  "start": 203.457,
+  "end": 204.037
+ },
+ {
+  "i": 636,
+  "word": "and",
+  "start": 204.137,
+  "end": 204.237
+ },
+ {
+  "i": 637,
+  "word": "Qatar.",
+  "start": 204.277,
+  "end": 204.717
+ },
+ {
+  "i": 638,
+  "word": "EIG,",
+  "start": 205.137,
+  "end": 205.617
+ },
+ {
+  "i": 639,
+  "word": "that",
+  "start": 205.637,
+  "end": 205.737
+ },
+ {
+  "i": 640,
+  "word": "stands",
+  "start": 205.777,
+  "end": 206.037
+ },
+ {
+  "i": 641,
+  "word": "for",
+  "start": 206.097,
+  "end": 206.298
+ },
+ {
+  "i": 642,
+  "word": "Europe-India",
+  "start": 206.458,
+  "end": 207.038
+ },
+ {
+  "i": 643,
+  "word": "Gateway,",
+  "start": 207.078,
+  "end": 207.498
+ },
+ {
+  "i": 644,
+  "word": "which",
+  "start": 208.038,
+  "end": 208.238
+ },
+ {
+  "i": 645,
+  "word": "links",
+  "start": 208.338,
+  "end": 208.618
+ },
+ {
+  "i": 646,
+  "word": "Europe",
+  "start": 208.779,
+  "end": 209.039
+ },
+ {
+  "i": 647,
+  "word": "to",
+  "start": 209.119,
+  "end": 209.219
+ },
+ {
+  "i": 648,
+  "word": "Africa",
+  "start": 209.359,
+  "end": 209.779
+ },
+ {
+  "i": 649,
+  "word": "and",
+  "start": 209.859,
+  "end": 209.959
+ },
+ {
+  "i": 650,
+  "word": "Asia",
+  "start": 210.1,
+  "end": 210.4
+ },
+ {
+  "i": 651,
+  "word": "and",
+  "start": 210.48,
+  "end": 210.56
+ },
+ {
+  "i": 652,
+  "word": "connects",
+  "start": 210.6,
+  "end": 210.9
+ },
+ {
+  "i": 653,
+  "word": "Southern",
+  "start": 210.96,
+  "end": 211.24
+ },
+ {
+  "i": 654,
+  "word": "Europe",
+  "start": 211.3,
+  "end": 211.521
+ },
+ {
+  "i": 655,
+  "word": "to",
+  "start": 211.541,
+  "end": 211.641
+ },
+ {
+  "i": 656,
+  "word": "the",
+  "start": 211.661,
+  "end": 211.741
+ },
+ {
+  "i": 657,
+  "word": "Middle",
+  "start": 211.781,
+  "end": 211.961
+ },
+ {
+  "i": 658,
+  "word": "East",
+  "start": 212.041,
+  "end": 212.201
+ },
+ {
+  "i": 659,
+  "word": "and",
+  "start": 212.221,
+  "end": 212.321
+ },
+ {
+  "i": 660,
+  "word": "India.",
+  "start": 212.401,
+  "end": 212.701
+ },
+ {
+  "i": 661,
+  "word": "The",
+  "start": 213.102,
+  "end": 213.202
+ },
+ {
+  "i": 662,
+  "word": "third",
+  "start": 213.222,
+  "end": 213.422
+ },
+ {
+  "i": 663,
+  "word": "cable",
+  "start": 213.462,
+  "end": 213.762
+ },
+ {
+  "i": 664,
+  "word": "was",
+  "start": 213.802,
+  "end": 214.002
+ },
+ {
+  "i": 665,
+  "word": "Seacom,",
+  "start": 214.082,
+  "end": 214.563
+ },
+ {
+  "i": 666,
+  "word": "which",
+  "start": 214.583,
+  "end": 214.703
+ },
+ {
+  "i": 667,
+  "word": "is",
+  "start": 214.763,
+  "end": 214.843
+ },
+ {
+  "i": 668,
+  "word": "owned",
+  "start": 214.963,
+  "end": 215.123
+ },
+ {
+  "i": 669,
+  "word": "by",
+  "start": 215.163,
+  "end": 215.343
+ },
+ {
+  "i": 670,
+  "word": "the",
+  "start": 215.403,
+  "end": 215.543
+ },
+ {
+  "i": 671,
+  "word": "South",
+  "start": 215.583,
+  "end": 215.884
+ },
+ {
+  "i": 672,
+  "word": "African",
+  "start": 215.984,
+  "end": 216.324
+ },
+ {
+  "i": 673,
+  "word": "company",
+  "start": 216.364,
+  "end": 216.684
+ },
+ {
+  "i": 674,
+  "word": "of",
+  "start": 216.704,
+  "end": 216.764
+ },
+ {
+  "i": 675,
+  "word": "the",
+  "start": 216.784,
+  "end": 216.864
+ },
+ {
+  "i": 676,
+  "word": "same",
+  "start": 216.884,
+  "end": 217.084
+ },
+ {
+  "i": 677,
+  "word": "name,",
+  "start": 217.125,
+  "end": 217.405
+ },
+ {
+  "i": 678,
+  "word": "which",
+  "start": 217.925,
+  "end": 218.065
+ },
+ {
+  "i": 679,
+  "word": "connects",
+  "start": 218.105,
+  "end": 218.425
+ },
+ {
+  "i": 680,
+  "word": "Europe,",
+  "start": 218.526,
+  "end": 218.766
+ },
+ {
+  "i": 681,
+  "word": "Africa,",
+  "start": 219.006,
+  "end": 219.346
+ },
+ {
+  "i": 682,
+  "word": "and",
+  "start": 219.466,
+  "end": 219.546
+ },
+ {
+  "i": 683,
+  "word": "Asia.",
+  "start": 219.566,
+  "end": 219.766
+ },
+ {
+  "i": 684,
+  "word": "And",
+  "start": 220.827,
+  "end": 220.907
+ },
+ {
+  "i": 685,
+  "word": "then",
+  "start": 220.927,
+  "end": 221.047
+ },
+ {
+  "i": 686,
+  "word": "the",
+  "start": 221.087,
+  "end": 221.147
+ },
+ {
+  "i": 687,
+  "word": "fourth",
+  "start": 221.207,
+  "end": 221.447
+ },
+ {
+  "i": 688,
+  "word": "one",
+  "start": 221.548,
+  "end": 221.648
+ },
+ {
+  "i": 689,
+  "word": "was",
+  "start": 221.688,
+  "end": 221.868
+ },
+ {
+  "i": 690,
+  "word": "TGN,",
+  "start": 221.948,
+  "end": 222.568
+ },
+ {
+  "i": 691,
+  "word": "which",
+  "start": 222.588,
+  "end": 222.728
+ },
+ {
+  "i": 692,
+  "word": "is",
+  "start": 222.788,
+  "end": 222.868
+ },
+ {
+  "i": 693,
+  "word": "a",
+  "start": 222.908,
+  "end": 222.968
+ },
+ {
+  "i": 694,
+  "word": "major",
+  "start": 223.049,
+  "end": 223.369
+ },
+ {
+  "i": 695,
+  "word": "link",
+  "start": 223.389,
+  "end": 223.589
+ },
+ {
+  "i": 696,
+  "word": "between",
+  "start": 223.629,
+  "end": 223.949
+ },
+ {
+  "i": 697,
+  "word": "India",
+  "start": 224.089,
+  "end": 224.409
+ },
+ {
+  "i": 698,
+  "word": "and",
+  "start": 224.53,
+  "end": 224.65
+ },
+ {
+  "i": 699,
+  "word": "the",
+  "start": 224.67,
+  "end": 224.73
+ },
+ {
+  "i": 700,
+  "word": "West.",
+  "start": 224.77,
+  "end": 225.11
+ },
+ {
+  "i": 701,
+  "word": "SECOM",
+  "start": 225.87,
+  "end": 226.231
+ },
+ {
+  "i": 702,
+  "word": "execs",
+  "start": 226.271,
+  "end": 226.611
+ },
+ {
+  "i": 703,
+  "word": "have",
+  "start": 226.651,
+  "end": 226.771
+ },
+ {
+  "i": 704,
+  "word": "said",
+  "start": 226.791,
+  "end": 226.991
+ },
+ {
+  "i": 705,
+  "word": "that",
+  "start": 227.031,
+  "end": 227.151
+ },
+ {
+  "i": 706,
+  "word": "it",
+  "start": 227.191,
+  "end": 227.231
+ },
+ {
+  "i": 707,
+  "word": "will",
+  "start": 227.271,
+  "end": 227.431
+ },
+ {
+  "i": 708,
+  "word": "take",
+  "start": 227.452,
+  "end": 227.672
+ },
+ {
+  "i": 709,
+  "word": "at",
+  "start": 227.752,
+  "end": 227.832
+ },
+ {
+  "i": 710,
+  "word": "least",
+  "start": 227.892,
+  "end": 228.112
+ },
+ {
+  "i": 711,
+  "word": "two",
+  "start": 228.192,
+  "end": 228.332
+ },
+ {
+  "i": 712,
+  "word": "months",
+  "start": 228.392,
+  "end": 228.612
+ },
+ {
+  "i": 713,
+  "word": "to",
+  "start": 228.652,
+  "end": 228.732
+ },
+ {
+  "i": 714,
+  "word": "repair",
+  "start": 228.772,
+  "end": 229.073
+ },
+ {
+  "i": 715,
+  "word": "their",
+  "start": 229.133,
+  "end": 229.333
+ },
+ {
+  "i": 716,
+  "word": "cable,",
+  "start": 229.373,
+  "end": 229.733
+ },
+ {
+  "i": 717,
+  "word": "and",
+  "start": 229.933,
+  "end": 230.013
+ },
+ {
+  "i": 718,
+  "word": "just",
+  "start": 230.053,
+  "end": 230.253
+ },
+ {
+  "i": 719,
+  "word": "like",
+  "start": 230.293,
+  "end": 230.474
+ },
+ {
+  "i": 720,
+  "word": "with",
+  "start": 230.554,
+  "end": 230.714
+ },
+ {
+  "i": 721,
+  "word": "commercial",
+  "start": 230.754,
+  "end": 231.154
+ },
+ {
+  "i": 722,
+  "word": "shipping",
+  "start": 231.194,
+  "end": 231.514
+ },
+ {
+  "i": 723,
+  "word": "transiting",
+  "start": 231.594,
+  "end": 232.035
+ },
+ {
+  "i": 724,
+  "word": "the",
+  "start": 232.075,
+  "end": 232.135
+ },
+ {
+  "i": 725,
+  "word": "region,",
+  "start": 232.195,
+  "end": 232.535
+ },
+ {
+  "i": 726,
+  "word": "the",
+  "start": 232.795,
+  "end": 232.895
+ },
+ {
+  "i": 727,
+  "word": "cost",
+  "start": 232.935,
+  "end": 233.235
+ },
+ {
+  "i": 728,
+  "word": "will",
+  "start": 233.255,
+  "end": 233.416
+ },
+ {
+  "i": 729,
+  "word": "be",
+  "start": 233.456,
+  "end": 233.536
+ },
+ {
+  "i": 730,
+  "word": "much",
+  "start": 233.636,
+  "end": 233.816
+ },
+ {
+  "i": 731,
+  "word": "higher",
+  "start": 233.856,
+  "end": 234.096
+ },
+ {
+  "i": 732,
+  "word": "than",
+  "start": 234.136,
+  "end": 234.236
+ },
+ {
+  "i": 733,
+  "word": "normal",
+  "start": 234.276,
+  "end": 234.536
+ },
+ {
+  "i": 734,
+  "word": "because",
+  "start": 234.576,
+  "end": 234.857
+ },
+ {
+  "i": 735,
+  "word": "of",
+  "start": 234.877,
+  "end": 234.917
+ },
+ {
+  "i": 736,
+  "word": "the",
+  "start": 234.957,
+  "end": 235.077
+ },
+ {
+  "i": 737,
+  "word": "increased",
+  "start": 235.177,
+  "end": 235.597
+ },
+ {
+  "i": 738,
+  "word": "insurance",
+  "start": 235.677,
+  "end": 236.117
+ },
+ {
+  "i": 739,
+  "word": "premiums",
+  "start": 236.177,
+  "end": 236.598
+ },
+ {
+  "i": 740,
+  "word": "due",
+  "start": 236.718,
+  "end": 236.858
+ },
+ {
+  "i": 741,
+  "word": "to",
+  "start": 236.878,
+  "end": 236.938
+ },
+ {
+  "i": 742,
+  "word": "current",
+  "start": 236.978,
+  "end": 237.258
+ },
+ {
+  "i": 743,
+  "word": "hazards",
+  "start": 237.278,
+  "end": 237.678
+ },
+ {
+  "i": 744,
+  "word": "associated",
+  "start": 237.718,
+  "end": 238.219
+ },
+ {
+  "i": 745,
+  "word": "with",
+  "start": 238.259,
+  "end": 238.379
+ },
+ {
+  "i": 746,
+  "word": "operating",
+  "start": 238.459,
+  "end": 238.839
+ },
+ {
+  "i": 747,
+  "word": "in",
+  "start": 238.879,
+  "end": 238.919
+ },
+ {
+  "i": 748,
+  "word": "the",
+  "start": 238.959,
+  "end": 239.019
+ },
+ {
+  "i": 749,
+  "word": "Red",
+  "start": 239.059,
+  "end": 239.219
+ },
+ {
+  "i": 750,
+  "word": "Sea.",
+  "start": 239.3,
+  "end": 239.54
+ },
+ {
+  "i": 751,
+  "word": "Hong",
+  "start": 240.04,
+  "end": 240.28
+ },
+ {
+  "i": 752,
+  "word": "Kong",
+  "start": 240.3,
+  "end": 240.6
+ },
+ {
+  "i": 753,
+  "word": "telecoms",
+  "start": 240.66,
+  "end": 241.221
+ },
+ {
+  "i": 754,
+  "word": "company",
+  "start": 241.281,
+  "end": 241.681
+ },
+ {
+  "i": 755,
+  "word": "HGC",
+  "start": 241.981,
+  "end": 242.622
+ },
+ {
+  "i": 756,
+  "word": "Global",
+  "start": 242.662,
+  "end": 243.062
+ },
+ {
+  "i": 757,
+  "word": "Communications",
+  "start": 243.102,
+  "end": 243.903
+ },
+ {
+  "i": 758,
+  "word": "announced",
+  "start": 244.023,
+  "end": 244.403
+ },
+ {
+  "i": 759,
+  "word": "the",
+  "start": 244.443,
+  "end": 244.523
+ },
+ {
+  "i": 760,
+  "word": "disruption",
+  "start": 244.563,
+  "end": 245.043
+ },
+ {
+  "i": 761,
+  "word": "earlier",
+  "start": 245.103,
+  "end": 245.383
+ },
+ {
+  "i": 762,
+  "word": "this",
+  "start": 245.424,
+  "end": 245.584
+ },
+ {
+  "i": 763,
+  "word": "week.",
+  "start": 245.644,
+  "end": 245.884
+ },
+ {
+  "i": 764,
+  "word": "As",
+  "start": 246.184,
+  "end": 246.284
+ },
+ {
+  "i": 765,
+  "word": "is",
+  "start": 246.364,
+  "end": 246.444
+ },
+ {
+  "i": 766,
+  "word": "to",
+  "start": 246.484,
+  "end": 246.564
+ },
+ {
+  "i": 767,
+  "word": "be",
+  "start": 246.604,
+  "end": 246.704
+ },
+ {
+  "i": 768,
+  "word": "expected",
+  "start": 246.764,
+  "end": 247.225
+ },
+ {
+  "i": 769,
+  "word": "based",
+  "start": 247.265,
+  "end": 247.545
+ },
+ {
+  "i": 770,
+  "word": "on",
+  "start": 247.625,
+  "end": 247.685
+ },
+ {
+  "i": 771,
+  "word": "the",
+  "start": 247.705,
+  "end": 247.785
+ },
+ {
+  "i": 772,
+  "word": "regions",
+  "start": 247.825,
+  "end": 248.245
+ },
+ {
+  "i": 773,
+  "word": "these",
+  "start": 248.325,
+  "end": 248.526
+ },
+ {
+  "i": 774,
+  "word": "cables",
+  "start": 248.566,
+  "end": 248.926
+ },
+ {
+  "i": 775,
+  "word": "serve,",
+  "start": 248.986,
+  "end": 249.366
+ },
+ {
+  "i": 776,
+  "word": "the",
+  "start": 249.526,
+  "end": 249.626
+ },
+ {
+  "i": 777,
+  "word": "cuts",
+  "start": 249.646,
+  "end": 249.906
+ },
+ {
+  "i": 778,
+  "word": "worsened",
+  "start": 250.066,
+  "end": 250.467
+ },
+ {
+  "i": 779,
+  "word": "internet",
+  "start": 250.507,
+  "end": 250.827
+ },
+ {
+  "i": 780,
+  "word": "connections",
+  "start": 250.847,
+  "end": 251.327
+ },
+ {
+  "i": 781,
+  "word": "in",
+  "start": 251.387,
+  "end": 251.487
+ },
+ {
+  "i": 782,
+  "word": "India,",
+  "start": 251.627,
+  "end": 251.948
+ },
+ {
+  "i": 783,
+  "word": "Pakistan,",
+  "start": 252.128,
+  "end": 252.788
+ },
+ {
+  "i": 784,
+  "word": "and",
+  "start": 252.928,
+  "end": 253.028
+ },
+ {
+  "i": 785,
+  "word": "East",
+  "start": 253.148,
+  "end": 253.349
+ },
+ {
+  "i": 786,
+  "word": "Africa.",
+  "start": 253.469,
+  "end": 253.829
+ },
+ {
+  "i": 787,
+  "word": "Internet",
+  "start": 254.209,
+  "end": 254.469
+ },
+ {
+  "i": 788,
+  "word": "providers",
+  "start": 254.509,
+  "end": 254.91
+ },
+ {
+  "i": 789,
+  "word": "have",
+  "start": 254.95,
+  "end": 255.09
+ },
+ {
+  "i": 790,
+  "word": "rerouted",
+  "start": 255.15,
+  "end": 255.57
+ },
+ {
+  "i": 791,
+  "word": "traffic,",
+  "start": 255.61,
+  "end": 256.11
+ },
+ {
+  "i": 792,
+  "word": "but",
+  "start": 256.19,
+  "end": 256.311
+ },
+ {
+  "i": 793,
+  "word": "because",
+  "start": 256.351,
+  "end": 256.711
+ },
+ {
+  "i": 794,
+  "word": "those",
+  "start": 256.791,
+  "end": 257.051
+ },
+ {
+  "i": 795,
+  "word": "lines",
+  "start": 257.111,
+  "end": 257.371
+ },
+ {
+  "i": 796,
+  "word": "are",
+  "start": 257.431,
+  "end": 257.531
+ },
+ {
+  "i": 797,
+  "word": "already",
+  "start": 257.691,
+  "end": 257.992
+ },
+ {
+  "i": 798,
+  "word": "being",
+  "start": 258.052,
+  "end": 258.292
+ },
+ {
+  "i": 799,
+  "word": "heavily",
+  "start": 258.332,
+  "end": 258.652
+ },
+ {
+  "i": 800,
+  "word": "used,",
+  "start": 258.852,
+  "end": 259.072
+ },
+ {
+  "i": 801,
+  "word": "doing",
+  "start": 259.372,
+  "end": 259.673
+ },
+ {
+  "i": 802,
+  "word": "that",
+  "start": 259.693,
+  "end": 259.853
+ },
+ {
+  "i": 803,
+  "word": "doesn't",
+  "start": 259.893,
+  "end": 260.153
+ },
+ {
+  "i": 804,
+  "word": "return",
+  "start": 260.173,
+  "end": 260.513
+ },
+ {
+  "i": 805,
+  "word": "customers'",
+  "start": 260.573,
+  "end": 260.973
+ },
+ {
+  "i": 806,
+  "word": "bandwidth",
+  "start": 261.014,
+  "end": 261.454
+ },
+ {
+  "i": 807,
+  "word": "to",
+  "start": 261.474,
+  "end": 261.514
+ },
+ {
+  "i": 808,
+  "word": "where",
+  "start": 261.554,
+  "end": 261.694
+ },
+ {
+  "i": 809,
+  "word": "it",
+  "start": 261.714,
+  "end": 261.774
+ },
+ {
+  "i": 810,
+  "word": "was",
+  "start": 261.834,
+  "end": 262.014
+ },
+ {
+  "i": 811,
+  "word": "with",
+  "start": 262.054,
+  "end": 262.174
+ },
+ {
+  "i": 812,
+  "word": "the",
+  "start": 262.194,
+  "end": 262.254
+ },
+ {
+  "i": 813,
+  "word": "Red",
+  "start": 262.294,
+  "end": 262.454
+ },
+ {
+  "i": 814,
+  "word": "Sea",
+  "start": 262.494,
+  "end": 262.695
+ },
+ {
+  "i": 815,
+  "word": "lines.",
+  "start": 262.735,
+  "end": 263.015
+ },
+ {
+  "i": 816,
+  "word": "And",
+  "start": 263.335,
+  "end": 263.415
+ },
+ {
+  "i": 817,
+  "word": "just",
+  "start": 263.435,
+  "end": 263.595
+ },
+ {
+  "i": 818,
+  "word": "like",
+  "start": 263.635,
+  "end": 263.776
+ },
+ {
+  "i": 819,
+  "word": "shipping,",
+  "start": 263.856,
+  "end": 264.256
+ },
+ {
+  "i": 820,
+  "word": "the",
+  "start": 264.436,
+  "end": 264.556
+ },
+ {
+  "i": 821,
+  "word": "relatively",
+  "start": 264.596,
+  "end": 265.097
+ },
+ {
+  "i": 822,
+  "word": "shallow",
+  "start": 265.157,
+  "end": 265.517
+ },
+ {
+  "i": 823,
+  "word": "Red",
+  "start": 265.557,
+  "end": 265.738
+ },
+ {
+  "i": 824,
+  "word": "Sea",
+  "start": 265.838,
+  "end": 266.078
+ },
+ {
+  "i": 825,
+  "word": "is",
+  "start": 266.198,
+  "end": 266.278
+ },
+ {
+  "i": 826,
+  "word": "a",
+  "start": 266.318,
+  "end": 266.378
+ },
+ {
+  "i": 827,
+  "word": "major",
+  "start": 266.499,
+  "end": 266.839
+ },
+ {
+  "i": 828,
+  "word": "passageway",
+  "start": 266.879,
+  "end": 267.379
+ },
+ {
+  "i": 829,
+  "word": "for",
+  "start": 267.42,
+  "end": 267.52
+ },
+ {
+  "i": 830,
+  "word": "the",
+  "start": 267.54,
+  "end": 267.6
+ },
+ {
+  "i": 831,
+  "word": "Internet,",
+  "start": 267.64,
+  "end": 267.96
+ },
+ {
+  "i": 832,
+  "word": "with",
+  "start": 268.12,
+  "end": 268.26
+ },
+ {
+  "i": 833,
+  "word": "more",
+  "start": 268.321,
+  "end": 268.481
+ },
+ {
+  "i": 834,
+  "word": "than",
+  "start": 268.521,
+  "end": 268.661
+ },
+ {
+  "i": 835,
+  "word": "15",
+  "start": 268.881,
+  "end": 269.262
+ },
+ {
+  "i": 836,
+  "word": "undersea",
+  "start": 269.342,
+  "end": 269.682
+ },
+ {
+  "i": 837,
+  "word": "cables",
+  "start": 269.702,
+  "end": 270.002
+ },
+ {
+  "i": 838,
+  "word": "connecting",
+  "start": 270.042,
+  "end": 270.423
+ },
+ {
+  "i": 839,
+  "word": "Europe,",
+  "start": 270.523,
+  "end": 270.763
+ },
+ {
+  "i": 840,
+  "word": "Asia,",
+  "start": 271.124,
+  "end": 271.404
+ },
+ {
+  "i": 841,
+  "word": "and",
+  "start": 271.484,
+  "end": 271.564
+ },
+ {
+  "i": 842,
+  "word": "the",
+  "start": 271.584,
+  "end": 271.644
+ },
+ {
+  "i": 843,
+  "word": "Middle",
+  "start": 271.684,
+  "end": 271.904
+ },
+ {
+  "i": 844,
+  "word": "East.",
+  "start": 271.965,
+  "end": 272.185
+ },
+ {
+  "i": 845,
+  "word": "A",
+  "start": 272.585,
+  "end": 272.605
+ },
+ {
+  "i": 846,
+  "word": "Wired",
+  "start": 272.665,
+  "end": 272.926
+ },
+ {
+  "i": 847,
+  "word": "magazine",
+  "start": 272.966,
+  "end": 273.386
+ },
+ {
+  "i": 848,
+  "word": "feature",
+  "start": 273.426,
+  "end": 273.706
+ },
+ {
+  "i": 849,
+  "word": "back",
+  "start": 273.746,
+  "end": 273.927
+ },
+ {
+  "i": 850,
+  "word": "in",
+  "start": 273.967,
+  "end": 274.347
+ },
+ {
+  "i": 851,
+  "word": "2022",
+  "start": 274.467,
+  "end": 274.848
+ },
+ {
+  "i": 852,
+  "word": "called",
+  "start": 274.948,
+  "end": 275.208
+ },
+ {
+  "i": 853,
+  "word": "the",
+  "start": 275.228,
+  "end": 275.308
+ },
+ {
+  "i": 854,
+  "word": "Red",
+  "start": 275.348,
+  "end": 275.488
+ },
+ {
+  "i": 855,
+  "word": "Sea",
+  "start": 275.568,
+  "end": 275.809
+ },
+ {
+  "i": 856,
+  "word": "the",
+  "start": 275.929,
+  "end": 276.029
+ },
+ {
+  "i": 857,
+  "word": "Internet's",
+  "start": 276.149,
+  "end": 276.53
+ },
+ {
+  "i": 858,
+  "word": "most",
+  "start": 276.59,
+  "end": 276.79
+ },
+ {
+  "i": 859,
+  "word": "vulnerable",
+  "start": 276.89,
+  "end": 277.411
+ },
+ {
+  "i": 860,
+  "word": "place",
+  "start": 277.471,
+  "end": 277.751
+ },
+ {
+  "i": 861,
+  "word": "on",
+  "start": 277.911,
+  "end": 277.971
+ },
+ {
+  "i": 862,
+  "word": "Earth.",
+  "start": 277.991,
+  "end": 278.151
+ },
+ {
+  "i": 863,
+  "word": "These",
+  "start": 278.832,
+  "end": 279.072
+ },
+ {
+  "i": 864,
+  "word": "days,",
+  "start": 279.132,
+  "end": 279.373
+ },
+ {
+  "i": 865,
+  "word": "when",
+  "start": 279.393,
+  "end": 279.513
+ },
+ {
+  "i": 866,
+  "word": "we",
+  "start": 279.553,
+  "end": 279.633
+ },
+ {
+  "i": 867,
+  "word": "think",
+  "start": 279.693,
+  "end": 279.873
+ },
+ {
+  "i": 868,
+  "word": "about",
+  "start": 279.913,
+  "end": 280.113
+ },
+ {
+  "i": 869,
+  "word": "internet",
+  "start": 280.173,
+  "end": 280.473
+ },
+ {
+  "i": 870,
+  "word": "access,",
+  "start": 280.554,
+  "end": 280.894
+ },
+ {
+  "i": 871,
+  "word": "we",
+  "start": 280.934,
+  "end": 281.074
+ },
+ {
+  "i": 872,
+  "word": "automatically",
+  "start": 281.234,
+  "end": 281.735
+ },
+ {
+  "i": 873,
+  "word": "equate",
+  "start": 281.775,
+  "end": 282.095
+ },
+ {
+  "i": 874,
+  "word": "that",
+  "start": 282.135,
+  "end": 282.295
+ },
+ {
+  "i": 875,
+  "word": "with",
+  "start": 282.355,
+  "end": 282.495
+ },
+ {
+  "i": 876,
+  "word": "Wi-Fi,",
+  "start": 282.595,
+  "end": 283.196
+ },
+ {
+  "i": 877,
+  "word": "and",
+  "start": 283.276,
+  "end": 283.356
+ },
+ {
+  "i": 878,
+  "word": "we",
+  "start": 283.396,
+  "end": 283.496
+ },
+ {
+  "i": 879,
+  "word": "conceive",
+  "start": 283.536,
+  "end": 283.976
+ },
+ {
+  "i": 880,
+  "word": "of",
+  "start": 283.996,
+  "end": 284.036
+ },
+ {
+  "i": 881,
+  "word": "that",
+  "start": 284.077,
+  "end": 284.217
+ },
+ {
+  "i": 882,
+  "word": "as",
+  "start": 284.277,
+  "end": 284.357
+ },
+ {
+  "i": 883,
+  "word": "something",
+  "start": 284.397,
+  "end": 284.657
+ },
+ {
+  "i": 884,
+  "word": "that",
+  "start": 284.677,
+  "end": 284.777
+ },
+ {
+  "i": 885,
+  "word": "travels",
+  "start": 284.817,
+  "end": 285.097
+ },
+ {
+  "i": 886,
+  "word": "through",
+  "start": 285.117,
+  "end": 285.338
+ },
+ {
+  "i": 887,
+  "word": "space.",
+  "start": 285.398,
+  "end": 285.778
+ },
+ {
+  "i": 888,
+  "word": "But",
+  "start": 285.958,
+  "end": 286.058
+ },
+ {
+  "i": 889,
+  "word": "undersea",
+  "start": 286.118,
+  "end": 286.479
+ },
+ {
+  "i": 890,
+  "word": "cables",
+  "start": 286.499,
+  "end": 286.859
+ },
+ {
+  "i": 891,
+  "word": "are",
+  "start": 286.919,
+  "end": 287.019
+ },
+ {
+  "i": 892,
+  "word": "the",
+  "start": 287.059,
+  "end": 287.139
+ },
+ {
+  "i": 893,
+  "word": "cheapest",
+  "start": 287.199,
+  "end": 287.66
+ },
+ {
+  "i": 894,
+  "word": "and",
+  "start": 287.8,
+  "end": 287.9
+ },
+ {
+  "i": 895,
+  "word": "fastest",
+  "start": 287.98,
+  "end": 288.4
+ },
+ {
+  "i": 896,
+  "word": "way",
+  "start": 288.44,
+  "end": 288.54
+ },
+ {
+  "i": 897,
+  "word": "to",
+  "start": 288.58,
+  "end": 288.64
+ },
+ {
+  "i": 898,
+  "word": "send",
+  "start": 288.68,
+  "end": 288.881
+ },
+ {
+  "i": 899,
+  "word": "data,",
+  "start": 288.901,
+  "end": 289.241
+ },
+ {
+  "i": 900,
+  "word": "and",
+  "start": 289.681,
+  "end": 289.781
+ },
+ {
+  "i": 901,
+  "word": "as",
+  "start": 289.841,
+  "end": 289.942
+ },
+ {
+  "i": 902,
+  "word": "a",
+  "start": 290.002,
+  "end": 290.042
+ },
+ {
+  "i": 903,
+  "word": "result,",
+  "start": 290.082,
+  "end": 290.522
+ },
+ {
+  "i": 904,
+  "word": "they",
+  "start": 290.882,
+  "end": 291.062
+ },
+ {
+  "i": 905,
+  "word": "account",
+  "start": 291.123,
+  "end": 291.423
+ },
+ {
+  "i": 906,
+  "word": "for",
+  "start": 291.463,
+  "end": 291.583
+ },
+ {
+  "i": 907,
+  "word": "99%",
+  "start": 291.743,
+  "end": 292.464
+ },
+ {
+  "i": 908,
+  "word": "of",
+  "start": 292.504,
+  "end": 292.564
+ },
+ {
+  "i": 909,
+  "word": "internet",
+  "start": 292.644,
+  "end": 292.944
+ },
+ {
+  "i": 910,
+  "word": "traffic",
+  "start": 292.984,
+  "end": 293.304
+ },
+ {
+  "i": 911,
+  "word": "between",
+  "start": 293.344,
+  "end": 293.645
+ },
+ {
+  "i": 912,
+  "word": "continents,",
+  "start": 293.705,
+  "end": 294.125
+ },
+ {
+  "i": 913,
+  "word": "according",
+  "start": 294.165,
+  "end": 294.485
+ },
+ {
+  "i": 914,
+  "word": "to",
+  "start": 294.525,
+  "end": 294.585
+ },
+ {
+  "i": 915,
+  "word": "CNET.",
+  "start": 294.646,
+  "end": 295.026
+ },
+ {
+  "i": 916,
+  "word": "And",
+  "start": 295.246,
+  "end": 295.306
+ },
+ {
+  "i": 917,
+  "word": "the",
+  "start": 295.326,
+  "end": 295.406
+ },
+ {
+  "i": 918,
+  "word": "New",
+  "start": 295.446,
+  "end": 295.506
+ },
+ {
+  "i": 919,
+  "word": "York",
+  "start": 295.546,
+  "end": 295.706
+ },
+ {
+  "i": 920,
+  "word": "Times",
+  "start": 295.746,
+  "end": 296.047
+ },
+ {
+  "i": 921,
+  "word": "reports",
+  "start": 296.107,
+  "end": 296.487
+ },
+ {
+  "i": 922,
+  "word": "that",
+  "start": 296.527,
+  "end": 296.647
+ },
+ {
+  "i": 923,
+  "word": "Google,",
+  "start": 296.727,
+  "end": 297.108
+ },
+ {
+  "i": 924,
+  "word": "Facebook,",
+  "start": 297.188,
+  "end": 297.648
+ },
+ {
+  "i": 925,
+  "word": "and",
+  "start": 297.708,
+  "end": 297.788
+ },
+ {
+  "i": 926,
+  "word": "Microsoft",
+  "start": 297.828,
+  "end": 298.429
+ },
+ {
+  "i": 927,
+  "word": "have",
+  "start": 298.669,
+  "end": 298.769
+ },
+ {
+  "i": 928,
+  "word": "been",
+  "start": 298.789,
+  "end": 298.909
+ },
+ {
+  "i": 929,
+  "word": "running",
+  "start": 298.949,
+  "end": 299.169
+ },
+ {
+  "i": 930,
+  "word": "new",
+  "start": 299.249,
+  "end": 299.41
+ },
+ {
+  "i": 931,
+  "word": "cable",
+  "start": 299.45,
+  "end": 299.71
+ },
+ {
+  "i": 932,
+  "word": "systems,",
+  "start": 299.75,
+  "end": 300.11
+ },
+ {
+  "i": 933,
+  "word": "which",
+  "start": 300.471,
+  "end": 300.611
+ },
+ {
+  "i": 934,
+  "word": "can",
+  "start": 300.651,
+  "end": 300.791
+ },
+ {
+  "i": 935,
+  "word": "cost",
+  "start": 300.851,
+  "end": 301.171
+ },
+ {
+  "i": 936,
+  "word": "up",
+  "start": 301.291,
+  "end": 301.351
+ },
+ {
+  "i": 937,
+  "word": "to",
+  "start": 301.391,
+  "end": 301.451
+ },
+ {
+  "i": 938,
+  "word": "$350",
+  "start": 301.471,
+  "end": 301.551
+ },
+ {
+  "i": 939,
+  "word": "million",
+  "start": 301.571,
+  "end": 301.752
+ },
+ {
+  "i": 940,
+  "word": "each.",
+  "start": 301.772,
+  "end": 301.872
+ },
+ {
+  "i": 941,
+  "word": "The",
+  "start": 303.453,
+  "end": 303.533
+ },
+ {
+  "i": 942,
+  "word": "cables",
+  "start": 303.573,
+  "end": 303.913
+ },
+ {
+  "i": 943,
+  "word": "are",
+  "start": 303.953,
+  "end": 304.053
+ },
+ {
+  "i": 944,
+  "word": "typically",
+  "start": 304.093,
+  "end": 304.513
+ },
+ {
+  "i": 945,
+  "word": "16",
+  "start": 304.533,
+  "end": 305.134
+ },
+ {
+  "i": 946,
+  "word": "slim",
+  "start": 305.214,
+  "end": 305.494
+ },
+ {
+  "i": 947,
+  "word": "fiber",
+  "start": 305.614,
+  "end": 305.894
+ },
+ {
+  "i": 948,
+  "word": "optic",
+  "start": 306.014,
+  "end": 306.314
+ },
+ {
+  "i": 949,
+  "word": "strands",
+  "start": 306.354,
+  "end": 306.814
+ },
+ {
+  "i": 950,
+  "word": "that",
+  "start": 306.874,
+  "end": 307.014
+ },
+ {
+  "i": 951,
+  "word": "transmit",
+  "start": 307.074,
+  "end": 307.555
+ },
+ {
+  "i": 952,
+  "word": "the",
+  "start": 307.595,
+  "end": 307.675
+ },
+ {
+  "i": 953,
+  "word": "data,",
+  "start": 307.715,
+  "end": 307.995
+ },
+ {
+  "i": 954,
+  "word": "surrounded",
+  "start": 308.295,
+  "end": 308.735
+ },
+ {
+  "i": 955,
+  "word": "by",
+  "start": 308.775,
+  "end": 308.935
+ },
+ {
+  "i": 956,
+  "word": "a",
+  "start": 308.995,
+  "end": 309.015
+ },
+ {
+  "i": 957,
+  "word": "layer",
+  "start": 309.075,
+  "end": 309.355
+ },
+ {
+  "i": 958,
+  "word": "of",
+  "start": 309.375,
+  "end": 309.455
+ },
+ {
+  "i": 959,
+  "word": "copper",
+  "start": 309.515,
+  "end": 309.875
+ },
+ {
+  "i": 960,
+  "word": "armoring",
+  "start": 309.995,
+  "end": 310.336
+ },
+ {
+  "i": 961,
+  "word": "to",
+  "start": 310.396,
+  "end": 310.476
+ },
+ {
+  "i": 962,
+  "word": "protect",
+  "start": 310.516,
+  "end": 310.896
+ },
+ {
+  "i": 963,
+  "word": "and",
+  "start": 310.936,
+  "end": 311.016
+ },
+ {
+  "i": 964,
+  "word": "stabilize",
+  "start": 311.076,
+  "end": 311.596
+ },
+ {
+  "i": 965,
+  "word": "the",
+  "start": 311.636,
+  "end": 311.716
+ },
+ {
+  "i": 966,
+  "word": "strands.",
+  "start": 311.756,
+  "end": 312.156
+ },
+ {
+  "i": 967,
+  "word": "The",
+  "start": 312.516,
+  "end": 312.616
+ },
+ {
+  "i": 968,
+  "word": "core",
+  "start": 312.656,
+  "end": 312.897
+ },
+ {
+  "i": 969,
+  "word": "is",
+  "start": 312.957,
+  "end": 313.037
+ },
+ {
+  "i": 970,
+  "word": "then",
+  "start": 313.077,
+  "end": 313.257
+ },
+ {
+  "i": 971,
+  "word": "encased",
+  "start": 313.297,
+  "end": 313.717
+ },
+ {
+  "i": 972,
+  "word": "in",
+  "start": 313.797,
+  "end": 313.877
+ },
+ {
+  "i": 973,
+  "word": "a",
+  "start": 313.917,
+  "end": 313.977
+ },
+ {
+  "i": 974,
+  "word": "polyethylene",
+  "start": 314.097,
+  "end": 314.917
+ },
+ {
+  "i": 975,
+  "word": "jacket.",
+  "start": 314.957,
+  "end": 315.377
+ },
+ {
+  "i": 976,
+  "word": "This",
+  "start": 315.738,
+  "end": 315.858
+ },
+ {
+  "i": 977,
+  "word": "lightweight",
+  "start": 315.918,
+  "end": 316.278
+ },
+ {
+  "i": 978,
+  "word": "cable",
+  "start": 316.298,
+  "end": 316.638
+ },
+ {
+  "i": 979,
+  "word": "about",
+  "start": 316.698,
+  "end": 316.938
+ },
+ {
+  "i": 980,
+  "word": "the",
+  "start": 316.958,
+  "end": 317.058
+ },
+ {
+  "i": 981,
+  "word": "circumference",
+  "start": 317.098,
+  "end": 317.678
+ },
+ {
+  "i": 982,
+  "word": "of",
+  "start": 317.718,
+  "end": 317.758
+ },
+ {
+  "i": 983,
+  "word": "a",
+  "start": 317.818,
+  "end": 317.838
+ },
+ {
+  "i": 984,
+  "word": "human",
+  "start": 317.898,
+  "end": 318.138
+ },
+ {
+  "i": 985,
+  "word": "thumb",
+  "start": 318.219,
+  "end": 318.519
+ },
+ {
+  "i": 986,
+  "word": "runs",
+  "start": 318.799,
+  "end": 319.019
+ },
+ {
+  "i": 987,
+  "word": "through",
+  "start": 319.059,
+  "end": 319.239
+ },
+ {
+  "i": 988,
+  "word": "the",
+  "start": 319.259,
+  "end": 319.339
+ },
+ {
+  "i": 989,
+  "word": "deepest",
+  "start": 319.379,
+  "end": 319.759
+ },
+ {
+  "i": 990,
+  "word": "parts",
+  "start": 319.799,
+  "end": 320.019
+ },
+ {
+  "i": 991,
+  "word": "of",
+  "start": 320.059,
+  "end": 320.119
+ },
+ {
+  "i": 992,
+  "word": "the",
+  "start": 320.139,
+  "end": 320.219
+ },
+ {
+  "i": 993,
+  "word": "ocean,",
+  "start": 320.319,
+  "end": 320.579
+ },
+ {
+  "i": 994,
+  "word": "where",
+  "start": 320.699,
+  "end": 320.839
+ },
+ {
+  "i": 995,
+  "word": "it's",
+  "start": 320.86,
+  "end": 320.96
+ },
+ {
+  "i": 996,
+  "word": "unlikely",
+  "start": 321.1,
+  "end": 321.68
+ },
+ {
+  "i": 997,
+  "word": "to",
+  "start": 321.7,
+  "end": 321.76
+ },
+ {
+  "i": 998,
+  "word": "be",
+  "start": 321.82,
+  "end": 321.92
+ },
+ {
+  "i": 999,
+  "word": "disturbed",
+  "start": 321.96,
+  "end": 322.44
+ },
+ {
+  "i": 1000,
+  "word": "by",
+  "start": 322.5,
+  "end": 322.64
+ },
+ {
+  "i": 1001,
+  "word": "activities",
+  "start": 322.74,
+  "end": 323.2
+ },
+ {
+  "i": 1002,
+  "word": "like",
+  "start": 323.24,
+  "end": 323.42
+ },
+ {
+  "i": 1003,
+  "word": "boat",
+  "start": 323.48,
+  "end": 323.701
+ },
+ {
+  "i": 1004,
+  "word": "anchoring",
+  "start": 323.781,
+  "end": 324.141
+ },
+ {
+  "i": 1005,
+  "word": "and",
+  "start": 324.161,
+  "end": 324.241
+ },
+ {
+  "i": 1006,
+  "word": "fishing",
+  "start": 324.301,
+  "end": 324.601
+ },
+ {
+  "i": 1007,
+  "word": "operations.",
+  "start": 324.661,
+  "end": 325.201
+ },
+ {
+  "i": 1008,
+  "word": "As",
+  "start": 325.621,
+  "end": 325.701
+ },
+ {
+  "i": 1009,
+  "word": "the",
+  "start": 325.741,
+  "end": 325.841
+ },
+ {
+  "i": 1010,
+  "word": "cable",
+  "start": 325.861,
+  "end": 326.141
+ },
+ {
+  "i": 1011,
+  "word": "travels",
+  "start": 326.181,
+  "end": 326.542
+ },
+ {
+  "i": 1012,
+  "word": "into",
+  "start": 326.582,
+  "end": 326.782
+ },
+ {
+  "i": 1013,
+  "word": "shallower",
+  "start": 326.862,
+  "end": 327.302
+ },
+ {
+  "i": 1014,
+  "word": "water",
+  "start": 327.342,
+  "end": 327.622
+ },
+ {
+  "i": 1015,
+  "word": "that",
+  "start": 327.642,
+  "end": 327.782
+ },
+ {
+  "i": 1016,
+  "word": "sees",
+  "start": 327.842,
+  "end": 328.082
+ },
+ {
+  "i": 1017,
+  "word": "more",
+  "start": 328.142,
+  "end": 328.322
+ },
+ {
+  "i": 1018,
+  "word": "traffic,",
+  "start": 328.382,
+  "end": 328.802
+ },
+ {
+  "i": 1019,
+  "word": "it's",
+  "start": 328.983,
+  "end": 329.103
+ },
+ {
+  "i": 1020,
+  "word": "armored",
+  "start": 329.283,
+  "end": 329.543
+ },
+ {
+  "i": 1021,
+  "word": "with",
+  "start": 329.583,
+  "end": 329.703
+ },
+ {
+  "i": 1022,
+  "word": "additional",
+  "start": 329.763,
+  "end": 330.183
+ },
+ {
+  "i": 1023,
+  "word": "casings",
+  "start": 330.223,
+  "end": 330.663
+ },
+ {
+  "i": 1024,
+  "word": "that",
+  "start": 330.703,
+  "end": 330.823
+ },
+ {
+  "i": 1025,
+  "word": "can",
+  "start": 330.843,
+  "end": 330.963
+ },
+ {
+  "i": 1026,
+  "word": "reach",
+  "start": 331.023,
+  "end": 331.203
+ },
+ {
+  "i": 1027,
+  "word": "about",
+  "start": 331.263,
+  "end": 331.463
+ },
+ {
+  "i": 1028,
+  "word": "two",
+  "start": 331.523,
+  "end": 331.684
+ },
+ {
+  "i": 1029,
+  "word": "inches",
+  "start": 331.744,
+  "end": 331.964
+ },
+ {
+  "i": 1030,
+  "word": "in",
+  "start": 332.024,
+  "end": 332.104
+ },
+ {
+  "i": 1031,
+  "word": "diameter.",
+  "start": 332.144,
+  "end": 332.584
+ },
+ {
+  "i": 1032,
+  "word": "Laying",
+  "start": 333.084,
+  "end": 333.345
+ },
+ {
+  "i": 1033,
+  "word": "a",
+  "start": 333.385,
+  "end": 333.425
+ },
+ {
+  "i": 1034,
+  "word": "cable",
+  "start": 333.465,
+  "end": 333.805
+ },
+ {
+  "i": 1035,
+  "word": "is",
+  "start": 333.865,
+  "end": 333.945
+ },
+ {
+  "i": 1036,
+  "word": "a",
+  "start": 333.986,
+  "end": 334.026
+ },
+ {
+  "i": 1037,
+  "word": "years-long",
+  "start": 334.086,
+  "end": 334.687
+ },
+ {
+  "i": 1038,
+  "word": "process",
+  "start": 334.747,
+  "end": 335.267
+ },
+ {
+  "i": 1039,
+  "word": "which",
+  "start": 335.307,
+  "end": 335.488
+ },
+ {
+  "i": 1040,
+  "word": "costs",
+  "start": 335.568,
+  "end": 335.888
+ },
+ {
+  "i": 1041,
+  "word": "millions",
+  "start": 335.948,
+  "end": 336.289
+ },
+ {
+  "i": 1042,
+  "word": "of",
+  "start": 336.309,
+  "end": 336.369
+ },
+ {
+  "i": 1043,
+  "word": "dollars.",
+  "start": 336.409,
+  "end": 336.79
+ },
+ {
+  "i": 1044,
+  "word": "First,",
+  "start": 337.19,
+  "end": 337.451
+ },
+ {
+  "i": 1045,
+  "word": "companies",
+  "start": 337.491,
+  "end": 337.871
+ },
+ {
+  "i": 1046,
+  "word": "look",
+  "start": 337.891,
+  "end": 338.072
+ },
+ {
+  "i": 1047,
+  "word": "at",
+  "start": 338.092,
+  "end": 338.152
+ },
+ {
+  "i": 1048,
+  "word": "naval",
+  "start": 338.192,
+  "end": 338.432
+ },
+ {
+  "i": 1049,
+  "word": "charts",
+  "start": 338.472,
+  "end": 338.793
+ },
+ {
+  "i": 1050,
+  "word": "to",
+  "start": 338.833,
+  "end": 338.913
+ },
+ {
+  "i": 1051,
+  "word": "plot",
+  "start": 338.973,
+  "end": 339.233
+ },
+ {
+  "i": 1052,
+  "word": "the",
+  "start": 339.273,
+  "end": 339.353
+ },
+ {
+  "i": 1053,
+  "word": "best",
+  "start": 339.393,
+  "end": 339.614
+ },
+ {
+  "i": 1054,
+  "word": "route.",
+  "start": 339.674,
+  "end": 339.914
+ },
+ {
+  "i": 1055,
+  "word": "Cables",
+  "start": 340.375,
+  "end": 340.755
+ },
+ {
+  "i": 1056,
+  "word": "are",
+  "start": 340.816,
+  "end": 340.916
+ },
+ {
+  "i": 1057,
+  "word": "safest",
+  "start": 340.976,
+  "end": 341.396
+ },
+ {
+  "i": 1058,
+  "word": "in",
+  "start": 341.436,
+  "end": 341.517
+ },
+ {
+  "i": 1059,
+  "word": "deep",
+  "start": 341.557,
+  "end": 341.757
+ },
+ {
+  "i": 1060,
+  "word": "water",
+  "start": 341.817,
+  "end": 342.057
+ },
+ {
+  "i": 1061,
+  "word": "where",
+  "start": 342.077,
+  "end": 342.198
+ },
+ {
+  "i": 1062,
+  "word": "they",
+  "start": 342.218,
+  "end": 342.318
+ },
+ {
+  "i": 1063,
+  "word": "can",
+  "start": 342.338,
+  "end": 342.438
+ },
+ {
+  "i": 1064,
+  "word": "rest",
+  "start": 342.498,
+  "end": 342.718
+ },
+ {
+  "i": 1065,
+  "word": "on",
+  "start": 342.819,
+  "end": 342.899
+ },
+ {
+  "i": 1066,
+  "word": "a",
+  "start": 342.939,
+  "end": 343.019
+ },
+ {
+  "i": 1067,
+  "word": "relatively",
+  "start": 343.099,
+  "end": 343.6
+ },
+ {
+  "i": 1068,
+  "word": "flat",
+  "start": 343.66,
+  "end": 343.92
+ },
+ {
+  "i": 1069,
+  "word": "seabed",
+  "start": 344.02,
+  "end": 344.461
+ },
+ {
+  "i": 1070,
+  "word": "and",
+  "start": 344.661,
+  "end": 344.761
+ },
+ {
+  "i": 1071,
+  "word": "won't",
+  "start": 344.801,
+  "end": 345.022
+ },
+ {
+  "i": 1072,
+  "word": "rub",
+  "start": 345.062,
+  "end": 345.222
+ },
+ {
+  "i": 1073,
+  "word": "against",
+  "start": 345.262,
+  "end": 345.502
+ },
+ {
+  "i": 1074,
+  "word": "rocks",
+  "start": 345.583,
+  "end": 345.863
+ },
+ {
+  "i": 1075,
+  "word": "or",
+  "start": 345.923,
+  "end": 345.983
+ },
+ {
+  "i": 1076,
+  "word": "be",
+  "start": 346.023,
+  "end": 346.143
+ },
+ {
+  "i": 1077,
+  "word": "at",
+  "start": 346.183,
+  "end": 346.244
+ },
+ {
+  "i": 1078,
+  "word": "risk",
+  "start": 346.304,
+  "end": 346.544
+ },
+ {
+  "i": 1079,
+  "word": "of",
+  "start": 346.564,
+  "end": 346.644
+ },
+ {
+  "i": 1080,
+  "word": "other",
+  "start": 346.704,
+  "end": 346.884
+ },
+ {
+  "i": 1081,
+  "word": "disturbances.",
+  "start": 346.925,
+  "end": 347.545
+ },
+ {
+  "i": 1082,
+  "word": "Once",
+  "start": 348.106,
+  "end": 348.266
+ },
+ {
+  "i": 1083,
+  "word": "the",
+  "start": 348.326,
+  "end": 348.426
+ },
+ {
+  "i": 1084,
+  "word": "route",
+  "start": 348.446,
+  "end": 348.667
+ },
+ {
+  "i": 1085,
+  "word": "is",
+  "start": 348.707,
+  "end": 348.787
+ },
+ {
+  "i": 1086,
+  "word": "plotted",
+  "start": 348.867,
+  "end": 349.227
+ },
+ {
+  "i": 1087,
+  "word": "and",
+  "start": 349.267,
+  "end": 349.347
+ },
+ {
+  "i": 1088,
+  "word": "checked",
+  "start": 349.427,
+  "end": 349.687
+ },
+ {
+  "i": 1089,
+  "word": "and",
+  "start": 349.708,
+  "end": 349.788
+ },
+ {
+  "i": 1090,
+  "word": "the",
+  "start": 349.808,
+  "end": 349.888
+ },
+ {
+  "i": 1091,
+  "word": "shore",
+  "start": 349.928,
+  "end": 350.168
+ },
+ {
+  "i": 1092,
+  "word": "connections",
+  "start": 350.208,
+  "end": 350.608
+ },
+ {
+  "i": 1093,
+  "word": "are",
+  "start": 350.668,
+  "end": 350.748
+ },
+ {
+  "i": 1094,
+  "word": "secure,",
+  "start": 350.788,
+  "end": 351.269
+ },
+ {
+  "i": 1095,
+  "word": "huge",
+  "start": 351.609,
+  "end": 351.889
+ },
+ {
+  "i": 1096,
+  "word": "cable-laying",
+  "start": 351.949,
+  "end": 352.51
+ },
+ {
+  "i": 1097,
+  "word": "ships",
+  "start": 352.55,
+  "end": 352.79
+ },
+ {
+  "i": 1098,
+  "word": "begin",
+  "start": 352.85,
+  "end": 353.11
+ },
+ {
+  "i": 1099,
+  "word": "loading",
+  "start": 353.17,
+  "end": 353.451
+ },
+ {
+  "i": 1100,
+  "word": "the",
+  "start": 353.471,
+  "end": 353.551
+ },
+ {
+  "i": 1101,
+  "word": "cable,",
+  "start": 353.591,
+  "end": 353.891
+ },
+ {
+  "i": 1102,
+  "word": "which",
+  "start": 353.911,
+  "end": 354.051
+ },
+ {
+  "i": 1103,
+  "word": "can",
+  "start": 354.071,
+  "end": 354.211
+ },
+ {
+  "i": 1104,
+  "word": "take",
+  "start": 354.251,
+  "end": 354.472
+ },
+ {
+  "i": 1105,
+  "word": "up",
+  "start": 354.572,
+  "end": 354.632
+ },
+ {
+  "i": 1106,
+  "word": "to",
+  "start": 354.672,
+  "end": 354.792
+ },
+ {
+  "i": 1107,
+  "word": "a",
+  "start": 354.832,
+  "end": 354.852
+ },
+ {
+  "i": 1108,
+  "word": "month",
+  "start": 354.932,
+  "end": 355.172
+ },
+ {
+  "i": 1109,
+  "word": "depending",
+  "start": 355.212,
+  "end": 355.532
+ },
+ {
+  "i": 1110,
+  "word": "on",
+  "start": 355.572,
+  "end": 355.632
+ },
+ {
+  "i": 1111,
+  "word": "the",
+  "start": 355.653,
+  "end": 355.733
+ },
+ {
+  "i": 1112,
+  "word": "number",
+  "start": 355.773,
+  "end": 355.973
+ },
+ {
+  "i": 1113,
+  "word": "of",
+  "start": 355.993,
+  "end": 356.053
+ },
+ {
+  "i": 1114,
+  "word": "spools",
+  "start": 356.133,
+  "end": 356.493
+ },
+ {
+  "i": 1115,
+  "word": "required.",
+  "start": 356.533,
+  "end": 356.974
+ },
+ {
+  "i": 1116,
+  "word": "Of",
+  "start": 357.414,
+  "end": 357.454
+ },
+ {
+  "i": 1117,
+  "word": "course,",
+  "start": 357.514,
+  "end": 357.774
+ },
+ {
+  "i": 1118,
+  "word": "communicating",
+  "start": 357.814,
+  "end": 358.395
+ },
+ {
+  "i": 1119,
+  "word": "between",
+  "start": 358.435,
+  "end": 358.735
+ },
+ {
+  "i": 1120,
+  "word": "continents",
+  "start": 358.775,
+  "end": 359.155
+ },
+ {
+  "i": 1121,
+  "word": "using",
+  "start": 359.296,
+  "end": 359.536
+ },
+ {
+  "i": 1122,
+  "word": "undersea",
+  "start": 359.636,
+  "end": 359.976
+ },
+ {
+  "i": 1123,
+  "word": "cables",
+  "start": 359.996,
+  "end": 360.356
+ },
+ {
+  "i": 1124,
+  "word": "isn't",
+  "start": 360.517,
+  "end": 360.737
+ },
+ {
+  "i": 1125,
+  "word": "new.",
+  "start": 360.817,
+  "end": 361.037
+ },
+ {
+  "i": 1126,
+  "word": "On",
+  "start": 361.337,
+  "end": 361.397
+ },
+ {
+  "i": 1127,
+  "word": "July",
+  "start": 361.437,
+  "end": 361.758
+ },
+ {
+  "i": 1128,
+  "word": "29,",
+  "start": 361.858,
+  "end": 362.058
+ },
+ {
+  "i": 1129,
+  "word": "1858,",
+  "start": 362.198,
+  "end": 363.439
+ },
+ {
+  "i": 1130,
+  "word": "two",
+  "start": 363.599,
+  "end": 363.819
+ },
+ {
+  "i": 1131,
+  "word": "steam-powered",
+  "start": 363.899,
+  "end": 364.48
+ },
+ {
+  "i": 1132,
+  "word": "battleships",
+  "start": 364.54,
+  "end": 365.1
+ },
+ {
+  "i": 1133,
+  "word": "met",
+  "start": 365.241,
+  "end": 365.461
+ },
+ {
+  "i": 1134,
+  "word": "in",
+  "start": 365.541,
+  "end": 365.601
+ },
+ {
+  "i": 1135,
+  "word": "the",
+  "start": 365.621,
+  "end": 365.701
+ },
+ {
+  "i": 1136,
+  "word": "middle",
+  "start": 365.721,
+  "end": 365.941
+ },
+ {
+  "i": 1137,
+  "word": "of",
+  "start": 365.961,
+  "end": 366.021
+ },
+ {
+  "i": 1138,
+  "word": "the",
+  "start": 366.061,
+  "end": 366.161
+ },
+ {
+  "i": 1139,
+  "word": "Atlantic",
+  "start": 366.221,
+  "end": 366.542
+ },
+ {
+  "i": 1140,
+  "word": "Ocean",
+  "start": 366.662,
+  "end": 366.902
+ },
+ {
+  "i": 1141,
+  "word": "and",
+  "start": 367.302,
+  "end": 367.382
+ },
+ {
+  "i": 1142,
+  "word": "connected",
+  "start": 367.442,
+  "end": 367.803
+ },
+ {
+  "i": 1143,
+  "word": "two",
+  "start": 367.883,
+  "end": 368.063
+ },
+ {
+  "i": 1144,
+  "word": "ends",
+  "start": 368.143,
+  "end": 368.323
+ },
+ {
+  "i": 1145,
+  "word": "of",
+  "start": 368.443,
+  "end": 368.503
+ },
+ {
+  "i": 1146,
+  "word": "a",
+  "start": 368.543,
+  "end": 368.944
+ },
+ {
+  "i": 1147,
+  "word": "2,500-mile-long,",
+  "start": 369.104,
+  "end": 370.065
+ },
+ {
+  "i": 1148,
+  "word": "half-inch-wide",
+  "start": 370.125,
+  "end": 370.885
+ },
+ {
+  "i": 1149,
+  "word": "cable,",
+  "start": 370.945,
+  "end": 371.286
+ },
+ {
+  "i": 1150,
+  "word": "which",
+  "start": 371.606,
+  "end": 371.766
+ },
+ {
+  "i": 1151,
+  "word": "linked",
+  "start": 371.866,
+  "end": 372.106
+ },
+ {
+  "i": 1152,
+  "word": "Europe",
+  "start": 372.226,
+  "end": 372.467
+ },
+ {
+  "i": 1153,
+  "word": "and",
+  "start": 372.567,
+  "end": 372.647
+ },
+ {
+  "i": 1154,
+  "word": "North",
+  "start": 372.687,
+  "end": 372.867
+ },
+ {
+  "i": 1155,
+  "word": "America",
+  "start": 372.907,
+  "end": 373.247
+ },
+ {
+  "i": 1156,
+  "word": "by",
+  "start": 373.287,
+  "end": 373.407
+ },
+ {
+  "i": 1157,
+  "word": "telegraph.",
+  "start": 373.447,
+  "end": 373.888
+ },
+ {
+  "i": 1158,
+  "word": "The",
+  "start": 374.168,
+  "end": 374.268
+ },
+ {
+  "i": 1159,
+  "word": "first",
+  "start": 374.308,
+  "end": 374.528
+ },
+ {
+  "i": 1160,
+  "word": "message",
+  "start": 374.588,
+  "end": 374.908
+ },
+ {
+  "i": 1161,
+  "word": "between",
+  "start": 374.948,
+  "end": 375.248
+ },
+ {
+  "i": 1162,
+  "word": "UK's",
+  "start": 375.348,
+  "end": 375.688
+ },
+ {
+  "i": 1163,
+  "word": "Queen",
+  "start": 375.748,
+  "end": 375.929
+ },
+ {
+  "i": 1164,
+  "word": "Victoria",
+  "start": 375.969,
+  "end": 376.469
+ },
+ {
+  "i": 1165,
+  "word": "and",
+  "start": 376.569,
+  "end": 376.629
+ },
+ {
+  "i": 1166,
+  "word": "US",
+  "start": 376.729,
+  "end": 376.929
+ },
+ {
+  "i": 1167,
+  "word": "President",
+  "start": 376.989,
+  "end": 377.389
+ },
+ {
+  "i": 1168,
+  "word": "James",
+  "start": 377.429,
+  "end": 377.749
+ },
+ {
+  "i": 1169,
+  "word": "Buchanan",
+  "start": 377.809,
+  "end": 378.309
+ },
+ {
+  "i": 1170,
+  "word": "took",
+  "start": 378.349,
+  "end": 378.529
+ },
+ {
+  "i": 1171,
+  "word": "over",
+  "start": 378.589,
+  "end": 378.749
+ },
+ {
+  "i": 1172,
+  "word": "17",
+  "start": 378.829,
+  "end": 379.289
+ },
+ {
+  "i": 1173,
+  "word": "hours",
+  "start": 379.309,
+  "end": 379.57
+ },
+ {
+  "i": 1174,
+  "word": "to",
+  "start": 379.63,
+  "end": 379.71
+ },
+ {
+  "i": 1175,
+  "word": "deliver",
+  "start": 379.77,
+  "end": 380.17
+ },
+ {
+  "i": 1176,
+  "word": "at",
+  "start": 380.55,
+  "end": 380.61
+ },
+ {
+  "i": 1177,
+  "word": "2",
+  "start": 380.69,
+  "end": 380.85
+ },
+ {
+  "i": 1178,
+  "word": "minutes",
+  "start": 380.87,
+  "end": 381.13
+ },
+ {
+  "i": 1179,
+  "word": "and",
+  "start": 381.15,
+  "end": 381.23
+ },
+ {
+  "i": 1180,
+  "word": "5",
+  "start": 381.47,
+  "end": 381.55
+ },
+ {
+  "i": 1181,
+  "word": "seconds",
+  "start": 381.59,
+  "end": 381.91
+ },
+ {
+  "i": 1182,
+  "word": "per",
+  "start": 381.97,
+  "end": 382.11
+ },
+ {
+  "i": 1183,
+  "word": "letter",
+  "start": 382.17,
+  "end": 382.43
+ },
+ {
+  "i": 1184,
+  "word": "by",
+  "start": 382.47,
+  "end": 382.59
+ },
+ {
+  "i": 1185,
+  "word": "Morse",
+  "start": 382.65,
+  "end": 382.911
+ },
+ {
+  "i": 1186,
+  "word": "code.",
+  "start": 382.951,
+  "end": 383.711
+ },
+ {
+  "i": 1187,
+  "word": "In",
+  "start": 383.811,
+  "end": 384.051
+ },
+ {
+  "i": 1188,
+  "word": "1956,",
+  "start": 384.151,
+  "end": 384.591
+ },
+ {
+  "i": 1189,
+  "word": "transatlantic",
+  "start": 384.651,
+  "end": 385.311
+ },
+ {
+  "i": 1190,
+  "word": "number",
+  "start": 385.351,
+  "end": 385.551
+ },
+ {
+  "i": 1191,
+  "word": "one,",
+  "start": 385.711,
+  "end": 385.871
+ },
+ {
+  "i": 1192,
+  "word": "known",
+  "start": 386.151,
+  "end": 386.371
+ },
+ {
+  "i": 1193,
+  "word": "as",
+  "start": 386.452,
+  "end": 386.572
+ },
+ {
+  "i": 1194,
+  "word": "TAT-1,",
+  "start": 386.692,
+  "end": 387.512
+ },
+ {
+  "i": 1195,
+  "word": "the",
+  "start": 387.752,
+  "end": 387.832
+ },
+ {
+  "i": 1196,
+  "word": "first",
+  "start": 387.872,
+  "end": 388.092
+ },
+ {
+  "i": 1197,
+  "word": "underwater",
+  "start": 388.212,
+  "end": 388.632
+ },
+ {
+  "i": 1198,
+  "word": "telephone",
+  "start": 388.672,
+  "end": 389.072
+ },
+ {
+  "i": 1199,
+  "word": "cable",
+  "start": 389.112,
+  "end": 389.412
+ },
+ {
+  "i": 1200,
+  "word": "was",
+  "start": 389.452,
+  "end": 389.572
+ },
+ {
+  "i": 1201,
+  "word": "laid,",
+  "start": 389.632,
+  "end": 389.912
+ },
+ {
+  "i": 1202,
+  "word": "and",
+  "start": 390.293,
+  "end": 390.373
+ },
+ {
+  "i": 1203,
+  "word": "by",
+  "start": 390.413,
+  "end": 390.553
+ },
+ {
+  "i": 1204,
+  "word": "1988,",
+  "start": 390.573,
+  "end": 390.973
+ },
+ {
+  "i": 1205,
+  "word": "TAT-8",
+  "start": 391.093,
+  "end": 392.513
+ },
+ {
+  "i": 1206,
+  "word": "was",
+  "start": 392.573,
+  "end": 392.713
+ },
+ {
+  "i": 1207,
+  "word": "transmitting",
+  "start": 392.793,
+  "end": 393.353
+ },
+ {
+  "i": 1208,
+  "word": "280",
+  "start": 393.433,
+  "end": 393.814
+ },
+ {
+  "i": 1209,
+  "word": "megabytes",
+  "start": 394.114,
+  "end": 394.594
+ },
+ {
+  "i": 1210,
+  "word": "per",
+  "start": 394.654,
+  "end": 394.774
+ },
+ {
+  "i": 1211,
+  "word": "second.",
+  "start": 394.834,
+  "end": 395.174
+ },
+ {
+  "i": 1212,
+  "word": "about",
+  "start": 395.354,
+  "end": 395.534
+ },
+ {
+  "i": 1213,
+  "word": "15",
+  "start": 395.815,
+  "end": 396.015
+ },
+ {
+  "i": 1214,
+  "word": "times",
+  "start": 396.075,
+  "end": 396.355
+ },
+ {
+  "i": 1215,
+  "word": "the",
+  "start": 396.395,
+  "end": 396.475
+ },
+ {
+  "i": 1216,
+  "word": "speed",
+  "start": 396.515,
+  "end": 396.716
+ },
+ {
+  "i": 1217,
+  "word": "of",
+  "start": 396.756,
+  "end": 396.796
+ },
+ {
+  "i": 1218,
+  "word": "an",
+  "start": 396.836,
+  "end": 396.896
+ },
+ {
+  "i": 1219,
+  "word": "average",
+  "start": 396.976,
+  "end": 397.216
+ },
+ {
+  "i": 1220,
+  "word": "U.S.",
+  "start": 397.276,
+  "end": 397.517
+ },
+ {
+  "i": 1221,
+  "word": "household",
+  "start": 397.557,
+  "end": 397.977
+ },
+ {
+  "i": 1222,
+  "word": "internet",
+  "start": 398.017,
+  "end": 398.318
+ },
+ {
+  "i": 1223,
+  "word": "connection",
+  "start": 398.338,
+  "end": 398.738
+ },
+ {
+  "i": 1224,
+  "word": "over",
+  "start": 398.978,
+  "end": 399.139
+ },
+ {
+  "i": 1225,
+  "word": "fiber",
+  "start": 399.259,
+  "end": 399.619
+ },
+ {
+  "i": 1226,
+  "word": "optics,",
+  "start": 399.719,
+  "end": 400.04
+ },
+ {
+  "i": 1227,
+  "word": "which",
+  "start": 400.32,
+  "end": 400.48
+ },
+ {
+  "i": 1228,
+  "word": "use",
+  "start": 400.6,
+  "end": 400.781
+ },
+ {
+  "i": 1229,
+  "word": "light",
+  "start": 400.881,
+  "end": 401.141
+ },
+ {
+  "i": 1230,
+  "word": "to",
+  "start": 401.181,
+  "end": 401.261
+ },
+ {
+  "i": 1231,
+  "word": "transmit",
+  "start": 401.301,
+  "end": 401.682
+ },
+ {
+  "i": 1232,
+  "word": "data",
+  "start": 401.722,
+  "end": 402.002
+ },
+ {
+  "i": 1233,
+  "word": "at",
+  "start": 402.062,
+  "end": 402.142
+ },
+ {
+  "i": 1234,
+  "word": "breakneck",
+  "start": 402.182,
+  "end": 402.643
+ },
+ {
+  "i": 1235,
+  "word": "speeds.",
+  "start": 402.683,
+  "end": 403.063
+ },
+ {
+  "i": 1236,
+  "word": "Today,",
+  "start": 403.504,
+  "end": 403.764
+ },
+ {
+  "i": 1237,
+  "word": "there",
+  "start": 403.804,
+  "end": 403.944
+ },
+ {
+  "i": 1238,
+  "word": "are",
+  "start": 404.004,
+  "end": 404.125
+ },
+ {
+  "i": 1239,
+  "word": "around",
+  "start": 404.165,
+  "end": 404.405
+ },
+ {
+  "i": 1240,
+  "word": "380",
+  "start": 404.425,
+  "end": 405.086
+ },
+ {
+  "i": 1241,
+  "word": "underwater",
+  "start": 405.166,
+  "end": 405.546
+ },
+ {
+  "i": 1242,
+  "word": "cables",
+  "start": 405.586,
+  "end": 405.907
+ },
+ {
+  "i": 1243,
+  "word": "in",
+  "start": 405.947,
+  "end": 406.027
+ },
+ {
+  "i": 1244,
+  "word": "operation",
+  "start": 406.067,
+  "end": 406.487
+ },
+ {
+  "i": 1245,
+  "word": "around",
+  "start": 406.507,
+  "end": 406.708
+ },
+ {
+  "i": 1246,
+  "word": "the",
+  "start": 406.748,
+  "end": 406.828
+ },
+ {
+  "i": 1247,
+  "word": "world,",
+  "start": 406.868,
+  "end": 407.108
+ },
+ {
+  "i": 1248,
+  "word": "spanning",
+  "start": 407.408,
+  "end": 407.749
+ },
+ {
+  "i": 1249,
+  "word": "a",
+  "start": 407.789,
+  "end": 407.849
+ },
+ {
+  "i": 1250,
+  "word": "length",
+  "start": 407.889,
+  "end": 408.129
+ },
+ {
+  "i": 1251,
+  "word": "of",
+  "start": 408.169,
+  "end": 408.229
+ },
+ {
+  "i": 1252,
+  "word": "over",
+  "start": 408.29,
+  "end": 408.45
+ },
+ {
+  "i": 1253,
+  "word": "745,645",
+  "start": 408.47,
+  "end": 408.73
+ },
+ {
+  "i": 1254,
+  "word": "miles.",
+  "start": 408.75,
+  "end": 408.87
+ },
+ {
+  "i": 1255,
+  "word": "Damage",
+  "start": 412.074,
+  "end": 412.434
+ },
+ {
+  "i": 1256,
+  "word": "to",
+  "start": 412.454,
+  "end": 412.534
+ },
+ {
+  "i": 1257,
+  "word": "these",
+  "start": 412.574,
+  "end": 412.714
+ },
+ {
+  "i": 1258,
+  "word": "cables",
+  "start": 412.754,
+  "end": 413.115
+ },
+ {
+  "i": 1259,
+  "word": "isn't",
+  "start": 413.315,
+  "end": 413.495
+ },
+ {
+  "i": 1260,
+  "word": "necessarily",
+  "start": 413.555,
+  "end": 414.155
+ },
+ {
+  "i": 1261,
+  "word": "rare",
+  "start": 414.235,
+  "end": 414.516
+ },
+ {
+  "i": 1262,
+  "word": "and",
+  "start": 414.656,
+  "end": 414.756
+ },
+ {
+  "i": 1263,
+  "word": "can",
+  "start": 414.796,
+  "end": 415.016
+ },
+ {
+  "i": 1264,
+  "word": "be",
+  "start": 415.036,
+  "end": 415.136
+ },
+ {
+  "i": 1265,
+  "word": "caused",
+  "start": 415.176,
+  "end": 415.456
+ },
+ {
+  "i": 1266,
+  "word": "by",
+  "start": 415.496,
+  "end": 415.596
+ },
+ {
+  "i": 1267,
+  "word": "natural",
+  "start": 415.676,
+  "end": 416.037
+ },
+ {
+  "i": 1268,
+  "word": "disasters",
+  "start": 416.077,
+  "end": 416.617
+ },
+ {
+  "i": 1269,
+  "word": "like",
+  "start": 416.657,
+  "end": 416.817
+ },
+ {
+  "i": 1270,
+  "word": "the",
+  "start": 416.837,
+  "end": 416.937
+ },
+ {
+  "i": 1271,
+  "word": "storm",
+  "start": 416.997,
+  "end": 417.278
+ },
+ {
+  "i": 1272,
+  "word": "that",
+  "start": 417.298,
+  "end": 417.418
+ },
+ {
+  "i": 1273,
+  "word": "took",
+  "start": 417.438,
+  "end": 417.618
+ },
+ {
+  "i": 1274,
+  "word": "out",
+  "start": 417.678,
+  "end": 417.778
+ },
+ {
+  "i": 1275,
+  "word": "the",
+  "start": 417.818,
+  "end": 417.898
+ },
+ {
+  "i": 1276,
+  "word": "internet",
+  "start": 417.958,
+  "end": 418.278
+ },
+ {
+  "i": 1277,
+  "word": "in",
+  "start": 418.318,
+  "end": 418.378
+ },
+ {
+  "i": 1278,
+  "word": "Taiwan",
+  "start": 418.418,
+  "end": 419.519
+ },
+ {
+  "i": 1279,
+  "word": "in",
+  "start": 419.559,
+  "end": 419.599
+ },
+ {
+  "i": 1280,
+  "word": "2006",
+  "start": 419.619,
+  "end": 420.039
+ },
+ {
+  "i": 1281,
+  "word": "and",
+  "start": 420.36,
+  "end": 420.5
+ },
+ {
+  "i": 1282,
+  "word": "Hurricane",
+  "start": 420.54,
+  "end": 421.0
+ },
+ {
+  "i": 1283,
+  "word": "Sandy",
+  "start": 421.04,
+  "end": 421.38
+ },
+ {
+  "i": 1284,
+  "word": "in",
+  "start": 421.42,
+  "end": 421.781
+ },
+ {
+  "i": 1285,
+  "word": "2012",
+  "start": 421.821,
+  "end": 422.201
+ },
+ {
+  "i": 1286,
+  "word": "that",
+  "start": 422.361,
+  "end": 422.481
+ },
+ {
+  "i": 1287,
+  "word": "cost",
+  "start": 422.521,
+  "end": 422.801
+ },
+ {
+  "i": 1288,
+  "word": "an",
+  "start": 422.861,
+  "end": 422.941
+ },
+ {
+  "i": 1289,
+  "word": "estimated",
+  "start": 423.041,
+  "end": 423.482
+ },
+ {
+  "i": 1290,
+  "word": "$71",
+  "start": 423.542,
+  "end": 423.982
+ },
+ {
+  "i": 1291,
+  "word": "billion",
+  "start": 424.002,
+  "end": 424.282
+ },
+ {
+  "i": 1292,
+  "word": "to",
+  "start": 424.642,
+  "end": 424.742
+ },
+ {
+  "i": 1293,
+  "word": "repair",
+  "start": 424.783,
+  "end": 425.163
+ },
+ {
+  "i": 1294,
+  "word": "and",
+  "start": 425.423,
+  "end": 425.503
+ },
+ {
+  "i": 1295,
+  "word": "knocked",
+  "start": 425.543,
+  "end": 425.803
+ },
+ {
+  "i": 1296,
+  "word": "out",
+  "start": 425.883,
+  "end": 426.003
+ },
+ {
+  "i": 1297,
+  "word": "several",
+  "start": 426.083,
+  "end": 426.404
+ },
+ {
+  "i": 1298,
+  "word": "key",
+  "start": 426.444,
+  "end": 426.604
+ },
+ {
+  "i": 1299,
+  "word": "exchanges",
+  "start": 426.644,
+  "end": 427.184
+ },
+ {
+  "i": 1300,
+  "word": "where",
+  "start": 427.244,
+  "end": 427.404
+ },
+ {
+  "i": 1301,
+  "word": "undersea",
+  "start": 427.484,
+  "end": 427.825
+ },
+ {
+  "i": 1302,
+  "word": "cables",
+  "start": 427.865,
+  "end": 428.225
+ },
+ {
+  "i": 1303,
+  "word": "linked",
+  "start": 428.325,
+  "end": 428.545
+ },
+ {
+  "i": 1304,
+  "word": "North",
+  "start": 428.645,
+  "end": 428.845
+ },
+ {
+  "i": 1305,
+  "word": "America",
+  "start": 428.885,
+  "end": 429.266
+ },
+ {
+  "i": 1306,
+  "word": "and",
+  "start": 429.286,
+  "end": 429.366
+ },
+ {
+  "i": 1307,
+  "word": "Europe.",
+  "start": 429.466,
+  "end": 429.686
+ },
+ {
+  "i": 1308,
+  "word": "But",
+  "start": 430.086,
+  "end": 430.206
+ },
+ {
+  "i": 1309,
+  "word": "two-thirds",
+  "start": 430.246,
+  "end": 430.747
+ },
+ {
+  "i": 1310,
+  "word": "of",
+  "start": 430.787,
+  "end": 430.847
+ },
+ {
+  "i": 1311,
+  "word": "cable",
+  "start": 430.907,
+  "end": 431.227
+ },
+ {
+  "i": 1312,
+  "word": "failures",
+  "start": 431.287,
+  "end": 431.647
+ },
+ {
+  "i": 1313,
+  "word": "are",
+  "start": 431.687,
+  "end": 431.767
+ },
+ {
+  "i": 1314,
+  "word": "caused",
+  "start": 431.807,
+  "end": 432.087
+ },
+ {
+  "i": 1315,
+  "word": "by",
+  "start": 432.128,
+  "end": 432.228
+ },
+ {
+  "i": 1316,
+  "word": "accidental",
+  "start": 432.348,
+  "end": 432.808
+ },
+ {
+  "i": 1317,
+  "word": "human",
+  "start": 432.848,
+  "end": 433.048
+ },
+ {
+  "i": 1318,
+  "word": "activities,",
+  "start": 433.108,
+  "end": 433.569
+ },
+ {
+  "i": 1319,
+  "word": "fishing",
+  "start": 433.929,
+  "end": 434.249
+ },
+ {
+  "i": 1320,
+  "word": "nets",
+  "start": 434.309,
+  "end": 434.509
+ },
+ {
+  "i": 1321,
+  "word": "and",
+  "start": 434.569,
+  "end": 434.649
+ },
+ {
+  "i": 1322,
+  "word": "trawling,",
+  "start": 434.689,
+  "end": 435.05
+ },
+ {
+  "i": 1323,
+  "word": "and",
+  "start": 435.07,
+  "end": 435.15
+ },
+ {
+  "i": 1324,
+  "word": "also",
+  "start": 435.19,
+  "end": 435.47
+ },
+ {
+  "i": 1325,
+  "word": "ships'",
+  "start": 435.55,
+  "end": 435.81
+ },
+ {
+  "i": 1326,
+  "word": "anchors.",
+  "start": 435.91,
+  "end": 436.21
+ },
+ {
+  "i": 1327,
+  "word": "The",
+  "start": 436.611,
+  "end": 436.711
+ },
+ {
+  "i": 1328,
+  "word": "rest",
+  "start": 436.751,
+  "end": 436.971
+ },
+ {
+  "i": 1329,
+  "word": "of",
+  "start": 437.011,
+  "end": 437.071
+ },
+ {
+  "i": 1330,
+  "word": "the",
+  "start": 437.091,
+  "end": 437.171
+ },
+ {
+  "i": 1331,
+  "word": "human",
+  "start": 437.211,
+  "end": 437.431
+ },
+ {
+  "i": 1332,
+  "word": "disruptions",
+  "start": 437.451,
+  "end": 437.932
+ },
+ {
+  "i": 1333,
+  "word": "are",
+  "start": 437.992,
+  "end": 438.072
+ },
+ {
+  "i": 1334,
+  "word": "malicious.",
+  "start": 438.092,
+  "end": 438.572
+ },
+ {
+  "i": 1335,
+  "word": "And",
+  "start": 438.952,
+  "end": 439.032
+ },
+ {
+  "i": 1336,
+  "word": "what",
+  "start": 439.072,
+  "end": 439.233
+ },
+ {
+  "i": 1337,
+  "word": "researcher",
+  "start": 439.313,
+  "end": 439.813
+ },
+ {
+  "i": 1338,
+  "word": "Nicole",
+  "start": 439.873,
+  "end": 440.253
+ },
+ {
+  "i": 1339,
+  "word": "Starosielski",
+  "start": 440.293,
+  "end": 441.154
+ },
+ {
+  "i": 1340,
+  "word": "describes",
+  "start": 441.174,
+  "end": 441.574
+ },
+ {
+  "i": 1341,
+  "word": "in",
+  "start": 441.614,
+  "end": 441.654
+ },
+ {
+  "i": 1342,
+  "word": "her",
+  "start": 441.694,
+  "end": 441.774
+ },
+ {
+  "i": 1343,
+  "word": "book",
+  "start": 441.814,
+  "end": 442.035
+ },
+ {
+  "i": 1344,
+  "word": "The",
+  "start": 442.095,
+  "end": 442.195
+ },
+ {
+  "i": 1345,
+  "word": "Undersea",
+  "start": 442.295,
+  "end": 442.675
+ },
+ {
+  "i": 1346,
+  "word": "Network",
+  "start": 442.735,
+  "end": 443.095
+ },
+ {
+  "i": 1347,
+  "word": "as",
+  "start": 443.275,
+  "end": 443.396
+ },
+ {
+  "i": 1348,
+  "word": "security",
+  "start": 443.476,
+  "end": 443.936
+ },
+ {
+  "i": 1349,
+  "word": "by",
+  "start": 443.996,
+  "end": 444.176
+ },
+ {
+  "i": 1350,
+  "word": "obscurity,",
+  "start": 444.236,
+  "end": 444.857
+ },
+ {
+  "i": 1351,
+  "word": "meaning",
+  "start": 445.077,
+  "end": 445.357
+ },
+ {
+  "i": 1352,
+  "word": "groups",
+  "start": 445.417,
+  "end": 445.697
+ },
+ {
+  "i": 1353,
+  "word": "can't",
+  "start": 445.777,
+  "end": 446.017
+ },
+ {
+  "i": 1354,
+  "word": "target",
+  "start": 446.057,
+  "end": 446.378
+ },
+ {
+  "i": 1355,
+  "word": "something",
+  "start": 446.398,
+  "end": 446.678
+ },
+ {
+  "i": 1356,
+  "word": "they",
+  "start": 446.698,
+  "end": 446.818
+ },
+ {
+  "i": 1357,
+  "word": "don't",
+  "start": 446.858,
+  "end": 447.038
+ },
+ {
+  "i": 1358,
+  "word": "know",
+  "start": 447.078,
+  "end": 447.238
+ },
+ {
+  "i": 1359,
+  "word": "about,",
+  "start": 447.318,
+  "end": 447.579
+ },
+ {
+  "i": 1360,
+  "word": "is",
+  "start": 447.979,
+  "end": 448.099
+ },
+ {
+  "i": 1361,
+  "word": "no",
+  "start": 448.219,
+  "end": 448.379
+ },
+ {
+  "i": 1362,
+  "word": "longer",
+  "start": 448.439,
+  "end": 448.759
+ },
+ {
+  "i": 1363,
+  "word": "a",
+  "start": 448.819,
+  "end": 448.839
+ },
+ {
+  "i": 1364,
+  "word": "sound",
+  "start": 448.9,
+  "end": 449.12
+ },
+ {
+  "i": 1365,
+  "word": "defense",
+  "start": 449.16,
+  "end": 449.48
+ },
+ {
+  "i": 1366,
+  "word": "strategy.",
+  "start": 449.5,
+  "end": 449.96
+ },
+ {
+  "i": 1367,
+  "word": "Undersea",
+  "start": 450.341,
+  "end": 450.681
+ },
+ {
+  "i": 1368,
+  "word": "cables",
+  "start": 450.721,
+  "end": 451.041
+ },
+ {
+  "i": 1369,
+  "word": "have",
+  "start": 451.061,
+  "end": 451.201
+ },
+ {
+  "i": 1370,
+  "word": "also",
+  "start": 451.361,
+  "end": 451.621
+ },
+ {
+  "i": 1371,
+  "word": "been",
+  "start": 451.641,
+  "end": 451.762
+ },
+ {
+  "i": 1372,
+  "word": "the",
+  "start": 451.802,
+  "end": 451.862
+ },
+ {
+  "i": 1373,
+  "word": "target",
+  "start": 451.882,
+  "end": 452.122
+ },
+ {
+  "i": 1374,
+  "word": "of",
+  "start": 452.162,
+  "end": 452.222
+ },
+ {
+  "i": 1375,
+  "word": "spycraft",
+  "start": 452.262,
+  "end": 452.842
+ },
+ {
+  "i": 1376,
+  "word": "over",
+  "start": 452.882,
+  "end": 453.022
+ },
+ {
+  "i": 1377,
+  "word": "the",
+  "start": 453.062,
+  "end": 453.143
+ },
+ {
+  "i": 1378,
+  "word": "years.",
+  "start": 453.183,
+  "end": 453.443
+ },
+ {
+  "i": 1379,
+  "word": "During",
+  "start": 453.863,
+  "end": 454.043
+ },
+ {
+  "i": 1380,
+  "word": "the",
+  "start": 454.063,
+  "end": 454.143
+ },
+ {
+  "i": 1381,
+  "word": "Cold",
+  "start": 454.163,
+  "end": 454.383
+ },
+ {
+  "i": 1382,
+  "word": "War,",
+  "start": 454.423,
+  "end": 454.743
+ },
+ {
+  "i": 1383,
+  "word": "U.S.",
+  "start": 455.163,
+  "end": 455.404
+ },
+ {
+  "i": 1384,
+  "word": "submarines",
+  "start": 455.444,
+  "end": 455.904
+ },
+ {
+  "i": 1385,
+  "word": "transported",
+  "start": 455.964,
+  "end": 456.504
+ },
+ {
+  "i": 1386,
+  "word": "divers",
+  "start": 456.584,
+  "end": 457.024
+ },
+ {
+  "i": 1387,
+  "word": "with",
+  "start": 457.064,
+  "end": 457.204
+ },
+ {
+  "i": 1388,
+  "word": "specially",
+  "start": 457.264,
+  "end": 457.664
+ },
+ {
+  "i": 1389,
+  "word": "designed",
+  "start": 457.704,
+  "end": 458.004
+ },
+ {
+  "i": 1390,
+  "word": "equipment",
+  "start": 458.044,
+  "end": 458.504
+ },
+ {
+  "i": 1391,
+  "word": "that",
+  "start": 458.564,
+  "end": 458.665
+ },
+ {
+  "i": 1392,
+  "word": "they",
+  "start": 458.705,
+  "end": 458.805
+ },
+ {
+  "i": 1393,
+  "word": "attached",
+  "start": 458.845,
+  "end": 459.245
+ },
+ {
+  "i": 1394,
+  "word": "to",
+  "start": 459.265,
+  "end": 459.365
+ },
+ {
+  "i": 1395,
+  "word": "Soviet",
+  "start": 459.465,
+  "end": 459.845
+ },
+ {
+  "i": 1396,
+  "word": "cables",
+  "start": 459.865,
+  "end": 460.225
+ },
+ {
+  "i": 1397,
+  "word": "to",
+  "start": 460.245,
+  "end": 460.325
+ },
+ {
+  "i": 1398,
+  "word": "intercept",
+  "start": 460.365,
+  "end": 460.785
+ },
+ {
+  "i": 1399,
+  "word": "all",
+  "start": 460.965,
+  "end": 461.085
+ },
+ {
+  "i": 1400,
+  "word": "communications.",
+  "start": 461.125,
+  "end": 461.866
+ },
+ {
+  "i": 1401,
+  "word": "The",
+  "start": 462.266,
+  "end": 462.366
+ },
+ {
+  "i": 1402,
+  "word": "secret",
+  "start": 462.406,
+  "end": 462.746
+ },
+ {
+  "i": 1403,
+  "word": "surveillance",
+  "start": 462.766,
+  "end": 463.246
+ },
+ {
+  "i": 1404,
+  "word": "lasted",
+  "start": 463.306,
+  "end": 463.626
+ },
+ {
+  "i": 1405,
+  "word": "almost",
+  "start": 463.706,
+  "end": 463.966
+ },
+ {
+  "i": 1406,
+  "word": "a",
+  "start": 464.006,
+  "end": 464.046
+ },
+ {
+  "i": 1407,
+  "word": "decade",
+  "start": 464.106,
+  "end": 464.546
+ },
+ {
+  "i": 1408,
+  "word": "until",
+  "start": 464.626,
+  "end": 464.886
+ },
+ {
+  "i": 1409,
+  "word": "information",
+  "start": 464.946,
+  "end": 465.447
+ },
+ {
+  "i": 1410,
+  "word": "about",
+  "start": 465.507,
+  "end": 465.767
+ },
+ {
+  "i": 1411,
+  "word": "the",
+  "start": 465.807,
+  "end": 465.887
+ },
+ {
+  "i": 1412,
+  "word": "operation,",
+  "start": 465.967,
+  "end": 466.447
+ },
+ {
+  "i": 1413,
+  "word": "codenamed",
+  "start": 466.527,
+  "end": 467.007
+ },
+ {
+  "i": 1414,
+  "word": "Ivy",
+  "start": 467.247,
+  "end": 467.467
+ },
+ {
+  "i": 1415,
+  "word": "Bells,",
+  "start": 467.527,
+  "end": 467.887
+ },
+ {
+  "i": 1416,
+  "word": "was",
+  "start": 468.107,
+  "end": 468.247
+ },
+ {
+  "i": 1417,
+  "word": "sold",
+  "start": 468.348,
+  "end": 468.588
+ },
+ {
+  "i": 1418,
+  "word": "to",
+  "start": 468.628,
+  "end": 468.688
+ },
+ {
+  "i": 1419,
+  "word": "the",
+  "start": 468.728,
+  "end": 468.808
+ },
+ {
+  "i": 1420,
+  "word": "Soviets",
+  "start": 468.868,
+  "end": 469.308
+ },
+ {
+  "i": 1421,
+  "word": "by",
+  "start": 469.368,
+  "end": 469.528
+ },
+ {
+  "i": 1422,
+  "word": "a",
+  "start": 469.588,
+  "end": 469.648
+ },
+ {
+  "i": 1423,
+  "word": "former",
+  "start": 469.768,
+  "end": 470.108
+ },
+ {
+  "i": 1424,
+  "word": "National",
+  "start": 470.148,
+  "end": 470.508
+ },
+ {
+  "i": 1425,
+  "word": "Security",
+  "start": 470.548,
+  "end": 470.908
+ },
+ {
+  "i": 1426,
+  "word": "Agency",
+  "start": 470.948,
+  "end": 471.348
+ },
+ {
+  "i": 1427,
+  "word": "communications",
+  "start": 471.388,
+  "end": 472.029
+ },
+ {
+  "i": 1428,
+  "word": "specialist",
+  "start": 472.069,
+  "end": 472.569
+ },
+ {
+  "i": 1429,
+  "word": "named",
+  "start": 472.629,
+  "end": 472.829
+ },
+ {
+  "i": 1430,
+  "word": "Ronald",
+  "start": 472.909,
+  "end": 473.249
+ },
+ {
+  "i": 1431,
+  "word": "Pelton.",
+  "start": 473.309,
+  "end": 473.689
+ },
+ {
+  "i": 1432,
+  "word": "And",
+  "start": 474.049,
+  "end": 474.129
+ },
+ {
+  "i": 1433,
+  "word": "in",
+  "start": 474.169,
+  "end": 474.229
+ },
+ {
+  "i": 1434,
+  "word": "2013,",
+  "start": 474.289,
+  "end": 475.07
+ },
+ {
+  "i": 1435,
+  "word": "documents",
+  "start": 475.15,
+  "end": 475.67
+ },
+ {
+  "i": 1436,
+  "word": "provided",
+  "start": 475.73,
+  "end": 476.13
+ },
+ {
+  "i": 1437,
+  "word": "by",
+  "start": 476.19,
+  "end": 476.31
+ },
+ {
+  "i": 1438,
+  "word": "National",
+  "start": 476.39,
+  "end": 476.79
+ },
+ {
+  "i": 1439,
+  "word": "Security",
+  "start": 476.85,
+  "end": 477.27
+ },
+ {
+  "i": 1440,
+  "word": "Agency",
+  "start": 477.33,
+  "end": 477.69
+ },
+ {
+  "i": 1441,
+  "word": "whistleblower",
+  "start": 477.73,
+  "end": 478.371
+ },
+ {
+  "i": 1442,
+  "word": "Edward",
+  "start": 478.491,
+  "end": 478.791
+ },
+ {
+  "i": 1443,
+  "word": "Snowden",
+  "start": 478.871,
+  "end": 479.291
+ },
+ {
+  "i": 1444,
+  "word": "exposed",
+  "start": 479.671,
+  "end": 480.111
+ },
+ {
+  "i": 1445,
+  "word": "that",
+  "start": 480.151,
+  "end": 480.252
+ },
+ {
+  "i": 1446,
+  "word": "the",
+  "start": 480.272,
+  "end": 480.352
+ },
+ {
+  "i": 1447,
+  "word": "British",
+  "start": 480.372,
+  "end": 480.632
+ },
+ {
+  "i": 1448,
+  "word": "spy",
+  "start": 480.672,
+  "end": 480.912
+ },
+ {
+  "i": 1449,
+  "word": "agency",
+  "start": 480.972,
+  "end": 481.352
+ },
+ {
+  "i": 1450,
+  "word": "GCHQ",
+  "start": 481.452,
+  "end": 482.573
+ },
+ {
+  "i": 1451,
+  "word": "had",
+  "start": 482.633,
+  "end": 482.733
+ },
+ {
+  "i": 1452,
+  "word": "secretly",
+  "start": 482.853,
+  "end": 483.314
+ },
+ {
+  "i": 1453,
+  "word": "gained",
+  "start": 483.354,
+  "end": 483.614
+ },
+ {
+  "i": 1454,
+  "word": "access",
+  "start": 483.694,
+  "end": 484.054
+ },
+ {
+  "i": 1455,
+  "word": "to",
+  "start": 484.114,
+  "end": 484.275
+ },
+ {
+  "i": 1456,
+  "word": "the",
+  "start": 484.295,
+  "end": 484.375
+ },
+ {
+  "i": 1457,
+  "word": "network",
+  "start": 484.455,
+  "end": 484.775
+ },
+ {
+  "i": 1458,
+  "word": "of",
+  "start": 484.815,
+  "end": 484.875
+ },
+ {
+  "i": 1459,
+  "word": "cables",
+  "start": 484.935,
+  "end": 485.295
+ },
+ {
+  "i": 1460,
+  "word": "which",
+  "start": 485.495,
+  "end": 485.656
+ },
+ {
+  "i": 1461,
+  "word": "carried",
+  "start": 485.696,
+  "end": 485.936
+ },
+ {
+  "i": 1462,
+  "word": "the",
+  "start": 485.956,
+  "end": 486.036
+ },
+ {
+  "i": 1463,
+  "word": "world's",
+  "start": 486.076,
+  "end": 486.456
+ },
+ {
+  "i": 1464,
+  "word": "phone",
+  "start": 486.556,
+  "end": 486.816
+ },
+ {
+  "i": 1465,
+  "word": "calls",
+  "start": 486.836,
+  "end": 487.137
+ },
+ {
+  "i": 1466,
+  "word": "and",
+  "start": 487.197,
+  "end": 487.277
+ },
+ {
+  "i": 1467,
+  "word": "internet",
+  "start": 487.317,
+  "end": 487.637
+ },
+ {
+  "i": 1468,
+  "word": "traffic.",
+  "start": 487.657,
+  "end": 488.057
+ },
+ {
+  "i": 1469,
+  "word": "According",
+  "start": 488.358,
+  "end": 488.658
+ },
+ {
+  "i": 1470,
+  "word": "to",
+  "start": 488.678,
+  "end": 488.738
+ },
+ {
+  "i": 1471,
+  "word": "the",
+  "start": 488.778,
+  "end": 488.838
+ },
+ {
+  "i": 1472,
+  "word": "documents",
+  "start": 488.878,
+  "end": 489.278
+ },
+ {
+  "i": 1473,
+  "word": "provided",
+  "start": 489.318,
+  "end": 489.699
+ },
+ {
+  "i": 1474,
+  "word": "by",
+  "start": 489.739,
+  "end": 489.839
+ },
+ {
+  "i": 1475,
+  "word": "Snowden,",
+  "start": 489.899,
+  "end": 490.319
+ },
+ {
+  "i": 1476,
+  "word": "in",
+  "start": 490.599,
+  "end": 490.679
+ },
+ {
+  "i": 1477,
+  "word": "2012,",
+  "start": 490.839,
+  "end": 491.32
+ },
+ {
+  "i": 1478,
+  "word": "GCHQ",
+  "start": 491.4,
+  "end": 492.16
+ },
+ {
+  "i": 1479,
+  "word": "was",
+  "start": 492.18,
+  "end": 492.321
+ },
+ {
+  "i": 1480,
+  "word": "handling",
+  "start": 492.361,
+  "end": 492.701
+ },
+ {
+  "i": 1481,
+  "word": "600",
+  "start": 492.901,
+  "end": 493.181
+ },
+ {
+  "i": 1482,
+  "word": "million",
+  "start": 493.221,
+  "end": 493.461
+ },
+ {
+  "i": 1483,
+  "word": "telephone",
+  "start": 493.501,
+  "end": 493.902
+ },
+ {
+  "i": 1484,
+  "word": "events",
+  "start": 493.922,
+  "end": 494.242
+ },
+ {
+  "i": 1485,
+  "word": "every",
+  "start": 494.422,
+  "end": 494.622
+ },
+ {
+  "i": 1486,
+  "word": "day",
+  "start": 494.662,
+  "end": 494.902
+ },
+ {
+  "i": 1487,
+  "word": "and",
+  "start": 495.203,
+  "end": 495.283
+ },
+ {
+  "i": 1488,
+  "word": "had",
+  "start": 495.323,
+  "end": 495.423
+ },
+ {
+  "i": 1489,
+  "word": "compromised",
+  "start": 495.483,
+  "end": 496.103
+ },
+ {
+  "i": 1490,
+  "word": "more",
+  "start": 496.163,
+  "end": 496.304
+ },
+ {
+  "i": 1491,
+  "word": "than",
+  "start": 496.344,
+  "end": 496.464
+ },
+ {
+  "i": 1492,
+  "word": "200",
+  "start": 496.604,
+  "end": 496.864
+ },
+ {
+  "i": 1493,
+  "word": "fiber",
+  "start": 496.924,
+  "end": 497.244
+ },
+ {
+  "i": 1494,
+  "word": "optic",
+  "start": 497.344,
+  "end": 497.564
+ },
+ {
+  "i": 1495,
+  "word": "cables.",
+  "start": 497.605,
+  "end": 497.925
+ },
+ {
+  "i": 1496,
+  "word": "The",
+  "start": 498.345,
+  "end": 498.445
+ },
+ {
+  "i": 1497,
+  "word": "NSA",
+  "start": 498.485,
+  "end": 498.846
+ },
+ {
+  "i": 1498,
+  "word": "allegedly",
+  "start": 498.866,
+  "end": 499.346
+ },
+ {
+  "i": 1499,
+  "word": "ran",
+  "start": 499.406,
+  "end": 499.626
+ },
+ {
+  "i": 1500,
+  "word": "a",
+  "start": 499.667,
+  "end": 499.707
+ },
+ {
+  "i": 1501,
+  "word": "similar",
+  "start": 499.787,
+  "end": 500.127
+ },
+ {
+  "i": 1502,
+  "word": "operation",
+  "start": 500.187,
+  "end": 500.588
+ },
+ {
+  "i": 1503,
+  "word": "called",
+  "start": 500.608,
+  "end": 500.788
+ },
+ {
+  "i": 1504,
+  "word": "Upstream,",
+  "start": 500.908,
+  "end": 501.308
+ },
+ {
+  "i": 1505,
+  "word": "which",
+  "start": 501.469,
+  "end": 501.629
+ },
+ {
+  "i": 1506,
+  "word": "a",
+  "start": 501.669,
+  "end": 501.729
+ },
+ {
+  "i": 1507,
+  "word": "presentation",
+  "start": 501.769,
+  "end": 502.47
+ },
+ {
+  "i": 1508,
+  "word": "leaked",
+  "start": 502.53,
+  "end": 502.79
+ },
+ {
+  "i": 1509,
+  "word": "by",
+  "start": 502.81,
+  "end": 502.95
+ },
+ {
+  "i": 1510,
+  "word": "Snowden",
+  "start": 503.03,
+  "end": 503.431
+ },
+ {
+  "i": 1511,
+  "word": "described",
+  "start": 503.511,
+  "end": 504.051
+ },
+ {
+  "i": 1512,
+  "word": "as",
+  "start": 504.131,
+  "end": 504.212
+ },
+ {
+  "i": 1513,
+  "word": "being",
+  "start": 504.272,
+  "end": 504.472
+ },
+ {
+  "i": 1514,
+  "word": "able",
+  "start": 504.632,
+  "end": 504.812
+ },
+ {
+  "i": 1515,
+  "word": "to",
+  "start": 504.832,
+  "end": 504.892
+ },
+ {
+  "i": 1516,
+  "word": "access",
+  "start": 504.992,
+  "end": 505.313
+ },
+ {
+  "i": 1517,
+  "word": "communications",
+  "start": 505.353,
+  "end": 506.013
+ },
+ {
+  "i": 1518,
+  "word": "on",
+  "start": 506.074,
+  "end": 506.154
+ },
+ {
+  "i": 1519,
+  "word": "fiber",
+  "start": 506.214,
+  "end": 506.534
+ },
+ {
+  "i": 1520,
+  "word": "cables",
+  "start": 506.574,
+  "end": 506.874
+ },
+ {
+  "i": 1521,
+  "word": "and",
+  "start": 506.934,
+  "end": 507.015
+ },
+ {
+  "i": 1522,
+  "word": "infrastructure",
+  "start": 507.135,
+  "end": 507.815
+ },
+ {
+  "i": 1523,
+  "word": "as",
+  "start": 507.896,
+  "end": 507.976
+ },
+ {
+  "i": 1524,
+  "word": "data",
+  "start": 508.036,
+  "end": 508.296
+ },
+ {
+  "i": 1525,
+  "word": "flows",
+  "start": 508.336,
+  "end": 508.596
+ },
+ {
+  "i": 1526,
+  "word": "past.",
+  "start": 508.656,
+  "end": 509.017
+ },
+ {
+  "i": 1527,
+  "word": "In",
+  "start": 509.257,
+  "end": 509.337
+ },
+ {
+  "i": 1528,
+  "word": "a",
+  "start": 509.357,
+  "end": 509.377
+ },
+ {
+  "i": 1529,
+  "word": "statement,",
+  "start": 509.437,
+  "end": 509.878
+ },
+ {
+  "i": 1530,
+  "word": "an",
+  "start": 509.998,
+  "end": 510.078
+ },
+ {
+  "i": 1531,
+  "word": "NSA",
+  "start": 510.198,
+  "end": 510.558
+ },
+ {
+  "i": 1532,
+  "word": "spokesman",
+  "start": 510.619,
+  "end": 511.039
+ },
+ {
+  "i": 1533,
+  "word": "said",
+  "start": 511.059,
+  "end": 511.219
+ },
+ {
+  "i": 1534,
+  "word": "the",
+  "start": 511.239,
+  "end": 511.319
+ },
+ {
+  "i": 1535,
+  "word": "agency",
+  "start": 511.359,
+  "end": 511.78
+ },
+ {
+  "i": 1536,
+  "word": "can",
+  "start": 511.94,
+  "end": 512.1
+ },
+ {
+  "i": 1537,
+  "word": "neither",
+  "start": 512.14,
+  "end": 512.4
+ },
+ {
+  "i": 1538,
+  "word": "confirm",
+  "start": 512.441,
+  "end": 512.841
+ },
+ {
+  "i": 1539,
+  "word": "nor",
+  "start": 512.881,
+  "end": 512.981
+ },
+ {
+  "i": 1540,
+  "word": "deny",
+  "start": 513.041,
+  "end": 513.362
+ },
+ {
+  "i": 1541,
+  "word": "mission-related",
+  "start": 513.422,
+  "end": 514.022
+ },
+ {
+  "i": 1542,
+  "word": "activities.",
+  "start": 514.082,
+  "end": 514.583
+ },
+ {
+  "i": 1543,
+  "word": "But",
+  "start": 514.903,
+  "end": 514.983
+ },
+ {
+  "i": 1544,
+  "word": "if",
+  "start": 515.023,
+  "end": 515.083
+ },
+ {
+  "i": 1545,
+  "word": "you",
+  "start": 515.103,
+  "end": 515.224
+ },
+ {
+  "i": 1546,
+  "word": "control",
+  "start": 515.244,
+  "end": 515.564
+ },
+ {
+  "i": 1547,
+  "word": "the",
+  "start": 515.584,
+  "end": 515.644
+ },
+ {
+  "i": 1548,
+  "word": "cable",
+  "start": 515.684,
+  "end": 515.944
+ },
+ {
+  "i": 1549,
+  "word": "itself,",
+  "start": 515.984,
+  "end": 516.405
+ },
+ {
+  "i": 1550,
+  "word": "you",
+  "start": 516.625,
+  "end": 516.745
+ },
+ {
+  "i": 1551,
+  "word": "don't",
+  "start": 516.785,
+  "end": 516.965
+ },
+ {
+  "i": 1552,
+  "word": "need",
+  "start": 516.986,
+  "end": 517.146
+ },
+ {
+  "i": 1553,
+  "word": "to",
+  "start": 517.166,
+  "end": 517.206
+ },
+ {
+  "i": 1554,
+  "word": "worry",
+  "start": 517.246,
+  "end": 517.466
+ },
+ {
+  "i": 1555,
+  "word": "about",
+  "start": 517.526,
+  "end": 517.726
+ },
+ {
+  "i": 1556,
+  "word": "tapping",
+  "start": 517.766,
+  "end": 518.127
+ },
+ {
+  "i": 1557,
+  "word": "it.",
+  "start": 518.167,
+  "end": 518.227
+ },
+ {
+  "i": 1558,
+  "word": "Chinese",
+  "start": 518.467,
+  "end": 518.827
+ },
+ {
+  "i": 1559,
+  "word": "telecoms",
+  "start": 518.867,
+  "end": 519.368
+ },
+ {
+  "i": 1560,
+  "word": "giant",
+  "start": 519.408,
+  "end": 519.728
+ },
+ {
+  "i": 1561,
+  "word": "Huawei",
+  "start": 519.788,
+  "end": 520.289
+ },
+ {
+  "i": 1562,
+  "word": "began",
+  "start": 520.329,
+  "end": 520.609
+ },
+ {
+  "i": 1563,
+  "word": "moving",
+  "start": 520.649,
+  "end": 520.949
+ },
+ {
+  "i": 1564,
+  "word": "into",
+  "start": 521.009,
+  "end": 521.17
+ },
+ {
+  "i": 1565,
+  "word": "the",
+  "start": 521.19,
+  "end": 521.29
+ },
+ {
+  "i": 1566,
+  "word": "undersea",
+  "start": 521.33,
+  "end": 521.67
+ },
+ {
+  "i": 1567,
+  "word": "cable",
+  "start": 521.71,
+  "end": 521.97
+ },
+ {
+  "i": 1568,
+  "word": "market",
+  "start": 522.01,
+  "end": 522.251
+ },
+ {
+  "i": 1569,
+  "word": "a",
+  "start": 522.271,
+  "end": 522.311
+ },
+ {
+  "i": 1570,
+  "word": "few",
+  "start": 522.351,
+  "end": 522.491
+ },
+ {
+  "i": 1571,
+  "word": "years",
+  "start": 522.531,
+  "end": 522.751
+ },
+ {
+  "i": 1572,
+  "word": "ago.",
+  "start": 522.791,
+  "end": 523.011
+ },
+ {
+  "i": 1573,
+  "word": "And",
+  "start": 523.232,
+  "end": 523.332
+ },
+ {
+  "i": 1574,
+  "word": "in",
+  "start": 523.372,
+  "end": 523.752
+ },
+ {
+  "i": 1575,
+  "word": "2017,",
+  "start": 523.792,
+  "end": 524.313
+ },
+ {
+  "i": 1576,
+  "word": "Australia",
+  "start": 524.473,
+  "end": 524.973
+ },
+ {
+  "i": 1577,
+  "word": "blocked",
+  "start": 525.013,
+  "end": 525.313
+ },
+ {
+  "i": 1578,
+  "word": "a",
+  "start": 525.394,
+  "end": 525.434
+ },
+ {
+  "i": 1579,
+  "word": "plan",
+  "start": 525.454,
+  "end": 525.754
+ },
+ {
+  "i": 1580,
+  "word": "for",
+  "start": 525.774,
+  "end": 525.874
+ },
+ {
+  "i": 1581,
+  "word": "the",
+  "start": 525.894,
+  "end": 525.974
+ },
+ {
+  "i": 1582,
+  "word": "company",
+  "start": 526.014,
+  "end": 526.294
+ },
+ {
+  "i": 1583,
+  "word": "to",
+  "start": 526.334,
+  "end": 526.435
+ },
+ {
+  "i": 1584,
+  "word": "install",
+  "start": 526.475,
+  "end": 526.855
+ },
+ {
+  "i": 1585,
+  "word": "a",
+  "start": 526.915,
+  "end": 526.975
+ },
+ {
+  "i": 1586,
+  "word": "2,485",
+  "start": 527.055,
+  "end": 528.476
+ },
+ {
+  "i": 1587,
+  "word": "mile",
+  "start": 528.516,
+  "end": 528.757
+ },
+ {
+  "i": 1588,
+  "word": "undersea",
+  "start": 528.857,
+  "end": 529.217
+ },
+ {
+  "i": 1589,
+  "word": "cable",
+  "start": 529.237,
+  "end": 529.617
+ },
+ {
+  "i": 1590,
+  "word": "linking",
+  "start": 529.838,
+  "end": 530.158
+ },
+ {
+  "i": 1591,
+  "word": "Sydney",
+  "start": 530.258,
+  "end": 530.558
+ },
+ {
+  "i": 1592,
+  "word": "with",
+  "start": 530.578,
+  "end": 530.698
+ },
+ {
+  "i": 1593,
+  "word": "the",
+  "start": 530.719,
+  "end": 530.799
+ },
+ {
+  "i": 1594,
+  "word": "Solomon",
+  "start": 530.839,
+  "end": 531.179
+ },
+ {
+  "i": 1595,
+  "word": "Islands.",
+  "start": 531.279,
+  "end": 531.559
+ },
+ {
+  "i": 1596,
+  "word": "The",
+  "start": 531.9,
+  "end": 532.0
+ },
+ {
+  "i": 1597,
+  "word": "Chinese",
+  "start": 532.04,
+  "end": 532.54
+ },
+ {
+  "i": 1598,
+  "word": "deny",
+  "start": 532.58,
+  "end": 532.84
+ },
+ {
+  "i": 1599,
+  "word": "that",
+  "start": 532.881,
+  "end": 532.981
+ },
+ {
+  "i": 1600,
+  "word": "their",
+  "start": 533.001,
+  "end": 533.141
+ },
+ {
+  "i": 1601,
+  "word": "systems",
+  "start": 533.181,
+  "end": 533.521
+ },
+ {
+  "i": 1602,
+  "word": "pose",
+  "start": 533.601,
+  "end": 533.942
+ },
+ {
+  "i": 1603,
+  "word": "an",
+  "start": 533.962,
+  "end": 534.042
+ },
+ {
+  "i": 1604,
+  "word": "inherent",
+  "start": 534.082,
+  "end": 534.442
+ },
+ {
+  "i": 1605,
+  "word": "security",
+  "start": 534.462,
+  "end": 534.822
+ },
+ {
+  "i": 1606,
+  "word": "risk",
+  "start": 534.862,
+  "end": 535.143
+ },
+ {
+  "i": 1607,
+  "word": "or",
+  "start": 535.323,
+  "end": 535.383
+ },
+ {
+  "i": 1608,
+  "word": "that",
+  "start": 535.423,
+  "end": 535.523
+ },
+ {
+  "i": 1609,
+  "word": "they",
+  "start": 535.543,
+  "end": 535.663
+ },
+ {
+  "i": 1610,
+  "word": "have",
+  "start": 535.703,
+  "end": 535.823
+ },
+ {
+  "i": 1611,
+  "word": "ulterior",
+  "start": 535.903,
+  "end": 536.304
+ },
+ {
+  "i": 1612,
+  "word": "motives",
+  "start": 536.364,
+  "end": 536.624
+ },
+ {
+  "i": 1613,
+  "word": "for",
+  "start": 536.644,
+  "end": 536.764
+ },
+ {
+  "i": 1614,
+  "word": "creating",
+  "start": 536.824,
+  "end": 537.225
+ },
+ {
+  "i": 1615,
+  "word": "them.",
+  "start": 537.265,
+  "end": 537.425
+ },
+ {
+  "i": 1616,
+  "word": "But",
+  "start": 537.785,
+  "end": 537.925
+ },
+ {
+  "i": 1617,
+  "word": "back",
+  "start": 537.985,
+  "end": 538.185
+ },
+ {
+  "i": 1618,
+  "word": "to",
+  "start": 538.205,
+  "end": 538.265
+ },
+ {
+  "i": 1619,
+  "word": "the",
+  "start": 538.285,
+  "end": 538.365
+ },
+ {
+  "i": 1620,
+  "word": "Red",
+  "start": 538.405,
+  "end": 538.566
+ },
+ {
+  "i": 1621,
+  "word": "Sea.",
+  "start": 538.646,
+  "end": 538.926
+ },
+ {
+  "i": 1622,
+  "word": "Although",
+  "start": 539.286,
+  "end": 539.606
+ },
+ {
+  "i": 1623,
+  "word": "the",
+  "start": 539.646,
+  "end": 539.726
+ },
+ {
+  "i": 1624,
+  "word": "Yemeni",
+  "start": 539.766,
+  "end": 540.106
+ },
+ {
+  "i": 1625,
+  "word": "government",
+  "start": 540.146,
+  "end": 540.527
+ },
+ {
+  "i": 1626,
+  "word": "in",
+  "start": 540.587,
+  "end": 540.667
+ },
+ {
+  "i": 1627,
+  "word": "exile",
+  "start": 540.747,
+  "end": 541.147
+ },
+ {
+  "i": 1628,
+  "word": "and",
+  "start": 541.207,
+  "end": 541.267
+ },
+ {
+  "i": 1629,
+  "word": "many",
+  "start": 541.307,
+  "end": 541.507
+ },
+ {
+  "i": 1630,
+  "word": "other",
+  "start": 541.547,
+  "end": 541.727
+ },
+ {
+  "i": 1631,
+  "word": "regional",
+  "start": 541.787,
+  "end": 542.128
+ },
+ {
+  "i": 1632,
+  "word": "experts",
+  "start": 542.188,
+  "end": 542.588
+ },
+ {
+  "i": 1633,
+  "word": "predicted",
+  "start": 542.748,
+  "end": 543.188
+ },
+ {
+  "i": 1634,
+  "word": "cutting",
+  "start": 543.268,
+  "end": 543.528
+ },
+ {
+  "i": 1635,
+  "word": "the",
+  "start": 543.548,
+  "end": 543.608
+ },
+ {
+  "i": 1636,
+  "word": "internet",
+  "start": 543.628,
+  "end": 543.929
+ },
+ {
+  "i": 1637,
+  "word": "cables",
+  "start": 543.949,
+  "end": 544.269
+ },
+ {
+  "i": 1638,
+  "word": "on",
+  "start": 544.349,
+  "end": 544.409
+ },
+ {
+  "i": 1639,
+  "word": "the",
+  "start": 544.429,
+  "end": 544.489
+ },
+ {
+  "i": 1640,
+  "word": "Red",
+  "start": 544.529,
+  "end": 544.689
+ },
+ {
+  "i": 1641,
+  "word": "Sea",
+  "start": 544.729,
+  "end": 544.909
+ },
+ {
+  "i": 1642,
+  "word": "floor",
+  "start": 544.949,
+  "end": 545.189
+ },
+ {
+  "i": 1643,
+  "word": "would",
+  "start": 545.229,
+  "end": 545.349
+ },
+ {
+  "i": 1644,
+  "word": "be",
+  "start": 545.369,
+  "end": 545.469
+ },
+ {
+  "i": 1645,
+  "word": "something",
+  "start": 545.51,
+  "end": 545.77
+ },
+ {
+  "i": 1646,
+  "word": "the",
+  "start": 545.79,
+  "end": 545.87
+ },
+ {
+  "i": 1647,
+  "word": "Houthis",
+  "start": 545.91,
+  "end": 546.21
+ },
+ {
+  "i": 1648,
+  "word": "would",
+  "start": 546.23,
+  "end": 546.39
+ },
+ {
+  "i": 1649,
+  "word": "do,",
+  "start": 546.43,
+  "end": 546.63
+ },
+ {
+  "i": 1650,
+  "word": "and",
+  "start": 546.91,
+  "end": 546.99
+ },
+ {
+  "i": 1651,
+  "word": "the",
+  "start": 547.01,
+  "end": 547.09
+ },
+ {
+  "i": 1652,
+  "word": "Israeli",
+  "start": 547.11,
+  "end": 547.531
+ },
+ {
+  "i": 1653,
+  "word": "news",
+  "start": 547.571,
+  "end": 547.791
+ },
+ {
+  "i": 1654,
+  "word": "outlet",
+  "start": 547.891,
+  "end": 548.251
+ },
+ {
+  "i": 1655,
+  "word": "Globes",
+  "start": 548.291,
+  "end": 548.671
+ },
+ {
+  "i": 1656,
+  "word": "has",
+  "start": 548.711,
+  "end": 548.851
+ },
+ {
+  "i": 1657,
+  "word": "directly",
+  "start": 548.911,
+  "end": 549.332
+ },
+ {
+  "i": 1658,
+  "word": "blamed",
+  "start": 549.392,
+  "end": 549.732
+ },
+ {
+  "i": 1659,
+  "word": "the",
+  "start": 549.752,
+  "end": 549.832
+ },
+ {
+  "i": 1660,
+  "word": "Houthis,",
+  "start": 549.872,
+  "end": 550.252
+ },
+ {
+  "i": 1661,
+  "word": "the",
+  "start": 550.612,
+  "end": 550.712
+ },
+ {
+  "i": 1662,
+  "word": "Houthis",
+  "start": 550.753,
+  "end": 551.093
+ },
+ {
+  "i": 1663,
+  "word": "have",
+  "start": 551.133,
+  "end": 551.253
+ },
+ {
+  "i": 1664,
+  "word": "denied",
+  "start": 551.273,
+  "end": 551.613
+ },
+ {
+  "i": 1665,
+  "word": "responsibility",
+  "start": 551.673,
+  "end": 552.373
+ },
+ {
+  "i": 1666,
+  "word": "and",
+  "start": 552.413,
+  "end": 552.514
+ },
+ {
+  "i": 1667,
+  "word": "claimed",
+  "start": 552.574,
+  "end": 552.854
+ },
+ {
+  "i": 1668,
+  "word": "that",
+  "start": 552.874,
+  "end": 552.974
+ },
+ {
+  "i": 1669,
+  "word": "the",
+  "start": 552.994,
+  "end": 553.074
+ },
+ {
+  "i": 1670,
+  "word": "cables",
+  "start": 553.094,
+  "end": 553.394
+ },
+ {
+  "i": 1671,
+  "word": "were",
+  "start": 553.434,
+  "end": 553.574
+ },
+ {
+  "i": 1672,
+  "word": "cut",
+  "start": 553.614,
+  "end": 553.834
+ },
+ {
+  "i": 1673,
+  "word": "by",
+  "start": 553.874,
+  "end": 554.034
+ },
+ {
+  "i": 1674,
+  "word": "American",
+  "start": 554.094,
+  "end": 554.475
+ },
+ {
+  "i": 1675,
+  "word": "military",
+  "start": 554.495,
+  "end": 554.915
+ },
+ {
+  "i": 1676,
+  "word": "ships",
+  "start": 554.975,
+  "end": 555.235
+ },
+ {
+  "i": 1677,
+  "word": "as",
+  "start": 555.375,
+  "end": 555.455
+ },
+ {
+  "i": 1678,
+  "word": "a",
+  "start": 555.535,
+  "end": 555.615
+ },
+ {
+  "i": 1679,
+  "word": "red",
+  "start": 555.695,
+  "end": 555.875
+ },
+ {
+  "i": 1680,
+  "word": "flag",
+  "start": 555.936,
+  "end": 556.256
+ },
+ {
+  "i": 1681,
+  "word": "operation.",
+  "start": 556.316,
+  "end": 556.836
+ },
+ {
+  "i": 1682,
+  "word": "Houthi",
+  "start": 557.156,
+  "end": 557.456
+ },
+ {
+  "i": 1683,
+  "word": "leader",
+  "start": 557.496,
+  "end": 557.777
+ },
+ {
+  "i": 1684,
+  "word": "Abdel",
+  "start": 557.937,
+  "end": 558.237
+ },
+ {
+  "i": 1685,
+  "word": "Melek",
+  "start": 558.277,
+  "end": 558.577
+ },
+ {
+  "i": 1686,
+  "word": "al-Houthi",
+  "start": 558.657,
+  "end": 559.097
+ },
+ {
+  "i": 1687,
+  "word": "said,",
+  "start": 559.157,
+  "end": 559.357
+ },
+ {
+  "i": 1688,
+  "word": "\"...we",
+  "start": 559.377,
+  "end": 559.718
+ },
+ {
+  "i": 1689,
+  "word": "have",
+  "start": 559.758,
+  "end": 559.938
+ },
+ {
+  "i": 1690,
+  "word": "no",
+  "start": 559.998,
+  "end": 560.138
+ },
+ {
+  "i": 1691,
+  "word": "intention",
+  "start": 560.178,
+  "end": 560.578
+ },
+ {
+  "i": 1692,
+  "word": "of",
+  "start": 560.598,
+  "end": 560.678
+ },
+ {
+  "i": 1693,
+  "word": "targeting",
+  "start": 560.738,
+  "end": 561.139
+ },
+ {
+  "i": 1694,
+  "word": "sea",
+  "start": 561.219,
+  "end": 561.399
+ },
+ {
+  "i": 1695,
+  "word": "cables",
+  "start": 561.439,
+  "end": 561.779
+ },
+ {
+  "i": 1696,
+  "word": "providing",
+  "start": 561.859,
+  "end": 562.239
+ },
+ {
+  "i": 1697,
+  "word": "internet",
+  "start": 562.299,
+  "end": 562.639
+ },
+ {
+  "i": 1698,
+  "word": "to",
+  "start": 562.659,
+  "end": 562.739
+ },
+ {
+  "i": 1699,
+  "word": "countries",
+  "start": 562.779,
+  "end": 563.1
+ },
+ {
+  "i": 1700,
+  "word": "in",
+  "start": 563.14,
+  "end": 563.2
+ },
+ {
+  "i": 1701,
+  "word": "the",
+  "start": 563.22,
+  "end": 563.3
+ },
+ {
+  "i": 1702,
+  "word": "region.\"",
+  "start": 563.34,
+  "end": 563.62
+ },
+ {
+  "i": 1703,
+  "word": "Maybe",
+  "start": 563.88,
+  "end": 564.16
+ },
+ {
+  "i": 1704,
+  "word": "a",
+  "start": 564.2,
+  "end": 564.24
+ },
+ {
+  "i": 1705,
+  "word": "more",
+  "start": 564.3,
+  "end": 564.42
+ },
+ {
+  "i": 1706,
+  "word": "important",
+  "start": 564.46,
+  "end": 564.84
+ },
+ {
+  "i": 1707,
+  "word": "question",
+  "start": 564.88,
+  "end": 565.281
+ },
+ {
+  "i": 1708,
+  "word": "than",
+  "start": 565.401,
+  "end": 565.601
+ },
+ {
+  "i": 1709,
+  "word": "if",
+  "start": 565.841,
+  "end": 565.941
+ },
+ {
+  "i": 1710,
+  "word": "the",
+  "start": 566.001,
+  "end": 566.081
+ },
+ {
+  "i": 1711,
+  "word": "Houthis",
+  "start": 566.121,
+  "end": 566.421
+ },
+ {
+  "i": 1712,
+  "word": "did",
+  "start": 566.441,
+  "end": 566.601
+ },
+ {
+  "i": 1713,
+  "word": "it",
+  "start": 566.621,
+  "end": 566.681
+ },
+ {
+  "i": 1714,
+  "word": "is",
+  "start": 566.821,
+  "end": 566.901
+ },
+ {
+  "i": 1715,
+  "word": "how",
+  "start": 567.021,
+  "end": 567.201
+ },
+ {
+  "i": 1716,
+  "word": "they",
+  "start": 567.261,
+  "end": 567.381
+ },
+ {
+  "i": 1717,
+  "word": "did",
+  "start": 567.401,
+  "end": 567.561
+ },
+ {
+  "i": 1718,
+  "word": "it.",
+  "start": 567.601,
+  "end": 567.661
+ },
+ {
+  "i": 1719,
+  "word": "As",
+  "start": 568.001,
+  "end": 568.081
+ },
+ {
+  "i": 1720,
+  "word": "we",
+  "start": 568.121,
+  "end": 568.222
+ },
+ {
+  "i": 1721,
+  "word": "said,",
+  "start": 568.282,
+  "end": 568.542
+ },
+ {
+  "i": 1722,
+  "word": "major",
+  "start": 568.722,
+  "end": 569.042
+ },
+ {
+  "i": 1723,
+  "word": "naval",
+  "start": 569.082,
+  "end": 569.322
+ },
+ {
+  "i": 1724,
+  "word": "powers",
+  "start": 569.362,
+  "end": 569.662
+ },
+ {
+  "i": 1725,
+  "word": "have",
+  "start": 569.682,
+  "end": 569.802
+ },
+ {
+  "i": 1726,
+  "word": "the",
+  "start": 569.822,
+  "end": 569.882
+ },
+ {
+  "i": 1727,
+  "word": "ability",
+  "start": 569.922,
+  "end": 570.202
+ },
+ {
+  "i": 1728,
+  "word": "to",
+  "start": 570.242,
+  "end": 570.302
+ },
+ {
+  "i": 1729,
+  "word": "cut",
+  "start": 570.342,
+  "end": 570.522
+ },
+ {
+  "i": 1730,
+  "word": "internet",
+  "start": 570.582,
+  "end": 570.902
+ },
+ {
+  "i": 1731,
+  "word": "cables",
+  "start": 570.922,
+  "end": 571.203
+ },
+ {
+  "i": 1732,
+  "word": "on",
+  "start": 571.263,
+  "end": 571.323
+ },
+ {
+  "i": 1733,
+  "word": "the",
+  "start": 571.363,
+  "end": 571.443
+ },
+ {
+  "i": 1734,
+  "word": "sea",
+  "start": 571.503,
+  "end": 571.663
+ },
+ {
+  "i": 1735,
+  "word": "floor,",
+  "start": 571.723,
+  "end": 571.983
+ },
+ {
+  "i": 1736,
+  "word": "but",
+  "start": 572.323,
+  "end": 572.423
+ },
+ {
+  "i": 1737,
+  "word": "how",
+  "start": 572.483,
+  "end": 572.663
+ },
+ {
+  "i": 1738,
+  "word": "would",
+  "start": 572.703,
+  "end": 572.843
+ },
+ {
+  "i": 1739,
+  "word": "a",
+  "start": 572.883,
+  "end": 572.983
+ },
+ {
+  "i": 1740,
+  "word": "third",
+  "start": 573.083,
+  "end": 573.343
+ },
+ {
+  "i": 1741,
+  "word": "world",
+  "start": 573.383,
+  "end": 573.643
+ },
+ {
+  "i": 1742,
+  "word": "power",
+  "start": 573.683,
+  "end": 573.943
+ },
+ {
+  "i": 1743,
+  "word": "do",
+  "start": 573.983,
+  "end": 574.124
+ },
+ {
+  "i": 1744,
+  "word": "it?",
+  "start": 574.164,
+  "end": 574.224
+ },
+ {
+  "i": 1745,
+  "word": "Of",
+  "start": 574.544,
+  "end": 574.604
+ },
+ {
+  "i": 1746,
+  "word": "the",
+  "start": 574.644,
+  "end": 574.724
+ },
+ {
+  "i": 1747,
+  "word": "four",
+  "start": 574.764,
+  "end": 574.944
+ },
+ {
+  "i": 1748,
+  "word": "networks",
+  "start": 575.004,
+  "end": 575.444
+ },
+ {
+  "i": 1749,
+  "word": "cut,",
+  "start": 575.504,
+  "end": 575.764
+ },
+ {
+  "i": 1750,
+  "word": "only",
+  "start": 575.904,
+  "end": 576.084
+ },
+ {
+  "i": 1751,
+  "word": "AAE-1",
+  "start": 576.104,
+  "end": 576.904
+ },
+ {
+  "i": 1752,
+  "word": "touches",
+  "start": 576.944,
+  "end": 577.265
+ },
+ {
+  "i": 1753,
+  "word": "Yemen,",
+  "start": 577.305,
+  "end": 577.645
+ },
+ {
+  "i": 1754,
+  "word": "and",
+  "start": 577.985,
+  "end": 578.065
+ },
+ {
+  "i": 1755,
+  "word": "cutting",
+  "start": 578.105,
+  "end": 578.325
+ },
+ {
+  "i": 1756,
+  "word": "the",
+  "start": 578.365,
+  "end": 578.425
+ },
+ {
+  "i": 1757,
+  "word": "line",
+  "start": 578.465,
+  "end": 578.645
+ },
+ {
+  "i": 1758,
+  "word": "there",
+  "start": 578.665,
+  "end": 578.865
+ },
+ {
+  "i": 1759,
+  "word": "would",
+  "start": 578.905,
+  "end": 579.025
+ },
+ {
+  "i": 1760,
+  "word": "only",
+  "start": 579.085,
+  "end": 579.245
+ },
+ {
+  "i": 1761,
+  "word": "disrupt",
+  "start": 579.265,
+  "end": 579.665
+ },
+ {
+  "i": 1762,
+  "word": "service",
+  "start": 579.705,
+  "end": 580.005
+ },
+ {
+  "i": 1763,
+  "word": "in",
+  "start": 580.026,
+  "end": 580.086
+ },
+ {
+  "i": 1764,
+  "word": "that",
+  "start": 580.126,
+  "end": 580.306
+ },
+ {
+  "i": 1765,
+  "word": "country",
+  "start": 580.366,
+  "end": 580.686
+ },
+ {
+  "i": 1766,
+  "word": "and",
+  "start": 580.746,
+  "end": 580.826
+ },
+ {
+  "i": 1767,
+  "word": "not",
+  "start": 580.866,
+  "end": 581.026
+ },
+ {
+  "i": 1768,
+  "word": "the",
+  "start": 581.046,
+  "end": 581.146
+ },
+ {
+  "i": 1769,
+  "word": "others",
+  "start": 581.186,
+  "end": 581.386
+ },
+ {
+  "i": 1770,
+  "word": "that",
+  "start": 581.406,
+  "end": 581.506
+ },
+ {
+  "i": 1771,
+  "word": "were",
+  "start": 581.526,
+  "end": 581.646
+ },
+ {
+  "i": 1772,
+  "word": "affected.",
+  "start": 581.666,
+  "end": 582.086
+ },
+ {
+  "i": 1773,
+  "word": "So",
+  "start": 582.506,
+  "end": 582.626
+ },
+ {
+  "i": 1774,
+  "word": "this",
+  "start": 582.646,
+  "end": 582.806
+ },
+ {
+  "i": 1775,
+  "word": "operation",
+  "start": 582.926,
+  "end": 583.387
+ },
+ {
+  "i": 1776,
+  "word": "would",
+  "start": 583.407,
+  "end": 583.527
+ },
+ {
+  "i": 1777,
+  "word": "have",
+  "start": 583.547,
+  "end": 583.647
+ },
+ {
+  "i": 1778,
+  "word": "to",
+  "start": 583.667,
+  "end": 583.747
+ },
+ {
+  "i": 1779,
+  "word": "take",
+  "start": 583.787,
+  "end": 583.967
+ },
+ {
+  "i": 1780,
+  "word": "place",
+  "start": 584.007,
+  "end": 584.247
+ },
+ {
+  "i": 1781,
+  "word": "at",
+  "start": 584.287,
+  "end": 584.367
+ },
+ {
+  "i": 1782,
+  "word": "depth",
+  "start": 584.427,
+  "end": 584.667
+ },
+ {
+  "i": 1783,
+  "word": "in",
+  "start": 584.707,
+  "end": 584.767
+ },
+ {
+  "i": 1784,
+  "word": "the",
+  "start": 584.787,
+  "end": 584.847
+ },
+ {
+  "i": 1785,
+  "word": "middle",
+  "start": 584.887,
+  "end": 585.047
+ },
+ {
+  "i": 1786,
+  "word": "of",
+  "start": 585.067,
+  "end": 585.127
+ },
+ {
+  "i": 1787,
+  "word": "the",
+  "start": 585.147,
+  "end": 585.207
+ },
+ {
+  "i": 1788,
+  "word": "Red",
+  "start": 585.267,
+  "end": 585.407
+ },
+ {
+  "i": 1789,
+  "word": "Sea.",
+  "start": 585.487,
+  "end": 585.767
+ },
+ {
+  "i": 1790,
+  "word": "Even",
+  "start": 586.088,
+  "end": 586.228
+ },
+ {
+  "i": 1791,
+  "word": "at",
+  "start": 586.268,
+  "end": 586.328
+ },
+ {
+  "i": 1792,
+  "word": "the",
+  "start": 586.348,
+  "end": 586.448
+ },
+ {
+  "i": 1793,
+  "word": "relatively",
+  "start": 586.488,
+  "end": 586.968
+ },
+ {
+  "i": 1794,
+  "word": "shallow",
+  "start": 587.068,
+  "end": 587.468
+ },
+ {
+  "i": 1795,
+  "word": "depth",
+  "start": 587.508,
+  "end": 587.768
+ },
+ {
+  "i": 1796,
+  "word": "of",
+  "start": 587.788,
+  "end": 587.868
+ },
+ {
+  "i": 1797,
+  "word": "several",
+  "start": 587.908,
+  "end": 588.188
+ },
+ {
+  "i": 1798,
+  "word": "hundred",
+  "start": 588.208,
+  "end": 588.448
+ },
+ {
+  "i": 1799,
+  "word": "feet,",
+  "start": 588.488,
+  "end": 588.728
+ },
+ {
+  "i": 1800,
+  "word": "that's",
+  "start": 588.788,
+  "end": 589.029
+ },
+ {
+  "i": 1801,
+  "word": "a",
+  "start": 589.089,
+  "end": 589.109
+ },
+ {
+  "i": 1802,
+  "word": "challenging",
+  "start": 589.149,
+  "end": 589.589
+ },
+ {
+  "i": 1803,
+  "word": "task.",
+  "start": 589.649,
+  "end": 590.069
+ },
+ {
+  "i": 1804,
+  "word": "In",
+  "start": 590.469,
+  "end": 590.549
+ },
+ {
+  "i": 1805,
+  "word": "a",
+  "start": 590.569,
+  "end": 590.609
+ },
+ {
+  "i": 1806,
+  "word": "recent",
+  "start": 590.669,
+  "end": 590.949
+ },
+ {
+  "i": 1807,
+  "word": "episode,",
+  "start": 590.989,
+  "end": 591.31
+ },
+ {
+  "i": 1808,
+  "word": "we",
+  "start": 591.33,
+  "end": 591.43
+ },
+ {
+  "i": 1809,
+  "word": "discussed",
+  "start": 591.47,
+  "end": 591.91
+ },
+ {
+  "i": 1810,
+  "word": "that",
+  "start": 591.93,
+  "end": 592.07
+ },
+ {
+  "i": 1811,
+  "word": "Operation",
+  "start": 592.21,
+  "end": 592.75
+ },
+ {
+  "i": 1812,
+  "word": "Prosperity",
+  "start": 592.79,
+  "end": 593.311
+ },
+ {
+  "i": 1813,
+  "word": "Guardian",
+  "start": 593.351,
+  "end": 593.671
+ },
+ {
+  "i": 1814,
+  "word": "warships",
+  "start": 593.691,
+  "end": 594.191
+ },
+ {
+  "i": 1815,
+  "word": "had",
+  "start": 594.211,
+  "end": 594.371
+ },
+ {
+  "i": 1816,
+  "word": "neutralized",
+  "start": 594.451,
+  "end": 595.132
+ },
+ {
+  "i": 1817,
+  "word": "an",
+  "start": 595.272,
+  "end": 595.352
+ },
+ {
+  "i": 1818,
+  "word": "unmanned",
+  "start": 595.412,
+  "end": 595.812
+ },
+ {
+  "i": 1819,
+  "word": "subsurface",
+  "start": 595.852,
+  "end": 596.433
+ },
+ {
+  "i": 1820,
+  "word": "vessel",
+  "start": 596.473,
+  "end": 596.773
+ },
+ {
+  "i": 1821,
+  "word": "known",
+  "start": 596.813,
+  "end": 597.013
+ },
+ {
+  "i": 1822,
+  "word": "as",
+  "start": 597.053,
+  "end": 597.133
+ },
+ {
+  "i": 1823,
+  "word": "a",
+  "start": 597.173,
+  "end": 597.213
+ },
+ {
+  "i": 1824,
+  "word": "USV.",
+  "start": 597.313,
+  "end": 597.853
+ },
+ {
+  "i": 1825,
+  "word": "Iran",
+  "start": 598.134,
+  "end": 598.494
+ },
+ {
+  "i": 1826,
+  "word": "has",
+  "start": 598.514,
+  "end": 598.654
+ },
+ {
+  "i": 1827,
+  "word": "a",
+  "start": 598.714,
+  "end": 598.774
+ },
+ {
+  "i": 1828,
+  "word": "long",
+  "start": 598.874,
+  "end": 599.094
+ },
+ {
+  "i": 1829,
+  "word": "tradition",
+  "start": 599.134,
+  "end": 599.514
+ },
+ {
+  "i": 1830,
+  "word": "of",
+  "start": 599.534,
+  "end": 599.595
+ },
+ {
+  "i": 1831,
+  "word": "unconventional",
+  "start": 599.735,
+  "end": 600.335
+ },
+ {
+  "i": 1832,
+  "word": "naval",
+  "start": 600.375,
+  "end": 600.635
+ },
+ {
+  "i": 1833,
+  "word": "warfare,",
+  "start": 600.675,
+  "end": 601.155
+ },
+ {
+  "i": 1834,
+  "word": "including",
+  "start": 601.256,
+  "end": 601.796
+ },
+ {
+  "i": 1835,
+  "word": "uncrewed",
+  "start": 601.976,
+  "end": 602.376
+ },
+ {
+  "i": 1836,
+  "word": "underwater",
+  "start": 602.416,
+  "end": 602.836
+ },
+ {
+  "i": 1837,
+  "word": "drones,",
+  "start": 602.876,
+  "end": 603.297
+ },
+ {
+  "i": 1838,
+  "word": "and",
+  "start": 603.517,
+  "end": 603.597
+ },
+ {
+  "i": 1839,
+  "word": "it's",
+  "start": 603.637,
+  "end": 603.717
+ },
+ {
+  "i": 1840,
+  "word": "reasonable",
+  "start": 603.817,
+  "end": 604.217
+ },
+ {
+  "i": 1841,
+  "word": "to",
+  "start": 604.237,
+  "end": 604.317
+ },
+ {
+  "i": 1842,
+  "word": "assume",
+  "start": 604.377,
+  "end": 604.678
+ },
+ {
+  "i": 1843,
+  "word": "they",
+  "start": 604.718,
+  "end": 604.858
+ },
+ {
+  "i": 1844,
+  "word": "provided",
+  "start": 604.898,
+  "end": 605.298
+ },
+ {
+  "i": 1845,
+  "word": "that",
+  "start": 605.318,
+  "end": 605.458
+ },
+ {
+  "i": 1846,
+  "word": "capability",
+  "start": 605.498,
+  "end": 605.978
+ },
+ {
+  "i": 1847,
+  "word": "to",
+  "start": 605.998,
+  "end": 606.078
+ },
+ {
+  "i": 1848,
+  "word": "proxies",
+  "start": 606.118,
+  "end": 606.519
+ },
+ {
+  "i": 1849,
+  "word": "like",
+  "start": 606.539,
+  "end": 606.679
+ },
+ {
+  "i": 1850,
+  "word": "the",
+  "start": 606.719,
+  "end": 606.779
+ },
+ {
+  "i": 1851,
+  "word": "Houthis.",
+  "start": 606.819,
+  "end": 607.199
+ },
+ {
+  "i": 1852,
+  "word": "And",
+  "start": 607.519,
+  "end": 607.619
+ },
+ {
+  "i": 1853,
+  "word": "in",
+  "start": 607.659,
+  "end": 608.02
+ },
+ {
+  "i": 1854,
+  "word": "2018,",
+  "start": 608.06,
+  "end": 608.52
+ },
+ {
+  "i": 1855,
+  "word": "a",
+  "start": 608.54,
+  "end": 608.56
+ },
+ {
+  "i": 1856,
+  "word": "video",
+  "start": 608.78,
+  "end": 609.08
+ },
+ {
+  "i": 1857,
+  "word": "emerged",
+  "start": 609.14,
+  "end": 609.52
+ },
+ {
+  "i": 1858,
+  "word": "of",
+  "start": 609.581,
+  "end": 609.661
+ },
+ {
+  "i": 1859,
+  "word": "Houthi",
+  "start": 609.701,
+  "end": 609.981
+ },
+ {
+  "i": 1860,
+  "word": "divers",
+  "start": 610.001,
+  "end": 610.421
+ },
+ {
+  "i": 1861,
+  "word": "with",
+  "start": 610.481,
+  "end": 610.621
+ },
+ {
+  "i": 1862,
+  "word": "a",
+  "start": 610.681,
+  "end": 610.721
+ },
+ {
+  "i": 1863,
+  "word": "captured",
+  "start": 610.781,
+  "end": 611.242
+ },
+ {
+  "i": 1864,
+  "word": "U.S.",
+  "start": 611.362,
+  "end": 611.622
+ },
+ {
+  "i": 1865,
+  "word": "Navy",
+  "start": 611.662,
+  "end": 611.922
+ },
+ {
+  "i": 1866,
+  "word": "Remus",
+  "start": 612.002,
+  "end": 612.682
+ },
+ {
+  "i": 1867,
+  "word": "600",
+  "start": 612.762,
+  "end": 612.983
+ },
+ {
+  "i": 1868,
+  "word": "underwater",
+  "start": 613.083,
+  "end": 613.523
+ },
+ {
+  "i": 1869,
+  "word": "drone.",
+  "start": 613.563,
+  "end": 613.903
+ },
+ {
+  "i": 1870,
+  "word": "As",
+  "start": 614.123,
+  "end": 614.223
+ },
+ {
+  "i": 1871,
+  "word": "with",
+  "start": 614.323,
+  "end": 614.503
+ },
+ {
+  "i": 1872,
+  "word": "the",
+  "start": 614.543,
+  "end": 614.624
+ },
+ {
+  "i": 1873,
+  "word": "technology",
+  "start": 614.664,
+  "end": 615.184
+ },
+ {
+  "i": 1874,
+  "word": "behind",
+  "start": 615.204,
+  "end": 615.424
+ },
+ {
+  "i": 1875,
+  "word": "their",
+  "start": 615.444,
+  "end": 615.604
+ },
+ {
+  "i": 1876,
+  "word": "surface-to-surface",
+  "start": 615.644,
+  "end": 616.545
+ },
+ {
+  "i": 1877,
+  "word": "missiles,",
+  "start": 616.605,
+  "end": 617.005
+ },
+ {
+  "i": 1878,
+  "word": "the",
+  "start": 617.265,
+  "end": 617.365
+ },
+ {
+  "i": 1879,
+  "word": "Houthis",
+  "start": 617.425,
+  "end": 617.805
+ },
+ {
+  "i": 1880,
+  "word": "could",
+  "start": 617.865,
+  "end": 618.046
+ },
+ {
+  "i": 1881,
+  "word": "be",
+  "start": 618.106,
+  "end": 618.206
+ },
+ {
+  "i": 1882,
+  "word": "more",
+  "start": 618.266,
+  "end": 618.426
+ },
+ {
+  "i": 1883,
+  "word": "advanced",
+  "start": 618.486,
+  "end": 618.806
+ },
+ {
+  "i": 1884,
+  "word": "than",
+  "start": 618.826,
+  "end": 618.946
+ },
+ {
+  "i": 1885,
+  "word": "perceived,",
+  "start": 618.986,
+  "end": 619.466
+ },
+ {
+  "i": 1886,
+  "word": "and",
+  "start": 619.627,
+  "end": 619.707
+ },
+ {
+  "i": 1887,
+  "word": "their",
+  "start": 619.727,
+  "end": 619.847
+ },
+ {
+  "i": 1888,
+  "word": "USVs,",
+  "start": 619.947,
+  "end": 620.507
+ },
+ {
+  "i": 1889,
+  "word": "including",
+  "start": 620.547,
+  "end": 620.947
+ },
+ {
+  "i": 1890,
+  "word": "the",
+  "start": 620.967,
+  "end": 621.047
+ },
+ {
+  "i": 1891,
+  "word": "captured",
+  "start": 621.087,
+  "end": 621.468
+ },
+ {
+  "i": 1892,
+  "word": "Remus",
+  "start": 621.508,
+  "end": 621.968
+ },
+ {
+  "i": 1893,
+  "word": "600,",
+  "start": 622.048,
+  "end": 622.268
+ },
+ {
+  "i": 1894,
+  "word": "might",
+  "start": 622.688,
+  "end": 622.888
+ },
+ {
+  "i": 1895,
+  "word": "have",
+  "start": 622.908,
+  "end": 623.009
+ },
+ {
+  "i": 1896,
+  "word": "been",
+  "start": 623.029,
+  "end": 623.149
+ },
+ {
+  "i": 1897,
+  "word": "modified",
+  "start": 623.169,
+  "end": 623.569
+ },
+ {
+  "i": 1898,
+  "word": "with",
+  "start": 623.589,
+  "end": 623.689
+ },
+ {
+  "i": 1899,
+  "word": "the",
+  "start": 623.729,
+  "end": 623.809
+ },
+ {
+  "i": 1900,
+  "word": "components",
+  "start": 623.829,
+  "end": 624.249
+ },
+ {
+  "i": 1901,
+  "word": "that",
+  "start": 624.269,
+  "end": 624.389
+ },
+ {
+  "i": 1902,
+  "word": "give",
+  "start": 624.429,
+  "end": 624.589
+ },
+ {
+  "i": 1903,
+  "word": "them",
+  "start": 624.609,
+  "end": 624.73
+ },
+ {
+  "i": 1904,
+  "word": "the",
+  "start": 624.77,
+  "end": 624.85
+ },
+ {
+  "i": 1905,
+  "word": "ability",
+  "start": 624.89,
+  "end": 625.23
+ },
+ {
+  "i": 1906,
+  "word": "to",
+  "start": 625.27,
+  "end": 625.37
+ },
+ {
+  "i": 1907,
+  "word": "find",
+  "start": 625.43,
+  "end": 625.67
+ },
+ {
+  "i": 1908,
+  "word": "and",
+  "start": 625.71,
+  "end": 625.77
+ },
+ {
+  "i": 1909,
+  "word": "cut",
+  "start": 625.81,
+  "end": 625.99
+ },
+ {
+  "i": 1910,
+  "word": "cables",
+  "start": 626.03,
+  "end": 626.33
+ },
+ {
+  "i": 1911,
+  "word": "on",
+  "start": 626.39,
+  "end": 626.451
+ },
+ {
+  "i": 1912,
+  "word": "the",
+  "start": 626.471,
+  "end": 626.551
+ },
+ {
+  "i": 1913,
+  "word": "sea",
+  "start": 626.591,
+  "end": 626.751
+ },
+ {
+  "i": 1914,
+  "word": "floor.",
+  "start": 626.791,
+  "end": 627.091
+ },
+ {
+  "i": 1915,
+  "word": "Or",
+  "start": 627.431,
+  "end": 627.531
+ },
+ {
+  "i": 1916,
+  "word": "maybe",
+  "start": 627.591,
+  "end": 627.911
+ },
+ {
+  "i": 1917,
+  "word": "the",
+  "start": 627.951,
+  "end": 628.031
+ },
+ {
+  "i": 1918,
+  "word": "merchant",
+  "start": 628.051,
+  "end": 628.352
+ },
+ {
+  "i": 1919,
+  "word": "vessel",
+  "start": 628.392,
+  "end": 628.672
+ },
+ {
+  "i": 1920,
+  "word": "Ruby",
+  "start": 628.712,
+  "end": 629.012
+ },
+ {
+  "i": 1921,
+  "word": "Mars",
+  "start": 629.052,
+  "end": 629.292
+ },
+ {
+  "i": 1922,
+  "word": "severed",
+  "start": 629.392,
+  "end": 629.672
+ },
+ {
+  "i": 1923,
+  "word": "the",
+  "start": 629.692,
+  "end": 629.772
+ },
+ {
+  "i": 1924,
+  "word": "cables",
+  "start": 629.793,
+  "end": 630.133
+ },
+ {
+  "i": 1925,
+  "word": "when",
+  "start": 630.173,
+  "end": 630.293
+ },
+ {
+  "i": 1926,
+  "word": "it",
+  "start": 630.333,
+  "end": 630.433
+ },
+ {
+  "i": 1927,
+  "word": "settled",
+  "start": 630.513,
+  "end": 630.813
+ },
+ {
+  "i": 1928,
+  "word": "on",
+  "start": 630.853,
+  "end": 630.933
+ },
+ {
+  "i": 1929,
+  "word": "the",
+  "start": 630.953,
+  "end": 631.033
+ },
+ {
+  "i": 1930,
+  "word": "bottom",
+  "start": 631.073,
+  "end": 631.333
+ },
+ {
+  "i": 1931,
+  "word": "of",
+  "start": 631.353,
+  "end": 631.393
+ },
+ {
+  "i": 1932,
+  "word": "the",
+  "start": 631.413,
+  "end": 631.494
+ },
+ {
+  "i": 1933,
+  "word": "Red",
+  "start": 631.534,
+  "end": 631.674
+ },
+ {
+  "i": 1934,
+  "word": "Sea",
+  "start": 631.714,
+  "end": 631.874
+ },
+ {
+  "i": 1935,
+  "word": "after",
+  "start": 631.914,
+  "end": 632.094
+ },
+ {
+  "i": 1936,
+  "word": "being",
+  "start": 632.134,
+  "end": 632.334
+ },
+ {
+  "i": 1937,
+  "word": "hit",
+  "start": 632.374,
+  "end": 632.554
+ },
+ {
+  "i": 1938,
+  "word": "by",
+  "start": 632.594,
+  "end": 632.734
+ },
+ {
+  "i": 1939,
+  "word": "a",
+  "start": 632.754,
+  "end": 632.794
+ },
+ {
+  "i": 1940,
+  "word": "Houthi",
+  "start": 632.834,
+  "end": 633.114
+ },
+ {
+  "i": 1941,
+  "word": "missile",
+  "start": 633.154,
+  "end": 633.415
+ },
+ {
+  "i": 1942,
+  "word": "a",
+  "start": 633.435,
+  "end": 633.455
+ },
+ {
+  "i": 1943,
+  "word": "few",
+  "start": 633.495,
+  "end": 633.635
+ },
+ {
+  "i": 1944,
+  "word": "weeks",
+  "start": 633.695,
+  "end": 633.915
+ },
+ {
+  "i": 1945,
+  "word": "ago,",
+  "start": 633.975,
+  "end": 634.235
+ },
+ {
+  "i": 1946,
+  "word": "and",
+  "start": 634.495,
+  "end": 634.575
+ },
+ {
+  "i": 1947,
+  "word": "then",
+  "start": 634.615,
+  "end": 634.755
+ },
+ {
+  "i": 1948,
+  "word": "floating",
+  "start": 634.855,
+  "end": 635.176
+ },
+ {
+  "i": 1949,
+  "word": "adrift",
+  "start": 635.216,
+  "end": 635.536
+ },
+ {
+  "i": 1950,
+  "word": "for",
+  "start": 635.556,
+  "end": 635.676
+ },
+ {
+  "i": 1951,
+  "word": "days",
+  "start": 635.716,
+  "end": 635.996
+ },
+ {
+  "i": 1952,
+  "word": "before",
+  "start": 636.016,
+  "end": 636.256
+ },
+ {
+  "i": 1953,
+  "word": "finally",
+  "start": 636.336,
+  "end": 636.657
+ },
+ {
+  "i": 1954,
+  "word": "sinking.",
+  "start": 636.737,
+  "end": 637.097
+ },
+ {
+  "i": 1955,
+  "word": "The",
+  "start": 637.537,
+  "end": 637.617
+ },
+ {
+  "i": 1956,
+  "word": "truth",
+  "start": 637.657,
+  "end": 637.917
+ },
+ {
+  "i": 1957,
+  "word": "will",
+  "start": 637.977,
+  "end": 638.178
+ },
+ {
+  "i": 1958,
+  "word": "come",
+  "start": 638.218,
+  "end": 638.338
+ },
+ {
+  "i": 1959,
+  "word": "out",
+  "start": 638.378,
+  "end": 638.458
+ },
+ {
+  "i": 1960,
+  "word": "eventually.",
+  "start": 638.498,
+  "end": 639.018
+ },
+ {
+  "i": 1961,
+  "word": "And",
+  "start": 639.218,
+  "end": 639.298
+ },
+ {
+  "i": 1962,
+  "word": "if",
+  "start": 639.318,
+  "end": 639.378
+ },
+ {
+  "i": 1963,
+  "word": "the",
+  "start": 639.419,
+  "end": 639.479
+ },
+ {
+  "i": 1964,
+  "word": "Houthis",
+  "start": 639.519,
+  "end": 639.839
+ },
+ {
+  "i": 1965,
+  "word": "are",
+  "start": 639.879,
+  "end": 639.959
+ },
+ {
+  "i": 1966,
+  "word": "responsible,",
+  "start": 639.999,
+  "end": 640.619
+ },
+ {
+  "i": 1967,
+  "word": "then",
+  "start": 641.0,
+  "end": 641.18
+ },
+ {
+  "i": 1968,
+  "word": "they've",
+  "start": 641.22,
+  "end": 641.4
+ },
+ {
+  "i": 1969,
+  "word": "added",
+  "start": 641.44,
+  "end": 641.6
+ },
+ {
+  "i": 1970,
+  "word": "to",
+  "start": 641.64,
+  "end": 641.72
+ },
+ {
+  "i": 1971,
+  "word": "their",
+  "start": 641.74,
+  "end": 641.88
+ },
+ {
+  "i": 1972,
+  "word": "list",
+  "start": 641.92,
+  "end": 642.141
+ },
+ {
+  "i": 1973,
+  "word": "of",
+  "start": 642.161,
+  "end": 642.221
+ },
+ {
+  "i": 1974,
+  "word": "adversary",
+  "start": 642.281,
+  "end": 642.681
+ },
+ {
+  "i": 1975,
+  "word": "countries,",
+  "start": 642.741,
+  "end": 643.121
+ },
+ {
+  "i": 1976,
+  "word": "most",
+  "start": 643.201,
+  "end": 643.402
+ },
+ {
+  "i": 1977,
+  "word": "notably",
+  "start": 643.482,
+  "end": 643.822
+ },
+ {
+  "i": 1978,
+  "word": "China.",
+  "start": 643.882,
+  "end": 644.242
+ },
+ {
+  "i": 1979,
+  "word": "The",
+  "start": 644.582,
+  "end": 644.683
+ },
+ {
+  "i": 1980,
+  "word": "bottom",
+  "start": 644.723,
+  "end": 645.023
+ },
+ {
+  "i": 1981,
+  "word": "line",
+  "start": 645.063,
+  "end": 645.323
+ },
+ {
+  "i": 1982,
+  "word": "is",
+  "start": 645.363,
+  "end": 645.423
+ },
+ {
+  "i": 1983,
+  "word": "that",
+  "start": 645.463,
+  "end": 645.583
+ },
+ {
+  "i": 1984,
+  "word": "all",
+  "start": 645.683,
+  "end": 645.803
+ },
+ {
+  "i": 1985,
+  "word": "of",
+  "start": 645.823,
+  "end": 645.863
+ },
+ {
+  "i": 1986,
+  "word": "this",
+  "start": 645.883,
+  "end": 646.024
+ },
+ {
+  "i": 1987,
+  "word": "is",
+  "start": 646.084,
+  "end": 646.144
+ },
+ {
+  "i": 1988,
+  "word": "netting",
+  "start": 646.204,
+  "end": 646.424
+ },
+ {
+  "i": 1989,
+  "word": "out",
+  "start": 646.484,
+  "end": 646.584
+ },
+ {
+  "i": 1990,
+  "word": "to",
+  "start": 646.624,
+  "end": 646.744
+ },
+ {
+  "i": 1991,
+  "word": "a",
+  "start": 646.784,
+  "end": 646.844
+ },
+ {
+  "i": 1992,
+  "word": "42%",
+  "start": 646.944,
+  "end": 647.345
+ },
+ {
+  "i": 1993,
+  "word": "drop",
+  "start": 647.685,
+  "end": 647.945
+ },
+ {
+  "i": 1994,
+  "word": "in",
+  "start": 647.985,
+  "end": 648.065
+ },
+ {
+  "i": 1995,
+  "word": "monthly",
+  "start": 648.125,
+  "end": 648.425
+ },
+ {
+  "i": 1996,
+  "word": "transits",
+  "start": 648.485,
+  "end": 648.886
+ },
+ {
+  "i": 1997,
+  "word": "through",
+  "start": 648.906,
+  "end": 649.106
+ },
+ {
+  "i": 1998,
+  "word": "the",
+  "start": 649.126,
+  "end": 649.186
+ },
+ {
+  "i": 1999,
+  "word": "Suez",
+  "start": 649.206,
+  "end": 649.506
+ },
+ {
+  "i": 2000,
+  "word": "Canal",
+  "start": 649.526,
+  "end": 649.906
+ },
+ {
+  "i": 2001,
+  "word": "and",
+  "start": 650.227,
+  "end": 650.367
+ },
+ {
+  "i": 2002,
+  "word": "an",
+  "start": 650.427,
+  "end": 650.507
+ },
+ {
+  "i": 2003,
+  "word": "82%",
+  "start": 650.947,
+  "end": 651.248
+ },
+ {
+  "i": 2004,
+  "word": "decrease",
+  "start": 651.308,
+  "end": 651.768
+ },
+ {
+  "i": 2005,
+  "word": "in",
+  "start": 651.808,
+  "end": 651.888
+ },
+ {
+  "i": 2006,
+  "word": "container",
+  "start": 651.908,
+  "end": 652.328
+ },
+ {
+  "i": 2007,
+  "word": "tonnage",
+  "start": 652.368,
+  "end": 652.709
+ },
+ {
+  "i": 2008,
+  "word": "from",
+  "start": 652.769,
+  "end": 652.889
+ },
+ {
+  "i": 2009,
+  "word": "its",
+  "start": 652.949,
+  "end": 653.049
+ },
+ {
+  "i": 2010,
+  "word": "peak",
+  "start": 653.109,
+  "end": 653.309
+ },
+ {
+  "i": 2011,
+  "word": "in",
+  "start": 653.329,
+  "end": 653.689
+ },
+ {
+  "i": 2012,
+  "word": "2023,",
+  "start": 653.729,
+  "end": 654.23
+ },
+ {
+  "i": 2013,
+  "word": "according",
+  "start": 654.27,
+  "end": 654.57
+ },
+ {
+  "i": 2014,
+  "word": "to",
+  "start": 654.59,
+  "end": 654.67
+ },
+ {
+  "i": 2015,
+  "word": "the",
+  "start": 654.69,
+  "end": 654.75
+ },
+ {
+  "i": 2016,
+  "word": "UN.",
+  "start": 654.87,
+  "end": 655.17
+ },
+ {
+  "i": 2017,
+  "word": "So",
+  "start": 655.471,
+  "end": 655.591
+ },
+ {
+  "i": 2018,
+  "word": "between",
+  "start": 655.611,
+  "end": 655.891
+ },
+ {
+  "i": 2019,
+  "word": "that",
+  "start": 655.951,
+  "end": 656.231
+ },
+ {
+  "i": 2020,
+  "word": "and",
+  "start": 656.331,
+  "end": 656.431
+ },
+ {
+  "i": 2021,
+  "word": "the",
+  "start": 656.451,
+  "end": 656.532
+ },
+ {
+  "i": 2022,
+  "word": "impact",
+  "start": 656.612,
+  "end": 656.992
+ },
+ {
+  "i": 2023,
+  "word": "on",
+  "start": 657.172,
+  "end": 657.232
+ },
+ {
+  "i": 2024,
+  "word": "internet",
+  "start": 657.332,
+  "end": 657.632
+ },
+ {
+  "i": 2025,
+  "word": "connectivity",
+  "start": 657.672,
+  "end": 658.213
+ },
+ {
+  "i": 2026,
+  "word": "on",
+  "start": 658.253,
+  "end": 658.333
+ },
+ {
+  "i": 2027,
+  "word": "countries",
+  "start": 658.393,
+  "end": 658.733
+ },
+ {
+  "i": 2028,
+  "word": "far",
+  "start": 658.833,
+  "end": 659.073
+ },
+ {
+  "i": 2029,
+  "word": "away",
+  "start": 659.113,
+  "end": 659.294
+ },
+ {
+  "i": 2030,
+  "word": "from",
+  "start": 659.314,
+  "end": 659.434
+ },
+ {
+  "i": 2031,
+  "word": "the",
+  "start": 659.454,
+  "end": 659.514
+ },
+ {
+  "i": 2032,
+  "word": "Red",
+  "start": 659.554,
+  "end": 659.714
+ },
+ {
+  "i": 2033,
+  "word": "Sea,",
+  "start": 659.794,
+  "end": 660.034
+ },
+ {
+  "i": 2034,
+  "word": "consumers",
+  "start": 660.334,
+  "end": 660.875
+ },
+ {
+  "i": 2035,
+  "word": "worldwide",
+  "start": 660.895,
+  "end": 661.435
+ },
+ {
+  "i": 2036,
+  "word": "would",
+  "start": 661.475,
+  "end": 661.595
+ },
+ {
+  "i": 2037,
+  "word": "be",
+  "start": 661.635,
+  "end": 661.695
+ },
+ {
+  "i": 2038,
+  "word": "wise",
+  "start": 661.796,
+  "end": 662.116
+ },
+ {
+  "i": 2039,
+  "word": "not",
+  "start": 662.156,
+  "end": 662.276
+ },
+ {
+  "i": 2040,
+  "word": "to",
+  "start": 662.316,
+  "end": 662.356
+ },
+ {
+  "i": 2041,
+  "word": "conceive",
+  "start": 662.396,
+  "end": 662.736
+ },
+ {
+  "i": 2042,
+  "word": "of",
+  "start": 662.756,
+  "end": 662.796
+ },
+ {
+  "i": 2043,
+  "word": "the",
+  "start": 662.816,
+  "end": 662.896
+ },
+ {
+  "i": 2044,
+  "word": "Houthi",
+  "start": 662.936,
+  "end": 663.197
+ },
+ {
+  "i": 2045,
+  "word": "threat",
+  "start": 663.237,
+  "end": 663.497
+ },
+ {
+  "i": 2046,
+  "word": "as",
+  "start": 663.557,
+  "end": 663.617
+ },
+ {
+  "i": 2047,
+  "word": "something",
+  "start": 663.717,
+  "end": 663.997
+ },
+ {
+  "i": 2048,
+  "word": "that",
+  "start": 664.017,
+  "end": 664.117
+ },
+ {
+  "i": 2049,
+  "word": "doesn't",
+  "start": 664.157,
+  "end": 664.397
+ },
+ {
+  "i": 2050,
+  "word": "affect",
+  "start": 664.438,
+  "end": 664.698
+ },
+ {
+  "i": 2051,
+  "word": "them.",
+  "start": 664.758,
+  "end": 664.878
+ },
+ {
+  "i": 2052,
+  "word": "More",
+  "start": 665.178,
+  "end": 665.319
+ },
+ {
+  "i": 2053,
+  "word": "on",
+  "start": 665.359,
+  "end": 665.419
+ },
+ {
+  "i": 2054,
+  "word": "this",
+  "start": 665.439,
+  "end": 665.539
+ },
+ {
+  "i": 2055,
+  "word": "situation",
+  "start": 665.559,
+  "end": 666.06
+ },
+ {
+  "i": 2056,
+  "word": "as",
+  "start": 666.1,
+  "end": 666.16
+ },
+ {
+  "i": 2057,
+  "word": "the",
+  "start": 666.18,
+  "end": 666.241
+ },
+ {
+  "i": 2058,
+  "word": "information",
+  "start": 666.261,
+  "end": 666.702
+ },
+ {
+  "i": 2059,
+  "word": "becomes",
+  "start": 666.742,
+  "end": 667.042
+ },
+ {
+  "i": 2060,
+  "word": "available.",
+  "start": 667.082,
+  "end": 667.483
+ },
+ {
+  "i": 2061,
+  "word": "So",
+  "start": 667.523,
+  "end": 667.644
+ },
+ {
+  "i": 2062,
+  "word": "if",
+  "start": 667.684,
+  "end": 667.724
+ },
+ {
+  "i": 2063,
+  "word": "you're",
+  "start": 667.744,
+  "end": 667.924
+ },
+ {
+  "i": 2064,
+  "word": "not",
+  "start": 667.964,
+  "end": 668.165
+ },
+ {
+  "i": 2065,
+  "word": "already",
+  "start": 668.305,
+  "end": 668.566
+ },
+ {
+  "i": 2066,
+  "word": "a",
+  "start": 668.586,
+  "end": 668.606
+ },
+ {
+  "i": 2067,
+  "word": "subscriber,",
+  "start": 668.626,
+  "end": 669.127
+ },
+ {
+  "i": 2068,
+  "word": "become",
+  "start": 669.187,
+  "end": 669.508
+ },
+ {
+  "i": 2069,
+  "word": "one",
+  "start": 669.608,
+  "end": 669.728
+ },
+ {
+  "i": 2070,
+  "word": "so",
+  "start": 669.748,
+  "end": 669.808
+ },
+ {
+  "i": 2071,
+  "word": "you",
+  "start": 669.828,
+  "end": 669.889
+ },
+ {
+  "i": 2072,
+  "word": "don't",
+  "start": 669.909,
+  "end": 670.069
+ },
+ {
+  "i": 2073,
+  "word": "miss",
+  "start": 670.089,
+  "end": 670.269
+ },
+ {
+  "i": 2074,
+  "word": "anything.",
+  "start": 670.309,
+  "end": 670.65
+ },
+ {
+  "i": 2075,
+  "word": "And",
+  "start": 670.991,
+  "end": 671.111
+ },
+ {
+  "i": 2076,
+  "word": "in",
+  "start": 671.151,
+  "end": 671.191
+ },
+ {
+  "i": 2077,
+  "word": "the",
+  "start": 671.231,
+  "end": 671.292
+ },
+ {
+  "i": 2078,
+  "word": "meantime,",
+  "start": 671.332,
+  "end": 671.773
+ },
+ {
+  "i": 2079,
+  "word": "I",
+  "start": 672.113,
+  "end": 672.174
+ },
+ {
+  "i": 2080,
+  "word": "look",
+  "start": 672.194,
+  "end": 672.294
+ },
+ {
+  "i": 2081,
+  "word": "forward",
+  "start": 672.314,
+  "end": 672.454
+ },
+ {
+  "i": 2082,
+  "word": "to",
+  "start": 672.474,
+  "end": 672.554
+ },
+ {
+  "i": 2083,
+  "word": "talking",
+  "start": 672.574,
+  "end": 672.775
+ },
+ {
+  "i": 2084,
+  "word": "to",
+  "start": 672.795,
+  "end": 672.835
+ },
+ {
+  "i": 2085,
+  "word": "you",
+  "start": 672.855,
+  "end": 672.935
+ },
+ {
+  "i": 2086,
+  "word": "again",
+  "start": 672.955,
+  "end": 673.176
+ },
+ {
+  "i": 2087,
+  "word": "very",
+  "start": 673.577,
+  "end": 673.797
+ },
+ {
+  "i": 2088,
+  "word": "soon.",
+  "start": 673.837,
+  "end": 674.018
+ }
+]

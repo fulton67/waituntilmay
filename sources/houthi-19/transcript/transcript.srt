@@ -1,0 +1,213 @@
+1
+00:00:00,191 --> 00:00:02,572
+On to a critical question in this widening
+war.
+
+2
+00:00:03,252 --> 00:00:06,414
+After oil, after gas, after airline,
+
+3
+00:00:06,514 --> 00:00:11,196
+fertilizers, health supplies, could your
+internet be next?
+
+4
+00:00:12,116 --> 00:00:16,959
+Because beyond missiles and markets, the
+real choke point lies underwater.
+
+5
+00:00:17,799 --> 00:00:20,200
+The Red Sea and the Strait of Hormuz are
+now
+
+6
+00:00:20,760 --> 00:00:26,203
+not just energy lifelines, they are also
+global data arteries.
+
+7
+00:00:27,384 --> 00:00:32,139
+over 20 subsea cables run through these
+conflict zones with at least
+
+8
+00:00:32,440 --> 00:00:34,206
+17 cutting across the Red Sea.
+
+9
+00:00:35,478 --> 00:00:41,139
+alone carrying massive volumes of internet
+traffic between Europe, Asia,
+
+10
+00:00:41,319 --> 00:00:44,560
+Africa, all of it that you see. These
+cables power
+
+11
+00:00:44,720 --> 00:00:48,360
+everything from financial transactions to
+communication networks,
+
+12
+00:00:48,480 --> 00:00:52,541
+even the data centres that keep the
+digital world running.
+
+13
+00:00:53,241 --> 00:00:57,542
+The risk is stark. Any strike, sabotage or
+blockade
+
+14
+00:00:57,882 --> 00:01:03,123
+could snap these cables and halt the
+repair operations in a conflict zone.
+
+15
+00:01:04,123 --> 00:01:04,624
+The result?
+
+16
+00:01:05,505 --> 00:01:11,391
+Internet disruptions that could lead and
+also in fact impact everyone last weeks
+
+17
+00:01:12,092 --> 00:01:12,632
+even longer.
+
+18
+00:01:13,513 --> 00:01:16,977
+The hidden front line with real global
+
+19
+00:01:17,177 --> 00:01:21,082
+consequences and just see the extent to
+which these cables go.
+
+20
+00:01:23,325 --> 00:01:25,648
+Aishwarya Patil now from Business Today
+joins us to
+
+21
+00:01:26,088 --> 00:01:28,712
+help us understand this in a little bit
+more detail. Aishwarya,
+
+22
+00:01:29,493 --> 00:01:34,218
+how exactly do these cables work? How are
+they placed and
+
+23
+00:01:34,358 --> 00:01:38,123
+so far what are we hearing about the
+safety and security of these cables?
+
+24
+00:01:45,112 --> 00:01:49,696
+Well, collateral damage of this war,
+specifically the Strait of Hormuz,
+
+25
+00:01:49,716 --> 00:01:54,260
+if we talk about the lesser known fact is,
+as you rightly mentioned,
+
+26
+00:01:54,300 --> 00:01:59,504
+this is a choke point for global data as
+well. So subsea cables run throughout
+
+27
+00:02:01,266 --> 00:02:03,467
+the world at different speeds.
+
+28
+00:02:05,789 --> 00:02:11,633
+countries and points as well. Now these are
+sitting right at the seabed as well. But
+
+29
+00:02:12,414 --> 00:02:16,637
+what this war brings in is a risk to
+
+30
+00:02:17,037 --> 00:02:20,980
+some of our digital infrastructure. We are
+talking about cable power.
+
+31
+00:02:22,461 --> 00:02:25,683
+Under the Strait of Hormuz, which runs and
+powers
+
+32
+00:02:25,863 --> 00:02:30,566
+Asia and Africa's digital links as well,
+data centers are also
+
+33
+00:02:31,006 --> 00:02:34,548
+connected to some of these subsea cables
+that depend on these routes.
+
+34
+00:02:34,949 --> 00:02:38,471
+We're also talking if there is any kind of
+damage, we're talking about
+
+35
+00:02:38,911 --> 00:02:42,036
+blockade in repairing some of these subsea
+cables.
+
+36
+00:02:42,076 --> 00:02:44,580
+So there could be outages on multiple
+fronts.
+
+37
+00:02:44,641 --> 00:02:48,166
+Data centers could stop working or
+internet access. We could
+
+38
+00:02:48,888 --> 00:02:52,734
+also see some outages in terms of the
+applications that we use.
+
+39
+00:02:53,812 --> 00:02:56,635
+Any strike or cut can disrupt the internet
+links
+
+40
+00:02:57,876 --> 00:03:00,077
+100%. Of course, that depends
+
+41
+00:03:00,998 --> 00:03:02,700
+if that risk is still looming.
+
+42
+00:03:03,500 --> 00:03:08,865
+But this is overall the outlook as to the
+20 subsea cables that
+
+43
+00:03:09,726 --> 00:03:10,266
+underlie
+
+44
+00:03:11,187 --> 00:03:11,968
+as far as
+
+45
+00:03:13,249 --> 00:03:14,630
+the Strait of Hormuz is concerned.
+

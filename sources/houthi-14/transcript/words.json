@@ -1,0 +1,5678 @@
+[
+ {
+  "i": 0,
+  "word": "Majtaba",
+  "start": 1.083,
+  "end": 1.603
+ },
+ {
+  "i": 1,
+  "word": "Khamenei",
+  "start": 1.624,
+  "end": 2.144
+ },
+ {
+  "i": 2,
+  "word": "warned",
+  "start": 2.224,
+  "end": 2.484
+ },
+ {
+  "i": 3,
+  "word": "of",
+  "start": 2.504,
+  "end": 2.544
+ },
+ {
+  "i": 4,
+  "word": "retaliation",
+  "start": 2.564,
+  "end": 3.245
+ },
+ {
+  "i": 5,
+  "word": "against",
+  "start": 3.325,
+  "end": 3.585
+ },
+ {
+  "i": 6,
+  "word": "the",
+  "start": 3.605,
+  "end": 3.665
+ },
+ {
+  "i": 7,
+  "word": "US",
+  "start": 3.805,
+  "end": 4.106
+ },
+ {
+  "i": 8,
+  "word": "and",
+  "start": 4.206,
+  "end": 4.286
+ },
+ {
+  "i": 9,
+  "word": "its",
+  "start": 4.326,
+  "end": 4.426
+ },
+ {
+  "i": 10,
+  "word": "allies",
+  "start": 4.486,
+  "end": 4.846
+ },
+ {
+  "i": 11,
+  "word": "if",
+  "start": 4.946,
+  "end": 5.026
+ },
+ {
+  "i": 12,
+  "word": "Washington",
+  "start": 5.087,
+  "end": 5.527
+ },
+ {
+  "i": 13,
+  "word": "resumed",
+  "start": 5.567,
+  "end": 5.927
+ },
+ {
+  "i": 14,
+  "word": "military",
+  "start": 5.987,
+  "end": 6.328
+ },
+ {
+  "i": 15,
+  "word": "action",
+  "start": 6.388,
+  "end": 6.648
+ },
+ {
+  "i": 16,
+  "word": "against",
+  "start": 6.688,
+  "end": 6.948
+ },
+ {
+  "i": 17,
+  "word": "Iran.",
+  "start": 7.028,
+  "end": 7.369
+ },
+ {
+  "i": 18,
+  "word": "Iran",
+  "start": 7.889,
+  "end": 8.229
+ },
+ {
+  "i": 19,
+  "word": "reportedly",
+  "start": 8.269,
+  "end": 8.81
+ },
+ {
+  "i": 20,
+  "word": "threatened",
+  "start": 8.87,
+  "end": 9.25
+ },
+ {
+  "i": 21,
+  "word": "Gulf",
+  "start": 9.31,
+  "end": 9.53
+ },
+ {
+  "i": 22,
+  "word": "internet",
+  "start": 9.59,
+  "end": 9.931
+ },
+ {
+  "i": 23,
+  "word": "infrastructure,",
+  "start": 9.971,
+  "end": 10.611
+ },
+ {
+  "i": 24,
+  "word": "expanding",
+  "start": 11.032,
+  "end": 11.512
+ },
+ {
+  "i": 25,
+  "word": "its",
+  "start": 11.532,
+  "end": 11.652
+ },
+ {
+  "i": 26,
+  "word": "warnings",
+  "start": 11.692,
+  "end": 12.073
+ },
+ {
+  "i": 27,
+  "word": "beyond",
+  "start": 12.133,
+  "end": 12.393
+ },
+ {
+  "i": 28,
+  "word": "US",
+  "start": 12.533,
+  "end": 12.753
+ },
+ {
+  "i": 29,
+  "word": "military",
+  "start": 12.793,
+  "end": 13.114
+ },
+ {
+  "i": 30,
+  "word": "bases",
+  "start": 13.154,
+  "end": 13.554
+ },
+ {
+  "i": 31,
+  "word": "to",
+  "start": 13.614,
+  "end": 13.714
+ },
+ {
+  "i": 32,
+  "word": "undersea",
+  "start": 13.794,
+  "end": 14.094
+ },
+ {
+  "i": 33,
+  "word": "cables",
+  "start": 14.114,
+  "end": 14.515
+ },
+ {
+  "i": 34,
+  "word": "and",
+  "start": 14.635,
+  "end": 14.735
+ },
+ {
+  "i": 35,
+  "word": "digital",
+  "start": 14.775,
+  "end": 15.115
+ },
+ {
+  "i": 36,
+  "word": "networks.",
+  "start": 15.155,
+  "end": 15.636
+ },
+ {
+  "i": 37,
+  "word": "Tehran",
+  "start": 16.236,
+  "end": 16.617
+ },
+ {
+  "i": 38,
+  "word": "warned",
+  "start": 16.637,
+  "end": 16.937
+ },
+ {
+  "i": 39,
+  "word": "there",
+  "start": 16.977,
+  "end": 17.077
+ },
+ {
+  "i": 40,
+  "word": "would",
+  "start": 17.097,
+  "end": 17.217
+ },
+ {
+  "i": 41,
+  "word": "be",
+  "start": 17.237,
+  "end": 17.337
+ },
+ {
+  "i": 42,
+  "word": "no",
+  "start": 17.437,
+  "end": 17.597
+ },
+ {
+  "i": 43,
+  "word": "more",
+  "start": 17.637,
+  "end": 17.798
+ },
+ {
+  "i": 44,
+  "word": "red",
+  "start": 17.858,
+  "end": 17.998
+ },
+ {
+  "i": 45,
+  "word": "lines",
+  "start": 18.058,
+  "end": 18.358
+ },
+ {
+  "i": 46,
+  "word": "if",
+  "start": 18.418,
+  "end": 18.498
+ },
+ {
+  "i": 47,
+  "word": "attacked",
+  "start": 18.518,
+  "end": 18.819
+ },
+ {
+  "i": 48,
+  "word": "again,",
+  "start": 18.879,
+  "end": 19.119
+ },
+ {
+  "i": 49,
+  "word": "with",
+  "start": 19.599,
+  "end": 19.719
+ },
+ {
+  "i": 50,
+  "word": "undersea",
+  "start": 19.779,
+  "end": 20.06
+ },
+ {
+  "i": 51,
+  "word": "cables",
+  "start": 20.08,
+  "end": 20.48
+ },
+ {
+  "i": 52,
+  "word": "and",
+  "start": 20.56,
+  "end": 20.66
+ },
+ {
+  "i": 53,
+  "word": "AI",
+  "start": 20.74,
+  "end": 20.98
+ },
+ {
+  "i": 54,
+  "word": "data",
+  "start": 21.0,
+  "end": 21.301
+ },
+ {
+  "i": 55,
+  "word": "centers",
+  "start": 21.321,
+  "end": 21.681
+ },
+ {
+  "i": 56,
+  "word": "reportedly",
+  "start": 21.761,
+  "end": 22.302
+ },
+ {
+  "i": 57,
+  "word": "among",
+  "start": 22.342,
+  "end": 22.522
+ },
+ {
+  "i": 58,
+  "word": "potential",
+  "start": 22.562,
+  "end": 22.982
+ },
+ {
+  "i": 59,
+  "word": "targets.",
+  "start": 23.022,
+  "end": 23.463
+ },
+ {
+  "i": 60,
+  "word": "Iran",
+  "start": 24.083,
+  "end": 24.423
+ },
+ {
+  "i": 61,
+  "word": "warned",
+  "start": 24.463,
+  "end": 24.743
+ },
+ {
+  "i": 62,
+  "word": "US",
+  "start": 24.844,
+  "end": 25.084
+ },
+ {
+  "i": 63,
+  "word": "forces",
+  "start": 25.104,
+  "end": 25.504
+ },
+ {
+  "i": 64,
+  "word": "against",
+  "start": 25.564,
+  "end": 25.824
+ },
+ {
+  "i": 65,
+  "word": "a",
+  "start": 25.864,
+  "end": 25.904
+ },
+ {
+  "i": 66,
+  "word": "ground",
+  "start": 25.924,
+  "end": 26.204
+ },
+ {
+  "i": 67,
+  "word": "operation,",
+  "start": 26.244,
+  "end": 26.765
+ },
+ {
+  "i": 68,
+  "word": "raising",
+  "start": 27.285,
+  "end": 27.605
+ },
+ {
+  "i": 69,
+  "word": "fears",
+  "start": 27.685,
+  "end": 27.965
+ },
+ {
+  "i": 70,
+  "word": "that",
+  "start": 28.005,
+  "end": 28.125
+ },
+ {
+  "i": 71,
+  "word": "American",
+  "start": 28.165,
+  "end": 28.566
+ },
+ {
+  "i": 72,
+  "word": "troops",
+  "start": 28.606,
+  "end": 28.886
+ },
+ {
+  "i": 73,
+  "word": "could",
+  "start": 28.946,
+  "end": 29.086
+ },
+ {
+  "i": 74,
+  "word": "face",
+  "start": 29.146,
+  "end": 29.346
+ },
+ {
+  "i": 75,
+  "word": "intense",
+  "start": 29.406,
+  "end": 29.746
+ },
+ {
+  "i": 76,
+  "word": "resistance",
+  "start": 29.766,
+  "end": 30.287
+ },
+ {
+  "i": 77,
+  "word": "on",
+  "start": 30.427,
+  "end": 30.487
+ },
+ {
+  "i": 78,
+  "word": "Iranian",
+  "start": 30.527,
+  "end": 30.887
+ },
+ {
+  "i": 79,
+  "word": "territory.",
+  "start": 30.907,
+  "end": 31.367
+ },
+ {
+  "i": 80,
+  "word": "Tehran",
+  "start": 31.848,
+  "end": 32.248
+ },
+ {
+  "i": 81,
+  "word": "challenged",
+  "start": 32.288,
+  "end": 32.688
+ },
+ {
+  "i": 82,
+  "word": "Washington",
+  "start": 32.728,
+  "end": 33.208
+ },
+ {
+  "i": 83,
+  "word": "over",
+  "start": 33.348,
+  "end": 33.468
+ },
+ {
+  "i": 84,
+  "word": "the",
+  "start": 33.489,
+  "end": 33.569
+ },
+ {
+  "i": 85,
+  "word": "prospect",
+  "start": 33.589,
+  "end": 34.009
+ },
+ {
+  "i": 86,
+  "word": "of",
+  "start": 34.049,
+  "end": 34.109
+ },
+ {
+  "i": 87,
+  "word": "deploying",
+  "start": 34.149,
+  "end": 34.549
+ },
+ {
+  "i": 88,
+  "word": "ground",
+  "start": 34.589,
+  "end": 34.849
+ },
+ {
+  "i": 89,
+  "word": "troops,",
+  "start": 34.889,
+  "end": 35.23
+ },
+ {
+  "i": 90,
+  "word": "leaving",
+  "start": 35.69,
+  "end": 35.95
+ },
+ {
+  "i": 91,
+  "word": "Trump",
+  "start": 36.01,
+  "end": 36.25
+ },
+ {
+  "i": 92,
+  "word": "facing",
+  "start": 36.29,
+  "end": 36.61
+ },
+ {
+  "i": 93,
+  "word": "renewed",
+  "start": 36.65,
+  "end": 36.95
+ },
+ {
+  "i": 94,
+  "word": "questions",
+  "start": 36.991,
+  "end": 37.491
+ },
+ {
+  "i": 95,
+  "word": "over",
+  "start": 37.571,
+  "end": 37.711
+ },
+ {
+  "i": 96,
+  "word": "the",
+  "start": 37.731,
+  "end": 37.811
+ },
+ {
+  "i": 97,
+  "word": "risks",
+  "start": 37.851,
+  "end": 38.111
+ },
+ {
+  "i": 98,
+  "word": "of",
+  "start": 38.151,
+  "end": 38.211
+ },
+ {
+  "i": 99,
+  "word": "another",
+  "start": 38.271,
+  "end": 38.511
+ },
+ {
+  "i": 100,
+  "word": "military",
+  "start": 38.551,
+  "end": 38.892
+ },
+ {
+  "i": 101,
+  "word": "intervention.",
+  "start": 38.932,
+  "end": 39.452
+ },
+ {
+  "i": 102,
+  "word": "Reuters",
+  "start": 41.337,
+  "end": 41.677
+ },
+ {
+  "i": 103,
+  "word": "reported",
+  "start": 41.697,
+  "end": 42.137
+ },
+ {
+  "i": 104,
+  "word": "that",
+  "start": 42.177,
+  "end": 42.277
+ },
+ {
+  "i": 105,
+  "word": "Iran",
+  "start": 42.357,
+  "end": 42.657
+ },
+ {
+  "i": 106,
+  "word": "had",
+  "start": 42.697,
+  "end": 42.797
+ },
+ {
+  "i": 107,
+  "word": "detailed",
+  "start": 42.837,
+  "end": 43.238
+ },
+ {
+  "i": 108,
+  "word": "plans",
+  "start": 43.278,
+  "end": 43.598
+ },
+ {
+  "i": 109,
+  "word": "to",
+  "start": 43.638,
+  "end": 43.738
+ },
+ {
+  "i": 110,
+  "word": "attack",
+  "start": 43.758,
+  "end": 44.058
+ },
+ {
+  "i": 111,
+  "word": "Gulf",
+  "start": 44.118,
+  "end": 44.358
+ },
+ {
+  "i": 112,
+  "word": "undersea",
+  "start": 44.418,
+  "end": 44.718
+ },
+ {
+  "i": 113,
+  "word": "cables",
+  "start": 44.758,
+  "end": 45.138
+ },
+ {
+  "i": 114,
+  "word": "if",
+  "start": 45.258,
+  "end": 45.338
+ },
+ {
+  "i": 115,
+  "word": "the",
+  "start": 45.358,
+  "end": 45.438
+ },
+ {
+  "i": 116,
+  "word": "US",
+  "start": 45.558,
+  "end": 45.818
+ },
+ {
+  "i": 117,
+  "word": "and",
+  "start": 45.878,
+  "end": 45.978
+ },
+ {
+  "i": 118,
+  "word": "Israel",
+  "start": 46.078,
+  "end": 46.399
+ },
+ {
+  "i": 119,
+  "word": "resumed",
+  "start": 46.459,
+  "end": 46.839
+ },
+ {
+  "i": 120,
+  "word": "military",
+  "start": 46.879,
+  "end": 47.219
+ },
+ {
+  "i": 121,
+  "word": "strikes.",
+  "start": 47.259,
+  "end": 47.659
+ },
+ {
+  "i": 122,
+  "word": "Two",
+  "start": 48.259,
+  "end": 48.439
+ },
+ {
+  "i": 123,
+  "word": "senior",
+  "start": 48.519,
+  "end": 48.879
+ },
+ {
+  "i": 124,
+  "word": "Iranian",
+  "start": 48.959,
+  "end": 49.319
+ },
+ {
+  "i": 125,
+  "word": "security",
+  "start": 49.359,
+  "end": 49.8
+ },
+ {
+  "i": 126,
+  "word": "officials",
+  "start": 49.84,
+  "end": 50.28
+ },
+ {
+  "i": 127,
+  "word": "told",
+  "start": 50.38,
+  "end": 50.58
+ },
+ {
+  "i": 128,
+  "word": "Reuters",
+  "start": 50.62,
+  "end": 51.04
+ },
+ {
+  "i": 129,
+  "word": "that",
+  "start": 51.08,
+  "end": 51.2
+ },
+ {
+  "i": 130,
+  "word": "Tehran",
+  "start": 51.24,
+  "end": 51.62
+ },
+ {
+  "i": 131,
+  "word": "could",
+  "start": 51.64,
+  "end": 51.78
+ },
+ {
+  "i": 132,
+  "word": "target",
+  "start": 51.8,
+  "end": 52.12
+ },
+ {
+  "i": 133,
+  "word": "cables",
+  "start": 52.16,
+  "end": 52.54
+ },
+ {
+  "i": 134,
+  "word": "and",
+  "start": 52.68,
+  "end": 52.76
+ },
+ {
+  "i": 135,
+  "word": "prevent",
+  "start": 52.8,
+  "end": 53.081
+ },
+ {
+  "i": 136,
+  "word": "repair",
+  "start": 53.121,
+  "end": 53.401
+ },
+ {
+  "i": 137,
+  "word": "crews",
+  "start": 53.461,
+  "end": 53.721
+ },
+ {
+  "i": 138,
+  "word": "from",
+  "start": 53.781,
+  "end": 53.901
+ },
+ {
+  "i": 139,
+  "word": "restoring",
+  "start": 53.941,
+  "end": 54.341
+ },
+ {
+  "i": 140,
+  "word": "them.",
+  "start": 54.381,
+  "end": 54.501
+ },
+ {
+  "i": 141,
+  "word": "Iran",
+  "start": 55.041,
+  "end": 55.401
+ },
+ {
+  "i": 142,
+  "word": "warned",
+  "start": 55.421,
+  "end": 55.741
+ },
+ {
+  "i": 143,
+  "word": "there",
+  "start": 55.781,
+  "end": 55.901
+ },
+ {
+  "i": 144,
+  "word": "would",
+  "start": 55.921,
+  "end": 56.041
+ },
+ {
+  "i": 145,
+  "word": "be",
+  "start": 56.081,
+  "end": 56.181
+ },
+ {
+  "i": 146,
+  "word": "no",
+  "start": 56.301,
+  "end": 56.442
+ },
+ {
+  "i": 147,
+  "word": "more",
+  "start": 56.502,
+  "end": 56.682
+ },
+ {
+  "i": 148,
+  "word": "red",
+  "start": 56.742,
+  "end": 56.882
+ },
+ {
+  "i": 149,
+  "word": "lines,",
+  "start": 56.942,
+  "end": 57.282
+ },
+ {
+  "i": 150,
+  "word": "raising",
+  "start": 57.842,
+  "end": 58.122
+ },
+ {
+  "i": 151,
+  "word": "the",
+  "start": 58.142,
+  "end": 58.222
+ },
+ {
+  "i": 152,
+  "word": "possibility",
+  "start": 58.242,
+  "end": 58.782
+ },
+ {
+  "i": 153,
+  "word": "of",
+  "start": 58.822,
+  "end": 58.862
+ },
+ {
+  "i": 154,
+  "word": "attacks",
+  "start": 58.922,
+  "end": 59.282
+ },
+ {
+  "i": 155,
+  "word": "on",
+  "start": 59.362,
+  "end": 59.442
+ },
+ {
+  "i": 156,
+  "word": "undersea",
+  "start": 59.522,
+  "end": 59.823
+ },
+ {
+  "i": 157,
+  "word": "cables",
+  "start": 59.863,
+  "end": 60.243
+ },
+ {
+  "i": 158,
+  "word": "and",
+  "start": 60.363,
+  "end": 60.463
+ },
+ {
+  "i": 159,
+  "word": "military",
+  "start": 60.503,
+  "end": 60.823
+ },
+ {
+  "i": 160,
+  "word": "bases.",
+  "start": 60.863,
+  "end": 61.243
+ },
+ {
+  "i": 161,
+  "word": "IRGC",
+  "start": 61.923,
+  "end": 62.543
+ },
+ {
+  "i": 162,
+  "word": "Deputy",
+  "start": 62.603,
+  "end": 62.963
+ },
+ {
+  "i": 163,
+  "word": "Yadola",
+  "start": 62.983,
+  "end": 63.304
+ },
+ {
+  "i": 164,
+  "word": "Giovanni",
+  "start": 63.324,
+  "end": 63.824
+ },
+ {
+  "i": 165,
+  "word": "said",
+  "start": 63.924,
+  "end": 64.084
+ },
+ {
+  "i": 166,
+  "word": "Iran",
+  "start": 64.124,
+  "end": 64.464
+ },
+ {
+  "i": 167,
+  "word": "could",
+  "start": 64.504,
+  "end": 64.644
+ },
+ {
+  "i": 168,
+  "word": "target",
+  "start": 64.664,
+  "end": 65.024
+ },
+ {
+  "i": 169,
+  "word": "seven",
+  "start": 65.084,
+  "end": 65.324
+ },
+ {
+  "i": 170,
+  "word": "major",
+  "start": 65.364,
+  "end": 65.644
+ },
+ {
+  "i": 171,
+  "word": "internet",
+  "start": 65.684,
+  "end": 66.024
+ },
+ {
+  "i": 172,
+  "word": "cables",
+  "start": 66.044,
+  "end": 66.404
+ },
+ {
+  "i": 173,
+  "word": "running",
+  "start": 66.485,
+  "end": 66.705
+ },
+ {
+  "i": 174,
+  "word": "beneath",
+  "start": 66.745,
+  "end": 67.025
+ },
+ {
+  "i": 175,
+  "word": "the",
+  "start": 67.065,
+  "end": 67.145
+ },
+ {
+  "i": 176,
+  "word": "Strait",
+  "start": 67.165,
+  "end": 67.425
+ },
+ {
+  "i": 177,
+  "word": "of",
+  "start": 67.445,
+  "end": 67.485
+ },
+ {
+  "i": 178,
+  "word": "Hormuz.",
+  "start": 67.525,
+  "end": 67.945
+ },
+ {
+  "i": 179,
+  "word": "Reuters",
+  "start": 74.563,
+  "end": 74.903
+ },
+ {
+  "i": 180,
+  "word": "reported",
+  "start": 74.943,
+  "end": 75.403
+ },
+ {
+  "i": 181,
+  "word": "that",
+  "start": 75.463,
+  "end": 75.583
+ },
+ {
+  "i": 182,
+  "word": "Iran",
+  "start": 75.643,
+  "end": 75.944
+ },
+ {
+  "i": 183,
+  "word": "could",
+  "start": 75.964,
+  "end": 76.104
+ },
+ {
+  "i": 184,
+  "word": "also",
+  "start": 76.144,
+  "end": 76.404
+ },
+ {
+  "i": 185,
+  "word": "target",
+  "start": 76.464,
+  "end": 76.844
+ },
+ {
+  "i": 186,
+  "word": "U.S.-linked",
+  "start": 76.964,
+  "end": 77.404
+ },
+ {
+  "i": 187,
+  "word": "data",
+  "start": 77.464,
+  "end": 77.744
+ },
+ {
+  "i": 188,
+  "word": "centers",
+  "start": 77.764,
+  "end": 78.164
+ },
+ {
+  "i": 189,
+  "word": "and",
+  "start": 78.304,
+  "end": 78.404
+ },
+ {
+  "i": 190,
+  "word": "artificial",
+  "start": 78.484,
+  "end": 78.965
+ },
+ {
+  "i": 191,
+  "word": "intelligence",
+  "start": 79.005,
+  "end": 79.505
+ },
+ {
+  "i": 192,
+  "word": "facilities",
+  "start": 79.525,
+  "end": 80.065
+ },
+ {
+  "i": 193,
+  "word": "across",
+  "start": 80.145,
+  "end": 80.405
+ },
+ {
+  "i": 194,
+  "word": "the",
+  "start": 80.425,
+  "end": 80.505
+ },
+ {
+  "i": 195,
+  "word": "Gulf",
+  "start": 80.525,
+  "end": 80.765
+ },
+ {
+  "i": 196,
+  "word": "if",
+  "start": 80.845,
+  "end": 80.925
+ },
+ {
+  "i": 197,
+  "word": "war",
+  "start": 80.985,
+  "end": 81.145
+ },
+ {
+  "i": 198,
+  "word": "resumed.",
+  "start": 81.185,
+  "end": 81.625
+ },
+ {
+  "i": 199,
+  "word": "Tehran",
+  "start": 82.166,
+  "end": 82.566
+ },
+ {
+  "i": 200,
+  "word": "could",
+  "start": 82.586,
+  "end": 82.746
+ },
+ {
+  "i": 201,
+  "word": "seek",
+  "start": 82.806,
+  "end": 83.026
+ },
+ {
+  "i": 202,
+  "word": "to",
+  "start": 83.086,
+  "end": 83.166
+ },
+ {
+  "i": 203,
+  "word": "pressure",
+  "start": 83.206,
+  "end": 83.486
+ },
+ {
+  "i": 204,
+  "word": "Gulf",
+  "start": 83.526,
+  "end": 83.746
+ },
+ {
+  "i": 205,
+  "word": "states",
+  "start": 83.786,
+  "end": 84.126
+ },
+ {
+  "i": 206,
+  "word": "and",
+  "start": 84.246,
+  "end": 84.326
+ },
+ {
+  "i": 207,
+  "word": "American",
+  "start": 84.386,
+  "end": 84.767
+ },
+ {
+  "i": 208,
+  "word": "companies",
+  "start": 84.827,
+  "end": 85.267
+ },
+ {
+  "i": 209,
+  "word": "by",
+  "start": 85.367,
+  "end": 85.487
+ },
+ {
+  "i": 210,
+  "word": "threatening",
+  "start": 85.547,
+  "end": 85.927
+ },
+ {
+  "i": 211,
+  "word": "infrastructure",
+  "start": 85.967,
+  "end": 86.587
+ },
+ {
+  "i": 212,
+  "word": "that",
+  "start": 86.647,
+  "end": 86.767
+ },
+ {
+  "i": 213,
+  "word": "has",
+  "start": 86.787,
+  "end": 86.887
+ },
+ {
+  "i": 214,
+  "word": "attracted",
+  "start": 86.927,
+  "end": 87.347
+ },
+ {
+  "i": 215,
+  "word": "heavy",
+  "start": 87.407,
+  "end": 87.588
+ },
+ {
+  "i": 216,
+  "word": "investment.",
+  "start": 87.628,
+  "end": 88.148
+ },
+ {
+  "i": 217,
+  "word": "Multiple",
+  "start": 88.768,
+  "end": 89.188
+ },
+ {
+  "i": 218,
+  "word": "cable",
+  "start": 89.208,
+  "end": 89.508
+ },
+ {
+  "i": 219,
+  "word": "cuts",
+  "start": 89.548,
+  "end": 89.788
+ },
+ {
+  "i": 220,
+  "word": "could",
+  "start": 89.868,
+  "end": 89.988
+ },
+ {
+  "i": 221,
+  "word": "disrupt",
+  "start": 90.028,
+  "end": 90.409
+ },
+ {
+  "i": 222,
+  "word": "internet",
+  "start": 90.489,
+  "end": 90.849
+ },
+ {
+  "i": 223,
+  "word": "connectivity,",
+  "start": 90.889,
+  "end": 91.509
+ },
+ {
+  "i": 224,
+  "word": "financial",
+  "start": 92.009,
+  "end": 92.469
+ },
+ {
+  "i": 225,
+  "word": "transactions,",
+  "start": 92.489,
+  "end": 93.229
+ },
+ {
+  "i": 226,
+  "word": "e-commerce,",
+  "start": 93.69,
+  "end": 94.21
+ },
+ {
+  "i": 227,
+  "word": "and",
+  "start": 94.39,
+  "end": 94.49
+ },
+ {
+  "i": 228,
+  "word": "cloud",
+  "start": 94.55,
+  "end": 94.81
+ },
+ {
+  "i": 229,
+  "word": "computing",
+  "start": 94.85,
+  "end": 95.31
+ },
+ {
+  "i": 230,
+  "word": "across",
+  "start": 95.37,
+  "end": 95.61
+ },
+ {
+  "i": 231,
+  "word": "the",
+  "start": 95.63,
+  "end": 95.71
+ },
+ {
+  "i": 232,
+  "word": "region.",
+  "start": 95.73,
+  "end": 96.05
+ },
+ {
+  "i": 233,
+  "word": "Repairs",
+  "start": 96.591,
+  "end": 96.991
+ },
+ {
+  "i": 234,
+  "word": "during",
+  "start": 97.031,
+  "end": 97.271
+ },
+ {
+  "i": 235,
+  "word": "wartime",
+  "start": 97.311,
+  "end": 97.791
+ },
+ {
+  "i": 236,
+  "word": "could",
+  "start": 97.871,
+  "end": 98.011
+ },
+ {
+  "i": 237,
+  "word": "face",
+  "start": 98.071,
+  "end": 98.291
+ },
+ {
+  "i": 238,
+  "word": "delays",
+  "start": 98.311,
+  "end": 98.691
+ },
+ {
+  "i": 239,
+  "word": "because",
+  "start": 98.771,
+  "end": 98.991
+ },
+ {
+  "i": 240,
+  "word": "of",
+  "start": 99.011,
+  "end": 99.072
+ },
+ {
+  "i": 241,
+  "word": "security",
+  "start": 99.092,
+  "end": 99.592
+ },
+ {
+  "i": 242,
+  "word": "risks,",
+  "start": 99.652,
+  "end": 99.932
+ },
+ {
+  "i": 243,
+  "word": "higher",
+  "start": 100.412,
+  "end": 100.652
+ },
+ {
+  "i": 244,
+  "word": "insurance",
+  "start": 100.692,
+  "end": 101.112
+ },
+ {
+  "i": 245,
+  "word": "costs",
+  "start": 101.152,
+  "end": 101.472
+ },
+ {
+  "i": 246,
+  "word": "and",
+  "start": 101.592,
+  "end": 101.672
+ },
+ {
+  "i": 247,
+  "word": "restrictions",
+  "start": 101.712,
+  "end": 102.253
+ },
+ {
+  "i": 248,
+  "word": "on",
+  "start": 102.313,
+  "end": 102.393
+ },
+ {
+  "i": 249,
+  "word": "permits.",
+  "start": 102.433,
+  "end": 102.873
+ },
+ {
+  "i": 250,
+  "word": "Reuters",
+  "start": 103.473,
+  "end": 103.854
+ },
+ {
+  "i": 251,
+  "word": "reported",
+  "start": 103.894,
+  "end": 104.376
+ },
+ {
+  "i": 252,
+  "word": "that",
+  "start": 104.436,
+  "end": 104.536
+ },
+ {
+  "i": 253,
+  "word": "the",
+  "start": 104.576,
+  "end": 104.636
+ },
+ {
+  "i": 254,
+  "word": "Red",
+  "start": 104.696,
+  "end": 104.837
+ },
+ {
+  "i": 255,
+  "word": "Sea",
+  "start": 104.917,
+  "end": 105.098
+ },
+ {
+  "i": 256,
+  "word": "could",
+  "start": 105.158,
+  "end": 105.298
+ },
+ {
+  "i": 257,
+  "word": "become",
+  "start": 105.318,
+  "end": 105.599
+ },
+ {
+  "i": 258,
+  "word": "a",
+  "start": 105.619,
+  "end": 105.659
+ },
+ {
+  "i": 259,
+  "word": "more",
+  "start": 105.699,
+  "end": 105.839
+ },
+ {
+  "i": 260,
+  "word": "significant",
+  "start": 105.9,
+  "end": 106.441
+ },
+ {
+  "i": 261,
+  "word": "cable",
+  "start": 106.481,
+  "end": 106.782
+ },
+ {
+  "i": 262,
+  "word": "target,",
+  "start": 106.802,
+  "end": 107.223
+ },
+ {
+  "i": 263,
+  "word": "potentially",
+  "start": 107.744,
+  "end": 108.246
+ },
+ {
+  "i": 264,
+  "word": "with",
+  "start": 108.286,
+  "end": 108.406
+ },
+ {
+  "i": 265,
+  "word": "support",
+  "start": 108.446,
+  "end": 108.827
+ },
+ {
+  "i": 266,
+  "word": "from",
+  "start": 108.867,
+  "end": 108.988
+ },
+ {
+  "i": 267,
+  "word": "Yemen's",
+  "start": 109.008,
+  "end": 109.268
+ },
+ {
+  "i": 268,
+  "word": "Houthis.",
+  "start": 109.288,
+  "end": 109.69
+ },
+ {
+  "i": 269,
+  "word": "Meanwhile,",
+  "start": 116.397,
+  "end": 116.897
+ },
+ {
+  "i": 270,
+  "word": "an",
+  "start": 117.277,
+  "end": 117.357
+ },
+ {
+  "i": 271,
+  "word": "IRGC",
+  "start": 117.457,
+  "end": 118.117
+ },
+ {
+  "i": 272,
+  "word": "commander",
+  "start": 118.137,
+  "end": 118.558
+ },
+ {
+  "i": 273,
+  "word": "warned",
+  "start": 118.598,
+  "end": 118.858
+ },
+ {
+  "i": 274,
+  "word": "that",
+  "start": 118.898,
+  "end": 119.018
+ },
+ {
+  "i": 275,
+  "word": "Iran",
+  "start": 119.078,
+  "end": 119.378
+ },
+ {
+  "i": 276,
+  "word": "would",
+  "start": 119.398,
+  "end": 119.518
+ },
+ {
+  "i": 277,
+  "word": "become",
+  "start": 119.538,
+  "end": 119.778
+ },
+ {
+  "i": 278,
+  "word": "a",
+  "start": 119.798,
+  "end": 119.838
+ },
+ {
+  "i": 279,
+  "word": "killing",
+  "start": 119.878,
+  "end": 120.158
+ },
+ {
+  "i": 280,
+  "word": "field",
+  "start": 120.218,
+  "end": 120.438
+ },
+ {
+  "i": 281,
+  "word": "for",
+  "start": 120.478,
+  "end": 120.578
+ },
+ {
+  "i": 282,
+  "word": "American",
+  "start": 120.618,
+  "end": 120.978
+ },
+ {
+  "i": 283,
+  "word": "troops",
+  "start": 121.018,
+  "end": 121.318
+ },
+ {
+  "i": 284,
+  "word": "if",
+  "start": 121.418,
+  "end": 121.478
+ },
+ {
+  "i": 285,
+  "word": "the",
+  "start": 121.498,
+  "end": 121.578
+ },
+ {
+  "i": 286,
+  "word": "US",
+  "start": 121.698,
+  "end": 121.918
+ },
+ {
+  "i": 287,
+  "word": "launched",
+  "start": 121.958,
+  "end": 122.198
+ },
+ {
+  "i": 288,
+  "word": "a",
+  "start": 122.258,
+  "end": 122.298
+ },
+ {
+  "i": 289,
+  "word": "ground",
+  "start": 122.318,
+  "end": 122.579
+ },
+ {
+  "i": 290,
+  "word": "operation.",
+  "start": 122.599,
+  "end": 123.119
+ },
+ {
+  "i": 291,
+  "word": "Yadola",
+  "start": 123.659,
+  "end": 124.039
+ },
+ {
+  "i": 292,
+  "word": "Giovanni",
+  "start": 124.059,
+  "end": 124.459
+ },
+ {
+  "i": 293,
+  "word": "questioned",
+  "start": 124.519,
+  "end": 124.979
+ },
+ {
+  "i": 294,
+  "word": "whether",
+  "start": 125.059,
+  "end": 125.279
+ },
+ {
+  "i": 295,
+  "word": "US",
+  "start": 125.399,
+  "end": 125.639
+ },
+ {
+  "i": 296,
+  "word": "forces",
+  "start": 125.679,
+  "end": 126.079
+ },
+ {
+  "i": 297,
+  "word": "could",
+  "start": 126.119,
+  "end": 126.259
+ },
+ {
+  "i": 298,
+  "word": "survive",
+  "start": 126.279,
+  "end": 126.62
+ },
+ {
+  "i": 299,
+  "word": "an",
+  "start": 126.64,
+  "end": 126.7
+ },
+ {
+  "i": 300,
+  "word": "invasion",
+  "start": 126.74,
+  "end": 127.2
+ },
+ {
+  "i": 301,
+  "word": "while",
+  "start": 127.3,
+  "end": 127.5
+ },
+ {
+  "i": 302,
+  "word": "operating",
+  "start": 127.54,
+  "end": 128.02
+ },
+ {
+  "i": 303,
+  "word": "in",
+  "start": 128.08,
+  "end": 128.14
+ },
+ {
+  "i": 304,
+  "word": "unfamiliar",
+  "start": 128.24,
+  "end": 128.78
+ },
+ {
+  "i": 305,
+  "word": "Iranian",
+  "start": 128.86,
+  "end": 129.26
+ },
+ {
+  "i": 306,
+  "word": "territory.",
+  "start": 129.32,
+  "end": 129.78
+ },
+ {
+  "i": 307,
+  "word": "Giovanni",
+  "start": 130.26,
+  "end": 130.701
+ },
+ {
+  "i": 308,
+  "word": "said",
+  "start": 130.741,
+  "end": 130.901
+ },
+ {
+  "i": 309,
+  "word": "a",
+  "start": 130.941,
+  "end": 130.981
+ },
+ {
+  "i": 310,
+  "word": "US",
+  "start": 131.101,
+  "end": 131.341
+ },
+ {
+  "i": 311,
+  "word": "ground",
+  "start": 131.381,
+  "end": 131.621
+ },
+ {
+  "i": 312,
+  "word": "operation",
+  "start": 131.661,
+  "end": 132.121
+ },
+ {
+  "i": 313,
+  "word": "in",
+  "start": 132.141,
+  "end": 132.201
+ },
+ {
+  "i": 314,
+  "word": "Iran",
+  "start": 132.261,
+  "end": 132.601
+ },
+ {
+  "i": 315,
+  "word": "would",
+  "start": 132.661,
+  "end": 132.801
+ },
+ {
+  "i": 316,
+  "word": "be",
+  "start": 132.841,
+  "end": 132.901
+ },
+ {
+  "i": 317,
+  "word": "a",
+  "start": 132.941,
+  "end": 132.961
+ },
+ {
+  "i": 318,
+  "word": "serious",
+  "start": 133.041,
+  "end": 133.381
+ },
+ {
+  "i": 319,
+  "word": "mistake,",
+  "start": 133.441,
+  "end": 133.861
+ },
+ {
+  "i": 320,
+  "word": "regardless",
+  "start": 134.401,
+  "end": 134.922
+ },
+ {
+  "i": 321,
+  "word": "of",
+  "start": 134.942,
+  "end": 135.002
+ },
+ {
+  "i": 322,
+  "word": "where",
+  "start": 135.042,
+  "end": 135.202
+ },
+ {
+  "i": 323,
+  "word": "American",
+  "start": 135.242,
+  "end": 135.622
+ },
+ {
+  "i": 324,
+  "word": "forces",
+  "start": 135.662,
+  "end": 136.002
+ },
+ {
+  "i": 325,
+  "word": "entered.",
+  "start": 136.062,
+  "end": 136.322
+ },
+ {
+  "i": 326,
+  "word": "Iran",
+  "start": 142.468,
+  "end": 142.788
+ },
+ {
+  "i": 327,
+  "word": "has",
+  "start": 142.808,
+  "end": 142.928
+ },
+ {
+  "i": 328,
+  "word": "reportedly",
+  "start": 142.968,
+  "end": 143.488
+ },
+ {
+  "i": 329,
+  "word": "unveiled",
+  "start": 143.568,
+  "end": 144.009
+ },
+ {
+  "i": 330,
+  "word": "and",
+  "start": 144.049,
+  "end": 144.129
+ },
+ {
+  "i": 331,
+  "word": "upgraded",
+  "start": 144.189,
+  "end": 144.609
+ },
+ {
+  "i": 332,
+  "word": "a",
+  "start": 144.669,
+  "end": 144.689
+ },
+ {
+  "i": 333,
+  "word": "Rosh",
+  "start": 144.749,
+  "end": 144.969
+ },
+ {
+  "i": 334,
+  "word": "attack",
+  "start": 144.989,
+  "end": 145.329
+ },
+ {
+  "i": 335,
+  "word": "drone",
+  "start": 145.349,
+  "end": 145.669
+ },
+ {
+  "i": 336,
+  "word": "amid",
+  "start": 145.849,
+  "end": 146.049
+ },
+ {
+  "i": 337,
+  "word": "renewed",
+  "start": 146.089,
+  "end": 146.41
+ },
+ {
+  "i": 338,
+  "word": "fears",
+  "start": 146.49,
+  "end": 146.83
+ },
+ {
+  "i": 339,
+  "word": "of",
+  "start": 146.95,
+  "end": 147.03
+ },
+ {
+  "i": 340,
+  "word": "a",
+  "start": 147.07,
+  "end": 147.09
+ },
+ {
+  "i": 341,
+  "word": "possible",
+  "start": 147.13,
+  "end": 147.53
+ },
+ {
+  "i": 342,
+  "word": "military",
+  "start": 147.57,
+  "end": 148.01
+ },
+ {
+  "i": 343,
+  "word": "confrontation.",
+  "start": 148.05,
+  "end": 148.75
+ },
+ {
+  "i": 344,
+  "word": "The",
+  "start": 150.531,
+  "end": 150.631
+ },
+ {
+  "i": 345,
+  "word": "upgraded",
+  "start": 150.711,
+  "end": 151.131
+ },
+ {
+  "i": 346,
+  "word": "drone",
+  "start": 151.171,
+  "end": 151.471
+ },
+ {
+  "i": 347,
+  "word": "is",
+  "start": 151.552,
+  "end": 151.632
+ },
+ {
+  "i": 348,
+  "word": "reportedly",
+  "start": 151.672,
+  "end": 152.152
+ },
+ {
+  "i": 349,
+  "word": "designed",
+  "start": 152.212,
+  "end": 152.612
+ },
+ {
+  "i": 350,
+  "word": "to",
+  "start": 152.632,
+  "end": 152.712
+ },
+ {
+  "i": 351,
+  "word": "carry",
+  "start": 152.752,
+  "end": 153.012
+ },
+ {
+  "i": 352,
+  "word": "a",
+  "start": 153.032,
+  "end": 153.312
+ },
+ {
+  "i": 353,
+  "word": "100kg",
+  "start": 153.392,
+  "end": 154.173
+ },
+ {
+  "i": 354,
+  "word": "warhead,",
+  "start": 154.193,
+  "end": 154.633
+ },
+ {
+  "i": 355,
+  "word": "double",
+  "start": 155.033,
+  "end": 155.253
+ },
+ {
+  "i": 356,
+  "word": "the",
+  "start": 155.273,
+  "end": 155.353
+ },
+ {
+  "i": 357,
+  "word": "50kg",
+  "start": 155.393,
+  "end": 156.153
+ },
+ {
+  "i": 358,
+  "word": "payload",
+  "start": 156.193,
+  "end": 156.573
+ },
+ {
+  "i": 359,
+  "word": "previously",
+  "start": 156.633,
+  "end": 157.134
+ },
+ {
+  "i": 360,
+  "word": "associated",
+  "start": 157.194,
+  "end": 157.774
+ },
+ {
+  "i": 361,
+  "word": "with",
+  "start": 157.794,
+  "end": 157.894
+ },
+ {
+  "i": 362,
+  "word": "the",
+  "start": 157.914,
+  "end": 157.994
+ },
+ {
+  "i": 363,
+  "word": "system.",
+  "start": 158.034,
+  "end": 158.374
+ },
+ {
+  "i": 364,
+  "word": "Experts",
+  "start": 160.175,
+  "end": 160.555
+ },
+ {
+  "i": 365,
+  "word": "say",
+  "start": 160.575,
+  "end": 160.755
+ },
+ {
+  "i": 366,
+  "word": "a",
+  "start": 160.815,
+  "end": 160.855
+ },
+ {
+  "i": 367,
+  "word": "heavier",
+  "start": 160.895,
+  "end": 161.215
+ },
+ {
+  "i": 368,
+  "word": "warhead",
+  "start": 161.255,
+  "end": 161.675
+ },
+ {
+  "i": 369,
+  "word": "could",
+  "start": 161.775,
+  "end": 161.916
+ },
+ {
+  "i": 370,
+  "word": "increase",
+  "start": 161.936,
+  "end": 162.296
+ },
+ {
+  "i": 371,
+  "word": "the",
+  "start": 162.336,
+  "end": 162.396
+ },
+ {
+  "i": 372,
+  "word": "damage",
+  "start": 162.436,
+  "end": 162.796
+ },
+ {
+  "i": 373,
+  "word": "caused",
+  "start": 162.856,
+  "end": 163.176
+ },
+ {
+  "i": 374,
+  "word": "by",
+  "start": 163.216,
+  "end": 163.336
+ },
+ {
+  "i": 375,
+  "word": "a",
+  "start": 163.376,
+  "end": 163.396
+ },
+ {
+  "i": 376,
+  "word": "successful",
+  "start": 163.456,
+  "end": 163.996
+ },
+ {
+  "i": 377,
+  "word": "strike",
+  "start": 164.036,
+  "end": 164.356
+ },
+ {
+  "i": 378,
+  "word": "against",
+  "start": 164.436,
+  "end": 164.717
+ },
+ {
+  "i": 379,
+  "word": "fixed",
+  "start": 164.797,
+  "end": 165.077
+ },
+ {
+  "i": 380,
+  "word": "targets.",
+  "start": 165.137,
+  "end": 165.557
+ },
+ {
+  "i": 381,
+  "word": "Iran",
+  "start": 167.292,
+  "end": 167.632
+ },
+ {
+  "i": 382,
+  "word": "is",
+  "start": 167.692,
+  "end": 167.772
+ },
+ {
+  "i": 383,
+  "word": "also",
+  "start": 167.812,
+  "end": 168.052
+ },
+ {
+  "i": 384,
+  "word": "promoting",
+  "start": 168.113,
+  "end": 168.493
+ },
+ {
+  "i": 385,
+  "word": "GPS",
+  "start": 168.573,
+  "end": 169.133
+ },
+ {
+  "i": 386,
+  "word": "independent",
+  "start": 169.213,
+  "end": 169.693
+ },
+ {
+  "i": 387,
+  "word": "guidance",
+  "start": 169.713,
+  "end": 170.074
+ },
+ {
+  "i": 388,
+  "word": "technology",
+  "start": 170.114,
+  "end": 170.734
+ },
+ {
+  "i": 389,
+  "word": "to",
+  "start": 170.854,
+  "end": 170.954
+ },
+ {
+  "i": 390,
+  "word": "help",
+  "start": 170.994,
+  "end": 171.154
+ },
+ {
+  "i": 391,
+  "word": "its",
+  "start": 171.194,
+  "end": 171.294
+ },
+ {
+  "i": 392,
+  "word": "drones",
+  "start": 171.334,
+  "end": 171.695
+ },
+ {
+  "i": 393,
+  "word": "operate",
+  "start": 171.795,
+  "end": 172.135
+ },
+ {
+  "i": 394,
+  "word": "in",
+  "start": 172.175,
+  "end": 172.235
+ },
+ {
+  "i": 395,
+  "word": "environments",
+  "start": 172.295,
+  "end": 172.835
+ },
+ {
+  "i": 396,
+  "word": "where",
+  "start": 172.935,
+  "end": 173.075
+ },
+ {
+  "i": 397,
+  "word": "satellite",
+  "start": 173.115,
+  "end": 173.576
+ },
+ {
+  "i": 398,
+  "word": "signals",
+  "start": 173.616,
+  "end": 173.976
+ },
+ {
+  "i": 399,
+  "word": "face",
+  "start": 174.036,
+  "end": 174.316
+ },
+ {
+  "i": 400,
+  "word": "electronic",
+  "start": 174.376,
+  "end": 174.876
+ },
+ {
+  "i": 401,
+  "word": "jamming.",
+  "start": 174.916,
+  "end": 175.257
+ },
+ {
+  "i": 402,
+  "word": "The",
+  "start": 176.978,
+  "end": 177.078
+ },
+ {
+  "i": 403,
+  "word": "reported",
+  "start": 177.118,
+  "end": 177.498
+ },
+ {
+  "i": 404,
+  "word": "upgrade",
+  "start": 177.578,
+  "end": 177.998
+ },
+ {
+  "i": 405,
+  "word": "could",
+  "start": 178.038,
+  "end": 178.178
+ },
+ {
+  "i": 406,
+  "word": "help",
+  "start": 178.218,
+  "end": 178.378
+ },
+ {
+  "i": 407,
+  "word": "the",
+  "start": 178.419,
+  "end": 178.479
+ },
+ {
+  "i": 408,
+  "word": "drone",
+  "start": 178.519,
+  "end": 178.759
+ },
+ {
+  "i": 409,
+  "word": "navigate",
+  "start": 178.799,
+  "end": 179.279
+ },
+ {
+  "i": 410,
+  "word": "when",
+  "start": 179.339,
+  "end": 179.499
+ },
+ {
+  "i": 411,
+  "word": "satellite",
+  "start": 179.559,
+  "end": 180.019
+ },
+ {
+  "i": 412,
+  "word": "signals",
+  "start": 180.079,
+  "end": 180.4
+ },
+ {
+  "i": 413,
+  "word": "are",
+  "start": 180.44,
+  "end": 180.52
+ },
+ {
+  "i": 414,
+  "word": "disrupted,",
+  "start": 180.54,
+  "end": 181.06
+ },
+ {
+  "i": 415,
+  "word": "although",
+  "start": 181.46,
+  "end": 181.7
+ },
+ {
+  "i": 416,
+  "word": "its",
+  "start": 181.72,
+  "end": 181.82
+ },
+ {
+  "i": 417,
+  "word": "actual",
+  "start": 181.941,
+  "end": 182.241
+ },
+ {
+  "i": 418,
+  "word": "capabilities",
+  "start": 182.281,
+  "end": 182.941
+ },
+ {
+  "i": 419,
+  "word": "remain",
+  "start": 183.021,
+  "end": 183.321
+ },
+ {
+  "i": 420,
+  "word": "unverified.",
+  "start": 183.381,
+  "end": 184.062
+ },
+ {
+  "i": 421,
+  "word": "The",
+  "start": 185.783,
+  "end": 185.883
+ },
+ {
+  "i": 422,
+  "word": "development",
+  "start": 185.903,
+  "end": 186.383
+ },
+ {
+  "i": 423,
+  "word": "also",
+  "start": 186.463,
+  "end": 186.703
+ },
+ {
+  "i": 424,
+  "word": "signals",
+  "start": 186.783,
+  "end": 187.124
+ },
+ {
+  "i": 425,
+  "word": "Tehran's",
+  "start": 187.164,
+  "end": 187.624
+ },
+ {
+  "i": 426,
+  "word": "push",
+  "start": 187.704,
+  "end": 187.924
+ },
+ {
+  "i": 427,
+  "word": "to",
+  "start": 187.964,
+  "end": 188.024
+ },
+ {
+  "i": 428,
+  "word": "strengthen",
+  "start": 188.064,
+  "end": 188.464
+ },
+ {
+  "i": 429,
+  "word": "its",
+  "start": 188.504,
+  "end": 188.624
+ },
+ {
+  "i": 430,
+  "word": "long-range",
+  "start": 188.684,
+  "end": 189.205
+ },
+ {
+  "i": 431,
+  "word": "strike",
+  "start": 189.245,
+  "end": 189.505
+ },
+ {
+  "i": 432,
+  "word": "capabilities",
+  "start": 189.525,
+  "end": 190.185
+ },
+ {
+  "i": 433,
+  "word": "amid",
+  "start": 190.385,
+  "end": 190.586
+ },
+ {
+  "i": 434,
+  "word": "concerns",
+  "start": 190.626,
+  "end": 191.146
+ },
+ {
+  "i": 435,
+  "word": "over",
+  "start": 191.286,
+  "end": 191.446
+ },
+ {
+  "i": 436,
+  "word": "a",
+  "start": 191.466,
+  "end": 191.486
+ },
+ {
+  "i": 437,
+  "word": "possible",
+  "start": 191.546,
+  "end": 191.966
+ },
+ {
+  "i": 438,
+  "word": "renewed",
+  "start": 192.006,
+  "end": 192.307
+ },
+ {
+  "i": 439,
+  "word": "conflict.",
+  "start": 192.367,
+  "end": 192.887
+ },
+ {
+  "i": 440,
+  "word": "The",
+  "start": 194.704,
+  "end": 194.824
+ },
+ {
+  "i": 441,
+  "word": "upgraded",
+  "start": 194.904,
+  "end": 195.324
+ },
+ {
+  "i": 442,
+  "word": "Arash",
+  "start": 195.384,
+  "end": 195.725
+ },
+ {
+  "i": 443,
+  "word": "drone",
+  "start": 195.765,
+  "end": 196.065
+ },
+ {
+  "i": 444,
+  "word": "reportedly",
+  "start": 196.145,
+  "end": 196.685
+ },
+ {
+  "i": 445,
+  "word": "carries",
+  "start": 196.745,
+  "end": 197.045
+ },
+ {
+  "i": 446,
+  "word": "a",
+  "start": 197.085,
+  "end": 197.125
+ },
+ {
+  "i": 447,
+  "word": "warhead",
+  "start": 197.145,
+  "end": 197.546
+ },
+ {
+  "i": 448,
+  "word": "payload",
+  "start": 197.586,
+  "end": 198.026
+ },
+ {
+  "i": 449,
+  "word": "of",
+  "start": 198.066,
+  "end": 198.126
+ },
+ {
+  "i": 450,
+  "word": "100",
+  "start": 198.286,
+  "end": 198.746
+ },
+ {
+  "i": 451,
+  "word": "kg.",
+  "start": 198.786,
+  "end": 199.367
+ },
+ {
+  "i": 452,
+  "word": "The",
+  "start": 199.987,
+  "end": 200.067
+ },
+ {
+  "i": 453,
+  "word": "drone",
+  "start": 200.107,
+  "end": 200.367
+ },
+ {
+  "i": 454,
+  "word": "is",
+  "start": 200.407,
+  "end": 200.467
+ },
+ {
+  "i": 455,
+  "word": "reported",
+  "start": 200.527,
+  "end": 200.908
+ },
+ {
+  "i": 456,
+  "word": "to",
+  "start": 200.948,
+  "end": 201.028
+ },
+ {
+  "i": 457,
+  "word": "use",
+  "start": 201.148,
+  "end": 201.288
+ },
+ {
+  "i": 458,
+  "word": "GPS-independent",
+  "start": 201.368,
+  "end": 202.509
+ },
+ {
+  "i": 459,
+  "word": "navigation",
+  "start": 202.549,
+  "end": 203.169
+ },
+ {
+  "i": 460,
+  "word": "to",
+  "start": 203.269,
+  "end": 203.369
+ },
+ {
+  "i": 461,
+  "word": "operate",
+  "start": 203.469,
+  "end": 203.849
+ },
+ {
+  "i": 462,
+  "word": "when",
+  "start": 203.909,
+  "end": 204.07
+ },
+ {
+  "i": 463,
+  "word": "satellite",
+  "start": 204.13,
+  "end": 204.59
+ },
+ {
+  "i": 464,
+  "word": "signals",
+  "start": 204.63,
+  "end": 204.99
+ },
+ {
+  "i": 465,
+  "word": "are",
+  "start": 205.05,
+  "end": 205.15
+ },
+ {
+  "i": 466,
+  "word": "jammed.",
+  "start": 205.19,
+  "end": 205.59
+ },
+ {
+  "i": 467,
+  "word": "The",
+  "start": 206.131,
+  "end": 206.231
+ },
+ {
+  "i": 468,
+  "word": "standard",
+  "start": 206.271,
+  "end": 206.671
+ },
+ {
+  "i": 469,
+  "word": "Arash",
+  "start": 206.711,
+  "end": 207.071
+ },
+ {
+  "i": 470,
+  "word": "configuration",
+  "start": 207.091,
+  "end": 207.852
+ },
+ {
+  "i": 471,
+  "word": "uses",
+  "start": 208.112,
+  "end": 208.312
+ },
+ {
+  "i": 472,
+  "word": "an",
+  "start": 208.352,
+  "end": 208.392
+ },
+ {
+  "i": 473,
+  "word": "MD-550",
+  "start": 208.592,
+  "end": 209.613
+ },
+ {
+  "i": 474,
+  "word": "piston",
+  "start": 209.673,
+  "end": 210.033
+ },
+ {
+  "i": 475,
+  "word": "engine",
+  "start": 210.093,
+  "end": 210.373
+ },
+ {
+  "i": 476,
+  "word": "for",
+  "start": 210.453,
+  "end": 210.573
+ },
+ {
+  "i": 477,
+  "word": "propulsion.",
+  "start": 210.613,
+  "end": 211.114
+ },
+ {
+  "i": 478,
+  "word": "The",
+  "start": 211.654,
+  "end": 211.754
+ },
+ {
+  "i": 479,
+  "word": "MD-550",
+  "start": 211.914,
+  "end": 212.975
+ },
+ {
+  "i": 480,
+  "word": "engine",
+  "start": 213.075,
+  "end": 213.335
+ },
+ {
+  "i": 481,
+  "word": "produces",
+  "start": 213.435,
+  "end": 213.895
+ },
+ {
+  "i": 482,
+  "word": "approximately",
+  "start": 213.955,
+  "end": 214.576
+ },
+ {
+  "i": 483,
+  "word": "50",
+  "start": 214.656,
+  "end": 214.936
+ },
+ {
+  "i": 484,
+  "word": "hp,",
+  "start": 214.996,
+  "end": 215.556
+ },
+ {
+  "i": 485,
+  "word": "according",
+  "start": 215.937,
+  "end": 216.277
+ },
+ {
+  "i": 486,
+  "word": "to",
+  "start": 216.317,
+  "end": 216.397
+ },
+ {
+  "i": 487,
+  "word": "reported",
+  "start": 216.437,
+  "end": 216.857
+ },
+ {
+  "i": 488,
+  "word": "specifications.",
+  "start": 216.897,
+  "end": 217.738
+ },
+ {
+  "i": 489,
+  "word": "The",
+  "start": 218.338,
+  "end": 218.418
+ },
+ {
+  "i": 490,
+  "word": "Arash",
+  "start": 218.458,
+  "end": 218.798
+ },
+ {
+  "i": 491,
+  "word": "family",
+  "start": 218.838,
+  "end": 219.199
+ },
+ {
+  "i": 492,
+  "word": "has",
+  "start": 219.259,
+  "end": 219.399
+ },
+ {
+  "i": 493,
+  "word": "historically",
+  "start": 219.439,
+  "end": 219.959
+ },
+ {
+  "i": 494,
+  "word": "been",
+  "start": 219.979,
+  "end": 220.1
+ },
+ {
+  "i": 495,
+  "word": "associated",
+  "start": 220.12,
+  "end": 220.74
+ },
+ {
+  "i": 496,
+  "word": "with",
+  "start": 220.78,
+  "end": 220.88
+ },
+ {
+  "i": 497,
+  "word": "a",
+  "start": 220.94,
+  "end": 220.96
+ },
+ {
+  "i": 498,
+  "word": "claimed",
+  "start": 221.0,
+  "end": 221.321
+ },
+ {
+  "i": 499,
+  "word": "range",
+  "start": 221.401,
+  "end": 221.741
+ },
+ {
+  "i": 500,
+  "word": "of",
+  "start": 221.801,
+  "end": 221.861
+ },
+ {
+  "i": 501,
+  "word": "approximately",
+  "start": 221.901,
+  "end": 222.542
+ },
+ {
+  "i": 502,
+  "word": "1,000",
+  "start": 223.022,
+  "end": 223.322
+ },
+ {
+  "i": 503,
+  "word": "to",
+  "start": 223.562,
+  "end": 223.703
+ },
+ {
+  "i": 504,
+  "word": "2,000",
+  "start": 223.863,
+  "end": 224.103
+ },
+ {
+  "i": 505,
+  "word": "kilometers.",
+  "start": 224.143,
+  "end": 224.663
+ },
+ {
+  "i": 506,
+  "word": "The",
+  "start": 225.244,
+  "end": 225.364
+ },
+ {
+  "i": 507,
+  "word": "upgraded",
+  "start": 225.444,
+  "end": 225.864
+ },
+ {
+  "i": 508,
+  "word": "version's",
+  "start": 225.924,
+  "end": 226.345
+ },
+ {
+  "i": 509,
+  "word": "actual",
+  "start": 226.525,
+  "end": 226.845
+ },
+ {
+  "i": 510,
+  "word": "operational",
+  "start": 226.925,
+  "end": 227.506
+ },
+ {
+  "i": 511,
+  "word": "range",
+  "start": 227.546,
+  "end": 227.866
+ },
+ {
+  "i": 512,
+  "word": "has",
+  "start": 228.066,
+  "end": 228.206
+ },
+ {
+  "i": 513,
+  "word": "not",
+  "start": 228.286,
+  "end": 228.447
+ },
+ {
+  "i": 514,
+  "word": "been",
+  "start": 228.487,
+  "end": 228.627
+ },
+ {
+  "i": 515,
+  "word": "established.",
+  "start": 228.647,
+  "end": 229.247
+ },
+ {
+  "i": 516,
+  "word": "Iran",
+  "start": 229.848,
+  "end": 230.168
+ },
+ {
+  "i": 517,
+  "word": "reportedly",
+  "start": 230.208,
+  "end": 230.708
+ },
+ {
+  "i": 518,
+  "word": "manufactures",
+  "start": 230.768,
+  "end": 231.489
+ },
+ {
+  "i": 519,
+  "word": "the",
+  "start": 231.529,
+  "end": 231.609
+ },
+ {
+  "i": 520,
+  "word": "drone",
+  "start": 231.649,
+  "end": 231.929
+ },
+ {
+  "i": 521,
+  "word": "in",
+  "start": 231.969,
+  "end": 232.05
+ },
+ {
+  "i": 522,
+  "word": "underground",
+  "start": 232.15,
+  "end": 232.57
+ },
+ {
+  "i": 523,
+  "word": "facilities,",
+  "start": 232.59,
+  "end": 233.19
+ },
+ {
+  "i": 524,
+  "word": "though",
+  "start": 233.651,
+  "end": 233.811
+ },
+ {
+  "i": 525,
+  "word": "production",
+  "start": 233.851,
+  "end": 234.271
+ },
+ {
+  "i": 526,
+  "word": "capacity",
+  "start": 234.311,
+  "end": 234.852
+ },
+ {
+  "i": 527,
+  "word": "remains",
+  "start": 234.952,
+  "end": 235.352
+ },
+ {
+  "i": 528,
+  "word": "unverified.",
+  "start": 235.472,
+  "end": 236.153
+ },
+ {
+  "i": 529,
+  "word": "Iranian",
+  "start": 236.673,
+  "end": 237.154
+ },
+ {
+  "i": 530,
+  "word": "Army",
+  "start": 237.234,
+  "end": 237.454
+ },
+ {
+  "i": 531,
+  "word": "Chief",
+  "start": 237.514,
+  "end": 237.774
+ },
+ {
+  "i": 532,
+  "word": "Amir",
+  "start": 237.834,
+  "end": 238.075
+ },
+ {
+  "i": 533,
+  "word": "Hatami",
+  "start": 238.115,
+  "end": 238.575
+ },
+ {
+  "i": 534,
+  "word": "has",
+  "start": 238.635,
+  "end": 238.775
+ },
+ {
+  "i": 535,
+  "word": "touted",
+  "start": 238.835,
+  "end": 239.175
+ },
+ {
+  "i": 536,
+  "word": "expanded",
+  "start": 239.216,
+  "end": 239.676
+ },
+ {
+  "i": 537,
+  "word": "production",
+  "start": 239.716,
+  "end": 240.096
+ },
+ {
+  "i": 538,
+  "word": "of",
+  "start": 240.116,
+  "end": 240.176
+ },
+ {
+  "i": 539,
+  "word": "the",
+  "start": 240.196,
+  "end": 240.276
+ },
+ {
+  "i": 540,
+  "word": "drone,",
+  "start": 240.296,
+  "end": 240.637
+ },
+ {
+  "i": 541,
+  "word": "according",
+  "start": 241.017,
+  "end": 241.357
+ },
+ {
+  "i": 542,
+  "word": "to",
+  "start": 241.377,
+  "end": 241.457
+ },
+ {
+  "i": 543,
+  "word": "reports,",
+  "start": 241.497,
+  "end": 241.938
+ },
+ {
+  "i": 544,
+  "word": "as",
+  "start": 242.378,
+  "end": 242.478
+ },
+ {
+  "i": 545,
+  "word": "Tehran",
+  "start": 242.538,
+  "end": 242.979
+ },
+ {
+  "i": 546,
+  "word": "seeks",
+  "start": 243.019,
+  "end": 243.299
+ },
+ {
+  "i": 547,
+  "word": "to",
+  "start": 243.339,
+  "end": 243.439
+ },
+ {
+  "i": 548,
+  "word": "scale",
+  "start": 243.479,
+  "end": 243.759
+ },
+ {
+  "i": 549,
+  "word": "up",
+  "start": 243.799,
+  "end": 243.859
+ },
+ {
+  "i": 550,
+  "word": "its",
+  "start": 243.919,
+  "end": 243.999
+ },
+ {
+  "i": 551,
+  "word": "arsenal.",
+  "start": 244.04,
+  "end": 244.38
+ },
+ {
+  "i": 552,
+  "word": "The",
+  "start": 246.21,
+  "end": 246.29
+ },
+ {
+  "i": 553,
+  "word": "Arash",
+  "start": 246.33,
+  "end": 246.67
+ },
+ {
+  "i": 554,
+  "word": "family",
+  "start": 246.71,
+  "end": 247.071
+ },
+ {
+  "i": 555,
+  "word": "has",
+  "start": 247.151,
+  "end": 247.271
+ },
+ {
+  "i": 556,
+  "word": "previously",
+  "start": 247.331,
+  "end": 247.791
+ },
+ {
+  "i": 557,
+  "word": "been",
+  "start": 247.831,
+  "end": 247.951
+ },
+ {
+  "i": 558,
+  "word": "associated",
+  "start": 247.971,
+  "end": 248.612
+ },
+ {
+  "i": 559,
+  "word": "with",
+  "start": 248.652,
+  "end": 248.752
+ },
+ {
+  "i": 560,
+  "word": "a",
+  "start": 248.792,
+  "end": 248.812
+ },
+ {
+  "i": 561,
+  "word": "reported",
+  "start": 248.852,
+  "end": 249.272
+ },
+ {
+  "i": 562,
+  "word": "operational",
+  "start": 249.372,
+  "end": 249.933
+ },
+ {
+  "i": 563,
+  "word": "range",
+  "start": 249.993,
+  "end": 250.313
+ },
+ {
+  "i": 564,
+  "word": "of",
+  "start": 250.373,
+  "end": 250.433
+ },
+ {
+  "i": 565,
+  "word": "1,000",
+  "start": 250.553,
+  "end": 251.153
+ },
+ {
+  "i": 566,
+  "word": "to",
+  "start": 251.374,
+  "end": 251.534
+ },
+ {
+  "i": 567,
+  "word": "2,000",
+  "start": 251.694,
+  "end": 251.934
+ },
+ {
+  "i": 568,
+  "word": "kilometers.",
+  "start": 251.974,
+  "end": 252.494
+ },
+ {
+  "i": 569,
+  "word": "The",
+  "start": 254.496,
+  "end": 254.596
+ },
+ {
+  "i": 570,
+  "word": "upgraded",
+  "start": 254.676,
+  "end": 255.096
+ },
+ {
+  "i": 571,
+  "word": "drone's",
+  "start": 255.136,
+  "end": 255.496
+ },
+ {
+  "i": 572,
+  "word": "accuracy,",
+  "start": 255.576,
+  "end": 256.117
+ },
+ {
+  "i": 573,
+  "word": "range,",
+  "start": 256.457,
+  "end": 256.837
+ },
+ {
+  "i": 574,
+  "word": "production",
+  "start": 257.178,
+  "end": 257.638
+ },
+ {
+  "i": 575,
+  "word": "volume",
+  "start": 257.678,
+  "end": 258.058
+ },
+ {
+  "i": 576,
+  "word": "and",
+  "start": 258.178,
+  "end": 258.278
+ },
+ {
+  "i": 577,
+  "word": "operational",
+  "start": 258.358,
+  "end": 258.899
+ },
+ {
+  "i": 578,
+  "word": "status",
+  "start": 258.939,
+  "end": 259.279
+ },
+ {
+  "i": 579,
+  "word": "remain",
+  "start": 259.319,
+  "end": 259.599
+ },
+ {
+  "i": 580,
+  "word": "unverified,",
+  "start": 259.659,
+  "end": 260.34
+ },
+ {
+  "i": 581,
+  "word": "and",
+  "start": 260.72,
+  "end": 260.8
+ },
+ {
+  "i": 582,
+  "word": "its",
+  "start": 260.84,
+  "end": 260.94
+ },
+ {
+  "i": 583,
+  "word": "battlefield",
+  "start": 260.98,
+  "end": 261.5
+ },
+ {
+  "i": 584,
+  "word": "capabilities",
+  "start": 261.52,
+  "end": 262.181
+ },
+ {
+  "i": 585,
+  "word": "are",
+  "start": 262.281,
+  "end": 262.361
+ },
+ {
+  "i": 586,
+  "word": "not",
+  "start": 262.421,
+  "end": 262.581
+ },
+ {
+  "i": 587,
+  "word": "independently",
+  "start": 262.661,
+  "end": 263.222
+ },
+ {
+  "i": 588,
+  "word": "confirmed.",
+  "start": 263.262,
+  "end": 263.782
+ },
+ {
+  "i": 589,
+  "word": "Reports",
+  "start": 265.423,
+  "end": 265.803
+ },
+ {
+  "i": 590,
+  "word": "have",
+  "start": 265.823,
+  "end": 265.944
+ },
+ {
+  "i": 591,
+  "word": "also",
+  "start": 265.984,
+  "end": 266.244
+ },
+ {
+  "i": 592,
+  "word": "said",
+  "start": 266.304,
+  "end": 266.464
+ },
+ {
+  "i": 593,
+  "word": "Iran",
+  "start": 266.504,
+  "end": 266.884
+ },
+ {
+  "i": 594,
+  "word": "is",
+  "start": 266.964,
+  "end": 267.044
+ },
+ {
+  "i": 595,
+  "word": "preparing",
+  "start": 267.084,
+  "end": 267.505
+ },
+ {
+  "i": 596,
+  "word": "a",
+  "start": 267.545,
+  "end": 267.585
+ },
+ {
+  "i": 597,
+  "word": "jet-powered",
+  "start": 267.625,
+  "end": 268.165
+ },
+ {
+  "i": 598,
+  "word": "Arash",
+  "start": 268.225,
+  "end": 268.565
+ },
+ {
+  "i": 599,
+  "word": "variant,",
+  "start": 268.585,
+  "end": 269.006
+ },
+ {
+  "i": 600,
+  "word": "though",
+  "start": 269.406,
+  "end": 269.566
+ },
+ {
+  "i": 601,
+  "word": "its",
+  "start": 269.586,
+  "end": 269.686
+ },
+ {
+  "i": 602,
+  "word": "development",
+  "start": 269.726,
+  "end": 270.226
+ },
+ {
+  "i": 603,
+  "word": "and",
+  "start": 270.286,
+  "end": 270.407
+ },
+ {
+  "i": 604,
+  "word": "operational",
+  "start": 270.487,
+  "end": 271.047
+ },
+ {
+  "i": 605,
+  "word": "status",
+  "start": 271.087,
+  "end": 271.427
+ },
+ {
+  "i": 606,
+  "word": "remain",
+  "start": 271.467,
+  "end": 271.787
+ },
+ {
+  "i": 607,
+  "word": "unclear.",
+  "start": 271.868,
+  "end": 272.308
+ },
+ {
+  "i": 608,
+  "word": "the",
+  "start": 276.865,
+  "end": 277.125
+ },
+ {
+  "i": 609,
+  "word": "US",
+  "start": 277.245,
+  "end": 277.325
+ },
+ {
+  "i": 610,
+  "word": "military",
+  "start": 277.365,
+  "end": 277.866
+ },
+ {
+  "i": 611,
+  "word": "quietly",
+  "start": 277.966,
+  "end": 278.326
+ },
+ {
+  "i": 612,
+  "word": "reduced",
+  "start": 278.386,
+  "end": 278.766
+ },
+ {
+  "i": 613,
+  "word": "its",
+  "start": 278.806,
+  "end": 278.926
+ },
+ {
+  "i": 614,
+  "word": "Middle",
+  "start": 278.966,
+  "end": 279.187
+ },
+ {
+  "i": 615,
+  "word": "East",
+  "start": 279.287,
+  "end": 279.467
+ },
+ {
+  "i": 616,
+  "word": "footprint",
+  "start": 279.507,
+  "end": 279.947
+ },
+ {
+  "i": 617,
+  "word": "amid",
+  "start": 280.047,
+  "end": 280.207
+ },
+ {
+  "i": 618,
+  "word": "Iranian",
+  "start": 280.247,
+  "end": 280.687
+ },
+ {
+  "i": 619,
+  "word": "and",
+  "start": 280.788,
+  "end": 280.868
+ },
+ {
+  "i": 620,
+  "word": "Houthi",
+  "start": 280.928,
+  "end": 281.248
+ },
+ {
+  "i": 621,
+  "word": "threats,",
+  "start": 281.288,
+  "end": 281.648
+ },
+ {
+  "i": 622,
+  "word": "according",
+  "start": 282.088,
+  "end": 282.429
+ },
+ {
+  "i": 623,
+  "word": "to",
+  "start": 282.469,
+  "end": 282.569
+ },
+ {
+  "i": 624,
+  "word": "a",
+  "start": 282.589,
+  "end": 282.609
+ },
+ {
+  "i": 625,
+  "word": "CBS",
+  "start": 282.669,
+  "end": 283.169
+ },
+ {
+  "i": 626,
+  "word": "News",
+  "start": 283.229,
+  "end": 283.429
+ },
+ {
+  "i": 627,
+  "word": "report.",
+  "start": 283.469,
+  "end": 283.85
+ },
+ {
+  "i": 628,
+  "word": "CBS",
+  "start": 285.851,
+  "end": 286.371
+ },
+ {
+  "i": 629,
+  "word": "News",
+  "start": 286.451,
+  "end": 286.731
+ },
+ {
+  "i": 630,
+  "word": "cited",
+  "start": 286.791,
+  "end": 287.092
+ },
+ {
+  "i": 631,
+  "word": "two",
+  "start": 287.172,
+  "end": 287.332
+ },
+ {
+  "i": 632,
+  "word": "US",
+  "start": 287.472,
+  "end": 287.712
+ },
+ {
+  "i": 633,
+  "word": "officials",
+  "start": 287.752,
+  "end": 288.232
+ },
+ {
+  "i": 634,
+  "word": "on",
+  "start": 288.332,
+  "end": 288.412
+ },
+ {
+  "i": 635,
+  "word": "October",
+  "start": 288.473,
+  "end": 289.113
+ },
+ {
+  "i": 636,
+  "word": "21st",
+  "start": 289.173,
+  "end": 289.513
+ },
+ {
+  "i": 637,
+  "word": "who",
+  "start": 289.613,
+  "end": 289.713
+ },
+ {
+  "i": 638,
+  "word": "said",
+  "start": 289.753,
+  "end": 289.913
+ },
+ {
+  "i": 639,
+  "word": "American",
+  "start": 289.953,
+  "end": 290.354
+ },
+ {
+  "i": 640,
+  "word": "forces",
+  "start": 290.414,
+  "end": 290.834
+ },
+ {
+  "i": 641,
+  "word": "were",
+  "start": 290.874,
+  "end": 290.994
+ },
+ {
+  "i": 642,
+  "word": "reducing",
+  "start": 291.034,
+  "end": 291.434
+ },
+ {
+  "i": 643,
+  "word": "their",
+  "start": 291.474,
+  "end": 291.595
+ },
+ {
+  "i": 644,
+  "word": "presence",
+  "start": 291.635,
+  "end": 292.015
+ },
+ {
+  "i": 645,
+  "word": "across",
+  "start": 292.075,
+  "end": 292.375
+ },
+ {
+  "i": 646,
+  "word": "the",
+  "start": 292.395,
+  "end": 292.475
+ },
+ {
+  "i": 647,
+  "word": "Gulf.",
+  "start": 292.495,
+  "end": 292.775
+ },
+ {
+  "i": 648,
+  "word": "NBC",
+  "start": 294.697,
+  "end": 295.177
+ },
+ {
+  "i": 649,
+  "word": "News",
+  "start": 295.237,
+  "end": 295.517
+ },
+ {
+  "i": 650,
+  "word": "first",
+  "start": 295.597,
+  "end": 295.857
+ },
+ {
+  "i": 651,
+  "word": "reported",
+  "start": 295.897,
+  "end": 296.258
+ },
+ {
+  "i": 652,
+  "word": "the",
+  "start": 296.278,
+  "end": 296.358
+ },
+ {
+  "i": 653,
+  "word": "drawdowns,",
+  "start": 296.378,
+  "end": 296.918
+ },
+ {
+  "i": 654,
+  "word": "citing",
+  "start": 297.418,
+  "end": 297.718
+ },
+ {
+  "i": 655,
+  "word": "sources",
+  "start": 297.779,
+  "end": 298.159
+ },
+ {
+  "i": 656,
+  "word": "who",
+  "start": 298.199,
+  "end": 298.299
+ },
+ {
+  "i": 657,
+  "word": "said",
+  "start": 298.339,
+  "end": 298.499
+ },
+ {
+  "i": 658,
+  "word": "US",
+  "start": 298.659,
+  "end": 298.919
+ },
+ {
+  "i": 659,
+  "word": "troops",
+  "start": 298.979,
+  "end": 299.279
+ },
+ {
+  "i": 660,
+  "word": "were",
+  "start": 299.32,
+  "end": 299.44
+ },
+ {
+  "i": 661,
+  "word": "leaving",
+  "start": 299.48,
+  "end": 299.74
+ },
+ {
+  "i": 662,
+  "word": "some",
+  "start": 299.8,
+  "end": 299.94
+ },
+ {
+  "i": 663,
+  "word": "military",
+  "start": 299.96,
+  "end": 300.38
+ },
+ {
+  "i": 664,
+  "word": "posts",
+  "start": 300.46,
+  "end": 300.82
+ },
+ {
+  "i": 665,
+  "word": "in",
+  "start": 300.901,
+  "end": 300.961
+ },
+ {
+  "i": 666,
+  "word": "the",
+  "start": 300.981,
+  "end": 301.061
+ },
+ {
+  "i": 667,
+  "word": "region.",
+  "start": 301.101,
+  "end": 301.421
+ },
+ {
+  "i": 668,
+  "word": "U.S.",
+  "start": 303.249,
+  "end": 303.469
+ },
+ {
+  "i": 669,
+  "word": "Central",
+  "start": 303.509,
+  "end": 303.83
+ },
+ {
+  "i": 670,
+  "word": "Command",
+  "start": 303.85,
+  "end": 304.27
+ },
+ {
+  "i": 671,
+  "word": "said",
+  "start": 304.31,
+  "end": 304.47
+ },
+ {
+  "i": 672,
+  "word": "American",
+  "start": 304.51,
+  "end": 304.891
+ },
+ {
+  "i": 673,
+  "word": "forces",
+  "start": 304.951,
+  "end": 305.351
+ },
+ {
+  "i": 674,
+  "word": "regularly",
+  "start": 305.451,
+  "end": 305.892
+ },
+ {
+  "i": 675,
+  "word": "reposition",
+  "start": 305.952,
+  "end": 306.512
+ },
+ {
+  "i": 676,
+  "word": "personnel",
+  "start": 306.552,
+  "end": 307.073
+ },
+ {
+  "i": 677,
+  "word": "and",
+  "start": 307.133,
+  "end": 307.213
+ },
+ {
+  "i": 678,
+  "word": "assets",
+  "start": 307.373,
+  "end": 307.753
+ },
+ {
+  "i": 679,
+  "word": "to",
+  "start": 307.854,
+  "end": 307.934
+ },
+ {
+  "i": 680,
+  "word": "maintain",
+  "start": 307.974,
+  "end": 308.414
+ },
+ {
+  "i": 681,
+  "word": "operational",
+  "start": 308.494,
+  "end": 309.035
+ },
+ {
+  "i": 682,
+  "word": "readiness",
+  "start": 309.075,
+  "end": 309.495
+ },
+ {
+  "i": 683,
+  "word": "and",
+  "start": 309.675,
+  "end": 309.775
+ },
+ {
+  "i": 684,
+  "word": "meet",
+  "start": 309.815,
+  "end": 309.996
+ },
+ {
+  "i": 685,
+  "word": "mission",
+  "start": 310.036,
+  "end": 310.316
+ },
+ {
+  "i": 686,
+  "word": "requirements.",
+  "start": 310.356,
+  "end": 310.936
+ },
+ {
+  "i": 687,
+  "word": "CENTCOM",
+  "start": 312.718,
+  "end": 313.239
+ },
+ {
+  "i": 688,
+  "word": "declined",
+  "start": 313.279,
+  "end": 313.679
+ },
+ {
+  "i": 689,
+  "word": "to",
+  "start": 313.719,
+  "end": 313.779
+ },
+ {
+  "i": 690,
+  "word": "discuss",
+  "start": 313.819,
+  "end": 314.2
+ },
+ {
+  "i": 691,
+  "word": "specific",
+  "start": 314.22,
+  "end": 314.68
+ },
+ {
+  "i": 692,
+  "word": "movements,",
+  "start": 314.74,
+  "end": 315.161
+ },
+ {
+  "i": 693,
+  "word": "citing",
+  "start": 315.641,
+  "end": 315.961
+ },
+ {
+  "i": 694,
+  "word": "operational",
+  "start": 316.041,
+  "end": 316.582
+ },
+ {
+  "i": 695,
+  "word": "security,",
+  "start": 316.622,
+  "end": 317.142
+ },
+ {
+  "i": 696,
+  "word": "according",
+  "start": 317.543,
+  "end": 317.903
+ },
+ {
+  "i": 697,
+  "word": "to",
+  "start": 317.943,
+  "end": 318.003
+ },
+ {
+  "i": 698,
+  "word": "the",
+  "start": 318.043,
+  "end": 318.103
+ },
+ {
+  "i": 699,
+  "word": "CBS",
+  "start": 318.163,
+  "end": 318.644
+ },
+ {
+  "i": 700,
+  "word": "News",
+  "start": 318.724,
+  "end": 318.924
+ },
+ {
+  "i": 701,
+  "word": "report.",
+  "start": 318.964,
+  "end": 319.365
+ },
+ {
+  "i": 702,
+  "word": "Washington",
+  "start": 321.186,
+  "end": 321.687
+ },
+ {
+  "i": 703,
+  "word": "also",
+  "start": 321.787,
+  "end": 322.047
+ },
+ {
+  "i": 704,
+  "word": "ordered",
+  "start": 322.147,
+  "end": 322.387
+ },
+ {
+  "i": 705,
+  "word": "non-essential",
+  "start": 322.467,
+  "end": 323.068
+ },
+ {
+  "i": 706,
+  "word": "U.S.",
+  "start": 323.188,
+  "end": 323.448
+ },
+ {
+  "i": 707,
+  "word": "embassy",
+  "start": 323.508,
+  "end": 323.849
+ },
+ {
+  "i": 708,
+  "word": "staff",
+  "start": 323.869,
+  "end": 324.209
+ },
+ {
+  "i": 709,
+  "word": "and",
+  "start": 324.369,
+  "end": 324.449
+ },
+ {
+  "i": 710,
+  "word": "their",
+  "start": 324.469,
+  "end": 324.61
+ },
+ {
+  "i": 711,
+  "word": "families",
+  "start": 324.65,
+  "end": 325.05
+ },
+ {
+  "i": 712,
+  "word": "to",
+  "start": 325.11,
+  "end": 325.19
+ },
+ {
+  "i": 713,
+  "word": "leave",
+  "start": 325.23,
+  "end": 325.41
+ },
+ {
+  "i": 714,
+  "word": "Saudi",
+  "start": 325.49,
+  "end": 325.771
+ },
+ {
+  "i": 715,
+  "word": "Arabia",
+  "start": 325.811,
+  "end": 326.251
+ },
+ {
+  "i": 716,
+  "word": "amid",
+  "start": 326.431,
+  "end": 326.611
+ },
+ {
+  "i": 717,
+  "word": "rising",
+  "start": 326.672,
+  "end": 326.992
+ },
+ {
+  "i": 718,
+  "word": "security",
+  "start": 327.032,
+  "end": 327.452
+ },
+ {
+  "i": 719,
+  "word": "concerns.",
+  "start": 327.492,
+  "end": 328.013
+ },
+ {
+  "i": 720,
+  "word": "Other",
+  "start": 329.933,
+  "end": 330.113
+ },
+ {
+  "i": 721,
+  "word": "US",
+  "start": 330.233,
+  "end": 330.473
+ },
+ {
+  "i": 722,
+  "word": "embassies",
+  "start": 330.553,
+  "end": 330.993
+ },
+ {
+  "i": 723,
+  "word": "reduced",
+  "start": 331.074,
+  "end": 331.394
+ },
+ {
+  "i": 724,
+  "word": "staffing",
+  "start": 331.474,
+  "end": 331.874
+ },
+ {
+  "i": 725,
+  "word": "and",
+  "start": 331.914,
+  "end": 332.014
+ },
+ {
+  "i": 726,
+  "word": "services",
+  "start": 332.074,
+  "end": 332.574
+ },
+ {
+  "i": 727,
+  "word": "under",
+  "start": 332.754,
+  "end": 332.914
+ },
+ {
+  "i": 728,
+  "word": "restricted",
+  "start": 332.934,
+  "end": 333.415
+ },
+ {
+  "i": 729,
+  "word": "operations,",
+  "start": 333.475,
+  "end": 334.075
+ },
+ {
+  "i": 730,
+  "word": "without",
+  "start": 334.435,
+  "end": 334.735
+ },
+ {
+  "i": 731,
+  "word": "ordering",
+  "start": 334.835,
+  "end": 335.115
+ },
+ {
+  "i": 732,
+  "word": "full",
+  "start": 335.195,
+  "end": 335.355
+ },
+ {
+  "i": 733,
+  "word": "evacuations,",
+  "start": 335.395,
+  "end": 336.176
+ },
+ {
+  "i": 734,
+  "word": "CBS",
+  "start": 336.636,
+  "end": 337.116
+ },
+ {
+  "i": 735,
+  "word": "News",
+  "start": 337.196,
+  "end": 337.416
+ },
+ {
+  "i": 736,
+  "word": "reported.",
+  "start": 337.456,
+  "end": 337.877
+ },
+ {
+  "i": 737,
+  "word": "The",
+  "start": 339.497,
+  "end": 339.577
+ },
+ {
+  "i": 738,
+  "word": "status",
+  "start": 339.617,
+  "end": 339.997
+ },
+ {
+  "i": 739,
+  "word": "was",
+  "start": 340.017,
+  "end": 340.137
+ },
+ {
+  "i": 740,
+  "word": "reportedly",
+  "start": 340.178,
+  "end": 340.718
+ },
+ {
+  "i": 741,
+  "word": "introduced",
+  "start": 340.778,
+  "end": 341.278
+ },
+ {
+  "i": 742,
+  "word": "in",
+  "start": 341.318,
+  "end": 341.398
+ },
+ {
+  "i": 743,
+  "word": "August",
+  "start": 341.498,
+  "end": 341.798
+ },
+ {
+  "i": 744,
+  "word": "amid",
+  "start": 341.838,
+  "end": 342.018
+ },
+ {
+  "i": 745,
+  "word": "the",
+  "start": 342.038,
+  "end": 342.118
+ },
+ {
+  "i": 746,
+  "word": "Iran",
+  "start": 342.158,
+  "end": 342.438
+ },
+ {
+  "i": 747,
+  "word": "war,",
+  "start": 342.459,
+  "end": 342.719
+ },
+ {
+  "i": 748,
+  "word": "allowing",
+  "start": 343.099,
+  "end": 343.439
+ },
+ {
+  "i": 749,
+  "word": "US",
+  "start": 343.539,
+  "end": 343.779
+ },
+ {
+  "i": 750,
+  "word": "embassies",
+  "start": 343.839,
+  "end": 344.279
+ },
+ {
+  "i": 751,
+  "word": "to",
+  "start": 344.359,
+  "end": 344.459
+ },
+ {
+  "i": 752,
+  "word": "limit",
+  "start": 344.499,
+  "end": 344.74
+ },
+ {
+  "i": 753,
+  "word": "services",
+  "start": 344.78,
+  "end": 345.28
+ },
+ {
+  "i": 754,
+  "word": "while",
+  "start": 345.36,
+  "end": 345.54
+ },
+ {
+  "i": 755,
+  "word": "maintaining",
+  "start": 345.58,
+  "end": 346.06
+ },
+ {
+  "i": 756,
+  "word": "operations.",
+  "start": 346.12,
+  "end": 346.74
+ },
+ {
+  "i": 757,
+  "word": "Houthi",
+  "start": 348.241,
+  "end": 348.561
+ },
+ {
+  "i": 758,
+  "word": "strikes",
+  "start": 348.601,
+  "end": 348.941
+ },
+ {
+  "i": 759,
+  "word": "on",
+  "start": 349.021,
+  "end": 349.081
+ },
+ {
+  "i": 760,
+  "word": "Saudi",
+  "start": 349.161,
+  "end": 349.482
+ },
+ {
+  "i": 761,
+  "word": "airports",
+  "start": 349.542,
+  "end": 349.982
+ },
+ {
+  "i": 762,
+  "word": "and",
+  "start": 350.062,
+  "end": 350.162
+ },
+ {
+  "i": 763,
+  "word": "critical",
+  "start": 350.222,
+  "end": 350.562
+ },
+ {
+  "i": 764,
+  "word": "infrastructure",
+  "start": 350.622,
+  "end": 351.282
+ },
+ {
+  "i": 765,
+  "word": "have",
+  "start": 351.342,
+  "end": 351.462
+ },
+ {
+  "i": 766,
+  "word": "heightened",
+  "start": 351.502,
+  "end": 351.803
+ },
+ {
+  "i": 767,
+  "word": "security",
+  "start": 351.843,
+  "end": 352.263
+ },
+ {
+  "i": 768,
+  "word": "concerns",
+  "start": 352.303,
+  "end": 352.723
+ },
+ {
+  "i": 769,
+  "word": "across",
+  "start": 352.783,
+  "end": 353.063
+ },
+ {
+  "i": 770,
+  "word": "the",
+  "start": 353.083,
+  "end": 353.163
+ },
+ {
+  "i": 771,
+  "word": "region,",
+  "start": 353.183,
+  "end": 353.523
+ },
+ {
+  "i": 772,
+  "word": "adding",
+  "start": 353.964,
+  "end": 354.184
+ },
+ {
+  "i": 773,
+  "word": "pressure",
+  "start": 354.244,
+  "end": 354.584
+ },
+ {
+  "i": 774,
+  "word": "on",
+  "start": 354.664,
+  "end": 354.744
+ },
+ {
+  "i": 775,
+  "word": "American",
+  "start": 354.784,
+  "end": 355.184
+ },
+ {
+  "i": 776,
+  "word": "diplomatic",
+  "start": 355.224,
+  "end": 355.784
+ },
+ {
+  "i": 777,
+  "word": "and",
+  "start": 355.904,
+  "end": 356.004
+ },
+ {
+  "i": 778,
+  "word": "military",
+  "start": 356.044,
+  "end": 356.485
+ },
+ {
+  "i": 779,
+  "word": "facilities.",
+  "start": 356.525,
+  "end": 357.065
+ },
+ {
+  "i": 780,
+  "word": "Upgrade",
+  "start": 358.488,
+  "end": 358.869
+ },
+ {
+  "i": 781,
+  "word": "your",
+  "start": 358.909,
+  "end": 359.049
+ },
+ {
+  "i": 782,
+  "word": "news",
+  "start": 359.129,
+  "end": 359.33
+ },
+ {
+  "i": 783,
+  "word": "experience",
+  "start": 359.39,
+  "end": 359.911
+ },
+ {
+  "i": 784,
+  "word": "with",
+  "start": 360.011,
+  "end": 360.151
+ },
+ {
+  "i": 785,
+  "word": "the",
+  "start": 360.171,
+  "end": 360.251
+ },
+ {
+  "i": 786,
+  "word": "all-new",
+  "start": 360.412,
+  "end": 360.772
+ },
+ {
+  "i": 787,
+  "word": "HT",
+  "start": 361.033,
+  "end": 361.233
+ },
+ {
+  "i": 788,
+  "word": "app.",
+  "start": 361.333,
+  "end": 361.514
+ },
+ {
+  "i": 789,
+  "word": "Download",
+  "start": 362.716,
+  "end": 363.116
+ },
+ {
+  "i": 790,
+  "word": "now.",
+  "start": 363.176,
+  "end": 363.557
+ },
+ {
+  "i": 791,
+  "word": "For",
+  "start": 407.767,
+  "end": 407.887
+ },
+ {
+  "i": 792,
+  "word": "the",
+  "start": 407.907,
+  "end": 407.967
+ },
+ {
+  "i": 793,
+  "word": "good",
+  "start": 408.007,
+  "end": 408.167
+ },
+ {
+  "i": 794,
+  "word": "of",
+  "start": 408.187,
+  "end": 408.227
+ },
+ {
+  "i": 795,
+  "word": "our",
+  "start": 408.307,
+  "end": 408.427
+ },
+ {
+  "i": 796,
+  "word": "nation,",
+  "start": 408.487,
+  "end": 408.967
+ },
+ {
+  "i": 797,
+  "word": "let's",
+  "start": 409.268,
+  "end": 409.448
+ },
+ {
+  "i": 798,
+  "word": "work",
+  "start": 409.488,
+  "end": 409.708
+ },
+ {
+  "i": 799,
+  "word": "together",
+  "start": 409.768,
+  "end": 410.208
+ },
+ {
+  "i": 800,
+  "word": "and",
+  "start": 410.248,
+  "end": 410.328
+ },
+ {
+  "i": 801,
+  "word": "let's",
+  "start": 410.368,
+  "end": 410.588
+ },
+ {
+  "i": 802,
+  "word": "truly",
+  "start": 410.648,
+  "end": 410.989
+ },
+ {
+  "i": 803,
+  "word": "make",
+  "start": 411.049,
+  "end": 411.269
+ },
+ {
+  "i": 804,
+  "word": "America",
+  "start": 411.609,
+  "end": 412.169
+ },
+ {
+  "i": 805,
+  "word": "great",
+  "start": 412.369,
+  "end": 412.67
+ },
+ {
+  "i": 806,
+  "word": "again.",
+  "start": 412.83,
+  "end": 413.23
+ },
+ {
+  "i": 807,
+  "word": "The",
+  "start": 414.551,
+  "end": 414.651
+ },
+ {
+  "i": 808,
+  "word": "fastest",
+  "start": 414.711,
+  "end": 415.171
+ },
+ {
+  "i": 809,
+  "word": "news",
+  "start": 415.231,
+  "end": 415.431
+ },
+ {
+  "i": 810,
+  "word": "breaks.",
+  "start": 415.451,
+  "end": 415.752
+ },
+ {
+  "i": 811,
+  "word": "The",
+  "start": 416.092,
+  "end": 416.192
+ },
+ {
+  "i": 812,
+  "word": "requested",
+  "start": 416.212,
+  "end": 416.792
+ },
+ {
+  "i": 813,
+  "word": "PM",
+  "start": 417.573,
+  "end": 417.853
+ },
+ {
+  "i": 814,
+  "word": "saying",
+  "start": 417.873,
+  "end": 418.113
+ },
+ {
+  "i": 815,
+  "word": "that",
+  "start": 418.133,
+  "end": 418.253
+ },
+ {
+  "i": 816,
+  "word": "we",
+  "start": 418.293,
+  "end": 418.433
+ },
+ {
+  "i": 817,
+  "word": "will",
+  "start": 418.473,
+  "end": 418.633
+ },
+ {
+  "i": 818,
+  "word": "have",
+  "start": 418.673,
+  "end": 418.853
+ },
+ {
+  "i": 819,
+  "word": "to",
+  "start": 418.873,
+  "end": 419.053
+ },
+ {
+  "i": 820,
+  "word": "speak",
+  "start": 419.214,
+  "end": 419.774
+ },
+ {
+  "i": 821,
+  "word": "to",
+  "start": 419.794,
+  "end": 419.834
+ },
+ {
+  "i": 822,
+  "word": "Putin",
+  "start": 419.974,
+  "end": 420.414
+ },
+ {
+  "i": 823,
+  "word": "and",
+  "start": 420.574,
+  "end": 420.674
+ },
+ {
+  "i": 824,
+  "word": "to",
+  "start": 420.714,
+  "end": 420.835
+ },
+ {
+  "i": 825,
+  "word": "Zelensky.",
+  "start": 420.875,
+  "end": 421.375
+ },
+ {
+  "i": 826,
+  "word": "The",
+  "start": 421.455,
+  "end": 421.575
+ },
+ {
+  "i": 827,
+  "word": "biggest",
+  "start": 421.635,
+  "end": 421.975
+ },
+ {
+  "i": 828,
+  "word": "news",
+  "start": 422.035,
+  "end": 422.255
+ },
+ {
+  "i": 829,
+  "word": "makers.",
+  "start": 422.295,
+  "end": 422.696
+ },
+ {
+  "i": 830,
+  "word": "The",
+  "start": 423.096,
+  "end": 423.256
+ },
+ {
+  "i": 831,
+  "word": "relationship",
+  "start": 423.316,
+  "end": 423.916
+ },
+ {
+  "i": 832,
+  "word": "with",
+  "start": 423.956,
+  "end": 424.116
+ },
+ {
+  "i": 833,
+  "word": "India",
+  "start": 424.157,
+  "end": 424.537
+ },
+ {
+  "i": 834,
+  "word": "is",
+  "start": 424.697,
+  "end": 424.777
+ },
+ {
+  "i": 835,
+  "word": "probably",
+  "start": 424.857,
+  "end": 425.337
+ },
+ {
+  "i": 836,
+  "word": "the",
+  "start": 425.357,
+  "end": 425.417
+ },
+ {
+  "i": 837,
+  "word": "most",
+  "start": 425.477,
+  "end": 425.697
+ },
+ {
+  "i": 838,
+  "word": "important",
+  "start": 425.757,
+  "end": 426.258
+ },
+ {
+  "i": 839,
+  "word": "bilateral",
+  "start": 426.298,
+  "end": 427.038
+ },
+ {
+  "i": 840,
+  "word": "relationship",
+  "start": 427.118,
+  "end": 427.759
+ },
+ {
+  "i": 841,
+  "word": "the",
+  "start": 427.779,
+  "end": 427.839
+ },
+ {
+  "i": 842,
+  "word": "US",
+  "start": 427.939,
+  "end": 428.179
+ },
+ {
+  "i": 843,
+  "word": "will",
+  "start": 428.219,
+  "end": 428.379
+ },
+ {
+  "i": 844,
+  "word": "have",
+  "start": 428.419,
+  "end": 428.619
+ },
+ {
+  "i": 845,
+  "word": "for",
+  "start": 428.659,
+  "end": 428.759
+ },
+ {
+  "i": 846,
+  "word": "the",
+  "start": 428.779,
+  "end": 428.859
+ },
+ {
+  "i": 847,
+  "word": "rest",
+  "start": 428.899,
+  "end": 429.079
+ },
+ {
+  "i": 848,
+  "word": "of",
+  "start": 429.139,
+  "end": 429.179
+ },
+ {
+  "i": 849,
+  "word": "the",
+  "start": 429.24,
+  "end": 429.32
+ },
+ {
+  "i": 850,
+  "word": "century.",
+  "start": 429.38,
+  "end": 429.8
+ },
+ {
+  "i": 851,
+  "word": "The",
+  "start": 431.554,
+  "end": 431.654
+ },
+ {
+  "i": 852,
+  "word": "capital",
+  "start": 431.694,
+  "end": 432.034
+ },
+ {
+  "i": 853,
+  "word": "delivered",
+  "start": 432.054,
+  "end": 432.454
+ },
+ {
+  "i": 854,
+  "word": "quite",
+  "start": 432.574,
+  "end": 432.894
+ },
+ {
+  "i": 855,
+  "word": "an",
+  "start": 432.914,
+  "end": 432.954
+ },
+ {
+  "i": 856,
+  "word": "election",
+  "start": 433.174,
+  "end": 433.574
+ },
+ {
+  "i": 857,
+  "word": "result",
+  "start": 433.594,
+  "end": 433.915
+ },
+ {
+  "i": 858,
+  "word": "today.",
+  "start": 433.935,
+  "end": 434.295
+ },
+ {
+  "i": 859,
+  "word": "Expert",
+  "start": 435.215,
+  "end": 435.595
+ },
+ {
+  "i": 860,
+  "word": "analysis.",
+  "start": 435.635,
+  "end": 436.155
+ },
+ {
+  "i": 861,
+  "word": "The",
+  "start": 437.135,
+  "end": 437.255
+ },
+ {
+  "i": 862,
+  "word": "million",
+  "start": 437.355,
+  "end": 437.655
+ },
+ {
+  "i": 863,
+  "word": "dollar",
+  "start": 437.695,
+  "end": 437.935
+ },
+ {
+  "i": 864,
+  "word": "question",
+  "start": 437.975,
+  "end": 438.356
+ },
+ {
+  "i": 865,
+  "word": "today",
+  "start": 438.396,
+  "end": 438.716
+ },
+ {
+  "i": 866,
+  "word": "is",
+  "start": 438.756,
+  "end": 438.856
+ },
+ {
+  "i": 867,
+  "word": "how",
+  "start": 439.376,
+  "end": 439.596
+ },
+ {
+  "i": 868,
+  "word": "to",
+  "start": 439.636,
+  "end": 439.756
+ },
+ {
+  "i": 869,
+  "word": "stop",
+  "start": 439.796,
+  "end": 440.096
+ },
+ {
+  "i": 870,
+  "word": "this",
+  "start": 440.136,
+  "end": 440.296
+ },
+ {
+  "i": 871,
+  "word": "dance",
+  "start": 440.356,
+  "end": 440.656
+ },
+ {
+  "i": 872,
+  "word": "of",
+  "start": 440.716,
+  "end": 440.796
+ },
+ {
+  "i": 873,
+  "word": "death.",
+  "start": 440.836,
+  "end": 441.076
+ },
+ {
+  "i": 874,
+  "word": "Ground",
+  "start": 443.657,
+  "end": 443.877
+ },
+ {
+  "i": 875,
+  "word": "reports.",
+  "start": 443.917,
+  "end": 444.317
+ },
+ {
+  "i": 876,
+  "word": "I'm",
+  "start": 444.937,
+  "end": 445.077
+ },
+ {
+  "i": 877,
+  "word": "standing",
+  "start": 445.117,
+  "end": 445.457
+ },
+ {
+  "i": 878,
+  "word": "at",
+  "start": 445.497,
+  "end": 445.557
+ },
+ {
+  "i": 879,
+  "word": "the",
+  "start": 445.577,
+  "end": 445.657
+ },
+ {
+  "i": 880,
+  "word": "crossroad",
+  "start": 445.697,
+  "end": 446.257
+ },
+ {
+  "i": 881,
+  "word": "of",
+  "start": 446.277,
+  "end": 446.337
+ },
+ {
+  "i": 882,
+  "word": "the",
+  "start": 446.357,
+  "end": 446.437
+ },
+ {
+  "i": 883,
+  "word": "Kumbh",
+  "start": 446.477,
+  "end": 446.677
+ },
+ {
+  "i": 884,
+  "word": "Mela.",
+  "start": 446.697,
+  "end": 446.997
+ },
+ {
+  "i": 885,
+  "word": "Behind",
+  "start": 447.037,
+  "end": 447.397
+ },
+ {
+  "i": 886,
+  "word": "me",
+  "start": 447.437,
+  "end": 447.598
+ },
+ {
+  "i": 887,
+  "word": "are",
+  "start": 447.818,
+  "end": 447.938
+ },
+ {
+  "i": 888,
+  "word": "more",
+  "start": 448.038,
+  "end": 448.198
+ },
+ {
+  "i": 889,
+  "word": "than",
+  "start": 448.238,
+  "end": 448.378
+ },
+ {
+  "i": 890,
+  "word": "100",
+  "start": 448.398,
+  "end": 448.458
+ },
+ {
+  "i": 891,
+  "word": "entry",
+  "start": 448.798,
+  "end": 449.258
+ },
+ {
+  "i": 892,
+  "word": "guards.",
+  "start": 449.298,
+  "end": 449.618
+ },
+ {
+  "i": 893,
+  "word": "Long",
+  "start": 450.978,
+  "end": 451.198
+ },
+ {
+  "i": 894,
+  "word": "form",
+  "start": 451.238,
+  "end": 451.458
+ },
+ {
+  "i": 895,
+  "word": "interviews.",
+  "start": 451.518,
+  "end": 451.938
+ },
+ {
+  "i": 896,
+  "word": "Exclusionary",
+  "start": 451.998,
+  "end": 452.779
+ },
+ {
+  "i": 897,
+  "word": "politics",
+  "start": 452.839,
+  "end": 453.419
+ },
+ {
+  "i": 898,
+  "word": "is",
+  "start": 453.699,
+  "end": 453.839
+ },
+ {
+  "i": 899,
+  "word": "reflected",
+  "start": 454.439,
+  "end": 455.019
+ },
+ {
+  "i": 900,
+  "word": "in",
+  "start": 455.079,
+  "end": 455.159
+ },
+ {
+  "i": 901,
+  "word": "Manipur",
+  "start": 455.219,
+  "end": 455.639
+ },
+ {
+  "i": 902,
+  "word": "case",
+  "start": 455.659,
+  "end": 455.899
+ },
+ {
+  "i": 903,
+  "word": "as",
+  "start": 455.959,
+  "end": 456.059
+ },
+ {
+  "i": 904,
+  "word": "well.",
+  "start": 456.119,
+  "end": 456.379
+ },
+ {
+  "i": 905,
+  "word": "You",
+  "start": 456.459,
+  "end": 456.579
+ },
+ {
+  "i": 906,
+  "word": "don't",
+  "start": 456.619,
+  "end": 456.78
+ },
+ {
+  "i": 907,
+  "word": "bother",
+  "start": 456.84,
+  "end": 457.18
+ },
+ {
+  "i": 908,
+  "word": "because",
+  "start": 457.24,
+  "end": 457.54
+ },
+ {
+  "i": 909,
+  "word": "this",
+  "start": 457.56,
+  "end": 457.72
+ },
+ {
+  "i": 910,
+  "word": "is",
+  "start": 457.78,
+  "end": 457.88
+ },
+ {
+  "i": 911,
+  "word": "a",
+  "start": 457.94,
+  "end": 458.0
+ },
+ {
+  "i": 912,
+  "word": "small",
+  "start": 458.04,
+  "end": 458.34
+ },
+ {
+  "i": 913,
+  "word": "state.",
+  "start": 458.44,
+  "end": 458.74
+ },
+ {
+  "i": 914,
+  "word": "Have",
+  "start": 461.203,
+  "end": 461.303
+ },
+ {
+  "i": 915,
+  "word": "you",
+  "start": 461.343,
+  "end": 461.403
+ },
+ {
+  "i": 916,
+  "word": "ever",
+  "start": 461.423,
+  "end": 461.603
+ },
+ {
+  "i": 917,
+  "word": "wondered",
+  "start": 461.683,
+  "end": 462.023
+ },
+ {
+  "i": 918,
+  "word": "what",
+  "start": 462.083,
+  "end": 462.203
+ },
+ {
+  "i": 919,
+  "word": "happens",
+  "start": 462.263,
+  "end": 462.584
+ },
+ {
+  "i": 920,
+  "word": "when",
+  "start": 462.624,
+  "end": 462.744
+ },
+ {
+  "i": 921,
+  "word": "a",
+  "start": 462.764,
+  "end": 462.784
+ },
+ {
+  "i": 922,
+  "word": "banking",
+  "start": 462.844,
+  "end": 463.144
+ },
+ {
+  "i": 923,
+  "word": "dynasty",
+  "start": 463.164,
+  "end": 463.724
+ },
+ {
+  "i": 924,
+  "word": "meets",
+  "start": 463.764,
+  "end": 463.964
+ },
+ {
+  "i": 925,
+  "word": "tides",
+  "start": 464.004,
+  "end": 464.264
+ },
+ {
+  "i": 926,
+  "word": "of",
+  "start": 464.304,
+  "end": 464.344
+ },
+ {
+  "i": 927,
+  "word": "world",
+  "start": 464.384,
+  "end": 464.584
+ },
+ {
+  "i": 928,
+  "word": "history,",
+  "start": 464.604,
+  "end": 465.025
+ },
+ {
+  "i": 929,
+  "word": "intrigue",
+  "start": 465.345,
+  "end": 465.785
+ },
+ {
+  "i": 930,
+  "word": "and",
+  "start": 465.865,
+  "end": 465.945
+ },
+ {
+  "i": 931,
+  "word": "a",
+  "start": 465.985,
+  "end": 466.005
+ },
+ {
+  "i": 932,
+  "word": "dash",
+  "start": 466.065,
+  "end": 466.265
+ },
+ {
+  "i": 933,
+  "word": "of",
+  "start": 466.325,
+  "end": 466.405
+ },
+ {
+  "i": 934,
+  "word": "myth?",
+  "start": 466.485,
+  "end": 466.705
+ },
+ {
+  "i": 935,
+  "word": "Why",
+  "start": 466.765,
+  "end": 466.985
+ },
+ {
+  "i": 936,
+  "word": "exactly",
+  "start": 467.025,
+  "end": 467.466
+ },
+ {
+  "i": 937,
+  "word": "did",
+  "start": 467.486,
+  "end": 467.606
+ },
+ {
+  "i": 938,
+  "word": "the",
+  "start": 467.626,
+  "end": 467.726
+ },
+ {
+  "i": 939,
+  "word": "US",
+  "start": 467.826,
+  "end": 468.086
+ },
+ {
+  "i": 940,
+  "word": "topple",
+  "start": 468.306,
+  "end": 468.606
+ },
+ {
+  "i": 941,
+  "word": "the",
+  "start": 468.646,
+  "end": 468.706
+ },
+ {
+  "i": 942,
+  "word": "sheikhs",
+  "start": 468.726,
+  "end": 469.066
+ },
+ {
+  "i": 943,
+  "word": "in",
+  "start": 469.086,
+  "end": 469.166
+ },
+ {
+  "i": 944,
+  "word": "our",
+  "start": 469.186,
+  "end": 469.286
+ },
+ {
+  "i": 945,
+  "word": "government?",
+  "start": 469.306,
+  "end": 469.607
+ }
+]

@@ -1,0 +1,1550 @@
+[
+ {
+  "i": 0,
+  "word": "Meta,",
+  "start": 1.611,
+  "end": 1.951
+ },
+ {
+  "i": 1,
+  "word": "the",
+  "start": 2.011,
+  "end": 2.091
+ },
+ {
+  "i": 2,
+  "word": "parent",
+  "start": 2.131,
+  "end": 2.392
+ },
+ {
+  "i": 3,
+  "word": "company",
+  "start": 2.452,
+  "end": 2.772
+ },
+ {
+  "i": 4,
+  "word": "of",
+  "start": 2.812,
+  "end": 2.872
+ },
+ {
+  "i": 5,
+  "word": "Facebook,",
+  "start": 2.912,
+  "end": 3.512
+ },
+ {
+  "i": 6,
+  "word": "is",
+  "start": 3.612,
+  "end": 3.692
+ },
+ {
+  "i": 7,
+  "word": "reportedly",
+  "start": 3.752,
+  "end": 4.332
+ },
+ {
+  "i": 8,
+  "word": "planning",
+  "start": 4.412,
+  "end": 4.792
+ },
+ {
+  "i": 9,
+  "word": "to",
+  "start": 4.832,
+  "end": 4.892
+ },
+ {
+  "i": 10,
+  "word": "build",
+  "start": 4.932,
+  "end": 5.112
+ },
+ {
+  "i": 11,
+  "word": "a",
+  "start": 5.172,
+  "end": 5.212
+ },
+ {
+  "i": 12,
+  "word": "$10",
+  "start": 5.232,
+  "end": 5.572
+ },
+ {
+  "i": 13,
+  "word": "billion",
+  "start": 5.712,
+  "end": 6.572
+ },
+ {
+  "i": 14,
+  "word": "underwater",
+  "start": 6.773,
+  "end": 7.433
+ },
+ {
+  "i": 15,
+  "word": "fiber",
+  "start": 7.533,
+  "end": 7.893
+ },
+ {
+  "i": 16,
+  "word": "optic",
+  "start": 8.053,
+  "end": 8.353
+ },
+ {
+  "i": 17,
+  "word": "cable",
+  "start": 8.373,
+  "end": 8.753
+ },
+ {
+  "i": 18,
+  "word": "that",
+  "start": 9.073,
+  "end": 9.173
+ },
+ {
+  "i": 19,
+  "word": "will",
+  "start": 9.193,
+  "end": 9.373
+ },
+ {
+  "i": 20,
+  "word": "go",
+  "start": 9.413,
+  "end": 9.593
+ },
+ {
+  "i": 21,
+  "word": "around",
+  "start": 9.653,
+  "end": 9.913
+ },
+ {
+  "i": 22,
+  "word": "the",
+  "start": 9.953,
+  "end": 10.033
+ },
+ {
+  "i": 23,
+  "word": "world.",
+  "start": 10.093,
+  "end": 10.433
+ },
+ {
+  "i": 24,
+  "word": "The",
+  "start": 10.913,
+  "end": 11.013
+ },
+ {
+  "i": 25,
+  "word": "cable",
+  "start": 11.033,
+  "end": 11.374
+ },
+ {
+  "i": 26,
+  "word": "would",
+  "start": 11.394,
+  "end": 11.554
+ },
+ {
+  "i": 27,
+  "word": "help",
+  "start": 11.594,
+  "end": 11.794
+ },
+ {
+  "i": 28,
+  "word": "the",
+  "start": 11.834,
+  "end": 11.934
+ },
+ {
+  "i": 29,
+  "word": "company",
+  "start": 11.974,
+  "end": 12.374
+ },
+ {
+  "i": 30,
+  "word": "handle",
+  "start": 12.454,
+  "end": 12.774
+ },
+ {
+  "i": 31,
+  "word": "high",
+  "start": 12.834,
+  "end": 13.114
+ },
+ {
+  "i": 32,
+  "word": "user",
+  "start": 13.254,
+  "end": 13.514
+ },
+ {
+  "i": 33,
+  "word": "traffic",
+  "start": 13.554,
+  "end": 14.054
+ },
+ {
+  "i": 34,
+  "word": "and",
+  "start": 14.434,
+  "end": 14.534
+ },
+ {
+  "i": 35,
+  "word": "keep",
+  "start": 14.594,
+  "end": 14.754
+ },
+ {
+  "i": 36,
+  "word": "a",
+  "start": 14.794,
+  "end": 14.854
+ },
+ {
+  "i": 37,
+  "word": "high",
+  "start": 14.934,
+  "end": 15.134
+ },
+ {
+  "i": 38,
+  "word": "quality",
+  "start": 15.214,
+  "end": 15.655
+ },
+ {
+  "i": 39,
+  "word": "of",
+  "start": 15.735,
+  "end": 15.815
+ },
+ {
+  "i": 40,
+  "word": "service",
+  "start": 15.915,
+  "end": 16.255
+ },
+ {
+  "i": 41,
+  "word": "internationally.",
+  "start": 16.295,
+  "end": 17.035
+ },
+ {
+  "i": 42,
+  "word": "It",
+  "start": 17.475,
+  "end": 17.535
+ },
+ {
+  "i": 43,
+  "word": "also",
+  "start": 17.575,
+  "end": 17.835
+ },
+ {
+  "i": 44,
+  "word": "brings",
+  "start": 17.875,
+  "end": 18.155
+ },
+ {
+  "i": 45,
+  "word": "Meta",
+  "start": 18.255,
+  "end": 18.535
+ },
+ {
+  "i": 46,
+  "word": "in",
+  "start": 18.615,
+  "end": 18.675
+ },
+ {
+  "i": 47,
+  "word": "line",
+  "start": 18.715,
+  "end": 18.935
+ },
+ {
+  "i": 48,
+  "word": "with",
+  "start": 18.955,
+  "end": 19.075
+ },
+ {
+  "i": 49,
+  "word": "Alphabet,",
+  "start": 19.255,
+  "end": 19.775
+ },
+ {
+  "i": 50,
+  "word": "the",
+  "start": 19.815,
+  "end": 19.876
+ },
+ {
+  "i": 51,
+  "word": "parent",
+  "start": 19.916,
+  "end": 20.176
+ },
+ {
+  "i": 52,
+  "word": "company",
+  "start": 20.216,
+  "end": 20.556
+ },
+ {
+  "i": 53,
+  "word": "of",
+  "start": 20.576,
+  "end": 20.636
+ },
+ {
+  "i": 54,
+  "word": "Google.",
+  "start": 20.736,
+  "end": 21.156
+ },
+ {
+  "i": 55,
+  "word": "Alphabet",
+  "start": 21.596,
+  "end": 22.056
+ },
+ {
+  "i": 56,
+  "word": "and",
+  "start": 22.116,
+  "end": 22.216
+ },
+ {
+  "i": 57,
+  "word": "Google",
+  "start": 22.256,
+  "end": 22.636
+ },
+ {
+  "i": 58,
+  "word": "have",
+  "start": 22.676,
+  "end": 22.956
+ },
+ {
+  "i": 59,
+  "word": "a",
+  "start": 22.976,
+  "end": 22.996
+ },
+ {
+  "i": 60,
+  "word": "network",
+  "start": 23.096,
+  "end": 23.556
+ },
+ {
+  "i": 61,
+  "word": "of",
+  "start": 23.636,
+  "end": 23.716
+ },
+ {
+  "i": 62,
+  "word": "cables,",
+  "start": 23.816,
+  "end": 24.317
+ },
+ {
+  "i": 63,
+  "word": "some",
+  "start": 24.717,
+  "end": 24.897
+ },
+ {
+  "i": 64,
+  "word": "of",
+  "start": 24.937,
+  "end": 24.997
+ },
+ {
+  "i": 65,
+  "word": "which",
+  "start": 25.077,
+  "end": 25.277
+ },
+ {
+  "i": 66,
+  "word": "they",
+  "start": 25.357,
+  "end": 25.517
+ },
+ {
+  "i": 67,
+  "word": "own",
+  "start": 25.657,
+  "end": 25.817
+ },
+ {
+  "i": 68,
+  "word": "fully.",
+  "start": 25.917,
+  "end": 26.317
+ },
+ {
+  "i": 69,
+  "word": "The",
+  "start": 26.657,
+  "end": 26.757
+ },
+ {
+  "i": 70,
+  "word": "technology",
+  "start": 26.797,
+  "end": 27.477
+ },
+ {
+  "i": 71,
+  "word": "news",
+  "start": 27.537,
+  "end": 27.757
+ },
+ {
+  "i": 72,
+  "word": "site",
+  "start": 27.837,
+  "end": 28.118
+ },
+ {
+  "i": 73,
+  "word": "TechCrunch",
+  "start": 28.178,
+  "end": 28.838
+ },
+ {
+  "i": 74,
+  "word": "reported",
+  "start": 28.918,
+  "end": 29.398
+ },
+ {
+  "i": 75,
+  "word": "that",
+  "start": 29.718,
+  "end": 29.838
+ },
+ {
+  "i": 76,
+  "word": "it",
+  "start": 29.858,
+  "end": 29.918
+ },
+ {
+  "i": 77,
+  "word": "would",
+  "start": 29.938,
+  "end": 30.098
+ },
+ {
+  "i": 78,
+  "word": "be",
+  "start": 30.118,
+  "end": 30.198
+ },
+ {
+  "i": 79,
+  "word": "a",
+  "start": 30.258,
+  "end": 30.318
+ },
+ {
+  "i": 80,
+  "word": "cable",
+  "start": 30.398,
+  "end": 30.758
+ },
+ {
+  "i": 81,
+  "word": "exclusively",
+  "start": 30.878,
+  "end": 31.639
+ },
+ {
+  "i": 82,
+  "word": "for",
+  "start": 31.699,
+  "end": 31.859
+ },
+ {
+  "i": 83,
+  "word": "the",
+  "start": 31.919,
+  "end": 31.979
+ },
+ {
+  "i": 84,
+  "word": "company's",
+  "start": 32.039,
+  "end": 32.479
+ },
+ {
+  "i": 85,
+  "word": "use",
+  "start": 32.659,
+  "end": 32.819
+ },
+ {
+  "i": 86,
+  "word": "and",
+  "start": 33.179,
+  "end": 33.259
+ },
+ {
+  "i": 87,
+  "word": "would",
+  "start": 33.299,
+  "end": 33.459
+ },
+ {
+  "i": 88,
+  "word": "avoid",
+  "start": 33.579,
+  "end": 33.959
+ },
+ {
+  "i": 89,
+  "word": "areas",
+  "start": 34.1,
+  "end": 34.44
+ },
+ {
+  "i": 90,
+  "word": "they",
+  "start": 34.48,
+  "end": 34.62
+ },
+ {
+  "i": 91,
+  "word": "think",
+  "start": 34.66,
+  "end": 34.88
+ },
+ {
+  "i": 92,
+  "word": "face",
+  "start": 34.92,
+  "end": 35.2
+ },
+ {
+  "i": 93,
+  "word": "political",
+  "start": 35.24,
+  "end": 35.78
+ },
+ {
+  "i": 94,
+  "word": "and",
+  "start": 35.86,
+  "end": 35.94
+ },
+ {
+  "i": 95,
+  "word": "military",
+  "start": 36.0,
+  "end": 36.48
+ },
+ {
+  "i": 96,
+  "word": "tensions.",
+  "start": 36.56,
+  "end": 37.081
+ },
+ {
+  "i": 97,
+  "word": "The",
+  "start": 37.661,
+  "end": 37.761
+ },
+ {
+  "i": 98,
+  "word": "reported",
+  "start": 37.821,
+  "end": 38.261
+ },
+ {
+  "i": 99,
+  "word": "route",
+  "start": 38.381,
+  "end": 38.621
+ },
+ {
+  "i": 100,
+  "word": "for",
+  "start": 38.641,
+  "end": 38.761
+ },
+ {
+  "i": 101,
+  "word": "the",
+  "start": 38.781,
+  "end": 38.861
+ },
+ {
+  "i": 102,
+  "word": "cable",
+  "start": 38.901,
+  "end": 39.261
+ },
+ {
+  "i": 103,
+  "word": "will",
+  "start": 39.301,
+  "end": 39.481
+ },
+ {
+  "i": 104,
+  "word": "take",
+  "start": 39.521,
+  "end": 39.741
+ },
+ {
+  "i": 105,
+  "word": "it",
+  "start": 39.781,
+  "end": 39.841
+ },
+ {
+  "i": 106,
+  "word": "from",
+  "start": 39.941,
+  "end": 40.122
+ },
+ {
+  "i": 107,
+  "word": "the",
+  "start": 40.202,
+  "end": 40.342
+ },
+ {
+  "i": 108,
+  "word": "east",
+  "start": 40.542,
+  "end": 40.722
+ },
+ {
+  "i": 109,
+  "word": "coast",
+  "start": 40.802,
+  "end": 41.062
+ },
+ {
+  "i": 110,
+  "word": "of",
+  "start": 41.102,
+  "end": 41.162
+ },
+ {
+  "i": 111,
+  "word": "the",
+  "start": 41.202,
+  "end": 41.262
+ },
+ {
+  "i": 112,
+  "word": "U.S.,",
+  "start": 41.402,
+  "end": 41.762
+ },
+ {
+  "i": 113,
+  "word": "across",
+  "start": 42.162,
+  "end": 42.582
+ },
+ {
+  "i": 114,
+  "word": "the",
+  "start": 42.622,
+  "end": 42.722
+ },
+ {
+  "i": 115,
+  "word": "Atlantic",
+  "start": 42.782,
+  "end": 43.223
+ },
+ {
+  "i": 116,
+  "word": "around",
+  "start": 43.423,
+  "end": 43.703
+ },
+ {
+  "i": 117,
+  "word": "South",
+  "start": 43.763,
+  "end": 44.043
+ },
+ {
+  "i": 118,
+  "word": "Africa,",
+  "start": 44.163,
+  "end": 44.583
+ },
+ {
+  "i": 119,
+  "word": "up",
+  "start": 44.983,
+  "end": 45.083
+ },
+ {
+  "i": 120,
+  "word": "to",
+  "start": 45.143,
+  "end": 45.263
+ },
+ {
+  "i": 121,
+  "word": "India,",
+  "start": 45.343,
+  "end": 45.703
+ },
+ {
+  "i": 122,
+  "word": "above",
+  "start": 45.863,
+  "end": 46.084
+ },
+ {
+  "i": 123,
+  "word": "the",
+  "start": 46.104,
+  "end": 46.224
+ },
+ {
+  "i": 124,
+  "word": "northern",
+  "start": 46.384,
+  "end": 46.784
+ },
+ {
+  "i": 125,
+  "word": "part",
+  "start": 46.844,
+  "end": 47.024
+ },
+ {
+  "i": 126,
+  "word": "of",
+  "start": 47.044,
+  "end": 47.104
+ },
+ {
+  "i": 127,
+  "word": "Australia,",
+  "start": 47.184,
+  "end": 47.744
+ },
+ {
+  "i": 128,
+  "word": "and",
+  "start": 48.084,
+  "end": 48.164
+ },
+ {
+  "i": 129,
+  "word": "across",
+  "start": 48.204,
+  "end": 48.524
+ },
+ {
+  "i": 130,
+  "word": "the",
+  "start": 48.564,
+  "end": 48.644
+ },
+ {
+  "i": 131,
+  "word": "Pacific",
+  "start": 48.684,
+  "end": 49.145
+ },
+ {
+  "i": 132,
+  "word": "to",
+  "start": 49.185,
+  "end": 49.305
+ },
+ {
+  "i": 133,
+  "word": "the",
+  "start": 49.345,
+  "end": 49.425
+ },
+ {
+  "i": 134,
+  "word": "west",
+  "start": 49.465,
+  "end": 49.705
+ },
+ {
+  "i": 135,
+  "word": "coast.",
+  "start": 49.765,
+  "end": 50.105
+ },
+ {
+  "i": 136,
+  "word": "Undersea",
+  "start": 50.725,
+  "end": 51.185
+ },
+ {
+  "i": 137,
+  "word": "cables",
+  "start": 51.245,
+  "end": 51.646
+ },
+ {
+  "i": 138,
+  "word": "play",
+  "start": 51.726,
+  "end": 51.946
+ },
+ {
+  "i": 139,
+  "word": "a",
+  "start": 51.966,
+  "end": 52.006
+ },
+ {
+  "i": 140,
+  "word": "key",
+  "start": 52.086,
+  "end": 52.326
+ },
+ {
+  "i": 141,
+  "word": "role",
+  "start": 52.406,
+  "end": 52.666
+ },
+ {
+  "i": 142,
+  "word": "in",
+  "start": 52.726,
+  "end": 52.826
+ },
+ {
+  "i": 143,
+  "word": "global",
+  "start": 52.906,
+  "end": 53.347
+ },
+ {
+  "i": 144,
+  "word": "fiber",
+  "start": 53.487,
+  "end": 53.887
+ },
+ {
+  "i": 145,
+  "word": "optic",
+  "start": 54.027,
+  "end": 54.307
+ },
+ {
+  "i": 146,
+  "word": "internet,",
+  "start": 54.407,
+  "end": 54.887
+ },
+ {
+  "i": 147,
+  "word": "but",
+  "start": 55.228,
+  "end": 55.348
+ },
+ {
+  "i": 148,
+  "word": "their",
+  "start": 55.368,
+  "end": 55.548
+ },
+ {
+  "i": 149,
+  "word": "locations",
+  "start": 55.608,
+  "end": 56.248
+ },
+ {
+  "i": 150,
+  "word": "can",
+  "start": 56.308,
+  "end": 56.548
+ },
+ {
+  "i": 151,
+  "word": "put",
+  "start": 56.568,
+  "end": 56.708
+ },
+ {
+  "i": 152,
+  "word": "them",
+  "start": 56.728,
+  "end": 56.868
+ },
+ {
+  "i": 153,
+  "word": "at",
+  "start": 56.908,
+  "end": 56.989
+ },
+ {
+  "i": 154,
+  "word": "risk.",
+  "start": 57.089,
+  "end": 57.429
+ },
+ {
+  "i": 155,
+  "word": "Cables",
+  "start": 57.809,
+  "end": 58.169
+ },
+ {
+  "i": 156,
+  "word": "in",
+  "start": 58.209,
+  "end": 58.289
+ },
+ {
+  "i": 157,
+  "word": "the",
+  "start": 58.309,
+  "end": 58.409
+ },
+ {
+  "i": 158,
+  "word": "Red",
+  "start": 58.489,
+  "end": 58.689
+ },
+ {
+  "i": 159,
+  "word": "Sea",
+  "start": 58.789,
+  "end": 59.01
+ },
+ {
+  "i": 160,
+  "word": "suffered",
+  "start": 59.09,
+  "end": 59.45
+ },
+ {
+  "i": 161,
+  "word": "damage",
+  "start": 59.51,
+  "end": 59.89
+ },
+ {
+  "i": 162,
+  "word": "from",
+  "start": 59.93,
+  "end": 60.07
+ },
+ {
+  "i": 163,
+  "word": "strikes",
+  "start": 60.13,
+  "end": 60.47
+ },
+ {
+  "i": 164,
+  "word": "by",
+  "start": 60.53,
+  "end": 60.651
+ },
+ {
+  "i": 165,
+  "word": "Yemen's",
+  "start": 60.731,
+  "end": 61.071
+ },
+ {
+  "i": 166,
+  "word": "Houthi",
+  "start": 61.091,
+  "end": 61.431
+ },
+ {
+  "i": 167,
+  "word": "rebels.",
+  "start": 61.511,
+  "end": 61.931
+ },
+ {
+  "i": 168,
+  "word": "And",
+  "start": 62.512,
+  "end": 62.592
+ },
+ {
+  "i": 169,
+  "word": "authorities",
+  "start": 62.652,
+  "end": 63.092
+ },
+ {
+  "i": 170,
+  "word": "in",
+  "start": 63.152,
+  "end": 63.252
+ },
+ {
+  "i": 171,
+  "word": "Denmark",
+  "start": 63.312,
+  "end": 63.812
+ },
+ {
+  "i": 172,
+  "word": "have",
+  "start": 63.992,
+  "end": 64.112
+ },
+ {
+  "i": 173,
+  "word": "been",
+  "start": 64.152,
+  "end": 64.313
+ },
+ {
+  "i": 174,
+  "word": "looking",
+  "start": 64.373,
+  "end": 64.713
+ },
+ {
+  "i": 175,
+  "word": "into",
+  "start": 64.753,
+  "end": 65.053
+ },
+ {
+  "i": 176,
+  "word": "cable",
+  "start": 65.133,
+  "end": 65.533
+ },
+ {
+  "i": 177,
+  "word": "damage",
+  "start": 65.573,
+  "end": 66.013
+ },
+ {
+  "i": 178,
+  "word": "caused",
+  "start": 66.073,
+  "end": 66.414
+ },
+ {
+  "i": 179,
+  "word": "in",
+  "start": 66.454,
+  "end": 66.514
+ },
+ {
+  "i": 180,
+  "word": "the",
+  "start": 66.534,
+  "end": 66.634
+ },
+ {
+  "i": 181,
+  "word": "Baltic",
+  "start": 66.774,
+  "end": 67.174
+ },
+ {
+  "i": 182,
+  "word": "Sea",
+  "start": 67.274,
+  "end": 67.574
+ },
+ {
+  "i": 183,
+  "word": "by",
+  "start": 67.995,
+  "end": 68.175
+ },
+ {
+  "i": 184,
+  "word": "a",
+  "start": 68.215,
+  "end": 68.255
+ },
+ {
+  "i": 185,
+  "word": "Chinese",
+  "start": 68.355,
+  "end": 68.835
+ },
+ {
+  "i": 186,
+  "word": "ship.",
+  "start": 68.935,
+  "end": 69.255
+ },
+ {
+  "i": 187,
+  "word": "They",
+  "start": 69.715,
+  "end": 69.876
+ },
+ {
+  "i": 188,
+  "word": "accused",
+  "start": 69.916,
+  "end": 70.256
+ },
+ {
+  "i": 189,
+  "word": "the",
+  "start": 70.296,
+  "end": 70.376
+ },
+ {
+  "i": 190,
+  "word": "crew",
+  "start": 70.436,
+  "end": 70.636
+ },
+ {
+  "i": 191,
+  "word": "of",
+  "start": 70.696,
+  "end": 70.756
+ },
+ {
+  "i": 192,
+  "word": "the",
+  "start": 70.796,
+  "end": 70.876
+ },
+ {
+  "i": 193,
+  "word": "ship,",
+  "start": 70.936,
+  "end": 71.176
+ },
+ {
+  "i": 194,
+  "word": "which",
+  "start": 71.516,
+  "end": 71.677
+ },
+ {
+  "i": 195,
+  "word": "left",
+  "start": 71.757,
+  "end": 71.957
+ },
+ {
+  "i": 196,
+  "word": "from",
+  "start": 71.977,
+  "end": 72.117
+ },
+ {
+  "i": 197,
+  "word": "a",
+  "start": 72.157,
+  "end": 72.217
+ },
+ {
+  "i": 198,
+  "word": "Russian",
+  "start": 72.317,
+  "end": 72.657
+ },
+ {
+  "i": 199,
+  "word": "port,",
+  "start": 72.737,
+  "end": 73.057
+ },
+ {
+  "i": 200,
+  "word": "of",
+  "start": 73.237,
+  "end": 73.297
+ },
+ {
+  "i": 201,
+  "word": "intentionally",
+  "start": 73.377,
+  "end": 74.118
+ },
+ {
+  "i": 202,
+  "word": "dragging",
+  "start": 74.238,
+  "end": 74.718
+ },
+ {
+  "i": 203,
+  "word": "its",
+  "start": 74.758,
+  "end": 74.898
+ },
+ {
+  "i": 204,
+  "word": "anchor",
+  "start": 75.058,
+  "end": 75.399
+ },
+ {
+  "i": 205,
+  "word": "to",
+  "start": 75.719,
+  "end": 75.899
+ },
+ {
+  "i": 206,
+  "word": "cut",
+  "start": 75.999,
+  "end": 76.239
+ },
+ {
+  "i": 207,
+  "word": "underwater",
+  "start": 76.359,
+  "end": 76.879
+ },
+ {
+  "i": 208,
+  "word": "cables.",
+  "start": 76.919,
+  "end": 77.38
+ },
+ {
+  "i": 209,
+  "word": "The",
+  "start": 78.12,
+  "end": 78.22
+ },
+ {
+  "i": 210,
+  "word": "TechCrunch",
+  "start": 78.24,
+  "end": 78.74
+ },
+ {
+  "i": 211,
+  "word": "report",
+  "start": 78.8,
+  "end": 79.2
+ },
+ {
+  "i": 212,
+  "word": "says",
+  "start": 79.24,
+  "end": 79.44
+ },
+ {
+  "i": 213,
+  "word": "Meta",
+  "start": 79.5,
+  "end": 79.72
+ },
+ {
+  "i": 214,
+  "word": "will",
+  "start": 79.74,
+  "end": 79.901
+ },
+ {
+  "i": 215,
+  "word": "likely",
+  "start": 79.941,
+  "end": 80.321
+ },
+ {
+  "i": 216,
+  "word": "share",
+  "start": 80.381,
+  "end": 80.621
+ },
+ {
+  "i": 217,
+  "word": "more",
+  "start": 80.681,
+  "end": 80.881
+ },
+ {
+  "i": 218,
+  "word": "details",
+  "start": 81.001,
+  "end": 81.621
+ },
+ {
+  "i": 219,
+  "word": "about",
+  "start": 81.681,
+  "end": 81.861
+ },
+ {
+  "i": 220,
+  "word": "its",
+  "start": 81.901,
+  "end": 82.021
+ },
+ {
+  "i": 221,
+  "word": "global",
+  "start": 82.081,
+  "end": 82.461
+ },
+ {
+  "i": 222,
+  "word": "project",
+  "start": 82.501,
+  "end": 83.081
+ },
+ {
+  "i": 223,
+  "word": "sometime",
+  "start": 83.381,
+  "end": 83.862
+ },
+ {
+  "i": 224,
+  "word": "in",
+  "start": 83.882,
+  "end": 83.942
+ },
+ {
+  "i": 225,
+  "word": "2025",
+  "start": 83.962,
+  "end": 85.122
+ },
+ {
+  "i": 226,
+  "word": "and",
+  "start": 85.542,
+  "end": 85.622
+ },
+ {
+  "i": 227,
+  "word": "that",
+  "start": 85.662,
+  "end": 85.762
+ },
+ {
+  "i": 228,
+  "word": "the",
+  "start": 85.782,
+  "end": 85.882
+ },
+ {
+  "i": 229,
+  "word": "project",
+  "start": 85.922,
+  "end": 86.522
+ },
+ {
+  "i": 230,
+  "word": "could",
+  "start": 86.702,
+  "end": 86.882
+ },
+ {
+  "i": 231,
+  "word": "take",
+  "start": 86.962,
+  "end": 87.182
+ },
+ {
+  "i": 232,
+  "word": "years",
+  "start": 87.202,
+  "end": 87.583
+ },
+ {
+  "i": 233,
+  "word": "to",
+  "start": 87.643,
+  "end": 87.803
+ },
+ {
+  "i": 234,
+  "word": "complete.",
+  "start": 87.843,
+  "end": 88.403
+ },
+ {
+  "i": 235,
+  "word": "For",
+  "start": 89.003,
+  "end": 89.143
+ },
+ {
+  "i": 236,
+  "word": "Straight",
+  "start": 89.163,
+  "end": 89.383
+ },
+ {
+  "i": 237,
+  "word": "Arrow",
+  "start": 89.423,
+  "end": 89.683
+ },
+ {
+  "i": 238,
+  "word": "News,",
+  "start": 89.723,
+  "end": 90.003
+ },
+ {
+  "i": 239,
+  "word": "I'm",
+  "start": 90.103,
+  "end": 90.223
+ },
+ {
+  "i": 240,
+  "word": "Cara",
+  "start": 90.283,
+  "end": 90.683
+ },
+ {
+  "i": 241,
+  "word": "Rucker.",
+  "start": 90.743,
+  "end": 91.104
+ },
+ {
+  "i": 242,
+  "word": "And",
+  "start": 91.304,
+  "end": 91.404
+ },
+ {
+  "i": 243,
+  "word": "for",
+  "start": 91.424,
+  "end": 91.544
+ },
+ {
+  "i": 244,
+  "word": "all",
+  "start": 91.604,
+  "end": 91.724
+ },
+ {
+  "i": 245,
+  "word": "the",
+  "start": 91.764,
+  "end": 91.824
+ },
+ {
+  "i": 246,
+  "word": "latest",
+  "start": 91.844,
+  "end": 92.084
+ },
+ {
+  "i": 247,
+  "word": "top",
+  "start": 92.124,
+  "end": 92.324
+ },
+ {
+  "i": 248,
+  "word": "stories",
+  "start": 92.364,
+  "end": 92.744
+ },
+ {
+  "i": 249,
+  "word": "and",
+  "start": 92.784,
+  "end": 92.864
+ },
+ {
+  "i": 250,
+  "word": "updates,",
+  "start": 92.944,
+  "end": 93.384
+ },
+ {
+  "i": 251,
+  "word": "download",
+  "start": 93.724,
+  "end": 94.024
+ },
+ {
+  "i": 252,
+  "word": "the",
+  "start": 94.064,
+  "end": 94.144
+ },
+ {
+  "i": 253,
+  "word": "Straight",
+  "start": 94.204,
+  "end": 94.484
+ },
+ {
+  "i": 254,
+  "word": "Arrow",
+  "start": 94.564,
+  "end": 94.784
+ },
+ {
+  "i": 255,
+  "word": "News",
+  "start": 94.844,
+  "end": 95.025
+ },
+ {
+  "i": 256,
+  "word": "app",
+  "start": 95.125,
+  "end": 95.245
+ },
+ {
+  "i": 257,
+  "word": "today.",
+  "start": 95.285,
+  "end": 95.605
+ }
+]

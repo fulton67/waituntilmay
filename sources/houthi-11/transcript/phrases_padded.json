@@ -1,0 +1,929 @@
+[
+ {
+  "id": 0,
+  "text": "First,",
+  "start": 1.863,
+  "end": 2.113,
+  "duration": 0.25,
+  "word_ids": [
+   0
+  ]
+ },
+ {
+  "id": 1,
+  "text": "I wanted to ask about the sea cables that were cut. Does the U.S. have any",
+  "start": 2.093,
+  "end": 6.085,
+  "duration": 3.992,
+  "word_ids": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16
+  ]
+ },
+ {
+  "id": 2,
+  "text": "better indication of how they were cut,",
+  "start": 6.545,
+  "end": 8.566,
+  "duration": 2.021,
+  "word_ids": [
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23
+  ]
+ },
+ {
+  "id": 3,
+  "text": "if the Houthis were involved,",
+  "start": 8.727,
+  "end": 10.107,
+  "duration": 1.38,
+  "word_ids": [
+   24,
+   25,
+   26,
+   27,
+   28
+  ]
+ },
+ {
+  "id": 4,
+  "text": "and if there's any steps that the Navy is going to take to",
+  "start": 11.048,
+  "end": 13.869,
+  "duration": 2.821,
+  "word_ids": [
+   29,
+   30,
+   31,
+   32,
+   33,
+   34,
+   35,
+   36,
+   37,
+   38,
+   39,
+   40,
+   41
+  ]
+ },
+ {
+  "id": 5,
+  "text": "further protect these cables? And I have a couple more. Yeah. Thanks, Tara.",
+  "start": 14.149,
+  "end": 17.531,
+  "duration": 3.382,
+  "word_ids": [
+   42,
+   43,
+   44,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50,
+   51,
+   52,
+   53,
+   54
+  ]
+ },
+ {
+  "id": 6,
+  "text": "I don't have anything to pass along to you now. As you know,",
+  "start": 17.711,
+  "end": 20.082,
+  "duration": 2.371,
+  "word_ids": [
+   55,
+   56,
+   57,
+   58,
+   59,
+   60,
+   61,
+   62,
+   63,
+   64,
+   65,
+   66,
+   67
+  ]
+ },
+ {
+  "id": 7,
+  "text": "this is something obviously that we're looking into,",
+  "start": 20.062,
+  "end": 22.494,
+  "duration": 2.432,
+  "word_ids": [
+   68,
+   69,
+   70,
+   71,
+   72,
+   73,
+   74,
+   75
+  ]
+ },
+ {
+  "id": 8,
+  "text": "but I just don't have any updates to pass along right now.",
+  "start": 23.094,
+  "end": 25.575,
+  "duration": 2.481,
+  "word_ids": [
+   76,
+   77,
+   78,
+   79,
+   80,
+   81,
+   82,
+   83,
+   84,
+   85,
+   86,
+   87
+  ]
+ },
+ {
+  "id": 9,
+  "text": "Okay.",
+  "start": 26.016,
+  "end": 26.596,
+  "duration": 0.58,
+  "word_ids": [
+   88
+  ]
+ },
+ {
+  "id": 10,
+  "text": "What about the idea of a maritime corridor?",
+  "start": 26.556,
+  "end": 28.797,
+  "duration": 2.241,
+  "word_ids": [
+   89,
+   90,
+   91,
+   92,
+   93,
+   94,
+   95,
+   96
+  ]
+ },
+ {
+  "id": 11,
+  "text": "Has DOD been asked to look at options or",
+  "start": 29.117,
+  "end": 31.618,
+  "duration": 2.501,
+  "word_ids": [
+   97,
+   98,
+   99,
+   100,
+   101,
+   102,
+   103,
+   104,
+   105
+  ]
+ },
+ {
+  "id": 12,
+  "text": "see what ships would be available to be able to create,",
+  "start": 32.038,
+  "end": 35.118,
+  "duration": 3.08,
+  "word_ids": [
+   106,
+   107,
+   108,
+   109,
+   110,
+   111,
+   112,
+   113,
+   114,
+   115,
+   116
+  ]
+ },
+ {
+  "id": 13,
+  "text": "establish a maritime corridor for aid to Gaza?",
+  "start": 35.078,
+  "end": 37.399,
+  "duration": 2.321,
+  "word_ids": [
+   117,
+   118,
+   119,
+   120,
+   121,
+   122,
+   123,
+   124
+  ]
+ },
+ {
+  "id": 14,
+  "text": "So what I can tell you right now is that",
+  "start": 38.499,
+  "end": 40.599,
+  "duration": 2.1,
+  "word_ids": [
+   125,
+   126,
+   127,
+   128,
+   129,
+   130,
+   131,
+   132,
+   133,
+   134
+  ]
+ },
+ {
+  "id": 15,
+  "text": "in coordination with the U.S.",
+  "start": 41.04,
+  "end": 42.47,
+  "duration": 1.43,
+  "word_ids": [
+   135,
+   136,
+   137,
+   138,
+   139
+  ]
+ },
+ {
+  "id": 16,
+  "text": "interagency and international partners,",
+  "start": 42.43,
+  "end": 44.86,
+  "duration": 2.43,
+  "word_ids": [
+   140,
+   141,
+   142,
+   143
+  ]
+ },
+ {
+  "id": 17,
+  "text": "we are actively reviewing",
+  "start": 44.88,
+  "end": 46.301,
+  "duration": 1.421,
+  "word_ids": [
+   144,
+   145,
+   146,
+   147
+  ]
+ },
+ {
+  "id": 18,
+  "text": "options for a maritime corridor",
+  "start": 46.781,
+  "end": 48.421,
+  "duration": 1.64,
+  "word_ids": [
+   148,
+   149,
+   150,
+   151,
+   152
+  ]
+ },
+ {
+  "id": 19,
+  "text": "for humanitarian assistance into Gaza,",
+  "start": 48.941,
+  "end": 51.162,
+  "duration": 2.221,
+  "word_ids": [
+   153,
+   154,
+   155,
+   156,
+   157
+  ]
+ },
+ {
+  "id": 20,
+  "text": "including potential commercial and contracted options.",
+  "start": 51.842,
+  "end": 55.213,
+  "duration": 3.371,
+  "word_ids": [
+   158,
+   159,
+   160,
+   161,
+   162,
+   163
+  ]
+ },
+ {
+  "id": 21,
+  "text": "I don't have more to announce at this time.",
+  "start": 55.173,
+  "end": 56.943,
+  "duration": 1.77,
+  "word_ids": [
+   164,
+   165,
+   166,
+   167,
+   168,
+   169,
+   170,
+   171,
+   172
+  ]
+ },
+ {
+  "id": 22,
+  "text": "regarding what that would be,",
+  "start": 57.716,
+  "end": 58.997,
+  "duration": 1.281,
+  "word_ids": [
+   173,
+   174,
+   175,
+   176,
+   177
+  ]
+ },
+ {
+  "id": 23,
+  "text": "but obviously we'll keep you updated on that front.",
+  "start": 58.957,
+  "end": 61.68,
+  "duration": 2.723,
+  "word_ids": [
+   178,
+   179,
+   180,
+   181,
+   182,
+   183,
+   184,
+   185,
+   186
+  ]
+ },
+ {
+  "id": 24,
+  "text": "Would that include using U.S. personnel, military personnel",
+  "start": 62.501,
+  "end": 66.224,
+  "duration": 3.723,
+  "word_ids": [
+   187,
+   188,
+   189,
+   190,
+   191,
+   192,
+   193,
+   194
+  ]
+ },
+ {
+  "id": 25,
+  "text": "in Gaza to help deliver stuff,",
+  "start": 67.165,
+  "end": 68.666,
+  "duration": 1.501,
+  "word_ids": [
+   195,
+   196,
+   197,
+   198,
+   199,
+   200
+  ]
+ },
+ {
+  "id": 26,
+  "text": "or is it just offshore?",
+  "start": 68.666,
+  "end": 69.817,
+  "duration": 1.151,
+  "word_ids": [
+   201,
+   202,
+   203,
+   204,
+   205
+  ]
+ },
+ {
+  "id": 27,
+  "text": "Yeah, again, so",
+  "start": 69.797,
+  "end": 73.21,
+  "duration": 3.413,
+  "word_ids": [
+   206,
+   207,
+   208
+  ]
+ },
+ {
+  "id": 28,
+  "text": "we would be",
+  "start": 73.671,
+  "end": 74.531,
+  "duration": 0.86,
+  "word_ids": [
+   209,
+   210,
+   211
+  ]
+ },
+ {
+  "id": 29,
+  "text": "only in a supporting role,",
+  "start": 75.092,
+  "end": 76.393,
+  "duration": 1.301,
+  "word_ids": [
+   212,
+   213,
+   214,
+   215,
+   216
+  ]
+ },
+ {
+  "id": 30,
+  "text": "are in a supporting role when it comes to providing U.S.",
+  "start": 76.413,
+  "end": 79.066,
+  "duration": 2.653,
+  "word_ids": [
+   217,
+   218,
+   219,
+   220,
+   221,
+   222,
+   223,
+   224,
+   225,
+   226,
+   227
+  ]
+ },
+ {
+  "id": 31,
+  "text": "government humanitarian assistance.",
+  "start": 79.045,
+  "end": 80.677,
+  "duration": 1.632,
+  "word_ids": [
+   228,
+   229,
+   230
+  ]
+ },
+ {
+  "id": 32,
+  "text": "And so certainly were we to be involved in that,",
+  "start": 81.432,
+  "end": 83.563,
+  "duration": 2.131,
+  "word_ids": [
+   231,
+   232,
+   233,
+   234,
+   235,
+   236,
+   237,
+   238,
+   239,
+   240
+  ]
+ },
+ {
+  "id": 33,
+  "text": "it would be in the form of unique",
+  "start": 83.543,
+  "end": 84.973,
+  "duration": 1.43,
+  "word_ids": [
+   241,
+   242,
+   243,
+   244,
+   245,
+   246,
+   247,
+   248
+  ]
+ },
+ {
+  "id": 34,
+  "text": "DOD capabilities.",
+  "start": 85.214,
+  "end": 86.534,
+  "duration": 1.32,
+  "word_ids": [
+   249,
+   250
+  ]
+ },
+ {
+  "id": 35,
+  "text": "The US",
+  "start": 88.055,
+  "end": 88.815,
+  "duration": 0.76,
+  "word_ids": [
+   251,
+   252
+  ]
+ },
+ {
+  "id": 36,
+  "text": "Agency for International Development is the lead",
+  "start": 88.815,
+  "end": 91.136,
+  "duration": 2.321,
+  "word_ids": [
+   253,
+   254,
+   255,
+   256,
+   257,
+   258,
+   259
+  ]
+ },
+ {
+  "id": 37,
+  "text": "coordinator for the government when it comes to humanitarian assistance.",
+  "start": 91.116,
+  "end": 93.877,
+  "duration": 2.761,
+  "word_ids": [
+   260,
+   261,
+   262,
+   263,
+   264,
+   265,
+   266,
+   267,
+   268,
+   269
+  ]
+ },
+ {
+  "id": 38,
+  "text": "And so again,",
+  "start": 94.577,
+  "end": 95.287,
+  "duration": 0.71,
+  "word_ids": [
+   270,
+   271,
+   272
+  ]
+ },
+ {
+  "id": 39,
+  "text": "we'll continue to work with the interagency on what that might look like going forward.",
+  "start": 95.267,
+  "end": 99.019,
+  "duration": 3.752,
+  "word_ids": [
+   273,
+   274,
+   275,
+   276,
+   277,
+   278,
+   279,
+   280,
+   281,
+   282,
+   283,
+   284,
+   285,
+   286,
+   287
+  ]
+ },
+ {
+  "id": 40,
+  "text": "Okay,",
+  "start": 99.719,
+  "end": 99.929,
+  "duration": 0.21,
+  "word_ids": [
+   288
+  ]
+ },
+ {
+  "id": 41,
+  "text": "just one last on Ukraine aid.",
+  "start": 99.909,
+  "end": 101.259,
+  "duration": 1.35,
+  "word_ids": [
+   289,
+   290,
+   291,
+   292,
+   293,
+   294
+  ]
+ },
+ {
+  "id": 42,
+  "text": "Is",
+  "start": 102.28,
+  "end": 102.5,
+  "duration": 0.22,
+  "word_ids": [
+   295
+  ]
+ },
+ {
+  "id": 43,
+  "text": "the building still looking at options of using the",
+  "start": 102.7,
+  "end": 105.681,
+  "duration": 2.981,
+  "word_ids": [
+   296,
+   297,
+   298,
+   299,
+   300,
+   301,
+   302,
+   303,
+   304
+  ]
+ },
+ {
+  "id": 44,
+  "text": "last $4 billion in authorization",
+  "start": 105.841,
+  "end": 108.222,
+  "duration": 2.381,
+  "word_ids": [
+   305,
+   306,
+   307,
+   308,
+   309
+  ]
+ },
+ {
+  "id": 45,
+  "text": "given that Ukraine's",
+  "start": 108.871,
+  "end": 110.212,
+  "duration": 1.341,
+  "word_ids": [
+   310,
+   311,
+   312
+  ]
+ },
+ {
+  "id": 46,
+  "text": "state of affairs seems to be pretty dire?",
+  "start": 110.592,
+  "end": 112.233,
+  "duration": 1.641,
+  "word_ids": [
+   313,
+   314,
+   315,
+   316,
+   317,
+   318,
+   319,
+   320
+  ]
+ },
+ {
+  "id": 47,
+  "text": "Yeah. So I don't, again,",
+  "start": 113.553,
+  "end": 115.324,
+  "duration": 1.771,
+  "word_ids": [
+   321,
+   322,
+   323,
+   324,
+   325
+  ]
+ },
+ {
+  "id": 48,
+  "text": "have anything specific to announce in terms of",
+  "start": 115.284,
+  "end": 118.256,
+  "duration": 2.972,
+  "word_ids": [
+   326,
+   327,
+   328,
+   329,
+   330,
+   331,
+   332,
+   333
+  ]
+ },
+ {
+  "id": 49,
+  "text": "additional aid.",
+  "start": 118.976,
+  "end": 119.837,
+  "duration": 0.861,
+  "word_ids": [
+   334,
+   335
+  ]
+ },
+ {
+  "id": 50,
+  "text": "We continue to urge Congress to pass the supplemental",
+  "start": 121.328,
+  "end": 124.716,
+  "duration": 3.388,
+  "word_ids": [
+   336,
+   337,
+   338,
+   339,
+   340,
+   341,
+   342,
+   343,
+   344
+  ]
+ },
+ {
+  "id": 51,
+  "text": "as soon as possible so that we can support Ukraine in its time of need and,",
+  "start": 125.318,
+  "end": 129.217,
+  "duration": 3.899,
+  "word_ids": [
+   345,
+   346,
+   347,
+   348,
+   349,
+   350,
+   351,
+   352,
+   353,
+   354,
+   355,
+   356,
+   357,
+   358,
+   359,
+   360
+  ]
+ },
+ {
+  "id": 52,
+  "text": "of course,",
+  "start": 129.197,
+  "end": 129.618,
+  "duration": 0.421,
+  "word_ids": [
+   361,
+   362
+  ]
+ },
+ {
+  "id": 53,
+  "text": "replenish our own stocks.",
+  "start": 129.578,
+  "end": 130.85,
+  "duration": 1.272,
+  "word_ids": [
+   363,
+   364,
+   365,
+   366
+  ]
+ },
+ {
+  "id": 54,
+  "text": "As you've heard us say,",
+  "start": 131.532,
+  "end": 132.595,
+  "duration": 1.063,
+  "word_ids": [
+   367,
+   368,
+   369,
+   370,
+   371
+  ]
+ },
+ {
+  "id": 55,
+  "text": "Ukraine needs the full resources",
+  "start": 132.715,
+  "end": 134.76,
+  "duration": 2.045,
+  "word_ids": [
+   372,
+   373,
+   374,
+   375,
+   376
+  ]
+ },
+ {
+  "id": 56,
+  "text": "that are available in that package,",
+  "start": 135.061,
+  "end": 136.845,
+  "duration": 1.784,
+  "word_ids": [
+   377,
+   378,
+   379,
+   380,
+   381,
+   382
+  ]
+ },
+ {
+  "id": 57,
+  "text": "and there's really no other way to meet fully",
+  "start": 137.466,
+  "end": 140.112,
+  "duration": 2.646,
+  "word_ids": [
+   383,
+   384,
+   385,
+   386,
+   387,
+   388,
+   389,
+   390,
+   391
+  ]
+ },
+ {
+  "id": 58,
+  "text": "their requirements on the",
+  "start": 140.293,
+  "end": 141.625,
+  "duration": 1.332,
+  "word_ids": [
+   392,
+   393,
+   394,
+   395
+  ]
+ }
+]
