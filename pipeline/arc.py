@@ -140,7 +140,22 @@ def plan_arc(rng, units, pools, seed_refrain=None, weights=None):
                        key=lambda i: sum(u["duration"] for u in beats[i]))
         added = False
         for bi in order:
-            cands = [u for u in pools[BEATS[bi]] if u["id"] not in used]
+            # Only units that still fit under the ceiling, and the room is
+            # checked before anything else chooses. Topping up stops at the
+            # lower bound, so one long clause added to reach 26.0s can land
+            # the plan past 28.8 - and nothing trims afterwards. A 6.3s unit
+            # did exactly that: 32.0s of speech planned into a 30s slot, the
+            # closing refrain clipped, and the version rejected.
+            #
+            # Filtering here rather than after the source draw means the
+            # draw only ever sees units that fit, and a source with nothing
+            # short enough drops out of it the same way a source with
+            # nothing left for the beat does. A beat where nothing fits is
+            # skipped: stopping a little under the floor costs nothing, and
+            # going over the cap costs the whole version.
+            room = SPEECH_TARGET[1] - speech(beats)
+            cands = [u for u in pools[BEATS[bi]]
+                     if u["id"] not in used and u["duration"] <= room]
             if not cands:
                 continue
             if weights:
@@ -150,7 +165,9 @@ def plan_arc(rng, units, pools, seed_refrain=None, weights=None):
             u = max(cands, key=lambda x: _score(x, rng, BEATS[bi]))
             used.add(u["id"])
             beats[bi].append(u)
-            beats[bi].sort(key=lambda x: x["start"])
+            # by source then start, as the first draw sorts them: a beat that
+            # reads blum -> swartz -> blum crosses twice for no reason
+            beats[bi].sort(key=lambda x: (x.get("src") or "", x["start"]))
             added = True
             break
         if not added:
