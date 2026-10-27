@@ -9,6 +9,8 @@ Checks, per render:
   longest silence  <= 1.5s
   all five beats present, refrain opens and closes
   internet triggers  1 <= n <= 3
+  A/V alignment    every segment's picture and voice come from the same
+                   source at the same timestamps, within one frame
   mosh v2          B coverage starts low, never goes backwards, and the
                    composite's own block check agrees with the mask
 Exits non-zero if any render fails, so it can gate a re-run.
@@ -26,6 +28,8 @@ TARGET = 30.0
 MAX_SOURCE, MIN_SOURCE = 30.0, 10.0
 MIN_SPEECH_PCT = 70.0
 MAX_SILENCE_S = 1.5
+MAX_AV_OFFSET_FRAMES = 1.0
+MIN_SEGMENT_S = 1.5
 
 # The trigger range is read from the same config the renderer obeys, so the
 # gate and the pipeline cannot drift apart again - they did, and a third of
@@ -86,6 +90,7 @@ def check_render(log, m, drift):
                         and track[-1]["text"] == log["refrain"],
         f"triggers{MIN_TRIGGERS}-{MAX_TRIGGERS}":
             MIN_TRIGGERS <= log["internet_triggers"] <= MAX_TRIGGERS,
+        "av-locked": align_report(log)[0],
     }
     if log.get("mosh_version") == 2:
         per = log.get("b_coverage_per_second") or []
@@ -97,6 +102,84 @@ def check_render(log, m, drift):
             "B-blocks==mask": agree is not None and agree >= 99.5,
         })
     return checks
+
+
+def align_report(log):
+    """Is the picture the same source as the voice, frame for frame?
+
+    Checked against the log's two independently written lists: `segments`
+    comes from the picture builder and `audio_track` from the audio builder,
+    so their agreeing is an invariant between two pieces of code rather than
+    one of them certifying itself. A render from before the picture was
+    locked to the voice has no `segments` at all, which is itself the answer:
+    the picture was drawn from a random unit per cut, so there was no
+    per-segment provenance to record.
+
+    Returns (ok, detail, stats).
+    """
+    segs = log.get("segments")
+    track = log.get("audio_track") or []
+    if not segs:
+        return False, "no per-segment provenance", {}
+
+    bad = []
+    speech = [s for s in segs if s.get("kind") == "speech"]
+
+    # 1. the segments tile the whole output exactly once, in order
+    pos = 0
+    for s in segs:
+        if s.get("frame") != pos:
+            bad.append(f"seg at {s.get('frame')} expected {pos}")
+            break
+        pos += s.get("n_frames") or 0
+    total = int(round(TARGET * FPS))
+    if pos != total:
+        bad.append(f"segments cover {pos} frames, not {total}")
+
+    # 2. picture source == voice source, and the same span, per speech segment
+    for s in speech:
+        if s.get("src") != s.get("audio_src"):
+            bad.append(f"seg {s['frame']}: picture {s.get('src')} "
+                       f"over voice {s.get('audio_src')}")
+        if s.get("video_span") != s.get("audio_span"):
+            bad.append(f"seg {s['frame']}: picture span != voice span")
+        if abs(s.get("av_offset_frames") or 0) > MAX_AV_OFFSET_FRAMES:
+            bad.append(f"seg {s['frame']}: offset "
+                       f"{s.get('av_offset_frames')} frames")
+        if (s.get("seconds") or 0) + 1e-9 < MIN_SEGMENT_S:
+            bad.append(f"seg {s['frame']}: {s.get('seconds')}s "
+                       f"under the {MIN_SEGMENT_S}s floor")
+
+    # 3. a hold belongs to whoever just spoke - never another source's picture
+    for i, s in enumerate(segs):
+        if s.get("kind") in ("hold", "tail") and i:
+            if s.get("src") != segs[i - 1].get("src"):
+                bad.append(f"seg {s['frame']}: hold cut to {s.get('src')}")
+
+    # 4. the two builders agree, segment for segment
+    if len(speech) != len(track):
+        bad.append(f"{len(speech)} picture segments vs {len(track)} voice")
+    else:
+        for s, t in zip(speech, track):
+            if (s.get("frame") != t.get("frame")
+                    or s.get("unit") != t.get("unit")
+                    or s.get("src") != t.get("src")):
+                bad.append(f"seg {s['frame']}: picture/voice disagree "
+                           f"(unit {s.get('unit')} vs {t.get('unit')})")
+                break
+            if abs((s.get("seconds") or 0) - (t.get("dur") or 0)) > FRAME:
+                bad.append(f"seg {s['frame']}: picture {s.get('seconds')}s "
+                           f"vs voice {t.get('dur')}s")
+                break
+
+    stats = {
+        "segments": len(segs), "speech": len(speech),
+        "holds": sum(1 for s in segs if s.get("kind") in ("hold", "tail")),
+        "shortest_s": min((s.get("seconds") or 0 for s in speech), default=0),
+        "max_offset_f": max((abs(s.get("av_offset_frames") or 0)
+                             for s in speech), default=0),
+    }
+    return (not bad), ("; ".join(bad[:3]) if bad else "locked"), stats
 
 
 def check_one(mp4, log):
@@ -160,6 +243,56 @@ def main():
           f"| longest silence <={MAX_SILENCE_S}s | 5 beats | refrain opens+closes "
           f"| {MIN_TRIGGERS}-{MAX_TRIGGERS} triggers "
           f"| B monotone, opens low, grows, blocks==mask")
+
+    # ---- A/V alignment, gated and reported
+    # The one check that is about whether the piece is what it claims to be:
+    # a voice over a picture of someone else is a different piece. Printed
+    # per render because "29/30 pass" hides which segment broke.
+    print("\n" + "=" * 112)
+    print("A/V ALIGNMENT  (picture source == voice source, same spans, "
+          f"offset <= {MAX_AV_OFFSET_FRAMES:.0f} frame, segment >= "
+          f"{MIN_SEGMENT_S}s)")
+    print("=" * 112)
+    print(f"{'seed':>10} {'ph':>2} {'seg':>4} {'speech':>7} {'hold':>5} "
+          f"{'shortest':>9} {'max off':>8} {'link%':>6} {'word/tag/none':>14}  result")
+    print("-" * 112)
+    n_locked = 0
+    for log, *_ in rows:
+        ok, detail, stats = align_report(log)
+        n_locked += 1 if ok else 0
+        ls = log.get("segment_link_stats") or {}
+        kinds = (f"{ls.get('by_word', 0)}/{ls.get('by_tag', 0)}/"
+                 f"{ls.get('random', 0)}") if ls else "-"
+        print(f"{log['seed']:>10} {log['phase']:>2} "
+              f"{stats.get('segments', 0):>4} {stats.get('speech', 0):>7} "
+              f"{stats.get('holds', 0):>5} "
+              f"{stats.get('shortest_s', 0):>8.2f}s "
+              f"{stats.get('max_offset_f', 0):>8.0f} "
+              f"{ls.get('linked_pct', 0):>5.0f}% {kinds:>14}  "
+              f"{'LOCKED' if ok else 'FAIL: ' + detail}")
+    print("-" * 112)
+    print(f"{n_locked}/{len(rows)} renders are A/V locked")
+    if any(log.get("segment_link_stats") for log, *_ in rows):
+        tc = sum((log.get("segment_link_stats") or {}).get("cuts", 0)
+                 for log, *_ in rows)
+        tw = sum((log.get("segment_link_stats") or {}).get("by_word", 0)
+                 for log, *_ in rows)
+        tg = sum((log.get("segment_link_stats") or {}).get("by_tag", 0)
+                 for log, *_ in rows)
+        tx = sum((log.get("segment_link_stats") or {}).get("cross_source", 0)
+                 for log, *_ in rows)
+        txl = sum((log.get("segment_link_stats") or {}).get("cross_linked", 0)
+                  for log, *_ in rows)
+        if tc:
+            print(f"cuts across the batch: {tc}   linked "
+                  f"{100.0*(tw+tg)/tc:.1f}% (word {100.0*tw/tc:.1f}%, "
+                  f"tag {100.0*tg/tc:.1f}%)   random "
+                  f"{100.0*(tc-tw-tg)/tc:.1f}%")
+            print(f"cross-source cuts: {tx}/{tc} ({100.0*tx/tc:.1f}%), "
+                  f"of which linked {txl}/{tx} "
+                  f"({100.0*txl/max(tx,1):.1f}%)")
+            print("a tag is the weak link - `physical` is on a third of "
+                  "Blum's phrases - so the word share is the one to read")
 
     # ---- the source mix, reported not gated
     # Which sources a version drew on is a property of the draw, not a

@@ -22,6 +22,7 @@ import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from pipeline import arc as ARC
+from pipeline import link as LINK
 from pipeline import media as M
 from pipeline import mosh as MOSH
 from pipeline import moshv2 as MOSHV2
@@ -40,17 +41,19 @@ MIN_SOURCE_SECONDS = 10.0
 ROOM_TONE_SPAN = (3248.60, 3251.80)     # measured: -49.7 dBFS
 BED_GAIN = 2.6                          # lifts the drone to roughly -45 dBFS
 
-# The arc drives selection in every phase. Phase now only shapes the PICTURE
-# rhythm and how steeply the mosh escalates - the depth, per concept.md.
+# The arc drives selection in every phase. Phase now only shapes how steeply
+# the mosh escalates - the depth, per concept.md.
+#
+# The picture-rhythm knobs this used to carry (cut_frames, freeze_p,
+# reverse_p, stutter_p, step_p) are gone rather than defaulted: the picture is
+# locked to the voice, one segment per phrase at that phrase's own timestamps,
+# so there is no independent rhythm left to tune. A freeze or a reverse would
+# break the lip sync the alignment gate now measures.
 PHASE = {
-    1: dict(cut_frames=(30, 72), freeze_p=0.10, reverse_p=0.00,
-            stutter_p=0.04, step_p=0.00, mosh_gamma=4.0, mosh_peak=0.72),
-    2: dict(cut_frames=(18, 48), freeze_p=0.14, reverse_p=0.05,
-            stutter_p=0.10, step_p=0.06, mosh_gamma=3.0, mosh_peak=0.86),
-    3: dict(cut_frames=(10, 30), freeze_p=0.18, reverse_p=0.10,
-            stutter_p=0.18, step_p=0.14, mosh_gamma=2.2, mosh_peak=0.95),
-    4: dict(cut_frames=(4, 16), freeze_p=0.22, reverse_p=0.18,
-            stutter_p=0.22, step_p=0.24, mosh_gamma=1.4, mosh_peak=1.00),
+    1: dict(mosh_gamma=4.0, mosh_peak=0.72),
+    2: dict(mosh_gamma=3.0, mosh_peak=0.86),
+    3: dict(mosh_gamma=2.2, mosh_peak=0.95),
+    4: dict(mosh_gamma=1.4, mosh_peak=1.00),
 }
 
 
@@ -71,6 +74,8 @@ def load_all(config=SOURCES):
     words = {s["id"]: json.load(open(s["words"], encoding="utf-8"))
              for s in srcs}
     us = U.build_pool(srcs)
+    # the keys the sequencer links cuts on, attached once for the whole run
+    LINK.attach(us, srcs)
     pools = U.pools(us)
     return srcs, words, cfg, us, pools
 
@@ -131,7 +136,8 @@ def render_one(seed, phase=None, outdir=OUT_DIR, keep_clean=False, quiet=False,
     voice, placement, triggers, media_cache = ARC.build_audio(
         rng, prim["video"], plan, tone, prim["duration"], tw, words, cfg=cfg,
         srcs=by_id)
-    frames, vops = ARC.build_video(rng, plan, media_cache, spec)
+    # the picture follows the voice: same source, same timestamps, per segment
+    frames, segments = ARC.build_video(plan, placement, media_cache)
 
     # a quiet bed so silence reads as intentional rather than empty
     bed = M.room_tone_block(bed_src, OUT_FRAMES, rng)
@@ -175,6 +181,25 @@ def render_one(seed, phase=None, outdir=OUT_DIR, keep_clean=False, quiet=False,
         e["pct"] = round(100.0 * e["seconds"] / tot_s, 1)
     crossings = sum(1 for a, b in zip(placement, placement[1:])
                     if a.get("src") != b.get("src"))
+
+    # how the cuts were made: a cut that shares a word or a tag with the line
+    # before it reads as an exchange, one that shares nothing reads as a
+    # shuffle. Counted over the order that shipped, so trimming cannot leave
+    # the number describing an edit that no longer exists.
+    links = plan.get("links") or [None] * len(placement)
+    cuts = [lk for lk in links if lk]
+    linked = [lk for lk in cuts if lk["kind"] != "none"]
+    cross = [lk for lk in cuts if lk["cross"]]
+    link_stats = {
+        "cuts": len(cuts),
+        "linked": len(linked),
+        "random": len(cuts) - len(linked),
+        "linked_pct": round(100.0 * len(linked) / max(len(cuts), 1), 1),
+        "cross_source": len(cross),
+        "cross_linked": sum(1 for lk in cross if lk["kind"] != "none"),
+        "by_word": sum(1 for lk in cuts if lk["kind"] == "word"),
+        "by_tag": sum(1 for lk in cuts if lk["kind"] == "tag"),
+    }
     mix_str = "/".join("%s%.0f" % (k, per_src[k]["pct"]) for k in sorted(per_src))
 
     log = {
@@ -213,13 +238,19 @@ def render_one(seed, phase=None, outdir=OUT_DIR, keep_clean=False, quiet=False,
         "b_block_agreement_pct": (moshed["mask"]["verify"] or {}).get(
             "block_agreement_pct"),
         "b_trigger_coverage": moshed["mask"]["triggers"],
-        "picture_cuts": len(vops),
-        "picture_ops": vops,
+        "picture_cuts": len(segments),
+        # the picture, segment by segment, with where each one came from.
+        # verify_renders.py checks these against audio_track: the two lists
+        # are written by the two builders, so their agreeing is a real
+        # invariant rather than one of them certifying itself.
+        "segments": segments,
+        "segment_link_stats": link_stats,
         "audio_track": [{"frame": p["frame"],
                          "seconds": round(p["frame"] / M.FPS, 3),
                          "unit": p["unit"], "src": p.get("src"),
-                         "dur": p["seconds"], "text": p["text"]}
-                        for p in placement],
+                         "dur": p["seconds"], "text": p["text"],
+                         "link": lk}
+                        for p, lk in zip(placement, links)],
         "audio_transcript": " ".join(p["text"] for p in placement),
     }
     json.dump(log, open(base + ".json", "w", encoding="utf-8"),
@@ -235,7 +266,9 @@ def render_one(seed, phase=None, outdir=OUT_DIR, keep_clean=False, quiet=False,
         print(f"  seed {seed:>10}  ph{phase}  units {len(plan['order']):>2}"
               f"({'/'.join(str(len(b)) for b in plan['beats'])})  "
               f"src {source_seconds:5.2f}s  speech {sm['speech_pct']:4.1f}%  "
-              f"gap {sm['longest_silence_s']:.2f}s  cuts {len(vops):>3}  "
+              f"gap {sm['longest_silence_s']:.2f}s  "
+              f"seg {len(segments):>3}  "
+              f"link {link_stats['linked_pct']:4.0f}%  "
               f"trig {len(triggers)}  mosh {moshed['moshed_frames']:>3}  "
               f"B {moshed['b_coverage_final_pct']:5.1f}%  "
               f"mix {mix_str}  x{crossings}  "

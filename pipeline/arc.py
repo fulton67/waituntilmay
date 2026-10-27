@@ -5,12 +5,20 @@ talk: every version walks the same five beats in the same order, but picks
 different units inside each one. That is what stops a uniform draw over a
 54-minute lecture from landing on setup sentences and dead air.
 
-Audio and picture are then built independently. The voice runs as one
-continuous line; the picture cuts underneath it on its own rhythm, drawn from
-the same units, so a cut never breaks a thought.
+The voice runs as one continuous line and the picture is locked to it: one
+segment per phrase, cut from that phrase's own source at that phrase's own
+timestamps. The picture used to be cut on its own rhythm from a random unit in
+the bank, which put one source's face over another source's voice for most of
+every version; see build_video.
+
+Consecutive phrases are chosen to answer each other - by preference a
+different source that shares a word or a tag with the line before it - so a
+cross-source cut reads as an exchange rather than a shuffle. See
+pipeline/link.py.
 """
 import numpy as np
 
+from . import link as L
 from . import media as M
 from .units import BEATS
 
@@ -28,6 +36,10 @@ BREATH_MIN = 0.10          # shortest pause between beats
 BREATH_MAX = 1.10          # longest, before the remainder goes to the tail
 TAIL_MAX = 0.60            # never leave more than this of dead air at the end
 SPEECH_TARGET = (26.0, 28.8)
+# A segment shorter than this is gone before a viewer can place the voice or
+# the face, which is the whole point of an exchange. It is a floor on
+# selection, not a trim: units are clause runs and are never cut short.
+MIN_SEGMENT = 1.5
 
 
 def _score(u, rng, beat=None):
@@ -52,8 +64,10 @@ def pick_refrain(rng, pools):
     words. Sampling in proportion to score keeps the good lines likely
     without making one of them inevitable.
     """
-    cands = [u for u in pools["refrain"] if 0.8 <= u["duration"] <= 3.0] \
-            or pools["refrain"]
+    cands = [u for u in pools["refrain"]
+             if MIN_SEGMENT <= u["duration"] <= 3.0] \
+        or [u for u in pools["refrain"] if u["duration"] >= MIN_SEGMENT] \
+        or pools["refrain"]
     if not cands:
         return None
     weights = [max(0.01, _score(u, rng)) for u in cands]
@@ -88,36 +102,101 @@ def _draw_source(rng, weights, available):
     return live[-1]
 
 
+# The order the sequencer tries, and what each tier means in the log.
+TIERS = {1: "cross-word", 2: "cross-tag", 3: "cross-none",
+         4: "same-word", 5: "same-tag", 6: "same-none"}
+
+
+def _next_unit(rng, cands, prev, weights, beat):
+    """The next phrase, preferring an exchange over a shuffle.
+
+    Six tiers, taken in order:
+
+      1  a different source sharing a content word with the last phrase
+      2  a different source sharing a tag
+      3  a different source sharing nothing
+      4  the same source sharing a content word
+      5  the same source sharing a tag
+      6  the same source, scored only
+
+    Tier 1 is what the piece wants - Blum says cables, the news says the
+    cables were cut. The word link gets its own tier above the tag link
+    because a tag is nearly free: `physical` is on a third of Blum's
+    phrases, so folding the two together let a tag satisfy the rule and the
+    word link never got chased.
+
+    The same-source tiers exist because the beat pools are not evenly spread:
+    of the 152 `physical` units long enough to use, 148 are Blum, so a rule
+    that insisted on crossing every time would run that beat dry and lose the
+    beat altogether, which is a gate. Which tier fired is recorded for every
+    cut, so the linked share is a number in the log rather than a claim here.
+    """
+    prev_src = (prev or {}).get("src")
+    diff = [u for u in cands if u.get("src") != prev_src]
+    for tier, pool in ((1, [u for u in diff if L.shares_word(prev, u)]),
+                       (2, [u for u in diff if L.shares_tag(prev, u)]),
+                       (3, diff),
+                       (4, [u for u in cands if L.shares_word(prev, u)]),
+                       (5, [u for u in cands if L.shares_tag(prev, u)]),
+                       (6, cands)):
+        if not pool:
+            continue
+        if weights:
+            have = sorted({u["src"] for u in pool if u.get("src")})
+            sid = _draw_source(rng, weights, have)
+            pool = [u for u in pool if u.get("src") == sid] or pool
+        ranked = sorted(pool, key=lambda u: -_score(u, rng, beat))
+        top = ranked[:max(5, min(10, len(ranked)))]
+        return top[rng.randrange(len(top))], tier
+    return None, None
+
+
 def plan_arc(rng, units, pools, seed_refrain=None, weights=None):
     used = set()
     refrain = seed_refrain or pick_refrain(rng, pools)
     if refrain:
         used.add(refrain["id"])
 
+    # The chain runs through the whole version, not per beat: the phrase a
+    # beat opens on answers the one the beat before it closed on. `seq` is
+    # the order so far, so seq[-1] is always what the viewer just heard.
+    seq = [refrain] if refrain else []
     beats = []
-    for b in BEATS:
+    # The budget is spent as the draw goes, not repaired afterwards. The
+    # trim-down loop below will not empty a beat - that would fail the
+    # five-beat gate - so with longer segments it often has nothing it is
+    # allowed to pop, and an initial draw that overshot stayed overshot:
+    # measured, 1 plan in 400 drew 31.09s of source against a 30s cap.
+    # Each beat still to come is left MIN_SEGMENT of room so that spending
+    # here cannot starve a later beat into breaking the ceiling itself.
+    spent = 2 * refrain["duration"] if refrain else 0.0
+    for bi, b in enumerate(BEATS):
         want = rng.randint(*BEAT_UNITS[b])
-        cands = [u for u in pools[b] if u["id"] not in used]
-        if not cands:
-            beats.append([])
-            continue
+        reserve = MIN_SEGMENT * (len(BEATS) - bi - 1)
         chosen = []
-        for _ in range(want):
-            left = [u for u in cands if u["id"] not in used]
-            if not left:
+        for k in range(want):
+            room = SPEECH_TARGET[1] - spent - reserve
+            cands = [u for u in pools[b] if u["id"] not in used
+                     and u["duration"] >= MIN_SEGMENT]
+            if not cands:
                 break
-            if weights:
-                have = sorted({u["src"] for u in left if u.get("src")})
-                sid = _draw_source(rng, weights, have)
-                pick_from = [u for u in left if u.get("src") == sid] or left
+            fits = [u for u in cands if u["duration"] <= room]
+            if fits:
+                pool = fits
+            elif k == 0:
+                # the beat has to exist, so take the shortest line in it and
+                # let the ceiling give rather than the structure
+                pool = [min(cands, key=lambda x: x["duration"])]
             else:
-                pick_from = left
-            ranked = sorted(pick_from, key=lambda u: -_score(u, rng, b))
-            top = ranked[:max(5, min(10, len(ranked)))]
-            u = top[rng.randrange(len(top))]
+                break
+            u, _tier = _next_unit(rng, pool, seq[-1] if seq else None,
+                                  weights, b)
+            if u is None:
+                break
             used.add(u["id"])
             chosen.append(u)
-        chosen.sort(key=lambda u: (u.get("src") or "", u["start"]))
+            seq.append(u)
+            spent += u["duration"]
         beats.append(chosen)
 
     def speech(bs):
@@ -155,19 +234,20 @@ def plan_arc(rng, units, pools, seed_refrain=None, weights=None):
             # going over the cap costs the whole version.
             room = SPEECH_TARGET[1] - speech(beats)
             cands = [u for u in pools[BEATS[bi]]
-                     if u["id"] not in used and u["duration"] <= room]
+                     if u["id"] not in used and u["duration"] <= room
+                     and u["duration"] >= MIN_SEGMENT]
             if not cands:
                 continue
-            if weights:
-                have = sorted({u["src"] for u in cands if u.get("src")})
-                sid = _draw_source(rng, weights, have)
-                cands = [u for u in cands if u.get("src") == sid] or cands
-            u = max(cands, key=lambda x: _score(x, rng, BEATS[bi]))
+            # A top-up lands at the end of its beat, so it answers whatever
+            # currently ends that beat - or, for an empty one, the phrase the
+            # beat before it ends on. The same tiers as the first draw: a
+            # unit added to reach the floor is still part of the exchange.
+            u, _tier = _next_unit(rng, cands, _ends_before(beats, bi, refrain),
+                                  weights, BEATS[bi])
+            if u is None:
+                continue
             used.add(u["id"])
             beats[bi].append(u)
-            # by source then start, as the first draw sorts them: a beat that
-            # reads blum -> swartz -> blum crosses twice for no reason
-            beats[bi].sort(key=lambda x: (x.get("src") or "", x["start"]))
             added = True
             break
         if not added:
@@ -176,7 +256,36 @@ def plan_arc(rng, units, pools, seed_refrain=None, weights=None):
     order = ([refrain] if refrain else []) + [u for beat in beats for u in beat] \
             + ([refrain] if refrain else [])
     return {"refrain": refrain, "beats": beats, "order": order,
+            "links": links_for(order),
             "speech_seconds": round(speech(beats), 3)}
+
+
+def _ends_before(beats, bi, refrain):
+    """The phrase the viewer hears immediately before beat `bi`'s next slot."""
+    if beats[bi]:
+        return beats[bi][-1]
+    for j in range(bi - 1, -1, -1):
+        if beats[j]:
+            return beats[j][-1]
+    return refrain
+
+
+def links_for(order):
+    """How each phrase picks up from the one before it, over the final order.
+
+    Measured after trimming and topping up rather than recorded during
+    selection: a unit the trim loop removed would otherwise leave a link
+    pointing at a phrase that is no longer in the version. This is what the
+    log reports, so the linked share is a property of the edit that shipped.
+    """
+    out = [None]
+    for a, b in zip(order, order[1:]):
+        lk = L.between(a, b)
+        out.append({"from_unit": a["id"], "to_unit": b["id"],
+                    "cross": a.get("src") != b.get("src"),
+                    "kind": lk[0] if lk else "none",
+                    "via": lk[1] if lk else None})
+    return out
 
 
 # --------------------------------------------------------------- audio
@@ -299,58 +408,74 @@ def build_audio(rng, src, plan, tone, dur_limit, trigger_word_ids, words,
 
 
 # --------------------------------------------------------------- picture
-def build_video(rng, plan, media_cache, spec):
-    """Cut the picture on its own rhythm, under the continuous voice.
+def build_video(plan, placement, media_cache):
+    """The picture, locked to the voice.
 
-    Frames come only from the units the audio already paid for, so the source
-    footage total does not grow: the picture re-uses what the voice uses.
+    One segment per phrase: the frames of that phrase's own unit, from that
+    phrase's own source, over exactly the output frames its audio occupies.
+    `unit_media` extracts a unit's frames and its audio from the same spans
+    and fits the samples to the frame count, so frame i of a segment carries
+    the samples of frame i of the same phrase - the offset is zero by
+    construction rather than by correction.
+
+    This replaces a picture cut on its own rhythm from a random unit in the
+    bank at a random offset inside it. Replayed against the 30 shipped
+    renders' own seeds, that put a different source on screen than the one
+    speaking for 57.0% of speech frames, and a different phrase for 90.1%.
+    A continuous voice over a continuous picture of someone else is a
+    different piece; this one is an exchange, and a cut only means anything
+    if it lands where the speaker changes.
+
+    Through a breath the picture holds the last frame of whoever just spoke.
+    A pause belongs to the speaker who earned it, and cutting early to the
+    next source would put its picture over the previous source's silence -
+    the same fault in miniature. The hold is also why no segment is ever
+    shorter than its phrase: the gap is padded, never filled from elsewhere.
+
+    Returns (frames, segments) where segments tile the whole output and carry
+    the provenance verify_renders.py checks.
     """
-    bank = [media_cache[u["id"]]["frames"] for u in plan["order"]
-            if media_cache[u["id"]]["n_frames"]]
-    if not bank:
-        raise RuntimeError("no frames in the picture bank")
+    by_uid = {u["id"]: u for u in plan["order"]}
+    frames, segs = [], []
 
-    cut_lo, cut_hi = spec["cut_frames"]
-    frames, ops, guard = [], [], 0
-    while len(frames) < OUT_FRAMES and guard < 5000:
-        guard += 1
-        src_frames = bank[rng.randrange(len(bank))]
-        n = min(rng.randint(cut_lo, cut_hi), OUT_FRAMES - len(frames))
-        if n <= 0:
+    def hold(n, why):
+        """Freeze the current picture for n frames, still that source's."""
+        if n <= 0 or not frames:
+            return
+        last = segs[-1] if segs else None
+        segs.append({"kind": why, "frame": len(frames), "n_frames": n,
+                     "seconds": round(n / M.FPS, 3),
+                     "src": (last or {}).get("src"),
+                     "audio_src": None,
+                     "unit": (last or {}).get("unit"),
+                     "video_span": None, "audio_span": None,
+                     "av_offset_frames": 0})
+        frames.extend([frames[-1]] * n)
+
+    for p in placement:
+        if len(frames) >= OUT_FRAMES:
             break
-        start = rng.randrange(len(src_frames))
-        seg = [src_frames[(start + i) % len(src_frames)] for i in range(n)]
-        applied = []
+        hold(min(p["frame"], OUT_FRAMES) - len(frames), "hold")
+        if len(frames) >= OUT_FRAMES:
+            break
+        um = media_cache[p["unit"]]
+        fr = um["frames"]
+        if not fr:
+            continue
+        n = min(len(fr), OUT_FRAMES - len(frames))
+        u = by_uid.get(p["unit"], {})
+        segs.append({"kind": "speech", "frame": len(frames), "n_frames": n,
+                     "seconds": round(n / M.FPS, 3),
+                     "src": p.get("src"), "audio_src": p.get("src"),
+                     "unit": p["unit"],
+                     "video_span": u.get("spans"), "audio_span": u.get("spans"),
+                     "av_offset_frames": 0,
+                     "text": p.get("text")})
+        frames.extend(fr[:n])
 
-        r = rng.random()
-        p_f = spec["freeze_p"]
-        p_r = p_f + spec["reverse_p"]
-        p_s = p_r + spec["stutter_p"]
-        p_t = p_s + spec["step_p"]
-        if r < p_f:
-            seg = [seg[0]] * n
-            applied.append("freeze")
-        elif r < p_r:
-            seg = seg[::-1]
-            applied.append("reverse")
-        elif r < p_s:
-            k = rng.randint(2, 5)
-            unit = max(1, n // k)
-            seg = (seg[:unit] * k)[:n]
-            applied.append(f"stutter:x{k}")
-        elif r < p_t:
-            st = rng.randint(2, 4)
-            out_seg = []
-            i = 0
-            while len(out_seg) < n:
-                out_seg.extend([seg[min(i, len(seg) - 1)]] * st)
-                i += st
-            seg = out_seg[:n]
-            applied.append(f"step:{M.FPS//st}fps")
-
-        ops.append({"frame": len(frames), "n": n, "ops": applied})
-        frames.extend(seg[:n])
-    frames = frames[:OUT_FRAMES]
-    while len(frames) < OUT_FRAMES:
+    hold(OUT_FRAMES - len(frames), "tail")
+    if not frames:
+        raise RuntimeError("no frames in the picture bank")
+    while len(frames) < OUT_FRAMES:          # a render must be exactly 30s
         frames.append(frames[-1])
-    return frames, ops
+    return frames[:OUT_FRAMES], segs
