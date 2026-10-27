@@ -6,15 +6,21 @@ import "./JourneyPlayer.css";
 
 type Manifest = { files: string[] };
 
+// Which pool is live. "journey-multi" draws across every enabled source in
+// config/sources.json; "journey" is the original single-source pool, still on
+// Blob and untouched. Switching back is this one line (or the env var), and
+// it moves the live manifest and the bundled fallback together.
+const POOL = process.env.NEXT_PUBLIC_JOURNEY_POOL ?? "journey-multi";
+
 // Where the rendered versions live. Override with NEXT_PUBLIC_JOURNEY_BASE
 // to point at Blob/CDN storage instead of the static /public folder.
-const BASE = process.env.NEXT_PUBLIC_JOURNEY_BASE ?? "/journey";
+const BASE = process.env.NEXT_PUBLIC_JOURNEY_BASE ?? `/${POOL}`;
 
 // The live manifest sits on Blob so a newly rendered version is in rotation
 // as soon as it is uploaded, with no deploy. It is written with a short
 // max-age; the videos it points at are immutable and cached for a year.
 const LIVE_MANIFEST = process.env.NEXT_PUBLIC_JOURNEY_MANIFEST
-  ?? "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey/manifest.json";
+  ?? `https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/${POOL}/manifest.json`;
 
 /** Resolve once the element can render a frame; never hang forever. */
 function whenReady(v: HTMLVideoElement, timeoutMs = 8000): Promise<void> {

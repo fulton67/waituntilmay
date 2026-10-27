@@ -1,0 +1,186 @@
+{
+ "files": [
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_119876156.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_12056894.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_192978817.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_393298370.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_401043962.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_40470994.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_436061497.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_43710802.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_490299968.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_517655512.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_525726238.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_543054063.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_547891437.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_588925686.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_610956477.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_623172306.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_628804089.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_716132815.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_717285291.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_72629760.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_727381309.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_786331896.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_792411598.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_811264438.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_812269983.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_85577756.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_90819740.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_925511545.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-multi/v_999800459.mp4"
+ ],
+ "count": 29,
+ "seconds_each": 30,
+ "sources": [
+  "blum",
+  "lackner",
+  "swartz"
+ ],
+ "mixes": {
+  "v_119876156.mp4": {
+   "blum": 64.9,
+   "swartz": 4.5,
+   "lackner": 30.6
+  },
+  "v_12056894.mp4": {
+   "blum": 42.8,
+   "lackner": 40.1,
+   "swartz": 17.1
+  },
+  "v_192978817.mp4": {
+   "blum": 65.9,
+   "swartz": 24.2,
+   "lackner": 9.9
+  },
+  "v_393298370.mp4": {
+   "blum": 50.1,
+   "lackner": 21.3,
+   "swartz": 28.6
+  },
+  "v_401043962.mp4": {
+   "blum": 50.1,
+   "lackner": 26.9,
+   "swartz": 23.1
+  },
+  "v_40470994.mp4": {
+   "blum": 43.4,
+   "swartz": 19.2,
+   "lackner": 37.4
+  },
+  "v_436061497.mp4": {
+   "blum": 31.8,
+   "lackner": 52,
+   "swartz": 16.2
+  },
+  "v_43710802.mp4": {
+   "blum": 15,
+   "lackner": 44.2,
+   "swartz": 40.8
+  },
+  "v_490299968.mp4": {
+   "blum": 70.3,
+   "lackner": 11.2,
+   "swartz": 18.4
+  },
+  "v_517655512.mp4": {
+   "blum": 47.9,
+   "lackner": 43.3,
+   "swartz": 8.8
+  },
+  "v_525726238.mp4": {
+   "blum": 39.2,
+   "swartz": 50.1,
+   "lackner": 10.7
+  },
+  "v_543054063.mp4": {
+   "blum": 11.5,
+   "lackner": 9,
+   "swartz": 79.5
+  },
+  "v_547891437.mp4": {
+   "blum": 26,
+   "lackner": 65.1,
+   "swartz": 8.9
+  },
+  "v_588925686.mp4": {
+   "blum": 42.5,
+   "lackner": 28.5,
+   "swartz": 28.9
+  },
+  "v_610956477.mp4": {
+   "blum": 55.7,
+   "lackner": 19.2,
+   "swartz": 25.1
+  },
+  "v_623172306.mp4": {
+   "blum": 48.8,
+   "lackner": 29.4,
+   "swartz": 21.8
+  },
+  "v_628804089.mp4": {
+   "blum": 51.7,
+   "swartz": 36.7,
+   "lackner": 11.6
+  },
+  "v_716132815.mp4": {
+   "blum": 65.1,
+   "swartz": 23.9,
+   "lackner": 11
+  },
+  "v_717285291.mp4": {
+   "blum": 60.3,
+   "lackner": 34.2,
+   "swartz": 5.5
+  },
+  "v_72629760.mp4": {
+   "blum": 65.4,
+   "lackner": 31.5,
+   "swartz": 3.1
+  },
+  "v_727381309.mp4": {
+   "blum": 28.3,
+   "lackner": 29.7,
+   "swartz": 42
+  },
+  "v_786331896.mp4": {
+   "blum": 36.8,
+   "swartz": 52.9,
+   "lackner": 10.3
+  },
+  "v_792411598.mp4": {
+   "blum": 51,
+   "swartz": 29.5,
+   "lackner": 19.5
+  },
+  "v_811264438.mp4": {
+   "blum": 49.5,
+   "lackner": 28.1,
+   "swartz": 22.5
+  },
+  "v_812269983.mp4": {
+   "blum": 70.7,
+   "swartz": 29.3
+  },
+  "v_85577756.mp4": {
+   "blum": 51.1,
+   "lackner": 20.4,
+   "swartz": 28.5
+  },
+  "v_90819740.mp4": {
+   "blum": 56.2,
+   "lackner": 24,
+   "swartz": 19.7
+  },
+  "v_925511545.mp4": {
+   "blum": 32.5,
+   "lackner": 34.1,
+   "swartz": 33.4
+  },
+  "v_999800459.mp4": {
+   "blum": 31.5,
+   "lackner": 43.4,
+   "swartz": 25.2
+  }
+ }
+}
