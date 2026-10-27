@@ -104,12 +104,22 @@ def content_words(text):
     return out
 
 
+# Tags narrow enough that sharing one means something. `physical` sits on 442
+# of Blum's 1366 phrases and `people` on 254, so two lines sharing either may
+# have nothing to do with each other: letting them link made the tag tier fire
+# on almost any pair and starved the word tier above it. `filler` is the
+# tagger saying it found nothing at all.
+NARROW_TAGS = {"water", "inside", "real", "definition", "attack", "cut",
+               "doubt"}
+BROAD_TAGS = {"physical", "people", "abstract", "scale", "filler"}
+
+
 def _tags_by_word(src):
-    """word id -> set of tags, for one source.
+    """word id -> set of linkable tags, for one source.
 
     tags.json is keyed by phrase id; phrases.json says which words each phrase
-    covers. `filler` is dropped: it is the tagger saying it found nothing, so
-    two phrases sharing it share nothing.
+    covers. Only NARROW_TAGS survive, so a broad tag still describes a phrase
+    in tags.json without ever being able to carry a cut.
     """
     tp, pp = src.get("tags"), src.get("phrases")
     if not (tp and pp and os.path.exists(tp) and os.path.exists(pp)):
@@ -118,7 +128,7 @@ def _tags_by_word(src):
     phrases = json.load(open(pp, encoding="utf-8"))
     out = {}
     for p in phrases:
-        ts = [t for t in tags.get(str(p["id"]), []) if t != "filler"]
+        ts = [t for t in tags.get(str(p["id"]), []) if t in NARROW_TAGS]
         if not ts:
             continue
         for w in p["word_ids"]:
@@ -189,13 +199,11 @@ def shares_word(a, b):
 
 
 def shares_tag(a, b):
-    """A shared tag - the weak link.
+    """A shared tag - the weak link, and only from NARROW_TAGS.
 
-    `physical` is on 442 of Blum's 1366 phrases, so two lines sharing it may
-    have nothing to do with each other. Kept because the brief asks for a tag
-    or a word, and separated from the word link everywhere - in the tiers the
-    sequencer tries and in the numbers the log reports - so a high linked
-    share cannot be read as a high share of real connections.
+    Separated from the word link everywhere - in the tiers the sequencer tries
+    and in the numbers the log reports - so a high linked share cannot be read
+    as a high share of real connections.
     """
     if a is None or b is None:
         return False

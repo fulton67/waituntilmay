@@ -221,9 +221,19 @@ It checks `segments` against `audio_track` — written by the picture builder
 and the audio builder separately — so the two agreeing is an invariant
 between two pieces of code rather than one certifying itself.
 
-Through a breath the picture holds on whoever just spoke. A pause belongs to
+Through a breath the picture stays with whoever just spoke. A pause belongs to
 the speaker who earned it, and cutting early would put the next source's
 picture over the previous source's silence.
+
+The breath is also the one place the picture gets played with. `freeze`,
+`reverse`, `stutter` and `step` are back, scaled by phase, and they apply to
+breath holds only: the frames are the end of the phrase just heard, so the
+source on screen never changes. Over speech they stay impossible, because a
+reverse there would put the wrong frame against the word being said — the
+exact fault the lock exists to prevent. Phase 1 breaths are nearly all a plain
+hold; phase 4 breaths rewind and stutter. Each hold's op is in the log
+(`hold_ops`), and ten plans across phases 1 and 4 pass the gate 10/10 with
+the ops on.
 
 `PHASE` therefore no longer carries `cut_frames`, `freeze_p`, `reverse_p`,
 `stutter_p` or `step_p`: there is no independent picture rhythm left to tune,
@@ -240,6 +250,24 @@ decides what "answer" means.
 The word link has its own tier above the tag because a tag is nearly free —
 `physical` is on a third of Blum's phrases — and folding them together meant
 the word link never got chased.
+
+Only narrow tags can carry a cut: `water`, `inside`, `real`, `definition`,
+`attack`, `cut`, `doubt`. `physical`, `people`, `abstract`, `scale` and
+`filler` never link, however well they describe a phrase in tags.json.
+
+Narrowing them does not raise the word share, and cannot: words are tier 1, so
+a word link already wins wherever one exists. What it does is stop weak links
+being counted as connections. Over 600 plans, before and after:
+
+```
+all cuts     word 38.1% -> 38.9%   tag 56.5% -> 48.3%   random 5.4% -> 12.7%
+cross-source word 44.0% -> 44.9%   tag 53.4% -> 45.7%   random 2.6% ->  9.5%
+```
+
+8.2 points moved out of `tag` and almost all of it became an honest `random`.
+Of the tag links that remain, `definition` carries 71% — it is the broadest
+member of the narrow set, and the one to drop next if the weak links still
+read as weak.
 
 ```
 python scripts/segment_list.py renders_multi/v_<seed>.json

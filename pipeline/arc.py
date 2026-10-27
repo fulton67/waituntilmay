@@ -408,7 +408,54 @@ def build_audio(rng, src, plan, tone, dur_limit, trigger_word_ids, words,
 
 
 # --------------------------------------------------------------- picture
-def build_video(plan, placement, media_cache):
+def _hold_frames(rng, tail, n, spec):
+    """Fill a breath from the frames of whoever just spoke.
+
+    The ops live here and only here. A pause is the one place the picture can
+    be played with without lying about who is speaking: nobody is. The frames
+    are still that speaker's own, taken from the end of the phrase just heard,
+    so the source on screen never changes and the alignment gate still holds.
+
+    Over speech they are impossible by construction - a reverse or a stutter
+    would put the wrong frame against the word being said, which is the fault
+    the lock exists to prevent.
+
+    Returns (frames, op_name).
+    """
+    if not tail or n <= 0:
+        return [], "none"
+    last = tail[-1]
+    r = rng.random()
+    p_f = spec.get("freeze_p", 0.0)
+    p_r = p_f + spec.get("reverse_p", 0.0)
+    p_s = p_r + spec.get("stutter_p", 0.0)
+    p_t = p_s + spec.get("step_p", 0.0)
+
+    if r < p_f:
+        return [last] * n, "freeze"
+    if r < p_r:
+        # rewind the speaker: the tail of the phrase, backwards
+        back = list(reversed(tail[-min(len(tail), n):]))
+        return (back * (n // len(back) + 1))[:n], "reverse"
+    if r < p_s:
+        k = rng.randint(2, 5)
+        unit = max(1, min(len(tail), n) // k)
+        seg = tail[-unit:] if unit <= len(tail) else tail
+        return (seg * (n // len(seg) + 1))[:n], f"stutter:x{k}"
+    if r < p_t:
+        st = rng.randint(2, 4)
+        src = tail[-min(len(tail), max(1, n // st)):]
+        out = []
+        i = 0
+        while len(out) < n:
+            out.extend([src[min(i, len(src) - 1)]] * st)
+            i += 1
+        return out[:n], f"step:{M.FPS // st}fps"
+    # the quiet default: stay on the last frame
+    return [last] * n, "hold"
+
+
+def build_video(rng, plan, placement, media_cache, spec=None):
     """The picture, locked to the voice.
 
     One segment per phrase: the frames of that phrase's own unit, from that
@@ -426,11 +473,12 @@ def build_video(plan, placement, media_cache):
     different piece; this one is an exchange, and a cut only means anything
     if it lands where the speaker changes.
 
-    Through a breath the picture holds the last frame of whoever just spoke.
-    A pause belongs to the speaker who earned it, and cutting early to the
-    next source would put its picture over the previous source's silence -
-    the same fault in miniature. The hold is also why no segment is ever
-    shorter than its phrase: the gap is padded, never filled from elsewhere.
+    Through a breath the picture stays with whoever just spoke - a pause
+    belongs to the speaker who earned it, and cutting early to the next source
+    would put its picture over the previous source's silence, the same fault
+    in miniature. The breath is where freeze, reverse, stutter and step live,
+    scaled by phase: nobody is speaking, so the picture can be played with
+    without lying about who is. See _hold_frames.
 
     Returns (frames, segments) where segments tile the whole output and carry
     the provenance verify_renders.py checks.
@@ -439,18 +487,23 @@ def build_video(plan, placement, media_cache):
     frames, segs = [], []
 
     def hold(n, why):
-        """Freeze the current picture for n frames, still that source's."""
+        """Fill n frames of breath from the speaker who just finished."""
         if n <= 0 or not frames:
             return
         last = segs[-1] if segs else None
+        uid = (last or {}).get("unit")
+        tail = (media_cache.get(uid) or {}).get("frames") or [frames[-1]]
+        got, op = _hold_frames(rng, tail, n, spec or {})
+        if not got:
+            got, op = [frames[-1]] * n, "hold"
         segs.append({"kind": why, "frame": len(frames), "n_frames": n,
                      "seconds": round(n / M.FPS, 3),
                      "src": (last or {}).get("src"),
                      "audio_src": None,
-                     "unit": (last or {}).get("unit"),
+                     "unit": uid,
                      "video_span": None, "audio_span": None,
-                     "av_offset_frames": 0})
-        frames.extend([frames[-1]] * n)
+                     "av_offset_frames": 0, "op": op})
+        frames.extend(got[:n])
 
     for p in placement:
         if len(frames) >= OUT_FRAMES:

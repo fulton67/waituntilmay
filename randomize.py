@@ -12,6 +12,7 @@ runs as one continuous line; the picture cuts underneath it on its own rhythm
   python randomize.py --phase 3       force a phase (picture rhythm + mosh)
 """
 import argparse
+from collections import Counter
 import json
 import os
 import random
@@ -41,19 +42,27 @@ MIN_SOURCE_SECONDS = 10.0
 ROOM_TONE_SPAN = (3248.60, 3251.80)     # measured: -49.7 dBFS
 BED_GAIN = 2.6                          # lifts the drone to roughly -45 dBFS
 
-# The arc drives selection in every phase. Phase now only shapes how steeply
-# the mosh escalates - the depth, per concept.md.
+# The arc drives selection in every phase. Phase shapes how steeply the mosh
+# escalates - the depth, per concept.md - and how restless the picture gets in
+# the breaths between phrases.
 #
-# The picture-rhythm knobs this used to carry (cut_frames, freeze_p,
-# reverse_p, stutter_p, step_p) are gone rather than defaulted: the picture is
-# locked to the voice, one segment per phrase at that phrase's own timestamps,
-# so there is no independent rhythm left to tune. A freeze or a reverse would
-# break the lip sync the alignment gate now measures.
+# freeze_p/reverse_p/stutter_p/step_p apply to BREATH HOLDS ONLY. Over speech
+# the picture is locked to the voice, one segment per phrase at that phrase's
+# own timestamps; a freeze or a reverse there would put the wrong frame
+# against the word being said, which is the fault the lock exists to prevent
+# and the alignment gate measures. In a pause nobody is speaking, so the
+# frames of whoever just finished can be rewound or stuttered without lying
+# about who is on screen. cut_frames is gone for good: there is no
+# independent cutting rhythm left to tune.
 PHASE = {
-    1: dict(mosh_gamma=4.0, mosh_peak=0.72),
-    2: dict(mosh_gamma=3.0, mosh_peak=0.86),
-    3: dict(mosh_gamma=2.2, mosh_peak=0.95),
-    4: dict(mosh_gamma=1.4, mosh_peak=1.00),
+    1: dict(freeze_p=0.10, reverse_p=0.00, stutter_p=0.04, step_p=0.00,
+            mosh_gamma=4.0, mosh_peak=0.72),
+    2: dict(freeze_p=0.14, reverse_p=0.05, stutter_p=0.10, step_p=0.06,
+            mosh_gamma=3.0, mosh_peak=0.86),
+    3: dict(freeze_p=0.18, reverse_p=0.10, stutter_p=0.18, step_p=0.14,
+            mosh_gamma=2.2, mosh_peak=0.95),
+    4: dict(freeze_p=0.22, reverse_p=0.18, stutter_p=0.22, step_p=0.24,
+            mosh_gamma=1.4, mosh_peak=1.00),
 }
 
 
@@ -136,8 +145,9 @@ def render_one(seed, phase=None, outdir=OUT_DIR, keep_clean=False, quiet=False,
     voice, placement, triggers, media_cache = ARC.build_audio(
         rng, prim["video"], plan, tone, prim["duration"], tw, words, cfg=cfg,
         srcs=by_id)
-    # the picture follows the voice: same source, same timestamps, per segment
-    frames, segments = ARC.build_video(plan, placement, media_cache)
+    # the picture follows the voice: same source, same timestamps, per segment.
+    # spec only reaches the breaths - see PHASE and ARC._hold_frames
+    frames, segments = ARC.build_video(rng, plan, placement, media_cache, spec)
 
     # a quiet bed so silence reads as intentional rather than empty
     bed = M.room_tone_block(bed_src, OUT_FRAMES, rng)
@@ -245,6 +255,10 @@ def render_one(seed, phase=None, outdir=OUT_DIR, keep_clean=False, quiet=False,
         # invariant rather than one of them certifying itself.
         "segments": segments,
         "segment_link_stats": link_stats,
+        "hold_ops": dict(sorted(Counter(
+            s.get("op") for s in segments
+            if s.get("kind") in ("hold", "tail")).items(),
+            key=lambda kv: -kv[1])),
         "audio_track": [{"frame": p["frame"],
                          "seconds": round(p["frame"] / M.FPS, 3),
                          "unit": p["unit"], "src": p.get("src"),
