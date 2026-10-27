@@ -41,6 +41,171 @@
       "fps": 24,
       "enabled": true,
       "weight": 0.1
+    },
+    {
+      "id": "houthi-01",
+      "title": "Did MV Rubymar Cut Cables in the Red Sea? | Abandoned, Adrift, and Sinking after Houthi Attack",
+      "channel": "What's Going on With Shipping?",
+      "url": "https://www.youtube.com/watch?v=uTF4N_eFii0",
+      "date": "2024-02-27T21:34:16.000Z",
+      "duration": 871.305,
+      "fps": 24,
+      "enabled": true,
+      "weight": 0.02
+    },
+    {
+      "id": "houthi-02",
+      "title": "Houthis Damage 4 Key Undersea Internet Cables; Arab Nations, India Worst Affected: Report",
+      "channel": "Hindustan Times",
+      "url": "https://www.youtube.com/watch?v=_hF_QUZJt28",
+      "date": "2024-02-26T17:15:01.000Z",
+      "duration": 346.093,
+      "fps": 24,
+      "enabled": true,
+      "weight": 0.02
+    },
+    {
+      "id": "houthi-03",
+      "title": "Can the Houthis Sever the Global Underwater Cables off their Coast?",
+      "channel": "What's Going on With Shipping?",
+      "url": "https://www.youtube.com/watch?v=2Mz3p8ixZTg",
+      "date": "2024-02-07T16:52:45.000Z",
+      "duration": 551.458,
+      "fps": 24,
+      "enabled": true,
+      "weight": 0.02
+    },
+    {
+      "id": "houthi-05",
+      "title": "Did the Houthis Cut Internet Cables in the Red Sea?",
+      "channel": "Ward Carroll",
+      "url": "https://www.youtube.com/watch?v=fxaRAu0Y2Ck",
+      "date": "2024-03-07T18:37:02.000Z",
+      "duration": 695.67,
+      "fps": 24,
+      "enabled": true,
+      "weight": 0.02
+    },
+    {
+      "id": "houthi-06",
+      "title": "Red Sea underwater cables under threat from Houthis? | The West Asia Post",
+      "channel": "WION",
+      "url": "https://www.youtube.com/watch?v=rg4L1dQBlVo",
+      "date": "2024-02-02T16:47:42.000Z",
+      "duration": 239.375,
+      "fps": 24,
+      "enabled": true,
+      "weight": 0.02
+    },
+    {
+      "id": "houthi-07",
+      "title": "The Houthis could weaponise the Bab-el Mandeb to disrupt trade and internet traffic | ABC NEWS",
+      "channel": "ABC News (Australia)",
+      "url": "https://www.youtube.com/watch?v=Pu3nSG_Gdms",
+      "date": "2026-03-30T05:45:03.000Z",
+      "duration": 496.744,
+      "fps": 24,
+      "enabled": true,
+      "weight": 0.02
+    },
+    {
+      "id": "houthi-10",
+      "title": "Three Red Sea underwater data cables have been cut amid Houthi attacks | Latest English News | WION",
+      "channel": "WION",
+      "url": "https://www.youtube.com/watch?v=orUmqh8FKAU",
+      "date": "2024-03-05T12:46:27.000Z",
+      "duration": 209.095,
+      "fps": 24,
+      "enabled": true,
+      "weight": 0.02
+    },
+    {
+      "id": "houthi-11",
+      "title": "Pentagon Spokesperson Questioned On Cut Undersea Data Cables In Red Sea: Were The Houthis Involved?",
+      "channel": "Forbes Breaking News",
+      "url": "https://www.youtube.com/watch?v=tJHMDS8MgDU",
+      "date": "2024-03-05T22:30:06.000Z",
+      "duration": 141.625,
+      "fps": 24,
+      "enabled": true,
+      "weight": 0.02
+    },
+    {
+      "id": "houthi-13",
+      "title": "Internet down due to cable cut in Red Sea | Suez Canal | Drishti IAS",
+      "channel": "Drishti IAS",
+      "url": "https://www.youtube.com/watch?v=yy-RgdKw5OI",
+      "date": "2025-09-09T15:30:40.000Z",
+      "duration": 190.287,
+      "fps": 24,
+      "enabled": true,
+      "weight": 0.02
+    },
+    {
+      "id": "houthi-14",
+      "title": "Mojtaba's Revenge Plan: Iran To Become ‘Killing Field’ For US Troops; Gulf Cables, AI Sites At Risk?",
+      "channel": "Hindustan Times",
+      "url": "https://www.youtube.com/watch?v=BrOQ8kxz4tg",
+      "date": "2026-10-24T05:30:21.000Z",
+      "duration": 482.928,
+      "fps": 24,
+      "enabled": true,
+      "weight": 0.02
+    },
+    {
+      "id": "houthi-15",
+      "title": "Iran Threatens Undersea Internet Cables If Trump Resumes Direct Attacks | What it Means? | Spotlight",
+      "channel": "Firstpost",
+      "url": "https://www.youtube.com/watch?v=SCOGmlWJSh8",
+      "date": "2026-10-15T13:15:16.000Z",
+      "duration": 1024.023,
+      "fps": 24,
+      "enabled": true,
+      "weight": 0.02
+    },
+    {
+      "id": "houthi-16",
+      "title": "Red Sea crisis | 3 Red Sea underwater data cables have been cut amid Houthi attacks | WION Dispatch",
+      "channel": "WION",
+      "url": "https://www.youtube.com/watch?v=8aSJcCpULZs",
+      "date": "2024-03-05T14:08:11.000Z",
+      "duration": 159.417,
+      "fps": 24,
+      "enabled": true,
+      "weight": 0.02
+    },
+    {
+      "id": "houthi-17",
+      "title": "Seabed warfare: Did Houthi rebels attack undersea cables in Red Sea? • FRANCE 24 English",
+      "channel": "FRANCE 24 English",
+      "url": "https://www.youtube.com/watch?v=CuKw5_x6dJ8",
+      "date": "2024-04-03T14:31:37.000Z",
+      "duration": 262.13,
+      "fps": 24,
+      "enabled": true,
+      "weight": 0.02
+    },
+    {
+      "id": "houthi-18",
+      "title": "Meta to build $10B global underwater internet cable",
+      "channel": "Straight Arrow",
+      "url": "https://www.youtube.com/watch?v=_dCC8mYK_zQ",
+      "date": "2024-11-30T02:00:48.000Z",
+      "duration": 98.777,
+      "fps": 24,
+      "enabled": true,
+      "weight": 0.02
+    },
+    {
+      "id": "houthi-19",
+      "title": "Red Sea, Hormuz Conflict Threatens 20 Undersea Cables Powering Global Internet | Iran War Day 20",
+      "channel": "India Today",
+      "url": "https://www.youtube.com/watch?v=mfMtgqeDOso",
+      "date": "2026-03-19T12:29:26.000Z",
+      "duration": 195.187,
+      "fps": 24,
+      "enabled": true,
+      "weight": 0.02
     }
   ]
 }

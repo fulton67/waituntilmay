@@ -16,6 +16,8 @@ different source that shares a word or a tag with the line before it - so a
 cross-source cut reads as an exchange rather than a shuffle. See
 pipeline/link.py.
 """
+import os
+
 import numpy as np
 
 from . import link as L
@@ -40,6 +42,7 @@ SPEECH_TARGET = (26.0, 28.8)
 # the face, which is the whole point of an exchange. It is a floor on
 # selection, not a trim: units are clause runs and are never cut short.
 MIN_SEGMENT = 1.5
+SOURCE_FIRST = os.environ.get("JC_SOURCE_FIRST", "1") == "1"
 
 
 def _score(u, rng, beat=None):
@@ -81,6 +84,51 @@ def pick_refrain(rng, pools):
     return cands[-1]
 
 
+def _deficit_weights(weights, available, spent):
+    """Weight each source by how far below its configured share it is.
+
+    An independent weighted draw does not deliver the configured mix once the
+    sequencer also insists on crossing sources, because the two rules
+    interact: the previous phrase's source is excluded from the draw, and the
+    source with the largest weight is the one most likely to BE the previous
+    phrase. Its weight gets suppressed exactly when it matters, and whatever
+    is left absorbs the difference.
+
+    Measured on the 18-source pool, with weights blum 0.45 / swartz 0.15 /
+    lackner 0.10 / Red Sea 0.30, an independent draw produced blum 39.6% /
+    swartz 8.3% / lackner 3.4% / Red Sea 48.8% - the fifteen small Red Sea
+    sources collecting what blum's exclusion freed up.
+
+    So the draw asks which source is furthest behind instead. A source at or
+    over its share keeps a small floor so it can still be chosen, and one that
+    has fallen behind is preferred as soon as it is available again.
+    """
+    # The configured share is what a source should hold across the finished
+    # version, but the draw only ever sees the turns where that source is
+    # allowed - and it is barred from the turn straight after its own. Drawing
+    # on the raw weight therefore caps a source at w/(1+w) of the result: for
+    # blum at 0.45 that is 31%, which is exactly what it measured. The
+    # conditional weight has to be w/(1-w) to come out at w.
+    out = {}
+    for s in available:
+        w = min(max(weights.get(s, 0.0), 0.0), 0.98)
+        out[s] = w / (1.0 - w) if w > 0 else 0.0
+
+    # Then nudge by how far each source actually is from its share so far, so
+    # that a source the beat pools keep starving - lackner has 3 physical
+    # units and no internet ones - is taken when it finally does appear.
+    total = sum(spent.values())
+    if total > 0:
+        for s in list(out):
+            realised = spent.get(s, 0.0) / total
+            behind = weights.get(s, 0.0) - realised
+            out[s] *= (1.6 if behind > 0 else 0.6)
+
+    if not any(out.values()):
+        return {s: weights.get(s, 0.0) or 1.0 for s in available}
+    return out
+
+
 def _draw_source(rng, weights, available):
     """Pick which source this unit comes from, by the configured weight.
 
@@ -107,7 +155,7 @@ TIERS = {1: "cross-word", 2: "cross-tag", 3: "cross-none",
          4: "same-word", 5: "same-tag", 6: "same-none"}
 
 
-def _next_unit(rng, cands, prev, weights, beat):
+def _next_unit(rng, cands, prev, weights, beat, spent=None):
     """The next phrase, preferring an exchange over a shuffle.
 
     Six tiers, taken in order:
@@ -133,6 +181,39 @@ def _next_unit(rng, cands, prev, weights, beat):
     """
     prev_src = (prev or {}).get("src")
     diff = [u for u in cands if u.get("src") != prev_src]
+
+    # Which source speaks next is decided first, then how well its phrases
+    # answer the last one. The other order - best link first, then weight
+    # inside whatever tier fired - cannot deliver a configured mix once one
+    # group of sources shares its vocabulary densely. The fifteen Red Sea
+    # clips all say cable, so the cross-source-plus-shared-word tier was
+    # nearly always satisfied by another Red Sea clip and the weights only
+    # ever applied inside it. Measured on this pool against a configured
+    # 45/15/10/30: link-first gave blum 39.6 / swartz 8.3 / lackner 3.4 /
+    # Red Sea 48.8.
+    #
+    # The exchange survives this: the next phrase still comes from a
+    # different source, and still the most strongly linked one that source
+    # has. Only the choice of whose turn it is moved ahead of it.
+    if weights and SOURCE_FIRST:
+        turn = diff or cands
+        have = sorted({u["src"] for u in turn if u.get("src")})
+        if have:
+            eff = _deficit_weights(weights, have, spent or {})
+            sid = _draw_source(rng, eff, have)
+            mine = [u for u in turn if u.get("src") == sid]
+            crossed = turn is diff
+            for tier, pool in ((1 if crossed else 4,
+                                [u for u in mine if L.shares_word(prev, u)]),
+                               (2 if crossed else 5,
+                                [u for u in mine if L.shares_tag(prev, u)]),
+                               (3 if crossed else 6, mine)):
+                if not pool:
+                    continue
+                ranked = sorted(pool, key=lambda u: -_score(u, rng, beat))
+                top = ranked[:max(5, min(10, len(ranked)))]
+                return top[rng.randrange(len(top))], tier
+
     for tier, pool in ((1, [u for u in diff if L.shares_word(prev, u)]),
                        (2, [u for u in diff if L.shares_tag(prev, u)]),
                        (3, diff),
@@ -143,7 +224,8 @@ def _next_unit(rng, cands, prev, weights, beat):
             continue
         if weights:
             have = sorted({u["src"] for u in pool if u.get("src")})
-            sid = _draw_source(rng, weights, have)
+            eff = _deficit_weights(weights, have, spent or {})
+            sid = _draw_source(rng, eff, have)
             pool = [u for u in pool if u.get("src") == sid] or pool
         ranked = sorted(pool, key=lambda u: -_score(u, rng, beat))
         top = ranked[:max(5, min(10, len(ranked)))]
@@ -170,6 +252,10 @@ def plan_arc(rng, units, pools, seed_refrain=None, weights=None):
     # Each beat still to come is left MIN_SEGMENT of room so that spending
     # here cannot starve a later beat into breaking the ceiling itself.
     spent = 2 * refrain["duration"] if refrain else 0.0
+    # per source, so the draw can see which one is behind its share
+    spent_src = {}
+    if refrain:
+        spent_src[refrain["src"]] = 2 * refrain["duration"]
     for bi, b in enumerate(BEATS):
         want = rng.randint(*BEAT_UNITS[b])
         reserve = MIN_SEGMENT * (len(BEATS) - bi - 1)
@@ -190,13 +276,14 @@ def plan_arc(rng, units, pools, seed_refrain=None, weights=None):
             else:
                 break
             u, _tier = _next_unit(rng, pool, seq[-1] if seq else None,
-                                  weights, b)
+                                  weights, b, spent_src)
             if u is None:
                 break
             used.add(u["id"])
             chosen.append(u)
             seq.append(u)
             spent += u["duration"]
+            spent_src[u["src"]] = spent_src.get(u["src"], 0.0) + u["duration"]
         beats.append(chosen)
 
     def speech(bs):
@@ -242,8 +329,15 @@ def plan_arc(rng, units, pools, seed_refrain=None, weights=None):
             # currently ends that beat - or, for an empty one, the phrase the
             # beat before it ends on. The same tiers as the first draw: a
             # unit added to reach the floor is still part of the exchange.
+            spent_src = {}
+            for bb in beats:
+                for uu in bb:
+                    spent_src[uu["src"]] = spent_src.get(uu["src"], 0.0)                         + uu["duration"]
+            if refrain:
+                spent_src[refrain["src"]] = spent_src.get(
+                    refrain["src"], 0.0) + 2 * refrain["duration"]
             u, _tier = _next_unit(rng, cands, _ends_before(beats, bi, refrain),
-                                  weights, BEATS[bi])
+                                  weights, BEATS[bi], spent_src)
             if u is None:
                 continue
             used.add(u["id"])
