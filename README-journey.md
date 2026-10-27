@@ -242,10 +242,35 @@ still sets how steeply the mosh escalates.
 
 ## Cuts read as an exchange
 
-Consecutive phrases are chosen to answer each other. Six tiers, in order: a
-different source sharing a content word, then a tag, then nothing, then the
-same source in the same order. `pipeline/link.py` is the only place that
-decides what "answer" means.
+Whose turn it is comes first, then how well that source's phrases answer the
+last one. Within the chosen source the tiers are: a shared content word, then
+a shared tag, then neither — and the source itself is drawn from the
+configured weights, excluding whoever just spoke. `pipeline/link.py` is the
+only place that decides what "answer" means.
+
+That order is a trade, and it was measured rather than assumed. Deciding the
+link first and the weight second — the obvious reading — cannot deliver a
+configured mix once one group of sources shares its vocabulary densely: the
+fifteen Red Sea clips all say cable, so the cross-source-plus-shared-word
+tier was nearly always satisfied by another Red Sea clip and the rest of the
+pool never entered the draw. Over 300 plans:
+
+```
+                blum  houthi  lackner  swartz    word     tag  random
+configured      45.0    30.0     10.0    15.0       -       -       -
+source-first    41.4    31.6      8.7    18.3   33.8%   24.9%   41.4%
+link-first      40.5    47.9      3.8     7.8   53.4%   24.1%   22.5%
+```
+
+Source-first ships: link-first leaves two deliberately weighted sources at a
+third of their share, and 94% of cuts still cross sources and still take the
+most linked phrase the chosen source has. `JC_SOURCE_FIRST=0` flips it back.
+
+One more correction lives in the draw. "Never the same source twice in a row"
+caps a source at `w/(1+w)` of the result, because it is barred from exactly
+the turn after its own — for blum at 0.45 that is 31%, and 32% is what it
+measured. The draw uses the conditional weight `w/(1-w)`, which is what comes
+out at `w`.
 
 The word link has its own tier above the tag because a tag is nearly free —
 `physical` is on a third of Blum's phrases — and folding them together meant
