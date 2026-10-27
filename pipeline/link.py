@@ -126,6 +126,36 @@ def _tags_by_word(src):
     return out
 
 
+def _en_by_word(src):
+    """word id -> English content words, for a source not spoken in English.
+
+    Without this a translated source can only ever link on a tag: its unit
+    text is Arabic, and an Arabic token shares nothing with Blum's English
+    however much the two phrases are about the same cable. The English pass is
+    keyed by phrase id and phrases say which words they cover, so the words of
+    the translation can be hung on the same word ids the unit is built from.
+    """
+    pp = src.get("phrases")
+    if not pp or not os.path.exists(pp):
+        return {}
+    ep = os.path.join(os.path.dirname(pp), "phrases_en.json")
+    if not os.path.exists(ep):
+        return {}
+    en = json.load(open(ep, encoding="utf-8"))
+    phrases = json.load(open(pp, encoding="utf-8"))
+    out = {}
+    for p in phrases:
+        txt = en.get(str(p["id"]))
+        if not txt:
+            continue
+        ws = content_words(txt)
+        if not ws:
+            continue
+        for w in p["word_ids"]:
+            out.setdefault(w, set()).update(ws)
+    return out
+
+
 def attach(units, srcs):
     """Give every unit the two key sets the sequencer links on.
 
@@ -133,8 +163,16 @@ def attach(units, srcs):
     two share anything" thousands of times while planning a batch.
     """
     by_word = {s["id"]: _tags_by_word(s) for s in srcs}
+    en_word = {s["id"]: _en_by_word(s) for s in srcs}
     for u in units:
-        u["link_words"] = content_words(u["text"])
+        ew = en_word.get(u.get("src")) or {}
+        if ew:
+            ws = set()
+            for w in u.get("word_ids", []):
+                ws.update(ew.get(w, ()))
+            u["link_words"] = ws
+        else:
+            u["link_words"] = content_words(u["text"])
         tw = by_word.get(u.get("src")) or {}
         ts = set()
         for w in u.get("word_ids", []):

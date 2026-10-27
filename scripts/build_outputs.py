@@ -266,12 +266,40 @@ def main():
     n_para = write_txt(phrases, os.path.join(args.outdir, "transcript.txt"))
     n_cues = write_srt(phrases, os.path.join(args.outdir, "transcript.srt"))
 
+    # ---- English alongside, for a source that was not spoken in English
+    # The tagger and the link sequencer read English. A non-English source is
+    # cut on its own aligned words - those are the ones in the audio - so the
+    # translation is mapped onto the phrases by time overlap rather than
+    # replacing them: phrase 41 keeps its Arabic text and its real timings,
+    # and phrases_en.json says what phrase 41 means.
+    n_en = 0
+    tr = json.load(open(args.raw, encoding="utf-8")).get("translation")
+    if tr:
+        en = {}
+        for ph in phrases:
+            a, b = ph["start"], ph["end"]
+            hit = [t["text"] for t in tr
+                   if (t.get("text") or "").strip()
+                   and min(b, t["end"]) - max(a, t["start"]) > 0]
+            if hit:
+                en[str(ph["id"])] = " ".join(hit).strip()
+        with open(os.path.join(args.outdir, "phrases_en.json"), "w",
+                  encoding="utf-8") as f:
+            json.dump(en, f, ensure_ascii=False, indent=1)
+        with open(os.path.join(args.outdir, "transcript_en.txt"), "w",
+                  encoding="utf-8") as f:
+            lines = [t["text"].strip() for t in tr
+                     if (t.get("text") or "").strip()]
+            f.write(os.linesep.join(lines) + os.linesep)
+        n_en = len(en)
+
     print(json.dumps({
         "words": len(words),
         "words_with_repaired_timing": n_repaired,
         "phrases": len(phrases),
         "paragraphs": n_para,
         "srt_cues": n_cues,
+        "phrases_translated": n_en,
         "asr_meta": meta,
     }, indent=2))
 

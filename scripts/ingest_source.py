@@ -29,6 +29,12 @@ CONFIG = "config/sources.json"
 # "format is not available" or a reload demand. Measured, not guessed.
 CLIENTS = ["mweb", "web", "tv", "ios", "web_safari"]
 PY = sys.executable
+# WhisperX lives in the project venv, and ingest may be launched by any
+# interpreter on PATH; sys.executable then points at one with no whisperx in
+# it and every transcribe step dies on the import. Prefer the venv, fall back
+# to whatever is running us.
+_VENV = os.path.join(ROOT, ".venv", "Scripts", "python.exe")
+PY_ASR = _VENV if os.path.exists(_VENV) else sys.executable
 
 
 def run(cmd, **kw):
@@ -155,8 +161,15 @@ def transcribe(sid, video):
              "-vn", "-ac", "1", "-ar", "16000", "-c:a", "pcm_s16le", wav])
     raw = os.path.join(SOURCES, sid, "_raw_whisperx.json")
     if not os.path.exists(os.path.join(ROOT, raw)):
-        run([PY, "scripts/transcribe.py", "--audio",
-             os.path.join("audio", f"{sid}_16k.wav"), "--out", raw])
+        # The language is detected, not assumed. These candidates come off a
+        # YouTube search that includes Arabic queries, and a source
+        # transcribed as English when it is not produces a words.json of
+        # confident nonsense - which the unit builder would happily cut.
+        # A non-English source also gets an English pass, because the tagger
+        # and the selection filter read English; the audio stays original.
+        run([PY_ASR, "scripts/transcribe.py", "--audio",
+             os.path.join("audio", f"{sid}_16k.wav"), "--out", raw,
+             "--language", "auto", "--also-translate"])
     return raw
 
 
@@ -211,6 +224,10 @@ def ingest(sid, url, weight, cookies=None, do_register=True):
     entry = {"id": sid, "title": m["title"], "channel": m["channel"],
              "url": url, "date": m["date"],
              "duration": round(pr["duration"], 3), "fps": 24}
+    # written whether or not the source is registered, so a later selection
+    # pass can read what was ingested without going back to YouTube
+    json.dump(entry, open(os.path.join(ROOT, SOURCES, sid, "_meta.json"),
+                          "w", encoding="utf-8"), indent=1, ensure_ascii=False)
     if do_register:
         register(entry, weight)
     return entry

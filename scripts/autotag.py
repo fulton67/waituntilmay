@@ -253,8 +253,19 @@ def cmd_tag(args):
     sid = os.path.basename(args.source.rstrip("/\\"))
     ph = json.load(open(os.path.join(args.source, "transcript/phrases.json"),
                         encoding="utf-8"))
+    # Every rule in this file is an English regex, so a source that was not
+    # spoken in English has to be tagged on its translation or every phrase
+    # comes back `filler`. phrases_en.json is keyed by the same phrase ids and
+    # written by build_outputs.py from the translate pass; the phrase keeps its
+    # own words and its own timings, and only the text the rules read changes.
+    enp = os.path.join(args.source, "transcript/phrases_en.json")
+    en = json.load(open(enp, encoding="utf-8")) if os.path.exists(enp) else {}
+    if en:
+        print(f"  [{sid}] tagging on the English pass "
+              f"({len(en)}/{len(ph)} phrases translated)")
     tagset = BASE + EXTRA if args.all_tags else tagset_for(sid)
-    tags = {str(p["id"]): tags_for(p["text"], tagset) for p in ph}
+    tags = {str(p["id"]): tags_for(en.get(str(p["id"])) or p["text"], tagset)
+            for p in ph}
     out = args.out or os.path.join(args.source, "tags.json")
     tmp = out + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:

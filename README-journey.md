@@ -194,3 +194,91 @@ every source actually decodes in the live page rather than just one.
 The nightly job (`scripts/register-pool-task.ps1`, 03:00, idle + AC only) runs
 the same gates before a version joins the rotation, so the pool grows
 unattended against the same bar as this batch.
+
+## The picture is locked to the voice
+
+One segment per phrase: that phrase's own frames, from its own source, over
+exactly the output frames its audio occupies. `unit_media` cuts a unit's
+frames and its samples from the same spans and fits the samples to the frame
+count, so the offset is zero by construction.
+
+It was not always so. The picture used to be cut on its own rhythm from a
+random unit in the bank at a random offset inside it. Replaying the 30 shipped
+renders against their own seeds — plan, audio and picture all draw from one
+`random.Random(seed)` in that order, so the replay is exact — measured the
+cost:
+
+```
+picture source != audio source   57.0% of speech frames, mean over 30
+picture phrase != audio phrase   90.1%
+renders with any mismatch        30/30
+```
+
+`verify_renders.py` gates it now (`av-locked`): segments must tile all 720
+frames, picture source must equal voice source over the same spans within one
+frame, no speech segment under 1.5s, and a hold must stay with the speaker.
+It checks `segments` against `audio_track` — written by the picture builder
+and the audio builder separately — so the two agreeing is an invariant
+between two pieces of code rather than one certifying itself.
+
+Through a breath the picture holds on whoever just spoke. A pause belongs to
+the speaker who earned it, and cutting early would put the next source's
+picture over the previous source's silence.
+
+`PHASE` therefore no longer carries `cut_frames`, `freeze_p`, `reverse_p`,
+`stutter_p` or `step_p`: there is no independent picture rhythm left to tune,
+and a freeze or a reverse would break the lip sync the gate measures. Phase
+still sets how steeply the mosh escalates.
+
+## Cuts read as an exchange
+
+Consecutive phrases are chosen to answer each other. Six tiers, in order: a
+different source sharing a content word, then a tag, then nothing, then the
+same source in the same order. `pipeline/link.py` is the only place that
+decides what "answer" means.
+
+The word link has its own tier above the tag because a tag is nearly free —
+`physical` is on a third of Blum's phrases — and folding them together meant
+the word link never got chased.
+
+```
+python scripts/segment_list.py renders_multi/v_<seed>.json
+python scripts/segment_list.py --dir renders_multi --best-linked
+```
+
+Minimum segment is 1.5s, so a viewer can place the voice and the face. That
+is a floor on selection, not a trim: units are clause runs and are never cut
+short.
+
+## Finding Red Sea material
+
+```
+node --env-file=.env.local scripts/apify-search.mjs --confirm
+node --env-file=.env.local scripts/apify-search.mjs --per-query 50 --shortlist 30
+.venv/Scripts/python.exe -u scripts/ingest_source.py \
+  --picked sources/houthi-shortlist.json --no-register
+python scripts/houthi_select.py --register --max 15
+```
+
+Nine searches through Apify's `streamers/youtube-scraper`, deduped, with every
+Apify run id recorded in `sources/houthi-candidates.json` so a search can be
+opened in the console. The free plan allows five concurrent runs and Apify
+restarts a run that migrates, so the orchestration caps concurrency and
+adopts runs a previous invocation already paid for.
+
+Selection is in two stages and only the second one decides. The search script
+drops what cannot be used whatever it says — over 20 minutes, under a minute,
+music, compilations, livestreams — and orders the rest so that videos whose
+title or description mentions cables get transcribed first. That ordering buys
+a place in the queue and nothing else.
+
+`houthi_select.py` makes the call on the transcript: a video is kept only if
+cables/undersea/submarine/internet AND Houthi/Yemen/Red Sea are said within
+60 seconds of each other, and it reports the matching sentence for every
+candidate so the call can be checked by reading. A non-English source is
+judged on its English pass, which carries its own segment times, so the
+60-second window means the same thing in both languages.
+
+The kept sources share one weight between all of them, together with
+`lackner`, which is the same kind of material: the split stays Blum 0.5,
+Swartz 0.2, Red Sea 0.3 however many clips the search returns.

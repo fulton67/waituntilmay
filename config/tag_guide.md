@@ -242,3 +242,23 @@ Blum's noise floor - it also reads as *silence* to the gate. Measured: a
 broadcast source arrived at -32.4 LUFS against Blum's -19.9 and cost half a
 30-version batch a check it should have passed. `scripts/source_report.py`
 prints the spread and flags it above 1.0 LU.
+
+## A source that was not spoken in English
+
+Every rule in `scripts/autotag.py` is an English regex, so a source recorded
+in another language comes back `filler` on every phrase if it is tagged on its
+own words. Those sources are transcribed and aligned in their own language —
+the word timings have to match the audio that gets cut, and aligning an
+English translation against Arabic speech would place every word wrong — and
+then translated in a second pass.
+
+`build_outputs.py` writes `transcript/phrases_en.json`, keyed by the same
+phrase ids, holding the English text that overlaps each phrase in time. The
+tagger reads it when it is there. The phrase keeps its own words and its own
+timings; only the text the rules read changes.
+
+The same file gives `pipeline/link.py` its content words for that source, so a
+translated phrase about a cable can link to Blum's cable. Without it a
+non-English source could only ever link on a tag, because an Arabic token
+shares nothing with English however much the two phrases are about the
+same thing.
