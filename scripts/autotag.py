@@ -273,6 +273,13 @@ def cmd_tag(args):
     os.replace(tmp, out)
     c = Counter(t for ts in tags.values() for t in ts)
     print(f"{sid}: {len(tags)} phrases -> {out}")
+    if not tags:
+        # A source can transcribe to nothing - an all-graphics news package
+        # with no speech in it does. That is a real outcome, not a crash, and
+        # the selection filter rejects it on its word count; dividing by the
+        # phrase count to print a percentage is what turned it into one.
+        print("  no phrases: nothing was transcribed for this source")
+        return
     for t in sorted(set(tagset) | {"filler"}):
         print(f"  {t:<11} {c.get(t, 0):>5}  ({100*c.get(t,0)/len(tags):5.1f}%)")
 
