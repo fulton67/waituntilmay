@@ -131,4 +131,5 @@ sources/*/_raw_whisperx.json
 .dl/
 .multi-test/
 renders_multi/
+renders_multi_prenorm/
 renders_multi.log

@@ -93,20 +93,57 @@ def download(url, vid, cookies=None):
     raise RuntimeError(f"download failed for {url}\n{last[-600:] if last else ''}")
 
 
+# Every source is levelled to this. It is Blum's own integrated loudness, so
+# the existing pool, the room tone and BED_GAIN - all tuned against Blum -
+# stay valid, and a version that crosses sources mid-sentence does not jump.
+TARGET_LUFS = -19.9
+
+
+def loudness(path):
+    """Integrated loudness, measured with ebur128."""
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", path,
+                        "-af", "ebur128=framelog=quiet", "-f", "null", "-"],
+                       cwd=ROOT, capture_output=True, text=True)
+    m = re.search(r"Integrated loudness[\s\S]{0,80}?I:\s*(-?[\d.]+)\s*LUFS",
+                  r.stderr or "")
+    return float(m.group(1)) if m else None
+
+
 def normalise(src, sid):
-    """640x360 @ 24fps, the shape the pool is cut from."""
+    """640x360 @ 24fps at a common loudness - the shape the pool is cut from.
+
+    The level is not cosmetic. The voice runs as one continuous line across
+    sources, so a source 12 LU quieter than the rest both jumps audibly at
+    the splice and reads as silence to the speech-coverage gate, which is
+    calibrated in absolute dBFS against Blum's noise floor. Measured, a
+    broadcast source came in at -32.4 LUFS against Blum's -19.9 and lost half
+    the batch to a gate it should have passed.
+
+    A flat gain, not loudnorm's dynamic mode: it keeps the original
+    dynamics, and the limiter only touches the few samples near peak.
+    """
     d = os.path.join(ROOT, SOURCES, sid)
     os.makedirs(d, exist_ok=True)
     dst = os.path.join(d, "source.mp4")
     if os.path.exists(dst):
         print("  [norm] cached")
         return dst
+    lufs = loudness(src)
+    gain = (TARGET_LUFS - lufs) if lufs is not None else 0.0
+    af = (f"volume={gain:.2f}dB,alimiter=limit=-1dB:level=disabled"
+          if abs(gain) > 0.2 else "anull")
+    print(f"  [norm] {lufs if lufs is None else f'{lufs:.1f}'} LUFS "
+          f"-> {TARGET_LUFS} ({gain:+.2f} dB)")
     run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-i", src,
          "-vf", "scale=640:360:force_original_aspect_ratio=decrease,"
                 "pad=640:360:(ow-iw)/2:(oh-ih)/2,fps=24",
+         "-af", af,
          "-c:v", "libx264", "-preset", "slow", "-crf", "18",
          "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k",
          "-ar", "44100", "-ac", "2", "-movflags", "+faststart", dst])
+    got = loudness(dst)
+    if got is not None:
+        print(f"  [norm] measured {got:.1f} LUFS")
     return dst
 
 

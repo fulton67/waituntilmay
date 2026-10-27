@@ -230,3 +230,15 @@ the five-beat regex pools in `pipeline/units.py`, not on `tags.json`; the tags
 are the pool's description of itself, read by `scripts/source_report.py` and
 by hand. So the accuracy above bounds how well the pool can be *described*,
 not how well a version is cut.
+
+## A note on level, not tagging
+
+Every source is levelled to **-19.9 LUFS** at ingest (`scripts/ingest_source.py`,
+`TARGET_LUFS`), which is Blum's own integrated loudness. This is not cosmetic.
+The voice runs as one continuous line across sources, so a source off that
+level jumps audibly at the splice, and - because the speech-coverage gate in
+`scripts/verify_renders.py` is an absolute dBFS threshold calibrated against
+Blum's noise floor - it also reads as *silence* to the gate. Measured: a
+broadcast source arrived at -32.4 LUFS against Blum's -19.9 and cost half a
+30-version batch a check it should have passed. `scripts/source_report.py`
+prints the spread and flags it above 1.0 LU.

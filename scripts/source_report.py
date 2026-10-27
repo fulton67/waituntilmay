@@ -23,6 +23,18 @@ def norm(w):
     return "".join(c for c in w.lower() if c.isalnum() or c == "'")
 
 
+def loudness(path):
+    """Integrated loudness. A source off the common level both jumps at the
+    splice and reads as silence to the speech gate, so it is reported."""
+    import subprocess
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", path,
+                        "-af", "ebur128=framelog=quiet", "-f", "null", "-"],
+                       capture_output=True, text=True)
+    m = re.search(r"Integrated loudness[\s\S]{0,80}?I:\s*(-?[\d.]+)\s*LUFS",
+                  r.stderr or "")
+    return float(m.group(1)) if m else None
+
+
 def report_one(src):
     words = json.load(open(src["words"], encoding="utf-8"))
     phrases = json.load(open(src["phrases"], encoding="utf-8"))
@@ -41,6 +53,7 @@ def report_one(src):
         "channel": src.get("channel"), "date": src.get("date"),
         "enabled": src["enabled"], "weight": src["weight"],
         "duration": round(src["duration"], 2),
+        "lufs": loudness(src["video"]) if os.path.exists(src["video"]) else None,
         "words": len(words), "phrases": len(phrases),
         "tagged": len(tags),
         "tags": dict(sorted(tc.items())),
@@ -60,11 +73,20 @@ def main():
     rows = [report_one(s) for s in cfg]
     tagnames = sorted({t for r in rows for t in r["tags"]})
 
-    print(f"{'id':<12} {'dur':>8} {'words':>7} {'phr':>6} {'wt':>5}  title")
+    print(f"{'id':<12} {'dur':>8} {'words':>7} {'phr':>6} {'wt':>5} "
+          f"{'LUFS':>7}  title")
     for r in rows:
+        lu = f"{r['lufs']:.1f}" if r["lufs"] is not None else "-"
         print(f"{r['id']:<12} {r['duration']:>8.1f} {r['words']:>7} "
-              f"{r['phrases']:>6} {r['weight']:>5.2f}  "
-              f"{(r['title'] or '')[:54]}")
+              f"{r['phrases']:>6} {r['weight']:>5.2f} {lu:>7}  "
+              f"{(r['title'] or '')[:46]}")
+    lus = [r["lufs"] for r in rows if r["lufs"] is not None]
+    if len(lus) > 1:
+        spread = max(lus) - min(lus)
+        print(f"\nloudness spread {spread:.1f} LU"
+              + ("  (matched)" if spread <= 1.0 else
+                 "  <-- a source off the common level jumps at the splice "
+                 "and reads as silence to the speech gate"))
 
     print(f"\n{'id':<12} " + " ".join(f"{t[:7]:>7}" for t in tagnames))
     for r in rows:
