@@ -131,11 +131,12 @@ def main():
     ap.add_argument("--register", action="store_true")
     ap.add_argument("--weight", type=float, default=0.3)
     ap.add_argument("--max", type=int, default=15)
-    ap.add_argument("--group", default="lackner",
+    ap.add_argument("--group", default="",
                     help="comma-separated ids that share the weight with the "
-                         "kept sources (the brief's split is blum 0.5, "
-                         "swartz 0.2, Red Sea material 0.3, and lackner is "
-                         "Red Sea material)")
+                         "kept sources. Empty: the split is blum 0.45, swartz "
+                         "0.15, lackner 0.10 and 0.30 shared between the Red "
+                         "Sea clips, with lackner weighted on its own because "
+                         "it is Yemeni politics, not cable coverage")
     args = ap.parse_args()
 
     short = json.load(open(os.path.join(ROOT, args.shortlist), encoding="utf-8"))

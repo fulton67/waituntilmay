@@ -1,5 +1,5 @@
 {
-  "_comment": "The source pool. Every enabled source can supply phrases to any version; splices cross sources at word boundaries. Weights are relative and are renormalised over the enabled set, so turning one off does not change the others' ratio to each other. `primary` is the source the room tone and the drone are sampled from, so silence sounds like one room however many sources the words came from.",
+  "_comment": "The source pool. Every enabled source can supply phrases to any version; splices cross sources at word boundaries. Weights are relative and are renormalised over the enabled set, so turning one off does not change the others' ratio to each other. The split is blum 0.45, swartz 0.15, lackner 0.10 and 0.30 shared between the Red Sea clips: lackner is Yemeni politics rather than cable coverage - it never says cable, internet, network or tube once in 1,885 words - so it is weighted on its own rather than out of the Red Sea share. `primary` is the source the room tone and the drone are sampled from, so silence sounds like one room however many sources the words came from.",
   "primary": "blum",
   "sources": [
     {
@@ -10,9 +10,15 @@
       "duration": 3264.888,
       "fps": 29.97,
       "enabled": true,
-      "weight": 0.5,
-      "room_tone": [3248.6, 3251.8],
-      "drone": {"start": 1849.2, "seconds": 8.0}
+      "weight": 0.45,
+      "room_tone": [
+        3248.6,
+        3251.8
+      ],
+      "drone": {
+        "start": 1849.2,
+        "seconds": 8.0
+      }
     },
     {
       "id": "swartz",
@@ -23,7 +29,7 @@
       "duration": 568.935,
       "fps": 24,
       "enabled": true,
-      "weight": 0.2
+      "weight": 0.15
     },
     {
       "id": "lackner",
@@ -34,7 +40,7 @@
       "duration": 827.907,
       "fps": 24,
       "enabled": true,
-      "weight": 0.3
+      "weight": 0.1
     }
   ]
 }
