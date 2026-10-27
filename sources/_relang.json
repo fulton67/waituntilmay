@@ -1,0 +1,613 @@
+[
+ {
+  "id": "blum",
+  "language": "en",
+  "phrases": 1366,
+  "judged": 1086,
+  "detected_other": 1,
+  "detected_langs": {
+   "en": 1085,
+   "fi": 1
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 91.2
+ },
+ {
+  "id": "swartz",
+  "language": "en",
+  "phrases": 234,
+  "judged": 215,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 215
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 18.5
+ },
+ {
+  "id": "lackner",
+  "language": "en",
+  "phrases": 329,
+  "judged": 287,
+  "detected_other": 5,
+  "detected_langs": {
+   "en": 278,
+   "nl": 3,
+   "sv": 2,
+   "ar": 1,
+   "fr": 1,
+   "mi": 1,
+   "cy": 1
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 24.8
+ },
+ {
+  "id": "houthi-01",
+  "language": "en",
+  "phrases": 367,
+  "judged": 336,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 336
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 28.7
+ },
+ {
+  "id": "houthi-02",
+  "language": "en",
+  "phrases": 102,
+  "judged": 94,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 90,
+   "hi": 2,
+   "af": 1,
+   "ur": 1
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 8.2
+ },
+ {
+  "id": "houthi-03",
+  "language": "en",
+  "phrases": 230,
+  "judged": 207,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 207
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 17.8
+ },
+ {
+  "id": "houthi-04",
+  "skipped": "no phrases",
+  "language": "en",
+  "seconds": 0.0
+ },
+ {
+  "id": "houthi-05",
+  "language": "en",
+  "phrases": 267,
+  "judged": 245,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 245
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 20.7
+ },
+ {
+  "id": "houthi-06",
+  "language": "en",
+  "phrases": 79,
+  "judged": 66,
+  "detected_other": 1,
+  "detected_langs": {
+   "en": 65,
+   "ar": 1
+  },
+  "candidate_regions": 1,
+  "regions": [
+   {
+    "lang": "ar",
+    "start": 20.421,
+    "end": 23.002,
+    "seconds": 2.58,
+    "phrases": 1,
+    "confirmed": false,
+    "confirm": {
+     "lang": "ar",
+     "prob": 0.428
+    }
+   }
+  ],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 10.4
+ },
+ {
+  "id": "houthi-07",
+  "language": "en",
+  "phrases": 192,
+  "judged": 159,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 159
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 13.5
+ },
+ {
+  "id": "houthi-08",
+  "language": "en",
+  "phrases": 7,
+  "judged": 6,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 6
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 0.6
+ },
+ {
+  "id": "houthi-09",
+  "skipped": "no phrases",
+  "language": "en",
+  "seconds": 0.0
+ },
+ {
+  "id": "houthi-10",
+  "language": "en",
+  "phrases": 76,
+  "judged": 66,
+  "detected_other": 3,
+  "detected_langs": {
+   "en": 57,
+   "ms": 3,
+   "sw": 2,
+   "yo": 1,
+   "ar": 1,
+   "bn": 1,
+   "ur": 1
+  },
+  "candidate_regions": 2,
+  "regions": [
+   {
+    "lang": "ms",
+    "start": 19.696,
+    "end": 22.697,
+    "seconds": 3.0,
+    "phrases": 1,
+    "confirmed": false,
+    "confirm": {
+     "lang": "en",
+     "prob": 0.974
+    }
+   },
+   {
+    "lang": "sw",
+    "start": 133.738,
+    "end": 135.879,
+    "seconds": 2.14,
+    "phrases": 1,
+    "confirmed": false,
+    "confirm": {
+     "lang": "en",
+     "prob": 0.924
+    }
+   }
+  ],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 6.3
+ },
+ {
+  "id": "houthi-11",
+  "language": "en",
+  "phrases": 59,
+  "judged": 49,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 49
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 4.1
+ },
+ {
+  "id": "houthi-13",
+  "language": "hi",
+  "phrases": 54,
+  "judged": 48,
+  "detected_other": 0,
+  "detected_langs": {
+   "hi": 48
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 4.0
+ },
+ {
+  "id": "houthi-14",
+  "language": "en",
+  "phrases": 139,
+  "judged": 126,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 126
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 10.8
+ },
+ {
+  "id": "houthi-15",
+  "language": "en",
+  "phrases": 386,
+  "judged": 322,
+  "detected_other": 2,
+  "detected_langs": {
+   "en": 320,
+   "fi": 1,
+   "cy": 1
+  },
+  "candidate_regions": 1,
+  "regions": [
+   {
+    "lang": "cy",
+    "start": 393.418,
+    "end": 397.099,
+    "seconds": 3.68,
+    "phrases": 1,
+    "confirmed": false,
+    "confirm": {
+     "lang": "en",
+     "prob": 0.972
+    }
+   }
+  ],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 28.3
+ },
+ {
+  "id": "houthi-16",
+  "language": "en",
+  "phrases": 61,
+  "judged": 52,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 52
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 4.6
+ },
+ {
+  "id": "houthi-17",
+  "language": "en",
+  "phrases": 113,
+  "judged": 95,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 95
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 8.3
+ },
+ {
+  "id": "houthi-18",
+  "language": "en",
+  "phrases": 38,
+  "judged": 37,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 37
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 3.3
+ },
+ {
+  "id": "houthi-19",
+  "language": "en",
+  "phrases": 70,
+  "judged": 58,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 57,
+   "hi": 1
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 5.0
+ },
+ {
+  "id": "houthi-20",
+  "language": "en",
+  "phrases": 61,
+  "judged": 49,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 49
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 4.3
+ },
+ {
+  "id": "houthi-21",
+  "language": "en",
+  "phrases": 132,
+  "judged": 117,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 116,
+   "cy": 1
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 10.1
+ },
+ {
+  "id": "houthi-22",
+  "language": "en",
+  "phrases": 96,
+  "judged": 83,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 83
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 7.3
+ },
+ {
+  "id": "houthi-23",
+  "skipped": "nothing transcribed",
+  "seconds": 0.0
+ },
+ {
+  "id": "houthi-24",
+  "language": "ar",
+  "phrases": 11,
+  "judged": 9,
+  "detected_other": 3,
+  "detected_langs": {
+   "en": 6,
+   "es": 1,
+   "zh": 1,
+   "nn": 1
+  },
+  "candidate_regions": 3,
+  "regions": [
+   {
+    "lang": "zh",
+    "start": 203.418,
+    "end": 206.059,
+    "seconds": 2.64,
+    "phrases": 1,
+    "confirmed": false,
+    "confirm": {
+     "lang": "ar",
+     "prob": 0.658
+    }
+   },
+   {
+    "lang": "en",
+    "start": 208.14,
+    "end": 211.242,
+    "seconds": 3.1,
+    "phrases": 1,
+    "confirmed": false,
+    "confirm": {
+     "lang": "ar",
+     "prob": 0.339
+    }
+   },
+   {
+    "lang": "en",
+    "start": 283.212,
+    "end": 285.734,
+    "seconds": 2.52,
+    "phrases": 1,
+    "confirmed": true,
+    "confirm": {
+     "lang": "en",
+     "prob": 0.892
+    }
+   }
+  ],
+  "changed_phrases": 1,
+  "changed_seconds": 2.52,
+  "rewritten": true,
+  "phrases_after": 11,
+  "seconds": 3.5
+ },
+ {
+  "id": "houthi-25",
+  "language": "en",
+  "phrases": 78,
+  "judged": 76,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 76
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 6.4
+ },
+ {
+  "id": "houthi-26",
+  "language": "en",
+  "phrases": 285,
+  "judged": 267,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 267
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 22.3
+ },
+ {
+  "id": "houthi-27",
+  "language": "hi",
+  "phrases": 125,
+  "judged": 111,
+  "detected_other": 2,
+  "detected_langs": {
+   "hi": 104,
+   "ur": 3,
+   "en": 3,
+   "ml": 1
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 9.3
+ },
+ {
+  "id": "houthi-28",
+  "language": "ar",
+  "phrases": 18,
+  "judged": 15,
+  "detected_other": 1,
+  "detected_langs": {
+   "ar": 14,
+   "de": 1
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 1.3
+ },
+ {
+  "id": "houthi-29",
+  "language": "en",
+  "phrases": 59,
+  "judged": 52,
+  "detected_other": 0,
+  "detected_langs": {
+   "en": 52
+  },
+  "candidate_regions": 0,
+  "regions": [],
+  "changed_phrases": 0,
+  "changed_seconds": 0,
+  "seconds": 4.4
+ },
+ {
+  "id": "houthi-30",
+  "language": "hi",
+  "phrases": 120,
+  "judged": 114,
+  "detected_other": 8,
+  "detected_langs": {
+   "hi": 104,
+   "en": 7,
+   "ur": 3
+  },
+  "candidate_regions": 3,
+  "regions": [
+   {
+    "lang": "en",
+    "start": 0.931,
+    "end": 2.932,
+    "seconds": 2.0,
+    "phrases": 1,
+    "confirmed": true,
+    "confirm": {
+     "lang": "en",
+     "prob": 0.854
+    }
+   },
+   {
+    "lang": "ur",
+    "start": 291.748,
+    "end": 294.249,
+    "seconds": 2.5,
+    "phrases": 1,
+    "confirmed": false,
+    "confirm": {
+     "lang": "hi",
+     "prob": 0.891
+    }
+   },
+   {
+    "lang": "en",
+    "start": 521.301,
+    "end": 526.796,
+    "seconds": 5.5,
+    "phrases": 2,
+    "confirmed": true,
+    "confirm": {
+     "lang": "en",
+     "prob": 0.896
+    }
+   }
+  ],
+  "changed_phrases": 3,
+  "changed_seconds": 7.5,
+  "rewritten": true,
+  "phrases_after": 111,
+  "seconds": 14.1
+ }
+]

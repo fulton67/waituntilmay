@@ -1,0 +1,869 @@
+[
+ {
+  "id": "houthi-01",
+  "title": "Did MV Rubymar Cut Cables in the Red Sea? | Abandoned, Adrift, and Sinking after Houthi Attack",
+  "channel": "What's Going on With Shipping?",
+  "date": "2024-02-27T21:34:16.000Z",
+  "duration": "00:14:31",
+  "url": "https://www.youtube.com/watch?v=uTF4N_eFii0",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 367,
+  "words": 2904,
+  "keep": true,
+  "why": "'undersea' and 'Houthi' 9s apart",
+  "evidence": "and even from the Houthi themselves regarding the salvage of this vessel.",
+  "gap_s": 8.9,
+  "cable_hits": 12,
+  "place_hits": 15,
+  "evidence_pair": [
+   {
+    "t": 44.1,
+    "text": "in undersea cables. If you're new to the channel, hey, take a moment,"
+   },
+   {
+    "t": 35.2,
+    "text": "and even from the Houthi themselves regarding the salvage of this vessel."
+   }
+  ]
+ },
+ {
+  "id": "houthi-02",
+  "title": "Houthis Damage 4 Key Undersea Internet Cables; Arab Nations, India Worst Affected: Report",
+  "channel": "Hindustan Times",
+  "date": "2024-02-26T17:15:01.000Z",
+  "duration": "00:05:46",
+  "url": "https://www.youtube.com/watch?v=_hF_QUZJt28",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 102,
+  "words": 775,
+  "keep": true,
+  "why": "'undersea' and 'Houthis' 0s apart",
+  "evidence": "emerged that the Houthis might attack undersea internet cables,",
+  "gap_s": 0.0,
+  "cable_hits": 22,
+  "place_hits": 29,
+  "evidence_pair": [
+   {
+    "t": 4.8,
+    "text": "emerged that the Houthis might attack undersea internet cables,"
+   },
+   {
+    "t": 4.8,
+    "text": "emerged that the Houthis might attack undersea internet cables,"
+   }
+  ]
+ },
+ {
+  "id": "houthi-03",
+  "title": "Can the Houthis Sever the Global Underwater Cables off their Coast?",
+  "channel": "What's Going on With Shipping?",
+  "date": "2024-02-07T16:52:45.000Z",
+  "duration": "00:09:11",
+  "url": "https://www.youtube.com/watch?v=2Mz3p8ixZTg",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 230,
+  "words": 1638,
+  "keep": true,
+  "why": "'internet' and 'Houthi' 0s apart",
+  "evidence": "Will the Houthi attack the internet?",
+  "gap_s": 0.0,
+  "cable_hits": 56,
+  "place_hits": 19,
+  "evidence_pair": [
+   {
+    "t": 18.3,
+    "text": "Will the Houthi attack the internet?"
+   },
+   {
+    "t": 18.3,
+    "text": "Will the Houthi attack the internet?"
+   }
+  ]
+ },
+ {
+  "id": "houthi-04",
+  "title": "Houthi Rebels To Attack West-Linked Underwater Communication Cables? Yemen Responds | Watch",
+  "channel": "Hindustan Times",
+  "date": "2024-01-01T01:30:30.000Z",
+  "duration": "00:03:30",
+  "url": "https://www.youtube.com/watch?v=nu-sEPsZCEI",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 0,
+  "words": 0,
+  "keep": false,
+  "why": "no transcript",
+  "evidence": null,
+  "gap_s": null,
+  "cable_hits": 0,
+  "place_hits": 0
+ },
+ {
+  "id": "houthi-05",
+  "title": "Did the Houthis Cut Internet Cables in the Red Sea?",
+  "channel": "Ward Carroll",
+  "date": "2024-03-07T18:37:02.000Z",
+  "duration": "00:11:36",
+  "url": "https://www.youtube.com/watch?v=fxaRAu0Y2Ck",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 267,
+  "words": 2089,
+  "keep": true,
+  "why": "'internet' and 'Red Sea' 0s apart",
+  "evidence": "They were recently accused of cutting four underwater internet cables in the Red Sea.",
+  "gap_s": 0.0,
+  "cable_hits": 52,
+  "place_hits": 31,
+  "evidence_pair": [
+   {
+    "t": 184.8,
+    "text": "They were recently accused of cutting four underwater internet cables in the Red Sea."
+   },
+   {
+    "t": 184.8,
+    "text": "They were recently accused of cutting four underwater internet cables in the Red Sea."
+   }
+  ]
+ },
+ {
+  "id": "houthi-06",
+  "title": "Red Sea underwater cables under threat from Houthis? | The West Asia Post",
+  "channel": "WION",
+  "date": "2024-02-02T16:47:42.000Z",
+  "duration": "00:03:59",
+  "url": "https://www.youtube.com/watch?v=rg4L1dQBlVo",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 79,
+  "words": 464,
+  "keep": true,
+  "why": "'cables' and 'Houthis' 0s apart",
+  "evidence": "Should the Houthis decide to make these very cables their next",
+  "gap_s": 0.0,
+  "cable_hits": 7,
+  "place_hits": 17,
+  "evidence_pair": [
+   {
+    "t": 112.9,
+    "text": "Should the Houthis decide to make these very cables their next"
+   },
+   {
+    "t": 112.9,
+    "text": "Should the Houthis decide to make these very cables their next"
+   }
+  ]
+ },
+ {
+  "id": "houthi-07",
+  "title": "The Houthis could weaponise the Bab-el Mandeb to disrupt trade and internet traffic | ABC NEWS",
+  "channel": "ABC News (Australia)",
+  "date": "2026-03-30T05:45:03.000Z",
+  "duration": "00:08:17",
+  "url": "https://www.youtube.com/watch?v=Pu3nSG_Gdms",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 192,
+  "words": 1212,
+  "keep": true,
+  "why": "'cables' and 'Houthis' 8s apart",
+  "evidence": "These cables are not well protected.",
+  "gap_s": 7.8,
+  "cable_hits": 3,
+  "place_hits": 21,
+  "evidence_pair": [
+   {
+    "t": 97.1,
+    "text": "These cables are not well protected."
+   },
+   {
+    "t": 104.9,
+    "text": "that the Houthis have in their back pocket. They don't need to play it."
+   }
+  ]
+ },
+ {
+  "id": "houthi-08",
+  "title": "Houthi's Damage 4 Subsea Cables Linking Europe To Asia; Saudi, India Worst Affected? I Key Details",
+  "channel": "Times Of India",
+  "date": "2024-02-27T06:13:13.000Z",
+  "duration": "00:03:44",
+  "url": "https://www.youtube.com/watch?v=v2beX4rOFQI",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 7,
+  "words": 49,
+  "keep": false,
+  "why": "never says cable/undersea/internet",
+  "evidence": null,
+  "gap_s": null,
+  "cable_hits": 0,
+  "place_hits": 0
+ },
+ {
+  "id": "houthi-09",
+  "title": "Red Sea War All Out War: Houthis To Target Underwater Cables? How Deadly Move Is Big Blow To West?",
+  "channel": "Times Now",
+  "date": "2024-02-05T12:56:57.000Z",
+  "duration": "00:03:49",
+  "url": "https://www.youtube.com/watch?v=pRR6AahqM-o",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 0,
+  "words": 0,
+  "keep": false,
+  "why": "no transcript",
+  "evidence": null,
+  "gap_s": null,
+  "cable_hits": 0,
+  "place_hits": 0
+ },
+ {
+  "id": "houthi-10",
+  "title": "Three Red Sea underwater data cables have been cut amid Houthi attacks | Latest English News | WION",
+  "channel": "WION",
+  "date": "2024-03-05T12:46:27.000Z",
+  "duration": "00:03:29",
+  "url": "https://www.youtube.com/watch?v=orUmqh8FKAU",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 76,
+  "words": 459,
+  "keep": true,
+  "why": "'undersea' and 'Red Sea' 0s apart",
+  "evidence": "Now three undersea cables in the Red Sea have been cut.",
+  "gap_s": 0.0,
+  "cable_hits": 13,
+  "place_hits": 15,
+  "evidence_pair": [
+   {
+    "t": 0.4,
+    "text": "Now three undersea cables in the Red Sea have been cut."
+   },
+   {
+    "t": 0.4,
+    "text": "Now three undersea cables in the Red Sea have been cut."
+   }
+  ]
+ },
+ {
+  "id": "houthi-11",
+  "title": "Pentagon Spokesperson Questioned On Cut Undersea Data Cables In Red Sea: Were The Houthis Involved?",
+  "channel": "Forbes Breaking News",
+  "date": "2024-03-05T22:30:06.000Z",
+  "duration": "00:02:22",
+  "url": "https://www.youtube.com/watch?v=tJHMDS8MgDU",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 59,
+  "words": 396,
+  "keep": true,
+  "why": "'cables' and 'Houthis' 5s apart",
+  "evidence": "if the Houthis were involved,",
+  "gap_s": 5.4,
+  "cable_hits": 2,
+  "place_hits": 1,
+  "evidence_pair": [
+   {
+    "t": 14.2,
+    "text": "further protect these cables? And I have a couple more. Yeah. Thanks, Tara."
+   },
+   {
+    "t": 8.8,
+    "text": "if the Houthis were involved,"
+   }
+  ]
+ },
+ {
+  "id": "houthi-12",
+  "title": "Red Sea Tensions: 3 Red Sea data cables cut amid more Houthis attacks | Latest News | WION",
+  "channel": "WION",
+  "date": "2024-03-05T07:53:59.000Z",
+  "duration": "00:03:09",
+  "url": "https://www.youtube.com/watch?v=hCOAh9HTEQ8",
+  "keep": false,
+  "why": "not ingested"
+ },
+ {
+  "id": "houthi-13",
+  "title": "Internet down due to cable cut in Red Sea | Suez Canal | Drishti IAS",
+  "channel": "Drishti IAS",
+  "date": "2025-09-09T15:30:40.000Z",
+  "duration": "00:03:10",
+  "url": "https://www.youtube.com/watch?v=yy-RgdKw5OI",
+  "language": "hi",
+  "translated": true,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "translation from hi",
+  "sentences": 9,
+  "words": 343,
+  "keep": true,
+  "why": "'cables' and 'Red Sea' 0s apart",
+  "evidence": "The main point is the network of cables below the sea level of the Red Sea's Baab-Al-Mandeb-Jal-Dumru-Madh. This network is the main way of data transmission between Africa, Asia and Europe. Internet connectivity monitoring organization NetBlocks has informed many countries including Saudi Arabia, Pakistan, United Arab Emirates and India about the decline in internet service.",
+  "gap_s": 0.0,
+  "cable_hits": 3,
+  "place_hits": 5,
+  "evidence_pair": [
+   {
+    "t": 32.9,
+    "text": "The main point is the network of cables below the sea level of the Red Sea's Baab-Al-Mandeb-Jal-Dumru-Madh. This network is the main way of data transmission between Africa, Asia and Europe. Internet connectivity monitoring organization NetBlocks has informed many countries including Saudi Arabia, Pakistan, United Arab Emirates and India about the decline in internet service."
+   },
+   {
+    "t": 32.9,
+    "text": "The main point is the network of cables below the sea level of the Red Sea's Baab-Al-Mandeb-Jal-Dumru-Madh. This network is the main way of data transmission between Africa, Asia and Europe. Internet connectivity monitoring organization NetBlocks has informed many countries including Saudi Arabia, Pakistan, United Arab Emirates and India about the decline in internet service."
+   }
+  ]
+ },
+ {
+  "id": "houthi-14",
+  "title": "Mojtaba's Revenge Plan: Iran To Become ‘Killing Field’ For US Troops; Gulf Cables, AI Sites At Risk?",
+  "channel": "Hindustan Times",
+  "date": "2026-10-24T05:30:21.000Z",
+  "duration": "00:08:03",
+  "url": "https://www.youtube.com/watch?v=BrOQ8kxz4tg",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 139,
+  "words": 946,
+  "keep": true,
+  "why": "'cable' and 'Red Sea' 0s apart",
+  "evidence": "Reuters reported that the Red Sea could become a more significant cable target,",
+  "gap_s": 0.0,
+  "cable_hits": 9,
+  "place_hits": 4,
+  "evidence_pair": [
+   {
+    "t": 103.5,
+    "text": "Reuters reported that the Red Sea could become a more significant cable target,"
+   },
+   {
+    "t": 103.5,
+    "text": "Reuters reported that the Red Sea could become a more significant cable target,"
+   }
+  ]
+ },
+ {
+  "id": "houthi-15",
+  "title": "Iran Threatens Undersea Internet Cables If Trump Resumes Direct Attacks | What it Means? | Spotlight",
+  "channel": "Firstpost",
+  "date": "2026-10-15T13:15:16.000Z",
+  "duration": "00:17:04",
+  "url": "https://www.youtube.com/watch?v=SCOGmlWJSh8",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 386,
+  "words": 2430,
+  "keep": true,
+  "why": "'cables' and 'Red Sea' 0s apart",
+  "evidence": "passes through cables under the Red Sea.",
+  "gap_s": 0.0,
+  "cable_hits": 44,
+  "place_hits": 10,
+  "evidence_pair": [
+   {
+    "t": 105.0,
+    "text": "passes through cables under the Red Sea."
+   },
+   {
+    "t": 105.0,
+    "text": "passes through cables under the Red Sea."
+   }
+  ]
+ },
+ {
+  "id": "houthi-16",
+  "title": "Red Sea crisis | 3 Red Sea underwater data cables have been cut amid Houthi attacks | WION Dispatch",
+  "channel": "WION",
+  "date": "2024-03-05T14:08:11.000Z",
+  "duration": "00:02:39",
+  "url": "https://www.youtube.com/watch?v=8aSJcCpULZs",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 61,
+  "words": 396,
+  "keep": true,
+  "why": "'undersea' and 'Red Sea' 0s apart",
+  "evidence": "undersea cables in the Red Sea have been cut as a result of global",
+  "gap_s": 0.0,
+  "cable_hits": 10,
+  "place_hits": 16,
+  "evidence_pair": [
+   {
+    "t": 2.7,
+    "text": "undersea cables in the Red Sea have been cut as a result of global"
+   },
+   {
+    "t": 2.7,
+    "text": "undersea cables in the Red Sea have been cut as a result of global"
+   }
+  ]
+ },
+ {
+  "id": "houthi-17",
+  "title": "Seabed warfare: Did Houthi rebels attack undersea cables in Red Sea? • FRANCE 24 English",
+  "channel": "FRANCE 24 English",
+  "date": "2024-04-03T14:31:37.000Z",
+  "duration": "00:04:22",
+  "url": "https://www.youtube.com/watch?v=CuKw5_x6dJ8",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 113,
+  "words": 804,
+  "keep": true,
+  "why": "'internet' and 'Red Sea' 0s apart",
+  "evidence": "internet traffic running through the Red Sea,",
+  "gap_s": 0.0,
+  "cable_hits": 22,
+  "place_hits": 9,
+  "evidence_pair": [
+   {
+    "t": 29.0,
+    "text": "internet traffic running through the Red Sea,"
+   },
+   {
+    "t": 29.0,
+    "text": "internet traffic running through the Red Sea,"
+   }
+  ]
+ },
+ {
+  "id": "houthi-18",
+  "title": "Meta to build $10B global underwater internet cable",
+  "channel": "Straight Arrow",
+  "date": "2024-11-30T02:00:48.000Z",
+  "duration": "00:01:39",
+  "url": "https://www.youtube.com/watch?v=_dCC8mYK_zQ",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 38,
+  "words": 258,
+  "keep": true,
+  "why": "'Cables' and 'Yemen' 4s apart",
+  "evidence": "but their locations can put them at risk. Cables in the Red",
+  "gap_s": 3.6,
+  "cable_hits": 10,
+  "place_hits": 1,
+  "evidence_pair": [
+   {
+    "t": 55.2,
+    "text": "but their locations can put them at risk. Cables in the Red"
+   },
+   {
+    "t": 58.8,
+    "text": "Sea suffered damage from strikes by Yemen's Houthi rebels."
+   }
+  ]
+ },
+ {
+  "id": "houthi-19",
+  "title": "Red Sea, Hormuz Conflict Threatens 20 Undersea Cables Powering Global Internet | Iran War Day 20",
+  "channel": "India Today",
+  "date": "2026-03-19T12:29:26.000Z",
+  "duration": "00:03:15",
+  "url": "https://www.youtube.com/watch?v=mfMtgqeDOso",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 70,
+  "words": 417,
+  "keep": true,
+  "why": "'subsea' and 'Red Sea' 5s apart",
+  "evidence": "20 subsea cables run through these conflict zones",
+  "gap_s": 4.6,
+  "cable_hits": 16,
+  "place_hits": 2,
+  "evidence_pair": [
+   {
+    "t": 27.8,
+    "text": "20 subsea cables run through these conflict zones"
+   },
+   {
+    "t": 32.4,
+    "text": "17 cutting across the Red Sea."
+   }
+  ]
+ },
+ {
+  "id": "houthi-20",
+  "title": "Pentagon 'looking into' severed underwater cables in Red Sea",
+  "channel": "New York Post",
+  "date": "2024-03-06T21:30:44.000Z",
+  "duration": "00:02:22",
+  "url": "https://www.youtube.com/watch?v=4JGqNnD8KxQ",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 61,
+  "words": 399,
+  "keep": true,
+  "why": "'cables' and 'Houthis' 5s apart",
+  "evidence": "if the Houthis were involved,",
+  "gap_s": 5.4,
+  "cable_hits": 2,
+  "place_hits": 1,
+  "evidence_pair": [
+   {
+    "t": 12.5,
+    "text": "further protect these cables? And I have a couple more. Yeah. Thanks, Tara."
+   },
+   {
+    "t": 7.1,
+    "text": "if the Houthis were involved,"
+   }
+  ]
+ },
+ {
+  "id": "houthi-21",
+  "title": "3 Red Sea data cables cut as Houthis launch more attacks",
+  "channel": "Kanal13",
+  "date": "2024-03-06T03:00:07.000Z",
+  "duration": "00:05:46",
+  "url": "https://www.youtube.com/watch?v=XLJNWyBdzyY",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 132,
+  "words": 776,
+  "keep": true,
+  "why": "'cables' and 'Red Sea' 0s apart",
+  "evidence": "Red Sea data cables cut",
+  "gap_s": 0.0,
+  "cable_hits": 10,
+  "place_hits": 11,
+  "evidence_pair": [
+   {
+    "t": 5.0,
+    "text": "Red Sea data cables cut"
+   },
+   {
+    "t": 5.0,
+    "text": "Red Sea data cables cut"
+   }
+  ]
+ },
+ {
+  "id": "houthi-22",
+  "title": "Red Sea Cable Cuts Disrupt Internet Across Multiple Regions | WION Podcast",
+  "channel": "WION",
+  "date": "2025-09-11T11:30:45.000Z",
+  "duration": "00:04:21",
+  "url": "https://www.youtube.com/watch?v=mVeGuzELD1c",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 96,
+  "words": 573,
+  "keep": true,
+  "why": "'subsea' and 'Red Sea' 0s apart",
+  "evidence": "we talk about how subsea cable cuts in the Red Sea",
+  "gap_s": 0.0,
+  "cable_hits": 27,
+  "place_hits": 10,
+  "evidence_pair": [
+   {
+    "t": 8.5,
+    "text": "we talk about how subsea cable cuts in the Red Sea"
+   },
+   {
+    "t": 8.5,
+    "text": "we talk about how subsea cable cuts in the Red Sea"
+   }
+  ]
+ },
+ {
+  "id": "houthi-23",
+  "title": "හුතිලා මුහුදු පත්ලේ සිදුකළ පිපිරීමක් නිසා ලොව කැළඹේ | Several subsea cables have been damaged",
+  "channel": "Dasatha Media",
+  "date": "2024-02-28T01:41:18.000Z",
+  "duration": "00:02:20",
+  "url": "https://www.youtube.com/watch?v=Gcy4Nnb38Lk",
+  "basis": "none",
+  "sentences": 0,
+  "words": 0,
+  "keep": false,
+  "why": "no transcript",
+  "evidence": null,
+  "gap_s": null,
+  "cable_hits": 0,
+  "place_hits": 0
+ },
+ {
+  "id": "houthi-24",
+  "title": "Red Sea Houthi Attack News | Three Red Sea Cables Cut Amid Houthi Attacks | Houthi News | N18V",
+  "channel": "CNN-News18",
+  "date": "2024-03-05T07:08:13.000Z",
+  "duration": "00:08:07",
+  "url": "https://www.youtube.com/watch?v=9Dp0M_Akvpc",
+  "language": "ar",
+  "translated": true,
+  "aligned": true,
+  "relang_phrases": 1,
+  "relang_langs": [
+   "en"
+  ],
+  "basis": "translation from ar",
+  "sentences": 8,
+  "words": 29,
+  "keep": false,
+  "why": "only 29 words of speech",
+  "evidence": null,
+  "gap_s": null,
+  "cable_hits": 0,
+  "place_hits": 0
+ },
+ {
+  "id": "houthi-25",
+  "title": "Red Sea Terror | Houthis Now Targeting Undersea Global Internet Network Cables After Ships? Watch",
+  "channel": "Times Now",
+  "date": "2024-03-08T13:41:40.000Z",
+  "duration": "00:03:20",
+  "url": "https://www.youtube.com/watch?v=DB6gVEre8fs",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 78,
+  "words": 480,
+  "keep": true,
+  "why": "'cables' and 'Red Sea' 0s apart",
+  "evidence": "Four out of 20 cables under the Red Sea",
+  "gap_s": 0.0,
+  "cable_hits": 18,
+  "place_hits": 11,
+  "evidence_pair": [
+   {
+    "t": 21.6,
+    "text": "Four out of 20 cables under the Red Sea"
+   },
+   {
+    "t": 21.6,
+    "text": "Four out of 20 cables under the Red Sea"
+   }
+  ]
+ },
+ {
+  "id": "houthi-26",
+  "title": "What Happens If Someone Cuts The Internet’s Undersea Cables?",
+  "channel": "Tactical History Animated",
+  "date": "2026-04-25T05:46:39.000Z",
+  "duration": "00:12:23",
+  "url": "https://www.youtube.com/watch?v=gbN-9x5zPT0",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 285,
+  "words": 2047,
+  "keep": true,
+  "why": "'submarine' and 'Red Sea' 0s apart",
+  "evidence": "15 submarine cables were severed in the Red Sea Strait in a single event,",
+  "gap_s": 0.0,
+  "cable_hits": 62,
+  "place_hits": 4,
+  "evidence_pair": [
+   {
+    "t": 222.9,
+    "text": "15 submarine cables were severed in the Red Sea Strait in a single event,"
+   },
+   {
+    "t": 222.9,
+    "text": "15 submarine cables were severed in the Red Sea Strait in a single event,"
+   }
+  ]
+ },
+ {
+  "id": "houthi-27",
+  "title": "Red Sea Cable Cuts After Houthi Attack on Israel Airport | Middle East | Houthi Israel War | N18G",
+  "channel": "News18 Urdu",
+  "date": "2025-09-11T10:50:06.000Z",
+  "duration": "00:08:40",
+  "url": "https://www.youtube.com/watch?v=A3nQPWyIm2A",
+  "language": "hi",
+  "translated": true,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "translation from hi",
+  "sentences": 23,
+  "words": 1013,
+  "keep": false,
+  "why": "never says cable/undersea/internet",
+  "evidence": null,
+  "gap_s": null,
+  "cable_hits": 0,
+  "place_hits": 20
+ },
+ {
+  "id": "houthi-28",
+  "title": "Yemen internet outage caused by cut Red Sea cable",
+  "channel": "AP Archive",
+  "date": "2020-01-21T15:51:52.000Z",
+  "duration": "00:01:04",
+  "url": "https://www.youtube.com/watch?v=VMs2mCjLGZQ",
+  "language": "ar",
+  "translated": true,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "translation from ar",
+  "sentences": 3,
+  "words": 100,
+  "keep": false,
+  "why": "never says Houthi/Yemen/Red Sea",
+  "evidence": null,
+  "gap_s": null,
+  "cable_hits": 1,
+  "place_hits": 0
+ },
+ {
+  "id": "houthi-29",
+  "title": "Red Sea Cable Disruptions Explained | Why Internet Outages Hit Middle East & Asia",
+  "channel": "Arihant Online Academy",
+  "date": "2025-09-10T03:30:06.000Z",
+  "duration": "00:02:46",
+  "url": "https://www.youtube.com/watch?v=3aCTI9W77go",
+  "language": "en",
+  "translated": false,
+  "aligned": true,
+  "relang_phrases": 0,
+  "relang_langs": [],
+  "basis": "transcript",
+  "sentences": 59,
+  "words": 409,
+  "keep": true,
+  "why": "'undersea' and 'Red Sea' 0s apart",
+  "evidence": "The disruption of undersea internet cables in the Red Sea.",
+  "gap_s": 0.0,
+  "cable_hits": 19,
+  "place_hits": 4,
+  "evidence_pair": [
+   {
+    "t": 8.7,
+    "text": "The disruption of undersea internet cables in the Red Sea."
+   },
+   {
+    "t": 8.7,
+    "text": "The disruption of undersea internet cables in the Red Sea."
+   }
+  ]
+ },
+ {
+  "id": "houthi-30",
+  "title": "Undersea Cables at Risk! West Asia Crisis Threatens Global Internet 🌍",
+  "channel": "FORCE DEFENCE ACADEMY SSB INTERVIEW ",
+  "date": "2026-04-02T06:40:23.000Z",
+  "duration": "00:08:47",
+  "url": "https://www.youtube.com/watch?v=NE1S3Y8nZGs",
+  "language": "hi",
+  "translated": true,
+  "aligned": true,
+  "relang_phrases": 3,
+  "relang_langs": [
+   "en"
+  ],
+  "basis": "translation from hi",
+  "sentences": 23,
+  "words": 1056,
+  "keep": true,
+  "why": "'cables' and 'Houthis' 0s apart",
+  "evidence": "From where is it passing? From the state of Hormuz, Bab-el-Mandab, where Houthis attacked. The state of Hormuz, which Iran has already banned. So now the assumption is that Iran can also ban it and cut the cables. It threatens, but it can be cut here. So there can be a problem in the whole world.",
+  "gap_s": 0.0,
+  "cable_hits": 19,
+  "place_hits": 3,
+  "evidence_pair": [
+   {
+    "t": 120.0,
+    "text": "From where is it passing? From the state of Hormuz, Bab-el-Mandab, where Houthis attacked. The state of Hormuz, which Iran has already banned. So now the assumption is that Iran can also ban it and cut the cables. It threatens, but it can be cut here. So there can be a problem in the whole world."
+   },
+   {
+    "t": 120.0,
+    "text": "From where is it passing? From the state of Hormuz, Bab-el-Mandab, where Houthis attacked. The state of Hormuz, which Iran has already banned. So now the assumption is that Iran can also ban it and cut the cables. It threatens, but it can be cut here. So there can be a problem in the whole world."
+   }
+  ]
+ }
+]

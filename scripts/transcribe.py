@@ -38,6 +38,8 @@ def main():
                     help="language code, or 'auto' to detect")
     ap.add_argument("--also-translate", action="store_true",
                     help="for a non-English source, add an English pass")
+    ap.add_argument("--translate-only", action="store_true",
+                    help="redo just the English pass on an existing transcript")
     args = ap.parse_args()
 
     import whisperx
@@ -59,6 +61,31 @@ def main():
     def load(dev, ct, task="transcribe"):
         return whisperx.load_model(args.model, dev, compute_type=ct,
                                    language=lang, task=task)
+
+    # ---- redo only the English pass
+    # The transcribe and the align are the expensive parts and they were not
+    # wrong; only the translate task was dropped. Re-running them to fix a
+    # translation would cost minutes per source for nothing.
+    if args.translate_only:
+        payload = json.load(open(args.out, encoding="utf-8"))
+        detected = (payload.get("meta") or {}).get("language") or "en"
+        print(f"[tr] {detected} -> en, segments only", flush=True)
+        tm = load(device, compute_type, task="translate")
+        tr = tm.transcribe(audio, batch_size=args.batch_size,
+                           task="translate", language=detected)
+        payload["translation"] = [
+            {"start": round(s.get("start", 0.0), 3),
+             "end": round(s.get("end", 0.0), 3),
+             "text": (s.get("text") or "").strip()}
+            for s in tr.get("segments", []) if (s.get("text") or "").strip()]
+        payload.setdefault("meta", {})["translated"] = bool(payload["translation"])
+        tmp = args.out + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False)
+        os.replace(tmp, args.out)
+        print(f"[tr] {len(payload['translation'])} segments -> {args.out} "
+              f"in {time.time()-t0:.0f}s", flush=True)
+        return 0
 
     try:
         model = load(device, compute_type)
@@ -160,7 +187,15 @@ def main():
             pass
         try:
             tm = load(device, compute_type, task="translate")
-            tr = tm.transcribe(audio, batch_size=args.batch_size)
+            # task and language go to transcribe(), not just to load_model().
+            # WhisperX only builds its tokenizer at load time if a language
+            # was given; with language=auto it builds it on the first call
+            # and does `task = task or "transcribe"`, which silently throws
+            # away the translate task. The symptom is a "translation" that
+            # comes back in Hindi, and a selection filter that then rejects
+            # the source for never saying the word cable.
+            tr = tm.transcribe(audio, batch_size=args.batch_size,
+                               task="translate", language=detected)
             translation = [{"start": round(s.get("start", 0.0), 3),
                             "end": round(s.get("end", 0.0), 3),
                             "text": (s.get("text") or "").strip()}
