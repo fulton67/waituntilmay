@@ -95,6 +95,7 @@ def main():
     print("[align] loading alignment model...", flush=True)
     t1 = time.time()
     align_device = device
+    align_error = None
     try:
         model_a, metadata = whisperx.load_align_model(language_code=detected,
                                                       device=align_device)
@@ -103,12 +104,42 @@ def main():
     except Exception as e:
         print(f"[warn] GPU align failed ({e}); aligning on CPU", flush=True)
         align_device = "cpu"
-        model_a, metadata = whisperx.load_align_model(language_code=detected,
-                                                      device=align_device)
-        aligned = whisperx.align(result["segments"], model_a, metadata, audio,
-                                 align_device, return_char_alignments=False)
+        try:
+            model_a, metadata = whisperx.load_align_model(
+                language_code=detected, device=align_device)
+            aligned = whisperx.align(result["segments"], model_a, metadata,
+                                     audio, align_device,
+                                     return_char_alignments=False)
+        except Exception as e2:
+            # Some languages have no forced-alignment model at all - WhisperX
+            # ships none for Sinhala, and a Sinhala source killed this script
+            # outright after a 390-second transcribe. A missing aligner is a
+            # property of the language, not a failure of the run, so the
+            # segments are kept with word timings spread evenly across each
+            # one and `aligned` is recorded as false. Those timings are
+            # approximations: a clause boundary drawn from them can fall
+            # mid-word, so selection refuses such a source rather than
+            # cutting the piece on guesses.
+            print(f"[warn] no aligner for {detected} ({e2}); keeping "
+                  f"segment-level timings", flush=True)
+            align_device = "none"
+            align_error = str(e2)
+            for seg in result["segments"]:
+                toks = (seg.get("text") or "").split()
+                a, b = seg.get("start"), seg.get("end")
+                if not toks or a is None or b is None:
+                    seg["words"] = []
+                    continue
+                step = (b - a) / len(toks)
+                seg["words"] = [
+                    {"word": t, "start": round(a + i * step, 3),
+                     "end": round(a + (i + 1) * step, 3), "score": 0.0}
+                    for i, t in enumerate(toks)]
+            aligned = {"segments": result["segments"]}
     t_align = time.time() - t1
-    print(f"[align] done in {t_align:.1f}s", flush=True)
+    print(f"[align] done in {t_align:.1f}s "
+          f"({'no aligner' if align_device == 'none' else align_device})",
+          flush=True)
 
     # ---- the English pass, for a source that is not in English
     # Segment level only, and deliberately not aligned: these words were never
@@ -148,6 +179,8 @@ def main():
             "align_device": align_device,
             "language": detected,
             "translated": bool(translation),
+            "aligned": align_device != "none",
+            "align_error": align_error,
             "compute_type": compute_type,
             "audio": args.audio,
             "audio_duration": round(dur, 3),

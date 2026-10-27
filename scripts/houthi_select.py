@@ -75,6 +75,25 @@ def hits(sentences, pat):
     return out
 
 
+def source_language(sdir):
+    """What was actually spoken, and whether any of it was re-detected.
+
+    Recorded for every candidate whether it is kept or not: which sources are
+    not in English decides what the tagger reads and what the link sequencer
+    can link on, so it is not a detail to leave in a log.
+    """
+    raw = os.path.join(sdir, "_raw_whisperx.json")
+    if not os.path.exists(raw):
+        return {}
+    meta = json.load(open(raw, encoding="utf-8")).get("meta") or {}
+    rl = meta.get("relang") or {}
+    return {"language": meta.get("language"),
+            "translated": bool(meta.get("translated")),
+            "aligned": meta.get("aligned", True),
+            "relang_phrases": rl.get("changed_phrases", 0),
+            "relang_langs": sorted({r["lang"] for r in rl.get("regions", [])})}
+
+
 def judge(sdir):
     sentences, basis = timed_sentences(sdir)
     words_p = os.path.join(sdir, "transcript", "words.json")
@@ -87,6 +106,20 @@ def judge(sdir):
     if not sentences:
         res["why"] = "no transcript"
         return res
+
+    # A source with no forced-alignment model for its language keeps
+    # segment-level timings spread evenly over the words. The piece cuts
+    # clause runs and trims internal silence by word timing, so those
+    # approximations put boundaries mid-word and make the density metric
+    # meaningless. Better to lose the source than to cut on guesses.
+    raw = os.path.join(sdir, "_raw_whisperx.json")
+    if os.path.exists(raw):
+        meta = json.load(open(raw, encoding="utf-8")).get("meta") or {}
+        if meta.get("aligned") is False:
+            res["language"] = meta.get("language")
+            res["why"] = (f"no forced aligner for {meta.get('language')}; "
+                          f"word timings are interpolated")
+            return res
     if n_words < MIN_WORDS:
         res["why"] = f"only {n_words} words of speech"
         return res
@@ -151,7 +184,7 @@ def main():
         r = judge(sdir)
         rows.append({**{k: v.get(k) for k in
                         ("id", "title", "channel", "date", "duration", "url")},
-                     **r})
+                     **source_language(sdir), **r})
 
     keep = [r for r in rows if r["keep"]][:args.max]
     print("=" * 110)
@@ -165,6 +198,14 @@ def main():
         print(f"\n{mark} {r['id']}  {r.get('duration') or '?'}  "
               f"{r.get('channel') or '?'}  {r.get('date') or '?'}")
         print(f"       {(r.get('title') or '')[:92]}")
+        lang = r.get("language") or "?"
+        extra = f"  [{lang}"
+        if r.get("relang_phrases"):
+            extra += f", {r['relang_phrases']} phrases re-detected as "                      f"{'/'.join(r.get('relang_langs') or [])}"
+        if r.get("translated"):
+            extra += ", translated"
+        extra += "]"
+        print(f"       {extra}")
         print(f"       {r['why']}"
               + (f"   [{r.get('basis')}, {r.get('cable_hits', 0)} cable / "
                  f"{r.get('place_hits', 0)} place hits]"
