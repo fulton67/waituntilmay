@@ -123,3 +123,12 @@ public/mosh-lab/blum-internet-tune-offline-probes.json
 .exchange-gentest/
 .exchange-closest/
 .exchange-probe/
+
+# the multi-source pool: the videos and the raw ASR are large and derivable,
+# the transcripts and the tags are the part worth keeping in the repo
+sources/*/source.mp4
+sources/*/_raw_whisperx.json
+.dl/
+.multi-test/
+renders_multi/
+renders_multi.log

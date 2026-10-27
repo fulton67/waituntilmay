@@ -67,7 +67,28 @@ def pick_refrain(rng, pools):
     return cands[-1]
 
 
-def plan_arc(rng, units, pools, seed_refrain=None):
+def _draw_source(rng, weights, available):
+    """Pick which source this unit comes from, by the configured weight.
+
+    The weight is applied here rather than as a multiplier on the score,
+    because a score multiplier mixes "how much of the draw this source gets"
+    with "how good this line is" and neither number stays readable. Sources
+    with nothing left for this beat drop out and the rest renormalise.
+    """
+    live = [s for s in available if weights.get(s, 0) > 0]
+    if not live:
+        return rng.choice(list(available)) if available else None
+    tot = sum(weights[s] for s in live)
+    r = rng.random() * tot
+    acc = 0.0
+    for s in live:
+        acc += weights[s]
+        if acc >= r:
+            return s
+    return live[-1]
+
+
+def plan_arc(rng, units, pools, seed_refrain=None, weights=None):
     used = set()
     refrain = seed_refrain or pick_refrain(rng, pools)
     if refrain:
@@ -80,13 +101,23 @@ def plan_arc(rng, units, pools, seed_refrain=None):
         if not cands:
             beats.append([])
             continue
-        ranked = sorted(cands, key=lambda u: -_score(u, rng, b))
-        top = ranked[:max(want * 5, 10)]
-        rng.shuffle(top)
-        chosen = top[:want]
-        for u in chosen:
+        chosen = []
+        for _ in range(want):
+            left = [u for u in cands if u["id"] not in used]
+            if not left:
+                break
+            if weights:
+                have = sorted({u["src"] for u in left if u.get("src")})
+                sid = _draw_source(rng, weights, have)
+                pick_from = [u for u in left if u.get("src") == sid] or left
+            else:
+                pick_from = left
+            ranked = sorted(pick_from, key=lambda u: -_score(u, rng, b))
+            top = ranked[:max(5, min(10, len(ranked)))]
+            u = top[rng.randrange(len(top))]
             used.add(u["id"])
-        chosen.sort(key=lambda u: u["start"])
+            chosen.append(u)
+        chosen.sort(key=lambda u: (u.get("src") or "", u["start"]))
         beats.append(chosen)
 
     def speech(bs):
@@ -112,6 +143,10 @@ def plan_arc(rng, units, pools, seed_refrain=None):
             cands = [u for u in pools[BEATS[bi]] if u["id"] not in used]
             if not cands:
                 continue
+            if weights:
+                have = sorted({u["src"] for u in cands if u.get("src")})
+                sid = _draw_source(rng, weights, have)
+                cands = [u for u in cands if u.get("src") == sid] or cands
             u = max(cands, key=lambda x: _score(x, rng, BEATS[bi]))
             used.add(u["id"])
             beats[bi].append(u)
@@ -129,16 +164,23 @@ def plan_arc(rng, units, pools, seed_refrain=None):
 
 # --------------------------------------------------------------- audio
 def build_audio(rng, src, plan, tone, dur_limit, trigger_word_ids, words,
-                cfg=None):
+                cfg=None, srcs=None):
     """One continuous voice line: units in arc order, breaths between beats.
 
     The 30s is filled by widening the breaths between beats, not by dumping
     the remainder as a dead tail - so the piece still closes on the refrain.
     """
     order = plan["order"]
+    # srcs maps a source id to {"video","duration"}; without it this is the
+    # single-source path and every unit comes out of `src`
     media_cache = {}
     for u in order:
-        if u["id"] not in media_cache:
+        if u["id"] in media_cache:
+            continue
+        if srcs and u.get("src") in srcs:
+            s = srcs[u["src"]]
+            media_cache[u["id"]] = M.unit_media(s["video"], u, s["duration"])
+        else:
             media_cache[u["id"]] = M.unit_media(src, u, dur_limit)
 
     n_open = 1 if plan["refrain"] else 0
@@ -183,6 +225,7 @@ def build_audio(rng, src, plan, tone, dur_limit, trigger_word_ids, words,
         um = media_cache[u["id"]]
         blocks.append(um["audio"])
         placement.append({"unit": u["id"], "text": u["text"], "frame": cursor,
+                          "src": u.get("src"),
                           "n_frames": um["n_frames"],
                           "seconds": round(um["n_frames"] / M.FPS, 3)})
         cursor += um["n_frames"]
@@ -199,13 +242,20 @@ def build_audio(rng, src, plan, tone, dur_limit, trigger_word_ids, words,
     voice = M.fit_samples(voice, OUT_FRAMES * M.SAMPLES_PER_FRAME)
 
     # ---- where a trigger word is heard, in output frames
-    tw = set(trigger_word_ids)
+    # trigger_word_ids and words are per source: {src_id: [...]} in the
+    # multi-source path, or a bare list/dict in the single-source one
+    def _per_src(x, sid):
+        return x[sid] if isinstance(x, dict) and sid in x else x
+
     hits = []
     for p, u in zip(placement, order):
         if p["frame"] >= OUT_FRAMES:
             break
+        sid = u.get("src")
+        tw = set(_per_src(trigger_word_ids, sid) or [])
+        ws = _per_src(words, sid)
         for w in [w for w in u["word_ids"] if w in tw]:
-            t = words[w]["start"]
+            t = ws[w]["start"]
             acc, off = 0.0, None
             for a, b in u["spans"]:
                 if a <= t <= b:

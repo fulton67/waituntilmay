@@ -11,8 +11,8 @@ import os
 import sys
 from collections import Counter
 
-PHRASES = "transcript/phrases.json"
-TAGS = "transcript/tags.json"
+PHRASES = "sources/blum/transcript/phrases.json"
+TAGS = "sources/blum/tags.json"
 
 VALID = {"physical", "abstract", "definition", "people", "doubt", "scale",
          "filler", "water", "inside", "real"}

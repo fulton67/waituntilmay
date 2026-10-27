@@ -41,7 +41,7 @@ def frame_db(x):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--wav", default="audio/blum_16k.wav")
-    ap.add_argument("--words", default="transcript/words.json")
+    ap.add_argument("--words", default="sources/blum/transcript/words.json")
     ap.add_argument("--min-gap", type=float, default=0.30)
     ap.add_argument("--search", type=float, default=0.30)
     ap.add_argument("--drop-db", type=float, default=15.0,

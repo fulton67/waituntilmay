@@ -4,7 +4,7 @@ import json
 import os
 import re
 
-RAW = "transcript/_raw_whisperx.json"
+RAW = "sources/blum/_raw_whisperx.json"
 OUTDIR = "transcript"
 
 # a word ends a phrase if its text ends with one of these

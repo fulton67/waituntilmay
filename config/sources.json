@@ -1,0 +1,40 @@
+{
+  "_comment": "The source pool. Every enabled source can supply phrases to any version; splices cross sources at word boundaries. Weights are relative and are renormalised over the enabled set, so turning one off does not change the others' ratio to each other. `primary` is the source the room tone and the drone are sampled from, so silence sounds like one room however many sources the words came from.",
+  "primary": "blum",
+  "sources": [
+    {
+      "id": "blum",
+      "title": "Andrew Blum - Tubes: A Journey to the Center of the Internet (Authors at Google)",
+      "channel": "Talks at Google",
+      "url": "https://www.youtube.com/watch?v=aZ4SNSgtB9w",
+      "duration": 3264.888,
+      "fps": 29.97,
+      "enabled": true,
+      "weight": 0.5,
+      "room_tone": [3248.6, 3251.8],
+      "drone": {"start": 1849.2, "seconds": 8.0}
+    },
+    {
+      "id": "swartz",
+      "title": "Aaron Swartz - The Network Transformation (Steal This Film)",
+      "channel": "Steal ThisFilm",
+      "url": "https://www.youtube.com/watch?v=7AG-fy-vK3w",
+      "date": "2013-02-09",
+      "duration": 568.935,
+      "fps": 24,
+      "enabled": true,
+      "weight": 0.2
+    },
+    {
+      "id": "lackner",
+      "title": "\"Houthis Are Not Iranian Proxies\": Helen Lackner on the History & Politics of Yemen's Ansar Allah",
+      "channel": "Democracy Now!",
+      "url": "https://www.youtube.com/watch?v=q2IhcGwRMHY",
+      "date": "2024-02-01",
+      "duration": 827.907,
+      "fps": 24,
+      "enabled": true,
+      "weight": 0.3
+    }
+  ]
+}

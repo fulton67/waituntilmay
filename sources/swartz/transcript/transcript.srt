@@ -1,0 +1,940 @@
+1
+00:00:03,632 --> 00:00:05,192
+The change in the architecture of the
+media is
+
+2
+00:00:05,272 --> 00:00:08,053
+completely connected to a change in the
+architecture of control.
+
+3
+00:00:08,613 --> 00:00:09,914
+With the broadcast system, you have
+
+4
+00:00:10,174 --> 00:00:13,395
+one person in one station deciding what
+gets put over the airwaves.
+
+5
+00:00:14,015 --> 00:00:16,036
+When you have a distributed network like
+the internet,
+
+6
+00:00:16,876 --> 00:00:17,856
+everybody can be a server.
+
+7
+00:00:17,956 --> 00:00:20,557
+There's no distinction between the
+broadcaster and the receiver.
+
+8
+00:00:21,217 --> 00:00:22,979
+Every computer does both. You know,
+
+9
+00:00:23,019 --> 00:00:25,322
+you can take your home laptop and run a
+server off of it
+
+10
+00:00:25,422 --> 00:00:27,225
+that can distribute movies and music and
+
+11
+00:00:27,565 --> 00:00:29,768
+web pages and email in the same way that
+the
+
+12
+00:00:30,168 --> 00:00:32,391
+biggest computers at Google can. There's
+no
+
+13
+00:00:32,471 --> 00:00:36,015
+fundamental difference between the computers they have in the
+racks in their server rooms and what you have
+
+14
+00:00:36,075 --> 00:00:36,556
+on your desk.
+
+15
+00:00:38,259 --> 00:00:41,524
+In the old system of broadcasting, you're
+fundamentally limited by the amount of
+
+16
+00:00:41,844 --> 00:00:43,146
+space in the airwaves.
+
+17
+00:00:43,347 --> 00:00:46,671
+You could only send out 10 channels over
+the airwaves of television.
+
+18
+00:00:46,691 --> 00:00:49,596
+Or even with cable, you had 500 channels.
+On the internet,
+
+19
+00:00:49,636 --> 00:00:52,941
+everybody can have a channel. Everyone can
+get a blog or a MySpace page.
+
+20
+00:00:53,361 --> 00:00:55,102
+Everyone has a way of expressing
+themselves.
+
+21
+00:00:55,703 --> 00:00:57,444
+And so what you see now is not a question
+of
+
+22
+00:00:57,824 --> 00:00:59,785
+who gets access to the airwaves. It's a
+question of
+
+23
+00:01:00,125 --> 00:01:02,947
+who gets control over the ways you find
+people.
+
+24
+00:01:02,987 --> 00:01:05,329
+You start seeing power centralizing in
+sites like Google,
+
+25
+00:01:05,369 --> 00:01:08,431
+these sort of gatekeepers that tell you
+where on the internet you want to go,
+
+26
+00:01:08,811 --> 00:01:12,533
+the people who provide you your sources of
+news and information. So it's not
+
+27
+00:01:13,454 --> 00:01:16,636
+only certain people have a license to speak.
+Now everyone has a license to speak.
+
+28
+00:01:16,696 --> 00:01:17,877
+It's a question of who gets heard.
+
+29
+00:01:19,522 --> 00:01:22,724
+So one of the biggest questions we're facing
+is, in a world of a million speakers,
+
+30
+00:01:22,924 --> 00:01:26,265
+how do you find what's good? Are we going
+to go to a system like the old media,
+
+31
+00:01:26,285 --> 00:01:30,227
+where you go to CNN and they pick a handful of
+people to focus on and you read what they say? Or
+
+32
+00:01:30,628 --> 00:01:32,328
+are we going to go to something more like
+the internet,
+
+33
+00:01:32,348 --> 00:01:36,130
+where everybody has a chance at being heard,
+a more democratic system? One of the
+
+34
+00:01:36,290 --> 00:01:39,972
+most interesting technologies for doing something like
+that is a system called collaborative filtering,
+
+35
+00:01:40,472 --> 00:01:43,673
+where everybody expresses their opinions on what
+they like and what they don't like,
+
+36
+00:01:44,013 --> 00:01:47,334
+and the computer tries to match you up
+with other people who have similar preferences
+
+37
+00:01:47,754 --> 00:01:50,695
+and recommend you things that they also
+like that you didn't know about before.
+
+38
+00:01:51,416 --> 00:01:52,896
+It's the same kind of system you see on
+Amazon,
+
+39
+00:01:52,916 --> 00:01:54,937
+with people who bought this book also
+bought this book.
+
+40
+00:01:55,697 --> 00:01:57,958
+People are trying to experiment that not
+just with books,
+
+41
+00:01:58,018 --> 00:02:01,200
+but with blogs and with web pages and news
+stories all across the internet
+
+42
+00:02:01,620 --> 00:02:05,602
+to try and find ways of things you never would have
+heard of before and bringing them in front of you.
+
+43
+00:02:06,482 --> 00:02:10,324
+Mass media had this fundamental paradox
+because it was aiming at a huge audience,
+
+44
+00:02:10,484 --> 00:02:12,625
+but it wanted to convince everybody they
+were an individual.
+
+45
+00:02:12,986 --> 00:02:16,207
+So you see all these ads on television all
+the time like, you know, buck the trend,
+
+46
+00:02:16,267 --> 00:02:17,468
+buy these jeans, right?
+
+47
+00:02:17,748 --> 00:02:19,949
+And it's on a show that four million
+people are watching. You know,
+
+48
+00:02:19,969 --> 00:02:21,170
+you're not going to buck a trend by
+
+49
+00:02:21,870 --> 00:02:23,651
+doing the same thing four million other
+people are.
+
+50
+00:02:24,331 --> 00:02:26,893
+Now that the internet is actually making
+these niche things possible,
+
+51
+00:02:27,454 --> 00:02:29,616
+the mass media is incredibly threatened.
+
+52
+00:02:29,656 --> 00:02:32,438
+No longer this idea of bucking the crowd
+and being your own.
+
+53
+00:02:33,740 --> 00:02:36,162
+It's no longer just a theory. You can
+actually do it on the internet.
+
+54
+00:02:36,722 --> 00:02:39,024
+And what we're starting to see is tools
+that take power away
+
+55
+00:02:39,084 --> 00:02:41,927
+from these big conglomerates and start to
+distribute it to small groups.
+
+56
+00:02:41,947 --> 00:02:43,548
+And so there are a bunch of issues.
+
+57
+00:02:44,469 --> 00:02:47,090
+in a system like that. There are questions
+of funding.
+
+58
+00:02:47,390 --> 00:02:48,691
+How will these small groups get paid?
+
+59
+00:02:48,731 --> 00:02:51,312
+How will the random blogger be able to
+live in a way that
+
+60
+00:02:52,213 --> 00:02:55,734
+investigative journalists can now because
+there's one giant source of advertising?
+
+61
+00:02:56,054 --> 00:02:57,515
+There are questions of finding people.
+
+62
+00:02:58,055 --> 00:02:59,916
+How will I be able to find the stuff I'm
+interested in,
+
+63
+00:02:59,936 --> 00:03:01,417
+the stuff that's trustworthy and reliable?
+
+64
+00:03:02,397 --> 00:03:04,978
+And so for each of these, there are new
+technologies.
+
+65
+00:03:05,018 --> 00:03:06,638
+People are trying all sorts of different
+things.
+
+66
+00:03:06,678 --> 00:03:08,219
+And one of the most exciting things about
+the internet
+
+67
+00:03:08,579 --> 00:03:10,519
+is that there's experimentation in this.
+
+68
+00:03:10,559 --> 00:03:13,060
+Since everybody can just go up and start a
+website with a new
+
+69
+00:03:13,460 --> 00:03:15,621
+piece of technology to try and solve one
+of these problems,
+
+70
+00:03:15,981 --> 00:03:18,742
+we're seeing lots of different possibilities,
+lots of different funding models,
+
+71
+00:03:19,102 --> 00:03:23,143
+lots of different recommendation systems.
+And who knows what will work best?
+
+72
+00:03:23,683 --> 00:03:25,724
+We have a chance to try it all and see
+what falls out.
+
+73
+00:03:26,144 --> 00:03:28,525
+So there are a couple of interesting
+funding models. One, of course,
+
+74
+00:03:28,585 --> 00:03:30,785
+is the sort of standard method of
+advertising, right?
+
+75
+00:03:31,105 --> 00:03:33,346
+You go to a bunch of big corporate
+sponsors,
+
+76
+00:03:33,366 --> 00:03:36,266
+and instead of having them fund a television
+show, you have them fund your web page.
+
+77
+00:03:37,067 --> 00:03:41,048
+But a more interesting one is you do the same
+thing with niche groups, right? Instead of going to
+
+78
+00:03:41,188 --> 00:03:44,989
+IBM or Ford or some big company and having
+them buy a banner ad on your site,
+
+79
+00:03:45,449 --> 00:03:47,729
+you go to people who actually care about
+the readers you have.
+
+80
+00:03:48,229 --> 00:03:50,850
+If you're a design web blog, you go to
+design companies, right?
+
+81
+00:03:51,349 --> 00:03:53,690
+If you're a politics web blog, you go to
+other politicians.
+
+82
+00:03:54,411 --> 00:03:55,671
+So you have a very targeted,
+
+83
+00:03:55,711 --> 00:03:58,833
+narrow group of people who are really interested
+in the subject. That's a group of
+
+84
+00:03:59,273 --> 00:04:01,114
+an audience that advertisers really love.
+
+85
+00:04:01,934 --> 00:04:04,555
+Another possibility is to turn directly to
+your readers for support.
+
+86
+00:04:04,996 --> 00:04:08,477
+So you see blogs say, I want to go on a
+trip to New Hampshire to cover the
+
+87
+00:04:08,717 --> 00:04:13,280
+American political conventions. Will you
+support me? And the readers pour in money.
+
+88
+00:04:13,920 --> 00:04:15,140
+These people are very dedicated.
+
+89
+00:04:15,160 --> 00:04:17,522
+They feel like they have a personal
+connection with the person writing.
+
+90
+00:04:18,162 --> 00:04:20,243
+So they are eager to spend money to
+support it.
+
+91
+00:04:21,675 --> 00:04:23,916
+Another thing is that you work simply off
+of volunteer labor.
+
+92
+00:04:24,036 --> 00:04:26,977
+You have people who have a day job that's
+an expert in the subject,
+
+93
+00:04:27,017 --> 00:04:28,438
+and they just enjoy talking about it.
+
+94
+00:04:28,898 --> 00:04:31,359
+So they write stuff in their free time and
+publish it on the internet.
+
+95
+00:04:31,799 --> 00:04:34,040
+Or they have readers who read their site
+and contribute stuff,
+
+96
+00:04:34,060 --> 00:04:36,401
+and it gets compiled into one exciting
+source.
+
+97
+00:04:37,422 --> 00:04:39,002
+So I think there are lots of different
+experiments,
+
+98
+00:04:39,262 --> 00:04:40,523
+and people are trying lots of different
+ways.
+
+99
+00:04:41,324 --> 00:04:44,350
+I mean, that's one of the errors you
+had with television, right, was that television
+
+100
+00:04:44,791 --> 00:04:49,921
+could only provide one level of interest,
+right? It was funded based on advertising,
+
+101
+00:04:49,941 --> 00:04:51,765
+not on how much people cared about the
+program.
+
+102
+00:04:53,280 --> 00:04:55,562
+advertisers were going to pay the same no
+matter how exciting
+
+103
+00:04:55,622 --> 00:04:58,105
+or how compelling or how interested the
+audience was in the show.
+
+104
+00:04:58,465 --> 00:05:01,929
+So what you ended up with was fairly
+boring shows that appealed to lots of people
+
+105
+00:05:02,490 --> 00:05:04,351
+because that's what advertisers wanted.
+
+106
+00:05:04,371 --> 00:05:07,815
+They wanted lots of people watching the
+shows. Whereas in a normal market economy,
+
+107
+00:05:07,855 --> 00:05:10,218
+what happens is if you really want
+something, you pay more for it.
+
+108
+00:05:10,698 --> 00:05:11,919
+You just can't do that with television.
+
+109
+00:05:12,800 --> 00:05:14,520
+So one of the interesting things about
+broadcast
+
+110
+00:05:14,600 --> 00:05:17,461
+is that a lot of what you like depends on
+what other people like, right?
+
+111
+00:05:17,581 --> 00:05:20,262
+There are only so many shows out there.
+They're all kind of bland.
+
+112
+00:05:20,282 --> 00:05:22,943
+And so what happens is you have these mega
+hits like American Idol
+
+113
+00:05:23,503 --> 00:05:26,924
+or Lost where everybody at the water
+cooler is talking about this show.
+
+114
+00:05:26,964 --> 00:05:28,924
+And so you just have to watch it because
+otherwise you
+
+115
+00:05:28,984 --> 00:05:33,425
+can't keep up with them. Whenever social
+factors get involved,
+
+116
+00:05:33,705 --> 00:05:38,086
+you have this sort of process of rich gets
+richer. One thing takes off because
+
+117
+00:05:38,606 --> 00:05:39,867
+that's what everybody else is doing.
+
+118
+00:05:40,847 --> 00:05:42,348
+One nice thing about the internet is that
+it allows
+
+119
+00:05:42,428 --> 00:05:46,451
+for so much more variety that niche
+products can get so much more
+
+120
+00:05:47,091 --> 00:05:47,972
+attention and interest.
+
+121
+00:05:48,212 --> 00:05:52,114
+So they've run the numbers and there's this
+proven mathematical fact that as long as
+
+122
+00:05:52,334 --> 00:05:55,356
+some percentage of what you care about is
+whether other people like it or not,
+
+123
+00:05:55,696 --> 00:05:58,138
+you're going to end up with these patterns
+of hits and failures.
+
+124
+00:05:59,643 --> 00:06:01,705
+If you have two things which are
+equivalent in quality,
+
+125
+00:06:02,286 --> 00:06:04,688
+and one of them is liked by one more
+person than the other one,
+
+126
+00:06:05,089 --> 00:06:06,530
+you're going to go to that one.
+
+127
+00:06:06,570 --> 00:06:08,372
+There's some small chance that you're
+going to go to that one,
+
+128
+00:06:08,452 --> 00:06:11,295
+and everybody's starting to start going to that one.
+And all of a sudden, you have Harry Potter,
+
+129
+00:06:11,615 --> 00:06:14,978
+this one book plucked out of nowhere that
+suddenly becomes this humongous mega hit.
+
+130
+00:06:15,379 --> 00:06:18,102
+Not because it's 100 million times better
+written than every other book,
+
+131
+00:06:18,422 --> 00:06:19,923
+but simply because everybody's reading it.
+
+132
+00:06:21,265 --> 00:06:23,167
+And putting stuff on the internet doesn't
+change that.
+
+133
+00:06:23,227 --> 00:06:24,970
+You still care about what your friends
+like.
+
+134
+00:06:24,990 --> 00:06:27,092
+You still want to read what everybody else
+is talking about.
+
+135
+00:06:27,393 --> 00:06:29,295
+You still want to do what's popular
+because you think
+
+136
+00:06:29,355 --> 00:06:32,159
+maybe other people have a valid opinion or
+maybe you want to talk to them about it.
+
+137
+00:06:32,539 --> 00:06:35,663
+Maybe you want to join part of this
+community. But whatever your reason is,
+
+138
+00:06:35,703 --> 00:06:37,405
+as long as you care about other people's
+opinions,
+
+139
+00:06:37,425 --> 00:06:38,647
+you're going to end up with these hits.
+
+140
+00:06:39,127 --> 00:06:41,888
+You just have this social signifier that
+everybody cares about.
+
+141
+00:06:42,008 --> 00:06:45,669
+Everybody's watching American Idol. It doesn't matter
+how good the show is. I mean,
+
+142
+00:06:45,689 --> 00:06:47,909
+it has to be somewhat decent that people
+watch it.
+
+143
+00:06:48,349 --> 00:06:51,390
+But once everybody's watching it and
+everybody's talking about it,
+
+144
+00:06:51,430 --> 00:06:54,771
+it suddenly becomes this mega hit for no
+real reason, right?
+
+145
+00:06:54,811 --> 00:06:56,191
+Just because it's a social phenomenon.
+
+146
+00:06:56,291 --> 00:06:59,472
+And what television does is it chops off
+the tail.
+
+147
+00:06:59,492 --> 00:07:03,454
+It throws away all the other shows that people would
+like but don't care enough about to be mega hits,
+
+148
+00:07:03,814 --> 00:07:06,615
+and instead pours all of its money into
+these cheap to produce shows.
+
+149
+00:07:07,415 --> 00:07:09,096
+Well, you can't get rid of hits, right?
+
+150
+00:07:09,136 --> 00:07:12,197
+It's a fact that people will want to do
+what their friends are doing. You can't avoid that.
+
+151
+00:07:12,477 --> 00:07:15,418
+But what you can do is say there's a whole
+rest of the world out there.
+
+152
+00:07:15,458 --> 00:07:18,719
+There's a whole rest of what people care
+about other than what everybody else is doing.
+
+153
+00:07:19,199 --> 00:07:20,919
+Everybody has their own particular
+interests.
+
+154
+00:07:20,979 --> 00:07:22,500
+Everybody has something that fascinates
+them.
+
+155
+00:07:22,920 --> 00:07:25,521
+And what the internet does is it allows
+them to do that.
+
+156
+00:07:25,821 --> 00:07:29,083
+allows them to get involved and find other
+people who share these things.
+
+157
+00:07:29,704 --> 00:07:31,145
+One of the exciting things about Wikipedia
+
+158
+00:07:31,585 --> 00:07:33,426
+is that it doesn't just have articles on
+the
+
+159
+00:07:33,747 --> 00:07:36,048
+hundred most popular things or the
+thousand most popular things.
+
+160
+00:07:36,368 --> 00:07:39,271
+You can pick the most obscure subject on
+the world and there's an article about it.
+
+161
+00:07:39,591 --> 00:07:43,013
+Because for everything, there's someone
+who cares a great deal about it.
+
+162
+00:07:43,514 --> 00:07:44,474
+And that's what television,
+
+163
+00:07:44,494 --> 00:07:46,476
+that's what radio doesn't provide, but the
+internet does.
+
+164
+00:07:47,472 --> 00:07:50,253
+It provides a way for you to get in touch
+with those other people who really
+
+165
+00:07:50,353 --> 00:07:52,114
+care about this completely obscure thing.
+
+166
+00:07:52,614 --> 00:07:56,075
+So it doesn't just go in the direction of
+topic. It goes in the direction of time.
+
+167
+00:07:56,115 --> 00:07:59,817
+You can go back in time and find all the
+shows that have been canceled, find all the articles
+
+168
+00:08:00,097 --> 00:08:00,817
+that have been deleted.
+
+169
+00:08:01,277 --> 00:08:04,119
+You can go back and find everything that's
+been lost in major culture.
+
+170
+00:08:04,139 --> 00:08:05,539
+And it's got a place on the internet,
+
+171
+00:08:05,879 --> 00:08:09,801
+YouTube music videos from the 70s and 80s
+that you can't find anywhere these days.
+
+172
+00:08:10,221 --> 00:08:12,022
+you can watch at your leisure. Yeah, I
+mean,
+
+173
+00:08:12,042 --> 00:08:14,283
+I think lessening the power of the hits,
+you know,
+
+174
+00:08:14,363 --> 00:08:18,145
+bringing down the things at the top and making it
+more egalitarian is something we should always strive for.
+
+175
+00:08:18,646 --> 00:08:21,107
+It may be really difficult. It may not be
+super possible.
+
+176
+00:08:21,647 --> 00:08:24,629
+But it's, you know, it's something to hope
+for. It's something to strive for. And
+
+177
+00:08:25,449 --> 00:08:28,811
+what that means is throwing away as much
+as possible
+
+178
+00:08:29,331 --> 00:08:31,512
+all the things that give you hints about,
+you know,
+
+179
+00:08:31,633 --> 00:08:34,194
+you should do this because other people
+like it. You know,
+
+180
+00:08:34,234 --> 00:08:35,655
+it's very tempting when you're building
+
+181
+00:08:36,235 --> 00:08:39,957
+a website or a programming system is to start
+sorting things that are really popular at the top.
+
+182
+00:08:40,662 --> 00:08:44,306
+But all that does is it makes it less
+democratic and less fair. You have to
+
+183
+00:08:44,626 --> 00:08:48,229
+have continual pressure to try and pull
+things from the bottom of the tail up,
+
+184
+00:08:48,590 --> 00:08:51,893
+give everybody a chance to look at
+everything. And if you do that,
+
+185
+00:08:52,233 --> 00:08:53,655
+maybe you won't completely get rid of
+hits,
+
+186
+00:08:53,675 --> 00:08:56,517
+but you can start to ameliorate some of
+their problems. I mean, that's
+
+187
+00:08:56,617 --> 00:08:58,639
+one power of data mining is it can start
+to find
+
+188
+00:08:58,699 --> 00:09:01,822
+obscure subjects that you wouldn't have
+found simply because they're not popular.
+
+189
+00:09:02,403 --> 00:09:04,406
+you know, one of the tools of
+recommendations can be to
+
+190
+00:09:04,586 --> 00:09:06,728
+pull you to the less popular stuff down in
+the tail.
+
+191
+00:09:07,329 --> 00:09:10,833
+The random article button on Wikipedia is really cool
+in the sense, you know, you can just
+
+192
+00:09:10,894 --> 00:09:12,716
+wake up every day and read about some
+completely
+
+193
+00:09:12,776 --> 00:09:15,199
+random topic that you'd never have heard
+of except for the fact
+
+194
+00:09:15,479 --> 00:09:17,902
+that there's an article in Wikipedia about
+it. And boy,
+
+195
+00:09:17,922 --> 00:09:19,484
+are there some completely random topics.
+

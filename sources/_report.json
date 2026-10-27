@@ -1,0 +1,94 @@
+[
+ {
+  "id": "blum",
+  "title": "Andrew Blum - Tubes: A Journey to the Center of the Internet (Authors at Google)",
+  "channel": "Talks at Google",
+  "date": null,
+  "enabled": true,
+  "weight": 0.5,
+  "duration": 3264.89,
+  "words": 9229,
+  "phrases": 1366,
+  "tagged": 1366,
+  "tags": {
+   "abstract": 200,
+   "definition": 194,
+   "doubt": 152,
+   "filler": 457,
+   "inside": 91,
+   "people": 254,
+   "physical": 442,
+   "real": 79,
+   "scale": 141,
+   "water": 93
+  },
+  "keywords": {
+   "internet": 62,
+   "network": 53,
+   "cable": 43,
+   "tube": 6
+  }
+ },
+ {
+  "id": "swartz",
+  "title": "Aaron Swartz - The Network Transformation (Steal This Film)",
+  "channel": "Steal ThisFilm",
+  "date": "2013-02-09",
+  "enabled": true,
+  "weight": 0.2,
+  "duration": 568.93,
+  "words": 2197,
+  "phrases": 234,
+  "tagged": 234,
+  "tags": {
+   "abstract": 40,
+   "definition": 88,
+   "doubt": 55,
+   "filler": 25,
+   "inside": 5,
+   "people": 145,
+   "physical": 25,
+   "real": 12,
+   "scale": 19,
+   "water": 1
+  },
+  "keywords": {
+   "internet": 14,
+   "network": 1,
+   "cable": 1,
+   "tube": 0
+  }
+ },
+ {
+  "id": "lackner",
+  "title": "\"Houthis Are Not Iranian Proxies\": Helen Lackner on the History & Politics of Yemen's Ansar Allah",
+  "channel": "Democracy Now!",
+  "date": "2024-02-01",
+  "enabled": true,
+  "weight": 0.3,
+  "duration": 827.91,
+  "words": 1885,
+  "phrases": 329,
+  "tagged": 329,
+  "tags": {
+   "abstract": 11,
+   "attack": 30,
+   "cut": 5,
+   "definition": 62,
+   "doubt": 38,
+   "filler": 144,
+   "inside": 11,
+   "people": 111,
+   "physical": 23,
+   "real": 5,
+   "scale": 24,
+   "water": 12
+  },
+  "keywords": {
+   "internet": 0,
+   "network": 0,
+   "cable": 0,
+   "tube": 0
+  }
+ }
+]

@@ -17,7 +17,7 @@
  *   --manifest   local fallback manifest (default: public/journey/manifest.json)
  *   --no-blob-manifest   skip writing the manifest to Blob
  */
-import { readdir, mkdir, writeFile } from "node:fs/promises";
+import { readdir, mkdir, writeFile, readFile } from "node:fs/promises";
 import path from "node:path";
 
 import { requireToken, uploadRender, writeManifest, mb } from "./journey-blob.mjs";
@@ -55,12 +55,40 @@ for (const [i, f] of files.entries()) {
   console.log(`  [${String(i + 1).padStart(2)}/${files.length}] ${f} -> ${urls.at(-1)}`);
 }
 
+// --mix <renders dir>: carry each version's source mix into the manifest.
+// The mp4 does not know which sources it was cut from, and the render logs
+// stay on this machine, so without this there is no way for anything
+// downstream - the live check especially - to pick a version that contains a
+// given source and prove it plays.
+const MIXDIR = argOf("--mix", null);
+const extra = {};
+if (MIXDIR) {
+  const mixes = {};
+  const seen = new Set();
+  for (const f of files) {
+    const seed = (/v_(\d+)\.mp4/.exec(f) || [])[1];
+    if (!seed) continue;
+    try {
+      const log = JSON.parse(
+        await readFile(path.join(MIXDIR, `v_${seed}.json`), "utf8"));
+      const mix = log.source_mix ?? {};
+      mixes[f] = Object.fromEntries(
+        Object.entries(mix).map(([k, v]) => [k, v.pct]));
+      for (const k of Object.keys(mix)) seen.add(k);
+    } catch { /* a version with no log just has no mix recorded */ }
+  }
+  extra.sources = [...seen].sort();
+  extra.mixes = mixes;
+  console.log(`\nsource mixes recorded for ${Object.keys(mixes).length}`
+    + `/${files.length} versions across ${extra.sources.length} sources`);
+}
+
 if (blobManifest) {
-  const url = await writeManifest(prefix, urls, token);
+  const url = await writeManifest(prefix, urls, token, extra);
   console.log(`\nblob manifest -> ${url}  (${urls.length} versions)`);
 }
 
 await mkdir(path.dirname(MANIFEST), { recursive: true });
 await writeFile(MANIFEST, JSON.stringify(
-  { files: urls, count: urls.length, seconds_each: 30.0 }, null, 1));
+  { files: urls, count: urls.length, seconds_each: 30.0, ...extra }, null, 1));
 console.log(`fallback manifest -> ${MANIFEST} with ${urls.length} absolute URLs`);

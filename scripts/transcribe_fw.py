@@ -12,7 +12,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--audio", default="audio/blum_16k.wav")
     ap.add_argument("--model", default="large-v3")
-    ap.add_argument("--out", default="transcript/_raw_whisperx.json")
+    ap.add_argument("--out", default="sources/blum/_raw_whisperx.json")
     ap.add_argument("--force-cpu", action="store_true")
     args = ap.parse_args()
 

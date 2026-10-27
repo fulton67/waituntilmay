@@ -55,7 +55,31 @@ const JOURNEY = "public/journey/manifest.json";
 if (existsSync(JOURNEY)) {
   const j = JSON.parse(await readFile(JOURNEY, "utf8"));
   for (const v of j.files ?? j.versions ?? j.videos ?? []) {
-    add(typeof v === "string" ? v : (v.url ?? v.video ?? v.src), "journey/manifest.json");
+    add(typeof v === "string" ? v : (v.url ?? v.video ?? v.src), "journey/manifest.json (fallback)");
+  }
+}
+
+// The live pool is whatever the player resolves, which is a Blob manifest and
+// not the bundled fallback. Auditing only the fallback would have passed a
+// pool of unplayable files, so the pool name is read out of the player and
+// its manifest fetched - the same one line that switches the pool.
+const player = await readFile("components/JourneyPlayer.tsx", "utf8");
+const POOL = (player.match(/NEXT_PUBLIC_JOURNEY_POOL \?\? "([\w-]+)"/) || [])[1];
+const HOST = (player.match(/https:\/\/[\w.]+\.public\.blob\.vercel-storage\.com/) || [])[0];
+if (POOL && HOST) {
+  const live = `${HOST}/${POOL}/manifest.json`;
+  try {
+    const r = await fetch(`${live}?t=${Date.now()}`, { cache: "no-store" });
+    if (!r.ok) throw new Error(`manifest ${r.status}`);
+    const j = await r.json();
+    const files = j.files ?? j.versions ?? j.videos ?? [];
+    for (const v of files) {
+      add(typeof v === "string" ? v : (v.url ?? v.video ?? v.src),
+        `LIVE ${POOL}/manifest.json`);
+    }
+    console.log(`live pool: ${POOL}/  (${files.length} versions)`);
+  } catch (e) {
+    console.log(`live pool: ${POOL}/  UNREACHABLE - ${e.message}`);
   }
 }
 

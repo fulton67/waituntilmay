@@ -246,7 +246,7 @@ function parseVops(buf) {
 let triggers = TRIGGERS.slice();
 if (TRIGGER_WORD) {
   try {
-    const words = JSON.parse(await readFile("transcript/words.json", "utf8"));
+    const words = JSON.parse(await readFile("sources/blum/transcript/words.json", "utf8"));
     const norm = (w) => w.toLowerCase().replace(/[^a-z0-9']/g, "");
     const fps = eval(src.fps);
     const dur = NFRAMES / fps;

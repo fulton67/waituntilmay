@@ -17,6 +17,7 @@ mains power, and it stops if the power goes.
 param(
   [string]$TaskName = "waituntilmay-journey-pool",
   [int]$Count = 10,
+  [string]$Prefix = "journey-multi",
   [string]$At = "03:00",
   [switch]$Unregister
 )
@@ -33,7 +34,9 @@ if ($Unregister) {
 
 if (-not (Test-Path $cmd)) { throw "missing $cmd" }
 
-$action = New-ScheduledTaskAction -Execute $cmd -Argument "$Count" -WorkingDirectory $root
+# Count AND prefix: the pool the nightly job grows has to be the pool the
+# player reads, and that is now the multi-source one.
+$action = New-ScheduledTaskAction -Execute $cmd -Argument "$Count $Prefix" -WorkingDirectory $root
 $trigger = New-ScheduledTaskTrigger -Daily -At $At
 
 $settings = New-ScheduledTaskSettingsSet `
@@ -58,13 +61,15 @@ $principal = New-ScheduledTaskPrincipal -UserId "$env:USERDOMAIN\$env:USERNAME" 
 
 Register-ScheduledTask -TaskName $TaskName -Action $action -Trigger $trigger `
   -Settings $settings -Principal $principal `
-  -Description "Render $Count new journey versions, verify each, upload the survivors and append them to the live Blob manifest." `
+  -Description "Render $Count new journey versions across every enabled source in config/sources.json, verify each, upload the survivors and append them to the live $Prefix Blob manifest." `
   -Force | Out-Null
 
 $t = Get-ScheduledTask -TaskName $TaskName
 $i = Get-ScheduledTaskInfo -TaskName $TaskName
 Write-Output "registered: $($t.TaskName)"
-Write-Output "  action      : $cmd $Count"
+Write-Output "  action      : $cmd $Count $Prefix"
+Write-Output "  pool        : $Prefix/ on Blob"
+Write-Output "  sources     : config/sources.json (every enabled source)"
 Write-Output "  trigger     : daily at $At"
 Write-Output "  next run    : $($i.NextRunTime)"
 Write-Output "  conditions  : idle >= 10 min, AC power only, stops on battery"

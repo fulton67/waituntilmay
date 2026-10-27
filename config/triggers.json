@@ -12,7 +12,9 @@
     "water",
     "tubes",
     "center",
-    "under"
+    "under",
+    "cable",
+    "network"
   ],
   "intensity": {
     "concept_weight": 1.0,

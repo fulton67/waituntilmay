@@ -9,7 +9,11 @@ lives outside the Next.js app; the only thing the app owns is the page at
 ```
 concept.md                     the piece
 config/triggers.json           trigger words, tag weights, phase bias, tubes pair
-transcript/                    words.json, phrases.json, tags.json, tag_guide.md, srt, txt
+config/sources.json            the source pool: id, weight, enabled, duration
+config/tag_guide.md            the tagging authority, shared by every source
+sources/<id>/source.mp4        normalised footage, 640x360 @ 24fps   (gitignored)
+sources/<id>/transcript/       words.json, phrases.json, padded, srt, txt
+sources/<id>/tags.json         the tags for that source's phrases
 scripts/                       transcription, tagging, and verification tools
 pipeline/                      media.py (frames/audio/assembly), mosh.py, overlay.py
 randomize.py                   the renderer
@@ -18,6 +22,23 @@ renders/web/                   web-encoded batch + manifest   (gitignored)
 cache/                         extracted frames, per-fragment WAVs, room tone (gitignored)
 tools/pixelated-test/          browser check for image-rendering: pixelated
 ```
+
+## Sources
+
+`config/sources.json` is the pool. Every enabled source can supply phrases to
+any version, and a splice can cross sources at a word boundary; each version's
+log records the source of every phrase and the mix it ended up with. Weights
+are relative and renormalise over the enabled set, so disabling one source
+does not change the others' ratio to each other.
+
+```
+python scripts/ingest_source.py --url <youtube url> --id <id>   # one source, end to end
+python scripts/source_report.py                                 # what each source holds
+python randomize.py --sources config/sources-blum-only.json     # draw from a subset
+```
+
+The room tone and the drone come from `primary` whatever the words did, so
+silence between beats still sounds like one room.
 
 ## Transcript
 
@@ -39,7 +60,7 @@ error **20 ms**, **85.5%** within 50 ms.
 
 ## Tags
 
-`transcript/tag_guide.md` is the authority — definitions, real examples, and an
+`config/tag_guide.md` is the authority — definitions, real examples, and an
 edge-case table decided once so tagging stays consistent across all 1,366
 phrases. Tags are **weights, not filters**: every non-filler phrase is eligible
 in every phase, and tags only change selection probability. `filler` is
@@ -47,7 +68,15 @@ eligible in phase 4 only.
 
 ```
 .venv/Scripts/python.exe scripts/tagging.py status | dump | apply | audit
+.venv/Scripts/python.exe scripts/autotag.py validate       # score the rules vs blum
+.venv/Scripts/python.exe scripts/autotag.py tag --source sources/<id>
 ```
+
+Blum's 1,366 phrases were tagged by hand. Every source since is tagged by
+`scripts/autotag.py`, which writes the guide out as lexicon and grammar tests
+and is scored against those hand tags - the table is in the guide. Selection
+itself runs on the five-beat regex pools in `pipeline/units.py`, not on
+`tags.json`, so the tags describe the pool rather than cut the edit.
 
 ## Rendering
 

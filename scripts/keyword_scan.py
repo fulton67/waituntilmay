@@ -4,8 +4,8 @@ import re
 import sys
 from collections import Counter
 
-WORDS = "transcript/words.json"
-PHRASES = "transcript/phrases.json"
+WORDS = "sources/blum/transcript/words.json"
+PHRASES = "sources/blum/transcript/phrases.json"
 
 TERMS = ["tubes", "water", "ocean", "sea", "under", "internet"]
 

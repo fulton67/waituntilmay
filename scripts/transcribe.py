@@ -9,7 +9,7 @@ import sys
 import time
 
 AUDIO = "audio/blum_16k.wav"
-OUT = "transcript/_raw_whisperx.json"
+OUT = "sources/blum/_raw_whisperx.json"
 
 
 def pick_device():

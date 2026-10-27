@@ -26,11 +26,12 @@ from pipeline import media as M
 from pipeline import mosh as MOSH
 from pipeline import moshv2 as MOSHV2
 from pipeline import overlay as OV
+from pipeline import sources as SRCS
 from pipeline import units as U
 
-SRC = os.environ.get("JC_SRC", r"C:\Users\naimj\Downloads\videoplayback.mp4")
 OUT_DIR = "renders"
 CONFIG = "config/triggers.json"
+SOURCES = os.environ.get("JC_SOURCES", SRCS.CONFIG)
 
 OUT_SECONDS = ARC.TARGET_SECONDS
 OUT_FRAMES = ARC.OUT_FRAMES
@@ -57,16 +58,29 @@ def norm_word(w):
     return "".join(c for c in w.lower() if c.isalnum() or c == "'")
 
 
-def load_all():
-    words = json.load(open("transcript/words.json", encoding="utf-8"))
+def load_all(config=SOURCES):
+    """The whole pool: every enabled source's words, units and weights.
+
+    One version can draw from all of them, so the units arrive in one list
+    with globally unique ids and a `src` on each. The per-source word lists
+    stay separate, because a word index only means anything inside the
+    source it was aligned against.
+    """
+    srcs = SRCS.load(config)
     cfg = json.load(open(CONFIG, encoding="utf-8"))
-    us = U.build_units()
+    words = {s["id"]: json.load(open(s["words"], encoding="utf-8"))
+             for s in srcs}
+    us = U.build_pool(srcs)
     pools = U.pools(us)
-    return words, cfg, us, pools
+    return srcs, words, cfg, us, pools
 
 
 def trigger_word_ids(words, cfg):
+    """Per-source trigger word indices, keyed the same way `words` is."""
     t = {w.lower() for w in cfg["trigger_words"]}
+    if isinstance(words, dict):
+        return {sid: [w["i"] for w in ws if norm_word(w["word"]) in t]
+                for sid, ws in words.items()}
     return [w["i"] for w in words if norm_word(w["word"]) in t]
 
 
@@ -93,21 +107,30 @@ def speech_metrics(voice, floor_db=-47.0, margin=9.0):
             "longest_silence_s": round(longest / M.FPS, 3), "frames": nf}
 
 
-def render_one(seed, phase=None, outdir=OUT_DIR, keep_clean=False, quiet=False):
+def render_one(seed, phase=None, outdir=OUT_DIR, keep_clean=False, quiet=False,
+               config=SOURCES):
     rng = random.Random(seed)
-    words, cfg, us, pools = load_all()
-    dur_limit = M.probe_duration(SRC)
+    srcs, words, cfg, us, pools = load_all(config)
+    by_id = {s["id"]: s for s in srcs}
+    weights = SRCS.weights(srcs)
     if phase is None:
         phase = rng.randint(1, 4)
     spec = PHASE[phase]
 
-    tone = M.room_tone(SRC, *ROOM_TONE_SPAN)
-    bed_src = M.drone(SRC)
+    # the bed is sampled from one source however many the words came from,
+    # so silence between beats still sounds like one room
+    prim = SRCS.primary(srcs, config)
+    tone_span = prim.get("room_tone") or list(ROOM_TONE_SPAN)
+    tone = M.room_tone(prim["video"], *tone_span, source=prim["id"])
+    dr = prim.get("drone") or {}
+    bed_src = M.drone(prim["video"], start=dr.get("start", 1849.2),
+                      seconds=dr.get("seconds", 8.0), source=prim["id"])
 
-    plan = ARC.plan_arc(rng, us, pools)
+    plan = ARC.plan_arc(rng, us, pools, weights=weights)
     tw = trigger_word_ids(words, cfg)
     voice, placement, triggers, media_cache = ARC.build_audio(
-        rng, SRC, plan, tone, dur_limit, tw, words, cfg=cfg)
+        rng, prim["video"], plan, tone, prim["duration"], tw, words, cfg=cfg,
+        srcs=by_id)
     frames, vops = ARC.build_video(rng, plan, media_cache, spec)
 
     # a quiet bed so silence reads as intentional rather than empty
@@ -135,12 +158,32 @@ def render_one(seed, phase=None, outdir=OUT_DIR, keep_clean=False, quiet=False):
     sm = speech_metrics(voice)
     beats_log = [{"beat": b, "units": len(chosen),
                   "seconds": round(sum(u["duration"] for u in chosen), 3),
+                  "sources": [u.get("src") for u in chosen],
                   "text": [u["text"] for u in chosen]}
                  for b, chosen in zip(U.BEATS, plan["beats"])]
+
+    # which sources this version actually drew on, in seconds of speech and
+    # in share of the units - the mix, measured on the result not the config
+    per_src = {}
+    for p in placement:
+        k = p.get("src") or prim["id"]
+        e = per_src.setdefault(k, {"units": 0, "seconds": 0.0})
+        e["units"] += 1
+        e["seconds"] = round(e["seconds"] + p["seconds"], 3)
+    tot_s = sum(e["seconds"] for e in per_src.values()) or 1.0
+    for e in per_src.values():
+        e["pct"] = round(100.0 * e["seconds"] / tot_s, 1)
+    crossings = sum(1 for a, b in zip(placement, placement[1:])
+                    if a.get("src") != b.get("src"))
+    mix_str = "/".join("%s%.0f" % (k, per_src[k]["pct"]) for k in sorted(per_src))
 
     log = {
         "seed": seed, "phase": phase, "output": os.path.basename(final),
         "structure": "5-beat arc: " + " -> ".join(U.BEATS),
+        "sources_enabled": [s["id"] for s in srcs],
+        "source_weights": {k: round(v, 3) for k, v in weights.items()},
+        "source_mix": per_src,
+        "source_crossings": crossings,
         "refrain": plan["refrain"]["text"] if plan["refrain"] else None,
         "refrain_seconds": plan["refrain"]["duration"] if plan["refrain"] else 0,
         "units_total": len(plan["order"]),
@@ -174,7 +217,8 @@ def render_one(seed, phase=None, outdir=OUT_DIR, keep_clean=False, quiet=False):
         "picture_ops": vops,
         "audio_track": [{"frame": p["frame"],
                          "seconds": round(p["frame"] / M.FPS, 3),
-                         "unit": p["unit"], "dur": p["seconds"], "text": p["text"]}
+                         "unit": p["unit"], "src": p.get("src"),
+                         "dur": p["seconds"], "text": p["text"]}
                         for p in placement],
         "audio_transcript": " ".join(p["text"] for p in placement),
     }
@@ -194,6 +238,7 @@ def render_one(seed, phase=None, outdir=OUT_DIR, keep_clean=False, quiet=False):
               f"gap {sm['longest_silence_s']:.2f}s  cuts {len(vops):>3}  "
               f"trig {len(triggers)}  mosh {moshed['moshed_frames']:>3}  "
               f"B {moshed['b_coverage_final_pct']:5.1f}%  "
+              f"mix {mix_str}  x{crossings}  "
               f"out {meas['container_duration']:.3f}s")
     return log
 
@@ -205,6 +250,8 @@ def main():
     ap.add_argument("--count", type=int, default=1)
     ap.add_argument("--outdir", default=OUT_DIR)
     ap.add_argument("--keep-clean", action="store_true")
+    ap.add_argument("--sources", default=SOURCES,
+                    help="path to a sources config (default config/sources.json)")
     args = ap.parse_args()
 
     t0 = time.time()
@@ -216,7 +263,8 @@ def main():
         # one bad render must not cost the rest of the batch: the mosh goes
         # through a browser and a GPU, and those fail in ways a rerun fixes
         try:
-            render_one(seed, args.phase, args.outdir, args.keep_clean)
+            render_one(seed, args.phase, args.outdir, args.keep_clean,
+                       config=args.sources)
         except Exception as e:
             print(f"  seed {seed:>10}  FAILED: {e}")
             failures.append((seed, str(e)))

@@ -97,7 +97,9 @@ def existing_seeds(prefix, log):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--count", type=int, default=10)
-    ap.add_argument("--prefix", default="journey-v2")
+    ap.add_argument("--prefix", default="journey-multi")
+    ap.add_argument("--sources", default=None,
+                    help="sources config; default config/sources.json")
     ap.add_argument("--workdir", default=".pool")
     ap.add_argument("--log", default="logs/pool.log")
     # these must match the settings the shipped pool was built with, or a
@@ -118,6 +120,7 @@ def main():
     log = Log(args.log)
     log("=" * 70)
     log(f"grow_pool: asked for {args.count} new versions -> {args.prefix}/")
+    log(f"sources: {args.sources or randomize.SOURCES}")
     t0 = time.time()
 
     work = os.path.join(ROOT, args.workdir)
@@ -139,7 +142,9 @@ def main():
             log(f"[{i + 1}/{args.count}] seed {seed}: rendering ...")
             t1 = time.time()
             try:
-                rec = randomize.render_one(seed, outdir=work, quiet=True)
+                rec = randomize.render_one(
+                    seed, outdir=work, quiet=True,
+                    config=args.sources or randomize.SOURCES)
             except Exception as e:
                 log(f"[{i + 1}/{args.count}] seed {seed}: RENDER FAILED - {e}")
                 rejected.append((seed, f"render error: {e}"))

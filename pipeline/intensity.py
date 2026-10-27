@@ -308,7 +308,7 @@ def build(timeline, words, units, cfg, audio=None, trigger_frames=(),
     }
 
 
-def load_words(path="transcript/words.json"):
+def load_words(path="sources/blum/transcript/words.json"):
     return json.load(open(os.path.join(ROOT, path), encoding="utf-8"))
 
 

@@ -108,8 +108,8 @@ def norm(s):
     return re.sub(r"\s+", " ", s).strip()
 
 
-def build_units(words_path="transcript/words.json",
-                min_density=MIN_DENSITY, gap_trim=GAP_TRIM):
+def build_units(words_path="sources/blum/transcript/words.json",
+                min_density=MIN_DENSITY, gap_trim=GAP_TRIM, source=None):
     words = json.load(open(words_path, encoding="utf-8"))
 
     # ---- 1. split on clause boundaries, never mid-thought
@@ -160,6 +160,7 @@ def build_units(words_path="transcript/words.json",
 
         units.append({
             "id": len(units),
+            "src": source,
             "word_ids": g,
             "spans": [[round(a, 3), round(b, 3)] for a, b in spans],
             "start": round(s, 3), "end": round(e, 3),
@@ -186,6 +187,23 @@ def build_units(words_path="transcript/words.json",
 def pools(units):
     out = {b: [u for u in units if b in u["pools"]] for b in BEATS}
     out["refrain"] = [u for u in units if u["is_refrain"]]
+    return out
+
+
+def build_pool(srcs, min_density=MIN_DENSITY, gap_trim=GAP_TRIM):
+    """Units from every enabled source, in one list with unique ids.
+
+    A unit keeps its own source's id and word indices, because the frames and
+    the audio still have to come out of that source's own file. The id is
+    reissued across the whole pool so `used` in plan_arc means one thing.
+    """
+    out = []
+    for s in srcs:
+        us = build_units(s["words"], min_density, gap_trim, source=s["id"])
+        for u in us:
+            u["local_id"] = u["id"]
+            u["id"] = len(out)
+            out.append(u)
     return out
 
 

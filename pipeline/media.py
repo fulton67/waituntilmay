@@ -127,9 +127,10 @@ def fragment_audio(frag, n_frames=None):
 
 
 # ------------------------------------------------------------- room tone
-def room_tone(src, start, end, force=False):
+def room_tone(src, start, end, force=False, source=None):
     """Sample room tone once from a silent gap and cache it."""
-    path = os.path.join(CACHE, "roomtone.wav")
+    name = f"roomtone_{source}.wav" if source else "roomtone.wav"
+    path = os.path.join(CACHE, name)
     if os.path.exists(path) and not force:
         return read_wav(path)
     os.makedirs(CACHE, exist_ok=True)
@@ -212,13 +213,22 @@ def measure(path):
 
 
 # ------------------------------------------------- units (multi-span media)
-def span_key(start, end):
-    return "sp_%08d_%08d" % (round(start * 1000), round(end * 1000))
+def span_key(start, end, source=None):
+    """Cache key for one span.
+
+    The source id is part of the key. Without it, two sources' 12.340s-14.200s
+    spans are the same cache entry, and the second version to ask gets the
+    first one's frames - the one bug in a multi-source pool that would look
+    like a rendering fault rather than a cache fault.
+    """
+    k = "sp_%08d_%08d" % (round(start * 1000), round(end * 1000))
+    return f"{source}_{k}" if source else k
 
 
-def extract_span(src, start, end, dur_limit=None, pad=0.0):
-    """One contiguous span, cached by its millisecond bounds."""
-    return extract_fragment(src, span_key(start, end), start, end, pad, dur_limit)
+def extract_span(src, start, end, dur_limit=None, pad=0.0, source=None):
+    """One contiguous span, cached by its source and millisecond bounds."""
+    return extract_fragment(src, span_key(start, end, source), start, end,
+                            pad, dur_limit)
 
 
 def unit_media(src, unit, dur_limit=None):
@@ -229,7 +239,7 @@ def unit_media(src, unit, dur_limit=None):
     """
     frames, audio = [], []
     for a, b in unit["spans"]:
-        f = extract_span(src, a, b, dur_limit)
+        f = extract_span(src, a, b, dur_limit, source=unit.get("src"))
         frames.extend(f["frames"])
         audio.append(fragment_audio(f))
     a = np.concatenate(audio, axis=0) if audio else np.zeros((0, CHANNELS), np.int16)
@@ -240,13 +250,13 @@ def unit_media(src, unit, dur_limit=None):
 
 
 def drone(src, start=1849.2, seconds=8.0, semitone_scale=0.25, gain_db=-30.0,
-          force=False):
+          force=False, source=None):
     """A slow, pitched-down bed made from the talk itself.
 
     Silence in the voice track should read as intentional rather than empty,
     so everything sits on this instead of on digital black.
     """
-    path = os.path.join(CACHE, "drone.wav")
+    path = os.path.join(CACHE, f"drone_{source}.wav" if source else "drone.wav")
     if os.path.exists(path) and not force:
         return read_wav(path)
     os.makedirs(CACHE, exist_ok=True)

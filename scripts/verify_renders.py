@@ -161,6 +161,43 @@ def main():
           f"| {MIN_TRIGGERS}-{MAX_TRIGGERS} triggers "
           f"| B monotone, opens low, grows, blocks==mask")
 
+    # ---- the source mix, reported not gated
+    # Which sources a version drew on is a property of the draw, not a
+    # correctness condition: a version that happens to come out all Blum is
+    # a legitimate version. It is printed so the pool's spread is visible
+    # across the batch, where the weights should show up.
+    multi = [r for r in rows if r[0].get("source_mix")]
+    if multi:
+        ids = sorted({k for log, *_ in multi for k in log["source_mix"]})
+        print("\n" + "=" * 96)
+        print("SOURCE MIX  (% of speech seconds per source, and how many "
+              "times the edit crossed sources)")
+        print("=" * 96)
+        print(f"{'seed':>10} {'ph':>2}  "
+              + " ".join(f"{i[:9]:>9}" for i in ids) + f"  {'cross':>5}")
+        print("-" * 96)
+        for log, *_ in multi:
+            mix = log["source_mix"]
+            print(f"{log['seed']:>10} {log['phase']:>2}  "
+                  + " ".join(f"{mix.get(i, {}).get('pct', 0):>9.1f}"
+                             for i in ids)
+                  + f"  {log.get('source_crossings', 0):>5}")
+        tot = {i: 0.0 for i in ids}
+        for log, *_ in multi:
+            for i in ids:
+                tot[i] += log["source_mix"].get(i, {}).get("seconds", 0.0)
+        allsec = sum(tot.values()) or 1.0
+        want = multi[0][0].get("source_weights") or {}
+        print("-" * 96)
+        print(f"{'batch':>10} {'':>2}  "
+              + " ".join(f"{100*tot[i]/allsec:>9.1f}" for i in ids))
+        print(f"{'configured':>10} {'':>2}  "
+              + " ".join(f"{100*want.get(i, 0):>9.1f}" for i in ids))
+        appeared = {i: sum(1 for log, *_ in multi if i in log["source_mix"])
+                    for i in ids}
+        print("\nversions containing each source: " + "  ".join(
+            f"{i} {appeared[i]}/{len(multi)}" for i in ids))
+
     # ---- B coverage per second, one row per render
     v2 = [r for r in rows if r[0].get("mosh_version") == 2]
     if v2:

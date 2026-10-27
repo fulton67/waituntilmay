@@ -150,3 +150,83 @@ Deliberately NOT widened: 754 ("the amorphous blob seems a really long way
 away") and 755 ("a lot more tangible thing"). They sit inside the scene but are
 the conceptual pivot, already carrying `abstract` / `real`; tagging them `water`
 would dilute the pool with phrases that do not read as maritime alone.
+
+## Widening: the cable material (added with the multi-source pool)
+
+The pool is no longer one talk. `config/sources.json` lists every source and
+this guide applies to all of them unchanged — the tags are about what the
+words say, not about who is speaking. Two tags are added for the Red Sea
+material, where the subject is a cable being cut rather than a cable being
+visited.
+
+### `attack`
+Force directed at something. Strike, struck, hit, target, attack, drone,
+missile, bomb, shoot, launch, war, military, airstrike, retaliation,
+assault, offensive, escalation.
+
+- "military carried out new airstrikes in Yemen today,"
+- "targeting 10 drones and a ground control station"
+- "The airstrikes are the latest targeting the Houthis."
+
+Nearby vocabulary (needs two to fire on its own): force, defence, threat,
+conflict, violence, kill, death, destroy.
+
+### `cut`
+A connection failing, and the repair of it. Cable, cut, sever, damage,
+outage, repair, disrupt, broken, connectivity, disconnect, restore, sabotage,
+and "internet … down" either way round.
+
+- "three undersea cables in the Red Sea were cut"
+- "a quarter of the traffic between Europe and Asia rerouted"
+- "the repair ship could not get a permit to enter"
+
+Nearby vocabulary: fail, interrupt, blackout, anchor, drag.
+
+`attack` and `cut` overlap freely — a cable cut by a strike is both — and both
+overlap `physical` (the cable is a concrete noun) and `water` (the Red Sea).
+A phrase about a strike on a ship, with no cable in it, is `attack` and not
+`cut`. A phrase about an anchor dragging through a cable is `cut` and not
+`attack`.
+
+### Which sources carry them
+
+`attack` and `cut` are offered to the Red Sea material only (`lackner` and
+`houthi-*`). Running them over the Blum talk would tag "it hit me that" as an
+attack; the talk has no such material to find, so it is not asked the
+question. `scripts/autotag.py` holds that split in `tagset_for`.
+
+## Applying the guide without reading 12 sources by hand
+
+Blum's 1,366 phrases were tagged by hand. The sources added since are tagged
+by `scripts/autotag.py`, which writes the rules above out as lexicon and
+grammar tests and is scored against those hand tags:
+
+```
+tag           hand   auto   both   prec recall     F1
+abstract       200    182    130   0.71   0.65   0.68
+definition     194    428    170   0.40   0.88   0.55
+doubt          152    185    118   0.64   0.78   0.70
+filler         457    371    287   0.77   0.63   0.69
+inside          91     72     49   0.68   0.54   0.60
+people         254    442    200   0.45   0.79   0.57
+physical       442    255    215   0.84   0.49   0.62
+real            79     61     40   0.66   0.51   0.57
+scale          141    132     81   0.61   0.57   0.59
+water           93     37     36   0.97   0.39   0.55
+
+selectable kept selectable  81.4%
+filler kept out of the pool 62.8%
+at least one tag agrees     70.3%
+```
+
+Where precision and recall pull against each other the rules lean toward
+keeping a phrase selectable: a wrong content tag costs a slightly wrong
+selection weight, a wrong `filler` costs the phrase entirely. `water` is
+precise and shy, which is the right way round for a small pool — every
+phrase it finds is genuinely maritime.
+
+Note what these tags do and do not drive. Selection in `randomize.py` runs on
+the five-beat regex pools in `pipeline/units.py`, not on `tags.json`; the tags
+are the pool's description of itself, read by `scripts/source_report.py` and
+by hand. So the accuracy above bounds how well the pool can be *described*,
+not how well a version is cut.

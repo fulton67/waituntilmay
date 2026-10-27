@@ -39,7 +39,7 @@ def probe(path):
 
 
 def triggers_from_transcript(word, clip_start, frames, fps):
-    words = json.load(open("transcript/words.json", encoding="utf-8"))
+    words = json.load(open("sources/blum/transcript/words.json", encoding="utf-8"))
     dur = frames / fps
 
     def norm(w):

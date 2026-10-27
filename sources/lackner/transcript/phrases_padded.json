@@ -1,0 +1,4848 @@
+[
+ {
+  "id": 0,
+  "text": "The U.S.",
+  "start": 0.133,
+  "end": 0.583,
+  "duration": 0.45,
+  "word_ids": [
+   0,
+   1
+  ]
+ },
+ {
+  "id": 1,
+  "text": "military carried out new airstrikes in Yemen today,",
+  "start": 0.543,
+  "end": 3.215,
+  "duration": 2.672,
+  "word_ids": [
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ]
+ },
+ {
+  "id": 2,
+  "text": "targeting 10 drones and a ground control station that it said, quote,",
+  "start": 3.215,
+  "end": 6.836,
+  "duration": 3.621,
+  "word_ids": [
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21
+  ]
+ },
+ {
+  "id": 3,
+  "text": "presented an imminent threat to merchant vessels and U.S.",
+  "start": 7.157,
+  "end": 10.168,
+  "duration": 3.011,
+  "word_ids": [
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30
+  ]
+ },
+ {
+  "id": 4,
+  "text": "Navy ships in the region.",
+  "start": 10.128,
+  "end": 11.479,
+  "duration": 1.351,
+  "word_ids": [
+   31,
+   32,
+   33,
+   34,
+   35
+  ]
+ },
+ {
+  "id": 5,
+  "text": "The airstrikes are the latest targeting the Houthis.",
+  "start": 12.119,
+  "end": 14.58,
+  "duration": 2.461,
+  "word_ids": [
+   36,
+   37,
+   38,
+   39,
+   40,
+   41,
+   42,
+   43
+  ]
+ },
+ {
+  "id": 6,
+  "text": "The group,",
+  "start": 15.041,
+  "end": 15.551,
+  "duration": 0.51,
+  "word_ids": [
+   44,
+   45
+  ]
+ },
+ {
+  "id": 7,
+  "text": "also known as Ansar Allah,",
+  "start": 15.511,
+  "end": 16.941,
+  "duration": 1.43,
+  "word_ids": [
+   46,
+   47,
+   48,
+   49,
+   50
+  ]
+ },
+ {
+  "id": 8,
+  "text": "has waged a campaign of attacks on commercial ships in the Red Sea",
+  "start": 16.902,
+  "end": 20.423,
+  "duration": 3.521,
+  "word_ids": [
+   51,
+   52,
+   53,
+   54,
+   55,
+   56,
+   57,
+   58,
+   59,
+   60,
+   61,
+   62,
+   63
+  ]
+ },
+ {
+  "id": 9,
+  "text": "and the Gulf of Aden since November 19,",
+  "start": 20.703,
+  "end": 23.045,
+  "duration": 2.342,
+  "word_ids": [
+   64,
+   65,
+   66,
+   67,
+   68,
+   69,
+   70,
+   71
+  ]
+ },
+ {
+  "id": 10,
+  "text": "in response to Israel's assault on Gaza.",
+  "start": 23.325,
+  "end": 25.326,
+  "duration": 2.001,
+  "word_ids": [
+   72,
+   73,
+   74,
+   75,
+   76,
+   77,
+   78
+  ]
+ },
+ {
+  "id": 11,
+  "text": "On Tuesday, U.S.",
+  "start": 25.886,
+  "end": 26.997,
+  "duration": 1.111,
+  "word_ids": [
+   79,
+   80,
+   81
+  ]
+ },
+ {
+  "id": 12,
+  "text": "Central Command said its forces shot down an anti-ship cruise missile.",
+  "start": 26.957,
+  "end": 30.709,
+  "duration": 3.752,
+  "word_ids": [
+   82,
+   83,
+   84,
+   85,
+   86,
+   87,
+   88,
+   89,
+   90,
+   91,
+   92
+  ]
+ },
+ {
+  "id": 13,
+  "text": "According to CNN,",
+  "start": 31.209,
+  "end": 32.299,
+  "duration": 1.09,
+  "word_ids": [
+   93,
+   94,
+   95
+  ]
+ },
+ {
+  "id": 14,
+  "text": "the missile came within a mile of a U.S.",
+  "start": 32.279,
+  "end": 34.36,
+  "duration": 2.081,
+  "word_ids": [
+   96,
+   97,
+   98,
+   99,
+   100,
+   101,
+   102,
+   103,
+   104
+  ]
+ },
+ {
+  "id": 15,
+  "text": "destroyer before it was shot down,",
+  "start": 34.34,
+  "end": 36.231,
+  "duration": 1.891,
+  "word_ids": [
+   105,
+   106,
+   107,
+   108,
+   109,
+   110
+  ]
+ },
+ {
+  "id": 16,
+  "text": "marking the closest a Houthi attack has come to a U.S. warship.",
+  "start": 36.632,
+  "end": 40.133,
+  "duration": 3.501,
+  "word_ids": [
+   111,
+   112,
+   113,
+   114,
+   115,
+   116,
+   117,
+   118,
+   119,
+   120,
+   121,
+   122
+  ]
+ },
+ {
+  "id": 17,
+  "text": "Meanwhile,",
+  "start": 40.734,
+  "end": 41.284,
+  "duration": 0.55,
+  "word_ids": [
+   123
+  ]
+ },
+ {
+  "id": 18,
+  "text": "the Houthis said they would stage more attacks on U.S.",
+  "start": 41.244,
+  "end": 43.945,
+  "duration": 2.701,
+  "word_ids": [
+   124,
+   125,
+   126,
+   127,
+   128,
+   129,
+   130,
+   131,
+   132,
+   133
+  ]
+ },
+ {
+  "id": 19,
+  "text": "and British warships in the Red Sea",
+  "start": 43.925,
+  "end": 45.576,
+  "duration": 1.651,
+  "word_ids": [
+   134,
+   135,
+   136,
+   137,
+   138,
+   139,
+   140
+  ]
+ },
+ {
+  "id": 20,
+  "text": "in what they called acts of self-defense.",
+  "start": 45.916,
+  "end": 48.118,
+  "duration": 2.202,
+  "word_ids": [
+   141,
+   142,
+   143,
+   144,
+   145,
+   146,
+   147
+  ]
+ },
+ {
+  "id": 21,
+  "text": "This is Houthi military spokesperson Yaya Saria on Wednesday.",
+  "start": 48.538,
+  "end": 52.6,
+  "duration": 4.062,
+  "word_ids": [
+   148,
+   149,
+   150,
+   151,
+   152,
+   153,
+   154,
+   155,
+   156
+  ]
+ },
+ {
+  "id": 22,
+  "text": "The Yemeni",
+  "start": 54.257,
+  "end": 56.239,
+  "duration": 1.982,
+  "word_ids": [
+   157,
+   158
+  ]
+ },
+ {
+  "id": 23,
+  "text": "armed forces will confront the American-British escalation with",
+  "start": 56.239,
+  "end": 59.524,
+  "duration": 3.285,
+  "word_ids": [
+   159,
+   160,
+   161,
+   162,
+   163,
+   164,
+   165,
+   166
+  ]
+ },
+ {
+  "id": 24,
+  "text": "escalation and will not hesitate to carry out",
+  "start": 59.564,
+  "end": 61.967,
+  "duration": 2.403,
+  "word_ids": [
+   167,
+   168,
+   169,
+   170,
+   171,
+   172,
+   173,
+   174
+  ]
+ },
+ {
+  "id": 25,
+  "text": "comprehensive and effective military operations",
+  "start": 61.987,
+  "end": 64.81,
+  "duration": 2.823,
+  "word_ids": [
+   175,
+   176,
+   177,
+   178,
+   179
+  ]
+ },
+ {
+  "id": 26,
+  "text": "in retaliation to",
+  "start": 65.111,
+  "end": 66.312,
+  "duration": 1.201,
+  "word_ids": [
+   180,
+   181,
+   182
+  ]
+ },
+ {
+  "id": 27,
+  "text": "any British-American foolishness",
+  "start": 66.513,
+  "end": 68.435,
+  "duration": 1.922,
+  "word_ids": [
+   183,
+   184,
+   185
+  ]
+ },
+ {
+  "id": 28,
+  "text": "against beloved Yemen.",
+  "start": 68.796,
+  "end": 70.378,
+  "duration": 1.582,
+  "word_ids": [
+   186,
+   187,
+   188
+  ]
+ },
+ {
+  "id": 29,
+  "text": "The Houthi campaign targeting shipping",
+  "start": 71.112,
+  "end": 73.413,
+  "duration": 2.301,
+  "word_ids": [
+   189,
+   190,
+   191,
+   192,
+   193
+  ]
+ },
+ {
+  "id": 30,
+  "text": "has affected a key route for global trade between Asia,",
+  "start": 73.674,
+  "end": 76.586,
+  "duration": 2.912,
+  "word_ids": [
+   194,
+   195,
+   196,
+   197,
+   198,
+   199,
+   200,
+   201,
+   202,
+   203
+  ]
+ },
+ {
+  "id": 31,
+  "text": "the Middle East and Europe, with",
+  "start": 76.566,
+  "end": 77.877,
+  "duration": 1.311,
+  "word_ids": [
+   204,
+   205,
+   206,
+   207,
+   208,
+   209
+  ]
+ },
+ {
+  "id": 32,
+  "text": "several shipping companies suspending transit through the Red Sea.",
+  "start": 77.957,
+  "end": 81.879,
+  "duration": 3.922,
+  "word_ids": [
+   210,
+   211,
+   212,
+   213,
+   214,
+   215,
+   216,
+   217,
+   218
+  ]
+ },
+ {
+  "id": 33,
+  "text": "On Thursday,",
+  "start": 82.4,
+  "end": 83.14,
+  "duration": 0.74,
+  "word_ids": [
+   219,
+   220
+  ]
+ },
+ {
+  "id": 34,
+  "text": "Italy's defense minister warned that shipping disruptions",
+  "start": 83.14,
+  "end": 86.022,
+  "duration": 2.882,
+  "word_ids": [
+   221,
+   222,
+   223,
+   224,
+   225,
+   226,
+   227
+  ]
+ },
+ {
+  "id": 35,
+  "text": "threaten to destabilize Italy's economy.",
+  "start": 85.982,
+  "end": 88.844,
+  "duration": 2.862,
+  "word_ids": [
+   228,
+   229,
+   230,
+   231,
+   232
+  ]
+ },
+ {
+  "id": 36,
+  "text": "This comes as the European Union's foreign minister, Josep Borrell,",
+  "start": 89.164,
+  "end": 92.807,
+  "duration": 3.643,
+  "word_ids": [
+   233,
+   234,
+   235,
+   236,
+   237,
+   238,
+   239,
+   240,
+   241,
+   242
+  ]
+ },
+ {
+  "id": 37,
+  "text": "said on Wednesday the EU plans to launch a naval mission of its",
+  "start": 93.067,
+  "end": 97.089,
+  "duration": 4.022,
+  "word_ids": [
+   243,
+   244,
+   245,
+   246,
+   247,
+   248,
+   249,
+   250,
+   251,
+   252,
+   253,
+   254,
+   255
+  ]
+ },
+ {
+  "id": 38,
+  "text": "own within three weeks to help defend cargo ships in the Red Sea.",
+  "start": 97.21,
+  "end": 100.452,
+  "duration": 3.242,
+  "word_ids": [
+   256,
+   257,
+   258,
+   259,
+   260,
+   261,
+   262,
+   263,
+   264,
+   265,
+   266,
+   267,
+   268
+  ]
+ },
+ {
+  "id": 39,
+  "text": "For more,",
+  "start": 100.872,
+  "end": 101.302,
+  "duration": 0.43,
+  "word_ids": [
+   269,
+   270
+  ]
+ },
+ {
+  "id": 40,
+  "text": "we're joined by Helen Lackner,",
+  "start": 101.262,
+  "end": 102.714,
+  "duration": 1.452,
+  "word_ids": [
+   271,
+   272,
+   273,
+   274,
+   275
+  ]
+ },
+ {
+  "id": 41,
+  "text": "the author of several books on Yemen,",
+  "start": 102.754,
+  "end": 104.686,
+  "duration": 1.932,
+  "word_ids": [
+   276,
+   277,
+   278,
+   279,
+   280,
+   281,
+   282
+  ]
+ },
+ {
+  "id": 42,
+  "text": "including Yemen in Crisis, The Road to War, and Yemen,",
+  "start": 104.646,
+  "end": 108.159,
+  "duration": 3.513,
+  "word_ids": [
+   283,
+   284,
+   285,
+   286,
+   287,
+   288,
+   289,
+   290,
+   291,
+   292
+  ]
+ },
+ {
+  "id": 43,
+  "text": "Poverty and Conflict.",
+  "start": 108.119,
+  "end": 109.441,
+  "duration": 1.322,
+  "word_ids": [
+   293,
+   294,
+   295
+  ]
+ },
+ {
+  "id": 44,
+  "text": "She's been involved with Yemen for",
+  "start": 109.661,
+  "end": 111.122,
+  "duration": 1.461,
+  "word_ids": [
+   296,
+   297,
+   298,
+   299,
+   300,
+   301
+  ]
+ },
+ {
+  "id": 45,
+  "text": "over half a century,",
+  "start": 111.303,
+  "end": 112.984,
+  "duration": 1.681,
+  "word_ids": [
+   302,
+   303,
+   304,
+   305
+  ]
+ },
+ {
+  "id": 46,
+  "text": "lived there for a total of more than 15 years,",
+  "start": 113.345,
+  "end": 116.228,
+  "duration": 2.883,
+  "word_ids": [
+   306,
+   307,
+   308,
+   309,
+   310,
+   311,
+   312,
+   313,
+   314,
+   315
+  ]
+ },
+ {
+  "id": 47,
+  "text": "between the 70s and the 2010s.",
+  "start": 116.228,
+  "end": 118.85,
+  "duration": 2.622,
+  "word_ids": [
+   316,
+   317,
+   318,
+   319,
+   320,
+   321
+  ]
+ },
+ {
+  "id": 48,
+  "text": "She's joining us from Oxford, England. Helen Lackner,",
+  "start": 119.131,
+  "end": 122.324,
+  "duration": 3.193,
+  "word_ids": [
+   322,
+   323,
+   324,
+   325,
+   326,
+   327,
+   328,
+   329
+  ]
+ },
+ {
+  "id": 49,
+  "text": "welcome to Democracy Now!",
+  "start": 122.304,
+  "end": 123.754,
+  "duration": 1.45,
+  "word_ids": [
+   330,
+   331,
+   332,
+   333
+  ]
+ },
+ {
+  "id": 50,
+  "text": "Can you tell us who the Houthis are",
+  "start": 124.035,
+  "end": 126.376,
+  "duration": 2.341,
+  "word_ids": [
+   334,
+   335,
+   336,
+   337,
+   338,
+   339,
+   340,
+   341
+  ]
+ },
+ {
+  "id": 51,
+  "text": "and explain what their demands are,",
+  "start": 126.676,
+  "end": 129.358,
+  "duration": 2.682,
+  "word_ids": [
+   342,
+   343,
+   344,
+   345,
+   346,
+   347
+  ]
+ },
+ {
+  "id": 52,
+  "text": "the significance of what's happening in the Red Sea? HELEN LACKNER",
+  "start": 129.318,
+  "end": 132.36,
+  "duration": 3.042,
+  "word_ids": [
+   348,
+   349,
+   350,
+   351,
+   352,
+   353,
+   354,
+   355,
+   356,
+   357,
+   358
+  ]
+ },
+ {
+  "id": 53,
+  "text": "Well,",
+  "start": 133.781,
+  "end": 134.081,
+  "duration": 0.3,
+  "word_ids": [
+   359
+  ]
+ },
+ {
+  "id": 54,
+  "text": "thank you very much for inviting me.",
+  "start": 134.101,
+  "end": 135.942,
+  "duration": 1.841,
+  "word_ids": [
+   360,
+   361,
+   362,
+   363,
+   364,
+   365,
+   366
+  ]
+ },
+ {
+  "id": 55,
+  "text": "Yes,",
+  "start": 137.243,
+  "end": 138.204,
+  "duration": 0.961,
+  "word_ids": [
+   367
+  ]
+ },
+ {
+  "id": 56,
+  "text": "I think I'll start with the second half of your question,",
+  "start": 138.764,
+  "end": 141.386,
+  "duration": 2.622,
+  "word_ids": [
+   368,
+   369,
+   370,
+   371,
+   372,
+   373,
+   374,
+   375,
+   376,
+   377,
+   378
+  ]
+ },
+ {
+  "id": 57,
+  "text": "which relates directly to what has been happening",
+  "start": 141.946,
+  "end": 144.768,
+  "duration": 2.822,
+  "word_ids": [
+   379,
+   380,
+   381,
+   382,
+   383,
+   384,
+   385,
+   386
+  ]
+ },
+ {
+  "id": 58,
+  "text": "and the various announcements you've just made.",
+  "start": 144.848,
+  "end": 147.17,
+  "duration": 2.322,
+  "word_ids": [
+   387,
+   388,
+   389,
+   390,
+   391,
+   392,
+   393
+  ]
+ },
+ {
+  "id": 59,
+  "text": "And the Houthis have been extremely explicit and repeat on an",
+  "start": 147.97,
+  "end": 151.992,
+  "duration": 4.022,
+  "word_ids": [
+   394,
+   395,
+   396,
+   397,
+   398,
+   399,
+   400,
+   401,
+   402,
+   403,
+   404
+  ]
+ },
+ {
+  "id": 60,
+  "text": "almost daily basis",
+  "start": 152.112,
+  "end": 153.993,
+  "duration": 1.881,
+  "word_ids": [
+   405,
+   406,
+   407
+  ]
+ },
+ {
+  "id": 61,
+  "text": "that",
+  "start": 154.733,
+  "end": 155.153,
+  "duration": 0.42,
+  "word_ids": [
+   408
+  ]
+ },
+ {
+  "id": 62,
+  "text": "their attacks on ships in the Red Sea will stop as soon",
+  "start": 155.334,
+  "end": 159.395,
+  "duration": 4.061,
+  "word_ids": [
+   409,
+   410,
+   411,
+   412,
+   413,
+   414,
+   415,
+   416,
+   417,
+   418,
+   419,
+   420
+  ]
+ },
+ {
+  "id": 63,
+  "text": "as the Gaza war ends and",
+  "start": 159.576,
+  "end": 162.017,
+  "duration": 2.441,
+  "word_ids": [
+   421,
+   422,
+   423,
+   424,
+   425,
+   426
+  ]
+ },
+ {
+  "id": 64,
+  "text": "humanitarian and other supplies are allowed into",
+  "start": 162.377,
+  "end": 165.718,
+  "duration": 3.341,
+  "word_ids": [
+   427,
+   428,
+   429,
+   430,
+   431,
+   432,
+   433
+  ]
+ },
+ {
+  "id": 65,
+  "text": "Gaza and therefore the Palestinians will no longer be",
+  "start": 166.119,
+  "end": 169.38,
+  "duration": 3.261,
+  "word_ids": [
+   434,
+   435,
+   436,
+   437,
+   438,
+   439,
+   440,
+   441,
+   442
+  ]
+ },
+ {
+  "id": 66,
+  "text": "under the",
+  "start": 169.82,
+  "end": 170.501,
+  "duration": 0.681,
+  "word_ids": [
+   443,
+   444
+  ]
+ },
+ {
+  "id": 67,
+  "text": "threat and the horrors that you've earlier described",
+  "start": 170.521,
+  "end": 173.082,
+  "duration": 2.561,
+  "word_ids": [
+   445,
+   446,
+   447,
+   448,
+   449,
+   450,
+   451,
+   452
+  ]
+ },
+ {
+  "id": 68,
+  "text": "and that most of us have seen on",
+  "start": 173.082,
+  "end": 174.623,
+  "duration": 1.541,
+  "word_ids": [
+   453,
+   454,
+   455,
+   456,
+   457,
+   458,
+   459,
+   460
+  ]
+ },
+ {
+  "id": 69,
+  "text": "our screens for many, many weeks.",
+  "start": 175.323,
+  "end": 177.164,
+  "duration": 1.841,
+  "word_ids": [
+   461,
+   462,
+   463,
+   464,
+   465,
+   466
+  ]
+ },
+ {
+  "id": 70,
+  "text": "So",
+  "start": 178.118,
+  "end": 178.538,
+  "duration": 0.42,
+  "word_ids": [
+   467
+  ]
+ },
+ {
+  "id": 71,
+  "text": "the important thing is that although the US and the UK",
+  "start": 178.879,
+  "end": 182.641,
+  "duration": 3.762,
+  "word_ids": [
+   468,
+   469,
+   470,
+   471,
+   472,
+   473,
+   474,
+   475,
+   476,
+   477,
+   478
+  ]
+ },
+ {
+  "id": 72,
+  "text": "claim that they're only defending free movement",
+  "start": 182.781,
+  "end": 186.544,
+  "duration": 3.763,
+  "word_ids": [
+   479,
+   480,
+   481,
+   482,
+   483,
+   484,
+   485
+  ]
+ },
+ {
+  "id": 73,
+  "text": "in the Red Sea and refuse to accept",
+  "start": 186.965,
+  "end": 190.347,
+  "duration": 3.382,
+  "word_ids": [
+   486,
+   487,
+   488,
+   489,
+   490,
+   491,
+   492,
+   493
+  ]
+ },
+ {
+  "id": 74,
+  "text": "any connection between this and the war in Gaza,",
+  "start": 190.807,
+  "end": 194.11,
+  "duration": 3.303,
+  "word_ids": [
+   494,
+   495,
+   496,
+   497,
+   498,
+   499,
+   500,
+   501,
+   502
+  ]
+ },
+ {
+  "id": 75,
+  "text": "For the Houthis,",
+  "start": 194.65,
+  "end": 195.651,
+  "duration": 1.001,
+  "word_ids": [
+   503,
+   504,
+   505
+  ]
+ },
+ {
+  "id": 76,
+  "text": "it's absolutely straightforward and explicit that,",
+  "start": 195.611,
+  "end": 199.182,
+  "duration": 3.571,
+  "word_ids": [
+   506,
+   507,
+   508,
+   509,
+   510,
+   511
+  ]
+ },
+ {
+  "id": 77,
+  "text": "number one,",
+  "start": 199.142,
+  "end": 199.803,
+  "duration": 0.661,
+  "word_ids": [
+   512,
+   513
+  ]
+ },
+ {
+  "id": 78,
+  "text": "they're only targeting ships that have any connection with Israel,",
+  "start": 199.763,
+  "end": 203.755,
+  "duration": 3.992,
+  "word_ids": [
+   514,
+   515,
+   516,
+   517,
+   518,
+   519,
+   520,
+   521,
+   522,
+   523
+  ]
+ },
+ {
+  "id": 79,
+  "text": "whether they're going to Israel,",
+  "start": 203.715,
+  "end": 205.415,
+  "duration": 1.7,
+  "word_ids": [
+   524,
+   525,
+   526,
+   527,
+   528
+  ]
+ },
+ {
+  "id": 80,
+  "text": "coming from Israel, delivering stuff,",
+  "start": 205.395,
+  "end": 207.436,
+  "duration": 2.041,
+  "word_ids": [
+   529,
+   530,
+   531,
+   532,
+   533
+  ]
+ },
+ {
+  "id": 81,
+  "text": "owned by Israelis or whatever, any connection, whatever,",
+  "start": 207.797,
+  "end": 210.938,
+  "duration": 3.141,
+  "word_ids": [
+   534,
+   535,
+   536,
+   537,
+   538,
+   539,
+   540,
+   541
+  ]
+ },
+ {
+  "id": 82,
+  "text": "and that other ships",
+  "start": 211.398,
+  "end": 212.519,
+  "duration": 1.121,
+  "word_ids": [
+   542,
+   543,
+   544,
+   545
+  ]
+ },
+ {
+  "id": 83,
+  "text": "are not targeted, except, of course, now, since the U.S. and U.K.",
+  "start": 213.299,
+  "end": 217.311,
+  "duration": 4.012,
+  "word_ids": [
+   546,
+   547,
+   548,
+   549,
+   550,
+   551,
+   552,
+   553,
+   554,
+   555,
+   556,
+   557
+  ]
+ },
+ {
+  "id": 84,
+  "text": "strikes have started,",
+  "start": 217.291,
+  "end": 218.562,
+  "duration": 1.271,
+  "word_ids": [
+   558,
+   559,
+   560
+  ]
+ },
+ {
+  "id": 85,
+  "text": "they are also targeting U.S. and U.K. ships.",
+  "start": 218.962,
+  "end": 222.144,
+  "duration": 3.182,
+  "word_ids": [
+   561,
+   562,
+   563,
+   564,
+   565,
+   566,
+   567,
+   568
+  ]
+ },
+ {
+  "id": 86,
+  "text": "So they are",
+  "start": 223.084,
+  "end": 223.624,
+  "duration": 0.54,
+  "word_ids": [
+   569,
+   570,
+   571
+  ]
+ },
+ {
+  "id": 87,
+  "text": "absolutely explicit that all other ships",
+  "start": 223.685,
+  "end": 226.086,
+  "duration": 2.401,
+  "word_ids": [
+   572,
+   573,
+   574,
+   575,
+   576,
+   577
+  ]
+ },
+ {
+  "id": 88,
+  "text": "are welcome to travel through the Red Sea and that there",
+  "start": 226.146,
+  "end": 229.309,
+  "duration": 3.163,
+  "word_ids": [
+   578,
+   579,
+   580,
+   581,
+   582,
+   583,
+   584,
+   585,
+   586,
+   587,
+   588
+  ]
+ },
+ {
+  "id": 89,
+  "text": "is complete freedom of movement for any",
+  "start": 229.849,
+  "end": 232.451,
+  "duration": 2.602,
+  "word_ids": [
+   589,
+   590,
+   591,
+   592,
+   593,
+   594,
+   595
+  ]
+ },
+ {
+  "id": 90,
+  "text": "ship other than an",
+  "start": 232.611,
+  "end": 233.772,
+  "duration": 1.161,
+  "word_ids": [
+   596,
+   597,
+   598,
+   599
+  ]
+ },
+ {
+  "id": 91,
+  "text": "Israeli or UK or",
+  "start": 233.972,
+  "end": 235.313,
+  "duration": 1.341,
+  "word_ids": [
+   600,
+   601,
+   602,
+   603
+  ]
+ },
+ {
+  "id": 92,
+  "text": "US connected one.",
+  "start": 235.574,
+  "end": 236.674,
+  "duration": 1.1,
+  "word_ids": [
+   604,
+   605,
+   606
+  ]
+ },
+ {
+  "id": 93,
+  "text": "And I think that's extremely important.",
+  "start": 237.375,
+  "end": 239.216,
+  "duration": 1.841,
+  "word_ids": [
+   607,
+   608,
+   609,
+   610,
+   611,
+   612
+  ]
+ },
+ {
+  "id": 94,
+  "text": "And the reason the",
+  "start": 239.176,
+  "end": 240.397,
+  "duration": 1.221,
+  "word_ids": [
+   613,
+   614,
+   615,
+   616
+  ]
+ },
+ {
+  "id": 95,
+  "text": "Houthis have taken this action",
+  "start": 240.938,
+  "end": 243.6,
+  "duration": 2.662,
+  "word_ids": [
+   617,
+   618,
+   619,
+   620,
+   621
+  ]
+ },
+ {
+  "id": 96,
+  "text": "in",
+  "start": 244.26,
+  "end": 244.5,
+  "duration": 0.24,
+  "word_ids": [
+   622
+  ]
+ },
+ {
+  "id": 97,
+  "text": "support of Palestine",
+  "start": 244.741,
+  "end": 246.362,
+  "duration": 1.621,
+  "word_ids": [
+   623,
+   624,
+   625
+  ]
+ },
+ {
+  "id": 98,
+  "text": "is that one of the very fundamental",
+  "start": 246.862,
+  "end": 249.164,
+  "duration": 2.302,
+  "word_ids": [
+   626,
+   627,
+   628,
+   629,
+   630,
+   631,
+   632
+  ]
+ },
+ {
+  "id": 99,
+  "text": "policy issues",
+  "start": 249.724,
+  "end": 250.925,
+  "duration": 1.201,
+  "word_ids": [
+   633,
+   634
+  ]
+ },
+ {
+  "id": 100,
+  "text": "or ideological positions that the Houthis have",
+  "start": 250.925,
+  "end": 254.008,
+  "duration": 3.083,
+  "word_ids": [
+   635,
+   636,
+   637,
+   638,
+   639,
+   640,
+   641
+  ]
+ },
+ {
+  "id": 101,
+  "text": "is the support",
+  "start": 254.768,
+  "end": 255.889,
+  "duration": 1.121,
+  "word_ids": [
+   642,
+   643,
+   644
+  ]
+ },
+ {
+  "id": 102,
+  "text": "for Palestine and,",
+  "start": 256.229,
+  "end": 257.951,
+  "duration": 1.722,
+  "word_ids": [
+   645,
+   646,
+   647
+  ]
+ },
+ {
+  "id": 103,
+  "text": "more directly,",
+  "start": 258.111,
+  "end": 259.412,
+  "duration": 1.301,
+  "word_ids": [
+   648,
+   649
+  ]
+ },
+ {
+  "id": 104,
+  "text": "being anti-Israelis.",
+  "start": 259.512,
+  "end": 261.083,
+  "duration": 1.571,
+  "word_ids": [
+   650,
+   651
+  ]
+ },
+ {
+  "id": 105,
+  "text": "The Houthis' foreign policy is",
+  "start": 261.043,
+  "end": 264.376,
+  "duration": 3.333,
+  "word_ids": [
+   652,
+   653,
+   654,
+   655,
+   656
+  ]
+ },
+ {
+  "id": 106,
+  "text": "quite clearly summarized in their basic slogan",
+  "start": 264.376,
+  "end": 267.318,
+  "duration": 2.942,
+  "word_ids": [
+   657,
+   658,
+   659,
+   660,
+   661,
+   662,
+   663
+  ]
+ },
+ {
+  "id": 107,
+  "text": "of death to America and death to Israel. They",
+  "start": 267.658,
+  "end": 271.161,
+  "duration": 3.503,
+  "word_ids": [
+   664,
+   665,
+   666,
+   667,
+   668,
+   669,
+   670,
+   671,
+   672
+  ]
+ },
+ {
+  "id": 108,
+  "text": "are absolutely",
+  "start": 271.381,
+  "end": 272.502,
+  "duration": 1.121,
+  "word_ids": [
+   673,
+   674
+  ]
+ },
+ {
+  "id": 109,
+  "text": "their positions are absolutely straightforward on these points.",
+  "start": 273.943,
+  "end": 277.686,
+  "duration": 3.743,
+  "word_ids": [
+   675,
+   676,
+   677,
+   678,
+   679,
+   680,
+   681,
+   682
+  ]
+ },
+ {
+  "id": 110,
+  "text": "So although",
+  "start": 278.107,
+  "end": 279.127,
+  "duration": 1.02,
+  "word_ids": [
+   683,
+   684
+  ]
+ },
+ {
+  "id": 111,
+  "text": "they are",
+  "start": 279.528,
+  "end": 280.629,
+  "duration": 1.101,
+  "word_ids": [
+   685,
+   686
+  ]
+ },
+ {
+  "id": 112,
+  "text": "willing to allow other ships through,",
+  "start": 281.289,
+  "end": 283.071,
+  "duration": 1.782,
+  "word_ids": [
+   687,
+   688,
+   689,
+   690,
+   691,
+   692
+  ]
+ },
+ {
+  "id": 113,
+  "text": "they are actually,",
+  "start": 283.331,
+  "end": 284.512,
+  "duration": 1.181,
+  "word_ids": [
+   693,
+   694,
+   695
+  ]
+ },
+ {
+  "id": 114,
+  "text": "up to a certain point,",
+  "start": 284.692,
+  "end": 286.094,
+  "duration": 1.402,
+  "word_ids": [
+   696,
+   697,
+   698,
+   699,
+   700
+  ]
+ },
+ {
+  "id": 115,
+  "text": "not displeased at the fact that the",
+  "start": 286.734,
+  "end": 289.356,
+  "duration": 2.622,
+  "word_ids": [
+   701,
+   702,
+   703,
+   704,
+   705,
+   706,
+   707
+  ]
+ },
+ {
+  "id": 116,
+  "text": "Americans and the US are now",
+  "start": 289.437,
+  "end": 291.418,
+  "duration": 1.981,
+  "word_ids": [
+   708,
+   709,
+   710,
+   711,
+   712,
+   713
+  ]
+ },
+ {
+  "id": 117,
+  "text": "actually targeting their",
+  "start": 291.618,
+  "end": 293.72,
+  "duration": 2.102,
+  "word_ids": [
+   714,
+   715,
+   716
+  ]
+ },
+ {
+  "id": 118,
+  "text": "various launch positions.",
+  "start": 295.001,
+  "end": 296.743,
+  "duration": 1.742,
+  "word_ids": [
+   717,
+   718,
+   719
+  ]
+ },
+ {
+  "id": 119,
+  "text": "So, Helen, could you give us some background, though?",
+  "start": 298.732,
+  "end": 301.266,
+  "duration": 2.534,
+  "word_ids": [
+   720,
+   721,
+   722,
+   723,
+   724,
+   725,
+   726,
+   727,
+   728
+  ]
+ },
+ {
+  "id": 120,
+  "text": "What are the origins of this movement,",
+  "start": 301.246,
+  "end": 304.621,
+  "duration": 3.375,
+  "word_ids": [
+   729,
+   730,
+   731,
+   732,
+   733,
+   734,
+   735
+  ]
+ },
+ {
+  "id": 121,
+  "text": "and how is it that they came to play such a prominent role in Yemen?",
+  "start": 305.002,
+  "end": 308.347,
+  "duration": 3.345,
+  "word_ids": [
+   736,
+   737,
+   738,
+   739,
+   740,
+   741,
+   742,
+   743,
+   744,
+   745,
+   746,
+   747,
+   748,
+   749,
+   750
+  ]
+ },
+ {
+  "id": 122,
+  "text": "Yeah, so the",
+  "start": 309.812,
+  "end": 310.552,
+  "duration": 0.74,
+  "word_ids": [
+   751,
+   752,
+   753
+  ]
+ },
+ {
+  "id": 123,
+  "text": "Houthi movement started in the 1980s,",
+  "start": 310.772,
+  "end": 314.094,
+  "duration": 3.322,
+  "word_ids": [
+   754,
+   755,
+   756,
+   757,
+   758,
+   759
+  ]
+ },
+ {
+  "id": 124,
+  "text": "1990s.",
+  "start": 314.174,
+  "end": 315.394,
+  "duration": 1.22,
+  "word_ids": [
+   760
+  ]
+ },
+ {
+  "id": 125,
+  "text": "I think what you need to understand is that",
+  "start": 315.994,
+  "end": 318.175,
+  "duration": 2.181,
+  "word_ids": [
+   761,
+   762,
+   763,
+   764,
+   765,
+   766,
+   767,
+   768,
+   769
+  ]
+ },
+ {
+  "id": 126,
+  "text": "in terms of religious sects,",
+  "start": 318.455,
+  "end": 320.376,
+  "duration": 1.921,
+  "word_ids": [
+   770,
+   771,
+   772,
+   773,
+   774
+  ]
+ },
+ {
+  "id": 127,
+  "text": "Yemen is divided into two basic sects.",
+  "start": 320.716,
+  "end": 323.617,
+  "duration": 2.901,
+  "word_ids": [
+   775,
+   776,
+   777,
+   778,
+   779,
+   780,
+   781
+  ]
+ },
+ {
+  "id": 128,
+  "text": "The",
+  "start": 324.057,
+  "end": 324.337,
+  "duration": 0.28,
+  "word_ids": [
+   782
+  ]
+ },
+ {
+  "id": 129,
+  "text": "Sunni sect of",
+  "start": 324.758,
+  "end": 326.258,
+  "duration": 1.5,
+  "word_ids": [
+   783,
+   784,
+   785
+  ]
+ },
+ {
+  "id": 130,
+  "text": "Shafi'is, who",
+  "start": 327.399,
+  "end": 328.559,
+  "duration": 1.16,
+  "word_ids": [
+   786,
+   787
+  ]
+ },
+ {
+  "id": 131,
+  "text": "basically live in the majority of the country,",
+  "start": 328.779,
+  "end": 331.46,
+  "duration": 2.681,
+  "word_ids": [
+   788,
+   789,
+   790,
+   791,
+   792,
+   793,
+   794,
+   795
+  ]
+ },
+ {
+  "id": 132,
+  "text": "and a branch of Shi'ism called the Zaydis,",
+  "start": 331.96,
+  "end": 334.861,
+  "duration": 2.901,
+  "word_ids": [
+   796,
+   797,
+   798,
+   799,
+   800,
+   801,
+   802,
+   803
+  ]
+ },
+ {
+  "id": 133,
+  "text": "who live basically in the mountainous highlands of Yemen.",
+  "start": 335.242,
+  "end": 338.603,
+  "duration": 3.361,
+  "word_ids": [
+   804,
+   805,
+   806,
+   807,
+   808,
+   809,
+   810,
+   811,
+   812
+  ]
+ },
+ {
+  "id": 134,
+  "text": "And the Houthis are",
+  "start": 339.143,
+  "end": 340.825,
+  "duration": 1.682,
+  "word_ids": [
+   813,
+   814,
+   815,
+   816
+  ]
+ },
+ {
+  "id": 135,
+  "text": "Zaydis.",
+  "start": 341.246,
+  "end": 341.926,
+  "duration": 0.68,
+  "word_ids": [
+   817
+  ]
+ },
+ {
+  "id": 136,
+  "text": "And",
+  "start": 342.547,
+  "end": 342.767,
+  "duration": 0.22,
+  "word_ids": [
+   818
+  ]
+ },
+ {
+  "id": 137,
+  "text": "in that sense,",
+  "start": 343.047,
+  "end": 344.289,
+  "duration": 1.242,
+  "word_ids": [
+   819,
+   820,
+   821
+  ]
+ },
+ {
+  "id": 138,
+  "text": "and again,",
+  "start": 344.789,
+  "end": 345.61,
+  "duration": 0.821,
+  "word_ids": [
+   822,
+   823
+  ]
+ },
+ {
+  "id": 139,
+  "text": "within the Zaydi movement, there's a certain",
+  "start": 345.59,
+  "end": 348.113,
+  "duration": 2.523,
+  "word_ids": [
+   824,
+   825,
+   826,
+   827,
+   828,
+   829,
+   830
+  ]
+ },
+ {
+  "id": 140,
+  "text": "variety in the sense that the Houthis, I would say, are",
+  "start": 348.413,
+  "end": 351.797,
+  "duration": 3.384,
+  "word_ids": [
+   831,
+   832,
+   833,
+   834,
+   835,
+   836,
+   837,
+   838,
+   839,
+   840,
+   841
+  ]
+ },
+ {
+  "id": 141,
+  "text": "extremist Zaydis.",
+  "start": 352.077,
+  "end": 353.719,
+  "duration": 1.642,
+  "word_ids": [
+   842,
+   843
+  ]
+ },
+ {
+  "id": 142,
+  "text": "And they've developed their...",
+  "start": 353.819,
+  "end": 355.902,
+  "duration": 2.083,
+  "word_ids": [
+   844,
+   845,
+   846,
+   847
+  ]
+ },
+ {
+  "id": 143,
+  "text": "ideology and their policies",
+  "start": 356.362,
+  "end": 358.304,
+  "duration": 1.942,
+  "word_ids": [
+   848,
+   849,
+   850,
+   851
+  ]
+ },
+ {
+  "id": 144,
+  "text": "to strengthen their own branch of Zaidism.",
+  "start": 358.385,
+  "end": 361.708,
+  "duration": 3.323,
+  "word_ids": [
+   852,
+   853,
+   854,
+   855,
+   856,
+   857,
+   858
+  ]
+ },
+ {
+  "id": 145,
+  "text": "And they basically emerged in response",
+  "start": 362.089,
+  "end": 365.072,
+  "duration": 2.983,
+  "word_ids": [
+   859,
+   860,
+   861,
+   862,
+   863,
+   864
+  ]
+ },
+ {
+  "id": 146,
+  "text": "to the rise of Sunni Salafi fundamentalism",
+  "start": 365.433,
+  "end": 369.337,
+  "duration": 3.904,
+  "word_ids": [
+   865,
+   866,
+   867,
+   868,
+   869,
+   870,
+   871
+  ]
+ },
+ {
+  "id": 147,
+  "text": "within their own area in the far north of Yemen.",
+  "start": 369.578,
+  "end": 372.741,
+  "duration": 3.163,
+  "word_ids": [
+   872,
+   873,
+   874,
+   875,
+   876,
+   877,
+   878,
+   879,
+   880,
+   881
+  ]
+ },
+ {
+  "id": 148,
+  "text": "And so there have been",
+  "start": 373.422,
+  "end": 374.643,
+  "duration": 1.221,
+  "word_ids": [
+   882,
+   883,
+   884,
+   885,
+   886
+  ]
+ },
+ {
+  "id": 149,
+  "text": "conflicts and problems",
+  "start": 375.003,
+  "end": 376.844,
+  "duration": 1.841,
+  "word_ids": [
+   887,
+   888,
+   889
+  ]
+ },
+ {
+  "id": 150,
+  "text": "arising since the 1990s. Between 2004",
+  "start": 377.265,
+  "end": 380.587,
+  "duration": 3.322,
+  "word_ids": [
+   890,
+   891,
+   892,
+   893,
+   894,
+   895
+  ]
+ },
+ {
+  "id": 151,
+  "text": "and 2010,",
+  "start": 380.847,
+  "end": 383.188,
+  "duration": 2.341,
+  "word_ids": [
+   896,
+   897
+  ]
+ },
+ {
+  "id": 152,
+  "text": "there was a series of six wars",
+  "start": 383.469,
+  "end": 386.19,
+  "duration": 2.721,
+  "word_ids": [
+   898,
+   899,
+   900,
+   901,
+   902,
+   903,
+   904
+  ]
+ },
+ {
+  "id": 153,
+  "text": "between the Houthis",
+  "start": 386.35,
+  "end": 387.971,
+  "duration": 1.621,
+  "word_ids": [
+   905,
+   906,
+   907
+  ]
+ },
+ {
+  "id": 154,
+  "text": "facing and fighting the then",
+  "start": 388.071,
+  "end": 390.553,
+  "duration": 2.482,
+  "word_ids": [
+   908,
+   909,
+   910,
+   911,
+   912
+  ]
+ },
+ {
+  "id": 155,
+  "text": "regime of President Ali Abdullah Saleh.",
+  "start": 390.613,
+  "end": 393.175,
+  "duration": 2.562,
+  "word_ids": [
+   913,
+   914,
+   915,
+   916,
+   917,
+   918
+  ]
+ },
+ {
+  "id": 156,
+  "text": "And",
+  "start": 394.06,
+  "end": 394.28,
+  "duration": 0.22,
+  "word_ids": [
+   919
+  ]
+ },
+ {
+  "id": 157,
+  "text": "this ended basically,",
+  "start": 394.801,
+  "end": 396.803,
+  "duration": 2.002,
+  "word_ids": [
+   920,
+   921,
+   922
+  ]
+ },
+ {
+  "id": 158,
+  "text": "each one ended with a ceasefire,",
+  "start": 397.164,
+  "end": 398.976,
+  "duration": 1.812,
+  "word_ids": [
+   923,
+   924,
+   925,
+   926,
+   927,
+   928
+  ]
+ },
+ {
+  "id": 159,
+  "text": "which was promptly broken. The reason,",
+  "start": 398.936,
+  "end": 401.379,
+  "duration": 2.443,
+  "word_ids": [
+   929,
+   930,
+   931,
+   932,
+   933,
+   934
+  ]
+ },
+ {
+  "id": 160,
+  "text": "the last one in 2010 was not broken",
+  "start": 401.359,
+  "end": 403.692,
+  "duration": 2.333,
+  "word_ids": [
+   935,
+   936,
+   937,
+   938,
+   939,
+   940,
+   941,
+   942
+  ]
+ },
+ {
+  "id": 161,
+  "text": "as a result of the uprisings in 2011 of the, you know,",
+  "start": 404.212,
+  "end": 408.117,
+  "duration": 3.905,
+  "word_ids": [
+   943,
+   944,
+   945,
+   946,
+   947,
+   948,
+   949,
+   950,
+   951,
+   952,
+   953,
+   954
+  ]
+ },
+ {
+  "id": 162,
+  "text": "known as the Arab Spring in various places.",
+  "start": 408.297,
+  "end": 410.84,
+  "duration": 2.543,
+  "word_ids": [
+   955,
+   956,
+   957,
+   958,
+   959,
+   960,
+   961,
+   962
+  ]
+ },
+ {
+  "id": 163,
+  "text": "And",
+  "start": 411.681,
+  "end": 411.901,
+  "duration": 0.22,
+  "word_ids": [
+   963
+  ]
+ },
+ {
+  "id": 164,
+  "text": "that was a moment when the Houthis joined",
+  "start": 412.181,
+  "end": 414.883,
+  "duration": 2.702,
+  "word_ids": [
+   964,
+   965,
+   966,
+   967,
+   968,
+   969,
+   970,
+   971
+  ]
+ },
+ {
+  "id": 165,
+  "text": "with the revolutionaries",
+  "start": 415.284,
+  "end": 416.985,
+  "duration": 1.701,
+  "word_ids": [
+   972,
+   973,
+   974
+  ]
+ },
+ {
+  "id": 166,
+  "text": "and basically",
+  "start": 417.605,
+  "end": 419.226,
+  "duration": 1.621,
+  "word_ids": [
+   975,
+   976
+  ]
+ },
+ {
+  "id": 167,
+  "text": "took a position against, you know,",
+  "start": 419.527,
+  "end": 422.178,
+  "duration": 2.651,
+  "word_ids": [
+   977,
+   978,
+   979,
+   980,
+   981,
+   982
+  ]
+ },
+ {
+  "id": 168,
+  "text": "they continued their position against the regime.",
+  "start": 422.158,
+  "end": 424.73,
+  "duration": 2.572,
+  "word_ids": [
+   983,
+   984,
+   985,
+   986,
+   987,
+   988,
+   989
+  ]
+ },
+ {
+  "id": 169,
+  "text": "So they then were for, during what was",
+  "start": 425.451,
+  "end": 429.093,
+  "duration": 3.642,
+  "word_ids": [
+   990,
+   991,
+   992,
+   993,
+   994,
+   995,
+   996,
+   997
+  ]
+ },
+ {
+  "id": 170,
+  "text": "supposedly a transition",
+  "start": 429.393,
+  "end": 431.254,
+  "duration": 1.861,
+  "word_ids": [
+   998,
+   999,
+   1000
+  ]
+ },
+ {
+  "id": 171,
+  "text": "period between the Saleh regime and what",
+  "start": 431.235,
+  "end": 433.756,
+  "duration": 2.521,
+  "word_ids": [
+   1001,
+   1002,
+   1003,
+   1004,
+   1005,
+   1006,
+   1007
+  ]
+ },
+ {
+  "id": 172,
+  "text": "should have become a more democratic regime,",
+  "start": 433.756,
+  "end": 436.238,
+  "duration": 2.482,
+  "word_ids": [
+   1008,
+   1009,
+   1010,
+   1011,
+   1012,
+   1013,
+   1014
+  ]
+ },
+ {
+  "id": 173,
+  "text": "in 2014,",
+  "start": 436.678,
+  "end": 438.018,
+  "duration": 1.34,
+  "word_ids": [
+   1015,
+   1016
+  ]
+ },
+ {
+  "id": 174,
+  "text": "the Houthis then changed their alliances,",
+  "start": 438.439,
+  "end": 441.379,
+  "duration": 2.94,
+  "word_ids": [
+   1017,
+   1018,
+   1019,
+   1020,
+   1021,
+   1022
+  ]
+ },
+ {
+  "id": 175,
+  "text": "and indeed Saleh changed his alliance,",
+  "start": 441.58,
+  "end": 443.63,
+  "duration": 2.05,
+  "word_ids": [
+   1023,
+   1024,
+   1025,
+   1026,
+   1027,
+   1028
+  ]
+ },
+ {
+  "id": 176,
+  "text": "so they operated together against",
+  "start": 443.59,
+  "end": 446.941,
+  "duration": 3.351,
+  "word_ids": [
+   1029,
+   1030,
+   1031,
+   1032,
+   1033
+  ]
+ },
+ {
+  "id": 177,
+  "text": "the transitional government.",
+  "start": 447.041,
+  "end": 448.762,
+  "duration": 1.721,
+  "word_ids": [
+   1034,
+   1035,
+   1036
+  ]
+ },
+ {
+  "id": 178,
+  "text": "And",
+  "start": 449.382,
+  "end": 449.862,
+  "duration": 0.48,
+  "word_ids": [
+   1037
+  ]
+ },
+ {
+  "id": 179,
+  "text": "then eventually that allowed them to take over the capital,",
+  "start": 450.182,
+  "end": 454.163,
+  "duration": 3.981,
+  "word_ids": [
+   1038,
+   1039,
+   1040,
+   1041,
+   1042,
+   1043,
+   1044,
+   1045,
+   1046,
+   1047
+  ]
+ },
+ {
+  "id": 180,
+  "text": "Sana'a, in 2014,",
+  "start": 454.143,
+  "end": 456.084,
+  "duration": 1.941,
+  "word_ids": [
+   1048,
+   1049,
+   1050
+  ]
+ },
+ {
+  "id": 181,
+  "text": "and then to oust",
+  "start": 456.704,
+  "end": 458.024,
+  "duration": 1.32,
+  "word_ids": [
+   1051,
+   1052,
+   1053,
+   1054
+  ]
+ },
+ {
+  "id": 182,
+  "text": "the existing",
+  "start": 458.184,
+  "end": 459.305,
+  "duration": 1.121,
+  "word_ids": [
+   1055,
+   1056
+  ]
+ },
+ {
+  "id": 183,
+  "text": "transitional government in early 2015.",
+  "start": 460.445,
+  "end": 463.867,
+  "duration": 3.422,
+  "word_ids": [
+   1057,
+   1058,
+   1059,
+   1060,
+   1061
+  ]
+ },
+ {
+  "id": 184,
+  "text": "And that's when really the war started,",
+  "start": 464.267,
+  "end": 467.328,
+  "duration": 3.061,
+  "word_ids": [
+   1062,
+   1063,
+   1064,
+   1065,
+   1066,
+   1067,
+   1068
+  ]
+ },
+ {
+  "id": 185,
+  "text": "which was then internationalized for March 2015",
+  "start": 467.348,
+  "end": 470.73,
+  "duration": 3.382,
+  "word_ids": [
+   1069,
+   1070,
+   1071,
+   1072,
+   1073,
+   1074,
+   1075
+  ]
+ },
+ {
+  "id": 186,
+  "text": "with the intervention of what was known as the Saudi-led coalition,",
+  "start": 471.03,
+  "end": 474.661,
+  "duration": 3.631,
+  "word_ids": [
+   1076,
+   1077,
+   1078,
+   1079,
+   1080,
+   1081,
+   1082,
+   1083,
+   1084,
+   1085,
+   1086
+  ]
+ },
+ {
+  "id": 187,
+  "text": "which was basically a coalition",
+  "start": 474.621,
+  "end": 476.632,
+  "duration": 2.011,
+  "word_ids": [
+   1087,
+   1088,
+   1089,
+   1090,
+   1091
+  ]
+ },
+ {
+  "id": 188,
+  "text": "led by the Saudis",
+  "start": 476.892,
+  "end": 478.393,
+  "duration": 1.501,
+  "word_ids": [
+   1092,
+   1093,
+   1094,
+   1095
+  ]
+ },
+ {
+  "id": 189,
+  "text": "and the Emiratis with a few other states with minor roles,",
+  "start": 478.413,
+  "end": 481.915,
+  "duration": 3.502,
+  "word_ids": [
+   1096,
+   1097,
+   1098,
+   1099,
+   1100,
+   1101,
+   1102,
+   1103,
+   1104,
+   1105,
+   1106
+  ]
+ },
+ {
+  "id": 190,
+  "text": "but supported",
+  "start": 482.235,
+  "end": 483.335,
+  "duration": 1.1,
+  "word_ids": [
+   1107,
+   1108
+  ]
+ },
+ {
+  "id": 191,
+  "text": "actively by the US, the",
+  "start": 483.555,
+  "end": 485.696,
+  "duration": 2.141,
+  "word_ids": [
+   1109,
+   1110,
+   1111,
+   1112,
+   1113
+  ]
+ },
+ {
+  "id": 192,
+  "text": "Europeans and the British and others.",
+  "start": 487.057,
+  "end": 489.298,
+  "duration": 2.241,
+  "word_ids": [
+   1114,
+   1115,
+   1116,
+   1117,
+   1118,
+   1119
+  ]
+ },
+ {
+  "id": 193,
+  "text": "And what was the point at which—sorry, just to clarify,",
+  "start": 490.138,
+  "end": 493.53,
+  "duration": 3.392,
+  "word_ids": [
+   1120,
+   1121,
+   1122,
+   1123,
+   1124,
+   1125,
+   1126,
+   1127,
+   1128,
+   1129
+  ]
+ },
+ {
+  "id": 194,
+  "text": "what was the point at which the Iranians",
+  "start": 493.51,
+  "end": 496.041,
+  "duration": 2.531,
+  "word_ids": [
+   1130,
+   1131,
+   1132,
+   1133,
+   1134,
+   1135,
+   1136,
+   1137
+  ]
+ },
+ {
+  "id": 195,
+  "text": "started backing the Houthis?",
+  "start": 496.601,
+  "end": 498.242,
+  "duration": 1.641,
+  "word_ids": [
+   1138,
+   1139,
+   1140,
+   1141
+  ]
+ },
+ {
+  "id": 196,
+  "text": "Was it in the moment",
+  "start": 498.202,
+  "end": 499.442,
+  "duration": 1.24,
+  "word_ids": [
+   1142,
+   1143,
+   1144,
+   1145,
+   1146
+  ]
+ },
+ {
+  "id": 197,
+  "text": "when",
+  "start": 500.183,
+  "end": 500.583,
+  "duration": 0.4,
+  "word_ids": [
+   1147
+  ]
+ },
+ {
+  "id": 198,
+  "text": "the Saudi",
+  "start": 501.003,
+  "end": 501.843,
+  "duration": 0.84,
+  "word_ids": [
+   1148,
+   1149
+  ]
+ },
+ {
+  "id": 199,
+  "text": "lead bombing began in",
+  "start": 502.244,
+  "end": 503.564,
+  "duration": 1.32,
+  "word_ids": [
+   1150,
+   1151,
+   1152,
+   1153
+  ]
+ },
+ {
+  "id": 200,
+  "text": "2015,",
+  "start": 504.405,
+  "end": 505.145,
+  "duration": 0.74,
+  "word_ids": [
+   1154
+  ]
+ },
+ {
+  "id": 201,
+  "text": "or was it prior to that?",
+  "start": 505.425,
+  "end": 506.796,
+  "duration": 1.371,
+  "word_ids": [
+   1155,
+   1156,
+   1157,
+   1158,
+   1159,
+   1160
+  ]
+ },
+ {
+  "id": 202,
+  "text": "And if you could also clarify",
+  "start": 506.776,
+  "end": 508.266,
+  "duration": 1.49,
+  "word_ids": [
+   1161,
+   1162,
+   1163,
+   1164,
+   1165,
+   1166
+  ]
+ },
+ {
+  "id": 203,
+  "text": "the distinction between, as you said, the Yemenis are",
+  "start": 508.587,
+  "end": 511.548,
+  "duration": 2.961,
+  "word_ids": [
+   1167,
+   1168,
+   1169,
+   1170,
+   1171,
+   1172,
+   1173,
+   1174,
+   1175
+  ]
+ },
+ {
+  "id": 204,
+  "text": "Zaidi Shias",
+  "start": 512.108,
+  "end": 513.449,
+  "duration": 1.341,
+  "word_ids": [
+   1176,
+   1177
+  ]
+ },
+ {
+  "id": 205,
+  "text": "And to what extent Zaidis",
+  "start": 513.949,
+  "end": 515.79,
+  "duration": 1.841,
+  "word_ids": [
+   1178,
+   1179,
+   1180,
+   1181,
+   1182
+  ]
+ },
+ {
+  "id": 206,
+  "text": "are ideologically or theologically aligned",
+  "start": 515.931,
+  "end": 518.833,
+  "duration": 2.902,
+  "word_ids": [
+   1183,
+   1184,
+   1185,
+   1186,
+   1187
+  ]
+ },
+ {
+  "id": 207,
+  "text": "with the dominant form of",
+  "start": 519.593,
+  "end": 521.295,
+  "duration": 1.702,
+  "word_ids": [
+   1188,
+   1189,
+   1190,
+   1191,
+   1192
+  ]
+ },
+ {
+  "id": 208,
+  "text": "Shi'ism in Iran,",
+  "start": 521.495,
+  "end": 522.776,
+  "duration": 1.281,
+  "word_ids": [
+   1193,
+   1194,
+   1195
+  ]
+ },
+ {
+  "id": 209,
+  "text": "and what that has to do with Iran's",
+  "start": 523.576,
+  "end": 525.358,
+  "duration": 1.782,
+  "word_ids": [
+   1196,
+   1197,
+   1198,
+   1199,
+   1200,
+   1201,
+   1202,
+   1203
+  ]
+ },
+ {
+  "id": 210,
+  "text": "complicity or support for Houthis,",
+  "start": 525.938,
+  "end": 528.57,
+  "duration": 2.632,
+  "word_ids": [
+   1204,
+   1205,
+   1206,
+   1207,
+   1208
+  ]
+ },
+ {
+  "id": 211,
+  "text": "whether or not now they do as Iran says?",
+  "start": 528.55,
+  "end": 531.362,
+  "duration": 2.812,
+  "word_ids": [
+   1209,
+   1210,
+   1211,
+   1212,
+   1213,
+   1214,
+   1215,
+   1216,
+   1217
+  ]
+ },
+ {
+  "id": 212,
+  "text": "Yeah, thank you for",
+  "start": 533.035,
+  "end": 534.196,
+  "duration": 1.161,
+  "word_ids": [
+   1218,
+   1219,
+   1220,
+   1221
+  ]
+ },
+ {
+  "id": 213,
+  "text": "bringing up these points.",
+  "start": 534.556,
+  "end": 535.796,
+  "duration": 1.24,
+  "word_ids": [
+   1222,
+   1223,
+   1224,
+   1225
+  ]
+ },
+ {
+  "id": 214,
+  "text": "The Iranian role at the time",
+  "start": 536.157,
+  "end": 538.538,
+  "duration": 2.381,
+  "word_ids": [
+   1226,
+   1227,
+   1228,
+   1229,
+   1230,
+   1231
+  ]
+ },
+ {
+  "id": 215,
+  "text": "in 2015,",
+  "start": 538.918,
+  "end": 540.299,
+  "duration": 1.381,
+  "word_ids": [
+   1232,
+   1233
+  ]
+ },
+ {
+  "id": 216,
+  "text": "when we're in the internationalized",
+  "start": 540.279,
+  "end": 542.079,
+  "duration": 1.8,
+  "word_ids": [
+   1234,
+   1235,
+   1236,
+   1237,
+   1238
+  ]
+ },
+ {
+  "id": 217,
+  "text": "civil war started, was minimal.",
+  "start": 542.38,
+  "end": 544.881,
+  "duration": 2.501,
+  "word_ids": [
+   1239,
+   1240,
+   1241,
+   1242,
+   1243
+  ]
+ },
+ {
+  "id": 218,
+  "text": "The Iranian involvement with the Houthis",
+  "start": 545.301,
+  "end": 548.162,
+  "duration": 2.861,
+  "word_ids": [
+   1244,
+   1245,
+   1246,
+   1247,
+   1248,
+   1249
+  ]
+ },
+ {
+  "id": 219,
+  "text": "and prior to that and since then",
+  "start": 548.262,
+  "end": 550.664,
+  "duration": 2.402,
+  "word_ids": [
+   1250,
+   1251,
+   1252,
+   1253,
+   1254,
+   1255,
+   1256
+  ]
+ },
+ {
+  "id": 220,
+  "text": "has always been connected with",
+  "start": 551.004,
+  "end": 553.245,
+  "duration": 2.241,
+  "word_ids": [
+   1257,
+   1258,
+   1259,
+   1260,
+   1261
+  ]
+ },
+ {
+  "id": 221,
+  "text": "partly theological connections, but differences.",
+  "start": 553.765,
+  "end": 557.506,
+  "duration": 3.741,
+  "word_ids": [
+   1262,
+   1263,
+   1264,
+   1265,
+   1266
+  ]
+ },
+ {
+  "id": 222,
+  "text": "So in that sense,",
+  "start": 557.786,
+  "end": 558.847,
+  "duration": 1.061,
+  "word_ids": [
+   1267,
+   1268,
+   1269,
+   1270
+  ]
+ },
+ {
+  "id": 223,
+  "text": "the Houthis are",
+  "start": 558.807,
+  "end": 560.888,
+  "duration": 2.081,
+  "word_ids": [
+   1271,
+   1272,
+   1273
+  ]
+ },
+ {
+  "id": 224,
+  "text": "differentiating themselves",
+  "start": 561.228,
+  "end": 563.288,
+  "duration": 2.06,
+  "word_ids": [
+   1274,
+   1275
+  ]
+ },
+ {
+  "id": 225,
+  "text": "from other Zaydis by having adopted a number",
+  "start": 563.729,
+  "end": 566.83,
+  "duration": 3.101,
+  "word_ids": [
+   1276,
+   1277,
+   1278,
+   1279,
+   1280,
+   1281,
+   1282,
+   1283
+  ]
+ },
+ {
+  "id": 226,
+  "text": "of the rituals and activities and approaches",
+  "start": 566.85,
+  "end": 570.211,
+  "duration": 3.361,
+  "word_ids": [
+   1284,
+   1285,
+   1286,
+   1287,
+   1288,
+   1289,
+   1290
+  ]
+ },
+ {
+  "id": 227,
+  "text": "of the Iranian",
+  "start": 570.411,
+  "end": 571.851,
+  "duration": 1.44,
+  "word_ids": [
+   1291,
+   1292,
+   1293
+  ]
+ },
+ {
+  "id": 228,
+  "text": "Twelvers.",
+  "start": 572.352,
+  "end": 573.012,
+  "duration": 0.66,
+  "word_ids": [
+   1294
+  ]
+ },
+ {
+  "id": 229,
+  "text": "It's all a matter of how many Imams they trust",
+  "start": 573.612,
+  "end": 576.413,
+  "duration": 2.801,
+  "word_ids": [
+   1295,
+   1296,
+   1297,
+   1298,
+   1299,
+   1300,
+   1301,
+   1302,
+   1303,
+   1304
+  ]
+ },
+ {
+  "id": 230,
+  "text": "or they believe in after",
+  "start": 576.693,
+  "end": 578.373,
+  "duration": 1.68,
+  "word_ids": [
+   1305,
+   1306,
+   1307,
+   1308,
+   1309
+  ]
+ },
+ {
+  "id": 231,
+  "text": "the Prophet Muhammad.",
+  "start": 578.793,
+  "end": 580.174,
+  "duration": 1.381,
+  "word_ids": [
+   1310,
+   1311,
+   1312
+  ]
+ },
+ {
+  "id": 232,
+  "text": "But in practice,",
+  "start": 580.534,
+  "end": 581.714,
+  "duration": 1.18,
+  "word_ids": [
+   1313,
+   1314,
+   1315
+  ]
+ },
+ {
+  "id": 233,
+  "text": "the Houthis are",
+  "start": 582.474,
+  "end": 583.854,
+  "duration": 1.38,
+  "word_ids": [
+   1316,
+   1317,
+   1318
+  ]
+ },
+ {
+  "id": 234,
+  "text": "getting closer",
+  "start": 584.074,
+  "end": 586.355,
+  "duration": 2.281,
+  "word_ids": [
+   1319,
+   1320
+  ]
+ },
+ {
+  "id": 235,
+  "text": "to the Iranian Shi'ism",
+  "start": 587.175,
+  "end": 588.735,
+  "duration": 1.56,
+  "word_ids": [
+   1321,
+   1322,
+   1323,
+   1324
+  ]
+ },
+ {
+  "id": 236,
+  "text": "over the last decades.",
+  "start": 589.296,
+  "end": 590.796,
+  "duration": 1.5,
+  "word_ids": [
+   1325,
+   1326,
+   1327,
+   1328
+  ]
+ },
+ {
+  "id": 237,
+  "text": "But they are still—sorry,",
+  "start": 591.116,
+  "end": 592.306,
+  "duration": 1.19,
+  "word_ids": [
+   1329,
+   1330,
+   1331,
+   1332
+  ]
+ },
+ {
+  "id": 238,
+  "text": "the last decade—but they're still, you know, quite distinct.",
+  "start": 592.286,
+  "end": 596.057,
+  "duration": 3.771,
+  "word_ids": [
+   1333,
+   1334,
+   1335,
+   1336,
+   1337,
+   1338,
+   1339,
+   1340,
+   1341
+  ]
+ },
+ {
+  "id": 239,
+  "text": "So the alliance is much more a political alliance.",
+  "start": 596.457,
+  "end": 599.378,
+  "duration": 2.921,
+  "word_ids": [
+   1342,
+   1343,
+   1344,
+   1345,
+   1346,
+   1347,
+   1348,
+   1349,
+   1350
+  ]
+ },
+ {
+  "id": 240,
+  "text": "And the Iranian involvement,",
+  "start": 599.938,
+  "end": 601.809,
+  "duration": 1.871,
+  "word_ids": [
+   1351,
+   1352,
+   1353,
+   1354
+  ]
+ },
+ {
+  "id": 241,
+  "text": "which was really very,",
+  "start": 601.769,
+  "end": 603.259,
+  "duration": 1.49,
+  "word_ids": [
+   1355,
+   1356,
+   1357,
+   1358
+  ]
+ },
+ {
+  "id": 242,
+  "text": "very insignificant at the beginning of this war,",
+  "start": 603.219,
+  "end": 606.4,
+  "duration": 3.181,
+  "word_ids": [
+   1359,
+   1360,
+   1361,
+   1362,
+   1363,
+   1364,
+   1365,
+   1366
+  ]
+ },
+ {
+  "id": 243,
+  "text": "has increased over time",
+  "start": 606.661,
+  "end": 608.481,
+  "duration": 1.82,
+  "word_ids": [
+   1367,
+   1368,
+   1369,
+   1370
+  ]
+ },
+ {
+  "id": 244,
+  "text": "and",
+  "start": 609.001,
+  "end": 609.201,
+  "duration": 0.2,
+  "word_ids": [
+   1371
+  ]
+ },
+ {
+  "id": 245,
+  "text": "is primarily, you know, has been",
+  "start": 609.642,
+  "end": 611.582,
+  "duration": 1.94,
+  "word_ids": [
+   1372,
+   1373,
+   1374,
+   1375,
+   1376,
+   1377
+  ]
+ },
+ {
+  "id": 246,
+  "text": "for a while mainly financial and",
+  "start": 611.822,
+  "end": 614.463,
+  "duration": 2.641,
+  "word_ids": [
+   1378,
+   1379,
+   1380,
+   1381,
+   1382,
+   1383
+  ]
+ },
+ {
+  "id": 247,
+  "text": "providing fuel and things like that to the Houthis,",
+  "start": 615.084,
+  "end": 618.835,
+  "duration": 3.751,
+  "word_ids": [
+   1384,
+   1385,
+   1386,
+   1387,
+   1388,
+   1389,
+   1390,
+   1391,
+   1392
+  ]
+ },
+ {
+  "id": 248,
+  "text": "but more recently",
+  "start": 618.795,
+  "end": 619.965,
+  "duration": 1.17,
+  "word_ids": [
+   1393,
+   1394,
+   1395
+  ]
+ },
+ {
+  "id": 249,
+  "text": "has been much more focused on military activities and primarily",
+  "start": 619.945,
+  "end": 623.907,
+  "duration": 3.962,
+  "word_ids": [
+   1396,
+   1397,
+   1398,
+   1399,
+   1400,
+   1401,
+   1402,
+   1403,
+   1404,
+   1405
+  ]
+ },
+ {
+  "id": 250,
+  "text": "on the supply of advanced technology.",
+  "start": 624.347,
+  "end": 626.549,
+  "duration": 2.202,
+  "word_ids": [
+   1406,
+   1407,
+   1408,
+   1409,
+   1410,
+   1411
+  ]
+ },
+ {
+  "id": 251,
+  "text": "If you look at the Houthi weaponry—and I'm no military",
+  "start": 627.05,
+  "end": 630.613,
+  "duration": 3.563,
+  "word_ids": [
+   1412,
+   1413,
+   1414,
+   1415,
+   1416,
+   1417,
+   1418,
+   1419,
+   1420,
+   1421
+  ]
+ },
+ {
+  "id": 252,
+  "text": "expert—but the Houthi weaponry originally was basically",
+  "start": 630.613,
+  "end": 634.417,
+  "duration": 3.804,
+  "word_ids": [
+   1422,
+   1423,
+   1424,
+   1425,
+   1426,
+   1427,
+   1428
+  ]
+ },
+ {
+  "id": 253,
+  "text": "a lot of",
+  "start": 634.417,
+  "end": 634.997,
+  "duration": 0.58,
+  "word_ids": [
+   1429,
+   1430,
+   1431
+  ]
+ },
+ {
+  "id": 254,
+  "text": "scuds and other Russian-supplied materials",
+  "start": 635.618,
+  "end": 638.461,
+  "duration": 2.843,
+  "word_ids": [
+   1432,
+   1433,
+   1434,
+   1435,
+   1436
+  ]
+ },
+ {
+  "id": 255,
+  "text": "and also some American-supplied materials to the Salih regime.",
+  "start": 638.841,
+  "end": 642.525,
+  "duration": 3.684,
+  "word_ids": [
+   1437,
+   1438,
+   1439,
+   1440,
+   1441,
+   1442,
+   1443,
+   1444,
+   1445
+  ]
+ },
+ {
+  "id": 256,
+  "text": "And these have been upgraded and improved and changed.",
+  "start": 643.065,
+  "end": 646.308,
+  "duration": 3.243,
+  "word_ids": [
+   1446,
+   1447,
+   1448,
+   1449,
+   1450,
+   1451,
+   1452,
+   1453,
+   1454
+  ]
+ },
+ {
+  "id": 257,
+  "text": "to some extent, thanks to",
+  "start": 647.149,
+  "end": 648.951,
+  "duration": 1.802,
+  "word_ids": [
+   1455,
+   1456,
+   1457,
+   1458,
+   1459
+  ]
+ },
+ {
+  "id": 258,
+  "text": "Iranian support.",
+  "start": 650.934,
+  "end": 652.095,
+  "duration": 1.161,
+  "word_ids": [
+   1460,
+   1461
+  ]
+ },
+ {
+  "id": 259,
+  "text": "So in that sense, you have more",
+  "start": 652.535,
+  "end": 654.537,
+  "duration": 2.002,
+  "word_ids": [
+   1462,
+   1463,
+   1464,
+   1465,
+   1466,
+   1467,
+   1468
+  ]
+ },
+ {
+  "id": 260,
+  "text": "The Iranian involvement has become greater.",
+  "start": 655.51,
+  "end": 658.391,
+  "duration": 2.881,
+  "word_ids": [
+   1469,
+   1470,
+   1471,
+   1472,
+   1473,
+   1474
+  ]
+ },
+ {
+  "id": 261,
+  "text": "But it's very important to note that",
+  "start": 658.812,
+  "end": 661.753,
+  "duration": 2.941,
+  "word_ids": [
+   1475,
+   1476,
+   1477,
+   1478,
+   1479,
+   1480,
+   1481
+  ]
+ },
+ {
+  "id": 262,
+  "text": "the Houthis are an independent movement.",
+  "start": 662.113,
+  "end": 664.784,
+  "duration": 2.671,
+  "word_ids": [
+   1482,
+   1483,
+   1484,
+   1485,
+   1486,
+   1487
+  ]
+ },
+ {
+  "id": 263,
+  "text": "The Houthis are not",
+  "start": 664.764,
+  "end": 666.095,
+  "duration": 1.331,
+  "word_ids": [
+   1488,
+   1489,
+   1490,
+   1491
+  ]
+ },
+ {
+  "id": 264,
+  "text": "Iranian proxies. They are not",
+  "start": 666.295,
+  "end": 668.116,
+  "duration": 1.821,
+  "word_ids": [
+   1492,
+   1493,
+   1494,
+   1495,
+   1496
+  ]
+ },
+ {
+  "id": 265,
+  "text": "Iranian servants.",
+  "start": 668.596,
+  "end": 669.836,
+  "duration": 1.24,
+  "word_ids": [
+   1497,
+   1498
+  ]
+ },
+ {
+  "id": 266,
+  "text": "They don't do what the Iranians tell them to do.",
+  "start": 669.797,
+  "end": 672.438,
+  "duration": 2.641,
+  "word_ids": [
+   1499,
+   1500,
+   1501,
+   1502,
+   1503,
+   1504,
+   1505,
+   1506,
+   1507,
+   1508
+  ]
+ },
+ {
+  "id": 267,
+  "text": "They make their own decisions.",
+  "start": 672.698,
+  "end": 674.299,
+  "duration": 1.601,
+  "word_ids": [
+   1509,
+   1510,
+   1511,
+   1512,
+   1513
+  ]
+ },
+ {
+  "id": 268,
+  "text": "If their decisions and their policies",
+  "start": 674.679,
+  "end": 677.08,
+  "duration": 2.401,
+  "word_ids": [
+   1514,
+   1515,
+   1516,
+   1517,
+   1518,
+   1519
+  ]
+ },
+ {
+  "id": 269,
+  "text": "coincide with those of Iran, then, you know,",
+  "start": 677.18,
+  "end": 680.271,
+  "duration": 3.091,
+  "word_ids": [
+   1520,
+   1521,
+   1522,
+   1523,
+   1524,
+   1525,
+   1526,
+   1527
+  ]
+ },
+ {
+  "id": 270,
+  "text": "there's no issue. But if they don't, they don't do it.",
+  "start": 680.231,
+  "end": 683.663,
+  "duration": 3.432,
+  "word_ids": [
+   1528,
+   1529,
+   1530,
+   1531,
+   1532,
+   1533,
+   1534,
+   1535,
+   1536,
+   1537,
+   1538
+  ]
+ },
+ {
+  "id": 271,
+  "text": "So,",
+  "start": 684.203,
+  "end": 684.453,
+  "duration": 0.25,
+  "word_ids": [
+   1539
+  ]
+ },
+ {
+  "id": 272,
+  "text": "it's very important, I think,",
+  "start": 684.433,
+  "end": 686.284,
+  "duration": 1.851,
+  "word_ids": [
+   1540,
+   1541,
+   1542,
+   1543,
+   1544
+  ]
+ },
+ {
+  "id": 273,
+  "text": "to destroy this myth of, you know,",
+  "start": 686.244,
+  "end": 688.665,
+  "duration": 2.421,
+  "word_ids": [
+   1545,
+   1546,
+   1547,
+   1548,
+   1549,
+   1550,
+   1551
+  ]
+ },
+ {
+  "id": 274,
+  "text": "Iran-backed Houthis in a single word, as if",
+  "start": 688.665,
+  "end": 691.866,
+  "duration": 3.201,
+  "word_ids": [
+   1552,
+   1553,
+   1554,
+   1555,
+   1556,
+   1557,
+   1558,
+   1559
+  ]
+ },
+ {
+  "id": 275,
+  "text": "it's kind of",
+  "start": 692.347,
+  "end": 692.947,
+  "duration": 0.6,
+  "word_ids": [
+   1560,
+   1561,
+   1562
+  ]
+ },
+ {
+  "id": 276,
+  "text": "a conglomerate.",
+  "start": 693.127,
+  "end": 694.708,
+  "duration": 1.581,
+  "word_ids": [
+   1563,
+   1564
+  ]
+ },
+ {
+  "id": 277,
+  "text": "That is not the case.",
+  "start": 694.728,
+  "end": 697.079,
+  "duration": 2.351,
+  "word_ids": [
+   1565,
+   1566,
+   1567,
+   1568,
+   1569
+  ]
+ },
+ {
+  "id": 278,
+  "text": "I hope that briefly answered your point. AMY GOODMAN Yes.",
+  "start": 697.059,
+  "end": 699.5,
+  "duration": 2.441,
+  "word_ids": [
+   1570,
+   1571,
+   1572,
+   1573,
+   1574,
+   1575,
+   1576,
+   1577,
+   1578,
+   1579
+  ]
+ },
+ {
+  "id": 279,
+  "text": "And we don't have much time,",
+  "start": 699.46,
+  "end": 700.6,
+  "duration": 1.14,
+  "word_ids": [
+   1580,
+   1581,
+   1582,
+   1583,
+   1584,
+   1585
+  ]
+ },
+ {
+  "id": 280,
+  "text": "but I did want to ask you about the Houthi support in Yemen,",
+  "start": 700.58,
+  "end": 704.352,
+  "duration": 3.772,
+  "word_ids": [
+   1586,
+   1587,
+   1588,
+   1589,
+   1590,
+   1591,
+   1592,
+   1593,
+   1594,
+   1595,
+   1596,
+   1597,
+   1598
+  ]
+ },
+ {
+  "id": 281,
+  "text": "whether it's increased,",
+  "start": 704.352,
+  "end": 705.652,
+  "duration": 1.3,
+  "word_ids": [
+   1599,
+   1600,
+   1601
+  ]
+ },
+ {
+  "id": 282,
+  "text": "and the",
+  "start": 706.313,
+  "end": 707.173,
+  "duration": 0.86,
+  "word_ids": [
+   1602,
+   1603
+  ]
+ },
+ {
+  "id": 283,
+  "text": "Houthi human rights record.",
+  "start": 707.373,
+  "end": 709.134,
+  "duration": 1.761,
+  "word_ids": [
+   1604,
+   1605,
+   1606,
+   1607
+  ]
+ },
+ {
+  "id": 284,
+  "text": "Yeah, great. Well, yeah, as you said,",
+  "start": 710.101,
+  "end": 712.302,
+  "duration": 2.201,
+  "word_ids": [
+   1608,
+   1609,
+   1610,
+   1611,
+   1612,
+   1613,
+   1614
+  ]
+ },
+ {
+  "id": 285,
+  "text": "we haven't got much time. Basically,",
+  "start": 712.302,
+  "end": 714.444,
+  "duration": 2.142,
+  "word_ids": [
+   1615,
+   1616,
+   1617,
+   1618,
+   1619,
+   1620
+  ]
+ },
+ {
+  "id": 286,
+  "text": "the support for the Houthis in Yemen has increased,",
+  "start": 714.584,
+  "end": 717.946,
+  "duration": 3.362,
+  "word_ids": [
+   1621,
+   1622,
+   1623,
+   1624,
+   1625,
+   1626,
+   1627,
+   1628,
+   1629
+  ]
+ },
+ {
+  "id": 287,
+  "text": "has multiplied.",
+  "start": 719.047,
+  "end": 720.178,
+  "duration": 1.131,
+  "word_ids": [
+   1630,
+   1631
+  ]
+ },
+ {
+  "id": 288,
+  "text": "I can't even",
+  "start": 720.158,
+  "end": 721.248,
+  "duration": 1.09,
+  "word_ids": [
+   1632,
+   1633,
+   1634
+  ]
+ },
+ {
+  "id": 289,
+  "text": "imagine,",
+  "start": 721.669,
+  "end": 722.229,
+  "duration": 0.56,
+  "word_ids": [
+   1635
+  ]
+ },
+ {
+  "id": 290,
+  "text": "find a suitable terminology to say it. The Houthis, you know,",
+  "start": 722.789,
+  "end": 726.742,
+  "duration": 3.953,
+  "word_ids": [
+   1636,
+   1637,
+   1638,
+   1639,
+   1640,
+   1641,
+   1642,
+   1643,
+   1644,
+   1645,
+   1646
+  ]
+ },
+ {
+  "id": 291,
+  "text": "who run an extremely authoritarian and autocratic regime,",
+  "start": 726.722,
+  "end": 730.725,
+  "duration": 4.003,
+  "word_ids": [
+   1647,
+   1648,
+   1649,
+   1650,
+   1651,
+   1652,
+   1653,
+   1654
+  ]
+ },
+ {
+  "id": 292,
+  "text": "which is not a pleasant regime for people to live under,",
+  "start": 730.685,
+  "end": 733.557,
+  "duration": 2.872,
+  "word_ids": [
+   1655,
+   1656,
+   1657,
+   1658,
+   1659,
+   1660,
+   1661,
+   1662,
+   1663,
+   1664,
+   1665
+  ]
+ },
+ {
+  "id": 293,
+  "text": "And we're",
+  "start": 734.617,
+  "end": 735.258,
+  "duration": 0.641,
+  "word_ids": [
+   1666,
+   1667
+  ]
+ },
+ {
+  "id": 294,
+  "text": "lacking support.",
+  "start": 735.938,
+  "end": 737.019,
+  "duration": 1.081,
+  "word_ids": [
+   1668,
+   1669
+  ]
+ },
+ {
+  "id": 295,
+  "text": "And you have to remember that the Houthis",
+  "start": 737.039,
+  "end": 738.96,
+  "duration": 1.921,
+  "word_ids": [
+   1670,
+   1671,
+   1672,
+   1673,
+   1674,
+   1675,
+   1676,
+   1677
+  ]
+ },
+ {
+  "id": 296,
+  "text": "actually rule and run the lives of",
+  "start": 739.02,
+  "end": 741.441,
+  "duration": 2.421,
+  "word_ids": [
+   1678,
+   1679,
+   1680,
+   1681,
+   1682,
+   1683,
+   1684
+  ]
+ },
+ {
+  "id": 297,
+  "text": "two-thirds of the population of Yemen.",
+  "start": 741.882,
+  "end": 744.243,
+  "duration": 2.361,
+  "word_ids": [
+   1685,
+   1686,
+   1687,
+   1688,
+   1689,
+   1690
+  ]
+ },
+ {
+  "id": 298,
+  "text": "So about 20 million people live under Houthi rule.",
+  "start": 744.203,
+  "end": 747.605,
+  "duration": 3.402,
+  "word_ids": [
+   1691,
+   1692,
+   1693,
+   1694,
+   1695,
+   1696,
+   1697,
+   1698,
+   1699
+  ]
+ },
+ {
+  "id": 299,
+  "text": "And it's not an",
+  "start": 748.086,
+  "end": 748.846,
+  "duration": 0.76,
+  "word_ids": [
+   1700,
+   1701,
+   1702,
+   1703
+  ]
+ },
+ {
+  "id": 300,
+  "text": "unpleasant place to be.",
+  "start": 749.166,
+  "end": 750.497,
+  "duration": 1.331,
+  "word_ids": [
+   1704,
+   1705,
+   1706,
+   1707
+  ]
+ },
+ {
+  "id": 301,
+  "text": "There's no freedom of expression. Women are oppressed.",
+  "start": 750.477,
+  "end": 754.289,
+  "duration": 3.812,
+  "word_ids": [
+   1708,
+   1709,
+   1710,
+   1711,
+   1712,
+   1713,
+   1714,
+   1715
+  ]
+ },
+ {
+  "id": 302,
+  "text": "All kinds of negative features",
+  "start": 754.269,
+  "end": 756.231,
+  "duration": 1.962,
+  "word_ids": [
+   1716,
+   1717,
+   1718,
+   1719,
+   1720
+  ]
+ },
+ {
+  "id": 303,
+  "text": "connected with Houthi rule.",
+  "start": 756.511,
+  "end": 758.072,
+  "duration": 1.561,
+  "word_ids": [
+   1721,
+   1722,
+   1723,
+   1724
+  ]
+ },
+ {
+  "id": 304,
+  "text": "But the Yemeni population are extremely supportive",
+  "start": 758.312,
+  "end": 762.354,
+  "duration": 4.042,
+  "word_ids": [
+   1725,
+   1726,
+   1727,
+   1728,
+   1729,
+   1730,
+   1731
+  ]
+ },
+ {
+  "id": 305,
+  "text": "of...",
+  "start": 762.595,
+  "end": 762.835,
+  "duration": 0.24,
+  "word_ids": [
+   1732
+  ]
+ },
+ {
+  "id": 306,
+  "text": "And therefore,",
+  "start": 763.755,
+  "end": 765.246,
+  "duration": 1.491,
+  "word_ids": [
+   1733,
+   1734
+  ]
+ },
+ {
+  "id": 307,
+  "text": "this action of the Houthis has, you know,",
+  "start": 765.206,
+  "end": 768.418,
+  "duration": 3.212,
+  "word_ids": [
+   1735,
+   1736,
+   1737,
+   1738,
+   1739,
+   1740,
+   1741,
+   1742
+  ]
+ },
+ {
+  "id": 308,
+  "text": "really,",
+  "start": 768.858,
+  "end": 769.458,
+  "duration": 0.6,
+  "word_ids": [
+   1743
+  ]
+ },
+ {
+  "id": 309,
+  "text": "really increased their support.",
+  "start": 769.459,
+  "end": 771.139,
+  "duration": 1.68,
+  "word_ids": [
+   1744,
+   1745,
+   1746,
+   1747
+  ]
+ },
+ {
+  "id": 310,
+  "text": "If you take a look and you maybe show on your screen",
+  "start": 771.099,
+  "end": 774.041,
+  "duration": 2.942,
+  "word_ids": [
+   1748,
+   1749,
+   1750,
+   1751,
+   1752,
+   1753,
+   1754,
+   1755,
+   1756,
+   1757,
+   1758,
+   1759
+  ]
+ },
+ {
+  "id": 311,
+  "text": "some of the demonstrations that happen every Friday, you know,",
+  "start": 774.381,
+  "end": 778.143,
+  "duration": 3.762,
+  "word_ids": [
+   1760,
+   1761,
+   1762,
+   1763,
+   1764,
+   1765,
+   1766,
+   1767,
+   1768,
+   1769
+  ]
+ },
+ {
+  "id": 312,
+  "text": "in Sana'a and in other cities,",
+  "start": 778.244,
+  "end": 779.774,
+  "duration": 1.53,
+  "word_ids": [
+   1770,
+   1771,
+   1772,
+   1773,
+   1774,
+   1775
+  ]
+ },
+ {
+  "id": 313,
+  "text": "they've become absolutely massive,",
+  "start": 779.734,
+  "end": 781.685,
+  "duration": 1.951,
+  "word_ids": [
+   1776,
+   1777,
+   1778,
+   1779
+  ]
+ },
+ {
+  "id": 314,
+  "text": "because although people may not like",
+  "start": 781.666,
+  "end": 783.927,
+  "duration": 2.261,
+  "word_ids": [
+   1780,
+   1781,
+   1782,
+   1783,
+   1784,
+   1785
+  ]
+ },
+ {
+  "id": 315,
+  "text": "living under Houthi rule,",
+  "start": 784.107,
+  "end": 785.528,
+  "duration": 1.421,
+  "word_ids": [
+   1786,
+   1787,
+   1788,
+   1789
+  ]
+ },
+ {
+  "id": 316,
+  "text": "they agree with the Houthi actions in support of Palestine.",
+  "start": 785.768,
+  "end": 789.41,
+  "duration": 3.642,
+  "word_ids": [
+   1790,
+   1791,
+   1792,
+   1793,
+   1794,
+   1795,
+   1796,
+   1797,
+   1798,
+   1799
+  ]
+ },
+ {
+  "id": 317,
+  "text": "And so that has increased and improved their popularity an",
+  "start": 789.75,
+  "end": 793.292,
+  "duration": 3.542,
+  "word_ids": [
+   1800,
+   1801,
+   1802,
+   1803,
+   1804,
+   1805,
+   1806,
+   1807,
+   1808,
+   1809
+  ]
+ },
+ {
+  "id": 318,
+  "text": "enormous amount,",
+  "start": 793.273,
+  "end": 794.253,
+  "duration": 0.98,
+  "word_ids": [
+   1810,
+   1811
+  ]
+ },
+ {
+  "id": 319,
+  "text": "not only in the area they rule,",
+  "start": 794.433,
+  "end": 796.144,
+  "duration": 1.711,
+  "word_ids": [
+   1812,
+   1813,
+   1814,
+   1815,
+   1816,
+   1817,
+   1818
+  ]
+ },
+ {
+  "id": 320,
+  "text": "but also in the rest of Yemen, which is, you know, not ruled by them. AMY",
+  "start": 796.124,
+  "end": 799.477,
+  "duration": 3.353,
+  "word_ids": [
+   1819,
+   1820,
+   1821,
+   1822,
+   1823,
+   1824,
+   1825,
+   1826,
+   1827,
+   1828,
+   1829,
+   1830,
+   1831,
+   1832,
+   1833,
+   1834
+  ]
+ },
+ {
+  "id": 321,
+  "text": "GOODMAN Helen Lackner,",
+  "start": 800.157,
+  "end": 800.847,
+  "duration": 0.69,
+  "word_ids": [
+   1835,
+   1836,
+   1837
+  ]
+ },
+ {
+  "id": 322,
+  "text": "we want to thank you so much for being with us,",
+  "start": 800.827,
+  "end": 802.799,
+  "duration": 1.972,
+  "word_ids": [
+   1838,
+   1839,
+   1840,
+   1841,
+   1842,
+   1843,
+   1844,
+   1845,
+   1846,
+   1847,
+   1848
+  ]
+ },
+ {
+  "id": 323,
+  "text": "author of a number of books on Yemen,",
+  "start": 803.339,
+  "end": 805.27,
+  "duration": 1.931,
+  "word_ids": [
+   1849,
+   1850,
+   1851,
+   1852,
+   1853,
+   1854,
+   1855,
+   1856
+  ]
+ },
+ {
+  "id": 324,
+  "text": "including Yemen in Crisis, the Road to War, and Yemen,",
+  "start": 805.25,
+  "end": 808.563,
+  "duration": 3.313,
+  "word_ids": [
+   1857,
+   1858,
+   1859,
+   1860,
+   1861,
+   1862,
+   1863,
+   1864,
+   1865,
+   1866
+  ]
+ },
+ {
+  "id": 325,
+  "text": "Poverty and Conflict.",
+  "start": 808.563,
+  "end": 810.184,
+  "duration": 1.621,
+  "word_ids": [
+   1867,
+   1868,
+   1869
+  ]
+ },
+ {
+  "id": 326,
+  "text": "She's been involved with Yemen for over 50 years,",
+  "start": 810.484,
+  "end": 813.506,
+  "duration": 3.022,
+  "word_ids": [
+   1870,
+   1871,
+   1872,
+   1873,
+   1874,
+   1875,
+   1876,
+   1877,
+   1878
+  ]
+ },
+ {
+  "id": 327,
+  "text": "has lived there for",
+  "start": 813.486,
+  "end": 814.747,
+  "duration": 1.261,
+  "word_ids": [
+   1879,
+   1880,
+   1881,
+   1882
+  ]
+ },
+ {
+  "id": 328,
+  "text": "about 15.",
+  "start": 815.307,
+  "end": 815.907,
+  "duration": 0.6,
+  "word_ids": [
+   1883,
+   1884
+  ]
+ }
+]
