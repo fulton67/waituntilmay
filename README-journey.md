@@ -251,23 +251,33 @@ The word link has its own tier above the tag because a tag is nearly free —
 `physical` is on a third of Blum's phrases — and folding them together meant
 the word link never got chased.
 
-Only narrow tags can carry a cut: `water`, `inside`, `real`, `definition`,
-`attack`, `cut`, `doubt`. `physical`, `people`, `abstract`, `scale` and
-`filler` never link, however well they describe a phrase in tags.json.
+Only narrow tags can carry a cut: `water`, `inside`, `real`, `attack`, `cut`,
+`doubt`. `physical`, `people`, `abstract`, `scale`, `definition` and `filler`
+never link, however well they describe a phrase in tags.json.
 
 Narrowing them does not raise the word share, and cannot: words are tier 1, so
 a word link already wins wherever one exists. What it does is stop weak links
 being counted as connections. Over 600 plans, before and after:
 
 ```
-all cuts     word 38.1% -> 38.9%   tag 56.5% -> 48.3%   random 5.4% -> 12.7%
-cross-source word 44.0% -> 44.9%   tag 53.4% -> 45.7%   random 2.6% ->  9.5%
+                  every tag   narrow set   without definition
+all cuts   word        38.1%        38.9%                37.9%
+           tag         56.5%        48.3%                28.0%
+           random       5.4%        12.7%                34.1%
+cross only word        44.0%        44.9%                43.9%
+           tag         53.4%        45.7%                27.8%
+           random       2.6%         9.5%                28.3%
 ```
 
-8.2 points moved out of `tag` and almost all of it became an honest `random`.
-Of the tag links that remain, `definition` carries 71% — it is the broadest
-member of the narrow set, and the one to drop next if the weak links still
-read as weak.
+The word share barely moves across all three, because it cannot: a word link
+already wins wherever one exists. What narrowing buys is that a weak link
+stops being counted as a connection — a third of cuts now report `random`,
+which is what they always were.
+
+The pattern repeats one level down each time: with every tag allowed
+`physical` dominated, inside the narrow set `definition` carried 71% of tag
+links, and without it `doubt` carries 74% (1116 of 1506). Whichever tag is
+broadest absorbs the tier.
 
 ```
 python scripts/segment_list.py renders_multi/v_<seed>.json

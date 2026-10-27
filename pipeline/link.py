@@ -109,9 +109,12 @@ def content_words(text):
 # have nothing to do with each other: letting them link made the tag tier fire
 # on almost any pair and starved the word tier above it. `filler` is the
 # tagger saying it found nothing at all.
-NARROW_TAGS = {"water", "inside", "real", "definition", "attack", "cut",
-               "doubt"}
-BROAD_TAGS = {"physical", "people", "abstract", "scale", "filler"}
+# `definition` is out too. It was inside the narrow set and carried 71% of all
+# tag links on its own (1835 of 2588) - broad enough in practice to behave
+# like `physical`, whatever it is called.
+NARROW_TAGS = {"water", "inside", "real", "attack", "cut", "doubt"}
+BROAD_TAGS = {"physical", "people", "abstract", "scale", "definition",
+              "filler"}
 
 
 def _tags_by_word(src):
