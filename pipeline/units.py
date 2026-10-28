@@ -9,6 +9,7 @@ Units below MIN_DENSITY words/sec are dropped; that is what removes the dead
 air a uniform random draw over a 54-minute lecture keeps landing on.
 """
 import json
+import os
 import re
 
 CLAUSE_END = tuple(".!?;:,")          # clause boundaries, not just sentences
@@ -76,6 +77,16 @@ WEAK = {
 }
 
 KEYWORDS = {b: STRONG[b] + WEAK[b] for b in BEATS}
+
+# What a channel says around its report, which is never the piece. Eight units
+# of 2344, all from the Red Sea clips - six were already in no pool, but
+# houthi-13's "don't forget to like, share and subscribe" landed in
+# `dissolution` on the word "forget" and was drawable. A line that matches
+# this is in no pool at all, so it cannot be drawn by any beat.
+FURNITURE = re.compile(
+    r"\b(subscribe|like (and|,) ?share|share and subscribe|hit the bell"
+    r"|our channel|click the link|follow us on|thanks for watching"
+    r"|download the \w+ app)\b", re.I)
 
 # A refrain must assert that the internet is a real, physical place.
 REFRAIN_PATTERNS = [
@@ -175,13 +186,57 @@ def build_units(words_path="sources/blum/transcript/words.json",
 
     # ---- 3. themed pools
     for u in units:
-        t = u["text"].lower()
-        u["pools"] = [b for b in BEATS
-                      if any(re.search(p, t) for p in KEYWORDS[b])]
-        u["strong"] = [b for b in BEATS
-                       if any(re.search(p, t) for p in STRONG[b])]
-        u["is_refrain"] = any(re.search(p, t) for p in REFRAIN_PATTERNS)
+        assign_pools(u)
     return units
+
+
+def assign_pools(u, text=None):
+    """Which beats a unit belongs to, matched against readable English.
+
+    Membership is regex over English and a unit's own text is whatever was
+    spoken, so for a source that is not in English it is Devanagari or
+    Arabic, which no pattern here can ever match. houthi-13 was selected on
+    its translation, tagged on its translation and linkable through its
+    translation - and still sat in zero beat pools, which made it
+    undrawable: 8 units in the pool and 0 of 30 live versions, measured.
+    A translation, where there is one, is what this matches, so the same
+    text the tagger and the selection filter read decides this too. The
+    spoken text is what still gets cut and shown; only the reading changes.
+    """
+    t = (text or u["text"]).lower()
+    if FURNITURE.search(t):
+        u["pools"], u["strong"], u["is_refrain"] = [], [], False
+        return u
+    u["pools"] = [b for b in BEATS
+                  if any(re.search(p, t) for p in KEYWORDS[b])]
+    u["strong"] = [b for b in BEATS
+                   if any(re.search(p, t) for p in STRONG[b])]
+    u["is_refrain"] = any(re.search(p, t) for p in REFRAIN_PATTERNS)
+    return u
+
+
+def english_by_word(src):
+    """word id -> the English text of the phrase that word belongs to.
+
+    Whole phrases rather than loose words: the patterns are phrases
+    themselves ("the internet", "across the ocean"), and a bag of words
+    would match things nobody said.
+    """
+    pp = src.get("phrases")
+    if not pp or not os.path.exists(pp):
+        return {}
+    ep = os.path.join(os.path.dirname(pp), "phrases_en.json")
+    if not os.path.exists(ep):
+        return {}
+    en = json.load(open(ep, encoding="utf-8"))
+    out = {}
+    for p in json.load(open(pp, encoding="utf-8")):
+        txt = (en.get(str(p["id"])) or "").strip()
+        if not txt:
+            continue
+        for w in p["word_ids"]:
+            out[w] = txt
+    return out
 
 
 def pools(units):
@@ -200,7 +255,16 @@ def build_pool(srcs, min_density=MIN_DENSITY, gap_trim=GAP_TRIM):
     out = []
     for s in srcs:
         us = build_units(s["words"], min_density, gap_trim, source=s["id"])
+        en = english_by_word(s)
         for u in us:
+            if en:
+                # the distinct translated phrases this unit runs through, in
+                # order - one unit can span two of them
+                txt = " ".join(dict.fromkeys(
+                    en[i] for i in u["word_ids"] if i in en))
+                if txt:
+                    u["text_en"] = txt
+                    assign_pools(u, txt)
             u["local_id"] = u["id"]
             u["id"] = len(out)
             out.append(u)
