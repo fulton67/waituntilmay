@@ -85,6 +85,13 @@ def load_all(config=SOURCES):
     us = U.build_pool(srcs)
     # the keys the sequencer links cuts on, attached once for the whole run
     LINK.attach(us, srcs)
+    # and which units can fire a mosh trigger at all, so the planner can make
+    # sure one of them is in the edit instead of hoping. A word index only
+    # means anything inside its own source, hence the per-source lookup.
+    tw = trigger_word_ids(words, cfg)
+    for u in us:
+        t = set(tw.get(u.get("src")) or [])
+        u["has_trigger"] = bool(t & set(u.get("word_ids") or []))
     pools = U.pools(us)
     return srcs, words, cfg, us, pools
 

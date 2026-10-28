@@ -43,6 +43,10 @@ SPEECH_TARGET = (26.0, 28.8)
 # selection, not a trim: units are clause runs and are never cut short.
 MIN_SEGMENT = 1.5
 SOURCE_FIRST = os.environ.get("JC_SOURCE_FIRST", "1") == "1"
+# The beat that owes the piece its trigger word. Units carry `has_trigger`
+# from the words.json the trigger list was matched against; a pool that was
+# never marked just never takes the preference.
+TRIGGER_BEAT = "internet"
 
 
 def _score(u, rng, beat=None):
@@ -233,6 +237,63 @@ def _next_unit(rng, cands, prev, weights, beat, spent=None):
     return None, None
 
 
+def _sole_trigger(beats, refrain):
+    """The id of the only line in the plan that says the trigger word.
+
+    None when there are none or several - there is nothing to protect in
+    either case. A refrain that says it says it twice, opening and closing,
+    so nothing in the beats is load-bearing then either.
+    """
+    if refrain is not None and refrain.get("has_trigger"):
+        return None
+    ts = [u["id"] for beat in beats for u in beat if u.get("has_trigger")]
+    return ts[0] if len(ts) == 1 else None
+
+
+def _force_trigger(rng, beats, pools, used, refrain, room, weights):
+    """Exchange one line for one that says the word, in a plan that has none.
+
+    The draw prefers a line that says it inside the internet beat, but it
+    cannot always have one: the ones still unused may all be longer than the
+    room the budget has left, or the trim may have taken that beat down to a
+    single unit it is not allowed to empty. 38 plans in 600 still came out
+    silent, and a silent plan fails the trigger gate however good the edit
+    is. Re-rolling the version would change everything else about it, so
+    instead one line is exchanged - same beat, same pool, drawn through the
+    same source and link tiers as any other, and short enough that the
+    ceiling still holds. The internet beat is tried first because that is
+    where the word belongs; a swap elsewhere is the last resort before
+    letting the version fail.
+
+    Returns (dropped, added) or None if nothing could be exchanged.
+    """
+    for bi in sorted(range(len(beats)), key=lambda i: BEATS[i] != TRIGGER_BEAT):
+        b = BEATS[bi]
+        speak = [u for u in pools[b] if u.get("has_trigger")
+                 and u["id"] not in used and u["duration"] >= MIN_SEGMENT]
+        if not speak:
+            continue
+        for j in range(len(beats[bi])):
+            out = beats[bi][j]
+            fits = [u for u in speak
+                    if u["duration"] <= room + out["duration"]]
+            if not fits:
+                continue
+            if j:
+                prev = beats[bi][j - 1]
+            else:
+                prev = next((beats[i][-1] for i in range(bi - 1, -1, -1)
+                             if beats[i]), refrain)
+            u, _tier = _next_unit(rng, fits, prev, weights, b)
+            if u is None:
+                continue
+            used.discard(out["id"])
+            used.add(u["id"])
+            beats[bi][j] = u
+            return out, u
+    return None
+
+
 def plan_arc(rng, units, pools, seed_refrain=None, weights=None):
     used = set()
     refrain = seed_refrain or pick_refrain(rng, pools)
@@ -269,6 +330,22 @@ def plan_arc(rng, units, pools, seed_refrain=None, weights=None):
             fits = [u for u in cands if u["duration"] <= room]
             if fits:
                 pool = fits
+                # Every render has to say the word. config/triggers.json asks
+                # for 1-3 triggers and verify_renders rejects a version with
+                # none, but nothing in the planner ever made one possible -
+                # it was free while the pool was two voices who say
+                # "internet" constantly. With eighteen sources only 88 of
+                # 2344 units say it, 30% of plans drew none of them, and 9 of
+                # 30 renders failed the gate on the draw rather than on
+                # anything they did. The internet beat is where the word
+                # belongs, so while the plan is still silent that beat draws
+                # only from units that say it. The source draw and the link
+                # tiers are untouched - they choose among those.
+                if b == TRIGGER_BEAT and not any(u.get("has_trigger")
+                                                 for u in seq):
+                    speak = [u for u in fits if u.get("has_trigger")]
+                    if speak:
+                        pool = speak
             elif k == 0:
                 # the beat has to exist, so take the shortest line in it and
                 # let the ceiling give rather than the structure
@@ -297,7 +374,14 @@ def plan_arc(rng, units, pools, seed_refrain=None, weights=None):
         if not cand:
             break
         bi = max(cand, key=lambda i: sum(u["duration"] for u in beats[i]))
-        beats[bi].pop(rng.randrange(len(beats[bi])))
+        # The internet beat is short, so it is often the longest-by-total one
+        # the trim picks from, and popping the only line that says the word
+        # would undo the draw above. Where the plan has exactly one, that one
+        # is not the one that goes.
+        keep = _sole_trigger(beats, refrain)
+        opts = [j for j in range(len(beats[bi]))
+                if beats[bi][j]["id"] != keep]
+        beats[bi].pop(rng.choice(opts or list(range(len(beats[bi])))))
 
     guard = 0
     while speech(beats) < SPEECH_TARGET[0] and guard < 80:
@@ -325,6 +409,14 @@ def plan_arc(rng, units, pools, seed_refrain=None, weights=None):
                      and u["duration"] >= MIN_SEGMENT]
             if not cands:
                 continue
+            # Last chance at the word: if the trim emptied the internet beat,
+            # or that beat had nothing short enough to fit, a line that says
+            # it comes in here instead - from this beat's own pool, so it is
+            # still a line that belongs where it lands.
+            if not any(u.get("has_trigger") for beat in beats for u in beat):
+                speak = [u for u in cands if u.get("has_trigger")]
+                if speak:
+                    cands = speak
             # A top-up lands at the end of its beat, so it answers whatever
             # currently ends that beat - or, for an empty one, the phrase the
             # beat before it ends on. The same tiers as the first draw: a
@@ -347,9 +439,17 @@ def plan_arc(rng, units, pools, seed_refrain=None, weights=None):
         if not added:
             break
 
+    swapped = None
+    if not any(u.get("has_trigger") for beat in beats for u in beat) \
+            and not (refrain and refrain.get("has_trigger")):
+        swapped = _force_trigger(rng, beats, pools, used, refrain,
+                                 SPEECH_TARGET[1] - speech(beats), weights)
+
     order = ([refrain] if refrain else []) + [u for beat in beats for u in beat] \
             + ([refrain] if refrain else [])
     return {"refrain": refrain, "beats": beats, "order": order,
+            "trigger_swap": ({"out": swapped[0]["id"], "in": swapped[1]["id"]}
+                             if swapped else None),
             "links": links_for(order),
             "speech_seconds": round(speech(beats), 3)}
 
