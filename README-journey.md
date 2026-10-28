@@ -313,6 +313,59 @@ Minimum segment is 1.5s, so a viewer can place the voice and the face. That
 is a floor on selection, not a trim: units are clause runs and are never cut
 short.
 
+## Every version says the word
+
+`config/triggers.json` asks for 1-3 mosh triggers per render and
+`verify_renders.py` rejects a version with none, but for a long time nothing
+in the planner made one possible. It was free while the pool was two voices
+who say "internet" constantly. With eighteen sources only 88 of 2344 units
+say it - 58 of them in the `internet` pool - and 180 of 600 plans drew none
+of them: 9 of 30 renders failed the gate on the draw rather than on anything
+they did.
+
+Three rules, in `plan_arc`:
+
+* while the plan is still silent, the `internet` beat draws only from lines
+  that say the word - the source draw and the link tiers are untouched, they
+  just choose among those;
+* the trim-down loop will not pop the only line a plan has (that beat is
+  short, so it is often the one the trim reaches for);
+* a plan that still comes out silent exchanges one line for one that says
+  it - same beat, same pool, through the same tiers, short enough that the
+  ceiling holds. 31 plans in 600 need this.
+
+0 of 600 plans cannot fire a trigger now. The word share pays about a point
+and a half for it: the `internet` beat is the one place the planner is no
+longer free to pick the best answer.
+
+## A source that is not in English
+
+Four things decide what a source contributes, and three of them read the
+translation:
+
+| | reads |
+|---|---|
+| selection (`houthi_select.py`) | translation |
+| tags (`autotag.py` via `phrases_en.json`) | translation |
+| link words (`link._en_by_word`) | translation |
+| **beat pools** (`units.assign_pools`) | **used to read the spoken text** |
+
+Beat membership is regex over English. houthi-13 is Hindi, so its text
+matched no pattern in any of the five beats: 8 units in the pool, 0
+reachable, 0 of 30 live versions. It was kept by the selection rule, tagged,
+linkable - and undrawable.
+
+`assign_pools` now matches the translation where there is one, so the same
+text every other stage reads decides this too. The spoken words are still
+what gets cut and shown; only the reading changes. houthi-13 went 0.0% ->
+2.2% of speech and appears in 5 of 30 versions.
+
+That also made drawable two lines that should not be: "don't forget to like,
+share and subscribe" landed in `dissolution` on the word "forget". Channel
+furniture - subscribe, hit the bell, download the app, thanks for watching -
+is now in no pool at all. 8 units of 2344 match, every one from a Red Sea
+clip, and six were already in no pool.
+
 ## Finding Red Sea material
 
 ```
