@@ -1,0 +1,388 @@
+{
+  "url": "http://localhost:3217/gillenwebsite",
+  "at": "2026-10-30T21:10:04.640Z",
+  "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 (0x00002507) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "glb": {
+    "meshNodes": 11,
+    "triangles": 156330,
+    "names": [
+      "frame",
+      "base",
+      "side_right",
+      "cradle",
+      "rod",
+      "side_right_inner",
+      "side_left_inner",
+      "knob_right",
+      "knob_left",
+      "knob_left_cap",
+      "knob_left_face"
+    ]
+  },
+  "cards": {
+    "total": 96,
+    "built": 96,
+    "releases": 36,
+    "orderMatches": true
+  },
+  "canvas": true,
+  "directionScroll": {
+    "card": 4,
+    "before": {
+      "y": 0.9546964860974237,
+      "z": -0.03227250989659146
+    },
+    "after": {
+      "y": 0.7293738371961307,
+      "z": 0.34751992993587144
+    },
+    "dY": -0.22532264890129305,
+    "dZ": 0.3797924398324629,
+    "pass": true
+  },
+  "directionDrag": {
+    "card": 9,
+    "at": {
+      "x": 484.0400529026028,
+      "y": 302.559257544754
+    },
+    "before": {
+      "y": 0.954696475325427,
+      "z": -0.032272617254814825
+    },
+    "after": {
+      "y": 0.7293522135762128,
+      "z": 0.34752906811906864
+    },
+    "dY": -0.22534426174921418,
+    "dZ": 0.3798016853738835,
+    "pass": true
+  },
+  "detent": {
+    "stoppedAt": 12.4,
+    "s": 11.99999509078319,
+    "landedOn": 12,
+    "error": 0.000004909216810844441,
+    "settledMs": 591,
+    "pass": true
+  },
+  "orbit": {
+    "dragPx": 785.3981633974482,
+    "az0": 0.3,
+    "az1": -5.9831854475487605,
+    "wrappedDifference": -1.4036917381708673e-7,
+    "pass": true
+  },
+  "fps": {
+    "frames": 700,
+    "seconds": 11.6665,
+    "mean": 59.91514164488064,
+    "min500msWindow": 58,
+    "slowestFrameMs": 33.39999999999782,
+    "reachedCard": 36,
+    "pass": true
+  },
+  "bible": {
+    "textElements": 176,
+    "elements": 252,
+    "R1_ground": {
+      "body": "rgb(255, 255, 255)",
+      "root": "rgb(255, 255, 255)",
+      "canvasScene": "#ffffff (scene.background)"
+    },
+    "R2_weight": {
+      "400": 176
+    },
+    "R3_shadows": {
+      "none | none": 252
+    },
+    "R4_radius": {
+      "0px": 252
+    },
+    "R5_buttons": [
+      {
+        "text": "[→ YEAR]",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "[A–Z]",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "girl in red",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Freak Slug",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Arlo Parks, John Glacier",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Mike D",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Arlo Parks",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "The Strokes",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Obongjayar",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Lucy Park",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Luke Titus",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Doja Cat",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Don Toliver, Doja Cat",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "SZA",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Gossip",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Marcus King",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Teezo Touchdown",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Kesha",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Brockhampton",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Red Hot Chili Peppers",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Rex Orange County",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "SZA",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Red Hot Chili Peppers",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Run The Jewels",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Imagine Dragons",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Jovanotti",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Lucy Park",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Imagine Dragons",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Santana",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "The Strokes",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Neil Young & Crazy Horse",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Run the Jewels",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Mark Ronson",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Harry Styles",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Neil Young & Crazy Horse",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Santana",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "Muse",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "The Smashing Pumpkins",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "[CLOSE]",
+        "radius": "0px",
+        "border": "none"
+      }
+    ],
+    "R7_textTransform": {
+      "none": 252
+    },
+    "R7_textWithTypedCapitals": 63,
+    "R9_sizes": {
+      "12px": 165,
+      "20px": 1,
+      "28px": 9,
+      "30px": 1
+    },
+    "R10_displayShare": 0,
+    "R11_families": {
+      "Archivo": 11,
+      "Courier Prime": 165
+    },
+    "R15_pinned": [
+      "header.site-module__TM77GG__top fixed",
+      "div.site-module__TM77GG__sticky sticky",
+      "aside.site-module__TM77GG__sheet fixed"
+    ],
+    "ink": {
+      "rgb(0, 0, 0)": 176
+    },
+    "R16_comment": true
+  },
+  "S6": {
+    "cookie": "alphabetical",
+    "firstAfterClick": "Arlo Parks",
+    "firstAfterReload": "Arlo Parks",
+    "firstDefault": "girl in red",
+    "pass": true
+  },
+  "phone": {
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "panelShown": false,
+    "thumb": {
+      "w": 64,
+      "h": 64
+    },
+    "caption": "GIRL IN RED",
+    "pass": true
+  },
+  "covers": [
+    {
+      "id": "01-girl-in-red-blue",
+      "exists": true,
+      "size": "1024x1024",
+      "kb": 145
+    },
+    {
+      "id": "02-freak-slug-amulet",
+      "exists": true,
+      "size": "1024x1024",
+      "kb": 136
+    },
+    {
+      "id": "03-arlo-parks-john-glacier-floette-ft-john-glacier",
+      "exists": true,
+      "size": "1024x1024",
+      "kb": 89
+    },
+    {
+      "id": "04-mike-d-thank-you",
+      "exists": true,
+      "size": "1024x1024",
+      "kb": 180
+    },
+    {
+      "id": "05-arlo-parks-ambiguous-desire",
+      "exists": true,
+      "size": "1024x1024",
+      "kb": 146
+    },
+    {
+      "id": "07-obongjayar-paradise-now-and-forever",
+      "exists": true,
+      "size": "1024x1024",
+      "kb": 145
+    },
+    {
+      "id": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
+      "exists": true,
+      "size": "1024x1024",
+      "kb": 142
+    }
+  ],
+  "coversPass": true,
+  "errors": []
+}

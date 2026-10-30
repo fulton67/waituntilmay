@@ -1,0 +1,536 @@
+{
+  "source": "https://www.dylansproduce.net/discography (read 2026-10-30 in Chrome)",
+  "releases": [
+    {
+      "id": "01-girl-in-red-blue",
+      "year": 2026,
+      "artist": "girl in red",
+      "release": "BLUE",
+      "role": "Producer, Writer",
+      "tracks": [
+        {
+          "title": "clean slate",
+          "role": "Producer, Writer"
+        }
+      ],
+      "cover": "/covers/01-girl-in-red-blue.jpg",
+      "coverSource": "https://static.wixstatic.com/media/c3d8e2_78244f345d8d4839be9384ecc8830553~mv2.jpg"
+    },
+    {
+      "id": "02-freak-slug-amulet",
+      "year": 2026,
+      "artist": "Freak Slug",
+      "release": "Amulet",
+      "role": "Executive Producer, Writer, Producer",
+      "tracks": [
+        {
+          "title": "Big Boy",
+          "role": "Executive Producer, Writer, Producer"
+        },
+        {
+          "title": "Wishing Bone",
+          "role": "Executive Producer, Writer, Producer"
+        },
+        {
+          "title": "If I Could",
+          "role": "Executive Producer, Writer, Producer"
+        },
+        {
+          "title": "One Trick Pony",
+          "role": "Executive Producer, Writer, Producer"
+        },
+        {
+          "title": "Penny Drop",
+          "role": "Executive Producer, Writer, Producer"
+        },
+        {
+          "title": "Serpent",
+          "role": "Executive Producer, Writer, Producer"
+        },
+        {
+          "title": "Black Eyes",
+          "role": "Executive Producer, Writer, Producer"
+        },
+        {
+          "title": "Jade Green",
+          "role": "Executive Producer, Producer"
+        },
+        {
+          "title": "Girl, Intentions",
+          "role": "Executive Producer, Writer, Producer"
+        },
+        {
+          "title": "Then Let Me",
+          "role": "Executive Producer, Writer, Producer"
+        },
+        {
+          "title": "Actress",
+          "role": "Executive Producer, Writer, Producer"
+        },
+        {
+          "title": "Muse",
+          "role": "Executive Producer, Writer, Producer"
+        }
+      ],
+      "cover": "/covers/02-freak-slug-amulet.jpg",
+      "coverSource": "https://static.wixstatic.com/media/c3d8e2_0b8ac152e1b64e8386205898168bc7e7~mv2.png"
+    },
+    {
+      "id": "03-arlo-parks-john-glacier-floette-ft-john-glacier",
+      "year": 2026,
+      "artist": "Arlo Parks, John Glacier",
+      "release": "Floette Ft. John Glacier",
+      "role": "Producer, Writer",
+      "tracks": [],
+      "cover": "/covers/03-arlo-parks-john-glacier-floette-ft-john-glacier.jpg",
+      "coverSource": "https://static.wixstatic.com/media/c3d8e2_761112990d674840b38e8c8cbd2737f1~mv2.jpg"
+    },
+    {
+      "id": "04-mike-d-thank-you",
+      "year": 2026,
+      "artist": "Mike D",
+      "release": "Thank You",
+      "role": "Co-Producer, Writer, Additional Production, Producer",
+      "tracks": [
+        {
+          "title": "What We Got",
+          "role": "Co-Producer"
+        },
+        {
+          "title": "True Colors",
+          "role": "Writer, Co-Producer"
+        },
+        {
+          "title": "That's Right",
+          "role": "Writer, Co-Producer"
+        },
+        {
+          "title": "Secrets Pt. I",
+          "role": "Additional Production"
+        },
+        {
+          "title": "Secrets Pt. II",
+          "role": "Additional Production"
+        },
+        {
+          "title": "I Don't Care",
+          "role": "Co-Producer"
+        },
+        {
+          "title": "Make It Stop",
+          "role": "Writer, Co-Producer"
+        },
+        {
+          "title": "Crypto",
+          "role": "Co-Producer"
+        },
+        {
+          "title": "Here We Are",
+          "role": "Writer, Co-Producer"
+        },
+        {
+          "title": "Back To Start",
+          "role": "Writer, Producer"
+        },
+        {
+          "title": "Thank You",
+          "role": "Writer, Co-Producer"
+        }
+      ],
+      "cover": "/covers/04-mike-d-thank-you.jpg",
+      "coverSource": "https://static.wixstatic.com/media/c3d8e2_3f556861f53f417085e12ede6f71b489~mv2.jpg"
+    },
+    {
+      "id": "05-arlo-parks-ambiguous-desire",
+      "year": 2026,
+      "artist": "Arlo Parks",
+      "release": "Ambiguous Desire",
+      "role": "Producer, Writer",
+      "tracks": [
+        {
+          "title": "Jetta",
+          "role": "Producer, Writer"
+        },
+        {
+          "title": "Floette",
+          "role": "Producer, Writer"
+        }
+      ],
+      "cover": "/covers/05-arlo-parks-ambiguous-desire.jpg",
+      "coverSource": "https://static.wixstatic.com/media/c3d8e2_baf3e6220a1844d890f0af88669b8c40~mv2.jpg"
+    },
+    {
+      "id": "06-the-strokes-reality-awaits",
+      "year": 2026,
+      "artist": "The Strokes",
+      "release": "Reality Awaits",
+      "role": "Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "07-obongjayar-paradise-now-and-forever",
+      "year": 2025,
+      "artist": "Obongjayar",
+      "release": "Paradise Now & Forever",
+      "role": "Producer, Writer, Mixer",
+      "tracks": [
+        {
+          "title": "Lipdance",
+          "role": "Producer, Writer, Mixer"
+        }
+      ],
+      "cover": "/covers/07-obongjayar-paradise-now-and-forever.jpg",
+      "coverSource": "https://static.wixstatic.com/media/c3d8e2_b5599eec74dd4a3a85d92e5e56cefacb~mv2.jpg"
+    },
+    {
+      "id": "08-lucy-park-good-graces",
+      "year": 2025,
+      "artist": "Lucy Park",
+      "release": "Good Graces",
+      "role": "Producer, Writer, Mixer",
+      "tracks": [
+        {
+          "title": "Only Ever",
+          "role": "Producer, Writer, Mixer"
+        }
+      ],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "09-luke-titus-from-what-was-will-grow-a-flower",
+      "year": 2025,
+      "artist": "Luke Titus",
+      "release": "From What Was Will Grow A Flower",
+      "role": "Writer",
+      "tracks": [
+        {
+          "title": "What Was",
+          "role": "Writer"
+        }
+      ],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "10-doja-cat-vie",
+      "year": 2025,
+      "artist": "Doja Cat",
+      "release": "Vie",
+      "role": "Engineer",
+      "tracks": [
+        {
+          "title": "Silly! Fun!",
+          "role": "Engineer"
+        }
+      ],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "11-don-toliver-doja-cat-f1-the-album",
+      "year": 2025,
+      "artist": "Don Toliver, Doja Cat",
+      "release": "F1: The Album",
+      "role": "Engineer",
+      "tracks": [
+        {
+          "title": "Lose My Mind (feat. Doja Cat)",
+          "role": "Engineer"
+        }
+      ],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "12-sza-sos-deluxe-lana",
+      "year": 2024,
+      "artist": "SZA",
+      "release": "SOS Deluxe: LANA",
+      "role": "Producer, Writer",
+      "tracks": [
+        {
+          "title": "My Turn",
+          "role": "Producer, Writer"
+        }
+      ],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "13-gossip-real-power",
+      "year": 2024,
+      "artist": "Gossip",
+      "release": "Real Power",
+      "role": "Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "14-marcus-king-mood-swings",
+      "year": 2024,
+      "artist": "Marcus King",
+      "release": "Mood Swings",
+      "role": "Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
+      "year": 2023,
+      "artist": "Teezo Touchdown",
+      "release": "How Do You Sleep At Night? With You",
+      "role": "Producer, Writer",
+      "tracks": [
+        {
+          "title": "Stranger",
+          "role": "Producer, Writer"
+        }
+      ],
+      "cover": "/covers/15-teezo-touchdown-how-do-you-sleep-at-night-with-you.jpg",
+      "coverSource": "https://static.wixstatic.com/media/c3d8e2_7a67f80f9249438685645048e09cdfe1~mv2.jpg"
+    },
+    {
+      "id": "16-kesha-gag-order",
+      "year": 2023,
+      "artist": "Kesha",
+      "release": "Gag Order",
+      "role": "Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "17-brockhampton-tm",
+      "year": 2022,
+      "artist": "Brockhampton",
+      "release": "TM",
+      "role": "Producer, Writer",
+      "tracks": [
+        {
+          "title": "Duct Tape",
+          "role": "Producer, Writer"
+        }
+      ],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "18-red-hot-chili-peppers-unlimited-love",
+      "year": 2022,
+      "artist": "Red Hot Chili Peppers",
+      "release": "Unlimited Love",
+      "role": "Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "19-rex-orange-county-threat",
+      "year": 2022,
+      "artist": "Rex Orange County",
+      "release": "Threat",
+      "role": "Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "20-sza-sos",
+      "year": 2022,
+      "artist": "SZA",
+      "release": "SOS",
+      "role": "Engineer",
+      "tracks": [
+        {
+          "title": "Gone Girl",
+          "role": "Engineer"
+        },
+        {
+          "title": "Smokin on my Ex Pack",
+          "role": "Engineer"
+        }
+      ],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "21-red-hot-chili-peppers-return-of-the-dream-canteen",
+      "year": 2022,
+      "artist": "Red Hot Chili Peppers",
+      "release": "Return of the Dream Canteen",
+      "role": "Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "22-run-the-jewels-rtj-cu4tro",
+      "year": 2022,
+      "artist": "Run The Jewels",
+      "release": "RTJ CU4TRO",
+      "role": "Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "23-imagine-dragons-mercury-acts-1-and-2",
+      "year": 2022,
+      "artist": "Imagine Dragons",
+      "release": "Mercury Acts 1 & 2",
+      "role": "Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "24-jovanotti-il-boom",
+      "year": 2022,
+      "artist": "Jovanotti",
+      "release": "Il Boom",
+      "role": "Producer",
+      "tracks": [
+        {
+          "title": "Il Boom",
+          "role": "Producer"
+        }
+      ],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "25-lucy-park-before-i-speak",
+      "year": 2021,
+      "artist": "Lucy Park",
+      "release": "Before I Speak",
+      "role": "Producer, Writer",
+      "tracks": [
+        {
+          "title": "True to You",
+          "role": "Producer, Writer"
+        },
+        {
+          "title": "Somebody Else",
+          "role": "Producer, Writer"
+        }
+      ],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "26-imagine-dragons-mercury-act-1",
+      "year": 2021,
+      "artist": "Imagine Dragons",
+      "release": "Mercury: Act 1",
+      "role": "Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "27-santana-blessings-and-miracles",
+      "year": 2021,
+      "artist": "Santana",
+      "release": "Blessings and Miracles",
+      "role": "Assistant Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "28-the-strokes-the-new-abnormal",
+      "year": 2020,
+      "artist": "The Strokes",
+      "release": "The New Abnormal",
+      "role": "Assistant Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "29-neil-young-and-crazy-horse-shut-it-down-2020",
+      "year": 2020,
+      "artist": "Neil Young & Crazy Horse",
+      "release": "Shut It Down 2020",
+      "role": "Assistant Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "30-run-the-jewels-rtj4",
+      "year": 2020,
+      "artist": "Run the Jewels",
+      "release": "RTJ4",
+      "role": "Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "31-mark-ronson-late-night-feelings",
+      "year": 2019,
+      "artist": "Mark Ronson",
+      "release": "Late Night Feelings",
+      "role": "Assistant Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "32-harry-styles-fine-line",
+      "year": 2019,
+      "artist": "Harry Styles",
+      "release": "Fine Line",
+      "role": "Assistant Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "33-neil-young-and-crazy-horse-colorado",
+      "year": 2019,
+      "artist": "Neil Young & Crazy Horse",
+      "release": "Colorado",
+      "role": "Assistant Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "34-santana-africa-speaks",
+      "year": 2019,
+      "artist": "Santana",
+      "release": "Africa Speaks",
+      "role": "Assistant Engineer",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "35-muse-simulation-theory-super-deluxe",
+      "year": 2018,
+      "artist": "Muse",
+      "release": "Simulation Theory (Super Deluxe)",
+      "role": "Production Assistant",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    },
+    {
+      "id": "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun",
+      "year": 2018,
+      "artist": "The Smashing Pumpkins",
+      "release": "Shiny and Oh So Bright, Vol. 1: No Past. No Future. No Sun",
+      "role": "Production Assistant",
+      "tracks": [],
+      "cover": "",
+      "coverSource": ""
+    }
+  ]
+}

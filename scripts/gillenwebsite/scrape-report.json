@@ -1,0 +1,176 @@
+{
+  "pages": {
+    "home": {
+      "status": 200,
+      "url": "https://www.dylansproduce.net/",
+      "title": "Home | Dylan Neustadter",
+      "images": 8,
+      "chars": 69
+    },
+    "discography": {
+      "status": 200,
+      "url": "https://www.dylansproduce.net/discography",
+      "title": "Discography | Dylan Neustadter",
+      "images": 0,
+      "chars": 3214
+    },
+    "about": {
+      "status": 200,
+      "url": "https://www.dylansproduce.net/about",
+      "title": "About | Dylan Neustadter",
+      "images": 1,
+      "chars": 544
+    },
+    "contact": {
+      "status": 200,
+      "url": "https://www.dylansproduce.net/contact",
+      "title": "Contact | Dylan Neustadter",
+      "images": 2,
+      "chars": 427
+    },
+    "portfolio": {
+      "status": 200,
+      "url": "https://www.dylansproduce.net/discography",
+      "title": "Discography | Dylan Neustadter",
+      "images": 0,
+      "chars": 3214
+    },
+    "collection": {
+      "status": 200,
+      "url": "https://www.dylansproduce.net/collection",
+      "title": "Home | Dylan Neustadter",
+      "images": 1,
+      "chars": 136
+    },
+    "project": {
+      "status": 200,
+      "url": "https://www.dylansproduce.net/project",
+      "title": "Home | Dylan Neustadter",
+      "images": 1,
+      "chars": 136
+    },
+    "accessibility-statement": {
+      "status": 200,
+      "url": "https://www.dylansproduce.net/accessibility-statement",
+      "title": "Accessibility Statement | Dylan Neustadter",
+      "images": 0,
+      "chars": 3462
+    },
+    "privacy-policy": {
+      "status": 200,
+      "url": "https://www.dylansproduce.net/privacy-policy",
+      "title": "Privacy Policy | Dylan Neustadter",
+      "images": 0,
+      "chars": 2003
+    },
+    "terms-and-conditions": {
+      "status": 200,
+      "url": "https://www.dylansproduce.net/terms-and-conditions",
+      "title": "Terms & Conditions | Dylan Neustadter",
+      "images": 0,
+      "chars": 2255
+    }
+  },
+  "releases": 36,
+  "tracks": 39,
+  "duplicatesDropped": [
+    "2022 Red Hot Chili Peppers — Unlimited Love"
+  ],
+  "covers": [
+    {
+      "id": "01-girl-in-red-blue",
+      "alt": "FINAL ART.jpg",
+      "how": "by eye: the artwork is a blue wax seal stamped with the word BLUE",
+      "url": "https://static.wixstatic.com/media/c3d8e2_78244f345d8d4839be9384ecc8830553~mv2.jpg"
+    },
+    {
+      "id": "02-freak-slug-amulet",
+      "alt": "Freak Slug - Amulet Album Artwork.png",
+      "how": "filename \"Freak Slug - Amulet Album Artwork.png\" names the release",
+      "url": "https://static.wixstatic.com/media/c3d8e2_0b8ac152e1b64e8386205898168bc7e7~mv2.png"
+    },
+    {
+      "id": "04-mike-d-thank-you",
+      "alt": "Mike D - Thank You - Album Art.jpg",
+      "how": "filename \"Mike D - Thank You - Album Art.jpg\" names the release",
+      "url": "https://static.wixstatic.com/media/c3d8e2_3f556861f53f417085e12ede6f71b489~mv2.jpg"
+    },
+    {
+      "id": "05-arlo-parks-ambiguous-desire",
+      "alt": "ArloParks_AmbiguousDesire_3000x3000.jpg",
+      "how": "filename \"ArloParks_AmbiguousDesire_3000x3000.jpg\" names the release",
+      "url": "https://static.wixstatic.com/media/c3d8e2_baf3e6220a1844d890f0af88669b8c40~mv2.jpg"
+    },
+    {
+      "id": "03-arlo-parks-john-glacier-floette-ft-john-glacier",
+      "alt": "Floette ft. John Glacier_track_cover.jpg",
+      "how": "filename \"Floette ft. John Glacier_track_cover.jpg\" names the release",
+      "url": "https://static.wixstatic.com/media/c3d8e2_761112990d674840b38e8c8cbd2737f1~mv2.jpg"
+    },
+    {
+      "id": "07-obongjayar-paradise-now-and-forever",
+      "alt": "Obongjayar_ParadiseNow_Deluxe.jpg",
+      "how": "filename \"Obongjayar_ParadiseNow_Deluxe.jpg\" names the release",
+      "url": "https://static.wixstatic.com/media/c3d8e2_b5599eec74dd4a3a85d92e5e56cefacb~mv2.jpg"
+    },
+    {
+      "id": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
+      "alt": "How Do You Sleep At Night_ With You_album_cover.jpg",
+      "how": "filename \"How Do You Sleep At Night_ With You_album_cover.jpg\" names the release",
+      "url": "https://static.wixstatic.com/media/c3d8e2_7a67f80f9249438685645048e09cdfe1~mv2.jpg"
+    }
+  ],
+  "artworkNotMatched": [
+    {
+      "alt": "1900x1900-000000-80-0-0.jpg",
+      "page": "home",
+      "url": "https://static.wixstatic.com/media/c3d8e2_e1f990f8511347ff8554141ad80b9943~mv2.jpg"
+    },
+    {
+      "alt": "",
+      "page": "contact",
+      "url": "https://static.wixstatic.com/media/c837a6_48d2ed0588ad47ff975221f56081a9ec~mv2.jpg"
+    },
+    {
+      "alt": "",
+      "page": "contact",
+      "url": "https://static.wixstatic.com/media/c837a6_0b5bca90c5ae4c50bccc2138f549d318~mv2.jpg"
+    },
+    {
+      "alt": "",
+      "page": "collection",
+      "url": "https://static.wixstatic.com/media/0d6674_95c96d34f16749b48e4a2059c7482799~mv2.png"
+    }
+  ],
+  "noCover": [
+    "06-the-strokes-reality-awaits",
+    "08-lucy-park-good-graces",
+    "09-luke-titus-from-what-was-will-grow-a-flower",
+    "10-doja-cat-vie",
+    "11-don-toliver-doja-cat-f1-the-album",
+    "12-sza-sos-deluxe-lana",
+    "13-gossip-real-power",
+    "14-marcus-king-mood-swings",
+    "16-kesha-gag-order",
+    "17-brockhampton-tm",
+    "18-red-hot-chili-peppers-unlimited-love",
+    "19-rex-orange-county-threat",
+    "20-sza-sos",
+    "21-red-hot-chili-peppers-return-of-the-dream-canteen",
+    "22-run-the-jewels-rtj-cu4tro",
+    "23-imagine-dragons-mercury-acts-1-and-2",
+    "24-jovanotti-il-boom",
+    "25-lucy-park-before-i-speak",
+    "26-imagine-dragons-mercury-act-1",
+    "27-santana-blessings-and-miracles",
+    "28-the-strokes-the-new-abnormal",
+    "29-neil-young-and-crazy-horse-shut-it-down-2020",
+    "30-run-the-jewels-rtj4",
+    "31-mark-ronson-late-night-feelings",
+    "32-harry-styles-fine-line",
+    "33-neil-young-and-crazy-horse-colorado",
+    "34-santana-africa-speaks",
+    "35-muse-simulation-theory-super-deluxe",
+    "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun"
+  ]
+}
