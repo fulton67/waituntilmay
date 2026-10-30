@@ -1,6 +1,6 @@
 {
-  "url": "http://localhost:3217/gillenwebsite",
-  "at": "2026-10-30T21:10:04.640Z",
+  "url": "https://waituntilmay.com/gillenwebsite",
+  "at": "2026-10-30T21:14:16.407Z",
   "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 (0x00002507) Direct3D11 vs_5_0 ps_5_0, D3D11)",
   "glb": {
     "meshNodes": 11,
@@ -26,59 +26,128 @@
     "orderMatches": true
   },
   "canvas": true,
+  "materials": {
+    "frame": {
+      "type": "MeshPhysicalMaterial",
+      "roughnessMap": "512x512 procedural",
+      "normalMap": "512x512 procedural",
+      "clearcoatRoughnessMap": null,
+      "edgeWearVertexShare": 0.23320922585948456
+    },
+    "base": {
+      "type": "MeshPhysicalMaterial",
+      "roughnessMap": "512x512 procedural",
+      "normalMap": "512x512 procedural",
+      "clearcoatRoughnessMap": null,
+      "edgeWearVertexShare": 0.2903707727828331
+    },
+    "side_right": {
+      "type": "MeshPhysicalMaterial",
+      "roughnessMap": "512x512 procedural",
+      "normalMap": "512x512 procedural",
+      "clearcoatRoughnessMap": null,
+      "edgeWearVertexShare": 0.2626127843436269
+    },
+    "side_right_inner": {
+      "type": "MeshStandardMaterial",
+      "roughnessMap": null,
+      "normalMap": null,
+      "clearcoatRoughnessMap": null,
+      "edgeWearVertexShare": null
+    },
+    "side_left_inner": {
+      "type": "MeshStandardMaterial",
+      "roughnessMap": null,
+      "normalMap": null,
+      "clearcoatRoughnessMap": null,
+      "edgeWearVertexShare": null
+    },
+    "knob_right": {
+      "type": "MeshPhysicalMaterial",
+      "roughnessMap": "512x512 procedural",
+      "normalMap": null,
+      "clearcoatRoughnessMap": "512x512 procedural",
+      "edgeWearVertexShare": null
+    },
+    "knob_left": {
+      "type": "MeshPhysicalMaterial",
+      "roughnessMap": "512x512 procedural",
+      "normalMap": null,
+      "clearcoatRoughnessMap": "512x512 procedural",
+      "edgeWearVertexShare": null
+    },
+    "knob_left_cap": {
+      "type": "MeshPhysicalMaterial",
+      "roughnessMap": "512x512 procedural",
+      "normalMap": null,
+      "clearcoatRoughnessMap": "512x512 procedural",
+      "edgeWearVertexShare": null
+    },
+    "knob_left_face": {
+      "type": "MeshPhysicalMaterial",
+      "roughnessMap": "512x512 procedural",
+      "normalMap": null,
+      "clearcoatRoughnessMap": "512x512 procedural",
+      "edgeWearVertexShare": null
+    },
+    "card": {
+      "normalMap": "256x256 procedural, repeat 5x3.5",
+      "map": "1024x739 canvas"
+    }
+  },
   "directionScroll": {
     "card": 4,
     "before": {
-      "y": 0.9546964860974237,
-      "z": -0.03227250989659146
+      "y": 0.9546964750802575,
+      "z": -0.032272619698274815
     },
     "after": {
-      "y": 0.7293738371961307,
-      "z": 0.34751992993587144
+      "y": 0.7293669514524808,
+      "z": 0.3475228400388537
     },
-    "dY": -0.22532264890129305,
-    "dZ": 0.3797924398324629,
+    "dY": -0.2253295236277767,
+    "dZ": 0.3797954597371285,
     "pass": true
   },
   "directionDrag": {
     "card": 9,
     "at": {
-      "x": 484.0400529026028,
-      "y": 302.559257544754
+      "x": 484.04009798083894,
+      "y": 302.5592466956499
     },
     "before": {
-      "y": 0.954696475325427,
-      "z": -0.032272617254814825
+      "y": 0.9546964455883076,
+      "z": -0.03227291362575753
     },
     "after": {
-      "y": 0.7293522135762128,
-      "z": 0.34752906811906864
+      "y": 0.7293519697819179,
+      "z": 0.34752917113783643
     },
-    "dY": -0.22534426174921418,
-    "dZ": 0.3798016853738835,
+    "dY": -0.22534447580638972,
+    "dZ": 0.37980208476359395,
     "pass": true
   },
   "detent": {
     "stoppedAt": 12.4,
-    "s": 11.99999509078319,
+    "s": 11.999994885703664,
     "landedOn": 12,
-    "error": 0.000004909216810844441,
-    "settledMs": 591,
+    "error": 0.000005114296335761992,
+    "settledMs": 593,
     "pass": true
   },
   "orbit": {
     "dragPx": 785.3981633974482,
     "az0": 0.3,
-    "az1": -5.9831854475487605,
-    "wrappedDifference": -1.4036917381708673e-7,
+    "az1": -5.983185447327622,
+    "wrappedDifference": -1.401480351541498e-7,
     "pass": true
   },
   "fps": {
-    "frames": 700,
-    "seconds": 11.6665,
-    "mean": 59.91514164488064,
-    "min500msWindow": 58,
-    "slowestFrameMs": 33.39999999999782,
+    "frames": 701,
+    "seconds": 11.666599999999999,
+    "mean": 60.00034285910206,
+    "min500msWindow": 59.97600959616145,
+    "slowestFrameMs": 16.900000000001455,
     "reachedCard": 36,
     "pass": true
   },
@@ -312,9 +381,9 @@
       "Courier Prime": 165
     },
     "R15_pinned": [
-      "header.site-module__TM77GG__top fixed",
-      "div.site-module__TM77GG__sticky sticky",
-      "aside.site-module__TM77GG__sheet fixed"
+      "header.site-module__78xLiG__top fixed",
+      "div.site-module__78xLiG__sticky sticky",
+      "aside.site-module__78xLiG__sheet fixed"
     ],
     "ink": {
       "rgb(0, 0, 0)": 176
