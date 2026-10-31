@@ -1,31 +1,22 @@
 {
-  "url": "https://waituntilmay.com/gillenwebsite",
-  "at": "2026-10-31T03:57:29.933Z",
+  "url": "http://localhost:3217/gillenwebsite",
+  "at": "2026-10-31T04:37:26.633Z",
   "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 (0x00002507) Direct3D11 vs_5_0 ps_5_0, D3D11)",
   "glb": {
     "meshNodes": 11,
     "triangles": 156330,
     "names": [
       "frame",
-      "",
       "base",
-      "",
       "side_right",
-      "",
       "cradle",
       "rod",
       "side_right_inner",
-      "",
       "side_left_inner",
-      "",
       "knob_right",
-      "",
       "knob_left",
-      "",
       "knob_left_cap",
-      "",
-      "knob_left_face",
-      ""
+      "knob_left_face"
     ]
   },
   "cards": {
@@ -37,73 +28,66 @@
   "canvas": true,
   "materials": {
     "frame": {
-      "type": "MeshMatcapMaterial",
-      "roughnessMap": null,
-      "normalMap": null,
-      "clearcoatRoughnessMap": null,
-      "edgeWearVertexShare": 0.18287316860886804
-    },
-    "": {
-      "type": "MeshBasicMaterial",
-      "roughnessMap": null,
-      "normalMap": null,
+      "type": "MeshPhysicalMaterial",
+      "roughnessMap": "512x512 procedural",
+      "normalMap": "512x512 procedural",
       "clearcoatRoughnessMap": null,
       "edgeWearVertexShare": 0.18287316860886804
     },
     "base": {
-      "type": "MeshMatcapMaterial",
-      "roughnessMap": null,
-      "normalMap": null,
+      "type": "MeshPhysicalMaterial",
+      "roughnessMap": "512x512 procedural",
+      "normalMap": "512x512 procedural",
       "clearcoatRoughnessMap": null,
       "edgeWearVertexShare": 0.33464620399293765
     },
     "side_right": {
-      "type": "MeshMatcapMaterial",
-      "roughnessMap": null,
-      "normalMap": null,
+      "type": "MeshPhysicalMaterial",
+      "roughnessMap": "512x512 procedural",
+      "normalMap": "512x512 procedural",
       "clearcoatRoughnessMap": null,
       "edgeWearVertexShare": 0.23077900622696657
     },
     "side_right_inner": {
-      "type": "MeshMatcapMaterial",
+      "type": "MeshStandardMaterial",
       "roughnessMap": null,
       "normalMap": null,
       "clearcoatRoughnessMap": null,
       "edgeWearVertexShare": null
     },
     "side_left_inner": {
-      "type": "MeshMatcapMaterial",
+      "type": "MeshStandardMaterial",
       "roughnessMap": null,
       "normalMap": null,
       "clearcoatRoughnessMap": null,
       "edgeWearVertexShare": null
     },
     "knob_right": {
-      "type": "MeshMatcapMaterial",
-      "roughnessMap": null,
+      "type": "MeshPhysicalMaterial",
+      "roughnessMap": "512x512 procedural",
       "normalMap": null,
-      "clearcoatRoughnessMap": null,
+      "clearcoatRoughnessMap": "512x512 procedural",
       "edgeWearVertexShare": null
     },
     "knob_left": {
-      "type": "MeshMatcapMaterial",
-      "roughnessMap": null,
+      "type": "MeshPhysicalMaterial",
+      "roughnessMap": "512x512 procedural",
       "normalMap": null,
-      "clearcoatRoughnessMap": null,
+      "clearcoatRoughnessMap": "512x512 procedural",
       "edgeWearVertexShare": null
     },
     "knob_left_cap": {
-      "type": "MeshMatcapMaterial",
-      "roughnessMap": null,
+      "type": "MeshPhysicalMaterial",
+      "roughnessMap": "512x512 procedural",
       "normalMap": null,
-      "clearcoatRoughnessMap": null,
+      "clearcoatRoughnessMap": "512x512 procedural",
       "edgeWearVertexShare": null
     },
     "knob_left_face": {
-      "type": "MeshMatcapMaterial",
-      "roughnessMap": null,
+      "type": "MeshPhysicalMaterial",
+      "roughnessMap": "512x512 procedural",
       "normalMap": null,
-      "clearcoatRoughnessMap": null,
+      "clearcoatRoughnessMap": "512x512 procedural",
       "edgeWearVertexShare": null
     },
     "card": {
@@ -114,62 +98,62 @@
   "directionScroll": {
     "card": 4,
     "before": {
-      "y": 0.9546984871116508,
-      "z": -0.03225256151152682
+      "y": 0.9546963360486,
+      "z": -0.03227400531769051
     },
     "after": {
-      "y": 0.8333106763627611,
-      "z": -0.2717283850722631
+      "y": 0.8333010941059529,
+      "z": -0.27173700258265177
     },
-    "dY": -0.12138781074888971,
-    "dZ": -0.23947582356073627,
+    "dY": -0.12139524194264717,
+    "dZ": -0.23946299726496126,
     "pass": true
   },
   "directionDrag": {
     "card": 9,
     "at": {
-      "x": 293.7104093113083,
-      "y": 283.76031852434545
+      "x": 293.70960203465444,
+      "y": 283.7606280324388
     },
     "before": {
-      "y": 0.9546948552870576,
-      "z": -0.032288759667645286
+      "y": 0.9546957368980924,
+      "z": -0.03227997598332303
     },
     "after": {
-      "y": 0.7293517530547342,
-      "z": 0.34752926271883733
+      "y": 0.6213871179523229,
+      "z": 0.3750384189937908
     },
-    "dY": -0.22534310223232334,
-    "dZ": 0.3798180223864826,
+    "dY": -0.33330861894576946,
+    "dZ": 0.40731839497711386,
     "pass": true
   },
   "detent": {
     "stoppedAt": 12.4,
-    "s": 11.999994407877358,
+    "s": 12.00000001758478,
     "landedOn": 12,
-    "error": 0.000005592122642283925,
-    "settledMs": 603,
+    "error": 1.758477985447371e-8,
+    "settledMs": 464,
     "pass": true
   },
   "orbit": {
     "dragPx": 785.3981633974482,
     "az0": 0.3,
-    "az1": -5.983185433503215,
-    "wrappedDifference": -1.2632362864571618e-7,
+    "az1": -5.983185457716793,
+    "wrappedDifference": -1.5053720645517825e-7,
     "pass": true
   },
   "fps": {
-    "frames": 700,
-    "seconds": 11.649799999999999,
-    "mean": 60.001030060601906,
-    "min500msWindow": 59.988002399519836,
-    "slowestFrameMs": 16.900000000001455,
+    "frames": 544,
+    "seconds": 9.0498,
+    "mean": 60.00132599615461,
+    "min500msWindow": 59.98800239952027,
+    "slowestFrameMs": 16.80000000000291,
     "reachedCard": 36,
     "pass": true
   },
   "bible": {
     "textElements": 42,
-    "elements": 189,
+    "elements": 190,
     "R1_ground": {
       "body": "rgb(255, 255, 255)",
       "root": "rgb(255, 255, 255)",
@@ -179,10 +163,10 @@
       "400": 42
     },
     "R3_shadows": {
-      "none | none": 189
+      "none | none": 190
     },
     "R4_radius": {
-      "0px": 189
+      "0px": 190
     },
     "R5_buttons": [
       {
@@ -217,7 +201,7 @@
       }
     ],
     "R7_textTransform": {
-      "none": 189
+      "none": 190
     },
     "R7_textWithTypedCapitals": 21,
     "R9_sizes": {
@@ -234,10 +218,10 @@
       "info": 38
     },
     "R15_pinned": [
-      "header.site-module__78xLiG__top fixed",
-      "div.site-module__78xLiG__sticky sticky",
-      "div.site-module__78xLiG__cursorText fixed",
-      "div.site-module__78xLiG__lightbox fixed"
+      "header.site-module__TM77GG__top fixed",
+      "div.site-module__TM77GG__sticky sticky",
+      "div.site-module__TM77GG__cursorText fixed",
+      "div.site-module__TM77GG__lightbox fixed"
     ],
     "ink": {
       "rgb(0, 0, 0)": 42
@@ -552,10 +536,10 @@
   },
   "aboutIndex": [
     {
-      "title": "girl in red — BLUE",
-      "want": "01-girl-in-red-blue",
+      "title": "Marcus King — Mood Swings",
+      "want": "14-marcus-king-mood-swings",
       "shown": [
-        "01-girl-in-red-blue"
+        "14-marcus-king-mood-swings"
       ],
       "lineFromRow": true,
       "lineToCover": true,
@@ -572,40 +556,40 @@
       "drawn": true
     },
     {
-      "title": "SZA — SOS Deluxe: LANA",
-      "want": "12-sza-sos-deluxe-lana",
+      "title": "Lucy Park — Before I Speak",
+      "want": "25-lucy-park-before-i-speak",
       "shown": [
-        "12-sza-sos-deluxe-lana"
+        "25-lucy-park-before-i-speak"
       ],
       "lineFromRow": true,
       "lineToCover": true,
       "drawn": true
     },
     {
-      "title": "Teezo Touchdown — How Do You Sleep At Night? With You",
-      "want": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
+      "title": "Harry Styles — Fine Line",
+      "want": "32-harry-styles-fine-line",
       "shown": [
-        "15-teezo-touchdown-how-do-you-sleep-at-night-with-you"
+        "32-harry-styles-fine-line"
       ],
       "lineFromRow": true,
       "lineToCover": true,
       "drawn": true
     },
     {
-      "title": "Obongjayar — Paradise Now & Forever",
-      "want": "07-obongjayar-paradise-now-and-forever",
+      "title": "Santana — Africa Speaks",
+      "want": "34-santana-africa-speaks",
       "shown": [
-        "07-obongjayar-paradise-now-and-forever"
+        "34-santana-africa-speaks"
       ],
       "lineFromRow": true,
       "lineToCover": true,
       "drawn": true
     },
     {
-      "title": "Mark Ronson — Late Night Feelings",
-      "want": "31-mark-ronson-late-night-feelings",
+      "title": "The Smashing Pumpkins — Shiny and Oh So Bright, Vol. 1: No Past. No Future. No Sun",
+      "want": "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun",
       "shown": [
-        "31-mark-ronson-late-night-feelings"
+        "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun"
       ],
       "lineFromRow": true,
       "lineToCover": true,
@@ -622,30 +606,30 @@
       "drawn": true
     },
     {
-      "title": "Kesha — Gag Order",
-      "want": "16-kesha-gag-order",
+      "title": "girl in red — BLUE",
+      "want": "01-girl-in-red-blue",
       "shown": [
-        "16-kesha-gag-order"
+        "01-girl-in-red-blue"
       ],
       "lineFromRow": true,
       "lineToCover": true,
       "drawn": true
     },
     {
-      "title": "The Strokes — The New Abnormal",
-      "want": "28-the-strokes-the-new-abnormal",
+      "title": "Muse — Simulation Theory (Super Deluxe)",
+      "want": "35-muse-simulation-theory-super-deluxe",
       "shown": [
-        "28-the-strokes-the-new-abnormal"
+        "35-muse-simulation-theory-super-deluxe"
       ],
       "lineFromRow": true,
       "lineToCover": true,
       "drawn": true
     },
     {
-      "title": "Don Toliver, Doja Cat — F1: The Album",
-      "want": "11-don-toliver-doja-cat-f1-the-album",
+      "title": "Imagine Dragons — Mercury: Act 1",
+      "want": "26-imagine-dragons-mercury-act-1",
       "shown": [
-        "11-don-toliver-doja-cat-f1-the-album"
+        "26-imagine-dragons-mercury-act-1"
       ],
       "lineFromRow": true,
       "lineToCover": true,
@@ -656,7 +640,7 @@
   "sync": {
     "caption": [
       {
-        "dy": -50,
+        "dy": -58,
         "from": 0,
         "caption": 1,
         "rolodex": 1,
@@ -665,7 +649,7 @@
         "equal": true
       },
       {
-        "dy": -77,
+        "dy": -33,
         "from": 1,
         "caption": 2,
         "rolodex": 2,
@@ -674,329 +658,329 @@
         "equal": true
       },
       {
-        "dy": 77,
+        "dy": -105,
         "from": 2,
-        "caption": 1,
-        "rolodex": 1,
-        "display": 1,
+        "caption": 3,
+        "rolodex": 3,
+        "display": 3,
         "onePerSwipe": true,
         "equal": true
       },
       {
-        "dy": -115,
-        "from": 1,
-        "caption": 2,
-        "rolodex": 2,
-        "display": 2,
+        "dy": -63,
+        "from": 3,
+        "caption": 4,
+        "rolodex": 4,
+        "display": 4,
         "onePerSwipe": true,
         "equal": true
       },
       {
-        "dy": 78,
-        "from": 2,
-        "caption": 1,
-        "rolodex": 1,
-        "display": 1,
+        "dy": -86,
+        "from": 4,
+        "caption": 5,
+        "rolodex": 5,
+        "display": 5,
         "onePerSwipe": true,
         "equal": true
       },
       {
-        "dy": 37,
-        "from": 1,
-        "caption": 0,
-        "rolodex": 0,
-        "display": 0,
+        "dy": -80,
+        "from": 5,
+        "caption": 6,
+        "rolodex": 6,
+        "display": 6,
         "onePerSwipe": true,
         "equal": true
       },
       {
-        "dy": -93,
-        "from": 0,
-        "caption": 1,
-        "rolodex": 1,
-        "display": 1,
+        "dy": 106,
+        "from": 6,
+        "caption": 5,
+        "rolodex": 5,
+        "display": 5,
         "onePerSwipe": true,
         "equal": true
       },
       {
         "dy": 83,
-        "from": 1,
-        "caption": 0,
-        "rolodex": 0,
-        "display": 0,
+        "from": 5,
+        "caption": 4,
+        "rolodex": 4,
+        "display": 4,
         "onePerSwipe": true,
         "equal": true
       },
       {
-        "dy": -75,
-        "from": 0,
-        "caption": 1,
-        "rolodex": 1,
-        "display": 1,
+        "dy": -83,
+        "from": 4,
+        "caption": 5,
+        "rolodex": 5,
+        "display": 5,
         "onePerSwipe": true,
         "equal": true
       },
       {
-        "dy": 77,
-        "from": 1,
-        "caption": 0,
-        "rolodex": 0,
-        "display": 0,
+        "dy": 71,
+        "from": 5,
+        "caption": 4,
+        "rolodex": 4,
+        "display": 4,
         "onePerSwipe": true,
         "equal": true
       },
       {
-        "dy": -109,
-        "from": 0,
-        "caption": 1,
-        "rolodex": 1,
-        "display": 1,
+        "dy": -112,
+        "from": 4,
+        "caption": 5,
+        "rolodex": 5,
+        "display": 5,
         "onePerSwipe": true,
         "equal": true
       },
       {
-        "dy": 84,
-        "from": 1,
-        "caption": 0,
-        "rolodex": 0,
-        "display": 0,
+        "dy": -47,
+        "from": 5,
+        "caption": 6,
+        "rolodex": 6,
+        "display": 6,
         "onePerSwipe": true,
         "equal": true
       },
       {
-        "dy": -96,
-        "from": 0,
-        "caption": 1,
-        "rolodex": 1,
-        "display": 1,
+        "dy": 35,
+        "from": 6,
+        "caption": 5,
+        "rolodex": 5,
+        "display": 5,
         "onePerSwipe": true,
         "equal": true
       },
       {
-        "dy": 62,
-        "from": 1,
-        "caption": 0,
-        "rolodex": 0,
-        "display": 0,
+        "dy": -111,
+        "from": 5,
+        "caption": 6,
+        "rolodex": 6,
+        "display": 6,
         "onePerSwipe": true,
         "equal": true
       },
       {
-        "dy": -50,
-        "from": 0,
-        "caption": 1,
-        "rolodex": 1,
-        "display": 1,
+        "dy": -67,
+        "from": 6,
+        "caption": 7,
+        "rolodex": 7,
+        "display": 7,
         "onePerSwipe": true,
         "equal": true
       },
       {
-        "dy": 37,
-        "from": 1,
-        "caption": 0,
-        "rolodex": 0,
-        "display": 0,
+        "dy": 32,
+        "from": 7,
+        "caption": 6,
+        "rolodex": 6,
+        "display": 6,
         "onePerSwipe": true,
         "equal": true
       },
       {
-        "dy": -99,
-        "from": 0,
-        "caption": 1,
-        "rolodex": 1,
-        "display": 1,
+        "dy": 75,
+        "from": 6,
+        "caption": 5,
+        "rolodex": 5,
+        "display": 5,
         "onePerSwipe": true,
         "equal": true
       },
       {
-        "dy": -84,
-        "from": 1,
-        "caption": 2,
-        "rolodex": 2,
-        "display": 2,
+        "dy": 76,
+        "from": 5,
+        "caption": 4,
+        "rolodex": 4,
+        "display": 4,
         "onePerSwipe": true,
         "equal": true
       },
       {
-        "dy": 81,
-        "from": 2,
-        "caption": 1,
-        "rolodex": 1,
-        "display": 1,
+        "dy": 41,
+        "from": 4,
+        "caption": 3,
+        "rolodex": 3,
+        "display": 3,
         "onePerSwipe": true,
         "equal": true
       },
       {
-        "dy": 82,
-        "from": 1,
-        "caption": 0,
-        "rolodex": 0,
-        "display": 0,
+        "dy": -107,
+        "from": 3,
+        "caption": 4,
+        "rolodex": 4,
+        "display": 4,
         "onePerSwipe": true,
         "equal": true
       }
     ],
     "rolodex": [
       {
-        "dy": -131,
-        "caption": 2,
-        "rolodex": 2,
-        "display": 2,
-        "equal": true
-      },
-      {
-        "dy": -91,
-        "caption": 3,
-        "rolodex": 3,
-        "display": 3,
-        "equal": true
-      },
-      {
-        "dy": -169,
+        "dy": -77,
         "caption": 6,
         "rolodex": 6,
         "display": 6,
         "equal": true
       },
       {
-        "dy": -37,
-        "caption": 6,
-        "rolodex": 6,
-        "display": 6,
-        "equal": true
-      },
-      {
-        "dy": -37,
-        "caption": 7,
-        "rolodex": 7,
-        "display": 7,
-        "equal": true
-      },
-      {
-        "dy": 123,
-        "caption": 5,
-        "rolodex": 5,
-        "display": 5,
-        "equal": true
-      },
-      {
-        "dy": -139,
-        "caption": 7,
-        "rolodex": 7,
-        "display": 7,
-        "equal": true
-      },
-      {
-        "dy": -58,
-        "caption": 8,
-        "rolodex": 8,
-        "display": 8,
-        "equal": true
-      },
-      {
-        "dy": 93,
-        "caption": 6,
-        "rolodex": 6,
-        "display": 6,
-        "equal": true
-      },
-      {
-        "dy": -73,
-        "caption": 7,
-        "rolodex": 7,
-        "display": 7,
-        "equal": true
-      },
-      {
-        "dy": -119,
-        "caption": 9,
-        "rolodex": 9,
-        "display": 9,
-        "equal": true
-      },
-      {
-        "dy": -135,
-        "caption": 11,
-        "rolodex": 11,
-        "display": 11,
-        "equal": true
-      },
-      {
-        "dy": -131,
-        "caption": 13,
-        "rolodex": 13,
-        "display": 13,
-        "equal": true
-      },
-      {
-        "dy": -48,
-        "caption": 14,
-        "rolodex": 14,
-        "display": 14,
-        "equal": true
-      },
-      {
-        "dy": -45,
-        "caption": 14,
-        "rolodex": 14,
-        "display": 14,
-        "equal": true
-      },
-      {
-        "dy": 50,
-        "caption": 14,
-        "rolodex": 14,
-        "display": 14,
-        "equal": true
-      },
-      {
-        "dy": -64,
-        "caption": 14,
-        "rolodex": 14,
-        "display": 14,
-        "equal": true
-      },
-      {
-        "dy": 180,
+        "dy": -179,
         "caption": 12,
         "rolodex": 12,
         "display": 12,
         "equal": true
       },
       {
-        "dy": 70,
+        "dy": 32,
         "caption": 11,
         "rolodex": 11,
         "display": 11,
         "equal": true
       },
       {
-        "dy": 176,
-        "caption": 8,
-        "rolodex": 8,
-        "display": 8,
+        "dy": -75,
+        "caption": 13,
+        "rolodex": 13,
+        "display": 13,
+        "equal": true
+      },
+      {
+        "dy": 134,
+        "caption": 9,
+        "rolodex": 9,
+        "display": 9,
+        "equal": true
+      },
+      {
+        "dy": -179,
+        "caption": 14,
+        "rolodex": 14,
+        "display": 14,
+        "equal": true
+      },
+      {
+        "dy": -121,
+        "caption": 17,
+        "rolodex": 17,
+        "display": 17,
+        "equal": true
+      },
+      {
+        "dy": 76,
+        "caption": 15,
+        "rolodex": 15,
+        "display": 15,
+        "equal": true
+      },
+      {
+        "dy": 152,
+        "caption": 11,
+        "rolodex": 11,
+        "display": 11,
+        "equal": true
+      },
+      {
+        "dy": 144,
+        "caption": 7,
+        "rolodex": 7,
+        "display": 7,
+        "equal": true
+      },
+      {
+        "dy": 82,
+        "caption": 5,
+        "rolodex": 5,
+        "display": 5,
+        "equal": true
+      },
+      {
+        "dy": 132,
+        "caption": 1,
+        "rolodex": 1,
+        "display": 1,
+        "equal": true
+      },
+      {
+        "dy": -117,
+        "caption": 4,
+        "rolodex": 4,
+        "display": 4,
+        "equal": true
+      },
+      {
+        "dy": 83,
+        "caption": 2,
+        "rolodex": 2,
+        "display": 2,
+        "equal": true
+      },
+      {
+        "dy": -71,
+        "caption": 4,
+        "rolodex": 4,
+        "display": 4,
+        "equal": true
+      },
+      {
+        "dy": 71,
+        "caption": 2,
+        "rolodex": 2,
+        "display": 2,
+        "equal": true
+      },
+      {
+        "dy": -131,
+        "caption": 6,
+        "rolodex": 6,
+        "display": 6,
+        "equal": true
+      },
+      {
+        "dy": -92,
+        "caption": 9,
+        "rolodex": 9,
+        "display": 9,
+        "equal": true
+      },
+      {
+        "dy": -162,
+        "caption": 13,
+        "rolodex": 13,
+        "display": 13,
+        "equal": true
+      },
+      {
+        "dy": 102,
+        "caption": 10,
+        "rolodex": 10,
+        "display": 10,
         "equal": true
       }
     ],
     "pass": true,
-    "distinctIndicesVisited": 13
+    "distinctIndicesVisited": 15
   },
   "captionSlide": [
     {
-      "name": "site-module__78xLiG__capOutUp",
+      "name": "site-module__TM77GG__capOutUp",
       "ms": 320,
       "easing": "ease"
     },
     {
-      "name": "site-module__78xLiG__capInUp",
+      "name": "site-module__TM77GG__capInUp",
       "ms": 320,
       "easing": "ease"
     }
   ],
   "captionSlidePass": true,
   "captionThumb": {
-    "release": "10-doja-cat-vie",
-    "panelRelease": "10-doja-cat-vie",
+    "release": "12-sza-sos-deluxe-lana",
+    "panelRelease": "12-sza-sos-deluxe-lana",
     "pass": true
   },
   "textures": {
@@ -1008,13 +992,16 @@
     "pass": true
   },
   "look": {
-    "look": "flat",
     "housingMaterials": [
-      "MeshMatcapMaterial"
+      "MeshPhysicalMaterial",
+      "MeshStandardMaterial"
     ],
-    "lines": 9,
-    "hulls": 9,
-    "outlineSegments": 17026,
+    "outlines": 0,
+    "photo": {
+      "exposure": 1,
+      "roughness": 0.42,
+      "grain": 0.06
+    },
     "pass": true
   },
   "fonts": {
@@ -1027,13 +1014,14 @@
       "info 400 italic",
       "info Fallback normal normal",
       "Archivo 100 900 normal",
-      "Archivo Fallback normal normal"
+      "__nextjs-Geist 400 600 normal"
     ],
     "files": [
-      "/_next/static/media/21ca8f3f56c22ca2-s.p.0fmzj955937qe.woff2?dpl=dpl_9QNCNdgCR6ziScPntd4hurRRTokA",
-      "/_next/static/media/cc014fcb166cf364-s.p.0rbrcy8kuidpb.woff2?dpl=dpl_9QNCNdgCR6ziScPntd4hurRRTokA",
-      "/_next/static/media/texgyreheros_italic-s.p.0-ay1387e.9r7.woff2?dpl=dpl_9QNCNdgCR6ziScPntd4hurRRTokA",
-      "/_next/static/media/texgyreheros_regular-s.p.11~cle9isnpui.woff2?dpl=dpl_9QNCNdgCR6ziScPntd4hurRRTokA"
+      "/_next/static/media/21ca8f3f56c22ca2-s.p.0fmzj955937qe.woff2",
+      "/_next/static/media/cc014fcb166cf364-s.p.0rbrcy8kuidpb.woff2",
+      "/_next/static/media/texgyreheros_regular-s.p.11~cle9isnpui.woff2",
+      "/_next/static/media/texgyreheros_italic-s.p.0-ay1387e.9r7.woff2",
+      "/__nextjs_font/geist-latin.woff2"
     ],
     "thirdPartyFontRequests": 0,
     "sources": {
@@ -1042,7 +1030,7 @@
     }
   },
   "S12": {
-    "shownAfterS": 19.3,
+    "shownAfterS": 18.6,
     "firstValue": "10",
     "frontBefore": 0,
     "frontAfter15s": 2,

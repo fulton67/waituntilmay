@@ -69,6 +69,8 @@
 .sticky { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
 .stage { position: absolute; inset: 0; touch-action: pan-y; cursor: grab; }
 .stage canvas { display: block; }
+/* the cards' hit area, kept on the drum's screen rect by Rolodex.tsx: a drag on it flips the cards, not the page */
+.hit { position: absolute; left: 0; top: 0; width: 0; height: 0; touch-action: none; }
 .dragging { cursor: grabbing !important; }
 /* SOURCES #06 felixluke loading label */
 .loadingLabel { position: absolute; left: 20px; top: calc(var(--head) + 10px); pointer-events: none; white-space: nowrap; }

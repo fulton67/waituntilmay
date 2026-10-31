@@ -8,7 +8,7 @@ import { useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import type { Release } from "@/lib/gillenwebsite/discography";
-import { rig, FLIP_DIR, makeAngle, scrollPos } from "./rig";
+import { rig, per, FLIP_DIR, coast, makeAngle, scrollPos, scrollToCard } from "./rig";
 import { CW, CH, TAB_H, R0, T, shapes, TEX_W, TEX_H, paintCard, blankTexture, loadCover } from "./cardTexture";
 import { brushed, fingerprints, paperGrain, boxUV, edgeWear, withWear } from "./textures";
 import { coverAt } from "./shared";
@@ -198,23 +198,59 @@ export default function Rolodex({ releases, mono, photo }: { releases: Release[]
     rig.N = N; rig.TOTAL = TOTAL; rig.axisY = built.axis.y; rig.cards = built.cards; rig.knobs = built.knobs;
     rig.ready = true;
     // measurement hook for the verification script (scripts/gillenwebsite/verify.mjs)
-    (window as unknown as { __rolodex: unknown }).__rolodex = { rig, photo, texW: TEX_W * TEX_SCALE, anisotropy: 16, house: built.house, faceIds: built.faces.map((f) => f.r.id), meshes: built.meshes, triangles: built.triangles, axis: built.axis.toArray(), nodes: (() => { const n: string[] = []; built.house.traverse((o) => { if ((o as THREE.Mesh).isMesh) n.push(o.name); }); return n; })() };
+    (window as unknown as { __rolodex: unknown }).__rolodex = { rig, per, frontPoint: () => { const c = new THREE.Box3().setFromObject(built.cards[rig.front]).getCenter(new THREE.Vector3()).project(rig.camera!), b = rig.hit!.parentElement!.getBoundingClientRect(); return { x: b.left + (c.x + 1) * 0.5 * b.width, y: b.top + (1 - c.y) * 0.5 * b.height }; }, photo, texW: TEX_W * TEX_SCALE, anisotropy: 16, house: built.house, faceIds: built.faces.map((f) => f.r.id), meshes: built.meshes, triangles: built.triangles, axis: built.axis.toArray(), nodes: (() => { const n: string[] = []; built.house.traverse((o) => { if ((o as THREE.Mesh).isMesh) n.push(o.name); }); return n; })() };
     // SOURCES #07 pointnever.com C5 (6a304bdc22ff1924.js:23)
     console.log("Website is loaded, enjoy 👍");
   }, [built, N, TOTAL, TEX_SCALE, photo]);
 
   const angle = useMemo(() => makeAngle(TOTAL), [TOTAL]);
-  useFrame((_, delta) => {
+  // the drum's screen rect is the cards' hit area: 8 corners of its rest box, projected each frame
+  const hitBox = useMemo(() => {
+    built.drum.updateMatrixWorld(true);
+    const b = new THREE.Box3().setFromObject(built.drum), c: THREE.Vector3[] = [];
+    for (let k = 0; k < 8; k++) c.push(new THREE.Vector3(k & 1 ? b.max.x : b.min.x, k & 2 ? b.max.y : b.min.y, k & 4 ? b.max.z : b.min.z));
+    return { c, p: new THREE.Vector3(), last: "" };
+  }, [built]);
+  useFrame((state, delta) => {
+    const now = performance.now();
+    if (rig.moveT) { rig.lag.push(now - rig.moveT); if (rig.lag.length > 400) rig.lag.shift(); rig.moveT = 0; }
     paintNext();
-    const dt = Math.min(delta, 1 / 30), raw = scrollPos();
-    // settle on a card like the real ratchet once scrolling stops
-    const goal = performance.now() - rig.lastScroll > 160 && !rig.drag ? Math.round(raw) : raw;
-    if (rig.reduce) { rig.s = goal; rig.v = 0; }
-    else { rig.v += (goal - rig.s) * 170 * dt; rig.v *= Math.exp(-18 * dt); rig.s += rig.v * dt; }
+    const dt = Math.min(delta, 1 / 30);
+    // a flick coasts on its own curve (rig.ts) and stops on its card; the spring holds it there
+    if (rig.fling !== null) {
+      const c = coast(rig.fling, now);
+      if (c.done) { scrollToCard(rig.fling.to); rig.s = rig.fling.to; rig.v = 0; rig.fling = null; }
+      else { scrollToCard(c.x); rig.s = c.x; rig.v = c.v; }
+    }
+    const raw = scrollPos();
+    if (rig.drag?.mode === "flip" || rig.fling !== null || rig.reduce) {
+      // the finger (or the flick) drives the drum directly: the card under it follows 1:1
+      if (rig.fling === null) { rig.s = raw; rig.v = 0; }
+    } else {
+      // settle on a card like the real ratchet once scrolling stops: spring stiffness 240, damping 22
+      const goal = now - rig.lastScroll > 160 && !rig.drag ? Math.round(raw) : raw;
+      rig.v += ((goal - rig.s) * 240 - rig.v * 22) * dt;
+      rig.s += rig.v * dt;
+    }
     for (let i = 0; i < TOTAL; i++) built.cards[i].rotation.x = angle(FLIP_DIR * (rig.s - i));
     for (const k of built.knobs) k.rotation.x = FLIP_DIR * -rig.s * 0.42;
     const front = Math.max(0, Math.min(N - 1, Math.round(rig.s)));
     if (front !== rig.front) { rig.front = front; rig.onFront.forEach((f) => f(front)); }
+    if (rig.hit) {
+      let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+      const { width: W, height: H } = state.size;
+      for (const c of hitBox.c) {
+        hitBox.p.copy(c).project(state.camera);
+        const x = (hitBox.p.x + 1) * 0.5 * W, y = (1 - hitBox.p.y) * 0.5 * H;
+        x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y);
+      }
+      x0 = Math.max(0, x0); y0 = Math.max(0, y0); x1 = Math.min(W, x1); y1 = Math.min(H, y1);
+      const key = `${x0 | 0} ${y0 | 0} ${(x1 - x0) | 0} ${(y1 - y0) | 0}`;
+      if (key !== hitBox.last) {
+        hitBox.last = key;
+        Object.assign(rig.hit.style, { left: `${x0 | 0}px`, top: `${y0 | 0}px`, width: `${(x1 - x0) | 0}px`, height: `${(y1 - y0) | 0}px` });
+      }
+    }
   });
 
   return (

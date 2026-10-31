@@ -71,7 +71,7 @@ const topEdge = (k) => page.evaluate((k) => {
   const p = g.localToWorld(new V(0, 0.3, 0));
   return { y: p.y, z: p.z };
 }, k);
-const perPx = () => page.evaluate(() => Math.max(140, innerHeight * 0.42));
+const perPx = () => page.evaluate(() => window.__rolodex.per());
 const flipTop = () => page.evaluate(() => document.getElementById("flip").offsetTop);
 const sNow = () => page.evaluate(() => window.__rolodex.rig.s);
 
@@ -146,9 +146,9 @@ if (want("fps")) {
     requestAnimationFrame(tick);
   });
   const per = await perPx(), N = out.cards.releases;
-  const steps = Math.ceil(((N - 1) * per) / 60);
+  const steps = Math.ceil(((N - 1) * per) / 30);
   await page.mouse.move(700, 450);
-  for (let i = 0; i < steps; i++) { await page.mouse.wheel(0, 60); await wait(16); }
+  for (let i = 0; i < steps; i++) { await page.mouse.wheel(0, 30); await wait(16); }
   await wait(600);
   const f = await page.evaluate(() => { window.__stop = true; return window.__frames; });
   const d = f.slice(1).map((t, i) => t - f[i]);
@@ -417,7 +417,7 @@ if (want("sync")) {
       }
     });
     mo.observe(document.querySelector("[data-src='17']"), { subtree: true, childList: true, attributes: true });
-    window.scrollBy(0, Math.max(140, innerHeight * 0.42));
+    window.scrollBy(0, window.__rolodex.per());
     await new Promise((r) => setTimeout(r, 900));
     mo.disconnect();
     return [...seen].map((x) => JSON.parse(x));

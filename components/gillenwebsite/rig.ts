@@ -9,11 +9,15 @@ export const FLIP_DIR = 1;
 
 export type Drag = { x: number; y: number; sy: number; az: number; el: number; mode: "flip" | "orbit" };
 
+// a coasting flick: from x0 at t0 (performance.now), speed v0 cards/s in direction dir, stopping on card `to` after T ms
+export type Fling = { x0: number; v0: number; dir: number; t0: number; T: number; to: number };
+
 export type Rig = {
   N: number;
   TOTAL: number;
   s: number; // drum position in cards (0 = first release in front)
   v: number;
+  fling: Fling | null; // a flick while it coasts; null otherwise
   lastScroll: number;
   drag: Drag | null;
   az: number; // orbit target
@@ -32,6 +36,9 @@ export type Rig = {
   ready: boolean;
   axisY: number; // height of the drum axis, from knob_right's bounding box
   view: { x: number; y: number }; // where the drum is drawn on the stage, in CSS px from its top left (camera view offset)
+  hit: HTMLElement | null; // the cards' hit area over the stage (touch-action: none), kept on the drum's screen rect
+  moveT: number; // when the last drag pointermove landed (performance.now), for the lag probe
+  lag: number[]; // pointermove -> frame that drew it, ms
 };
 
 export const rig: Rig = {
@@ -39,6 +46,7 @@ export const rig: Rig = {
   TOTAL: 0,
   s: 0,
   v: 0,
+  fling: null,
   lastScroll: 0,
   drag: null,
   az: 0.3,
@@ -57,17 +65,48 @@ export const rig: Rig = {
   ready: false,
   axisY: 0.585,
   view: { x: 0, y: 0 },
+  hit: null,
+  moveT: 0,
+  lag: [],
 };
 
-// scroll distance per card
-export const per = () => Math.max(140, (typeof window === "undefined" ? 900 : window.innerHeight) * 0.42);
+// scroll distance per card (trackpad and touch scrolling); a card drag is DRAG_PX per card, a wheel notch one card
+export const per = () => Math.max(90, (typeof window === "undefined" ? 900 : window.innerHeight) * 0.16);
+export const DRAG_PX = 36;
+// A flick coasts under air drag plus a constant brake: dv/dt = -FRICTION v - BRAKE. The brake is what makes a
+// gentle flick (0.4-0.6 px/ms) carry 1-2 cards while a hard one (1.5 px/ms) carries about 7; MAX_FLING caps it at 10.
+export const FRICTION = 4, BRAKE = 30, MAX_FLING = 56;
+const carry = (v: number) => v / FRICTION - (BRAKE / FRICTION ** 2) * Math.log(1 + (FRICTION * v) / BRAKE);
+const stopMs = (v: number) => (Math.log(1 + (FRICTION * v) / BRAKE) / FRICTION) * 1000;
+
+// start a flick from the drum at x with velocity v (cards/s). It is aimed at the card it would naturally stop
+// nearest to: the speed is solved so the coast ends exactly on that card, and the detent has nothing left to do.
+export function flick(x: number, v: number) {
+  const dir = Math.sign(v), sp = Math.min(Math.abs(v), MAX_FLING);
+  const to = Math.max(0, Math.min(rig.N - 1, Math.round(x + dir * carry(sp))));
+  const D = (to - x) * dir;
+  if (D <= 0.01) { jumpTo(to); return; }
+  let lo = 0, hi = MAX_FLING * 2;
+  for (let k = 0; k < 40; k++) { const m = (lo + hi) / 2; if (carry(m) < D) lo = m; else hi = m; }
+  rig.fling = { x0: x, v0: lo, dir, t0: performance.now(), T: stopMs(lo), to };
+}
+// where a coasting flick is at time now, and its velocity (cards/s)
+export function coast(f: Fling, now: number) {
+  const t = Math.min(now - f.t0, f.T) / 1000, a = f.v0 + BRAKE / FRICTION, e = Math.exp(-FRICTION * t);
+  return { x: f.x0 + f.dir * ((a * (1 - e)) / FRICTION - (BRAKE / FRICTION) * t), v: f.dir * (a * e - BRAKE / FRICTION), done: now - f.t0 >= f.T };
+}
 
 export const scrollPos = () =>
   rig.flip ? Math.max(0, Math.min(rig.N - 1, (window.scrollY - rig.flip.offsetTop) / per())) : 0;
 
-export function jumpTo(i: number) {
+// the page scroll is the drum's position; jumps are instant and the spring in Rolodex.tsx animates the cards
+export function scrollToCard(x: number) {
   if (!rig.flip) return;
-  window.scrollTo({ top: rig.flip.offsetTop + i * per(), behavior: rig.reduce ? "auto" : "smooth" });
+  window.scrollTo({ top: rig.flip.offsetTop + x * per(), behavior: "instant" });
+}
+export function jumpTo(i: number) {
+  rig.fling = null;
+  scrollToCard(i);
 }
 
 // Card layout around the drum, ported exactly from the prototype: the front card stands open,

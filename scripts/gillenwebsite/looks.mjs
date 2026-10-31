@@ -35,9 +35,9 @@ for (const look of ["photo"]) {
     await page.evaluate(() => scrollTo(0, 0));
     await wait(1200);
     await page.evaluate(() => { window.__f = []; const t = (x) => { window.__f.push(x); if (!window.__stop) requestAnimationFrame(t); }; requestAnimationFrame(t); });
-    const per = await page.evaluate(() => Math.max(140, innerHeight * 0.42));
+    const per = await page.evaluate(() => window.__rolodex.per());
     await page.mouse.move(700, 450);
-    for (let i = 0; i < Math.ceil((35 * per) / 60); i++) { await page.mouse.wheel(0, 60); await wait(16); }
+    for (let i = 0; i < Math.ceil((35 * per) / 30); i++) { await page.mouse.wheel(0, 30); await wait(16); }
     await wait(600);
     const f = await page.evaluate(() => { window.__stop = true; return window.__f; });
     const win = [];

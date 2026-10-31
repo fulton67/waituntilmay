@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import * as THREE from "three";
 import type { Release } from "@/lib/gillenwebsite/discography";
-import { rig, per, jumpTo, scrollPos, FLIP_DIR } from "./rig";
+import { rig, per, jumpTo, flick, scrollPos, scrollToCard, FLIP_DIR, DRAG_PX } from "./rig";
 import { usePanel } from "./Chrome";
 import ReleaseView from "./ReleaseView";
 import { no3, coverAt, caps } from "./shared";
@@ -188,26 +188,55 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
     return () => clearTimeout(t);
   }, []);
 
-  // keyboard: arrows step cards, Enter opens the front card in the panel
+  // keyboard: arrows step one card and repeat at 8 cards/s while held; Enter opens the front card in the panel
   useEffect(() => {
+    let held: { key: string; id: number } | null = null;
+    const inFlip = () => !!rig.flip && scrollY <= rig.flip.offsetTop + (N - 1) * per() + innerHeight * 0.5;
+    const arrow = (key: string) => { const i = Math.round(rig.s) + (key === "ArrowRight" ? 1 : -1); jumpTo(Math.max(0, Math.min(N - 1, i))); };
     const onKey = (e: KeyboardEvent) => {
-      if (document.querySelector("[role=dialog]")) return;
-      if (!rig.flip || scrollY > rig.flip.offsetTop + (N - 1) * per() + innerHeight * 0.5) return;
-      const i = Math.round(rig.s);
+      if (document.querySelector("[role=dialog]") || !inFlip()) return;
       const tag = (e.target as HTMLElement).tagName;
-      if (e.key === "ArrowRight") { e.preventDefault(); jumpTo(Math.min(N - 1, i + 1)); }
-      if (e.key === "ArrowLeft") { e.preventDefault(); jumpTo(Math.max(0, i - 1)); }
-      if (e.key === "Enter" && tag !== "BUTTON" && tag !== "A") { e.preventDefault(); open(i); }
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        e.preventDefault();
+        if (e.repeat || held?.key === e.key) return; // the repeat is ours, not the OS's
+        if (held) clearInterval(held.id);
+        arrow(e.key);
+        held = { key: e.key, id: window.setInterval(() => arrow(e.key), 125) };
+      }
+      if (e.key === "Enter" && tag !== "BUTTON" && tag !== "A") { e.preventDefault(); open(Math.round(rig.s)); }
+    };
+    const onKeyUp = (e: KeyboardEvent) => { if (held?.key === e.key) { clearInterval(held.id); held = null; } };
+    const stop = () => { if (held) { clearInterval(held.id); held = null; } };
+    // a mouse wheel notch (about 100 px deltaY, or a line/page delta) is one card; trackpads scroll natively at per()
+    const onWheel = (e: WheelEvent) => {
+      if (!inFlip() || e.ctrlKey || document.querySelector("[role=dialog]")) return;
+      const notch = e.deltaMode !== 0 || (e.deltaX === 0 && Math.abs(e.deltaY) >= 50 && Number.isInteger(e.deltaY));
+      if (!notch) return;
+      const k = Math.sign(e.deltaY) * Math.max(1, Math.round(Math.abs(e.deltaMode !== 0 ? 100 : e.deltaY) / 100));
+      const base = rig.fling !== null ? Math.round(rig.s) : Math.round(scrollPos());
+      const i = base + k * FLIP_DIR;
+      if (i < 0 || i > N - 1) return; // past either end the page scrolls on
+      e.preventDefault();
+      jumpTo(i);
     };
     addEventListener("keydown", onKey);
-    return () => removeEventListener("keydown", onKey);
+    addEventListener("keyup", onKeyUp);
+    addEventListener("blur", stop);
+    addEventListener("wheel", onWheel, { passive: false });
+    return () => { stop(); removeEventListener("keydown", onKey); removeEventListener("keyup", onKeyUp); removeEventListener("blur", stop); removeEventListener("wheel", onWheel); };
   }, [N, open]);
 
-  // pointer: on a card a drag flips it; anywhere else a drag turns the Rolodex.
+  // pointer: on a card a drag flips it, DRAG_PX per card, 1:1 under the pointer; anywhere else a drag turns the
+  // Rolodex. On touch the cards' hit area (rig.hit, touch-action: none) takes the drag; the rest of the stage
+  // still scrolls the page vertically. A release faster than 0.4 px/ms (over the last 80 ms) coasts as a flick.
   // SOURCES #17: the 5 px click/drag threshold and the grab / grabbing cursors are luckydaye.com's.
   const ray = useMemo(() => new THREE.Raycaster(), []);
   const pointer = useMemo(() => new THREE.Vector2(), []);
+  const hit = useRef<HTMLDivElement>(null);
   const moved = useRef(0);
+  const trail = useRef<{ t: number; y: number }[]>([]);
+  const stopped = useRef(false);
+  useEffect(() => { rig.hit = hit.current; return () => { rig.hit = null; }; }, []);
   const hitCard = (e: React.PointerEvent) => {
     if (!rig.camera || !stage.current) return null;
     const b = stage.current.getBoundingClientRect();
@@ -216,9 +245,14 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
     return ray.intersectObjects(rig.cards, true)[0] ?? null;
   };
   const onDown = (e: React.PointerEvent) => {
-    const mode = e.pointerType === "mouse" && hitCard(e) ? "flip" : "orbit";
-    rig.drag = { x: e.clientX, y: e.clientY, sy: scrollY, az: rig.az, el: rig.el, mode };
+    // a tap while a flick coasts stops it on the nearest card
+    stopped.current = rig.fling !== null;
+    if (stopped.current) jumpTo(Math.round(rig.s));
+    const onCards = e.pointerType === "mouse" ? !!hitCard(e) : e.target === hit.current;
+    const mode = onCards ? "flip" : "orbit";
+    rig.drag = { x: e.clientX, y: e.clientY, sy: rig.flip ? rig.flip.offsetTop + scrollPos() * per() : scrollY, az: rig.az, el: rig.el, mode };
     moved.current = 0;
+    trail.current = [{ t: e.timeStamp, y: e.clientY }];
     stage.current?.setPointerCapture(e.pointerId);
   };
   const onMove = (e: React.PointerEvent) => {
@@ -227,8 +261,13 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
     const dx = e.clientX - d.x, dy = e.clientY - d.y;
     moved.current = Math.max(moved.current, Math.hypot(dx, dy));
     if (moved.current > 5) stage.current?.classList.add(css.dragging);
-    if (d.mode === "flip") scrollTo(0, d.sy - FLIP_DIR * dy * per() / 70); // the card surface follows the pointer
-    else {
+    if (d.mode === "flip") {
+      // the card surface follows the pointer: DRAG_PX of pointer is one card
+      if (rig.flip) scrollToCard(Math.max(0, Math.min(N - 1, (d.sy - rig.flip.offsetTop) / per() - (FLIP_DIR * dy) / DRAG_PX)));
+      rig.moveT = performance.now();
+      trail.current.push({ t: e.timeStamp, y: e.clientY });
+      while (trail.current.length > 2 && e.timeStamp - trail.current[0].t > 80) trail.current.shift();
+    } else {
       rig.az = d.az - dx * 0.008;
       if (e.pointerType === "mouse") rig.el = Math.max(0.04, Math.min(1.2, d.el + dy * 0.005));
     }
@@ -237,14 +276,21 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
     stage.current?.classList.remove(css.dragging);
     const d = rig.drag, click = d && moved.current <= 5;
     rig.drag = null;
-    if (!d || !click) return;
+    if (d?.mode === "flip" && !click) {
+      const tr = trail.current, a = tr[0], b = tr[tr.length - 1], dt = b.t - a.t;
+      const vy = dt > 0 && e.timeStamp - b.t < 80 ? (b.y - a.y) / dt : 0; // px/ms over the last 80 ms
+      if (Math.abs(vy) > 0.4 && !rig.reduce) flick(scrollPos(), (-FLIP_DIR * vy * 1000) / DRAG_PX); // cards/s
+      else jumpTo(Math.round(scrollPos()));
+      return;
+    }
+    if (!d || !click || stopped.current) return;
     const h = hitCard(e);
     if (!h) return;
     const i = h.object.userData.i as number;
     if (i >= N) return;
     if (i === Math.round(rig.s)) open(i); else jumpTo(i);
   };
-  const onCancel = () => { stage.current?.classList.remove(css.dragging); rig.drag = null; };
+  const onCancel = () => { stage.current?.classList.remove(css.dragging); if (rig.drag?.mode === "flip") jumpTo(Math.round(scrollPos())); rig.drag = null; };
 
   // one release per swipe or arrow: while a smooth scroll is still running, step from where it is heading
   const last = useRef({ t: 0, i: 0 });
@@ -270,6 +316,7 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
           onPointerCancel={onCancel}
         >
           <Scene releases={releases} mono={mono} />
+          <div ref={hit} className={css.hit} aria-hidden />
         </div>
 
         {/* SOURCES #06 felixluke.com loading label */}
