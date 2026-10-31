@@ -340,7 +340,8 @@ if (want("sources")) {
       const shown = [...document.querySelectorAll("[class*=indexCover] img")].filter((im) => getComputedStyle(im).visibility === "visible").map((im) => im.getAttribute("src").split("/").pop().replace(".jpg", ""));
       const lines = [...document.querySelectorAll("svg[data-src] line")];
       const cover = document.querySelector("[class*=indexCover]").getBoundingClientRect();
-      const rects = row.getClientRects(), end = rects[rects.length - 1];
+      // each entry is one line now, as wide as the column; the line starts after its last piece, the role
+      const end = row.lastElementChild.getBoundingClientRect();
       return {
         title: row.querySelector("[class*=indexTitle]").textContent, want: row.getAttribute("href").slice(1), shown,
         lineFromRow: Math.abs(+lines[0].getAttribute("x1") - (end.right + 8)) < 1.5 && Math.abs(+lines[0].getAttribute("y1") - (end.top + end.height / 2)) < 1.5,

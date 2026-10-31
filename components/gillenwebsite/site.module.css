@@ -207,9 +207,15 @@
 .aboutText { font-size: 20px !important; line-height: 1.3; max-width: 62ch; margin: 0 0 12px !important; }
 /* SOURCES #20 shortnotice client list: 26px / 31.2px, "," and <br> between items */
 .index { width: 62%; padding: 28px 20px 50vh; }
-.indexRow { font-size: 26px; line-height: 31.2px; }
+/* one line per entry at any width: the artist — title takes --fit (set by AboutIndex fitLines), the rest stays */
+.index:not([data-fitted]) { visibility: hidden; }
+.indexRow { --lh: 31.2px; display: flex; align-items: baseline; white-space: nowrap; font-size: 26px; line-height: var(--lh); height: var(--lh); }
+.indexTitle { font-size: var(--fit, inherit); line-height: var(--lh); flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.indexComma { font-size: var(--fit, inherit); flex: none; }
+.index[data-measuring] .indexTitle { flex: none; }
+.indexRole { max-width: var(--role-max, none); overflow: hidden; text-overflow: ellipsis; }
 .root .indexRow:hover { opacity: 1; }
-.indexNo, .indexMeta { font-size: 12px; line-height: 1; vertical-align: 0.55em; }
+.indexNo, .indexMeta { flex: none; font-size: 12px; line-height: 1; position: relative; top: -0.55em; }
 .indexNo { margin-right: 8px; }
 .indexMeta { margin-left: 8px; }
 .indexOn .indexTitle { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
@@ -240,7 +246,7 @@
   .disco { grid-template-columns: 1fr; }
   .discoSide { position: static; order: -1; padding: 0 16px 16px; }
   .index { width: 100%; padding: 20px 16px 60vh; }
-  .indexRow { font-size: 20px; line-height: 24px; }
+  .indexRow { --lh: 24px; font-size: 20px; }
   .indexCover { top: auto; bottom: 16px; right: 16px; width: 34vw; }
   .indexCaption { display: none; }
   .indexLines { display: none; }

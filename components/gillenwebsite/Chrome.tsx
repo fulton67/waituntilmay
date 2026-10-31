@@ -37,7 +37,8 @@ function Timer() {
   return (
     <div className={css.timer} data-src="03">
       <span ref={run} className={css.dateTime}>00:00:00:000</span>
-      <span ref={day} className={css.dateTime} />
+      {/* a same-width placeholder until the date is written, so the header does not shift when it appears */}
+      <span ref={day} className={css.dateTime}>00.00.0000</span>
     </div>
   );
 }
