@@ -1,0 +1,50 @@
+{
+  "base": "http://localhost:3217",
+  "at": "2026-10-31T03:36:06.214Z",
+  "looks": {
+    "flat": {
+      "desktop": "docs/gillenwebsite/looks/flat-1440x900.png",
+      "info": {
+        "look": "flat",
+        "photo": {
+          "exposure": 1,
+          "roughness": 0.42,
+          "grain": 0.06
+        },
+        "outlineSegments": 17026,
+        "shadowMap": true
+      },
+      "fps": {
+        "mean": 59.9,
+        "min500msWindow": 58.1,
+        "slowestFrameMs": 33.4,
+        "reachedCard": 36
+      },
+      "errors": [],
+      "phone": "docs/gillenwebsite/looks/flat-390.png",
+      "phoneScrollWidth": 390
+    },
+    "photo": {
+      "desktop": "docs/gillenwebsite/looks/photo-1440x900.png",
+      "info": {
+        "look": "photo",
+        "photo": {
+          "exposure": 1,
+          "roughness": 0.42,
+          "grain": 0.06
+        },
+        "outlineSegments": 0,
+        "shadowMap": true
+      },
+      "fps": {
+        "mean": 59.9,
+        "min500msWindow": 58.1,
+        "slowestFrameMs": 33.4,
+        "reachedCard": 36
+      },
+      "errors": [],
+      "phone": "docs/gillenwebsite/looks/photo-390.png",
+      "phoneScrollWidth": 390
+    }
+  }
+}

@@ -1,17 +1,23 @@
 "use client";
 /* eslint-disable react-hooks/immutability -- three.js objects and the shared rig are mutated every frame by design */
-// Canvas, lights, floor and camera from BUILD.md's scene: white seamless, RoomEnvironment at 0.85,
-// a warm key light with a 2048 shadow, a hemisphere fill, a shadow-only floor and a contact decal.
-import { Suspense, useEffect, useMemo } from "react";
+// Canvas, lights and camera. Two stages, picked by ?look= (look.ts):
+//   flat:  white page, RoomEnvironment and two lights for the cards only (the housing is matcap), no shadows.
+//   photo: the studio HDRI (drei's "studio" preset file, self-hosted) with a large soft rect light as a window
+//          reflection, 60-frame accumulated soft shadows, a contact shadow under the base, N8AO and a shallow
+//          depth of field held on the front card.
+import { memo, Suspense, useEffect, useMemo } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { AccumulativeShadows, ContactShadows, Environment, Lightformer, RandomizedLight } from "@react-three/drei";
+import { EffectComposer, N8AO, DepthOfField, ToneMapping } from "@react-three/postprocessing";
+import { ToneMappingMode } from "postprocessing";
 import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { rig } from "./rig";
 import Rolodex from "./Rolodex";
-import Strip from "./Strip";
+import { readLook, type PHOTO } from "./look";
 
-function Environment() {
+function FlatStage() {
   const { gl, scene } = useThree();
   useEffect(() => {
     gl.toneMapping = THREE.NeutralToneMapping;
@@ -23,51 +29,63 @@ function Environment() {
     scene.background = new THREE.Color("#ffffff");
     return () => { env.dispose(); pm.dispose(); };
   }, [gl, scene]);
-  return null;
-}
-
-function Floor() {
-  const blob = useMemo(() => {
-    const c = document.createElement("canvas");
-    c.width = c.height = 256;
-    const x = c.getContext("2d")!;
-    const g = x.createRadialGradient(128, 128, 10, 128, 128, 128);
-    g.addColorStop(0, "rgba(0,0,0,.35)");
-    g.addColorStop(1, "rgba(0,0,0,0)");
-    x.fillStyle = g;
-    x.fillRect(0, 0, 256, 256);
-    return new THREE.CanvasTexture(c);
-  }, []);
   return (
     <>
-      <mesh rotation-x={-Math.PI / 2} receiveShadow>
-        <planeGeometry args={[12, 12]} />
-        <shadowMaterial opacity={0.13} />
-      </mesh>
-      <mesh rotation-x={-Math.PI / 2} position-y={0.001}>
-        <planeGeometry args={[0.95, 0.95]} />
-        <meshBasicMaterial map={blob} transparent depthWrite={false} />
-      </mesh>
+      <directionalLight color="#fff6ea" intensity={1.9} position={[-1.0, 2.6, 1.4]} />
+      <hemisphereLight args={["#ffffff", "#e9e6e0", 0.6]} />
     </>
   );
 }
 
-function Lights() {
-  const key = useMemo(() => {
-    const l = new THREE.DirectionalLight("#fff6ea", 1.9);
-    l.position.set(-1.0, 2.6, 1.4);
-    l.castShadow = true;
-    l.shadow.mapSize.set(2048, 2048);
-    Object.assign(l.shadow.camera, { left: -1.2, right: 1.2, top: 1.2, bottom: -1.2, near: 0.5, far: 6 });
-    l.shadow.bias = -0.0004;
-    l.shadow.normalBias = 0.01;
-    return l;
-  }, []);
+function PhotoStage({ photo }: { photo: typeof PHOTO }) {
+  const { gl, scene } = useThree();
+  useEffect(() => {
+    // the composer renders with NoToneMapping and applies <ToneMapping> itself; the exposure uniform is the renderer's
+    gl.toneMappingExposure = photo.exposure;
+    // the composer tone-maps the whole frame, background included, and NEUTRAL maps 1.0 to about 0.93 (a grey page);
+    // a background of 30 comes out at 254-255, the page white
+    scene.background = new THREE.Color(30, 30, 30);
+  }, [gl, scene, photo.exposure]);
   return (
     <>
-      <primitive object={key} />
-      <hemisphereLight args={["#ffffff", "#e9e6e0", 0.6]} />
+      <Environment files="/hdri/studio_small_03_1k.hdr" environmentIntensity={1}>
+        {/* the window: one large soft rect, up and to the left, that the brushed metal reflects */}
+        <Lightformer form="rect" intensity={3} color="#fffaf2" scale={[4, 2.4, 1]} position={[-3, 2.6, 2.2]} target={[0, 0.5, 0]} />
+      </Environment>
+      <directionalLight color="#fff6ea" intensity={0.8} position={[-1.0, 2.6, 1.4]} />
     </>
+  );
+}
+
+// shadows under the photo look, mounted with the model so they capture it. Memoised: drei's AccumulativeShadows
+// re-accumulates all 60 frames in a layout effect on every render, so it must not re-render when a card changes.
+const PhotoGround = memo(function PhotoGround() {
+  return (
+    <>
+      <AccumulativeShadows frames={60} temporal={false} scale={2} position={[0, 0.0005, 0]} color="#3a3128" opacity={0.9} alphaTest={0.7} resolution={1024}>
+        {/* high and nearly overhead, so the soft shadow stays under the Rolodex and the catcher's edge never shows */}
+        <RandomizedLight amount={8} radius={0.9} ambient={0.5} intensity={1.6} position={[-0.6, 3.6, 0.9]} bias={0.0005} mapSize={1024} />
+      </AccumulativeShadows>
+      <ContactShadows position={[0, 0.001, 0]} scale={1.4} far={0.25} blur={2.2} opacity={0.55} resolution={512} frames={1} color="#2a241e" />
+    </>
+  );
+});
+
+// N8AO and a depth of field focused on the front card's face
+function PhotoPost() {
+  const focus = useMemo(() => new THREE.Vector3(), []);
+  useFrame(() => {
+    const c = rig.cards[rig.front]?.children[0];
+    if (c) c.getWorldPosition(focus);
+  });
+  return (
+    <EffectComposer multisampling={4}>
+      {/* AO at half resolution (full-res AO stalled now and then, worst 500 ms window 10 fps); the DoF at full
+          resolution, because at half it stair-steps the blurred silhouettes of the knobs and base */}
+      <N8AO halfRes aoRadius={0.06} distanceFalloff={0.25} intensity={1.2} quality="medium" />
+      <DepthOfField target={focus} worldFocusRange={0.45} bokehScale={1.6} resolutionScale={1} />
+      <ToneMapping mode={ToneMappingMode.NEUTRAL} />
+    </EffectComposer>
   );
 }
 
@@ -100,23 +118,24 @@ function CameraRig() {
   return null;
 }
 
-export default function Scene({ releases, mono }: { releases: Release[]; mono: string }) {
+// memoised so Site's re-render on every card change does not reach the canvas tree
+export default memo(function Scene({ releases, mono }: { releases: Release[]; mono: string }) {
+  const { look, photo } = useMemo(() => readLook(), []);
   return (
     <Canvas
-      shadows={{ type: THREE.PCFSoftShadowMap }}
+      shadows={look === "photo"}
       dpr={[1, 2]}
       camera={{ fov: 30, near: 0.01, far: 50, position: [0.7, 1.2, 2.2] }}
       gl={{ antialias: true }}
+      data-look={look}
     >
-      <Environment />
-      <Lights />
-      <Floor />
-
+      {look === "flat" ? <FlatStage /> : <PhotoStage photo={photo} />}
       <CameraRig />
       <Suspense fallback={null}>
-        <Rolodex releases={releases} mono={mono} />
-        <Strip releases={releases} font={mono} />
+        <Rolodex releases={releases} mono={mono} look={look} photo={photo} />
+        {look === "photo" && <PhotoGround />}
       </Suspense>
+      {look === "photo" && <PhotoPost />}
     </Canvas>
   );
-}
+});
