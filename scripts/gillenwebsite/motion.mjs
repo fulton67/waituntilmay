@@ -195,7 +195,8 @@ async function phone(path, opts = {}) {
     await cdp.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [c] });
     for (let i = 1; i <= 6; i++) await cdp.send("Input.dispatchTouchEvent", { type: "touchMove", touchPoints: [{ x: c.x, y: c.y + (dy * i) / 6 }] });
     await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
-    const m = await done(page, 700);
+    // the caption follows the drum, so its slide starts once the spring passes the card: wait for it
+    const m = await done(page, 1500);
     // the caption's own slide animations, without the lean's transform transition
     const slide = m.anims.filter((x) => /cap(In|Out)/.test(x.name));
     cs.push({ dy, ms: slide.length ? Math.max(...slide.map((x) => x.ms)) : null, slides: slide.map((x) => `${x.name} ${x.ms}`), props: m.props });
