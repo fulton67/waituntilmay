@@ -1,0 +1,638 @@
+{
+  "rule": "saved 2048x2048 JPEG q88; source order: his site, iTunes Search API, Cover Art Archive, Scrapling (Bandcamp, Apple Music web)",
+  "matched": 36,
+  "unmatched": [],
+  "unnamedHomepageImage": {
+    "alt": "1900x1900-000000-80-0-0.jpg",
+    "url": "https://static.wixstatic.com/media/c3d8e2_e1f990f8511347ff8554141ad80b9943~mv2.jpg",
+    "closest": [
+      {
+        "id": "12-sza-sos-deluxe-lana",
+        "distance": 5
+      },
+      {
+        "id": "31-mark-ronson-late-night-feelings",
+        "distance": 14
+      },
+      {
+        "id": "22-run-the-jewels-rtj-cu4tro",
+        "distance": 20
+      }
+    ],
+    "assigned": "12-sza-sos-deluxe-lana"
+  },
+  "rows": [
+    {
+      "id": "01-girl-in-red-blue",
+      "artist": "girl in red",
+      "release": "BLUE",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "dylansproduce.net",
+      "how": "artwork on his homepage",
+      "page": "https://www.dylansproduce.net/",
+      "sourceUrl": "https://static.wixstatic.com/media/c3d8e2_78244f345d8d4839be9384ecc8830553~mv2.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "02-freak-slug-amulet",
+      "artist": "Freak Slug",
+      "release": "Amulet",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "dylansproduce.net",
+      "how": "artwork on his homepage",
+      "page": "https://www.dylansproduce.net/",
+      "sourceUrl": "https://static.wixstatic.com/media/c3d8e2_0b8ac152e1b64e8386205898168bc7e7~mv2.png",
+      "found": "3645x3645",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "03-arlo-parks-john-glacier-floette-ft-john-glacier",
+      "artist": "Arlo Parks, John Glacier",
+      "release": "Floette Ft. John Glacier",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: no match"
+      ],
+      "source": "iTunes Search API",
+      "how": "album \"Floette (feat. John Glacier) - Single\" by Arlo Parks (us store)",
+      "page": "https://music.apple.com/us/album/floette-feat-john-glacier-single/6786009020?uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/63/bb/88/63bb88dd-d105-f4fe-d280-291099cb4ca5/5400863215514_cover.jpg/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "04-mike-d-thank-you",
+      "artist": "Mike D",
+      "release": "Thank You",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "dylansproduce.net",
+      "how": "artwork on his homepage",
+      "page": "https://www.dylansproduce.net/",
+      "sourceUrl": "https://static.wixstatic.com/media/c3d8e2_3f556861f53f417085e12ede6f71b489~mv2.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "05-arlo-parks-ambiguous-desire",
+      "artist": "Arlo Parks",
+      "release": "Ambiguous Desire",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "dylansproduce.net",
+      "how": "artwork on his homepage",
+      "page": "https://www.dylansproduce.net/",
+      "sourceUrl": "https://static.wixstatic.com/media/c3d8e2_baf3e6220a1844d890f0af88669b8c40~mv2.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "06-the-strokes-reality-awaits",
+      "artist": "The Strokes",
+      "release": "Reality Awaits",
+      "matched": true,
+      "tried": [
+        "itunes: no match",
+        "coverArtArchive: found"
+      ],
+      "source": "Cover Art Archive",
+      "how": "MusicBrainz release group \"Reality Awaits\" (b9df3445-4699-4221-9994-734c1c912468)",
+      "page": "https://musicbrainz.org/release-group/b9df3445-4699-4221-9994-734c1c912468",
+      "sourceUrl": "https://coverartarchive.org/release-group/b9df3445-4699-4221-9994-734c1c912468/front",
+      "found": "600x600",
+      "saved": "2048x2048",
+      "upscaled": true
+    },
+    {
+      "id": "07-obongjayar-paradise-now-and-forever",
+      "artist": "Obongjayar",
+      "release": "Paradise Now & Forever",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: no match"
+      ],
+      "source": "dylansproduce.net",
+      "how": "artwork on his homepage",
+      "page": "https://www.dylansproduce.net/",
+      "sourceUrl": "https://static.wixstatic.com/media/c3d8e2_b5599eec74dd4a3a85d92e5e56cefacb~mv2.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "08-lucy-park-good-graces",
+      "artist": "Lucy Park",
+      "release": "Good Graces",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "iTunes Search API",
+      "how": "album \"GOOD GRACES - EP\" by Lucy Park (us store)",
+      "page": "https://music.apple.com/us/album/good-graces-ep/1810065165?uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/8f/78/bc/8f78bcd7-66c0-aeff-2c5b-1c3ba82ca242/5059449220314.png/3000x3000bb.jpg",
+      "found": "2736x2736",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "09-luke-titus-from-what-was-will-grow-a-flower",
+      "artist": "Luke Titus",
+      "release": "From What Was Will Grow A Flower",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "iTunes Search API",
+      "how": "track \"What Was\" on \"From What Was Will Grow A Flower\" by Luke Titus (us store)",
+      "page": "https://music.apple.com/us/album/what-was/1786999115?i=1786999122&uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e6/a9/27/e6a92734-0d57-6987-a25c-9ecdb6b77994/51389.jpg/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "10-doja-cat-vie",
+      "artist": "Doja Cat",
+      "release": "Vie",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "iTunes Search API",
+      "how": "album \"Vie\" by Doja Cat (us store)",
+      "page": "https://music.apple.com/us/album/vie/1842222638?uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e2/a1/17/e2a11795-d6be-b735-f675-213695d73e68/196873471075.jpg/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "11-don-toliver-doja-cat-f1-the-album",
+      "artist": "Don Toliver, Doja Cat",
+      "release": "F1: The Album",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: no match"
+      ],
+      "source": "iTunes Search API",
+      "how": "track \"Lose My Mind (feat. Doja Cat)\" on \"F1 The Album\" by Don Toliver (us store)",
+      "page": "https://music.apple.com/us/album/lose-my-mind-feat-doja-cat/1810796698?i=1810796700&uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a6/91/da/a691dac7-4cb7-82f5-0eda-e37b96f63f55/075679610720.jpg/3000x3000bb.jpg",
+      "found": "1425x1425",
+      "saved": "2048x2048",
+      "upscaled": true
+    },
+    {
+      "id": "12-sza-sos-deluxe-lana",
+      "artist": "SZA",
+      "release": "SOS Deluxe: LANA",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: no match"
+      ],
+      "source": "iTunes Search API",
+      "how": "album \"SOS Deluxe: LANA\" by SZA (us store)",
+      "page": "https://music.apple.com/us/album/sos-deluxe-lana/1796270264?uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/50/fa/17/50fa1760-8a36-5cef-93bf-aab5b5257b18/196871766913.jpg/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "13-gossip-real-power",
+      "artist": "Gossip",
+      "release": "Real Power",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "iTunes Search API",
+      "how": "album \"Real Power\" by Gossip (us store)",
+      "page": "https://music.apple.com/us/album/real-power/1714100978?uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/ef/91/c8/ef91c8f2-ea40-c217-3ded-f7bbb4f9ebf2/196871585323.jpg/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "14-marcus-king-mood-swings",
+      "artist": "Marcus King",
+      "release": "Mood Swings",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "iTunes Search API",
+      "how": "album \"Mood Swings\" by Marcus King (us store)",
+      "page": "https://music.apple.com/us/album/mood-swings/1734921729?uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/29/b5/8c/29b58cc3-1a8e-44fb-c584-787bb18acabe/24UMGIM06976.rgb.jpg/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
+      "artist": "Teezo Touchdown",
+      "release": "How Do You Sleep At Night? With You",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "iTunes Search API",
+      "how": "track \"Stranger\" on \"How Do You Sleep At Night?\" by Teezo Touchdown (us store)",
+      "page": "https://music.apple.com/us/album/stranger/1705102318?i=1705103018&uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/1f/e3/56/1fe356ff-d5d2-a3c4-37c3-7b0a15e6b5c2/196589967268.jpg/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "16-kesha-gag-order",
+      "artist": "Kesha",
+      "release": "Gag Order",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "iTunes Search API",
+      "how": "album \"Gag Order\" by Kesha (us store)",
+      "page": "https://music.apple.com/us/album/gag-order/1683226081?uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b0/ad/09/b0ad099d-1cfb-e9e1-0c2f-4943753f1db6/196589839992.jpg/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "17-brockhampton-tm",
+      "artist": "Brockhampton",
+      "release": "TM",
+      "matched": true,
+      "tried": [
+        "itunes: no match",
+        "coverArtArchive: found"
+      ],
+      "source": "Cover Art Archive",
+      "how": "MusicBrainz release group \"TM\" (94a034ec-7c7e-4b52-a366-4ebbb9b88d13)",
+      "page": "https://musicbrainz.org/release-group/94a034ec-7c7e-4b52-a366-4ebbb9b88d13",
+      "sourceUrl": "https://coverartarchive.org/release-group/94a034ec-7c7e-4b52-a366-4ebbb9b88d13/front",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "18-red-hot-chili-peppers-unlimited-love",
+      "artist": "Red Hot Chili Peppers",
+      "release": "Unlimited Love",
+      "matched": true,
+      "tried": [
+        "itunes: no match",
+        "coverArtArchive: found"
+      ],
+      "source": "Cover Art Archive",
+      "how": "MusicBrainz release group \"Unlimited Love\" (0580e402-e6e8-4b5b-894a-399a10c63adb)",
+      "page": "https://musicbrainz.org/release-group/0580e402-e6e8-4b5b-894a-399a10c63adb",
+      "sourceUrl": "https://coverartarchive.org/release-group/0580e402-e6e8-4b5b-894a-399a10c63adb/front",
+      "found": "4000x4000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "19-rex-orange-county-threat",
+      "artist": "Rex Orange County",
+      "release": "Threat",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "iTunes Search API",
+      "how": "album \"THREAT - Single\" by Rex Orange County (us store)",
+      "page": "https://music.apple.com/us/album/threat-single/1637682293?uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/1a/ef/4a/1aef4ad5-1e31-9734-8e71-2f5b27910580/196589347909.jpg/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "20-sza-sos",
+      "artist": "SZA",
+      "release": "SOS",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "iTunes Search API",
+      "how": "album \"SOS\" by SZA (us store)",
+      "page": "https://music.apple.com/us/album/sos/1658650093?uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/62/93/13/6293132e-20ff-67ab-3d1f-96bb6797a6ba/196589564955.jpg/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "21-red-hot-chili-peppers-return-of-the-dream-canteen",
+      "artist": "Red Hot Chili Peppers",
+      "release": "Return of the Dream Canteen",
+      "matched": true,
+      "tried": [
+        "itunes: no match",
+        "coverArtArchive: found"
+      ],
+      "source": "Cover Art Archive",
+      "how": "MusicBrainz release group \"Return of the Dream Canteen\" (8352fb0a-6150-42a2-94a8-8db876dffe76)",
+      "page": "https://musicbrainz.org/release-group/8352fb0a-6150-42a2-94a8-8db876dffe76",
+      "sourceUrl": "https://coverartarchive.org/release-group/8352fb0a-6150-42a2-94a8-8db876dffe76/front",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "22-run-the-jewels-rtj-cu4tro",
+      "artist": "Run The Jewels",
+      "release": "RTJ CU4TRO",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "Cover Art Archive",
+      "how": "MusicBrainz release group \"RTJ CU4TRO\" (92f36359-aeb4-4fca-8580-d207c146dc3e)",
+      "page": "https://musicbrainz.org/release-group/92f36359-aeb4-4fca-8580-d207c146dc3e",
+      "sourceUrl": "https://coverartarchive.org/release-group/92f36359-aeb4-4fca-8580-d207c146dc3e/front",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "23-imagine-dragons-mercury-acts-1-and-2",
+      "artist": "Imagine Dragons",
+      "release": "Mercury Acts 1 & 2",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "iTunes Search API",
+      "how": "album \"Mercury - Acts 1 & 2\" by Imagine Dragons (us store)",
+      "page": "https://music.apple.com/us/album/mercury-acts-1-2/1617908569?uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/2d/54/70/2d5470e7-ab60-f062-7ac8-e950e9726cba/22UMGIM37171.rgb.jpg/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "24-jovanotti-il-boom",
+      "artist": "Jovanotti",
+      "release": "Il Boom",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: no match"
+      ],
+      "source": "iTunes Search API",
+      "how": "album \"Il Boom - Single\" by Jovanotti (gb store)",
+      "page": "https://music.apple.com/gb/album/il-boom-single/1594401156?uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/4c/f7/9b/4cf79b50-9992-388e-51bb-2e08c81e8edc/21UM1IM41920.rgb.jpg/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "25-lucy-park-before-i-speak",
+      "artist": "Lucy Park",
+      "release": "Before I Speak",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "iTunes Search API",
+      "how": "track \"Somebody Else\" on \"Before I Speak - EP\" by Lucy Park (us store)",
+      "page": "https://music.apple.com/us/album/somebody-else/1556395367?i=1556395375&uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/87/65/79/8765798f-3d9c-4915-aefa-6d678d0747b4/192641677281_Cover.jpg/3000x3000bb.jpg",
+      "found": "1400x1400",
+      "saved": "2048x2048",
+      "upscaled": true
+    },
+    {
+      "id": "26-imagine-dragons-mercury-act-1",
+      "artist": "Imagine Dragons",
+      "release": "Mercury: Act 1",
+      "matched": true,
+      "tried": [
+        "itunes: no match",
+        "coverArtArchive: found"
+      ],
+      "source": "Cover Art Archive",
+      "how": "MusicBrainz release group \"Mercury – Act 1\" (9ce73eb5-8929-4934-9cb9-6d386c92762e)",
+      "page": "https://musicbrainz.org/release-group/9ce73eb5-8929-4934-9cb9-6d386c92762e",
+      "sourceUrl": "https://coverartarchive.org/release-group/9ce73eb5-8929-4934-9cb9-6d386c92762e/front",
+      "found": "7303x7303",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "27-santana-blessings-and-miracles",
+      "artist": "Santana",
+      "release": "Blessings and Miracles",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "iTunes Search API",
+      "how": "album \"Blessings and Miracles\" by Santana (us store)",
+      "page": "https://music.apple.com/us/album/blessings-and-miracles/1588431539?uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/b8/52/be/b852be74-1543-fe48-0426-0ffc5e04779e/4050538717808.jpg/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "28-the-strokes-the-new-abnormal",
+      "artist": "The Strokes",
+      "release": "The New Abnormal",
+      "matched": true,
+      "tried": [
+        "itunes: no match",
+        "coverArtArchive: found"
+      ],
+      "source": "Cover Art Archive",
+      "how": "MusicBrainz release group \"The New Abnormal\" (43ca5aa6-92de-47e9-8f0b-9112e4881426)",
+      "page": "https://musicbrainz.org/release-group/43ca5aa6-92de-47e9-8f0b-9112e4881426",
+      "sourceUrl": "https://coverartarchive.org/release-group/43ca5aa6-92de-47e9-8f0b-9112e4881426/front",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "29-neil-young-and-crazy-horse-shut-it-down-2020",
+      "artist": "Neil Young & Crazy Horse",
+      "release": "Shut It Down 2020",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "iTunes Search API",
+      "how": "album \"Shut It Down 2020 - Single\" by Neil Young & Neil Young & Crazy Horse (us store)",
+      "page": "https://music.apple.com/us/album/shut-it-down-2020-single/1509052513?uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/3c/09/33/3c093365-ad9e-2f54-d038-57ad5c5ad2ce/054391935502.jpg/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "30-run-the-jewels-rtj4",
+      "artist": "Run the Jewels",
+      "release": "RTJ4",
+      "matched": true,
+      "tried": [
+        "itunes: no match",
+        "coverArtArchive: found"
+      ],
+      "source": "Cover Art Archive",
+      "how": "MusicBrainz release group \"RTJ4\" (46dc2b09-a6b1-4271-bf1d-01f3b3b95c23)",
+      "page": "https://musicbrainz.org/release-group/46dc2b09-a6b1-4271-bf1d-01f3b3b95c23",
+      "sourceUrl": "https://coverartarchive.org/release-group/46dc2b09-a6b1-4271-bf1d-01f3b3b95c23/front",
+      "found": "1500x1500",
+      "saved": "2048x2048",
+      "upscaled": true
+    },
+    {
+      "id": "31-mark-ronson-late-night-feelings",
+      "artist": "Mark Ronson",
+      "release": "Late Night Feelings",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "iTunes Search API",
+      "how": "album \"Late Night Feelings\" by Mark Ronson (us store)",
+      "page": "https://music.apple.com/us/album/late-night-feelings/1461137962?uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/49/52/70/4952707d-1b13-118b-b10a-5551a8c5ccb1/886447692387.jpg/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "32-harry-styles-fine-line",
+      "artist": "Harry Styles",
+      "release": "Fine Line",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "Cover Art Archive",
+      "how": "MusicBrainz release group \"Fine Line\" (b9990da8-7953-4e64-aea5-065ca9cd3cb7)",
+      "page": "https://musicbrainz.org/release-group/b9990da8-7953-4e64-aea5-065ca9cd3cb7",
+      "sourceUrl": "https://coverartarchive.org/release-group/b9990da8-7953-4e64-aea5-065ca9cd3cb7/front",
+      "found": "3600x3600",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "33-neil-young-and-crazy-horse-colorado",
+      "artist": "Neil Young & Crazy Horse",
+      "release": "Colorado",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "iTunes Search API",
+      "how": "album \"Colorado\" by Neil Young & Crazy Horse (us store)",
+      "page": "https://music.apple.com/us/album/colorado/1477872779?uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/3a/ec/75/3aec75f4-59cb-12c1-1689-4fcf3d84233f/093624899037.jpg/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "34-santana-africa-speaks",
+      "artist": "Santana",
+      "release": "Africa Speaks",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "Cover Art Archive",
+      "how": "MusicBrainz release group \"Africa Speaks\" (9da2d91b-be94-4987-b578-beea325ffdda)",
+      "page": "https://musicbrainz.org/release-group/9da2d91b-be94-4987-b578-beea325ffdda",
+      "sourceUrl": "https://coverartarchive.org/release-group/9da2d91b-be94-4987-b578-beea325ffdda/front",
+      "found": "3275x2958",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "35-muse-simulation-theory-super-deluxe",
+      "artist": "Muse",
+      "release": "Simulation Theory (Super Deluxe)",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "iTunes Search API",
+      "how": "album \"Simulation Theory (Deluxe)\" by Muse (us store)",
+      "page": "https://music.apple.com/us/album/simulation-theory-deluxe/1434329335?uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/09/5c/51/095c5105-2da6-3931-11a4-6f2bbe6501f6/190295559236.jpg/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    },
+    {
+      "id": "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun",
+      "artist": "The Smashing Pumpkins",
+      "release": "Shiny and Oh So Bright, Vol. 1: No Past. No Future. No Sun",
+      "matched": true,
+      "tried": [
+        "itunes: found",
+        "coverArtArchive: found"
+      ],
+      "source": "iTunes Search API",
+      "how": "album \"SHINY AND OH SO BRIGHT, VOL. 1 / LP: NO PAST. NO FUTURE. NO SUN.\" by The Smashing Pumpkins (us store)",
+      "page": "https://music.apple.com/us/album/shiny-and-oh-so-bright-vol-1-lp-no-past-no-future-no-sun/1889618036?uo=4",
+      "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/7a/4a/07/7a4a0738-37f4-912b-7af5-b0a1f2386697/840588119721.png/3000x3000bb.jpg",
+      "found": "3000x3000",
+      "saved": "2048x2048",
+      "upscaled": false
+    }
+  ]
+}

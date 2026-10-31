@@ -235,14 +235,22 @@ if (want("phone")) {
 await browser.close();
 
 if (ONLY) { console.log(JSON.stringify(out, null, 2)); process.exit(0); }
-// Covers on disk: every file exists and is 1024 x 1024
+// Covers on disk: all 36 releases have a 2048 x 2048 file, plus the 1080 and 512 copies
 out.covers = [];
-for (const r of disco.releases.filter((r) => r.cover)) {
-  const f = path.join(ROOT, "public", r.cover);
-  const m = await sharp(f).metadata().catch(() => null);
-  out.covers.push({ id: r.id, exists: !!m, size: m ? `${m.width}x${m.height}` : null, kb: m ? Math.round((await fs.stat(f)).size / 1024) : null });
+for (const r of disco.releases) {
+  const row = { id: r.id, exists: false, size: null, kb: null, v1080: null, v512: null };
+  if (r.cover) {
+    const f = path.join(ROOT, "public", r.cover);
+    const m = await sharp(f).metadata().catch(() => null);
+    if (m) Object.assign(row, { exists: true, size: `${m.width}x${m.height}`, kb: Math.round((await fs.stat(f)).size / 1024) });
+    for (const w of [1080, 512]) {
+      const v = await sharp(path.join(ROOT, "public", r.cover.replace("/covers/", `/covers/${w}/`))).metadata().catch(() => null);
+      row[`v${w}`] = v ? `${v.width}x${v.height}` : null;
+    }
+  }
+  out.covers.push(row);
 }
-out.coversPass = out.covers.every((c) => c.exists && c.size === "1024x1024");
+out.coversPass = out.covers.length === disco.releases.length && out.covers.every((c) => c.exists && c.size === "2048x2048" && c.v1080 === "1080x1080" && c.v512 === "512x512");
 out.errors = logs.filter((l) => /^(error|pageerror)/.test(l));
 await fs.writeFile(path.join(ROOT, "scripts/gillenwebsite/verify-report.json"), JSON.stringify({ url: URL, at: new Date().toISOString(), ...out }, null, 2) + "\n");
 console.log(JSON.stringify(out, null, 2));
