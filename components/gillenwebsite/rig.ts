@@ -35,7 +35,6 @@ export type Rig = {
   firstCardTexture: boolean; // card 1's face has been painted onto its texture
   ready: boolean;
   axisY: number; // height of the drum axis, from knob_right's bounding box
-  view: { x: number; y: number }; // where the drum is drawn on the stage, in CSS px from its top left (camera view offset)
   hit: HTMLElement | null; // the cards' hit area over the stage (touch-action: none), kept on the drum's screen rect
   moveT: number; // when the last drag pointermove landed (performance.now), for the lag probe
   lag: number[]; // pointermove -> frame that drew it, ms
@@ -64,29 +63,28 @@ export const rig: Rig = {
   firstCardTexture: false,
   ready: false,
   axisY: 0.585,
-  view: { x: 0, y: 0 },
   hit: null,
   moveT: 0,
   lag: [],
 };
 
 // scroll distance per card (trackpad and touch scrolling); a card drag is DRAG_PX per card, a wheel notch one card
-export const per = () => Math.max(90, (typeof window === "undefined" ? 900 : window.innerHeight) * 0.16);
-export const DRAG_PX = 36;
-// A flick coasts under air drag plus a constant brake: dv/dt = -FRICTION v - BRAKE. The brake is what makes a
-// gentle flick (0.4-0.6 px/ms) carry 1-2 cards while a hard one (1.5 px/ms) carries about 7; MAX_FLING caps it at 10.
-export const FRICTION = 4, BRAKE = 30, MAX_FLING = 56;
+export const per = () => Math.max(120, (typeof window === "undefined" ? 900 : window.innerHeight) * 0.26);
+export const DRAG_PX = 50;
+// A flick (over 0.4 px/ms at release) carries whole cards past the one the drag alone would settle on: 1 for a
+// normal swipe (under 1 px/ms), then one more per 0.4 px/ms, at most MAX_CARRY. It coasts under air drag plus a
+// constant brake, dv/dt = -FRICTION v - BRAKE, with its speed solved so the coast stops exactly on that card.
+export const FRICTION = 4, BRAKE = 30, MAX_CARRY = 4;
 const carry = (v: number) => v / FRICTION - (BRAKE / FRICTION ** 2) * Math.log(1 + (FRICTION * v) / BRAKE);
 const stopMs = (v: number) => (Math.log(1 + (FRICTION * v) / BRAKE) / FRICTION) * 1000;
+export const carriedCards = (pxPerMs: number) => (pxPerMs < 1 ? 1 : Math.min(MAX_CARRY, 2 + Math.floor((pxPerMs - 1) / 0.4)));
 
-// start a flick from the drum at x with velocity v (cards/s). It is aimed at the card it would naturally stop
-// nearest to: the speed is solved so the coast ends exactly on that card, and the detent has nothing left to do.
-export function flick(x: number, v: number) {
-  const dir = Math.sign(v), sp = Math.min(Math.abs(v), MAX_FLING);
-  const to = Math.max(0, Math.min(rig.N - 1, Math.round(x + dir * carry(sp))));
+// start a flick from the drum at x, moving in direction dir at pxPerMs of pointer speed
+export function flick(x: number, dir: number, pxPerMs: number) {
+  const to = Math.max(0, Math.min(rig.N - 1, Math.round(x) + dir * carriedCards(pxPerMs)));
   const D = (to - x) * dir;
-  if (D <= 0.01) { jumpTo(to); return; }
-  let lo = 0, hi = MAX_FLING * 2;
+  if (D <= 0.01) return; // at the end of the stack: the detent settles it
+  let lo = 0, hi = 200;
   for (let k = 0; k < 40; k++) { const m = (lo + hi) / 2; if (carry(m) < D) lo = m; else hi = m; }
   rig.fling = { x0: x, v0: lo, dir, t0: performance.now(), T: stopMs(lo), to };
 }

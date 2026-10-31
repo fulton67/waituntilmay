@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Archivo } from "next/font/google";
+import { Archivo, Courier_Prime } from "next/font/google";
 
 // Informational text (captions, credits, track lists, buttons) is set in gaeawoods.com's body face.
 // They use "nimbus-sans", which is URW Nimbus Sans Light served by Adobe Fonts (kit twr8vrw), so it is commercial
@@ -18,3 +18,6 @@ export const info = localFont({
 
 // The title face sits behind one variable, --font-title. Archivo (Google, OFL) is a placeholder until a title face is chosen.
 export const title = Archivo({ subsets: ["latin"], axes: ["wdth"], variable: "--font-title", display: "swap" });
+
+// The card faces on the Rolodex keep 7170f0b's typewriter face, Courier Prime (Google, OFL).
+export const card = Courier_Prime({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-card", display: "swap" });

@@ -11,8 +11,6 @@ import type { Release } from "@/lib/gillenwebsite/discography";
 import { rig, per, FLIP_DIR, coast, makeAngle, scrollPos, scrollToCard } from "./rig";
 import { CW, CH, TAB_H, R0, T, shapes, TEX_W, TEX_H, paintCard, blankTexture, loadCover } from "./cardTexture";
 import { brushed, fingerprints, paperGrain, boxUV, edgeWear, withWear } from "./textures";
-import { coverAt } from "./shared";
-import type { PHOTO } from "./look";
 
 export const MODEL = "/models/housing.glb";
 
@@ -26,19 +24,18 @@ const PART_MAT: Partial<Record<string, "dark" | "bakelite">> = {
 };
 const KNOBS = ["knob_right", "knob_left", "knob_left_cap", "knob_left_face"];
 
-function makeMaterials(photo: typeof PHOTO) {
+function makeMaterials() {
   const b = brushed(), fp = fingerprints();
-  // the brushed roughness map is centred on 0.46, so the factor scales it to centre on photo.roughness
   const metal = withWear(
     new THREE.MeshPhysicalMaterial({
-      color: "#b39a74", metalness: 0.6, roughness: photo.roughness / 0.46, roughnessMap: b.roughness, normalMap: b.normal,
-      normalScale: new THREE.Vector2(photo.grain, photo.grain), clearcoat: 0.3, clearcoatRoughness: 0.5, side: THREE.DoubleSide,
+      color: "#b39a74", metalness: 0.6, roughness: 1, roughnessMap: b.roughness, normalMap: b.normal,
+      normalScale: new THREE.Vector2(0.06, 0.06), clearcoat: 0.3, clearcoatRoughness: 0.5, side: THREE.DoubleSide,
     })
   );
   return {
     metal,
     // the rebuilt cradle has extrude UVs in metres, so it takes the plain finish
-    metalPlain: new THREE.MeshPhysicalMaterial({ color: "#b39a74", metalness: 0.6, roughness: photo.roughness, clearcoat: 0.3, clearcoatRoughness: 0.5, side: THREE.DoubleSide }),
+    metalPlain: new THREE.MeshPhysicalMaterial({ color: "#b39a74", metalness: 0.6, roughness: 0.46, clearcoat: 0.3, clearcoatRoughness: 0.5, side: THREE.DoubleSide }),
     chrome: new THREE.MeshStandardMaterial({ color: "#d8d4cc", metalness: 1, roughness: 0.18 }),
     bakelite: new THREE.MeshPhysicalMaterial({
       color: "#2b211a", metalness: 0, roughness: 1, roughnessMap: fp, clearcoat: 0.6, clearcoatRoughness: 0.25,
@@ -49,13 +46,12 @@ function makeMaterials(photo: typeof PHOTO) {
   };
 }
 
-export default function Rolodex({ releases, mono, photo }: { releases: Release[]; mono: string; photo: typeof PHOTO }) {
+export default function Rolodex({ releases, mono }: { releases: Release[]; mono: string }) {
   const gltf = useGLTF(MODEL);
   const N = releases.length, TOTAL = Math.max(N + 12, 96);
-  const TEX_SCALE = useMemo(() => (matchMedia("(min-width: 720px)").matches ? 2 : 1), []);
 
   const built = useMemo(() => {
-    const M = makeMaterials(photo);
+    const M = makeMaterials();
     const house = gltf.scene;
     house.updateMatrixWorld(true);
     let meshes = 0, triangles = 0;
@@ -141,13 +137,11 @@ export default function Rolodex({ releases, mono, photo }: { releases: Release[]
       body.castShadow = body.receiveShadow = true;
       let mat: THREE.Material = blankMats[slot];
       if (r) {
-        // faces are 2048 px wide on desktop (the painter draws in 1024 units at 2x), 1024 on phones to fit their GPU memory
         const c = document.createElement("canvas");
-        c.width = TEX_W * TEX_SCALE; c.height = TEX_H * TEX_SCALE;
+        c.width = TEX_W; c.height = TEX_H;
         const ctx = c.getContext("2d")!;
-        ctx.scale(TEX_SCALE, TEX_SCALE);
         const tex = new THREE.CanvasTexture(c);
-        tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 16;
+        tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
         faces.push({ r, i, slot, tex, ctx });
         mat = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.9, envMapIntensity: 0.55, normalMap: M.grain, normalScale: new THREE.Vector2(0.18, 0.18) });
       }
@@ -162,49 +156,39 @@ export default function Rolodex({ releases, mono, photo }: { releases: Release[]
       cards.push(g);
     }
     return { house, axis, knobs, drum, cradle, cards, faces, meshes, triangles };
-  }, [gltf, releases, TOTAL, TEX_SCALE, photo]);
+  }, [gltf, releases, TOTAL]);
 
-  // Paint faces once the card font is ready, then again as each cover arrives. Every repaint re-uploads a
-  // 2048 x 1478 texture with mipmaps (about 16 MB), and when several covers land together the uploads stacked into
-  // 1-2 s frames on the live site. So paints go through a queue drained one face per frame, nearest the front card
-  // first; a face waiting for its blank paint skips straight to its cover if the cover has arrived.
-  const queue = useMemo(() => new Map<number, HTMLImageElement | null>(), []); // cleared whenever the faces are rebuilt
+  // paint faces once the card font is ready, then again as each cover arrives
   useEffect(() => {
     let live = true;
     (async () => {
       await Promise.all([`400 36px ${mono}`, `italic 400 30px ${mono}`].map((f) => document.fonts.load(f).catch(() => null)));
-      if (!live) return;
-      built.faces.forEach((f, k) => { if (!queue.has(k)) queue.set(k, null); });
-      await Promise.all(built.faces.map(async (f, k) => {
-        // the 1080 copy: the cover is 350 units on the face, 700 px at 2x, so it is never scaled up
-        const img = await loadCover(coverAt(f.r, 1080));
-        if (live && img) queue.set(k, img);
+      for (const f of built.faces) {
+        paintCard(f.ctx, f.r, f.i, f.slot, null, mono);
+        f.tex.needsUpdate = true;
+        if (f.i === 0 && !f.r.cover) rig.firstCardTexture = true;
+      }
+      await Promise.all(built.faces.map(async (f) => {
+        const img = await loadCover(f.r.cover);
+        if (!live || !img) return;
+        paintCard(f.ctx, f.r, f.i, f.slot, img, mono);
+        f.tex.needsUpdate = true;
+        if (f.i === 0) rig.firstCardTexture = true;
       }));
     })();
-    return () => { live = false; queue.clear(); };
-  }, [built, mono, queue]);
-  const paintNext = () => {
-    if (!queue.size) return;
-    let pick = -1, best = Infinity;
-    for (const k of queue.keys()) { const d = Math.abs(built.faces[k].i - rig.s); if (d < best) { best = d; pick = k; } }
-    const img = queue.get(pick)!, f = built.faces[pick];
-    queue.delete(pick);
-    paintCard(f.ctx, f.r, f.i, f.slot, img, mono);
-    f.tex.needsUpdate = true;
-    if (f.i === 0 && (img || !f.r.cover)) rig.firstCardTexture = true;
-  };
+    return () => { live = false; };
+  }, [built, mono]);
 
   useEffect(() => {
     rig.N = N; rig.TOTAL = TOTAL; rig.axisY = built.axis.y; rig.cards = built.cards; rig.knobs = built.knobs;
     rig.ready = true;
     // measurement hook for the verification script (scripts/gillenwebsite/verify.mjs)
-    (window as unknown as { __rolodex: unknown }).__rolodex = { rig, per, frontPoint: () => { const c = new THREE.Box3().setFromObject(built.cards[rig.front]).getCenter(new THREE.Vector3()).project(rig.camera!), b = rig.hit!.parentElement!.getBoundingClientRect(); return { x: b.left + (c.x + 1) * 0.5 * b.width, y: b.top + (1 - c.y) * 0.5 * b.height }; }, photo, texW: TEX_W * TEX_SCALE, anisotropy: 16, house: built.house, faceIds: built.faces.map((f) => f.r.id), meshes: built.meshes, triangles: built.triangles, axis: built.axis.toArray(), nodes: (() => { const n: string[] = []; built.house.traverse((o) => { if ((o as THREE.Mesh).isMesh) n.push(o.name); }); return n; })() };
-    // SOURCES #07 pointnever.com C5 (6a304bdc22ff1924.js:23)
-    console.log("Website is loaded, enjoy 👍");
-  }, [built, N, TOTAL, TEX_SCALE, photo]);
+    (window as unknown as { __rolodex: unknown }).__rolodex = { rig, per, frontPoint: () => { const c = new THREE.Box3().setFromObject(built.cards[rig.front]).getCenter(new THREE.Vector3()).project(rig.camera!), b = rig.hit!.parentElement!.getBoundingClientRect(); return { x: b.left + (c.x + 1) * 0.5 * b.width, y: b.top + (1 - c.y) * 0.5 * b.height }; }, house: built.house, faceIds: built.faces.map((f) => f.r.id), meshes: built.meshes, triangles: built.triangles, axis: built.axis.toArray(), nodes: (() => { const n: string[] = []; built.house.traverse((o) => { if ((o as THREE.Mesh).isMesh) n.push(o.name); }); return n; })() };
+    console.log("Website is loaded, enjoy");
+  }, [built, N, TOTAL]);
 
   const angle = useMemo(() => makeAngle(TOTAL), [TOTAL]);
-  // the drum's screen rect is the cards' hit area: 8 corners of its rest box, projected each frame
+  // the drum's screen rect is the cards' touch hit area (Site.tsx): 8 corners of its rest box, projected each frame
   const hitBox = useMemo(() => {
     built.drum.updateMatrixWorld(true);
     const b = new THREE.Box3().setFromObject(built.drum), c: THREE.Vector3[] = [];
@@ -214,23 +198,22 @@ export default function Rolodex({ releases, mono, photo }: { releases: Release[]
   useFrame((state, delta) => {
     const now = performance.now();
     if (rig.moveT) { rig.lag.push(now - rig.moveT); if (rig.lag.length > 400) rig.lag.shift(); rig.moveT = 0; }
-    paintNext();
     const dt = Math.min(delta, 1 / 30);
-    // a flick coasts on its own curve (rig.ts) and stops on its card; the spring holds it there
+    // a flick coasts on its own curve (rig.ts) and stops on its card
     if (rig.fling !== null) {
       const c = coast(rig.fling, now);
       if (c.done) { scrollToCard(rig.fling.to); rig.s = rig.fling.to; rig.v = 0; rig.fling = null; }
       else { scrollToCard(c.x); rig.s = c.x; rig.v = c.v; }
     }
     const raw = scrollPos();
-    if (rig.drag?.mode === "flip" || rig.fling !== null || rig.reduce) {
-      // the finger (or the flick) drives the drum directly: the card under it follows 1:1
+    if (rig.drag?.mode === "flip" || rig.fling !== null) {
+      // the finger (or the flick) drives the drum directly: the card under it follows 1:1; the spring waits for release
       if (rig.fling === null) { rig.s = raw; rig.v = 0; }
     } else {
-      // settle on a card like the real ratchet once scrolling stops: spring stiffness 240, damping 22
-      const goal = now - rig.lastScroll > 160 && !rig.drag ? Math.round(raw) : raw;
-      rig.v += ((goal - rig.s) * 240 - rig.v * 22) * dt;
-      rig.s += rig.v * dt;
+      // settle on a card like the real ratchet once scrolling stops
+      const goal = performance.now() - rig.lastScroll > 160 && !rig.drag ? Math.round(raw) : raw;
+      if (rig.reduce) { rig.s = goal; rig.v = 0; }
+      else { rig.v += (goal - rig.s) * 170 * dt; rig.v *= Math.exp(-18 * dt); rig.s += rig.v * dt; }
     }
     for (let i = 0; i < TOTAL; i++) built.cards[i].rotation.x = angle(FLIP_DIR * (rig.s - i));
     for (const k of built.knobs) k.rotation.x = FLIP_DIR * -rig.s * 0.42;

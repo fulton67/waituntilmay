@@ -1,0 +1,51 @@
+{
+  "ref": "http://localhost:3218",
+  "new": "http://localhost:3217",
+  "at": "2026-10-31T05:16:41.866Z",
+  "refInfo": {
+    "hidden": [
+      "Group"
+    ],
+    "children": [
+      "DirectionalLight",
+      "HemisphereLight",
+      "Mesh",
+      "Mesh",
+      "Group",
+      "Group",
+      "Mesh",
+      "Group"
+    ],
+    "s": 0,
+    "az": 0.3,
+    "el": 0.3
+  },
+  "newInfo": {
+    "hidden": [],
+    "children": [
+      "DirectionalLight",
+      "HemisphereLight",
+      "Mesh",
+      "Mesh",
+      "Group",
+      "Group",
+      "Mesh"
+    ],
+    "s": 0,
+    "az": 0.3,
+    "el": 0.3
+  },
+  "diff": {
+    "size": "1440x900",
+    "pixels": 1296000,
+    "anyDiffPct": 0,
+    "over8Pct": 0,
+    "over32Pct": 0
+  },
+  "pass": true,
+  "reference": "74aa83f = 7170f0b code with only FLIP_DIR -1 -> +1 (Scene, Rolodex, textures, cardTexture byte-identical to 7170f0b), with this build's discography.json and covers",
+  "alsoMeasured": {
+    "vs 74aa83f with its own 2018 covers": "0.514% of pixels differ, 0% by more than 8/255: all inside the front card's cover image (the 2048 re-sourced cover from d85d765)",
+    "vs raw 7170f0b": "3.257% (0.629% over 8/255): the card fan is mirrored by FLIP_DIR -1 vs +1, the kept direction fix; see restore-diff-vs-7170f0b.json"
+  }
+}

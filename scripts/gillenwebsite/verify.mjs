@@ -439,16 +439,16 @@ if (want("textures")) {
     const face = window.__rolodex.rig.cards[0].children[0].children[1].material.map;
     return { cardFace: { w: face.image.width, h: face.image.height, anisotropy: face.anisotropy } };
   });
-  out.textures.pass = out.textures.cardFace.w === 2048 && out.textures.cardFace.anisotropy === 16;
+  out.textures.pass = out.textures.cardFace.w === 1024 && out.textures.cardFace.anisotropy === 8; // as in 7170f0b
 }
 
-// The housing look: the photo setup (PBR materials, no outlines), shadows on
+// The housing look: 7170f0b's PBR materials, no outlines
 if (want("look")) {
   out.look = await page.evaluate(() => {
     const r = window.__rolodex, mats = new Set();
     let lines = 0;
     r.house.traverse((o) => { if (o.isLineSegments) lines++; else if (o.isMesh && o.visible) mats.add(o.material.type); });
-    return { housingMaterials: [...mats], outlines: lines, photo: r.photo };
+    return { housingMaterials: [...mats], outlines: lines };
   });
   out.look.pass = out.look.outlines === 0 && out.look.housingMaterials.every((t) => /Physical|Standard/.test(t));
 }
@@ -506,7 +506,7 @@ if (want("phone")) {
     const thumb = document.querySelector("[class*=capThumb] img");
     return {
       scrollWidth: document.documentElement.scrollWidth, innerWidth,
-      wide: window.__rolodex.rig.wide, cardFaceW: window.__rolodex.texW,
+      wide: window.__rolodex.rig.wide, cardFaceW: window.__rolodex.rig.cards[0].children[0].children[1].material.map.image.width,
       thumb: thumb ? { w: thumb.getBoundingClientRect().width, h: thumb.getBoundingClientRect().height } : null,
       caption: document.querySelector("[class*=capArtist]")?.textContent,
     };

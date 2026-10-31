@@ -1,0 +1,46 @@
+{
+  "ref": "http://localhost:3218",
+  "new": "http://localhost:3217",
+  "at": "2026-10-31T05:14:48.056Z",
+  "refInfo": {
+    "hidden": [
+      "Group"
+    ],
+    "children": [
+      "DirectionalLight",
+      "HemisphereLight",
+      "Mesh",
+      "Mesh",
+      "Group",
+      "Group",
+      "Mesh",
+      "Group"
+    ],
+    "s": 0,
+    "az": 0.3,
+    "el": 0.3
+  },
+  "newInfo": {
+    "hidden": [],
+    "children": [
+      "DirectionalLight",
+      "HemisphereLight",
+      "Mesh",
+      "Mesh",
+      "Group",
+      "Group",
+      "Mesh"
+    ],
+    "s": 0,
+    "az": 0.3,
+    "el": 0.3
+  },
+  "diff": {
+    "size": "1440x900",
+    "pixels": 1296000,
+    "anyDiffPct": 3.257,
+    "over8Pct": 0.629,
+    "over32Pct": 0.225
+  },
+  "pass": false
+}

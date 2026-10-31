@@ -81,24 +81,42 @@ const seenV = (page) => page.evaluate(() => { const p = window.__pm, n = p.lengt
   await page.mouse.up();
   d.drag = { px: 108, cards: r2(Math.abs(s1 - s0)), dragPxPerCard: r2(108 / Math.abs(s1 - s0)) };
   await wait(800);
-  // detent: release half a card off (18 px past the 3-card mark, held still so there is no flick)
+  // detent: release half a card off (2.5 cards of drag, held still so there is no flick)
   await home(page, 5);
   await page.mouse.move(p0.x, p0.y); await page.mouse.down();
-  await paced((x, y) => page.mouse.move(x, y), p0, 90, 0.15);
+  await paced((x, y) => page.mouse.move(x, y), p0, 125, 0.15);
   await wait(150);
   const atRelease = await S(page);
   await page.mouse.up();
   d.detentHalfCard = { releasedAt: r2(atRelease), ...(await settle(page)) };
+  // the spring from one card away: jump one card and sample rig.s every frame
+  d.springOneCard = [];
+  for (const k of [5, 6]) {
+    await home(page, k);
+    d.springOneCard.push(await page.evaluate((k) => new Promise((res) => {
+      const r = window.__rolodex.rig, t0 = performance.now(), goal = k + 1, xs = [];
+      let last = t0, peak = r.s;
+      scrollTo({ top: document.getElementById("flip").offsetTop + goal * window.__rolodex.per(), behavior: "instant" });
+      const f = () => {
+        const now = performance.now();
+        xs.push(r.s); peak = Math.max(peak, r.s);
+        if (Math.abs(r.s - goal) >= 0.01) last = now;
+        if (now - t0 > 1500) res({ from: k, to: goal, settleMs: Math.round(last - t0), peak: +peak.toFixed(4), overshootCards: +(peak - goal).toFixed(4), pastNextCard: peak > goal + 1, frames: xs.length });
+        else requestAnimationFrame(f);
+      };
+      requestAnimationFrame(f);
+    }), k));
+  }
   // flicks at 1.5, 0.6 and 0.45 px/ms over 120 px
   d.flicks = [];
-  for (const v of [1.5, 2.5, 0.6, 0.45]) {
+  for (const v of [2.5, 1.5, 0.6, 0.45]) {
     await home(page, v >= 1.5 ? 2 : 5);
     const a = await S(page);
     await seen(page);
     await stamped(dcdp, "mouse", p0, -120, v);
     const st = await settle(page);
     const b = await S(page);
-    d.flicks.push({ pxPerMs: v, pageSaw: await seenV(page), dragCards: r2(120 / 36), carriedCards: r2(Math.abs(b - a) - 120 / 36), totalCards: Math.round(Math.abs(b - a)), landsOnInteger: Math.abs(b - Math.round(b)) < 0.01, settleMsAfterRelease: st.ms, ...st });
+    d.flicks.push({ pxPerMs: v, pageSaw: await seenV(page), dragCards: r2(120 / 50), carriedCards: r2(Math.abs(b - a) - Math.round(120 / 50)), totalCards: Math.round(Math.abs(b - a)), landsOnInteger: Math.abs(b - Math.round(b)) < 0.01, settleMsAfterRelease: st.ms, ...st });
   }
   // a tap while it spins stops it on the nearest card
   await home(page, 2);
@@ -164,7 +182,7 @@ const seenV = (page) => page.evaluate(() => { const p = window.__pm, n = p.lengt
   const st = await settle(page);
   const b = await S(page);
   m.flickSeen = await seenV(page);
-  m.flick = { pxPerMs: 1.5, carriedCards: r2(Math.abs(b - a) - 120 / 36), totalCards: Math.round(Math.abs(b - a)), landsOnInteger: Math.abs(b - Math.round(b)) < 0.01, settleMsAfterRelease: st.ms, ...st };
+  m.flick = { pxPerMs: 1.5, carriedCards: r2(Math.abs(b - a) - Math.round(120 / 50)), totalCards: Math.round(Math.abs(b - a)), landsOnInteger: Math.abs(b - Math.round(b)) < 0.01, settleMsAfterRelease: st.ms, ...st };
   // outside the cards' hit area (the stage below it) a vertical drag still scrolls the page
   await home(page, 5);
   const below = { x: 20, y: Math.min(hr.y + hr.h + 20, 844 - 200) };

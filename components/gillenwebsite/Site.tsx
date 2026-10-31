@@ -160,9 +160,6 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
       setPerPx(per());
       rig.wide = mq.matches;
       setWide(mq.matches);
-      const W = innerWidth, H = innerHeight, bottom = mq.matches ? 130 : 150; // the caption block's band
-      // desktop: the drum in the left column, between the header and the caption; phones: above the caption
-      rig.view = mq.matches ? { x: Math.min(300, W * 0.2), y: 56 + (H - bottom - 56) * 0.5 } : { x: W / 2, y: 64 + (H - bottom - 64) * 0.42 };
     };
     size();
     const onScroll = () => { rig.lastScroll = performance.now(); };
@@ -192,7 +189,8 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
   useEffect(() => {
     let held: { key: string; id: number } | null = null;
     const inFlip = () => !!rig.flip && scrollY <= rig.flip.offsetTop + (N - 1) * per() + innerHeight * 0.5;
-    const arrow = (key: string) => { const i = Math.round(rig.s) + (key === "ArrowRight" ? 1 : -1); jumpTo(Math.max(0, Math.min(N - 1, i))); };
+    // step from where the drum is heading (the scroll), not where the spring has got to, so held keys never lose a step
+    const arrow = (key: string) => { const i = Math.round(rig.fling ? rig.fling.to : scrollPos()) + (key === "ArrowRight" ? 1 : -1); jumpTo(Math.max(0, Math.min(N - 1, i))); };
     const onKey = (e: KeyboardEvent) => {
       if (document.querySelector("[role=dialog]") || !inFlip()) return;
       const tag = (e.target as HTMLElement).tagName;
@@ -228,7 +226,7 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
 
   // pointer: on a card a drag flips it, DRAG_PX per card, 1:1 under the pointer; anywhere else a drag turns the
   // Rolodex. On touch the cards' hit area (rig.hit, touch-action: none) takes the drag; the rest of the stage
-  // still scrolls the page vertically. A release faster than 0.4 px/ms (over the last 80 ms) coasts as a flick.
+  // still scrolls the page vertically. A release faster than 0.4 px/ms (over the last 80 ms) coasts as a flick (rig.ts).
   // SOURCES #17: the 5 px click/drag threshold and the grab / grabbing cursors are luckydaye.com's.
   const ray = useMemo(() => new THREE.Raycaster(), []);
   const pointer = useMemo(() => new THREE.Vector2(), []);
@@ -279,8 +277,8 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
     if (d?.mode === "flip" && !click) {
       const tr = trail.current, a = tr[0], b = tr[tr.length - 1], dt = b.t - a.t;
       const vy = dt > 0 && e.timeStamp - b.t < 80 ? (b.y - a.y) / dt : 0; // px/ms over the last 80 ms
-      if (Math.abs(vy) > 0.4 && !rig.reduce) flick(scrollPos(), (-FLIP_DIR * vy * 1000) / DRAG_PX); // cards/s
-      else jumpTo(Math.round(scrollPos()));
+      if (Math.abs(vy) > 0.4 && !rig.reduce) flick(scrollPos(), -FLIP_DIR * Math.sign(vy), Math.abs(vy));
+      // otherwise the detent settles it, 160 ms after the last move
       return;
     }
     if (!d || !click || stopped.current) return;
@@ -290,7 +288,7 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
     if (i >= N) return;
     if (i === Math.round(rig.s)) open(i); else jumpTo(i);
   };
-  const onCancel = () => { stage.current?.classList.remove(css.dragging); if (rig.drag?.mode === "flip") jumpTo(Math.round(scrollPos())); rig.drag = null; };
+  const onCancel = () => { stage.current?.classList.remove(css.dragging); rig.drag = null; };
 
   // one release per swipe or arrow: while a smooth scroll is still running, step from where it is heading
   const last = useRef({ t: 0, i: 0 });
