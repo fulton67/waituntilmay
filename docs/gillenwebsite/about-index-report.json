@@ -1,8 +1,28 @@
 {
   "base": "http://localhost:3217",
-  "at": "2026-10-31T09:45:07.084Z",
+  "at": "2026-10-31T22:08:47.454Z",
   "widths": {
     "390": {
+      "underline": {
+        "exactlyOneEverywhere": true,
+        "positions": 10,
+        "movesEvery200px": true,
+        "followsPointer": null,
+        "widthMatchesText": true,
+        "aboveYearRole": true,
+        "steps": [
+          "y 0: entry 1, line 140.3px vs text 140px (column 327px)",
+          "y 200: entry 2, line 160.7px vs text 160.6px (column 327px)",
+          "y 400: entry 6, line 223.7px vs text 223.6px (column 327px)",
+          "y 600: entry 11, line 297.7px vs text 297.4px (column 327px)",
+          "y 800: entry 15, line 327px vs text 326.6px (column 327px)",
+          "y 1000: entry 20, line 95.7px vs text 95.4px (column 327px)",
+          "y 1200: entry 24, line 151.3px vs text 151.3px (column 327px)",
+          "y 1400: entry 29, line 327px vs text 326.6px (column 327px)",
+          "y 1600: entry 33, line 292.3px vs text 292.3px (column 327px)",
+          "y 1800: entry 36, line 327px vs text 326.6px (column 327px)"
+        ]
+      },
       "entries": 36,
       "titleFontSizes": [
         17
@@ -30,12 +50,32 @@
         "holdMs": 583,
         "backPxPerS": 59.8,
         "endsAt0": true,
-        "totalMs": 12179
+        "totalMs": 12205
       },
       "cls": 0,
       "shifts": []
     },
     "1440": {
+      "underline": {
+        "exactlyOneEverywhere": true,
+        "positions": 10,
+        "movesEvery200px": null,
+        "followsPointer": true,
+        "widthMatchesText": true,
+        "aboveYearRole": true,
+        "steps": [
+          "y 0: entry 4, line 245px vs text 244.4px (column 603px)",
+          "y 200: entry 9, line 574px vs text 572.8px (column 603px)",
+          "y 400: entry 16, line 237px vs text 236.2px (column 603px)",
+          "y 600: entry 22, line 385px vs text 384.2px (column 603px)",
+          "y 800: entry 29, line 556px vs text 555.3px (column 603px)",
+          "y 1000: entry 35, line 496px vs text 495.5px (column 603px)",
+          "hover 1: entry 1, line 215px vs text 214.1px (column 603px)",
+          "hover 9: entry 9, line 574px vs text 572.8px (column 603px)",
+          "hover 20: entry 20, line 147px vs text 146px (column 603px)",
+          "hover 36: entry 36, line 604px vs text 603.4px (column 603px)"
+        ]
+      },
       "entries": 36,
       "titleFontSizes": [
         26
@@ -43,9 +83,9 @@
       "sameFontSize": true,
       "tallerThanOneLine": [],
       "ellipsised": [
-        "015 Teezo Touchdown — How Do You Sleep At Night? With You (over by 96px)",
-        "021 Red Hot Chili Peppers — Return of the Dream Canteen (over by 42px)",
-        "036 The Smashing Pumpkins — Shiny and Oh So Bright, Vol. 1: No Past. No Future. No Sun (over by 422px)"
+        "015 Teezo Touchdown — How Do You Sleep At Night? With You (over by 87px)",
+        "021 Red Hot Chili Peppers — Return of the Dream Canteen (over by 33px)",
+        "036 The Smashing Pumpkins — Shiny and Oh So Bright, Vol. 1: No Past. No Future. No Sun (over by 413px)"
       ],
       "metaPx": [
         12
@@ -54,13 +94,13 @@
       "metaOnOwnLine": false,
       "run": {
         "title": "036 The Smashing Pumpkins — Shiny and Oh So Bright, Vol. 1: No Past. No Future. No Sun",
-        "overflowPx": 422,
-        "peakPx": 422.2,
-        "outPxPerS": 60.2,
+        "overflowPx": 413,
+        "peakPx": 412.9,
+        "outPxPerS": 60.3,
         "holdMs": 584,
-        "backPxPerS": 59.9,
+        "backPxPerS": 59.8,
         "endsAt0": true,
-        "totalMs": 14981
+        "totalMs": 14661
       },
       "cls": 0,
       "shifts": []

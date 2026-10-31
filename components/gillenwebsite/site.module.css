@@ -209,7 +209,8 @@
 .index { width: 62%; padding: 28px 20px 50vh; }
 /* every title one line at one size: number | title | a fixed column for year and role, so nothing collides */
 .indexRow { display: grid; grid-template-columns: auto minmax(0, 1fr) 210px; column-gap: 8px; align-items: baseline; font-size: 26px; line-height: 31.2px; }
-.indexTitle { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; container-type: inline-size; }
+/* clipped sideways only, so the underline (4 px under the text) shows below the 22 px phone line */
+.indexTitle { white-space: nowrap; overflow-x: clip; text-overflow: ellipsis; container-type: inline-size; }
 .root .indexRow:hover { opacity: 1; }
 .indexNo, .indexMeta { font-size: 12px; line-height: 1.2; position: relative; top: -0.55em; }
 .indexNo { white-space: nowrap; }
@@ -254,7 +255,7 @@
   .index { width: 100%; padding: 20px 16px 60vh; }
   /* phones: the number in front of the title, the year and role on their own small line under it */
   .indexRow { grid-template-columns: auto minmax(0, 1fr); font-size: 17px; line-height: 22px; padding-bottom: 6px; }
-  .indexMeta { grid-column: 2; font-size: 11px; line-height: 13px; top: 0; }
+  .indexMeta { grid-column: 2; font-size: 11px; line-height: 13px; top: 0; margin-top: 4px; }
   .indexOn .indexTitle { text-overflow: clip; }
   .indexOn .indexTitleText { display: inline-block; animation: titleRun 100s linear forwards; }
   .indexCover { top: auto; bottom: 16px; right: 16px; width: 34vw; }
