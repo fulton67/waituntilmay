@@ -9,8 +9,8 @@
   --ground: #ffffff;
   --ink: #000000;
   --line: #000000;
-  --mono: var(--font-courier), "Courier New", monospace;
-  --display: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --mono: var(--font-info), "Nimbus Sans", "Helvetica Neue", Arial, sans-serif;
+  --display: var(--font-title), "Helvetica Neue", Arial, sans-serif;
   background: var(--ground);
   color: var(--ink);
   font: 400 12px/1.5 var(--mono);
