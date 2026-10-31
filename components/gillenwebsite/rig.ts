@@ -2,9 +2,10 @@
 // Plain mutable object: it is read and written every frame, so it must not trigger React renders.
 import type * as THREE from "three";
 
-// Flip direction for page scroll, card drag and the knobs. -1 is the reversed direction Naim asked for:
-// scrolling down tips the front card toward the viewer and stands the next one up behind it.
-export const FLIP_DIR = -1;
+// Flip direction for page scroll, card drag and the knobs. +1: scrolling the page down sends the front
+// card's top edge down and away from the viewer (Y and Z both fall) and brings the next card up to the front.
+// A drag down on a card scrolls the other way, so the card face follows the pointer.
+export const FLIP_DIR = 1;
 
 export type Drag = { x: number; y: number; sy: number; az: number; el: number; mode: "flip" | "orbit" };
 

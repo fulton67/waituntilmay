@@ -1,5 +1,5 @@
 // Measure /gillenwebsite against BUILD.md's "Done means" and the bible rules it applies.
-//   node scripts/gillenwebsite/verify.mjs [base-url]   (default http://localhost:3217)
+//   node scripts/gillenwebsite/verify.mjs [base-url] [--only direction,detent,...]   (default http://localhost:3217)
 // Runs headed Chrome so WebGL uses the GPU. Writes scripts/gillenwebsite/verify-report.json.
 import { chromium } from "@playwright/test";
 import fs from "node:fs/promises";
@@ -7,7 +7,11 @@ import path from "node:path";
 import sharp from "sharp";
 
 const ROOT = path.resolve(import.meta.dirname, "../..");
-const BASE = (process.argv[2] || "http://localhost:3217").replace(/\/$/, "");
+const argv = process.argv.slice(2);
+const BASE = (argv.find((a) => /^https?:/.test(a)) || "http://localhost:3217").replace(/\/$/, "");
+// --only runs just the named sections and prints them without touching verify-report.json
+const ONLY = argv.includes("--only") ? argv[argv.indexOf("--only") + 1].split(",") : null;
+const want = (k) => !ONLY || ONLY.includes(k);
 const URL = `${BASE}/gillenwebsite`;
 const out = {};
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -65,7 +69,7 @@ const flipTop = () => page.evaluate(() => document.getElementById("flip").offset
 const sNow = () => page.evaluate(() => window.__rolodex.rig.s);
 
 // Direction check, scroll: put card 3 in front, scroll down exactly one `per`, wait 1 s
-{
+if (want("direction")) {
   const per = await perPx(), top = await flipTop(), k = 3;
   await page.evaluate((y) => scrollTo(0, y), top + k * per);
   await wait(1500);
@@ -73,10 +77,11 @@ const sNow = () => page.evaluate(() => window.__rolodex.rig.s);
   await page.evaluate((d) => scrollBy(0, d), per);
   await wait(1000);
   const after = await topEdge(k);
-  out.directionScroll = { card: k + 1, before, after, dY: after.y - before.y, dZ: after.z - before.z, pass: after.y < before.y && after.z > before.z };
+  // FLIP_DIR = +1: scrolling down sends the front card's top edge down and away (Y and Z both fall)
+  out.directionScroll = { card: k + 1, before, after, dY: after.y - before.y, dZ: after.z - before.z, pass: after.y < before.y && after.z < before.z };
 }
 // Direction check, drag: 70 px mouse drag down on the front card
-{
+if (want("direction")) {
   const per = await perPx(), top = await flipTop(), k = 8;
   await page.evaluate((y) => scrollTo(0, y), top + k * per);
   await wait(1500);
@@ -92,10 +97,11 @@ const sNow = () => page.evaluate(() => window.__rolodex.rig.s);
   await page.mouse.up();
   await wait(1000);
   const after = await topEdge(k);
+  // a drag down pulls the card face with the pointer: its top edge comes down toward the viewer
   out.directionDrag = { card: k + 1, at: sp, before, after, dY: after.y - before.y, dZ: after.z - before.z, pass: after.y < before.y && after.z > before.z };
 }
 // Detent: stop scrolling 40 % of the way into a card; s must land on an integer within 0.01 inside 1 s
-{
+if (want("detent")) {
   const per = await perPx(), top = await flipTop();
   await page.evaluate((y) => scrollTo(0, y), top + 12.4 * per);
   const t0 = Date.now();
@@ -109,7 +115,7 @@ const sNow = () => page.evaluate(() => window.__rolodex.rig.s);
   out.detent = { stoppedAt: 12.4, s, landedOn: Math.round(s), error: Math.abs(s - Math.round(s)), settledMs: settled, pass: settled !== null && settled <= 1000 };
 }
 // Orbit: drag the background 360 degrees (2*PI / 0.008 px) and compare the camera azimuth
-{
+if (want("orbit")) {
   await page.evaluate(() => scrollTo(0, 0));
   await wait(1200);
   const az0 = await page.evaluate(() => window.__rolodex.rig.camAz);
@@ -124,7 +130,7 @@ const sNow = () => page.evaluate(() => window.__rolodex.rig.s);
   out.orbit = { dragPx: dx, az0, az1, wrappedDifference: d, pass: Math.abs(d) < 0.01 };
 }
 // Frame rate: scroll through all cards with the wheel and time every frame
-{
+if (want("fps")) {
   await page.evaluate(() => scrollTo(0, 0));
   await wait(1000);
   await page.evaluate(() => {
@@ -153,7 +159,7 @@ const sNow = () => page.evaluate(() => window.__rolodex.rig.s);
   };
 }
 // Bible rules, from computed styles of every element on the page (sheet opened so it is measured too)
-{
+if (want("bible")) {
   await page.evaluate(() => scrollTo(0, 0));
   await wait(800);
   await page.keyboard.press("Enter");
@@ -193,9 +199,9 @@ const sNow = () => page.evaluate(() => window.__rolodex.rig.s);
   await page.keyboard.press("Escape");
 }
 // R16: the credit comment in the HTML as served
-out.bible.R16_comment = /<!-- Site Development &(amp;)? Design; waituntilmay -->/.test(await (await fetch(URL)).text());
+if (want("bible")) out.bible.R16_comment = /<!-- Site Development &(amp;)? Design; waituntilmay -->/.test(await (await fetch(URL)).text());
 // S6: the A-Z order is saved in a cookie and restored after a reload
-{
+if (want("S6")) {
   await page.evaluate(() => document.getElementById("credits").scrollIntoView());
   await page.getByRole("button", { name: /A–Z/ }).click();
   const firstAfterClick = await page.evaluate(() => document.querySelector("#credits li button")?.textContent);
@@ -208,7 +214,7 @@ out.bible.R16_comment = /<!-- Site Development &(amp;)? Design; waituntilmay -->
   out.S6 = { cookie: cookie?.value, firstAfterClick, firstAfterReload, firstDefault, pass: cookie?.value === "alphabetical" && firstAfterClick === firstAfterReload && firstAfterClick !== firstDefault };
 }
 // Phone: 390 x 844, no horizontal scroll, 3D panel dropped, caption with thumbnail shown
-{
+if (want("phone")) {
   const phone = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 3 });
   const p = await phone.newPage();
   await p.goto(URL, { waitUntil: "load" });
@@ -228,6 +234,7 @@ out.bible.R16_comment = /<!-- Site Development &(amp;)? Design; waituntilmay -->
 }
 await browser.close();
 
+if (ONLY) { console.log(JSON.stringify(out, null, 2)); process.exit(0); }
 // Covers on disk: every file exists and is 1024 x 1024
 out.covers = [];
 for (const r of disco.releases.filter((r) => r.cover)) {
