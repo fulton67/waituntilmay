@@ -70,7 +70,7 @@ function useScreensaver(N: number) {
 // SOURCES #17: the caption block. A swipe or drag up on it goes to the next release and down goes back, one per
 // gesture; a move under luckydaye.com's 5 px threshold is a click, and 24 px commits the swipe. The drum's ratchet
 // is the detent. It shares the Rolodex's index: the block follows rig.front, and a swipe turns the drum. On a
-// change the old block slides out and the new one in over 320 ms on the About reveal's ease curve (SOURCES #19),
+// change the old block slides out and the new one in over 180 ms on the About reveal's ease curve (SOURCES #19),
 // upwards for the next release and downwards for the one before. A tap on the thumbnail opens the large-cover panel.
 function Caption({ releases, front, onStep, onOpen, children }: { releases: Release[]; front: number; onStep: (k: number) => void; onOpen: (i: number) => void; children: React.ReactNode }) {
   const [pair, setPair] = useState<{ cur: number; prev: number | null }>({ cur: front, prev: null });

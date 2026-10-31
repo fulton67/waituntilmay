@@ -1,0 +1,2630 @@
+{
+  "base": "http://localhost:3217",
+  "at": "2026-10-31T06:39:14.370Z",
+  "profile": "390x844, 4x CPU throttle",
+  "targets": {
+    "expand": 240,
+    "close": 200,
+    "hoverIn": 120,
+    "hoverOut": 160,
+    "captionSwipe": 180,
+    "crossfade": 150
+  },
+  "toleranceMs": 20,
+  "discography": {
+    "expand": {
+      "ms": 250,
+      "anims": [
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "span.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "li.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "0",
+          "kind": "CSSTransition",
+          "name": "opacity",
+          "target": "aside.TM77GG",
+          "props": [
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": null,
+          "kind": "Animation",
+          "name": "waapi",
+          "target": "span.TM77GG[data-clip]",
+          "props": [
+            "transform"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": null,
+          "kind": "Animation",
+          "name": "waapi",
+          "target": "img.TM77GG",
+          "props": [
+            "transform"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        },
+        {
+          "toOpacity": "1",
+          "kind": "Animation",
+          "name": "waapi",
+          "target": "div.TM77GG",
+          "props": [
+            "transform",
+            "opacity"
+          ],
+          "timing": 240,
+          "ms": 250,
+          "at": 0
+        }
+      ],
+      "props": [
+        "opacity",
+        "transform"
+      ],
+      "fps": 60,
+      "worstFrameMs": 16.8,
+      "frames": 15,
+      "tapToEndMs": 467.7,
+      "pass": true
+    },
+    "afterExpand": {
+      "url": "/gillenwebsite/discography#04-mike-d-thank-you",
+      "sameDocument": true,
+      "navigationEntries": 1,
+      "open": true,
+      "coverRect": {
+        "x": 0,
+        "y": 0,
+        "w": 390,
+        "h": 390
+      },
+      "othersOpacity": "0",
+      "rowsInDom": 36
+    },
+    "navigation": {
+      "before": 1,
+      "after": 1,
+      "sameDocument": true,
+      "hash": "/gillenwebsite/discography#04-mike-d-thank-you",
+      "pass": true
+    },
+    "willChangeBeforeAnimating": "transform",
+    "close": [
+      {
+        "how": "tapOutside",
+        "ms": 200.1,
+        "anims": [
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "span.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "aside.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200.1,
+            "at": 0
+          },
+          {
+            "toOpacity": "0",
+            "kind": "Animation",
+            "name": "waapi",
+            "target": "div.TM77GG",
+            "props": [
+              "transform",
+              "opacity"
+            ],
+            "timing": 160,
+            "ms": 166.8,
+            "at": 0
+          }
+        ],
+        "props": [
+          "opacity",
+          "transform"
+        ],
+        "fps": 50,
+        "worstFrameMs": 50.1,
+        "frames": 11,
+        "closed": true,
+        "url": "/gillenwebsite/discography",
+        "sameDocument": true,
+        "navigationEntries": 1,
+        "pass": true
+      },
+      {
+        "how": "escape",
+        "ms": 216.6,
+        "anims": [
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "span.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "aside.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.6,
+            "at": 0
+          },
+          {
+            "toOpacity": "0",
+            "kind": "Animation",
+            "name": "waapi",
+            "target": "div.TM77GG",
+            "props": [
+              "transform",
+              "opacity"
+            ],
+            "timing": 160,
+            "ms": 166.7,
+            "at": 0
+          }
+        ],
+        "props": [
+          "opacity",
+          "transform"
+        ],
+        "fps": 55.7,
+        "worstFrameMs": 33.3,
+        "frames": 14,
+        "closed": true,
+        "url": "/gillenwebsite/discography",
+        "sameDocument": true,
+        "navigationEntries": 1,
+        "pass": true,
+        "reopenMs": 250
+      },
+      {
+        "how": "closeButton",
+        "ms": 216.7,
+        "anims": [
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "span.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "aside.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 216.7,
+            "at": 0
+          },
+          {
+            "toOpacity": "0",
+            "kind": "Animation",
+            "name": "waapi",
+            "target": "div.TM77GG",
+            "props": [
+              "transform",
+              "opacity"
+            ],
+            "timing": 160,
+            "ms": 166.7,
+            "at": 0
+          }
+        ],
+        "props": [
+          "opacity",
+          "transform"
+        ],
+        "fps": 51.4,
+        "worstFrameMs": 50,
+        "frames": 13,
+        "closed": true,
+        "url": "/gillenwebsite/discography",
+        "sameDocument": true,
+        "navigationEntries": 1,
+        "pass": true,
+        "reopenMs": 250
+      },
+      {
+        "how": "swipeDown",
+        "ms": 200,
+        "anims": [
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "span.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "li.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "1",
+            "kind": "CSSTransition",
+            "name": "opacity",
+            "target": "aside.TM77GG",
+            "props": [
+              "opacity"
+            ],
+            "timing": 200,
+            "ms": 200,
+            "at": 0
+          },
+          {
+            "toOpacity": "0",
+            "kind": "Animation",
+            "name": "waapi",
+            "target": "div.TM77GG",
+            "props": [
+              "transform",
+              "opacity"
+            ],
+            "timing": 160,
+            "ms": 166.7,
+            "at": 0
+          }
+        ],
+        "props": [
+          "opacity",
+          "transform"
+        ],
+        "fps": 55.4,
+        "worstFrameMs": 33.3,
+        "frames": 13,
+        "closed": true,
+        "url": "/gillenwebsite/discography",
+        "sameDocument": true,
+        "navigationEntries": 1,
+        "pass": true,
+        "reopenMs": 250
+      }
+    ],
+    "backInRow": {
+      "h": 20,
+      "transform": "none"
+    },
+    "clsWhileExpanding": 0
+  },
+  "desktop": {
+    "expandMs": 250,
+    "fps": 52.5,
+    "anims": [
+      "li.TM77GG opacity at 0 for 250",
+      "span.TM77GG opacity at 0 for 250",
+      "aside.TM77GG opacity at 0 for 250",
+      "span.TM77GG[data-clip] waapi at 0 for 250",
+      "img.TM77GG waapi at 0 for 250",
+      "div.TM77GG waapi at 0 for 250"
+    ],
+    "cover": {
+      "x": 0,
+      "y": 0,
+      "w": 900,
+      "h": 900
+    },
+    "clickOutsideCloseMs": 216.6,
+    "closed": true,
+    "pass": true
+  },
+  "hover": {
+    "in": [
+      {
+        "row": 2,
+        "ms": 133.2,
+        "props": [
+          "opacity"
+        ],
+        "anims": [
+          "span.TM77GG::after opacity -> 1 133.2",
+          "span.TM77GG::after opacity -> 0 166.6"
+        ]
+      },
+      {
+        "row": 5,
+        "ms": 133.3,
+        "props": [
+          "opacity"
+        ],
+        "anims": [
+          "span.TM77GG::after opacity -> 1 133.3",
+          "span.TM77GG::after opacity -> 0 166.7"
+        ]
+      },
+      {
+        "row": 9,
+        "ms": 133.4,
+        "props": [
+          "opacity"
+        ],
+        "anims": [
+          "span.TM77GG::after opacity -> 1 133.4",
+          "span.TM77GG::after opacity -> 0 166.8"
+        ]
+      }
+    ],
+    "out": [
+      {
+        "row": 2,
+        "ms": 166.7,
+        "props": [
+          "opacity"
+        ]
+      },
+      {
+        "row": 5,
+        "ms": 166.7,
+        "props": [
+          "opacity"
+        ]
+      },
+      {
+        "row": 9,
+        "ms": 166.7,
+        "props": [
+          "opacity"
+        ]
+      }
+    ],
+    "clsDuringHover": 0,
+    "pass": true
+  },
+  "captionSwipe": [
+    {
+      "dy": -60,
+      "ms": 183.3,
+      "slides": [
+        "site-module__TM77GG__capOutUp 183.3",
+        "site-module__TM77GG__capInUp 183.3"
+      ],
+      "props": [
+        "transform"
+      ]
+    },
+    {
+      "dy": -60,
+      "ms": 183.3,
+      "slides": [
+        "site-module__TM77GG__capOutUp 183.3",
+        "site-module__TM77GG__capInUp 183.3"
+      ],
+      "props": [
+        "transform"
+      ]
+    },
+    {
+      "dy": 60,
+      "ms": 183.4,
+      "slides": [
+        "site-module__TM77GG__capOutDown 183.4",
+        "site-module__TM77GG__capInDown 183.4"
+      ],
+      "props": [
+        "transform"
+      ]
+    }
+  ],
+  "panelOpen": {
+    "ms": 250,
+    "anims": [
+      "img.TM77GG.TM77GG site-module__TM77GG__fadeIn at 0 for 150.1",
+      "div.TM77GG site-module__TM77GG__fadeIn at 0 for 150.1",
+      "div.TM77GG.TM77GG waapi at 0 for 250"
+    ],
+    "props": [
+      "opacity",
+      "transform"
+    ],
+    "pass": true
+  },
+  "crossfade": [
+    {
+      "ms": 150,
+      "anims": [
+        "img.TM77GG.TM77GG site-module__TM77GG__fadeIn 150",
+        "span.TM77GG site-module__TM77GG__fadeOut 150",
+        "div.TM77GG site-module__TM77GG__fadeIn 150"
+      ],
+      "props": [
+        "opacity"
+      ],
+      "fps": 60
+    },
+    {
+      "ms": 166.6,
+      "anims": [
+        "img.TM77GG.TM77GG site-module__TM77GG__fadeIn 166.6",
+        "span.TM77GG site-module__TM77GG__fadeOut 166.6",
+        "div.TM77GG site-module__TM77GG__fadeIn 166.6"
+      ],
+      "props": [
+        "opacity"
+      ],
+      "fps": 54.6
+    },
+    {
+      "ms": 166.6,
+      "anims": [
+        "img.TM77GG.TM77GG site-module__TM77GG__fadeIn 166.6",
+        "span.TM77GG site-module__TM77GG__fadeOut 166.6",
+        "div.TM77GG site-module__TM77GG__fadeIn 166.6"
+      ],
+      "props": [
+        "opacity"
+      ],
+      "fps": 59.9
+    }
+  ],
+  "captionSwipePass": true,
+  "crossfadePass": true,
+  "pageSlide": {
+    "tapToUrlMs": 1135,
+    "legs": [
+      "a.TM77GG opacity at 0 for 133.4",
+      "main.TM77GG transform at 0 for 250.1",
+      "a.TM77GG opacity at 866.7 for 233.3",
+      "a.TM77GG opacity at 866.7 for 133.4",
+      "main.TM77GG transform at 1000 for 250",
+      "div.TM77GG.TM77GG opacity at 1116.6 for 200"
+    ],
+    "navigationEntries": 1,
+    "note": "two 240 ms legs (out, client-side route change, in); the route change between them is not an animation"
+  },
+  "longestMs": 250,
+  "noneOver250": true,
+  "pass": true
+}

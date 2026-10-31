@@ -275,14 +275,15 @@ if (want("sources")) {
     return { w: Math.round(r.width), h: Math.round(r.height), shareOfViewportHeight: +(r.height / innerHeight).toFixed(3), naturalWidth: i.naturalWidth, src: i.getAttribute("src") };
   }, sel);
   out.largeCover = { viewport: "1440x900", inline: await coverSize(page, "[class*=inlineSlot] article img") };
-  await d.locator("ol li a").nth(2).click(); await wait(1500);
-  out.largeCover.panel = await coverSize(d, "[role=dialog] article img");
+  // the panel opens from the caption's thumbnail on home (a discography row now expands in place instead)
+  await page.click("[data-src='17'] [class*=capThumb]"); await wait(1500);
+  out.largeCover.panel = await coverSize(page, "[role=dialog] article img");
   // the panel shows the 2048 file; inline, the file is never shown above its natural size at the device pixel ratio
   const dpr = await page.evaluate(() => devicePixelRatio);
   out.largeCover.devicePixelRatio = dpr;
   out.largeCover.inline.notUpscaled = out.largeCover.inline.naturalWidth >= out.largeCover.inline.w * dpr;
   out.largeCover.pass = [out.largeCover.inline, out.largeCover.panel].every((c) => c.shareOfViewportHeight >= 0.6) && out.largeCover.inline.notUpscaled && out.largeCover.panel.naturalWidth === 2048;
-  await d.keyboard.press("Escape"); await wait(1200);
+  await page.keyboard.press("Escape"); await wait(1200);
 
   // discography: all 36 in discography.json order; row pitch, cover slice and type sizes against brian-eno.net
   out.discography = await d.evaluate(() => {
@@ -364,7 +365,7 @@ if (want("sync")) {
       const ok = await page.evaluate(() => { const r = window.__rolodex.rig; return Math.abs(r.s - Math.round(r.s)) < 0.005 && performance.now() - r.lastScroll > 400; });
       if (ok) break;
     }
-    await wait(450); // the caption's 320 ms slide and the display's crossfade
+    await wait(450); // the caption's 180 ms slide and the display's crossfade
     return page.evaluate(() => {
       const r = window.__rolodex.rig, ids = window.__rolodex.faceIds;
       const caption = [...document.querySelectorAll("[data-src='17'] [data-release]")].map((e) => e.getAttribute("data-release"));
@@ -408,7 +409,7 @@ if (want("sync")) {
   out.sync.pass = both.every((x) => x.equal) && out.sync.caption.every((x) => x.onePerSwipe);
   out.sync.distinctIndicesVisited = new Set(both.map((x) => x.rolodex)).size;
 
-  // the slide: on a change the old block leaves and the new one enters, each a 320 ms ease animation
+  // the slide: on a change the old block leaves and the new one enters, each a 180 ms ease animation
   out.captionSlide = await page.evaluate(async () => {
     const seen = new Set();
     const mo = new MutationObserver(() => {
@@ -423,7 +424,7 @@ if (want("sync")) {
     mo.disconnect();
     return [...seen].map((x) => JSON.parse(x));
   });
-  out.captionSlidePass = out.captionSlide.length >= 2 && out.captionSlide.every((a) => a.ms === 320 && a.easing === "ease");
+  out.captionSlidePass = out.captionSlide.length >= 2 && out.captionSlide.every((a) => a.ms === 180 && a.easing === "ease");
   // a click on the thumbnail opens the large-cover panel on that release
   const thumbId = await page.evaluate(() => document.querySelector("[data-src='17'] [data-release]").getAttribute("data-release"));
   await page.click("[data-src='17'] [class*=capThumb]");

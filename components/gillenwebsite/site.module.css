@@ -21,8 +21,9 @@
   text-transform: none;
   font-weight: 400;
 }
-.root a { color: var(--ink); text-decoration: none; transition: color 0.3s ease; } /* SOURCES #30 gaeawoods css:70 */
-.root a:hover { color: #777; }
+/* SOURCES #30 gaeawoods css:70 dims links on hover (#777); here as opacity, 120 ms in and 160 ms out */
+.root a { color: var(--ink); text-decoration: none; transition: opacity 0.16s ease; }
+.root a:hover { opacity: 0.533; transition-duration: 0.12s; }
 .root button { all: unset; cursor: pointer; font: inherit; color: var(--ink); }
 .root button:focus-visible, .root a:focus-visible, .root select:focus-visible { outline: 1px solid var(--ink); outline-offset: 2px; }
 .root h1, .root h2, .root h3, .root p { margin: 0; font-size: inherit; }
@@ -35,7 +36,7 @@
   padding: calc(14px + env(safe-area-inset-top, 0px)) max(20px, env(safe-area-inset-right, 0px)) 12px max(20px, env(safe-area-inset-left, 0px));
 }
 .name { font-family: var(--display); font-stretch: 118%; letter-spacing: 0.02em; justify-self: start; }
-.root .name:hover { color: var(--ink); }
+.root .name:hover { opacity: 1; }
 /* SOURCES #03 luckydaye div.timer > span.date-time */
 .timer { display: flex; gap: 14px; font-variant-numeric: tabular-nums; }
 .dateTime { display: inline-block; min-width: 9ch; }
@@ -59,7 +60,7 @@
 .email { text-align: left; }
 
 /* SOURCES #08 anew-formatic .cursor-text and .linktitle_container */
-.cursorText { display: inline; position: fixed; top: 0; left: 0; z-index: 999; text-align: left; line-height: 1; pointer-events: none; }
+.cursorText { display: inline; position: fixed; top: 0; left: 0; will-change: transform; z-index: 999; text-align: left; line-height: 1; pointer-events: none; }
 .linktitle { background: #fff; padding: 0 2px 2px; line-height: 12px; border: 0.5px solid #000; margin-top: 0; font-size: 10px; font-variant-numeric: tabular-nums; }
 .linktitle a { color: #000; }
 @media (pointer: coarse) { .cursorText { display: none; } }
@@ -88,7 +89,7 @@
 .lightbox {
   position: fixed; inset: 0; z-index: 60; padding: 40px; display: flex; justify-content: center; align-items: center;
   background: var(--ground); cursor: pointer;
-  transform: translate(-100%); transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+  transform: translate(-100%); transition: transform 0.24s cubic-bezier(0.77, 0, 0.175, 1);
 }
 .lightboxOpen { transform: translate(0); }
 .viewPanel {
@@ -105,12 +106,12 @@
 .cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; }
 .noArt { display: grid; align-content: space-between; padding: 24px; font-size: 20px; line-height: 1.2; }
 .noArt span { font-size: 12px; }
-/* luckydaye .lightbox-enter-active / -leave-active: opacity .25s */
-.coverIn { animation: fadeIn 0.25s both; }
-.coverOutWrap { position: absolute; inset: 0; animation: fadeOut 0.25s both; }
+/* luckydaye .lightbox-enter-active / -leave-active crossfade, at 150 ms */
+.coverIn { animation: fadeIn 0.15s both; }
+.coverOutWrap { position: absolute; inset: 0; animation: fadeOut 0.15s both; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
-.info { display: flex; flex-direction: column; gap: 6px; overflow: auto; min-width: 0; animation: fadeIn 0.25s both; }
+.info { display: flex; flex-direction: column; gap: 6px; overflow: auto; min-width: 0; animation: fadeIn 0.15s both; }
 .artistName { font: 400 28px/1.05 var(--display) !important; font-stretch: 112%; text-wrap: balance; margin-top: 4px !important; }
 .releaseTitle { font-size: 12px; }
 /* SOURCES #16 chantalmichelle sup.date{margin-left:.2rem} */
@@ -140,11 +141,11 @@
 .capThumb { flex: none; cursor: pointer; }
 .capText { display: grid; min-width: 0; }
 .capText > span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-/* SOURCES #19 the About reveal's curve (gaeawoods [data-about] transition: ease), over 320 ms */
-.capInUp { animation: capInUp 0.32s ease both; }
-.capOutUp { animation: capOutUp 0.32s ease both; }
-.capInDown { animation: capInDown 0.32s ease both; }
-.capOutDown { animation: capOutDown 0.32s ease both; }
+/* SOURCES #19 the About reveal's curve (gaeawoods [data-about] transition: ease), over 180 ms */
+.capInUp { animation: capInUp 0.18s ease both; }
+.capOutUp { animation: capOutUp 0.18s ease both; }
+.capInDown { animation: capInDown 0.18s ease both; }
+.capOutDown { animation: capOutDown 0.18s ease both; }
 @keyframes capInUp { from { transform: translateY(100%); } to { transform: none; } }
 @keyframes capOutUp { from { transform: none; } to { transform: translateY(-100%); } }
 @keyframes capInDown { from { transform: translateY(-100%); } to { transform: none; } }
@@ -164,10 +165,26 @@
 .discoTitle { font-size: 13px; line-height: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .discoWho { font-size: 10px; line-height: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: 0.3px; }
 .discoYear { font-size: 10px; line-height: 20px; font-variant-numeric: tabular-nums; }
-.root .discoRow:hover { color: var(--ink); }
-.discoRow:hover .discoTitle { text-decoration: underline; text-underline-offset: 2px; }
+.root .discoRow:hover { opacity: 1; }
+/* the row's hover: the title's underline fades in over 120 ms and out over 160 ms, opacity only, no layout */
+.discoTitleText { position: relative; }
+.discoTitleText::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor; opacity: 0; transition: opacity 0.16s ease; pointer-events: none; }
+.discoRow:hover .discoTitleText::after { opacity: 1; transition-duration: 0.12s; }
 .slice { display: block; height: 20px; overflow: hidden; padding: 0 0.25rem; }
-.slice img { display: block; width: 100%; height: 20px; object-fit: cover; }
+.sliceClip { position: relative; display: block; height: 20px; overflow: hidden; transform-origin: 0 0; }
+.sliceImg { position: absolute; left: 0; top: 50%; width: 100%; height: auto; aspect-ratio: 1; margin-top: -50%; display: block; transform-origin: 50% 50%; }
+/* expanded: the active row lets its cover out, everything else on the page fades (opacity only) */
+.discoItem, .discoSide, .leftColumn { transition: opacity 0.2s ease; }
+.discoOpen .discoItem:not(.discoActive), .discoOpen .discoSide, .discoOpen .discoActive .leftColumn { opacity: 0; transition-duration: 0.24s; pointer-events: none; }
+.discoActive .discoRow, .discoActive .slice { overflow: visible; }
+.discoActive .sliceClip { z-index: 70; }
+.expShade { position: fixed; inset: 0; z-index: 65; }
+.expInfo {
+  position: fixed; z-index: 68; left: 0; right: 0; top: 100vw; bottom: 0; padding: 16px; overflow: auto; overscroll-behavior: contain;
+  display: flex; flex-direction: column; gap: 6px; background: var(--ground);
+}
+@media (min-width: 720px) { .expInfo { left: calc(min(100vh, 100vw - 360px) + 24px); right: 20px; top: calc(var(--head) + 16px); padding: 0 0 24px; max-width: 420px; background: none; } }
+.expClose { align-self: flex-start; margin-top: 12px; padding: 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; }
 .sliceBlank { display: block; height: 20px; background: #eee; }
 .discoSide { position: sticky; top: calc(var(--head) + 16px); align-self: start; padding: 0 20px; display: grid; gap: 14px; }
 /* SOURCES #23 viscosesyllabus a.filters */
@@ -184,14 +201,14 @@
 .aboutPage { padding-top: var(--head); }
 .dataAbout {
   position: relative; z-index: 3; padding: 16px 20px 14px;
-  background: #fff; background: rgba(255, 255, 255, 0.825); opacity: 0; transition: opacity 0.3s ease;
+  background: #fff; background: rgba(255, 255, 255, 0.825); opacity: 0; transition: opacity 0.2s ease;
 }
 .dataAboutOpen { opacity: 1; }
 .aboutText { font-size: 20px !important; line-height: 1.3; max-width: 62ch; margin: 0 0 12px !important; }
 /* SOURCES #20 shortnotice client list: 26px / 31.2px, "," and <br> between items */
 .index { width: 62%; padding: 28px 20px 50vh; }
 .indexRow { font-size: 26px; line-height: 31.2px; }
-.root .indexRow:hover { color: var(--ink); }
+.root .indexRow:hover { opacity: 1; }
 .indexNo, .indexMeta { font-size: 12px; line-height: 1; vertical-align: 0.55em; }
 .indexNo { margin-right: 8px; }
 .indexMeta { margin-left: 8px; }
@@ -228,3 +245,5 @@
   .indexCaption { display: none; }
   .indexLines { display: none; }
 }
+/* an open row's underline is gone at once: its fade-out would run past the 240 ms expand under a still pointer */
+.discoOpen .discoTitleText::after { opacity: 0; transition: none; }

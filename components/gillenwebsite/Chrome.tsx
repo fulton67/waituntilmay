@@ -1,7 +1,7 @@
 "use client";
 // Everything that stays put while the three pages change: header, clock, nav, page transition, cursor readout,
 // footer, and the release panel any page can open. Each piece names its row in docs/gillenwebsite/SOURCES.md.
-import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import ReleaseView from "./ReleaseView";
@@ -51,8 +51,8 @@ function CursorReadout() {
     const el = box.current!;
     const onMouseMove = (e: MouseEvent) => {
       el.style.opacity = "1";
-      el.style.left = `${e.clientX - el.offsetWidth / 2}px`;
-      el.style.top = `${e.clientY - el.offsetHeight / 2}px`;
+      // S11 sets left / top; a transform moves it the same without a layout shift (CLS 0 while hovering the list)
+      el.style.transform = `translate(${e.clientX - el.offsetWidth / 2}px, ${e.clientY - el.offsetHeight / 2}px)`;
       lx.current!.innerText = `${e.screenX}PX`;
       ly.current!.innerText = `${e.screenY}PX`;
     };
@@ -117,18 +117,21 @@ export default function Chrome({
   const [panel, setPanel] = useState<number | null>(null);
   const [shown, setShown] = useState(false);
   const back = useRef<HTMLAnchorElement>(null);
+  const lightbox = useRef<HTMLDivElement>(null);
 
   // SOURCES #05, viscosesyllabus.com S7 (1c85fe7d1ee0de53.js:23): the page goes out to translate(90vw), and
-  // navigation waits 1000 ms. The new page comes in from 80vw to 0 over 1 s ease. The first load does not slide.
+  // navigation waits for it. The new page comes in from 80vw to 0. The first load does not slide. viscosesyllabus
+  // takes 1 s each way; here each leg is 240 ms, so no transition on the site runs over 250 ms.
   const go = (e: React.MouseEvent, href: string) => {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
     e.preventDefault();
     if (href === path || leaving.current) return;
     leaving.current = true;
     const o = main.current!;
-    o.style.transition = "transform 1s ease, opacity 1s ease";
+    o.style.transition = "transform 0.24s ease, opacity 0.24s ease";
     o.style.transform = "translate(90vw)";
-    setTimeout(() => router.push(href), 1e3);
+    // navigate once the out leg has finished, after its last frame, so the route change never lengthens it
+    Promise.all(o.getAnimations().map((x) => x.finished)).then(() => setTimeout(() => router.push(href), 0), () => router.push(href));
   };
   useEffect(() => {
     const o = main.current;
@@ -138,22 +141,23 @@ export default function Chrome({
     o.style.transition = "none";
     o.style.transform = "translate(80vw)";
     void o.offsetWidth;
-    o.style.transition = "transform 1s ease, opacity 1s ease";
+    o.style.transition = "transform 0.24s ease, opacity 0.24s ease";
     o.style.transform = "translate(0)";
     // a transformed ancestor breaks position: fixed and sticky inside it, so the transform is dropped once it lands
     const done = () => { o.style.transform = ""; o.style.transition = ""; };
-    const t = setTimeout(done, 1050);
+    const t = setTimeout(done, 290);
     return () => clearTimeout(t);
   }, [path]);
 
-  // SOURCES #12: the panel slides in over 1 s cubic-bezier(.77,0,.175,1) (luckydaye .gallery-panel)
-  const open = useCallback((i: number) => { if (i >= 0 && i < N) setPanel(i); }, [N]);
+  // SOURCES #12: the panel slides in on luckydaye .gallery-panel's cubic-bezier(.77,0,.175,1), over 240 ms
+  const open = useCallback((i: number) => { if (i >= 0 && i < N) { setPanel(i); setShown(true); } }, [N]);
   const close = useCallback(() => setShown(false), []);
-  useEffect(() => {
-    if (panel === null) return;
-    const id = requestAnimationFrame(() => setShown(true));
-    return () => cancelAnimationFrame(id);
-  }, [panel]);
+  // the panel mounts already open and slides in from translate(-100%) on the compositor, starting in the same frame
+  // as the cover's fade; closing is the CSS transition back
+  const mounted = panel !== null;
+  useLayoutEffect(() => {
+    if (mounted) lightbox.current?.animate([{ transform: "translate(-100%)" }, { transform: "translate(0)" }], { duration: 240, easing: "cubic-bezier(0.77, 0, 0.175, 1)" });
+  }, [mounted]);
   useEffect(() => { if (shown) back.current?.focus(); }, [shown]);
   useEffect(() => {
     if (panel === null) return;
@@ -214,6 +218,7 @@ export default function Chrome({
       {/* SOURCES #12 luckydaye.com lightbox (4109:82466): fixed, inset 0, padding 40px, centred; a click on the backdrop itself closes it */}
       {panel !== null && (
         <div
+          ref={lightbox}
           className={`${css.lightbox} ${shown ? css.lightboxOpen : ""}`}
           data-src="12"
           role="dialog"

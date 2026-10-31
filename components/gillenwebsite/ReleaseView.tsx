@@ -1,8 +1,8 @@
 "use client";
 // SOURCES #12: the release display. The cover is large, with artist, release, year, role and tracks in a column
-// beside it (below it on phones). Reveal and switch follow luckydaye.com's lightbox: the cover fades in over
-// opacity .25s (4bda12d4093ea50f.css:1 .lightbox-enter-active), and when the release changes the old cover
-// fades out over the same .25s while the new one fades in. The cover is the 2048 file (1080 inline where that
+// beside it (below it on phones). Reveal and switch follow luckydaye.com's lightbox crossfade
+// (4bda12d4093ea50f.css:1 .lightbox-enter-active), at 150 ms: when the release changes the old cover fades out
+// while the new one fades in. The cover is the 2048 file (1080 inline where that
 // covers the rendered pixels), object-fit: contain.
 import { useEffect, useRef, useState } from "react";
 import type { Release } from "@/lib/gillenwebsite/discography";

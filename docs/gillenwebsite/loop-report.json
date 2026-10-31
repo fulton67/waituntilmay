@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3217",
-  "at": "2026-10-31T05:31:14.478Z",
+  "at": "2026-10-31T06:44:22.575Z",
   "N": 36,
   "desktop": {
     "page": {
@@ -16,15 +16,15 @@
       "counter": "034. / 036.",
       "caption": "34-santana-africa-speaks",
       "artist": "Santana",
-      "waitedMs": 1132
+      "waitedMs": 1127
     },
     "forward50": {
-      "s": 82.9979,
+      "s": 82.9982,
       "front": 11,
       "counter": "012. / 036.",
       "caption": "12-sza-sos-deluxe-lana",
       "artist": "SZA",
-      "waitedMs": 645,
+      "waitedMs": 667,
       "expected": {
         "index": 11,
         "counter": "012",
@@ -33,7 +33,7 @@
       },
       "wrappedThrough": true,
       "frames": {
-        "frames": 279,
+        "frames": 331,
         "fronts": [
           33,
           34,
@@ -87,18 +87,18 @@
           10,
           11
         ],
-        "maxDsPerFrame": 0.2418,
-        "maxCardRotStepRad": 0.3642
+        "maxDsPerFrame": 0.2114,
+        "maxCardRotStepRad": 0.316
       },
       "pass": true
     },
     "backKeys": {
-      "s": -2.9985,
+      "s": -2.9984,
       "front": 33,
       "counter": "034. / 036.",
       "caption": "34-santana-africa-speaks",
       "artist": "Santana",
-      "waitedMs": 647,
+      "waitedMs": 645,
       "fronts": [
         2,
         1,
@@ -108,16 +108,16 @@
         33
       ],
       "after001": 35,
-      "maxDsPerFrame": 0.1545,
-      "maxCardRotStepRad": 0.2436,
+      "maxDsPerFrame": 0.1553,
+      "maxCardRotStepRad": 0.2445,
       "pass": true
     },
     "ringSeam": {
       "from": 106,
-      "to": 109.9982,
+      "to": 109.9984,
       "front": 2,
       "counter": "003. / 036.",
-      "frames": 64,
+      "frames": 66,
       "fronts": [
         34,
         35,
@@ -125,17 +125,17 @@
         1,
         2
       ],
-      "maxDsPerFrame": 0.1736,
-      "maxCardRotStepRad": 0.2811,
+      "maxDsPerFrame": 0.1636,
+      "maxCardRotStepRad": 0.2657,
       "landsOnWholeCard": true,
       "noJump": true
     },
     "zeroSeam": {
       "from": 1,
-      "to": -2.9982,
+      "to": -2.9984,
       "front": 33,
       "counter": "034. / 036.",
-      "frames": 64,
+      "frames": 65,
       "fronts": [
         1,
         0,
@@ -143,8 +143,8 @@
         34,
         33
       ],
-      "maxDsPerFrame": 0.1736,
-      "maxCardRotStepRad": 0.2705,
+      "maxDsPerFrame": 0.163,
+      "maxCardRotStepRad": 0.2584,
       "landsOnWholeCard": true,
       "noJump": true
     },
@@ -156,7 +156,7 @@
       "counter": "036. / 036.",
       "caption": "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun",
       "artist": "The Smashing Pumpkins",
-      "waitedMs": 758,
+      "waitedMs": 759,
       "pass": true
     }
   },
@@ -167,7 +167,7 @@
     "counter": "035. / 036.",
     "caption": "35-muse-simulation-theory-super-deluxe",
     "artist": "Muse",
-    "waitedMs": 8,
+    "waitedMs": 17,
     "pass": true
   },
   "phone": {
@@ -182,7 +182,7 @@
       "counter": "034. / 036.",
       "caption": "34-santana-africa-speaks",
       "artist": "Santana",
-      "waitedMs": 561,
+      "waitedMs": 563,
       "fronts": [
         0,
         35,
@@ -190,7 +190,7 @@
         33
       ],
       "after001": 35,
-      "maxDsPerFrame": 0.193,
+      "maxDsPerFrame": 0.1953,
       "pass": true
     },
     "captionBack": {
@@ -199,7 +199,7 @@
       "counter": "036. / 036.",
       "caption": "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun",
       "artist": "The Smashing Pumpkins",
-      "waitedMs": 732,
+      "waitedMs": 733,
       "pass": true
     }
   },
