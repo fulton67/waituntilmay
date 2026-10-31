@@ -1,0 +1,163 @@
+{
+  "base": "https://waituntilmay.com",
+  "at": "2026-10-31T04:48:24.295Z",
+  "desktop": {
+    "scrollPxPerCard": 144,
+    "frontPoint": {
+      "x": 291,
+      "y": 275
+    },
+    "lag": {
+      "samples": 45,
+      "medianMs": 0.5,
+      "p95Ms": 0.9,
+      "maxMs": 1
+    },
+    "drag": {
+      "px": 108,
+      "cards": 3,
+      "dragPxPerCard": 36
+    },
+    "detentHalfCard": {
+      "releasedAt": 2.5,
+      "ms": 182,
+      "s": 2.9999659193706787
+    },
+    "flicks": [
+      {
+        "pxPerMs": 1.5,
+        "pageSaw": {
+          "moves": 10,
+          "pxPerMsLast80": 1.5
+        },
+        "dragCards": 3.33,
+        "carriedCards": 6.67,
+        "totalCards": 10,
+        "landsOnInteger": true,
+        "settleMsAfterRelease": 464,
+        "ms": 464,
+        "flingCardsPerS": 40.6,
+        "aimedAt": 12,
+        "coastMs": 464,
+        "detentMsAfterCoast": 0,
+        "s": 12
+      },
+      {
+        "pxPerMs": 2.5,
+        "pageSaw": {
+          "moves": 12,
+          "pxPerMsLast80": 2.5
+        },
+        "dragCards": 3.33,
+        "carriedCards": 9.67,
+        "totalCards": 13,
+        "landsOnInteger": true,
+        "settleMsAfterRelease": 527,
+        "ms": 527,
+        "flingCardsPerS": 54.5,
+        "aimedAt": 15,
+        "coastMs": 527,
+        "detentMsAfterCoast": 0,
+        "s": 15
+      },
+      {
+        "pxPerMs": 0.6,
+        "pageSaw": {
+          "moves": 75,
+          "pxPerMsLast80": 0.6
+        },
+        "dragCards": 3.33,
+        "carriedCards": 1.67,
+        "totalCards": 5,
+        "landsOnInteger": true,
+        "settleMsAfterRelease": 262,
+        "ms": 262,
+        "flingCardsPerS": 14.9,
+        "aimedAt": 10,
+        "coastMs": 262,
+        "detentMsAfterCoast": 0,
+        "s": 10
+      },
+      {
+        "pxPerMs": 0.45,
+        "pageSaw": {
+          "moves": 132,
+          "pxPerMsLast80": 0.45
+        },
+        "dragCards": 3.33,
+        "carriedCards": 1.67,
+        "totalCards": 5,
+        "landsOnInteger": true,
+        "settleMsAfterRelease": 264,
+        "ms": 264,
+        "flingCardsPerS": 14.9,
+        "aimedAt": 10,
+        "coastMs": 264,
+        "detentMsAfterCoast": 0,
+        "s": 10
+      }
+    ],
+    "tapStop": {
+      "at": 9.56,
+      "wasSpinning": true,
+      "stoppedOn": 10,
+      "nearest": 10,
+      "ms": 264,
+      "s": 10.000018158538548,
+      "panelOpened": false
+    },
+    "wheel": {
+      "oneNotchCards": 1,
+      "threeNotchesCards": 3,
+      "trackpadPx": 144,
+      "trackpadCards": 1
+    },
+    "keys": {
+      "tapCards": 1,
+      "heldMs": 1002,
+      "heldCards": 9,
+      "cardsPerSecond": 7.98
+    }
+  },
+  "phone": {
+    "scrollPxPerCard": 135.04,
+    "hitArea": {
+      "x": 70,
+      "y": 140,
+      "w": 247,
+      "h": 235,
+      "touchAction": "none"
+    },
+    "drag": {
+      "px": 108,
+      "cards": 3,
+      "dragPxPerCard": 36,
+      "pointercancel": 0
+    },
+    "flickSeen": {
+      "moves": 10,
+      "pxPerMsLast80": 1.5
+    },
+    "flick": {
+      "pxPerMs": 1.5,
+      "carriedCards": 6.67,
+      "totalCards": 10,
+      "landsOnInteger": true,
+      "settleMsAfterRelease": 463,
+      "ms": 463,
+      "flingCardsPerS": 40.6,
+      "aimedAt": 12,
+      "coastMs": 463,
+      "detentMsAfterCoast": 0,
+      "s": 12.000034071637153
+    },
+    "outsideScroll": {
+      "at": {
+        "x": 20,
+        "y": 395
+      },
+      "insideHitArea": false,
+      "pageScrolledPx": 85
+    }
+  }
+}
