@@ -1,6 +1,6 @@
 {
-  "base": "http://localhost:3217",
-  "at": "2026-10-31T03:36:06.214Z",
+  "base": "https://waituntilmay.com",
+  "at": "2026-10-31T03:57:30.800Z",
   "looks": {
     "flat": {
       "desktop": "docs/gillenwebsite/looks/flat-1440x900.png",
@@ -15,9 +15,9 @@
         "shadowMap": true
       },
       "fps": {
-        "mean": 59.9,
-        "min500msWindow": 58.1,
-        "slowestFrameMs": 33.4,
+        "mean": 60,
+        "min500msWindow": 60,
+        "slowestFrameMs": 16.9,
         "reachedCard": 36
       },
       "errors": [],
@@ -37,9 +37,9 @@
         "shadowMap": true
       },
       "fps": {
-        "mean": 59.9,
-        "min500msWindow": 58.1,
-        "slowestFrameMs": 33.4,
+        "mean": 60,
+        "min500msWindow": 60,
+        "slowestFrameMs": 16.9,
         "reachedCard": 36
       },
       "errors": [],

@@ -1,22 +1,31 @@
 {
   "url": "https://waituntilmay.com/gillenwebsite",
-  "at": "2026-10-31T02:16:05.726Z",
+  "at": "2026-10-31T03:57:29.933Z",
   "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 (0x00002507) Direct3D11 vs_5_0 ps_5_0, D3D11)",
   "glb": {
     "meshNodes": 11,
     "triangles": 156330,
     "names": [
       "frame",
+      "",
       "base",
+      "",
       "side_right",
+      "",
       "cradle",
       "rod",
       "side_right_inner",
+      "",
       "side_left_inner",
+      "",
       "knob_right",
+      "",
       "knob_left",
+      "",
       "knob_left_cap",
-      "knob_left_face"
+      "",
+      "knob_left_face",
+      ""
     ]
   },
   "cards": {
@@ -28,66 +37,73 @@
   "canvas": true,
   "materials": {
     "frame": {
-      "type": "MeshPhysicalMaterial",
-      "roughnessMap": "512x512 procedural",
-      "normalMap": "512x512 procedural",
+      "type": "MeshMatcapMaterial",
+      "roughnessMap": null,
+      "normalMap": null,
       "clearcoatRoughnessMap": null,
-      "edgeWearVertexShare": 0.23320922585948456
+      "edgeWearVertexShare": 0.18287316860886804
+    },
+    "": {
+      "type": "MeshBasicMaterial",
+      "roughnessMap": null,
+      "normalMap": null,
+      "clearcoatRoughnessMap": null,
+      "edgeWearVertexShare": 0.18287316860886804
     },
     "base": {
-      "type": "MeshPhysicalMaterial",
-      "roughnessMap": "512x512 procedural",
-      "normalMap": "512x512 procedural",
+      "type": "MeshMatcapMaterial",
+      "roughnessMap": null,
+      "normalMap": null,
       "clearcoatRoughnessMap": null,
-      "edgeWearVertexShare": 0.2903707727828331
+      "edgeWearVertexShare": 0.33464620399293765
     },
     "side_right": {
-      "type": "MeshPhysicalMaterial",
-      "roughnessMap": "512x512 procedural",
-      "normalMap": "512x512 procedural",
+      "type": "MeshMatcapMaterial",
+      "roughnessMap": null,
+      "normalMap": null,
       "clearcoatRoughnessMap": null,
-      "edgeWearVertexShare": 0.2626127843436269
+      "edgeWearVertexShare": 0.23077900622696657
     },
     "side_right_inner": {
-      "type": "MeshStandardMaterial",
+      "type": "MeshMatcapMaterial",
       "roughnessMap": null,
       "normalMap": null,
       "clearcoatRoughnessMap": null,
       "edgeWearVertexShare": null
     },
     "side_left_inner": {
-      "type": "MeshStandardMaterial",
+      "type": "MeshMatcapMaterial",
       "roughnessMap": null,
       "normalMap": null,
       "clearcoatRoughnessMap": null,
       "edgeWearVertexShare": null
     },
     "knob_right": {
-      "type": "MeshPhysicalMaterial",
-      "roughnessMap": "512x512 procedural",
+      "type": "MeshMatcapMaterial",
+      "roughnessMap": null,
       "normalMap": null,
-      "clearcoatRoughnessMap": "512x512 procedural",
+      "clearcoatRoughnessMap": null,
       "edgeWearVertexShare": null
     },
     "knob_left": {
-      "type": "MeshPhysicalMaterial",
-      "roughnessMap": "512x512 procedural",
+      "type": "MeshMatcapMaterial",
+      "roughnessMap": null,
       "normalMap": null,
-      "clearcoatRoughnessMap": "512x512 procedural",
+      "clearcoatRoughnessMap": null,
       "edgeWearVertexShare": null
     },
     "knob_left_cap": {
-      "type": "MeshPhysicalMaterial",
-      "roughnessMap": "512x512 procedural",
+      "type": "MeshMatcapMaterial",
+      "roughnessMap": null,
       "normalMap": null,
-      "clearcoatRoughnessMap": "512x512 procedural",
+      "clearcoatRoughnessMap": null,
       "edgeWearVertexShare": null
     },
     "knob_left_face": {
-      "type": "MeshPhysicalMaterial",
-      "roughnessMap": "512x512 procedural",
+      "type": "MeshMatcapMaterial",
+      "roughnessMap": null,
       "normalMap": null,
-      "clearcoatRoughnessMap": "512x512 procedural",
+      "clearcoatRoughnessMap": null,
       "edgeWearVertexShare": null
     },
     "card": {
@@ -98,75 +114,75 @@
   "directionScroll": {
     "card": 4,
     "before": {
-      "y": 0.9546966878888532,
-      "z": -0.03227049870087803
+      "y": 0.9546984871116508,
+      "z": -0.03225256151152682
     },
     "after": {
-      "y": 0.8333074510126679,
-      "z": -0.27173128575953104
+      "y": 0.8333106763627611,
+      "z": -0.2717283850722631
     },
-    "dY": -0.1213892368761853,
-    "dZ": -0.239460787058653,
+    "dY": -0.12138781074888971,
+    "dZ": -0.23947582356073627,
     "pass": true
   },
   "directionDrag": {
     "card": 9,
     "at": {
-      "x": 293.7086663151237,
-      "y": 238.76098686493788
+      "x": 293.7104093113083,
+      "y": 283.76031852434545
     },
     "before": {
-      "y": 0.9546967585122205,
-      "z": -0.032269794792595625
+      "y": 0.9546948552870576,
+      "z": -0.032288759667645286
     },
     "after": {
-      "y": 0.7293519145133891,
-      "z": 0.3475291944923157
+      "y": 0.7293517530547342,
+      "z": 0.34752926271883733
     },
-    "dY": -0.22534484399883137,
-    "dZ": 0.3797989892849113,
+    "dY": -0.22534310223232334,
+    "dZ": 0.3798180223864826,
     "pass": true
   },
   "detent": {
     "stoppedAt": 12.4,
-    "s": 11.999993546722228,
+    "s": 11.999994407877358,
     "landedOn": 12,
-    "error": 0.000006453277771711896,
-    "settledMs": 624,
+    "error": 0.000005592122642283925,
+    "settledMs": 603,
     "pass": true
   },
   "orbit": {
     "dragPx": 785.3981633974482,
     "az0": 0.3,
-    "az1": 0.3,
-    "wrappedDifference": 0,
+    "az1": -5.983185433503215,
+    "wrappedDifference": -1.2632362864571618e-7,
     "pass": true
   },
   "fps": {
-    "frames": 696,
-    "seconds": 11.783299999999999,
-    "mean": 58.9817792978198,
-    "min500msWindow": 56,
-    "slowestFrameMs": 33.400000000001455,
+    "frames": 700,
+    "seconds": 11.649799999999999,
+    "mean": 60.001030060601906,
+    "min500msWindow": 59.988002399519836,
+    "slowestFrameMs": 16.900000000001455,
     "reachedCard": 36,
     "pass": true
   },
   "bible": {
-    "textElements": 39,
-    "elements": 180,
+    "textElements": 42,
+    "elements": 189,
     "R1_ground": {
       "body": "rgb(255, 255, 255)",
       "root": "rgb(255, 255, 255)",
       "canvasScene": "#ffffff (scene.background)"
     },
     "R2_weight": {
-      "400": 39
+      "400": 42
     },
     "R3_shadows": {
-      "none | none": 180
+      "none | none": 189
     },
     "R4_radius": {
-      "0px": 180
+      "0px": 189
     },
     "R5_buttons": [
       {
@@ -176,6 +192,11 @@
       },
       {
         "text": "→",
+        "radius": "0px",
+        "border": "none"
+      },
+      {
+        "text": "",
         "radius": "0px",
         "border": "none"
       },
@@ -196,20 +217,21 @@
       }
     ],
     "R7_textTransform": {
-      "none": 180
+      "none": 189
     },
-    "R7_textWithTypedCapitals": 19,
+    "R7_textWithTypedCapitals": 21,
     "R9_sizes": {
-      "12px": 29,
+      "12px": 31,
       "28px": 2,
       "9px": 2,
       "16px": 4,
+      "20px": 1,
       "10px": 2
     },
     "R10_displayShare": 0,
     "R11_families": {
-      "Archivo": 3,
-      "info": 36
+      "Archivo": 4,
+      "info": 38
     },
     "R15_pinned": [
       "header.site-module__78xLiG__top fixed",
@@ -218,13 +240,13 @@
       "div.site-module__78xLiG__lightbox fixed"
     ],
     "ink": {
-      "rgb(0, 0, 0)": 39
+      "rgb(0, 0, 0)": 42
     },
     "R16_comment": true
   },
   "sources": {
     "home": {
-      "elements": 41,
+      "elements": 43,
       "rowsUsed": [
         "01",
         "02",
@@ -242,7 +264,6 @@
         "15",
         "16",
         "17",
-        "18",
         "25",
         "26",
         "27",
@@ -253,7 +274,7 @@
       "pass": true
     },
     "homeWithPanel": {
-      "elements": 31,
+      "elements": 33,
       "rowsUsed": [
         "01",
         "02",
@@ -270,7 +291,6 @@
         "15",
         "16",
         "17",
-        "18",
         "26",
         "27",
         "28",
@@ -344,14 +364,16 @@
     ],
     "canvas \"\"": [
       "#11 felixluke.com: Rolodex stage (canvas)",
-      "#17 luckydaye.com: cover strip",
-      "#18 felixluke.com: strip titles"
+      "#17 luckydaye.com: caption block (swipe to step)"
     ],
     "button \"Previous release\"": [
       "#14 rosalia.com: previous / next"
     ],
     "button \"Next release\"": [
       "#14 rosalia.com: previous / next"
+    ],
+    "button \"Open girl in red, BLUE\"": [
+      "#12 luckydaye.com: release display (large cover + info column; reveal and switch)"
     ],
     "button \"[COPY] ben.buckley.sme@rcarecords.com\"": [
       "#27 felixluke.com: copy email"
@@ -399,7 +421,7 @@
     ]
   },
   "sourcesCount": {
-    "rowsInSourcesMd": 31,
+    "rowsInSourcesMd": 30,
     "rowsNotInDom": {
       "29": "idle screensaver",
       "30": "text-link hover",
@@ -411,7 +433,7 @@
       "luckydaye.com": 4,
       "mestizaestudio.com": 1,
       "viscosesyllabus.com": 3,
-      "felixluke.com": 4,
+      "felixluke.com": 3,
       "pointnever.com": 1,
       "anew-formatic.com": 2,
       "woodrowcommunications.com": 1,
@@ -530,56 +552,6 @@
   },
   "aboutIndex": [
     {
-      "title": "Lucy Park — Good Graces",
-      "want": "08-lucy-park-good-graces",
-      "shown": [
-        "08-lucy-park-good-graces"
-      ],
-      "lineFromRow": true,
-      "lineToCover": true,
-      "drawn": true
-    },
-    {
-      "title": "Luke Titus — From What Was Will Grow A Flower",
-      "want": "09-luke-titus-from-what-was-will-grow-a-flower",
-      "shown": [
-        "09-luke-titus-from-what-was-will-grow-a-flower"
-      ],
-      "lineFromRow": true,
-      "lineToCover": true,
-      "drawn": true
-    },
-    {
-      "title": "Arlo Parks — Ambiguous Desire",
-      "want": "05-arlo-parks-ambiguous-desire",
-      "shown": [
-        "05-arlo-parks-ambiguous-desire"
-      ],
-      "lineFromRow": true,
-      "lineToCover": true,
-      "drawn": true
-    },
-    {
-      "title": "Doja Cat — Vie",
-      "want": "10-doja-cat-vie",
-      "shown": [
-        "10-doja-cat-vie"
-      ],
-      "lineFromRow": true,
-      "lineToCover": true,
-      "drawn": true
-    },
-    {
-      "title": "Run the Jewels — RTJ4",
-      "want": "30-run-the-jewels-rtj4",
-      "shown": [
-        "30-run-the-jewels-rtj4"
-      ],
-      "lineFromRow": true,
-      "lineToCover": true,
-      "drawn": true
-    },
-    {
       "title": "girl in red — BLUE",
       "want": "01-girl-in-red-blue",
       "shown": [
@@ -590,30 +562,20 @@
       "drawn": true
     },
     {
-      "title": "Marcus King — Mood Swings",
-      "want": "14-marcus-king-mood-swings",
+      "title": "Freak Slug — Amulet",
+      "want": "02-freak-slug-amulet",
       "shown": [
-        "14-marcus-king-mood-swings"
+        "02-freak-slug-amulet"
       ],
       "lineFromRow": true,
       "lineToCover": true,
       "drawn": true
     },
     {
-      "title": "The Strokes — Reality Awaits",
-      "want": "06-the-strokes-reality-awaits",
+      "title": "SZA — SOS Deluxe: LANA",
+      "want": "12-sza-sos-deluxe-lana",
       "shown": [
-        "06-the-strokes-reality-awaits"
-      ],
-      "lineFromRow": true,
-      "lineToCover": true,
-      "drawn": true
-    },
-    {
-      "title": "SZA — SOS",
-      "want": "20-sza-sos",
-      "shown": [
-        "20-sza-sos"
+        "12-sza-sos-deluxe-lana"
       ],
       "lineFromRow": true,
       "lineToCover": true,
@@ -628,296 +590,414 @@
       "lineFromRow": true,
       "lineToCover": true,
       "drawn": true
+    },
+    {
+      "title": "Obongjayar — Paradise Now & Forever",
+      "want": "07-obongjayar-paradise-now-and-forever",
+      "shown": [
+        "07-obongjayar-paradise-now-and-forever"
+      ],
+      "lineFromRow": true,
+      "lineToCover": true,
+      "drawn": true
+    },
+    {
+      "title": "Mark Ronson — Late Night Feelings",
+      "want": "31-mark-ronson-late-night-feelings",
+      "shown": [
+        "31-mark-ronson-late-night-feelings"
+      ],
+      "lineFromRow": true,
+      "lineToCover": true,
+      "drawn": true
+    },
+    {
+      "title": "Neil Young & Crazy Horse — Shut It Down 2020",
+      "want": "29-neil-young-and-crazy-horse-shut-it-down-2020",
+      "shown": [
+        "29-neil-young-and-crazy-horse-shut-it-down-2020"
+      ],
+      "lineFromRow": true,
+      "lineToCover": true,
+      "drawn": true
+    },
+    {
+      "title": "Kesha — Gag Order",
+      "want": "16-kesha-gag-order",
+      "shown": [
+        "16-kesha-gag-order"
+      ],
+      "lineFromRow": true,
+      "lineToCover": true,
+      "drawn": true
+    },
+    {
+      "title": "The Strokes — The New Abnormal",
+      "want": "28-the-strokes-the-new-abnormal",
+      "shown": [
+        "28-the-strokes-the-new-abnormal"
+      ],
+      "lineFromRow": true,
+      "lineToCover": true,
+      "drawn": true
+    },
+    {
+      "title": "Don Toliver, Doja Cat — F1: The Album",
+      "want": "11-don-toliver-doja-cat-f1-the-album",
+      "shown": [
+        "11-don-toliver-doja-cat-f1-the-album"
+      ],
+      "lineFromRow": true,
+      "lineToCover": true,
+      "drawn": true
     }
   ],
   "aboutIndexPass": true,
   "sync": {
-    "strip": [
+    "caption": [
       {
-        "dx": 340,
-        "strip": 0,
-        "rolodex": 0,
-        "display": 0,
+        "dy": -50,
+        "from": 0,
+        "caption": 1,
+        "rolodex": 1,
+        "display": 1,
+        "onePerSwipe": true,
         "equal": true
       },
       {
-        "dx": 61,
-        "strip": 0,
-        "rolodex": 0,
-        "display": 0,
-        "equal": true
-      },
-      {
-        "dx": 162,
-        "strip": 0,
-        "rolodex": 0,
-        "display": 0,
-        "equal": true
-      },
-      {
-        "dx": -609,
-        "strip": 2,
+        "dy": -77,
+        "from": 1,
+        "caption": 2,
         "rolodex": 2,
         "display": 2,
+        "onePerSwipe": true,
         "equal": true
       },
       {
-        "dx": -111,
-        "strip": 2,
+        "dy": 77,
+        "from": 2,
+        "caption": 1,
+        "rolodex": 1,
+        "display": 1,
+        "onePerSwipe": true,
+        "equal": true
+      },
+      {
+        "dy": -115,
+        "from": 1,
+        "caption": 2,
         "rolodex": 2,
         "display": 2,
+        "onePerSwipe": true,
         "equal": true
       },
       {
-        "dx": 522,
-        "strip": 0,
+        "dy": 78,
+        "from": 2,
+        "caption": 1,
+        "rolodex": 1,
+        "display": 1,
+        "onePerSwipe": true,
+        "equal": true
+      },
+      {
+        "dy": 37,
+        "from": 1,
+        "caption": 0,
         "rolodex": 0,
         "display": 0,
+        "onePerSwipe": true,
         "equal": true
       },
       {
-        "dx": 221,
-        "strip": 0,
+        "dy": -93,
+        "from": 0,
+        "caption": 1,
+        "rolodex": 1,
+        "display": 1,
+        "onePerSwipe": true,
+        "equal": true
+      },
+      {
+        "dy": 83,
+        "from": 1,
+        "caption": 0,
         "rolodex": 0,
         "display": 0,
+        "onePerSwipe": true,
         "equal": true
       },
       {
-        "dx": 80,
-        "strip": 0,
+        "dy": -75,
+        "from": 0,
+        "caption": 1,
+        "rolodex": 1,
+        "display": 1,
+        "onePerSwipe": true,
+        "equal": true
+      },
+      {
+        "dy": 77,
+        "from": 1,
+        "caption": 0,
         "rolodex": 0,
         "display": 0,
+        "onePerSwipe": true,
         "equal": true
       },
       {
-        "dx": 60,
-        "strip": 0,
+        "dy": -109,
+        "from": 0,
+        "caption": 1,
+        "rolodex": 1,
+        "display": 1,
+        "onePerSwipe": true,
+        "equal": true
+      },
+      {
+        "dy": 84,
+        "from": 1,
+        "caption": 0,
         "rolodex": 0,
         "display": 0,
+        "onePerSwipe": true,
         "equal": true
       },
       {
-        "dx": -112,
-        "strip": 0,
+        "dy": -96,
+        "from": 0,
+        "caption": 1,
+        "rolodex": 1,
+        "display": 1,
+        "onePerSwipe": true,
+        "equal": true
+      },
+      {
+        "dy": 62,
+        "from": 1,
+        "caption": 0,
         "rolodex": 0,
         "display": 0,
+        "onePerSwipe": true,
         "equal": true
       },
       {
-        "dx": -591,
-        "strip": 2,
+        "dy": -50,
+        "from": 0,
+        "caption": 1,
+        "rolodex": 1,
+        "display": 1,
+        "onePerSwipe": true,
+        "equal": true
+      },
+      {
+        "dy": 37,
+        "from": 1,
+        "caption": 0,
+        "rolodex": 0,
+        "display": 0,
+        "onePerSwipe": true,
+        "equal": true
+      },
+      {
+        "dy": -99,
+        "from": 0,
+        "caption": 1,
+        "rolodex": 1,
+        "display": 1,
+        "onePerSwipe": true,
+        "equal": true
+      },
+      {
+        "dy": -84,
+        "from": 1,
+        "caption": 2,
         "rolodex": 2,
         "display": 2,
+        "onePerSwipe": true,
         "equal": true
       },
       {
-        "dx": -124,
-        "strip": 2,
-        "rolodex": 2,
-        "display": 2,
+        "dy": 81,
+        "from": 2,
+        "caption": 1,
+        "rolodex": 1,
+        "display": 1,
+        "onePerSwipe": true,
         "equal": true
       },
       {
-        "dx": 42,
-        "strip": 2,
-        "rolodex": 2,
-        "display": 2,
-        "equal": true
-      },
-      {
-        "dx": -106,
-        "strip": 2,
-        "rolodex": 2,
-        "display": 2,
-        "equal": true
-      },
-      {
-        "dx": -189,
-        "strip": 3,
-        "rolodex": 3,
-        "display": 3,
-        "equal": true
-      },
-      {
-        "dx": -324,
-        "strip": 4,
-        "rolodex": 4,
-        "display": 4,
-        "equal": true
-      },
-      {
-        "dx": 595,
-        "strip": 2,
-        "rolodex": 2,
-        "display": 2,
-        "equal": true
-      },
-      {
-        "dx": -390,
-        "strip": 3,
-        "rolodex": 3,
-        "display": 3,
-        "equal": true
-      },
-      {
-        "dx": -147,
-        "strip": 3,
-        "rolodex": 3,
-        "display": 3,
-        "equal": true
-      },
-      {
-        "dx": -622,
-        "strip": 5,
-        "rolodex": 5,
-        "display": 5,
+        "dy": 82,
+        "from": 1,
+        "caption": 0,
+        "rolodex": 0,
+        "display": 0,
+        "onePerSwipe": true,
         "equal": true
       }
     ],
     "rolodex": [
       {
-        "dy": -93,
-        "strip": 6,
-        "rolodex": 6,
-        "display": 6,
-        "equal": true
-      },
-      {
-        "dy": 52,
-        "strip": 6,
-        "rolodex": 6,
-        "display": 6,
-        "equal": true
-      },
-      {
-        "dy": 128,
-        "strip": 4,
-        "rolodex": 4,
-        "display": 4,
-        "equal": true
-      },
-      {
-        "dy": -61,
-        "strip": 5,
-        "rolodex": 5,
-        "display": 5,
-        "equal": true
-      },
-      {
-        "dy": -40,
-        "strip": 5,
-        "rolodex": 5,
-        "display": 5,
-        "equal": true
-      },
-      {
-        "dy": -133,
-        "strip": 7,
-        "rolodex": 7,
-        "display": 7,
-        "equal": true
-      },
-      {
-        "dy": 111,
-        "strip": 6,
-        "rolodex": 6,
-        "display": 6,
-        "equal": true
-      },
-      {
-        "dy": 53,
-        "strip": 5,
-        "rolodex": 5,
-        "display": 5,
-        "equal": true
-      },
-      {
-        "dy": 87,
-        "strip": 4,
-        "rolodex": 4,
-        "display": 4,
-        "equal": true
-      },
-      {
-        "dy": 91,
-        "strip": 2,
+        "dy": -131,
+        "caption": 2,
         "rolodex": 2,
         "display": 2,
         "equal": true
       },
       {
-        "dy": -33,
-        "strip": 3,
+        "dy": -91,
+        "caption": 3,
         "rolodex": 3,
         "display": 3,
         "equal": true
       },
       {
-        "dy": -102,
-        "strip": 4,
-        "rolodex": 4,
-        "display": 4,
+        "dy": -169,
+        "caption": 6,
+        "rolodex": 6,
+        "display": 6,
         "equal": true
       },
       {
-        "dy": 37,
-        "strip": 4,
-        "rolodex": 4,
-        "display": 4,
+        "dy": -37,
+        "caption": 6,
+        "rolodex": 6,
+        "display": 6,
         "equal": true
       },
       {
-        "dy": -78,
-        "strip": 5,
+        "dy": -37,
+        "caption": 7,
+        "rolodex": 7,
+        "display": 7,
+        "equal": true
+      },
+      {
+        "dy": 123,
+        "caption": 5,
         "rolodex": 5,
         "display": 5,
         "equal": true
       },
       {
-        "dy": -144,
-        "strip": 7,
+        "dy": -139,
+        "caption": 7,
         "rolodex": 7,
         "display": 7,
         "equal": true
       },
       {
-        "dy": -149,
-        "strip": 9,
+        "dy": -58,
+        "caption": 8,
+        "rolodex": 8,
+        "display": 8,
+        "equal": true
+      },
+      {
+        "dy": 93,
+        "caption": 6,
+        "rolodex": 6,
+        "display": 6,
+        "equal": true
+      },
+      {
+        "dy": -73,
+        "caption": 7,
+        "rolodex": 7,
+        "display": 7,
+        "equal": true
+      },
+      {
+        "dy": -119,
+        "caption": 9,
         "rolodex": 9,
         "display": 9,
         "equal": true
       },
       {
-        "dy": 171,
-        "strip": 6,
-        "rolodex": 6,
-        "display": 6,
+        "dy": -135,
+        "caption": 11,
+        "rolodex": 11,
+        "display": 11,
         "equal": true
       },
       {
-        "dy": -56,
-        "strip": 7,
-        "rolodex": 7,
-        "display": 7,
+        "dy": -131,
+        "caption": 13,
+        "rolodex": 13,
+        "display": 13,
         "equal": true
       },
       {
-        "dy": 89,
-        "strip": 6,
-        "rolodex": 6,
-        "display": 6,
+        "dy": -48,
+        "caption": 14,
+        "rolodex": 14,
+        "display": 14,
         "equal": true
       },
       {
-        "dy": -52,
-        "strip": 7,
-        "rolodex": 7,
-        "display": 7,
+        "dy": -45,
+        "caption": 14,
+        "rolodex": 14,
+        "display": 14,
+        "equal": true
+      },
+      {
+        "dy": 50,
+        "caption": 14,
+        "rolodex": 14,
+        "display": 14,
+        "equal": true
+      },
+      {
+        "dy": -64,
+        "caption": 14,
+        "rolodex": 14,
+        "display": 14,
+        "equal": true
+      },
+      {
+        "dy": 180,
+        "caption": 12,
+        "rolodex": 12,
+        "display": 12,
+        "equal": true
+      },
+      {
+        "dy": 70,
+        "caption": 11,
+        "rolodex": 11,
+        "display": 11,
+        "equal": true
+      },
+      {
+        "dy": 176,
+        "caption": 8,
+        "rolodex": 8,
+        "display": 8,
         "equal": true
       }
     ],
     "pass": true,
-    "distinctIndicesVisited": 8
+    "distinctIndicesVisited": 13
+  },
+  "captionSlide": [
+    {
+      "name": "site-module__78xLiG__capOutUp",
+      "ms": 320,
+      "easing": "ease"
+    },
+    {
+      "name": "site-module__78xLiG__capInUp",
+      "ms": 320,
+      "easing": "ease"
+    }
+  ],
+  "captionSlidePass": true,
+  "captionThumb": {
+    "release": "10-doja-cat-vie",
+    "panelRelease": "10-doja-cat-vie",
+    "pass": true
   },
   "textures": {
     "cardFace": {
@@ -925,29 +1005,35 @@
       "h": 1478,
       "anisotropy": 16
     },
-    "stripCover": {
-      "w": 512,
-      "h": 512,
-      "anisotropy": 16
-    },
+    "pass": true
+  },
+  "look": {
+    "look": "flat",
+    "housingMaterials": [
+      "MeshMatcapMaterial"
+    ],
+    "lines": 9,
+    "hulls": 9,
+    "outlineSegments": 17026,
     "pass": true
   },
   "fonts": {
     "renderedFamilies": {
-      "Archivo": 2,
-      "info": 25
+      "Archivo": 3,
+      "info": 27
     },
     "facesLoaded": [
       "info 400 normal",
       "info 400 italic",
       "info Fallback normal normal",
-      "Archivo 100 900 normal"
+      "Archivo 100 900 normal",
+      "Archivo Fallback normal normal"
     ],
     "files": [
-      "/_next/static/media/21ca8f3f56c22ca2-s.p.0fmzj955937qe.woff2?dpl=dpl_DHgiaE5t3u8Wsej7x35i7Pf84vhW",
-      "/_next/static/media/cc014fcb166cf364-s.p.0rbrcy8kuidpb.woff2?dpl=dpl_DHgiaE5t3u8Wsej7x35i7Pf84vhW",
-      "/_next/static/media/texgyreheros_italic-s.p.0-ay1387e.9r7.woff2?dpl=dpl_DHgiaE5t3u8Wsej7x35i7Pf84vhW",
-      "/_next/static/media/texgyreheros_regular-s.p.11~cle9isnpui.woff2?dpl=dpl_DHgiaE5t3u8Wsej7x35i7Pf84vhW"
+      "/_next/static/media/21ca8f3f56c22ca2-s.p.0fmzj955937qe.woff2?dpl=dpl_9QNCNdgCR6ziScPntd4hurRRTokA",
+      "/_next/static/media/cc014fcb166cf364-s.p.0rbrcy8kuidpb.woff2?dpl=dpl_9QNCNdgCR6ziScPntd4hurRRTokA",
+      "/_next/static/media/texgyreheros_italic-s.p.0-ay1387e.9r7.woff2?dpl=dpl_9QNCNdgCR6ziScPntd4hurRRTokA",
+      "/_next/static/media/texgyreheros_regular-s.p.11~cle9isnpui.woff2?dpl=dpl_9QNCNdgCR6ziScPntd4hurRRTokA"
     ],
     "thirdPartyFontRequests": 0,
     "sources": {
@@ -956,7 +1042,7 @@
     }
   },
   "S12": {
-    "shownAfterS": 19.7,
+    "shownAfterS": 19.3,
     "firstValue": "10",
     "frontBefore": 0,
     "frontAfter15s": 2,
@@ -973,7 +1059,23 @@
       "h": 64
     },
     "caption": "girl in red",
+    "swipes": [
+      {
+        "front": 1,
+        "caption": "02-freak-slug-amulet"
+      },
+      {
+        "front": 2,
+        "caption": "03-arlo-parks-john-glacier-floette-ft-john-glacier"
+      },
+      {
+        "front": 1,
+        "caption": "02-freak-slug-amulet"
+      }
+    ],
+    "swipePass": true,
     "panel": {
+      "release": "02-freak-slug-amulet",
       "coverW": 358,
       "infoBelowCover": true,
       "scrollWidth": 390

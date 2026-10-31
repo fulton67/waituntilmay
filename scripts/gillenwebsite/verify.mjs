@@ -58,6 +58,11 @@ out.materials = await page.evaluate(() => {
   return res;
 });
 
+// wait for the drum to land on card k (the first seconds after load can be slow while covers upload)
+const settleOn = async (k) => {
+  await page.waitForFunction((k) => { const r = window.__rolodex.rig; return Math.abs(r.s - k) < 0.002 && Math.abs(r.v) < 0.01; }, k, { timeout: 20000 });
+  await wait(300);
+};
 // world position of card k's top edge (centre of its top, before the tab)
 const topEdge = (k) => page.evaluate((k) => {
   const g = window.__rolodex.rig.cards[k].children[0];
@@ -74,7 +79,7 @@ const sNow = () => page.evaluate(() => window.__rolodex.rig.s);
 if (want("direction")) {
   const per = await perPx(), top = await flipTop(), k = 3;
   await page.evaluate((y) => scrollTo(0, y), top + k * per);
-  await wait(1500);
+  await settleOn(k);
   const before = await topEdge(k);
   await page.evaluate((d) => scrollBy(0, d), per);
   await wait(1000);
@@ -86,7 +91,7 @@ if (want("direction")) {
 if (want("direction")) {
   const per = await perPx(), top = await flipTop(), k = 8;
   await page.evaluate((y) => scrollTo(0, y), top + k * per);
-  await wait(1500);
+  await settleOn(k);
   const sp = await page.evaluate((k) => {
     const r = window.__rolodex.rig, g = r.cards[k].children[0], V = g.position.constructor;
     const p = g.localToWorld(new V(0, 0.15, 0)).project(r.camera);
@@ -346,35 +351,41 @@ if (want("sources")) {
   await d.close(); await a.close();
 }
 
-// Strip and Rolodex share one index. 20 random drags on the strip and 20 on the front card; after each settles,
-// the strip's centred prism (from its own geometry), the Rolodex's front card and the release display must agree.
+// The caption block and the Rolodex share one index. 20 random swipes on the caption (each must move exactly one
+// release, up = next, down = back) and 20 random drags on the front card; after each settles, the caption's
+// release, the Rolodex's front card and the release display must agree.
 if (want("sync")) {
   await page.evaluate(() => scrollTo(0, 0));
   await wait(1200);
   const settle = async () => {
     for (let t = 0; t < 80; t++) {
       await wait(100);
-      const ok = await page.evaluate(() => { const r = window.__rolodex.rig; return Math.abs(r.s - Math.round(r.s)) < 0.005 && Math.abs(r.stripS - Math.round(r.stripS)) < 0.005 && performance.now() - r.lastScroll > 400; });
+      const ok = await page.evaluate(() => { const r = window.__rolodex.rig; return Math.abs(r.s - Math.round(r.s)) < 0.005 && performance.now() - r.lastScroll > 400; });
       if (ok) break;
     }
-    await wait(400); // the display's crossfade
+    await wait(450); // the caption's 320 ms slide and the display's crossfade
     return page.evaluate(() => {
-      const r = window.__rolodex.rig;
-      let strip = -1, bx = Infinity;
-      r.strip.meshes.forEach((m, i) => { const g = m.parent; if (g.visible && Math.abs(g.position.x) < bx) { bx = Math.abs(g.position.x); strip = i; } });
+      const r = window.__rolodex.rig, ids = window.__rolodex.faceIds;
+      const caption = [...document.querySelectorAll("[data-src='17'] [data-release]")].map((e) => e.getAttribute("data-release"));
       const shown = document.querySelector("[class*=inlineSlot] article")?.getAttribute("data-release");
-      return { strip, rolodex: r.front, display: window.__rolodex.faceIds.indexOf(shown) };
+      return { caption: caption.length === 1 ? ids.indexOf(caption[0]) : -1, rolodex: r.front, display: ids.indexOf(shown) };
     });
   };
-  const bandY = await page.evaluate(() => innerHeight - 110);
-  out.sync = { strip: [], rolodex: [] };
+  const cap = await page.evaluate(() => { const b = document.querySelector("[data-src='17'] [class*=capText]").getBoundingClientRect(); return { x: b.left + b.width / 2, y: b.top + b.height / 2 }; });
+  out.sync = { caption: [], rolodex: [] };
+  let before = (await settle()).rolodex;
   for (let k = 0; k < 20; k++) {
-    const x0 = 300 + Math.random() * 800, dx = (Math.random() < 0.5 ? -1 : 1) * (40 + Math.random() * 600);
-    await page.mouse.move(x0, bandY); await page.mouse.down();
-    for (let i = 1; i <= 12; i++) { await page.mouse.move(x0 + (dx * i) / 12, bandY); await wait(16); }
+    // up for the next release, down for the one before; near either end, swipe inwards
+    let sign = Math.random() < 0.5 ? -1 : 1;
+    if (before < 1) sign = -1; if (before > 34) sign = 1;
+    const dy = sign * (30 + Math.random() * 90);
+    await page.mouse.move(cap.x, cap.y); await page.mouse.down();
+    for (let i = 1; i <= 8; i++) { await page.mouse.move(cap.x, cap.y + (dy * i) / 8); await wait(16); }
     await page.mouse.up();
     const r = await settle();
-    out.sync.strip.push({ dx: Math.round(dx), ...r, equal: r.strip === r.rolodex && r.rolodex === r.display });
+    const want1 = before + (dy < 0 ? 1 : -1);
+    out.sync.caption.push({ dy: Math.round(dy), from: before, ...r, onePerSwipe: r.rolodex === want1, equal: r.caption === r.rolodex && r.rolodex === r.display });
+    before = r.rolodex;
   }
   for (let k = 0; k < 20; k++) {
     // grab the front card at its face and drag vertically (the flip mode); near either end, drag inwards
@@ -390,21 +401,59 @@ if (want("sync")) {
     for (let i = 1; i <= 12; i++) { await page.mouse.move(sp.x, sp.y + (dy * i) / 12); await wait(16); }
     await page.mouse.up();
     const r = await settle();
-    out.sync.rolodex.push({ dy: Math.round(dy), ...r, equal: r.strip === r.rolodex && r.rolodex === r.display });
+    out.sync.rolodex.push({ dy: Math.round(dy), ...r, equal: r.caption === r.rolodex && r.rolodex === r.display });
   }
-  const both = [...out.sync.strip, ...out.sync.rolodex];
-  out.sync.pass = both.every((x) => x.equal);
+  const both = [...out.sync.caption, ...out.sync.rolodex];
+  out.sync.pass = both.every((x) => x.equal) && out.sync.caption.every((x) => x.onePerSwipe);
   out.sync.distinctIndicesVisited = new Set(both.map((x) => x.rolodex)).size;
+
+  // the slide: on a change the old block leaves and the new one enters, each a 320 ms ease animation
+  out.captionSlide = await page.evaluate(async () => {
+    const seen = new Set();
+    const mo = new MutationObserver(() => {
+      for (const e of document.querySelectorAll("[data-src='17'] [data-release]")) {
+        const a = e.getAnimations()[0];
+        if (a) seen.add(JSON.stringify({ name: a.animationName, ms: a.effect.getTiming().duration, easing: getComputedStyle(e).animationTimingFunction }));
+      }
+    });
+    mo.observe(document.querySelector("[data-src='17']"), { subtree: true, childList: true, attributes: true });
+    window.scrollBy(0, Math.max(140, innerHeight * 0.42));
+    await new Promise((r) => setTimeout(r, 900));
+    mo.disconnect();
+    return [...seen].map((x) => JSON.parse(x));
+  });
+  out.captionSlidePass = out.captionSlide.length >= 2 && out.captionSlide.every((a) => a.ms === 320 && a.easing === "ease");
+  // a click on the thumbnail opens the large-cover panel on that release
+  const thumbId = await page.evaluate(() => document.querySelector("[data-src='17'] [data-release]").getAttribute("data-release"));
+  await page.click("[data-src='17'] [class*=capThumb]");
+  await wait(1400);
+  out.captionThumb = { release: thumbId, panelRelease: await page.evaluate(() => document.querySelector("[role=dialog] article")?.getAttribute("data-release") ?? null) };
+  out.captionThumb.pass = out.captionThumb.panelRelease === thumbId;
+  await page.keyboard.press("Escape");
+  await wait(1300);
 }
 
-// Card faces and strip covers: texture size and anisotropy
+// Card faces: texture size and anisotropy
 if (want("textures")) {
   out.textures = await page.evaluate(() => {
-    const r = window.__rolodex, face = r.rig.cards[0].children[0].children[1].material.map;
-    const strip = r.rig.strip.meshes[0].material[4].map;
-    return { cardFace: { w: face.image.width, h: face.image.height, anisotropy: face.anisotropy }, stripCover: { w: strip.image.width, h: strip.image.height, anisotropy: strip.anisotropy } };
+    const face = window.__rolodex.rig.cards[0].children[0].children[1].material.map;
+    return { cardFace: { w: face.image.width, h: face.image.height, anisotropy: face.anisotropy } };
   });
-  out.textures.pass = out.textures.cardFace.w === 2048 && out.textures.cardFace.anisotropy === 16 && out.textures.stripCover.anisotropy === 16;
+  out.textures.pass = out.textures.cardFace.w === 2048 && out.textures.cardFace.anisotropy === 16;
+}
+
+// The housing look: flat is the default, with the matcap and the 1 px outline
+if (want("look")) {
+  out.look = await page.evaluate(() => {
+    const r = window.__rolodex, mats = new Set(), kinds = { lines: 0, hulls: 0 };
+    r.house.traverse((o) => {
+      if (o.isLineSegments) kinds.lines++;
+      else if (o.isMesh && o.material.side === 1 && o.material.color?.getHex() === 0) kinds.hulls++;
+      else if (o.isMesh && o.visible) mats.add(o.material.type);
+    });
+    return { look: r.look, housingMaterials: [...mats], ...kinds, outlineSegments: r.outlineSegments };
+  });
+  out.look.pass = out.look.look === "flat" && out.look.housingMaterials.every((t) => t === "MeshMatcapMaterial") && out.look.lines > 0 && out.look.hulls > 0;
 }
 
 // Fonts: every family that renders text, the faces loaded, the files fetched and where they come from
@@ -457,7 +506,7 @@ if (want("phone")) {
   await p.waitForFunction(() => window.__rolodex?.rig?.ready, null, { timeout: 120000 });
   await wait(1500);
   out.phone = await p.evaluate(() => {
-    const thumb = document.querySelector("[class*=capMain] img");
+    const thumb = document.querySelector("[class*=capThumb] img");
     return {
       scrollWidth: document.documentElement.scrollWidth, innerWidth,
       wide: window.__rolodex.rig.wide, cardFaceW: window.__rolodex.texW,
@@ -465,18 +514,31 @@ if (want("phone")) {
       caption: document.querySelector("[class*=capArtist]")?.textContent,
     };
   });
-  await p.tap("[class*=capMain]");
+  // a real touch swipe on the caption: up twice, then down once, one release each, and the page itself must not scroll
+  // beyond what the swipes ask for
+  const cdp = await phone.newCDPSession(p);
+  const swipe = async (dy) => {
+    const b = await p.evaluate(() => { const r = document.querySelector("[class*=capText]").getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 }; });
+    await cdp.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [{ x: b.x, y: b.y }] });
+    for (let i = 1; i <= 8; i++) { await cdp.send("Input.dispatchTouchEvent", { type: "touchMove", touchPoints: [{ x: b.x, y: b.y + (dy * i) / 8 }] }); await wait(16); }
+    await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+    await wait(1600);
+    return p.evaluate(() => ({ front: window.__rolodex.rig.front, caption: document.querySelector("[data-src='17'] [data-release]").getAttribute("data-release") }));
+  };
+  out.phone.swipes = [await swipe(-70), await swipe(-70), await swipe(60)];
+  out.phone.swipePass = out.phone.swipes.map((x) => x.front).join() === "1,2,1" && out.phone.swipes.every((x, i) => x.caption === disco.releases[[1, 2, 1][i]].id);
+  await p.tap("[class*=capThumb]");
   await wait(1500);
   out.phone.panel = await p.evaluate(() => {
     const i = document.querySelector("[role=dialog] article img").getBoundingClientRect();
     const info = document.querySelector("[role=dialog] article [class*=info]").getBoundingClientRect();
-    return { coverW: Math.round(i.width), infoBelowCover: info.top >= i.bottom - 1, scrollWidth: document.documentElement.scrollWidth };
+    return { release: document.querySelector("[role=dialog] article").getAttribute("data-release"), coverW: Math.round(i.width), infoBelowCover: info.top >= i.bottom - 1, scrollWidth: document.documentElement.scrollWidth };
   });
   for (const path of ["/discography", "/about"]) {
     await p.goto(URL + path, { waitUntil: "load" }); await wait(1200);
     out.phone[`scrollWidth ${path}`] = await p.evaluate(() => document.documentElement.scrollWidth);
   }
-  out.phone.pass = out.phone.scrollWidth === 390 && out.phone["scrollWidth /discography"] === 390 && out.phone["scrollWidth /about"] === 390 && !out.phone.wide && out.phone.thumb?.w === 64 && out.phone.panel.infoBelowCover && out.phone.panel.coverW >= 350;
+  out.phone.pass = out.phone.scrollWidth === 390 && out.phone["scrollWidth /discography"] === 390 && out.phone["scrollWidth /about"] === 390 && !out.phone.wide && out.phone.thumb?.w === 64 && out.phone.swipePass && out.phone.panel.release === disco.releases[1].id && out.phone.panel.infoBelowCover && out.phone.panel.coverW >= 350;
   await phone.close();
 }
 await browser.close();
