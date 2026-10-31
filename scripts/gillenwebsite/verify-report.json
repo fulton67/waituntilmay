@@ -1,6 +1,6 @@
 {
   "url": "https://waituntilmay.com/gillenwebsite",
-  "at": "2026-10-30T21:14:16.407Z",
+  "at": "2026-10-31T02:16:05.726Z",
   "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 (0x00002507) Direct3D11 vs_5_0 ps_5_0, D3D11)",
   "glb": {
     "meshNodes": 11,
@@ -92,364 +92,1184 @@
     },
     "card": {
       "normalMap": "256x256 procedural, repeat 5x3.5",
-      "map": "1024x739 canvas"
+      "map": "2048x1478 canvas"
     }
   },
   "directionScroll": {
     "card": 4,
     "before": {
-      "y": 0.9546964750802575,
-      "z": -0.032272619698274815
+      "y": 0.9546966878888532,
+      "z": -0.03227049870087803
     },
     "after": {
-      "y": 0.7293669514524808,
-      "z": 0.3475228400388537
+      "y": 0.8333074510126679,
+      "z": -0.27173128575953104
     },
-    "dY": -0.2253295236277767,
-    "dZ": 0.3797954597371285,
+    "dY": -0.1213892368761853,
+    "dZ": -0.239460787058653,
     "pass": true
   },
   "directionDrag": {
     "card": 9,
     "at": {
-      "x": 484.04009798083894,
-      "y": 302.5592466956499
+      "x": 293.7086663151237,
+      "y": 238.76098686493788
     },
     "before": {
-      "y": 0.9546964455883076,
-      "z": -0.03227291362575753
+      "y": 0.9546967585122205,
+      "z": -0.032269794792595625
     },
     "after": {
-      "y": 0.7293519697819179,
-      "z": 0.34752917113783643
+      "y": 0.7293519145133891,
+      "z": 0.3475291944923157
     },
-    "dY": -0.22534447580638972,
-    "dZ": 0.37980208476359395,
+    "dY": -0.22534484399883137,
+    "dZ": 0.3797989892849113,
     "pass": true
   },
   "detent": {
     "stoppedAt": 12.4,
-    "s": 11.999994885703664,
+    "s": 11.999993546722228,
     "landedOn": 12,
-    "error": 0.000005114296335761992,
-    "settledMs": 593,
+    "error": 0.000006453277771711896,
+    "settledMs": 624,
     "pass": true
   },
   "orbit": {
     "dragPx": 785.3981633974482,
     "az0": 0.3,
-    "az1": -5.983185447327622,
-    "wrappedDifference": -1.401480351541498e-7,
+    "az1": 0.3,
+    "wrappedDifference": 0,
     "pass": true
   },
   "fps": {
-    "frames": 701,
-    "seconds": 11.666599999999999,
-    "mean": 60.00034285910206,
-    "min500msWindow": 59.97600959616145,
-    "slowestFrameMs": 16.900000000001455,
+    "frames": 696,
+    "seconds": 11.783299999999999,
+    "mean": 58.9817792978198,
+    "min500msWindow": 56,
+    "slowestFrameMs": 33.400000000001455,
     "reachedCard": 36,
     "pass": true
   },
   "bible": {
-    "textElements": 176,
-    "elements": 252,
+    "textElements": 39,
+    "elements": 180,
     "R1_ground": {
       "body": "rgb(255, 255, 255)",
       "root": "rgb(255, 255, 255)",
       "canvasScene": "#ffffff (scene.background)"
     },
     "R2_weight": {
-      "400": 176
+      "400": 39
     },
     "R3_shadows": {
-      "none | none": 252
+      "none | none": 180
     },
     "R4_radius": {
-      "0px": 252
+      "0px": 180
     },
     "R5_buttons": [
       {
-        "text": "[→ YEAR]",
+        "text": "←",
         "radius": "0px",
         "border": "none"
       },
       {
-        "text": "[A–Z]",
+        "text": "→",
         "radius": "0px",
         "border": "none"
       },
       {
-        "text": "girl in red",
+        "text": "[COPY] ben.buckley.sme@rcarecords.com",
         "radius": "0px",
         "border": "none"
       },
       {
-        "text": "Freak Slug",
+        "text": "←",
         "radius": "0px",
         "border": "none"
       },
       {
-        "text": "Arlo Parks, John Glacier",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Mike D",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Arlo Parks",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "The Strokes",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Obongjayar",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Lucy Park",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Luke Titus",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Doja Cat",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Don Toliver, Doja Cat",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "SZA",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Gossip",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Marcus King",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Teezo Touchdown",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Kesha",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Brockhampton",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Red Hot Chili Peppers",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Rex Orange County",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "SZA",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Red Hot Chili Peppers",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Run The Jewels",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Imagine Dragons",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Jovanotti",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Lucy Park",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Imagine Dragons",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Santana",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "The Strokes",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Neil Young & Crazy Horse",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Run the Jewels",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Mark Ronson",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Harry Styles",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Neil Young & Crazy Horse",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Santana",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "Muse",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "The Smashing Pumpkins",
-        "radius": "0px",
-        "border": "none"
-      },
-      {
-        "text": "[CLOSE]",
+        "text": "→",
         "radius": "0px",
         "border": "none"
       }
     ],
     "R7_textTransform": {
-      "none": 252
+      "none": 180
     },
-    "R7_textWithTypedCapitals": 63,
+    "R7_textWithTypedCapitals": 19,
     "R9_sizes": {
-      "12px": 165,
-      "20px": 1,
-      "28px": 9,
-      "30px": 1
+      "12px": 29,
+      "28px": 2,
+      "9px": 2,
+      "16px": 4,
+      "10px": 2
     },
     "R10_displayShare": 0,
     "R11_families": {
-      "Archivo": 11,
-      "Courier Prime": 165
+      "Archivo": 3,
+      "info": 36
     },
     "R15_pinned": [
       "header.site-module__78xLiG__top fixed",
       "div.site-module__78xLiG__sticky sticky",
-      "aside.site-module__78xLiG__sheet fixed"
+      "div.site-module__78xLiG__cursorText fixed",
+      "div.site-module__78xLiG__lightbox fixed"
     ],
     "ink": {
-      "rgb(0, 0, 0)": 176
+      "rgb(0, 0, 0)": 39
     },
     "R16_comment": true
   },
+  "sources": {
+    "home": {
+      "elements": 41,
+      "rowsUsed": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "25",
+        "26",
+        "27",
+        "28",
+        "31"
+      ],
+      "missing": [],
+      "pass": true
+    },
+    "homeWithPanel": {
+      "elements": 31,
+      "rowsUsed": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "26",
+        "27",
+        "28",
+        "31"
+      ],
+      "missing": [],
+      "pass": true
+    },
+    "discography": {
+      "elements": 62,
+      "rowsUsed": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "08",
+        "10",
+        "12",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "31"
+      ],
+      "missing": [],
+      "pass": true
+    },
+    "about": {
+      "elements": 58,
+      "rowsUsed": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "08",
+        "12",
+        "19",
+        "20",
+        "21",
+        "26",
+        "27",
+        "28",
+        "31"
+      ],
+      "missing": [],
+      "pass": true
+    },
+    "pass": true
+  },
+  "controls": {
+    "a \"DYLAN NEUSTADTER\"": [
+      "#02 onehouse.com: wordmark (home link)",
+      "#05 viscosesyllabus.com: page transition (nav click)"
+    ],
+    "a \"ROLODEX\"": [
+      "#04 mestizaestudio.com: nav words (ROLODEX, DISCOGRAPHY, ABOUT)",
+      "#05 viscosesyllabus.com: page transition (nav click)"
+    ],
+    "a \"DISCOGRAPHY\"": [
+      "#04 mestizaestudio.com: nav words (ROLODEX, DISCOGRAPHY, ABOUT)",
+      "#05 viscosesyllabus.com: page transition (nav click)"
+    ],
+    "a \"ABOUT\"": [
+      "#04 mestizaestudio.com: nav words (ROLODEX, DISCOGRAPHY, ABOUT)",
+      "#05 viscosesyllabus.com: page transition (nav click)"
+    ],
+    "canvas \"\"": [
+      "#11 felixluke.com: Rolodex stage (canvas)",
+      "#17 luckydaye.com: cover strip",
+      "#18 felixluke.com: strip titles"
+    ],
+    "button \"Previous release\"": [
+      "#14 rosalia.com: previous / next"
+    ],
+    "button \"Next release\"": [
+      "#14 rosalia.com: previous / next"
+    ],
+    "button \"[COPY] ben.buckley.sme@rcarecords.com\"": [
+      "#27 felixluke.com: copy email"
+    ],
+    "a \"INSTAGRAM →\"": [
+      "#28 viscosejournal.com: external link arrow (Instagram)"
+    ],
+    "a#screenLogX \"708PX\"": [
+      "#08 anew-formatic.com: cursor readout"
+    ],
+    "a#screenLogY \"537PX\"": [
+      "#08 anew-formatic.com: cursor readout"
+    ],
+    "a \"[BACK]\"": [
+      "#13 luckydaye.com: close control `[BACK]`",
+      "#25 anew-formatic.com: bracket buttons (every `[WORD]` control)"
+    ],
+    "a (discography row) x36": [
+      "#22 brian-eno.net: discography list (credits list)",
+      "#12 luckydaye.com: release display (large cover + info column; reveal and switch)"
+    ],
+    "a \"[YEAR]\"": [
+      "#23 viscosesyllabus.com: A–Z / YEAR toggle",
+      "#25 anew-formatic.com: bracket buttons (every `[WORD]` control)"
+    ],
+    "a \"[A–Z]\"": [
+      "#23 viscosesyllabus.com: A–Z / YEAR toggle",
+      "#25 anew-formatic.com: bracket buttons (every `[WORD]` control)"
+    ],
+    "select#category-select \"AllAdditional ProductionAssistant Engine\"": [
+      "#24 eilidhduffy.com: role filter"
+    ],
+    "select#subcategory-select \"AllArlo ParksArlo Parks, John GlacierBro\"": [
+      "#24 eilidhduffy.com: role filter"
+    ],
+    "a#screenLogX \"\"": [
+      "#08 anew-formatic.com: cursor readout"
+    ],
+    "a#screenLogY \"\"": [
+      "#08 anew-formatic.com: cursor readout"
+    ],
+    "a (About index row) x36": [
+      "#20 shortnotice.studio: About index",
+      "#12 luckydaye.com: release display (large cover + info column; reveal and switch)"
+    ]
+  },
+  "sourcesCount": {
+    "rowsInSourcesMd": 31,
+    "rowsNotInDom": {
+      "29": "idle screensaver",
+      "30": "text-link hover",
+      "07": "console signature"
+    },
+    "distinctLiveSites": 16,
+    "perSite": {
+      "onehouse.com": 2,
+      "luckydaye.com": 4,
+      "mestizaestudio.com": 1,
+      "viscosesyllabus.com": 3,
+      "felixluke.com": 4,
+      "pointnever.com": 1,
+      "anew-formatic.com": 2,
+      "woodrowcommunications.com": 1,
+      "rosalia.com": 1,
+      "wearesteve.net": 1,
+      "chantalmichelle.me": 1,
+      "gaeawoods.com": 2,
+      "shortnotice.studio": 1,
+      "gunseli.xyz": 1,
+      "brian-eno.net": 1,
+      "eilidhduffy.com": 1,
+      "siteplan.lidofestival.co.uk": 2,
+      "viscosejournal.com": 1,
+      "ad93.ltd": 1
+    },
+    "maxPerLiveSite": 4,
+    "signatureBehaviours": [
+      "S1 #03",
+      "S4 #21",
+      "S6 #23",
+      "S7 #05",
+      "S8 #06",
+      "S9 #27",
+      "S11 #08",
+      "S12 #29",
+      "S14 #24"
+    ],
+    "pass": true
+  },
+  "largeCover": {
+    "viewport": "1440x900",
+    "inline": {
+      "w": 576,
+      "h": 576,
+      "shareOfViewportHeight": 0.64,
+      "naturalWidth": 1080,
+      "src": "/covers/1080/01-girl-in-red-blue.jpg",
+      "notUpscaled": true
+    },
+    "panel": {
+      "w": 675,
+      "h": 675,
+      "shareOfViewportHeight": 0.75,
+      "naturalWidth": 2048,
+      "src": "/covers/03-arlo-parks-john-glacier-floette-ft-john-glacier.jpg"
+    },
+    "devicePixelRatio": 1,
+    "pass": true
+  },
+  "discography": {
+    "count": 36,
+    "rowPitch": {
+      "min": 20,
+      "max": 20
+    },
+    "slice": {
+      "w": 475,
+      "h": 20
+    },
+    "titlePx": 13,
+    "whoPx": 10,
+    "yearPx": 10,
+    "orderMatches": true,
+    "vsBrianEno": {
+      "rowPitchMin": [
+        20,
+        20,
+        true
+      ],
+      "rowPitchMax": [
+        20,
+        20,
+        true
+      ],
+      "sliceW": [
+        475,
+        464,
+        true
+      ],
+      "sliceH": [
+        20,
+        20,
+        true
+      ],
+      "titlePx": [
+        13,
+        13,
+        true
+      ],
+      "whoPx": [
+        10,
+        10,
+        true
+      ],
+      "yearPx": [
+        10,
+        10,
+        true
+      ]
+    },
+    "pass": true
+  },
   "S6": {
     "cookie": "alphabetical",
-    "firstAfterClick": "Arlo Parks",
-    "firstAfterReload": "Arlo Parks",
-    "firstDefault": "girl in red",
+    "firstAfterClick": "Africa Speaks",
+    "firstAfterReload": "Africa Speaks",
+    "firstDefault": "BLUE",
+    "pass": true
+  },
+  "S14": {
+    "role": "Mixer",
+    "shown": 2,
+    "allHaveRole": true,
+    "afterClear": 36,
+    "pass": true
+  },
+  "aboutIndex": [
+    {
+      "title": "Lucy Park — Good Graces",
+      "want": "08-lucy-park-good-graces",
+      "shown": [
+        "08-lucy-park-good-graces"
+      ],
+      "lineFromRow": true,
+      "lineToCover": true,
+      "drawn": true
+    },
+    {
+      "title": "Luke Titus — From What Was Will Grow A Flower",
+      "want": "09-luke-titus-from-what-was-will-grow-a-flower",
+      "shown": [
+        "09-luke-titus-from-what-was-will-grow-a-flower"
+      ],
+      "lineFromRow": true,
+      "lineToCover": true,
+      "drawn": true
+    },
+    {
+      "title": "Arlo Parks — Ambiguous Desire",
+      "want": "05-arlo-parks-ambiguous-desire",
+      "shown": [
+        "05-arlo-parks-ambiguous-desire"
+      ],
+      "lineFromRow": true,
+      "lineToCover": true,
+      "drawn": true
+    },
+    {
+      "title": "Doja Cat — Vie",
+      "want": "10-doja-cat-vie",
+      "shown": [
+        "10-doja-cat-vie"
+      ],
+      "lineFromRow": true,
+      "lineToCover": true,
+      "drawn": true
+    },
+    {
+      "title": "Run the Jewels — RTJ4",
+      "want": "30-run-the-jewels-rtj4",
+      "shown": [
+        "30-run-the-jewels-rtj4"
+      ],
+      "lineFromRow": true,
+      "lineToCover": true,
+      "drawn": true
+    },
+    {
+      "title": "girl in red — BLUE",
+      "want": "01-girl-in-red-blue",
+      "shown": [
+        "01-girl-in-red-blue"
+      ],
+      "lineFromRow": true,
+      "lineToCover": true,
+      "drawn": true
+    },
+    {
+      "title": "Marcus King — Mood Swings",
+      "want": "14-marcus-king-mood-swings",
+      "shown": [
+        "14-marcus-king-mood-swings"
+      ],
+      "lineFromRow": true,
+      "lineToCover": true,
+      "drawn": true
+    },
+    {
+      "title": "The Strokes — Reality Awaits",
+      "want": "06-the-strokes-reality-awaits",
+      "shown": [
+        "06-the-strokes-reality-awaits"
+      ],
+      "lineFromRow": true,
+      "lineToCover": true,
+      "drawn": true
+    },
+    {
+      "title": "SZA — SOS",
+      "want": "20-sza-sos",
+      "shown": [
+        "20-sza-sos"
+      ],
+      "lineFromRow": true,
+      "lineToCover": true,
+      "drawn": true
+    },
+    {
+      "title": "Teezo Touchdown — How Do You Sleep At Night? With You",
+      "want": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
+      "shown": [
+        "15-teezo-touchdown-how-do-you-sleep-at-night-with-you"
+      ],
+      "lineFromRow": true,
+      "lineToCover": true,
+      "drawn": true
+    }
+  ],
+  "aboutIndexPass": true,
+  "sync": {
+    "strip": [
+      {
+        "dx": 340,
+        "strip": 0,
+        "rolodex": 0,
+        "display": 0,
+        "equal": true
+      },
+      {
+        "dx": 61,
+        "strip": 0,
+        "rolodex": 0,
+        "display": 0,
+        "equal": true
+      },
+      {
+        "dx": 162,
+        "strip": 0,
+        "rolodex": 0,
+        "display": 0,
+        "equal": true
+      },
+      {
+        "dx": -609,
+        "strip": 2,
+        "rolodex": 2,
+        "display": 2,
+        "equal": true
+      },
+      {
+        "dx": -111,
+        "strip": 2,
+        "rolodex": 2,
+        "display": 2,
+        "equal": true
+      },
+      {
+        "dx": 522,
+        "strip": 0,
+        "rolodex": 0,
+        "display": 0,
+        "equal": true
+      },
+      {
+        "dx": 221,
+        "strip": 0,
+        "rolodex": 0,
+        "display": 0,
+        "equal": true
+      },
+      {
+        "dx": 80,
+        "strip": 0,
+        "rolodex": 0,
+        "display": 0,
+        "equal": true
+      },
+      {
+        "dx": 60,
+        "strip": 0,
+        "rolodex": 0,
+        "display": 0,
+        "equal": true
+      },
+      {
+        "dx": -112,
+        "strip": 0,
+        "rolodex": 0,
+        "display": 0,
+        "equal": true
+      },
+      {
+        "dx": -591,
+        "strip": 2,
+        "rolodex": 2,
+        "display": 2,
+        "equal": true
+      },
+      {
+        "dx": -124,
+        "strip": 2,
+        "rolodex": 2,
+        "display": 2,
+        "equal": true
+      },
+      {
+        "dx": 42,
+        "strip": 2,
+        "rolodex": 2,
+        "display": 2,
+        "equal": true
+      },
+      {
+        "dx": -106,
+        "strip": 2,
+        "rolodex": 2,
+        "display": 2,
+        "equal": true
+      },
+      {
+        "dx": -189,
+        "strip": 3,
+        "rolodex": 3,
+        "display": 3,
+        "equal": true
+      },
+      {
+        "dx": -324,
+        "strip": 4,
+        "rolodex": 4,
+        "display": 4,
+        "equal": true
+      },
+      {
+        "dx": 595,
+        "strip": 2,
+        "rolodex": 2,
+        "display": 2,
+        "equal": true
+      },
+      {
+        "dx": -390,
+        "strip": 3,
+        "rolodex": 3,
+        "display": 3,
+        "equal": true
+      },
+      {
+        "dx": -147,
+        "strip": 3,
+        "rolodex": 3,
+        "display": 3,
+        "equal": true
+      },
+      {
+        "dx": -622,
+        "strip": 5,
+        "rolodex": 5,
+        "display": 5,
+        "equal": true
+      }
+    ],
+    "rolodex": [
+      {
+        "dy": -93,
+        "strip": 6,
+        "rolodex": 6,
+        "display": 6,
+        "equal": true
+      },
+      {
+        "dy": 52,
+        "strip": 6,
+        "rolodex": 6,
+        "display": 6,
+        "equal": true
+      },
+      {
+        "dy": 128,
+        "strip": 4,
+        "rolodex": 4,
+        "display": 4,
+        "equal": true
+      },
+      {
+        "dy": -61,
+        "strip": 5,
+        "rolodex": 5,
+        "display": 5,
+        "equal": true
+      },
+      {
+        "dy": -40,
+        "strip": 5,
+        "rolodex": 5,
+        "display": 5,
+        "equal": true
+      },
+      {
+        "dy": -133,
+        "strip": 7,
+        "rolodex": 7,
+        "display": 7,
+        "equal": true
+      },
+      {
+        "dy": 111,
+        "strip": 6,
+        "rolodex": 6,
+        "display": 6,
+        "equal": true
+      },
+      {
+        "dy": 53,
+        "strip": 5,
+        "rolodex": 5,
+        "display": 5,
+        "equal": true
+      },
+      {
+        "dy": 87,
+        "strip": 4,
+        "rolodex": 4,
+        "display": 4,
+        "equal": true
+      },
+      {
+        "dy": 91,
+        "strip": 2,
+        "rolodex": 2,
+        "display": 2,
+        "equal": true
+      },
+      {
+        "dy": -33,
+        "strip": 3,
+        "rolodex": 3,
+        "display": 3,
+        "equal": true
+      },
+      {
+        "dy": -102,
+        "strip": 4,
+        "rolodex": 4,
+        "display": 4,
+        "equal": true
+      },
+      {
+        "dy": 37,
+        "strip": 4,
+        "rolodex": 4,
+        "display": 4,
+        "equal": true
+      },
+      {
+        "dy": -78,
+        "strip": 5,
+        "rolodex": 5,
+        "display": 5,
+        "equal": true
+      },
+      {
+        "dy": -144,
+        "strip": 7,
+        "rolodex": 7,
+        "display": 7,
+        "equal": true
+      },
+      {
+        "dy": -149,
+        "strip": 9,
+        "rolodex": 9,
+        "display": 9,
+        "equal": true
+      },
+      {
+        "dy": 171,
+        "strip": 6,
+        "rolodex": 6,
+        "display": 6,
+        "equal": true
+      },
+      {
+        "dy": -56,
+        "strip": 7,
+        "rolodex": 7,
+        "display": 7,
+        "equal": true
+      },
+      {
+        "dy": 89,
+        "strip": 6,
+        "rolodex": 6,
+        "display": 6,
+        "equal": true
+      },
+      {
+        "dy": -52,
+        "strip": 7,
+        "rolodex": 7,
+        "display": 7,
+        "equal": true
+      }
+    ],
+    "pass": true,
+    "distinctIndicesVisited": 8
+  },
+  "textures": {
+    "cardFace": {
+      "w": 2048,
+      "h": 1478,
+      "anisotropy": 16
+    },
+    "stripCover": {
+      "w": 512,
+      "h": 512,
+      "anisotropy": 16
+    },
+    "pass": true
+  },
+  "fonts": {
+    "renderedFamilies": {
+      "Archivo": 2,
+      "info": 25
+    },
+    "facesLoaded": [
+      "info 400 normal",
+      "info 400 italic",
+      "info Fallback normal normal",
+      "Archivo 100 900 normal"
+    ],
+    "files": [
+      "/_next/static/media/21ca8f3f56c22ca2-s.p.0fmzj955937qe.woff2?dpl=dpl_DHgiaE5t3u8Wsej7x35i7Pf84vhW",
+      "/_next/static/media/cc014fcb166cf364-s.p.0rbrcy8kuidpb.woff2?dpl=dpl_DHgiaE5t3u8Wsej7x35i7Pf84vhW",
+      "/_next/static/media/texgyreheros_italic-s.p.0-ay1387e.9r7.woff2?dpl=dpl_DHgiaE5t3u8Wsej7x35i7Pf84vhW",
+      "/_next/static/media/texgyreheros_regular-s.p.11~cle9isnpui.woff2?dpl=dpl_DHgiaE5t3u8Wsej7x35i7Pf84vhW"
+    ],
+    "thirdPartyFontRequests": 0,
+    "sources": {
+      "info": "TeX Gyre Heros 400 and italic, self-hosted woff2 from app/gillenwebsite/fonts (GUST Font License). Free stand-in for gaeawoods.com's nimbus-sans 300 (Adobe Fonts kit twr8vrw); to match it exactly, license URW Nimbus Sans Light",
+      "Archivo": "--font-title placeholder, Google Fonts (OFL), fetched at build by next/font/google and served from this site"
+    }
+  },
+  "S12": {
+    "shownAfterS": 19.7,
+    "firstValue": "10",
+    "frontBefore": 0,
+    "frontAfter15s": 2,
+    "hiddenOnInput": true,
     "pass": true
   },
   "phone": {
     "scrollWidth": 390,
     "innerWidth": 390,
-    "panelShown": false,
+    "wide": false,
+    "cardFaceW": 1024,
     "thumb": {
       "w": 64,
       "h": 64
     },
-    "caption": "GIRL IN RED",
+    "caption": "girl in red",
+    "panel": {
+      "coverW": 358,
+      "infoBelowCover": true,
+      "scrollWidth": 390
+    },
+    "scrollWidth /discography": 390,
+    "scrollWidth /about": 390,
     "pass": true
   },
   "covers": [
     {
       "id": "01-girl-in-red-blue",
       "exists": true,
-      "size": "1024x1024",
-      "kb": 145
+      "size": "2048x2048",
+      "kb": 580,
+      "v1080": "1080x1080",
+      "v512": "512x512"
     },
     {
       "id": "02-freak-slug-amulet",
       "exists": true,
-      "size": "1024x1024",
-      "kb": 136
+      "size": "2048x2048",
+      "kb": 693,
+      "v1080": "1080x1080",
+      "v512": "512x512"
     },
     {
       "id": "03-arlo-parks-john-glacier-floette-ft-john-glacier",
       "exists": true,
-      "size": "1024x1024",
-      "kb": 89
+      "size": "2048x2048",
+      "kb": 675,
+      "v1080": "1080x1080",
+      "v512": "512x512"
     },
     {
       "id": "04-mike-d-thank-you",
       "exists": true,
-      "size": "1024x1024",
-      "kb": 180
+      "size": "2048x2048",
+      "kb": 760,
+      "v1080": "1080x1080",
+      "v512": "512x512"
     },
     {
       "id": "05-arlo-parks-ambiguous-desire",
       "exists": true,
-      "size": "1024x1024",
-      "kb": 146
+      "size": "2048x2048",
+      "kb": 639,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "06-the-strokes-reality-awaits",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 549,
+      "v1080": "1080x1080",
+      "v512": "512x512"
     },
     {
       "id": "07-obongjayar-paradise-now-and-forever",
       "exists": true,
-      "size": "1024x1024",
-      "kb": 145
+      "size": "2048x2048",
+      "kb": 784,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "08-lucy-park-good-graces",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 306,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "09-luke-titus-from-what-was-will-grow-a-flower",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 1212,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "10-doja-cat-vie",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 712,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "11-don-toliver-doja-cat-f1-the-album",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 249,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "12-sza-sos-deluxe-lana",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 992,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "13-gossip-real-power",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 918,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "14-marcus-king-mood-swings",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 939,
+      "v1080": "1080x1080",
+      "v512": "512x512"
     },
     {
       "id": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
       "exists": true,
-      "size": "1024x1024",
-      "kb": 142
+      "size": "2048x2048",
+      "kb": 455,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "16-kesha-gag-order",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 1006,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "17-brockhampton-tm",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 747,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "18-red-hot-chili-peppers-unlimited-love",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 799,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "19-rex-orange-county-threat",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 283,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "20-sza-sos",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 1057,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "21-red-hot-chili-peppers-return-of-the-dream-canteen",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 713,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "22-run-the-jewels-rtj-cu4tro",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 409,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "23-imagine-dragons-mercury-acts-1-and-2",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 1074,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "24-jovanotti-il-boom",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 966,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "25-lucy-park-before-i-speak",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 289,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "26-imagine-dragons-mercury-act-1",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 1686,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "27-santana-blessings-and-miracles",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 948,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "28-the-strokes-the-new-abnormal",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 1319,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "29-neil-young-and-crazy-horse-shut-it-down-2020",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 765,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "30-run-the-jewels-rtj4",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 151,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "31-mark-ronson-late-night-feelings",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 496,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "32-harry-styles-fine-line",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 261,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "33-neil-young-and-crazy-horse-colorado",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 765,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "34-santana-africa-speaks",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 1426,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "35-muse-simulation-theory-super-deluxe",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 1290,
+      "v1080": "1080x1080",
+      "v512": "512x512"
+    },
+    {
+      "id": "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun",
+      "exists": true,
+      "size": "2048x2048",
+      "kb": 933,
+      "v1080": "1080x1080",
+      "v512": "512x512"
     }
   ],
   "coversPass": true,

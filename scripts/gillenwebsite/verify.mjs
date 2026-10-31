@@ -25,6 +25,8 @@ page.on("pageerror", (e) => logs.push(`pageerror: ${e.message}`));
 await page.goto(URL, { waitUntil: "load" });
 await page.waitForFunction(() => window.__rolodex?.rig?.ready && window.__rolodex.rig.firstCardTexture, null, { timeout: 120000 });
 await wait(1500);
+// the idle screensaver (SOURCES #29) would start turning cards after 20 s; a synthetic touchstart every 4 s keeps it asleep
+await page.evaluate(() => { window.__awake = setInterval(() => dispatchEvent(new Event("touchstart")), 4000); });
 
 out.gpu = await page.evaluate(() => {
   const gl = document.querySelector("canvas").getContext("webgl2");
@@ -158,12 +160,12 @@ if (want("fps")) {
     pass: Math.min(...win) >= 55,
   };
 }
-// Bible rules, from computed styles of every element on the page (sheet opened so it is measured too)
+// Bible rules, from computed styles of every element on the page (the release panel opened so it is measured too)
 if (want("bible")) {
   await page.evaluate(() => scrollTo(0, 0));
   await wait(800);
   await page.keyboard.press("Enter");
-  await wait(500);
+  await wait(1400);
   out.bible = await page.evaluate(() => {
     const root = document.querySelector("[class*='root']");
     const els = [root, ...root.querySelectorAll("*")].filter((e) => !(e instanceof SVGElement) && e.tagName !== "CANVAS");
@@ -200,20 +202,254 @@ if (want("bible")) {
 }
 // R16: the credit comment in the HTML as served
 if (want("bible")) out.bible.R16_comment = /<!-- Site Development &(amp;)? Design; waituntilmay -->/.test(await (await fetch(URL)).text());
-// S6: the A-Z order is saved in a cookie and restored after a reload
-if (want("S6")) {
-  await page.evaluate(() => document.getElementById("credits").scrollIntoView());
-  await page.getByRole("button", { name: /A–Z/ }).click();
-  const firstAfterClick = await page.evaluate(() => document.querySelector("#credits li button")?.textContent);
-  await page.reload({ waitUntil: "load" });
-  await wait(1500);
+// ---- step 6 of the reference rebuild ----
+const SOURCES = await fs.readFile(path.join(ROOT, "docs/gillenwebsite/SOURCES.md"), "utf8");
+const srcRows = new Map([...SOURCES.matchAll(/^\| (\d\d) \| ([^|]+) \| ([^|]+) \|/gm)].map((m) => [m[1], { component: m[2].trim(), site: m[3].trim() }]));
+// every section and interactive element on the page, and the SOURCES.md rows it carries (data-src on it or an ancestor)
+const crawl = (p) => p.evaluate(() => {
+  const sel = "header, nav, main, section, article, aside, footer, [role=dialog], [role=list], a, button, select, canvas, [data-src]";
+  return [...document.querySelectorAll(sel)].filter((e) => e.closest("[class*=root]")).map((e) => {
+    const s = e.closest("[data-src]");
+    const text = (e.getAttribute("aria-label") || e.textContent || "").trim().replace(/\s+/g, " ").slice(0, 40);
+    return { el: e.tagName.toLowerCase() + (e.id ? "#" + e.id : ""), text, src: s ? s.getAttribute("data-src") : null };
+  });
+});
+const summarise = (list) => {
+  const missing = list.filter((x) => !x.src || x.src.split(" ").some((n) => !srcRows.has(n)));
+  return { elements: list.length, rowsUsed: [...new Set(list.flatMap((x) => (x.src ? x.src.split(" ") : [])))].sort(), missing, pass: missing.length === 0 };
+};
+
+if (want("sources")) {
+  await page.evaluate(() => scrollTo(0, 0));
+  await wait(800);
+  const home = await crawl(page);
+  await page.keyboard.press("Enter"); // the panel opens on the front card
+  await wait(1400);
+  const withPanel = await crawl(page);
+  await page.keyboard.press("Escape");
+  await wait(1300);
+  const d = await ctx.newPage();
+  await d.goto(`${URL}/discography`, { waitUntil: "load" }); await wait(1500);
+  const discoEls = await crawl(d);
+  const a = await ctx.newPage();
+  await a.goto(`${URL}/about`, { waitUntil: "load" }); await wait(1500);
+  const aboutEls = await crawl(a);
+  const all = [...home, ...withPanel, ...discoEls, ...aboutEls];
+  out.sources = { home: summarise(home), homeWithPanel: summarise(withPanel), discography: summarise(discoEls), about: summarise(aboutEls) };
+  out.sources.pass = Object.values(out.sources).every((x) => x.pass);
+  // the mark or site behind each control
+  const seen = new Map();
+  for (const c of all.filter((x) => /^(a|button|select|canvas)\b/.test(x.el))) {
+    // the 36 discography rows and the 36 About index rows each collapse to one entry
+    const k = c.el === "a" && c.src === "22 12" ? "a (discography row) x36" : c.el === "a" && c.src === "20 12" ? "a (About index row) x36" : `${c.el} "${c.text}"`;
+    if (!seen.has(k)) seen.set(k, (c.src || "").split(" ").map((n) => (srcRows.has(n) ? `#${n} ${srcRows.get(n).site}: ${srcRows.get(n).component}` : `#${n} MISSING`)));
+  }
+  out.controls = Object.fromEntries(seen);
+  const inDom = new Set(all.flatMap((x) => (x.src ? x.src.split(" ") : [])));
+  const live22 = ["felixluke.com", "onehouse.com", "anew-formatic.com", "woodrowcommunications.com", "ad93.ltd", "zeynepagcabay.me", "pointnever.com", "eilidhduffy.com", "gunseli.xyz", "viscosesyllabus.com", "wearesteve.net", "rosalia.com", "luckydaye.com", "mestizaestudio.com", "viscosejournal.com", "luminous27.com", "benepooley.co.uk", "delsol-salon.com", "purplemartin.studio", "work.bog.life", "siteplan.lidofestival.co.uk", "chantalmichelle.me"];
+  const perSite = {};
+  for (const r of srcRows.values()) perSite[r.site] = (perSite[r.site] || 0) + 1;
+  // the behaviours SOURCES.md counts as implemented with the traced timing and trigger, "S1 (#03), ..."
+  const countLine = SOURCES.split("\n").find((l) => l.includes("Signature behaviours implemented"));
+  const behaviours = [...countLine.matchAll(/(S\d+) \(#(\d\d)\)/g)].map((m) => `${m[1]} #${m[2]}`);
+  out.sourcesCount = {
+    rowsInSourcesMd: srcRows.size,
+    // rows with no element of their own: a console line, an idle state, a CSS hover
+    rowsNotInDom: Object.fromEntries([...srcRows.keys()].filter((n) => !inDom.has(n)).map((n) => [n, srcRows.get(n).component])),
+    distinctLiveSites: Object.keys(perSite).filter((s) => live22.includes(s)).length,
+    perSite,
+    maxPerLiveSite: Math.max(...Object.entries(perSite).filter(([s]) => live22.includes(s)).map(([, n]) => n)),
+    signatureBehaviours: behaviours,
+  };
+  out.sourcesCount.pass = out.sourcesCount.distinctLiveSites >= 10 && out.sourcesCount.maxPerLiveSite <= 4 && behaviours.length >= 6;
+
+  // the large cover's rendered size at 1440 x 900: inline beside the Rolodex, and in the panel
+  const coverSize = (p, sel) => p.evaluate((sel) => {
+    const i = document.querySelector(sel), r = i.getBoundingClientRect();
+    return { w: Math.round(r.width), h: Math.round(r.height), shareOfViewportHeight: +(r.height / innerHeight).toFixed(3), naturalWidth: i.naturalWidth, src: i.getAttribute("src") };
+  }, sel);
+  out.largeCover = { viewport: "1440x900", inline: await coverSize(page, "[class*=inlineSlot] article img") };
+  await d.locator("ol li a").nth(2).click(); await wait(1500);
+  out.largeCover.panel = await coverSize(d, "[role=dialog] article img");
+  // the panel shows the 2048 file; inline, the file is never shown above its natural size at the device pixel ratio
+  const dpr = await page.evaluate(() => devicePixelRatio);
+  out.largeCover.devicePixelRatio = dpr;
+  out.largeCover.inline.notUpscaled = out.largeCover.inline.naturalWidth >= out.largeCover.inline.w * dpr;
+  out.largeCover.pass = [out.largeCover.inline, out.largeCover.panel].every((c) => c.shareOfViewportHeight >= 0.6) && out.largeCover.inline.notUpscaled && out.largeCover.panel.naturalWidth === 2048;
+  await d.keyboard.press("Escape"); await wait(1200);
+
+  // discography: all 36 in discography.json order; row pitch, cover slice and type sizes against brian-eno.net
+  out.discography = await d.evaluate(() => {
+    const links = [...document.querySelectorAll("ol li a")];
+    const tops = links.map((x) => x.getBoundingClientRect().top);
+    const pitch = tops.slice(1).map((t, i) => t - tops[i]);
+    const img = links[0].querySelector("[class*=slice]").getBoundingClientRect();
+    const px = (sel) => parseFloat(getComputedStyle(links[0].querySelector(sel)).fontSize);
+    return { count: links.length, ids: links.map((x) => x.getAttribute("href").slice(1)), rowPitch: { min: +Math.min(...pitch).toFixed(2), max: +Math.max(...pitch).toFixed(2) }, slice: { w: Math.round(img.width), h: Math.round(img.height) }, titlePx: px("[class*=discoTitle]"), whoPx: px("[class*=discoWho]"), yearPx: px("[class*=discoYear]") };
+  });
+  const eno = { rowPitch: 20, sliceW: 464, sliceH: 20, titlePx: 13, whoPx: 10, yearPx: 10 }; // docs/gillenwebsite/references/brian-eno.net
+  const within = (v, b) => [v, b, Math.abs(v - b) / b <= 0.1];
+  const dg = out.discography;
+  dg.orderMatches = JSON.stringify(dg.ids) === JSON.stringify(disco.releases.map((r) => r.id));
+  delete dg.ids;
+  dg.vsBrianEno = {
+    rowPitchMin: within(dg.rowPitch.min, eno.rowPitch), rowPitchMax: within(dg.rowPitch.max, eno.rowPitch),
+    sliceW: within(dg.slice.w, eno.sliceW), sliceH: within(dg.slice.h, eno.sliceH),
+    titlePx: within(dg.titlePx, eno.titlePx), whoPx: within(dg.whoPx, eno.whoPx), yearPx: within(dg.yearPx, eno.yearPx),
+  };
+  dg.pass = dg.count === 36 && dg.orderMatches && Object.values(dg.vsBrianEno).every((v) => v[2]);
+
+  // S6 on the discography: A-Z kept in the alphabetOrdering cookie and restored after a reload
+  const firstTitle = () => d.evaluate(() => document.querySelector("ol li a [class*=discoTitle]").textContent);
+  await d.getByRole("button", { name: /A–Z/ }).click(); await wait(300);
+  const firstAfterClick = await firstTitle();
+  await d.reload({ waitUntil: "load" }); await wait(1500);
   const cookie = (await ctx.cookies()).find((c) => c.name === "alphabetOrdering");
-  const firstAfterReload = await page.evaluate(() => document.querySelector("#credits li button")?.textContent);
-  await page.getByRole("button", { name: /YEAR/ }).click();
-  const firstDefault = await page.evaluate(() => document.querySelector("#credits li button")?.textContent);
+  const firstAfterReload = await firstTitle();
+  await d.getByRole("button", { name: /YEAR/ }).click(); await wait(300);
+  const firstDefault = await firstTitle();
   out.S6 = { cookie: cookie?.value, firstAfterClick, firstAfterReload, firstDefault, pass: cookie?.value === "alphabetical" && firstAfterClick === firstAfterReload && firstAfterClick !== firstDefault };
+  // S14: the role select hides every row without that role; the empty choice shows all of them again
+  const visible = () => d.evaluate(() => [...document.querySelectorAll("ol li")].filter((li) => li.style.display !== "none").map((li) => li.dataset.role));
+  const roleOpts = await d.evaluate(() => [...document.querySelectorAll("#category-select option")].map((o) => o.value).filter(Boolean));
+  const role = roleOpts.includes("Mixer") ? "Mixer" : roleOpts[0];
+  await d.selectOption("#category-select", role); await wait(300);
+  const shown = await visible();
+  await d.selectOption("#category-select", ""); await wait(300);
+  const after = await visible();
+  out.S14 = { role, shown: shown.length, allHaveRole: shown.every((x) => x.split("|").includes(role)), afterClear: after.length };
+  out.S14.pass = out.S14.shown > 0 && out.S14.shown < 36 && out.S14.allHaveRole && out.S14.afterClear === 36;
+
+  // About index: 10 random titles; hovering each must show only that title's cover, with the line drawn from it to the cover
+  const picks = [...Array(36).keys()].sort(() => Math.random() - 0.5).slice(0, 10);
+  out.aboutIndex = [];
+  for (const i of picks) {
+    const row = a.locator("[class*=indexRow]").nth(i);
+    await row.scrollIntoViewIfNeeded();
+    await row.hover();
+    await wait(600);
+    out.aboutIndex.push(await a.evaluate((i) => {
+      const row = document.querySelectorAll("[class*=indexRow]")[i];
+      const shown = [...document.querySelectorAll("[class*=indexCover] img")].filter((im) => getComputedStyle(im).visibility === "visible").map((im) => im.getAttribute("src").split("/").pop().replace(".jpg", ""));
+      const lines = [...document.querySelectorAll("svg[data-src] line")];
+      const cover = document.querySelector("[class*=indexCover]").getBoundingClientRect();
+      const rects = row.getClientRects(), end = rects[rects.length - 1];
+      return {
+        title: row.querySelector("[class*=indexTitle]").textContent, want: row.getAttribute("href").slice(1), shown,
+        lineFromRow: Math.abs(+lines[0].getAttribute("x1") - (end.right + 8)) < 1.5 && Math.abs(+lines[0].getAttribute("y1") - (end.top + end.height / 2)) < 1.5,
+        lineToCover: Math.abs(+lines[2].getAttribute("x2") - cover.left) < 1.5,
+        drawn: lines.every((l) => getComputedStyle(l).opacity === "1"),
+      };
+    }, i));
+  }
+  out.aboutIndexPass = out.aboutIndex.every((x) => x.shown.length === 1 && x.shown[0] === x.want && x.lineFromRow && x.lineToCover && x.drawn);
+  await d.close(); await a.close();
 }
-// Phone: 390 x 844, no horizontal scroll, 3D panel dropped, caption with thumbnail shown
+
+// Strip and Rolodex share one index. 20 random drags on the strip and 20 on the front card; after each settles,
+// the strip's centred prism (from its own geometry), the Rolodex's front card and the release display must agree.
+if (want("sync")) {
+  await page.evaluate(() => scrollTo(0, 0));
+  await wait(1200);
+  const settle = async () => {
+    for (let t = 0; t < 80; t++) {
+      await wait(100);
+      const ok = await page.evaluate(() => { const r = window.__rolodex.rig; return Math.abs(r.s - Math.round(r.s)) < 0.005 && Math.abs(r.stripS - Math.round(r.stripS)) < 0.005 && performance.now() - r.lastScroll > 400; });
+      if (ok) break;
+    }
+    await wait(400); // the display's crossfade
+    return page.evaluate(() => {
+      const r = window.__rolodex.rig;
+      let strip = -1, bx = Infinity;
+      r.strip.meshes.forEach((m, i) => { const g = m.parent; if (g.visible && Math.abs(g.position.x) < bx) { bx = Math.abs(g.position.x); strip = i; } });
+      const shown = document.querySelector("[class*=inlineSlot] article")?.getAttribute("data-release");
+      return { strip, rolodex: r.front, display: window.__rolodex.faceIds.indexOf(shown) };
+    });
+  };
+  const bandY = await page.evaluate(() => innerHeight - 110);
+  out.sync = { strip: [], rolodex: [] };
+  for (let k = 0; k < 20; k++) {
+    const x0 = 300 + Math.random() * 800, dx = (Math.random() < 0.5 ? -1 : 1) * (40 + Math.random() * 600);
+    await page.mouse.move(x0, bandY); await page.mouse.down();
+    for (let i = 1; i <= 12; i++) { await page.mouse.move(x0 + (dx * i) / 12, bandY); await wait(16); }
+    await page.mouse.up();
+    const r = await settle();
+    out.sync.strip.push({ dx: Math.round(dx), ...r, equal: r.strip === r.rolodex && r.rolodex === r.display });
+  }
+  for (let k = 0; k < 20; k++) {
+    // grab the front card at its face and drag vertically (the flip mode); near either end, drag inwards
+    const sp = await page.evaluate(() => {
+      const r = window.__rolodex.rig, g = r.cards[r.front].children[0];
+      const p = g.getWorldPosition(g.position.clone()).project(r.camera);
+      return { x: (p.x * 0.5 + 0.5) * innerWidth, y: (-p.y * 0.5 + 0.5) * innerHeight, front: r.front, N: r.N };
+    });
+    let sign = Math.random() < 0.5 ? -1 : 1;
+    if (sp.front < 3) sign = -1; if (sp.front > sp.N - 4) sign = 1;
+    const dy = sign * (30 + Math.random() * 150) * (await page.evaluate(() => window.__rolodex.flipDir ?? 1));
+    await page.mouse.move(sp.x, sp.y); await page.mouse.down();
+    for (let i = 1; i <= 12; i++) { await page.mouse.move(sp.x, sp.y + (dy * i) / 12); await wait(16); }
+    await page.mouse.up();
+    const r = await settle();
+    out.sync.rolodex.push({ dy: Math.round(dy), ...r, equal: r.strip === r.rolodex && r.rolodex === r.display });
+  }
+  const both = [...out.sync.strip, ...out.sync.rolodex];
+  out.sync.pass = both.every((x) => x.equal);
+  out.sync.distinctIndicesVisited = new Set(both.map((x) => x.rolodex)).size;
+}
+
+// Card faces and strip covers: texture size and anisotropy
+if (want("textures")) {
+  out.textures = await page.evaluate(() => {
+    const r = window.__rolodex, face = r.rig.cards[0].children[0].children[1].material.map;
+    const strip = r.rig.strip.meshes[0].material[4].map;
+    return { cardFace: { w: face.image.width, h: face.image.height, anisotropy: face.anisotropy }, stripCover: { w: strip.image.width, h: strip.image.height, anisotropy: strip.anisotropy } };
+  });
+  out.textures.pass = out.textures.cardFace.w === 2048 && out.textures.cardFace.anisotropy === 16 && out.textures.stripCover.anisotropy === 16;
+}
+
+// Fonts: every family that renders text, the faces loaded, the files fetched and where they come from
+if (want("fonts")) {
+  out.fonts = await page.evaluate(() => {
+    const fams = {};
+    for (const e of document.querySelectorAll("body *")) {
+      if (![...e.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim())) continue;
+      if (getComputedStyle(e).display === "none") continue;
+      const f = getComputedStyle(e).fontFamily.split(",")[0].replace(/['"]/g, "").trim();
+      fams[f] = (fams[f] || 0) + 1;
+    }
+    const res = performance.getEntriesByType("resource");
+    return {
+      renderedFamilies: fams,
+      facesLoaded: [...document.fonts].filter((f) => f.status === "loaded").map((f) => `${f.family} ${f.weight} ${f.style}`),
+      files: res.filter((x) => /\.woff2?($|\?)/.test(x.name)).map((x) => x.name.replace(location.origin, "")),
+      thirdPartyFontRequests: res.filter((x) => /fonts\.(googleapis|gstatic)|typekit/.test(x.name)).length,
+    };
+  });
+  out.fonts.sources = {
+    info: "TeX Gyre Heros 400 and italic, self-hosted woff2 from app/gillenwebsite/fonts (GUST Font License). Free stand-in for gaeawoods.com's nimbus-sans 300 (Adobe Fonts kit twr8vrw); to match it exactly, license URW Nimbus Sans Light",
+    Archivo: "--font-title placeholder, Google Fonts (OFL), fetched at build by next/font/google and served from this site",
+  };
+}
+
+// S12: the screensaver counts down after 20 s idle and then turns the Rolodex by itself
+if (want("S12")) {
+  const p = await ctx.newPage();
+  await p.goto(URL, { waitUntil: "load" });
+  await p.waitForFunction(() => window.__rolodex?.rig?.ready, null, { timeout: 120000 });
+  const t0 = Date.now();
+  await p.waitForSelector("[data-src='29']", { timeout: 45000 });
+  const shownAfterS = +((Date.now() - t0) / 1000).toFixed(1);
+  const firstValue = await p.textContent("[data-src='29']");
+  const front0 = await p.evaluate(() => window.__rolodex.rig.front);
+  await wait(15000);
+  const front1 = await p.evaluate(() => window.__rolodex.rig.front);
+  await p.mouse.move(200, 200); await wait(500);
+  const hiddenOnInput = (await p.$("[data-src='29']")) === null;
+  out.S12 = { shownAfterS, firstValue, frontBefore: front0, frontAfter15s: front1, hiddenOnInput, pass: shownAfterS >= 18 && firstValue === "10" && front1 > front0 && hiddenOnInput };
+  await p.close();
+}
+
+// Phone: 390 x 844, no horizontal scroll, caption with its 64 px thumb, and the panel with the cover full width, info below
 if (want("phone")) {
   const phone = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 3 });
   const p = await phone.newPage();
@@ -221,15 +457,26 @@ if (want("phone")) {
   await p.waitForFunction(() => window.__rolodex?.rig?.ready, null, { timeout: 120000 });
   await wait(1500);
   out.phone = await p.evaluate(() => {
-    const thumb = document.querySelector("[class*='thumbBox']");
+    const thumb = document.querySelector("[class*=capMain] img");
     return {
       scrollWidth: document.documentElement.scrollWidth, innerWidth,
-      panelShown: window.__rolodex.rig.wide,
+      wide: window.__rolodex.rig.wide, cardFaceW: window.__rolodex.texW,
       thumb: thumb ? { w: thumb.getBoundingClientRect().width, h: thumb.getBoundingClientRect().height } : null,
-      caption: document.querySelector("[class*='capArtist']")?.textContent,
+      caption: document.querySelector("[class*=capArtist]")?.textContent,
     };
   });
-  out.phone.pass = out.phone.scrollWidth === 390 && !out.phone.panelShown && out.phone.thumb?.w === 64;
+  await p.tap("[class*=capMain]");
+  await wait(1500);
+  out.phone.panel = await p.evaluate(() => {
+    const i = document.querySelector("[role=dialog] article img").getBoundingClientRect();
+    const info = document.querySelector("[role=dialog] article [class*=info]").getBoundingClientRect();
+    return { coverW: Math.round(i.width), infoBelowCover: info.top >= i.bottom - 1, scrollWidth: document.documentElement.scrollWidth };
+  });
+  for (const path of ["/discography", "/about"]) {
+    await p.goto(URL + path, { waitUntil: "load" }); await wait(1200);
+    out.phone[`scrollWidth ${path}`] = await p.evaluate(() => document.documentElement.scrollWidth);
+  }
+  out.phone.pass = out.phone.scrollWidth === 390 && out.phone["scrollWidth /discography"] === 390 && out.phone["scrollWidth /about"] === 390 && !out.phone.wide && out.phone.thumb?.w === 64 && out.phone.panel.infoBelowCover && out.phone.panel.coverW >= 350;
   await phone.close();
 }
 await browser.close();
