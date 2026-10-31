@@ -1,6 +1,7 @@
 "use client";
 /* eslint-disable react-hooks/immutability -- three.js objects and the shared rig are mutated every frame by design */
-// The Rolodex: housing.glb with its torn rod and cradle rebuilt, the drum core, and TOTAL cards on the axis.
+// The Rolodex: housing.glb with its torn rod and cradle rebuilt, the drum core, and TOTAL cards on the axis: the
+// N releases three times round, so the drum is full and turns forever (slot i holds release i mod N).
 // Numbers are the prototype's (BUILD.md); materials are new: brushed frame and base with edge wear,
 // fingerprinted bakelite knobs, paper-grain cards.
 import { useMemo, useEffect } from "react";
@@ -8,8 +9,8 @@ import { useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import type { Release } from "@/lib/gillenwebsite/discography";
-import { rig, per, FLIP_DIR, coast, makeAngle, scrollPos, scrollToCard } from "./rig";
-import { CW, CH, TAB_H, R0, T, shapes, TEX_W, TEX_H, paintCard, blankTexture, loadCover } from "./cardTexture";
+import { rig, per, FLIP_DIR, coast, makeAngle, wrap, setPos, jumpTo, jumpToRelease } from "./rig";
+import { CW, CH, TAB_H, R0, T, shapes, TEX_W, TEX_H, paintCard, loadCover } from "./cardTexture";
 import { brushed, fingerprints, paperGrain, boxUV, edgeWear, withWear } from "./textures";
 
 export const MODEL = "/models/housing.glb";
@@ -48,7 +49,7 @@ function makeMaterials() {
 
 export default function Rolodex({ releases, mono }: { releases: Release[]; mono: string }) {
   const gltf = useGLTF(MODEL);
-  const N = releases.length, TOTAL = Math.max(N + 12, 96);
+  const N = releases.length, TOTAL = N * 3;
 
   const built = useMemo(() => {
     const M = makeMaterials();
@@ -124,28 +125,26 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
     const paperBody = new THREE.MeshStandardMaterial({ color: "#efe8d8", roughness: 0.92 });
     const years = [...new Set(releases.map((r) => r.year))];
     const slotOf = (r: Release) => years.indexOf(r.year) % 6;
-    const blankMats = [...Array(6)].map((_, i) => new THREE.MeshStandardMaterial({ map: blankTexture(i), roughness: 0.9, normalMap: M.grain, normalScale: new THREE.Vector2(0.18, 0.18) }));
-    const faces: { r: Release; i: number; slot: number; tex: THREE.CanvasTexture; ctx: CanvasRenderingContext2D }[] = [];
+    // one face per release, painted once and shared by its three cards
+    const faces = releases.map((r, i) => {
+      const c = document.createElement("canvas");
+      c.width = TEX_W; c.height = TEX_H;
+      const ctx = c.getContext("2d")!;
+      const tex = new THREE.CanvasTexture(c);
+      tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
+      const mat = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.9, envMapIntensity: 0.55, normalMap: M.grain, normalScale: new THREE.Vector2(0.18, 0.18) });
+      return { r, i, slot: slotOf(r), tex, ctx, mat };
+    });
     const drum = new THREE.Group();
     drum.position.set(0, axis.y, axis.z);
     drum.add(core);
     const cards: THREE.Group[] = [];
     for (let i = 0; i < TOTAL; i++) {
-      const r = releases[i], slot = r ? slotOf(r) : i % 6;
+      const f = faces[i % N], slot = f.slot;
       const g = new THREE.Group();
       const body = new THREE.Mesh(bodyGeos[slot], paperBody);
       body.castShadow = body.receiveShadow = true;
-      let mat: THREE.Material = blankMats[slot];
-      if (r) {
-        const c = document.createElement("canvas");
-        c.width = TEX_W; c.height = TEX_H;
-        const ctx = c.getContext("2d")!;
-        const tex = new THREE.CanvasTexture(c);
-        tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
-        faces.push({ r, i, slot, tex, ctx });
-        mat = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.9, envMapIntensity: 0.55, normalMap: M.grain, normalScale: new THREE.Vector2(0.18, 0.18) });
-      }
-      const face = new THREE.Mesh(faceGeos[slot], mat);
+      const face = new THREE.Mesh(faceGeos[slot], f.mat);
       face.receiveShadow = true;
       const innerG = new THREE.Group();
       innerG.position.y = R0;
@@ -156,7 +155,7 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
       cards.push(g);
     }
     return { house, axis, knobs, drum, cradle, cards, faces, meshes, triangles };
-  }, [gltf, releases, TOTAL]);
+  }, [gltf, releases, N, TOTAL]);
 
   // paint faces once the card font is ready, then again as each cover arrives
   useEffect(() => {
@@ -183,7 +182,7 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
     rig.N = N; rig.TOTAL = TOTAL; rig.axisY = built.axis.y; rig.cards = built.cards; rig.knobs = built.knobs;
     rig.ready = true;
     // measurement hook for the verification script (scripts/gillenwebsite/verify.mjs)
-    (window as unknown as { __rolodex: unknown }).__rolodex = { rig, per, frontPoint: () => { const c = new THREE.Box3().setFromObject(built.cards[rig.front]).getCenter(new THREE.Vector3()).project(rig.camera!), b = rig.hit!.parentElement!.getBoundingClientRect(); return { x: b.left + (c.x + 1) * 0.5 * b.width, y: b.top + (1 - c.y) * 0.5 * b.height }; }, house: built.house, faceIds: built.faces.map((f) => f.r.id), meshes: built.meshes, triangles: built.triangles, axis: built.axis.toArray(), nodes: (() => { const n: string[] = []; built.house.traverse((o) => { if ((o as THREE.Mesh).isMesh) n.push(o.name); }); return n; })() };
+    (window as unknown as { __rolodex: unknown }).__rolodex = { rig, per, jumpTo, jumpToRelease, frontPoint: () => { const c = new THREE.Box3().setFromObject(built.cards[wrap(Math.round(rig.s), TOTAL)]).getCenter(new THREE.Vector3()).project(rig.camera!), b = rig.hit!.parentElement!.getBoundingClientRect(); return { x: b.left + (c.x + 1) * 0.5 * b.width, y: b.top + (1 - c.y) * 0.5 * b.height }; }, house: built.house, faceIds: built.faces.map((f) => f.r.id), meshes: built.meshes, triangles: built.triangles, axis: built.axis.toArray(), nodes: (() => { const n: string[] = []; built.house.traverse((o) => { if ((o as THREE.Mesh).isMesh) n.push(o.name); }); return n; })() };
     console.log("Website is loaded, enjoy");
   }, [built, N, TOTAL]);
 
@@ -202,10 +201,10 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
     // a flick coasts on its own curve (rig.ts) and stops on its card
     if (rig.fling !== null) {
       const c = coast(rig.fling, now);
-      if (c.done) { scrollToCard(rig.fling.to); rig.s = rig.fling.to; rig.v = 0; rig.fling = null; }
-      else { scrollToCard(c.x); rig.s = c.x; rig.v = c.v; }
+      if (c.done) { setPos(rig.fling.to); rig.s = rig.fling.to; rig.v = 0; rig.fling = null; }
+      else { setPos(c.x); rig.s = c.x; rig.v = c.v; }
     }
-    const raw = scrollPos();
+    const raw = rig.pos;
     if (rig.drag?.mode === "flip" || rig.fling !== null) {
       // the finger (or the flick) drives the drum directly: the card under it follows 1:1; the spring waits for release
       if (rig.fling === null) { rig.s = raw; rig.v = 0; }
@@ -215,9 +214,10 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
       if (rig.reduce) { rig.s = goal; rig.v = 0; }
       else { rig.v += (goal - rig.s) * 170 * dt; rig.v *= Math.exp(-18 * dt); rig.s += rig.v * dt; }
     }
+    // angle() wraps the distance to each slot round the ring, so s runs on past TOTAL with no seam
     for (let i = 0; i < TOTAL; i++) built.cards[i].rotation.x = angle(FLIP_DIR * (rig.s - i));
     for (const k of built.knobs) k.rotation.x = FLIP_DIR * -rig.s * 0.42;
-    const front = Math.max(0, Math.min(N - 1, Math.round(rig.s)));
+    const front = wrap(Math.round(rig.s), N);
     if (front !== rig.front) { rig.front = front; rig.onFront.forEach((f) => f(front)); }
     if (rig.hit) {
       let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;

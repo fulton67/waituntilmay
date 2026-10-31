@@ -198,7 +198,8 @@ export default function Chrome({
 
       <main ref={main} className={css.main} data-src="05">{children}</main>
 
-      <footer className={css.footer} data-src="26">
+      {/* home is one fixed stage with nothing below it, so the footer lives on the scrolling pages */}
+      {path !== BASE && <footer className={css.footer} data-src="26">
         <Ruler />
         <div className={css.footRow}>
           <span>DYLAN NEUSTADTER, PRODUCER, WRITER, MIXER</span>
@@ -206,7 +207,7 @@ export default function Chrome({
           {/* SOURCES #28 viscosejournal.com M3 (pages/001.html:69): the arrow is typed into the link */}
           <a href={about.instagram} target="_blank" rel="noopener" data-src="28">INSTAGRAM →</a>
         </div>
-      </footer>
+      </footer>}
 
       <CursorReadout />
 

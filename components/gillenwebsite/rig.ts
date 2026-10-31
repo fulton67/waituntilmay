@@ -1,13 +1,14 @@
-// Shared state between the page (scroll, drag, caption) and the three.js scene (cards, knobs, camera).
+// Shared state between the page (wheel, drag, swipe, keys, caption) and the three.js scene (cards, knobs, camera).
 // Plain mutable object: it is read and written every frame, so it must not trigger React renders.
 import type * as THREE from "three";
 
-// Flip direction for page scroll, card drag and the knobs. +1: scrolling the page down sends the front
-// card's top edge down and away from the viewer (Y and Z both fall) and brings the next card up to the front.
-// A drag down on a card scrolls the other way, so the card face follows the pointer.
+// Flip direction for the wheel, card drag and the knobs. +1: wheeling down sends the front card's top edge down
+// and away from the viewer (Y and Z both fall) and brings the next card up to the front.
+// A drag down on a card goes the other way, so the card face follows the pointer.
 export const FLIP_DIR = 1;
 
-export type Drag = { x: number; y: number; sy: number; az: number; el: number; mode: "flip" | "orbit" };
+// flip: on the cards, DRAG_PX per card; swipe: a vertical touch swipe off the cards, per() px per card; orbit: turn
+export type Drag = { x: number; y: number; p0: number; az: number; el: number; mode: "flip" | "swipe" | "orbit" };
 
 // a coasting flick: from x0 at t0 (performance.now), speed v0 cards/s in direction dir, stopping on card `to` after T ms
 export type Fling = { x0: number; v0: number; dir: number; t0: number; T: number; to: number };
@@ -15,10 +16,11 @@ export type Fling = { x0: number; v0: number; dir: number; t0: number; T: number
 export type Rig = {
   N: number;
   TOTAL: number;
-  s: number; // drum position in cards (0 = first release in front)
+  s: number; // drum position in cards as drawn, unbounded: slot ((s % TOTAL) + TOTAL) % TOTAL, release that mod N
   v: number;
+  pos: number; // where the input has put the drum (unbounded); the spring draws s toward it
   fling: Fling | null; // a flick while it coasts; null otherwise
-  lastScroll: number;
+  lastScroll: number; // when pos last moved, for the 160 ms detent
   drag: Drag | null;
   az: number; // orbit target
   el: number;
@@ -26,8 +28,7 @@ export type Rig = {
   camEl: number;
   reduce: boolean;
   wide: boolean; // 720 px and up: the release display sits beside the Rolodex
-  front: number;
-  flip: HTMLElement | null;
+  front: number; // release index in front, 0..N-1
   cards: THREE.Object3D[];
   knobs: THREE.Object3D[];
   camera: THREE.PerspectiveCamera | null;
@@ -45,6 +46,7 @@ export const rig: Rig = {
   TOTAL: 0,
   s: 0,
   v: 0,
+  pos: 0,
   fling: null,
   lastScroll: 0,
   drag: null,
@@ -55,7 +57,6 @@ export const rig: Rig = {
   reduce: false,
   wide: true,
   front: 0,
-  flip: null,
   cards: [],
   knobs: [],
   camera: null,
@@ -67,8 +68,11 @@ export const rig: Rig = {
   moveT: 0,
   lag: [],
 };
+// wrap into 0..m-1, and the signed shortest step from a to b on a ring of m
+export const wrap = (x: number, m: number) => ((x % m) + m) % m;
+export const ringDelta = (a: number, b: number, m: number) => { const d = wrap(b - a, m); return d > m / 2 ? d - m : d; };
 
-// scroll distance per card (trackpad and touch scrolling); a card drag is DRAG_PX per card, a wheel notch one card
+// px per card for trackpad wheels and touch swipes off the cards; a card drag is DRAG_PX per card, a wheel notch one card
 export const per = () => Math.max(120, (typeof window === "undefined" ? 900 : window.innerHeight) * 0.26);
 export const DRAG_PX = 50;
 // A flick (over 0.4 px/ms at release) carries whole cards past the one the drag alone would settle on: 1 for a
@@ -81,9 +85,7 @@ export const carriedCards = (pxPerMs: number) => (pxPerMs < 1 ? 1 : Math.min(MAX
 
 // start a flick from the drum at x, moving in direction dir at pxPerMs of pointer speed
 export function flick(x: number, dir: number, pxPerMs: number) {
-  const to = Math.max(0, Math.min(rig.N - 1, Math.round(x) + dir * carriedCards(pxPerMs)));
-  const D = (to - x) * dir;
-  if (D <= 0.01) return; // at the end of the stack: the detent settles it
+  const to = Math.round(x) + dir * carriedCards(pxPerMs), D = (to - x) * dir;
   let lo = 0, hi = 200;
   for (let k = 0; k < 40; k++) { const m = (lo + hi) / 2; if (carry(m) < D) lo = m; else hi = m; }
   rig.fling = { x0: x, v0: lo, dir, t0: performance.now(), T: stopMs(lo), to };
@@ -94,17 +96,21 @@ export function coast(f: Fling, now: number) {
   return { x: f.x0 + f.dir * ((a * (1 - e)) / FRICTION - (BRAKE / FRICTION) * t), v: f.dir * (a * e - BRAKE / FRICTION), done: now - f.t0 >= f.T };
 }
 
-export const scrollPos = () =>
-  rig.flip ? Math.max(0, Math.min(rig.N - 1, (window.scrollY - rig.flip.offsetTop) / per())) : 0;
-
-// the page scroll is the drum's position; jumps are instant and the spring in Rolodex.tsx animates the cards
-export function scrollToCard(x: number) {
-  if (!rig.flip) return;
-  window.scrollTo({ top: rig.flip.offsetTop + x * per(), behavior: "instant" });
+// The drum's position is virtual: nothing scrolls. Moves are instant and the spring in Rolodex.tsx animates the cards.
+export function setPos(x: number) {
+  rig.pos = x;
+  rig.lastScroll = performance.now();
 }
-export function jumpTo(i: number) {
+export function jumpTo(x: number) {
   rig.fling = null;
-  scrollToCard(i);
+  setPos(x);
+}
+// where the drum is heading: a coasting flick's card, otherwise pos
+export const heading = () => (rig.fling ? rig.fling.to : rig.pos);
+// bring release i to the front by the nearest of its copies, so it never spins the long way round
+export function jumpToRelease(i: number) {
+  const from = Math.round(heading());
+  jumpTo(from + ringDelta(wrap(from, rig.N), i, rig.N));
 }
 
 // Card layout around the drum, ported exactly from the prototype: the front card stands open,

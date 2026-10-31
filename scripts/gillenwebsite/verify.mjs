@@ -72,16 +72,18 @@ const topEdge = (k) => page.evaluate((k) => {
   return { y: p.y, z: p.z };
 }, k);
 const perPx = () => page.evaluate(() => window.__rolodex.per());
-const flipTop = () => page.evaluate(() => document.getElementById("flip").offsetTop);
+// the drum's position is virtual (no page scroll on home): jump straight to card k
+const jump = (k) => page.evaluate((k) => window.__rolodex.jumpTo(k), k);
 const sNow = () => page.evaluate(() => window.__rolodex.rig.s);
 
-// Direction check, scroll: put card 3 in front, scroll down exactly one `per`, wait 1 s
+// Direction check, wheel: put card 3 in front, one wheel notch down, wait 1 s
 if (want("direction")) {
-  const per = await perPx(), top = await flipTop(), k = 3;
-  await page.evaluate((y) => scrollTo(0, y), top + k * per);
+  const k = 3;
+  await jump(k);
   await settleOn(k);
   const before = await topEdge(k);
-  await page.evaluate((d) => scrollBy(0, d), per);
+  await page.mouse.move(700, 450);
+  await page.mouse.wheel(0, 100);
   await wait(1000);
   const after = await topEdge(k);
   // FLIP_DIR = +1: scrolling down sends the front card's top edge down and away (Y and Z both fall)
@@ -89,8 +91,8 @@ if (want("direction")) {
 }
 // Direction check, drag: 70 px mouse drag down on the front card
 if (want("direction")) {
-  const per = await perPx(), top = await flipTop(), k = 8;
-  await page.evaluate((y) => scrollTo(0, y), top + k * per);
+  const k = 8;
+  await jump(k);
   await settleOn(k);
   const sp = await page.evaluate((k) => {
     const r = window.__rolodex.rig, g = r.cards[k].children[0], V = g.position.constructor;
@@ -109,8 +111,7 @@ if (want("direction")) {
 }
 // Detent: stop scrolling 40 % of the way into a card; s must land on an integer within 0.01 inside 1 s
 if (want("detent")) {
-  const per = await perPx(), top = await flipTop();
-  await page.evaluate((y) => scrollTo(0, y), top + 12.4 * per);
+  await jump(12.4);
   const t0 = Date.now();
   let settled = null, s = 0;
   while (Date.now() - t0 < 1500) {
@@ -123,7 +124,7 @@ if (want("detent")) {
 }
 // Orbit: drag the background 360 degrees (2*PI / 0.008 px) and compare the camera azimuth
 if (want("orbit")) {
-  await page.evaluate(() => scrollTo(0, 0));
+  await jump(0);
   await wait(1200);
   const az0 = await page.evaluate(() => window.__rolodex.rig.camAz);
   const dx = (2 * Math.PI) / 0.008, x0 = 200, y0 = 160;
@@ -138,7 +139,7 @@ if (want("orbit")) {
 }
 // Frame rate: scroll through all cards with the wheel and time every frame
 if (want("fps")) {
-  await page.evaluate(() => scrollTo(0, 0));
+  await jump(0);
   await wait(1000);
   await page.evaluate(() => {
     window.__frames = [];
@@ -167,7 +168,7 @@ if (want("fps")) {
 }
 // Bible rules, from computed styles of every element on the page (the release panel opened so it is measured too)
 if (want("bible")) {
-  await page.evaluate(() => scrollTo(0, 0));
+  await jump(0);
   await wait(800);
   await page.keyboard.press("Enter");
   await wait(1400);
@@ -225,7 +226,7 @@ const summarise = (list) => {
 };
 
 if (want("sources")) {
-  await page.evaluate(() => scrollTo(0, 0));
+  await jump(0);
   await wait(800);
   const home = await crawl(page);
   await page.keyboard.press("Enter"); // the panel opens on the front card
@@ -355,7 +356,7 @@ if (want("sources")) {
 // release, up = next, down = back) and 20 random drags on the front card; after each settles, the caption's
 // release, the Rolodex's front card and the release display must agree.
 if (want("sync")) {
-  await page.evaluate(() => scrollTo(0, 0));
+  await jump(0);
   await wait(1200);
   const settle = async () => {
     for (let t = 0; t < 80; t++) {
@@ -383,14 +384,14 @@ if (want("sync")) {
     for (let i = 1; i <= 8; i++) { await page.mouse.move(cap.x, cap.y + (dy * i) / 8); await wait(16); }
     await page.mouse.up();
     const r = await settle();
-    const want1 = before + (dy < 0 ? 1 : -1);
+    const want1 = (before + (dy < 0 ? 1 : -1) + 36) % 36;
     out.sync.caption.push({ dy: Math.round(dy), from: before, ...r, onePerSwipe: r.rolodex === want1, equal: r.caption === r.rolodex && r.rolodex === r.display });
     before = r.rolodex;
   }
   for (let k = 0; k < 20; k++) {
     // grab the front card at its face and drag vertically (the flip mode); near either end, drag inwards
     const sp = await page.evaluate(() => {
-      const r = window.__rolodex.rig, g = r.cards[r.front].children[0];
+      const r = window.__rolodex.rig, g = r.cards[((Math.round(r.s) % r.TOTAL) + r.TOTAL) % r.TOTAL].children[0];
       const p = g.getWorldPosition(g.position.clone()).project(r.camera);
       return { x: (p.x * 0.5 + 0.5) * innerWidth, y: (-p.y * 0.5 + 0.5) * innerHeight, front: r.front, N: r.N };
     });
@@ -417,7 +418,7 @@ if (want("sync")) {
       }
     });
     mo.observe(document.querySelector("[data-src='17']"), { subtree: true, childList: true, attributes: true });
-    window.scrollBy(0, window.__rolodex.per());
+    window.__rolodex.jumpTo(Math.round(window.__rolodex.rig.pos) + 1);
     await new Promise((r) => setTimeout(r, 900));
     mo.disconnect();
     return [...seen].map((x) => JSON.parse(x));

@@ -22,7 +22,7 @@ async function open(ctxOpts) {
   return { ctx, page };
 }
 const S = (page) => page.evaluate(() => window.__rolodex.rig.s);
-const home = async (page, k = 0) => { await page.evaluate((k) => { window.__rolodex.rig.fling = null; scrollTo({ top: document.getElementById("flip").offsetTop + k * window.__rolodex.per(), behavior: "instant" }); }, k); await wait(700); };
+const home = async (page, k = 0) => { await page.evaluate((k) => window.__rolodex.jumpTo(k), k); await wait(900); };
 // time from now until rig.s stays within 0.01 of an integer, sampled every frame in the page
 const settle = (page) => page.evaluate(() => new Promise((res) => {
   const t0 = performance.now(); let last = t0, coast = null, v0 = window.__rolodex.rig.fling;
@@ -96,7 +96,7 @@ const seenV = (page) => page.evaluate(() => { const p = window.__pm, n = p.lengt
     d.springOneCard.push(await page.evaluate((k) => new Promise((res) => {
       const r = window.__rolodex.rig, t0 = performance.now(), goal = k + 1, xs = [];
       let last = t0, peak = r.s;
-      scrollTo({ top: document.getElementById("flip").offsetTop + goal * window.__rolodex.per(), behavior: "instant" });
+      window.__rolodex.jumpTo(goal);
       const f = () => {
         const now = performance.now();
         xs.push(r.s); peak = Math.max(peak, r.s);
@@ -183,16 +183,16 @@ const seenV = (page) => page.evaluate(() => { const p = window.__pm, n = p.lengt
   const b = await S(page);
   m.flickSeen = await seenV(page);
   m.flick = { pxPerMs: 1.5, carriedCards: r2(Math.abs(b - a) - Math.round(120 / 50)), totalCards: Math.round(Math.abs(b - a)), landsOnInteger: Math.abs(b - Math.round(b)) < 0.01, settleMsAfterRelease: st.ms, ...st };
-  // outside the cards' hit area (the stage below it) a vertical drag still scrolls the page
+  // off the cards' hit area a vertical touch swipe turns the drum per() px a card, and the page itself never scrolls
   await home(page, 5);
   const below = { x: 20, y: Math.min(hr.y + hr.h + 20, 844 - 200) };
   const inHit = below.y >= hr.y && below.y <= hr.y + hr.h && below.x >= hr.x && below.x <= hr.x + hr.w;
-  const y0 = await page.evaluate(() => scrollY);
+  const y0 = await page.evaluate(() => scrollY), sw0 = await S(page);
   await touch("touchStart", below.x, below.y);
   for (let i = 1; i <= 10; i++) { await touch("touchMove", below.x, below.y - i * 10); await wait(16); }
   await touch("touchEnd");
   await wait(800);
-  m.outsideScroll = { at: below, insideHitArea: inHit, pageScrolledPx: Math.round((await page.evaluate(() => scrollY)) - y0) };
+  m.outsideScroll = { at: below, insideHitArea: inHit, swipePx: 100, cards: r2((await page.evaluate(() => window.__rolodex.rig.pos)) - sw0), pageScrolledPx: Math.round((await page.evaluate(() => scrollY)) - y0) };
   await ctx.close();
 }
 

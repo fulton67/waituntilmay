@@ -1,42 +1,42 @@
 {
   "base": "http://localhost:3217",
-  "at": "2026-10-31T05:17:14.820Z",
+  "at": "2026-10-31T05:35:18.190Z",
   "desktop": {
     "scrollPxPerCard": 234,
     "frontPoint": {
-      "x": 479,
+      "x": 487,
       "y": 293
     },
     "lag": {
       "samples": 45,
       "medianMs": 0.5,
-      "p95Ms": 0.8,
+      "p95Ms": 0.7,
       "maxMs": 1
     },
     "drag": {
       "px": 108,
-      "cards": 2.15,
-      "dragPxPerCard": 50.12
+      "cards": 2.16,
+      "dragPxPerCard": 50.03
     },
     "detentHalfCard": {
       "releasedAt": 2.5,
-      "ms": 463,
-      "s": 2.999937571571229
+      "ms": 458,
+      "s": 2.9999374590193604
     },
     "springOneCard": [
       {
         "from": 5,
         "to": 6,
-        "settleMs": 532,
+        "settleMs": 533,
         "peak": 6.0303,
         "overshootCards": 0.0303,
         "pastNextCard": false,
-        "frames": 91
+        "frames": 90
       },
       {
         "from": 6,
         "to": 7,
-        "settleMs": 525,
+        "settleMs": 528,
         "peak": 7.0303,
         "overshootCards": 0.0303,
         "pastNextCard": false,
@@ -48,17 +48,17 @@
         "pxPerMs": 2.5,
         "pageSaw": {
           "moves": 6,
-          "pxPerMsLast80": 2.5
+          "pxPerMsLast80": 2.51
         },
         "dragCards": 2.4,
         "carriedCards": 4,
         "totalCards": 6,
         "landsOnInteger": true,
-        "settleMsAfterRelease": 365,
-        "ms": 365,
+        "settleMsAfterRelease": 364,
+        "ms": 364,
         "flingCardsPerS": 25.5,
         "aimedAt": 8,
-        "coastMs": 365,
+        "coastMs": 364,
         "detentMsAfterCoast": 0,
         "s": 8
       },
@@ -72,11 +72,11 @@
         "carriedCards": 3,
         "totalCards": 5,
         "landsOnInteger": true,
-        "settleMsAfterRelease": 314,
-        "ms": 314,
+        "settleMsAfterRelease": 313,
+        "ms": 313,
         "flingCardsPerS": 20.2,
         "aimedAt": 7,
-        "coastMs": 314,
+        "coastMs": 313,
         "detentMsAfterCoast": 0,
         "s": 7
       },
@@ -90,11 +90,11 @@
         "carriedCards": 1,
         "totalCards": 3,
         "landsOnInteger": true,
-        "settleMsAfterRelease": 164,
-        "ms": 164,
+        "settleMsAfterRelease": 162,
+        "ms": 162,
         "flingCardsPerS": 7.7,
         "aimedAt": 8,
-        "coastMs": 164,
+        "coastMs": 162,
         "detentMsAfterCoast": 0,
         "s": 8
       },
@@ -118,12 +118,12 @@
       }
     ],
     "tapStop": {
-      "at": 6.49,
+      "at": 6.37,
       "wasSpinning": true,
       "stoppedOn": 6,
       "nearest": 6,
-      "ms": 526,
-      "s": 6.000076905781585,
+      "ms": 515,
+      "s": 6.000059791641257,
       "panelOpened": false
     },
     "wheel": {
@@ -134,9 +134,9 @@
     },
     "keys": {
       "tapCards": 1.01,
-      "heldMs": 1018,
-      "heldCards": 7,
-      "cardsPerSecond": 5.89
+      "heldMs": 1008,
+      "heldCards": 7.99,
+      "cardsPerSecond": 6.93
     }
   },
   "phone": {
@@ -151,7 +151,7 @@
     "drag": {
       "px": 108,
       "cards": 2.16,
-      "dragPxPerCard": 50.03,
+      "dragPxPerCard": 50.04,
       "pointercancel": 0
     },
     "flickSeen": {
@@ -163,13 +163,13 @@
       "carriedCards": 3,
       "totalCards": 5,
       "landsOnInteger": true,
-      "settleMsAfterRelease": 315,
-      "ms": 315,
+      "settleMsAfterRelease": 314,
+      "ms": 314,
       "flingCardsPerS": 20.2,
       "aimedAt": 7,
-      "coastMs": 315,
+      "coastMs": 314,
       "detentMsAfterCoast": 0,
-      "s": 7.000004005938064
+      "s": 7
     },
     "outsideScroll": {
       "at": {
@@ -177,7 +177,9 @@
         "y": 488
       },
       "insideHitArea": false,
-      "pageScrolledPx": 85
+      "swipePx": 100,
+      "cards": 0.45,
+      "pageScrolledPx": 0
     }
   }
 }
