@@ -118,15 +118,19 @@ function flatten(roots: THREE.Object3D[], darkParts: Set<string>) {
   const ink = new THREE.LineBasicMaterial({ color: "#000000" });
   let lines = 0;
   const meshes: THREE.Mesh[] = [];
-  for (const r of roots) r.traverse((o) => { if ((o as THREE.Mesh).isMesh && o.visible) meshes.push(o as THREE.Mesh); });
+  for (const r of roots) r.traverse((o) => { if ((o as THREE.Mesh).isMesh && o.visible && !o.userData.outline) meshes.push(o as THREE.Mesh); });
   for (const m of meshes) {
     m.material = darkParts.has(m.name) ? dark : light;
     m.castShadow = m.receiveShadow = false;
+    // useGLTF caches the scene, so a remount (leaving the home page and coming back) finds the last outline still
+    // attached: drop it before adding this one
+    for (const c of m.children.filter((c) => c.userData.outline)) { m.remove(c); if (c instanceof THREE.LineSegments) c.geometry.dispose(); }
     const e = new THREE.LineSegments(creaseEdges(m.geometry, 20), ink);
     e.raycast = () => {}; // outlines are not hit targets
     lines += e.geometry.attributes.position.count / 2;
     const h = new THREE.Mesh(m.geometry, hull);
     h.raycast = () => {};
+    e.userData.outline = h.userData.outline = true;
     m.add(e, h);
   }
   return lines;
@@ -248,27 +252,35 @@ export default function Rolodex({ releases, mono, look, photo }: { releases: Rel
     return { house, axis, knobs, drum, cradle, cards, faces, meshes, triangles, outlineSegments };
   }, [gltf, releases, TOTAL, TEX_SCALE, look, photo]);
 
-  // paint faces once the card font is ready, then again as each cover arrives
+  // Paint faces once the card font is ready, then again as each cover arrives. Every repaint re-uploads a
+  // 2048 x 1478 texture with mipmaps (about 16 MB), and when several covers land together the uploads stacked into
+  // 1-2 s frames on the live site. So paints go through a queue drained one face per frame, nearest the front card
+  // first; a face waiting for its blank paint skips straight to its cover if the cover has arrived.
+  const queue = useMemo(() => new Map<number, HTMLImageElement | null>(), []); // cleared whenever the faces are rebuilt
   useEffect(() => {
     let live = true;
     (async () => {
       await Promise.all([`400 36px ${mono}`, `italic 400 30px ${mono}`].map((f) => document.fonts.load(f).catch(() => null)));
-      for (const f of built.faces) {
-        paintCard(f.ctx, f.r, f.i, f.slot, null, mono);
-        f.tex.needsUpdate = true;
-        if (f.i === 0 && !f.r.cover) rig.firstCardTexture = true;
-      }
-      await Promise.all(built.faces.map(async (f) => {
+      if (!live) return;
+      built.faces.forEach((f, k) => { if (!queue.has(k)) queue.set(k, null); });
+      await Promise.all(built.faces.map(async (f, k) => {
         // the 1080 copy: the cover is 350 units on the face, 700 px at 2x, so it is never scaled up
         const img = await loadCover(coverAt(f.r, 1080));
-        if (!live || !img) return;
-        paintCard(f.ctx, f.r, f.i, f.slot, img, mono);
-        f.tex.needsUpdate = true;
-        if (f.i === 0) rig.firstCardTexture = true;
+        if (live && img) queue.set(k, img);
       }));
     })();
-    return () => { live = false; };
-  }, [built, mono]);
+    return () => { live = false; queue.clear(); };
+  }, [built, mono, queue]);
+  const paintNext = () => {
+    if (!queue.size) return;
+    let pick = -1, best = Infinity;
+    for (const k of queue.keys()) { const d = Math.abs(built.faces[k].i - rig.s); if (d < best) { best = d; pick = k; } }
+    const img = queue.get(pick)!, f = built.faces[pick];
+    queue.delete(pick);
+    paintCard(f.ctx, f.r, f.i, f.slot, img, mono);
+    f.tex.needsUpdate = true;
+    if (f.i === 0 && (img || !f.r.cover)) rig.firstCardTexture = true;
+  };
 
   useEffect(() => {
     rig.N = N; rig.TOTAL = TOTAL; rig.axisY = built.axis.y; rig.cards = built.cards; rig.knobs = built.knobs;
@@ -282,6 +294,7 @@ export default function Rolodex({ releases, mono, look, photo }: { releases: Rel
   const angle = useMemo(() => makeAngle(TOTAL), [TOTAL]);
   useFrame((state, delta) => {
     state.gl.getDrawingBufferSize(OUTLINE_RES.value); // the 1 px silhouette is sized in device pixels
+    paintNext();
     const dt = Math.min(delta, 1 / 30), raw = scrollPos();
     // settle on a card like the real ratchet once scrolling stops
     const goal = performance.now() - rig.lastScroll > 160 && !rig.drag ? Math.round(raw) : raw;
