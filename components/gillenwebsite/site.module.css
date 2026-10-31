@@ -207,18 +207,24 @@
 .aboutText { font-size: 20px !important; line-height: 1.3; max-width: 62ch; margin: 0 0 12px !important; }
 /* SOURCES #20 shortnotice client list: 26px / 31.2px, "," and <br> between items */
 .index { width: 62%; padding: 28px 20px 50vh; }
-/* one line per entry at any width: the artist — title takes --fit (set by AboutIndex fitLines), the rest stays */
-.index:not([data-fitted]) { visibility: hidden; }
-.indexRow { --lh: 31.2px; display: flex; align-items: baseline; white-space: nowrap; font-size: 26px; line-height: var(--lh); height: var(--lh); }
-.indexTitle { font-size: var(--fit, inherit); line-height: var(--lh); flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
-.indexComma { font-size: var(--fit, inherit); flex: none; }
-.index[data-measuring] .indexTitle { flex: none; }
-.indexRole { max-width: var(--role-max, none); overflow: hidden; text-overflow: ellipsis; }
+/* every title one line at one size: number | title | a fixed column for year and role, so nothing collides */
+.indexRow { display: grid; grid-template-columns: auto minmax(0, 1fr) 210px; column-gap: 8px; align-items: baseline; font-size: 26px; line-height: 31.2px; }
+.indexTitle { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; container-type: inline-size; }
 .root .indexRow:hover { opacity: 1; }
-.indexNo, .indexMeta { flex: none; font-size: 12px; line-height: 1; position: relative; top: -0.55em; }
-.indexNo { margin-right: 8px; }
-.indexMeta { margin-left: 8px; }
-.indexOn .indexTitle { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.indexNo, .indexMeta { font-size: 12px; line-height: 1.2; position: relative; top: -0.55em; }
+.indexNo { white-space: nowrap; }
+.indexOn .indexTitleText { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+/* a cut title runs left once at 60 px/s, holds 0.6 s, and comes back at the same speed. --run grows 60 px a
+   second; the offset is min(--run, 2·over + 36px − --run), held between 0 and over, where over = the text's width
+   (100%) less its box's (100cqw). A title that fits has over = 0 and never moves. */
+@property --run { syntax: "<length>"; inherits: false; initial-value: 0px; }
+@keyframes titleRun { to { --run: 6000px; } }
+/* (the transform only takes once the text is an inline-block, i.e. while it runs) */
+.indexTitleText { transform: translateX(calc(-1 * clamp(0px, min(var(--run), 2 * max(0px, 100% - 100cqw) + 36px - var(--run)), max(0px, 100% - 100cqw)))); }
+@media (hover: hover) {
+  .indexRow:hover .indexTitle, .indexRow:focus-visible .indexTitle { text-overflow: clip; }
+  .indexRow:hover .indexTitleText, .indexRow:focus-visible .indexTitleText { display: inline-block; animation: titleRun 100s linear forwards; }
+}
 /* shortnotice thumb-mo-image-no-transition: the image is swapped by visibility, with no transition */
 .indexCover { position: fixed; right: 20px; top: calc(var(--head) + 26vh); width: min(30vw, 44vh); aspect-ratio: 1; z-index: 2; }
 .moThumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: none; }
@@ -246,7 +252,11 @@
   .disco { grid-template-columns: 1fr; }
   .discoSide { position: static; order: -1; padding: 0 16px 16px; }
   .index { width: 100%; padding: 20px 16px 60vh; }
-  .indexRow { --lh: 24px; font-size: 20px; }
+  /* phones: the number in front of the title, the year and role on their own small line under it */
+  .indexRow { grid-template-columns: auto minmax(0, 1fr); font-size: 17px; line-height: 22px; padding-bottom: 6px; }
+  .indexMeta { grid-column: 2; font-size: 11px; line-height: 13px; top: 0; }
+  .indexOn .indexTitle { text-overflow: clip; }
+  .indexOn .indexTitleText { display: inline-block; animation: titleRun 100s linear forwards; }
   .indexCover { top: auto; bottom: 16px; right: 16px; width: 34vw; }
   .indexCaption { display: none; }
   .indexLines { display: none; }
