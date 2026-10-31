@@ -7,7 +7,7 @@ import type * as THREE from "three";
 // A drag down on a card scrolls the other way, so the card face follows the pointer.
 export const FLIP_DIR = 1;
 
-export type Drag = { x: number; y: number; sy: number; az: number; el: number; mode: "flip" | "orbit" | "strip" };
+export type Drag = { x: number; y: number; sy: number; az: number; el: number; mode: "flip" | "orbit" };
 
 export type Rig = {
   N: number;
@@ -31,8 +31,6 @@ export type Rig = {
   firstCardTexture: boolean; // card 1's face has been painted onto its texture
   ready: boolean;
   axisY: number; // height of the drum axis, from knob_right's bounding box
-  stripS: number; // the cover strip's position as drawn, easing towards s
-  strip: { meshes: THREE.Object3D[]; labels: THREE.Object3D[]; pos: number; pitch: number; camera?: THREE.PerspectiveCamera } | null;
   view: { x: number; y: number }; // where the drum is drawn on the stage, in CSS px from its top left (camera view offset)
 };
 
@@ -58,8 +56,6 @@ export const rig: Rig = {
   firstCardTexture: false,
   ready: false,
   axisY: 0.585,
-  stripS: 0,
-  strip: null,
   view: { x: 0, y: 0 },
 };
 

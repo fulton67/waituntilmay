@@ -1,6 +1,6 @@
 "use client";
-// Dylan Neustadter, home: the Rolodex, the release display beside it, and the cover strip under both. Scroll
-// drives the drum (BUILD.md). Every component names its row in docs/gillenwebsite/SOURCES.md.
+// Dylan Neustadter, home: the Rolodex, the release display beside it, and the caption block under the drum.
+// Scroll drives the drum (BUILD.md). Every component names its row in docs/gillenwebsite/SOURCES.md.
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import * as THREE from "three";
@@ -8,7 +8,6 @@ import type { Release } from "@/lib/gillenwebsite/discography";
 import { rig, per, jumpTo, scrollPos, FLIP_DIR } from "./rig";
 import { usePanel } from "./Chrome";
 import ReleaseView from "./ReleaseView";
-import { stripPx } from "./Strip";
 import { no3, coverAt, caps } from "./shared";
 import css from "./site.module.css";
 
@@ -67,6 +66,77 @@ function useScreensaver(N: number) {
   return count;
 }
 
+// SOURCES #17: the caption block. A swipe or drag up on it goes to the next release and down goes back, one per
+// gesture; a move under luckydaye.com's 5 px threshold is a click, and 24 px commits the swipe. The drum's ratchet
+// is the detent. It shares the Rolodex's index: the block follows rig.front, and a swipe scrolls the page. On a
+// change the old block slides out and the new one in over 320 ms on the About reveal's ease curve (SOURCES #19),
+// upwards for the next release and downwards for the one before. A tap on the thumbnail opens the large-cover panel.
+function Caption({ releases, front, onStep, onOpen, children }: { releases: Release[]; front: number; onStep: (k: number) => void; onOpen: (i: number) => void; children: React.ReactNode }) {
+  const [pair, setPair] = useState<{ cur: number; prev: number | null }>({ cur: front, prev: null });
+  if (pair.cur !== front) setPair({ cur: front, prev: pair.cur });
+  const dir = pair.prev !== null && pair.prev > pair.cur ? "Down" : "Up";
+  const g = useRef<{ y: number; id: number; dy: number } | null>(null);
+  const stack = useRef<HTMLDivElement>(null);
+  const item = (i: number, cls: string, onEnd?: () => void) => {
+    const r = releases[i];
+    return (
+      <div key={(onEnd ? "out" : "in") + i} className={css.capItem + " " + cls} onAnimationEnd={onEnd} data-release={r.id}>
+        <button
+          type="button"
+          className={css.capThumb}
+          data-src="12"
+          aria-label={"Open " + r.artist + ", " + r.release}
+          onClick={() => { if (!g.current || Math.abs(g.current.dy) <= 5) onOpen(i); }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element -- 512 copy shown at 64 px */}
+          {r.cover ? <img className={css.thumb} src={coverAt(r, 512)} alt="" width={64} height={64} draggable={false} /> : <span className={css.thumb} />}
+        </button>
+        <span className={css.capText}>
+          <span className={css.capArtist}>{r.artist}</span>
+          <span>{r.release} [{r.year}]</span>
+          <span>{caps(r.role)}</span>
+        </span>
+      </div>
+    );
+  };
+  const lean = (px: number) => { if (stack.current) stack.current.style.transform = px ? "translateY(" + px + "px)" : ""; };
+  return (
+    <div
+      className={css.cap}
+      data-src="17"
+      onPointerDown={(e) => { g.current = { y: e.clientY, id: e.pointerId, dy: 0 }; }}
+      onPointerMove={(e) => {
+        const s = g.current;
+        if (!s || s.id !== e.pointerId) return;
+        s.dy = e.clientY - s.y;
+        // past 5 px it is a swipe: capture the pointer (only now, so a click still reaches the thumbnail) and lean
+        // the block a third of the way with it, up to 24 px, until the swipe commits
+        if (Math.abs(s.dy) > 5) {
+          if (!e.currentTarget.hasPointerCapture(e.pointerId)) e.currentTarget.setPointerCapture(e.pointerId);
+          lean(Math.max(-24, Math.min(24, s.dy / 3)));
+        }
+      }}
+      onPointerUp={() => {
+        const s = g.current;
+        lean(0);
+        if (!s) return;
+        if (Math.abs(s.dy) >= 24) onStep(s.dy < 0 ? 1 : -1);
+        // the thumbnail's click fires after pointerup and reads g.current, so it is cleared on the next tick
+        setTimeout(() => { if (g.current === s) g.current = null; }, 0);
+      }}
+      onPointerCancel={() => { g.current = null; lean(0); }}
+    >
+      <div className={css.capClip}>
+        <div ref={stack} className={css.capStack}>
+          {pair.prev !== null && pair.prev !== pair.cur && item(pair.prev, css["capOut" + dir], () => setPair((p) => ({ ...p, prev: null })))}
+          {item(pair.cur, pair.prev !== null ? css["capIn" + dir] : "")}
+        </div>
+      </div>
+      {children}
+    </div>
+  );
+}
+
 export default function Site({ releases, mono }: { releases: Release[]; mono: string }) {
   const N = releases.length;
   const flip = useRef<HTMLDivElement>(null);
@@ -90,9 +160,9 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
       setPerPx(per());
       rig.wide = mq.matches;
       setWide(mq.matches);
-      const W = innerWidth, H = innerHeight, band = stripPx(mq.matches).band;
-      // desktop: the drum in the left column, between the header and the strip; phones: the upper half
-      rig.view = mq.matches ? { x: Math.min(300, W * 0.2), y: 56 + (H - band - 56) * 0.5 } : { x: W / 2, y: 64 + (H - band - 64) * 0.36 };
+      const W = innerWidth, H = innerHeight, bottom = mq.matches ? 130 : 150; // the caption block's band
+      // desktop: the drum in the left column, between the header and the caption; phones: above the caption
+      rig.view = mq.matches ? { x: Math.min(300, W * 0.2), y: 56 + (H - bottom - 56) * 0.5 } : { x: W / 2, y: 64 + (H - bottom - 64) * 0.42 };
     };
     size();
     const onScroll = () => { rig.lastScroll = performance.now(); };
@@ -133,52 +203,31 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
     return () => removeEventListener("keydown", onKey);
   }, [N, open]);
 
-  // pointer: in the strip band a drag spins the strip (by scrolling the page, so the Rolodex follows) and a
-  // click picks a cover; on a card a drag flips it; anywhere else a drag turns the Rolodex.
-  // SOURCES #17: the 5 px click/drag threshold and the grab / grabbing / pointer cursors are luckydaye.com's.
+  // pointer: on a card a drag flips it; anywhere else a drag turns the Rolodex.
+  // SOURCES #17: the 5 px click/drag threshold and the grab / grabbing cursors are luckydaye.com's.
   const ray = useMemo(() => new THREE.Raycaster(), []);
   const pointer = useMemo(() => new THREE.Vector2(), []);
   const moved = useRef(0);
-  const ndc = (e: React.PointerEvent) => {
-    const b = stage.current!.getBoundingClientRect();
-    pointer.set(((e.clientX - b.left) / b.width) * 2 - 1, -((e.clientY - b.top) / b.height) * 2 + 1);
-  };
-  const inStrip = (e: React.PointerEvent) => {
-    const b = stage.current!.getBoundingClientRect();
-    return e.clientY > b.bottom - stripPx(rig.wide).band;
-  };
   const hitCard = (e: React.PointerEvent) => {
     if (!rig.camera || !stage.current) return null;
-    ndc(e);
+    const b = stage.current.getBoundingClientRect();
+    pointer.set(((e.clientX - b.left) / b.width) * 2 - 1, -((e.clientY - b.top) / b.height) * 2 + 1);
     ray.setFromCamera(pointer, rig.camera);
     return ray.intersectObjects(rig.cards, true)[0] ?? null;
   };
-  const hitStrip = (e: React.PointerEvent) => {
-    const st = rig.strip;
-    if (!st?.camera || !stage.current) return null;
-    ndc(e);
-    ray.setFromCamera(pointer, st.camera);
-    return ray.intersectObjects([...st.meshes, ...st.labels].filter((m) => m.parent?.visible), false)[0] ?? null;
-  };
   const onDown = (e: React.PointerEvent) => {
-    const mode = inStrip(e) ? "strip" : e.pointerType === "mouse" && hitCard(e) ? "flip" : "orbit";
+    const mode = e.pointerType === "mouse" && hitCard(e) ? "flip" : "orbit";
     rig.drag = { x: e.clientX, y: e.clientY, sy: scrollY, az: rig.az, el: rig.el, mode };
     moved.current = 0;
     stage.current?.setPointerCapture(e.pointerId);
   };
   const onMove = (e: React.PointerEvent) => {
     const d = rig.drag;
-    if (!d) {
-      if (stage.current) stage.current.style.cursor = inStrip(e) ? (hitStrip(e) ? "pointer" : "grab") : "";
-      return;
-    }
+    if (!d) return;
     const dx = e.clientX - d.x, dy = e.clientY - d.y;
     moved.current = Math.max(moved.current, Math.hypot(dx, dy));
     if (moved.current > 5) stage.current?.classList.add(css.dragging);
-    if (d.mode === "strip") {
-      // a drag of one pitch moves one release: the strip follows the pointer, the Rolodex follows the strip
-      if (moved.current > 5) scrollTo(0, d.sy - (dx * per()) / (rig.strip?.pitch ?? 300));
-    } else if (d.mode === "flip") scrollTo(0, d.sy - FLIP_DIR * dy * per() / 70); // the card surface follows the pointer
+    if (d.mode === "flip") scrollTo(0, d.sy - FLIP_DIR * dy * per() / 70); // the card surface follows the pointer
     else {
       rig.az = d.az - dx * 0.008;
       if (e.pointerType === "mouse") rig.el = Math.max(0.04, Math.min(1.2, d.el + dy * 0.005));
@@ -188,13 +237,7 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
     stage.current?.classList.remove(css.dragging);
     const d = rig.drag, click = d && moved.current <= 5;
     rig.drag = null;
-    if (!d) return;
-    if (d.mode === "strip") {
-      if (click) { const h = hitStrip(e); if (h) jumpTo(h.object.userData.i as number); }
-      else jumpTo(Math.max(0, Math.min(N - 1, Math.round(scrollPos())))); // one cover snaps to the centre
-      return;
-    }
-    if (!click) return;
+    if (!d || !click) return;
     const h = hitCard(e);
     if (!h) return;
     const i = h.object.userData.i as number;
@@ -203,7 +246,14 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
   };
   const onCancel = () => { stage.current?.classList.remove(css.dragging); rig.drag = null; };
 
-  const step = useCallback((k: number) => jumpTo(Math.max(0, Math.min(N - 1, Math.round(scrollPos()) + k))), [N]);
+  // one release per swipe or arrow: while a smooth scroll is still running, step from where it is heading
+  const last = useRef({ t: 0, i: 0 });
+  const step = useCallback((k: number) => {
+    const base = performance.now() - last.current.t < 700 ? last.current.i : Math.round(scrollPos());
+    const i = Math.max(0, Math.min(N - 1, base + k));
+    last.current = { t: performance.now(), i };
+    jumpTo(i);
+  }, [N]);
   const r = releases[front];
 
   return (
@@ -213,7 +263,7 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
         <div
           ref={stage}
           className={css.stage}
-          data-src="11 17 18"
+          data-src="11 17"
           onPointerDown={onDown}
           onPointerMove={onMove}
           onPointerUp={onUp}
@@ -232,27 +282,16 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
           </div>
         )}
 
-        <div className={css.cap}>
-          {!wide && r && (
-            <button type="button" className={css.capMain} data-src="12" onClick={() => open(front)}>
-              {/* eslint-disable-next-line @next/next/no-img-element -- 512 copy shown at 64 px */}
-              {r.cover && <img className={css.thumb} src={coverAt(r, 512)} alt="" width={64} height={64} />}
-              <span>
-                <span className={css.capArtist}>{r.artist}</span>
-                <span>{r.release} [{r.year}]</span>
-                <span>{caps(r.role)}</span>
-              </span>
-            </button>
-          )}
+        <Caption releases={releases} front={front} onStep={step} onOpen={open}>
           {/* SOURCES #09 viscosesyllabus.com "001." index numbers; SOURCES #29 the screensaver counts down in the same slot */}
           <div className={css.count} data-src="09">
             {saver !== null && saver > 0
               ? <span className={css.countdown} data-src="29">{String(saver).padStart(2, "0")}</span>
               : <span>{no3(counted + 1)} / {no3(N)}</span>}
             {/* SOURCES #10 woodrowcommunications.com M5: typed capitals as labels */}
-            <span className={css.hint} data-src="10">SCROLL TO FLIP · DRAG TO TURN · DRAG THE STRIP</span>
+            <span className={css.hint} data-src="10">SCROLL TO FLIP · DRAG TO TURN · SWIPE THE CAPTION</span>
           </div>
-        </div>
+        </Caption>
       </div>
     </div>
   );
