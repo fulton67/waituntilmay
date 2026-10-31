@@ -1,64 +1,84 @@
 {
   "base": "https://waituntilmay.com",
-  "at": "2026-10-31T04:48:24.295Z",
+  "at": "2026-10-31T05:23:15.276Z",
   "desktop": {
-    "scrollPxPerCard": 144,
+    "scrollPxPerCard": 234,
     "frontPoint": {
-      "x": 291,
-      "y": 275
+      "x": 481,
+      "y": 293
     },
     "lag": {
-      "samples": 45,
-      "medianMs": 0.5,
-      "p95Ms": 0.9,
-      "maxMs": 1
+      "samples": 39,
+      "medianMs": 0.6,
+      "p95Ms": 0.8,
+      "maxMs": 0.9
     },
     "drag": {
       "px": 108,
-      "cards": 3,
-      "dragPxPerCard": 36
+      "cards": 2.18,
+      "dragPxPerCard": 49.57
     },
     "detentHalfCard": {
       "releasedAt": 2.5,
-      "ms": 182,
-      "s": 2.9999659193706787
+      "ms": 457,
+      "s": 2.999915854831868
     },
-    "flicks": [
+    "springOneCard": [
       {
-        "pxPerMs": 1.5,
-        "pageSaw": {
-          "moves": 10,
-          "pxPerMsLast80": 1.5
-        },
-        "dragCards": 3.33,
-        "carriedCards": 6.67,
-        "totalCards": 10,
-        "landsOnInteger": true,
-        "settleMsAfterRelease": 464,
-        "ms": 464,
-        "flingCardsPerS": 40.6,
-        "aimedAt": 12,
-        "coastMs": 464,
-        "detentMsAfterCoast": 0,
-        "s": 12
+        "from": 5,
+        "to": 6,
+        "settleMs": 527,
+        "peak": 6.0303,
+        "overshootCards": 0.0303,
+        "pastNextCard": false,
+        "frames": 91
       },
+      {
+        "from": 6,
+        "to": 7,
+        "settleMs": 532,
+        "peak": 7.0303,
+        "overshootCards": 0.0303,
+        "pastNextCard": false,
+        "frames": 91
+      }
+    ],
+    "flicks": [
       {
         "pxPerMs": 2.5,
         "pageSaw": {
-          "moves": 12,
+          "moves": 6,
           "pxPerMsLast80": 2.5
         },
-        "dragCards": 3.33,
-        "carriedCards": 9.67,
-        "totalCards": 13,
+        "dragCards": 2.4,
+        "carriedCards": 4,
+        "totalCards": 6,
         "landsOnInteger": true,
-        "settleMsAfterRelease": 527,
-        "ms": 527,
-        "flingCardsPerS": 54.5,
-        "aimedAt": 15,
-        "coastMs": 527,
+        "settleMsAfterRelease": 363,
+        "ms": 363,
+        "flingCardsPerS": 25.5,
+        "aimedAt": 8,
+        "coastMs": 363,
         "detentMsAfterCoast": 0,
-        "s": 15
+        "s": 8
+      },
+      {
+        "pxPerMs": 1.5,
+        "pageSaw": {
+          "moves": 20,
+          "pxPerMsLast80": 1.5
+        },
+        "dragCards": 2.4,
+        "carriedCards": 3,
+        "totalCards": 5,
+        "landsOnInteger": true,
+        "settleMsAfterRelease": 314,
+        "ms": 314,
+        "flingCardsPerS": 20.2,
+        "aimedAt": 7,
+        "coastMs": 314,
+        "detentMsAfterCoast": 0,
+        "s": 7
       },
       {
         "pxPerMs": 0.6,
@@ -66,17 +86,17 @@
           "moves": 75,
           "pxPerMsLast80": 0.6
         },
-        "dragCards": 3.33,
-        "carriedCards": 1.67,
-        "totalCards": 5,
+        "dragCards": 2.4,
+        "carriedCards": 1,
+        "totalCards": 3,
         "landsOnInteger": true,
-        "settleMsAfterRelease": 262,
-        "ms": 262,
-        "flingCardsPerS": 14.9,
-        "aimedAt": 10,
-        "coastMs": 262,
+        "settleMsAfterRelease": 164,
+        "ms": 164,
+        "flingCardsPerS": 7.7,
+        "aimedAt": 8,
+        "coastMs": 164,
         "detentMsAfterCoast": 0,
-        "s": 10
+        "s": 8
       },
       {
         "pxPerMs": 0.45,
@@ -84,54 +104,54 @@
           "moves": 132,
           "pxPerMsLast80": 0.45
         },
-        "dragCards": 3.33,
-        "carriedCards": 1.67,
-        "totalCards": 5,
+        "dragCards": 2.4,
+        "carriedCards": 1,
+        "totalCards": 3,
         "landsOnInteger": true,
-        "settleMsAfterRelease": 264,
-        "ms": 264,
-        "flingCardsPerS": 14.9,
-        "aimedAt": 10,
-        "coastMs": 264,
+        "settleMsAfterRelease": 164,
+        "ms": 164,
+        "flingCardsPerS": 7.7,
+        "aimedAt": 8,
+        "coastMs": 164,
         "detentMsAfterCoast": 0,
-        "s": 10
+        "s": 8
       }
     ],
     "tapStop": {
-      "at": 9.56,
+      "at": 6.37,
       "wasSpinning": true,
-      "stoppedOn": 10,
-      "nearest": 10,
-      "ms": 264,
-      "s": 10.000018158538548,
+      "stoppedOn": 6,
+      "nearest": 6,
+      "ms": 521,
+      "s": 6.0000814967918075,
       "panelOpened": false
     },
     "wheel": {
-      "oneNotchCards": 1,
-      "threeNotchesCards": 3,
-      "trackpadPx": 144,
-      "trackpadCards": 1
+      "oneNotchCards": 1.01,
+      "threeNotchesCards": 3.02,
+      "trackpadPx": 234,
+      "trackpadCards": 0.98
     },
     "keys": {
-      "tapCards": 1,
-      "heldMs": 1002,
-      "heldCards": 9,
-      "cardsPerSecond": 7.98
+      "tapCards": 1.01,
+      "heldMs": 1004,
+      "heldCards": 7.99,
+      "cardsPerSecond": 6.96
     }
   },
   "phone": {
-    "scrollPxPerCard": 135.04,
+    "scrollPxPerCard": 219.44,
     "hitArea": {
       "x": 70,
-      "y": 140,
+      "y": 233,
       "w": 247,
       "h": 235,
       "touchAction": "none"
     },
     "drag": {
       "px": 108,
-      "cards": 3,
-      "dragPxPerCard": 36,
+      "cards": 2.16,
+      "dragPxPerCard": 50.03,
       "pointercancel": 0
     },
     "flickSeen": {
@@ -140,21 +160,21 @@
     },
     "flick": {
       "pxPerMs": 1.5,
-      "carriedCards": 6.67,
-      "totalCards": 10,
+      "carriedCards": 3,
+      "totalCards": 5,
       "landsOnInteger": true,
-      "settleMsAfterRelease": 463,
-      "ms": 463,
-      "flingCardsPerS": 40.6,
-      "aimedAt": 12,
-      "coastMs": 463,
+      "settleMsAfterRelease": 316,
+      "ms": 316,
+      "flingCardsPerS": 20.2,
+      "aimedAt": 7,
+      "coastMs": 316,
       "detentMsAfterCoast": 0,
-      "s": 12.000034071637153
+      "s": 7.0000040226449425
     },
     "outsideScroll": {
       "at": {
         "x": 20,
-        "y": 395
+        "y": 488
       },
       "insideHitArea": false,
       "pageScrolledPx": 85
