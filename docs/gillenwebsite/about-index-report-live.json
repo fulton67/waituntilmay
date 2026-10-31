@@ -1,0 +1,69 @@
+{
+  "base": "https://waituntilmay.com",
+  "at": "2026-10-31T09:46:49.470Z",
+  "widths": {
+    "390": {
+      "entries": 36,
+      "titleFontSizes": [
+        17
+      ],
+      "sameFontSize": true,
+      "tallerThanOneLine": [],
+      "ellipsised": [
+        "003 Arlo Parks, John Glacier — Floette Ft. John Glacier (over by 59px)",
+        "009 Luke Titus — From What Was Will Grow A Flower (over by 48px)",
+        "015 Teezo Touchdown — How Do You Sleep At Night? With You (over by 125px)",
+        "021 Red Hot Chili Peppers — Return of the Dream Canteen (over by 89px)",
+        "029 Neil Young & Crazy Horse — Shut It Down 2020 (over by 36px)",
+        "036 The Smashing Pumpkins — Shiny and Oh So Bright, Vol. 1: No Past. No Future. No Sun (over by 338px)"
+      ],
+      "metaPx": [
+        11
+      ],
+      "metaCollides": 0,
+      "metaOnOwnLine": true,
+      "run": {
+        "title": "036 The Smashing Pumpkins — Shiny and Oh So Bright, Vol. 1: No Past. No Future. No Sun",
+        "overflowPx": 338,
+        "peakPx": 337.9,
+        "outPxPerS": 60.2,
+        "holdMs": 584,
+        "backPxPerS": 59.8,
+        "endsAt0": true,
+        "totalMs": 12206
+      },
+      "cls": 0,
+      "shifts": []
+    },
+    "1440": {
+      "entries": 36,
+      "titleFontSizes": [
+        26
+      ],
+      "sameFontSize": true,
+      "tallerThanOneLine": [],
+      "ellipsised": [
+        "015 Teezo Touchdown — How Do You Sleep At Night? With You (over by 96px)",
+        "021 Red Hot Chili Peppers — Return of the Dream Canteen (over by 42px)",
+        "036 The Smashing Pumpkins — Shiny and Oh So Bright, Vol. 1: No Past. No Future. No Sun (over by 422px)"
+      ],
+      "metaPx": [
+        12
+      ],
+      "metaCollides": 0,
+      "metaOnOwnLine": false,
+      "run": {
+        "title": "036 The Smashing Pumpkins — Shiny and Oh So Bright, Vol. 1: No Past. No Future. No Sun",
+        "overflowPx": 422,
+        "peakPx": 422.2,
+        "outPxPerS": 60,
+        "holdMs": 583,
+        "backPxPerS": 59.9,
+        "endsAt0": true,
+        "totalMs": 14990
+      },
+      "cls": 0,
+      "shifts": []
+    }
+  }
+}
