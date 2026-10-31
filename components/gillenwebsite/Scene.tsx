@@ -9,7 +9,7 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { rig } from "./rig";
 import Rolodex from "./Rolodex";
-import Panel from "./Panel";
+import Strip from "./Strip";
 
 function Environment() {
   const { gl, scene } = useThree();
@@ -71,8 +71,9 @@ function Lights() {
   );
 }
 
-// Orbit camera. Looks at the drum axis; on wide screens the look point moves right so the Rolodex
-// and the detail panel share the frame.
+// Orbit camera. It looks at the drum axis; a view offset then moves the drum to rig.view on the stage (the left
+// column on desktop, the upper half on phones). Orbiting and raycasts are unchanged, because the offset is part
+// of the projection.
 function CameraRig() {
   const { camera, size } = useThree();
   useEffect(() => { rig.camera = camera as THREE.PerspectiveCamera; }, [camera]);
@@ -80,24 +81,26 @@ function CameraRig() {
   useFrame((_, delta) => {
     const dt = Math.min(delta, 1 / 30);
     const aspect = size.width / size.height;
-    // BUILD.md: 2.3, or 3.9 when aspect < 0.8; pulled back on wide screens so the detail panel fits beside the drum
-    const dist = aspect < 0.8 ? 3.9 : rig.wide ? (aspect < 1.3 ? 3.6 : 2.9) : 2.3;
+    // BUILD.md: 2.3, or 3.9 when aspect < 0.8; pulled back on desktop where the drum shares the stage with the cover
+    const dist = aspect < 0.8 ? 3.9 : rig.wide ? 3.3 : 2.3;
     const kf = rig.reduce ? 1 : 1 - Math.exp(-10 * dt);
     rig.camAz += (rig.az - rig.camAz) * kf;
     rig.camEl += (rig.el - rig.camEl) * kf;
-    const shift = rig.wide ? 0.4 : 0;
-    target.set(Math.cos(rig.camAz) * shift, rig.axisY - 0.035, -Math.sin(rig.camAz) * shift);
+    target.set(0, rig.axisY - 0.035, 0);
     camera.position.set(
       target.x + Math.sin(rig.camAz) * Math.cos(rig.camEl) * dist,
       target.y + Math.sin(rig.camEl) * dist,
       target.z + Math.cos(rig.camAz) * Math.cos(rig.camEl) * dist
     );
     camera.lookAt(target);
+    const cam = camera as THREE.PerspectiveCamera, W = size.width, H = size.height;
+    const ox = W / 2 - rig.view.x, oy = H / 2 - rig.view.y;
+    if (!cam.view || cam.view.offsetX !== ox || cam.view.offsetY !== oy || cam.view.fullWidth !== W || cam.view.fullHeight !== H) cam.setViewOffset(W, H, ox, oy, W, H);
   });
   return null;
 }
 
-export default function Scene({ releases, mono, display, wide }: { releases: Release[]; mono: string; display: string; wide: boolean }) {
+export default function Scene({ releases, mono }: { releases: Release[]; mono: string }) {
   return (
     <Canvas
       shadows={{ type: THREE.PCFSoftShadowMap }}
@@ -112,7 +115,7 @@ export default function Scene({ releases, mono, display, wide }: { releases: Rel
       <CameraRig />
       <Suspense fallback={null}>
         <Rolodex releases={releases} mono={mono} />
-        {wide && <Panel releases={releases} mono={mono} display={display} />}
+        <Strip releases={releases} font={mono} />
       </Suspense>
     </Canvas>
   );

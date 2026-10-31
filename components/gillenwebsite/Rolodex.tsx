@@ -11,6 +11,7 @@ import type { Release } from "@/lib/gillenwebsite/discography";
 import { rig, FLIP_DIR, makeAngle, scrollPos } from "./rig";
 import { CW, CH, TAB_H, R0, T, shapes, TEX_W, TEX_H, paintCard, blankTexture, loadCover } from "./cardTexture";
 import { brushed, fingerprints, paperGrain, boxUV, edgeWear, withWear } from "./textures";
+import { coverAt } from "./shared";
 
 export const MODEL = "/models/housing.glb";
 
@@ -49,6 +50,7 @@ function makeMaterials() {
 export default function Rolodex({ releases, mono }: { releases: Release[]; mono: string }) {
   const gltf = useGLTF(MODEL);
   const N = releases.length, TOTAL = Math.max(N + 12, 96);
+  const TEX_SCALE = useMemo(() => (matchMedia("(min-width: 720px)").matches ? 2 : 1), []);
 
   const built = useMemo(() => {
     const M = makeMaterials();
@@ -137,11 +139,13 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
       body.castShadow = body.receiveShadow = true;
       let mat: THREE.Material = blankMats[slot];
       if (r) {
+        // faces are 2048 px wide on desktop (the painter draws in 1024 units at 2x), 1024 on phones to fit their GPU memory
         const c = document.createElement("canvas");
-        c.width = TEX_W; c.height = TEX_H;
+        c.width = TEX_W * TEX_SCALE; c.height = TEX_H * TEX_SCALE;
         const ctx = c.getContext("2d")!;
+        ctx.scale(TEX_SCALE, TEX_SCALE);
         const tex = new THREE.CanvasTexture(c);
-        tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
+        tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 16;
         faces.push({ r, i, slot, tex, ctx });
         mat = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.9, envMapIntensity: 0.55, normalMap: M.grain, normalScale: new THREE.Vector2(0.18, 0.18) });
       }
@@ -156,7 +160,7 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
       cards.push(g);
     }
     return { house, axis, knobs, drum, cradle, cards, faces, meshes, triangles };
-  }, [gltf, releases, TOTAL]);
+  }, [gltf, releases, TOTAL, TEX_SCALE]);
 
   // paint faces once the card font is ready, then again as each cover arrives
   useEffect(() => {
@@ -169,7 +173,8 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
         if (f.i === 0 && !f.r.cover) rig.firstCardTexture = true;
       }
       await Promise.all(built.faces.map(async (f) => {
-        const img = await loadCover(f.r.cover);
+        // the 1080 copy: the cover is 350 units on the face, 700 px at 2x, so it is never scaled up
+        const img = await loadCover(coverAt(f.r, 1080));
         if (!live || !img) return;
         paintCard(f.ctx, f.r, f.i, f.slot, img, mono);
         f.tex.needsUpdate = true;
@@ -183,9 +188,10 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
     rig.N = N; rig.TOTAL = TOTAL; rig.axisY = built.axis.y; rig.cards = built.cards; rig.knobs = built.knobs;
     rig.ready = true;
     // measurement hook for the verification script (scripts/gillenwebsite/verify.mjs)
-    (window as unknown as { __rolodex: unknown }).__rolodex = { rig, house: built.house, faceIds: built.faces.map((f) => f.r.id), meshes: built.meshes, triangles: built.triangles, axis: built.axis.toArray(), nodes: (() => { const n: string[] = []; built.house.traverse((o) => { if ((o as THREE.Mesh).isMesh) n.push(o.name); }); return n; })() };
-    console.log("Website is loaded, enjoy");
-  }, [built, N, TOTAL]);
+    (window as unknown as { __rolodex: unknown }).__rolodex = { rig, texW: TEX_W * TEX_SCALE, anisotropy: 16, house: built.house, faceIds: built.faces.map((f) => f.r.id), meshes: built.meshes, triangles: built.triangles, axis: built.axis.toArray(), nodes: (() => { const n: string[] = []; built.house.traverse((o) => { if ((o as THREE.Mesh).isMesh) n.push(o.name); }); return n; })() };
+    // SOURCES #07 pointnever.com C5 (6a304bdc22ff1924.js:23)
+    console.log("Website is loaded, enjoy 👍");
+  }, [built, N, TOTAL, TEX_SCALE]);
 
   const angle = useMemo(() => makeAngle(TOTAL), [TOTAL]);
   useFrame((_, delta) => {

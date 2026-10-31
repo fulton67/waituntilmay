@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { info, title } from "./fonts";
 import Site from "@/components/gillenwebsite/Site";
-import { releases, about } from "@/lib/gillenwebsite/discography";
-
-// Two faces (bible R11): the info face for everything, --font-title for the one display line. One weight, 400 (R2).
+import { releases } from "@/lib/gillenwebsite/discography";
+import { info } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Dylan Neustadter",
@@ -11,17 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return (
-    <>
-      {/* R16: he signs his code. The credit rides in the served HTML as a comment. */}
-      <div hidden dangerouslySetInnerHTML={{ __html: "<!-- Site Development & Design; waituntilmay -->" }} />
-      <Site
-        releases={releases}
-        about={about}
-        mono={info.style.fontFamily}
-        display={title.style.fontFamily}
-        fontClass={`${info.variable} ${title.variable}`}
-      />
-    </>
-  );
+  return <Site releases={releases} mono={info.style.fontFamily} />;
 }

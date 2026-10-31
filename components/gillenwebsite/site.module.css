@@ -1,135 +1,214 @@
-/* Felix Luke bible (BRAND-BIBLE.md, ed8a2ea), laws applied:
-   R1 white ground · R2 one weight (400) · R3 no shadows · R4 square controls · R5 borderless controls
-   R7 capitals typed, never text-transform · R9 interface text at 12px · R10 one display size, rarely
-   R11 two faces (Courier Prime, Archivo) · R15 header and counter pinned to the viewport.
-   Not applied, because the bible says they don't hold: grey ink (R13), link blue (R14),
-   solid leading (R8), tight display tracking (R12). Ink is black; links are the text colour. */
+/* /gillenwebsite. Each block names its row in docs/gillenwebsite/SOURCES.md; the numbers are the source site's.
+   Constraints from the Felix Luke bible (BRAND-BIBLE.md, ed8a2ea), never a source on their own:
+   R1 white ground · R2 one weight (400) · R3 no shadows · R7 capitals typed, never text-transform
+   R9 interface text at 12px · R10 display size rare · R11 two faces (info, --font-title) · R15 pinned header and stage */
 
 .root {
   --ground: #ffffff;
   --ink: #000000;
-  --line: #000000;
   --mono: var(--font-info), "Nimbus Sans", "Helvetica Neue", Arial, sans-serif;
   --display: var(--font-title), "Helvetica Neue", Arial, sans-serif;
+  --head: 44px;
   background: var(--ground);
   color: var(--ink);
   font: 400 12px/1.5 var(--mono);
   min-height: 100svh;
+  overflow-x: clip; /* the page slides out to 90vw (#05) without a horizontal scrollbar; clip keeps sticky working */
 }
 .root *, .root *::before, .root *::after {
-  border-radius: 0;
   box-shadow: none;
   text-shadow: none;
   text-transform: none;
   font-weight: 400;
 }
-.root a { color: var(--ink); text-decoration: none; }
-.root a:hover, .root a:focus-visible { text-decoration: underline; }
-.root button {
-  all: unset;
-  cursor: pointer;
-  font: inherit;
-  color: var(--ink);
-}
-.root button:focus-visible, .root a:focus-visible { outline: 1px solid var(--ink); outline-offset: 2px; }
+.root a { color: var(--ink); text-decoration: none; transition: color 0.3s ease; } /* SOURCES #30 gaeawoods css:70 */
+.root a:hover { color: #777; }
+.root button { all: unset; cursor: pointer; font: inherit; color: var(--ink); }
+.root button:focus-visible, .root a:focus-visible, .root select:focus-visible { outline: 1px solid var(--ink); outline-offset: 2px; }
 .root h1, .root h2, .root h3, .root p { margin: 0; font-size: inherit; }
+.label { margin: 0 0 10px; letter-spacing: 0.5px; } /* SOURCES #10 woodrow M5: typed capitals, .5px tracking */
 
-.gut {
-  padding-left: max(20px, env(safe-area-inset-left, 0px));
-  padding-right: max(20px, env(safe-area-inset-right, 0px));
+/* SOURCES #01 #02 #04 header: onehouse header > nav, one pinned row; mestizaestudio word buttons */
+.top { position: fixed; left: 0; right: 0; top: 0; z-index: 40; background: var(--ground); }
+.siteNav {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: baseline; gap: 16px;
+  padding: calc(14px + env(safe-area-inset-top, 0px)) max(20px, env(safe-area-inset-right, 0px)) 12px max(20px, env(safe-area-inset-left, 0px));
 }
+.name { font-family: var(--display); font-stretch: 118%; letter-spacing: 0.02em; justify-self: start; }
+.root .name:hover { color: var(--ink); }
+/* SOURCES #03 luckydaye div.timer > span.date-time */
+.timer { display: flex; gap: 14px; font-variant-numeric: tabular-nums; }
+.dateTime { display: inline-block; min-width: 9ch; }
+.words { justify-self: end; white-space: nowrap; }
+.slash { margin: 0 6px; }
+.wordOn { text-decoration: underline !important; text-underline-offset: 2px; }
+.wordOff { opacity: 0.5; }
+.root .wordOff:hover { opacity: 1; color: var(--ink); }
 
-/* header, pinned (R15) */
-.top {
-  position: fixed; left: 0; right: 0; top: 0; z-index: 5;
-  display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap;
-  padding-top: calc(16px + env(safe-area-inset-top, 0px)); padding-bottom: 12px;
-  pointer-events: none;
-  background: linear-gradient(var(--ground) 70%, rgba(255, 255, 255, 0));
-}
-.top > * { pointer-events: auto; }
-.name { font-family: var(--display); font-stretch: 118%; letter-spacing: 0.02em; }
-.nav { display: flex; gap: 20px; }
+.main { display: block; min-height: 100svh; }
 
-/* the scroll-driven stage */
+/* SOURCES #26 siteplan.lidofestival footer ruler: .cm/.mm ticks, .5px rules, 5th mm tall */
+.footer { position: relative; padding: 18px max(20px, env(safe-area-inset-right, 0px)) calc(18px + env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px)); }
+.ruler { position: relative; height: 20px; }
+.topLine { position: absolute; left: 0; right: 0; top: 0; height: 0.5px; background: var(--ink); }
+.cm { position: absolute; top: 0; height: 14px; width: 10%; border-left: 0.5px solid var(--ink); }
+.cm::after { content: attr(data-n); position: absolute; top: 9px; left: 2.5px; font-size: 7px; line-height: 1; }
+.mm { position: absolute; top: 0; height: 4px; border-left: 0.5px solid var(--ink); }
+.mm:nth-of-type(5) { height: 14px; }
+.footRow { display: flex; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; margin-top: 8px; }
+.email { text-align: left; }
+
+/* SOURCES #08 anew-formatic .cursor-text and .linktitle_container */
+.cursorText { display: inline; position: fixed; top: 0; left: 0; z-index: 999; text-align: left; line-height: 1; pointer-events: none; }
+.linktitle { background: #fff; padding: 0 2px 2px; line-height: 12px; border: 0.5px solid #000; margin-top: 0; font-size: 10px; font-variant-numeric: tabular-nums; }
+.linktitle a { color: #000; }
+@media (pointer: coarse) { .cursorText { display: none; } }
+
+/* SOURCES #11 the stage: scroll-driven and sticky (R15) */
 .flip { position: relative; }
 .sticky { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
 .stage { position: absolute; inset: 0; touch-action: pan-y; cursor: grab; }
 .stage canvas { display: block; }
-.dragging { cursor: grabbing; }
-.loading { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
+.dragging { cursor: grabbing !important; }
+/* SOURCES #06 felixluke loading label */
+.loadingLabel { position: absolute; left: 20px; top: calc(var(--head) + 10px); pointer-events: none; white-space: nowrap; }
 
-/* caption (phones) and the counter (always), pinned at the bottom of the stage */
+/* SOURCES #12 the release display beside the Rolodex (desktop). --cv is the cover's edge: at least 60vh */
+.inlineSlot {
+  --cv: min(64vh, calc(100vh - var(--head) - 240px));
+  position: absolute; right: 20px; top: calc(var(--head) + 12px);
+  width: calc(var(--cv) + 24px + 260px); height: var(--cv);
+}
+.viewInline { display: grid; grid-template-columns: var(--cv) 260px; gap: 24px; height: 100%; }
+.viewInline .coverBox { width: var(--cv); height: var(--cv); }
+.viewInline .info { max-height: var(--cv); }
+
+/* SOURCES #12 luckydaye .lightbox: fixed, inset 0, padding 40px, centred; slides in like .gallery-panel */
+.lightbox {
+  position: fixed; inset: 0; z-index: 60; padding: 40px; display: flex; justify-content: center; align-items: center;
+  background: var(--ground); cursor: pointer;
+  transform: translate(-100%); transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.lightboxOpen { transform: translate(0); }
+.viewPanel {
+  --cv: min(75vh, calc(100vw - 80px - 300px - 24px - 40px));
+  display: grid; grid-template-columns: var(--cv) 300px; gap: 24px; cursor: default; max-height: 100%;
+}
+.viewPanel .coverBox { width: var(--cv); height: var(--cv); }
+.viewPanel .info { max-height: var(--cv); }
+/* SOURCES #13 luckydaye .back-button-holder rotated -90deg against the left edge */
+.backHolder { position: absolute; left: 12px; top: 8.5rem; transform: rotate(-90deg) translateX(-100%); transform-origin: left top; z-index: 2; }
+.back { cursor: pointer; }
+
+.coverBox { position: relative; }
+.cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; }
+.noArt { display: grid; align-content: space-between; padding: 24px; font-size: 20px; line-height: 1.2; }
+.noArt span { font-size: 12px; }
+/* luckydaye .lightbox-enter-active / -leave-active: opacity .25s */
+.coverIn { animation: fadeIn 0.25s both; }
+.coverOutWrap { position: absolute; inset: 0; animation: fadeOut 0.25s both; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+.info { display: flex; flex-direction: column; gap: 6px; overflow: auto; min-width: 0; animation: fadeIn 0.25s both; }
+.artistName { font: 400 28px/1.05 var(--display) !important; font-stretch: 112%; text-wrap: balance; margin-top: 4px !important; }
+.releaseTitle { font-size: 12px; }
+/* SOURCES #16 chantalmichelle sup.date{margin-left:.2rem} */
+.date { margin-left: 0.2rem; font-size: 9px; }
+.role { margin-bottom: 8px !important; }
+/* SOURCES #15 wearesteve .message: 3-column grid, .25rem gap, scaled down */
+.tracks { display: flex; flex-direction: column; border-top: 0.5px solid var(--ink); padding-top: 6px; }
+.message { display: grid; grid-template-columns: 28px 12px auto; gap: 0.25rem; padding: 3px 0; }
+.meta, .desktopMeta { display: flex; font-variant-numeric: tabular-nums; }
+.messageText { min-width: 0; }
+.trackRole { display: block; opacity: 0.55; }
+/* SOURCES #14 rosalia .carousel-controls: the arrow is the whole label */
+.carouselControls { display: flex; gap: 18px; margin-top: auto; padding-top: 10px; font-size: 16px; }
+.carouselButton { padding: 2px 4px; }
+
+/* caption (phones) and counter */
 .cap {
-  position: absolute; left: 0; right: 0; bottom: 0;
-  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 16px;
-  padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
-  pointer-events: none;
+  position: absolute; left: 20px; right: 20px; bottom: 262px;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 16px; pointer-events: none;
 }
-.capMain { display: flex; gap: 14px; align-items: flex-end; min-width: 0; }
-.capArtist { font: 400 32px/1.05 var(--display); font-stretch: 112%; margin: 2px 0; text-wrap: balance; }
-.thumbBox { position: relative; flex: none; width: 88px; height: 88px; border: 1px solid rgba(0, 0, 0, 0.12); }
-.thumb {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  display: block; overflow: hidden; padding: 6px; font-size: 9px; line-height: 1.2;
-}
-img.thumb { padding: 0; }
-/* the incoming cover fades in over the outgoing one: 300 ms, linear (T2) */
-.thumbIn { animation: thumbIn 300ms linear both; }
-@keyframes thumbIn { from { opacity: 0; } to { opacity: 1; } }
-.count { display: grid; justify-items: end; gap: 4px; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.hint { display: block; }
+.root .cap > * { pointer-events: auto; } /* above .root button {all: unset}, which would inherit none */
+.capMain { display: flex !important; gap: 12px; align-items: flex-end; text-align: left; min-width: 0; }
+.capMain > span { display: grid; min-width: 0; }
+.thumb { width: 64px; height: 64px; object-fit: cover; flex: none; display: block; }
+.capArtist { font: 400 20px/1.1 var(--display); font-stretch: 112%; }
+.count { display: grid; gap: 4px; white-space: nowrap; font-variant-numeric: tabular-nums; justify-items: start; }
+.countdown { font-variant-numeric: tabular-nums; }
+.hint { display: block; letter-spacing: 0.5px; }
 
-/* sections */
-.page { max-width: 1120px; margin: 0 auto; padding-top: 96px; padding-bottom: 24px; }
-.last { padding-bottom: 0; }
-.label { margin: 0 0 18px; }
-.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 32px; border-top: 1px solid var(--line); padding-top: 18px; }
-.aboutText { font-size: 20px !important; line-height: 1.35; max-width: 40ch; }
+/* SOURCES #22 brian-eno.net: 66.66% / 33.33%; rows 1.25rem; 1fr 1fr; text 6fr 4.5fr 1fr, .25rem gap and padding */
+.disco { display: grid; grid-template-columns: 66.66% 33.33%; padding-top: calc(var(--head) + 16px); min-height: 100svh; }
+.discoList { list-style: none; margin: 0; padding: 0 0 64px; }
+.discoItem { display: block; }
+.discoRow { display: grid !important; grid-template-columns: 1fr 1fr; height: 20px; max-height: 1.25rem; overflow: hidden; }
+.leftColumn { display: grid; grid-template-columns: 6fr 4.5fr 1fr; gap: 0.25rem; padding-left: 0.25rem; padding-right: 0.25rem; align-items: center; height: 20px; min-width: 0; }
+.discoTitle { font-size: 13px; line-height: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.discoWho { font-size: 10px; line-height: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: 0.3px; }
+.discoYear { font-size: 10px; line-height: 20px; font-variant-numeric: tabular-nums; }
+.root .discoRow:hover { color: var(--ink); }
+.discoRow:hover .discoTitle { text-decoration: underline; text-underline-offset: 2px; }
+.slice { display: block; height: 20px; overflow: hidden; padding: 0 0.25rem; }
+.slice img { display: block; width: 100%; height: 20px; object-fit: cover; }
+.sliceBlank { display: block; height: 20px; background: #eee; }
+.discoSide { position: sticky; top: calc(var(--head) + 16px); align-self: start; padding: 0 20px; display: grid; gap: 14px; }
+/* SOURCES #23 viscosesyllabus a.filters */
+.filterLockUp { display: flex; gap: 8px; }
+.filters { background-color: #fff; padding: 0.15rem 0.2rem; border: 1px solid #000; border-radius: 2px; cursor: pointer; font-size: 12px; }
+.root .filtersActive { background: #000; color: #fff; }
+/* SOURCES #24 eilidhduffy select.mobile-category-dropdown */
+.selects { display: grid; gap: 10px; }
+.selects label { display: grid; gap: 2px; }
+.selects .label { margin: 0; }
+.select { border: 1px solid #000; font: inherit; width: 8rem; font-size: 12px; padding: 0.1rem 0.3rem; appearance: none; -moz-appearance: none; background: none; color: #000; border-radius: 0; }
 
-.creditsHead { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
-.sort { display: flex; gap: 16px; margin-bottom: 18px; }
-.credits { border-top: 1px solid var(--line); }
-.year { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--line); }
-.year h3 { font: 400 28px/1 var(--display); font-stretch: 112%; font-variant-numeric: tabular-nums; }
-.year ul, .flat { list-style: none; margin: 0; padding: 0; }
-.flat { padding: 10px 0; }
-.row {
-  display: grid; grid-template-columns: 32px minmax(0, 1.1fr) minmax(0, 1.4fr) minmax(0, 1fr); gap: 16px;
-  padding: 7px 0; border-bottom: 1px dashed var(--line);
+/* SOURCES #19 gaeawoods [data-about]: rgba(255,255,255,.825), opacity .3s ease */
+.aboutPage { padding-top: var(--head); }
+.dataAbout {
+  position: relative; z-index: 3; padding: 16px 20px 14px;
+  background: #fff; background: rgba(255, 255, 255, 0.825); opacity: 0; transition: opacity 0.3s ease;
 }
-.row:last-child { border-bottom: 0; }
-.no { font-variant-numeric: tabular-nums; }
-.root .artist { display: block; align-self: start; text-align: left; }
-.artist:hover, .artist:focus-visible { text-decoration: underline; }
-
-.footer {
-  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-  border-top: 1px solid var(--line); padding-top: 18px; padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
-}
-
-/* card sheet: slides in on a counted, linear clock (T2); no shadow (R3), a hairline instead */
-.sheet {
-  position: fixed; right: 0; top: 0; bottom: 0; z-index: 20; width: min(440px, 100%);
-  background: var(--ground); border-left: 1px solid var(--line); overflow: auto;
-  transform: translateX(100%); transition: transform 300ms linear, visibility 0s linear 300ms; visibility: hidden;
-  padding: calc(24px + env(safe-area-inset-top, 0px)) max(28px, env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom, 0px)) 28px;
-}
-.open { transform: none; visibility: visible; transition: transform 300ms linear, visibility 0s; }
-.close { display: inline-block; margin-bottom: 18px; }
-.sheetName { font: 400 30px/1.05 var(--display) !important; font-stretch: 112%; margin: 6px 0 2px !important; text-wrap: balance; }
-.meta { margin-bottom: 18px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
-.tracks { list-style: none; margin: 0; padding: 0; }
-.tracks li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 2px 8px; padding: 9px 0; border-bottom: 1px solid var(--line); }
-.trackRole { grid-column: 2; }
+.dataAboutOpen { opacity: 1; }
+.aboutText { font-size: 20px !important; line-height: 1.3; max-width: 62ch; margin: 0 0 12px !important; }
+/* SOURCES #20 shortnotice client list: 26px / 31.2px, "," and <br> between items */
+.index { width: 62%; padding: 28px 20px 50vh; }
+.indexRow { font-size: 26px; line-height: 31.2px; }
+.root .indexRow:hover { color: var(--ink); }
+.indexNo, .indexMeta { font-size: 12px; line-height: 1; vertical-align: 0.55em; }
+.indexNo { margin-right: 8px; }
+.indexMeta { margin-left: 8px; }
+.indexOn .indexTitle { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+/* shortnotice thumb-mo-image-no-transition: the image is swapped by visibility, with no transition */
+.indexCover { position: fixed; right: 20px; top: calc(var(--head) + 26vh); width: min(30vw, 44vh); aspect-ratio: 1; z-index: 2; }
+.moThumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: none; }
+.indexCaption { position: absolute; top: calc(100% + 8px); left: 0; right: 0; }
+/* SOURCES #21 gunseli draw-line */
+.indexLines { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 2; overflow: visible; }
+.indexLines line { stroke: var(--ink); stroke-width: 1; fill: none; opacity: 0; }
+@keyframes drawLine { to { stroke-dashoffset: 0; } }
+.drawing { animation: drawLine 0.25s ease forwards; }
 
 @media (max-width: 719.98px) {
-  .about { grid-template-columns: 1fr; }
-  .year { grid-template-columns: 1fr; gap: 10px; }
-  .row { grid-template-columns: 32px minmax(0, 1fr); gap: 0 12px; }
-  .row > :nth-child(n + 3) { grid-column: 2; }
-  .nav { gap: 14px; }
-  .thumbBox { width: 64px; height: 64px; }
-  .cap { grid-template-columns: 1fr; }
-  .count { justify-items: start; text-align: left; }
+  .root { --head: 62px; }
+  .siteNav { grid-template-columns: minmax(0, 1fr) auto; row-gap: 4px; padding-left: 16px; padding-right: 16px; }
+  .name { grid-column: 1; grid-row: 1; white-space: nowrap; }
+  .timer { grid-column: 2; grid-row: 1; gap: 8px; }
+  .dateTime { min-width: 0; }
+  .words { grid-column: 1 / -1; grid-row: 2; justify-self: start; }
+  .loadingLabel { left: 16px; }
+  .cap { left: 16px; right: 16px; bottom: 196px; grid-template-columns: 1fr; }
+  .lightbox { padding: 16px; align-items: flex-start; overflow: auto; }
+  .viewPanel { grid-template-columns: 1fr; width: 100%; padding-top: 28px; max-height: none; }
+  .viewPanel .coverBox { width: 100%; height: auto; aspect-ratio: 1; }
+  .viewPanel .info { max-height: none; overflow: visible; }
+  .backHolder { position: fixed; left: 16px; top: 12px; transform: none; }
+  .disco { grid-template-columns: 1fr; }
+  .discoSide { position: static; order: -1; padding: 0 16px 16px; }
+  .index { width: 100%; padding: 20px 16px 60vh; }
+  .indexRow { font-size: 20px; line-height: 24px; }
+  .indexCover { top: auto; bottom: 16px; right: 16px; width: 34vw; }
+  .indexCaption { display: none; }
+  .indexLines { display: none; }
 }
