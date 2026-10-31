@@ -1,8 +1,6 @@
 "use client";
 /* eslint-disable react-hooks/immutability -- three.js objects and the shared rig are mutated every frame by design */
-// Canvas, lights and camera. Two stages, picked by ?look= (look.ts):
-//   flat:  white page, RoomEnvironment and two lights for the cards only (the housing is matcap), no shadows.
-//   photo: the studio HDRI (drei's "studio" preset file, self-hosted) with a large soft rect light as a window
+// Canvas, lights and camera. The photo stage: the studio HDRI (drei's "studio" preset file, self-hosted) with a large soft rect light as a window
 //          reflection, 60-frame accumulated soft shadows, a contact shadow under the base, N8AO and a shallow
 //          depth of field held on the front card.
 import { memo, Suspense, useEffect, useMemo } from "react";
@@ -11,31 +9,10 @@ import { AccumulativeShadows, ContactShadows, Environment, Lightformer, Randomiz
 import { EffectComposer, N8AO, DepthOfField, ToneMapping } from "@react-three/postprocessing";
 import { ToneMappingMode } from "postprocessing";
 import * as THREE from "three";
-import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { rig } from "./rig";
 import Rolodex from "./Rolodex";
 import { readLook, type PHOTO } from "./look";
-
-function FlatStage() {
-  const { gl, scene } = useThree();
-  useEffect(() => {
-    gl.toneMapping = THREE.NeutralToneMapping;
-    gl.toneMappingExposure = 1;
-    const pm = new THREE.PMREMGenerator(gl);
-    const env = pm.fromScene(new RoomEnvironment(), 0.04).texture;
-    scene.environment = env;
-    scene.environmentIntensity = 0.85;
-    scene.background = new THREE.Color("#ffffff");
-    return () => { env.dispose(); pm.dispose(); };
-  }, [gl, scene]);
-  return (
-    <>
-      <directionalLight color="#fff6ea" intensity={1.9} position={[-1.0, 2.6, 1.4]} />
-      <hemisphereLight args={["#ffffff", "#e9e6e0", 0.6]} />
-    </>
-  );
-}
 
 function PhotoStage({ photo }: { photo: typeof PHOTO }) {
   const { gl, scene } = useThree();
@@ -120,22 +97,21 @@ function CameraRig() {
 
 // memoised so Site's re-render on every card change does not reach the canvas tree
 export default memo(function Scene({ releases, mono }: { releases: Release[]; mono: string }) {
-  const { look, photo } = useMemo(() => readLook(), []);
+  const photo = useMemo(() => readLook(), []);
   return (
     <Canvas
-      shadows={look === "photo"}
+      shadows
       dpr={[1, 2]}
       camera={{ fov: 30, near: 0.01, far: 50, position: [0.7, 1.2, 2.2] }}
       gl={{ antialias: true }}
-      data-look={look}
     >
-      {look === "flat" ? <FlatStage /> : <PhotoStage photo={photo} />}
+      <PhotoStage photo={photo} />
       <CameraRig />
       <Suspense fallback={null}>
-        <Rolodex releases={releases} mono={mono} look={look} photo={photo} />
-        {look === "photo" && <PhotoGround />}
+        <Rolodex releases={releases} mono={mono} photo={photo} />
+        <PhotoGround />
       </Suspense>
-      {look === "photo" && <PhotoPost />}
+      <PhotoPost />
     </Canvas>
   );
 });

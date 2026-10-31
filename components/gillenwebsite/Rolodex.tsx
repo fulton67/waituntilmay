@@ -2,8 +2,7 @@
 /* eslint-disable react-hooks/immutability -- three.js objects and the shared rig are mutated every frame by design */
 // The Rolodex: housing.glb with its torn rod and cradle rebuilt, the drum core, and TOTAL cards on the axis.
 // Numbers are the prototype's (BUILD.md); materials are new: brushed frame and base with edge wear,
-// fingerprinted bakelite knobs, paper-grain cards. The ?look=flat housing swaps the housing's materials for
-// matcaps with a black outline (look.ts); the cards are the same in both looks.
+// fingerprinted bakelite knobs, paper-grain cards.
 import { useMemo, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
@@ -13,8 +12,7 @@ import { rig, FLIP_DIR, makeAngle, scrollPos } from "./rig";
 import { CW, CH, TAB_H, R0, T, shapes, TEX_W, TEX_H, paintCard, blankTexture, loadCover } from "./cardTexture";
 import { brushed, fingerprints, paperGrain, boxUV, edgeWear, withWear } from "./textures";
 import { coverAt } from "./shared";
-import type { Look, PHOTO } from "./look";
-import { matcap, LIGHT, DARK } from "./matcap";
+import type { PHOTO } from "./look";
 
 export const MODEL = "/models/housing.glb";
 
@@ -51,92 +49,7 @@ function makeMaterials(photo: typeof PHOTO) {
   };
 }
 
-// EdgesGeometry's rule (an edge is drawn where its two faces meet at more than `deg`, and every open edge), with
-// each face's normal taken from its smoothed vertex normals instead of its vertex positions. Tripo's positions are
-// noisy, so plain EdgesGeometry at 20 degrees hatches whole surfaces (51,175 segments on this model); the smoothed
-// normals (scripts/gillenwebsite/smooth-normals.mjs) keep the real creases and drop the noise. Vertices are welded by
-// position, so UV and normal seams are not mistaken for open edges. The lines use the mesh's own positions.
-function creaseEdges(g: THREE.BufferGeometry, deg: number) {
-  const p = g.attributes.position, n = g.attributes.normal, idx = g.index;
-  const count = idx ? idx.count : p.count, at = (k: number) => (idx ? idx.getX(k) : k);
-  const weld = new Map<string, number>(), id = new Int32Array(p.count);
-  for (let i = 0; i < p.count; i++) {
-    const k = `${Math.round(p.getX(i) * 1e5)},${Math.round(p.getY(i) * 1e5)},${Math.round(p.getZ(i) * 1e5)}`;
-    if (!weld.has(k)) weld.set(k, weld.size);
-    id[i] = weld.get(k)!;
-  }
-  const edges = new Map<string, { a: number; b: number; f: THREE.Vector3[] }>();
-  for (let t = 0; t < count; t += 3) {
-    const v = [at(t), at(t + 1), at(t + 2)];
-    const fn = new THREE.Vector3();
-    for (const i of v) fn.add(new THREE.Vector3(n.getX(i), n.getY(i), n.getZ(i)));
-    fn.normalize();
-    for (let e = 0; e < 3; e++) {
-      const a = v[e], b = v[(e + 1) % 3], ia = id[a], ib = id[b];
-      if (ia === ib) continue;
-      const key = ia < ib ? `${ia}_${ib}` : `${ib}_${ia}`;
-      const rec = edges.get(key);
-      if (rec) rec.f.push(fn); else edges.set(key, { a, b, f: [fn] });
-    }
-  }
-  const cos = Math.cos((deg * Math.PI) / 180), out: number[] = [];
-  for (const { a, b, f } of edges.values()) {
-    if (f.length === 1 || f[0].dot(f[1]) < cos) out.push(p.getX(a), p.getY(a), p.getZ(a), p.getX(b), p.getY(b), p.getZ(b));
-  }
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute("position", new THREE.Float32BufferAttribute(out, 3));
-  return geo;
-}
-
-// Silhouette: the Tripo housing's bevels are rounded, so they never turn 20 degrees between neighbouring faces and
-// the crease lines alone leave the outer contour undrawn. Each part also gets a black back-face hull pushed out by
-// exactly one screen pixel along its (smoothed) normals in clip space, which draws a 1 px contour at any distance.
-export const OUTLINE_RES = { value: new THREE.Vector2(1440, 900) }; // drawing-buffer size, updated every frame
-function hullMaterial() {
-  const m = new THREE.MeshBasicMaterial({ color: "#000000", side: THREE.BackSide });
-  m.onBeforeCompile = (sh) => {
-    sh.uniforms.uRes = OUTLINE_RES;
-    sh.vertexShader = sh.vertexShader
-      .replace("#include <common>", "#include <common>\nuniform vec2 uRes;")
-      .replace(
-        "#include <project_vertex>",
-        `#include <project_vertex>
-vec2 nClip = (projectionMatrix * vec4(normalize(normalMatrix * normal), 0.0)).xy;
-gl_Position.xy += normalize(nClip + 1e-6) * (2.0 / uRes) * gl_Position.w;`
-      );
-  };
-  m.customProgramCacheKey = () => "hull1px";
-  return m;
-}
-
-// The flat look: every housing part (shell, cradle, drum core) takes a neutral grey-white matcap, the knobs a darker
-// one, and every part gets a 1 px black outline: crease lines at a 20 degree threshold plus the 1 px silhouette.
-// Lines are always 1 px in WebGL; the fill is pushed back with polygon offset so the lines are not z-fought.
-function flatten(roots: THREE.Object3D[], darkParts: Set<string>) {
-  const fill = (t: typeof LIGHT) => new THREE.MeshMatcapMaterial({ matcap: matcap(t), side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 });
-  const light = fill(LIGHT), dark = fill(DARK), hull = hullMaterial();
-  const ink = new THREE.LineBasicMaterial({ color: "#000000" });
-  let lines = 0;
-  const meshes: THREE.Mesh[] = [];
-  for (const r of roots) r.traverse((o) => { if ((o as THREE.Mesh).isMesh && o.visible && !o.userData.outline) meshes.push(o as THREE.Mesh); });
-  for (const m of meshes) {
-    m.material = darkParts.has(m.name) ? dark : light;
-    m.castShadow = m.receiveShadow = false;
-    // useGLTF caches the scene, so a remount (leaving the home page and coming back) finds the last outline still
-    // attached: drop it before adding this one
-    for (const c of m.children.filter((c) => c.userData.outline)) { m.remove(c); if (c instanceof THREE.LineSegments) c.geometry.dispose(); }
-    const e = new THREE.LineSegments(creaseEdges(m.geometry, 20), ink);
-    e.raycast = () => {}; // outlines are not hit targets
-    lines += e.geometry.attributes.position.count / 2;
-    const h = new THREE.Mesh(m.geometry, hull);
-    h.raycast = () => {};
-    e.userData.outline = h.userData.outline = true;
-    m.add(e, h);
-  }
-  return lines;
-}
-
-export default function Rolodex({ releases, mono, look, photo }: { releases: Release[]; mono: string; look: Look; photo: typeof PHOTO }) {
+export default function Rolodex({ releases, mono, photo }: { releases: Release[]; mono: string; photo: typeof PHOTO }) {
   const gltf = useGLTF(MODEL);
   const N = releases.length, TOTAL = Math.max(N + 12, 96);
   const TEX_SCALE = useMemo(() => (matchMedia("(min-width: 720px)").matches ? 2 : 1), []);
@@ -248,9 +161,8 @@ export default function Rolodex({ releases, mono, look, photo }: { releases: Rel
       drum.add(g);
       cards.push(g);
     }
-    const outlineSegments = look === "flat" ? flatten([house, core, cradle], new Set(KNOBS)) : 0;
-    return { house, axis, knobs, drum, cradle, cards, faces, meshes, triangles, outlineSegments };
-  }, [gltf, releases, TOTAL, TEX_SCALE, look, photo]);
+    return { house, axis, knobs, drum, cradle, cards, faces, meshes, triangles };
+  }, [gltf, releases, TOTAL, TEX_SCALE, photo]);
 
   // Paint faces once the card font is ready, then again as each cover arrives. Every repaint re-uploads a
   // 2048 x 1478 texture with mipmaps (about 16 MB), and when several covers land together the uploads stacked into
@@ -286,14 +198,13 @@ export default function Rolodex({ releases, mono, look, photo }: { releases: Rel
     rig.N = N; rig.TOTAL = TOTAL; rig.axisY = built.axis.y; rig.cards = built.cards; rig.knobs = built.knobs;
     rig.ready = true;
     // measurement hook for the verification script (scripts/gillenwebsite/verify.mjs)
-    (window as unknown as { __rolodex: unknown }).__rolodex = { rig, look, photo, outlineSegments: built.outlineSegments, texW: TEX_W * TEX_SCALE, anisotropy: 16, house: built.house, faceIds: built.faces.map((f) => f.r.id), meshes: built.meshes, triangles: built.triangles, axis: built.axis.toArray(), nodes: (() => { const n: string[] = []; built.house.traverse((o) => { if ((o as THREE.Mesh).isMesh) n.push(o.name); }); return n; })() };
+    (window as unknown as { __rolodex: unknown }).__rolodex = { rig, photo, texW: TEX_W * TEX_SCALE, anisotropy: 16, house: built.house, faceIds: built.faces.map((f) => f.r.id), meshes: built.meshes, triangles: built.triangles, axis: built.axis.toArray(), nodes: (() => { const n: string[] = []; built.house.traverse((o) => { if ((o as THREE.Mesh).isMesh) n.push(o.name); }); return n; })() };
     // SOURCES #07 pointnever.com C5 (6a304bdc22ff1924.js:23)
     console.log("Website is loaded, enjoy 👍");
-  }, [built, N, TOTAL, TEX_SCALE, look, photo]);
+  }, [built, N, TOTAL, TEX_SCALE, photo]);
 
   const angle = useMemo(() => makeAngle(TOTAL), [TOTAL]);
-  useFrame((state, delta) => {
-    state.gl.getDrawingBufferSize(OUTLINE_RES.value); // the 1 px silhouette is sized in device pixels
+  useFrame((_, delta) => {
     paintNext();
     const dt = Math.min(delta, 1 / 30), raw = scrollPos();
     // settle on a card like the real ratchet once scrolling stops

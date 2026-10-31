@@ -16,7 +16,7 @@ const browser = await chromium.launch({ channel: "chrome", headless: false, args
 const ready = (p) => p.waitForFunction(() => window.__rolodex?.rig?.ready && window.__rolodex.rig.firstCardTexture, null, { timeout: 120000 });
 const report = { base: BASE, at: new Date().toISOString(), looks: {} };
 
-for (const look of ["flat", "photo"]) {
+for (const look of ["photo"]) {
   const r = (report.looks[look] = {});
   // desktop: screenshot at rest, then the fps sweep through all 36 cards (the same wheel as verify.mjs)
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });

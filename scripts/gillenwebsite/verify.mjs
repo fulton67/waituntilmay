@@ -442,18 +442,15 @@ if (want("textures")) {
   out.textures.pass = out.textures.cardFace.w === 2048 && out.textures.cardFace.anisotropy === 16;
 }
 
-// The housing look: flat is the default, with the matcap and the 1 px outline
+// The housing look: the photo setup (PBR materials, no outlines), shadows on
 if (want("look")) {
   out.look = await page.evaluate(() => {
-    const r = window.__rolodex, mats = new Set(), kinds = { lines: 0, hulls: 0 };
-    r.house.traverse((o) => {
-      if (o.isLineSegments) kinds.lines++;
-      else if (o.isMesh && o.material.side === 1 && o.material.color?.getHex() === 0) kinds.hulls++;
-      else if (o.isMesh && o.visible) mats.add(o.material.type);
-    });
-    return { look: r.look, housingMaterials: [...mats], ...kinds, outlineSegments: r.outlineSegments };
+    const r = window.__rolodex, mats = new Set();
+    let lines = 0;
+    r.house.traverse((o) => { if (o.isLineSegments) lines++; else if (o.isMesh && o.visible) mats.add(o.material.type); });
+    return { housingMaterials: [...mats], outlines: lines, photo: r.photo };
   });
-  out.look.pass = out.look.look === "flat" && out.look.housingMaterials.every((t) => t === "MeshMatcapMaterial") && out.look.lines > 0 && out.look.hulls > 0;
+  out.look.pass = out.look.outlines === 0 && out.look.housingMaterials.every((t) => /Physical|Standard/.test(t));
 }
 
 // Fonts: every family that renders text, the faces loaded, the files fetched and where they come from
