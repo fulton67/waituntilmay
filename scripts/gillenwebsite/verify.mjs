@@ -272,17 +272,17 @@ if (want("sources")) {
   // the large cover's rendered size at 1440 x 900: inline beside the Rolodex, and in the panel
   const coverSize = (p, sel) => p.evaluate((sel) => {
     const i = document.querySelector(sel), r = i.getBoundingClientRect();
-    return { w: Math.round(r.width), h: Math.round(r.height), shareOfViewportHeight: +(r.height / innerHeight).toFixed(3), naturalWidth: i.naturalWidth, src: i.getAttribute("src") };
+    return { w: Math.round(r.width), h: Math.round(r.height), shareOfViewportHeight: +(r.height / innerHeight).toFixed(3), naturalWidth: i.naturalWidth, src: i.currentSrc.replace(location.origin, "") };
   }, sel);
   out.largeCover = { viewport: "1440x900", inline: await coverSize(page, "[class*=inlineSlot] article img") };
   // the panel opens from the caption's thumbnail on home (a discography row now expands in place instead)
   await page.click("[data-src='17'] [class*=capThumb]"); await wait(1500);
   out.largeCover.panel = await coverSize(page, "[role=dialog] article img");
-  // the panel shows the 2048 file; inline, the file is never shown above its natural size at the device pixel ratio
+  // neither file is shown above its natural size at the device pixel ratio (Cover.tsx picks it from sizes)
   const dpr = await page.evaluate(() => devicePixelRatio);
   out.largeCover.devicePixelRatio = dpr;
   out.largeCover.inline.notUpscaled = out.largeCover.inline.naturalWidth >= out.largeCover.inline.w * dpr;
-  out.largeCover.pass = [out.largeCover.inline, out.largeCover.panel].every((c) => c.shareOfViewportHeight >= 0.6) && out.largeCover.inline.notUpscaled && out.largeCover.panel.naturalWidth === 2048;
+  out.largeCover.pass = [out.largeCover.inline, out.largeCover.panel].every((c) => c.shareOfViewportHeight >= 0.6) && out.largeCover.inline.notUpscaled && out.largeCover.panel.naturalWidth >= out.largeCover.panel.w * dpr;
   await page.keyboard.press("Escape"); await wait(1200);
 
   // discography: all 36 in discography.json order; row pitch, cover slice and type sizes against brian-eno.net
@@ -440,9 +440,10 @@ if (want("sync")) {
 if (want("textures")) {
   out.textures = await page.evaluate(() => {
     const face = window.__rolodex.rig.cards[0].children[0].children[1].material.map;
-    return { cardFace: { w: face.image.width, h: face.image.height, anisotropy: face.anisotropy } };
+    return { cardFace: { w: face.image.width, h: face.image.height, anisotropy: face.anisotropy }, maxAnisotropy: window.__rolodex.gl.capabilities.getMaxAnisotropy() };
   });
-  out.textures.pass = out.textures.cardFace.w === 1024 && out.textures.cardFace.anisotropy === 8; // as in 7170f0b
+  // the paper canvas is 2048 wide at the renderer's full anisotropy (the type and the cover are their own meshes)
+  out.textures.pass = out.textures.cardFace.w === 2048 && out.textures.cardFace.anisotropy === out.textures.maxAnisotropy;
 }
 
 // The housing look: 7170f0b's PBR materials, no outlines
@@ -544,22 +545,18 @@ if (want("phone")) {
 await browser.close();
 
 if (ONLY) { console.log(JSON.stringify(out, null, 2)); process.exit(0); }
-// Covers on disk: all 36 releases have a 2048 x 2048 file, plus the 1080 and 512 copies
+// Covers on disk: every size in coverSizes, as AVIF and JPEG, at that size (square), the largest no bigger than the
+// original (cover-sizes.mjs)
 out.covers = [];
 for (const r of disco.releases) {
-  const row = { id: r.id, exists: false, size: null, kb: null, v1080: null, v512: null };
-  if (r.cover) {
-    const f = path.join(ROOT, "public", r.cover);
-    const m = await sharp(f).metadata().catch(() => null);
-    if (m) Object.assign(row, { exists: true, size: `${m.width}x${m.height}`, kb: Math.round((await fs.stat(f)).size / 1024) });
-    for (const w of [1080, 512]) {
-      const v = await sharp(path.join(ROOT, "public", r.cover.replace("/covers/", `/covers/${w}/`))).metadata().catch(() => null);
-      row[`v${w}`] = v ? `${v.width}x${v.height}` : null;
-    }
+  const row = { id: r.id, sizes: r.coverSizes, missing: [] };
+  for (const w of r.coverSizes ?? []) for (const ext of ["avif", "jpg"]) {
+    const m = await sharp(path.join(ROOT, "public", `${r.cover.replace("/covers/", `/covers/${w}/`)}.${ext}`)).metadata().catch(() => null);
+    if (!m || m.width !== w || m.height !== w) row.missing.push(`${w}.${ext}`);
   }
   out.covers.push(row);
 }
-out.coversPass = out.covers.length === disco.releases.length && out.covers.every((c) => c.exists && c.size === "2048x2048" && c.v1080 === "1080x1080" && c.v512 === "512x512");
+out.coversPass = out.covers.length === disco.releases.length && out.covers.every((c) => c.sizes?.length && !c.missing.length);
 out.errors = logs.filter((l) => /^(error|pageerror)/.test(l));
 await fs.writeFile(path.join(ROOT, "scripts/gillenwebsite/verify-report.json"), JSON.stringify({ url: URL, at: new Date().toISOString(), ...out }, null, 2) + "\n");
 console.log(JSON.stringify(out, null, 2));

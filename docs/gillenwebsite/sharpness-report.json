@@ -1,0 +1,902 @@
+{
+  "base": "https://waituntilmay.com",
+  "at": "2026-11-01T00:19:00.972Z",
+  "onlyBelow1500": [
+    "11-don-toliver-doja-cat-f1-the-album: 1425x1425",
+    "25-lucy-park-before-i-speak: 1400x1400"
+  ],
+  "profiles": {
+    "phone": {
+      "viewport": "390x844 DPR 3",
+      "cpuThrottle": 4,
+      "dom": [
+        {
+          "what": "caption thumbnail",
+          "file": "/covers/512/01-girl-in-red-blue.avif",
+          "fileWidth": 512,
+          "requested": true,
+          "renderedPx": 64,
+          "deviceNeed": 192,
+          "ratio": 2.67
+        },
+        {
+          "what": "release panel",
+          "file": "/covers/2048/06-the-strokes-reality-awaits.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 358,
+          "deviceNeed": 1074,
+          "ratio": 1.91
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/01-girl-in-red-blue.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/02-freak-slug-amulet.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/03-arlo-parks-john-glacier-floette-ft-john-glacier.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/04-mike-d-thank-you.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/05-arlo-parks-ambiguous-desire.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/06-the-strokes-reality-awaits.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/07-obongjayar-paradise-now-and-forever.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/08-lucy-park-good-graces.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/09-luke-titus-from-what-was-will-grow-a-flower.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/10-doja-cat-vie.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/11-don-toliver-doja-cat-f1-the-album.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/12-sza-sos-deluxe-lana.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/13-gossip-real-power.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/14-marcus-king-mood-swings.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/15-teezo-touchdown-how-do-you-sleep-at-night-with-you.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/16-kesha-gag-order.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/17-brockhampton-tm.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/18-red-hot-chili-peppers-unlimited-love.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/19-rex-orange-county-threat.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/20-sza-sos.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/21-red-hot-chili-peppers-return-of-the-dream-canteen.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/22-run-the-jewels-rtj-cu4tro.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/23-imagine-dragons-mercury-acts-1-and-2.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/24-jovanotti-il-boom.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/25-lucy-park-before-i-speak.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/26-imagine-dragons-mercury-act-1.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/27-santana-blessings-and-miracles.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/28-the-strokes-the-new-abnormal.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/29-neil-young-and-crazy-horse-shut-it-down-2020.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/30-run-the-jewels-rtj4.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/31-mark-ronson-late-night-feelings.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1024/32-harry-styles-fine-line.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 187,
+          "deviceNeed": 561,
+          "ratio": 1.83
+        },
+        {
+          "what": "expand panel",
+          "file": "/covers/3000/01-girl-in-red-blue.avif",
+          "fileWidth": 3000,
+          "requested": true,
+          "renderedPx": 390,
+          "deviceNeed": 1170,
+          "ratio": 2.56
+        },
+        {
+          "what": "About thumbnail",
+          "file": "/covers/1024/01-girl-in-red-blue.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 132.59,
+          "deviceNeed": 398,
+          "ratio": 2.57
+        }
+      ],
+      "frontCard": {
+        "release": "01-girl-in-red-blue",
+        "coverTexturePx": 1024,
+        "coverScreenPx": 203.54072308873697,
+        "paperTexturePx": 2048,
+        "cardScreenPx": 595.5020012653333,
+        "pixelRatio": 3,
+        "bigLoaded": [
+          "01-girl-in-red-blue@1024",
+          "02-freak-slug-amulet@1024",
+          "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun@1024"
+        ],
+        "coverRatio": 5.03,
+        "paperRatio": 3.44,
+        "pass": true
+      },
+      "titleCrop": {
+        "rectCss": {
+          "x": 176,
+          "y": 261,
+          "width": 68,
+          "height": 37
+        },
+        "file": "docs/gillenwebsite/sharp-title-phone.png"
+      },
+      "fps": {
+        "cards": 36,
+        "endedOn": 5,
+        "frames": 705,
+        "avg": 54.02,
+        "min1s": 46,
+        "worstFrameMs": 50,
+        "framesOver33ms": 9,
+        "target": 45,
+        "pass": true
+      },
+      "bigCoversAfterSweep": [
+        "05-arlo-parks-ambiguous-desire@1024",
+        "06-the-strokes-reality-awaits@1024",
+        "07-obongjayar-paradise-now-and-forever@1024"
+      ],
+      "expandAll": {
+        "deviceNeed": 1170,
+        "below1": []
+      },
+      "domSummary": [
+        {
+          "what": "caption thumbnail",
+          "shown": 1,
+          "lowest": "/covers/512/01-girl-in-red-blue.avif (512 px) for 64 css px x 3 = 192: 2.67",
+          "allRequested": true,
+          "pass": true
+        },
+        {
+          "what": "release panel",
+          "shown": 1,
+          "lowest": "/covers/2048/06-the-strokes-reality-awaits.avif (2048 px) for 358 css px x 3 = 1074: 1.91",
+          "allRequested": true,
+          "pass": true
+        },
+        {
+          "what": "discography slice",
+          "shown": 32,
+          "lowest": "/covers/1024/01-girl-in-red-blue.avif (1024 px) for 187 css px x 3 = 561: 1.83",
+          "allRequested": true,
+          "pass": true
+        },
+        {
+          "what": "expand panel",
+          "shown": 1,
+          "lowest": "/covers/3000/01-girl-in-red-blue.avif (3000 px) for 390 css px x 3 = 1170: 2.56",
+          "allRequested": true,
+          "pass": true
+        },
+        {
+          "what": "About thumbnail",
+          "shown": 1,
+          "lowest": "/covers/1024/01-girl-in-red-blue.avif (1024 px) for 132.59 css px x 3 = 398: 2.57",
+          "allRequested": true,
+          "pass": true
+        }
+      ]
+    },
+    "desktop": {
+      "viewport": "1440x900 DPR 2",
+      "cpuThrottle": 1,
+      "dom": [
+        {
+          "what": "caption thumbnail",
+          "file": "/covers/512/01-girl-in-red-blue.avif",
+          "fileWidth": 512,
+          "requested": true,
+          "renderedPx": 60.08,
+          "deviceNeed": 120,
+          "ratio": 4.26
+        },
+        {
+          "what": "cover beside the Rolodex",
+          "file": "/covers/2048/01-girl-in-red-blue.jpg",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 576,
+          "deviceNeed": 1152,
+          "ratio": 1.78
+        },
+        {
+          "what": "release panel",
+          "file": "/covers/2048/01-girl-in-red-blue.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 675,
+          "deviceNeed": 1350,
+          "ratio": 1.52
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/01-girl-in-red-blue.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/02-freak-slug-amulet.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/03-arlo-parks-john-glacier-floette-ft-john-glacier.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/04-mike-d-thank-you.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/05-arlo-parks-ambiguous-desire.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/06-the-strokes-reality-awaits.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/07-obongjayar-paradise-now-and-forever.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/08-lucy-park-good-graces.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/09-luke-titus-from-what-was-will-grow-a-flower.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/10-doja-cat-vie.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1425/11-don-toliver-doja-cat-f1-the-album.avif",
+          "fileWidth": 1425,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 1.53
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/12-sza-sos-deluxe-lana.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/13-gossip-real-power.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/14-marcus-king-mood-swings.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/15-teezo-touchdown-how-do-you-sleep-at-night-with-you.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/16-kesha-gag-order.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/17-brockhampton-tm.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/18-red-hot-chili-peppers-unlimited-love.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/19-rex-orange-county-threat.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/20-sza-sos.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/21-red-hot-chili-peppers-return-of-the-dream-canteen.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/22-run-the-jewels-rtj-cu4tro.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/23-imagine-dragons-mercury-acts-1-and-2.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/24-jovanotti-il-boom.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1400/25-lucy-park-before-i-speak.avif",
+          "fileWidth": 1400,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 1.5
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/26-imagine-dragons-mercury-act-1.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/27-santana-blessings-and-miracles.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/28-the-strokes-the-new-abnormal.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/29-neil-young-and-crazy-horse-shut-it-down-2020.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/1500/30-run-the-jewels-rtj4.avif",
+          "fileWidth": 1500,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 1.61
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/31-mark-ronson-late-night-feelings.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/32-harry-styles-fine-line.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/33-neil-young-and-crazy-horse-colorado.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/34-santana-africa-speaks.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/35-muse-simulation-theory-super-deluxe.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "discography slice",
+          "file": "/covers/2048/36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun.avif",
+          "fileWidth": 2048,
+          "requested": true,
+          "renderedPx": 466.95,
+          "deviceNeed": 934,
+          "ratio": 2.19
+        },
+        {
+          "what": "expand panel",
+          "file": "/covers/3000/01-girl-in-red-blue.avif",
+          "fileWidth": 3000,
+          "requested": true,
+          "renderedPx": 900,
+          "deviceNeed": 1800,
+          "ratio": 1.67
+        },
+        {
+          "what": "About thumbnail",
+          "file": "/covers/1024/04-mike-d-thank-you.avif",
+          "fileWidth": 1024,
+          "requested": true,
+          "renderedPx": 396,
+          "deviceNeed": 792,
+          "ratio": 1.29
+        }
+      ],
+      "frontCard": {
+        "release": "01-girl-in-red-blue",
+        "coverTexturePx": 1024,
+        "coverScreenPx": 194.74746106256697,
+        "paperTexturePx": 2048,
+        "cardScreenPx": 569.7754289373388,
+        "pixelRatio": 2,
+        "bigLoaded": [
+          "01-girl-in-red-blue@1024",
+          "02-freak-slug-amulet@1024",
+          "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun@1024"
+        ],
+        "coverRatio": 5.26,
+        "paperRatio": 3.59,
+        "pass": true
+      },
+      "titleCrop": {
+        "rectCss": {
+          "x": 457,
+          "y": 221,
+          "width": 90,
+          "height": 45
+        },
+        "file": "docs/gillenwebsite/sharp-title-desktop.png"
+      },
+      "fps": {
+        "cards": 36,
+        "endedOn": 0,
+        "frames": 808,
+        "avg": 58.69,
+        "min1s": 56,
+        "worstFrameMs": 83.2,
+        "framesOver33ms": 7,
+        "target": 55,
+        "pass": true
+      },
+      "bigCoversAfterSweep": [
+        "01-girl-in-red-blue@1024",
+        "02-freak-slug-amulet@1024",
+        "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun@1024"
+      ],
+      "expandAll": {
+        "deviceNeed": 1800,
+        "below1": [
+          {
+            "id": "11-don-toliver-doja-cat-f1-the-album",
+            "largest": 1425,
+            "ratio": 0.79
+          },
+          {
+            "id": "25-lucy-park-before-i-speak",
+            "largest": 1400,
+            "ratio": 0.78
+          },
+          {
+            "id": "30-run-the-jewels-rtj4",
+            "largest": 1500,
+            "ratio": 0.83
+          }
+        ]
+      },
+      "domSummary": [
+        {
+          "what": "caption thumbnail",
+          "shown": 1,
+          "lowest": "/covers/512/01-girl-in-red-blue.avif (512 px) for 60.08 css px x 2 = 120: 4.26",
+          "allRequested": true,
+          "pass": true
+        },
+        {
+          "what": "cover beside the Rolodex",
+          "shown": 1,
+          "lowest": "/covers/2048/01-girl-in-red-blue.jpg (2048 px) for 576 css px x 2 = 1152: 1.78",
+          "allRequested": true,
+          "pass": true
+        },
+        {
+          "what": "release panel",
+          "shown": 1,
+          "lowest": "/covers/2048/01-girl-in-red-blue.avif (2048 px) for 675 css px x 2 = 1350: 1.52",
+          "allRequested": true,
+          "pass": true
+        },
+        {
+          "what": "discography slice",
+          "shown": 36,
+          "lowest": "/covers/1400/25-lucy-park-before-i-speak.avif (1400 px) for 466.95 css px x 2 = 934: 1.5",
+          "allRequested": true,
+          "pass": true
+        },
+        {
+          "what": "expand panel",
+          "shown": 1,
+          "lowest": "/covers/3000/01-girl-in-red-blue.avif (3000 px) for 900 css px x 2 = 1800: 1.67",
+          "allRequested": true,
+          "pass": true
+        },
+        {
+          "what": "About thumbnail",
+          "shown": 1,
+          "lowest": "/covers/1024/04-mike-d-thank-you.avif (1024 px) for 396 css px x 2 = 792: 1.29",
+          "allRequested": true,
+          "pass": true
+        }
+      ]
+    }
+  }
+}
