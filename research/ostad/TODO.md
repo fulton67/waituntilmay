@@ -40,12 +40,12 @@ Spec: `research/ostad/OSTAD_RUN.md`. Decisions: `DECISIONS.md`. Spend: `COSTS.md
 - [x] REPORT.md written (rendered from data by scripts/render_report.py)
 
 ## Phase 7 — plan
-- [ ] PLAN.md + data/plan.json
+- [x] PLAN.md + data/plan.json (20 slots Mon 2026-11-09 → Fri 2026-12-04, 10 backups, 40 backlog; every ref resolves)
 
 ## Phase 8 — dashboard
-- [ ] design bibles located, logged
-- [ ] app/ostad built (Library, Genres, Baseline, Plan, Questions, Ads)
-- [ ] verified: build passes, 200 locally, card count, filters, thumbnails
+- [x] design bibles located, logged (DECISIONS 7)
+- [x] app/ostad built (Library, Genres, Baseline, Plan, Questions, Ads)
+- [x] verified on `next start`: build exit 0, 6/6 routes 200 + noindex, 1,031 cards = 1,031 rows, filters change count (winning 109, YouTube 247, "mohs" 13), 1,156 thumbs 0 missing, 30 plan slots, 0 page errors
 - [ ] pushed to main, live on waituntilmay.com/ostad
 
 ## Phase 9 — meeting

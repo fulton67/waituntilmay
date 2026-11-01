@@ -22,3 +22,5 @@
 20. **Top 30 in REPORT.md is Ostad-relevant winners only.** Seven off-niche winners (Filipino product plugs, hair "botox", OR comedy) outrank them on raw outlier; they stay in the dashboard with `relevant = false`.
 21. **The outlier score favours small accounts that went viral** (views ÷ followers when we have <3 of their posts). That's by design (it finds ideas, not accounts), but rows with `notes` = "views/max(followers,1000)" read as directional, not exact.
 22. **REPORT.md tables are rendered from data** (`REPORT.src.md` + `scripts/render_report.py`) so the numbers can't drift from `data/`.
+23. **The library opens on relevant winners** (`relevant = true`, winning on: 109 videos), the pitch view. Both are one click off; verify.mjs turns them off and checks all 1,031 render.
+24. **Local builds stash `app/reels/admin`** (it needs KV env vars that only exist on Vercel). Nothing in it was changed.

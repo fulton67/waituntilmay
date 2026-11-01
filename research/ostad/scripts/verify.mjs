@@ -38,6 +38,7 @@ await page.goto(base + "/ostad", { waitUntil: "networkidle" });
 const count = async () => Number(await page.getAttribute('[data-testid="count"]', "data-count"));
 const winning = await count();
 await page.click('button[aria-pressed="true"]:has-text("winning only")');
+await page.selectOption('select[aria-label="relevant"]', "all");
 const all = await count();
 await page.click('[data-testid="more"]').catch(() => {});
 const cards = await page.locator("[data-card]").count();
