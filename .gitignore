@@ -139,3 +139,6 @@ houthi-ingest.log
 relang.log
 renders_multi_prev/
 /.next-prod/
+
+# ostad raw apify dumps
+research/ostad/raw/

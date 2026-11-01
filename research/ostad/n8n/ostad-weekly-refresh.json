@@ -1,0 +1,132 @@
+{
+  "name": "Ostad content intel — weekly refresh",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": { "interval": [{ "field": "weeks", "triggerAtDay": [1], "triggerAtHour": 6 }] }
+      },
+      "id": "a1f0c1d2-0001-4000-8000-000000000001",
+      "name": "Every Monday 06:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// The weekly query set: the 12 queries whose winners fed the plan, plus his own handle.\n// Edit here, not in the HTTP nodes. Budget: 12 x 8 TikToks x $0.0037 + 12 x 5 IG x $0.0026 + 12 x 4 YT x $0.004 = ~$0.70/week.\nconst queries = ['dermatologist', 'botox', 'morpheus8', 'mohs surgery', 'skin cancer check', 'melasma treatment', 'filler migration', 'sunscreen myth', 'ozempic face', 'exosomes skin', 'nyc dermatologist', 'acne scars treatment'];\nconst hashtags = queries.map(q => q.replace(/\\s+/g, ''));\nreturn [{ json: { queries, hashtags, weekOf: new Date().toISOString().slice(0, 10) } }];"
+      },
+      "id": "a1f0c1d2-0002-4000-8000-000000000002",
+      "name": "Queries",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [220, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/clockworks~tiktok-scraper/run-sync-get-dataset-items?timeout=600",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ searchQueries: $json.queries, resultsPerPage: 8, shouldDownloadSubtitles: false, shouldDownloadCovers: false, shouldDownloadVideos: false }) }}",
+        "options": { "timeout": 660000 }
+      },
+      "id": "a1f0c1d2-0003-4000-8000-000000000003",
+      "name": "Apify · TikTok search",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 140],
+      "credentials": { "httpHeaderAuth": { "id": "", "name": "Apify token (Authorization: Bearer …)" } }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/apify~instagram-hashtag-scraper/run-sync-get-dataset-items?timeout=600",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ hashtags: $json.hashtags, resultsLimit: 5, resultsType: 'reels' }) }}",
+        "options": { "timeout": 660000 }
+      },
+      "id": "a1f0c1d2-0004-4000-8000-000000000004",
+      "name": "Apify · Instagram hashtags",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 300],
+      "credentials": { "httpHeaderAuth": { "id": "", "name": "Apify token (Authorization: Bearer …)" } }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/streamers~youtube-scraper/run-sync-get-dataset-items?timeout=600",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ searchQueries: $json.queries, maxResults: 0, maxResultsShorts: 4, maxResultStreams: 0 }) }}",
+        "options": { "timeout": 660000 }
+      },
+      "id": "a1f0c1d2-0005-4000-8000-000000000005",
+      "name": "Apify · YouTube shorts",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 460],
+      "credentials": { "httpHeaderAuth": { "id": "", "name": "Apify token (Authorization: Bearer …)" } }
+    },
+    {
+      "parameters": { "numberInputs": 3 },
+      "id": "a1f0c1d2-0006-4000-8000-000000000006",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [700, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Same metrics as research/ostad/scripts/normalize.py: views/day and engagement; outlier needs creator medians, so the weekly digest ranks by views/day among videos posted in the last 14 days.\nconst now = Date.now();\nconst rows = [];\nfor (const { json: it } of $input.all()) {\n  let r = null;\n  if (it.webVideoUrl) r = { platform: 'tiktok', url: it.webVideoUrl, creator: it.authorMeta?.name, posted: it.createTimeISO, views: it.playCount, likes: it.diggCount, comments: it.commentCount, shares: it.shareCount, saves: it.collectCount, caption: it.text, q: it.searchQuery };\n  else if (it.shortCode) r = { platform: 'instagram', url: it.url, creator: it.ownerUsername, posted: it.timestamp, views: it.videoPlayCount || it.videoViewCount, likes: it.likesCount, comments: it.commentsCount, shares: 0, saves: 0, caption: it.caption, q: it.inputUrl };\n  else if (it.viewCount !== undefined) r = { platform: 'youtube', url: it.url, creator: it.channelName, posted: it.date, views: it.viewCount, likes: it.likes, comments: it.commentsCount, shares: 0, saves: 0, caption: it.title, q: it.input };\n  if (!r || !r.views || !r.posted) continue;\n  const days = Math.max(1, (now - Date.parse(r.posted)) / 864e5);\n  if (days > 14) continue;\n  r.views_per_day = Math.round(r.views / days);\n  r.engagement_rate = +(((r.likes || 0) + (r.comments || 0) + (r.shares || 0) + (r.saves || 0)) / r.views).toFixed(4);\n  r.caption = (r.caption || '').slice(0, 300);\n  rows.push(r);\n}\nconst seen = new Set();\nconst top = rows.sort((a, b) => b.views_per_day - a.views_per_day).filter(r => !seen.has(r.url) && seen.add(r.url)).slice(0, 25);\nconst weekOf = $('Queries').first().json.weekOf;\nconst md = [`# Ostad weekly — ${weekOf}`, '', `${rows.length} videos posted in the last 14 days across ${$('Queries').first().json.queries.length} queries. Top 25 by views/day:`, '', '| # | platform | creator | views/day | eng | caption |', '|---|---|---|---|---|---|', ...top.map((r, i) => `| ${i + 1} | ${r.platform} | [@${r.creator}](${r.url}) | ${r.views_per_day} | ${(r.engagement_rate * 100).toFixed(1)}% | ${r.caption.replace(/[|\\n]/g, ' ').slice(0, 120)} |`)].join('\\n');\nreturn [{ json: { weekOf, count: rows.length, top, md, path: `research/ostad/weekly/${weekOf}.md`, content_b64: Buffer.from(md).toString('base64') } }];"
+      },
+      "id": "a1f0c1d2-0007-4000-8000-000000000007",
+      "name": "Rank last 14 days",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [920, 300]
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://api.github.com/repos/fulton67/waituntilmay/contents/{{ $json.path }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ message: `chore(ostad): weekly refresh ${$json.weekOf}`, content: $json.content_b64, branch: 'main' }) }}",
+        "options": {}
+      },
+      "id": "a1f0c1d2-0008-4000-8000-000000000008",
+      "name": "Commit digest to repo",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1140, 300],
+      "credentials": { "httpHeaderAuth": { "id": "", "name": "GitHub token (Authorization: Bearer …, contents:write)" } }
+    }
+  ],
+  "connections": {
+    "Every Monday 06:00": { "main": [[{ "node": "Queries", "type": "main", "index": 0 }]] },
+    "Queries": {
+      "main": [[
+        { "node": "Apify · TikTok search", "type": "main", "index": 0 },
+        { "node": "Apify · Instagram hashtags", "type": "main", "index": 0 },
+        { "node": "Apify · YouTube shorts", "type": "main", "index": 0 }
+      ]]
+    },
+    "Apify · TikTok search": { "main": [[{ "node": "Merge", "type": "main", "index": 0 }]] },
+    "Apify · Instagram hashtags": { "main": [[{ "node": "Merge", "type": "main", "index": 1 }]] },
+    "Apify · YouTube shorts": { "main": [[{ "node": "Merge", "type": "main", "index": 2 }]] },
+    "Merge": { "main": [[{ "node": "Rank last 14 days", "type": "main", "index": 0 }]] },
+    "Rank last 14 days": { "main": [[{ "node": "Commit digest to repo", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1", "timezone": "America/New_York" },
+  "pinData": {}
+}
