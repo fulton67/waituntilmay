@@ -101,7 +101,7 @@ export default function Scene({ releases, mono }: { releases: Release[]; mono: s
     <Canvas
       shadows={{ type: THREE.PCFSoftShadowMap }}
       dpr={[1, 3]}
-      camera={{ fov: 30, near: 0.01, far: 50, position: [0.7, 1.2, 2.2] }}
+      camera={{ fov: 30, near: 0.1, far: 20, position: [0.7, 1.2, 2.2] }}
       gl={{ antialias: true }}
     >
       <Environment />

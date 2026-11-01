@@ -29,6 +29,12 @@ const TYPE_SLOTS = 3;
 const BIG_MIN = 1024, BIG_SPAN = 1;
 // a card has to stay at the front this long before its big cover loads, so a fast run through the drum loads none
 const SETTLE_MS = 150;
+// the layers on a card, above the body's top (z = 0): the paper face, then the cover and the type 1.5 mm over it.
+// With the camera's near plane at 0.1 that is ~400 depth steps apart at the drum, and both also draw later
+// (renderOrder) with a polygon offset, so neither ever fights the paper for a pixel
+const FACE_Z = 0.0002, COVER_Z = FACE_Z + 0.0015, TYPE_Z = COVER_Z;
+const BODY_ORDER = 0, COVER_ORDER = 1, TYPE_ORDER = 2;
+const lifted = { polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 };
 
 // every texture: the renderer's full anisotropy, trilinear mips; colour maps in sRGB, data maps (normal, roughness) linear
 function sharpen(t: THREE.Texture, gl: THREE.WebGLRenderer, color: boolean) {
@@ -43,8 +49,15 @@ function sharpen(t: THREE.Texture, gl: THREE.WebGLRenderer, color: boolean) {
 // decoded off the main thread: fetch, then createImageBitmap, flipped there since an ImageBitmap ignores flipY
 const bitmaps = new THREE.ImageBitmapLoader().setOptions({ imageOrientation: "flipY", premultiplyAlpha: "none" });
 const loadBitmap = (url: string) => bitmaps.loadAsync(url).then((b) => { const t = new THREE.Texture(b as unknown as HTMLImageElement); t.flipY = false; return t; });
-// put a texture on a cover material: only its first map changes the shader (USE_MAP); later swaps are a uniform
-const setMap = (m: THREE.MeshStandardMaterial, t: THREE.Texture) => { if (!m.map) m.needsUpdate = true; m.map = t; };
+// put a texture on a cover material, in one frame and only once it is ready: the bitmap is already decoded (an
+// ImageBitmap resolves decoded) and initTexture uploads it to the GPU now, so the frame that shows it has nothing
+// left to do. Until then the old texture stays. Only the first map changes the shader (USE_MAP) and shows the plane.
+const setMap = (gl: THREE.WebGLRenderer, m: THREE.MeshStandardMaterial, t: THREE.Texture) => {
+  if (m.map === t) return;
+  gl.initTexture(t);
+  if (!m.map) { m.needsUpdate = true; m.visible = true; }
+  m.map = t;
+};
 const loadTex = (url: string) => loadBitmap(url).catch(() => loadBitmap(url.replace(/\.avif$/, ".jpg")));
 
 const PART_MAT: Partial<Record<string, "dark" | "bakelite">> = {
@@ -152,7 +165,7 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
     const faceGeos = shapes.map(({ s }) => {
       const g = new THREE.ShapeGeometry(s, 6), p = g.attributes.position, uv = g.attributes.uv;
       for (let i = 0; i < p.count; i++) uv.setXY(i, (p.getX(i) + CW / 2) / CW, p.getY(i) / (CH + TAB_H));
-      g.translate(0, 0, 0.0002);
+      g.translate(0, 0, FACE_Z);
       return g;
     });
     M.grain.repeat.set(5, 3.5);
@@ -164,20 +177,25 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
     c.width = TEX_W; c.height = TEX_H;
     paintFace(c.getContext("2d")!);
     const faceMat = new THREE.MeshStandardMaterial({ map: sharpen(new THREE.CanvasTexture(c), gl, true), roughness: 0.9, envMapIntensity: 0.55, normalMap: M.grain, normalScale: new THREE.Vector2(0.18, 0.18) });
-    // the cover plane: the square the prototype painted the cover into, a hair above the paper
+    // the cover plane: the square the prototype painted the cover into, lifted off the paper (COVER_Z)
     const cs = (COVER.s / 1024) * CW, coverGeo = new THREE.PlaneGeometry(cs, cs);
-    coverGeo.translate(mx(COVER.x + COVER.s / 2), my(COVER.y + COVER.s / 2), 0.0003);
+    coverGeo.translate(mx(COVER.x + COVER.s / 2), my(COVER.y + COVER.s / 2), COVER_Z);
     // the paper grain over the cover, at the same scale as on the card
     const grainCover = M.grain.clone();
     grainCover.repeat.set(5 * (cs / CW), 3.5 * (cs / (CH + TAB_H)));
     grainCover.needsUpdate = true;
     // one cover material and one type group per release, shared by its three cards. The type group is a troika
     // BatchedText: its drei <Text> children (six blocks) draw in one call, lit like the paper
-    const typeMat = new THREE.MeshStandardMaterial({ roughness: 0.9, envMapIntensity: 0.55 });
+    // (the type is the only see-through thing on a card: it blends over the paper and writes no depth)
+    // (troika sets the polygon offset itself, from depthOffset, each frame)
+    const typeMat = new THREE.MeshStandardMaterial({ roughness: 0.9, envMapIntensity: 0.55, depthWrite: false });
     const faces = releases.map((r, i) => {
-      const mat = new THREE.MeshStandardMaterial({ roughness: 0.9, envMapIntensity: 0.55, normalMap: grainCover, normalScale: new THREE.Vector2(0.18, 0.18) });
+      // opaque, no alphaTest; hidden until its first texture is decoded and uploaded, so a card never shows a blank
+      const mat = new THREE.MeshStandardMaterial({ roughness: 0.9, envMapIntensity: 0.55, normalMap: grainCover, normalScale: new THREE.Vector2(0.18, 0.18), visible: false, ...lifted });
       const type = new BatchedText();
       type.material = typeMat;
+      type.renderOrder = TYPE_ORDER;
+      type.depthOffset = lifted.polygonOffsetFactor;
       type.visible = false;
       return { r, i, slot: slotOf(r), mat, type, small: null as THREE.Texture | null, big: null as THREE.Texture | null, bigW: 0, want: 0, holder: -1 };
     });
@@ -194,6 +212,8 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
       face.receiveShadow = true;
       const cover = new THREE.Mesh(coverGeo, f.mat);
       cover.receiveShadow = true;
+      body.renderOrder = face.renderOrder = BODY_ORDER;
+      cover.renderOrder = COVER_ORDER;
       const innerG = new THREE.Group();
       innerG.position.y = R0;
       innerG.add(body, face, cover);
@@ -230,7 +250,7 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
     for (const f of built.faces) {
       if (!f.r.cover) continue;
       if (!near.has(f.i)) {
-        if (f.big) { if (f.small) setMap(f.mat, f.small); f.big.dispose(); f.big = null; f.bigW = 0; f.want = 0; }
+        if (f.big) { if (f.small) setMap(gl, f.mat, f.small); f.big.dispose(); f.big = null; f.bigW = 0; f.want = 0; }
         continue;
       }
       const w = coverWidth(f.r, need);
@@ -238,11 +258,11 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
       f.want = w;
       loadTex(`/covers/${w}/${f.r.id}.avif`).then((t) => {
         if (f.want !== w) return t.dispose();
-        sharpen(t, gl, true);
-        // upload now, between frames, so the swap itself costs nothing
-        gl.initTexture(t);
-        f.big?.dispose();
-        f.big = t; f.bigW = w; setMap(f.mat, t);
+        // the 512 (or the smaller big) stays on until this one is uploaded; then swap, then free the old one
+        const old = f.big;
+        setMap(gl, f.mat, sharpen(t, gl, true));
+        old?.dispose();
+        f.big = t; f.bigW = w;
       });
     }
   };
@@ -261,14 +281,14 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
     for (const f of built.faces) {
       if (!f.r.cover) {
         f.small = sharpen(new THREE.CanvasTexture(placeholderCanvas(f.r, mono)), gl, true);
-        setMap(f.mat, f.small);
+        setMap(gl, f.mat, f.small);
         if (f.i === 0) rig.firstCardTexture = true;
         continue;
       }
       loadTex(`/covers/512/${f.r.id}.avif`).then((t) => {
         if (!live) return t.dispose();
         f.small = sharpen(t, gl, true);
-        if (!f.big) setMap(f.mat, f.small);
+        if (!f.big) setMap(gl, f.mat, f.small);
         if (f.i === 0) rig.firstCardTexture = true;
       });
     }
@@ -393,7 +413,7 @@ const CardType = memo(function CardType({ blocks, chars }: { blocks: TextBlock[]
   return (
     <>
       {blocks.map((b) => (
-        <Text key={b.key} characters={chars} font={b.italic ? FONT_ITALIC : FONT} fontSize={b.size} lineHeight={b.step} color={batchColor(b.color)} anchorX={b.anchorX ?? "left"} anchorY={b.anchorY ?? "top-baseline"} whiteSpace="nowrap" position={[b.x, b.y, 0.0005]}>
+        <Text key={b.key} characters={chars} font={b.italic ? FONT_ITALIC : FONT} fontSize={b.size} lineHeight={b.step} color={batchColor(b.color)} anchorX={b.anchorX ?? "left"} anchorY={b.anchorY ?? "top-baseline"} whiteSpace="nowrap" position={[b.x, b.y, TYPE_Z]}>
           {b.text}
         </Text>
       ))}

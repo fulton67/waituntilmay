@@ -4,5 +4,7 @@ declare module "troika-three-text" {
   /** draws every troika Text added to it in one call; members are kept in _members, not as children */
   export class BatchedText extends Mesh {
     _members: Map<Mesh, unknown>;
+    /** polygon offset factor and units for the batch's material (troika sets them each frame) */
+    depthOffset: number;
   }
 }
