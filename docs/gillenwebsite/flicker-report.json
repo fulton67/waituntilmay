@@ -1,0 +1,106 @@
+{
+  "base": "https://waituntilmay.com",
+  "at": "2026-11-01T22:20:16.186Z",
+  "profiles": {
+    "phone": {
+      "viewport": "390x844@3",
+      "swap": {
+        "draws": 87048,
+        "blank": 0,
+        "notUploaded": 0,
+        "frames": 806,
+        "examples": [],
+        "pass": true
+      },
+      "depth": {
+        "depthBits": 24,
+        "minDepthSteps": 174.6,
+        "steps": 81,
+        "cardsChecked": 713,
+        "samples": 13131,
+        "wrong": 0,
+        "worst": [],
+        "pass": true
+      },
+      "materials": {
+        "near": 0.1,
+        "far": 20,
+        "order": {
+          "body": 0,
+          "face": 0,
+          "cover": 1,
+          "type": 2
+        },
+        "coverAboveFace": 0.0015,
+        "cover": {
+          "transparent": false,
+          "alphaTest": 0,
+          "depthWrite": true,
+          "polygonOffset": true,
+          "factor": -1,
+          "units": -1
+        },
+        "type": {
+          "transparent": true,
+          "alphaTest": 0,
+          "depthWrite": false,
+          "polygonOffset": true,
+          "factor": -1,
+          "units": -1
+        },
+        "transparentOnCardBodyOrFace": 0,
+        "pass": true
+      }
+    },
+    "desktop": {
+      "viewport": "1440x900@2",
+      "swap": {
+        "draws": 89316,
+        "blank": 0,
+        "notUploaded": 0,
+        "frames": 827,
+        "examples": [],
+        "pass": true
+      },
+      "depth": {
+        "depthBits": 24,
+        "minDepthSteps": 325.5,
+        "steps": 81,
+        "cardsChecked": 570,
+        "samples": 9553,
+        "wrong": 0,
+        "worst": [],
+        "pass": true
+      },
+      "materials": {
+        "near": 0.1,
+        "far": 20,
+        "order": {
+          "body": 0,
+          "face": 0,
+          "cover": 1,
+          "type": 2
+        },
+        "coverAboveFace": 0.0015,
+        "cover": {
+          "transparent": false,
+          "alphaTest": 0,
+          "depthWrite": true,
+          "polygonOffset": true,
+          "factor": -1,
+          "units": -1
+        },
+        "type": {
+          "transparent": true,
+          "alphaTest": 0,
+          "depthWrite": false,
+          "polygonOffset": true,
+          "factor": -1,
+          "units": -1
+        },
+        "transparentOnCardBodyOrFace": 0,
+        "pass": true
+      }
+    }
+  }
+}

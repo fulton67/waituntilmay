@@ -1,6 +1,6 @@
 {
   "base": "https://waituntilmay.com",
-  "at": "2026-11-01T00:19:00.972Z",
+  "at": "2026-11-01T22:27:37.679Z",
   "onlyBelow1500": [
     "11-don-toliver-doja-cat-f1-the-album: 1425x1425",
     "25-lucy-park-before-i-speak: 1400x1400"
@@ -338,9 +338,9 @@
       "frontCard": {
         "release": "01-girl-in-red-blue",
         "coverTexturePx": 1024,
-        "coverScreenPx": 203.54072308873697,
+        "coverScreenPx": 203.610436977002,
         "paperTexturePx": 2048,
-        "cardScreenPx": 595.5020012653333,
+        "cardScreenPx": 595.705964184143,
         "pixelRatio": 3,
         "bigLoaded": [
           "01-girl-in-red-blue@1024",
@@ -353,7 +353,7 @@
       },
       "titleCrop": {
         "rectCss": {
-          "x": 176,
+          "x": 175,
           "y": 261,
           "width": 68,
           "height": 37
@@ -363,11 +363,11 @@
       "fps": {
         "cards": 36,
         "endedOn": 5,
-        "frames": 705,
-        "avg": 54.02,
-        "min1s": 46,
+        "frames": 778,
+        "avg": 58.79,
+        "min1s": 56,
         "worstFrameMs": 50,
-        "framesOver33ms": 9,
+        "framesOver33ms": 2,
         "target": 45,
         "pass": true
       },
@@ -795,9 +795,9 @@
       "frontCard": {
         "release": "01-girl-in-red-blue",
         "coverTexturePx": 1024,
-        "coverScreenPx": 194.74746106256697,
+        "coverScreenPx": 194.83724898281343,
         "paperTexturePx": 2048,
-        "cardScreenPx": 569.7754289373388,
+        "cardScreenPx": 570.0381227382884,
         "pixelRatio": 2,
         "bigLoaded": [
           "01-girl-in-red-blue@1024",
@@ -820,11 +820,11 @@
       "fps": {
         "cards": 36,
         "endedOn": 0,
-        "frames": 808,
-        "avg": 58.69,
-        "min1s": 56,
-        "worstFrameMs": 83.2,
-        "framesOver33ms": 7,
+        "frames": 815,
+        "avg": 59.13,
+        "min1s": 57,
+        "worstFrameMs": 66.7,
+        "framesOver33ms": 4,
         "target": 55,
         "pass": true
       },

@@ -1,0 +1,55 @@
+{
+  "base": "https://waituntilmay.com",
+  "at": "2026-11-01T21:57:25.665Z",
+  "profiles": {
+    "phone": {
+      "viewport": "390x844@3",
+      "swap": {
+        "draws": 87264,
+        "blank": 0,
+        "notUploaded": 2,
+        "frames": 808,
+        "examples": [
+          "not uploaded card 35 512",
+          "not uploaded card 37 512"
+        ],
+        "pass": false
+      },
+      "depth": {
+        "depthBits": 24,
+        "minDepthSteps": 1.2,
+        "steps": 81,
+        "cardsChecked": 767,
+        "samples": 13077,
+        "wrong": 0,
+        "worst": [],
+        "pass": false
+      }
+    },
+    "desktop": {
+      "viewport": "1440x900@2",
+      "swap": {
+        "draws": 89856,
+        "blank": 0,
+        "notUploaded": 3,
+        "frames": 832,
+        "examples": [
+          "not uploaded card 35 512",
+          "not uploaded card 36 512",
+          "not uploaded card 37 512"
+        ],
+        "pass": false
+      },
+      "depth": {
+        "depthBits": 24,
+        "minDepthSteps": 2.2,
+        "steps": 81,
+        "cardsChecked": 507,
+        "samples": 9542,
+        "wrong": 0,
+        "worst": [],
+        "pass": false
+      }
+    }
+  }
+}
