@@ -48,73 +48,67 @@ export function paintPlaceholder(x: CanvasRenderingContext2D, r: Release, cx: nu
   x.font = `400 ${20 * k}px ${mono}`; x.fillText("NO ARTWORK ON FILE", cx + 24 * k, cy + cs - 24 * k);
 }
 
-export const TEX_W = 1024, TEX_H = Math.round((1024 * (CH + TAB_H)) / CW), K = TEX_W / CW, TOP = TAB_H * K;
+// The card face is drawn in the prototype's 1024-wide units (7170f0b) and painted at TEX_W = 2048. The canvas holds
+// only what is not type: the paper, the tab, the ruled lines, the red head rule and the cover's outline. It is the
+// same on every card, so one texture serves all of them. The strip above the head is the tab colour from edge to
+// edge, since only the tab's own shape reaches up there. Type is SDF text (Rolodex.tsx) placed by cardText(); the
+// cover is its own plane at COVER.
+export const TEX_W = 2048, TEX_H = Math.round((TEX_W * (CH + TAB_H)) / CW);
+const U1 = 1024, K1 = U1 / CW, TOP1 = TAB_H * K1, H1 = (U1 * (CH + TAB_H)) / CW;
+// 1024-unit canvas coordinates (y down from the top edge) to metres on the card face (y up from the bottom edge)
+export const mx = (px: number) => px / K1 - CW / 2;
+export const my = (py: number) => CH + TAB_H - py / K1;
+export const COVER = { x: 40, y: TOP1 + 52, s: 350 };
 
-export function paintCard(x: CanvasRenderingContext2D, r: Release, i: number, slot: number, img: HTMLImageElement | null, mono: string) {
-  const sh = shapes[slot], W = TEX_W, H = TEX_H;
-  x.fillStyle = "#f6f2e8"; x.fillRect(0, 0, W, H);
-  // tab: year
-  x.fillStyle = "#e8dcbc"; x.fillRect((sh.tx0 + CW / 2) * K, 0, TAB_W * K, TOP + 4);
-  x.fillStyle = "#2b2620"; x.font = `400 36px ${mono}`; x.textAlign = "center"; x.textBaseline = "middle";
-  x.fillText(String(r.year), (sh.tx0 + TAB_W / 2 + CW / 2) * K, TOP / 2 + 2);
-  x.textAlign = "left"; x.textBaseline = "alphabetic";
+export function paintFace(x: CanvasRenderingContext2D) {
+  const k = TEX_W / U1;
+  x.setTransform(k, 0, 0, k, 0, 0);
+  x.fillStyle = "#f6f2e8"; x.fillRect(0, 0, U1, H1);
+  x.fillStyle = "#e8dcbc"; x.fillRect(0, 0, U1, TOP1);
   // ruled lines and the red head rule
   x.strokeStyle = "#b4c4dc"; x.lineWidth = 1.5;
-  for (let y = TOP + 170; y < H - 40; y += 46) { x.beginPath(); x.moveTo(420, y); x.lineTo(W, y); x.stroke(); }
-  x.strokeStyle = "#b8362b"; x.lineWidth = 3; x.beginPath(); x.moveTo(0, TOP + 24); x.lineTo(W, TOP + 24); x.stroke();
-  // cover
-  const cx = 40, cy = TOP + 52, cs = 350;
-  if (img) x.drawImage(img, cx, cy, cs, cs);
-  else paintPlaceholder(x, r, cx, cy, cs, mono);
-  x.strokeStyle = "rgba(0,0,0,.18)"; x.lineWidth = 1; x.strokeRect(cx + 0.5, cy + 0.5, cs - 1, cs - 1);
-  // text column
-  const tx = 430, tw = W - tx - 40;
-  x.fillStyle = "#1d1b18"; x.font = `400 44px ${mono}`;
-  const al = wrap(x, r.artist.toUpperCase(), tw).slice(0, 2);
-  al.forEach((l, j) => x.fillText(l, tx, TOP + 96 + j * 46));
-  let y = TOP + 96 + al.length * 46 + 4;
-  x.font = `italic 400 30px ${mono}`; x.fillStyle = "#1f2a44";
-  const rl = wrap(x, r.release, tw).slice(0, 2);
-  rl.forEach((l, j) => x.fillText(l, tx, y + j * 34));
+  for (let y = TOP1 + 170; y < H1 - 40; y += 46) { x.beginPath(); x.moveTo(420, y); x.lineTo(U1, y); x.stroke(); }
+  x.strokeStyle = "#b8362b"; x.lineWidth = 3; x.beginPath(); x.moveTo(0, TOP1 + 24); x.lineTo(U1, TOP1 + 24); x.stroke();
+  // the cover's outline, half of it showing round the cover plane
+  x.strokeStyle = "rgba(0,0,0,.18)"; x.lineWidth = 1; x.strokeRect(COVER.x + 0.5, COVER.y + 0.5, COVER.s - 1, COVER.s - 1);
+  x.setTransform(1, 0, 0, 1, 0, 0);
+}
+
+// One block of type on a card: its lines, the first line's baseline at (x, y) in metres, size and line step in metres.
+export type TextBlock = { key: string; text: string; x: number; y: number; size: number; step: number; color: string; italic?: boolean; anchorX?: "left" | "center"; anchorY?: "top-baseline" | "middle" };
+
+// The prototype's layout (paintCard in 7170f0b), line for line: the artist in capitals (2 lines at most), the release in
+// italics (2), the role in red capitals (2), then as many tracks as fit and "+ n more", the card number and the year on
+// the tab. Lines are broken with the face's own metrics through `measure` (a 2D context set to the card face).
+export function cardText(r: Release, i: number, slot: number, measure: CanvasRenderingContext2D, mono: string): TextBlock[] {
+  const tx = 430, tw = U1 - tx - 40, out: TextBlock[] = [];
+  const fit = (font: string, text: string, n: number) => { measure.font = font; return wrap(measure, text, tw).slice(0, n); };
+  const block = (key: string, lines: string[], px: number, step: number, y: number, color: string, italic = false) =>
+    { if (lines.length) out.push({ key, text: lines.join("\n"), x: mx(tx), y: my(y), size: px / K1, step: step / px, color, italic }); };
+  const al = fit(`400 44px ${mono}`, r.artist.toUpperCase(), 2);
+  block("artist", al, 44, 46, TOP1 + 96, "#1d1b18");
+  let y = TOP1 + 96 + al.length * 46 + 4;
+  const rl = fit(`italic 400 30px ${mono}`, r.release, 2);
+  block("release", rl, 30, 34, y, "#1f2a44", true);
   y += rl.length * 34 + 10;
-  x.font = `400 22px ${mono}`; x.fillStyle = "#b8362b";
-  wrap(x, r.role.toUpperCase(), tw).slice(0, 2).forEach((l, j) => x.fillText(l, tx, y + j * 26));
+  const ol = fit(`400 22px ${mono}`, r.role.toUpperCase(), 2);
+  block("role", ol, 22, 26, y, "#b8362b");
   y += 60;
-  x.font = `400 25px ${mono}`; x.fillStyle = "#2b2620";
-  const tracks = r.tracks.map((t) => t.title), room = Math.max(0, Math.floor((H - 40 - y) / 34));
+  const tracks = r.tracks.map((t) => t.title), room = Math.max(0, Math.floor((H1 - 40 - y) / 34));
   const show = tracks.length > room ? tracks.slice(0, room - 1) : tracks;
-  show.forEach((t, j) => x.fillText(`${String(j + 1).padStart(2, "0")}  ${t}`, tx, y + j * 34));
-  if (tracks.length > show.length) x.fillText(`+ ${tracks.length - show.length} more`, tx, y + show.length * 34);
-  // card number, lower left
-  x.font = `400 20px ${mono}`; x.fillStyle = "#2b2620"; x.fillText(`No. ${String(i + 1).padStart(2, "0")}`, 40, H - 34);
+  const tl = show.map((t, j) => `${String(j + 1).padStart(2, "0")}  ${t}`);
+  if (tracks.length > show.length) tl.push(`+ ${tracks.length - show.length} more`);
+  block("tracks", tl, 25, 34, y, "#2b2620");
+  block("no", [`No. ${String(i + 1).padStart(2, "0")}`], 20, 20, H1 - 34, "#2b2620");
+  const sh = shapes[slot];
+  out.push({ key: "year", text: String(r.year), x: sh.tx0 + TAB_W / 2, y: my(TOP1 / 2 + 2), size: 36 / K1, step: 1, color: "#2b2620", anchorX: "center", anchorY: "middle" });
+  return out;
 }
 
-export function blankTexture(slot: number) {
-  const c = document.createElement("canvas"), W = 512, H = Math.round((512 * (CH + TAB_H)) / CW);
-  c.width = W; c.height = H;
-  const x = c.getContext("2d")!, k = W / CW, top = TAB_H * k, sh = shapes[slot];
-  x.fillStyle = "#f2ecdf"; x.fillRect(0, 0, W, H); x.fillStyle = "#e6dcc2"; x.fillRect((sh.tx0 + CW / 2) * k, 0, TAB_W * k, top + 2);
-  x.strokeStyle = "#b8362b"; x.lineWidth = 1.5; x.beginPath(); x.moveTo(0, top + 12); x.lineTo(W, top + 12); x.stroke();
-  x.strokeStyle = "#bfcce0"; x.lineWidth = 1;
-  for (let y = top + 40; y < H - 20; y += 23) { x.beginPath(); x.moveTo(0, y); x.lineTo(W, y); x.stroke(); }
-  const t = new THREE.CanvasTexture(c);
-  t.colorSpace = THREE.SRGBColorSpace;
-  return t;
-}
-
-// covers are same-origin files in /public/covers; loaded once and shared by cards, panel and caption
-const coverCache = new Map<string, Promise<HTMLImageElement | null>>();
-export function loadCover(src: string) {
-  if (!src) return Promise.resolve(null);
-  let p = coverCache.get(src);
-  if (!p) {
-    p = new Promise((res) => {
-      const img = new Image();
-      img.onload = () => res(img);
-      img.onerror = () => res(null);
-      img.src = src;
-    });
-    coverCache.set(src, p);
-  }
-  return p;
+// the release's cover as a canvas, when it has none on file
+export function placeholderCanvas(r: Release, mono: string) {
+  const c = document.createElement("canvas");
+  c.width = c.height = 1024;
+  paintPlaceholder(c.getContext("2d")!, r, 0, 0, 1024, mono);
+  return c;
 }

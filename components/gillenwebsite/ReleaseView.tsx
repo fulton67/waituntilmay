@@ -2,18 +2,22 @@
 // SOURCES #12: the release display. The cover is large, with artist, release, year, role and tracks in a column
 // beside it (below it on phones). Reveal and switch follow luckydaye.com's lightbox crossfade
 // (4bda12d4093ea50f.css:1 .lightbox-enter-active), at 150 ms: when the release changes the old cover fades out
-// while the new one fades in. The cover is the 2048 file (1080 inline where that
-// covers the rendered pixels), object-fit: contain.
+// while the new one fades in. The cover picks its file from its rendered width x DPR (Cover.tsx), object-fit: contain.
 import { useEffect, useRef, useState } from "react";
 import type { Release } from "@/lib/gillenwebsite/discography";
-import { coverAt, no3, pad2, caps } from "./shared";
+import { no3, pad2, caps, coverWidth } from "./shared";
+import Cover from "./Cover";
 import { hue } from "./cardTexture";
 import css from "./site.module.css";
 
-function Art({ r, cls, size }: { r: Release; cls: string; size: 1080 | 2048 }) {
-  const src = coverAt(r, size);
-  // eslint-disable-next-line @next/next/no-img-element -- local 1080 / 2048 JPEG, never shown above its natural size; no resizing service
-  if (src) return <img className={cls} src={src} alt={`${r.artist}, ${r.release} cover`} width={size} height={size} decoding="async" />;
+// the cover box: --cv in site.module.css, beside the Rolodex (inline) or in the panel (the full width on phones)
+const SIZES = {
+  inline: "min(64vh, calc(100vh - 284px))",
+  panel: "(min-width: 720px) min(75vh, calc(100vw - 444px)), calc(100vw - 32px)",
+};
+
+function Art({ r, cls, sizes, jpeg }: { r: Release; cls: string; sizes: string; jpeg: boolean }) {
+  if (r.cover) return <Cover r={r} className={cls} sizes={sizes} alt={`${r.artist}, ${r.release} cover`} eager jpeg={jpeg} />;
   const h = hue(r.artist + r.release);
   return (
     <div className={`${cls} ${css.noArt}`} style={{ background: `hsl(${h} 12% 86%)`, color: `hsl(${h} 18% 34%)` }}>
@@ -38,40 +42,35 @@ export default function ReleaseView({
   if (pair.cur !== i) setPair({ cur: i, prev: pair.cur });
   const tracks = r.tracks.length ? r.tracks : [{ title: `${r.release} (full release)`, role: r.role }];
 
-  // The panel always shows the 2048 file. Beside the Rolodex, the cover changes with every card that passes, and
-  // rasterising a fresh 2048 x 2048 image costs a 50-100 ms frame each time, so there the 1080 copy is used
-  // whenever it covers the rendered size at the device's pixel ratio (576 px at 1440 x 900 on a 1x screen).
+  const sizes = SIZES[mode];
+  // beside the Rolodex the cover changes with every card, so it is JPEG there (Cover.tsx); the panel keeps AVIF
+  const jpeg = mode === "inline";
+  const ext = jpeg ? "jpg" : "avif";
+  // decode the next covers ahead of the scroll so they are ready when their card comes to the front: the file
+  // the box needs at this DPR (the srcset picks the same one)
   const box = useRef<HTMLDivElement>(null);
-  const [size, setSize] = useState<1080 | 2048>(mode === "panel" ? 2048 : 1080);
   useEffect(() => {
-    if (mode === "panel") return;
-    const fit = () => { if (box.current) setSize(box.current.clientWidth * devicePixelRatio <= 1080 ? 1080 : 2048); };
-    fit();
-    addEventListener("resize", fit);
-    return () => removeEventListener("resize", fit);
-  }, [mode]);
-  // decode the next covers ahead of the scroll so they are ready when their card comes to the front
-  useEffect(() => {
+    const need = (box.current?.clientWidth ?? 0) * devicePixelRatio;
     for (const k of [i + 1, i + 2, i - 1]) {
-      const n = releases[k], src = n && coverAt(n, size);
-      if (!src) continue;
+      const n = releases[k];
+      if (!n?.cover) continue;
       const im = new Image();
-      im.src = src;
+      im.src = `/covers/${coverWidth(n, need)}/${n.id}.${ext}`;
       im.decode().catch(() => {});
     }
-  }, [i, size, releases]);
+  }, [i, releases, ext]);
 
   return (
     <article className={mode === "panel" ? css.viewPanel : css.viewInline} data-release={r.id} data-src="12">
       <div className={css.coverBox} ref={box}>
-        <Art key={`c${i}`} r={r} cls={`${css.cover} ${css.coverIn}`} size={size} />
+        <Art key={`c${i}`} r={r} cls={`${css.cover} ${css.coverIn}`} sizes={sizes} jpeg={jpeg} />
         {pair.prev !== null && pair.prev !== i && (
           <span
             key={`p${pair.prev}`}
             className={css.coverOutWrap}
             onAnimationEnd={() => setPair((p) => ({ ...p, prev: null }))}
           >
-            <Art r={releases[pair.prev]} cls={css.cover} size={size} />
+            <Art r={releases[pair.prev]} cls={css.cover} sizes={sizes} jpeg={jpeg} />
           </span>
         )}
       </div>

@@ -12,6 +12,7 @@ export type Release = {
   tracks: Track[];
   cover: string;
   coverSource: string;
+  coverSizes: number[];
 };
 
 export const releases: Release[] = discography.releases;

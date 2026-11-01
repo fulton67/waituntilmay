@@ -8,7 +8,8 @@ import type { Release } from "@/lib/gillenwebsite/discography";
 import { rig, per, jumpTo, jumpToRelease, setPos, heading, flick, wrap, ringDelta, FLIP_DIR, DRAG_PX } from "./rig";
 import { usePanel } from "./Chrome";
 import ReleaseView from "./ReleaseView";
-import { no3, coverAt, caps } from "./shared";
+import { no3, caps } from "./shared";
+import Cover from "./Cover";
 import css from "./site.module.css";
 
 const Scene = dynamic(() => import("./Scene"), { ssr: false });
@@ -89,8 +90,7 @@ function Caption({ releases, front, onStep, onOpen, children }: { releases: Rele
           aria-label={"Open " + r.artist + ", " + r.release}
           onClick={() => { if (!g.current || Math.abs(g.current.dy) <= 5) onOpen(i); }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element -- 512 copy shown at 64 px */}
-          {r.cover ? <img className={css.thumb} src={coverAt(r, 512)} alt="" width={64} height={64} draggable={false} /> : <span className={css.thumb} />}
+          {r.cover ? <Cover r={r} className={css.thumb} sizes="64px" eager /> : <span className={css.thumb} />}
         </button>
         <span className={css.capText}>
           <span className={css.capArtist}>{r.artist}</span>

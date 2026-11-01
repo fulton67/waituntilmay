@@ -5,7 +5,8 @@
 // the row. Same document throughout: no route change, only the hash is replaced.
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { Release } from "@/lib/gillenwebsite/discography";
-import { coverAt, rolesOf, caps, no3, pad2 } from "./shared";
+import { rolesOf, caps, no3, pad2 } from "./shared";
+import Cover from "./Cover";
 import css from "./site.module.css";
 
 // SOURCES #23, viscosesyllabus.com S6 (1c85fe7d1ee0de53.js:23): the order is kept in the alphabetOrdering cookie
@@ -69,7 +70,7 @@ export default function Discography({ releases }: { releases: Release[] }) {
     // promote the cover to its own layer before it moves
     if (!clip) return;
     clip.style.willChange = "transform";
-    (clip.firstElementChild as HTMLElement | null)?.style.setProperty("will-change", "transform");
+    clip.querySelector("img")?.style.setProperty("will-change", "transform");
   };
   const expand = useCallback((i: number, li: HTMLElement | null, instant = false) => {
     if (busy.current || !li) return;
@@ -79,7 +80,7 @@ export default function Discography({ releases }: { releases: Release[] }) {
     const b = clip.getBoundingClientRect();
     busy.current = true;
     setClosing(false);
-    setOpen({ i, clip, img: clip.firstElementChild as HTMLElement | null, row: { x: b.left, y: b.top, w: b.width, h: b.height }, instant });
+    setOpen({ i, clip, img: clip.querySelector("img"), row: { x: b.left, y: b.top, w: b.width, h: b.height }, instant });
     history.replaceState(history.state, "", `#${releases[i].id}`);
   }, [releases]);
 
@@ -172,7 +173,6 @@ export default function Discography({ releases }: { releases: Release[] }) {
       <ol ref={list} className={css.discoList} id="titleList" data-src="22 23">
         {rows.map(({ r, i }) => {
           const hide = (role && !rolesOf(r).includes(role)) || (artist && r.artist !== artist);
-          const src = coverAt(r, 1080);
           return (
             <li key={r.id} data-id={r.id} className={`${css.discoItem} ${open?.i === i ? css.discoActive : ""}`} data-target={r.release} data-role={rolesOf(r).join("|")} data-artist={r.artist} style={hide ? { display: "none" } : undefined}>
               <a
@@ -188,11 +188,11 @@ export default function Discography({ releases }: { releases: Release[] }) {
                   <span className={css.discoWho}>{caps(r.artist)} · {caps(r.role)}</span>
                   <span className={css.discoYear}>{r.year}</span>
                 </span>
-                {/* the cover as a 20 px slice through its middle; the clip box is what grows when the row opens */}
+                {/* the cover as a 20 px slice through its middle; the clip box is what grows when the row opens. The slice
+                    is half the list column (a third of the screen on desktop, half on phones); open, it is the 3000 file */}
                 <span className={css.slice}>
                   <span className={css.sliceClip} data-clip>
-                    {/* eslint-disable-next-line @next/next/no-img-element -- 1080 copy shown as a 464 x 20 slice, and whole when expanded */}
-                    {src ? <img className={css.sliceImg} src={src} alt="" width={1080} height={1080} loading="lazy" decoding="async" /> : <span className={css.sliceBlank} />}
+                    {r.cover ? <Cover r={r} className={css.sliceImg} sizes="(min-width: 720px) calc(33.33vw - 8px), calc(50vw - 8px)" fixed={open?.i === i ? 3000 : undefined} /> : <span className={css.sliceBlank} />}
                   </span>
                 </span>
               </a>

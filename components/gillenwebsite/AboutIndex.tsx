@@ -4,7 +4,8 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { usePanel } from "./Chrome";
-import { coverAt, no3, caps } from "./shared";
+import { no3, caps } from "./shared";
+import Cover from "./Cover";
 import css from "./site.module.css";
 
 // Every title is one line at one size (26 px, 17 px on phones). A title wider than its column ends in an ellipsis,
@@ -113,11 +114,8 @@ export default function AboutIndex({ releases, about }: { releases: Release[]; a
       {/* the cover beside the list: all 36 are stacked and the active one is shown by visibility, with no
           transition (shortnotice.studio thumb-mo-image-no-transition, 1b979d7b0875324e.css:1) */}
       <div ref={coverRef} className={css.indexCover} data-src="20" aria-hidden>
-        {releases.map((r, i) => {
-          const src = coverAt(r, 1080);
-          // eslint-disable-next-line @next/next/no-img-element -- 1080 copies, stacked; shown at about 400 px
-          return src ? <img key={r.id} src={src} alt="" width={1080} height={1080} className={css.moThumb} style={{ visibility: i === active ? "visible" : "hidden" }} /> : null;
-        })}
+        {/* the 1024 file, shown at up to 400 px (min(30vw, 44vh); 34vw on phones) */}
+        {releases.map((r, i) => r.cover ? <Cover key={r.id} r={r} className={css.moThumb} sizes="(min-width: 720px) min(30vw, 44vh), 34vw" fixed={1024} eager style={{ visibility: i === active ? "visible" : "hidden" }} /> : null)}
         <p className={css.indexCaption}>{`${no3(active + 1)} ${releases[active].artist}, ${releases[active].release} [${releases[active].year}]`}</p>
       </div>
       <svg ref={svg} className={css.indexLines} data-src="21" aria-hidden>
