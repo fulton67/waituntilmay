@@ -1,0 +1,629 @@
+[
+ {
+  "id": "in_C9Ai3kot0rb",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "salmon sperm",
+   "polynucleotides",
+   "skin boosters"
+  ],
+  "ostad_relevant": true,
+  "why": "A doctor translates the weird 'salmon sperm' trend into polynucleotide science, turning shock value into credibility."
+ },
+ {
+  "id": "ti_7276081818208652586",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "sclerotherapy",
+   "leg veins"
+  ],
+  "ostad_relevant": true,
+  "why": "Injection-by-injection vein footage is satisfying, but the caption reads as a promo rather than an answer to a question."
+ },
+ {
+  "id": "yo_t4czc1bazhE",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "emface",
+   "ultherapy",
+   "hifu"
+  ],
+  "ostad_relevant": true,
+  "why": "A facial plastic surgeon's 'beware' verdict on popular devices uses authority and contrarian risk to drive views and debate."
+ },
+ {
+  "id": "in_DZPxnAHBg4r",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "derm reacts",
+   "over-exfoliation",
+   "skin barrier"
+  ],
+  "ostad_relevant": true,
+  "why": "Reacts to an aggressive routine with one clear rule ('stronger doesn't mean better'), making the correction memorable."
+ },
+ {
+  "id": "ti_7702905746727439647",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "derm reacts",
+   "prosthetics"
+  ],
+  "ostad_relevant": true,
+  "why": "A 'what did I just watch?' reaction rides shock content; the expert's disbelief is the entertainment."
+ },
+ {
+  "id": "ti_7673256302222527757",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head + b-roll",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "skin cycling",
+   "oily skin",
+   "retinol"
+  ],
+  "ostad_relevant": true,
+  "why": "Answers a follower's comment with a before/after skin-cycling routine, combining social proof with a personal result."
+ },
+ {
+  "id": "in_DcTXzsvIDDN",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "melanoma",
+   "vaccine",
+   "news"
+  ],
+  "ostad_relevant": true,
+  "why": "Explains a melanoma-vaccine headline accurately ('it's not preventive'), adding expert framing to breaking news."
+ },
+ {
+  "id": "in_DfCmyojO9EQ",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "number/stat",
+  "topic_tags": [
+   "body hyperpigmentation",
+   "tan"
+  ],
+  "ostad_relevant": true,
+  "why": "'A natural tan fades in 4–6 weeks' gives a stat that reframes a stubborn tan as pigmentation, with a comment-for-routine funnel."
+ },
+ {
+  "id": "ti_7522657788007304454",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "salmon sperm",
+   "k-beauty"
+  ],
+  "ostad_relevant": true,
+  "why": "An influencer's 'what? salmon sperm?' reaction rides the gross-out curiosity of the trend while selling products."
+ },
+ {
+  "id": "ti_7059098093660261678",
+  "genre": "routine",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "buccal fat",
+   "face massage",
+   "face yoga"
+  ],
+  "ostad_relevant": true,
+  "why": "A face-massage routine promising to reduce 'mouth pocket fat' went viral on false hope, a clear myth a surgeon could debunk."
+ },
+ {
+  "id": "ti_7697690726066310413",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "silicone sheets",
+   "scars",
+   "vitamin c"
+  ],
+  "ostad_relevant": true,
+  "why": "A 'did you know' skincare-facts list opens on a surprising scar fact, though it underperforms with weak delivery."
+ },
+ {
+  "id": "ti_7694355628751392031",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "minoxidil",
+   "hair loss"
+  ],
+  "ostad_relevant": true,
+  "why": "A short, precise application demo (how to place minoxidil) is practical and saveable."
+ },
+ {
+  "id": "in_DfKRJdKNIle",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "story open",
+  "topic_tags": [
+   "pdrn",
+   "scalp serum",
+   "k-beauty"
+  ],
+  "ostad_relevant": false,
+  "why": "A Korean scalp-serum product review aimed at a domestic shopping audience."
+ },
+ {
+  "id": "yo_2uZy0g91IMU",
+  "genre": "ad / promo",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "diamond glow",
+   "facial"
+  ],
+  "ostad_relevant": true,
+  "why": "A spa-language facial promo with no problem or hook; one of the weakest own formats."
+ },
+ {
+  "id": "ti_7608339320017014036",
+  "genre": "patient-story / testimonial",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "laser",
+   "skin of color",
+   "burns"
+  ],
+  "ostad_relevant": true,
+  "why": "'Raise your hand if you're a Black woman who...' calls out an identity group and shares a laser story many recognize."
+ },
+ {
+  "id": "in_DXPLaKHDGfh",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "sculptra",
+   "filler",
+   "patient selection"
+  ],
+  "ostad_relevant": true,
+  "why": "An Arabic 'not every result suits everyone' message builds trust around choosing the right product."
+ },
+ {
+  "id": "in_Da8LQv7OU4m",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "melasma",
+   "rosacea",
+   "freckles"
+  ],
+  "ostad_relevant": true,
+  "why": "A short text-only skin clip tagged melasma/rosacea uses visual relatability with no narration."
+ },
+ {
+  "id": "in_DeoxyaKBkay",
+  "genre": "red-flag / what-not-to-do",
+  "format": "text-on-screen only",
+  "hook_type": "number/stat",
+  "topic_tags": [
+   "botox",
+   "filler",
+   "red flags"
+  ],
+  "ostad_relevant": true,
+  "why": "A surgeon's numbered list of procedures he would never get, with reasons, is a high-trust, save-worthy red-flag format."
+ },
+ {
+  "id": "yo_cAwiWsz-9Iw",
+  "genre": "ad / promo",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "laser hair removal",
+   "seasonal"
+  ],
+  "ostad_relevant": true,
+  "why": "Seasonal laser-hair-removal promo; timely angle but generic copy."
+ },
+ {
+  "id": "in_Dd5pPHTiiwx",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "k-beauty",
+   "giveaway",
+   "hyperpigmentation"
+  ],
+  "ostad_relevant": false,
+  "why": "A French K-beauty giveaway post where reach comes from the contest, not the content."
+ },
+ {
+  "id": "ti_7693960096027643167",
+  "genre": "humor / skit",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "topic_tags": [
+   "travel",
+   "personal story"
+  ],
+  "ostad_relevant": false,
+  "why": "A dermatologist's airport story time builds personality but has nothing to do with skin."
+ },
+ {
+  "id": "in_Ccz_4uJMpnj",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "topic_tags": [
+   "misinformation",
+   "derm reacts",
+   "platform censorship"
+  ],
+  "ostad_relevant": true,
+  "why": "Explains why her reaction video was taken down, turning a platform controversy about misinformation into a story."
+ },
+ {
+  "id": "ti_7544291263877549334",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "thread lift",
+   "fox eye",
+   "diy"
+  ],
+  "ostad_relevant": true,
+  "why": "A €2 DIY 'fox eye' gadget reveal is shocking, an easy target for a professional red-flag stitch."
+ },
+ {
+  "id": "ti_7528457930870492438",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "ozempic face",
+   "glp1",
+   "semaglutide"
+  ],
+  "ostad_relevant": true,
+  "why": "Asks 'what is Ozempic face really?' and explains it calmly, riding a huge trend with medical authority."
+ },
+ {
+  "id": "in_CmZUVtBJEe4",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "fraxel",
+   "skin cancer prevention"
+  ],
+  "ostad_relevant": true,
+  "why": "A new finding that Fraxel reduces skin-cancer incidence is a surprising, credible claim directly relevant to Ostad."
+ },
+ {
+  "id": "yo_1SfHKhJvqcU",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "treatment ranking",
+   "cosmetic treatments"
+  ],
+  "ostad_relevant": true,
+  "why": "A celebrity dermatologist rating cosmetic treatments gives fast verdicts viewers want to compare with their own views."
+ },
+ {
+  "id": "in_DbWaZHPgW0f",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "luma cream",
+   "medical-grade skincare",
+   "own line"
+  ],
+  "ostad_relevant": true,
+  "why": "Ostad pitches his own cream as 'not one-size-fits-all', a product story that does well when he is on camera."
+ },
+ {
+  "id": "ti_7610408140718312725",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "makeup",
+   "thai beauty"
+  ],
+  "ostad_relevant": false,
+  "why": "A Thai makeup clip tagged with a name collision; off-niche."
+ },
+ {
+  "id": "in_DXM-HzzDpVz",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "chemical peel",
+   "hyperpigmentation",
+   "seasonal"
+  ],
+  "ostad_relevant": true,
+  "why": "Ostad explains why spring is peel season, a timely, clear explainer that performs above his baseline."
+ },
+ {
+  "id": "ti_7699431461522296084",
+  "genre": "educational-explainer",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "laser",
+   "tattoo removal",
+   "how it works"
+  ],
+  "ostad_relevant": true,
+  "why": "'This is what a laser does to a tattoo' with an animated mechanism satisfies pure curiosity for a mass audience."
+ },
+ {
+  "id": "ti_7661714505289829663",
+  "genre": "myth-bust",
+  "format": "text-on-screen only",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "sunscreen",
+   "cancer myth"
+  ],
+  "ostad_relevant": true,
+  "why": "A numbered on-screen myth list ('sunscreen doesn't cause cancer') is quick to read and share."
+ },
+ {
+  "id": "yo_NN5aBhZtbIo",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "day in the life",
+   "nyc",
+   "dermatology office"
+  ],
+  "ostad_relevant": true,
+  "why": "West Village office vlog builds familiarity but adds no new hook to a crowded format."
+ },
+ {
+  "id": "in_DefmdGaholx",
+  "genre": "patient-story / testimonial",
+  "format": "talking-head + b-roll",
+  "hook_type": "story open",
+  "topic_tags": [
+   "botox",
+   "ptosis",
+   "complications"
+  ],
+  "ostad_relevant": true,
+  "why": "A 'how I fixed her eyelid droop before graduation' story turns a complication into a rescue narrative."
+ },
+ {
+  "id": "yo_3Ucrjm7FxDY",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "skincare hacks",
+   "dermatologist tips"
+  ],
+  "ostad_relevant": true,
+  "why": "'This first tip always blows people's minds' is a strong curiosity line that holds attention through a tips list."
+ },
+ {
+  "id": "in_DYDF6-ThLCp",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "ozempic face",
+   "conspiracy"
+  ],
+  "ostad_relevant": false,
+  "why": "A conspiracy rant using Ozempic tags gets reach through outrage, not dermatology."
+ },
+ {
+  "id": "ti_7506673733499751686",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "topic_tags": [
+   "rosacea",
+   "princess diana"
+  ],
+  "ostad_relevant": true,
+  "why": "Opens with a celebrity fact (Princess Diana had rosacea) to make a condition explainer instantly interesting."
+ },
+ {
+  "id": "in_C3GAPAJu9yK",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "provider choice",
+   "cosmetic dermatology"
+  ],
+  "ostad_relevant": true,
+  "why": "'Fall in love with a provider, not a machine' is a strong positioning line for expert-led practices."
+ },
+ {
+  "id": "yo_CrwUF3v4zoA",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "acne scars",
+   "fat grafting"
+  ],
+  "ostad_relevant": true,
+  "why": "A before/after of fat grafting for deep scars shows proof, but a generic SEO title limits reach."
+ },
+ {
+  "id": "ti_7560614838142012694",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "co2 laser",
+   "fraxel",
+   "skin of color"
+  ],
+  "ostad_relevant": true,
+  "why": "'Somebody had to say it': a German derm warns that lasers are not for every skin type, a contrarian safety message."
+ },
+ {
+  "id": "in_C1Cj8sNJc_G",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "topic_tags": [
+   "emface",
+   "celebrity"
+  ],
+  "ostad_relevant": true,
+  "why": "A pop star documenting her EMFACE session gives the device celebrity endorsement for her fans."
+ },
+ {
+  "id": "yo_omY2xMK4ES8",
+  "genre": "myth-bust",
+  "format": "stitch/duet",
+  "hook_type": "question",
+  "topic_tags": [
+   "sunscreen",
+   "mineral sunscreen",
+   "chemicals"
+  ],
+  "ostad_relevant": true,
+  "why": "'Is sunscreen dangerous?!' stitches a fear-driven claim and resolves it, a high-reach myth format."
+ },
+ {
+  "id": "ti_7694795965651225887",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "skincare mistakes"
+  ],
+  "ostad_relevant": true,
+  "why": "A 7-second 'mistakes I see every day' hook from a big name is too short to deliver value."
+ },
+ {
+  "id": "in_DYDKhFCRykx",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "seasonal treatments",
+   "skin rejuvenation",
+   "downtime"
+  ],
+  "ostad_relevant": true,
+  "why": "Ostad's seasonal round-up of low-downtime treatments is useful but has a soft, non-urgent open."
+ },
+ {
+  "id": "ti_7675155374164413727",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "stop doing X",
+  "topic_tags": [
+   "budget skincare",
+   "sensitive skin",
+   "product list"
+  ],
+  "ostad_relevant": true,
+  "why": "'I want you to stop buying expensive skincare' plus an affordable product list gives permission to save money."
+ },
+ {
+  "id": "ti_7688800804135849246",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "stop doing X",
+  "topic_tags": [
+   "sunscreen",
+   "hyperpigmentation",
+   "skin of color"
+  ],
+  "ostad_relevant": true,
+  "why": "Addresses Black women directly and busts the mineral-sunscreen myth, making the correction feel personal."
+ },
+ {
+  "id": "ti_7665739584063474966",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "patient reaction",
+   "viral clip"
+  ],
+  "ostad_relevant": false,
+  "why": "A 9-second captionless viral reaction clip with no clear skin topic."
+ },
+ {
+  "id": "in_DcoaboOk08s",
+  "genre": "trend-commentary",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "salmon sperm",
+   "polynucleotides",
+   "medspa"
+  ],
+  "ostad_relevant": true,
+  "why": "A medspa explains the salmon-sperm facial with a benefits list, riding a trend but reading partly as a promo."
+ },
+ {
+  "id": "in_DbOf1sPBh_7",
+  "genre": "humor / skit",
+  "format": "talking-head",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "botox",
+   "filler",
+   "men"
+  ],
+  "ostad_relevant": true,
+  "why": "A comedic 'can't buy happiness unless you find the right doctor' skit sells injectables to men with humor."
+ },
+ {
+  "id": "ti_7598146681695194389",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "hair botox",
+   "salon"
+  ],
+  "ostad_relevant": false,
+  "why": "A salon 'hair botox' clip with nothing to do with neurotoxins; off-niche."
+ },
+ {
+  "id": "yo_9Mcdhj93cN4",
+  "genre": "before-after",
+  "format": "voiceover-over-procedure",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "prp",
+   "hair restoration"
+  ],
+  "ostad_relevant": true,
+  "why": "A PRP hair transformation shows the result, but the clinical caption and low reach show a format without a voice."
+ }
+]

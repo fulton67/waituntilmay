@@ -34,10 +34,10 @@ Spec: `research/ostad/OSTAD_RUN.md`. Decisions: `DECISIONS.md`. Spend: `COSTS.md
 - [x] thumbnails: 1,156 files, 23.9 MB at q70 (7 placeholders) → public/ostad/thumbs/
 
 ## Phase 5 — classify
-- [ ] every video classified (genre, format, hook_type, topic_tags, ostad_relevant)
+- [x] all 1,031 videos classified by reading (4 parallel readers × ~250, 0 rejected by the taxonomy check)
 
 ## Phase 6 — REPORT.md
-- [ ] REPORT.md written
+- [x] REPORT.md written (rendered from data by scripts/render_report.py)
 
 ## Phase 7 — plan
 - [ ] PLAN.md + data/plan.json

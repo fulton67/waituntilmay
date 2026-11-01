@@ -1,0 +1,379 @@
+[
+ {
+  "id": "yo__tw4OT5bnFs",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "botox",
+   "aging",
+   "self-acceptance"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Boots are better than Botox\" is a witty anti-tweakment stance from a style figure that sparks debate."
+ },
+ {
+  "id": "in_DeFRpsoRxxO",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "retinol",
+   "patches",
+   "smile lines"
+  ],
+  "ostad_relevant": false,
+  "why": "French gifted-product patch routine; influencer ad, off-market."
+ },
+ {
+  "id": "ti_7700376090078121246",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "dermatologist visit",
+   "rash"
+  ],
+  "ostad_relevant": true,
+  "why": "\"What your derm wants you to know\" gives practical prep tips, useful but low urgency."
+ },
+ {
+  "id": "yo_rak4d9Lexvs",
+  "genre": "routine",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "tretinoin",
+   "azelaic acid"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Use it like a dermatologist\" promises insider technique in 21 seconds."
+ },
+ {
+  "id": "yo_eypouq7zvqA",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "prejuvenation"
+  ],
+  "ostad_relevant": true,
+  "why": "PA definition of prejuvenation with no hook; near-zero reach."
+ },
+ {
+  "id": "yo_5PK_wd0LhjE",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "sculptra",
+   "collagen"
+  ],
+  "ostad_relevant": true,
+  "why": "A \"true or false\" format suits myth busting but the delivery is flat and long."
+ },
+ {
+  "id": "ti_7703317117440986398",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "hair",
+   "hair oiling"
+  ],
+  "ostad_relevant": true,
+  "why": "Reacts to the \"Indian hair secrets\" claim, using cultural curiosity to explain hair biology."
+ },
+ {
+  "id": "in_DevfedHsCBH",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "glass skin",
+   "essence"
+  ],
+  "ostad_relevant": false,
+  "why": "German-captioned sponsored essence review; ad content only."
+ },
+ {
+  "id": "ti_7702985288943013150",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "halloween",
+   "acne",
+   "mom life"
+  ],
+  "ostad_relevant": true,
+  "why": "Seven-second mom-derm Halloween joke builds personality, not reach."
+ },
+ {
+  "id": "in_DHvH-wnx1mi",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "la roche posay",
+   "retail event"
+  ],
+  "ostad_relevant": false,
+  "why": "Mall retail event promo; pure advertising."
+ },
+ {
+  "id": "ti_7702931640158326046",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "halloween",
+   "dermatologist"
+  ],
+  "ostad_relevant": true,
+  "why": "Derm trick-or-treat skit shows personality but is seasonal and has no skin payoff."
+ },
+ {
+  "id": "in_DEUwiu7uvOv",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "ask a dermatologist"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Ask Dr. Mudgil\" Q&A format from an NYC derm, but no caption context or hook."
+ },
+ {
+  "id": "in_Cq9AZnhOPOq",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "skincare over 40",
+   "routine"
+  ],
+  "ostad_relevant": true,
+  "why": "Boutique product haul framed as a routine; little authority or hook."
+ },
+ {
+  "id": "in_CwyHJ84OoEI",
+  "genre": "before-after",
+  "format": "talking-head + b-roll",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "prejuvenation",
+   "botox"
+  ],
+  "ostad_relevant": true,
+  "why": "A practical preventive-Botox example asking \"was this clear?\" invites engagement but is Portuguese-only."
+ },
+ {
+  "id": "in_DUM5iVvjPTe",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "tanning",
+   "diy masks",
+   "hyperpigmentation"
+  ],
+  "ostad_relevant": true,
+  "why": "Debunks DIY besan/coffee tan packs with the melanin science, a culturally specific myth bust."
+ },
+ {
+  "id": "yo_ZZwA7gWh8Os",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "filler migration",
+   "imaging"
+  ],
+  "ostad_relevant": true,
+  "why": "\"The migration map nobody wants to see\" uses scary imaging visuals to make filler spread concrete."
+ },
+ {
+  "id": "yo_CvMAQNBcCIU",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "topic_tags": [
+   "pdrn",
+   "rejuran",
+   "serum"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Which Rejuran serum is right for you?\" compares variants but is long and affiliate-driven."
+ },
+ {
+  "id": "in_DeazmroSOh1",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "thread lift",
+   "clinic"
+  ],
+  "ostad_relevant": false,
+  "why": "Indonesian glow-up clinic visit with a treatment list; sponsored lifestyle content."
+ },
+ {
+  "id": "ti_7701537336768711950",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "acne",
+   "skin of color",
+   "dark spots"
+  ],
+  "ostad_relevant": true,
+  "why": "Explains that dark spots outlast acne on melanin-rich skin, a real pain point, but 13 seconds is too thin."
+ },
+ {
+  "id": "in_CsJfckKLlbq",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "prp",
+   "plasma"
+  ],
+  "ostad_relevant": false,
+  "why": "Azerbaijani PRP clip with hashtags only; procedure footage with no context."
+ },
+ {
+  "id": "in_DWJc6IdDHTn",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "polynucleotides",
+   "pdrn",
+   "korea"
+  ],
+  "ostad_relevant": false,
+  "why": "Polish \"the treatment stars flew to Korea for\" launch promo uses celebrity curiosity, off-market."
+ },
+ {
+  "id": "yo_i5HgFTHyMlQ",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "prejuvenation",
+   "pros and cons"
+  ],
+  "ostad_relevant": true,
+  "why": "Balanced pros/cons is useful but has no hook and no reach."
+ },
+ {
+  "id": "ti_7703288251309755662",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "sculptra",
+   "collagen"
+  ],
+  "ostad_relevant": true,
+  "why": "Same Sculptra true/false explainer cross-posted; clear process but a slow open."
+ },
+ {
+  "id": "yo_gBhQVScVWz4",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "dermatologist visit",
+   "skin check"
+  ],
+  "ostad_relevant": true,
+  "why": "A skin-check prep checklist is helpful but delivered too briefly to land."
+ },
+ {
+  "id": "in_CqTzsiTNIfA",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "rodan and fields",
+   "mlm"
+  ],
+  "ostad_relevant": false,
+  "why": "MLM product link post; no content value."
+ },
+ {
+  "id": "in_CmqtEGehDqu",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "discount",
+   "membership"
+  ],
+  "ostad_relevant": false,
+  "why": "Malay discount/membership hard sell, off-topic."
+ },
+ {
+  "id": "in_DTBDoUwkSfc",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "med spa services",
+   "salmon sperm"
+  ],
+  "ostad_relevant": true,
+  "why": "Five-second hashtag dump for a clinic menu; nothing to watch."
+ },
+ {
+  "id": "yo_hzUd-2OAcsM",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "hair",
+   "hair oiling"
+  ],
+  "ostad_relevant": true,
+  "why": "Reposted \"Indian hair secrets\" derm reaction; the same reactive myth-check with weaker distribution."
+ },
+ {
+  "id": "yo_G9r3qnVbgSI",
+  "genre": "routine",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "tretinoin",
+   "skincare"
+  ],
+  "ostad_relevant": true,
+  "why": "Hashtag-only title gives viewers no promise to click on."
+ },
+ {
+  "id": "yo_C5OPqrhkSvM",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "sculptra",
+   "collagen"
+  ],
+  "ostad_relevant": true,
+  "why": "Generic Sculptra brochure copy with no person or hook; one view."
+ },
+ {
+  "id": "yo_NYIVIaO_eHk",
+  "genre": "patient-story / testimonial",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "topic_tags": [
+   "skinvive",
+   "skin booster"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Worth the hype?\" review with a before/after is the right question but executed too long for the platform."
+ }
+]

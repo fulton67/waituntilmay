@@ -1,0 +1,616 @@
+[
+ {
+  "id": "ti_7436551156144475438",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "day in the life",
+   "dermatologist"
+  ],
+  "ostad_relevant": true,
+  "why": "A sponsored scrubs-brand derm day-in-the-life with aesthetic lifestyle appeal but little teaching."
+ },
+ {
+  "id": "ti_7701418626766605582",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "tretinoin",
+   "maintenance",
+   "anti-aging"
+  ],
+  "ostad_relevant": true,
+  "why": "Bluntly answers \"do I have to keep using tretinoin?\" with a practical maintenance rule."
+ },
+ {
+  "id": "yo_OfBzVbbnS4g",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "topic_tags": [
+   "sculptra",
+   "collagen"
+  ],
+  "ostad_relevant": true,
+  "why": "\"What is Sculptra?\" answers a high-intent search term simply (455K views)."
+ },
+ {
+  "id": "in_DTJlpIiATkZ",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "topic_tags": [
+   "mole removal",
+   "skin cancer",
+   "storytime"
+  ],
+  "ostad_relevant": true,
+  "why": "A storytime about a rare mole finding (\"one in a mollion\") uses narrative suspense to carry a skin-cancer message."
+ },
+ {
+  "id": "ti_7456455818901277995",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "skincare habits",
+   "scars"
+  ],
+  "ostad_relevant": true,
+  "why": "\"You may not want to hear this but you need to\" is a tough-love opener that signals uncomfortable truths (2.4M views)."
+ },
+ {
+  "id": "yo_QNxbiHWISbc",
+  "genre": "educational-explainer",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "fraxel",
+   "sun damage",
+   "collagen"
+  ],
+  "ostad_relevant": true,
+  "why": "Ostad's Fraxel sun-damage clip is caption-driven with no hook, so reach is low."
+ },
+ {
+  "id": "ti_7543703738142215446",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "hair loss",
+   "scalp serum",
+   "brand"
+  ],
+  "ostad_relevant": true,
+  "why": "\"I took my hair from this to this in 3 months\" opens a pitch for her own brand with a before/after."
+ },
+ {
+  "id": "in_C_wSxBSSAKZ",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "ozempic face",
+   "glp1",
+   "affiliate"
+  ],
+  "ostad_relevant": false,
+  "why": "A GLP-1 telehealth affiliate that flips \"Ozempic face\" into a positive, with a comment-for-DM funnel."
+ },
+ {
+  "id": "ti_7488050362671172919",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "dermatologist",
+   "what derms do"
+  ],
+  "ostad_relevant": true,
+  "why": "A slow self-introduction answering \"what does a derm do?\" with a weak opening and low reach."
+ },
+ {
+  "id": "yo_gb5MKIb5ua4",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "tretinoin",
+   "dosing"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Are you using tretinoin correctly?\" is a self-doubt question hook with a precise how-much answer (2.3M views)."
+ },
+ {
+  "id": "in_DZAB3G5sUPO",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "hair loss",
+   "exosomes",
+   "microneedling"
+  ],
+  "ostad_relevant": true,
+  "why": "\"That clicking sound?\" opens on an unfamiliar tool, making a sensory curiosity hook for hair restoration."
+ },
+ {
+  "id": "ti_7155157165517376811",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "skin cycling"
+  ],
+  "ostad_relevant": true,
+  "why": "A skin-cycling explainer riding the trend hashtag, solid but undifferentiated."
+ },
+ {
+  "id": "in_DZDcKLBgDmk",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "topic_tags": [
+   "tattoo removal",
+   "grwm"
+  ],
+  "ostad_relevant": false,
+  "why": "A Spanish GRWM about why she's removing all her tattoos, where the personal story carries the long format."
+ },
+ {
+  "id": "ti_7694314089018887437",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "nyc dermatologist",
+   "acne",
+   "recommendations"
+  ],
+  "ostad_relevant": true,
+  "why": "An NYC viewer begs for acne-derm recommendations, a local high-intent thread Ostad could reply to."
+ },
+ {
+  "id": "ti_7659946819257961758",
+  "genre": "educational-explainer",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "acne scars",
+   "subcision",
+   "co2 laser"
+  ],
+  "ostad_relevant": true,
+  "why": "Answers \"what did you actually do?\" with a combination scar protocol, rewarding curious followers with detail."
+ },
+ {
+  "id": "yo_rveCvnFsWeY",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "botox",
+   "filler",
+   "sculptra"
+  ],
+  "ostad_relevant": true,
+  "why": "A 7-day recovery diary that answers downtime fears honestly, though it has low reach."
+ },
+ {
+  "id": "in_DeCU-uRzHD0",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "topic_tags": [
+   "viral product",
+   "dark spots",
+   "k-beauty"
+  ],
+  "ostad_relevant": false,
+  "why": "A recurring \"viral vs reality\" series that checks a hyped cream's ingredients, a series format for an Indian audience."
+ },
+ {
+  "id": "yo_qvsDmyFAe-k",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "celebrity",
+   "reaction"
+  ],
+  "ostad_relevant": false,
+  "why": "Celebrity reaction gossip that is off-niche and only surfaced by the \"patient reaction\" query."
+ },
+ {
+  "id": "in_Dd3Cp09OhrP",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "exosomes",
+   "regeneration"
+  ],
+  "ostad_relevant": true,
+  "why": "A text-over-visuals explanation of how exosomes work, simple mechanism framing."
+ },
+ {
+  "id": "ti_7616023135418125582",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "number/stat",
+  "topic_tags": [
+   "exosomes",
+   "serum"
+  ],
+  "ostad_relevant": true,
+  "why": "\"If I could tell you to add one product...\" is a single-recommendation hook, though reach is low."
+ },
+ {
+  "id": "ti_7702524499366825229",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "tretinoin",
+   "strength"
+  ],
+  "ostad_relevant": true,
+  "why": "\"It does nothing, literally nothing\" is an emphatic contrarian line that busts the go-stronger-tretinoin myth."
+ },
+ {
+  "id": "in_C68WErJvKlm",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "mole removal",
+   "clinic"
+  ],
+  "ostad_relevant": false,
+  "why": "A makeup artist's mole-removal visit shout-out, an influencer endorsement for an Australian clinic."
+ },
+ {
+  "id": "ti_7531047565815565573",
+  "genre": "trend-commentary",
+  "format": "voiceover-over-procedure",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "pdrn",
+   "salmon dna"
+  ],
+  "ostad_relevant": false,
+  "why": "A Spanish salmon-sperm facial promo leaning on the shock-value name."
+ },
+ {
+  "id": "ti_7671321118069755166",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "derm favorites",
+   "product picks"
+  ],
+  "ostad_relevant": true,
+  "why": "Asks two derms for their most-used products, rapid answers in a collaborative interview format."
+ },
+ {
+  "id": "yo_y6OplhNtlPk",
+  "genre": "before-after",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "fraxel",
+   "recovery"
+  ],
+  "ostad_relevant": true,
+  "why": "A clinic's Fraxel daily-progress clip that is useful for expectations but low-hook."
+ },
+ {
+  "id": "in_DU6GTiACBfo",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "exion",
+   "ablative laser",
+   "recovery"
+  ],
+  "ostad_relevant": false,
+  "why": "A Polish \"I'd rather be red for 3 days than meh for 3 years\" downtime diary with a quotable attitude hook."
+ },
+ {
+  "id": "ti_7656973654990867742",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "botox",
+   "quitting",
+   "side effects"
+  ],
+  "ostad_relevant": true,
+  "why": "An anti-Botox \"honest truth\" testimonial whose contrarian fear framing invites debate, a backlash trend for derms to answer."
+ },
+ {
+  "id": "ti_7413891847107513605",
+  "genre": "ad / promo",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "pdrn",
+   "collagen"
+  ],
+  "ostad_relevant": false,
+  "why": "A Portuguese PDRN promo with a comment-to-DM call to action that rides the trend."
+ },
+ {
+  "id": "ti_7574791295797857592",
+  "genre": "patient-story / testimonial",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "topic_tags": [
+   "hyperpigmentation",
+   "skin of color",
+   "tranexamic acid"
+  ],
+  "ostad_relevant": true,
+  "why": "A two-year struggle story that converts into a Black Friday serum affiliate pitch, with an emotional open selling the product."
+ },
+ {
+  "id": "yo_sVROr3qAFCQ",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "lip filler"
+  ],
+  "ostad_relevant": true,
+  "why": "A 12-second lip filler reveal with a pure visual payoff."
+ },
+ {
+  "id": "ti_7702575637118209311",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "asmr",
+   "self care"
+  ],
+  "ostad_relevant": true,
+  "why": "Derm reacts to an \"ASMR self-care\" routine, a recurring reaction format."
+ },
+ {
+  "id": "in_DeorNcJMnfG",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "sunscreen",
+   "meme"
+  ],
+  "ostad_relevant": false,
+  "why": "An MMA meme about sunscreen, a sports-fandom joke with no teaching."
+ },
+ {
+  "id": "yo_z3f8XaPNhMk",
+  "genre": "educational-explainer",
+  "format": "voiceover-over-procedure",
+  "hook_type": "question",
+  "topic_tags": [
+   "retinol",
+   "purging"
+  ],
+  "ostad_relevant": true,
+  "why": "Ostad's \"why do you purge?\" is a great question title, but slow delivery leaves it at 2K views."
+ },
+ {
+  "id": "ti_7691542937041112351",
+  "genre": "humor / skit",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "buccal fat",
+   "looksmaxxing"
+  ],
+  "ostad_relevant": false,
+  "why": "A looksmaxxing pseudo-science claim about face fat and height, off-niche bait."
+ },
+ {
+  "id": "ti_7647901818835488030",
+  "genre": "patient-story / testimonial",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "mohs",
+   "scar",
+   "recovery"
+  ],
+  "ostad_relevant": true,
+  "why": "A 6-week Mohs scar update, reassuring for patients but low reach."
+ },
+ {
+  "id": "yo_OA2hLHaXTO0",
+  "genre": "before-after",
+  "format": "voiceover-over-procedure",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "sculptra",
+   "volume"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Real Sculptra results\" with injection areas named, credible proof but low reach."
+ },
+ {
+  "id": "ti_7696932994371652894",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "aging",
+   "facial fat"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Your face or your ass\" makes the face-fat-and-aging tradeoff a memorable provocative line."
+ },
+ {
+  "id": "ti_7541107207446990102",
+  "genre": "ad / promo",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "topic_tags": [
+   "hair",
+   "brand launch"
+  ],
+  "ostad_relevant": true,
+  "why": "\"I've been secretly building something for three years\" opens a reveal story for her own brand launch."
+ },
+ {
+  "id": "yo_SpaNRaryUX0",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "stop doing X",
+  "topic_tags": [
+   "melasma",
+   "laser"
+  ],
+  "ostad_relevant": true,
+  "why": "At-home melasma tips plus \"beware this common mistake,\" mixing teaching and warning (736K views)."
+ },
+ {
+  "id": "in_DbpboQqhj28",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "topic_tags": [
+   "co2 laser",
+   "acne scars",
+   "subcision"
+  ],
+  "ostad_relevant": true,
+  "why": "A 9-month CO2 result with \"worth it or not?\" invites comment debate."
+ },
+ {
+  "id": "ti_7685840282293718293",
+  "genre": "patient-story / testimonial",
+  "format": "text-on-screen only",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "rosacea"
+  ],
+  "ostad_relevant": false,
+  "why": "\"Rosacea is never cured, only controlled\" in Spanish, an emotional community post that reached 1.7M."
+ },
+ {
+  "id": "in_C1F1z2YPlQF",
+  "genre": "humor / skit",
+  "format": "vlog",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "lip filler",
+   "derm humor"
+  ],
+  "ostad_relevant": true,
+  "why": "A 6-second derm comedy reel about a lip-filler grinch, injector-insider humor that loops."
+ },
+ {
+  "id": "in_DdmmSTghEji",
+  "genre": "skin-cancer-awareness",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "topic_tags": [
+   "moles",
+   "skin lesions",
+   "melanoma"
+  ],
+  "ostad_relevant": false,
+  "why": "A Portuguese \"does every spot deserve attention?\" lesion guide in a 6-second clip with the detail in the caption."
+ },
+ {
+  "id": "yo_qQ5FOoWLvEc",
+  "genre": "trend-commentary",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "filler migration",
+   "lip filler",
+   "celebrity"
+  ],
+  "ostad_relevant": true,
+  "why": "\"The filler mustache no one talks about\" names a celebrity look to explain filler migration."
+ },
+ {
+  "id": "yo_PWq9pUWmqm4",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "facial",
+   "asmr"
+  ],
+  "ostad_relevant": true,
+  "why": "A wholesome \"cutest facial\" derm reaction where positive reactions perform as well as horror ones."
+ },
+ {
+  "id": "ti_7530371741831466271",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "routine",
+   "overuse"
+  ],
+  "ostad_relevant": true,
+  "why": "A \"this is NOT NORMAL\" duet reaction to an excessive routine, his repeatable formula."
+ },
+ {
+  "id": "ti_7668914151170805006",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "topic_tags": [
+   "mole removal",
+   "shave removal"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Come with me to get this mole removed\" is a patient POV that walks viewers through the experience."
+ },
+ {
+  "id": "yo_jaWEU5Ejz6Y",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "topic_tags": [
+   "botox",
+   "frozen"
+  ],
+  "ostad_relevant": true,
+  "why": "A 9-second Botox-vs-no-Botox comparison asking \"frozen or top-up?\" invites comments (1.5M views)."
+ },
+ {
+  "id": "ti_7638923152340372756",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "pdrn",
+   "booster",
+   "arabic"
+  ],
+  "ostad_relevant": false,
+  "why": "An Arabic PDRN booster ad with a shocked-friend reaction hook that reached 8.6M through the skit framing."
+ },
+ {
+  "id": "ti_7295813676466965802",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "milia"
+  ],
+  "ostad_relevant": true,
+  "why": "Ostad explains milia clearly, but the slow name intro and weekend-patient framing bury the hook."
+ }
+]

@@ -1,0 +1,631 @@
+[
+ {
+  "id": "yo_EH3nx1bmInU",
+  "genre": "before-after",
+  "format": "vlog",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "morpheus8",
+   "anti-aging",
+   "over 40"
+  ],
+  "ostad_relevant": true,
+  "why": "A patient's nervous 'Morpheus results' reveal in a day-in-my-life frame lets peers judge real downtime and results."
+ },
+ {
+  "id": "ti_7660205347478473998",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "acne scars",
+   "scar types",
+   "k-beauty"
+  ],
+  "ostad_relevant": true,
+  "why": "'If you have scars like this, this and this' lets viewers self-diagnose their scar type, which drives comments."
+ },
+ {
+  "id": "yo_azYDyIVL214",
+  "genre": "before-after",
+  "format": "voiceover-over-procedure",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "prfm",
+   "regenerative",
+   "volume loss"
+  ],
+  "ostad_relevant": true,
+  "why": "Pitches PRFM as a natural alternative to filler with a transformation, but the long title delays the payoff."
+ },
+ {
+  "id": "ti_7650620850185538837",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "acne scars",
+   "chemical peel"
+  ],
+  "ostad_relevant": true,
+  "why": "An 11-second 'no filter, no tricks' scar transformation is pure proof and loops well."
+ },
+ {
+  "id": "ti_7527007628040457494",
+  "genre": "ad / promo",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "thread lift",
+   "jawline"
+  ],
+  "ostad_relevant": true,
+  "why": "An 8-second thread-lift promo with brochure copy and no hook."
+ },
+ {
+  "id": "ti_7413708592244739360",
+  "genre": "procedure-POV",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "laser",
+   "tattoo removal",
+   "picosecond"
+  ],
+  "ostad_relevant": true,
+  "why": "First-session pico laser footage with ASMR and a satisfying frost works as visual entertainment."
+ },
+ {
+  "id": "ti_7695431831998450964",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "topic_tags": [
+   "melanoma",
+   "dermoscopy",
+   "skin cancer"
+  ],
+  "ostad_relevant": true,
+  "why": "A 'which of these four is melanoma?' quiz turns viewers into players, then teaches dermoscopy clues."
+ },
+ {
+  "id": "yo_Xn7K24ReD_Y",
+  "genre": "trend-commentary",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "ozempic face",
+   "glp1",
+   "celebrities"
+  ],
+  "ostad_relevant": true,
+  "why": "Celebrity then-vs-now photos ride Ozempic-face gossip; huge reach but no expert voice, which leaves a gap a doctor could fill."
+ },
+ {
+  "id": "ti_7667589331233623310",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "dermatology office",
+   "office culture"
+  ],
+  "ostad_relevant": false,
+  "why": "An office skit introducing the doctor is charming branding, but it has no skin payoff."
+ },
+ {
+  "id": "in_DemykjRONzF",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "topic_tags": [
+   "exosomes",
+   "personal experience"
+  ],
+  "ostad_relevant": true,
+  "why": "Arabic first-person exosome treatment diary gets curiosity reach, though the disclaimer shows it is shaky on claims."
+ },
+ {
+  "id": "yo_mN-Np4Wzoco",
+  "genre": "educational-explainer",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "fraxel",
+   "laser",
+   "sun damage"
+  ],
+  "ostad_relevant": true,
+  "why": "Clear Fraxel explainer, but generic brochure copy with no visual hook keeps it at baseline."
+ },
+ {
+  "id": "in_Dcjg0QOJG8C",
+  "genre": "patient-story / testimonial",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "topic_tags": [
+   "melasma",
+   "makeup",
+   "camouflage"
+  ],
+  "ostad_relevant": true,
+  "why": "A personal melasma story with makeup camouflage creates empathy among people still searching for a fix."
+ },
+ {
+  "id": "ti_7589839142737988919",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "day in the life",
+   "nyc",
+   "dermatology"
+  ],
+  "ostad_relevant": true,
+  "why": "Follow-along NYC derm day shows the office and procedures, building familiarity rather than solving a problem."
+ },
+ {
+  "id": "ti_7290592781205097770",
+  "genre": "before-after",
+  "format": "voiceover-over-procedure",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "prfm",
+   "regenerative",
+   "volume loss"
+  ],
+  "ostad_relevant": true,
+  "why": "Cross-posted PRFM transformation; the natural-alternative angle is strong but buried under a long caption."
+ },
+ {
+  "id": "ti_7605740836625730829",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "medical-grade skincare",
+   "drugstore"
+  ],
+  "ostad_relevant": true,
+  "why": "Opens on the exact question viewers ask (medical-grade vs drugstore), though the clinic has an obvious bias toward its own products."
+ },
+ {
+  "id": "ti_7650576284895989006",
+  "genre": "patient-story / testimonial",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "topic_tags": [
+   "mole removal",
+   "scar",
+   "one year update"
+  ],
+  "ostad_relevant": true,
+  "why": "An influencer's one-year makeup-free scar update pays off a long-running personal story and draws a big audience."
+ },
+ {
+  "id": "ti_7571101881976556831",
+  "genre": "routine",
+  "format": "vlog",
+  "hook_type": "story open",
+  "topic_tags": [
+   "skin cycling",
+   "skin barrier",
+   "clogged pores"
+  ],
+  "ostad_relevant": true,
+  "why": "A nightly routine diary opens on a relatable mistake and a sponsored product, encouraging viewers to follow along."
+ },
+ {
+  "id": "ti_7692140297999977759",
+  "genre": "procedure-POV",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "sclerotherapy",
+   "leg veins"
+  ],
+  "ostad_relevant": true,
+  "why": "A 7-second sclerotherapy injection clip; the vein-blanching moment is the whole payoff."
+ },
+ {
+  "id": "in_DedGQP3R9Us",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "botox",
+   "natural results",
+   "aging"
+  ],
+  "ostad_relevant": true,
+  "why": "A Portuguese 'natural aging' brand message sells the injector's philosophy, not a specific lesson."
+ },
+ {
+  "id": "in_DeUq2Q0oMQI",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "melasma",
+   "home remedies",
+   "sun protection"
+  ],
+  "ostad_relevant": true,
+  "why": "Asks how many home remedies viewers have tried, then corrects the myth that spots are fixed by what you put on them."
+ },
+ {
+  "id": "ti_7605147962641026317",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "barrier cream",
+   "k-beauty",
+   "sensitive skin"
+  ],
+  "ostad_relevant": true,
+  "why": "A dermatologist rates barrier creams one by one ('fifteen out of ten'), making the video a shopping list viewers save."
+ },
+ {
+  "id": "ti_7584753982032121110",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "medical-grade skincare",
+   "drugstore"
+  ],
+  "ostad_relevant": true,
+  "why": "States the common belief ('drugstore is just as good') and argues against it, inviting debate."
+ },
+ {
+  "id": "ti_7550473506782219550",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "prp",
+   "microneedling",
+   "acne scars"
+  ],
+  "ostad_relevant": true,
+  "why": "'My favorite treatment' gives a short benefits list for PRP microneedling, pleasant but generic."
+ },
+ {
+  "id": "ti_7697296148926614817",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "peptides",
+   "egf",
+   "k-beauty"
+  ],
+  "ostad_relevant": true,
+  "why": "A paid German post rides a 'viral on TikTok' ampoule and tells viewers to save it for their next store trip."
+ },
+ {
+  "id": "in_DfGimKXRKzv",
+  "genre": "trend-commentary",
+  "format": "vlog",
+  "hook_type": "story open",
+  "topic_tags": [
+   "glass skin",
+   "korean dermatology",
+   "medical tourism"
+  ],
+  "ostad_relevant": true,
+  "why": "A Korea derm-clinic travel vlog with a 'comment KOREA' prompt turns aspiration into engagement."
+ },
+ {
+  "id": "yo_D0NKd4DPTuA",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "retinol",
+   "retinoids"
+  ],
+  "ostad_relevant": true,
+  "why": "'Which retinol should I use?' answers a high-intent question in under a minute."
+ },
+ {
+  "id": "in_DB_zOWovZv0",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "skinvive",
+   "hydration",
+   "injectables"
+  ],
+  "ostad_relevant": true,
+  "why": "A blogger's SKINVIVE experience introduces a new injectable to her followers, which reads as a soft sponsored review."
+ },
+ {
+  "id": "ti_7698033147316849938",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "microneedling",
+   "prejuvenation"
+  ],
+  "ostad_relevant": true,
+  "why": "A 6-second 'best aesthetic treatment' teaser with no information."
+ },
+ {
+  "id": "in_Dc003nFuA9Z",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "co2 laser",
+   "scars"
+  ],
+  "ostad_relevant": true,
+  "why": "A short Srinagar clinic scar-revision promo; the reach comes from a visual result rather than teaching."
+ },
+ {
+  "id": "ti_7697965995398417696",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "personal",
+   "unrelated"
+  ],
+  "ostad_relevant": false,
+  "why": "An unrelated personal clip pulled in by a name-search collision; off-niche."
+ },
+ {
+  "id": "in_DKunvw-TO3C",
+  "genre": "patient-story / testimonial",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "exosomes",
+   "beauty secrets"
+  ],
+  "ostad_relevant": true,
+  "why": "Calls out celebrities' 'lemon water and sleep' answers, then reveals her real treatment, a strong contrarian disclosure hook."
+ },
+ {
+  "id": "in_DcOlxcLo3xl",
+  "genre": "humor / skit",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "fillers",
+   "camel"
+  ],
+  "ostad_relevant": false,
+  "why": "A camel 'no filters or fillers' joke; off-niche humor."
+ },
+ {
+  "id": "yo_rNDZd8s8vPA",
+  "genre": "trend-commentary",
+  "format": "talking-head + b-roll",
+  "hook_type": "story open",
+  "topic_tags": [
+   "glass skin",
+   "skin tips"
+  ],
+  "ostad_relevant": true,
+  "why": "A 'once upon a time I wished for glass skin' fairytale open rides the glass-skin aesthetic."
+ },
+ {
+  "id": "ti_7701766849771408653",
+  "genre": "myth-bust",
+  "format": "green-screen",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "tretinoin",
+   "purging",
+   "acne"
+  ],
+  "ostad_relevant": true,
+  "why": "Green-screen myth-bust: 'three months in, that's not purging' corrects a misconception many viewers hold."
+ },
+ {
+  "id": "ti_7625354659284225300",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "skin barrier"
+  ],
+  "ostad_relevant": true,
+  "why": "A 14-second barrier tip with no caption; brevity helps it loop."
+ },
+ {
+  "id": "in_Db5WHxnNacf",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "botox",
+   "sculptra",
+   "lifestyle"
+  ],
+  "ostad_relevant": false,
+  "why": "An aspirational Riviera lifestyle clip that only tags injectables; nothing about skin."
+ },
+ {
+  "id": "ti_7584119998579346711",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "pdrn",
+   "k-beauty",
+   "plumping"
+  ],
+  "ostad_relevant": true,
+  "why": "A paid PDRN product duo demo uses satisfying texture shots to sell the PDRN trend."
+ },
+ {
+  "id": "ti_7702203493934697758",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "derm reacts",
+   "prosthetics",
+   "makeup"
+  ],
+  "ostad_relevant": true,
+  "why": "DermAngelo's 'impressed and scared' reaction to prosthetic makeup works because his expert persona plus the shock does the work."
+ },
+ {
+  "id": "in_DanKIadzNAp",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "number/stat",
+  "topic_tags": [
+   "hair loss",
+   "exosomes",
+   "prp"
+  ],
+  "ostad_relevant": true,
+  "why": "A dermatologist rating hair-loss products and procedures, labelled unsponsored, gives quick trusted verdicts."
+ },
+ {
+  "id": "in_DdFSRCBpQYZ",
+  "genre": "routine",
+  "format": "carousel",
+  "hook_type": "number/stat",
+  "topic_tags": [
+   "treatment calendar",
+   "botox",
+   "over 50"
+  ],
+  "ostad_relevant": true,
+  "why": "A save-worthy 'my actual treatment calendar at 54' turns a maintenance plan into a template viewers can copy."
+ },
+ {
+  "id": "ti_7702546084236627222",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "retinal",
+   "retinoids",
+   "body care"
+  ],
+  "ostad_relevant": true,
+  "why": "'Retinal isn't just for your face' pushes a familiar ingredient into a new use, which surprises viewers."
+ },
+ {
+  "id": "yo_YXu0zFhkwCY",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "medical-grade skincare",
+   "drugstore"
+  ],
+  "ostad_relevant": true,
+  "why": "Clinic staff comparing drugstore and medical grade is useful but reads as house-brand promotion."
+ },
+ {
+  "id": "in_DXfNKTAgdhc",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "topic_tags": [
+   "alloclae",
+   "complications",
+   "fat transfer"
+  ],
+  "ostad_relevant": true,
+  "why": "Ostad's own warning case about a treatment gone wrong elsewhere makes his best-performing format: an expert protecting viewers."
+ },
+ {
+  "id": "in_De3jagXqRh0",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "glass skin",
+   "makeup",
+   "strobe cream"
+  ],
+  "ostad_relevant": false,
+  "why": "A dewy makeup product review that is makeup, not skin treatment."
+ },
+ {
+  "id": "ti_7436494514442816799",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "laser hair removal",
+   "seasonal"
+  ],
+  "ostad_relevant": true,
+  "why": "Seasonal 'summer bodies are made in winter' promo with a phone number; useful timing but no teaching."
+ },
+ {
+  "id": "in_DeK_LMFBp2N",
+  "genre": "myth-bust",
+  "format": "text-on-screen only",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "hyperpigmentation",
+   "genetics"
+  ],
+  "ostad_relevant": true,
+  "why": "Rejects 'it's genetic, nothing you can do', a hopeful contrarian line that resonates with people who have pigmentation."
+ },
+ {
+  "id": "yo_nVi0D6Kh_og",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "topic_tags": [
+   "melasma",
+   "tranexamic acid",
+   "niacinamide"
+  ],
+  "ostad_relevant": true,
+  "why": "A pharmacist answers 'how do I fix dark spots?' with a numbered ingredient plan."
+ },
+ {
+  "id": "in_CT7mrm4pIUt",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "green-screen",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "met gala",
+   "celebrities"
+  ],
+  "ostad_relevant": false,
+  "why": "A derm reviewing Met Gala looks borrows celebrity buzz but is about fashion, not skin."
+ },
+ {
+  "id": "ti_7702835691071343903",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "derm reacts",
+   "morning routine"
+  ],
+  "ostad_relevant": true,
+  "why": "'Not realistic!' reaction to an over-the-top morning routine voices what viewers already suspect."
+ },
+ {
+  "id": "in_DXziUvoxr4t",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "melanoma",
+   "skin cancer",
+   "patient story"
+  ],
+  "ostad_relevant": true,
+  "why": "'How did I find my melanoma?' is a survivor story that turns personal experience into a warning."
+ }
+]

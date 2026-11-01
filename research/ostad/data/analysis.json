@@ -1,43 +1,46 @@
 {
  "totals": {
-  "videos": 677,
-  "niche": 568,
+  "videos": 1031,
+  "niche": 922,
   "byPlatform": {
-   "tiktok": 369,
-   "youtube": 61,
+   "tiktok": 537,
+   "youtube": 247,
    "instagram": 247
   },
   "bySource": {
-   "search": 568,
+   "benchmark": 170,
+   "search": 752,
    "own": 109
   },
   "byPlatformSource": {
-   "tiktok/search": 340,
+   "tiktok/benchmark": 170,
+   "youtube/search": 186,
+   "tiktok/search": 338,
    "youtube/own": 61,
    "instagram/search": 228,
    "tiktok/own": 29,
    "instagram/own": 19
   },
   "to": "2026-11-01",
-  "costUsd": 3.68,
-  "classified": 0,
-  "winning": 102,
-  "withTranscript": 211,
-  "postedLast90": 192,
-  "from": "2021-01-30"
+  "costUsd": 6.17,
+  "classified": 1031,
+  "winning": 171,
+  "withTranscript": 307,
+  "postedLast90": 373,
+  "from": "2019-04-03"
  },
  "medians": {
   "all": {
-   "views": 106350.0,
-   "er": 0.0331,
+   "views": 71557.0,
+   "er": 0.0288,
    "outlier": 1.175,
-   "vpd": 908.8
+   "vpd": 658.2
   },
   "tiktok": {
-   "views": 100000.0,
-   "er": 0.0365,
-   "outlier": 1.402,
-   "vpd": 633.4000000000001
+   "views": 46950.0,
+   "er": 0.0369,
+   "outlier": 1.179,
+   "vpd": 658.2
   },
   "instagram": {
    "views": 119139.0,
@@ -46,52 +49,8821 @@
    "vpd": 1528.8
   },
   "youtube": {
-   "views": 0,
-   "er": 0,
-   "outlier": 0,
-   "vpd": 0
+   "views": 95752.0,
+   "er": 0.0155,
+   "outlier": 1.843,
+   "vpd": 278.4
   }
  },
  "tables": {
-  "genre": [],
-  "format": [],
-  "hook": [],
-  "topic": [],
+  "genre": [
+   {
+    "key": "before-after",
+    "n": 53,
+    "medViews": 248692,
+    "medOutlier": 10.193,
+    "medEr": 0.0104,
+    "medSaveRate": 0.0001,
+    "medCommentRate": 0.00026,
+    "winShare": 0.472
+   },
+   {
+    "key": "skin-cancer-awareness",
+    "n": 38,
+    "medViews": 115602.0,
+    "medOutlier": 4.104,
+    "medEr": 0.0104,
+    "medSaveRate": 0.0014,
+    "medCommentRate": 0.00026,
+    "winShare": 0.368
+   },
+   {
+    "key": "humor / skit",
+    "n": 57,
+    "medViews": 129765,
+    "medOutlier": 1.425,
+    "medEr": 0.0306,
+    "medSaveRate": 0.0031,
+    "medCommentRate": 0.0004,
+    "winShare": 0.246
+   },
+   {
+    "key": "patient-story / testimonial",
+    "n": 78,
+    "medViews": 134214.0,
+    "medOutlier": 1.377,
+    "medEr": 0.0279,
+    "medSaveRate": 0.0027,
+    "medCommentRate": 0.00072,
+    "winShare": 0.218
+   },
+   {
+    "key": "procedure-POV",
+    "n": 43,
+    "medViews": 121365,
+    "medOutlier": 1.374,
+    "medEr": 0.0207,
+    "medSaveRate": 0.0018,
+    "medCommentRate": 0.00028,
+    "winShare": 0.256
+   },
+   {
+    "key": "myth-bust",
+    "n": 55,
+    "medViews": 42493,
+    "medOutlier": 1.322,
+    "medEr": 0.0336,
+    "medSaveRate": 0.0063,
+    "medCommentRate": 0.00107,
+    "winShare": 0.145
+   },
+   {
+    "key": "day-in-the-life / office",
+    "n": 35,
+    "medViews": 8130,
+    "medOutlier": 1.095,
+    "medEr": 0.0446,
+    "medSaveRate": 0.003,
+    "medCommentRate": 0.00089,
+    "winShare": 0.057
+   },
+   {
+    "key": "derm-reacts / duet / stitch",
+    "n": 44,
+    "medViews": 158200.0,
+    "medOutlier": 1.089,
+    "medEr": 0.0304,
+    "medSaveRate": 0.0009,
+    "medCommentRate": 0.00059,
+    "winShare": 0.091
+   },
+   {
+    "key": "trend-commentary",
+    "n": 62,
+    "medViews": 79274.0,
+    "medOutlier": 1.079,
+    "medEr": 0.0238,
+    "medSaveRate": 0.0018,
+    "medCommentRate": 0.00048,
+    "winShare": 0.161
+   },
+   {
+    "key": "educational-explainer",
+    "n": 175,
+    "medViews": 44016,
+    "medOutlier": 1.002,
+    "medEr": 0.0276,
+    "medSaveRate": 0.004,
+    "medCommentRate": 0.0005,
+    "winShare": 0.131
+   },
+   {
+    "key": "ad / promo",
+    "n": 97,
+    "medViews": 62447,
+    "medOutlier": 1.0,
+    "medEr": 0.0254,
+    "medSaveRate": 0.0024,
+    "medCommentRate": 0.00029,
+    "winShare": 0.206
+   },
+   {
+    "key": "red-flag / what-not-to-do",
+    "n": 30,
+    "medViews": 57150.0,
+    "medOutlier": 1.0,
+    "medEr": 0.0216,
+    "medSaveRate": 0.0024,
+    "medCommentRate": 0.00074,
+    "winShare": 0.167
+   },
+   {
+    "key": "Q&A / comment-reply",
+    "n": 24,
+    "medViews": 38800.0,
+    "medOutlier": 0.948,
+    "medEr": 0.0416,
+    "medSaveRate": 0.0066,
+    "medCommentRate": 0.0014,
+    "winShare": 0.083
+   },
+   {
+    "key": "product-review / drugstore-vs-medical",
+    "n": 81,
+    "medViews": 77699,
+    "medOutlier": 0.928,
+    "medEr": 0.0484,
+    "medSaveRate": 0.0083,
+    "medCommentRate": 0.0006,
+    "winShare": 0.099
+   },
+   {
+    "key": "routine",
+    "n": 47,
+    "medViews": 70400,
+    "medOutlier": 0.833,
+    "medEr": 0.0456,
+    "medSaveRate": 0.0083,
+    "medCommentRate": 0.00063,
+    "winShare": 0.17
+   },
+   {
+    "key": "price / what-it-costs",
+    "n": 3,
+    "medViews": 29049,
+    "medOutlier": 0.244,
+    "medEr": 0.0207,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00018,
+    "winShare": 0.0
+   }
+  ],
+  "format": [
+   {
+    "key": "voiceover-over-procedure",
+    "n": 74,
+    "medViews": 122455.0,
+    "medOutlier": 2.848,
+    "medEr": 0.0148,
+    "medSaveRate": 0.001,
+    "medCommentRate": 0.00024,
+    "winShare": 0.284
+   },
+   {
+    "key": "text-on-screen only",
+    "n": 172,
+    "medViews": 114363.5,
+    "medOutlier": 1.586,
+    "medEr": 0.0195,
+    "medSaveRate": 0.0028,
+    "medCommentRate": 0.00026,
+    "winShare": 0.25
+   },
+   {
+    "key": "vlog",
+    "n": 132,
+    "medViews": 77350.5,
+    "medOutlier": 1.341,
+    "medEr": 0.0285,
+    "medSaveRate": 0.0023,
+    "medCommentRate": 0.00058,
+    "winShare": 0.242
+   },
+   {
+    "key": "stitch/duet",
+    "n": 45,
+    "medViews": 132400,
+    "medOutlier": 1.084,
+    "medEr": 0.0303,
+    "medSaveRate": 0.0009,
+    "medCommentRate": 0.00051,
+    "winShare": 0.089
+   },
+   {
+    "key": "talking-head",
+    "n": 320,
+    "medViews": 40052.0,
+    "medOutlier": 1.055,
+    "medEr": 0.0341,
+    "medSaveRate": 0.0047,
+    "medCommentRate": 0.00084,
+    "winShare": 0.134
+   },
+   {
+    "key": "green-screen",
+    "n": 7,
+    "medViews": 10500,
+    "medOutlier": 1.0,
+    "medEr": 0.056,
+    "medSaveRate": 0.0053,
+    "medCommentRate": 0.00095,
+    "winShare": 0.0
+   },
+   {
+    "key": "talking-head + b-roll",
+    "n": 169,
+    "medViews": 80375,
+    "medOutlier": 0.887,
+    "medEr": 0.0336,
+    "medSaveRate": 0.0041,
+    "medCommentRate": 0.00052,
+    "winShare": 0.166
+   },
+   {
+    "key": "carousel",
+    "n": 3,
+    "medViews": 34200,
+    "medOutlier": 0.163,
+    "medEr": 0.0671,
+    "medSaveRate": 0.0061,
+    "medCommentRate": 0.01302,
+    "winShare": 0.0
+   }
+  ],
+  "hook": [
+   {
+    "key": "before/after reveal",
+    "n": 70,
+    "medViews": 212613.5,
+    "medOutlier": 5.755,
+    "medEr": 0.0133,
+    "medSaveRate": 0.0011,
+    "medCommentRate": 0.00027,
+    "winShare": 0.4
+   },
+   {
+    "key": "reaction",
+    "n": 81,
+    "medViews": 240172,
+    "medOutlier": 1.786,
+    "medEr": 0.0319,
+    "medSaveRate": 0.0021,
+    "medCommentRate": 0.00042,
+    "winShare": 0.222
+   },
+   {
+    "key": "story open",
+    "n": 102,
+    "medViews": 148550.0,
+    "medOutlier": 1.597,
+    "medEr": 0.0324,
+    "medSaveRate": 0.0032,
+    "medCommentRate": 0.00074,
+    "winShare": 0.225
+   },
+   {
+    "key": "contrarian claim",
+    "n": 114,
+    "medViews": 71557.0,
+    "medOutlier": 1.16,
+    "medEr": 0.0289,
+    "medSaveRate": 0.0039,
+    "medCommentRate": 0.00066,
+    "winShare": 0.14
+   },
+   {
+    "key": "curiosity gap",
+    "n": 84,
+    "medViews": 89212.5,
+    "medOutlier": 1.104,
+    "medEr": 0.0265,
+    "medSaveRate": 0.0025,
+    "medCommentRate": 0.00033,
+    "winShare": 0.167
+   },
+   {
+    "key": "number/stat",
+    "n": 53,
+    "medViews": 65358,
+    "medOutlier": 1.104,
+    "medEr": 0.0328,
+    "medSaveRate": 0.0061,
+    "medCommentRate": 0.00044,
+    "winShare": 0.245
+   },
+   {
+    "key": "stop doing X",
+    "n": 14,
+    "medViews": 42260.5,
+    "medOutlier": 1.067,
+    "medEr": 0.0199,
+    "medSaveRate": 0.0039,
+    "medCommentRate": 0.00098,
+    "winShare": 0.071
+   },
+   {
+    "key": "question",
+    "n": 119,
+    "medViews": 49370,
+    "medOutlier": 0.986,
+    "medEr": 0.0214,
+    "medSaveRate": 0.0018,
+    "medCommentRate": 0.00052,
+    "winShare": 0.134
+   },
+   {
+    "key": "direct address",
+    "n": 285,
+    "medViews": 33500,
+    "medOutlier": 0.97,
+    "medEr": 0.0307,
+    "medSaveRate": 0.0037,
+    "medCommentRate": 0.0005,
+    "winShare": 0.147
+   }
+  ],
+  "topic": [
+   {
+    "key": "toner",
+    "n": 1,
+    "medViews": 2800000,
+    "medOutlier": 996.441,
+    "medEr": 0.0948,
+    "medSaveRate": 0.0197,
+    "medCommentRate": 0.00063,
+    "winShare": 1.0
+   },
+   {
+    "key": "soap",
+    "n": 1,
+    "medViews": 1200000,
+    "medOutlier": 888.889,
+    "medEr": 0.0128,
+    "medSaveRate": 0.0031,
+    "medCommentRate": 6e-05,
+    "winShare": 1.0
+   },
+   {
+    "key": "sephora",
+    "n": 1,
+    "medViews": 843100,
+    "medOutlier": 706.114,
+    "medEr": 0.004,
+    "medSaveRate": 0.0001,
+    "medCommentRate": 3e-05,
+    "winShare": 1.0
+   },
+   {
+    "key": "cyst extraction",
+    "n": 1,
+    "medViews": 2100000,
+    "medOutlier": 686.275,
+    "medEr": 0.0071,
+    "medSaveRate": 0.0004,
+    "medCommentRate": 0.00023,
+    "winShare": 1.0
+   },
+   {
+    "key": "face fat",
+    "n": 1,
+    "medViews": 1300000,
+    "medOutlier": 638.507,
+    "medEr": 0.0563,
+    "medSaveRate": 0.0067,
+    "medCommentRate": 0.00031,
+    "winShare": 1.0
+   },
+   {
+    "key": "body image",
+    "n": 1,
+    "medViews": 1300000,
+    "medOutlier": 638.507,
+    "medEr": 0.0563,
+    "medSaveRate": 0.0067,
+    "medCommentRate": 0.00031,
+    "winShare": 1.0
+   },
+   {
+    "key": "pregnancy",
+    "n": 1,
+    "medViews": 597500,
+    "medOutlier": 597.5,
+    "medEr": 0.01,
+    "medSaveRate": 0.0043,
+    "medCommentRate": 0.00118,
+    "winShare": 1.0
+   },
+   {
+    "key": "brazilian botox",
+    "n": 1,
+    "medViews": 2000000,
+    "medOutlier": 545.405,
+    "medEr": 0.0156,
+    "medSaveRate": 0.0055,
+    "medCommentRate": 0.0002,
+    "winShare": 1.0
+   },
+   {
+    "key": "scar healing",
+    "n": 1,
+    "medViews": 543400,
+    "medOutlier": 359.629,
+    "medEr": 0.033,
+    "medSaveRate": 0.0173,
+    "medCommentRate": 0.00044,
+    "winShare": 1.0
+   },
+   {
+    "key": "product picks",
+    "n": 2,
+    "medViews": 628950.0,
+    "medOutlier": 355.786,
+    "medEr": 0.0536,
+    "medSaveRate": 0.0202,
+    "medCommentRate": 0.0002,
+    "winShare": 0.5
+   },
+   {
+    "key": "music",
+    "n": 1,
+    "medViews": 39923297,
+    "medOutlier": 332.694,
+    "medEr": 0.0119,
+    "medSaveRate": 0.0,
+    "medCommentRate": 5e-05,
+    "winShare": 1.0
+   },
+   {
+    "key": "scar sheets",
+    "n": 1,
+    "medViews": 1500000,
+    "medOutlier": 277.059,
+    "medEr": 0.0082,
+    "medSaveRate": 0.002,
+    "medCommentRate": 6e-05,
+    "winShare": 1.0
+   },
+   {
+    "key": "acne marks",
+    "n": 1,
+    "medViews": 1500000,
+    "medOutlier": 260.146,
+    "medEr": 0.0217,
+    "medSaveRate": 0.0081,
+    "medCommentRate": 0.00059,
+    "winShare": 1.0
+   },
+   {
+    "key": "cosmelan",
+    "n": 1,
+    "medViews": 214300,
+    "medOutlier": 214.3,
+    "medEr": 0.0103,
+    "medSaveRate": 0.006,
+    "medCommentRate": 0.00014,
+    "winShare": 1.0
+   },
+   {
+    "key": "peel",
+    "n": 1,
+    "medViews": 214300,
+    "medOutlier": 214.3,
+    "medEr": 0.0103,
+    "medSaveRate": 0.006,
+    "medCommentRate": 0.00014,
+    "winShare": 1.0
+   },
+   {
+    "key": "fungal acne",
+    "n": 1,
+    "medViews": 1000000,
+    "medOutlier": 200.904,
+    "medEr": 0.0225,
+    "medSaveRate": 0.0095,
+    "medCommentRate": 0.00024,
+    "winShare": 1.0
+   },
+   {
+    "key": "folliculitis",
+    "n": 1,
+    "medViews": 1000000,
+    "medOutlier": 200.904,
+    "medEr": 0.0225,
+    "medSaveRate": 0.0095,
+    "medCommentRate": 0.00024,
+    "winShare": 1.0
+   },
+   {
+    "key": "body odor",
+    "n": 1,
+    "medViews": 22500000,
+    "medOutlier": 184.578,
+    "medEr": 0.0983,
+    "medSaveRate": 0.027,
+    "medCommentRate": 0.00019,
+    "winShare": 1.0
+   },
+   {
+    "key": "tca peel",
+    "n": 1,
+    "medViews": 4700000,
+    "medOutlier": 173.752,
+    "medEr": 0.055,
+    "medSaveRate": 0.0024,
+    "medCommentRate": 0.00018,
+    "winShare": 1.0
+   },
+   {
+    "key": "hiv rash",
+    "n": 1,
+    "medViews": 2700000,
+    "medOutlier": 170.886,
+    "medEr": 0.0041,
+    "medSaveRate": 0.001,
+    "medCommentRate": 7e-05,
+    "winShare": 1.0
+   },
+   {
+    "key": "medicube",
+    "n": 2,
+    "medViews": 4696150.0,
+    "medOutlier": 167.953,
+    "medEr": 0.0323,
+    "medSaveRate": 0.0109,
+    "medCommentRate": 5e-05,
+    "winShare": 1.0
+   },
+   {
+    "key": "comedy",
+    "n": 2,
+    "medViews": 20006545.5,
+    "medOutlier": 166.724,
+    "medEr": 0.0137,
+    "medSaveRate": 0.0066,
+    "medCommentRate": 0.00115,
+    "winShare": 0.5
+   },
+   {
+    "key": "scarring",
+    "n": 1,
+    "medViews": 163800,
+    "medOutlier": 163.8,
+    "medEr": 0.0077,
+    "medSaveRate": 0.0019,
+    "medCommentRate": 0.00011,
+    "winShare": 1.0
+   },
+   {
+    "key": "trend",
+    "n": 2,
+    "medViews": 1980438.0,
+    "medOutlier": 158.229,
+    "medEr": 0.0242,
+    "medSaveRate": 0.0024,
+    "medCommentRate": 0.00118,
+    "winShare": 1.0
+   },
+   {
+    "key": "demodex",
+    "n": 1,
+    "medViews": 12900000,
+    "medOutlier": 148.961,
+    "medEr": 0.0532,
+    "medSaveRate": 0.0112,
+    "medCommentRate": 0.00077,
+    "winShare": 1.0
+   },
+   {
+    "key": "mites",
+    "n": 1,
+    "medViews": 12900000,
+    "medOutlier": 148.961,
+    "medEr": 0.0532,
+    "medSaveRate": 0.0112,
+    "medCommentRate": 0.00077,
+    "winShare": 1.0
+   },
+   {
+    "key": "skin",
+    "n": 1,
+    "medViews": 12900000,
+    "medOutlier": 148.961,
+    "medEr": 0.0532,
+    "medSaveRate": 0.0112,
+    "medCommentRate": 0.00077,
+    "winShare": 1.0
+   },
+   {
+    "key": "device",
+    "n": 3,
+    "medViews": 392300,
+    "medOutlier": 147.662,
+    "medEr": 0.0144,
+    "medSaveRate": 0.0071,
+    "medCommentRate": 9e-05,
+    "winShare": 1.0
+   },
+   {
+    "key": "at-home",
+    "n": 1,
+    "medViews": 9000000,
+    "medOutlier": 147.662,
+    "medEr": 0.0034,
+    "medSaveRate": 0.0004,
+    "medCommentRate": 1e-05,
+    "winShare": 1.0
+   },
+   {
+    "key": "boils",
+    "n": 1,
+    "medViews": 144100,
+    "medOutlier": 144.1,
+    "medEr": 0.0077,
+    "medSaveRate": 0.0025,
+    "medCommentRate": 8e-05,
+    "winShare": 1.0
+   },
+   {
+    "key": "infection",
+    "n": 1,
+    "medViews": 144100,
+    "medOutlier": 144.1,
+    "medEr": 0.0077,
+    "medSaveRate": 0.0025,
+    "medCommentRate": 8e-05,
+    "winShare": 1.0
+   },
+   {
+    "key": "fox eye",
+    "n": 2,
+    "medViews": 17149888.5,
+    "medOutlier": 140.028,
+    "medEr": 0.0089,
+    "medSaveRate": 0.0028,
+    "medCommentRate": 0.00034,
+    "winShare": 0.5
+   },
+   {
+    "key": "tmj",
+    "n": 1,
+    "medViews": 131200,
+    "medOutlier": 131.2,
+    "medEr": 0.0144,
+    "medSaveRate": 0.0071,
+    "medCommentRate": 0.00028,
+    "winShare": 1.0
+   },
+   {
+    "key": "injector life",
+    "n": 1,
+    "medViews": 12155536,
+    "medOutlier": 102.028,
+    "medEr": 0.0084,
+    "medSaveRate": 0.0005,
+    "medCommentRate": 0.0,
+    "winShare": 1.0
+   },
+   {
+    "key": "benzoyl peroxide",
+    "n": 2,
+    "medViews": 11250081.0,
+    "medOutlier": 92.357,
+    "medEr": 0.08,
+    "medSaveRate": 0.0228,
+    "medCommentRate": 9e-05,
+    "winShare": 0.5
+   },
+   {
+    "key": "shave excision",
+    "n": 1,
+    "medViews": 696069,
+    "medOutlier": 92.195,
+    "medEr": 0.0058,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00019,
+    "winShare": 1.0
+   },
+   {
+    "key": "dermaplaning",
+    "n": 1,
+    "medViews": 10894962,
+    "medOutlier": 91.447,
+    "medEr": 0.0232,
+    "medSaveRate": 0.0049,
+    "medCommentRate": 7e-05,
+    "winShare": 1.0
+   },
+   {
+    "key": "cancer",
+    "n": 1,
+    "medViews": 1600000,
+    "medOutlier": 90.909,
+    "medEr": 0.0179,
+    "medSaveRate": 0.0032,
+    "medCommentRate": 0.00169,
+    "winShare": 1.0
+   },
+   {
+    "key": "drama",
+    "n": 1,
+    "medViews": 1600000,
+    "medOutlier": 90.909,
+    "medEr": 0.0179,
+    "medSaveRate": 0.0032,
+    "medCommentRate": 0.00169,
+    "winShare": 1.0
+   },
+   {
+    "key": "chemical peel",
+    "n": 4,
+    "medViews": 1357503.0,
+    "medOutlier": 88.263,
+    "medEr": 0.0195,
+    "medSaveRate": 0.0012,
+    "medCommentRate": 0.00028,
+    "winShare": 0.5
+   },
+   {
+    "key": "diy",
+    "n": 2,
+    "medViews": 2376950.0,
+    "medOutlier": 87.693,
+    "medEr": 0.0363,
+    "medSaveRate": 0.004,
+    "medCommentRate": 0.00033,
+    "winShare": 0.5
+   },
+   {
+    "key": "hypopigmentation",
+    "n": 1,
+    "medViews": 3400000,
+    "medOutlier": 84.158,
+    "medEr": 0.0525,
+    "medSaveRate": 0.0184,
+    "medCommentRate": 0.00021,
+    "winShare": 1.0
+   },
+   {
+    "key": "vitiligo",
+    "n": 1,
+    "medViews": 3400000,
+    "medOutlier": 84.158,
+    "medEr": 0.0525,
+    "medSaveRate": 0.0184,
+    "medCommentRate": 0.00021,
+    "winShare": 1.0
+   },
+   {
+    "key": "misdiagnosis",
+    "n": 1,
+    "medViews": 3400000,
+    "medOutlier": 84.158,
+    "medEr": 0.0525,
+    "medSaveRate": 0.0184,
+    "medCommentRate": 0.00021,
+    "winShare": 1.0
+   },
+   {
+    "key": "squamous cell carcinoma",
+    "n": 2,
+    "medViews": 83241.0,
+    "medOutlier": 83.241,
+    "medEr": 0.0085,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00016,
+    "winShare": 0.5
+   },
+   {
+    "key": "cheeks",
+    "n": 1,
+    "medViews": 123545,
+    "medOutlier": 82.916,
+    "medEr": 0.0069,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00015,
+    "winShare": 1.0
+   },
+   {
+    "key": "la mer",
+    "n": 1,
+    "medViews": 113600,
+    "medOutlier": 82.289,
+    "medEr": 0.041,
+    "medSaveRate": 0.0034,
+    "medCommentRate": 0.00342,
+    "winShare": 1.0
+   },
+   {
+    "key": "hot take",
+    "n": 1,
+    "medViews": 113600,
+    "medOutlier": 82.289,
+    "medEr": 0.041,
+    "medSaveRate": 0.0034,
+    "medCommentRate": 0.00342,
+    "winShare": 1.0
+   },
+   {
+    "key": "reconstruction",
+    "n": 1,
+    "medViews": 80900,
+    "medOutlier": 80.9,
+    "medEr": 0.0099,
+    "medSaveRate": 0.003,
+    "medCommentRate": 0.00062,
+    "winShare": 1.0
+   },
+   {
+    "key": "skin checks",
+    "n": 1,
+    "medViews": 222600,
+    "medOutlier": 79.585,
+    "medEr": 0.0494,
+    "medSaveRate": 0.0069,
+    "medCommentRate": 0.00042,
+    "winShare": 1.0
+   },
+   {
+    "key": "biopsies",
+    "n": 1,
+    "medViews": 222600,
+    "medOutlier": 79.585,
+    "medEr": 0.0494,
+    "medSaveRate": 0.0069,
+    "medCommentRate": 0.00042,
+    "winShare": 1.0
+   },
+   {
+    "key": "niacinamide",
+    "n": 2,
+    "medViews": 398830.0,
+    "medOutlier": 74.207,
+    "medEr": 0.0174,
+    "medSaveRate": 0.0031,
+    "medCommentRate": 0.00043,
+    "winShare": 0.5
+   },
+   {
+    "key": "symptoms",
+    "n": 2,
+    "medViews": 1291800.0,
+    "medOutlier": 69.081,
+    "medEr": 0.0074,
+    "medSaveRate": 0.0013,
+    "medCommentRate": 0.00025,
+    "winShare": 1.0
+   },
+   {
+    "key": "pdo",
+    "n": 2,
+    "medViews": 116608.0,
+    "medOutlier": 67.557,
+    "medEr": 0.0046,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00038,
+    "winShare": 1.0
+   },
+   {
+    "key": "sun exposure",
+    "n": 1,
+    "medViews": 66245,
+    "medOutlier": 66.245,
+    "medEr": 0.0156,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00048,
+    "winShare": 0.0
+   },
+   {
+    "key": "skin aging",
+    "n": 1,
+    "medViews": 66245,
+    "medOutlier": 66.245,
+    "medEr": 0.0156,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00048,
+    "winShare": 0.0
+   },
+   {
+    "key": "transformation",
+    "n": 1,
+    "medViews": 248692,
+    "medOutlier": 66.141,
+    "medEr": 0.0051,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00025,
+    "winShare": 1.0
+   },
+   {
+    "key": "wrinkles",
+    "n": 2,
+    "medViews": 114298.5,
+    "medOutlier": 64.38,
+    "medEr": 0.0483,
+    "medSaveRate": 0.0043,
+    "medCommentRate": 0.00121,
+    "winShare": 0.5
+   },
+   {
+    "key": "non-surgical rhinoplasty",
+    "n": 1,
+    "medViews": 64200,
+    "medOutlier": 64.2,
+    "medEr": 0.0055,
+    "medSaveRate": 0.0024,
+    "medCommentRate": 3e-05,
+    "winShare": 1.0
+   },
+   {
+    "key": "prf",
+    "n": 2,
+    "medViews": 108558.5,
+    "medOutlier": 63.964,
+    "medEr": 0.0303,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00076,
+    "winShare": 0.5
+   },
+   {
+    "key": "grey hair",
+    "n": 1,
+    "medViews": 7495982,
+    "medOutlier": 62.918,
+    "medEr": 0.0074,
+    "medSaveRate": 0.0035,
+    "medCommentRate": 4e-05,
+    "winShare": 1.0
+   },
+   {
+    "key": "plucking",
+    "n": 1,
+    "medViews": 7495982,
+    "medOutlier": 62.918,
+    "medEr": 0.0074,
+    "medSaveRate": 0.0035,
+    "medCommentRate": 4e-05,
+    "winShare": 1.0
+   },
+   {
+    "key": "early signs",
+    "n": 1,
+    "medViews": 1000000,
+    "medOutlier": 62.112,
+    "medEr": 0.0045,
+    "medSaveRate": 0.0012,
+    "medCommentRate": 0.00014,
+    "winShare": 1.0
+   },
+   {
+    "key": "blood pressure",
+    "n": 1,
+    "medViews": 180800,
+    "medOutlier": 58.266,
+    "medEr": 0.02,
+    "medSaveRate": 0.0049,
+    "medCommentRate": 0.00164,
+    "winShare": 1.0
+   },
+   {
+    "key": "hypertension",
+    "n": 1,
+    "medViews": 180800,
+    "medOutlier": 58.266,
+    "medEr": 0.02,
+    "medSaveRate": 0.0049,
+    "medCommentRate": 0.00164,
+    "winShare": 1.0
+   },
+   {
+    "key": "under-eye filler",
+    "n": 1,
+    "medViews": 138730,
+    "medOutlier": 56.624,
+    "medEr": 0.0097,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00032,
+    "winShare": 1.0
+   },
+   {
+    "key": "downtime",
+    "n": 4,
+    "medViews": 229579.5,
+    "medOutlier": 55.251,
+    "medEr": 0.0124,
+    "medSaveRate": 0.0016,
+    "medCommentRate": 0.00035,
+    "winShare": 0.5
+   },
+   {
+    "key": "skin transformation",
+    "n": 1,
+    "medViews": 3300000,
+    "medOutlier": 53.922,
+    "medEr": 0.1181,
+    "medSaveRate": 0.0069,
+    "medCommentRate": 0.00026,
+    "winShare": 1.0
+   },
+   {
+    "key": "cosmetic",
+    "n": 2,
+    "medViews": 1408091.0,
+    "medOutlier": 53.463,
+    "medEr": 0.0136,
+    "medSaveRate": 0.0004,
+    "medCommentRate": 0.0003,
+    "winShare": 0.5
+   },
+   {
+    "key": "night routine",
+    "n": 3,
+    "medViews": 5600000,
+    "medOutlier": 52.239,
+    "medEr": 0.0559,
+    "medSaveRate": 0.0083,
+    "medCommentRate": 0.00058,
+    "winShare": 0.667
+   },
+   {
+    "key": "simple skincare",
+    "n": 1,
+    "medViews": 5600000,
+    "medOutlier": 52.239,
+    "medEr": 0.1013,
+    "medSaveRate": 0.02,
+    "medCommentRate": 0.00058,
+    "winShare": 1.0
+   },
+   {
+    "key": "non-melanoma",
+    "n": 1,
+    "medViews": 1100000,
+    "medOutlier": 51.643,
+    "medEr": 0.007,
+    "medSaveRate": 0.0021,
+    "medCommentRate": 0.00011,
+    "winShare": 1.0
+   },
+   {
+    "key": "face basting",
+    "n": 1,
+    "medViews": 3100000,
+    "medOutlier": 50.861,
+    "medEr": 0.0818,
+    "medSaveRate": 0.013,
+    "medCommentRate": 0.00066,
+    "winShare": 1.0
+   },
+   {
+    "key": "product rankings",
+    "n": 1,
+    "medViews": 782800,
+    "medOutlier": 49.86,
+    "medEr": 0.0642,
+    "medSaveRate": 0.032,
+    "medCommentRate": 0.00037,
+    "winShare": 1.0
+   },
+   {
+    "key": "nu skin",
+    "n": 1,
+    "medViews": 757000,
+    "medOutlier": 49.477,
+    "medEr": 0.0071,
+    "medSaveRate": 0.003,
+    "medCommentRate": 0.00016,
+    "winShare": 1.0
+   },
+   {
+    "key": "toner pads",
+    "n": 1,
+    "medViews": 76400,
+    "medOutlier": 45.476,
+    "medEr": 0.0285,
+    "medSaveRate": 0.0106,
+    "medCommentRate": 0.00048,
+    "winShare": 1.0
+   },
+   {
+    "key": "texture",
+    "n": 3,
+    "medViews": 400000,
+    "medOutlier": 45.283,
+    "medEr": 0.0591,
+    "medSaveRate": 0.011,
+    "medCommentRate": 0.00092,
+    "winShare": 0.667
+   },
+   {
+    "key": "luxury skincare",
+    "n": 2,
+    "medViews": 62350.0,
+    "medOutlier": 45.165,
+    "medEr": 0.0519,
+    "medSaveRate": 0.0133,
+    "medCommentRate": 0.00446,
+    "winShare": 0.5
+   },
+   {
+    "key": "ghk-cu",
+    "n": 4,
+    "medViews": 72573.0,
+    "medOutlier": 42.812,
+    "medEr": 0.0101,
+    "medSaveRate": 0.0003,
+    "medCommentRate": 0.00019,
+    "winShare": 0.25
+   },
+   {
+    "key": "ugc",
+    "n": 1,
+    "medViews": 70500,
+    "medOutlier": 42.216,
+    "medEr": 0.025,
+    "medSaveRate": 0.007,
+    "medCommentRate": 0.00024,
+    "winShare": 1.0
+   },
+   {
+    "key": "repair",
+    "n": 2,
+    "medViews": 1324444.5,
+    "medOutlier": 42.189,
+    "medEr": 0.0295,
+    "medSaveRate": 0.004,
+    "medCommentRate": 0.00014,
+    "winShare": 0.5
+   },
+   {
+    "key": "stage 4",
+    "n": 3,
+    "medViews": 1800000,
+    "medOutlier": 41.904,
+    "medEr": 0.0079,
+    "medSaveRate": 0.0015,
+    "medCommentRate": 0.00025,
+    "winShare": 1.0
+   },
+   {
+    "key": "purging",
+    "n": 3,
+    "medViews": 162500,
+    "medOutlier": 40.084,
+    "medEr": 0.0197,
+    "medSaveRate": 0.003,
+    "medCommentRate": 0.00054,
+    "winShare": 0.667
+   },
+   {
+    "key": "injections",
+    "n": 1,
+    "medViews": 628795,
+    "medOutlier": 40.051,
+    "medEr": 0.0059,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00017,
+    "winShare": 1.0
+   },
+   {
+    "key": "thai clinic",
+    "n": 1,
+    "medViews": 39000,
+    "medOutlier": 39.0,
+    "medEr": 0.0048,
+    "medSaveRate": 0.0019,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "viral routine",
+    "n": 1,
+    "medViews": 3300000,
+    "medOutlier": 38.106,
+    "medEr": 0.0286,
+    "medSaveRate": 0.0019,
+    "medCommentRate": 0.00021,
+    "winShare": 1.0
+   },
+   {
+    "key": "satire",
+    "n": 1,
+    "medViews": 4500000,
+    "medOutlier": 36.232,
+    "medEr": 0.0234,
+    "medSaveRate": 0.0039,
+    "medCommentRate": 0.0003,
+    "winShare": 1.0
+   },
+   {
+    "key": "chiropractic",
+    "n": 1,
+    "medViews": 2000000,
+    "medOutlier": 34.965,
+    "medEr": 0.1171,
+    "medSaveRate": 0.043,
+    "medCommentRate": 0.00132,
+    "winShare": 1.0
+   },
+   {
+    "key": "glabella",
+    "n": 1,
+    "medViews": 4126360,
+    "medOutlier": 34.635,
+    "medEr": 0.087,
+    "medSaveRate": 0.025,
+    "medCommentRate": 0.00073,
+    "winShare": 1.0
+   },
+   {
+    "key": "boxcar scars",
+    "n": 1,
+    "medViews": 1289764,
+    "medOutlier": 32.325,
+    "medEr": 0.005,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00024,
+    "winShare": 1.0
+   },
+   {
+    "key": "sponsored",
+    "n": 5,
+    "medViews": 529700,
+    "medOutlier": 31.927,
+    "medEr": 0.0045,
+    "medSaveRate": 0.0006,
+    "medCommentRate": 8e-05,
+    "winShare": 0.6
+   },
+   {
+    "key": "isdin",
+    "n": 1,
+    "medViews": 89300,
+    "medOutlier": 31.927,
+    "medEr": 0.0032,
+    "medSaveRate": 0.0004,
+    "medCommentRate": 7e-05,
+    "winShare": 1.0
+   },
+   {
+    "key": "kojic acid",
+    "n": 1,
+    "medViews": 556600,
+    "medOutlier": 30.751,
+    "medEr": 0.0406,
+    "medSaveRate": 0.009,
+    "medCommentRate": 0.00085,
+    "winShare": 1.0
+   },
+   {
+    "key": "hormonal",
+    "n": 1,
+    "medViews": 71700,
+    "medOutlier": 30.292,
+    "medEr": 0.0369,
+    "medSaveRate": 0.0141,
+    "medCommentRate": 0.00381,
+    "winShare": 1.0
+   },
+   {
+    "key": "tear trough",
+    "n": 2,
+    "medViews": 120972.5,
+    "medOutlier": 28.745,
+    "medEr": 0.0178,
+    "medSaveRate": 0.0038,
+    "medCommentRate": 0.00081,
+    "winShare": 0.5
+   },
+   {
+    "key": "preventative botox",
+    "n": 1,
+    "medViews": 3409321,
+    "medOutlier": 28.616,
+    "medEr": 0.0126,
+    "medSaveRate": 0.0002,
+    "medCommentRate": 0.00016,
+    "winShare": 1.0
+   },
+   {
+    "key": "progress",
+    "n": 1,
+    "medViews": 2364019,
+    "medOutlier": 27.204,
+    "medEr": 0.0008,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00081,
+    "winShare": 1.0
+   },
+   {
+    "key": "forehead",
+    "n": 1,
+    "medViews": 790885,
+    "medOutlier": 26.993,
+    "medEr": 0.0177,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0,
+    "winShare": 1.0
+   },
+   {
+    "key": "slugging",
+    "n": 2,
+    "medViews": 1651400.0,
+    "medOutlier": 25.938,
+    "medEr": 0.0674,
+    "medSaveRate": 0.0143,
+    "medCommentRate": 0.0004,
+    "winShare": 0.5
+   },
+   {
+    "key": "warning signs",
+    "n": 2,
+    "medViews": 89884.5,
+    "medOutlier": 25.524,
+    "medEr": 0.0077,
+    "medSaveRate": 0.001,
+    "medCommentRate": 0.00023,
+    "winShare": 0.5
+   },
+   {
+    "key": "board certification",
+    "n": 1,
+    "medViews": 70500,
+    "medOutlier": 25.206,
+    "medEr": 0.0509,
+    "medSaveRate": 0.0087,
+    "medCommentRate": 0.00104,
+    "winShare": 1.0
+   },
+   {
+    "key": "diagnosis",
+    "n": 3,
+    "medViews": 1600000,
+    "medOutlier": 25.103,
+    "medEr": 0.0179,
+    "medSaveRate": 0.0016,
+    "medCommentRate": 0.0002,
+    "winShare": 0.667
+   },
+   {
+    "key": "case study",
+    "n": 1,
+    "medViews": 48800,
+    "medOutlier": 25.103,
+    "medEr": 0.0077,
+    "medSaveRate": 0.0016,
+    "medCommentRate": 0.00018,
+    "winShare": 1.0
+   },
+   {
+    "key": "k-pop",
+    "n": 1,
+    "medViews": 576100,
+    "medOutlier": 24.62,
+    "medEr": 0.0737,
+    "medSaveRate": 0.0235,
+    "medCommentRate": 0.00018,
+    "winShare": 1.0
+   },
+   {
+    "key": "cancer journey",
+    "n": 1,
+    "medViews": 2861310,
+    "medOutlier": 24.017,
+    "medEr": 0.0612,
+    "medSaveRate": 0.0117,
+    "medCommentRate": 0.0025,
+    "winShare": 1.0
+   },
+   {
+    "key": "skincare cheat sheet",
+    "n": 1,
+    "medViews": 4100000,
+    "medOutlier": 23.658,
+    "medEr": 0.0995,
+    "medSaveRate": 0.0397,
+    "medCommentRate": 0.00021,
+    "winShare": 1.0
+   },
+   {
+    "key": "ingredients",
+    "n": 1,
+    "medViews": 4100000,
+    "medOutlier": 23.658,
+    "medEr": 0.0995,
+    "medSaveRate": 0.0397,
+    "medCommentRate": 0.00021,
+    "winShare": 1.0
+   },
+   {
+    "key": "exfoliant",
+    "n": 1,
+    "medViews": 9300000,
+    "medOutlier": 23.175,
+    "medEr": 0.0826,
+    "medSaveRate": 0.0157,
+    "medCommentRate": 0.00062,
+    "winShare": 1.0
+   },
+   {
+    "key": "brand founder",
+    "n": 1,
+    "medViews": 9300000,
+    "medOutlier": 23.175,
+    "medEr": 0.0826,
+    "medSaveRate": 0.0157,
+    "medCommentRate": 0.00062,
+    "winShare": 1.0
+   },
+   {
+    "key": "looksmaxxing",
+    "n": 4,
+    "medViews": 226868.0,
+    "medOutlier": 22.419,
+    "medEr": 0.0208,
+    "medSaveRate": 0.0038,
+    "medCommentRate": 0.00054,
+    "winShare": 0.25
+   },
+   {
+    "key": "office humor",
+    "n": 1,
+    "medViews": 21600,
+    "medOutlier": 21.6,
+    "medEr": 0.0814,
+    "medSaveRate": 0.0115,
+    "medCommentRate": 0.00014,
+    "winShare": 0.0
+   },
+   {
+    "key": "black dermatologists",
+    "n": 1,
+    "medViews": 27300,
+    "medOutlier": 21.53,
+    "medEr": 0.0332,
+    "medSaveRate": 0.0088,
+    "medCommentRate": 0.00088,
+    "winShare": 0.0
+   },
+   {
+    "key": "mohs",
+    "n": 9,
+    "medViews": 80900,
+    "medOutlier": 20.785,
+    "medEr": 0.0137,
+    "medSaveRate": 0.0019,
+    "medCommentRate": 0.00078,
+    "winShare": 0.444
+   },
+   {
+    "key": "skincare questions",
+    "n": 1,
+    "medViews": 11530406,
+    "medOutlier": 20.372,
+    "medEr": 0.0608,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00026,
+    "winShare": 0.0
+   },
+   {
+    "key": "skin lesions",
+    "n": 2,
+    "medViews": 2426726.0,
+    "medOutlier": 20.368,
+    "medEr": 0.0046,
+    "medSaveRate": 0.0019,
+    "medCommentRate": 9e-05,
+    "winShare": 1.0
+   },
+   {
+    "key": "signs",
+    "n": 2,
+    "medViews": 281150.0,
+    "medOutlier": 19.816,
+    "medEr": 0.0429,
+    "medSaveRate": 0.0051,
+    "medCommentRate": 0.00029,
+    "winShare": 0.5
+   },
+   {
+    "key": "sunscreen myths",
+    "n": 1,
+    "medViews": 1200000,
+    "medOutlier": 19.688,
+    "medEr": 0.064,
+    "medSaveRate": 0.0125,
+    "medCommentRate": 0.00108,
+    "winShare": 1.0
+   },
+   {
+    "key": "glow",
+    "n": 2,
+    "medViews": 72000.0,
+    "medOutlier": 18.399,
+    "medEr": 0.0461,
+    "medSaveRate": 0.0103,
+    "medCommentRate": 0.00051,
+    "winShare": 0.0
+   },
+   {
+    "key": "body hyperpigmentation",
+    "n": 2,
+    "medViews": 1376747.5,
+    "medOutlier": 18.091,
+    "medEr": 0.0502,
+    "medSaveRate": 0.0174,
+    "medCommentRate": 0.00215,
+    "winShare": 0.5
+   },
+   {
+    "key": "moles",
+    "n": 8,
+    "medViews": 547441.0,
+    "medOutlier": 18.069,
+    "medEr": 0.0074,
+    "medSaveRate": 0.0013,
+    "medCommentRate": 0.00014,
+    "winShare": 0.625
+   },
+   {
+    "key": "products",
+    "n": 3,
+    "medViews": 2600000,
+    "medOutlier": 18.037,
+    "medEr": 0.0689,
+    "medSaveRate": 0.0205,
+    "medCommentRate": 0.00042,
+    "winShare": 0.333
+   },
+   {
+    "key": "lift",
+    "n": 1,
+    "medViews": 18019,
+    "medOutlier": 18.019,
+    "medEr": 0.0021,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00028,
+    "winShare": 0.0
+   },
+   {
+    "key": "clinic exam",
+    "n": 1,
+    "medViews": 856389,
+    "medOutlier": 17.991,
+    "medEr": 0.0072,
+    "medSaveRate": 0.0,
+    "medCommentRate": 6e-05,
+    "winShare": 0.0
+   },
+   {
+    "key": "moon face",
+    "n": 1,
+    "medViews": 6200000,
+    "medOutlier": 17.544,
+    "medEr": 0.0217,
+    "medSaveRate": 0.0016,
+    "medCommentRate": 0.0005,
+    "winShare": 1.0
+   },
+   {
+    "key": "inflammation",
+    "n": 1,
+    "medViews": 6200000,
+    "medOutlier": 17.544,
+    "medEr": 0.0217,
+    "medSaveRate": 0.0016,
+    "medCommentRate": 0.0005,
+    "winShare": 1.0
+   },
+   {
+    "key": "supplement",
+    "n": 1,
+    "medViews": 2088661,
+    "medOutlier": 17.531,
+    "medEr": 0.0118,
+    "medSaveRate": 0.0063,
+    "medCommentRate": 8e-05,
+    "winShare": 1.0
+   },
+   {
+    "key": "hormonal acne",
+    "n": 1,
+    "medViews": 1200000,
+    "medOutlier": 17.493,
+    "medEr": 0.0403,
+    "medSaveRate": 0.0092,
+    "medCommentRate": 0.0012,
+    "winShare": 0.0
+   },
+   {
+    "key": "spironolactone",
+    "n": 1,
+    "medViews": 1200000,
+    "medOutlier": 17.493,
+    "medEr": 0.0403,
+    "medSaveRate": 0.0092,
+    "medCommentRate": 0.0012,
+    "winShare": 0.0
+   },
+   {
+    "key": "asmr facial",
+    "n": 1,
+    "medViews": 20369653,
+    "medOutlier": 17.262,
+    "medEr": 0.0179,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00033,
+    "winShare": 0.0
+   },
+   {
+    "key": "hair",
+    "n": 7,
+    "medViews": 247100,
+    "medOutlier": 16.656,
+    "medEr": 0.0272,
+    "medSaveRate": 0.0016,
+    "medCommentRate": 0.00067,
+    "winShare": 0.286
+   },
+   {
+    "key": "product formulation",
+    "n": 1,
+    "medViews": 851100,
+    "medOutlier": 16.656,
+    "medEr": 0.0447,
+    "medSaveRate": 0.0069,
+    "medCommentRate": 0.00067,
+    "winShare": 0.0
+   },
+   {
+    "key": "basal cell carcinoma",
+    "n": 4,
+    "medViews": 88879.0,
+    "medOutlier": 16.041,
+    "medEr": 0.0159,
+    "medSaveRate": 0.0018,
+    "medCommentRate": 0.00142,
+    "winShare": 0.5
+   },
+   {
+    "key": "dermatologist",
+    "n": 15,
+    "medViews": 99700,
+    "medOutlier": 15.434,
+    "medEr": 0.053,
+    "medSaveRate": 0.0059,
+    "medCommentRate": 0.00058,
+    "winShare": 0.267
+   },
+   {
+    "key": "graduation",
+    "n": 1,
+    "medViews": 447600,
+    "medOutlier": 15.434,
+    "medEr": 0.1981,
+    "medSaveRate": 0.0115,
+    "medCommentRate": 0.00067,
+    "winShare": 0.0
+   },
+   {
+    "key": "product ratings",
+    "n": 2,
+    "medViews": 750619.0,
+    "medOutlier": 15.195,
+    "medEr": 0.0357,
+    "medSaveRate": 0.0104,
+    "medCommentRate": 0.00087,
+    "winShare": 0.5
+   },
+   {
+    "key": "40s",
+    "n": 1,
+    "medViews": 921000,
+    "medOutlier": 15.111,
+    "medEr": 0.0523,
+    "medSaveRate": 0.0205,
+    "medCommentRate": 0.00064,
+    "winShare": 0.0
+   },
+   {
+    "key": "at-home laser hair removal",
+    "n": 1,
+    "medViews": 153500,
+    "medOutlier": 15.049,
+    "medEr": 0.1126,
+    "medSaveRate": 0.0454,
+    "medCommentRate": 0.00079,
+    "winShare": 0.0
+   },
+   {
+    "key": "anua",
+    "n": 1,
+    "medViews": 724300,
+    "medOutlier": 14.903,
+    "medEr": 0.0087,
+    "medSaveRate": 0.0037,
+    "medCommentRate": 6e-05,
+    "winShare": 0.0
+   },
+   {
+    "key": "hygiene",
+    "n": 1,
+    "medViews": 16900,
+    "medOutlier": 14.154,
+    "medEr": 0.0112,
+    "medSaveRate": 0.0032,
+    "medCommentRate": 0.00083,
+    "winShare": 0.0
+   },
+   {
+    "key": "overuse",
+    "n": 4,
+    "medViews": 646700.0,
+    "medOutlier": 13.954,
+    "medEr": 0.0396,
+    "medSaveRate": 0.0023,
+    "medCommentRate": 0.00083,
+    "winShare": 0.0
+   },
+   {
+    "key": "male makeup",
+    "n": 1,
+    "medViews": 214800,
+    "medOutlier": 13.858,
+    "medEr": 0.0213,
+    "medSaveRate": 0.0028,
+    "medCommentRate": 0.00115,
+    "winShare": 0.0
+   },
+   {
+    "key": "spf",
+    "n": 2,
+    "medViews": 125018.5,
+    "medOutlier": 13.691,
+    "medEr": 0.0934,
+    "medSaveRate": 0.0262,
+    "medCommentRate": 0.0011,
+    "winShare": 0.5
+   },
+   {
+    "key": "black market filler",
+    "n": 1,
+    "medViews": 1600103,
+    "medOutlier": 13.431,
+    "medEr": 0.0348,
+    "medSaveRate": 0.0062,
+    "medCommentRate": 0.00016,
+    "winShare": 1.0
+   },
+   {
+    "key": "botched",
+    "n": 1,
+    "medViews": 1600103,
+    "medOutlier": 13.431,
+    "medEr": 0.0348,
+    "medSaveRate": 0.0062,
+    "medCommentRate": 0.00016,
+    "winShare": 1.0
+   },
+   {
+    "key": "frown lines",
+    "n": 2,
+    "medViews": 145193.5,
+    "medOutlier": 13.312,
+    "medEr": 0.0577,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00055,
+    "winShare": 0.5
+   },
+   {
+    "key": "overdone",
+    "n": 1,
+    "medViews": 1562151,
+    "medOutlier": 13.112,
+    "medEr": 0.0056,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00019,
+    "winShare": 1.0
+   },
+   {
+    "key": "certified surgeon",
+    "n": 1,
+    "medViews": 1562151,
+    "medOutlier": 13.112,
+    "medEr": 0.0056,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00019,
+    "winShare": 1.0
+   },
+   {
+    "key": "worth it",
+    "n": 2,
+    "medViews": 18000.0,
+    "medOutlier": 13.039,
+    "medEr": 0.0659,
+    "medSaveRate": 0.0219,
+    "medCommentRate": 0.00528,
+    "winShare": 0.0
+   },
+   {
+    "key": "scarless",
+    "n": 1,
+    "medViews": 52553,
+    "medOutlier": 12.663,
+    "medEr": 0.0055,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00011,
+    "winShare": 0.0
+   },
+   {
+    "key": "masseter",
+    "n": 2,
+    "medViews": 105795.0,
+    "medOutlier": 12.631,
+    "medEr": 0.0206,
+    "medSaveRate": 0.0008,
+    "medCommentRate": 0.00011,
+    "winShare": 0.5
+   },
+   {
+    "key": "retinal",
+    "n": 2,
+    "medViews": 97300.0,
+    "medOutlier": 12.589,
+    "medEr": 0.0382,
+    "medSaveRate": 0.0148,
+    "medCommentRate": 0.0003,
+    "winShare": 0.5
+   },
+   {
+    "key": "dark spots",
+    "n": 10,
+    "medViews": 972451.0,
+    "medOutlier": 12.43,
+    "medEr": 0.0426,
+    "medSaveRate": 0.0078,
+    "medCommentRate": 0.00068,
+    "winShare": 0.5
+   },
+   {
+    "key": "full face",
+    "n": 2,
+    "medViews": 120663.5,
+    "medOutlier": 12.371,
+    "medEr": 0.0138,
+    "medSaveRate": 0.0048,
+    "medCommentRate": 0.00026,
+    "winShare": 0.5
+   },
+   {
+    "key": "traction alopecia",
+    "n": 1,
+    "medViews": 6525,
+    "medOutlier": 12.288,
+    "medEr": 0.0185,
+    "medSaveRate": 0.004,
+    "medCommentRate": 0.00046,
+    "winShare": 0.0
+   },
+   {
+    "key": "what to expect",
+    "n": 1,
+    "medViews": 1826660,
+    "medOutlier": 11.939,
+    "medEr": 0.0488,
+    "medSaveRate": 0.0,
+    "medCommentRate": 8e-05,
+    "winShare": 0.0
+   },
+   {
+    "key": "regret",
+    "n": 2,
+    "medViews": 35320.0,
+    "medOutlier": 11.875,
+    "medEr": 0.0411,
+    "medSaveRate": 0.0006,
+    "medCommentRate": 0.00325,
+    "winShare": 0.5
+   },
+   {
+    "key": "mederma",
+    "n": 1,
+    "medViews": 1403906,
+    "medOutlier": 11.784,
+    "medEr": 0.0347,
+    "medSaveRate": 0.0203,
+    "medCommentRate": 0.00091,
+    "winShare": 1.0
+   },
+   {
+    "key": "arabic",
+    "n": 2,
+    "medViews": 5445908.0,
+    "medOutlier": 11.768,
+    "medEr": 0.0105,
+    "medSaveRate": 0.0019,
+    "medCommentRate": 7e-05,
+    "winShare": 0.5
+   },
+   {
+    "key": "cleansing",
+    "n": 1,
+    "medViews": 1400000,
+    "medOutlier": 11.485,
+    "medEr": 0.1175,
+    "medSaveRate": 0.0033,
+    "medCommentRate": 0.0002,
+    "winShare": 0.0
+   },
+   {
+    "key": "face wash",
+    "n": 1,
+    "medViews": 1400000,
+    "medOutlier": 11.485,
+    "medEr": 0.1175,
+    "medSaveRate": 0.0033,
+    "medCommentRate": 0.0002,
+    "winShare": 0.0
+   },
+   {
+    "key": "skincare routine",
+    "n": 2,
+    "medViews": 1381328.0,
+    "medOutlier": 11.347,
+    "medEr": 0.0563,
+    "medSaveRate": 0.0194,
+    "medCommentRate": 0.00115,
+    "winShare": 0.5
+   },
+   {
+    "key": "baby botox",
+    "n": 13,
+    "medViews": 151125,
+    "medOutlier": 11.058,
+    "medEr": 0.0269,
+    "medSaveRate": 0.0019,
+    "medCommentRate": 0.00016,
+    "winShare": 0.385
+   },
+   {
+    "key": "sketch",
+    "n": 1,
+    "medViews": 6955507,
+    "medOutlier": 11.058,
+    "medEr": 0.057,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00016,
+    "winShare": 0.0
+   },
+   {
+    "key": "office tour",
+    "n": 1,
+    "medViews": 11000,
+    "medOutlier": 11.0,
+    "medEr": 0.0197,
+    "medSaveRate": 0.0039,
+    "medCommentRate": 0.00055,
+    "winShare": 0.0
+   },
+   {
+    "key": "brand launch",
+    "n": 2,
+    "medViews": 549100.0,
+    "medOutlier": 10.746,
+    "medEr": 0.0586,
+    "medSaveRate": 0.009,
+    "medCommentRate": 0.00107,
+    "winShare": 0.0
+   },
+   {
+    "key": "vitamin a",
+    "n": 1,
+    "medViews": 13200,
+    "medOutlier": 10.671,
+    "medEr": 0.0214,
+    "medSaveRate": 0.0134,
+    "medCommentRate": 0.00015,
+    "winShare": 0.0
+   },
+   {
+    "key": "haircare",
+    "n": 2,
+    "medViews": 1058200.0,
+    "medOutlier": 10.335,
+    "medEr": 0.0433,
+    "medSaveRate": 0.0124,
+    "medCommentRate": 0.00051,
+    "winShare": 0.5
+   },
+   {
+    "key": "results",
+    "n": 1,
+    "medViews": 1214335,
+    "medOutlier": 10.193,
+    "medEr": 0.0549,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00033,
+    "winShare": 1.0
+   },
+   {
+    "key": "budget",
+    "n": 2,
+    "medViews": 1184087.0,
+    "medOutlier": 10.109,
+    "medEr": 0.0582,
+    "medSaveRate": 0.0077,
+    "medCommentRate": 0.00196,
+    "winShare": 0.5
+   },
+   {
+    "key": "self-esteem",
+    "n": 1,
+    "medViews": 1160876,
+    "medOutlier": 9.744,
+    "medEr": 0.0306,
+    "medSaveRate": 0.0031,
+    "medCommentRate": 0.00208,
+    "winShare": 1.0
+   },
+   {
+    "key": "skin longevity",
+    "n": 1,
+    "medViews": 1157847,
+    "medOutlier": 9.718,
+    "medEr": 0.0088,
+    "medSaveRate": 0.002,
+    "medCommentRate": 0.00021,
+    "winShare": 1.0
+   },
+   {
+    "key": "oscars",
+    "n": 1,
+    "medViews": 1157847,
+    "medOutlier": 9.718,
+    "medEr": 0.0088,
+    "medSaveRate": 0.002,
+    "medCommentRate": 0.00021,
+    "winShare": 1.0
+   },
+   {
+    "key": "purito",
+    "n": 1,
+    "medViews": 1145941,
+    "medOutlier": 9.619,
+    "medEr": 0.0044,
+    "medSaveRate": 0.001,
+    "medCommentRate": 0.0004,
+    "winShare": 1.0
+   },
+   {
+    "key": "product",
+    "n": 1,
+    "medViews": 1145941,
+    "medOutlier": 9.619,
+    "medEr": 0.0044,
+    "medSaveRate": 0.001,
+    "medCommentRate": 0.0004,
+    "winShare": 1.0
+   },
+   {
+    "key": "underarm",
+    "n": 1,
+    "medViews": 1136027,
+    "medOutlier": 9.535,
+    "medEr": 0.0531,
+    "medSaveRate": 0.026,
+    "medCommentRate": 0.00013,
+    "winShare": 1.0
+   },
+   {
+    "key": "medical assistant",
+    "n": 2,
+    "medViews": 9333.5,
+    "medOutlier": 9.334,
+    "medEr": 0.054,
+    "medSaveRate": 0.0121,
+    "medCommentRate": 0.00079,
+    "winShare": 0.0
+   },
+   {
+    "key": "pico laser",
+    "n": 1,
+    "medViews": 9109,
+    "medOutlier": 9.109,
+    "medEr": 0.0321,
+    "medSaveRate": 0.0111,
+    "medCommentRate": 0.00285,
+    "winShare": 0.0
+   },
+   {
+    "key": "skincare tips",
+    "n": 3,
+    "medViews": 4761,
+    "medOutlier": 8.966,
+    "medEr": 0.0118,
+    "medSaveRate": 0.0019,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "bone smashing",
+    "n": 1,
+    "medViews": 385600,
+    "medOutlier": 8.607,
+    "medEr": 0.0181,
+    "medSaveRate": 0.0059,
+    "medCommentRate": 0.00048,
+    "winShare": 0.0
+   },
+   {
+    "key": "non-invasive",
+    "n": 1,
+    "medViews": 1017388,
+    "medOutlier": 8.54,
+    "medEr": 0.013,
+    "medSaveRate": 0.0012,
+    "medCommentRate": 0.00012,
+    "winShare": 1.0
+   },
+   {
+    "key": "dermoscopy",
+    "n": 3,
+    "medViews": 97900,
+    "medOutlier": 8.455,
+    "medEr": 0.0063,
+    "medSaveRate": 0.0023,
+    "medCommentRate": 0.00011,
+    "winShare": 0.333
+   },
+   {
+    "key": "eyelid",
+    "n": 1,
+    "medViews": 9309,
+    "medOutlier": 8.455,
+    "medEr": 0.0063,
+    "medSaveRate": 0.0023,
+    "medCommentRate": 0.00011,
+    "winShare": 0.0
+   },
+   {
+    "key": "dermatologist opinions",
+    "n": 1,
+    "medViews": 1500000,
+    "medOutlier": 8.446,
+    "medEr": 0.0893,
+    "medSaveRate": 0.0133,
+    "medCommentRate": 0.00138,
+    "winShare": 0.0
+   },
+   {
+    "key": "bleach bath",
+    "n": 1,
+    "medViews": 1000000,
+    "medOutlier": 8.203,
+    "medEr": 0.083,
+    "medSaveRate": 0.0069,
+    "medCommentRate": 0.00046,
+    "winShare": 0.0
+   },
+   {
+    "key": "celebrity",
+    "n": 16,
+    "medViews": 152353.5,
+    "medOutlier": 8.178,
+    "medEr": 0.0181,
+    "medSaveRate": 0.0003,
+    "medCommentRate": 0.00037,
+    "winShare": 0.25
+   },
+   {
+    "key": "7 days",
+    "n": 1,
+    "medViews": 1500000,
+    "medOutlier": 8.108,
+    "medEr": 0.0474,
+    "medSaveRate": 0.0164,
+    "medCommentRate": 0.00021,
+    "winShare": 0.0
+   },
+   {
+    "key": "not worth it",
+    "n": 1,
+    "medViews": 909400,
+    "medOutlier": 7.949,
+    "medEr": 0.0695,
+    "medSaveRate": 0.0089,
+    "medCommentRate": 0.00053,
+    "winShare": 0.0
+   },
+   {
+    "key": "self-acceptance",
+    "n": 2,
+    "medViews": 951372.0,
+    "medOutlier": 7.946,
+    "medEr": 0.0886,
+    "medSaveRate": 0.0016,
+    "medCommentRate": 0.00271,
+    "winShare": 0.5
+   },
+   {
+    "key": "aesthetics",
+    "n": 2,
+    "medViews": 917931.5,
+    "medOutlier": 7.862,
+    "medEr": 0.0534,
+    "medSaveRate": 0.0157,
+    "medCommentRate": 0.00072,
+    "winShare": 0.5
+   },
+   {
+    "key": "face",
+    "n": 2,
+    "medViews": 653583.0,
+    "medOutlier": 7.808,
+    "medEr": 0.0314,
+    "medSaveRate": 0.0005,
+    "medCommentRate": 0.00018,
+    "winShare": 0.0
+   },
+   {
+    "key": "daughter",
+    "n": 1,
+    "medViews": 926463,
+    "medOutlier": 7.776,
+    "medEr": 0.0372,
+    "medSaveRate": 0.0225,
+    "medCommentRate": 0.00092,
+    "winShare": 1.0
+   },
+   {
+    "key": "melasma",
+    "n": 18,
+    "medViews": 273376.0,
+    "medOutlier": 7.758,
+    "medEr": 0.0181,
+    "medSaveRate": 0.0047,
+    "medCommentRate": 0.00048,
+    "winShare": 0.444
+   },
+   {
+    "key": "nostalgia",
+    "n": 1,
+    "medViews": 922479,
+    "medOutlier": 7.743,
+    "medEr": 0.0202,
+    "medSaveRate": 0.0004,
+    "medCommentRate": 0.00063,
+    "winShare": 1.0
+   },
+   {
+    "key": "thread lift",
+    "n": 11,
+    "medViews": 133646,
+    "medOutlier": 7.61,
+    "medEr": 0.0057,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00043,
+    "winShare": 0.545
+   },
+   {
+    "key": "recommendations",
+    "n": 2,
+    "medViews": 29268.5,
+    "medOutlier": 7.603,
+    "medEr": 0.0705,
+    "medSaveRate": 0.0309,
+    "medCommentRate": 0.00817,
+    "winShare": 0.0
+   },
+   {
+    "key": "evidence-based skincare",
+    "n": 1,
+    "medViews": 83600,
+    "medOutlier": 7.464,
+    "medEr": 0.1042,
+    "medSaveRate": 0.0302,
+    "medCommentRate": 0.00251,
+    "winShare": 0.0
+   },
+   {
+    "key": "prevention",
+    "n": 2,
+    "medViews": 882425.5,
+    "medOutlier": 7.407,
+    "medEr": 0.0079,
+    "medSaveRate": 0.0025,
+    "medCommentRate": 0.00036,
+    "winShare": 1.0
+   },
+   {
+    "key": "neuromodulators",
+    "n": 1,
+    "medViews": 858211,
+    "medOutlier": 7.203,
+    "medEr": 0.0146,
+    "medSaveRate": 0.0042,
+    "medCommentRate": 0.0003,
+    "winShare": 1.0
+   },
+   {
+    "key": "hyaluronic acid",
+    "n": 4,
+    "medViews": 37095.0,
+    "medOutlier": 7.083,
+    "medEr": 0.0205,
+    "medSaveRate": 0.0032,
+    "medCommentRate": 7e-05,
+    "winShare": 0.25
+   },
+   {
+    "key": "testimonial",
+    "n": 1,
+    "medViews": 28785,
+    "medOutlier": 7.038,
+    "medEr": 0.0082,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0009,
+    "winShare": 0.0
+   },
+   {
+    "key": "abcde",
+    "n": 2,
+    "medViews": 1055300.5,
+    "medOutlier": 6.819,
+    "medEr": 0.0045,
+    "medSaveRate": 0.0,
+    "medCommentRate": 2e-05,
+    "winShare": 0.0
+   },
+   {
+    "key": "dry skin",
+    "n": 4,
+    "medViews": 184010.5,
+    "medOutlier": 6.802,
+    "medEr": 0.0635,
+    "medSaveRate": 0.0162,
+    "medCommentRate": 0.00058,
+    "winShare": 0.25
+   },
+   {
+    "key": "maintenance",
+    "n": 1,
+    "medViews": 180000,
+    "medOutlier": 6.654,
+    "medEr": 0.0652,
+    "medSaveRate": 0.0112,
+    "medCommentRate": 0.00163,
+    "winShare": 0.0
+   },
+   {
+    "key": "storytime",
+    "n": 1,
+    "medViews": 760757,
+    "medOutlier": 6.385,
+    "medEr": 0.0466,
+    "medSaveRate": 0.0129,
+    "medCommentRate": 0.00091,
+    "winShare": 1.0
+   },
+   {
+    "key": "skincare habits",
+    "n": 1,
+    "medViews": 2400000,
+    "medOutlier": 6.366,
+    "medEr": 0.0573,
+    "medSaveRate": 0.0114,
+    "medCommentRate": 0.0005,
+    "winShare": 0.0
+   },
+   {
+    "key": "brand",
+    "n": 1,
+    "medViews": 324100,
+    "medOutlier": 6.342,
+    "medEr": 0.0653,
+    "medSaveRate": 0.0228,
+    "medCommentRate": 0.00172,
+    "winShare": 0.0
+   },
+   {
+    "key": "affiliate",
+    "n": 1,
+    "medViews": 752121,
+    "medOutlier": 6.313,
+    "medEr": 0.0075,
+    "medSaveRate": 0.0001,
+    "medCommentRate": 0.0012,
+    "winShare": 1.0
+   },
+   {
+    "key": "what derms do",
+    "n": 1,
+    "medViews": 14200,
+    "medOutlier": 6.289,
+    "medEr": 0.0346,
+    "medSaveRate": 0.0038,
+    "medCommentRate": 0.00261,
+    "winShare": 0.0
+   },
+   {
+    "key": "dosing",
+    "n": 1,
+    "medViews": 2289324,
+    "medOutlier": 6.056,
+    "medEr": 0.0359,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00057,
+    "winShare": 0.0
+   },
+   {
+    "key": "grwm",
+    "n": 1,
+    "medViews": 711375,
+    "medOutlier": 5.971,
+    "medEr": 0.0214,
+    "medSaveRate": 0.0018,
+    "medCommentRate": 0.00095,
+    "winShare": 1.0
+   },
+   {
+    "key": "acne scars",
+    "n": 25,
+    "medViews": 563561,
+    "medOutlier": 5.947,
+    "medEr": 0.0195,
+    "medSaveRate": 0.0032,
+    "medCommentRate": 0.00017,
+    "winShare": 0.52
+   },
+   {
+    "key": "aging",
+    "n": 8,
+    "medViews": 204696.5,
+    "medOutlier": 5.835,
+    "medEr": 0.0177,
+    "medSaveRate": 0.0014,
+    "medCommentRate": 0.00069,
+    "winShare": 0.25
+   },
+   {
+    "key": "viral product",
+    "n": 1,
+    "medViews": 669370,
+    "medOutlier": 5.618,
+    "medEr": 0.0573,
+    "medSaveRate": 0.0249,
+    "medCommentRate": 0.01646,
+    "winShare": 1.0
+   },
+   {
+    "key": "reaction",
+    "n": 1,
+    "medViews": 103258,
+    "medOutlier": 5.612,
+    "medEr": 0.0041,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0004,
+    "winShare": 0.0
+   },
+   {
+    "key": "strength",
+    "n": 1,
+    "medViews": 150100,
+    "medOutlier": 5.549,
+    "medEr": 0.0439,
+    "medSaveRate": 0.0074,
+    "medCommentRate": 0.00209,
+    "winShare": 0.0
+   },
+   {
+    "key": "jawline",
+    "n": 4,
+    "medViews": 197426.0,
+    "medOutlier": 5.546,
+    "medEr": 0.0129,
+    "medSaveRate": 0.0033,
+    "medCommentRate": 0.00015,
+    "winShare": 0.25
+   },
+   {
+    "key": "derm favorites",
+    "n": 1,
+    "medViews": 414800,
+    "medOutlier": 5.458,
+    "medEr": 0.1031,
+    "medSaveRate": 0.0403,
+    "medCommentRate": 0.00038,
+    "winShare": 0.0
+   },
+   {
+    "key": "exion",
+    "n": 1,
+    "medViews": 625951,
+    "medOutlier": 5.254,
+    "medEr": 0.0047,
+    "medSaveRate": 0.0014,
+    "medCommentRate": 0.00044,
+    "winShare": 1.0
+   },
+   {
+    "key": "ablative laser",
+    "n": 1,
+    "medViews": 625951,
+    "medOutlier": 5.254,
+    "medEr": 0.0047,
+    "medSaveRate": 0.0014,
+    "medCommentRate": 0.00044,
+    "winShare": 1.0
+   },
+   {
+    "key": "quitting",
+    "n": 1,
+    "medViews": 10800,
+    "medOutlier": 5.235,
+    "medEr": 0.0069,
+    "medSaveRate": 0.0007,
+    "medCommentRate": 0.00065,
+    "winShare": 0.0
+   },
+   {
+    "key": "meme",
+    "n": 1,
+    "medViews": 606522,
+    "medOutlier": 5.091,
+    "medEr": 0.0945,
+    "medSaveRate": 0.0613,
+    "medCommentRate": 0.0003,
+    "winShare": 1.0
+   },
+   {
+    "key": "scar",
+    "n": 3,
+    "medViews": 50900,
+    "medOutlier": 4.921,
+    "medEr": 0.0155,
+    "medSaveRate": 0.0015,
+    "medCommentRate": 0.00176,
+    "winShare": 0.0
+   },
+   {
+    "key": "volume",
+    "n": 1,
+    "medViews": 4909,
+    "medOutlier": 4.909,
+    "medEr": 0.0077,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "tolerance",
+    "n": 2,
+    "medViews": 88298.5,
+    "medOutlier": 4.874,
+    "medEr": 0.0207,
+    "medSaveRate": 0.002,
+    "medCommentRate": 0.00076,
+    "winShare": 0.0
+   },
+   {
+    "key": "facial fat",
+    "n": 1,
+    "medViews": 296800,
+    "medOutlier": 4.87,
+    "medEr": 0.0781,
+    "medSaveRate": 0.0178,
+    "medCommentRate": 0.00164,
+    "winShare": 0.0
+   },
+   {
+    "key": "lip filler",
+    "n": 6,
+    "medViews": 32233.5,
+    "medOutlier": 4.864,
+    "medEr": 0.0075,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00022,
+    "winShare": 0.167
+   },
+   {
+    "key": "subcision",
+    "n": 3,
+    "medViews": 30912,
+    "medOutlier": 4.73,
+    "medEr": 0.0239,
+    "medSaveRate": 0.0106,
+    "medCommentRate": 0.00023,
+    "winShare": 0.333
+   },
+   {
+    "key": "derm humor",
+    "n": 1,
+    "medViews": 471129,
+    "medOutlier": 4.559,
+    "medEr": 0.0073,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00013,
+    "winShare": 1.0
+   },
+   {
+    "key": "melanoma",
+    "n": 19,
+    "medViews": 334073,
+    "medOutlier": 4.553,
+    "medEr": 0.0089,
+    "medSaveRate": 0.0021,
+    "medCommentRate": 0.00026,
+    "winShare": 0.421
+   },
+   {
+    "key": "mole removal",
+    "n": 17,
+    "medViews": 479000,
+    "medOutlier": 4.339,
+    "medEr": 0.0201,
+    "medSaveRate": 0.0009,
+    "medCommentRate": 0.00029,
+    "winShare": 0.353
+   },
+   {
+    "key": "shave removal",
+    "n": 1,
+    "medViews": 479000,
+    "medOutlier": 4.339,
+    "medEr": 0.0201,
+    "medSaveRate": 0.0013,
+    "medCommentRate": 0.00039,
+    "winShare": 0.0
+   },
+   {
+    "key": "frozen",
+    "n": 1,
+    "medViews": 1553943,
+    "medOutlier": 4.305,
+    "medEr": 0.0033,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00016,
+    "winShare": 0.0
+   },
+   {
+    "key": "booster",
+    "n": 1,
+    "medViews": 8600000,
+    "medOutlier": 4.3,
+    "medEr": 0.0067,
+    "medSaveRate": 0.0013,
+    "medCommentRate": 3e-05,
+    "winShare": 0.0
+   },
+   {
+    "key": "device session",
+    "n": 1,
+    "medViews": 5408,
+    "medOutlier": 4.205,
+    "medEr": 0.0098,
+    "medSaveRate": 0.0018,
+    "medCommentRate": 0.00074,
+    "winShare": 0.0
+   },
+   {
+    "key": "team",
+    "n": 2,
+    "medViews": 42634.0,
+    "medOutlier": 4.159,
+    "medEr": 0.0517,
+    "medSaveRate": 0.0128,
+    "medCommentRate": 0.00061,
+    "winShare": 0.0
+   },
+   {
+    "key": "dryness",
+    "n": 1,
+    "medViews": 149600,
+    "medOutlier": 4.156,
+    "medEr": 0.0076,
+    "medSaveRate": 0.0011,
+    "medCommentRate": 0.00048,
+    "winShare": 0.0
+   },
+   {
+    "key": "trends",
+    "n": 2,
+    "medViews": 461814.5,
+    "medOutlier": 4.093,
+    "medEr": 0.0469,
+    "medSaveRate": 0.0044,
+    "medCommentRate": 0.00054,
+    "winShare": 0.0
+   },
+   {
+    "key": "office",
+    "n": 2,
+    "medViews": 100333.5,
+    "medOutlier": 4.061,
+    "medEr": 0.053,
+    "medSaveRate": 0.011,
+    "medCommentRate": 0.00091,
+    "winShare": 0.0
+   },
+   {
+    "key": "scalp serum",
+    "n": 2,
+    "medViews": 265935.5,
+    "medOutlier": 4.043,
+    "medEr": 0.0374,
+    "medSaveRate": 0.0133,
+    "medCommentRate": 0.00087,
+    "winShare": 0.0
+   },
+   {
+    "key": "surgery",
+    "n": 3,
+    "medViews": 16204,
+    "medOutlier": 3.905,
+    "medEr": 0.0119,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00012,
+    "winShare": 0.333
+   },
+   {
+    "key": "dermatology residency",
+    "n": 1,
+    "medViews": 33621,
+    "medOutlier": 3.887,
+    "medEr": 0.0244,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00015,
+    "winShare": 0.0
+   },
+   {
+    "key": "recovery",
+    "n": 12,
+    "medViews": 35250.0,
+    "medOutlier": 3.886,
+    "medEr": 0.0146,
+    "medSaveRate": 0.0021,
+    "medCommentRate": 0.00062,
+    "winShare": 0.167
+   },
+   {
+    "key": "lip care",
+    "n": 1,
+    "medViews": 879628,
+    "medOutlier": 3.662,
+    "medEr": 0.0311,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00037,
+    "winShare": 0.0
+   },
+   {
+    "key": "skin check",
+    "n": 9,
+    "medViews": 95325,
+    "medOutlier": 3.654,
+    "medEr": 0.0076,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00011,
+    "winShare": 0.222
+   },
+   {
+    "key": "facial surgery",
+    "n": 3,
+    "medViews": 25273,
+    "medOutlier": 3.643,
+    "medEr": 0.0172,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0,
+    "winShare": 0.333
+   },
+   {
+    "key": "hematoma",
+    "n": 1,
+    "medViews": 427196,
+    "medOutlier": 3.586,
+    "medEr": 0.0225,
+    "medSaveRate": 0.0039,
+    "medCommentRate": 0.0006,
+    "winShare": 0.0
+   },
+   {
+    "key": "glow up",
+    "n": 1,
+    "medViews": 5367,
+    "medOutlier": 3.578,
+    "medEr": 0.0363,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00037,
+    "winShare": 0.0
+   },
+   {
+    "key": "brand partnership",
+    "n": 1,
+    "medViews": 121232,
+    "medOutlier": 3.472,
+    "medEr": 0.0297,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00015,
+    "winShare": 0.0
+   },
+   {
+    "key": "skincare treatments",
+    "n": 1,
+    "medViews": 50400,
+    "medOutlier": 3.429,
+    "medEr": 0.0321,
+    "medSaveRate": 0.0096,
+    "medCommentRate": 0.00058,
+    "winShare": 0.0
+   },
+   {
+    "key": "hospital",
+    "n": 1,
+    "medViews": 5492,
+    "medOutlier": 3.396,
+    "medEr": 0.0095,
+    "medSaveRate": 0.0011,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "hyperpigmentation",
+    "n": 29,
+    "medViews": 228070,
+    "medOutlier": 3.295,
+    "medEr": 0.025,
+    "medSaveRate": 0.0047,
+    "medCommentRate": 0.00048,
+    "winShare": 0.345
+   },
+   {
+    "key": "product haul",
+    "n": 1,
+    "medViews": 4515,
+    "medOutlier": 3.271,
+    "medEr": 0.0124,
+    "medSaveRate": 0.0029,
+    "medCommentRate": 0.00199,
+    "winShare": 0.0
+   },
+   {
+    "key": "self care",
+    "n": 2,
+    "medViews": 353849.0,
+    "medOutlier": 3.125,
+    "medEr": 0.0455,
+    "medSaveRate": 0.0014,
+    "medCommentRate": 0.00045,
+    "winShare": 0.0
+   },
+   {
+    "key": "retinoids",
+    "n": 14,
+    "medViews": 427514.0,
+    "medOutlier": 3.117,
+    "medEr": 0.0259,
+    "medSaveRate": 0.0039,
+    "medCommentRate": 0.00046,
+    "winShare": 0.214
+   },
+   {
+    "key": "sensitive skin",
+    "n": 4,
+    "medViews": 814850.0,
+    "medOutlier": 3.035,
+    "medEr": 0.0494,
+    "medSaveRate": 0.0197,
+    "medCommentRate": 0.0004,
+    "winShare": 0.25
+   },
+   {
+    "key": "scars",
+    "n": 6,
+    "medViews": 219388.0,
+    "medOutlier": 3.03,
+    "medEr": 0.0358,
+    "medSaveRate": 0.01,
+    "medCommentRate": 0.00035,
+    "winShare": 0.167
+   },
+   {
+    "key": "home remedy",
+    "n": 1,
+    "medViews": 359662,
+    "medOutlier": 3.019,
+    "medEr": 0.0622,
+    "medSaveRate": 0.0204,
+    "medCommentRate": 0.0277,
+    "winShare": 0.0
+   },
+   {
+    "key": "application",
+    "n": 1,
+    "medViews": 10832632,
+    "medOutlier": 3.017,
+    "medEr": 0.0209,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00025,
+    "winShare": 0.0
+   },
+   {
+    "key": "aftercare",
+    "n": 1,
+    "medViews": 289100,
+    "medOutlier": 3.008,
+    "medEr": 0.0438,
+    "medSaveRate": 0.0175,
+    "medCommentRate": 0.00049,
+    "winShare": 0.0
+   },
+   {
+    "key": "buccal fat",
+    "n": 15,
+    "medViews": 124785,
+    "medOutlier": 2.899,
+    "medEr": 0.0225,
+    "medSaveRate": 0.0031,
+    "medCommentRate": 0.00044,
+    "winShare": 0.133
+   },
+   {
+    "key": "regeneration",
+    "n": 2,
+    "medViews": 343799.0,
+    "medOutlier": 2.886,
+    "medEr": 0.0267,
+    "medSaveRate": 0.0046,
+    "medCommentRate": 0.00412,
+    "winShare": 0.5
+   },
+   {
+    "key": "side effects",
+    "n": 2,
+    "medViews": 5612.5,
+    "medOutlier": 2.83,
+    "medEr": 0.027,
+    "medSaveRate": 0.0015,
+    "medCommentRate": 0.00974,
+    "winShare": 0.0
+   },
+   {
+    "key": "non-surgical bbl",
+    "n": 1,
+    "medViews": 4602,
+    "medOutlier": 2.791,
+    "medEr": 0.0248,
+    "medSaveRate": 0.0039,
+    "medCommentRate": 0.00065,
+    "winShare": 0.0
+   },
+   {
+    "key": "body contouring",
+    "n": 1,
+    "medViews": 4602,
+    "medOutlier": 2.791,
+    "medEr": 0.0248,
+    "medSaveRate": 0.0039,
+    "medCommentRate": 0.00065,
+    "winShare": 0.0
+   },
+   {
+    "key": "brand anniversary",
+    "n": 1,
+    "medViews": 95101,
+    "medOutlier": 2.723,
+    "medEr": 0.0254,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00058,
+    "winShare": 0.0
+   },
+   {
+    "key": "asmr",
+    "n": 6,
+    "medViews": 704506.0,
+    "medOutlier": 2.721,
+    "medEr": 0.0301,
+    "medSaveRate": 0.0014,
+    "medCommentRate": 0.00037,
+    "winShare": 0.167
+   },
+   {
+    "key": "dental",
+    "n": 3,
+    "medViews": 2646,
+    "medOutlier": 2.646,
+    "medEr": 0.0282,
+    "medSaveRate": 0.0073,
+    "medCommentRate": 0.00265,
+    "winShare": 0.333
+   },
+   {
+    "key": "patient etiquette",
+    "n": 1,
+    "medViews": 2646,
+    "medOutlier": 2.646,
+    "medEr": 0.0257,
+    "medSaveRate": 0.0076,
+    "medCommentRate": 0.00265,
+    "winShare": 0.0
+   },
+   {
+    "key": "clinic humor",
+    "n": 1,
+    "medViews": 310490,
+    "medOutlier": 2.606,
+    "medEr": 0.0035,
+    "medSaveRate": 0.0002,
+    "medCommentRate": 9e-05,
+    "winShare": 0.0
+   },
+   {
+    "key": "anti-aging",
+    "n": 7,
+    "medViews": 24900,
+    "medOutlier": 2.599,
+    "medEr": 0.0363,
+    "medSaveRate": 0.0028,
+    "medCommentRate": 0.00101,
+    "winShare": 0.0
+   },
+   {
+    "key": "over 40",
+    "n": 1,
+    "medViews": 176966,
+    "medOutlier": 2.599,
+    "medEr": 0.001,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00101,
+    "winShare": 0.0
+   },
+   {
+    "key": "scar types",
+    "n": 1,
+    "medViews": 75700,
+    "medOutlier": 2.575,
+    "medEr": 0.0466,
+    "medSaveRate": 0.017,
+    "medCommentRate": 0.00025,
+    "winShare": 0.0
+   },
+   {
+    "key": "treatment ranking",
+    "n": 2,
+    "medViews": 422980.5,
+    "medOutlier": 2.526,
+    "medEr": 0.0256,
+    "medSaveRate": 0.0048,
+    "medCommentRate": 0.00046,
+    "winShare": 0.0
+   },
+   {
+    "key": "picosecond",
+    "n": 1,
+    "medViews": 108000,
+    "medOutlier": 2.483,
+    "medEr": 0.0084,
+    "medSaveRate": 0.0039,
+    "medCommentRate": 0.00017,
+    "winShare": 0.0
+   },
+   {
+    "key": "viral clip",
+    "n": 2,
+    "medViews": 1002746.0,
+    "medOutlier": 2.413,
+    "medEr": 0.0847,
+    "medSaveRate": 0.006,
+    "medCommentRate": 0.0001,
+    "winShare": 0.0
+   },
+   {
+    "key": "office culture",
+    "n": 1,
+    "medViews": 2393,
+    "medOutlier": 2.393,
+    "medEr": 0.079,
+    "medSaveRate": 0.013,
+    "medCommentRate": 0.00251,
+    "winShare": 0.0
+   },
+   {
+    "key": "personal experience",
+    "n": 1,
+    "medViews": 284517,
+    "medOutlier": 2.388,
+    "medEr": 0.0302,
+    "medSaveRate": 0.0138,
+    "medCommentRate": 0.00063,
+    "winShare": 0.0
+   },
+   {
+    "key": "camouflage",
+    "n": 1,
+    "medViews": 279864,
+    "medOutlier": 2.349,
+    "medEr": 0.0387,
+    "medSaveRate": 0.0034,
+    "medCommentRate": 0.00535,
+    "winShare": 0.0
+   },
+   {
+    "key": "dermatology",
+    "n": 1,
+    "medViews": 3220,
+    "medOutlier": 2.332,
+    "medEr": 0.0335,
+    "medSaveRate": 0.0056,
+    "medCommentRate": 0.00062,
+    "winShare": 0.0
+   },
+   {
+    "key": "eye cream",
+    "n": 2,
+    "medViews": 27708.5,
+    "medOutlier": 2.327,
+    "medEr": 0.0182,
+    "medSaveRate": 0.0049,
+    "medCommentRate": 0.00012,
+    "winShare": 0.0
+   },
+   {
+    "key": "one year update",
+    "n": 1,
+    "medViews": 1900000,
+    "medOutlier": 2.291,
+    "medEr": 0.0672,
+    "medSaveRate": 0.0015,
+    "medCommentRate": 0.0001,
+    "winShare": 0.0
+   },
+   {
+    "key": "clogged pores",
+    "n": 1,
+    "medViews": 472400,
+    "medOutlier": 2.283,
+    "medEr": 0.0702,
+    "medSaveRate": 0.0195,
+    "medCommentRate": 0.0003,
+    "winShare": 0.0
+   },
+   {
+    "key": "burns",
+    "n": 2,
+    "medViews": 235425.5,
+    "medOutlier": 2.253,
+    "medEr": 0.1123,
+    "medSaveRate": 0.0181,
+    "medCommentRate": 0.00162,
+    "winShare": 0.0
+   },
+   {
+    "key": "sclerotherapy",
+    "n": 1,
+    "medViews": 11200,
+    "medOutlier": 2.25,
+    "medEr": 0.0232,
+    "medSaveRate": 0.0048,
+    "medCommentRate": 0.00045,
+    "winShare": 0.0
+   },
+   {
+    "key": "leg veins",
+    "n": 1,
+    "medViews": 11200,
+    "medOutlier": 2.25,
+    "medEr": 0.0232,
+    "medSaveRate": 0.0048,
+    "medCommentRate": 0.00045,
+    "winShare": 0.0
+   },
+   {
+    "key": "sun protection",
+    "n": 1,
+    "medViews": 266888,
+    "medOutlier": 2.24,
+    "medEr": 0.0331,
+    "medSaveRate": 0.0101,
+    "medCommentRate": 0.00203,
+    "winShare": 0.0
+   },
+   {
+    "key": "barrier cream",
+    "n": 1,
+    "medViews": 1100000,
+    "medOutlier": 2.237,
+    "medEr": 0.0418,
+    "medSaveRate": 0.0179,
+    "medCommentRate": 0.00022,
+    "winShare": 0.0
+   },
+   {
+    "key": "egf",
+    "n": 1,
+    "medViews": 109200,
+    "medOutlier": 2.215,
+    "medEr": 0.0409,
+    "medSaveRate": 0.0228,
+    "medCommentRate": 0.00019,
+    "winShare": 0.0
+   },
+   {
+    "key": "korean dermatology",
+    "n": 1,
+    "medViews": 262401,
+    "medOutlier": 2.202,
+    "medEr": 0.0126,
+    "medSaveRate": 0.002,
+    "medCommentRate": 0.00288,
+    "winShare": 0.0
+   },
+   {
+    "key": "medical tourism",
+    "n": 1,
+    "medViews": 262401,
+    "medOutlier": 2.202,
+    "medEr": 0.0126,
+    "medSaveRate": 0.002,
+    "medCommentRate": 0.00288,
+    "winShare": 0.0
+   },
+   {
+    "key": "injectors",
+    "n": 2,
+    "medViews": 75872.0,
+    "medOutlier": 2.173,
+    "medEr": 0.0149,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00017,
+    "winShare": 0.0
+   },
+   {
+    "key": "men",
+    "n": 2,
+    "medViews": 132557.5,
+    "medOutlier": 2.17,
+    "medEr": 0.0342,
+    "medSaveRate": 0.0172,
+    "medCommentRate": 0.00023,
+    "winShare": 0.0
+   },
+   {
+    "key": "personal",
+    "n": 1,
+    "medViews": 1300000,
+    "medOutlier": 2.151,
+    "medEr": 0.0957,
+    "medSaveRate": 0.0097,
+    "medCommentRate": 0.00038,
+    "winShare": 0.0
+   },
+   {
+    "key": "non-surgical lift",
+    "n": 2,
+    "medViews": 77786.0,
+    "medOutlier": 2.115,
+    "medEr": 0.0167,
+    "medSaveRate": 0.0049,
+    "medCommentRate": 0.00153,
+    "winShare": 0.0
+   },
+   {
+    "key": "beauty secrets",
+    "n": 1,
+    "medViews": 250880,
+    "medOutlier": 2.106,
+    "medEr": 0.0027,
+    "medSaveRate": 0.0018,
+    "medCommentRate": 0.00098,
+    "winShare": 0.0
+   },
+   {
+    "key": "pigmentation",
+    "n": 4,
+    "medViews": 478581.0,
+    "medOutlier": 2.099,
+    "medEr": 0.0188,
+    "medSaveRate": 0.006,
+    "medCommentRate": 0.00722,
+    "winShare": 0.25
+   },
+   {
+    "key": "mature skin",
+    "n": 2,
+    "medViews": 102071.0,
+    "medOutlier": 2.095,
+    "medEr": 0.0569,
+    "medSaveRate": 0.0103,
+    "medCommentRate": 0.02185,
+    "winShare": 0.0
+   },
+   {
+    "key": "medical-grade skincare",
+    "n": 4,
+    "medViews": 2134.0,
+    "medOutlier": 2.093,
+    "medEr": 0.0207,
+    "medSaveRate": 0.0026,
+    "medCommentRate": 0.00054,
+    "winShare": 0.0
+   },
+   {
+    "key": "camel",
+    "n": 1,
+    "medViews": 249325,
+    "medOutlier": 2.093,
+    "medEr": 0.0182,
+    "medSaveRate": 0.0172,
+    "medCommentRate": 0.001,
+    "winShare": 0.0
+   },
+   {
+    "key": "pain",
+    "n": 2,
+    "medViews": 471511.0,
+    "medOutlier": 2.088,
+    "medEr": 0.0049,
+    "medSaveRate": 0.0013,
+    "medCommentRate": 0.00016,
+    "winShare": 0.0
+   },
+   {
+    "key": "skin tips",
+    "n": 1,
+    "medViews": 253936,
+    "medOutlier": 2.048,
+    "medEr": 0.0242,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00013,
+    "winShare": 0.0
+   },
+   {
+    "key": "glass skin",
+    "n": 18,
+    "medViews": 317100.0,
+    "medOutlier": 1.998,
+    "medEr": 0.0474,
+    "medSaveRate": 0.0053,
+    "medCommentRate": 0.00048,
+    "winShare": 0.167
+   },
+   {
+    "key": "plumping",
+    "n": 1,
+    "medViews": 562500,
+    "medOutlier": 1.998,
+    "medEr": 0.1274,
+    "medSaveRate": 0.0038,
+    "medCommentRate": 0.00011,
+    "winShare": 0.0
+   },
+   {
+    "key": "treatment calendar",
+    "n": 1,
+    "medViews": 235285,
+    "medOutlier": 1.975,
+    "medEr": 0.0671,
+    "medSaveRate": 0.0061,
+    "medCommentRate": 0.04431,
+    "winShare": 0.0
+   },
+   {
+    "key": "over 50",
+    "n": 1,
+    "medViews": 235285,
+    "medOutlier": 1.975,
+    "medEr": 0.0671,
+    "medSaveRate": 0.0061,
+    "medCommentRate": 0.04431,
+    "winShare": 0.0
+   },
+   {
+    "key": "makeup",
+    "n": 8,
+    "medViews": 202420.5,
+    "medOutlier": 1.972,
+    "medEr": 0.0336,
+    "medSaveRate": 0.0007,
+    "medCommentRate": 0.00106,
+    "winShare": 0.0
+   },
+   {
+    "key": "strobe cream",
+    "n": 1,
+    "medViews": 232041,
+    "medOutlier": 1.948,
+    "medEr": 0.0172,
+    "medSaveRate": 0.0092,
+    "medCommentRate": 0.00349,
+    "winShare": 0.0
+   },
+   {
+    "key": "genetics",
+    "n": 1,
+    "medViews": 228070,
+    "medOutlier": 1.914,
+    "medEr": 0.0065,
+    "medSaveRate": 0.0025,
+    "medCommentRate": 8e-05,
+    "winShare": 0.0
+   },
+   {
+    "key": "amazon",
+    "n": 2,
+    "medViews": 98057.5,
+    "medOutlier": 1.909,
+    "medEr": 0.0364,
+    "medSaveRate": 0.0071,
+    "medCommentRate": 0.00114,
+    "winShare": 0.0
+   },
+   {
+    "key": "tranexamic acid",
+    "n": 7,
+    "medViews": 77699,
+    "medOutlier": 1.892,
+    "medEr": 0.0248,
+    "medSaveRate": 0.0062,
+    "medCommentRate": 0.00095,
+    "winShare": 0.286
+   },
+   {
+    "key": "prosthetics",
+    "n": 2,
+    "medViews": 163750.0,
+    "medOutlier": 1.891,
+    "medEr": 0.0193,
+    "medSaveRate": 0.0008,
+    "medCommentRate": 0.00013,
+    "winShare": 0.0
+   },
+   {
+    "key": "met gala",
+    "n": 1,
+    "medViews": 224907,
+    "medOutlier": 1.888,
+    "medEr": 0.0715,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00088,
+    "winShare": 0.0
+   },
+   {
+    "key": "hair loss",
+    "n": 12,
+    "medViews": 79655.0,
+    "medOutlier": 1.864,
+    "medEr": 0.035,
+    "medSaveRate": 0.01,
+    "medCommentRate": 0.00083,
+    "winShare": 0.25
+   },
+   {
+    "key": "skin cancer",
+    "n": 35,
+    "medViews": 88958,
+    "medOutlier": 1.863,
+    "medEr": 0.0156,
+    "medSaveRate": 0.0021,
+    "medCommentRate": 0.00048,
+    "winShare": 0.257
+   },
+   {
+    "key": "patient story",
+    "n": 1,
+    "medViews": 221953,
+    "medOutlier": 1.863,
+    "medEr": 0.0089,
+    "medSaveRate": 0.0009,
+    "medCommentRate": 0.00052,
+    "winShare": 0.0
+   },
+   {
+    "key": "skin boosters",
+    "n": 1,
+    "medViews": 221945,
+    "medOutlier": 1.863,
+    "medEr": 0.0005,
+    "medSaveRate": 0.0001,
+    "medCommentRate": 0.00034,
+    "winShare": 0.0
+   },
+   {
+    "key": "hifu",
+    "n": 1,
+    "medViews": 42493,
+    "medOutlier": 1.794,
+    "medEr": 0.017,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00155,
+    "winShare": 0.0
+   },
+   {
+    "key": "over-exfoliation",
+    "n": 1,
+    "medViews": 213107,
+    "medOutlier": 1.789,
+    "medEr": 0.0275,
+    "medSaveRate": 0.0037,
+    "medCommentRate": 0.0012,
+    "winShare": 0.0
+   },
+   {
+    "key": "vaccine",
+    "n": 1,
+    "medViews": 212147,
+    "medOutlier": 1.781,
+    "medEr": 0.0509,
+    "medSaveRate": 0.003,
+    "medCommentRate": 0.00076,
+    "winShare": 0.0
+   },
+   {
+    "key": "news",
+    "n": 1,
+    "medViews": 212147,
+    "medOutlier": 1.781,
+    "medEr": 0.0509,
+    "medSaveRate": 0.003,
+    "medCommentRate": 0.00076,
+    "winShare": 0.0
+   },
+   {
+    "key": "tan",
+    "n": 1,
+    "medViews": 953495,
+    "medOutlier": 1.764,
+    "medEr": 0.0245,
+    "medSaveRate": 0.0124,
+    "medCommentRate": 0.00368,
+    "winShare": 0.0
+   },
+   {
+    "key": "k-beauty",
+    "n": 30,
+    "medViews": 203528.5,
+    "medOutlier": 1.751,
+    "medEr": 0.0357,
+    "medSaveRate": 0.009,
+    "medCommentRate": 0.00025,
+    "winShare": 0.167
+   },
+   {
+    "key": "face massage",
+    "n": 1,
+    "medViews": 2100000,
+    "medOutlier": 1.75,
+    "medEr": 0.0652,
+    "medSaveRate": 0.0178,
+    "medCommentRate": 0.0002,
+    "winShare": 0.0
+   },
+   {
+    "key": "vitamin c",
+    "n": 9,
+    "medViews": 76512,
+    "medOutlier": 1.747,
+    "medEr": 0.0409,
+    "medSaveRate": 0.0086,
+    "medCommentRate": 0.00067,
+    "winShare": 0.333
+   },
+   {
+    "key": "silicone sheets",
+    "n": 1,
+    "medViews": 2086,
+    "medOutlier": 1.747,
+    "medEr": 0.0379,
+    "medSaveRate": 0.0086,
+    "medCommentRate": 0.00048,
+    "winShare": 0.0
+   },
+   {
+    "key": "minoxidil",
+    "n": 5,
+    "medViews": 63000,
+    "medOutlier": 1.746,
+    "medEr": 0.0321,
+    "medSaveRate": 0.0119,
+    "medCommentRate": 0.00063,
+    "winShare": 0.2
+   },
+   {
+    "key": "hydration",
+    "n": 6,
+    "medViews": 132636.0,
+    "medOutlier": 1.741,
+    "medEr": 0.033,
+    "medSaveRate": 0.005,
+    "medCommentRate": 0.00099,
+    "winShare": 0.167
+   },
+   {
+    "key": "injectables",
+    "n": 2,
+    "medViews": 131059.5,
+    "medOutlier": 1.741,
+    "medEr": 0.0507,
+    "medSaveRate": 0.0033,
+    "medCommentRate": 0.00099,
+    "winShare": 0.0
+   },
+   {
+    "key": "patient selection",
+    "n": 1,
+    "medViews": 206376,
+    "medOutlier": 1.732,
+    "medEr": 0.0387,
+    "medSaveRate": 0.02,
+    "medCommentRate": 0.00075,
+    "winShare": 0.0
+   },
+   {
+    "key": "derm reacts",
+    "n": 10,
+    "medViews": 184509.0,
+    "medOutlier": 1.716,
+    "medEr": 0.0302,
+    "medSaveRate": 0.0008,
+    "medCommentRate": 0.0004,
+    "winShare": 0.0
+   },
+   {
+    "key": "freckles",
+    "n": 1,
+    "medViews": 203530,
+    "medOutlier": 1.708,
+    "medEr": 0.0184,
+    "medSaveRate": 0.0045,
+    "medCommentRate": 0.0005,
+    "winShare": 0.0
+   },
+   {
+    "key": "red flags",
+    "n": 1,
+    "medViews": 203261,
+    "medOutlier": 1.706,
+    "medEr": 0.005,
+    "medSaveRate": 0.0006,
+    "medCommentRate": 0.00092,
+    "winShare": 0.0
+   },
+   {
+    "key": "home remedies",
+    "n": 2,
+    "medViews": 201447.5,
+    "medOutlier": 1.691,
+    "medEr": 0.027,
+    "medSaveRate": 0.0089,
+    "medCommentRate": 0.00764,
+    "winShare": 0.0
+   },
+   {
+    "key": "prp",
+    "n": 16,
+    "medViews": 86200.0,
+    "medOutlier": 1.685,
+    "medEr": 0.0132,
+    "medSaveRate": 0.0009,
+    "medCommentRate": 0.0003,
+    "winShare": 0.25
+   },
+   {
+    "key": "giveaway",
+    "n": 1,
+    "medViews": 199286,
+    "medOutlier": 1.673,
+    "medEr": 0.0028,
+    "medSaveRate": 0.0004,
+    "medCommentRate": 0.00246,
+    "winShare": 0.0
+   },
+   {
+    "key": "personal story",
+    "n": 1,
+    "medViews": 4674,
+    "medOutlier": 1.671,
+    "medEr": 0.0586,
+    "medSaveRate": 0.0034,
+    "medCommentRate": 0.00385,
+    "winShare": 0.0
+   },
+   {
+    "key": "misinformation",
+    "n": 1,
+    "medViews": 196218,
+    "medOutlier": 1.647,
+    "medEr": 0.0392,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00112,
+    "winShare": 0.0
+   },
+   {
+    "key": "platform censorship",
+    "n": 1,
+    "medViews": 196218,
+    "medOutlier": 1.647,
+    "medEr": 0.0392,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00112,
+    "winShare": 0.0
+   },
+   {
+    "key": "ozempic face",
+    "n": 19,
+    "medViews": 752121,
+    "medOutlier": 1.632,
+    "medEr": 0.0143,
+    "medSaveRate": 0.0009,
+    "medCommentRate": 0.00044,
+    "winShare": 0.316
+   },
+   {
+    "key": "semaglutide",
+    "n": 1,
+    "medViews": 1100000,
+    "medOutlier": 1.632,
+    "medEr": 0.0149,
+    "medSaveRate": 0.005,
+    "medCommentRate": 0.00025,
+    "winShare": 0.0
+   },
+   {
+    "key": "skin cancer prevention",
+    "n": 1,
+    "medViews": 193433,
+    "medOutlier": 1.624,
+    "medEr": 0.0207,
+    "medSaveRate": 0.0001,
+    "medCommentRate": 0.00102,
+    "winShare": 0.0
+   },
+   {
+    "key": "thai beauty",
+    "n": 1,
+    "medViews": 100300,
+    "medOutlier": 1.592,
+    "medEr": 0.0816,
+    "medSaveRate": 0.0109,
+    "medCommentRate": 0.00155,
+    "winShare": 0.0
+   },
+   {
+    "key": "tattoo removal",
+    "n": 17,
+    "medViews": 923422,
+    "medOutlier": 1.583,
+    "medEr": 0.0139,
+    "medSaveRate": 0.0018,
+    "medCommentRate": 0.00029,
+    "winShare": 0.235
+   },
+   {
+    "key": "how it works",
+    "n": 1,
+    "medViews": 1900000,
+    "medOutlier": 1.583,
+    "medEr": 0.0187,
+    "medSaveRate": 0.0031,
+    "medCommentRate": 0.00017,
+    "winShare": 0.0
+   },
+   {
+    "key": "complications",
+    "n": 3,
+    "medViews": 184216,
+    "medOutlier": 1.546,
+    "medEr": 0.0295,
+    "medSaveRate": 0.009,
+    "medCommentRate": 0.00119,
+    "winShare": 0.0
+   },
+   {
+    "key": "ptosis",
+    "n": 1,
+    "medViews": 184216,
+    "medOutlier": 1.546,
+    "medEr": 0.0295,
+    "medSaveRate": 0.009,
+    "medCommentRate": 0.00119,
+    "winShare": 0.0
+   },
+   {
+    "key": "skincare hacks",
+    "n": 1,
+    "medViews": 1088714,
+    "medOutlier": 1.53,
+    "medEr": 0.0419,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00053,
+    "winShare": 0.0
+   },
+   {
+    "key": "dermatologist tips",
+    "n": 1,
+    "medViews": 1088714,
+    "medOutlier": 1.53,
+    "medEr": 0.0419,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00053,
+    "winShare": 0.0
+   },
+   {
+    "key": "conspiracy",
+    "n": 1,
+    "medViews": 181306,
+    "medOutlier": 1.522,
+    "medEr": 0.0546,
+    "medSaveRate": 0.01,
+    "medCommentRate": 0.00318,
+    "winShare": 0.0
+   },
+   {
+    "key": "princess diana",
+    "n": 1,
+    "medViews": 25800,
+    "medOutlier": 1.509,
+    "medEr": 0.0391,
+    "medSaveRate": 0.0072,
+    "medCommentRate": 0.00019,
+    "winShare": 0.0
+   },
+   {
+    "key": "collagen mask",
+    "n": 2,
+    "medViews": 855300.0,
+    "medOutlier": 1.506,
+    "medEr": 0.044,
+    "medSaveRate": 0.0135,
+    "medCommentRate": 0.00254,
+    "winShare": 0.0
+   },
+   {
+    "key": "cosmetic dermatology",
+    "n": 5,
+    "medViews": 11555,
+    "medOutlier": 1.503,
+    "medEr": 0.0223,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0009,
+    "winShare": 0.0
+   },
+   {
+    "key": "provider choice",
+    "n": 1,
+    "medViews": 155305,
+    "medOutlier": 1.503,
+    "medEr": 0.0162,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0009,
+    "winShare": 0.0
+   },
+   {
+    "key": "fat grafting",
+    "n": 1,
+    "medViews": 1495,
+    "medOutlier": 1.495,
+    "medEr": 0.0013,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "co2 laser",
+    "n": 19,
+    "medViews": 143100,
+    "medOutlier": 1.486,
+    "medEr": 0.0195,
+    "medSaveRate": 0.0043,
+    "medCommentRate": 0.0006,
+    "winShare": 0.263
+   },
+   {
+    "key": "mineral sunscreen",
+    "n": 1,
+    "medViews": 2914536,
+    "medOutlier": 1.479,
+    "medEr": 0.0405,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00143,
+    "winShare": 0.0
+   },
+   {
+    "key": "chemicals",
+    "n": 1,
+    "medViews": 2914536,
+    "medOutlier": 1.479,
+    "medEr": 0.0405,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00143,
+    "winShare": 0.0
+   },
+   {
+    "key": "skincare mistakes",
+    "n": 1,
+    "medViews": 2269,
+    "medOutlier": 1.478,
+    "medEr": 0.0088,
+    "medSaveRate": 0.0004,
+    "medCommentRate": 0.00088,
+    "winShare": 0.0
+   },
+   {
+    "key": "product list",
+    "n": 1,
+    "medViews": 326900,
+    "medOutlier": 1.459,
+    "medEr": 0.1156,
+    "medSaveRate": 0.0263,
+    "medCommentRate": 0.00085,
+    "winShare": 0.0
+   },
+   {
+    "key": "medspa",
+    "n": 1,
+    "medViews": 169896,
+    "medOutlier": 1.426,
+    "medEr": 0.0538,
+    "medSaveRate": 0.0341,
+    "medCommentRate": 0.00067,
+    "winShare": 0.0
+   },
+   {
+    "key": "skin barrier",
+    "n": 22,
+    "medViews": 306553.5,
+    "medOutlier": 1.402,
+    "medEr": 0.0365,
+    "medSaveRate": 0.0049,
+    "medCommentRate": 0.00021,
+    "winShare": 0.227
+   },
+   {
+    "key": "under-eye concealer",
+    "n": 1,
+    "medViews": 741,
+    "medOutlier": 1.395,
+    "medEr": 0.031,
+    "medSaveRate": 0.0067,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "makeup hack",
+    "n": 1,
+    "medViews": 741,
+    "medOutlier": 1.395,
+    "medEr": 0.031,
+    "medSaveRate": 0.0067,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "lifestyle",
+    "n": 2,
+    "medViews": 120678.0,
+    "medOutlier": 1.385,
+    "medEr": 0.0068,
+    "medSaveRate": 0.0018,
+    "medCommentRate": 0.00017,
+    "winShare": 0.0
+   },
+   {
+    "key": "fraxel",
+    "n": 14,
+    "medViews": 46100.0,
+    "medOutlier": 1.379,
+    "medEr": 0.0111,
+    "medSaveRate": 0.0012,
+    "medCommentRate": 0.00023,
+    "winShare": 0.286
+   },
+   {
+    "key": "specialty",
+    "n": 1,
+    "medViews": 41900,
+    "medOutlier": 1.369,
+    "medEr": 0.0327,
+    "medSaveRate": 0.0026,
+    "medCommentRate": 0.00241,
+    "winShare": 0.0
+   },
+   {
+    "key": "insurance",
+    "n": 1,
+    "medViews": 41900,
+    "medOutlier": 1.369,
+    "medEr": 0.0327,
+    "medSaveRate": 0.0026,
+    "medCommentRate": 0.00241,
+    "winShare": 0.0
+   },
+   {
+    "key": "filler",
+    "n": 16,
+    "medViews": 73946.5,
+    "medOutlier": 1.367,
+    "medEr": 0.0112,
+    "medSaveRate": 0.0013,
+    "medCommentRate": 0.00032,
+    "winShare": 0.062
+   },
+   {
+    "key": "consistency",
+    "n": 1,
+    "medViews": 162656,
+    "medOutlier": 1.365,
+    "medEr": 0.017,
+    "medSaveRate": 0.0099,
+    "medCommentRate": 0.00188,
+    "winShare": 0.0
+   },
+   {
+    "key": "cancer myth",
+    "n": 2,
+    "medViews": 96818.5,
+    "medOutlier": 1.358,
+    "medEr": 0.0206,
+    "medSaveRate": 0.0043,
+    "medCommentRate": 0.00023,
+    "winShare": 0.0
+   },
+   {
+    "key": "subungual melanoma",
+    "n": 1,
+    "medViews": 2084,
+    "medOutlier": 1.358,
+    "medEr": 0.0096,
+    "medSaveRate": 0.0014,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "nails",
+    "n": 1,
+    "medViews": 2084,
+    "medOutlier": 1.358,
+    "medEr": 0.0096,
+    "medSaveRate": 0.0014,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "warts",
+    "n": 3,
+    "medViews": 161513,
+    "medOutlier": 1.356,
+    "medEr": 0.0137,
+    "medSaveRate": 0.001,
+    "medCommentRate": 0.00029,
+    "winShare": 0.333
+   },
+   {
+    "key": "liquid nitrogen",
+    "n": 1,
+    "medViews": 161513,
+    "medOutlier": 1.356,
+    "medEr": 0.0545,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00105,
+    "winShare": 0.0
+   },
+   {
+    "key": "dermatology career",
+    "n": 3,
+    "medViews": 68000,
+    "medOutlier": 1.355,
+    "medEr": 0.0657,
+    "medSaveRate": 0.006,
+    "medCommentRate": 0.00065,
+    "winShare": 0.0
+   },
+   {
+    "key": "day in the job",
+    "n": 1,
+    "medViews": 68000,
+    "medOutlier": 1.355,
+    "medEr": 0.0657,
+    "medSaveRate": 0.0112,
+    "medCommentRate": 0.00065,
+    "winShare": 0.0
+   },
+   {
+    "key": "travel",
+    "n": 2,
+    "medViews": 3786.5,
+    "medOutlier": 1.353,
+    "medEr": 0.05,
+    "medSaveRate": 0.0027,
+    "medCommentRate": 0.00331,
+    "winShare": 0.0
+   },
+   {
+    "key": "tretinoin",
+    "n": 33,
+    "medViews": 149600,
+    "medOutlier": 1.344,
+    "medEr": 0.0392,
+    "medSaveRate": 0.0089,
+    "medCommentRate": 0.00085,
+    "winShare": 0.273
+   },
+   {
+    "key": "nyc",
+    "n": 13,
+    "medViews": 3220,
+    "medOutlier": 1.344,
+    "medEr": 0.0472,
+    "medSaveRate": 0.0021,
+    "medCommentRate": 0.00118,
+    "winShare": 0.0
+   },
+   {
+    "key": "dark skin",
+    "n": 1,
+    "medViews": 36080,
+    "medOutlier": 1.336,
+    "medEr": 0.0595,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00133,
+    "winShare": 0.0
+   },
+   {
+    "key": "provider skill",
+    "n": 1,
+    "medViews": 157448,
+    "medOutlier": 1.322,
+    "medEr": 0.0249,
+    "medSaveRate": 0.0101,
+    "medCommentRate": 0.00131,
+    "winShare": 0.0
+   },
+   {
+    "key": "botox",
+    "n": 37,
+    "medViews": 48148,
+    "medOutlier": 1.308,
+    "medEr": 0.0206,
+    "medSaveRate": 0.0006,
+    "medCommentRate": 0.00038,
+    "winShare": 0.108
+   },
+   {
+    "key": "body care",
+    "n": 3,
+    "medViews": 44157,
+    "medOutlier": 1.29,
+    "medEr": 0.0679,
+    "medSaveRate": 0.0172,
+    "medCommentRate": 0.00201,
+    "winShare": 0.0
+   },
+   {
+    "key": "body skincare routine",
+    "n": 1,
+    "medViews": 34900,
+    "medOutlier": 1.29,
+    "medEr": 0.0924,
+    "medSaveRate": 0.0172,
+    "medCommentRate": 0.00201,
+    "winShare": 0.0
+   },
+   {
+    "key": "pink products",
+    "n": 1,
+    "medViews": 111400,
+    "medOutlier": 1.286,
+    "medEr": 0.0298,
+    "medSaveRate": 0.0016,
+    "medCommentRate": 0.00061,
+    "winShare": 0.0
+   },
+   {
+    "key": "restock",
+    "n": 1,
+    "medViews": 111400,
+    "medOutlier": 1.286,
+    "medEr": 0.0298,
+    "medSaveRate": 0.0016,
+    "medCommentRate": 0.00061,
+    "winShare": 0.0
+   },
+   {
+    "key": "filler packages",
+    "n": 2,
+    "medViews": 2120.0,
+    "medOutlier": 1.285,
+    "medEr": 0.0067,
+    "medSaveRate": 0.0016,
+    "medCommentRate": 0.00023,
+    "winShare": 0.0
+   },
+   {
+    "key": "packaging",
+    "n": 1,
+    "medViews": 152281,
+    "medOutlier": 1.278,
+    "medEr": 0.0072,
+    "medSaveRate": 0.0013,
+    "medCommentRate": 0.00116,
+    "winShare": 0.0
+   },
+   {
+    "key": "stability",
+    "n": 1,
+    "medViews": 152281,
+    "medOutlier": 1.278,
+    "medEr": 0.0072,
+    "medSaveRate": 0.0013,
+    "medCommentRate": 0.00116,
+    "winShare": 0.0
+   },
+   {
+    "key": "budget skincare",
+    "n": 2,
+    "medViews": 763450.0,
+    "medOutlier": 1.275,
+    "medEr": 0.0827,
+    "medSaveRate": 0.0174,
+    "medCommentRate": 0.00067,
+    "winShare": 0.0
+   },
+   {
+    "key": "nd:yag",
+    "n": 1,
+    "medViews": 27600,
+    "medOutlier": 1.272,
+    "medEr": 0.0531,
+    "medSaveRate": 0.0141,
+    "medCommentRate": 0.00185,
+    "winShare": 0.0
+   },
+   {
+    "key": "barbie botox",
+    "n": 1,
+    "medViews": 151125,
+    "medOutlier": 1.268,
+    "medEr": 0.0552,
+    "medSaveRate": 0.0028,
+    "medCommentRate": 0.0016,
+    "winShare": 0.0
+   },
+   {
+    "key": "neck",
+    "n": 1,
+    "medViews": 151125,
+    "medOutlier": 1.268,
+    "medEr": 0.0552,
+    "medSaveRate": 0.0028,
+    "medCommentRate": 0.0016,
+    "winShare": 0.0
+   },
+   {
+    "key": "cheek filler",
+    "n": 1,
+    "medViews": 2080,
+    "medOutlier": 1.261,
+    "medEr": 0.0038,
+    "medSaveRate": 0.001,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "family",
+    "n": 1,
+    "medViews": 149700,
+    "medOutlier": 1.257,
+    "medEr": 0.0824,
+    "medSaveRate": 0.0027,
+    "medCommentRate": 0.00106,
+    "winShare": 0.0
+   },
+   {
+    "key": "swimming",
+    "n": 1,
+    "medViews": 149700,
+    "medOutlier": 1.257,
+    "medEr": 0.0824,
+    "medSaveRate": 0.0027,
+    "medCommentRate": 0.00106,
+    "winShare": 0.0
+   },
+   {
+    "key": "fractional laser",
+    "n": 1,
+    "medViews": 6251,
+    "medOutlier": 1.256,
+    "medEr": 0.0178,
+    "medSaveRate": 0.0037,
+    "medCommentRate": 0.00048,
+    "winShare": 0.0
+   },
+   {
+    "key": "eye shields",
+    "n": 1,
+    "medViews": 6251,
+    "medOutlier": 1.256,
+    "medEr": 0.0178,
+    "medSaveRate": 0.0037,
+    "medCommentRate": 0.00048,
+    "winShare": 0.0
+   },
+   {
+    "key": "pcos",
+    "n": 3,
+    "medViews": 14200,
+    "medOutlier": 1.246,
+    "medEr": 0.0409,
+    "medSaveRate": 0.0093,
+    "medCommentRate": 0.00169,
+    "winShare": 0.333
+   },
+   {
+    "key": "hormones",
+    "n": 1,
+    "medViews": 14200,
+    "medOutlier": 1.246,
+    "medEr": 0.0595,
+    "medSaveRate": 0.011,
+    "medCommentRate": 0.00169,
+    "winShare": 0.0
+   },
+   {
+    "key": "pimple popping",
+    "n": 5,
+    "medViews": 127106,
+    "medOutlier": 1.237,
+    "medEr": 0.0484,
+    "medSaveRate": 0.0025,
+    "medCommentRate": 0.00066,
+    "winShare": 0.0
+   },
+   {
+    "key": "extractions",
+    "n": 5,
+    "medViews": 127106,
+    "medOutlier": 1.237,
+    "medEr": 0.0484,
+    "medSaveRate": 0.0021,
+    "medCommentRate": 0.00066,
+    "winShare": 0.0
+   },
+   {
+    "key": "celebrities",
+    "n": 4,
+    "medViews": 740301.5,
+    "medOutlier": 1.232,
+    "medEr": 0.0442,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00087,
+    "winShare": 0.0
+   },
+   {
+    "key": "day in the life",
+    "n": 18,
+    "medViews": 7509.0,
+    "medOutlier": 1.22,
+    "medEr": 0.0464,
+    "medSaveRate": 0.0035,
+    "medCommentRate": 0.00095,
+    "winShare": 0.0
+   },
+   {
+    "key": "hair botox",
+    "n": 5,
+    "medViews": 148500,
+    "medOutlier": 1.218,
+    "medEr": 0.0285,
+    "medSaveRate": 0.0059,
+    "medCommentRate": 0.00018,
+    "winShare": 0.2
+   },
+   {
+    "key": "curly hair",
+    "n": 1,
+    "medViews": 59800,
+    "medOutlier": 1.218,
+    "medEr": 0.1537,
+    "medSaveRate": 0.0206,
+    "medCommentRate": 0.00144,
+    "winShare": 0.0
+   },
+   {
+    "key": "barrier repair",
+    "n": 1,
+    "medViews": 32800,
+    "medOutlier": 1.213,
+    "medEr": 0.0873,
+    "medSaveRate": 0.0234,
+    "medCommentRate": 0.00146,
+    "winShare": 0.0
+   },
+   {
+    "key": "jelly mask",
+    "n": 1,
+    "medViews": 32800,
+    "medOutlier": 1.213,
+    "medEr": 0.0873,
+    "medSaveRate": 0.0234,
+    "medCommentRate": 0.00146,
+    "winShare": 0.0
+   },
+   {
+    "key": "natural results",
+    "n": 3,
+    "medViews": 18154,
+    "medOutlier": 1.198,
+    "medEr": 0.0611,
+    "medSaveRate": 0.003,
+    "medCommentRate": 0.00066,
+    "winShare": 0.0
+   },
+   {
+    "key": "full face filler",
+    "n": 1,
+    "medViews": 1975,
+    "medOutlier": 1.198,
+    "medEr": 0.0137,
+    "medSaveRate": 0.003,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "over 60",
+    "n": 1,
+    "medViews": 141604,
+    "medOutlier": 1.189,
+    "medEr": 0.0245,
+    "medSaveRate": 0.0078,
+    "medCommentRate": 0.00143,
+    "winShare": 0.0
+   },
+   {
+    "key": "dermatologist access",
+    "n": 1,
+    "medViews": 28900,
+    "medOutlier": 1.184,
+    "medEr": 0.0266,
+    "medSaveRate": 0.0051,
+    "medCommentRate": 0.00298,
+    "winShare": 0.0
+   },
+   {
+    "key": "germany",
+    "n": 1,
+    "medViews": 28900,
+    "medOutlier": 1.184,
+    "medEr": 0.0266,
+    "medSaveRate": 0.0051,
+    "medCommentRate": 0.00298,
+    "winShare": 0.0
+   },
+   {
+    "key": "copper uglies",
+    "n": 1,
+    "medViews": 72100,
+    "medOutlier": 1.183,
+    "medEr": 0.0236,
+    "medSaveRate": 0.0038,
+    "medCommentRate": 0.00054,
+    "winShare": 0.0
+   },
+   {
+    "key": "ocular rosacea",
+    "n": 1,
+    "medViews": 144200,
+    "medOutlier": 1.183,
+    "medEr": 0.0147,
+    "medSaveRate": 0.0045,
+    "medCommentRate": 0.00043,
+    "winShare": 0.0
+   },
+   {
+    "key": "styes",
+    "n": 1,
+    "medViews": 144200,
+    "medOutlier": 1.183,
+    "medEr": 0.0147,
+    "medSaveRate": 0.0045,
+    "medCommentRate": 0.00043,
+    "winShare": 0.0
+   },
+   {
+    "key": "emface",
+    "n": 16,
+    "medViews": 28632.5,
+    "medOutlier": 1.182,
+    "medEr": 0.0219,
+    "medSaveRate": 0.0016,
+    "medCommentRate": 0.00091,
+    "winShare": 0.125
+   },
+   {
+    "key": "bond repair",
+    "n": 1,
+    "medViews": 60400,
+    "medOutlier": 1.182,
+    "medEr": 0.062,
+    "medSaveRate": 0.0081,
+    "medCommentRate": 0.00118,
+    "winShare": 0.0
+   },
+   {
+    "key": "own product",
+    "n": 1,
+    "medViews": 60400,
+    "medOutlier": 1.182,
+    "medEr": 0.062,
+    "medSaveRate": 0.0081,
+    "medCommentRate": 0.00118,
+    "winShare": 0.0
+   },
+   {
+    "key": "skin of color",
+    "n": 38,
+    "medViews": 66485.0,
+    "medOutlier": 1.181,
+    "medEr": 0.0256,
+    "medSaveRate": 0.0029,
+    "medCommentRate": 0.00083,
+    "winShare": 0.158
+   },
+   {
+    "key": "flares",
+    "n": 1,
+    "medViews": 139963,
+    "medOutlier": 1.175,
+    "medEr": 0.025,
+    "medSaveRate": 0.0043,
+    "medCommentRate": 0.00823,
+    "winShare": 0.0
+   },
+   {
+    "key": "serum",
+    "n": 10,
+    "medViews": 84581.0,
+    "medOutlier": 1.161,
+    "medEr": 0.0296,
+    "medSaveRate": 0.0033,
+    "medCommentRate": 0.00091,
+    "winShare": 0.3
+   },
+   {
+    "key": "beauty salon",
+    "n": 1,
+    "medViews": 135288,
+    "medOutlier": 1.136,
+    "medEr": 0.0466,
+    "medSaveRate": 0.0049,
+    "medCommentRate": 0.00408,
+    "winShare": 0.0
+   },
+   {
+    "key": "cryotherapy",
+    "n": 1,
+    "medViews": 3433,
+    "medOutlier": 1.122,
+    "medEr": 0.0137,
+    "medSaveRate": 0.0012,
+    "medCommentRate": 0.00029,
+    "winShare": 0.0
+   },
+   {
+    "key": "cosmetic treatments",
+    "n": 3,
+    "medViews": 1524,
+    "medOutlier": 1.104,
+    "medEr": 0.0276,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00328,
+    "winShare": 0.0
+   },
+   {
+    "key": "derm residency",
+    "n": 1,
+    "medViews": 2032,
+    "medOutlier": 1.095,
+    "medEr": 0.0625,
+    "medSaveRate": 0.0103,
+    "medCommentRate": 0.00837,
+    "winShare": 0.0
+   },
+   {
+    "key": "skin laxity",
+    "n": 1,
+    "medViews": 1680,
+    "medOutlier": 1.094,
+    "medEr": 0.031,
+    "medSaveRate": 0.0012,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "mistakes",
+    "n": 2,
+    "medViews": 755288.0,
+    "medOutlier": 1.093,
+    "medEr": 0.0336,
+    "medSaveRate": 0.0052,
+    "medCommentRate": 0.00039,
+    "winShare": 0.0
+   },
+   {
+    "key": "eye area",
+    "n": 1,
+    "medViews": 82900,
+    "medOutlier": 1.091,
+    "medEr": 0.0229,
+    "medSaveRate": 0.003,
+    "medCommentRate": 0.00075,
+    "winShare": 0.0
+   },
+   {
+    "key": "product empties",
+    "n": 1,
+    "medViews": 1200000,
+    "medOutlier": 1.091,
+    "medEr": 0.0497,
+    "medSaveRate": 0.0084,
+    "medCommentRate": 0.00049,
+    "winShare": 0.0
+   },
+   {
+    "key": "topical estrogen",
+    "n": 1,
+    "medViews": 132400,
+    "medOutlier": 1.086,
+    "medEr": 0.06,
+    "medSaveRate": 0.0249,
+    "medCommentRate": 0.00103,
+    "winShare": 0.0
+   },
+   {
+    "key": "aging skin",
+    "n": 1,
+    "medViews": 132400,
+    "medOutlier": 1.086,
+    "medEr": 0.06,
+    "medSaveRate": 0.0249,
+    "medCommentRate": 0.00103,
+    "winShare": 0.0
+   },
+   {
+    "key": "polynucleotides",
+    "n": 4,
+    "medViews": 85559.5,
+    "medOutlier": 1.084,
+    "medEr": 0.0152,
+    "medSaveRate": 0.0005,
+    "medCommentRate": 0.0005,
+    "winShare": 0.0
+   },
+   {
+    "key": "skinvive",
+    "n": 14,
+    "medViews": 37547.5,
+    "medOutlier": 1.079,
+    "medEr": 0.0208,
+    "medSaveRate": 0.0018,
+    "medCommentRate": 0.00075,
+    "winShare": 0.214
+   },
+   {
+    "key": "deodorant",
+    "n": 1,
+    "medViews": 128530,
+    "medOutlier": 1.079,
+    "medEr": 0.056,
+    "medSaveRate": 0.0103,
+    "medCommentRate": 0.00087,
+    "winShare": 0.0
+   },
+   {
+    "key": "antiperspirant",
+    "n": 1,
+    "medViews": 128530,
+    "medOutlier": 1.079,
+    "medEr": 0.056,
+    "medSaveRate": 0.0103,
+    "medCommentRate": 0.00087,
+    "winShare": 0.0
+   },
+   {
+    "key": "smooth skin",
+    "n": 1,
+    "medViews": 29000,
+    "medOutlier": 1.072,
+    "medEr": 0.0915,
+    "medSaveRate": 0.0101,
+    "medCommentRate": 0.00372,
+    "winShare": 0.0
+   },
+   {
+    "key": "keratosis pilaris",
+    "n": 1,
+    "medViews": 29000,
+    "medOutlier": 1.072,
+    "medEr": 0.0915,
+    "medSaveRate": 0.0101,
+    "medCommentRate": 0.00372,
+    "winShare": 0.0
+   },
+   {
+    "key": "filler migration",
+    "n": 5,
+    "medViews": 18878,
+    "medOutlier": 1.068,
+    "medEr": 0.0206,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00068,
+    "winShare": 0.0
+   },
+   {
+    "key": "filler dissolving",
+    "n": 1,
+    "medViews": 29383,
+    "medOutlier": 1.068,
+    "medEr": 0.0206,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00068,
+    "winShare": 0.0
+   },
+   {
+    "key": "medspa regulation",
+    "n": 1,
+    "medViews": 126716,
+    "medOutlier": 1.064,
+    "medEr": 0.0369,
+    "medSaveRate": 0.0236,
+    "medCommentRate": 0.00117,
+    "winShare": 0.0
+   },
+   {
+    "key": "medical directors",
+    "n": 1,
+    "medViews": 126716,
+    "medOutlier": 1.064,
+    "medEr": 0.0369,
+    "medSaveRate": 0.0236,
+    "medCommentRate": 0.00117,
+    "winShare": 0.0
+   },
+   {
+    "key": "peptides",
+    "n": 14,
+    "medViews": 93900.0,
+    "medOutlier": 1.062,
+    "medEr": 0.0314,
+    "medSaveRate": 0.0047,
+    "medCommentRate": 0.00043,
+    "winShare": 0.214
+   },
+   {
+    "key": "sponsored product",
+    "n": 1,
+    "medViews": 147500,
+    "medOutlier": 1.062,
+    "medEr": 0.0535,
+    "medSaveRate": 0.0046,
+    "medCommentRate": 0.00046,
+    "winShare": 0.0
+   },
+   {
+    "key": "ultherapy",
+    "n": 2,
+    "medViews": 40444.0,
+    "medOutlier": 1.058,
+    "medEr": 0.0202,
+    "medSaveRate": 0.0028,
+    "medCommentRate": 0.00136,
+    "winShare": 0.0
+   },
+   {
+    "key": "drugstore",
+    "n": 14,
+    "medViews": 5635.5,
+    "medOutlier": 1.044,
+    "medEr": 0.0368,
+    "medSaveRate": 0.0043,
+    "medCommentRate": 0.00041,
+    "winShare": 0.214
+   },
+   {
+    "key": "retinol",
+    "n": 18,
+    "medViews": 103406.0,
+    "medOutlier": 1.042,
+    "medEr": 0.0248,
+    "medSaveRate": 0.0025,
+    "medCommentRate": 0.00057,
+    "winShare": 0.056
+   },
+   {
+    "key": "name collision",
+    "n": 1,
+    "medViews": 138100,
+    "medOutlier": 1.033,
+    "medEr": 0.0913,
+    "medSaveRate": 0.0093,
+    "medCommentRate": 0.00098,
+    "winShare": 0.0
+   },
+   {
+    "key": "rf microneedling",
+    "n": 1,
+    "medViews": 122449,
+    "medOutlier": 1.028,
+    "medEr": 0.0129,
+    "medSaveRate": 0.0026,
+    "medCommentRate": 0.0006,
+    "winShare": 0.0
+   },
+   {
+    "key": "series",
+    "n": 1,
+    "medViews": 122449,
+    "medOutlier": 1.028,
+    "medEr": 0.0129,
+    "medSaveRate": 0.0026,
+    "medCommentRate": 0.0006,
+    "winShare": 0.0
+   },
+   {
+    "key": "vaseline",
+    "n": 1,
+    "medViews": 202800,
+    "medOutlier": 1.016,
+    "medEr": 0.053,
+    "medSaveRate": 0.0156,
+    "medCommentRate": 0.00015,
+    "winShare": 0.0
+   },
+   {
+    "key": "oily skin",
+    "n": 2,
+    "medViews": 87107.0,
+    "medOutlier": 1.014,
+    "medEr": 0.0737,
+    "medSaveRate": 0.0214,
+    "medCommentRate": 0.00047,
+    "winShare": 0.0
+   },
+   {
+    "key": "halloween makeup",
+    "n": 1,
+    "medViews": 1553,
+    "medOutlier": 1.012,
+    "medEr": 0.0071,
+    "medSaveRate": 0.0006,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "acne",
+    "n": 36,
+    "medViews": 39850.0,
+    "medOutlier": 1.01,
+    "medEr": 0.0398,
+    "medSaveRate": 0.0062,
+    "medCommentRate": 0.00072,
+    "winShare": 0.167
+   },
+   {
+    "key": "eyebrows",
+    "n": 1,
+    "medViews": 5022,
+    "medOutlier": 1.009,
+    "medEr": 0.0372,
+    "medSaveRate": 0.0106,
+    "medCommentRate": 0.00239,
+    "winShare": 0.0
+   },
+   {
+    "key": "brow growth",
+    "n": 1,
+    "medViews": 5022,
+    "medOutlier": 1.009,
+    "medEr": 0.0372,
+    "medSaveRate": 0.0106,
+    "medCommentRate": 0.00239,
+    "winShare": 0.0
+   },
+   {
+    "key": "injector humor",
+    "n": 1,
+    "medViews": 103945,
+    "medOutlier": 1.006,
+    "medEr": 0.0101,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0004,
+    "winShare": 0.0
+   },
+   {
+    "key": "laser",
+    "n": 37,
+    "medViews": 65600,
+    "medOutlier": 1.002,
+    "medEr": 0.0163,
+    "medSaveRate": 0.0011,
+    "medCommentRate": 0.00034,
+    "winShare": 0.135
+   },
+   {
+    "key": "whiteheads",
+    "n": 1,
+    "medViews": 119407,
+    "medOutlier": 1.002,
+    "medEr": 0.0655,
+    "medSaveRate": 0.0305,
+    "medCommentRate": 0.00681,
+    "winShare": 0.0
+   },
+   {
+    "key": "cosmetic tattoo",
+    "n": 1,
+    "medViews": 119327,
+    "medOutlier": 1.002,
+    "medEr": 0.0063,
+    "medSaveRate": 0.0007,
+    "medCommentRate": 0.00054,
+    "winShare": 0.0
+   },
+   {
+    "key": "resurfacing",
+    "n": 5,
+    "medViews": 23680,
+    "medOutlier": 1.0,
+    "medEr": 0.0145,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00094,
+    "winShare": 0.4
+   },
+   {
+    "key": "facial balancing",
+    "n": 5,
+    "medViews": 1649,
+    "medOutlier": 1.0,
+    "medEr": 0.0085,
+    "medSaveRate": 0.0018,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "eczema",
+    "n": 3,
+    "medViews": 40962,
+    "medOutlier": 1.0,
+    "medEr": 0.083,
+    "medSaveRate": 0.0109,
+    "medCommentRate": 0.00251,
+    "winShare": 0.0
+   },
+   {
+    "key": "jeuveau",
+    "n": 5,
+    "medViews": 34921,
+    "medOutlier": 1.0,
+    "medEr": 0.0297,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00058,
+    "winShare": 0.0
+   },
+   {
+    "key": "diabetes",
+    "n": 1,
+    "medViews": 3103,
+    "medOutlier": 1.0,
+    "medEr": 0.0284,
+    "medSaveRate": 0.0026,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "retinopathy",
+    "n": 1,
+    "medViews": 3103,
+    "medOutlier": 1.0,
+    "medEr": 0.0284,
+    "medSaveRate": 0.0026,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "eyes",
+    "n": 1,
+    "medViews": 3103,
+    "medOutlier": 1.0,
+    "medEr": 0.0284,
+    "medSaveRate": 0.0026,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "skin health",
+    "n": 1,
+    "medViews": 121900,
+    "medOutlier": 1.0,
+    "medEr": 0.0403,
+    "medSaveRate": 0.0052,
+    "medCommentRate": 0.00043,
+    "winShare": 0.0
+   },
+   {
+    "key": "korean skincare",
+    "n": 2,
+    "medViews": 51100.0,
+    "medOutlier": 1.0,
+    "medEr": 0.0272,
+    "medSaveRate": 0.002,
+    "medCommentRate": 0.00025,
+    "winShare": 0.0
+   },
+   {
+    "key": "enzyme bath",
+    "n": 1,
+    "medViews": 51100,
+    "medOutlier": 1.0,
+    "medEr": 0.0361,
+    "medSaveRate": 0.0026,
+    "medCommentRate": 0.00031,
+    "winShare": 0.0
+   },
+   {
+    "key": "spa",
+    "n": 1,
+    "medViews": 51100,
+    "medOutlier": 1.0,
+    "medEr": 0.0361,
+    "medSaveRate": 0.0026,
+    "medCommentRate": 0.00031,
+    "winShare": 0.0
+   },
+   {
+    "key": "biodance",
+    "n": 1,
+    "medViews": 51100,
+    "medOutlier": 1.0,
+    "medEr": 0.0184,
+    "medSaveRate": 0.0014,
+    "medCommentRate": 0.0002,
+    "winShare": 0.0
+   },
+   {
+    "key": "brand trip",
+    "n": 1,
+    "medViews": 51100,
+    "medOutlier": 1.0,
+    "medEr": 0.0184,
+    "medSaveRate": 0.0014,
+    "medCommentRate": 0.0002,
+    "winShare": 0.0
+   },
+   {
+    "key": "dyshidrotic eczema",
+    "n": 1,
+    "medViews": 1194,
+    "medOutlier": 1.0,
+    "medEr": 0.0377,
+    "medSaveRate": 0.0109,
+    "medCommentRate": 0.00251,
+    "winShare": 0.0
+   },
+   {
+    "key": "picoway",
+    "n": 1,
+    "medViews": 10100000,
+    "medOutlier": 1.0,
+    "medEr": 0.0207,
+    "medSaveRate": 0.0007,
+    "medCommentRate": 0.00033,
+    "winShare": 0.0
+   },
+   {
+    "key": "erbium",
+    "n": 1,
+    "medViews": 23680,
+    "medOutlier": 1.0,
+    "medEr": 0.0262,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00118,
+    "winShare": 0.0
+   },
+   {
+    "key": "skincare products",
+    "n": 3,
+    "medViews": 3739,
+    "medOutlier": 0.994,
+    "medEr": 0.0405,
+    "medSaveRate": 0.0083,
+    "medCommentRate": 0.00157,
+    "winShare": 0.0
+   },
+   {
+    "key": "pets",
+    "n": 1,
+    "medViews": 60400,
+    "medOutlier": 0.991,
+    "medEr": 0.0567,
+    "medSaveRate": 0.0144,
+    "medCommentRate": 0.00123,
+    "winShare": 0.0
+   },
+   {
+    "key": "halo",
+    "n": 1,
+    "medViews": 4933,
+    "medOutlier": 0.991,
+    "medEr": 0.0134,
+    "medSaveRate": 0.0039,
+    "medCommentRate": 0.00061,
+    "winShare": 0.0
+   },
+   {
+    "key": "eyelids",
+    "n": 1,
+    "medViews": 1517,
+    "medOutlier": 0.988,
+    "medEr": 0.0211,
+    "medSaveRate": 0.0046,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "firming",
+    "n": 1,
+    "medViews": 1517,
+    "medOutlier": 0.988,
+    "medEr": 0.0211,
+    "medSaveRate": 0.0046,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "at-home device",
+    "n": 1,
+    "medViews": 14500,
+    "medOutlier": 0.986,
+    "medEr": 0.0113,
+    "medSaveRate": 0.0028,
+    "medCommentRate": 0.0009,
+    "winShare": 0.0
+   },
+   {
+    "key": "cyst",
+    "n": 1,
+    "medViews": 3011,
+    "medOutlier": 0.984,
+    "medEr": 0.0359,
+    "medSaveRate": 0.0037,
+    "medCommentRate": 0.00033,
+    "winShare": 0.0
+   },
+   {
+    "key": "salon",
+    "n": 2,
+    "medViews": 106667.5,
+    "medOutlier": 0.98,
+    "medEr": 0.0128,
+    "medSaveRate": 0.0027,
+    "medCommentRate": 0.00023,
+    "winShare": 0.0
+   },
+   {
+    "key": "face yoga",
+    "n": 3,
+    "medViews": 101042,
+    "medOutlier": 0.978,
+    "medEr": 0.0152,
+    "medSaveRate": 0.0009,
+    "medCommentRate": 0.00051,
+    "winShare": 0.0
+   },
+   {
+    "key": "myths",
+    "n": 5,
+    "medViews": 4933,
+    "medOutlier": 0.978,
+    "medEr": 0.0142,
+    "medSaveRate": 0.0009,
+    "medCommentRate": 0.00059,
+    "winShare": 0.0
+   },
+   {
+    "key": "glycolic acid",
+    "n": 3,
+    "medViews": 10100,
+    "medOutlier": 0.97,
+    "medEr": 0.0467,
+    "medSaveRate": 0.0199,
+    "medCommentRate": 0.00168,
+    "winShare": 0.333
+   },
+   {
+    "key": "humor",
+    "n": 3,
+    "medViews": 2899,
+    "medOutlier": 0.968,
+    "medEr": 0.057,
+    "medSaveRate": 0.0021,
+    "medCommentRate": 0.00276,
+    "winShare": 0.0
+   },
+   {
+    "key": "adapalene",
+    "n": 2,
+    "medViews": 14626.0,
+    "medOutlier": 0.965,
+    "medEr": 0.0204,
+    "medSaveRate": 0.0019,
+    "medCommentRate": 0.00204,
+    "winShare": 0.0
+   },
+   {
+    "key": "spicules",
+    "n": 1,
+    "medViews": 2695,
+    "medOutlier": 0.964,
+    "medEr": 0.0219,
+    "medSaveRate": 0.0056,
+    "medCommentRate": 0.00148,
+    "winShare": 0.0
+   },
+   {
+    "key": "reedle shot",
+    "n": 1,
+    "medViews": 2695,
+    "medOutlier": 0.964,
+    "medEr": 0.0219,
+    "medSaveRate": 0.0056,
+    "medCommentRate": 0.00148,
+    "winShare": 0.0
+   },
+   {
+    "key": "facial exercise",
+    "n": 1,
+    "medViews": 9252,
+    "medOutlier": 0.955,
+    "medEr": 0.0077,
+    "medSaveRate": 0.0027,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "extraction",
+    "n": 4,
+    "medViews": 2918.0,
+    "medOutlier": 0.954,
+    "medEr": 0.0373,
+    "medSaveRate": 0.0031,
+    "medCommentRate": 0.00031,
+    "winShare": 0.25
+   },
+   {
+    "key": "honey",
+    "n": 1,
+    "medViews": 49100,
+    "medOutlier": 0.937,
+    "medEr": 0.012,
+    "medSaveRate": 0.0007,
+    "medCommentRate": 0.00037,
+    "winShare": 0.0
+   },
+   {
+    "key": "garnier",
+    "n": 1,
+    "medViews": 25100,
+    "medOutlier": 0.928,
+    "medEr": 0.0807,
+    "medSaveRate": 0.01,
+    "medCommentRate": 0.00195,
+    "winShare": 0.0
+   },
+   {
+    "key": "hands",
+    "n": 2,
+    "medViews": 231361.0,
+    "medOutlier": 0.927,
+    "medEr": 0.0269,
+    "medSaveRate": 0.0067,
+    "medCommentRate": 0.00297,
+    "winShare": 0.0
+   },
+   {
+    "key": "closed comedones",
+    "n": 1,
+    "medViews": 495337,
+    "medOutlier": 0.916,
+    "medEr": 0.0212,
+    "medSaveRate": 0.0039,
+    "medCommentRate": 0.00584,
+    "winShare": 0.0
+   },
+   {
+    "key": "azelaic acid",
+    "n": 18,
+    "medViews": 22401.5,
+    "medOutlier": 0.899,
+    "medEr": 0.056,
+    "medSaveRate": 0.0169,
+    "medCommentRate": 0.00114,
+    "winShare": 0.167
+   },
+   {
+    "key": "diy skincare",
+    "n": 2,
+    "medViews": 73575.0,
+    "medOutlier": 0.88,
+    "medEr": 0.0296,
+    "medSaveRate": 0.007,
+    "medCommentRate": 0.0003,
+    "winShare": 0.0
+   },
+   {
+    "key": "cosmetic dermatologist",
+    "n": 1,
+    "medViews": 26600,
+    "medOutlier": 0.869,
+    "medEr": 0.0246,
+    "medSaveRate": 0.0056,
+    "medCommentRate": 0.00068,
+    "winShare": 0.0
+   },
+   {
+    "key": "rosacea",
+    "n": 20,
+    "medViews": 143731.5,
+    "medOutlier": 0.867,
+    "medEr": 0.0338,
+    "medSaveRate": 0.0041,
+    "medCommentRate": 0.00049,
+    "winShare": 0.05
+   },
+   {
+    "key": "laser hair removal",
+    "n": 7,
+    "medViews": 27600,
+    "medOutlier": 0.864,
+    "medEr": 0.0409,
+    "medSaveRate": 0.0105,
+    "medCommentRate": 0.00117,
+    "winShare": 0.143
+   },
+   {
+    "key": "threads",
+    "n": 1,
+    "medViews": 89244,
+    "medOutlier": 0.864,
+    "medEr": 0.0135,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00069,
+    "winShare": 0.0
+   },
+   {
+    "key": "nose filler",
+    "n": 1,
+    "medViews": 89244,
+    "medOutlier": 0.864,
+    "medEr": 0.0135,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00069,
+    "winShare": 0.0
+   },
+   {
+    "key": "pricing",
+    "n": 1,
+    "medViews": 861,
+    "medOutlier": 0.861,
+    "medEr": 0.0197,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "drug reactions",
+    "n": 1,
+    "medViews": 102212,
+    "medOutlier": 0.858,
+    "medEr": 0.0252,
+    "medSaveRate": 0.0066,
+    "medCommentRate": 0.0014,
+    "winShare": 0.0
+   },
+   {
+    "key": "bridal",
+    "n": 1,
+    "medViews": 461528,
+    "medOutlier": 0.854,
+    "medEr": 0.0162,
+    "medSaveRate": 0.0025,
+    "medCommentRate": 0.00342,
+    "winShare": 0.0
+   },
+   {
+    "key": "pores",
+    "n": 8,
+    "medViews": 131103.5,
+    "medOutlier": 0.85,
+    "medEr": 0.0463,
+    "medSaveRate": 0.0058,
+    "medCommentRate": 0.00024,
+    "winShare": 0.25
+   },
+   {
+    "key": "blackheads",
+    "n": 2,
+    "medViews": 14820.5,
+    "medOutlier": 0.85,
+    "medEr": 0.0253,
+    "medSaveRate": 0.0033,
+    "medCommentRate": 0.00124,
+    "winShare": 0.0
+   },
+   {
+    "key": "winter",
+    "n": 1,
+    "medViews": 101167,
+    "medOutlier": 0.849,
+    "medEr": 0.0027,
+    "medSaveRate": 0.0025,
+    "medCommentRate": 0.00021,
+    "winShare": 0.0
+   },
+   {
+    "key": "head spa",
+    "n": 1,
+    "medViews": 99499,
+    "medOutlier": 0.835,
+    "medEr": 0.054,
+    "medSaveRate": 0.0066,
+    "medCommentRate": 0.00303,
+    "winShare": 0.0
+   },
+   {
+    "key": "4c hair",
+    "n": 1,
+    "medViews": 99499,
+    "medOutlier": 0.835,
+    "medEr": 0.054,
+    "medSaveRate": 0.0066,
+    "medCommentRate": 0.00303,
+    "winShare": 0.0
+   },
+   {
+    "key": "facial muscles",
+    "n": 1,
+    "medViews": 98271,
+    "medOutlier": 0.825,
+    "medEr": 0.2148,
+    "medSaveRate": 0.0028,
+    "medCommentRate": 0.0017,
+    "winShare": 0.0
+   },
+   {
+    "key": "creatine",
+    "n": 1,
+    "medViews": 4096,
+    "medOutlier": 0.823,
+    "medEr": 0.0378,
+    "medSaveRate": 0.0054,
+    "medCommentRate": 0.0022,
+    "winShare": 0.0
+   },
+   {
+    "key": "facial",
+    "n": 5,
+    "medViews": 75556,
+    "medOutlier": 0.815,
+    "medEr": 0.0197,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00021,
+    "winShare": 0.0
+   },
+   {
+    "key": "thermage",
+    "n": 3,
+    "medViews": 96812,
+    "medOutlier": 0.813,
+    "medEr": 0.0245,
+    "medSaveRate": 0.0078,
+    "medCommentRate": 0.00027,
+    "winShare": 0.0
+   },
+   {
+    "key": "glp1",
+    "n": 20,
+    "medViews": 53138.5,
+    "medOutlier": 0.812,
+    "medEr": 0.0155,
+    "medSaveRate": 0.0006,
+    "medCommentRate": 0.00046,
+    "winShare": 0.15
+   },
+   {
+    "key": "under eyes",
+    "n": 2,
+    "medViews": 74157.5,
+    "medOutlier": 0.803,
+    "medEr": 0.0629,
+    "medSaveRate": 0.0176,
+    "medCommentRate": 0.00137,
+    "winShare": 0.0
+   },
+   {
+    "key": "copper peptides",
+    "n": 4,
+    "medViews": 37368.0,
+    "medOutlier": 0.79,
+    "medEr": 0.0272,
+    "medSaveRate": 0.0019,
+    "medCommentRate": 0.00036,
+    "winShare": 0.0
+   },
+   {
+    "key": "beef tallow",
+    "n": 1,
+    "medViews": 1197,
+    "medOutlier": 0.78,
+    "medEr": 0.0142,
+    "medSaveRate": 0.0008,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "teeth whitening",
+    "n": 1,
+    "medViews": 779,
+    "medOutlier": 0.779,
+    "medEr": 0.0282,
+    "medSaveRate": 0.0039,
+    "medCommentRate": 0.00642,
+    "winShare": 0.0
+   },
+   {
+    "key": "skincare",
+    "n": 25,
+    "medViews": 36080,
+    "medOutlier": 0.775,
+    "medEr": 0.0372,
+    "medSaveRate": 0.0012,
+    "medCommentRate": 0.00037,
+    "winShare": 0.04
+   },
+   {
+    "key": "provider training",
+    "n": 1,
+    "medViews": 92163,
+    "medOutlier": 0.774,
+    "medEr": 0.065,
+    "medSaveRate": 0.0153,
+    "medCommentRate": 0.00251,
+    "winShare": 0.0
+   },
+   {
+    "key": "trichostasis spinulosa",
+    "n": 1,
+    "medViews": 920,
+    "medOutlier": 0.771,
+    "medEr": 0.0326,
+    "medSaveRate": 0.0065,
+    "medCommentRate": 0.00217,
+    "winShare": 0.0
+   },
+   {
+    "key": "unrelated",
+    "n": 5,
+    "medViews": 77876,
+    "medOutlier": 0.77,
+    "medEr": 0.074,
+    "medSaveRate": 0.0068,
+    "medCommentRate": 0.00038,
+    "winShare": 0.2
+   },
+   {
+    "key": "name match",
+    "n": 1,
+    "medViews": 770,
+    "medOutlier": 0.77,
+    "medEr": 0.0325,
+    "medSaveRate": 0.0026,
+    "medCommentRate": 0.0039,
+    "winShare": 0.0
+   },
+   {
+    "key": "residency",
+    "n": 3,
+    "medViews": 1344,
+    "medOutlier": 0.761,
+    "medEr": 0.0446,
+    "medSaveRate": 0.0099,
+    "medCommentRate": 0.00092,
+    "winShare": 0.0
+   },
+   {
+    "key": "med school",
+    "n": 1,
+    "medViews": 404,
+    "medOutlier": 0.761,
+    "medEr": 0.0446,
+    "medSaveRate": 0.0099,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "routine",
+    "n": 23,
+    "medViews": 63300,
+    "medOutlier": 0.756,
+    "medEr": 0.0434,
+    "medSaveRate": 0.0085,
+    "medCommentRate": 0.00093,
+    "winShare": 0.087
+   },
+   {
+    "key": "threadlift",
+    "n": 1,
+    "medViews": 89794,
+    "medOutlier": 0.754,
+    "medEr": 0.0154,
+    "medSaveRate": 0.0132,
+    "medCommentRate": 0.00224,
+    "winShare": 0.0
+   },
+   {
+    "key": "skinpen",
+    "n": 1,
+    "medViews": 89108,
+    "medOutlier": 0.748,
+    "medEr": 0.02,
+    "medSaveRate": 0.0095,
+    "medCommentRate": 0.00035,
+    "winShare": 0.0
+   },
+   {
+    "key": "microneedling",
+    "n": 20,
+    "medViews": 50909.0,
+    "medOutlier": 0.744,
+    "medEr": 0.0227,
+    "medSaveRate": 0.0039,
+    "medCommentRate": 0.00036,
+    "winShare": 0.1
+   },
+   {
+    "key": "diet",
+    "n": 2,
+    "medViews": 12817.5,
+    "medOutlier": 0.736,
+    "medEr": 0.0761,
+    "medSaveRate": 0.0088,
+    "medCommentRate": 0.00178,
+    "winShare": 0.0
+   },
+   {
+    "key": "urology",
+    "n": 1,
+    "medViews": 998,
+    "medOutlier": 0.733,
+    "medEr": 0.0401,
+    "medSaveRate": 0.003,
+    "medCommentRate": 0.001,
+    "winShare": 0.0
+   },
+   {
+    "key": "peeling",
+    "n": 1,
+    "medViews": 519021,
+    "medOutlier": 0.73,
+    "medEr": 0.0197,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00043,
+    "winShare": 0.0
+   },
+   {
+    "key": "brows",
+    "n": 1,
+    "medViews": 86896,
+    "medOutlier": 0.729,
+    "medEr": 0.0765,
+    "medSaveRate": 0.0048,
+    "medCommentRate": 0.00246,
+    "winShare": 0.0
+   },
+   {
+    "key": "wellness",
+    "n": 3,
+    "medViews": 1110,
+    "medOutlier": 0.723,
+    "medEr": 0.0293,
+    "medSaveRate": 0.0027,
+    "medCommentRate": 0.0022,
+    "winShare": 0.0
+   },
+   {
+    "key": "ask a derm",
+    "n": 2,
+    "medViews": 74069.5,
+    "medOutlier": 0.72,
+    "medEr": 0.0557,
+    "medSaveRate": 0.0001,
+    "medCommentRate": 0.00138,
+    "winShare": 0.0
+   },
+   {
+    "key": "facial hair",
+    "n": 1,
+    "medViews": 856,
+    "medOutlier": 0.717,
+    "medEr": 0.0409,
+    "medSaveRate": 0.0093,
+    "medCommentRate": 0.00234,
+    "winShare": 0.0
+   },
+   {
+    "key": "before after",
+    "n": 1,
+    "medViews": 85481,
+    "medOutlier": 0.717,
+    "medEr": 0.0061,
+    "medSaveRate": 0.0055,
+    "medCommentRate": 0.00056,
+    "winShare": 0.0
+   },
+   {
+    "key": "anime",
+    "n": 2,
+    "medViews": 81400.0,
+    "medOutlier": 0.714,
+    "medEr": 0.0827,
+    "medSaveRate": 0.008,
+    "medCommentRate": 0.00071,
+    "winShare": 0.0
+   },
+   {
+    "key": "ai misinformation",
+    "n": 1,
+    "medViews": 61800,
+    "medOutlier": 0.714,
+    "medEr": 0.0157,
+    "medSaveRate": 0.0008,
+    "medCommentRate": 0.00029,
+    "winShare": 0.0
+   },
+   {
+    "key": "sunlight",
+    "n": 1,
+    "medViews": 1093,
+    "medOutlier": 0.712,
+    "medEr": 0.0293,
+    "medSaveRate": 0.0027,
+    "medCommentRate": 0.00457,
+    "winShare": 0.0
+   },
+   {
+    "key": "face shape",
+    "n": 4,
+    "medViews": 729730.5,
+    "medOutlier": 0.708,
+    "medEr": 0.0715,
+    "medSaveRate": 0.0023,
+    "medCommentRate": 0.00013,
+    "winShare": 0.0
+   },
+   {
+    "key": "fall skincare",
+    "n": 1,
+    "medViews": 3512,
+    "medOutlier": 0.706,
+    "medEr": 0.0276,
+    "medSaveRate": 0.0063,
+    "medCommentRate": 0.00085,
+    "winShare": 0.0
+   },
+   {
+    "key": "dehydration",
+    "n": 1,
+    "medViews": 3512,
+    "medOutlier": 0.706,
+    "medEr": 0.0276,
+    "medSaveRate": 0.0063,
+    "medCommentRate": 0.00085,
+    "winShare": 0.0
+   },
+   {
+    "key": "aesthetics culture",
+    "n": 1,
+    "medViews": 83693,
+    "medOutlier": 0.702,
+    "medEr": 0.062,
+    "medSaveRate": 0.0238,
+    "medCommentRate": 0.00363,
+    "winShare": 0.0
+   },
+   {
+    "key": "moisturizer",
+    "n": 8,
+    "medViews": 202750.0,
+    "medOutlier": 0.701,
+    "medEr": 0.0523,
+    "medSaveRate": 0.0108,
+    "medCommentRate": 0.00033,
+    "winShare": 0.125
+   },
+   {
+    "key": "drugstore skincare",
+    "n": 2,
+    "medViews": 18500.0,
+    "medOutlier": 0.684,
+    "medEr": 0.0878,
+    "medSaveRate": 0.0127,
+    "medCommentRate": 0.00287,
+    "winShare": 0.0
+   },
+   {
+    "key": "pdrn",
+    "n": 30,
+    "medViews": 74800.0,
+    "medOutlier": 0.678,
+    "medEr": 0.029,
+    "medSaveRate": 0.0037,
+    "medCommentRate": 0.00034,
+    "winShare": 0.067
+   },
+   {
+    "key": "ellacor",
+    "n": 1,
+    "medViews": 80375,
+    "medOutlier": 0.675,
+    "medEr": 0.0398,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00029,
+    "winShare": 0.0
+   },
+   {
+    "key": "laser cutter",
+    "n": 1,
+    "medViews": 77876,
+    "medOutlier": 0.654,
+    "medEr": 0.0109,
+    "medSaveRate": 0.0036,
+    "medCommentRate": 0.00028,
+    "winShare": 0.0
+   },
+   {
+    "key": "med spa",
+    "n": 7,
+    "medViews": 48652,
+    "medOutlier": 0.651,
+    "medEr": 0.0197,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00021,
+    "winShare": 0.0
+   },
+   {
+    "key": "insect bites",
+    "n": 1,
+    "medViews": 1986,
+    "medOutlier": 0.649,
+    "medEr": 0.0076,
+    "medSaveRate": 0.0015,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "itch",
+    "n": 1,
+    "medViews": 1986,
+    "medOutlier": 0.649,
+    "medEr": 0.0076,
+    "medSaveRate": 0.0015,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "meningitis",
+    "n": 1,
+    "medViews": 77700,
+    "medOutlier": 0.637,
+    "medEr": 0.0551,
+    "medSaveRate": 0.0234,
+    "medCommentRate": 0.00036,
+    "winShare": 0.0
+   },
+   {
+    "key": "ingrown hairs",
+    "n": 1,
+    "medViews": 760,
+    "medOutlier": 0.637,
+    "medEr": 0.0355,
+    "medSaveRate": 0.0079,
+    "medCommentRate": 0.00132,
+    "winShare": 0.0
+   },
+   {
+    "key": "razor bumps",
+    "n": 1,
+    "medViews": 760,
+    "medOutlier": 0.637,
+    "medEr": 0.0355,
+    "medSaveRate": 0.0079,
+    "medCommentRate": 0.00132,
+    "winShare": 0.0
+   },
+   {
+    "key": "healthcare access",
+    "n": 1,
+    "medViews": 635,
+    "medOutlier": 0.635,
+    "medEr": 0.0079,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "buccal massage",
+    "n": 1,
+    "medViews": 75556,
+    "medOutlier": 0.634,
+    "medEr": 0.0124,
+    "medSaveRate": 0.0018,
+    "medCommentRate": 0.00046,
+    "winShare": 0.0
+   },
+   {
+    "key": "volume loss",
+    "n": 4,
+    "medViews": 61995.5,
+    "medOutlier": 0.626,
+    "medEr": 0.0367,
+    "medSaveRate": 0.0025,
+    "medCommentRate": 0.00205,
+    "winShare": 0.0
+   },
+   {
+    "key": "biostimulators",
+    "n": 2,
+    "medViews": 33039.5,
+    "medOutlier": 0.609,
+    "medEr": 0.0335,
+    "medSaveRate": 0.0034,
+    "medCommentRate": 0.00209,
+    "winShare": 0.0
+   },
+   {
+    "key": "beauty standards",
+    "n": 3,
+    "medViews": 71414,
+    "medOutlier": 0.599,
+    "medEr": 0.0336,
+    "medSaveRate": 0.0007,
+    "medCommentRate": 0.00328,
+    "winShare": 0.333
+   },
+   {
+    "key": "tiktok shop",
+    "n": 1,
+    "medViews": 7869,
+    "medOutlier": 0.596,
+    "medEr": 0.0105,
+    "medSaveRate": 0.0041,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "seborrheic dermatitis",
+    "n": 1,
+    "medViews": 708,
+    "medOutlier": 0.593,
+    "medEr": 0.0268,
+    "medSaveRate": 0.0056,
+    "medCommentRate": 0.00424,
+    "winShare": 0.0
+   },
+   {
+    "key": "dandruff",
+    "n": 1,
+    "medViews": 708,
+    "medOutlier": 0.593,
+    "medEr": 0.0268,
+    "medSaveRate": 0.0056,
+    "medCommentRate": 0.00424,
+    "winShare": 0.0
+   },
+   {
+    "key": "salmon dna",
+    "n": 5,
+    "medViews": 71400,
+    "medOutlier": 0.592,
+    "medEr": 0.0239,
+    "medSaveRate": 0.0122,
+    "medCommentRate": 0.0006,
+    "winShare": 0.2
+   },
+   {
+    "key": "coolpeel",
+    "n": 1,
+    "medViews": 143100,
+    "medOutlier": 0.592,
+    "medEr": 0.0372,
+    "medSaveRate": 0.0123,
+    "medCommentRate": 0.0006,
+    "winShare": 0.0
+   },
+   {
+    "key": "safety",
+    "n": 2,
+    "medViews": 71267.5,
+    "medOutlier": 0.591,
+    "medEr": 0.0307,
+    "medSaveRate": 0.0117,
+    "medCommentRate": 0.0004,
+    "winShare": 0.0
+   },
+   {
+    "key": "viral skincare",
+    "n": 1,
+    "medViews": 69106,
+    "medOutlier": 0.58,
+    "medEr": 0.0148,
+    "medSaveRate": 0.0013,
+    "medCommentRate": 0.00074,
+    "winShare": 0.0
+   },
+   {
+    "key": "layering",
+    "n": 4,
+    "medViews": 37061.5,
+    "medOutlier": 0.577,
+    "medEr": 0.0486,
+    "medSaveRate": 0.0114,
+    "medCommentRate": 0.00027,
+    "winShare": 0.0
+   },
+   {
+    "key": "skin tightening",
+    "n": 6,
+    "medViews": 28893.5,
+    "medOutlier": 0.576,
+    "medEr": 0.0275,
+    "medSaveRate": 0.0005,
+    "medCommentRate": 0.00057,
+    "winShare": 0.0
+   },
+   {
+    "key": "aesthetic devices",
+    "n": 1,
+    "medViews": 67125,
+    "medOutlier": 0.563,
+    "medEr": 0.0478,
+    "medSaveRate": 0.0135,
+    "medCommentRate": 0.00785,
+    "winShare": 0.0
+   },
+   {
+    "key": "skin cycling",
+    "n": 19,
+    "medViews": 167600,
+    "medOutlier": 0.561,
+    "medEr": 0.0549,
+    "medSaveRate": 0.0032,
+    "medCommentRate": 0.00054,
+    "winShare": 0.158
+   },
+   {
+    "key": "body wash",
+    "n": 1,
+    "medViews": 298,
+    "medOutlier": 0.561,
+    "medEr": 0.047,
+    "medSaveRate": 0.0034,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "antioxidant",
+    "n": 1,
+    "medViews": 66846,
+    "medOutlier": 0.561,
+    "medEr": 0.0597,
+    "medSaveRate": 0.0013,
+    "medCommentRate": 0.02374,
+    "winShare": 0.0
+   },
+   {
+    "key": "exfoliants",
+    "n": 1,
+    "medViews": 616700,
+    "medOutlier": 0.561,
+    "medEr": 0.0602,
+    "medSaveRate": 0.0126,
+    "medCommentRate": 0.00051,
+    "winShare": 0.0
+   },
+   {
+    "key": "hair treatment",
+    "n": 2,
+    "medViews": 375875.0,
+    "medOutlier": 0.557,
+    "medEr": 0.0837,
+    "medSaveRate": 0.0046,
+    "medCommentRate": 0.00013,
+    "winShare": 0.0
+   },
+   {
+    "key": "sunscreen",
+    "n": 26,
+    "medViews": 77105.5,
+    "medOutlier": 0.556,
+    "medEr": 0.0377,
+    "medSaveRate": 0.0077,
+    "medCommentRate": 0.00105,
+    "winShare": 0.192
+   },
+   {
+    "key": "salary",
+    "n": 2,
+    "medViews": 27824.5,
+    "medOutlier": 0.556,
+    "medEr": 0.0303,
+    "medSaveRate": 0.0058,
+    "medCommentRate": 0.00082,
+    "winShare": 0.0
+   },
+   {
+    "key": "fillers",
+    "n": 3,
+    "medViews": 66066,
+    "medOutlier": 0.555,
+    "medEr": 0.0292,
+    "medSaveRate": 0.0094,
+    "medCommentRate": 0.001,
+    "winShare": 0.0
+   },
+   {
+    "key": "supplements",
+    "n": 4,
+    "medViews": 36929.5,
+    "medOutlier": 0.553,
+    "medEr": 0.0427,
+    "medSaveRate": 0.0091,
+    "medCommentRate": 0.00183,
+    "winShare": 0.0
+   },
+   {
+    "key": "exosomes",
+    "n": 21,
+    "medViews": 134528,
+    "medOutlier": 0.541,
+    "medEr": 0.0302,
+    "medSaveRate": 0.0093,
+    "medCommentRate": 0.00058,
+    "winShare": 0.143
+   },
+   {
+    "key": "medical grade",
+    "n": 5,
+    "medViews": 4181,
+    "medOutlier": 0.531,
+    "medEr": 0.0527,
+    "medSaveRate": 0.0028,
+    "medCommentRate": 0.00159,
+    "winShare": 0.0
+   },
+   {
+    "key": "salmon sperm",
+    "n": 10,
+    "medViews": 124048.0,
+    "medOutlier": 0.517,
+    "medEr": 0.0384,
+    "medSaveRate": 0.0031,
+    "medCommentRate": 0.00039,
+    "winShare": 0.0
+   },
+   {
+    "key": "ceramides",
+    "n": 1,
+    "medViews": 59422,
+    "medOutlier": 0.499,
+    "medEr": 0.0454,
+    "medSaveRate": 0.0246,
+    "medCommentRate": 0.00056,
+    "winShare": 0.0
+   },
+   {
+    "key": "sofwave",
+    "n": 2,
+    "medViews": 19604.0,
+    "medOutlier": 0.496,
+    "medEr": 0.0352,
+    "medSaveRate": 0.0033,
+    "medCommentRate": 0.00249,
+    "winShare": 0.0
+   },
+   {
+    "key": "prp facial",
+    "n": 2,
+    "medViews": 58502.5,
+    "medOutlier": 0.491,
+    "medEr": 0.0138,
+    "medSaveRate": 0.0002,
+    "medCommentRate": 0.00034,
+    "winShare": 0.0
+   },
+   {
+    "key": "renuvion",
+    "n": 1,
+    "medViews": 57216,
+    "medOutlier": 0.48,
+    "medEr": 0.0365,
+    "medSaveRate": 0.0112,
+    "medCommentRate": 0.00124,
+    "winShare": 0.0
+   },
+   {
+    "key": "arm laxity",
+    "n": 1,
+    "medViews": 57216,
+    "medOutlier": 0.48,
+    "medEr": 0.0365,
+    "medSaveRate": 0.0112,
+    "medCommentRate": 0.00124,
+    "winShare": 0.0
+   },
+   {
+    "key": "morning routine",
+    "n": 4,
+    "medViews": 5879.0,
+    "medOutlier": 0.479,
+    "medEr": 0.0375,
+    "medSaveRate": 0.0027,
+    "medCommentRate": 0.00019,
+    "winShare": 0.0
+   },
+   {
+    "key": "polypodium",
+    "n": 1,
+    "medViews": 56159,
+    "medOutlier": 0.471,
+    "medEr": 0.0371,
+    "medSaveRate": 0.013,
+    "medCommentRate": 0.00274,
+    "winShare": 0.0
+   },
+   {
+    "key": "facial contour",
+    "n": 1,
+    "medViews": 55703,
+    "medOutlier": 0.468,
+    "medEr": 0.0053,
+    "medSaveRate": 0.0046,
+    "medCommentRate": 0.00065,
+    "winShare": 0.0
+   },
+   {
+    "key": "resistance",
+    "n": 1,
+    "medViews": 1304,
+    "medOutlier": 0.466,
+    "medEr": 0.0422,
+    "medSaveRate": 0.0054,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "gut health",
+    "n": 2,
+    "medViews": 21298.5,
+    "medOutlier": 0.464,
+    "medEr": 0.0735,
+    "medSaveRate": 0.0163,
+    "medCommentRate": 0.01251,
+    "winShare": 0.0
+   },
+   {
+    "key": "staff humor",
+    "n": 1,
+    "medViews": 193000,
+    "medOutlier": 0.454,
+    "medEr": 0.0177,
+    "medSaveRate": 0.0017,
+    "medCommentRate": 0.00078,
+    "winShare": 0.0
+   },
+   {
+    "key": "launch",
+    "n": 1,
+    "medViews": 22900,
+    "medOutlier": 0.448,
+    "medEr": 0.031,
+    "medSaveRate": 0.0046,
+    "medCommentRate": 0.00293,
+    "winShare": 0.0
+   },
+   {
+    "key": "money",
+    "n": 1,
+    "medViews": 606,
+    "medOutlier": 0.439,
+    "medEr": 0.038,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0066,
+    "winShare": 0.0
+   },
+   {
+    "key": "vampire facial",
+    "n": 1,
+    "medViews": 52170,
+    "medOutlier": 0.438,
+    "medEr": 0.0214,
+    "medSaveRate": 0.0005,
+    "medCommentRate": 0.00025,
+    "winShare": 0.0
+   },
+   {
+    "key": "swelling",
+    "n": 1,
+    "medViews": 425,
+    "medOutlier": 0.425,
+    "medEr": 0.0471,
+    "medSaveRate": 0.0024,
+    "medCommentRate": 0.01882,
+    "winShare": 0.0
+   },
+   {
+    "key": "business",
+    "n": 2,
+    "medViews": 49931.0,
+    "medOutlier": 0.419,
+    "medEr": 0.0259,
+    "medSaveRate": 0.0082,
+    "medCommentRate": 0.00437,
+    "winShare": 0.0
+   },
+   {
+    "key": "arms",
+    "n": 1,
+    "medViews": 49127,
+    "medOutlier": 0.412,
+    "medEr": 0.0184,
+    "medSaveRate": 0.001,
+    "medCommentRate": 0.00106,
+    "winShare": 0.0
+   },
+   {
+    "key": "nevus sebaceous",
+    "n": 1,
+    "medViews": 7300000,
+    "medOutlier": 0.41,
+    "medEr": 0.0303,
+    "medSaveRate": 0.0009,
+    "medCommentRate": 0.0002,
+    "winShare": 0.0
+   },
+   {
+    "key": "growths",
+    "n": 1,
+    "medViews": 7300000,
+    "medOutlier": 0.41,
+    "medEr": 0.0303,
+    "medSaveRate": 0.0009,
+    "medCommentRate": 0.0002,
+    "winShare": 0.0
+   },
+   {
+    "key": "hair washing",
+    "n": 1,
+    "medViews": 20800,
+    "medOutlier": 0.407,
+    "medEr": 0.0561,
+    "medSaveRate": 0.0125,
+    "medCommentRate": 0.0012,
+    "winShare": 0.0
+   },
+   {
+    "key": "greasy hair",
+    "n": 1,
+    "medViews": 20800,
+    "medOutlier": 0.407,
+    "medEr": 0.0561,
+    "medSaveRate": 0.0125,
+    "medCommentRate": 0.0012,
+    "winShare": 0.0
+   },
+   {
+    "key": "derm secrets",
+    "n": 1,
+    "medViews": 292929,
+    "medOutlier": 0.405,
+    "medEr": 0.0346,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0005,
+    "winShare": 0.0
+   },
+   {
+    "key": "immigrant stories",
+    "n": 1,
+    "medViews": 24600,
+    "medOutlier": 0.404,
+    "medEr": 0.1458,
+    "medSaveRate": 0.0128,
+    "medCommentRate": 0.00622,
+    "winShare": 0.0
+   },
+   {
+    "key": "culture",
+    "n": 1,
+    "medViews": 24600,
+    "medOutlier": 0.404,
+    "medEr": 0.1458,
+    "medSaveRate": 0.0128,
+    "medCommentRate": 0.00622,
+    "winShare": 0.0
+   },
+   {
+    "key": "hair care",
+    "n": 4,
+    "medViews": 16278.5,
+    "medOutlier": 0.403,
+    "medEr": 0.0465,
+    "medSaveRate": 0.0064,
+    "medCommentRate": 0.00224,
+    "winShare": 0.0
+   },
+   {
+    "key": "vitamin d",
+    "n": 1,
+    "medViews": 33200,
+    "medOutlier": 0.39,
+    "medEr": 0.1273,
+    "medSaveRate": 0.0113,
+    "medCommentRate": 0.0019,
+    "winShare": 0.0
+   },
+   {
+    "key": "accutane",
+    "n": 1,
+    "medViews": 10500,
+    "medOutlier": 0.388,
+    "medEr": 0.056,
+    "medSaveRate": 0.0037,
+    "medCommentRate": 0.00095,
+    "winShare": 0.0
+   },
+   {
+    "key": "isotretinoin",
+    "n": 1,
+    "medViews": 10500,
+    "medOutlier": 0.388,
+    "medEr": 0.056,
+    "medSaveRate": 0.0037,
+    "medCommentRate": 0.00095,
+    "winShare": 0.0
+   },
+   {
+    "key": "tanning",
+    "n": 3,
+    "medViews": 503500,
+    "medOutlier": 0.387,
+    "medEr": 0.0305,
+    "medSaveRate": 0.0033,
+    "medCommentRate": 0.00048,
+    "winShare": 0.333
+   },
+   {
+    "key": "actives",
+    "n": 1,
+    "medViews": 45652,
+    "medOutlier": 0.383,
+    "medEr": 0.0347,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00221,
+    "winShare": 0.0
+   },
+   {
+    "key": "flushing",
+    "n": 1,
+    "medViews": 44016,
+    "medOutlier": 0.376,
+    "medEr": 0.0223,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00091,
+    "winShare": 0.0
+   },
+   {
+    "key": "sculptra",
+    "n": 18,
+    "medViews": 6741.0,
+    "medOutlier": 0.373,
+    "medEr": 0.0277,
+    "medSaveRate": 0.0027,
+    "medCommentRate": 0.00114,
+    "winShare": 0.056
+   },
+   {
+    "key": "plasma pen",
+    "n": 1,
+    "medViews": 43521,
+    "medOutlier": 0.365,
+    "medEr": 0.019,
+    "medSaveRate": 0.0011,
+    "medCommentRate": 0.00142,
+    "winShare": 0.0
+   },
+   {
+    "key": "under eye",
+    "n": 1,
+    "medViews": 43521,
+    "medOutlier": 0.365,
+    "medEr": 0.019,
+    "medSaveRate": 0.0011,
+    "medCommentRate": 0.00142,
+    "winShare": 0.0
+   },
+   {
+    "key": "shampoo",
+    "n": 1,
+    "medViews": 427,
+    "medOutlier": 0.358,
+    "medEr": 0.0703,
+    "medSaveRate": 0.0187,
+    "medCommentRate": 0.01171,
+    "winShare": 0.0
+   },
+   {
+    "key": "red light therapy",
+    "n": 1,
+    "medViews": 42450,
+    "medOutlier": 0.356,
+    "medEr": 0.0755,
+    "medSaveRate": 0.0207,
+    "medCommentRate": 0.01943,
+    "winShare": 0.0
+   },
+   {
+    "key": "creators",
+    "n": 1,
+    "medViews": 21400,
+    "medOutlier": 0.351,
+    "medEr": 0.1024,
+    "medSaveRate": 0.0058,
+    "medCommentRate": 0.00505,
+    "winShare": 0.0
+   },
+   {
+    "key": "community",
+    "n": 1,
+    "medViews": 21400,
+    "medOutlier": 0.351,
+    "medEr": 0.1024,
+    "medSaveRate": 0.0058,
+    "medCommentRate": 0.00505,
+    "winShare": 0.0
+   },
+   {
+    "key": "redness",
+    "n": 1,
+    "medViews": 276200,
+    "medOutlier": 0.341,
+    "medEr": 0.0224,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00033,
+    "winShare": 0.0
+   },
+   {
+    "key": "sephora sale",
+    "n": 2,
+    "medViews": 20396.5,
+    "medOutlier": 0.335,
+    "medEr": 0.0311,
+    "medSaveRate": 0.0012,
+    "medCommentRate": 0.00051,
+    "winShare": 0.0
+   },
+   {
+    "key": "morpheus8",
+    "n": 11,
+    "medViews": 39403,
+    "medOutlier": 0.331,
+    "medEr": 0.0184,
+    "medSaveRate": 0.0005,
+    "medCommentRate": 0.00076,
+    "winShare": 0.0
+   },
+   {
+    "key": "postpartum",
+    "n": 1,
+    "medViews": 39403,
+    "medOutlier": 0.331,
+    "medEr": 0.0193,
+    "medSaveRate": 0.002,
+    "medCommentRate": 0.00076,
+    "winShare": 0.0
+   },
+   {
+    "key": "weight loss",
+    "n": 4,
+    "medViews": 690.5,
+    "medOutlier": 0.321,
+    "medEr": 0.0498,
+    "medSaveRate": 0.0012,
+    "medCommentRate": 0.00167,
+    "winShare": 0.0
+   },
+   {
+    "key": "exfoliation",
+    "n": 3,
+    "medViews": 10100,
+    "medOutlier": 0.315,
+    "medEr": 0.0406,
+    "medSaveRate": 0.0108,
+    "medCommentRate": 0.00089,
+    "winShare": 0.333
+   },
+   {
+    "key": "facials",
+    "n": 1,
+    "medViews": 313,
+    "medOutlier": 0.313,
+    "medEr": 0.0351,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "eyelid twitch",
+    "n": 1,
+    "medViews": 18900,
+    "medOutlier": 0.31,
+    "medEr": 0.0547,
+    "medSaveRate": 0.0115,
+    "medCommentRate": 0.00079,
+    "winShare": 0.0
+   },
+   {
+    "key": "dysport",
+    "n": 2,
+    "medViews": 722.0,
+    "medOutlier": 0.303,
+    "medEr": 0.0283,
+    "medSaveRate": 0.0027,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "visceral fat",
+    "n": 1,
+    "medViews": 935,
+    "medOutlier": 0.301,
+    "medEr": 0.0642,
+    "medSaveRate": 0.0118,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "waist",
+    "n": 1,
+    "medViews": 935,
+    "medOutlier": 0.301,
+    "medEr": 0.0642,
+    "medSaveRate": 0.0118,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "cleanser",
+    "n": 3,
+    "medViews": 529700,
+    "medOutlier": 0.296,
+    "medEr": 0.0318,
+    "medSaveRate": 0.0127,
+    "medCommentRate": 8e-05,
+    "winShare": 0.333
+   },
+   {
+    "key": "fake doctors",
+    "n": 1,
+    "medViews": 4466,
+    "medOutlier": 0.292,
+    "medEr": 0.0184,
+    "medSaveRate": 0.0018,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "plastic surgery",
+    "n": 1,
+    "medViews": 4466,
+    "medOutlier": 0.292,
+    "medEr": 0.0184,
+    "medSaveRate": 0.0018,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "alopecia",
+    "n": 1,
+    "medViews": 7845,
+    "medOutlier": 0.29,
+    "medEr": 0.038,
+    "medSaveRate": 0.0057,
+    "medCommentRate": 0.00089,
+    "winShare": 0.0
+   },
+   {
+    "key": "thyroid",
+    "n": 1,
+    "medViews": 7845,
+    "medOutlier": 0.29,
+    "medEr": 0.038,
+    "medSaveRate": 0.0057,
+    "medCommentRate": 0.00089,
+    "winShare": 0.0
+   },
+   {
+    "key": "contour",
+    "n": 1,
+    "medViews": 2072,
+    "medOutlier": 0.281,
+    "medEr": 0.0246,
+    "medSaveRate": 0.0063,
+    "medCommentRate": 0.00097,
+    "winShare": 0.0
+   },
+   {
+    "key": "nyc dermatologist",
+    "n": 5,
+    "medViews": 7037,
+    "medOutlier": 0.273,
+    "medEr": 0.0401,
+    "medSaveRate": 0.0068,
+    "medCommentRate": 0.00425,
+    "winShare": 0.0
+   },
+   {
+    "key": "unrealistic results",
+    "n": 1,
+    "medViews": 64850,
+    "medOutlier": 0.27,
+    "medEr": 0.0438,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00065,
+    "winShare": 0.0
+   },
+   {
+    "key": "dermatology clinic",
+    "n": 1,
+    "medViews": 971,
+    "medOutlier": 0.247,
+    "medEr": 0.0721,
+    "medSaveRate": 0.0041,
+    "medCommentRate": 0.00103,
+    "winShare": 0.0
+   },
+   {
+    "key": "services",
+    "n": 1,
+    "medViews": 971,
+    "medOutlier": 0.247,
+    "medEr": 0.0721,
+    "medSaveRate": 0.0041,
+    "medCommentRate": 0.00103,
+    "winShare": 0.0
+   },
+   {
+    "key": "injector",
+    "n": 1,
+    "medViews": 29049,
+    "medOutlier": 0.244,
+    "medEr": 0.036,
+    "medSaveRate": 0.0061,
+    "medCommentRate": 0.00096,
+    "winShare": 0.0
+   },
+   {
+    "key": "dermatology office",
+    "n": 5,
+    "medViews": 1562,
+    "medOutlier": 0.232,
+    "medEr": 0.0349,
+    "medSaveRate": 0.003,
+    "medCommentRate": 0.00251,
+    "winShare": 0.0
+   },
+   {
+    "key": "erythema ab igne",
+    "n": 1,
+    "medViews": 26789,
+    "medOutlier": 0.225,
+    "medEr": 0.0013,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00134,
+    "winShare": 0.0
+   },
+   {
+    "key": "heat damage",
+    "n": 1,
+    "medViews": 26789,
+    "medOutlier": 0.225,
+    "medEr": 0.0013,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00134,
+    "winShare": 0.0
+   },
+   {
+    "key": "collagen",
+    "n": 14,
+    "medViews": 3327.5,
+    "medOutlier": 0.223,
+    "medEr": 0.0309,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00247,
+    "winShare": 0.0
+   },
+   {
+    "key": "lasemd",
+    "n": 1,
+    "medViews": 26539,
+    "medOutlier": 0.223,
+    "medEr": 0.0424,
+    "medSaveRate": 0.0001,
+    "medCommentRate": 0.0049,
+    "winShare": 0.0
+   },
+   {
+    "key": "rejuvenation",
+    "n": 1,
+    "medViews": 26539,
+    "medOutlier": 0.223,
+    "medEr": 0.0424,
+    "medSaveRate": 0.0001,
+    "medCommentRate": 0.0049,
+    "winShare": 0.0
+   },
+   {
+    "key": "tightening",
+    "n": 1,
+    "medViews": 292891,
+    "medOutlier": 0.217,
+    "medEr": 0.0074,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00022,
+    "winShare": 0.0
+   },
+   {
+    "key": "health insurance",
+    "n": 1,
+    "medViews": 25137,
+    "medOutlier": 0.211,
+    "medEr": 0.0483,
+    "medSaveRate": 0.0061,
+    "medCommentRate": 0.00529,
+    "winShare": 0.0
+   },
+   {
+    "key": "mohs surgery",
+    "n": 3,
+    "medViews": 11200,
+    "medOutlier": 0.206,
+    "medEr": 0.0184,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0008,
+    "winShare": 0.0
+   },
+   {
+    "key": "topical skincare",
+    "n": 1,
+    "medViews": 24822,
+    "medOutlier": 0.204,
+    "medEr": 0.0392,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00129,
+    "winShare": 0.0
+   },
+   {
+    "key": "esthetician",
+    "n": 2,
+    "medViews": 21867.5,
+    "medOutlier": 0.19,
+    "medEr": 0.0341,
+    "medSaveRate": 0.0037,
+    "medCommentRate": 0.00199,
+    "winShare": 0.0
+   },
+   {
+    "key": "product launch",
+    "n": 1,
+    "medViews": 9657,
+    "medOutlier": 0.189,
+    "medEr": 0.022,
+    "medSaveRate": 0.0022,
+    "medCommentRate": 0.00155,
+    "winShare": 0.0
+   },
+   {
+    "key": "skin booster",
+    "n": 2,
+    "medViews": 723.0,
+    "medOutlier": 0.185,
+    "medEr": 0.0207,
+    "medSaveRate": 0.0023,
+    "medCommentRate": 0.00113,
+    "winShare": 0.0
+   },
+   {
+    "key": "simple routine",
+    "n": 1,
+    "medViews": 921,
+    "medOutlier": 0.185,
+    "medEr": 0.0456,
+    "medSaveRate": 0.0043,
+    "medCommentRate": 0.00217,
+    "winShare": 0.0
+   },
+   {
+    "key": "contraindications",
+    "n": 1,
+    "medViews": 21500,
+    "medOutlier": 0.18,
+    "medEr": 0.0416,
+    "medSaveRate": 0.0061,
+    "medCommentRate": 0.00521,
+    "winShare": 0.0
+   },
+   {
+    "key": "over the counter",
+    "n": 1,
+    "medViews": 3100000,
+    "medOutlier": 0.174,
+    "medEr": 0.0354,
+    "medSaveRate": 0.0161,
+    "medCommentRate": 8e-05,
+    "winShare": 0.0
+   },
+   {
+    "key": "sebaceous filaments",
+    "n": 1,
+    "medViews": 3100000,
+    "medOutlier": 0.174,
+    "medEr": 0.0354,
+    "medSaveRate": 0.0161,
+    "medCommentRate": 8e-05,
+    "winShare": 0.0
+   },
+   {
+    "key": "clinic",
+    "n": 4,
+    "medViews": 1556.5,
+    "medOutlier": 0.171,
+    "medEr": 0.0115,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00185,
+    "winShare": 0.25
+   },
+   {
+    "key": "lifting",
+    "n": 1,
+    "medViews": 471,
+    "medOutlier": 0.161,
+    "medEr": 0.0361,
+    "medSaveRate": 0.0064,
+    "medCommentRate": 0.00212,
+    "winShare": 0.0
+   },
+   {
+    "key": "bakuchiol",
+    "n": 3,
+    "medViews": 3669,
+    "medOutlier": 0.16,
+    "medEr": 0.0077,
+    "medSaveRate": 0.0011,
+    "medCommentRate": 0.00027,
+    "winShare": 0.0
+   },
+   {
+    "key": "sephora kids",
+    "n": 1,
+    "medViews": 18761,
+    "medOutlier": 0.157,
+    "medEr": 0.0087,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00075,
+    "winShare": 0.0
+   },
+   {
+    "key": "children skincare",
+    "n": 1,
+    "medViews": 18761,
+    "medOutlier": 0.157,
+    "medEr": 0.0087,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00075,
+    "winShare": 0.0
+   },
+   {
+    "key": "regulation",
+    "n": 1,
+    "medViews": 18000,
+    "medOutlier": 0.157,
+    "medEr": 0.0398,
+    "medSaveRate": 0.0154,
+    "medCommentRate": 0.00122,
+    "winShare": 0.0
+   },
+   {
+    "key": "bathroom",
+    "n": 2,
+    "medViews": 13200.0,
+    "medOutlier": 0.153,
+    "medEr": 0.0369,
+    "medSaveRate": 0.0012,
+    "medCommentRate": 0.00026,
+    "winShare": 0.0
+   },
+   {
+    "key": "anesthesia",
+    "n": 3,
+    "medViews": 1886,
+    "medOutlier": 0.149,
+    "medEr": 0.0472,
+    "medSaveRate": 0.0064,
+    "medCommentRate": 0.0,
+    "winShare": 0.333
+   },
+   {
+    "key": "patient reaction",
+    "n": 5,
+    "medViews": 56347,
+    "medOutlier": 0.149,
+    "medEr": 0.0472,
+    "medSaveRate": 0.0059,
+    "medCommentRate": 0.0002,
+    "winShare": 0.0
+   },
+   {
+    "key": "double chin",
+    "n": 2,
+    "medViews": 16933.5,
+    "medOutlier": 0.147,
+    "medEr": 0.0284,
+    "medSaveRate": 0.0004,
+    "medCommentRate": 0.00106,
+    "winShare": 0.0
+   },
+   {
+    "key": "conference",
+    "n": 2,
+    "medViews": 17168.5,
+    "medOutlier": 0.145,
+    "medEr": 0.145,
+    "medSaveRate": 0.0478,
+    "medCommentRate": 0.00069,
+    "winShare": 0.0
+   },
+   {
+    "key": "daxxify",
+    "n": 1,
+    "medViews": 140,
+    "medOutlier": 0.14,
+    "medEr": 0.0143,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "radiesse",
+    "n": 1,
+    "medViews": 16386,
+    "medOutlier": 0.138,
+    "medEr": 0.0048,
+    "medSaveRate": 0.0002,
+    "medCommentRate": 0.00464,
+    "winShare": 0.0
+   },
+   {
+    "key": "salicylic acid",
+    "n": 1,
+    "medViews": 162,
+    "medOutlier": 0.136,
+    "medEr": 0.0617,
+    "medSaveRate": 0.0185,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "ethics",
+    "n": 1,
+    "medViews": 7293,
+    "medOutlier": 0.13,
+    "medEr": 0.0269,
+    "medSaveRate": 0.0023,
+    "medCommentRate": 0.00137,
+    "winShare": 0.0
+   },
+   {
+    "key": "spending",
+    "n": 1,
+    "medViews": 48652,
+    "medOutlier": 0.129,
+    "medEr": 0.0207,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00018,
+    "winShare": 0.0
+   },
+   {
+    "key": "stress",
+    "n": 1,
+    "medViews": 674,
+    "medOutlier": 0.115,
+    "medEr": 0.0341,
+    "medSaveRate": 0.0015,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "cortisol",
+    "n": 1,
+    "medViews": 674,
+    "medOutlier": 0.115,
+    "medEr": 0.0341,
+    "medSaveRate": 0.0015,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "age",
+    "n": 1,
+    "medViews": 63620,
+    "medOutlier": 0.112,
+    "medEr": 0.0498,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00112,
+    "winShare": 0.0
+   },
+   {
+    "key": "halloween",
+    "n": 4,
+    "medViews": 1387.0,
+    "medOutlier": 0.109,
+    "medEr": 0.0445,
+    "medSaveRate": 0.0026,
+    "medCommentRate": 0.00538,
+    "winShare": 0.0
+   },
+   {
+    "key": "ageism",
+    "n": 1,
+    "medViews": 7043,
+    "medOutlier": 0.104,
+    "medEr": 0.0603,
+    "medSaveRate": 0.0051,
+    "medCommentRate": 0.00085,
+    "winShare": 0.0
+   },
+   {
+    "key": "strategy",
+    "n": 1,
+    "medViews": 903,
+    "medOutlier": 0.102,
+    "medEr": 0.0033,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "lips",
+    "n": 4,
+    "medViews": 16489.0,
+    "medOutlier": 0.101,
+    "medEr": 0.0343,
+    "medSaveRate": 0.0004,
+    "medCommentRate": 0.0016,
+    "winShare": 0.0
+   },
+   {
+    "key": "topical",
+    "n": 1,
+    "medViews": 107300,
+    "medOutlier": 0.098,
+    "medEr": 0.0842,
+    "medSaveRate": 0.0189,
+    "medCommentRate": 0.00029,
+    "winShare": 0.0
+   },
+   {
+    "key": "nurse life",
+    "n": 1,
+    "medViews": 11273,
+    "medOutlier": 0.095,
+    "medEr": 0.0869,
+    "medSaveRate": 0.003,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "prejuvenation",
+    "n": 16,
+    "medViews": 2351.0,
+    "medOutlier": 0.091,
+    "medEr": 0.0127,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00027,
+    "winShare": 0.0
+   },
+   {
+    "key": "skin tags",
+    "n": 1,
+    "medViews": 10677,
+    "medOutlier": 0.09,
+    "medEr": 0.0007,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00075,
+    "winShare": 0.0
+   },
+   {
+    "key": "laser resurfacing",
+    "n": 1,
+    "medViews": 9584,
+    "medOutlier": 0.08,
+    "medEr": 0.1865,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00052,
+    "winShare": 0.0
+   },
+   {
+    "key": "midface",
+    "n": 1,
+    "medViews": 6871,
+    "medOutlier": 0.079,
+    "medEr": 0.0297,
+    "medSaveRate": 0.0009,
+    "medCommentRate": 0.00015,
+    "winShare": 0.0
+   },
+   {
+    "key": "face shape trend",
+    "n": 1,
+    "medViews": 6871,
+    "medOutlier": 0.079,
+    "medEr": 0.0297,
+    "medSaveRate": 0.0009,
+    "medCommentRate": 0.00015,
+    "winShare": 0.0
+   },
+   {
+    "key": "30s",
+    "n": 1,
+    "medViews": 9300,
+    "medOutlier": 0.078,
+    "medEr": 0.1038,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00108,
+    "winShare": 0.0
+   },
+   {
+    "key": "rf",
+    "n": 1,
+    "medViews": 4675,
+    "medOutlier": 0.077,
+    "medEr": 0.0464,
+    "medSaveRate": 0.0143,
+    "medCommentRate": 0.00086,
+    "winShare": 0.0
+   },
+   {
+    "key": "interior",
+    "n": 1,
+    "medViews": 36210,
+    "medOutlier": 0.074,
+    "medEr": 0.0194,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00014,
+    "winShare": 0.0
+   },
+   {
+    "key": "facial exercises",
+    "n": 1,
+    "medViews": 5858,
+    "medOutlier": 0.068,
+    "medEr": 0.0152,
+    "medSaveRate": 0.0009,
+    "medCommentRate": 0.00051,
+    "winShare": 0.0
+   },
+   {
+    "key": "cellulite",
+    "n": 1,
+    "medViews": 5783,
+    "medOutlier": 0.067,
+    "medEr": 0.0221,
+    "medSaveRate": 0.0026,
+    "medCommentRate": 0.00069,
+    "winShare": 0.0
+   },
+   {
+    "key": "body",
+    "n": 1,
+    "medViews": 5783,
+    "medOutlier": 0.067,
+    "medEr": 0.0221,
+    "medSaveRate": 0.0026,
+    "medCommentRate": 0.00069,
+    "winShare": 0.0
+   },
+   {
+    "key": "collagen supplement",
+    "n": 1,
+    "medViews": 7659,
+    "medOutlier": 0.064,
+    "medEr": 0.1346,
+    "medSaveRate": 0.0082,
+    "medCommentRate": 0.05236,
+    "winShare": 0.0
+   },
+   {
+    "key": "parenting",
+    "n": 1,
+    "medViews": 7205,
+    "medOutlier": 0.06,
+    "medEr": 0.1461,
+    "medSaveRate": 0.0157,
+    "medCommentRate": 0.00389,
+    "winShare": 0.0
+   },
+   {
+    "key": "literacy",
+    "n": 1,
+    "medViews": 7205,
+    "medOutlier": 0.06,
+    "medEr": 0.1461,
+    "medSaveRate": 0.0157,
+    "medCommentRate": 0.00389,
+    "winShare": 0.0
+   },
+   {
+    "key": "drugstore vs medical grade",
+    "n": 3,
+    "medViews": 1511,
+    "medOutlier": 0.055,
+    "medEr": 0.0486,
+    "medSaveRate": 0.0055,
+    "medCommentRate": 0.00275,
+    "winShare": 0.0
+   },
+   {
+    "key": "ultrasound",
+    "n": 1,
+    "medViews": 197900,
+    "medOutlier": 0.055,
+    "medEr": 0.0222,
+    "medSaveRate": 0.0032,
+    "medCommentRate": 0.00035,
+    "winShare": 0.0
+   },
+   {
+    "key": "treatments",
+    "n": 1,
+    "medViews": 12520,
+    "medOutlier": 0.055,
+    "medEr": 0.0557,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00144,
+    "winShare": 0.0
+   },
+   {
+    "key": "korea",
+    "n": 2,
+    "medViews": 900315.0,
+    "medOutlier": 0.053,
+    "medEr": 0.0382,
+    "medSaveRate": 0.0018,
+    "medCommentRate": 0.00101,
+    "winShare": 0.0
+   },
+   {
+    "key": "glowing skin",
+    "n": 1,
+    "medViews": 91500,
+    "medOutlier": 0.046,
+    "medEr": 0.0754,
+    "medSaveRate": 0.0227,
+    "medCommentRate": 0.00198,
+    "winShare": 0.0
+   },
+   {
+    "key": "retinol alternative",
+    "n": 1,
+    "medViews": 3669,
+    "medOutlier": 0.046,
+    "medEr": 0.0065,
+    "medSaveRate": 0.0011,
+    "medCommentRate": 0.00027,
+    "winShare": 0.0
+   },
+   {
+    "key": "misc",
+    "n": 1,
+    "medViews": 42,
+    "medOutlier": 0.042,
+    "medEr": 0.0,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "rash",
+    "n": 5,
+    "medViews": 34200,
+    "medOutlier": 0.038,
+    "medEr": 0.0376,
+    "medSaveRate": 0.0066,
+    "medCommentRate": 0.00094,
+    "winShare": 0.2
+   },
+   {
+    "key": "representation",
+    "n": 1,
+    "medViews": 34200,
+    "medOutlier": 0.038,
+    "medEr": 0.0843,
+    "medSaveRate": 0.0076,
+    "medCommentRate": 0.00094,
+    "winShare": 0.0
+   },
+   {
+    "key": "dermatologic emergency",
+    "n": 1,
+    "medViews": 3812,
+    "medOutlier": 0.031,
+    "medEr": 0.0304,
+    "medSaveRate": 0.0066,
+    "medCommentRate": 0.00105,
+    "winShare": 0.0
+   },
+   {
+    "key": "kybella",
+    "n": 1,
+    "medViews": 2702,
+    "medOutlier": 0.031,
+    "medEr": 0.0255,
+    "medSaveRate": 0.0007,
+    "medCommentRate": 0.00074,
+    "winShare": 0.0
+   },
+   {
+    "key": "la roche posay",
+    "n": 2,
+    "medViews": 2699.5,
+    "medOutlier": 0.029,
+    "medEr": 0.0658,
+    "medSaveRate": 0.0006,
+    "medCommentRate": 0.02689,
+    "winShare": 0.0
+   },
+   {
+    "key": "seasonal change",
+    "n": 1,
+    "medViews": 1721,
+    "medOutlier": 0.028,
+    "medEr": 0.0453,
+    "medSaveRate": 0.0076,
+    "medCommentRate": 0.00116,
+    "winShare": 0.0
+   },
+   {
+    "key": "staff",
+    "n": 1,
+    "medViews": 27,
+    "medOutlier": 0.027,
+    "medEr": 0.0,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "clinic team",
+    "n": 1,
+    "medViews": 3073,
+    "medOutlier": 0.026,
+    "medEr": 0.0397,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00228,
+    "winShare": 0.0
+   },
+   {
+    "key": "party",
+    "n": 1,
+    "medViews": 3073,
+    "medOutlier": 0.026,
+    "medEr": 0.0397,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00228,
+    "winShare": 0.0
+   },
+   {
+    "key": "patches",
+    "n": 1,
+    "medViews": 2464,
+    "medOutlier": 0.021,
+    "medEr": 0.2971,
+    "medSaveRate": 0.0024,
+    "medCommentRate": 0.01786,
+    "winShare": 0.0
+   },
+   {
+    "key": "smile lines",
+    "n": 1,
+    "medViews": 2464,
+    "medOutlier": 0.021,
+    "medEr": 0.2971,
+    "medSaveRate": 0.0024,
+    "medCommentRate": 0.01786,
+    "winShare": 0.0
+   },
+   {
+    "key": "essence",
+    "n": 1,
+    "medViews": 1930,
+    "medOutlier": 0.016,
+    "medEr": 0.6518,
+    "medSaveRate": 0.0611,
+    "medCommentRate": 0.16736,
+    "winShare": 0.0
+   },
+   {
+    "key": "mom life",
+    "n": 1,
+    "medViews": 1883,
+    "medOutlier": 0.015,
+    "medEr": 0.0467,
+    "medSaveRate": 0.0021,
+    "medCommentRate": 0.00212,
+    "winShare": 0.0
+   },
+   {
+    "key": "retail event",
+    "n": 1,
+    "medViews": 1785,
+    "medOutlier": 0.015,
+    "medEr": 0.112,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.05322,
+    "winShare": 0.0
+   },
+   {
+    "key": "ask a dermatologist",
+    "n": 1,
+    "medViews": 1392,
+    "medOutlier": 0.014,
+    "medEr": 4.9928,
+    "medSaveRate": 0.0108,
+    "medCommentRate": 0.08118,
+    "winShare": 0.0
+   },
+   {
+    "key": "skincare over 40",
+    "n": 1,
+    "medViews": 1585,
+    "medOutlier": 0.013,
+    "medEr": 0.0877,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.01136,
+    "winShare": 0.0
+   },
+   {
+    "key": "dermatologist visit",
+    "n": 2,
+    "medViews": 1175.0,
+    "medOutlier": 0.01,
+    "medEr": 0.0188,
+    "medSaveRate": 0.0028,
+    "medCommentRate": 0.00256,
+    "winShare": 0.0
+   },
+   {
+    "key": "diy masks",
+    "n": 1,
+    "medViews": 1212,
+    "medOutlier": 0.01,
+    "medEr": 0.0305,
+    "medSaveRate": 0.0033,
+    "medCommentRate": 0.00083,
+    "winShare": 0.0
+   },
+   {
+    "key": "imaging",
+    "n": 1,
+    "medViews": 11314,
+    "medOutlier": 0.01,
+    "medEr": 0.0761,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00787,
+    "winShare": 0.0
+   },
+   {
+    "key": "hair oiling",
+    "n": 2,
+    "medViews": 831.5,
+    "medOutlier": 0.009,
+    "medEr": 0.0832,
+    "medSaveRate": 0.0004,
+    "medCommentRate": 0.00823,
+    "winShare": 0.0
+   },
+   {
+    "key": "rejuran",
+    "n": 1,
+    "medViews": 431,
+    "medOutlier": 0.009,
+    "medEr": 0.0696,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00232,
+    "winShare": 0.0
+   },
+   {
+    "key": "plasma",
+    "n": 1,
+    "medViews": 664,
+    "medOutlier": 0.006,
+    "medEr": 0.8328,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.02711,
+    "winShare": 0.0
+   },
+   {
+    "key": "pros and cons",
+    "n": 1,
+    "medViews": 136,
+    "medOutlier": 0.005,
+    "medEr": 0.0074,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "rodan and fields",
+    "n": 1,
+    "medViews": 126,
+    "medOutlier": 0.001,
+    "medEr": 0.0794,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.02381,
+    "winShare": 0.0
+   },
+   {
+    "key": "mlm",
+    "n": 1,
+    "medViews": 126,
+    "medOutlier": 0.001,
+    "medEr": 0.0794,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.02381,
+    "winShare": 0.0
+   },
+   {
+    "key": "discount",
+    "n": 1,
+    "medViews": 69,
+    "medOutlier": 0.001,
+    "medEr": 0.029,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "membership",
+    "n": 1,
+    "medViews": 69,
+    "medOutlier": 0.001,
+    "medEr": 0.029,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   },
+   {
+    "key": "med spa services",
+    "n": 1,
+    "medViews": 70,
+    "medOutlier": 0.001,
+    "medEr": 0.0429,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.0,
+    "winShare": 0.0
+   }
+  ],
   "source": [
    {
     "key": "search",
-    "n": 568,
-    "medViews": 106350.0,
-    "medOutlier": 1.175,
-    "medEr": 0.0331,
-    "medSaveRate": 0.0047,
-    "medCommentRate": 0.00058,
-    "winShare": 0.18
+    "n": 752,
+    "medViews": 103279.0,
+    "medOutlier": 1.344,
+    "medEr": 0.0267,
+    "medSaveRate": 0.0026,
+    "medCommentRate": 0.00048,
+    "winShare": 0.205
+   },
+   {
+    "key": "benchmark",
+    "n": 170,
+    "medViews": 6278.5,
+    "medOutlier": 0.946,
+    "medEr": 0.0377,
+    "medSaveRate": 0.0045,
+    "medCommentRate": 0.00068,
+    "winShare": 0.1
    }
   ]
  },
  "byPlatform": {
   "genre": {
-   "tiktok": [],
-   "instagram": [],
-   "youtube": []
+   "tiktok": [
+    {
+     "key": "skin-cancer-awareness",
+     "n": 17,
+     "medViews": 88800,
+     "medOutlier": 31.334,
+     "medEr": 0.0109,
+     "medSaveRate": 0.0021,
+     "medCommentRate": 0.00026,
+     "winShare": 0.529
+    },
+    {
+     "key": "before-after",
+     "n": 19,
+     "medViews": 304100,
+     "medOutlier": 8.108,
+     "medEr": 0.0225,
+     "medSaveRate": 0.006,
+     "medCommentRate": 0.00021,
+     "winShare": 0.474
+    },
+    {
+     "key": "patient-story / testimonial",
+     "n": 40,
+     "medViews": 141750.0,
+     "medOutlier": 3.223,
+     "medEr": 0.0333,
+     "medSaveRate": 0.0042,
+     "medCommentRate": 0.00056,
+     "winShare": 0.225
+    },
+    {
+     "key": "routine",
+     "n": 22,
+     "medViews": 223000.0,
+     "medOutlier": 1.313,
+     "medEr": 0.0675,
+     "medSaveRate": 0.0186,
+     "medCommentRate": 0.00048,
+     "winShare": 0.227
+    },
+    {
+     "key": "ad / promo",
+     "n": 50,
+     "medViews": 12700.0,
+     "medOutlier": 1.301,
+     "medEr": 0.0215,
+     "medSaveRate": 0.0037,
+     "medCommentRate": 0.00018,
+     "winShare": 0.24
+    },
+    {
+     "key": "procedure-POV",
+     "n": 21,
+     "medViews": 34300,
+     "medOutlier": 1.256,
+     "medEr": 0.0237,
+     "medSaveRate": 0.0036,
+     "medCommentRate": 0.00029,
+     "winShare": 0.19
+    },
+    {
+     "key": "myth-bust",
+     "n": 36,
+     "medViews": 30950.0,
+     "medOutlier": 1.253,
+     "medEr": 0.045,
+     "medSaveRate": 0.0072,
+     "medCommentRate": 0.00093,
+     "winShare": 0.194
+    },
+    {
+     "key": "trend-commentary",
+     "n": 28,
+     "medViews": 61250.0,
+     "medOutlier": 1.179,
+     "medEr": 0.0295,
+     "medSaveRate": 0.0047,
+     "medCommentRate": 0.00036,
+     "winShare": 0.179
+    },
+    {
+     "key": "day-in-the-life / office",
+     "n": 25,
+     "medViews": 3220,
+     "medOutlier": 1.095,
+     "medEr": 0.0494,
+     "medSaveRate": 0.0059,
+     "medCommentRate": 0.00098,
+     "winShare": 0.08
+    },
+    {
+     "key": "red-flag / what-not-to-do",
+     "n": 16,
+     "medViews": 32350.0,
+     "medOutlier": 1.093,
+     "medEr": 0.0287,
+     "medSaveRate": 0.0056,
+     "medCommentRate": 0.0007,
+     "winShare": 0.125
+    },
+    {
+     "key": "derm-reacts / duet / stitch",
+     "n": 28,
+     "medViews": 97150.0,
+     "medOutlier": 1.089,
+     "medEr": 0.0302,
+     "medSaveRate": 0.0018,
+     "medCommentRate": 0.00055,
+     "winShare": 0.107
+    },
+    {
+     "key": "humor / skit",
+     "n": 35,
+     "medViews": 21600,
+     "medOutlier": 1.012,
+     "medEr": 0.0467,
+     "medSaveRate": 0.0036,
+     "medCommentRate": 0.00044,
+     "winShare": 0.2
+    },
+    {
+     "key": "Q&A / comment-reply",
+     "n": 19,
+     "medViews": 24400,
+     "medOutlier": 1.0,
+     "medEr": 0.0372,
+     "medSaveRate": 0.0097,
+     "medCommentRate": 0.00163,
+     "winShare": 0.105
+    },
+    {
+     "key": "educational-explainer",
+     "n": 97,
+     "medViews": 18900,
+     "medOutlier": 1.0,
+     "medEr": 0.0391,
+     "medSaveRate": 0.0076,
+     "medCommentRate": 0.00054,
+     "winShare": 0.124
+    },
+    {
+     "key": "product-review / drugstore-vs-medical",
+     "n": 55,
+     "medViews": 60400,
+     "medOutlier": 0.928,
+     "medEr": 0.0497,
+     "medSaveRate": 0.0109,
+     "medCommentRate": 0.00045,
+     "winShare": 0.109
+    }
+   ],
+   "instagram": [
+    {
+     "key": "humor / skit",
+     "n": 16,
+     "medViews": 279907.5,
+     "medOutlier": 2.349,
+     "medEr": 0.0188,
+     "medSaveRate": 0.0021,
+     "medCommentRate": 0.00037,
+     "winShare": 0.375
+    },
+    {
+     "key": "skin-cancer-awareness",
+     "n": 10,
+     "medViews": 278013.0,
+     "medOutlier": 2.333,
+     "medEr": 0.0336,
+     "medSaveRate": 0.0031,
+     "medCommentRate": 0.00084,
+     "winShare": 0.4
+    },
+    {
+     "key": "derm-reacts / duet / stitch",
+     "n": 5,
+     "medViews": 213107,
+     "medOutlier": 1.789,
+     "medEr": 0.0275,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00088,
+     "winShare": 0.0
+    },
+    {
+     "key": "before-after",
+     "n": 10,
+     "medViews": 161428.5,
+     "medOutlier": 1.355,
+     "medEr": 0.0212,
+     "medSaveRate": 0.0026,
+     "medCommentRate": 0.00052,
+     "winShare": 0.4
+    },
+    {
+     "key": "patient-story / testimonial",
+     "n": 28,
+     "medViews": 145652.0,
+     "medOutlier": 1.223,
+     "medEr": 0.0277,
+     "medSaveRate": 0.0026,
+     "medCommentRate": 0.00113,
+     "winShare": 0.25
+    },
+    {
+     "key": "procedure-POV",
+     "n": 9,
+     "medViews": 121365,
+     "medOutlier": 1.181,
+     "medEr": 0.0484,
+     "medSaveRate": 0.0025,
+     "medCommentRate": 0.00071,
+     "winShare": 0.222
+    },
+    {
+     "key": "educational-explainer",
+     "n": 31,
+     "medViews": 152055,
+     "medOutlier": 1.175,
+     "medEr": 0.0207,
+     "medSaveRate": 0.0042,
+     "medCommentRate": 0.00105,
+     "winShare": 0.194
+    },
+    {
+     "key": "myth-bust",
+     "n": 9,
+     "medViews": 136007,
+     "medOutlier": 1.142,
+     "medEr": 0.0249,
+     "medSaveRate": 0.0066,
+     "medCommentRate": 0.00115,
+     "winShare": 0.111
+    },
+    {
+     "key": "trend-commentary",
+     "n": 16,
+     "medViews": 122833.5,
+     "medOutlier": 1.031,
+     "medEr": 0.0139,
+     "medSaveRate": 0.0048,
+     "medCommentRate": 0.00053,
+     "winShare": 0.188
+    },
+    {
+     "key": "product-review / drugstore-vs-medical",
+     "n": 19,
+     "medViews": 103311,
+     "medOutlier": 0.994,
+     "medEr": 0.03,
+     "medSaveRate": 0.005,
+     "medCommentRate": 0.00349,
+     "winShare": 0.105
+    },
+    {
+     "key": "Q&A / comment-reply",
+     "n": 4,
+     "medViews": 74069.5,
+     "medOutlier": 0.72,
+     "medEr": 0.0557,
+     "medSaveRate": 0.0001,
+     "medCommentRate": 0.00138,
+     "winShare": 0.0
+    },
+    {
+     "key": "ad / promo",
+     "n": 40,
+     "medViews": 73481.0,
+     "medOutlier": 0.665,
+     "medEr": 0.0411,
+     "medSaveRate": 0.0012,
+     "medCommentRate": 0.00091,
+     "winShare": 0.175
+    },
+    {
+     "key": "red-flag / what-not-to-do",
+     "n": 12,
+     "medViews": 66970.5,
+     "medOutlier": 0.562,
+     "medEr": 0.0169,
+     "medSaveRate": 0.0008,
+     "medCommentRate": 0.00084,
+     "winShare": 0.25
+    },
+    {
+     "key": "routine",
+     "n": 15,
+     "medViews": 45652,
+     "medOutlier": 0.383,
+     "medEr": 0.0355,
+     "medSaveRate": 0.0061,
+     "medCommentRate": 0.00251,
+     "winShare": 0.067
+    },
+    {
+     "key": "day-in-the-life / office",
+     "n": 3,
+     "medViews": 31165,
+     "medOutlier": 0.262,
+     "medEr": 0.0313,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00138,
+     "winShare": 0.0
+    },
+    {
+     "key": "price / what-it-costs",
+     "n": 1,
+     "medViews": 29049,
+     "medOutlier": 0.244,
+     "medEr": 0.036,
+     "medSaveRate": 0.0061,
+     "medCommentRate": 0.00096,
+     "winShare": 0.0
+    }
+   ],
+   "youtube": [
+    {
+     "key": "before-after",
+     "n": 24,
+     "medViews": 229809.5,
+     "medOutlier": 21.316,
+     "medEr": 0.0054,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00023,
+     "winShare": 0.5
+    },
+    {
+     "key": "Q&A / comment-reply",
+     "n": 1,
+     "medViews": 11530406,
+     "medOutlier": 20.372,
+     "medEr": 0.0608,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00026,
+     "winShare": 0.0
+    },
+    {
+     "key": "ad / promo",
+     "n": 7,
+     "medViews": 12990,
+     "medOutlier": 12.99,
+     "medEr": 0.0046,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00018,
+     "winShare": 0.143
+    },
+    {
+     "key": "procedure-POV",
+     "n": 13,
+     "medViews": 696069,
+     "medOutlier": 12.663,
+     "medEr": 0.0069,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00019,
+     "winShare": 0.385
+    },
+    {
+     "key": "day-in-the-life / office",
+     "n": 7,
+     "medViews": 33621,
+     "medOutlier": 3.887,
+     "medEr": 0.0194,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00015,
+     "winShare": 0.0
+    },
+    {
+     "key": "humor / skit",
+     "n": 6,
+     "medViews": 116511.5,
+     "medOutlier": 3.29,
+     "medEr": 0.0151,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00028,
+     "winShare": 0.167
+    },
+    {
+     "key": "skin-cancer-awareness",
+     "n": 11,
+     "medViews": 112102,
+     "medOutlier": 2.915,
+     "medEr": 0.0076,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.0001,
+     "winShare": 0.091
+    },
+    {
+     "key": "myth-bust",
+     "n": 10,
+     "medViews": 33980.0,
+     "medOutlier": 1.412,
+     "medEr": 0.0219,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00118,
+     "winShare": 0.0
+    },
+    {
+     "key": "red-flag / what-not-to-do",
+     "n": 2,
+     "medViews": 738898.5,
+     "medOutlier": 1.054,
+     "medEr": 0.0174,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00024,
+     "winShare": 0.0
+    },
+    {
+     "key": "patient-story / testimonial",
+     "n": 10,
+     "medViews": 29084.0,
+     "medOutlier": 1.034,
+     "medEr": 0.0151,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00042,
+     "winShare": 0.1
+    },
+    {
+     "key": "educational-explainer",
+     "n": 47,
+     "medViews": 61556,
+     "medOutlier": 1.0,
+     "medEr": 0.0173,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00033,
+     "winShare": 0.106
+    },
+    {
+     "key": "derm-reacts / duet / stitch",
+     "n": 11,
+     "medViews": 260398,
+     "medOutlier": 1.0,
+     "medEr": 0.0339,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00042,
+     "winShare": 0.091
+    },
+    {
+     "key": "trend-commentary",
+     "n": 18,
+     "medViews": 104147.5,
+     "medOutlier": 0.984,
+     "medEr": 0.0175,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00057,
+     "winShare": 0.111
+    },
+    {
+     "key": "product-review / drugstore-vs-medical",
+     "n": 7,
+     "medViews": 1952,
+     "medOutlier": 0.777,
+     "medEr": 0.0275,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.0005,
+     "winShare": 0.0
+    },
+    {
+     "key": "routine",
+     "n": 10,
+     "medViews": 43569.0,
+     "medOutlier": 0.552,
+     "medEr": 0.0288,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00016,
+     "winShare": 0.2
+    },
+    {
+     "key": "price / what-it-costs",
+     "n": 2,
+     "medViews": 24756.5,
+     "medOutlier": 0.495,
+     "medEr": 0.0202,
+     "medSaveRate": 0.0,
+     "medCommentRate": 9e-05,
+     "winShare": 0.0
+    }
+   ]
   },
   "format": {
-   "tiktok": [],
-   "instagram": [],
-   "youtube": []
+   "tiktok": [
+    {
+     "key": "text-on-screen only",
+     "n": 100,
+     "medViews": 108700.0,
+     "medOutlier": 1.504,
+     "medEr": 0.0306,
+     "medSaveRate": 0.004,
+     "medCommentRate": 0.00021,
+     "winShare": 0.23
+    },
+    {
+     "key": "voiceover-over-procedure",
+     "n": 31,
+     "medViews": 6306,
+     "medOutlier": 1.293,
+     "medEr": 0.022,
+     "medSaveRate": 0.0031,
+     "medCommentRate": 0.00029,
+     "winShare": 0.194
+    },
+    {
+     "key": "vlog",
+     "n": 71,
+     "medViews": 51100,
+     "medOutlier": 1.273,
+     "medEr": 0.0365,
+     "medSaveRate": 0.0055,
+     "medCommentRate": 0.0006,
+     "winShare": 0.225
+    },
+    {
+     "key": "talking-head",
+     "n": 198,
+     "medViews": 23650.0,
+     "medOutlier": 1.099,
+     "medEr": 0.0379,
+     "medSaveRate": 0.0068,
+     "medCommentRate": 0.00087,
+     "winShare": 0.157
+    },
+    {
+     "key": "stitch/duet",
+     "n": 29,
+     "medViews": 82900,
+     "medOutlier": 1.086,
+     "medEr": 0.0303,
+     "medSaveRate": 0.0019,
+     "medCommentRate": 0.0004,
+     "winShare": 0.103
+    },
+    {
+     "key": "talking-head + b-roll",
+     "n": 72,
+     "medViews": 81450.0,
+     "medOutlier": 0.962,
+     "medEr": 0.0433,
+     "medSaveRate": 0.0097,
+     "medCommentRate": 0.00037,
+     "winShare": 0.208
+    },
+    {
+     "key": "green-screen",
+     "n": 6,
+     "medViews": 8557.0,
+     "medOutlier": 0.917,
+     "medEr": 0.052,
+     "medSaveRate": 0.0061,
+     "medCommentRate": 0.00128,
+     "winShare": 0.0
+    },
+    {
+     "key": "carousel",
+     "n": 1,
+     "medViews": 34200,
+     "medOutlier": 0.038,
+     "medEr": 0.0843,
+     "medSaveRate": 0.0076,
+     "medCommentRate": 0.00094,
+     "winShare": 0.0
+    }
+   ],
+   "instagram": [
+    {
+     "key": "green-screen",
+     "n": 1,
+     "medViews": 224907,
+     "medOutlier": 1.888,
+     "medEr": 0.0715,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00088,
+     "winShare": 0.0
+    },
+    {
+     "key": "stitch/duet",
+     "n": 4,
+     "medViews": 157074.5,
+     "medOutlier": 1.383,
+     "medEr": 0.0157,
+     "medSaveRate": 0.0019,
+     "medCommentRate": 0.00072,
+     "winShare": 0.0
+    },
+    {
+     "key": "voiceover-over-procedure",
+     "n": 15,
+     "medViews": 135288,
+     "medOutlier": 1.237,
+     "medEr": 0.0484,
+     "medSaveRate": 0.0028,
+     "medCommentRate": 0.00086,
+     "winShare": 0.133
+    },
+    {
+     "key": "talking-head",
+     "n": 54,
+     "medViews": 138805.5,
+     "medOutlier": 1.165,
+     "medEr": 0.0362,
+     "medSaveRate": 0.0066,
+     "medCommentRate": 0.0011,
+     "winShare": 0.167
+    },
+    {
+     "key": "text-on-screen only",
+     "n": 46,
+     "medViews": 135910.0,
+     "medOutlier": 1.142,
+     "medEr": 0.0181,
+     "medSaveRate": 0.0012,
+     "medCommentRate": 0.00048,
+     "winShare": 0.326
+    },
+    {
+     "key": "carousel",
+     "n": 2,
+     "medViews": 127359.5,
+     "medOutlier": 1.069,
+     "medEr": 0.0573,
+     "medSaveRate": 0.0031,
+     "medCommentRate": 0.02866,
+     "winShare": 0.0
+    },
+    {
+     "key": "vlog",
+     "n": 37,
+     "medViews": 99499,
+     "medOutlier": 0.866,
+     "medEr": 0.0297,
+     "medSaveRate": 0.0018,
+     "medCommentRate": 0.00073,
+     "winShare": 0.27
+    },
+    {
+     "key": "talking-head + b-roll",
+     "n": 69,
+     "medViews": 98050,
+     "medOutlier": 0.849,
+     "medEr": 0.0292,
+     "medSaveRate": 0.0039,
+     "medCommentRate": 0.00121,
+     "winShare": 0.145
+    }
+   ],
+   "youtube": [
+    {
+     "key": "voiceover-over-procedure",
+     "n": 28,
+     "medViews": 207762.0,
+     "medOutlier": 19.023,
+     "medEr": 0.0057,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00015,
+     "winShare": 0.464
+    },
+    {
+     "key": "vlog",
+     "n": 24,
+     "medViews": 127009.5,
+     "medOutlier": 4.789,
+     "medEr": 0.0166,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00021,
+     "winShare": 0.25
+    },
+    {
+     "key": "text-on-screen only",
+     "n": 26,
+     "medViews": 101414.0,
+     "medOutlier": 2.78,
+     "medEr": 0.0054,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00023,
+     "winShare": 0.192
+    },
+    {
+     "key": "talking-head + b-roll",
+     "n": 28,
+     "medViews": 46814.5,
+     "medOutlier": 1.216,
+     "medEr": 0.0202,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.0004,
+     "winShare": 0.107
+    },
+    {
+     "key": "stitch/duet",
+     "n": 12,
+     "medViews": 535343.0,
+     "medOutlier": 1.042,
+     "medEr": 0.0372,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00046,
+     "winShare": 0.083
+    },
+    {
+     "key": "talking-head",
+     "n": 68,
+     "medViews": 39286.5,
+     "medOutlier": 0.853,
+     "medEr": 0.0188,
+     "medSaveRate": 0.0,
+     "medCommentRate": 0.00048,
+     "winShare": 0.044
+    }
+   ]
   }
  },
  "relevant": {
-  "genre": []
+  "genre": [
+   {
+    "key": "before-after",
+    "n": 47,
+    "medViews": 210927,
+    "medOutlier": 5.168,
+    "medEr": 0.0103,
+    "medSaveRate": 0.0,
+    "medCommentRate": 0.00025,
+    "winShare": 0.426
+   },
+   {
+    "key": "skin-cancer-awareness",
+    "n": 34,
+    "medViews": 115602.0,
+    "medOutlier": 3.284,
+    "medEr": 0.0104,
+    "medSaveRate": 0.0013,
+    "medCommentRate": 0.00026,
+    "winShare": 0.353
+   },
+   {
+    "key": "day-in-the-life / office",
+    "n": 22,
+    "medViews": 12150.0,
+    "medOutlier": 1.947,
+    "medEr": 0.0452,
+    "medSaveRate": 0.0051,
+    "medCommentRate": 0.0006,
+    "winShare": 0.091
+   },
+   {
+    "key": "procedure-POV",
+    "n": 38,
+    "medViews": 120032.5,
+    "medOutlier": 1.321,
+    "medEr": 0.0204,
+    "medSaveRate": 0.0019,
+    "medCommentRate": 0.00027,
+    "winShare": 0.237
+   },
+   {
+    "key": "myth-bust",
+    "n": 50,
+    "medViews": 42196.5,
+    "medOutlier": 1.232,
+    "medEr": 0.0333,
+    "medSaveRate": 0.0061,
+    "medCommentRate": 0.00093,
+    "winShare": 0.1
+   },
+   {
+    "key": "patient-story / testimonial",
+    "n": 60,
+    "medViews": 96086.5,
+    "medOutlier": 1.187,
+    "medEr": 0.027,
+    "medSaveRate": 0.0026,
+    "medCommentRate": 0.00072,
+    "winShare": 0.167
+   },
+   {
+    "key": "red-flag / what-not-to-do",
+    "n": 23,
+    "medViews": 61200,
+    "medOutlier": 1.177,
+    "medEr": 0.019,
+    "medSaveRate": 0.0024,
+    "medCommentRate": 0.00065,
+    "winShare": 0.13
+   },
+   {
+    "key": "trend-commentary",
+    "n": 44,
+    "medViews": 81820.5,
+    "medOutlier": 1.135,
+    "medEr": 0.0201,
+    "medSaveRate": 0.0004,
+    "medCommentRate": 0.00049,
+    "winShare": 0.159
+   },
+   {
+    "key": "derm-reacts / duet / stitch",
+    "n": 43,
+    "medViews": 154700,
+    "medOutlier": 1.086,
+    "medEr": 0.0303,
+    "medSaveRate": 0.0009,
+    "medCommentRate": 0.00058,
+    "winShare": 0.093
+   },
+   {
+    "key": "educational-explainer",
+    "n": 155,
+    "medViews": 45100,
+    "medOutlier": 1.002,
+    "medEr": 0.0276,
+    "medSaveRate": 0.0038,
+    "medCommentRate": 0.0005,
+    "winShare": 0.097
+   },
+   {
+    "key": "ad / promo",
+    "n": 59,
+    "medViews": 31879,
+    "medOutlier": 1.0,
+    "medEr": 0.0219,
+    "medSaveRate": 0.002,
+    "medCommentRate": 0.00027,
+    "winShare": 0.102
+   },
+   {
+    "key": "Q&A / comment-reply",
+    "n": 21,
+    "medViews": 26100,
+    "medOutlier": 0.909,
+    "medEr": 0.0469,
+    "medSaveRate": 0.0097,
+    "medCommentRate": 0.00176,
+    "winShare": 0.0
+   },
+   {
+    "key": "product-review / drugstore-vs-medical",
+    "n": 66,
+    "medViews": 61600.0,
+    "medOutlier": 0.831,
+    "medEr": 0.0475,
+    "medSaveRate": 0.0079,
+    "medCommentRate": 0.00053,
+    "winShare": 0.091
+   },
+   {
+    "key": "routine",
+    "n": 41,
+    "medViews": 65800,
+    "medOutlier": 0.78,
+    "medEr": 0.0456,
+    "medSaveRate": 0.0083,
+    "medCommentRate": 0.00064,
+    "winShare": 0.146
+   },
+   {
+    "key": "humor / skit",
+    "n": 26,
+    "medViews": 46258.5,
+    "medOutlier": 0.543,
+    "medEr": 0.0387,
+    "medSaveRate": 0.0022,
+    "medCommentRate": 0.00042,
+    "winShare": 0.154
+   },
+   {
+    "key": "price / what-it-costs",
+    "n": 2,
+    "medViews": 24756.5,
+    "medOutlier": 0.495,
+    "medEr": 0.0202,
+    "medSaveRate": 0.0,
+    "medCommentRate": 9e-05,
+    "winShare": 0.0
+   }
+  ]
  },
- "ownGenre": [],
- "ownFormat": [],
+ "ownGenre": [
+  {
+   "key": "Q&A / comment-reply",
+   "n": 1,
+   "medViews": 6383,
+   "medOutlier": 7.287,
+   "medEr": 0.0244,
+   "medSaveRate": 0.0045,
+   "medCommentRate": 0.00078,
+   "winShare": 0.0
+  },
+  {
+   "key": "before-after",
+   "n": 8,
+   "medViews": 1505.5,
+   "medOutlier": 2.444,
+   "medEr": 0.0135,
+   "medSaveRate": 0.0,
+   "medCommentRate": 9e-05,
+   "winShare": 0.0
+  },
+  {
+   "key": "red-flag / what-not-to-do",
+   "n": 1,
+   "medViews": 61177,
+   "medOutlier": 1.949,
+   "medEr": 0.0695,
+   "medSaveRate": 0.0,
+   "medCommentRate": 0.00047,
+   "winShare": 0.0
+  },
+  {
+   "key": "product-review / drugstore-vs-medical",
+   "n": 1,
+   "medViews": 50441,
+   "medOutlier": 1.607,
+   "medEr": 0.0642,
+   "medSaveRate": 0.0,
+   "medCommentRate": 0.00032,
+   "winShare": 0.0
+  },
+  {
+   "key": "procedure-POV",
+   "n": 4,
+   "medViews": 997.5,
+   "medOutlier": 1.437,
+   "medEr": 0.0184,
+   "medSaveRate": 0.0,
+   "medCommentRate": 0.001,
+   "winShare": 0.0
+  },
+  {
+   "key": "patient-story / testimonial",
+   "n": 1,
+   "medViews": 1207,
+   "medOutlier": 1.378,
+   "medEr": 0.0091,
+   "medSaveRate": 0.0008,
+   "medCommentRate": 0.0,
+   "winShare": 0.0
+  },
+  {
+   "key": "myth-bust",
+   "n": 1,
+   "medViews": 43124,
+   "medOutlier": 1.374,
+   "medEr": 0.0441,
+   "medSaveRate": 0.0,
+   "medCommentRate": 0.00021,
+   "winShare": 0.0
+  },
+  {
+   "key": "educational-explainer",
+   "n": 44,
+   "medViews": 1011.0,
+   "medOutlier": 1.127,
+   "medEr": 0.0103,
+   "medSaveRate": 0.0,
+   "medCommentRate": 0.0,
+   "winShare": 0.0
+  },
+  {
+   "key": "day-in-the-life / office",
+   "n": 2,
+   "medViews": 969.5,
+   "medOutlier": 1.107,
+   "medEr": 0.0118,
+   "medSaveRate": 0.0024,
+   "medCommentRate": 0.0,
+   "winShare": 0.0
+  },
+  {
+   "key": "ad / promo",
+   "n": 41,
+   "medViews": 507,
+   "medOutlier": 0.804,
+   "medEr": 0.0188,
+   "medSaveRate": 0.0,
+   "medCommentRate": 0.0,
+   "winShare": 0.0
+  },
+  {
+   "key": "skin-cancer-awareness",
+   "n": 3,
+   "medViews": 398,
+   "medOutlier": 0.533,
+   "medEr": 0.0276,
+   "medSaveRate": 0.0,
+   "medCommentRate": 0.0,
+   "winShare": 0.0
+  },
+  {
+   "key": "trend-commentary",
+   "n": 1,
+   "medViews": 14970,
+   "medOutlier": 0.477,
+   "medEr": 0.1276,
+   "medSaveRate": 0.0,
+   "medCommentRate": 0.00033,
+   "winShare": 0.0
+  },
+  {
+   "key": "humor / skit",
+   "n": 1,
+   "medViews": 112,
+   "medOutlier": 0.128,
+   "medEr": 0.0536,
+   "medSaveRate": 0.0089,
+   "medCommentRate": 0.0,
+   "winShare": 0.0
+  }
+ ],
+ "ownFormat": [
+  {
+   "key": "voiceover-over-procedure",
+   "n": 48,
+   "medViews": 1073.0,
+   "medOutlier": 1.541,
+   "medEr": 0.0118,
+   "medSaveRate": 0.0,
+   "medCommentRate": 0.0,
+   "winShare": 0.0
+  },
+  {
+   "key": "talking-head",
+   "n": 22,
+   "medViews": 717.0,
+   "medOutlier": 1.061,
+   "medEr": 0.0204,
+   "medSaveRate": 0.0,
+   "medCommentRate": 0.0,
+   "winShare": 0.0
+  },
+  {
+   "key": "talking-head + b-roll",
+   "n": 25,
+   "medViews": 372,
+   "medOutlier": 0.772,
+   "medEr": 0.0191,
+   "medSaveRate": 0.0,
+   "medCommentRate": 0.0,
+   "winShare": 0.0
+  },
+  {
+   "key": "vlog",
+   "n": 2,
+   "medViews": 8677.5,
+   "medOutlier": 0.762,
+   "medEr": 0.0652,
+   "medSaveRate": 0.0,
+   "medCommentRate": 0.00076,
+   "winShare": 0.0
+  },
+  {
+   "key": "text-on-screen only",
+   "n": 12,
+   "medViews": 1065.0,
+   "medOutlier": 0.562,
+   "medEr": 0.0374,
+   "medSaveRate": 0.0,
+   "medCommentRate": 0.0,
+   "winShare": 0.0
+  }
+ ],
  "winningGenreMix": {
-  "null": 102
+  "derm-reacts / duet / stitch": 4,
+  "trend-commentary": 10,
+  "Q&A / comment-reply": 2,
+  "before-after": 25,
+  "procedure-POV": 11,
+  "ad / promo": 20,
+  "myth-bust": 8,
+  "routine": 8,
+  "educational-explainer": 23,
+  "product-review / drugstore-vs-medical": 8,
+  "patient-story / testimonial": 17,
+  "humor / skit": 14,
+  "skin-cancer-awareness": 14,
+  "red-flag / what-not-to-do": 5,
+  "day-in-the-life / office": 2
  },
  "ownGenreMix": {
-  "null": 109
+  "before-after": 8,
+  "ad / promo": 41,
+  "educational-explainer": 44,
+  "Q&A / comment-reply": 1,
+  "procedure-POV": 4,
+  "red-flag / what-not-to-do": 1,
+  "product-review / drugstore-vs-medical": 1,
+  "patient-story / testimonial": 1,
+  "myth-bust": 1,
+  "day-in-the-life / office": 2,
+  "skin-cancer-awareness": 3,
+  "trend-commentary": 1,
+  "humor / skit": 1
  },
  "creators": [
   {
@@ -102,17 +8874,17 @@
    "wins": 0
   },
   {
-   "handle": "dermangelo",
-   "platform": "tiktok",
-   "n": 7,
-   "medViews": 1200000,
+   "handle": "dermatologysurgeon",
+   "platform": "youtube",
+   "n": 3,
+   "medViews": 810288,
    "wins": 0
   },
   {
-   "handle": "drabby6",
-   "platform": "tiktok",
-   "n": 4,
-   "medViews": 896100.0,
+   "handle": "DrSamEllis",
+   "platform": "youtube",
+   "n": 3,
+   "medViews": 711431,
    "wins": 0
   },
   {
@@ -120,6 +8892,34 @@
    "platform": "instagram",
    "n": 4,
    "medViews": 540524.5,
+   "wins": 0
+  },
+  {
+   "handle": "shereeneidriss",
+   "platform": "youtube",
+   "n": 4,
+   "medViews": 490494.0,
+   "wins": 0
+  },
+  {
+   "handle": "DermAngelo",
+   "platform": "youtube",
+   "n": 7,
+   "medViews": 240172,
+   "wins": 0
+  },
+  {
+   "handle": "drabby6",
+   "platform": "tiktok",
+   "n": 17,
+   "medViews": 121900,
+   "wins": 2
+  },
+  {
+   "handle": "DrDrayzday",
+   "platform": "youtube",
+   "n": 4,
+   "medViews": 121822.5,
    "wins": 0
   },
   {
@@ -144,6 +8944,13 @@
    "wins": 0
   },
   {
+   "handle": "dermangelo",
+   "platform": "tiktok",
+   "n": 22,
+   "medViews": 86600.0,
+   "wins": 2
+  },
+  {
    "handle": "jilliangottlieb",
    "platform": "tiktok",
    "n": 4,
@@ -151,10 +8958,52 @@
    "wins": 0
   },
   {
+   "handle": "shereeneidriss",
+   "platform": "tiktok",
+   "n": 16,
+   "medViews": 60950.0,
+   "wins": 3
+  },
+  {
+   "handle": "aamnaadel",
+   "platform": "tiktok",
+   "n": 15,
+   "medViews": 51100,
+   "wins": 1
+  },
+  {
    "handle": "evolus",
    "platform": "instagram",
    "n": 5,
    "medViews": 34921,
+   "wins": 0
+  },
+  {
+   "handle": "TheDailyDerm",
+   "platform": "youtube",
+   "n": 3,
+   "medViews": 30912,
+   "wins": 1
+  },
+  {
+   "handle": "JillianGottlieb1",
+   "platform": "youtube",
+   "n": 3,
+   "medViews": 30682,
+   "wins": 0
+  },
+  {
+   "handle": "drdrayzday",
+   "platform": "tiktok",
+   "n": 16,
+   "medViews": 27050.0,
+   "wins": 1
+  },
+  {
+   "handle": "dramirkaram",
+   "platform": "youtube",
+   "n": 3,
+   "medViews": 23680,
    "wins": 0
   },
   {
@@ -165,10 +9014,66 @@
    "wins": 0
   },
   {
+   "handle": "skinbydrazi",
+   "platform": "tiktok",
+   "n": 14,
+   "medViews": 4977.5,
+   "wins": 2
+  },
+  {
    "handle": "dr.arielestrada",
    "platform": "tiktok",
    "n": 3,
    "medViews": 3103,
+   "wins": 1
+  },
+  {
+   "handle": "verna_glow",
+   "platform": "tiktok",
+   "n": 12,
+   "medViews": 3060.0,
+   "wins": 3
+  },
+  {
+   "handle": "dr.mamina",
+   "platform": "tiktok",
+   "n": 14,
+   "medViews": 2797.0,
+   "wins": 4
+  },
+  {
+   "handle": "facesworldwide",
+   "platform": "tiktok",
+   "n": 9,
+   "medViews": 1649,
+   "wins": 0
+  },
+  {
+   "handle": "drwhitneybowe",
+   "platform": "tiktok",
+   "n": 14,
+   "medViews": 1535.0,
+   "wins": 2
+  },
+  {
+   "handle": "dralidempsey",
+   "platform": "tiktok",
+   "n": 12,
+   "medViews": 1380.5,
+   "wins": 1
+  },
+  {
+   "handle": "dermdocmalik",
+   "platform": "tiktok",
+   "n": 15,
+   "medViews": 1194,
+   "wins": 1
+  },
+  {
+   "handle": "toralvaidyamd",
+   "platform": "tiktok",
+   "n": 13,
+   "medViews": 531,
    "wins": 1
   }
  ],

@@ -1,0 +1,613 @@
+[
+ {
+  "id": "yo_9PKWX-F80w0",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "melanoma",
+   "skin cancer",
+   "moles"
+  ],
+  "ostad_relevant": true,
+  "why": "A dermatologist walks through melanoma warning signs, a high-stakes checklist viewers save and share."
+ },
+ {
+  "id": "yo_U9nqH9B-Nbw",
+  "genre": "educational-explainer",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "jeuveau",
+   "neuromodulator",
+   "assessment"
+  ],
+  "ostad_relevant": true,
+  "why": "Shows a real assessment, which proves expertise, but it is long and has no opening question or tension."
+ },
+ {
+  "id": "yo_Udg9X-SxoLY",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "skin cycling",
+   "routine"
+  ],
+  "ostad_relevant": true,
+  "why": "Full routine walkthrough is thorough but too long for the platform, so few people finish it."
+ },
+ {
+  "id": "in_CizyLP1gawq",
+  "genre": "trend-commentary",
+  "format": "carousel",
+  "hook_type": "number/stat",
+  "topic_tags": [
+   "skin of color",
+   "beauty standards"
+  ],
+  "ostad_relevant": true,
+  "why": "Opens on a striking survey stat about beauty standards, which drives comments more than treatment interest."
+ },
+ {
+  "id": "ti_7698542110651256087",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "story open",
+  "topic_tags": [
+   "skin of color",
+   "acne",
+   "hyperpigmentation"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Notes from a dark-skin conference\" packages expert insider knowledge as a story, with concrete takeaways."
+ },
+ {
+  "id": "ti_7581455157313948949",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "emface",
+   "lifting"
+  ],
+  "ostad_relevant": false,
+  "why": "Portuguese EMFACE pitch (\"lift without needles\") is clear but salesy and off-market."
+ },
+ {
+  "id": "ti_7614238889938521375",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "stop doing X",
+  "topic_tags": [
+   "bakuchiol",
+   "retinol",
+   "prejuvenation"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Stop tearing your skin up with retinol\" is a stop-doing hook used to sell a TikTok Shop product."
+ },
+ {
+  "id": "in_C8VWbhFRf-K",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "sephora kids",
+   "children skincare"
+  ],
+  "ostad_relevant": false,
+  "why": "Portuguese warning about kids using adult skincare is timely but long and off-market."
+ },
+ {
+  "id": "ti_7694670927640022294",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "exosomes",
+   "regulation"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Know this before booking\" gives a buyer's checklist for a hyped, loosely regulated trend."
+ },
+ {
+  "id": "ti_7698354997502741782",
+  "genre": "procedure-POV",
+  "format": "vlog",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "fraxel",
+   "laser",
+   "acne scars"
+  ],
+  "ostad_relevant": true,
+  "why": "Eight-second \"burn it\" in-treatment joke makes an intense laser look fun and relatable."
+ },
+ {
+  "id": "yo_Gt_Ogifh5_A",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "filler",
+   "neurotoxin",
+   "science"
+  ],
+  "ostad_relevant": true,
+  "why": "Clear science-of-injectables explainer from the doctor; credible but has no hook for cold viewers."
+ },
+ {
+  "id": "in_Dd36hmqMZjS",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "hyperpigmentation",
+   "laser"
+  ],
+  "ostad_relevant": false,
+  "why": "Persian \"don't just laser these spots\" warning has a strong angle but is off-market by language."
+ },
+ {
+  "id": "ti_7680129676290968864",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "rosacea"
+  ],
+  "ostad_relevant": true,
+  "why": "A 14-second \"team rosacea\" meme lets a huge audience see themselves in it and share."
+ },
+ {
+  "id": "ti_7702468001164971277",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "anesthesia",
+   "patient reaction"
+  ],
+  "ostad_relevant": false,
+  "why": "A compilation of funny anesthesia reactions with a rate-them prompt is generic medical entertainment."
+ },
+ {
+  "id": "ti_7617548342783954190",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "skin cycling",
+   "routine"
+  ],
+  "ostad_relevant": true,
+  "why": "\"The exact way I skin cycle\" promises a copyable method and delivers it step by step."
+ },
+ {
+  "id": "ti_7703298072129867021",
+  "genre": "patient-story / testimonial",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "botox",
+   "dysport",
+   "daxxify"
+  ],
+  "ostad_relevant": true,
+  "why": "Personal toxin-schedule chat ending with \"has anyone tried Daxxify?\" pulls peer comments but has no reach hook."
+ },
+ {
+  "id": "yo_1ip3rM11VVA",
+  "genre": "routine",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "skin cycling"
+  ],
+  "ostad_relevant": true,
+  "why": "Eleven-second skin-cycling visual summary works as a quick, saveable reminder."
+ },
+ {
+  "id": "in_DebtK4dBaar",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "number/stat",
+  "topic_tags": [
+   "sculptra",
+   "prp",
+   "radiesse",
+   "microneedling"
+  ],
+  "ostad_relevant": true,
+  "why": "\"35+? three favorites\" targets an age group and gives a short numbered list."
+ },
+ {
+  "id": "ti_7703285741199101206",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "number/stat",
+  "topic_tags": [
+   "azelaic acid",
+   "rosacea",
+   "texture"
+  ],
+  "ostad_relevant": true,
+  "why": "\"One product, three uses\" makes a value-for-money case in 17 seconds."
+ },
+ {
+  "id": "ti_7703241962173844767",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "acne",
+   "salicylic acid",
+   "benzoyl peroxide"
+  ],
+  "ostad_relevant": true,
+  "why": "Sponsored explainer of two acne actives is useful but reads as an ad."
+ },
+ {
+  "id": "ti_7701824349019344158",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "skincare",
+   "bathroom"
+  ],
+  "ostad_relevant": true,
+  "why": "Duet \"would you stay here\" game turns someone else's bathroom tour into derm commentary."
+ },
+ {
+  "id": "ti_7701048557872221453",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "topic_tags": [
+   "nyc dermatologist",
+   "laser"
+  ],
+  "ostad_relevant": true,
+  "why": "\"I ditched my derm practice\" is a gossip-style opener that resolves into following a favorite doctor."
+ },
+ {
+  "id": "ti_7460851798996307218",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "filler",
+   "full face"
+  ],
+  "ostad_relevant": true,
+  "why": "An eight-second before/after flip with \"before or after?\" invites guesses and rewatches."
+ },
+ {
+  "id": "ti_7547926132495093048",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "baby botox",
+   "ethics"
+  ],
+  "ostad_relevant": false,
+  "why": "Spanish take that baby Botox for teens is unethical; good contrarian angle, off-market."
+ },
+ {
+  "id": "yo_hQD8V6Bk_O8",
+  "genre": "price / what-it-costs",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "med spa",
+   "spending"
+  ],
+  "ostad_relevant": true,
+  "why": "\"How much do you spend at the med spa?\" makes spending relatable and pulls comment confessions."
+ },
+ {
+  "id": "ti_7260493315643165994",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "aging",
+   "botox",
+   "sunscreen"
+  ],
+  "ostad_relevant": true,
+  "why": "Aging-filter joke tied to Botox and sunscreen is light and on-brand but has no payoff."
+ },
+ {
+  "id": "ti_7703246736516517141",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "sculptra",
+   "collagen"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Fill or stimulate collagen?\" is a good framing question but Spanish and low production keep reach tiny."
+ },
+ {
+  "id": "ti_7496974715827784990",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "day in the life",
+   "dermatologist"
+  ],
+  "ostad_relevant": true,
+  "why": "Work-to-home derm vlog wins on warmth and personal life rather than skin information."
+ },
+ {
+  "id": "yo_LOPnIRsOBXQ",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "filler",
+   "evolysse",
+   "cold-x"
+  ],
+  "ostad_relevant": true,
+  "why": "Explains a brand's filler technology; too inside-baseball for consumers and has no hook."
+ },
+ {
+  "id": "ti_7698477055096261918",
+  "genre": "humor / skit",
+  "format": "talking-head",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "sephora sale"
+  ],
+  "ostad_relevant": true,
+  "why": "Sephora-sale-as-Super-Bowl skit uses a meme audio for fan engagement, not education."
+ },
+ {
+  "id": "ti_7694314213216374036",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "sunscreen",
+   "skin cancer"
+  ],
+  "ostad_relevant": false,
+  "why": "French \"sunscreen doesn't cause cancer\" myth bust; strong topic, off-market language."
+ },
+ {
+  "id": "ti_7702872525847399711",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "sunscreen",
+   "anti-aging"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Number one anti-aging cream is SPF\" restates a known truth with no new angle or face."
+ },
+ {
+  "id": "ti_7702425322297347346",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "stress",
+   "acne",
+   "cortisol"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Why does your skin break out when stressed?\" asks a common question, but the WhatsApp clinic pitch dilutes it."
+ },
+ {
+  "id": "yo_QFwU3hRqVnQ",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "retinol",
+   "age"
+  ],
+  "ostad_relevant": true,
+  "why": "\"When to start retinol?\" answers a high-search question in under a minute."
+ },
+ {
+  "id": "ti_7701519709795077390",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "skin of color",
+   "hyperpigmentation"
+  ],
+  "ostad_relevant": true,
+  "why": "Reframes uneven pigment as normal biology, which reassures, but has no hook to spread it."
+ },
+ {
+  "id": "ti_7702941412484009247",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "extractions"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Trigger warning\" duet of a messy extraction clip uses gross-out appeal plus expert critique."
+ },
+ {
+  "id": "yo_kQjnKmeFov4",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "skin of color",
+   "laser"
+  ],
+  "ostad_relevant": true,
+  "why": "Seven-second statement that melanin-rich skin needs a conservative approach; the idea is right but too thin."
+ },
+ {
+  "id": "ti_7459786402021133611",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "collagen mask",
+   "prejuvenation"
+  ],
+  "ostad_relevant": true,
+  "why": "Brand mask ad with an inspirational quote opener; aesthetic only, no derm credibility."
+ },
+ {
+  "id": "yo_bx7818bX9V0",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "patient reaction"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Wait for the last reaction\" makes viewers watch to the end for the payoff."
+ },
+ {
+  "id": "ti_7478445364006227205",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "topic_tags": [
+   "botox",
+   "celebrities",
+   "ageism"
+  ],
+  "ostad_relevant": false,
+  "why": "Long Portuguese commentary on Nicole Kidman's Botox and ageism; trend-y but off-market."
+ },
+ {
+  "id": "ti_7617812077498944790",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "topic_tags": [
+   "mole removal",
+   "face"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Today I'm getting face surgery\" overstates a mole removal for intrigue, then shows it's simple."
+ },
+ {
+  "id": "ti_7606094212030827790",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "text-on-screen only",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "exosomes",
+   "pores"
+  ],
+  "ostad_relevant": true,
+  "why": "Calls exosomes \"the most underrated ingredient for pores\" over close-up visuals, a quick K-beauty claim."
+ },
+ {
+  "id": "ti_7477463631941094698",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "salmon sperm",
+   "pdrn",
+   "korea"
+  ],
+  "ostad_relevant": true,
+  "why": "Six-second \"salmon sperm injected into my face\" shock line plus visible bumps drives 1.8M views of disbelief."
+ },
+ {
+  "id": "yo_GTNHj2OpEkE",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "lips",
+   "makeup"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Why I hate overlined lips\" is a strong opinion on a visible beauty trend, delivered as a stitch."
+ },
+ {
+  "id": "yo_Rm3cVpSH_fQ",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "melasma",
+   "strategy"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Melasma isn't a one-product problem\" is the right message but too short to deliver it."
+ },
+ {
+  "id": "ti_7702943918689717535",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "lips",
+   "makeup"
+  ],
+  "ostad_relevant": true,
+  "why": "Same \"I hate overlined lips\" stitch reposted; the opinion still carries it."
+ },
+ {
+  "id": "ti_7558952993945685262",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "exosomes",
+   "topical",
+   "glow"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Facials in this economy?\" sells a cheaper at-home exosome product as the alternative, as a sponsored pick."
+ },
+ {
+  "id": "ti_7610558168883678495",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "microneedling",
+   "prp"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Do you see a difference?\" before/after gets viewers judging and commenting."
+ },
+ {
+  "id": "in_DeUZQhWR8ND",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "topic_tags": [
+   "nurse life"
+  ],
+  "ostad_relevant": false,
+  "why": "Spanish nurse alarm meme; off-topic lifestyle."
+ },
+ {
+  "id": "yo_dgsnyITW3ng",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "injectables",
+   "natural results"
+  ],
+  "ostad_relevant": true,
+  "why": "\"Less is more\" philosophy matches what patients want but is told as a long talk with no hook."
+ }
+]

@@ -1,0 +1,610 @@
+[
+ {
+  "id": "ti_7703206589930474782",
+  "genre": "day-in-the-life / office",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "topic_tags": [
+   "residency",
+   "med school"
+  ],
+  "ostad_relevant": false,
+  "why": "A residency-advice chat aimed at med students; good for that audience, but not for patients."
+ },
+ {
+  "id": "ti_7701448431541308694",
+  "genre": "ad / promo",
+  "format": "vlog",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "botox",
+   "lifestyle"
+  ],
+  "ostad_relevant": true,
+  "why": "A 'PJs, Pilates, Botox' luxury-lifestyle montage sells aspiration, not information."
+ },
+ {
+  "id": "yo_m-UWVuFDPdk",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "skin barrier",
+   "routine"
+  ],
+  "ostad_relevant": true,
+  "why": "A full barrier routine with every product linked below works as a shopping list, but at 177 seconds it is long."
+ },
+ {
+  "id": "ti_7694429817810324749",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "pores",
+   "myths"
+  ],
+  "ostad_relevant": true,
+  "why": "A chantable slogan ('pores aren't doors') busts the open/close pore myth in 7 seconds."
+ },
+ {
+  "id": "in_DegKF_qSq-n",
+  "genre": "humor / skit",
+  "format": "talking-head",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "threadlift",
+   "comedy"
+  ],
+  "ostad_relevant": false,
+  "why": "An Indonesian doctor-comedy skit about thread lifts; the humor travels, the language limits relevance."
+ },
+ {
+  "id": "in_DCzpo_4TV6s",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "microneedling",
+   "skinpen",
+   "asmr"
+  ],
+  "ostad_relevant": true,
+  "why": "ASMR microneedling footage paired with honest downtime facts (5-7 days) is both soothing and useful."
+ },
+ {
+  "id": "in_Dc2DCXxS-k3",
+  "genre": "patient-story / testimonial",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "topic_tags": [
+   "basal cell carcinoma",
+   "skin cancer",
+   "mohs"
+  ],
+  "ostad_relevant": true,
+  "why": "A patient's ongoing BCC journey builds a serialized audience; the castor-oil mention is a misinformation opening for a Mohs surgeon."
+ },
+ {
+  "id": "ti_7701445214468148482",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "polynucleotides",
+   "filler"
+  ],
+  "ostad_relevant": true,
+  "why": "A clinic package promo bundling a trendy skin booster with filler; no teaching."
+ },
+ {
+  "id": "ti_7696193874678582559",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "prp",
+   "microneedling",
+   "under eyes"
+  ],
+  "ostad_relevant": true,
+  "why": "'NYC women are getting PRP under their eyes' creates trend FOMO, and an aging derm's honesty sells it."
+ },
+ {
+  "id": "ti_7667007453183134983",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "story open",
+  "topic_tags": [
+   "urology",
+   "surgery"
+  ],
+  "ostad_relevant": false,
+  "why": "A Spanish surgical case promo; a name-match result unrelated to skin."
+ },
+ {
+  "id": "yo_2Q1FQAGmrkg",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "tretinoin",
+   "peeling"
+  ],
+  "ostad_relevant": true,
+  "why": "Solves the #1 tretinoin complaint (peeling) with a concrete fix, which drove 500k+ views."
+ },
+ {
+  "id": "in_DWNCZZ3gJkQ",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "topic_tags": [
+   "tattoo removal",
+   "brows"
+  ],
+  "ostad_relevant": true,
+  "why": "A 'birthday gift gone wrong' brow-disaster story told in parts keeps viewers coming back for the fix."
+ },
+ {
+  "id": "ti_7694756856400448798",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "question",
+  "topic_tags": [
+   "morning routine",
+   "wellness"
+  ],
+  "ostad_relevant": true,
+  "why": "A personal morning-routine peek ending in a question; good for warmth, thin on value."
+ },
+ {
+  "id": "yo_7BFJbIE76Fc",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "story open",
+  "topic_tags": [
+   "jeuveau",
+   "botox",
+   "times square"
+  ],
+  "ostad_relevant": true,
+  "why": "A Times Square billboard is strong social proof, but the post is framed as gratitude rather than a viewer benefit."
+ },
+ {
+  "id": "ti_7699531851769187598",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "facial hair",
+   "pcos",
+   "laser hair removal"
+  ],
+  "ostad_relevant": true,
+  "why": "A funny first line ('tweezers in a long-term relationship') makes an embarrassing topic approachable."
+ },
+ {
+  "id": "in_DeYE89ksOp4",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "prejuvenation",
+   "before after"
+  ],
+  "ostad_relevant": true,
+  "why": "'I'd start at 21 if I knew' plus a result reveal sells prevention through regret."
+ },
+ {
+  "id": "ti_7650447966053928214",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "topic_tags": [
+   "co2 laser",
+   "recovery"
+  ],
+  "ostad_relevant": true,
+  "why": "Day-by-day CO2 recovery diary; people considering the laser follow to see the healing."
+ },
+ {
+  "id": "ti_7701702329099210015",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "topic_tags": [
+   "ai misinformation",
+   "derm reacts"
+  ],
+  "ostad_relevant": true,
+  "why": "Reacting to absurd AI health advice ('pour peroxide on your feet') combines outrage, humor, and correction."
+ },
+ {
+  "id": "ti_7695983821174361357",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "sunlight",
+   "wellness"
+  ],
+  "ostad_relevant": false,
+  "why": "A general wellness tip (morning sun) with no skin angle; low stakes, so low views."
+ },
+ {
+  "id": "yo_rYyd4yQIQ6E",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "ellacor",
+   "skin tightening"
+  ],
+  "ostad_relevant": true,
+  "why": "Dr. Ostad explains a new device and who it is for; clear, but it opens on the device name, not a patient problem."
+ },
+ {
+  "id": "ti_7702505992461864223",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "azelaic acid",
+   "tretinoin"
+  ],
+  "ostad_relevant": true,
+  "why": "A 10-second hashtag-only clip; no hook text to pull viewers."
+ },
+ {
+  "id": "yo_i-gADSYhHy8",
+  "genre": "ad / promo",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "morpheus8",
+   "neck"
+  ],
+  "ostad_relevant": true,
+  "why": "Feature copy over Morpheus8 footage; the neck lines angle is good, but there is no hook."
+ },
+ {
+  "id": "ti_7686582748986854686",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "number/stat",
+  "topic_tags": [
+   "fall skincare",
+   "dehydration"
+  ],
+  "ostad_relevant": true,
+  "why": "'3 skin issues I see every fall' is a seasonal, numbered list that feels timely."
+ },
+ {
+  "id": "in_DYAlHy_xhMM",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "filler",
+   "complications",
+   "aesthetics culture"
+  ],
+  "ostad_relevant": true,
+  "why": "Pushes back on the backlash against people who question fillers; values-driven commentary drives debate."
+ },
+ {
+  "id": "ti_7291391360932826410",
+  "genre": "educational-explainer",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "sclerotherapy",
+   "spider veins"
+  ],
+  "ostad_relevant": true,
+  "why": "Explains the mechanism over footage; clear, but no stakes in the opening."
+ },
+ {
+  "id": "ti_7559327311481425164",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "salmon sperm",
+   "pdrn"
+  ],
+  "ostad_relevant": true,
+  "why": "Opens on the shock phrase 'sperm on your face' to ride the salmon-DNA trend, then explains it."
+ },
+ {
+  "id": "yo_keyKrmNemWY",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "topic_tags": [
+   "skinvive",
+   "filler"
+  ],
+  "ostad_relevant": true,
+  "why": "A head-to-head 'X vs Y' comparison answers a real buyer question, but in brand language."
+ },
+ {
+  "id": "yo_q10SODq-6Ts",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "emsculpt neo",
+   "body contouring"
+  ],
+  "ostad_relevant": true,
+  "why": "Repeated device promo; same spec list, same baseline result."
+ },
+ {
+  "id": "yo_gCROnWbnchc",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "ostad",
+   "credentials"
+  ],
+  "ostad_relevant": true,
+  "why": "A credentials intro builds trust for viewers who already found him, but gives strangers no reason to stop."
+ },
+ {
+  "id": "yo_O-iSH4mDjno",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "holiday prep",
+   "injectables"
+  ],
+  "ostad_relevant": true,
+  "why": "A seasonal booking nudge; timely, but generic."
+ },
+ {
+  "id": "in_DWUIfLOFeoz",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "ellacor",
+   "skin tightening"
+  ],
+  "ostad_relevant": true,
+  "why": "Brand ad using Dr. Ostad as the credible clinician, with a 'not your typical treatment' curiosity hook."
+ },
+ {
+  "id": "in_DeuyxCNEujF",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "ellacor",
+   "live",
+   "discount"
+  ],
+  "ostad_relevant": true,
+  "why": "A live-sale announcement with 25% off; it serves existing followers, not discovery."
+ },
+ {
+  "id": "ti_7690715132632124686",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "sofwave",
+   "skin tightening"
+  ],
+  "ostad_relevant": true,
+  "why": "'Come with me' event vlog lets viewers peek into the industry, but it reads as soft promo."
+ },
+ {
+  "id": "yo_HBVC54lhlG0",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "rosacea"
+  ],
+  "ostad_relevant": true,
+  "why": "Answers an everyday search question ('how to treat rosacea') directly, so it keeps getting found."
+ },
+ {
+  "id": "ti_7639884195170471186",
+  "genre": "humor / skit",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "baby botox"
+  ],
+  "ostad_relevant": true,
+  "why": "A self-aware 'turned 30 with a smooth forehead' joke normalizes baby Botox."
+ },
+ {
+  "id": "yo_B4IDrLPNh3s",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "glp1",
+   "ozempic face"
+  ],
+  "ostad_relevant": true,
+  "why": "'The truth about Ozempic face' promises a correction on a trending drug in under 20 seconds."
+ },
+ {
+  "id": "yo_wLHMCA4x_Ic",
+  "genre": "trend-commentary",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "pdrn",
+   "k-beauty"
+  ],
+  "ostad_relevant": true,
+  "why": "A 'viral Korean PDRN' roundup rides the trend and the shopping urge at once."
+ },
+ {
+  "id": "in_DYCJeBoNCEi",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "laser cutter",
+   "unrelated"
+  ],
+  "ostad_relevant": false,
+  "why": "An industrial vinyl laser-cutter ad caught by the #co2laser hashtag; irrelevant."
+ },
+ {
+  "id": "in_DeO_XGNRVY0",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "sunscreen",
+   "hyperpigmentation",
+   "tranexamic acid"
+  ],
+  "ostad_relevant": true,
+  "why": "'Sunscreen that fades sun spots' promises two jobs in one product, a strong buying hook."
+ },
+ {
+  "id": "in_DfAy1qDPEdF",
+  "genre": "humor / skit",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "med spa",
+   "team"
+  ],
+  "ostad_relevant": false,
+  "why": "Med spa staff 'paparazzi' humor builds clinic culture but teaches nothing."
+ },
+ {
+  "id": "ti_7703297173361839393",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "topic_tags": [
+   "botox",
+   "masseter",
+   "face shape"
+  ],
+  "ostad_relevant": true,
+  "why": "A 7-second 'easiest glow up' face-shape reveal is pure transformation payoff."
+ },
+ {
+  "id": "ti_7700729974797520158",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "insect bites",
+   "itch"
+  ],
+  "ostad_relevant": true,
+  "why": "Numbered treatment steps for itchy bites; practical, but niche and medical."
+ },
+ {
+  "id": "in_DdviPCYzAsz",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "vitamin c",
+   "sunscreen"
+  ],
+  "ostad_relevant": false,
+  "why": "A regional affiliate 'comment link to buy' post; driven by community, not expertise."
+ },
+ {
+  "id": "ti_7700007770321325342",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "topic_tags": [
+   "rash",
+   "meningitis",
+   "safety"
+  ],
+  "ostad_relevant": true,
+  "why": "A simple at-home glass test that could save a child's life is urgent, shareable, and easy to remember."
+ },
+ {
+  "id": "ti_7700246405801086222",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "ingrown hairs",
+   "razor bumps"
+  ],
+  "ostad_relevant": true,
+  "why": "'Would and would not do' framing for razor bumps gives clear rules for a common annoyance."
+ },
+ {
+  "id": "ti_7632895376189574414",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "rosacea"
+  ],
+  "ostad_relevant": true,
+  "why": "Directly addresses people with rosacea and walks through treatments; brand-sponsored but useful."
+ },
+ {
+  "id": "ti_7696230227139251486",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "question",
+  "topic_tags": [
+   "supplements",
+   "collagen"
+  ],
+  "ostad_relevant": true,
+  "why": "'Can you actually eat your skincare?' plus 'stay to the end' holds viewers to the verdict."
+ },
+ {
+  "id": "yo_43wB5BsopTI",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "topic_tags": [
+   "skin of color",
+   "healthcare access"
+  ],
+  "ostad_relevant": true,
+  "why": "Names a care gap for skin of color; important, but a podcast clip with no visual hook."
+ },
+ {
+  "id": "in_DDIXCUSS666",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "question",
+  "topic_tags": [
+   "buccal massage",
+   "facial"
+  ],
+  "ostad_relevant": false,
+  "why": "A quick 'have you tried this' spa experience clip; curiosity, not expertise."
+ },
+ {
+  "id": "in_DWPajdFEWTA",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "topic_tags": [
+   "niacinamide",
+   "ostad skincare",
+   "moisturizer"
+  ],
+  "ostad_relevant": true,
+  "why": "'As seen in Forbes' social proof plus a benefit list; trust-building, but still a product ad."
+ }
+]
