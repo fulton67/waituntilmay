@@ -2,7 +2,9 @@
 
 Spec cap $20. Real ceiling: account limit $10/month with $2.73 already used before this run, so the run budget is $6.50.
 
-**Total this run: $5.30** across 38 runs.
+**Total this run: $5.30** across 38 runs (sum of per-run `usageTotalUsd` as logged).
+
+**Reconciled 2026-11-01 against the account** (`/v2/users/me/limits`): monthly usage $8.68 − $2.73 before the run = **$5.95 actually billed**. That covers storage, the failed Reddit attempts and usage that was reported after we logged it. REPORT.md's $6.17 is the conservative estimate (max of logged and estimated per run). Every figure is under the $20 cap and the $10 account limit.
 
 | key | actor | run id | items | usd | status |
 |---|---|---|---|---|---|
