@@ -1,0 +1,176 @@
+{
+ "totals": {
+  "videos": 677,
+  "niche": 568,
+  "byPlatform": {
+   "tiktok": 369,
+   "youtube": 61,
+   "instagram": 247
+  },
+  "bySource": {
+   "search": 568,
+   "own": 109
+  },
+  "byPlatformSource": {
+   "tiktok/search": 340,
+   "youtube/own": 61,
+   "instagram/search": 228,
+   "tiktok/own": 29,
+   "instagram/own": 19
+  },
+  "to": "2026-11-01",
+  "costUsd": 3.68,
+  "classified": 0,
+  "winning": 102,
+  "withTranscript": 211,
+  "postedLast90": 192,
+  "from": "2021-01-30"
+ },
+ "medians": {
+  "all": {
+   "views": 106350.0,
+   "er": 0.0331,
+   "outlier": 1.175,
+   "vpd": 908.8
+  },
+  "tiktok": {
+   "views": 100000.0,
+   "er": 0.0365,
+   "outlier": 1.402,
+   "vpd": 633.4000000000001
+  },
+  "instagram": {
+   "views": 119139.0,
+   "er": 0.0273,
+   "outlier": 1.001,
+   "vpd": 1528.8
+  },
+  "youtube": {
+   "views": 0,
+   "er": 0,
+   "outlier": 0,
+   "vpd": 0
+  }
+ },
+ "tables": {
+  "genre": [],
+  "format": [],
+  "hook": [],
+  "topic": [],
+  "source": [
+   {
+    "key": "search",
+    "n": 568,
+    "medViews": 106350.0,
+    "medOutlier": 1.175,
+    "medEr": 0.0331,
+    "medSaveRate": 0.0047,
+    "medCommentRate": 0.00058,
+    "winShare": 0.18
+   }
+  ]
+ },
+ "byPlatform": {
+  "genre": {
+   "tiktok": [],
+   "instagram": [],
+   "youtube": []
+  },
+  "format": {
+   "tiktok": [],
+   "instagram": [],
+   "youtube": []
+  }
+ },
+ "relevant": {
+  "genre": []
+ },
+ "ownGenre": [],
+ "ownFormat": [],
+ "winningGenreMix": {
+  "null": 102
+ },
+ "ownGenreMix": {
+  "null": 109
+ },
+ "creators": [
+  {
+   "handle": "clearlasetattooremoval",
+   "platform": "tiktok",
+   "n": 3,
+   "medViews": 10100000,
+   "wins": 0
+  },
+  {
+   "handle": "dermangelo",
+   "platform": "tiktok",
+   "n": 7,
+   "medViews": 1200000,
+   "wins": 0
+  },
+  {
+   "handle": "drabby6",
+   "platform": "tiktok",
+   "n": 4,
+   "medViews": 896100.0,
+   "wins": 0
+  },
+  {
+   "handle": "nipunkapur",
+   "platform": "instagram",
+   "n": 4,
+   "medViews": 540524.5,
+   "wins": 0
+  },
+  {
+   "handle": "jardeledebran",
+   "platform": "instagram",
+   "n": 3,
+   "medViews": 108762,
+   "wins": 0
+  },
+  {
+   "handle": "jillian.gottlieb",
+   "platform": "instagram",
+   "n": 6,
+   "medViews": 103329.5,
+   "wins": 1
+  },
+  {
+   "handle": "dr_mudgil",
+   "platform": "instagram",
+   "n": 6,
+   "medViews": 102784.5,
+   "wins": 0
+  },
+  {
+   "handle": "jilliangottlieb",
+   "platform": "tiktok",
+   "n": 4,
+   "medViews": 76000.0,
+   "wins": 0
+  },
+  {
+   "handle": "evolus",
+   "platform": "instagram",
+   "n": 5,
+   "medViews": 34921,
+   "wins": 0
+  },
+  {
+   "handle": "malika.saymak",
+   "platform": "tiktok",
+   "n": 3,
+   "medViews": 16200,
+   "wins": 0
+  },
+  {
+   "handle": "dr.arielestrada",
+   "platform": "tiktok",
+   "n": 3,
+   "medViews": 3103,
+   "wins": 1
+  }
+ ],
+ "ads": 73
+}

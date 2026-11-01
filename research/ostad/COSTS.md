@@ -2,7 +2,7 @@
 
 Spec cap $20. Real ceiling: account limit $10/month with $2.73 already used before this run, so the run budget is $6.50.
 
-**Total this run: $2.36** across 24 runs.
+**Total this run: $5.30** across 38 runs.
 
 | key | actor | run id | items | usd | status |
 |---|---|---|---|---|---|
@@ -30,3 +30,17 @@ Spec cap $20. Real ceiling: account limit $10/month with $2.73 already used befo
 | tiktok__search-2-thread-lift | clockworks/tiktok-scraper | euckVbUEYdib70t3r | 81 | 0.3007 | SUCCEEDED |
 | tiktok__search-0-dermatologist | clockworks/tiktok-scraper | hMswMpLaAg9bWBAh6 | 81 | 0.3007 | SUCCEEDED |
 | tiktok__search-1-botox | clockworks/tiktok-scraper | 5LxQAKjHfnmKQXBjB | 82 | 0.3044 | SUCCEEDED |
+| instagram__hashtags-1-sculptra | apify/instagram-hashtag-scraper | HiQYzQZ5N6vbcWSMN | 60 | 0.1248 | SUCCEEDED |
+| tiktok__search-4-glass-skin | clockworks/tiktok-scraper | IayyxNbZ0qjPc6uBU | 81 | 0.2674 | SUCCEEDED |
+| instagram__hashtags-2-medspa | apify/instagram-hashtag-scraper | Y3Ua6x7TqA11HjxFa | 55 | 0.0000 | SUCCEEDED |
+| instagram__hashtags-0-dermatologist | apify/instagram-hashtag-scraper | IdoYusB8s4ztkKKdI | 60 | 0.1404 | SUCCEEDED |
+| instagram__hashtags-3-peptides | apify/instagram-hashtag-scraper | 28dkJPL2qXJjtGGyK | 55 | 0.1274 | SUCCEEDED |
+| bench__tiktok__0 | clockworks/tiktok-scraper | jo0kcsgSGE6UcjbPk | 76 | 0.2267 | SUCCEEDED |
+| bench__tiktok__1 | clockworks/tiktok-scraper | d6gCnixS2zb0a9Uyp | 62 | 0.2304 | SUCCEEDED |
+| youtube__search-1-botox | streamers/youtube-scraper | Xq2ION2yRn55a4lFX | 50 | 0.1800 | SUCCEEDED |
+| youtube__search-0-dermatologist | streamers/youtube-scraper | btCnGoNWAMi8IQXJN | 47 | 0.1880 | SUCCEEDED |
+| youtube__search-2-thread-lift | streamers/youtube-scraper | aWYvRc2XI6PidZkrG | 50 | 0.1920 | SUCCEEDED |
+| youtube__search-3-mohs-surgery | streamers/youtube-scraper | WW99hys44ei0KyEz9 | 50 | 0.1960 | SUCCEEDED |
+| youtube__search-4-glass-skin | streamers/youtube-scraper | ZvFHiVnWCEvdhqxKX | 42 | 0.1640 | SUCCEEDED |
+| bench__tiktok__nyc | clockworks/tiktok-scraper | TGW6QChbyWkuD7yXd | 48 | 0.1786 | SUCCEEDED |
+| questions__tiktok-comments | clockworks/tiktok-comments-scraper | L5oMLP1vPftggrOsm | 600 | 0.7250 | SUCCEEDED |

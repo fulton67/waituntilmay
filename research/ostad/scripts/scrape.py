@@ -71,8 +71,10 @@ def search():
     return jobs
 
 
-BENCH_TT = ["dermdoctor", "shereeneidriss", "drdrayzday", "dermguru", "doctorly", "drwhitneybowe", "tonyyounmd",
-            "drsamellis", "skinbydrazi", "drlindseyzubritsky", "doctor.mamina", "dr.scottwalter"]
+BENCH_TT = [  # confirmed in search results: dermdoctor, shereeneidriss, dr.mamina, dermangelo, drabby6, aamnaadel, dermdocmalik (NYC)
+    "dermdoctor", "shereeneidriss", "dr.mamina", "dermangelo", "drabby6", "aamnaadel",
+    # spec names, handles unconfirmed until the run returns them
+    "drdrayzday", "tonyyounmd", "drwhitneybowe", "samellismd", "skinbydrazi", "dermdocmalik"]
 
 
 def bench(handles=None):

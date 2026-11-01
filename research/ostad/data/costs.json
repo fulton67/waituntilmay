@@ -1,0 +1,375 @@
+[
+ {
+  "key": "test__ads",
+  "actor": "curious_coder/facebook-ads-library-scraper",
+  "run_id": "iONmuOymk0oLJpAzG",
+  "items": 1,
+  "usd": 5e-05,
+  "status": "SUCCEEDED",
+  "secs": 3
+ },
+ {
+  "key": "test__ig_hashtag",
+  "actor": "apify/instagram-hashtag-scraper",
+  "run_id": "sxVXpZmo9ywnBmpIa",
+  "items": 5,
+  "usd": 0,
+  "status": "SUCCEEDED",
+  "secs": 10
+ },
+ {
+  "key": "test__ig_profile",
+  "actor": "apify/instagram-scraper",
+  "run_id": "sQaxd0B4Ladvw4u7p",
+  "items": 5,
+  "usd": 0.0027,
+  "status": "SUCCEEDED",
+  "secs": 15
+ },
+ {
+  "key": "test__yt",
+  "actor": "streamers/youtube-scraper",
+  "run_id": "QBFYUzBb9MjEBgQBl",
+  "items": 5,
+  "usd": 0.016,
+  "status": "SUCCEEDED",
+  "secs": 16
+ },
+ {
+  "key": "test__reddit",
+  "actor": "trudax/reddit-scraper-lite",
+  "run_id": "HklfxrnRxeHyqVNUY",
+  "items": 5,
+  "usd": 0.06,
+  "status": "SUCCEEDED",
+  "secs": 24
+ },
+ {
+  "key": "test__reddit2",
+  "actor": "trudax/reddit-scraper-lite",
+  "run_id": "mSK1bMPD3NPCHaVn1",
+  "items": 0,
+  "usd": 0.04,
+  "status": "SUCCEEDED",
+  "secs": 12
+ },
+ {
+  "key": "test__tiktok",
+  "actor": "clockworks/tiktok-scraper",
+  "run_id": "ZfXs0dhM1JcFBrvWe",
+  "items": 5,
+  "usd": 0.001,
+  "status": "SUCCEEDED",
+  "secs": 13
+ },
+ {
+  "key": "test__reddit3",
+  "actor": "trudax/reddit-scraper-lite",
+  "run_id": "f48kd3zotnlAsFb0o",
+  "items": 0,
+  "usd": 0.04,
+  "est": 0.01,
+  "status": "SUCCEEDED",
+  "secs": 12
+ },
+ {
+  "key": "test__reddit4",
+  "actor": "trudax/reddit-scraper-lite",
+  "run_id": "ZufIW0ofH5nzERV36",
+  "items": 0,
+  "usd": 0.04,
+  "est": 0.01,
+  "status": "SUCCEEDED",
+  "secs": 9
+ },
+ {
+  "key": "test__reddit5",
+  "actor": "fatihtahta/reddit-scraper-search-fast",
+  "run_id": "TB6T0hqZX9p62is00",
+  "items": 0,
+  "usd": 0,
+  "est": 0.01,
+  "status": "SUCCEEDED",
+  "secs": 110
+ },
+ {
+  "key": "test__reddit6",
+  "actor": "harshmaur/reddit-scraper",
+  "run_id": "cuVa0IX8v7k5KvpYO",
+  "items": 0,
+  "usd": 0.02,
+  "est": 0.01,
+  "status": "SUCCEEDED",
+  "secs": 10
+ },
+ {
+  "key": "own__tiktok__profile",
+  "actor": "clockworks/tiktok-scraper",
+  "run_id": "hP8vd0ktBIsoI5nY7",
+  "items": 32,
+  "usd": 0.001,
+  "est": 0.1284,
+  "status": "SUCCEEDED",
+  "secs": 12
+ },
+ {
+  "key": "own__ig__drarielostad",
+  "actor": "apify/instagram-scraper",
+  "run_id": "srUmt4lxYpFiELnAF",
+  "items": 150,
+  "usd": 0.3996,
+  "est": 0.415,
+  "status": "SUCCEEDED",
+  "secs": 53
+ },
+ {
+  "key": "own__tiktok__search",
+  "actor": "clockworks/tiktok-scraper",
+  "run_id": "DCNi5iVWCt4cU4Uxh",
+  "items": 17,
+  "usd": 0.0639,
+  "est": 0.0729,
+  "status": "SUCCEEDED",
+  "secs": 131
+ },
+ {
+  "key": "own__yt__channel",
+  "actor": "streamers/youtube-scraper",
+  "run_id": "wgXbuXqMdUTLUPW2R",
+  "items": 120,
+  "usd": 0.47200000000000003,
+  "est": 0.49,
+  "status": "SUCCEEDED",
+  "secs": 170
+ },
+ {
+  "key": "ads__meta__med-spa",
+  "actor": "curious_coder/facebook-ads-library-scraper",
+  "run_id": "1cagqhLC6uFf1Lx3n",
+  "items": 20,
+  "usd": 5e-05,
+  "est": 0.025,
+  "status": "SUCCEEDED",
+  "secs": 9
+ },
+ {
+  "key": "ads__meta__morpheus8",
+  "actor": "curious_coder/facebook-ads-library-scraper",
+  "run_id": "rCID7OTSaF1RHWdah",
+  "items": 20,
+  "usd": 5e-05,
+  "est": 0.025,
+  "status": "SUCCEEDED",
+  "secs": 10
+ },
+ {
+  "key": "ads__meta__dermatologist",
+  "actor": "curious_coder/facebook-ads-library-scraper",
+  "run_id": "TxXxtpD3U1GIcCp1P",
+  "items": 20,
+  "usd": 5e-05,
+  "est": 0.025,
+  "status": "SUCCEEDED",
+  "secs": 12
+ },
+ {
+  "key": "ads__meta__botox",
+  "actor": "curious_coder/facebook-ads-library-scraper",
+  "run_id": "A22nesKbqhNObudkc",
+  "items": 20,
+  "usd": 5e-05,
+  "est": 0.025,
+  "status": "SUCCEEDED",
+  "secs": 15
+ },
+ {
+  "key": "ads__meta__skin-cancer",
+  "actor": "curious_coder/facebook-ads-library-scraper",
+  "run_id": "gyXOwzCbJrIBOXua6",
+  "items": 20,
+  "usd": 5e-05,
+  "est": 0.025,
+  "status": "SUCCEEDED",
+  "secs": 22
+ },
+ {
+  "key": "tiktok__search-3-mohs-surgery",
+  "actor": "clockworks/tiktok-scraper",
+  "run_id": "stAdsjEgzzBn1zR6V",
+  "items": 90,
+  "usd": 0.3007,
+  "est": 0.343,
+  "status": "SUCCEEDED",
+  "secs": 23
+ },
+ {
+  "key": "tiktok__search-2-thread-lift",
+  "actor": "clockworks/tiktok-scraper",
+  "run_id": "euckVbUEYdib70t3r",
+  "items": 81,
+  "usd": 0.3007,
+  "est": 0.3097,
+  "status": "SUCCEEDED",
+  "secs": 107
+ },
+ {
+  "key": "tiktok__search-0-dermatologist",
+  "actor": "clockworks/tiktok-scraper",
+  "run_id": "hMswMpLaAg9bWBAh6",
+  "items": 81,
+  "usd": 0.3007,
+  "est": 0.3097,
+  "status": "SUCCEEDED",
+  "secs": 226
+ },
+ {
+  "key": "tiktok__search-1-botox",
+  "actor": "clockworks/tiktok-scraper",
+  "run_id": "5LxQAKjHfnmKQXBjB",
+  "items": 82,
+  "usd": 0.3044,
+  "est": 0.3134,
+  "status": "SUCCEEDED",
+  "secs": 229
+ },
+ {
+  "key": "instagram__hashtags-1-sculptra",
+  "actor": "apify/instagram-hashtag-scraper",
+  "run_id": "HiQYzQZ5N6vbcWSMN",
+  "items": 60,
+  "usd": 0.1248,
+  "est": 0.166,
+  "status": "SUCCEEDED",
+  "secs": 20
+ },
+ {
+  "key": "tiktok__search-4-glass-skin",
+  "actor": "clockworks/tiktok-scraper",
+  "run_id": "IayyxNbZ0qjPc6uBU",
+  "items": 81,
+  "usd": 0.2674,
+  "est": 0.3097,
+  "status": "SUCCEEDED",
+  "secs": 25
+ },
+ {
+  "key": "instagram__hashtags-2-medspa",
+  "actor": "apify/instagram-hashtag-scraper",
+  "run_id": "Y3Ua6x7TqA11HjxFa",
+  "items": 55,
+  "usd": 0,
+  "est": 0.153,
+  "status": "SUCCEEDED",
+  "secs": 9
+ },
+ {
+  "key": "instagram__hashtags-0-dermatologist",
+  "actor": "apify/instagram-hashtag-scraper",
+  "run_id": "IdoYusB8s4ztkKKdI",
+  "items": 60,
+  "usd": 0.1404,
+  "est": 0.166,
+  "status": "SUCCEEDED",
+  "secs": 49
+ },
+ {
+  "key": "instagram__hashtags-3-peptides",
+  "actor": "apify/instagram-hashtag-scraper",
+  "run_id": "28dkJPL2qXJjtGGyK",
+  "items": 55,
+  "usd": 0.12739999999999999,
+  "est": 0.153,
+  "status": "SUCCEEDED",
+  "secs": 40
+ },
+ {
+  "key": "bench__tiktok__0",
+  "actor": "clockworks/tiktok-scraper",
+  "run_id": "jo0kcsgSGE6UcjbPk",
+  "items": 76,
+  "usd": 0.2267,
+  "est": 0.2912,
+  "status": "SUCCEEDED",
+  "secs": 13
+ },
+ {
+  "key": "bench__tiktok__1",
+  "actor": "clockworks/tiktok-scraper",
+  "run_id": "d6gCnixS2zb0a9Uyp",
+  "items": 62,
+  "usd": 0.23040000000000002,
+  "est": 0.2394,
+  "status": "SUCCEEDED",
+  "secs": 19
+ },
+ {
+  "key": "youtube__search-1-botox",
+  "actor": "streamers/youtube-scraper",
+  "run_id": "Xq2ION2yRn55a4lFX",
+  "items": 50,
+  "usd": 0.18,
+  "est": 0.21,
+  "status": "SUCCEEDED",
+  "secs": 65
+ },
+ {
+  "key": "youtube__search-0-dermatologist",
+  "actor": "streamers/youtube-scraper",
+  "run_id": "btCnGoNWAMi8IQXJN",
+  "items": 47,
+  "usd": 0.188,
+  "est": 0.198,
+  "status": "SUCCEEDED",
+  "secs": 99
+ },
+ {
+  "key": "youtube__search-2-thread-lift",
+  "actor": "streamers/youtube-scraper",
+  "run_id": "aWYvRc2XI6PidZkrG",
+  "items": 50,
+  "usd": 0.192,
+  "est": 0.21,
+  "status": "SUCCEEDED",
+  "secs": 77
+ },
+ {
+  "key": "youtube__search-3-mohs-surgery",
+  "actor": "streamers/youtube-scraper",
+  "run_id": "WW99hys44ei0KyEz9",
+  "items": 50,
+  "usd": 0.196,
+  "est": 0.21,
+  "status": "SUCCEEDED",
+  "secs": 54
+ },
+ {
+  "key": "youtube__search-4-glass-skin",
+  "actor": "streamers/youtube-scraper",
+  "run_id": "ZvFHiVnWCEvdhqxKX",
+  "items": 42,
+  "usd": 0.164,
+  "est": 0.178,
+  "status": "SUCCEEDED",
+  "secs": 53
+ },
+ {
+  "key": "bench__tiktok__nyc",
+  "actor": "clockworks/tiktok-scraper",
+  "run_id": "TGW6QChbyWkuD7yXd",
+  "items": 48,
+  "usd": 0.1786,
+  "est": 0.1876,
+  "status": "SUCCEEDED",
+  "secs": 37
+ },
+ {
+  "key": "questions__tiktok-comments",
+  "actor": "clockworks/tiktok-comments-scraper",
+  "run_id": "L5oMLP1vPftggrOsm",
+  "items": 600,
+  "usd": 0.725,
+  "est": 0.76,
+  "status": "SUCCEEDED",
+  "secs": 99
+ }
+]

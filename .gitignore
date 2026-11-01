@@ -142,3 +142,5 @@ renders_multi_prev/
 
 # ostad raw apify dumps
 research/ostad/raw/
+research/ostad/thumbs/
+research/ostad/classify/batch_*.json
