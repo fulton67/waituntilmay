@@ -59,7 +59,10 @@ const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } })
 const page = await ctx.newPage();
 const errors = [];
 page.on("pageerror", (e) => errors.push(String(e)));
-page.on("console", (m) => m.type() === "error" && !/frame|embed|tiktok|instagram|youtube|ERR_BLOCKED|CORS|third-party|Permissions-Policy/i.test(m.text()) && errors.push(m.text()));
+// "Failed to load resource" console lines carry no URL, so failed loads are judged by their response instead:
+// any same-origin response >= 400 is an error, except /_vercel/* (analytics scripts that exist only on Vercel).
+page.on("console", (m) => m.type() === "error" && !/Failed to load resource|frame|embed|tiktok|instagram|youtube|ERR_BLOCKED|CORS|third-party|Permissions-Policy/i.test(m.text()) && errors.push(m.text()));
+page.on("response", (r) => { const u = new URL(r.url()); if (r.status() >= 400 && u.origin === new URL(base).origin && !u.pathname.startsWith("/_vercel/")) errors.push(`${r.status()} ${u.pathname}`); });
 const count = async () => Number(await page.getAttribute('[data-testid="count"]', "data-count"));
 
 // watch
@@ -96,11 +99,13 @@ const tabs = ["READ", "THEMES", "WATCH", "CARES", "PLAN", "HIM"];
 out.tabs = {};
 await page.goto(base + "/ostad", { waitUntil: "networkidle" });
 for (const t of tabs) {
+  const href = await page.getAttribute(`nav a:has-text("${t}")`, "href");
   await page.click(`nav a:has-text("${t}")`);
+  await page.waitForURL((u) => u.pathname === href, { timeout: 15000 }).catch(() => {});
   await page.waitForLoadState("networkidle");
   out.tabs[t] = new URL(page.url()).pathname;
 }
-ok(Object.values(out.tabs).length === 6, "tabs");
+ok(JSON.stringify(Object.values(out.tabs)) === JSON.stringify(["/ostad", "/ostad/themes", "/ostad/watch", "/ostad/cares", "/ostad/plan", "/ostad/him"]), `tabs: ${JSON.stringify(out.tabs)}`);
 
 await page.goto(base + "/ostad", { waitUntil: "networkidle" });
 out.read = { figure: await page.locator('[data-testid="strip"]').count(), themeSections: await page.locator("section[id]").count(), cards: await page.locator("[data-card]").count() };

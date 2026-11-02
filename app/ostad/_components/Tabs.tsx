@@ -4,23 +4,26 @@ import { usePathname } from "next/navigation";
 import css from "../ostad.module.css";
 
 const TABS = [
-  ["/ostad", "LIBRARY"],
-  ["/ostad/genres", "GENRES"],
-  ["/ostad/baseline", "BASELINE"],
+  ["/ostad", "READ"],
+  ["/ostad/themes", "THEMES"],
+  ["/ostad/watch", "WATCH"],
+  ["/ostad/cares", "CARES"],
   ["/ostad/plan", "PLAN"],
-  ["/ostad/questions", "QUESTIONS"],
-  ["/ostad/ads", "ADS"],
+  ["/ostad/him", "HIM"],
 ] as const;
 
 export default function Tabs() {
   const path = usePathname();
   return (
     <nav className={css.tabs}>
-      {TABS.map(([href, label], i) => (
-        <Link key={href} href={href} className={css.tab} aria-current={path === href ? "page" : undefined}>
-          [{String(i + 1).padStart(2, "0")} {label}]
-        </Link>
-      ))}
+      {TABS.map(([href, label], i) => {
+        const on = href === "/ostad" ? path === href : path.startsWith(href);
+        return (
+          <Link key={href} href={href} className={css.tab} aria-current={on ? "page" : undefined}>
+            [{String(i + 1).padStart(2, "0")} {label}]
+          </Link>
+        );
+      })}
     </nav>
   );
 }

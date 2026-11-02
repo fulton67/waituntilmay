@@ -1,77 +1,125 @@
 "use client";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import css from "../ostad.module.css";
-import { fmt, pct, type Video } from "../_lib/types";
+import { fmt, PLAT, times, type Video } from "../_lib/types";
 
-export default function VideoPanel({ v, onClose }: { v: Video; onClose: () => void }) {
-  const rows: [string, string][] = [
-    ["platform", v.p],
-    ["source", v.src],
-    ["creator", `@${v.h}${v.fol ? ` · ${fmt(v.fol)} followers` : ""}`],
-    ["posted", `${v.d ?? "—"}${v.days ? ` · ${v.days} days live` : ""}`],
-    ["duration", v.dur ? `${Math.round(v.dur)}s` : "—"],
+function Transcript({ v }: { v: Video }) {
+  const [t, setT] = useState<string | null>(null);
+  useEffect(() => {
+    let live = true;
+    if (!v.tw) return;
+    fetch(`/ostad/tr/${v.id}.txt`)
+      .then((r) => (r.ok ? r.text() : ""))
+      .then((s) => live && setT(s));
+    return () => {
+      live = false;
+    };
+  }, [v.id, v.tw]);
+  if (!v.tw)
+    return <p className={css.mid}>{v.ts === "no_speech" ? "No speech: music or text on screen only." : "No transcript: the audio couldn't be fetched."}</p>;
+  if (t == null) return <p className={css.mid}>loading…</p>;
+  const ol = v.ol && t.startsWith(v.ol.replace(/…$/, "")) ? v.ol.replace(/…$/, "") : null;
+  return (
+    <p className={css.transcript} data-testid="transcript">
+      {ol ? (
+        <>
+          <mark className={css.mark}>{ol}</mark>
+          {t.slice(ol.length)}
+        </>
+      ) : (
+        t
+      )}
+    </p>
+  );
+}
+
+export default function VideoPanel({ v, themeName, onClose }: { v: Video; themeName?: string; onClose: () => void }) {
+  const metrics: [string, string][] = [
+    ["× the creator's usual", times(v.x)],
     ["views", v.v.toLocaleString()],
+    ["views/day", fmt(v.vpd)],
+    ["saves+comments per 1k views", v.sc.toFixed(1)],
     ["likes", v.l.toLocaleString()],
     ["comments", v.c.toLocaleString()],
     ["shares", v.s.toLocaleString()],
     ["saves", v.sv.toLocaleString()],
-    ["engagement", pct(v.er)],
-    ["views / day", fmt(v.vpd)],
-    ["outlier", `${v.os.toFixed(2)}×`],
-    ["winning", v.win ? "yes" : "no"],
-    ["genre", v.g || "—"],
-    ["format", v.f || "—"],
-    ["hook type", v.ht || "—"],
-    ["topics", v.tags?.join(", ") || "—"],
-    ["for ostad", v.rel ? "yes" : "no"],
-    ["found via", v.q || "—"],
+    ["followers", fmt(v.fol)],
+    ["posted", v.d ?? "—"],
+    ["length", v.dur ? `${Math.round(v.dur)}s` : "—"],
+    ["genre", v.g],
+    ["format", v.f],
+    ["hook", v.ht],
+    ["found via", v.src],
   ];
+  const tall = v.p !== "youtube" || v.dur == null || v.dur <= 70;
   return (
     <aside className={css.panel} role="dialog" aria-label="video detail" data-testid="panel">
       <div className={css.close}>
         <a href={v.url} target="_blank" rel="noreferrer">
-          open on {v.p} ↗
+          @{v.h} on {PLAT[v.p]} ↗
         </a>
         <button onClick={onClose}>[close]</button>
       </div>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className={css.panelThumb} src={`/ostad/thumbs/${v.id}.jpg`} alt="" />
-      {v.title && (
-        <>
-          <h3>Title</h3>
-          <p>{v.title}</p>
-        </>
+      {v.emb ? (
+        <iframe
+          className={tall ? css.embedTall : css.embedWide}
+          src={v.emb}
+          title={`${PLAT[v.p]} video by @${v.h}`}
+          allow="encrypted-media; picture-in-picture; fullscreen"
+          loading="lazy"
+          data-testid="embed"
+        />
+      ) : (
+        <a href={v.url} target="_blank" rel="noreferrer" className={css.linkout} data-testid="linkout">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`/ostad/thumbs/${v.id}.jpg`} alt="" />
+          <span>watch on {PLAT[v.p]} ↗</span>
+        </a>
       )}
-      {v.why && (
-        <>
-          <h3>Why it works</h3>
-          <p>{v.why}</p>
-        </>
-      )}
-      {v.hook && (
-        <>
-          <h3>Spoken hook (first 12 words)</h3>
-          <p>{v.hook}</p>
-        </>
-      )}
-      <h3>Metrics</h3>
-      <dl className={css.kv}>
-        {rows.map(([k, val]) => (
-          <div key={k} style={{ display: "contents" }}>
-            <dt>{k}</dt>
-            <dd>{val}</dd>
-          </div>
-        ))}
+      <dl className={css.kv} style={{ marginTop: 10 }}>
+        <dt>about</dt>
+        <dd className={css.plain}>{v.subj}</dd>
+        <dt>claim</dt>
+        <dd className={css.plain}>{v.claim}</dd>
+        <dt>tone</dt>
+        <dd className={css.plain}>{v.tone.join(", ")}</dd>
+        <dt>speaker</dt>
+        <dd className={css.plain}>{v.spk}</dd>
+        {themeName && (
+          <>
+            <dt>theme</dt>
+            <dd className={css.plain}>
+              <Link href={`/ostad/themes/${v.th}`}>{themeName} →</Link>
+            </dd>
+          </>
+        )}
+        <dt>for Ostad</dt>
+        <dd className={css.plain}>{v.mk ? "makeable" : "not his to make"}{v.mkn ? `: ${v.mkn}` : ""}</dd>
+        <dt>audience</dt>
+        <dd className={css.plain}>{v.ar ?? <span className={css.mid}>no comments scraped</span>}</dd>
+        <dt>× usual</dt>
+        <dd>{times(v.x)} · {fmt(v.v)} views</dd>
       </dl>
-      <h3>Caption</h3>
-      <p>{v.cap || "—"}</p>
-      {v.tr && (
+      <h3>Transcript</h3>
+      <Transcript v={v} />
+      {v.cap && (
         <>
-          <h3>Transcript</h3>
-          <p>{v.tr}</p>
+          <h3>Caption</h3>
+          <p>{v.cap}</p>
         </>
       )}
-      <h3>Score note</h3>
-      <p className={css.mid}>{v.notes}</p>
+      <details className={css.drawer}>
+        <summary>[metrics]</summary>
+        <dl className={css.kv}>
+          {metrics.map(([k, val]) => (
+            <div key={k} style={{ display: "contents" }}>
+              <dt>{k}</dt>
+              <dd>{val}</dd>
+            </div>
+          ))}
+        </dl>
+      </details>
     </aside>
   );
 }

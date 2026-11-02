@@ -75,7 +75,7 @@ def sc(v):
 
 compact = []
 for v in vids:
-    t = v.get("transcript") or ""
+    t = (v.get("transcript") or "") if v.get("transcript_status") in ("whisper", "captions") else ""
     if t:
         (TR / f"{v['id']}.txt").write_text(t, encoding="utf-8")
     compact.append(dict(
@@ -88,7 +88,7 @@ for v in vids:
         claim=v.get("claim") or "", tone=v.get("tone") or [], spk=v.get("speaker") or "other",
         mk=bool(v.get("makeable_by_ostad")), mkn=v.get("makeable_note") or None, ar=v.get("audience_reaction") or None,
         th=v.get("theme") or "", ol=v.get("opening_line"), ts=v.get("transcript_status") or "pending",
-        tw=v.get("transcript_words") or 0))
+        tw=len(t.split())))
 w("videos.json", compact)
 
 # themes
@@ -97,6 +97,9 @@ themes = []
 for t in tmeta:
     tv = [v for v in niche if v.get("theme") == t["slug"]]
     md_f = ROOT / "themes" / f"{t['slug']}.md"
+    meta_f = ROOT / "classify2" / f"theme_meta_{t['slug']}.json"
+    if meta_f.exists():
+        t = dict(t, **{k: v for k, v in json.loads(meta_f.read_text(encoding="utf-8")).items() if k in ("says", "examples")})
     themes.append(dict(
         slug=t["slug"], name=t["name"], short=t["short"], says=t.get("says", ""), examples=t["examples"],
         n=len(tv), share=round(len(tv) / len(niche), 3), winShare=round(sum(v["winning"] for v in tv) / max(len(tv), 1), 3),
@@ -107,7 +110,11 @@ themes.sort(key=lambda t: -t["n"])
 w("themes.json", themes)
 
 w("cares.json", j("cares.json", []))  # authored in phase 2c
-w("plan.json", j("plan.json", {"slots": [], "backups": [], "backlog": [], "batches": []}))
+plan = j("plan.json", {"slots": [], "backups": [], "backlog": [], "batches": []})
+byid = {v["id"]: v for v in vids}
+for s_ in plan.get("slots", []) + plan.get("backups", []):
+    s_["refs"] = [dict(id=r["id"], ol=byid.get(r["id"], {}).get("opening_line")) for r in s_.get("refs", [])]
+w("plan.json", {k: plan.get(k, []) for k in ("slots", "backups", "backlog", "batches")})
 
 rep_f = ROOT / "REPORT2.md"
 rep = rep_f.read_text(encoding="utf-8") if rep_f.exists() else "# Report\n\npending\n"
@@ -122,7 +129,10 @@ winmk = [v for v in niche if v.get("winning") and v.get("makeable_by_ostad")]
 
 
 def share(rows, key, val):
-    return sum(1 for r in rows if (val in (r.get(key) or [])) if isinstance(r.get(key), list) else r.get(key) == val) / max(len(rows), 1)
+    def has(r):
+        x = r.get(key)
+        return val in x if isinstance(x, list) else x == val
+    return sum(1 for r in rows if has(r)) / max(len(rows), 1)
 
 
 gs = Counter(v.get("genre") for v in own) + Counter(v.get("genre") for v in winmk)
