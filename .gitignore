@@ -144,3 +144,5 @@ renders_multi_prev/
 research/ostad/raw/
 research/ostad/thumbs/
 research/ostad/classify/batch_*.json
+research/ostad/audio/
+research/ostad/*.log

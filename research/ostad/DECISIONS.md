@@ -24,3 +24,10 @@
 22. **REPORT.md tables are rendered from data** (`REPORT.src.md` + `scripts/render_report.py`) so the numbers can't drift from `data/`.
 23. **The library opens on relevant winners** (`relevant = true`, winning on: 109 videos), the pitch view. Both are one click off; verify.mjs turns them off and checks all 1,031 render.
 24. **Local builds stash `app/reels/admin`** (it needs KV env vars that only exist on Vercel). Nothing in it was changed.
+
+## Run 2
+
+25. **faster-whisper `small` on the GPU (RTX 3050, CUDA)**, not mlx-whisper: this is Windows, not Apple silicon. VAD is on: without it, silent videos come back as "Thank you for watching." Language is auto-detected and the transcript kept in the original language; `transcript_lang` records it (449 en, then es 26, pt 17, hi 11, ar 10…).
+26. **Captions first.** TikTok's own captions (fetched in run 1) and YouTube subtitles count as `captions`; whisper runs only when there are none. 452 of 815 transcripts are captions.
+27. **`no_speech` is a fourth `transcript_status`**, beyond the spec's three. 209 videos were fetched and listened to and contain no voice. Calling them `unavailable` would hide that we know what they are; calling them `whisper` would imply a transcript exists.
+28. **Instagram transcripts came from the CDN `videoUrl` in `raw/`.** Run 1's scrape is from 2026-11-01 and the links still worked. 195/247 (79%) got a transcript, above the 70% bar, so `apify/instagram-reel-scraper` wasn't run. Apify spend for run 2: $0.
