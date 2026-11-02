@@ -24,7 +24,7 @@ Spec: `OSTAD_RUN_2.md`. Resume from the first unchecked item. No re-scrape; Apif
   - first pass: genre top 10.5% (20 genres), hook 11.2%, subject 0.3% → pass; **tone failed: clinical 36.2%** (373 rows)
   - re-read 1 (all 373 clinical rows) → clinical 224, but **casual-friend rose to 37.3%** → fail
   - re-read 2 (all 385 casual-friend rows, told to drop habitual second tones) → **salesy 28.1% top → PASS**; avg tones/row 1.42; primary tone top = salesy 21%
-- [ ] 2b themes: embeddings + clustering, named/merged by reading, themes/{slug}.md written (10–18)
+- [x] 2b themes: 18 themes from 32 Ward clusters (all-mpnet-base-v2), named and merged by reading, 104 row overrides; themes/{slug}.md × 18 + theme_meta × 18, all checked (6 examples in-theme, first 4 makeable, no em dashes)
 - [ ] 2c cares.json (25)
 - [ ] 2d PLAN.md / plan.json regenerated from themes
 - [ ] 2e REPORT2.md (≤ 2,500 words) + MEETING.md regenerated
