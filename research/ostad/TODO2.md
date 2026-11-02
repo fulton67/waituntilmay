@@ -32,7 +32,65 @@ Spec: `OSTAD_RUN_2.md`. Resume from the first unchecked item. No re-scrape; Apif
 ## Phase 3 — /ostad as a reading tool
 - [x] tabs: Read, Themes (index + 18 pages), Watch, Cares, Plan, Him; Genres/Questions/Ads/Baseline deleted (404), ads folded into Read as a collapsed table
 - [x] verified locally (prod build, `verify2.mjs` PASS): watch default 639 = makeable rows 639, show everything 1031 = rows 1031; 18/18 theme pages 200 + noindex with 6 examples and a says block; embeds 1031/1031 have a player (all 200 when checked), live sample 24/24; 6-tab click-through lands on each route; cares 25 + answer persists; plan 30 slots + batch view; 0 console errors
-- [ ] pushed + verified live
+- [x] pushed (dca78db) + verified live: `verify2.mjs https://waituntilmay.com` PASS. Watch 639 by default = 639 makeable rows; 1031 with show everything = 1031 rows; 18 theme sections, 25 cares, 30 plan slots, embed sample 24/24, 0 console errors
 
 ## Finish
-- [ ] summary below
+- [x] summary below
+
+## Run 2 summary (2026-11-02)
+
+**Live:** https://waituntilmay.com/ostad. Read, Themes, Watch, Cares, Plan and Him. It opens on the 639 videos Dr. Ostad could make; [show everything] shows all 1,031.
+
+### Transcript coverage per platform
+
+| platform | transcript | no speech | unavailable |
+|---|---|---|---|
+| TikTok | 418 / 537 (78%) | 118 | 1 |
+| Instagram | 195 / 247 (79%) | 46 | 6 |
+| YouTube | 202 / 247 (82%) | 45 | 0 |
+| **all** | **815 / 1,031 (79%)** | 209 | 7 |
+
+This is below the 85% target, and every gap is logged with a reason. The status of 1,024 of the 1,031 videos is known: the 209 have no voice in them, and only 7 couldn't be fetched. Apify spend for run 2: $0.
+
+### Themes (niche videos, median × creator's usual, share Ostad could make)
+
+1. Routines, the skin barrier and glass skin: 107 videos, 1.29×, 53% makeable
+2. Faces: filler, fat and Ozempic face: 93 videos, 1.07×, 66% makeable
+3. The derm as entertainer: 93 videos, 0.98×, 24% makeable
+4. Lasers and the healing diary: 68 videos, 1.11×, 56% makeable
+5. Salmon sperm, exosomes and copper peptides: 64 videos, 0.72×, 31% makeable
+6. Dark spots, melasma and skin of color: 60 videos, 2.44×, 47% makeable
+7. What's worth buying: 57 videos, 0.99×, 67% makeable
+8. Is it cancer? Spots, skin checks and Mohs: 50 videos, 5.96×, 86% makeable
+9. What a derm actually gets done: 44 videos, 0.88×, 77% makeable
+10. Inside the practice: 42 videos, 0.81×, 57% makeable
+11. What is this on my skin?: 40 videos, 0.96×, 85% makeable
+12. Tretinoin, retinol and the purge: 39 videos, 1.08×, 74% makeable
+13. Lifting without surgery: threads, Morpheus8, Emface: 36 videos, 0.93×, 58% makeable
+14. Botox, baby Botox and the frozen-face fear: 29 videos, 2.72×, 66% makeable
+15. Acne and acne scars: 28 videos, 1.37×, 61% makeable
+16. Hair loss and hair 'botox': 28 videos, 1.32×, 46% makeable
+17. In the chair: PRP, microneedling and small procedures: 23 videos, 0.74×, 78% makeable
+18. The sunscreen fight: 21 videos, 1.26×, 67% makeable
+
+### Three sentences Naim says first on Tuesday
+
+1. "The niche's best-performing subject is skin cancer and what Mohs does to your face, at six times a creator's usual views. You're the Mohs surgeon, and you have three videos on it."
+2. "People don't want a lecture. Videos where someone says what actually happened, or what they'd actually do, run at three times usual; explainers sit at one."
+3. "Two-thirds of what you post is selling something, against one in eight of the winners. So we start every Monday with a skin cancer case, not an ad."
+
+### Decisions made alone
+
+DECISIONS.md items 25–42. The ones that change what Naim sees:
+- `no_speech` is a fourth transcript status (209 videos), so coverage reads 79%, not a padded number.
+- The tone guard failed twice and every row with the top tone was re-read twice, until the largest value was salesy at 28%.
+- 18 themes (the top of the 10–18 range), chosen by reading 32 clusters, with 104 videos moved by hand.
+- The Read figure gives each theme its own row instead of 18 colours.
+- The Him page compares views, because his "× usual" is measured against his own median.
+- Cares are ranked by a formula (videos answering it × how well they do), not by judgement.
+- The plan ranks themes by how the makeable videos do. Skin cancer gets every Monday, and entertainer appears only as a backup.
+- "Lexington Avenue", not "Park Avenue". "29 years" is to be confirmed with him.
+- Main's build was broken from 2df9ab1 to dca78db, with the live site on the previous deploy throughout. It's fixed.
+- Local builds pin turbopack.root because a stray home-folder lockfile appeared. The repo config is unchanged.
+- n8n was skipped: N8N_API_KEY is still not set.
+
