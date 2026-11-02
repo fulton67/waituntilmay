@@ -1,62 +1,42 @@
-# Meeting with Dr. Ostad — talking points
+# Meeting with Dr. Ostad: talking points (run 2)
 
-Dashboard: **https://waituntilmay.com/ostad** (unlisted, noindex). Full numbers in `REPORT.md`, the calendar in `PLAN.md`, his business in `CLIENT.md`.
+Dashboard: **https://waituntilmay.com/ostad** (unlisted, noindex). It opens on the videos he could make himself; **[show everything]** adds the rest. The written version is `REPORT2.md` (the Read tab), the calendar is `PLAN.md` (the Plan tab), and each theme has its own page under `themes/`.
 
-We read 1,031 videos (537 TikTok · 247 Instagram · 247 YouTube): 922 from the niche and 109 of his own.
-
----
-
-## Five things to say (each has a number and a tab)
-
-1. **"Your audience is on Instagram. TikTok and YouTube are close to empty."**
-   His Instagram reels have a median of 31.4K views. TikTok has 827 (niche: 47K, 57× more) and YouTube 464 (niche: 96K, 206× more). His TikTok has 135 followers, its last post was May 2025, and his site doesn't link to it.
-   → **baseline** tab (the gap chart: every dot is one of his posts).
-
-2. **"Skin cancer is the lane nobody else can own, and it's the one that wins."**
-   Skin-cancer awareness runs 4.1× above a creator's normal, and **31.3× on TikTok, where 53% of these videos win**. "Melanoma or not?" quizzes did 12.6M and 9.6M. Only 3 of his 109 videos are about skin cancer, though he's a triple-board-certified Mohs surgeon.
-   → **genres** tab (switch the platform to TikTok), then the **library** with genre = skin-cancer-awareness.
-
-3. **"Before/after brings strangers in. Your voice is what makes them stay."**
-   Before-after is the biggest reach lever: 10.2×, with 47% of them winning. It gets 1.0% engagement and almost no saves. His best video ever is one: the Botox before/after, 522K. We run it with him narrating (voiceover-over-procedure is the best format at 2.85×).
-   → **library**, sort by outlier, genre = before-after.
-
-4. **"Polished promos and 'Today let's talk about…' are what clinics post and what the algorithm ignores."**
-   Ad/promo sits at 1.0× (0.67× on Instagram). 78% of his videos are promos or explainers, and those two genres are 25% of what wins. 82 of his 109 open with direct address, the weakest common hook (0.97×). His October YouTube batch got 43–98 views each.
-   → **baseline** tab, "his videos" grid sorted by date.
-
-5. **"Your patients are already asking the questions. Answer them on camera."**
-   We pulled 47 real questions from comments under the top derm TikToks. Q&A / comment-reply has the highest save rate (0.66%) and comment rate (0.14%) in the niche. Myth-bust is the only genre above the median on reach, engagement, saves and comments at once.
-   → **questions** tab.
+We read 1,031 videos (922 from the niche, 109 of his own) and listened to every one with a voice: 815 transcripts. 209 have no speech at all, and 7 couldn't be fetched.
 
 ---
 
-## What to make (the first 4 weeks start Mon 2026-11-09)
+## Say these three first
 
-- **Mondays: "The Mohs Surgeon Explains."** A skin-cancer piece every week. It opens with "Melanoma or not? A Mohs surgeon plays along."
-- **Tuesdays: proof, narrated.** Fraxel on acne scars (day 0 → 30), Morpheus8 start to finish, a full Botox appointment, thread lift vs filler on the same patient.
-- **Wednesdays: myth-bust or red flag.** "You don't skip sunscreen because of a retinoid", "3 things I'd never let anyone inject into my face". His best 2026 reel was already a red-flag case (61K).
-- **Thursdays: a real viewer question**, answered on his phone in one take ("Is Botox worth it in your 20s?", "Retinol vs tretinoin").
-- **Fridays: a trend checked by a surgeon.** Ozempic face (752K median), salmon-sperm / PDRN, demodex. These are trends carried by gossip pages with no credentialed voice.
-- **No credentials opener.** None of the top 30 opens with "I'm Dr. …". The payoff (a face, a lesion, a needle, a result) goes in the first second.
-- **Say "baby botox", not "prejuvenation".** Same idea: 11.1× vs 0.09×. Melasma (7.8×) and acne scars (5.9×) are the other topics that over-index.
-- **Shoot in 4 batches, not 20 days:**
-  - A: one phone afternoon, 9 videos.
-  - B: one procedure day, 3 videos.
-  - C: before/after pulls plus one patient interview, 4 videos.
-  - D: an hour of b-roll, 4 videos.
-- **Post to TikTok and YouTube Shorts as well as Instagram.** The same cut goes to all three, since that's where the gap is widest.
-- **Every video ends on a service he offers that nobody films.** CLIENT.md lists 22 gaps: Mohs reconstruction, EXOMIND, IV/NAD+, the non-surgical nose job, Jeuveau and his Luma skincare line.
+1. **"The niche's best subject is the one you're best qualified for, and you have three videos on it."**
+   "Is it cancer?" and "what will Mohs do to my face?" videos run at a median of 6 times their creator's usual views, 8.5 times for the ones you could make. His three are awareness-month talks; one has 398 views.
+   → **Read** tab, first theme; then **Themes → Is it cancer?**
 
-The 10 backups and 40 backlog titles are in `PLAN.md` and on the **plan** tab. Click any slot to see the three reference videos it's modelled on.
+2. **"People don't want a lecture. They want what happened, and what you'd actually do."**
+   Confessional videos run at 3.1 times usual, and 4.3 times for the ones he could make. Flat explainers sit at 1 times; opening on credentials is the weakest start in the niche (0.8 times). Patients telling their own story run at 5.2 times.
+   → **Watch**, tone = confessional.
 
----
+3. **"Most of what you post is an ad, and the audience scrolls past ads."**
+   65% of his videos are salesy, against 13% of the winning videos he could make. A third have no voice at all. His median video gets 876 views; the niche videos he could make get 57,790. His best ever, treating his nurse on camera (522,373 views), was a scene, not an ad.
+   → **Him** tab, both figures.
 
-## What I need from you
+## What the audience asks (Cares tab)
 
-- **Instagram access** (Creator/Business insights, or add me as a collaborator). Saves, shares and reach per reel would replace our view-only estimates. Only 19 of the 143 Instagram posts we scraped carried view counts.
-- **One procedure day in the next two weeks**, with consented patients: a Mohs case with reconstruction, a Morpheus8 and a Botox appointment.
-- **Consented before/after photos from the archive**: acne scars (Fraxel), melasma on brown skin, and thread lift vs filler.
-- **Which services to push this quarter.** That decides the Friday slots and the end of each video. Is it injectables, lasers, EXOMIND, IV therapy, or the skincare line?
-- **Skincare priority.** Is LUMA Cream and the 33-product line a revenue goal, or does it support the practice? His Luma Cream reel did 50K.
-- **The TikTok login** for @drarielostad (or approval to start fresh), and a link to it from his site.
-- **One patient willing to tell their skin-cancer story** on camera, for slot 20: "She found it in the mirror."
+- The best-performing questions are the frightening ones: "will removing this mole scar my face?" (29 videos, 6.7 times), "is this spot cancer?" (28, 5.5 times), "will my acne scars go away?" (29, 6 times), "why won't my melasma go away?" (17, 10.7 times). He has blog posts on all four and no video.
+- Nothing at all on two quick wins: "can I do this peel at home?" and "is copper peptide / PDRN cream real?"
+- Ask him to type his one-line answer into the box under each question; it saves in his browser.
+
+## What we make (Plan tab, from Mon 9 Nov)
+
+- **Every Monday is skin cancer:** the two-spot quiz, a Mohs case first stage to closed wound, "is Mohs a scam?", and the four weeks that decide a mole scar.
+- **Botox (3) and dark skin (3) mid-week:** starting at 24, why brows drop, a two-week-old Botox face that still moves; home TCA peels, melasma vs sun spots, lasers on dark skin.
+- **Single bets:** Ozempic face, a hair-loss scoreboard (including what he sells), salmon sperm injected vs rubbed on, everything on his own face, three things he won't do to his own face, a day on Lexington.
+- **Five shoot days** cover all 30 (20 + 10 backups): desk, screen (photos, dermoscope, microscope), procedure, patient sit-downs, one follow-cam day.
+
+## What I need from him
+
+1. Two or three patients willing to be filmed: a Mohs case with reconstruction, a CO2 or Fraxel patient for a day-three diary, a melasma or dark-skin laser patient.
+2. Dermoscope and pathology images he's allowed to show (for the quiz and "the scar that was cancer").
+3. Confirm the facts we quote: years in practice (his Evolus spot says 29), and the counts for "a day on Lexington".
+4. A yes to dropping music-only clips and device introductions from the regular feed.
+5. Who on staff can film: phone, lapel mic, 30 minutes per shoot day.

@@ -25,13 +25,13 @@ Spec: `OSTAD_RUN_2.md`. Resume from the first unchecked item. No re-scrape; Apif
   - re-read 1 (all 373 clinical rows) → clinical 224, but **casual-friend rose to 37.3%** → fail
   - re-read 2 (all 385 casual-friend rows, told to drop habitual second tones) → **salesy 28.1% top → PASS**; avg tones/row 1.42; primary tone top = salesy 21%
 - [x] 2b themes: 18 themes from 32 Ward clusters (all-mpnet-base-v2), named and merged by reading, 104 row overrides; themes/{slug}.md × 18 + theme_meta × 18, all checked (6 examples in-theme, first 4 makeable, no em dashes)
-- [ ] 2c cares.json (25)
-- [ ] 2d PLAN.md / plan.json regenerated from themes
-- [ ] 2e REPORT2.md (≤ 2,500 words) + MEETING.md regenerated
+- [x] 2c cares.json: 25 questions, proposed by a reader (classify2/cares_draft.json), counted and ranked by scripts/cares.py (videos × (1 + log10 median ×usual))
+- [x] 2d PLAN.md / plan.json regenerated from themes: 20 slots across 11 themes (is-it-cancer 4, botox 3, dark-spots 3), 10 backups, 40 backlog, 5 shoot batches; render_plan.py OK
+- [x] 2e REPORT2.md (2388 words: themes as narrative, what the audience asks, which tone and shape win, what he does instead, what we make) + MEETING.md regenerated (631 words)
 
 ## Phase 3 — /ostad as a reading tool
-- [ ] tabs: Read, Themes, Watch, Cares, Plan, Him (Genres/Questions/Ads deleted; ads folded into Read)
-- [ ] verified locally: build, watch counts (makeable / all), theme pages, embeds, 6-tab click-through 0 console errors
+- [x] tabs: Read, Themes (index + 18 pages), Watch, Cares, Plan, Him; Genres/Questions/Ads/Baseline deleted (404), ads folded into Read as a collapsed table
+- [x] verified locally (prod build, `verify2.mjs` PASS): watch default 639 = makeable rows 639, show everything 1031 = rows 1031; 18/18 theme pages 200 + noindex with 6 examples and a says block; embeds 1031/1031 have a player (all 200 when checked), live sample 24/24; 6-tab click-through lands on each route; cares 25 + answer persists; plan 30 slots + batch view; 0 console errors
 - [ ] pushed + verified live
 
 ## Finish

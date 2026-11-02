@@ -1,402 +1,516 @@
-# OSTAD — 4-week content plan (Mon 9 Nov → Fri 4 Dec 2026)
+# OSTAD CONTENT INTEL: Plan (run 2)
 
-Twenty posts, Monday to Friday, plus ten backups and forty backlog titles. Ideas, titles, angles and references, not scripts. Every reference is a real video in the corpus (dashboard: https://waituntilmay.com/ostad/plan). Numbers are views · outlier (views ÷ the creator's normal) unless stated.
+Twenty posts from Monday 2026-11-09, plus 10 backups and 40 more titles. The plan is built from the themes in `themes/`, not from genre tables.
+Each slot gives the claim, the first line Dr. Ostad says, the video's shape in three beats (structure, not a script), the tone, and the makeable videos it is built from.
 
-## Pillars
-
-- **1 · The Mohs Surgeon Explains**: Skin-cancer awareness 4.1× outlier overall, 31.3× and 53% winners on TikTok; Mohs-tagged videos 20.8× but only 9 exist. Only a triple-board-certified Mohs surgeon can own it. Weekly, Mondays.
-- **2 · Proof, Narrated**: Before-after 10.2× (47% win) and voiceover-over-procedure 2.85×, but 1.0% engagement. His voice over the footage adds the trust the genre lacks. His own Botox before/after did 522K.
-- **3 · Myth-Bust & Red Flags**: Myth-bust 1.32× and the only genre above median on reach, engagement (3.4%), saves (0.63%) and comments. His best 2026 reel is a red-flag case (61K).
-- **4 · Your Questions, Answered**: Q&A / comment-reply has the highest save (0.66%) and comment (0.14%) rates; 47 real viewer questions are waiting. Phone, one take.
-- **5 · Trend, Checked by a Surgeon**: Ozempic face 752K median, baby botox 11.1×, buccal fat 2.9×; PDRN and salmon sperm are carried by gossip pages with no credentialed voice. At most once a week.
-
-## The weekly rhythm
+## The four weeks
 
 | | Mon | Tue | Wed | Thu | Fri |
 |---|---|---|---|---|---|
-| **W1** | Melanoma or not? A Mohs surgeon plays along <br>*skin-cancer-awareness · needs b-roll* | What 1 round of Fraxel does to acne scars (day 0 → day 30) <br>*before-after · needs a patient* | No, you don't skip sunscreen because you use a retinoid. It's the opposite. <br>*myth-bust · phone-only* | Replying to @…: "Is it worth getting Botox in your 20s?" <br>*Q&A / comment-reply · phone-only* | "Ozempic face" is real. Here's what actually happens to your face. <br>*trend-commentary · phone-only* |
-| **W2** | "Basal cell is rarely deadly, so why did they cut so much?" <br>*skin-cancer-awareness · needs b-roll* | Morpheus8, start to finish: what you actually feel <br>*procedure-POV · needs a procedure day* | 3 things I'd never let anyone inject into my face <br>*red-flag / what-not-to-do · phone-only* | Retinol vs tretinoin: which one, and how much? <br>*Q&A / comment-reply · phone-only* | Melasma on brown skin: 8 weeks, no laser burns <br>*before-after · needs a patient* |
-| **W3** | From skin cancer to stitched: a Mohs day in 60 seconds <br>*skin-cancer-awareness · needs a procedure day* | Watch what one Botox appointment really looks like (3 areas, 6 minutes) <br>*procedure-POV · needs a patient* | Things I'd never spend money on as a dermatologist <br>*product-review / drugstore-vs-medical · needs b-roll* | "Can someone recommend a dermatologist in NYC?" Here's how to pick one <br>*Q&A / comment-reply · phone-only* | I've injected salmon sperm into faces. Here's my honest take. <br>*trend-commentary · needs b-roll* |
-| **W4** | The spot on your foot you're ignoring (and the one test that catches it) <br>*skin-cancer-awareness · phone-only* | Thread lift vs filler for a tired midface: same patient, honest result <br>*before-after · needs a patient* | That's not sun damage on your upper lip. It's probably melasma. <br>*myth-bust · phone-only* | Dermatologist reacts: the demodex video everyone's commenting on <br>*derm-reacts / duet / stitch · phone-only* | She found it in the mirror. We removed it on Tuesday. <br>*patient-story / testimonial · needs a patient* |
+| **W1** | “Two spots. One of them I would remove today. Which one?” <br>*Is it cancer? Spots, skin checks and Mohs* | “I've watched faces that started Botox at 24 turn 45. Here's what happened.” <br>*Botox, baby Botox and the frozen-face fear* | “I see an at-home TCA peel about once a month. It looks like this.” <br>*Dark spots, melasma and skin of color* | “She thought it was an old scar. It had been growing for three years.” <br>*What is this on my skin?* | “This is my patient on day three. It looks worse than it feels.” <br>*Lasers and the healing diary* |
+| **W2** | “This is a basal cell on a nose. Watch how little we take.” <br>*Is it cancer? Spots, skin checks and Mohs* | “These aren't sun spots. That's melasma, and the wrong laser makes it worse.” <br>*Dark spots, melasma and skin of color* | “If your eyebrows dropped after Botox, that was placement, not the product.” <br>*Botox, baby Botox and the frozen-face fear* | “Ozempic didn't age her face. It took the fat that was holding it up.” <br>*Faces: filler, fat and Ozempic face* | “Minoxidil, PRP, exosomes, biotin. I'll score each one, including the ones I sell.” <br>*Hair loss and hair 'botox'* |
+| **W3** | “Someone asked why a basal cell needs Mohs at all. Fair question.” <br>*Is it cancer? Spots, skin checks and Mohs* | “Those small dark bumps on your cheeks aren't moles. They're called DPN.” <br>*What is this on my skin?* | “She had Botox two weeks ago. Watch her forehead.” <br>*Botox, baby Botox and the frozen-face fear* | “That sound is the ink breaking apart. Plan on more than one session.” <br>*Lasers and the healing diary* | “Yesterday: four Mohs cases, two reconstructions, eleven injection patients, one NYU resident.” <br>*Inside the practice* |
+| **W4** | “The scar from a mole removal is decided in the next four weeks.” <br>*Is it cancer? Spots, skin checks and Mohs* | “The laser didn't burn her skin. The setting did.” <br>*Dark spots, melasma and skin of color* | “Your PDRN cream is not doing what the injection does. Here's why.” <br>*Salmon sperm, exosomes and copper peptides* | “I'm a dermatologist in my fifties. This is everything I put on my face.” <br>*Routines, the skin barrier and glass skin* | “Twenty-nine years in, there are three things I won't do to my own face.” <br>*What a derm actually gets done* |
 
-**Mon = Mohs/skin cancer, every week.** The genre scores (4.1× overall, 31.3× on TikTok, 53% of TikTok ones win), so the spec's "one per week only if it scores" condition is met. **Tue = proof** (before-after / procedure, the biggest reach lever). **Wed = myth-bust / red flag** (best all-round engagement). **Thu = a real viewer question.** **Fri = trend or proof.**
-
-**Mix vs what wins in the niche:**
-
-| genre | slots in plan | share of plan | share of niche winners |
-|---|---:|---:|---:|
-| skin-cancer-awareness | 4 | 20% | 8% |
-| before-after | 3 | 15% | 15% |
-| Q&A / comment-reply | 3 | 15% | 1% |
-| myth-bust | 2 | 10% | 5% |
-| trend-commentary | 2 | 10% | 6% |
-| procedure-POV | 2 | 10% | 6% |
-| red-flag / what-not-to-do | 1 | 5% | 3% |
-| product-review / drugstore-vs-medical | 1 | 5% | 5% |
-| derm-reacts / duet / stitch | 1 | 5% | 2% |
-| patient-story / testimonial | 1 | 5% | 10% |
-
-Bent toward education the way the data supports: ad/promo (12% of niche winners, but 0.67–1.0× and Ostad's most over-used genre) and generic humour (8%, mostly off-niche memes) are left out of the calendar on purpose; skin-cancer and Q&A get more weight than their winner share because they're the lanes he can own and where engagement is highest.
+Every Monday is a skin cancer post, his strongest theme (5.96x median, 86% makeable) and the one nobody else in the niche can match. Botox and dark spots fill the middle of the week. Fridays end on something longer or lighter: a recovery diary, the hair scoreboard, a day in the practice, what he won't do to his own face.
 
 ## Shoot in batches
 
-- **A · Phone session (one afternoon, his office)**: slots 3, 4, 5, 8, 9, 14, 16, 18, 19. 9 talking-head, green-screen and stitch pieces. Same light, two outfits, ~20 min each. Pull the real comments up on a tablet as prompts.
-- **B · Procedure day (consented patients)**: slots 7, 11, 12. Morpheus8, a Mohs case with reconstruction, and a Botox appointment. One camera op, a lav on Dr. Ostad; he narrates later in the edit.
-- **C · Before/after pulls + patient interviews**: slots 2, 10, 17, 20. Needs consented results from his archive plus one sit-down with a Mohs patient. The edit-heavy batch; book the patient first.
-- **D · B-roll + desk**: slots 1, 6, 13, 15. Lesion photos, a Mohs-map drawing, products on a desk, the Cosmopolitan headline. Shoot inserts in an hour after batch A.
+- **A. Desk day**: slots 2, 10, 11, 18, 19, 20, B01, B03, B05, B07, B08. Talking heads and stitches in his office: one camera, a lav, plain background, two jacket changes. Real comments on a tablet as prompts. Allow about 20 minutes per piece.
+- **B. Screen day**: slots 1, 3, 7, 9, 12, B02, B09, B10. He stands beside a monitor showing consented patient photos, dermoscope images and his microscope feed. Pull and clear consents for every image the week before.
+- **C. Procedure day**: slots 6, 8, 13, 14, 16, 17, B06. Consenting patients booked back to back: a Mohs case with closure, a mole removal, two Botox appointments, a PicoWay session on skin of colour and a tattoo. One camera operator, a lav on Dr. Ostad; follow-up shots at two and six weeks.
+- **D. Patient stories**: slots 4, 5, B04. Seated sit-downs with consenting patients next to him, plus a CO2 patient's own phone diary over ten days. Book the patients first; this is the batch with the longest lead time.
+- **E. A day on Lexington**: slots 15. One follow-cam day at 897 Lexington: microscope, operating room, injection room, a resident. Count the real day's cases for the opening line.
 
 ## The 20 slots
 
-### 01 · Mon 2026-11-09 · Melanoma or not? A Mohs surgeon plays along
+### 01 · Mon 2026-11-09 · Cancer or not? A Mohs surgeon's two-spot quiz
 
-- **Pillar:** 1 · The Mohs Surgeon Explains · **Genre:** skin-cancer-awareness · **Format:** talking-head + b-roll · **Hook:** question · **Effort:** needs b-roll
-- **Angle:** Four real lesion photos on screen, one at a time; viewers guess, he answers with the one feature that decided it (ABCDE, the 'ugly duckling'). The quiz format is the biggest thing in this lane; the payoff is that viewers learn the rule, not just the answer.
-- **Sells (softly):** Skin cancer checks, mole removal
-- **Ostad's version:** He's examined skin under the microscope for 25 years and has the Skin Cancer Foundation seat; he can say what the pathology slide showed after each guess. Use consented patient photos from his own files, not stock.
-- **References:**
-  - [instagram · @mattypowz.md](https://www.instagram.com/p/DbTV5eBKnsX/) `in_DbTV5eBKnsX`: Melanoma-or-not quiz: 12.6M views, 106× the creator's norm
-  - [tiktok · @dr.lindaxing](https://www.tiktok.com/@dr.lindaxing/video/7638594653012462868) `ti_7638594653012462868`: "Early skin cancer can look very subtle": 1.0M, 62×
-  - [tiktok · @ultravioletteau](https://www.tiktok.com/@ultravioletteau/video/7500356242376871176) `ti_7500356242376871176`: Skin-cancer awareness explainer with a derm: 9.6M, 115×
+> “Two spots. One of them I would remove today. Which one?”
 
-### 02 · Tue 2026-11-10 · What 1 round of Fraxel does to acne scars (day 0 → day 30)
+- **Theme:** Is it cancer? Spots, skin checks and Mohs · **tone:** clinical, reassuring · **sells:** Skin cancer checks and mole removal · **shoot:** B. Screen day
+- **Claim:** The mole that worries you is usually the harmless one; the dangerous spot is the one that looks unlike all the others.
+- **Open:** Two consented patient photos side by side on the monitor. He asks the question and holds the pause.
+- **Middle:** He reveals the answer and names the single feature that decided it (change, three colours, the ugly duckling), then shows the dermoscope view of the same spot.
+- **Close:** If one of your spots looks like none of your others, that is the one to show a dermatologist. Not a photo to a stranger online.
+- **Why it's his:** He has read his own Mohs slides for over 25 years and sits on the Skin Cancer Foundation Medical Council, so he can say what the pathology actually showed after each guess. His own awareness-month PSAs are the format that flops here; the quiz is the one that wins.
+- **Built from:**
+  - [tiktok @ultravioletteau](https://www.tiktok.com/@ultravioletteau/video/7500356242376871176) · 115× usual · “Is that skin cancer or not?”
+  - [instagram @mattypowz.md](https://www.instagram.com/p/DbTV5eBKnsX/) · 106× usual ·
+  - [tiktok @chiswickclinic](https://www.tiktok.com/@chiswickclinic/video/7544053691087719702) · 52× usual · “Can you help us to show where the skin cancer is?”
 
-- **Pillar:** 2 · Proof, Narrated · **Genre:** before-after · **Format:** voiceover-over-procedure · **Hook:** before/after reveal · **Effort:** needs a patient
-- **Angle:** Open on the result, then rewind through day 0, day 3 (the sandpaper phase) and day 30, with his voice on what's happening under the skin at each step. Acne scars are 5.9× with 52% winners; the reveal does the reach and the narration does the trust.
-- **Sells (softly):** Fraxel / CO2, acne scar treatment
-- **Ostad's version:** He narrates as the surgeon (depth settings, why one pass vs two) rather than a patient diary. End on his 'less is more' line: one well-chosen treatment beats five trendy ones.
-- **References:**
-  - [youtube · @jannatara](https://www.youtube.com/shorts/HF0XeSC6i7Y) `yo_HF0XeSC6i7Y`: Patient's Fraxel results for scars and pores: 2.0M, 232×
-  - [tiktok · @skinbydrazi](https://www.tiktok.com/@skinbydrazi/video/7480964269807340846) `ti_7480964269807340846`: CO2 diary with an honest downtime reveal: 1.0M, 201×
-  - [youtube · @AvalonLaserSanDiego](https://www.youtube.com/shorts/HbYGMtrLtL4) `yo_HbYGMtrLtL4`: "CO2 laser: is it worth it?" with results: 708K, 445×
+### 02 · Tue 2026-11-10 · Should you start Botox at 24?
 
-### 03 · Wed 2026-11-11 · No, you don't skip sunscreen because you use a retinoid. It's the opposite.
+> “I've watched faces that started Botox at 24 turn 45. Here's what happened.”
 
-- **Pillar:** 3 · Myth-Bust & Red Flags · **Genre:** myth-bust · **Format:** talking-head · **Hook:** contrarian claim · **Effort:** phone-only
-- **Angle:** Answers the 1,789-like comment directly: retinoids thin the outer layer and raise sun sensitivity, so SPF matters more, not less. Three short rules, no product list. Sunscreen content averages 0.56×; the contrarian framing is what lifts it.
-- **Sells (softly):** Skincare line: Ret Nia serums + Sun Shade tints
-- **Ostad's version:** Shows his own two products in hand at the end (Ret Nia at night, Sun Shade in the morning) as his routine, not an ad: the skincare line with no promo energy.
-- **References:**
-  - [tiktok · @shereeneidriss](https://www.tiktok.com/@shereeneidriss/video/7371463703386000682) `ti_7371463703386000682`: "Sunscreen haters, let's go": 1.2M, 6.4% engagement
-  - [tiktok · @izzythepa](https://www.tiktok.com/@izzythepa/video/7696670183980567821) `ti_7696670183980567821`: "I will die on this hill" contrarian open: 2.8M, 9.5% engagement
-  - [tiktok · @drgazy](https://www.tiktok.com/@drgazy/video/7195028262765022506) `ti_7195028262765022506`: The routine the question was asked under: 5.6M, 10.1% engagement
+- **Theme:** Botox, baby Botox and the frozen-face fear · **tone:** contrarian, reassuring · **sells:** Botox / Jeuveau · **shoot:** A. Desk day
+- **Claim:** Botox in your twenties is not dangerous, but most 24-year-olds are paying to treat lines they do not have yet.
+- **Open:** Seated, plain background. He states the question the comments keep asking and says he has the long view on it.
+- **Middle:** What he sees in patients who started early: the ones who did well used small doses only where a line was forming; the ones who did badly chased a frozen look and lost expression. He says plainly that baby Botox is just a smaller dose.
+- **Close:** His rule: treat a line when it stays after your face relaxes, not because a friend started. A consult should be allowed to end with no.
+- **Why it's his:** He has 29 years of faces to compare and patients who come to him after neurotoxin elsewhere wanting natural results. No 20-something injector can speak to what a face that started at 24 looks like at 45.
+- **Built from:**
+  - [youtube @facetoronto](https://www.youtube.com/shorts/N7EGRoGi2YU) · 49× usual · “So, Dr.”
+  - [instagram @tagesschau](https://www.instagram.com/p/DB0uOYGhsFx/) · 29× usual · “Mit Anfang 20 Botox-Spritzen.”
+  - [youtube @hannahpicchi](https://www.youtube.com/shorts/drRpMMtvQU8) · 27× usual · “Enough with the arguments.”
 
-### 04 · Thu 2026-11-12 · Replying to @…: "Is it worth getting Botox in your 20s?"
+### 03 · Wed 2026-11-11 · Never do a TCA peel at home, especially on brown skin
 
-- **Pillar:** 4 · Your Questions, Answered · **Genre:** Q&A / comment-reply · **Format:** talking-head · **Hook:** question · **Effort:** phone-only
-- **Angle:** Pull the real comment on screen and answer it plainly: who benefits from baby Botox, who's wasting money, and what he tells 25-year-olds in his chair. 'Baby botox' is 11.1× as a topic; 'prejuvenation' as a word is 0.09×, so use their words.
-- **Sells (softly):** Botox / Jeuveau
-- **Ostad's version:** His 'less is more' philosophy is the answer. The surgeon who says 'most of you don't need it yet' earns the trust that books the 35-year-olds.
-- **References:**
-  - [instagram · @tagesschau](https://www.instagram.com/p/DB0uOYGhsFx/) `in_DB0uOYGhsFx`: Baby-Botox news segment: 3.4M, 28.6×
-  - [tiktok · @drdrayzday](https://www.tiktok.com/@drdrayzday/video/7701418626766605582) `ti_7701418626766605582`: Dr. Dray answering a viewer: 6.5% engagement, 6.7×
-  - [tiktok · @drarielostad](https://www.tiktok.com/@drarielostad/video/7259822258615487786) `ti_7259822258615487786`: His own best TikTok is a comment reply: 6.4K, 7.3× his median
+> “I see an at-home TCA peel about once a month. It looks like this.”
 
-### 05 · Fri 2026-11-13 · "Ozempic face" is real. Here's what actually happens to your face.
+- **Theme:** Dark spots, melasma and skin of color · **tone:** fear/warning, clinical · **sells:** Chemical peels and the Ethnic Skin Tones program (PicoWay, LUMA Cream) · **shoot:** B. Screen day
+- **Claim:** An at-home TCA peel on medium or dark skin trades one dark spot for a larger, longer-lasting one.
+- **Open:** A consented photo of post-peel hyperpigmentation on the monitor. He says flatly what it is and where it came from.
+- **Middle:** Why acid strength is not the problem on its own: on skin with more pigment the injury itself triggers more pigment. He explains how he picks a peel or laser by skin tone using the Monk scale, not by what a bottle promises.
+- **Close:** If you already did it: stop, sun protection, nothing aggressive, and see someone who treats skin of colour. It usually fades, slowly.
+- **Why it's his:** He is laser-fellowship trained, chooses wavelengths and peels by the Monk scale on his own skin-of-colour page, and compounds LUMA Cream to fix the aftermath. His peels-for-skin-of-colour video already drew 49,876 views, so this audience finds him.
+- **Built from:**
+  - [tiktok @drdrayzday](https://www.tiktok.com/@drdrayzday/video/7649513627237551374) · 174× usual · “Things you absolutely should not do at home for 200, Alex.”
+  - [instagram @royalesthetics.jax](https://www.instagram.com/p/CzKkbj3rkwD/) · 2.8× usual · “My client's skin was raw and hurting from this $1,000 chemical peel she got from a spot in Atlanta.”
+  - [instagram @dermdocwilliams](https://www.instagram.com/p/DZPxnAHBg4r/) · 1.8× usual · “I wouldn't do a TCA-30 at home again, no I wouldn't, especially not on my skin.”
 
-- **Pillar:** 5 · Trend, Checked by a Surgeon · **Genre:** trend-commentary · **Format:** green-screen · **Hook:** contrarian claim · **Effort:** phone-only
-- **Angle:** Green-screen over the trend headlines; he explains fat-pad loss vs skin laxity and what helps each (volume vs tightening), in under 45 seconds. Ozempic face has a 752K median; most winners are celebrity gossip with no doctor in them.
-- **Sells (softly):** GLP-1 laxity: Sculptra, Morpheus8, EMFACE
-- **Ostad's version:** No celebrity faces (that's the gossip version). He uses an illustration of the fat pads plus a consented patient's before/after, which is the surgeon's version of the trend.
-- **References:**
-  - [youtube · @rissasroom](https://www.youtube.com/shorts/3omae7t2VUo) `yo_3omae7t2VUo`: Celebrity Ozempic-face before/after: 8.3M, 1,594×
-  - [youtube · @rissasroom](https://www.youtube.com/shorts/BBG527GP3yU) `yo_BBG527GP3yU`: Same formula again: 1.6M, 314×
+### 04 · Thu 2026-11-12 · The scar that was cancer
 
-### 06 · Mon 2026-11-16 · "Basal cell is rarely deadly, so why did they cut so much?"
+> “She thought it was an old scar. It had been growing for three years.”
 
-- **Pillar:** 1 · The Mohs Surgeon Explains · **Genre:** skin-cancer-awareness · **Format:** talking-head + b-roll · **Hook:** question · **Effort:** needs b-roll
-- **Angle:** Answers the real comment: Mohs takes the least tissue possible, checks 100% of the margin under the microscope while you wait, and that's why the scar is smaller. Mohs-tagged videos win at 20.8×; almost nobody explains the logic.
-- **Sells (softly):** Mohs surgery, skin cancer reconstruction
-- **Ostad's version:** He teaches this to NYU residents. Show a simple drawing of the Mohs map he actually uses. No surgery gore in week 2; build to that.
-- **References:**
-  - [youtube · @dr.truitt_sandiego](https://www.youtube.com/shorts/Gx9w32bs_N8) `yo_Gx9w32bs_N8`: "Mohs isn't just about clearing the visible tumor": 146K, 146×
-  - [tiktok · @leftonred_podcast](https://www.tiktok.com/@leftonred_podcast/video/7477323953317465390) `ti_7477323953317465390`: The video the question was asked under: 344K, 184×
-  - [tiktok · @kc_facialplastics8](https://www.tiktok.com/@kc_facialplastics8/video/7470562891251387694) `ti_7470562891251387694`: Mohs reconstruction explainer: 81K, 81×
+- **Theme:** What is this on my skin? · **tone:** confessional, fear/warning · **sells:** Mohs surgery and skin cancer reconstruction · **shoot:** D. Patient stories
+- **Claim:** A basal cell often looks like an old scar or a pimple that never heals, not like a mole.
+- **Open:** A consenting Mohs patient sits beside him. He says the line; she tells how long she ignored it and why.
+- **Middle:** He shows the before photo and explains what gave it away: shiny, a little raised, bleeding when she washed her face. Then the Mohs map of how far it actually went under the skin.
+- **Close:** Her healed result. His line: a spot that will not heal in a month is not a pimple, whatever it looks like.
+- **Why it's his:** He is the surgeon who removed it, read the slides and closed the wound. The misdiagnosis story pulls at 183x when a patient tells it; with the Mohs surgeon beside her it also answers what happens next.
+- **Built from:**
+  - [tiktok @leftonred_podcast](https://www.tiktok.com/@leftonred_podcast/video/7477323953317465390) · 183× usual · “How do we get here?”
+  - [tiktok @drderrickphillips](https://www.tiktok.com/@drderrickphillips/video/7683193686318009622) · 84× usual · “This is not a yeast infection, and it's not vitiligo either.”
+  - [youtube @smartskindermatology](https://www.youtube.com/shorts/tOEyKi7iE_c) · 20× usual · “all right so this lovely patient of mine has had all three of the skin cancers the most common skin cancers melanoma basil cell and scum cell so he is here at a skin check today we want to keep a…”
 
-### 07 · Tue 2026-11-17 · Morpheus8, start to finish: what you actually feel
+### 05 · Fri 2026-11-13 · Day three after CO2: it looks worse than it is
 
-- **Pillar:** 2 · Proof, Narrated · **Genre:** procedure-POV · **Format:** voiceover-over-procedure · **Hook:** curiosity gap · **Effort:** needs a procedure day
-- **Angle:** Patient POV through numbing, the pass and the grid marks, with his voice answering the comments people leave under Morpheus8 videos: does it hurt, how many sessions, when can I wear makeup. Procedure-POV 1.37×; Morpheus8 aftercare questions have only 2 winning videos.
-- **Sells (softly):** Morpheus8
-- **Ostad's version:** He answers 4 real viewer questions (sessions, purging, makeup, scarring) during the footage, so it's an FAQ disguised as a POV.
-- **References:**
-  - [youtube · @KiAS-Studio](https://www.youtube.com/shorts/l4CGjE-DPkQ) `yo_l4CGjE-DPkQ`: PRP + microneedling footage: 2.1M, 1,142×
-  - [youtube · @skinandbeautycenter](https://www.youtube.com/shorts/SU3i4W-dzzk) `yo_SU3i4W-dzzk`: Narrated SKINVIVE treatment: 124K, 83×
+> “This is my patient on day three. It looks worse than it feels.”
 
-### 08 · Wed 2026-11-18 · 3 things I'd never let anyone inject into my face
+- **Theme:** Lasers and the healing diary · **tone:** reassuring, confessional · **sells:** Fraxel CO2 and Fraxel Dual · **shoot:** D. Patient stories
+- **Claim:** The ugly week after laser resurfacing is the treatment working, and the patients who panic on day three are the ones nobody warned.
+- **Open:** Cut straight to the raw, swollen day-three face. He says the line over it.
+- **Middle:** The patient's own phone diary, day one to day ten, with him naming what is normal at each stage (oozing, bronzing, flaking) and the one sign that is not.
+- **Close:** The six-week result. He adds that resurfacing also clears sun-damaged cells that can turn into skin cancer, which is why he likes it for his Mohs patients.
+- **Why it's his:** UCLA fellowship in laser surgery as well as Mohs, so he can make the cancer-prevention point as the surgeon who removes those cancers. His 15 existing laser videos are device introductions; none shows a patient's day three.
+- **Built from:**
+  - [youtube @AvalonLaserSanDiego](https://www.youtube.com/shorts/HbYGMtrLtL4) · 445× usual · “Whoa, jump scare.”
+  - [tiktok @skinbydrazi](https://www.tiktok.com/@skinbydrazi/video/7480964269807340846) · 201× usual · “She looks just like a dream”
+  - [youtube @rejuvenationclinics](https://www.youtube.com/shorts/wePLAxKA8d0) · 108× usual · “I mean that is a huge amount of shifting.”
 
-- **Pillar:** 3 · Myth-Bust & Red Flags · **Genre:** red-flag / what-not-to-do · **Format:** talking-head · **Hook:** number/stat · **Effort:** phone-only
-- **Angle:** Black-market filler, permanent filler, injections at a 'Botox party'. One reason each, ending with what he'd do instead. Red-flag lists and 'never do' framing outperform 'worth it' lists; his own red-flag reel is his best 2026 post.
-- **Sells (softly):** Fillers, filler dissolving, Botox
-- **Ostad's version:** He fixes other people's complications. One line, "I see these in my office every month", is the credibility no influencer has.
-- **References:**
-  - [tiktok · @drdrayzday](https://www.tiktok.com/@drdrayzday/video/7649513627237551374) `ti_7649513627237551374`: Dr. Dray, "do not try a TCA peel at home": 4.7M, 174×
-  - [instagram · @botchedtv](https://www.instagram.com/p/DecMHo-AEkz/) `in_DecMHo-AEkz`: Black-market filler story: 1.6M, 13.4×
-  - [instagram · @drarielostad](https://www.instagram.com/p/DXfNKTAgdhc/) `in_DXfNKTAgdhc`: His own red-flag reel: 61K, his best of 2026
+### 06 · Mon 2026-11-16 · A Mohs case, first stage to closed wound
 
-### 09 · Thu 2026-11-19 · Retinol vs tretinoin: which one, and how much?
+> “This is a basal cell on a nose. Watch how little we take.”
 
-- **Pillar:** 4 · Your Questions, Answered · **Genre:** Q&A / comment-reply · **Format:** talking-head · **Hook:** question · **Effort:** phone-only
-- **Angle:** Answers the 1,156-like request directly: the strength ladder, who starts where, and the 'purge' timeline (his own reply on purging is his best TikTok). Retinoids as a topic: 3.1×.
-- **Sells (softly):** Skincare line: Ret Nia serums; acne treatment
-- **Ostad's version:** Ends with what he prescribes vs what he sells over the counter, which is honest positioning for Ret Nia.
-- **References:**
-  - [tiktok · @drabby6](https://www.tiktok.com/@drabby6/video/7257253583031225643) `ti_7257253583031225643`: The video it was asked under: 2.6M, 9.6% engagement
-  - [tiktok · @drarielostad](https://www.tiktok.com/@drarielostad/video/7259822258615487786) `ti_7259822258615487786`: His own retinol-purge reply: 7.3× his median
-  - [tiktok · @drdrayzday](https://www.tiktok.com/@drdrayzday/video/7701418626766605582) `ti_7701418626766605582`: Dr. Dray on tretinoin maintenance: 180K, 6.5% engagement
+- **Theme:** Is it cancer? Spots, skin checks and Mohs · **tone:** clinical, reassuring · **sells:** Mohs micrographic surgery and skin cancer reconstruction · **shoot:** C. Procedure day
+- **Claim:** Mohs is the standard on the face because the surgeon checks every edge under the microscope while you wait, and takes no more skin than the cancer did.
+- **Open:** The marked lesion on a consenting patient's nose, close up. He says the line.
+- **Middle:** Stage one removed, the tissue map, the slide under his microscope, one positive edge, a second thin stage, clear. Plain words, no gore for its own sake.
+- **Close:** The closure, which is the part a cosmetic surgeon cares about, then the patient at six weeks. Cure rate quoted at around 99% for this kind of tumour.
+- **Why it's his:** Fellowship-trained Mohs surgeon who also does the reconstruction and teaches surgical technique to NYU residents. Skin cancer reconstruction has no blog post and no Ostad TV video, so this is a gap only he can fill.
+- **Built from:**
+  - [youtube @dr.truitt_sandiego](https://www.youtube.com/shorts/Gx9w32bs_N8) · 146× usual · “So, I recently had a really interesting Mohs case.”
+  - [tiktok @kc_facialplastics8](https://www.tiktok.com/@kc_facialplastics8/video/7470562891251387694) · 81× usual · “So I realized I post quite a bit about doing Mo's reconstruction and kind of came to the realization I haven't really described what Mo's surgery is so specifically.”
+  - [tiktok @onthegogoodness](https://www.tiktok.com/@onthegogoodness/video/7525828334844923149) · 31× usual · “Good morning.”
 
-### 10 · Fri 2026-11-20 · Melasma on brown skin: 8 weeks, no laser burns
+### 07 · Tue 2026-11-17 · These are not sun spots. That's melasma.
 
-- **Pillar:** 2 · Proof, Narrated · **Genre:** before-after · **Format:** voiceover-over-procedure · **Hook:** before/after reveal · **Effort:** needs a patient
-- **Angle:** Melasma is 7.8× with 44% winners; skin-of-color before-afters (the chemical peel on Black skin, 2.2M) do huge numbers because that audience wants proof it's safe for them. He narrates the plan: peel + PicoWay at low settings + LUMA at home.
-- **Sells (softly):** Melasma: PicoWay, peels, LUMA Cream; Ethnic Skin Tones
-- **Ostad's version:** His Ethnic Skin Tones page has no video behind it; this is that page's video. Say the setting and the reason: why lasers burn darker skin elsewhere.
-- **References:**
-  - [youtube · @blossomog](https://www.youtube.com/shorts/uCDNn5FcaJs) `yo_uCDNn5FcaJs`: Chemical-peel journey on Black skin: 2.2M, 1,263×
-  - [tiktok · @jennadeeskin](https://www.tiktok.com/@jennadeeskin/video/7224307474361355521) `ti_7224307474361355521`: 2 weeks after a Cosmelan peel: 214K, 214×
-  - [tiktok · @brownskinjay3](https://www.tiktok.com/@brownskinjay3/video/7510594194528800022) `ti_7510594194528800022`: Hyperpigmentation before/after on brown skin: 1.3M, 565×
+> “These aren't sun spots. That's melasma, and the wrong laser makes it worse.”
 
-### 11 · Mon 2026-11-23 · From skin cancer to stitched: a Mohs day in 60 seconds
+- **Theme:** Dark spots, melasma and skin of color · **tone:** contrarian, clinical · **sells:** Melasma treatment, LUMA Cream and the Hyperpigmentation Regimen · **shoot:** B. Screen day
+- **Claim:** Melasma is not a sun spot, and treating it like one with heat makes it darker.
+- **Open:** Consented photo of cheek melasma on the monitor. He corrects the assumption in the first line.
+- **Middle:** How to tell the two apart (symmetry, the upper lip, pregnancy or the pill, worse every summer) and why a strong laser or IPL often rebounds it.
+- **Close:** What actually works: a compounded brightening cream at the right strength, daily mineral sunscreen, gentle low-energy treatment if any. Melasma is managed, not cured.
+- **Why it's his:** He prescribes and compounds what the serum influencers can only gesture at: LUMA Cream made to order at 4%, 6% and 8%. His LUMA video already drew 50,441 views.
+- **Built from:**
+  - [youtube @DrAleksandraBrown](https://www.youtube.com/shorts/SpaNRaryUX0) · 4.8× usual · “if you think these are just dark spots or these are just some dark spots or if you think these are just dark spots that you're going to get rid of by wearing sunscreen or getting like one chemical…”
+  - [instagram @dra.cristinasalaro](https://www.instagram.com/p/DdmmSTghEji/) · 4.6× usual ·
+  - [youtube @Kbeautyrx](https://www.youtube.com/shorts/nVi0D6Kh_og) · 1.9× usual · “Dark spots, melasma, hyperpigmentation, anti-aging part four.”
 
-- **Pillar:** 1 · The Mohs Surgeon Explains · **Genre:** skin-cancer-awareness · **Format:** voiceover-over-procedure · **Hook:** story open · **Effort:** needs a procedure day
-- **Angle:** Time-lapse of one Mohs case (consented): biopsy site → first layer → lab → clear margin → reconstruction. Story-open hooks are 1.6×; mole-removal process footage hits 696K at 92×.
-- **Sells (softly):** Mohs surgery, skin cancer reconstruction
-- **Ostad's version:** The reconstruction is his triple certification on screen: the cancer surgeon and the cosmetic surgeon in one case. Nobody else in the corpus shows both.
-- **References:**
-  - [youtube · @sullivandermatology](https://www.youtube.com/shorts/5ytGf8nA6n0) `yo_5ytGf8nA6n0`: Mole removal start to finish: 696K, 92×
-  - [tiktok · @kc_facialplastics8](https://www.tiktok.com/@kc_facialplastics8/video/7470562891251387694) `ti_7470562891251387694`: Mohs reconstruction talk: 81K, 81×
-  - [youtube · @dr.truitt_sandiego](https://www.youtube.com/shorts/Gx9w32bs_N8) `yo_Gx9w32bs_N8`: Mohs explainer: 146K, 146×
+### 08 · Wed 2026-11-18 · Why your brows dropped after Botox
 
-### 12 · Tue 2026-11-24 · Watch what one Botox appointment really looks like (3 areas, 6 minutes)
+> “If your eyebrows dropped after Botox, that was placement, not the product.”
 
-- **Pillar:** 2 · Proof, Narrated · **Genre:** procedure-POV · **Format:** voiceover-over-procedure · **Hook:** curiosity gap · **Effort:** needs a patient
-- **Angle:** Re-do his best-ever post (522K Botox before/after) in today's format: tighter, 30 seconds, with the reveal at 2 weeks. Each treated area is named on screen with the unit logic.
-- **Sells (softly):** Botox / Jeuveau (the current offer)
-- **Ostad's version:** It's his own proven hit, updated. Mention the eyelid-drop risk he talks about in his long videos; that warning is the trust line.
-- **References:**
-  - [youtube · @drarielostad](https://www.youtube.com/shorts/ppGlX6Ux9AY) `yo_ppGlX6Ux9AY`: His own Botox before/after: 522K, his best ever
-  - [instagram · @sophstonie](https://www.instagram.com/p/DB7qduLvyaG/) `in_DB7qduLvyaG`: Botox humour in a derm office: 12.2M, 102×
+- **Theme:** Botox, baby Botox and the frozen-face fear · **tone:** reassuring, clinical · **sells:** Botox / Jeuveau · **shoot:** C. Procedure day
+- **Claim:** A heavy brow after Botox is almost always about placement, and an experienced injector can predict it before the needle goes in.
+- **Open:** A consenting patient in the chair. He asks her to frown, raise her brows, smile and squint.
+- **Middle:** He explains what he is watching for: low brows, heavy lids, a forehead doing the lifting. He marks where he will and will not inject, and why.
+- **Close:** If it already happened: it wears off, and there are small fixes in the meantime. Then the patient two weeks later, brows where they started.
+- **Why it's his:** He already films this assessment and has a short on brows dropping after Botox, but they sit at 76 to 217 views as plain explainers. His biggest Botox video (522,373 views) was simply him treating his nurse on camera, which is this format.
+- **Built from:**
+  - [youtube @ginilleNP](https://www.youtube.com/shorts/V2f5dpJYYuU) · 26× usual · “Too many bottles of this wine, we can't print”
+  - [youtube @Drsomjiskin](https://www.youtube.com/shorts/jaWEU5Ejz6Y) · 4.3× usual · “so fine but her breath is like she say she want to dance but she don't know how to I'm iced out looking like a star w”
+  - [instagram @kontoured_by_kristen](https://www.instagram.com/p/DefmdGaholx/) · 1.5× usual · “I want to preface this by saying that this does not mean that you had a bad Botox job.”
 
-### 13 · Wed 2026-11-25 · Things I'd never spend money on as a dermatologist
+### 09 · Thu 2026-11-19 · What Ozempic face actually is
 
-- **Pillar:** 3 · Myth-Bust & Red Flags · **Genre:** product-review / drugstore-vs-medical · **Format:** talking-head + b-roll · **Hook:** contrarian claim · **Effort:** needs b-roll
-- **Angle:** Five fast verdicts: LED masks, collagen powder, face yoga devices, $200 serums with 0.1% actives, and one surprise he does love. Viewers asked about exactly these (LED masks and collagen tablets). 'Never spend money on' lists beat 'worth it' lists.
-- **Sells (softly):** Skincare line; in-office devices vs at-home
-- **Ostad's version:** Credibility from saying no: an NYC luxury derm telling people not to buy things. The one 'yes' can be LUMA (stated plainly as his own).
-- **References:**
-  - [tiktok · @dralidempsey](https://www.tiktok.com/@dralidempsey/video/7618702476455202062) `ti_7618702476455202062`: "Things I'd never spend money on as a derm": 114K, 82×
-  - [tiktok · @dermdocmalik](https://www.tiktok.com/@dermdocmalik/video/7702493975550201118) `ti_7702493975550201118`: Derm in Sephora hot takes: 843K, 706×
-  - [tiktok · @shereeneidriss](https://www.tiktok.com/@shereeneidriss/video/7693207651529936158) `ti_7693207651529936158`: "Is the Medicube Booster worth it?": 9.0M, 148×
+> “Ozempic didn't age her face. It took the fat that was holding it up.”
 
-### 14 · Thu 2026-11-26 · "Can someone recommend a dermatologist in NYC?" Here's how to pick one
+- **Theme:** Faces: filler, fat and Ozempic face · **tone:** clinical, contrarian · **sells:** Sculptra, fillers and fat transfer; loose skin after weight loss · **shoot:** B. Screen day
+- **Claim:** Ozempic face is lost fat, not damaged skin, so the fix is rebuilding support slowly, not filling every hollow.
+- **Open:** A consented before and after weight-loss photo on screen. He says the line.
+- **Middle:** Where the fat goes first (temples, cheeks, under the eyes) and why filling each hollow separately ends in the overfilled look. He explains Sculptra, filler and fat transfer as a slow, staged plan.
+- **Close:** Lose the weight; it is good for you. Wait until it stabilises, then fix the structure, not the lines.
+- **Why it's his:** Board certified in facial cosmetic surgery, he does filler, Sculptra and fat transfer, and his site already speaks to the 35-to-65 patient on GLP-1s. His conservative-Sculptra video drew 43,124 views; less is more is his record, not a slogan.
+- **Built from:**
+  - [tiktok @stoffwechsel_doc](https://www.tiktok.com/@stoffwechsel_doc/video/7611595472540683542) · 15× usual · “what you see here is called the osempic face.”
+  - [instagram @dr.victormoscoso](https://www.instagram.com/p/C6HKX9UyKwd/) · 13× usual · “¿Cuál es la diferencia entre estos dos rostros?”
+  - [youtube @BestPlasticSurgeons](https://www.youtube.com/shorts/OfBzVbbnS4g) · 6.6× usual · “let's talk about Sculptra Sculptra is an FDA approved injectable it works as a biostimulatory filler so it stimulates your body's natural ability to produce collagen and in this way restores facial…”
 
-- **Pillar:** 4 · Your Questions, Answered · **Genre:** Q&A / comment-reply · **Format:** talking-head · **Hook:** direct address · **Effort:** phone-only
-- **Angle:** NYC TikTokers post asking for derm recommendations (9.2× on one of them). He answers how to vet any derm (board certification, before/afters, who actually injects), not 'come to me'. Thanksgiving: low-effort, pre-shot.
-- **Sells (softly):** Practice: the consult
-- **Ostad's version:** Duet or stitch the actual request. His 17-year Castle Connolly run answers it without him saying so.
-- **References:**
-  - [tiktok · @sydneycharlet](https://www.tiktok.com/@sydneycharlet/video/7592013281682885918) `ti_7592013281682885918`: NYC derm-recommendation request: 9.2×, 7.9% engagement
-  - [tiktok · @oliviaroselev](https://www.tiktok.com/@oliviaroselev/video/7694314089018887437) `ti_7694314089018887437`: "Begging for NYC derm recommendations": 6.0×
+### 10 · Fri 2026-11-20 · Hair loss treatments, scored honestly
 
-### 15 · Fri 2026-11-27 · I've injected salmon sperm into faces. Here's my honest take.
+> “Minoxidil, PRP, exosomes, biotin. I'll score each one, including the ones I sell.”
 
-- **Pillar:** 5 · Trend, Checked by a Surgeon · **Genre:** trend-commentary · **Format:** talking-head + b-roll · **Hook:** story open · **Effort:** needs b-roll
-- **Angle:** PDRN / 'salmon DNA' is everywhere but the winning videos are influencers and K-beauty clinics (PDRN 0.68× because no doctor owns it). He's the derm Cosmopolitan used for its salmon-sperm feature, so he can say it straight.
-- **Sells (softly):** PDRN / exosomes / PRFM
-- **Ostad's version:** The Cosmopolitan feature (Sep 2025) is the receipt: show the headline for one second. Honest verdict: who it helps, what it doesn't do.
-- **References:**
-  - [tiktok · @belleza.corea](https://www.tiktok.com/@belleza.corea/video/7591647537308765458) `ti_7591647537308765458`: Viral Korean salmon-DNA treatment: 1.3M, 397×
-  - [tiktok · @sohnime](https://www.tiktok.com/@sohnime/video/7642359935455513863) `ti_7642359935455513863`: "The real secret to K-pop idols' glass skin": 576K, 24.6×
+- **Theme:** Hair loss and hair 'botox' · **tone:** contrarian, clinical · **sells:** PRP hair restoration and exosomes for hair · **shoot:** A. Desk day
+- **Claim:** For thinning hair, plain minoxidil still beats most of what clinics sell; PRP is a good add-on, not a replacement.
+- **Open:** Four names on cards on the desk. He says the line and flips the first.
+- **Middle:** A score out of ten for each with one sentence of why: minoxidil high, PRP solid with two years of his own patients' regrowth, exosomes promising but early, biotin near zero unless you are deficient.
+- **Close:** The order he actually uses them in, and the warning that every treatment sheds before it grows. Do not quit at month two.
+- **Why it's his:** He has two years of PRP results on his own patients and a men's lane in the practice. Scoring his own services below minoxidil is the honesty that wins this theme, and only the seller can do it credibly.
+- **Built from:**
+  - [instagram @dr.reema_yousef](https://www.instagram.com/p/DM3CyUhMZuT/) · 63× usual · “إياكي تنتفي الشعر الأبيض مو لأنو رح يزيد الشيب نتفي الشعر الأبيض ما بزيد الشيب إذا ضليتو كل ما طلعت هالشعرة تنتفوها بالأخير البصيلة خلينا نقول اللي بتعطيكن الشعرة بتموت يعني ما عاد بتطلع الشعرة مرة…”
+  - [tiktok @dermdocmalik](https://www.tiktok.com/@dermdocmalik/video/7699157831056084237) · 20× usual ·
+  - [instagram @dr.varun_skinfit](https://www.instagram.com/p/DanKIadzNAp/) · 2.0× usual · “Minoxidil tablet, 9, biotin tablet, 3, PRP, 8, minoxidil serum, 10, onion juice, 1, pre-densil serum, 6 and a half, exosolps, 7,”
 
-### 16 · Mon 2026-11-30 · The spot on your foot you're ignoring (and the one test that catches it)
+### 11 · Mon 2026-11-23 · Is Mohs a scam? A commenter asked.
 
-- **Pillar:** 1 · The Mohs Surgeon Explains · **Genre:** skin-cancer-awareness · **Format:** talking-head · **Hook:** direct address · **Effort:** phone-only
-- **Angle:** Answers the 'should I be worried, it's on my foot' and 'what test catches it' comments: acral melanoma, why feet and nails get missed, what a full-body check actually includes. Melanoma topic: 4.6×.
-- **Sells (softly):** Skin cancer checks
-- **Ostad's version:** He does the check in his office; show the dermatoscope he uses, which is a tool, not a promo.
-- **References:**
-  - [tiktok · @thebecksthemess](https://www.tiktok.com/@thebecksthemess/video/7185754473388641579) `ti_7185754473388641579`: "Signs of stage 4 melanoma I had before diagnosis": 1.8M, 96×
-  - [tiktok · @ultravioletteau](https://www.tiktok.com/@ultravioletteau/video/7500356242376871176) `ti_7500356242376871176`: Skin-cancer awareness explainer: 9.6M, 115×
+> “Someone asked why a basal cell needs Mohs at all. Fair question.”
 
-### 17 · Tue 2026-12-01 · Thread lift vs filler for a tired midface: same patient, honest result
+- **Theme:** Is it cancer? Spots, skin checks and Mohs · **tone:** contrarian, reassuring · **sells:** Mohs micrographic surgery · **shoot:** A. Desk day
+- **Claim:** A basal cell rarely kills, which is exactly why you treat it with the surgery that removes the least of your face.
+- **Open:** The real comment on screen. He reads it and says the line without defensiveness.
+- **Middle:** What a basal cell does if left alone (it does not spread, it digs), what it looks like on a nose after five years, and why Mohs takes millimetres where a wide excision takes centimetres.
+- **Close:** When Mohs is not needed: on the back or legs a simple excision is fine. On the face, ears, lips and hands, it is the standard for a reason.
+- **Why it's his:** Co-author of Practical Management of Skin Cancer and a fellowship-trained Mohs surgeon; saying where Mohs is not needed is something only the person who sells it can say with weight.
+- **Built from:**
+  - [tiktok @kc_facialplastics8](https://www.tiktok.com/@kc_facialplastics8/video/7470562891251387694) · 81× usual · “So I realized I post quite a bit about doing Mo's reconstruction and kind of came to the realization I haven't really described what Mo's surgery is so specifically.”
+  - [tiktok @chiswickclinic](https://www.tiktok.com/@chiswickclinic/video/7544053691087719702) · 52× usual · “Can you help us to show where the skin cancer is?”
+  - [tiktok @noura.ayoubi](https://www.tiktok.com/@noura.ayoubi/video/7699163185563143454) · 51× usual · “Skin cancer 101 part 4.”
 
-- **Pillar:** 2 · Proof, Narrated · **Genre:** before-after · **Format:** voiceover-over-procedure · **Hook:** before/after reveal · **Effort:** needs a patient
-- **Angle:** Thread-lift footage is the biggest procedure clip in the corpus (34M). He shows one result and says when he'd pick threads vs filler vs Sculptra, which is the real buyer question.
-- **Sells (softly):** Thread lift, fillers, Sculptra
-- **Ostad's version:** The comparison is his: a surgeon choosing between three tools, where other clinics sell one.
-- **References:**
-  - [youtube · @Skinperfectmedical](https://www.youtube.com/shorts/eScGxMogEo0) `yo_eScGxMogEo0`: Fox-eye thread-lift footage: 34.2M, 278×
-  - [youtube · @francinequeenofthreads](https://www.youtube.com/shorts/FxpeyHkf8-4) `yo_FxpeyHkf8-4`: PDO thread-lift explainer: 134K, 35.5×
+### 12 · Tue 2026-11-24 · Those small dark bumps aren't moles
 
-### 18 · Wed 2026-12-02 · That's not sun damage on your upper lip. It's probably melasma.
+> “Those small dark bumps on your cheeks aren't moles. They're called DPN.”
 
-- **Pillar:** 3 · Myth-Bust & Red Flags · **Genre:** myth-bust · **Format:** talking-head · **Hook:** contrarian claim · **Effort:** phone-only
-- **Angle:** Melasma misdiagnosed as sun damage gets treated with the wrong laser and comes back worse. Three tells, one rule. Melasma 7.8×; the 'not X, it's Y' myth-bust is a proven frame.
-- **Sells (softly):** Melasma: PicoWay, peels, LUMA Cream
-- **Ostad's version:** The 'wrong laser makes it worse' line comes from someone who owns the lasers, which is the opposite of a sales pitch.
-- **References:**
-  - [tiktok · @radiance.plan](https://www.tiktok.com/@radiance.plan/video/7674274384059682061) `ti_7674274384059682061`: "That's not sun damage": 72K, 30×
-  - [tiktok · @drderrickphillips](https://www.tiktok.com/@drderrickphillips/video/7683193686318009622) `ti_7683193686318009622`: "Tried antifungal with no improvement?": 3.4M, 84×
-  - [youtube · @antonialouiseskin](https://www.youtube.com/shorts/xIHFNjyZzrI) `yo_xIHFNjyZzrI`: "The best treatment for melasma": 2.7M, 636×
+- **Theme:** What is this on my skin? · **tone:** clinical, reassuring · **sells:** DPN and seborrheic keratosis removal (Ethnic Skin Tones) · **shoot:** B. Screen day
+- **Claim:** The small dark bumps on brown and Black cheeks are usually DPN, harmless and removable, and burning them off at a spa is how they scar.
+- **Open:** Consented close-up of DPN on the monitor. He names it in the first line.
+- **Middle:** What DPN is, how it differs from a mole or a seborrheic keratosis, and why it runs in families with darker skin. Why heat at the wrong setting leaves a pale or dark mark.
+- **Close:** Removal is quick when it is done gently by someone who treats skin of colour. And if one spot looks different from the rest, it gets checked first.
+- **Why it's his:** His Ethnic Skin Tones page names DPN removal in its own metadata, yet there is no post or video on it. A Mohs surgeon telling a harmless bump from a cancer on darker skin is a version almost no one in this theme does.
+- **Built from:**
+  - [tiktok @drderrickphillips](https://www.tiktok.com/@drderrickphillips/video/7683193686318009622) · 84× usual · “This is not a yeast infection, and it's not vitiligo either.”
+  - [instagram @lidiamaiara](https://www.instagram.com/p/DeZT04CJS5w/) · 36× usual · “for me.”
+  - [youtube @dermatologistschoiceskincare](https://www.youtube.com/shorts/X1h1ms2raLU) · 18× usual · “Right.”
 
-### 19 · Thu 2026-12-03 · Dermatologist reacts: the demodex video everyone's commenting on
+### 13 · Wed 2026-11-25 · Her Botox is two weeks old. Her face still moves.
 
-- **Pillar:** 4 · Your Questions, Answered · **Genre:** derm-reacts / duet / stitch · **Format:** stitch/duet · **Hook:** reaction · **Effort:** phone-only
-- **Angle:** Stitch the 12.9M-view demodex clip and answer the top comment ('so I have rosacea because mites…?', 59,782 likes): what demodex does and doesn't do, and when it's rosacea. Reaction hooks: 1.8×.
-- **Sells (softly):** Rosacea treatment (lasers, Rx)
-- **Ostad's version:** A calm surgeon fixing a viral scare is the opposite tone to DermAngelo's, and that contrast is the point.
-- **References:**
-  - [tiktok · @dermangelo](https://www.tiktok.com/@dermangelo/video/7644190061910691103) `ti_7644190061910691103`: DermAngelo demodex reaction: 12.9M, 149×
-  - [youtube · @drchipcole](https://www.youtube.com/shorts/qgHKWrFEPCo) `yo_qgHKWrFEPCo`: "CO2 laser for acne scars: surgeon reacts": 3.4M, 67.6×
+> “She had Botox two weeks ago. Watch her forehead.”
 
-### 20 · Fri 2026-12-04 · She found it in the mirror. We removed it on Tuesday.
+- **Theme:** Botox, baby Botox and the frozen-face fear · **tone:** reassuring, luxury · **sells:** Botox / Jeuveau · **shoot:** C. Procedure day
+- **Claim:** Good Botox leaves a face that still moves; if people can tell, the dose or the placement was wrong.
+- **Open:** A consenting patient raises her brows and smiles. Movement is soft, not gone.
+- **Middle:** He explains what he left untouched and why: enough movement to look rested, not frozen. Dose by area, in plain terms.
+- **Close:** The test he gives every patient: nobody at work should ask what you had done. They should ask if you slept well.
+- **Why it's his:** Natural results are why patients come to him after neurotoxin elsewhere, and a Park Avenue practice with 20+ years of returning faces can show it on a real patient instead of claiming it.
+- **Built from:**
+  - [youtube @hannahpicchi](https://www.youtube.com/shorts/drRpMMtvQU8) · 27× usual · “Enough with the arguments.”
+  - [youtube @ginilleNP](https://www.youtube.com/shorts/V2f5dpJYYuU) · 26× usual · “Too many bottles of this wine, we can't print”
+  - [youtube @AlexanderRivkinMD](https://www.youtube.com/shorts/AGpvI5zcxYs) · 15× usual ·
 
-- **Pillar:** 2 · Proof, Narrated · **Genre:** patient-story / testimonial · **Format:** vlog · **Hook:** story open · **Effort:** needs a patient
-- **Angle:** A Mohs patient tells her own story (with consent): what she noticed, the biopsy, the surgery, the scar six weeks later. Patient stories: 1.38× with 2.8% engagement; skin-cancer patient stories carry the biggest numbers in the lane.
-- **Sells (softly):** Mohs, reconstruction, skin checks
-- **Ostad's version:** His testimonial page already has a 'senior citizen' Mohs patient. Let her tell it; he appears for 5 seconds at the end.
-- **References:**
-  - [tiktok · @jenniferamyj](https://www.tiktok.com/@jenniferamyj/video/7333520579154267425) `ti_7333520579154267425`: Patient's suspicious-mole story with scar tips: 543K, 360×
-  - [tiktok · @schweaver5](https://www.tiktok.com/@schweaver5/video/7589364507554729271) `ti_7589364507554729271`: Mole-removal story: 1.9M, 80×
-  - [tiktok · @thebecksthemess](https://www.tiktok.com/@thebecksthemess/video/7185754473388641579) `ti_7185754473388641579`: Stage 4 melanoma signs, patient-told: 1.8M, 96×
+### 14 · Thu 2026-11-26 · Why the tattoo laser snaps
+
+> “That sound is the ink breaking apart. Plan on more than one session.”
+
+- **Theme:** Lasers and the healing diary · **tone:** clinical, reassuring · **sells:** Laser tattoo removal with PicoWay · **shoot:** C. Procedure day
+- **Claim:** Tattoo removal is a series of sessions, and anyone who promises it in one is selling something else.
+- **Open:** PicoWay on a consenting patient's tattoo, the snap and the white frost, close up.
+- **Middle:** What the laser does to ink, why black goes faster than colour, why sessions are weeks apart, and why the frost is normal.
+- **Close:** His second warning, from the Mohs side: never tattoo over a mole, because then nobody can watch it change.
+- **Why it's his:** He offers PicoWay tattoo removal and has been quoted on tattoos and skin cancer in the NYT (2009) and on CBS about tattoos over moles (2013); the mole warning is his alone.
+- **Built from:**
+  - [youtube @DermDocJason](https://www.youtube.com/shorts/_PeVXKAXQ9o) · 233× usual · “laser tattoo removal is one of the most satisfying procedures that we get to perform here in dermatology that snap snap snap snap snap sound that you're hearing that is the sound of light hitting the…”
+  - [tiktok @clearlasetattooremoval](https://www.tiktok.com/@clearlasetattooremoval/video/7265974461344566560) · 3.6× usual ·
+  - [youtube @Ctskindoc](https://www.youtube.com/shorts/cLZlmfJrQds) · 2.9× usual · “Is that okay?”
+
+### 15 · Fri 2026-11-27 · What a triple board-certified surgeon does in a day
+
+> “Yesterday: four Mohs cases, two reconstructions, eleven injection patients, one NYU resident.”
+
+- **Theme:** Inside the practice · **tone:** casual-friend, confessional · **sells:** The whole practice: Mohs surgery, the AAAASF surgical centre, cosmetic consults · **shoot:** E. A day on Lexington
+- **Claim:** A cosmetic patient is better off with a surgeon who also treats cancer, because the hands that close a Mohs wound know where a scar will sit.
+- **Open:** Fast cuts on Lexington Avenue: microscope, operating room, injection room, a resident at his side. He gives the day's count.
+- **Middle:** One line on each part of the day and why the three boards (dermatology, Mohs, facial cosmetic surgery) sit in one practice.
+- **Close:** Ends at his desk: the cancer surgery and the cosmetic work are the same skill, precision with the least damage.
+- **Why it's his:** NYU, Mass General, a UCLA Mohs fellowship, 20+ years in practice and NYU Surgical Attending of the Year three times. A senior surgeon's day is a different film from the young-resident vlogs that dominate this theme.
+- **Built from:**
+  - [tiktok @dr.mamina](https://www.tiktok.com/@dr.mamina/video/7607833424388230414) · 80× usual · “What does a dermatologist even do?”
+  - [tiktok @dr.mamina](https://www.tiktok.com/@dr.mamina/video/7414301297119087902) · 25× usual · “Let's talk about why I became a triple board certified dermatologist.”
+  - [tiktok @gabvasile](https://www.tiktok.com/@gabvasile/video/7436551156144475438) · 6.7× usual · “A day in my life as a board certified dermatologist.”
+
+### 16 · Mon 2026-11-30 · A good mole scar is decided in the next four weeks
+
+> “The scar from a mole removal is decided in the next four weeks.”
+
+- **Theme:** Is it cancer? Spots, skin checks and Mohs · **tone:** clinical, reassuring · **sells:** Mole removal and scar revision · **shoot:** C. Procedure day
+- **Claim:** A neat scar after mole removal comes from the right method and four weeks of aftercare, not luck.
+- **Open:** A consenting patient's mole marked for removal. He says the line.
+- **Middle:** Shave, laser or excision, and how he chooses by the mole and where the line will sit. Then the shave removal itself, briefly.
+- **Close:** His aftercare list on screen: tape or steri-strips, silicone gel, sunscreen on it every day. The patient at six weeks.
+- **Why it's his:** He is a facial cosmetic surgeon who teaches NYU residents how to close, so the scar is his specialty, not an afterthought. The direct competitor (another NYC triple board-certified derm) already does this format at 84x on his turf.
+- **Built from:**
+  - [tiktok @jenniferamyj](https://www.tiktok.com/@jenniferamyj/video/7333520579154267425) · 360× usual · “If anyone was interested in how I held my mole scar on my forehead, here's 4 tips that really helped me.”
+  - [youtube @sullivandermatology](https://www.youtube.com/shorts/5ytGf8nA6n0) · 92× usual · “it's Dr Sal so this patient came in and she has two moles that she doesn't like they tend to kind of rub on her bra and get irritated so what we're going to do is we're going to do something called a…”
+  - [youtube @NYCdermatologist-juliatzu](https://www.youtube.com/shorts/IKyKgwKlXtI) · 84× usual · “How is cosmetic mole removal performed?”
+
+### 17 · Tue 2026-12-01 · Lasers on dark skin: safe, if the setting is chosen for your skin
+
+> “The laser didn't burn her skin. The setting did.”
+
+- **Theme:** Dark spots, melasma and skin of color · **tone:** reassuring, clinical · **sells:** PicoWay, Clear + Brilliant and the Ethnic Skin Tones program · **shoot:** C. Procedure day
+- **Claim:** Lasers are safe on dark skin when the wavelength and energy are chosen for the skin tone; most burns are a settings problem, not a laser problem.
+- **Open:** A consenting patient of colour in the chair before a PicoWay or Clear + Brilliant session.
+- **Middle:** He shows how he places her on the Monk scale, which device he picks and which he would not use on her, and why. The session itself, short.
+- **Close:** Her result after the series. If a clinic cannot tell you why they chose that laser for your skin, ask somewhere else.
+- **Why it's his:** His skin-of-colour page picks wavelengths by the Monk scale rather than Fitzpatrick, and he holds a laser surgery fellowship. The audience has heard 'trust me, it's safe' before; this puts a patient of colour on camera with the method.
+- **Built from:**
+  - [tiktok @bluenessbeauty](https://www.tiktok.com/@bluenessbeauty/video/7598331725126569238) · 31× usual · “Let's fix hyperpigmentation on Black Skin part 3.”
+  - [tiktok @dra.jessicamagalhaes](https://www.tiktok.com/@dra.jessicamagalhaes/video/7379228822576614662) · 29× usual · “laser hair removal is a dream but at the same time we die of fear of burns.”
+
+### 18 · Wed 2026-12-02 · Salmon sperm: injected versus rubbed on
+
+> “Your PDRN cream is not doing what the injection does. Here's why.”
+
+- **Theme:** Salmon sperm, exosomes and copper peptides · **tone:** contrarian, clinical · **sells:** PRFM, microneedling and microinfusion · **shoot:** A. Desk day
+- **Claim:** PDRN and exosomes may help when they are put into the skin; in a cream sitting on top of it, they mostly do not.
+- **Open:** A jar of PDRN cream on the desk next to a microneedling pen. He says the line.
+- **Middle:** What these molecules are, why skin keeps them out, and the difference between your own platelets (PRFM) and a stranger's exosomes in a serum. He takes the sourcing and cancer-risk questions from the comments seriously.
+- **Close:** If you want to try it, have it delivered into the skin by someone who can tell you where it came from. Otherwise keep your money.
+- **Why it's his:** Cosmopolitan ran 'Exactly What It's Like to Get Your Face Injected With Salmon Sperm' with him in September 2025, and as a Skin Cancer Foundation council member he can answer the sourcing worries instead of waving them away.
+- **Built from:**
+  - [youtube @skinfo.kpharma](https://www.youtube.com/shorts/yPfZdXOE0dY) · 18× usual · “If you just bought PDRN and only apply it on your skin, throw it away.”
+  - [youtube @DrVictoriaAime](https://www.youtube.com/shorts/MzZkZ2pJgls) · 17× usual · “hi I'm Dr Victoria ma a plastic surgeon in spal Arizona one of the questions I've been getting a lot about recently from my patients is what are exosomes so exosomes are basically little packets of…”
+  - [tiktok @edithmendoza.stetic](https://www.tiktok.com/@edithmendoza.stetic/video/7531047565815565573) · 5.5× usual · “Salmon sperm treatment that regenerates your skin from the inside.”
+
+### 19 · Thu 2026-12-03 · A dermatologist in his fifties: everything on my face
+
+> “I'm a dermatologist in my fifties. This is everything I put on my face.”
+
+- **Theme:** Routines, the skin barrier and glass skin · **tone:** casual-friend, contrarian · **sells:** Free skincare evaluation and his medical-grade line · **shoot:** A. Desk day
+- **Claim:** A real dermatologist's routine is three or four products, and most barrier damage comes from adding the seventh.
+- **Open:** Four products lined up on a counter. He says the line.
+- **Middle:** Morning and night, one sentence each: cleanser, a retinoid, moisturiser, mineral sunscreen. What he stopped using and why.
+- **Close:** If your skin stings, the answer is usually to take something away. Fewer steps, done every day.
+- **Why it's his:** Every derm routine in this theme belongs to a woman in her 20s to 40s; a Park Avenue dermatologist in his fifties is an empty lane. He was in the WSJ's 'Is Your Antiaging Routine Making Your Skin Look Worse?' and 'less is more' is already an Ostad TV title.
+- **Built from:**
+  - [tiktok @dr.mamina](https://www.tiktok.com/@dr.mamina/video/7493958178837761310) · 92× usual · “Nine times out of 10, I find that people are moisturizing wrong.”
+  - [tiktok @drgazy](https://www.tiktok.com/@drgazy/video/7195028262765022506) · 52× usual · “I'm a dermatologist, and here's my real nightly routine.”
+  - [tiktok @dermdocmalik](https://www.tiktok.com/@dermdocmalik/video/7453266430474194207) · 29× usual · “Oh, my god.”
+
+### 20 · Fri 2026-12-04 · Three things I won't do to my own face
+
+> “Twenty-nine years in, there are three things I won't do to my own face.”
+
+- **Theme:** What a derm actually gets done · **tone:** contrarian, confessional · **sells:** Botox, fillers, Sculptra and Fraxel consults · **shoot:** A. Desk day
+- **Claim:** The treatments worth skipping are the ones that cannot be undone, not the ones that are cheap.
+- **Open:** Close on his face, plain background. He says the line.
+- **Middle:** Three treatments he would not have, one reason each, all about permanence or overcorrection, such as removing facial fat that ages you later.
+- **Close:** What he does have instead, briefly, and why it is reversible or gradual. The best work is the work nobody notices.
+- **Why it's his:** Nearly every 'what I get done' video is a woman; a male surgeon in his fifties who does both injectables and surgery gives a list that differs from both camps and can say why.
+- **Built from:**
+  - [tiktok @drannapuri](https://www.tiktok.com/@drannapuri/video/7691771510402338080) · 50× usual · “Road 0 out of 10 with 1 peptide and zero wrinkle data.”
+  - [instagram @dr.naghmeh.dehghanian](https://www.instagram.com/p/Dc9NFr5K0Yq/) · 7.8× usual · “دختار من بیسالش من پیزش که زیبای هستم و ایسی تا کارو هرچه قدم استرار کانه براش انجام نمیده شاقاره یک جیل لب بیشتر از یک سی چرا چون تو یک دختار بیساله لب اون قد جاوون هست که تمام اجمه جیلی که تزریق…”
+  - [tiktok @drsianmew](https://www.tiktok.com/@drsianmew/video/7687247438763134240) · 7.5× usual · “Here's 20 years of medical skincare evidence delivered in under 60 seconds.”
 
 ## 10 backups
 
-### B01 · Buccal fat removal: why I talk most people out of it
+### B01 · Who should not be on tretinoin
 
-- **Pillar:** 5 · Trend, Checked by a Surgeon · **Genre:** trend-commentary · **Format:** talking-head + b-roll · **Hook:** contrarian claim · **Effort:** phone-only
-- **Angle:** Buccal fat is 2.9×. Face-fat insecurity videos go viral (1.3M); a surgeon explaining what it does at 45 is the missing voice.
-- **Sells (softly):** Facial cosmetic surgery consult, fillers
-- **Ostad's version:** 'Less is more' as a refusal, which is the most trust-building thing a surgeon can say on camera.
-- **References:**
-  - [tiktok · @kintaro.ogata](https://www.tiktok.com/@kintaro.ogata/video/7609109122679606549) `ti_7609109122679606549`: Face-fat insecurity vent: 1.3M, 639×
-  - [youtube · @sharmafacialplasticsurgery](https://www.youtube.com/shorts/s9LGR3V8s4o) `yo_s9LGR3V8s4o`: Buccal fat removal procedure: 168K, 168×
+> “Tretinoin is a prescription drug. Three kinds of people shouldn't be on it.”
 
-### B02 · How laser tattoo removal actually breaks up ink
+- **Theme:** Tretinoin, retinol and the purge · **tone:** fear/warning, clinical · **sells:** Ret Nia serums, LUMA Cream and the free skincare evaluation · **shoot:** A. Desk day
+- **Claim:** Tretinoin is a prescription drug, and a lower strength used consistently beats a higher one used badly.
+- **Open:** A tube on the desk. He says the line.
+- **Middle:** Pregnancy, active rosacea or eczema, and anyone not wearing sunscreen. Then why he starts most people lower than they expect.
+- **Close:** If it burns for months, that is not purging. Come down in strength, do not quit.
+- **Why it's his:** He compounds his own retinoid strengths (LUMA at 4%, 6% and 8%) and is already on record twice about purging, so 'start lower' comes from the person choosing the dose.
+- **Built from:**
+  - [tiktok @fabiola.zunigat](https://www.tiktok.com/@fabiola.zunigat/video/7632098556161150228) · 173× usual · “Tretinoin and what they are not telling you I amla general and here I comment on what no one is saying about this asset.”
+  - [tiktok @drdrayzday](https://www.tiktok.com/@drdrayzday/video/7701418626766605582) · 6.7× usual · “unfortunately yes if you are using a topical retinoid whether be tretinoin trifluridine tazarotene adapalene for improving the signs of skin aging you do in fact have to keep using it in order to…”
+  - [tiktok @drdrayzday](https://www.tiktok.com/@drdrayzday/video/7702524499366825229) · 5.5× usual · “It does nothing.”
 
-- **Pillar:** 2 · Proof, Narrated · **Genre:** procedure-POV · **Format:** voiceover-over-procedure · **Hook:** question · **Effort:** needs a procedure day
-- **Angle:** 'How does it work?' laser tattoo videos hit 31M; the frosting moment is the hook. PicoWay explained in 30 seconds.
-- **Sells (softly):** PicoWay tattoo removal
-- **Ostad's version:** He wrote about tattoos and skin cancer in the NYT (2009); add the 'check the mole under your tattoo' line.
-- **References:**
-  - [youtube · @DermDocJason](https://www.youtube.com/shorts/_PeVXKAXQ9o) `yo__PeVXKAXQ9o`: "How does laser tattoo removal work?": 31.4M, 233×
+### B02 · Acne mark or acne scar?
 
-### B03 · How long does a damaged skin barrier take to heal?
+> “Is that an acne scar or a mark? They're treated completely differently.”
 
-- **Pillar:** 4 · Your Questions, Answered · **Genre:** Q&A / comment-reply · **Format:** talking-head · **Hook:** question · **Effort:** phone-only
-- **Angle:** A real comment with a real answer (2–6 weeks, and what slows it). The barrier explainer is 4.4M; barrier questions keep coming in.
-- **Sells (softly):** Skincare line
-- **Ostad's version:** Three products, one of them his, and one thing to stop doing today.
-- **References:**
-  - [tiktok · @clarisayti](https://www.tiktok.com/@clarisayti/video/7550131834177195271) `ti_7550131834177195271`: Damaged vs healthy barrier: 4.4M, 440×
-  - [tiktok · @lizzymabalot](https://www.tiktok.com/@lizzymabalot/video/7678470714093014286) `ti_7678470714093014286`: "I thought my barrier was destroyed": 400K, 190×
+- **Theme:** Acne and acne scars · **tone:** clinical, reassuring · **sells:** Acne scar treatments: subcision, Fraxel, Morpheus8, fat transfer · **shoot:** B. Screen day
+- **Claim:** Most of what people call acne scars are marks that fade on their own; true scars need a procedure, not a serum.
+- **Open:** Two consented close-ups on screen: a flat brown mark and a pitted scar.
+- **Middle:** Red or brown and flat fades with time and sunscreen. Pitted, rolling or boxcar needs subcision, TCA cross, laser or fat, chosen by type and by skin tone.
+- **Close:** No cream fills a hole. If it is pitted, it is a surgical question.
+- **Why it's his:** He is a surgeon, so subcision, TCA cross, fat transfer and scar revision are things he does, and his scar page already says lasers suit lighter skin while microneedling suits darker skin.
+- **Built from:**
+  - [youtube @TheDailyDerm](https://www.youtube.com/shorts/YPWGBdtpATY) · 125× usual · “How do you get rid of acne scars?”
+  - [instagram @simonourianmd1](https://www.instagram.com/p/DeuANSSg2dG/) · 9.4× usual ·
+  - [tiktok @kochacha1](https://www.tiktok.com/@kochacha1/video/7660205347478473998) · 2.6× usual · “If you have aknes car like this, this and this, it's a waste of time to manage them or the same way.”
 
-### B04 · "I don't burn, so I don't need sunscreen": what I see in Mohs surgery
+### B03 · Three things I'd never spend money on
 
-- **Pillar:** 1 · The Mohs Surgeon Explains · **Genre:** skin-cancer-awareness · **Format:** talking-head · **Hook:** contrarian claim · **Effort:** phone-only
-- **Angle:** Skin of color and skin cancer: later diagnosis, acral melanoma. Joins two winning lanes (skin cancer, skin of color).
-- **Sells (softly):** Skin checks; Ethnic Skin Tones
-- **Ostad's version:** Uses his Ethnic Skin Tones page and his Skin Cancer Foundation role together.
-- **References:**
-  - [tiktok · @shereeneidriss](https://www.tiktok.com/@shereeneidriss/video/7371463703386000682) `ti_7371463703386000682`: Melanoma-month sunscreen video: 1.2M, 6.4% engagement
-  - [tiktok · @dr.lindaxing](https://www.tiktok.com/@dr.lindaxing/video/7638594653012462868) `ti_7638594653012462868`: Subtle early skin cancer: 1.0M, 62×
+> “Three things I'd never spend money on, from someone who sells skincare.”
 
-### B05 · Filler doesn't 'migrate' the way TikTok says. Here's what's actually happening.
+- **Theme:** What's worth buying · **tone:** contrarian, casual-friend · **sells:** His medical-grade line and the free skincare evaluation · **shoot:** A. Desk day
+- **Claim:** Price tells you almost nothing about a skincare product; the active and its strength tell you everything.
+- **Open:** He names his own conflict in the first line.
+- **Middle:** Three categories he thinks are wasted money, one reason each, and one drugstore product he thinks is fine.
+- **Close:** What is worth paying for: a real retinoid, a good vitamin C, sunscreen you will actually wear.
+- **Why it's his:** He formulates and compounds, and a 17-year Castle Connolly Top Doctor naming what he would not sell carries weight a med-spa pitch cannot.
+- **Built from:**
+  - [tiktok @dralidempsey](https://www.tiktok.com/@dralidempsey/video/7618702476455202062) · 82× usual · “Three things that I would never spend money on as a board certified dermatologist.”
+  - [tiktok @dralidempsey](https://www.tiktok.com/@dralidempsey/video/7619466753952746765) · 18× usual · “Skincare products that I would spend on.”
+  - [tiktok @drsomji](https://www.tiktok.com/@drsomji/video/7675773857919159574) · 7.9× usual · “Things that are not worth your money from a cosmetic dermatologist.”
 
-- **Pillar:** 3 · Myth-Bust & Red Flags · **Genre:** myth-bust · **Format:** talking-head · **Hook:** contrarian claim · **Effort:** phone-only
-- **Angle:** He's already on record pushing back on surgeons who criticise filler; make it a 40-second myth-bust with his before/after.
-- **Sells (softly):** Fillers, filler dissolving
-- **Ostad's version:** It's his own reel's argument (15K on IG), re-cut with the claim in the first line.
-- **References:**
-  - [tiktok · @drderrickphillips](https://www.tiktok.com/@drderrickphillips/video/7683193686318009622) `ti_7683193686318009622`: Myth-bust with a clear rule: 3.4M, 84×
+### B04 · A melanoma patient answers the anti-sunscreen crowd
 
-### B06 · Underarm sweating: before and after one miraDry session
+> “My patient wants to say something to the people skipping sunscreen.”
 
-- **Pillar:** 2 · Proof, Narrated · **Genre:** before-after · **Format:** text-on-screen only · **Hook:** number/stat · **Effort:** needs a patient
-- **Angle:** His own 2023 underarm-sweating short did 149K (his #2 ever). Re-shoot with a sweat-test reveal.
-- **Sells (softly):** miraDry
-- **Ostad's version:** His second-best post ever, updated.
-- **References:**
-  - [youtube · @drarielostad](https://www.youtube.com/shorts/2lpsrhzZdBo) `yo_2lpsrhzZdBo`: His own underarm-sweating short: 149K
+- **Theme:** The sunscreen fight · **tone:** fear/warning, confessional · **sells:** Mohs surgery and skin cancer checks · **shoot:** D. Patient stories
+- **Claim:** The people saying sunscreen is dangerous have not met the patients he operates on.
+- **Open:** A consenting skin cancer patient beside him. He hands over after one line.
+- **Middle:** She tells her story in her own words. He adds one fact: what the surgery cost her face and time.
+- **Close:** His line: the argument online is about chemicals. The argument in my operating room is about noses.
+- **Why it's his:** Twenty years of removing the cancers this argument is about, and a seat on the Skin Cancer Foundation Medical Council. No sunscreen is sold in this video, by design.
+- **Built from:**
+  - [instagram @ilfruttodellapassione](https://www.instagram.com/p/DaQnZRysSWp/) · 2.8× usual · “Sento dire sempre più spesso che la crema solare non serve e ogni volta mi vengono i brividi.”
+  - [instagram @shereeneidriss](https://www.instagram.com/p/Ccz_4uJMpnj/) · 1.6× usual · “Sunscreen.”
+  - [tiktok @drabby6](https://www.tiktok.com/@drabby6/video/7661714505289829663) · 1.6× usual ·
 
-### B07 · My actual skincare routine at [his age]
+### B05 · Device or neck lift? How I decide
 
-- **Pillar:** 4 · Your Questions, Answered · **Genre:** routine · **Format:** talking-head + b-roll · **Hook:** direct address · **Effort:** phone-only
-- **Angle:** Derms' own routines are the highest-save content (routine: 0.83% saves). 'What I do on my own face' is the most requested thing in the comments.
-- **Sells (softly):** Skincare line regimen sets
-- **Ostad's version:** Mostly his own line, said plainly, with one drugstore item to keep it honest.
-- **References:**
-  - [tiktok · @drgazy](https://www.tiktok.com/@drgazy/video/7195028262765022506) `ti_7195028262765022506`: Derm's simple routine: 5.6M, 10.1% engagement
-  - [tiktok · @drabby6](https://www.tiktok.com/@drabby6/video/7257253583031225643) `ti_7257253583031225643`: Derm routine: 2.6M, 9.6% engagement
+> “A device tightens. A neck lift moves tissue. Here's how I decide.”
 
-### B08 · NAD+ drips: what the science actually says
+- **Theme:** Lifting without surgery: threads, Morpheus8, Emface · **tone:** contrarian, clinical · **sells:** Morpheus8, EMFACE, Ellacor and surgical neck lift · **shoot:** A. Desk day
+- **Claim:** Devices tighten skin; they do not move tissue, and the patient who needs a neck lift will be disappointed by every package.
+- **Open:** Two consented side profiles on screen. He says the line.
+- **Middle:** What he looks at: skin quality, how far the tissue has fallen, the band in the neck. Who is a Morpheus8 or EMFACE patient, who is not.
+- **Close:** If someone sells you five sessions to fix what surgery fixes, you will spend more and get less.
+- **Why it's his:** He sells the devices and also does the neck lift in his own AAAASF-certified surgical centre, so he can settle the 'facelift without surgery' argument from both sides.
+- **Built from:**
+  - [youtube @DanielaDiaries](https://www.youtube.com/shorts/EH3nx1bmInU) · 2.6× usual · “I went and had Morpheus 8 done a month ago, and here are my results.”
+  - [instagram @dr_sonalahuja](https://www.instagram.com/p/DcoGl6AgM2B/) · 1.3× usual · “A face lift without surgery?”
+  - [youtube @DrSophieShotter_](https://www.youtube.com/shorts/_GqOXadhRqM) · 1.1× usual · “what is happening here well this patient is having a procedure called mfas which she's referring to as a painless facelift and it really is painless it's not a facelift but it's a great treatment…”
 
-- **Pillar:** 5 · Trend, Checked by a Surgeon · **Genre:** trend-commentary · **Format:** talking-head · **Hook:** question · **Effort:** phone-only
-- **Angle:** IV therapy is a gap on his own site (two generic posts, no video). Honest take on who it's for.
-- **Sells (softly):** IV therapy / NAD+
-- **Ostad's version:** A professor saying 'here's what we know and don't' is the credible version of wellness content.
-- **References:**
-  - [tiktok · @hotgirlenhancements](https://www.tiktok.com/@hotgirlenhancements/video/7484622185009614086) `ti_7484622185009614086`: "Have you tried exosomes?" testimonial hype: 858K, 64.5×
+### B06 · PRFM, start to finish
 
-### B09 · Things patients say right before I numb them
+> “We draw your blood, spin it, and put it back. That's PRFM.”
 
-- **Pillar:** 3 · Myth-Bust & Red Flags · **Genre:** humor / skit · **Format:** talking-head · **Hook:** reaction · **Effort:** phone-only
-- **Angle:** Skin-specific humour (Shereene Idriss 'face basting' 3.1M, 8.2% engagement) is rarer than generic memes and does well.
-- **Sells (softly):** Practice personality
-- **Ostad's version:** Dry, warm, NYC; his staff deliver the lines, he gets the last word.
-- **References:**
-  - [tiktok · @shereeneidriss](https://www.tiktok.com/@shereeneidriss/video/7357100558194363694) `ti_7357100558194363694`: Derm humour: 3.1M, 8.2% engagement
-  - [instagram · @sophstonie](https://www.instagram.com/p/DB7qduLvyaG/) `in_DB7qduLvyaG`: Botox humour: 12.2M, 102×
+- **Theme:** In the chair: PRP, microneedling and small procedures · **tone:** clinical, reassuring · **sells:** PRFM regenerative treatment · **shoot:** C. Procedure day
+- **Claim:** PRFM uses your own blood, which is its strength, and it is not for everyone.
+- **Open:** The blood draw on a consenting patient, close.
+- **Middle:** The spin, the layer he keeps, how it differs from PRP, and the injection. Who should not have it.
+- **Close:** Done in a medical office, by a physician, with sterile technique. He says why that matters after the spa cases in the news.
+- **Why it's his:** A dermatologic surgeon operating in an AAAASF-certified centre is the opposite case to the spa vampire facial story, and his blog already argues PRFM versus PRP.
+- **Built from:**
+  - [youtube @PaulPhelpsMD](https://www.youtube.com/shorts/W-quflVh6sc) · 128× usual · “So I start a PRP treatment by drawing up the patient's blood and spinning it down in our centrifuge for about a minute.”
+  - [tiktok @oemcclel2](https://www.tiktok.com/@oemcclel2/video/7595026363262815518) · 3.0× usual · “You have micro needled your whole entire face.”
+  - [instagram @drnidhibhatia](https://www.instagram.com/p/C64Iz9bh5If/) · 0.5× usual · “The CDC has confirmed the first HIV transmission's link to some popular cosmetic procedures after receiving so-called Vampire Facials at a new Mexico spa.”
 
-### B10 · Is there a melanoma vaccine? What patients are asking me
+### B07 · Under-eye filler can't fix a bag
 
-- **Pillar:** 1 · The Mohs Surgeon Explains · **Genre:** skin-cancer-awareness · **Format:** talking-head + b-roll · **Hook:** question · **Effort:** phone-only
-- **Angle:** Already in his long-form library, buried. Re-cut to 45 seconds with the question first.
-- **Sells (softly):** Skin cancer
-- **Ostad's version:** His own long video, re-edited, so it's near-zero new shooting.
-- **References:**
-  - [youtube · @dr.truitt_sandiego](https://www.youtube.com/shorts/Gx9w32bs_N8) `yo_Gx9w32bs_N8`: Mohs explainer: 146K, 146×
+> “Under-eye filler can't fix a bag. Sometimes the answer is surgery.”
 
-## Backlog: 40 more titles, ranked
+- **Theme:** Faces: filler, fat and Ozempic face · **tone:** contrarian, clinical · **sells:** Lower blepharoplasty and under-eye filler · **shoot:** A. Desk day
+- **Claim:** Under-eye filler helps a hollow and makes a bag worse; knowing which you have is the whole consult.
+- **Open:** Two consented under-eye photos: a hollow and a bag.
+- **Middle:** How to tell them apart, why filler on a bag looks puffy, and what a lower blepharoplasty does instead.
+- **Close:** A good injector will sometimes tell you not to have filler. That is the one to trust.
+- **Why it's his:** He does both under-eye filler and lower blepharoplasty, so he can say when filler is the wrong answer; his own short on the comparison already argues it.
+- **Built from:**
+  - [youtube @practitionershay](https://www.youtube.com/shorts/8rtmTR-SrAg) · 57× usual · “I fly catch me at the border.”
+  - [instagram @dr.victormoscoso](https://www.instagram.com/p/C6HKX9UyKwd/) · 13× usual · “¿Cuál es la diferencia entre estos dos rostros?”
+  - [tiktok @haileyshealthfinds](https://www.tiktok.com/@haileyshealthfinds/video/7658780720168537357) · 6.8× usual · “oh and red flag red red red flag huge huge red flag buckle fat removal is one of the biggest things that I have been a very strong voice against especially in younger people if you get rid of your…”
 
-Ranked by how well the topic scores in the corpus and how little he'd need to shoot.
+### B08 · A surgeon watches an extraction video
 
-1. "Which of these is skin cancer?" (part 2: nails and scalp)
-2. Retinol purge or breakout? How to tell in 10 seconds
-3. What a $1,000 laser does that a $100 serum can't
-4. Microneedling aftercare: the 3 mistakes that cause scarring
-5. Why your Botox wore off early
-6. "I only wear sunscreen in summer": a Mohs surgeon reacts
-7. How many Morpheus8 sessions do you actually need?
-8. Lip filler: when to stop
-9. What I check first in a full-body skin exam
-10. Is your 'age spot' actually a seborrheic keratosis? (and the DPN removal nobody talks about)
-11. Melasma after pregnancy: what's safe while breastfeeding
-12. Dermatologist reacts: viral glass-skin routine
-13. Why the scar from Mohs is smaller than you think
-14. 3 signs your injector overdid it
-15. Neck lines: Botox, filler or nothing?
-16. Does Sculptra work for Ozempic face?
-17. Keloids on darker skin: what actually works
-18. AviClear: who it's for and who should skip it
-19. Laser hair removal on dark skin: the settings question
-20. Under-eye filler: why I say no more than yes
-21. EMFACE: the honest version (who sees results)
-22. Gummy smile Botox (his NYT feature, re-told)
-23. Earlobe repair in 20 minutes
-24. Hair loss: PRP vs exosomes vs minoxidil
-25. The skin-cancer risk of tanning beds, in numbers
-26. What I'd do with $500 for my skin
-27. Rosacea triggers: the 3 that matter
-28. How to pick a sunscreen you'll actually wear
-29. Skin cancer under a tattoo
-30. Jeuveau vs Botox: is there a difference?
-31. Perioral dermatitis: stop doing this
-32. The 10-second mole check to do in the shower
-33. Fraxel downtime, day by day
-34. Are LED masks worth it? (full review)
-35. Why I don't post my prices (and what things really cost)
-36. Exosomes: hype vs data
-37. Liquid rhinoplasty: what it can and can't fix
-38. Why your sunscreen pills (probably) don't work
-39. What a Mohs reconstruction looks like at 1 year
-40. Hand rejuvenation: the 'wedding ring selfie' fix
+> “Stop. That's too much pressure, and here's what it does underneath.”
+
+- **Theme:** The derm as entertainer · **tone:** humor, clinical · **sells:** Cyst excision and scar revision · **shoot:** A. Desk day
+- **Claim:** Most viral extractions push too hard, and the scar shows up weeks after the video ends.
+- **Open:** Split screen with a viral extraction clip. He stops it on the line.
+- **Middle:** What the pressure does below the surface and how a cyst should come out: a small incision and the sac removed whole.
+- **Close:** Dry last line: satisfying to watch, less satisfying in six weeks.
+- **Why it's his:** A surgeon who has trained NYU residents for years is the one voice that adds something to extraction footage. Kept to one dry reaction, never a skit.
+- **Built from:**
+  - [tiktok @verna_glow](https://www.tiktok.com/@verna_glow/video/7491067437274631454) · 686× usual · “I get it, I get it, I get it, I get it It's over now, we're tied, we're tied”
+  - [tiktok @dermangelo](https://www.tiktok.com/@dermangelo/video/7702835691071343903) · 1.9× usual · “Hi, dermatologist here to remind you that all of this morning shed content is anything but realistic.”
+
+### B09 · Everyone has mites on their face
+
+> “Everyone has mites on their face. Here's when they become the problem.”
+
+- **Theme:** What is this on my skin? · **tone:** clinical, humor · **sells:** Rosacea treatment and Cutera Genesis · **shoot:** B. Screen day
+- **Claim:** Demodex lives on almost everyone; it only matters when there are too many, and that looks like rosacea.
+- **Open:** A tape strip goes under his microscope; the mite fills the screen.
+- **Middle:** What they are, why they are normal, and the point where overgrowth drives redness and bumps.
+- **Close:** Treatment is simple once it is named. Most rosacea patients have never been told this.
+- **Why it's his:** A Mohs surgeon spends his mornings at a microscope; the reveal is his everyday tool, and his own rosacea explainer (227 views) lacked exactly this hook.
+- **Built from:**
+  - [tiktok @skinbydrazi](https://www.tiktok.com/@skinbydrazi/video/7379293618437377326) · 201× usual · “if you get these little red bumps that come up all of a sudden particularly on the forehead or sides of the face you may have a yeast folliculitis”
+  - [tiktok @dermangelo](https://www.tiktok.com/@dermangelo/video/7644190061910691103) · 149× usual · “Hi, dermatologists here.”
+
+### B10 · A pimple that never heals
+
+> “A pimple that bleeds and comes back for three months isn't a pimple.”
+
+- **Theme:** Is it cancer? Spots, skin checks and Mohs · **tone:** fear/warning, clinical · **sells:** Skin cancer checks and Mohs surgery · **shoot:** B. Screen day
+- **Claim:** Early skin cancer often looks like a pimple or a dry patch, not a mole, and the clue is that it never fully heals.
+- **Open:** A consented close-up of an early basal cell that looks like a spot.
+- **Middle:** Three early cancers that do not look like moles: the pimple that bleeds, the dry patch no cream fixes, the shiny bump.
+- **Close:** The one-month rule: anything that will not heal in a month gets looked at.
+- **Why it's his:** He sees these daily as a Mohs surgeon and can show the slide that confirmed each one.
+- **Built from:**
+  - [tiktok @dr.lindaxing](https://www.tiktok.com/@dr.lindaxing/video/7638594653012462868) · 62× usual ·
+  - [tiktok @noura.ayoubi](https://www.tiktok.com/@noura.ayoubi/video/7699163185563143454) · 51× usual · “Skin cancer 101 part 4.”
+
+## Backlog: 40 more, ranked
+
+1. Why I became triple board-certified *(Inside the practice)*
+2. Clear Mohs margins weren't enough: an aggressive squamous cell *(Is it cancer? Spots, skin checks and Mohs)*
+3. What a full-body skin check actually involves *(Is it cancer? Spots, skin checks and Mohs)*
+4. Stage 4 melanoma signs nobody mentions, from a Mohs surgeon *(Is it cancer? Spots, skin checks and Mohs)*
+5. Melasma in pregnancy: a stitch answering a mother *(Dark spots, melasma and skin of color)*
+6. Body tan or body hyperpigmentation? *(Dark spots, melasma and skin of color)*
+7. What baby Botox actually is *(Botox, baby Botox and the frozen-face fear)*
+8. Botox for sweating: the medical use nobody films *(Botox, baby Botox and the frozen-face fear)*
+9. Jeuveau or Botox: does the brand matter? *(Botox, baby Botox and the frozen-face fear)*
+10. This is not a yeast infection, and not vitiligo *(What is this on my skin?)*
+11. Seborrheic keratosis: the 'barnacle' that is not cancer *(What is this on my skin?)*
+12. Keloid or scar? It looks different on darker skin *(What is this on my skin?)*
+13. Fraxel and skin cancer prevention: the surgeon's case *(Lasers and the healing diary)*
+14. Excel V on a red scar after Mohs *(Lasers and the healing diary)*
+15. Laser hair removal on dark skin, safely *(Lasers and the healing diary)*
+16. Filler mustache: when to stop and dissolve *(Faces: filler, fat and Ozempic face)*
+17. Buccal fat removal ages you later *(Faces: filler, fat and Ozempic face)*
+18. SKINVIVE: what the session involves and who it's for *(Faces: filler, fat and Ozempic face)*
+19. Hair botox has nothing to do with Botox *(Hair loss and hair 'botox')*
+20. Don't pluck your grey hairs: the reason *(Hair loss and hair 'botox')*
+21. PRP hair: two years of one patient's regrowth, narrated *(Hair loss and hair 'botox')*
+22. Exosomes for the face vs exosomes for hair *(Salmon sperm, exosomes and copper peptides)*
+23. The copper uglies are irritation *(Salmon sperm, exosomes and copper peptides)*
+24. A dermatologist reacts to a 20-step routine *(Routines, the skin barrier and glass skin)*
+25. You are moisturising wrong: damp skin *(Routines, the skin barrier and glass skin)*
+26. Barrier damage or just dry skin? *(Routines, the skin barrier and glass skin)*
+27. Do you need tretinoin forever? *(Tretinoin, retinol and the purge)*
+28. Still purging at three months? That's not purging *(Tretinoin, retinol and the purge)*
+29. What I'd do at 30, 50 and 60 *(What a derm actually gets done)*
+30. Twenty-five years of skincare evidence in one minute *(What a derm actually gets done)*
+31. Hormonal acne: what to stop doing *(Acne and acne scars)*
+32. Answering a New Yorker looking for a dermatologist who cares *(Acne and acne scars)*
+33. Medical grade vs drugstore: what the label really means *(What's worth buying)*
+34. Skincare I'd actually splurge on *(What's worth buying)*
+35. Mineral isn't automatically better for dark spots *(The sunscreen fight)*
+36. Met Gala looks rated for sun protection *(The sunscreen fight)*
+37. Morpheus8 and fat loss: the fear answered *(Lifting without surgery: threads, Morpheus8, Emface)*
+38. EMFACE is not a facelift, and that's fine *(Lifting without surgery: threads, Morpheus8, Emface)*
+39. miraDry: the session, start to finish *(In the chair: PRP, microneedling and small procedures)*
+40. Who is holding the needle? Physician-owned versus med spa *(Inside the practice)*
