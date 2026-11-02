@@ -1,0 +1,392 @@
+[
+ {
+  "id": "yo_9PKWX-F80w0",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head + b-roll",
+  "hook_type": "credential open",
+  "subject": "melanoma warning signs beyond abcdes",
+  "claim": "Melanoma is often subtle and flat, can be red or between the toes, so know the ABCDEs and the ugly duckling and check any spot that bleeds.",
+  "tone": [
+   "clinical",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_U9nqH9B-Nbw",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "treating the face, not single lines",
+  "claim": "Good neuromodulator treatment reads how opposing muscles move so patients keep natural expression rather than chasing each line.",
+  "tone": [
+   "reassuring",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_Udg9X-SxoLY",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "story open",
+  "subject": "skin cycling with retinal and panthenol",
+  "claim": "Her skin cycling keeps a fixed panthenol-heavy morning routine and rotates retinal and azelaic acid at night.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer product routine",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_CizyLP1gawq",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "story open",
+  "subject": "racial disparity in aesthetics industry",
+  "claim": "Beauty standards in aesthetics have been built around one race, and an industry initiative aims to welcome patients and providers of color.",
+  "tone": [
+   "confessional",
+   "reassuring"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "brand campaign; he could speak to skin of color in his own words",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7698542110651256087",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "skin of color conference takeaways",
+  "claim": "Black patients are less often offered isotretinoin and spironolactone, and thiamidol and melasyl are matching hydroquinone for pigment in studies.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "he could do his own conference notes",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7581455157313948949",
+  "genre": "ad / promo",
+  "format": "talking-head",
+  "hook_type": "promise of a result",
+  "subject": "emface lifting without needles",
+  "claim": "EMFACE treats both sagging muscle and lost collagen to lift the face without needles or downtime.",
+  "tone": [
+   "salesy",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only if he offers EMFACE; otherwise his EXOMIND equivalent",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7614238889938521375",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "stop doing X",
+  "subject": "bakuchiol as gentler retinol",
+  "claim": "Bakuchiol gives retinol-like anti-wrinkle results without irritation; this Dr. Jart cream is linked below.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "TikTok Shop plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_C8VWbhFRf-K",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "sephora kids using adult skincare",
+  "claim": "Children aged 6 to 13 using adult skincare risk irritation and allergy and should be guided by a dermatologist.",
+  "tone": [
+   "fear/warning",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7694670927640022294",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "curiosity gap",
+  "subject": "what to ask before exosome treatment",
+  "claim": "Not all exosome treatments are equal: ask where the exosomes come from, since source, quality and regulation vary.",
+  "tone": [
+   "clinical",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7698354997502741782",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "reaction",
+  "subject": "gifted fraxel for acne scars",
+  "claim": "She wants the Fraxel laser turned up until her face is red as a tomato.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer comedy lip-sync",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_Gt_Ogifh5_A",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "how jeuveau and ha fillers work",
+  "claim": "Neuromodulators block the nerve signal to soften expression lines, while hyaluronic acid fillers replace lost volume and support.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Dd36hmqMZjS",
+  "genre": "diagnosis / is-it-X",
+  "format": "talking-head",
+  "hook_type": "number/stat",
+  "subject": "macular amyloidosis dark itchy patches",
+  "claim": "Dark itchy patches on the shoulders and back may be macular amyloidosis, which needs biopsy and itch control before laser, not laser alone.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7680129676290968864",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "influencer showing her rosacea",
+  "claim": "She shows her rosacea-prone bare skin.",
+  "tone": [
+   "confessional",
+   "humor"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer skin confession",
+  "audience_reaction": "Commenters call her beautiful anyway, and some mock her for presenting near-flawless skin as a flaw."
+ },
+ {
+  "id": "ti_7702468001164971277",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "reaction",
+  "subject": "funny patient reactions after anesthesia",
+  "claim": "No claim; a compilation of patients acting strangely after anesthesia.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy compilation",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7617548342783954190",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "promise of a result",
+  "subject": "three-night skin cycling with products",
+  "claim": "Skin cycling rotates a hydrating night, a retinoid night and an exfoliant night, each with a double cleanse.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer product routine",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7703298072129867021",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "routine botox visit, skipping masseter",
+  "claim": "She gets Dysport every five months and is pausing masseter Botox because she has read it can cause jowls.",
+  "tone": [
+   "casual-friend",
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "yes if a patient of his fronts it",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_1ip3rM11VVA",
+  "genre": "routine",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "silent skin cycling demo",
+  "claim": "No spoken claim; a short silent skin cycling clip.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer clip with no speech",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DebtK4dBaar",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "list open",
+  "subject": "three anti-aging treatments after 35",
+  "claim": "After 35, microneedling with PRP and biostimulators like Radiesse work with your own biology to rebuild collagen.",
+  "tone": [
+   "casual-friend",
+   "reassuring"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "he offers these; he would front it himself",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7703285741199101206",
+  "genre": "hack / tip",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "three multi-use acne products",
+  "claim": "Azelaic acid, Nizoral shampoo and benzoyl peroxide wash each treat three different problems.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": true,
+  "makeable_note": "a derm could say it with more authority",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7703241962173844767",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "credential open",
+  "subject": "salicylic acid vs benzoyl peroxide",
+  "claim": "Salicylic acid unclogs pores and benzoyl peroxide kills acne bacteria, and Neutrogena's products use both.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "sponsored; an unsponsored SA vs BPO explainer would be makeable",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701824349019344158",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "credential open",
+  "subject": "guest bathroom with unwrapped flossers",
+  "claim": "He would not stay at a house that unwraps sponges and handles flossers in the guest drawer.",
+  "tone": [
+   "humor",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a light reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701048557872221453",
+  "genre": "brand advertorial / sponsored",
+  "format": "vlog",
+  "hook_type": "curiosity gap",
+  "subject": "following her derm to new practice",
+  "claim": "She switched practices to follow her cousin, a dermatologist, to a new clinic and got Laser Genesis for glow.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer plugging a relative's practice",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7460851798996307218",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "hollywood face full-face filler",
+  "claim": "The clinic's own Hollywood face filler technique sculpts the jaw, lips and cheeks.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own full-face before/after",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7547926132495093048",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "baby botox before 30 as business",
+  "claim": "Baby Botox before 30 is mostly sold as prevention for profit, and spas injecting 17-year-olds is unethical.",
+  "tone": [
+   "contrarian",
+   "fear/warning"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "GRWM esthetician; only as a reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_hQD8V6Bk_O8",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "question",
+  "subject": "medspa spending joke",
+  "claim": "No claim; a joke about how much people spend at the medspa.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy skit",
+  "audience_reaction": null
+ }
+]

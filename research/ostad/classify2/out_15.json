@@ -1,0 +1,395 @@
+[
+ {
+  "id": "yo_D0NKd4DPTuA",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "which retinol brand works best",
+  "claim": "No one can objectively rank retinol brands, so pick one from a reputable brand with a track record of good formulation R&D.",
+  "tone": [
+   "clinical",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DB_zOWovZv0",
+  "genre": "brand advertorial / sponsored",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "58-year-old blogger tries skinvive",
+  "claim": "A 58-year-old beauty blogger visits a clinic for SkinVive injectable skin rejuvenation and presents it as glow magic.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer sponsored clinic visit",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7698033147316849938",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "visual shock / gross-out",
+  "subject": "microneedling as best aesthetic treatment",
+  "claim": "Microneedling is the best aesthetic treatment for skin transformation.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "no speech; footage-only med spa clip, could only be redone with his own procedure footage",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Dc003nFuA9Z",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "co2 laser on cut scars",
+  "claim": "CO2 laser can erase scars from cuts.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own CO2 scar before/after",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7697965995398417696",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "reaction",
+  "subject": "lip-sync with sibling",
+  "claim": "Off-topic lip-sync clip with a brother; nothing about skin.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "off-topic lifestyle content",
+  "audience_reaction": "Commenters find it creepy until others explain the two are siblings ten years apart."
+ },
+ {
+  "id": "in_DKunvw-TO3C",
+  "genre": "ad / promo",
+  "format": "skit / acted",
+  "hook_type": "contrarian claim",
+  "subject": "celebrity glow secret is treatments",
+  "claim": "A glowing face isn't just water and sleep; it is clinic treatments like Morpheus8, salmon DNA and sculpting.",
+  "tone": [
+   "salesy",
+   "humor"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "acted influencer-clinic promo; he could only do a straight version of the 'it's not just water' idea",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DcOlxcLo3xl",
+  "genre": "humor / skit",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "camel beauty contest filler scandal",
+  "claim": "A story in Arabic about a camel injected with filler for a beauty contest that went badly and had to be cleaned out.",
+  "tone": [
+   "humor",
+   "fear/warning"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "regional camel-filler anecdote, not his world",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_rNDZd8s8vPA",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "story open",
+  "subject": "wishing for glass skin",
+  "claim": "A creator shows her journey toward glass skin.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer aesthetic clip, no speech",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701766849771408653",
+  "genre": "myth-bust",
+  "format": "green-screen",
+  "hook_type": "contrarian claim",
+  "subject": "tretinoin purging past three months",
+  "claim": "Breakouts that last beyond three months on tretinoin are not purging; true purging is rare and short-lived.",
+  "tone": [
+   "contrarian",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7625354659284225300",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "reaction",
+  "subject": "derm lip-sync trend clip",
+  "claim": "A dermatologist lip-syncs to a nonsense sound; no skin content is said.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy lip-sync, no information",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Db5WHxnNacf",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "booking botox and sculptra trip",
+  "claim": "A creator dreams of the French Riviera while looking forward to Botox and Sculptra with her provider.",
+  "tone": [
+   "luxury",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer lifestyle post",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7584119998579346711",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "frankly pdrn serum duo",
+  "claim": "The Frankly PDRN Bounce Ball and Closer Serum give smooth, plump skin.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "K-beauty product plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702203493934697758",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "credential open",
+  "subject": "derm reacts to prosthetic makeup rage bait",
+  "claim": "An extreme prosthetic makeup video is likely rage bait and the final look was probably wiped and redone.",
+  "tone": [
+   "humor",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch; makeup topic is a stretch for him",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DanKIadzNAp",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "derm rates hair loss treatments",
+  "claim": "Minoxidil, PRP and exosomes score high for hair loss while biotin and onion juice barely work.",
+  "tone": [
+   "clinical",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "hair loss is outside his core list; skin-treatment ratings version fits better",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DdFSRCBpQYZ",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "subject": "yearly aesthetic treatment calendar at 54",
+  "claim": "A 54-year-old's year of treatments is Botox quarterly, microneedling series yearly, biostimulator in June, Halo in November and four rest months.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if reframed as 'the treatment calendar I give my patients'",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702546084236627222",
+  "genre": "hack / tip",
+  "format": "talking-head + b-roll",
+  "hook_type": "list open",
+  "subject": "retinol for underarms and body",
+  "claim": "Retinol beyond the face helps dark underarms, ingrown hairs, keratosis pilaris and aging hands.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_YXu0zFhkwCY",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "drugstore vs medical-grade skincare",
+  "claim": "Medical-grade skincare has stronger actives and better formulations than over-the-counter products.",
+  "tone": [
+   "salesy",
+   "clinical"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DXfNKTAgdhc",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "alloclae cadaver fat complication",
+  "claim": "Cadaver-derived fat (AlloClae) is unethical in his view and caused a severe reaction in a patient; use your own fat.",
+  "tone": [
+   "fear/warning",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": "Commenters stress asking what is injected and choosing the provider carefully, and wish the patient a recovery."
+ },
+ {
+  "id": "in_De3jagXqRh0",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "promise of a result",
+  "subject": "swiss beauty strobe cream for dewy makeup",
+  "claim": "Swiss Beauty strobe cream gives affordable glass-skin dewiness without greasiness.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "young creator makeup product plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7436494514442816799",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "laser hair removal in winter",
+  "claim": "Start laser hair removal in winter so your body is ready for summer.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own clinic promo; would work better with him speaking",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeK_LMFBp2N",
+  "genre": "myth-bust",
+  "format": "text-on-screen only",
+  "hook_type": "contrarian claim",
+  "subject": "genetic pigmentation can be treated",
+  "claim": "Pigmentation isn't untreatable just because it's genetic; the right treatment and provider make a big difference.",
+  "tone": [
+   "reassuring",
+   "contrarian"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_nVi0D6Kh_og",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "list open",
+  "subject": "three steps for melasma",
+  "claim": "Fix melasma by combining tranexamic acid and niacinamide, adding retinol, and protecting from light and heat with tinted iron-oxide sunscreen.",
+  "tone": [
+   "clinical",
+   "casual-friend"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "pharmacist's K-beauty angle; he would do it as a derm regimen",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_CT7mrm4pIUt",
+  "genre": "trend-commentary",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "subject": "met gala looks rated for sun protection",
+  "claim": "Rating Met Gala outfits purely on UV protection, Kim Kardashian's full coverage wins.",
+  "tone": [
+   "humor",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702835691071343903",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "credential open",
+  "subject": "morning shed routines are fake",
+  "claim": "Morning-shed videos are staged and unrealistic; facial spray over a silicone mask does nothing.",
+  "tone": [
+   "humor",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DXziUvoxr4t",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "how a friend spotted my melanoma",
+  "claim": "A friend's concern about a mole on a boat trip led to removal and a melanoma diagnosis at 30.",
+  "tone": [
+   "confessional",
+   "fear/warning"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if a patient fronts it",
+  "audience_reaction": null
+ }
+]

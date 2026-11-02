@@ -1,0 +1,391 @@
+[
+ {
+  "id": "ti_7645739885915098399",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "credential open",
+  "subject": "derm reacts to pink bathroom restock",
+  "claim": "Decanting skincare breaks its preservative system and disposable face towels are wasteful.",
+  "tone": [
+   "humor",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "restock-video reaction is a young-creator format; odd for him",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeWuJjKCRzX",
+  "genre": "hack / tip",
+  "format": "carousel",
+  "hook_type": "contrarian claim",
+  "subject": "retinol packaging matters more than percent",
+  "claim": "Retinol degrades with light, air and heat, so check for opaque airless packaging before the percentage.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DcoGl6AgM2B",
+  "genre": "ad / promo",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "emface non-surgical facelift",
+  "claim": "EMFACE tones facial muscles and tightens skin with no needles, downtime or surgery.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7503596881885400342",
+  "genre": "personal journey / diary",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "fraxel recovery week one",
+  "claim": "Fraxel was painful but after one week her pores look smaller, with the best results at four weeks.",
+  "tone": [
+   "confessional",
+   "casual-friend"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "patient's own diary; he could only use it if a patient fronts it",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7554512572880276754",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "laser hair removal on black skin",
+  "claim": "Laser hair removal is safe on Black skin with the right lasers like Nd:YAG, because they bypass melanin in the skin.",
+  "tone": [
+   "reassuring",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "skin-of-color fit",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DB85o-NtQak",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "promise of a result",
+  "subject": "baby botox and barbie neck botox",
+  "claim": "Baby Botox softens under-eye lines and 'Barbie Botox' defines the neck for a natural look.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7693267966548315423",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "visual shock / gross-out",
+  "subject": "laser removal of benign mole",
+  "claim": "A benign mole can be lasered off, but a dermatologist must assess it first.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701454208033230082",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "facial balancing filler package",
+  "claim": "A facial balancing filler package restores volume and harmony with premium fillers.",
+  "tone": [
+   "luxury",
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeeW0K2OH6w",
+  "genre": "personal journey / diary",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "child swimmer's sunscreen",
+  "claim": "A parent celebrates her daughter's swimming medals and mentions SPF 50 sunscreen for the sun.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "Indonesian parenting vlog",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7301789773595725098",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "skinvive vs vollure consistency",
+  "claim": "SkinVive is a thin, water-like hyaluronic acid for skin hydration while Vollure is a thicker filler for volume.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own clinic post; better with him explaining",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7699940207772093726",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "curiosity gap",
+  "subject": "co2 laser dots and eye shields",
+  "claim": "CO2 laser makes controlled treatment zones to remodel collagen while shields protect the eyes.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_BJRTq4wgRTA",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "why mohs is gold standard",
+  "claim": "Mohs surgery is the gold standard for skin cancer on the face and hands because it checks margins under the microscope in real time and spares healthy skin.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "core Mohs fit",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7683243073102515476",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "curiosity gap",
+  "subject": "adult acne and pcos",
+  "claim": "Adult female acne can come from PCOS, which also causes hirsutism and hair loss, so see a dermatologist for the cause.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DKZkaQ_OfT_",
+  "genre": "ad / promo",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "new youtube pimple popping video",
+  "claim": "A dermatologist promotes his new YouTube reaction and commentary video.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "channel promo, no substance",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701407128543612180",
+  "genre": "routine",
+  "format": "vlog",
+  "hook_type": "question",
+  "subject": "hair botox on curly hair",
+  "claim": "He walks through doing hair Botox at home on curly hair, washing, waiting 30 minutes and heat-drying.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "hair 'botox'",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7439457647939636511",
+  "genre": "ad / promo",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "meet dr ostad and cutera laser",
+  "claim": "Dr. Ostad introduces 27 years of cosmetic dermatology and Mohs practice and praises his versatile Cutera laser.",
+  "tone": [
+   "clinical",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7699556648708214029",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "subject": "abib barrier jelly mask",
+  "claim": "The Abib glycerin barrier jelly is an easy, non-greasy Vaseline alternative that helps skin retain moisture.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7273203269156064555",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "diamond glow facial",
+  "claim": "Diamond Glow exfoliates and infuses custom serums for luminous skin.",
+  "tone": [
+   "luxury",
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own clinic promo",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701469817890557206",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "full-face filler package",
+  "claim": "A full-face filler approach lifts cheeks, lips, jaw and chin without looking overdone.",
+  "tone": [
+   "luxury",
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeKDyOkNvRo",
+  "genre": "routine",
+  "format": "talking-head",
+  "hook_type": "number/stat",
+  "subject": "everything a derm near 60 gets done",
+  "claim": "A cosmetic dermatologist near 60 does yearly Fraxel and Thermage, alternating Sofwave, filler and tox, BBL and LED light.",
+  "tone": [
+   "confessional",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "strong format if he shares his own treatments",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7438709969106554143",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "lower blepharoplasty vs under-eye filler",
+  "claim": "Bulging fat pads need lower blepharoplasty, but hollows with small herniations can be supported with under-eye filler instead.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7584463892835798294",
+  "genre": "personal journey / diary",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "black patients failed by german dermatologists",
+  "claim": "As a Black woman in Germany, dermatologists kept trialing creams on her daughter's eczema without diagnosing it.",
+  "tone": [
+   "confessional",
+   "fear/warning"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "patient's personal complaint",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7693641139814960415",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "copper uglies aren't real",
+  "claim": "The 'copper uglies' aren't a thing; copper peptides shouldn't purge, so redness and peeling mean irritation and you should stop.",
+  "tone": [
+   "contrarian",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7700718582258257182",
+  "genre": "diagnosis / is-it-X",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "subject": "ocular rosacea signs",
+  "claim": "Gritty, red, itchy eyes and recurrent styes can be ocular rosacea, with or without skin rosacea.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7698817075426430240",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "story open",
+  "subject": "derm's hair bond repair launch",
+  "claim": "Her brand's bond repair was tested on 51 people with every hair type before launch.",
+  "tone": [
+   "salesy",
+   "confessional"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "hair-care product launch; he'd only do a LUMA Cream version",
+  "audience_reaction": null
+ }
+]

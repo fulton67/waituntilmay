@@ -1,0 +1,388 @@
+[
+ {
+  "id": "in_DCMZ6iLOZlb",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "moisturize damp skin or in-shower oil",
+  "claim": "Moisturizer works best on damp skin, and an in-shower body oil is the shortcut if lotion is too much effort.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DZHjIl9ghPd",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "tattoo laser ink demo in acrylic",
+  "claim": "A laser shatters tattoo ink into tiny particles that the lymphatic system clears over a series of treatments.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "tattoo removal is not his service",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7693204824157867272",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "day as a derm resident",
+  "claim": "A dermatology resident's workday.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "as a 'day as a Park Ave derm' version",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7670180844195089694",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head",
+  "hook_type": "promise of a result",
+  "subject": "what happens at a skin check",
+  "claim": "A full-body skin check is easy: no makeup or nail polish, a gown, and ideally a doctor who maps every mole.",
+  "tone": [
+   "reassuring",
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "best as his own 'what to expect' or a patient he fronts",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7430020420750806304",
+  "genre": "before-after",
+  "format": "talking-head + b-roll",
+  "hook_type": "before/after reveal",
+  "subject": "microneedling for acne scars and pih",
+  "claim": "Microneedling took a client from scarring and dark marks to healthy, glowing skin.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own before/after",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7698451376795405581",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "promise of a result",
+  "subject": "diagnose your hair loss type first",
+  "claim": "Treat hair loss by its diagnosis: androgenetic alopecia needs minoxidil plus hormonal meds, while telogen effluvium needs its trigger found.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DShT5h6kQSM",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "indian baddies at tyla concert",
+  "claim": "The West's surprise at 'Indian baddies' shows calibrated inclusion of light-skinned, whiteness-adjacent features.",
+  "tone": [
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "cultural commentary from a South Asian woman's perspective",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7621017488129559839",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "story open",
+  "subject": "glp-1 supplements for aging face",
+  "claim": "On a GLP-1 you need protein, weight training and hydrolyzed collagen with vitamin C to avoid looking older.",
+  "tone": [
+   "confessional",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "TikTok Shop supplement haul",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701691575650274573",
+  "genre": "diagnosis / is-it-X",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "dry skin that's seborrheic dermatitis",
+  "claim": "Flaky 'dry skin' is sometimes seborrheic dermatitis, which needs different treatment.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701880636998487326",
+  "genre": "procedure-POV",
+  "format": "text-on-screen only",
+  "hook_type": "visual shock / gross-out",
+  "subject": "satisfying pimple extraction",
+  "claim": "A satisfying acne extraction clip.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "extraction clips fit only if shot on his patients",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7602245515790585120",
+  "genre": "personal journey / diary",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "trying coolpeel co2 laser",
+  "claim": "CoolPeel is a gentler CO2 laser that evens pigmentation and fine lines with far less downtime than full CO2.",
+  "tone": [
+   "casual-friend",
+   "confessional"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer's treatment vlog; he could do it from the provider side",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Dee9FckROwx",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "story open",
+  "subject": "hair botox salon owner",
+  "claim": "A hair-'Botox' salon owner says she loves her work and routine too much to break it for anyone.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "hair botox, not dermatology",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702173479516261645",
+  "genre": "personal journey / diary",
+  "format": "vlog",
+  "hook_type": "before/after reveal",
+  "subject": "healing from first co2 laser",
+  "claim": "Healing from a first CO2 laser left her acne scars and texture much better.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a patient story he fronts",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7691729740742315295",
+  "genre": "educational-explainer",
+  "format": "interview / podcast clip",
+  "hook_type": "contrarian claim",
+  "subject": "diet, alcohol and sugar on skin",
+  "claim": "Low fiber, alcohol, sugar and (for some) dairy worsen acne and speed skin aging.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DbQdlSzuCzX",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "stop doing X",
+  "subject": "viral products that wreck rosacea",
+  "claim": "Viral harsh products like Medicube pads and shea-heavy creams wreck rosacea skin; gentler PHA and Avene swaps work.",
+  "tone": [
+   "fear/warning",
+   "casual-friend"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "he'd do a derm version with his own picks",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_HSwnAh7lr34",
+  "genre": "trend-commentary",
+  "format": "interview / podcast clip",
+  "hook_type": "reaction",
+  "subject": "olivia wilde's ozempic face",
+  "claim": "A celebrity's gaunt look shows GLP-1s can cause starvation-like muscle loss, and prescribers are to blame.",
+  "tone": [
+   "fear/warning",
+   "contrarian"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction on Ozempic face",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7296928587473636651",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "botox on low brows causes droop",
+  "claim": "Botox for forehead lines in people with low-set brows can drop the brows and hood the eyes; filler or Emface is safer.",
+  "tone": [
+   "clinical",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701114522165071134",
+  "genre": "hack / tip",
+  "format": "green-screen",
+  "hook_type": "contrarian claim",
+  "subject": "how to use azelaic acid",
+  "claim": "Azelaic acid is the goat for dark spots, redness, acne and melasma: apply twice daily after cleansing, then moisturizer and SPF.",
+  "tone": [
+   "casual-friend",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_Vhoqj0zMvoE",
+  "genre": "routine",
+  "format": "text-on-screen only",
+  "hook_type": "contrarian claim",
+  "subject": "glass skin step by step",
+  "claim": "Glass skin is achievable with oil and foam cleansing, moisturizer, serum, daily sunscreen and a weekly exfoliation and mask.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "faceless K-beauty routine",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_De0_XqGuQIz",
+  "genre": "ad / promo",
+  "format": "vlog",
+  "hook_type": "promise of a result",
+  "subject": "buying laser machines in china",
+  "claim": "Sourcing laser hair-removal and CO2 machines from China lets you start your own aesthetics business.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "equipment-reseller pitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701329620485836062",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "credential open",
+  "subject": "dove serum body wash dupe",
+  "claim": "Dove's under-$15 serum plus oil body wash rivals pricey shower oils.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "paid brand partnership",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DEnqFGxJtCy",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "visual shock / gross-out",
+  "subject": "vitamin c apple oxidation test",
+  "claim": "An apple coated with her C-Complex stays fresh, proving her skin-cycling set stops oxidation and aging.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "pseudo-science product demo",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7590440978637425942",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "skin cycling is just marketing",
+  "claim": "Skin cycling is common sense repackaged as marketing; the results come from the retinoids and exfoliants themselves.",
+  "tone": [
+   "contrarian"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": true,
+  "makeable_note": "he'd make a derm version",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeZ5hhYlOSd",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "serdev mini neck and jaw lift",
+  "claim": "The Serdev technique lifts the neck and jawline through two tiny incisions instead of a full open facelift.",
+  "tone": [
+   "clinical",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "he'd do it for thread lifts or Ellacor rather than Serdev",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7694400400862006542",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "nyc derm day in the life",
+  "claim": "An NYC dermatologist's day: clinic, ice cream, hot Pilates and a podcast recording.",
+  "tone": [
+   "casual-friend",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own Park Ave day",
+  "audience_reaction": null
+ }
+]

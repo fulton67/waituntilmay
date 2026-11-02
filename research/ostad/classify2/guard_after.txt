@@ -1,0 +1,111 @@
+{
+ "genre": {
+  "top": "ad / promo",
+  "share": 0.105,
+  "distinct": 20,
+  "top5": [
+   [
+    "ad / promo",
+    108
+   ],
+   [
+    "brand advertorial / sponsored",
+    95
+   ],
+   [
+    "educational-explainer",
+    84
+   ],
+   [
+    "procedure-POV",
+    71
+   ],
+   [
+    "myth-bust",
+    66
+   ]
+  ]
+ },
+ "hook_type": {
+  "top": "curiosity gap",
+  "share": 0.112,
+  "distinct": 14,
+  "top5": [
+   [
+    "curiosity gap",
+    115
+   ],
+   [
+    "question",
+    112
+   ],
+   [
+    "story open",
+    111
+   ],
+   [
+    "promise of a result",
+    109
+   ],
+   [
+    "contrarian claim",
+    100
+   ]
+  ]
+ },
+ "tone": {
+  "top": "salesy",
+  "share": 0.281,
+  "distinct": 9,
+  "top5": [
+   [
+    "salesy",
+    290
+   ],
+   [
+    "clinical",
+    259
+   ],
+   [
+    "casual-friend",
+    200
+   ],
+   [
+    "humor",
+    151
+   ],
+   [
+    "contrarian",
+    141
+   ]
+  ]
+ },
+ "subject": {
+  "top": "medical-grade vs drugstore skincare",
+  "share": 0.003,
+  "distinct": 1006,
+  "top5": [
+   [
+    "medical-grade vs drugstore skincare",
+    3
+   ],
+   [
+    "sclerotherapy for leg veins",
+    3
+   ],
+   [
+    "laser hair removal on black skin",
+    3
+   ],
+   [
+    "facial balancing filler package",
+    3
+   ],
+   [
+    "celebrity ozempic face before and after",
+    2
+   ]
+  ]
+ }
+}
+GUARD PASS (1031 rows read)

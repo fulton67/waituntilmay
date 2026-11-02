@@ -1,0 +1,391 @@
+[
+ {
+  "id": "ti_7697702861714509086",
+  "genre": "hack / tip",
+  "format": "talking-head + b-roll",
+  "hook_type": "contrarian claim",
+  "subject": "under-eye balm before concealer",
+  "claim": "Swipe a hydrating vitamin C under-eye balm before concealer so it glides on instead of caking.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "makeup hack from a young female derm; odd for him",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7460326041819663658",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "visual shock / gross-out",
+  "subject": "microneedling with prp for acne scars",
+  "claim": "Microneedling with PRP treats acne scars.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "he can film his own microneedling footage",
+  "audience_reaction": "Viewers ask about scarring risk, results on brown skin prone to hyperpigmentation, aftercare, cost and how long it lasts; one says it went badly."
+ },
+ {
+  "id": "ti_7267602932378422571",
+  "genre": "patient-story / testimonial",
+  "format": "talking-head + b-roll",
+  "hook_type": "stop doing X",
+  "subject": "aviclear acne laser patient journey",
+  "claim": "Three AviClear sessions shrink oil glands to clear acne long-term without diet changes, unlike facials that only treat the surface.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own patient story",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeNQcHXCOAo",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "why he's conservative with sculptra",
+  "claim": "Sculptra's trend oversells it; it causes scar-type collagen, nodules and can complicate a later facelift, so he uses it conservatively.",
+  "tone": [
+   "contrarian",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": "Viewers find it refreshing that a doctor says a treatment might not be right; a veteran Sculptra trainer pushes back."
+ },
+ {
+  "id": "in_DDcR1cVOpye",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "do dermatologists take medicaid for hives",
+  "claim": "Dermatologists who accept Medicaid exist but are usually hospital clinics with long waits.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "his Park Avenue cash practice makes the Medicaid angle awkward",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7554222370186071309",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "subject": "cosmetic derm is just dermatology claim",
+  "claim": "Doctors diagnose in seconds because of years of training, and cosmetic dermatology is real expertise, not just upcharged dermatology.",
+  "tone": [
+   "contrarian",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Dey6WVluzdF",
+  "genre": "routine",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "three steps for stubborn pigmentation",
+  "claim": "Add tranexamic or kojic acid serum, use sunscreen, check vitamin and hormone causes, and stay consistent for three to six months.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "Marathi-language creator routine",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7693971621333241102",
+  "genre": "skin-cancer-awareness",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "dark streak under nail melanoma",
+  "claim": "A dark streak under a fingernail or toenail could be subungual melanoma and should be checked.",
+  "tone": [
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "Mohs surgeon fit",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_CLEu2LfBp8O",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "subject": "liquid nitrogen on skin of color",
+  "claim": "Liquid nitrogen can safely treat molluscum, which can be mistaken for acne, on brown skin.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7674038289984179487",
+  "genre": "day-in-the-life / office",
+  "format": "interview / podcast clip",
+  "hook_type": "credential open",
+  "subject": "what a dermatologist actually does",
+  "claim": "A dermatologist's job spans cosmetic Botox to complex conditions like hidradenitis, and people underestimate the medical side.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "works as an interview clip of him",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Dbq_QFyE6yg",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "contrarian claim",
+  "subject": "clear + brilliant safe in summer",
+  "claim": "Clear + Brilliant is gentle enough to keep doing in summer with proper sun protection.",
+  "tone": [
+   "salesy",
+   "reassuring"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own clinic promo",
+  "audience_reaction": "Commenters report texture improvement, booking appointments and relief that it is safe year-round."
+ },
+ {
+  "id": "ti_7678497047074458894",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "subject": "future derm's day in nyc",
+  "claim": "A pre-residency MA's NYC day: a run, SPF, commuting to a derm practice, then home.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "student vlog",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_V2xKGR9xeuU",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "does tretinoin stop working",
+  "claim": "Tretinoin doesn't stop working or build resistance; your acne, often hormonal, has outgrown topical control.",
+  "tone": [
+   "clinical",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7693338004655557918",
+  "genre": "routine",
+  "format": "vlog",
+  "hook_type": "curiosity gap",
+  "subject": "doctor's pre-bed ritual",
+  "claim": "A doctor shows her pre-bed ritual and offers the product list.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "female creator's nightly ritual vlog",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_UsU-6Uq8Bxc",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "products for dark skin concerns",
+  "claim": "Each dark-skin concern has a specific product, from Eucerin for under-eye circles to glycolic acid for elbows.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "skin-of-color fit if he names his own picks",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7341075039938219307",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "fraxel benefits for sun damage",
+  "claim": "Fraxel reverses sun spots and smooths fine lines from sun damage.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own clinic promo",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_ltBak2wH8w0",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "diamond glow summer facial",
+  "claim": "Diamond Glow exfoliates, extracts and infuses serums to illuminate the whole face.",
+  "tone": [
+   "luxury",
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own clinic promo",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DdKTy_-occa",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "promise of a result",
+  "subject": "liposomal tranexamic acid serum",
+  "claim": "Creamy's Intense TX serum's liposomal tranexamic acid penetrates better for melasma.",
+  "tone": [
+   "salesy",
+   "clinical"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "Brazilian brand plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DagUM-aTscy",
+  "genre": "patient-story / testimonial",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "co2 laser burn scars",
+  "claim": "Her CO2 laser left burn scars because the provider dismissed her pain and swelling; aftercare follow-up matters as much as the device.",
+  "tone": [
+   "confessional",
+   "fear/warning"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if a patient fronts it, or as his reaction",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7330340920266738974",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "prp for thinning hair",
+  "claim": "Consistent PRP treatments revitalize thinning hair.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own clinic promo",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701470690846903554",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "natural filler packages",
+  "claim": "Clinic filler packages restore volume and symmetry while keeping natural expression.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "clinic promo; he could do his own",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DMFRI4azc89",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "subject": "forehead projection and profile beauty",
+  "claim": "Western beauty's sharp profile comes from the forehead projecting most, then nose, then eyes; flat Asian foreheads can be enhanced.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "Indonesian aesthetic framing; he could do a profile-balance version",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7538901966139755832",
+  "genre": "ad / promo",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "skinvive arrives at clinic",
+  "claim": "SkinVive doesn't add volume but deeply hydrates and improves skin texture.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_wCG8PpRQ_F8",
+  "genre": "ad / promo",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "subject": "exosome microneedling two steps",
+  "claim": "Exosome microneedling pairs micro-channels with an exosome serum for faster healing and smoother texture.",
+  "tone": [
+   "salesy",
+   "clinical"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702935534070484238",
+  "genre": "routine",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "subject": "dr dray's body skincare routine",
+  "claim": "Shower nightly, rinse soap from skin folds, use shave cream, pat dry and moisturize immediately on damp skin.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "a personal routine is a stretch; would fit as 'body skin rules I give patients'",
+  "audience_reaction": null
+ }
+]

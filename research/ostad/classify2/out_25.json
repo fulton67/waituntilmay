@@ -1,0 +1,388 @@
+[
+ {
+  "id": "in_DeVbWGihDIK",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "diy hibiscus-clove homemade retinol",
+  "claim": "A home-boiled mix of bay leaf, clove, hibiscus and cornstarch works as an effective natural retinol for women in their 30s.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7694082060130061598",
+  "genre": "educational-explainer",
+  "format": "interview / podcast clip",
+  "hook_type": "promise of a result",
+  "subject": "pair hyaluronic acid with peptides",
+  "claim": "Hyaluronic acid only hydrates temporarily, so pair it with peptides that lift, plump and firm over time.",
+  "tone": [
+   "clinical",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_CokPCerNsMH",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "calories per pound to bulk",
+  "claim": "As a rule of thumb, 15 calories per pound maintains weight, 18 bulks and 12 cuts.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "off-topic for a dermatologist (diet/bodybuilding)",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_-t8xxheq1eM",
+  "genre": "procedure-POV",
+  "format": "vlog",
+  "hook_type": "question",
+  "subject": "asmr facial on an influencer",
+  "claim": "A medspa facial can be filmed as relaxing ASMR content with a guest creator.",
+  "tone": [
+   "luxury"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "ASMR spa facial with a celebrity guest is not his register",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Cod2b25jT8Z",
+  "genre": "ad / promo",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "couple's annual thermage and exosome prejuvenation",
+  "claim": "Doing Thermage FLX plus exosomes every year 'prejuvenates' the face so you avoid bigger, costlier procedures later.",
+  "tone": [
+   "luxury",
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "celebrity-couple clinic promo; he'd need his own patients",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701838969255791902",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "text-on-screen only",
+  "hook_type": "list open",
+  "subject": "bad, better, best skincare swaps",
+  "claim": "Some common products are bad choices and there are better and best alternatives a derm would pick.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "products not named in the transcript; format is easy to copy",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeVWzjnvYKO",
+  "genre": "hack / tip",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "weekly scalp microneedling with minoxidil",
+  "claim": "Microneedling the scalp once a week with a 0.5-1mm stamping device on top of daily minoxidil boosts hair growth.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_IL9xUFaH0BM",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "fraxel for sun-damaged skin",
+  "claim": "Fraxel laser resurfaces sun-damaged skin, fading sun spots and smoothing fine lines by stimulating collagen.",
+  "tone": [
+   "clinical",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own channel; no speech",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_KL22DLzNzwk",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "liquid facelift with filler or fat",
+  "claim": "Restoring lost volume with long-lasting HA filler or your own fat transfer can lift the face with results similar to a facelift.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701452635806731542",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "facial balancing filler package",
+  "claim": "The clinic's facial balancing filler package restores volume and enhances harmony.",
+  "tone": [
+   "salesy",
+   "luxury"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own before/after",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7609812528729771271",
+  "genre": "procedure-POV",
+  "format": "text-on-screen only",
+  "hook_type": "visual shock / gross-out",
+  "subject": "laser tattoo removal clip",
+  "claim": "Laser tattoo removal breaks ink into smaller particles over a series of sessions until it fades.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "spa clip set to music; he doesn't feature tattoo removal",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7649284976357264662",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "rejuall pdrn product plug",
+  "claim": "A creator promotes the Dr. Reju-All PDRN product line.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "Arabic-language influencer plug; transcript garbled",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_rA5_Lyo0bsw",
+  "genre": "procedure-POV",
+  "format": "talking-head + b-roll",
+  "hook_type": "credential open",
+  "subject": "assessing nasolabial folds for filler",
+  "claim": "Assessing laugh lines at rest and in motion, side by side, decides where and how filler like Evolysse should go.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7694020816639495455",
+  "genre": "myth-bust",
+  "format": "text-on-screen only",
+  "hook_type": "contrarian claim",
+  "subject": "beef tallow skincare myth",
+  "claim": "Beef tallow skincare from social media is a myth patients should drop; trust the professionals.",
+  "tone": [
+   "contrarian",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702491956823297310",
+  "genre": "routine",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "am and pm product order",
+  "claim": "Apply skincare in the right order morning and night (vitamin C, azelaic acid, retinol) to get each active to work.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7623961822026009864",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "does teeth whitening wear enamel",
+  "claim": "Professional whitening doesn't wear down teeth; abrasive whitening toothpastes do.",
+  "tone": [
+   "contrarian",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "dentistry, not dermatology; the format transfers",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7318458065609690400",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "hollow cheeks without buccal fat removal",
+  "claim": "You can get hollow cheeks without buccal fat surgery by losing weight through diet and running.",
+  "tone": [
+   "casual-friend",
+   "confessional"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "student's own weight-loss story; he could only react to it",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_YRMeTu0VeTc",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "medical-grade vs drugstore skincare",
+  "claim": "'Medical grade' skincare is a meaningless term and drugstore products are not worse.",
+  "tone": [
+   "contrarian"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "contradicts his own skincare line; only as a reaction",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7694775705518869790",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "curiosity gap",
+  "subject": "satisfying derm moment joke",
+  "claim": "Some moments in derm work are the best feeling.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy; content unclear without speech",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DCZ_sE1Tj-V",
+  "genre": "before-after",
+  "format": "voiceover-over-procedure",
+  "hook_type": "stop doing X",
+  "subject": "dpn removal healing timeline",
+  "claim": "DPN lesions are treated, scab and fall off in about nine days, leaving clear skin.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own DPN patient; skin-of-color angle fits him",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_YhtW6cgg8vA",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "exosome therapy for hair loss",
+  "claim": "Stem-cell-derived exosomes stimulate dormant follicles and regrow hair in 8-12 weeks with no downtime.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own channel; music only",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702059753488387342",
+  "genre": "myth-bust",
+  "format": "skit / acted",
+  "hook_type": "contrarian claim",
+  "subject": "nose black dots aren't blackheads",
+  "claim": "The tiny black dots on the nose are often trichostasis spinulosa, harmless trapped vellus hairs, not blackheads.",
+  "tone": [
+   "humor",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "argument-skit framing; works as a straight myth-bust",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7627218316456774930",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "story open",
+  "subject": "religious song clip",
+  "claim": "Unrelated worship-song clip with no skin content.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "off-topic",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7484989112030596370",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "curiosity gap",
+  "subject": "self-aware skincare shopping joke",
+  "claim": "A creator jokes about being unable to stop herself (likely buying or doing beauty treatments).",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer comedy; no speech",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_T8d9_H6N_0o",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "ceg ferulic vitamin c serum",
+  "claim": "His CEG + Ferulic serum with vitamins C and E and hydroxy acids fades lines and dark spots and brightens skin.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own product; better with him fronting it",
+  "audience_reaction": null
+ }
+]

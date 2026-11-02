@@ -1,0 +1,81 @@
+{
+ "field": "tone",
+ "reread_rows": 385,
+ "rejected": 0,
+ "before": [
+  [
+   "casual-friend",
+   385
+  ],
+  [
+   "salesy",
+   289
+  ],
+  [
+   "clinical",
+   224
+  ],
+  [
+   "humor",
+   149
+  ],
+  [
+   "contrarian",
+   144
+  ],
+  [
+   "reassuring",
+   143
+  ],
+  [
+   "confessional",
+   110
+  ],
+  [
+   "fear/warning",
+   101
+  ],
+  [
+   "luxury",
+   69
+  ]
+ ],
+ "after": [
+  [
+   "salesy",
+   290
+  ],
+  [
+   "clinical",
+   259
+  ],
+  [
+   "casual-friend",
+   200
+  ],
+  [
+   "humor",
+   151
+  ],
+  [
+   "contrarian",
+   141
+  ],
+  [
+   "reassuring",
+   132
+  ],
+  [
+   "confessional",
+   118
+  ],
+  [
+   "fear/warning",
+   101
+  ],
+  [
+   "luxury",
+   69
+  ]
+ ]
+}

@@ -1,0 +1,395 @@
+[
+ {
+  "id": "in_C9Ai3kot0rb",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "question",
+  "subject": "polynucleotides for under-eye dark circles",
+  "claim": "Polynucleotide (salmon DNA) injections thicken crepey under-eye skin and fade pigment without the puffiness risk of tear trough filler.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7276081818208652586",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "sclerotherapy for leg veins",
+  "claim": "Sclerotherapy with Asclera injections erases visible leg veins.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own clinic post; stronger with him narrating",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_t4czc1bazhE",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "stop doing X",
+  "subject": "ultherapy hifu emface don't lift",
+  "claim": "Ultrasound and RF tightening devices give minimal results and risk fat loss, so don't use a non-surgical tool for a surgical problem.",
+  "tone": [
+   "contrarian",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "he would need to agree; he offers EXOMIND-type devices so stance may conflict",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DZPxnAHBg4r",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "contrarian claim",
+  "subject": "at-home tca peel in skin of color",
+  "claim": "An at-home TCA 30 peel that frosts the whole face risks hyper- and hypopigmentation, especially in darker skin; go low and slow.",
+  "tone": [
+   "fear/warning",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702905746727439647",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "subject": "derm reacts to glued-on hair and beard",
+  "claim": "A bizarre video of hair and beard glued straight onto skin is confusing and would hurt to remove.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch; comedic, off his core topics",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7673256302222527757",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "before/after reveal",
+  "subject": "skin cycling for oily dehydrated skin",
+  "claim": "Start with mandelic acid, then add azelaic acid in the morning and retinol twice a week to treat texture, PIH and acne scars.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer's own skin cycling routine",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DcTXzsvIDDN",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "personalized melanoma vaccine phase 3",
+  "claim": "The new personalized melanoma vaccine is not preventive; it is made from a resected tumor to help high-risk patients' immune systems stop recurrence.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "a Mohs surgeon explaining the news fits him well",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DfCmyojO9EQ",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "contrarian claim",
+  "subject": "body tan vs body hyperpigmentation",
+  "claim": "Darkness that lasts beyond six weeks is body pigmentation, not tan; treat it with kojic acid five nights and glycolic toner two nights, not scrubs.",
+  "tone": [
+   "clinical",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7522657788007304454",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "subject": "medicube salmon dna pdrn serum",
+  "claim": "Medicube's PDRN salmon-DNA serum capsules bring the celebrity salmon sperm facial home without injections.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer product plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7059098093660261678",
+  "genre": "hack / tip",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "face massage for mouth pocket fat",
+  "claim": "Consistent facial massage can improve stubborn mouth pocket fat.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer face-massage clip; claim he wouldn't endorse",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7697690726066310413",
+  "genre": "myth-bust",
+  "format": "talking-head + b-roll",
+  "hook_type": "list open",
+  "subject": "surprising skincare ingredient facts",
+  "claim": "Boring ingredients like silicone sheets, glycerin and colloidal oatmeal have strong evidence while bakuchiol and rice water are overhyped.",
+  "tone": [
+   "clinical",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7694355628751392031",
+  "genre": "hack / tip",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "precise minoxidil application",
+  "claim": "Apply minoxidil precisely, because it grows hair wherever it lands.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "hair loss is outside his core list",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DfKRJdKNIle",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "reaction",
+  "subject": "vt pdrn scalp serum brush",
+  "claim": "After a scalp-serum comb proved a hassle to clean, the VT PDRN brush-applicator hair serum is more convenient and adds volume.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "Korean influencer hair product review",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_2uZy0g91IMU",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "diamond glow facial",
+  "claim": "The Diamond Glow facial exfoliates and infuses custom serums for luminous, smooth skin.",
+  "tone": [
+   "luxury",
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own clinic promo",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7608339320017014036",
+  "genre": "personal journey / diary",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "black women excluded from aesthetic clinics",
+  "claim": "Black women are often turned away or burned by clinics without lasers or protocols for dark skin, which keeps them away from aesthetics.",
+  "tone": [
+   "confessional",
+   "fear/warning"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "Black woman's lived-experience piece; he could cover skin-of-color laser safety in his own voice",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DXPLaKHDGfh",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "filler vs sculptra difference",
+  "claim": "Filler gives instant, dissolvable volume lasting 6-12 months while Sculptra builds collagen gradually for a subtler, longer-lasting lift.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Da8LQv7OU4m",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "list open",
+  "subject": "treatments matched to pigment spots",
+  "claim": "Each spot type has its own fix: TCA and plasma for dark freckles, azelaic acid for redness, tranexamic and kojic acid for melasma.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeoxyaKBkay",
+  "genre": "red-flag / what-not-to-do",
+  "format": "text-on-screen only",
+  "hook_type": "list open",
+  "subject": "procedures a surgeon would never get",
+  "claim": "A surgeon would never get neck liposuction, under-eye Botox, filler between the eyes, a skin-only mini facelift or threads.",
+  "tone": [
+   "fear/warning",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "he offers threads, so his own list would differ",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_cAwiWsz-9Iw",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "laser hair removal in winter",
+  "claim": "Start laser hair removal in winter so you're smooth by summer.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own clinic promo",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Dd5pPHTiiwx",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "before/after reveal",
+  "subject": "k-secret retinal range giveaway",
+  "claim": "K-Secret's Seoul 1988 retinal range fixed her dry, dull skin and fine lines at an affordable price.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "French influencer giveaway",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7693960096027643167",
+  "genre": "personal journey / diary",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "breast milk at dubai airport",
+  "claim": "A doctor tells the story of an odd security search of her carry-on breast milk at Dubai airport.",
+  "tone": [
+   "casual-friend",
+   "confessional"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "off-topic personal travel story",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Ccz_4uJMpnj",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "contrarian claim",
+  "subject": "sunscreen is toxic misinformation",
+  "claim": "Claims that sunscreen is toxic are fearmongering; the sun is the number one proven cause of skin cancer.",
+  "tone": [
+   "contrarian",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7544291263877549334",
+  "genre": "humor / skit",
+  "format": "talking-head + b-roll",
+  "hook_type": "promise of a result",
+  "subject": "2 euro fox eye lift strings",
+  "claim": "A 2-euro hair-clip string gives a fox-eye lift but hurts and looks unnatural.",
+  "tone": [
+   "humor",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer trying a gadget; he could only react to it",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7528457930870492438",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "curiosity gap",
+  "subject": "what ozempic face is",
+  "claim": "Ozempic face comes from rapid non-targeted fat loss, causing a narrow, prematurely aged face plus other side effects.",
+  "tone": [
+   "fear/warning",
+   "clinical"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_CmZUVtBJEe4",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head + b-roll",
+  "hook_type": "number/stat",
+  "subject": "fraxel lowers skin cancer risk",
+  "claim": "Non-ablative Fraxel laser cut the incidence of common skin cancers by about 50% in years of patient data.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "he offers Fraxel and Mohs, strong fit",
+  "audience_reaction": null
+ }
+]

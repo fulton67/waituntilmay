@@ -145,6 +145,8 @@ def apply(pattern="out_*.json"):
             for k in KEYS:
                 if k in c:
                     r[k] = c[k]
+            if r["source"] == "own":  # his own videos are makeable by definition
+                r["makeable_by_ostad"] = True
             r["read2"] = True
             n += 1
     dump(vids)
@@ -206,6 +208,29 @@ def reread(field, size=25):
     print(f"{field}: top value {top!r} on {len(rows)} rows -> {len(range(0, len(rows), size))} reread batches")
 
 
+def apply_field(field):
+    """merge classify2/reread_out_{field}_*.json: [{id, <field>}] only; logs before/after distribution"""
+    vids = load()
+    idx = {r["id"]: r for r in vids}
+    before, _ = dist([r for r in vids if r.get("read2")], field)
+    n, bad = 0, []
+    for p in sorted(B.glob(f"reread_out_{field}_*.json")):
+        for c in json.loads(p.read_text(encoding="utf-8")):
+            r = idx.get(c.get("id"))
+            probe = dict(r or {}, **{field: c.get(field)})
+            errs = ["unknown id"] if not r else [e for e in check(probe) if e.startswith(field)]
+            if errs:
+                bad.append((p.name, c.get("id"), errs)); continue
+            r[field] = c[field]
+            n += 1
+    dump(vids)
+    after, _ = dist([r for r in vids if r.get("read2")], field)
+    log = {"field": field, "reread_rows": n, "rejected": len(bad), "before": before.most_common(), "after": after.most_common()}
+    (B / f"guard_{field}.json").write_text(json.dumps(log, indent=1), encoding="utf-8")
+    print(json.dumps(log))
+    for b in bad[:20]: print("  ", b)
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "guard"
     if cmd == "merge": merge()
@@ -214,3 +239,4 @@ if __name__ == "__main__":
     elif cmd == "check": sys.exit(0 if all([validate(p) for p in sys.argv[2:]]) else 1)
     elif cmd == "guard": sys.exit(0 if guard()[0] else 1)
     elif cmd == "reread": reread(sys.argv[2])
+    elif cmd == "apply_field": apply_field(sys.argv[2])

@@ -1,0 +1,95 @@
+[
+ {
+  "id": "in_CmqtEGehDqu",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "charms membership discount promo",
+  "claim": "Register for Charms membership on 28 December to get up to 45% off plus gifts and a gold coin.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DTBDoUwkSfc",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "list open",
+  "subject": "med spa laser services menu",
+  "claim": "Skin Savvy tailors laser hair removal, photofacials, vein removal and microneedling to your needs.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "no transcript; generic spa menu",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_hzUd-2OAcsM",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "subject": "indian women's thick hair claim",
+  "claim": "Thick hair in Indian women isn't explained by a single secret; generalising about a whole group is wrong.",
+  "tone": [
+   "contrarian",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch; hair is off his core",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_G9r3qnVbgSI",
+  "genre": "hack / tip",
+  "format": "talking-head",
+  "hook_type": "stop doing X",
+  "subject": "fix tretinoin peeling before quitting",
+  "claim": "Before quitting a retinoid, cut frequency, apply to dry skin, sandwich with moisturizer and add hydration.",
+  "tone": [
+   "casual-friend",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_C5OPqrhkSvM",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "how sculptra builds collagen",
+  "claim": "Sculptra is a PLLA biostimulator that gradually rebuilds collagen for long-lasting volume.",
+  "tone": [
+   "salesy",
+   "clinical"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "he'd need to say it on camera",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_NYIVIaO_eHk",
+  "genre": "personal journey / diary",
+  "format": "vlog",
+  "hook_type": "before/after reveal",
+  "subject": "getting skinvive skin booster",
+  "claim": "SkinVive is a low-pain hyaluronic skin booster that hydrates and smooths fine lines without adding volume or migrating.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "yes if a patient fronts it",
+  "audience_reaction": null
+ }
+]

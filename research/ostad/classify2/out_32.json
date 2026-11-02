@@ -1,0 +1,396 @@
+[
+ {
+  "id": "ti_7642854594233617684",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "curiosity gap",
+  "subject": "skinvive for makeup-cracking dry skin",
+  "claim": "If makeup cracks on dehydrated skin, cream alone won't fix it; low-crosslinked HA skin boosters like Skinvive rehydrate from inside.",
+  "tone": [
+   "clinical",
+   "salesy"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7296179977987312938",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "holiday prep aesthetic treatments",
+  "claim": "Book aesthetic treatments now to glow for holiday gatherings.",
+  "tone": [
+   "salesy",
+   "luxury"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own account; needs him on camera",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_zIw51-U6Lzo",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "contrarian claim",
+  "subject": "no cookbook approach to jeuveau",
+  "claim": "Facial assessment shouldn't be cookbook: listen, have the patient animate, and treat muscle movement so Jeuveau never looks frozen.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own Jeuveau-sponsored video",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DL0S6aex1z-",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "treatments a derm calls wasteful",
+  "claim": "Pricey single skincare products, threads and EMSculpt-style face machines are a waste of money.",
+  "tone": [
+   "contrarian",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "judgement call: he offers threads and EMFACE-type devices, so he'd need his own list",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702437823537794318",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "reaction",
+  "subject": "derm's target haircare favorites",
+  "claim": "Her unsponsored favorite haircare products at Target.",
+  "tone": [
+   "casual-friend",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "haircare haul",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7278401722370903342",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "practice's ceg + ferulic vitamin c serum",
+  "claim": "The practice's medical-grade vitamin C/E ferulic serum with HA penetrates deep for radiance.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own product post",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Ddl8XTFs_UW",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "subject": "red light pdt approved for superficial bcc",
+  "claim": "Red-light photodynamic therapy with a photosensitizing cream is now FDA-approved for superficial basal cell carcinoma, clearing 83% in trials.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "he'd frame it as a Mohs surgeon on when PDT vs surgery",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_CnohpNL0Pvs",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "stop doing X",
+  "subject": "reacting to 'stop using sunscreen' claim",
+  "claim": "Modern sunscreens are safe and don't cause cancer; the anti-sunscreen 'sun is life' argument is wrong.",
+  "tone": [
+   "contrarian",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702224093965471006",
+  "genre": "personal journey / diary",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "spotlighting arab and immigrant creators",
+  "claim": "Arab and immigrant creators shouldn't have to prove their worth, so she wants to collaborate with and spotlight them.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "personal identity appeal, not skin",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7575869204880952598",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "laser tattoo removal after several sessions",
+  "claim": "Several laser tattoo removal sessions fade the tattoo dramatically.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "tattoo removal isn't a featured service",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7535157451478420758",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "ai full-body mole mapping scan",
+  "claim": "A full-body AI mole scan found her only concerning mole was the smallest one, so get your moles checked.",
+  "tone": [
+   "confessional",
+   "reassuring"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if a patient fronts it in his office",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702171146900229398",
+  "genre": "myth-bust",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "subject": "hair growth gummies are a scam",
+  "claim": "Hair gummies are overpriced candy; biotin won't help without a deficiency, so take vitamin D and iron instead.",
+  "tone": [
+   "contrarian",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "hair supplements, outside his practice",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeUPM9fskl6",
+  "genre": "ad / promo",
+  "format": "talking-head",
+  "hook_type": "promise of a result",
+  "subject": "gut-healing cure for rosacea and eczema",
+  "claim": "Rosacea, eczema and psoriasis can be cured without steroids by removing grains and treating gut parasites and candida.",
+  "tone": [
+   "salesy",
+   "contrarian"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "wellness coach pseudoscience; he could only debunk it",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_4r3O_2AoXvQ",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "subject": "best products for rosacea redness",
+  "claim": "Rosacea responds to OTC options like sulfur masks, green color-correcting sunscreen, azelaic acid and cica moisturizer.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_X_VJpriOlUg",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "subject": "how often to use tretinoin",
+  "claim": "Start tretinoin low and slow and work up to what your skin tolerates, since overuse damages the barrier.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7641559674830982416",
+  "genre": "routine",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "subject": "three-day skin cycling routine",
+  "claim": "Her skin cycle rotates barrier-care, azelaic and mandelic days with layered hydration.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer routine",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7610885223282199821",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "visual shock / gross-out",
+  "subject": "gold silk peptide 'botox in a bottle'",
+  "claim": "Sungboon's 30-peptide gold ampoule and mask plump and lift like botox without needles.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "sponsored K-beauty plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7676577123452194079",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "question",
+  "subject": "trying a salmon sperm pdrn facial",
+  "claim": "Skin pen microneedling with salmon-DNA polynucleotides supports hydration and repair; results to come.",
+  "tone": [
+   "humor",
+   "casual-friend"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": false,
+  "makeable_note": "medspa creator trying it herself",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DewqbW-BlgO",
+  "genre": "patient-story / testimonial",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "subject": "morpheus8 for post-pregnancy belly skin",
+  "claim": "After four kids, Morpheus8 gave her the best achievable firming of loose belly skin, with pain 7-8/10 and ~6 weeks of healing.",
+  "tone": [
+   "confessional",
+   "reassuring"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if a patient fronts it; Morpheus8 body is his service",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_CKrWMEgjjpZ",
+  "genre": "hack / tip",
+  "format": "talking-head",
+  "hook_type": "stop doing X",
+  "subject": "don't touch the serum dropper to skin",
+  "claim": "Never touch a serum pipette to your skin, or you put bacteria back into the bottle and onto your face.",
+  "tone": [
+   "casual-friend",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_2FdFHgaFTxU",
+  "genre": "educational-explainer",
+  "format": "interview / podcast clip",
+  "hook_type": "direct address",
+  "subject": "summer non-invasive treatments on fox 5",
+  "claim": "Summer brings demand for non-invasive treatments like miraDry and Botox for armpit sweating, which he performs.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own TV segment",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Ddm737ituq3",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "subject": "esthetician's rosacea skin-cycling nights",
+  "claim": "With rosacea she cycles hydration, exfoliation and retinoid nights, always double cleansing.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "esthetician's personal routine",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7698977450025372941",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "the 'copper uglies' isn't a diagnosis",
+  "claim": "The 'copper uglies' isn't a real diagnosis; check what you're layering copper peptides with before blaming GHK-Cu.",
+  "tone": [
+   "contrarian",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "reposted derm clip",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DdTzf4hR_JL",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "list open",
+  "subject": "celebrity medspa stack for lift",
+  "claim": "Celebrity skin comes from a stack: Ultherapy for lift, Sculptra for collagen and Skinvive for glow.",
+  "tone": [
+   "luxury",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": true,
+  "makeable_note": "he could do his own stack (Sculptra, Morpheus8, Skinvive)",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7699587791356841238",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "3 cheap products worth buying",
+  "claim": "Salicylic acid and adapalene are cheap products that work for KP, scalp build-up, blackheads and body acne.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ }
+]

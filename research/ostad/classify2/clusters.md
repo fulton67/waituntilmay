@@ -1,0 +1,989 @@
+# 32 clusters (ward on all-mpnet-base-v2 of subject + claim + transcript opening)
+
+
+## cluster 0 · 116 videos · median × usual 1.01 · makeable 38 · own 5
+genres: humor / skit 43, personal journey / diary 12, procedure-POV 10, trend-commentary 8
+- ti_7491067437274631454 | cyst extraction close-up | Watch a cyst being drained.
+- yo_-xVAZgnbqD0 | anesthesiologist sings to patient | Even the patient under anesthesia has to hear the song.
+- yo_2lpsrhzZdBo | miradry for underarm sweating | miraDry is the only permanent, non-surgical, FDA-approved treatment for excessive underarm sweat.
+- ti_7579031146877553938 | ariana and selena celebrity clip | A celebrity moment with Ariana Grande and Selena Gomez.
+- ti_7072554279784975621 | fraxel for scarring motivation edit | I'm fixing my scarring with Fraxel as part of leveling up.
+- ti_7446604232783957270 | staged cancer diagnosis reaction | A patient breaks down on hearing he has cancer.
+- yo_8rtmTR-SrAg | under-eye filler result | Under-eye filler brightened and refreshed her eyes while looking natural.
+- ti_7357100558194363694 | family reacts to face basting | My family has to get used to me slugging my face before bed.
+- ti_7635114483307810078 | celebrity compilation clip | A compilation of celebrities.
+- ti_7463350095363312902 | riding out the tretinoin purge | My tretinoin purge is rough but I'm trusting the process.
+- ti_7466994893387205918 | acne extraction session | Watch a full session of acne extractions on a patient.
+- in_DeZT04CJS5w | naming that bump on your skin | Not every bump is a wart or pimple; many common skin lesions look alike but have different causes.
+- ti_7666406515514936606 | post-anesthesia patient antics | A patient coming out of anesthesia says funny things.
+- yo_5m58pe2-sbc | lip filler migration meme | Lip filler doesn't dissolve on its own, it migrates.
+- in_DXxtSVnMoXM | stage 4 cancer, chose another path | After chemo was offered as her only option for stage 4 cancer, she followed her gut and pursued a different treatment.
+- ti_7642188325314383125 | melasma progress, guess my age | Using something consistently is better than nothing for melasma; look at her skin now.
+- in_DSFp1baDzkA | removing a lifelong facial mole | She finally had the mole she'd had since childhood removed and feels relieved.
+- ti_7657700500426460430 | derm after nailing a diagnosis | A dermatologist feels invincible for five minutes after getting a diagnosis right.
+- ti_7404438855597837598 | 'very demure' work makeup lip-sync | Be modest and mindful at work: look the same as you did at the interview.
+- ti_7695918255008959775 | unspecified quick derm fact | A short dermatologist fact card ('the more you know').
+- yo_KsWuD-6aEow | clearing 8 years of acne | She cleared years of acne and hyperpigmentation to get glass skin.
+- ti_7357100292686761262 | pcos 'moon face' to weight loss | Replying to a commenter, she shows her face before and after losing weight with PCOS.
+- yo_IYuTJzFlRJM | asmr facial on a creator | A pampering medspa facial is relaxing ASMR content.
+- ti_7506746735721565471 | new cosmetic derm graduation lip-sync | A newly graduated cosmetic dermatologist celebrates with a 'go to school, graduate' trend sound.
+- yo_pQyR8igcngw | cosmetic derm injection montage | This is what everyday cosmetic dermatology with fillers and Botox looks like.
+- ti_7437697248810732846 | derm office tour by assistants | A walk-through of a dermatology practice's shop, cosmetic side and medical floor.
+- ti_7628273863826214157 | unexplained skin reveal clip | A short trend-audio clip with a shocked reveal.
+- in_DWAkjaLAsoe | oscars red-carpet ageless skin | Oscar-night skin shows ageless 'skin longevity' is the goal.
+- ti_7701543897863851295 | unspecified quick derm fact | A short dermatologist fact card ('the more you know').
+- in_C_wSxBSSAKZ | affiliate plug for ozempic-face fix | She loves her post-Ozempic face and offers a free consult link through an affiliate program.
+- yo_qvsDmyFAe-k | taylor swift song reaction clip | A woman visibly struggles to hide her opinion of Taylor Swift's new song.
+- in_DeorNcJMnfG | khabib sunscreen meme | A meme pairs an MMA fighter clip with sunscreen.
+- in_C1F1z2YPlQF | grinch injector joke | A derm comedian jokes 'stop thinking you're ugly; you are, but stop thinking about it'.
+- yo_PWq9pUWmqm4 | reacting to a baby facial | A baby balm massage looks relaxing and sweet, unlike his own child's sunscreen fights.
+- ti_7486265788538588438 | patient drinks his iv drip | A thirsty patient tasted his IV glucose bag thinking it was water.
+- ti_7689513108817104142 | patients arriving 30 minutes late | Please don't arrive 30 minutes late to a 30-minute appointment.
+- in_DTN92AJjX7N | caught mid morpheus8 | A clinic's playful clip of a Morpheus8 moment caught on camera.
+- ti_7667589331233623310 | dr. toni is a she | Patients assume Dr. Toni Stockton is a man, but she is a female dermatologist with 27 years in practice.
+- in_DemykjRONzF | at-home dermapen with exosomes | She microneedles her own face at home with a dermapen and exosomes and shows how to do it.
+- ti_7697965995398417696 | lip-sync with sibling | Off-topic lip-sync clip with a brother; nothing about skin.
+- … 76 more
+
+## cluster 13 · 58 videos · median × usual 2.77 · makeable 31 · own 5
+genres: brand advertorial / sponsored 11, red-flag / what-not-to-do 7, personal journey / diary 6, ad / promo 6
+- yo_uCDNn5FcaJs | chemical peel series on black skin | A course of chemical peels evened out my dark skin.
+- ti_7587368749775277334 | natural hyperpigmentation soap in 30 days | This anti-hyperpigmentation product cleared my dark patches naturally in 30 days, or it's free.
+- yo_xIHFNjyZzrI | best melasma treatment lip-sync | Most popular melasma fixes are wrong; only one approach actually works.
+- ti_7665819003943701782 | pregnancy melasma that never faded | My melasma from two pregnancies never went away and I need recommendations.
+- ti_7510594194528800022 | fading hyperpigmentation on brown skin | Staying consistent with skincare evened out my hyperpigmentation and acne-prone skin.
+- yo_Qo5vpmDJfSo | dark spots gone with products | These products took my dark spots from this to this.
+- ti_7224307474361355521 | cosmelan peel melasma two weeks | Two weeks after a Cosmelan peel, melasma is dramatically lighter.
+- ti_7649513627237551374 | at-home 30% tca peel | Never do a 30% TCA peel at home: it can burn, scar and badly hyperpigment darker skin.
+- ti_7681188590465895693 | tranexamic acid cream for dark spots | This tranexamic acid and niacinamide cream lightens hormonal dark spots and blocks melanin.
+- ti_7582625809538698503 | clearing dark spots transformation | All I wanted was healthy skin, and my dark spots finally cleared.
+- ti_7651204350743760159 | nu skin device for melasma | I didn't believe this Nu Skin device would help my melasma until I tried it.
+- ti_7680897864024788255 | arencia cream for hyperpigmentation | This Arencia cream is my go-to for hyperpigmentation and dark elbows.
+- ti_7557763630754827527 | body hyperpigmentation product routine | Exfoliating pads, kojic soap and brightening lotion will visibly fade body dark spots by December.
+- ti_7598331725126569238 | laser for hyperpigmentation on black skin | Low-strength laser sessions fade acne dark spots on Black skin and reduce ingrown hairs; it takes more sessions but works.
+- ti_7672448812593515783 | kojie san for body dark spots | Kojie San soap fades dark spots and uneven body tone if you moisturize and wear sunscreen.
+- ti_7674274384059682061 | melasma isn't just dark spots | Cheek and lip patches are hormonal melasma, which vitamin C and sunscreen alone won't fix; tranexamic acid is the OTC fix.
+- in_DbQ48AZtqMs | what i wish i knew about tanning | You're beautiful untanned; protect your skin early because UV damage can't be undone.
+- ti_7415327647959485742 | a derm's own melasma control | Melasma needs cycled prescription hydroquinone plus a multi-ingredient OTC routine; no single ingredient fixes it.
+- ti_7700695442891230478 | quick dark-spot hygiene tip | A short dermatologist tip card on dark spots and hygiene.
+- yo_FCvdsR7fbmk | clear + brilliant vs fraxel | Clear + Brilliant is a gentle, low-downtime Fraxel for younger and darker skin; Fraxel is the workhorse for heavier sun damage.
+- in_DejbSa2Ns09 | miracle melasma serum ad | This 'FDA-certified' serum breaks down melanin and clears dark spots in three days.
+- in_DZcyP_1TAZK | brighter underarms without lasers | Underarm darkness comes from shaving friction; wax and use a vitamin C plus glutathione serum instead of lasers.
+- ti_7647568358941953301 | seven days on a dark-spot serum | Seven days of this tagged product visibly faded her dark spots.
+- in_DeCU-uRzHD0 | is celimax brightening cream hype | The viral Korean Celimax cream uses tranexamic acid and niacinamide, so it can genuinely help dark spots.
+- ti_7574791295797857592 | anua txa serum for hyperpigmentation | Anua's niacinamide plus TXA serum finally cleared two years of hyperpigmentation, and it's on Black Friday sale.
+- yo_SpaNRaryUX0 | melasma vs dark spots and ipl | Melasma is not ordinary dark spots: treat with SPF, vitamin C and retinol, and avoid med-spa IPL, which can worsen it.
+- in_DdmmSTghEji | which skin spots need attention | Spots range from benign cherry angiomas to actinic keratoses and lesions that need urgent investigation.
+- in_CzKkbj3rkwD | chemical peel burns on skin of color | A spa's $1,000 peels without proper prep burned a skin-of-color client, leaving hyperpigmentation to fix.
+- ti_7650620850185538837 | deep tca peel on acne scars | A deep TCA peeling method visibly improved acne scars with no filter.
+- yo_mN-Np4Wzoco | fraxel restore for texture and spots | Fraxel Restore builds collagen and fades sun damage, dark spots and texture.
+- in_Dcjg0QOJG8C | 12 years camouflaging melasma | After 12 years of failed acids and lasers for melasma she camouflages it and now believes it is a systemic inflammatory disease.
+- in_DeUq2Q0oMQI | lemon coffee scrub for melasma | Melasma is systemic, peels and lasers don't work, and a lemon, Vaseline and coffee rub cleared her spots in four months.
+- ti_7702546084236627222 | retinol for underarms and body | Retinol beyond the face helps dark underarms, ingrown hairs, keratosis pilaris and aging hands.
+- in_DeK_LMFBp2N | genetic pigmentation can be treated | Pigmentation isn't untreatable just because it's genetic; the right treatment and provider make a big difference.
+- yo_nVi0D6Kh_og | three steps for melasma | Fix melasma by combining tranexamic acid and niacinamide, adding retinol, and protecting from light and heat with tinted iron-oxide sunscree
+- in_DZPxnAHBg4r | at-home tca peel in skin of color | An at-home TCA 30 peel that frosts the whole face risks hyper- and hypopigmentation, especially in darker skin; go low and slow.
+- in_DfCmyojO9EQ | body tan vs body hyperpigmentation | Darkness that lasts beyond six weeks is body pigmentation, not tan; treat it with kojic acid five nights and glycolic toner two nights, not 
+- in_Da8LQv7OU4m | treatments matched to pigment spots | Each spot type has its own fix: TCA and plasma for dark freckles, azelaic acid for redness, tranexamic and kojic acid for melasma.
+- in_DbWaZHPgW0f | luma cream for hyperpigmentation | His compounded Luma Cream is custom-calibrated per patient, combining arbutin, a vitamin A derivative and more to treat hyperpigmentation al
+- in_DXM-HzzDpVz | spring chemical peels for skin of color | Spring is the window to safely treat hyperpigmentation and scars in darker skin types with low-downtime chemical peels before summer.
+- … 18 more
+
+## cluster 1 · 58 videos · median × usual 0.61 · makeable 42 · own 18
+genres: ad / promo 14, patient-story / testimonial 10, procedure-POV 8, educational-explainer 7
+- yo_eScGxMogEo0 | foxy eye thread lift footage | A thread lift can lift the outer brow into a foxy-eye shape.
+- yo_lYVQ70lRnSI | pdo thread lift result | A PDO thread lift lifts the lower face.
+- yo_Pj303mVx7xY | thread lift transformation | A thread lift visibly lifts and transforms the face.
+- yo_FxpeyHkf8-4 | pdo threads as non-surgical facelift | PDO threads are a non-surgical facelift.
+- ti_7548886361818844429 | chiropractic adjustment for disc pain | A chiropractic adjustment relieves herniated-disc pain and may avoid back surgery.
+- ti_7525828334844923149 | morning after mohs surgery | The morning after Mohs for basal cell carcinoma my eye was swollen shut, so wear your sunscreen.
+- yo_SedPjMwRLmY | lymphatic drainage after liposuction | Lymphatic drainage massage isn't required after liposuction but speeds recovery and reduces swelling.
+- in_C6HKX9UyKwd | overfilled vs well-treated face | Two faces the same age differ because one overused filler with unqualified injectors and the other did preventive care with certified surgeo
+- in_DTJaWNUEjUE | derm joins a self-esteem trend | A Brazilian aesthetic doctor joins a trend to say self-esteem is her focus.
+- in_Dc9NFr5K0Yq | treatments i won't do on my daughter | As an aesthetic doctor and mother she won't give her 20-year-old daughter over 1 cc of lip filler, threads or cheek filler.
+- yo_9Q9dSwE_X3c | morpheus8 for festoons | Festoons under the eyes are hard to treat but respond to Morpheus8.
+- in_DY-LhFkpxh9 | evolus pro series shoot with ostad | Behind the scenes of Evolus's New York Pro Series featuring Dr. Ostad and other injectors.
+- in_Dcq_og6RGPa | day two after facelift and co2 | Day two after a facelift and CO2 laser she can't open her eyes and is struggling but expects tomorrow to be better.
+- ti_7701468869294181654 | non-surgical injectable bbl | An injectable non-surgical BBL creates softer curves and fills hip dips with minimal downtime.
+- yo_SlCftWUovio | morpheus8 for skin laxity | Morpheus8's RF microneedling heats and tightens skin, building collagen beyond standard microneedling.
+- yo_EH3nx1bmInU | morpheus8 results week by week | Morpheus8 took ten minutes after an hour of numbing, bruised for a day, and by one month her jaw and skin were visibly tighter.
+- ti_7527007628040457494 | double needle thread lift | A non-surgical double-needle thread lift gives a precise jawline lift that improves over time.
+- in_DXfNKTAgdhc | alloclae cadaver fat complication | Cadaver-derived fat (AlloClae) is unethical in his view and caused a severe reaction in a patient; use your own fat.
+- in_DeoxyaKBkay | procedures a surgeon would never get | A surgeon would never get neck liposuction, under-eye Botox, filler between the eyes, a skin-only mini facelift or threads.
+- ti_7544291263877549334 | 2 euro fox eye lift strings | A 2-euro hair-clip string gives a fox-eye lift but hurts and looks unnatural.
+- ti_7701407128543612180 | hair botox on curly hair | He walks through doing hair Botox at home on curly hair, washing, waiting 30 minutes and heat-drying.
+- yo_m0YKyl_hjd8 | emsculpt neo new medical indications | Emsculpt Neo, already used for face and body muscle, now has FDA clearance to rebuild muscle atrophy after surgery.
+- in_DeIAMb_gDnx | what an exomind session feels like | An EXOMIND session is a non-invasive, FDA-cleared treatment for depression that patients can walk through start to finish.
+- in_DfH9vCeuQp3 | morpheus8 regret: fat loss | Morpheus8 improved her skin but caused fat loss, filler migration and track marks even at proper settings, so she would not do it again.
+- in_DcjqIkoFMTF | why a derm practice added exomind | Stress, sleep and the mind affect how we look, so EXOMIND TMS is a natural addition to the practice.
+- in_DeSQDccjhn- | launch of his skincare collection | The Dr. Ariel Ostad Skincare Collection gives skin what it needs with science-led formulas instead of more steps.
+- yo_66ts2OKVL3w | emsculpt neo fat and muscle | Emsculpt Neo cuts about 30% of fat and builds 25% muscle thickness after four 30-minute sessions.
+- in_C0hQqSJOSJX | procedures too good to be true | Thread lifts barely hold a month, laser hair removal can't work on light hair, and nose filler is too risky.
+- yo_i-gADSYhHy8 | morpheus8 for crepey neck | Morpheus8 radiofrequency microneedling remodels collagen to smooth fine lines and crepey skin on the neck.
+- yo_q10SODq-6Ts | emsculpt neo fat and muscle | Emsculpt Neo removes fat and builds muscle in one no-downtime session, improving core tone and even back pain.
+- in_DeuyxCNEujF | live ellacor 25% off offer | Join the live stream now to lock in 25% off an Ellacor package with a free skin booster.
+- ti_7690715132632124686 | why sofwave is worth it | Sofwave ultrasound tightens the neck, jowls, brows and eye area without needles and with little downtime: 10/10.
+- in_DeZ5hhYlOSd | serdev mini neck and jaw lift | The Serdev technique lifts the neck and jawline through two tiny incisions instead of a full open facelift.
+- in_DdHVydJidVU | dr ostad gets his own exomind | Dr. Ostad practices what he preaches by fitting Exomind TMS sessions into his busy schedule for stress and focus.
+- in_DdCI9zyuvgh | why dr ostad chooses jeuveau | Dr. Ostad treats every patient like family, listening first for natural results, and chooses Jeuveau.
+- in_DdUprPDEWae | emsculpt neo strength | Emsculpt NEO builds muscle and reduces fat at once, with no surgery or downtime.
+- in_DcUGBbZlRQ6 | introducing exomind tms | Dr. Ostad is adding Exomind TMS for mental wellness because stress and inflammation drive skin conditions.
+- in_DSBQQT5EY3c | renuvion for loose upper-arm skin | Renuvion tightens loose upper-arm skin by 50-60% through tiny incisions, an alternative to surgery.
+- in_DdmFXlPjdJl | why plastic surgeons hate filler | Filler isn't the problem, overuse is; small strategic amounts, lasers or surgery should follow the anatomy, not the trend.
+- ti_7562643009200868629 | sculptra swelling after treatment | She had severe swelling after Sculptra and couldn't do the massage, but it got better.
+- … 18 more
+
+## cluster 2 · 56 videos · median × usual 0.96 · makeable 40 · own 2
+genres: product-review / drugstore-vs-medical 27, brand advertorial / sponsored 7, myth-bust 6, hack / tip 4
+- ti_7400400768995429674 | la roche-posay cleanser refill pouches | Toleriane refill pouches are gentle cleansers that cost less and use 73% less plastic.
+- ti_7702493975550201118 | medik8 sephora sale picks | These Medik8 peptide and retinol products deserve a spot in your Sephora basket during the sale.
+- ti_7618702476455202062 | what a derm won't pay for | As a dermatologist I'd never pay for La Mer, Nutrafol or facials; I'd spend on lasers, peels and microneedling.
+- ti_7584909662303145238 | derm rates viral skincare buys | Many hyped products are overpriced or irritating, so drugstore picks often beat a £280 moisturizer.
+- ti_7643273596109982990 | match the active to your concern | Pick actives by concern: retinol for wrinkles, salicylic for acne, hyaluronic for dryness, niacinamide for oil, glycolic for texture.
+- in_Ch42ybohxV4 | indian budget skincare restock list | These affordable Indian products (moisturiser, 6% salicylic and more) are worth restocking.
+- in_DeT5Obzt76m | dating red flags, then serum plug | Five red flags in a partner, segueing into EPII peptide serum and cream for sagging 'Ozempic face' skin.
+- ti_7619466753952746765 | skincare a derm will splurge on | A retinoid, SkinCeuticals CE Ferulic and a good acid toner are the products worth paying for.
+- ti_7397658518142094612 | the most important skincare ingredient | Vitamin A is the most important skincare ingredient; start beginners on gentle retinaldehyde to avoid irritation.
+- ti_7449594800950594862 | skincare details a derm ignores | Water temperature, detox claims, packaging and trendy ingredients don't matter; coconut oil and beef tallow are bad for the face.
+- ti_7672524864028265742 | luxury skincare a derm repurchases | SkinCeuticals CE Ferulic and Phloretin, Dr. Diamond's growth factor and Elastin's neck cream are worth the price.
+- ti_7675773857919159574 | trending skincare not worth buying | Ice rollers, pricey LED masks, collagen gummies and face-yoga gadgets aren't worth the money.
+- ti_7671321118069755166 | derms' rapid-fire most-used products | Two dermatologists rattle off their most-used products, from Vanicream to SkinCeuticals CE Ferulic.
+- ti_7677710285951503630 | hada labo lotion plug | Her dermatologist stopped to ask what she uses, and it's Hada Labo's seven-HA lotion for plump skin.
+- ti_7693669989596941582 | a derm's prime day haul | A dermatologist's Prime Day picks: Bioderma wipes for travel, press-on lashes over extensions, and a cautiously tried Medicube serum.
+- ti_7605740836625730829 | medical-grade vs drugstore skincare | Medical-grade skincare has higher active concentrations and improves the outcome of lasers and injectables.
+- ti_7584753982032121110 | drugstore isn't equal to medical-grade | Drugstore cleansers and moisturizers are fine, but pigmentation and skin-quality transformation need medical-grade products.
+- yo_YXu0zFhkwCY | drugstore vs medical-grade skincare | Medical-grade skincare has stronger actives and better formulations than over-the-counter products.
+- ti_7697690726066310413 | surprising skincare ingredient facts | Boring ingredients like silicone sheets, glycerin and colloidal oatmeal have strong evidence while bakuchiol and rice water are overhyped.
+- in_DfKRJdKNIle | vt pdrn scalp serum brush | After a scalp-serum comb proved a hassle to clean, the VT PDRN brush-applicator hair serum is more convenient and adds volume.
+- ti_7675155374164413727 | only three skincare products you need | Stop buying skincare until you have a cleanser, moisturizer and sunscreen; everything else is optional.
+- ti_7554222370186071309 | cosmetic derm is just dermatology claim | Doctors diagnose in seconds because of years of training, and cosmetic dermatology is real expertise, not just upcharged dermatology.
+- yo_BY2kP4eTNxI | medical-grade versus tiktok skincare | TikTok and Korean skincare can be a gateway, but science-backed medical-grade products are what actually work.
+- ti_7696907848130858254 | 3 treatments a derm pays for | A dermatologist would spend her own money on neuromodulator, a resurfacing laser and a tightening treatment like Sofwave.
+- ti_7466912357004889366 | hyped drugstore products used up | Most hyped drugstore serums like peptide boosters did little, while cheap basics like Transparent Lab cleansers are worth rebuying.
+- ti_7698026703939063053 | derm rates k-beauty bestsellers | Centella cream rates 10/10 and vitamin C 8/10, while snail mucin and the retinal shot score low.
+- in_DeUeW5tRPaD | one product for a desert island | Asked to pick one product for an island, dermatologists choose basics like Vanicream, CeraVe, EltaMD and Biore UV Aqua.
+- ti_7700288232788905229 | cost per use of cleansing balms | Judge skincare by cost per use, and Garnier's fragrance-free cleansing balms are cheap and any variant works since they only dissolve makeup
+- ti_7032258448200961326 | medical grade is an unregulated term | 'Medical grade' is not regulated by the FDA, so drugstore products can work just as well.
+- yo_TGXv-SQVLrY | a $45 med spa facial | A local med spa offers a relaxing 30-minute facial for only $45 plus brow tinting.
+- in_DfJMpCsR_3A | heavy winter moisturiser mistake | Dry winter skin needs the right ingredients, not a heavier cream, and the sponsor's ceramide-peptide moisturiser does it in a pea-size amoun
+- ti_7694082060130061598 | pair hyaluronic acid with peptides | Hyaluronic acid only hydrates temporarily, so pair it with peptides that lift, plump and firm over time.
+- ti_7701838969255791902 | bad, better, best skincare swaps | Some common products are bad choices and there are better and best alternatives a derm would pick.
+- ti_7694020816639495455 | beef tallow skincare myth | Beef tallow skincare from social media is a myth patients should drop; trust the professionals.
+- yo_YRMeTu0VeTc | medical-grade vs drugstore skincare | 'Medical grade' skincare is a meaningless term and drugstore products are not worse.
+- in_DeYE89ksOp4 | medspa prejuvenation results | Starting skin treatments young (prejuvenation) pays off, shown by a before/after.
+- in_DWPajdFEWTA | nia-c niacinamide moisturizer | His Nia-C moisturizer with niacinamide strengthens the barrier, brightens tone and hydrates without clogging pores.
+- ti_7701329620485836062 | dove serum body wash dupe | Dove's under-$15 serum plus oil body wash rivals pricey shower oils.
+- ti_7632468903305678111 | medical grade vs sephora skincare | Medical-grade skincare has higher active concentrations, deeper penetration and clinical backing than Sephora products.
+- yo_UNoVm2IvsAg | underdosed botox at medspas | Cheap medspa Botox is often underdosed, so it wears off fast and costs more over time than a full dose at a derm.
+- … 16 more
+
+## cluster 6 · 47 videos · median × usual 1.02 · makeable 32 · own 0
+genres: hack / tip 13, brand advertorial / sponsored 6, derm-reacts / duet / stitch 6, product-review / drugstore-vs-medical 5
+- ti_7678470714093014286 | damaged barrier or just dry | Is my rough skin a damaged barrier or dryness, and should I see an esthetician or a dermatologist?
+- ti_7407590020678192426 | derm picks for body odor | Benzoyl peroxide washes and clinical antiperspirants fix body odor better than regular deodorant.
+- ti_7493958178837761310 | moisturize on damp skin | Most people moisturize wrong: apply moisturizer right after washing while skin is still damp.
+- yo_H9kLkkM2Uyg | repairing a damaged skin barrier | A damaged skin barrier can be repaired with a few simple steps.
+- ti_7662587116467014932 | toner pads for a rosacea flare | These centella toner pads calm my rosacea flare; use my code.
+- ti_7679608493665488141 | signs of a damaged barrier | Your skincare may not be the problem; these signs mean your skin barrier needs care.
+- ti_7453266430474194207 | 20-product routine wrecking the barrier | Layering about 20 products is irritating her barrier; stick to three or four hydrating core products.
+- yo_fkdCh3mbnj8 | products that fixed her barrier | These products repaired her damaged skin barrier.
+- in_DZZ1nChs7Y_ | mederma gel for old scars | Mederma advanced gel fades accident, burn, pregnancy and old pimple scars.
+- ti_7702617865907735839 | wash your face every night | After puberty, wash your face every night; very dry, makeup-free skin may only need water, otherwise a gentle cleanser or double cleanse.
+- ti_7591565622895545622 | how to repair your skin barrier | Stop all actives, including retinoids, until a damaged barrier heals, and keep the routine simple.
+- in_DejZO15tLjl | purito panthenol barrier cream | Purito's bamboo panthenol cream repairs the skin barrier.
+- ti_7698510322826530078 | eczema home-care basics | Eczema home care basics include gentle care and, for moderate to severe cases, dilute bleach baths to prevent infection.
+- ti_7456455818901277995 | 4 household products derms hate | Wet wipes, hydrogen peroxide, Neosporin and one more common product do more harm than good; use water, soap or hypochlorous instead.
+- yo_V08IabypkrA | over-exfoliating chapped lips | Chapped, flaking lips need moisturizing, not repeated scrubbing.
+- ti_7593808338719132950 | medicube collagen wrapping mask ad | Medicube's overnight collagen mask gives glass skin.
+- ti_7605147962641026317 | rating barrier repair creams | Avène, La Roche-Posay, Dr. Althea, Etude and Aestura barrier creams all score high, with Avène her post-procedure pick.
+- yo_3Ucrjm7FxDY | antiperspirant at night and soak-and-smear | Apply antiperspirant at night, moisturize within five minutes of showering, and don't sleep with wet hair.
+- in_DDcR1cVOpye | do dermatologists take medicaid for hives | Dermatologists who accept Medicaid exist but are usually hospital clinics with long waits.
+- ti_7702935534070484238 | dr dray's body skincare routine | Shower nightly, rinse soap from skin folds, use shave cream, pat dry and moisturize immediately on damp skin.
+- ti_7699556648708214029 | abib barrier jelly mask | The Abib glycerin barrier jelly is an easy, non-greasy Vaseline alternative that helps skin retain moisture.
+- ti_7701054020135308558 | petroleum jelly smooths rough skin | You can get smoother skin without acids or retinoids, because plain moisturiser like petroleum jelly restores stratum corneum water and norm
+- ti_7626130332802239774 | axis-y product for rosacea | After years of rosacea she finally found a product that controls it.
+- ti_7645770478795132192 | slugging with vaseline without breakouts | Vaseline fixes a damaged barrier fastest if you apply a pea-size amount, patted onto clean skin over non-comedogenic products.
+- ti_7699634705532063006 | 5 skin signs you're healthy | No leg swelling, quick skin recoil, wounds healing in two weeks, normal hair shedding and normal cuticles are signs you are healthy.
+- yo_5zL8pxD6JH0 | zinc diaper cream and barrier creams | Zinc oxide diaper cream heals a damaged barrier overnight, and Cicalfate, Cicaplast, Dr. Althea and Cicapair suit different skin types.
+- ti_7667724696481221902 | honey as a face mask | Honey is used in medical wound care but has little evidence for anti-aging or moisturising and is messy, so skip it.
+- ti_7548885241172135190 | lesser-known signs of a damaged barrier | Sudden stinging, feeling oily and tight at once, and unexplained breakouts signal a damaged barrier; stop actives and new products to let it
+- ti_7689167739839122718 | listen to your skin barrier | Your skin barrier may be signalling that it needs care, with a nod to her own skincare line.
+- yo_m-UWVuFDPdk | damaged skin barrier recovery routine | For a damaged barrier, pause everything and go back to a gentle non-foaming cleanser, moisturizer and sunscreen.
+- ti_7701702329099210015 | hydrogen peroxide feet ai slop | Hydrogen peroxide foams on anyone's feet because it breaks down into oxygen and water; it doesn't reveal hidden infection.
+- ti_7686582748986854686 | three fall skin problems | Fall brings sun damage, a weakened barrier and flare-ups, each treated with specific (her own) products.
+- ti_7700246405801086222 | calming fresh razor bumps | For angry razor bumps, stop shaving, use cool compresses and 1% hydrocortisone, and avoid acids on the irritated spots.
+- in_DCMZ6iLOZlb | moisturize damp skin or in-shower oil | Moisturizer works best on damp skin, and an in-shower body oil is the shortcut if lotion is too much effort.
+- ti_7701691575650274573 | dry skin that's seborrheic dermatitis | Flaky 'dry skin' is sometimes seborrheic dermatitis, which needs different treatment.
+- in_DbQdlSzuCzX | viral products that wreck rosacea | Viral harsh products like Medicube pads and shea-heavy creams wreck rosacea skin; gentler PHA and Avene swaps work.
+- in_DeUPM9fskl6 | gut-healing cure for rosacea and eczema | Rosacea, eczema and psoriasis can be cured without steroids by removing grains and treating gut parasites and candida.
+- yo_AgKhKGlJQ7o | silicone cleansing brushes and lip scrubs | Cheap silicone brushes work for nose sebaceous filaments, but lips don't need exfoliating, just Aquaphor or Vaseline.
+- ti_7666430842570411285 | repairing her skin barrier in 6 days | Three tips repaired her skin barrier in six days.
+- ti_7630133137439280404 | signs and fixes for damaged barrier | A waxy, red, breaking-out face means a damaged barrier: drop exfoliants, use PDRN, gentle cleanser, moisturizer and SPF 50.
+- … 7 more
+
+## cluster 8 · 45 videos · median × usual 0.89 · makeable 35 · own 4
+genres: educational-explainer 11, product-review / drugstore-vs-medical 6, humor / skit 4, brand advertorial / sponsored 4
+- ti_7696670183980567821 | toner is underrated | Toner is one of the most underrated, affordable products and visibly smooths pores and texture.
+- ti_7691771510402338080 | peptide serums ranked by evidence | Popular glow serums score low on anti-aging evidence while clinically tested peptide serums like ZO and Alastin score 10/10.
+- yo_yFblMUG_IvM | full-face botox areas | Full-face Botox across forehead, frown, crow's feet, lips, jaw and neck gives a fresh, non-frozen look.
+- yo_s8ZHpSY9EIw | best budget drugstore retinoids | Nothing beats a retinoid, and cheap drugstore options cover sensitive skin, texture, anti-aging and body.
+- in_DFxow94M65c | tv nostalgia and wrinkle care | Nostalgia is nice but wrinkles have no sentiment, so start retinol skin cycling.
+- ti_7687247438763134240 | skincare evidence in 60 seconds | Sunscreen does most anti-aging work, retinoids build collagen, and simple consistent routines beat expensive complexity.
+- in_Dc1vq83vGYs | start anti-aging before you need it | Preventative neuromodulators, including lower-face tox, are the non-negotiable first step of an anti-aging plan.
+- ti_7508560460384439583 | derm rates popular skin treatments | Microneedling, HydraFacial and PRP score 10/10 while anti-cellulite massage and face-lift creams score near zero.
+- yo_uE6JgiagP-c | a derm's own ultherapy results | Ultherapy lifted her hooded eyes and jawline over ten years, and it works best spaced every two years.
+- in_DedGQP3R9Us | facial naturalization for aging | Natural facial treatments soften the signs of time without erasing your age or features.
+- in_DfGimKXRKzv | regenerative treatments at a seoul clinic | At a referral-only Seoul clinic she skipped Botox and filler for Ultherapy, skin boosters and other regenerative treatments.
+- yo_D0NKd4DPTuA | which retinol brand works best | No one can objectively rank retinol brands, so pick one from a reputable brand with a track record of good formulation R&D.
+- in_DdFSRCBpQYZ | yearly aesthetic treatment calendar at 54 | A 54-year-old's year of treatments is Botox quarterly, microneedling series yearly, biostimulator in June, Halo in November and four rest mo
+- yo_t4czc1bazhE | ultherapy hifu emface don't lift | Ultrasound and RF tightening devices give minimal results and risk fat loss, so don't use a non-surgical tool for a surgical problem.
+- yo_1SfHKhJvqcU | derm rates cosmetic treatments | Fat transfer and microneedling rate highest, nose filler is dangerous, and unapproved injectable exosomes rate low.
+- in_DYDKhFCRykx | low-downtime spring treatments | Before summer, Botox, precisely placed fillers, lasers and collagen stimulators can refresh skin with minimal downtime.
+- ti_7697702861714509086 | under-eye balm before concealer | Swipe a hydrating vitamin C under-eye balm before concealer so it glides on instead of caking.
+- in_DeKDyOkNvRo | everything a derm near 60 gets done | A cosmetic dermatologist near 60 does yearly Fraxel and Thermage, alternating Sofwave, filler and tox, BBL and LED light.
+- ti_7702561069914508575 | starting retinol around the eyes | Starting retinol around the eyes because you're sensitive makes no sense, since that is the most sensitive skin.
+- ti_7698894963173510430 | topical estrogen cream for aging skin | Topical estrogen can rebuild collagen but only in perimenopausal and menopausal women, and tretinoin is probably doing most of the work.
+- yo_vUYNHuUWOy8 | what retinol does for skin | Retinol, a vitamin A derivative, builds collagen to soften fine lines and speeds turnover to fade pigmentation and dullness.
+- ti_7252737667308260654 | what retinol does for skin | Retinol builds collagen and speeds turnover, so use it at night and moisturise because it can dry and sensitise skin.
+- yo_X46f7iosDss | how to choose a peptide serum | Pick a peptide serum that is sensitive-skin tested, affordable and multi-peptide, such as COSRX's six-peptide booster.
+- ti_7698810367232789774 | what actually prevents wrinkles | Carrot salads, creatine and not moving your face are made up; sun protection and not smoking are what really prevent wrinkles.
+- ti_7702491956823297310 | am and pm product order | Apply skincare in the right order morning and night (vitamin C, azelaic acid, retinol) to get each active to work.
+- ti_7695983821174361357 | morning sunlight within an hour of waking | Getting morning sunlight within 30-60 minutes of waking is beneficial.
+- ti_7696230227139251486 | can you eat your skincare | Foods like tomatoes and oral collagen modestly help skin aging, but they don't replace sunscreen, retinoids and vitamin C.
+- ti_7621017488129559839 | glp-1 supplements for aging face | On a GLP-1 you need protein, weight training and hydrolyzed collagen with vitamin C to avoid looking older.
+- ti_7691729740742315295 | diet, alcohol and sugar on skin | Low fiber, alcohol, sugar and (for some) dairy worsen acne and speed skin aging.
+- ti_7698873653345258766 | 3 treatments a derm wouldn't buy | As a derm she wouldn't spend money on threading, superficial chemical peels or RF microneedling.
+- yo_IHOtQATBPvs | dr jart bakuchiol prejuvenation serum | Dr. Jart's bakuchiol and collagen-peptide serum visibly firmed her skin after three weeks.
+- yo_8LiyQzwd1rw | which peptide for which concern | Match peptides to concerns: Matrixyl 3000 for early collagen, acetyl tetrapeptide-40 for redness, tripeptide-38 for lips.
+- in_DZ8ioTCx62b | treatments to skip for natural aesthetics | Skip RF microneedling/Morpheus8 and PDO threads, and do Sculptra, plain microneedling and Sofwave instead.
+- ti_7702167967055760653 | serum or moisturizer first | There's no real data on serum-moisturizer order; thin to thick is fine but don't overthink it unless it's petrolatum.
+- ti_7665539282450402581 | prejuvenation from your mid-20s | Collagen loss starts in your mid-20s, so peels, microneedling, lasers and LED prevent aging rather than correct it.
+- ti_7614238889938521375 | bakuchiol as gentler retinol | Bakuchiol gives retinol-like anti-wrinkle results without irritation; this Dr. Jart cream is linked below.
+- ti_7260493315643165994 | aging filter sunscreen and botox nudge | This is your sign to wear sunscreen daily and get preventative Botox and filler.
+- ti_7702872525847399711 | spf as the best anti-aging cream | The number one anti-aging cream is daily SPF because it slows photoaging.
+- yo_QFwU3hRqVnQ | best age to start retinol | Technically start retinol at 20, when skin begins losing about 1% of its collagen a year, but starting later still helps.
+- in_DOPJTX8Dm3U | best aesthetic procedures in your 30s | In your 30s, prejuvenation shifts toward rejuvenation: lasers, IPL and peels for sun and collagen loss, plus Botox and early filler.
+- … 5 more
+
+## cluster 12 · 44 videos · median × usual 1.28 · makeable 29 · own 0
+genres: ad / promo 7, before-after 6, myth-bust 6, educational-explainer 3
+- ti_7609109122679606549 | big face genetics and comparison | People with naturally fuller faces should stop comparing themselves to Western models' genetics.
+- yo_s9LGR3V8s4o | buccal fat anatomy explained | The buccal fat pad is a deep fat pad that doesn't shrink with weight loss and atrophies after the teens.
+- ti_7467519294423747872 | non-surgical nose filler | Filler injected strategically into the nose reshapes it without surgery.
+- ti_7201814153789558043 | lip filler for thin lips | Lip filler fixes thin, small lips.
+- ti_7506339941635411256 | looksmaxxing jawline satire | Six months of looksmaxxing tips gave me this jawline (satire).
+- in_DecMHo-AEkz | self-injected black-market filler | Injecting yourself with cheap black-market filler risks infection, allergy and tissue death.
+- yo_X-oapPILip4 | how filler changes a face | Filler subtly reshapes lips and face in a before/after reveal.
+- ti_7631544071785418017 | bone smashing for a sharper jaw | Hitting your face doesn't reshape bone or sharpen the jaw; Wolff's law is taken out of context and you only risk injury.
+- yo_THy0IYfKpys | buccal fat removal testimonial | An insecure-cheeked patient is very happy with her buccal fat removal and the friendly practice.
+- ti_7658780720168537357 | buccal fat removal ages you | Removing buccal fat young makes you age faster; it's only reasonable in some people over 50.
+- yo_rveCvnFsWeY | botox filler sculptra 7-day recovery | Botox, filler and Sculptra swelling and bruising settle over about a week.
+- yo_sVROr3qAFCQ | lip filler swelling hour by hour | Lip filler looks swollen at five minutes and 15 hours but settles to natural by one week.
+- ti_7691542937041112351 | buccal fat predicts height app plug | Fat at the corner of the lips signals more growth to come, so eat protein, sleep and use the Go Tall app.
+- ti_7696932994371652894 | facial fat keeps you young | Facial fat is what keeps you youthful, so buccal fat removal permanently takes away what aging will strip for free.
+- yo_qQ5FOoWLvEc | fixing the lip filler mustache | Lip filler migration causes a 'filler mustache'; don't add more, wait for swelling, then dissolve with hyaluronidase.
+- yo_ESbAKrn6bQU | how much buccal fat to remove | Buccal fat removal must be conservative because the fat extends to the temple and over-removal hollows the face.
+- in_DVtzHO-CSdP | buccal fat removal hematoma and infection | An untreated hematoma after buccal fat removal got infected; the surgery suits full faces, not thin ones that will skeletonize.
+- yo_kafC_wtJfq8 | buccal fat removal regret myth | Buccal fat doesn't shrink with age like other fat, so judicious removal won't cause regret and can help in middle age too.
+- ti_7059098093660261678 | face massage for mouth pocket fat | Consistent facial massage can improve stubborn mouth pocket fat.
+- in_DbOf1sPBh_7 | botox can buy happiness | Botox and fillers can buy happiness if you find the right doctor.
+- ti_7701470690846903554 | natural filler packages | Clinic filler packages restore volume and symmetry while keeping natural expression.
+- in_DMFRI4azc89 | forehead projection and profile beauty | Western beauty's sharp profile comes from the forehead projecting most, then nose, then eyes; flat Asian foreheads can be enhanced.
+- ti_7701454208033230082 | facial balancing filler package | A facial balancing filler package restores volume and harmony with premium fillers.
+- ti_7701469817890557206 | full-face filler package | A full-face filler approach lifts cheeks, lips, jaw and chin without looking overdone.
+- in_DC4kJChSw-- | buccal fat removal two years later | Two years after awake buccal fat removal, the patient still has her dimples and smile, felt no pain and went straight back to work.
+- ti_7701453485178359062 | facial balancing filler package | The clinic's facial balancing filler package restores volume for a refreshed, balanced look.
+- in_C8PeABzOJow | face yoga isn't cheek filler | Cheek exercises can't replace filler because filler plumps the deep and superficial fat pads, not the thin zygomaticus muscles.
+- ti_7521378786034601271 | jaw exercise balls for cheekbones | Chewing resistance balls nightly builds jaw muscle for more chiselled cheekbones, and the pack is on sale.
+- ti_7691479972170534174 | creatine's effect on memory | Creatine has good evidence for muscle and some for memory, but it is no miracle brain supplement and needs hydration.
+- in_CokPCerNsMH | calories per pound to bulk | As a rule of thumb, 15 calories per pound maintains weight, 18 bulks and 12 cuts.
+- ti_7701452635806731542 | facial balancing filler package | The clinic's facial balancing filler package restores volume and enhances harmony.
+- ti_7318458065609690400 | hollow cheeks without buccal fat removal | You can get hollow cheeks without buccal fat surgery by losing weight through diet and running.
+- ti_7703297173361839393 | botox jawline slimming for round face | Botox gives a round face the easiest glow-up.
+- in_DDIXCUSS666 | trying a buccal massage | A buccal (intraoral) facial massage felt amazing.
+- in_DdJWyFAy_hb | dentist's facial filler clinic | A dentist's clinic offers facial aesthetic fillers; book an appointment.
+- in_DeNbRZWMflQ | jennifer lawrence buccal fat removal | Buccal fat removal would be a mistake for Jennifer Lawrence because facial fat keeps a youthful baby face that ages well.
+- ti_7701441875361729814 | bespoke facial balancing clinic | Patients fly in from around the world for the clinic's tailored facial balancing.
+- in_DbTrDB3iad7 | what bella hadid has had done | Bella Hadid's sculpted look likely comes from a mix of jaw/chin work, masseter Botox, a brow lift, rhinoplasty and lip filler.
+- ti_7702171146900229398 | hair growth gummies are a scam | Hair gummies are overpriced candy; biotin won't help without a deficiency, so take vitamin D and iron instead.
+- ti_7460851798996307218 | hollywood face full-face filler | The clinic's own Hollywood face filler technique sculpts the jaw, lips and cheeks.
+- … 4 more
+
+## cluster 5 · 44 videos · median × usual 1.09 · makeable 35 · own 9
+genres: ad / promo 7, before-after 5, patient-story / testimonial 5, personal journey / diary 5
+- yo_HbYGMtrLtL4 | what co2 laser resurfacing fixes | CO2 laser resurfacing tightens skin and clears pigmentation, pores and scars, so book a consult.
+- ti_7480964269807340846 | co2 laser healing diary | CO2 laser recovery looks frightening but isn't painful, and the results are incredible.
+- ti_7657065017694571790 | nine days after co2 for scars | Nine days after CO2 laser, my acne scars look visibly improved.
+- yo_qgHKWrFEPCo | laser first for acne scars | Acne scars respond very well to fractional CO2, so laser should be the first thing you try, not the last.
+- yo_QIrF4sijt-k | picoway laser for pigmentation | PicoWay's picosecond photoacoustic pulses treat pigmentation without heating the skin.
+- ti_7379228822576614662 | which lasers are safe on black skin | Alexandrite lasers will likely burn Black skin; Nd:YAG/diode-type lasers and an experienced operator make hair removal safe.
+- ti_7669465526766292245 | at-home laser on dark skin, one year | After a year and four months, the at-home V6S laser kept her hair minimal on dark skin with no pain, but needs maintenance.
+- yo_NQn3K9Ilr5o | excel v vascular laser uses | The Excel V vascular laser treats redness, rosacea, red scars, sun spots and spider veins while building collagen.
+- yo_N_doIjxVHtU | aviclear laser for acne | AviClear laser targets oil glands for Accutane-like acne results without the side effects.
+- ti_7602647587073707295 | pico laser prejuvenation | Pico lasers build collagen and correct pigment with pressure, not heat, so no burning or downtime.
+- ti_7683088069813390595 | morning after co2 laser | The first morning after CO2 laser her face is swollen and tight, and CO2 treats scars, pores and laxity.
+- ti_7659946819257961758 | deep resurfacing laser acne scar recovery | After subcision plus erbium and CO2 resurfacing, downtime was six days and by day seven she had new skin.
+- in_DU6GTiACBfo | 24 hours after exion plus ablative laser | Twenty-four hours after combined microneedling RF and ablative laser for scars, her skin is red, hot and swollen, and it's worth it.
+- in_DbpboQqhj28 | co2 laser acne scars at 9 months | Nine months after CO2 fractional laser plus subcision, her acne scars are much improved.
+- yo_OGdAzf1D3c0 | laser genesis for rosacea | Cutera Laser Genesis shrinks oil glands and blood vessels, easing rosacea, redness and scars.
+- in_Dc003nFuA9Z | co2 laser on cut scars | CO2 laser can erase scars from cuts.
+- in_C3GAPAJu9yK | choose a provider not a machine | Fall in love with a provider, not a laser brand, and let a trusted dermatologist choose the device.
+- ti_7560614838142012694 | co2 laser too young or too much | CO2 laser helps perioral wrinkles in your 50s and 60s, but done too early or too aggressively it gives a waxy look and pigment problems.
+- ti_7267602932378422571 | aviclear acne laser patient journey | Three AviClear sessions shrink oil glands to clear acne long-term without diet changes, unlike facials that only treat the surface.
+- in_DagUM-aTscy | co2 laser burn scars | Her CO2 laser left burn scars because the provider dismissed her pain and swelling; aftercare follow-up matters as much as the device.
+- ti_7554512572880276754 | laser hair removal on black skin | Laser hair removal is safe on Black skin with the right lasers like Nd:YAG, because they bypass melanin in the skin.
+- ti_7699940207772093726 | co2 laser dots and eye shields | CO2 laser makes controlled treatment zones to remodel collagen while shields protect the eyes.
+- ti_7439457647939636511 | meet dr ostad and cutera laser | Dr. Ostad introduces 27 years of cosmetic dermatology and Mohs practice and praises his versatile Cutera laser.
+- yo_R0Q006SHVOw | which lasers suit darker skin | Darker skin can safely have lasers if you pick the right one, like 1064 Nd:YAG for hair, PicoSure Pro for pigment and Halo for texture, and 
+- ti_7689513178689965343 | 4 mistakes before booking laser | Before paying for laser, demand a diagnosis not a device name, avoid preset session counts and do-everything claims, and insist on prep and 
+- yo_qYHYBsBcfs8 | laser genesis for redness and acne | Cutera Laser Genesis shrinks oil glands and vessels and builds collagen to improve acne, rosacea and scars.
+- ti_7634613378740276512 | getting co2 laser without numbing | She had a mild CO2 laser for pigmentation without numbing at her long-time clinic and it was hot but worth it.
+- yo_LLeYB2IH4X0 | co2 and erbium laser tradeoffs | Ablative CO2 and erbium lasers resurface skin for long-lasting results but cost a lot, need one to three weeks of downtime and belong with a
+- ti_7679375633570401558 | at-home ipl on darker skin | The Ulike at-home laser's skin sensor would not fire on her darker-skinned husband but worked on her, and you can return it within 14 days.
+- in_Dc2DCXxS-k3 | choosing mohs vs radiation for nasal bcc | A patient with a nodular BCC on her nose felt pushed toward Mohs and a forehead flap and sought ultrasound and second opinions first.
+- ti_7650447966053928214 | co2 laser recovery day 3 | Day 3 after CO2 laser the skin feels like sandpaper and red, but a mini-facelift effect already shows.
+- yo_gCROnWbnchc | meet dr. ostad and his cutera laser | Dr. Ostad, with 27 years in cosmetic dermatology and Mohs surgery, relies on his versatile Cutera laser.
+- ti_7602245515790585120 | trying coolpeel co2 laser | CoolPeel is a gentler CO2 laser that evens pigmentation and fine lines with far less downtime than full CO2.
+- ti_7702173479516261645 | healing from first co2 laser | Healing from a first CO2 laser left her acne scars and texture much better.
+- yo_xGB_oOafxrI | are lasers safe on black skin | Lasers can be safe on Black skin when the right device and settings are chosen.
+- yo_s1FYqIy7n3Y | pre-summer laser menu | Before summer, vascular laser, Fraxel, PicoWay and Morpheus8 each target redness, sun damage, brown spots and crepiness.
+- ti_7587811885047647521 | gifted co2 laser for facial scars | A gifted CO2 laser at a clinic clears facial scars within a week; scary but worth it.
+- in_Ddl8XTFs_UW | red light pdt approved for superficial bcc | Red-light photodynamic therapy with a photosensitizing cream is now FDA-approved for superficial basal cell carcinoma, clearing 83% in trial
+- ti_7646494257188048146 | laser hair removal on black skin | Black skin can safely get laser hair removal, but only with an Nd:YAG laser; the wrong laser burned her.
+- ti_7608645156656532754 | laser hair removal on black skin | Tanned skin should never be lasered, but naturally dark skin can be treated safely with the right laser, such as Nd:YAG.
+- … 4 more
+
+## cluster 11 · 39 videos · median × usual 0.93 · makeable 33 · own 2
+genres: diagnosis / is-it-X 11, educational-explainer 8, myth-bust 5, personal journey / diary 4
+- ti_7379293618437377326 | fungal acne on forehead | Sudden small red bumps on the forehead and sides of the face may be yeast folliculitis, not acne.
+- ti_7477323953317465390 | basal cell misread as a scar | My facial lump was dismissed as a scar and lasered before a biopsy showed basal cell carcinoma needing Mohs.
+- ti_7569039933613034783 | what an hiv rash looks like | An early HIV rash shows as pink-red slightly raised spots 2 to 4 weeks after exposure.
+- ti_7644190061910691103 | demodex mites on your face | Tape-stripped forehead cells show demodex mites, which live in everyone's pores and play a role in rosacea.
+- ti_7665760590362725663 | how a boil forms | A boil forms when bacteria trapped in a follicle draw white cells that die into a pus pocket that eventually drains.
+- ti_7683193686318009622 | progressive macular hypomelanosis vs tinea | Light patches that don't respond to antifungals may be progressive macular hypomelanosis, treated with benzoyl peroxide or phototherapy.
+- yo_tOEyKi7iE_c | precancer turning into basal cell | A scaly red spot that comes and goes can be an actinic keratosis turning into basal cell carcinoma, visible under the dermatoscope.
+- yo_X1h1ms2raLU | seborrheic keratoses vs sweat rash exam | The brown back spots are harmless seborrheic keratoses and the red bumps are a sweat rash that needs medicine.
+- ti_7592017852509506837 | life after a rosacea diagnosis | Rosacea is only controlled, never cured: no coffee, alcohol, chocolate or spicy food, pricey fragrance-free creams and strict sun care.
+- ti_7596813113442192670 | derm reacts to a facial with extractions | Steam doesn't open pores and clay masks only refine pores temporarily, but extractions are satisfying.
+- ti_7685840282293718293 | rosacea is controlled, not cured | Rosacea never goes away, it is only controlled, so don't compare your skin to social media.
+- ti_7295813676466965802 | why milia appear from products | Milia usually come from moisturizers, foundation or sunscreen that don't suit oily skin; switch products and have them extracted.
+- ti_7579390445168446741 | rosacea is inflammation, calm it | Rosacea is chronic inflammation, so calm it with azelaic acid, niacinamide and centella instead of scrubbing or drying.
+- ti_7506673733499751686 | princess diana's rosacea and ipl | Princess Diana had rosacea; it has no cure but IPL can reduce the redness and visible vessels.
+- ti_7700718582258257182 | ocular rosacea signs | Gritty, red, itchy eyes and recurrent styes can be ocular rosacea, with or without skin rosacea.
+- in_DDKQR14O-bH | red bumps before a tattoo | Three small linear red bumps on the forearm are likely folliculitis from shaving or bug bites, nothing serious, but see a dermatologist befo
+- in_DbhDVetuct0 | rosacea flares and histamine intolerance | Rosacea that comes and goes may be a skin sign of histamine intolerance, since classic triggers like wine, aged cheese and chocolate are hig
+- in_DemAlSTsjkE | how a whitehead forms | Whiteheads form when excess oil is trapped in a pore as a closed comedone, and niacinamide serum regulates the oil.
+- ti_7701324902854446350 | dyshidrotic eczema is not trapped sweat | Deep itchy hand blisters are an immune overreaction, not trapped sweat, triggered by over-washing and fixed with thick ointment and steroid 
+- yo_1kKMuJ0-QOs | don't scrape blackheads | Scraping blackheads causes inflammation, bigger pores and pigmentation; use a topical retinoid for several weeks instead.
+- ti_7702059753488387342 | nose black dots aren't blackheads | The tiny black dots on the nose are often trichostasis spinulosa, harmless trapped vellus hairs, not blackheads.
+- ti_7694429817810324749 | pores don't open and close | Pores aren't doors: they don't open and close with steam or cold water.
+- yo_HBVC54lhlG0 | four types of rosacea and gentle care | Rosacea has four types, and the basics are gentle cleansers, moisturizers and mineral sunscreen.
+- ti_7700729974797520158 | itchy insect bites papular urticaria | Those bumps are bug bites, not a vampire bite; cleanse with mild soap, use a topical steroid and don't scratch.
+- ti_7700007770321325342 | glass test for non-blanching rash | If a rash doesn't blanch under a pressed glass, it can signal meningitis, sepsis or vasculitis and needs urgent care.
+- ti_7632895376189574414 | rosacea myths | Rosacea isn't just sensitive skin, poor hygiene or caused by alcohol; it's a chronic inflammatory disease that can be treated.
+- yo_UdcrMc1UhF8 | rosacea and vascular laser treatment | Rosacea is common facial redness with breakouts, and a three-session vascular laser series clears it with a day or two of redness.
+- ti_7106702031414398254 | nevus sebaceous seen at barber | This scalp growth looks like a nevus sebaceous, a benign birthmark; get new or growing ones checked and don't let the barber cut it.
+- in_DULsQnkDdWC | rosacea is dysregulation not sensitivity | Rosacea's root problem is vascular and inflammatory dysregulation, not sensitivity, so babying the skin keeps you stuck.
+- yo_DrZv1wnqhjU | rosacea flushing mistaken for sunburn | Her red face after a run isn't sunburn, it's type 1 flushing rosacea.
+- yo_4r3O_2AoXvQ | best products for rosacea redness | Rosacea responds to OTC options like sulfur masks, green color-correcting sunscreen, azelaic acid and cica moisturizer.
+- ti_7700287448445701389 | alopecia areata, vitiligo and thyroid | Alopecia areata and vitiligo are autoimmune and raise the risk of autoimmune thyroid disease, so get your thyroid checked.
+- yo_aY4rt8wlWOg | derm living with rosacea | She has had rosacea most of her life, and stress is her biggest trigger.
+- in_Dd36hmqMZjS | macular amyloidosis dark itchy patches | Dark itchy patches on the shoulders and back may be macular amyloidosis, which needs biopsy and itch control before laser, not laser alone.
+- ti_7680129676290968864 | influencer showing her rosacea | She shows her rosacea-prone bare skin.
+- ti_7702425322297347346 | why stress makes skin break out | Stress raises inflammation, weakens the barrier and shifts hormones, which is why skin flares, and the clinic's scans track it.
+- ti_7699266159710948639 | bleeding pimple that won't heal | A pimple that grows for weeks, bleeds or has not healed in six weeks may be basal cell carcinoma and should be checked.
+- ti_7497692421019503915 | rashes on darker vs lighter skin | Erysipelas, coxsackie, tinea versicolor and molluscum look different on darker skin, and clinicians need to know both.
+- ti_7701841365264502047 | five signs a rash is an emergency | A rash is an emergency if it involves eyes, mouth or genitals, blisters or sloughs, swells the face, comes with fever, or doesn't blanch und
+
+## cluster 7 · 37 videos · median × usual 1.08 · makeable 28 · own 2
+genres: hack / tip 8, routine 8, personal journey / diary 4, Q&A / comment-reply 4
+- ti_7458724254138387717 | tretinoin purge relatable meme | Nobody admits how bad tretinoin makes your skin look at first.
+- ti_7511005642602122552 | day one on tretinoin for acne marks | Starting a tretinoin cream today to see whether it fades my dark acne marks.
+- ti_7632098556161150228 | who should not use tretinoin | Tretinoin is a prescription drug, not a cosmetic: avoid it in pregnancy, breastfeeding, eczema or rosacea without a doctor.
+- ti_7631310189794168071 | tretinoin love before and after | Tretinoin cleared my acne.
+- ti_7658689487228259614 | tretinoin texture difference | Tretinoin made a crazy difference in my skin texture.
+- in_Db3pd0kgcfn | layering azelaic acid with tretinoin | Azelaic acid in the morning and tretinoin at night, kept off the nose and eye corners, gives the benefits without the irritation.
+- in_Dav-oSrs9b_ | two weeks on azelaic and tretinoin | Two weeks of azelaic acid and tretinoin faded her acne marks faster than anything before.
+- ti_7691374565880040718 | tretinoin rated 8 out of 10 | Tretinoin has great evidence but most patients can't tolerate it, so a consistent retinol or retinal is often the better choice.
+- ti_7619470462703209742 | four weeks of acne treatment | Four weeks with a NYC dermatologist cleared years of hormonal acne and hyperpigmentation.
+- ti_7259822258615487786 | retinol purging, why it stops | Retinol unclogs pores so you may purge for a few weeks; start low, use an oil-free moisturizer and stick with it.
+- ti_7689496549071588639 | how to layer azelaic acid | Use azelaic acid as the treatment step, layer thinnest to thickest, and start once a day.
+- ti_7701418626766605582 | do you need tretinoin forever | You must keep using a retinoid to keep anti-aging results, but after a year of daily use three nights a week maintains them.
+- ti_7702524499366825229 | higher tretinoin strength for anti-aging | Going up to 0.1% tretinoin doesn't give better anti-aging results, only faster ones with more irritation.
+- yo_z3f8XaPNhMk | why retinol makes you purge | Retinol unblocks pores so it can cause a temporary purge; stay with it, use an oil-free moisturizer and start low.
+- ti_7564400388653223185 | tretinoin dryness is normal | Dry flaking on tretinoin is normal progress; just add moisturizer and petroleum jelly.
+- in_Dd4I51vvC5M | tretinoin plus azelaic acid combo | Azelaic acid in the morning and tretinoin at night attack pigmentation from two angles while azelaic calms the irritation.
+- ti_7689615959761374494 | how often to use each active | Azelaic acid once or twice daily, vitamin C mornings, retinol up to nightly, glycolic one to three nights and peptides in the morning.
+- ti_7701766849771408653 | tretinoin purging past three months | Breakouts that last beyond three months on tretinoin are not purging; true purging is rare and short-lived.
+- yo_V2xKGR9xeuU | does tretinoin stop working | Tretinoin doesn't stop working or build resistance; your acne, often hormonal, has outgrown topical control.
+- in_DcOeF7wNgh_ | retinoid progression from retinol to tretinoin | If retinol wrecked your skin you started too strong; climb from low retinol to retinal to tretinoin, prioritising consistency over intensity
+- in_DeJgZMnNOg7 | azelaic, tretinoin, vitamin c regimen | Azelaic acid, tretinoin and vitamin C together target zero pimples and zero spots, but check with your doctor and avoid in pregnancy.
+- ti_7698430738042981645 | splitting azelaic acid and tretinoin | Azelaic acid and tretinoin pair well only when split: azelaic in the morning under sunscreen, tretinoin at night.
+- ti_7702816663208578317 | you don't need every acid | Not everyone needs tretinoin, azelaic and glycolic together; tretinoin does most of the work, and acids should be rotated, never stacked.
+- in_DePPSf2u82Z | salicylic plus azelaic for closed comedones | Closed comedones need salicylic acid paired with azelaic acid, not niacinamide, applied two or three times a week.
+- ti_7691723443229822221 | viral azelaic plus tretinoin glass skin | Azelaic acid and tretinoin are great but no viral influencer recipe gives everyone glass skin.
+- in_DeVbWGihDIK | diy hibiscus-clove homemade retinol | A home-boiled mix of bay leaf, clove, hibiscus and cornstarch works as an effective natural retinol for women in their 30s.
+- yo_2Q1FQAGmrkg | stop tretinoin peeling | Start a low-strength tretinoin every third night, buffer with moisturizer under and over it, and don't rush acclimation.
+- ti_7702505992461864223 | azelaic acid with tretinoin | Azelaic acid and tretinoin can be combined in a routine.
+- ti_7701114522165071134 | how to use azelaic acid | Azelaic acid is the goat for dark spots, redness, acne and melasma: apply twice daily after cleansing, then moisturizer and SPF.
+- yo_X_VJpriOlUg | how often to use tretinoin | Start tretinoin low and slow and work up to what your skin tolerates, since overuse damages the barrier.
+- in_DeQR4uOh18e | starter retinoid routine for stable skin | A 12-week routine of gentle cleanse, retinoid, tranexamic acid/niacinamide and moisturizer improves tone and texture in stable skin.
+- in_DYIzdqpg6Nv | azelaic acid with tretinoin combo | Adding azelaic acid to tretinoin transformed his skin texture almost overnight.
+- ti_7698469860048653600 | azelaic acid plus tretinoin for acne | Tretinoin at night and azelaic acid in the morning are a dream team for acne and post-acne marks; give it more than two weeks.
+- ti_7702137992462322975 | three-step cleanse, treat, protect routine | Skip extra serums: cleanse, treat with something like azelaic acid, then moisturize and protect.
+- ti_7701491170978843934 | azelaic, tretinoin, spf, zinc barrier routine | Her routine rests on azelaic acid, tretinoin, daily SPF and a zinc barrier cream to stop retinoid peeling.
+- yo_rak4d9Lexvs | tretinoin plus azelaic acid layering | Tretinoin and azelaic acid can be combined in a routine the way a dermatologist would use them.
+- yo_G9r3qnVbgSI | fix tretinoin peeling before quitting | Before quitting a retinoid, cut frequency, apply to dry skin, sandwich with moisturizer and add hydration.
+
+## cluster 14 · 37 videos · median × usual 0.81 · makeable 12 · own 2
+genres: brand advertorial / sponsored 10, ad / promo 9, myth-bust 4, product-review / drugstore-vs-medical 4
+- yo_e6Y743rYLXk | ghk-cu peptide for looksmaxxing glow | The copper peptide GHK-Cu, topical or injected, gives the clear glow looksmaxxers have.
+- ti_7587244024218668310 | topical ghk-cu for acne scars | A topical GHK-Cu peptide boosts collagen as well as injections and cleared my acne scars.
+- yo_7xgmF37srxk | compounded copper peptide results | Three weeks on this compounded copper peptide serum shows visible before-and-after improvement.
+- yo_yPfZdXOE0dY | topical pdrn needs microneedling | PDRN applied on bare skin does little; it needs microneedle channels to absorb and regenerate.
+- ti_7681869695510744328 | pdrn cream instead of botox | Skip Botox: Anua's PDRN hyaluronic cream plumps and smooths tired skin.
+- in_CsivYszgy1e | skin cycling, day by day | A four-night skin cycle of exfoliant, retinol and two hydration nights showed results in a week.
+- yo_gb5MKIb5ua4 | how much tretinoin is a pea | A pea-sized amount of tretinoin is one small pea, dotted across the face, far less than people use.
+- ti_7413891847107513605 | how pdrn works on skin | PDRN stimulates cell regeneration and collagen, evening tone and reducing melasma spots.
+- ti_7605326211250081044 | medicube pdrn eye cream plug | Medicube's PDRN peptide eye cream smooths lines and brightens dark circles.
+- ti_7596794521707466014 | two months of copper peptides over 40 | Two months of GHK-Cu copper peptides changed mature skin.
+- in_DeZj1eEhI_r | ayurvedic lodhra for pigmentation | Pigmentation starts in the gut and liver, and lodhra powder taken and applied as a face pack clears it.
+- in_Dd5pPHTiiwx | k-secret retinal range giveaway | K-Secret's Seoul 1988 retinal range fixed her dry, dull skin and fine lines at an affordable price.
+- in_DeWuJjKCRzX | retinol packaging matters more than percent | Retinol degrades with light, air and heat, so check for opaque airless packaging before the percentage.
+- ti_7693641139814960415 | copper uglies aren't real | The 'copper uglies' aren't a thing; copper peptides shouldn't purge, so redness and peeling mean irritation and you should stop.
+- in_De0JBMWFODT | favourite pdrn creams at 40, 47, 74 | Salmon PDRN regenerates skin and each of three women aged 40, 47 and 74 has a favourite PDRN product for her age.
+- in_DejzCbaFf0n | layering celimax retinol and retinal | Use Celimax retinol all over and its retinal on specific wrinkles, as Koreans do, to prevent and treat aging.
+- in_Deg_KBTzVzP | korean pharmacy pdrn must-buys | Every product in this Korean PDRN brand is worth buying, from the repair serum to the sunscreen and retinal, via her group buy.
+- in_Cod2b25jT8Z | couple's annual thermage and exosome prejuvenation | Doing Thermage FLX plus exosomes every year 'prejuvenates' the face so you avoid bigger, costlier procedures later.
+- ti_7649284976357264662 | rejuall pdrn product plug | A creator promotes the Dr. Reju-All PDRN product line.
+- yo_T8d9_H6N_0o | ceg ferulic vitamin c serum | His CEG + Ferulic serum with vitamins C and E and hydroxy acids fades lines and dark spots and brightens skin.
+- ti_7701445214468148482 | polynucleotides plus facial balancing | Pairing polynucleotides with facial balancing filler gives a full-face glow in one tailored plan.
+- yo_wLHMCA4x_Ic | which viral korean pdrn product | Different viral Korean PDRN products suit different skin types, so pick by concern rather than hype.
+- in_DEnqFGxJtCy | vitamin c apple oxidation test | An apple coated with her C-Complex stays fresh, proving her skin-cycling set stops oxidation and aging.
+- ti_7551014389130808584 | what pdrn is | A Kurdish creator explains what PDRN is in skincare.
+- ti_7679854320099085589 | anua pdrn cream after 14 days | After 14 days, Anua's PDRN hyaluronic cream left her skin smoother, firmer and plump like glass skin.
+- in_Cua2TEwJCtr | skin cycling day two routine | On skin-cycling day two, double cleanse, tone, then pick retinoid, vitamin C or azelaic acid by concern, then moisturize.
+- ti_7278401722370903342 | practice's ceg + ferulic vitamin c serum | The practice's medical-grade vitamin C/E ferulic serum with HA penetrates deep for radiance.
+- ti_7698977450025372941 | the 'copper uglies' isn't a diagnosis | The 'copper uglies' isn't a real diagnosis; check what you're layering copper peptides with before blaming GHK-Cu.
+- in_DZH5aOdxFq3 | maintenance retinoid night routine | On maintenance after two years of tretinoin, she layers PDRN toner, niacinamide, an OTC retinoid and moisturizer at night.
+- in_DfMZHuSqP1u | testing a pdrn serum line | Two PDRN serums under her usual microneedle routine gave glow and hydration in every configuration she tried.
+- in_DfM1hYfzMw4 | kangri heat and skin cancer | Long-term kangri heat causes erythema ab igne, pigmentation and sometimes skin cancer.
+- yo_olQ4HklRNUE | topical pdrn in eye creams | There is no good evidence that PDRN in a cream or eye serum penetrates skin enough to do anything clinically meaningful.
+- ti_7416077003754851592 | prejuvenation before wrinkles appear | Prejuvenation means starting treatment before wrinkles set in so they never form.
+- in_De9G8qOS-1p | pdrn elixir night routine plug | This salmon-milk PDRN elixir now completes her night routine alongside collagen gummies.
+- yo_CvMAQNBcCIU | four rejuran pdrn serums compared | Each of four Rejuran PDRN serums suits a different skin type, from oily pores to dry, barrier-damaged skin.
+- in_DWJc6IdDHTn | polynucleotides korean biostimulator | The polynucleotide treatment celebrities flew to Korea for is now available here and boosts hydration and collagen.
+- in_CqTzsiTNIfA | rodan and fields consultant plug | Rodan + Fields products are the fix; take the solution tool quiz.
+
+## cluster 4 · 34 videos · median × usual 2.11 · makeable 11 · own 7
+genres: brand advertorial / sponsored 11, routine 6, ad / promo 5, procedure-POV 4
+- yo_q94Xf4YEORU | overnight korean glass skin routine | A simple bedtime routine of cleanser, night cream, serum and lip balm gives glass skin overnight.
+- ti_7550131834177195271 | glow-up from healing skin barrier | Repairing a damaged skin barrier means fewer breakouts and a visible glow-up.
+- in_DfIAJtkSz7V | professional dermaplaning asmr | A professional dermaplaning session leaves glass skin.
+- ti_7545677695049272577 | thanking my skin provider | I love my skin now, thanks to my provider.
+- ti_7642359935455513863 | k-pop glass skin and pdrn cream | K-pop idols' glass skin comes from daily barrier care with PDRN, so use this Korean pharmacy PDRN cream.
+- ti_7666297102971964693 | 61-year-old's glassy hands and neck | At 61 her hands, neck and chest look like glass thanks to her own micro-exfoliant.
+- ti_7673292568976723220 | dry skin glass-skin routine | This step-by-step routine gives dry skin a glass-skin finish.
+- yo_HPRjpVkLvDQ | pat mcgrath glass-skin makeup | Pat McGrath-inspired glossy makeup gives a glass-skin look.
+- yo_caZLyD7DV4M | a london dermatologist's day | A 39-year-old dermatologist's day starting a new hospital job in London.
+- ti_7645979877811817750 | faith-framed hyperpigmentation glow-up | Consistent care and faith cleared her hyperpigmentation over time.
+- ti_7603704848860695830 | eqqualberry glow cream ad | Eqqualberry's vitamin illuminating cream gives dewy glass skin.
+- yo_gd1fP5fvQGg | hyaluronic filler for aging hands | HA filler in the backs of the hands hides veins and tendons for younger-looking hands.
+- ti_7697296148926614817 | sungboon silk peptide ampoule ad | Sungboon Editor's peptide ampoule gives Korean glass-skin glow and is now at Rossmann.
+- in_DB_zOWovZv0 | 58-year-old blogger tries skinvive | A 58-year-old beauty blogger visits a clinic for SkinVive injectable skin rejuvenation and presents it as glow magic.
+- in_DKunvw-TO3C | celebrity glow secret is treatments | A glowing face isn't just water and sleep; it is clinic treatments like Morpheus8, salmon DNA and sculpting.
+- yo_rNDZd8s8vPA | wishing for glass skin | A creator shows her journey toward glass skin.
+- ti_7584119998579346711 | frankly pdrn serum duo | The Frankly PDRN Bounce Ball and Closer Serum give smooth, plump skin.
+- in_De3jagXqRh0 | swiss beauty strobe cream for dewy makeup | Swiss Beauty strobe cream gives affordable glass-skin dewiness without greasiness.
+- yo_2uZy0g91IMU | diamond glow facial | The Diamond Glow facial exfoliates and infuses custom serums for luminous, smooth skin.
+- ti_7610408140718312725 | skinvive glowing makeup base | SkinVive gives glowing skin that makes makeup last.
+- yo_ltBak2wH8w0 | diamond glow summer facial | Diamond Glow exfoliates, extracts and infuses serums to illuminate the whole face.
+- ti_7273203269156064555 | diamond glow facial | Diamond Glow exfoliates and infuses custom serums for luminous skin.
+- yo_Br2Buug_Y08 | aquagold microinfusion behind the scenes | AquaGold's gold microneedles deliver a custom cocktail of hyaluronic acid and micro-Botox into the dermis for glow.
+- ti_7696622180364274957 | a derm's glass skin formula | Every glass-skin routine needs sunscreen, an antioxidant, peptides, a retinoid, an exfoliant and in-office treatments like Pico and Fraxel.
+- in_DeW9hkWO7z8 | camera-ready hands for brides | Hands age fast from thin skin and sun, so use glycolic acid twice a week, retinol on other nights, thick cream and cuticle oil before the we
+- yo_Vhoqj0zMvoE | glass skin step by step | Glass skin is achievable with oil and foam cleansing, moisturizer, serum, daily sunscreen and a weekly exfoliation and mask.
+- ti_7576332420383771926 | vt pdrn range black friday | VT Cosmetics' PDRN essence, ampoule and stick balm give glazed glowing skin, up to 70% off on Amazon.
+- ti_7255012208764144942 | diamondglow facial | A DiamondGlow facial is the most relaxing exfoliating treatment; call to book.
+- ti_7690660448974163222 | skintific four-step glass skin | Four Skintific steps give smooth, glassy, glowing skin.
+- ti_7610885223282199821 | gold silk peptide 'botox in a bottle' | Sungboon's 30-peptide gold ampoule and mask plump and lift like botox without needles.
+- ti_7500961261375556907 | aquagold microinfusion facial | AquaGold's 24K gold microneedles infuse a custom HA, Botox and growth-factor cocktail for glow.
+- ti_7701048557872221453 | following her derm to new practice | She switched practices to follow her cousin, a dermatologist, to a new clinic and got Laser Genesis for glow.
+- ti_7616719863125544213 | skinvive at her trusted derm | Once you find a dermatologist you trust you stay, and SkinVive gave her hydrated, glowing skin.
+- ti_7655450511348436238 | four steps for natural glow | For glow, use retinol, a vitamin C serum, weekly exfoliation and daily sunscreen, then add procedures.
+
+## cluster 17 · 34 videos · median × usual 1.22 · makeable 19 · own 0
+genres: day-in-the-life / office 18, ad / promo 5, humor / skit 4, Q&A / comment-reply 2
+- ti_7607833424388230414 | a dermatologist's day in numbers | In one day a dermatologist saw 38 patients, did skin checks, froze pre-cancers, biopsies, a BCC surgery, filler and Botox.
+- ti_7414301297119087902 | why she became triple board-certified | She trained in internal medicine and dermatology because she wanted to treat the whole patient, which is why she is triple-boarded.
+- ti_7494324333326667039 | a nyc dermatologist's workday | A NYC dermatologist's day mixes skin checks, biopsies, injectables, peels and lasers with a commute and dinner.
+- yo_sW8pM_y_iGM | a nyc derm's procedure day | A NYC derm's day runs from laser hair removal and injectables to keloid shots and a cyst excision.
+- ti_7580489996839193886 | derm vs medical assistant workload | The medical assistant does most of the clinic's work while the doctor just diagnoses.
+- ti_7436551156144475438 | a mohs surgeon's workday | A board-certified dermatologist's day runs from baby care to four Mohs cases, general derm and cosmetics, then charting and home.
+- ti_7488050362671172919 | what a dermatologist actually treats | Dermatologists treat all hair, skin and nail disorders, not just beauty concerns.
+- yo_NtMP8e_bnh4 | derm resident's day | A dermatology resident's day set to music.
+- yo_6-A9FSfLldc | i'm a cosmetic derm, of course | A cosmetic dermatologist jokes about traveling for lasers and his wife being his billboard.
+- ti_6935898042629442821 | med spa baby botox | A med spa promotes baby Botox.
+- ti_7695160231239716110 | future derm's nyc day | A future dermatologist's NYC day mixes clinic jokes about liquid nitrogen with Hamilton and Times Square.
+- ti_7589839142737988919 | nyc derm's type-a routine | An NYC dermatologist's day runs the same every day: Nespresso, journaling, subway, notes, patient calls, Pilates.
+- in_Db5WHxnNacf | booking botox and sculptra trip | A creator dreams of the French Riviera while looking forward to Botox and Sculptra with her provider.
+- yo_NN5aBhZtbIo | nyc derm day with morpheus8 and ultherapy | A NYC dermatologist's day runs from a lipoma excision through Morpheus8 and Ultherapy to skin cancer screenings and an evening event.
+- ti_7598146681695194389 | hair botox at salon | A salon promotes its hair Botox treatment.
+- ti_7674038289984179487 | what a dermatologist actually does | A dermatologist's job spans cosmetic Botox to complex conditions like hidradenitis, and people underestimate the medical side.
+- ti_7678497047074458894 | future derm's day in nyc | A pre-residency MA's NYC day: a run, SPF, commuting to a derm practice, then home.
+- ti_7698032868576021793 | a derm resident's aesthetic day | A dermatology resident's day is calm, pretty and skincare-filled.
+- in_DeAR7xYg7gD | ontario bans rental medical directors | Ontario's nursing college ending rented medical directors will close many nurse-run clinics but make aesthetics safer.
+- ti_7525226539164667166 | what a cosmetic derm earns | An independent California cosmetic dermatologist with 11 years' experience earns about $152 an hour with 12 weeks off and no call.
+- ti_7703206589930474782 | matching into derm residency | Mentorship matters most for matching into dermatology, followed by committing to a long-term interest.
+- ti_7693204824157867272 | day as a derm resident | A dermatology resident's workday.
+- in_Dee9FckROwx | hair botox salon owner | A hair-'Botox' salon owner says she loves her work and routine too much to break it for anyone.
+- ti_7694400400862006542 | nyc derm day in the life | An NYC dermatologist's day: clinic, ice cream, hot Pilates and a podcast recording.
+- ti_7698152057424874765 | nyc derm's saturday off | A NYC dermatologist's Saturday: dog walk, bagels, an at-home mask regimen and an Allure beauty event.
+- ti_7624299226431753503 | head medical assistant bosses the office | The head MA runs the office, even over the doctor.
+- yo_MAyVkj0R9KE | hudson yards derm office tour | Hudson Derm and Laser Surgery is a skin innovation center in Hudson Yards worth visiting.
+- ti_7660957043141971231 | santa monica derm clinic promo | A board-certified derm clinic offers lasers, injectables, hair loss and body contouring.
+- in_DeKKT4AhuCS | aesthetic nurse's monthly income and spend | As a 25-year-old aesthetic nurse she made $5,750 in September and saved just $117.
+- ti_7679186320450784525 | shadowing a nyc dermatologist for a day | A day with a NYC dermatologist covers family time, patch testing and zapping fibrous papules for $95 each.
+- ti_7496974715827784990 | dermatologist working mom day vlog | No spoken claim; the best part of a dermatologist's work day is coming home to her baby.
+- yo_YM5aN9lEg9o | cosmetic derm day with boba run | No spoken claim; a young cosmetic dermatologist's day of work, shopping and winding down.
+- ti_7691725883886882061 | first derm vlog without patients | No spoken claim; a dermatologist's first day-in-the-life vlog, minus patient visits.
+- in_DTBDoUwkSfc | med spa laser services menu | Skin Savvy tailors laser hair removal, photofacials, vein removal and microneedling to your needs.
+
+## cluster 3 · 33 videos · median × usual 3.51 · makeable 25 · own 11
+genres: trend-commentary 6, before-after 5, procedure-POV 4, brand advertorial / sponsored 4
+- yo_ppGlX6Ux9AY | botox for forehead, chin, neck bands | Botox in the forehead, mentalis and platysmal bands smooths lines, chin dimpling and neck bands.
+- in_DB7qduLvyaG | botox patients clinging relatable meme | Botox patients cling to their injector like lint.
+- yo_N7EGRoGi2YU | what baby botox is | Baby Botox uses smaller doses to soften fine lines while keeping natural movement.
+- in_Da1OtWTPRg1 | toddler baby botox joke | My baby has the strongest frown muscles ever.
+- in_DB0uOYGhsFx | baby botox in your twenties | Preventive Botox in your early 20s may dull how your face feeds emotions back to the brain, so researchers advise against it.
+- yo_drRpMMtvQU8 | baby botox forehead result | Baby Botox smooths forehead lines while still looking natural.
+- yo_V2f5dpJYYuU | natural baby botox results | Light-dose Botox softens forehead and frown lines without a frozen look.
+- yo_AGpvI5zcxYs | same-age celebrities with and without botox | Two celebrities of the same age can look very different depending on whether they use Botox.
+- yo_gVO6AkhjWtA | parody ad for baby botox on babies | Satire: a fake ad pitches 'Baby Botox' for actual babies to mock preventative Botox culture.
+- in_DJ0saVwxK32 | did botox make a star's face sag | A celebrity's sagging face is normal aging over 24 years, not Botox.
+- ti_7656973654990867742 | quitting botox after an adverse reaction | After years of Botox and an adverse reaction she says it isn't worth it and shows her twitching brows while stopping.
+- yo_jaWEU5Ejz6Y | forehead movement with and without botox | Botox visibly stops forehead lines compared with no Botox.
+- yo_hrg0qtYyK7c | botox for forehead and frown lines | Botox in the forehead and glabella smoothed this patient's lines.
+- in_DYPqMnyO3PL | jeuveau seven-year anniversary | Evolus partners including Dr. Ostad wish Jeuveau a happy seventh anniversary.
+- in_DefmdGaholx | fixing botox eyelid ptosis | Every experienced injector has caused eyelid ptosis; pick one who is upfront about it and knows how to treat it.
+- in_DB85o-NtQak | baby botox and barbie neck botox | Baby Botox softens under-eye lines and 'Barbie Botox' defines the neck for a natural look.
+- in_DalW61oD-se | why he chooses jeuveau | Jeuveau's precision, fast onset and durability, backed by a JAMA Dermatology study, fit his natural-results, listen-first approach to neurot
+- in_DbDz5MZOTYw | ostad's jeuveau facial assessment | Natural toxin results start with listening and watching the face animate rather than a cookbook approach, and he chooses Jeuveau for precisi
+- in_Dd4MSBHOic4 | ostad's jeuveau pitch to injectors | After 29 years of practice he chooses Jeuveau for its precision and natural results, and fellow injectors should consider it.
+- ti_7296928587473636651 | botox on low brows causes droop | Botox for forehead lines in people with low-set brows can drop the brows and hood the eyes; filler or Emface is safer.
+- ti_7345169318260395306 | botox wrinkle result | Botox gives visibly smoother results.
+- yo_c_FMAbuYPYs | how he assesses a face for neurotoxin | He reads the whole face's muscle movement and symmetry before choosing where and how much neurotoxin to inject, under-treating the forehead.
+- ti_7699174703377796383 | why botox stops working | Botox seeming to stop working is usually handling/dilution, needing a higher dose or ongoing aging; true antibody resistance is under 1%.
+- yo_zIw51-U6Lzo | no cookbook approach to jeuveau | Facial assessment shouldn't be cookbook: listen, have the patient animate, and treat muscle movement so Jeuveau never looks frozen.
+- ti_7483979850215230766 | his jeuveau times square billboard | He was featured on a Times Square billboard as a top Jeuveau provider.
+- yo_3vTaPzApwjo | why injector technique matters | The same product gives different results in different hands; anatomy, placement, depth and restraint matter more than product.
+- ti_7561488990453419319 | baby botox for natural results | Baby Botox gives relaxed, natural results; book now.
+- yo_3zcokqzZ2jk | assessing frown lines before jeuveau | Every glabellar treatment starts with assessing the corrugator and procerus muscles at rest and in a frown so placement fits that patient.
+- ti_7650288418164903181 | baby botox as a marketing lie | Baby Botox is a marketing phrase to get women in their 20s hooked early, and you can prevent aging without it.
+- yo_U9nqH9B-Nbw | treating the face, not single lines | Good neuromodulator treatment reads how opposing muscles move so patients keep natural expression rather than chasing each line.
+- ti_7547926132495093048 | baby botox before 30 as business | Baby Botox before 30 is mostly sold as prevention for profit, and spas injecting 17-year-olds is unethical.
+- ti_7478445364006227205 | nicole kidman botox and ageism | Pressure on actresses to look young leads to Botox that erases the facial expression their roles need, as with Nicole Kidman.
+- yo__tw4OT5bnFs | skip botox at 24, live first | A 24-year-old doesn't need Botox yet; spend youth living and learning who you are instead of freezing your face.
+
+## cluster 18 · 32 videos · median × usual 2.03 · makeable 19 · own 0
+genres: routine 17, derm-reacts / duet / stitch 8, myth-bust 3, Q&A / comment-reply 1
+- ti_7134790376518470954 | derm duets a skin cycling fan | A follower's glowing skin proves skin cycling (exfoliant, retinoid, two recovery nights) works.
+- ti_7149704628165184810 | leveling up skin cycling | Once skin cycling is tolerated, apply retinoid directly to dry skin, drop a recovery night, then go nightly.
+- ti_7195028262765022506 | a derm's minimalist routine | My real routine as a dermatologist is just wash and retinoid at night; less is more and you don't need to buy into the industry.
+- ti_7596096513655213342 | derm reacts to viral grwm routine | A viral makeup routine has questionable steps, like underdosed sunscreen sticks and spray near the eyes.
+- ti_7678859112398048526 | hygienist's drugstore daytime routine | Her La Roche-Posay cleanser, L-ascorbic vitamin C and SPF 50 lineup works for acne-prone, dry and combination skin.
+- ti_7257253583031225643 | the ideal skincare routine in your 20s | A simple daily cleanse, sunscreen and retinoid routine in your 20s pays off for decades.
+- yo_PTX8wsanx8M | rapid-fire derm answers to viewer clips | Quick fixes: treat sunburn with cool baths and Advil, rosacea with triggers avoided, retinol burn with a pause, fungal acne with dandruff sh
+- ti_7621396784820129055 | derm reacts to an overnight routine | A maximalist night routine with face compression and dropper-touching is overkill and partly harmful.
+- ti_7537838561576422686 | skin cycling routine breakdown | A curated skin-cycling routine (retinoid nights, exfoliant nights, recovery nights) suits combination, acne-prone skin with dark spots.
+- ti_7560794441208941846 | a man's rosacea frustration | He is fed up with daily rosacea flushing and starts a night-only topical antibiotic from his dermatologist.
+- ti_7665898795682598175 | derm reacts to a 25-step morning | A 25-product morning routine is not normal: no need to double cleanse after sleep, and the supplements are probably no better than a balance
+- ti_7155157165517376811 | why skin cycling underdoses exfoliants | Skin cycling uses AHA exfoliants far less often than they are designed for, so once a week does almost nothing.
+- ti_7702575637118209311 | asmr self-care night is wasteful | Elaborate ASMR self-care nights are wasteful; hand cream and sunscreen do the job and cuticle oil is a scam.
+- ti_7530371741831466271 | reacting to a 25-step routine | A 25-product morning routine is not normal; most steps are wasteful and supplements beat nothing a diet can't do.
+- yo_3SM11NCSLAc | nyc derm's glow-up night routine | A five-step routine of gentle cleanser, mask, gel moisturizer, eye cream and Vaseline lips gives a glow-up.
+- ti_7571101881976556831 | skin cycling for clogged pores | Her corrected skin-cycling routine for clogged pores is double cleanse, retinol one night, acid the next, then rest.
+- ti_7673256302222527757 | skin cycling for oily dehydrated skin | Start with mandelic acid, then add azelaic acid in the morning and retinol twice a week to treat texture, PIH and acne scars.
+- ti_7645739885915098399 | derm reacts to pink bathroom restock | Decanting skincare breaks its preservative system and disposable face towels are wasteful.
+- in_DemJUXAhx7D | stop home remedies for skin concerns | Pigmentation, acne and pores need a diagnosed cause and expert treatment, not random home remedies or scrubbing.
+- ti_7623450588092583189 | skin cycling exfoliation night | Skin cycling cleared her acne, and day one is cleanse, exfoliate with the sponsor's gel, then a thick moisturiser.
+- yo_0Iwxq8vWUwc | wasteful asmr hand self-care | Elaborate ASMR hand-care routines are wasteful, and plain hand cream plus sunscreen does the job.
+- ti_7663898406112267550 | four dermatologists' routines rapid-fire | Four dermatologists keep routines simple: cleanser, vitamin C and sunscreen by day, retinoid and moisturiser at night.
+- ti_7692851860687932703 | two dermatologists' full routines | Two dermatologists layer cleanser, vitamin C, peptides and sunscreen by day and alternate retinoid or exfoliant nights.
+- ti_7590440978637425942 | skin cycling is just marketing | Skin cycling is common sense repackaged as marketing; the results come from the retinoids and exfoliants themselves.
+- yo_kVYVqN6REWg | 7 days of skin cycling | A week-long skin cycling schedule rotates actives and rest nights.
+- ti_7641559674830982416 | three-day skin cycling routine | Her skin cycle rotates barrier-care, azelaic and mandelic days with layered hydration.
+- in_Ddm737ituq3 | esthetician's rosacea skin-cycling nights | With rosacea she cycles hydration, exfoliation and retinoid nights, always double cleansing.
+- yo_6uFCidfnbxk | skin cycling is just marketing | Skin cycling is common sense packaged as a marketing concept; your skin doesn't know what day it is.
+- ti_7694457706589015327 | 47-year-old derm's morning routine | Her morning routine for dry, sensitive skin is cleanser, exosome serum, eye cream and SPF.
+- yo_Udg9X-SxoLY | skin cycling with retinal and panthenol | Her skin cycling keeps a fixed panthenol-heavy morning routine and rotates retinal and azelaic acid at night.
+- ti_7617548342783954190 | three-night skin cycling with products | Skin cycling rotates a hydrating night, a retinoid night and an exfoliant night, each with a double cleanse.
+- in_Cq9AZnhOPOq | spring night skincare routine | Her spring routine is gel cleanser, toner, eye cream, hyaluronic serum and moisturizer from one brand.
+
+## cluster 23 · 28 videos · median × usual 3.65 · makeable 27 · own 3
+genres: skin-cancer-awareness 24, diagnosis / is-it-X 3, patient-story / testimonial 1
+- ti_7500356242376871176 | benign mole or skin cancer | A soft raised mole is usually a benign intradermal nevus, while an asymmetric, multicolored mole over 6 mm needs urgent checking.
+- in_DbTV5eBKnsX | dark nodule that isn't melanoma | A dark blue nodular lesion that looks like melanoma showed a vascular lacunae pattern on dermoscopy, so it was vascular.
+- ti_7185754473388641579 | stage 4 melanoma warning signs | These are the symptoms I had before my stage 4 melanoma diagnosis, so get them checked.
+- ti_7638594653012462868 | how subtle early skin cancer looks | Early skin cancer can look subtle, like a non-healing pimple, a scab that recurs or an odd sun spot, so get it checked.
+- ti_7544053691087719702 | spot the tiny basal cell | A barely visible mark on a forearm was an early basal cell carcinoma, so check your skin regularly.
+- ti_7699163185563143454 | skin cancers that don't look like moles | Many skin cancers look like a pimple, dry patch or pink spot, so watch for spots that change, bleed or don't heal.
+- ti_7507111299088747806 | stage 4 melanoma warning signs | These are the symptoms I had before my stage 4 melanoma diagnosis, so get them checked.
+- ti_7532300923515833613 | checking hundreds of moles one by one | A patient with hundreds of moles needs each one dermoscoped, and the suspicious ones and a BCC are removed.
+- yo_PmBsAcZRZ8I | don't be embarrassed at a skin check | Body hair or acne shouldn't stop you getting an annual full-body skin cancer check.
+- yo_8xyZmzYVG38 | abcdes of melanoma self-check | Use the ABCDEs (asymmetry, border, color, diameter, evolution) to tell a mole from melanoma.
+- ti_7623775675324845326 | a 2mm melanoma by the eye | A harmless-looking 2 mm spot next to the eye was melanoma, only visible under dermoscopy.
+- in_DTJlpIiATkZ | fast-growing mole under a smartwatch | A mole that grew fast and dark under her smartwatch was brushed off with 'wait six months', so trust your instinct and push for evaluation.
+- yo_spGn9j5V7II | what a full-body skin check covers | An annual full-body skin exam checks scalp to legs with a dermatoscope and the ABCDEs of melanoma.
+- yo_EM-PYoYb2zc | what men's skin checks involve | Men are more likely to get melanoma, and a quick painless dermatoscope screening plus monthly self-checks can save your life.
+- yo_exOeNQYD-94 | abcde signs of melanoma | The ABCDE rule helps you spot suspicious moles early.
+- ti_7695431831998450964 | spot the melanoma with dermoscopy | Of four dark spots, dermoscopy shows three are benign and only the asymmetric, multicolored, growing one is melanoma.
+- in_DXziUvoxr4t | how a friend spotted my melanoma | A friend's concern about a mole on a boat trip led to removal and a melanoma diagnosis at 30.
+- in_DcTXzsvIDDN | personalized melanoma vaccine phase 3 | The new personalized melanoma vaccine is not preventive; it is made from a resected tumor to help high-risk patients' immune systems stop re
+- ti_7693971621333241102 | dark streak under nail melanoma | A dark streak under a fingernail or toenail could be subungual melanoma and should be checked.
+- yo_nOIuVdhTxtw | skin cancer awareness month and early detection | One in five Americans gets skin cancer, often looking like a painless pimple, so annual skin exams catch BCC, SCC and melanoma early enough 
+- ti_7670180844195089694 | what happens at a skin check | A full-body skin check is easy: no makeup or nail polish, a gown, and ideally a doctor who maps every mole.
+- in_DcbazZHio4C | what the mrna melanoma vaccine means | The new Moderna mRNA melanoma vaccine is a personalized treatment for high-risk advanced melanoma, not a prevention, so skin checks still ma
+- yo_ux0pyNsuMis | melanoma warning signs to check | Melanomas are often asymmetric, multicoloured, larger than 6 mm or changing, so check your skin and see your GP.
+- yo_jRi_qk8vNdM | why annual skin checks matter | Annual skin exams catch skin cancer early, when it is easy to treat and cure.
+- yo_an_eLQKq-MI | what happens at a skin cancer screening | An annual full-body skin check is quick and simple, from robe to scalp, behind ears, nails and tattoos.
+- ti_7535157451478420758 | ai full-body mole mapping scan | A full-body AI mole scan found her only concerning mole was the smallest one, so get your moles checked.
+- ti_7624919027629968654 | early melanoma resembling a normal mole | Early melanoma can look like an ordinary mole, so change in size, color or border matters more than how it looks.
+- yo_9PKWX-F80w0 | melanoma warning signs beyond abcdes | Melanoma is often subtle and flat, can be red or between the toes, so know the ABCDEs and the ugly duckling and check any spot that bleeds.
+
+## cluster 26 · 27 videos · median × usual 1.37 · makeable 17 · own 1
+genres: brand advertorial / sponsored 5, before-after 3, red-flag / what-not-to-do 3, educational-explainer 3
+- ti_7618113269039156500 | filipino serum faded acne scars | This serum removed my acne marks and scars.
+- ti_7615665387404938517 | acne scar sheets product plug | These scar sheets are the best and safest fix for acne scars.
+- yo_YPWGBdtpATY | acne marks versus true scars | Red and dark spots are marks that fade on their own; only dents are scars, and you must treat active acne first.
+- yo_N5xEhs9cmjI | acne scar treatment result | Acne scars and open pores can be treated successfully.
+- ti_7633755105694616863 | glycolic vitamin c rosehip for pits | Glycolic acid, vitamin C and rosehip oil will erase deep pitted acne scars at home.
+- ti_7616615202661895432 | hormonal acne habits to stop | For hormonal acne, stop washing with soap and stop picking pimples.
+- in_DX6oOXZz-TH | acne scar progress clip | Her acne scars have visibly improved.
+- yo_FfwvExuYwCI | back acne scar treatment result | Severe back acne scarring on a male patient improved with treatment.
+- in_DeuANSSg2dG | non-surgical acne scar options | The right non-surgical acne scar treatment depends on your scar type.
+- ti_7592013281682885918 | asking for a caring nyc derm | After Accutane and spironolactone, she wants NYC viewers to recommend a dermatologist who truly cares.
+- ti_7694314089018887437 | seeking an nyc acne derm | Her hormonal acne isn't recovering after coming off spironolactone and she wants NYC dermatologist recommendations.
+- in_DasZYtdIDFP | full-face makeup on acne skin | Those with acne and rosacea are the real full-face makeup experts.
+- ti_7660205347478473998 | three acne scar types, three treatments | Red marks, brown marks and indented scars are different problems needing centella/niacinamide, TXA/retinol, or regenerative care respectivel
+- yo_CrwUF3v4zoA | fat grafting for deep acne scars | Fat grafting can improve contour and depressed acne scars in selected patients.
+- ti_7683243073102515476 | adult acne and pcos | Adult female acne can come from PCOS, which also causes hirsutism and hair loss, so see a dermatologist for the cause.
+- ti_7517349740552391942 | active acne before biostimulators or filler | Injecting collagen stimulators or hyaluronic filler into skin with active acne can trap bacteria in a biofilm, so the doctor must check your
+- ti_7701433868301241633 | injectable peptides for acne | Hyped injectable peptides are unresearched and irreversible, so skip them and stick to diet, derm advice and clean towels.
+- ti_7660813534476946720 | injecting peptides to clear acne | Injecting peptides for clearer skin has unknown long-term effects, possibly cancer, so don't risk it for no pimples.
+- yo_TrEOC-Ojjjs | you can't scrub away acne scars | Deep atrophic acne scars are lost collagen and can't be scrubbed away; control acne first, then get subcision, peels or laser.
+- yo_cTrlbyluz70 | acne scar treatments by type | Different acne scar types need different combined treatments (subcision, TCA cross, RF microneedling, CO2); expect 50-80% improvement, not p
+- ti_7699211518574988558 | clearstem vitamin a supplement vs accutane | A brand's acne supplement has about twice the adult upper limit of vitamin A, which can be toxic, while Accutane is safer under supervision.
+- ti_7699587791356841238 | 3 cheap products worth buying | Salicylic acid and adapalene are cheap products that work for KP, scalp build-up, blackheads and body acne.
+- ti_7702437544482442526 | neutrogena two-step acne routine | A salicylic acid wash plus a benzoyl peroxide spot treatment from Neutrogena handles clogged pores, oil and bacteria.
+- ti_7701069827498085662 | finding an acne clinic that listens | After many dermatologists, this acne clinic finally listened to her history and put her back on Accutane; use her discount code.
+- ti_7619112912774384927 | best otc product per skin concern | For each common concern there is one go-to OTC pick, from salicylic acid for sebaceous filaments to adapalene for acne and azelaic acid for 
+- ti_7703285741199101206 | three multi-use acne products | Azelaic acid, Nizoral shampoo and benzoyl peroxide wash each treat three different problems.
+- ti_7703241962173844767 | salicylic acid vs benzoyl peroxide | Salicylic acid unclogs pores and benzoyl peroxide kills acne bacteria, and Neutrogena's products use both.
+
+## cluster 24 · 27 videos · median × usual 0.74 · makeable 22 · own 5
+genres: procedure-POV 6, before-after 6, ad / promo 3, educational-explainer 3
+- yo_l4CGjE-DPkQ | prp microneedling session footage | This is what a PRP plus microneedling treatment looks like.
+- yo_W-quflVh6sc | how prp is prepared and injected | PRP is made by spinning the patient's blood twice and injecting the plasma into smile lines or thinning brows.
+- yo_rQUwC5bxaNE | first under-eye prp session | Under-eye PRP looks wild right after, but the swelling settles within 24 hours.
+- yo_jbtdckE7ca8 | celebrity face prp session | Face PRP naturally boosts collagen and reduces wrinkles, as a known actress gets it at the clinic.
+- ti_7595026363262815518 | microneedling aftercare, day by day | What you do after microneedling matters more than the treatment: no actives, sunscreen or workouts at first, then reintroduce over days 4 to
+- ti_7550473506782219550 | prp with microneedling schedule | PRP plus microneedling monthly for four sessions, then two to three times a year, improves scars, pores and tone in all skin types.
+- ti_7698033147316849938 | microneedling as best aesthetic treatment | Microneedling is the best aesthetic treatment for skin transformation.
+- yo_9Mcdhj93cN4 | prp hair restoration results | A series of three PRP scalp injections transforms hair growth.
+- ti_7460326041819663658 | microneedling with prp for acne scars | Microneedling with PRP treats acne scars.
+- ti_7330340920266738974 | prp for thinning hair | Consistent PRP treatments revitalize thinning hair.
+- ti_7307702396287864106 | prp hair regrowth over two years | Consistent PRP treatments over two years regrew a thinning patient's hair.
+- yo_HlPwfVvAmjg | prp series for thinning hair | A series of PRP injections into the scalp can revitalise thinning hair.
+- ti_7694009150879108382 | topical minoxidil poisoning pets | Topical minoxidil transferred via hands and pillows can kill cats, so wash hands, clean spills, dry hair before bed or ask about oral minoxi
+- ti_7692088505706532110 | are reedle shot spicules safe | VT Reedle Shot spicules are a temporary delivery system shed within 24 hours, not a foreign-body injury.
+- in_DCzpo_4TV6s | skinpen microneedling asmr and downtime | SkinPen microneedling is tolerable with 5-7 days of sunburn-like downtime that peaks on days 1-3.
+- ti_7696193874678582559 | microneedling and prp in your 30s | Microneedling is a slow long-term collagen game, so cap it at 3-4 sessions a year, and PRP only helps some people.
+- yo_rYyd4yQIQ6E | what ellacor micro-coring is | Ellacor removes tiny cores of skin to tighten jowls and loose skin without a facelift, with about 5 days of recovery.
+- in_DWUIfLOFeoz | ellacor micro-coring explained | Ellacor removes tiny cores of skin to tighten jowls and loose skin without surgery, with about five days' recovery.
+- ti_7430020420750806304 | microneedling for acne scars and pih | Microneedling took a client from scarring and dark marks to healthy, glowing skin.
+- in_C64Iz9bh5If | hiv from spa vampire facials | Vampire facials at an unlicensed spa transmitted HIV, so PRP, Botox and filler belong only in a doctor's clinic.
+- in_DUTSmNmk-Ho | luxury prp facial at indore clinic | A luxury Indore clinic made her PRP facial a pampering experience with a pedicure during numbing.
+- ti_7702149408485313823 | skinpen microneedling session | It's SkinPen microneedling day.
+- ti_7684336124008975646 | results after one microneedling session | One microneedling session visibly improved her skin; three are recommended.
+- in_DZMy86-MF-C | who should not get prp | PRP is not right for everyone: people with cancer history, active infection, active autoimmune disease or blood and platelet disorders shoul
+- in_DebtK4dBaar | three anti-aging treatments after 35 | After 35, microneedling with PRP and biostimulators like Radiesse work with your own biology to rebuild collagen.
+- ti_7610558168883678495 | her microneedling with prp result | Microneedling with PRP visibly changed her skin.
+- in_CsJfckKLlbq | prp plasma facial | A plasma (PRP) facial treatment is being performed.
+
+## cluster 10 · 24 videos · median × usual 5.54 · makeable 20 · own 3
+genres: patient-story / testimonial 8, skin-cancer-awareness 6, procedure-POV 6, ad / promo 2
+- ti_7333520579154267425 | healing a mole removal scar | Steri-strips, silicone gel, red LED and daily SPF gave my mole-removal scar a great result.
+- yo_Gx9w32bs_N8 | when clear mohs margins aren't enough | For aggressive squamous cell cancers, extra pathology after clear Mohs margins can rule out perineural spread.
+- yo_5ytGf8nA6n0 | shave removal of irritated moles | A shave removal takes off irritating moles quickly and, with good aftercare, barely leaves a mark.
+- yo_IKyKgwKlXtI | three ways to remove moles | Cosmetic moles are removed by laser, shave or excision, each suited to different mole types and leaving different scars.
+- ti_7470562891251387694 | what mohs surgery actually is | Mohs maps and checks every layer under the microscope in real time, making it the gold standard for facial BCC and SCC.
+- ti_7589364507554729271 | removing a mole after cruel comments | After years of online comments, I finally had the mole on my nose shave-removed, and it was quick and easy.
+- yo__bGlsdWlaiM | mohs surgery for squamous cell in situ | Mohs removes the cancer layer by layer under the microscope for about a 98% cure while sparing healthy tissue.
+- yo_CiFSsP23dPk | lumenis laser hair removal | The Lumenis laser can be customized for hair removal on all skin types and tones.
+- ti_7664018784268700941 | mohs scar at four weeks | Four weeks after Mohs and a V-beam session, her 9 mm-deep facial scar is healing remarkably well.
+- yo_d3m-1v3JC1U | laser removal of flat moles | Flat dark junctional moles can be removed without cutting by two or three Q-switched Alexandrite sessions.
+- ti_7560091921096428818 | how mohs surgery works | Mohs surgery removes skin cancer layer by layer under the microscope with up to 99% cure while sparing healthy skin.
+- in_C68WErJvKlm | plasma pen mole removal healing | Plasma pen removed her lifelong between-brow moles with about a week of scabbing and no scarring.
+- ti_7647901818835488030 | mohs scar at six weeks | Six weeks after Mohs for BCC, sunscreen plus constant scar tape has the scar far less red.
+- ti_7668914151170805006 | shave mole removal on the cheek | A shave removal of a facial mole took 20 minutes and heals with Vaseline and bandages, though it looks brown at first.
+- yo_gSSZq8o25BE | excision vs shave for nose moles | A mole in the nasal crease is best excised because the scar hides there, while nose-tip moles suit shave or laser removal.
+- ti_7650576284895989006 | facial mole removal one year on | A year after removing her large signature mole, the scar is flat and faint, and she has no regrets.
+- ti_7436494514442816799 | laser hair removal in winter | Start laser hair removal in winter so your body is ready for summer.
+- yo_cAwiWsz-9Iw | laser hair removal in winter | Start laser hair removal in winter so you're smooth by summer.
+- ti_7693267966548315423 | laser removal of benign mole | A benign mole can be lasered off, but a dermatologist must assess it first.
+- yo_BJRTq4wgRTA | why mohs is gold standard | Mohs surgery is the gold standard for skin cancer on the face and hands because it checks margins under the microscope in real time and spar
+- in_DCZ_sE1Tj-V | dpn removal healing timeline | DPN lesions are treated, scab and fall off in about nine days, leaving clear skin.
+- yo_u1iMin0QCfk | how mohs slides check margins | Mohs surgery checks each removed layer under the microscope so only the minimum normal tissue is taken, with up to a 99% cure rate.
+- ti_7617812077498944790 | getting a recurring brow mole removed | Having a recurring mole shaved off under local means feeling the tugging and smelling cautery, but no pain.
+- ti_7665777666125040914 | nose scar two months after mohs | Two months after facial skin cancer surgery her wounds healed well, she uses silicone tape, but she's sure her nostril looks bigger.
+
+## cluster 15 · 24 videos · median × usual 0.98 · makeable 19 · own 10
+genres: educational-explainer 7, ad / promo 4, brand advertorial / sponsored 2, before-after 2
+- yo_SU3i4W-dzzk | what a skinvive treatment involves | SKINVIVE microdroplet hyaluronic acid injections hydrate and smooth the cheeks for up to six months.
+- in_DPdhP8KjVGA | skinvive hydration from within | SKINVIVE is a superficially injected hyaluronic acid that hydrates skin from within for up to nine months in one session.
+- yo_FrFY9VKozbA | skinvive for winter dehydration | SkinVive hyaluronic microdroplet injections hydrate dull winter skin from within for up to six months.
+- yo_azYDyIVL214 | prfm instead of filler for hollows | Platelet-rich fibrin matrix from your own blood restores facial hollowness as a natural alternative to HA filler.
+- ti_7290592781205097770 | prfm for under-eye hollows | PRFM made from the patient's own blood regenerates hollow areas as a natural filler alternative.
+- in_C9Ai3kot0rb | polynucleotides for under-eye dark circles | Polynucleotide (salmon DNA) injections thicken crepey under-eye skin and fade pigment without the puffiness risk of tear trough filler.
+- ti_7538901966139755832 | skinvive arrives at clinic | SkinVive doesn't add volume but deeply hydrates and improves skin texture.
+- ti_7301789773595725098 | skinvive vs vollure consistency | SkinVive is a thin, water-like hyaluronic acid for skin hydration while Vollure is a thicker filler for volume.
+- ti_7438709969106554143 | lower blepharoplasty vs under-eye filler | Bulging fat pads need lower blepharoplasty, but hollows with small herniations can be supported with under-eye filler instead.
+- ti_7691840288154799390 | glp-1 and hollow under-eyes | GLP-1 weight loss thins the fat pads around the eyes and cheeks, unmasking hollows, and it can be managed in office and at home.
+- yo_QB5ijpba3Vk | overfilled faces and prfm alternative | Overfilled faces are a technique problem, not a hyaluronic acid problem, and PRFM gel from your own blood is a slower collagen-building alte
+- ti_7693686208093883678 | her eye cream firms upper lids | Her brand's eye cream visibly firms sagging upper eyelids in third-party clinical testing, though no topical matches an in-office procedure.
+- yo_SpgCgmxPKOE | volume loss makes faces look old | Facial volume loss in the temples, under-eyes and around the mouth is what people read as aging, and GLP-1s accelerate it.
+- in_DaI7FBrx9I2 | skinvive and filler for under-eyes | Restylane Eyelight on the outer under-eye plus SkinVive in the tear trough fixed her hollows better than PRF or EZ Gel would.
+- yo_KL22DLzNzwk | liquid facelift with filler or fat | Restoring lost volume with long-lasting HA filler or your own fat transfer can lift the face with results similar to a facelift.
+- yo_rA5_Lyo0bsw | assessing nasolabial folds for filler | Assessing laugh lines at rest and in motion, side by side, decides where and how filler like Evolysse should go.
+- in_DYAlHy_xhMM | filler doesn't fully dissolve | Cross-linked HA filler doesn't simply reabsorb or dissolve with hyaluronidase; it migrates, persists and can be encapsulated.
+- yo_keyKrmNemWY | skinvive vs vollure consistency | Skinvive is a thin, water-like HA for hydration while Vollure is a thicker filler for volume.
+- ti_7642854594233617684 | skinvive for makeup-cracking dry skin | If makeup cracks on dehydrated skin, cream alone won't fix it; low-crosslinked HA skin boosters like Skinvive rehydrate from inside.
+- yo_Gt_Ogifh5_A | how jeuveau and ha fillers work | Neuromodulators block the nerve signal to soften expression lines, while hyaluronic acid fillers replace lost volume and support.
+- yo_LOPnIRsOBXQ | cold-x manufacturing in evolysse filler | Evolysse fillers are cross-linked without heat, which preserves the hyaluronic acid chains that heat can fragment.
+- in_DeFRpsoRxxO | retinol smile line patches | Luvum retinol gel patches target expression lines under the eyes and around the mouth.
+- yo_ZZwA7gWh8Os | mri shows filler migration | An MRI shows 12 cc of filler swelled to about 28 cc and spread across the face, which is why filler shouldn't be the first fix for nasolabia
+- yo_NYIVIaO_eHk | getting skinvive skin booster | SkinVive is a low-pain hyaluronic skin booster that hydrates and smooths fine lines without adding volume or migrating.
+
+## cluster 16 · 22 videos · median × usual 1.77 · makeable 12 · own 0
+genres: ad / promo 5, hack / tip 5, educational-explainer 3, brand advertorial / sponsored 2
+- ti_7606361418362785042 | at-home brazilian hair botox | You can do Brazilian hair botox at home: apply to damp hair, soak, blow-dry and flat-iron.
+- ti_7614595069928164616 | hair botox frizz result | Hair botox transforms frizzy hair.
+- in_DM3CyUhMZuT | plucking grey hairs | Plucking grey hairs doesn't make more grow, but repeated plucking kills the follicle and leaves thin patches, so dye or trim instead.
+- ti_7462390289831955720 | filipino brazilian hair botox plug | This Brazilian hair 'botox' straightens and repairs damaged hair, even colored or bleached hair.
+- ti_7699157831056084237 | what to expect on minoxidil | Minoxidil causes early shedding, takes 4-6 months to judge and only works while you keep using it.
+- ti_7541848781734595862 | formulating a derm's scalp serum | She built her scalp serum from scratch on evidence, research and targeted actives for hair growth.
+- ti_7702109985118965023 | quick derm tips, hair to nails | Avoid tight hairstyles, use a retinoid for collagen, see a derm early for cystic acne and skip Russian manicures.
+- ti_7543703738142215446 | her own scalp density serum | Her 16-active, minoxidil-free scalp serum regrew her hair in three months by targeting follicles, the growth cycle and DHT.
+- ti_7541107207446990102 | derm founder launches hair brand | After losing half her hair she spent three years building an evidence-based hair brand for every hair type.
+- in_DanKIadzNAp | derm rates hair loss treatments | Minoxidil, PRP and exosomes score high for hair loss while biotin and onion juice barely work.
+- ti_7702905746727439647 | derm reacts to glued-on hair and beard | A bizarre video of hair and beard glued straight onto skin is confusing and would hurt to remove.
+- ti_7694355628751392031 | precise minoxidil application | Apply minoxidil precisely, because it grows hair wherever it lands.
+- ti_7698817075426430240 | derm's hair bond repair launch | Her brand's bond repair was tested on 51 people with every hair type before launch.
+- ti_7693993742541393183 | rogaine and castor oil for brows | Brushing Rogaine foam through the brows stimulates growth and castor oil nourishes them, but it takes months of consistency.
+- in_DOHlhgcEnia | head spa on 4c hair | A viral head spa couldn't handle her 4C hair but the scalp treatment was still worth it, and she wants one that specialises in coily hair.
+- in_DeVWzjnvYKO | weekly scalp microneedling with minoxidil | Microneedling the scalp once a week with a 0.5-1mm stamping device on top of daily minoxidil boosts hair growth.
+- ti_7699531851769187598 | stubborn chin hair in women | Recurring coarse chin hair is often hormonal; laser works for dark hair, electrolysis for light hair, and spironolactone can help.
+- ti_7698451376795405581 | diagnose your hair loss type first | Treat hair loss by its diagnosis: androgenetic alopecia needs minoxidil plus hormonal meds, while telogen effluvium needs its trigger found.
+- ti_7605327410082434318 | getting hair botox in miami | Hair 'Botox' fills damaged cuticles to cut frizz and add shine; she walks through the process and price.
+- ti_7701023150695402774 | rhute bond repair hair launch | Rhute's bond repair treats all three hair bond types with AI-engineered peptides and protects against heat and UV.
+- ti_7700698252353604886 | the hair sandwich wash method | Conditioning the ends before shampooing the scalp, then conditioning again, protects damaged ends while cleaning a greasy scalp.
+- ti_7699901820050672918 | using less of a hair product | Testers over-applied the new hair formula, so the brand changed the directions to two or three pumps.
+
+## cluster 29 · 21 videos · median × usual 0.73 · makeable 8 · own 2
+genres: ad / promo 8, educational-explainer 4, brand advertorial / sponsored 2, hack / tip 2
+- ti_7672863692672765207 | medicube product clip | A Medicube product shown on camera.
+- ti_7693207651529936158 | medicube booster pro x2 upgrade | The Booster Pro X2's dual mode makes the routine faster, not each technology stronger.
+- ti_7665538113283919124 | blood pressure numbers explained | Normal blood pressure is 120/80, stage 1 starts at 130/80, stage 2 at 140/90, and 180/110 is a crisis.
+- in_DZAB3G5sUPO | clinic tool for thinning hair | The clinic uses a clicking device plus naturally derived stimulants to treat the cause of thinning hair.
+- yo_A9DL-TJcXPY | how to apply retinol properly | Shows how a dermatologist applies retinol.
+- in_Db8Xf9YgANa | teaser for a mental wellness device | The practice will soon offer a new technology for cognitive and mental wellness alongside skin and body care.
+- ti_7289089343640341806 | on this day repost | An on-this-day repost with almost no content.
+- ti_7665407678419619092 | diabetic retinopathy and yearly eye exams | Poorly controlled diabetes silently damages the retina, so control your sugar and see an ophthalmologist every year.
+- ti_7702441184144215327 | adapalene versus tretinoin guide | A quick on-screen guide to choosing between retinoids like adapalene and tretinoin.
+- ti_7690268940097883422 | laser myths to stop believing | Several common beliefs about lasers like Halo are wrong.
+- ti_7623961822026009864 | does teeth whitening wear enamel | Professional whitening doesn't wear down teeth; abrasive whitening toothpastes do.
+- ti_7667007453183134983 | radical nephrectomy for kidney tumor | A urologist reports finishing a radical nephrectomy, a procedure for kidney tumors common after 60.
+- in_DYCJeBoNCEi | laser vinyl cutter demo | An industrial CO2 laser cutter slices 1mm silicone heat-transfer vinyl easily.
+- in_De0_XqGuQIz | buying laser machines in china | Sourcing laser hair-removal and CO2 machines from China lets you start your own aesthetics business.
+- ti_7702493366419754271 | what retinol does for beginners | A dermatologist gives simple tips for starting retinol.
+- ti_7698902889778941214 | why your eyelid twitches | Eyelid twitching is myokymia from stress, sleep loss or caffeine; breathing, warm compresses and rest help, and time fixes it.
+- in_Cs7cX3LNRwP | first lasemd ultra laser in chile | The clinic now has Chile's first Lutronic Ultra 1927 nm thulium laser, like Fraxel, to add to its arsenal.
+- in_DeHkZN3xvlE | helping kids read by talking | Parents who can't read can still prepare children for school by talking with them every day.
+- in_DejWG6eSOLB | thermafrax user meeting invite | Come to the Istanbul user meeting on combining Thermage and Fraxel.
+- in_DHvH-wnx1mi | la roche-posay mall event gifts | La Roche-Posay's 50th anniversary concourse at Mid Valley offers special prices and free gifts.
+- in_CmqtEGehDqu | charms membership discount promo | Register for Charms membership on 28 December to get up to 45% off plus gifts and a gold coin.
+
+## cluster 20 · 20 videos · median × usual 0.96 · makeable 14 · own 4
+genres: ad / promo 5, brand advertorial / sponsored 4, procedure-POV 4, patient-story / testimonial 2
+- ti_7648031378423991583 | emface for tmj at a dentist | EMFACE radiofrequency and muscle stimulation relaxes and retrains jaw muscles to relieve TMJ pain and clenching.
+- yo_2C-tPaNh5r4 | emface facial toning result | EMFACE lifts and tones the face without needles.
+- in_DF5J8RBCvYj | influencer's emface 'skin-vestment' | EMFACE at this clinic lifts, tightens and sculpts the face with no needles or downtime.
+- ti_7273643454771563782 | a derm's own emface session | On her third Emface session, a dermatologist shows the muscle contractions that lift the brow and stimulate collagen.
+- yo_e3d5gGfUS2A | emface brow and face lift | Emface combines RF and muscle stimulation in 20 minutes to lift the face and brows without needles.
+- yo_B4OS0HkkScc | emface results after four sessions | Four 20-minute Emface sessions visibly toned and lifted her face two months later.
+- in_C1Cj8sNJc_G | debbie gibson tries emface | After years of touring, Debbie Gibson's 20-minute Emface session tightened and softened her face while she still looks like herself.
+- in_DcoGl6AgM2B | emface non-surgical facelift | EMFACE tones facial muscles and tightens skin with no needles, downtime or surgery.
+- yo__GqOXadhRqM | what emface actually does | Emface is painless and strengthens the lifting muscles of the brows and mouth, but it is not a facelift.
+- ti_7342916462551584043 | emface submentum for double chin | Four weekly Emface Submentum sessions reduce a double chin without surgery or downtime.
+- yo_GGJvCDIXu-0 | emface submentum for double chin | Emface Submentum reduces a double chin in 20 minutes without needles or bruising.
+- ti_7294303735478488362 | emface needle-free facelift session | Emface combines RF and HIFES in 20 minutes to lift the face and brows without needles.
+- in_DQt4KL9EQSU | emface as a gym for the face | After 30 the facial muscles sag, and Emface stimulates them while RF builds collagen to re-tighten the face.
+- in_DRlYuyVDOIp | actress's face-shape care with emface | An actress credits stimulating facial muscles (with sponsored EMFACE) for keeping a defined face shape and short midface.
+- ti_7689225213308882189 | trying emface at a medspa | EMFACE feels like a face gym that twitches your muscles to contour cheeks and jawline, and it doesn't hurt.
+- in_C8fzdaGM5Re | launching emface chin electrode at amwc | At the AMWC congress she launched EMFACE's new double-chin electrode and presented a new device.
+- ti_7581455157313948949 | emface lifting without needles | EMFACE treats both sagging muscle and lost collagen to lift the face without needles or downtime.
+- ti_7576415011992505613 | emface non-surgical facelift visit | EMFACE combines RF and muscle stimulation to lift and reduce wrinkles in 20 minutes without needles.
+- ti_7489447841786514731 | what emface feels like | EMFACE doesn't hurt; it feels like strong twitching muscle contractions, and her skin felt tighter after one session.
+- ti_7702948061500296478 | kybella recovery for double chin | Kybella works for double chin in the right candidate, but most people don't know about the recovery.
+
+## cluster 21 · 20 videos · median × usual 1.20 · makeable 13 · own 0
+genres: myth-bust 9, brand advertorial / sponsored 4, derm-reacts / duet / stitch 3, humor / skit 1
+- yo_P686ASuuXoM | some sun exposure is good | Some sun is good for you, and the skin cancers sun causes are generally not the deadliest ones.
+- ti_7699489507816590605 | isdin tinted mineral sunscreen | Wear sunscreen daily even in clouds and winter; ISDIN's new tinted mineral SPF also repairs sun damage.
+- in_DeWqoSNIDRK | actress plugs a sunscreen | This PhD Beauty sunscreen is backed by global dermatology research and worth trying.
+- ti_7371463703386000682 | sarcastic anti-sunscreen rant | Satirising sunscreen-haters: the 'toxic chemicals' argument is nonsense and skipping sunscreen invites melanoma.
+- in_DaQnZRysSWp | melanoma survivor on sunscreen doubters | Living ten years with melanoma and brain metastases, she urges daily sunscreen, shade and skin checks against the anti-sunscreen trend.
+- in_Ccz_4uJMpnj | sunscreen is toxic misinformation | Claims that sunscreen is toxic are fearmongering; the sun is the number one proven cause of skin cancer.
+- ti_7661714505289829663 | sunscreen doesn't cause cancer | Sunscreen doesn't cause cancer; the scare comes from absorption studies and benzene-contaminated aerosol batches.
+- yo_omY2xMK4ES8 | chemical sunscreen absorbed into blood | Chemical sunscreen filters show up in the blood after one application and linger for weeks, so mineral sunscreen is the safer choice.
+- ti_7688800804135849246 | mineral sunscreen for hyperpigmentation myth | Mineral sunscreen isn't automatically better for hyperpigmentation; broad spectrum, enough of it, and iron-oxide tint for melasma matter mor
+- in_DeeW0K2OH6w | child swimmer's sunscreen | A parent celebrates her daughter's swimming medals and mentions SPF 50 sunscreen for the sun.
+- ti_7680103329631898901 | chemical sunscreen cancer myth | Chemical sunscreens have no link to cancer, they are heavily regulated and have been used safely for decades, while the sun itself causes sk
+- in_Dd9N4_px3Iz | oral polypodium sun protection | Polypodium leucotomos capsules give oral photoprotection by reducing oxidative stress, on top of topical sunscreen.
+- ti_7646566131003608351 | sunscreen and vitamin d myth | Real-world sunscreen use has little to no effect on vitamin D levels, so it's no reason to skip it.
+- ti_7522894645467172109 | no such thing as a safe tan | Everyone needs sunscreen; a base tan is sun damage and skin cancer comes from chronic UV, not just burns.
+- yo_CnohpNL0Pvs | reacting to 'stop using sunscreen' claim | Modern sunscreens are safe and don't cause cancer; the anti-sunscreen 'sun is life' argument is wrong.
+- ti_7672097343973395734 | sunscreen doesn't cause cancer | A review of 29 studies and 313,000 people found no link between sunscreen and skin cancer; UV is the real cause.
+- ti_7694314213216374036 | sunscreen causes cancer myth | Sunscreen does not cause skin cancer; the link is correlation because people who use the most sunscreen also get the most sun.
+- yo_5GYCNHn7OOQ | sunscreen and skin cancer death data | No study shows daily sunscreen lowers skin cancer deaths, and diligent use hasn't changed basal cell carcinoma rates.
+- ti_7702562980759620894 | new bemt filter sunscreen launch | La Roche-Posay's new Anthelios uses the newly approved BEMT filter for broad, lightweight UV protection.
+- ti_7652492472538369310 | three spf myths, shiseido sponsored | UV damages skin on cloudy days, SPF needs reapplying every two hours, and mineral sunscreens can go on clear.
+
+## cluster 25 · 17 videos · median × usual 1.58 · makeable 6 · own 0
+genres: procedure-POV 7, educational-explainer 3, before-after 2, personal journey / diary 2
+- yo__PeVXKAXQ9o | why tattoo laser snaps | The snapping sound of tattoo removal is a photoacoustic effect that shatters ink so the body clears it.
+- yo_6ZUnymb3k-s | one year of tattoo removal | A year of laser sessions visibly fades a tattoo.
+- ti_7542121662032907527 | painful laser tattoo removal session | This was the longest laser tattoo removal session she has sat through.
+- yo_LS_0i57NF7I | what laser tattoo removal looks like | Tattoos can be removed with laser, though it is painful.
+- in_DZDcKLBgDmk | why she's removing all her tattoos | Her style and life changed, so after 14 laser sessions over two years she is still removing every tattoo.
+- ti_7265974461344566560 | first laser tattoo removal session | The first laser tattoo removal session instantly frosts and blisters the ink.
+- yo_cLZlmfJrQds | tattoo removal without numbing | Laser tattoo removal without numbing looks painful; could you handle it?
+- ti_7413708592244739360 | first pico laser tattoo session | A first PicoPlus session frosts a butterfly tattoo instantly.
+- ti_7699431461522296084 | how laser tattoo removal works | Laser pulses shatter tattoo ink into fragments that immune cells clear through the lymphatics over sessions.
+- in_DKVd__vSM7b | two-session cosmetic tattoo procedure | The studio's procedure took two sessions and 12 hours with numbing and leaves skin looking amazing.
+- ti_7073842071576104197 | first laser tattoo removal session | A forearm tattoo frosts white during its first laser removal session.
+- ti_7609812528729771271 | laser tattoo removal clip | Laser tattoo removal breaks ink into smaller particles over a series of sessions until it fades.
+- in_DWNCZZ3gJkQ | laser removal of botched brow tattoo | A client's botched birthday-gift brow microblading was lasered off over months, restoring her eyebrows and self-esteem.
+- in_DZHjIl9ghPd | tattoo laser ink demo in acrylic | A laser shatters tattoo ink into tiny particles that the lymphatic system clears over a series of treatments.
+- in_DUe6rUuD_Xv | laser tattoo removal progress | Laser tattoo removal shows progress session by session.
+- in_DeShR4kvKAJ | getting laser tattoo removal at removery | A client happily gets laser tattoo removal and will still get more tattoos.
+- ti_7575869204880952598 | laser tattoo removal after several sessions | Several laser tattoo removal sessions fade the tattoo dramatically.
+
+## cluster 31 · 17 videos · median × usual 0.39 · makeable 8 · own 1
+genres: brand advertorial / sponsored 6, product-review / drugstore-vs-medical 3, educational-explainer 2, ad / promo 2
+- ti_7484622185009614086 | exosome serum replaced my routine | An exosome serum replaced my whole 10-step routine.
+- yo_MzZkZ2pJgls | what exosomes are | Exosomes are cell-to-cell messages of growth factors that help skin and hair repair, done as a series of three treatments.
+- in_Dd3Cp09OhrP | how exosomes signal skin repair | Exosome vesicles deliver growth factors that tell existing cells to repair and act younger.
+- ti_7616023135418125582 | exosomes as the one product | If you add one product it should be exosomes, which signal cells to make collagen, and Plated's are stable with no expiry.
+- yo_wCG8PpRQ_F8 | exosome microneedling two steps | Exosome microneedling pairs micro-channels with an exosome serum for faster healing and smoother texture.
+- yo_YhtW6cgg8vA | exosome therapy for hair loss | Stem-cell-derived exosomes stimulate dormant follicles and regrow hair in 8-12 weeks with no downtime.
+- yo_LiFmOzE54Vc | exosome skincare rated 1 of 10 | Topical exosomes are overhyped: no reliable evidence they penetrate skin or regenerate it.
+- ti_7624952491741957406 | exosomes in her skincare routine | Exosomes are the best addition to her skincare.
+- ti_7648822225746791693 | reconstituting at-home exosome serum | Mix this stem-cell exosome booster with its syringe and layer it with copper peptides for glowy skin.
+- in_DQW3sq9CBnT | salmon exosome microneedling glow | Microneedling with salmon exosomes plus a greens supplement rebuilt her barrier and glow.
+- yo_MJ8EZ9HVeaE | exosome rf microneedling in korea | Exosomes with RF microneedling in Korea hurt but healed his acne marks fast after a week's recovery.
+- ti_7611712990668131598 | exosomes for reflective glass pores | Cleansing nightly and using exosomes makes pores so tight they reflect light.
+- ti_7597570179974892855 | exosome microneedling at a medspa | Microneedling with exosomes at this medspa keeps her skin clear and glowing.
+- in_DYNBb38sv3i | what exosomes are vs prp | Exosomes are cell messengers that may help healing after lasers or microneedling, but the science is early and they differ from your own PRP
+- ti_7694670927640022294 | what to ask before exosome treatment | Not all exosome treatments are equal: ask where the exosomes come from, since source, quality and regulation vary.
+- ti_7606094212030827790 | exosomes as underrated pore ingredient | Exosomes are the most underrated ingredient for pores.
+- ti_7558952993945685262 | inkey list exosome serum glow | This $22 exosome serum is a facial in a bottle that makes skin glow with or without makeup.
+
+## cluster 22 · 14 videos · median × usual 1.35 · makeable 10 · own 0
+genres: trend-commentary 7, myth-bust 3, brand advertorial / sponsored 1, ad / promo 1
+- yo_3omae7t2VUo | celebrity ozempic face before and after | Celebrities' faces visibly hollowed after GLP-1 weight loss.
+- yo_BBG527GP3yU | celebrity ozempic face before and after | Celebrities' faces visibly hollowed after GLP-1 weight loss.
+- in_DDMltypS_F4 | supplement for ozempic face | A probiotic-enzyme-ashwagandha supplement counters Ozempic's sunken eyes, wrinkles and gut issues.
+- ti_7611595472540683542 | what 'ozempic face' really is | Ozempic face is just fast fat and muscle loss; semaglutide doesn't cause more muscle loss than a normal diet.
+- yo_Xn7K24ReD_Y | celebrities with ozempic face | Sharon Osbourne, Whoopi Goldberg and other celebrities show how rapid GLP-1 weight loss hollows the face.
+- ti_7528457930870492438 | what ozempic face is | Ozempic face comes from rapid non-targeted fat loss, causing a narrow, prematurely aged face plus other side effects.
+- in_DYDF6-ThLCp | ozempic celebrities conspiracy theory | Celebrity plastic surgery and Ozempic aging are a cover for shadow-government clones.
+- ti_7513686894366969144 | preventing ozempic face with injectables | Fast GLP-1 weight loss deflates the face, and starting collagen stimulators and strategic filler early keeps it firm.
+- in_DdTv49lI6-U | celebrity ozempic face aging | Celebrities on GLP-1 drugs look older because they lose muscle and facial volume, so pair the drugs with muscle building and a supportive li
+- yo_B4IDrLPNh3s | ozempic face is rapid weight loss | Ozempic face comes from losing weight fast, not from semaglutide itself.
+- yo_HSwnAh7lr34 | olivia wilde's ozempic face | A celebrity's gaunt look shows GLP-1s can cause starvation-like muscle loss, and prescribers are to blame.
+- yo_qrV2G4MgrIA | is ozempic face real | Rapid weight loss from Ozempic or Wegovy shrinks the face's fat compartments, just like any other weight loss.
+- in_DXJRbkUgfPs | what ozempic face is | Rapid GLP-1 weight loss strips cheek fat, causing hollows, prominent bones and dark circles that look ill; slower loss shows less.
+- yo_r7xTQRWBeoU | ozempic face as muscle loss | Ozempic face is facial muscle and collagen loss, not just fat loss, and creatine helps preserve facial fullness on GLP-1s.
+
+## cluster 9 · 13 videos · median × usual 0.35 · makeable 5 · own 0
+genres: personal journey / diary 4, Q&A / comment-reply 2, trend-commentary 2, derm-reacts / duet / stitch 2
+- ti_7195327536434318635 | why black dermatologists are hard to find | Only about 3% of dermatologists are Black; directories exist, and all derms need training in skin of color.
+- ti_7608339320017014036 | black women excluded from aesthetic clinics | Black women are often turned away or burned by clinics without lasers or protocols for dark skin, which keeps them away from aesthetics.
+- ti_7584463892835798294 | black patients failed by german dermatologists | As a Black woman in Germany, dermatologists kept trialing creams on her daughter's eczema without diagnosing it.
+- yo_43wB5BsopTI | lack of skin-of-color dermatologists | In Mississippi few dermatologists are trained in skin of color, and Black patients are left out of studies.
+- in_DShT5h6kQSM | indian baddies at tyla concert | The West's surprise at 'Indian baddies' shows calibrated inclusion of light-skinned, whiteness-adjacent features.
+- ti_7701741639458458911 | rfk jr claim arabs contribute no science | RFK Jr.'s claim that Arabs don't contribute to science is false, as Arab and immigrant Nobel winners and innovators show.
+- ti_7702224093965471006 | spotlighting arab and immigrant creators | Arab and immigrant creators shouldn't have to prove their worth, so she wants to collaborate with and spotlight them.
+- ti_7702965888223333654 | black girls are pretty affirmation | Black girls are gorgeous.
+- in_CizyLP1gawq | racial disparity in aesthetics industry | Beauty standards in aesthetics have been built around one race, and an industry initiative aims to welcome patients and providers of color.
+- ti_7698542110651256087 | skin of color conference takeaways | Black patients are less often offered isotretinoin and spironolactone, and thiamidol and melasyl are matching hydroquinone for pigment in st
+- ti_7703317117440986398 | indian women's thick hair claim | Thick hair in Indian women isn't explained by a single secret; generalising about a whole group is wrong.
+- in_DEUwiu7uvOv | do derms judge self-harm scars | Dermatologists don't judge patients' scars; they see them often and focus on the concern you came in with.
+- yo_hzUd-2OAcsM | indian women's thick hair claim | Thick hair in Indian women isn't explained by a single secret; generalising about a whole group is wrong.
+
+## cluster 30 · 12 videos · median × usual 1.06 · makeable 3 · own 0
+genres: procedure-POV 5, brand advertorial / sponsored 3, patient-story / testimonial 2, humor / skit 1
+- ti_7591647537308765458 | korean salmon dna facial tested | Korean salmon DNA (PDRN) microneedling leaves skin firmer and more luminous within a week.
+- ti_7531047565815565573 | salmon dna pdrn facial | A PDRN salmon-DNA facial with LED regenerates skin, boosting collagen, hydration and glow from the first session.
+- ti_7638923152340372756 | at-home pdrn booster shot plug | Arencia's PDRN booster gives salmon-DNA-injection-like hydration at home.
+- ti_7662187852771364116 | microneedling with salmon dna | Microneedling plus salmon DNA, LED and a collagen mask regenerates and brightens dull, dehydrated skin.
+- ti_7522657788007304454 | medicube salmon dna pdrn serum | Medicube's PDRN salmon-DNA serum capsules bring the celebrity salmon sperm facial home without injections.
+- in_DcoaboOk08s | salmon sperm pdrn facial | A PDRN salmon-sperm facial pushed in with ultrasound helps repair, hydrate and calm skin.
+- ti_7559327311481425164 | salmon sperm dna cream plug | A Korean salmon-DNA (PDRN) cream rejuvenates skin, boosting collagen and elastin for a youthful glow.
+- ti_7676577123452194079 | trying a salmon sperm pdrn facial | Skin pen microneedling with salmon-DNA polynucleotides supports hydration and repair; results to come.
+- in_De_9qKtBz7U | sourcing your own salmon dna joke | A joke about Rejuran telling a medspa to source its own salmon DNA.
+- in_DFqg8NsAH2m | rejuran salmon dna facial launch | Rejuran PDRN with microneedling and Morpheus8 regenerates collagen, and the medspa is launching it soon.
+- ti_7477463631941094698 | salmon dna injection facial in korea | He got a salmon-sperm DNA facial injected into his face in Korea.
+- ti_7690695640824778015 | salmon pdrn facial with ultrasound | Salmon-derived PDRN pushed in with ultrasound gives skin extra DNA building blocks for tightening and healing.
+
+## cluster 27 · 12 videos · median × usual 1.62 · makeable 7 · own 3
+genres: personal journey / diary 3, patient-story / testimonial 2, educational-explainer 2, procedure-POV 1
+- yo_HF0XeSC6i7Y | fraxel downtime for acne scars | After Fraxel, marks darken for a few days then fade, and pores and ice-pick scars look much smaller by day 10.
+- yo_wePLAxKA8d0 | fraxel peeling days three and four | By day four after Fraxel, the pigment has flaked off, leaving smooth skin with mild redness you can cover with makeup.
+- ti_7524842251575430414 | fraxel healing week, no results | Fraxel took six days to heal and gave her no visible improvement, so it wasn't worth the money.
+- yo_QNxbiHWISbc | fraxel on sun-damaged skin | A series of Fraxel Restore treatments triggers collagen and improves tone and texture in sun-damaged skin.
+- yo_y6OplhNtlPk | fraxel recovery, day by day | Fraxel redness and texture settle day by day as skin renews.
+- in_CmZUVtBJEe4 | fraxel lowers skin cancer risk | Non-ablative Fraxel laser cut the incidence of common skin cancers by about 50% in years of patient data.
+- ti_7341075039938219307 | fraxel benefits for sun damage | Fraxel reverses sun spots and smooths fine lines from sun damage.
+- ti_7503596881885400342 | fraxel recovery week one | Fraxel was painful but after one week her pores look smaller, with the best results at four weeks.
+- yo_MFsPShJuIeE | mini fraxel dual, day by day | A yearly four-pass Fraxel Dual with nine days of healing, followed by hydroquinone, cleared her forehead melasma.
+- yo_IL9xUFaH0BM | fraxel for sun-damaged skin | Fraxel laser resurfaces sun-damaged skin, fading sun spots and smoothing fine lines by stimulating collagen.
+- ti_7666640394821569805 | fraxel 'a little' redness reaction | Being told Fraxel leaves 'a little' redness is an understatement.
+- in_CumsQrqKowf | fraxel indications and recovery | Fraxel gently resurfaces for scars, uneven tone and pores with shorter recovery than CO2: redness the next day and light peeling for about a
+
+## cluster 19 · 10 videos · median × usual 2.25 · makeable 10 · own 9
+genres: procedure-POV 6, ad / promo 3, educational-explainer 1
+- yo_UB1VF611RUA | sclerotherapy for spider and varicose veins | Sclerotherapy injections treat both spider and varicose veins.
+- yo_SFitgjqbtBc | sclerotherapy on spider veins | Polidocanol sclerotherapy collapses spider veins so they fade.
+- ti_7692140297999977759 | sclerotherapy on leg veins | Sclerotherapy makes leg veins vanish as they are injected.
+- ti_7276081818208652586 | sclerotherapy for leg veins | Sclerotherapy with Asclera injections erases visible leg veins.
+- yo_SfHM1IIxJBo | sclerotherapy collapsing leg veins | Polidocanol sclerotherapy makes spider and varicose leg veins collapse and fade.
+- in_DdZgxeDkxq0 | fall is sclerotherapy season | Fall is the ideal time to start a series of three sclerotherapy sessions for spider veins.
+- yo_dfRtatjKmZ0 | sclerotherapy injections for leg veins | Polidocanol injections collapse spider and varicose veins so they fade naturally.
+- ti_7291391360932826410 | sclerotherapy for leg veins | Polidocanol injections make leg veins collapse and fade; 3 sessions 6 weeks apart last 2-3 years.
+- ti_7309578901699759403 | sclerotherapy for leg veins | Sclerotherapy injections collapse spider and varicose leg veins so they fade, without surgery.
+- ti_7349260836860513582 | sclerotherapy veins vanishing | Watch leg veins vanish as sclerotherapy solution is injected.
+
+## cluster 28 · 9 videos · median × usual 0.24 · makeable 9 · own 1
+genres: educational-explainer 3, myth-bust 3, before-after 2, ad / promo 1
+- yo_OfBzVbbnS4g | what sculptra is | Sculptra is an FDA-approved biostimulatory injectable that rebuilds facial volume by stimulating your own collagen over a few sessions.
+- yo_OA2hLHaXTO0 | sculptra in temples and cheeks | Sculptra in the temples, lateral face and buccal area restored volume by building collagen.
+- in_DXPLaKHDGfh | filler vs sculptra difference | Filler gives instant, dissolvable volume lasting 6-12 months while Sculptra builds collagen gradually for a subtler, longer-lasting lift.
+- in_DeNQcHXCOAo | why he's conservative with sculptra | Sculptra's trend oversells it; it causes scar-type collagen, nodules and can complicate a later facelift, so he uses it conservatively.
+- ti_7703280525519244566 | sculptra vs traditional filler | Sculptra stimulates your own collagen over weeks and lasts 2-3 years, giving natural results unlike instant filler.
+- ti_7451324708533931269 | sculptra for collagen loss and laxity | Skin loses about 25% of its collagen by 45, and two Sculptra sessions 45 days apart visibly firmed this patient's skin.
+- yo_5PK_wd0LhjE | sculptra true or false | Sculptra is a biostimulator, not a filler: it builds your own collagen over two sessions and lasts years.
+- ti_7703288251309755662 | sculptra true or false | Sculptra is a biostimulator, not a filler: it builds your own collagen over two sessions and lasts years.
+- yo_C5OPqrhkSvM | how sculptra builds collagen | Sculptra is a PLLA biostimulator that gradually rebuilds collagen for long-lasting volume.

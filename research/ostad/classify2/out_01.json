@@ -1,0 +1,388 @@
+[
+ {
+  "id": "yo_2lpsrhzZdBo",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "subject": "miradry for underarm sweating",
+  "claim": "miraDry is the only permanent, non-surgical, FDA-approved treatment for excessive underarm sweat.",
+  "tone": [
+   "salesy",
+   "clinical"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_BBG527GP3yU",
+  "genre": "trend-commentary",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "celebrity ozempic face before and after",
+  "claim": "Celebrities' faces visibly hollowed after GLP-1 weight loss.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "silent celebrity slideshow; he could only do it as narrated derm commentary on Ozempic face",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7614595069928164616",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "hair botox frizz result",
+  "claim": "Hair botox transforms frizzy hair.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "hair botox, not his field",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_eScGxMogEo0",
+  "genre": "procedure-POV",
+  "format": "text-on-screen only",
+  "hook_type": "visual shock / gross-out",
+  "subject": "foxy eye thread lift footage",
+  "claim": "A thread lift can lift the outer brow into a foxy-eye shape.",
+  "tone": [
+   "clinical",
+   "luxury"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own thread-lift footage",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7615665387404938517",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "acne scar sheets product plug",
+  "claim": "These scar sheets are the best and safest fix for acne scars.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "product plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7511005642602122552",
+  "genre": "personal journey / diary",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "day one on tretinoin for acne marks",
+  "claim": "Starting a tretinoin cream today to see whether it fades my dark acne marks.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "creator's own diary",
+  "audience_reaction": "Commenters argue CO2 laser beats creams, ask which brand, share months-long tretinoin results and push isotretinoin."
+ },
+ {
+  "id": "yo__PeVXKAXQ9o",
+  "genre": "educational-explainer",
+  "format": "voiceover-over-procedure",
+  "hook_type": "curiosity gap",
+  "subject": "why tattoo laser snaps",
+  "claim": "The snapping sound of tattoo removal is a photoacoustic effect that shatters ink so the body clears it.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only if he offers tattoo removal; works for any laser he uses",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_HF0XeSC6i7Y",
+  "genre": "personal journey / diary",
+  "format": "vlog",
+  "hook_type": "before/after reveal",
+  "subject": "fraxel downtime for acne scars",
+  "claim": "After Fraxel, marks darken for a few days then fade, and pores and ice-pick scars look much smaller by day 10.",
+  "tone": [
+   "casual-friend",
+   "reassuring"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "patient diary; he could do Fraxel downtime day-by-day fronted by a patient",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7579031146877553938",
+  "genre": "trend-commentary",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "ariana and selena celebrity clip",
+  "claim": "A celebrity moment with Ariana Grande and Selena Gomez.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "celebrity fan edit, no skin content",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7224307474361355521",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "cosmelan peel melasma two weeks",
+  "claim": "Two weeks after a Cosmelan peel, melasma is dramatically lighter.",
+  "tone": [
+   "reassuring"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own melasma result",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7480964269807340846",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "co2 laser healing diary",
+  "claim": "CO2 laser recovery looks frightening but isn't painful, and the results are incredible.",
+  "tone": [
+   "reassuring",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own CO2 result",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7379293618437377326",
+  "genre": "diagnosis / is-it-X",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "fungal acne on forehead",
+  "claim": "Sudden small red bumps on the forehead and sides of the face may be yeast folliculitis, not acne.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7678470714093014286",
+  "genre": "diagnosis / is-it-X",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "subject": "damaged barrier or just dry",
+  "claim": "Is my rough skin a damaged barrier or dryness, and should I see an esthetician or a dermatologist?",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "he could answer it as a stitch/Q&A",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7672863692672765207",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "medicube product clip",
+  "claim": "A Medicube product shown on camera.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "brand tag, no speech",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7407590020678192426",
+  "genre": "hack / tip",
+  "format": "text-on-screen only",
+  "hook_type": "reaction",
+  "subject": "derm picks for body odor",
+  "claim": "Benzoyl peroxide washes and clinical antiperspirants fix body odor better than regular deodorant.",
+  "tone": [
+   "humor",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "text-over-meme format; fits his miraDry offer",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7477323953317465390",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "basal cell misread as a scar",
+  "claim": "My facial lump was dismissed as a scar and lasered before a biopsy showed basal cell carcinoma needing Mohs.",
+  "tone": [
+   "confessional",
+   "fear/warning"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "if one of his Mohs patients fronts it",
+  "audience_reaction": "Survivors share melanoma and SCC stories and urge second opinions; one asks for before pics, another asks why Mohs is needed for BCC."
+ },
+ {
+  "id": "ti_7649513627237551374",
+  "genre": "red-flag / what-not-to-do",
+  "format": "stitch/duet",
+  "hook_type": "stop doing X",
+  "subject": "at-home 30% tca peel",
+  "claim": "Never do a 30% TCA peel at home: it can burn, scar and badly hyperpigment darker skin.",
+  "tone": [
+   "fear/warning",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7632098556161150228",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "curiosity gap",
+  "subject": "who should not use tretinoin",
+  "claim": "Tretinoin is a prescription drug, not a cosmetic: avoid it in pregnancy, breastfeeding, eczema or rosacea without a doctor.",
+  "tone": [
+   "fear/warning",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7569039933613034783",
+  "genre": "diagnosis / is-it-X",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "subject": "what an hiv rash looks like",
+  "claim": "An early HIV rash shows as pink-red slightly raised spots 2 to 4 weeks after exposure.",
+  "tone": [
+   "clinical",
+   "fear/warning"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "off-brand general-derm topic for a cosmetic practice, but a derm can explain it",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_s9LGR3V8s4o",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "subject": "buccal fat anatomy explained",
+  "claim": "The buccal fat pad is a deep fat pad that doesn't shrink with weight loss and atrophies after the teens.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "surgery he doesn't perform; he could only discuss it as facial-volume context",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7072554279784975621",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "story open",
+  "subject": "fraxel for scarring motivation edit",
+  "claim": "I'm fixing my scarring with Fraxel as part of leveling up.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "motivational diary edit",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7644190061910691103",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "credential open",
+  "subject": "demodex mites on your face",
+  "claim": "Tape-stripped forehead cells show demodex mites, which live in everyone's pores and play a role in rosacea.",
+  "tone": [
+   "humor",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": "Viewers joke in disbelief, make demodex mating jokes about rosacea, and are oddly comforted that the mites don't poop."
+ },
+ {
+  "id": "ti_7693207651529936158",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "contrarian claim",
+  "subject": "medicube booster pro x2 upgrade",
+  "claim": "The Booster Pro X2's dual mode makes the routine faster, not each technology stronger.",
+  "tone": [
+   "salesy",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "paid Medicube partnership",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7681188590465895693",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "subject": "tranexamic acid cream for dark spots",
+  "claim": "This tranexamic acid and niacinamide cream lightens hormonal dark spots and blocks melanin.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "affiliate product plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_Gx9w32bs_N8",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "when clear mohs margins aren't enough",
+  "claim": "For aggressive squamous cell cancers, extra pathology after clear Mohs margins can rule out perineural spread.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ }
+]

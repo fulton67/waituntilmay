@@ -1,0 +1,387 @@
+[
+ {
+  "id": "yo_rQUwC5bxaNE",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "first under-eye prp session",
+  "claim": "Under-eye PRP looks wild right after, but the swelling settles within 24 hours.",
+  "tone": [
+   "casual-friend",
+   "reassuring"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer's own vlog; yes if his patient fronts it",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7201814153789558043",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "lip filler for thin lips",
+  "claim": "Lip filler fixes thin, small lips.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own lip result",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7679608493665488141",
+  "genre": "diagnosis / is-it-X",
+  "format": "carousel",
+  "hook_type": "curiosity gap",
+  "subject": "signs of a damaged barrier",
+  "claim": "Your skincare may not be the problem; these signs mean your skin barrier needs care.",
+  "tone": [
+   "reassuring"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "brand-tagged influencer carousel; he could do the signs list himself",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7596096513655213342",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "credential open",
+  "subject": "derm reacts to viral grwm routine",
+  "claim": "A viral makeup routine has questionable steps, like underdosed sunscreen sticks and spray near the eyes.",
+  "tone": [
+   "humor",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7466994893387205918",
+  "genre": "procedure-POV",
+  "format": "text-on-screen only",
+  "hook_type": "visual shock / gross-out",
+  "subject": "acne extraction session",
+  "claim": "Watch a full session of acne extractions on a patient.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own extraction footage",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7545677695049272577",
+  "genre": "patient-story / testimonial",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "thanking my skin provider",
+  "claim": "I love my skin now, thanks to my provider.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "patient's own thank-you; he'd need his own patient's testimonial",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_7xgmF37srxk",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "compounded copper peptide results",
+  "claim": "Three weeks on this compounded copper peptide serum shows visible before-and-after improvement.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "pharmacy brand ad",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7506339941635411256",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "visual shock / gross-out",
+  "subject": "looksmaxxing jawline satire",
+  "claim": "Six months of looksmaxxing tips gave me this jawline (satire).",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy",
+  "audience_reaction": "Commenters joke 'it's genetics' and 'it's over', defend him, and one warns thumb-pulling is dangerous and suggests chin tucks."
+ },
+ {
+  "id": "in_DeZT04CJS5w",
+  "genre": "diagnosis / is-it-X",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "subject": "naming that bump on your skin",
+  "claim": "Not every bump is a wart or pimple; many common skin lesions look alike but have different causes.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "as his own talking version",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7666406515514936606",
+  "genre": "humor / skit",
+  "format": "vlog",
+  "hook_type": "reaction",
+  "subject": "post-anesthesia patient antics",
+  "claim": "A patient coming out of anesthesia says funny things.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy, dental",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_FxpeyHkf8-4",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "pdo threads as non-surgical facelift",
+  "claim": "PDO threads are a non-surgical facelift.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own thread footage",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7548886361818844429",
+  "genre": "procedure-POV",
+  "format": "vlog",
+  "hook_type": "reaction",
+  "subject": "chiropractic adjustment for disc pain",
+  "claim": "A chiropractic adjustment relieves herniated-disc pain and may avoid back surgery.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "off-topic: chiropractic",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Da1OtWTPRg1",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "reaction",
+  "subject": "toddler baby botox joke",
+  "claim": "My baby has the strongest frown muscles ever.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7557763630754827527",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "body hyperpigmentation product routine",
+  "claim": "Exfoliating pads, kojic soap and brightening lotion will visibly fade body dark spots by December.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer product routine",
+  "audience_reaction": "Viewers joke about the cost, ask whether kojic soap can be an everyday body wash, and recommend other lotions and glycolic body wash."
+ },
+ {
+  "id": "yo_QIrF4sijt-k",
+  "genre": "procedure-POV",
+  "format": "text-on-screen only",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "picoway laser for pigmentation",
+  "claim": "PicoWay's picosecond photoacoustic pulses treat pigmentation without heating the skin.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_N5xEhs9cmjI",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "acne scar treatment result",
+  "claim": "Acne scars and open pores can be treated successfully.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own scar result",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7699489507816590605",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "subject": "isdin tinted mineral sunscreen",
+  "claim": "Wear sunscreen daily even in clouds and winter; ISDIN's new tinted mineral SPF also repairs sun damage.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "paid ISDIN partnership",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7525828334844923149",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "morning after mohs surgery",
+  "claim": "The morning after Mohs for basal cell carcinoma my eye was swollen shut, so wear your sunscreen.",
+  "tone": [
+   "confessional",
+   "humor"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if his Mohs patient fronts it",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7598331725126569238",
+  "genre": "before-after",
+  "format": "voiceover-over-procedure",
+  "hook_type": "promise of a result",
+  "subject": "laser for hyperpigmentation on black skin",
+  "claim": "Low-strength laser sessions fade acne dark spots on Black skin and reduce ingrown hairs; it takes more sessions but works.",
+  "tone": [
+   "reassuring",
+   "clinical"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": "fits his skin-of-color work; needs his own patient",
+  "audience_reaction": "Commenters defend that she is evening her tone, not lightening it, ask whether it hurts, and ask if it works on lighter skin."
+ },
+ {
+  "id": "ti_7672448812593515783",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "subject": "kojie san for body dark spots",
+  "claim": "Kojie San soap fades dark spots and uneven body tone if you moisturize and wear sunscreen.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "product plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7674274384059682061",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "contrarian claim",
+  "subject": "melasma isn't just dark spots",
+  "claim": "Cheek and lip patches are hormonal melasma, which vitamin C and sunscreen alone won't fix; tranexamic acid is the OTC fix.",
+  "tone": [
+   "contrarian",
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "brand-sold routine; he could do the melasma myth-bust without the plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7633755105694616863",
+  "genre": "hack / tip",
+  "format": "skit / acted",
+  "hook_type": "promise of a result",
+  "subject": "glycolic vitamin c rosehip for pits",
+  "claim": "Glycolic acid, vitamin C and rosehip oil will erase deep pitted acne scars at home.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "animated talking-ingredients skit with an overclaim",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7584909662303145238",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "number/stat",
+  "subject": "derm rates viral skincare buys",
+  "claim": "Many hyped products are overpriced or irritating, so drugstore picks often beat a £280 moisturizer.",
+  "tone": [
+   "contrarian",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7453266430474194207",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "subject": "20-product routine wrecking the barrier",
+  "claim": "Layering about 20 products is irritating her barrier; stick to three or four hydrating core products.",
+  "tone": [
+   "clinical",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DB0uOYGhsFx",
+  "genre": "trend-commentary",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "subject": "baby botox in your twenties",
+  "claim": "Preventive Botox in your early 20s may dull how your face feeds emotions back to the brain, so researchers advise against it.",
+  "tone": [
+   "fear/warning",
+   "clinical"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "news piece; he could give his own take on preventive Botox",
+  "audience_reaction": null
+ }
+]

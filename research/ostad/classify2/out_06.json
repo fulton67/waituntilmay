@@ -1,0 +1,393 @@
+[
+ {
+  "id": "ti_7462390289831955720",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "filipino brazilian hair botox plug",
+  "claim": "This Brazilian hair 'botox' straightens and repairs damaged hair, even colored or bleached hair.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "hair 'botox' product plug",
+  "audience_reaction": "Viewers (in Tagalog) say hair felt sticky the next day, ask if it works on colored/rebonded hair, how to buy it and how much."
+ },
+ {
+  "id": "yo_tOEyKi7iE_c",
+  "genre": "skin-cancer-awareness",
+  "format": "voiceover-over-procedure",
+  "hook_type": "story open",
+  "subject": "precancer turning into basal cell",
+  "claim": "A scaly red spot that comes and goes can be an actinic keratosis turning into basal cell carcinoma, visible under the dermatoscope.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Ch42ybohxV4",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "text-on-screen only",
+  "hook_type": "list open",
+  "subject": "indian budget skincare restock list",
+  "claim": "These affordable Indian products (moisturiser, 6% salicylic and more) are worth restocking.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7699157831056084237",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "list open",
+  "subject": "what to expect on minoxidil",
+  "claim": "Minoxidil causes early shedding, takes 4-6 months to judge and only works while you keep using it.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "hair loss is off his core menu",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7371463703386000682",
+  "genre": "humor / skit",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "sarcastic anti-sunscreen rant",
+  "claim": "Satirising sunscreen-haters: the 'toxic chemicals' argument is nonsense and skipping sunscreen invites melanoma.",
+  "tone": [
+   "humor",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "sarcasm confused viewers; a straight myth-bust is the makeable version",
+  "audience_reaction": "Viewers were briefly scared she meant it, some still ask whether to wear sunscreen, others love the humor and warn people are missing the sarcasm."
+ },
+ {
+  "id": "in_DeT5Obzt76m",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "dating red flags, then serum plug",
+  "claim": "Five red flags in a partner, segueing into EPII peptide serum and cream for sagging 'Ozempic face' skin.",
+  "tone": [
+   "humor",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7695918255008959775",
+  "genre": "hack / tip",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "unspecified quick derm fact",
+  "claim": "A short dermatologist fact card ('the more you know').",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "content unknown: no speech, thin caption",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7619466753952746765",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "skincare a derm will splurge on",
+  "claim": "A retinoid, SkinCeuticals CE Ferulic and a good acid toner are the products worth paying for.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_2C-tPaNh5r4",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "emface facial toning result",
+  "claim": "EMFACE lifts and tones the face without needles.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own device result (EXOMIND/Morpheus8 analog)",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_X1h1ms2raLU",
+  "genre": "diagnosis / is-it-X",
+  "format": "vlog",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "seborrheic keratoses vs sweat rash exam",
+  "claim": "The brown back spots are harmless seborrheic keratoses and the red bumps are a sweat rash that needs medicine.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_KsWuD-6aEow",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "clearing 8 years of acne",
+  "claim": "She cleared years of acne and hyperpigmentation to get glass skin.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7357100292686761262",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "pcos 'moon face' to weight loss",
+  "claim": "Replying to a commenter, she shows her face before and after losing weight with PCOS.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": "Commenters argue about normalizing Ozempic for non-essential use, defend her against toxic comments, and GLP-1 users shrug off 'Ozempic face'."
+ },
+ {
+  "id": "in_DDMltypS_F4",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head",
+  "hook_type": "reaction",
+  "subject": "supplement for ozempic face",
+  "claim": "A probiotic-enzyme-ashwagandha supplement counters Ozempic's sunken eyes, wrinkles and gut issues.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "supplement plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_yPfZdXOE0dY",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "stop doing X",
+  "subject": "topical pdrn needs microneedling",
+  "claim": "PDRN applied on bare skin does little; it needs microneedle channels to absorb and regenerate.",
+  "tone": [
+   "contrarian",
+   "clinical"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "he could make it about topical vs injected PDRN/exosomes",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7616615202661895432",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "promise of a result",
+  "subject": "hormonal acne habits to stop",
+  "claim": "For hormonal acne, stop washing with soap and stop picking pimples.",
+  "tone": [
+   "clinical",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7621396784820129055",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "subject": "derm reacts to an overnight routine",
+  "claim": "A maximalist night routine with face compression and dropper-touching is overkill and partly harmful.",
+  "tone": [
+   "humor",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_IYuTJzFlRJM",
+  "genre": "procedure-POV",
+  "format": "vlog",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "asmr facial on a creator",
+  "claim": "A pampering medspa facial is relaxing ASMR content.",
+  "tone": [
+   "luxury"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "ASMR facial on a celebrity; not his service",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_MzZkZ2pJgls",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "credential open",
+  "subject": "what exosomes are",
+  "claim": "Exosomes are cell-to-cell messages of growth factors that help skin and hair repair, done as a series of three treatments.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7541848781734595862",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "subject": "formulating a derm's scalp serum",
+  "claim": "She built her scalp serum from scratch on evidence, research and targeted actives for hair growth.",
+  "tone": [
+   "confessional",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "as the story of formulating LUMA Cream",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7537838561576422686",
+  "genre": "routine",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "skin cycling routine breakdown",
+  "claim": "A curated skin-cycling routine (retinoid nights, exfoliant nights, recovery nights) suits combination, acne-prone skin with dark spots.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": "Viewers praise her skin and ask for the routines in video form."
+ },
+ {
+  "id": "in_DX6oOXZz-TH",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "acne scar progress clip",
+  "claim": "Her acne scars have visibly improved.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "no speech, one-hashtag caption",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_CiFSsP23dPk",
+  "genre": "procedure-POV",
+  "format": "text-on-screen only",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "lumenis laser hair removal",
+  "claim": "The Lumenis laser can be customized for hair removal on all skin types and tones.",
+  "tone": [
+   "clinical",
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own account; better with him on camera",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DbQ48AZtqMs",
+  "genre": "skin-cancer-awareness",
+  "format": "text-on-screen only",
+  "hook_type": "list open",
+  "subject": "what i wish i knew about tanning",
+  "claim": "You're beautiful untanned; protect your skin early because UV damage can't be undone.",
+  "tone": [
+   "reassuring",
+   "fear/warning"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "travel creator's list; the sun-safety points could be his own",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_SedPjMwRLmY",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "lymphatic drainage after liposuction",
+  "claim": "Lymphatic drainage massage isn't required after liposuction but speeds recovery and reduces swelling.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own account",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_jbtdckE7ca8",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "celebrity face prp session",
+  "claim": "Face PRP naturally boosts collagen and reduces wrinkles, as a known actress gets it at the clinic.",
+  "tone": [
+   "salesy",
+   "luxury"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "with his own patient",
+  "audience_reaction": null
+ }
+]

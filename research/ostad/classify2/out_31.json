@@ -1,0 +1,392 @@
+[
+ {
+  "id": "ti_7666640394821569805",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "visual shock / gross-out",
+  "subject": "fraxel 'a little' redness reaction",
+  "claim": "Being told Fraxel leaves 'a little' redness is an understatement.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "patient's comedic reaction clip; he could do a real Fraxel downtime explainer",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702493366419754271",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "subject": "what retinol does for beginners",
+  "claim": "A dermatologist gives simple tips for starting retinol.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "little known: no speech, caption only",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_IHOtQATBPvs",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "subject": "dr jart bakuchiol prejuvenation serum",
+  "claim": "Dr. Jart's bakuchiol and collagen-peptide serum visibly firmed her skin after three weeks.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "brand-paid creator review",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DdwUTS_REqz",
+  "genre": "ad / promo",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "morpheus8 for loose arms after weight loss",
+  "claim": "After gastric sleeve weight loss, Morpheus8 stimulates deep collagen to firm a celebrity's loose arms.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if a patient fronts it; Morpheus8 body is his service",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7106702031414398254",
+  "genre": "diagnosis / is-it-X",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "subject": "nevus sebaceous seen at barber",
+  "claim": "This scalp growth looks like a nevus sebaceous, a benign birthmark; get new or growing ones checked and don't let the barber cut it.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch",
+  "audience_reaction": "Viewers joke it looked like brain or bug; some say relatives share the same spot and one describes theirs flaking off."
+ },
+ {
+  "id": "yo_an_eLQKq-MI",
+  "genre": "skin-cancer-awareness",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "subject": "what happens at a skin cancer screening",
+  "claim": "An annual full-body skin check is quick and simple, from robe to scalp, behind ears, nails and tattoos.",
+  "tone": [
+   "reassuring",
+   "casual-friend"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if a patient fronts his own skin-check walkthrough",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_cTrlbyluz70",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "promise of a result",
+  "subject": "acne scar treatments by type",
+  "claim": "Different acne scar types need different combined treatments (subcision, TCA cross, RF microneedling, CO2); expect 50-80% improvement, not perfection.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7700698252353604886",
+  "genre": "hack / tip",
+  "format": "talking-head + b-roll",
+  "hook_type": "contrarian claim",
+  "subject": "the hair sandwich wash method",
+  "claim": "Conditioning the ends before shampooing the scalp, then conditioning again, protects damaged ends while cleaning a greasy scalp.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "hair care, outside his practice",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_pf-dBwtHZVc",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "curiosity gap",
+  "subject": "why derm office staff look young",
+  "claim": "Everyone in a derm clinic looks young because of the treatments they get.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "lip-sync comedy",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701741639458458911",
+  "genre": "trend-commentary",
+  "format": "talking-head + b-roll",
+  "hook_type": "reaction",
+  "subject": "rfk jr claim arabs contribute no science",
+  "claim": "RFK Jr.'s claim that Arabs don't contribute to science is false, as Arab and immigrant Nobel winners and innovators show.",
+  "tone": [
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "political commentary, not skin",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_CpS_0jopz2L",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "list open",
+  "subject": "cosmetic procedures in skin of color",
+  "claim": "In skin of color, dose injectables for edema risk, use 1064 nm Nd:YAG for hair removal, and salicylic peels are safe.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own talking version; he treats skin of color",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7624952491741957406",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "exosomes in her skincare routine",
+  "claim": "Exosomes are the best addition to her skincare.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer product clip",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DULsQnkDdWC",
+  "genre": "myth-bust",
+  "format": "talking-head + b-roll",
+  "hook_type": "contrarian claim",
+  "subject": "rosacea is dysregulation not sensitivity",
+  "claim": "Rosacea's root problem is vascular and inflammatory dysregulation, not sensitivity, so babying the skin keeps you stuck.",
+  "tone": [
+   "contrarian",
+   "clinical"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": "he'd swap the masterclass plug for his laser approach",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7648822225746791693",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "reconstituting at-home exosome serum",
+  "claim": "Mix this stem-cell exosome booster with its syringe and layer it with copper peptides for glowy skin.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "TikTok Shop product plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7687044902655511822",
+  "genre": "trend-commentary",
+  "format": "voiceover-over-procedure",
+  "hook_type": "story open",
+  "subject": "mushoku tensei anime plot recap",
+  "claim": "Ariel sided with Orsted to secure Asura's future.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "off-topic anime recap (name collision with Ariel)",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7646566131003608351",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "sunscreen and vitamin d myth",
+  "claim": "Real-world sunscreen use has little to no effect on vitamin D levels, so it's no reason to skip it.",
+  "tone": [
+   "contrarian",
+   "reassuring"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DQW3sq9CBnT",
+  "genre": "brand advertorial / sponsored",
+  "format": "vlog",
+  "hook_type": "curiosity gap",
+  "subject": "salmon exosome microneedling glow",
+  "claim": "Microneedling with salmon exosomes plus a greens supplement rebuilt her barrier and glow.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer clinic + supplement plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7194530035880004907",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "skincare mistakes in brown skin",
+  "claim": "For brown and darker skin, avoid too-strong retinol/vitamin C, over-exfoliating and DIY like lemon or toothpaste, which worsen hyperpigmentation.",
+  "tone": [
+   "clinical",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7699211518574988558",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "subject": "clearstem vitamin a supplement vs accutane",
+  "claim": "A brand's acne supplement has about twice the adult upper limit of vitamin A, which can be toxic, while Accutane is safer under supervision.",
+  "tone": [
+   "contrarian",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7522894645467172109",
+  "genre": "myth-bust",
+  "format": "interview / podcast clip",
+  "hook_type": "credential open",
+  "subject": "no such thing as a safe tan",
+  "claim": "Everyone needs sunscreen; a base tan is sun damage and skin cancer comes from chronic UV, not just burns.",
+  "tone": [
+   "clinical",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Cua2TEwJCtr",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "subject": "skin cycling day two routine",
+  "claim": "On skin-cycling day two, double cleanse, tone, then pick retinoid, vitamin C or azelaic acid by concern, then moisturize.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "Indonesian influencer routine",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_8LiyQzwd1rw",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "which peptide for which concern",
+  "claim": "Match peptides to concerns: Matrixyl 3000 for early collagen, acetyl tetrapeptide-40 for redness, tripeptide-38 for lips.",
+  "tone": [
+   "clinical",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "could feature LUMA Cream ingredients",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_DrZv1wnqhjU",
+  "genre": "personal journey / diary",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "rosacea flushing mistaken for sunburn",
+  "claim": "Her red face after a run isn't sunburn, it's type 1 flushing rosacea.",
+  "tone": [
+   "confessional",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "a derm showing her own rosacea; he could do it with a patient",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7564169345987890446",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "credential open",
+  "subject": "derm's layered pm routine",
+  "claim": "Her extra-time PM layering: balm, cleanser, toner, growth factor, retinoid, peptide moisturizer and Aquaphor to seal.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "a young female derm's own face routine; he'd need a LUMA-centered version",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DfABD_yzPOD",
+  "genre": "routine",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "korean shower routine products",
+  "claim": "Her shower products that lasted 6+ months.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer product routine",
+  "audience_reaction": null
+ }
+]

@@ -1,0 +1,390 @@
+[
+ {
+  "id": "in_DZuw2GUgRpE",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "subject": "dark underarms from friction",
+  "claim": "Darkened underarms, groin and elbows are friction hyperpigmentation: fix the cause and use a gentle vitamin C and glutathione brightener like Arencia's.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "Portuguese affiliate plug; the friction-pigment topic itself suits his skin-of-color work",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7551014389130808584",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "what pdrn is",
+  "claim": "A Kurdish creator explains what PDRN is in skincare.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "no speech; Kurdish-language explainer",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7679854320099085589",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "anua pdrn cream after 14 days",
+  "claim": "After 14 days, Anua's PDRN hyaluronic cream left her skin smoother, firmer and plump like glass skin.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer product plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701499302488657183",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "curiosity gap",
+  "subject": "sephora sale cart joke",
+  "claim": "Build your Sephora sale cart and look good while saving money.",
+  "tone": [
+   "humor",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "lip-sync comedy shopping post",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_xGB_oOafxrI",
+  "genre": "Q&A / comment-reply",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "subject": "are lasers safe on black skin",
+  "claim": "Lasers can be safe on Black skin when the right device and settings are chosen.",
+  "tone": [
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "claim inferred from title only; core skin-of-color topic for him",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7576332420383771926",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "vt pdrn range black friday",
+  "claim": "VT Cosmetics' PDRN essence, ampoule and stick balm give glazed glowing skin, up to 70% off on Amazon.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "labeled ad; affiliate plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_C64Iz9bh5If",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "visual shock / gross-out",
+  "subject": "hiv from spa vampire facials",
+  "claim": "Vampire facials at an unlicensed spa transmitted HIV, so PRP, Botox and filler belong only in a doctor's clinic.",
+  "tone": [
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_LiFmOzE54Vc",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "interview / podcast clip",
+  "hook_type": "number/stat",
+  "subject": "exosome skincare rated 1 of 10",
+  "claim": "Topical exosomes are overhyped: no reliable evidence they penetrate skin or regenerate it.",
+  "tone": [
+   "contrarian",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "tension: he offers exosome hair therapy; he could only cover topical vs injected",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DdJWyFAy_hb",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "visual shock / gross-out",
+  "subject": "dentist's facial filler clinic",
+  "claim": "A dentist's clinic offers facial aesthetic fillers; book an appointment.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "transcript is garbled; Indian dentist-injector promo",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_kVYVqN6REWg",
+  "genre": "routine",
+  "format": "text-on-screen only",
+  "hook_type": "list open",
+  "subject": "7 days of skin cycling",
+  "claim": "A week-long skin cycling schedule rotates actives and rest nights.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "faceless influencer routine",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DcbazZHio4C",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "what the mrna melanoma vaccine means",
+  "claim": "The new Moderna mRNA melanoma vaccine is a personalized treatment for high-risk advanced melanoma, not a prevention, so skin checks still matter.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": "Viewers praise him for cutting through the hype and stress the difference between treatment and prevention; some say daily SPF is non-negotiable."
+ },
+ {
+  "id": "ti_7632468903305678111",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "medical grade vs sephora skincare",
+  "claim": "Medical-grade skincare has higher active concentrations, deeper penetration and clinical backing than Sephora products.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "he could make this case for LUMA, though the claim is contested",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_s1FYqIy7n3Y",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "pre-summer laser menu",
+  "claim": "Before summer, vascular laser, Fraxel, PicoWay and Morpheus8 each target redness, sun damage, brown spots and crepiness.",
+  "tone": [
+   "clinical",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeNbRZWMflQ",
+  "genre": "trend-commentary",
+  "format": "talking-head + b-roll",
+  "hook_type": "story open",
+  "subject": "jennifer lawrence buccal fat removal",
+  "claim": "Buccal fat removal would be a mistake for Jennifer Lawrence because facial fat keeps a youthful baby face that ages well.",
+  "tone": [
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701770809500568865",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "question",
+  "subject": "morpheus8 provider meme",
+  "claim": "A French clinic jokes about what she actually does all day, captioned as a Morpheus8 deep-remodeling post.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": false,
+  "makeable_note": "lip-sync meme",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DdHVydJidVU",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "dr ostad gets his own exomind",
+  "claim": "Dr. Ostad practices what he preaches by fitting Exomind TMS sessions into his busy schedule for stress and focus.",
+  "tone": [
+   "casual-friend",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": "Viewers want long-term Exomind results and say the pain-free angle makes them consider a consult."
+ },
+ {
+  "id": "ti_7255012208764144942",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "diamondglow facial",
+  "claim": "A DiamondGlow facial is the most relaxing exfoliating treatment; call to book.",
+  "tone": [
+   "luxury",
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own clinic's video",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DVJEwK3k9Wb",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "celebrity skinvive result",
+  "claim": "A Thai clinic shows a celebrity's SkinVive result, ticking every box.",
+  "tone": [
+   "salesy",
+   "luxury"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own Skinvive patient",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7605327410082434318",
+  "genre": "personal journey / diary",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "getting hair botox in miami",
+  "claim": "Hair 'Botox' fills damaged cuticles to cut frizz and add shine; she walks through the process and price.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "hair botox",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DdCI9zyuvgh",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "why dr ostad chooses jeuveau",
+  "claim": "Dr. Ostad treats every patient like family, listening first for natural results, and chooses Jeuveau.",
+  "tone": [
+   "reassuring",
+   "luxury"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own sponsored Jeuveau spot",
+  "audience_reaction": "Commenters cheer subtle, natural, personalized results; no questions asked."
+ },
+ {
+  "id": "yo_UNoVm2IvsAg",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "underdosed botox at medspas",
+  "claim": "Cheap medspa Botox is often underdosed, so it wears off fast and costs more over time than a full dose at a derm.",
+  "tone": [
+   "contrarian",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DdUprPDEWae",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "emsculpt neo strength",
+  "claim": "Emsculpt NEO builds muscle and reduces fat at once, with no surgery or downtime.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own clinic's video",
+  "audience_reaction": "Viewers are drawn to the muscle-plus-fat angle and say they may book a consult."
+ },
+ {
+  "id": "in_DcUGBbZlRQ6",
+  "genre": "ad / promo",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "introducing exomind tms",
+  "claim": "Dr. Ostad is adding Exomind TMS for mental wellness because stress and inflammation drive skin conditions.",
+  "tone": [
+   "clinical",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": "One viewer asks whether it can cause hallucinations; others praise linking stress and skin and say they'll book."
+ },
+ {
+  "id": "ti_7701441875361729814",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "bespoke facial balancing clinic",
+  "claim": "Patients fly in from around the world for the clinic's tailored facial balancing.",
+  "tone": [
+   "luxury",
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own patients",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeZVJJVpO7K",
+  "genre": "hack / tip",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "choose a moisturizer by skin type",
+  "claim": "Choose moisturizers by skin type: lightweight non-comedogenic for oily skin, ceramides for dry, HA for hydration.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "transcript garbled; claim from caption",
+  "audience_reaction": null
+ }
+]

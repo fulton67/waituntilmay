@@ -1,0 +1,390 @@
+[
+ {
+  "id": "ti_7260493315643165994",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "direct address",
+  "subject": "aging filter sunscreen and botox nudge",
+  "claim": "This is your sign to wear sunscreen daily and get preventative Botox and filler.",
+  "tone": [
+   "humor",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own account; light aging-filter gag",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7703246736516517141",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "how sculptra triggers neocollagenesis",
+  "claim": "Sculptra does not turn into collagen; its poly-L-lactic acid particles trigger fibroblasts to build your own collagen over months.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7496974715827784990",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "dermatologist working mom day vlog",
+  "claim": "No spoken claim; the best part of a dermatologist's work day is coming home to her baby.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "motherhood DIML; his own office DITL would work instead",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_LOPnIRsOBXQ",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "curiosity gap",
+  "subject": "cold-x manufacturing in evolysse filler",
+  "claim": "Evolysse fillers are cross-linked without heat, which preserves the hyaluronic acid chains that heat can fragment.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7698477055096261918",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "reaction",
+  "subject": "sephora sale lip-sync joke",
+  "claim": "No claim; she jokes that the Sephora sale is her Super Bowl.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy lip-sync",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7694314213216374036",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "sunscreen causes cancer myth",
+  "claim": "Sunscreen does not cause skin cancer; the link is correlation because people who use the most sunscreen also get the most sun.",
+  "tone": [
+   "contrarian",
+   "clinical"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702872525847399711",
+  "genre": "hack / tip",
+  "format": "text-on-screen only",
+  "hook_type": "contrarian claim",
+  "subject": "spf as the best anti-aging cream",
+  "claim": "The number one anti-aging cream is daily SPF because it slows photoaging.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702425322297347346",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "subject": "why stress makes skin break out",
+  "claim": "Stress raises inflammation, weakens the barrier and shifts hormones, which is why skin flares, and the clinic's scans track it.",
+  "tone": [
+   "clinical",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_QFwU3hRqVnQ",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "best age to start retinol",
+  "claim": "Technically start retinol at 20, when skin begins losing about 1% of its collagen a year, but starting later still helps.",
+  "tone": [
+   "reassuring",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701519709795077390",
+  "genre": "myth-bust",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "subject": "uneven body pigment is normal",
+  "claim": "Skin is not meant to be one even color; darker elbows, knuckles and mouth areas are normal biology, not a flaw to fix.",
+  "tone": [
+   "reassuring",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "fits his skin-of-color work; as a stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702941412484009247",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "visual shock / gross-out",
+  "subject": "extraction technique done too hard",
+  "claim": "These extractions press too hard with the wrong tools; counter-pressure or two cotton swabs cause less trauma.",
+  "tone": [
+   "humor",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_kQjnKmeFov4",
+  "genre": "red-flag / what-not-to-do",
+  "format": "skit / acted",
+  "hook_type": "list open",
+  "subject": "cosmetic procedures for skin of color",
+  "claim": "Melanin-rich skin needs a conservative choice of devices, so some procedures are a pass and some are safe.",
+  "tone": [
+   "humor",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "judgement call: pass-or-smash meme format, but skin-of-color device choice is his topic",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7459786402021133611",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "overnight collagen gel mask",
+  "claim": "This two-step collagen pad and gel mask gives plumper, firmer skin overnight.",
+  "tone": [
+   "salesy",
+   "luxury"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_bx7818bX9V0",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "curiosity gap",
+  "subject": "chiropractic adjustment reactions",
+  "claim": "No claim; a chiropractic adjustment with a dramatic patient reaction.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "chiropractic, not his field",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7478445364006227205",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "nicole kidman botox and ageism",
+  "claim": "Pressure on actresses to look young leads to Botox that erases the facial expression their roles need, as with Nicole Kidman.",
+  "tone": [
+   "contrarian"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "film-critic version; his own celebrity frozen-face take would be makeable",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7617812077498944790",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "getting a recurring brow mole removed",
+  "claim": "Having a recurring mole shaved off under local means feeling the tugging and smelling cautery, but no pain.",
+  "tone": [
+   "humor",
+   "confessional"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "yes if a patient of his fronts it",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7606094212030827790",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "contrarian claim",
+  "subject": "exosomes as underrated pore ingredient",
+  "claim": "Exosomes are the most underrated ingredient for pores.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer K-beauty plug, no speech",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7477463631941094698",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "visual shock / gross-out",
+  "subject": "salmon dna injection facial in korea",
+  "claim": "He got a salmon-sperm DNA facial injected into his face in Korea.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "only as a derm reaction to PDRN facials",
+  "audience_reaction": "Commenters are shocked and grossed out, joke about fertilizing, and some say he is glowing."
+ },
+ {
+  "id": "yo_GTNHj2OpEkE",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "credential open",
+  "subject": "why overlined lips look off in person",
+  "claim": "Overlined lips can pass in flat, bright photos, but depth and shadow in person reveal the real lip border.",
+  "tone": [
+   "clinical",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "as a stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_Rm3cVpSH_fQ",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "melasma as a blood vessel problem",
+  "claim": "Melasma is not just extra pigment; UV triggers abnormal vascular and inflammatory signals, which is why it keeps coming back.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702943918689717535",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "credential open",
+  "subject": "why overlined lips look off in person",
+  "claim": "Overlined lips can pass in flat, bright photos, but depth and shadow in person reveal the real lip border.",
+  "tone": [
+   "clinical",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "as a stitch; repost of the same video",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7558952993945685262",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "promise of a result",
+  "subject": "inkey list exosome serum glow",
+  "claim": "This $22 exosome serum is a facial in a bottle that makes skin glow with or without makeup.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "paid #AD",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7610558168883678495",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "her microneedling with prp result",
+  "claim": "Microneedling with PRP visibly changed her skin.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer's own face; needs his own patient before/after",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeUZQhWR8ND",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "question",
+  "subject": "nurse alarm clock joke",
+  "claim": "No claim; a nurse lip-sync joke about early alarms.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_dgsnyITW3ng",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "less is more injectable philosophy",
+  "claim": "After 30 years, he believes the best treatment preserves what makes a face recognizable, and sometimes the answer is nothing.",
+  "tone": [
+   "reassuring",
+   "luxury"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ }
+]

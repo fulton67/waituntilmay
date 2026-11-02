@@ -1,0 +1,391 @@
+[
+ {
+  "id": "ti_7703206589930474782",
+  "genre": "hack / tip",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "matching into derm residency",
+  "claim": "Mentorship matters most for matching into dermatology, followed by committing to a long-term interest.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "career advice for med students, not his patient audience",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701448431541308694",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "visual shock / gross-out",
+  "subject": "private jet, pilates, botox lifestyle",
+  "claim": "A luxury lifestyle montage of private jets, Pilates and Botox sells the clinic's aspirational image.",
+  "tone": [
+   "luxury"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "lifestyle montage with rap audio; not his register",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_m-UWVuFDPdk",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "credential open",
+  "subject": "damaged skin barrier recovery routine",
+  "claim": "For a damaged barrier, pause everything and go back to a gentle non-foaming cleanser, moisturizer and sunscreen.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": "derm PA; he could do his own version",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7694429817810324749",
+  "genre": "myth-bust",
+  "format": "text-on-screen only",
+  "hook_type": "contrarian claim",
+  "subject": "pores don't open and close",
+  "claim": "Pores aren't doors: they don't open and close with steam or cold water.",
+  "tone": [
+   "contrarian",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DegKF_qSq-n",
+  "genre": "humor / skit",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "thread lift timed to kids' exams",
+  "claim": "Joke: book your wife's yearly thread lift during the kids' exams so she can't scold them for fear of loosening the threads.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "Indonesian husband-joke comedy",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DCzpo_4TV6s",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "skinpen microneedling asmr and downtime",
+  "claim": "SkinPen microneedling is tolerable with 5-7 days of sunburn-like downtime that peaks on days 1-3.",
+  "tone": [
+   "casual-friend",
+   "reassuring"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": "he'd film it on his own patient",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Dc2DCXxS-k3",
+  "genre": "patient-story / testimonial",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "choosing mohs vs radiation for nasal bcc",
+  "claim": "A patient with a nodular BCC on her nose felt pushed toward Mohs and a forehead flap and sought ultrasound and second opinions first.",
+  "tone": [
+   "confessional",
+   "fear/warning"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction or a patient story he fronts; she is skeptical of Mohs",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701445214468148482",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "polynucleotides plus facial balancing",
+  "claim": "Pairing polynucleotides with facial balancing filler gives a full-face glow in one tailored plan.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own before/after",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7696193874678582559",
+  "genre": "myth-bust",
+  "format": "talking-head + b-roll",
+  "hook_type": "contrarian claim",
+  "subject": "microneedling and prp in your 30s",
+  "claim": "Microneedling is a slow long-term collagen game, so cap it at 3-4 sessions a year, and PRP only helps some people.",
+  "tone": [
+   "contrarian",
+   "confessional"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7667007453183134983",
+  "genre": "procedure-POV",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "radical nephrectomy for kidney tumor",
+  "claim": "A urologist reports finishing a radical nephrectomy, a procedure for kidney tumors common after 60.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "urology, off-topic",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_2Q1FQAGmrkg",
+  "genre": "hack / tip",
+  "format": "talking-head + b-roll",
+  "hook_type": "credential open",
+  "subject": "stop tretinoin peeling",
+  "claim": "Start a low-strength tretinoin every third night, buffer with moisturizer under and over it, and don't rush acclimation.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DWNCZZ3gJkQ",
+  "genre": "patient-story / testimonial",
+  "format": "voiceover-over-procedure",
+  "hook_type": "story open",
+  "subject": "laser removal of botched brow tattoo",
+  "claim": "A client's botched birthday-gift brow microblading was lasered off over months, restoring her eyebrows and self-esteem.",
+  "tone": [
+   "confessional",
+   "reassuring"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "brow artist's PMU removal story; outside his services",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7694756856400448798",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "question",
+  "subject": "derm's morning routine peek",
+  "claim": "A dermatologist shows her morning non-negotiables.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own morning before clinic",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_7BFJbIE76Fc",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "credential open",
+  "subject": "jeuveau times square billboard",
+  "claim": "Dr. Ostad is featured on a Times Square billboard as one of Jeuveau's top providers.",
+  "tone": [
+   "luxury",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7699531851769187598",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "curiosity gap",
+  "subject": "stubborn chin hair in women",
+  "claim": "Recurring coarse chin hair is often hormonal; laser works for dark hair, electrolysis for light hair, and spironolactone can help.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeYE89ksOp4",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "medspa prejuvenation results",
+  "claim": "Starting skin treatments young (prejuvenation) pays off, shown by a before/after.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own before/after",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7650447966053928214",
+  "genre": "personal journey / diary",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "co2 laser recovery day 3",
+  "claim": "Day 3 after CO2 laser the skin feels like sandpaper and red, but a mini-facelift effect already shows.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "patient's own diary; he could only react",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701702329099210015",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "subject": "hydrogen peroxide feet ai slop",
+  "claim": "Hydrogen peroxide foams on anyone's feet because it breaks down into oxygen and water; it doesn't reveal hidden infection.",
+  "tone": [
+   "contrarian",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7695983821174361357",
+  "genre": "hack / tip",
+  "format": "vlog",
+  "hook_type": "promise of a result",
+  "subject": "morning sunlight within an hour of waking",
+  "claim": "Getting morning sunlight within 30-60 minutes of waking is beneficial.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "a sun-exposure tip clashes with a Mohs surgeon's message",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_rYyd4yQIQ6E",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "what ellacor micro-coring is",
+  "claim": "Ellacor removes tiny cores of skin to tighten jowls and loose skin without a facelift, with about 5 days of recovery.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702505992461864223",
+  "genre": "hack / tip",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "azelaic acid with tretinoin",
+  "claim": "Azelaic acid and tretinoin can be combined in a routine.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "no speech; claim inferred from hashtags",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_i-gADSYhHy8",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "morpheus8 for crepey neck",
+  "claim": "Morpheus8 radiofrequency microneedling remodels collagen to smooth fine lines and crepey skin on the neck.",
+  "tone": [
+   "salesy",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own channel; music only",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7686582748986854686",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "credential open",
+  "subject": "three fall skin problems",
+  "claim": "Fall brings sun damage, a weakened barrier and flare-ups, each treated with specific (her own) products.",
+  "tone": [
+   "clinical",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "works with LUMA instead of her line",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DYAlHy_xhMM",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "filler doesn't fully dissolve",
+  "claim": "Cross-linked HA filler doesn't simply reabsorb or dissolve with hyaluronidase; it migrates, persists and can be encapsulated.",
+  "tone": [
+   "fear/warning",
+   "contrarian"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "anti-filler claim; only as a reaction/rebuttal",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7291391360932826410",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "visual shock / gross-out",
+  "subject": "sclerotherapy for leg veins",
+  "claim": "Polidocanol injections make leg veins collapse and fade; 3 sessions 6 weeks apart last 2-3 years.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ }
+]

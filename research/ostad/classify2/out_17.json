@@ -1,0 +1,393 @@
+[
+ {
+  "id": "yo_1SfHKhJvqcU",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "derm rates cosmetic treatments",
+  "claim": "Fat transfer and microneedling rate highest, nose filler is dangerous, and unapproved injectable exosomes rate low.",
+  "tone": [
+   "contrarian",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DbWaZHPgW0f",
+  "genre": "ad / promo",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "luma cream for hyperpigmentation",
+  "claim": "His compounded Luma Cream is custom-calibrated per patient, combining arbutin, a vitamin A derivative and more to treat hyperpigmentation alongside lasers.",
+  "tone": [
+   "clinical",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own product video",
+  "audience_reaction": "Commenters praise the custom, non-generic formula philosophy; some say it won over their skepticism of medical-grade products."
+ },
+ {
+  "id": "ti_7610408140718312725",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "skinvive glowing makeup base",
+  "claim": "SkinVive gives glowing skin that makes makeup last.",
+  "tone": [
+   "luxury"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "Thai influencer beauty clip, no speech",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DXM-HzzDpVz",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "spring chemical peels for skin of color",
+  "claim": "Spring is the window to safely treat hyperpigmentation and scars in darker skin types with low-downtime chemical peels before summer.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": "Commenters say spring timing makes sense, one is finally motivated to treat melasma and a past patient praises the texture result."
+ },
+ {
+  "id": "ti_7699431461522296084",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "visual shock / gross-out",
+  "subject": "how laser tattoo removal works",
+  "claim": "Laser pulses shatter tattoo ink into fragments that immune cells clear through the lymphatics over sessions.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "he'd need his own laser footage; animation channel style",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7661714505289829663",
+  "genre": "myth-bust",
+  "format": "text-on-screen only",
+  "hook_type": "contrarian claim",
+  "subject": "sunscreen doesn't cause cancer",
+  "claim": "Sunscreen doesn't cause cancer; the scare comes from absorption studies and benzene-contaminated aerosol batches.",
+  "tone": [
+   "contrarian",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_NN5aBhZtbIo",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "subject": "nyc derm day with morpheus8 and ultherapy",
+  "claim": "A NYC dermatologist's day runs from a lipoma excision through Morpheus8 and Ultherapy to skin cancer screenings and an evening event.",
+  "tone": [
+   "casual-friend",
+   "luxury"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DefmdGaholx",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "contrarian claim",
+  "subject": "fixing botox eyelid ptosis",
+  "claim": "Every experienced injector has caused eyelid ptosis; pick one who is upfront about it and knows how to treat it.",
+  "tone": [
+   "reassuring",
+   "clinical"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_3Ucrjm7FxDY",
+  "genre": "hack / tip",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "antiperspirant at night and soak-and-smear",
+  "claim": "Apply antiperspirant at night, moisturize within five minutes of showering, and don't sleep with wet hair.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DYDF6-ThLCp",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "curiosity gap",
+  "subject": "ozempic celebrities conspiracy theory",
+  "claim": "Celebrity plastic surgery and Ozempic aging are a cover for shadow-government clones.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "conspiracy content",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7506673733499751686",
+  "genre": "trend-commentary",
+  "format": "talking-head + b-roll",
+  "hook_type": "story open",
+  "subject": "princess diana's rosacea and ipl",
+  "claim": "Princess Diana had rosacea; it has no cure but IPL can reduce the redness and visible vessels.",
+  "tone": [
+   "clinical",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_C3GAPAJu9yK",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "choose a provider not a machine",
+  "claim": "Fall in love with a provider, not a laser brand, and let a trusted dermatologist choose the device.",
+  "tone": [
+   "casual-friend",
+   "contrarian"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": true,
+  "makeable_note": "works well flipped to a derm's voice",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_CrwUF3v4zoA",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "fat grafting for deep acne scars",
+  "claim": "Fat grafting can improve contour and depressed acne scars in selected patients.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own before/after",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7560614838142012694",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "subject": "co2 laser too young or too much",
+  "claim": "CO2 laser helps perioral wrinkles in your 50s and 60s, but done too early or too aggressively it gives a waxy look and pigment problems.",
+  "tone": [
+   "fear/warning",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_C1Cj8sNJc_G",
+  "genre": "brand advertorial / sponsored",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "debbie gibson tries emface",
+  "claim": "After years of touring, Debbie Gibson's 20-minute Emface session tightened and softened her face while she still looks like herself.",
+  "tone": [
+   "casual-friend",
+   "luxury"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "celebrity sponsored post",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_omY2xMK4ES8",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "question",
+  "subject": "chemical sunscreen absorbed into blood",
+  "claim": "Chemical sunscreen filters show up in the blood after one application and linger for weeks, so mineral sunscreen is the safer choice.",
+  "tone": [
+   "fear/warning",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction; he may not share the fear framing",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7694795965651225887",
+  "genre": "red-flag / what-not-to-do",
+  "format": "text-on-screen only",
+  "hook_type": "stop doing X",
+  "subject": "common skincare mistakes",
+  "claim": "A dermatologist shows the skincare mistakes she sees in her practice every day.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "no speech; specifics unknown",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DYDKhFCRykx",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "low-downtime spring treatments",
+  "claim": "Before summer, Botox, precisely placed fillers, lasers and collagen stimulators can refresh skin with minimal downtime.",
+  "tone": [
+   "clinical",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": "Commenters praise his educational content, value minimal downtime and mention booking Clear + Brilliant."
+ },
+ {
+  "id": "ti_7675155374164413727",
+  "genre": "myth-bust",
+  "format": "talking-head + b-roll",
+  "hook_type": "stop doing X",
+  "subject": "only three skincare products you need",
+  "claim": "Stop buying skincare until you have a cleanser, moisturizer and sunscreen; everything else is optional.",
+  "tone": [
+   "contrarian",
+   "clinical"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7688800804135849246",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "stop doing X",
+  "subject": "mineral sunscreen for hyperpigmentation myth",
+  "claim": "Mineral sunscreen isn't automatically better for hyperpigmentation; broad spectrum, enough of it, and iron-oxide tint for melasma matter more.",
+  "tone": [
+   "contrarian",
+   "clinical"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7665739584063474966",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "visual shock / gross-out",
+  "subject": "unknown silent clip",
+  "claim": "No caption, title or speech; content cannot be determined.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "nothing to go on",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DcoaboOk08s",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "curiosity gap",
+  "subject": "salmon sperm pdrn facial",
+  "claim": "A PDRN salmon-sperm facial pushed in with ultrasound helps repair, hydrate and calm skin.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "med spa skit style; he'd do a straight polynucleotide explainer instead",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DbOf1sPBh_7",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "contrarian claim",
+  "subject": "botox can buy happiness",
+  "claim": "Botox and fillers can buy happiness if you find the right doctor.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7598146681695194389",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "hair botox at salon",
+  "claim": "A salon promotes its hair Botox treatment.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "hair 'botox' salon content",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_9Mcdhj93cN4",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "prp hair restoration results",
+  "claim": "A series of three PRP scalp injections transforms hair growth.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own clinic before/after",
+  "audience_reaction": null
+ }
+]

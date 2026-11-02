@@ -1,0 +1,392 @@
+[
+ {
+  "id": "yo_z0HAEQzrvh0",
+  "genre": "personal journey / diary",
+  "format": "talking-head + b-roll",
+  "hook_type": "list open",
+  "subject": "three treatments for postpartum dull skin",
+  "claim": "Microneedling with PRF or exosomes, PRF under-eye injections and SkinVive revived her tired, pigmented postpartum skin.",
+  "tone": [
+   "confessional",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "postpartum personal journey",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_G9Lodog1VDc",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "safe laser results on dark skin",
+  "claim": "Lasers can be safe on darker skin with the right technology in the right hands, as these results show.",
+  "tone": [
+   "reassuring",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own skin-of-color before/after",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DWVnw7MjW81",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "repeat morpheus8 with a friend",
+  "claim": "Morpheus8 builds collagen gradually over weeks for tighter skin and finer pores, so she booked a second session.",
+  "tone": [
+   "casual-friend",
+   "reassuring"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "yes if a patient of his fronts it",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_r7xTQRWBeoU",
+  "genre": "myth-bust",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "subject": "ozempic face as muscle loss",
+  "claim": "Ozempic face is facial muscle and collagen loss, not just fat loss, and creatine helps preserve facial fullness on GLP-1s.",
+  "tone": [
+   "contrarian",
+   "salesy"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "judgement call: his version would cover filler or Sculptra for GLP-1 volume loss, not creatine",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7655450511348436238",
+  "genre": "routine",
+  "format": "talking-head",
+  "hook_type": "promise of a result",
+  "subject": "four steps for natural glow",
+  "claim": "For glow, use retinol, a vitamin C serum, weekly exfoliation and daily sunscreen, then add procedures.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7573183548920696094",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "gen x glp-1 weight-loss glow-up",
+  "claim": "She loves her GLP-1 weight-loss glow-up.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "personal weight-loss journey",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7609778335727537438",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head",
+  "hook_type": "promise of a result",
+  "subject": "bakuchiol cream for sensitive skin",
+  "claim": "If retinol irritates you, this Dr. Jart bakuchiol cream firms and lifts with retinol-like results and no irritation.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "TikTok Shop plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_5GYCNHn7OOQ",
+  "genre": "myth-bust",
+  "format": "interview / podcast clip",
+  "hook_type": "contrarian claim",
+  "subject": "sunscreen and skin cancer death data",
+  "claim": "No study shows daily sunscreen lowers skin cancer deaths, and diligent use hasn't changed basal cell carcinoma rates.",
+  "tone": [
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/rebuttal; the claim is contested",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701364373960346893",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "visual shock / gross-out",
+  "subject": "lips swelling unexpectedly",
+  "claim": "Her lips suddenly swelled into something she didn't recognize, and it was scary.",
+  "tone": [
+   "humor",
+   "fear/warning"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "too little context; likely a filler swelling moment",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7695291915352263957",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "curiosity gap",
+  "subject": "tagalog song lip-sync",
+  "claim": "No claim; a lip-sync to a Tagalog song with no skin content.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "off-topic lip-sync",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702562980759620894",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "credential open",
+  "subject": "new bemt filter sunscreen launch",
+  "claim": "La Roche-Posay's new Anthelios uses the newly approved BEMT filter for broad, lightweight UV protection.",
+  "tone": [
+   "salesy",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "paid partnership",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_CfqAS4As_es",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "why biostimulators instead of injected collagen",
+  "claim": "You can't inject collagen directly, so biostimulators trigger a silent inflammation that makes your cells build collagen for months.",
+  "tone": [
+   "clinical",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7497692421019503915",
+  "genre": "diagnosis / is-it-X",
+  "format": "carousel",
+  "hook_type": "curiosity gap",
+  "subject": "rashes on darker vs lighter skin",
+  "claim": "Erysipelas, coxsackie, tinea versicolor and molluscum look different on darker skin, and clinicians need to know both.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "fits his skin-of-color work",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_aiac-T_A4LY",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "medical grade as a marketing term",
+  "claim": "Medical-grade is a sales term rather than a real category, and drugstore products like Vanicream are just as good.",
+  "tone": [
+   "contrarian",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer bathroom chat; the message also undercuts his medical-grade line",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7652492472538369310",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "list open",
+  "subject": "three spf myths, shiseido sponsored",
+  "claim": "UV damages skin on cloudy days, SPF needs reapplying every two hours, and mineral sunscreens can go on clear.",
+  "tone": [
+   "salesy",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "sponsored; an unsponsored SPF-myths video would be makeable",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_rCgcaKLzOXc",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "co2 vs fractional laser downtime",
+  "claim": "Fully ablative CO2 gives the biggest result with about two weeks down, while lighter fractional lasers need more sessions with less downtime.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701841365264502047",
+  "genre": "diagnosis / is-it-X",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "five signs a rash is an emergency",
+  "claim": "A rash is an emergency if it involves eyes, mouth or genitals, blisters or sloughs, swells the face, comes with fever, or doesn't blanch under a glass.",
+  "tone": [
+   "fear/warning",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702948061500296478",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "kybella recovery for double chin",
+  "claim": "Kybella works for double chin in the right candidate, but most people don't know about the recovery.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7703311152062795039",
+  "genre": "hack / tip",
+  "format": "talking-head + b-roll",
+  "hook_type": "promise of a result",
+  "subject": "glycerin mist for dry winter skin",
+  "claim": "As the air dries, carry a water-and-glycerin mist, use a humidifier and layer in hydration without dropping your pigment treatment.",
+  "tone": [
+   "casual-friend",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DejWG6eSOLB",
+  "genre": "ad / promo",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "thermafrax user meeting invite",
+  "claim": "Come to the Istanbul user meeting on combining Thermage and Fraxel.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "trade-event invite",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7703303865298439437",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "reaction",
+  "subject": "patients counting down under anesthesia",
+  "claim": "No claim; a compilation of patients counting down as anesthesia takes hold.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy compilation",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_coOLlIyTe6M",
+  "genre": "humor / skit",
+  "format": "interview / podcast clip",
+  "hook_type": "question",
+  "subject": "staff guess what prejuvenation means",
+  "claim": "Staff guesses at prejuvenation land on preventive skincare and anti-aging maintenance.",
+  "tone": [
+   "humor",
+   "casual-friend"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "judgement call: light staff-quiz format he could run in his office",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_CmCVNT7gFUR",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "clinic team holiday party",
+  "claim": "No spoken claim; the full clinic team celebrating together.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own office team moment",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7665777666125040914",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "nose scar two months after mohs",
+  "claim": "Two months after facial skin cancer surgery her wounds healed well, she uses silicone tape, but she's sure her nostril looks bigger.",
+  "tone": [
+   "confessional",
+   "humor"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "yes if a Mohs patient of his fronts it",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702106541251415310",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "prejuvenation buzzword explained",
+  "claim": "Prejuvenation means starting Botox and light treatments in your 20s, and repeated Botox can weaken muscles so you need it less often.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ }
+]

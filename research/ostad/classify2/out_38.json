@@ -1,0 +1,394 @@
+[
+ {
+  "id": "in_DNC7iq7ozjX",
+  "genre": "procedure-POV",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "subject": "removing seven lipomas on lunch break",
+  "claim": "Lipomas can be removed under local anesthetic in a lunch break, with a week off the gym and a two-week check.",
+  "tone": [
+   "reassuring",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DfEsyC2zm1E",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "that-girl morning routine with medicube",
+  "claim": "No spoken claim; a soft-life morning skincare clip tagging Medicube.",
+  "tone": [
+   "luxury"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "UGC lifestyle advertorial",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_CumsQrqKowf",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "fraxel indications and recovery",
+  "claim": "Fraxel gently resurfaces for scars, uneven tone and pores with shorter recovery than CO2: redness the next day and light peeling for about a week.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702589274998279455",
+  "genre": "trend-commentary",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "subject": "long midface trend is bone",
+  "claim": "No cosmetic procedure changes midface length because it is set by bone, so face-shape trends are dangerous.",
+  "tone": [
+   "contrarian",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "as a stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DOPJTX8Dm3U",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "best aesthetic procedures in your 30s",
+  "claim": "In your 30s, prejuvenation shifts toward rejuvenation: lasers, IPL and peels for sun and collagen loss, plus Botox and early filler.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "he could run his own decade series",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7699266159710948639",
+  "genre": "diagnosis / is-it-X",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "bleeding pimple that won't heal",
+  "claim": "A pimple that grows for weeks, bleeds or has not healed in six weeks may be basal cell carcinoma and should be checked.",
+  "tone": [
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7576415011992505613",
+  "genre": "brand advertorial / sponsored",
+  "format": "vlog",
+  "hook_type": "promise of a result",
+  "subject": "emface non-surgical facelift visit",
+  "claim": "EMFACE combines RF and muscle stimulation to lift and reduce wrinkles in 20 minutes without needles.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer medspa plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_0rpuCBMS6H8",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "curiosity gap",
+  "subject": "calm, low-cortisol office design",
+  "claim": "The practice's space is designed to put patients at ease from the moment they arrive.",
+  "tone": [
+   "luxury",
+   "reassuring"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own Park Avenue office tour",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7416077003754851592",
+  "genre": "ad / promo",
+  "format": "talking-head",
+  "hook_type": "promise of a result",
+  "subject": "prejuvenation before wrinkles appear",
+  "claim": "Prejuvenation means starting treatment before wrinkles set in so they never form.",
+  "tone": [
+   "salesy",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702088672371395870",
+  "genre": "myth-bust",
+  "format": "stitch/duet",
+  "hook_type": "contrarian claim",
+  "subject": "facial exercises don't lift faces",
+  "claim": "Facial exercises make no anatomical sense: working the lip elevators won't pull the face back or add volume.",
+  "tone": [
+   "contrarian",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "as a stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702564815985855774",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "credential open",
+  "subject": "cellulite oil product claims",
+  "claim": "Cellulite is normal, oils don't fix it and pores don't open after showers; only procedures help, and modestly.",
+  "tone": [
+   "humor",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "as a stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_YM5aN9lEg9o",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "cosmetic derm day with boba run",
+  "claim": "No spoken claim; a young cosmetic dermatologist's day of work, shopping and winding down.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "lifestyle DITL; his own office DITL would work instead",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7691725883886882061",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "first derm vlog without patients",
+  "claim": "No spoken claim; a dermatologist's first day-in-the-life vlog, minus patient visits.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "judgement call: works as his own office day",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7608645156656532754",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "laser hair removal on black skin",
+  "claim": "Tanned skin should never be lasered, but naturally dark skin can be treated safely with the right laser, such as Nd:YAG.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "fits his skin-of-color laser work",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_De9G8qOS-1p",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "pdrn elixir night routine plug",
+  "claim": "This salmon-milk PDRN elixir now completes her night routine alongside collagen gummies.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "product plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7616719863125544213",
+  "genre": "brand advertorial / sponsored",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "skinvive at her trusted derm",
+  "claim": "Once you find a dermatologist you trust you stay, and SkinVive gave her hydrated, glowing skin.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "yes if a patient of his fronts it",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7562274506782412045",
+  "genre": "procedure-POV",
+  "format": "talking-head + b-roll",
+  "hook_type": "story open",
+  "subject": "masseter jeuveau to slim lower face",
+  "claim": "A 27-year-old who asked for cheek filler got masseter Jeuveau first, because clenching was widening her lower face.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_CzeR3R5xpBQ",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "subject": "co2 laser melting face downtime",
+  "claim": "The melting face is normal after ablative CO2, which gives dramatic results with one to two weeks of downtime.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "as a stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeHkZN3xvlE",
+  "genre": "hack / tip",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "helping kids read by talking",
+  "claim": "Parents who can't read can still prepare children for school by talking with them every day.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "off-topic parenting video",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_c3XgtmEWpyA",
+  "genre": "patient-story / testimonial",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "morpheus8 regret and volume loss",
+  "claim": "She spent thousands on Morpheus8 packages and got no tightening, and lost facial volume instead.",
+  "tone": [
+   "confessional",
+   "fear/warning"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "only as a reaction/stitch explaining who Morpheus8 suits",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7489447841786514731",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "what emface feels like",
+  "claim": "EMFACE doesn't hurt; it feels like strong twitching muscle contractions, and her skin felt tighter after one session.",
+  "tone": [
+   "casual-friend",
+   "reassuring"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "yes if a patient fronts it",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_6tvuuW_QK3k",
+  "genre": "ad / promo",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "are lasers safe for dark skin",
+  "claim": "Lasers can be safe for the darkest skin tones if you ask the provider which lasers they use and how much experience they have with your skin.",
+  "tone": [
+   "reassuring",
+   "salesy"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701491170978843934",
+  "genre": "routine",
+  "format": "text-on-screen only",
+  "hook_type": "list open",
+  "subject": "azelaic, tretinoin, spf, zinc barrier routine",
+  "claim": "Her routine rests on azelaic acid, tretinoin, daily SPF and a zinc barrier cream to stop retinoid peeling.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "works with LUMA Cream in place of the barrier step",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7484296928247778603",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "why she skips drugstore recommendations",
+  "claim": "She won't recommend drugstore skincare because medical-channel products penetrate deeper and are clinically proven.",
+  "tone": [
+   "contrarian",
+   "casual-friend"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "a derm could make it with LUMA Cream",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7690695640824778015",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "visual shock / gross-out",
+  "subject": "salmon pdrn facial with ultrasound",
+  "claim": "Salmon-derived PDRN pushed in with ultrasound gives skin extra DNA building blocks for tightening and healing.",
+  "tone": [
+   "humor",
+   "clinical"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "he would need to temper the Lego claims",
+  "audience_reaction": null
+ }
+]

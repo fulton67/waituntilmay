@@ -1,0 +1,396 @@
+[
+ {
+  "id": "in_DRlYuyVDOIp",
+  "genre": "brand advertorial / sponsored",
+  "format": "interview / podcast clip",
+  "hook_type": "story open",
+  "subject": "actress's face-shape care with emface",
+  "claim": "An actress credits stimulating facial muscles (with sponsored EMFACE) for keeping a defined face shape and short midface.",
+  "tone": [
+   "casual-friend",
+   "luxury"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "celebrity advertorial in Korean",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_ux0pyNsuMis",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "melanoma warning signs to check",
+  "claim": "Melanomas are often asymmetric, multicoloured, larger than 6 mm or changing, so check your skin and see your GP.",
+  "tone": [
+   "clinical",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7345169318260395306",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "botox wrinkle result",
+  "claim": "Botox gives visibly smoother results.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own account; needs a clearer reveal",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_jRi_qk8vNdM",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "why annual skin checks matter",
+  "claim": "Annual skin exams catch skin cancer early, when it is easy to treat and cure.",
+  "tone": [
+   "clinical",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_UdcrMc1UhF8",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "rosacea and vascular laser treatment",
+  "claim": "Rosacea is common facial redness with breakouts, and a three-session vascular laser series clears it with a day or two of redness.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7558108203179838734",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "medical-grade vs drugstore skincare",
+  "claim": "Medical-grade skincare has peer-reviewed studies and proven results that Sephora and Ulta brands lack, so buy it from the clinic.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": "pitch for clinic products; he could do it for LUMA Cream",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DSBQQT5EY3c",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "subject": "renuvion for loose upper-arm skin",
+  "claim": "Renuvion tightens loose upper-arm skin by 50-60% through tiny incisions, an alternative to surgery.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "he doesn't offer Renuvion; could do a body-laxity version with what he has",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DdmFXlPjdJl",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "why plastic surgeons hate filler",
+  "claim": "Filler isn't the problem, overuse is; small strategic amounts, lasers or surgery should follow the anatomy, not the trend.",
+  "tone": [
+   "contrarian",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": "Viewers praise it as a refreshing, restrained take against the 'filler is bad' narrative."
+ },
+ {
+  "id": "in_Dd9N4_px3Iz",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "curiosity gap",
+  "subject": "oral polypodium sun protection",
+  "claim": "Polypodium leucotomos capsules give oral photoprotection by reducing oxidative stress, on top of topical sunscreen.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7690660448974163222",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "promise of a result",
+  "subject": "skintific four-step glass skin",
+  "claim": "Four Skintific steps give smooth, glassy, glowing skin.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer sponsored routine",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_c_FMAbuYPYs",
+  "genre": "procedure-POV",
+  "format": "talking-head + b-roll",
+  "hook_type": "contrarian claim",
+  "subject": "how he assesses a face for neurotoxin",
+  "claim": "He reads the whole face's muscle movement and symmetry before choosing where and how much neurotoxin to inject, under-treating the forehead.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DbTrDB3iad7",
+  "genre": "trend-commentary",
+  "format": "talking-head + b-roll",
+  "hook_type": "contrarian claim",
+  "subject": "what bella hadid has had done",
+  "claim": "Bella Hadid's sculpted look likely comes from a mix of jaw/chin work, masseter Botox, a brow lift, rhinoplasty and lip filler.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7699174703377796383",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "why botox stops working",
+  "claim": "Botox seeming to stop working is usually handling/dilution, needing a higher dose or ongoing aging; true antibody resistance is under 1%.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DUe6rUuD_Xv",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "laser tattoo removal progress",
+  "claim": "Laser tattoo removal shows progress session by session.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "patient's own progress clip",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7698152057424874765",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "nyc derm's saturday off",
+  "claim": "A NYC dermatologist's Saturday: dog walk, bagels, an at-home mask regimen and an Allure beauty event.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "lifestyle vlog of a young derm; he could do a practice-day version",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7624299226431753503",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "reaction",
+  "subject": "head medical assistant bosses the office",
+  "claim": "The head MA runs the office, even over the doctor.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy skit",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeShR4kvKAJ",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "getting laser tattoo removal at removery",
+  "claim": "A client happily gets laser tattoo removal and will still get more tattoos.",
+  "tone": [
+   "casual-friend",
+   "humor"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "patient's own clip; not a service he features",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701023150695402774",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "promise of a result",
+  "subject": "rhute bond repair hair launch",
+  "claim": "Rhute's bond repair treats all three hair bond types with AI-engineered peptides and protects against heat and UV.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer's own haircare brand launch",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7309578901699759403",
+  "genre": "ad / promo",
+  "format": "voiceover-over-procedure",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "sclerotherapy for leg veins",
+  "claim": "Sclerotherapy injections collapse spider and varicose leg veins so they fade, without surgery.",
+  "tone": [
+   "clinical",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own account",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7699906190259637518",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "promise of a result",
+  "subject": "dollar tree double-cleanse products",
+  "claim": "Dollar Tree's $2.50 cleansing oils and balm double-cleanse fine; pick any and follow with a gentle cleanser.",
+  "tone": [
+   "casual-friend",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "judgement call: a dollar-store haul is off-brand for Park Avenue",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7698873653345258766",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "3 treatments a derm wouldn't buy",
+  "claim": "As a derm she wouldn't spend money on threading, superficial chemical peels or RF microneedling.",
+  "tone": [
+   "contrarian",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own list; RF microneedling is one he offers",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DUTSmNmk-Ho",
+  "genre": "brand advertorial / sponsored",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "luxury prp facial at indore clinic",
+  "claim": "A luxury Indore clinic made her PRP facial a pampering experience with a pedicure during numbing.",
+  "tone": [
+   "luxury",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer clinic plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7539328282848742669",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "glp1 weight loss transformation",
+  "claim": "A $83/month GLP-1 program gets you this transformation.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": false,
+  "makeable_note": "GLP-1 telehealth promo, not his field",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7587811885047647521",
+  "genre": "brand advertorial / sponsored",
+  "format": "vlog",
+  "hook_type": "promise of a result",
+  "subject": "gifted co2 laser for facial scars",
+  "claim": "A gifted CO2 laser at a clinic clears facial scars within a week; scary but worth it.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "gifted influencer vlog; he could do his own CO2 POV",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7562643009200868629",
+  "genre": "personal journey / diary",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "sculptra swelling after treatment",
+  "claim": "She had severe swelling after Sculptra and couldn't do the massage, but it got better.",
+  "tone": [
+   "confessional",
+   "casual-friend"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "patient diary; he could answer it as a Q&A on Sculptra swelling",
+  "audience_reaction": null
+ }
+]

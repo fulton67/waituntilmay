@@ -1,0 +1,388 @@
+[
+ {
+  "id": "in_DZZ1nChs7Y_",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "mederma gel for old scars",
+  "claim": "Mederma advanced gel fades accident, burn, pregnancy and old pimple scars.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "Marathi product plug; transcript garbled",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7560091921096428818",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "subject": "how mohs surgery works",
+  "claim": "Mohs surgery removes skin cancer layer by layer under the microscope with up to 99% cure while sparing healthy skin.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "core to him as a Mohs surgeon",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_pQyR8igcngw",
+  "genre": "procedure-POV",
+  "format": "text-on-screen only",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "cosmetic derm injection montage",
+  "claim": "This is what everyday cosmetic dermatology with fillers and Botox looks like.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own procedure footage",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702617865907735839",
+  "genre": "hack / tip",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "subject": "wash your face every night",
+  "claim": "After puberty, wash your face every night; very dry, makeup-free skin may only need water, otherwise a gentle cleanser or double cleanse.",
+  "tone": [
+   "clinical",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "hook unknown (no speech)",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_gVO6AkhjWtA",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "story open",
+  "subject": "parody ad for baby botox on babies",
+  "claim": "Satire: a fake ad pitches 'Baby Botox' for actual babies to mock preventative Botox culture.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy sketch",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_8xyZmzYVG38",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "abcdes of melanoma self-check",
+  "claim": "Use the ABCDEs (asymmetry, border, color, diameter, evolution) to tell a mole from melanoma.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7437697248810732846",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "subject": "derm office tour by assistants",
+  "claim": "A walk-through of a dermatology practice's shop, cosmetic side and medical floor.",
+  "tone": [
+   "casual-friend",
+   "humor"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "his Park Avenue office tour, fronted by staff or him",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7628273863826214157",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "unexplained skin reveal clip",
+  "claim": "A short trend-audio clip with a shocked reveal.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "almost no information: no caption, music only",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DejbSa2Ns09",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "subject": "miracle melasma serum ad",
+  "claim": "This 'FDA-certified' serum breaks down melanin and clears dark spots in three days.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "dubious dropship ad",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_FfwvExuYwCI",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "back acne scar treatment result",
+  "claim": "Severe back acne scarring on a male patient improved with treatment.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own account",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7397658518142094612",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "the most important skincare ingredient",
+  "claim": "Vitamin A is the most important skincare ingredient; start beginners on gentle retinaldehyde to avoid irritation.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7665898795682598175",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "contrarian claim",
+  "subject": "derm reacts to a 25-step morning",
+  "claim": "A 25-product morning routine is not normal: no need to double cleanse after sleep, and the supplements are probably no better than a balanced diet.",
+  "tone": [
+   "humor",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7591565622895545622",
+  "genre": "hack / tip",
+  "format": "text-on-screen only",
+  "hook_type": "list open",
+  "subject": "how to repair your skin barrier",
+  "claim": "Stop all actives, including retinoids, until a damaged barrier heals, and keep the routine simple.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": true,
+  "makeable_note": "as his own barrier-repair list",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_X-oapPILip4",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "how filler changes a face",
+  "claim": "Filler subtly reshapes lips and face in a before/after reveal.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own before/after",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_CsivYszgy1e",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "before/after reveal",
+  "subject": "skin cycling, day by day",
+  "claim": "A four-night skin cycle of exfoliant, retinol and two hydration nights showed results in a week.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_s8ZHpSY9EIw",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "stitch/duet",
+  "hook_type": "contrarian claim",
+  "subject": "best budget drugstore retinoids",
+  "claim": "Nothing beats a retinoid, and cheap drugstore options cover sensitive skin, texture, anti-aging and body.",
+  "tone": [
+   "contrarian",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_N_doIjxVHtU",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "promise of a result",
+  "subject": "aviclear laser for acne",
+  "claim": "AviClear laser targets oil glands for Accutane-like acne results without the side effects.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own account",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_caZLyD7DV4M",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "a london dermatologist's day",
+  "claim": "A 39-year-old dermatologist's day starting a new hospital job in London.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his Park Avenue version",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DTJaWNUEjUE",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "reaction",
+  "subject": "derm joins a self-esteem trend",
+  "claim": "A Brazilian aesthetic doctor joins a trend to say self-esteem is her focus.",
+  "tone": [
+   "humor",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "trend participation",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DWAkjaLAsoe",
+  "genre": "trend-commentary",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "oscars red-carpet ageless skin",
+  "claim": "Oscar-night skin shows ageless 'skin longevity' is the goal.",
+  "tone": [
+   "luxury"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "as his own red-carpet skin commentary; content unclear (no speech)",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DejZO15tLjl",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "purito panthenol barrier cream",
+  "claim": "Purito's bamboo panthenol cream repairs the skin barrier.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DZcyP_1TAZK",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "brighter underarms without lasers",
+  "claim": "Underarm darkness comes from shaving friction; wax and use a vitamin C plus glutathione serum instead of lasers.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeuANSSg2dG",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "non-surgical acne scar options",
+  "claim": "The right non-surgical acne scar treatment depends on your scar type.",
+  "tone": [
+   "clinical",
+   "luxury"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7592013281682885918",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "asking for a caring nyc derm",
+  "claim": "After Accutane and spironolactone, she wants NYC viewers to recommend a dermatologist who truly cares.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "only as a stitch reply, where he answers as a NYC derm",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7602647587073707295",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "contrarian claim",
+  "subject": "pico laser prejuvenation",
+  "claim": "Pico lasers build collagen and correct pigment with pressure, not heat, so no burning or downtime.",
+  "tone": [
+   "salesy",
+   "contrarian"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ }
+]

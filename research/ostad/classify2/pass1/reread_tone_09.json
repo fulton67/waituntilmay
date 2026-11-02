@@ -1,0 +1,726 @@
+[
+ {
+  "id": "yo_1kKMuJ0-QOs",
+  "platform": "youtube",
+  "source": "search",
+  "creator": "TheDailyDerm",
+  "followers": 286000,
+  "duration_s": 44.0,
+  "title": "Do NOT scrape off blackheads!",
+  "caption": "Scraping blackheads causes inflammation, enlarged pores, and hyperpigmentation. Instead, clear dead skin buildup and prevent new blackheads by consistently using Adapalene gel over a few weeks.\n\nBrought to you by  @cerave .",
+  "on_screen_hook": "",
+  "transcript_status": "captions",
+  "transcript": "If you have blackheads on your nose, you see these and you think you might just scrape it off yourself. Don't. You're actually making them worse. See, when dead skin cells and debris get mixed with your skin's oil, they clump together and start building up inside the pore. When that build-up reaches the surface and gets exposed to air, you get these dark, raised blackheads. So, when you grab one of these to scrape those spots away, you're doing more harm than good. You actually risk more skin inflammation, larger pore appearance, and a higher chance of hyper pigmentation. Instead, use a topical retinoid. It helps regulate how cells lining your pore behave, reducing blackhead formation. And the most important part, give it time. After several weeks of consistent use, then you'll start seeing results.",
+  "top_comments": [],
+  "current": {
+   "genre": "red-flag / what-not-to-do",
+   "format": "talking-head + b-roll",
+   "hook_type": "stop doing X",
+   "subject": "don't scrape blackheads",
+   "claim": "Scraping blackheads causes inflammation, bigger pores and pigmentation; use a topical retinoid for several weeks instead.",
+   "tone": [
+    "fear/warning",
+    "clinical"
+   ],
+   "speaker": "doctor",
+   "makeable_by_ostad": true,
+   "makeable_note": null,
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "ti_7699675035799227679",
+  "platform": "tiktok",
+  "source": "benchmark",
+  "creator": "verna_glow",
+  "followers": 18400,
+  "duration_s": 57,
+  "title": "",
+  "caption": "#pimplepopping #dermatology #acne ",
+  "on_screen_hook": "",
+  "transcript_status": "no_speech",
+  "transcript": "",
+  "top_comments": [],
+  "current": {
+   "genre": "procedure-POV",
+   "format": "text-on-screen only",
+   "hook_type": "visual shock / gross-out",
+   "subject": "pimple extraction close-up",
+   "claim": "A close-up of an acne lesion being extracted.",
+   "tone": [
+    "clinical"
+   ],
+   "speaker": "other",
+   "makeable_by_ostad": true,
+   "makeable_note": "possible with his own extraction footage",
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "in_DePPSf2u82Z",
+  "platform": "instagram",
+  "source": "search",
+  "creator": "nipunkapur",
+  "followers": null,
+  "duration_s": 48,
+  "title": "",
+  "caption": "Comment “ROUTINE” to get the exact 7-day blueprint for closed comedones sent straight to your DMs! 📩✨\nTired of those stubborn, tiny skin-colored bumps that refuse to go away under your makeup? Closed comedones are notoriously difficult to treat because they sit deep within the pores, standard spot treatments barely touch them, and throwing random products at your face usually just leads to a damaged skin barrier.\nThe secret to clearing texture isn’t using every heavy hitter at once—it’s strategi",
+  "on_screen_hook": "",
+  "transcript_status": "whisper",
+  "transcript": "If your forehead looks like this, your cheeks look like this or like this, then stop using salicylic acid with niacinamide because what you have are closed comodones. They are actually a form of acne. So your salicylic acid cannot work alone and it needs a partner and that is acylic acid. So on clean dry skin, you will first apply your salicylic acid serum. Focus on the areas where you have the comodones. Wait for it to dry completely. Now go in with your acylic acid serum or suspension and moisturize after. You can use this twice or thrice a week, but for maximum results, I recommend my dedicated routine, which I will share with you. Comment below and hit the follow button for clear skin.",
+  "top_comments": [],
+  "current": {
+   "genre": "hack / tip",
+   "format": "talking-head + b-roll",
+   "hook_type": "stop doing X",
+   "subject": "salicylic plus azelaic for closed comedones",
+   "claim": "Closed comedones need salicylic acid paired with azelaic acid, not niacinamide, applied two or three times a week.",
+   "tone": [
+    "clinical",
+    "salesy"
+   ],
+   "speaker": "influencer",
+   "makeable_by_ostad": true,
+   "makeable_note": "the tip suits a derm; this version is a creator funnelling to DMs",
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "yo_Br2Buug_Y08",
+  "platform": "youtube",
+  "source": "own",
+  "creator": "drarielostad",
+  "followers": 2240,
+  "duration_s": 44.0,
+  "title": "Aquagold for Skin Rejuvenation!",
+  "caption": "💉✨ AQUAGOLD® Fine Touch: Microinfusion for Maximum Glow ✨💉\n\nJoin us behind the scenes as we perform the AQUAGOLD® treatment — a next-level skin rejuvenation procedure that uses a patented microchanneling device with 24K gold-plated needles to deliver a customized blend of skin-enhancing ingredients directly into the dermis.\n\n🌟 What’s in the vial?\nEach treatment is tailored to your skin’s needs. Our signature cocktail includes:\n🔹 Hyaluronic Acid – Deep hydration and visible plumpness\n🔹 Botox® (mi",
+  "on_screen_hook": "",
+  "transcript_status": "no_speech",
+  "transcript": "",
+  "top_comments": [],
+  "current": {
+   "genre": "procedure-POV",
+   "format": "text-on-screen only",
+   "hook_type": "promise of a result",
+   "subject": "aquagold microinfusion behind the scenes",
+   "claim": "AquaGold's gold microneedles deliver a custom cocktail of hyaluronic acid and micro-Botox into the dermis for glow.",
+   "tone": [
+    "luxury",
+    "clinical"
+   ],
+   "speaker": "brand",
+   "makeable_by_ostad": true,
+   "makeable_note": "his own video",
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "ti_7696622180364274957",
+  "platform": "tiktok",
+  "source": "benchmark",
+  "creator": "dralidempsey",
+  "followers": 1862,
+  "duration_s": 64,
+  "title": "",
+  "caption": "Replying to @B❤️ my dermatologist glass skin routine- but more importantly, the formula I use to build one ✨ \n\n#GlassSkin #Dermatologist #DermTok #SkincareRoutine #skincare",
+  "on_screen_hook": "I'm a board certified dermatologist and I've been asked to share my",
+  "transcript_status": "captions",
+  "transcript": "I'm a board certified dermatologist and I've been asked to share my glass skin routine with. Although not everyone is gonna have the same recipe. There are some general categories that need to be filled. No. 1. Sunscreen. Nothing works unless you're wearing sunscreen. 2. An antioxidant. I use the, skin ceuticals C E. Ferulic 3. Peptides. I use the, um, ptox skin Ceuticals cream, and I use the, liquid peptides from medik8. No.3, you need a retinoid. I am always using altrino. No. 4, you need some exfoliant. So I love the, um, lotion P50 from Bioderma, and then also the epionce Intense Recharge Mask. It's really good. No.5, I think you need, um, some. You need, like, treatment. So I do daxify, my red light mask three times a week. I do PICO toning. I do Fraxel. So, I mean, it's hard work, but, um, that's what works for me.",
+  "top_comments": [],
+  "current": {
+   "genre": "routine",
+   "format": "talking-head",
+   "hook_type": "credential open",
+   "subject": "a derm's glass skin formula",
+   "claim": "Every glass-skin routine needs sunscreen, an antioxidant, peptides, a retinoid, an exfoliant and in-office treatments like Pico and Fraxel.",
+   "tone": [
+    "clinical",
+    "casual-friend"
+   ],
+   "speaker": "doctor",
+   "makeable_by_ostad": true,
+   "makeable_note": null,
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "in_Dd4MSBHOic4",
+  "platform": "instagram",
+  "source": "search",
+  "creator": "evolus",
+  "followers": null,
+  "duration_s": 126,
+  "title": "",
+  "caption": "Why does @drarielostad choose Jeuveau®? The precision* and predictability it brings to treating patients’ frown lines. For fellow injectors who value a natural looking result, Jeuveau is worth considering for your tool kit.  \n\nInterested in learning more about Jeuveau? Visit the link in bio.\n\nFor full Prescribing Information, including Boxed Warning and Medication Guide, see @jeuveaubyevoluspi or visit evolusrx.com \n\nJeuveau® (prabotulinumtoxinA-xvfs) is indicated for the temporary improvement i",
+  "on_screen_hook": "",
+  "transcript_status": "whisper",
+  "transcript": "I am Dr. Ariel Ostad. I am a cosmetic dermatologist here in the upper east side of New York City. I have been in practice for 29 years. I chose to be a dermatologist because I wanted to find a field that combines art and medicine. A lot of my patients have had neurotoxins elsewhere, and it comes to me because of the fact that they're looking for natural results. What makes Juvo really phenomenal is its ability to be so precise. I am Dr. Ariel Ostad and I choose Juvo. Juvo is indicated to temporarily improve moderate to severe glabella lines in adults. Effects of all botulinum toxin products, including Juvo, may spread from the treatment area causing botulinum toxin symptoms within hours to weeks after injection. Swallowing and breathing difficulties can be life-threatening. Patients with pre-existing neuromuscular conditions may be at highest risk. Do not use Juvo in patients with hypersensitivity to botulinum toxin products or a skin infection at the injection site. Other serious side effects include allergic reactions, cardiovascular risks, and ophthalmic reactions. Keep watching for additional important safety information or visit evilsrx.com.",
+  "top_comments": [
+   "👏👏",
+   "😍😍😍",
+   "Hi! We’ve sent you a DM 🤍",
+   "Been curious about Jeuveau for a while, glad to hear a trusted perspective on it"
+  ],
+  "current": {
+   "genre": "brand advertorial / sponsored",
+   "format": "talking-head + b-roll",
+   "hook_type": "credential open",
+   "subject": "ostad's jeuveau pitch to injectors",
+   "claim": "After 29 years of practice he chooses Jeuveau for its precision and natural results, and fellow injectors should consider it.",
+   "tone": [
+    "clinical",
+    "luxury"
+   ],
+   "speaker": "doctor",
+   "makeable_by_ostad": true,
+   "makeable_note": "Evolus's ad featuring him",
+   "audience_reaction": "Mostly applause emojis; one viewer says it is good to hear a trusted view on Jeuveau."
+  }
+ },
+ {
+  "id": "yo_nOIuVdhTxtw",
+  "platform": "youtube",
+  "source": "own",
+  "creator": "drarielostad",
+  "followers": 2240,
+  "duration_s": 60.0,
+  "title": "May is Skin Cancer Awareness Month",
+  "caption": "Skin Cancer Awareness Month is devoted to shining the spotlight on the most common cancer in the United States- skin cancer. It is estimated that about 9,500 people in the US are diagnosed with skin cancer. Fortunately, skin cancer is one of the most preventable cancers. Protecting your skin by wearing sunscreen with SPF 30, seeking shade during peak sun hours, avoiding indoor tanning beds, and getting annual skin checks is crucial for preventing skin cancer. \n\nDid you know…\n1 in 5 Americans wil",
+  "on_screen_hook": "",
+  "transcript_status": "captions",
+  "transcript": "hi everyone Dr Ariat cosmetic dermatologist May is skin cancer awareness month uh skin cancer is the most common form of cancer of all one out of five Americans unfortunately develop skin cancer it's something that unfortunately I deal with on a daily basis in the practice uh patients typically present with what we call Basil cell or squa cell carcinomas these are important to address because otherwise they get bigger they end up taking up more space they can infiltrate into the soft tissue nerves muscles and potentially they can spread elsewhere uh there's also the most dangerous type of cancer which is melanoma uh and those require their own version of treatment the goal is early detection and early detection means having regular skin exams annually to address these a lot of times these present as really lesions that look like a pimple without any symptoms of itching bleeding so it's important to see your dermatologist to catch these things early so that early detection can lead to a cure",
+  "top_comments": [],
+  "current": {
+   "genre": "skin-cancer-awareness",
+   "format": "talking-head",
+   "hook_type": "direct address",
+   "subject": "skin cancer awareness month and early detection",
+   "claim": "One in five Americans gets skin cancer, often looking like a painless pimple, so annual skin exams catch BCC, SCC and melanoma early enough to cure.",
+   "tone": [
+    "clinical",
+    "fear/warning"
+   ],
+   "speaker": "doctor",
+   "makeable_by_ostad": true,
+   "makeable_note": "his own video",
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "in_Dew6drmpDJo",
+  "platform": "instagram",
+  "source": "search",
+  "creator": "ryanriahimd",
+  "followers": null,
+  "duration_s": 15,
+  "title": "",
+  "caption": "Natural is always better, right….?\n—\nAs a dermatologist it’s important to be aware that many supplements and over the counter products can cause skin conditions or reactions.\n—\nThank you @sagisdermpath for collaborating! I’ll be posting some histology slides in my stories for those who want to learn more. Also, we do a weekly medical quiz every Sunday with answers posted Monday.",
+  "on_screen_hook": "",
+  "transcript_status": "no_speech",
+  "transcript": "",
+  "top_comments": [],
+  "current": {
+   "genre": "myth-bust",
+   "format": "text-on-screen only",
+   "hook_type": "question",
+   "subject": "natural supplements causing skin reactions",
+   "claim": "Natural isn't always better: many supplements and over-the-counter products cause skin reactions.",
+   "tone": [
+    "contrarian",
+    "clinical"
+   ],
+   "speaker": "doctor",
+   "makeable_by_ostad": true,
+   "makeable_note": "no speech; read from caption",
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "in_DeW9hkWO7z8",
+  "platform": "instagram",
+  "source": "search",
+  "creator": "nipunkapur",
+  "followers": null,
+  "duration_s": 66,
+  "title": "",
+  "caption": "Comment “hands” for recommended products. Your wedding photographer is going to shoot macro close-ups just 2 inches away from your ring, but a manicure alone won’t save dry, sun-damaged skin on your hands! 💍📸 Welcome to the Wedding Vault—your ultimate guide for brides-to-be! 👰✨\nWhy do hands age so fast? The skin on the back of your hands is thinner, has fewer oil glands, and gets the most sun exposure without reapplication of sunscreen. ☀️🙌\n👉 Take the Hand Pinch Test:\nPinch the skin on the back ",
+  "on_screen_hook": "",
+  "transcript_status": "whisper",
+  "transcript": "Your photographer is going to shoot your ring with a macro, a lens two inches away from the most neglected part of your body, and a manicure is not going to fix it because the nails are not a problem the skin around it is. And every bride I have mentioned this to has first looked at her hands and you just did that too. Welcome to the Wedding Vault, a series dedicated for the brides to be. The hands get compromised easily because the skin is thinner, they have very few oil glands and we get the maximum sun exposure here because no one really applies or reapplies sunscreen. I want you to pinch the skin behind your hand if it goes back easily great. If it doesn't, you're dealing with sun damage and dead skin buildup. Here is your fix, twice a week glycolic acid on the back of your hands followed by a thick cream. Not a moisturizer, not a lotion. And on the other nights, two to three times a week, use a retinol serum on the back of your hands with another thick cream. It's also not underestimated the power of a cuticle oil. It literally takes five seconds every night and there is another thing that I do that takes your hands from looking cared for to camera ready. If you want to see a hand facial, comment below and don't forget to follow.",
+  "top_comments": [],
+  "current": {
+   "genre": "hack / tip",
+   "format": "talking-head + b-roll",
+   "hook_type": "POV / you-are-the-patient",
+   "subject": "camera-ready hands for brides",
+   "claim": "Hands age fast from thin skin and sun, so use glycolic acid twice a week, retinol on other nights, thick cream and cuticle oil before the wedding.",
+   "tone": [
+    "casual-friend",
+    "clinical"
+   ],
+   "speaker": "influencer",
+   "makeable_by_ostad": true,
+   "makeable_note": "hand rejuvenation fits him; the bridal series framing is creator-style",
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "yo_GGJvCDIXu-0",
+  "platform": "youtube",
+  "source": "own",
+  "creator": "drarielostad",
+  "followers": 2240,
+  "duration_s": 43.0,
+  "title": "Treating the double chin non-surgically",
+  "caption": "Double chins can be a source of concern for both men and women. With the Emface Submentum applicator, we can offer a bruise free and needle free experience within 20 minutes to reduce the appearance of a double chin. \n\nEmface is an FDA-approved, revolutionary quick, needle-free nonsurgical facelift that treats facial skin and muscles simultaneously. While the RF technology delivers heat into the dermis area to stimulate elastin and collagen production and reduce excess fat, the HIFES™ will creat",
+  "on_screen_hook": "",
+  "transcript_status": "no_speech",
+  "transcript": "",
+  "top_comments": [],
+  "current": {
+   "genre": "procedure-POV",
+   "format": "text-on-screen only",
+   "hook_type": "promise of a result",
+   "subject": "emface submentum for double chin",
+   "claim": "Emface Submentum reduces a double chin in 20 minutes without needles or bruising.",
+   "tone": [
+    "clinical",
+    "salesy"
+   ],
+   "speaker": "brand",
+   "makeable_by_ostad": true,
+   "makeable_note": "his own video",
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "yo_dfRtatjKmZ0",
+  "platform": "youtube",
+  "source": "own",
+  "creator": "drarielostad",
+  "followers": 2240,
+  "duration_s": 25.0,
+  "title": "Treating noticeable leg veins #sclerotherapy",
+  "caption": "Discover Sclerotherapy: A Safe Solution for Leg Veins 🦵🏼\n\nSclerotherapy is a proven, minimally invasive treatment that effectively targets noticeable leg veins, such as spider veins and varicose veins. This non-surgical procedure involves injecting a specialized solution directly into the veins, causing them to collapse and fade away naturally. \n\nHow it works:  The sclerotherapy solution, polidocanol, is injected through tiny needles, targeting the damaged veins. The solution irritates the linin",
+  "on_screen_hook": "",
+  "transcript_status": "no_speech",
+  "transcript": "Oh",
+  "top_comments": [],
+  "current": {
+   "genre": "procedure-POV",
+   "format": "text-on-screen only",
+   "hook_type": "promise of a result",
+   "subject": "sclerotherapy injections for leg veins",
+   "claim": "Polidocanol injections collapse spider and varicose veins so they fade naturally.",
+   "tone": [
+    "clinical"
+   ],
+   "speaker": "brand",
+   "makeable_by_ostad": true,
+   "makeable_note": "his own video",
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "yo_WY22z3Ss-B8",
+  "platform": "youtube",
+  "source": "search",
+  "creator": "vanitarattan",
+  "followers": 1230000,
+  "duration_s": 9.0,
+  "title": "Hyperpigmentation treatments weakest to strongest. Save and share.Love Dr V xx",
+  "caption": "",
+  "on_screen_hook": "",
+  "transcript_status": "no_speech",
+  "transcript": "",
+  "top_comments": [],
+  "current": {
+   "genre": "educational-explainer",
+   "format": "text-on-screen only",
+   "hook_type": "list open",
+   "subject": "hyperpigmentation treatments weakest to strongest",
+   "claim": "Hyperpigmentation treatments ranked from weakest to strongest.",
+   "tone": [
+    "clinical"
+   ],
+   "speaker": "doctor",
+   "makeable_by_ostad": true,
+   "makeable_note": "no speech; read from title",
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "ti_7691723443229822221",
+  "platform": "tiktok",
+  "source": "benchmark",
+  "creator": "dralidempsey",
+  "followers": 1862,
+  "duration_s": 38,
+  "title": "",
+  "caption": "my take on the latest influencer recipe for glass skin 🤔 #glassskin #dermtok #tretinoin #azelaicacid ",
+  "on_screen_hook": "Will azelaic acid and tretinoin give you glass skin? I'm a dermatologist",
+  "transcript_status": "captions",
+  "transcript": "Will azelaic acid and tretinoin give you glass skin? I'm a dermatologist and yes, I do use both. But do I think that both will give you glass skin? No. These are both excellent ingredients. I use AA in the morning. I use tretinoin at night. But there is NO magical viral influencer promoted recipe that everyone should be following. As a dermatologist, I have worked very hard for many years to try many different products to see if I can come up with a more universal approach to glass skin. And if you wanna hear my take comment routine below.",
+  "top_comments": [],
+  "current": {
+   "genre": "trend-commentary",
+   "format": "talking-head",
+   "hook_type": "question",
+   "subject": "viral azelaic plus tretinoin glass skin",
+   "claim": "Azelaic acid and tretinoin are great but no viral influencer recipe gives everyone glass skin.",
+   "tone": [
+    "contrarian",
+    "clinical"
+   ],
+   "speaker": "doctor",
+   "makeable_by_ostad": true,
+   "makeable_note": null,
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "ti_7294303735478488362",
+  "platform": "tiktok",
+  "source": "own",
+  "creator": "drarielostad",
+  "followers": 135,
+  "duration_s": 30,
+  "title": "",
+  "caption": "Emface is an FDA-approved, revolutionary quick, needle-free nonsurgical facelift that treats facial skin and muscles simultaneously in a 20 minute session! This technology emits both radiofrequency (RF) energy and High-Intensity Facial Electrical Stimulation (HIFES) energy to remodel and smooth the skin, elevate and restore the facial tissues and the muscles of the face and forehead resulting in lifting of the face and eyebrows. Looking for overall skin rejuvenation? Give us a call at (212) 517-",
+  "on_screen_hook": "",
+  "transcript_status": "no_speech",
+  "transcript": "",
+  "top_comments": [],
+  "current": {
+   "genre": "procedure-POV",
+   "format": "text-on-screen only",
+   "hook_type": "promise of a result",
+   "subject": "emface needle-free facelift session",
+   "claim": "Emface combines RF and HIFES in 20 minutes to lift the face and brows without needles.",
+   "tone": [
+    "clinical",
+    "salesy"
+   ],
+   "speaker": "brand",
+   "makeable_by_ostad": true,
+   "makeable_note": "his own video",
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "ti_7691479972170534174",
+  "platform": "tiktok",
+  "source": "benchmark",
+  "creator": "skinbydrazi",
+  "followers": 1900000,
+  "duration_s": 57,
+  "title": "",
+  "caption": "What creatine does to  your brain #wellness #creatine #health #doctor ",
+  "on_screen_hook": "So I went down this rabbit hole looking at all the state",
+  "transcript_status": "captions",
+  "transcript": "So I went down this rabbit hole looking at all the state and research on creatine and what I found is actually pretty interesting. So we all know that creatine helps build muscle and strength, but your brain also uses creatine. It helps buffer the energy that the brain cells need to. Looking at all this clinical data, the most convincing cognitive benefit is actually memory. The evidence for other cognitive functions like attention span, processing speed, executive function of the brain, they were less consistent. Is creatine like this miracle brain supplement? Probably not. But does it have muscle and strength benefits plus memory benefits? There's some good evidence for that. I personally take 5 mg a day. You have to be really careful with creatine. Don't wanna take too much cause it can be hard on your kidneys. And make sure that you are hydrating and drinking plenty of fluids.",
+  "top_comments": [],
+  "current": {
+   "genre": "educational-explainer",
+   "format": "talking-head",
+   "hook_type": "story open",
+   "subject": "creatine's effect on memory",
+   "claim": "Creatine has good evidence for muscle and some for memory, but it is no miracle brain supplement and needs hydration.",
+   "tone": [
+    "clinical",
+    "casual-friend"
+   ],
+   "speaker": "doctor",
+   "makeable_by_ostad": true,
+   "makeable_note": "wellness topic; fits his IV/NAD+ side more than derm",
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "ti_7694082060130061598",
+  "platform": "tiktok",
+  "source": "benchmark",
+  "creator": "drwhitneybowe",
+  "followers": 1100000,
+  "duration_s": 24,
+  "title": "",
+  "caption": "Hyaluronic Acid has a REALLY good PR agent but at almost 50, I'm looking for more! I prefer to pair it with peptides in my formulas so that the results are not just temporary. Had so much fun on @FOX 5 NY talking about fall skincare! 🙌 #hyaluronicacid #peptide #skincare ",
+  "on_screen_hook": "",
+  "transcript_status": "whisper",
+  "transcript": "If you want to look for number one hyaluronic acid, because it is a hero, it immediately floods the skin, floods the skin with hydration. HA is great for hydration, but the effects are temporary, and I'm almost 50, I'm looking for a little more than temporary, so I like to pair HA with peptides. Because what peptides do is they can lift, they can plump, they can firm the skin over time, so I love those two together.",
+  "top_comments": [],
+  "current": {
+   "genre": "educational-explainer",
+   "format": "interview / podcast clip",
+   "hook_type": "promise of a result",
+   "subject": "pair hyaluronic acid with peptides",
+   "claim": "Hyaluronic acid only hydrates temporarily, so pair it with peptides that lift, plump and firm over time.",
+   "tone": [
+    "clinical",
+    "casual-friend"
+   ],
+   "speaker": "doctor",
+   "makeable_by_ostad": true,
+   "makeable_note": null,
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "in_DeVWzjnvYKO",
+  "platform": "instagram",
+  "source": "search",
+  "creator": "abby.waldmanmd",
+  "followers": null,
+  "duration_s": 11,
+  "title": "",
+  "caption": "Did you know that microneedling once a week in addition to daily minoxidil can boost hair growth? \n\nBest device to use? \nStamping devices are less likely to crush or pull hair compared to rollers. \n\nChoose a needle length between 0.5-1mm depth to avoid damaging the scalp skin. \n\nFollow if you plan on using this hair growth hack \n\n#hairloss #hair #dermatologist",
+  "on_screen_hook": "",
+  "transcript_status": "no_speech",
+  "transcript": "",
+  "top_comments": [],
+  "current": {
+   "genre": "hack / tip",
+   "format": "text-on-screen only",
+   "hook_type": "curiosity gap",
+   "subject": "weekly scalp microneedling with minoxidil",
+   "claim": "Microneedling the scalp once a week with a 0.5-1mm stamping device on top of daily minoxidil boosts hair growth.",
+   "tone": [
+    "clinical"
+   ],
+   "speaker": "doctor",
+   "makeable_by_ostad": true,
+   "makeable_note": null,
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "yo_IL9xUFaH0BM",
+  "platform": "youtube",
+  "source": "own",
+  "creator": "drarielostad",
+  "followers": 2240,
+  "duration_s": 31.0,
+  "title": "Laser treatment for youthful skin",
+  "caption": "Fraxel laser, a cutting-edge laser treatment, offers a safe and effective solution for sun-damaged skin. Fraxel targets specific areas of the skin, stimulating collagen production and resurfacing damaged cells.\n\nBenefits of Fraxel Laser:\nReverses sun spots: Fraxel targets and diminishes sun spots caused by sun exposure, which leaves your skin even-toned and radiant.\nReduces fine lines and wrinkles: Sun damage speeds up the aging process, leading to fine lines and wrinkles. Fraxel helps smooth ou",
+  "on_screen_hook": "",
+  "transcript_status": "no_speech",
+  "transcript": "",
+  "top_comments": [],
+  "current": {
+   "genre": "educational-explainer",
+   "format": "text-on-screen only",
+   "hook_type": "promise of a result",
+   "subject": "fraxel for sun-damaged skin",
+   "claim": "Fraxel laser resurfaces sun-damaged skin, fading sun spots and smoothing fine lines by stimulating collagen.",
+   "tone": [
+    "clinical",
+    "salesy"
+   ],
+   "speaker": "doctor",
+   "makeable_by_ostad": true,
+   "makeable_note": "his own channel; no speech",
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "yo_KL22DLzNzwk",
+  "platform": "youtube",
+  "source": "own",
+  "creator": "drarielostad",
+  "followers": 2240,
+  "duration_s": 59.0,
+  "title": "Liquid facelift treatment options #nonsurgicaltreatments",
+  "caption": "A liquid facelift, also referred to as a non-surgical facelift, is a cosmetic procedure designed to rejuvenate and enhance the appearance of your facial features without an invasive surgery. This approach combines the use of hyaluronic acid fillers to address various signs of aging, providing a more youthful appearance by restoring volume, reducing wrinkles, and improving overall facial contours. Results from hyaluronic acid fillers can last up to 2 years. \n\nAnother alternative to a facelift we ",
+  "on_screen_hook": "",
+  "transcript_status": "captions",
+  "transcript": "hi everyone it's Dr Ariel oad here I wanted to talk to you about the use of what I refer to as liquid facelift and that is utilizing fillers to actually achieve results similar to a facelift one of the important things that happens with aging is that we lose volume and therefore the skin deflates when we lose volume from our temples our cheekbones our lower jawline uh our bones also regress in addition as well and the combination of that leads to sagging of the skin well the way to actually address that aging problem process is to put volume back and that can be done with the use of synthetic hyaluronic acid fillers that last over two years or the use of your own autologus fat where we transfer fat from let's say the lower abdomen into the face that technique under local anesthesia works extremely well we can actually achieve results similar to a facelift uh by lifting the face improving the jawline improving the neck and obviously adding appropriate volume in a natural way",
+  "top_comments": [],
+  "current": {
+   "genre": "educational-explainer",
+   "format": "talking-head",
+   "hook_type": "direct address",
+   "subject": "liquid facelift with filler or fat",
+   "claim": "Restoring lost volume with long-lasting HA filler or your own fat transfer can lift the face with results similar to a facelift.",
+   "tone": [
+    "clinical",
+    "reassuring"
+   ],
+   "speaker": "doctor",
+   "makeable_by_ostad": true,
+   "makeable_note": "his own video",
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "yo_rA5_Lyo0bsw",
+  "platform": "youtube",
+  "source": "own",
+  "creator": "drarielostad",
+  "followers": 2240,
+  "duration_s": 174.0,
+  "title": "Dr. Ariel Ostad Assessment of the Lower Face using Evolysse Form",
+  "caption": "Dr. Ariel Ostad assesses a patient for filler in the nasolabial folds, evaluating facial structure, volume loss, and movement. He explains how precise placement and an individualized approach help soften these lines while preserving natural expression and facial balance.\n\n\n---------------------------------------------------------------------------------------------\n\nVisit our official website –\nhttp://www.drarielostad.com/\n\n------------------------------------------------------------------------",
+  "on_screen_hook": "",
+  "transcript_status": "whisper",
+  "transcript": "When I'm assessing a patient for hyaluronic acid injectables, I always begin by looking at the face, both at rest and in motion. Today, we're looking specifically at the nasolabial folds or laugh lines. It's the lines that extend from the sides of the nose towards the corners of the mouth. We're going to be treating them with Everlice. It's a hyaluronic acid injectable designed to correct moderate to severe dynamic facial wrinkles such as the nasolabial folds. So this is clearly what we're seeing at rest. You have some lines. At rest, I'm looking at the depth of the fold, the contour of the area, and whether there are any natural differences between the two sides of the face. But go ahead and just smile now, animate, okay. We want to make sure that when you do like smile, like some of these lines are not as obvious. This is an important part of my assessment because the face isn't static. As she smiles, I can see how these folds change with movement and where they become more pronounced. Relax again and smile one more time, perfect. When I'm assessing this area, I'm not simply looking at whether a line exists. I'm looking at its depth, how it changes with expression, the differences between each side and how it relates to the patient's natural facial movement. Everly smooth and Everly's form are hyaluronic acid injectables that can be used to correct moderate to severe dynamic facial wrinkles, including the nasolabial folds. Here we're using a softer product which is called Everly Smooth. What's nice about Everly Smooth is it's finer. We use it for fine lines. It will make such a nice difference. Which product I select and how I approach treatment depends on what I see during the individual patient's assessment. One of the most important things with hyaluronic acid injectables is knowing when enough is enough. My goal isn't to completely erase every fold or change the way someone's face naturally moves. These folds are part of the normal facial anatomy and expression. So instead I'm looking for areas where thoughtful correction can soften one's appearance while respecting the patient's natural features. So it's all about proportions. It's about customizing the treatment to each patient without really over-filling you so that you walk out of here and people see you and they're like, wow, you look great. What did you do? That tells me a great deal about how I want to approach the treatment. The injection itself is really only one part of the process. For me, the assessment is what creates the treatment plan and understanding the anatomy, observing the face in motion and deciding …[truncated]",
+  "top_comments": [],
+  "current": {
+   "genre": "procedure-POV",
+   "format": "talking-head + b-roll",
+   "hook_type": "credential open",
+   "subject": "assessing nasolabial folds for filler",
+   "claim": "Assessing laugh lines at rest and in motion, side by side, decides where and how filler like Evolysse should go.",
+   "tone": [
+    "clinical",
+    "reassuring"
+   ],
+   "speaker": "doctor",
+   "makeable_by_ostad": true,
+   "makeable_note": "his own video",
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "ti_7702491956823297310",
+  "platform": "tiktok",
+  "source": "benchmark",
+  "creator": "toralvaidyamd",
+  "followers": 61100,
+  "duration_s": 26,
+  "title": "",
+  "caption": "The right order to apply your skincare products — AM and PM routines, by a dermatologist \n\n#skincare #skincaretips #dermatologist #learnontiktok \n\nazelaic acid | retinol | vitamin C | dermatologist | skincare routine order | skincare products | expert tips",
+  "on_screen_hook": "",
+  "transcript_status": "no_speech",
+  "transcript": "",
+  "top_comments": [],
+  "current": {
+   "genre": "routine",
+   "format": "text-on-screen only",
+   "hook_type": "promise of a result",
+   "subject": "am and pm product order",
+   "claim": "Apply skincare in the right order morning and night (vitamin C, azelaic acid, retinol) to get each active to work.",
+   "tone": [
+    "clinical"
+   ],
+   "speaker": "doctor",
+   "makeable_by_ostad": true,
+   "makeable_note": null,
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "yo_m-UWVuFDPdk",
+  "platform": "youtube",
+  "source": "search",
+  "creator": "sighlurskin",
+  "followers": 37400,
+  "duration_s": 177.0,
+  "title": "Skin Barrier Routine",
+  "caption": "👇🏻Products listed below\n\nCleansers\n- @byomaofficial  Milky Moisture Cleanser\n- @cocokind Milky-Soft Face and Body Cleanser\n- @GarnierUSA  SkinActive Micellar Cleansing Water (pink cap)\n- @bioderma Sensibio H2O Micellar Water\n- @haruharuwonder Black Rice Moisture Cleansing Oil\n- @theinkeylist Oat Cleansing Balm\n- @vanicream Gentle Facial Cleanser\n- @LaRochePosayUSA  Toleriane Hydrating Gentle Cleanser\n- La Roche Posay Toleriane Moisturizing Milky Cleanser\n\nMoisturizers\n- @aveeno  Calm + Restore O",
+  "on_screen_hook": "",
+  "transcript_status": "captions",
+  "transcript": "I'm a derm PA and this is the best routine for a damaged skin barrier. Signs to look out for include dryness, tightness, redness, stinging, burning, maybe small kind of rash-like bumps, and suddenly reacting to products that you used to be able to tolerate. This can be triggered from skin conditions like perioral dermatitis, seborrheic dermatitis, or maybe eczema. But most of the time it's from overdoing it with skin care. You really need to pause everything and go back to the basics. a moisturizer, and a sunscreen. Plus one extra product I tell my patients to use that can make the biggest difference. If you just push through damaged skin barrier, that's going to accumulate a lot of irritation, which can then turn into red spots and dark marks that are a lot harder to fade than you think. For cleansing, if you're wearing makeup or water-resistant sunscreen, then you want to make sure it's fully off with the proper products. You can either go for micellar water, which you typically don't have to rinse off, or you can go for an oil-based cleanser as the first step in a double cleanse routine. And then for your regular cleanser, I recommend going for a non-foaming or very low-foaming formula. These types of cleansers are the least likely to strip your skin barrier any further than you're already dealing with. Some non-foaming cleansers are going to feel like you're applying lotion to your skin, but don't worry because it's still cleaning your skin and doing its job, just very gentle. For moisturizer, you want to use one that your skin already loves, or find one with ingredients that are going to help rebuild and calm your skin. You can look for oats in moisturizers, or you can look for ceramides, niacinamide, centella, panthenol. Those are all great ingredients to help support your skin barrier. Also, you want to apply it to damp skin after cleansing, unless it stings, then you want to do dry skin. And every single morning, no matter what, you have to wear your sunscreen with SPF 30 or higher. If it's irritating your skin, then check the ingredients because sometimes chemical sunscreens can be more irritating when you have a damaged skin barrier. So, in that case, you want to go for mineral-based sunscreens. These have zinc oxide or titanium dioxide, and these are a lot more gentle on the skin. Or, you can also go for authentic Korean skin care sunscreens because these use more gentle chemical filters compared to the ones we currently have. Now, the extra product is incorporating a partial or full occlusive at night on top of your moisturizer. Partial …[truncated]",
+  "top_comments": [],
+  "current": {
+   "genre": "routine",
+   "format": "talking-head + b-roll",
+   "hook_type": "credential open",
+   "subject": "damaged skin barrier recovery routine",
+   "claim": "For a damaged barrier, pause everything and go back to a gentle non-foaming cleanser, moisturizer and sunscreen.",
+   "tone": [
+    "clinical",
+    "reassuring"
+   ],
+   "speaker": "nurse/injector",
+   "makeable_by_ostad": true,
+   "makeable_note": "derm PA; he could do his own version",
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "ti_7667007453183134983",
+  "platform": "tiktok",
+  "source": "search",
+  "creator": "dr.ariel.de.la.serna",
+  "followers": 1362,
+  "duration_s": 20,
+  "title": "",
+  "caption": "A veces, una enfermedad renal puede avanzar en silencio… hasta que una valoración cambia por completo el rumbo de la historia. 🩺\n\nEn esta ocasión, el Dr. Ariel de la Serna realizó con éxito una nefrectomía radical a una paciente mayor de 60 años, un procedimiento indicado cuando es necesario retirar el riñón afectado para proteger la salud y evitar la progresión de la enfermedad.\n\nAunque el riesgo de padecimientos renales aumenta con la edad, no debemos esperar a sentir dolor para acudir a revis",
+  "on_screen_hook": "hello how are you very good afternoon today we have finished a",
+  "transcript_status": "captions",
+  "transcript": "hello how are you very good afternoon today we have finished a radical nephrectomy it should be considered that this type of tumors normally are regular from the age of 60 data on bleeding and pain in the renal fossa imply and eventually your palpable love follow us for more content thank you",
+  "top_comments": [],
+  "current": {
+   "genre": "procedure-POV",
+   "format": "talking-head",
+   "hook_type": "direct address",
+   "subject": "radical nephrectomy for kidney tumor",
+   "claim": "A urologist reports finishing a radical nephrectomy, a procedure for kidney tumors common after 60.",
+   "tone": [
+    "clinical"
+   ],
+   "speaker": "doctor",
+   "makeable_by_ostad": false,
+   "makeable_note": "urology, off-topic",
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "yo_2Q1FQAGmrkg",
+  "platform": "youtube",
+  "source": "search",
+  "creator": "DrSamEllis",
+  "followers": 901000,
+  "duration_s": 63.0,
+  "title": "Here is how to finally stop peeling or flaking from #tretinoin #skincare",
+  "caption": "",
+  "on_screen_hook": "",
+  "transcript_status": "captions",
+  "transcript": "[Music] If you struggle from peeling or flaking with your tretinoin like this or this, I'm a dermatologist and I've helped thousands of people use tretinoin successfully. So, I'm going to teach you three things that I discuss with all of my patients that make tretinoin such a better experience to use and help you avoid all of this. Make sure you're using the appropriate strength of tretinoin for your skin. 0.1% and 0.05 are way over prescribed in my opinion. This is the concentration you want to start with and don't even think about going up until you can use this every night. Not only do you need a great moisturizer to go over your tretinoin, you should also think about layering a lighter moisturizer under your tretinoin. That's going to help create a beautiful buffer for your tretinoin and it's still going to be completely effective. Last but not least, you cannot rush the acclimation process. I have my patients start their low strength tretinoin every third night and once they can do that for a couple of weeks with no issues, then they can move up to every other night. And by the way, these tips still apply if you're using other types of retinoids like retinol or retinaldehyde.",
+  "top_comments": [],
+  "current": {
+   "genre": "hack / tip",
+   "format": "talking-head + b-roll",
+   "hook_type": "credential open",
+   "subject": "stop tretinoin peeling",
+   "claim": "Start a low-strength tretinoin every third night, buffer with moisturizer under and over it, and don't rush acclimation.",
+   "tone": [
+    "clinical",
+    "reassuring"
+   ],
+   "speaker": "doctor",
+   "makeable_by_ostad": true,
+   "makeable_note": null,
+   "audience_reaction": null
+  }
+ },
+ {
+  "id": "ti_7699531851769187598",
+  "platform": "tiktok",
+  "source": "benchmark",
+  "creator": "dermdocmalik",
+  "followers": 71500,
+  "duration_s": 52,
+  "title": "",
+  "caption": "How to reduce facial hair growth in women, let me know what questions you have!\n\n#pcos #hairygirl #laserhairremoval #electrolysis #waxing",
+  "on_screen_hook": "If your tweezers are in a long term relationship with that one",
+  "transcript_status": "captions",
+  "transcript": "If your tweezers are in a long term relationship with that one chin hair, this video is for you. There's usually a reason if that one singular hair keeps coming back. A lot of the time, coarse hair on the chin, jawline, or even upper lip is hormone driven. So if you tweeze it every day, that just turns into an endless game of whack a mole. What we usually recommend as a derm is laser hair removal, which, contrary to popular belief, works. You just have to be a good candidate. Hair grows back thinner and slower, and it works better for darker hairs. For my lighter hair girlies, you need electrolysis, which is slow and painful, but it works and it's permanent, and it removes the hair follicle one at a time. And if the hair growth is hormonal, we'll even sometimes have prescription options on board, like spironolactone, which lowers the hormone signals that drive facial hair growth. In practice, most of the women I see with stubborn hair growth fall into one of three categories if you know, you know.",
+  "top_comments": [],
+  "current": {
+   "genre": "educational-explainer",
+   "format": "talking-head",
+   "hook_type": "curiosity gap",
+   "subject": "stubborn chin hair in women",
+   "claim": "Recurring coarse chin hair is often hormonal; laser works for dark hair, electrolysis for light hair, and spironolactone can help.",
+   "tone": [
+    "casual-friend",
+    "clinical"
+   ],
+   "speaker": "doctor",
+   "makeable_by_ostad": true,
+   "makeable_note": null,
+   "audience_reaction": null
+  }
+ }
+]

@@ -19,8 +19,11 @@ Spec: `OSTAD_RUN_2.md`. Resume from the first unchecked item. No re-scrape; Apif
   Below the 85% transcript target. The whole gap is the 209 videos with no speech: music under text on screen or B-roll. Whisper's voice detector finds no voice in them, and without it whisper invents "Thank you for watching." (checked by hand on 3). 1,024 of 1,031 (99.3%) were fetched and listened to. The 7 unavailable: 6 Instagram posts whose file has no audio stream, and 1 TikTok that yt-dlp can't fetch. Instagram reached 79% (≥ 70%), so no Apify spend.
 
 ## Phase 2 — read the corpus
-- [ ] 2a batch server + re-classification of all rows (subject, claim, tone, speaker, makeable, audience_reaction)
-- [ ] 2a distribution guard passes (logged before/after)
+- [x] 2a batch server `scripts/read2.py` + re-classification of all 1,031 rows by 9 parallel readers (42 batches × 25, brief `classify2/BRIEF.md`; 0 rejected). Makeable: 639 of 1,031 (530 of 922 niche + all 109 of his own)
+- [x] 2a distribution guard passes (logged before/after in `classify2/guard_before.txt`, `pass1/guard_tone.json`, `guard_tone.json`, `guard_after.txt`)
+  - first pass: genre top 10.5% (20 genres), hook 11.2%, subject 0.3% → pass; **tone failed: clinical 36.2%** (373 rows)
+  - re-read 1 (all 373 clinical rows) → clinical 224, but **casual-friend rose to 37.3%** → fail
+  - re-read 2 (all 385 casual-friend rows, told to drop habitual second tones) → **salesy 28.1% top → PASS**; avg tones/row 1.42; primary tone top = salesy 21%
 - [ ] 2b themes: embeddings + clustering, named/merged by reading, themes/{slug}.md written (10–18)
 - [ ] 2c cares.json (25)
 - [ ] 2d PLAN.md / plan.json regenerated from themes

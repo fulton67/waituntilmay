@@ -1,76 +1,89 @@
-"""data/plan.json -> PLAN.md, after checking every reference id exists and every date is the weekday it claims."""
-import json, pathlib, datetime as dt
-from collections import Counter
+"""Run 2: data/plan.json (authored from the themes) -> PLAN.md, and validates it.
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
-plan = json.loads((ROOT / "data/plan.json").read_text(encoding="utf-8"))
-vids = {v["id"]: v for v in json.loads((ROOT / "data/videos.json").read_text(encoding="utf-8"))}
-a = json.loads((ROOT / "data/analysis.json").read_text(encoding="utf-8"))
-SITE = "https://waituntilmay.com"
-errs = []
+Checks: 20 slots on Mon–Fri from 2026-11-09, 10 backups, 40 backlog titles, every slot has claim / opening line / 3 beats /
+1–2 tones / ≥2 refs, every ref exists and is makeable, every theme slug exists. Exit 1 on any failure.
+Fills each ref's opening line from videos.json so PLAN.md and the dashboard quote the same words.
+"""
+import datetime as dt, json, sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+plan = json.loads((ROOT / "data" / "plan.json").read_text(encoding="utf-8"))
+vids = {v["id"]: v for v in json.loads((ROOT / "data" / "videos.json").read_text(encoding="utf-8"))}
+themes = {t["slug"]: t for t in json.loads((ROOT / "data" / "themes.json").read_text(encoding="utf-8"))}
+TONES = {"clinical", "casual-friend", "confessional", "fear/warning", "humor", "luxury", "contrarian", "reassuring", "salesy"}
+err = []
+
+start = dt.date(2026, 11, 9)
+days = [start + dt.timedelta(days=w * 7 + d) for w in range(4) for d in range(5)]
+if len(plan["slots"]) != 20: err.append(f"{len(plan['slots'])} slots")
+if len(plan["backups"]) != 10: err.append(f"{len(plan['backups'])} backups")
+if len(plan["backlog"]) != 40: err.append(f"{len(plan['backlog'])} backlog")
+for i, s in enumerate(plan["slots"]):
+    s["n"], s["day"], s["dow"] = i + 1, days[i].isoformat(), days[i].strftime("%a")
+for i, s in enumerate(plan["backups"]):
+    s["n"], s["day"], s["dow"] = f"B{i + 1:02d}", None, None
 for s in plan["slots"] + plan["backups"]:
-    for r in s["refs"]:
-        if r["id"] not in vids:
-            errs.append(f"slot {s['n']}: unknown ref {r['id']}")
-    if s["day"] != "backup":
-        d = dt.date.fromisoformat(s["day"])
-        if d.strftime("%a") != s["dow"]:
-            errs.append(f"slot {s['n']}: {s['day']} is {d.strftime('%a')} not {s['dow']}")
-assert len(plan["slots"]) == 20 and len(plan["backups"]) == 10 and len(plan["backlog"]) == 40, "counts"
-if errs:
-    raise SystemExit("\n".join(errs))
+    for k in ("title", "claim", "open", "why", "service", "batch"):
+        if not s.get(k): err.append(f"{s['n']}: no {k}")
+    if set(s.get("beats", {})) != {"open", "middle", "close"}: err.append(f"{s['n']}: beats")
+    if not 1 <= len(s.get("tone", [])) <= 2 or set(s["tone"]) - TONES: err.append(f"{s['n']}: tone {s.get('tone')}")
+    if s.get("theme") not in themes: err.append(f"{s['n']}: theme {s.get('theme')}")
+    if len(s.get("refs", [])) < 2: err.append(f"{s['n']}: <2 refs")
+    for r in s.get("refs", []):
+        v = vids.get(r["id"])
+        if not v: err.append(f"{s['n']}: ref {r['id']} missing"); continue
+        if not v.get("makeable_by_ostad"): err.append(f"{s['n']}: ref {r['id']} not makeable")
+        r["ol"] = v.get("opening_line")
+for b in plan["backlog"]:
+    if b.get("theme") not in themes: err.append(f"backlog theme {b.get('theme')}")
+slot_ids = {str(s["n"]) for s in plan["slots"] + plan["backups"]}
+for b in plan["batches"]:
+    for n in b["slots"]:
+        if str(n) not in slot_ids: err.append(f"batch {b['key']}: slot {n}")
+in_batch = {str(n) for b in plan["batches"] for n in b["slots"]}
+if missing := sorted(slot_ids - in_batch, key=str): err.append(f"slots in no batch: {missing}")
+(ROOT / "data" / "plan.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
-def k(n):
-    return f"{n / 1e6:.1f}M" if n >= 1e6 else f"{n / 1e3:.0f}K" if n >= 1e3 else str(n)
+def x(v):
+    return f"{v['outlier_score']:.1f}×" if v["outlier_score"] < 10 else f"{v['outlier_score']:.0f}×"
 
 
 def slot_md(s):
-    refs = "\n".join(f"  - [{vids[r['id']]['platform']} · @{vids[r['id']]['creator_handle']}]({vids[r['id']]['url']}) `{r['id']}`: {r['why']}"
-                     for r in s["refs"])
-    head = f"### {s['n']:02d} · {s['dow']} {s['day']} · {s['title']}" if s["day"] != "backup" else f"### B{s['n'] - 20:02d} · {s['title']}"
-    return f"""{head}
+    head = f"### {s['n']:02d} · {s['dow']} {s['day']} · {s['title']}" if isinstance(s["n"], int) else f"### {s['n']} · {s['title']}"
+    out = [head, "",
+           f"> “{s['open']}”", "",
+           f"- **Theme:** {themes[s['theme']]['name']} · **tone:** {', '.join(s['tone'])} · **sells:** {s['service']} · **shoot:** {s['batch']}",
+           f"- **Claim:** {s['claim']}",
+           f"- **Open:** {s['beats']['open']}",
+           f"- **Middle:** {s['beats']['middle']}",
+           f"- **Close:** {s['beats']['close']}",
+           f"- **Why it's his:** {s['why']}",
+           "- **Built from:**"]
+    for r in s["refs"]:
+        v = vids[r["id"]]
+        ol = f" “{r['ol']}”" if r.get("ol") else ""
+        out.append(f"  - [{v['platform']} @{v['creator_handle']}]({v['url']}) · {x(v)} usual ·{ol}")
+    return "\n".join(out) + "\n"
 
-- **Pillar:** {s['pillar']} · **Genre:** {s['genre']} · **Format:** {s['format']} · **Hook:** {s['hook_type']} · **Effort:** {s['effort']}
-- **Angle:** {s['angle']}
-- **Sells (softly):** {s['service']}
-- **Ostad's version:** {s['ostad_version']}
-- **References:**
-{refs}
-"""
 
-
-mix = Counter(s["genre"] for s in plan["slots"])
-win = a["winningGenreMix"]; tw = sum(win.values())
-batch_of = {n: b["name"] for b in plan["batches"] for n in b["slots"]}
-for s in plan["slots"]:
-    s["batch"] = batch_of.get(s["n"])
-(ROOT / "data/plan.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
-
-lines = ["# OSTAD — 4-week content plan (Mon 9 Nov → Fri 4 Dec 2026)", "",
-         "Twenty posts, Monday to Friday, plus ten backups and forty backlog titles. Ideas, titles, angles and references, not scripts. "
-         f"Every reference is a real video in the corpus (dashboard: {SITE}/ostad/plan). Numbers are views · outlier (views ÷ the creator's normal) unless stated.", "",
-         "## Pillars", ""]
-lines += [f"- **{p['name']}**: {p['why']}" for p in plan["pillars"]]
-lines += ["", "## The weekly rhythm", "",
-          "| | Mon | Tue | Wed | Thu | Fri |", "|---|---|---|---|---|---|"]
+md = ["# OSTAD CONTENT INTEL: Plan (run 2)", "",
+      "Twenty posts from Monday 2026-11-09, plus 10 backups and 40 more titles. The plan is built from the themes in `themes/`, not from genre tables.",
+      "Each slot gives the claim, the first line Dr. Ostad says, the video's shape in three beats (structure, not a script), the tone, and the makeable videos it is built from.", "",
+      "## The four weeks", "", "| | Mon | Tue | Wed | Thu | Fri |", "|---|---|---|---|---|---|"]
 for w in range(4):
-    row = plan["slots"][w * 5:(w + 1) * 5]
-    lines.append(f"| **W{w + 1}** | " + " | ".join(f"{s['title']} <br>*{s['genre']} · {s['effort']}*" for s in row) + " |")
-lines += ["", "**Mon = Mohs/skin cancer, every week.** The genre scores (4.1× overall, 31.3× on TikTok, 53% of TikTok ones win), so the spec's "
-          "\"one per week only if it scores\" condition is met. **Tue = proof** (before-after / procedure, the biggest reach lever). **Wed = myth-bust / red flag** "
-          "(best all-round engagement). **Thu = a real viewer question.** **Fri = trend or proof.**", "",
-          "**Mix vs what wins in the niche:**", "", "| genre | slots in plan | share of plan | share of niche winners |", "|---|---:|---:|---:|"]
-for g, n in mix.most_common():
-    lines.append(f"| {g} | {n} | {n / 20 * 100:.0f}% | {win.get(g, 0) / tw * 100:.0f}% |")
-lines += ["", "Bent toward education the way the data supports: ad/promo (12% of niche winners, but 0.67–1.0× and Ostad's most over-used genre) and "
-          "generic humour (8%, mostly off-niche memes) are left out of the calendar on purpose; skin-cancer and Q&A get more weight than their winner share "
-          "because they're the lanes he can own and where engagement is highest.", "", "## Shoot in batches", ""]
+    cells = [f"“{s['open']}” <br>*{themes[s['theme']]['name']}*" for s in plan["slots"][w * 5:(w + 1) * 5]]
+    md.append(f"| **W{w + 1}** | " + " | ".join(cells) + " |")
+md += ["", plan.get("rhythm", ""), "", "## Shoot in batches", ""]
 for b in plan["batches"]:
-    lines.append(f"- **{b['name']}**: slots {', '.join(str(n) for n in b['slots'])}. {b['note']}")
-lines += ["", "## The 20 slots", ""] + [slot_md(s) for s in plan["slots"]]
-lines += ["## 10 backups", ""] + [slot_md(s) for s in plan["backups"]]
-lines += ["## Backlog: 40 more titles, ranked", "", "Ranked by how well the topic scores in the corpus and how little he'd need to shoot.", ""]
-lines += [f"{i}. {t}" for i, t in enumerate(plan["backlog"], 1)]
-(ROOT / "PLAN.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
-print("PLAN.md ok;", dict(mix))
+    md.append(f"- **{b['name']}**: slots {', '.join(str(n) for n in b['slots'])}. {b['note']}")
+md += ["", "## The 20 slots", ""] + [slot_md(s) for s in plan["slots"]]
+md += ["## 10 backups", ""] + [slot_md(s) for s in plan["backups"]]
+md += ["## Backlog: 40 more, ranked", ""] + [f"{i + 1}. {b['title']} *({themes[b['theme']]['name']})*" for i, b in enumerate(plan["backlog"])]
+(ROOT / "PLAN.md").write_text("\n".join(md) + "\n", encoding="utf-8")
+
+print("PLAN.md written;", "OK" if not err else f"{len(err)} problems")
+for e in err[:40]:
+    print("  ", e)
+sys.exit(1 if err else 0)

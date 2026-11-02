@@ -1,0 +1,394 @@
+[
+ {
+  "id": "yo__tw4OT5bnFs",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "skip botox at 24, live first",
+  "claim": "A 24-year-old doesn't need Botox yet; spend youth living and learning who you are instead of freezing your face.",
+  "tone": [
+   "confessional",
+   "contrarian"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "an anti-prejuvenation take could work as his own myth-bust, not this personal anecdote",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeFRpsoRxxO",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "retinol smile line patches",
+  "claim": "Luvum retinol gel patches target expression lines under the eyes and around the mouth.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7700376090078121246",
+  "genre": "hack / tip",
+  "format": "talking-head",
+  "hook_type": "curiosity gap",
+  "subject": "what to bring for a rash visit",
+  "claim": "Bring photos, a timeline, your symptoms, new medications and even odd exposures so your dermatologist can diagnose a rash.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_rak4d9Lexvs",
+  "genre": "routine",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "tretinoin plus azelaic acid layering",
+  "claim": "Tretinoin and azelaic acid can be combined in a routine the way a dermatologist would use them.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only music; he would need to voice it",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_eypouq7zvqA",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "prejuvenation with early botox and filler",
+  "claim": "Starting small doses of Botox and filler before lines become permanent prevents visible aging.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_5PK_wd0LhjE",
+  "genre": "myth-bust",
+  "format": "interview / podcast clip",
+  "hook_type": "question",
+  "subject": "sculptra true or false",
+  "claim": "Sculptra is a biostimulator, not a filler: it builds your own collagen over two sessions and lasts years.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7703317117440986398",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "reaction",
+  "subject": "indian women's thick hair claim",
+  "claim": "Thick hair in Indian women isn't explained by a single secret; generalising about a whole group is wrong.",
+  "tone": [
+   "contrarian",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch; hair is off his core",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DevfedHsCBH",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "kombucha essence and gel mask",
+  "claim": "Dr. Ceuracle's vegan kombucha essence and gel mask hydrate and strengthen all skin types.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702985288943013150",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "reaction",
+  "subject": "derm mom halloween skincare",
+  "claim": "A dermatologist mom wants both Halloween time with her kids and clear skin.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy skit; off his register",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DHvH-wnx1mi",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "la roche-posay mall event gifts",
+  "claim": "La Roche-Posay's 50th anniversary concourse at Mid Valley offers special prices and free gifts.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702931640158326046",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "curiosity gap",
+  "subject": "how a derm trick-or-treats",
+  "claim": "A dermatologist trick-or-treats in a skin-care-obsessed way (caption only, no speech).",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy skit; caption only, content unclear",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DEUwiu7uvOv",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "do derms judge self-harm scars",
+  "claim": "Dermatologists don't judge patients' scars; they see them often and focus on the concern you came in with.",
+  "tone": [
+   "reassuring",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Cq9AZnhOPOq",
+  "genre": "routine",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "subject": "spring night skincare routine",
+  "claim": "Her spring routine is gel cleanser, toner, eye cream, hyaluronic serum and moisturizer from one brand.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_CwyHJ84OoEI",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "subject": "paper fold wrinkle demo",
+  "claim": "Like a creased sheet of paper, skin can't be fully smoothed once lines set, so preventive Botox before 30 is worth it.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "a strong visual demo he could reuse",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DUM5iVvjPTe",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "diy besan coffee tan removal",
+  "claim": "Besan, coffee and milk scrubs don't remove tan; they only exfoliate and can worsen pigmentation, so use sun protection and peels or lasers.",
+  "tone": [
+   "clinical",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_ZZwA7gWh8Os",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head + b-roll",
+  "hook_type": "contrarian claim",
+  "subject": "mri shows filler migration",
+  "claim": "An MRI shows 12 cc of filler swelled to about 28 cc and spread across the face, which is why filler shouldn't be the first fix for nasolabial folds.",
+  "tone": [
+   "fear/warning",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_CvMAQNBcCIU",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "list open",
+  "subject": "four rejuran pdrn serums compared",
+  "claim": "Each of four Rejuran PDRN serums suits a different skin type, from oily pores to dry, barrier-damaged skin.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "affiliate K-beauty review; a derm verdict on PDRN could work",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeazmroSOh1",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "before/after reveal",
+  "subject": "thread lift and under-eye filler glow-up",
+  "claim": "Her thread lift, under-eye filler and mesotherapy left her face firmer, younger and less puffy.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer clinic plug; yes if his own patient fronts it",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701537336768711950",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "subject": "acne plus dark spots in melanin-rich skin",
+  "claim": "In melanin-rich skin you must treat acne and the post-inflammatory dark spots it leaves, not just the breakout.",
+  "tone": [
+   "reassuring",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "he treats skin of color; needs him on camera",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_CsJfckKLlbq",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "visual shock / gross-out",
+  "subject": "prp plasma facial",
+  "claim": "A plasma (PRP) facial treatment is being performed.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "music only; he'd add his own voiceover",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DWJc6IdDHTn",
+  "genre": "ad / promo",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "polynucleotides korean biostimulator",
+  "claim": "The polynucleotide treatment celebrities flew to Korea for is now available here and boosts hydration and collagen.",
+  "tone": [
+   "salesy",
+   "luxury"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_i5HgFTHyMlQ",
+  "genre": "educational-explainer",
+  "format": "interview / podcast clip",
+  "hook_type": "direct address",
+  "subject": "prejuvenation pros and cons",
+  "claim": "Go slow with prejuvenation: no volumizing teens, but early Botox on deepening wrinkles really does soften them.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7703288251309755662",
+  "genre": "myth-bust",
+  "format": "interview / podcast clip",
+  "hook_type": "question",
+  "subject": "sculptra true or false",
+  "claim": "Sculptra is a biostimulator, not a filler: it builds your own collagen over two sessions and lasts years.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "same video as yo_5PK_wd0LhjE cross-posted",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_gBhQVScVWz4",
+  "genre": "hack / tip",
+  "format": "skit / acted",
+  "hook_type": "curiosity gap",
+  "subject": "prep tips before a derm visit",
+  "claim": "Check your skin, photograph spots, skip makeup and bring questions and a medication list to your dermatologist visit.",
+  "tone": [
+   "casual-friend",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "the tips list; not the lip-sync skit",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_CqTzsiTNIfA",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "rodan and fields consultant plug",
+  "claim": "Rodan + Fields products are the fix; take the solution tool quiz.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "MLM plug, no speech",
+  "audience_reaction": null
+ }
+]

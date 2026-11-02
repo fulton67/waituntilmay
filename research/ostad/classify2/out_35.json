@@ -1,0 +1,396 @@
+[
+ {
+  "id": "yo_F37HCoVcYM4",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "morpheus8 pain, numbing and nitrous",
+  "claim": "Morpheus8 hurt enough that she needed laughing gas, but she is excited for results after one of three sessions.",
+  "tone": [
+   "confessional",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "yes if a patient of his fronts it",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7318054319796800798",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "emsculpt neo fat loss and muscle",
+  "claim": "Emsculpt Neo removes fat and builds muscle in a single 30-minute non-invasive session.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own account; better with him on camera",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Dbonq3iSlq_",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "curiosity gap",
+  "subject": "plastic surgeon seaside lifestyle reel",
+  "claim": "No real claim; a mood reel of the surgeon's lifestyle set to music.",
+  "tone": [
+   "luxury"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "lifestyle mood reel with no content to borrow",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_3zcokqzZ2jk",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "assessing frown lines before jeuveau",
+  "claim": "Every glabellar treatment starts with assessing the corrugator and procerus muscles at rest and in a frown so placement fits that patient.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Dd-h13mODXW",
+  "genre": "patient-story / testimonial",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "insurer refused his skin cancer removal",
+  "claim": "His health insurer changed its criteria and refused to cover removing his two skin cancers, despite years of premiums.",
+  "tone": [
+   "confessional",
+   "fear/warning"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "yes if a patient fronts it and he speaks to the surgery",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701069827498085662",
+  "genre": "brand advertorial / sponsored",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "finding an acne clinic that listens",
+  "claim": "After many dermatologists, this acne clinic finally listened to her history and put her back on Accutane; use her discount code.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702965888223333654",
+  "genre": "personal journey / diary",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "black girls are pretty affirmation",
+  "claim": "Black girls are gorgeous.",
+  "tone": [
+   "confessional",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "body-positivity affirmation, not his voice",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_u1iMin0QCfk",
+  "genre": "skin-cancer-awareness",
+  "format": "voiceover-over-procedure",
+  "hook_type": "visual shock / gross-out",
+  "subject": "how mohs slides check margins",
+  "claim": "Mohs surgery checks each removed layer under the microscope so only the minimum normal tissue is taken, with up to a 99% cure rate.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "he is a Mohs surgeon; he would narrate his own lab",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702504207257046302",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "curiosity gap",
+  "subject": "halloween cowboy costume joke",
+  "claim": "Nobody dreams of being swept off her feet by an accountant.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy costume skit",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_olQ4HklRNUE",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "topical pdrn in eye creams",
+  "claim": "There is no good evidence that PDRN in a cream or eye serum penetrates skin enough to do anything clinically meaningful.",
+  "tone": [
+   "contrarian",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7451324708533931269",
+  "genre": "before-after",
+  "format": "talking-head + b-roll",
+  "hook_type": "number/stat",
+  "subject": "sculptra for collagen loss and laxity",
+  "claim": "Skin loses about 25% of its collagen by 45, and two Sculptra sessions 45 days apart visibly firmed this patient's skin.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own Sculptra before/after",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7624919027629968654",
+  "genre": "skin-cancer-awareness",
+  "format": "green-screen",
+  "hook_type": "reaction",
+  "subject": "early melanoma resembling a normal mole",
+  "claim": "Early melanoma can look like an ordinary mole, so change in size, color or border matters more than how it looks.",
+  "tone": [
+   "fear/warning",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7698490006607793421",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "credential open",
+  "subject": "glycolic acid on legs for razor bumps",
+  "claim": "Glycolic acid smooths skin and can prevent razor bumps on shaved legs, but start slowly because it can irritate.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7611712990668131598",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "before/after reveal",
+  "subject": "exosomes for reflective glass pores",
+  "claim": "Cleansing nightly and using exosomes makes pores so tight they reflect light.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer beauty claim",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7562036727838215454",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "drugstore vs medical-grade skincare",
+  "claim": "Medical-grade skincare penetrates deeper, is clinically tested and more regulated, while drugstore products sit on the surface.",
+  "tone": [
+   "clinical",
+   "casual-friend"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "he could make it, ideally with LUMA Cream as the medical-grade example",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7699901820050672918",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "subject": "using less of a hair product",
+  "claim": "Testers over-applied the new hair formula, so the brand changed the directions to two or three pumps.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "haircare brand founder story",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7621981053745384726",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "is expensive sunscreen worth it",
+  "claim": "The best SPF is the one you will wear daily; drugstore sunscreens deserve a better reputation, and price mostly buys texture and tint.",
+  "tone": [
+   "reassuring",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7650288418164903181",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "baby botox as a marketing lie",
+  "claim": "Baby Botox is a marketing phrase to get women in their 20s hooked early, and you can prevent aging without it.",
+  "tone": [
+   "contrarian",
+   "fear/warning"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "only as a reaction/stitch rebutting it",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702137992462322975",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "stop doing X",
+  "subject": "three-step cleanse, treat, protect routine",
+  "claim": "Skip extra serums: cleanse, treat with something like azelaic acid, then moisturize and protect.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "works with LUMA Cream as the final step",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7597570179974892855",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "exosome microneedling at a medspa",
+  "claim": "Microneedling with exosomes at this medspa keeps her skin clear and glowing.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer medspa plug, no speech",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DZMy86-MF-C",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "who should not get prp",
+  "claim": "PRP is not right for everyone: people with cancer history, active infection, active autoimmune disease or blood and platelet disorders should not have it.",
+  "tone": [
+   "clinical",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7619112912774384927",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "best otc product per skin concern",
+  "claim": "For each common concern there is one go-to OTC pick, from salicylic acid for sebaceous filaments to adapalene for acne and azelaic acid for rosacea.",
+  "tone": [
+   "casual-friend",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7701557727294082334",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "credential open",
+  "subject": "rating a guest bathroom drawer",
+  "claim": "This guest bathroom drawer is well stocked and he would stay, though sheet masks and unwrapped sponges are unnecessary.",
+  "tone": [
+   "humor",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a light reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702549321157266719",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "subject": "nyc day ending at a fashion gala",
+  "claim": "A dermatologist's NYC day includes a night at the WWD fashion awards.",
+  "tone": [
+   "luxury",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "judgement call: works as his own Park Avenue day, not a copy of this gala vlog",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DYNBb38sv3i",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "what exosomes are vs prp",
+  "claim": "Exosomes are cell messengers that may help healing after lasers or microneedling, but the science is early and they differ from your own PRP.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ }
+]

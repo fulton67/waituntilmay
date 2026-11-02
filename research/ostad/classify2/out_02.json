@@ -1,0 +1,388 @@
+[
+ {
+  "id": "ti_7665760590362725663",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "contrarian claim",
+  "subject": "how a boil forms",
+  "claim": "A boil forms when bacteria trapped in a follicle draw white cells that die into a pus pocket that eventually drains.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "off-brand general-derm topic; he would need to front it on camera",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7648031378423991583",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "subject": "emface for tmj at a dentist",
+  "claim": "EMFACE radiofrequency and muscle stimulation relaxes and retrains jaw muscles to relieve TMJ pain and clenching.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "dental office promo for a device he doesn't list",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_W-quflVh6sc",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "story open",
+  "subject": "how prp is prepared and injected",
+  "claim": "PRP is made by spinning the patient's blood twice and injecting the plasma into smile lines or thinning brows.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only if he offers PRP",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_YPWGBdtpATY",
+  "genre": "myth-bust",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "subject": "acne marks versus true scars",
+  "claim": "Red and dark spots are marks that fade on their own; only dents are scars, and you must treat active acne first.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7500356242376871176",
+  "genre": "diagnosis / is-it-X",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "subject": "benign mole or skin cancer",
+  "claim": "A soft raised mole is usually a benign intradermal nevus, while an asymmetric, multicolored mole over 6 mm needs urgent checking.",
+  "tone": [
+   "clinical",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": "Viewers say moles that fit the criteria were dismissed by doctors, admit health anxiety, and one who lost her mum to melanoma asks for an ABCDE video."
+ },
+ {
+  "id": "ti_7631310189794168071",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "tretinoin love before and after",
+  "claim": "Tretinoin cleared my acne.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "creator's own skin",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_wePLAxKA8d0",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "reaction",
+  "subject": "fraxel peeling days three and four",
+  "claim": "By day four after Fraxel, the pigment has flaked off, leaving smooth skin with mild redness you can cover with makeup.",
+  "tone": [
+   "reassuring",
+   "casual-friend"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if his patient fronts it",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DbTV5eBKnsX",
+  "genre": "diagnosis / is-it-X",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "subject": "dark nodule that isn't melanoma",
+  "claim": "A dark blue nodular lesion that looks like melanoma showed a vascular lacunae pattern on dermoscopy, so it was vascular.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DB7qduLvyaG",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "reaction",
+  "subject": "botox patients clinging relatable meme",
+  "claim": "Botox patients cling to their injector like lint.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy meme",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_lYVQ70lRnSI",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "pdo thread lift result",
+  "claim": "A PDO thread lift lifts the lower face.",
+  "tone": [
+   "luxury"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own thread-lift result",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7185754473388641579",
+  "genre": "skin-cancer-awareness",
+  "format": "text-on-screen only",
+  "hook_type": "list open",
+  "subject": "stage 4 melanoma warning signs",
+  "claim": "These are the symptoms I had before my stage 4 melanoma diagnosis, so get them checked.",
+  "tone": [
+   "fear/warning",
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if a patient fronts it",
+  "audience_reaction": "Stage 4 survivors and a widower share their stories, some note no symptoms at all, and others worry their symptoms overlap with menopause or a changing mole."
+ },
+ {
+  "id": "ti_7493958178837761310",
+  "genre": "hack / tip",
+  "format": "talking-head",
+  "hook_type": "number/stat",
+  "subject": "moisturize on damp skin",
+  "claim": "Most people moisturize wrong: apply moisturizer right after washing while skin is still damp.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_5ytGf8nA6n0",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "story open",
+  "subject": "shave removal of irritated moles",
+  "claim": "A shave removal takes off irritating moles quickly and, with good aftercare, barely leaves a mark.",
+  "tone": [
+   "reassuring",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DfIAJtkSz7V",
+  "genre": "procedure-POV",
+  "format": "text-on-screen only",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "professional dermaplaning asmr",
+  "claim": "A professional dermaplaning session leaves glass skin.",
+  "tone": [
+   "luxury"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "esthetician ASMR with an affiliate code",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7446604232783957270",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "story open",
+  "subject": "staged cancer diagnosis reaction",
+  "claim": "A patient breaks down on hearing he has cancer.",
+  "tone": [
+   "fear/warning"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "staged drama, not dermatology",
+  "audience_reaction": "Viewers ask why it was recorded, call the doctor unprofessional, and suspect it is staged or a training video."
+ },
+ {
+  "id": "ti_7683193686318009622",
+  "genre": "diagnosis / is-it-X",
+  "format": "talking-head + b-roll",
+  "hook_type": "contrarian claim",
+  "subject": "progressive macular hypomelanosis vs tinea",
+  "claim": "Light patches that don't respond to antifungals may be progressive macular hypomelanosis, treated with benzoyl peroxide or phototherapy.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_IKyKgwKlXtI",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "three ways to remove moles",
+  "claim": "Cosmetic moles are removed by laser, shave or excision, each suited to different mole types and leaving different scars.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_SU3i4W-dzzk",
+  "genre": "ad / promo",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "subject": "what a skinvive treatment involves",
+  "claim": "SKINVIVE microdroplet hyaluronic acid injections hydrate and smooth the cheeks for up to six months.",
+  "tone": [
+   "salesy",
+   "clinical"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": "only if he offers SKINVIVE",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7618702476455202062",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "what a derm won't pay for",
+  "claim": "As a dermatologist I'd never pay for La Mer, Nutrafol or facials; I'd spend on lasers, peels and microneedling.",
+  "tone": [
+   "contrarian",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7470562891251387694",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head + b-roll",
+  "hook_type": "story open",
+  "subject": "what mohs surgery actually is",
+  "claim": "Mohs maps and checks every layer under the microscope in real time, making it the gold standard for facial BCC and SCC.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7589364507554729271",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "removing a mole after cruel comments",
+  "claim": "After years of online comments, I finally had the mole on my nose shave-removed, and it was quick and easy.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "creator's own vlog; he could front a patient's cosmetic mole removal",
+  "audience_reaction": "Viewers say they never noticed the mole, call the commenters cruel, and reassure her she's beautiful."
+ },
+ {
+  "id": "ti_7607833424388230414",
+  "genre": "day-in-the-life / office",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "a dermatologist's day in numbers",
+  "claim": "In one day a dermatologist saw 38 patients, did skin checks, froze pre-cancers, biopsies, a BCC surgery, filler and Botox.",
+  "tone": [
+   "humor",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7657065017694571790",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "nine days after co2 for scars",
+  "claim": "Nine days after CO2 laser, my acne scars look visibly improved.",
+  "tone": [
+   "reassuring"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "creator's own result; he'd need his own patient",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_H9kLkkM2Uyg",
+  "genre": "hack / tip",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "subject": "repairing a damaged skin barrier",
+  "claim": "A damaged skin barrier can be repaired with a few simple steps.",
+  "tone": [
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_e6Y743rYLXk",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "subject": "ghk-cu peptide for looksmaxxing glow",
+  "claim": "The copper peptide GHK-Cu, topical or injected, gives the clear glow looksmaxxers have.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "peptide-seller pitch aimed at looksmaxxers",
+  "audience_reaction": null
+ }
+]

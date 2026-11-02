@@ -1,0 +1,394 @@
+[
+ {
+  "id": "in_DZ8ioTCx62b",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "treatments to skip for natural aesthetics",
+  "claim": "Skip RF microneedling/Morpheus8 and PDO threads, and do Sculptra, plain microneedling and Sofwave instead.",
+  "tone": [
+   "contrarian",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer opinion that trashes services he offers; he could only rebut it",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7549284815552466189",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "number/stat",
+  "subject": "dermareverse serum for glp-1 face",
+  "claim": "DermaReverse is the first clinically studied serum for GLP-1 skin thinning and laxity.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "brand testimonial; he could do a GLP-1 face explainer with LUMA",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7500961261375556907",
+  "genre": "procedure-POV",
+  "format": "text-on-screen only",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "aquagold microinfusion facial",
+  "claim": "AquaGold's 24K gold microneedles infuse a custom HA, Botox and growth-factor cocktail for glow.",
+  "tone": [
+   "luxury",
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own account; needs his voiceover",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_AgKhKGlJQ7o",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "credential open",
+  "subject": "silicone cleansing brushes and lip scrubs",
+  "claim": "Cheap silicone brushes work for nose sebaceous filaments, but lips don't need exfoliating, just Aquaphor or Vaseline.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7685892571536575751",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "subject": "which facial suits your skin concern",
+  "claim": "The medspa matches facials, microneedling and peels to your specific skin concerns.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own treatment-matching version",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7698902889778941214",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "subject": "why your eyelid twitches",
+  "claim": "Eyelid twitching is myokymia from stress, sleep loss or caffeine; breathing, warm compresses and rest help, and time fixes it.",
+  "tone": [
+   "casual-friend",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "judgement call: off-skin but a doctor explainer",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_MJ8EZ9HVeaE",
+  "genre": "personal journey / diary",
+  "format": "vlog",
+  "hook_type": "promise of a result",
+  "subject": "exosome rf microneedling in korea",
+  "claim": "Exosomes with RF microneedling in Korea hurt but healed his acne marks fast after a week's recovery.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer medical-tourism vlog",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702167967055760653",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "serum or moisturizer first",
+  "claim": "There's no real data on serum-moisturizer order; thin to thick is fine but don't overthink it unless it's petrolatum.",
+  "tone": [
+   "contrarian",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702149408485313823",
+  "genre": "procedure-POV",
+  "format": "text-on-screen only",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "skinpen microneedling session",
+  "claim": "It's SkinPen microneedling day.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own procedure footage",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7666566330170019092",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "visceral fat and waist size",
+  "claim": "Hidden visceral fat drives diabetes, hypertension and heart risk, and waist size (<90 cm men, <80 cm women) flags it.",
+  "tone": [
+   "clinical",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "off-topic: internal medicine (name collision)",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702437544482442526",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "promise of a result",
+  "subject": "neutrogena two-step acne routine",
+  "claim": "A salicylic acid wash plus a benzoyl peroxide spot treatment from Neutrogena handles clogged pores, oil and bacteria.",
+  "tone": [
+   "salesy",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "brand-paid derm partnership",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7646494257188048146",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head + b-roll",
+  "hook_type": "story open",
+  "subject": "laser hair removal on black skin",
+  "claim": "Black skin can safely get laser hair removal, but only with an Nd:YAG laser; the wrong laser burned her.",
+  "tone": [
+   "confessional",
+   "fear/warning"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if a patient fronts it; skin of color is his niche",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7669562683825327380",
+  "genre": "red-flag / what-not-to-do",
+  "format": "interview / podcast clip",
+  "hook_type": "curiosity gap",
+  "subject": "verify your surgeon's certification",
+  "claim": "Legal loopholes let uncertified doctors operate, so check a surgeon's certification online before any procedure.",
+  "tone": [
+   "fear/warning",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "off his field slightly; he'd frame it as checking board certification",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_De_9qKtBz7U",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "curiosity gap",
+  "subject": "sourcing your own salmon dna joke",
+  "claim": "A joke about Rejuran telling a medspa to source its own salmon DNA.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7700287448445701389",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "subject": "alopecia areata, vitiligo and thyroid",
+  "claim": "Alopecia areata and vitiligo are autoimmune and raise the risk of autoimmune thyroid disease, so get your thyroid checked.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7483979850215230766",
+  "genre": "day-in-the-life / office",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "his jeuveau times square billboard",
+  "claim": "He was featured on a Times Square billboard as a top Jeuveau provider.",
+  "tone": [
+   "luxury",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own account",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeQR4uOh18e",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "contrarian claim",
+  "subject": "starter retinoid routine for stable skin",
+  "claim": "A 12-week routine of gentle cleanse, retinoid, tranexamic acid/niacinamide and moisturizer improves tone and texture in stable skin.",
+  "tone": [
+   "clinical",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DYIzdqpg6Nv",
+  "genre": "personal journey / diary",
+  "format": "talking-head",
+  "hook_type": "reaction",
+  "subject": "azelaic acid with tretinoin combo",
+  "claim": "Adding azelaic acid to tretinoin transformed his skin texture almost overnight.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer diary",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7689225213308882189",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "subject": "trying emface at a medspa",
+  "claim": "EMFACE feels like a face gym that twitches your muscles to contour cheeks and jawline, and it doesn't hurt.",
+  "tone": [
+   "humor",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if a patient fronts it; EXOMIND/EMFACE-type devices are his",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DdPJ-nJtL3s",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "aesthetic business owner's anger",
+  "claim": "Her tears came from anger at pouring herself into someone else's business again.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": false,
+  "makeable_note": "personal confession",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7703280525519244566",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "sculptra vs traditional filler",
+  "claim": "Sculptra stimulates your own collagen over weeks and lasts 2-3 years, giving natural results unlike instant filler.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_MAyVkj0R9KE",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "visual shock / gross-out",
+  "subject": "hudson yards derm office tour",
+  "claim": "Hudson Derm and Laser Surgery is a skin innovation center in Hudson Yards worth visiting.",
+  "tone": [
+   "luxury",
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own office tour",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_3vTaPzApwjo",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "why injector technique matters",
+  "claim": "The same product gives different results in different hands; anatomy, placement, depth and restraint matter more than product.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_rXi7ZTZ8VHw",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "credential open",
+  "subject": "unrealistic morning shed content",
+  "claim": "Morning-shed videos are staged and unrealistic; spraying mist over a silicone mask does nothing.",
+  "tone": [
+   "humor",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DFqg8NsAH2m",
+  "genre": "ad / promo",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "rejuran salmon dna facial launch",
+  "claim": "Rejuran PDRN with microneedling and Morpheus8 regenerates collagen, and the medspa is launching it soon.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": false,
+  "makeable_note": "medspa launch with owner as patient; he could do a PDRN explainer",
+  "audience_reaction": null
+ }
+]

@@ -1,0 +1,391 @@
+[
+ {
+  "id": "ti_7506746735721565471",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "contrarian claim",
+  "subject": "new cosmetic derm graduation lip-sync",
+  "claim": "A newly graduated cosmetic dermatologist celebrates with a 'go to school, graduate' trend sound.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "trend lip-sync",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7415327647959485742",
+  "genre": "personal journey / diary",
+  "format": "talking-head + b-roll",
+  "hook_type": "story open",
+  "subject": "a derm's own melasma control",
+  "claim": "Melasma needs cycled prescription hydroquinone plus a multi-ingredient OTC routine; no single ingredient fixes it.",
+  "tone": [
+   "confessional",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "built on her own melasma/IVF story; the melasma explainer itself he could do",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7669465526766292245",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "at-home laser on dark skin, one year",
+  "claim": "After a year and four months, the at-home V6S laser kept her hair minimal on dark skin with no pain, but needs maintenance.",
+  "tone": [
+   "casual-friend",
+   "reassuring"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer review of a tagged device",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7681869695510744328",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "contrarian claim",
+  "subject": "pdrn cream instead of botox",
+  "claim": "Skip Botox: Anua's PDRN hyaluronic cream plumps and smooths tired skin.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_NQn3K9Ilr5o",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "excel v vascular laser uses",
+  "claim": "The Excel V vascular laser treats redness, rosacea, red scars, sun spots and spider veins while building collagen.",
+  "tone": [
+   "clinical",
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own account; better with him on camera",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_fkdCh3mbnj8",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "products that fixed her barrier",
+  "claim": "These products repaired her damaged skin barrier.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Db3pd0kgcfn",
+  "genre": "hack / tip",
+  "format": "talking-head",
+  "hook_type": "curiosity gap",
+  "subject": "layering azelaic acid with tretinoin",
+  "claim": "Azelaic acid in the morning and tretinoin at night, kept off the nose and eye corners, gives the benefits without the irritation.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7592017852509506837",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "life after a rosacea diagnosis",
+  "claim": "Rosacea is only controlled, never cured: no coffee, alcohol, chocolate or spicy food, pricey fragrance-free creams and strict sun care.",
+  "tone": [
+   "humor",
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "patient POV rant",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7611595472540683542",
+  "genre": "myth-bust",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "subject": "what 'ozempic face' really is",
+  "claim": "Ozempic face is just fast fat and muscle loss; semaglutide doesn't cause more muscle loss than a normal diet.",
+  "tone": [
+   "clinical",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "he'd angle it to the filler/Sculptra fix",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_AGpvI5zcxYs",
+  "genre": "trend-commentary",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "same-age celebrities with and without botox",
+  "claim": "Two celebrities of the same age can look very different depending on whether they use Botox.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "celebrity comparison; mind likeness rights",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7700695442891230478",
+  "genre": "hack / tip",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "quick dark-spot hygiene tip",
+  "claim": "A short dermatologist tip card on dark spots and hygiene.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "content unknown: no speech, thin caption",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7560794441208941846",
+  "genre": "personal journey / diary",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "a man's rosacea frustration",
+  "claim": "He is fed up with daily rosacea flushing and starts a night-only topical antibiotic from his dermatologist.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7596813113442192670",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "visual shock / gross-out",
+  "subject": "derm reacts to a facial with extractions",
+  "claim": "Steam doesn't open pores and clay masks only refine pores temporarily, but extractions are satisfying.",
+  "tone": [
+   "humor",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_FCvdsR7fbmk",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "clear + brilliant vs fraxel",
+  "claim": "Clear + Brilliant is a gentle, low-downtime Fraxel for younger and darker skin; Fraxel is the workhorse for heavier sun damage.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DecMHo-AEkz",
+  "genre": "red-flag / what-not-to-do",
+  "format": "interview / podcast clip",
+  "hook_type": "question",
+  "subject": "self-injected black-market filler",
+  "claim": "Injecting yourself with cheap black-market filler risks infection, allergy and tissue death.",
+  "tone": [
+   "fear/warning",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "TV show clip; only as a reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7673292568976723220",
+  "genre": "routine",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "dry skin glass-skin routine",
+  "claim": "This step-by-step routine gives dry skin a glass-skin finish.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_C6HKX9UyKwd",
+  "genre": "red-flag / what-not-to-do",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "subject": "overfilled vs well-treated face",
+  "claim": "Two faces the same age differ because one overused filler with unqualified injectors and the other did preventive care with certified surgeons.",
+  "tone": [
+   "fear/warning",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs consented patient photos",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_HPRjpVkLvDQ",
+  "genre": "routine",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "pat mcgrath glass-skin makeup",
+  "claim": "Pat McGrath-inspired glossy makeup gives a glass-skin look.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "makeup look",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_FrFY9VKozbA",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "subject": "skinvive for winter dehydration",
+  "claim": "SkinVive hyaluronic microdroplet injections hydrate dull winter skin from within for up to six months.",
+  "tone": [
+   "salesy",
+   "clinical"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7494324333326667039",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "subject": "a nyc dermatologist's workday",
+  "claim": "A NYC dermatologist's day mixes skin checks, biopsies, injectables, peels and lasers with a commute and dinner.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his Park Avenue version",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7664018784268700941",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "mohs scar at four weeks",
+  "claim": "Four weeks after Mohs and a V-beam session, her 9 mm-deep facial scar is healing remarkably well.",
+  "tone": [
+   "confessional",
+   "reassuring"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if a patient fronts it",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_d3m-1v3JC1U",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "story open",
+  "subject": "laser removal of flat moles",
+  "claim": "Flat dark junctional moles can be removed without cutting by two or three Q-switched Alexandrite sessions.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "he may prefer excision with pathology; only for benign flat moles",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702109985118965023",
+  "genre": "hack / tip",
+  "format": "text-on-screen only",
+  "hook_type": "list open",
+  "subject": "quick derm tips, hair to nails",
+  "claim": "Avoid tight hairstyles, use a retinoid for collagen, see a derm early for cystic acne and skip Russian manicures.",
+  "tone": [
+   "clinical",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Dav-oSrs9b_",
+  "genre": "personal journey / diary",
+  "format": "talking-head",
+  "hook_type": "before/after reveal",
+  "subject": "two weeks on azelaic and tretinoin",
+  "claim": "Two weeks of azelaic acid and tretinoin faded her acne marks faster than anything before.",
+  "tone": [
+   "confessional",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_PmBsAcZRZ8I",
+  "genre": "skin-cancer-awareness",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "don't be embarrassed at a skin check",
+  "claim": "Body hair or acne shouldn't stop you getting an annual full-body skin cancer check.",
+  "tone": [
+   "reassuring",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ }
+]

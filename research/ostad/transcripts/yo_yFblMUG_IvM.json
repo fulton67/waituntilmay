@@ -1,1 +1,1 @@
-{"source": "whisper", "model": "small", "lang": "en", "duration": 13.8, "reason": "no speech detected (music / text-on-screen only)", "status": "no_speech", "words": 1}
+{"source": "whisper", "model": "medium", "lang": "en", "duration": 13.8, "reason": "no speech detected (music / text-on-screen only)", "status": "no_speech", "words": 1}

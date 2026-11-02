@@ -1,0 +1,390 @@
+[
+ {
+  "id": "ti_7672097343973395734",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "sunscreen doesn't cause cancer",
+  "claim": "A review of 29 studies and 313,000 people found no link between sunscreen and skin cancer; UV is the real cause.",
+  "tone": [
+   "contrarian",
+   "fear/warning"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_C8fzdaGM5Re",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "subject": "launching emface chin electrode at amwc",
+  "claim": "At the AMWC congress she launched EMFACE's new double-chin electrode and presented a new device.",
+  "tone": [
+   "luxury",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "judgement call: works only if he attends/speaks at a congress",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DZH5aOdxFq3",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "promise of a result",
+  "subject": "maintenance retinoid night routine",
+  "claim": "On maintenance after two years of tretinoin, she layers PDRN toner, niacinamide, an OTC retinoid and moisturizer at night.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "Indonesian influencer routine",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DfMZHuSqP1u",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "testing a pdrn serum line",
+  "claim": "Two PDRN serums under her usual microneedle routine gave glow and hydration in every configuration she tried.",
+  "tone": [
+   "confessional",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer product testing in Polish",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7666430842570411285",
+  "genre": "hack / tip",
+  "format": "text-on-screen only",
+  "hook_type": "list open",
+  "subject": "repairing her skin barrier in 6 days",
+  "claim": "Three tips repaired her skin barrier in six days.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer clip, no speech",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_qrV2G4MgrIA",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "is ozempic face real",
+  "claim": "Rapid weight loss from Ozempic or Wegovy shrinks the face's fat compartments, just like any other weight loss.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7561488990453419319",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "baby botox for natural results",
+  "claim": "Baby Botox gives relaxed, natural results; book now.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own talking version",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7349260836860513582",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "visual shock / gross-out",
+  "subject": "sclerotherapy veins vanishing",
+  "claim": "Watch leg veins vanish as sclerotherapy solution is injected.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own account; music only",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7660957043141971231",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "santa monica derm clinic promo",
+  "claim": "A board-certified derm clinic offers lasers, injectables, hair loss and body contouring.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own version",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7697741699233139982",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "green-screen",
+  "hook_type": "curiosity gap",
+  "subject": "dollar tree clay spot paste",
+  "claim": "Dollar Tree's clay spot paste absorbs oil, but tea tree and fragrance irritate and benzoyl peroxide is a better spot treatment.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "judgement call: a dollar-store review is off-brand for Park Avenue",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeKKT4AhuCS",
+  "genre": "price / what-it-costs",
+  "format": "talking-head + b-roll",
+  "hook_type": "number/stat",
+  "subject": "aesthetic nurse's monthly income and spend",
+  "claim": "As a 25-year-old aesthetic nurse she made $5,750 in September and saved just $117.",
+  "tone": [
+   "confessional",
+   "casual-friend"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": false,
+  "makeable_note": "personal finance diary",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7665539282450402581",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "number/stat",
+  "subject": "prejuvenation from your mid-20s",
+  "claim": "Collagen loss starts in your mid-20s, so peels, microneedling, lasers and LED prevent aging rather than correct it.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_ZcoVRxPuRKI",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "promise of a result",
+  "subject": "morpheus8 for belly after 130 lb loss",
+  "claim": "After losing 130 lb, one Morpheus8 session at a drip spa tightened her belly skin as a tummy-tuck alternative.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if a patient fronts it",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7684336124008975646",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "results after one microneedling session",
+  "claim": "One microneedling session visibly improved her skin; three are recommended.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own before/after",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_6uFCidfnbxk",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "skin cycling is just marketing",
+  "claim": "Skin cycling is common sense packaged as a marketing concept; your skin doesn't know what day it is.",
+  "tone": [
+   "contrarian"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7694457706589015327",
+  "genre": "routine",
+  "format": "talking-head + b-roll",
+  "hook_type": "list open",
+  "subject": "47-year-old derm's morning routine",
+  "claim": "Her morning routine for dry, sensitive skin is cleanser, exosome serum, eye cream and SPF.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "judgement call: he'd need a man-in-his-50s version with LUMA",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7630133137439280404",
+  "genre": "hack / tip",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "subject": "signs and fixes for damaged barrier",
+  "claim": "A waxy, red, breaking-out face means a damaged barrier: drop exfoliants, use PDRN, gentle cleanser, moisturizer and SPF 50.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer product list",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702812604061846814",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "question",
+  "subject": "derm office halloween costumes",
+  "claim": "The dermatology office staff dressed as a group for Halloween.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "office staff comedy",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7611215067790445838",
+  "genre": "routine",
+  "format": "interview / podcast clip",
+  "hook_type": "question",
+  "subject": "three essential skincare products",
+  "claim": "Every routine needs just a gentle cleanser, a simple moisturizer and daily sunscreen, all available at the drugstore.",
+  "tone": [
+   "reassuring",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "as a podcast guest",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_aY4rt8wlWOg",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "derm living with rosacea",
+  "claim": "She has had rosacea most of her life, and stress is her biggest trigger.",
+  "tone": [
+   "confessional",
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "a derm's own condition",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DfM1hYfzMw4",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "kangri heat and skin cancer",
+  "claim": "Long-term kangri heat causes erythema ab igne, pigmentation and sometimes skin cancer.",
+  "tone": [
+   "clinical",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "Kashmir-specific; he could do a general toasted-skin version",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7679186320450784525",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "question",
+  "subject": "shadowing a nyc dermatologist for a day",
+  "claim": "A day with a NYC dermatologist covers family time, patch testing and zapping fibrous papules for $95 each.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if a creator shadows him",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Cs7cX3LNRwP",
+  "genre": "ad / promo",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "first lasemd ultra laser in chile",
+  "claim": "The clinic now has Chile's first Lutronic Ultra 1927 nm thulium laser, like Fraxel, to add to its arsenal.",
+  "tone": [
+   "salesy",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "he could do a new-device unboxing",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7698469860048653600",
+  "genre": "educational-explainer",
+  "format": "talking-head + b-roll",
+  "hook_type": "reaction",
+  "subject": "azelaic acid plus tretinoin for acne",
+  "claim": "Tretinoin at night and azelaic acid in the morning are a dream team for acne and post-acne marks; give it more than two weeks.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DXJRbkUgfPs",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "what ozempic face is",
+  "claim": "Rapid GLP-1 weight loss strips cheek fat, causing hollows, prominent bones and dark circles that look ill; slower loss shows less.",
+  "tone": [
+   "clinical",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ }
+]

@@ -1,0 +1,393 @@
+[
+ {
+  "id": "ti_7701543897863851295",
+  "genre": "hack / tip",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "unspecified quick derm fact",
+  "claim": "A short dermatologist fact card ('the more you know').",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "content unknown: no speech, thin caption",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7631544071785418017",
+  "genre": "myth-bust",
+  "format": "talking-head + b-roll",
+  "hook_type": "visual shock / gross-out",
+  "subject": "bone smashing for a sharper jaw",
+  "claim": "Hitting your face doesn't reshape bone or sharpen the jaw; Wolff's law is taken out of context and you only risk injury.",
+  "tone": [
+   "contrarian",
+   "clinical"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "science outlet with a surgeon; he could front the same myth-bust",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DF5J8RBCvYj",
+  "genre": "brand advertorial / sponsored",
+  "format": "vlog",
+  "hook_type": "promise of a result",
+  "subject": "influencer's emface 'skin-vestment'",
+  "claim": "EMFACE at this clinic lifts, tightens and sculpts the face with no needles or downtime.",
+  "tone": [
+   "luxury",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer clinic collab",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7623775675324845326",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "subject": "a 2mm melanoma by the eye",
+  "claim": "A harmless-looking 2 mm spot next to the eye was melanoma, only visible under dermoscopy.",
+  "tone": [
+   "fear/warning",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7449594800950594862",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "skincare details a derm ignores",
+  "claim": "Water temperature, detox claims, packaging and trendy ingredients don't matter; coconut oil and beef tallow are bad for the face.",
+  "tone": [
+   "contrarian",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7691374565880040718",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "contrarian claim",
+  "subject": "tretinoin rated 8 out of 10",
+  "claim": "Tretinoin has great evidence but most patients can't tolerate it, so a consistent retinol or retinal is often the better choice.",
+  "tone": [
+   "contrarian",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7683088069813390595",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "morning after co2 laser",
+  "claim": "The first morning after CO2 laser her face is swollen and tight, and CO2 treats scars, pores and laxity.",
+  "tone": [
+   "confessional",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer diary that pivots to her own product launch",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7698510322826530078",
+  "genre": "hack / tip",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "eczema home-care basics",
+  "claim": "Eczema home care basics include gentle care and, for moderate to severe cases, dilute bleach baths to prevent infection.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_sW8pM_y_iGM",
+  "genre": "day-in-the-life / office",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "subject": "a nyc derm's procedure day",
+  "claim": "A NYC derm's day runs from laser hair removal and injectables to keloid shots and a cyst excision.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his Park Avenue version",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7647568358941953301",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "seven days on a dark-spot serum",
+  "claim": "Seven days of this tagged product visibly faded her dark spots.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7672524864028265742",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "luxury skincare a derm repurchases",
+  "claim": "SkinCeuticals CE Ferulic and Phloretin, Dr. Diamond's growth factor and Elastin's neck cream are worth the price.",
+  "tone": [
+   "casual-friend",
+   "luxury"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7675773857919159574",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "trending skincare not worth buying",
+  "claim": "Ice rollers, pricey LED masks, collagen gummies and face-yoga gadgets aren't worth the money.",
+  "tone": [
+   "contrarian",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": "Viewers push back on the LED mask point, say theirs works, complain derms contradict each other, and note LED-mask ads in the comments."
+ },
+ {
+  "id": "in_Dc9NFr5K0Yq",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "treatments i won't do on my daughter",
+  "claim": "As an aesthetic doctor and mother she won't give her 20-year-old daughter over 1 cc of lip filler, threads or cheek filler.",
+  "tone": [
+   "fear/warning",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "as 'what I won't do on a 20-year-old'",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DFxow94M65c",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "tv nostalgia and wrinkle care",
+  "claim": "Nostalgia is nice but wrinkles have no sentiment, so start retinol skin cycling.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "Polish trend meme",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7580489996839193886",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "direct address",
+  "subject": "derm vs medical assistant workload",
+  "claim": "The medical assistant does most of the clinic's work while the doctor just diagnoses.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "office comedy",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7619470462703209742",
+  "genre": "patient-story / testimonial",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "four weeks of acne treatment",
+  "claim": "Four weeks with a NYC dermatologist cleared years of hormonal acne and hyperpigmentation.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if his patient fronts it",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DJ0saVwxK32",
+  "genre": "trend-commentary",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "did botox make a star's face sag",
+  "claim": "A celebrity's sagging face is normal aging over 24 years, not Botox.",
+  "tone": [
+   "reassuring",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_9Q9dSwE_X3c",
+  "genre": "procedure-POV",
+  "format": "text-on-screen only",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "morpheus8 for festoons",
+  "claim": "Festoons under the eyes are hard to treat but respond to Morpheus8.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own account; better with him speaking",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7687247438763134240",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "number/stat",
+  "subject": "skincare evidence in 60 seconds",
+  "claim": "Sunscreen does most anti-aging work, retinoids build collagen, and simple consistent routines beat expensive complexity.",
+  "tone": [
+   "clinical",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_LS_0i57NF7I",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "what laser tattoo removal looks like",
+  "claim": "Tattoos can be removed with laser, though it is painful.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "media account; tattoo removal isn't his service",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7259822258615487786",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "retinol purging, why it stops",
+  "claim": "Retinol unclogs pores so you may purge for a few weeks; start low, use an oil-free moisturizer and stick with it.",
+  "tone": [
+   "reassuring",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_Dc1vq83vGYs",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "subject": "start anti-aging before you need it",
+  "claim": "Preventative neuromodulators, including lower-face tox, are the non-negotiable first step of an anti-aging plan.",
+  "tone": [
+   "clinical",
+   "salesy"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_THy0IYfKpys",
+  "genre": "patient-story / testimonial",
+  "format": "interview / podcast clip",
+  "hook_type": "story open",
+  "subject": "buccal fat removal testimonial",
+  "claim": "An insecure-cheeked patient is very happy with her buccal fat removal and the friendly practice.",
+  "tone": [
+   "confessional",
+   "reassuring"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "surgical procedure he doesn't offer; format works with his own patients",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7689496549071588639",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "how to layer azelaic acid",
+  "claim": "Use azelaic acid as the treatment step, layer thinnest to thickest, and start once a day.",
+  "tone": [
+   "clinical",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "as generic layering advice, not their product",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7658780720168537357",
+  "genre": "red-flag / what-not-to-do",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "buccal fat removal ages you",
+  "claim": "Removing buccal fat young makes you age faster; it's only reasonable in some people over 50.",
+  "tone": [
+   "fear/warning",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ }
+]

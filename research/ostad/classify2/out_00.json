@@ -1,0 +1,388 @@
+[
+ {
+  "id": "ti_7134790376518470954",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "story open",
+  "subject": "derm duets a skin cycling fan",
+  "claim": "A follower's glowing skin proves skin cycling (exfoliant, retinoid, two recovery nights) works.",
+  "tone": [
+   "casual-friend",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction/stitch to a patient or fan clip",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_3omae7t2VUo",
+  "genre": "trend-commentary",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "celebrity ozempic face before and after",
+  "claim": "Celebrities' faces visibly hollowed after GLP-1 weight loss.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "silent celebrity slideshow; he could only do it as narrated derm commentary on Ozempic face",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7618113269039156500",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "filipino serum faded acne scars",
+  "claim": "This serum removed my acne marks and scars.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": "Users share how often to apply, purging tips, cases where it made skin worse, and skeptics say it can't beat a laser."
+ },
+ {
+  "id": "yo_uCDNn5FcaJs",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "chemical peel series on black skin",
+  "claim": "A course of chemical peels evened out my dark skin.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "creator's own peel diary; he'd need a skin-of-color patient result",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_l4CGjE-DPkQ",
+  "genre": "procedure-POV",
+  "format": "text-on-screen only",
+  "hook_type": "visual shock / gross-out",
+  "subject": "prp microneedling session footage",
+  "claim": "This is what a PRP plus microneedling treatment looks like.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own procedure footage and voiceover",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_ppGlX6Ux9AY",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "direct address",
+  "subject": "botox for forehead, chin, neck bands",
+  "claim": "Botox in the forehead, mentalis and platysmal bands smooths lines, chin dimpling and neck bands.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7400400768995429674",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "subject": "la roche-posay cleanser refill pouches",
+  "claim": "Toleriane refill pouches are gentle cleansers that cost less and use 73% less plastic.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "paid brand partnership",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7696670183980567821",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "toner is underrated",
+  "claim": "Toner is one of the most underrated, affordable products and visibly smooths pores and texture.",
+  "tone": [
+   "contrarian",
+   "casual-friend"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": "judgement call: he could give a derm take on whether toner earns its place",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_q94Xf4YEORU",
+  "genre": "routine",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "overnight korean glass skin routine",
+  "claim": "A simple bedtime routine of cleanser, night cream, serum and lip balm gives glass skin overnight.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "faceless beauty-channel routine",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7587368749775277334",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "promise of a result",
+  "subject": "natural hyperpigmentation soap in 30 days",
+  "claim": "This anti-hyperpigmentation product cleared my dark patches naturally in 30 days, or it's free.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "UGC-style product ad",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7149704628165184810",
+  "genre": "routine",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "leveling up skin cycling",
+  "claim": "Once skin cycling is tolerated, apply retinoid directly to dry skin, drop a recovery night, then go nightly.",
+  "tone": [
+   "clinical",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7702493975550201118",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "subject": "medik8 sephora sale picks",
+  "claim": "These Medik8 peptide and retinol products deserve a spot in your Sephora basket during the sale.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "sponsored Sephora/Medik8 plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7491067437274631454",
+  "genre": "procedure-POV",
+  "format": "text-on-screen only",
+  "hook_type": "visual shock / gross-out",
+  "subject": "cyst extraction close-up",
+  "claim": "Watch a cyst being drained.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own extraction footage",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7609109122679606549",
+  "genre": "personal journey / diary",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "big face genetics and comparison",
+  "claim": "People with naturally fuller faces should stop comparing themselves to Western models' genetics.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "body-image confession",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_xIHFNjyZzrI",
+  "genre": "myth-bust",
+  "format": "skit / acted",
+  "hook_type": "curiosity gap",
+  "subject": "best melasma treatment lip-sync",
+  "claim": "Most popular melasma fixes are wrong; only one approach actually works.",
+  "tone": [
+   "humor",
+   "contrarian"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "lip-sync meme; he could redo it as a talking-head melasma myth-bust",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7458724254138387717",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "curiosity gap",
+  "subject": "tretinoin purge relatable meme",
+  "claim": "Nobody admits how bad tretinoin makes your skin look at first.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy meme",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7665819003943701782",
+  "genre": "personal journey / diary",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "pregnancy melasma that never faded",
+  "claim": "My melasma from two pregnancies never went away and I need recommendations.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "he could answer it as a stitch/Q&A",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7510594194528800022",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "fading hyperpigmentation on brown skin",
+  "claim": "Staying consistent with skincare evened out my hyperpigmentation and acne-prone skin.",
+  "tone": [
+   "confessional",
+   "reassuring"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "creator's own skin diary",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_Qo5vpmDJfSo",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "dark spots gone with products",
+  "claim": "These products took my dark spots from this to this.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "affiliate product showcase on her own skin",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7606361418362785042",
+  "genre": "routine",
+  "format": "vlog",
+  "hook_type": "direct address",
+  "subject": "at-home brazilian hair botox",
+  "claim": "You can do Brazilian hair botox at home: apply to damp hair, soak, blow-dry and flat-iron.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "hair botox, not his field",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_HbYGMtrLtL4",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "visual shock / gross-out",
+  "subject": "what co2 laser resurfacing fixes",
+  "claim": "CO2 laser resurfacing tightens skin and clears pigmentation, pores and scars, so book a consult.",
+  "tone": [
+   "salesy",
+   "reassuring"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own CO2 footage",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7550131834177195271",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "glow-up from healing skin barrier",
+  "claim": "Repairing a damaged skin barrier means fewer breakouts and a visible glow-up.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "motivational glow-up edit",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7591647537308765458",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "story open",
+  "subject": "korean salmon dna facial tested",
+  "claim": "Korean salmon DNA (PDRN) microneedling leaves skin firmer and more luminous within a week.",
+  "tone": [
+   "casual-friend",
+   "luxury"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer trying a treatment; only if he offers PDRN on a patient",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7333520579154267425",
+  "genre": "patient-story / testimonial",
+  "format": "talking-head",
+  "hook_type": "list open",
+  "subject": "healing a mole removal scar",
+  "claim": "Steri-strips, silicone gel, red LED and daily SPF gave my mole-removal scar a great result.",
+  "tone": [
+   "reassuring",
+   "casual-friend"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "as his own post-mole-removal scar-care tips, or fronted by his patient",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_-xVAZgnbqD0",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "reaction",
+  "subject": "anesthesiologist sings to patient",
+  "claim": "Even the patient under anesthesia has to hear the song.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy",
+  "audience_reaction": null
+ }
+]

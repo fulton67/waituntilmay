@@ -1,0 +1,389 @@
+[
+ {
+  "id": "ti_7379228822576614662",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "curiosity gap",
+  "subject": "which lasers are safe on black skin",
+  "claim": "Alexandrite lasers will likely burn Black skin; Nd:YAG/diode-type lasers and an experienced operator make hair removal safe.",
+  "tone": [
+   "reassuring",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his skin-of-color laser expertise fits",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7678859112398048526",
+  "genre": "routine",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "hygienist's drugstore daytime routine",
+  "claim": "Her La Roche-Posay cleanser, L-ascorbic vitamin C and SPF 50 lineup works for acne-prone, dry and combination skin.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer routine with storefront links",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_6ZUnymb3k-s",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "one year of tattoo removal",
+  "claim": "A year of laser sessions visibly fades a tattoo.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "tattoo removal isn't in his menu; would need his own patient series",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_drRpMMtvQU8",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "baby botox forehead result",
+  "claim": "Baby Botox smooths forehead lines while still looking natural.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own patient result",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_UB1VF611RUA",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "sclerotherapy for spider and varicose veins",
+  "claim": "Sclerotherapy injections treat both spider and varicose veins.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "already his own account; better with him speaking",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeWqoSNIDRK",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head",
+  "hook_type": "story open",
+  "subject": "actress plugs a sunscreen",
+  "claim": "This PhD Beauty sunscreen is backed by global dermatology research and worth trying.",
+  "tone": [
+   "humor",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_V2f5dpJYYuU",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "natural baby botox results",
+  "claim": "Light-dose Botox softens forehead and frown lines without a frozen look.",
+  "tone": [
+   "luxury"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own before/after",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_5m58pe2-sbc",
+  "genre": "humor / skit",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "lip filler migration meme",
+  "claim": "Lip filler doesn't dissolve on its own, it migrates.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "meme format; the claim could be redone as a myth-bust",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7414301297119087902",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "why she became triple board-certified",
+  "claim": "She trained in internal medicine and dermatology because she wanted to treat the whole patient, which is why she is triple-boarded.",
+  "tone": [
+   "confessional",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "he is triple-boarded too; his own origin story",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7532300923515833613",
+  "genre": "skin-cancer-awareness",
+  "format": "voiceover-over-procedure",
+  "hook_type": "visual shock / gross-out",
+  "subject": "checking hundreds of moles one by one",
+  "claim": "A patient with hundreds of moles needs each one dermoscoped, and the suspicious ones and a BCC are removed.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7642359935455513863",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "curiosity gap",
+  "subject": "k-pop glass skin and pdrn cream",
+  "claim": "K-pop idols' glass skin comes from daily barrier care with PDRN, so use this Korean pharmacy PDRN cream.",
+  "tone": [
+   "salesy",
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_yFblMUG_IvM",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "full-face botox areas",
+  "claim": "Full-face Botox across forehead, frown, crow's feet, lips, jaw and neck gives a fresh, non-frozen look.",
+  "tone": [
+   "salesy",
+   "luxury"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own patient footage",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DXxtSVnMoXM",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "story open",
+  "subject": "stage 4 cancer, chose another path",
+  "claim": "After chemo was offered as her only option for stage 4 cancer, she followed her gut and pursued a different treatment.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "not skin-related; personal cancer diary",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7524842251575430414",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "fraxel healing week, no results",
+  "claim": "Fraxel took six days to heal and gave her no visible improvement, so it wasn't worth the money.",
+  "tone": [
+   "confessional",
+   "contrarian"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "only as a reaction/stitch on Fraxel expectations",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7643273596109982990",
+  "genre": "hack / tip",
+  "format": "talking-head + b-roll",
+  "hook_type": "list open",
+  "subject": "match the active to your concern",
+  "claim": "Pick actives by concern: retinol for wrinkles, salicylic for acne, hyaluronic for dryness, niacinamide for oil, glycolic for texture.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes as his own cheat sheet without the product picks",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7642188325314383125",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "melasma progress, guess my age",
+  "claim": "Using something consistently is better than nothing for melasma; look at her skin now.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7666297102971964693",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "number/stat",
+  "subject": "61-year-old's glassy hands and neck",
+  "claim": "At 61 her hands, neck and chest look like glass thanks to her own micro-exfoliant.",
+  "tone": [
+   "salesy",
+   "luxury"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "founder selling her own product",
+  "audience_reaction": "Viewers doubt she is 61, ask for proof, and compare their own ages and hands."
+ },
+ {
+  "id": "in_DSFp1baDzkA",
+  "genre": "patient-story / testimonial",
+  "format": "vlog",
+  "hook_type": "story open",
+  "subject": "removing a lifelong facial mole",
+  "claim": "She finally had the mole she'd had since childhood removed and feels relieved.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if a patient fronts it",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7657700500426460430",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "derm after nailing a diagnosis",
+  "claim": "A dermatologist feels invincible for five minutes after getting a diagnosis right.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7195327536434318635",
+  "genre": "Q&A / comment-reply",
+  "format": "stitch/duet",
+  "hook_type": "question",
+  "subject": "why black dermatologists are hard to find",
+  "claim": "Only about 3% of dermatologists are Black; directories exist, and all derms need training in skin of color.",
+  "tone": [
+   "reassuring",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "the answer is about being a Black derm; he could answer a different skin-of-color question",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7257253583031225643",
+  "genre": "routine",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "the ideal skincare routine in your 20s",
+  "claim": "A simple daily cleanse, sunscreen and retinoid routine in your 20s pays off for decades.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": "Viewers thank her for a realistic routine and ask about retinol vs tretinoin, sunscreen on the body and preventative Botox in your 20s."
+ },
+ {
+  "id": "ti_7542121662032907527",
+  "genre": "procedure-POV",
+  "format": "vlog",
+  "hook_type": "visual shock / gross-out",
+  "subject": "painful laser tattoo removal session",
+  "claim": "This was the longest laser tattoo removal session she has sat through.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": false,
+  "makeable_note": "tattoo removal, patient vlog",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo__bGlsdWlaiM",
+  "genre": "procedure-POV",
+  "format": "voiceover-over-procedure",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "mohs surgery for squamous cell in situ",
+  "claim": "Mohs removes the cancer layer by layer under the microscope for about a 98% cure while sparing healthy tissue.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7404438855597837598",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "question",
+  "subject": "'very demure' work makeup lip-sync",
+  "claim": "Be modest and mindful at work: look the same as you did at the interview.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "trend lip-sync; caption about minoxidil is unrelated",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_PTX8wsanx8M",
+  "genre": "Q&A / comment-reply",
+  "format": "stitch/duet",
+  "hook_type": "direct address",
+  "subject": "rapid-fire derm answers to viewer clips",
+  "claim": "Quick fixes: treat sunburn with cool baths and Advil, rosacea with triggers avoided, retinol burn with a pause, fungal acne with dandruff shampoo.",
+  "tone": [
+   "casual-friend",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a stitch",
+  "audience_reaction": null
+ }
+]

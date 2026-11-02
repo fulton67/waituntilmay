@@ -1,0 +1,390 @@
+[
+ {
+  "id": "ti_7559327311481425164",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head",
+  "hook_type": "visual shock / gross-out",
+  "subject": "salmon sperm dna cream plug",
+  "claim": "A Korean salmon-DNA (PDRN) cream rejuvenates skin, boosting collagen and elastin for a youthful glow.",
+  "tone": [
+   "salesy",
+   "humor"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer product plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_keyKrmNemWY",
+  "genre": "educational-explainer",
+  "format": "text-on-screen only",
+  "hook_type": "question",
+  "subject": "skinvive vs vollure consistency",
+  "claim": "Skinvive is a thin, water-like HA for hydration while Vollure is a thicker filler for volume.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own channel; no speech",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_q10SODq-6Ts",
+  "genre": "ad / promo",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "emsculpt neo fat and muscle",
+  "claim": "Emsculpt Neo removes fat and builds muscle in one no-downtime session, improving core tone and even back pain.",
+  "tone": [
+   "salesy",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_gCROnWbnchc",
+  "genre": "ad / promo",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "meet dr. ostad and his cutera laser",
+  "claim": "Dr. Ostad, with 27 years in cosmetic dermatology and Mohs surgery, relies on his versatile Cutera laser.",
+  "tone": [
+   "clinical",
+   "luxury"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own video",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_O-iSH4mDjno",
+  "genre": "hack / tip",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "pre-holiday botox and filler prep",
+  "claim": "Botox, filler and other treatments before the holidays help you look your best at gatherings.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own channel; music only",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DWUIfLOFeoz",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "ellacor micro-coring explained",
+  "claim": "Ellacor removes tiny cores of skin to tighten jowls and loose skin without surgery, with about five days' recovery.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "brand repost of his own clip",
+  "audience_reaction": "Viewers ask whether it works on neck laxity and how many sessions are needed; several say minimal downtime decides it."
+ },
+ {
+  "id": "in_DeuyxCNEujF",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "direct address",
+  "subject": "live ellacor 25% off offer",
+  "claim": "Join the live stream now to lock in 25% off an Ellacor package with a free skin booster.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own live promo",
+  "audience_reaction": "People who missed the live ask for a replay; others say the 25% deal has them considering booking."
+ },
+ {
+  "id": "ti_7690715132632124686",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "vlog",
+  "hook_type": "credential open",
+  "subject": "why sofwave is worth it",
+  "claim": "Sofwave ultrasound tightens the neck, jowls, brows and eye area without needles and with little downtime: 10/10.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "he'd review a device he uses",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_HBVC54lhlG0",
+  "genre": "Q&A / comment-reply",
+  "format": "talking-head",
+  "hook_type": "direct address",
+  "subject": "four types of rosacea and gentle care",
+  "claim": "Rosacea has four types, and the basics are gentle cleansers, moisturizers and mineral sunscreen.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7639884195170471186",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "contrarian claim",
+  "subject": "smooth forehead at 30 joke",
+  "claim": "Just a simple girl who turned 30 and has a smooth (Botoxed) forehead.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy lip-sync",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_B4IDrLPNh3s",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "ozempic face is rapid weight loss",
+  "claim": "Ozempic face comes from losing weight fast, not from semaglutide itself.",
+  "tone": [
+   "contrarian",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_wLHMCA4x_Ic",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "stop doing X",
+  "subject": "which viral korean pdrn product",
+  "claim": "Different viral Korean PDRN products suit different skin types, so pick by concern rather than hype.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "K-beauty product haul",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DYCJeBoNCEi",
+  "genre": "ad / promo",
+  "format": "text-on-screen only",
+  "hook_type": "visual shock / gross-out",
+  "subject": "laser vinyl cutter demo",
+  "claim": "An industrial CO2 laser cutter slices 1mm silicone heat-transfer vinyl easily.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "industrial machine, off-topic",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DeO_XGNRVY0",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "tranexamic acid sunscreen for dark spots",
+  "claim": "Celimax's dark-spot sunscreen with TXA fades pigmentation and leaves no white cast on brown skin.",
+  "tone": [
+   "casual-friend",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer product plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DfAy1qDPEdF",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "curiosity gap",
+  "subject": "medspa team paparazzi bonding",
+  "claim": "Medspa staff team bonding, played as a paparazzi joke.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "brand",
+  "makeable_by_ostad": false,
+  "makeable_note": "staff comedy",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7703297173361839393",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "botox jawline slimming for round face",
+  "claim": "Botox gives a round face the easiest glow-up.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer glow-up; he'd need his own masseter before/after",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7700729974797520158",
+  "genre": "diagnosis / is-it-X",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "itchy insect bites papular urticaria",
+  "claim": "Those bumps are bug bites, not a vampire bite; cleanse with mild soap, use a topical steroid and don't scratch.",
+  "tone": [
+   "humor",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DdviPCYzAsz",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head",
+  "hook_type": "promise of a result",
+  "subject": "vitamin c serum fades dark spots",
+  "claim": "This vitamin C product faded her dark spots in days; comment to get the link.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "Hindi-language affiliate plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7700007770321325342",
+  "genre": "red-flag / what-not-to-do",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "glass test for non-blanching rash",
+  "claim": "If a rash doesn't blanch under a pressed glass, it can signal meningitis, sepsis or vasculitis and needs urgent care.",
+  "tone": [
+   "fear/warning",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7700246405801086222",
+  "genre": "hack / tip",
+  "format": "talking-head",
+  "hook_type": "POV / you-are-the-patient",
+  "subject": "calming fresh razor bumps",
+  "claim": "For angry razor bumps, stop shaving, use cool compresses and 1% hydrocortisone, and avoid acids on the irritated spots.",
+  "tone": [
+   "clinical",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7632895376189574414",
+  "genre": "myth-bust",
+  "format": "talking-head + b-roll",
+  "hook_type": "contrarian claim",
+  "subject": "rosacea myths",
+  "claim": "Rosacea isn't just sensitive skin, poor hygiene or caused by alcohol; it's a chronic inflammatory disease that can be treated.",
+  "tone": [
+   "contrarian",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "sponsored Cetaphil tail; he'd drop the plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7696230227139251486",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "can you eat your skincare",
+  "claim": "Foods like tomatoes and oral collagen modestly help skin aging, but they don't replace sunscreen, retinoids and vitamin C.",
+  "tone": [
+   "clinical",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_43wB5BsopTI",
+  "genre": "patient-story / testimonial",
+  "format": "interview / podcast clip",
+  "hook_type": "story open",
+  "subject": "lack of skin-of-color dermatologists",
+  "claim": "In Mississippi few dermatologists are trained in skin of color, and Black patients are left out of studies.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "only as a reaction; he treats skin of color",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DDIXCUSS666",
+  "genre": "personal journey / diary",
+  "format": "vlog",
+  "hook_type": "question",
+  "subject": "trying a buccal massage",
+  "claim": "A buccal (intraoral) facial massage felt amazing.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "influencer spa visit",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DWPajdFEWTA",
+  "genre": "ad / promo",
+  "format": "talking-head + b-roll",
+  "hook_type": "credential open",
+  "subject": "nia-c niacinamide moisturizer",
+  "claim": "His Nia-C moisturizer with niacinamide strengthens the barrier, brightens tone and hydrates without clogging pores.",
+  "tone": [
+   "salesy",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "his own product; caption hints an 80-year-old patient endorsement",
+  "audience_reaction": "Viewers praise the 80-year-old's glow and say they're adding it to cart; one asks if it can be used with retinol."
+ }
+]

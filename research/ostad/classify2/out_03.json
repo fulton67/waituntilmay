@@ -1,0 +1,389 @@
+[
+ {
+  "id": "yo_qgHKWrFEPCo",
+  "genre": "derm-reacts / duet / stitch",
+  "format": "stitch/duet",
+  "hook_type": "story open",
+  "subject": "laser first for acne scars",
+  "claim": "Acne scars respond very well to fractional CO2, so laser should be the first thing you try, not the last.",
+  "tone": [
+   "contrarian",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": "as a reaction/stitch to a patient clip",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_P686ASuuXoM",
+  "genre": "myth-bust",
+  "format": "interview / podcast clip",
+  "hook_type": "contrarian claim",
+  "subject": "some sun exposure is good",
+  "claim": "Some sun is good for you, and the skin cancers sun causes are generally not the deadliest ones.",
+  "tone": [
+   "contrarian"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "Huberman fan clip; he could only answer it as a reaction/stitch",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_Pj303mVx7xY",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "thread lift transformation",
+  "claim": "A thread lift visibly lifts and transforms the face.",
+  "tone": [
+   "luxury"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own thread-lift result",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7484622185009614086",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "exosome serum replaced my routine",
+  "claim": "An exosome serum replaced my whole 10-step routine.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "lip-sync testimonial; he could do a derm take on exosome safety instead",
+  "audience_reaction": "Commenters object that human exosomes come from placentas without consent, warn they are unregulated and may raise cancer risk, while a few recommend Korean exosome lines."
+ },
+ {
+  "id": "ti_7467519294423747872",
+  "genre": "procedure-POV",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "non-surgical nose filler",
+  "claim": "Filler injected strategically into the nose reshapes it without surgery.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own liquid-rhinoplasty footage",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DM3CyUhMZuT",
+  "genre": "myth-bust",
+  "format": "talking-head",
+  "hook_type": "stop doing X",
+  "subject": "plucking grey hairs",
+  "claim": "Plucking grey hairs doesn't make more grow, but repeated plucking kills the follicle and leaves thin patches, so dye or trim instead.",
+  "tone": [
+   "contrarian",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7638594653012462868",
+  "genre": "skin-cancer-awareness",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "how subtle early skin cancer looks",
+  "claim": "Early skin cancer can look subtle, like a non-healing pimple, a scab that recurs or an odd sun spot, so get it checked.",
+  "tone": [
+   "fear/warning",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7665538113283919124",
+  "genre": "educational-explainer",
+  "format": "talking-head",
+  "hook_type": "question",
+  "subject": "blood pressure numbers explained",
+  "claim": "Normal blood pressure is 120/80, stage 1 starts at 130/80, stage 2 at 140/90, and 180/110 is a crisis.",
+  "tone": [
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "off-topic: hypertension, not dermatology",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_8rtmTR-SrAg",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "under-eye filler result",
+  "claim": "Under-eye filler brightened and refreshed her eyes while looking natural.",
+  "tone": [
+   "luxury",
+   "salesy"
+  ],
+  "speaker": "nurse/injector",
+  "makeable_by_ostad": true,
+  "makeable_note": "needs his own tear-trough result",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7582625809538698503",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "clearing dark spots transformation",
+  "claim": "All I wanted was healthy skin, and my dark spots finally cleared.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "creator's own skin diary",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7195028262765022506",
+  "genre": "routine",
+  "format": "talking-head",
+  "hook_type": "credential open",
+  "subject": "a derm's minimalist routine",
+  "claim": "My real routine as a dermatologist is just wash and retinoid at night; less is more and you don't need to buy into the industry.",
+  "tone": [
+   "contrarian",
+   "casual-friend"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": "Viewers are surprised by retinoid with no moisturizer, question skipping daily SPF on a retinoid, ask for a budget retinoid and cheer 'less is more'."
+ },
+ {
+  "id": "ti_7544053691087719702",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head + b-roll",
+  "hook_type": "question",
+  "subject": "spot the tiny basal cell",
+  "claim": "A barely visible mark on a forearm was an early basal cell carcinoma, so check your skin regularly.",
+  "tone": [
+   "fear/warning",
+   "clinical"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7357100558194363694",
+  "genre": "humor / skit",
+  "format": "skit / acted",
+  "hook_type": "reaction",
+  "subject": "family reacts to face basting",
+  "claim": "My family has to get used to me slugging my face before bed.",
+  "tone": [
+   "humor"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": false,
+  "makeable_note": "comedy; he could do the slugging tip straight",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7699163185563143454",
+  "genre": "skin-cancer-awareness",
+  "format": "talking-head",
+  "hook_type": "contrarian claim",
+  "subject": "skin cancers that don't look like moles",
+  "claim": "Many skin cancers look like a pimple, dry patch or pink spot, so watch for spots that change, bleed or don't heal.",
+  "tone": [
+   "clinical",
+   "fear/warning"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7691771510402338080",
+  "genre": "product-review / drugstore-vs-medical",
+  "format": "talking-head + b-roll",
+  "hook_type": "number/stat",
+  "subject": "peptide serums ranked by evidence",
+  "claim": "Popular glow serums score low on anti-aging evidence while clinically tested peptide serums like ZO and Alastin score 10/10.",
+  "tone": [
+   "clinical",
+   "contrarian"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7651204350743760159",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "nu skin device for melasma",
+  "claim": "I didn't believe this Nu Skin device would help my melasma until I tried it.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "MLM product plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "yo_N7EGRoGi2YU",
+  "genre": "educational-explainer",
+  "format": "interview / podcast clip",
+  "hook_type": "question",
+  "subject": "what baby botox is",
+  "claim": "Baby Botox uses smaller doses to soften fine lines while keeping natural movement.",
+  "tone": [
+   "clinical",
+   "reassuring"
+  ],
+  "speaker": "doctor",
+  "makeable_by_ostad": true,
+  "makeable_note": null,
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7587244024218668310",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head",
+  "hook_type": "promise of a result",
+  "subject": "topical ghk-cu for acne scars",
+  "claim": "A topical GHK-Cu peptide boosts collagen as well as injections and cleared my acne scars.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "affiliate product plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7635114483307810078",
+  "genre": "trend-commentary",
+  "format": "text-on-screen only",
+  "hook_type": "curiosity gap",
+  "subject": "celebrity compilation clip",
+  "claim": "A compilation of celebrities.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "other",
+  "makeable_by_ostad": false,
+  "makeable_note": "celebrity fan edit; transcript unavailable",
+  "audience_reaction": null
+ },
+ {
+  "id": "in_DPdhP8KjVGA",
+  "genre": "brand advertorial / sponsored",
+  "format": "talking-head + b-roll",
+  "hook_type": "direct address",
+  "subject": "skinvive hydration from within",
+  "claim": "SKINVIVE is a superficially injected hyaluronic acid that hydrates skin from within for up to nine months in one session.",
+  "tone": [
+   "salesy",
+   "clinical"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "paid ad (Anzeige) by an influencer",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7662587116467014932",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "story open",
+  "subject": "toner pads for a rosacea flare",
+  "claim": "These centella toner pads calm my rosacea flare; use my code.",
+  "tone": [
+   "confessional",
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "affiliate coupon plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7658689487228259614",
+  "genre": "before-after",
+  "format": "text-on-screen only",
+  "hook_type": "before/after reveal",
+  "subject": "tretinoin texture difference",
+  "claim": "Tretinoin made a crazy difference in my skin texture.",
+  "tone": [
+   "casual-friend"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "creator's own skin",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7680897864024788255",
+  "genre": "brand advertorial / sponsored",
+  "format": "text-on-screen only",
+  "hook_type": "promise of a result",
+  "subject": "arencia cream for hyperpigmentation",
+  "claim": "This Arencia cream is my go-to for hyperpigmentation and dark elbows.",
+  "tone": [
+   "salesy"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "UGC product plug",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7507111299088747806",
+  "genre": "skin-cancer-awareness",
+  "format": "text-on-screen only",
+  "hook_type": "list open",
+  "subject": "stage 4 melanoma warning signs",
+  "claim": "These are the symptoms I had before my stage 4 melanoma diagnosis, so get them checked.",
+  "tone": [
+   "fear/warning",
+   "confessional"
+  ],
+  "speaker": "patient",
+  "makeable_by_ostad": true,
+  "makeable_note": "yes if a patient fronts it",
+  "audience_reaction": null
+ },
+ {
+  "id": "ti_7463350095363312902",
+  "genre": "personal journey / diary",
+  "format": "text-on-screen only",
+  "hook_type": "story open",
+  "subject": "riding out the tretinoin purge",
+  "claim": "My tretinoin purge is rough but I'm trusting the process.",
+  "tone": [
+   "confessional"
+  ],
+  "speaker": "influencer",
+  "makeable_by_ostad": false,
+  "makeable_note": "creator's own skin diary",
+  "audience_reaction": null
+ }
+]
