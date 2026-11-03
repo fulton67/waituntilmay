@@ -27,7 +27,22 @@ import {
 } from "./TuneRenderer";
 import "./mosh-tune.css";
 
-const DATA = "/mosh-lab/blum-internet-tune.json";
+const LAB_DATA = "/mosh-lab/blum-internet-tune.json";
+
+/**
+ * Which clip the page is tuned against.
+ *
+ * The lab clip is the default and is what a person opening /mosh-lab/tune
+ * sees. `?data=<url>` points it at another manifest of the same shape,
+ * which is how scripts/shade_bank.mjs drives this page over a hundred-odd
+ * bank clips: same engine, same config, a different three seconds of tape.
+ * Without it the offline shader would be a second implementation of the
+ * look, and two implementations drift.
+ */
+function dataUrl() {
+  if (typeof location === "undefined") return LAB_DATA;
+  return new URLSearchParams(location.search).get("data") || LAB_DATA;
+}
 const TILES = 6;
 const PREVIEW_SECONDS = 2.5;
 
@@ -43,6 +58,42 @@ interface TuneData {
 }
 
 const clone = <T,>(c: T): T => JSON.parse(JSON.stringify(c));
+
+/**
+ * What the piece is doing with the look that was last published.
+ *
+ * Publishing is not a save: it re-shades the clip bank and re-assembles
+ * every live version, which is minutes of work, so the page has to be able
+ * to say where that has got to rather than going quiet. The states are the
+ * stages of scripts/relayer.mjs in order.
+ */
+interface LookJob {
+  state: "queued" | "shading" | "assembling" | "verifying" | "encoding"
+    | "uploading" | "live" | "failed";
+  hash?: string;
+  shaded?: number; shadeTotal?: number;
+  assembled?: number; assembleTotal?: number;
+  prefix?: string;
+  message?: string;
+  seconds?: number;
+}
+
+function jobLabel(j: LookJob) {
+  switch (j.state) {
+    case "queued": return "queued";
+    case "shading":
+      return `shading ${j.shaded ?? 0}/${j.shadeTotal ?? "?"}`;
+    case "assembling":
+      return `assembling ${j.assembled ?? 0}/${j.assembleTotal ?? 30}`;
+    case "verifying": return "verifying";
+    case "encoding": return "encoding for the web";
+    case "uploading": return "uploading";
+    case "live":
+      return `live · ${j.prefix ?? j.hash ?? ""}`
+        + (j.seconds ? ` · ${Math.round(j.seconds)}s` : "");
+    default: return `failed: ${j.message ?? "unknown"}`;
+  }
+}
 
 /* --------------------------------------------------------- simple mode */
 /**
@@ -264,6 +315,9 @@ export default function MoshTune() {
   const [presets, setPresets] = useState<Record<string, TuneConfig>>({});
   const [presetName, setPresetName] = useState("");
   const [status, setStatus] = useState("");
+  /** The live piece's re-layer job, polled while it runs. */
+  const [pub, setPub] = useState<LookJob | null>(null);
+  const [pubBusy, setPubBusy] = useState(false);
   const [writable, setWritable] = useState(false);
   const [realOk, setRealOk] = useState(false);
   const [realBusy, setRealBusy] = useState(false);
@@ -304,14 +358,21 @@ export default function MoshTune() {
     let alive = true;
     (async () => {
       try {
-        const d: TuneData = await (await fetch(DATA, { cache: "no-store" })).json();
+        const d: TuneData = await (await fetch(dataUrl(), { cache: "no-store" })).json();
         if (!alive) return;
         setData(d);
         setLoop([0, d.frames - 1]);
         const mv = await (await fetch(d.mvBin, { cache: "no-store" })).arrayBuffer();
         if (!alive) return;
         const r = rendRef.current;
-        if (r) { r.setSize(d.width, d.height, d.mb); r.setMotion(mv); }
+        if (r) {
+          r.setSize(d.width, d.height, d.mb);
+          // the bank runs at 24fps and the lab clip at 30; the bloom lead,
+          // the stretch simulation and the fold's walk are all per-second,
+          // so the renderer has to be told which
+          r.setFps(d.fps);
+          r.setMotion(mv);
+        }
       } catch (e) {
         if (alive) setErr(String((e as Error).message ?? e));
       }
@@ -649,6 +710,49 @@ export default function MoshTune() {
   };
 
   /**
+   * Publish this look to the piece.
+   *
+   * Writes journey/look.json and queues a re-layer: the bank is re-shaded
+   * with these settings, the live thirty are re-assembled from the same
+   * seeds, and the result is uploaded under its own hash and the manifest
+   * flipped to it. In development that runs here; in production the write
+   * is a job on Blob and the nightly task picks it up, which is why this
+   * reports a state rather than a result.
+   */
+  const publishLook = async () => {
+    setPubBusy(true);
+    setPub({ state: "queued" });
+    try {
+      const r = await fetch("/api/journey-look", {
+        method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify({ look: resolved() }),
+      });
+      const j = await r.json();
+      if (!r.ok) {
+        setPub({ state: "failed", message: j.error ?? String(r.status) });
+        return;
+      }
+      setPub(j.job ?? { state: "queued", hash: j.hash });
+    } catch (e) {
+      setPub({ state: "failed", message: (e as Error).message });
+    } finally {
+      setPubBusy(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!pub || pub.state === "live" || pub.state === "failed") return;
+    const t = setInterval(async () => {
+      try {
+        const r = await fetch("/api/journey-look", { cache: "no-store" });
+        const j = await r.json();
+        if (j.job) setPub(j.job as LookJob);
+      } catch { /* keep the last state rather than blanking it */ }
+    }, 3000);
+    return () => clearInterval(t);
+  }, [pub]);
+
+  /**
    * Run the real thing: ffgac encodes an MPEG-4 stream with +forcemv+nopimb
    * and keyframes where the curve dips, and the result plays beside the
    * preview. It is a different pipeline, not a higher-quality version of
@@ -692,7 +796,33 @@ export default function MoshTune() {
     (window as unknown as Record<string, unknown>).__tune = {
       ready: true,
       mode: renderMode ? "render" : "live",
+      name: data.name,
       frames: data.frames, fps: data.fps, width: data.width, height: data.height,
+      /**
+       * Point the page at another clip without reloading it.
+       *
+       * The bank is a hundred-odd clips and a page load is about a second,
+       * so the offline shader swaps the manifest in place instead: the
+       * engine, the compiled programs and the GPU context all survive, and
+       * only the data behind them changes. The caller waits for `name` to
+       * come back as the clip it asked for, because the envelope is React
+       * state and this hook is rebuilt when it lands.
+       */
+      loadData: async (url: string) => {
+        const d: TuneData =
+          await (await fetch(url, { cache: "no-store" })).json();
+        const mv =
+          await (await fetch(d.mvBin, { cache: "no-store" })).arrayBuffer();
+        const r = rendRef.current;
+        if (r) {
+          r.setSize(d.width, d.height, d.mb);
+          r.setFps(d.fps);
+          r.setMotion(mv);
+        }
+        setData(d);
+        setLoop([0, d.frames - 1]);
+        return { name: d.name, frames: d.frames, fps: d.fps };
+      },
       setConfig: (c: Partial<TuneConfig>) => {
         const merged = sanitizeConfig(c);
         overridden.current = true;
@@ -722,6 +852,43 @@ export default function MoshTune() {
         r.renderFrame(cfgRef.current, i, envelope.env[i], envelope.shaped[i],
           onsetDistance[i], 0);
         return r.lastCoverage;
+      },
+      /**
+       * The same frame, from raw RGBA rather than decoded images, and the
+       * result read straight back as bytes. The offline shader uses this
+       * pair: ffmpeg hands over decoded planes and takes rendered ones, so
+       * nothing on the path encodes a PNG.
+       */
+      renderRaw: (i: number, a: Uint8Array, b: Uint8Array, c: Uint8Array,
+                  w: number, h: number) => {
+        const r = rendRef.current;
+        if (!r) throw new Error("renderer not ready");
+        r.setLayerRaw("a", a, w, h);
+        r.setLayerRaw("b", b, w, h);
+        r.setLayerRaw("c", c, w, h);
+        r.renderFrame(cfgRef.current, i, envelope.env[i], envelope.shaped[i],
+          onsetDistance[i], 0);
+        return r.lastCoverage;
+      },
+      grab: () => rendRef.current?.grabRGBA() ?? null,
+      /**
+       * The frame just rendered, as JPEG bytes.
+       *
+       * The shaded bank is stored as JPEG frames, so encoding here rather
+       * than posting a megabyte of raw pixels and encoding at the other end
+       * removes both the upload and an ffmpeg process: measured, the raw
+       * path spent 36.6 ms a frame on the upload alone against 25 MB/s
+       * through the fetch stack. The canvas holds exactly what the target
+       * holds - the blit is nearest-neighbour at matching size - so this is
+       * the same picture grabRGBA returns, the right way up.
+       */
+      grabJpeg: async (quality = 0.95) => {
+        const c = rendRef.current?.canvas;
+        if (!c) throw new Error("renderer not ready");
+        const blob: Blob | null = await new Promise((res) =>
+          c.toBlob(res, "image/jpeg", quality));
+        if (!blob) throw new Error("the canvas would not encode");
+        return new Uint8Array(await blob.arrayBuffer());
       },
       coverage: () => rendRef.current?.lastCoverage ?? 0,
       debug: () => rendRef.current?.debug() ?? null,
@@ -818,6 +985,27 @@ export default function MoshTune() {
             {LOOKS.find((l) => l.v === macros.look)?.hint}
           </span>
         </div>
+        <label className="mt-macro mt-strength">
+          <span className="mt-macro-name">Underlayer strength</span>
+          <input type="range" min={0} max={1} step={0.01}
+                 value={cfg.underlayer?.strength ?? 1}
+                 onChange={(e) => {
+                   overridden.current = true;
+                   setCfg((c) => ({
+                     ...clone(c),
+                     underlayer: { strength: Number(e.target.value) },
+                   }));
+                 }} />
+          <b>{Math.round((cfg.underlayer?.strength ?? 1) * 100)}</b>
+          <span className="mt-hint">
+            How much of all this sits under the piece. 0 is the footage
+            untouched, 1 is the look at the strength every other dial here
+            describes. It is one blend against the clean picture, applied
+            last, so it can be taken to nothing without changing the shape
+            of anything above it &mdash; and the two transitions ride on top
+            of it at any setting.
+          </span>
+        </label>
         {MACROS.map((m) => (
           <label key={m.key} className="mt-macro">
             <span className="mt-macro-name">{m.label}</span>
@@ -997,6 +1185,16 @@ export default function MoshTune() {
           setMacros(b.macros ?? DEFAULT_MACROS);
         }}>reset</button>
         <button onClick={exportConfig}>export settings</button>
+        <button className="mt-publish" onClick={publishLook} disabled={pubBusy}
+                title={"write journey/look.json, re-shade the bank and "
+                  + "re-assemble the live thirty"}>
+          publish look
+        </button>
+        {pub && (
+          <span className={pub.state === "failed" ? "mt-err-inline" : "mt-ok"}>
+            {jobLabel(pub)}
+          </span>
+        )}
         <button onClick={renderReal} disabled={!realOk || realBusy}
                 title={realOk ? "run the ffgac pipeline on these settings"
                   : "needs ffgac, which only exists in development"}>

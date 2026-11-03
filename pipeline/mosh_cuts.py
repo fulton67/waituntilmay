@@ -171,7 +171,7 @@ def mosh_stream(m4v, out_m4v, plans):
             "cuts": report}
 
 
-def remux(moshed_m4v, src_mp4, out_mp4, fps=24, crf=20):
+def remux(moshed_m4v, src_mp4, out_mp4, fps=24, crf=20, preset="medium"):
     """Back to H.264 with the clean edit's own audio, untouched.
 
     The audio never goes through this pass at all: the mosh is a video-stream
@@ -186,7 +186,7 @@ def remux(moshed_m4v, src_mp4, out_mp4, fps=24, crf=20):
                 "-c:a", "copy", "-shortest"]
     else:
         cmd += ["-an"]
-    cmd += ["-c:v", "libx264", "-preset", "medium", "-crf", str(crf),
+    cmd += ["-c:v", "libx264", "-preset", preset, "-crf", str(crf),
             "-pix_fmt", "yuv420p", "-r", r, "-movflags", "+faststart",
             out_mp4]
     run(cmd)
@@ -194,7 +194,7 @@ def remux(moshed_m4v, src_mp4, out_mp4, fps=24, crf=20):
 
 
 def datamosh(clean_mp4, out_mp4, cuts, n_frames=720, seed=0, fps=24,
-             bloom=BLOOM, keep_intermediate=False):
+             bloom=BLOOM, keep_intermediate=False, crf=20, preset="medium"):
     """The whole pass: encode, remove, remux.
 
     `cuts` are output frame indices - the first frame of the incoming beat.
@@ -206,7 +206,7 @@ def datamosh(clean_mp4, out_mp4, cuts, n_frames=720, seed=0, fps=24,
     plans, keys = plan(rng, cuts, n_frames, bloom)
     encode_m4v(clean_mp4, m4v, keys)
     rep = mosh_stream(m4v, moshed, plans)
-    remux(moshed, clean_mp4, out_mp4, fps=fps)
+    remux(moshed, clean_mp4, out_mp4, fps=fps, crf=crf, preset=preset)
 
     rep["forced_keyframes"] = keys
     rep["moshed_frames"] = sum(

@@ -4,6 +4,13 @@
  *   --list                     print the seeds already in the live manifest
  *   --append --src <dir>       upload every mp4 in <dir> and append it to the
  *                              live manifest, then print before/after counts
+ *   --upload-prefix <p>        put the new videos under a different prefix
+ *                              from the manifest they join. A look owns a
+ *                              prefix of its own - journey-arc-<hash>/ - and
+ *                              the manifest the player reads stays at
+ *                              journey-arc/manifest.json, so a version added
+ *                              overnight has to go where the look lives and
+ *                              be listed where the player looks.
  *
  * Appending reads the live manifest first and writes it back, so the pool
  * grows rather than being replaced: a nightly run that renders nothing still
@@ -21,6 +28,7 @@ import { requireToken, readManifest, writeManifest, uploadRender, mb }
 const args = process.argv.slice(2);
 const argOf = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : d; };
 const prefix = argOf("--prefix", "journey-v2").replace(/^\/|\/$/g, "");
+const uploadPrefix = argOf("--upload-prefix", prefix).replace(/^\/|\/$/g, "");
 const token = requireToken();
 
 const seedOf = (u) => {
@@ -66,7 +74,7 @@ if (!files.length) {
 const known = new Set(before);
 const added = [];
 for (const [i, f] of files.entries()) {
-  const url = await uploadRender(SRC, f, prefix, token);
+  const url = await uploadRender(SRC, f, uploadPrefix, token);
   console.log(`  [${i + 1}/${files.length}] ${f} `
     + `(${mb(path.join(SRC, f)).toFixed(2)} MB) -> ${url}`);
   if (known.has(url)) console.log("      already in the manifest, not appended twice");
@@ -74,7 +82,14 @@ for (const [i, f] of files.entries()) {
 }
 
 const after = [...before, ...added];
-const url = await writeManifest(prefix, after, token);
+// The manifest keeps whatever the full batch recorded about itself - which
+// look it is wearing, which sources are in which version - because a nightly
+// append is an addition to that batch, not a replacement for it.
+const keep = {};
+for (const k of ["look", "sources", "mixes"]) {
+  if (man[k] !== undefined) keep[k] = man[k];
+}
+const url = await writeManifest(prefix, after, token, keep);
 console.log(`\nmanifest ${url}`);
 console.log(`  ${before.length} -> ${after.length} versions (+${added.length})`);
 if (out) {

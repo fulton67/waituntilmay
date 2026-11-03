@@ -1,0 +1,2936 @@
+{
+ "_comment": "The clip bank: one entry per distinct phrase in config/beats.json, cut from its source at the renderer's own frame grid (24 fps, 48 kHz). `beats` is which beats may draw it - beat 7 shares beat 1's pool, so a clip can belong to two. `word_frames` are the frames a word ends on, which is where a beat carrying two phrases is allowed to trim. `span_key` is the media cache entry the audio comes from, so the assembler never decodes the source again. Rebuild with scripts/build_bank.py.",
+ "fps": 24,
+ "built": "2026-11-03T14:45:31",
+ "beats_config": "config/beats.json",
+ "clips": [
+  {
+   "id": "blum_00252848",
+   "source": "blum",
+   "in": 252.848,
+   "out": 256.971,
+   "frames": 99,
+   "seconds": 4.125,
+   "beats": [
+    6
+   ],
+   "text": "of this amorphous blob that you're not really meant to be able to find yourself on it.",
+   "reads": null,
+   "clean": "bank/clean/blum_00252848.mp4",
+   "span_key": "blum_sp_00252848_00256971",
+   "word_frames": [
+    2,
+    7,
+    20,
+    30,
+    38,
+    44,
+    48,
+    58,
+    64,
+    67,
+    69,
+    73,
+    76,
+    81,
+    90,
+    94,
+    98
+   ]
+  },
+  {
+   "id": "blum_00324115",
+   "source": "blum",
+   "in": 324.115,
+   "out": 328.299,
+   "frames": 101,
+   "seconds": 4.208,
+   "beats": [
+    6
+   ],
+   "text": "Which of course seemed completely absurd because the internet is a transcendent idea.",
+   "reads": null,
+   "clean": "bank/clean/blum_00324115.mp4",
+   "span_key": "blum_sp_00324115_00328299",
+   "word_frames": [
+    10,
+    12,
+    16,
+    21,
+    33,
+    41,
+    49,
+    66,
+    74,
+    76,
+    78,
+    91,
+    99
+   ]
+  },
+  {
+   "id": "blum_00350018",
+   "source": "blum",
+   "in": 350.018,
+   "out": 353.56,
+   "frames": 86,
+   "seconds": 3.583,
+   "beats": [
+    2
+   ],
+   "text": "this image of just yanking the cable from the wall.",
+   "reads": null,
+   "clean": "bank/clean/blum_00350018.mp4",
+   "span_key": "blum_sp_00350018_00353560",
+   "word_frames": [
+    18,
+    24,
+    26,
+    40,
+    49,
+    52,
+    58,
+    62,
+    64,
+    84
+   ]
+  },
+  {
+   "id": "blum_00355301",
+   "source": "blum",
+   "in": 355.301,
+   "out": 359.183,
+   "frames": 94,
+   "seconds": 3.917,
+   "beats": [
+    2
+   ],
+   "text": "I don't want to get to the end of the story too quickly, but it goes here. It goes to this building.",
+   "reads": null,
+   "clean": "bank/clean/blum_00355301.mp4",
+   "span_key": "blum_sp_00355301_00359183",
+   "word_frames": [
+    29,
+    32,
+    34,
+    37,
+    38,
+    40,
+    42,
+    44,
+    46,
+    49,
+    52,
+    59,
+    61,
+    63,
+    67,
+    73,
+    77,
+    80,
+    83,
+    85,
+    92
+   ]
+  },
+  {
+   "id": "blum_00386114",
+   "source": "blum",
+   "in": 386.114,
+   "out": 389.677,
+   "frames": 86,
+   "seconds": 3.583,
+   "beats": [
+    6
+   ],
+   "text": "This is the episode of South Park where the internet breaks,",
+   "reads": null,
+   "clean": "bank/clean/blum_00386114.mp4",
+   "span_key": "blum_sp_00386114_00389677",
+   "word_frames": [
+    3,
+    7,
+    10,
+    22,
+    31,
+    37,
+    44,
+    67,
+    69,
+    77,
+    84
+   ]
+  },
+  {
+   "id": "blum_00389657",
+   "source": "blum",
+   "in": 389.657,
+   "out": 392.239,
+   "frames": 63,
+   "seconds": 2.625,
+   "beats": [
+    6
+   ],
+   "text": "but there's no internet to know if the internet's broken.",
+   "reads": null,
+   "clean": "bank/clean/blum_00389657.mp4",
+   "span_key": "blum_sp_00389657_00392239",
+   "word_frames": [
+    2,
+    8,
+    12,
+    31,
+    34,
+    38,
+    41,
+    44,
+    51,
+    61
+   ]
+  },
+  {
+   "id": "blum_00471271",
+   "source": "blum",
+   "in": 471.271,
+   "out": 473.372,
+   "frames": 50,
+   "seconds": 2.083,
+   "beats": [
+    6
+   ],
+   "text": "How do we talk to each other about an invisible God?",
+   "reads": null,
+   "clean": "bank/clean/blum_00471271.mp4",
+   "span_key": "blum_sp_00471271_00473372",
+   "word_frames": [
+    2,
+    5,
+    8,
+    13,
+    15,
+    18,
+    23,
+    28,
+    30,
+    41,
+    49
+   ]
+  },
+  {
+   "id": "blum_00484379",
+   "source": "blum",
+   "in": 484.379,
+   "out": 487.942,
+   "frames": 86,
+   "seconds": 3.583,
+   "beats": [
+    6
+   ],
+   "text": "or like lines of light written by an invisible hand in the night sky.",
+   "reads": null,
+   "clean": "bank/clean/blum_00484379.mp4",
+   "span_key": "blum_sp_00484379_00487942",
+   "word_frames": [
+    2,
+    6,
+    14,
+    17,
+    25,
+    37,
+    42,
+    44,
+    55,
+    62,
+    67,
+    70,
+    75,
+    84
+   ]
+  },
+  {
+   "id": "blum_00488202",
+   "source": "blum",
+   "in": 488.202,
+   "out": 490.384,
+   "frames": 53,
+   "seconds": 2.208,
+   "beats": [
+    6
+   ],
+   "text": "So we're back to the amorphous blob.",
+   "reads": null,
+   "clean": "bank/clean/blum_00488202.mp4",
+   "span_key": "blum_sp_00488202_00490384",
+   "word_frames": [
+    2,
+    11,
+    24,
+    26,
+    28,
+    43,
+    51
+   ]
+  },
+  {
+   "id": "blum_00490364",
+   "source": "blum",
+   "in": 490.364,
+   "out": 493.126,
+   "frames": 67,
+   "seconds": 2.792,
+   "beats": [
+    6
+   ],
+   "text": "There's sort of no escaping that glowing amorphous blob.",
+   "reads": null,
+   "clean": "bank/clean/blum_00490364.mp4",
+   "span_key": "blum_sp_00490364_00493126",
+   "word_frames": [
+    3,
+    6,
+    8,
+    12,
+    23,
+    38,
+    47,
+    56,
+    65
+   ]
+  },
+  {
+   "id": "blum_00506581",
+   "source": "blum",
+   "in": 506.581,
+   "out": 509.303,
+   "frames": 66,
+   "seconds": 2.75,
+   "beats": [
+    6
+   ],
+   "text": "that the internet is not a big truck. It's not something you can dump something on.",
+   "reads": null,
+   "clean": "bank/clean/blum_00506581.mp4",
+   "span_key": "blum_sp_00506581_00509303",
+   "word_frames": [
+    2,
+    5,
+    12,
+    13,
+    17,
+    19,
+    23,
+    29,
+    33,
+    38,
+    44,
+    46,
+    49,
+    55,
+    61,
+    64
+   ]
+  },
+  {
+   "id": "blum_00509263",
+   "source": "blum",
+   "in": 509.263,
+   "out": 512.786,
+   "frames": 85,
+   "seconds": 3.542,
+   "beats": [
+    1,
+    7
+   ],
+   "text": "It's a series of tubes, which was hilarious.",
+   "reads": null,
+   "clean": "bank/clean/blum_00509263.mp4",
+   "span_key": "blum_sp_00509263_00512786",
+   "word_frames": [
+    3,
+    5,
+    12,
+    14,
+    24,
+    62,
+    66,
+    83
+   ]
+  },
+  {
+   "id": "blum_00512746",
+   "source": "blum",
+   "in": 512.746,
+   "out": 516.509,
+   "frames": 90,
+   "seconds": 3.75,
+   "beats": [
+    6
+   ],
+   "text": "It was absolutely not a series of tubes. It was, again, the transcendent idea.",
+   "reads": null,
+   "clean": "bank/clean/blum_00512746.mp4",
+   "span_key": "blum_sp_00512746_00516509",
+   "word_frames": [
+    1,
+    4,
+    15,
+    21,
+    26,
+    32,
+    35,
+    42,
+    50,
+    54,
+    63,
+    66,
+    79,
+    89
+   ]
+  },
+  {
+   "id": "blum_00521252",
+   "source": "blum",
+   "in": 521.252,
+   "out": 523.994,
+   "frames": 67,
+   "seconds": 2.792,
+   "beats": [
+    1,
+    7
+   ],
+   "text": "But it's physical reality. And yet,",
+   "reads": null,
+   "clean": "bank/clean/blum_00521252.mp4",
+   "span_key": "blum_sp_00521252_00523994",
+   "word_frames": [
+    5,
+    12,
+    21,
+    32,
+    55,
+    64
+   ]
+  },
+  {
+   "id": "blum_00524174",
+   "source": "blum",
+   "in": 524.174,
+   "out": 526.975,
+   "frames": 68,
+   "seconds": 2.833,
+   "beats": [
+    6
+   ],
+   "text": "it seems like he, what else could it be?",
+   "reads": null,
+   "clean": "bank/clean/blum_00524174.mp4",
+   "span_key": "blum_sp_00524174_00526975",
+   "word_frames": [
+    1,
+    10,
+    15,
+    38,
+    47,
+    52,
+    57,
+    60,
+    66
+   ]
+  },
+  {
+   "id": "blum_00547682",
+   "source": "blum",
+   "in": 547.682,
+   "out": 551.203,
+   "frames": 86,
+   "seconds": 3.583,
+   "beats": [
+    1,
+    7
+   ],
+   "text": "It's coming to you through any number of places, but through absolutely real places.",
+   "reads": null,
+   "clean": "bank/clean/blum_00547682.mp4",
+   "span_key": "blum_sp_00547682_00551203",
+   "word_frames": [
+    3,
+    10,
+    13,
+    17,
+    24,
+    27,
+    34,
+    36,
+    45,
+    49,
+    55,
+    66,
+    72,
+    83
+   ]
+  },
+  {
+   "id": "blum_00637451",
+   "source": "blum",
+   "in": 637.451,
+   "out": 639.953,
+   "frames": 61,
+   "seconds": 2.542,
+   "beats": [
+    2
+   ],
+   "text": "most often, a yellow fiber optic jumper cable.",
+   "reads": null,
+   "clean": "bank/clean/blum_00637451.mp4",
+   "span_key": "blum_sp_00637451_00639953",
+   "word_frames": [
+    5,
+    14,
+    19,
+    26,
+    35,
+    41,
+    51,
+    59
+   ]
+  },
+  {
+   "id": "blum_00660945",
+   "source": "blum",
+   "in": 660.945,
+   "out": 663.046,
+   "frames": 51,
+   "seconds": 2.125,
+   "beats": [
+    1,
+    7
+   ],
+   "text": "where if you bend them, light comes out. It's that tangible.",
+   "reads": null,
+   "clean": "bank/clean/blum_00660945.mp4",
+   "span_key": "blum_sp_00660945_00663046",
+   "word_frames": [
+    4,
+    6,
+    10,
+    14,
+    19,
+    23,
+    29,
+    34,
+    41,
+    43,
+    49
+   ]
+  },
+  {
+   "id": "blum_00703499",
+   "source": "blum",
+   "in": 703.499,
+   "out": 706.761,
+   "frames": 79,
+   "seconds": 3.292,
+   "beats": [
+    1,
+    7
+   ],
+   "text": "and saying what is this and where is it? What is it made of and where is it?",
+   "reads": null,
+   "clean": "bank/clean/blum_00703499.mp4",
+   "span_key": "blum_sp_00703499_00706761",
+   "word_frames": [
+    2,
+    7,
+    22,
+    25,
+    30,
+    34,
+    41,
+    43,
+    47,
+    50,
+    53,
+    56,
+    60,
+    63,
+    66,
+    71,
+    74,
+    77
+   ]
+  },
+  {
+   "id": "blum_00793158",
+   "source": "blum",
+   "in": 793.158,
+   "out": 797.199,
+   "frames": 98,
+   "seconds": 4.083,
+   "beats": [
+    1,
+    7
+   ],
+   "text": "And what's striking to me is if it's always about this physical connection,",
+   "reads": null,
+   "clean": "bank/clean/blum_00793158.mp4",
+   "span_key": "blum_sp_00793158_00797199",
+   "word_frames": [
+    3,
+    21,
+    31,
+    33,
+    36,
+    37,
+    47,
+    58,
+    65,
+    71,
+    75,
+    85,
+    96
+   ]
+  },
+  {
+   "id": "blum_00941348",
+   "source": "blum",
+   "in": 941.348,
+   "out": 944.391,
+   "frames": 74,
+   "seconds": 3.083,
+   "beats": [
+    1,
+    7
+   ],
+   "text": "we really just need a place to park our trucks.",
+   "reads": null,
+   "clean": "bank/clean/blum_00941348.mp4",
+   "span_key": "blum_sp_00941348_00944391",
+   "word_frames": [
+    2,
+    8,
+    12,
+    14,
+    16,
+    21,
+    24,
+    28,
+    32,
+    72
+   ]
+  },
+  {
+   "id": "blum_01076348",
+   "source": "blum",
+   "in": 1076.348,
+   "out": 1080.45,
+   "frames": 99,
+   "seconds": 4.125,
+   "beats": [
+    6
+   ],
+   "text": "ostensibly is this amorphous blob and the kind of Virginia clay.",
+   "reads": null,
+   "clean": "bank/clean/blum_01076348.mp4",
+   "span_key": "blum_sp_01076348_01080450",
+   "word_frames": [
+    12,
+    15,
+    18,
+    29,
+    40,
+    58,
+    62,
+    67,
+    77,
+    88,
+    97
+   ]
+  },
+  {
+   "id": "blum_01084472",
+   "source": "blum",
+   "in": 1084.472,
+   "out": 1088.494,
+   "frames": 97,
+   "seconds": 4.042,
+   "beats": [
+    1,
+    7
+   ],
+   "text": "where that scene between physical and virtual is sort of most explicit.",
+   "reads": null,
+   "clean": "bank/clean/blum_01084472.mp4",
+   "span_key": "blum_sp_01084472_01088494",
+   "word_frames": [
+    7,
+    20,
+    27,
+    34,
+    43,
+    45,
+    53,
+    57,
+    73,
+    74,
+    81,
+    95
+   ]
+  },
+  {
+   "id": "blum_01352577",
+   "source": "blum",
+   "in": 1352.577,
+   "out": 1355.721,
+   "frames": 76,
+   "seconds": 3.167,
+   "beats": [
+    2
+   ],
+   "text": "specifically the undersea cables that connect continents.",
+   "reads": null,
+   "clean": "bank/clean/blum_01352577.mp4",
+   "span_key": "blum_sp_01352577_01355721",
+   "word_frames": [
+    12,
+    14,
+    23,
+    30,
+    34,
+    41,
+    74
+   ]
+  },
+  {
+   "id": "blum_01362130",
+   "source": "blum",
+   "in": 1362.13,
+   "out": 1365.615,
+   "frames": 85,
+   "seconds": 3.542,
+   "beats": [
+    2
+   ],
+   "text": "is there like a manhole where the undersea cable connects to the beach?",
+   "reads": null,
+   "clean": "bank/clean/blum_01362130.mp4",
+   "span_key": "blum_sp_01362130_01365615",
+   "word_frames": [
+    1,
+    6,
+    10,
+    11,
+    22,
+    26,
+    30,
+    45,
+    51,
+    59,
+    73,
+    75,
+    82
+   ]
+  },
+  {
+   "id": "blum_01366095",
+   "source": "blum",
+   "in": 1366.095,
+   "out": 1368.617,
+   "frames": 61,
+   "seconds": 2.542,
+   "beats": [
+    2
+   ],
+   "text": "And the answer was yes, okay, which is the most beautiful manhole?",
+   "reads": null,
+   "clean": "bank/clean/blum_01366095.mp4",
+   "span_key": "blum_sp_01366095_01368617",
+   "word_frames": [
+    3,
+    8,
+    13,
+    15,
+    21,
+    27,
+    31,
+    35,
+    37,
+    41,
+    49,
+    59
+   ]
+  },
+  {
+   "id": "blum_01375521",
+   "source": "blum",
+   "in": 1375.521,
+   "out": 1378.323,
+   "frames": 68,
+   "seconds": 2.833,
+   "beats": [
+    2
+   ],
+   "text": "a cable that connects Nova Scotia with Ireland.",
+   "reads": null,
+   "clean": "bank/clean/blum_01375521.mp4",
+   "span_key": "blum_sp_01375521_01378323",
+   "word_frames": [
+    1,
+    7,
+    11,
+    43,
+    47,
+    54,
+    57,
+    66
+   ]
+  },
+  {
+   "id": "blum_01421036",
+   "source": "blum",
+   "in": 1421.036,
+   "out": 1423.657,
+   "frames": 64,
+   "seconds": 2.667,
+   "beats": [
+    1,
+    7
+   ],
+   "text": "usually a copper tube, I use that word technically,",
+   "reads": null,
+   "clean": "bank/clean/blum_01421036.mp4",
+   "span_key": "blum_sp_01421036_01423657",
+   "word_frames": [
+    5,
+    7,
+    28,
+    37,
+    42,
+    44,
+    47,
+    51,
+    61
+   ]
+  },
+  {
+   "id": "blum_01516429",
+   "source": "blum",
+   "in": 1516.429,
+   "out": 1520.031,
+   "frames": 87,
+   "seconds": 3.625,
+   "beats": [
+    2
+   ],
+   "text": "The undersea cable industry is entirely dominated by Englishmen.",
+   "reads": null,
+   "clean": "bank/clean/blum_01516429.mp4",
+   "span_key": "blum_sp_01516429_01520031",
+   "word_frames": [
+    6,
+    17,
+    24,
+    33,
+    36,
+    53,
+    63,
+    66,
+    85
+   ]
+  },
+  {
+   "id": "blum_01529895",
+   "source": "blum",
+   "in": 1529.895,
+   "out": 1533.115,
+   "frames": 78,
+   "seconds": 3.25,
+   "beats": [
+    6
+   ],
+   "text": "metaphorically speaking, cable across the Pacific and a big cable across the Atlantic,",
+   "reads": null,
+   "clean": "bank/clean/blum_01529895.mp4",
+   "span_key": "blum_sp_01529895_01533115",
+   "word_frames": [
+    11,
+    17,
+    22,
+    28,
+    31,
+    41,
+    45,
+    46,
+    52,
+    57,
+    63,
+    66,
+    76
+   ]
+  },
+  {
+   "id": "blum_01547618",
+   "source": "blum",
+   "in": 1547.618,
+   "out": 1550.119,
+   "frames": 61,
+   "seconds": 2.542,
+   "beats": [
+    2
+   ],
+   "text": "And if a cable does break or is damaged somehow,",
+   "reads": null,
+   "clean": "bank/clean/blum_01547618.mp4",
+   "span_key": "blum_sp_01547618_01550119",
+   "word_frames": [
+    2,
+    10,
+    12,
+    19,
+    29,
+    37,
+    40,
+    43,
+    51,
+    59
+   ]
+  },
+  {
+   "id": "blum_01557643",
+   "source": "blum",
+   "in": 1557.643,
+   "out": 1561.025,
+   "frames": 82,
+   "seconds": 3.417,
+   "beats": [
+    1,
+    7
+   ],
+   "text": "and then throw it back in the water. So it's this incredibly physical,",
+   "reads": null,
+   "clean": "bank/clean/blum_01557643.mp4",
+   "span_key": "blum_sp_01557643_01561025",
+   "word_frames": [
+    1,
+    5,
+    9,
+    11,
+    15,
+    17,
+    19,
+    27,
+    39,
+    42,
+    56,
+    67,
+    80
+   ]
+  },
+  {
+   "id": "blum_01578334",
+   "source": "blum",
+   "in": 1578.334,
+   "out": 1581.215,
+   "frames": 70,
+   "seconds": 2.917,
+   "beats": [
+    2
+   ],
+   "text": "But when you go to a Tata landing station, and I didn't even see it.",
+   "reads": null,
+   "clean": "bank/clean/blum_01578334.mp4",
+   "span_key": "blum_sp_01578334_01581215",
+   "word_frames": [
+    2,
+    5,
+    17,
+    20,
+    22,
+    24,
+    32,
+    39,
+    48,
+    52,
+    53,
+    57,
+    61,
+    65,
+    68
+   ]
+  },
+  {
+   "id": "blum_01581235",
+   "source": "blum",
+   "in": 1581.235,
+   "out": 1584.737,
+   "frames": 84,
+   "seconds": 3.5,
+   "beats": [
+    2
+   ],
+   "text": "I could barely make it out. But I think when you go to a Tata landing station,",
+   "reads": null,
+   "clean": "bank/clean/blum_01581235.mp4",
+   "span_key": "blum_sp_01581235_01584737",
+   "word_frames": [
+    9,
+    19,
+    25,
+    29,
+    31,
+    35,
+    38,
+    40,
+    46,
+    49,
+    51,
+    54,
+    57,
+    58,
+    68,
+    74,
+    83
+   ]
+  },
+  {
+   "id": "blum_01613345",
+   "source": "blum",
+   "in": 1613.345,
+   "out": 1617.286,
+   "frames": 95,
+   "seconds": 3.958,
+   "beats": [
+    2
+   ],
+   "text": "You want to perhaps even own the fiber, perhaps even own the conduit through which the fiber runs.",
+   "reads": null,
+   "clean": "bank/clean/blum_01613345.mp4",
+   "span_key": "blum_sp_01613345_01617286",
+   "word_frames": [
+    1,
+    4,
+    7,
+    15,
+    21,
+    26,
+    29,
+    38,
+    46,
+    51,
+    55,
+    58,
+    67,
+    72,
+    75,
+    78,
+    86,
+    93
+   ]
+  },
+  {
+   "id": "blum_01655854",
+   "source": "blum",
+   "in": 1655.854,
+   "out": 1658.736,
+   "frames": 70,
+   "seconds": 2.917,
+   "beats": [
+    2
+   ],
+   "text": "So Tata was building a new cable.",
+   "reads": null,
+   "clean": "bank/clean/blum_01655854.mp4",
+   "span_key": "blum_sp_01655854_01658736",
+   "word_frames": [
+    9,
+    32,
+    35,
+    41,
+    43,
+    46,
+    68
+   ]
+  },
+  {
+   "id": "blum_01712308",
+   "source": "blum",
+   "in": 1712.308,
+   "out": 1714.969,
+   "frames": 64,
+   "seconds": 2.667,
+   "beats": [
+    2
+   ],
+   "text": "and a skiff brought the cable out to the ship.",
+   "reads": null,
+   "clean": "bank/clean/blum_01712308.mp4",
+   "span_key": "blum_sp_01712308_01714969",
+   "word_frames": [
+    2,
+    3,
+    34,
+    40,
+    42,
+    48,
+    51,
+    54,
+    56,
+    62
+   ]
+  },
+  {
+   "id": "blum_01738224",
+   "source": "blum",
+   "in": 1738.224,
+   "out": 1741.886,
+   "frames": 88,
+   "seconds": 3.667,
+   "beats": [
+    2
+   ],
+   "text": "The buoy pops up in the air, and the cable drops to the ocean floor.",
+   "reads": null,
+   "clean": "bank/clean/blum_01738224.mp4",
+   "span_key": "blum_sp_01738224_01741886",
+   "word_frames": [
+    2,
+    7,
+    12,
+    15,
+    17,
+    20,
+    25,
+    30,
+    33,
+    45,
+    53,
+    65,
+    69,
+    79,
+    86
+   ]
+  },
+  {
+   "id": "blum_01750568",
+   "source": "blum",
+   "in": 1750.568,
+   "out": 1753.709,
+   "frames": 76,
+   "seconds": 3.167,
+   "beats": [
+    2
+   ],
+   "text": "he swims the kilometer back to shore, then he gets out and lights a cigarette.",
+   "reads": null,
+   "clean": "bank/clean/blum_01750568.mp4",
+   "span_key": "blum_sp_01750568_01753709",
+   "word_frames": [
+    2,
+    9,
+    12,
+    25,
+    29,
+    32,
+    38,
+    48,
+    49,
+    55,
+    58,
+    60,
+    63,
+    65,
+    74
+   ]
+  },
+  {
+   "id": "blum_01791591",
+   "source": "blum",
+   "in": 1791.591,
+   "out": 1794.294,
+   "frames": 66,
+   "seconds": 2.75,
+   "beats": [
+    6
+   ],
+   "text": "the amorphous blob seems a really long way away.",
+   "reads": null,
+   "clean": "bank/clean/blum_01791591.mp4",
+   "span_key": "blum_sp_01791591_01794294",
+   "word_frames": [
+    2,
+    12,
+    21,
+    29,
+    30,
+    46,
+    51,
+    56,
+    63
+   ]
+  },
+  {
+   "id": "blum_01794694",
+   "source": "blum",
+   "in": 1794.694,
+   "out": 1797.556,
+   "frames": 69,
+   "seconds": 2.875,
+   "beats": [
+    1,
+    7
+   ],
+   "text": "It starts to seem like a lot more tangible thing.",
+   "reads": null,
+   "clean": "bank/clean/blum_01794694.mp4",
+   "span_key": "blum_sp_01794694_01797556",
+   "word_frames": [
+    4,
+    10,
+    13,
+    18,
+    22,
+    24,
+    38,
+    42,
+    54,
+    67
+   ]
+  },
+  {
+   "id": "blum_01825097",
+   "source": "blum",
+   "in": 1825.097,
+   "out": 1827.898,
+   "frames": 68,
+   "seconds": 2.833,
+   "beats": [
+    1,
+    7
+   ],
+   "text": "the basic physical connection is the same as it's always been.",
+   "reads": null,
+   "clean": "bank/clean/blum_01825097.mp4",
+   "span_key": "blum_sp_01825097_01827898",
+   "word_frames": [
+    3,
+    13,
+    24,
+    35,
+    38,
+    41,
+    46,
+    49,
+    54,
+    60,
+    66
+   ]
+  },
+  {
+   "id": "blum_01843710",
+   "source": "blum",
+   "in": 1843.71,
+   "out": 1846.313,
+   "frames": 63,
+   "seconds": 2.625,
+   "beats": [
+    1,
+    7
+   ],
+   "text": "And that physical process of connection persists.",
+   "reads": null,
+   "clean": "bank/clean/blum_01843710.mp4",
+   "span_key": "blum_sp_01843710_01846313",
+   "word_frames": [
+    2,
+    7,
+    24,
+    34,
+    37,
+    51,
+    61
+   ]
+  },
+  {
+   "id": "blum_01856165",
+   "source": "blum",
+   "in": 1856.165,
+   "out": 1860.307,
+   "frames": 101,
+   "seconds": 4.208,
+   "beats": [
+    2
+   ],
+   "text": "And then when it's done, they put the manhole cover back on and they push the sand over it.",
+   "reads": null,
+   "clean": "bank/clean/blum_01856165.mp4",
+   "span_key": "blum_sp_01856165_01860307",
+   "word_frames": [
+    2,
+    5,
+    9,
+    12,
+    19,
+    43,
+    51,
+    53,
+    60,
+    65,
+    69,
+    73,
+    75,
+    78,
+    82,
+    85,
+    90,
+    96,
+    98
+   ]
+  },
+  {
+   "id": "blum_01880820",
+   "source": "blum",
+   "in": 1880.82,
+   "out": 1882.963,
+   "frames": 53,
+   "seconds": 2.208,
+   "beats": [
+    1,
+    7
+   ],
+   "text": "We should keep in mind that it's made of places like this.",
+   "reads": null,
+   "clean": "bank/clean/blum_01880820.mp4",
+   "span_key": "blum_sp_01880820_01882963",
+   "word_frames": [
+    1,
+    5,
+    9,
+    11,
+    16,
+    20,
+    23,
+    27,
+    29,
+    39,
+    43,
+    50
+   ]
+  },
+  {
+   "id": "blum_02165982",
+   "source": "blum",
+   "in": 2165.982,
+   "out": 2169.984,
+   "frames": 97,
+   "seconds": 4.042,
+   "beats": [
+    6
+   ],
+   "text": "this is ostensibly the place where things of emotional resonance come from.",
+   "reads": null,
+   "clean": "bank/clean/blum_02165982.mp4",
+   "span_key": "blum_sp_02165982_02169984",
+   "word_frames": [
+    3,
+    7,
+    22,
+    24,
+    30,
+    35,
+    43,
+    56,
+    72,
+    82,
+    87,
+    95
+   ]
+  },
+  {
+   "id": "blum_02357119",
+   "source": "blum",
+   "in": 2357.119,
+   "out": 2359.461,
+   "frames": 57,
+   "seconds": 2.375,
+   "beats": [
+    1,
+    7
+   ],
+   "text": "we should know what our virtual world is made of.",
+   "reads": null,
+   "clean": "bank/clean/blum_02357119.mp4",
+   "span_key": "blum_sp_02357119_02359461",
+   "word_frames": [
+    2,
+    7,
+    13,
+    18,
+    22,
+    36,
+    41,
+    45,
+    50,
+    55
+   ]
+  },
+  {
+   "id": "blum_02492261",
+   "source": "blum",
+   "in": 2492.261,
+   "out": 2496.043,
+   "frames": 92,
+   "seconds": 3.833,
+   "beats": [
+    1,
+    7
+   ],
+   "text": "Is there a place we can go to see that? Yeah.",
+   "reads": null,
+   "clean": "bank/clean/blum_02492261.mp4",
+   "span_key": "blum_sp_02492261_02496043",
+   "word_frames": [
+    2,
+    14,
+    39,
+    43,
+    46,
+    48,
+    52,
+    58,
+    67,
+    85,
+    89
+   ]
+  },
+  {
+   "id": "blum_02818607",
+   "source": "blum",
+   "in": 2818.607,
+   "out": 2820.608,
+   "frames": 48,
+   "seconds": 2.0,
+   "beats": [
+    2
+   ],
+   "text": "I know you've got all those pictures with jumper cables.",
+   "reads": null,
+   "clean": "bank/clean/blum_02818607.mp4",
+   "span_key": "blum_sp_02818607_02820608",
+   "word_frames": [
+    2,
+    6,
+    10,
+    13,
+    16,
+    19,
+    25,
+    29,
+    37,
+    47
+   ]
+  },
+  {
+   "id": "blum_02828257",
+   "source": "blum",
+   "in": 2828.257,
+   "out": 2831.299,
+   "frames": 74,
+   "seconds": 3.083,
+   "beats": [
+    2
+   ],
+   "text": "I mean, the efficiency of the cables is so clear.",
+   "reads": null,
+   "clean": "bank/clean/blum_02828257.mp4",
+   "span_key": "blum_sp_02828257_02831299",
+   "word_frames": [
+    1,
+    5,
+    18,
+    31,
+    32,
+    35,
+    45,
+    49,
+    61,
+    72
+   ]
+  },
+  {
+   "id": "blum_03068890",
+   "source": "blum",
+   "in": 3068.89,
+   "out": 3072.012,
+   "frames": 76,
+   "seconds": 3.167,
+   "beats": [
+    2
+   ],
+   "text": "And then you pay for them to run a cable across the room.",
+   "reads": null,
+   "clean": "bank/clean/blum_03068890.mp4",
+   "span_key": "blum_sp_03068890_03072012",
+   "word_frames": [
+    2,
+    5,
+    9,
+    19,
+    34,
+    38,
+    41,
+    46,
+    47,
+    55,
+    64,
+    67,
+    73
+   ]
+  },
+  {
+   "id": "houthi-01_00684534",
+   "source": "houthi-01",
+   "in": 684.534,
+   "out": 688.158,
+   "frames": 87,
+   "seconds": 3.625,
+   "beats": [
+    4
+   ],
+   "text": "Ships do this all the time. They sever cables constantly.",
+   "reads": null,
+   "clean": "bank/clean/houthi-01_00684534.mp4",
+   "span_key": "houthi-01_sp_00684534_00688158",
+   "word_frames": [
+    6,
+    11,
+    16,
+    23,
+    25,
+    34,
+    38,
+    47,
+    57,
+    86
+   ]
+  },
+  {
+   "id": "houthi-01_00741223",
+   "source": "houthi-01",
+   "in": 741.223,
+   "out": 745.206,
+   "frames": 97,
+   "seconds": 4.042,
+   "beats": [
+    4
+   ],
+   "text": "If you look at the bulk carriers that have hit, there was a recent attack on a ship called the Islander.",
+   "reads": null,
+   "clean": "bank/clean/houthi-01_00741223.mp4",
+   "span_key": "houthi-01_sp_00741223_00745206",
+   "word_frames": [
+    1,
+    6,
+    10,
+    12,
+    14,
+    21,
+    31,
+    34,
+    37,
+    40,
+    43,
+    46,
+    47,
+    57,
+    67,
+    70,
+    72,
+    76,
+    81,
+    83,
+    94
+   ]
+  },
+  {
+   "id": "houthi-02_00031354",
+   "source": "houthi-02",
+   "in": 31.354,
+   "out": 35.577,
+   "frames": 103,
+   "seconds": 4.292,
+   "beats": [
+    4
+   ],
+   "text": "These cables were damaged in areas between the Middle Eastern country of Saudi Arabia",
+   "reads": null,
+   "clean": "bank/clean/houthi-02_00031354.mp4",
+   "span_key": "houthi-02_sp_00031354_00035577",
+   "word_frames": [
+    5,
+    14,
+    19,
+    28,
+    33,
+    44,
+    51,
+    54,
+    61,
+    71,
+    78,
+    81,
+    90,
+    100
+   ]
+  },
+  {
+   "id": "houthi-02_00125045",
+   "source": "houthi-02",
+   "in": 125.045,
+   "out": 128.608,
+   "frames": 87,
+   "seconds": 3.625,
+   "beats": [
+    4
+   ],
+   "text": "But repairing the damaged cables might be a difficult and dangerous task.",
+   "reads": null,
+   "clean": "bank/clean/houthi-02_00125045.mp4",
+   "span_key": "houthi-02_sp_00125045_00128608",
+   "word_frames": [
+    3,
+    14,
+    18,
+    27,
+    37,
+    44,
+    48,
+    49,
+    60,
+    65,
+    75,
+    84
+   ]
+  },
+  {
+   "id": "houthi-03_00295286",
+   "source": "houthi-03",
+   "in": 295.286,
+   "out": 298.249,
+   "frames": 72,
+   "seconds": 3.0,
+   "beats": [
+    4
+   ],
+   "text": "One was due to a ship dropping an anchor, severing the cable.",
+   "reads": null,
+   "clean": "bank/clean/houthi-03_00295286.mp4",
+   "span_key": "houthi-03_sp_00295286_00298249",
+   "word_frames": [
+    3,
+    7,
+    11,
+    13,
+    15,
+    21,
+    30,
+    33,
+    41,
+    58,
+    61,
+    70
+   ]
+  },
+  {
+   "id": "houthi-03_00312542",
+   "source": "houthi-03",
+   "in": 312.542,
+   "out": 316.225,
+   "frames": 90,
+   "seconds": 3.75,
+   "beats": [
+    4
+   ],
+   "text": "Now, if you cut those cables, we will still have communication around the planet.",
+   "reads": null,
+   "clean": "bank/clean/houthi-03_00312542.mp4",
+   "span_key": "houthi-03_sp_00312542_00316225",
+   "word_frames": [
+    3,
+    5,
+    9,
+    13,
+    18,
+    25,
+    29,
+    34,
+    40,
+    44,
+    61,
+    75,
+    77,
+    87
+   ]
+  },
+  {
+   "id": "houthi-05_00188893",
+   "source": "houthi-05",
+   "in": 188.893,
+   "out": 191.653,
+   "frames": 68,
+   "seconds": 2.833,
+   "beats": [
+    4
+   ],
+   "text": "The four cables cut were AAE-1,",
+   "reads": null,
+   "clean": "bank/clean/houthi-05_00188893.mp4",
+   "span_key": "houthi-05_sp_00188893_00191653",
+   "word_frames": [
+    2,
+    9,
+    17,
+    24,
+    31,
+    65
+   ]
+  },
+  {
+   "id": "houthi-05_00568001",
+   "source": "houthi-05",
+   "in": 568.001,
+   "out": 572.043,
+   "frames": 99,
+   "seconds": 4.125,
+   "beats": [
+    4
+   ],
+   "text": "As we said, major naval powers have the ability to cut internet cables on the sea floor,",
+   "reads": null,
+   "clean": "bank/clean/houthi-05_00568001.mp4",
+   "span_key": "houthi-05_sp_00568001_00572043",
+   "word_frames": [
+    2,
+    5,
+    13,
+    25,
+    32,
+    40,
+    43,
+    45,
+    53,
+    55,
+    61,
+    70,
+    77,
+    80,
+    83,
+    88,
+    96
+   ]
+  },
+  {
+   "id": "houthi-07_00313252",
+   "source": "houthi-07",
+   "in": 313.252,
+   "out": 317.196,
+   "frames": 96,
+   "seconds": 4.0,
+   "beats": [
+    4
+   ],
+   "text": "And those previous attacks have been catastrophic for the group.",
+   "reads": null,
+   "clean": "bank/clean/houthi-07_00313252.mp4",
+   "span_key": "houthi-07_sp_00313252_00317196",
+   "word_frames": [
+    3,
+    9,
+    20,
+    30,
+    39,
+    49,
+    69,
+    81,
+    86,
+    93
+   ]
+  },
+  {
+   "id": "houthi-10_00000351",
+   "source": "houthi-10",
+   "in": 0.351,
+   "out": 3.216,
+   "frames": 70,
+   "seconds": 2.917,
+   "beats": [
+    4
+   ],
+   "text": "Now three undersea cables in the Red Sea have been cut.",
+   "reads": null,
+   "clean": "bank/clean/houthi-10_00000351.mp4",
+   "span_key": "houthi-10_sp_00000351_00003216",
+   "word_frames": [
+    3,
+    11,
+    23,
+    34,
+    37,
+    39,
+    43,
+    50,
+    54,
+    58,
+    67
+   ]
+  },
+  {
+   "id": "houthi-10_00120012",
+   "source": "houthi-10",
+   "in": 120.012,
+   "out": 122.153,
+   "frames": 53,
+   "seconds": 2.208,
+   "beats": [
+    4
+   ],
+   "text": "that the Houthis plan to attack the cables.",
+   "reads": null,
+   "clean": "bank/clean/houthi-10_00120012.mp4",
+   "span_key": "houthi-10_sp_00120012_00122153",
+   "word_frames": [
+    3,
+    5,
+    17,
+    25,
+    27,
+    36,
+    38,
+    50
+   ]
+  },
+  {
+   "id": "houthi-14_00088768",
+   "source": "houthi-14",
+   "in": 88.768,
+   "out": 91.569,
+   "frames": 69,
+   "seconds": 2.875,
+   "beats": [
+    4
+   ],
+   "text": "Multiple cable cuts could disrupt internet connectivity,",
+   "reads": null,
+   "clean": "bank/clean/houthi-14_00088768.mp4",
+   "span_key": "houthi-14_sp_00088768_00091569",
+   "word_frames": [
+    10,
+    18,
+    24,
+    29,
+    39,
+    50,
+    66
+   ]
+  },
+  {
+   "id": "houthi-15_00132116",
+   "source": "houthi-15",
+   "in": 132.116,
+   "out": 135.959,
+   "frames": 93,
+   "seconds": 3.875,
+   "beats": [
+    4
+   ],
+   "text": "The result of such damage may not be a total internet blackout.",
+   "reads": null,
+   "clean": "bank/clean/houthi-15_00132116.mp4",
+   "span_key": "houthi-15_sp_00132116_00135959",
+   "word_frames": [
+    2,
+    11,
+    22,
+    28,
+    39,
+    46,
+    54,
+    57,
+    58,
+    70,
+    79,
+    91
+   ]
+  },
+  {
+   "id": "houthi-15_00606250",
+   "source": "houthi-15",
+   "in": 606.25,
+   "out": 609.512,
+   "frames": 79,
+   "seconds": 3.292,
+   "beats": [
+    4
+   ],
+   "text": "So it's a very real threat and it seems directed at the U.S.",
+   "reads": null,
+   "clean": "bank/clean/houthi-15_00606250.mp4",
+   "span_key": "houthi-15_sp_00606250_00609512",
+   "word_frames": [
+    2,
+    6,
+    8,
+    16,
+    22,
+    31,
+    33,
+    37,
+    45,
+    57,
+    65,
+    68,
+    77
+   ]
+  },
+  {
+   "id": "houthi-16_00114697",
+   "source": "houthi-16",
+   "in": 114.697,
+   "out": 118.238,
+   "frames": 85,
+   "seconds": 3.542,
+   "beats": [
+    4
+   ],
+   "text": "Also, it remains unclear how the Houthis could attack subsea cables.",
+   "reads": null,
+   "clean": "bank/clean/houthi-16_00114697.mp4",
+   "span_key": "houthi-16_sp_00114697_00118238",
+   "word_frames": [
+    7,
+    8,
+    17,
+    28,
+    32,
+    35,
+    46,
+    51,
+    61,
+    72,
+    84
+   ]
+  },
+  {
+   "id": "houthi-16_00140117",
+   "source": "houthi-16",
+   "in": 140.117,
+   "out": 143.018,
+   "frames": 70,
+   "seconds": 2.917,
+   "beats": [
+    4
+   ],
+   "text": "Experts say 14 cables are now running through the Red Sea.",
+   "reads": null,
+   "clean": "bank/clean/houthi-16_00140117.mp4",
+   "span_key": "houthi-16_sp_00140117_00143018",
+   "word_frames": [
+    8,
+    12,
+    21,
+    30,
+    33,
+    37,
+    46,
+    53,
+    56,
+    61,
+    68
+   ]
+  },
+  {
+   "id": "houthi-17_00016647",
+   "source": "houthi-17",
+   "in": 16.647,
+   "out": 19.848,
+   "frames": 77,
+   "seconds": 3.208,
+   "beats": [
+    4
+   ],
+   "text": "And three internet cables were cut afterwards.",
+   "reads": null,
+   "clean": "bank/clean/houthi-17_00016647.mp4",
+   "span_key": "houthi-17_sp_00016647_00019848",
+   "word_frames": [
+    3,
+    20,
+    34,
+    45,
+    48,
+    54,
+    75
+   ]
+  },
+  {
+   "id": "houthi-17_00206063",
+   "source": "houthi-17",
+   "in": 206.063,
+   "out": 208.625,
+   "frames": 62,
+   "seconds": 2.583,
+   "beats": [
+    4
+   ],
+   "text": "But severing it completely takes a little bit more skills.",
+   "reads": null,
+   "clean": "bank/clean/houthi-17_00206063.mp4",
+   "span_key": "houthi-17_sp_00206063_00208625",
+   "word_frames": [
+    3,
+    20,
+    23,
+    33,
+    38,
+    39,
+    42,
+    46,
+    51,
+    60
+   ]
+  },
+  {
+   "id": "houthi-19_00162076",
+   "source": "houthi-19",
+   "in": 162.076,
+   "out": 164.64,
+   "frames": 62,
+   "seconds": 2.583,
+   "beats": [
+    4
+   ],
+   "text": "So there could be outages on multiple fronts.",
+   "reads": null,
+   "clean": "bank/clean/houthi-19_00162076.mp4",
+   "span_key": "houthi-19_sp_00162076_00164640",
+   "word_frames": [
+    2,
+    6,
+    9,
+    12,
+    24,
+    27,
+    42,
+    60
+   ]
+  },
+  {
+   "id": "houthi-19_00168888",
+   "source": "houthi-19",
+   "in": 168.888,
+   "out": 172.794,
+   "frames": 95,
+   "seconds": 3.958,
+   "beats": [
+    4
+   ],
+   "text": "also see some outages in terms of the applications that we use.",
+   "reads": null,
+   "clean": "bank/clean/houthi-19_00168888.mp4",
+   "span_key": "houthi-19_sp_00168888_00172794",
+   "word_frames": [
+    8,
+    16,
+    21,
+    32,
+    37,
+    47,
+    51,
+    55,
+    72,
+    76,
+    81,
+    92
+   ]
+  },
+  {
+   "id": "lackner_00036682",
+   "source": "lackner",
+   "in": 36.682,
+   "out": 39.603,
+   "frames": 72,
+   "seconds": 3.0,
+   "beats": [
+    5
+   ],
+   "text": "marking the closest a Houthi attack has come to a U.S.",
+   "reads": null,
+   "clean": "bank/clean/lackner_00036682.mp4",
+   "span_key": "lackner_sp_00036682_00039603",
+   "word_frames": [
+    8,
+    11,
+    25,
+    27,
+    35,
+    45,
+    49,
+    55,
+    59,
+    61,
+    69
+   ]
+  },
+  {
+   "id": "lackner_00040784",
+   "source": "lackner",
+   "in": 40.784,
+   "out": 43.985,
+   "frames": 77,
+   "seconds": 3.208,
+   "beats": [
+    5
+   ],
+   "text": "Meanwhile, the Houthis said they would stage more attacks on U.S.",
+   "reads": null,
+   "clean": "bank/clean/lackner_00040784.mp4",
+   "span_key": "lackner_sp_00040784_00043985",
+   "word_frames": [
+    11,
+    14,
+    24,
+    29,
+    33,
+    37,
+    44,
+    53,
+    63,
+    67,
+    75
+   ]
+  },
+  {
+   "id": "lackner_00301266",
+   "source": "lackner",
+   "in": 301.266,
+   "out": 304.631,
+   "frames": 82,
+   "seconds": 3.417,
+   "beats": [
+    5
+   ],
+   "text": "What are the origins of this movement,",
+   "reads": null,
+   "clean": "bank/clean/lackner_00301266.mp4",
+   "span_key": "lackner_sp_00301266_00304631",
+   "word_frames": [
+    5,
+    12,
+    17,
+    36,
+    46,
+    58,
+    79
+   ]
+  },
+  {
+   "id": "lackner_00305052",
+   "source": "lackner",
+   "in": 305.052,
+   "out": 308.357,
+   "frames": 81,
+   "seconds": 3.375,
+   "beats": [
+    5
+   ],
+   "text": "and how is it that they came to play such a prominent role in Yemen?",
+   "reads": null,
+   "clean": "bank/clean/lackner_00305052.mp4",
+   "span_key": "lackner_sp_00305052_00308357",
+   "word_frames": [
+    2,
+    8,
+    11,
+    13,
+    17,
+    21,
+    25,
+    28,
+    35,
+    39,
+    40,
+    51,
+    60,
+    68,
+    78
+   ]
+  },
+  {
+   "id": "lackner_00320766",
+   "source": "lackner",
+   "in": 320.766,
+   "out": 323.627,
+   "frames": 70,
+   "seconds": 2.917,
+   "beats": [
+    5
+   ],
+   "text": "Yemen is divided into two basic sects.",
+   "reads": null,
+   "clean": "bank/clean/lackner_00320766.mp4",
+   "span_key": "lackner_sp_00320766_00323627",
+   "word_frames": [
+    9,
+    12,
+    27,
+    36,
+    43,
+    56,
+    67
+   ]
+  },
+  {
+   "id": "lackner_00335292",
+   "source": "lackner",
+   "in": 335.292,
+   "out": 338.613,
+   "frames": 81,
+   "seconds": 3.375,
+   "beats": [
+    5
+   ],
+   "text": "who live basically in the mountainous highlands of Yemen.",
+   "reads": null,
+   "clean": "bank/clean/lackner_00335292.mp4",
+   "span_key": "lackner_sp_00335292_00338613",
+   "word_frames": [
+    3,
+    11,
+    28,
+    31,
+    34,
+    50,
+    64,
+    68,
+    78
+   ]
+  },
+  {
+   "id": "lackner_00411731",
+   "source": "lackner",
+   "in": 411.731,
+   "out": 414.893,
+   "frames": 76,
+   "seconds": 3.167,
+   "beats": [
+    5
+   ],
+   "text": "And that was a moment when the Houthis joined",
+   "reads": null,
+   "clean": "bank/clean/lackner_00411731.mp4",
+   "span_key": "lackner_sp_00411731_00414893",
+   "word_frames": [
+    3,
+    16,
+    22,
+    25,
+    37,
+    43,
+    47,
+    61,
+    74
+   ]
+  },
+  {
+   "id": "lackner_00528570",
+   "source": "lackner",
+   "in": 528.57,
+   "out": 531.372,
+   "frames": 68,
+   "seconds": 2.833,
+   "beats": [
+    5
+   ],
+   "text": "whether or not now they do as Iran says?",
+   "reads": null,
+   "clean": "bank/clean/lackner_00528570.mp4",
+   "span_key": "lackner_sp_00528570_00531372",
+   "word_frames": [
+    6,
+    8,
+    13,
+    27,
+    33,
+    38,
+    43,
+    57,
+    66
+   ]
+  },
+  {
+   "id": "lackner_00587225",
+   "source": "lackner",
+   "in": 587.225,
+   "out": 590.806,
+   "frames": 87,
+   "seconds": 3.625,
+   "beats": [
+    5
+   ],
+   "text": "to the Iranian Shi'ism over the last decades.",
+   "reads": null,
+   "clean": "bank/clean/lackner_00587225.mp4",
+   "span_key": "lackner_sp_00587225_00590806",
+   "word_frames": [
+    3,
+    5,
+    22,
+    35,
+    57,
+    61,
+    69,
+    85
+   ]
+  },
+  {
+   "id": "lackner_00596507",
+   "source": "lackner",
+   "in": 596.507,
+   "out": 599.388,
+   "frames": 71,
+   "seconds": 2.958,
+   "beats": [
+    5
+   ],
+   "text": "So the alliance is much more a political alliance.",
+   "reads": null,
+   "clean": "bank/clean/lackner_00596507.mp4",
+   "span_key": "lackner_sp_00596507_00599388",
+   "word_frames": [
+    3,
+    8,
+    21,
+    24,
+    31,
+    38,
+    39,
+    55,
+    68
+   ]
+  },
+  {
+   "id": "lackner_00655560",
+   "source": "lackner",
+   "in": 655.56,
+   "out": 658.401,
+   "frames": 70,
+   "seconds": 2.917,
+   "beats": [
+    5
+   ],
+   "text": "The Iranian involvement has become greater.",
+   "reads": null,
+   "clean": "bank/clean/lackner_00655560.mp4",
+   "span_key": "lackner_sp_00655560_00658401",
+   "word_frames": [
+    3,
+    16,
+    31,
+    37,
+    49,
+    67
+   ]
+  },
+  {
+   "id": "lackner_00664784",
+   "source": "lackner",
+   "in": 664.784,
+   "out": 667.525,
+   "frames": 66,
+   "seconds": 2.75,
+   "beats": [
+    5
+   ],
+   "text": "The Houthis are not Iranian proxies.",
+   "reads": null,
+   "clean": "bank/clean/lackner_00664784.mp4",
+   "span_key": "lackner_sp_00664784_00667525",
+   "word_frames": [
+    3,
+    15,
+    20,
+    30,
+    49,
+    64
+   ]
+  },
+  {
+   "id": "lackner_00667505",
+   "source": "lackner",
+   "in": 667.505,
+   "out": 669.846,
+   "frames": 58,
+   "seconds": 2.417,
+   "beats": [
+    5
+   ],
+   "text": "They are not Iranian servants.",
+   "reads": null,
+   "clean": "bank/clean/lackner_00667505.mp4",
+   "span_key": "lackner_sp_00667505_00669846",
+   "word_frames": [
+    3,
+    6,
+    13,
+    40,
+    55
+   ]
+  },
+  {
+   "id": "lackner_00669847",
+   "source": "lackner",
+   "in": 669.847,
+   "out": 672.448,
+   "frames": 64,
+   "seconds": 2.667,
+   "beats": [
+    5
+   ],
+   "text": "They don't do what the Iranians tell them to do.",
+   "reads": null,
+   "clean": "bank/clean/lackner_00669847.mp4",
+   "span_key": "lackner_sp_00669847_00672448",
+   "word_frames": [
+    4,
+    12,
+    17,
+    22,
+    26,
+    40,
+    48,
+    52,
+    56,
+    61
+   ]
+  },
+  {
+   "id": "lackner_00706363",
+   "source": "lackner",
+   "in": 706.363,
+   "out": 709.144,
+   "frames": 67,
+   "seconds": 2.792,
+   "beats": [
+    5
+   ],
+   "text": "and the Houthi human rights record.",
+   "reads": null,
+   "clean": "bank/clean/lackner_00706363.mp4",
+   "span_key": "lackner_sp_00706363_00709144",
+   "word_frames": [
+    5,
+    18,
+    37,
+    49,
+    55,
+    65
+   ]
+  },
+  {
+   "id": "lackner_00744253",
+   "source": "lackner",
+   "in": 744.253,
+   "out": 747.615,
+   "frames": 82,
+   "seconds": 3.417,
+   "beats": [
+    5
+   ],
+   "text": "So about 20 million people live under Houthi rule.",
+   "reads": null,
+   "clean": "bank/clean/lackner_00744253.mp4",
+   "span_key": "lackner_sp_00744253_00747615",
+   "word_frames": [
+    12,
+    18,
+    28,
+    38,
+    48,
+    53,
+    61,
+    71,
+    79
+   ]
+  },
+  {
+   "id": "lackner_00754319",
+   "source": "lackner",
+   "in": 754.319,
+   "out": 758.082,
+   "frames": 91,
+   "seconds": 3.792,
+   "beats": [
+    5
+   ],
+   "text": "All kinds of negative features connected with Houthi rule.",
+   "reads": null,
+   "clean": "bank/clean/lackner_00754319.mp4",
+   "span_key": "lackner_sp_00754319_00758082",
+   "word_frames": [
+    3,
+    11,
+    15,
+    32,
+    45,
+    65,
+    71,
+    81,
+    89
+   ]
+  },
+  {
+   "id": "lackner_00763805",
+   "source": "lackner",
+   "in": 763.805,
+   "out": 767.667,
+   "frames": 94,
+   "seconds": 3.917,
+   "beats": [
+    5
+   ],
+   "text": "And therefore, this action of the Houthis has,",
+   "reads": null,
+   "clean": "bank/clean/lackner_00763805.mp4",
+   "span_key": "lackner_sp_00763805_00767667",
+   "word_frames": [
+    20,
+    34,
+    39,
+    50,
+    54,
+    58,
+    73,
+    91
+   ]
+  },
+  {
+   "id": "lackner_00785818",
+   "source": "lackner",
+   "in": 785.818,
+   "out": 789.42,
+   "frames": 87,
+   "seconds": 3.625,
+   "beats": [
+    5
+   ],
+   "text": "they agree with the Houthi actions in support of Palestine.",
+   "reads": null,
+   "clean": "bank/clean/lackner_00785818.mp4",
+   "span_key": "lackner_sp_00785818_00789420",
+   "word_frames": [
+    4,
+    17,
+    23,
+    25,
+    37,
+    49,
+    55,
+    67,
+    69,
+    85
+   ]
+  },
+  {
+   "id": "lackner_00796144",
+   "source": "lackner",
+   "in": 796.144,
+   "out": 799.407,
+   "frames": 80,
+   "seconds": 3.333,
+   "beats": [
+    5
+   ],
+   "text": "but also in the rest of Yemen, which is, you know, not ruled by them.",
+   "reads": null,
+   "clean": "bank/clean/lackner_00796144.mp4",
+   "span_key": "lackner_sp_00796144_00799407",
+   "word_frames": [
+    3,
+    12,
+    15,
+    17,
+    24,
+    26,
+    36,
+    41,
+    46,
+    50,
+    54,
+    60,
+    67,
+    72,
+    77
+   ]
+  },
+  {
+   "id": "swartz_00009634",
+   "source": "swartz",
+   "in": 9.634,
+   "out": 13.455,
+   "frames": 93,
+   "seconds": 3.875,
+   "beats": [
+    3
+   ],
+   "text": "you have one person in one station deciding what gets put over the airwaves.",
+   "reads": null,
+   "clean": "bank/clean/swartz_00009634.mp4",
+   "span_key": "swartz_sp_00009634_00013455",
+   "word_frames": [
+    3,
+    7,
+    16,
+    29,
+    32,
+    38,
+    48,
+    58,
+    62,
+    68,
+    74,
+    78,
+    80,
+    90
+   ]
+  },
+  {
+   "id": "swartz_00014015",
+   "source": "swartz",
+   "in": 14.015,
+   "out": 17.916,
+   "frames": 95,
+   "seconds": 3.958,
+   "beats": [
+    3
+   ],
+   "text": "When you have a distributed network like the internet, everybody can be a server.",
+   "reads": null,
+   "clean": "bank/clean/swartz_00014015.mp4",
+   "span_key": "swartz_sp_00014015_00017916",
+   "word_frames": [
+    2,
+    5,
+    9,
+    12,
+    25,
+    33,
+    37,
+    40,
+    49,
+    76,
+    80,
+    83,
+    84,
+    92
+   ]
+  },
+  {
+   "id": "swartz_00017956",
+   "source": "swartz",
+   "in": 17.956,
+   "out": 20.617,
+   "frames": 64,
+   "seconds": 2.667,
+   "beats": [
+    3
+   ],
+   "text": "There's no distinction between the broadcaster and the receiver.",
+   "reads": null,
+   "clean": "bank/clean/swartz_00017956.mp4",
+   "span_key": "swartz_sp_00017956_00020617",
+   "word_frames": [
+    5,
+    8,
+    20,
+    27,
+    29,
+    48,
+    51,
+    53,
+    62
+   ]
+  },
+  {
+   "id": "swartz_00039801",
+   "source": "swartz",
+   "in": 39.801,
+   "out": 43.206,
+   "frames": 83,
+   "seconds": 3.458,
+   "beats": [
+    3
+   ],
+   "text": "you're fundamentally limited by the amount of space in the airwaves.",
+   "reads": null,
+   "clean": "bank/clean/swartz_00039801.mp4",
+   "span_key": "swartz_sp_00039801_00043206",
+   "word_frames": [
+    4,
+    14,
+    24,
+    30,
+    33,
+    39,
+    41,
+    55,
+    57,
+    59,
+    80
+   ]
+  },
+  {
+   "id": "swartz_00043347",
+   "source": "swartz",
+   "in": 43.347,
+   "out": 46.731,
+   "frames": 83,
+   "seconds": 3.458,
+   "beats": [
+    3
+   ],
+   "text": "You could only send out 10 channels over the airwaves of television.",
+   "reads": null,
+   "clean": "bank/clean/swartz_00043347.mp4",
+   "span_key": "swartz_sp_00043347_00046731",
+   "word_frames": [
+    2,
+    6,
+    11,
+    18,
+    24,
+    31,
+    42,
+    48,
+    50,
+    60,
+    62,
+    80
+   ]
+  },
+  {
+   "id": "swartz_00055703",
+   "source": "swartz",
+   "in": 55.703,
+   "out": 59.245,
+   "frames": 86,
+   "seconds": 3.583,
+   "beats": [
+    3
+   ],
+   "text": "And so what you see now is not a question of who gets access to the airwaves.",
+   "reads": null,
+   "clean": "bank/clean/swartz_00055703.mp4",
+   "span_key": "swartz_sp_00055703_00059245",
+   "word_frames": [
+    2,
+    6,
+    9,
+    12,
+    17,
+    22,
+    25,
+    29,
+    31,
+    39,
+    42,
+    54,
+    59,
+    68,
+    70,
+    72,
+    84
+   ]
+  },
+  {
+   "id": "swartz_00059225",
+   "source": "swartz",
+   "in": 59.225,
+   "out": 63.007,
+   "frames": 92,
+   "seconds": 3.833,
+   "beats": [
+    3
+   ],
+   "text": "It's a question of who gets control over the ways you find people.",
+   "reads": null,
+   "clean": "bank/clean/swartz_00059225.mp4",
+   "span_key": "swartz_sp_00059225_00063007",
+   "word_frames": [
+    2,
+    4,
+    11,
+    13,
+    25,
+    30,
+    40,
+    44,
+    47,
+    54,
+    59,
+    66,
+    89
+   ]
+  },
+  {
+   "id": "swartz_00062987",
+   "source": "swartz",
+   "in": 62.987,
+   "out": 65.389,
+   "frames": 58,
+   "seconds": 2.417,
+   "beats": [
+    3
+   ],
+   "text": "You start seeing power centralizing in sites like Google,",
+   "reads": null,
+   "clean": "bank/clean/swartz_00062987.mp4",
+   "span_key": "swartz_sp_00062987_00065389",
+   "word_frames": [
+    2,
+    8,
+    13,
+    20,
+    33,
+    35,
+    40,
+    45,
+    56
+   ]
+  },
+  {
+   "id": "swartz_00065369",
+   "source": "swartz",
+   "in": 65.369,
+   "out": 68.491,
+   "frames": 75,
+   "seconds": 3.125,
+   "beats": [
+    3
+   ],
+   "text": "these sort of gatekeepers that tell you where on the internet you want to go,",
+   "reads": null,
+   "clean": "bank/clean/swartz_00065369.mp4",
+   "span_key": "swartz_sp_00065369_00068491",
+   "word_frames": [
+    2,
+    6,
+    8,
+    26,
+    31,
+    39,
+    42,
+    48,
+    50,
+    53,
+    59,
+    62,
+    65,
+    67,
+    73
+   ]
+  },
+  {
+   "id": "swartz_00072113",
+   "source": "swartz",
+   "in": 72.113,
+   "out": 75.235,
+   "frames": 75,
+   "seconds": 3.125,
+   "beats": [
+    3
+   ],
+   "text": "So it's not only certain people have a license to speak.",
+   "reads": null,
+   "clean": "bank/clean/swartz_00072113.mp4",
+   "span_key": "swartz_sp_00072113_00075235",
+   "word_frames": [
+    2,
+    5,
+    10,
+    37,
+    43,
+    49,
+    53,
+    54,
+    63,
+    66,
+    73
+   ]
+  },
+  {
+   "id": "swartz_00075275",
+   "source": "swartz",
+   "in": 75.275,
+   "out": 77.937,
+   "frames": 64,
+   "seconds": 2.667,
+   "beats": [
+    3
+   ],
+   "text": "Now everyone has a license to speak. It's a question of who gets heard.",
+   "reads": null,
+   "clean": "bank/clean/swartz_00075275.mp4",
+   "span_key": "swartz_sp_00075275_00077937",
+   "word_frames": [
+    3,
+    11,
+    13,
+    14,
+    23,
+    25,
+    33,
+    37,
+    38,
+    44,
+    46,
+    49,
+    54,
+    62
+   ]
+  },
+  {
+   "id": "swartz_00095810",
+   "source": "swartz",
+   "in": 95.81,
+   "out": 100.032,
+   "frames": 103,
+   "seconds": 4.292,
+   "beats": [
+    3
+   ],
+   "text": "One of the most interesting technologies for doing something like that is a system called collaborative filtering,",
+   "reads": null,
+   "clean": "bank/clean/swartz_00095810.mp4",
+   "span_key": "swartz_sp_00095810_00100032",
+   "word_frames": [
+    2,
+    4,
+    8,
+    15,
+    24,
+    37,
+    40,
+    44,
+    50,
+    54,
+    59,
+    62,
+    64,
+    72,
+    77,
+    89,
+    100
+   ]
+  }
+ ],
+ "frames": 7988,
+ "seconds": 332.83
+}

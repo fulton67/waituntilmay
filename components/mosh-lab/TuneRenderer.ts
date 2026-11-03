@@ -13,8 +13,8 @@
  */
 import {
   FRAG_BLOOM, FRAG_CENTROID, FRAG_COMP, FRAG_DIFF, FRAG_DILATE, FRAG_DRAG,
-  FRAG_FOLD, FRAG_INSIDE, FRAG_REDUCE, FRAG_SEED, FRAG_STRETCH,
-  VERT, VERT_STRETCH,
+  FRAG_FOLD, FRAG_INSIDE, FRAG_REDUCE, FRAG_SEED, FRAG_STRENGTH,
+  FRAG_STRETCH, VERT, VERT_STRETCH,
 } from "./tune-shaders";
 import { StretchSim, STRETCH_DEFAULTS, type StretchCfg } from "./StretchSim";
 import {
@@ -93,6 +93,17 @@ export interface TuneConfig {
   };
   life: { timeJitter: number; spaceJitter: number };
   b: { speed: number; dupP: number };
+  /**
+   * How much of the look sits under everything else. 0 is the footage
+   * untouched, 1 is the look at the strength the rest of these controls
+   * describe. It is applied last, as one lerp against layer C, so it is the
+   * only dial that can be taken to nothing without changing the shape of
+   * anything upstream - which is what makes it the right one to put in
+   * front of the piece rather than in front of the lab. The measurements
+   * are taken before it, so turning the look down does not quietly turn
+   * the instruments down with it.
+   */
+  underlayer: { strength: number };
   /**
    * The three relationships, all of them read off the footage's own
    * motion. These travel to scripts/exchange-mosh.mjs, which is where they
@@ -225,6 +236,7 @@ export const DEFAULTS: TuneConfig = {
   },
   life: { timeJitter: 0.15, spaceJitter: 0.1 },
   b: { speed: 1.0, dupP: 4 },
+  underlayer: { strength: 1 },
   exchange: {
     calmGain: 1, amplify: 22, accum: 0.55, clampPx: 150,
     bResponse: 1.2, bAccum: 0.85, bSmooth: 1,
@@ -430,7 +442,7 @@ export function sanitizeConfig(c: unknown): TuneConfig {
   if (typeof inc.curveEnabled === "boolean") out.curveEnabled = inc.curveEnabled;
   if (typeof inc.curveBlend === "boolean") out.curveBlend = inc.curveBlend;
   for (const k of ["squares", "reveals", "bloom", "stretch", "organic",
-                   "inside", "fold", "life", "b"] as const) {
+                   "inside", "fold", "life", "b", "underlayer"] as const) {
     const g = inc[k];
     if (g && typeof g === "object") {
       // only keys the group already has, so a stale field cannot sneak in
@@ -500,6 +512,9 @@ export class TuneRenderer {
   private statA!: Target;
   private statChain: Target[] = [];
   private folded!: Target;
+  private strengthT!: Target;
+  /** The last frame rendered, as a target, for an exact readback. */
+  private lastFinal: Target | null = null;
   private centroid!: Target;
   /** Last measured region: centre in 0-1, spread, total weight. */
   lastCenter: [number, number, number, number] = [0.5, 0.5, 0.5, 0];
@@ -551,6 +566,7 @@ export class TuneRenderer {
       bloom: FRAG_BLOOM, inside: FRAG_INSIDE, comp: FRAG_COMP,
       fold: FRAG_FOLD, centroid: FRAG_CENTROID, drag: FRAG_DRAG,
       reduce: FRAG_REDUCE, damage: FRAG_DAMAGE, openings: FRAG_OPENINGS,
+      strength: FRAG_STRENGTH,
       sum4: FRAG_SUM4, foldstat: FRAG_FOLDSTAT, dmgstat: FRAG_DMGSTAT,
       copy: FRAG_COPY,
     })) this.progs[k] = program(gl, f as string);
@@ -664,6 +680,8 @@ export class TuneRenderer {
       }
     }
     this.folded = this.target(w, h, false, false);
+    this.strengthT = this.target(w, h, false, false);
+    this.lastFinal = null;
     this.centroid = this.target(1, 1);
     // a reduction chain down to 1x1 so coverage comes back as one pixel
     this.reduce = [];
@@ -704,6 +722,52 @@ export class TuneRenderer {
     gl.bindTexture(gl.TEXTURE_2D, this.texMv);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RG32F, this.mvCols, this.mvRows, 0,
       gl.RG, gl.FLOAT, rg);
+  }
+
+  /**
+   * A layer from raw RGBA bytes rather than a decoded image.
+   *
+   * The offline path decodes each layer once with ffmpeg and hands the
+   * planes straight over, which skips a PNG encode on the way out of
+   * ffmpeg and a decode on the way into the page - about two thirds of the
+   * per-frame cost of shading a clip. Bytes arrive top-down, the same way
+   * an ImageBitmap does, so the same flip applies and the two paths cannot
+   * disagree about which way up a frame is.
+   */
+  setLayerRaw(which: "a" | "b" | "c", data: Uint8Array, w: number, h: number) {
+    const gl = this.gl;
+    const t = which === "a" ? this.texA : which === "b" ? this.texB : this.texC;
+    // Three bytes a pixel or four, whichever arrived. ffmpeg decodes to
+    // rgb24 for this path because the alpha byte is a quarter of the
+    // traffic and every layer here is opaque.
+    const rgb = data.length === w * h * 3;
+    gl.bindTexture(gl.TEXTURE_2D, t);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
+    gl.pixelStorei(gl.UNPACK_ALIGNMENT, rgb ? 1 : 4);
+    gl.texImage2D(gl.TEXTURE_2D, 0, rgb ? gl.RGB : gl.RGBA, w, h, 0,
+      rgb ? gl.RGB : gl.RGBA, gl.UNSIGNED_BYTE, data);
+    gl.pixelStorei(gl.UNPACK_ALIGNMENT, 4);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 0);
+  }
+
+  /**
+   * The frame just rendered, as RGBA bytes at the drawing size.
+   *
+   * Read off the target rather than the canvas: the canvas is laid out at
+   * 100% width, so its backing store is whatever CSS made it, and a
+   * screenshot of it comes back resampled. The target is exactly w x h.
+   * Rows come back bottom-up, which is GL's convention and which the
+   * caller undoes.
+   */
+  grabRGBA(): Uint8Array {
+    const gl = this.gl;
+    const t = this.lastFinal;
+    if (!t) throw new Error("nothing rendered yet");
+    const out = new Uint8Array(t.w * t.h * 4);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, t.fb);
+    gl.readPixels(0, 0, t.w, t.h, gl.RGBA, gl.UNSIGNED_BYTE, out);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+    return out;
   }
 
   setLayer(which: "a" | "b" | "c", src: TexImageSource) {
@@ -961,7 +1025,18 @@ export class TuneRenderer {
       this.lastFold = { c, zoom, center: [cx, cy], spread };
     }
 
-    const final = folded;
+    // ---- the underlayer's strength, last, against the footage itself
+    let final = folded;
+    const str = cfg.underlayer?.strength ?? 1;
+    if (str < 0.999) {
+      const p = this.use("strength");
+      this.bind(p, "uLook", 0, folded.tex);
+      this.bind(p, "uClean", 1, this.texC);
+      gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
+      gl.uniform1f(this.u(p, "uStrength"), Math.max(0, str));
+      this.draw(this.strengthT);
+      final = this.strengthT;
+    }
 
     // ---- how the fold's attention divides, against how the map divides
     if (sl === 0 && cfg.fold.amount > 0.001) {
@@ -1027,6 +1102,7 @@ export class TuneRenderer {
     this.lastCoverage = px[1] > 0 ? px[0] / px[1] : 0;
 
     // ---- to the canvas
+    this.lastFinal = final;
     this.blit(final);
   }
 

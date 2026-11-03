@@ -5,15 +5,23 @@ same gates as the original batch - scripts/verify_arc.check_render is the
 single source of truth for those, so this job cannot drift from the hand-run
 verification. Anything that fails is deleted and logged, never uploaded.
 
-It renders the seven-beat arc through assemble.py, which is what the live
-pool is. It used to render the five-beat randomiser through randomize.py into
-journey-multi/, and when the live pool moved this job would have gone on
-filling a pool nobody reads.
+It renders through assemble_bank.py, which is what the live pool is: the
+seven-beat arc stitched out of the shaded clip bank, one or two phrases a
+beat. It does not shade anything - the bank is already wearing whatever
+journey/look.json last published, and re-shading is scripts/relayer.mjs's
+job, not a nightly one's.
 
-No dev server is started any more either. The old mosh built one of its
-layers with a WebGL shader, so the job had to stand up a browser and a GPU
-every night; the arc's mosh is two I-frame removals in the encoded stream and
-needs nothing but ffgac.
+Where the new versions go is therefore two places and not one. A look owns a
+prefix of its own, journey-arc-<hash>/, and the manifest the player reads
+stays at journey-arc/manifest.json, so a version added overnight is uploaded
+to the live look's prefix and appended to the live manifest. Getting that
+wrong is quiet rather than loud - the pool would grow somewhere nobody reads
+- so the prefix is derived from journey/look.json rather than passed in.
+
+No dev server is started. The old mosh built one of its layers with a WebGL
+shader, so the job had to stand up a browser and a GPU every night; this one
+reads shaded frames off disk and runs two I-frame removals in an ffgac
+stream.
 
   python scripts/grow_pool.py --count 10
   python scripts/grow_pool.py --count 2 --log logs/pool.log
@@ -32,8 +40,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 
-import assemble                                                      # noqa: E402
+import assemble_bank                                                 # noqa: E402
 import verify_arc as VR                                              # noqa: E402
+from pipeline import bank as BK                                      # noqa: E402
 from pipeline import beats as B                                      # noqa: E402
 from pipeline import media as M                                      # noqa: E402
 from pipeline import sources as SRCS                                 # noqa: E402
@@ -74,7 +83,12 @@ def existing_seeds(prefix, log):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--count", type=int, default=10)
-    ap.add_argument("--prefix", default="journey-arc")
+    ap.add_argument("--prefix", default="journey-arc",
+                    help="the manifest the player reads, which new versions "
+                         "are appended to")
+    ap.add_argument("--upload-prefix", default=None,
+                    help="where the videos go; default is the live look's "
+                         "own prefix, <prefix>-<hash of journey/look.json>")
     ap.add_argument("--sources", default=None,
                     help="sources config; default config/sources.json")
     ap.add_argument("--beats", default=B.CONFIG,
@@ -83,11 +97,12 @@ def main():
     ap.add_argument("--log", default="logs/pool.log")
     # these must match the settings the shipped pool was built with, or a
     # version that joins overnight arrives a different size from its
-    # neighbours. The arc's mosh damages 24-48 frames of 720 and leaves the
-    # rest clean, so it costs far fewer bits than the composite it replaced
-    # and needs no bitrate cap to stay inside the budget: the shipped batch
-    # came out 1.7-4.8 MB a version at crf 24.
-    ap.add_argument("--crf", type=int, default=24)
+    # neighbours - and the settings moved when the look did. The look is
+    # grain and grain is expensive: measured on the heaviest version of the
+    # batch at 720p, crf 27 costs 8.6 MB and 29 costs 6.8, where the
+    # look-less batch before it came out at 1.7-4.8 MB at crf 24. 29 is
+    # what holds every file inside the 8 MB budget without a bitrate cap.
+    ap.add_argument("--crf", type=int, default=29)
     ap.add_argument("--height", type=int, default=720)
     ap.add_argument("--maxrate-kbps", type=int, default=0)
     ap.add_argument("--budget-mb", type=float, default=8.0)
@@ -100,10 +115,19 @@ def main():
     os.chdir(ROOT)
 
     log = Log(args.log)
+    look = BK.look_hash()
+    up = args.upload_prefix or f"{args.prefix}-{look}"
+    lookdir = BK.look_dir(look)
     log("=" * 70)
-    log(f"grow_pool: asked for {args.count} new versions -> {args.prefix}/")
-    log(f"sources: {args.sources or assemble.SOURCES}")
+    log(f"grow_pool: asked for {args.count} new versions -> {up}/, "
+        f"listed in {args.prefix}/manifest.json")
+    log(f"sources: {args.sources or assemble_bank.SOURCES}")
     log(f"beats:   {args.beats}")
+    log(f"look:    {look}  ({lookdir})")
+    if not os.path.isdir(lookdir):
+        log(f"FAILED: the bank is not shaded with {look}; "
+            f"run scripts/relayer.mjs")
+        return 1
     t0 = time.time()
 
     work = os.path.join(ROOT, args.workdir)
@@ -112,12 +136,14 @@ def main():
 
     # the pools and each source's room tone are read once for the whole run
     cfg = B.load(args.beats)
-    srcs = {x["id"]: x for x in SRCS.load(args.sources or assemble.SOURCES)}
+    bank = BK.load()
+    srcs = {x["id"]: x for x in SRCS.load(args.sources
+                                          or assemble_bank.SOURCES)}
     tones = {sid: M.quietest_window(srcs[sid]["video"], source=sid)
-             for sid in sorted({c["source"] for b in cfg["beats"]
-                                for c in b["pool"]})}
+             for sid in sorted({c["source"] for c in bank["clips"]})}
     log("pools: " + "  ".join(f"{n}:{name}={k}"
                               for n, name, k in B.pool_sizes(cfg)))
+    log(f"bank:  {len(bank['clips'])} clips")
 
     accepted, rejected = [], []
     try:
@@ -132,8 +158,9 @@ def main():
             log(f"[{i + 1}/{args.count}] seed {seed}: rendering ...")
             t1 = time.time()
             try:
-                rec = assemble.render_one(seed, outdir=work, cfg=cfg,
-                                          srcs=srcs, tones=tones, quiet=True)
+                rec = assemble_bank.render_one(
+                    seed, outdir=work, cfg=cfg, bank=bank, srcs=srcs,
+                    tones=tones, lookdir=lookdir, look=look, quiet=True)
             except Exception as e:
                 log(f"[{i + 1}/{args.count}] seed {seed}: RENDER FAILED - {e}")
                 rejected.append((seed, f"render error: {e}"))
@@ -184,7 +211,8 @@ def main():
         # ---- upload and append to the live manifest
         r = subprocess.run(["node", "--env-file=.env.local",
                             "scripts/pool-blob.mjs", "--append",
-                            "--src", webdir, "--prefix", args.prefix],
+                            "--src", webdir, "--prefix", args.prefix,
+                            "--upload-prefix", up],
                            cwd=ROOT, check=True, capture_output=True, text=True)
         for line in r.stdout.strip().splitlines():
             log("  " + line)

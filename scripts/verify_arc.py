@@ -11,7 +11,8 @@ that joins the live pool unattended has cleared the same bar as the batch.
   source order       no source two beats running, except the arc's own pairs
   A/V lock           every beat's picture and voice come from the same source
                      at the same timestamps, and the segments tile all 720
-  slots              every beat fills its slot exactly: phrase + breath hold
+  slots              every beat fills its slot exactly: phrases + breath
+  phrases            beats 4 and 5 carry two; none is under the 1.5s floor
   the hold           a hold stays with the speaker who earned it
   overlay            no bright, unchanging pixels in any corner region
   mosh               exactly two cuts, at the first frame of beats 4 and 5,
@@ -41,6 +42,10 @@ FPS = B.FPS
 FRAME = 1.0 / FPS
 TARGET = B.TARGET_SECONDS
 MAX_AV_OFFSET_FRAMES = 1.0
+# The floor a played phrase may not go under. assemble.py never trims, so
+# its floor is the pool's own band; assemble_bank.py trims at word
+# boundaries to fit a beat's two phrases into its slot and names its floor
+# in the log. Either way the gate reads it rather than assuming it.
 MIN_SEGMENT_S = B.BAND[0]
 BLOOM_MIN, BLOOM_MAX = 12, 24
 
@@ -78,23 +83,71 @@ def probe(path):
 
 
 def beat_report(log):
-    """Is the arc the arc? Returns (ok, detail)."""
+    """Is the arc the arc? Returns (ok, detail).
+
+    Two renderers write these logs and both are gated here. assemble.py
+    gives every beat one phrase in an equal slot; assemble_bank.py gives a
+    beat one or two in a slot the plan sized, with beats 4 and 5 always
+    carrying two. What does not vary is the arc: seven beats in one order,
+    each spoken by the source the arc gives it, the return never repeating
+    the claim, and no source speaking two beats running outside the two
+    pairs the arc is built on.
+    """
     bs = log.get("beats") or []
     bad = []
+    bank = log.get("renderer") == "assemble_bank.py"
     if len(bs) != len(B.BEAT_NAMES):
-        bad.append(f"{len(bs)} beats, not {len(B.BEAT_NAMES)}")
+        return False, f"{len(bs)} beats, not {len(B.BEAT_NAMES)}"
+
+    for i, (b, name) in enumerate(zip(bs, B.BEAT_NAMES)):
+        if b["n"] != i + 1 or b["name"] != name:
+            bad.append(f"beat {i+1} is {b['n']}/{b['name']}, not {name}")
+    slots = log.get("slot_frames") or B.SLOT_FRAMES
+    if sum(slots) != B.OUT_FRAMES:
+        bad.append(f"the slots add to {sum(slots)}, not {B.OUT_FRAMES}")
+    for b, slot in zip(bs, slots):
+        if b["frames"] + b["hold_frames"] != slot:
+            bad.append(f"beat {b['n']}: {b['frames']}+{b['hold_frames']} "
+                       f"!= slot {slot}")
+        if b["frames"] <= 0:
+            bad.append(f"beat {b['n']} has no picture")
+    want = {n: B.ARC[n - 1]["sources"] for n in range(1, 8)}
+
+    if bank:
+        floor = log.get("min_phrase_seconds") or MIN_SEGMENT_S
+        two = set(log.get("mosh_beats") or [4, 5])
+        for b in bs:
+            ph = b.get("phrases") or []
+            if not ph:
+                bad.append(f"beat {b['n']} has no phrases")
+                continue
+            if not 1 <= len(ph) <= 2:
+                bad.append(f"beat {b['n']} carries {len(ph)} phrases, not 1-2")
+            if b["n"] in two and len(ph) != 2:
+                bad.append(f"beat {b['n']} carries {len(ph)}, and the arc "
+                           f"gives it two")
+            for x in ph:
+                if x["source"] not in want[b["n"]]:
+                    bad.append(f"beat {b['n']} spoken by {x['source']}, which "
+                               f"the arc does not give that beat")
+                if x["frames"] / FPS + 1e-9 < floor:
+                    bad.append(f"beat {b['n']}: a phrase of "
+                               f"{x['frames'] / FPS:.2f}s is under the "
+                               f"{floor}s floor")
+        c1 = {x["clip"] for x in (bs[0].get("phrases") or [])}
+        c7 = {x["clip"] for x in (bs[-1].get("phrases") or [])}
+        if c1 & c7:
+            bad.append(f"the return repeats the claim: {sorted(c1 & c7)}")
+        for a, c in zip(bs, bs[1:]):
+            if (a["n"], c["n"]) in B.SAME_SOURCE_OK:
+                continue
+            pa = (a.get("phrases") or [{}])[-1].get("source")
+            pc = (c.get("phrases") or [{}])[0].get("source")
+            if pa == pc:
+                bad.append(f"{pa} speaks beats {a['n']} and {c['n']} running")
+        n_ph = sum(len(b.get("phrases") or []) for b in bs)
+        detail = f"7 beats, in order, {n_ph} phrases"
     else:
-        for i, (b, name) in enumerate(zip(bs, B.BEAT_NAMES)):
-            if b["n"] != i + 1 or b["name"] != name:
-                bad.append(f"beat {i+1} is {b['n']}/{b['name']}, not {name}")
-        slots = log.get("slot_frames") or B.SLOT_FRAMES
-        for b, slot in zip(bs, slots):
-            if b["frames"] + b["hold_frames"] != slot:
-                bad.append(f"beat {b['n']}: {b['frames']}+{b['hold_frames']} "
-                           f"!= slot {slot}")
-            if b["frames"] <= 0:
-                bad.append(f"beat {b['n']} has no picture")
-        want = {n: B.ARC[n - 1]["sources"] for n in range(1, 8)}
         for b in bs:
             if b["source"] not in want[b["n"]]:
                 bad.append(f"beat {b['n']} spoke by {b['source']}, which the "
@@ -107,7 +160,8 @@ def beat_report(log):
                     not in B.SAME_SOURCE_OK:
                 bad.append(f"{a['source']} speaks beats {a['n']} and {c['n']} "
                            f"running")
-    return (not bad), "; ".join(bad[:3]) if bad else "7 beats, in order"
+        detail = "7 beats, in order"
+    return (not bad), "; ".join(bad[:3]) if bad else detail
 
 
 def align_report(log):
@@ -125,6 +179,7 @@ def align_report(log):
     if not segs:
         return False, "no per-segment provenance", {}
     bad = []
+    floor = log.get("min_phrase_seconds") or MIN_SEGMENT_S
     speech = [s for s in segs if s.get("kind") == "speech"]
 
     pos = 0
@@ -146,9 +201,9 @@ def align_report(log):
         if abs(s.get("av_offset_frames") or 0) > MAX_AV_OFFSET_FRAMES:
             bad.append(f"seg {s['frame']}: offset "
                        f"{s.get('av_offset_frames')} frames")
-        if (s.get("seconds") or 0) + 1e-9 < MIN_SEGMENT_S:
+        if (s.get("seconds") or 0) + 1e-9 < floor:
             bad.append(f"seg {s['frame']}: {s.get('seconds')}s under the "
-                       f"{MIN_SEGMENT_S}s floor")
+                       f"{floor}s floor")
 
     # a hold belongs to whoever just spoke, and fills from their own frames
     for i, s in enumerate(segs):
@@ -188,8 +243,12 @@ def mosh_report(log):
     m = log.get("mosh") or {}
     cuts = m.get("cuts") or []
     bad = []
-    want = [B.SLOT_START[n - 1] for n in (log.get("mosh_beats")
-                                          or list(B.MOSH_BEATS))]
+    # Where the cuts belong: the plan says so for a bank render, because
+    # the slots are not equal there; for an equal-slot render it is
+    # arithmetic over the arc.
+    want = log.get("mosh_cuts_expected") or [
+        B.SLOT_START[n - 1] for n in (log.get("mosh_beats")
+                                      or list(B.MOSH_BEATS))]
     if len(cuts) != 2:
         bad.append(f"{len(cuts)} mosh cuts, not 2")
     got = [c["cut"] for c in cuts]
@@ -238,7 +297,9 @@ def check_one(mp4, log, overlay=True):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dir", default="renders_arc")
+    ap.add_argument("--dir", default="renders_bank")
+    ap.add_argument("--renderer", default=None,
+                    help="only logs written by this renderer")
     ap.add_argument("--no-text", action="store_true")
     ap.add_argument("--no-overlay", action="store_true",
                     help="skip the corner-region decode (slow)")
@@ -246,9 +307,14 @@ def main():
 
     # the mosh audit leaves v_<seed>_clean-mv.json beside the render, which
     # matches the same glob and is not a render log
+    # Both renderers write v_<seed>.json here and both are gated. The mosh
+    # audit leaves v_<seed>_clean-mv.json beside a render, which matches the
+    # same glob and is not a render log at all.
+    RENDERERS = ("assemble.py", "assemble_bank.py")
+    want_renderer = (args.renderer,) if args.renderer else RENDERERS
     logs = [p for p in sorted(glob.glob(os.path.join(args.dir, "v_*.json")))
             if json.load(open(p, encoding="utf-8")).get("renderer")
-            == "assemble.py"]
+            in want_renderer]
     if not logs:
         print("no renders found")
         return 1
@@ -270,7 +336,8 @@ def main():
         rows.append((log, m, drift, checks, burn))
     rows.sort(key=lambda r: r[0]["seed"])
 
-    hdr = (f"{'seed':>10} {'per-beat frames':>26} {'held':>5} {'speech%':>7} "
+    hdr = (f"{'seed':>8} {'ph':>3} {'per-beat frames':>26} {'trim':>5} "
+           f"{'held':>5} {'speech%':>7} "
            f"{'out s':>7} {'drift f':>7} {'frames':>6} {'mosh':>14} "
            f"{'MB':>5}  ok")
     print("=" * len(hdr))
@@ -283,24 +350,27 @@ def main():
             k for k, v in checks.items() if not v)
         per = "/".join(str(b["frames"]) for b in log["beats"])
         held = sum(b["hold_frames"] for b in log["beats"])
+        trim = log.get("trimmed_frames", 0)
+        nph = log.get("n_phrases", len(log["beats"]))
         cuts = log["mosh"]["cuts"]
         mosh = "+".join(f"{c['cut']}/{c['bloom']}" for c in cuts)
-        print(f"{log['seed']:>10} {per:>26} {held:>5} "
+        print(f"{log['seed']:>8} {nph:>3} {per:>26} {trim:>5} {held:>5} "
               f"{log['speech_pct']:>7.1f} {m['container']:>7.3f} "
               f"{drift/FRAME:>7.3f} {m['n']:>6} {mosh:>14} "
               f"{m['size_mb']:>5.1f}  {ok}")
 
     print(f"\nLIMITS: output 30.000s +/-1 frame | 720 frames | drift <1 frame "
-          f"| 7 beats in order, one pick each, slot exact | return != claim "
-          f"| no source two beats running outside {sorted(B.SAME_SOURCE_OK)} "
-          f"| A/V locked | 2 mosh cuts at frames "
-          f"{[B.SLOT_START[n-1] for n in B.MOSH_BEATS]}, bloom "
+          f"| 7 beats in order, 1-2 phrases each, slots exact and adding to "
+          f"{B.OUT_FRAMES} | beats {sorted(B.MOSH_BEATS)} carry two | no "
+          f"phrase under its renderer's floor | return shares no clip with "
+          f"the claim | no source two beats running outside "
+          f"{sorted(B.SAME_SOURCE_OK)} | A/V locked | 2 mosh cuts, at the "
+          f"first frame of beats {sorted(B.MOSH_BEATS)}, bloom "
           f"{BLOOM_MIN}-{BLOOM_MAX} | no overlay pixels in any corner")
 
     # ---- the arc, per render
     print("\n" + "=" * 112)
-    print("THE ARC  (one pick per beat, in order; S = speech frames, "
-          "H = held frames)")
+    print("THE ARC  (seven beats in order, one or two phrases each)")
     print("=" * 112)
     print(f"{'seed':>10}  " + " ".join(f"{n[:7]:>9}" for n in B.BEAT_NAMES)
           + "   result")
@@ -379,9 +449,14 @@ def main():
            f"{'sources':>8}  lines")
     print("-" * 96)
     for i, name in enumerate(B.BEAT_NAMES, start=1):
-        used = {(b["source"], b["in"]) for log, *_ in rows
-                for b in log["beats"] if b["n"] == i}
-        srcs = {s for s, _ in used}
+        used = set()
+        for log, *_ in rows:
+            for b in log["beats"]:
+                if b["n"] != i:
+                    continue
+                for x in (b.get("phrases") or [b]):
+                    used.add((x["source"], x["in"]))
+        srcs = {x for x, _ in used}
         print(f"{i:>5} {name:<9} {pools[i]:>5} {len(used):>14} "
               f"{len(srcs):>8}  {100.0*len(used)/max(pools[i],1):>5.0f}% "
               f"of the pool")
@@ -415,9 +490,20 @@ def main():
         for log, *_rest in rows:
             print(f"\n--- seed {log['seed']} ---")
             for b in log["beats"]:
-                print(f"  {b['n']} {b['name']:<8} {b['source']:<10} "
-                      f"[{b['seconds']:>4.2f}s +{b['hold_frames']/FPS:>4.2f}s] "
-                      f"\"{b['text']}\"")
+                ph = b.get("phrases")
+                if not ph:
+                    print(f"  {b['n']} {b['name']:<8} {b['source']:<10} "
+                          f"[{b['seconds']:>4.2f}s "
+                          f"+{b['hold_frames']/FPS:>4.2f}s] "
+                          f"\"{b['text']}\"")
+                    continue
+                for k, x in enumerate(ph):
+                    print(f"  {b['n']}.{k} {b['name']:<8} "
+                          f"{x['source']:<10} "
+                          f"[{x['frames']/FPS:>4.2f}s "
+                          f"+{x['hold']/FPS:>4.2f}s"
+                          f"{' -' + format(x['trimmed']/FPS, '.2f') + 's' if x['trimmed'] else ''}] "
+                          f"\"{x['text']}\"")
     return 1 if failures else 0
 
 

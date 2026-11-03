@@ -7,7 +7,7 @@ lives outside the Next.js app; the only thing the app owns is the page at
 ## The seven-beat arc
 
 The piece is an authored assemblage, not a randomiser. Every version plays the
-same seven beats, in the same order, one pick per beat:
+same seven beats, in the same order, one or two phrases per beat:
 
 | | beat | says | source |
 |---|---|---|---|
@@ -24,23 +24,96 @@ draw, because the argument only works as those voices in that order. No source
 speaks two beats running except the two pairs the arc is built on — the claim
 and the place it names, the doubt and the claim again.
 
-720 frames over seven slots is 102.857 each, so six slots are 103 frames and
-the last is 102. The pools are capped at 4.25s (102 frames) so that every pick
-fits every slot without clipping a word; where a phrase is shorter than its
-slot, the picture holds on the speaker's last frame and that source's own
-measured room tone runs under it. Over the shipped 30 that is 94-290 held
-frames a version, mean 182 (7.6s of 30).
+A beat may say one thing or two. Beats 4 and 5 always say two: the cables
+being cut and who cut them are where the piece argues rather than asserts, so
+the break is reported twice and answered twice. The rest carry a second phrase
+when there is room for one, which there usually is — eleven phrases in thirty
+seconds, a cut every 2.7s against the 4.3s of the version this replaced.
 
-```
-.venv/Scripts/python.exe scripts/build_beats.py      # rebuild config/beats.json
-python assemble.py --count 30 --outdir renders_arc   # render
-.venv/Scripts/python.exe scripts/verify_arc.py --dir renders_arc
-```
+The slots are therefore not equal. The planner draws the phrases, trims to
+exactly 720 frames at word boundaries — never inside a word, never below a
+1.5s floor — and hands whatever is left out as breath at the end of each beat.
+Trimming costs about 0.4s a phrase; the breath is about six frames a version,
+where the equal-slot renderer held 182.
 
 `config/beats.json` is the piece. An entry is one contiguous `in`/`out` of one
 source and the renderer plays exactly that — nothing re-derives it — so the
 file can be edited by hand and the edit is the edit. `scripts/build_beats.py`
 overwrites it, so hand edits belong in version control.
+
+## The clip bank
+
+The piece used to go to the tape on every render: thirty versions meant thirty
+passes over a 54-minute talk and fifteen news clips, and anything applied to
+the footage was applied thirty times over. The pools are small — 103 distinct
+phrases, 5.5 minutes of tape — and every version is a permutation of them, so
+the tape is cut once and everything expensive happens per clip.
+
+```
+.venv/Scripts/python.exe scripts/build_bank.py    # cut 103 clips, 5.5 min
+.venv/Scripts/python.exe scripts/bank_env.py      # each clip's word envelope
+node scripts/shade_bank.mjs                       # apply journey/look.json
+.venv/Scripts/python.exe assemble_bank.py --seeds 1-30 --outdir renders_bank
+.venv/Scripts/python.exe scripts/verify_arc.py --dir renders_bank
+```
+
+A version is then a stitch of frames that already exist: no seek, no decode,
+no look. Measured on this machine, 7.5s a version — 0.1s to plan and gather,
+2.6s for the clean cut, 4.8s for the datamosh and the final encode.
+
+## The look
+
+`journey/look.json` is what the footage is wearing, and `/mosh-lab/tune`
+writes it with **publish look**. Nothing else decides what the piece looks
+like, which is the point: the sliders are the control surface and the file is
+what they produce.
+
+Shading a clip is the whole look, in the two halves that already existed:
+
+* **the layers**, through ffgac and ffedit and `scripts/lib/mvfield.mjs`.
+  Layer A is the clip's own motion vectors multiplied by a gain built from its
+  word envelope times the damage curve — about 1 where nobody is speaking, 20
+  on a concept word. Layer B is a fold of the clip answering the same field
+  with a longer memory and a block of spatial smoothing. Layer C is the clip
+  untouched.
+* **the composite**, which is `/mosh-lab/tune` itself, driven in render mode
+  over that clip's manifest. Same page, same WebGL programs, same config, so
+  the preview and the shaded bank cannot drift apart — there is one
+  implementation and two ways of driving it.
+
+The curve and the envelope are read across each clip's own length, so a clip
+that says "cables under the water" peaks on its own words and a clip with no
+concept word in it stays calm. The one keyframe a clip gets is at its head,
+which is what makes the expensive half cacheable: the two ffgac encodes, the
+pixel-domain fold and the two ffedit exports depend only on the clip and live
+in `bank/prep/<id>/`. Moving a slider changes the gain, not the footage, so a
+re-shade pays for the amplify, the response, the decode and the composite and
+nothing else.
+
+Measured over the bank: 103 clips, 7988 frames, about 20 ms a frame in the
+composite. One dial is new and sits above the rest — **underlayer strength**,
+0 for the footage untouched and 1 for the look at the strength every other
+dial describes. It is one blend against layer C applied last, so it can be
+taken to nothing without changing the shape of anything above it, and the two
+transitions ride on top of it at any setting.
+
+## Publishing a look
+
+Pressing **publish look** writes `journey/look.json` and queues a re-layer.
+`scripts/relayer.mjs` does the rest: shade the bank, assemble the same thirty
+seeds, run every gate, encode for the web, upload to `journey-arc-<hash>/` and
+flip `journey-arc/manifest.json` to it. The flip is a manifest write rather
+than a deploy — the manifest holds absolute URLs, so each look gets a prefix
+of its own while the address the player knows never changes, and the previous
+manifest is kept beside the new one as `manifest-<hash>.json`.
+
+The lab is public and the machine that can render is not, so there are two
+ways in. In development the button spawns `scripts/relayer.cmd` here and now.
+In production there is no ffglitch and no writable repository, so the look and
+a job go to Blob and `scripts/relayer.cmd --job blob` picks them up — hourly,
+registered by `scripts/register-relayer-task.ps1`, exiting in under a second
+when nothing is queued. Either way the lab polls `/api/journey-look` and shows
+the stage: queued → shading n/N → assembling n/30 → uploading → live.
 
 ## Layout
 
@@ -55,12 +128,24 @@ sources/<id>/source.mp4        normalised footage, 640x360 @ 24fps   (gitignored
 sources/<id>/transcript/       words.json, phrases.json, padded, srt, txt
 sources/<id>/tags.json         the tags for that source's phrases
 scripts/                       transcription, tagging, and verification tools
-pipeline/beats.py              the arc, the draw, the slot arithmetic
+journey/look.json              THE LOOK: what /mosh-lab/tune published
+pipeline/beats.py              the arc, the draw, the pools
+pipeline/bank.py               the clip bank and the plan for one version
 pipeline/mosh_cuts.py          the two real datamoshes
 pipeline/media.py              frames/audio/assembly, per-source room tone
-assemble.py                    THE RENDERER
-randomize.py                   the five-beat randomiser it replaced (lab only)
-renders_arc/                   v_<seed>.mp4 + v_<seed>.json   (gitignored)
+assemble_bank.py               THE RENDERER: a version, stitched from the bank
+assemble.py                    the equal-slot renderer it replaced (lab only)
+randomize.py                   the five-beat randomiser before that (lab only)
+scripts/build_bank.py          cut every phrase out of its source, once
+scripts/bank_env.py            each clip's own word envelope and concept hits
+scripts/shade_bank.mjs         apply the look to every clip, once
+scripts/relayer.mjs            publish a look: shade, assemble, upload, flip
+scripts/verify_look.py         what the look did, against the same cut unshaded
+bank/clean/<id>.mp4            the cut phrases                     (gitignored)
+bank/prep/<id>/                the vector cache a re-shade reuses  (gitignored)
+bank/look-<hash>/<id>/         the shaded frames                   (gitignored)
+renders_bank/                  v_<seed>.mp4 + v_<seed>.json        (gitignored)
+renders_arc/                   the equal-slot renders              (gitignored)
 cache/                         extracted frames, per-fragment WAVs, room tone (gitignored)
 tools/pixelated-test/          browser check for image-rendering: pixelated
 ```

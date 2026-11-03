@@ -1012,3 +1012,31 @@ void main() {
   outColor = vec4(clamp(c, 0.0, 1.0), vB.w);
 }
 `;
+
+/**
+ * The underlayer's overall strength: one lerp between the footage as it
+ * arrived and the finished look, applied last.
+ *
+ * This is the only control that can take the look to nothing, and it is
+ * deliberately the cheapest one: at 0 the output is layer C to the bit, so
+ * "clean" means clean rather than nearly. Everything upstream still runs,
+ * which matters for the measurements - coverage, the damage split and the
+ * stretch statistics are reported at full strength whatever this says, so
+ * turning the look down does not quietly turn the instruments down too.
+ */
+export const FRAG_STRENGTH = `#version 300 es
+precision highp float;
+uniform sampler2D uLook;      // the finished composite
+uniform sampler2D uClean;     // layer C, the footage as it arrived
+uniform vec2 uRes;
+uniform float uStrength;      // 0 = clean, 1 = the look at full
+out vec4 outColor;
+void main() {
+  vec2 uv = gl_FragCoord.xy / uRes;
+  vec3 look = texture(uLook, uv).rgb;
+  vec3 clean = texture(uClean, uv).rgb;
+  float s = clamp(uStrength, 0.0, 1.0);
+  outColor = vec4(s >= 1.0 ? look : (s <= 0.0 ? clean : mix(clean, look, s)),
+                  1.0);
+}
+`;

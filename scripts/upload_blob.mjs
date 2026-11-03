@@ -13,6 +13,16 @@
  *
  *   --dry-run    list what would be uploaded, upload nothing
  *   --prefix     blob path prefix (default: journey)
+ *   --also-prefix  write the SAME manifest under a second prefix as well.
+ *                  This is how a look goes live: the videos are uploaded to
+ *                  journey-arc-<hash>/ and the manifest is written both
+ *                  there, so the look's pool is self-contained, and to
+ *                  journey-arc/, which is the only address the player
+ *                  knows. The manifest carries absolute URLs, so that
+ *                  second write is the whole of "putting it live" - no
+ *                  deploy, and nothing under the old prefix is disturbed.
+ *   --look       a look hash, recorded in the manifest so anything
+ *                  downstream can tell which look is live
  *   --src        directory of web-encoded renders (default: renders/web)
  *   --manifest   local fallback manifest (default: public/journey/manifest.json)
  *   --no-blob-manifest   skip writing the manifest to Blob
@@ -29,6 +39,8 @@ const SRC = argOf("--src", "renders/web");
 const MANIFEST = argOf("--manifest", "public/journey/manifest.json");
 const prefix = argOf("--prefix", "journey").replace(/^\/|\/$/g, "");
 const blobManifest = !args.includes("--no-blob-manifest");
+const alsoPrefix = (argOf("--also-prefix", "") || "").replace(/^\/|\/$/g, "");
+const look = argOf("--look", null);
 
 const token = requireToken(dryRun);
 
@@ -83,9 +95,15 @@ if (MIXDIR) {
     + `/${files.length} versions across ${extra.sources.length} sources`);
 }
 
+if (look) extra.look = look;
 if (blobManifest) {
   const url = await writeManifest(prefix, urls, token, extra);
   console.log(`\nblob manifest -> ${url}  (${urls.length} versions)`);
+  if (alsoPrefix && alsoPrefix !== prefix) {
+    const live = await writeManifest(alsoPrefix, urls, token, extra);
+    console.log(`live manifest -> ${live}  (flipped ${alsoPrefix}/ to `
+      + `${prefix}/)`);
+  }
 }
 
 await mkdir(path.dirname(MANIFEST), { recursive: true });

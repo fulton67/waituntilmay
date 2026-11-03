@@ -335,3 +335,10 @@
 /* Generations is a count, not a 0-100 dial, so it reads differently */
 .mt-gens { border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 0.6rem; }
 .mt-gens > b { font-variant-numeric: tabular-nums; }
+
+/* the underlayer-strength dial sits above the rest and reads as the one
+   that governs them */
+.mt-strength .mt-macro-name { color: #e8e2d6; }
+.mt-strength { border-top: 1px solid #2b2b2b; padding-top: 10px; }
+.mt-publish { font-weight: 600; }
+.mt-err-inline { color: #e07a5f; font-size: 12px; }
