@@ -140,6 +140,68 @@ def room_tone(src, start, end, force=False, source=None):
     return read_wav(path)
 
 
+def quietest_window(src, seconds=1.5, source=None, force=False, probe_sr=8000,
+                    floor_dbfs=-80.0):
+    """The quietest `seconds` of a source, measured, and the tone from it.
+
+    The seven-beat arc holds on the speaker's last frame whenever a phrase is
+    shorter than its slot, and that hold needs something under it. The old
+    pipeline laid a pitch-shifted drone over the whole render, which is a
+    pitch shift and therefore out; and the room tone it used came from one
+    measured gap in one source, which is fill from somewhere else when the
+    speaker on screen is a news channel.
+
+    So each source brings its own room: decode its audio once at 8 kHz mono,
+    take the RMS over a sliding window, and keep the quietest one. Returns
+    {"start","end","dbfs","tone"} and caches both the wav and the measurement,
+    because the decode of blum's 54 minutes is the slow part.
+
+    No filter is applied to what comes back - it is the recording's own floor
+    at its own pitch.
+    """
+    key = source or os.path.splitext(os.path.basename(src))[0]
+    wav = os.path.join(CACHE, f"tone_{key}.wav")
+    meta_path = os.path.join(CACHE, f"tone_{key}.json")
+    if not force and os.path.exists(wav) and os.path.exists(meta_path):
+        meta = json.load(open(meta_path, encoding="utf-8"))
+        meta["tone"] = read_wav(wav)
+        return meta
+
+    os.makedirs(CACHE, exist_ok=True)
+    raw = run(["ffmpeg", "-v", "error", "-i", src, "-vn", "-ac", "1",
+               "-ar", str(probe_sr), "-f", "s16le", "-"]).stdout
+    x = np.frombuffer(raw, dtype=np.int16).astype(np.float64)
+    win = int(seconds * probe_sr)
+    if len(x) < win * 2:
+        raise RuntimeError(f"{src}: too short to measure a room tone")
+    # RMS per window via a cumulative sum of squares - one pass, no loop
+    cs = np.concatenate([[0.0], np.cumsum(x * x)])
+    hop = probe_sr // 10                      # 100 ms steps
+    starts = np.arange(0, len(x) - win, hop)
+    rms = np.sqrt((cs[starts + win] - cs[starts]) / win)
+    # The quietest window is not always a room. Six of the eighteen sources
+    # have passages of literal digital zero - the head or tail of the upload,
+    # or a muted stretch - and argmin lands on one of them: measured, swartz
+    # -270 dBFS at 0s, lackner -270 dBFS at 817s. Zeros under a breath hold
+    # are a dropout, not a room, so the search is for the quietest window
+    # that still has something in it.
+    gate = 32768.0 * (10.0 ** (floor_dbfs / 20.0))
+    real = np.flatnonzero(rms > gate)
+    k = int(real[np.argmin(rms[real])]) if real.size else int(np.argmin(rms))
+    start = float(starts[k]) / probe_sr
+    dbfs = 20.0 * np.log10(max(float(rms[k]), 1e-9) / 32768.0)
+
+    run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+         "-ss", f"{start:.3f}", "-t", f"{seconds:.3f}", "-i", src,
+         "-vn", "-ac", str(CHANNELS), "-ar", str(SR), "-c:a", "pcm_s16le",
+         wav])
+    meta = {"start": round(start, 3), "end": round(start + seconds, 3),
+            "dbfs": round(dbfs, 1), "seconds": seconds}
+    json.dump(meta, open(meta_path, "w", encoding="utf-8"))
+    meta["tone"] = read_wav(wav)
+    return meta
+
+
 def room_tone_block(tone, n_frames, rng=None):
     """n_frames worth of room tone, looped from a random offset."""
     n = n_frames * SAMPLES_PER_FRAME

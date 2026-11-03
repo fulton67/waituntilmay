@@ -146,3 +146,9 @@ research/ostad/thumbs/
 research/ostad/classify/batch_*.json
 research/ostad/audio/
 research/ostad/*.log
+
+# the seven-beat arc: render scratch (config/beats.json and the manifests ARE
+# committed; the mp4s and their logs are derivable from a seed)
+renders_arc/
+# vidstabdetect drops this beside the working directory when it is previewed
+transforms.trf

@@ -6,11 +6,14 @@ import "./JourneyPlayer.css";
 
 type Manifest = { files: string[] };
 
-// Which pool is live. "journey-multi" draws across every enabled source in
-// config/sources.json; "journey" is the original single-source pool, still on
-// Blob and untouched. Switching back is this one line (or the env var), and
-// it moves the live manifest and the bundled fallback together.
-const POOL = process.env.NEXT_PUBLIC_JOURNEY_POOL ?? "journey-multi";
+// Which pool is live. "journey-arc" is the authored seven-beat assemblage -
+// claim, place, control, break, who, doubt, return - one pick per beat from
+// config/beats.json, no overlay, two real datamoshes. "journey-multi" is the
+// five-beat randomiser it replaces and "journey" the original single-source
+// pool; both are still on Blob under their own prefixes, untouched, so
+// switching back is this one line (or the env var), and it moves the live
+// manifest and the bundled fallback together.
+const POOL = process.env.NEXT_PUBLIC_JOURNEY_POOL ?? "journey-arc";
 
 // Where the rendered versions live. Override with NEXT_PUBLIC_JOURNEY_BASE
 // to point at Blob/CDN storage instead of the static /public folder.

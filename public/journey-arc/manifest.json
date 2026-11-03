@@ -1,0 +1,233 @@
+{
+ "files": [
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_1.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_10.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_11.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_12.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_13.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_14.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_15.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_16.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_17.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_18.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_19.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_2.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_20.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_21.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_22.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_23.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_24.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_25.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_26.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_27.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_28.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_29.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_3.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_30.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_4.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_5.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_6.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_7.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_8.mp4",
+  "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/journey-arc/v_9.mp4"
+ ],
+ "count": 30,
+ "seconds_each": 30,
+ "sources": [
+  "blum",
+  "houthi-01",
+  "houthi-02",
+  "houthi-05",
+  "houthi-07",
+  "houthi-10",
+  "houthi-14",
+  "houthi-15",
+  "houthi-16",
+  "houthi-17",
+  "houthi-19",
+  "lackner",
+  "swartz"
+ ],
+ "mixes": {
+  "v_1.mp4": {
+   "blum": 55.8,
+   "swartz": 13.9,
+   "houthi-19": 17.6,
+   "lackner": 12.6
+  },
+  "v_10.mp4": {
+   "blum": 58,
+   "swartz": 12.6,
+   "houthi-16": 16.8,
+   "lackner": 12.6
+  },
+  "v_11.mp4": {
+   "blum": 61.8,
+   "swartz": 12,
+   "houthi-16": 13.1,
+   "lackner": 13.1
+  },
+  "v_12.mp4": {
+   "blum": 49.4,
+   "swartz": 16.7,
+   "houthi-02": 17.5,
+   "lackner": 16.5
+  },
+  "v_13.mp4": {
+   "blum": 57.1,
+   "swartz": 14.2,
+   "houthi-17": 13.2,
+   "lackner": 15.6
+  },
+  "v_14.mp4": {
+   "blum": 55.1,
+   "swartz": 16.5,
+   "houthi-02": 13.9,
+   "lackner": 14.5
+  },
+  "v_15.mp4": {
+   "blum": 57.2,
+   "swartz": 15.4,
+   "houthi-17": 12.8,
+   "lackner": 14.6
+  },
+  "v_16.mp4": {
+   "blum": 50.7,
+   "swartz": 13.4,
+   "houthi-05": 20.8,
+   "lackner": 15.1
+  },
+  "v_17.mp4": {
+   "blum": 51.1,
+   "swartz": 17.5,
+   "houthi-05": 18.3,
+   "lackner": 13.1
+  },
+  "v_18.mp4": {
+   "blum": 56.3,
+   "swartz": 15.5,
+   "houthi-16": 13.1,
+   "lackner": 15.1
+  },
+  "v_19.mp4": {
+   "blum": 55.1,
+   "swartz": 13.8,
+   "houthi-02": 16,
+   "lackner": 15.1
+  },
+  "v_2.mp4": {
+   "blum": 57.1,
+   "swartz": 13.3,
+   "houthi-01": 17.1,
+   "lackner": 12.5
+  },
+  "v_20.mp4": {
+   "blum": 52.4,
+   "swartz": 17.5,
+   "houthi-19": 13.1,
+   "lackner": 17.1
+  },
+  "v_21.mp4": {
+   "blum": 58.2,
+   "swartz": 17,
+   "houthi-10": 11.6,
+   "lackner": 13.2
+  },
+  "v_22.mp4": {
+   "blum": 54,
+   "swartz": 11.9,
+   "houthi-07": 17.9,
+   "lackner": 16.2
+  },
+  "v_23.mp4": {
+   "blum": 56,
+   "swartz": 12.3,
+   "houthi-16": 16.3,
+   "lackner": 15.4
+  },
+  "v_24.mp4": {
+   "blum": 55.8,
+   "swartz": 17.5,
+   "houthi-14": 13.1,
+   "lackner": 13.5
+  },
+  "v_25.mp4": {
+   "blum": 59.9,
+   "swartz": 9.8,
+   "houthi-05": 16.7,
+   "lackner": 13.7
+  },
+  "v_26.mp4": {
+   "blum": 52.4,
+   "swartz": 14.8,
+   "houthi-07": 17.2,
+   "lackner": 15.6
+  },
+  "v_27.mp4": {
+   "blum": 55.5,
+   "swartz": 18,
+   "houthi-14": 14.4,
+   "lackner": 12.1
+  },
+  "v_28.mp4": {
+   "blum": 53.1,
+   "swartz": 14.5,
+   "houthi-07": 18.6,
+   "lackner": 13.8
+  },
+  "v_29.mp4": {
+   "blum": 48.1,
+   "swartz": 18,
+   "houthi-07": 18.5,
+   "lackner": 15.4
+  },
+  "v_3.mp4": {
+   "blum": 54.5,
+   "swartz": 14,
+   "houthi-01": 16.2,
+   "lackner": 15.3
+  },
+  "v_30.mp4": {
+   "blum": 58,
+   "swartz": 11.1,
+   "houthi-07": 16.7,
+   "lackner": 14.2
+  },
+  "v_4.mp4": {
+   "blum": 56.3,
+   "swartz": 13.9,
+   "houthi-15": 14.7,
+   "lackner": 15.1
+  },
+  "v_5.mp4": {
+   "blum": 54.2,
+   "swartz": 18.6,
+   "houthi-02": 15.7,
+   "lackner": 11.5
+  },
+  "v_6.mp4": {
+   "blum": 50.7,
+   "swartz": 20,
+   "houthi-17": 14.4,
+   "lackner": 14.9
+  },
+  "v_7.mp4": {
+   "blum": 62.5,
+   "swartz": 15.3,
+   "houthi-17": 11.5,
+   "lackner": 10.7
+  },
+  "v_8.mp4": {
+   "blum": 54.1,
+   "swartz": 15.1,
+   "houthi-01": 15.8,
+   "lackner": 14.9
+  },
+  "v_9.mp4": {
+   "blum": 53,
+   "swartz": 16.7,
+   "houthi-19": 16.7,
+   "lackner": 13.6
+  }
+ }
+}

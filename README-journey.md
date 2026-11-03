@@ -4,21 +4,63 @@ Python/ffmpeg work for the piece described in [`concept.md`](concept.md). It
 lives outside the Next.js app; the only thing the app owns is the page at
 `/journey-to-the-center-of-the-internet` and the manifest it reads.
 
+## The seven-beat arc
+
+The piece is an authored assemblage, not a randomiser. Every version plays the
+same seven beats, in the same order, one pick per beat:
+
+| | beat | says | source |
+|---|---|---|---|
+| 1 | claim | the internet is a real place / tubes / cables under the water | blum |
+| 2 | place | physical: building, landing station, ship, sea, cable | blum |
+| 3 | control | many-to-many, points of control, search, centralizing | swartz |
+| 4 | break | Red Sea cables cut, outage, attack, strike | the Red Sea clips |
+| 5 | who | not proxies, their own history, Yemen | lackner |
+| 6 | doubt | "not a series of tubes" / no internet to know if the internet's broken | blum |
+| 7 | return | a beat-1 line again, a different take than beat 1 took | blum |
+
+Which source speaks in which beat is part of the arc rather than a weighted
+draw, because the argument only works as those voices in that order. No source
+speaks two beats running except the two pairs the arc is built on — the claim
+and the place it names, the doubt and the claim again.
+
+720 frames over seven slots is 102.857 each, so six slots are 103 frames and
+the last is 102. The pools are capped at 4.25s (102 frames) so that every pick
+fits every slot without clipping a word; where a phrase is shorter than its
+slot, the picture holds on the speaker's last frame and that source's own
+measured room tone runs under it. Over the shipped 30 that is 94-290 held
+frames a version, mean 182 (7.6s of 30).
+
+```
+.venv/Scripts/python.exe scripts/build_beats.py      # rebuild config/beats.json
+python assemble.py --count 30 --outdir renders_arc   # render
+.venv/Scripts/python.exe scripts/verify_arc.py --dir renders_arc
+```
+
+`config/beats.json` is the piece. An entry is one contiguous `in`/`out` of one
+source and the renderer plays exactly that — nothing re-derives it — so the
+file can be edited by hand and the edit is the edit. `scripts/build_beats.py`
+overwrites it, so hand edits belong in version control.
+
 ## Layout
 
 ```
 concept.md                     the piece
-config/triggers.json           trigger words, tag weights, phase bias, tubes pair
+config/beats.json              THE ARC: 7 beats, a hand-editable pool each
 config/sources.json            the source pool: id, weight, enabled, duration
+config/triggers.json           trigger words (the old randomiser's; unused by the arc)
 config/tag_guide.md            the tagging authority, shared by every source
+config/ffmpeg-filters.plain.json   every video filter in plain English
 sources/<id>/source.mp4        normalised footage, 640x360 @ 24fps   (gitignored)
 sources/<id>/transcript/       words.json, phrases.json, padded, srt, txt
 sources/<id>/tags.json         the tags for that source's phrases
 scripts/                       transcription, tagging, and verification tools
-pipeline/                      media.py (frames/audio/assembly), mosh.py, overlay.py
-randomize.py                   the renderer
-renders/                       v_<seed>.mp4 + v_<seed>.json   (gitignored)
-renders/web/                   web-encoded batch + manifest   (gitignored)
+pipeline/beats.py              the arc, the draw, the slot arithmetic
+pipeline/mosh_cuts.py          the two real datamoshes
+pipeline/media.py              frames/audio/assembly, per-source room tone
+assemble.py                    THE RENDERER
+randomize.py                   the five-beat randomiser it replaced (lab only)
+renders_arc/                   v_<seed>.mp4 + v_<seed>.json   (gitignored)
 cache/                         extracted frames, per-fragment WAVs, room tone (gitignored)
 tools/pixelated-test/          browser check for image-rendering: pixelated
 ```
@@ -78,7 +120,147 @@ and is scored against those hand tags - the table is in the guide. Selection
 itself runs on the five-beat regex pools in `pipeline/units.py`, not on
 `tags.json`, so the tags describe the pool rather than cut the edit.
 
-## Rendering
+## No overlay
+
+There is no "CAM 03", no clock, no REC and no numbers anywhere on screen. The
+surveillance burn-in is gone and `pipeline/overlay.py` is no longer called by
+anything that ships.
+
+"It is gone" is a claim about pixels, so it is measured on pixels:
+`scripts/overlay_check.py` samples 48 frames and counts, per corner region,
+the pixels that are both bright (luma > 170) and unchanging (sd < 6) — which
+is what burned-in text is and what footage of a person is not. Calibrated by
+re-applying the old filter to one render:
+
+```
+region          overlay on    overlay off
+top-left                90              0
+top-right               37              0
+bottom-left             51              0
+```
+
+The timecode's digits move, which is why the top right counts fewer; the
+colons and the box edge are what is left of it. Across the shipped 30, at both
+640x360 and the 1280x720 web encode, every region is 0.
+
+## Two real datamoshes, and nothing else
+
+The damage is at two cuts and no others: into beat 4, where the cables are
+reported cut, and into beat 5, where someone says who did it. Frames 309 and
+412 of 720. There is no escalation curve and no trigger word; `pipeline/mosh.py`,
+`pipeline/moshv2.py` and `pipeline/composite.py` — the ffgac
+amplify/underlayer/exchange look — are **off in production** and stay in the
+lab behind `randomize.py` and `/mosh-lab/tune`.
+
+The mechanism is classic I-frame removal. The clean edit is re-encoded to a raw
+MPEG-4 Part 2 stream with keyframes forced exactly at the cut and exactly
+`bloom` frames later (12–24, seeded). At the cut the I-VOP is taken out of the
+picture and the incoming clip's first P-VOP plays in its place: a P-VOP is
+motion vectors and a residual against whatever is in the reference buffer, and
+what is in the buffer is the last frame of the *previous* clip. The new shot's
+motion drags the old shot's pixels. The P-VOPs after it compound that, any GOP
+keyframe inside the window is replaced by the P-VOP before it so the smear is
+not cut short, and the forced keyframe at cut+bloom ends it in one frame.
+
+It is replaced rather than deleted because the frame count is a gate — deleting
+would make the render 718 frames. Replacing produces exactly what deleting
+produces, plus one extra repeat of that first motion step, and keeps 720.
+
+`scripts/mosh_evidence.py` proves it from the streams, not from the log
+(render with `--keep-streams`):
+
+```
+I-VOPs: clean 62, moshed 58
+  cut  clean  moshed   recover  clean  moshed
+  309      I       P       330      I       I
+  412      I       P       425      I       I
+
+frame        clean |mv| (mb)       moshed |mv| (mb)
+  309   I-VOP, no forward mv       0.383  (920/920)    the cut
+  310       0.383  (920/920)       0.383  (920/920)    the donor it now plays
+
+frames differing from the clean stream: 34 of 720, runs [(309,329),(412,424)]
+```
+
+Nothing is pitch-shifted anywhere in the audio path. The voice is cut from the
+source and copied through the remux untouched (`-c:a copy`), and the breath
+holds carry each source's own room tone at its own pitch —
+`media.quietest_window` finds the quietest 1.5s of each source that is not
+digital silence (six of eighteen sources have passages of literal zero, and
+argmin landed on them: swartz −270 dBFS at 0s, lackner −270 dBFS at 817s).
+Measured floors range −29 dBFS (houthi-17, a clip with a bed under it
+throughout) to −78 dBFS (houthi-15).
+
+## Verification
+
+```
+.venv/Scripts/python.exe scripts/verify_arc.py --dir renders_arc
+.venv/Scripts/python.exe scripts/overlay_check.py --dir renders_arc/web
+.venv/Scripts/python.exe scripts/mosh_evidence.py renders_arc/v_1.json
+node scripts/mosh-codec-audit.mjs
+node scripts/verify-journey-live.mjs
+```
+
+`verify_arc.py` gates: 30.000s ±1 frame, 720 frames, A/V drift <1 frame, all
+seven beats in order with one pick each and the slot filled exactly, the
+return never beat 1's own pick, no source two beats running outside the arc's
+own pairs, A/V locked (picture source == voice source over the same span,
+checked between the two lists the renderer writes separately), no overlay
+pixels in any corner region, and exactly two mosh cuts at frames 309 and 412
+with a 12–24 frame bloom that recovers on a keyframe. It exits non-zero on any
+failure, and `scripts/grow_pool.py` calls the same `check_render`, so a version
+that joins the rotation overnight has cleared the same bar.
+
+## Which pool is live
+
+`journey-arc/` — the 30 seven-beat versions, seeds 1–30.
+
+One line in `components/JourneyPlayer.tsx` decides, and it moves the live Blob
+manifest and the bundled fallback together:
+
+```ts
+const POOL = process.env.NEXT_PUBLIC_JOURNEY_POOL ?? "journey-arc";
+```
+
+`journey-multi/` (the five-beat randomiser, 29 versions) and `journey/` (the
+original single-source pool, 61 objects) are still on Blob under their own
+prefixes, untouched — uploading to one prefix never touches another — so
+switching back is that one line, or `NEXT_PUBLIC_JOURNEY_POOL=journey-multi`
+with no code change at all.
+
+To rebuild the live pool from scratch:
+
+```
+.venv/Scripts/python.exe scripts/build_beats.py
+python assemble.py --seed 1 --count 30 --outdir renders_arc
+.venv/Scripts/python.exe scripts/verify_arc.py --dir renders_arc --no-text
+.venv/Scripts/python.exe scripts/build_web.py --src renders_arc \
+  --out renders_arc/web --height 720 --crf 24 --scale-flags neighbor \
+  --budget-mb 8.0
+node --env-file=.env.local scripts/upload_blob.mjs --prefix journey-arc \
+  --src renders_arc/web --manifest public/journey-arc/manifest.json \
+  --mix renders_arc
+node scripts/mosh-codec-audit.mjs
+node scripts/verify-journey-live.mjs
+```
+
+Only versions that pass every gate ship: move a failure out of the renders
+directory before encoding. `--mix` reads each version's `source_mix` into the
+manifest, which is what lets `verify-journey-live.mjs` prove a version from
+every source actually decodes in the live page rather than just one.
+
+The nightly job (`scripts/register-pool-task.ps1`, 03:00, idle + AC only) runs
+`assemble.py` and the same gates before a version joins the rotation. It no
+longer starts a dev server: the old mosh drew one of its layers with a WebGL
+shader and needed a browser and a GPU every night, and this one needs nothing
+but ffgac.
+
+## The randomiser this replaced
+
+Everything from here to the end describes `randomize.py`, which `assemble.py`
+replaced as the production renderer. It still works, it still builds the
+composite look, and it is the only way to reach that look; it is just not what
+ships.
 
 ```
 python randomize.py                  # one render, random seed and phase
@@ -128,7 +310,7 @@ Trigger words (`config/triggers.json`, currently `internet`) force a mosh at
 their exact frame regardless of the curve. Add words to that file; no code
 change needed.
 
-## Verification
+### Verifying a randomiser render
 
 ```
 .venv/Scripts/python.exe scripts/verify_renders.py
@@ -138,7 +320,7 @@ Checks source <=30s, output 30.000s +/-1 frame, A/V drift <1 frame, 720 frames,
 and >=1 trigger per render. Exits non-zero on any failure so it can gate a
 re-run. It also prints the reassembled phrase text in order, and every splice.
 
-## Web
+### Web encoding and upload
 
 ```
 .venv/Scripts/python.exe scripts/build_web.py --height 720 --crf 20 --scale-flags neighbor
@@ -156,7 +338,7 @@ The manifest stays local so the page has no cross-origin fetch before it can
 start. Manifest entries may be bare filenames or absolute URLs, so changing
 host is a manifest change, never a code change.
 
-## Which pool is live
+### Which pool was live before
 
 `journey-multi/` — 29 versions drawn across blum, lackner and swartz.
 
@@ -195,7 +377,7 @@ The nightly job (`scripts/register-pool-task.ps1`, 03:00, idle + AC only) runs
 the same gates before a version joins the rotation, so the pool grows
 unattended against the same bar as this batch.
 
-## The picture is locked to the voice
+### The picture is locked to the voice
 
 One segment per phrase: that phrase's own frames, from its own source, over
 exactly the output frames its audio occupies. `unit_media` cuts a unit's
@@ -240,7 +422,7 @@ the ops on.
 and a freeze or a reverse would break the lip sync the gate measures. Phase
 still sets how steeply the mosh escalates.
 
-## Cuts read as an exchange
+### Cuts read as an exchange
 
 Whose turn it is comes first, then how well that source's phrases answer the
 last one. Within the chosen source the tiers are: a shared content word, then
@@ -313,7 +495,7 @@ Minimum segment is 1.5s, so a viewer can place the voice and the face. That
 is a floor on selection, not a trim: units are clause runs and are never cut
 short.
 
-## Every version says the word
+### Every version says the word
 
 `config/triggers.json` asks for 1-3 mosh triggers per render and
 `verify_renders.py` rejects a version with none, but for a long time nothing
@@ -338,7 +520,7 @@ Three rules, in `plan_arc`:
 and a half for it: the `internet` beat is the one place the planner is no
 longer free to pick the best answer.
 
-## A source that is not in English
+### A source that is not in English
 
 Four things decide what a source contributes, and three of them read the
 translation:

@@ -1,11 +1,13 @@
 <#
 Register the nightly job that grows the journey pool.
 
-The render needs a real GPU and a visible browser window (the shader layer is
-drawn by Chromium through ANGLE), so the task runs interactively in the
-logged-on user's session rather than as a service. That is why the principal
-is Interactive and not S4U: a task set to "run whether user is logged on or
-not" has no desktop, and the shader pass would fail every night.
+The task runs interactively in the logged-on user's session rather than as a
+service. It no longer has to: the seven-beat arc's mosh is two I-frame
+removals in an ffgac stream and wants nothing but a CPU, where the composite
+it replaced drew one of its layers with a WebGL shader and so needed a real
+GPU and a visible browser window. The principal is left Interactive because
+the ffmpeg work still runs best in a real session, and because changing it
+would re-register the task for no gain.
 
 Conditions match the brief: nightly, only when the machine is idle, only on
 mains power, and it stops if the power goes.
@@ -17,7 +19,7 @@ mains power, and it stops if the power goes.
 param(
   [string]$TaskName = "waituntilmay-journey-pool",
   [int]$Count = 10,
-  [string]$Prefix = "journey-multi",
+  [string]$Prefix = "journey-arc",
   [string]$At = "03:00",
   [switch]$Unregister
 )

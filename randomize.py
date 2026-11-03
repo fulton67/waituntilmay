@@ -1,5 +1,12 @@
 #!/usr/bin/env python
-"""Journey to the Center of the Internet - render one version.
+"""Journey to the Center of the Internet - the five-beat randomiser. LAB ONLY.
+
+Superseded in production by `assemble.py`, which plays a fixed seven-beat arc
+with one authored pick per beat from config/beats.json. This is kept because
+it is the only way to reach the ffgac amplify/underlayer/exchange composite
+look - the surveillance overlay, the escalating mosh curve and the WebGL
+layer B all live down here - and because /mosh-lab/tune tunes against it.
+Nothing it produces ships: the live pool is journey-arc/.
 
 Selection is random inside a fixed five-beat arc rather than across the whole
 talk, so every version tells the same story with different words. The voice

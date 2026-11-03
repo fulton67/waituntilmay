@@ -8,6 +8,6 @@ cd /d "%~dp0.."
 set COUNT=%1
 if "%COUNT%"=="" set COUNT=10
 set PREFIX=%2
-if "%PREFIX%"=="" set PREFIX=journey-multi
+if "%PREFIX%"=="" set PREFIX=journey-arc
 ".venv\Scripts\python.exe" "scripts\grow_pool.py" --count %COUNT% --prefix %PREFIX% --log "logs\pool.log"
 exit /b %ERRORLEVEL%

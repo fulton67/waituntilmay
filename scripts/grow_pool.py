@@ -1,12 +1,19 @@
 """Render N new journey versions, verify each, and add the survivors to the pool.
 
 Meant to run unattended. Every version that joins the rotation has passed the
-same gates as the original batch - scripts/verify_renders.check_render is the
+same gates as the original batch - scripts/verify_arc.check_render is the
 single source of truth for those, so this job cannot drift from the hand-run
 verification. Anything that fails is deleted and logged, never uploaded.
 
-The mosh needs the WebGL shader, which needs a page to host it, so a dev
-server is started if one is not already up and stopped again afterwards.
+It renders the seven-beat arc through assemble.py, which is what the live
+pool is. It used to render the five-beat randomiser through randomize.py into
+journey-multi/, and when the live pool moved this job would have gone on
+filling a pool nobody reads.
+
+No dev server is started any more either. The old mosh built one of its
+layers with a WebGL shader, so the job had to stand up a browser and a GPU
+every night; the arc's mosh is two I-frame removals in the encoded stream and
+needs nothing but ffgac.
 
   python scripts/grow_pool.py --count 10
   python scripts/grow_pool.py --count 2 --log logs/pool.log
@@ -20,16 +27,17 @@ import shutil
 import subprocess
 import sys
 import time
-import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 
-import randomize                                                     # noqa: E402
-import verify_renders as VR                                          # noqa: E402
+import assemble                                                      # noqa: E402
+import verify_arc as VR                                              # noqa: E402
+from pipeline import beats as B                                      # noqa: E402
+from pipeline import media as M                                      # noqa: E402
+from pipeline import sources as SRCS                                 # noqa: E402
 
-DEV_URL = "http://localhost:3000/mosh-lab"
 PY = sys.executable
 
 
@@ -50,37 +58,6 @@ class Log:
             self.fh.flush()
 
 
-def server_up(url=DEV_URL, timeout=5):
-    try:
-        with urllib.request.urlopen(url, timeout=timeout) as r:
-            return r.status == 200
-    except Exception:
-        return False
-
-
-def start_server(log, wait_s=120):
-    """Start a dev server only if one is not already up. Returns the process."""
-    if server_up():
-        log("dev server already up, reusing it")
-        return None
-    npx = shutil.which("npx") or shutil.which("npx.cmd")
-    if not npx:
-        raise RuntimeError("npx not found on PATH")
-    log("starting a dev server ...")
-    p = subprocess.Popen([npx, "next", "dev", "-p", "3000"], cwd=ROOT,
-                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    t0 = time.time()
-    while time.time() - t0 < wait_s:
-        if server_up():
-            log(f"dev server up after {time.time() - t0:.1f}s")
-            return p
-        if p.poll() is not None:
-            raise RuntimeError("the dev server exited before it was reachable")
-        time.sleep(2)
-    p.terminate()
-    raise RuntimeError(f"the dev server was not reachable within {wait_s}s")
-
-
 def existing_seeds(prefix, log):
     """Seeds already in the live manifest, so a new one never overwrites one."""
     try:
@@ -97,17 +74,22 @@ def existing_seeds(prefix, log):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--count", type=int, default=10)
-    ap.add_argument("--prefix", default="journey-multi")
+    ap.add_argument("--prefix", default="journey-arc")
     ap.add_argument("--sources", default=None,
                     help="sources config; default config/sources.json")
+    ap.add_argument("--beats", default=B.CONFIG,
+                    help="beat pools; default config/beats.json")
     ap.add_argument("--workdir", default=".pool")
     ap.add_argument("--log", default="logs/pool.log")
     # these must match the settings the shipped pool was built with, or a
-    # version that joins overnight arrives several times the size of its
-    # neighbours: the composite costs ~9x the bits of the v1 mosh per CRF
-    ap.add_argument("--crf", type=int, default=30)
+    # version that joins overnight arrives a different size from its
+    # neighbours. The arc's mosh damages 24-48 frames of 720 and leaves the
+    # rest clean, so it costs far fewer bits than the composite it replaced
+    # and needs no bitrate cap to stay inside the budget: the shipped batch
+    # came out 1.7-4.8 MB a version at crf 24.
+    ap.add_argument("--crf", type=int, default=24)
     ap.add_argument("--height", type=int, default=720)
-    ap.add_argument("--maxrate-kbps", type=int, default=2000)
+    ap.add_argument("--maxrate-kbps", type=int, default=0)
     ap.add_argument("--budget-mb", type=float, default=8.0)
     ap.add_argument("--keep-workdir", action="store_true")
     ap.add_argument("--no-upload", action="store_true")
@@ -120,17 +102,25 @@ def main():
     log = Log(args.log)
     log("=" * 70)
     log(f"grow_pool: asked for {args.count} new versions -> {args.prefix}/")
-    log(f"sources: {args.sources or randomize.SOURCES}")
+    log(f"sources: {args.sources or assemble.SOURCES}")
+    log(f"beats:   {args.beats}")
     t0 = time.time()
 
     work = os.path.join(ROOT, args.workdir)
     shutil.rmtree(work, ignore_errors=True)
     os.makedirs(work, exist_ok=True)
 
-    server = None
+    # the pools and each source's room tone are read once for the whole run
+    cfg = B.load(args.beats)
+    srcs = {x["id"]: x for x in SRCS.load(args.sources or assemble.SOURCES)}
+    tones = {sid: M.quietest_window(srcs[sid]["video"], source=sid)
+             for sid in sorted({c["source"] for b in cfg["beats"]
+                                for c in b["pool"]})}
+    log("pools: " + "  ".join(f"{n}:{name}={k}"
+                              for n, name, k in B.pool_sizes(cfg)))
+
     accepted, rejected = [], []
     try:
-        server = start_server(log)
         taken = existing_seeds(args.prefix, log)
         log(f"{len(taken)} versions already in the pool")
 
@@ -142,16 +132,15 @@ def main():
             log(f"[{i + 1}/{args.count}] seed {seed}: rendering ...")
             t1 = time.time()
             try:
-                rec = randomize.render_one(
-                    seed, outdir=work, quiet=True,
-                    config=args.sources or randomize.SOURCES)
+                rec = assemble.render_one(seed, outdir=work, cfg=cfg,
+                                          srcs=srcs, tones=tones, quiet=True)
             except Exception as e:
                 log(f"[{i + 1}/{args.count}] seed {seed}: RENDER FAILED - {e}")
                 rejected.append((seed, f"render error: {e}"))
                 continue
 
             mp4 = os.path.join(work, rec["output"])
-            checks, m, drift = VR.check_one(mp4, rec)
+            checks, m, drift, _burn = VR.check_one(mp4, rec)
             bad = [k for k, ok in checks.items() if not ok]
             if bad:
                 log(f"[{i + 1}/{args.count}] seed {seed}: REJECTED - {','.join(bad)}")
@@ -163,10 +152,12 @@ def main():
                         pass
                 continue
 
+            cuts = rec["mosh"]["cuts"]
             log(f"[{i + 1}/{args.count}] seed {seed}: ok in {time.time() - t1:.0f}s  "
-                f"ph{rec['phase']}  {m['container']:.3f}s  {m['n']}f  "
-                f"trig {rec['internet_triggers']}  "
-                f"B {rec['b_coverage_final_pct']:.1f}%")
+                f"{m['container']:.3f}s  {m['n']}f  "
+                f"speech {rec['speech_pct']:.1f}%  "
+                f"mosh {cuts[0]['cut']}+{cuts[0]['bloom']} "
+                f"{cuts[1]['cut']}+{cuts[1]['bloom']}")
             accepted.append(rec)
 
         if not accepted:
@@ -204,13 +195,6 @@ def main():
         log(f"FAILED: {e}")
         return 1
     finally:
-        if server is not None:
-            log("stopping the dev server we started")
-            server.terminate()
-            try:
-                server.wait(timeout=20)
-            except Exception:
-                server.kill()
         if not args.keep_workdir:
             shutil.rmtree(work, ignore_errors=True)
         log(f"accepted {len(accepted)}, rejected {len(rejected)}, "
