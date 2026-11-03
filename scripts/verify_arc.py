@@ -383,9 +383,11 @@ def main():
 
     # ---- A/V alignment
     print("\n" + "=" * 112)
+    floors = sorted({(log.get("min_phrase_seconds") or MIN_SEGMENT_S)
+                     for log, *_ in rows})
     print("A/V ALIGNMENT  (picture source == voice source, same spans, "
-          f"offset <= {MAX_AV_OFFSET_FRAMES:.0f} frame, segment >= "
-          f"{MIN_SEGMENT_S}s)")
+          f"offset <= {MAX_AV_OFFSET_FRAMES:.0f} frame, phrase >= "
+          + "/".join(f"{f}s" for f in floors) + ")")
     print("=" * 112)
     print(f"{'seed':>10} {'seg':>4} {'speech':>7} {'holds':>6} "
           f"{'held f':>7} {'shortest':>9} {'max off':>8}  result")
