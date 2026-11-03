@@ -1,0 +1,222 @@
+/* /mosh-lab/filters - a reference you read, inside a lab you work in.
+   The rest of /mosh-lab is monospaced on purpose: it is numbers being judged.
+   This page is sentences, so the plain names and the descriptions are set in
+   a reading face at a reading size, and only the ffmpeg identifiers stay
+   monospaced - which is also how you tell them apart at a glance. */
+.fb-root {
+  --bg: #0a0a0a;
+  --panel: #141414;
+  --line: #262626;
+  --ink: #ececec;
+  --dim: #8a8a8a;
+  --accent: #ffd200;
+  --rough: #b07a2a;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font: 14px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+        Helvetica, Arial, sans-serif;
+  padding: 16px 16px 64px;
+}
+
+.fb-dim { color: var(--dim); }
+.fb-err {
+  background: #4a0d0d; color: #ffd9d9; padding: 10px 12px;
+  font-family: var(--mono); font-size: 12px;
+}
+
+/* ffmpeg's own name for a thing: small, grey, monospaced, never the heading */
+.fb-ff {
+  font: 11px/1 var(--mono);
+  color: var(--dim);
+  background: #111;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 2px 5px;
+  cursor: help;
+  white-space: nowrap;
+}
+
+/* the words came out of the ffmpeg help automatically and nobody read them */
+.fb-rough {
+  font: 10px/1 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rough);
+  border: 1px solid #4a3a16;
+  border-radius: 3px;
+  padding: 2px 4px;
+}
+
+.fb-warn {
+  font: 11px/1 var(--mono);
+  color: #ffd9a0;
+  background: #3a2a0d;
+  border-radius: 3px;
+  padding: 3px 6px;
+}
+
+/* ---------------------------------------------------------------- head */
+.fb-head {
+  display: flex; flex-wrap: wrap; gap: 12px 24px;
+  align-items: flex-end; justify-content: space-between;
+  padding-bottom: 12px; border-bottom: 1px solid var(--line);
+}
+.fb-head h1 { margin: 0 0 4px; font-size: 24px; font-weight: 600; }
+.fb-head p { margin: 0; font-size: 13px; max-width: 72ch; }
+.fb-head b { color: var(--ink); }
+.fb-tools { display: flex; gap: 8px; align-items: center; }
+.fb-search {
+  background: var(--panel); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 3px;
+  padding: 7px 10px; font: inherit; font-size: 13px; min-width: 260px;
+}
+.fb-search::placeholder { color: #5e5e5e; }
+
+.fb-root button {
+  background: var(--panel); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 3px;
+  padding: 6px 10px; font: 12px/1.2 var(--mono); cursor: pointer;
+}
+.fb-root button:hover { border-color: var(--dim); }
+.fb-root button[aria-pressed="true"] {
+  border-color: var(--accent); color: var(--accent);
+}
+.fb-root button.fb-link {
+  background: none; border: 0; padding: 2px 0; color: var(--dim);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.fb-root button.fb-link:hover { color: var(--ink); }
+
+/* --------------------------------------------------------------- chain */
+.fb-chain {
+  position: sticky; top: 0; z-index: 2;
+  margin: 12px 0 20px; padding: 12px;
+  background: #0f0f0f; border: 1px solid var(--line); border-radius: 4px;
+  max-height: 70vh; overflow-y: auto;
+}
+.fb-chain-head, .fb-out-head {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+}
+.fb-chain h2, .fb-out h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.fb-chain-head button, .fb-out-head button { margin-left: auto; }
+
+.fb-step {
+  border: 1px solid var(--line); border-radius: 4px;
+  padding: 10px; margin-bottom: 8px; background: var(--panel);
+}
+.fb-step-head {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.fb-step-n {
+  font: 11px/1 var(--mono); color: var(--bg); background: var(--accent);
+  border-radius: 3px; padding: 3px 6px;
+}
+.fb-step-head .fb-x { margin-left: auto; }
+
+/* the plain name is the heading; this is the size difference that matters */
+.fb-name { font-size: 16px; font-weight: 600; margin: 0; }
+
+.fb-opts {
+  display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px;
+}
+.fb-opt { display: flex; flex-direction: column; gap: 3px; }
+.fb-opt-label { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.fb-opt-name { font-size: 13px; font-weight: 500; }
+.fb-opt-bool { flex-direction: row; align-items: center; gap: 8px; }
+.fb-opt input[type="text"], .fb-opt select {
+  background: #101010; color: var(--ink);
+  border: 1px solid var(--line); border-radius: 3px;
+  padding: 5px 8px; font: 12px/1.3 var(--mono);
+}
+.fb-slider { display: flex; align-items: center; gap: 10px; }
+.fb-slider input[type="range"] { flex: 1 1 auto; accent-color: var(--accent); }
+.fb-slider b { font: 12px/1 var(--mono); min-width: 5ch; text-align: right; }
+
+/* what the two ends of the slider mean, in words rather than in numbers */
+.fb-ends {
+  display: flex; justify-content: space-between;
+  font-size: 11px; color: var(--dim);
+}
+.fb-ends i { font-style: normal; }
+.fb-ends i:last-child { text-align: right; }
+
+.fb-opt > .fb-dim { font-size: 12px; }
+.fb-rest { margin-top: 10px; }
+.fb-rest > summary {
+  cursor: pointer; color: var(--dim); font-size: 12px;
+  display: flex; align-items: center; gap: 6px;
+}
+
+/* ------------------------------------------------------ output command */
+.fb-out {
+  margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line);
+}
+.fb-out pre {
+  margin: 0 0 8px; padding: 10px; overflow-x: auto;
+  background: #000; border: 1px solid var(--line); border-radius: 3px;
+  font: 12px/1.5 var(--mono); color: #cfe8cf; white-space: pre-wrap;
+  word-break: break-all;
+}
+.fb-out p { margin: 4px 0 0; font-size: 12px; }
+.fb-out code { font: 11px/1 var(--mono); color: var(--ink); }
+
+/* -------------------------------------------------------------- groups */
+.fb-group { margin: 26px 0 0; }
+.fb-group > h2 {
+  margin: 0 0 10px; font-size: 13px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink);
+  padding-bottom: 6px; border-bottom: 1px solid var(--line);
+  display: flex; gap: 8px; align-items: baseline;
+}
+.fb-group > h2 .fb-dim {
+  font: 11px/1 var(--mono); letter-spacing: 0; text-transform: none;
+}
+
+.fb-grid {
+  display: grid; gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+}
+.fb-card {
+  border: 1px solid var(--line); border-radius: 4px; background: var(--panel);
+  padding: 10px; display: flex; flex-direction: column; gap: 7px;
+}
+.fb-card-auto { background: #111; border-color: #202020; }
+.fb-card-head { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.fb-card-head .fb-name { font-size: 15px; }
+.fb-what { margin: 0; font-size: 13px; color: #c6c6c6; }
+.fb-card-foot {
+  margin-top: auto; display: flex; align-items: center; gap: 12px;
+}
+
+/* before | after, from frame 100 of a Journey version at the filter's
+   defaults. Blocky by design - the thumbnails are tiny and smoothing them
+   hides exactly the kind of damage half these filters are here to do. */
+.fb-thumb {
+  display: block; width: 100%; height: auto; max-width: 322px;
+  background: #000; border: 1px solid #1c1c1c; border-radius: 3px;
+  image-rendering: pixelated;
+}
+
+.fb-peek {
+  margin: 4px 0 0; padding: 8px; list-style: none;
+  background: #0d0d0d; border: 1px solid var(--line); border-radius: 3px;
+  display: flex; flex-direction: column; gap: 6px;
+  max-height: 260px; overflow-y: auto;
+}
+.fb-peek li {
+  display: flex; gap: 6px; align-items: baseline; flex-wrap: wrap;
+  font-size: 12px;
+}
+.fb-peek .fb-dim { flex: 1 1 100%; }
+
+.fb-foot {
+  margin-top: 32px; padding-top: 12px; border-top: 1px solid var(--line);
+  font-size: 12px; max-width: 86ch;
+}
+.fb-foot code { font: 11px/1 var(--mono); color: #b9b9b9; }
+
+@media (min-width: 760px) {
+  .fb-opts { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+}
