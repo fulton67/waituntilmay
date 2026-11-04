@@ -1,0 +1,468 @@
+{
+  "at": "2026-11-04T07:23:55.100Z",
+  "rule": "Discogs colour variant if listed (clear as smoked grey), else the cover's dominant colour darkened to HSL lightness 25%; white only if Discogs lists white",
+  "rows": [
+    {
+      "id": "01-girl-in-red-blue",
+      "release": "girl in red, BLUE",
+      "colour": "#404040",
+      "source": "cover",
+      "detail": "dominant rgb(216, 216, 216) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "02-freak-slug-amulet",
+      "release": "Freak Slug, Amulet",
+      "colour": "#080808",
+      "source": "cover",
+      "detail": "dominant rgb(8, 8, 8) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "03-arlo-parks-john-glacier-floette-ft-john-glacier",
+      "release": "Arlo Parks, John Glacier, Floette Ft. John Glacier",
+      "colour": "#181818",
+      "source": "cover",
+      "detail": "dominant rgb(24, 24, 24) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "04-mike-d-thank-you",
+      "release": "Mike D, Thank You",
+      "colour": "#383848",
+      "source": "cover",
+      "detail": "dominant rgb(184, 184, 200) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "05-arlo-parks-ambiguous-desire",
+      "release": "Arlo Parks, Ambiguous Desire",
+      "colour": "#080808",
+      "source": "cover",
+      "detail": "dominant rgb(8, 8, 8) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "06-the-strokes-reality-awaits",
+      "release": "The Strokes, Reality Awaits",
+      "colour": "#c9a227",
+      "source": "Discogs",
+      "detail": "gold: \"Gold [Metallic] LP Album\" (discogs.com/release/37964007)",
+      "discogsEditions": [
+        {
+          "discogs": "37964007",
+          "date": "2026-07-24",
+          "text": "Gold [Metallic] LP Album"
+        }
+      ]
+    },
+    {
+      "id": "07-obongjayar-paradise-now-and-forever",
+      "release": "Obongjayar, Paradise Now & Forever",
+      "colour": "#282838",
+      "source": "cover",
+      "detail": "dominant rgb(40, 40, 56) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "08-lucy-park-good-graces",
+      "release": "Lucy Park, Good Graces",
+      "colour": "#404040",
+      "source": "cover",
+      "detail": "dominant rgb(136, 136, 136) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "09-luke-titus-from-what-was-will-grow-a-flower",
+      "release": "Luke Titus, From What Was Will Grow A Flower",
+      "colour": "#282828",
+      "source": "cover",
+      "detail": "dominant rgb(40, 40, 40) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "10-doja-cat-vie",
+      "release": "Doja Cat, Vie",
+      "colour": "#c9a227",
+      "source": "Discogs",
+      "detail": "gold: \"Gold, Quality Time Edition LP Album Stereo\" (discogs.com/release/35202970)",
+      "discogsEditions": [
+        {
+          "discogs": "35202970",
+          "date": "2025-09-26",
+          "text": "Gold, Quality Time Edition LP Album Stereo"
+        },
+        {
+          "discogs": "35207446",
+          "date": "2025-09-26",
+          "text": "Turquoise Marble LP Album Limited Edition"
+        },
+        {
+          "discogs": "35238331",
+          "date": "2025-09-26",
+          "text": "Magenta [Opaque Magenta] LP Album"
+        },
+        {
+          "discogs": "35217484",
+          "date": "2025-09-26",
+          "text": "Signed Insert LP Album"
+        },
+        {
+          "discogs": "35227441",
+          "date": "2025-09-26",
+          "text": "LP Album"
+        },
+        {
+          "discogs": "35238745",
+          "date": "2025-09-26",
+          "text": "Clear [Ultra Clear] LP Album"
+        }
+      ]
+    },
+    {
+      "id": "11-don-toliver-doja-cat-f1-the-album",
+      "release": "Don Toliver, Doja Cat, F1: The Album",
+      "colour": "#080808",
+      "source": "cover",
+      "detail": "dominant rgb(8, 8, 8) darkened to 25% lightness; 4 vinyl editions on MusicBrainz, 0 on Discogs, none coloured",
+      "discogsEditions": []
+    },
+    {
+      "id": "12-sza-sos-deluxe-lana",
+      "release": "SZA, SOS Deluxe: LANA",
+      "colour": "#081828",
+      "source": "cover",
+      "detail": "dominant rgb(8, 24, 40) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "13-gossip-real-power",
+      "release": "Gossip, Real Power",
+      "colour": "#181818",
+      "source": "cover",
+      "detail": "dominant rgb(24, 24, 24) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "14-marcus-king-mood-swings",
+      "release": "Marcus King, Mood Swings",
+      "colour": "#d9661e",
+      "source": "Discogs",
+      "detail": "orange: \"Orange LP Album Limited Edition Stereo\" (discogs.com/release/30304070)",
+      "discogsEditions": [
+        {
+          "discogs": "30304070",
+          "date": "2024-04",
+          "text": "Orange LP Album Limited Edition Stereo"
+        }
+      ]
+    },
+    {
+      "id": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
+      "release": "Teezo Touchdown, How Do You Sleep At Night? With You",
+      "colour": "#080808",
+      "source": "cover",
+      "detail": "dominant rgb(8, 8, 8) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "16-kesha-gag-order",
+      "release": "Kesha, Gag Order",
+      "colour": "#2e7d4f",
+      "source": "Discogs",
+      "detail": "green: \"Green [Sea Glass] LP Album Limited Edition\" (discogs.com/release/27569766)",
+      "discogsEditions": [
+        {
+          "discogs": "27569766",
+          "date": "2023-06-30",
+          "text": "Green [Sea Glass] LP Album Limited Edition"
+        },
+        {
+          "discogs": "27542889",
+          "date": "2023-06-30",
+          "text": "Bone White LP Album"
+        }
+      ]
+    },
+    {
+      "id": "17-brockhampton-tm",
+      "release": "Brockhampton, TM",
+      "colour": "#50502f",
+      "source": "cover",
+      "detail": "dominant rgb(232, 232, 216) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "18-red-hot-chili-peppers-unlimited-love",
+      "release": "Red Hot Chili Peppers, Unlimited Love",
+      "colour": "#b9bcc0",
+      "source": "Discogs",
+      "detail": "silver: \"Silver LP Album Record Store Day Limited Edition\" (discogs.com/release/22912877)",
+      "discogsEditions": [
+        {
+          "discogs": "22912877",
+          "date": "2022-04-23",
+          "text": "Silver LP Album Record Store Day Limited Edition"
+        }
+      ]
+    },
+    {
+      "id": "19-rex-orange-county-threat",
+      "release": "Rex Orange County, Threat",
+      "colour": "#404040",
+      "source": "cover",
+      "detail": "dominant rgb(248, 248, 248) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "20-sza-sos",
+      "release": "SZA, SOS",
+      "colour": "#2e7d4f",
+      "source": "Discogs",
+      "detail": "green: \"Green Translucent LP Album Deluxe Edition\" (discogs.com/release/34285957)",
+      "discogsEditions": [
+        {
+          "discogs": "27080568",
+          "date": "2023-05-19",
+          "text": "GZ Media Pressing LP Album"
+        },
+        {
+          "discogs": "27255648",
+          "date": "2023-05-19",
+          "text": "MPO Pressing LP Album"
+        },
+        {
+          "discogs": "29889577",
+          "date": "2024",
+          "text": "LP Album"
+        },
+        {
+          "discogs": "34285957",
+          "date": "2025-06",
+          "text": "Green Translucent LP Album Deluxe Edition"
+        }
+      ]
+    },
+    {
+      "id": "21-red-hot-chili-peppers-return-of-the-dream-canteen",
+      "release": "Red Hot Chili Peppers, Return of the Dream Canteen",
+      "colour": "#222c5d",
+      "source": "cover",
+      "detail": "dominant rgb(104, 120, 200) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "22-run-the-jewels-rtj-cu4tro",
+      "release": "Run The Jewels, RTJ CU4TRO",
+      "colour": "#7c047c",
+      "source": "cover",
+      "detail": "dominant rgb(248, 8, 248) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "23-imagine-dragons-mercury-acts-1-and-2",
+      "release": "Imagine Dragons, Mercury Acts 1 & 2",
+      "colour": "#651b1b",
+      "source": "cover",
+      "detail": "dominant rgb(152, 40, 40) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "24-jovanotti-il-boom",
+      "release": "Jovanotti, Il Boom",
+      "colour": "#080808",
+      "source": "cover",
+      "detail": "dominant rgb(8, 8, 8) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "25-lucy-park-before-i-speak",
+      "release": "Lucy Park, Before I Speak",
+      "colour": "#080808",
+      "source": "cover",
+      "detail": "dominant rgb(8, 8, 8) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "26-imagine-dragons-mercury-act-1",
+      "release": "Imagine Dragons, Mercury: Act 1",
+      "colour": "#5c4424",
+      "source": "cover",
+      "detail": "dominant rgb(184, 136, 72) darkened to 25% lightness; 1 vinyl editions on MusicBrainz, 1 on Discogs, none coloured",
+      "discogsEditions": [
+        {
+          "discogs": "20098837",
+          "date": "2021-09-03",
+          "text": "Black Man LP Album"
+        }
+      ]
+    },
+    {
+      "id": "27-santana-blessings-and-miracles",
+      "release": "Santana, Blessings and Miracles",
+      "colour": "#1d2963",
+      "source": "cover",
+      "detail": "dominant rgb(40, 56, 136) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "28-the-strokes-the-new-abnormal",
+      "release": "The Strokes, The New Abnormal",
+      "colour": "#53532c",
+      "source": "cover",
+      "detail": "dominant rgb(200, 200, 152) darkened to 25% lightness; 2 vinyl editions on MusicBrainz, 1 on Discogs, none coloured",
+      "discogsEditions": [
+        {
+          "discogs": "15063478",
+          "date": "2020-04-10",
+          "text": "180g LP Album"
+        }
+      ]
+    },
+    {
+      "id": "29-neil-young-and-crazy-horse-shut-it-down-2020",
+      "release": "Neil Young & Crazy Horse, Shut It Down 2020",
+      "colour": "#181818",
+      "source": "cover",
+      "detail": "dominant rgb(24, 24, 24) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "30-run-the-jewels-rtj4",
+      "release": "Run the Jewels, RTJ4",
+      "colour": "#b0206e",
+      "source": "Discogs",
+      "detail": "magenta: \"Magenta (Neon) Translucent LP; Gold Metallic LP\" (discogs.com/release/15881674)",
+      "discogsEditions": [
+        {
+          "discogs": "15881674",
+          "date": "2020-09-18",
+          "text": "Magenta (Neon) Translucent LP; Gold Metallic LP"
+        },
+        {
+          "discogs": "15872784",
+          "date": "2020-09-18",
+          "text": "Magenta (Neon Translucent) LP Album"
+        }
+      ]
+    },
+    {
+      "id": "31-mark-ronson-late-night-feelings",
+      "release": "Mark Ronson, Late Night Feelings",
+      "colour": "#404040",
+      "source": "cover",
+      "detail": "dominant rgb(184, 184, 184) darkened to 25% lightness; no vinyl edition found",
+      "discogsEditions": []
+    },
+    {
+      "id": "32-harry-styles-fine-line",
+      "release": "Harry Styles, Fine Line",
+      "colour": "#080808",
+      "source": "cover",
+      "detail": "dominant rgb(8, 8, 8) darkened to 25% lightness; 2 vinyl editions on MusicBrainz, 2 on Discogs, none coloured",
+      "discogsEditions": [
+        {
+          "discogs": "14510978",
+          "date": "2019-12-13",
+          "text": "180 Gram LP Album Stereo"
+        },
+        {
+          "discogs": "30543307",
+          "date": "2024",
+          "text": "Vantiva Pressing, 180 Gram LP Album Reissue"
+        }
+      ]
+    },
+    {
+      "id": "33-neil-young-and-crazy-horse-colorado",
+      "release": "Neil Young & Crazy Horse, Colorado",
+      "colour": "#181818",
+      "source": "cover",
+      "detail": "dominant rgb(24, 24, 24) darkened to 25% lightness; 1 vinyl editions on MusicBrainz, 1 on Discogs, none coloured",
+      "discogsEditions": [
+        {
+          "discogs": "14299695",
+          "date": "2019-10-25",
+          "text": "LP; LP Single Sided Etched; 7\" 45 RPM Single"
+        }
+      ]
+    },
+    {
+      "id": "34-santana-africa-speaks",
+      "release": "Santana, Africa Speaks",
+      "colour": "#7a7a05",
+      "source": "cover",
+      "detail": "dominant rgb(248, 248, 88) darkened to 25% lightness; 1 vinyl editions on MusicBrainz, 1 on Discogs, none coloured",
+      "discogsEditions": [
+        {
+          "discogs": "13745629",
+          "date": "2019-06-07",
+          "text": "LP Album"
+        }
+      ]
+    },
+    {
+      "id": "35-muse-simulation-theory-super-deluxe",
+      "release": "Muse, Simulation Theory (Super Deluxe)",
+      "colour": "#454b51",
+      "source": "Discogs",
+      "detail": "clear: \"Clear LP Album\" (discogs.com/release/12774247)",
+      "discogsEditions": [
+        {
+          "discogs": "12774247",
+          "date": "2018-11-09",
+          "text": "Clear LP Album"
+        },
+        {
+          "discogs": "12764999",
+          "date": "2018-11-09",
+          "text": "LP Album Stereo"
+        },
+        {
+          "discogs": "16440228",
+          "date": "2020-12-11",
+          "text": "Pink + Blue Marbled LP"
+        },
+        {
+          "discogs": "18212620",
+          "date": "2021-01",
+          "text": "LP Album Repress"
+        }
+      ]
+    },
+    {
+      "id": "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun",
+      "release": "The Smashing Pumpkins, Shiny and Oh So Bright, Vol. 1: No Past. No Future. No Sun",
+      "colour": "#6a3fa0",
+      "source": "Discogs",
+      "detail": "violet: \"Violet LP Album; Violet 7\" Single Sided Etched\" (discogs.com/release/12807013)",
+      "discogsEditions": [
+        {
+          "discogs": "12785108",
+          "date": "2018-11-16",
+          "text": "LP Album Limited Edition"
+        },
+        {
+          "discogs": "12807013",
+          "date": "2018-11-16",
+          "text": "Violet LP Album; Violet 7\" Single Sided Etched"
+        },
+        {
+          "discogs": "12809883",
+          "date": "2018-11-16",
+          "text": "Silver LP Album Limited Edition"
+        },
+        {
+          "discogs": "12802781",
+          "date": "2018-11-16",
+          "text": "Gold  LP Album Limited Edition"
+        },
+        {
+          "discogs": "12833543",
+          "date": "2018-11-23",
+          "text": "LP Album Record Store Day Limited Edition Picture Disc"
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3228",
-  "at": "2026-11-04T07:13:17.242Z",
+  "at": "2026-11-04T07:25:01.030Z",
   "profiles": {
     "desktop": {
       "viewport": "1440x900@2",
@@ -18,133 +18,133 @@
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -1.1051424820299143,
+          "a": -1.0471975511965979,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.502104015492624,
+          "a": -2.4434609527920625,
           "spinning": false
         },
         {
           "at": "open again",
           "s": 1,
           "g": 1,
-          "a": -3.491356635023669,
+          "a": -3.4910075695061655,
           "spinning": true
         },
         {
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -0.9889035540135397,
+          "a": -1.046848485679094,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.3855160211265076,
+          "a": -2.4431118872745583,
           "spinning": false
         },
         {
           "at": "open again",
           "s": 1,
           "g": 1,
-          "a": -3.43306263784061,
+          "a": -3.4327135731553438,
           "spinning": true
         },
         {
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -0.9299114257954741,
+          "a": -0.9302604913129777,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.3261748273909384,
+          "a": -2.385516021126508,
           "spinning": false
         }
       ],
       "transitions": [
         {
           "dir": "open",
-          "ms": 663,
-          "frames": 40,
-          "fps": 59.9,
-          "worstMs": 39
+          "ms": 652,
+          "frames": 39,
+          "fps": 59.3,
+          "worstMs": 51
         },
         {
           "dir": "toCover",
-          "ms": 401,
+          "ms": 406,
           "frames": 25,
           "fps": 60,
           "worstMs": 17
         },
         {
           "dir": "toOpen",
-          "ms": 412,
-          "frames": 25,
-          "fps": 60,
-          "worstMs": 17
-        },
-        {
-          "dir": "close",
-          "ms": 504,
-          "frames": 31,
-          "fps": 60.3,
-          "worstMs": 17
-        },
-        {
-          "dir": "open",
-          "ms": 666,
-          "frames": 42,
-          "fps": 62.1,
-          "worstMs": 17
-        },
-        {
-          "dir": "toCover",
-          "ms": 417,
-          "frames": 26,
-          "fps": 60.1,
-          "worstMs": 17
-        },
-        {
-          "dir": "toOpen",
-          "ms": 402,
-          "frames": 25,
-          "fps": 60,
-          "worstMs": 17
-        },
-        {
-          "dir": "close",
-          "ms": 506,
-          "frames": 31,
-          "fps": 60,
-          "worstMs": 17
-        },
-        {
-          "dir": "open",
-          "ms": 666,
-          "frames": 42,
-          "fps": 62.1,
-          "worstMs": 17
-        },
-        {
-          "dir": "toCover",
           "ms": 416,
           "frames": 26,
-          "fps": 60.1,
+          "fps": 60.2,
+          "worstMs": 18
+        },
+        {
+          "dir": "close",
+          "ms": 512,
+          "frames": 31,
+          "fps": 60,
+          "worstMs": 17
+        },
+        {
+          "dir": "open",
+          "ms": 666,
+          "frames": 42,
+          "fps": 62.1,
+          "worstMs": 17
+        },
+        {
+          "dir": "toCover",
+          "ms": 405,
+          "frames": 25,
+          "fps": 60,
+          "worstMs": 17
+        },
+        {
+          "dir": "toOpen",
+          "ms": 409,
+          "frames": 25,
+          "fps": 60,
           "worstMs": 17
         },
         {
           "dir": "close",
-          "ms": 508,
+          "ms": 513,
+          "frames": 31,
+          "fps": 60,
+          "worstMs": 17
+        },
+        {
+          "dir": "open",
+          "ms": 657,
+          "frames": 41,
+          "fps": 61.4,
+          "worstMs": 17
+        },
+        {
+          "dir": "toCover",
+          "ms": 407,
+          "frames": 25,
+          "fps": 59.9,
+          "worstMs": 17
+        },
+        {
+          "dir": "close",
+          "ms": 514,
           "frames": 31,
           "fps": 60,
           "worstMs": 17
@@ -152,26 +152,26 @@
       ],
       "transition": {
         "openMs": [
-          663,
+          652,
           666,
-          666
+          657
         ],
         "toCoverMs": [
-          401,
-          417,
-          416
+          406,
+          405,
+          407
         ],
         "toOpenMs": [
-          412,
-          402
+          416,
+          409
         ],
         "closeMs": [
-          504,
-          506,
-          508
+          512,
+          513,
+          514
         ],
-        "minFps": 59.9,
-        "worstFrameMs": 39,
+        "minFps": 59.3,
+        "worstFrameMs": 51,
         "target": {
           "open": 650,
           "toCover": 400,
@@ -181,20 +181,20 @@
         "pass": true
       },
       "travel": {
-        "frames": 344,
+        "frames": 341,
         "pops": 0,
-        "maxStepPerFrame": 0.262,
+        "maxStepPerFrame": 0.263,
         "framesPerSlide": [
           12,
-          12,
           11,
-          10,
-          13,
-          12,
           12,
           10,
           13,
-          12
+          11,
+          12,
+          10,
+          14,
+          11
         ],
         "reversals": 0,
         "spinWhileNotOut": 0,
@@ -203,56 +203,56 @@
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -1.1051424820299143,
+            "a": -1.0471975511965979,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.502104015492624,
+            "a": -2.4434609527920625,
             "spinning": false
           },
           {
             "at": "open again",
             "s": 1,
             "g": 1,
-            "a": -3.491356635023669,
+            "a": -3.4910075695061655,
             "spinning": true
           },
           {
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -0.9889035540135397,
+            "a": -1.046848485679094,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.3855160211265076,
+            "a": -2.4431118872745583,
             "spinning": false
           },
           {
             "at": "open again",
             "s": 1,
             "g": 1,
-            "a": -3.43306263784061,
+            "a": -3.4327135731553438,
             "spinning": true
           },
           {
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -0.9299114257954741,
+            "a": -0.9302604913129777,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.3261748273909384,
+            "a": -2.385516021126508,
             "spinning": false
           }
         ],
@@ -262,18 +262,18 @@
       "texels": {
         "front": {
           "texturePx": 2048,
-          "screenPx": 679,
+          "screenPx": 678.8,
           "ratio": 3.02
         },
         "back": {
           "texturePx": 2048,
-          "screenPx": 613.9,
+          "screenPx": 613.7,
           "ratio": 3.34
         },
         "label": {
           "texturePx": 2048,
-          "screenPx": 140.6,
-          "ratio": 14.57
+          "screenPx": 153.1,
+          "ratio": 13.37
         },
         "pass": true
       },
@@ -390,223 +390,259 @@
             "id": "03-arlo-parks-john-glacier-floette-ft-john-glacier",
             "column": 2,
             "columns": 1,
-            "panelLines": 5
+            "panelLines": 5,
+            "vinyl": "#181818"
           },
           {
             "id": "04-mike-d-thank-you",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#383848"
           },
           {
             "id": "05-arlo-parks-ambiguous-desire",
             "column": 7,
             "columns": 1,
-            "panelLines": 10
+            "panelLines": 10,
+            "vinyl": "#080808"
           },
           {
             "id": "06-the-strokes-reality-awaits",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#c9a227"
           },
           {
             "id": "07-obongjayar-paradise-now-and-forever",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#282838"
           },
           {
             "id": "08-lucy-park-good-graces",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#404040"
           },
           {
             "id": "09-luke-titus-from-what-was-will-grow-a-flower",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#282828"
           },
           {
             "id": "10-doja-cat-vie",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#c9a227"
           },
           {
             "id": "11-don-toliver-doja-cat-f1-the-album",
             "column": 12,
             "columns": 2,
-            "panelLines": 15
+            "panelLines": 15,
+            "vinyl": "#080808"
           },
           {
             "id": "12-sza-sos-deluxe-lana",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#081828"
           },
           {
             "id": "13-gossip-real-power",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#181818"
           },
           {
             "id": "14-marcus-king-mood-swings",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#d9661e"
           },
           {
             "id": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#080808"
           },
           {
             "id": "16-kesha-gag-order",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#2e7d4f"
           },
           {
             "id": "17-brockhampton-tm",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#50502f"
           },
           {
             "id": "18-red-hot-chili-peppers-unlimited-love",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#b9bcc0"
           },
           {
             "id": "19-rex-orange-county-threat",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#404040"
           },
           {
             "id": "20-sza-sos",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#2e7d4f"
           },
           {
             "id": "21-red-hot-chili-peppers-return-of-the-dream-canteen",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#222c5d"
           },
           {
             "id": "22-run-the-jewels-rtj-cu4tro",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#7c047c"
           },
           {
             "id": "23-imagine-dragons-mercury-acts-1-and-2",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#651b1b"
           },
           {
             "id": "24-jovanotti-il-boom",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#080808"
           },
           {
             "id": "25-lucy-park-before-i-speak",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#080808"
           },
           {
             "id": "26-imagine-dragons-mercury-act-1",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#5c4424"
           },
           {
             "id": "27-santana-blessings-and-miracles",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#1d2963"
           },
           {
             "id": "28-the-strokes-the-new-abnormal",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#53532c"
           },
           {
             "id": "29-neil-young-and-crazy-horse-shut-it-down-2020",
             "column": 2,
             "columns": 1,
-            "panelLines": 5
+            "panelLines": 5,
+            "vinyl": "#181818"
           },
           {
             "id": "30-run-the-jewels-rtj4",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#b0206e"
           },
           {
             "id": "31-mark-ronson-late-night-feelings",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#404040"
           },
           {
             "id": "32-harry-styles-fine-line",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#080808"
           },
           {
             "id": "33-neil-young-and-crazy-horse-colorado",
             "column": 10,
             "columns": 2,
-            "panelLines": 13
+            "panelLines": 13,
+            "vinyl": "#181818"
           },
           {
             "id": "34-santana-africa-speaks",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#7a7a05"
           },
           {
             "id": "35-muse-simulation-theory-super-deluxe",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#454b51"
           },
           {
             "id": "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun",
             "column": 3,
             "columns": 1,
-            "panelLines": 6
+            "panelLines": 6,
+            "vinyl": "#6a3fa0"
           },
           {
             "id": "01-girl-in-red-blue",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#404040"
           },
           {
             "id": "02-freak-slug-amulet",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#080808"
           }
         ],
         "pass": true
       },
       "spin": {
-        "radPerS": 3.524,
+        "radPerS": 3.467,
         "target": 3.491,
         "pass": true
       },
@@ -619,10 +655,10 @@
         "opened": true,
         "opening": {
           "dir": "open",
-          "ms": 660,
-          "frames": 40,
-          "fps": 59.3,
-          "worstMs": 23
+          "ms": 666,
+          "frames": 37,
+          "fps": 54.2,
+          "worstMs": 91
         },
         "pass": true
       }
@@ -643,70 +679,70 @@
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -0.9885544884960362,
+          "a": -1.0458012874621072,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.5603980126756825,
+          "a": -2.6165976142570044,
           "spinning": false
         },
         {
           "at": "open again",
           "s": 1,
           "g": 1,
-          "a": -3.5493015666892234,
+          "a": -3.662747968068854,
           "spinning": true
         },
         {
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -1.0478956830638433,
+          "a": -0.9892526203632813,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.5523694982829555,
+          "a": -2.496169896701634,
           "spinning": false
         },
         {
           "at": "open again",
           "s": 1,
           "g": 1,
-          "a": -3.6533231907738735,
+          "a": -3.4295719810010965,
           "spinning": true
         },
         {
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -1.0437068926926092,
+          "a": -1.1089822060514067,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.6162485487395,
+          "a": -2.6776841380768053,
           "spinning": false
         }
       ],
       "transitions": [
         {
           "dir": "open",
-          "ms": 653,
+          "ms": 663,
           "frames": 37,
-          "fps": 59.3,
-          "worstMs": 37
+          "fps": 58.2,
+          "worstMs": 40
         },
         {
           "dir": "toCover",
-          "ms": 406,
+          "ms": 405,
           "frames": 25,
           "fps": 60,
           "worstMs": 18
@@ -720,48 +756,27 @@
         },
         {
           "dir": "close",
-          "ms": 504,
+          "ms": 508,
           "frames": 31,
           "fps": 60,
           "worstMs": 17
         },
         {
           "dir": "open",
-          "ms": 654,
+          "ms": 653,
           "frames": 39,
-          "fps": 60.8,
+          "fps": 61.2,
           "worstMs": 21
         },
         {
           "dir": "toCover",
           "ms": 410,
           "frames": 25,
-          "fps": 59.8,
-          "worstMs": 20
+          "fps": 60,
+          "worstMs": 18
         },
         {
           "dir": "toOpen",
-          "ms": 409,
-          "frames": 25,
-          "fps": 59.9,
-          "worstMs": 19
-        },
-        {
-          "dir": "close",
-          "ms": 510,
-          "frames": 31,
-          "fps": 59.9,
-          "worstMs": 19
-        },
-        {
-          "dir": "open",
-          "ms": 653,
-          "frames": 39,
-          "fps": 60.7,
-          "worstMs": 21
-        },
-        {
-          "dir": "toCover",
           "ms": 412,
           "frames": 25,
           "fps": 59.7,
@@ -769,34 +784,55 @@
         },
         {
           "dir": "close",
-          "ms": 508,
+          "ms": 509,
           "frames": 31,
           "fps": 59.9,
+          "worstMs": 19
+        },
+        {
+          "dir": "open",
+          "ms": 656,
+          "frames": 40,
+          "fps": 62.1,
+          "worstMs": 20
+        },
+        {
+          "dir": "toCover",
+          "ms": 409,
+          "frames": 25,
+          "fps": 59.9,
+          "worstMs": 19
+        },
+        {
+          "dir": "close",
+          "ms": 509,
+          "frames": 31,
+          "fps": 59.7,
           "worstMs": 20
         }
       ],
       "transition": {
         "openMs": [
+          663,
           653,
-          654,
-          653
+          656
         ],
         "toCoverMs": [
-          406,
+          405,
           410,
-          412
+          409
         ],
         "toOpenMs": [
           406,
-          409
+          412
         ],
         "closeMs": [
-          504,
-          510,
-          508
+          508,
+          509,
+          509
         ],
-        "minFps": 59.3,
-        "worstFrameMs": 37,
+        "minFps": 58.2,
+        "worstFrameMs": 40,
         "target": {
           "open": 650,
           "toCover": 400,
@@ -806,11 +842,11 @@
         "pass": true
       },
       "travel": {
-        "frames": 333,
+        "frames": 334,
         "pops": 0,
-        "maxStepPerFrame": 0.262,
+        "maxStepPerFrame": 0.275,
         "framesPerSlide": [
-          14,
+          13,
           11,
           12,
           10,
@@ -828,56 +864,56 @@
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -0.9885544884960362,
+            "a": -1.0458012874621072,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.5603980126756825,
+            "a": -2.6165976142570044,
             "spinning": false
           },
           {
             "at": "open again",
             "s": 1,
             "g": 1,
-            "a": -3.5493015666892234,
+            "a": -3.662747968068854,
             "spinning": true
           },
           {
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -1.0478956830638433,
+            "a": -0.9892526203632813,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.5523694982829555,
+            "a": -2.496169896701634,
             "spinning": false
           },
           {
             "at": "open again",
             "s": 1,
             "g": 1,
-            "a": -3.6533231907738735,
+            "a": -3.4295719810010965,
             "spinning": true
           },
           {
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -1.0437068926926092,
+            "a": -1.1089822060514067,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.6162485487395,
+            "a": -2.6776841380768053,
             "spinning": false
           }
         ],
@@ -887,18 +923,18 @@
       "texels": {
         "front": {
           "texturePx": 2048,
-          "screenPx": 309.2,
-          "ratio": 6.62
+          "screenPx": 310.4,
+          "ratio": 6.6
         },
         "back": {
           "texturePx": 2048,
-          "screenPx": 270.5,
-          "ratio": 7.57
+          "screenPx": 271.6,
+          "ratio": 7.54
         },
         "label": {
           "texturePx": 2048,
-          "screenPx": 63,
-          "ratio": 32.52
+          "screenPx": 60.1,
+          "ratio": 34.07
         },
         "pass": true
       },
@@ -997,223 +1033,259 @@
             "id": "01-girl-in-red-blue",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#404040"
           },
           {
             "id": "02-freak-slug-amulet",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#080808"
           },
           {
             "id": "03-arlo-parks-john-glacier-floette-ft-john-glacier",
             "column": 2,
             "columns": 1,
-            "panelLines": 5
+            "panelLines": 5,
+            "vinyl": "#181818"
           },
           {
             "id": "04-mike-d-thank-you",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#383848"
           },
           {
             "id": "05-arlo-parks-ambiguous-desire",
             "column": 7,
             "columns": 1,
-            "panelLines": 10
+            "panelLines": 10,
+            "vinyl": "#080808"
           },
           {
             "id": "06-the-strokes-reality-awaits",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#c9a227"
           },
           {
             "id": "07-obongjayar-paradise-now-and-forever",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#282838"
           },
           {
             "id": "08-lucy-park-good-graces",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#404040"
           },
           {
             "id": "09-luke-titus-from-what-was-will-grow-a-flower",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#282828"
           },
           {
             "id": "10-doja-cat-vie",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#c9a227"
           },
           {
             "id": "11-don-toliver-doja-cat-f1-the-album",
             "column": 12,
             "columns": 2,
-            "panelLines": 15
+            "panelLines": 15,
+            "vinyl": "#080808"
           },
           {
             "id": "12-sza-sos-deluxe-lana",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#081828"
           },
           {
             "id": "13-gossip-real-power",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#181818"
           },
           {
             "id": "14-marcus-king-mood-swings",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#d9661e"
           },
           {
             "id": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#080808"
           },
           {
             "id": "16-kesha-gag-order",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#2e7d4f"
           },
           {
             "id": "17-brockhampton-tm",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#50502f"
           },
           {
             "id": "18-red-hot-chili-peppers-unlimited-love",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#b9bcc0"
           },
           {
             "id": "19-rex-orange-county-threat",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#404040"
           },
           {
             "id": "20-sza-sos",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#2e7d4f"
           },
           {
             "id": "21-red-hot-chili-peppers-return-of-the-dream-canteen",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#222c5d"
           },
           {
             "id": "22-run-the-jewels-rtj-cu4tro",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#7c047c"
           },
           {
             "id": "23-imagine-dragons-mercury-acts-1-and-2",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#651b1b"
           },
           {
             "id": "24-jovanotti-il-boom",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#080808"
           },
           {
             "id": "25-lucy-park-before-i-speak",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#080808"
           },
           {
             "id": "26-imagine-dragons-mercury-act-1",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#5c4424"
           },
           {
             "id": "27-santana-blessings-and-miracles",
             "column": 1,
             "columns": 1,
-            "panelLines": 4
+            "panelLines": 4,
+            "vinyl": "#1d2963"
           },
           {
             "id": "28-the-strokes-the-new-abnormal",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#53532c"
           },
           {
             "id": "29-neil-young-and-crazy-horse-shut-it-down-2020",
             "column": 2,
             "columns": 1,
-            "panelLines": 5
+            "panelLines": 5,
+            "vinyl": "#181818"
           },
           {
             "id": "30-run-the-jewels-rtj4",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#b0206e"
           },
           {
             "id": "31-mark-ronson-late-night-feelings",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#404040"
           },
           {
             "id": "32-harry-styles-fine-line",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#080808"
           },
           {
             "id": "33-neil-young-and-crazy-horse-colorado",
             "column": 10,
             "columns": 2,
-            "panelLines": 13
+            "panelLines": 13,
+            "vinyl": "#181818"
           },
           {
             "id": "34-santana-africa-speaks",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#7a7a05"
           },
           {
             "id": "35-muse-simulation-theory-super-deluxe",
             "column": 13,
             "columns": 2,
-            "panelLines": 16
+            "panelLines": 16,
+            "vinyl": "#454b51"
           },
           {
             "id": "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun",
             "column": 3,
             "columns": 1,
-            "panelLines": 6
+            "panelLines": 6,
+            "vinyl": "#6a3fa0"
           }
         ],
         "pass": true
       },
       "spin": {
-        "radPerS": 3.457,
+        "radPerS": 3.455,
         "target": 3.491,
         "pass": true
       },
@@ -1226,9 +1298,9 @@
         "opened": true,
         "opening": {
           "dir": "open",
-          "ms": 665,
-          "frames": 42,
-          "fps": 61.8,
+          "ms": 651,
+          "frames": 41,
+          "fps": 61.7,
           "worstMs": 17
         },
         "pass": true

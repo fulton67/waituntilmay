@@ -120,7 +120,8 @@ for (const p of PROFILES) {
   for (let k = 0; k < 36; k++) {
     const row = await page.evaluate(() => ({ id: document.querySelector("[class*=vvInfo]").dataset.release, column: document.querySelectorAll("[class*=vvCredit][role=listitem]").length, columns: document.querySelectorAll("[class*=vvCreditCol]").length }));
     await page.waitForTimeout(250);
-    row.panelLines = (await page.evaluate(() => window.__vinyl.texels())).credits.lines;
+    const tx = await page.evaluate(() => window.__vinyl.texels());
+    row.panelLines = tx.credits.lines; row.vinyl = tx.vinyl;
     out.type.lines.push(row);
     await page.keyboard.press("ArrowRight");
     await page.waitForTimeout(350);

@@ -62,6 +62,7 @@ export type RecordModel = {
   back: THREE.MeshStandardMaterial;
   label: THREE.MeshStandardMaterial;
   paper: THREE.MeshStandardMaterial;
+  vinyl: THREE.MeshPhysicalMaterial; // the record's colour changes per release (Release.vinyl)
   set: (g: number, s: number) => void; // gatefold 0..1, record travel 0..1
 };
 
@@ -120,7 +121,7 @@ export function buildRecord(blank: THREE.Texture, grain: THREE.Texture, grooves:
     disc.position.x = SLIDE * s;
   };
   set(0, 0);
-  return { root, left, disc, labelPivot, credits, front, back, label, paper, set };
+  return { root, left, disc, labelPivot, credits, front, back, label, paper, vinyl, set };
 }
 
 // the open model's extent in its own frame (x: left panel's far edge to the disc's far edge; y: 0 to SLEEVE)

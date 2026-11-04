@@ -3,6 +3,8 @@ import discography from "./discography.json";
 import aboutJson from "./about.json";
 // back covers, catalogue numbers and collaborators (scripts/gillenwebsite/backs.mjs)
 import sleevesJson from "./sleeves.json";
+// the record's colour (scripts/gillenwebsite/vinyl-colour.mjs): Discogs' colour variant, or the cover's colour darkened
+import vinylJson from "./vinyl-colours.json";
 
 export type Track = { title: string; role: string };
 export type Release = {
@@ -21,12 +23,13 @@ export type Release = {
   catno: string | null;
   label: string | null;
   collaborators: { name: string; roles: string[] }[];
+  vinyl: { colour: string; source: "Discogs" | "cover" };
 };
 
 type Sleeve = Pick<Release, "back" | "catno" | "label" | "collaborators">;
 const sleeves = sleevesJson as unknown as Record<string, Sleeve>;
 export const releases: Release[] = discography.releases.map((r) => {
   const s = sleeves[r.id];
-  return { ...r, back: s.back, catno: s.catno, label: s.label, collaborators: s.collaborators };
+  return { ...r, back: s.back, catno: s.catno, label: s.label, collaborators: s.collaborators, vinyl: (vinylJson as Record<string, Release["vinyl"]>)[r.id] };
 });
 export const about: { source: string; text: string; instagram: string; contact: string } = aboutJson;

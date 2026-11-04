@@ -311,6 +311,8 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
   const setType = useCallback((e: Engine, r: Release, img: CanvasImageSource | null) => {
     const ink = img ? inkFor(img) : 0xffffff;
     setCredits(e, r);
+    // the record's colour: Discogs' colour variant, or the cover's dominant colour darkened (vinyl-colour.mjs)
+    e.rec.vinyl.color.set(r.vinyl?.colour ?? "#0b0b0c");
     e.artist.text = caps(r.artist); e.title.text = r.release;
     e.artist.color = e.title.color = e.labelName.color = ink;
     e.labelName.sync();
@@ -514,6 +516,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
         const w = (t: THREE.Texture | null) => (t?.image as { width: number } | undefined)?.width ?? 0;
         return {
           dpr: e.gl.getPixelRatio(),
+          vinyl: "#" + e.rec.vinyl.color.getHexString(),
           front: { texturePx: w(e.rec.front.map), screenPx: proj(left, sq.map((p) => p.clone().setX(p.x))) },
           // the back cover is the sleeve's back now; measured face-on at the open pose's distance
           back: { texturePx: w(e.rec.back.map), screenPx: proj(rear, sq) },
