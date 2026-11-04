@@ -214,3 +214,23 @@
 .beats { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 6px; }
 .beats li { display: grid; grid-template-columns: 5em 1fr; }
 .batch { margin-bottom: 10px; }
+
+/* ---------- visual references ---------- */
+.refsWrap { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 18px; align-items: start; }
+@media (max-width: 760px) { .refsWrap { grid-template-columns: 1fr; } }
+.refsSide { position: sticky; top: 48px; max-height: calc(100vh - 58px); overflow-y: auto; display: grid; gap: 2px; align-content: start; padding-right: 6px; }
+@media (max-width: 760px) { .refsSide { position: static; max-height: 40vh; } }
+.refsSide button { text-align: left; padding: 1px 0; }
+.refsSide button:hover { color: var(--ink); }
+.refsCat { display: grid; gap: 1px; margin-top: 10px; }
+.refsHead { padding: 2px 0 6px; display: grid; gap: 6px; }
+.masonry { columns: 230px; column-gap: 10px; padding-top: 12px; }
+.refCard { display: block; width: 100%; break-inside: avoid; margin: 0 0 12px; text-align: left; color: inherit; }
+.refCard img { width: 100%; height: auto; display: block; background: var(--rule); border: 1px solid var(--rule); }
+.refCard:hover img { border-color: var(--ink); }
+.refCard:focus-visible { outline: 1px solid var(--link); outline-offset: 2px; }
+.refTag { display: block; padding-top: 3px; font: 10px/1.3 var(--mono); }
+.lightbox { position: fixed; inset: 0; z-index: 40; background: color-mix(in srgb, var(--paper) 92%, transparent); overflow-y: auto; padding: 16px; }
+.lightboxInner { max-width: 1100px; margin: 0 auto; background: var(--paper); border: 1px solid var(--ink); padding: 10px 12px 18px; }
+.lightboxBar { display: flex; justify-content: space-between; gap: 10px; padding-bottom: 8px; }
+.lightboxImg { display: block; max-width: 100%; max-height: 78vh; margin: 0 auto 10px; background: #fff; }

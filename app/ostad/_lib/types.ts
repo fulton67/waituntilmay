@@ -102,3 +102,28 @@ export const fmt = (n: number | null | undefined) => {
 };
 export const times = (x: number) => (x >= 10 ? x.toFixed(0) : x >= 1 ? x.toFixed(1) : x.toFixed(2)) + "× usual";
 export const PLAT: Record<string, string> = { tiktok: "TikTok", instagram: "Instagram", youtube: "YouTube" };
+
+// ---- visual references (research/ostad/refs/scripts/build_refs_data.py) ----
+export type RefType = "cross-section" | "MOA" | "injection-map" | "surgical-steps" | "3D-anatomy" | "device" | "flowchart" | "other";
+export type VisRef = {
+  id: string;
+  p: string; // procedure id
+  src: string; // source id
+  k: string; // source kind
+  t: RefType;
+  lab: boolean; // labelled
+  cap: string; // title or caption
+  sn: string; // style notes
+  lic: string;
+  u: string; // original image url
+  pg: string; // page url
+  w: number | null;
+  h: number | null;
+  f: string; // preview path under /public
+  pw: number; // preview size
+  ph: number;
+};
+export type RefProc = { id: string; name: string; cat: string; what: string; n: number; site: string | null };
+export type RefSource = {
+  id: string; name: string; url: string; kind: string; covers: string; style: string; license: string; yield: number; rank: number;
+};

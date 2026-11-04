@@ -166,3 +166,6 @@ journey/relayer-*.json
 research/ostad/refs/img/
 research/ostad/refs/cache/
 research/ostad/refs/sheets/
+# 3D source downloads (licences kept beside them; large)
+research/ostad/3d/sources/
+research/ostad/refs/motion/

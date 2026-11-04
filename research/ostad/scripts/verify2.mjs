@@ -95,7 +95,7 @@ ok(panel === 1 && player === 1, "panel/player missing");
 
 // read, themes, cares, plan, him — click through the tabs
 await page.keyboard.press("Escape");
-const tabs = ["READ", "THEMES", "WATCH", "CARES", "PLAN", "HIM"];
+const tabs = ["READ", "THEMES", "WATCH", "CARES", "PLAN", "HIM", "REFS"];
 out.tabs = {};
 await page.goto(base + "/ostad", { waitUntil: "networkidle" });
 for (const t of tabs) {
@@ -105,7 +105,7 @@ for (const t of tabs) {
   await page.waitForLoadState("networkidle");
   out.tabs[t] = new URL(page.url()).pathname;
 }
-ok(JSON.stringify(Object.values(out.tabs)) === JSON.stringify(["/ostad", "/ostad/themes", "/ostad/watch", "/ostad/cares", "/ostad/plan", "/ostad/him"]), `tabs: ${JSON.stringify(out.tabs)}`);
+ok(JSON.stringify(Object.values(out.tabs)) === JSON.stringify(["/ostad", "/ostad/themes", "/ostad/watch", "/ostad/cares", "/ostad/plan", "/ostad/him", "/ostad/refs"]), `tabs: ${JSON.stringify(out.tabs)}`);
 
 await page.goto(base + "/ostad", { waitUntil: "networkidle" });
 out.read = { figure: await page.locator('[data-testid="strip"]').count(), themeSections: await page.locator("section[id]").count(), cards: await page.locator("[data-card]").count() };
