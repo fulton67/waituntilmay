@@ -15,6 +15,7 @@ Run in order, with `~/tools/rolodex-venv/Scripts/python -I` (numpy, opencv, scip
 | 2a UVs | `bake/unwrap.py` | `work/uv-<label>.npz`: xatlas, one 2048 atlas per part |
 | 2b bake | `bake/bake.py` | `work/bake-<label>-albedo.png`: front/back projection blended by facing angle, depth-tested, 2 px eroded masks; unseen texels from a seamless tile of the part's own paint, triplanar |
 | 3, 4 maps | `bake/pbr.py` | `public/models/housing-maps/*`, `public/materials/paper.jpg`, `lib/gillenwebsite/housing-bake.json` |
+| cradle | `bake/cradle.py` | `kit/cradle.glb` (already in the housing's world frame) textured from `painted-cradle.png`: camera searched by silhouette fit (IoU 0.972 at azimuth −148°, elevation 19°), projected with a 2 px erosion, hidden texels from their mirror images then a tile; `public/models/cradle-baked.glb` (unquantized, identity node) and `housing-maps/cradle-*` |
 | geometry | `bake/export.py` | `public/models/housing-baked.glb`: the baked meshes with their new UVs, meshopt |
 
 `kit/work/` is git-ignored. The check is `node scripts/gillenwebsite/housing.mjs [base-url] --fps <sleeves report>`

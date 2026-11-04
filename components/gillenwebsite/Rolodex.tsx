@@ -1,10 +1,10 @@
 "use client";
 /* eslint-disable react-hooks/immutability -- three.js objects and the shared rig are mutated every frame by design */
-// The Rolodex: housing.glb with its torn rod and cradle rebuilt, the drum core, and TOTAL record sleeves on the axis:
+// The Rolodex: housing.glb with its torn rod left out and its cradle replaced (kit/cradle.glb), the drum core, and TOTAL record sleeves on the axis:
 // the N releases three times round, so the drum is full and turns forever (slot i holds release i mod N).
 // Numbers are the prototype's (BUILD.md). Materials: the parts baked from the painted part sheets (kit/bake, listed in
 // lib/gillenwebsite/housing-bake.json) take their baked geometry (new UVs, housing-baked.glb) and maps; the rest keep
-// the tileable materials mapped triplanar (triplanar.ts): enamel on the base and cradle, chrome on the axle, rails
+// the tileable materials mapped triplanar (triplanar.ts): chrome on the axle, rails
 // and hubs. Sleeves are cardboard, their spines the aged paper from the sheets.
 // A sleeve (sleeve.ts) is one mesh with three material groups: the front cover, the back cover and the spine. Each
 // release has one front and one back material, shared by its three sleeves. No text is drawn on a sleeve.
@@ -24,6 +24,7 @@ export const MODEL = "/models/housing.glb";
 // the baked parts: their geometry with new UVs, and per part albedo, roughness (G) + metalness (B), and normal
 const BAKED = "/models/housing-baked.glb";
 const BAKED_PARTS = [...new Set(Object.values(bake.nodes).map((n) => n.maps))];
+const CRADLE = "/models/cradle-baked.glb", CRADLE_URLS = ["albedo.jpg", "rm.png", "normal.png"].map((f) => `/models/housing-maps/cradle-${f}`);
 const BAKED_URLS = [...BAKED_PARTS.flatMap((p) => [`/models/housing-maps/${p}-albedo.jpg`, `/models/housing-maps/${p}-rm.png`, `/models/housing-maps/${p}-normal.png`]), "/materials/paper.jpg"];
 // the front release gets 2048 covers (front and back), its two neighbours 1024, once its sleeve has settled; the
 // rest stay at 512. Never less than the face's device pixels on screen.
@@ -63,6 +64,8 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
   const baked = useGLTF(BAKED);
   const tex = useLoader(THREE.TextureLoader, MATERIAL_URLS);
   const bakedTex = useLoader(THREE.TextureLoader, BAKED_URLS);
+  const cradleGltf = useGLTF(CRADLE);
+  const cradleTex = useLoader(THREE.TextureLoader, CRADLE_URLS);
   const gl = useThree((st) => st.gl);
   const N = releases.length, TOTAL = N * 3;
 
@@ -96,7 +99,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
         if (geo) { m.geometry = geo; m.material = B[b.maps]; }
       }
       m.castShadow = m.receiveShadow = true;
-      if (m.name === "rod" || m.name === "cradle") m.visible = false; // torn sheets in the Tripo mesh; rebuilt below
+      if (m.name === "rod" || m.name === "cradle") m.visible = false; // torn sheets in the Tripo mesh; the cradle is replaced below
     });
     const axis = new THREE.Box3().setFromObject(house.getObjectByName("knob_right")!).getCenter(new THREE.Vector3());
     // knobs turn on the drum axis: re-parent each part into a pivot group at the axis
@@ -132,15 +135,14 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
     }
     core.traverse((o) => { if ((o as THREE.Mesh).isMesh) o.castShadow = o.receiveShadow = true; });
 
-    // cradle: the saddle under the drum as a solid arc
-    const ri = 0.474, ro = 0.49, a = 0.87, csh = new THREE.Shape();
-    csh.absarc(0, 0, ro, -Math.PI / 2 - a, -Math.PI / 2 + a, false);
-    csh.absarc(0, 0, ri, -Math.PI / 2 + a, -Math.PI / 2 - a, true);
-    csh.closePath();
-    const cg = new THREE.ExtrudeGeometry(csh, { depth: 0.512, bevelEnabled: true, bevelThickness: 0.004, bevelSize: 0.004, bevelSegments: 3, curveSegments: 96 });
-    cg.translate(0, 0, -0.256); cg.rotateY(Math.PI / 2);
-    const cradle = new THREE.Mesh(cg, M.metal);
-    cradle.position.set(0, axis.y, axis.z); cradle.castShadow = cradle.receiveShadow = true;
+    // cradle: the saddle under the drum, kit/cradle.glb (already in the housing's frame: 0.512 m wide, on the drum
+    // axis at y 0.585, z 0.005) with the maps baked from kit/painted-cradle.png (kit/bake/cradle.py)
+    const [cMap, cRm, cNormal] = cradleTex.map((t, j) => { t.flipY = false; t.anisotropy = gl.capabilities.getMaxAnisotropy(); t.colorSpace = j === 0 ? THREE.SRGBColorSpace : THREE.NoColorSpace; t.needsUpdate = true; return t; });
+    // its scene goes in as it is, at the origin with an identity transform, like the housing's (no position, rotation
+    // or scale of ours); only the material is set
+    const cradleScene = cradleGltf.scene, cradle = cradleScene.getObjectByName("cradle") as THREE.Mesh;
+    cradle.material = new THREE.MeshPhysicalMaterial({ map: cMap, roughnessMap: cRm, metalnessMap: cRm, normalMap: cNormal, roughness: 1, metalness: 1, clearcoat: 0.3, clearcoatRoughness: 0.5, side: THREE.DoubleSide });
+    cradle.castShadow = cradle.receiveShadow = true;
 
     // sleeves: cardboard, roughness .7, a faint paper normal map. Every face starts on a 1x1 texture of the sleeve's
     // own board colour, so the shader has its map from the first frame and a cover arriving changes no program.
@@ -173,8 +175,8 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       drum.add(g);
       cards.push(g);
     }
-    return { house, axis, knobs, drum, cradle, cards, faces, sleeveGeo, meshes, triangles };
-  }, [gltf, baked, tex, bakedTex, gl, releases, N, TOTAL]);
+    return { house, axis, knobs, drum, cradle, cradleScene, cards, faces, sleeveGeo, meshes, triangles };
+  }, [gltf, baked, tex, bakedTex, cradleGltf, cradleTex, gl, releases, N, TOTAL]);
 
   // the first front sleeve counts as settled 150 ms after the first frame
   const settle = useMemo(() => ({ since: 0, done: false }), []);
@@ -263,6 +265,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       sleeveRadius: () => { built.drum.updateMatrixWorld(true); const inv = built.drum.matrixWorld.clone().invert(), p = built.sleeveGeo.attributes.position, v = new THREE.Vector3(); let max = 0; for (const c of built.cards) { const m = inv.clone().multiply(c.children[0].matrixWorld); for (let k = 0; k < p.count; k++) { v.fromBufferAttribute(p, k).applyMatrix4(m); max = Math.max(max, Math.hypot(v.y, v.z)); } } return max; },
       // the baked parts' textures and the paper, as GPU memory (RGBA8 with mips)
       bakedTextureMB: () => +(bakedTex.reduce((t, x) => { const im = x.image as { width: number; height: number }; return t + (im.width * im.height * 4 * 4) / 3; }, 0) / 2 ** 20).toFixed(2),
+      cradle: built.cradle,
       meshes: built.meshes, triangles: built.triangles, axis: built.axis.toArray(), nodes: (() => { const n: string[] = []; built.house.traverse((o) => { if ((o as THREE.Mesh).isMesh) n.push(o.name); }); return n; })(),
     };
     console.log("Website is loaded, enjoy");
@@ -328,7 +331,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
     <>
       <primitive object={built.house} />
       <primitive object={built.drum} />
-      <primitive object={built.cradle} />
+      <primitive object={built.cradleScene} />
     </>
   );
 }
@@ -336,4 +339,6 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
 useGLTF.preload(MODEL);
 useLoader.preload(THREE.TextureLoader, MATERIAL_URLS);
 useGLTF.preload(BAKED);
+useGLTF.preload(CRADLE);
+useLoader.preload(THREE.TextureLoader, CRADLE_URLS);
 useLoader.preload(THREE.TextureLoader, BAKED_URLS);
