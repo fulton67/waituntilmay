@@ -15,7 +15,7 @@ Spec: `refs/SPEC2.md`. Starts after pass 1 (`refs/TODO.md`) is finished. Resume 
 ## Phase 3 — base scene
 - [x] face.blend + skin_crosssection.blend, materials, rig, GLB + layers.json, renders, size check: face.glb 8.59 MB/146 nodes, skin 1.44 MB/95 nodes, both load in Node with every manifest node; transparent turntable + cutaway sequences (PNG/WebM-alpha/MP4) for each, check_alpha PASS
 ## Phase 4 — shots
-- [ ] shots/{id}.md × 97, BUILD_LIST.md
+- [x] shots/{id}.md × 97, BUILD_LIST.md: 320 shots (270 overlay / 50 full-frame), reference animation in 85, his spoken words in 52 + captions in 28, 136 missing assets ranked (top: surface_volume_morph 33, dermis_macro 17, needle_syringe 17)
 ## Phase 5 — /ostad/anatomy
 - [ ] R3F page, five presets, Refs Motion section + mentioned_in, verify, push
 ## Finish

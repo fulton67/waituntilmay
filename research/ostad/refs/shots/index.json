@@ -1,0 +1,1606 @@
+[
+ {
+  "id": "neurotoxin",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 17,
+  "missing": [
+   "injection_point_map",
+   "muscle_contraction_rig",
+   "nmj_closeup",
+   "signal_cut_fx",
+   "wrinkle_blendshapes"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=R-A8YI7Ik4g"
+ },
+ {
+  "id": "jeuveau",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 17,
+  "missing": [
+   "injection_point_map",
+   "muscle_contraction_rig",
+   "nmj_closeup",
+   "product_vial_card",
+   "signal_cut_fx",
+   "wrinkle_blendshapes"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=bFUeaCsTems"
+ },
+ {
+  "id": "toxin-glabella",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 17,
+  "missing": [
+   "injection_point_map",
+   "muscle_contraction_rig",
+   "nmj_closeup",
+   "signal_cut_fx",
+   "wrinkle_blendshapes"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=27Z7yXJkWCs"
+ },
+ {
+  "id": "toxin-forehead",
+  "shots": 5,
+  "overlay": 4,
+  "full_frame": 1,
+  "seconds": 20,
+  "missing": [
+   "brow_drop_morph",
+   "injection_point_map",
+   "muscle_contraction_rig",
+   "nmj_closeup",
+   "signal_cut_fx",
+   "wrinkle_blendshapes"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=jeAeJOMlZAs"
+ },
+ {
+  "id": "toxin-crows-feet",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 17,
+  "missing": [
+   "injection_point_map",
+   "muscle_contraction_rig",
+   "nmj_closeup",
+   "signal_cut_fx",
+   "wrinkle_blendshapes"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=dkpohXE06pg"
+ },
+ {
+  "id": "toxin-masseter",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 17,
+  "missing": [
+   "injection_point_map",
+   "muscle_contraction_rig",
+   "nmj_closeup",
+   "signal_cut_fx",
+   "timelapse_counter",
+   "wrinkle_blendshapes"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=NgUmcG6cGnU"
+ },
+ {
+  "id": "toxin-dao",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 17,
+  "missing": [
+   "injection_point_map",
+   "muscle_contraction_rig",
+   "nmj_closeup",
+   "signal_cut_fx",
+   "wrinkle_blendshapes"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=_khNkhROBQc"
+ },
+ {
+  "id": "toxin-neck",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 17,
+  "missing": [
+   "injection_point_map",
+   "muscle_contraction_rig",
+   "nmj_closeup",
+   "signal_cut_fx",
+   "wrinkle_blendshapes"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": null
+ },
+ {
+  "id": "ha-filler",
+  "shots": 4,
+  "overlay": 2,
+  "full_frame": 2,
+  "seconds": 15,
+  "missing": [
+   "depth_marker",
+   "dermis_macro",
+   "ha_crosslink_model",
+   "ha_gel_particles",
+   "needle_syringe",
+   "surface_volume_morph",
+   "water_binding_fx"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=QroiI1B6I-k"
+ },
+ {
+  "id": "juvederm",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 15,
+  "missing": [
+   "depth_marker",
+   "dermis_macro",
+   "ha_gel_particles",
+   "needle_syringe",
+   "product_vial_card",
+   "surface_volume_morph",
+   "water_binding_fx"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=FVUjKb7j8M0"
+ },
+ {
+  "id": "restylane",
+  "shots": 4,
+  "overlay": 2,
+  "full_frame": 2,
+  "seconds": 15,
+  "missing": [
+   "depth_marker",
+   "dermis_macro",
+   "ha_crosslink_model",
+   "ha_gel_particles",
+   "needle_syringe",
+   "surface_volume_morph",
+   "water_binding_fx"
+  ],
+  "his_words": 0,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=Fpk3m3qnc08"
+ },
+ {
+  "id": "evolysse",
+  "shots": 4,
+  "overlay": 2,
+  "full_frame": 2,
+  "seconds": 15,
+  "missing": [
+   "depth_marker",
+   "dermis_macro",
+   "ha_crosslink_model",
+   "ha_gel_particles",
+   "needle_syringe",
+   "surface_volume_morph",
+   "water_binding_fx"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": null
+ },
+ {
+  "id": "belotero",
+  "shots": 3,
+  "overlay": 2,
+  "full_frame": 1,
+  "seconds": 11,
+  "missing": [
+   "depth_marker",
+   "dermis_macro",
+   "ha_gel_particles",
+   "needle_syringe",
+   "surface_volume_morph",
+   "water_binding_fx"
+  ],
+  "his_words": 0,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=_xTw0EaMSZY"
+ },
+ {
+  "id": "skinvive",
+  "shots": 3,
+  "overlay": 2,
+  "full_frame": 1,
+  "seconds": 11,
+  "missing": [
+   "dermis_macro",
+   "ha_gel_particles",
+   "injection_point_map",
+   "surface_volume_morph",
+   "water_binding_fx"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=Dy6tqmzQRl0"
+ },
+ {
+  "id": "filler-lips",
+  "shots": 4,
+  "overlay": 4,
+  "full_frame": 0,
+  "seconds": 15,
+  "missing": [
+   "artery_pulse_fx",
+   "cutaway_clip",
+   "gel_bolus",
+   "needle_syringe",
+   "surface_volume_morph"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=IO3ZSWaHVuo"
+ },
+ {
+  "id": "filler-cheeks",
+  "shots": 4,
+  "overlay": 4,
+  "full_frame": 0,
+  "seconds": 15,
+  "missing": [
+   "artery_pulse_fx",
+   "cannula",
+   "cutaway_clip",
+   "gel_bolus",
+   "surface_volume_morph"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=aVlYaPtU7og"
+ },
+ {
+  "id": "filler-jawline",
+  "shots": 4,
+  "overlay": 4,
+  "full_frame": 0,
+  "seconds": 15,
+  "missing": [
+   "artery_pulse_fx",
+   "cannula",
+   "cutaway_clip",
+   "gel_bolus",
+   "surface_volume_morph"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=XlH047MsDp0"
+ },
+ {
+  "id": "filler-chin",
+  "shots": 4,
+  "overlay": 4,
+  "full_frame": 0,
+  "seconds": 15,
+  "missing": [
+   "artery_pulse_fx",
+   "cutaway_clip",
+   "gel_bolus",
+   "needle_syringe",
+   "surface_volume_morph"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=eIxJWDlQfXs"
+ },
+ {
+  "id": "filler-nose",
+  "shots": 4,
+  "overlay": 4,
+  "full_frame": 0,
+  "seconds": 15,
+  "missing": [
+   "artery_pulse_fx",
+   "cutaway_clip",
+   "gel_bolus",
+   "needle_syringe",
+   "surface_volume_morph"
+  ],
+  "his_words": 0,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=agaWWe8i1zQ"
+ },
+ {
+  "id": "filler-under-eye",
+  "shots": 4,
+  "overlay": 4,
+  "full_frame": 0,
+  "seconds": 15,
+  "missing": [
+   "artery_pulse_fx",
+   "cannula",
+   "cutaway_clip",
+   "gel_bolus",
+   "orbital_fat_pads",
+   "surface_volume_morph"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=V1A9A06xC8M"
+ },
+ {
+  "id": "filler-temples",
+  "shots": 4,
+  "overlay": 4,
+  "full_frame": 0,
+  "seconds": 15,
+  "missing": [
+   "artery_pulse_fx",
+   "cutaway_clip",
+   "gel_bolus",
+   "needle_syringe",
+   "surface_volume_morph"
+  ],
+  "his_words": 1,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=KXIM-npojTU"
+ },
+ {
+  "id": "filler-nasolabial",
+  "shots": 4,
+  "overlay": 4,
+  "full_frame": 0,
+  "seconds": 15,
+  "missing": [
+   "artery_pulse_fx",
+   "cannula",
+   "cutaway_clip",
+   "gel_bolus",
+   "surface_volume_morph"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=sO2FE77V8AA"
+ },
+ {
+  "id": "filler-hands",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 11,
+  "missing": [
+   "cannula",
+   "gel_bolus",
+   "hand_model",
+   "surface_volume_morph"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=vnm-zwBmg_4"
+ },
+ {
+  "id": "filler-safety",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 16,
+  "missing": [
+   "artery_pulse_fx",
+   "blanching_fx",
+   "enzyme_dissolve_fx",
+   "gel_bolus",
+   "needle_syringe",
+   "vessel_lumen"
+  ],
+  "his_words": 0,
+  "his_captions": 1,
+  "reference": "https://www.youtube.com/watch?v=Ftv4isddE-U"
+ },
+ {
+  "id": "sculptra",
+  "shots": 3,
+  "overlay": 2,
+  "full_frame": 1,
+  "seconds": 12,
+  "missing": [
+   "collagen_growth_fx",
+   "dermis_macro",
+   "fibroblast_cell",
+   "microparticles_fx",
+   "needle_syringe",
+   "timelapse_counter"
+  ],
+  "his_words": 1,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=I4HYEq7uMUw"
+ },
+ {
+  "id": "radiesse",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 15,
+  "missing": [
+   "collagen_growth_fx",
+   "dermis_macro",
+   "fibroblast_cell",
+   "microparticles_fx",
+   "needle_syringe",
+   "surface_volume_morph",
+   "timelapse_counter"
+  ],
+  "his_words": 0,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=rRBLswaNw2E"
+ },
+ {
+  "id": "alloclae",
+  "shots": 3,
+  "overlay": 2,
+  "full_frame": 1,
+  "seconds": 11,
+  "missing": [
+   "adipocyte_cell",
+   "body_model",
+   "cannula",
+   "caption_card",
+   "fat_macro",
+   "gel_bolus"
+  ],
+  "his_words": 1,
+  "his_captions": 0,
+  "reference": null
+ },
+ {
+  "id": "prfm",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 14,
+  "missing": [
+   "blood_tube_centrifuge",
+   "collagen_growth_fx",
+   "dermis_macro",
+   "fibroblast_cell",
+   "gel_bolus",
+   "growth_factor_fx",
+   "needle_syringe"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": null
+ },
+ {
+  "id": "prp-hair",
+  "shots": 4,
+  "overlay": 4,
+  "full_frame": 0,
+  "seconds": 14,
+  "missing": [
+   "blood_tube_centrifuge",
+   "growth_factor_fx",
+   "hair_growth_morph",
+   "injection_point_map",
+   "scalp_model",
+   "timelapse_counter"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=T7QMbPSpGmk"
+ },
+ {
+  "id": "exosomes",
+  "shots": 3,
+  "overlay": 2,
+  "full_frame": 1,
+  "seconds": 12,
+  "missing": [
+   "collagen_growth_fx",
+   "dermis_macro",
+   "exosome_vesicles",
+   "fibroblast_cell",
+   "needle_array_tip"
+  ],
+  "his_words": 0,
+  "his_captions": 1,
+  "reference": "https://www.youtube.com/watch?v=F2kLBh-rvLY"
+ },
+ {
+  "id": "salmon-dna",
+  "shots": 3,
+  "overlay": 2,
+  "full_frame": 1,
+  "seconds": 10,
+  "missing": [
+   "caption_card",
+   "dermis_macro",
+   "fibroblast_cell",
+   "growth_factor_fx",
+   "needle_syringe"
+  ],
+  "his_words": 0,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=MVTUzpb55TU"
+ },
+ {
+  "id": "aquagold",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 10,
+  "missing": [
+   "gel_bolus",
+   "microneedle_stamp",
+   "skin_texture_morph"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=yRNJxW6go1E"
+ },
+ {
+  "id": "fraxel",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 15,
+  "missing": [
+   "collagen_growth_fx",
+   "dermis_macro",
+   "laser_column_fx",
+   "laser_handpiece",
+   "skin_texture_morph",
+   "treatment_grid_fx"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=VZEWvPpB4Ng"
+ },
+ {
+  "id": "co2-laser",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 15,
+  "missing": [
+   "collagen_growth_fx",
+   "dermis_macro",
+   "laser_column_fx",
+   "laser_handpiece",
+   "skin_texture_morph",
+   "treatment_grid_fx"
+  ],
+  "his_words": 0,
+  "his_captions": 0,
+  "reference": null
+ },
+ {
+  "id": "clear-brilliant",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 15,
+  "missing": [
+   "collagen_growth_fx",
+   "dermis_macro",
+   "laser_column_fx",
+   "laser_handpiece",
+   "skin_texture_morph",
+   "treatment_grid_fx"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=QhPQedPIqpQ"
+ },
+ {
+  "id": "picoway",
+  "shots": 4,
+  "overlay": 2,
+  "full_frame": 2,
+  "seconds": 13,
+  "missing": [
+   "macrophage_cell",
+   "pigment_cluster",
+   "pigment_macro",
+   "pulse_flash_fx",
+   "shatter_fx"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=v7mJPlS9uLA"
+ },
+ {
+  "id": "excel-v",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 13,
+  "missing": [
+   "laser_beam_fx",
+   "surface_vessels_decal",
+   "vessel_heat_fx",
+   "vessel_lumen"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=9B6NIU-KKwE"
+ },
+ {
+  "id": "laser-genesis",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 11,
+  "missing": [
+   "collagen_growth_fx",
+   "heat_diffuse_fx",
+   "laser_handpiece"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=DtQ3jb8fxV8"
+ },
+ {
+  "id": "aviclear",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 10,
+  "missing": [
+   "gland_size_morph",
+   "heat_diffuse_fx",
+   "laser_beam_fx"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=eaY6UcpsqxE"
+ },
+ {
+  "id": "laser-hair-removal",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 9,
+  "missing": [
+   "hair_growth_morph",
+   "heat_diffuse_fx",
+   "laser_beam_fx"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=f1uenA8CUMw"
+ },
+ {
+  "id": "tattoo-removal",
+  "shots": 4,
+  "overlay": 2,
+  "full_frame": 2,
+  "seconds": 14,
+  "missing": [
+   "ink_particles",
+   "macrophage_cell",
+   "pigment_macro",
+   "pulse_flash_fx",
+   "shatter_fx",
+   "timelapse_counter"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=0iQYy2FRyP4"
+ },
+ {
+  "id": "juliet",
+  "shots": 2,
+  "overlay": 1,
+  "full_frame": 1,
+  "seconds": 8,
+  "missing": [
+   "collagen_growth_fx",
+   "laser_column_fx",
+   "mucosa_block"
+  ],
+  "his_words": 0,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=FV9HtR8BSQ0"
+ },
+ {
+  "id": "morpheus8",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 15,
+  "missing": [
+   "coagulation_zone_fx",
+   "collagen_growth_fx",
+   "dermis_macro",
+   "needle_array_tip",
+   "rf_glow_fx",
+   "septae_contract_fx",
+   "skin_texture_morph",
+   "surface_volume_morph"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=SPJPb-sBWKk"
+ },
+ {
+  "id": "rf-microneedling",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 15,
+  "missing": [
+   "coagulation_zone_fx",
+   "collagen_growth_fx",
+   "dermis_macro",
+   "needle_array_tip",
+   "rf_glow_fx",
+   "septae_contract_fx",
+   "skin_texture_morph",
+   "surface_volume_morph"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=bH21jj_FZp4"
+ },
+ {
+  "id": "facetite",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 12,
+  "missing": [
+   "rf_cannula",
+   "rf_field_fx",
+   "septae_contract_fx",
+   "surface_volume_morph"
+  ],
+  "his_words": 0,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=limkbdelEgs"
+ },
+ {
+  "id": "evoke",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 10,
+  "missing": [
+   "rf_applicator_mask",
+   "rf_field_fx",
+   "surface_volume_morph",
+   "timelapse_counter"
+  ],
+  "his_words": 0,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=eOdFxRiGIxY"
+ },
+ {
+  "id": "emface",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 11,
+  "missing": [
+   "emface_pads",
+   "muscle_contraction_rig",
+   "rf_field_fx",
+   "surface_volume_morph"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=95wQ2GIkmiY"
+ },
+ {
+  "id": "emsculpt-neo",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 14,
+  "missing": [
+   "adipocyte_cell",
+   "apoptosis_fx",
+   "body_applicator",
+   "body_model",
+   "fat_macro",
+   "magnetic_field_fx",
+   "muscle_contraction_rig",
+   "rf_field_fx",
+   "surface_volume_morph"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=OI_ECri7A0U"
+ },
+ {
+  "id": "ultherapy",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 11,
+  "missing": [
+   "cutaway_clip",
+   "smas_lift_morph",
+   "timelapse_counter",
+   "ultrasound_focal_fx",
+   "ultrasound_transducer"
+  ],
+  "his_words": 0,
+  "his_captions": 1,
+  "reference": "https://www.youtube.com/watch?v=9UJp9_RScxc"
+ },
+ {
+  "id": "miradry",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 11,
+  "missing": [
+   "body_model",
+   "cooling_plate",
+   "gland_destroy_fx",
+   "microwave_field_fx",
+   "miradry_handpiece"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=VbBxlRYqpP4"
+ },
+ {
+  "id": "coolsculpting",
+  "shots": 4,
+  "overlay": 2,
+  "full_frame": 2,
+  "seconds": 13,
+  "missing": [
+   "adipocyte_cell",
+   "body_model",
+   "cryo_applicator",
+   "crystallize_fx",
+   "fat_macro",
+   "macrophage_cell",
+   "surface_volume_morph",
+   "timelapse_counter"
+  ],
+  "his_words": 0,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=8ewnOboW388"
+ },
+ {
+  "id": "facelift",
+  "shots": 4,
+  "overlay": 4,
+  "full_frame": 0,
+  "seconds": 15,
+  "missing": [
+   "facial_nerve_branches",
+   "incision_line_fx",
+   "skin_flap_rig",
+   "smas_lift_morph",
+   "surface_volume_morph",
+   "vector_arrows"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=saNEKaMPohw"
+ },
+ {
+  "id": "neck-lift",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 11,
+  "missing": [
+   "incision_line_fx",
+   "skin_flap_rig",
+   "submental_fat",
+   "surface_volume_morph",
+   "suture_fx"
+  ],
+  "his_words": 0,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=Wc7zcd-lh4U"
+ },
+ {
+  "id": "blepharoplasty",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 11,
+  "missing": [
+   "incision_line_fx",
+   "orbital_fat_pads",
+   "orbital_septum",
+   "surface_volume_morph"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=fLNYCdMSAbE"
+ },
+ {
+  "id": "brow-lift",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 10,
+  "missing": [
+   "brow_drop_morph",
+   "facial_nerve_branches",
+   "skin_flap_rig"
+  ],
+  "his_words": 0,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=Gy_WZ2bcxos"
+ },
+ {
+  "id": "fat-transfer",
+  "shots": 4,
+  "overlay": 4,
+  "full_frame": 0,
+  "seconds": 13,
+  "missing": [
+   "blood_tube_centrifuge",
+   "body_model",
+   "cannula",
+   "fat_droplets",
+   "surface_volume_morph"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=EeCxh7LCNEY"
+ },
+ {
+  "id": "liposuction",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 11,
+  "missing": [
+   "body_model",
+   "cannula",
+   "fat_aspirate_fx",
+   "surface_volume_morph"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=49AoFpcp7m4"
+ },
+ {
+  "id": "gynecomastia",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 11,
+  "missing": [
+   "body_model",
+   "breast_gland_model",
+   "cannula",
+   "incision_line_fx",
+   "surface_volume_morph"
+  ],
+  "his_words": 0,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=Hs-a9WPxnMg"
+ },
+ {
+  "id": "thread-lift",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 12,
+  "missing": [
+   "barbed_thread",
+   "injection_point_map",
+   "smas_lift_morph",
+   "vector_arrows"
+  ],
+  "his_words": 0,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=Y5LBkvqq4Qw"
+ },
+ {
+  "id": "myellevate",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 11,
+  "missing": [
+   "light_probe",
+   "surface_volume_morph",
+   "suture_fx"
+  ],
+  "his_words": 0,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=XgCakTjyE1g"
+ },
+ {
+  "id": "ellacor",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 10,
+  "missing": [
+   "coring_needle",
+   "hole_close_fx",
+   "treatment_grid_fx"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=oJDFgzhC3S0"
+ },
+ {
+  "id": "earlobe-repair",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 8,
+  "missing": [
+   "ear_model",
+   "incision_line_fx",
+   "suture_fx"
+  ],
+  "his_words": 0,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=J4gqR7J9QXg"
+ },
+ {
+  "id": "scar-revision",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 10,
+  "missing": [
+   "incision_line_fx",
+   "scar_decal",
+   "suture_fx"
+  ],
+  "his_words": 1,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=Wd4itRkCVpk"
+ },
+ {
+  "id": "mole-removal",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 10,
+  "missing": [
+   "lab_slide",
+   "nevus_cluster",
+   "scalpel",
+   "suture_fx"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=guJ1J7rRs1w"
+ },
+ {
+  "id": "mohs",
+  "shots": 5,
+  "overlay": 4,
+  "full_frame": 1,
+  "seconds": 19,
+  "missing": [
+   "excision_layer_rig",
+   "lab_slide",
+   "margin_map",
+   "tumour_decal",
+   "tumour_roots"
+  ],
+  "his_words": 1,
+  "his_captions": 0,
+  "reference": null
+ },
+ {
+  "id": "bcc",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 11,
+  "missing": [
+   "timelapse_counter",
+   "tumour_decal",
+   "tumour_roots"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=lwVoo2Tl-3U"
+ },
+ {
+  "id": "melanoma",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 12,
+  "missing": [
+   "depth_marker",
+   "pigment_cluster"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=PIcisc8fCyA"
+ },
+ {
+  "id": "melanoma-vaccine",
+  "shots": 3,
+  "overlay": 0,
+  "full_frame": 3,
+  "seconds": 12,
+  "missing": [
+   "antigen_markers",
+   "apoptosis_fx",
+   "cell_scene",
+   "immune_cell",
+   "mrna_strand",
+   "tumour_cell"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=6fs6J9ySdlA"
+ },
+ {
+  "id": "actinic-keratosis",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 10,
+  "missing": [
+   "apoptosis_fx",
+   "keratinocyte_layer",
+   "light_panel_fx",
+   "topical_penetration_fx"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=AuY61yRjfOQ"
+ },
+ {
+  "id": "skin-check",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 12,
+  "missing": [
+   "body_model",
+   "caption_card",
+   "dermoscope_lens",
+   "scan_line_fx"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": null
+ },
+ {
+  "id": "skin-cancer-reconstruction",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 11,
+  "missing": [
+   "incision_line_fx",
+   "skin_flap_rig",
+   "subunit_overlay",
+   "suture_fx"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=z6ixfTH4IKo"
+ },
+ {
+  "id": "acne",
+  "shots": 3,
+  "overlay": 2,
+  "full_frame": 1,
+  "seconds": 10,
+  "missing": [
+   "bacteria_particles",
+   "follicle_macro",
+   "inflammation_fx",
+   "pore_plug"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=Y10as5Nbhno"
+ },
+ {
+  "id": "acne-scars",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 12,
+  "missing": [
+   "laser_column_fx",
+   "needle_syringe",
+   "scar_profiles",
+   "septae_contract_fx",
+   "skin_texture_morph"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=cfZ2Qrl6hrI"
+ },
+ {
+  "id": "rosacea",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 10,
+  "missing": [
+   "demodex_mite",
+   "inflammation_fx",
+   "surface_vessels_decal",
+   "vessel_heat_fx"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=j5BnJ6M_d8U"
+ },
+ {
+  "id": "melasma",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 10,
+  "missing": [
+   "macrophage_cell",
+   "melanin_transfer_fx",
+   "pigment_decal"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=i_yUPTdCJsw"
+ },
+ {
+  "id": "milia",
+  "shots": 2,
+  "overlay": 2,
+  "full_frame": 0,
+  "seconds": 6,
+  "missing": [
+   "milia_cyst",
+   "needle_syringe"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=t9n0GahUGc0"
+ },
+ {
+  "id": "hair-loss",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 10,
+  "missing": [
+   "hair_cycle_diagram",
+   "hair_growth_morph",
+   "scalp_model"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=z2LCh-aC3CE"
+ },
+ {
+  "id": "sclerotherapy",
+  "shots": 4,
+  "overlay": 3,
+  "full_frame": 1,
+  "seconds": 13,
+  "missing": [
+   "leg_model",
+   "needle_syringe",
+   "surface_vessels_decal",
+   "vessel_collapse_fx",
+   "vessel_lumen"
+  ],
+  "his_words": 1,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=rOtBm-OFN3I"
+ },
+ {
+  "id": "festoons",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 10,
+  "missing": [
+   "caption_card",
+   "fluid_fx",
+   "malar_septum",
+   "surface_volume_morph"
+  ],
+  "his_words": 0,
+  "his_captions": 1,
+  "reference": "https://www.youtube.com/watch?v=hemRNxw02uU"
+ },
+ {
+  "id": "skin-aging",
+  "shots": 4,
+  "overlay": 4,
+  "full_frame": 0,
+  "seconds": 16,
+  "missing": [
+   "aging_morph",
+   "collagen_growth_fx"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=USqSKjg-WgQ"
+ },
+ {
+  "id": "skin-laxity-weight-loss",
+  "shots": 2,
+  "overlay": 2,
+  "full_frame": 0,
+  "seconds": 7,
+  "missing": [
+   "aging_morph",
+   "surface_volume_morph"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=8tV1pLZD3Wk"
+ },
+ {
+  "id": "cellulite",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 10,
+  "missing": [
+   "septae_contract_fx",
+   "skin_texture_morph"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": null
+ },
+ {
+  "id": "lymphatic-drainage",
+  "shots": 3,
+  "overlay": 2,
+  "full_frame": 1,
+  "seconds": 10,
+  "missing": [
+   "body_model",
+   "lymph_network",
+   "surface_volume_morph"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": "https://www.youtube.com/watch?v=oDrZge0yVOk"
+ },
+ {
+  "id": "retinoids",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 10,
+  "missing": [
+   "cell_turnover_fx",
+   "collagen_growth_fx",
+   "timelapse_counter",
+   "topical_penetration_fx"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=vOWjqZhAHJQ"
+ },
+ {
+  "id": "niacinamide",
+  "shots": 2,
+  "overlay": 2,
+  "full_frame": 0,
+  "seconds": 7,
+  "missing": [
+   "barrier_bricks",
+   "melanin_transfer_fx"
+  ],
+  "his_words": 0,
+  "his_captions": 1,
+  "reference": null
+ },
+ {
+  "id": "vitamin-c",
+  "shots": 2,
+  "overlay": 2,
+  "full_frame": 0,
+  "seconds": 7,
+  "missing": [
+   "collagen_growth_fx",
+   "free_radical_fx",
+   "uv_rays_fx"
+  ],
+  "his_words": 1,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=fra4h-w1f9M"
+ },
+ {
+  "id": "brighteners",
+  "shots": 2,
+  "overlay": 0,
+  "full_frame": 2,
+  "seconds": 8,
+  "missing": [
+   "cell_scene",
+   "enzyme_dissolve_fx",
+   "melanocyte_cell"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=xfA9VF7bqG0"
+ },
+ {
+  "id": "acids-exfoliation",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 10,
+  "missing": [
+   "barrier_bricks",
+   "cell_turnover_fx",
+   "pore_plug",
+   "topical_penetration_fx"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=KOjZ0VqT0wI"
+ },
+ {
+  "id": "skin-barrier",
+  "shots": 3,
+  "overlay": 3,
+  "full_frame": 0,
+  "seconds": 9,
+  "missing": [
+   "barrier_bricks",
+   "water_binding_fx"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=hwImE7R6k2s"
+ },
+ {
+  "id": "sunscreen",
+  "shots": 3,
+  "overlay": 2,
+  "full_frame": 1,
+  "seconds": 10,
+  "missing": [
+   "cell_scene",
+   "dna_strand",
+   "sunscreen_film",
+   "uv_rays_fx"
+  ],
+  "his_words": 3,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=3TXXZET0-oo"
+ },
+ {
+  "id": "chemical-peels",
+  "shots": 2,
+  "overlay": 2,
+  "full_frame": 0,
+  "seconds": 8,
+  "missing": [
+   "cell_turnover_fx",
+   "depth_marker",
+   "topical_penetration_fx"
+  ],
+  "his_words": 1,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=0iTOvO0FBTs"
+ },
+ {
+  "id": "diamondglow",
+  "shots": 2,
+  "overlay": 2,
+  "full_frame": 0,
+  "seconds": 7,
+  "missing": [
+   "facial_tip",
+   "suction_fx"
+  ],
+  "his_words": 1,
+  "his_captions": 0,
+  "reference": null
+ },
+ {
+  "id": "hydrafacial",
+  "shots": 2,
+  "overlay": 2,
+  "full_frame": 0,
+  "seconds": 7,
+  "missing": [
+   "facial_tip",
+   "pore_plug",
+   "suction_fx"
+  ],
+  "his_words": 0,
+  "his_captions": 0,
+  "reference": null
+ },
+ {
+  "id": "microneedling",
+  "shots": 3,
+  "overlay": 2,
+  "full_frame": 1,
+  "seconds": 11,
+  "missing": [
+   "collagen_growth_fx",
+   "dermis_macro",
+   "fibroblast_cell",
+   "needle_array_tip"
+  ],
+  "his_words": 1,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=7PZYJTDgKWU"
+ },
+ {
+  "id": "led-light",
+  "shots": 2,
+  "overlay": 2,
+  "full_frame": 0,
+  "seconds": 8,
+  "missing": [
+   "bacteria_particles",
+   "light_panel_fx"
+  ],
+  "his_words": 0,
+  "his_captions": 2,
+  "reference": null
+ },
+ {
+  "id": "exomind",
+  "shots": 2,
+  "overlay": 2,
+  "full_frame": 0,
+  "seconds": 8,
+  "missing": [
+   "brain_model",
+   "magnetic_field_fx",
+   "neural_activity_fx"
+  ],
+  "his_words": 2,
+  "his_captions": 0,
+  "reference": "https://www.youtube.com/watch?v=k4lEDTVCb0U"
+ },
+ {
+  "id": "iv-therapy",
+  "shots": 2,
+  "overlay": 1,
+  "full_frame": 1,
+  "seconds": 7,
+  "missing": [
+   "arm_model",
+   "cannula",
+   "molecule_particles",
+   "vessel_lumen"
+  ],
+  "his_words": 0,
+  "his_captions": 1,
+  "reference": "https://www.youtube.com/watch?v=7FLgg3CTD7k"
+ }
+]
