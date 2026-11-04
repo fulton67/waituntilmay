@@ -43,7 +43,7 @@ vec4 triSample(sampler2D t, vec3 p, vec3 w) {
 }
 `;
 
-export function triplanar<T extends THREE.MeshStandardMaterial>(mat: T, maps: Triplanar, opts: { object?: boolean; normalScale?: number; tint?: THREE.ColorRepresentation } = {}) {
+export function triplanar<T extends THREE.MeshStandardMaterial>(mat: T, maps: Triplanar, opts: { object?: boolean; normalScale?: number; tint?: THREE.ColorRepresentation; tileM?: number } = {}) {
   mat.map = maps.map;
   mat.roughnessMap = maps.roughnessMap;
   mat.normalMap = maps.normalMap;
@@ -51,7 +51,7 @@ export function triplanar<T extends THREE.MeshStandardMaterial>(mat: T, maps: Tr
   if (opts.tint !== undefined) mat.color.set(opts.tint);
   mat.roughness = 1; // the roughness map carries the value (levelled to the old roughness, materials.py)
   mat.onBeforeCompile = (sh) => {
-    sh.uniforms.triScale = { value: 1 / TILE_M };
+    sh.uniforms.triScale = { value: 1 / (opts.tileM ?? TILE_M) };
     sh.uniforms.triObject = { value: !!opts.object };
     sh.vertexShader = VERT_DECL + sh.vertexShader.replace("#include <worldpos_vertex>", VERT_MAIN);
     sh.fragmentShader = FRAG_DECL + sh.fragmentShader

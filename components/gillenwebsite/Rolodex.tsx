@@ -24,6 +24,12 @@ export const MODEL = "/models/housing.glb";
 // the baked parts: their geometry with new UVs, and per part albedo, roughness (G) + metalness (B), and normal
 const BAKED = "/models/housing-baked.glb";
 const BAKED_PARTS = [...new Set(Object.values(bake.nodes).map((n) => n.maps))];
+// the drum's end plates: the inner discs' painted gunmetal as a tile (kit/bake/gunmetal.py), 0.367 m a tile
+const GUNMETAL_URLS = ["albedo.jpg", "rm.png", "normal.png"].map((f) => `/models/housing-maps/gunmetal-${f}`), GUNMETAL_TILE_M = 0.3668;
+// The end plates sit just inside the parts beside them, 3 mm clear: within the plate's radius of the axle the right
+// side plate's inside face is at x = +0.2399 and, on the left, the frame's side loop's at x = -0.2588 (measured in the
+// page, scripts/gillenwebsite/endplates.mjs). A 3 mm plate there: its middle 4.5 mm inside each.
+const PLATE_T = 0.003, PLATE_GAP = 0.003, PLATE_X = [-0.2588 + PLATE_GAP + PLATE_T / 2, 0.2399 - PLATE_GAP - PLATE_T / 2];
 const CRADLE = "/models/cradle-baked.glb", CRADLE_URLS = ["albedo.jpg", "rm.png", "normal.png"].map((f) => `/models/housing-maps/cradle-${f}`);
 const BAKED_URLS = [...BAKED_PARTS.flatMap((p) => [`/models/housing-maps/${p}-albedo.jpg`, `/models/housing-maps/${p}-rm.png`, `/models/housing-maps/${p}-normal.png`]), "/materials/paper.jpg"];
 // the front release gets 2048 covers (front and back), its two neighbours 1024, once its sleeve has settled; the
@@ -66,6 +72,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
   const bakedTex = useLoader(THREE.TextureLoader, BAKED_URLS);
   const cradleGltf = useGLTF(CRADLE);
   const cradleTex = useLoader(THREE.TextureLoader, CRADLE_URLS);
+  const gunTex = useLoader(THREE.TextureLoader, GUNMETAL_URLS);
   const gl = useThree((st) => st.gl);
   const N = releases.length, TOTAL = N * 3;
 
@@ -133,6 +140,27 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.012, 40), M.chrome);
       hub.rotation.z = Math.PI / 2; hub.position.x = x; core.add(hub);
     }
+    // end plates, so the drum is closed at each end and the axle is held: a disc on the axle (radius R0 + 0.03,
+    // 3 mm), a hub collar on its inner face (radius 0.03, 8 mm), and three struts along the axle, 0.05 m out (inside
+    // the sleeves' 0.072 m), from the plate to the rail ring's spokes at x = +-0.075, in line with them
+    const [gMap, gRm, gNormal] = gunTex.map((t, j) => { t.colorSpace = j === 0 ? THREE.SRGBColorSpace : THREE.NoColorSpace; t.needsUpdate = true; return t; });
+    const gunmetal = triplanar(new THREE.MeshPhysicalMaterial({ color: "#ffffff", metalness: 0.7, clearcoat: 0.3, clearcoatRoughness: 0.5, side: THREE.DoubleSide }),
+      { map: gMap, roughnessMap: gRm, normalMap: gNormal }, { tileM: GUNMETAL_TILE_M });
+    for (const x of PLATE_X) {
+      const side = Math.sign(x), inner = x - side * PLATE_T / 2;
+      const plate = new THREE.Mesh(new THREE.CylinderGeometry(R0 + 0.03, R0 + 0.03, PLATE_T, 72), gunmetal);
+      plate.rotation.z = Math.PI / 2; plate.position.x = x; plate.name = "endplate";
+      const collar = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.008, 40), gunmetal);
+      collar.rotation.z = Math.PI / 2; collar.position.x = inner - side * 0.004; collar.name = "endplate";
+      core.add(plate, collar);
+      const rail = side * 0.075, len = Math.abs(inner - rail);
+      for (let k = 0; k < 3; k++) {
+        const a = (k * Math.PI * 2) / 3;
+        const strut = new THREE.Mesh(new THREE.CylinderGeometry(0.003, 0.003, len, 10), gunmetal);
+        strut.rotation.z = Math.PI / 2; strut.position.set((inner + rail) / 2, Math.cos(a) * 0.05, Math.sin(a) * 0.05); strut.name = "endplate";
+        core.add(strut);
+      }
+    }
     core.traverse((o) => { if ((o as THREE.Mesh).isMesh) o.castShadow = o.receiveShadow = true; });
 
     // cradle: the saddle under the drum, kit/cradle.glb (already in the housing's frame: 0.512 m wide, on the drum
@@ -176,7 +204,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       cards.push(g);
     }
     return { house, axis, knobs, drum, cradle, cradleScene, cards, faces, sleeveGeo, meshes, triangles };
-  }, [gltf, baked, tex, bakedTex, cradleGltf, cradleTex, gl, releases, N, TOTAL]);
+  }, [gltf, baked, tex, bakedTex, cradleGltf, cradleTex, gunTex, gl, releases, N, TOTAL]);
 
   // the first front sleeve counts as settled 150 ms after the first frame
   const settle = useMemo(() => ({ since: 0, done: false }), []);
@@ -341,4 +369,5 @@ useLoader.preload(THREE.TextureLoader, MATERIAL_URLS);
 useGLTF.preload(BAKED);
 useGLTF.preload(CRADLE);
 useLoader.preload(THREE.TextureLoader, CRADLE_URLS);
+useLoader.preload(THREE.TextureLoader, GUNMETAL_URLS);
 useLoader.preload(THREE.TextureLoader, BAKED_URLS);
