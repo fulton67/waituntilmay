@@ -174,3 +174,6 @@ research/ostad/refs/motion/
 research/ostad/3d/renders/*/frames/
 research/ostad/3d/**/*.blend1
 research/ostad/3d/renders/survey/*_[0-3].png
+
+# housing bake intermediates (kit/bake writes them)
+kit/work/

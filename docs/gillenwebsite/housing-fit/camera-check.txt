@@ -1,0 +1,12 @@
+front A frame outline IoU 0.9578 raw 0.8237
+front B base outline IoU 0.9834 raw 0.9327
+front C side_right outline IoU 0.9728 raw 0.8402
+front D inner discs outline IoU 0.984 raw 0.9594
+front E knob_right outline IoU 0.9972 raw 0.9255
+front F knob_left outline IoU 0.9968 raw 0.8887
+back A frame outline IoU 0.9747 raw 0.9196
+back B base outline IoU 0.7067 raw 0.6547
+back C side_right outline IoU 0.9794 raw 0.8851
+back D inner discs outline IoU 0.9851 raw 0.9611
+back E knob_right outline IoU 0.9887 raw 0.9798
+back F knob_left outline IoU 0.9865 raw 0.9848

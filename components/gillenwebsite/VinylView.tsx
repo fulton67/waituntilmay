@@ -58,6 +58,15 @@ async function makeEngine(canvas: HTMLCanvasElement): Promise<Engine> {
   grooves.anisotropy = gl.capabilities.getMaxAnisotropy();
   gl.initTexture(grooves);
   const rec = buildRecord(blank, grain, grooves);
+  // the gatefold's bare board is the aged paper from the part sheets (kit/bake/pbr.py), on before the warm-up
+  // compile so its program is built with the rest
+  const paper = await new THREE.TextureLoader().loadAsync("/materials/paper.jpg").catch(() => null);
+  if (paper) {
+    paper.colorSpace = THREE.SRGBColorSpace; paper.wrapS = paper.wrapT = THREE.RepeatWrapping; paper.repeat.set(1.3, 1.3);
+    paper.anisotropy = gl.capabilities.getMaxAnisotropy();
+    gl.initTexture(paper);
+    rec.paper.map = paper; rec.paper.color.set("#ffffff"); rec.paper.needsUpdate = true;
+  }
   // the holder turns about the open model's centre: the record hangs off it, offset so that centre is the origin
   const centre = new THREE.Vector3((OPEN_BOX.x0 + OPEN_BOX.x1) / 2, SLEEVE / 2, OPEN_BOX.z1 / 2);
   const holder = new THREE.Group();

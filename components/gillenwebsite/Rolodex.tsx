@@ -2,9 +2,10 @@
 /* eslint-disable react-hooks/immutability -- three.js objects and the shared rig are mutated every frame by design */
 // The Rolodex: housing.glb with its torn rod and cradle rebuilt, the drum core, and TOTAL record sleeves on the axis:
 // the N releases three times round, so the drum is full and turns forever (slot i holds release i mod N).
-// Numbers are the prototype's (BUILD.md). Materials: enamel on the frame, base, side plates and cradle, bakelite on
-// the knobs, chrome on the axle, rails and hubs, all from tileable maps mapped triplanar (triplanar.ts), and
-// cardboard sleeves.
+// Numbers are the prototype's (BUILD.md). Materials: the parts baked from the painted part sheets (kit/bake, listed in
+// lib/gillenwebsite/housing-bake.json) take their baked geometry (new UVs, housing-baked.glb) and maps; the rest keep
+// the tileable materials mapped triplanar (triplanar.ts): enamel on the base and cradle, chrome on the axle, rails
+// and hubs. Sleeves are cardboard, their spines the aged paper from the sheets.
 // A sleeve (sleeve.ts) is one mesh with three material groups: the front cover, the back cover and the spine. Each
 // release has one front and one back material, shared by its three sleeves. No text is drawn on a sleeve.
 import { useMemo, useEffect } from "react";
@@ -17,8 +18,13 @@ import { R0 } from "./cardTexture";
 import { SLEEVE, sleeveGeometry, sharpen, loadTex, setMap, sideWidth, sideFile, type Side } from "./sleeve";
 import { paperGrain } from "./textures";
 import { triplanar, materialsFrom, MATERIAL_URLS } from "./triplanar";
+import bake from "@/lib/gillenwebsite/housing-bake.json";
 
 export const MODEL = "/models/housing.glb";
+// the baked parts: their geometry with new UVs, and per part albedo, roughness (G) + metalness (B), and normal
+const BAKED = "/models/housing-baked.glb";
+const BAKED_PARTS = [...new Set(Object.values(bake.nodes).map((n) => n.maps))];
+const BAKED_URLS = [...BAKED_PARTS.flatMap((p) => [`/models/housing-maps/${p}-albedo.jpg`, `/models/housing-maps/${p}-rm.png`, `/models/housing-maps/${p}-normal.png`]), "/materials/paper.jpg"];
 // the front release gets 2048 covers (front and back), its two neighbours 1024, once its sleeve has settled; the
 // rest stay at 512. Never less than the face's device pixels on screen.
 const BIG = 2048, NEAR = 1024, BIG_SPAN = 1;
@@ -54,12 +60,26 @@ type Face = { mat: THREE.MeshStandardMaterial; small: THREE.Texture | null; big:
 
 export default function Rolodex({ releases }: { releases: Release[] }) {
   const gltf = useGLTF(MODEL);
+  const baked = useGLTF(BAKED);
   const tex = useLoader(THREE.TextureLoader, MATERIAL_URLS);
+  const bakedTex = useLoader(THREE.TextureLoader, BAKED_URLS);
   const gl = useThree((st) => st.gl);
   const N = releases.length, TOTAL = N * 3;
 
   const built = useMemo(() => {
     const M = makeMaterials(gl, tex);
+    // the baked parts' materials: glTF UVs (the image's first row is v = 0), so no flip
+    const B: Record<string, THREE.MeshPhysicalMaterial> = {};
+    BAKED_PARTS.forEach((p, k) => {
+      const [map, rm, normal] = bakedTex.slice(k * 3, k * 3 + 3).map((t, j) => { t.flipY = false; t.anisotropy = gl.capabilities.getMaxAnisotropy(); t.colorSpace = j === 0 ? THREE.SRGBColorSpace : THREE.NoColorSpace; t.needsUpdate = true; return t; });
+      const bakelite = Object.values(bake.nodes).find((n) => n.maps === p)?.kind === "bakelite";
+      B[p] = new THREE.MeshPhysicalMaterial({ map, roughnessMap: rm, metalnessMap: rm, normalMap: normal, roughness: 1, metalness: 1, clearcoat: bakelite ? 0.6 : 0.3, clearcoatRoughness: bakelite ? 0.25 : 0.5, side: THREE.DoubleSide });
+    });
+    const paperTex = bakedTex[bakedTex.length - 1];
+    paperTex.wrapS = paperTex.wrapT = THREE.RepeatWrapping;
+    paperTex.colorSpace = THREE.SRGBColorSpace;
+    paperTex.anisotropy = gl.capabilities.getMaxAnisotropy();
+    paperTex.needsUpdate = true;
     const house = gltf.scene;
     house.updateMatrixWorld(true);
     let meshes = 0, triangles = 0;
@@ -70,6 +90,11 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       const g = m.geometry as THREE.BufferGeometry;
       triangles += (g.index ? g.index.count : g.attributes.position.count) / 3;
       m.material = M[PART_MAT[m.name] ?? "metal"];
+      const b = (bake.nodes as Record<string, { geometry: string; maps: string; kind: string }>)[m.name];
+      if (b) {
+        const geo = (baked.scene.getObjectByName(b.geometry) as THREE.Mesh | undefined)?.geometry;
+        if (geo) { m.geometry = geo; m.material = B[b.maps]; }
+      }
       m.castShadow = m.receiveShadow = true;
       if (m.name === "rod" || m.name === "cradle") m.visible = false; // torn sheets in the Tripo mesh; rebuilt below
     });
@@ -127,7 +152,11 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
     const board = new THREE.DataTexture(new Uint8Array([214, 204, 186, 255]), 1, 1);
     board.colorSpace = THREE.SRGBColorSpace; board.needsUpdate = true;
     const cardboard = (map: THREE.Texture) => new THREE.MeshStandardMaterial({ map, roughness: 0.7, metalness: 0, normalMap: grain, normalScale: new THREE.Vector2(0.12, 0.12), envMapIntensity: 0.6 });
-    const spine = cardboard(board);
+    // the spine: the aged paper from the sheets (its UVs run round the outline in metres: a tile every 0.25 m)
+    const spineTex = paperTex.clone();
+    spineTex.repeat.set(4, 4);
+    spineTex.needsUpdate = true;
+    const spine = cardboard(spineTex);
     const faces = releases.map((r, i) => ({ r, i, front: { mat: cardboard(board), small: null, big: null, bigW: 0, want: 0 } as Face, back: { mat: cardboard(board), small: null, big: null, bigW: 0, want: 0 } as Face }));
     const drum = new THREE.Group();
     drum.position.set(0, axis.y, axis.z);
@@ -145,7 +174,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       cards.push(g);
     }
     return { house, axis, knobs, drum, cradle, cards, faces, sleeveGeo, meshes, triangles };
-  }, [gltf, tex, gl, releases, N, TOTAL]);
+  }, [gltf, baked, tex, bakedTex, gl, releases, N, TOTAL]);
 
   // the first front sleeve counts as settled 150 ms after the first frame
   const settle = useMemo(() => ({ since: 0, done: false }), []);
@@ -232,10 +261,12 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       texels: () => { const f = built.faces[wrap(Math.round(rig.s), N)], w = (t: THREE.Texture | null) => (t?.image as { width: number } | undefined)?.width ?? 0; return { release: f.r.id, frontTexturePx: w(f.front.mat.map), backTexturePx: w(f.back.mat.map), faceScreenPx: facePx(), pixelRatio: gl.getPixelRatio(), bigLoaded: built.faces.flatMap((x) => [x.front.big ? `${x.r.id}@${x.front.bigW}` : "", x.back.big ? `${x.r.id}-back@${x.back.bigW}` : ""]).filter(Boolean) }; },
       // the farthest point of any sleeve from the drum axis, in metres, with the drum at s (drum space: y, z)
       sleeveRadius: () => { built.drum.updateMatrixWorld(true); const inv = built.drum.matrixWorld.clone().invert(), p = built.sleeveGeo.attributes.position, v = new THREE.Vector3(); let max = 0; for (const c of built.cards) { const m = inv.clone().multiply(c.children[0].matrixWorld); for (let k = 0; k < p.count; k++) { v.fromBufferAttribute(p, k).applyMatrix4(m); max = Math.max(max, Math.hypot(v.y, v.z)); } } return max; },
+      // the baked parts' textures and the paper, as GPU memory (RGBA8 with mips)
+      bakedTextureMB: () => +(bakedTex.reduce((t, x) => { const im = x.image as { width: number; height: number }; return t + (im.width * im.height * 4 * 4) / 3; }, 0) / 2 ** 20).toFixed(2),
       meshes: built.meshes, triangles: built.triangles, axis: built.axis.toArray(), nodes: (() => { const n: string[] = []; built.house.traverse((o) => { if ((o as THREE.Mesh).isMesh) n.push(o.name); }); return n; })(),
     };
     console.log("Website is loaded, enjoy");
-  }, [built, N, TOTAL, gl, facePx]);
+  }, [built, N, TOTAL, gl, facePx, bakedTex]);
 
   const angle = useMemo(() => makeAngle(TOTAL), [TOTAL]);
   // the drum's screen rect is the sleeves' touch hit area (Site.tsx): 8 corners of its rest box, projected each frame
@@ -304,3 +335,5 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
 
 useGLTF.preload(MODEL);
 useLoader.preload(THREE.TextureLoader, MATERIAL_URLS);
+useGLTF.preload(BAKED);
+useLoader.preload(THREE.TextureLoader, BAKED_URLS);

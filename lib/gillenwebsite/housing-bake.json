@@ -1,0 +1,48 @@
+{
+  "nodes": {
+    "frame": {
+      "geometry": "frame",
+      "maps": "frame",
+      "kind": "metal"
+    },
+    "side_right": {
+      "geometry": "side_right",
+      "maps": "side_right",
+      "kind": "metal"
+    },
+    "side_right_inner": {
+      "geometry": "side_right_inner",
+      "maps": "side_inner",
+      "kind": "metal"
+    },
+    "side_left_inner": {
+      "geometry": "side_right_inner",
+      "maps": "side_inner",
+      "kind": "metal"
+    },
+    "knob_right": {
+      "geometry": "knob_right",
+      "maps": "knob_right",
+      "kind": "bakelite"
+    },
+    "knob_left": {
+      "geometry": "knob_left",
+      "maps": "knob_left",
+      "kind": "bakelite"
+    },
+    "knob_left_cap": {
+      "geometry": "knob_left_cap",
+      "maps": "knob_left",
+      "kind": "bakelite"
+    },
+    "knob_left_face": {
+      "geometry": "knob_left_face",
+      "maps": "knob_left",
+      "kind": "bakelite"
+    }
+  },
+  "notBaked": [
+    "base"
+  ],
+  "gpuMBAdded": 34.33
+}

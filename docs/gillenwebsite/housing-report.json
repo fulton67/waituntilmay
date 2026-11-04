@@ -1,0 +1,232 @@
+{
+  "base": "http://localhost:3228",
+  "at": "2026-11-04T04:51:35.832Z",
+  "iou": [
+    {
+      "part": "frame",
+      "view": "front",
+      "iou": 0.941,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "view": "front",
+      "iou": 0.7257,
+      "pass": false
+    },
+    {
+      "part": "side_right",
+      "view": "front",
+      "iou": 0.9108,
+      "pass": false
+    },
+    {
+      "part": "inner discs",
+      "view": "front",
+      "iou": 0.8044,
+      "pass": false
+    },
+    {
+      "part": "knob_right",
+      "view": "front",
+      "iou": 0.8474,
+      "pass": false
+    },
+    {
+      "part": "knob_left",
+      "view": "front",
+      "iou": 0.906,
+      "pass": false
+    },
+    {
+      "part": "frame",
+      "view": "back",
+      "iou": 0.9269,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "view": "back",
+      "iou": 0.896,
+      "pass": false
+    },
+    {
+      "part": "side_right",
+      "view": "back",
+      "iou": 0.9212,
+      "pass": true
+    },
+    {
+      "part": "inner discs",
+      "view": "back",
+      "iou": 0.9735,
+      "pass": true
+    },
+    {
+      "part": "knob_right",
+      "view": "back",
+      "iou": 0.937,
+      "pass": true
+    },
+    {
+      "part": "knob_left",
+      "view": "back",
+      "iou": 0.9261,
+      "pass": true
+    }
+  ],
+  "coverage": [
+    {
+      "part": "frame",
+      "views": [
+        "front",
+        "back"
+      ],
+      "projectedPct": 74.4,
+      "tilePct": 25.6
+    },
+    {
+      "part": "base",
+      "baked": false,
+      "why": "no view passed the fit (IoU < 0.92 in both): left on its previous material"
+    },
+    {
+      "part": "side_right",
+      "views": [
+        "back"
+      ],
+      "projectedPct": 41.5,
+      "tilePct": 58.5
+    },
+    {
+      "part": "inner discs",
+      "views": [
+        "back"
+      ],
+      "projectedPct": 95.6,
+      "tilePct": 4.4
+    },
+    {
+      "part": "knob_right",
+      "views": [
+        "back"
+      ],
+      "projectedPct": 32,
+      "tilePct": 68
+    },
+    {
+      "part": "knob_left",
+      "views": [
+        "back"
+      ],
+      "projectedPct": 37,
+      "tilePct": 63
+    }
+  ],
+  "pbr": {
+    "A": {
+      "part": "frame",
+      "file": "frame",
+      "kind": "metal",
+      "albedo": 1024,
+      "rm": 1024,
+      "normal": 512,
+      "gpuMB": 12,
+      "rustPct": 38.2,
+      "roughMedian": 0.467,
+      "metalMedian": 0.7,
+      "normalStrength": 0.5
+    },
+    "C": {
+      "part": "side_right",
+      "file": "side_right",
+      "kind": "metal",
+      "albedo": 1024,
+      "rm": 1024,
+      "normal": 512,
+      "gpuMB": 12,
+      "rustPct": 6.3,
+      "roughMedian": 0.45,
+      "metalMedian": 0.7,
+      "normalStrength": 0.5
+    },
+    "D": {
+      "part": "inner discs",
+      "file": "side_inner",
+      "kind": "metal",
+      "albedo": 512,
+      "rm": 512,
+      "normal": 256,
+      "gpuMB": 3,
+      "rustPct": 0,
+      "roughMedian": 0.45,
+      "metalMedian": 0.7,
+      "normalStrength": 0.5
+    },
+    "E": {
+      "part": "knob_right",
+      "file": "knob_right",
+      "kind": "bakelite",
+      "albedo": 512,
+      "rm": 512,
+      "normal": 256,
+      "gpuMB": 3,
+      "rustPct": 0,
+      "roughMedian": 0.3,
+      "metalMedian": 0,
+      "normalStrength": 0.25
+    },
+    "F": {
+      "part": "knob_left",
+      "file": "knob_left",
+      "kind": "bakelite",
+      "albedo": 512,
+      "rm": 512,
+      "normal": 256,
+      "gpuMB": 3,
+      "rustPct": 0,
+      "roughMedian": 0.3,
+      "metalMedian": 0,
+      "normalStrength": 0.25
+    },
+    "paper": {
+      "from": "panel H, painted-front",
+      "patchPx": 224,
+      "tile": 1024,
+      "runtime": 512,
+      "gpuMB": 1.33
+    },
+    "gpuMBAdded": 34.33
+  },
+  "textureMBAdded": {
+    "measuredInPage": 34.33,
+    "computed": 34.33,
+    "target": 40,
+    "pass": true
+  },
+  "screenshots": [
+    "docs/gillenwebsite/housing-north.png",
+    "docs/gillenwebsite/housing-east.png",
+    "docs/gillenwebsite/housing-south.png",
+    "docs/gillenwebsite/housing-west.png",
+    "docs/gillenwebsite/housing-sheet-front.png",
+    "docs/gillenwebsite/housing-sheet-back.png",
+    "docs/gillenwebsite/housing-views.png"
+  ],
+  "fps": {
+    "desktop": {
+      "throttle": 1,
+      "mean": 58.2,
+      "min500msWindow": 50.3,
+      "slowestFrameMs": 100,
+      "pass": false
+    },
+    "phone": {
+      "throttle": 4,
+      "mean": 58.4,
+      "min500msWindow": 52.3,
+      "slowestFrameMs": 66.6,
+      "pass": true
+    }
+  }
+}
