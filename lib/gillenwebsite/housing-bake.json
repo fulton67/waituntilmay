@@ -5,6 +5,11 @@
       "maps": "frame",
       "kind": "metal"
     },
+    "base": {
+      "geometry": "base",
+      "maps": "base",
+      "kind": "metal"
+    },
     "side_right": {
       "geometry": "side_right",
       "maps": "side_right",
@@ -41,8 +46,6 @@
       "kind": "bakelite"
     }
   },
-  "notBaked": [
-    "base"
-  ],
-  "gpuMBAdded": 34.33
+  "notBaked": [],
+  "gpuMBAdded": 39.0
 }

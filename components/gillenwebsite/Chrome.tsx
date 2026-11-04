@@ -1,5 +1,5 @@
 "use client";
-// Everything that stays put while the three pages change: header, clock, nav, page transition, cursor readout,
+// Everything that stays put while the three pages change: header, clock, nav, page transition,
 // footer, and the record view any page can open. Each piece names its row in docs/gillenwebsite/SOURCES.md.
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
@@ -45,31 +45,6 @@ function Timer() {
       <span ref={run} className={css.dateTime}>00:00:00:000</span>
       {/* a same-width placeholder until the date is written, so the header does not shift when it appears */}
       <span ref={day} className={css.dateTime}>00.00.0000</span>
-    </div>
-  );
-}
-
-// SOURCES #08, anew-formatic.com S11 (6a301f49eb8a9ecc.js:1): two boxed readouts centred on the pointer,
-// showing screenX and screenY as NNNPX. Hidden until the first move; fine pointers only.
-function CursorReadout() {
-  const box = useRef<HTMLDivElement>(null), lx = useRef<HTMLAnchorElement>(null), ly = useRef<HTMLAnchorElement>(null);
-  useEffect(() => {
-    if (!matchMedia("(pointer: fine)").matches) return;
-    const el = box.current!;
-    const onMouseMove = (e: MouseEvent) => {
-      el.style.opacity = "1";
-      // S11 sets left / top; a transform moves it the same without a layout shift (CLS 0 while hovering the list)
-      el.style.transform = `translate(${e.clientX - el.offsetWidth / 2}px, ${e.clientY - el.offsetHeight / 2}px)`;
-      lx.current!.innerText = `${e.screenX}PX`;
-      ly.current!.innerText = `${e.screenY}PX`;
-    };
-    document.addEventListener("mousemove", onMouseMove, false);
-    return () => document.removeEventListener("mousemove", onMouseMove);
-  }, []);
-  return (
-    <div ref={box} className={css.cursorText} data-src="08" id="cursorText" style={{ opacity: 0 }} aria-hidden>
-      <div className={css.linktitle}><a ref={lx} id="screenLogX" /></div>
-      <div className={css.linktitle}><a ref={ly} id="screenLogY" /></div>
     </div>
   );
 }
@@ -202,8 +177,6 @@ export default function Chrome({
           <a href={about.instagram} target="_blank" rel="noopener" data-src="28">INSTAGRAM →</a>
         </div>
       </footer>}
-
-      <CursorReadout />
 
       <VinylView releases={releases} handle={vinyl} />
 

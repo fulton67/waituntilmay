@@ -6,8 +6,8 @@
 # three.js reads them.
 # The paper: from panel H (the single card) of the painted front sheet, the largest square inside the card with
 # its edges and stains left out, made seamless and written at 1024.
-# Runtime sizes keep the textures' GPU memory under 40 MB: the frame and side plate at 1024 (normal 512), the discs
-# and knobs at 512 (normal 256), the paper at 512. Writes public/models/housing-maps/<part>-{albedo.jpg,rm.png,
+# Runtime sizes keep the textures' GPU memory under 40 MB: the frame and side plate at 1024 (normal 512), the base
+# at 768 (roughness/metal 512, normal 256), the discs and knobs at 512 (normal 256), the paper at 512. Writes public/models/housing-maps/<part>-{albedo.jpg,rm.png,
 # normal.png}, public/materials/paper.jpg and kit/work/pbr.json.
 import json
 import os
@@ -22,9 +22,9 @@ from common import KIT, ORDER, PAINT_CELL, PARTS, ROOT, WORK
 from bake import seamless_tile
 
 OUT = os.path.join(ROOT, "public", "models", "housing-maps")
-KIND = {"A": "metal", "C": "metal", "D": "metal", "E": "bakelite", "F": "bakelite"}
-NAMES = {"A": "frame", "C": "side_right", "D": "side_inner", "E": "knob_right", "F": "knob_left"}
-RUNTIME = {"A": (1024, 512), "C": (1024, 512), "D": (512, 256), "E": (512, 256), "F": (512, 256)}
+KIND = {"A": "metal", "B": "metal", "C": "metal", "D": "metal", "E": "bakelite", "F": "bakelite"}
+NAMES = {"A": "frame", "B": "base", "C": "side_right", "D": "side_inner", "E": "knob_right", "F": "knob_left"}
+RUNTIME = {"A": (1024, 1024, 512), "B": (768, 512, 256), "C": (1024, 1024, 512), "D": (512, 512, 256), "E": (512, 512, 256), "F": (512, 512, 256)}
 PAPER = 512
 
 
@@ -86,15 +86,15 @@ if __name__ == "__main__":
         rm, normal, st = maps(label, albedo)
         cv2.imwrite(os.path.join(WORK, f"bake-{label}-rm.png"), rm)
         cv2.imwrite(os.path.join(WORK, f"bake-{label}-normal.png"), normal)
-        a, nsz = RUNTIME[label]
+        a, rsz, nsz = RUNTIME[label]
         name = NAMES[label]
         cv2.imwrite(os.path.join(OUT, f"{name}-albedo.jpg"), cv2.resize(albedo, (a, a), interpolation=cv2.INTER_AREA), [cv2.IMWRITE_JPEG_QUALITY, 90])
-        cv2.imwrite(os.path.join(OUT, f"{name}-rm.png"), cv2.resize(rm, (a, a), interpolation=cv2.INTER_AREA))
+        cv2.imwrite(os.path.join(OUT, f"{name}-rm.png"), cv2.resize(rm, (rsz, rsz), interpolation=cv2.INTER_AREA))
         cv2.imwrite(os.path.join(OUT, f"{name}-normal.png"), cv2.resize(normal, (nsz, nsz), interpolation=cv2.INTER_AREA))
         # GPU memory: RGBA8 with a full mip chain (4/3)
-        m = (2 * a * a + nsz * nsz) * 4 * 4 / 3
+        m = (a * a + rsz * rsz + nsz * nsz) * 4 * 4 / 3
         mem += m
-        info[label] = {"part": PARTS[label][1], "file": name, "kind": KIND[label], "albedo": a, "rm": a, "normal": nsz, "gpuMB": round(m / 2 ** 20, 2), **st}
+        info[label] = {"part": PARTS[label][1], "file": name, "kind": KIND[label], "albedo": a, "rm": rsz, "normal": nsz, "gpuMB": round(m / 2 ** 20, 2), **st}
         print(label, info[label])
     p, n = paper()
     cv2.imwrite(os.path.join(WORK, "paper-1024.png"), p)

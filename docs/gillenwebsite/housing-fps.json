@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3228",
-  "at": "2026-11-04T04:48:42.712Z",
+  "at": "2026-11-04T05:20:27.801Z",
   "profiles": {
     "desktop": {
       "viewport": "1440x900@2",
@@ -16,86 +16,86 @@
         "releases": [
           {
             "slot": 1,
-            "frames": 100,
-            "stillFrames": 57,
-            "worstStep": 0.43,
+            "frames": 99,
+            "stillFrames": 56,
+            "worstStep": 0.45,
             "jumps": 0
           },
           {
             "slot": 2,
             "frames": 97,
-            "stillFrames": 56,
-            "worstStep": 0.18,
+            "stillFrames": 57,
+            "worstStep": 0.24,
             "jumps": 0
           },
           {
             "slot": 3,
             "frames": 98,
             "stillFrames": 55,
-            "worstStep": 1.55,
+            "worstStep": 1.54,
             "jumps": 0
           },
           {
             "slot": 4,
-            "frames": 97,
-            "stillFrames": 55,
-            "worstStep": 0.63,
+            "frames": 95,
+            "stillFrames": 54,
+            "worstStep": 0.43,
             "jumps": 0
           },
           {
             "slot": 5,
             "frames": 98,
-            "stillFrames": 56,
-            "worstStep": 0.64,
+            "stillFrames": 57,
+            "worstStep": 0.61,
             "jumps": 0
           },
           {
             "slot": 6,
             "frames": 98,
             "stillFrames": 56,
-            "worstStep": 0.16,
+            "worstStep": 0.12,
             "jumps": 0
           },
           {
             "slot": 7,
-            "frames": 98,
+            "frames": 99,
             "stillFrames": 57,
-            "worstStep": 0.45,
+            "worstStep": 0.44,
             "jumps": 0
           },
           {
             "slot": 8,
-            "frames": 98,
-            "stillFrames": 56,
+            "frames": 99,
+            "stillFrames": 57,
             "worstStep": 0.41,
             "jumps": 0
           },
           {
             "slot": 9,
-            "frames": 93,
-            "stillFrames": 52,
-            "worstStep": 1.68,
+            "frames": 100,
+            "stillFrames": 57,
+            "worstStep": 1.72,
             "jumps": 0
           },
           {
             "slot": 10,
-            "frames": 96,
-            "stillFrames": 54,
-            "worstStep": 1.81,
+            "frames": 97,
+            "stillFrames": 56,
+            "worstStep": 1.82,
             "jumps": 0
           },
           {
             "slot": 11,
-            "frames": 98,
-            "stillFrames": 56,
-            "worstStep": 0.46,
+            "frames": 96,
+            "stillFrames": 55,
+            "worstStep": 0.47,
             "jumps": 0
           },
           {
             "slot": 12,
-            "frames": 99,
-            "stillFrames": 56,
-            "worstStep": 0.39,
+            "frames": 94,
+            "stillFrames": 54,
+            "worstStep": 0.33,
             "jumps": 0
           }
         ],
@@ -106,7 +106,7 @@
         "release": "13-gossip-real-power",
         "frontTexturePx": 2048,
         "backTexturePx": 599,
-        "faceScreenPx": 413.6235926783153,
+        "faceScreenPx": 413.62359267831596,
         "pixelRatio": 2,
         "bigLoaded": [
           "12-sza-sos-deluxe-lana@2048",
@@ -122,8 +122,8 @@
       },
       "fps": {
         "throttle": 1,
-        "mean": 58.2,
-        "min500msWindow": 50.3,
+        "mean": 58.3,
+        "min500msWindow": 50,
         "slowestFrameMs": 100,
         "pass": false
       }
@@ -136,35 +136,35 @@
             "slot": 0,
             "frames": 99,
             "stillFrames": 52,
-            "worstStep": 0.1,
-            "jumps": 0
-          },
-          {
-            "slot": 0,
-            "frames": 99,
-            "stillFrames": 49,
-            "worstStep": 0.04,
+            "worstStep": 0.09,
             "jumps": 0
           },
           {
             "slot": 0,
             "frames": 100,
-            "stillFrames": 48,
+            "stillFrames": 50,
+            "worstStep": 0.04,
+            "jumps": 0
+          },
+          {
+            "slot": 0,
+            "frames": 99,
+            "stillFrames": 47,
             "worstStep": 0.03,
             "jumps": 0
           },
           {
             "slot": 1,
-            "frames": 96,
-            "stillFrames": 49,
-            "worstStep": 0.74,
+            "frames": 98,
+            "stillFrames": 50,
+            "worstStep": 0.77,
             "jumps": 0
           },
           {
             "slot": 1,
             "frames": 99,
             "stillFrames": 50,
-            "worstStep": 0.08,
+            "worstStep": 0.11,
             "jumps": 0
           },
           {
@@ -176,8 +176,8 @@
           },
           {
             "slot": 1,
-            "frames": 99,
-            "stillFrames": 67,
+            "frames": 100,
+            "stillFrames": 68,
             "worstStep": 0.68,
             "jumps": 0
           },
@@ -190,29 +190,29 @@
           },
           {
             "slot": 1,
-            "frames": 99,
-            "stillFrames": 48,
-            "worstStep": 0.05,
-            "jumps": 0
-          },
-          {
-            "slot": 2,
-            "frames": 98,
-            "stillFrames": 48,
-            "worstStep": 0.45,
-            "jumps": 0
-          },
-          {
-            "slot": 2,
-            "frames": 99,
-            "stillFrames": 48,
-            "worstStep": 0.05,
-            "jumps": 0
-          },
-          {
-            "slot": 2,
             "frames": 100,
-            "stillFrames": 52,
+            "stillFrames": 49,
+            "worstStep": 0.05,
+            "jumps": 0
+          },
+          {
+            "slot": 2,
+            "frames": 97,
+            "stillFrames": 49,
+            "worstStep": 0.48,
+            "jumps": 0
+          },
+          {
+            "slot": 2,
+            "frames": 99,
+            "stillFrames": 48,
+            "worstStep": 0.05,
+            "jumps": 0
+          },
+          {
+            "slot": 2,
+            "frames": 99,
+            "stillFrames": 51,
             "worstStep": 0.03,
             "jumps": 0
           }
@@ -240,9 +240,9 @@
       },
       "fps": {
         "throttle": 4,
-        "mean": 58.4,
+        "mean": 59,
         "min500msWindow": 52.3,
-        "slowestFrameMs": 66.6,
+        "slowestFrameMs": 50,
         "pass": true
       }
     }

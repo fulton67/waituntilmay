@@ -136,8 +136,9 @@ if __name__ == "__main__":
             mask = rgba[..., 3] > 127
             M = np.array(fits[f"{v}/{label}"]["matrix"])
             Minv = cv2.invertAffineTransform(M)
-            V[v] = {"z": depth_map(meshes, v, centre, span), "rgb": rgba[..., :3].astype(np.float32), "mask": ndimage.binary_erosion(mask, iterations=ERODE),
-                    "Minv": Minv, "cam": camera(v), "scale": fits[f"{v}/{label}"]["scale"], "full": mask}
+            vd = np.array(fits[f"{v}/{label}"]["dir"])  # the sheet's direction, or the one the fit found (round parts)
+            V[v] = {"dir": vd, "z": depth_map(meshes, vd, centre, span), "rgb": rgba[..., :3].astype(np.float32), "mask": ndimage.binary_erosion(mask, iterations=ERODE),
+                    "Minv": Minv, "cam": camera(vd), "scale": fits[f"{v}/{label}"]["scale"], "full": mask}
         # the tile: from the view that passed with the larger painted part
         tv = max(views, key=lambda v: V[v]["full"].sum())
         tile, tn = seamless_tile(V[tv]["rgb"], V[tv]["full"])
@@ -158,7 +159,7 @@ if __name__ == "__main__":
             acc = np.zeros((len(tri), 3)); wsum = np.zeros(len(tri))
             for v in views:
                 d = V[v]
-                cx, cz = project(P, v, centre, span)
+                cx, cz = project(P, d["dir"], centre, span)
                 # nearest along the view: the texel's depth against the depth map
                 zx = np.clip((cx[:, 0] * ZRES).astype(int), 0, KIT_CELL * ZRES - 1)
                 zy = np.clip((cx[:, 1] * ZRES).astype(int), 0, KIT_CELL * ZRES - 1)

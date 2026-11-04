@@ -53,8 +53,10 @@ def part_meshes(sc, label):
 
 
 def camera(view):
-    """orthographic basis: z toward the camera (the given direction), x right, y up (world +Y projected)"""
-    z = VIEWS[view] / np.linalg.norm(VIEWS[view])
+    """orthographic basis: z toward the camera (the given direction), x right, y up (world +Y projected); view is a
+    sheet name or a direction of its own (fit.py's elevation search for the round base)"""
+    d = VIEWS[view] if isinstance(view, str) else np.asarray(view, float)
+    z = d / np.linalg.norm(d)
     up = np.array([0.0, 1.0, 0.0])
     x = np.cross(up, z); x /= np.linalg.norm(x)
     y = np.cross(z, x)

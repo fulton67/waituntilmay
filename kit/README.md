@@ -11,7 +11,7 @@ Run in order, with `~/tools/rolodex-venv/Scripts/python -I` (numpy, opencv, scip
 |---|---|---|
 | camera check | `bake/check_camera.py` | outline IoU of `common.silhouette` against the kit renders (0.96–0.997, the back of the base 0.71 where the kit's shading matches its ground) |
 | 1a extract | `bake/extract.py` | `work/paint-<view>-<label>.png`: each painted part, background and shadows out, soft edge |
-| 1b fit | `bake/fit.py` | `work/fit.json`: similarity transform (scale, translation, rotation within 3°) and IoU per part per view; under 0.92 is flagged and not projected |
+| 1b fit | `bake/fit.py` | `work/fit.json`: similarity transform (scale, translation, rotation within 3°) and IoU per part per view; under 0.92 is flagged and not projected. For the round base the camera's elevation is searched too (the image model drew it steeper: back 0.896 at the sheet's 17.6°, 0.983 at 21.6°), and the bake projects along the direction found |
 | 2a UVs | `bake/unwrap.py` | `work/uv-<label>.npz`: xatlas, one 2048 atlas per part |
 | 2b bake | `bake/bake.py` | `work/bake-<label>-albedo.png`: front/back projection blended by facing angle, depth-tested, 2 px eroded masks; unseen texels from a seamless tile of the part's own paint, triplanar |
 | 3, 4 maps | `bake/pbr.py` | `public/models/housing-maps/*`, `public/materials/paper.jpg`, `lib/gillenwebsite/housing-bake.json` |

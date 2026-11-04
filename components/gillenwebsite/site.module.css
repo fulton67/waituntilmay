@@ -59,11 +59,6 @@
 .footRow { display: flex; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; margin-top: 8px; }
 .email { text-align: left; }
 
-/* SOURCES #08 anew-formatic .cursor-text and .linktitle_container */
-.cursorText { display: inline; position: fixed; top: 0; left: 0; will-change: transform; z-index: 999; text-align: left; line-height: 1; pointer-events: none; }
-.linktitle { background: #fff; padding: 0 2px 2px; line-height: 12px; border: 0.5px solid #000; margin-top: 0; font-size: 10px; font-variant-numeric: tabular-nums; }
-.linktitle a { color: #000; }
-@media (pointer: coarse) { .cursorText { display: none; } }
 
 /* SOURCES #11 the stage: one fixed, full-viewport frame; the page itself does not scroll on home (R15) */
 .home { position: relative; height: 100vh; height: 100svh; overflow: hidden; }

@@ -13,10 +13,15 @@ import numpy as np
 from scipy import ndimage, optimize
 
 sys.path.insert(0, os.path.dirname(__file__))
-from common import KIT_CELL, PARTS, WORK, iou, part_meshes, scene, silhouette
+from common import KIT_CELL, PARTS, VIEWS, WORK, iou, part_meshes, scene, silhouette
 
 PASS = 0.92
 MAX_ROT = 3.0
+# parts that are round about the vertical: their silhouette hardly depends on the camera's azimuth, only on its
+# elevation, and the image model drew the base from a steeper angle than the sheet camera. For these the fit also
+# searches the elevation (the sheet's azimuth kept), and the bake projects along the direction found.
+ROUND = {"B"}
+ELEVATIONS = range(-8, 13)  # degrees from the sheet's own elevation
 
 
 def matrix(s, th, tx, ty, c):
@@ -70,16 +75,29 @@ if __name__ == "__main__":
     out = {}
     for view in ("front", "back"):
         for label in PARTS:
-            sil = silhouette(part_meshes(sc, label), view)
             rgba = cv2.imread(os.path.join(WORK, f"paint-{view}-{label}.png"), cv2.IMREAD_UNCHANGED)
             alpha = rgba[..., 3].astype(np.float32) / 255
-            v, u, c = fit(sil, alpha)
+            d0 = VIEWS[view]
+            dirs = [d0]
+            if label in ROUND:
+                h = np.hypot(d0[0], d0[2]); el0 = np.degrees(np.arctan2(d0[1], h))
+                dirs = [np.array([d0[0], h * np.tan(np.radians(el0 + k)), d0[2]]) for k in ELEVATIONS]
+            tries = []
+            for d in dirs:
+                sil = silhouette(part_meshes(sc, label), d)
+                v, u, c = fit(sil, alpha)
+                tries.append((u, d, v, c, sil))
+            u, d, v, c, sil = max(tries, key=lambda t: t[0])
+            sheet_iou = next(t[0] for t in tries if np.allclose(t[1], d0))
+            el = float(np.degrees(np.arctan2(d[1], np.hypot(d[0], d[2]))))
             M = matrix(*v, c)
-            out[f"{view}/{label}"] = {"part": PARTS[label][1], "view": view, "label": label, "scale": round(float(v[0]), 5), "rotationDeg": round(float(v[1]), 3),
+            out[f"{view}/{label}"] = {"part": PARTS[label][1], "view": view, "label": label, "cell": f"{label} ({'row %d, column %d' % ('ABCDEFGH'.index(label) // 2 + 1, 'ABCDEFGH'.index(label) % 2 + 1)})",
+                                     "dir": [round(float(x), 5) for x in d], "elevationDeg": round(el, 2), "iouAtSheetCamera": round(sheet_iou, 4),
+                                     "scale": round(float(v[0]), 5), "rotationDeg": round(float(v[1]), 3),
                                      "tx": round(float(v[2]), 2), "ty": round(float(v[3]), 2), "centroid": [round(float(x), 2) for x in c],
                                      "matrix": M.round(6).tolist(), "iou": round(u, 4), "pass": u >= PASS}
             w = warp(alpha, M, KIT_CELL) > 0.5
             vis = np.dstack([np.zeros_like(sil), w * 255, (sil > 0.5) * 255]).astype(np.uint8)
             cv2.imwrite(os.path.join(WORK, f"fit-{view}-{label}.png"), vis)
-            print(view, label, PARTS[label][1].ljust(12), "IoU", round(u, 4), "PASS" if u >= PASS else "FLAG (< 0.92, not projected)", f"s={v[0]:.3f} rot={v[1]:.2f}")
+            print(view, label, PARTS[label][1].ljust(12), "IoU", round(u, 4), f"(sheet camera {sheet_iou:.4f}, elevation {el:.1f})", "PASS" if u >= PASS else "FLAG (< 0.92, not projected)", f"s={v[0]:.3f} rot={v[1]:.2f}")
     json.dump(out, open(os.path.join(WORK, "fit.json"), "w"), indent=2)

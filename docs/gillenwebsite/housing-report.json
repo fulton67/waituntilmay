@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3228",
-  "at": "2026-11-04T04:51:35.832Z",
+  "at": "2026-11-04T05:21:58.733Z",
   "iou": [
     {
       "part": "frame",
@@ -11,7 +11,7 @@
     {
       "part": "base",
       "view": "front",
-      "iou": 0.7257,
+      "iou": 0.7752,
       "pass": false
     },
     {
@@ -47,8 +47,8 @@
     {
       "part": "base",
       "view": "back",
-      "iou": 0.896,
-      "pass": false
+      "iou": 0.9832,
+      "pass": true
     },
     {
       "part": "side_right",
@@ -87,8 +87,11 @@
     },
     {
       "part": "base",
-      "baked": false,
-      "why": "no view passed the fit (IoU < 0.92 in both): left on its previous material"
+      "views": [
+        "back"
+      ],
+      "projectedPct": 35.1,
+      "tilePct": 64.9
     },
     {
       "part": "side_right",
@@ -134,6 +137,19 @@
       "gpuMB": 12,
       "rustPct": 38.2,
       "roughMedian": 0.467,
+      "metalMedian": 0.7,
+      "normalStrength": 0.5
+    },
+    "B": {
+      "part": "base",
+      "file": "base",
+      "kind": "metal",
+      "albedo": 768,
+      "rm": 512,
+      "normal": 256,
+      "gpuMB": 4.67,
+      "rustPct": 4.4,
+      "roughMedian": 0.45,
       "metalMedian": 0.7,
       "normalStrength": 0.5
     },
@@ -196,11 +212,11 @@
       "runtime": 512,
       "gpuMB": 1.33
     },
-    "gpuMBAdded": 34.33
+    "gpuMBAdded": 39
   },
   "textureMBAdded": {
-    "measuredInPage": 34.33,
-    "computed": 34.33,
+    "measuredInPage": 39,
+    "computed": 39,
     "target": 40,
     "pass": true
   },
@@ -216,16 +232,16 @@
   "fps": {
     "desktop": {
       "throttle": 1,
-      "mean": 58.2,
-      "min500msWindow": 50.3,
+      "mean": 58.3,
+      "min500msWindow": 50,
       "slowestFrameMs": 100,
       "pass": false
     },
     "phone": {
       "throttle": 4,
-      "mean": 58.4,
+      "mean": 59,
       "min500msWindow": 52.3,
-      "slowestFrameMs": 66.6,
+      "slowestFrameMs": 50,
       "pass": true
     }
   }
