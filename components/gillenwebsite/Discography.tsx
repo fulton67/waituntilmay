@@ -1,13 +1,16 @@
 "use client";
 // /gillenwebsite/discography: the plain, complete list. All 36 releases in discography.json order, newest first.
-// Hovering a row (desktop), or scrolling it to the middle of the screen (phones), expands its cover in place
-// (expand.ts). A tap on a row opens the release in the record view (VinylView.tsx), from the row's cover. Same
+// Hovering a row (desktop) expands its cover in place over its neighbours (expand.ts). On phones the row nearest the
+// middle of the screen grows within itself to hold its cover as a square ~40% of the screen wide. A tap on a row opens the release in the record view (VinylView.tsx), from the row's cover. Same
 // document throughout: no route change, only the hash is replaced.
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { rolesOf, caps, no3 } from "./shared";
 import { usePanel } from "./Chrome";
 import { makeExpander } from "./expand";
+
+// phones: the active row's height change (site.module.css .discoItem[data-active])
+const ROW_MS = 200;
 import Cover from "./Cover";
 import css from "./site.module.css";
 
@@ -60,14 +63,25 @@ export default function Discography({ releases }: { releases: Release[] }) {
       }
       const id = best?.dataset.id ?? null;
       if (id === active) return;
-      if (active) e.shrink(active, true);
+      // phones: the cover grows inside its own row (data-active, site.module.css), the row taller to fit; the rows
+      // above it change height, so the page is scrolled along with them for the length of the change
+      el.querySelector(`li[data-active]`)?.removeAttribute("data-active");
       active = id;
-      if (best) e.grow(best);
+      if (!best) return;
+      best.setAttribute("data-active", "");
+      // its middle is held where it was, so it stays the row nearest the middle of the screen as it grows
+      const mid = (r: DOMRect) => r.top + r.height / 2, y0 = mid(best.getBoundingClientRect()), t0 = performance.now();
+      const hold = () => {
+        const dy = mid(best!.getBoundingClientRect()) - y0;
+        if (Math.abs(dy) > 0.5) scrollBy(0, dy);
+        if (performance.now() - t0 < ROW_MS + 80) requestAnimationFrame(hold);
+      };
+      requestAnimationFrame(hold);
     };
     const onScroll = () => { clearTimeout(idle); idle = window.setTimeout(pick, 80); };
     const onDown = () => { touching = true; clearTimeout(idle); };
     const onUp = () => { touching = false; onScroll(); };
-    const onResize = () => { e.reset(); active = null; hovered.current = null; pick(); };
+    const onResize = () => { e.reset(); el.querySelector("li[data-active]")?.removeAttribute("data-active"); active = null; hovered.current = null; pick(); };
     addEventListener("scroll", onScroll, { passive: true });
     addEventListener("scrollend", pick);
     addEventListener("touchstart", onDown, { passive: true });
@@ -77,7 +91,7 @@ export default function Discography({ releases }: { releases: Release[] }) {
     // the first active row once the covers have laid out
     const first = window.setTimeout(pick, 300);
     // measurement hook (scripts/gillenwebsite/expand.mjs)
-    (window as unknown as { __disco: unknown }).__disco = { open: () => e.open(), log: () => log, active: () => active };
+    (window as unknown as { __disco: unknown }).__disco = { open: () => (phone() ? el.querySelectorAll("li[data-active]").length : e.open()), log: () => log, active: () => active };
     return () => {
       clearTimeout(idle); clearTimeout(first);
       removeEventListener("scroll", onScroll); removeEventListener("scrollend", pick);

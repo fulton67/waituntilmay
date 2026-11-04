@@ -8,7 +8,8 @@
 //   - the open cover is 60% of the viewport high
 //  phone 390 x 844 DPR 3, touch:
 //   - 24 scroll positions (touch drags): after each, exactly one row is expanded, and it is the row nearest the
-//     middle of the screen; while the finger is still down mid-drag, the expanded row does not change
+//     middle of the screen; its cover is ~40% of the viewport wide and inside its own row, and no row overlaps the
+//     next; while the finger is still down mid-drag, the expanded row does not change
 //   - a tap opens the record view
 //  both: CLS over everything (layout-shift entries) = 0
 //   node scripts/gillenwebsite/expand.mjs [base-url] [--out file]
@@ -84,7 +85,14 @@ const cls = (page) => page.evaluate(() => { window.__cls = 0; new PerformanceObs
     const active = window.__disco.active();
     let best = null, bd = Infinity;
     for (const li of document.querySelectorAll("li[data-id]")) { const r = li.getBoundingClientRect(), d = Math.abs(r.top + r.height / 2 - innerHeight / 2); if (d < bd) { bd = d; best = li.dataset.id; } }
-    return { open: window.__disco.open(), active, nearest: best, scrollY };
+    // the active row's cover on screen, and every visible row against the next: no overlap
+    const li = active && document.querySelector(`li[data-id="${active}"]`), clip = li?.querySelector("[data-clip]")?.getBoundingClientRect();
+    const rows = [...document.querySelectorAll("li[data-id]")].map((x) => x.getBoundingClientRect()).filter((r) => r.bottom > 0 && r.top < innerHeight);
+    let overlap = 0;
+    for (let i = 1; i < rows.length; i++) overlap = Math.max(overlap, rows[i - 1].bottom - rows[i].top);
+    const lr = li?.getBoundingClientRect();
+    const inRow = clip && lr ? clip.top >= lr.top - 0.5 && clip.bottom <= lr.bottom + 0.5 : false;
+    return { open: window.__disco.open(), active, nearest: best, scrollY, coverW: clip ? +clip.width.toFixed(1) : 0, coverH: clip ? +clip.height.toFixed(1) : 0, overlapPx: +overlap.toFixed(2), inRow, layers: document.querySelectorAll("[data-exp-layers] > div").length };
   });
   const drag = async (dy, release = true) => {
     const x = 195, y0 = 600;
@@ -107,13 +115,15 @@ const cls = (page) => page.evaluate(() => { window.__cls = 0; new PerformanceObs
   await page.waitForTimeout(600);
   const after = await state();
   const out = {
-    positions: positions.map((s) => ({ scrollY: s.scrollY, open: s.open, active: s.active, nearest: s.nearest })),
+    positions: positions.map((s) => ({ scrollY: s.scrollY, open: s.open, active: s.active, nearest: s.nearest, coverW: s.coverW, coverH: s.coverH, overlapPx: s.overlapPx, inRow: s.inRow })),
+    coverWidthPx: [...new Set(positions.map((s) => s.coverW))], coverWidthOfViewport: +(positions[0].coverW / 390).toFixed(3),
+    noOverlap: positions.every((s) => s.overlapPx <= 0.5 && s.inRow && s.layers === 0),
     exactlyOneEverywhere: positions.every((s) => s.open === 1),
     activeIsNearest: positions.every((s) => s.active === s.nearest),
     fingerDown: { before: before.active, during: during.active, after: after.active, scrolled: during.scrollY !== before.scrollY },
   };
   out.fingerDown.pass = out.fingerDown.before === out.fingerDown.during && out.fingerDown.scrolled;
-  out.pass = out.exactlyOneEverywhere && out.activeIsNearest && out.fingerDown.pass;
+  out.pass = out.exactlyOneEverywhere && out.activeIsNearest && out.fingerDown.pass && out.noOverlap && Math.abs(out.coverWidthOfViewport - 0.4) < 0.03;
   out.cls = await page.evaluate(() => window.__cls);
   await page.screenshot({ path: "docs/gillenwebsite/expand-390.png" });
   // a tap opens the record view
@@ -122,7 +132,7 @@ const cls = (page) => page.evaluate(() => { window.__cls = 0; new PerformanceObs
   await page.waitForTimeout(900);
   out.tapOpens = await page.evaluate(() => window.__vinyl?.state());
   report.phone = out;
-  console.log("phone", JSON.stringify({ exactlyOne: out.exactlyOneEverywhere, activeIsNearest: out.activeIsNearest, fingerDown: out.fingerDown, cls: out.cls, tap: out.tapOpens }));
+  console.log("phone", JSON.stringify({ coverW: out.coverWidthPx, ofViewport: out.coverWidthOfViewport, noOverlap: out.noOverlap, exactlyOne: out.exactlyOneEverywhere, activeIsNearest: out.activeIsNearest, fingerDown: out.fingerDown, cls: out.cls, tap: out.tapOpens }));
   await ctx.close();
 }
 report.clsPass = report.desktop.cls === 0 && report.phone.cls === 0;

@@ -276,6 +276,13 @@
 .vvTrack { display: grid; grid-template-columns: 32px auto; gap: 0.25rem; padding: 4px 0; font-variant-numeric: tabular-nums; }
 .vvCollab { display: flex; flex-direction: column; gap: 4px; border-top: 0.5px solid var(--ink); padding-top: 8px; }
 .vvControls { display: flex; gap: 18px; margin-top: auto; padding-top: 12px; }
+/* phones: the discography's active row (Discography.tsx, data-active) grows to hold its cover as a square the width
+   of the cover column, 40vw; nothing overlaps another row */
+@media (max-width: 719px) {
+  .discoRow { grid-template-columns: 1fr calc(40vw + 0.5rem); transition: height 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), max-height 0.2s cubic-bezier(0.215, 0.61, 0.355, 1); }
+  .discoItem[data-active] .discoRow { height: 40vw; max-height: 40vw; }
+  .discoItem[data-active] .slice, .discoItem[data-active] .sliceClip { height: 100%; }
+}
 @media (max-width: 719px) {
   .vvInfo { top: calc(var(--head) + 62vw + 8px); left: 0; width: auto; padding: 0 16px 24px; font-size: 15px; }
   .vvInfo .vvDylan { font-size: 32px !important; }
