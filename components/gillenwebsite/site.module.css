@@ -158,7 +158,7 @@
 
 /* SOURCES #22 brian-eno.net: 66.66% / 33.33%; rows 1.25rem; 1fr 1fr; text 6fr 4.5fr 1fr, .25rem gap and padding */
 .disco { display: grid; grid-template-columns: 66.66% 33.33%; padding-top: calc(var(--head) + 16px); min-height: 100svh; }
-.discoList { list-style: none; margin: 0; padding: 0 0 64px; }
+.discoList { list-style: none; margin: 0; padding: 0 0 64px; position: relative; }
 .discoItem { display: block; }
 .discoRow { display: grid !important; grid-template-columns: 1fr 1fr; height: 20px; max-height: 1.25rem; overflow: hidden; }
 .leftColumn { display: grid; grid-template-columns: 6fr 4.5fr 1fr; gap: 0.25rem; padding-left: 0.25rem; padding-right: 0.25rem; align-items: center; height: 20px; min-width: 0; }
@@ -174,17 +174,6 @@
 .sliceClip { position: relative; display: block; height: 20px; overflow: hidden; transform-origin: 0 0; }
 .sliceImg { position: absolute; left: 0; top: 50%; width: 100%; height: auto; aspect-ratio: 1; margin-top: -50%; display: block; transform-origin: 50% 50%; }
 /* expanded: the active row lets its cover out, everything else on the page fades (opacity only) */
-.discoItem, .discoSide, .leftColumn { transition: opacity 0.2s ease; }
-.discoOpen .discoItem:not(.discoActive), .discoOpen .discoSide, .discoOpen .discoActive .leftColumn { opacity: 0; transition-duration: 0.24s; pointer-events: none; }
-.discoActive .discoRow, .discoActive .slice { overflow: visible; }
-.discoActive .sliceClip { z-index: 70; }
-.expShade { position: fixed; inset: 0; z-index: 65; }
-.expInfo {
-  position: fixed; z-index: 68; left: 0; right: 0; top: 100vw; bottom: 0; padding: 16px; overflow: auto; overscroll-behavior: contain;
-  display: flex; flex-direction: column; gap: 6px; background: var(--ground);
-}
-@media (min-width: 720px) { .expInfo { left: calc(min(100vh, 100vw - 360px) + 24px); right: 20px; top: calc(var(--head) + 16px); padding: 0 0 24px; max-width: 420px; background: none; } }
-.expClose { align-self: flex-start; margin-top: 12px; padding: 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; }
 .sliceBlank { display: block; height: 20px; background: #eee; }
 .discoSide { position: sticky; top: calc(var(--head) + 16px); align-self: start; padding: 0 20px; display: grid; gap: 14px; }
 /* SOURCES #23 viscosesyllabus a.filters */
@@ -263,7 +252,6 @@
   .indexLines { display: none; }
 }
 /* an open row's underline is gone at once: its fade-out would run past the 240 ms expand under a still pointer */
-.discoOpen .discoTitleText::after { opacity: 0; transition: none; }
 
 /* SOURCES #12 the record view (VinylView.tsx): over everything, closed until .vvOn. (.vvInfo .x beats .root p's
    font-size: inherit.) The veil dims what is behind it

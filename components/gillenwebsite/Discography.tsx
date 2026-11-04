@@ -1,11 +1,13 @@
 "use client";
 // /gillenwebsite/discography: the plain, complete list. All 36 releases in discography.json order, newest first.
-// A tap on a row opens the release in the record view (VinylView.tsx), from the row's cover. Same document
-// throughout: no route change, only the hash is replaced.
+// Hovering a row (desktop), or scrolling it to the middle of the screen (phones), expands its cover in place
+// (expand.ts). A tap on a row opens the release in the record view (VinylView.tsx), from the row's cover. Same
+// document throughout: no route change, only the hash is replaced.
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { rolesOf, caps, no3 } from "./shared";
 import { usePanel } from "./Chrome";
+import { makeExpander } from "./expand";
 import Cover from "./Cover";
 import css from "./site.module.css";
 
@@ -36,6 +38,73 @@ export default function Discography({ releases }: { releases: Release[] }) {
   // a tap on a row opens the record view (VinylView.tsx), the closed sleeve starting on the row's cover
   const { open } = usePanel();
   const list = useRef<HTMLOListElement>(null);
+  // ---- covers expanding in place ----
+  const exp = useRef<ReturnType<typeof makeExpander> | null>(null);
+  const hovered = useRef<string | null>(null);
+  useEffect(() => {
+    const el = list.current;
+    if (!el) return;
+    const log: { id: string; dir: string; ms: number }[] = [];
+    const e = (exp.current = makeExpander(el, releases, (x) => log.push(x)));
+    // phones: the row nearest the middle of the screen is the active one. It changes only once the page rests
+    // (scrollend, or 80 ms with no scroll), never while a finger is down, so the open cover does not jump under it
+    let active: string | null = null, idle = 0, touching = false;
+    const phone = () => innerWidth < 720;
+    const pick = () => {
+      if (!phone() || touching) return;
+      let best: HTMLElement | null = null, bd = Infinity;
+      for (const li of el.querySelectorAll<HTMLElement>("li[data-id]")) {
+        if (li.style.display === "none") continue;
+        const r = li.getBoundingClientRect(), d = Math.abs(r.top + r.height / 2 - innerHeight / 2);
+        if (d < bd) { bd = d; best = li; }
+      }
+      const id = best?.dataset.id ?? null;
+      if (id === active) return;
+      if (active) e.shrink(active, true);
+      active = id;
+      if (best) e.grow(best);
+    };
+    const onScroll = () => { clearTimeout(idle); idle = window.setTimeout(pick, 80); };
+    const onDown = () => { touching = true; clearTimeout(idle); };
+    const onUp = () => { touching = false; onScroll(); };
+    const onResize = () => { e.reset(); active = null; hovered.current = null; pick(); };
+    addEventListener("scroll", onScroll, { passive: true });
+    addEventListener("scrollend", pick);
+    addEventListener("touchstart", onDown, { passive: true });
+    addEventListener("touchend", onUp, { passive: true });
+    addEventListener("touchcancel", onUp, { passive: true });
+    addEventListener("resize", onResize);
+    // the first active row once the covers have laid out
+    const first = window.setTimeout(pick, 300);
+    // measurement hook (scripts/gillenwebsite/expand.mjs)
+    (window as unknown as { __disco: unknown }).__disco = { open: () => e.open(), log: () => log, active: () => active };
+    return () => {
+      clearTimeout(idle); clearTimeout(first);
+      removeEventListener("scroll", onScroll); removeEventListener("scrollend", pick);
+      removeEventListener("touchstart", onDown); removeEventListener("touchend", onUp); removeEventListener("touchcancel", onUp);
+      removeEventListener("resize", onResize);
+      e.destroy(); exp.current = null;
+    };
+  }, [releases]);
+  // the list changes order or filter: the open covers' places are stale
+  useEffect(() => { exp.current?.reset(); hovered.current = null; window.dispatchEvent(new Event("scroll")); }, [order, role, artist]);
+  // desktop: the hovered row
+  const enter = (e: React.PointerEvent<HTMLLIElement>) => {
+    if (e.pointerType !== "mouse" || innerWidth < 720) return;
+    const id = e.currentTarget.dataset.id!;
+    if (hovered.current && hovered.current !== id) exp.current?.shrink(hovered.current, true);
+    hovered.current = id;
+    exp.current?.grow(e.currentTarget);
+  };
+  const leave = (e: React.PointerEvent<HTMLLIElement>) => {
+    if (e.pointerType !== "mouse" || innerWidth < 720) return;
+    const id = e.currentTarget.dataset.id!;
+    // leaving a row for the next one: the next row's enter hands off; leaving the list: it shrinks at once
+    const next = (e.relatedTarget as HTMLElement | null)?.closest?.("li[data-id]");
+    if (hovered.current === id) hovered.current = null;
+    exp.current?.shrink(id, !!next);
+  };
+
   // a #<release-id> on arrival opens that release
   useEffect(() => {
     const i = releases.findIndex((r) => r.id === decodeURIComponent(location.hash.slice(1)));
@@ -49,12 +118,12 @@ export default function Discography({ releases }: { releases: Release[] }) {
         {rows.map(({ r, i }) => {
           const hide = (role && !rolesOf(r).includes(role)) || (artist && r.artist !== artist);
           return (
-            <li key={r.id} data-id={r.id} className={css.discoItem} data-target={r.release} data-role={rolesOf(r).join("|")} data-artist={r.artist} style={hide ? { display: "none" } : undefined}>
+            <li key={r.id} data-id={r.id} className={css.discoItem} onPointerEnter={enter} onPointerLeave={leave} data-target={r.release} data-role={rolesOf(r).join("|")} data-artist={r.artist} style={hide ? { display: "none" } : undefined}>
               <a
                 href={`#${r.id}`}
                 className={css.discoRow}
                 data-src="22 12"
-                onClick={(e) => { e.preventDefault(); open(i, e.currentTarget.querySelector<HTMLElement>("[data-clip]")); }}
+                onClick={(e) => { e.preventDefault(); open(i, exp.current?.layerOf(r.id) ?? e.currentTarget.querySelector<HTMLElement>("[data-clip]")); }}
               >
                 {/* the text column: 6fr 4.5fr 1fr, title | collaborators and role | year */}
                 <span className={css.leftColumn}>
@@ -62,8 +131,8 @@ export default function Discography({ releases }: { releases: Release[] }) {
                   <span className={css.discoWho}>{caps(r.artist)} · {caps(r.role)}</span>
                   <span className={css.discoYear}>{r.year}</span>
                 </span>
-                {/* the cover as a 20 px slice through its middle; the clip box is what grows when the row opens. The slice
-                    is half the list column (a third of the screen on desktop, half on phones); open, it is the 3000 file */}
+                {/* the cover as a 20 px slice through its middle, half the list column (a third of the screen on desktop,
+                    half on phones); expanded, a layer over the list grows out of it (expand.ts) */}
                 <span className={css.slice}>
                   <span className={css.sliceClip} data-clip>
                     {r.cover ? <Cover r={r} className={css.sliceImg} sizes="(min-width: 720px) calc(33.33vw - 8px), calc(50vw - 8px)" /> : <span className={css.sliceBlank} />}

@@ -1,0 +1,225 @@
+{
+  "base": "http://localhost:3228",
+  "at": "2026-11-04T04:30:31.879Z",
+  "desktop": {
+    "hover": {
+      "motionMs": {
+        "in": [
+          183,
+          183,
+          183
+        ],
+        "out": [
+          233,
+          233,
+          233
+        ]
+      },
+      "inputToEndMs": {
+        "in": [
+          181,
+          216,
+          216
+        ],
+        "out": [
+          266,
+          267,
+          267
+        ]
+      },
+      "startLatencyMs": [
+        -3,
+        32,
+        32,
+        32,
+        32,
+        33
+      ],
+      "animationDurations": [
+        180
+      ],
+      "props": [
+        "transform"
+      ],
+      "openHeightPx": [
+        540,
+        540,
+        540
+      ],
+      "target": {
+        "in": 180,
+        "out": 220,
+        "height": 540
+      },
+      "pass": true
+    },
+    "crossfade": {
+      "frames": 100,
+      "smallestLargestCoverPx": 494,
+      "sliceHeightPx": 20,
+      "pass": true
+    },
+    "cls": 0
+  },
+  "phone": {
+    "positions": [
+      {
+        "scrollY": 22,
+        "open": 1,
+        "active": "08-lucy-park-good-graces",
+        "nearest": "08-lucy-park-good-graces"
+      },
+      {
+        "scrollY": 55,
+        "open": 1,
+        "active": "10-doja-cat-vie",
+        "nearest": "10-doja-cat-vie"
+      },
+      {
+        "scrollY": 99,
+        "open": 1,
+        "active": "12-sza-sos-deluxe-lana",
+        "nearest": "12-sza-sos-deluxe-lana"
+      },
+      {
+        "scrollY": 121,
+        "open": 1,
+        "active": "13-gossip-real-power",
+        "nearest": "13-gossip-real-power"
+      },
+      {
+        "scrollY": 154,
+        "open": 1,
+        "active": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
+        "nearest": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you"
+      },
+      {
+        "scrollY": 198,
+        "open": 1,
+        "active": "17-brockhampton-tm",
+        "nearest": "17-brockhampton-tm"
+      },
+      {
+        "scrollY": 220,
+        "open": 1,
+        "active": "18-red-hot-chili-peppers-unlimited-love",
+        "nearest": "18-red-hot-chili-peppers-unlimited-love"
+      },
+      {
+        "scrollY": 253,
+        "open": 1,
+        "active": "20-sza-sos",
+        "nearest": "20-sza-sos"
+      },
+      {
+        "scrollY": 297,
+        "open": 1,
+        "active": "22-run-the-jewels-rtj-cu4tro",
+        "nearest": "22-run-the-jewels-rtj-cu4tro"
+      },
+      {
+        "scrollY": 319,
+        "open": 1,
+        "active": "23-imagine-dragons-mercury-acts-1-and-2",
+        "nearest": "23-imagine-dragons-mercury-acts-1-and-2"
+      },
+      {
+        "scrollY": 341,
+        "open": 1,
+        "active": "24-jovanotti-il-boom",
+        "nearest": "24-jovanotti-il-boom"
+      },
+      {
+        "scrollY": 341,
+        "open": 1,
+        "active": "24-jovanotti-il-boom",
+        "nearest": "24-jovanotti-il-boom"
+      },
+      {
+        "scrollY": 341,
+        "open": 1,
+        "active": "24-jovanotti-il-boom",
+        "nearest": "24-jovanotti-il-boom"
+      },
+      {
+        "scrollY": 341,
+        "open": 1,
+        "active": "24-jovanotti-il-boom",
+        "nearest": "24-jovanotti-il-boom"
+      },
+      {
+        "scrollY": 341,
+        "open": 1,
+        "active": "24-jovanotti-il-boom",
+        "nearest": "24-jovanotti-il-boom"
+      },
+      {
+        "scrollY": 341,
+        "open": 1,
+        "active": "24-jovanotti-il-boom",
+        "nearest": "24-jovanotti-il-boom"
+      },
+      {
+        "scrollY": 295,
+        "open": 1,
+        "active": "22-run-the-jewels-rtj-cu4tro",
+        "nearest": "22-run-the-jewels-rtj-cu4tro"
+      },
+      {
+        "scrollY": 249,
+        "open": 1,
+        "active": "19-rex-orange-county-threat",
+        "nearest": "19-rex-orange-county-threat"
+      },
+      {
+        "scrollY": 203,
+        "open": 1,
+        "active": "17-brockhampton-tm",
+        "nearest": "17-brockhampton-tm"
+      },
+      {
+        "scrollY": 157,
+        "open": 1,
+        "active": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
+        "nearest": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you"
+      },
+      {
+        "scrollY": 111,
+        "open": 1,
+        "active": "12-sza-sos-deluxe-lana",
+        "nearest": "12-sza-sos-deluxe-lana"
+      },
+      {
+        "scrollY": 65,
+        "open": 1,
+        "active": "10-doja-cat-vie",
+        "nearest": "10-doja-cat-vie"
+      },
+      {
+        "scrollY": 19,
+        "open": 1,
+        "active": "08-lucy-park-good-graces",
+        "nearest": "08-lucy-park-good-graces"
+      },
+      {
+        "scrollY": 0,
+        "open": 1,
+        "active": "07-obongjayar-paradise-now-and-forever",
+        "nearest": "07-obongjayar-paradise-now-and-forever"
+      }
+    ],
+    "exactlyOneEverywhere": true,
+    "activeIsNearest": true,
+    "fingerDown": {
+      "before": "07-obongjayar-paradise-now-and-forever",
+      "during": "07-obongjayar-paradise-now-and-forever",
+      "after": "11-don-toliver-doja-cat-f1-the-album",
+      "scrolled": true,
+      "pass": true
+    },
+    "pass": true,
+    "cls": 0,
+    "tapOpens": "open"
+  },
+  "clsPass": true
+}
