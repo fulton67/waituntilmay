@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3228",
-  "at": "2026-11-04T05:28:21.187Z",
+  "at": "2026-11-04T05:35:00.818Z",
   "profiles": {
     "desktop": {
       "viewport": "1440x900@2",
@@ -18,56 +18,56 @@
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -1.0471975511965976,
+          "a": -0.9889035548457776,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.4434609527920625,
+          "a": -2.443460952792063,
           "spinning": false
         },
         {
           "at": "open again",
           "s": 1,
           "g": 1,
-          "a": -3.49030943763892,
+          "a": -3.4899603721214167,
           "spinning": true
         },
         {
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -0.9885544876637978,
+          "a": -0.9882054229785322,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.384119758224254,
+          "a": -2.3848178900915005,
           "spinning": false
         },
         {
           "at": "open again",
           "s": 1,
           "g": 1,
-          "a": -3.612831551628263,
+          "a": -3.374070510454783,
           "spinning": true
         },
         {
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -0.9892526195310433,
+          "a": -1.0468484856790943,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.3848178900915,
+          "a": -2.443460952792063,
           "spinning": false
         }
       ],
@@ -75,13 +75,41 @@
         {
           "dir": "open",
           "ms": 663,
-          "frames": 41,
-          "fps": 61.3,
-          "worstMs": 21
+          "frames": 37,
+          "fps": 55.5,
+          "worstMs": 87
         },
         {
           "dir": "toCover",
+          "ms": 409,
+          "frames": 25,
+          "fps": 60,
+          "worstMs": 17
+        },
+        {
+          "dir": "toOpen",
           "ms": 403,
+          "frames": 25,
+          "fps": 60,
+          "worstMs": 17
+        },
+        {
+          "dir": "close",
+          "ms": 502,
+          "frames": 31,
+          "fps": 60,
+          "worstMs": 18
+        },
+        {
+          "dir": "open",
+          "ms": 666,
+          "frames": 42,
+          "fps": 62.3,
+          "worstMs": 17
+        },
+        {
+          "dir": "toCover",
+          "ms": 405,
           "frames": 25,
           "fps": 60,
           "worstMs": 17
@@ -95,83 +123,55 @@
         },
         {
           "dir": "close",
-          "ms": 512,
+          "ms": 507,
           "frames": 31,
           "fps": 60,
           "worstMs": 17
         },
         {
           "dir": "open",
-          "ms": 666,
+          "ms": 658,
           "frames": 42,
-          "fps": 62.3,
-          "worstMs": 18
+          "fps": 62.8,
+          "worstMs": 17
         },
         {
           "dir": "toCover",
           "ms": 403,
           "frames": 25,
-          "fps": 59.7,
-          "worstMs": 18
-        },
-        {
-          "dir": "toOpen",
-          "ms": 406,
-          "frames": 25,
           "fps": 59.9,
-          "worstMs": 18
-        },
-        {
-          "dir": "close",
-          "ms": 504,
-          "frames": 31,
-          "fps": 59.9,
-          "worstMs": 18
-        },
-        {
-          "dir": "open",
-          "ms": 663,
-          "frames": 42,
-          "fps": 62.6,
-          "worstMs": 17
-        },
-        {
-          "dir": "toCover",
-          "ms": 417,
-          "frames": 26,
-          "fps": 60.1,
           "worstMs": 17
         },
         {
           "dir": "close",
-          "ms": 510,
+          "ms": 515,
           "frames": 31,
-          "fps": 60,
-          "worstMs": 17
+          "fps": 59.9,
+          "worstMs": 20
         }
       ],
       "transition": {
         "openMs": [
           663,
           666,
-          663
+          658
         ],
         "toCoverMs": [
-          403,
-          403,
-          417
+          409,
+          405,
+          403
         ],
         "toOpenMs": [
-          411,
-          406
+          403,
+          411
         ],
         "closeMs": [
-          512,
-          504,
-          510
+          502,
+          507,
+          515
         ],
-        "minFps": 59.7,
-        "worstFrameMs": 21,
+        "minFps": 55.5,
+        "worstFrameMs": 87,
         "target": {
           "open": 650,
           "toCover": 400,
@@ -181,20 +181,20 @@
         "pass": true
       },
       "travel": {
-        "frames": 344,
+        "frames": 339,
         "pops": 0,
-        "maxStepPerFrame": 0.261,
+        "maxStepPerFrame": 0.264,
         "framesPerSlide": [
           13,
           11,
           12,
           10,
           13,
-          12,
+          11,
           12,
           10,
-          13,
-          12
+          14,
+          11
         ],
         "reversals": 0,
         "spinWhileNotOut": 0,
@@ -203,56 +203,56 @@
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -1.0471975511965976,
+            "a": -0.9889035548457776,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.4434609527920625,
+            "a": -2.443460952792063,
             "spinning": false
           },
           {
             "at": "open again",
             "s": 1,
             "g": 1,
-            "a": -3.49030943763892,
+            "a": -3.4899603721214167,
             "spinning": true
           },
           {
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -0.9885544876637978,
+            "a": -0.9882054229785322,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.384119758224254,
+            "a": -2.3848178900915005,
             "spinning": false
           },
           {
             "at": "open again",
             "s": 1,
             "g": 1,
-            "a": -3.612831551628263,
+            "a": -3.374070510454783,
             "spinning": true
           },
           {
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -0.9892526195310433,
+            "a": -1.0468484856790943,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.3848178900915,
+            "a": -2.443460952792063,
             "spinning": false
           }
         ],
@@ -262,36 +262,47 @@
       "texels": {
         "front": {
           "texturePx": 2048,
-          "screenPx": 678.8,
+          "screenPx": 679.1,
           "ratio": 3.02
         },
         "back": {
           "texturePx": 2048,
-          "screenPx": 615,
-          "ratio": 3.33
+          "screenPx": 614,
+          "ratio": 3.34
         },
         "label": {
           "texturePx": 2048,
-          "screenPx": 147.1,
-          "ratio": 13.92
+          "screenPx": 147.2,
+          "ratio": 13.91
         },
         "pass": true
       },
       "type": {
-        "artist": 48,
-        "release": 24,
-        "small": 16,
-        "track": 16,
+        "name": {
+          "text": "DYLAN NEUSTADTER",
+          "px": 48,
+          "weight": "700"
+        },
+        "nextLargest": {
+          "text": "PRODUCER",
+          "px": 24,
+          "weight": "400"
+        },
+        "boldOnPage": [
+          "DYLAN NEUSTADTER"
+        ],
         "families": [
           "info, \"info Fallback\", \"Nimbus Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif, \"Nimbus Sans\", \"Helvetica Neue\", Arial, sans-serif"
         ],
-        "weights": [
-          "400"
-        ],
+        "panel": {
+          "nameM": 0.024,
+          "rolesM": 0.0112,
+          "restM": 0.0082
+        },
         "pass": true
       },
       "spin": {
-        "radPerS": 3.484,
+        "radPerS": 3.461,
         "target": 3.491,
         "pass": true
       },
@@ -304,10 +315,10 @@
         "opened": true,
         "opening": {
           "dir": "open",
-          "ms": 662,
-          "frames": 38,
-          "fps": 56.2,
-          "worstMs": 42
+          "ms": 658,
+          "frames": 39,
+          "fps": 58.1,
+          "worstMs": 50
         },
         "pass": true
       }
@@ -328,91 +339,119 @@
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -1.1051424820299147,
+          "a": -0.9896016858807851,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.675938808824811,
+          "a": -2.617644812473991,
           "spinning": false
         },
         {
           "at": "open again",
           "s": 1,
           "g": 1,
-          "a": -3.7814303572044663,
+          "a": -3.664493298153085,
           "spinning": true
         },
         {
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -0.9899507513982887,
+          "a": -0.9892526195310433,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.49791522512139,
+          "a": -2.5590017489411907,
           "spinning": false
         },
         {
           "at": "open again",
           "s": 1,
           "g": 1,
-          "a": -3.6058502346202856,
+          "a": -3.6048030364032995,
           "spinning": true
         },
         {
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -1.1068878121141468,
+          "a": -0.9875072911112869,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.6710518874185696,
+          "a": -2.500009620723125,
           "spinning": false
         }
       ],
       "transitions": [
         {
           "dir": "open",
-          "ms": 654,
-          "frames": 37,
-          "fps": 58.3,
-          "worstMs": 45
+          "ms": 657,
+          "frames": 36,
+          "fps": 57.6,
+          "worstMs": 49
         },
         {
           "dir": "toCover",
           "ms": 406,
           "frames": 25,
-          "fps": 59.9,
-          "worstMs": 18
+          "fps": 60,
+          "worstMs": 17
         },
         {
           "dir": "toOpen",
-          "ms": 406,
+          "ms": 404,
           "frames": 25,
           "fps": 60,
-          "worstMs": 38
+          "worstMs": 17
+        },
+        {
+          "dir": "close",
+          "ms": 504,
+          "frames": 31,
+          "fps": 60.3,
+          "worstMs": 17
+        },
+        {
+          "dir": "open",
+          "ms": 654,
+          "frames": 39,
+          "fps": 61.1,
+          "worstMs": 25
+        },
+        {
+          "dir": "toCover",
+          "ms": 412,
+          "frames": 25,
+          "fps": 59.9,
+          "worstMs": 19
+        },
+        {
+          "dir": "toOpen",
+          "ms": 410,
+          "frames": 25,
+          "fps": 59.8,
+          "worstMs": 19
         },
         {
           "dir": "close",
           "ms": 511,
           "frames": 31,
-          "fps": 60,
+          "fps": 59.9,
           "worstMs": 18
         },
         {
           "dir": "open",
-          "ms": 657,
+          "ms": 655,
           "frames": 40,
           "fps": 62,
           "worstMs": 20
@@ -421,40 +460,12 @@
           "dir": "toCover",
           "ms": 410,
           "frames": 25,
-          "fps": 59.9,
-          "worstMs": 18
-        },
-        {
-          "dir": "toOpen",
-          "ms": 408,
-          "frames": 25,
-          "fps": 60,
-          "worstMs": 19
-        },
-        {
-          "dir": "close",
-          "ms": 511,
-          "frames": 31,
-          "fps": 60,
-          "worstMs": 19
-        },
-        {
-          "dir": "open",
-          "ms": 652,
-          "frames": 40,
-          "fps": 62,
-          "worstMs": 19
-        },
-        {
-          "dir": "toCover",
-          "ms": 412,
-          "frames": 25,
-          "fps": 59.9,
+          "fps": 59.8,
           "worstMs": 18
         },
         {
           "dir": "close",
-          "ms": 507,
+          "ms": 508,
           "frames": 31,
           "fps": 59.9,
           "worstMs": 19
@@ -462,26 +473,26 @@
       ],
       "transition": {
         "openMs": [
-          654,
           657,
-          652
+          654,
+          655
         ],
         "toCoverMs": [
           406,
-          410,
-          412
+          412,
+          410
         ],
         "toOpenMs": [
-          406,
-          408
+          404,
+          410
         ],
         "closeMs": [
+          504,
           511,
-          511,
-          507
+          508
         ],
-        "minFps": 58.3,
-        "worstFrameMs": 45,
+        "minFps": 57.6,
+        "worstFrameMs": 49,
         "target": {
           "open": 650,
           "toCover": 400,
@@ -491,9 +502,9 @@
         "pass": true
       },
       "travel": {
-        "frames": 335,
+        "frames": 333,
         "pops": 0,
-        "maxStepPerFrame": 0.273,
+        "maxStepPerFrame": 0.272,
         "framesPerSlide": [
           14,
           11,
@@ -503,7 +514,7 @@
           11,
           12,
           10,
-          13,
+          14,
           11
         ],
         "reversals": 0,
@@ -513,56 +524,56 @@
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -1.1051424820299147,
+            "a": -0.9896016858807851,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.675938808824811,
+            "a": -2.617644812473991,
             "spinning": false
           },
           {
             "at": "open again",
             "s": 1,
             "g": 1,
-            "a": -3.7814303572044663,
+            "a": -3.664493298153085,
             "spinning": true
           },
           {
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -0.9899507513982887,
+            "a": -0.9892526195310433,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.49791522512139,
+            "a": -2.5590017489411907,
             "spinning": false
           },
           {
             "at": "open again",
             "s": 1,
             "g": 1,
-            "a": -3.6058502346202856,
+            "a": -3.6048030364032995,
             "spinning": true
           },
           {
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -1.1068878121141468,
+            "a": -0.9875072911112869,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.6710518874185696,
+            "a": -2.500009620723125,
             "spinning": false
           }
         ],
@@ -572,36 +583,47 @@
       "texels": {
         "front": {
           "texturePx": 2048,
-          "screenPx": 310.2,
-          "ratio": 6.6
+          "screenPx": 307.7,
+          "ratio": 6.66
         },
         "back": {
           "texturePx": 2048,
-          "screenPx": 271.7,
-          "ratio": 7.54
+          "screenPx": 269.2,
+          "ratio": 7.61
         },
         "label": {
           "texturePx": 2048,
-          "screenPx": 60.1,
-          "ratio": 34.07
+          "screenPx": 62.6,
+          "ratio": 32.7
         },
         "pass": true
       },
       "type": {
-        "artist": 32,
-        "release": 20,
-        "small": 15,
-        "track": 15,
+        "name": {
+          "text": "DYLAN NEUSTADTER",
+          "px": 32,
+          "weight": "700"
+        },
+        "nextLargest": {
+          "text": "PRODUCER",
+          "px": 20,
+          "weight": "400"
+        },
+        "boldOnPage": [
+          "DYLAN NEUSTADTER"
+        ],
         "families": [
           "info, \"info Fallback\", \"Nimbus Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif, \"Nimbus Sans\", \"Helvetica Neue\", Arial, sans-serif"
         ],
-        "weights": [
-          "400"
-        ],
+        "panel": {
+          "nameM": 0.024,
+          "rolesM": 0.0112,
+          "restM": 0.0082
+        },
         "pass": true
       },
       "spin": {
-        "radPerS": 3.449,
+        "radPerS": 3.462,
         "target": 3.491,
         "pass": true
       },
@@ -614,10 +636,10 @@
         "opened": true,
         "opening": {
           "dir": "open",
-          "ms": 658,
-          "frames": 40,
-          "fps": 59.4,
-          "worstMs": 33
+          "ms": 667,
+          "frames": 42,
+          "fps": 61.6,
+          "worstMs": 17
         },
         "pass": true
       }

@@ -6,8 +6,8 @@
 //    and spinning when open, fully in and still in the cover state, never turning while not fully out
 //  - the ring's sleeve is hidden while the view is open and drawn again after it closes (rig.lifted)
 //  - texels: front, back and label textures against their faces' device pixels (>= 1)
-//  - type: computed font sizes in the open view (artist 48/32, release 24/20, the rest 16/15) and that every element
-//    in it has one family and weight 400
+//  - type: Dylan's name (48/32 px, weight 700) against the next largest text in the view, the only bold text on the
+//    page, one family; on the credits panel the name's SDF size against the roles' and the rest's
 //  - spin: the record turns at 33 1/3 rpm (measured over 1 s); drag turns the whole record; with
 //    prefers-reduced-motion the record does not spin
 //  - discography: a row click opens the view from the row's cover
@@ -98,15 +98,24 @@ for (const p of PROFILES) {
   out.texels = Object.fromEntries(["front", "back", "label"].map((k) => [k, { texturePx: tx[k].texturePx, screenPx: +tx[k].screenPx.toFixed(1), ratio: +(tx[k].texturePx / tx[k].screenPx).toFixed(2) }]));
   out.texels.pass = ["front", "back", "label"].every((k) => out.texels[k].ratio >= 1);
 
+  // type: Dylan's name against every other text in the view (computed size and weight), and it is the only bold
+  // text on the page; one family throughout
   out.type = await page.evaluate(() => {
-    const info = document.querySelector("[class*=vvInfo]"), px = (sel) => parseFloat(getComputedStyle(info.querySelector(sel)).fontSize);
-    const all = [...info.querySelectorAll("*")].filter((e) => e.childNodes.length && [...e.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()));
+    const info = document.querySelector("[class*=vvInfo]"), name = info.querySelector("[class*=vvDylan]");
+    const texts = [...document.querySelectorAll("body *")].filter((e) => [...e.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()) && e.getClientRects().length);
+    const cs = (e) => getComputedStyle(e);
+    const others = [...info.querySelectorAll("*")].filter((e) => e !== name && texts.includes(e));
+    const next = others.reduce((m, e) => (parseFloat(cs(e).fontSize) > parseFloat(cs(m).fontSize) ? e : m), others[0]);
     return {
-      artist: px("[class*=vvArtist]"), release: px("[class*=vvRelease]"), small: px("[class*=vvSmall]"), track: px("[class*=vvTrack]"),
-      families: [...new Set(all.map((e) => getComputedStyle(e).fontFamily))], weights: [...new Set(all.map((e) => getComputedStyle(e).fontWeight))],
+      name: { text: name.textContent, px: parseFloat(cs(name).fontSize), weight: cs(name).fontWeight },
+      nextLargest: { text: next.textContent.slice(0, 40), px: parseFloat(cs(next).fontSize), weight: cs(next).fontWeight },
+      boldOnPage: texts.filter((e) => +cs(e).fontWeight >= 600).map((e) => e.textContent.slice(0, 40)),
+      families: [...new Set([...info.querySelectorAll("*")].filter((e) => texts.includes(e)).map((e) => cs(e).fontFamily))],
     };
   });
-  out.type.pass = out.type.artist === p.sizes.artist && out.type.release === p.sizes.release && out.type.small === p.sizes.small && out.type.track === p.sizes.small && out.type.families.length === 1 && out.type.weights.join() === "400";
+  out.type.panel = (await page.evaluate(() => window.__vinyl.texels())).credits;
+  out.type.pass = out.type.name.px === p.sizes.artist && out.type.name.weight === "700" && out.type.nextLargest.px < out.type.name.px && out.type.nextLargest.weight === "400"
+    && out.type.boldOnPage.length === 1 && out.type.boldOnPage[0] === "DYLAN NEUSTADTER" && out.type.families.length === 1 && out.type.panel.nameM > out.type.panel.rolesM;
 
   // spin: radians in one second against 33 1/3 rpm (3.49 rad/s)
   const spin = await page.evaluate(async () => {

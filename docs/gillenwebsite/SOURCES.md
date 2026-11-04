@@ -52,7 +52,7 @@ In code, each component carries a `SOURCES #nn` comment that points back to its 
 
 ## Constraints (R-rules; never a source on their own)
 - R1 white ground
-- R2 one weight (400)
+- R2 one weight (400), with one exception (2026-11-04): Dylan Neustadter's name in the record view's credits (the inside panel and the info column, #12) is TeX Gyre Heros Bold (700), the only bold text on the site, so his credit leads
 - R3 no shadows on DOM
 - R4/R5 square, borderless controls, except where the source site draws a border (#08, #23, #24)
 - R7 capitals typed, not transformed
