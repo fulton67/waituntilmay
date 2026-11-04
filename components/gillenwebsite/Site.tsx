@@ -26,6 +26,19 @@ function useCounted(target: number, N: number) {
   return shown;
 }
 
+// the release display beside the Rolodex follows the drum once it rests: while the sleeves flip faster than one per
+// SETTLED_MS it keeps the last one, so a run through the drum does not decode a 2048 cover for every sleeve passed
+const SETTLED_MS = 180;
+function useSettled(front: number) {
+  const [shown, setShown] = useState(front);
+  useEffect(() => {
+    if (shown === front) return;
+    const id = setTimeout(() => setShown(front), rig.reduce ? 0 : SETTLED_MS);
+    return () => clearTimeout(id);
+  }, [front, shown]);
+  return shown;
+}
+
 // SOURCES #29, ad93.ltd S12 (67db9042bba8379f.js:36, 87): after 20 s with no mousemove, keydown, mousedown,
 // touchstart or scroll, count down from 10, one step per 1000 ms, then turn through the releases by themselves
 // until any of those events.
@@ -138,7 +151,7 @@ function Caption({ releases, front, onStep, onOpen, children }: { releases: Rele
   );
 }
 
-export default function Site({ releases, mono }: { releases: Release[]; mono: string }) {
+export default function Site({ releases }: { releases: Release[] }) {
   const N = releases.length;
   const stage = useRef<HTMLDivElement>(null);
   const { open } = usePanel();
@@ -147,6 +160,7 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
   const [ready, setReady] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const counted = useCounted(front, N);
+  const settled = useSettled(front);
   const saver = useScreensaver(N);
 
   // the home page is one fixed stage: no page scroll here (the other pages scroll as usual)
@@ -312,7 +326,7 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
         onPointerUp={onUp}
         onPointerCancel={onCancel}
       >
-        <Scene releases={releases} mono={mono} />
+        <Scene releases={releases} />
         <div ref={hit} className={css.hit} aria-hidden />
       </div>
 
@@ -322,7 +336,7 @@ export default function Site({ releases, mono }: { releases: Release[]; mono: st
       {/* SOURCES #12: the release display beside the Rolodex, on desktop; on phones the panel opens on tap */}
       {wide && r && (
         <div className={css.inlineSlot} data-src="12">
-          <ReleaseView releases={releases} i={front} mode="inline" onPrev={() => step(-1)} onNext={() => step(1)} />
+          <ReleaseView releases={releases} i={settled} mode="inline" onPrev={() => step(-1)} onNext={() => step(1)} />
         </div>
       )}
 

@@ -53,8 +53,9 @@ out.materials = await page.evaluate(() => {
     if (w) { let n = 0; for (let i = 0; i < w.count; i++) if (w.getX(i) > 0.35) n++; worn = n / w.count; }
     res[o.name] = { type: m.type, roughnessMap: map(m.roughnessMap), normalMap: map(m.normalMap), clearcoatRoughnessMap: map(m.clearcoatRoughnessMap), edgeWearVertexShare: worn };
   });
-  const face = window.__rolodex.rig.cards[0].children[0].children[1].material;
-  res.card = { normalMap: face.normalMap ? `${face.normalMap.image.width}x${face.normalMap.image.height} procedural, repeat ${face.normalMap.repeat.x}x${face.normalMap.repeat.y}` : null, map: `${face.map.image.width}x${face.map.image.height} canvas` };
+  // a sleeve: material 0 is its front cover, 1 its back, 2 the spine
+  const face = window.__rolodex.rig.cards[0].children[0].material[0];
+  res.sleeve = { roughness: face.roughness, normalMap: face.normalMap ? `${face.normalMap.image.width}x${face.normalMap.image.height} procedural, repeat ${face.normalMap.repeat.x}x${face.normalMap.repeat.y}` : null, map: `${face.map.image.width}x${face.map.image.height}` };
   return res;
 });
 
@@ -436,14 +437,14 @@ if (want("sync")) {
   await wait(1300);
 }
 
-// Card faces: texture size and anisotropy
+// The front sleeve's covers: texture size and anisotropy (scripts/gillenwebsite/sleeves.mjs measures them against the screen)
 if (want("textures")) {
   out.textures = await page.evaluate(() => {
-    const face = window.__rolodex.rig.cards[0].children[0].children[1].material.map;
-    return { cardFace: { w: face.image.width, h: face.image.height, anisotropy: face.anisotropy }, maxAnisotropy: window.__rolodex.gl.capabilities.getMaxAnisotropy() };
+    const slot = ((Math.round(window.__rolodex.rig.s) % window.__rolodex.rig.TOTAL) + window.__rolodex.rig.TOTAL) % window.__rolodex.rig.TOTAL;
+    const face = window.__rolodex.rig.cards[slot].children[0].material[0].map;
+    return { frontCover: { w: face.image.width, h: face.image.height, anisotropy: face.anisotropy }, maxAnisotropy: window.__rolodex.gl.capabilities.getMaxAnisotropy() };
   });
-  // the paper canvas is 2048 wide at the renderer's full anisotropy (the type and the cover are their own meshes)
-  out.textures.pass = out.textures.cardFace.w === 2048 && out.textures.cardFace.anisotropy === out.textures.maxAnisotropy;
+  out.textures.pass = out.textures.frontCover.w >= 1024 && out.textures.frontCover.anisotropy === out.textures.maxAnisotropy;
 }
 
 // The housing look: 7170f0b's PBR materials, no outlines
@@ -510,7 +511,7 @@ if (want("phone")) {
     const thumb = document.querySelector("[class*=capThumb] img");
     return {
       scrollWidth: document.documentElement.scrollWidth, innerWidth,
-      wide: window.__rolodex.rig.wide, cardFaceW: window.__rolodex.rig.cards[0].children[0].children[1].material.map.image.width,
+      wide: window.__rolodex.rig.wide, sleeveFrontW: window.__rolodex.rig.cards[0].children[0].material[0].map.image.width,
       thumb: thumb ? { w: thumb.getBoundingClientRect().width, h: thumb.getBoundingClientRect().height } : null,
       caption: document.querySelector("[class*=capArtist]")?.textContent,
     };

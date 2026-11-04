@@ -1,64 +1,27 @@
 "use client";
 /* eslint-disable react-hooks/immutability -- three.js objects and the shared rig are mutated every frame by design */
-// The Rolodex: housing.glb with its torn rod and cradle rebuilt, the drum core, and TOTAL cards on the axis: the
-// N releases three times round, so the drum is full and turns forever (slot i holds release i mod N).
-// Numbers are the prototype's (BUILD.md); materials are new: brushed frame and base with edge wear,
-// fingerprinted bakelite knobs, paper-grain cards.
-// A card is its paper (one shared 2048-wide canvas: ruled lines, tab, head rule), its cover as a plane of its own,
-// and its type as SDF text (drei <Text>, troika), so the type stays sharp at any size and angle. Each release's type
-// is one group, carried by whichever of its three cards is nearest the front.
-import { useMemo, useEffect, useState, Suspense, Fragment, memo } from "react";
-import { useFrame, useThree, createPortal } from "@react-three/fiber";
-import { useGLTF, Text } from "@react-three/drei";
-import { BatchedText } from "troika-three-text";
+// The Rolodex: housing.glb with its torn rod and cradle rebuilt, the drum core, and TOTAL record sleeves on the axis:
+// the N releases three times round, so the drum is full and turns forever (slot i holds release i mod N).
+// Numbers are the prototype's (BUILD.md); materials are new: brushed frame and base with edge wear, fingerprinted
+// bakelite knobs, cardboard sleeves.
+// A sleeve (sleeve.ts) is one mesh with three material groups: the front cover, the back cover and the spine. Each
+// release has one front and one back material, shared by its three sleeves. No text is drawn on a sleeve.
+import { useMemo, useEffect } from "react";
+import { useFrame, useThree } from "@react-three/fiber";
+import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import type { Release } from "@/lib/gillenwebsite/discography";
-import { rig, per, FLIP_DIR, coast, makeAngle, wrap, ringDelta, setPos, jumpTo, jumpToRelease } from "./rig";
-import { CW, CH, TAB_H, R0, T, shapes, TEX_W, TEX_H, paintFace, cardText, COVER, mx, my, placeholderCanvas, type TextBlock } from "./cardTexture";
-import { coverWidth } from "./shared";
+import { rig, per, FLIP_DIR, coast, makeAngle, wrap, setPos, jumpTo, jumpToRelease } from "./rig";
+import { R0 } from "./cardTexture";
+import { SLEEVE, sleeveGeometry, sharpen, loadTex, setMap, sideWidth, sideFile, type Side } from "./sleeve";
 import { brushed, fingerprints, paperGrain, boxUV, edgeWear, withWear } from "./textures";
 
 export const MODEL = "/models/housing.glb";
-// Courier Prime (OFL, google/fonts), the face the cards always had, as TTF for troika
-const FONT = "/gillenwebsite/fonts/CourierPrime-Regular.ttf", FONT_ITALIC = "/gillenwebsite/fonts/CourierPrime-Italic.ttf";
-// type is drawn on the cards within this many slots of the front (the cards behind are hidden by those in front of
-// them; a wider window looked the same and cost the phone frames)
-const TYPE_SLOTS = 3;
-// the front three releases get the cover file that covers the plane's screen pixels, and never less than 1024: the
-// front plane is ~200 device px, so 1024 is still 5x its pixels, and uploading 2048s mid-turn cost desktop frames
-const BIG_MIN = 1024, BIG_SPAN = 1;
-// a card has to stay at the front this long before its big cover loads, so a fast run through the drum loads none
+// the front release gets 2048 covers (front and back), its two neighbours 1024, once its sleeve has settled; the
+// rest stay at 512. Never less than the face's device pixels on screen.
+const BIG = 2048, NEAR = 1024, BIG_SPAN = 1;
+// a sleeve has to stay at the front this long before its big covers load, so a fast run through the drum loads none
 const SETTLE_MS = 150;
-// the layers on a card, above the body's top (z = 0): the paper face, then the cover and the type 1.5 mm over it.
-// With the camera's near plane at 0.1 that is ~400 depth steps apart at the drum, and both also draw later
-// (renderOrder) with a polygon offset, so neither ever fights the paper for a pixel
-const FACE_Z = 0.0002, COVER_Z = FACE_Z + 0.0015, TYPE_Z = COVER_Z;
-const BODY_ORDER = 0, COVER_ORDER = 1, TYPE_ORDER = 2;
-const lifted = { polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 };
-
-// every texture: the renderer's full anisotropy, trilinear mips; colour maps in sRGB, data maps (normal, roughness) linear
-function sharpen(t: THREE.Texture, gl: THREE.WebGLRenderer, color: boolean) {
-  t.anisotropy = gl.capabilities.getMaxAnisotropy();
-  t.minFilter = THREE.LinearMipmapLinearFilter;
-  t.generateMipmaps = true;
-  t.colorSpace = color ? THREE.SRGBColorSpace : THREE.NoColorSpace;
-  t.needsUpdate = true;
-  return t;
-}
-// a cover file as a texture: AVIF, or the JPEG beside it where the browser cannot decode AVIF
-// decoded off the main thread: fetch, then createImageBitmap, flipped there since an ImageBitmap ignores flipY
-const bitmaps = new THREE.ImageBitmapLoader().setOptions({ imageOrientation: "flipY", premultiplyAlpha: "none" });
-const loadBitmap = (url: string) => bitmaps.loadAsync(url).then((b) => { const t = new THREE.Texture(b as unknown as HTMLImageElement); t.flipY = false; return t; });
-// put a texture on a cover material, in one frame and only once it is ready: the bitmap is already decoded (an
-// ImageBitmap resolves decoded) and initTexture uploads it to the GPU now, so the frame that shows it has nothing
-// left to do. Until then the old texture stays. Only the first map changes the shader (USE_MAP) and shows the plane.
-const setMap = (gl: THREE.WebGLRenderer, m: THREE.MeshStandardMaterial, t: THREE.Texture) => {
-  if (m.map === t) return;
-  gl.initTexture(t);
-  if (!m.map) { m.needsUpdate = true; m.visible = true; }
-  m.map = t;
-};
-const loadTex = (url: string) => loadBitmap(url).catch(() => loadBitmap(url.replace(/\.avif$/, ".jpg")));
 
 const PART_MAT: Partial<Record<string, "dark" | "bakelite">> = {
   side_right_inner: "dark",
@@ -93,7 +56,10 @@ function makeMaterials(gl: THREE.WebGLRenderer) {
   };
 }
 
-export default function Rolodex({ releases, mono }: { releases: Release[]; mono: string }) {
+// one side of one release: its material (shared by the release's three sleeves) and the textures it has loaded
+type Face = { mat: THREE.MeshStandardMaterial; small: THREE.Texture | null; big: THREE.Texture | null; bigW: number; want: number };
+
+export default function Rolodex({ releases }: { releases: Release[] }) {
   const gltf = useGLTF(MODEL);
   const gl = useThree((st) => st.gl);
   const N = releases.length, TOTAL = N * 3;
@@ -127,11 +93,11 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
       return p;
     });
 
-    // drum core: axle, dark inner drum, two chrome rails through the card slots, spokes, hubs
+    // drum core: axle, dark inner drum, two chrome rails through the sleeve slots, spokes, hubs
     const core = new THREE.Group(), span = 0.52;
     const axle = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.016, span + 0.04, 32), M.chrome);
     axle.rotation.z = Math.PI / 2;
-    const inner = new THREE.Mesh(new THREE.CylinderGeometry(R0 - 0.006, R0 - 0.006, CW - 0.02, 64, 1, true), M.dark);
+    const inner = new THREE.Mesh(new THREE.CylinderGeometry(R0 - 0.006, R0 - 0.006, SLEEVE - 0.02, 64, 1, true), M.dark);
     inner.rotation.z = Math.PI / 2;
     core.add(axle, inner);
     for (const x of [-0.075, 0.075]) {
@@ -160,166 +126,128 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
     const cradle = new THREE.Mesh(cg, M.metalPlain);
     cradle.position.set(0, axis.y, axis.z); cradle.castShadow = cradle.receiveShadow = true;
 
-    // cards
-    const bodyGeos = shapes.map(({ s }) => { const g = new THREE.ExtrudeGeometry(s, { depth: T, bevelEnabled: false, curveSegments: 6 }); g.translate(0, 0, -T); return g; });
-    const faceGeos = shapes.map(({ s }) => {
-      const g = new THREE.ShapeGeometry(s, 6), p = g.attributes.position, uv = g.attributes.uv;
-      for (let i = 0; i < p.count; i++) uv.setXY(i, (p.getX(i) + CW / 2) / CW, p.getY(i) / (CH + TAB_H));
-      g.translate(0, 0, FACE_Z);
-      return g;
-    });
-    M.grain.repeat.set(5, 3.5);
-    const paperBody = new THREE.MeshStandardMaterial({ color: "#efe8d8", roughness: 0.92 });
-    const years = [...new Set(releases.map((r) => r.year))];
-    const slotOf = (r: Release) => years.indexOf(r.year) % 6;
-    // the paper: one canvas for every card
-    const c = document.createElement("canvas");
-    c.width = TEX_W; c.height = TEX_H;
-    paintFace(c.getContext("2d")!);
-    const faceMat = new THREE.MeshStandardMaterial({ map: sharpen(new THREE.CanvasTexture(c), gl, true), roughness: 0.9, envMapIntensity: 0.55, normalMap: M.grain, normalScale: new THREE.Vector2(0.18, 0.18) });
-    // the cover plane: the square the prototype painted the cover into, lifted off the paper (COVER_Z)
-    const cs = (COVER.s / 1024) * CW, coverGeo = new THREE.PlaneGeometry(cs, cs);
-    coverGeo.translate(mx(COVER.x + COVER.s / 2), my(COVER.y + COVER.s / 2), COVER_Z);
-    // the paper grain over the cover, at the same scale as on the card
-    const grainCover = M.grain.clone();
-    grainCover.repeat.set(5 * (cs / CW), 3.5 * (cs / (CH + TAB_H)));
-    grainCover.needsUpdate = true;
-    // one cover material and one type group per release, shared by its three cards. The type group is a troika
-    // BatchedText: its drei <Text> children (six blocks) draw in one call, lit like the paper
-    // (the type is the only see-through thing on a card: it blends over the paper and writes no depth)
-    // (troika sets the polygon offset itself, from depthOffset, each frame)
-    const typeMat = new THREE.MeshStandardMaterial({ roughness: 0.9, envMapIntensity: 0.55, depthWrite: false });
-    const faces = releases.map((r, i) => {
-      // opaque, no alphaTest; hidden until its first texture is decoded and uploaded, so a card never shows a blank
-      const mat = new THREE.MeshStandardMaterial({ roughness: 0.9, envMapIntensity: 0.55, normalMap: grainCover, normalScale: new THREE.Vector2(0.18, 0.18), visible: false, ...lifted });
-      const type = new BatchedText();
-      type.material = typeMat;
-      type.renderOrder = TYPE_ORDER;
-      type.depthOffset = lifted.polygonOffsetFactor;
-      type.visible = false;
-      return { r, i, slot: slotOf(r), mat, type, small: null as THREE.Texture | null, big: null as THREE.Texture | null, bigW: 0, want: 0, holder: -1 };
-    });
+    // sleeves: cardboard, roughness .7, a faint paper normal map. Every face starts on a 1x1 texture of the sleeve's
+    // own board colour, so the shader has its map from the first frame and a cover arriving changes no program.
+    const sleeveGeo = sleeveGeometry();
+    const grain = M.grain.clone();
+    grain.repeat.set(3, 3);
+    grain.wrapS = grain.wrapT = THREE.RepeatWrapping;
+    grain.needsUpdate = true;
+    const board = new THREE.DataTexture(new Uint8Array([214, 204, 186, 255]), 1, 1);
+    board.colorSpace = THREE.SRGBColorSpace; board.needsUpdate = true;
+    const cardboard = (map: THREE.Texture) => new THREE.MeshStandardMaterial({ map, roughness: 0.7, metalness: 0, normalMap: grain, normalScale: new THREE.Vector2(0.12, 0.12), envMapIntensity: 0.6 });
+    const spine = cardboard(board);
+    const faces = releases.map((r, i) => ({ r, i, front: { mat: cardboard(board), small: null, big: null, bigW: 0, want: 0 } as Face, back: { mat: cardboard(board), small: null, big: null, bigW: 0, want: 0 } as Face }));
     const drum = new THREE.Group();
     drum.position.set(0, axis.y, axis.z);
     drum.add(core);
-    const cards: THREE.Group[] = [], holders: THREE.Group[] = [];
+    const cards: THREE.Group[] = [];
     for (let i = 0; i < TOTAL; i++) {
-      const f = faces[i % N], slot = f.slot;
+      const f = faces[i % N];
       const g = new THREE.Group();
-      const body = new THREE.Mesh(bodyGeos[slot], paperBody);
+      const body = new THREE.Mesh(sleeveGeo, [f.front.mat, f.back.mat, spine]);
       body.castShadow = body.receiveShadow = true;
-      const face = new THREE.Mesh(faceGeos[slot], faceMat);
-      face.receiveShadow = true;
-      const cover = new THREE.Mesh(coverGeo, f.mat);
-      cover.receiveShadow = true;
-      body.renderOrder = face.renderOrder = BODY_ORDER;
-      cover.renderOrder = COVER_ORDER;
-      const innerG = new THREE.Group();
-      innerG.position.y = R0;
-      innerG.add(body, face, cover);
-      g.add(innerG);
-      g.userData.i = body.userData.i = face.userData.i = cover.userData.i = i;
+      body.position.y = R0;
+      body.userData.i = g.userData.i = i;
+      g.add(body);
       drum.add(g);
       cards.push(g);
-      holders.push(innerG);
     }
-    return { house, axis, knobs, drum, cradle, cards, holders, faces, faceTex: c, coverGeo, meshes, triangles };
+    return { house, axis, knobs, drum, cradle, cards, faces, sleeveGeo, meshes, triangles };
   }, [gltf, gl, releases, N, TOTAL]);
 
-  // the first front card counts as settled 150 ms after the first frame
+  // the first front sleeve counts as settled 150 ms after the first frame
   const settle = useMemo(() => ({ since: 0, done: false }), []);
-  // the first frames after the type is laid out draw every card's type, so all of it is packed before anyone turns
-  const warm = useMemo(() => ({ frames: 3 }), []);
-  const { coverPx, bigCovers } = useMemo(() => {
-  // the cover plane's width on screen at rest, in device pixels: what the front texture has to cover
-  const coverPx = () => {
-    const card = built.cards[wrap(Math.round(rig.s), TOTAL)], cam = rig.camera;
-    if (!cam) return 0;
-    card.updateWorldMatrix(true, true);
-    const g = built.coverGeo; g.computeBoundingBox();
-    const b = g.boundingBox!, m = card.children[0].matrixWorld, sz = gl.getDrawingBufferSize(new THREE.Vector2());
-    const pts = [[b.min.x, b.min.y], [b.max.x, b.min.y], [b.min.x, b.max.y], [b.max.x, b.max.y]].map(([x, y]) => new THREE.Vector3(x, y, b.max.z).applyMatrix4(m).project(cam));
-    const xs = pts.map((q) => (q.x + 1) * 0.5 * sz.x), ys = pts.map((q) => (1 - q.y) * 0.5 * sz.y);
-    return Math.max(Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys));
-  };
-  // the front three releases: their big cover (the file at least the plane's device pixels, never under 2048); the
-  // rest go back to 512 and their big textures are freed
-  const bigCovers = (front: number) => {
-    const need = Math.max(BIG_MIN,Math.ceil(coverPx()));
-    const near = new Set([...Array(BIG_SPAN * 2 + 1)].map((_, k) => wrap(front + k - BIG_SPAN, N)));
-    for (const f of built.faces) {
-      if (!f.r.cover) continue;
-      if (!near.has(f.i)) {
-        if (f.big) { if (f.small) setMap(gl, f.mat, f.small); f.big.dispose(); f.big = null; f.bigW = 0; f.want = 0; }
-        continue;
+  // big covers, decoded and waiting to be uploaded: a 2048 upload with its mips takes a frame's worth of time, so
+  // they go up one a frame, front first, and only while the drum stands still
+  const uploads = useMemo<(() => void)[]>(() => [], []);
+  const { facePx, bigCovers } = useMemo(() => {
+    // the front sleeve's face on screen at rest, in device pixels: what its texture has to cover
+    const facePx = () => {
+      const card = built.cards[wrap(Math.round(rig.s), TOTAL)], cam = rig.camera;
+      if (!cam) return 0;
+      card.updateWorldMatrix(true, true);
+      const b = built.sleeveGeo.boundingBox!, m = card.children[0].matrixWorld, sz = gl.getDrawingBufferSize(new THREE.Vector2());
+      const pts = [[b.min.x, b.min.y], [b.max.x, b.min.y], [b.min.x, b.max.y], [b.max.x, b.max.y]].map(([x, y]) => new THREE.Vector3(x, y, b.max.z).applyMatrix4(m).project(cam));
+      const xs = pts.map((q) => (q.x + 1) * 0.5 * sz.x), ys = pts.map((q) => (1 - q.y) * 0.5 * sz.y);
+      return Math.max(Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys));
+    };
+    // the front release's big covers (2048, or more if its face needs it), 1024 for the two beside it; the rest go
+    // back to 512 and their big textures are freed. The 512 stays on until the big one is decoded and uploaded.
+    const bigCovers = (front: number) => {
+      const px = Math.ceil(facePx());
+      for (const f of built.faces) {
+        const d = Math.abs(((f.i - front + N + N / 2) % N) - N / 2);
+        for (const side of ["front", "back"] as Side[]) {
+          const face = f[side];
+          if (side === "front" && !f.r.cover) continue;
+          if (d > BIG_SPAN) {
+            if (face.big) { if (face.small) setMap(gl, face.mat, face.small); face.big.dispose(); face.big = null; face.bigW = 0; face.want = 0; }
+            continue;
+          }
+          const w = sideWidth(f.r, side, Math.max(d === 0 ? BIG : NEAR, px));
+          if (face.bigW >= w || face.want >= w || w <= 512) continue;
+          face.want = w;
+          loadTex(sideFile(f.r, side, w)).then((t) => {
+            if (face.want !== w) return t.dispose();
+            // decoded; the upload waits its turn (one a frame, with the drum still: see useFrame)
+            uploads.push(() => {
+              if (face.want !== w) return t.dispose();
+              const old = face.big;
+              setMap(gl, face.mat, sharpen(t, gl, true));
+              old?.dispose();
+              face.big = t; face.bigW = w;
+            });
+          });
+        }
       }
-      const w = coverWidth(f.r, need);
-      if (f.bigW >= w || f.want >= w) continue;
-      f.want = w;
-      loadTex(`/covers/${w}/${f.r.id}.avif`).then((t) => {
-        if (f.want !== w) return t.dispose();
-        // the 512 (or the smaller big) stays on until this one is uploaded; then swap, then free the old one
-        const old = f.big;
-        setMap(gl, f.mat, sharpen(t, gl, true));
-        old?.dispose();
-        f.big = t; f.bigW = w;
-      });
-    }
-  };
-  return { coverPx, bigCovers };
-  }, [built, gl, N, TOTAL]);
+    };
+    return { facePx, bigCovers };
+  }, [built, gl, N, TOTAL, uploads]);
 
-  // the type for every release, laid out with the card face's metrics once the face is loaded
-  const blocks = useTypeBlocks(built.faces, mono);
-  // every character on every card, so troika builds the whole glyph atlas once, up front, instead of growing it
-  // (and re-uploading it) as new cards turn to the front
-  const chars = useMemo(() => [...new Set(blocks.flat().map((b) => b.text).join("").replace(/\s/g, ""))].sort().join(""), [blocks]);
-
-  // covers: every release at 512 to begin with; the front three get their big file once their card has settled
+  // covers: both sides of every release at 512 to begin with; the front ones get their big files once settled
   useEffect(() => {
     let live = true;
+    let left = 0;
     for (const f of built.faces) {
-      if (!f.r.cover) {
-        f.small = sharpen(new THREE.CanvasTexture(placeholderCanvas(f.r, mono)), gl, true);
-        setMap(gl, f.mat, f.small);
-        if (f.i === 0) rig.firstCardTexture = true;
-        continue;
+      for (const side of ["front", "back"] as Side[]) {
+        if (side === "front" && !f.r.cover) continue;
+        left++;
+        loadTex(sideFile(f.r, side, 512)).then((t) => {
+          if (!live) return t.dispose();
+          const face = f[side];
+          face.small = sharpen(t, gl, true);
+          if (!face.big) setMap(gl, face.mat, face.small);
+          if (f.i === 0 && side === "front") rig.firstCardTexture = true;
+          if (--left === 0) rig.allSmall = true;
+        });
       }
-      loadTex(`/covers/512/${f.r.id}.avif`).then((t) => {
-        if (!live) return t.dispose();
-        f.small = sharpen(t, gl, true);
-        if (!f.big) setMap(gl, f.mat, f.small);
-        if (f.i === 0) rig.firstCardTexture = true;
-      });
     }
     return () => { live = false; };
-  }, [built, gl, mono]);
+  }, [built, gl]);
 
   useEffect(() => {
     rig.N = N; rig.TOTAL = TOTAL; rig.axisY = built.axis.y; rig.cards = built.cards; rig.knobs = built.knobs;
+    rig.coverImages = (i) => {
+      const f = built.faces[i], side = (x: Face) => (x.mat.map && x.mat.map.image && (x.mat.map.image as { width: number }).width > 1 ? { image: x.mat.map.image, w: (x.mat.map.image as { width: number }).width } : null);
+      return { front: side(f.front), back: side(f.back) };
+    };
     rig.ready = true;
-    // measurement hook for the verification script (scripts/gillenwebsite/verify.mjs)
-    (window as unknown as { __rolodex: unknown }).__rolodex = { rig, per, jumpTo, jumpToRelease, gl, frontPoint: () => { const c = new THREE.Box3().setFromObject(built.cards[wrap(Math.round(rig.s), TOTAL)]).getCenter(new THREE.Vector3()).project(rig.camera!), b = rig.hit!.parentElement!.getBoundingClientRect(); return { x: b.left + (c.x + 1) * 0.5 * b.width, y: b.top + (1 - c.y) * 0.5 * b.height }; }, house: built.house, faceIds: built.faces.map((f) => f.r.id),
-      // the front card's artist and release lines on screen, in CSS px (for the sharpness crop)
-      titleRect: () => {
-        const f = built.faces[wrap(Math.round(rig.s), N)], cam = rig.camera!, box = new THREE.Box3(), el = gl.domElement.getBoundingClientRect();
-        f.type.updateWorldMatrix(true, true);
-        // the batch keeps its members (artist first, then release) out of the scene graph: their local matrices, then its own
-        [...f.type._members.keys()].slice(0, 2).forEach((m) => { m.geometry.computeBoundingBox(); box.union(m.geometry.boundingBox!.clone().applyMatrix4(m.matrix).applyMatrix4(f.type.matrixWorld)); });
-        const xs: number[] = [], ys: number[] = [];
-        for (let k = 0; k < 8; k++) {
-          const v = new THREE.Vector3(k & 1 ? box.max.x : box.min.x, k & 2 ? box.max.y : box.min.y, k & 4 ? box.max.z : box.min.z).project(cam);
-          xs.push(el.left + (v.x + 1) * 0.5 * el.width); ys.push(el.top + (1 - v.y) * 0.5 * el.height);
-        }
-        return { x: Math.min(...xs), y: Math.min(...ys), w: Math.max(...xs) - Math.min(...xs), h: Math.max(...ys) - Math.min(...ys) };
-      },
-      // texture vs screen: the front card's cover texture and the paper canvas against their device pixels on screen
-      texels: () => { const f = built.faces[wrap(Math.round(rig.s), N)], img = f.mat.map?.image as { width: number } | undefined, cardPx = coverPx() * (CW / built.coverGeo.parameters.width); return { release: f.r.id, coverTexturePx: img?.width ?? 0, coverScreenPx: coverPx(), paperTexturePx: TEX_W, cardScreenPx: cardPx, pixelRatio: gl.getPixelRatio(), bigLoaded: built.faces.filter((x) => x.big).map((x) => `${x.r.id}@${x.bigW}`) }; }, meshes: built.meshes, triangles: built.triangles, axis: built.axis.toArray(), nodes: (() => { const n: string[] = []; built.house.traverse((o) => { if ((o as THREE.Mesh).isMesh) n.push(o.name); }); return n; })() };
+    // measurement hook for the verification scripts (scripts/gillenwebsite/*.mjs)
+    (window as unknown as { __rolodex: unknown }).__rolodex = {
+      rig, per, jumpTo, jumpToRelease, gl, house: built.house, faceIds: built.faces.map((f) => f.r.id),
+      frontPoint: () => { const c = new THREE.Box3().setFromObject(built.cards[wrap(Math.round(rig.s), TOTAL)]).getCenter(new THREE.Vector3()).project(rig.camera!), b = rig.hit!.parentElement!.getBoundingClientRect(); return { x: b.left + (c.x + 1) * 0.5 * b.width, y: b.top + (1 - c.y) * 0.5 * b.height }; },
+      // texture vs screen: the front sleeve's two cover textures against its face's device pixels on screen
+      texels: () => { const f = built.faces[wrap(Math.round(rig.s), N)], w = (t: THREE.Texture | null) => (t?.image as { width: number } | undefined)?.width ?? 0; return { release: f.r.id, frontTexturePx: w(f.front.mat.map), backTexturePx: w(f.back.mat.map), faceScreenPx: facePx(), pixelRatio: gl.getPixelRatio(), bigLoaded: built.faces.flatMap((x) => [x.front.big ? `${x.r.id}@${x.front.bigW}` : "", x.back.big ? `${x.r.id}-back@${x.back.bigW}` : ""]).filter(Boolean) }; },
+      // the farthest point of any sleeve from the drum axis, in metres, with the drum at s (drum space: y, z)
+      sleeveRadius: () => { built.drum.updateMatrixWorld(true); const inv = built.drum.matrixWorld.clone().invert(), p = built.sleeveGeo.attributes.position, v = new THREE.Vector3(); let max = 0; for (const c of built.cards) { const m = inv.clone().multiply(c.children[0].matrixWorld); for (let k = 0; k < p.count; k++) { v.fromBufferAttribute(p, k).applyMatrix4(m); max = Math.max(max, Math.hypot(v.y, v.z)); } } return max; },
+      meshes: built.meshes, triangles: built.triangles, axis: built.axis.toArray(), nodes: (() => { const n: string[] = []; built.house.traverse((o) => { if ((o as THREE.Mesh).isMesh) n.push(o.name); }); return n; })(),
+    };
     console.log("Website is loaded, enjoy");
-  }, [built, N, TOTAL, gl, coverPx]);
+  }, [built, N, TOTAL, gl, facePx]);
 
   const angle = useMemo(() => makeAngle(TOTAL), [TOTAL]);
-  // the drum's screen rect is the cards' touch hit area (Site.tsx): 8 corners of its rest box, projected each frame
+  // the drum's screen rect is the sleeves' touch hit area (Site.tsx): 8 corners of its rest box, projected each frame
   const hitBox = useMemo(() => {
     built.drum.updateMatrixWorld(true);
     const b = new THREE.Box3().setFromObject(built.drum), c: THREE.Vector3[] = [];
@@ -330,7 +258,7 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
     const now = performance.now();
     if (rig.moveT) { rig.lag.push(now - rig.moveT); if (rig.lag.length > 400) rig.lag.shift(); rig.moveT = 0; }
     const dt = Math.min(delta, 1 / 30);
-    // a flick coasts on its own curve (rig.ts) and stops on its card
+    // a flick coasts on its own curve (rig.ts) and stops on its sleeve
     if (rig.fling !== null) {
       const c = coast(rig.fling, now);
       if (c.done) { setPos(rig.fling.to); rig.s = rig.fling.to; rig.v = 0; rig.fling = null; }
@@ -338,28 +266,25 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
     }
     const raw = rig.pos;
     if (rig.drag?.mode === "flip" || rig.fling !== null) {
-      // the finger (or the flick) drives the drum directly: the card under it follows 1:1; the spring waits for release
+      // the finger (or the flick) drives the drum directly: the sleeve under it follows 1:1; the spring waits for release
       if (rig.fling === null) { rig.s = raw; rig.v = 0; }
     } else {
-      // settle on a card like the real ratchet once scrolling stops
+      // settle on a sleeve like the real ratchet once scrolling stops
       const goal = performance.now() - rig.lastScroll > 160 && !rig.drag ? Math.round(raw) : raw;
       if (rig.reduce) { rig.s = goal; rig.v = 0; }
       else { rig.v += (goal - rig.s) * 170 * dt; rig.v *= Math.exp(-18 * dt); rig.s += rig.v * dt; }
     }
     // angle() wraps the distance to each slot round the ring, so s runs on past TOTAL with no seam
-    for (let i = 0; i < TOTAL; i++) built.cards[i].rotation.x = angle(FLIP_DIR * (rig.s - i));
+    for (let i = 0; i < TOTAL; i++) {
+      built.cards[i].rotation.x = angle(FLIP_DIR * (rig.s - i));
+      // the sleeve lifted off the ring into the record view (VinylView) is not drawn on the ring meanwhile
+      built.cards[i].visible = i !== rig.lifted;
+    }
     for (const k of built.knobs) k.rotation.x = FLIP_DIR * -rig.s * 0.42;
     const front = wrap(Math.round(rig.s), N);
     if (front !== rig.front) { rig.front = front; rig.onFront.forEach((f) => f(front)); settle.since = now; settle.done = false; }
-    // each release's type rides on its copy nearest the front, and is drawn only near the front
-    for (const f of built.faces) {
-      let best = -1, bd = Infinity;
-      for (let k = 0; k < 3; k++) { const c = f.i + k * N, d = Math.abs(ringDelta(rig.s, c, TOTAL)); if (d < bd) { bd = d; best = c; } }
-      if (f.holder !== best) { built.holders[best].add(f.type); f.holder = best; }
-      f.type.visible = warm.frames > 0 || bd <= TYPE_SLOTS;
-    }
-    if (warm.frames > 0 && built.faces.every((f) => f.type._members.size > 0)) warm.frames--;
     if (!settle.done && now - settle.since > SETTLE_MS) { settle.done = true; bigCovers(front); }
+    if (uploads.length && !rig.drag && rig.fling === null && Math.abs(rig.s - Math.round(rig.s)) < 0.01 && Math.abs(rig.v) < 0.05) uploads.shift()!();
     if (rig.hit) {
       let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
       const { width: W, height: H } = state.size;
@@ -382,43 +307,8 @@ export default function Rolodex({ releases, mono }: { releases: Release[]; mono:
       <primitive object={built.house} />
       <primitive object={built.drum} />
       <primitive object={built.cradle} />
-      {/* the type waits for its font without holding up the drum */}
-      <Suspense fallback={null}>
-        {built.faces.map((f, k) => blocks[k] && <Fragment key={f.r.id}>{createPortal(<CardType blocks={blocks[k]} chars={chars} />, f.type)}</Fragment>)}
-      </Suspense>
     </>
   );
 }
-
-// the type for each release, once the card face's font is ready to measure line breaks with
-function useTypeBlocks(faces: { r: Release; i: number; slot: number }[], mono: string) {
-  const [blocks, setBlocks] = useState<TextBlock[][]>([]);
-  useEffect(() => {
-    let live = true;
-    Promise.all([`400 44px ${mono}`, `italic 400 30px ${mono}`].map((f) => document.fonts.load(f).catch(() => null))).then(() => {
-      if (!live) return;
-      const m = document.createElement("canvas").getContext("2d")!;
-      setBlocks(faces.map((f) => cardText(f.r, f.i, f.slot, m, mono)));
-    });
-    return () => { live = false; };
-  }, [faces, mono]);
-  return blocks;
-}
-
-// one release's type: SDF text lying on the card face (its batch gives it the paper's material)
-// A batch packs each member's colour as getHex() (sRGB) and its shader reads that as linear, so a colour given
-// as itself comes out light. Handing it the colour decoded once more makes the packed value the linear colour.
-const batchColor = (c: string) => new THREE.Color(c).convertSRGBToLinear();
-const CardType = memo(function CardType({ blocks, chars }: { blocks: TextBlock[]; chars: string }) {
-  return (
-    <>
-      {blocks.map((b) => (
-        <Text key={b.key} characters={chars} font={b.italic ? FONT_ITALIC : FONT} fontSize={b.size} lineHeight={b.step} color={batchColor(b.color)} anchorX={b.anchorX ?? "left"} anchorY={b.anchorY ?? "top-baseline"} whiteSpace="nowrap" position={[b.x, b.y, TYPE_Z]}>
-          {b.text}
-        </Text>
-      ))}
-    </>
-  );
-});
 
 useGLTF.preload(MODEL);

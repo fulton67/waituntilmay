@@ -1,0 +1,2235 @@
+{
+  "01-girl-in-red-blue": {
+    "back": {
+      "source": "plain",
+      "rgb": [
+        216,
+        216,
+        216
+      ],
+      "width": 2048,
+      "height": 2048,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": null,
+    "label": "Columbia",
+    "collaborators": []
+  },
+  "02-freak-slug-amulet": {
+    "back": {
+      "source": "plain",
+      "rgb": [
+        8,
+        8,
+        8
+      ],
+      "width": 2048,
+      "height": 2048,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": null,
+    "label": "Future Classic",
+    "collaborators": []
+  },
+  "03-arlo-parks-john-glacier-floette-ft-john-glacier": {
+    "back": {
+      "source": "plain",
+      "rgb": [
+        24,
+        24,
+        24
+      ],
+      "width": 2048,
+      "height": 2048,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": null,
+    "label": null,
+    "collaborators": [
+      {
+        "name": "John Glacier",
+        "roles": [
+          "featured artist"
+        ]
+      }
+    ]
+  },
+  "04-mike-d-thank-you": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "https://coverartarchive.org/release/0e90516c-421e-4dae-9438-70fbaf0bff69/46074791340.jpg",
+      "page": "https://musicbrainz.org/release/0e90516c-421e-4dae-9438-70fbaf0bff69",
+      "width": 599,
+      "height": 545,
+      "sizes": [
+        512,
+        599
+      ]
+    },
+    "catno": "600574179135",
+    "label": "Capitol Records",
+    "collaborators": []
+  },
+  "05-arlo-parks-ambiguous-desire": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "https://coverartarchive.org/release/26b2f447-c88e-4734-8a35-d3bd78791121/45541015436.jpg",
+      "page": "https://musicbrainz.org/release/26b2f447-c88e-4734-8a35-d3bd78791121",
+      "width": 599,
+      "height": 530,
+      "sizes": [
+        512,
+        599
+      ]
+    },
+    "catno": "TRANS930CD",
+    "label": "Transgressive Records",
+    "collaborators": [
+      {
+        "name": "Kaushlesh “Garry” Purohit",
+        "roles": [
+          "engineer"
+        ]
+      },
+      {
+        "name": "Simon Martinez",
+        "roles": [
+          "guitar"
+        ]
+      },
+      {
+        "name": "David Wrench",
+        "roles": [
+          "mix"
+        ]
+      },
+      {
+        "name": "Baird",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Ryan Raines",
+        "roles": [
+          "drums (drum set)"
+        ]
+      },
+      {
+        "name": "Buddy Ross",
+        "roles": [
+          "producer"
+        ]
+      }
+    ]
+  },
+  "06-the-strokes-reality-awaits": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "https://coverartarchive.org/release/3a945ca2-d10d-435b-9294-8b36683336cc/45888049008.jpg",
+      "page": "https://musicbrainz.org/release/3a945ca2-d10d-435b-9294-8b36683336cc",
+      "width": 1781,
+      "height": 1388,
+      "sizes": [
+        512,
+        1024,
+        1781
+      ]
+    },
+    "catno": "19958-44832-2",
+    "label": "Cult Records",
+    "collaborators": []
+  },
+  "07-obongjayar-paradise-now-and-forever": {
+    "back": {
+      "source": "plain",
+      "rgb": [
+        40,
+        40,
+        56
+      ],
+      "width": 2048,
+      "height": 2048,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": null,
+    "label": null,
+    "collaborators": []
+  },
+  "08-lucy-park-good-graces": {
+    "back": {
+      "source": "plain",
+      "rgb": [
+        136,
+        136,
+        136
+      ],
+      "width": 2048,
+      "height": 2048,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": null,
+    "label": "Platoon",
+    "collaborators": []
+  },
+  "09-luke-titus-from-what-was-will-grow-a-flower": {
+    "back": {
+      "source": "plain",
+      "rgb": [
+        40,
+        40,
+        40
+      ],
+      "width": 2048,
+      "height": 2048,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": null,
+    "label": "Sooper Records",
+    "collaborators": []
+  },
+  "10-doja-cat-vie": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "https://coverartarchive.org/release/162e8d6a-189c-4f95-be73-781d95b14054/43180680242.jpg",
+      "page": "https://musicbrainz.org/release/162e8d6a-189c-4f95-be73-781d95b14054",
+      "width": 600,
+      "height": 600,
+      "sizes": [
+        512,
+        600
+      ]
+    },
+    "catno": "0198029677812",
+    "label": "Kemosabe",
+    "collaborators": []
+  },
+  "11-don-toliver-doja-cat-f1-the-album": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "https://coverartarchive.org/release/1d453324-09bb-4551-b829-efb0d14eae19/46592034278.jpg",
+      "page": "https://musicbrainz.org/release/1d453324-09bb-4551-b829-efb0d14eae19",
+      "width": 599,
+      "height": 517,
+      "sizes": [
+        512,
+        599
+      ]
+    },
+    "catno": "075678594267",
+    "label": "Atlantic",
+    "collaborators": [
+      {
+        "name": "Edgard Herrera",
+        "roles": [
+          "engineer"
+        ]
+      },
+      {
+        "name": "Patrizio Pigliapoco",
+        "roles": [
+          "engineer"
+        ]
+      },
+      {
+        "name": "Tom Norris",
+        "roles": [
+          "mix",
+          "co-producer",
+          "programming"
+        ]
+      },
+      {
+        "name": "Victor Verpillat",
+        "roles": [
+          "mix assistant"
+        ]
+      },
+      {
+        "name": "Louis Bell",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Grant",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Ryan Tedder",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Hans Zimmer",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Karl Berkon",
+        "roles": [
+          "programming"
+        ]
+      },
+      {
+        "name": "Joe Henderson",
+        "roles": [
+          "recording"
+        ]
+      },
+      {
+        "name": "Doja Cat",
+        "roles": [
+          "featured artist"
+        ]
+      }
+    ]
+  },
+  "12-sza-sos-deluxe-lana": {
+    "back": {
+      "source": "plain",
+      "rgb": [
+        8,
+        24,
+        40
+      ],
+      "width": 2048,
+      "height": 2048,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": null,
+    "label": null,
+    "collaborators": []
+  },
+  "13-gossip-real-power": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "https://coverartarchive.org/release/25ddcbed-5973-4fb2-9057-b3e2b4df9458/38361109092.jpg",
+      "page": "https://musicbrainz.org/release/25ddcbed-5973-4fb2-9057-b3e2b4df9458",
+      "width": 599,
+      "height": 536,
+      "sizes": [
+        512,
+        599
+      ]
+    },
+    "catno": "19658870232",
+    "label": "Columbia",
+    "collaborators": []
+  },
+  "14-marcus-king-mood-swings": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "https://coverartarchive.org/release/bda3f2fc-4e02-4285-b2df-1fd56047c4b6/46516984108.jpg",
+      "page": "https://musicbrainz.org/release/bda3f2fc-4e02-4285-b2df-1fd56047c4b6",
+      "width": 3186,
+      "height": 3189,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": "00602465171822",
+    "label": "American Recordings",
+    "collaborators": [
+      {
+        "name": "Jason Lader",
+        "roles": [
+          "bass",
+          "drum machine",
+          "mix"
+        ]
+      },
+      {
+        "name": "Rick Rubin",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Kristen Rogers",
+        "roles": [
+          "background vocals"
+        ]
+      },
+      {
+        "name": "Daphne Chen",
+        "roles": [
+          "viola",
+          "violin",
+          "arranger strings"
+        ]
+      },
+      {
+        "name": "Ro Rowan",
+        "roles": [
+          "cello"
+        ]
+      },
+      {
+        "name": "Mike Runyon",
+        "roles": [
+          "synthesizer"
+        ]
+      },
+      {
+        "name": "Herman Bryant",
+        "roles": [
+          "background vocals"
+        ]
+      },
+      {
+        "name": "Porcha Clay",
+        "roles": [
+          "background vocals"
+        ]
+      },
+      {
+        "name": "Ashly Williams",
+        "roles": [
+          "background vocals"
+        ]
+      },
+      {
+        "name": "Benny Bock",
+        "roles": [
+          "mellotron",
+          "upright piano"
+        ]
+      },
+      {
+        "name": "Chris Dave",
+        "roles": [
+          "drums (drum set)",
+          "percussion"
+        ]
+      },
+      {
+        "name": "Aaron Paris",
+        "roles": [
+          "strings",
+          "arranger strings"
+        ]
+      },
+      {
+        "name": "Lenny Castro",
+        "roles": [
+          "percussion"
+        ]
+      },
+      {
+        "name": "Cory Henry",
+        "roles": [
+          "keyboard",
+          "keyboard bass",
+          "organ"
+        ]
+      },
+      {
+        "name": "Kevin Scott",
+        "roles": [
+          "bass guitar",
+          "bass"
+        ]
+      },
+      {
+        "name": "Briley King",
+        "roles": [
+          "background vocals"
+        ]
+      }
+    ]
+  },
+  "15-teezo-touchdown-how-do-you-sleep-at-night-with-you": {
+    "back": {
+      "source": "plain",
+      "rgb": [
+        8,
+        8,
+        8
+      ],
+      "width": 2048,
+      "height": 2048,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": null,
+    "label": "Not Fit for Society",
+    "collaborators": []
+  },
+  "16-kesha-gag-order": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "http://coverartarchive.org/release/0116c979-4d83-43ac-9b5f-c31cdd874a76/36099025366.jpg",
+      "page": "https://musicbrainz.org/release/0116c979-4d83-43ac-9b5f-c31cdd874a76",
+      "width": 600,
+      "height": 597,
+      "sizes": [
+        512,
+        600
+      ]
+    },
+    "catno": "19658-80114-1",
+    "label": "Kemosabe",
+    "collaborators": [
+      {
+        "name": "Matt Dyson",
+        "roles": [
+          "engineer lead vocals"
+        ]
+      },
+      {
+        "name": "Jeremy Hatcher",
+        "roles": [
+          "engineer",
+          "producer"
+        ]
+      },
+      {
+        "name": "Tom Kahre",
+        "roles": [
+          "engineer",
+          "producer"
+        ]
+      },
+      {
+        "name": "Bobby Mota",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Jonathan Pfarr",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Luke Reynolds",
+        "roles": [
+          "engineer"
+        ]
+      },
+      {
+        "name": "Gregg White",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Colin Willard",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Jason Lader",
+        "roles": [
+          "mix",
+          "recording",
+          "co-producer"
+        ]
+      },
+      {
+        "name": "Olivia Painter",
+        "roles": [
+          "mix assistant"
+        ]
+      },
+      {
+        "name": "Stuart Crichton",
+        "roles": [
+          "co-producer"
+        ]
+      },
+      {
+        "name": "Rick Rubin",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Hudson Mohawke",
+        "roles": [
+          "co-producer"
+        ]
+      },
+      {
+        "name": "Jussifer",
+        "roles": [
+          "co-producer"
+        ]
+      },
+      {
+        "name": "Stint",
+        "roles": [
+          "co-producer"
+        ]
+      },
+      {
+        "name": "Drew Pearson",
+        "roles": [
+          "co-producer"
+        ]
+      }
+    ]
+  },
+  "17-brockhampton-tm": {
+    "back": {
+      "source": "plain",
+      "rgb": [
+        232,
+        232,
+        216
+      ],
+      "width": 2048,
+      "height": 2048,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": "G0100048899582",
+    "label": "RCA",
+    "collaborators": [
+      {
+        "name": "Joe LaPorta",
+        "roles": [
+          "mastering"
+        ]
+      },
+      {
+        "name": "Matt Champion",
+        "roles": [
+          "executive producer"
+        ]
+      },
+      {
+        "name": "Andrew Kim",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Nacor Zuluaga Morelo",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Jonah Abraham",
+        "roles": [
+          "synthesizer"
+        ]
+      },
+      {
+        "name": "Alex Tumay",
+        "roles": [
+          "mix"
+        ]
+      },
+      {
+        "name": "Wesley Allen",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Baird",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Dom McLennon",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Romil Hemnani",
+        "roles": [
+          "producer",
+          "recording"
+        ]
+      },
+      {
+        "name": "The Kount",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Jabari Manwa",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Kaushlesh “Garry” Purohit",
+        "roles": [
+          "recording"
+        ]
+      }
+    ]
+  },
+  "18-red-hot-chili-peppers-unlimited-love": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "http://coverartarchive.org/release/5750c43a-aa20-4948-ae64-b3baa3d3eb7b/32432120581.jpg",
+      "page": "https://musicbrainz.org/release/5750c43a-aa20-4948-ae64-b3baa3d3eb7b",
+      "width": 2560,
+      "height": 2285,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": "093624880646",
+    "label": "Warner Records",
+    "collaborators": [
+      {
+        "name": "Bernie Grundman",
+        "roles": [
+          "mastering"
+        ]
+      },
+      {
+        "name": "Rick Rubin",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Flea",
+        "roles": [
+          "writer",
+          "electric bass guitar"
+        ]
+      },
+      {
+        "name": "John Frusciante",
+        "roles": [
+          "writer",
+          "electric guitar",
+          "background vocals"
+        ]
+      },
+      {
+        "name": "Anthony Kiedis",
+        "roles": [
+          "writer",
+          "lead vocals"
+        ]
+      },
+      {
+        "name": "Chad Smith",
+        "roles": [
+          "writer",
+          "drums (drum set)",
+          "tambourine"
+        ]
+      },
+      {
+        "name": "Jonathan Pfarr",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Chaz Sexton",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Matt Rollings",
+        "roles": [
+          "piano"
+        ]
+      },
+      {
+        "name": "Charlie Bolois",
+        "roles": [
+          "misc"
+        ]
+      },
+      {
+        "name": "Larry Malchose",
+        "roles": [
+          "misc"
+        ]
+      },
+      {
+        "name": "Ryan Hewitt",
+        "roles": [
+          "mix",
+          "recording"
+        ]
+      },
+      {
+        "name": "Bo Bodnar",
+        "roles": [
+          "recording"
+        ]
+      },
+      {
+        "name": "Phillip Broussard",
+        "roles": [
+          "recording"
+        ]
+      },
+      {
+        "name": "Jason Lader",
+        "roles": [
+          "recording"
+        ]
+      },
+      {
+        "name": "Ethan Mates",
+        "roles": [
+          "recording"
+        ]
+      }
+    ]
+  },
+  "19-rex-orange-county-threat": {
+    "back": {
+      "source": "plain",
+      "rgb": [
+        248,
+        248,
+        248
+      ],
+      "width": 2048,
+      "height": 2048,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": null,
+    "label": "[no label]",
+    "collaborators": []
+  },
+  "20-sza-sos": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "https://coverartarchive.org/release/1683708c-e718-4df9-b600-467879ec2ff6/41606812439.jpg",
+      "page": "https://musicbrainz.org/release/1683708c-e718-4df9-b600-467879ec2ff6",
+      "width": 1071,
+      "height": 831,
+      "sizes": [
+        512,
+        1024,
+        1071
+      ]
+    },
+    "catno": "19658-77921-2",
+    "label": "RCA",
+    "collaborators": [
+      {
+        "name": "Dale Becker",
+        "roles": [
+          "engineer"
+        ]
+      },
+      {
+        "name": "Rob Bisel",
+        "roles": [
+          "engineer",
+          "producer"
+        ]
+      },
+      {
+        "name": "Carson Graham",
+        "roles": [
+          "engineer"
+        ]
+      },
+      {
+        "name": "Shawn Everett",
+        "roles": [
+          "engineer"
+        ]
+      },
+      {
+        "name": "Katie Harvey",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Noah McCorkle",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Punch",
+        "roles": [
+          "executive producer"
+        ]
+      },
+      {
+        "name": "Anthony Tiffith",
+        "roles": [
+          "executive producer"
+        ]
+      },
+      {
+        "name": "Jay Versace",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Hayden Duncan",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Dana Nielsen",
+        "roles": [
+          "engineer"
+        ]
+      },
+      {
+        "name": "Syd Tagle",
+        "roles": [
+          "engineer assistant",
+          "choir vocals"
+        ]
+      },
+      {
+        "name": "Stix",
+        "roles": [
+          "drums (drum set)"
+        ]
+      },
+      {
+        "name": "Jeff Bhasker",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Emile Haynie",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Carter Lang",
+        "roles": [
+          "producer"
+        ]
+      }
+    ]
+  },
+  "21-red-hot-chili-peppers-return-of-the-dream-canteen": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "http://coverartarchive.org/release/069f2ed9-8541-40e3-b679-e8a0632ed818/33865699614.jpg",
+      "page": "https://musicbrainz.org/release/069f2ed9-8541-40e3-b679-e8a0632ed818",
+      "width": 599,
+      "height": 544,
+      "sizes": [
+        512,
+        599
+      ]
+    },
+    "catno": "093624873846",
+    "label": "Warner Records",
+    "collaborators": []
+  },
+  "22-run-the-jewels-rtj-cu4tro": {
+    "back": {
+      "source": "plain",
+      "rgb": [
+        248,
+        8,
+        248
+      ],
+      "width": 2048,
+      "height": 2048,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": "538833972",
+    "label": "Jewel Runners LLC",
+    "collaborators": [
+      {
+        "name": "Trackstar the DJ",
+        "roles": [
+          "turntable"
+        ]
+      },
+      {
+        "name": "El‐P",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Little Shalimar",
+        "roles": [
+          "co-producer",
+          "producer"
+        ]
+      },
+      {
+        "name": "Trooko",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Wilder Zoby",
+        "roles": [
+          "co-producer",
+          "producer"
+        ]
+      },
+      {
+        "name": "Lin‐Manuel Miranda",
+        "roles": [
+          "other vocals"
+        ]
+      },
+      {
+        "name": "David Flores",
+        "roles": [
+          "trombone"
+        ]
+      },
+      {
+        "name": "Alex González",
+        "roles": [
+          "trumpet"
+        ]
+      },
+      {
+        "name": "Camilo Lara",
+        "roles": [
+          "instrument"
+        ]
+      },
+      {
+        "name": "DJ Premier",
+        "roles": [
+          "turntable"
+        ]
+      },
+      {
+        "name": "Mexican Institute of Sound",
+        "roles": [
+          "producer",
+          "remixer"
+        ]
+      },
+      {
+        "name": "Chucho Llano",
+        "roles": [
+          "keyboard",
+          "producer"
+        ]
+      },
+      {
+        "name": "Yulian Percs",
+        "roles": [
+          "percussion",
+          "producer"
+        ]
+      },
+      {
+        "name": "Eva Peroni",
+        "roles": [
+          "bass",
+          "producer"
+        ]
+      },
+      {
+        "name": "Kaushlesh “Garry” Purohit",
+        "roles": [
+          "tabla"
+        ]
+      },
+      {
+        "name": "BOOTS",
+        "roles": [
+          "producer",
+          "co-producer"
+        ]
+      }
+    ]
+  },
+  "23-imagine-dragons-mercury-acts-1-and-2": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "https://coverartarchive.org/release/ed33a6dd-1ff5-49c5-8a37-bde91f229a85/39637164374.png",
+      "page": "https://musicbrainz.org/release/ed33a6dd-1ff5-49c5-8a37-bde91f229a85",
+      "width": 2396,
+      "height": 2012,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": "UICS-1392",
+    "label": "Interscope Records",
+    "collaborators": [
+      {
+        "name": "Serban Ghenea",
+        "roles": [
+          "engineer",
+          "mix"
+        ]
+      },
+      {
+        "name": "John Hanes",
+        "roles": [
+          "engineer",
+          "mix"
+        ]
+      },
+      {
+        "name": "Ben Sedano",
+        "roles": [
+          "engineer"
+        ]
+      },
+      {
+        "name": "Robin Fredriksson",
+        "roles": [
+          "synthesizer",
+          "programming"
+        ]
+      },
+      {
+        "name": "Mattias Larsson",
+        "roles": [
+          "synthesizer",
+          "programming"
+        ]
+      },
+      {
+        "name": "Ben McKee",
+        "roles": [
+          "bass guitar"
+        ]
+      },
+      {
+        "name": "Daniel Platzman",
+        "roles": [
+          "drums (drum set)"
+        ]
+      },
+      {
+        "name": "Wayne Sermon",
+        "roles": [
+          "guitar",
+          "programming",
+          "mix"
+        ]
+      },
+      {
+        "name": "Mattman & Robin",
+        "roles": [
+          "producer",
+          "engineer",
+          "recording"
+        ]
+      },
+      {
+        "name": "Rick Rubin",
+        "roles": [
+          "executive producer",
+          "producer"
+        ]
+      },
+      {
+        "name": "Dan Reynolds",
+        "roles": [
+          "background vocals",
+          "lead vocals",
+          "programming"
+        ]
+      },
+      {
+        "name": "Justin Tranter",
+        "roles": [
+          "background vocals"
+        ]
+      },
+      {
+        "name": "Brandon Darner",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Jason Lader",
+        "roles": [
+          "engineer",
+          "recording"
+        ]
+      },
+      {
+        "name": "Jonathan Pfarr",
+        "roles": [
+          "engineer",
+          "recording assistant"
+        ]
+      },
+      {
+        "name": "Goldwiing",
+        "roles": [
+          "producer"
+        ]
+      }
+    ]
+  },
+  "24-jovanotti-il-boom": {
+    "back": {
+      "source": "plain",
+      "rgb": [
+        8,
+        8,
+        8
+      ],
+      "width": 2048,
+      "height": 2048,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": null,
+    "label": null,
+    "collaborators": []
+  },
+  "25-lucy-park-before-i-speak": {
+    "back": {
+      "source": "plain",
+      "rgb": [
+        8,
+        8,
+        8
+      ],
+      "width": 2048,
+      "height": 2048,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": null,
+    "label": null,
+    "collaborators": []
+  },
+  "26-imagine-dragons-mercury-act-1": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "http://coverartarchive.org/release/6a10066a-f08a-42a9-8f1f-e989ddcd0f7f/31115335186.jpg",
+      "page": "https://musicbrainz.org/release/6a10066a-f08a-42a9-8f1f-e989ddcd0f7f",
+      "width": 7460,
+      "height": 7337,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": "00602438534272",
+    "label": "Interscope Records",
+    "collaborators": [
+      {
+        "name": "Serban Ghenea",
+        "roles": [
+          "engineer",
+          "mix"
+        ]
+      },
+      {
+        "name": "John Hanes",
+        "roles": [
+          "engineer",
+          "mix"
+        ]
+      },
+      {
+        "name": "Mattman & Robin",
+        "roles": [
+          "engineer",
+          "producer",
+          "recording"
+        ]
+      },
+      {
+        "name": "Ben McKee",
+        "roles": [
+          "bass guitar"
+        ]
+      },
+      {
+        "name": "Daniel Platzman",
+        "roles": [
+          "drums (drum set)"
+        ]
+      },
+      {
+        "name": "Wayne Sermon",
+        "roles": [
+          "guitar",
+          "programming",
+          "mix"
+        ]
+      },
+      {
+        "name": "Brandon Darner",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Dan Reynolds",
+        "roles": [
+          "programming",
+          "vocal"
+        ]
+      },
+      {
+        "name": "Jason Lader",
+        "roles": [
+          "engineer",
+          "recording"
+        ]
+      },
+      {
+        "name": "Jonathan Pfarr",
+        "roles": [
+          "engineer",
+          "recording assistant"
+        ]
+      },
+      {
+        "name": "Goldwiing",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Styalz Fuego",
+        "roles": [
+          "producer",
+          "recording"
+        ]
+      },
+      {
+        "name": "New Haven",
+        "roles": [
+          "producer",
+          "recording"
+        ]
+      },
+      {
+        "name": "Jayson DeZuzio",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Joel Little",
+        "roles": [
+          "producer",
+          "recording"
+        ]
+      },
+      {
+        "name": "Cory Henry",
+        "roles": [
+          "organ"
+        ]
+      }
+    ]
+  },
+  "27-santana-blessings-and-miracles": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "http://coverartarchive.org/release/4e1240b9-85e7-4ad9-9392-39e90e1d6475/37117370771.jpg",
+      "page": "https://musicbrainz.org/release/4e1240b9-85e7-4ad9-9392-39e90e1d6475",
+      "width": 600,
+      "height": 543,
+      "sizes": [
+        512,
+        600
+      ]
+    },
+    "catno": "538714542",
+    "label": "BMG",
+    "collaborators": []
+  },
+  "28-the-strokes-the-new-abnormal": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "http://coverartarchive.org/release/ccdf8a29-a0f9-4499-a3a1-19db8e0913b8/25865705624.png",
+      "page": "https://musicbrainz.org/release/ccdf8a29-a0f9-4499-a3a1-19db8e0913b8",
+      "width": 1024,
+      "height": 1024,
+      "sizes": [
+        512,
+        1024
+      ]
+    },
+    "catno": "19439-70588-2",
+    "label": "Cult Records",
+    "collaborators": [
+      {
+        "name": "Stephen Marcussen",
+        "roles": [
+          "mastering"
+        ]
+      },
+      {
+        "name": "Rob Bisel",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Pete Min",
+        "roles": [
+          "engineer"
+        ]
+      },
+      {
+        "name": "Dylan Newstadter",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Kevin Smith",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Nikolai Fraiture",
+        "roles": [
+          "bass guitar"
+        ]
+      },
+      {
+        "name": "Albert Hammond, Jr.",
+        "roles": [
+          "guitar"
+        ]
+      },
+      {
+        "name": "Fabrizio Moretti",
+        "roles": [
+          "drums (drum set)"
+        ]
+      },
+      {
+        "name": "Nick Valensi",
+        "roles": [
+          "guitar"
+        ]
+      },
+      {
+        "name": "Ben Baptie",
+        "roles": [
+          "mix"
+        ]
+      },
+      {
+        "name": "Rick Rubin",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Jason Lader",
+        "roles": [
+          "recording",
+          "mix"
+        ]
+      },
+      {
+        "name": "Julian Casablancas",
+        "roles": [
+          "vocal"
+        ]
+      }
+    ]
+  },
+  "29-neil-young-and-crazy-horse-shut-it-down-2020": {
+    "back": {
+      "source": "plain",
+      "rgb": [
+        24,
+        24,
+        24
+      ],
+      "width": 2048,
+      "height": 2048,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": null,
+    "label": "Reprise Records",
+    "collaborators": [
+      {
+        "name": "Crazy Horse",
+        "roles": [
+          "featured artist"
+        ]
+      }
+    ]
+  },
+  "30-run-the-jewels-rtj4": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "http://coverartarchive.org/release/4a7accb6-0ac6-4348-88cc-474d4c2aa349/26370471981.jpg",
+      "page": "https://musicbrainz.org/release/4a7accb6-0ac6-4348-88cc-474d4c2aa349",
+      "width": 3600,
+      "height": 3600,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": "538617292",
+    "label": "BMG",
+    "collaborators": [
+      {
+        "name": "Trackstar the DJ",
+        "roles": [
+          "turntable"
+        ]
+      },
+      {
+        "name": "El‐P",
+        "roles": [
+          "producer",
+          "vocal",
+          "arranger strings"
+        ]
+      },
+      {
+        "name": "Little Shalimar",
+        "roles": [
+          "co-producer",
+          "producer"
+        ]
+      },
+      {
+        "name": "Wilder Zoby",
+        "roles": [
+          "co-producer",
+          "producer"
+        ]
+      },
+      {
+        "name": "Killer Mike",
+        "roles": [
+          "vocal"
+        ]
+      },
+      {
+        "name": "DJ Premier",
+        "roles": [
+          "turntable"
+        ]
+      },
+      {
+        "name": "Greg Nice",
+        "roles": [
+          "guest"
+        ]
+      },
+      {
+        "name": "2 Chainz",
+        "roles": [
+          "guest"
+        ]
+      },
+      {
+        "name": "Kaushlesh “Garry” Purohit",
+        "roles": [
+          "tabla"
+        ]
+      },
+      {
+        "name": "BOOTS",
+        "roles": [
+          "co-producer",
+          "producer"
+        ]
+      },
+      {
+        "name": "Dave Sitek",
+        "roles": [
+          "co-producer"
+        ]
+      },
+      {
+        "name": "Stuart Bogie",
+        "roles": [
+          "tenor saxophone"
+        ]
+      },
+      {
+        "name": "DJ Cutmaster Swiff",
+        "roles": [
+          "turntable"
+        ]
+      },
+      {
+        "name": "Nick Hook",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Gangsta Boo",
+        "roles": [
+          "guest"
+        ]
+      },
+      {
+        "name": "Zack de la Rocha",
+        "roles": [
+          "guest"
+        ]
+      }
+    ]
+  },
+  "31-mark-ronson-late-night-feelings": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "http://coverartarchive.org/release/fa5b2603-3675-4552-bc78-b7d228d45a1e/23526529274.jpg",
+      "page": "https://musicbrainz.org/release/fa5b2603-3675-4552-bc78-b7d228d45a1e",
+      "width": 1200,
+      "height": 1028,
+      "sizes": [
+        512,
+        1024,
+        1200
+      ]
+    },
+    "catno": "19075938922",
+    "label": "Columbia",
+    "collaborators": [
+      {
+        "name": "Abby Echiverri",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "John Hanes",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Phil Joly",
+        "roles": [
+          "engineer"
+        ]
+      },
+      {
+        "name": "Leon Michels",
+        "roles": [
+          "synthesizer"
+        ]
+      },
+      {
+        "name": "Nick Movshon",
+        "roles": [
+          "bass"
+        ]
+      },
+      {
+        "name": "Kevin Parker",
+        "roles": [
+          "synthesizer",
+          "guitar",
+          "bass"
+        ]
+      },
+      {
+        "name": "Homer Steinweiss",
+        "roles": [
+          "drums (drum set)"
+        ]
+      },
+      {
+        "name": "Serban Ghenea",
+        "roles": [
+          "mix"
+        ]
+      },
+      {
+        "name": "Riccardo Damian",
+        "roles": [
+          "programming",
+          "recording"
+        ]
+      },
+      {
+        "name": "Beatriz Artola",
+        "roles": [
+          "recording"
+        ]
+      },
+      {
+        "name": "Jens Jungkurth",
+        "roles": [
+          "recording"
+        ]
+      },
+      {
+        "name": "Todd Monfalcone",
+        "roles": [
+          "recording"
+        ]
+      },
+      {
+        "name": "Camila Cabello",
+        "roles": [
+          "background vocals",
+          "lead vocals"
+        ]
+      },
+      {
+        "name": "Chris Elliott",
+        "roles": [
+          "arranger",
+          "conductor"
+        ]
+      },
+      {
+        "name": "Tyler Beans",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Rob Bisel",
+        "roles": [
+          "engineer assistant"
+        ]
+      }
+    ]
+  },
+  "32-harry-styles-fine-line": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "http://coverartarchive.org/release/5c8a772d-fb0a-46ab-a5d8-6317546b727a/27308699632.jpg",
+      "page": "https://musicbrainz.org/release/5c8a772d-fb0a-46ab-a5d8-6317546b727a",
+      "width": 2819,
+      "height": 2800,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": "19439705141",
+    "label": "Columbia",
+    "collaborators": [
+      {
+        "name": "Tyler Beans",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Rob Bisel",
+        "roles": [
+          "engineer assistant",
+          "engineer"
+        ]
+      },
+      {
+        "name": "Jon Castelli",
+        "roles": [
+          "engineer",
+          "mix",
+          "programming drum machine"
+        ]
+      },
+      {
+        "name": "Jeremy Hatcher",
+        "roles": [
+          "engineer assistant",
+          "engineer"
+        ]
+      },
+      {
+        "name": "Oli Jacobs",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Nick Lobel",
+        "roles": [
+          "engineer",
+          "mix"
+        ]
+      },
+      {
+        "name": "Oli Middleton",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Mark “Top” Rankin",
+        "roles": [
+          "engineer"
+        ]
+      },
+      {
+        "name": "Kevin Smith",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Sammy Witte",
+        "roles": [
+          "engineer",
+          "acoustic guitar",
+          "producer"
+        ]
+      },
+      {
+        "name": "Leo Abrahams",
+        "roles": [
+          "electric guitar"
+        ]
+      },
+      {
+        "name": "Tyler Johnson",
+        "roles": [
+          "keyboard",
+          "producer",
+          "background vocals"
+        ]
+      },
+      {
+        "name": "Kid Harpoon",
+        "roles": [
+          "acoustic guitar",
+          "bass",
+          "co-producer"
+        ]
+      },
+      {
+        "name": "Mitch Rowland",
+        "roles": [
+          "drums (drum set)",
+          "glockenspiel",
+          "electric guitar"
+        ]
+      },
+      {
+        "name": "Michael Freeman",
+        "roles": [
+          "mix assistant"
+        ]
+      },
+      {
+        "name": "Mark “Spike” Stent",
+        "roles": [
+          "mix"
+        ]
+      }
+    ]
+  },
+  "33-neil-young-and-crazy-horse-colorado": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "http://coverartarchive.org/release/f16deee6-1f5c-490f-ba1f-74e0e2a84117/24838465092.jpg",
+      "page": "https://musicbrainz.org/release/f16deee6-1f5c-490f-ba1f-74e0e2a84117",
+      "width": 3302,
+      "height": 3142,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": "093624898900",
+    "label": "Reprise Records",
+    "collaborators": [
+      {
+        "name": "Rob Bisel",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Chris Bellman",
+        "roles": [
+          "mastering"
+        ]
+      },
+      {
+        "name": "Dana Nielsen",
+        "roles": [
+          "editor",
+          "recording"
+        ]
+      },
+      {
+        "name": "John Hanlon",
+        "roles": [
+          "engineer",
+          "mix",
+          "producer"
+        ]
+      },
+      {
+        "name": "Nils Lofgren",
+        "roles": [
+          "piano",
+          "vocal",
+          "guitar"
+        ]
+      },
+      {
+        "name": "Ralph Molina",
+        "roles": [
+          "drums (drum set)",
+          "vocal"
+        ]
+      },
+      {
+        "name": "Billy Talbot",
+        "roles": [
+          "bass",
+          "vocal"
+        ]
+      },
+      {
+        "name": "Joe Yankee",
+        "roles": [
+          "glass harmonica"
+        ]
+      },
+      {
+        "name": "Crazy Horse",
+        "roles": [
+          "featured artist"
+        ]
+      }
+    ]
+  },
+  "34-santana-africa-speaks": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "http://coverartarchive.org/release/ea2df4e3-7eb8-445f-95fa-fd8fd8adf1da/23560957218.jpg",
+      "page": "https://musicbrainz.org/release/ea2df4e3-7eb8-445f-95fa-fd8fd8adf1da",
+      "width": 1000,
+      "height": 1000,
+      "sizes": [
+        512,
+        1000
+      ]
+    },
+    "catno": "CRE00927",
+    "label": "Concord Records",
+    "collaborators": [
+      {
+        "name": "Carlos Santana",
+        "roles": [
+          "executive producer",
+          "arranger",
+          "percussion"
+        ]
+      },
+      {
+        "name": "Tommy Anthony",
+        "roles": [
+          "guitar"
+        ]
+      },
+      {
+        "name": "Ray Greene",
+        "roles": [
+          "trombone",
+          "background vocals"
+        ]
+      },
+      {
+        "name": "David K. Mathews",
+        "roles": [
+          "hammond organ",
+          "keyboard"
+        ]
+      },
+      {
+        "name": "Karl Perazzo",
+        "roles": [
+          "percussion",
+          "congas",
+          "timbales"
+        ]
+      },
+      {
+        "name": "Benny Rietveld",
+        "roles": [
+          "bass"
+        ]
+      },
+      {
+        "name": "Cindy Blackman Santana",
+        "roles": [
+          "drums (drum set)"
+        ]
+      },
+      {
+        "name": "Dana Nielsen",
+        "roles": [
+          "mix"
+        ]
+      },
+      {
+        "name": "Rick Rubin",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "name": "Concha Buika",
+        "roles": [
+          "lead vocals"
+        ]
+      },
+      {
+        "name": "Andy Vargas",
+        "roles": [
+          "background vocals"
+        ]
+      },
+      {
+        "name": "Salvador Santana",
+        "roles": [
+          "keyboard"
+        ]
+      }
+    ]
+  },
+  "35-muse-simulation-theory-super-deluxe": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "http://coverartarchive.org/release/24b86732-7b32-4d30-a53a-d5430d16b878/32968164359.png",
+      "page": "https://musicbrainz.org/release/24b86732-7b32-4d30-a53a-d5430d16b878",
+      "width": 3653,
+      "height": 3644,
+      "sizes": [
+        512,
+        1024,
+        2048
+      ]
+    },
+    "catno": "0190295578831",
+    "label": "Helium-3",
+    "collaborators": [
+      {
+        "name": "Matt Bellamy",
+        "roles": [
+          "guitar",
+          "keyboard",
+          "lead vocals"
+        ]
+      },
+      {
+        "name": "Dominic Howard",
+        "roles": [
+          "drums (drum set)",
+          "background vocals"
+        ]
+      },
+      {
+        "name": "Christopher Wolstenholme",
+        "roles": [
+          "bass guitar",
+          "background vocals"
+        ]
+      },
+      {
+        "name": "Pete Lawrie Winfield",
+        "roles": [
+          "mix"
+        ]
+      },
+      {
+        "name": "Rich Costey",
+        "roles": [
+          "producer",
+          "engineer"
+        ]
+      },
+      {
+        "name": "Tyler Beans",
+        "roles": [
+          "engineer assistant",
+          "producer assistant"
+        ]
+      },
+      {
+        "name": "Rob Bisel",
+        "roles": [
+          "engineer assistant",
+          "producer assistant"
+        ]
+      },
+      {
+        "name": "Adam Hawkins",
+        "roles": [
+          "engineer",
+          "mix"
+        ]
+      },
+      {
+        "name": "Aleks von Korff",
+        "roles": [
+          "engineer assistant",
+          "producer assistant"
+        ]
+      },
+      {
+        "name": "Michael Freeman",
+        "roles": [
+          "mix"
+        ]
+      },
+      {
+        "name": "Mark “Spike” Stent",
+        "roles": [
+          "mix"
+        ]
+      },
+      {
+        "name": "Tom Bailey",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Tommaso Colliva",
+        "roles": [
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Phillip Broussard",
+        "roles": [
+          "producer assistant"
+        ]
+      },
+      {
+        "name": "Martin Cooke",
+        "roles": [
+          "producer assistant",
+          "engineer assistant"
+        ]
+      },
+      {
+        "name": "Nicolas Fournier",
+        "roles": [
+          "producer assistant"
+        ]
+      }
+    ]
+  },
+  "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun": {
+    "back": {
+      "source": "Cover Art Archive",
+      "url": "http://coverartarchive.org/release/b1337457-3fc8-4215-b12a-bda234d146c4/21521471362.jpg",
+      "page": "https://musicbrainz.org/release/b1337457-3fc8-4215-b12a-bda234d146c4",
+      "width": 1762,
+      "height": 1364,
+      "sizes": [
+        512,
+        1024,
+        1762
+      ]
+    },
+    "catno": "NPR807JC",
+    "label": "Napalm Records",
+    "collaborators": [
+      {
+        "name": "Dana Nielsen",
+        "roles": [
+          "mix"
+        ]
+      },
+      {
+        "name": "Rick Rubin",
+        "roles": [
+          "producer"
+        ]
+      }
+    ]
+  }
+}

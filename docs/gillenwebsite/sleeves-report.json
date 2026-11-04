@@ -1,0 +1,232 @@
+{
+  "base": "http://localhost:3228",
+  "at": "2026-11-04T03:41:14.439Z",
+  "profiles": {
+    "desktop": {
+      "viewport": "1440x900@2",
+      "radius": {
+        "maxM": 0.40201,
+        "atSlot": 0,
+        "steps": 433,
+        "limitM": 0.41,
+        "frameClearanceM": 0.419,
+        "pass": true
+      },
+      "flicker": {
+        "releases": [
+          {
+            "slot": 1,
+            "frames": 92,
+            "stillFrames": 53,
+            "worstStep": 0.43,
+            "jumps": 0
+          },
+          {
+            "slot": 2,
+            "frames": 97,
+            "stillFrames": 56,
+            "worstStep": 0.18,
+            "jumps": 0
+          },
+          {
+            "slot": 3,
+            "frames": 98,
+            "stillFrames": 55,
+            "worstStep": 1.49,
+            "jumps": 0
+          },
+          {
+            "slot": 4,
+            "frames": 96,
+            "stillFrames": 55,
+            "worstStep": 0.49,
+            "jumps": 0
+          },
+          {
+            "slot": 5,
+            "frames": 98,
+            "stillFrames": 56,
+            "worstStep": 0.82,
+            "jumps": 0
+          },
+          {
+            "slot": 6,
+            "frames": 98,
+            "stillFrames": 56,
+            "worstStep": 0.19,
+            "jumps": 0
+          },
+          {
+            "slot": 7,
+            "frames": 97,
+            "stillFrames": 56,
+            "worstStep": 0.45,
+            "jumps": 0
+          },
+          {
+            "slot": 8,
+            "frames": 98,
+            "stillFrames": 56,
+            "worstStep": 0.41,
+            "jumps": 0
+          },
+          {
+            "slot": 9,
+            "frames": 98,
+            "stillFrames": 55,
+            "worstStep": 1.69,
+            "jumps": 0
+          },
+          {
+            "slot": 10,
+            "frames": 100,
+            "stillFrames": 57,
+            "worstStep": 1.82,
+            "jumps": 0
+          },
+          {
+            "slot": 11,
+            "frames": 98,
+            "stillFrames": 56,
+            "worstStep": 0.43,
+            "jumps": 0
+          },
+          {
+            "slot": 12,
+            "frames": 94,
+            "stillFrames": 52,
+            "worstStep": 0.17,
+            "jumps": 0
+          }
+        ],
+        "jumps": 0,
+        "pass": true
+      },
+      "texels": {
+        "release": "13-gossip-real-power",
+        "frontTexturePx": 2048,
+        "backTexturePx": 599,
+        "faceScreenPx": 413.62359267831613,
+        "pixelRatio": 2,
+        "bigLoaded": [
+          "12-sza-sos-deluxe-lana@2048",
+          "12-sza-sos-deluxe-lana-back@2048",
+          "13-gossip-real-power@2048",
+          "13-gossip-real-power-back@599",
+          "14-marcus-king-mood-swings@1024",
+          "14-marcus-king-mood-swings-back@1024"
+        ],
+        "frontRatio": 4.95,
+        "backRatio": 1.45,
+        "pass": true
+      },
+      "fps": {
+        "throttle": 1,
+        "mean": 57.2,
+        "min500msWindow": 50,
+        "slowestFrameMs": 100.1,
+        "pass": false
+      }
+    },
+    "phone": {
+      "viewport": "390x844@3",
+      "flicker": {
+        "releases": [
+          {
+            "slot": 0,
+            "frames": 96,
+            "stillFrames": 2,
+            "worstStep": 2.77,
+            "jumps": 0
+          },
+          {
+            "frames": 100,
+            "stillFrames": 0,
+            "worstStep": 0,
+            "jumps": 0
+          },
+          {
+            "frames": 100,
+            "stillFrames": 0,
+            "worstStep": 0,
+            "jumps": 0
+          },
+          {
+            "frames": 99,
+            "stillFrames": 0,
+            "worstStep": 0,
+            "jumps": 0
+          },
+          {
+            "frames": 99,
+            "stillFrames": 0,
+            "worstStep": 0,
+            "jumps": 0
+          },
+          {
+            "frames": 98,
+            "stillFrames": 0,
+            "worstStep": 0,
+            "jumps": 0
+          },
+          {
+            "frames": 99,
+            "stillFrames": 0,
+            "worstStep": 0,
+            "jumps": 0
+          },
+          {
+            "frames": 99,
+            "stillFrames": 0,
+            "worstStep": 0,
+            "jumps": 0
+          },
+          {
+            "frames": 99,
+            "stillFrames": 0,
+            "worstStep": 0,
+            "jumps": 0
+          },
+          {
+            "frames": 101,
+            "stillFrames": 0,
+            "worstStep": 0,
+            "jumps": 0
+          },
+          {
+            "frames": 98,
+            "stillFrames": 0,
+            "worstStep": 0,
+            "jumps": 0
+          },
+          {
+            "frames": 99,
+            "stillFrames": 0,
+            "worstStep": 0,
+            "jumps": 0
+          }
+        ],
+        "jumps": 0,
+        "pass": true
+      },
+      "texels": {
+        "release": "25-lucy-park-before-i-speak",
+        "frontTexturePx": 512,
+        "backTexturePx": 512,
+        "faceScreenPx": 418.0065330287148,
+        "pixelRatio": 3,
+        "bigLoaded": [],
+        "frontRatio": 1.22,
+        "backRatio": 1.22,
+        "pass": true
+      },
+      "fps": {
+        "throttle": 4,
+        "mean": 60,
+        "min500msWindow": 60,
+        "slowestFrameMs": 16.8,
+        "pass": true
+      }
+    }
+  }
+}

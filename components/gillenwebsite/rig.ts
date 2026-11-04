@@ -33,7 +33,12 @@ export type Rig = {
   knobs: THREE.Object3D[];
   camera: THREE.PerspectiveCamera | null;
   onFront: Set<(i: number) => void>; // called when a new card comes to the front
-  firstCardTexture: boolean; // card 1's face has been painted onto its texture
+  firstCardTexture: boolean; // sleeve 1's front cover is on its texture
+  allSmall: boolean; // every sleeve has its 512 covers, front and back
+  lifted: number; // the slot whose sleeve is lifted off the ring into the record view, or -1
+  // the decoded bitmaps a release's sleeve is showing now, front and back, with their widths (Rolodex.tsx)
+  coverImages?: (i: number) => { front: { image: unknown; w: number } | null; back: { image: unknown; w: number } | null };
+  setPaused?: (paused: boolean) => void; // stop or restart the stage's render loop (Scene.tsx), while the record view covers it
   ready: boolean;
   axisY: number; // height of the drum axis, from knob_right's bounding box
   hit: HTMLElement | null; // the cards' hit area over the stage (touch-action: none), kept on the drum's screen rect
@@ -62,6 +67,8 @@ export const rig: Rig = {
   camera: null,
   onFront: new Set(),
   firstCardTexture: false,
+  allSmall: false,
+  lifted: -1,
   ready: false,
   axisY: 0.585,
   hit: null,

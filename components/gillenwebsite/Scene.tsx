@@ -96,7 +96,18 @@ function CameraRig() {
   return null;
 }
 
-export default function Scene({ releases, mono }: { releases: Release[]; mono: string }) {
+// the record view (VinylView.tsx) covers the stage once it is open: the stage stops drawing meanwhile, and its last
+// frame stays on screen behind the veil
+function PauseGate() {
+  const setFrameloop = useThree((st) => st.setFrameloop);
+  useEffect(() => {
+    rig.setPaused = (p) => setFrameloop(p ? "never" : "always");
+    return () => { rig.setPaused = undefined; };
+  }, [setFrameloop]);
+  return null;
+}
+
+export default function Scene({ releases }: { releases: Release[] }) {
   return (
     <Canvas
       shadows={{ type: THREE.PCFSoftShadowMap }}
@@ -109,8 +120,9 @@ export default function Scene({ releases, mono }: { releases: Release[]; mono: s
       <Floor />
 
       <CameraRig />
+      <PauseGate />
       <Suspense fallback={null}>
-        <Rolodex releases={releases} mono={mono} />
+        <Rolodex releases={releases} />
       </Suspense>
     </Canvas>
   );

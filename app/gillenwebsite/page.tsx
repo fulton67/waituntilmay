@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Site from "@/components/gillenwebsite/Site";
 import { releases } from "@/lib/gillenwebsite/discography";
-import { card } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Dylan Neustadter",
@@ -9,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <Site releases={releases} mono={card.style.fontFamily} />;
+  return <Site releases={releases} />;
 }
