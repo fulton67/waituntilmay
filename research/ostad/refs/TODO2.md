@@ -2,10 +2,10 @@
 Spec: `refs/SPEC2.md`. Starts after pass 1 (`refs/TODO.md`) is finished. Resume from the first unchecked item.
 
 ## Phase 1 — animations → motion.json
-- [ ] video search plan (yt-dlp ytsearch + web search: Vimeo, studios, manufacturer HCP pages)
-- [ ] candidate pool, filtered to animated/3D explanations
-- [ ] full downloads (720p), frames across the whole duration, beats written by eye
-- [ ] motion.json + gaps
+- [x] video search plan (yt-dlp ytsearch, 507 queries; Vimeo/studios/HCP pages not run, see DECISIONS 16)
+- [x] candidate pool, filtered to animated/3D explanations (475 shortlisted, 5 per procedure)
+- [x] full downloads (720p), frames across the whole duration, beats written by eye (16-frame overviews, DECISIONS 15)
+- [x] motion.json + gaps: 245 kept of 428, 85/97 procedures, MOTION_GAPS.md; Motion + His videos views on /ostad/refs
 ## Phase 2 — models → models.json
 - [ ] structure list from procedures.json anatomy
 - [ ] Z-Anatomy, BodyParts3D, NIH 3D, Sketchfab CC; priced list (Zygote store, TurboSquid, CGTrader)

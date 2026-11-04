@@ -67,4 +67,4 @@ Spec: pasted 2026-11-03 (saved as `refs/SPEC.md`). Resume from the first uncheck
   - the procedure filter works and the lightbox opens;
   - /ostad/refs/sources returns 200 with 945 rows;
   - 0 console errors.
-- `verify2.mjs` passes. Live check after push: see below.
+- `verify2.mjs` passes. **Live** (https://waituntilmay.com, after 76819b3): verify_refs PASS, 1,552 rendered = refs.json, sources page 200 with 945 rows. It first returned 404 because `.vercelignore`'s bare `sources/` rule dropped the route; fixed with `!app/**/sources/`.

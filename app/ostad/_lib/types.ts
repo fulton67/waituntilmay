@@ -127,3 +127,10 @@ export type RefProc = { id: string; name: string; cat: string; what: string; n: 
 export type RefSource = {
   id: string; name: string; url: string; kind: string; covers: string; style: string; license: string; yield: number; rank: number;
 };
+/** An animation that explains a procedure (refs/motion.json, compact). b = beats [seconds, what]. */
+export type MotionRef = {
+  id: string; p: string; t: string; ch: string; dur: number; yr: number | null; st: string; what: string;
+  b: [number, string][]; best: number; cam: string[]; fx: string; reuse: string; frag: boolean;
+};
+/** One of his own videos that mentions a procedure. */
+export type Mention = { id: string; t: string; u: string; d: string | null; pl: string };
