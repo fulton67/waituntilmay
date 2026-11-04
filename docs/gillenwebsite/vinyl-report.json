@@ -1,0 +1,259 @@
+{
+  "base": "http://localhost:3228",
+  "at": "2026-11-04T04:04:21.950Z",
+  "profiles": {
+    "desktop": {
+      "viewport": "1440x900@2",
+      "throttle": 1,
+      "lifted": [
+        0,
+        -1,
+        1,
+        -1,
+        2,
+        -1
+      ],
+      "transitions": [
+        {
+          "dir": "opening",
+          "ms": 451,
+          "frames": 28,
+          "fps": 61.7,
+          "worstMs": 17
+        },
+        {
+          "dir": "closing",
+          "ms": 462,
+          "frames": 28,
+          "fps": 60,
+          "worstMs": 17
+        },
+        {
+          "dir": "opening",
+          "ms": 463,
+          "frames": 30,
+          "fps": 63.6,
+          "worstMs": 22
+        },
+        {
+          "dir": "closing",
+          "ms": 452,
+          "frames": 28,
+          "fps": 60.4,
+          "worstMs": 17
+        },
+        {
+          "dir": "opening",
+          "ms": 455,
+          "frames": 29,
+          "fps": 62.2,
+          "worstMs": 17
+        },
+        {
+          "dir": "closing",
+          "ms": 462,
+          "frames": 28,
+          "fps": 59.9,
+          "worstMs": 17
+        }
+      ],
+      "transition": {
+        "openMs": [
+          451,
+          463,
+          455
+        ],
+        "closeMs": [
+          462,
+          452,
+          462
+        ],
+        "minFps": 59.9,
+        "worstFrameMs": 22,
+        "pass": true
+      },
+      "liftedPass": true,
+      "texels": {
+        "front": {
+          "texturePx": 2048,
+          "screenPx": 715.6,
+          "ratio": 2.86
+        },
+        "back": {
+          "texturePx": 2048,
+          "screenPx": 648.5,
+          "ratio": 3.16
+        },
+        "label": {
+          "texturePx": 2048,
+          "screenPx": 154.4,
+          "ratio": 13.26
+        },
+        "pass": true
+      },
+      "type": {
+        "artist": 48,
+        "release": 24,
+        "small": 16,
+        "track": 16,
+        "families": [
+          "info, \"info Fallback\", \"Nimbus Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif, \"Nimbus Sans\", \"Helvetica Neue\", Arial, sans-serif"
+        ],
+        "weights": [
+          "400"
+        ],
+        "pass": true
+      },
+      "spin": {
+        "radPerS": 3.494,
+        "target": 3.491,
+        "pass": true
+      },
+      "drag": {
+        "yawBefore": 0,
+        "yawAfter": 0.64,
+        "pass": true
+      },
+      "discography": {
+        "opened": true,
+        "opening": {
+          "dir": "opening",
+          "ms": 452,
+          "frames": 21,
+          "fps": 44.4,
+          "worstMs": 106
+        },
+        "pass": true
+      }
+    },
+    "phone": {
+      "viewport": "390x844@3",
+      "throttle": 4,
+      "lifted": [
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        -1
+      ],
+      "transitions": [
+        {
+          "dir": "opening",
+          "ms": 454,
+          "frames": 25,
+          "fps": 58.5,
+          "worstMs": 30
+        },
+        {
+          "dir": "closing",
+          "ms": 464,
+          "frames": 29,
+          "fps": 60.7,
+          "worstMs": 18
+        },
+        {
+          "dir": "opening",
+          "ms": 463,
+          "frames": 27,
+          "fps": 60.8,
+          "worstMs": 25
+        },
+        {
+          "dir": "closing",
+          "ms": 466,
+          "frames": 29,
+          "fps": 60.5,
+          "worstMs": 33
+        },
+        {
+          "dir": "opening",
+          "ms": 461,
+          "frames": 28,
+          "fps": 62.8,
+          "worstMs": 23
+        },
+        {
+          "dir": "closing",
+          "ms": 459,
+          "frames": 28,
+          "fps": 59.8,
+          "worstMs": 19
+        }
+      ],
+      "transition": {
+        "openMs": [
+          454,
+          463,
+          461
+        ],
+        "closeMs": [
+          464,
+          466,
+          459
+        ],
+        "minFps": 58.5,
+        "worstFrameMs": 33,
+        "pass": true
+      },
+      "liftedPass": true,
+      "texels": {
+        "front": {
+          "texturePx": 2048,
+          "screenPx": 321.7,
+          "ratio": 6.37
+        },
+        "back": {
+          "texturePx": 2048,
+          "screenPx": 282,
+          "ratio": 7.26
+        },
+        "label": {
+          "texturePx": 2048,
+          "screenPx": 67.8,
+          "ratio": 30.22
+        },
+        "pass": true
+      },
+      "type": {
+        "artist": 32,
+        "release": 20,
+        "small": 15,
+        "track": 15,
+        "families": [
+          "info, \"info Fallback\", \"Nimbus Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif, \"Nimbus Sans\", \"Helvetica Neue\", Arial, sans-serif"
+        ],
+        "weights": [
+          "400"
+        ],
+        "pass": true
+      },
+      "spin": {
+        "radPerS": 3.531,
+        "target": 3.491,
+        "pass": true
+      },
+      "drag": {
+        "yawBefore": 0,
+        "yawAfter": 0.64,
+        "pass": true
+      },
+      "discography": {
+        "opened": true,
+        "opening": {
+          "dir": "opening",
+          "ms": 463,
+          "frames": 30,
+          "fps": 62.8,
+          "worstMs": 18
+        },
+        "pass": true
+      }
+    }
+  },
+  "reducedMotion": {
+    "angleBefore": 0,
+    "angleAfter": 0,
+    "pass": true
+  }
+}

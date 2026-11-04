@@ -264,3 +264,31 @@
 }
 /* an open row's underline is gone at once: its fade-out would run past the 240 ms expand under a still pointer */
 .discoOpen .discoTitleText::after { opacity: 0; transition: none; }
+
+/* SOURCES #12 the record view (VinylView.tsx): over everything, closed until .vvOn. (.vvInfo .x beats .root p's
+   font-size: inherit.) The veil dims what is behind it
+   to the white ground (R1); the canvas takes the whole screen so the sleeve can lift from where it was; the info is a
+   column on the right (desktop) or under the record (phones, where the record is the full width at the top).
+   One face and one weight throughout (R2, R11): the info face at 400. */
+.vv { position: fixed; inset: 0; z-index: 40; pointer-events: none; visibility: hidden; }
+.vvOn { pointer-events: auto; visibility: visible; }
+.vvVeil { position: absolute; inset: 0; background: rgba(255, 255, 255, 0.86); opacity: 0; }
+.vvCanvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; cursor: grab; }
+.vvInfo {
+  position: absolute; top: calc(var(--head) + 24px); right: 0; bottom: 0; width: 420px; box-sizing: border-box;
+  padding: 0 28px 28px 8px; overflow: auto; display: flex; flex-direction: column; gap: 10px;
+  font: 400 16px/1.35 var(--mono); opacity: 0; background: var(--ground);
+}
+.vvArtist { font: 400 48px/1.02 var(--mono) !important; text-wrap: balance; }
+.vvInfo .vvRelease { font-size: 24px; line-height: 1.15; }
+.vvInfo .vvSmall { font-size: 16px; }
+.vvTracks { display: flex; flex-direction: column; border-top: 0.5px solid var(--ink); padding-top: 8px; margin-top: 6px; }
+.vvTrack { display: grid; grid-template-columns: 32px auto; gap: 0.25rem; padding: 4px 0; font-variant-numeric: tabular-nums; }
+.vvCollab { display: flex; flex-direction: column; gap: 4px; border-top: 0.5px solid var(--ink); padding-top: 8px; }
+.vvControls { display: flex; gap: 18px; margin-top: auto; padding-top: 12px; }
+@media (max-width: 719px) {
+  .vvInfo { top: calc(var(--head) + 62vw + 8px); left: 0; width: auto; padding: 0 16px 24px; font-size: 15px; }
+  .vvArtist { font-size: 32px !important; }
+  .vvInfo .vvRelease { font-size: 20px; }
+  .vvInfo .vvSmall { font-size: 15px; }
+}

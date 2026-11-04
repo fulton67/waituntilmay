@@ -85,7 +85,7 @@ function useScreensaver(N: number) {
 // gesture; a move under luckydaye.com's 5 px threshold is a click, and 24 px commits the swipe. The drum's ratchet
 // is the detent. It shares the Rolodex's index: the block follows rig.front, and a swipe turns the drum. On a
 // change the old block slides out and the new one in over 180 ms on the About reveal's ease curve (SOURCES #19),
-// upwards for the next release and downwards for the one before. A tap on the thumbnail opens the large-cover panel.
+// upwards for the next release and downwards for the one before. A tap on the thumbnail opens the record view.
 function Caption({ releases, front, onStep, onOpen, children }: { releases: Release[]; front: number; onStep: (k: number) => void; onOpen: (i: number) => void; children: React.ReactNode }) {
   const [pair, setPair] = useState<{ cur: number; prev: number | null }>({ cur: front, prev: null });
   if (pair.cur !== front) setPair({ cur: front, prev: pair.cur });
@@ -225,7 +225,7 @@ export default function Site({ releases }: { releases: Release[] }) {
         step(k);
         held = { key: e.key, id: window.setInterval(() => step(k), 125) };
       }
-      if (e.key === "Enter" && tag !== "BUTTON" && tag !== "A") { e.preventDefault(); open(rig.front); }
+      if (e.key === "Enter" && tag !== "BUTTON" && tag !== "A") { e.preventDefault(); open(rig.front, "rolodex"); }
     };
     const onKeyUp = (e: KeyboardEvent) => { if (held?.key === e.key) { clearInterval(held.id); held = null; } };
     const stop = () => { if (held) { clearInterval(held.id); held = null; } };
@@ -308,7 +308,7 @@ export default function Site({ releases }: { releases: Release[] }) {
     if (!h) return;
     // the card's slot on the ring; open it if it is the front card, otherwise turn to it the short way
     const slot = h.object.userData.i as number, at = Math.round(rig.s), ahead = ringDelta(at, slot, rig.TOTAL);
-    if (ahead === 0) open(wrap(slot, N)); else jumpTo(at + ahead);
+    if (ahead === 0) open(wrap(slot, N), "rolodex"); else jumpTo(at + ahead);
   };
   const onCancel = () => { stage.current?.classList.remove(css.dragging); rig.drag = null; };
 
@@ -340,7 +340,7 @@ export default function Site({ releases }: { releases: Release[] }) {
         </div>
       )}
 
-      <Caption releases={releases} front={front} onStep={step} onOpen={open}>
+      <Caption releases={releases} front={front} onStep={step} onOpen={(i) => open(i, "rolodex")}>
         {/* SOURCES #09 viscosesyllabus.com "001." index numbers; SOURCES #29 the screensaver counts down in the same slot */}
         <div className={css.count} data-src="09">
           {saver !== null && saver > 0

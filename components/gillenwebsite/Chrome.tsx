@@ -1,13 +1,19 @@
 "use client";
 // Everything that stays put while the three pages change: header, clock, nav, page transition, cursor readout,
-// footer, and the release panel any page can open. Each piece names its row in docs/gillenwebsite/SOURCES.md.
-import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
+// footer, and the record view any page can open. Each piece names its row in docs/gillenwebsite/SOURCES.md.
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
 import type { Release } from "@/lib/gillenwebsite/discography";
-import ReleaseView from "./ReleaseView";
+import type { From, VinylHandle } from "./VinylView";
 import css from "./site.module.css";
 
-type Ctx = { open: (i: number) => void };
+// the record view: three.js, so loaded on the client only, as soon as the page is up
+const VinylView = dynamic(() => import("./VinylView"), { ssr: false });
+
+// open(i, from): the record view for release i, lifting off the Rolodex ("rolodex"), starting on a cover in the
+// page (an element), or coming up from below (null)
+type Ctx = { open: (i: number, from?: From) => void };
 const PanelCtx = createContext<Ctx>({ open: () => {} });
 export const usePanel = () => useContext(PanelCtx);
 
@@ -115,10 +121,7 @@ export default function Chrome({
   const router = useRouter();
   const main = useRef<HTMLElement>(null);
   const leaving = useRef(false);
-  const [panel, setPanel] = useState<number | null>(null);
-  const [shown, setShown] = useState(false);
-  const back = useRef<HTMLAnchorElement>(null);
-  const lightbox = useRef<HTMLDivElement>(null);
+  const vinyl = useRef<VinylHandle | null>(null);
 
   // SOURCES #05, viscosesyllabus.com S7 (1c85fe7d1ee0de53.js:23): the page goes out to translate(90vw), and
   // navigation waits for it. The new page comes in from 80vw to 0. The first load does not slide. viscosesyllabus
@@ -150,26 +153,12 @@ export default function Chrome({
     return () => clearTimeout(t);
   }, [path]);
 
-  // SOURCES #12: the panel slides in on luckydaye .gallery-panel's cubic-bezier(.77,0,.175,1), over 240 ms
-  const open = useCallback((i: number) => { if (i >= 0 && i < N) { setPanel(i); setShown(true); } }, [N]);
-  const close = useCallback(() => setShown(false), []);
-  // the panel mounts already open and slides in from translate(-100%) on the compositor, starting in the same frame
-  // as the cover's fade; closing is the CSS transition back
-  const mounted = panel !== null;
-  useLayoutEffect(() => {
-    if (mounted) lightbox.current?.animate([{ transform: "translate(-100%)" }, { transform: "translate(0)" }], { duration: 240, easing: "cubic-bezier(0.77, 0, 0.175, 1)" });
-  }, [mounted]);
-  useEffect(() => { if (shown) back.current?.focus(); }, [shown]);
-  useEffect(() => {
-    if (panel === null) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
-      if (e.key === "ArrowRight") setPanel((p) => (p === null ? p : (p + 1) % N));
-      if (e.key === "ArrowLeft") setPanel((p) => (p === null ? p : (p - 1 + N) % N));
-    };
-    addEventListener("keydown", onKey);
-    return () => removeEventListener("keydown", onKey);
-  }, [panel, N, close]);
+  // SOURCES #12: the record view (VinylView.tsx). Until its code has loaded, a request waits for it.
+  const open = useCallback((i: number, from: From = null) => {
+    if (i < 0 || i >= N) return;
+    const go = () => { if (vinyl.current) vinyl.current.open(i, from); else setTimeout(go, 50); };
+    go();
+  }, [N]);
 
   return (
     <PanelCtx.Provider value={{ open }}>
@@ -216,31 +205,7 @@ export default function Chrome({
 
       <CursorReadout />
 
-      {/* SOURCES #12 luckydaye.com lightbox (4109:82466): fixed, inset 0, padding 40px, centred; a click on the backdrop itself closes it */}
-      {panel !== null && (
-        <div
-          ref={lightbox}
-          className={`${css.lightbox} ${shown ? css.lightboxOpen : ""}`}
-          data-src="12"
-          role="dialog"
-          aria-modal="true"
-          aria-label={`${releases[panel].artist}, ${releases[panel].release}`}
-          onClick={(e) => { if (e.target === e.currentTarget) close(); }}
-          onTransitionEnd={(e) => { if (e.target === e.currentTarget && !shown) setPanel(null); }}
-        >
-          {/* SOURCES #13 luckydaye.com a.header-nav.back-button in .back-button-holder rotated -90deg (4121:6231) */}
-          <span className={css.backHolder} data-src="13">
-            <a ref={back} href="#" className={css.back} data-src="13 25" onClick={(e) => { e.preventDefault(); close(); }}>[BACK]</a>
-          </span>
-          <ReleaseView
-            releases={releases}
-            i={panel}
-            mode="panel"
-            onPrev={() => setPanel((panel - 1 + N) % N)}
-            onNext={() => setPanel((panel + 1) % N)}
-          />
-        </div>
-      )}
+      <VinylView releases={releases} handle={vinyl} />
 
       {/* SOURCES #31 the credit rides in the served HTML (siteplan.lidofestival.co.uk 7ceda4973e966175.js:4530) */}
       <div hidden data-src="31" dangerouslySetInnerHTML={{ __html: "<!-- Site Development & Design; waituntilmay -->" }} />
