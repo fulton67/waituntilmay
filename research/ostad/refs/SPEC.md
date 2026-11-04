@@ -1,0 +1,25 @@
+# OSTAD VISUAL REFERENCES — procedure-by-procedure image library (spec as pasted 2026-11-03)
+
+Unattended. Same rules as the other Ostad runs: never ask, log decisions in `research/ostad/refs/DECISIONS.md`, resume from `research/ostad/refs/TODO.md`, cache everything, push to main as soon as each phase is measured and committed.
+
+## Goal
+A browsable library of modern medical-education graphics for every procedure and treatment Dr. Ostad performs or talks about: cross-sections, mechanism-of-action diagrams, injection maps, device animation stills, step-by-step surgical illustrations, 3D anatomy renders. Clean vector or 3D, labelled, post-2015. Not historical plates, stock photos of smiling patients, before-afters or clinic marketing banners. Plus a ranked directory of the sites that keep producing this kind of image.
+
+## Phase 1 — procedure list
+`refs/procedures.json` from (1) CLIENT.md + site crawl (every treatment page, every skincare SKU) and (2) every transcript of his own videos (`data/videos.json`, `source == "own"`; transcribe missing ones with the run-2 pipeline). Read them; list every procedure, device, product, technique, anatomical region and condition he names, including passing mentions. Fields: `id, name, aliases[], category (neurotoxin | filler | biostimulator | laser | RF/energy | surgical | regenerative | body | medical-derm | skin-cancer | skincare | wellness), brand_or_device, manufacturer, what_it_does, anatomy, mentioned_in, on_site, site_url`. Expect 60–90. Group injectables by region (lips, jawline, temples, under-eye, nose, chin, neck).
+
+## Phase 2 — where this kind of image lives
+Seed list, then expand by following outbound/related links from sites that yield good images. `sources.json`: `name, url, kind (manufacturer | society | journal/open-access | illustration-studio | anatomy-platform | educator | image-search), what_it_covers, style_notes, license_notes, yield, rank`.
+Seeds: manufacturers (InMode, Solta, Lumenis/BTL, Candela, Cutera, Cynosure Lutronic, Allergan Aesthetics, Galderma, Evolus, miraDry, MyEllevate, Sinclair, Benev/ExoCoBio, Eclipse PRFM, Oxylight, Aquagold, PCA/SkinMedica) — "how it works", MOA, HCP, clinical, technology, science pages, PDFs; societies/institutions (ASPS, AAFPRS, ASDS, AAD, ISAPS, Mayo, Cleveland Clinic, Johns Hopkins, Stanford Medicine 25, TVASurg); open-access journals and figure search (Open-i, PMC, Europe PMC, PRS Global Open, ASJ, JAMA Derm, Derm Surg, JAAD, PRS; Cotofana); illustration studios/communities (AMI salon, Nucleus, AXS, Scientific Animations, Random42, Visible Body, Complete Anatomy, Kenhub, TeachMeAnatomy, Behance, Dribbble, Instagram via web search only); injector/laser education (Allergan Medical Institute, Galderma GAIN, Merz Institute, Harley Academy, Aesthetic Medicine, Dermatology Times, Practical Dermatology, PMFA Journal, Prime Journal); Are.na (log channels).
+
+## Phase 3 — collect
+Per procedure, searches combining name/aliases with: mechanism of action, how it works, illustration, diagram, schematic, cross section, anatomy, injection points, injection map, step by step, 3D render, animation + manufacturer; site-targeted queries; plain image search `{name} medical illustration`.
+Keep only if ALL: drawn/rendered medical graphic (reject photos of people, before-afters, logos, packshots, clinic ads, empty stock renders); looks post-2015; ≥ 800 px long edge or SVG/PDF; clearly about this procedure/device/anatomy. Judge each by looking. Target 8–20 per procedure, 1,000+ total. Download to `refs/img/{procedure_id}/{hash}.{ext}`, 600 px preview in `public/ostad/refs/{procedure_id}/`. Perceptual-hash dedupe across the library. `refs.json`: `procedure_id, image_url, page_url, source_id, title_or_caption, type (cross-section | MOA | injection-map | surgical-steps | 3D-anatomy | device | flowchart | other), labelled, style_notes, license (as stated, else "unknown — reference only"), width, height, phash`. Under 5 keepers after a real search → `GAPS.md` with what was tried.
+
+## Phase 4 — the view
+Tab **Refs** on `/ostad` (run-2 styling, noindex, static JSON). Left: procedures grouped by category with counts. Right: masonry of previews; each opens to full image + source page link + license line + type tag. Filters: type, source kind, labelled. Default sort: labelled cross-sections and MOA first. **Sources** page: `sources.json` ranked by yield with a one-line note; GAPS.md rendered under it.
+Optional with `ARENA_ACCESS_TOKEN`: private Are.na channel per category ("Ostad — {category}"). Without: `refs/arena-import.csv` (procedure, category, image_url, page_url).
+Verify: procedures count and total images printed; procedures under 5 keepers; every preview path resolves; build passes; `/ostad/refs` live 200 and renders a count equal to `refs.json` length. Push to main.
+
+## Finish
+TODO.md ends with: procedure count by category; images per procedure (min / median / max); top 10 sources by yield; gaps; whether Are.na channels were created; anything decided alone.

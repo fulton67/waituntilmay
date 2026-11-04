@@ -162,3 +162,7 @@ bank/env/
 renders_bank/
 renders_bank_control/
 journey/relayer-*.json
+# visual refs: full-size downloads and search caches stay local
+research/ostad/refs/img/
+research/ostad/refs/cache/
+research/ostad/refs/sheets/

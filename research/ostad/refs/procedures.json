@@ -1,0 +1,3315 @@
+[
+ {
+  "id": "neurotoxin",
+  "name": "Neurotoxins (Botox, Dysport, Xeomin, Daxxify)",
+  "aliases": [
+   "Botox",
+   "onabotulinumtoxinA",
+   "neuromodulator",
+   "botulinum toxin",
+   "Dysport, Xeomin and Daxxify",
+   "abobotulinumtoxinA",
+   "incobotulinumtoxinA",
+   "daxibotulinumtoxinA"
+  ],
+  "category": "neurotoxin",
+  "brand_or_device": "Botox Cosmetic",
+  "manufacturer": "Allergan Aesthetics (AbbVie)",
+  "what_it_does": "Blocks the nerve signal (acetylcholine release) to a muscle so it relaxes and the line it creases softens.",
+  "anatomy": [
+   "neuromuscular junction",
+   "facial expression muscles"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_ppGlX6Ux9AY",
+   "yo_hrg0qtYyK7c",
+   "in_DYDKhFCRykx",
+   "ti_7438709969106554143",
+   "in_DalW61oD-se",
+   "yo_Br2Buug_Y08",
+   "yo_7BFJbIE76Fc",
+   "yo_O-iSH4mDjno",
+   "ti_7296928587473636651",
+   "yo_UNoVm2IvsAg",
+   "ti_7345169318260395306",
+   "yo_c_FMAbuYPYs",
+   "ti_7296179977987312938",
+   "yo_2FdFHgaFTxU",
+   "ti_7500961261375556907",
+   "ti_7483979850215230766",
+   "yo_3zcokqzZ2jk",
+   "yo_U9nqH9B-Nbw",
+   "yo_Gt_Ogifh5_A",
+   "ti_7260493315643165994"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/botox/",
+  "search_terms": [
+   "Neurotoxins",
+   "Botox",
+   "onabotulinumtoxinA",
+   "neuromodulator",
+   "botulinum toxin",
+   "Daxxify peptide toxin"
+  ]
+ },
+ {
+  "id": "jeuveau",
+  "name": "Jeuveau",
+  "aliases": [
+   "prabotulinumtoxinA-xvfs",
+   "Jeaveau",
+   "Juvo",
+   "Newtox"
+  ],
+  "category": "neurotoxin",
+  "brand_or_device": "Jeuveau",
+  "manufacturer": "Evolus",
+  "what_it_does": "A botulinum toxin type A made with Hi-Pure purification, used for frown lines between the brows.",
+  "anatomy": [
+   "corrugator",
+   "procerus",
+   "neuromuscular junction"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "in_DalW61oD-se",
+   "yo_7BFJbIE76Fc",
+   "yo_UNoVm2IvsAg",
+   "yo_zIw51-U6Lzo",
+   "ti_7483979850215230766",
+   "yo_3zcokqzZ2jk",
+   "yo_U9nqH9B-Nbw",
+   "yo_Gt_Ogifh5_A"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/botox/",
+  "search_terms": [
+   "Jeuveau",
+   "prabotulinumtoxinA-xvfs",
+   "Jeaveau",
+   "Juvo",
+   "Jeuveau prabotulinumtoxinA"
+  ]
+ },
+ {
+  "id": "toxin-glabella",
+  "name": "Frown lines (glabella) toxin",
+  "aliases": [
+   "11s",
+   "glabellar lines",
+   "corrugator",
+   "procerus"
+  ],
+  "category": "neurotoxin",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Toxin in the corrugator and procerus muscles stops the frown that carves the vertical 11 lines.",
+  "anatomy": [
+   "corrugator supercilii",
+   "procerus",
+   "supratrochlear vessels"
+  ],
+  "region": "upper face",
+  "mentioned_in": [
+   "yo_ppGlX6Ux9AY",
+   "yo_hrg0qtYyK7c",
+   "in_DalW61oD-se",
+   "yo_zIw51-U6Lzo",
+   "yo_3zcokqzZ2jk",
+   "yo_U9nqH9B-Nbw",
+   "yo_Gt_Ogifh5_A"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/gallery/conditions/frown-lines/",
+  "search_terms": [
+   "Frown lines",
+   "11s",
+   "glabellar lines",
+   "corrugator",
+   "glabellar injection points"
+  ]
+ },
+ {
+  "id": "toxin-forehead",
+  "name": "Forehead lines toxin",
+  "aliases": [
+   "frontalis",
+   "horizontal forehead lines",
+   "brow ptosis"
+  ],
+  "category": "neurotoxin",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Small doses in the frontalis soften horizontal lines; too much or too low drops the brow.",
+  "anatomy": [
+   "frontalis",
+   "brow"
+  ],
+  "region": "upper face",
+  "mentioned_in": [
+   "yo_ppGlX6Ux9AY",
+   "ti_7295813676466965802",
+   "yo_hrg0qtYyK7c",
+   "yo_e3d5gGfUS2A",
+   "in_DYDKhFCRykx",
+   "yo_QB5ijpba3Vk",
+   "ti_7294303735478488362",
+   "ti_7296928587473636651",
+   "yo_c_FMAbuYPYs",
+   "yo_Gt_Ogifh5_A"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/gallery/conditions/forehead-lines/",
+  "search_terms": [
+   "Forehead lines toxin",
+   "frontalis",
+   "horizontal forehead lines",
+   "brow ptosis",
+   "frontalis injection pattern"
+  ]
+ },
+ {
+  "id": "toxin-crows-feet",
+  "name": "Crow's feet toxin",
+  "aliases": [
+   "lateral canthal lines",
+   "orbicularis oculi"
+  ],
+  "category": "neurotoxin",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Toxin in the outer orbicularis oculi relaxes the squint lines at the corners of the eyes.",
+  "anatomy": [
+   "orbicularis oculi",
+   "lateral canthus"
+  ],
+  "region": "upper face",
+  "mentioned_in": [
+   "yo_ppGlX6Ux9AY",
+   "in_DYDKhFCRykx",
+   "in_DalW61oD-se",
+   "yo_zIw51-U6Lzo",
+   "yo_Gt_Ogifh5_A"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/gallery/conditions/crows-feet/",
+  "search_terms": [
+   "Crow's feet toxin",
+   "lateral canthal lines",
+   "orbicularis oculi",
+   "lateral canthal lines injection"
+  ]
+ },
+ {
+  "id": "toxin-masseter",
+  "name": "Masseter toxin (jaw slimming, clenching)",
+  "aliases": [
+   "masseter Botox",
+   "jaw slimming",
+   "bruxism"
+  ],
+  "category": "neurotoxin",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Toxin in the masseter weakens the chewing muscle to slim the lower face and ease clenching.",
+  "anatomy": [
+   "masseter",
+   "parotid gland",
+   "risorius"
+  ],
+  "region": "jawline",
+  "mentioned_in": [
+   "in_DYDKhFCRykx",
+   "yo_c_FMAbuYPYs"
+  ],
+  "on_site": false,
+  "site_url": null,
+  "search_terms": [
+   "Masseter toxin",
+   "masseter Botox",
+   "jaw slimming",
+   "bruxism",
+   "masseter injection zone"
+  ]
+ },
+ {
+  "id": "toxin-dao",
+  "name": "Lower face toxin: mouth corners and chin (DAO, mentalis)",
+  "aliases": [
+   "depressor anguli oris",
+   "DAO",
+   "marionette",
+   "Chin dimpling (mentalis) toxin",
+   "mentalis",
+   "pebbled chin",
+   "orange-peel chin"
+  ],
+  "category": "neurotoxin",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Toxin in the depressor anguli oris lets the corners of the mouth lift instead of pulling down.",
+  "anatomy": [
+   "depressor anguli oris",
+   "depressor labii inferioris",
+   "modiolus",
+   "mentalis"
+  ],
+  "region": "lower face",
+  "mentioned_in": [
+   "yo_ppGlX6Ux9AY",
+   "in_DYDKhFCRykx",
+   "yo_rA5_Lyo0bsw",
+   "yo_c_FMAbuYPYs"
+  ],
+  "on_site": false,
+  "site_url": null,
+  "search_terms": [
+   "Lower face toxin: mouth corners and chin",
+   "depressor anguli oris",
+   "DAO",
+   "marionette",
+   "depressor anguli oris injection",
+   "mentalis injection"
+  ]
+ },
+ {
+  "id": "toxin-neck",
+  "name": "Neck bands (platysma) toxin",
+  "aliases": [
+   "platysmal bands",
+   "Nefertiti lift",
+   "platysma"
+  ],
+  "category": "neurotoxin",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Toxin along the platysmal bands relaxes the cords that run from jaw to collarbone and sharpens the jawline.",
+  "anatomy": [
+   "platysma",
+   "jawline",
+   "neck"
+  ],
+  "region": "neck",
+  "mentioned_in": [
+   "yo_ppGlX6Ux9AY"
+  ],
+  "on_site": false,
+  "site_url": null,
+  "search_terms": [
+   "Neck bands",
+   "platysmal bands",
+   "Nefertiti lift",
+   "platysma",
+   "platysmal bands injection",
+   "Nefertiti lift"
+  ]
+ },
+ {
+  "id": "ha-filler",
+  "name": "Hyaluronic acid fillers",
+  "aliases": [
+   "dermal filler",
+   "HA filler",
+   "cross-linked hyaluronic acid"
+  ],
+  "category": "filler",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "A cross-linked hyaluronic acid gel that binds water and restores volume or support where it is placed.",
+  "anatomy": [
+   "dermis",
+   "subcutaneous fat",
+   "supraperiosteal plane",
+   "fat compartments"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_gd1fP5fvQGg",
+   "yo_azYDyIVL214",
+   "ti_7290592781205097770",
+   "in_DYDKhFCRykx",
+   "in_DeNQcHXCOAo",
+   "ti_7301789773595725098",
+   "ti_7438709969106554143",
+   "yo_QB5ijpba3Vk",
+   "yo_KL22DLzNzwk",
+   "yo_rA5_Lyo0bsw",
+   "yo_keyKrmNemWY",
+   "yo_O-iSH4mDjno",
+   "ti_7296928587473636651",
+   "in_DdmFXlPjdJl",
+   "ti_7296179977987312938",
+   "ti_7500961261375556907",
+   "yo_3vTaPzApwjo",
+   "yo_Gt_Ogifh5_A",
+   "ti_7260493315643165994",
+   "yo_LOPnIRsOBXQ",
+   "yo_dgsnyITW3ng"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/injectables/dermal-fillers/",
+  "search_terms": [
+   "Hyaluronic acid fillers",
+   "dermal filler",
+   "HA filler",
+   "cross-linked hyaluronic acid",
+   "dermal filler cross-linking",
+   "hyaluronic acid filler rheology"
+  ]
+ },
+ {
+  "id": "juvederm",
+  "name": "Juvéderm (Voluma, Volbella, Vollure, Volux)",
+  "aliases": [
+   "Juvederm",
+   "Vycross",
+   "Voluma",
+   "Volbella",
+   "Vollure",
+   "Volux"
+  ],
+  "category": "filler",
+  "brand_or_device": "Juvéderm",
+  "manufacturer": "Allergan Aesthetics (AbbVie)",
+  "what_it_does": "A family of HA fillers of different firmness, each made for a different depth and area of the face.",
+  "anatomy": [
+   "dermis",
+   "supraperiosteal plane"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "ti_7301789773595725098",
+   "ti_7438709969106554143",
+   "yo_keyKrmNemWY"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/injectables/dermal-fillers/juvederm/",
+  "search_terms": [
+   "Juvéderm",
+   "Juvederm",
+   "Vycross",
+   "Voluma",
+   "Juvederm Vycross technology"
+  ]
+ },
+ {
+  "id": "restylane",
+  "name": "Restylane",
+  "aliases": [
+   "NASHA",
+   "OBT",
+   "Restylane Lyft",
+   "Restylane Kysse"
+  ],
+  "category": "filler",
+  "brand_or_device": "Restylane",
+  "manufacturer": "Galderma",
+  "what_it_does": "HA fillers built on NASHA and OBT gel technology for lips, cheeks and lines.",
+  "anatomy": [
+   "dermis",
+   "subcutaneous fat"
+  ],
+  "region": null,
+  "mentioned_in": [],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/injectables/dermal-fillers/restylane/",
+  "search_terms": [
+   "Restylane",
+   "NASHA",
+   "OBT",
+   "Restylane Lyft",
+   "Restylane NASHA OBT technology"
+  ]
+ },
+ {
+  "id": "evolysse",
+  "name": "Evolysse (Form and Smooth)",
+  "aliases": [
+   "Evolysse",
+   "Cold-X technology",
+   "Everlice"
+  ],
+  "category": "filler",
+  "brand_or_device": "Evolysse",
+  "manufacturer": "Evolus",
+  "what_it_does": "HA fillers cross-linked at near-freezing temperature to keep the HA chains longer.",
+  "anatomy": [
+   "nasolabial fold",
+   "dermis"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_rA5_Lyo0bsw",
+   "yo_LOPnIRsOBXQ"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/injectables/dermal-fillers/juvederm/",
+  "search_terms": [
+   "Evolysse",
+   "Evolysse",
+   "Cold-X technology",
+   "Everlice",
+   "Evolysse Cold-X"
+  ]
+ },
+ {
+  "id": "belotero",
+  "name": "Belotero",
+  "aliases": [
+   "Belotero Balance",
+   "Cohesive Polydensified Matrix"
+  ],
+  "category": "filler",
+  "brand_or_device": "Belotero",
+  "manufacturer": "Merz Aesthetics",
+  "what_it_does": "A soft HA filler that spreads evenly into the dermis for fine lines.",
+  "anatomy": [
+   "superficial dermis"
+  ],
+  "region": null,
+  "mentioned_in": [],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/injectables/dermal-fillers/belotero/",
+  "search_terms": [
+   "Belotero",
+   "Belotero Balance",
+   "Cohesive Polydensified Matrix",
+   "Belotero cohesive polydensified matrix"
+  ]
+ },
+ {
+  "id": "skinvive",
+  "name": "SkinVive",
+  "aliases": [
+   "skin booster",
+   "microdroplet HA"
+  ],
+  "category": "filler",
+  "brand_or_device": "SkinVive by Juvéderm",
+  "manufacturer": "Allergan Aesthetics (AbbVie)",
+  "what_it_does": "Tiny droplets of thin HA placed in the skin to improve hydration and smoothness, not volume.",
+  "anatomy": [
+   "dermis"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "ti_7301789773595725098",
+   "yo_keyKrmNemWY",
+   "in_DeuyxCNEujF"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/skinvive/",
+  "search_terms": [
+   "SkinVive",
+   "skin booster",
+   "microdroplet HA",
+   "Skinvive microdroplet injection"
+  ]
+ },
+ {
+  "id": "filler-lips",
+  "name": "Lip filler",
+  "aliases": [
+   "lip augmentation",
+   "lip enhancement",
+   "vermilion"
+  ],
+  "category": "filler",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "HA placed in the lip body and border for shape, volume and hydration.",
+  "anatomy": [
+   "orbicularis oris",
+   "superior/inferior labial artery",
+   "vermilion border"
+  ],
+  "region": "lips",
+  "mentioned_in": [
+   "yo_mN-Np4Wzoco",
+   "yo_ltBak2wH8w0",
+   "in_DdmFXlPjdJl"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/gallery/procedures/lip-enhancement/",
+  "search_terms": [
+   "Lip filler",
+   "lip augmentation",
+   "lip enhancement",
+   "vermilion",
+   "lip injection anatomy labial artery"
+  ]
+ },
+ {
+  "id": "filler-cheeks",
+  "name": "Cheek filler",
+  "aliases": [
+   "midface volume",
+   "malar augmentation"
+  ],
+  "category": "filler",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "HA on the cheekbone or in the deep fat pads lifts and restores the midface.",
+  "anatomy": [
+   "deep medial cheek fat",
+   "zygoma",
+   "SOOF"
+  ],
+  "region": "cheeks",
+  "mentioned_in": [
+   "yo_9Q9dSwE_X3c",
+   "ti_7295813676466965802",
+   "yo_azYDyIVL214",
+   "yo_KL22DLzNzwk",
+   "yo_UdcrMc1UhF8",
+   "in_DdmFXlPjdJl",
+   "yo_Gt_Ogifh5_A"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/gallery/procedures/fillers-cheeks/",
+  "search_terms": [
+   "Cheek filler",
+   "midface volume",
+   "malar augmentation",
+   "midface filler injection points"
+  ]
+ },
+ {
+  "id": "filler-jawline",
+  "name": "Jawline filler",
+  "aliases": [
+   "jaw contouring",
+   "mandible definition"
+  ],
+  "category": "filler",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "HA along the mandible and angle sharpens and lifts the jawline.",
+  "anatomy": [
+   "mandible",
+   "masseter",
+   "facial artery at the notch"
+  ],
+  "region": "jawline",
+  "mentioned_in": [
+   "yo_ppGlX6Ux9AY",
+   "yo_azYDyIVL214",
+   "in_DYDKhFCRykx",
+   "yo_m0YKyl_hjd8",
+   "yo_QB5ijpba3Vk",
+   "ti_7294303735478488362",
+   "yo_KL22DLzNzwk",
+   "in_DdmFXlPjdJl",
+   "yo_Gt_Ogifh5_A"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/jawline-contouring/",
+  "search_terms": [
+   "Jawline filler",
+   "jaw contouring",
+   "mandible definition",
+   "jawline filler injection points"
+  ]
+ },
+ {
+  "id": "filler-chin",
+  "name": "Chin filler",
+  "aliases": [
+   "non-surgical chin augmentation"
+  ],
+  "category": "filler",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "HA on the chin bone projects and lengthens a weak chin.",
+  "anatomy": [
+   "mentum",
+   "mentalis",
+   "mental foramen"
+  ],
+  "region": "chin",
+  "mentioned_in": [
+   "yo_ppGlX6Ux9AY",
+   "ti_7295813676466965802",
+   "in_DYDKhFCRykx",
+   "yo_QB5ijpba3Vk",
+   "ti_7342916462551584043",
+   "yo_GGJvCDIXu-0",
+   "yo_c_FMAbuYPYs"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/injectables/non-surgical-chin-augmentation/",
+  "search_terms": [
+   "Chin filler",
+   "non-surgical chin augmentation",
+   "chin filler injection points"
+  ]
+ },
+ {
+  "id": "filler-nose",
+  "name": "Non-surgical nose job",
+  "aliases": [
+   "liquid rhinoplasty",
+   "nose filler"
+  ],
+  "category": "filler",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Small amounts of HA reshape the nasal bridge and tip without surgery.",
+  "anatomy": [
+   "dorsal nasal artery",
+   "angular artery",
+   "nasal dorsum"
+  ],
+  "region": "nose",
+  "mentioned_in": [],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/injectables/non-surgical-nose-job/",
+  "search_terms": [
+   "Non-surgical nose job",
+   "liquid rhinoplasty",
+   "nose filler",
+   "non-surgical rhinoplasty danger zones"
+  ]
+ },
+ {
+  "id": "filler-under-eye",
+  "name": "Under-eye (tear trough) filler",
+  "aliases": [
+   "tear trough",
+   "infraorbital hollow"
+  ],
+  "category": "filler",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "A little HA in the tear trough supports the lower lid and hides the fat-pad bulge.",
+  "anatomy": [
+   "tear trough ligament",
+   "orbital fat pads",
+   "infraorbital foramen"
+  ],
+  "region": "under-eye",
+  "mentioned_in": [
+   "yo_9Q9dSwE_X3c",
+   "ti_7295813676466965802",
+   "yo_azYDyIVL214",
+   "in_DYDKhFCRykx",
+   "yo_ltBak2wH8w0",
+   "ti_7438709969106554143",
+   "yo_vUYNHuUWOy8",
+   "ti_7252737667308260654",
+   "yo_QB5ijpba3Vk"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/gallery/conditions/undereye/",
+  "search_terms": [
+   "Under-eye",
+   "tear trough",
+   "infraorbital hollow",
+   "tear trough filler anatomy"
+  ]
+ },
+ {
+  "id": "filler-temples",
+  "name": "Temple filler",
+  "aliases": [
+   "temporal hollowing"
+  ],
+  "category": "filler",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Filler in the temple restores hollowing that ages the upper face.",
+  "anatomy": [
+   "temporalis",
+   "superficial temporal artery",
+   "temporal fat pads"
+  ],
+  "region": "temples",
+  "mentioned_in": [
+   "yo_KL22DLzNzwk",
+   "in_DdmFXlPjdJl"
+  ],
+  "on_site": false,
+  "site_url": null,
+  "search_terms": [
+   "Temple filler",
+   "temporal hollowing",
+   "temple filler injection anatomy"
+  ]
+ },
+ {
+  "id": "filler-nasolabial",
+  "name": "Smile lines (nasolabial) filler",
+  "aliases": [
+   "laugh lines",
+   "nasolabial folds",
+   "marionette lines"
+  ],
+  "category": "filler",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "HA under the fold from nose to mouth softens laugh lines.",
+  "anatomy": [
+   "facial artery",
+   "angular artery",
+   "nasolabial fat"
+  ],
+  "region": "lower face",
+  "mentioned_in": [
+   "in_DYDKhFCRykx",
+   "yo_QB5ijpba3Vk",
+   "yo_rA5_Lyo0bsw",
+   "yo_Gt_Ogifh5_A"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/gallery/conditions/laugh-lines/",
+  "search_terms": [
+   "Smile lines",
+   "laugh lines",
+   "nasolabial folds",
+   "marionette lines",
+   "nasolabial fold injection facial artery"
+  ]
+ },
+ {
+  "id": "filler-hands",
+  "name": "Hand rejuvenation",
+  "aliases": [
+   "hand filler",
+   "dorsal hand"
+  ],
+  "category": "filler",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Filler or fat on the back of the hand hides veins and tendons lost to volume loss.",
+  "anatomy": [
+   "dorsal hand",
+   "extensor tendons",
+   "dorsal veins"
+  ],
+  "region": "hands",
+  "mentioned_in": [
+   "yo_gd1fP5fvQGg",
+   "yo_9Mcdhj93cN4",
+   "ti_7438709969106554143",
+   "in_DalW61oD-se"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/hand-rejuvenation/",
+  "search_terms": [
+   "Hand rejuvenation",
+   "hand filler",
+   "dorsal hand",
+   "dorsal hand filler layers"
+  ]
+ },
+ {
+  "id": "filler-safety",
+  "name": "Filler safety: vascular occlusion and hyaluronidase",
+  "aliases": [
+   "danger zones",
+   "vascular occlusion",
+   "hyaluronidase",
+   "Hylenex"
+  ],
+  "category": "filler",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Knowing the arteries and planes keeps filler out of vessels; hyaluronidase dissolves HA if it goes wrong.",
+  "anatomy": [
+   "facial artery",
+   "angular artery",
+   "supratrochlear artery",
+   "dorsal nasal artery"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_3vTaPzApwjo"
+  ],
+  "on_site": false,
+  "site_url": null,
+  "search_terms": [
+   "Filler safety: vascular occlusion and hyaluronidase",
+   "danger zones",
+   "vascular occlusion",
+   "hyaluronidase",
+   "facial danger zones arteries filler"
+  ]
+ },
+ {
+  "id": "sculptra",
+  "name": "Sculptra",
+  "aliases": [
+   "poly-L-lactic acid",
+   "PLLA",
+   "biostimulator"
+  ],
+  "category": "biostimulator",
+  "brand_or_device": "Sculptra",
+  "manufacturer": "Galderma",
+  "what_it_does": "Poly-L-lactic acid particles that trigger the body to make its own collagen over months.",
+  "anatomy": [
+   "deep dermis",
+   "subcutaneous fat",
+   "temples"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "in_DeNQcHXCOAo",
+   "yo_QB5ijpba3Vk"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/injectables/dermal-fillers/sculptra/",
+  "search_terms": [
+   "Sculptra",
+   "poly-L-lactic acid",
+   "PLLA",
+   "biostimulator",
+   "poly-L-lactic acid mechanism"
+  ]
+ },
+ {
+  "id": "radiesse",
+  "name": "Radiesse",
+  "aliases": [
+   "calcium hydroxylapatite",
+   "CaHA",
+   "hyperdilute Radiesse"
+  ],
+  "category": "biostimulator",
+  "brand_or_device": "Radiesse",
+  "manufacturer": "Merz Aesthetics",
+  "what_it_does": "Calcium hydroxylapatite microspheres that add volume now and stimulate collagen later.",
+  "anatomy": [
+   "subdermal plane",
+   "jawline",
+   "hands"
+  ],
+  "region": null,
+  "mentioned_in": [],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/injectables/dermal-fillers/radiesse/",
+  "search_terms": [
+   "Radiesse",
+   "calcium hydroxylapatite",
+   "CaHA",
+   "hyperdilute Radiesse",
+   "calcium hydroxylapatite microspheres"
+  ]
+ },
+ {
+  "id": "alloclae",
+  "name": "AlloClae (donor fat)",
+  "aliases": [
+   "cadaveric fat",
+   "allograft adipose matrix"
+  ],
+  "category": "biostimulator",
+  "brand_or_device": "AlloClae",
+  "manufacturer": "Tiger Aesthetics",
+  "what_it_does": "Processed donor fat used as filler for body contouring; he argues against it.",
+  "anatomy": [
+   "subcutaneous fat",
+   "buttock"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "in_DXfNKTAgdhc"
+  ],
+  "on_site": false,
+  "site_url": null,
+  "search_terms": [
+   "AlloClae",
+   "cadaveric fat",
+   "allograft adipose matrix",
+   "allograft adipose matrix"
+  ]
+ },
+ {
+  "id": "prfm",
+  "name": "PRFM (platelet-rich fibrin matrix)",
+  "aliases": [
+   "PRFM",
+   "Eclipse PRFM",
+   "platelet gel",
+   "bio-filler"
+  ],
+  "category": "regenerative",
+  "brand_or_device": "Eclipse PRFM",
+  "manufacturer": "Eclipse",
+  "what_it_does": "Your own blood spun to concentrate platelets, then gelled with calcium/thrombin to act as a slow collagen-building filler.",
+  "anatomy": [
+   "dermis",
+   "under-eye",
+   "nasolabial fold"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_azYDyIVL214",
+   "ti_7290592781205097770",
+   "yo_m0YKyl_hjd8",
+   "yo_QB5ijpba3Vk"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/prfm-regenerative-medicine/",
+  "search_terms": [
+   "PRFM",
+   "PRFM",
+   "Eclipse PRFM",
+   "platelet gel",
+   "platelet rich fibrin matrix centrifuge"
+  ]
+ },
+ {
+  "id": "prp-hair",
+  "name": "PRP for hair loss",
+  "aliases": [
+   "platelet-rich plasma scalp",
+   "PRP hair"
+  ],
+  "category": "regenerative",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Platelet-rich plasma injected in the scalp releases growth factors that wake up thinning follicles.",
+  "anatomy": [
+   "hair follicle",
+   "dermal papilla",
+   "scalp"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_azYDyIVL214",
+   "ti_7290592781205097770",
+   "yo_9Mcdhj93cN4",
+   "ti_7330340920266738974",
+   "ti_7439457647939636511",
+   "ti_7307702396287864106",
+   "yo_HlPwfVvAmjg",
+   "yo_QB5ijpba3Vk",
+   "yo_Br2Buug_Y08",
+   "yo_gCROnWbnchc",
+   "ti_7500961261375556907"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/hair-restoration/",
+  "search_terms": [
+   "PRP for hair loss",
+   "platelet-rich plasma scalp",
+   "PRP hair",
+   "PRP hair follicle growth factors"
+  ]
+ },
+ {
+  "id": "exosomes",
+  "name": "Exosomes",
+  "aliases": [
+   "extracellular vesicles",
+   "ASCE+",
+   "ExoCoBio",
+   "Benev"
+  ],
+  "category": "regenerative",
+  "brand_or_device": "ASCE+ / Exosome Regenerative Complex",
+  "manufacturer": "ExoCoBio / Benev",
+  "what_it_does": "Tiny cell-derived vesicles carrying growth factors, applied after microneedling or injected for skin and hair.",
+  "anatomy": [
+   "epidermis",
+   "dermis",
+   "hair follicle"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_YhtW6cgg8vA"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/exosomes/",
+  "search_terms": [
+   "Exosomes",
+   "extracellular vesicles",
+   "ASCE+",
+   "ExoCoBio",
+   "exosome extracellular vesicle skin"
+  ]
+ },
+ {
+  "id": "salmon-dna",
+  "name": "Salmon DNA / polynucleotides",
+  "aliases": [
+   "PDRN",
+   "polynucleotides",
+   "salmon sperm",
+   "Rejuran"
+  ],
+  "category": "regenerative",
+  "brand_or_device": "Rejuran / PDRN",
+  "manufacturer": null,
+  "what_it_does": "Purified DNA fragments from salmon injected to support skin repair; the trend he was quoted on.",
+  "anatomy": [
+   "dermis"
+  ],
+  "region": null,
+  "mentioned_in": [],
+  "on_site": false,
+  "site_url": null,
+  "search_terms": [
+   "Salmon DNA / polynucleotides",
+   "PDRN",
+   "polynucleotides",
+   "salmon sperm",
+   "polynucleotide PDRN mechanism skin"
+  ]
+ },
+ {
+  "id": "aquagold",
+  "name": "AquaGold microinfusion",
+  "aliases": [
+   "microinfusion",
+   "microchanneling",
+   "AquaGold Fine Touch"
+  ],
+  "category": "regenerative",
+  "brand_or_device": "AQUAGOLD fine touch",
+  "manufacturer": "Aquavit Pharmaceuticals",
+  "what_it_does": "A vial-stamp of 24K gold-plated microneedles that delivers a cocktail (HA, toxin, PRP) into the dermis.",
+  "anatomy": [
+   "epidermis",
+   "dermis"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_Br2Buug_Y08",
+   "ti_7500961261375556907"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/facial-rejuvenation/microinfusion/",
+  "search_terms": [
+   "AquaGold microinfusion",
+   "microinfusion",
+   "microchanneling",
+   "AquaGold Fine Touch",
+   "microinfusion microneedle stamp"
+  ]
+ },
+ {
+  "id": "fraxel",
+  "name": "Fraxel Dual and Restore",
+  "aliases": [
+   "non-ablative fractional laser",
+   "1550 nm",
+   "1927 nm thulium",
+   "Fraxel Dual"
+  ],
+  "category": "laser",
+  "brand_or_device": "Fraxel DUAL / re:store",
+  "manufacturer": "Solta Medical (Bausch Health)",
+  "what_it_does": "Fractional laser columns heat microscopic zones of skin to rebuild collagen and lift pigment, leaving skin in between intact.",
+  "anatomy": [
+   "epidermis",
+   "dermis",
+   "microthermal zones"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_FCvdsR7fbmk",
+   "yo_FfwvExuYwCI",
+   "yo_QNxbiHWISbc",
+   "yo_mN-Np4Wzoco",
+   "in_DYDKhFCRykx",
+   "ti_7341075039938219307",
+   "yo_IL9xUFaH0BM",
+   "yo_s1FYqIy7n3Y"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/lasers/fraxel-dual/",
+  "search_terms": [
+   "Fraxel Dual and Restore",
+   "non-ablative fractional laser",
+   "1550 nm",
+   "1927 nm thulium",
+   "microthermal treatment zones fractional"
+  ]
+ },
+ {
+  "id": "co2-laser",
+  "name": "Fraxel CO2 (ablative fractional)",
+  "aliases": [
+   "CO2 laser",
+   "ablative resurfacing",
+   "Fraxel re:pair"
+  ],
+  "category": "laser",
+  "brand_or_device": "Fraxel CO2",
+  "manufacturer": "Solta Medical",
+  "what_it_does": "An ablative laser that vaporises columns of skin for deep resurfacing of wrinkles and scars.",
+  "anatomy": [
+   "epidermis",
+   "papillary and reticular dermis"
+  ],
+  "region": null,
+  "mentioned_in": [],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/lasers/fraxel-co2/",
+  "search_terms": [
+   "Fraxel CO2",
+   "CO2 laser",
+   "ablative resurfacing",
+   "Fraxel re:pair",
+   "ablative fractional CO2 microscopic ablation zones"
+  ]
+ },
+ {
+  "id": "clear-brilliant",
+  "name": "Clear + Brilliant",
+  "aliases": [
+   "gentle fractional laser",
+   "1440 nm",
+   "Permea 1927"
+  ],
+  "category": "laser",
+  "brand_or_device": "Clear + Brilliant",
+  "manufacturer": "Solta Medical",
+  "what_it_does": "A low-energy fractional laser for tone, texture and pores with almost no downtime.",
+  "anatomy": [
+   "epidermis",
+   "superficial dermis"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_FCvdsR7fbmk",
+   "in_DYDKhFCRykx",
+   "in_Dbq_QFyE6yg"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/clear-and-brilliant/",
+  "search_terms": [
+   "Clear + Brilliant",
+   "gentle fractional laser",
+   "1440 nm",
+   "Permea 1927",
+   "clear brilliant fractional 1440"
+  ]
+ },
+ {
+  "id": "picoway",
+  "name": "PicoWay",
+  "aliases": [
+   "picosecond laser",
+   "photoacoustic",
+   "Resolve"
+  ],
+  "category": "laser",
+  "brand_or_device": "PicoWay",
+  "manufacturer": "Candela",
+  "what_it_does": "Picosecond pulses shatter pigment by pressure (photoacoustic) rather than heat.",
+  "anatomy": [
+   "epidermis",
+   "dermis",
+   "melanin",
+   "tattoo ink"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_QIrF4sijt-k",
+   "yo_s1FYqIy7n3Y"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/picoway/",
+  "search_terms": [
+   "PicoWay",
+   "picosecond laser",
+   "photoacoustic",
+   "Resolve",
+   "picosecond photoacoustic pigment"
+  ]
+ },
+ {
+  "id": "excel-v",
+  "name": "Cutera excel V (vascular laser)",
+  "aliases": [
+   "532 nm KTP",
+   "1064 Nd:YAG",
+   "vascular laser",
+   "excel V+"
+  ],
+  "category": "laser",
+  "brand_or_device": "excel V+",
+  "manufacturer": "Cutera",
+  "what_it_does": "Green and Nd:YAG wavelengths heat haemoglobin to close visible vessels and redness.",
+  "anatomy": [
+   "dermal blood vessels",
+   "haemoglobin"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_NQn3K9Ilr5o",
+   "yo_OGdAzf1D3c0",
+   "in_DYDKhFCRykx",
+   "ti_7267602932378422571",
+   "ti_7439457647939636511",
+   "yo_qYHYBsBcfs8",
+   "yo_gCROnWbnchc",
+   "yo_O-iSH4mDjno",
+   "yo_s1FYqIy7n3Y",
+   "yo_UdcrMc1UhF8",
+   "ti_7296179977987312938"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/lasers/excel-v-vein-treatment/",
+  "search_terms": [
+   "Cutera excel V",
+   "532 nm KTP",
+   "1064 Nd:YAG",
+   "vascular laser",
+   "selective photothermolysis hemoglobin"
+  ]
+ },
+ {
+  "id": "laser-genesis",
+  "name": "Laser Genesis",
+  "aliases": [
+   "1064 nm laser toning",
+   "Cutera xeo"
+  ],
+  "category": "laser",
+  "brand_or_device": "Laser Genesis on xeo",
+  "manufacturer": "Cutera",
+  "what_it_does": "Gentle 1064 nm pulses warm the dermis to calm redness and build collagen.",
+  "anatomy": [
+   "dermis",
+   "sebaceous glands",
+   "vessels"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_OGdAzf1D3c0",
+   "yo_qYHYBsBcfs8"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/gallery/procedures/laser-genesis/",
+  "search_terms": [
+   "Laser Genesis",
+   "1064 nm laser toning",
+   "Cutera xeo",
+   "laser genesis 1064 dermal heating"
+  ]
+ },
+ {
+  "id": "aviclear",
+  "name": "AviClear",
+  "aliases": [
+   "1726 nm laser",
+   "sebaceous gland laser"
+  ],
+  "category": "laser",
+  "brand_or_device": "AviClear",
+  "manufacturer": "Cutera",
+  "what_it_does": "A 1726 nm laser that selectively heats and shrinks sebaceous glands to treat acne.",
+  "anatomy": [
+   "sebaceous gland",
+   "pilosebaceous unit"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_N_doIjxVHtU",
+   "ti_7267602932378422571",
+   "ti_7439457647939636511"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/facial-rejuvenation/aviclear/",
+  "search_terms": [
+   "AviClear",
+   "1726 nm laser",
+   "sebaceous gland laser",
+   "1726 nm sebaceous gland selective"
+  ]
+ },
+ {
+  "id": "laser-hair-removal",
+  "name": "Laser hair removal",
+  "aliases": [
+   "diode laser",
+   "Lumenis LightSheer",
+   "ChillTip"
+  ],
+  "category": "laser",
+  "brand_or_device": "LightSheer",
+  "manufacturer": "Lumenis",
+  "what_it_does": "Laser light absorbed by hair pigment heats and disables the follicle.",
+  "anatomy": [
+   "hair follicle",
+   "bulge",
+   "dermal papilla",
+   "melanin"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_CiFSsP23dPk",
+   "ti_7436494514442816799",
+   "yo_cAwiWsz-9Iw",
+   "yo_O-iSH4mDjno",
+   "ti_7296179977987312938"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/lasers/laser-hair-removal/",
+  "search_terms": [
+   "Laser hair removal",
+   "diode laser",
+   "Lumenis LightSheer",
+   "ChillTip",
+   "laser hair removal follicle melanin"
+  ]
+ },
+ {
+  "id": "tattoo-removal",
+  "name": "Laser tattoo removal",
+  "aliases": [
+   "Q-switched",
+   "picosecond tattoo"
+  ],
+  "category": "laser",
+  "brand_or_device": "PicoWay",
+  "manufacturer": "Candela",
+  "what_it_does": "Ultra-short pulses break tattoo ink into particles the immune system clears.",
+  "anatomy": [
+   "dermis",
+   "macrophages",
+   "ink particles"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_QIrF4sijt-k",
+   "yo_s1FYqIy7n3Y"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/lasers/laser-tattoo-removal/",
+  "search_terms": [
+   "Laser tattoo removal",
+   "Q-switched",
+   "picosecond tattoo",
+   "laser tattoo removal ink fragmentation"
+  ]
+ },
+ {
+  "id": "juliet",
+  "name": "Juliet vaginal laser",
+  "aliases": [
+   "Er:YAG vaginal rejuvenation"
+  ],
+  "category": "laser",
+  "brand_or_device": "Juliet",
+  "manufacturer": "Cynosure",
+  "what_it_does": "An erbium laser for vaginal laxity and dryness.",
+  "anatomy": [
+   "vaginal mucosa"
+  ],
+  "region": null,
+  "mentioned_in": [],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/lasers/juliet-laser-vaginal-rejuvenation/",
+  "search_terms": [
+   "Juliet vaginal laser",
+   "Er:YAG vaginal rejuvenation",
+   "erbium vaginal laser mucosa"
+  ]
+ },
+ {
+  "id": "morpheus8",
+  "name": "Morpheus8",
+  "aliases": [
+   "RF microneedling",
+   "fractional radiofrequency"
+  ],
+  "category": "RF/energy",
+  "brand_or_device": "Morpheus8",
+  "manufacturer": "InMode",
+  "what_it_does": "Gold-coated microneedles deliver radiofrequency heat deep in the skin and fat to tighten and remodel.",
+  "anatomy": [
+   "dermis",
+   "subdermal fat",
+   "fibroseptal network"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_9Q9dSwE_X3c",
+   "yo_SlCftWUovio",
+   "yo_i-gADSYhHy8",
+   "yo_s1FYqIy7n3Y"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/morpheus8/",
+  "search_terms": [
+   "Morpheus8",
+   "RF microneedling",
+   "fractional radiofrequency",
+   "fractional RF microneedling depth"
+  ]
+ },
+ {
+  "id": "rf-microneedling",
+  "name": "Radiofrequency tightening (RF microneedling, EndyMed, PelleFirm)",
+  "aliases": [
+   "fractional radiofrequency microneedling",
+   "Secret RF",
+   "Vivace",
+   "Potenza",
+   "EndyMed and PelleFirm RF",
+   "3DEEP RF",
+   "PelleFirm",
+   "Pelleve"
+  ],
+  "category": "RF/energy",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Needles that heat at a set depth to stimulate collagen in skin and scars.",
+  "anatomy": [
+   "dermis"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_9Q9dSwE_X3c",
+   "yo_e3d5gGfUS2A",
+   "yo_SlCftWUovio",
+   "yo_66ts2OKVL3w",
+   "ti_7294303735478488362",
+   "yo_rYyd4yQIQ6E",
+   "yo_i-gADSYhHy8",
+   "yo_q10SODq-6Ts",
+   "ti_7296928587473636651",
+   "yo_s1FYqIy7n3Y",
+   "in_DdUprPDEWae",
+   "ti_7318054319796800798"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/radio-frequency-wrinkle-reduction/",
+  "search_terms": [
+   "Radiofrequency tightening",
+   "fractional radiofrequency microneedling",
+   "Secret RF",
+   "Vivace",
+   "radiofrequency microneedling thermal zone",
+   "3DEEP radiofrequency"
+  ]
+ },
+ {
+  "id": "facetite",
+  "name": "FaceTite, AccuTite and BodyTite",
+  "aliases": [
+   "RF-assisted lipolysis",
+   "RFAL",
+   "AccuTite",
+   "BodyTite",
+   "RFAL body",
+   "Evoke"
+  ],
+  "category": "RF/energy",
+  "brand_or_device": "FaceTite / AccuTite",
+  "manufacturer": "InMode",
+  "what_it_does": "A cannula under the skin and an external electrode heat fat and tighten skin from inside.",
+  "anatomy": [
+   "subcutaneous fat",
+   "fibroseptal network",
+   "dermis",
+   "fascia"
+  ],
+  "region": null,
+  "mentioned_in": [],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/body/skin-tightening/",
+  "search_terms": [
+   "FaceTite, AccuTite and BodyTite",
+   "RF-assisted lipolysis",
+   "RFAL",
+   "AccuTite",
+   "radiofrequency assisted lipolysis bipolar",
+   "bodytite RFAL contraction"
+  ]
+ },
+ {
+  "id": "evoke",
+  "name": "Evoke (hands-free RF)",
+  "aliases": [
+   "InMode Evoke",
+   "hands-free radiofrequency"
+  ],
+  "category": "RF/energy",
+  "brand_or_device": "Evoke",
+  "manufacturer": "InMode",
+  "what_it_does": "A hands-free radiofrequency mask that heats the lower face and neck to tighten.",
+  "anatomy": [
+   "dermis",
+   "subcutaneous fat"
+  ],
+  "region": null,
+  "mentioned_in": [],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/evoke/",
+  "search_terms": [
+   "Evoke",
+   "InMode Evoke",
+   "hands-free radiofrequency",
+   "Evoke radiofrequency facial remodeling"
+  ]
+ },
+ {
+  "id": "emface",
+  "name": "EMFACE",
+  "aliases": [
+   "HIFES",
+   "synchronized RF",
+   "Emface Submentum"
+  ],
+  "category": "RF/energy",
+  "brand_or_device": "EMFACE",
+  "manufacturer": "BTL Aesthetics",
+  "what_it_does": "Radiofrequency heats the skin while electrical stimulation contracts facial muscles to lift without needles.",
+  "anatomy": [
+   "frontalis",
+   "zygomaticus",
+   "dermis",
+   "submental fat"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_e3d5gGfUS2A",
+   "ti_7342916462551584043",
+   "yo_GGJvCDIXu-0",
+   "ti_7294303735478488362",
+   "ti_7296928587473636651"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/emface/",
+  "search_terms": [
+   "EMFACE",
+   "HIFES",
+   "synchronized RF",
+   "Emface Submentum",
+   "HIFES facial muscle stimulation radiofrequency"
+  ]
+ },
+ {
+  "id": "emsculpt-neo",
+  "name": "EMSCULPT NEO",
+  "aliases": [
+   "HIFEM",
+   "Emsculpt",
+   "body contouring",
+   "Muscle rehab with HIFEM",
+   "disuse atrophy",
+   "muscle re-education"
+  ],
+  "category": "RF/energy",
+  "brand_or_device": "EMSCULPT NEO",
+  "manufacturer": "BTL Aesthetics",
+  "what_it_does": "Radiofrequency heats fat while a magnetic field forces supramaximal muscle contractions, building muscle and reducing fat.",
+  "anatomy": [
+   "rectus abdominis",
+   "gluteus",
+   "subcutaneous fat",
+   "quadriceps",
+   "hamstrings"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_m0YKyl_hjd8",
+   "yo_66ts2OKVL3w",
+   "yo_q10SODq-6Ts",
+   "in_DdUprPDEWae",
+   "ti_7318054319796800798",
+   "yo_3zcokqzZ2jk"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/emsculpt-neo/",
+  "search_terms": [
+   "EMSCULPT NEO",
+   "HIFEM",
+   "Emsculpt",
+   "body contouring",
+   "HIFEM supramaximal contraction",
+   "HIFEM muscle atrophy rehabilitation"
+  ]
+ },
+ {
+  "id": "ultherapy",
+  "name": "Ultherapy",
+  "aliases": [
+   "micro-focused ultrasound",
+   "MFU-V",
+   "SMAS lift"
+  ],
+  "category": "RF/energy",
+  "brand_or_device": "Ultherapy",
+  "manufacturer": "Merz Aesthetics",
+  "what_it_does": "Focused ultrasound heats points down to the SMAS layer to lift and tighten.",
+  "anatomy": [
+   "SMAS",
+   "dermis",
+   "platysma"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_2FdFHgaFTxU"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/ultherapy/",
+  "search_terms": [
+   "Ultherapy",
+   "micro-focused ultrasound",
+   "MFU-V",
+   "SMAS lift",
+   "micro-focused ultrasound SMAS"
+  ]
+ },
+ {
+  "id": "miradry",
+  "name": "Underarm sweating: miraDry and toxin",
+  "aliases": [
+   "microwave sweat reduction",
+   "Excessive sweating",
+   "hyperhidrosis",
+   "Underarm sweating toxin",
+   "axillary hyperhidrosis Botox"
+  ],
+  "category": "RF/energy",
+  "brand_or_device": "miraDry",
+  "manufacturer": "Sientra / miraDry",
+  "what_it_does": "Microwave energy destroys underarm sweat and odour glands permanently.",
+  "anatomy": [
+   "eccrine glands",
+   "apocrine glands",
+   "dermal-fat interface",
+   "eccrine sweat glands",
+   "axilla"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_2lpsrhzZdBo",
+   "yo_FfwvExuYwCI",
+   "yo_2FdFHgaFTxU"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/body/miradry/",
+  "search_terms": [
+   "Underarm sweating: miraDry and toxin",
+   "microwave sweat reduction",
+   "Excessive sweating",
+   "hyperhidrosis",
+   "microwave thermolysis sweat glands",
+   "eccrine apocrine gland diagram",
+   "axillary hyperhidrosis botulinum"
+  ]
+ },
+ {
+  "id": "coolsculpting",
+  "name": "CoolSculpting",
+  "aliases": [
+   "cryolipolysis"
+  ],
+  "category": "RF/energy",
+  "brand_or_device": "CoolSculpting Elite",
+  "manufacturer": "Allergan Aesthetics (AbbVie)",
+  "what_it_does": "Controlled cooling kills fat cells, which the body clears over weeks.",
+  "anatomy": [
+   "subcutaneous fat",
+   "adipocytes"
+  ],
+  "region": null,
+  "mentioned_in": [],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/gallery/procedures/coolsculpting/",
+  "search_terms": [
+   "CoolSculpting",
+   "cryolipolysis",
+   "cryolipolysis adipocyte apoptosis"
+  ]
+ },
+ {
+  "id": "facelift",
+  "name": "Facelift",
+  "aliases": [
+   "rhytidectomy",
+   "SMAS facelift",
+   "deep plane"
+  ],
+  "category": "surgical",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Lifts and repositions the SMAS and skin of the lower face and jowls.",
+  "anatomy": [
+   "SMAS",
+   "retaining ligaments",
+   "facial nerve branches",
+   "parotid"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_e3d5gGfUS2A",
+   "in_DeNQcHXCOAo",
+   "yo_GGJvCDIXu-0",
+   "ti_7294303735478488362",
+   "yo_KL22DLzNzwk",
+   "yo_rYyd4yQIQ6E",
+   "in_DdmFXlPjdJl"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/surgical/facelift/",
+  "search_terms": [
+   "Facelift",
+   "rhytidectomy",
+   "SMAS facelift",
+   "deep plane",
+   "SMAS facelift layers"
+  ]
+ },
+ {
+  "id": "neck-lift",
+  "name": "Neck lift",
+  "aliases": [
+   "platysmaplasty",
+   "submental lipectomy"
+  ],
+  "category": "surgical",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Removes fat and loose skin and tightens the platysma under the jaw.",
+  "anatomy": [
+   "platysma",
+   "submental fat",
+   "cervicomental angle"
+  ],
+  "region": null,
+  "mentioned_in": [],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/surgical/neck-lift/",
+  "search_terms": [
+   "Neck lift",
+   "platysmaplasty",
+   "submental lipectomy",
+   "platysmaplasty corset"
+  ]
+ },
+ {
+  "id": "blepharoplasty",
+  "name": "Eyelid surgery (blepharoplasty)",
+  "aliases": [
+   "upper blepharoplasty",
+   "lower blepharoplasty",
+   "transconjunctival"
+  ],
+  "category": "surgical",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Removes or repositions eyelid skin and fat pads; lower lids can be done from inside the eye.",
+  "anatomy": [
+   "orbicularis oculi",
+   "orbital septum",
+   "orbital fat pads",
+   "levator"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "ti_7438709969106554143"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/surgical/eyelid-surgery/",
+  "search_terms": [
+   "Eyelid surgery",
+   "upper blepharoplasty",
+   "lower blepharoplasty",
+   "transconjunctival",
+   "lower blepharoplasty transconjunctival fat pads"
+  ]
+ },
+ {
+  "id": "brow-lift",
+  "name": "Brow lift",
+  "aliases": [
+   "forehead lift",
+   "endoscopic brow lift"
+  ],
+  "category": "surgical",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Raises a low or heavy brow by lifting the forehead tissues.",
+  "anatomy": [
+   "frontalis",
+   "galea",
+   "supraorbital nerve"
+  ],
+  "region": null,
+  "mentioned_in": [],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/surgical/brow-lift/",
+  "search_terms": [
+   "Brow lift",
+   "forehead lift",
+   "endoscopic brow lift",
+   "endoscopic brow lift"
+  ]
+ },
+ {
+  "id": "fat-transfer",
+  "name": "Fat transfer",
+  "aliases": [
+   "autologous fat grafting",
+   "liquid facelift with fat",
+   "BBL"
+  ],
+  "category": "surgical",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Fat taken by liposuction is purified and re-injected to restore volume in the face or body.",
+  "anatomy": [
+   "subcutaneous fat",
+   "fat compartments",
+   "gluteal"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "in_DXfNKTAgdhc",
+   "yo_KL22DLzNzwk"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/surgical/fat-transfer/",
+  "search_terms": [
+   "Fat transfer",
+   "autologous fat grafting",
+   "liquid facelift with fat",
+   "BBL",
+   "autologous fat grafting Coleman technique"
+  ]
+ },
+ {
+  "id": "liposuction",
+  "name": "Tumescent liposuction",
+  "aliases": [
+   "lipo",
+   "tumescent anesthesia"
+  ],
+  "category": "surgical",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Fat is suctioned through a cannula after the area is swollen with dilute local anaesthetic.",
+  "anatomy": [
+   "subcutaneous fat",
+   "superficial and deep fat layers"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_SedPjMwRLmY",
+   "in_DXfNKTAgdhc"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/surgical/tumescent-liposuction/",
+  "search_terms": [
+   "Tumescent liposuction",
+   "lipo",
+   "tumescent anesthesia",
+   "tumescent liposuction cannula layers"
+  ]
+ },
+ {
+  "id": "gynecomastia",
+  "name": "Male breast reduction",
+  "aliases": [
+   "gynecomastia surgery"
+  ],
+  "category": "surgical",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Removes excess glandular tissue and fat from the male chest.",
+  "anatomy": [
+   "glandular breast tissue",
+   "pectoral fat"
+  ],
+  "region": null,
+  "mentioned_in": [],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/surgical/male-breast-reduction/",
+  "search_terms": [
+   "Male breast reduction",
+   "gynecomastia surgery",
+   "gynecomastia excision liposuction"
+  ]
+ },
+ {
+  "id": "thread-lift",
+  "name": "Thread lift",
+  "aliases": [
+   "PDO threads",
+   "barbed threads",
+   "Silhouette InstaLift",
+   "Sinclair"
+  ],
+  "category": "surgical",
+  "brand_or_device": "PDO / PLLA threads",
+  "manufacturer": "Sinclair and others",
+  "what_it_does": "Dissolvable barbed threads placed under the skin lift sagging tissue and stimulate collagen.",
+  "anatomy": [
+   "subcutaneous plane",
+   "SMAS"
+  ],
+  "region": null,
+  "mentioned_in": [],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/thread-lift/",
+  "search_terms": [
+   "Thread lift",
+   "PDO threads",
+   "barbed threads",
+   "Silhouette InstaLift",
+   "barbed thread lift vector"
+  ]
+ },
+ {
+  "id": "myellevate",
+  "name": "MyEllevate",
+  "aliases": [
+   "suture neck lift",
+   "light-guided suture"
+  ],
+  "category": "surgical",
+  "brand_or_device": "MyEllevate",
+  "manufacturer": "Cynosure",
+  "what_it_does": "A light-guided permanent suture slung under the jaw tightens the neck without open surgery.",
+  "anatomy": [
+   "platysma",
+   "submandibular",
+   "cervicomental angle"
+  ],
+  "region": null,
+  "mentioned_in": [],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/myellevate/",
+  "search_terms": [
+   "MyEllevate",
+   "suture neck lift",
+   "light-guided suture",
+   "MyEllevate suture sling neck"
+  ]
+ },
+ {
+  "id": "ellacor",
+  "name": "Ellacor micro-coring",
+  "aliases": [
+   "micro-coring",
+   "Ellacor 2.0"
+  ],
+  "category": "surgical",
+  "brand_or_device": "Ellacor",
+  "manufacturer": "Cynosure Lutronic",
+  "what_it_does": "Hollow needles remove tiny cores of skin (up to 8%) so the skin heals tighter without scars.",
+  "anatomy": [
+   "epidermis",
+   "dermis"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_rYyd4yQIQ6E",
+   "in_DeuyxCNEujF"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/body/skin-tightening/ellacor/",
+  "search_terms": [
+   "Ellacor micro-coring",
+   "micro-coring",
+   "Ellacor 2.0",
+   "micro-coring skin removal"
+  ]
+ },
+ {
+  "id": "earlobe-repair",
+  "name": "Earlobe repair",
+  "aliases": [
+   "split earlobe",
+   "torn earlobe"
+  ],
+  "category": "surgical",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "A split or stretched earlobe is cut and sutured back together.",
+  "anatomy": [
+   "earlobe"
+  ],
+  "region": null,
+  "mentioned_in": [],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/surgical/earlobe-repair/",
+  "search_terms": [
+   "Earlobe repair",
+   "split earlobe",
+   "torn earlobe",
+   "split earlobe repair technique"
+  ]
+ },
+ {
+  "id": "scar-revision",
+  "name": "Scar revision",
+  "aliases": [
+   "Z-plasty",
+   "scar excision"
+  ],
+  "category": "surgical",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Surgical or laser techniques reshape a scar so it lies flatter and less visible.",
+  "anatomy": [
+   "dermis",
+   "relaxed skin tension lines"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_FCvdsR7fbmk",
+   "ti_7439457647939636511",
+   "yo_s1FYqIy7n3Y"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/body/scar-revision/",
+  "search_terms": [
+   "Scar revision",
+   "Z-plasty",
+   "scar excision",
+   "Z-plasty scar revision"
+  ]
+ },
+ {
+  "id": "mole-removal",
+  "name": "Mole removal",
+  "aliases": [
+   "shave excision",
+   "excisional biopsy"
+  ],
+  "category": "surgical",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "A mole is shaved or cut out and sent to the lab.",
+  "anatomy": [
+   "epidermis",
+   "dermis",
+   "nevus"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "ti_7301789773595725098",
+   "yo_QB5ijpba3Vk",
+   "yo_YhtW6cgg8vA",
+   "yo_keyKrmNemWY",
+   "yo_jRi_qk8vNdM",
+   "yo_Gt_Ogifh5_A",
+   "yo_LOPnIRsOBXQ"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/body/mole-removal/",
+  "search_terms": [
+   "Mole removal",
+   "shave excision",
+   "excisional biopsy",
+   "shave excision mole"
+  ]
+ },
+ {
+  "id": "mohs",
+  "name": "Mohs micrographic surgery",
+  "aliases": [
+   "Mohs surgery",
+   "Mos",
+   "micrographic"
+  ],
+  "category": "skin-cancer",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Removes a skin cancer layer by layer, checking 100% of each margin under the microscope until it is clear.",
+  "anatomy": [
+   "epidermis",
+   "dermis",
+   "tumour roots",
+   "surgical margins"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "ti_7439457647939636511",
+   "yo_gCROnWbnchc",
+   "yo_jRi_qk8vNdM"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/surgical/mohs-micrographic-surgery/",
+  "search_terms": [
+   "Mohs micrographic surgery",
+   "Mohs surgery",
+   "Mos",
+   "micrographic",
+   "Mohs surgery layers margin mapping"
+  ]
+ },
+ {
+  "id": "bcc",
+  "name": "Basal and squamous cell carcinoma",
+  "aliases": [
+   "BCC",
+   "basal cell",
+   "Squamous cell carcinoma",
+   "SCC",
+   "squamous"
+  ],
+  "category": "skin-cancer",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "The most common skin cancer: slow-growing, it spreads locally if left alone.",
+  "anatomy": [
+   "basal layer of epidermis",
+   "dermis",
+   "epidermis",
+   "nerves"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_nOIuVdhTxtw",
+   "yo_7BFJbIE76Fc",
+   "ti_7483979850215230766"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/conditions/skin-cancer/",
+  "search_terms": [
+   "Basal and squamous cell carcinoma",
+   "BCC",
+   "basal cell",
+   "Squamous cell carcinoma",
+   "basal cell carcinoma skin layers diagram",
+   "squamous cell carcinoma skin layers"
+  ]
+ },
+ {
+  "id": "melanoma",
+  "name": "Melanoma",
+  "aliases": [
+   "ABCDE",
+   "melanoma staging",
+   "Breslow depth"
+  ],
+  "category": "skin-cancer",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Cancer of pigment cells; its depth decides the stage and the treatment.",
+  "anatomy": [
+   "melanocytes",
+   "epidermis",
+   "dermis",
+   "lymph nodes"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_nOIuVdhTxtw",
+   "in_DcbazZHio4C",
+   "yo_jRi_qk8vNdM"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/conditions/skin-cancer/",
+  "search_terms": [
+   "Melanoma",
+   "ABCDE",
+   "melanoma staging",
+   "Breslow depth",
+   "melanoma Breslow depth stages diagram",
+   "ABCDE melanoma"
+  ]
+ },
+ {
+  "id": "melanoma-vaccine",
+  "name": "Melanoma mRNA vaccine and immunotherapy",
+  "aliases": [
+   "mRNA-4157",
+   "intismeran",
+   "Keytruda",
+   "pembrolizumab",
+   "individualized neoantigen therapy"
+  ],
+  "category": "skin-cancer",
+  "brand_or_device": "mRNA-4157 (V940) + Keytruda",
+  "manufacturer": "Moderna / Merck",
+  "what_it_does": "A personalised mRNA vaccine built from the tumour's own mutations, given with immunotherapy to cut recurrence.",
+  "anatomy": [
+   "T cells",
+   "tumour neoantigens",
+   "lymph nodes"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "in_DcbazZHio4C"
+  ],
+  "on_site": false,
+  "site_url": null,
+  "search_terms": [
+   "Melanoma mRNA vaccine and immunotherapy",
+   "mRNA-4157",
+   "intismeran",
+   "Keytruda",
+   "personalized mRNA cancer vaccine mechanism neoantigen",
+   "PD-1 checkpoint inhibitor mechanism"
+  ]
+ },
+ {
+  "id": "actinic-keratosis",
+  "name": "Actinic keratosis and photodynamic therapy",
+  "aliases": [
+   "AK",
+   "PDT",
+   "Levulan",
+   "aminolevulinic acid"
+  ],
+  "category": "skin-cancer",
+  "brand_or_device": "Levulan / BLU-U",
+  "manufacturer": "Sun Pharma",
+  "what_it_does": "A light-activated drug destroys precancerous sun-damaged cells.",
+  "anatomy": [
+   "epidermis",
+   "keratinocytes"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_FfwvExuYwCI",
+   "yo_QNxbiHWISbc",
+   "yo_mN-Np4Wzoco"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/facial-rejuvenation/photodynamic-therapy/",
+  "search_terms": [
+   "Actinic keratosis and photodynamic therapy",
+   "AK",
+   "PDT",
+   "Levulan",
+   "photodynamic therapy aminolevulinic acid mechanism"
+  ]
+ },
+ {
+  "id": "skin-check",
+  "name": "Skin checks and dermoscopy",
+  "aliases": [
+   "full-body skin exam",
+   "dermatoscope"
+  ],
+  "category": "skin-cancer",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "A yearly head-to-toe exam, with a dermatoscope for suspicious spots, catches cancers early.",
+  "anatomy": [
+   "skin surface",
+   "pigment network"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_nOIuVdhTxtw",
+   "in_DcbazZHio4C",
+   "yo_jRi_qk8vNdM"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/conditions/skin-cancer/",
+  "search_terms": [
+   "Skin checks and dermoscopy",
+   "full-body skin exam",
+   "dermatoscope",
+   "dermoscopy pigment network diagram"
+  ]
+ },
+ {
+  "id": "skin-cancer-reconstruction",
+  "name": "Reconstruction after Mohs",
+  "aliases": [
+   "flap",
+   "skin graft",
+   "rotation flap",
+   "bilobed flap"
+  ],
+  "category": "skin-cancer",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Flaps and grafts close the wound left after removing a cancer, especially on the nose, lids and ears.",
+  "anatomy": [
+   "nasal subunits",
+   "skin flaps",
+   "grafts"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "ti_7439457647939636511",
+   "yo_gCROnWbnchc"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/surgical/skin-cancer-reconstruction/",
+  "search_terms": [
+   "Reconstruction after Mohs",
+   "flap",
+   "skin graft",
+   "rotation flap",
+   "bilobed flap nose reconstruction",
+   "facial aesthetic subunits"
+  ]
+ },
+ {
+  "id": "acne",
+  "name": "Acne",
+  "aliases": [
+   "comedones",
+   "pilosebaceous unit",
+   "Accutane alternative"
+  ],
+  "category": "medical-derm",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Blocked pores, oil, bacteria and inflammation in the pilosebaceous unit.",
+  "anatomy": [
+   "pilosebaceous unit",
+   "sebaceous gland",
+   "C. acnes"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_QIrF4sijt-k",
+   "yo_SedPjMwRLmY",
+   "yo_NQn3K9Ilr5o",
+   "yo_FCvdsR7fbmk",
+   "yo_FfwvExuYwCI",
+   "yo_N_doIjxVHtU",
+   "ti_7259822258615487786",
+   "yo_QNxbiHWISbc",
+   "yo_z3f8XaPNhMk",
+   "yo_OGdAzf1D3c0",
+   "yo_mN-Np4Wzoco",
+   "yo_2uZy0g91IMU",
+   "in_DXM-HzzDpVz",
+   "ti_7267602932378422571",
+   "yo_ltBak2wH8w0",
+   "ti_7439457647939636511",
+   "ti_7273203269156064555",
+   "ti_7252737667308260654",
+   "yo_qYHYBsBcfs8",
+   "yo_nOIuVdhTxtw",
+   "yo_s1FYqIy7n3Y",
+   "ti_7255012208764144942",
+   "yo_UdcrMc1UhF8",
+   "ti_7278401722370903342"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/conditions/acne/",
+  "search_terms": [
+   "Acne",
+   "comedones",
+   "pilosebaceous unit",
+   "Accutane alternative",
+   "acne pathogenesis pilosebaceous"
+  ]
+ },
+ {
+  "id": "acne-scars",
+  "name": "Acne scars: subcision and TCA CROSS",
+  "aliases": [
+   "icepick",
+   "boxcar",
+   "rolling scars",
+   "subcision",
+   "TCA CROSS"
+  ],
+  "category": "medical-derm",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Rolling, boxcar and icepick scars each need a different fix: subcision, TCA CROSS, lasers or filler.",
+  "anatomy": [
+   "dermis",
+   "fibrous bands",
+   "subcutaneous fat"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_QIrF4sijt-k",
+   "yo_FCvdsR7fbmk",
+   "yo_FfwvExuYwCI",
+   "yo_QNxbiHWISbc",
+   "yo_OGdAzf1D3c0",
+   "yo_mN-Np4Wzoco",
+   "ti_7439457647939636511",
+   "yo_qYHYBsBcfs8",
+   "yo_s1FYqIy7n3Y"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/conditions/acne-scar-treatments-in-nyc/",
+  "search_terms": [
+   "Acne scars: subcision and TCA CROSS",
+   "icepick",
+   "boxcar",
+   "rolling scars",
+   "acne scar types icepick boxcar rolling",
+   "subcision technique"
+  ]
+ },
+ {
+  "id": "rosacea",
+  "name": "Rosacea",
+  "aliases": [
+   "facial redness",
+   "telangiectasia",
+   "flushing"
+  ],
+  "category": "medical-derm",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Chronic facial redness, flushing, visible vessels and breakouts on the cheeks and nose.",
+  "anatomy": [
+   "dermal vessels",
+   "Demodex",
+   "sebaceous glands"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_NQn3K9Ilr5o",
+   "yo_FCvdsR7fbmk",
+   "yo_OGdAzf1D3c0",
+   "in_DXfNKTAgdhc",
+   "in_DYDKhFCRykx",
+   "ti_7439457647939636511",
+   "yo_qYHYBsBcfs8",
+   "yo_Br2Buug_Y08",
+   "yo_s1FYqIy7n3Y",
+   "yo_UdcrMc1UhF8",
+   "ti_7500961261375556907"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/conditions/rosacea/",
+  "search_terms": [
+   "Rosacea",
+   "facial redness",
+   "telangiectasia",
+   "flushing",
+   "rosacea pathophysiology"
+  ]
+ },
+ {
+  "id": "melasma",
+  "name": "Melasma and hyperpigmentation",
+  "aliases": [
+   "hyperpigmentation",
+   "sun spots",
+   "PIH",
+   "skin of color"
+  ],
+  "category": "medical-derm",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Excess melanin, driven by sun, hormones and heat, forms dark patches.",
+  "anatomy": [
+   "melanocytes",
+   "basal layer",
+   "dermal melanophages"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_QIrF4sijt-k",
+   "yo_NQn3K9Ilr5o",
+   "yo_FCvdsR7fbmk",
+   "yo_FfwvExuYwCI",
+   "yo_QNxbiHWISbc",
+   "yo_mN-Np4Wzoco",
+   "yo_2uZy0g91IMU",
+   "yo_cAwiWsz-9Iw",
+   "in_DbWaZHPgW0f",
+   "in_DXM-HzzDpVz",
+   "in_DYDKhFCRykx",
+   "ti_7341075039938219307",
+   "yo_ltBak2wH8w0",
+   "ti_7439457647939636511",
+   "ti_7273203269156064555",
+   "yo_vUYNHuUWOy8",
+   "ti_7252737667308260654",
+   "yo_IL9xUFaH0BM",
+   "yo_T8d9_H6N_0o",
+   "yo_s1FYqIy7n3Y",
+   "ti_7278401722370903342",
+   "yo_2FdFHgaFTxU"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/conditions/melasma/",
+  "search_terms": [
+   "Melasma and hyperpigmentation",
+   "hyperpigmentation",
+   "sun spots",
+   "PIH",
+   "melanogenesis pathway tyrosinase",
+   "melasma epidermal dermal"
+  ]
+ },
+ {
+  "id": "milia",
+  "name": "Milia",
+  "aliases": [
+   "milk spots",
+   "keratin cysts"
+  ],
+  "category": "medical-derm",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Tiny keratin cysts trapped under the skin, often from heavy products.",
+  "anatomy": [
+   "epidermis",
+   "keratin"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "ti_7295813676466965802"
+  ],
+  "on_site": false,
+  "site_url": null,
+  "search_terms": [
+   "Milia",
+   "milk spots",
+   "keratin cysts",
+   "milia keratin cyst diagram"
+  ]
+ },
+ {
+  "id": "hair-loss",
+  "name": "Hair loss (androgenetic alopecia)",
+  "aliases": [
+   "thinning hair",
+   "alopecia",
+   "minoxidil"
+  ],
+  "category": "medical-derm",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Follicles shrink under hormone signals; PRP, exosomes and drugs try to reverse it.",
+  "anatomy": [
+   "hair follicle",
+   "hair cycle",
+   "dermal papilla"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_9Mcdhj93cN4",
+   "ti_7330340920266738974",
+   "ti_7307702396287864106",
+   "yo_HlPwfVvAmjg",
+   "yo_YhtW6cgg8vA"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/hair-loss/",
+  "search_terms": [
+   "Hair loss",
+   "thinning hair",
+   "alopecia",
+   "minoxidil",
+   "hair growth cycle anagen telogen",
+   "follicle miniaturization"
+  ]
+ },
+ {
+  "id": "sclerotherapy",
+  "name": "Sclerotherapy (spider and varicose veins)",
+  "aliases": [
+   "Asclera",
+   "polidocanol",
+   "spider veins"
+  ],
+  "category": "body",
+  "brand_or_device": "Asclera",
+  "manufacturer": "Merz",
+  "what_it_does": "A solution injected into the vein irritates its lining so it collapses and is reabsorbed.",
+  "anatomy": [
+   "superficial veins",
+   "venous valves",
+   "reticular veins"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_UB1VF611RUA",
+   "yo_NQn3K9Ilr5o",
+   "yo_SFitgjqbtBc",
+   "ti_7276081818208652586",
+   "ti_7439457647939636511",
+   "yo_SfHM1IIxJBo",
+   "in_DdZgxeDkxq0",
+   "yo_dfRtatjKmZ0",
+   "ti_7291391360932826410",
+   "yo_UdcrMc1UhF8",
+   "ti_7309578901699759403",
+   "yo_2FdFHgaFTxU",
+   "ti_7349260836860513582"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/conditions/spider-varicose-veins/",
+  "search_terms": [
+   "Sclerotherapy",
+   "Asclera",
+   "polidocanol",
+   "spider veins",
+   "sclerotherapy mechanism vein",
+   "venous valve insufficiency"
+  ]
+ },
+ {
+  "id": "festoons",
+  "name": "Festoons (malar mounds)",
+  "aliases": [
+   "malar bags",
+   "malar edema"
+  ],
+  "category": "medical-derm",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Swollen bags over the upper cheek below the lower lid, hard to treat.",
+  "anatomy": [
+   "malar septum",
+   "orbicularis retaining ligament"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_9Q9dSwE_X3c"
+  ],
+  "on_site": false,
+  "site_url": null,
+  "search_terms": [
+   "Festoons",
+   "malar bags",
+   "malar edema",
+   "festoons malar mound anatomy"
+  ]
+ },
+ {
+  "id": "skin-aging",
+  "name": "Skin aging and collagen loss",
+  "aliases": [
+   "volume loss",
+   "bone resorption",
+   "facial fat pads"
+  ],
+  "category": "medical-derm",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "With age the face loses collagen, fat and bone, so the skin deflates and sags.",
+  "anatomy": [
+   "collagen",
+   "facial fat compartments",
+   "facial skeleton"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_ppGlX6Ux9AY",
+   "yo_QIrF4sijt-k",
+   "yo_SedPjMwRLmY",
+   "yo_NQn3K9Ilr5o",
+   "yo_FCvdsR7fbmk",
+   "yo_FfwvExuYwCI",
+   "yo_9Q9dSwE_X3c",
+   "ti_7259822258615487786",
+   "yo_QNxbiHWISbc",
+   "yo_z3f8XaPNhMk",
+   "yo_OGdAzf1D3c0",
+   "yo_SlCftWUovio",
+   "yo_gd1fP5fvQGg",
+   "yo_azYDyIVL214",
+   "yo_mN-Np4Wzoco",
+   "yo_2uZy0g91IMU",
+   "in_DbWaZHPgW0f",
+   "in_DYDKhFCRykx",
+   "in_DeNQcHXCOAo",
+   "in_Dbq_QFyE6yg",
+   "ti_7341075039938219307",
+   "ti_7301789773595725098",
+   "ti_7439457647939636511",
+   "ti_7273203269156064555",
+   "ti_7438709969106554143",
+   "in_DalW61oD-se",
+   "yo_vUYNHuUWOy8",
+   "ti_7252737667308260654",
+   "yo_QB5ijpba3Vk",
+   "yo_qYHYBsBcfs8",
+   "yo_Br2Buug_Y08",
+   "yo_GGJvCDIXu-0",
+   "ti_7294303735478488362",
+   "yo_IL9xUFaH0BM",
+   "yo_KL22DLzNzwk",
+   "yo_T8d9_H6N_0o",
+   "yo_rYyd4yQIQ6E",
+   "yo_i-gADSYhHy8",
+   "in_DWPajdFEWTA",
+   "ti_7296928587473636651",
+   "yo_s1FYqIy7n3Y",
+   "ti_7255012208764144942",
+   "in_DdmFXlPjdJl",
+   "ti_7278401722370903342",
+   "ti_7500961261375556907",
+   "yo_Gt_Ogifh5_A",
+   "ti_7260493315643165994",
+   "yo_dgsnyITW3ng"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/wrinkles/",
+  "search_terms": [
+   "Skin aging and collagen loss",
+   "volume loss",
+   "bone resorption",
+   "facial fat pads",
+   "facial aging fat compartments bone resorption"
+  ]
+ },
+ {
+  "id": "skin-laxity-weight-loss",
+  "name": "Loose skin after weight loss (GLP-1)",
+  "aliases": [
+   "Ozempic face",
+   "GLP-1 skin laxity"
+  ],
+  "category": "body",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Rapid weight loss on GLP-1 drugs empties fat compartments and leaves loose skin.",
+  "anatomy": [
+   "fat compartments",
+   "dermis"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_rYyd4yQIQ6E"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/conditions/loose-skin-after-weight-loss/",
+  "search_terms": [
+   "Loose skin after weight loss",
+   "Ozempic face",
+   "GLP-1 skin laxity",
+   "Ozempic face fat loss"
+  ]
+ },
+ {
+  "id": "cellulite",
+  "name": "Cellulite",
+  "aliases": [
+   "fibrous septae"
+  ],
+  "category": "body",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Fat pushing up between tight fibrous bands dimples the skin.",
+  "anatomy": [
+   "fibrous septae",
+   "subcutaneous fat"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_SlCftWUovio",
+   "yo_s1FYqIy7n3Y"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/conditions/cellulite/",
+  "search_terms": [
+   "Cellulite",
+   "fibrous septae",
+   "cellulite fibrous septae diagram"
+  ]
+ },
+ {
+  "id": "lymphatic-drainage",
+  "name": "Lymphatic drainage",
+  "aliases": [
+   "post-lipo massage"
+  ],
+  "category": "body",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Light massage moves lymph fluid to reduce swelling after body procedures.",
+  "anatomy": [
+   "lymphatic vessels",
+   "lymph nodes"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_SedPjMwRLmY",
+   "yo_2uZy0g91IMU",
+   "ti_7273203269156064555"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/lymphatic-drainage/",
+  "search_terms": [
+   "Lymphatic drainage",
+   "post-lipo massage",
+   "lymphatic system drainage diagram"
+  ]
+ },
+ {
+  "id": "retinoids",
+  "name": "Retinoids: retinol and tretinoin",
+  "aliases": [
+   "retinoic acid",
+   "Retin-A",
+   "vitamin A",
+   "purging"
+  ],
+  "category": "skincare",
+  "brand_or_device": "Ret Nia Serum, LUMA Cream, Retinoid Eye+",
+  "manufacturer": "Dr. Ariel Ostad Skincare",
+  "what_it_does": "Vitamin A derivatives speed cell turnover and build collagen; they can purge first.",
+  "anatomy": [
+   "epidermis",
+   "dermal collagen",
+   "retinoic acid receptors"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "ti_7259822258615487786",
+   "yo_z3f8XaPNhMk",
+   "in_DbWaZHPgW0f",
+   "yo_vUYNHuUWOy8",
+   "ti_7252737667308260654"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/skincare/",
+  "search_terms": [
+   "Retinoids: retinol and tretinoin",
+   "retinoic acid",
+   "Retin-A",
+   "vitamin A",
+   "retinoid mechanism skin receptor",
+   "retinol conversion retinoic acid"
+  ]
+ },
+ {
+  "id": "niacinamide",
+  "name": "Niacinamide",
+  "aliases": [
+   "vitamin B3",
+   "nicotinamide pills"
+  ],
+  "category": "skincare",
+  "brand_or_device": "Nia-C+, niacinamide pills",
+  "manufacturer": "Dr. Ariel Ostad Skincare",
+  "what_it_does": "Vitamin B3 strengthens the barrier, calms redness and blocks pigment transfer; oral nicotinamide lowers skin cancer risk.",
+  "anatomy": [
+   "epidermis",
+   "melanosome transfer"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "in_DWPajdFEWTA"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/skincare/",
+  "search_terms": [
+   "Niacinamide",
+   "vitamin B3",
+   "nicotinamide pills",
+   "niacinamide melanosome transfer"
+  ]
+ },
+ {
+  "id": "vitamin-c",
+  "name": "Vitamin C + ferulic antioxidant",
+  "aliases": [
+   "L-ascorbic acid",
+   "CE ferulic"
+  ],
+  "category": "skincare",
+  "brand_or_device": "CEG + Ferulic Complex",
+  "manufacturer": "Dr. Ariel Ostad Skincare",
+  "what_it_does": "Antioxidants neutralise UV free radicals and support collagen.",
+  "anatomy": [
+   "epidermis",
+   "dermis"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "in_DbWaZHPgW0f",
+   "yo_Br2Buug_Y08",
+   "yo_T8d9_H6N_0o",
+   "ti_7278401722370903342",
+   "ti_7500961261375556907"
+  ],
+  "on_site": false,
+  "site_url": null,
+  "search_terms": [
+   "Vitamin C + ferulic antioxidant",
+   "L-ascorbic acid",
+   "CE ferulic",
+   "vitamin C antioxidant free radical skin"
+  ]
+ },
+ {
+  "id": "brighteners",
+  "name": "Pigment inhibitors (arbutin, kojic, tranexamic)",
+  "aliases": [
+   "arbutin",
+   "kojic acid",
+   "hydroquinone alternatives",
+   "LUMA Cream",
+   "Koji pads"
+  ],
+  "category": "skincare",
+  "brand_or_device": "LUMA Cream, Koji Brightening Pads",
+  "manufacturer": "Dr. Ariel Ostad Skincare",
+  "what_it_does": "Ingredients that block tyrosinase or other steps of melanin production.",
+  "anatomy": [
+   "melanocytes",
+   "tyrosinase"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "in_DbWaZHPgW0f",
+   "ti_7301789773595725098",
+   "yo_keyKrmNemWY"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/skincare/",
+  "search_terms": [
+   "Pigment inhibitors",
+   "arbutin",
+   "kojic acid",
+   "hydroquinone alternatives",
+   "tyrosinase inhibitor melanin synthesis"
+  ]
+ },
+ {
+  "id": "acids-exfoliation",
+  "name": "AHA / BHA exfoliants",
+  "aliases": [
+   "glycolic acid",
+   "lactic acid",
+   "salicylic acid"
+  ],
+  "category": "skincare",
+  "brand_or_device": "Re-Texture Pads, Clarifying Pads, Glycolic Body Lotion, Gentle Lactic Scrub",
+  "manufacturer": "Dr. Ariel Ostad Skincare",
+  "what_it_does": "Acids loosen the bonds between dead cells to smooth texture and clear pores.",
+  "anatomy": [
+   "stratum corneum",
+   "pores"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "ti_7295813676466965802",
+   "yo_2uZy0g91IMU",
+   "in_DbWaZHPgW0f",
+   "in_DXM-HzzDpVz",
+   "in_DeNQcHXCOAo",
+   "yo_ltBak2wH8w0",
+   "ti_7273203269156064555",
+   "yo_T8d9_H6N_0o",
+   "ti_7255012208764144942",
+   "ti_7278401722370903342"
+  ],
+  "on_site": false,
+  "site_url": null,
+  "search_terms": [
+   "AHA / BHA exfoliants",
+   "glycolic acid",
+   "lactic acid",
+   "salicylic acid",
+   "alpha hydroxy acid exfoliation stratum corneum"
+  ]
+ },
+ {
+  "id": "skin-barrier",
+  "name": "Moisturizers, hyaluronic acid and the skin barrier",
+  "aliases": [
+   "ceramides",
+   "stratum corneum",
+   "oil-free moisturizer",
+   "Hyaluronic acid and peptide serums",
+   "humectant",
+   "peptides",
+   "Hyla Complex"
+  ],
+  "category": "skincare",
+  "brand_or_device": "Clear Moist, Nia-C+",
+  "manufacturer": "Dr. Ariel Ostad Skincare",
+  "what_it_does": "The lipid barrier keeps water in and irritants out; the right moisturizer repairs it.",
+  "anatomy": [
+   "stratum corneum",
+   "lipid lamellae",
+   "epidermis"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_FCvdsR7fbmk",
+   "ti_7259822258615487786",
+   "yo_z3f8XaPNhMk",
+   "ti_7295813676466965802",
+   "yo_gd1fP5fvQGg",
+   "yo_2uZy0g91IMU",
+   "yo_ltBak2wH8w0",
+   "ti_7301789773595725098",
+   "ti_7273203269156064555",
+   "yo_vUYNHuUWOy8",
+   "ti_7252737667308260654",
+   "yo_Br2Buug_Y08",
+   "yo_T8d9_H6N_0o",
+   "yo_keyKrmNemWY",
+   "in_DWPajdFEWTA",
+   "ti_7278401722370903342",
+   "ti_7500961261375556907"
+  ],
+  "on_site": false,
+  "site_url": null,
+  "search_terms": [
+   "Moisturizers, hyaluronic acid and the skin barrier",
+   "ceramides",
+   "stratum corneum",
+   "oil-free moisturizer",
+   "skin barrier brick and mortar",
+   "topical hyaluronic acid molecular weight penetration"
+  ]
+ },
+ {
+  "id": "sunscreen",
+  "name": "Sunscreen",
+  "aliases": [
+   "SPF",
+   "mineral sunscreen",
+   "zinc oxide",
+   "UVA UVB"
+  ],
+  "category": "skincare",
+  "brand_or_device": "Sun Shade (Clear, Tint, Glow, Bronze)",
+  "manufacturer": "Dr. Ariel Ostad Skincare",
+  "what_it_does": "Mineral filters reflect and absorb UVA and UVB before they damage DNA and collagen.",
+  "anatomy": [
+   "epidermis",
+   "dermis",
+   "DNA"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_FCvdsR7fbmk",
+   "ti_7295813676466965802",
+   "in_DXM-HzzDpVz",
+   "in_Dbq_QFyE6yg",
+   "yo_nOIuVdhTxtw",
+   "in_DWPajdFEWTA",
+   "in_DcbazZHio4C",
+   "yo_jRi_qk8vNdM",
+   "yo_2FdFHgaFTxU",
+   "ti_7260493315643165994"
+  ],
+  "on_site": false,
+  "site_url": null,
+  "search_terms": [
+   "Sunscreen",
+   "SPF",
+   "mineral sunscreen",
+   "zinc oxide",
+   "UVA UVB penetration skin layers",
+   "mineral vs chemical sunscreen"
+  ]
+ },
+ {
+  "id": "chemical-peels",
+  "name": "Chemical peels",
+  "aliases": [
+   "TCA peel",
+   "VI Peel",
+   "Jessner",
+   "PCA peel"
+  ],
+  "category": "skincare",
+  "brand_or_device": null,
+  "manufacturer": "PCA Skin / SkinMedica",
+  "what_it_does": "An acid solution removes damaged layers so new skin replaces them; depth depends on the acid.",
+  "anatomy": [
+   "epidermis",
+   "papillary dermis"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_NQn3K9Ilr5o",
+   "ti_7295813676466965802",
+   "in_DXM-HzzDpVz",
+   "yo_UdcrMc1UhF8"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/facial-rejuvenation/chemical-peels/",
+  "search_terms": [
+   "Chemical peels",
+   "TCA peel",
+   "VI Peel",
+   "Jessner",
+   "chemical peel depth superficial medium deep"
+  ]
+ },
+ {
+  "id": "diamondglow",
+  "name": "DiamondGlow",
+  "aliases": [
+   "dermabrasion with serum infusion"
+  ],
+  "category": "skincare",
+  "brand_or_device": "DiamondGlow",
+  "manufacturer": "Allergan Aesthetics (AbbVie)",
+  "what_it_does": "A diamond tip exfoliates and vacuums while serums are pushed into the skin.",
+  "anatomy": [
+   "stratum corneum",
+   "epidermis"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_2uZy0g91IMU",
+   "ti_7267602932378422571",
+   "yo_ltBak2wH8w0",
+   "ti_7273203269156064555",
+   "yo_O-iSH4mDjno",
+   "ti_7255012208764144942",
+   "ti_7296179977987312938"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/diamondglow/",
+  "search_terms": [
+   "DiamondGlow",
+   "dermabrasion with serum infusion",
+   "DiamondGlow exfoliate extract infuse"
+  ]
+ },
+ {
+  "id": "hydrafacial",
+  "name": "HydraFacial",
+  "aliases": [
+   "hydradermabrasion"
+  ],
+  "category": "skincare",
+  "brand_or_device": "HydraFacial",
+  "manufacturer": "BeautyHealth",
+  "what_it_does": "A vortex tip cleanses, extracts and hydrates in one pass.",
+  "anatomy": [
+   "pores",
+   "epidermis"
+  ],
+  "region": null,
+  "mentioned_in": [],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/hydrafacial/",
+  "search_terms": [
+   "HydraFacial",
+   "hydradermabrasion",
+   "HydraFacial vortex technology"
+  ]
+ },
+ {
+  "id": "microneedling",
+  "name": "Microneedling (SkinPen)",
+  "aliases": [
+   "collagen induction therapy",
+   "SkinPen"
+  ],
+  "category": "skincare",
+  "brand_or_device": "SkinPen",
+  "manufacturer": "Crown Aesthetics",
+  "what_it_does": "Fine needles make micro-injuries that trigger collagen repair.",
+  "anatomy": [
+   "epidermis",
+   "dermis"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_9Q9dSwE_X3c",
+   "yo_SlCftWUovio",
+   "yo_rYyd4yQIQ6E",
+   "yo_i-gADSYhHy8",
+   "yo_s1FYqIy7n3Y"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/facial-rejuvenation/microneedling/",
+  "search_terms": [
+   "Microneedling",
+   "collagen induction therapy",
+   "SkinPen",
+   "collagen induction therapy wound healing phases"
+  ]
+ },
+ {
+  "id": "led-light",
+  "name": "LED and oxygen facials (OxyLight)",
+  "aliases": [
+   "blue light",
+   "red light",
+   "OxyLight facial",
+   "oxygen facial",
+   "LED"
+  ],
+  "category": "skincare",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Red and blue light wavelengths calm inflammation, kill acne bacteria and support repair.",
+  "anatomy": [
+   "epidermis",
+   "dermis"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_SedPjMwRLmY",
+   "yo_FfwvExuYwCI",
+   "yo_2uZy0g91IMU",
+   "ti_7273203269156064555"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/oxylight-facial/",
+  "search_terms": [
+   "LED and oxygen facials",
+   "blue light",
+   "red light",
+   "OxyLight facial",
+   "LED light therapy wavelength penetration depth",
+   "oxygen facial LED light therapy"
+  ]
+ },
+ {
+  "id": "exomind",
+  "name": "EXOMIND (TMS)",
+  "aliases": [
+   "transcranial magnetic stimulation",
+   "TMS"
+  ],
+  "category": "wellness",
+  "brand_or_device": "EXOMIND",
+  "manufacturer": "BTL",
+  "what_it_does": "Magnetic pulses stimulate the prefrontal cortex to support mood, focus and sleep.",
+  "anatomy": [
+   "dorsolateral prefrontal cortex"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "in_DeIAMb_gDnx",
+   "in_Db8Xf9YgANa",
+   "in_DcjqIkoFMTF",
+   "in_DdHVydJidVU",
+   "in_DcUGBbZlRQ6"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/longevity-wellness-treatments/exomind/",
+  "search_terms": [
+   "EXOMIND",
+   "transcranial magnetic stimulation",
+   "TMS",
+   "transcranial magnetic stimulation DLPFC coil"
+  ]
+ },
+ {
+  "id": "iv-therapy",
+  "name": "IV therapy",
+  "aliases": [
+   "vitamin drip",
+   "NAD+"
+  ],
+  "category": "wellness",
+  "brand_or_device": null,
+  "manufacturer": null,
+  "what_it_does": "Fluids, vitamins and NAD+ given into a vein.",
+  "anatomy": [
+   "veins"
+  ],
+  "region": null,
+  "mentioned_in": [
+   "yo_2FdFHgaFTxU"
+  ],
+  "on_site": true,
+  "site_url": "https://drarielostad.com/cosmetic/iv-therapy/",
+  "search_terms": [
+   "IV therapy",
+   "vitamin drip",
+   "NAD+",
+   "IV vitamin therapy NAD"
+  ]
+ }
+]
