@@ -14,14 +14,16 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
+import { CSS3DRenderer, CSS3DObject } from "three/examples/jsm/renderers/CSS3DRenderer.js";
 import { Text } from "troika-three-text";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { rig, wrap } from "./rig";
 import { SLEEVE, sharpen, loadTex, sideFile, sideWidth, type Side } from "./sleeve";
 import { buildRecord, grooveNormals, OPEN_BOX, RPM, LABEL_R, type RecordModel } from "./record";
 import { paperGrain } from "./textures";
-import { no3, caps, dylanRoles } from "./shared";
+import { no3, caps, creditList, dylanLine } from "./shared";
 import css from "./site.module.css";
+const css_ = css;
 
 export const OPEN_MS = 650, TOGGLE_MS = 400, CLOSE_MS = 500;
 // each motion's stages, as fractions of its duration: [start, end] of the move, the gatefold and the record's slide
@@ -34,9 +36,15 @@ const PLANS: Record<string, Plan> = {
   close: { slide: [0, 170 / 500], gate: [150 / 500, 330 / 500], move: [310 / 500, 1] },
 };
 const stage = (f: number, [a, b]: Win) => ease(Math.min(1, Math.max(0, (f - a) / (b - a))));
-const LABEL_FONT = "/gillenwebsite/fonts/texgyreheros-regular.ttf", BOLD_FONT = "/gillenwebsite/fonts/texgyreheros-bold.otf";
-// the credits panel's type, in metres on a 0.33 m panel: Dylan's name the largest, then his roles, then the rest
-const CREDIT = { margin: 0.022, name: 0.024, roles: 0.0112, rest: 0.0082, ink: 0x111111, grey: 0x777777 };
+// the informational face, and the header's face (Archivo at the header's 118% width, instanced static for SDF)
+// the informational face, and the name's face (Archivo at the header's 118% width, instanced static for SDF type)
+const LABEL_FONT = "/gillenwebsite/fonts/texgyreheros-regular.ttf", NAME_FONT = "/gillenwebsite/fonts/archivo-wdth118-regular.ttf";
+// The credits panel's type is HTML laid onto the panel in 3D (CSS3DRenderer), so it is set by the browser in the
+// page's own fonts (the Adobe Fonts kit among them, which can't be read as a font file for SDF type), sharp at any angle.
+// The element is PANEL_PX square for the 0.33 m panel; sizes in px of that element, in the page's proportions: the small
+// interface size (12 px) is `small`, Dylan's name three times the header (36 px); leading 1.2 and an 8 px column gap
+// as the About index (SOURCES #20b).
+const PANEL_PX = 660;
 const INFO_W = 420; // the info column on desktop
 const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
 
@@ -44,13 +52,16 @@ export type From = "rolodex" | HTMLElement | null;
 export type VinylHandle = { open: (i: number, from: From) => void; close: () => void };
 type Pose = { p: THREE.Vector3; q: THREE.Quaternion; s: number };
 
+type Credit = { el: HTMLDivElement; css: CSS3DRenderer; lines: number };
+const esc = (t: string) => t.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
+
 type Engine = {
   gl: THREE.WebGLRenderer; scene: THREE.Scene; cam: THREE.PerspectiveCamera; rec: RecordModel; holder: THREE.Group;
-  centre: THREE.Vector3; artist: Text; title: Text; blank: THREE.Texture; credit: { name: Text; roles: Text; rest: Text };
+  centre: THREE.Vector3; artist: Text; title: Text; labelName: Text; blank: THREE.Texture; credit: Credit;
   tex: Record<Side, { t: THREE.Texture | null; w: number; own: boolean }>;
 };
 
-async function makeEngine(canvas: HTMLCanvasElement): Promise<Engine> {
+async function makeEngine(canvas: HTMLCanvasElement, overlay: HTMLElement): Promise<Engine> {
   const gl = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   gl.setPixelRatio(Math.min(devicePixelRatio, 2));
   gl.toneMapping = THREE.NeutralToneMapping;
@@ -97,21 +108,24 @@ async function makeEngine(canvas: HTMLCanvasElement): Promise<Engine> {
     return t;
   };
   const artist = type(-LABEL_R * 0.48, 0.0058), title = type(-LABEL_R * 0.66, 0.0046);
-  // the credits panel: three blocks stacked from the top-left (laid out once their glyphs are known, setCredits)
-  const block = (font: string, size: number, color: number) => {
-    const t = new Text();
-    Object.assign(t, { font, fontSize: size, color, anchorX: "left", anchorY: "top", maxWidth: SLEEVE - CREDIT.margin * 2, lineHeight: 1.25 });
-    t.position.x = -SLEEVE / 2 + CREDIT.margin;
-    rec.credits.add(t);
-    return t;
-  };
-  const credit = { name: block(BOLD_FONT, CREDIT.name, CREDIT.ink), roles: block(LABEL_FONT, CREDIT.roles, CREDIT.ink), rest: block(LABEL_FONT, CREDIT.rest, CREDIT.grey) };
-  credit.name.text = "DYLAN NEUSTADTER";
-  // the other blocks laid out with every common glyph once, so the glyph atlas and the type's programs exist before
-  // the first opening (otherwise that opening builds them, a ~100 ms frame)
-  const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789 ·,.:;'’&()-–!?/";
-  credit.roles.text = credit.rest.text = glyphs;
-  await Promise.all([credit.name, credit.roles, credit.rest].map((t) => new Promise<void>((r) => t.sync(() => r()))));
+  // his name on the label, above the middle, in the name's face
+  const labelName = type(LABEL_R * 0.5, 0.0052);
+  labelName.font = NAME_FONT; labelName.text = "DYLAN NEUSTADTER";
+  // the credits panel: an element laid on the panel's face (its middle, a hair in front), scaled from px to metres
+  const css = new CSS3DRenderer();
+  Object.assign(css.domElement.style, { position: "absolute", inset: "0", pointerEvents: "none" });
+  const el = document.createElement("div");
+  el.className = css_.vvPanel;
+  Object.assign(el.style, { width: `${PANEL_PX}px`, height: `${PANEL_PX}px`, opacity: "0" });
+  const obj = new CSS3DObject(el);
+  // CSS3DObject sets pointer-events: auto on its element; the panel's type must let clicks through to the record
+  el.style.pointerEvents = "none";
+  obj.position.set(0, SLEEVE / 2, 0.0003);
+  obj.scale.setScalar(SLEEVE / PANEL_PX);
+  rec.credits.add(obj);
+  const credit: Credit = { el, css, lines: 0 };
+  await new Promise<void>((r) => labelName.sync(() => r()));
+
   // warm up: lay the label's type out once (loads the font, builds the glyph atlas) and compile every program the
   // open record needs, so the first opening has nothing to build
   artist.text = "A"; title.text = "A";
@@ -126,7 +140,8 @@ async function makeEngine(canvas: HTMLCanvasElement): Promise<Engine> {
   gl.clear();
   rec.set(0, 0);
   holder.visible = false;
-  return { gl, scene, cam, rec, holder, centre, artist, title, blank, credit, tex: { front: { t: null, w: 0, own: false }, back: { t: null, w: 0, own: false } } };
+  overlay.appendChild(css.domElement);
+  return { gl, scene, cam, rec, holder, centre, artist, title, labelName, blank, credit, tex: { front: { t: null, w: 0, own: false }, back: { t: null, w: 0, own: false } } };
 }
 
 // light or dark type for the label, from the luminance of the cover's lower third
@@ -146,6 +161,7 @@ function inkFor(img: CanvasImageSource) {
 // `handle` receives open/close once the view is mounted (it is loaded with next/dynamic, so not through a ref)
 export default function VinylView({ releases, handle, onState }: { releases: Release[]; handle: React.RefObject<VinylHandle | null>; onState?: (open: boolean) => void }) {
   const N = releases.length;
+  const layer = useRef<HTMLDivElement>(null);
   const box = useRef<HTMLDivElement>(null), canvas = useRef<HTMLCanvasElement>(null), veil = useRef<HTMLDivElement>(null), info = useRef<HTMLDivElement>(null);
   const eng = useRef<Engine | null>(null), engine = useRef<Promise<Engine> | null>(null);
   const [cur, setCur] = useState<number | null>(null);
@@ -231,6 +247,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
   const sizeTo = useCallback((e: Engine) => {
     const W = innerWidth, H = innerHeight;
     e.gl.setSize(W, H, false);
+    e.credit.css.setSize(W, H);
     e.cam.aspect = W / H;
     e.cam.updateProjectionMatrix();
   }, []);
@@ -277,39 +294,26 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     }
   }, [releases, facePx, put]);
 
-  // the credits panel: Dylan's name, his roles each with its tracks, then the artist, release, year, collaborators
-  // and label in grey. Stacked once laid out; if they run past the panel the two lower blocks shrink to fit.
+  // the credits panel, on the About index's grid: Dylan's name, his line, the index list (one column up to 8 names,
+  // two past that, 12 at most with "+N more"), the metadata line last
   const setCredits = useCallback((e: Engine, r: Release) => {
-    const { name, roles, rest } = e.credit;
-    roles.text = dylanRoles(r).map((x) => `${caps(x.role)}\n${x.tracks.join(" · ")}`).join("\n\n");
-    rest.text = [r.artist, r.release, String(r.year), ...r.collaborators.slice(0, 8).map((c) => `${c.name}, ${c.roles.join(", ")}`), [r.label, r.catno].filter(Boolean).join(" · ")].filter(Boolean).join("\n");
-    // troika calls a sync's callback only when there was something to lay out, so each block that needs it is waited
-    // for (with a fallback), and the stacking reads the boxes the blocks have
-    const synced = (t: Text) => new Promise<void>((res) => {
-      if (!(t as unknown as { _needsSync?: boolean })._needsSync) return res();
-      const id = setTimeout(res, 1500);
-      t.sync(() => { clearTimeout(id); res(); });
-    });
-    const h = (t: Text) => { const b = (t as unknown as { textRenderInfo?: { blockBounds: number[] } }).textRenderInfo?.blockBounds; return b ? b[3] - b[1] : 0; };
-    const lay = async (k: number) => {
-      roles.fontSize = CREDIT.roles * k; rest.fontSize = CREDIT.rest * k;
-      await Promise.all([synced(name), synced(roles), synced(rest)]);
-      const top = SLEEVE - CREDIT.margin, gap = 0.012;
-      name.position.y = top;
-      roles.position.y = top - h(name) - gap;
-      rest.position.y = roles.position.y - h(roles) - gap;
-      const bottom = rest.position.y - h(rest);
-      // past the panel's bottom margin: the two lower blocks shrink by the overflow and lay out again
-      if (bottom < CREDIT.margin && k > 0.55) await lay(k * Math.max(0.55, (top - h(name) - gap * 2 - CREDIT.margin) / (top - h(name) - gap * 2 - bottom)));
-    };
-    lay(1);
+    const L = creditList(r);
+    const rows = L.items.map((x, k) => ({ num: no3(k + 1), name: x.name, role: caps(x.role) }));
+    if (L.more) rows.push({ num: "", name: `+${L.more} more`, role: "" });
+    const split = rows.length > 8 ? Math.ceil(rows.length / 2) : rows.length;
+    const cols = [rows.slice(0, split), rows.slice(split)].filter((c) => c.length);
+    e.credit.el.innerHTML = `<p class="${css.vvPanelName}">DYLAN NEUSTADTER</p><p class="${css.vvPanelLine}">${esc(dylanLine(r))}</p>`
+      + `<div class="${css.vvPanelList}">${cols.map((c) => `<div class="${css.vvPanelCol}">${c.map((x) => `<span>${esc(x.num)}</span><span>${esc(x.name)}</span><span>${esc(x.role)}</span>`).join("")}</div>`).join("")}</div>`
+      + `<p class="${css.vvPanelMeta}">${esc(L.meta)}</p>`;
+    e.credit.lines = 2 + rows.length + (L.meta ? 1 : 0);
   }, []);
 
   const setType = useCallback((e: Engine, r: Release, img: CanvasImageSource | null) => {
     const ink = img ? inkFor(img) : 0xffffff;
     setCredits(e, r);
     e.artist.text = caps(r.artist); e.title.text = r.release;
-    e.artist.color = e.title.color = ink;
+    e.artist.color = e.title.color = e.labelName.color = ink;
+    e.labelName.sync();
     e.artist.sync(); e.title.sync();
   }, [setCredits]);
 
@@ -322,7 +326,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     // always drawn by one of the two
     rig.lifted = -1;
     rig.setPaused?.(false);
-    requestAnimationFrame(() => requestAnimationFrame(() => { e.holder.visible = false; e.gl.clear(); box.current?.classList.remove(css.vvOn); setCur(null); onState?.(false); }));
+    requestAnimationFrame(() => requestAnimationFrame(() => { e.holder.visible = false; e.gl.clear(); e.credit.el.style.opacity = "0"; box.current?.classList.remove(css.vvOn); setCur(null); onState?.(false); }));
   }, [onState]);
   const loop = useCallback(() => {
     const st = state.current, e = eng.current;
@@ -355,6 +359,9 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     else if (st.phase === "anim" && st.s < 1 && e.rec.disc.rotation.z !== st.spin) st.spinNotOut++;
     e.rec.disc.rotation.z = st.spin;
     e.gl.render(e.scene, e.cam);
+    // the credits' type shows once the gatefold is (nearly) open and nothing covers the panel
+    e.credit.el.style.opacity = String(Math.min(1, Math.max(0, (st.g - 0.9) / 0.1)));
+    e.credit.css.render(e.scene, e.cam);
     // the ring's sleeve is hidden one frame after this canvas has drawn its stand-in (both draw it for that frame);
     // two frames later the stage has drawn the ring without it and stops drawing until the view has closed again
     if (A?.kind === "open" && st.fromKind === "rolodex") {
@@ -416,7 +423,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     const st = state.current;
     if (st.phase === "open" || st.phase === "cover") { show(i); return; }
     if (st.phase !== "closed") return;
-    if (!eng.current && canvas.current) eng.current = await (engine.current ??= makeEngine(canvas.current));
+    if (!eng.current && canvas.current) eng.current = await (engine.current ??= makeEngine(canvas.current, layer.current!));
     const e = eng.current;
     if (!e) return;
     const kind: "rolodex" | "element" | "none" = from === "rolodex" && rig.ready && rig.camera ? "rolodex" : from instanceof HTMLElement ? "element" : "none";
@@ -464,7 +471,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
 
   // the engine is built while the page is idle, so the first opening starts at once
   useEffect(() => {
-    const go = () => { if (!engine.current && canvas.current) engine.current = makeEngine(canvas.current).then((e) => (eng.current = e)); };
+    const go = () => { if (!engine.current && canvas.current) engine.current = makeEngine(canvas.current, layer.current!).then((e) => (eng.current = e)); };
     const id = "requestIdleCallback" in window ? requestIdleCallback(go, { timeout: 4000 }) : (setTimeout(go, 1500) as unknown as number);
     return () => { if ("cancelIdleCallback" in window) cancelIdleCallback(id); };
   }, []);
@@ -510,8 +517,9 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
           front: { texturePx: w(e.rec.front.map), screenPx: proj(left, sq.map((p) => p.clone().setX(p.x))) },
           // the back cover is the sleeve's back now; measured face-on at the open pose's distance
           back: { texturePx: w(e.rec.back.map), screenPx: proj(rear, sq) },
-          // the credits: their type's size, name against the next largest
-          credits: { nameM: e.credit.name.fontSize, rolesM: e.credit.roles.fontSize, restM: e.credit.rest.fontSize },
+          // the credits panel: its elements' faces and weights as computed, and its lines (name, Dylan's line, the list's
+          // rows, the metadata)
+          credits: { lines: e.credit.lines, opacity: e.credit.el.style.opacity, type: [...e.credit.el.querySelectorAll("p, span")].filter((x) => x.textContent?.trim()).map((x) => { const c = getComputedStyle(x); return `${c.fontFamily.split(",")[0]} ${c.fontWeight} ${c.fontSize}`; }).filter((v, k, a) => a.indexOf(v) === k) },
           // the label shows the cover cut to its circle: the texture's width spans the label's diameter
           label: { texturePx: w(e.rec.label.map), screenPx: proj(e.rec.labelPivot, disc) },
         };
@@ -552,28 +560,35 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     <div ref={box} className={css.vv} data-src="12">
       <div ref={veil} className={css.vvVeil} onClick={close} aria-hidden />
       <canvas ref={canvas} className={css.vvCanvas} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={() => { state.current.drag = null; }} aria-hidden />
+      {/* the credits panel's type, over the canvas (it takes no pointer events, so drag and clicks reach the record) */}
+      <div ref={layer} className={css.vvLayer} aria-hidden />
       {r && (
         <div ref={info} className={css.vvInfo} role="dialog" aria-modal="true" aria-label={`${r.artist}, ${r.release}`} data-release={r.id}>
           <p className={css.vvSmall} data-src="09">{no3(cur! + 1)} / {no3(N)}</p>
-          {/* Dylan first: his name, the one bold on the site (SOURCES #12, the exception to R2), then his roles on
-              this release, each with the tracks it applies to */}
+          {/* Dylan first: his name in the header's face at three times its size, then his line in the informational
+              face; the other credits as an index list on the About index's grid (SOURCES #20), the metadata last */}
           <h2 className={css.vvDylan}>DYLAN NEUSTADTER</h2>
-          <div className={css.vvRoles} role="list" aria-label="Dylan's roles">
-            {dylanRoles(r).map((x) => (
-              <div key={x.role} role="listitem">
-                <p className={css.vvRole}>{caps(x.role)}</p>
-                <p className={css.vvRoleTracks}>{x.tracks.join(" · ")}</p>
+          <p className={css.vvSmall}>{dylanLine(r)}</p>
+          {(() => {
+            const L = creditList(r);
+            const rows = L.items.map((x, k) => ({ num: no3(k + 1), name: x.name, role: caps(x.role) }));
+            if (L.more) rows.push({ num: "", name: `+${L.more} more`, role: "" });
+            const split = rows.length > 8 ? Math.ceil(rows.length / 2) : rows.length;
+            return (
+              <div className={css.vvCredits} role="list" aria-label="Credits" data-src="20">
+                {[rows.slice(0, split), rows.slice(split)].filter((c) => c.length).map((c, i) => (
+                  <div key={i} className={css.vvCreditCol}>
+                    {c.map((x) => (
+                      <div key={x.name} className={css.vvCredit} role="listitem">
+                        <span>{x.num}</span><span>{x.name}</span><span>{x.role}</span>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+                <p className={css.vvMeta}>{L.meta}</p>
               </div>
-            ))}
-          </div>
-          {/* every other credit after, small and grey */}
-          <div className={css.vvRest}>
-            <p>{r.artist}</p>
-            <p>{r.release}</p>
-            <p>{r.year}</p>
-            {r.collaborators.map((c) => <p key={c.name}>{c.name}, {c.roles.join(", ")}</p>)}
-            {(r.label || r.catno) && <p>{[r.label, r.catno].filter(Boolean).join(" · ")}</p>}
-          </div>
+            );
+          })()}
           {/* SOURCES #14 rosalia carousel arrows */}
           <div className={css.vvControls} data-src="14 32">
             <button type="button" aria-label="Previous release" onClick={() => show((cur! - 1 + N) % N)}>←</button>

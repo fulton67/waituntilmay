@@ -69,7 +69,8 @@ export function buildRecord(blank: THREE.Texture, grain: THREE.Texture, grooves:
   const card = (map: THREE.Texture | null) => new THREE.MeshStandardMaterial({ map, roughness: 0.7, metalness: 0, normalMap: grain, normalScale: new THREE.Vector2(0.12, 0.12), envMapIntensity: 0.6 });
   const front = card(blank), back = card(blank), paper = card(null);
   paper.color.set("#d6ccba");
-  const panel = sleeveGeometry(SLEEVE, PANEL_T);
+  // the open record's panels have no rail slots: those are only on the sleeve while it hangs on the Rolodex
+  const panel = sleeveGeometry(SLEEVE, PANEL_T, false);
   const root = new THREE.Group(), body = new THREE.Group();
   root.add(body);
   // the left panel turns on the spine, the sleeve's left edge: its group sits on the spine, the panel hangs right of it
@@ -78,9 +79,12 @@ export function buildRecord(blank: THREE.Texture, grain: THREE.Texture, grooves:
   const lp = new THREE.Mesh(panel, [front, front, paper]);
   lp.position.set(SLEEVE / 2, 0, 0);
   left.add(lp);
-  // the right pocket: a front wall, whose inside face is the credits panel (paper, type added in VinylView), and a
+  // the right pocket: a front wall, whose inside face is the credits panel (paper, SDF type from VinylView), and a
   // rear wall whose outside is the back cover, the back of the sleeve; the record between them
-  const wall = new THREE.Mesh(panel, [paper, paper, paper]);
+  // the credits panel's face is white board, the site's ground, with the paper's grain only
+  const board = card(null);
+  board.color.set("#ffffff");
+  const wall = new THREE.Mesh(panel, [board, paper, paper]);
   const credits = new THREE.Group();
   credits.position.z = 0.0003;
   wall.add(credits);

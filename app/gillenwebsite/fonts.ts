@@ -10,8 +10,6 @@ export const info = localFont({
   src: [
     { path: "./fonts/texgyreheros-regular.woff2", weight: "400", style: "normal" },
     { path: "./fonts/texgyreheros-italic.woff2", weight: "400", style: "italic" },
-    // the one bold on the site: Dylan's name in the record view's credits (the exception to R2, SOURCES.md #12)
-    { path: "./fonts/texgyreheros-bold.woff2", weight: "700", style: "normal" },
   ],
   variable: "--font-info",
   fallback: ["Nimbus Sans", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"],

@@ -6,8 +6,8 @@
 //    and spinning when open, fully in and still in the cover state, never turning while not fully out
 //  - the ring's sleeve is hidden while the view is open and drawn again after it closes (rig.lifted)
 //  - texels: front, back and label textures against their faces' device pixels (>= 1)
-//  - type: Dylan's name (48/32 px, weight 700) against the next largest text in the view, the only bold text on the
-//    page, one family; on the credits panel the name's SDF size against the roles' and the rest's
+//  - type: every text element's computed family and weight (only the header's face and the informational face, all
+//    400); Dylan's name in the header's face at 3x the header size; the credits' line count for every release
 //  - spin: the record turns at 33 1/3 rpm (measured over 1 s); drag turns the whole record; with
 //    prefers-reduced-motion the record does not spin
 //  - discography: a row click opens the view from the row's cover
@@ -98,24 +98,36 @@ for (const p of PROFILES) {
   out.texels = Object.fromEntries(["front", "back", "label"].map((k) => [k, { texturePx: tx[k].texturePx, screenPx: +tx[k].screenPx.toFixed(1), ratio: +(tx[k].texturePx / tx[k].screenPx).toFixed(2) }]));
   out.texels.pass = ["front", "back", "label"].every((k) => out.texels[k].ratio >= 1);
 
-  // type: Dylan's name against every other text in the view (computed size and weight), and it is the only bold
-  // text on the page; one family throughout
+  // type: every text element in the open view, its computed family and weight (only the header's face and the
+  // informational face, all 400); Dylan's name in the header's face at 3x the header; credits lines per release
   out.type = await page.evaluate(() => {
-    const info = document.querySelector("[class*=vvInfo]"), name = info.querySelector("[class*=vvDylan]");
-    const texts = [...document.querySelectorAll("body *")].filter((e) => [...e.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()) && e.getClientRects().length);
-    const cs = (e) => getComputedStyle(e);
-    const others = [...info.querySelectorAll("*")].filter((e) => e !== name && texts.includes(e));
-    const next = others.reduce((m, e) => (parseFloat(cs(e).fontSize) > parseFloat(cs(m).fontSize) ? e : m), others[0]);
+    const view = document.querySelector("[class*=vvInfo]"), name = view.querySelector("[class*=vvDylan]"), header = document.querySelector("header [class*=name]");
+    const texts = [...view.querySelectorAll("*")].filter((e) => [...e.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()) && e.getClientRects().length);
+    const cs = (e) => getComputedStyle(e), fam = (e) => cs(e).fontFamily.split(",")[0].trim();
     return {
-      name: { text: name.textContent, px: parseFloat(cs(name).fontSize), weight: cs(name).fontWeight },
-      nextLargest: { text: next.textContent.slice(0, 40), px: parseFloat(cs(next).fontSize), weight: cs(next).fontWeight },
-      boldOnPage: texts.filter((e) => +cs(e).fontWeight >= 600).map((e) => e.textContent.slice(0, 40)),
-      families: [...new Set([...info.querySelectorAll("*")].filter((e) => texts.includes(e)).map((e) => cs(e).fontFamily))],
+      elements: texts.map((e) => ({ text: e.textContent.trim().slice(0, 28), family: fam(e), weight: cs(e).fontWeight, px: parseFloat(cs(e).fontSize) })),
+      name: { family: fam(name), stretch: cs(name).fontStretch, px: parseFloat(cs(name).fontSize), weight: cs(name).fontWeight },
+      header: { family: fam(header), stretch: cs(header).fontStretch, px: parseFloat(cs(header).fontSize) },
     };
   });
+  out.type.families = [...new Set(out.type.elements.map((x) => x.family))];
+  out.type.weights = [...new Set(out.type.elements.map((x) => x.weight))];
   out.type.panel = (await page.evaluate(() => window.__vinyl.texels())).credits;
-  out.type.pass = out.type.name.px === p.sizes.artist && out.type.name.weight === "700" && out.type.nextLargest.px < out.type.name.px && out.type.nextLargest.weight === "400"
-    && out.type.boldOnPage.length === 1 && out.type.boldOnPage[0] === "DYLAN NEUSTADTER" && out.type.families.length === 1 && out.type.panel.nameM > out.type.panel.rolesM;
+  // the panel's faces: the name's face (Archivo) and the kit's Univers Next Pro (or the info face standing in), all 400
+  out.type.panelOk = out.type.panel.type.every((t) => / 400 /.test(t) && /^(Archivo|univers-next-pro|info)/.test(t));
+  // every release: the info column's credit rows and the panel's lines
+  out.type.lines = [];
+  for (let k = 0; k < 36; k++) {
+    const row = await page.evaluate(() => ({ id: document.querySelector("[class*=vvInfo]").dataset.release, column: document.querySelectorAll("[class*=vvCredit][role=listitem]").length, columns: document.querySelectorAll("[class*=vvCreditCol]").length }));
+    await page.waitForTimeout(250);
+    row.panelLines = (await page.evaluate(() => window.__vinyl.texels())).credits.lines;
+    out.type.lines.push(row);
+    await page.keyboard.press("ArrowRight");
+    await page.waitForTimeout(350);
+  }
+  out.type.pass = out.type.families.length <= 2 && out.type.families.every((f) => f === out.type.header.family || f === out.type.elements.find((x) => x.px === 12)?.family)
+    && out.type.weights.join() === "400" && out.type.name.family === out.type.header.family && out.type.name.stretch === out.type.header.stretch
+    && out.type.name.px === out.type.header.px * 3 && out.type.panelOk && out.type.lines.every((x) => x.column <= 13 && (x.column <= 8 ? x.columns <= 1 : x.columns === 2));
 
   // spin: radians in one second against 33 1/3 rpm (3.49 rad/s)
   const spin = await page.evaluate(async () => {
