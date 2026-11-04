@@ -17,6 +17,6 @@ Spec: `refs/SPEC2.md`. Starts after pass 1 (`refs/TODO.md`) is finished. Resume 
 ## Phase 4 — shots
 - [x] shots/{id}.md × 97, BUILD_LIST.md: 320 shots (270 overlay / 50 full-frame), reference animation in 85, his spoken words in 52 + captions in 28, 136 missing assets ranked (top: surface_volume_morph 33, dermis_macro 17, needle_syringe 17)
 ## Phase 5 — /ostad/anatomy
-- [ ] R3F page, five presets, Refs Motion section + mentioned_in, verify, push
+- [x] R3F page, five presets, Refs Motion section + mentioned_in, verify, push: /ostad/anatomy (face 146/146, skin 95/95 nodes), Botox glabella / filler cheek / Morpheus8 / Fraxel / Mohs all switch and animate, pause + scrub, layer toggles, cutaway, background transparent/black/white, PNG export with alpha (76% clear pixels, corner alpha 0; black/white opaque), 0 console errors (verify_anatomy.mjs)
 ## Finish
 - [ ] summary

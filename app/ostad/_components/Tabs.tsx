@@ -11,6 +11,7 @@ const TABS = [
   ["/ostad/plan", "PLAN"],
   ["/ostad/him", "HIM"],
   ["/ostad/refs", "REFS"],
+  ["/ostad/anatomy", "ANATOMY"],
 ] as const;
 
 export default function Tabs() {
