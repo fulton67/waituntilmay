@@ -9,9 +9,9 @@ Spec: `refs/SPEC2.md`. Starts after pass 1 (`refs/TODO.md`) is finished. Resume 
 ## Picking (added 2026-11-03)
 - [x] Gold toggle on every image and animation, note per pick, "N gold", gold-only filter, Export picks (gold_picks.json), Export zip (JSZip, originals via /api/ostad-refimg)
 ## Phase 2 — models → models.json
-- [ ] structure list from procedures.json anatomy
-- [ ] Z-Anatomy, BodyParts3D, NIH 3D, Sketchfab CC; priced list (Zygote store, TurboSquid, CGTrader)
-- [ ] headless Blender turntable per model, quality score
+- [x] structure list from procedures.json anatomy (30 structures)
+- [x] Z-Anatomy, BodyParts3D, NIH 3D, Sketchfab CC; priced list (Zygote store, TurboSquid, CGTrader): 155 options, 33 downloaded, 67 priced; every structure has a downloadable or priced option (3d/models.json, 3d/MODELS.md)
+- [x] headless Blender turntable per model, quality score: 13 clay turntables (renders/survey/*.jpg), q 2–4; best: NIH eye 4, VHM skull 4, Z-Anatomy head 4. No free SMAS/fat compartments (paid: 3dmi $169); Zygote priced only ($690 integument)
 ## Phase 3 — base scene
 - [x] face.blend + skin_crosssection.blend, materials, rig, GLB + layers.json, renders, size check: face.glb 8.59 MB/146 nodes, skin 1.44 MB/95 nodes, both load in Node with every manifest node; transparent turntable + cutaway sequences (PNG/WebM-alpha/MP4) for each, check_alpha PASS
 ## Phase 4 — shots
