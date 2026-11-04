@@ -1,0 +1,67 @@
+// node verify_gold.mjs <base>: gold picking on /ostad/refs. Pick 2 images + 1 animation, write a note, reload (persists),
+// gold-only filter, Export picks (JSON fields), Export zip (opened with JSZip: manifest + image files), 0 console errors.
+import { chromium } from "playwright";
+import fs from "node:fs";
+import JSZip from "jszip";
+const base = process.argv[2] || "http://localhost:3108";
+let fail = 0;
+const ok = (c, m) => { console.log((c ? "ok   " : "FAIL ") + m); if (!c) fail++; };
+const b = await chromium.launch();
+const ctx = await b.newContext({ acceptDownloads: true });
+const page = await ctx.newPage();
+const errs = [];
+page.on("console", (m) => m.type() === "error" && !/Failed to load resource|CORS|Access-Control/.test(m.text()) && errs.push(m.text()));
+page.on("pageerror", (e) => errs.push(String(e)));
+await page.goto(base + "/ostad/refs", { waitUntil: "networkidle" });
+const count = async () => Number((await page.locator('[data-testid="gold-count"]').textContent()).split(" ")[0]);
+ok((await count()) === 0, "starts with 0 gold");
+const imgs = page.locator("[data-gold-toggle^='img:']");
+const k1 = await imgs.nth(0).getAttribute("data-gold-toggle");
+const k2 = await imgs.nth(1).getAttribute("data-gold-toggle");
+await imgs.nth(0).click();
+await imgs.nth(1).click();
+await page.locator(`[data-gold-note="${k1}"]`).fill("use this palette for the bible");
+await page.locator('[data-view="motion"]').click();
+const mk = await page.locator("[data-gold-toggle^='mot:']").first().getAttribute("data-gold-toggle");
+await page.locator("[data-gold-toggle^='mot:']").first().click();
+ok((await count()) === 3, `3 gold after picking (${await count()})`);
+await page.reload({ waitUntil: "networkidle" });
+ok((await count()) === 3, "picks persist across reload (localStorage)");
+ok((await page.locator(`[data-gold-note="${k1}"]`).inputValue()) === "use this palette for the bible", "note persists");
+await page.locator('[data-testid="gold-only"]').click();
+ok(Number(await page.locator('[data-testid="refs-shown"]').textContent()) === 2, "gold only: 2 images shown");
+await page.locator('[data-view="motion"]').click();
+ok((await page.locator("[data-motion]").count()) === 1, "gold only: 1 animation shown");
+// export picks
+const [dl] = await Promise.all([page.waitForEvent("download"), page.locator('[data-testid="export-picks"]').click()]);
+const json = JSON.parse(fs.readFileSync(await dl.path(), "utf8"));
+ok(dl.suggestedFilename() === "gold_picks.json", `download name ${dl.suggestedFilename()}`);
+ok(json.count === 3 && json.picks.length === 3, `gold_picks.json has 3 picks`);
+const im = json.picks.find((p) => `img:${p.id}` === k1);
+ok(im && im.image_url && im.page_url && im.procedure_id && im.procedure && im.note === "use this palette for the bible", "image pick: ids + image/page URLs + procedure + note");
+ok(json.picks.some((p) => p.kind === "motion" && `mot:${p.id}` === mk && p.url.includes("youtube.com")), "motion pick with its URL");
+// export zip
+const [dz] = await Promise.all([page.waitForEvent("download", { timeout: 120000 }), page.locator('[data-testid="export-zip"]').click()]);
+const zip = await JSZip.loadAsync(fs.readFileSync(await dz.path()));
+const names = Object.keys(zip.files).filter((n) => !zip.files[n].dir);
+const manifest = JSON.parse(await zip.file("gold_picks.json").async("string"));
+const imgFiles = names.filter((n) => /\.(jpe?g|png|webp|gif|svg|avif)$/i.test(n) && !n.includes("motion_"));
+ok(dz.suggestedFilename() === "gold_picks.zip", `zip name ${dz.suggestedFilename()}`);
+ok(imgFiles.length === 2, `zip holds the 2 picked images (${imgFiles.join(", ")})`);
+ok(manifest.files?.length === 3, `zip manifest lists every pick with where it came from: ${manifest.files?.map((f) => f.from).join(", ")}`);
+console.log("     zip status:", await page.locator('[data-testid="zip-status"]').textContent());
+ok(manifest.files.filter((f) => f.from === "original").length >= 1, "zip has full-size originals via /api/ostad-refimg");
+const r404 = await page.request.get(base + "/api/ostad-refimg?id=not-a-ref");
+ok(r404.status() === 404, `image route refuses unknown ids (${r404.status()})`);
+const rUrl = await page.request.get(base + "/api/ostad-refimg?id=https://example.com/x.jpg");
+ok(rUrl.status() === 404, "image route is not an open proxy");
+// clean up: untoggle
+await page.locator('[data-testid="gold-only"]').click();
+for (const k of [mk]) await page.locator(`[data-gold-toggle="${k}"]`).first().click();
+await page.locator('[data-view="img"]').click();
+for (const k of [k1, k2]) await page.locator(`[data-gold-toggle="${k}"]`).first().click();
+ok((await count()) === 0, "untoggling returns to 0");
+ok(errs.length === 0, `console errors: ${errs.slice(0, 3).join(" | ") || "none"}`);
+await b.close();
+console.log(fail ? `FAIL (${fail})` : "PASS");
+process.exit(fail ? 1 : 0);

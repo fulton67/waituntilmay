@@ -6,6 +6,8 @@ Spec: `refs/SPEC2.md`. Starts after pass 1 (`refs/TODO.md`) is finished. Resume 
 - [x] candidate pool, filtered to animated/3D explanations (475 shortlisted, 5 per procedure)
 - [x] full downloads (720p), frames across the whole duration, beats written by eye (16-frame overviews, DECISIONS 15)
 - [x] motion.json + gaps: 245 kept of 428, 85/97 procedures, MOTION_GAPS.md; Motion + His videos views on /ostad/refs
+## Picking (added 2026-11-03)
+- [x] Gold toggle on every image and animation, note per pick, "N gold", gold-only filter, Export picks (gold_picks.json), Export zip (JSZip, originals via /api/ostad-refimg)
 ## Phase 2 — models → models.json
 - [ ] structure list from procedures.json anatomy
 - [ ] Z-Anatomy, BodyParts3D, NIH 3D, Sketchfab CC; priced list (Zygote store, TurboSquid, CGTrader)

@@ -2,7 +2,15 @@
 import Link from "next/link";
 import { Fragment, useEffect, useMemo, useState } from "react";
 import css from "../ostad.module.css";
-import type { VisRef, RefProc, RefType, MotionRef, Mention } from "../_lib/types";
+import type {
+  VisRef,
+  RefProc,
+  RefType,
+  MotionRef,
+  Mention,
+} from "../_lib/types";
+import { useGold } from "./useGold";
+import { buildPicks, exportJSON, exportZip } from "./goldExport";
 
 const TYPE_LABEL: Record<RefType, string> = {
   "cross-section": "cross-section",
@@ -14,15 +22,41 @@ const TYPE_LABEL: Record<RefType, string> = {
   flowchart: "flowchart",
   other: "other",
 };
-const TYPE_ORDER: RefType[] = ["cross-section", "MOA", "injection-map", "surgical-steps", "3D-anatomy", "device", "flowchart", "other"];
-const CAT_ORDER = ["neurotoxin", "filler", "biostimulator", "regenerative", "laser", "RF/energy", "surgical", "body", "skin-cancer", "medical-derm", "skincare", "wellness"];
+const TYPE_ORDER: RefType[] = [
+  "cross-section",
+  "MOA",
+  "injection-map",
+  "surgical-steps",
+  "3D-anatomy",
+  "device",
+  "flowchart",
+  "other",
+];
+const CAT_ORDER = [
+  "neurotoxin",
+  "filler",
+  "biostimulator",
+  "regenerative",
+  "laser",
+  "RF/energy",
+  "surgical",
+  "body",
+  "skin-cancer",
+  "medical-derm",
+  "skincare",
+  "wellness",
+];
 // default sort: labelled cross-sections and mechanisms first (spec), then the other types in order
-const rank = (r: VisRef) => (r.lab ? 0 : 10) + (r.t === "cross-section" || r.t === "MOA" ? 0 : 1 + TYPE_ORDER.indexOf(r.t));
+const rank = (r: VisRef) =>
+  (r.lab ? 0 : 10) +
+  (r.t === "cross-section" || r.t === "MOA" ? 0 : 1 + TYPE_ORDER.indexOf(r.t));
 
 type F = "t" | "k" | "lab";
 type View = "img" | "motion" | "his";
-const mmss = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
-const val = (r: VisRef, f: F) => (f === "lab" ? (r.lab ? "labelled" : "unlabelled") : r[f]);
+const mmss = (s: number) =>
+  `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+const val = (r: VisRef, f: F) =>
+  f === "lab" ? (r.lab ? "labelled" : "unlabelled") : r[f];
 
 export default function RefsView({
   refs,
@@ -38,10 +72,13 @@ export default function RefsView({
   const [view, setView] = useState<View>("img");
   const [mOpen, setMOpen] = useState<MotionRef | null>(null);
   const [start, setStart] = useState(0);
+  const { gold, toggle, note } = useGold();
+  const [goldOnly, setGoldOnly] = useState(false);
+  const [zipping, setZipping] = useState<string | null>(null);
   const [sel, setSel] = useState<string>("");
   const [pick, setPick] = useState<Partial<Record<F, string>>>({});
   const [open, setOpen] = useState<VisRef | null>(null);
-  const [full, setFull] = useState(true);
+  const [failed, setFailed] = useState<string | null>(null); // id whose original would not load
 
   // the selected procedure lives in the hash so a link can point at one
   useEffect(() => {
@@ -65,7 +102,6 @@ export default function RefsView({
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
-  useEffect(() => setFull(true), [open]);
 
   const byCat = useMemo(() => {
     const m = new Map<string, RefProc[]>();
@@ -74,25 +110,95 @@ export default function RefsView({
     return [...m.entries()].filter(([, ps]) => ps.length);
   }, [procs]);
   const proc = procs.find((p) => p.id === sel);
-  const scoped = useMemo(() => (sel ? refs.filter((r) => r.p === sel) : refs), [refs, sel]);
-  const match = (r: VisRef, skip?: F) => (["t", "k", "lab"] as F[]).every((f) => f === skip || !pick[f] || val(r, f) === pick[f]);
+  const scoped = useMemo(
+    () => (sel ? refs.filter((r) => r.p === sel) : refs),
+    [refs, sel],
+  );
+  const match = (r: VisRef, skip?: F) =>
+    (["t", "k", "lab"] as F[]).every(
+      (f) => f === skip || !pick[f] || val(r, f) === pick[f],
+    );
   const shown = useMemo(
-    () => scoped.filter((r) => match(r)).sort((a, b) => rank(a) - rank(b) || a.p.localeCompare(b.p)),
+    () =>
+      scoped
+        .filter((r) => match(r) && (!goldOnly || gold[`img:${r.id}`]))
+        .sort((a, b) => rank(a) - rank(b) || a.p.localeCompare(b.p)),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [scoped, pick],
+    [scoped, pick, goldOnly, gold],
   );
   const counts = useMemo(() => {
-    const c: Record<F, Map<string, number>> = { t: new Map(), k: new Map(), lab: new Map() };
-    (["t", "k", "lab"] as F[]).forEach((f) => scoped.forEach((r) => match(r, f) && c[f].set(val(r, f), (c[f].get(val(r, f)) ?? 0) + 1)));
+    const c: Record<F, Map<string, number>> = {
+      t: new Map(),
+      k: new Map(),
+      lab: new Map(),
+    };
+    (["t", "k", "lab"] as F[]).forEach((f) =>
+      scoped.forEach(
+        (r) =>
+          match(r, f) && c[f].set(val(r, f), (c[f].get(val(r, f)) ?? 0) + 1),
+      ),
+    );
     return c;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scoped, pick]);
   const keysOf = (f: F) =>
-    f === "t" ? TYPE_ORDER.filter((t) => counts.t.has(t)) : [...counts[f].keys()].sort((a, b) => (counts[f].get(b) ?? 0) - (counts[f].get(a) ?? 0));
+    f === "t"
+      ? TYPE_ORDER.filter((t) => counts.t.has(t))
+      : [...counts[f].keys()].sort(
+          (a, b) => (counts[f].get(b) ?? 0) - (counts[f].get(a) ?? 0),
+        );
   const label = (f: F, x: string) => (f === "t" ? TYPE_LABEL[x as RefType] : x);
-  const pname = useMemo(() => Object.fromEntries(procs.map((p) => [p.id, p.name])), [procs]);
-  const mScoped = useMemo(() => (sel ? motion.filter((m) => m.p === sel) : motion), [motion, sel]);
+  const pname = useMemo(
+    () => Object.fromEntries(procs.map((p) => [p.id, p.name])),
+    [procs],
+  );
+  const mScoped = useMemo(
+    () => (sel ? motion.filter((m) => m.p === sel) : motion),
+    [motion, sel],
+  );
+  const mShown = goldOnly
+    ? mScoped.filter((m) => gold[`mot:${m.id}`])
+    : mScoped;
   const his = sel ? (mentions[sel] ?? []) : [];
+  const nGold = Object.keys(gold).length;
+  const picksFile = () => buildPicks(gold, refs, motion, pname);
+  const onZip = async () => {
+    setZipping("0/" + nGold);
+    try {
+      const log = await exportZip(picksFile(), (d, t) =>
+        setZipping(`${d}/${t}`),
+      );
+      const orig = log.filter((l) => l.from === "original").length;
+      setZipping(
+        `done · ${orig} originals, ${log.filter((l) => l.from === "preview").length} at 600 px, ${log.filter((l) => l.from === "missing").length} missing`,
+      );
+    } catch (e) {
+      setZipping(`failed: ${String(e).slice(0, 80)}`);
+    }
+  };
+  // a pick's toggle and its one-line note
+  const goldUI = (k: string) => (
+    <span className={css.goldRow}>
+      <button
+        className={gold[k] ? css.goldOn : css.goldOff}
+        onClick={() => toggle(k)}
+        data-gold-toggle={k}
+        aria-pressed={!!gold[k]}
+      >
+        {gold[k] ? "★ GOLD" : "☆ gold"}
+      </button>
+      {gold[k] && (
+        <input
+          className={css.goldNote}
+          value={gold[k].note}
+          onChange={(e) => note(k, e.target.value)}
+          placeholder="note"
+          aria-label="note for this pick"
+          data-gold-note={k}
+        />
+      )}
+    </span>
+  );
   const openMotion = (m: MotionRef) => {
     setStart(m.best);
     setMOpen(m);
@@ -107,10 +213,18 @@ export default function RefsView({
         {byCat.map(([cat, ps]) => (
           <div key={cat} className={css.refsCat}>
             <div className={css.mid}>
-              {cat.toUpperCase()} <span className={css.mono}>{ps.reduce((s, p) => s + p.n, 0)}</span>
+              {cat.toUpperCase()}{" "}
+              <span className={css.mono}>
+                {ps.reduce((s, p) => s + p.n, 0)}
+              </span>
             </div>
             {ps.map((p) => (
-              <button key={p.id} className={p.id === sel ? css.on : css.off} onClick={() => choose(p.id)} data-proc={p.id}>
+              <button
+                key={p.id}
+                className={p.id === sel ? css.on : css.off}
+                onClick={() => choose(p.id)}
+                data-proc={p.id}
+              >
                 {p.name} <span className={css.mono}>{p.n}</span>
               </button>
             ))}
@@ -120,8 +234,42 @@ export default function RefsView({
       <section>
         <div className={css.refsHead}>
           <span>
-            <span data-testid="refs-shown">{shown.length}</span> shown of <span data-testid="refs-total">{refs.length}</span> images ·{" "}
-            {procs.length} procedures · <Link href="/ostad/refs/sources">[SOURCES →]</Link>
+            <span data-testid="refs-shown">{shown.length}</span> shown of{" "}
+            <span data-testid="refs-total">{refs.length}</span> images ·{" "}
+            {procs.length} procedures ·{" "}
+            <Link href="/ostad/refs/sources">[SOURCES →]</Link>
+          </span>
+          <span className={css.goldBar}>
+            <span className={css.goldOn} data-testid="gold-count">
+              {nGold} gold
+            </span>
+            <button
+              className={goldOnly ? css.on : css.off}
+              onClick={() => setGoldOnly((g) => !g)}
+              aria-pressed={goldOnly}
+              data-testid="gold-only"
+            >
+              [{goldOnly ? "✓ " : ""}gold only]
+            </button>
+            <button
+              disabled={!nGold}
+              onClick={() => exportJSON(picksFile())}
+              data-testid="export-picks"
+            >
+              [EXPORT PICKS]
+            </button>
+            <button
+              disabled={!nGold || (zipping !== null && /^\d/.test(zipping))}
+              onClick={onZip}
+              data-testid="export-zip"
+            >
+              [EXPORT ZIP]
+            </button>
+            {zipping && (
+              <span className={css.mid} data-testid="zip-status">
+                {zipping}
+              </span>
+            )}
           </span>
           {proc && (
             <p className={css.lede}>
@@ -142,7 +290,14 @@ export default function RefsView({
               ["his", "HIS VIDEOS", sel ? his.length : null],
             ] as [View, string, number | null][]
           ).map(([v, l, n]) => (
-            <button key={v} role="tab" aria-selected={view === v} className={view === v ? css.on : css.off} onClick={() => setView(v)} data-view={v}>
+            <button
+              key={v}
+              role="tab"
+              aria-selected={view === v}
+              className={view === v ? css.on : css.off}
+              onClick={() => setView(v)}
+              data-view={v}
+            >
               [{l}
               {n !== null && <span className={css.mono}> {n}</span>}]
             </button>
@@ -150,55 +305,91 @@ export default function RefsView({
         </div>
         {view === "img" && (
           <>
-          <div className={css.chipRows}>
-            {(["t", "k", "lab"] as F[]).map((f) => (
-              <div key={f} className={css.chipRow}>
-                <span className={css.chipLabel}>{f === "t" ? "type" : f === "k" ? "source" : "labels"}</span>
-                {keysOf(f).map((x) => (
+            <div className={css.chipRows}>
+              {(["t", "k", "lab"] as F[]).map((f) => (
+                <div key={f} className={css.chipRow}>
+                  <span className={css.chipLabel}>
+                    {f === "t" ? "type" : f === "k" ? "source" : "labels"}
+                  </span>
+                  {keysOf(f).map((x) => (
+                    <button
+                      key={x}
+                      className={pick[f] === x ? css.chipOn : css.chip}
+                      onClick={() =>
+                        setPick((p) => ({
+                          ...p,
+                          [f]: p[f] === x ? undefined : x,
+                        }))
+                      }
+                    >
+                      {label(f, x)}{" "}
+                      <span className={css.mono}>{counts[f].get(x) ?? 0}</span>
+                    </button>
+                  ))}
+                </div>
+              ))}
+            </div>
+            <div className={css.masonry} data-testid="refs-grid">
+              {shown.map((r) => (
+                <div key={r.id} className={css.refItem}>
                   <button
-                    key={x}
-                    className={pick[f] === x ? css.chipOn : css.chip}
-                    onClick={() => setPick((p) => ({ ...p, [f]: p[f] === x ? undefined : x }))}
+                    className={css.refCard}
+                    onClick={() => setOpen(r)}
+                    data-ref={r.id}
                   >
-                    {label(f, x)} <span className={css.mono}>{counts[f].get(x) ?? 0}</span>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={r.f}
+                      alt={r.cap}
+                      width={r.pw}
+                      height={r.ph}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <span className={css.refTag}>
+                      {TYPE_LABEL[r.t]}
+                      {r.lab ? "" : " · no labels"}
+                      {!sel && <span className={css.mid}> · {pname[r.p]}</span>}
+                    </span>
                   </button>
-                ))}
-              </div>
-            ))}
-          </div>
-          <div className={css.masonry} data-testid="refs-grid">
-            {shown.map((r) => (
-              <button key={r.id} className={css.refCard} onClick={() => setOpen(r)} data-ref={r.id}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={r.f} alt={r.cap} width={r.pw} height={r.ph} loading="lazy" decoding="async" />
-                <span className={css.refTag}>
-                  {TYPE_LABEL[r.t]}
-                  {r.lab ? "" : " · no labels"}
-                  {!sel && <span className={css.mid}> · {pname[r.p]}</span>}
-                </span>
-              </button>
-            ))}
-          </div>
+                  {goldUI(`img:${r.id}`)}
+                </div>
+              ))}
+            </div>
           </>
         )}
         {view === "motion" && (
           <>
-            {mScoped.length === 0 && (
+            {mShown.length === 0 && !goldOnly && (
               <p className={css.mid} style={{ paddingTop: 12 }}>
-                No animation found for this procedure: the search turned up only talking heads, filmed treatments or off-topic videos.
+                No animation found for this procedure: the search turned up only
+                talking heads, filmed treatments or off-topic videos.
               </p>
             )}
             <div className={css.motionGrid} data-testid="motion-grid">
-              {mScoped.map((m) => (
-                <button key={m.id} className={css.motionCard} onClick={() => openMotion(m)} data-motion={m.id}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`https://i.ytimg.com/vi/${m.id}/mqdefault.jpg`} alt={m.t} loading="lazy" decoding="async" referrerPolicy="no-referrer" />
-                  <span className={css.refTag}>
-                    {m.st} · {mmss(m.dur)} · {m.ch}
-                    {!sel && <span className={css.mid}> · {pname[m.p]}</span>}
-                  </span>
-                  <span className={css.refTag}>{m.what}</span>
-                </button>
+              {mShown.map((m) => (
+                <div key={m.id}>
+                  <button
+                    className={css.motionCard}
+                    onClick={() => openMotion(m)}
+                    data-motion={m.id}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`https://i.ytimg.com/vi/${m.id}/mqdefault.jpg`}
+                      alt={m.t}
+                      loading="lazy"
+                      decoding="async"
+                      referrerPolicy="no-referrer"
+                    />
+                    <span className={css.refTag}>
+                      {m.st} · {mmss(m.dur)} · {m.ch}
+                      {!sel && <span className={css.mid}> · {pname[m.p]}</span>}
+                    </span>
+                    <span className={css.refTag}>{m.what}</span>
+                  </button>
+                  {goldUI(`mot:${m.id}`)}
+                </div>
               ))}
             </div>
           </>
@@ -225,28 +416,46 @@ export default function RefsView({
             )
           ) : (
             <p className={css.mid} style={{ paddingTop: 12 }}>
-              Pick a procedure on the left to see which of his videos mention it.
+              Pick a procedure on the left to see which of his videos mention
+              it.
             </p>
           ))}
       </section>
       {open && (
-        <div className={css.lightbox} role="dialog" aria-label={open.cap} onClick={() => setOpen(null)}>
-          <div className={css.lightboxInner} onClick={(e) => e.stopPropagation()}>
+        <div
+          className={css.lightbox}
+          role="dialog"
+          aria-label={open.cap}
+          onClick={() => setOpen(null)}
+        >
+          <div
+            className={css.lightboxInner}
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className={css.lightboxBar}>
               <span className={css.mid}>
-                {pname[open.p]} · {TYPE_LABEL[open.t]} · {open.lab ? "labelled" : "no labels"}
+                {pname[open.p]} · {TYPE_LABEL[open.t]} ·{" "}
+                {open.lab ? "labelled" : "no labels"}
               </span>
-              <button onClick={() => setOpen(null)}>[CLOSE ×]</button>
+              <span>
+                {goldUI(`img:${open.id}`)}{" "}
+                <button onClick={() => setOpen(null)}>[CLOSE ×]</button>
+              </span>
             </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className={css.lightboxImg}
-              src={full ? open.u : open.f}
+              src={failed === open.id ? open.f : open.u}
               alt={open.cap}
               referrerPolicy="no-referrer"
-              onError={() => setFull(false)}
+              onError={() => setFailed(open.id)}
             />
-            {!full && <p className={css.mid}>The original would not load here (the site blocks embedding); this is the 600 px copy.</p>}
+            {failed === open.id && (
+              <p className={css.mid}>
+                The original would not load here (the site blocks embedding);
+                this is the 600 px copy.
+              </p>
+            )}
             <p className={css.p}>{open.cap}</p>
             <dl className={css.kv}>
               <dt>source</dt>
@@ -272,13 +481,24 @@ export default function RefsView({
         </div>
       )}
       {mOpen && (
-        <div className={css.lightbox} role="dialog" aria-label={mOpen.t} onClick={() => setMOpen(null)}>
-          <div className={css.lightboxInner} onClick={(e) => e.stopPropagation()}>
+        <div
+          className={css.lightbox}
+          role="dialog"
+          aria-label={mOpen.t}
+          onClick={() => setMOpen(null)}
+        >
+          <div
+            className={css.lightboxInner}
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className={css.lightboxBar}>
               <span className={css.mid}>
                 {pname[mOpen.p]} · {mOpen.st} · {mmss(mOpen.dur)}
               </span>
-              <button onClick={() => setMOpen(null)}>[CLOSE ×]</button>
+              <span>
+                {goldUI(`mot:${mOpen.id}`)}{" "}
+                <button onClick={() => setMOpen(null)}>[CLOSE ×]</button>
+              </span>
             </div>
             <div className={css.player}>
               <iframe
@@ -290,13 +510,20 @@ export default function RefsView({
               />
             </div>
             <p className={css.p}>
-              <span className={css.on}>{mOpen.t}</span> <span className={css.mid}>· {mOpen.ch}{mOpen.yr ? ` · ${mOpen.yr}` : ""}</span>
+              <span className={css.on}>{mOpen.t}</span>{" "}
+              <span className={css.mid}>
+                · {mOpen.ch}
+                {mOpen.yr ? ` · ${mOpen.yr}` : ""}
+              </span>
             </p>
             <p className={css.p}>{mOpen.what}</p>
             <div className={css.beats} data-testid="beats">
               {mOpen.b.map(([s, w]) => (
                 <Fragment key={s}>
-                  <button className={s === start ? css.beatOn : undefined} onClick={() => setStart(s)}>
+                  <button
+                    className={s === start ? css.beatOn : undefined}
+                    onClick={() => setStart(s)}
+                  >
                     {mmss(s)}
                   </button>
                   <span>{w}</span>
@@ -312,7 +539,11 @@ export default function RefsView({
               <dd>{mOpen.reuse}</dd>
               <dt>video</dt>
               <dd>
-                <a href={`https://www.youtube.com/watch?v=${mOpen.id}&t=${start}s`} target="_blank" rel="noreferrer">
+                <a
+                  href={`https://www.youtube.com/watch?v=${mOpen.id}&t=${start}s`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   youtube ↗
                 </a>
               </dd>
