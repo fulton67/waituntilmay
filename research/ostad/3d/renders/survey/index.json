@@ -1,0 +1,106 @@
+[
+ {
+  "name": "Visible Human Male Bust",
+  "source": "NIH 3D",
+  "path": "C:/Users/naimj/orca/workspaces/waituntilmay/OSTAD-CONTENT-INTEL/research/ostad/3d/sources/nih3d/vhm_bust/3DP_VHMBust.stl",
+  "slug": "visible_human_male_bust",
+  "rendered": true,
+  "sheet": "renders/survey/visible_human_male_bust.jpg"
+ },
+ {
+  "name": "Skin, Male",
+  "source": "NIH 3D",
+  "path": "C:/Users/naimj/orca/workspaces/waituntilmay/OSTAD-CONTENT-INTEL/research/ostad/3d/sources/nih3d/skin_male_hra/3d-vh-m-skin.glb",
+  "slug": "skin_male",
+  "rendered": true,
+  "sheet": "renders/survey/skin_male.jpg"
+ },
+ {
+  "name": "Skin, Female",
+  "source": "NIH 3D",
+  "path": "C:/Users/naimj/orca/workspaces/waituntilmay/OSTAD-CONTENT-INTEL/research/ostad/3d/sources/nih3d/skin_female_hra/3d-vh-f-skin.glb",
+  "slug": "skin_female",
+  "rendered": true,
+  "sheet": "renders/survey/skin_female.jpg"
+ },
+ {
+  "name": "BodyParts3D skin (FMA7163)",
+  "source": "BodyParts3D",
+  "path": "C:/Users/naimj/orca/workspaces/waituntilmay/OSTAD-CONTENT-INTEL/research/ostad/3d/sources/bodyparts3d/selected/FJ2810_skin_FMA7163.obj",
+  "slug": "bodyparts3d_skin_fma7163",
+  "rendered": true,
+  "sheet": "renders/survey/bodyparts3d_skin_fma7163.jpg"
+ },
+ {
+  "name": "NIOSH Anthropometric Digital Headforms with Base (bonus files: NASA Biometric Scaling)",
+  "source": "NIH 3D",
+  "path": "C:/Users/naimj/orca/workspaces/waituntilmay/OSTAD-CONTENT-INTEL/research/ostad/3d/sources/nih3d/niosh_headforms/50pct_male_(NIOSH_m).stl",
+  "slug": "niosh_anthropometric_digital_headforms_with_base",
+  "rendered": true,
+  "sheet": "renders/survey/niosh_anthropometric_digital_headforms_with_base.jpg"
+ },
+ {
+  "name": "BodyParts3D platysma (left + right)",
+  "source": "BodyParts3D",
+  "path": "C:/Users/naimj/orca/workspaces/waituntilmay/OSTAD-CONTENT-INTEL/research/ostad/3d/sources/bodyparts3d/selected/",
+  "slug": "bodyparts3d_platysma_left_right",
+  "rendered": true,
+  "sheet": "renders/survey/bodyparts3d_platysma_left_right.jpg"
+ },
+ {
+  "name": "3D Nasal Septum",
+  "source": "NIH 3D",
+  "path": "C:/Users/naimj/orca/workspaces/waituntilmay/OSTAD-CONTENT-INTEL/research/ostad/3d/sources/nih3d/nasal_septum/septum.stl",
+  "slug": "3d_nasal_septum",
+  "rendered": true,
+  "sheet": "renders/survey/3d_nasal_septum.jpg"
+ },
+ {
+  "name": "Eye, Male, Right",
+  "source": "NIH 3D",
+  "path": "C:/Users/naimj/orca/workspaces/waituntilmay/OSTAD-CONTENT-INTEL/research/ostad/3d/sources/nih3d/eye_male_right_hra/3d-vh-m-eye-r.glb",
+  "slug": "eye_male_right",
+  "rendered": true,
+  "sheet": "renders/survey/eye_male_right.jpg"
+ },
+ {
+  "name": "Skull and Eyes - Visible Human Male",
+  "source": "NIH 3D",
+  "path": "C:/Users/naimj/orca/workspaces/waituntilmay/OSTAD-CONTENT-INTEL/research/ostad/3d/sources/nih3d/vhm_skull_eyes/scene.glb",
+  "slug": "skull_and_eyes_visible_human_male",
+  "rendered": true,
+  "sheet": "renders/survey/skull_and_eyes_visible_human_male.jpg"
+ },
+ {
+  "name": "BodyParts3D hair of head (FMA54241)",
+  "source": "BodyParts3D",
+  "path": "C:/Users/naimj/orca/workspaces/waituntilmay/OSTAD-CONTENT-INTEL/research/ostad/3d/sources/bodyparts3d/selected/FJ2813_hair_of_head_FMA54241.obj",
+  "slug": "bodyparts3d_hair_of_head_fma54241",
+  "rendered": true,
+  "sheet": "renders/survey/bodyparts3d_hair_of_head_fma54241.jpg"
+ },
+ {
+  "name": "Lymphatic vessel and valve, theoretical construct",
+  "source": "NIH 3D",
+  "path": "C:/Users/naimj/orca/workspaces/waituntilmay/OSTAD-CONTENT-INTEL/research/ostad/3d/sources/nih3d/lymph_vessel_valve/lymphvessel.stl",
+  "slug": "lymphatic_vessel_and_valve_theoretical_construct",
+  "rendered": true,
+  "sheet": "renders/survey/lymphatic_vessel_and_valve_theoretical_construct.jpg"
+ },
+ {
+  "name": "Collagen triple helix",
+  "source": "NIH 3D",
+  "path": "C:/Users/naimj/orca/workspaces/waituntilmay/OSTAD-CONTENT-INTEL/research/ostad/3d/sources/nih3d/collagen_triple_helix/collagen_hybrid.stl",
+  "slug": "collagen_triple_helix",
+  "rendered": true,
+  "sheet": "renders/survey/collagen_triple_helix.jpg"
+ },
+ {
+  "name": "Z-Anatomy head (as built into face.glb)",
+  "source": "Z-Anatomy",
+  "path": "C:\\Users\\naimj\\orca\\workspaces\\waituntilmay\\OSTAD-CONTENT-INTEL\\research\\ostad\\3d\\base\\face.glb",
+  "slug": "z_anatomy_head_as_built_into_face_glb",
+  "rendered": true,
+  "sheet": "renders/survey/z_anatomy_head_as_built_into_face_glb.jpg"
+ }
+]
