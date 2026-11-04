@@ -4,9 +4,9 @@ import { releases, about } from "@/lib/gillenwebsite/discography";
 import css from "@/components/gillenwebsite/site.module.css";
 import { info, title } from "./fonts";
 
-// Faces: the info face (fonts.ts, 400) for everything; Dylan's name (the header, the record view) in the title face,
-// Archivo at 118% width, 400; the artist names in Neue Haas Grotesk Display Black (900) from the Adobe Fonts kit
-// nsi1nap, with Archivo standing in until it has loaded or where it cannot. One weight per face (R2).
+// Two faces (bible R11), one weight, 400 (R2): the info face is Univers Next Pro from the Adobe Fonts kit nsi1nap
+// (TeX Gyre Heros, fonts.ts, stands in until it has loaded or where it cannot); the title face is Archivo, for
+// Dylan's name and the artist names.
 // The header, footer, clock and record view persist across the three pages.
 const TYPEKIT = `(function(d) {
     var config = {

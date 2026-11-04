@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3228",
-  "at": "2026-11-04T07:08:46.470Z",
+  "at": "2026-11-04T07:13:17.242Z",
   "profiles": {
     "desktop": {
       "viewport": "1440x900@2",
@@ -18,86 +18,86 @@
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -1.0471975511965979,
+          "a": -1.1051424820299143,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.443810018309566,
+          "a": -2.502104015492624,
           "spinning": false
         },
         {
           "at": "open again",
           "s": 1,
           "g": 1,
-          "a": -3.4330626386728476,
+          "a": -3.491356635023669,
           "spinning": true
         },
         {
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -1.0464994193293526,
+          "a": -0.9889035540135397,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.500707751758134,
+          "a": -2.3855160211265076,
           "spinning": false
         },
         {
           "at": "open again",
           "s": 1,
           "g": 1,
-          "a": -3.5479053029547334,
+          "a": -3.43306263784061,
           "spinning": true
         },
         {
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -1.046848485679094,
+          "a": -0.9299114257954741,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.442762820924818,
+          "a": -2.3261748273909384,
           "spinning": false
         }
       ],
       "transitions": [
         {
           "dir": "open",
-          "ms": 653,
-          "frames": 39,
-          "fps": 59.2,
-          "worstMs": 53
+          "ms": 663,
+          "frames": 40,
+          "fps": 59.9,
+          "worstMs": 39
         },
         {
           "dir": "toCover",
-          "ms": 406,
+          "ms": 401,
           "frames": 25,
           "fps": 60,
           "worstMs": 17
         },
         {
           "dir": "toOpen",
-          "ms": 416,
-          "frames": 26,
-          "fps": 60.1,
+          "ms": 412,
+          "frames": 25,
+          "fps": 60,
           "worstMs": 17
         },
         {
           "dir": "close",
-          "ms": 509,
+          "ms": 504,
           "frames": 31,
-          "fps": 60,
+          "fps": 60.3,
           "worstMs": 17
         },
         {
@@ -105,13 +105,13 @@
           "ms": 666,
           "frames": 42,
           "fps": 62.1,
-          "worstMs": 19
+          "worstMs": 17
         },
         {
           "dir": "toCover",
-          "ms": 408,
-          "frames": 25,
-          "fps": 60,
+          "ms": 417,
+          "frames": 26,
+          "fps": 60.1,
           "worstMs": 17
         },
         {
@@ -123,7 +123,7 @@
         },
         {
           "dir": "close",
-          "ms": 513,
+          "ms": 506,
           "frames": 31,
           "fps": 60,
           "worstMs": 17
@@ -132,19 +132,19 @@
           "dir": "open",
           "ms": 666,
           "frames": 42,
-          "fps": 62.2,
+          "fps": 62.1,
           "worstMs": 17
         },
         {
           "dir": "toCover",
-          "ms": 407,
-          "frames": 25,
-          "fps": 60,
+          "ms": 416,
+          "frames": 26,
+          "fps": 60.1,
           "worstMs": 17
         },
         {
           "dir": "close",
-          "ms": 503,
+          "ms": 508,
           "frames": 31,
           "fps": 60,
           "worstMs": 17
@@ -152,26 +152,26 @@
       ],
       "transition": {
         "openMs": [
-          653,
+          663,
           666,
           666
         ],
         "toCoverMs": [
-          406,
-          408,
-          407
+          401,
+          417,
+          416
         ],
         "toOpenMs": [
-          416,
+          412,
           402
         ],
         "closeMs": [
-          509,
-          513,
-          503
+          504,
+          506,
+          508
         ],
-        "minFps": 59.2,
-        "worstFrameMs": 53,
+        "minFps": 59.9,
+        "worstFrameMs": 39,
         "target": {
           "open": 650,
           "toCover": 400,
@@ -181,20 +181,20 @@
         "pass": true
       },
       "travel": {
-        "frames": 342,
+        "frames": 344,
         "pops": 0,
-        "maxStepPerFrame": 0.265,
+        "maxStepPerFrame": 0.262,
         "framesPerSlide": [
           12,
+          12,
           11,
+          10,
+          13,
+          12,
           12,
           10,
           13,
-          11,
-          12,
-          10,
-          13,
-          11
+          12
         ],
         "reversals": 0,
         "spinWhileNotOut": 0,
@@ -203,56 +203,56 @@
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -1.0471975511965979,
+            "a": -1.1051424820299143,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.443810018309566,
+            "a": -2.502104015492624,
             "spinning": false
           },
           {
             "at": "open again",
             "s": 1,
             "g": 1,
-            "a": -3.4330626386728476,
+            "a": -3.491356635023669,
             "spinning": true
           },
           {
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -1.0464994193293526,
+            "a": -0.9889035540135397,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.500707751758134,
+            "a": -2.3855160211265076,
             "spinning": false
           },
           {
             "at": "open again",
             "s": 1,
             "g": 1,
-            "a": -3.5479053029547334,
+            "a": -3.43306263784061,
             "spinning": true
           },
           {
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -1.046848485679094,
+            "a": -0.9299114257954741,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.442762820924818,
+            "a": -2.3261748273909384,
             "spinning": false
           }
         ],
@@ -262,18 +262,18 @@
       "texels": {
         "front": {
           "texturePx": 2048,
-          "screenPx": 679.1,
+          "screenPx": 679,
           "ratio": 3.02
         },
         "back": {
           "texturePx": 2048,
-          "screenPx": 614,
+          "screenPx": 613.9,
           "ratio": 3.34
         },
         "label": {
           "texturePx": 2048,
-          "screenPx": 147.2,
-          "ratio": 13.91
+          "screenPx": 140.6,
+          "ratio": 14.57
         },
         "pass": true
       },
@@ -281,7 +281,7 @@
         "elements": [
           {
             "text": "003. / 036.",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 12
           },
@@ -293,67 +293,67 @@
           },
           {
             "text": "PRODUCER, WRITER · Floette F",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 12
           },
           {
             "text": "001.",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 12
           },
           {
             "text": "Arlo Parks",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 12
           },
           {
             "text": "ARTIST",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 12
           },
           {
             "text": "002.",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 12
           },
           {
             "text": "John Glacier",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 12
           },
           {
             "text": "FEATURED ARTIST",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 12
           },
           {
             "text": "2026",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 12
           },
           {
             "text": "←",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 16
           },
           {
             "text": "→",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 16
           },
           {
             "text": "CLOSE",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 12
           }
@@ -370,7 +370,7 @@
           "px": 12
         },
         "families": [
-          "info",
+          "univers-next-pro",
           "Archivo"
         ],
         "weights": [
@@ -606,7 +606,7 @@
         "pass": true
       },
       "spin": {
-        "radPerS": 3.516,
+        "radPerS": 3.524,
         "target": 3.491,
         "pass": true
       },
@@ -619,10 +619,10 @@
         "opened": true,
         "opening": {
           "dir": "open",
-          "ms": 664,
-          "frames": 39,
-          "fps": 57.6,
-          "worstMs": 45
+          "ms": 660,
+          "frames": 40,
+          "fps": 59.3,
+          "worstMs": 23
         },
         "pass": true
       }
@@ -643,160 +643,160 @@
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -1.1044443501626693,
+          "a": -0.9885544884960362,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.617644811641754,
+          "a": -2.5603980126756825,
           "spinning": false
         },
         {
           "at": "open again",
           "s": 1,
           "g": 1,
-          "a": -3.6651914283558558,
+          "a": -3.5493015666892234,
           "spinning": true
         },
         {
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -0.9889035540135396,
+          "a": -1.0478956830638433,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.5555110904372027,
+          "a": -2.5523694982829555,
           "spinning": false
         },
         {
           "at": "open again",
           "s": 1,
           "g": 1,
-          "a": -3.5426693160309863,
+          "a": -3.6533231907738735,
           "spinning": true
         },
         {
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -0.9916960806502829,
+          "a": -1.0437068926926092,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.5617942755779346,
+          "a": -2.6162485487395,
           "spinning": false
         }
       ],
       "transitions": [
         {
           "dir": "open",
-          "ms": 656,
+          "ms": 653,
           "frames": 37,
-          "fps": 58.7,
-          "worstMs": 40
+          "fps": 59.3,
+          "worstMs": 37
         },
         {
           "dir": "toCover",
-          "ms": 408,
+          "ms": 406,
           "frames": 25,
           "fps": 60,
           "worstMs": 18
         },
         {
           "dir": "toOpen",
-          "ms": 408,
+          "ms": 406,
           "frames": 25,
           "fps": 60,
           "worstMs": 17
         },
         {
           "dir": "close",
-          "ms": 508,
+          "ms": 504,
           "frames": 31,
           "fps": 60,
-          "worstMs": 18
+          "worstMs": 17
         },
         {
           "dir": "open",
-          "ms": 659,
+          "ms": 654,
           "frames": 39,
-          "fps": 60.2,
-          "worstMs": 20
+          "fps": 60.8,
+          "worstMs": 21
         },
         {
           "dir": "toCover",
           "ms": 410,
           "frames": 25,
-          "fps": 59.9,
-          "worstMs": 19
+          "fps": 59.8,
+          "worstMs": 20
         },
         {
           "dir": "toOpen",
           "ms": 409,
           "frames": 25,
-          "fps": 60,
+          "fps": 59.9,
           "worstMs": 19
         },
         {
           "dir": "close",
-          "ms": 500,
+          "ms": 510,
           "frames": 31,
-          "fps": 60.3,
+          "fps": 59.9,
           "worstMs": 19
         },
         {
           "dir": "open",
-          "ms": 657,
+          "ms": 653,
           "frames": 39,
-          "fps": 60.5,
-          "worstMs": 20
+          "fps": 60.7,
+          "worstMs": 21
         },
         {
           "dir": "toCover",
-          "ms": 409,
+          "ms": 412,
           "frames": 25,
-          "fps": 59.8,
-          "worstMs": 18
+          "fps": 59.7,
+          "worstMs": 19
         },
         {
           "dir": "close",
-          "ms": 516,
-          "frames": 32,
-          "fps": 60.5,
-          "worstMs": 19
+          "ms": 508,
+          "frames": 31,
+          "fps": 59.9,
+          "worstMs": 20
         }
       ],
       "transition": {
         "openMs": [
-          656,
-          659,
-          657
+          653,
+          654,
+          653
         ],
         "toCoverMs": [
-          408,
+          406,
           410,
-          409
+          412
         ],
         "toOpenMs": [
-          408,
+          406,
           409
         ],
         "closeMs": [
-          508,
-          500,
-          516
+          504,
+          510,
+          508
         ],
-        "minFps": 58.7,
-        "worstFrameMs": 40,
+        "minFps": 59.3,
+        "worstFrameMs": 37,
         "target": {
           "open": 650,
           "toCover": 400,
@@ -806,9 +806,9 @@
         "pass": true
       },
       "travel": {
-        "frames": 334,
+        "frames": 333,
         "pops": 0,
-        "maxStepPerFrame": 0.271,
+        "maxStepPerFrame": 0.262,
         "framesPerSlide": [
           14,
           11,
@@ -828,56 +828,56 @@
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -1.1044443501626693,
+            "a": -0.9885544884960362,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.617644811641754,
+            "a": -2.5603980126756825,
             "spinning": false
           },
           {
             "at": "open again",
             "s": 1,
             "g": 1,
-            "a": -3.6651914283558558,
+            "a": -3.5493015666892234,
             "spinning": true
           },
           {
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -0.9889035540135396,
+            "a": -1.0478956830638433,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.5555110904372027,
+            "a": -2.5523694982829555,
             "spinning": false
           },
           {
             "at": "open again",
             "s": 1,
             "g": 1,
-            "a": -3.5426693160309863,
+            "a": -3.6533231907738735,
             "spinning": true
           },
           {
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -0.9916960806502829,
+            "a": -1.0437068926926092,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.5617942755779346,
+            "a": -2.6162485487395,
             "spinning": false
           }
         ],
@@ -887,18 +887,18 @@
       "texels": {
         "front": {
           "texturePx": 2048,
-          "screenPx": 308.4,
-          "ratio": 6.64
+          "screenPx": 309.2,
+          "ratio": 6.62
         },
         "back": {
           "texturePx": 2048,
-          "screenPx": 269.8,
-          "ratio": 7.59
+          "screenPx": 270.5,
+          "ratio": 7.57
         },
         "label": {
           "texturePx": 2048,
-          "screenPx": 62.8,
-          "ratio": 32.63
+          "screenPx": 63,
+          "ratio": 32.52
         },
         "pass": true
       },
@@ -906,7 +906,7 @@
         "elements": [
           {
             "text": "001. / 036.",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 12
           },
@@ -918,49 +918,49 @@
           },
           {
             "text": "PRODUCER, WRITER · BLUE",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 12
           },
           {
             "text": "001.",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 12
           },
           {
             "text": "girl in red",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 12
           },
           {
             "text": "ARTIST",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 12
           },
           {
             "text": "Columbia · 2026",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 12
           },
           {
             "text": "←",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 15
           },
           {
             "text": "→",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 15
           },
           {
             "text": "CLOSE",
-            "family": "info",
+            "family": "univers-next-pro",
             "weight": "400",
             "px": 12
           }
@@ -977,7 +977,7 @@
           "px": 12
         },
         "families": [
-          "info",
+          "univers-next-pro",
           "Archivo"
         ],
         "weights": [
@@ -1213,7 +1213,7 @@
         "pass": true
       },
       "spin": {
-        "radPerS": 3.464,
+        "radPerS": 3.457,
         "target": 3.491,
         "pass": true
       },
@@ -1226,10 +1226,10 @@
         "opened": true,
         "opening": {
           "dir": "open",
-          "ms": 666,
-          "frames": 41,
-          "fps": 60.2,
-          "worstMs": 33
+          "ms": 665,
+          "frames": 42,
+          "fps": 61.8,
+          "worstMs": 17
         },
         "pass": true
       }

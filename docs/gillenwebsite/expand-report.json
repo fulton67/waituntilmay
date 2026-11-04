@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3228",
-  "at": "2026-11-04T05:56:52.938Z",
+  "at": "2026-11-04T07:15:12.803Z",
   "desktop": {
     "hover": {
       "motionMs": {
@@ -17,23 +17,23 @@
       },
       "inputToEndMs": {
         "in": [
-          182,
+          181,
           216,
           216
         ],
         "out": [
           266,
           266,
-          267
+          266
         ]
       },
       "startLatencyMs": [
-        -2,
+        -4,
+        31,
         32,
         32,
         32,
-        32,
-        33
+        32
       ],
       "animationDurations": [
         180
@@ -59,7 +59,7 @@
       "sliceHeightPx": 20,
       "pass": true
     },
-    "cls": 0
+    "cls": 0.009896329126910844
   },
   "phone": {
     "positions": [
@@ -319,8 +319,8 @@
       "pass": true
     },
     "pass": true,
-    "cls": 0,
+    "cls": 0.00025882340744989835,
     "tapOpens": "open"
   },
-  "clsPass": true
+  "clsPass": false
 }

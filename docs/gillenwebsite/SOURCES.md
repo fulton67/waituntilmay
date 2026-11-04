@@ -54,14 +54,14 @@ In code, each component carries a `SOURCES #nn` comment that points back to its 
 
 ## Constraints (R-rules; never a source on their own)
 - R1 white ground
-- R2 one weight per face (2026-11-04): the info face and Dylan's name (the title face, Archivo at 118%, in the header and the record view) at 400; the artist names (the caption block, the release panel) in Neue Haas Grotesk Display Black, 900, from the Adobe Fonts kit nsi1nap. The record view's bold name, briefly an exception, is gone.
-- R11 faces (2026-11-04): three, by job: the info face for everything, the title face for Dylan's name, Neue Haas Grotesk Display Black for artist names
+- R2 one weight (400), everywhere
+- R11 (2026-11-04): the info face is Univers Next Pro from the Adobe Fonts kit nsi1nap (TeX Gyre Heros stands in until it loads), chosen on sight on the record's credits panel; the title face is Archivo, for Dylan's name (118% width) and the artist names (112%)
 - R3 no shadows on DOM
 - R4/R5 square, borderless controls, except where the source site draws a border (#08, #23, #24)
 - R7 capitals typed, not transformed
 - R9 most-used size 12px
 - R10 under 10% of text at ≥40px
-- R11 faces: see the 2026-11-04 note above (info, title face for the name, Neue Haas Black for artist names)
+- R11 two faces: see the 2026-11-04 note above
 - R15 pinned header and stage
 - R16 the credit (#31)
 
