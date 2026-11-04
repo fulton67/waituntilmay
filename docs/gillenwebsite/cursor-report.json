@@ -1,0 +1,51 @@
+{
+  "base": "http://localhost:3227",
+  "at": "2026-11-04T05:42:15.126Z",
+  "dpr": {
+    "1": {
+      "computedCursor": "image-set(url(\"http://localhost:3227/gillenwebsite/cursors/grab.png\") 1dppx, url(\"http://localhost:3227/gillenwebsite/cursors/grab@2x.png\") 2dppx, url(\"http://l",
+      "fetched": [
+        "grab.png",
+        "ns-resize.png",
+        "grabbing.png"
+      ],
+      "widths": {
+        "grab.png": 32,
+        "ns-resize.png": 32,
+        "grabbing.png": 32
+      },
+      "expectedWidth": 32,
+      "pass": true
+    },
+    "2": {
+      "computedCursor": "image-set(url(\"http://localhost:3227/gillenwebsite/cursors/grab.png\") 1dppx, url(\"http://localhost:3227/gillenwebsite/cursors/grab@2x.png\") 2dppx, url(\"http://l",
+      "fetched": [
+        "grab@2x.png",
+        "ns-resize@2x.png",
+        "grabbing@2x.png"
+      ],
+      "widths": {
+        "grab@2x.png": 64,
+        "ns-resize@2x.png": 64,
+        "grabbing@2x.png": 64
+      },
+      "expectedWidth": 64,
+      "pass": true
+    },
+    "3": {
+      "computedCursor": "image-set(url(\"http://localhost:3227/gillenwebsite/cursors/grab.png\") 1dppx, url(\"http://localhost:3227/gillenwebsite/cursors/grab@2x.png\") 2dppx, url(\"http://l",
+      "fetched": [
+        "grab@3x.png",
+        "ns-resize@3x.png",
+        "grabbing@3x.png"
+      ],
+      "widths": {
+        "grab@3x.png": 96,
+        "ns-resize@3x.png": 96,
+        "grabbing@3x.png": 96
+      },
+      "expectedWidth": 96,
+      "pass": true
+    }
+  }
+}

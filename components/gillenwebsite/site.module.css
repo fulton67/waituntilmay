@@ -63,11 +63,14 @@
 
 /* SOURCES #11 the stage: one fixed, full-viewport frame; the page itself does not scroll on home (R15) */
 .home { position: relative; height: 100vh; height: 100svh; overflow: hidden; }
-.stage { position: absolute; inset: 0; touch-action: none; cursor: grab; }
+/* cursors: the system's grab / grabbing / ns-resize are bitmaps that upscale soft at DPR 2-3, so they are drawn here
+   (public/gillenwebsite/cursors, 32 px, hotspot in the middle) as 1x / 2x / 3x PNGs in image-set and the browser takes
+   the one for its DPR; the SVG first is for a browser without image-set on cursors, the system cursor last */
+.stage { position: absolute; inset: 0; touch-action: none; cursor: url("/gillenwebsite/cursors/grab.svg") 16 16, grab; cursor: -webkit-image-set(url("/gillenwebsite/cursors/grab.png") 1x, url("/gillenwebsite/cursors/grab@2x.png") 2x, url("/gillenwebsite/cursors/grab@3x.png") 3x) 16 16, grab; cursor: image-set(url("/gillenwebsite/cursors/grab.png") 1x, url("/gillenwebsite/cursors/grab@2x.png") 2x, url("/gillenwebsite/cursors/grab@3x.png") 3x) 16 16, grab; }
 .stage canvas { display: block; }
 /* the cards' hit area, kept on the drum's screen rect by Rolodex.tsx: a drag on it flips the cards, not the page */
 .hit { position: absolute; left: 0; top: 0; width: 0; height: 0; touch-action: none; }
-.dragging { cursor: grabbing !important; }
+.dragging { cursor: url("/gillenwebsite/cursors/grabbing.svg") 16 16, grabbing !important; cursor: -webkit-image-set(url("/gillenwebsite/cursors/grabbing.png") 1x, url("/gillenwebsite/cursors/grabbing@2x.png") 2x, url("/gillenwebsite/cursors/grabbing@3x.png") 3x) 16 16, grabbing !important; cursor: image-set(url("/gillenwebsite/cursors/grabbing.png") 1x, url("/gillenwebsite/cursors/grabbing@2x.png") 2x, url("/gillenwebsite/cursors/grabbing@3x.png") 3x) 16 16, grabbing !important; }
 /* SOURCES #06 felixluke loading label */
 .loadingLabel { position: absolute; left: 20px; top: calc(var(--head) + 10px); pointer-events: none; white-space: nowrap; }
 
@@ -128,7 +131,7 @@
 .cap {
   position: absolute; left: 20px; bottom: 28px; width: min(560px, calc(40vw - 20px));
   display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 16px;
-  touch-action: none; cursor: ns-resize; user-select: none; -webkit-user-select: none;
+  touch-action: none; cursor: url("/gillenwebsite/cursors/ns-resize.svg") 16 16, ns-resize; cursor: -webkit-image-set(url("/gillenwebsite/cursors/ns-resize.png") 1x, url("/gillenwebsite/cursors/ns-resize@2x.png") 2x, url("/gillenwebsite/cursors/ns-resize@3x.png") 3x) 16 16, ns-resize; cursor: image-set(url("/gillenwebsite/cursors/ns-resize.png") 1x, url("/gillenwebsite/cursors/ns-resize@2x.png") 2x, url("/gillenwebsite/cursors/ns-resize@3x.png") 3x) 16 16, ns-resize; user-select: none; -webkit-user-select: none;
 }
 .root .cap > * { pointer-events: auto; } /* above .root button {all: unset}, which would inherit none */
 .capClip { overflow: hidden; height: 72px; min-width: 0; }
