@@ -1,0 +1,29 @@
+{
+  "enamel": {
+    "source": "placeholder noise",
+    "sourceSize": 2048,
+    "runtimeSize": 1024,
+    "roughnessMedian": 0.46,
+    "targetMedian": 0.46,
+    "normalStrength": 0.6,
+    "tileM": 0.25
+  },
+  "bakelite": {
+    "source": "placeholder noise",
+    "sourceSize": 2048,
+    "runtimeSize": 512,
+    "roughnessMedian": 0.35,
+    "targetMedian": 0.35,
+    "normalStrength": 0.3,
+    "tileM": 0.25
+  },
+  "chrome": {
+    "source": "placeholder noise",
+    "sourceSize": 2048,
+    "runtimeSize": 512,
+    "roughnessMedian": 0.18,
+    "targetMedian": 0.18,
+    "normalStrength": 0.4,
+    "tileM": 0.25
+  }
+}

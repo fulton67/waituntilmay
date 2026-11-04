@@ -1,0 +1,87 @@
+{
+  "base": "http://localhost:3228",
+  "at": "2026-11-04T04:13:47.437Z",
+  "parts": {
+    "frame": {
+      "type": "MeshPhysicalMaterial",
+      "triplanar": "triplanar-w",
+      "map": 1024
+    },
+    "base": {
+      "type": "MeshPhysicalMaterial",
+      "triplanar": "triplanar-w",
+      "map": 1024
+    },
+    "side_right": {
+      "type": "MeshPhysicalMaterial",
+      "triplanar": "triplanar-w",
+      "map": 1024
+    },
+    "side_right_inner": {
+      "type": "MeshPhysicalMaterial",
+      "triplanar": "triplanar-w",
+      "map": 1024
+    },
+    "side_left_inner": {
+      "type": "MeshPhysicalMaterial",
+      "triplanar": "triplanar-w",
+      "map": 1024
+    },
+    "knob_right": {
+      "type": "MeshPhysicalMaterial",
+      "triplanar": "triplanar-o",
+      "map": 512
+    },
+    "knob_left": {
+      "type": "MeshPhysicalMaterial",
+      "triplanar": "triplanar-o",
+      "map": 512
+    },
+    "knob_left_cap": {
+      "type": "MeshPhysicalMaterial",
+      "triplanar": "triplanar-o",
+      "map": 512
+    },
+    "knob_left_face": {
+      "type": "MeshPhysicalMaterial",
+      "triplanar": "triplanar-o",
+      "map": 512
+    }
+  },
+  "uvIndependence": {
+    "meshesWithUv": [],
+    "pass": true
+  },
+  "roughness": {
+    "enamel": {
+      "source": "placeholder noise",
+      "sourceSize": 2048,
+      "runtimeSize": 1024,
+      "roughnessMedian": 0.46,
+      "targetMedian": 0.46,
+      "normalStrength": 0.6,
+      "tileM": 0.25
+    },
+    "bakelite": {
+      "source": "placeholder noise",
+      "sourceSize": 2048,
+      "runtimeSize": 512,
+      "roughnessMedian": 0.35,
+      "targetMedian": 0.35,
+      "normalStrength": 0.3,
+      "tileM": 0.25
+    },
+    "chrome": {
+      "source": "placeholder noise",
+      "sourceSize": 2048,
+      "runtimeSize": 512,
+      "roughnessMedian": 0.18,
+      "targetMedian": 0.18,
+      "normalStrength": 0.4,
+      "tileM": 0.25
+    }
+  },
+  "roughnessPass": true,
+  "webglErrors": [],
+  "pass": true
+}

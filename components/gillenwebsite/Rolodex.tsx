@@ -2,19 +2,21 @@
 /* eslint-disable react-hooks/immutability -- three.js objects and the shared rig are mutated every frame by design */
 // The Rolodex: housing.glb with its torn rod and cradle rebuilt, the drum core, and TOTAL record sleeves on the axis:
 // the N releases three times round, so the drum is full and turns forever (slot i holds release i mod N).
-// Numbers are the prototype's (BUILD.md); materials are new: brushed frame and base with edge wear, fingerprinted
-// bakelite knobs, cardboard sleeves.
+// Numbers are the prototype's (BUILD.md). Materials: enamel on the frame, base, side plates and cradle, bakelite on
+// the knobs, chrome on the axle, rails and hubs, all from tileable maps mapped triplanar (triplanar.ts), and
+// cardboard sleeves.
 // A sleeve (sleeve.ts) is one mesh with three material groups: the front cover, the back cover and the spine. Each
 // release has one front and one back material, shared by its three sleeves. No text is drawn on a sleeve.
 import { useMemo, useEffect } from "react";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame, useThree, useLoader } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { rig, per, FLIP_DIR, coast, makeAngle, wrap, setPos, jumpTo, jumpToRelease } from "./rig";
 import { R0 } from "./cardTexture";
 import { SLEEVE, sleeveGeometry, sharpen, loadTex, setMap, sideWidth, sideFile, type Side } from "./sleeve";
-import { brushed, fingerprints, paperGrain, boxUV, edgeWear, withWear } from "./textures";
+import { paperGrain } from "./textures";
+import { triplanar, materialsFrom, MATERIAL_URLS } from "./triplanar";
 
 export const MODEL = "/models/housing.glb";
 // the front release gets 2048 covers (front and back), its two neighbours 1024, once its sleeve has settled; the
@@ -23,9 +25,9 @@ const BIG = 2048, NEAR = 1024, BIG_SPAN = 1;
 // a sleeve has to stay at the front this long before its big covers load, so a fast run through the drum loads none
 const SETTLE_MS = 150;
 
-const PART_MAT: Partial<Record<string, "dark" | "bakelite">> = {
-  side_right_inner: "dark",
-  side_left_inner: "dark",
+const PART_MAT: Partial<Record<string, "plate" | "bakelite">> = {
+  side_right_inner: "plate",
+  side_left_inner: "plate",
   knob_right: "bakelite",
   knob_left: "bakelite",
   knob_left_cap: "bakelite",
@@ -33,25 +35,16 @@ const PART_MAT: Partial<Record<string, "dark" | "bakelite">> = {
 };
 const KNOBS = ["knob_right", "knob_left", "knob_left_cap", "knob_left_face"];
 
-function makeMaterials(gl: THREE.WebGLRenderer) {
-  const b = brushed(), fp = fingerprints();
-  for (const t of [b.roughness, b.normal, fp]) sharpen(t, gl, false);
-  const metal = withWear(
-    new THREE.MeshPhysicalMaterial({
-      color: "#b39a74", metalness: 0.6, roughness: 1, roughnessMap: b.roughness, normalMap: b.normal,
-      normalScale: new THREE.Vector2(0.06, 0.06), clearcoat: 0.3, clearcoatRoughness: 0.5, side: THREE.DoubleSide,
-    })
-  );
+function makeMaterials(gl: THREE.WebGLRenderer, tex: THREE.Texture[]) {
+  const T = materialsFrom(gl, tex);
+  const enamel = () => new THREE.MeshPhysicalMaterial({ color: "#ffffff", metalness: 0.1, clearcoat: 0.3, clearcoatRoughness: 0.5, side: THREE.DoubleSide });
   return {
-    metal,
-    // the rebuilt cradle has extrude UVs in metres, so it takes the plain finish
-    metalPlain: new THREE.MeshPhysicalMaterial({ color: "#b39a74", metalness: 0.6, roughness: 0.46, clearcoat: 0.3, clearcoatRoughness: 0.5, side: THREE.DoubleSide }),
-    chrome: new THREE.MeshStandardMaterial({ color: "#d8d4cc", metalness: 1, roughness: 0.18 }),
-    bakelite: new THREE.MeshPhysicalMaterial({
-      color: "#2b211a", metalness: 0, roughness: 1, roughnessMap: fp, clearcoat: 0.6, clearcoatRoughness: 0.25,
-      clearcoatRoughnessMap: fp, side: THREE.DoubleSide,
-    }),
-    dark: new THREE.MeshStandardMaterial({ color: "#3a3128", metalness: 0.6, roughness: 0.5, side: THREE.DoubleSide }),
+    metal: triplanar(enamel(), T.enamel, { normalScale: 1 }),
+    // the inner side plates are the same enamel, darker
+    plate: triplanar(enamel(), T.enamel, { normalScale: 1, tint: "#5b534b" }),
+    chrome: triplanar(new THREE.MeshStandardMaterial({ color: "#ffffff", metalness: 1 }), T.chrome),
+    // the knobs turn, so their maps turn with them (mapped in their own space)
+    bakelite: triplanar(new THREE.MeshPhysicalMaterial({ color: "#ffffff", metalness: 0, clearcoat: 0.6, clearcoatRoughness: 0.25, side: THREE.DoubleSide }), T.bakelite, { object: true }),
     grain: sharpen(paperGrain(), gl, false),
   };
 }
@@ -61,11 +54,12 @@ type Face = { mat: THREE.MeshStandardMaterial; small: THREE.Texture | null; big:
 
 export default function Rolodex({ releases }: { releases: Release[] }) {
   const gltf = useGLTF(MODEL);
+  const tex = useLoader(THREE.TextureLoader, MATERIAL_URLS);
   const gl = useThree((st) => st.gl);
   const N = releases.length, TOTAL = N * 3;
 
   const built = useMemo(() => {
-    const M = makeMaterials(gl);
+    const M = makeMaterials(gl, tex);
     const house = gltf.scene;
     house.updateMatrixWorld(true);
     let meshes = 0, triangles = 0;
@@ -75,10 +69,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       meshes++;
       const g = m.geometry as THREE.BufferGeometry;
       triangles += (g.index ? g.index.count : g.attributes.position.count) / 3;
-      const kind = PART_MAT[m.name] ?? "metal";
-      if (kind === "metal") { boxUV(m, 0.09); edgeWear(m); }
-      if (kind === "bakelite") boxUV(m, 0.05);
-      m.material = M[kind];
+      m.material = M[PART_MAT[m.name] ?? "metal"];
       m.castShadow = m.receiveShadow = true;
       if (m.name === "rod" || m.name === "cradle") m.visible = false; // torn sheets in the Tripo mesh; rebuilt below
     });
@@ -97,7 +88,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
     const core = new THREE.Group(), span = 0.52;
     const axle = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.016, span + 0.04, 32), M.chrome);
     axle.rotation.z = Math.PI / 2;
-    const inner = new THREE.Mesh(new THREE.CylinderGeometry(R0 - 0.006, R0 - 0.006, SLEEVE - 0.02, 64, 1, true), M.dark);
+    const inner = new THREE.Mesh(new THREE.CylinderGeometry(R0 - 0.006, R0 - 0.006, SLEEVE - 0.02, 64, 1, true), M.plate);
     inner.rotation.z = Math.PI / 2;
     core.add(axle, inner);
     for (const x of [-0.075, 0.075]) {
@@ -123,7 +114,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
     csh.closePath();
     const cg = new THREE.ExtrudeGeometry(csh, { depth: 0.512, bevelEnabled: true, bevelThickness: 0.004, bevelSize: 0.004, bevelSegments: 3, curveSegments: 96 });
     cg.translate(0, 0, -0.256); cg.rotateY(Math.PI / 2);
-    const cradle = new THREE.Mesh(cg, M.metalPlain);
+    const cradle = new THREE.Mesh(cg, M.metal);
     cradle.position.set(0, axis.y, axis.z); cradle.castShadow = cradle.receiveShadow = true;
 
     // sleeves: cardboard, roughness .7, a faint paper normal map. Every face starts on a 1x1 texture of the sleeve's
@@ -154,7 +145,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       cards.push(g);
     }
     return { house, axis, knobs, drum, cradle, cards, faces, sleeveGeo, meshes, triangles };
-  }, [gltf, gl, releases, N, TOTAL]);
+  }, [gltf, tex, gl, releases, N, TOTAL]);
 
   // the first front sleeve counts as settled 150 ms after the first frame
   const settle = useMemo(() => ({ since: 0, done: false }), []);
@@ -312,3 +303,4 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
 }
 
 useGLTF.preload(MODEL);
+useLoader.preload(THREE.TextureLoader, MATERIAL_URLS);
