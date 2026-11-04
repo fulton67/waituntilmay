@@ -24,3 +24,5 @@ randomize.py
 .env*.local
 .seeds.txt
 sources/
+# ...but not app routes named sources (the /ostad/refs/sources page)
+!app/**/sources/
