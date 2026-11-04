@@ -1,7 +1,9 @@
 // The record view (VinylView.tsx), measured in headed Chrome: 1440 x 900 DPR 2, and 390 x 844 DPR 3 with a 4x CPU
 // throttle. On each profile:
-//  - transition: the front sleeve clicked three times (open, then Escape); each opening and closing's duration and
-//    fps from the view's own frame log (every rAF it drew); targets 450 ms (+-20), fps >= 55 desktop, >= 45 phone
+//  - transitions: open (650 ms, three stages), the cover-state toggle both ways (400 ms), close from either state
+//    (500 ms), each within 20 ms, and their fps from the view's own frame log (fps >= 55 desktop, >= 45 phone)
+//  - the record's travel along the pocket from every animated frame: continuous, one way per motion, fully out
+//    and spinning when open, fully in and still in the cover state, never turning while not fully out
 //  - the ring's sleeve is hidden while the view is open and drawn again after it closes (rig.lifted)
 //  - texels: front, back and label textures against their faces' device pixels (>= 1)
 //  - type: computed font sizes in the open view (artist 48/32, release 24/20, the rest 16/15) and that every element
@@ -37,15 +39,19 @@ for (const p of PROFILES) {
   const cdp = await ctx.newCDPSession(page);
   const tap = async (x, y) => (p.mobile ? page.touchscreen.tap(x, y) : page.mouse.click(x, y));
 
-  // transitions, three times round, throttled
+  // the sequence, twice round, throttled: open from the front sleeve, click the front cover (cover state), click it
+  // again (open), Escape (close); then once more closing from the cover state
   if (p.throttle > 1) await cdp.send("Emulation.setCPUThrottlingRate", { rate: p.throttle });
-  out.lifted = [];
+  out.lifted = []; out.rest = [];
+  const clickCover = async () => { const c = await page.evaluate(() => window.__vinyl.coverPoint()); await tap(c.x, c.y); };
+  const rest = async (label) => { await page.waitForTimeout(250); const r = await page.evaluate(() => ({ s: window.__vinyl.slide(), g: window.__vinyl.gate(), a: window.__vinyl.discAngle() })); await page.waitForTimeout(400); r.spinning = (await page.evaluate(() => window.__vinyl.discAngle())) !== r.a; out.rest.push({ at: label, ...r }); };
   for (let k = 0; k < 3; k++) {
     const pt = await page.evaluate(() => window.__rolodex.frontPoint());
     await tap(pt.x, pt.y);
-    await until(page, "open");
-    await page.waitForTimeout(400);
+    await until(page, "open"); await rest("open");
     out.lifted.push(await page.evaluate(() => window.__rolodex.rig.lifted));
+    await clickCover(); await until(page, "cover"); await rest("cover");
+    if (k < 2) { await clickCover(); await until(page, "open"); await rest("open again"); }
     await page.keyboard.press("Escape");
     await until(page, "closed");
     await page.waitForTimeout(300);
@@ -55,12 +61,32 @@ for (const p of PROFILES) {
   if (p.throttle > 1) await cdp.send("Emulation.setCPUThrottlingRate", { rate: 1 });
   const log = await page.evaluate(() => window.__vinyl.log());
   out.transitions = log;
-  const opens = log.filter((x) => x.dir === "opening"), closes = log.filter((x) => x.dir === "closing");
-  out.transition = {
-    openMs: opens.map((x) => x.ms), closeMs: closes.map((x) => x.ms), minFps: Math.min(...log.map((x) => x.fps)), worstFrameMs: Math.max(...log.map((x) => x.worstMs)),
-  };
-  out.transition.pass = log.every((x) => Math.abs(x.ms - 450) <= TOL) && out.transition.minFps >= p.fpsMin;
-  // while open the ring's slot is lifted; after closing it is back (-1)
+  const TARGET = { open: 650, toCover: 400, toOpen: 400, close: 500 };
+  const by = (d) => log.filter((x) => x.dir === d).map((x) => x.ms);
+  out.transition = { openMs: by("open"), toCoverMs: by("toCover"), toOpenMs: by("toOpen"), closeMs: by("close"), minFps: Math.min(...log.map((x) => x.fps)), worstFrameMs: Math.max(...log.map((x) => x.worstMs)), target: TARGET };
+  out.transition.pass = log.length >= 10 && log.every((x) => Math.abs(x.ms - TARGET[x.dir]) <= TOL) && out.transition.minFps >= p.fpsMin;
+  // the record's travel along the pocket: fully out when open (and spinning), fully in in the cover state (and still);
+  // every animated frame moves it continuously (no step over a quarter of the travel), each motion one way only,
+  // and the disc never turns while it is not fully out
+  const trace = await page.evaluate(() => window.__vinyl.trace());
+  // a pop would be the record going most of the way in or out between two frames: steps over half the travel
+  let jumps = 0, reversals = 0, spinNotOut = 0, maxStep = 0;
+  const slideFrames = [];
+  let run = 0;
+  for (let i = 1; i < trace.length; i++) {
+    const a = trace[i - 1], b = trace[i];
+    if (a.kind !== b.kind || b.f < a.f) { if (run) slideFrames.push(run); run = 0; continue; }
+    const step = Math.abs(b.s - a.s);
+    if (step > 0) run++;
+    maxStep = Math.max(maxStep, step);
+    if (step > 0.5) jumps++;
+    const dir = { open: 1, toOpen: 1, toCover: -1, close: -1 }[b.kind];
+    if ((b.s - a.s) * dir < -1e-6) reversals++;
+    if (b.spin !== a.spin && (a.s < 1 || b.s < 1)) spinNotOut++;
+  }
+  if (run) slideFrames.push(run);
+  out.travel = { frames: trace.length, pops: jumps, maxStepPerFrame: +maxStep.toFixed(3), framesPerSlide: slideFrames.filter((x) => x > 1), reversals, spinWhileNotOut: spinNotOut, rest: out.rest };
+  out.travel.pass = !jumps && !reversals && !spinNotOut && out.rest.every((r) => (r.at.startsWith("open") ? r.s === 1 && r.g === 1 && r.spinning : r.s === 0 && r.g === 0 && !r.spinning));
   out.liftedPass = out.lifted.every((v, k) => (k % 2 === 0 ? v >= 0 : v === -1));
 
   // open once more for the rest
@@ -116,11 +142,11 @@ for (const p of PROFILES) {
   const opened = await until(page, "open");
   const dlog = await page.evaluate(() => window.__vinyl.log());
   out.discography = { opened, opening: dlog.at(-1) };
-  out.discography.pass = opened && Math.abs(dlog.at(-1).ms - 450) <= TOL;
+  out.discography.pass = opened && Math.abs(dlog.at(-1).ms - 650) <= TOL;
   await page.keyboard.press("Escape");
   await until(page, "closed");
   report.profiles[p.name] = out;
-  console.log(p.name, JSON.stringify({ transition: out.transition, lifted: out.liftedPass, texels: out.texels, type: out.type, spin: out.spin, drag: out.drag, discography: out.discography }));
+  console.log(p.name, JSON.stringify({ transition: out.transition, travel: { ...out.travel, rest: undefined }, lifted: out.liftedPass, texels: out.texels, type: out.type, spin: out.spin, drag: out.drag, discography: out.discography }));
   await ctx.close();
 }
 

@@ -60,7 +60,7 @@ export type RecordModel = {
   back: THREE.MeshStandardMaterial;
   label: THREE.MeshStandardMaterial;
   paper: THREE.MeshStandardMaterial;
-  pose: (t: number) => void; // 0 closed, 1 open
+  set: (g: number, s: number) => void; // gatefold 0..1, record travel 0..1
 };
 
 export function buildRecord(blank: THREE.Texture, grain: THREE.Texture, grooves: THREE.Texture): RecordModel {
@@ -103,16 +103,14 @@ export function buildRecord(blank: THREE.Texture, grain: THREE.Texture, grooves:
   disc.add(dm, labelPivot);
   body.add(left, wall, rear, disc);
   for (const m of [lp, wall, rear, dm, lf]) { m.castShadow = true; m.receiveShadow = true; }
-  // the whole model is turned about the vertical through its open centre (Drag to turn), so the body is offset to
-  // keep that centre at the root's origin once open
-  const pose = (t: number) => {
-    const open = THREE.MathUtils.smoothstep(t, 0.2, 0.75), slide = THREE.MathUtils.smoothstep(t, 0.45, 1);
-    left.rotation.y = -THREE.MathUtils.degToRad(OPEN_DEG) * open;
-    disc.position.x = SLIDE * slide;
-    disc.visible = slide > 0 || t > 0.2;
+  // g: the gatefold, 0 shut to 1 open at OPEN_DEG; s: the record's travel along the pocket, 0 fully in to 1 fully
+  // out (SLIDE). The record is always there: in the pocket it is hidden by the pocket's walls, never switched off.
+  const set = (g: number, s: number) => {
+    left.rotation.y = -THREE.MathUtils.degToRad(OPEN_DEG) * g;
+    disc.position.x = SLIDE * s;
   };
-  pose(0);
-  return { root, left, disc, labelPivot, front, back, label, paper, pose };
+  set(0, 0);
+  return { root, left, disc, labelPivot, front, back, label, paper, set };
 }
 
 // the open model's extent in its own frame (x: left panel's far edge to the disc's far edge; y: 0 to SLEEVE)

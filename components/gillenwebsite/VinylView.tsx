@@ -4,10 +4,13 @@
 // thumbnail, Enter, or a row on the discography page opens the release as a gatefold record (record.ts) with its
 // info in a column beside it (above it on phones, the record full width over the info).
 // From the Rolodex the front sleeve itself lifts off the ring: this canvas draws over the stage with the stage
-// camera's own view, the closed model stands exactly where the sleeve was, and then it moves to the middle and
-// opens, in OPEN_MS, while a white veil dims the Rolodex behind it. Close runs it back onto the ring. From the
-// discography the closed sleeve starts on the row's cover. Drag turns the record; it spins at 33 1/3 rpm unless
-// the reader prefers reduced motion. Plain three.js, so the timing is in one requestAnimationFrame loop.
+// camera's own view and the closed model stands exactly where the sleeve was. Opening (OPEN_MS) runs three
+// overlapping stages: the sleeve moves to the middle, the gatefold opens, the record slides out of the right
+// pocket; a white veil dims the Rolodex meanwhile. A click on the front cover while open puts the record back,
+// shuts the gatefold and leaves the closed sleeve facing the camera, large (the cover state); a click on it opens
+// it again (TOGGLE_MS each way). Closing (CLOSE_MS) runs the opening backwards from either state, onto the ring or
+// the discography row it came from. The record only ever slides along the pocket, and it spins (33 1/3 rpm, not
+// with reduced motion) only when fully out. Drag turns the record. Plain three.js, one requestAnimationFrame loop.
 import { useCallback, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
@@ -20,7 +23,17 @@ import { paperGrain } from "./textures";
 import { no3, pad2, caps } from "./shared";
 import css from "./site.module.css";
 
-export const OPEN_MS = 450;
+export const OPEN_MS = 650, TOGGLE_MS = 400, CLOSE_MS = 500;
+// each motion's stages, as fractions of its duration: [start, end] of the move, the gatefold and the record's slide
+type Win = [number, number];
+type Plan = { move: Win; gate: Win; slide: Win };
+const PLANS: Record<string, Plan> = {
+  open: { move: [0, 300 / 650], gate: [250 / 650, 480 / 650], slide: [430 / 650, 1] },
+  toCover: { slide: [0, 190 / 400], gate: [170 / 400, 1], move: [170 / 400, 1] },
+  toOpen: { move: [0, 230 / 400], gate: [0, 230 / 400], slide: [210 / 400, 1] },
+  close: { slide: [0, 170 / 500], gate: [150 / 500, 330 / 500], move: [310 / 500, 1] },
+};
+const stage = (f: number, [a, b]: Win) => ease(Math.min(1, Math.max(0, (f - a) / (b - a))));
 const LABEL_FONT = "/gillenwebsite/fonts/texgyreheros-regular.ttf";
 const INFO_W = 420; // the info column on desktop
 const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
@@ -86,10 +99,10 @@ async function makeEngine(canvas: HTMLCanvasElement): Promise<Engine> {
   // open record needs, so the first opening has nothing to build
   artist.text = "A"; title.text = "A";
   await new Promise<void>((r) => artist.sync(() => title.sync(() => r())));
-  rec.pose(1);
+  rec.set(1, 1);
   cam.position.set(0, 0, 3); cam.updateMatrixWorld();
   gl.compile(scene, cam);
-  rec.pose(0);
+  rec.set(0, 0);
   holder.visible = false;
   return { gl, scene, cam, rec, holder, centre, artist, title, blank, tex: { front: { t: null, w: 0, own: false }, back: { t: null, w: 0, own: false } } };
 }
@@ -114,7 +127,12 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
   const box = useRef<HTMLDivElement>(null), canvas = useRef<HTMLCanvasElement>(null), veil = useRef<HTMLDivElement>(null), info = useRef<HTMLDivElement>(null);
   const eng = useRef<Engine | null>(null), engine = useRef<Promise<Engine> | null>(null);
   const [cur, setCur] = useState<number | null>(null);
-  const state = useRef<{ phase: "closed" | "opening" | "open" | "closing"; i: number; t0: number; from: Pose | null; to: Pose | null; slot: number; yaw: number; spin: number; drag: { x: number; yaw: number } | null; frames: number[]; raf: number; last: number; fromKind: "rolodex" | "element" | "none"; el: HTMLElement | null }>({ phase: "closed", i: 0, t0: 0, from: null, to: null, slot: -1, yaw: 0, spin: 0, drag: null, frames: [], raf: 0, last: 0, fromKind: "none", el: null });
+  type Shape = { pose: Pose; g: number; s: number };
+  type Anim = { kind: string; t0: number; dur: number; plan: Plan; from: Shape; to: Shape; end: "open" | "cover" | "closed" };
+  const state = useRef<{ phase: "closed" | "anim" | "open" | "cover"; anim: Anim | null; rest: Pose | null; g: number; s: number; i: number; slot: number; yaw: number; spin: number;
+    drag: { x: number; y: number; yaw: number; moved: number } | null; frames: number[]; raf: number; last: number; fromKind: "rolodex" | "element" | "none"; el: HTMLElement | null;
+    trace: { kind: string; f: number; s: number; g: number; spin: number }[]; spinOut: number; spinNotOut: number; liftFrames: number }>({
+    phase: "closed", anim: null, rest: null, g: 0, s: 0, i: 0, slot: -1, yaw: 0, spin: 0, drag: null, frames: [], raf: 0, last: 0, fromKind: "none", el: null, trace: [], spinOut: 0, spinNotOut: 0, liftFrames: 0 });
   const reduce = useRef(false);
   const log = useRef<{ dir: string; ms: number; frames: number; fps: number; worstMs: number }[]>([]);
 
@@ -124,14 +142,15 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     return W >= 720 ? { x: 0, y: head, w: W - INFO_W, h: H - head } : { x: 0, y: head, w: W, h: Math.round(W * 0.62) };
   }, []);
 
-  // the open pose: in the camera's frame, tilted back a little, at the distance and offset where the open model's
-  // projected box fills its region with a margin, centred in it. Found by measuring: place, project, correct.
-  const openPose = useCallback((e: Engine): Pose => {
+  // the open pose (open: true) or the cover state's (the closed sleeve facing the camera): in the camera's frame, at
+  // the distance and offset where the model's projected box fills its region with a margin, centred in it; the open
+  // record is tilted back a little. Found by measuring: place, project, correct.
+  const fitPose = useCallback((e: Engine, open: boolean): Pose => {
     const cam = e.cam, R = region(), W = innerWidth, H = innerHeight, tan = Math.tan(THREE.MathUtils.degToRad(cam.fov / 2));
-    const q = cam.quaternion.clone().multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(-0.18, 0, 0)));
+    const q = cam.quaternion.clone().multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(open ? -0.18 : 0, 0, 0)));
     const at = (cx: number, cy: number, d: number) => new THREE.Vector3(cx * d * tan * (W / H), cy * d * tan, -d).applyMatrix4(cam.matrixWorld);
-    const was = { p: e.holder.position.clone(), q: e.holder.quaternion.clone() };
-    e.rec.pose(1);
+    const was = { p: e.holder.position.clone(), q: e.holder.quaternion.clone(), g: state.current.g, s: state.current.s };
+    if (open) e.rec.set(1, 1); else e.rec.set(0, 0);
     const box = new THREE.Box3(), v = new THREE.Vector3();
     const measure = (p: THREE.Vector3) => {
       e.holder.position.copy(p); e.holder.quaternion.copy(q); e.holder.updateMatrixWorld(true);
@@ -145,7 +164,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
       });
       return { x0: (box.min.x + 1) * 0.5 * W, x1: (box.max.x + 1) * 0.5 * W, y0: (1 - box.max.y) * 0.5 * H, y1: (1 - box.min.y) * 0.5 * H };
     };
-    const margin = W >= 720 ? 0.86 : 0.94;
+    const margin = open ? (W >= 720 ? 0.86 : 0.94) : 0.84;
     let cx = ((R.x + R.w / 2) / W) * 2 - 1, cy = 1 - ((R.y + R.h / 2) / H) * 2, d = 2;
     for (let k = 0; k < 4; k++) {
       const s = measure(at(cx, cy, d));
@@ -156,6 +175,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     }
     const p = at(cx, cy, d);
     e.holder.position.copy(was.p); e.holder.quaternion.copy(was.q);
+    e.rec.set(was.g, was.s);
     return { p, q, s: 1 };
   }, [region]);
 
@@ -242,66 +262,86 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
 
   // the frame loop calls itself through this ref (a callback cannot name itself before it is declared)
   const loopRef = useRef<() => void>(() => {});
+  const finishClose = useCallback((e: Engine) => {
+    e.rec.set(0, 0);
+    e.gl.render(e.scene, e.cam);
+    // the ring draws its sleeve again in the next frame, and this canvas clears one frame later, so the sleeve is
+    // always drawn by one of the two
+    rig.lifted = -1;
+    rig.setPaused?.(false);
+    requestAnimationFrame(() => requestAnimationFrame(() => { e.holder.visible = false; e.gl.clear(); box.current?.classList.remove(css.vvOn); setCur(null); onState?.(false); }));
+  }, [onState]);
   const loop = useCallback(() => {
     const st = state.current, e = eng.current;
     if (!e) return;
     const now = performance.now(), dt = st.last ? Math.min((now - st.last) / 1000, 1 / 20) : 0;
     st.last = now;
-    if (st.phase === "opening" || st.phase === "closing") st.frames.push(now);
-    let t = 1;
-    if (st.phase === "opening" || st.phase === "closing") {
-      const k = Math.min(1, (now - st.t0) / OPEN_MS), x = ease(k);
-      t = st.phase === "opening" ? x : 1 - x;
-      const a = st.phase === "opening" ? st.from! : st.to!, b = st.phase === "opening" ? st.to! : st.from!;
-      e.holder.position.lerpVectors(a.p, b.p, x);
-      e.holder.quaternion.slerpQuaternions(a.q, b.q, x);
-      if (k >= 1) {
-        const ms = now - st.t0, gaps = st.frames.slice(1).map((f, j) => f - st.frames[j]);
-        log.current.push({ dir: st.phase, ms: Math.round(ms), frames: st.frames.length, fps: +(((st.frames.length - 1) * 1000) / (st.frames[st.frames.length - 1] - st.frames[0] || 1)).toFixed(1), worstMs: Math.round(Math.max(0, ...gaps)) });
-        if (st.phase === "opening") { st.phase = "open"; rig.setPaused?.(true); }
-        else {
-          st.phase = "closed";
-          e.rec.pose(0);
-          e.gl.render(e.scene, e.cam);
-          // the ring draws its sleeve again in the next frame, and this canvas clears one frame later, so the
-          // sleeve is always drawn by one of the two
-          rig.lifted = -1;
-          rig.setPaused?.(false);
-          requestAnimationFrame(() => requestAnimationFrame(() => { e.holder.visible = false; e.gl.clear(); box.current?.classList.remove(css.vvOn); setCur(null); onState?.(false); }));
-          return;
-        }
+    const A = st.anim;
+    if (st.phase === "anim" && A) {
+      st.frames.push(now);
+      const f = Math.min(1, (now - A.t0) / A.dur);
+      const m = stage(f, A.plan.move), gx = stage(f, A.plan.gate), sx = stage(f, A.plan.slide);
+      e.holder.position.lerpVectors(A.from.pose.p, A.to.pose.p, m);
+      e.holder.quaternion.slerpQuaternions(A.from.pose.q, A.to.pose.q, m);
+      st.g = A.from.g + (A.to.g - A.from.g) * gx;
+      st.s = A.from.s + (A.to.s - A.from.s) * sx;
+      if (st.trace.length < 4000) st.trace.push({ kind: A.kind, f: +f.toFixed(4), s: +st.s.toFixed(4), g: +st.g.toFixed(4), spin: st.spin });
+      if (f >= 1) {
+        const gaps = st.frames.slice(1).map((x, j) => x - st.frames[j]);
+        log.current.push({ dir: A.kind, ms: Math.round(now - A.t0), frames: st.frames.length, fps: +(((st.frames.length - 1) * 1000) / (st.frames[st.frames.length - 1] - st.frames[0] || 1)).toFixed(1), worstMs: Math.round(Math.max(0, ...gaps)) });
+        st.anim = null; st.phase = A.end; st.rest = A.to.pose; st.yaw = 0;
+        if (A.end === "closed") { finishClose(e); return; }
       }
-    } else if (st.phase === "open") {
-      // drag turns the record (the holder's yaw about its own vertical); the disc spins
-      const q = st.to!.q.clone().multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), st.yaw));
-      e.holder.quaternion.copy(q);
+    } else if (st.phase === "open" || st.phase === "cover") {
+      // drag turns the record (the holder's yaw about its own vertical)
+      e.holder.quaternion.copy(st.rest!.q).multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), st.yaw));
     }
-    e.rec.pose(t);
-    if (!reduce.current && st.phase !== "closed") { st.spin -= ((RPM * Math.PI * 2) / 60) * dt; }
+    e.rec.set(st.g, st.s);
+    // the record spins only when it is fully out of the pocket
+    if (!reduce.current && st.phase === "open" && st.s >= 1) { st.spin -= ((RPM * Math.PI * 2) / 60) * dt; st.spinOut++; }
+    else if (st.phase === "anim" && st.s < 1 && e.rec.disc.rotation.z !== st.spin) st.spinNotOut++;
     e.rec.disc.rotation.z = st.spin;
     e.gl.render(e.scene, e.cam);
-    // the ring's sleeve is hidden one frame after this canvas has drawn its stand-in (both draw it for that frame)
-    if (st.phase === "opening" && st.fromKind === "rolodex" && rig.lifted !== st.slot && st.frames.length >= 2) rig.lifted = st.slot;
-    // two frames later the stage has drawn the ring without it, and stops drawing until the view has closed again:
-    // nothing moves behind the veil, and the phone has one canvas to draw instead of two
-    if (st.phase === "opening" && st.fromKind === "rolodex" && st.frames.length === 4) rig.setPaused?.(true);
+    // the ring's sleeve is hidden one frame after this canvas has drawn its stand-in (both draw it for that frame);
+    // two frames later the stage has drawn the ring without it and stops drawing until the view has closed again
+    if (A?.kind === "open" && st.fromKind === "rolodex") {
+      st.liftFrames++;
+      if (st.liftFrames === 2) rig.lifted = st.slot;
+      if (st.liftFrames === 4) rig.setPaused?.(true);
+    }
     st.raf = requestAnimationFrame(loopRef.current);
-  }, [onState]);
+  }, [finishClose]);
   useEffect(() => { loopRef.current = loop; }, [loop]);
+
+  // start a motion from wherever the model is now
+  const run = useCallback((e: Engine, kind: string, dur: number, plan: Plan, to: Shape, end: Anim["end"]) => {
+    const st = state.current;
+    const from: Shape = { pose: { p: e.holder.position.clone(), q: e.holder.quaternion.clone(), s: 1 }, g: st.g, s: st.s };
+    st.anim = { kind, t0: performance.now(), dur, plan, from, to, end };
+    st.phase = "anim"; st.frames = []; st.drag = null;
+  }, []);
 
   const close = useCallback(() => {
     const st = state.current, e = eng.current;
-    if (!e || (st.phase !== "open" && st.phase !== "opening")) return;
-    // close runs back to where the sleeve is now: its slot on the ring, or the row (the stage stays paused until
-    // the sleeve has landed)
+    if (!e || st.phase === "closed" || st.anim?.end === "closed") return;
+    // back to where the sleeve is now: its slot on the ring, or the row (the stage stays paused until it has landed)
     const back = st.fromKind === "rolodex" ? startPose(e, "rolodex", null, st.slot) : st.fromKind === "element" && st.el?.isConnected ? startPose(e, "element", st.el, -1) : null;
-    st.from = back ?? { p: e.holder.position.clone().add(new THREE.Vector3(0, -0.6, 0)), q: e.holder.quaternion.clone(), s: 1 };
-    st.to = { p: e.holder.position.clone(), q: e.holder.quaternion.clone(), s: 1 };
-    st.phase = "closing"; st.t0 = performance.now(); st.frames = []; st.drag = null;
-    veil.current?.animate([{ opacity: 1 }, { opacity: 0 }], { duration: OPEN_MS, easing: "ease", fill: "forwards" });
+    const pose = back ?? { p: e.holder.position.clone().add(new THREE.Vector3(0, -0.6, 0).applyQuaternion(e.cam.quaternion)), q: e.holder.quaternion.clone(), s: 1 };
+    // from the cover state the record is in and the gatefold shut already: the whole time is the return
+    const plan = st.s > 0 || st.g > 0 ? PLANS.close : { move: [0, 1] as Win, gate: [0, 1] as Win, slide: [0, 1] as Win };
+    run(e, "close", CLOSE_MS, plan, { pose, g: 0, s: 0 }, "closed");
+    veil.current?.animate([{ opacity: 1 }, { opacity: 0 }], { duration: CLOSE_MS, easing: "ease", fill: "forwards" });
     info.current?.animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateY(16px)" }], { duration: 180, easing: "ease-in", fill: "forwards" });
     if (location.hash) history.replaceState(history.state, "", location.pathname + location.search);
-  }, [startPose]);
+  }, [startPose, run]);
+
+  // open <-> cover state
+  const toggle = useCallback(() => {
+    const st = state.current, e = eng.current;
+    if (!e || (st.phase !== "open" && st.phase !== "cover")) return;
+    if (st.phase === "open") run(e, "toCover", TOGGLE_MS, PLANS.toCover, { pose: fitPose(e, false), g: 0, s: 0 }, "cover");
+    else run(e, "toOpen", TOGGLE_MS, PLANS.toOpen, { pose: fitPose(e, true), g: 1, s: 1 }, "open");
+  }, [run, fitPose]);
 
   // switch the open view to another release: the three textures change, each once its file is decoded
   const show = useCallback((i: number) => {
@@ -321,7 +361,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
 
   const open = useCallback(async (i: number, from: From) => {
     const st = state.current;
-    if (st.phase === "open") { show(i); return; }
+    if (st.phase === "open" || st.phase === "cover") { show(i); return; }
     if (st.phase !== "closed") return;
     if (!eng.current && canvas.current) eng.current = await (engine.current ??= makeEngine(canvas.current));
     const e = eng.current;
@@ -344,27 +384,28 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
       setType(e, r, f.image as CanvasImageSource);
     }
     aim(e, kind);
-    const to = openPose(e);
+    const to = fitPose(e, true);
     const from0 = kind === "none" ? null : startPose(e, kind, st.el, st.slot);
-    st.from = from0 ?? { p: to.p.clone().add(new THREE.Vector3(0, -0.4, 0).applyQuaternion(e.cam.quaternion)), q: to.q.clone(), s: 1 };
-    st.to = to;
-    e.holder.position.copy(st.from.p); e.holder.quaternion.copy(st.from.q);
+    const start = from0 ?? { p: to.p.clone().add(new THREE.Vector3(0, -0.4, 0).applyQuaternion(e.cam.quaternion)), q: to.q.clone(), s: 1 };
+    e.holder.position.copy(start.p); e.holder.quaternion.copy(start.q);
+    st.g = 0; st.s = 0; e.rec.set(0, 0);
     e.holder.visible = true;
     setCur(i); onState?.(true);
     box.current?.classList.add(css.vvOn);
-    st.phase = "opening"; st.t0 = performance.now(); st.frames = []; st.last = 0; st.spin = 0;
+    st.last = 0; st.spin = 0; st.liftFrames = 0;
+    run(e, "open", OPEN_MS, PLANS.open, { pose: to, g: 1, s: 1 }, "open");
     veil.current?.animate([{ opacity: 0 }, { opacity: 1 }], { duration: OPEN_MS, easing: "ease", fill: "forwards" });
     cancelAnimationFrame(st.raf);
     st.raf = requestAnimationFrame(loop);
     history.replaceState(history.state, "", `#${r.id}`);
     upgrade(e, i);
-  }, [releases, aim, openPose, startPose, put, setType, upgrade, loop, show, onState]);
+  }, [releases, aim, fitPose, startPose, put, setType, upgrade, loop, show, onState, run]);
 
   useEffect(() => { handle.current = { open, close }; return () => { handle.current = null; }; }, [handle, open, close]);
 
   // the info column comes in over the last 250 ms of the opening
   useEffect(() => {
-    if (cur === null || state.current.phase !== "opening") return;
+    if (cur === null || state.current.anim?.kind !== "open") return;
     info.current?.animate([{ opacity: 0, transform: "translateY(16px)" }, { opacity: 1, transform: "none" }], { duration: 250, delay: OPEN_MS - 250, easing: "cubic-bezier(0.215, 0.61, 0.355, 1)", fill: "both" });
   }, [cur]);
 
@@ -379,17 +420,29 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     reduce.current = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const onKey = (ev: KeyboardEvent) => {
       const st = state.current;
-      if (st.phase !== "open" && st.phase !== "opening") return;
+      if (st.phase === "closed") return;
       if (ev.key === "Escape") close();
       if (ev.key === "ArrowRight") show((st.i + 1) % N);
       if (ev.key === "ArrowLeft") show((st.i - 1 + N) % N);
     };
-    const onResize = () => { const e = eng.current, st = state.current; if (e && st.phase === "open") { sizeTo(e); st.to = openPose(e); } };
+    const onResize = () => { const e = eng.current, st = state.current; if (e && (st.phase === "open" || st.phase === "cover")) { sizeTo(e); st.rest = fitPose(e, st.phase === "open"); } };
     addEventListener("keydown", onKey);
     addEventListener("resize", onResize);
     // measurement hook (scripts/gillenwebsite/vinyl.mjs)
     (window as unknown as { __vinyl: unknown }).__vinyl = {
       state: () => state.current.phase, log: () => log.current, discAngle: () => state.current.spin, yaw: () => state.current.yaw,
+      // the record's travel along the pocket (0 in, 1 out), the gatefold (0 shut, 1 open), every animated frame's
+      // values, and how many spinning frames had the record fully out / not fully out
+      slide: () => state.current.s, gate: () => state.current.g, trace: () => state.current.trace, spin: () => ({ out: state.current.spinOut, notOut: state.current.spinNotOut }),
+      // where to click: the front cover's middle on screen (the left panel when open, the sleeve in the cover state)
+      coverPoint: () => {
+        const e = eng.current;
+        if (!e) return null;
+        const o = e.rec.left.children[0];
+        o.updateWorldMatrix(true, false);
+        const v = new THREE.Vector3(0, SLEEVE / 2, 0).applyMatrix4(o.matrixWorld).project(e.cam);
+        return { x: (v.x + 1) * 0.5 * innerWidth, y: (1 - v.y) * 0.5 * innerHeight };
+      },
       // each texture against its face on screen: source px and the face's device px
       texels: () => {
         const e = eng.current;
@@ -409,30 +462,41 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
       },
     };
     return () => { removeEventListener("keydown", onKey); removeEventListener("resize", onResize); };
-  }, [N, close, show, sizeTo, openPose]);
+  }, [N, close, show, sizeTo, fitPose]);
 
-  // drag turns the record; a press outside the record and the info closes
+  // drag turns the record; a click (under 5 px) on the front cover toggles the cover state, in the cover state a click
+  // on the sleeve opens it again; a press outside the record and the info closes
+  const ray = useRef(new THREE.Raycaster());
   const onDown = (ev: React.PointerEvent) => {
     const st = state.current;
-    if (st.phase !== "open") return;
+    if (st.phase !== "open" && st.phase !== "cover") return;
     const R = region();
     if (ev.clientX < R.x || ev.clientX > R.x + R.w || ev.clientY < R.y || ev.clientY > R.y + R.h) { close(); return; }
-    st.drag = { x: ev.clientX, yaw: st.yaw };
+    st.drag = { x: ev.clientX, y: ev.clientY, yaw: st.yaw, moved: 0 };
     (ev.currentTarget as HTMLElement).setPointerCapture(ev.pointerId);
   };
   const onMove = (ev: React.PointerEvent) => {
-    const st = state.current;
-    if (!st.drag) return;
-    st.yaw = st.drag.yaw + (ev.clientX - st.drag.x) * 0.008;
+    const d = state.current.drag;
+    if (!d) return;
+    d.moved = Math.max(d.moved, Math.hypot(ev.clientX - d.x, ev.clientY - d.y));
+    if (d.moved > 5) state.current.yaw = d.yaw + (ev.clientX - d.x) * 0.008;
   };
-  const onUp = () => { state.current.drag = null; };
-
+  const onUp = (ev: React.PointerEvent) => {
+    const st = state.current, d = st.drag, e = eng.current;
+    st.drag = null;
+    if (!d || d.moved > 5 || !e) return;
+    ray.current.setFromCamera(new THREE.Vector2((ev.clientX / innerWidth) * 2 - 1, 1 - (ev.clientY / innerHeight) * 2), e.cam);
+    const hit = ray.current.intersectObject(e.rec.root, true)[0];
+    if (!hit) return;
+    const onCover = hit.object === e.rec.left.children[0];
+    if ((st.phase === "open" && onCover) || st.phase === "cover") toggle();
+  };
   const r = cur !== null ? releases[cur] : null;
   const tracks = r ? (r.tracks.length ? r.tracks : [{ title: `${r.release} (full release)`, role: r.role }]) : [];
   return (
     <div ref={box} className={css.vv} data-src="12">
       <div ref={veil} className={css.vvVeil} onClick={close} aria-hidden />
-      <canvas ref={canvas} className={css.vvCanvas} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp} aria-hidden />
+      <canvas ref={canvas} className={css.vvCanvas} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={() => { state.current.drag = null; }} aria-hidden />
       {r && (
         <div ref={info} className={css.vvInfo} role="dialog" aria-modal="true" aria-label={`${r.artist}, ${r.release}`} data-release={r.id}>
           <p className={css.vvSmall} data-src="09">{no3(cur! + 1)} / {no3(N)}</p>
