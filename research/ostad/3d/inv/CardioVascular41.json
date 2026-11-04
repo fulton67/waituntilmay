@@ -1,0 +1,6455 @@
+[
+{
+"name": "(Deep branch of transverse cervical artery).l",
+"verts": 1805,
+"c": [
+0.081,
+0.051,
+1.347
+]
+},
+{
+"name": "(Deep branch of transverse cervical artery).r",
+"verts": 1805,
+"c": [
+-0.081,
+0.051,
+1.347
+]
+},
+{
+"name": "(Superficial branch of transverse cervical artery).l",
+"verts": 661,
+"c": [
+0.066,
+0.088,
+1.356
+]
+},
+{
+"name": "(Superficial branch of transverse cervical artery).r",
+"verts": 661,
+"c": [
+-0.066,
+0.088,
+1.356
+]
+},
+{
+"name": "(Ulnar recurrent artery).l",
+"verts": 130,
+"c": [
+0.213,
+0.02,
+1.061
+]
+},
+{
+"name": "(Ulnar recurrent artery).r",
+"verts": 130,
+"c": [
+-0.213,
+0.02,
+1.061
+]
+},
+{
+"name": "????????",
+"verts": 4322,
+"c": [
+0.018,
+-0.049,
+1.275
+]
+},
+{
+"name": "?x.l",
+"verts": 779,
+"c": [
+0.003,
+-0.057,
+1.571
+]
+},
+{
+"name": "?x.r",
+"verts": 779,
+"c": [
+-0.003,
+-0.057,
+1.571
+]
+},
+{
+"name": "Abdominal aorta",
+"verts": 425,
+"c": [
+0.008,
+-0.011,
+1.12
+]
+},
+{
+"name": "Accessory branch of middle meningeal artery.l",
+"verts": 304,
+"c": [
+0.029,
+-0.013,
+1.579
+]
+},
+{
+"name": "Accessory branch of middle meningeal artery.r",
+"verts": 304,
+"c": [
+-0.029,
+-0.013,
+1.579
+]
+},
+{
+"name": "Accessory hemi-azygos vein",
+"verts": 1133,
+"c": [
+0.009,
+0.016,
+1.338
+]
+},
+{
+"name": "Angular artery.l",
+"verts": 2503,
+"c": [
+0.015,
+-0.078,
+1.609
+]
+},
+{
+"name": "Angular artery.r",
+"verts": 2503,
+"c": [
+-0.015,
+-0.078,
+1.609
+]
+},
+{
+"name": "Angular vein.l",
+"verts": 909,
+"c": [
+0.019,
+-0.077,
+1.588
+]
+},
+{
+"name": "Angular vein.r",
+"verts": 909,
+"c": [
+-0.019,
+-0.077,
+1.588
+]
+},
+{
+"name": "Anterior basal segmental artery of left lung",
+"verts": 1181,
+"c": [
+0.103,
+0.038,
+1.232
+]
+},
+{
+"name": "Anterior basal segmental artery of right lung",
+"verts": 697,
+"c": [
+-0.088,
+0.034,
+1.242
+]
+},
+{
+"name": "Anterior branch of renal artery.l",
+"verts": 187,
+"c": [
+0.045,
+0.004,
+1.12
+]
+},
+{
+"name": "Anterior branch of renal artery.r",
+"verts": 248,
+"c": [
+-0.042,
+-0.001,
+1.107
+]
+},
+{
+"name": "Anterior cerebral artery.l",
+"verts": 189,
+"c": [
+0.008,
+-0.029,
+1.612
+]
+},
+{
+"name": "Anterior cerebral artery.r",
+"verts": 189,
+"c": [
+-0.008,
+-0.029,
+1.612
+]
+},
+{
+"name": "Anterior circumflex humeral artery.l",
+"verts": 554,
+"c": [
+0.167,
+0.009,
+1.376
+]
+},
+{
+"name": "Anterior circumflex humeral artery.r",
+"verts": 554,
+"c": [
+-0.167,
+0.009,
+1.376
+]
+},
+{
+"name": "Anterior circumflex humeral vein.l",
+"verts": 789,
+"c": [
+0.167,
+0.01,
+1.373
+]
+},
+{
+"name": "Anterior circumflex humeral vein.r",
+"verts": 789,
+"c": [
+-0.167,
+0.01,
+1.373
+]
+},
+{
+"name": "Anterior communicating artery",
+"verts": 23,
+"c": [
+0.0,
+-0.023,
+1.61
+]
+},
+{
+"name": "Anterior deep temporal artery.l",
+"verts": 856,
+"c": [
+0.044,
+-0.034,
+1.594
+]
+},
+{
+"name": "Anterior deep temporal artery.r",
+"verts": 856,
+"c": [
+-0.044,
+-0.034,
+1.594
+]
+},
+{
+"name": "Anterior division of internal iliac artery.l",
+"verts": 260,
+"c": [
+0.032,
+0.014,
+0.933
+]
+},
+{
+"name": "Anterior division of internal iliac artery.r",
+"verts": 260,
+"c": [
+-0.032,
+0.014,
+0.933
+]
+},
+{
+"name": "Anterior division of retromandibular vein.l",
+"verts": 130,
+"c": [
+0.037,
+-0.008,
+1.539
+]
+},
+{
+"name": "Anterior division of retromandibular vein.r",
+"verts": 130,
+"c": [
+-0.037,
+-0.008,
+1.539
+]
+},
+{
+"name": "Anterior ethmoidal artery.l",
+"verts": 779,
+"c": [
+0.007,
+-0.065,
+1.593
+]
+},
+{
+"name": "Anterior ethmoidal artery.r",
+"verts": 779,
+"c": [
+-0.007,
+-0.065,
+1.593
+]
+},
+{
+"name": "Anterior inferior cerebellar artery.l",
+"verts": 956,
+"c": [
+0.017,
+0.013,
+1.58
+]
+},
+{
+"name": "Anterior inferior cerebellar artery.r",
+"verts": 956,
+"c": [
+-0.017,
+0.013,
+1.58
+]
+},
+{
+"name": "Anterior inferior pancreaticoduodenal artery",
+"verts": 1866,
+"c": [
+-0.003,
+-0.052,
+1.119
+]
+},
+{
+"name": "Anterior intercavernous sinus",
+"verts": 130,
+"c": [
+-0.0,
+-0.018,
+1.606
+]
+},
+{
+"name": "Anterior interventricular artery",
+"verts": 2433,
+"c": [
+0.055,
+-0.051,
+1.284
+]
+},
+{
+"name": "Anterior interventricular sulcus.j",
+"verts": 2,
+"c": [
+0.078,
+-0.083,
+1.278
+]
+},
+{
+"name": "Anterior jugular vein.l",
+"verts": 363,
+"c": [
+0.02,
+-0.021,
+1.438
+]
+},
+{
+"name": "Anterior jugular vein.r",
+"verts": 363,
+"c": [
+-0.02,
+-0.021,
+1.438
+]
+},
+{
+"name": "Anterior papillary muscle of right ventricle",
+"verts": 318,
+"c": [
+0.031,
+-0.066,
+1.257
+]
+},
+{
+"name": "Anterior segmental artery of left lung",
+"verts": 1488,
+"c": [
+0.062,
+-0.016,
+1.343
+]
+},
+{
+"name": "Anterior segmental artery of right lung",
+"verts": 1276,
+"c": [
+-0.049,
+-0.026,
+1.351
+]
+},
+{
+"name": "Anterior semilunar leaflet of pulmonary valve",
+"verts": 523,
+"c": [
+0.034,
+-0.053,
+1.318
+]
+},
+{
+"name": "Anterior septal branches of anterior ethmoidal artery.l",
+"verts": 602,
+"c": [
+0.002,
+-0.054,
+1.585
+]
+},
+{
+"name": "Anterior septal branches of anterior ethmoidal artery.r",
+"verts": 602,
+"c": [
+-0.002,
+-0.054,
+1.585
+]
+},
+{
+"name": "Anterior spinal artery.l",
+"verts": 366,
+"c": [
+0.007,
+0.02,
+1.552
+]
+},
+{
+"name": "Anterior spinal artery.r",
+"verts": 366,
+"c": [
+-0.007,
+0.02,
+1.552
+]
+},
+{
+"name": "Anterior surface of heart.j",
+"verts": 2,
+"c": [
+0.029,
+-0.102,
+1.285
+]
+},
+{
+"name": "Anterior temporal branch.l",
+"verts": 2172,
+"c": [
+0.057,
+-0.007,
+1.609
+]
+},
+{
+"name": "Anterior temporal branch.r",
+"verts": 2172,
+"c": [
+-0.057,
+-0.007,
+1.609
+]
+},
+{
+"name": "Anterior tibial artery.l",
+"verts": 897,
+"c": [
+0.089,
+0.031,
+0.236
+]
+},
+{
+"name": "Anterior tibial artery.r",
+"verts": 897,
+"c": [
+-0.089,
+0.031,
+0.236
+]
+},
+{
+"name": "Anterior tibial veins.l",
+"verts": 956,
+"c": [
+0.102,
+0.037,
+0.265
+]
+},
+{
+"name": "Anterior tibial veins.r",
+"verts": 956,
+"c": [
+-0.102,
+0.037,
+0.265
+]
+},
+{
+"name": "Anterior vein of left lung",
+"verts": 626,
+"c": [
+0.069,
+-0.012,
+1.322
+]
+},
+{
+"name": "Anterior vein of right lung",
+"verts": 496,
+"c": [
+-0.04,
+-0.018,
+1.343
+]
+},
+{
+"name": "Aorta.j",
+"verts": 2,
+"c": [
+0.01,
+-0.076,
+1.215
+]
+},
+{
+"name": "Aortic arch",
+"verts": 130,
+"c": [
+0.012,
+0.0,
+1.376
+]
+},
+{
+"name": "Aortic bifurcation.j",
+"verts": 2,
+"c": [
+0.006,
+-0.123,
+1.023
+]
+},
+{
+"name": "Aortic valve.j",
+"verts": 2,
+"c": [
+-0.142,
+-0.026,
+1.315
+]
+},
+{
+"name": "Apex of heart.j",
+"verts": 2,
+"c": [
+0.084,
+-0.079,
+1.249
+]
+},
+{
+"name": "Apical segmental artery of left lung",
+"verts": 815,
+"c": [
+0.043,
+0.019,
+1.384
+]
+},
+{
+"name": "Apical segmental artery of right lung",
+"verts": 2021,
+"c": [
+-0.045,
+0.02,
+1.386
+]
+},
+{
+"name": "Apical vein of right lung",
+"verts": 1240,
+"c": [
+-0.034,
+-0.006,
+1.369
+]
+},
+{
+"name": "Apicoposterior vein of left lung",
+"verts": 3036,
+"c": [
+0.062,
+0.003,
+1.369
+]
+},
+{
+"name": "Appendicular artery",
+"verts": 1063,
+"c": [
+-0.039,
+-0.007,
+0.98
+]
+},
+{
+"name": "Arcuate artery.l",
+"verts": 307,
+"c": [
+0.095,
+-0.004,
+0.052
+]
+},
+{
+"name": "Arcuate artery.r",
+"verts": 307,
+"c": [
+-0.095,
+-0.004,
+0.052
+]
+},
+{
+"name": "Arteries of heart.j",
+"verts": 2,
+"c": [
+0.055,
+-0.089,
+1.3
+]
+},
+{
+"name": "Arteries of spinal cord.j",
+"verts": 2,
+"c": [
+-0.0,
+0.047,
+1.549
+]
+},
+{
+"name": "Artery of central sulcus.l",
+"verts": 952,
+"c": [
+0.04,
+0.009,
+1.659
+]
+},
+{
+"name": "Artery of central sulcus.r",
+"verts": 952,
+"c": [
+-0.04,
+0.009,
+1.659
+]
+},
+{
+"name": "Artery of precentral sulcus.l",
+"verts": 2613,
+"c": [
+0.042,
+-0.016,
+1.66
+]
+},
+{
+"name": "Artery of precentral sulcus.r",
+"verts": 2613,
+"c": [
+-0.042,
+-0.016,
+1.66
+]
+},
+{
+"name": "Artery of pterygoid canal.l",
+"verts": 307,
+"c": [
+0.021,
+-0.035,
+1.573
+]
+},
+{
+"name": "Artery of pterygoid canal.r",
+"verts": 307,
+"c": [
+-0.021,
+-0.035,
+1.573
+]
+},
+{
+"name": "Ascending aorta",
+"verts": 130,
+"c": [
+0.011,
+-0.024,
+1.336
+]
+},
+{
+"name": "Ascending branch of left colic artery",
+"verts": 366,
+"c": [
+0.043,
+-0.024,
+1.078
+]
+},
+{
+"name": "Ascending pharyngeal artery.l",
+"verts": 1268,
+"c": [
+0.027,
+-0.027,
+1.537
+]
+},
+{
+"name": "Ascending pharyngeal artery.r",
+"verts": 1268,
+"c": [
+-0.027,
+-0.027,
+1.537
+]
+},
+{
+"name": "Axillary artery.l",
+"verts": 248,
+"c": [
+0.108,
+0.007,
+1.389
+]
+},
+{
+"name": "Axillary artery.r",
+"verts": 248,
+"c": [
+-0.108,
+0.007,
+1.389
+]
+},
+{
+"name": "Axillary vein.l",
+"verts": 366,
+"c": [
+0.124,
+0.001,
+1.356
+]
+},
+{
+"name": "Axillary vein.r",
+"verts": 366,
+"c": [
+-0.124,
+0.001,
+1.356
+]
+},
+{
+"name": "Azygos vein",
+"verts": 1133,
+"c": [
+-0.012,
+0.012,
+1.259
+]
+},
+{
+"name": "Base of heart.j",
+"verts": 2,
+"c": [
+-0.042,
+0.001,
+1.319
+]
+},
+{
+"name": "Basilar artery",
+"verts": 189,
+"c": [
+0.0,
+-0.003,
+1.59
+]
+},
+{
+"name": "Basilar venous plexus",
+"verts": 11809,
+"c": [
+-0.0,
+-0.005,
+1.594
+]
+},
+{
+"name": "Basilic vein.l",
+"verts": 897,
+"c": [
+0.197,
+0.009,
+1.077
+]
+},
+{
+"name": "Basilic vein.r",
+"verts": 897,
+"c": [
+-0.197,
+0.009,
+1.077
+]
+},
+{
+"name": "Bifurcation of pulmonary trunk",
+"verts": 260,
+"c": [
+0.025,
+-0.014,
+1.345
+]
+},
+{
+"name": "Brachial artery.l",
+"verts": 602,
+"c": [
+0.18,
+0.018,
+1.228
+]
+},
+{
+"name": "Brachial artery.r",
+"verts": 602,
+"c": [
+-0.18,
+0.018,
+1.228
+]
+},
+{
+"name": "Brachial veins.l",
+"verts": 484,
+"c": [
+0.192,
+0.014,
+1.192
+]
+},
+{
+"name": "Brachial veins.r",
+"verts": 484,
+"c": [
+-0.192,
+0.014,
+1.192
+]
+},
+{
+"name": "Brachiocephalic trunk",
+"verts": 130,
+"c": [
+-0.001,
+-0.015,
+1.398
+]
+},
+{
+"name": "Branch to angular gyrus.l",
+"verts": 185,
+"c": [
+0.06,
+0.062,
+1.628
+]
+},
+{
+"name": "Branch to angular gyrus.r",
+"verts": 185,
+"c": [
+-0.06,
+0.062,
+1.628
+]
+},
+{
+"name": "Buccal artery.l",
+"verts": 307,
+"c": [
+0.032,
+-0.048,
+1.558
+]
+},
+{
+"name": "Buccal artery.r",
+"verts": 307,
+"c": [
+-0.032,
+-0.048,
+1.558
+]
+},
+{
+"name": "Calcaneal branches of fibular artery.l",
+"verts": 127,
+"c": [
+0.081,
+0.069,
+0.05
+]
+},
+{
+"name": "Calcaneal branches of fibular artery.r",
+"verts": 127,
+"c": [
+-0.081,
+0.069,
+0.05
+]
+},
+{
+"name": "Calcaneal branches of posterior tibial artery.l",
+"verts": 187,
+"c": [
+0.059,
+0.065,
+0.044
+]
+},
+{
+"name": "Calcaneal branches of posterior tibial artery.r",
+"verts": 187,
+"c": [
+-0.059,
+0.065,
+0.044
+]
+},
+{
+"name": "Callosomarginal artery.l",
+"verts": 3127,
+"c": [
+0.011,
+-0.041,
+1.657
+]
+},
+{
+"name": "Callosomarginal artery.r",
+"verts": 3127,
+"c": [
+-0.011,
+-0.041,
+1.657
+]
+},
+{
+"name": "Cardiac veins.j",
+"verts": 2,
+"c": [
+0.058,
+-0.052,
+1.337
+]
+},
+{
+"name": "Cavernous sinus.l",
+"verts": 2092,
+"c": [
+0.012,
+-0.014,
+1.595
+]
+},
+{
+"name": "Cavernous sinus.r",
+"verts": 2092,
+"c": [
+-0.012,
+-0.014,
+1.595
+]
+},
+{
+"name": "Central retinal artery.l",
+"verts": 43444,
+"c": [
+0.028,
+-0.051,
+1.591
+]
+},
+{
+"name": "Central retinal artery.r",
+"verts": 43444,
+"c": [
+-0.028,
+-0.051,
+1.591
+]
+},
+{
+"name": "Cephalic vein.l",
+"verts": 1428,
+"c": [
+0.196,
+-0.003,
+1.111
+]
+},
+{
+"name": "Cephalic vein.r",
+"verts": 1428,
+"c": [
+-0.196,
+-0.003,
+1.111
+]
+},
+{
+"name": "Cerebral arterial circle.j",
+"verts": 2,
+"c": [
+0.072,
+-0.014,
+1.605
+]
+},
+{
+"name": "Circumflex artery of heart",
+"verts": 3437,
+"c": [
+0.058,
+-0.017,
+1.288
+]
+},
+{
+"name": "Circumflex scapular artery.l",
+"verts": 246,
+"c": [
+0.137,
+0.035,
+1.354
+]
+},
+{
+"name": "Circumflex scapular artery.r",
+"verts": 246,
+"c": [
+-0.137,
+0.035,
+1.354
+]
+},
+{
+"name": "Circumflex scapular vein.l",
+"verts": 304,
+"c": [
+0.14,
+0.028,
+1.357
+]
+},
+{
+"name": "Circumflex scapular vein.r",
+"verts": 304,
+"c": [
+-0.14,
+0.028,
+1.357
+]
+},
+{
+"name": "Coeliac trunk",
+"verts": 130,
+"c": [
+0.008,
+-0.023,
+1.148
+]
+},
+{
+"name": "Colic branch of ileocolic artery",
+"verts": 602,
+"c": [
+-0.05,
+-0.026,
+1.049
+]
+},
+{
+"name": "Common facial vein.l",
+"verts": 130,
+"c": [
+0.031,
+-0.006,
+1.526
+]
+},
+{
+"name": "Common facial vein.r",
+"verts": 130,
+"c": [
+-0.031,
+-0.006,
+1.526
+]
+},
+{
+"name": "Common hepatic artery",
+"verts": 129,
+"c": [
+-0.006,
+-0.046,
+1.152
+]
+},
+{
+"name": "Common iliac artery.l",
+"verts": 71,
+"c": [
+0.015,
+-0.023,
+1.006
+]
+},
+{
+"name": "Common iliac artery.r",
+"verts": 130,
+"c": [
+-0.01,
+-0.023,
+1.006
+]
+},
+{
+"name": "Common iliac vein.l",
+"verts": 130,
+"c": [
+0.003,
+-0.02,
+1.004
+]
+},
+{
+"name": "Common iliac vein.r",
+"verts": 71,
+"c": [
+-0.012,
+-0.02,
+1.004
+]
+},
+{
+"name": "Common interosseous artery.l",
+"verts": 71,
+"c": [
+0.232,
+0.009,
+1.035
+]
+},
+{
+"name": "Common interosseous artery.r",
+"verts": 71,
+"c": [
+-0.232,
+0.009,
+1.035
+]
+},
+{
+"name": "Common palmar digital arteries.l",
+"verts": 697,
+"c": [
+0.274,
+-0.039,
+0.799
+]
+},
+{
+"name": "Common palmar digital arteries.r",
+"verts": 697,
+"c": [
+-0.274,
+-0.039,
+0.799
+]
+},
+{
+"name": "Common plantar digital arteries.l",
+"verts": 638,
+"c": [
+0.103,
+-0.063,
+0.019
+]
+},
+{
+"name": "Common plantar digital arteries.r",
+"verts": 638,
+"c": [
+-0.103,
+-0.063,
+0.019
+]
+},
+{
+"name": "Confluence of sinuses.j",
+"verts": 2,
+"c": [
+0.0,
+0.103,
+1.584
+]
+},
+{
+"name": "Coronary sinus",
+"verts": 307,
+"c": [
+0.022,
+-0.0,
+1.272
+]
+},
+{
+"name": "Coronary sulcus.j",
+"verts": 2,
+"c": [
+-0.016,
+-0.075,
+1.298
+]
+},
+{
+"name": "Costocervical trunk.l",
+"verts": 71,
+"c": [
+0.048,
+0.006,
+1.422
+]
+},
+{
+"name": "Costocervical trunk.r",
+"verts": 71,
+"c": [
+-0.048,
+0.006,
+1.422
+]
+},
+{
+"name": "Cranial veins.j",
+"verts": 2,
+"c": [
+-0.113,
+0.028,
+1.606
+]
+},
+{
+"name": "Cross Section X.002",
+"verts": 4,
+"c": [
+0.4,
+0.0,
+0.85
+]
+},
+{
+"name": "Cross Section Y.002",
+"verts": 4,
+"c": [
+0.0,
+0.22,
+0.85
+]
+},
+{
+"name": "Cross Section Z.002",
+"verts": 4,
+"c": [
+0.0,
+0.0,
+1.79
+]
+},
+{
+"name": "Deep artery of penis.l",
+"verts": 661,
+"c": [
+0.005,
+-0.066,
+0.8
+]
+},
+{
+"name": "Deep artery of penis.r",
+"verts": 661,
+"c": [
+-0.005,
+-0.066,
+0.8
+]
+},
+{
+"name": "Deep brachial artery.l",
+"verts": 189,
+"c": [
+0.188,
+0.035,
+1.224
+]
+},
+{
+"name": "Deep brachial artery.r",
+"verts": 189,
+"c": [
+-0.188,
+0.035,
+1.224
+]
+},
+{
+"name": "Deep cervical artery.l",
+"verts": 660,
+"c": [
+0.041,
+0.029,
+1.46
+]
+},
+{
+"name": "Deep cervical artery.r",
+"verts": 660,
+"c": [
+-0.041,
+0.029,
+1.46
+]
+},
+{
+"name": "Deep dorsal vein of penis",
+"verts": 909,
+"c": [
+0.0,
+-0.064,
+0.795
+]
+},
+{
+"name": "Deep external pudendal artery.l",
+"verts": 248,
+"c": [
+0.046,
+-0.048,
+0.83
+]
+},
+{
+"name": "Deep external pudendal artery.r",
+"verts": 248,
+"c": [
+-0.046,
+-0.048,
+0.83
+]
+},
+{
+"name": "Deep femoral artery.l",
+"verts": 480,
+"c": [
+0.073,
+-0.009,
+0.721
+]
+},
+{
+"name": "Deep femoral artery.r",
+"verts": 480,
+"c": [
+-0.073,
+-0.009,
+0.721
+]
+},
+{
+"name": "Deep femoral vein.l",
+"verts": 661,
+"c": [
+0.07,
+-0.028,
+0.72
+]
+},
+{
+"name": "Deep femoral vein.r",
+"verts": 661,
+"c": [
+-0.07,
+-0.028,
+0.72
+]
+},
+{
+"name": "Deep palmar arch.l",
+"verts": 484,
+"c": [
+0.269,
+-0.021,
+0.847
+]
+},
+{
+"name": "Deep palmar arch.r",
+"verts": 484,
+"c": [
+-0.269,
+-0.021,
+0.847
+]
+},
+{
+"name": "Deep plantar artery.l",
+"verts": 248,
+"c": [
+0.084,
+-0.027,
+0.049
+]
+},
+{
+"name": "Deep plantar artery.r",
+"verts": 248,
+"c": [
+-0.084,
+-0.027,
+0.049
+]
+},
+{
+"name": "Deep venous palmar arch.l",
+"verts": 1015,
+"c": [
+0.268,
+-0.025,
+0.847
+]
+},
+{
+"name": "Deep venous palmar arch.r",
+"verts": 1015,
+"c": [
+-0.268,
+-0.025,
+0.847
+]
+},
+{
+"name": "Descending branch of lateral circumflex femoral artery",
+"verts": 484,
+"c": [
+-0.102,
+-0.009,
+0.667
+]
+},
+{
+"name": "Descending branch of lateral circumflex femoral artery.l",
+"verts": 484,
+"c": [
+0.102,
+-0.009,
+0.667
+]
+},
+{
+"name": "Descending branch of left colic artery",
+"verts": 614,
+"c": [
+0.049,
+-0.022,
+1.032
+]
+},
+{
+"name": "Descending palatine artery.l",
+"verts": 720,
+"c": [
+0.023,
+-0.039,
+1.564
+]
+},
+{
+"name": "Descending palatine artery.r",
+"verts": 720,
+"c": [
+-0.023,
+-0.039,
+1.564
+]
+},
+{
+"name": "Distal lateral striate branches.l",
+"verts": 1983,
+"c": [
+0.022,
+-0.026,
+1.616
+]
+},
+{
+"name": "Distal lateral striate branches.r",
+"verts": 1983,
+"c": [
+-0.022,
+-0.026,
+1.616
+]
+},
+{
+"name": "Dorsal artery of penis.l",
+"verts": 2517,
+"c": [
+0.02,
+-0.031,
+0.804
+]
+},
+{
+"name": "Dorsal artery of penis.r",
+"verts": 2517,
+"c": [
+-0.02,
+-0.031,
+0.804
+]
+},
+{
+"name": "Dorsal carpal anastomosis.l",
+"verts": 130,
+"c": [
+0.275,
+-0.012,
+0.841
+]
+},
+{
+"name": "Dorsal carpal anastomosis.r",
+"verts": 130,
+"c": [
+-0.275,
+-0.012,
+0.841
+]
+},
+{
+"name": "Dorsal carpal branch of ulnar artery.l",
+"verts": 366,
+"c": [
+0.25,
+-0.018,
+0.848
+]
+},
+{
+"name": "Dorsal carpal branch of ulnar artery.r",
+"verts": 366,
+"c": [
+-0.25,
+-0.018,
+0.848
+]
+},
+{
+"name": "Dorsal digital arteries of foot.l",
+"verts": 3992,
+"c": [
+0.115,
+-0.058,
+0.025
+]
+},
+{
+"name": "Dorsal digital arteries of foot.r",
+"verts": 3992,
+"c": [
+-0.115,
+-0.058,
+0.025
+]
+},
+{
+"name": "Dorsal digital arteries of hand.l",
+"verts": 3140,
+"c": [
+0.277,
+-0.055,
+0.763
+]
+},
+{
+"name": "Dorsal digital arteries of hand.r",
+"verts": 3140,
+"c": [
+-0.277,
+-0.055,
+0.763
+]
+},
+{
+"name": "Dorsal digital veins of foot.l",
+"verts": 3520,
+"c": [
+0.115,
+-0.093,
+0.022
+]
+},
+{
+"name": "Dorsal digital veins of foot.r",
+"verts": 3520,
+"c": [
+-0.115,
+-0.093,
+0.022
+]
+},
+{
+"name": "Dorsal digital veins of hand.l",
+"verts": 3864,
+"c": [
+0.278,
+-0.056,
+0.788
+]
+},
+{
+"name": "Dorsal digital veins of hand.r",
+"verts": 3864,
+"c": [
+-0.278,
+-0.056,
+0.788
+]
+},
+{
+"name": "Dorsal metacarpal arteries.l",
+"verts": 1240,
+"c": [
+0.266,
+-0.022,
+0.811
+]
+},
+{
+"name": "Dorsal metacarpal arteries.r",
+"verts": 1240,
+"c": [
+-0.266,
+-0.022,
+0.811
+]
+},
+{
+"name": "Dorsal metatarsal arteries.l",
+"verts": 874,
+"c": [
+0.101,
+-0.039,
+0.041
+]
+},
+{
+"name": "Dorsal metatarsal arteries.r",
+"verts": 874,
+"c": [
+-0.101,
+-0.039,
+0.041
+]
+},
+{
+"name": "Dorsal metatarsal veins.l",
+"verts": 1122,
+"c": [
+0.108,
+-0.041,
+0.042
+]
+},
+{
+"name": "Dorsal metatarsal veins.r",
+"verts": 1122,
+"c": [
+-0.108,
+-0.041,
+0.042
+]
+},
+{
+"name": "Dorsal venous arch of foot.l",
+"verts": 484,
+"c": [
+0.09,
+-0.002,
+0.054
+]
+},
+{
+"name": "Dorsal venous arch of foot.r",
+"verts": 484,
+"c": [
+-0.09,
+-0.002,
+0.054
+]
+},
+{
+"name": "Dorsal venous network of hand.l",
+"verts": 543,
+"c": [
+0.265,
+-0.021,
+0.808
+]
+},
+{
+"name": "Dorsal venous network of hand.r",
+"verts": 543,
+"c": [
+-0.265,
+-0.021,
+0.808
+]
+},
+{
+"name": "Dorsalis pedis artery.l",
+"verts": 307,
+"c": [
+0.077,
+-0.017,
+0.068
+]
+},
+{
+"name": "Dorsalis pedis artery.r",
+"verts": 307,
+"c": [
+-0.077,
+-0.017,
+0.068
+]
+},
+{
+"name": "Dural venous sinuses.j",
+"verts": 2,
+"c": [
+-0.11,
+0.048,
+1.591
+]
+},
+{
+"name": "External carotid artery.l",
+"verts": 366,
+"c": [
+0.037,
+-0.002,
+1.523
+]
+},
+{
+"name": "External carotid artery.r",
+"verts": 366,
+"c": [
+-0.037,
+-0.002,
+1.523
+]
+},
+{
+"name": "External iliac artery.l",
+"verts": 189,
+"c": [
+0.041,
+-0.014,
+0.939
+]
+},
+{
+"name": "External iliac artery.r",
+"verts": 189,
+"c": [
+-0.041,
+-0.014,
+0.939
+]
+},
+{
+"name": "External iliac vein.l",
+"verts": 130,
+"c": [
+0.031,
+-0.022,
+0.933
+]
+},
+{
+"name": "External iliac vein.r",
+"verts": 130,
+"c": [
+-0.031,
+-0.022,
+0.933
+]
+},
+{
+"name": "External jugular vein.l",
+"verts": 425,
+"c": [
+0.041,
+-0.008,
+1.472
+]
+},
+{
+"name": "External jugular vein.r",
+"verts": 425,
+"c": [
+-0.041,
+-0.008,
+1.472
+]
+},
+{
+"name": "External pudendal veins.l",
+"verts": 670,
+"c": [
+0.018,
+-0.056,
+0.79
+]
+},
+{
+"name": "External pudendal veins.r",
+"verts": 670,
+"c": [
+-0.018,
+-0.056,
+0.79
+]
+},
+{
+"name": "Facial artery.l",
+"verts": 543,
+"c": [
+0.035,
+-0.037,
+1.531
+]
+},
+{
+"name": "Facial artery.r",
+"verts": 543,
+"c": [
+-0.035,
+-0.037,
+1.531
+]
+},
+{
+"name": "Facial vein.l",
+"verts": 720,
+"c": [
+0.033,
+-0.04,
+1.53
+]
+},
+{
+"name": "Facial vein.r",
+"verts": 720,
+"c": [
+-0.033,
+-0.04,
+1.53
+]
+},
+{
+"name": "Femoral artery.l",
+"verts": 897,
+"c": [
+0.061,
+-0.016,
+0.729
+]
+},
+{
+"name": "Femoral artery.r",
+"verts": 897,
+"c": [
+-0.061,
+-0.016,
+0.729
+]
+},
+{
+"name": "Femoral vein.l",
+"verts": 838,
+"c": [
+0.055,
+-0.016,
+0.725
+]
+},
+{
+"name": "Femoral vein.r",
+"verts": 838,
+"c": [
+-0.055,
+-0.016,
+0.725
+]
+},
+{
+"name": "Fibular artery.l",
+"verts": 1354,
+"c": [
+0.101,
+0.062,
+0.215
+]
+},
+{
+"name": "Fibular artery.r",
+"verts": 1354,
+"c": [
+-0.101,
+0.062,
+0.215
+]
+},
+{
+"name": "Fibular veins.l",
+"verts": 601,
+"c": [
+0.096,
+0.057,
+0.194
+]
+},
+{
+"name": "Fibular veins.r",
+"verts": 601,
+"c": [
+-0.096,
+0.057,
+0.194
+]
+},
+{
+"name": "First posterior intercostal artery.l",
+"verts": 543,
+"c": [
+0.042,
+-0.014,
+1.393
+]
+},
+{
+"name": "First posterior intercostal artery.r",
+"verts": 661,
+"c": [
+-0.044,
+-0.015,
+1.394
+]
+},
+{
+"name": "Frontal branch of superficial temporal artery.l",
+"verts": 956,
+"c": [
+0.041,
+-0.064,
+1.635
+]
+},
+{
+"name": "Frontal branch of superficial temporal artery.r",
+"verts": 956,
+"c": [
+-0.041,
+-0.064,
+1.635
+]
+},
+{
+"name": "Frontal branches of callosomarginal artery.l",
+"verts": 425,
+"c": [
+0.008,
+-0.051,
+1.67
+]
+},
+{
+"name": "Frontal branches of callosomarginal artery.r",
+"verts": 425,
+"c": [
+-0.008,
+-0.051,
+1.67
+]
+},
+{
+"name": "Gastroduodenal artery",
+"verts": 186,
+"c": [
+-0.028,
+-0.074,
+1.139
+]
+},
+{
+"name": "Genicular veins.l",
+"verts": 2114,
+"c": [
+0.079,
+0.027,
+0.45
+]
+},
+{
+"name": "Genicular veins.r",
+"verts": 2114,
+"c": [
+-0.079,
+0.027,
+0.45
+]
+},
+{
+"name": "Great cardiac vein",
+"verts": 3103,
+"c": [
+0.059,
+-0.031,
+1.281
+]
+},
+{
+"name": "Great saphenous vein.l",
+"verts": 1735,
+"c": [
+0.046,
+0.002,
+0.457
+]
+},
+{
+"name": "Great saphenous vein.r",
+"verts": 1735,
+"c": [
+-0.046,
+0.002,
+0.457
+]
+},
+{
+"name": "Greater palatine artery.l",
+"verts": 422,
+"c": [
+0.009,
+-0.062,
+1.55
+]
+},
+{
+"name": "Greater palatine artery.r",
+"verts": 422,
+"c": [
+-0.009,
+-0.062,
+1.55
+]
+},
+{
+"name": "Hemi-azygos vein",
+"verts": 720,
+"c": [
+0.004,
+0.033,
+1.198
+]
+},
+{
+"name": "Hepatic portal vein",
+"verts": 130,
+"c": [
+-0.006,
+-0.03,
+1.173
+]
+},
+{
+"name": "Hepatic portal vein.j",
+"verts": 2,
+"c": [
+-0.01,
+-0.112,
+1.148
+]
+},
+{
+"name": "Hepatic veins",
+"verts": 142,
+"c": [
+-0.01,
+-0.025,
+1.24
+]
+},
+{
+"name": "Ileal branch of ileocolic artery",
+"verts": 130,
+"c": [
+-0.041,
+-0.029,
+1.021
+]
+},
+{
+"name": "Ileocolic artery",
+"verts": 189,
+"c": [
+-0.019,
+-0.039,
+1.043
+]
+},
+{
+"name": "Iliacus branch of iliolumbar artery.l",
+"verts": 659,
+"c": [
+0.08,
+-0.004,
+0.983
+]
+},
+{
+"name": "Iliacus branch of iliolumbar artery.r",
+"verts": 659,
+"c": [
+-0.08,
+-0.004,
+0.983
+]
+},
+{
+"name": "Iliolumbar artery.l",
+"verts": 130,
+"c": [
+0.035,
+0.021,
+0.951
+]
+},
+{
+"name": "Iliolumbar artery.r",
+"verts": 130,
+"c": [
+-0.035,
+0.021,
+0.951
+]
+},
+{
+"name": "Iliolumbar vein.l",
+"verts": 719,
+"c": [
+0.075,
+-0.003,
+0.982
+]
+},
+{
+"name": "Iliolumbar vein.r",
+"verts": 719,
+"c": [
+-0.075,
+-0.003,
+0.982
+]
+},
+{
+"name": "Inferior alveolar artery.l",
+"verts": 1074,
+"c": [
+0.027,
+-0.041,
+1.536
+]
+},
+{
+"name": "Inferior alveolar artery.r",
+"verts": 1074,
+"c": [
+-0.027,
+-0.041,
+1.536
+]
+},
+{
+"name": "Inferior basal vein of left lung",
+"verts": 1051,
+"c": [
+0.061,
+0.045,
+1.248
+]
+},
+{
+"name": "Inferior basal vein of right lung",
+"verts": 1938,
+"c": [
+-0.059,
+0.045,
+1.251
+]
+},
+{
+"name": "Inferior border of heart.j",
+"verts": 2,
+"c": [
+0.032,
+-0.035,
+1.238
+]
+},
+{
+"name": "Inferior epigastric artery.l",
+"verts": 600,
+"c": [
+0.04,
+-0.052,
+0.997
+]
+},
+{
+"name": "Inferior epigastric artery.r",
+"verts": 600,
+"c": [
+-0.04,
+-0.052,
+0.997
+]
+},
+{
+"name": "Inferior epigastric vein.l",
+"verts": 602,
+"c": [
+0.033,
+-0.059,
+1.005
+]
+},
+{
+"name": "Inferior epigastric vein.r",
+"verts": 602,
+"c": [
+-0.033,
+-0.059,
+1.005
+]
+},
+{
+"name": "Inferior gluteal artery.l",
+"verts": 802,
+"c": [
+0.05,
+0.041,
+0.868
+]
+},
+{
+"name": "Inferior gluteal artery.r",
+"verts": 802,
+"c": [
+-0.05,
+0.041,
+0.868
+]
+},
+{
+"name": "Inferior gluteal veins.l",
+"verts": 932,
+"c": [
+0.045,
+0.039,
+0.878
+]
+},
+{
+"name": "Inferior gluteal veins.r",
+"verts": 932,
+"c": [
+-0.045,
+0.039,
+0.878
+]
+},
+{
+"name": "Inferior interventricular sulcus.j",
+"verts": 2,
+"c": [
+0.032,
+-0.035,
+1.232
+]
+},
+{
+"name": "Inferior labial artery.l",
+"verts": 484,
+"c": [
+0.018,
+-0.071,
+1.524
+]
+},
+{
+"name": "Inferior labial artery.r",
+"verts": 484,
+"c": [
+-0.018,
+-0.071,
+1.524
+]
+},
+{
+"name": "Inferior labial veins.l",
+"verts": 1275,
+"c": [
+0.019,
+-0.065,
+1.514
+]
+},
+{
+"name": "Inferior labial veins.r",
+"verts": 1275,
+"c": [
+-0.019,
+-0.065,
+1.514
+]
+},
+{
+"name": "Inferior lateral genicular artery.l",
+"verts": 481,
+"c": [
+0.096,
+0.031,
+0.442
+]
+},
+{
+"name": "Inferior lateral genicular artery.r",
+"verts": 481,
+"c": [
+-0.096,
+0.031,
+0.442
+]
+},
+{
+"name": "Inferior leaflet of right atrioventricular valve",
+"verts": 2005,
+"c": [
+-0.001,
+-0.033,
+1.266
+]
+},
+{
+"name": "Inferior lingular artery of left lung",
+"verts": 673,
+"c": [
+0.08,
+-0.024,
+1.288
+]
+},
+{
+"name": "Inferior lingular vein of left lung",
+"verts": 555,
+"c": [
+0.079,
+-0.027,
+1.281
+]
+},
+{
+"name": "Inferior lobar artery of left lung.j",
+"verts": 2,
+"c": [
+0.195,
+0.031,
+1.276
+]
+},
+{
+"name": "Inferior lobar artery of right lung",
+"verts": 130,
+"c": [
+-0.052,
+0.025,
+1.302
+]
+},
+{
+"name": "Inferior medial genicular artery.l",
+"verts": 425,
+"c": [
+0.055,
+0.029,
+0.427
+]
+},
+{
+"name": "Inferior medial genicular artery.r",
+"verts": 425,
+"c": [
+-0.055,
+0.029,
+0.427
+]
+},
+{
+"name": "Inferior mesenteric artery",
+"verts": 366,
+"c": [
+0.011,
+-0.027,
+1.018
+]
+},
+{
+"name": "Inferior mesenteric vein",
+"verts": 425,
+"c": [
+0.019,
+-0.026,
+1.061
+]
+},
+{
+"name": "Inferior ophthalmic vein.l",
+"verts": 185,
+"c": [
+0.018,
+-0.037,
+1.591
+]
+},
+{
+"name": "Inferior ophthalmic vein.r",
+"verts": 185,
+"c": [
+-0.018,
+-0.037,
+1.591
+]
+},
+{
+"name": "Inferior pancreaticoduodenal artery",
+"verts": 130,
+"c": [
+-0.005,
+-0.04,
+1.106
+]
+},
+{
+"name": "Inferior papillary muscle of left ventricle",
+"verts": 321,
+"c": [
+0.063,
+-0.029,
+1.267
+]
+},
+{
+"name": "Inferior papillary muscle of right ventricle",
+"verts": 225,
+"c": [
+0.023,
+-0.05,
+1.249
+]
+},
+{
+"name": "Inferior petrosal sinus.l",
+"verts": 366,
+"c": [
+0.027,
+0.007,
+1.578
+]
+},
+{
+"name": "Inferior petrosal sinus.r",
+"verts": 366,
+"c": [
+-0.027,
+0.007,
+1.578
+]
+},
+{
+"name": "Inferior phrenic artery",
+"verts": 837,
+"c": [
+-0.04,
+-0.027,
+1.21
+]
+},
+{
+"name": "Inferior sagittal sinus",
+"verts": 720,
+"c": [
+-0.0,
+0.002,
+1.631
+]
+},
+{
+"name": "Inferior suprarenal artery.l",
+"verts": 1062,
+"c": [
+0.047,
+0.011,
+1.146
+]
+},
+{
+"name": "Inferior suprarenal artery.r",
+"verts": 867,
+"c": [
+-0.043,
+0.007,
+1.132
+]
+},
+{
+"name": "Inferior surface of heart.j",
+"verts": 2,
+"c": [
+0.035,
+-0.03,
+1.234
+]
+},
+{
+"name": "Inferior thyroid artery.l",
+"verts": 319,
+"c": [
+0.036,
+-0.004,
+1.448
+]
+},
+{
+"name": "Inferior thyroid artery.r",
+"verts": 319,
+"c": [
+-0.036,
+-0.004,
+1.448
+]
+},
+{
+"name": "Inferior ulnar collateral artery.l",
+"verts": 307,
+"c": [
+0.203,
+0.024,
+1.113
+]
+},
+{
+"name": "Inferior ulnar collateral artery.r",
+"verts": 307,
+"c": [
+-0.203,
+0.024,
+1.113
+]
+},
+{
+"name": "Inferior vein of left ventricle",
+"verts": 2468,
+"c": [
+0.062,
+-0.016,
+1.263
+]
+},
+{
+"name": "Inferior vein of left ventricle (//Posterior '')",
+"verts": 4642,
+"c": [
+0.048,
+-0.019,
+1.251
+]
+},
+{
+"name": "Inferior vena cava (abdominal part)",
+"verts": 130,
+"c": [
+-0.009,
+-0.02,
+1.102
+]
+},
+{
+"name": "Inferior vena cava (thoracic part)",
+"verts": 189,
+"c": [
+-0.014,
+-0.017,
+1.217
+]
+},
+{
+"name": "Infra-orbital artery.l",
+"verts": 248,
+"c": [
+0.027,
+-0.059,
+1.568
+]
+},
+{
+"name": "Infra-orbital artery.r",
+"verts": 248,
+"c": [
+-0.027,
+-0.059,
+1.568
+]
+},
+{
+"name": "Insular branches of middle cerebral artery (M2).r",
+"verts": 378,
+"c": [
+-0.043,
+-0.018,
+1.621
+]
+},
+{
+"name": "Insular branches of middle cerebral artery (M2-segment).l",
+"verts": 378,
+"c": [
+0.043,
+-0.018,
+1.621
+]
+},
+{
+"name": "Interatrial septum.j",
+"verts": 2,
+"c": [
+0.01,
+0.002,
+1.295
+]
+},
+{
+"name": "Intercapitular veins of foot.l",
+"verts": 1690,
+"c": [
+0.103,
+-0.037,
+0.029
+]
+},
+{
+"name": "Intercapitular veins of foot.r",
+"verts": 1690,
+"c": [
+-0.103,
+-0.037,
+0.029
+]
+},
+{
+"name": "Internal carotid artery.l",
+"verts": 602,
+"c": [
+0.023,
+-0.011,
+1.545
+]
+},
+{
+"name": "Internal carotid artery.r",
+"verts": 602,
+"c": [
+-0.023,
+-0.011,
+1.545
+]
+},
+{
+"name": "Internal iliac artery.l",
+"verts": 130,
+"c": [
+0.031,
+-0.002,
+0.963
+]
+},
+{
+"name": "Internal iliac artery.r",
+"verts": 130,
+"c": [
+-0.031,
+-0.002,
+0.963
+]
+},
+{
+"name": "Internal iliac vein.l",
+"verts": 130,
+"c": [
+0.021,
+-0.001,
+0.962
+]
+},
+{
+"name": "Internal iliac vein.r",
+"verts": 130,
+"c": [
+-0.021,
+-0.001,
+0.962
+]
+},
+{
+"name": "Internal jugular vein.l",
+"verts": 720,
+"c": [
+0.03,
+-0.002,
+1.493
+]
+},
+{
+"name": "Internal jugular vein.r",
+"verts": 720,
+"c": [
+-0.03,
+-0.002,
+1.493
+]
+},
+{
+"name": "Internal pudendal artery.l",
+"verts": 1677,
+"c": [
+0.04,
+0.036,
+0.87
+]
+},
+{
+"name": "Internal pudendal artery.r",
+"verts": 1677,
+"c": [
+-0.04,
+0.036,
+0.87
+]
+},
+{
+"name": "Internal pudendal vein.l",
+"verts": 720,
+"c": [
+0.027,
+0.01,
+0.854
+]
+},
+{
+"name": "Internal pudendal vein.r",
+"verts": 720,
+"c": [
+-0.027,
+0.01,
+0.854
+]
+},
+{
+"name": "Internal thoracic artery.l",
+"verts": 543,
+"c": [
+0.028,
+-0.05,
+1.335
+]
+},
+{
+"name": "Internal thoracic artery.r",
+"verts": 543,
+"c": [
+-0.028,
+-0.05,
+1.335
+]
+},
+{
+"name": "Internal thoracic veins.l",
+"verts": 720,
+"c": [
+0.019,
+-0.063,
+1.333
+]
+},
+{
+"name": "Internal thoracic veins.r",
+"verts": 720,
+"c": [
+-0.019,
+-0.063,
+1.333
+]
+},
+{
+"name": "Intrarenal arteries of left kidney",
+"verts": 3451,
+"c": [
+0.062,
+0.018,
+1.11
+]
+},
+{
+"name": "Intrarenal arteries of right kidney",
+"verts": 4347,
+"c": [
+-0.053,
+0.01,
+1.095
+]
+},
+{
+"name": "Intrarenal veins of left kidney",
+"verts": 4825,
+"c": [
+0.052,
+0.015,
+1.111
+]
+},
+{
+"name": "Intrarenal veins of right kidney",
+"verts": 6035,
+"c": [
+-0.049,
+0.01,
+1.094
+]
+},
+{
+"name": "Lacrimal artery.l",
+"verts": 921,
+"c": [
+0.028,
+-0.05,
+1.603
+]
+},
+{
+"name": "Lacrimal artery.r",
+"verts": 921,
+"c": [
+-0.028,
+-0.05,
+1.603
+]
+},
+{
+"name": "Lateral basal segmental artery of left lung",
+"verts": 1240,
+"c": [
+0.093,
+-0.012,
+1.26
+]
+},
+{
+"name": "Lateral basal segmental artery of right lung",
+"verts": 626,
+"c": [
+-0.09,
+0.005,
+1.268
+]
+},
+{
+"name": "Lateral circumflex femoral artery.l",
+"verts": 611,
+"c": [
+0.107,
+0.004,
+0.838
+]
+},
+{
+"name": "Lateral circumflex femoral artery.r",
+"verts": 611,
+"c": [
+-0.107,
+0.004,
+0.838
+]
+},
+{
+"name": "Lateral circumflex femoral veins.l",
+"verts": 669,
+"c": [
+0.093,
+-0.006,
+0.842
+]
+},
+{
+"name": "Lateral circumflex femoral veins.r",
+"verts": 669,
+"c": [
+-0.093,
+-0.006,
+0.842
+]
+},
+{
+"name": "Lateral frontobasal artery.l",
+"verts": 1202,
+"c": [
+0.033,
+-0.047,
+1.636
+]
+},
+{
+"name": "Lateral frontobasal artery.r",
+"verts": 1202,
+"c": [
+-0.033,
+-0.047,
+1.636
+]
+},
+{
+"name": "Lateral occipital artery.l",
+"verts": 897,
+"c": [
+0.03,
+0.058,
+1.607
+]
+},
+{
+"name": "Lateral occipital artery.r",
+"verts": 897,
+"c": [
+-0.03,
+0.058,
+1.607
+]
+},
+{
+"name": "Lateral plantar artery.l",
+"verts": 186,
+"c": [
+0.083,
+0.021,
+0.03
+]
+},
+{
+"name": "Lateral plantar artery.r",
+"verts": 186,
+"c": [
+-0.083,
+0.021,
+0.03
+]
+},
+{
+"name": "Lateral plantar veins.l",
+"verts": 248,
+"c": [
+0.083,
+0.021,
+0.026
+]
+},
+{
+"name": "Lateral plantar veins.r",
+"verts": 248,
+"c": [
+-0.083,
+0.021,
+0.026
+]
+},
+{
+"name": "Lateral pontine branches of basilar artery.l",
+"verts": 729,
+"c": [
+0.011,
+0.004,
+1.586
+]
+},
+{
+"name": "Lateral pontine branches of basilar artery.r",
+"verts": 729,
+"c": [
+-0.011,
+0.004,
+1.586
+]
+},
+{
+"name": "Lateral sacral veins.l",
+"verts": 305,
+"c": [
+0.018,
+0.046,
+0.912
+]
+},
+{
+"name": "Lateral sacral veins.r",
+"verts": 305,
+"c": [
+-0.018,
+0.046,
+0.912
+]
+},
+{
+"name": "Lateral segmental artery of right lung",
+"verts": 756,
+"c": [
+-0.08,
+-0.014,
+1.296
+]
+},
+{
+"name": "Lateral tarsal artery.l",
+"verts": 248,
+"c": [
+0.09,
+0.018,
+0.061
+]
+},
+{
+"name": "Lateral tarsal artery.r",
+"verts": 248,
+"c": [
+-0.09,
+0.018,
+0.061
+]
+},
+{
+"name": "Lateral thoracic artery.l",
+"verts": 608,
+"c": [
+0.119,
+-0.031,
+1.29
+]
+},
+{
+"name": "Lateral thoracic artery.r",
+"verts": 608,
+"c": [
+-0.119,
+-0.031,
+1.29
+]
+},
+{
+"name": "Lateral thoracic vein.l",
+"verts": 2125,
+"c": [
+0.101,
+-0.059,
+1.216
+]
+},
+{
+"name": "Lateral thoracic vein.r",
+"verts": 2125,
+"c": [
+-0.101,
+-0.059,
+1.216
+]
+},
+{
+"name": "Lateral vein of right lung",
+"verts": 1004,
+"c": [
+-0.063,
+-0.026,
+1.291
+]
+},
+{
+"name": "Left ascending lumbar vein",
+"verts": 1015,
+"c": [
+0.02,
+0.01,
+1.059
+]
+},
+{
+"name": "Left atrioventricular valve.j",
+"verts": 2,
+"c": [
+0.157,
+0.004,
+1.288
+]
+},
+{
+"name": "Left atrium",
+"verts": 1092,
+"c": [
+0.021,
+-0.011,
+1.301
+]
+},
+{
+"name": "Left brachiocephalic vein",
+"verts": 189,
+"c": [
+0.003,
+-0.024,
+1.393
+]
+},
+{
+"name": "Left colic artery",
+"verts": 189,
+"c": [
+0.023,
+-0.034,
+1.05
+]
+},
+{
+"name": "Left common carotid artery",
+"verts": 248,
+"c": [
+0.024,
+-0.003,
+1.441
+]
+},
+{
+"name": "Left coronary artery",
+"verts": 130,
+"c": [
+0.029,
+-0.023,
+1.327
+]
+},
+{
+"name": "Left coronary leaflet",
+"verts": 189,
+"c": [
+0.021,
+-0.022,
+1.318
+]
+},
+{
+"name": "Left gastric artery",
+"verts": 316,
+"c": [
+0.013,
+-0.043,
+1.166
+]
+},
+{
+"name": "Left gastro-omental vein",
+"verts": 543,
+"c": [
+0.061,
+-0.036,
+1.139
+]
+},
+{
+"name": "Left inferior pulmonary vein",
+"verts": 201,
+"c": [
+0.044,
+0.022,
+1.293
+]
+},
+{
+"name": "Left pulmonary artery",
+"verts": 425,
+"c": [
+0.056,
+0.02,
+1.313
+]
+},
+{
+"name": "Left renal artery",
+"verts": 71,
+"c": [
+0.019,
+-0.014,
+1.117
+]
+},
+{
+"name": "Left renal vein",
+"verts": 307,
+"c": [
+0.008,
+-0.017,
+1.106
+]
+},
+{
+"name": "Left semilunar leaflet of pulmonary valve",
+"verts": 410,
+"c": [
+0.034,
+-0.038,
+1.319
+]
+},
+{
+"name": "Left subclavian artery",
+"verts": 248,
+"c": [
+0.05,
+0.002,
+1.408
+]
+},
+{
+"name": "Left subclavian vein",
+"verts": 248,
+"c": [
+0.059,
+-0.011,
+1.407
+]
+},
+{
+"name": "Left subcostal vein",
+"verts": 779,
+"c": [
+0.047,
+0.043,
+1.104
+]
+},
+{
+"name": "Left superior intercostal vein",
+"verts": 10558,
+"c": [
+0.058,
+-0.008,
+1.25
+]
+},
+{
+"name": "Left superior pulmonary vein",
+"verts": 213,
+"c": [
+0.047,
+0.008,
+1.318
+]
+},
+{
+"name": "Left surface of heart.j",
+"verts": 2,
+"c": [
+-0.051,
+-0.036,
+1.287
+]
+},
+{
+"name": "Left testicular artery",
+"verts": 1842,
+"c": [
+0.04,
+-0.017,
+0.907
+]
+},
+{
+"name": "Left testicular vein",
+"verts": 2016,
+"c": [
+0.04,
+-0.016,
+0.916
+]
+},
+{
+"name": "Left ventricle",
+"verts": 4718,
+"c": [
+0.042,
+-0.028,
+1.282
+]
+},
+{
+"name": "Lingual vein.l",
+"verts": 248,
+"c": [
+0.024,
+-0.029,
+1.533
+]
+},
+{
+"name": "Lingual vein.r",
+"verts": 248,
+"c": [
+-0.024,
+-0.029,
+1.533
+]
+},
+{
+"name": "Lingular vein of left lung",
+"verts": 142,
+"c": [
+0.056,
+0.007,
+1.313
+]
+},
+{
+"name": "Long posterior ciliary arteries.l",
+"verts": 921,
+"c": [
+0.021,
+-0.045,
+1.603
+]
+},
+{
+"name": "Long posterior ciliary arteries.r",
+"verts": 921,
+"c": [
+-0.021,
+-0.045,
+1.603
+]
+},
+{
+"name": "Lumbar arteries.l",
+"verts": 2231,
+"c": [
+0.047,
+0.016,
+1.073
+]
+},
+{
+"name": "Lumbar arteries.r",
+"verts": 2462,
+"c": [
+-0.041,
+0.013,
+1.073
+]
+},
+{
+"name": "Lumbar branch of iliolumbar artery.l",
+"verts": 559,
+"c": [
+0.048,
+0.005,
+0.965
+]
+},
+{
+"name": "Lumbar branch of iliolumbar artery.r",
+"verts": 559,
+"c": [
+-0.048,
+0.005,
+0.965
+]
+},
+{
+"name": "Lumbar veins.l",
+"verts": 1219,
+"c": [
+0.055,
+0.024,
+1.075
+]
+},
+{
+"name": "Lumbar veins.r",
+"verts": 3058,
+"c": [
+-0.05,
+0.021,
+1.075
+]
+},
+{
+"name": "Marginal artery",
+"verts": 2008,
+"c": [
+-0.003,
+-0.016,
+1.073
+]
+},
+{
+"name": "Maxillary artery.l",
+"verts": 2047,
+"c": [
+0.035,
+-0.031,
+1.561
+]
+},
+{
+"name": "Maxillary artery.r",
+"verts": 2047,
+"c": [
+-0.035,
+-0.031,
+1.561
+]
+},
+{
+"name": "Maxillary veins.l",
+"verts": 602,
+"c": [
+0.036,
+-0.037,
+1.55
+]
+},
+{
+"name": "Maxillary veins.r",
+"verts": 602,
+"c": [
+-0.036,
+-0.037,
+1.55
+]
+},
+{
+"name": "Medial basal segmental artery of left lung",
+"verts": 437,
+"c": [
+0.061,
+0.047,
+1.288
+]
+},
+{
+"name": "Medial basal segmental artery of right lung",
+"verts": 319,
+"c": [
+-0.048,
+0.054,
+1.233
+]
+},
+{
+"name": "Medial circumflex femoral artery.l",
+"verts": 661,
+"c": [
+0.09,
+-0.001,
+0.841
+]
+},
+{
+"name": "Medial circumflex femoral artery.r",
+"verts": 661,
+"c": [
+-0.09,
+-0.001,
+0.841
+]
+},
+{
+"name": "Medial circumflex femoral veins.l",
+"verts": 720,
+"c": [
+0.077,
+-0.01,
+0.85
+]
+},
+{
+"name": "Medial circumflex femoral veins.r",
+"verts": 720,
+"c": [
+-0.077,
+-0.01,
+0.85
+]
+},
+{
+"name": "Medial occipital artery.l",
+"verts": 1074,
+"c": [
+0.006,
+0.061,
+1.614
+]
+},
+{
+"name": "Medial occipital artery.r",
+"verts": 1074,
+"c": [
+-0.006,
+0.061,
+1.614
+]
+},
+{
+"name": "Medial plantar artery.l",
+"verts": 307,
+"c": [
+0.064,
+0.01,
+0.04
+]
+},
+{
+"name": "Medial plantar artery.r",
+"verts": 307,
+"c": [
+-0.064,
+0.01,
+0.04
+]
+},
+{
+"name": "Medial plantar veins.l",
+"verts": 484,
+"c": [
+0.063,
+-0.019,
+0.029
+]
+},
+{
+"name": "Medial plantar veins.r",
+"verts": 484,
+"c": [
+-0.063,
+-0.019,
+0.029
+]
+},
+{
+"name": "Medial pontine branches of basilar artery.l",
+"verts": 495,
+"c": [
+0.005,
+-0.005,
+1.592
+]
+},
+{
+"name": "Medial pontine branches of basilar artery.r",
+"verts": 495,
+"c": [
+-0.005,
+-0.005,
+1.592
+]
+},
+{
+"name": "Medial segmental artery of right lung",
+"verts": 744,
+"c": [
+-0.054,
+-0.04,
+1.293
+]
+},
+{
+"name": "Medial vein of right lung",
+"verts": 685,
+"c": [
+-0.037,
+-0.024,
+1.29
+]
+},
+{
+"name": "Median antebrachial vein.l",
+"verts": 1098,
+"c": [
+0.231,
+-0.009,
+0.972
+]
+},
+{
+"name": "Median antebrachial vein.r",
+"verts": 1098,
+"c": [
+-0.231,
+-0.009,
+0.972
+]
+},
+{
+"name": "Median cubital vein.l",
+"verts": 378,
+"c": [
+0.218,
+0.002,
+1.068
+]
+},
+{
+"name": "Median cubital vein.r",
+"verts": 378,
+"c": [
+-0.218,
+0.002,
+1.068
+]
+},
+{
+"name": "Median sacral artery",
+"verts": 602,
+"c": [
+-0.0,
+0.028,
+0.949
+]
+},
+{
+"name": "Mental branch of inferior alveolar artery.l",
+"verts": 260,
+"c": [
+0.012,
+-0.076,
+1.511
+]
+},
+{
+"name": "Mental branch of inferior alveolar artery.r",
+"verts": 260,
+"c": [
+-0.012,
+-0.076,
+1.511
+]
+},
+{
+"name": "Middle cardiac vein",
+"verts": 6709,
+"c": [
+0.038,
+-0.035,
+1.254
+]
+},
+{
+"name": "Middle cerebral artery (M1-segment).l",
+"verts": 307,
+"c": [
+0.024,
+-0.022,
+1.61
+]
+},
+{
+"name": "Middle cerebral artery (M1-segment).r",
+"verts": 307,
+"c": [
+-0.024,
+-0.022,
+1.61
+]
+},
+{
+"name": "Middle cerebral artery (M3 segment).l",
+"verts": 779,
+"c": [
+0.053,
+0.019,
+1.63
+]
+},
+{
+"name": "Middle cerebral artery (M3-segment).r",
+"verts": 779,
+"c": [
+-0.053,
+0.019,
+1.63
+]
+},
+{
+"name": "Middle colic artery",
+"verts": 496,
+"c": [
+-0.037,
+-0.037,
+1.098
+]
+},
+{
+"name": "Middle colic vein",
+"verts": 1157,
+"c": [
+-0.04,
+-0.033,
+1.087
+]
+},
+{
+"name": "Middle collateral artery.l",
+"verts": 189,
+"c": [
+0.216,
+0.05,
+1.155
+]
+},
+{
+"name": "Middle collateral artery.r",
+"verts": 189,
+"c": [
+-0.216,
+0.05,
+1.155
+]
+},
+{
+"name": "Middle genicular artery.l",
+"verts": 1060,
+"c": [
+0.076,
+0.053,
+0.476
+]
+},
+{
+"name": "Middle genicular artery.r",
+"verts": 1060,
+"c": [
+-0.076,
+0.053,
+0.476
+]
+},
+{
+"name": "Middle lobar artery of right lung",
+"verts": 71,
+"c": [
+-0.042,
+0.011,
+1.325
+]
+},
+{
+"name": "Middle meningeal artery.l",
+"verts": 305,
+"c": [
+0.031,
+-0.01,
+1.578
+]
+},
+{
+"name": "Middle meningeal artery.r",
+"verts": 305,
+"c": [
+-0.031,
+-0.01,
+1.578
+]
+},
+{
+"name": "Musculophrenic artery.l",
+"verts": 720,
+"c": [
+0.064,
+-0.052,
+1.16
+]
+},
+{
+"name": "Musculophrenic artery.r",
+"verts": 720,
+"c": [
+-0.064,
+-0.052,
+1.16
+]
+},
+{
+"name": "Musculophrenic veins.l",
+"verts": 543,
+"c": [
+0.059,
+-0.078,
+1.18
+]
+},
+{
+"name": "Musculophrenic veins.r",
+"verts": 543,
+"c": [
+-0.059,
+-0.078,
+1.18
+]
+},
+{
+"name": "Mylohyoid branch of inferior alveolar artery.l",
+"verts": 684,
+"c": [
+0.034,
+-0.02,
+1.535
+]
+},
+{
+"name": "Mylohyoid branch of inferior alveolar artery.r",
+"verts": 684,
+"c": [
+-0.034,
+-0.02,
+1.535
+]
+},
+{
+"name": "Non-coronary leaflet",
+"verts": 66,
+"c": [
+0.01,
+-0.02,
+1.315
+]
+},
+{
+"name": "Notch of cardiac apex.j",
+"verts": 2,
+"c": [
+0.081,
+-0.067,
+1.231
+]
+},
+{
+"name": "Obturator artery.l",
+"verts": 365,
+"c": [
+0.047,
+0.013,
+0.875
+]
+},
+{
+"name": "Obturator artery.r",
+"verts": 365,
+"c": [
+-0.047,
+0.013,
+0.875
+]
+},
+{
+"name": "Occipital artery.l",
+"verts": 2877,
+"c": [
+0.047,
+0.05,
+1.616
+]
+},
+{
+"name": "Occipital artery.r",
+"verts": 2877,
+"c": [
+-0.047,
+0.05,
+1.616
+]
+},
+{
+"name": "Occipital sinus",
+"verts": 248,
+"c": [
+-0.0,
+0.017,
+1.572
+]
+},
+{
+"name": "Occipital vein.l",
+"verts": 1084,
+"c": [
+0.032,
+0.052,
+1.59
+]
+},
+{
+"name": "Occipital vein.r",
+"verts": 1084,
+"c": [
+-0.032,
+0.052,
+1.59
+]
+},
+{
+"name": "Ophthalmic artery.l",
+"verts": 366,
+"c": [
+0.015,
+-0.038,
+1.601
+]
+},
+{
+"name": "Ophthalmic artery.r",
+"verts": 366,
+"c": [
+-0.015,
+-0.038,
+1.601
+]
+},
+{
+"name": "Orbital veins.j",
+"verts": 2,
+"c": [
+-0.018,
+-0.088,
+1.595
+]
+},
+{
+"name": "Orbitofrontal branches of anterior cerebral artery.l",
+"verts": 966,
+"c": [
+0.008,
+-0.057,
+1.618
+]
+},
+{
+"name": "Orbitofrontal branches of anterior cerebral artery.r",
+"verts": 966,
+"c": [
+-0.008,
+-0.057,
+1.618
+]
+},
+{
+"name": "Palmar carpal branch of radial artery.l",
+"verts": 130,
+"c": [
+0.26,
+-0.024,
+0.877
+]
+},
+{
+"name": "Palmar carpal branch of radial artery.r",
+"verts": 130,
+"c": [
+-0.26,
+-0.024,
+0.877
+]
+},
+{
+"name": "Palmar digital veins.l",
+"verts": 6000,
+"c": [
+0.276,
+-0.058,
+0.769
+]
+},
+{
+"name": "Palmar digital veins.r",
+"verts": 6000,
+"c": [
+-0.276,
+-0.058,
+0.769
+]
+},
+{
+"name": "Palmar metacarpal arteries.l",
+"verts": 933,
+"c": [
+0.269,
+-0.028,
+0.817
+]
+},
+{
+"name": "Palmar metacarpal arteries.r",
+"verts": 933,
+"c": [
+-0.269,
+-0.028,
+0.817
+]
+},
+{
+"name": "Parietal branches of middle cerebral artery.l",
+"verts": 846,
+"c": [
+0.054,
+0.037,
+1.657
+]
+},
+{
+"name": "Parietal branches of middle cerebral artery.r",
+"verts": 846,
+"c": [
+-0.054,
+0.037,
+1.657
+]
+},
+{
+"name": "Parieto-occipital artery.l",
+"verts": 1747,
+"c": [
+0.009,
+0.056,
+1.633
+]
+},
+{
+"name": "Parieto-occipital artery.r",
+"verts": 1747,
+"c": [
+-0.009,
+0.056,
+1.633
+]
+},
+{
+"name": "Patellar anastomosis.l",
+"verts": 2008,
+"c": [
+0.086,
+0.006,
+0.438
+]
+},
+{
+"name": "Patellar anastomosis.r",
+"verts": 2008,
+"c": [
+-0.086,
+0.006,
+0.438
+]
+},
+{
+"name": "Pectoral branches of thoraco-acromial artery.l",
+"verts": 366,
+"c": [
+0.11,
+-0.027,
+1.337
+]
+},
+{
+"name": "Pectoral branches of thoraco-acromial artery.r",
+"verts": 366,
+"c": [
+-0.11,
+-0.027,
+1.337
+]
+},
+{
+"name": "Perforating branches of plantar metatarsal arteries.l",
+"verts": 686,
+"c": [
+0.101,
+-0.039,
+0.03
+]
+},
+{
+"name": "Perforating branches of plantar metatarsal arteries.r",
+"verts": 686,
+"c": [
+-0.101,
+-0.039,
+0.03
+]
+},
+{
+"name": "Perforating femoral arteries.l",
+"verts": 516,
+"c": [
+0.101,
+-0.004,
+0.704
+]
+},
+{
+"name": "Perforating femoral arteries.r",
+"verts": 516,
+"c": [
+-0.101,
+-0.004,
+0.704
+]
+},
+{
+"name": "Perforating veins.l",
+"verts": 513,
+"c": [
+0.101,
+-0.015,
+0.701
+]
+},
+{
+"name": "Perforating veins.r",
+"verts": 513,
+"c": [
+-0.101,
+-0.015,
+0.701
+]
+},
+{
+"name": "Pericallosal artery.l",
+"verts": 6738,
+"c": [
+0.015,
+0.012,
+1.658
+]
+},
+{
+"name": "Pericallosal artery.r",
+"verts": 6738,
+"c": [
+-0.015,
+0.012,
+1.658
+]
+},
+{
+"name": "Plantar arch.l",
+"verts": 484,
+"c": [
+0.082,
+-0.003,
+0.031
+]
+},
+{
+"name": "Plantar arch.r",
+"verts": 484,
+"c": [
+-0.082,
+-0.003,
+0.031
+]
+},
+{
+"name": "Plantar digital veins.l",
+"verts": 5315,
+"c": [
+0.103,
+-0.062,
+0.011
+]
+},
+{
+"name": "Plantar digital veins.r",
+"verts": 5315,
+"c": [
+-0.103,
+-0.062,
+0.011
+]
+},
+{
+"name": "Plantar metatarsal arteries.l",
+"verts": 1228,
+"c": [
+0.099,
+-0.031,
+0.029
+]
+},
+{
+"name": "Plantar metatarsal arteries.r",
+"verts": 1228,
+"c": [
+-0.099,
+-0.031,
+0.029
+]
+},
+{
+"name": "Plantar metatarsal veins.l",
+"verts": 1819,
+"c": [
+0.103,
+-0.041,
+0.024
+]
+},
+{
+"name": "Plantar metatarsal veins.r",
+"verts": 1819,
+"c": [
+-0.103,
+-0.041,
+0.024
+]
+},
+{
+"name": "Plantar venous arch.l",
+"verts": 366,
+"c": [
+0.081,
+-0.003,
+0.027
+]
+},
+{
+"name": "Plantar venous arch.r",
+"verts": 366,
+"c": [
+-0.081,
+-0.003,
+0.027
+]
+},
+{
+"name": "Popliteal artery.l",
+"verts": 425,
+"c": [
+0.078,
+0.04,
+0.47
+]
+},
+{
+"name": "Popliteal artery.r",
+"verts": 425,
+"c": [
+-0.078,
+0.04,
+0.47
+]
+},
+{
+"name": "Popliteal vein.l",
+"verts": 425,
+"c": [
+0.08,
+0.041,
+0.49
+]
+},
+{
+"name": "Popliteal vein.r",
+"verts": 425,
+"c": [
+-0.08,
+0.041,
+0.49
+]
+},
+{
+"name": "Postcentral arterial branch.l",
+"verts": 1025,
+"c": [
+0.045,
+0.026,
+1.66
+]
+},
+{
+"name": "Postcentral arterial branch.r",
+"verts": 1025,
+"c": [
+-0.045,
+0.026,
+1.66
+]
+},
+{
+"name": "Posterior auricular vein.l",
+"verts": 423,
+"c": [
+0.063,
+0.012,
+1.59
+]
+},
+{
+"name": "Posterior auricular vein.r",
+"verts": 423,
+"c": [
+-0.063,
+0.012,
+1.59
+]
+},
+{
+"name": "Posterior basal segmental artery of left lung",
+"verts": 1299,
+"c": [
+0.05,
+0.052,
+1.254
+]
+},
+{
+"name": "Posterior basal segmental artery of right lung",
+"verts": 437,
+"c": [
+-0.062,
+0.054,
+1.238
+]
+},
+{
+"name": "Posterior branch of renal artery.l",
+"verts": 187,
+"c": [
+0.043,
+0.01,
+1.116
+]
+},
+{
+"name": "Posterior branch of renal artery.r",
+"verts": 365,
+"c": [
+-0.051,
+0.007,
+1.102
+]
+},
+{
+"name": "Posterior cerebral artery.l",
+"verts": 7050,
+"c": [
+0.027,
+0.027,
+1.615
+]
+},
+{
+"name": "Posterior cerebral artery.r",
+"verts": 7050,
+"c": [
+-0.027,
+0.027,
+1.615
+]
+},
+{
+"name": "Posterior circumflex humeral artery.l",
+"verts": 248,
+"c": [
+0.163,
+0.023,
+1.367
+]
+},
+{
+"name": "Posterior circumflex humeral artery.r",
+"verts": 248,
+"c": [
+-0.163,
+0.023,
+1.367
+]
+},
+{
+"name": "Posterior circumflex humeral vein.l",
+"verts": 425,
+"c": [
+0.163,
+0.018,
+1.364
+]
+},
+{
+"name": "Posterior circumflex humeral vein.r",
+"verts": 425,
+"c": [
+-0.163,
+0.018,
+1.364
+]
+},
+{
+"name": "Posterior communicating artery.l",
+"verts": 189,
+"c": [
+0.008,
+-0.015,
+1.605
+]
+},
+{
+"name": "Posterior communicating artery.r",
+"verts": 189,
+"c": [
+-0.008,
+-0.015,
+1.605
+]
+},
+{
+"name": "Posterior deep temporal artery.l",
+"verts": 802,
+"c": [
+0.049,
+-0.023,
+1.596
+]
+},
+{
+"name": "Posterior deep temporal artery.r",
+"verts": 802,
+"c": [
+-0.049,
+-0.023,
+1.596
+]
+},
+{
+"name": "Posterior division of internal iliac artery.l",
+"verts": 260,
+"c": [
+0.032,
+0.013,
+0.938
+]
+},
+{
+"name": "Posterior division of internal iliac artery.r",
+"verts": 260,
+"c": [
+-0.032,
+0.013,
+0.938
+]
+},
+{
+"name": "Posterior division of retromandibular vein.l",
+"verts": 130,
+"c": [
+0.046,
+-0.002,
+1.543
+]
+},
+{
+"name": "Posterior division of retromandibular vein.r",
+"verts": 130,
+"c": [
+-0.046,
+-0.002,
+1.543
+]
+},
+{
+"name": "Posterior ethmoidal artery.l",
+"verts": 130,
+"c": [
+0.014,
+-0.045,
+1.597
+]
+},
+{
+"name": "Posterior ethmoidal artery.r",
+"verts": 130,
+"c": [
+-0.014,
+-0.045,
+1.597
+]
+},
+{
+"name": "Posterior inferior cerebellar artery.l",
+"verts": 7889,
+"c": [
+0.029,
+0.044,
+1.576
+]
+},
+{
+"name": "Posterior inferior cerebellar artery.r",
+"verts": 7889,
+"c": [
+-0.029,
+0.044,
+1.576
+]
+},
+{
+"name": "Posterior intercavernous sinus",
+"verts": 307,
+"c": [
+-0.0,
+-0.014,
+1.603
+]
+},
+{
+"name": "Posterior intercostal arteries.l",
+"verts": 9011,
+"c": [
+0.073,
+-0.008,
+1.235
+]
+},
+{
+"name": "Posterior intercostal arteries.r",
+"verts": 10309,
+"c": [
+-0.058,
+-0.008,
+1.235
+]
+},
+{
+"name": "Posterior interosseous artery.l",
+"verts": 245,
+"c": [
+0.242,
+-0.001,
+0.969
+]
+},
+{
+"name": "Posterior interosseous artery.r",
+"verts": 245,
+"c": [
+-0.242,
+-0.001,
+0.969
+]
+},
+{
+"name": "Posterior lateral nasal branches of sphenopalatine artery..l",
+"verts": 3224,
+"c": [
+0.009,
+-0.06,
+1.579
+]
+},
+{
+"name": "Posterior lateral nasal branches of sphenopalatine artery..r",
+"verts": 3224,
+"c": [
+-0.009,
+-0.06,
+1.579
+]
+},
+{
+"name": "Posterior leaflet of left atrioventricular valve",
+"verts": 1544,
+"c": [
+0.04,
+-0.007,
+1.28
+]
+},
+{
+"name": "Posterior parietal artery.l",
+"verts": 1927,
+"c": [
+0.052,
+0.053,
+1.652
+]
+},
+{
+"name": "Posterior parietal artery.r",
+"verts": 1927,
+"c": [
+-0.052,
+0.053,
+1.652
+]
+},
+{
+"name": "Posterior segmental artery of left lung",
+"verts": 1004,
+"c": [
+0.062,
+0.04,
+1.368
+]
+},
+{
+"name": "Posterior segmental artery of right lung",
+"verts": 567,
+"c": [
+-0.064,
+0.035,
+1.338
+]
+},
+{
+"name": "Posterior septal branches of sphenopalatine artery.l",
+"verts": 838,
+"c": [
+0.004,
+-0.06,
+1.557
+]
+},
+{
+"name": "Posterior septal branches of sphenopalatine artery.r",
+"verts": 838,
+"c": [
+-0.004,
+-0.06,
+1.557
+]
+},
+{
+"name": "Posterior superior alveolar artery.l",
+"verts": 543,
+"c": [
+0.03,
+-0.038,
+1.566
+]
+},
+{
+"name": "Posterior superior alveolar artery.r",
+"verts": 543,
+"c": [
+-0.03,
+-0.038,
+1.566
+]
+},
+{
+"name": "Posterior temporal branch.l",
+"verts": 908,
+"c": [
+0.059,
+0.05,
+1.616
+]
+},
+{
+"name": "Posterior temporal branch.r",
+"verts": 908,
+"c": [
+-0.059,
+0.05,
+1.616
+]
+},
+{
+"name": "Posterior tibial artery.l",
+"verts": 838,
+"c": [
+0.075,
+0.046,
+0.207
+]
+},
+{
+"name": "Posterior tibial artery.r",
+"verts": 838,
+"c": [
+-0.075,
+0.046,
+0.207
+]
+},
+{
+"name": "Posterior tibial veins.l",
+"verts": 1015,
+"c": [
+0.075,
+0.047,
+0.205
+]
+},
+{
+"name": "Posterior tibial veins.r",
+"verts": 1015,
+"c": [
+-0.075,
+0.047,
+0.205
+]
+},
+{
+"name": "Posterior vein of right lung",
+"verts": 1572,
+"c": [
+-0.063,
+0.025,
+1.367
+]
+},
+{
+"name": "Prefrontal artery.l",
+"verts": 1322,
+"c": [
+0.047,
+-0.034,
+1.653
+]
+},
+{
+"name": "Prefrontal artery.r",
+"verts": 1322,
+"c": [
+-0.047,
+-0.034,
+1.653
+]
+},
+{
+"name": "Proper hepatic artery",
+"verts": 919,
+"c": [
+-0.066,
+-0.06,
+1.159
+]
+},
+{
+"name": "Proper palmar digital arteries.l",
+"verts": 6496,
+"c": [
+0.279,
+-0.058,
+0.788
+]
+},
+{
+"name": "Proper palmar digital arteries.r",
+"verts": 6496,
+"c": [
+-0.279,
+-0.058,
+0.788
+]
+},
+{
+"name": "Proper plantar digital arteries.l",
+"verts": 3650,
+"c": [
+0.113,
+-0.06,
+0.015
+]
+},
+{
+"name": "Proper plantar digital arteries.r",
+"verts": 3650,
+"c": [
+-0.113,
+-0.06,
+0.015
+]
+},
+{
+"name": "Proximal lateral striate branches.l",
+"verts": 1656,
+"c": [
+0.013,
+-0.022,
+1.615
+]
+},
+{
+"name": "Proximal lateral striate branches.r",
+"verts": 1656,
+"c": [
+-0.013,
+-0.022,
+1.615
+]
+},
+{
+"name": "Pulmonary arteries.j",
+"verts": 2,
+"c": [
+-0.046,
+0.07,
+1.327
+]
+},
+{
+"name": "Pulmonary trunk",
+"verts": 61,
+"c": [
+0.028,
+-0.044,
+1.341
+]
+},
+{
+"name": "Pulmonary valve.j",
+"verts": 2,
+"c": [
+0.146,
+-0.051,
+1.32
+]
+},
+{
+"name": "Pulmonary veins.j",
+"verts": 2,
+"c": [
+-0.032,
+0.066,
+1.309
+]
+},
+{
+"name": "Radial artery.l",
+"verts": 661,
+"c": [
+0.255,
+-0.005,
+0.967
+]
+},
+{
+"name": "Radial artery.r",
+"verts": 661,
+"c": [
+-0.255,
+-0.005,
+0.967
+]
+},
+{
+"name": "Radial collateral artery.l",
+"verts": 543,
+"c": [
+0.228,
+0.03,
+1.122
+]
+},
+{
+"name": "Radial collateral artery.r",
+"verts": 543,
+"c": [
+-0.228,
+0.03,
+1.122
+]
+},
+{
+"name": "Radial veins.l",
+"verts": 484,
+"c": [
+0.256,
+-0.005,
+0.971
+]
+},
+{
+"name": "Radial veins.r",
+"verts": 484,
+"c": [
+-0.256,
+-0.005,
+0.971
+]
+},
+{
+"name": "Recurrent interosseous artery.l",
+"verts": 366,
+"c": [
+0.234,
+0.031,
+1.078
+]
+},
+{
+"name": "Recurrent interosseous artery.r",
+"verts": 366,
+"c": [
+-0.234,
+0.031,
+1.078
+]
+},
+{
+"name": "Retromandibular vein.l",
+"verts": 130,
+"c": [
+0.045,
+-0.007,
+1.556
+]
+},
+{
+"name": "Retromandibular vein.r",
+"verts": 130,
+"c": [
+-0.045,
+-0.007,
+1.556
+]
+},
+{
+"name": "Right ascending lumbar vein",
+"verts": 1760,
+"c": [
+-0.002,
+-0.009,
+1.074
+]
+},
+{
+"name": "Right atrioventricular valve.j",
+"verts": 2,
+"c": [
+-0.16,
+-0.033,
+1.283
+]
+},
+{
+"name": "Right atrium",
+"verts": 4756,
+"c": [
+-0.014,
+-0.029,
+1.295
+]
+},
+{
+"name": "Right border of heart.j",
+"verts": 2,
+"c": [
+-0.035,
+-0.056,
+1.26
+]
+},
+{
+"name": "Right brachiocephalic vein",
+"verts": 130,
+"c": [
+-0.017,
+-0.023,
+1.392
+]
+},
+{
+"name": "Right colic artery",
+"verts": 673,
+"c": [
+-0.038,
+-0.036,
+1.075
+]
+},
+{
+"name": "Right colic vein",
+"verts": 1216,
+"c": [
+-0.05,
+-0.023,
+1.04
+]
+},
+{
+"name": "Right common carotid artery",
+"verts": 189,
+"c": [
+-0.023,
+-0.009,
+1.448
+]
+},
+{
+"name": "Right coronary artery",
+"verts": 5717,
+"c": [
+0.018,
+-0.038,
+1.287
+]
+},
+{
+"name": "Right coronary leaflet",
+"verts": 190,
+"c": [
+0.012,
+-0.031,
+1.316
+]
+},
+{
+"name": "Right gastro-omental vein",
+"verts": 1381,
+"c": [
+-0.015,
+-0.051,
+1.113
+]
+},
+{
+"name": "Right inferior pulmonary vein",
+"verts": 142,
+"c": [
+-0.013,
+0.024,
+1.294
+]
+},
+{
+"name": "Right inferolateral branch of right coronary artery",
+"verts": 3874,
+"c": [
+0.049,
+-0.016,
+1.248
+]
+},
+{
+"name": "Right pulmonary artery",
+"verts": 130,
+"c": [
+-0.012,
+0.001,
+1.338
+]
+},
+{
+"name": "Right renal artery",
+"verts": 189,
+"c": [
+-0.011,
+-0.011,
+1.114
+]
+},
+{
+"name": "Right renal vein",
+"verts": 189,
+"c": [
+-0.019,
+-0.01,
+1.103
+]
+},
+{
+"name": "Right semilunar leaflet of pulmonary valve",
+"verts": 565,
+"c": [
+0.019,
+-0.049,
+1.322
+]
+},
+{
+"name": "Right subclavian artery",
+"verts": 189,
+"c": [
+-0.046,
+-0.007,
+1.416
+]
+},
+{
+"name": "Right subclavian vein",
+"verts": 189,
+"c": [
+-0.057,
+-0.011,
+1.407
+]
+},
+{
+"name": "Right subcostal vein",
+"verts": 897,
+"c": [
+-0.042,
+0.032,
+1.111
+]
+},
+{
+"name": "Right superior intercostal vein",
+"verts": 13000,
+"c": [
+-0.069,
+-0.008,
+1.248
+]
+},
+{
+"name": "Right superior phrenic vein",
+"verts": 2240,
+"c": [
+-0.084,
+-0.001,
+1.183
+]
+},
+{
+"name": "Right superior pulmonary vein",
+"verts": 366,
+"c": [
+-0.029,
+0.006,
+1.323
+]
+},
+{
+"name": "Right surface of heart.j",
+"verts": 2,
+"c": [
+0.098,
+-0.022,
+1.282
+]
+},
+{
+"name": "Right testicular artery.r",
+"verts": 2078,
+"c": [
+-0.031,
+-0.017,
+0.914
+]
+},
+{
+"name": "Right testicular vein",
+"verts": 2016,
+"c": [
+-0.04,
+-0.016,
+0.912
+]
+},
+{
+"name": "Right ventricle",
+"verts": 4726,
+"c": [
+0.02,
+-0.048,
+1.285
+]
+},
+{
+"name": "Root of aorta.j",
+"verts": 2,
+"c": [
+-0.14,
+-0.027,
+1.322
+]
+},
+{
+"name": "Root of pulmonary trunk.j",
+"verts": 2,
+"c": [
+0.162,
+-0.051,
+1.329
+]
+},
+{
+"name": "Second posterior intercostal artery.l",
+"verts": 1015,
+"c": [
+0.053,
+-0.013,
+1.382
+]
+},
+{
+"name": "Second posterior intercostal artery.r",
+"verts": 1015,
+"c": [
+-0.055,
+-0.014,
+1.384
+]
+},
+{
+"name": "Septal branches of anterior interventricular artery",
+"verts": 1488,
+"c": [
+0.05,
+-0.058,
+1.288
+]
+},
+{
+"name": "Septal branches of posterior ethmoidal artery.l",
+"verts": 602,
+"c": [
+0.005,
+-0.039,
+1.584
+]
+},
+{
+"name": "Septal branches of posterior ethmoidal artery.r",
+"verts": 602,
+"c": [
+-0.005,
+-0.039,
+1.584
+]
+},
+{
+"name": "Septal leaflet of right atrioventricular valve",
+"verts": 1839,
+"c": [
+0.013,
+-0.029,
+1.289
+]
+},
+{
+"name": "Septal papillary muscle of right ventricle",
+"verts": 175,
+"c": [
+0.024,
+-0.039,
+1.291
+]
+},
+{
+"name": "Short posterior ciliary arteries.l",
+"verts": 555,
+"c": [
+0.019,
+-0.038,
+1.599
+]
+},
+{
+"name": "Short posterior ciliary arteries.r",
+"verts": 555,
+"c": [
+-0.019,
+-0.038,
+1.599
+]
+},
+{
+"name": "Sigmoid arteries",
+"verts": 1890,
+"c": [
+0.038,
+-0.025,
+0.995
+]
+},
+{
+"name": "Sigmoid sinus.l",
+"verts": 189,
+"c": [
+0.053,
+0.031,
+1.58
+]
+},
+{
+"name": "Sigmoid sinus.r",
+"verts": 189,
+"c": [
+-0.053,
+0.031,
+1.58
+]
+},
+{
+"name": "Sigmoid veins",
+"verts": 1890,
+"c": [
+0.038,
+-0.025,
+0.995
+]
+},
+{
+"name": "Small saphenous vein.l",
+"verts": 1192,
+"c": [
+0.091,
+0.066,
+0.262
+]
+},
+{
+"name": "Small saphenous vein.r",
+"verts": 1192,
+"c": [
+-0.091,
+0.066,
+0.262
+]
+},
+{
+"name": "Spinal branch of iliolumbar artery.l",
+"verts": 65,
+"c": [
+0.027,
+0.031,
+0.965
+]
+},
+{
+"name": "Spinal branch of iliolumbar artery.r",
+"verts": 65,
+"c": [
+-0.027,
+0.031,
+0.965
+]
+},
+{
+"name": "Splenic artery",
+"verts": 1855,
+"c": [
+0.052,
+-0.009,
+1.157
+]
+},
+{
+"name": "Splenic vein",
+"verts": 2032,
+"c": [
+0.047,
+-0.015,
+1.157
+]
+},
+{
+"name": "Straight sinus",
+"verts": 484,
+"c": [
+-0.0,
+0.008,
+1.597
+]
+},
+{
+"name": "Subcostal artery.l",
+"verts": 1015,
+"c": [
+0.035,
+0.027,
+1.112
+]
+},
+{
+"name": "Subcostal artery.r",
+"verts": 1015,
+"c": [
+-0.035,
+0.029,
+1.112
+]
+},
+{
+"name": "Submental artery.l",
+"verts": 920,
+"c": [
+0.017,
+-0.054,
+1.505
+]
+},
+{
+"name": "Submental artery.r",
+"verts": 920,
+"c": [
+-0.017,
+-0.054,
+1.505
+]
+},
+{
+"name": "Submental vein.l",
+"verts": 484,
+"c": [
+0.017,
+-0.061,
+1.503
+]
+},
+{
+"name": "Submental vein.r",
+"verts": 484,
+"c": [
+-0.017,
+-0.061,
+1.503
+]
+},
+{
+"name": "Subscapular artery.l",
+"verts": 71,
+"c": [
+0.133,
+0.013,
+1.359
+]
+},
+{
+"name": "Subscapular artery.r",
+"verts": 71,
+"c": [
+-0.133,
+0.013,
+1.359
+]
+},
+{
+"name": "Subscapular vein.l",
+"verts": 378,
+"c": [
+0.132,
+0.016,
+1.321
+]
+},
+{
+"name": "Subscapular vein.r",
+"verts": 378,
+"c": [
+-0.132,
+0.016,
+1.321
+]
+},
+{
+"name": "Superficial branch of medial plantar artery.l",
+"verts": 425,
+"c": [
+0.061,
+-0.042,
+0.029
+]
+},
+{
+"name": "Superficial branch of medial plantar artery.r",
+"verts": 425,
+"c": [
+-0.061,
+-0.042,
+0.029
+]
+},
+{
+"name": "Superficial dorsal veins of penis",
+"verts": 484,
+"c": [
+0.0,
+-0.074,
+0.793
+]
+},
+{
+"name": "Superficial epigastric artery.l",
+"verts": 849,
+"c": [
+0.06,
+-0.073,
+0.958
+]
+},
+{
+"name": "Superficial epigastric artery.r",
+"verts": 849,
+"c": [
+-0.06,
+-0.073,
+0.958
+]
+},
+{
+"name": "Superficial epigastric vein.l",
+"verts": 1515,
+"c": [
+0.049,
+-0.078,
+0.959
+]
+},
+{
+"name": "Superficial epigastric vein.r",
+"verts": 1515,
+"c": [
+-0.049,
+-0.078,
+0.959
+]
+},
+{
+"name": "Superficial external pudendal artery.l",
+"verts": 789,
+"c": [
+0.029,
+-0.056,
+0.796
+]
+},
+{
+"name": "Superficial external pudendal artery.r",
+"verts": 789,
+"c": [
+-0.029,
+-0.056,
+0.796
+]
+},
+{
+"name": "Superficial palmar arch.l",
+"verts": 602,
+"c": [
+0.262,
+-0.027,
+0.843
+]
+},
+{
+"name": "Superficial palmar arch.r",
+"verts": 602,
+"c": [
+-0.262,
+-0.027,
+0.843
+]
+},
+{
+"name": "Superficial temporal artery.l",
+"verts": 5519,
+"c": [
+0.058,
+0.001,
+1.622
+]
+},
+{
+"name": "Superficial temporal artery.r",
+"verts": 5519,
+"c": [
+-0.058,
+0.001,
+1.622
+]
+},
+{
+"name": "Superficial temporal veins.l",
+"verts": 726,
+"c": [
+0.064,
+-0.001,
+1.617
+]
+},
+{
+"name": "Superficial temporal veins.r",
+"verts": 726,
+"c": [
+-0.064,
+-0.001,
+1.617
+]
+},
+{
+"name": "Superficial venous palmar arch.l",
+"verts": 897,
+"c": [
+0.262,
+-0.027,
+0.838
+]
+},
+{
+"name": "Superficial venous palmar arch.r",
+"verts": 897,
+"c": [
+-0.262,
+-0.027,
+0.838
+]
+},
+{
+"name": "Superior anorectal artery",
+"verts": 483,
+"c": [
+-0.009,
+0.019,
+0.902
+]
+},
+{
+"name": "Superior basal vein of left lung",
+"verts": 992,
+"c": [
+0.086,
+0.024,
+1.242
+]
+},
+{
+"name": "Superior basal vein of right lung",
+"verts": 1488,
+"c": [
+-0.061,
+0.043,
+1.269
+]
+},
+{
+"name": "Superior cerebellar artery.l",
+"verts": 2289,
+"c": [
+0.022,
+0.028,
+1.598
+]
+},
+{
+"name": "Superior cerebellar artery.r",
+"verts": 2289,
+"c": [
+-0.022,
+0.028,
+1.598
+]
+},
+{
+"name": "Superior epigastric artery.l",
+"verts": 614,
+"c": [
+0.017,
+-0.101,
+1.169
+]
+},
+{
+"name": "Superior epigastric artery.r",
+"verts": 614,
+"c": [
+-0.017,
+-0.101,
+1.169
+]
+},
+{
+"name": "Superior epigastric veins.l",
+"verts": 366,
+"c": [
+0.016,
+-0.1,
+1.183
+]
+},
+{
+"name": "Superior epigastric veins.r",
+"verts": 366,
+"c": [
+-0.016,
+-0.1,
+1.183
+]
+},
+{
+"name": "Superior gluteal artery.l",
+"verts": 3734,
+"c": [
+0.054,
+0.044,
+0.933
+]
+},
+{
+"name": "Superior gluteal artery.r",
+"verts": 3734,
+"c": [
+-0.054,
+0.044,
+0.933
+]
+},
+{
+"name": "Superior gluteal veins.l",
+"verts": 978,
+"c": [
+0.05,
+0.043,
+0.931
+]
+},
+{
+"name": "Superior gluteal veins.r",
+"verts": 978,
+"c": [
+-0.05,
+0.043,
+0.931
+]
+},
+{
+"name": "Superior labial artery.l",
+"verts": 248,
+"c": [
+0.023,
+-0.077,
+1.543
+]
+},
+{
+"name": "Superior labial artery.r",
+"verts": 248,
+"c": [
+-0.023,
+-0.077,
+1.543
+]
+},
+{
+"name": "Superior labial vein.l",
+"verts": 247,
+"c": [
+0.023,
+-0.077,
+1.541
+]
+},
+{
+"name": "Superior labial vein.r",
+"verts": 247,
+"c": [
+-0.023,
+-0.077,
+1.541
+]
+},
+{
+"name": "Superior lateral genicular artery.l",
+"verts": 365,
+"c": [
+0.096,
+0.016,
+0.504
+]
+},
+{
+"name": "Superior lateral genicular artery.r",
+"verts": 365,
+"c": [
+-0.096,
+0.016,
+0.504
+]
+},
+{
+"name": "Superior lingular artery of left lung",
+"verts": 862,
+"c": [
+0.084,
+-0.02,
+1.312
+]
+},
+{
+"name": "Superior lingular vein of left lung",
+"verts": 437,
+"c": [
+0.077,
+-0.023,
+1.302
+]
+},
+{
+"name": "Superior lobar artery of left lung.j",
+"verts": 2,
+"c": [
+0.182,
+0.025,
+1.371
+]
+},
+{
+"name": "Superior lobar artery of right lung",
+"verts": 71,
+"c": [
+-0.005,
+-0.001,
+1.343
+]
+},
+{
+"name": "Superior medial genicular artery.l",
+"verts": 1038,
+"c": [
+0.06,
+0.012,
+0.498
+]
+},
+{
+"name": "Superior medial genicular artery.r",
+"verts": 1038,
+"c": [
+-0.06,
+0.012,
+0.498
+]
+},
+{
+"name": "Superior mesenteric artery",
+"verts": 2624,
+"c": [
+-0.002,
+-0.039,
+1.057
+]
+},
+{
+"name": "Superior mesenteric vein",
+"verts": 1192,
+"c": [
+-0.03,
+-0.033,
+1.067
+]
+},
+{
+"name": "Superior ophthalmic vein.l",
+"verts": 248,
+"c": [
+0.02,
+-0.053,
+1.605
+]
+},
+{
+"name": "Superior ophthalmic vein.r",
+"verts": 248,
+"c": [
+-0.02,
+-0.053,
+1.605
+]
+},
+{
+"name": "Superior petrosal sinus.l",
+"verts": 365,
+"c": [
+0.037,
+0.017,
+1.593
+]
+},
+{
+"name": "Superior petrosal sinus.r",
+"verts": 365,
+"c": [
+-0.037,
+0.017,
+1.593
+]
+},
+{
+"name": "Superior phrenic arteries",
+"verts": 2970,
+"c": [
+-0.07,
+-0.004,
+1.192
+]
+},
+{
+"name": "Superior sagittal sinus",
+"verts": 1309,
+"c": [
+-0.0,
+0.009,
+1.641
+]
+},
+{
+"name": "Superior segmental artery of left lung",
+"verts": 874,
+"c": [
+0.068,
+0.047,
+1.323
+]
+},
+{
+"name": "Superior segmental artery of right lung",
+"verts": 1761,
+"c": [
+-0.069,
+0.047,
+1.305
+]
+},
+{
+"name": "Superior thyroid vein.l",
+"verts": 244,
+"c": [
+0.032,
+-0.008,
+1.486
+]
+},
+{
+"name": "Superior thyroid vein.r",
+"verts": 244,
+"c": [
+-0.032,
+-0.008,
+1.486
+]
+},
+{
+"name": "Superior ulnar collateral artery.l",
+"verts": 366,
+"c": [
+0.192,
+0.034,
+1.133
+]
+},
+{
+"name": "Superior ulnar collateral artery.r",
+"verts": 366,
+"c": [
+-0.192,
+0.034,
+1.133
+]
+},
+{
+"name": "Superior vein of left lung",
+"verts": 1879,
+"c": [
+0.086,
+0.017,
+1.261
+]
+},
+{
+"name": "Superior vein of right lung",
+"verts": 1560,
+"c": [
+-0.062,
+0.049,
+1.305
+]
+},
+{
+"name": "Superior vena cava",
+"verts": 71,
+"c": [
+-0.016,
+-0.019,
+1.359
+]
+},
+{
+"name": "Supra-orbital artery.l",
+"verts": 1736,
+"c": [
+0.027,
+-0.066,
+1.623
+]
+},
+{
+"name": "Supra-orbital artery.r",
+"verts": 1736,
+"c": [
+-0.027,
+-0.066,
+1.623
+]
+},
+{
+"name": "Suprascapular artery.l",
+"verts": 666,
+"c": [
+0.093,
+0.044,
+1.399
+]
+},
+{
+"name": "Suprascapular artery.r",
+"verts": 666,
+"c": [
+-0.093,
+0.044,
+1.399
+]
+},
+{
+"name": "Suprascapular vein.l",
+"verts": 540,
+"c": [
+0.094,
+0.021,
+1.392
+]
+},
+{
+"name": "Suprascapular vein.r",
+"verts": 540,
+"c": [
+-0.094,
+0.021,
+1.392
+]
+},
+{
+"name": "Supratrochlear artery.l",
+"verts": 1225,
+"c": [
+0.013,
+-0.06,
+1.609
+]
+},
+{
+"name": "Supratrochlear artery.r",
+"verts": 1225,
+"c": [
+-0.013,
+-0.06,
+1.609
+]
+},
+{
+"name": "Supreme intercostal artery.l",
+"verts": 130,
+"c": [
+0.048,
+0.015,
+1.42
+]
+},
+{
+"name": "Supreme intercostal artery.r",
+"verts": 130,
+"c": [
+-0.048,
+0.015,
+1.42
+]
+},
+{
+"name": "Systemic arteries.j",
+"verts": 2,
+"c": [
+-0.259,
+0.023,
+1.231
+]
+},
+{
+"name": "Systemic veins.j",
+"verts": 2,
+"c": [
+-0.264,
+0.02,
+1.205
+]
+},
+{
+"name": "Temporal branches of middle cerebral artery.l",
+"verts": 1086,
+"c": [
+0.062,
+0.02,
+1.615
+]
+},
+{
+"name": "Temporal branches of middle cerebral artery.r",
+"verts": 1086,
+"c": [
+-0.062,
+0.02,
+1.615
+]
+},
+{
+"name": "Temporo-occipital branch.l",
+"verts": 1743,
+"c": [
+0.038,
+0.075,
+1.618
+]
+},
+{
+"name": "Temporo-occipital branch.r",
+"verts": 1743,
+"c": [
+-0.038,
+0.075,
+1.618
+]
+},
+{
+"name": "Thoracic aorta",
+"verts": 189,
+"c": [
+0.015,
+0.025,
+1.285
+]
+},
+{
+"name": "Thoraco-acromial artery.l",
+"verts": 71,
+"c": [
+0.095,
+0.0,
+1.4
+]
+},
+{
+"name": "Thoraco-acromial artery.r",
+"verts": 71,
+"c": [
+-0.095,
+0.0,
+1.4
+]
+},
+{
+"name": "Thoracodorsal artery.l",
+"verts": 307,
+"c": [
+0.134,
+0.024,
+1.314
+]
+},
+{
+"name": "Thoracodorsal artery.r",
+"verts": 307,
+"c": [
+-0.134,
+0.024,
+1.314
+]
+},
+{
+"name": "Thoracodorsal vein.l",
+"verts": 425,
+"c": [
+0.126,
+-0.009,
+1.328
+]
+},
+{
+"name": "Thoracodorsal vein.r",
+"verts": 425,
+"c": [
+-0.126,
+-0.009,
+1.328
+]
+},
+{
+"name": "Thyrocervical trunk.l",
+"verts": 71,
+"c": [
+0.041,
+-0.0,
+1.426
+]
+},
+{
+"name": "Thyrocervical trunk.r",
+"verts": 71,
+"c": [
+-0.041,
+-0.0,
+1.426
+]
+},
+{
+"name": "Transverse cervical artery.l",
+"verts": 685,
+"c": [
+0.051,
+0.006,
+1.454
+]
+},
+{
+"name": "Transverse cervical artery.r",
+"verts": 685,
+"c": [
+-0.051,
+0.006,
+1.454
+]
+},
+{
+"name": "Transverse facial artery.l",
+"verts": 838,
+"c": [
+0.043,
+-0.038,
+1.571
+]
+},
+{
+"name": "Transverse facial artery.r",
+"verts": 838,
+"c": [
+-0.043,
+-0.038,
+1.571
+]
+},
+{
+"name": "Transverse sinus.l",
+"verts": 425,
+"c": [
+0.03,
+0.06,
+1.587
+]
+},
+{
+"name": "Transverse sinus.r",
+"verts": 425,
+"c": [
+-0.03,
+0.06,
+1.587
+]
+},
+{
+"name": "Ulnar artery.l",
+"verts": 425,
+"c": [
+0.237,
+-0.006,
+0.975
+]
+},
+{
+"name": "Ulnar artery.r",
+"verts": 425,
+"c": [
+-0.237,
+-0.006,
+0.975
+]
+},
+{
+"name": "Ulnar veins.l",
+"verts": 543,
+"c": [
+0.243,
+-0.006,
+0.971
+]
+},
+{
+"name": "Ulnar veins.r",
+"verts": 543,
+"c": [
+-0.243,
+-0.006,
+0.971
+]
+},
+{
+"name": "Union of brachiocephalic veins.j",
+"verts": 2,
+"c": [
+-0.014,
+-0.09,
+1.38
+]
+},
+{
+"name": "Valvular complex of heart.j",
+"verts": 2,
+"c": [
+0.168,
+-0.026,
+1.353
+]
+},
+{
+"name": "Vertebral artery.l",
+"verts": 1015,
+"c": [
+0.021,
+0.016,
+1.5
+]
+},
+{
+"name": "Vertebral artery.r",
+"verts": 1015,
+"c": [
+-0.021,
+0.016,
+1.5
+]
+},
+{
+"name": "Vertebral vein.l",
+"verts": 720,
+"c": [
+0.036,
+0.011,
+1.489
+]
+},
+{
+"name": "Vertebral vein.r",
+"verts": 720,
+"c": [
+-0.036,
+0.011,
+1.489
+]
+}
+]

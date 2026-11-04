@@ -1,0 +1,2711 @@
+[
+{
+"name": "Anal region.l",
+"verts": 26,
+"c": [
+0.008,
+0.043,
+0.761
+]
+},
+{
+"name": "Anal region.r",
+"verts": 26,
+"c": [
+-0.008,
+0.043,
+0.761
+]
+},
+{
+"name": "Angle of mouth.l",
+"verts": 42,
+"c": [
+0.027,
+-0.081,
+1.531
+]
+},
+{
+"name": "Angle of mouth.r",
+"verts": 42,
+"c": [
+-0.027,
+-0.081,
+1.531
+]
+},
+{
+"name": "Antebrachial region.j",
+"verts": 8,
+"c": [
+-0.333,
+0.005,
+0.964
+]
+},
+{
+"name": "Anterior notch of auricle.l",
+"verts": 38,
+"c": [
+0.071,
+-0.001,
+1.584
+]
+},
+{
+"name": "Anterior notch of auricle.r",
+"verts": 38,
+"c": [
+-0.071,
+-0.001,
+1.584
+]
+},
+{
+"name": "Anterior region of ankle.l",
+"verts": 274,
+"c": [
+0.081,
+0.039,
+0.091
+]
+},
+{
+"name": "Anterior region of ankle.r",
+"verts": 274,
+"c": [
+-0.081,
+0.039,
+0.091
+]
+},
+{
+"name": "Anterior region of arm.l",
+"verts": 514,
+"c": [
+0.209,
+0.01,
+1.221
+]
+},
+{
+"name": "Anterior region of arm.r",
+"verts": 514,
+"c": [
+-0.209,
+0.01,
+1.221
+]
+},
+{
+"name": "Anterior region of elbow.l",
+"verts": 216,
+"c": [
+0.227,
+0.018,
+1.108
+]
+},
+{
+"name": "Anterior region of elbow.r",
+"verts": 216,
+"c": [
+-0.227,
+0.018,
+1.108
+]
+},
+{
+"name": "Anterior region of forearm.l",
+"verts": 586,
+"c": [
+0.238,
+-0.006,
+0.971
+]
+},
+{
+"name": "Anterior region of forearm.r",
+"verts": 586,
+"c": [
+-0.238,
+-0.006,
+0.971
+]
+},
+{
+"name": "Anterior region of knee.l",
+"verts": 376,
+"c": [
+0.082,
+-0.006,
+0.443
+]
+},
+{
+"name": "Anterior region of knee.r",
+"verts": 376,
+"c": [
+-0.082,
+-0.006,
+0.443
+]
+},
+{
+"name": "Anterior region of leg.l",
+"verts": 628,
+"c": [
+0.09,
+0.017,
+0.255
+]
+},
+{
+"name": "Anterior region of leg.r",
+"verts": 628,
+"c": [
+-0.09,
+0.017,
+0.255
+]
+},
+{
+"name": "Anterior region of neck.j",
+"verts": 8,
+"c": [
+-0.0,
+-0.082,
+1.453
+]
+},
+{
+"name": "Anterior region of thigh.j",
+"verts": 220,
+"c": [
+-0.093,
+-0.106,
+0.66
+]
+},
+{
+"name": "Anterior region of thigh.l",
+"verts": 946,
+"c": [
+0.093,
+-0.017,
+0.758
+]
+},
+{
+"name": "Anterior region of thigh.r",
+"verts": 946,
+"c": [
+-0.093,
+-0.017,
+0.758
+]
+},
+{
+"name": "Anterior region of thorax.j",
+"verts": 8,
+"c": [
+0.0,
+-0.156,
+1.309
+]
+},
+{
+"name": "Anterior region of wrist.l",
+"verts": 108,
+"c": [
+0.27,
+-0.036,
+0.846
+]
+},
+{
+"name": "Anterior region of wrist.r",
+"verts": 108,
+"c": [
+-0.27,
+-0.036,
+0.846
+]
+},
+{
+"name": "Antihelix.l",
+"verts": 64,
+"c": [
+0.081,
+0.009,
+1.579
+]
+},
+{
+"name": "Antihelix.r",
+"verts": 64,
+"c": [
+-0.081,
+0.009,
+1.579
+]
+},
+{
+"name": "Antitragus.l",
+"verts": 29,
+"c": [
+0.073,
+0.003,
+1.565
+]
+},
+{
+"name": "Antitragus.r",
+"verts": 29,
+"c": [
+-0.073,
+0.003,
+1.565
+]
+},
+{
+"name": "Apex of auricle.l",
+"verts": 27,
+"c": [
+0.088,
+0.007,
+1.605
+]
+},
+{
+"name": "Apex of auricle.r",
+"verts": 27,
+"c": [
+-0.088,
+0.007,
+1.605
+]
+},
+{
+"name": "Apex of nose.j",
+"verts": 8,
+"c": [
+-0.002,
+-0.126,
+1.558
+]
+},
+{
+"name": "Auricular region.j",
+"verts": 8,
+"c": [
+-0.126,
+0.005,
+1.582
+]
+},
+{
+"name": "Auricular region.l",
+"verts": 148,
+"c": [
+0.066,
+0.005,
+1.58
+]
+},
+{
+"name": "Auricular region.r",
+"verts": 148,
+"c": [
+-0.066,
+0.005,
+1.58
+]
+},
+{
+"name": "Auricular tubercle.l",
+"verts": 20,
+"c": [
+0.092,
+0.017,
+1.59
+]
+},
+{
+"name": "Auricular tubercle.r",
+"verts": 20,
+"c": [
+-0.092,
+0.017,
+1.59
+]
+},
+{
+"name": "Brachial region.j",
+"verts": 8,
+"c": [
+-0.301,
+0.042,
+1.199
+]
+},
+{
+"name": "Buccal region.l",
+"verts": 216,
+"c": [
+0.04,
+-0.064,
+1.529
+]
+},
+{
+"name": "Buccal region.r",
+"verts": 216,
+"c": [
+-0.04,
+-0.064,
+1.529
+]
+},
+{
+"name": "Carotid triangle.l",
+"verts": 44,
+"c": [
+0.032,
+-0.033,
+1.493
+]
+},
+{
+"name": "Carotid triangle.r",
+"verts": 44,
+"c": [
+-0.032,
+-0.033,
+1.493
+]
+},
+{
+"name": "Carpal region.j",
+"verts": 8,
+"c": [
+-0.341,
+-0.03,
+0.845
+]
+},
+{
+"name": "Cavity of concha.l",
+"verts": 122,
+"c": [
+0.071,
+0.006,
+1.573
+]
+},
+{
+"name": "Cavity of concha.r",
+"verts": 122,
+"c": [
+-0.071,
+0.006,
+1.573
+]
+},
+{
+"name": "Cheek.j",
+"verts": 8,
+"c": [
+-0.067,
+-0.054,
+1.533
+]
+},
+{
+"name": "Chin.j",
+"verts": 8,
+"c": [
+-0.0,
+-0.095,
+1.497
+]
+},
+{
+"name": "Concha of auricle.l",
+"verts": 51,
+"c": [
+0.073,
+0.008,
+1.578
+]
+},
+{
+"name": "Concha of auricle.r",
+"verts": 51,
+"c": [
+-0.073,
+0.008,
+1.578
+]
+},
+{
+"name": "Cross Section X.004",
+"verts": 4,
+"c": [
+0.4,
+0.0,
+0.85
+]
+},
+{
+"name": "Cross Section Y.004",
+"verts": 4,
+"c": [
+0.0,
+0.22,
+0.85
+]
+},
+{
+"name": "Cross Section Z.004",
+"verts": 4,
+"c": [
+0.0,
+0.0,
+1.79
+]
+},
+{
+"name": "Crura of antihelix.l",
+"verts": 69,
+"c": [
+0.079,
+0.006,
+1.594
+]
+},
+{
+"name": "Crura of antihelix.r",
+"verts": 69,
+"c": [
+-0.079,
+0.006,
+1.594
+]
+},
+{
+"name": "Cubital fossa.l",
+"verts": 70,
+"c": [
+0.219,
+0.006,
+1.125
+]
+},
+{
+"name": "Cubital fossa.r",
+"verts": 70,
+"c": [
+-0.219,
+0.006,
+1.125
+]
+},
+{
+"name": "Cubital region.j",
+"verts": 8,
+"c": [
+-0.308,
+0.039,
+1.107
+]
+},
+{
+"name": "Cymba conchae.l",
+"verts": 59,
+"c": [
+0.075,
+0.008,
+1.583
+]
+},
+{
+"name": "Cymba conchae.r",
+"verts": 59,
+"c": [
+-0.075,
+0.008,
+1.583
+]
+},
+{
+"name": "Deltoid region.l",
+"verts": 314,
+"c": [
+0.188,
+0.035,
+1.355
+]
+},
+{
+"name": "Deltoid region.r",
+"verts": 314,
+"c": [
+-0.188,
+0.035,
+1.355
+]
+},
+{
+"name": "Deltopectoral triangle.l",
+"verts": 46,
+"c": [
+0.138,
+-0.012,
+1.388
+]
+},
+{
+"name": "Deltopectoral triangle.r",
+"verts": 46,
+"c": [
+-0.138,
+-0.012,
+1.388
+]
+},
+{
+"name": "Distal transverse arch of foot.l",
+"verts": 42,
+"c": [
+0.116,
+-0.062,
+0.005
+]
+},
+{
+"name": "Distal transverse arch of foot.r",
+"verts": 42,
+"c": [
+-0.116,
+-0.062,
+0.005
+]
+},
+{
+"name": "Dorsal surfaces of digits of foot.l",
+"verts": 648,
+"c": [
+0.106,
+-0.096,
+0.025
+]
+},
+{
+"name": "Dorsal surfaces of digits of foot.r",
+"verts": 648,
+"c": [
+-0.106,
+-0.096,
+0.025
+]
+},
+{
+"name": "Dorsal surfaces of digits of hand.l",
+"verts": 2144,
+"c": [
+0.282,
+-0.062,
+0.759
+]
+},
+{
+"name": "Dorsal surfaces of digits of hand.r",
+"verts": 2144,
+"c": [
+-0.282,
+-0.062,
+0.759
+]
+},
+{
+"name": "Dorsum of foot.l",
+"verts": 176,
+"c": [
+0.083,
+0.011,
+0.062
+]
+},
+{
+"name": "Dorsum of foot.r",
+"verts": 176,
+"c": [
+-0.083,
+0.011,
+0.062
+]
+},
+{
+"name": "Dorsum of hand.l",
+"verts": 358,
+"c": [
+0.274,
+-0.031,
+0.801
+]
+},
+{
+"name": "Dorsum of hand.r",
+"verts": 358,
+"c": [
+-0.274,
+-0.031,
+0.801
+]
+},
+{
+"name": "Eminentia conchae.l",
+"verts": 45,
+"c": [
+0.07,
+0.011,
+1.576
+]
+},
+{
+"name": "Eminentia conchae.r",
+"verts": 45,
+"c": [
+-0.07,
+0.011,
+1.576
+]
+},
+{
+"name": "Eminentia fossae triangularis.l",
+"verts": 39,
+"c": [
+0.078,
+0.004,
+1.599
+]
+},
+{
+"name": "Eminentia fossae triangularis.r",
+"verts": 39,
+"c": [
+-0.078,
+0.004,
+1.599
+]
+},
+{
+"name": "Eminentia scaphae.l",
+"verts": 72,
+"c": [
+0.08,
+0.014,
+1.588
+]
+},
+{
+"name": "Eminentia scaphae.r",
+"verts": 72,
+"c": [
+-0.08,
+0.014,
+1.588
+]
+},
+{
+"name": "Epigastric region.l",
+"verts": 94,
+"c": [
+0.041,
+-0.118,
+1.159
+]
+},
+{
+"name": "Epigastric region.r",
+"verts": 94,
+"c": [
+-0.041,
+-0.118,
+1.159
+]
+},
+{
+"name": "External nose.j",
+"verts": 8,
+"c": [
+-0.019,
+-0.098,
+1.572
+]
+},
+{
+"name": "Eyebrow.l",
+"verts": 28,
+"c": [
+0.03,
+-0.085,
+1.617
+]
+},
+{
+"name": "Eyebrow.r",
+"verts": 28,
+"c": [
+-0.03,
+-0.085,
+1.617
+]
+},
+{
+"name": "Eyelashes.l",
+"verts": 302,
+"c": [
+-0.032,
+-0.078,
+1.59
+]
+},
+{
+"name": "Eyelashes.r",
+"verts": 302,
+"c": [
+0.032,
+-0.078,
+1.59
+]
+},
+{
+"name": "Eyelids.j",
+"verts": 8,
+"c": [
+-0.042,
+-0.092,
+1.595
+]
+},
+{
+"name": "Femoral region.j",
+"verts": 8,
+"c": [
+-0.22,
+0.018,
+0.632
+]
+},
+{
+"name": "Femoral triangle.l",
+"verts": 108,
+"c": [
+0.065,
+-0.065,
+0.84
+]
+},
+{
+"name": "Femoral triangle.r",
+"verts": 108,
+"c": [
+-0.065,
+-0.065,
+0.84
+]
+},
+{
+"name": "Fossa antihelica.l",
+"verts": 42,
+"c": [
+0.078,
+0.017,
+1.579
+]
+},
+{
+"name": "Fossa antihelica.r",
+"verts": 42,
+"c": [
+-0.078,
+0.017,
+1.579
+]
+},
+{
+"name": "Frontal region.l",
+"verts": 278,
+"c": [
+0.035,
+-0.059,
+1.646
+]
+},
+{
+"name": "Frontal region.r",
+"verts": 278,
+"c": [
+-0.035,
+-0.059,
+1.646
+]
+},
+{
+"name": "Gluteal fold.l",
+"verts": 28,
+"c": [
+0.057,
+0.095,
+0.77
+]
+},
+{
+"name": "Gluteal fold.r",
+"verts": 28,
+"c": [
+-0.057,
+0.095,
+0.77
+]
+},
+{
+"name": "Gluteal region.j",
+"verts": 8,
+"c": [
+-0.078,
+0.17,
+0.842
+]
+},
+{
+"name": "Gluteal region.l",
+"verts": 418,
+"c": [
+0.085,
+0.083,
+0.893
+]
+},
+{
+"name": "Gluteal region.r",
+"verts": 418,
+"c": [
+-0.085,
+0.083,
+0.893
+]
+},
+{
+"name": "Greater supraclavicular fossa.l",
+"verts": 102,
+"c": [
+0.078,
+-0.006,
+1.45
+]
+},
+{
+"name": "Greater supraclavicular fossa.r",
+"verts": 102,
+"c": [
+-0.078,
+-0.006,
+1.45
+]
+},
+{
+"name": "Hairs of eyebrow.l",
+"verts": 397,
+"c": [
+0.033,
+-0.083,
+1.613
+]
+},
+{
+"name": "Hairs of eyebrow.r",
+"verts": 397,
+"c": [
+-0.033,
+-0.083,
+1.613
+]
+},
+{
+"name": "Hairs of head",
+"verts": 8283,
+"c": [
+-0.005,
+0.022,
+1.633
+]
+},
+{
+"name": "Hairs.j",
+"verts": 8,
+"c": [
+0.122,
+0.022,
+1.652
+]
+},
+{
+"name": "Hallucial eminence.l",
+"verts": 132,
+"c": [
+0.071,
+-0.075,
+0.016
+]
+},
+{
+"name": "Hallucial eminence.r",
+"verts": 132,
+"c": [
+-0.071,
+-0.075,
+0.016
+]
+},
+{
+"name": "Heel region.l",
+"verts": 314,
+"c": [
+0.078,
+0.077,
+0.035
+]
+},
+{
+"name": "Heel region.r",
+"verts": 314,
+"c": [
+-0.078,
+0.077,
+0.035
+]
+},
+{
+"name": "Helix.l",
+"verts": 289,
+"c": [
+0.083,
+0.008,
+1.582
+]
+},
+{
+"name": "Helix.r",
+"verts": 289,
+"c": [
+-0.083,
+0.008,
+1.582
+]
+},
+{
+"name": "Hip region.l",
+"verts": 84,
+"c": [
+0.165,
+0.015,
+0.849
+]
+},
+{
+"name": "Hip region.r",
+"verts": 84,
+"c": [
+-0.165,
+0.015,
+0.849
+]
+},
+{
+"name": "Hypochondriac region.l",
+"verts": 128,
+"c": [
+0.113,
+-0.034,
+1.134
+]
+},
+{
+"name": "Hypochondriac region.r",
+"verts": 128,
+"c": [
+-0.113,
+-0.034,
+1.134
+]
+},
+{
+"name": "Hypogastric region.l",
+"verts": 150,
+"c": [
+0.035,
+-0.088,
+0.896
+]
+},
+{
+"name": "Hypogastric region.r",
+"verts": 150,
+"c": [
+-0.035,
+-0.088,
+0.896
+]
+},
+{
+"name": "Infra-orbital region.l",
+"verts": 74,
+"c": [
+0.043,
+-0.027,
+1.604
+]
+},
+{
+"name": "Infra-orbital region.r",
+"verts": 74,
+"c": [
+-0.043,
+-0.027,
+1.604
+]
+},
+{
+"name": "Infraclavicular fossa.l",
+"verts": 108,
+"c": [
+0.08,
+-0.022,
+1.409
+]
+},
+{
+"name": "Infraclavicular fossa.r",
+"verts": 108,
+"c": [
+-0.08,
+-0.022,
+1.409
+]
+},
+{
+"name": "Infrahyoid region.j",
+"verts": 8,
+"c": [
+-0.0,
+-0.068,
+1.443
+]
+},
+{
+"name": "Inframammary region.l",
+"verts": 48,
+"c": [
+0.045,
+-0.123,
+1.212
+]
+},
+{
+"name": "Inframammary region.r",
+"verts": 48,
+"c": [
+-0.045,
+-0.123,
+1.212
+]
+},
+{
+"name": "Infrascapular region.l",
+"verts": 242,
+"c": [
+0.084,
+0.088,
+1.179
+]
+},
+{
+"name": "Infrascapular region.r",
+"verts": 242,
+"c": [
+-0.084,
+0.088,
+1.179
+]
+},
+{
+"name": "Inguinal region.l",
+"verts": 88,
+"c": [
+0.075,
+-0.078,
+0.899
+]
+},
+{
+"name": "Inguinal region.r",
+"verts": 88,
+"c": [
+-0.075,
+-0.078,
+0.899
+]
+},
+{
+"name": "Interscapular region.l",
+"verts": 136,
+"c": [
+0.053,
+0.117,
+1.351
+]
+},
+{
+"name": "Interscapular region.r",
+"verts": 136,
+"c": [
+-0.053,
+0.117,
+1.351
+]
+},
+{
+"name": "Intertragic incisure.l",
+"verts": 46,
+"c": [
+0.068,
+-0.003,
+1.567
+]
+},
+{
+"name": "Intertragic incisure.r",
+"verts": 46,
+"c": [
+-0.068,
+-0.003,
+1.567
+]
+},
+{
+"name": "Knee region.j",
+"verts": 8,
+"c": [
+-0.174,
+0.025,
+0.437
+]
+},
+{
+"name": "Labial commissure.l",
+"verts": 72,
+"c": [
+0.012,
+-0.087,
+1.531
+]
+},
+{
+"name": "Labial commissure.r",
+"verts": 72,
+"c": [
+-0.012,
+-0.087,
+1.531
+]
+},
+{
+"name": "Lateral bicipital groove.l",
+"verts": 52,
+"c": [
+0.23,
+0.011,
+1.211
+]
+},
+{
+"name": "Lateral bicipital groove.r",
+"verts": 52,
+"c": [
+-0.23,
+0.011,
+1.211
+]
+},
+{
+"name": "Lateral border of foot.l",
+"verts": 154,
+"c": [
+0.125,
+0.005,
+0.028
+]
+},
+{
+"name": "Lateral border of foot.r",
+"verts": 154,
+"c": [
+-0.125,
+0.005,
+0.028
+]
+},
+{
+"name": "Lateral border of forearm.l",
+"verts": 80,
+"c": [
+0.282,
+0.005,
+0.978
+]
+},
+{
+"name": "Lateral border of forearm.r",
+"verts": 80,
+"c": [
+-0.282,
+0.005,
+0.978
+]
+},
+{
+"name": "Lateral malleolus.l",
+"verts": 98,
+"c": [
+0.106,
+0.057,
+0.074
+]
+},
+{
+"name": "Lateral malleolus.r",
+"verts": 98,
+"c": [
+-0.106,
+0.057,
+0.074
+]
+},
+{
+"name": "Lateral part of longitudinal arch of foot.l",
+"verts": 80,
+"c": [
+0.122,
+0.008,
+0.009
+]
+},
+{
+"name": "Lateral part of longitudinal arch of foot.r",
+"verts": 80,
+"c": [
+-0.122,
+0.008,
+0.009
+]
+},
+{
+"name": "Lateral region of abdomen.l",
+"verts": 182,
+"c": [
+0.111,
+-0.031,
+1.029
+]
+},
+{
+"name": "Lateral region of abdomen.r",
+"verts": 182,
+"c": [
+-0.111,
+-0.031,
+1.029
+]
+},
+{
+"name": "Lateral region of neck.j",
+"verts": 8,
+"c": [
+-0.146,
+0.0,
+1.44
+]
+},
+{
+"name": "Lateral region of neck.l",
+"verts": 232,
+"c": [
+0.076,
+0.011,
+1.485
+]
+},
+{
+"name": "Lateral region of neck.r",
+"verts": 232,
+"c": [
+-0.076,
+0.011,
+1.485
+]
+},
+{
+"name": "Lateral region of thorax.l",
+"verts": 396,
+"c": [
+0.13,
+0.001,
+1.251
+]
+},
+{
+"name": "Lateral region of thorax.r",
+"verts": 396,
+"c": [
+-0.13,
+0.001,
+1.251
+]
+},
+{
+"name": "Lateral retromalleolar region.l",
+"verts": 108,
+"c": [
+0.09,
+0.078,
+0.081
+]
+},
+{
+"name": "Lateral retromalleolar region.r",
+"verts": 108,
+"c": [
+-0.09,
+0.078,
+0.081
+]
+},
+{
+"name": "Leg region.j",
+"verts": 8,
+"c": [
+-0.181,
+0.054,
+0.236
+]
+},
+{
+"name": "Lesser supraclavicular fossa.l",
+"verts": 26,
+"c": [
+0.05,
+-0.036,
+1.429
+]
+},
+{
+"name": "Lesser supraclavicular fossa.r",
+"verts": 26,
+"c": [
+-0.05,
+-0.036,
+1.429
+]
+},
+{
+"name": "Lobule of auricle.l",
+"verts": 128,
+"c": [
+0.071,
+0.001,
+1.559
+]
+},
+{
+"name": "Lobule of auricle.r",
+"verts": 128,
+"c": [
+-0.071,
+0.001,
+1.559
+]
+},
+{
+"name": "Lower eyelid.j",
+"verts": 8,
+"c": [
+-0.029,
+-0.093,
+1.582
+]
+},
+{
+"name": "Lumbar region.l",
+"verts": 194,
+"c": [
+0.084,
+0.073,
+1.05
+]
+},
+{
+"name": "Lumbar region.r",
+"verts": 194,
+"c": [
+-0.084,
+0.073,
+1.05
+]
+},
+{
+"name": "Mammary region.l",
+"verts": 162,
+"c": [
+0.109,
+-0.1,
+1.284
+]
+},
+{
+"name": "Mammary region.r",
+"verts": 162,
+"c": [
+-0.109,
+-0.1,
+1.284
+]
+},
+{
+"name": "Mastoid region.l",
+"verts": 60,
+"c": [
+0.065,
+0.037,
+1.586
+]
+},
+{
+"name": "Mastoid region.r",
+"verts": 60,
+"c": [
+-0.065,
+0.037,
+1.586
+]
+},
+{
+"name": "Medial bicipital groove.l",
+"verts": 40,
+"c": [
+0.18,
+0.012,
+1.187
+]
+},
+{
+"name": "Medial bicipital groove.r",
+"verts": 40,
+"c": [
+-0.18,
+0.012,
+1.187
+]
+},
+{
+"name": "Medial border of foot.l",
+"verts": 156,
+"c": [
+0.053,
+-0.002,
+0.042
+]
+},
+{
+"name": "Medial border of foot.r",
+"verts": 156,
+"c": [
+-0.053,
+-0.002,
+0.042
+]
+},
+{
+"name": "Medial border of forearm.l",
+"verts": 80,
+"c": [
+0.208,
+0.008,
+0.968
+]
+},
+{
+"name": "Medial border of forearm.r",
+"verts": 80,
+"c": [
+-0.208,
+0.008,
+0.968
+]
+},
+{
+"name": "Medial malleolus.l",
+"verts": 78,
+"c": [
+0.047,
+0.042,
+0.077
+]
+},
+{
+"name": "Medial malleolus.r",
+"verts": 78,
+"c": [
+-0.047,
+0.042,
+0.077
+]
+},
+{
+"name": "Medial part of longitudinal arch of foot.l",
+"verts": 56,
+"c": [
+0.07,
+-0.008,
+0.015
+]
+},
+{
+"name": "Medial part of longitudinal arch of foot.r",
+"verts": 56,
+"c": [
+-0.07,
+-0.008,
+0.015
+]
+},
+{
+"name": "Medial retromalleolar region.l",
+"verts": 118,
+"c": [
+0.058,
+0.068,
+0.083
+]
+},
+{
+"name": "Medial retromalleolar region.r",
+"verts": 118,
+"c": [
+-0.058,
+0.068,
+0.083
+]
+},
+{
+"name": "Mental region.l",
+"verts": 106,
+"c": [
+0.012,
+-0.08,
+1.502
+]
+},
+{
+"name": "Mental region.r",
+"verts": 106,
+"c": [
+-0.012,
+-0.08,
+1.502
+]
+},
+{
+"name": "Mentolabial sulcus.l",
+"verts": 56,
+"c": [
+0.006,
+-0.089,
+1.516
+]
+},
+{
+"name": "Mentolabial sulcus.r",
+"verts": 56,
+"c": [
+-0.006,
+-0.089,
+1.516
+]
+},
+{
+"name": "Metatarsal region.l",
+"verts": 248,
+"c": [
+0.099,
+-0.035,
+0.046
+]
+},
+{
+"name": "Metatarsal region.r",
+"verts": 248,
+"c": [
+-0.099,
+-0.035,
+0.046
+]
+},
+{
+"name": "Muscular triangle.l",
+"verts": 132,
+"c": [
+0.012,
+-0.045,
+1.447
+]
+},
+{
+"name": "Muscular triangle.r",
+"verts": 132,
+"c": [
+-0.012,
+-0.045,
+1.447
+]
+},
+{
+"name": "Nail plate (foot).l",
+"verts": 978,
+"c": [
+0.115,
+-0.115,
+0.02
+]
+},
+{
+"name": "Nail plate (foot).r",
+"verts": 978,
+"c": [
+-0.115,
+-0.115,
+0.02
+]
+},
+{
+"name": "Nail plate.l",
+"verts": 1392,
+"c": [
+0.283,
+-0.08,
+0.739
+]
+},
+{
+"name": "Nail plate.r",
+"verts": 1392,
+"c": [
+-0.283,
+-0.08,
+0.739
+]
+},
+{
+"name": "Nasal region.l",
+"verts": 304,
+"c": [
+0.008,
+-0.1,
+1.579
+]
+},
+{
+"name": "Nasal region.r",
+"verts": 304,
+"c": [
+-0.008,
+-0.1,
+1.579
+]
+},
+{
+"name": "Nasolabial sulcus.l",
+"verts": 50,
+"c": [
+0.026,
+-0.084,
+1.541
+]
+},
+{
+"name": "Nasolabial sulcus.r",
+"verts": 50,
+"c": [
+-0.026,
+-0.084,
+1.541
+]
+},
+{
+"name": "Occipital region.l",
+"verts": 174,
+"c": [
+0.035,
+0.071,
+1.603
+]
+},
+{
+"name": "Occipital region.r",
+"verts": 174,
+"c": [
+-0.035,
+0.071,
+1.603
+]
+},
+{
+"name": "Oral region.l",
+"verts": 338,
+"c": [
+0.017,
+-0.089,
+1.53
+]
+},
+{
+"name": "Oral region.r",
+"verts": 338,
+"c": [
+-0.017,
+-0.089,
+1.53
+]
+},
+{
+"name": "Orbital region.l",
+"verts": 292,
+"c": [
+0.03,
+-0.077,
+1.594
+]
+},
+{
+"name": "Orbital region.r",
+"verts": 292,
+"c": [
+-0.03,
+-0.077,
+1.594
+]
+},
+{
+"name": "Palm.l",
+"verts": 298,
+"c": [
+0.271,
+-0.044,
+0.805
+]
+},
+{
+"name": "Palm.r",
+"verts": 298,
+"c": [
+-0.271,
+-0.044,
+0.805
+]
+},
+{
+"name": "Palmar surfaces of digits of hand.l",
+"verts": 1922,
+"c": [
+0.28,
+-0.07,
+0.76
+]
+},
+{
+"name": "Palmar surfaces of digits of hand.r",
+"verts": 1922,
+"c": [
+-0.28,
+-0.07,
+0.76
+]
+},
+{
+"name": "Parietal region.l",
+"verts": 254,
+"c": [
+0.039,
+0.036,
+1.657
+]
+},
+{
+"name": "Parietal region.r",
+"verts": 254,
+"c": [
+-0.039,
+0.036,
+1.657
+]
+},
+{
+"name": "Parotideomasseteric region.l",
+"verts": 118,
+"c": [
+0.057,
+-0.025,
+1.543
+]
+},
+{
+"name": "Parotideomasseteric region.r",
+"verts": 118,
+"c": [
+-0.057,
+-0.025,
+1.543
+]
+},
+{
+"name": "Pectoral region.l",
+"verts": 258,
+"c": [
+0.088,
+-0.074,
+1.314
+]
+},
+{
+"name": "Pectoral region.r",
+"verts": 258,
+"c": [
+-0.088,
+-0.074,
+1.314
+]
+},
+{
+"name": "Perionyx (foot).l",
+"verts": 930,
+"c": [
+0.115,
+-0.109,
+0.021
+]
+},
+{
+"name": "Perionyx (foot).r",
+"verts": 930,
+"c": [
+-0.115,
+-0.109,
+0.021
+]
+},
+{
+"name": "Perionyx.l",
+"verts": 128,
+"c": [
+0.281,
+-0.073,
+0.742
+]
+},
+{
+"name": "Perionyx.r",
+"verts": 128,
+"c": [
+-0.281,
+-0.073,
+0.742
+]
+},
+{
+"name": "Philtrum.l",
+"verts": 30,
+"c": [
+0.003,
+-0.098,
+1.543
+]
+},
+{
+"name": "Philtrum.r",
+"verts": 30,
+"c": [
+-0.003,
+-0.098,
+1.543
+]
+},
+{
+"name": "Plantar surfaces of digits of foot.l",
+"verts": 1016,
+"c": [
+0.107,
+-0.097,
+0.009
+]
+},
+{
+"name": "Plantar surfaces of digits of foot.r",
+"verts": 1016,
+"c": [
+-0.107,
+-0.097,
+0.009
+]
+},
+{
+"name": "Popliteal fossa.l",
+"verts": 62,
+"c": [
+0.081,
+0.068,
+0.485
+]
+},
+{
+"name": "Popliteal fossa.r",
+"verts": 62,
+"c": [
+-0.081,
+0.068,
+0.485
+]
+},
+{
+"name": "Posterior auricular groove.l",
+"verts": 94,
+"c": [
+0.066,
+0.01,
+1.583
+]
+},
+{
+"name": "Posterior auricular groove.r",
+"verts": 94,
+"c": [
+-0.066,
+0.01,
+1.583
+]
+},
+{
+"name": "Posterior region of ankle.j",
+"verts": 8,
+"c": [
+-0.067,
+0.13,
+0.085
+]
+},
+{
+"name": "Posterior region of arm.l",
+"verts": 458,
+"c": [
+0.21,
+0.073,
+1.243
+]
+},
+{
+"name": "Posterior region of arm.r",
+"verts": 458,
+"c": [
+-0.21,
+0.073,
+1.243
+]
+},
+{
+"name": "Posterior region of elbow.l",
+"verts": 242,
+"c": [
+0.226,
+0.056,
+1.109
+]
+},
+{
+"name": "Posterior region of elbow.r",
+"verts": 242,
+"c": [
+-0.226,
+0.056,
+1.109
+]
+},
+{
+"name": "Posterior region of forearm.l",
+"verts": 668,
+"c": [
+0.239,
+0.026,
+0.97
+]
+},
+{
+"name": "Posterior region of forearm.r",
+"verts": 668,
+"c": [
+-0.239,
+0.026,
+0.97
+]
+},
+{
+"name": "Posterior region of knee.j",
+"verts": 8,
+"c": [
+-0.09,
+0.135,
+0.438
+]
+},
+{
+"name": "Posterior region of knee.l",
+"verts": 324,
+"c": [
+0.081,
+0.058,
+0.448
+]
+},
+{
+"name": "Posterior region of knee.r",
+"verts": 324,
+"c": [
+-0.081,
+0.058,
+0.448
+]
+},
+{
+"name": "Posterior region of leg.l",
+"verts": 612,
+"c": [
+0.09,
+0.076,
+0.262
+]
+},
+{
+"name": "Posterior region of leg.r",
+"verts": 612,
+"c": [
+-0.09,
+0.076,
+0.262
+]
+},
+{
+"name": "Posterior region of neck.l",
+"verts": 344,
+"c": [
+0.073,
+0.056,
+1.494
+]
+},
+{
+"name": "Posterior region of neck.r",
+"verts": 344,
+"c": [
+-0.073,
+0.056,
+1.494
+]
+},
+{
+"name": "Posterior region of thigh.l",
+"verts": 502,
+"c": [
+0.091,
+0.06,
+0.655
+]
+},
+{
+"name": "Posterior region of thigh.r",
+"verts": 502,
+"c": [
+-0.091,
+0.06,
+0.655
+]
+},
+{
+"name": "Posterior region of wrist.l",
+"verts": 124,
+"c": [
+0.27,
+-0.016,
+0.844
+]
+},
+{
+"name": "Posterior region of wrist.r",
+"verts": 124,
+"c": [
+-0.27,
+-0.016,
+0.844
+]
+},
+{
+"name": "Presternal region.l",
+"verts": 144,
+"c": [
+0.014,
+-0.09,
+1.313
+]
+},
+{
+"name": "Presternal region.r",
+"verts": 144,
+"c": [
+-0.014,
+-0.09,
+1.313
+]
+},
+{
+"name": "Proximal transverse arch of foot.l",
+"verts": 46,
+"c": [
+0.078,
+0.046,
+0.015
+]
+},
+{
+"name": "Proximal transverse arch of foot.r",
+"verts": 46,
+"c": [
+-0.078,
+0.046,
+0.015
+]
+},
+{
+"name": "Pubic hairs",
+"verts": 820,
+"c": [
+0.001,
+-0.079,
+0.856
+]
+},
+{
+"name": "Radial foveola.l",
+"verts": 30,
+"c": [
+0.298,
+-0.017,
+0.845
+]
+},
+{
+"name": "Radial foveola.r",
+"verts": 30,
+"c": [
+-0.298,
+-0.017,
+0.845
+]
+},
+{
+"name": "Regions of abdomen.j",
+"verts": 8,
+"c": [
+0.001,
+-0.177,
+1.037
+]
+},
+{
+"name": "Regions of back.j",
+"verts": 8,
+"c": [
+-0.0,
+0.159,
+1.193
+]
+},
+{
+"name": "Regions of digits of foot.j",
+"verts": 8,
+"c": [
+-0.109,
+-0.169,
+0.012
+]
+},
+{
+"name": "Regions of digits of hand.j",
+"verts": 8,
+"c": [
+-0.281,
+-0.119,
+0.728
+]
+},
+{
+"name": "Regions of epicranium.j",
+"verts": 8,
+"c": [
+-0.069,
+0.015,
+1.692
+]
+},
+{
+"name": "Regions of face.j",
+"verts": 8,
+"c": [
+-0.103,
+-0.056,
+1.543
+]
+},
+{
+"name": "Regions of foot.j",
+"verts": 8,
+"c": [
+-0.162,
+0.006,
+0.039
+]
+},
+{
+"name": "Regions of hand.j",
+"verts": 8,
+"c": [
+-0.364,
+-0.043,
+0.761
+]
+},
+{
+"name": "Regions of head.j",
+"verts": 8,
+"c": [
+-0.139,
+-0.017,
+1.608
+]
+},
+{
+"name": "Regions of lower limb.j",
+"verts": 8,
+"c": [
+-0.218,
+0.014,
+0.526
+]
+},
+{
+"name": "Regions of neck.j",
+"verts": 8,
+"c": [
+-0.124,
+0.013,
+1.506
+]
+},
+{
+"name": "Regions of perineum.j",
+"verts": 8,
+"c": [
+-0.0,
+0.097,
+0.779
+]
+},
+{
+"name": "Regions of thorax.j",
+"verts": 8,
+"c": [
+0.001,
+-0.159,
+1.322
+]
+},
+{
+"name": "Regions of upper limb.j",
+"verts": 8,
+"c": [
+-0.334,
+0.046,
+1.13
+]
+},
+{
+"name": "Root of nose.j",
+"verts": 8,
+"c": [
+-0.003,
+-0.1,
+1.601
+]
+},
+{
+"name": "Sacral region.l",
+"verts": 88,
+"c": [
+0.041,
+0.108,
+0.933
+]
+},
+{
+"name": "Sacral region.r",
+"verts": 88,
+"c": [
+-0.041,
+0.108,
+0.933
+]
+},
+{
+"name": "Scapha.l",
+"verts": 47,
+"c": [
+0.087,
+0.013,
+1.588
+]
+},
+{
+"name": "Scapha.r",
+"verts": 47,
+"c": [
+-0.087,
+0.013,
+1.588
+]
+},
+{
+"name": "Scapular region.l",
+"verts": 344,
+"c": [
+0.124,
+0.095,
+1.253
+]
+},
+{
+"name": "Scapular region.r",
+"verts": 344,
+"c": [
+-0.124,
+0.095,
+1.253
+]
+},
+{
+"name": "Sole.l",
+"verts": 90,
+"c": [
+0.093,
+-0.009,
+0.009
+]
+},
+{
+"name": "Sole.r",
+"verts": 90,
+"c": [
+-0.093,
+-0.009,
+0.009
+]
+},
+{
+"name": "Sternocleidomastoid region.j",
+"verts": 8,
+"c": [
+-0.111,
+-0.026,
+1.472
+]
+},
+{
+"name": "Sternocleidomastoid region.l",
+"verts": 274,
+"c": [
+0.039,
+-0.011,
+1.482
+]
+},
+{
+"name": "Sternocleidomastoid region.r",
+"verts": 274,
+"c": [
+-0.039,
+-0.011,
+1.482
+]
+},
+{
+"name": "Submandibular triangle.l",
+"verts": 80,
+"c": [
+0.036,
+-0.042,
+1.509
+]
+},
+{
+"name": "Submandibular triangle.r",
+"verts": 80,
+"c": [
+-0.036,
+-0.042,
+1.509
+]
+},
+{
+"name": "Submental triangle.l",
+"verts": 64,
+"c": [
+0.014,
+-0.065,
+1.49
+]
+},
+{
+"name": "Submental triangle.r",
+"verts": 64,
+"c": [
+-0.014,
+-0.065,
+1.49
+]
+},
+{
+"name": "Suprahyoid region.j",
+"verts": 8,
+"c": [
+-0.0,
+-0.075,
+1.468
+]
+},
+{
+"name": "Temporal region.l",
+"verts": 220,
+"c": [
+0.071,
+-0.001,
+1.622
+]
+},
+{
+"name": "Temporal region.r",
+"verts": 220,
+"c": [
+-0.071,
+-0.001,
+1.622
+]
+},
+{
+"name": "Tragus.l",
+"verts": 50,
+"c": [
+0.069,
+-0.004,
+1.577
+]
+},
+{
+"name": "Tragus.r",
+"verts": 50,
+"c": [
+-0.069,
+-0.004,
+1.577
+]
+},
+{
+"name": "Triangle of auscultation.l",
+"verts": 12,
+"c": [
+0.067,
+0.132,
+1.29
+]
+},
+{
+"name": "Triangle of auscultation.r",
+"verts": 12,
+"c": [
+-0.067,
+0.132,
+1.29
+]
+},
+{
+"name": "Triangular fossa.l",
+"verts": 41,
+"c": [
+0.078,
+0.004,
+1.596
+]
+},
+{
+"name": "Triangular fossa.r",
+"verts": 41,
+"c": [
+-0.078,
+0.004,
+1.596
+]
+},
+{
+"name": "Tubercle of upper lip.l",
+"verts": 12,
+"c": [
+0.001,
+-0.098,
+1.535
+]
+},
+{
+"name": "Tubercle of upper lip.r",
+"verts": 12,
+"c": [
+-0.001,
+-0.098,
+1.535
+]
+},
+{
+"name": "Umbilical region.l",
+"verts": 118,
+"c": [
+0.037,
+-0.112,
+1.027
+]
+},
+{
+"name": "Umbilical region.r",
+"verts": 118,
+"c": [
+-0.037,
+-0.112,
+1.027
+]
+},
+{
+"name": "Umbilicus.l",
+"verts": 22,
+"c": [
+0.008,
+-0.114,
+1.017
+]
+},
+{
+"name": "Umbilicus.r",
+"verts": 22,
+"c": [
+-0.008,
+-0.114,
+1.017
+]
+},
+{
+"name": "Upper eyelid.j",
+"verts": 8,
+"c": [
+-0.034,
+-0.094,
+1.599
+]
+},
+{
+"name": "Upper lip.j",
+"verts": 8,
+"c": [
+-0.009,
+-0.105,
+1.534
+]
+},
+{
+"name": "Urogenital region.l",
+"verts": 646,
+"c": [
+0.016,
+-0.047,
+0.781
+]
+},
+{
+"name": "Urogenital region.r",
+"verts": 646,
+"c": [
+-0.016,
+-0.047,
+0.781
+]
+},
+{
+"name": "Vertebral region.l",
+"verts": 292,
+"c": [
+0.016,
+0.108,
+1.203
+]
+},
+{
+"name": "Vertebral region.r",
+"verts": 292,
+"c": [
+-0.016,
+0.108,
+1.203
+]
+},
+{
+"name": "Zygomatic region.l",
+"verts": 108,
+"c": [
+0.058,
+-0.044,
+1.573
+]
+},
+{
+"name": "Zygomatic region.r",
+"verts": 108,
+"c": [
+-0.058,
+-0.044,
+1.573
+]
+}
+]

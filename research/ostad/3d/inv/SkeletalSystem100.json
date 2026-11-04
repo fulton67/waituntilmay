@@ -1,0 +1,17570 @@
+[
+{
+"name": "(Abdominal part of pectoralis major muscle).ol",
+"verts": 664,
+"c": [
+0.071,
+-0.105,
+1.186
+]
+},
+{
+"name": "(Abdominal part of pectoralis major muscle).or",
+"verts": 664,
+"c": [
+-0.071,
+-0.105,
+1.186
+]
+},
+{
+"name": "(Canal for vertebral artery).j",
+"verts": 8,
+"c": [
+-0.033,
+0.013,
+1.548
+]
+},
+{
+"name": "(External occipital crest).j",
+"verts": 8,
+"c": [
+0.0,
+0.078,
+1.565
+]
+},
+{
+"name": "(Internal occipital crest).j",
+"verts": 8,
+"c": [
+-0.0,
+0.061,
+1.57
+]
+},
+{
+"name": "(Mandibular symphysis).j",
+"verts": 49,
+"c": [
+0.0,
+-0.095,
+1.505
+]
+},
+{
+"name": "(Middle clinoid process).j",
+"verts": 8,
+"c": [
+0.0,
+-0.017,
+1.6
+]
+},
+{
+"name": "(Opponens digiti minimi muscle of foot).ol",
+"verts": 286,
+"c": [
+0.123,
+-0.023,
+0.02
+]
+},
+{
+"name": "(Opponens digiti minimi muscle of foot).or",
+"verts": 286,
+"c": [
+-0.123,
+-0.023,
+0.02
+]
+},
+{
+"name": "(Posterior obturator tubercle).i",
+"verts": 8,
+"c": [
+0.038,
+0.009,
+0.845
+]
+},
+{
+"name": "(Posterior obturator tubercle).j",
+"verts": 8,
+"c": [
+-0.038,
+0.009,
+0.845
+]
+},
+{
+"name": "(Supra-orbital notch).j",
+"verts": 8,
+"c": [
+0.028,
+-0.088,
+1.616
+]
+},
+{
+"name": "(Third trochanter).i",
+"verts": 8,
+"c": [
+0.126,
+0.041,
+0.797
+]
+},
+{
+"name": "(Third trochanter).j",
+"verts": 8,
+"c": [
+-0.126,
+0.041,
+0.797
+]
+},
+{
+"name": "(Vermian fossa).j",
+"verts": 8,
+"c": [
+0.0,
+0.052,
+1.564
+]
+},
+{
+"name": "[Trochlear spine].j",
+"verts": 8,
+"c": [
+0.019,
+-0.076,
+1.609
+]
+},
+{
+"name": "Abductor digiti minimi of foot.el",
+"verts": 346,
+"c": [
+0.137,
+-0.057,
+0.013
+]
+},
+{
+"name": "Abductor digiti minimi of foot.er",
+"verts": 346,
+"c": [
+-0.137,
+-0.057,
+0.013
+]
+},
+{
+"name": "Abductor digiti minimi of hand.el",
+"verts": 590,
+"c": [
+0.231,
+-0.043,
+0.78
+]
+},
+{
+"name": "Abductor digiti minimi of hand.er",
+"verts": 590,
+"c": [
+-0.231,
+-0.043,
+0.78
+]
+},
+{
+"name": "Abductor digiti minimi of hand.ol",
+"verts": 394,
+"c": [
+0.243,
+-0.034,
+0.842
+]
+},
+{
+"name": "Abductor digiti minimi of hand.or",
+"verts": 394,
+"c": [
+-0.243,
+-0.034,
+0.842
+]
+},
+{
+"name": "Abductor hallucis.el",
+"verts": 128,
+"c": [
+0.062,
+-0.083,
+0.017
+]
+},
+{
+"name": "Abductor hallucis.er",
+"verts": 128,
+"c": [
+-0.062,
+-0.083,
+0.017
+]
+},
+{
+"name": "Abductor hallucis.ol",
+"verts": 314,
+"c": [
+0.081,
+0.06,
+0.019
+]
+},
+{
+"name": "Abductor hallucis.or",
+"verts": 314,
+"c": [
+-0.081,
+0.06,
+0.019
+]
+},
+{
+"name": "Abductor pollicis longus.el",
+"verts": 142,
+"c": [
+0.297,
+-0.029,
+0.842
+]
+},
+{
+"name": "Abductor pollicis longus.er",
+"verts": 142,
+"c": [
+-0.297,
+-0.029,
+0.842
+]
+},
+{
+"name": "Abductor pollicis longus.ol",
+"verts": 806,
+"c": [
+0.247,
+0.022,
+0.992
+]
+},
+{
+"name": "Abductor pollicis longus.or",
+"verts": 806,
+"c": [
+-0.247,
+0.022,
+0.992
+]
+},
+{
+"name": "Acetabular fossa.i",
+"verts": 8,
+"c": [
+0.086,
+0.02,
+0.866
+]
+},
+{
+"name": "Acetabular fossa.j",
+"verts": 8,
+"c": [
+-0.086,
+0.02,
+0.866
+]
+},
+{
+"name": "Acetabular margin.i",
+"verts": 8,
+"c": [
+0.107,
+0.027,
+0.876
+]
+},
+{
+"name": "Acetabular margin.j",
+"verts": 8,
+"c": [
+-0.107,
+0.027,
+0.876
+]
+},
+{
+"name": "Acetabular notch.i",
+"verts": 8,
+"c": [
+0.079,
+0.007,
+0.861
+]
+},
+{
+"name": "Acetabular notch.j",
+"verts": 8,
+"c": [
+-0.079,
+0.007,
+0.861
+]
+},
+{
+"name": "Acetabulum.i",
+"verts": 8,
+"c": [
+0.085,
+0.015,
+0.871
+]
+},
+{
+"name": "Acetabulum.j",
+"verts": 8,
+"c": [
+-0.085,
+0.015,
+0.871
+]
+},
+{
+"name": "Acromial angle.i",
+"verts": 8,
+"c": [
+0.18,
+0.071,
+1.401
+]
+},
+{
+"name": "Acromial angle.j",
+"verts": 8,
+"c": [
+-0.18,
+0.071,
+1.401
+]
+},
+{
+"name": "Acromial end.i",
+"verts": 8,
+"c": [
+0.143,
+0.042,
+1.428
+]
+},
+{
+"name": "Acromial end.j",
+"verts": 8,
+"c": [
+-0.143,
+0.042,
+1.428
+]
+},
+{
+"name": "Acromial facet.i",
+"verts": 8,
+"c": [
+0.163,
+0.035,
+1.416
+]
+},
+{
+"name": "Acromial facet.j",
+"verts": 8,
+"c": [
+-0.163,
+0.035,
+1.416
+]
+},
+{
+"name": "Acromial part of deltoid muscle.ol",
+"verts": 3454,
+"c": [
+0.167,
+0.042,
+1.411
+]
+},
+{
+"name": "Acromial part of deltoid muscle.or",
+"verts": 3454,
+"c": [
+-0.167,
+0.042,
+1.411
+]
+},
+{
+"name": "Acromion.i",
+"verts": 8,
+"c": [
+0.162,
+0.047,
+1.426
+]
+},
+{
+"name": "Acromion.j",
+"verts": 8,
+"c": [
+-0.162,
+0.047,
+1.426
+]
+},
+{
+"name": "Adductor longus.el",
+"verts": 296,
+"c": [
+0.09,
+0.005,
+0.71
+]
+},
+{
+"name": "Adductor longus.er",
+"verts": 296,
+"c": [
+-0.09,
+0.005,
+0.71
+]
+},
+{
+"name": "Adductor longus.ol",
+"verts": 160,
+"c": [
+0.018,
+-0.046,
+0.837
+]
+},
+{
+"name": "Adductor longus.or",
+"verts": 160,
+"c": [
+-0.018,
+-0.046,
+0.837
+]
+},
+{
+"name": "Adductor magnus.el",
+"verts": 1042,
+"c": [
+0.071,
+0.021,
+0.628
+]
+},
+{
+"name": "Adductor magnus.er",
+"verts": 1042,
+"c": [
+-0.071,
+0.021,
+0.628
+]
+},
+{
+"name": "Adductor magnus.ol",
+"verts": 438,
+"c": [
+0.031,
+0.007,
+0.809
+]
+},
+{
+"name": "Adductor magnus.or",
+"verts": 438,
+"c": [
+-0.031,
+0.007,
+0.809
+]
+},
+{
+"name": "Adductor pollicis.e1l",
+"verts": 150,
+"c": [
+0.309,
+-0.046,
+0.807
+]
+},
+{
+"name": "Adductor pollicis.e1r",
+"verts": 150,
+"c": [
+-0.309,
+-0.046,
+0.807
+]
+},
+{
+"name": "Adductor pollicis.el",
+"verts": 272,
+"c": [
+0.266,
+-0.025,
+0.845
+]
+},
+{
+"name": "Adductor pollicis.er",
+"verts": 272,
+"c": [
+-0.266,
+-0.025,
+0.845
+]
+},
+{
+"name": "Adductor tubercle.i",
+"verts": 8,
+"c": [
+0.017,
+0.032,
+0.475
+]
+},
+{
+"name": "Adductor tubercle.j",
+"verts": 8,
+"c": [
+-0.017,
+0.032,
+0.475
+]
+},
+{
+"name": "Ala of ilium.i",
+"verts": 8,
+"c": [
+0.084,
+0.005,
+0.961
+]
+},
+{
+"name": "Ala of ilium.j",
+"verts": 8,
+"c": [
+-0.084,
+0.005,
+0.961
+]
+},
+{
+"name": "Ala of sacrum.j",
+"verts": 8,
+"c": [
+0.041,
+0.011,
+0.938
+]
+},
+{
+"name": "Anatomical neck of humerus.i",
+"verts": 8,
+"c": [
+0.127,
+0.021,
+1.369
+]
+},
+{
+"name": "Anatomical neck of humerus.j",
+"verts": 8,
+"c": [
+-0.127,
+0.021,
+1.369
+]
+},
+{
+"name": "Anconeus muscle.el",
+"verts": 218,
+"c": [
+0.222,
+0.049,
+1.053
+]
+},
+{
+"name": "Anconeus muscle.er",
+"verts": 218,
+"c": [
+-0.222,
+0.049,
+1.053
+]
+},
+{
+"name": "Anconeus muscle.ol",
+"verts": 264,
+"c": [
+0.237,
+0.049,
+1.11
+]
+},
+{
+"name": "Anconeus muscle.or",
+"verts": 264,
+"c": [
+-0.237,
+0.049,
+1.11
+]
+},
+{
+"name": "Angle of rib.i",
+"verts": 8,
+"c": [
+0.075,
+0.109,
+1.311
+]
+},
+{
+"name": "Angle of rib.j",
+"verts": 8,
+"c": [
+-0.075,
+0.109,
+1.311
+]
+},
+{
+"name": "Annular epiphysis.j",
+"verts": 8,
+"c": [
+0.023,
+-0.012,
+1.067
+]
+},
+{
+"name": "Anterior arch of atlas.j",
+"verts": 8,
+"c": [
+0.005,
+0.002,
+1.551
+]
+},
+{
+"name": "Anterior articular facet of dens axis.j",
+"verts": 8,
+"c": [
+-0.0,
+-0.013,
+1.546
+]
+},
+{
+"name": "Anterior belly of digastric muscle.el",
+"verts": 160,
+"c": [
+0.009,
+-0.065,
+1.501
+]
+},
+{
+"name": "Anterior belly of digastric muscle.er",
+"verts": 160,
+"c": [
+-0.009,
+-0.065,
+1.501
+]
+},
+{
+"name": "Anterior border of fibula.i",
+"verts": 8,
+"c": [
+0.108,
+0.023,
+0.334
+]
+},
+{
+"name": "Anterior border of fibula.j",
+"verts": 8,
+"c": [
+-0.108,
+0.023,
+0.334
+]
+},
+{
+"name": "Anterior border of humerus.i",
+"verts": 8,
+"c": [
+0.209,
+0.009,
+1.23
+]
+},
+{
+"name": "Anterior border of humerus.j",
+"verts": 8,
+"c": [
+-0.209,
+0.009,
+1.23
+]
+},
+{
+"name": "Anterior border of radius.i",
+"verts": 8,
+"c": [
+0.249,
+-0.004,
+1.035
+]
+},
+{
+"name": "Anterior border of radius.j",
+"verts": 8,
+"c": [
+-0.249,
+-0.004,
+1.035
+]
+},
+{
+"name": "Anterior border of tibia.i",
+"verts": 8,
+"c": [
+0.085,
+-0.017,
+0.318
+]
+},
+{
+"name": "Anterior border of tibia.j",
+"verts": 8,
+"c": [
+-0.085,
+-0.017,
+0.318
+]
+},
+{
+"name": "Anterior border of ulna.i",
+"verts": 8,
+"c": [
+0.229,
+0.013,
+1.027
+]
+},
+{
+"name": "Anterior border of ulna.j",
+"verts": 8,
+"c": [
+-0.229,
+0.013,
+1.027
+]
+},
+{
+"name": "Anterior cells of ethmoid bone.l",
+"verts": 372,
+"c": [
+0.009,
+-0.059,
+1.588
+]
+},
+{
+"name": "Anterior cells of ethmoid bone.r",
+"verts": 372,
+"c": [
+-0.009,
+-0.059,
+1.588
+]
+},
+{
+"name": "Anterior clinoid process.j",
+"verts": 8,
+"c": [
+0.014,
+-0.016,
+1.611
+]
+},
+{
+"name": "Anterior gluteal line.i",
+"verts": 8,
+"c": [
+0.118,
+0.025,
+0.969
+]
+},
+{
+"name": "Anterior gluteal line.j",
+"verts": 8,
+"c": [
+-0.118,
+0.025,
+0.969
+]
+},
+{
+"name": "Anterior inferior iliac spine.i",
+"verts": 8,
+"c": [
+0.097,
+-0.04,
+0.889
+]
+},
+{
+"name": "Anterior inferior iliac spine.j",
+"verts": 8,
+"c": [
+-0.097,
+-0.04,
+0.889
+]
+},
+{
+"name": "Anterior intercondylar area.i",
+"verts": 8,
+"c": [
+0.067,
+0.02,
+0.449
+]
+},
+{
+"name": "Anterior intercondylar area.j",
+"verts": 8,
+"c": [
+-0.067,
+0.02,
+0.449
+]
+},
+{
+"name": "Anterior limb of stapes.i",
+"verts": 8,
+"c": [
+0.043,
+0.004,
+1.58
+]
+},
+{
+"name": "Anterior limb of stapes.j",
+"verts": 8,
+"c": [
+-0.043,
+0.004,
+1.58
+]
+},
+{
+"name": "Anterior obturator tubercle.i",
+"verts": 8,
+"c": [
+0.04,
+-0.028,
+0.837
+]
+},
+{
+"name": "Anterior obturator tubercle.j",
+"verts": 8,
+"c": [
+-0.04,
+-0.028,
+0.837
+]
+},
+{
+"name": "Anterior process of calcaneus.i",
+"verts": 8,
+"c": [
+0.116,
+0.032,
+0.048
+]
+},
+{
+"name": "Anterior process of calcaneus.j",
+"verts": 21,
+"c": [
+-0.116,
+0.032,
+0.048
+]
+},
+{
+"name": "Anterior process of malleus.i",
+"verts": 8,
+"c": [
+0.049,
+0.002,
+1.583
+]
+},
+{
+"name": "Anterior process of malleus.j",
+"verts": 8,
+"c": [
+-0.049,
+0.002,
+1.583
+]
+},
+{
+"name": "Anterior sacral foramina.j",
+"verts": 8,
+"c": [
+-0.021,
+0.061,
+0.902
+]
+},
+{
+"name": "Anterior superior iliac spine.i",
+"verts": 8,
+"c": [
+0.121,
+-0.074,
+0.945
+]
+},
+{
+"name": "Anterior superior iliac spine.j",
+"verts": 8,
+"c": [
+-0.121,
+-0.074,
+0.945
+]
+},
+{
+"name": "Anterior surface of petrous part.i",
+"verts": 8,
+"c": [
+0.033,
+-0.014,
+1.586
+]
+},
+{
+"name": "Anterior surface of petrous part.j",
+"verts": 8,
+"c": [
+-0.033,
+-0.014,
+1.586
+]
+},
+{
+"name": "Anterior surface of radius.i",
+"verts": 8,
+"c": [
+0.264,
+-0.023,
+0.919
+]
+},
+{
+"name": "Anterior surface of radius.j",
+"verts": 8,
+"c": [
+-0.264,
+-0.023,
+0.919
+]
+},
+{
+"name": "Anterior tubercle of atlas.j",
+"verts": 8,
+"c": [
+0.0,
+-0.015,
+1.539
+]
+},
+{
+"name": "Anterior tubercle of transverse process.j",
+"verts": 8,
+"c": [
+-0.02,
+0.003,
+1.503
+]
+},
+{
+"name": "Anterolateral surface of arytenoid cartilage.i",
+"verts": 8,
+"c": [
+0.008,
+-0.009,
+1.477
+]
+},
+{
+"name": "Anterolateral surface of arytenoid cartilage.j",
+"verts": 8,
+"c": [
+-0.008,
+-0.009,
+1.477
+]
+},
+{
+"name": "Anterolateral surface of humerus.i",
+"verts": 8,
+"c": [
+0.226,
+0.032,
+1.184
+]
+},
+{
+"name": "Anterolateral surface of humerus.j",
+"verts": 8,
+"c": [
+-0.226,
+0.032,
+1.184
+]
+},
+{
+"name": "Anteromedial surface of fibula.i",
+"verts": 8,
+"c": [
+0.073,
+0.018,
+0.189
+]
+},
+{
+"name": "Anteromedial surface of fibula.j",
+"verts": 8,
+"c": [
+-0.073,
+0.018,
+0.189
+]
+},
+{
+"name": "Anteromedial surface of humerus.i",
+"verts": 8,
+"c": [
+0.176,
+0.017,
+1.187
+]
+},
+{
+"name": "Anteromedial surface of humerus.j",
+"verts": 8,
+"c": [
+-0.176,
+0.017,
+1.187
+]
+},
+{
+"name": "Apex of arytenoid cartilage.i",
+"verts": 8,
+"c": [
+0.004,
+-0.005,
+1.481
+]
+},
+{
+"name": "Apex of arytenoid cartilage.j",
+"verts": 8,
+"c": [
+-0.004,
+-0.005,
+1.481
+]
+},
+{
+"name": "Apex of coccyx.j",
+"verts": 8,
+"c": [
+-0.0,
+0.066,
+0.829
+]
+},
+{
+"name": "Apex of dens axis.j",
+"verts": 8,
+"c": [
+0.0,
+0.011,
+1.554
+]
+},
+{
+"name": "Apex of head of fibula.i",
+"verts": 8,
+"c": [
+0.112,
+0.046,
+0.429
+]
+},
+{
+"name": "Apex of head of fibula.j",
+"verts": 8,
+"c": [
+-0.112,
+0.046,
+0.429
+]
+},
+{
+"name": "Apex of petrous part.i",
+"verts": 8,
+"c": [
+0.007,
+-0.007,
+1.581
+]
+},
+{
+"name": "Apex of petrous part.j",
+"verts": 8,
+"c": [
+-0.007,
+-0.007,
+1.581
+]
+},
+{
+"name": "Apex of sacrum.j",
+"verts": 8,
+"c": [
+-0.016,
+0.09,
+0.868
+]
+},
+{
+"name": "Appendicular skeleton.j",
+"verts": 8,
+"c": [
+0.26,
+0.028,
+1.253
+]
+},
+{
+"name": "Arch of cricoid cartilage.j",
+"verts": 8,
+"c": [
+0.0,
+-0.027,
+1.459
+]
+},
+{
+"name": "Arcuate crest.i",
+"verts": 8,
+"c": [
+0.006,
+-0.008,
+1.479
+]
+},
+{
+"name": "Arcuate crest.j",
+"verts": 8,
+"c": [
+-0.006,
+-0.008,
+1.479
+]
+},
+{
+"name": "Arcuate eminence.i",
+"verts": 8,
+"c": [
+0.039,
+0.007,
+1.594
+]
+},
+{
+"name": "Arcuate eminence.j",
+"verts": 8,
+"c": [
+-0.039,
+0.007,
+1.594
+]
+},
+{
+"name": "Arcuate line of ilium.i",
+"verts": 8,
+"c": [
+0.044,
+-0.004,
+0.887
+]
+},
+{
+"name": "Arcuate line of ilium.j",
+"verts": 8,
+"c": [
+-0.044,
+-0.004,
+0.887
+]
+},
+{
+"name": "Articular circumference of head of radius.i",
+"verts": 8,
+"c": [
+0.279,
+0.03,
+1.086
+]
+},
+{
+"name": "Articular circumference of head of radius.j",
+"verts": 8,
+"c": [
+-0.279,
+0.03,
+1.086
+]
+},
+{
+"name": "Articular circumference of head of ulna.i",
+"verts": 8,
+"c": [
+0.268,
+-0.021,
+0.864
+]
+},
+{
+"name": "Articular circumference of head of ulna.j",
+"verts": 8,
+"c": [
+-0.268,
+-0.021,
+0.864
+]
+},
+{
+"name": "Articular facet for malleus.i",
+"verts": 8,
+"c": [
+0.048,
+0.004,
+1.584
+]
+},
+{
+"name": "Articular facet for malleus.j",
+"verts": 8,
+"c": [
+-0.048,
+0.004,
+1.584
+]
+},
+{
+"name": "Articular facet for stapes.i",
+"verts": 8,
+"c": [
+0.045,
+0.005,
+1.58
+]
+},
+{
+"name": "Articular facet for stapes.j",
+"verts": 8,
+"c": [
+-0.045,
+0.005,
+1.58
+]
+},
+{
+"name": "Articular facet of head of fibula.i",
+"verts": 8,
+"c": [
+0.095,
+0.036,
+0.413
+]
+},
+{
+"name": "Articular facet of head of fibula.j",
+"verts": 8,
+"c": [
+-0.095,
+0.036,
+0.413
+]
+},
+{
+"name": "Articular facet of head of malleus.i",
+"verts": 8,
+"c": [
+0.05,
+0.007,
+1.584
+]
+},
+{
+"name": "Articular facet of head of malleus.j",
+"verts": 8,
+"c": [
+-0.05,
+0.007,
+1.584
+]
+},
+{
+"name": "Articular facet of head of radius.i",
+"verts": 8,
+"c": [
+0.238,
+0.034,
+1.098
+]
+},
+{
+"name": "Articular facet of head of radius.j",
+"verts": 8,
+"c": [
+-0.238,
+0.034,
+1.098
+]
+},
+{
+"name": "Articular facet of head of stapes.i",
+"verts": 8,
+"c": [
+0.046,
+0.005,
+1.58
+]
+},
+{
+"name": "Articular facet of head of stapes.j",
+"verts": 8,
+"c": [
+-0.046,
+0.005,
+1.58
+]
+},
+{
+"name": "Articular facet of lateral malleolus.i",
+"verts": 8,
+"c": [
+0.066,
+0.048,
+0.088
+]
+},
+{
+"name": "Articular facet of lateral malleolus.j",
+"verts": 8,
+"c": [
+-0.066,
+0.048,
+0.088
+]
+},
+{
+"name": "Articular facet of medial malleolus.i",
+"verts": 8,
+"c": [
+0.059,
+0.033,
+0.075
+]
+},
+{
+"name": "Articular facet of medial malleolus.j",
+"verts": 8,
+"c": [
+-0.059,
+0.033,
+0.075
+]
+},
+{
+"name": "Articular facet of tubercle of rib.i",
+"verts": 8,
+"c": [
+0.035,
+0.102,
+1.332
+]
+},
+{
+"name": "Articular facet of tubercle of rib.j",
+"verts": 8,
+"c": [
+-0.035,
+0.102,
+1.332
+]
+},
+{
+"name": "Articular facets of head of rib.i",
+"verts": 8,
+"c": [
+-0.0,
+0.059,
+1.331
+]
+},
+{
+"name": "Articular facets of head of rib.j",
+"verts": 8,
+"c": [
+0.0,
+0.059,
+1.331
+]
+},
+{
+"name": "Articular surface for cuboid.i",
+"verts": 8,
+"c": [
+0.091,
+0.009,
+0.046
+]
+},
+{
+"name": "Articular surface for cuboid.j",
+"verts": 8,
+"c": [
+-0.091,
+0.009,
+0.046
+]
+},
+{
+"name": "Articular surface of arytenoid cartilage.i",
+"verts": 8,
+"c": [
+0.007,
+-0.005,
+1.473
+]
+},
+{
+"name": "Articular surface of arytenoid cartilage.j",
+"verts": 8,
+"c": [
+-0.007,
+-0.005,
+1.473
+]
+},
+{
+"name": "Articular surface of medial condyle.i",
+"verts": 8,
+"c": [
+0.054,
+0.038,
+0.456
+]
+},
+{
+"name": "Articular surface of medial condyle.j",
+"verts": 8,
+"c": [
+-0.054,
+0.038,
+0.456
+]
+},
+{
+"name": "Articularis genus muscle.ol",
+"verts": 168,
+"c": [
+0.087,
+-0.003,
+0.502
+]
+},
+{
+"name": "Articularis genus muscle.or",
+"verts": 168,
+"c": [
+-0.087,
+-0.003,
+0.502
+]
+},
+{
+"name": "Arytenoid articular surface.j",
+"verts": 8,
+"c": [
+-0.01,
+-0.001,
+1.478
+]
+},
+{
+"name": "Arytenoid cartilage.l",
+"verts": 1892,
+"c": [
+0.005,
+-0.007,
+1.477
+]
+},
+{
+"name": "Arytenoid cartilage.r",
+"verts": 1892,
+"c": [
+-0.005,
+-0.007,
+1.477
+]
+},
+{
+"name": "Ascending part of trapezius muscle.el",
+"verts": 184,
+"c": [
+0.02,
+0.075,
+1.572
+]
+},
+{
+"name": "Ascending part of trapezius muscle.er",
+"verts": 184,
+"c": [
+-0.02,
+0.075,
+1.572
+]
+},
+{
+"name": "Ascending part of trapezius muscle.ol",
+"verts": 500,
+"c": [
+0.107,
+0.023,
+1.419
+]
+},
+{
+"name": "Ascending part of trapezius muscle.or",
+"verts": 500,
+"c": [
+-0.107,
+0.023,
+1.419
+]
+},
+{
+"name": "Atlas (C1)",
+"verts": 1106,
+"c": [
+0.0,
+0.021,
+1.543
+]
+},
+{
+"name": "Atlas.j",
+"verts": 8,
+"c": [
+0.0,
+-0.007,
+1.546
+]
+},
+{
+"name": "Auditory ossicles.j",
+"verts": 8,
+"c": [
+0.093,
+0.005,
+1.582
+]
+},
+{
+"name": "Auricular surface of ilium.i",
+"verts": 8,
+"c": [
+0.039,
+0.028,
+0.933
+]
+},
+{
+"name": "Auricular surface of ilium.j",
+"verts": 8,
+"c": [
+-0.039,
+0.028,
+0.933
+]
+},
+{
+"name": "Auricular surface of sacrum.j",
+"verts": 8,
+"c": [
+0.071,
+0.031,
+0.935
+]
+},
+{
+"name": "Axial skeleton.j",
+"verts": 8,
+"c": [
+0.219,
+-0.009,
+1.219
+]
+},
+{
+"name": "Axis (C2)",
+"verts": 1168,
+"c": [
+0.0,
+0.026,
+1.53
+]
+},
+{
+"name": "Axis (C2).j",
+"verts": 8,
+"c": [
+-0.026,
+-0.0,
+1.53
+]
+},
+{
+"name": "Base of arytenoid cartilage.i",
+"verts": 8,
+"c": [
+0.004,
+-0.008,
+1.473
+]
+},
+{
+"name": "Base of arytenoid cartilage.j",
+"verts": 8,
+"c": [
+-0.004,
+-0.008,
+1.473
+]
+},
+{
+"name": "Base of coccyx.j",
+"verts": 8,
+"c": [
+0.0,
+0.067,
+0.858
+]
+},
+{
+"name": "Base of mandible.j",
+"verts": 8,
+"c": [
+0.044,
+-0.054,
+1.508
+]
+},
+{
+"name": "Base of metatarsal bone.i",
+"verts": 8,
+"c": [
+0.083,
+-0.023,
+0.049
+]
+},
+{
+"name": "Base of metatarsal bone.j",
+"verts": 8,
+"c": [
+-0.083,
+-0.023,
+0.049
+]
+},
+{
+"name": "Base of phalanx of foot.i",
+"verts": 8,
+"c": [
+0.097,
+-0.083,
+0.022
+]
+},
+{
+"name": "Base of phalanx of foot.j",
+"verts": 8,
+"c": [
+-0.097,
+-0.083,
+0.022
+]
+},
+{
+"name": "Base of phalanx of hand.i",
+"verts": 8,
+"c": [
+0.252,
+-0.042,
+0.766
+]
+},
+{
+"name": "Base of phalanx of hand.j",
+"verts": 8,
+"c": [
+-0.252,
+-0.042,
+0.766
+]
+},
+{
+"name": "Base of sacrum.j",
+"verts": 8,
+"c": [
+-0.017,
+0.008,
+0.94
+]
+},
+{
+"name": "Base of stapes.i",
+"verts": 8,
+"c": [
+0.042,
+0.005,
+1.582
+]
+},
+{
+"name": "Base of stapes.j",
+"verts": 8,
+"c": [
+-0.042,
+0.005,
+1.582
+]
+},
+{
+"name": "Basilar part of occipital bone.j",
+"verts": 8,
+"c": [
+0.0,
+0.005,
+1.58
+]
+},
+{
+"name": "Biceps brachii muscle.el",
+"verts": 212,
+"c": [
+0.234,
+0.02,
+1.062
+]
+},
+{
+"name": "Biceps brachii muscle.er",
+"verts": 212,
+"c": [
+-0.234,
+0.02,
+1.062
+]
+},
+{
+"name": "Biceps femoris muscle.el",
+"verts": 428,
+"c": [
+0.118,
+0.044,
+0.41
+]
+},
+{
+"name": "Biceps femoris muscle.er",
+"verts": 428,
+"c": [
+-0.118,
+0.044,
+0.41
+]
+},
+{
+"name": "Body of clavicle.i",
+"verts": 8,
+"c": [
+0.078,
+-0.014,
+1.42
+]
+},
+{
+"name": "Body of clavicle.j",
+"verts": 8,
+"c": [
+-0.078,
+-0.014,
+1.42
+]
+},
+{
+"name": "Body of femur.i",
+"verts": 8,
+"c": [
+0.133,
+-0.003,
+0.67
+]
+},
+{
+"name": "Body of femur.j",
+"verts": 8,
+"c": [
+-0.133,
+-0.003,
+0.67
+]
+},
+{
+"name": "Body of fibula.i",
+"verts": 8,
+"c": [
+0.131,
+0.044,
+0.29
+]
+},
+{
+"name": "Body of fibula.j",
+"verts": 8,
+"c": [
+-0.131,
+0.044,
+0.29
+]
+},
+{
+"name": "Body of humerus.i",
+"verts": 8,
+"c": [
+0.175,
+0.025,
+1.265
+]
+},
+{
+"name": "Body of humerus.j",
+"verts": 8,
+"c": [
+-0.175,
+0.025,
+1.265
+]
+},
+{
+"name": "Body of hyoid bone.j",
+"verts": 8,
+"c": [
+-0.006,
+-0.034,
+1.489
+]
+},
+{
+"name": "Body of ilium.i",
+"verts": 8,
+"c": [
+0.112,
+-0.004,
+0.899
+]
+},
+{
+"name": "Body of ilium.j",
+"verts": 8,
+"c": [
+-0.112,
+-0.004,
+0.899
+]
+},
+{
+"name": "Body of incus.i",
+"verts": 8,
+"c": [
+0.05,
+0.005,
+1.585
+]
+},
+{
+"name": "Body of incus.j",
+"verts": 8,
+"c": [
+-0.05,
+0.005,
+1.585
+]
+},
+{
+"name": "Body of ischium.i",
+"verts": 8,
+"c": [
+0.082,
+0.028,
+0.834
+]
+},
+{
+"name": "Body of ischium.j",
+"verts": 8,
+"c": [
+-0.082,
+0.028,
+0.834
+]
+},
+{
+"name": "Body of mandible.j",
+"verts": 8,
+"c": [
+0.047,
+-0.053,
+1.516
+]
+},
+{
+"name": "Body of metacarpal bone.i",
+"verts": 8,
+"c": [
+0.242,
+-0.028,
+0.8
+]
+},
+{
+"name": "Body of metacarpal bone.j",
+"verts": 8,
+"c": [
+-0.242,
+-0.028,
+0.8
+]
+},
+{
+"name": "Body of metatarsal bone.i",
+"verts": 8,
+"c": [
+0.086,
+-0.05,
+0.037
+]
+},
+{
+"name": "Body of metatarsal bone.j",
+"verts": 8,
+"c": [
+-0.086,
+-0.05,
+0.037
+]
+},
+{
+"name": "Body of phalanx of foot.i",
+"verts": 8,
+"c": [
+0.099,
+-0.094,
+0.019
+]
+},
+{
+"name": "Body of phalanx of foot.j",
+"verts": 8,
+"c": [
+-0.099,
+-0.094,
+0.019
+]
+},
+{
+"name": "Body of phalanx of hand.i",
+"verts": 8,
+"c": [
+0.256,
+-0.05,
+0.749
+]
+},
+{
+"name": "Body of phalanx of hand.j",
+"verts": 8,
+"c": [
+-0.256,
+-0.05,
+0.749
+]
+},
+{
+"name": "Body of pubis.i",
+"verts": 8,
+"c": [
+0.051,
+-0.025,
+0.879
+]
+},
+{
+"name": "Body of pubis.j",
+"verts": 8,
+"c": [
+-0.051,
+-0.025,
+0.879
+]
+},
+{
+"name": "Body of radius.i",
+"verts": 8,
+"c": [
+0.284,
+0.01,
+0.963
+]
+},
+{
+"name": "Body of radius.j",
+"verts": 8,
+"c": [
+-0.284,
+0.01,
+0.963
+]
+},
+{
+"name": "Body of rib.i",
+"verts": 8,
+"c": [
+0.147,
+0.027,
+1.277
+]
+},
+{
+"name": "Body of rib.j",
+"verts": 8,
+"c": [
+-0.147,
+0.027,
+1.277
+]
+},
+{
+"name": "Body of sphenoid bone.j",
+"verts": 8,
+"c": [
+0.002,
+-0.025,
+1.556
+]
+},
+{
+"name": "Body of sternum",
+"verts": 2240,
+"c": [
+0.0,
+-0.1,
+1.299
+]
+},
+{
+"name": "Body of talus.i",
+"verts": 8,
+"c": [
+0.049,
+0.037,
+0.075
+]
+},
+{
+"name": "Body of talus.j",
+"verts": 8,
+"c": [
+-0.049,
+0.037,
+0.075
+]
+},
+{
+"name": "Body of tibia.i",
+"verts": 8,
+"c": [
+0.056,
+0.016,
+0.262
+]
+},
+{
+"name": "Body of tibia.j",
+"verts": 8,
+"c": [
+-0.056,
+0.016,
+0.262
+]
+},
+{
+"name": "Body of ulna.i",
+"verts": 8,
+"c": [
+0.215,
+0.022,
+1.0
+]
+},
+{
+"name": "Body of ulna.j",
+"verts": 8,
+"c": [
+-0.215,
+0.022,
+1.0
+]
+},
+{
+"name": "Bones of cranium.j",
+"verts": 8,
+"c": [
+0.101,
+0.005,
+1.621
+]
+},
+{
+"name": "Bones of foot.j",
+"verts": 8,
+"c": [
+-0.171,
+-0.004,
+0.046
+]
+},
+{
+"name": "Bones of free part of lower limb.j",
+"verts": 8,
+"c": [
+-0.185,
+0.019,
+0.617
+]
+},
+{
+"name": "Bones of free part of upper limb.j",
+"verts": 8,
+"c": [
+-0.303,
+0.038,
+1.102
+]
+},
+{
+"name": "Bones of hand.j",
+"verts": 8,
+"c": [
+-0.359,
+-0.031,
+0.782
+]
+},
+{
+"name": "Bones of lower limb.j",
+"verts": 8,
+"c": [
+-0.183,
+0.013,
+0.656
+]
+},
+{
+"name": "Bones of pectoral girdle.j",
+"verts": 8,
+"c": [
+-0.154,
+0.035,
+1.43
+]
+},
+{
+"name": "Bones of pelvic girdle.j",
+"verts": 8,
+"c": [
+-0.133,
+0.011,
+0.894
+]
+},
+{
+"name": "Bones of thorax.j",
+"verts": 8,
+"c": [
+0.001,
+-0.146,
+1.286
+]
+},
+{
+"name": "Bones of upper limb.j",
+"verts": 8,
+"c": [
+-0.304,
+0.049,
+1.14
+]
+},
+{
+"name": "Bones of vertebral column.j",
+"verts": 8,
+"c": [
+-0.0,
+0.154,
+1.267
+]
+},
+{
+"name": "Bony pelvis.j",
+"verts": 8,
+"c": [
+-0.134,
+0.014,
+0.913
+]
+},
+{
+"name": "Brachialis muscle.el",
+"verts": 512,
+"c": [
+0.222,
+0.031,
+1.062
+]
+},
+{
+"name": "Brachialis muscle.er",
+"verts": 512,
+"c": [
+-0.222,
+0.031,
+1.062
+]
+},
+{
+"name": "Brachialis muscle.ol",
+"verts": 1450,
+"c": [
+0.212,
+0.03,
+1.207
+]
+},
+{
+"name": "Brachialis muscle.or",
+"verts": 1450,
+"c": [
+-0.212,
+0.03,
+1.207
+]
+},
+{
+"name": "Brachioradialis muscle.el",
+"verts": 258,
+"c": [
+0.286,
+-0.018,
+0.867
+]
+},
+{
+"name": "Brachioradialis muscle.er",
+"verts": 258,
+"c": [
+-0.286,
+-0.018,
+0.867
+]
+},
+{
+"name": "Brachioradialis muscle.ol",
+"verts": 254,
+"c": [
+0.221,
+0.046,
+1.186
+]
+},
+{
+"name": "Brachioradialis muscle.or",
+"verts": 254,
+"c": [
+-0.221,
+0.046,
+1.186
+]
+},
+{
+"name": "Bucinator.o1l",
+"verts": 186,
+"c": [
+0.03,
+-0.055,
+1.526
+]
+},
+{
+"name": "Bucinator.o1r",
+"verts": 186,
+"c": [
+-0.03,
+-0.055,
+1.526
+]
+},
+{
+"name": "Bucinator.ol",
+"verts": 208,
+"c": [
+0.031,
+-0.055,
+1.547
+]
+},
+{
+"name": "Bucinator.or",
+"verts": 208,
+"c": [
+-0.031,
+-0.055,
+1.547
+]
+},
+{
+"name": "Calcaneal sulcus.i",
+"verts": 8,
+"c": [
+0.071,
+0.038,
+0.06
+]
+},
+{
+"name": "Calcaneal sulcus.j",
+"verts": 8,
+"c": [
+-0.071,
+0.038,
+0.06
+]
+},
+{
+"name": "Calcaneal tubercle.i",
+"verts": 8,
+"c": [
+0.081,
+0.028,
+0.026
+]
+},
+{
+"name": "Calcaneal tubercle.j",
+"verts": 8,
+"c": [
+-0.081,
+0.028,
+0.026
+]
+},
+{
+"name": "Calcaneal tuberosity.i",
+"verts": 8,
+"c": [
+0.064,
+0.102,
+0.024
+]
+},
+{
+"name": "Calcaneal tuberosity.j",
+"verts": 8,
+"c": [
+-0.064,
+0.102,
+0.024
+]
+},
+{
+"name": "Calcaneus.l",
+"verts": 726,
+"c": [
+0.078,
+0.054,
+0.037
+]
+},
+{
+"name": "Calcaneus.r",
+"verts": 726,
+"c": [
+-0.078,
+0.054,
+0.037
+]
+},
+{
+"name": "Capitate bone.l",
+"verts": 238,
+"c": [
+0.265,
+-0.018,
+0.844
+]
+},
+{
+"name": "Capitate bone.r",
+"verts": 238,
+"c": [
+-0.265,
+-0.018,
+0.844
+]
+},
+{
+"name": "Capitulum of humerus.i",
+"verts": 8,
+"c": [
+0.256,
+0.026,
+1.092
+]
+},
+{
+"name": "Capitulum of humerus.j",
+"verts": 8,
+"c": [
+-0.256,
+0.026,
+1.092
+]
+},
+{
+"name": "Carotid sulcus.j",
+"verts": 8,
+"c": [
+0.001,
+-0.009,
+1.589
+]
+},
+{
+"name": "Carpal articular surface.i",
+"verts": 8,
+"c": [
+0.27,
+-0.015,
+0.852
+]
+},
+{
+"name": "Carpal articular surface.j",
+"verts": 8,
+"c": [
+-0.27,
+-0.015,
+0.852
+]
+},
+{
+"name": "Carpal bones.j",
+"verts": 8,
+"c": [
+-0.217,
+-0.021,
+0.844
+]
+},
+{
+"name": "Cartilages of ear.j",
+"verts": 8,
+"c": [
+0.111,
+0.013,
+1.592
+]
+},
+{
+"name": "Cerebellar fossa.j",
+"verts": 8,
+"c": [
+0.017,
+0.061,
+1.576
+]
+},
+{
+"name": "Cerebral fossa.j",
+"verts": 8,
+"c": [
+0.022,
+0.084,
+1.602
+]
+},
+{
+"name": "Cerebral surface of greater wing.j",
+"verts": 8,
+"c": [
+-0.034,
+-0.03,
+1.594
+]
+},
+{
+"name": "Cervical vertebra.j",
+"verts": 8,
+"c": [
+0.037,
+0.01,
+1.492
+]
+},
+{
+"name": "Cervical vertebrae.j",
+"verts": 8,
+"c": [
+-0.0,
+0.094,
+1.485
+]
+},
+{
+"name": "Chiasmatic sulcus.j",
+"verts": 8,
+"c": [
+0.0,
+-0.026,
+1.607
+]
+},
+{
+"name": "Clavicle.l",
+"verts": 789,
+"c": [
+0.083,
+0.001,
+1.407
+]
+},
+{
+"name": "Clavicle.r",
+"verts": 789,
+"c": [
+-0.083,
+0.001,
+1.407
+]
+},
+{
+"name": "Clavicular facet.i",
+"verts": 8,
+"c": [
+0.142,
+0.037,
+1.423
+]
+},
+{
+"name": "Clavicular facet.j",
+"verts": 8,
+"c": [
+-0.142,
+0.037,
+1.423
+]
+},
+{
+"name": "Clavicular notch.j",
+"verts": 8,
+"c": [
+-0.034,
+-0.044,
+1.386
+]
+},
+{
+"name": "Clavicular part of deltoid muscle.ol",
+"verts": 964,
+"c": [
+0.12,
+0.011,
+1.414
+]
+},
+{
+"name": "Clavicular part of deltoid muscle.or",
+"verts": 964,
+"c": [
+-0.12,
+0.011,
+1.414
+]
+},
+{
+"name": "Coccygeal horn.j",
+"verts": 8,
+"c": [
+0.009,
+0.09,
+0.861
+]
+},
+{
+"name": "Coccyx",
+"verts": 589,
+"c": [
+0.0,
+0.077,
+0.846
+]
+},
+{
+"name": "Coccyx.j",
+"verts": 8,
+"c": [
+-0.022,
+0.078,
+0.852
+]
+},
+{
+"name": "Colliculus of arytenoid cartilage.i",
+"verts": 8,
+"c": [
+0.003,
+-0.008,
+1.481
+]
+},
+{
+"name": "Colliculus of arytenoid cartilage.j",
+"verts": 8,
+"c": [
+-0.003,
+-0.008,
+1.481
+]
+},
+{
+"name": "Common extensor tendon.ol",
+"verts": 330,
+"c": [
+0.247,
+0.044,
+1.112
+]
+},
+{
+"name": "Common extensor tendon.or",
+"verts": 330,
+"c": [
+-0.247,
+0.044,
+1.112
+]
+},
+{
+"name": "Common flexor tendon.ol",
+"verts": 346,
+"c": [
+0.191,
+0.032,
+1.106
+]
+},
+{
+"name": "Common flexor tendon.or",
+"verts": 346,
+"c": [
+-0.191,
+0.032,
+1.106
+]
+},
+{
+"name": "Condylar canal.j",
+"verts": 8,
+"c": [
+-0.023,
+0.031,
+1.558
+]
+},
+{
+"name": "Condylar fossa.j",
+"verts": 8,
+"c": [
+0.032,
+0.04,
+1.557
+]
+},
+{
+"name": "Condyle of humerus.i",
+"verts": 8,
+"c": [
+0.219,
+0.036,
+1.084
+]
+},
+{
+"name": "Condyle of humerus.j",
+"verts": 8,
+"c": [
+-0.219,
+0.036,
+1.084
+]
+},
+{
+"name": "Conoid tubercle.i",
+"verts": 8,
+"c": [
+0.106,
+0.024,
+1.407
+]
+},
+{
+"name": "Conoid tubercle.j",
+"verts": 8,
+"c": [
+-0.106,
+0.024,
+1.407
+]
+},
+{
+"name": "Coracobrachialis muscle.ol",
+"verts": 1452,
+"c": [
+0.139,
+0.004,
+1.39
+]
+},
+{
+"name": "Coracobrachialis muscle.or",
+"verts": 1452,
+"c": [
+-0.139,
+0.004,
+1.39
+]
+},
+{
+"name": "Coracoid process.i",
+"verts": 8,
+"c": [
+0.148,
+-0.008,
+1.391
+]
+},
+{
+"name": "Coracoid process.j",
+"verts": 8,
+"c": [
+-0.148,
+-0.008,
+1.391
+]
+},
+{
+"name": "Corniculate cartilage.l",
+"verts": 70,
+"c": [
+0.004,
+-0.004,
+1.481
+]
+},
+{
+"name": "Corniculate cartilage.r",
+"verts": 70,
+"c": [
+-0.004,
+-0.004,
+1.481
+]
+},
+{
+"name": "Coronoid fossa.i",
+"verts": 8,
+"c": [
+0.216,
+0.02,
+1.115
+]
+},
+{
+"name": "Coronoid fossa.j",
+"verts": 8,
+"c": [
+-0.216,
+0.02,
+1.115
+]
+},
+{
+"name": "Coronoid process of ulna.i",
+"verts": 8,
+"c": [
+0.219,
+0.013,
+1.098
+]
+},
+{
+"name": "Coronoid process of ulna.j",
+"verts": 8,
+"c": [
+-0.219,
+0.013,
+1.098
+]
+},
+{
+"name": "Costal arch.j",
+"verts": 8,
+"c": [
+-0.029,
+-0.103,
+1.177
+]
+},
+{
+"name": "Costal cartilage of eighth rib.l",
+"verts": 1314,
+"c": [
+0.078,
+-0.083,
+1.161
+]
+},
+{
+"name": "Costal cartilage of eighth rib.r",
+"verts": 1314,
+"c": [
+-0.078,
+-0.083,
+1.161
+]
+},
+{
+"name": "Costal cartilage of fifth rib.l",
+"verts": 3248,
+"c": [
+0.052,
+-0.102,
+1.26
+]
+},
+{
+"name": "Costal cartilage of fifth rib.r",
+"verts": 3248,
+"c": [
+-0.052,
+-0.102,
+1.26
+]
+},
+{
+"name": "Costal cartilage of first rib.l",
+"verts": 1388,
+"c": [
+0.039,
+-0.04,
+1.388
+]
+},
+{
+"name": "Costal cartilage of first rib.r",
+"verts": 1388,
+"c": [
+-0.039,
+-0.04,
+1.388
+]
+},
+{
+"name": "Costal cartilage of fourth rib.l",
+"verts": 2238,
+"c": [
+0.043,
+-0.091,
+1.291
+]
+},
+{
+"name": "Costal cartilage of fourth rib.r",
+"verts": 2238,
+"c": [
+-0.043,
+-0.091,
+1.291
+]
+},
+{
+"name": "Costal cartilage of ninth rib.l",
+"verts": 984,
+"c": [
+0.096,
+-0.064,
+1.115
+]
+},
+{
+"name": "Costal cartilage of ninth rib.r",
+"verts": 984,
+"c": [
+-0.096,
+-0.064,
+1.115
+]
+},
+{
+"name": "Costal cartilage of second rib.l",
+"verts": 1706,
+"c": [
+0.029,
+-0.07,
+1.351
+]
+},
+{
+"name": "Costal cartilage of second rib.r",
+"verts": 1706,
+"c": [
+-0.029,
+-0.07,
+1.351
+]
+},
+{
+"name": "Costal cartilage of seventh rib.l",
+"verts": 6884,
+"c": [
+0.06,
+-0.094,
+1.207
+]
+},
+{
+"name": "Costal cartilage of seventh rib.r",
+"verts": 6884,
+"c": [
+-0.06,
+-0.094,
+1.207
+]
+},
+{
+"name": "Costal cartilage of sixth rib.l",
+"verts": 4062,
+"c": [
+0.055,
+-0.101,
+1.234
+]
+},
+{
+"name": "Costal cartilage of sixth rib.r",
+"verts": 4062,
+"c": [
+-0.055,
+-0.101,
+1.234
+]
+},
+{
+"name": "Costal cartilage of tenth rib.l",
+"verts": 764,
+"c": [
+0.104,
+-0.05,
+1.081
+]
+},
+{
+"name": "Costal cartilage of tenth rib.r",
+"verts": 764,
+"c": [
+-0.104,
+-0.05,
+1.081
+]
+},
+{
+"name": "Costal cartilage of third rib.l",
+"verts": 1802,
+"c": [
+0.034,
+-0.08,
+1.32
+]
+},
+{
+"name": "Costal cartilage of third rib.r",
+"verts": 1802,
+"c": [
+-0.034,
+-0.08,
+1.32
+]
+},
+{
+"name": "Costal cartilages.j",
+"verts": 8,
+"c": [
+-0.045,
+-0.152,
+1.199
+]
+},
+{
+"name": "Costal groove.i",
+"verts": 8,
+"c": [
+0.08,
+0.089,
+1.306
+]
+},
+{
+"name": "Costal groove.j",
+"verts": 8,
+"c": [
+-0.08,
+0.089,
+1.306
+]
+},
+{
+"name": "Costal notches.j",
+"verts": 8,
+"c": [
+-0.029,
+-0.1,
+1.271
+]
+},
+{
+"name": "Costal part of transverse process.j",
+"verts": 8,
+"c": [
+-0.042,
+0.019,
+1.052
+]
+},
+{
+"name": "Costal surface of scapula.i",
+"verts": 8,
+"c": [
+0.081,
+0.076,
+1.345
+]
+},
+{
+"name": "Costal surface of scapula.j",
+"verts": 8,
+"c": [
+-0.081,
+0.076,
+1.345
+]
+},
+{
+"name": "Cranium.j",
+"verts": 8,
+"c": [
+0.093,
+0.007,
+1.667
+]
+},
+{
+"name": "Crest of greater tubercle.i",
+"verts": 8,
+"c": [
+0.205,
+-0.003,
+1.377
+]
+},
+{
+"name": "Crest of greater tubercle.j",
+"verts": 8,
+"c": [
+-0.205,
+-0.003,
+1.377
+]
+},
+{
+"name": "Crest of head of rib.i",
+"verts": 8,
+"c": [
+0.005,
+0.057,
+1.336
+]
+},
+{
+"name": "Crest of head of rib.j",
+"verts": 8,
+"c": [
+-0.005,
+0.057,
+1.336
+]
+},
+{
+"name": "Crest of lesser tubercle.i",
+"verts": 8,
+"c": [
+0.184,
+0.003,
+1.362
+]
+},
+{
+"name": "Crest of lesser tubercle.j",
+"verts": 8,
+"c": [
+-0.184,
+0.003,
+1.362
+]
+},
+{
+"name": "Crest of neck of rib.i",
+"verts": 8,
+"c": [
+0.054,
+0.081,
+1.337
+]
+},
+{
+"name": "Crest of neck of rib.j",
+"verts": 8,
+"c": [
+-0.054,
+0.081,
+1.337
+]
+},
+{
+"name": "Cricoid cartilage",
+"verts": 941,
+"c": [
+0.0,
+-0.011,
+1.466
+]
+},
+{
+"name": "Cross Section X.001",
+"verts": 4,
+"c": [
+0.4,
+0.0,
+0.85
+]
+},
+{
+"name": "Cross Section Y.001",
+"verts": 4,
+"c": [
+0.0,
+0.22,
+0.85
+]
+},
+{
+"name": "Cross Section Z.001",
+"verts": 4,
+"c": [
+0.0,
+0.0,
+1.79
+]
+},
+{
+"name": "Crown of tooth.i",
+"verts": 8,
+"c": [
+0.03,
+-0.061,
+1.529
+]
+},
+{
+"name": "Crown of tooth.j",
+"verts": 8,
+"c": [
+-0.03,
+-0.061,
+1.529
+]
+},
+{
+"name": "Cruciform eminence.j",
+"verts": 8,
+"c": [
+-0.007,
+0.076,
+1.585
+]
+},
+{
+"name": "Cuboid bone.l",
+"verts": 501,
+"c": [
+0.096,
+0.006,
+0.044
+]
+},
+{
+"name": "Cuboid bone.r",
+"verts": 501,
+"c": [
+-0.096,
+0.006,
+0.044
+]
+},
+{
+"name": "Cusp of tooth.i",
+"verts": 8,
+"c": [
+0.018,
+-0.061,
+1.533
+]
+},
+{
+"name": "Cusp of tooth.j",
+"verts": 8,
+"c": [
+-0.018,
+-0.061,
+1.533
+]
+},
+{
+"name": "Deep head of flexor pollicis brevis.o1l",
+"verts": 280,
+"c": [
+0.306,
+-0.04,
+0.833
+]
+},
+{
+"name": "Deep head of flexor pollicis brevis.o1r",
+"verts": 280,
+"c": [
+-0.306,
+-0.04,
+0.833
+]
+},
+{
+"name": "Deep head of flexor pollicis brevis.ol",
+"verts": 482,
+"c": [
+0.281,
+-0.032,
+0.852
+]
+},
+{
+"name": "Deep head of flexor pollicis brevis.or",
+"verts": 482,
+"c": [
+-0.281,
+-0.032,
+0.852
+]
+},
+{
+"name": "Deltoid muscle.el",
+"verts": 296,
+"c": [
+0.207,
+0.027,
+1.289
+]
+},
+{
+"name": "Deltoid muscle.er",
+"verts": 296,
+"c": [
+-0.207,
+0.027,
+1.289
+]
+},
+{
+"name": "Deltoid tubercle.i",
+"verts": 8,
+"c": [
+0.061,
+0.113,
+1.38
+]
+},
+{
+"name": "Deltoid tubercle.j",
+"verts": 8,
+"c": [
+-0.061,
+0.113,
+1.38
+]
+},
+{
+"name": "Deltoid tuberosity.i",
+"verts": 8,
+"c": [
+0.224,
+0.034,
+1.287
+]
+},
+{
+"name": "Deltoid tuberosity.j",
+"verts": 8,
+"c": [
+-0.224,
+0.034,
+1.287
+]
+},
+{
+"name": "Dens axis.j",
+"verts": 8,
+"c": [
+-0.0,
+-0.002,
+1.549
+]
+},
+{
+"name": "Depressor anguli oris.ol",
+"verts": 172,
+"c": [
+0.022,
+-0.062,
+1.503
+]
+},
+{
+"name": "Depressor anguli oris.or",
+"verts": 172,
+"c": [
+-0.022,
+-0.062,
+1.503
+]
+},
+{
+"name": "Depressor labii inferioris.ol",
+"verts": 192,
+"c": [
+0.021,
+-0.067,
+1.51
+]
+},
+{
+"name": "Depressor labii inferioris.or",
+"verts": 192,
+"c": [
+-0.021,
+-0.067,
+1.51
+]
+},
+{
+"name": "Depressor septi nasi.ol",
+"verts": 212,
+"c": [
+0.009,
+-0.086,
+1.544
+]
+},
+{
+"name": "Depressor septi nasi.or",
+"verts": 212,
+"c": [
+-0.009,
+-0.086,
+1.544
+]
+},
+{
+"name": "Descending part of trapezius muscle.ol",
+"verts": 1832,
+"c": [
+0.102,
+0.085,
+1.389
+]
+},
+{
+"name": "Descending part of trapezius muscle.or",
+"verts": 1832,
+"c": [
+-0.102,
+0.085,
+1.389
+]
+},
+{
+"name": "Diaphragm.o1l",
+"verts": 718,
+"c": [
+0.016,
+0.003,
+1.117
+]
+},
+{
+"name": "Diaphragm.o1r",
+"verts": 718,
+"c": [
+-0.016,
+0.003,
+1.117
+]
+},
+{
+"name": "Diaphragm.o2l",
+"verts": 410,
+"c": [
+0.015,
+-0.005,
+1.084
+]
+},
+{
+"name": "Diaphragm.o2r",
+"verts": 410,
+"c": [
+-0.015,
+-0.005,
+1.084
+]
+},
+{
+"name": "Diaphragm.o3l",
+"verts": 228,
+"c": [
+0.013,
+-0.014,
+1.051
+]
+},
+{
+"name": "Diaphragm.o3r",
+"verts": 228,
+"c": [
+-0.013,
+-0.014,
+1.051
+]
+},
+{
+"name": "Diaphragm.o4l",
+"verts": 3278,
+"c": [
+0.055,
+0.044,
+1.11
+]
+},
+{
+"name": "Diaphragm.o4r",
+"verts": 3278,
+"c": [
+-0.055,
+0.044,
+1.11
+]
+},
+{
+"name": "Diaphragm.o5l",
+"verts": 604,
+"c": [
+0.112,
+0.003,
+1.069
+]
+},
+{
+"name": "Diaphragm.o5r",
+"verts": 604,
+"c": [
+-0.112,
+0.003,
+1.069
+]
+},
+{
+"name": "Diaphragm.ol",
+"verts": 1706,
+"c": [
+0.064,
+-0.06,
+1.148
+]
+},
+{
+"name": "Diaphragm.or",
+"verts": 1706,
+"c": [
+-0.064,
+-0.06,
+1.148
+]
+},
+{
+"name": "Digastric fossa.j",
+"verts": 8,
+"c": [
+0.006,
+-0.063,
+1.5
+]
+},
+{
+"name": "Distal phalanx of fifth finger of foot.l",
+"verts": 120,
+"c": [
+0.142,
+-0.091,
+0.012
+]
+},
+{
+"name": "Distal phalanx of fifth finger of foot.r",
+"verts": 120,
+"c": [
+-0.142,
+-0.091,
+0.012
+]
+},
+{
+"name": "Distal phalanx of fifth finger of hand.l",
+"verts": 98,
+"c": [
+0.23,
+-0.076,
+0.73
+]
+},
+{
+"name": "Distal phalanx of fifth finger of hand.r",
+"verts": 98,
+"c": [
+-0.23,
+-0.076,
+0.73
+]
+},
+{
+"name": "Distal phalanx of first finger of foot.l",
+"verts": 235,
+"c": [
+0.08,
+-0.121,
+0.016
+]
+},
+{
+"name": "Distal phalanx of first finger of foot.r",
+"verts": 235,
+"c": [
+-0.08,
+-0.121,
+0.016
+]
+},
+{
+"name": "Distal phalanx of first finger of hand.l",
+"verts": 113,
+"c": [
+0.328,
+-0.066,
+0.779
+]
+},
+{
+"name": "Distal phalanx of first finger of hand.r",
+"verts": 113,
+"c": [
+-0.328,
+-0.066,
+0.779
+]
+},
+{
+"name": "Distal phalanx of fourth finger of foot.l",
+"verts": 141,
+"c": [
+0.132,
+-0.11,
+0.013
+]
+},
+{
+"name": "Distal phalanx of fourth finger of foot.r",
+"verts": 141,
+"c": [
+-0.132,
+-0.11,
+0.013
+]
+},
+{
+"name": "Distal phalanx of fourth finger of hand.l",
+"verts": 69,
+"c": [
+0.258,
+-0.088,
+0.716
+]
+},
+{
+"name": "Distal phalanx of fourth finger of hand.r",
+"verts": 69,
+"c": [
+-0.258,
+-0.088,
+0.716
+]
+},
+{
+"name": "Distal phalanx of second finger of foot.l",
+"verts": 120,
+"c": [
+0.104,
+-0.13,
+0.013
+]
+},
+{
+"name": "Distal phalanx of second finger of foot.r",
+"verts": 120,
+"c": [
+-0.104,
+-0.13,
+0.013
+]
+},
+{
+"name": "Distal phalanx of second finger of hand.l",
+"verts": 127,
+"c": [
+0.316,
+-0.079,
+0.715
+]
+},
+{
+"name": "Distal phalanx of second finger of hand.r",
+"verts": 127,
+"c": [
+-0.316,
+-0.079,
+0.715
+]
+},
+{
+"name": "Distal phalanx of third finger of foot.l",
+"verts": 161,
+"c": [
+0.119,
+-0.124,
+0.013
+]
+},
+{
+"name": "Distal phalanx of third finger of foot.r",
+"verts": 161,
+"c": [
+-0.119,
+-0.124,
+0.013
+]
+},
+{
+"name": "Distal phalanx of third finger of hand.l",
+"verts": 98,
+"c": [
+0.285,
+-0.088,
+0.706
+]
+},
+{
+"name": "Distal phalanx of third finger of hand.r",
+"verts": 98,
+"c": [
+-0.285,
+-0.088,
+0.706
+]
+},
+{
+"name": "Distal surface of tooth.i",
+"verts": 8,
+"c": [
+0.023,
+-0.049,
+1.53
+]
+},
+{
+"name": "Distal surface of tooth.j",
+"verts": 8,
+"c": [
+-0.023,
+-0.049,
+1.53
+]
+},
+{
+"name": "Dorsal interossei muscles of hand.o1l",
+"verts": 562,
+"c": [
+0.256,
+-0.026,
+0.797
+]
+},
+{
+"name": "Dorsal interossei muscles of hand.o1r",
+"verts": 562,
+"c": [
+-0.256,
+-0.026,
+0.797
+]
+},
+{
+"name": "Dorsal interossei muscles of hand.o2l",
+"verts": 478,
+"c": [
+0.273,
+-0.024,
+0.797
+]
+},
+{
+"name": "Dorsal interossei muscles of hand.o2r",
+"verts": 478,
+"c": [
+-0.273,
+-0.024,
+0.797
+]
+},
+{
+"name": "Dorsal interossei muscles of hand.o3l",
+"verts": 474,
+"c": [
+0.289,
+-0.026,
+0.802
+]
+},
+{
+"name": "Dorsal interossei muscles of hand.o3r",
+"verts": 474,
+"c": [
+-0.289,
+-0.026,
+0.802
+]
+},
+{
+"name": "Dorsal interossei muscles of hand.o4l",
+"verts": 166,
+"c": [
+0.292,
+-0.027,
+0.832
+]
+},
+{
+"name": "Dorsal interossei muscles of hand.o4r",
+"verts": 166,
+"c": [
+-0.292,
+-0.027,
+0.832
+]
+},
+{
+"name": "Dorsal interossei muscles of hand.ol",
+"verts": 202,
+"c": [
+0.245,
+-0.028,
+0.803
+]
+},
+{
+"name": "Dorsal interossei muscles of hand.or",
+"verts": 202,
+"c": [
+-0.245,
+-0.028,
+0.803
+]
+},
+{
+"name": "Dorsal radial tubercle.i",
+"verts": 8,
+"c": [
+0.275,
+0.01,
+0.861
+]
+},
+{
+"name": "Dorsal radial tubercle.j",
+"verts": 8,
+"c": [
+-0.275,
+0.01,
+0.861
+]
+},
+{
+"name": "Dorsal surface of sacrum.j",
+"verts": 8,
+"c": [
+0.014,
+0.073,
+0.952
+]
+},
+{
+"name": "Dorsum sellae.j",
+"verts": 8,
+"c": [
+-0.0,
+-0.006,
+1.607
+]
+},
+{
+"name": "Eighth rib.l",
+"verts": 4137,
+"c": [
+0.076,
+0.015,
+1.211
+]
+},
+{
+"name": "Eighth rib.r",
+"verts": 4137,
+"c": [
+-0.076,
+0.015,
+1.211
+]
+},
+{
+"name": "Eleventh rib.l",
+"verts": 2519,
+"c": [
+0.07,
+0.038,
+1.125
+]
+},
+{
+"name": "Eleventh rib.r",
+"verts": 2519,
+"c": [
+-0.07,
+0.038,
+1.125
+]
+},
+{
+"name": "Erector spinae.ol",
+"verts": 520,
+"c": [
+0.054,
+0.063,
+0.973
+]
+},
+{
+"name": "Erector spinae.or",
+"verts": 520,
+"c": [
+-0.054,
+0.063,
+0.973
+]
+},
+{
+"name": "Ethmoid bone",
+"verts": 5082,
+"c": [
+0.0,
+-0.054,
+1.586
+]
+},
+{
+"name": "Ethmoidal notch.j",
+"verts": 8,
+"c": [
+0.0,
+-0.062,
+1.594
+]
+},
+{
+"name": "Extensor carpi radialis brevis.el",
+"verts": 132,
+"c": [
+0.272,
+-0.013,
+0.829
+]
+},
+{
+"name": "Extensor carpi radialis brevis.er",
+"verts": 132,
+"c": [
+-0.272,
+-0.013,
+0.829
+]
+},
+{
+"name": "Extensor carpi radialis longus.el",
+"verts": 124,
+"c": [
+0.284,
+-0.018,
+0.832
+]
+},
+{
+"name": "Extensor carpi radialis longus.er",
+"verts": 124,
+"c": [
+-0.284,
+-0.018,
+0.832
+]
+},
+{
+"name": "Extensor carpi radialis longus.ol",
+"verts": 512,
+"c": [
+0.238,
+0.047,
+1.139
+]
+},
+{
+"name": "Extensor carpi radialis longus.or",
+"verts": 512,
+"c": [
+-0.238,
+0.047,
+1.139
+]
+},
+{
+"name": "Extensor carpi ulnaris.el",
+"verts": 60,
+"c": [
+0.243,
+-0.016,
+0.846
+]
+},
+{
+"name": "Extensor carpi ulnaris.er",
+"verts": 60,
+"c": [
+-0.243,
+-0.016,
+0.846
+]
+},
+{
+"name": "Extensor carpi ulnaris.ol",
+"verts": 100,
+"c": [
+0.23,
+0.022,
+0.969
+]
+},
+{
+"name": "Extensor carpi ulnaris.or",
+"verts": 100,
+"c": [
+-0.23,
+0.022,
+0.969
+]
+},
+{
+"name": "Extensor digitorum brevis.e1l",
+"verts": 196,
+"c": [
+0.115,
+-0.108,
+0.019
+]
+},
+{
+"name": "Extensor digitorum brevis.e1r",
+"verts": 196,
+"c": [
+-0.115,
+-0.108,
+0.019
+]
+},
+{
+"name": "Extensor digitorum brevis.e2l",
+"verts": 142,
+"c": [
+0.13,
+-0.096,
+0.018
+]
+},
+{
+"name": "Extensor digitorum brevis.e2r",
+"verts": 142,
+"c": [
+-0.13,
+-0.096,
+0.018
+]
+},
+{
+"name": "Extensor digitorum brevis.el",
+"verts": 144,
+"c": [
+0.101,
+-0.114,
+0.02
+]
+},
+{
+"name": "Extensor digitorum brevis.er",
+"verts": 144,
+"c": [
+-0.101,
+-0.114,
+0.02
+]
+},
+{
+"name": "Extensor digitorum longus.e1l",
+"verts": 126,
+"c": [
+0.118,
+-0.122,
+0.015
+]
+},
+{
+"name": "Extensor digitorum longus.e1r",
+"verts": 126,
+"c": [
+-0.118,
+-0.122,
+0.015
+]
+},
+{
+"name": "Extensor digitorum longus.e2l",
+"verts": 160,
+"c": [
+0.132,
+-0.107,
+0.016
+]
+},
+{
+"name": "Extensor digitorum longus.e2r",
+"verts": 160,
+"c": [
+-0.132,
+-0.107,
+0.016
+]
+},
+{
+"name": "Extensor digitorum longus.e3l",
+"verts": 70,
+"c": [
+0.142,
+-0.089,
+0.015
+]
+},
+{
+"name": "Extensor digitorum longus.e3r",
+"verts": 70,
+"c": [
+-0.142,
+-0.089,
+0.015
+]
+},
+{
+"name": "Extensor digitorum longus.e4l",
+"verts": 132,
+"c": [
+0.141,
+-0.083,
+0.016
+]
+},
+{
+"name": "Extensor digitorum longus.e4r",
+"verts": 132,
+"c": [
+-0.141,
+-0.083,
+0.016
+]
+},
+{
+"name": "Extensor digitorum longus.el",
+"verts": 132,
+"c": [
+0.103,
+-0.127,
+0.017
+]
+},
+{
+"name": "Extensor digitorum longus.er",
+"verts": 132,
+"c": [
+-0.103,
+-0.127,
+0.017
+]
+},
+{
+"name": "Extensor digitorum longus.o1l",
+"verts": 1640,
+"c": [
+0.106,
+0.035,
+0.284
+]
+},
+{
+"name": "Extensor digitorum longus.o1r",
+"verts": 1640,
+"c": [
+-0.106,
+0.035,
+0.284
+]
+},
+{
+"name": "Extensor digitorum longus.ol",
+"verts": 156,
+"c": [
+0.11,
+0.022,
+0.411
+]
+},
+{
+"name": "Extensor digitorum longus.or",
+"verts": 156,
+"c": [
+-0.11,
+0.022,
+0.411
+]
+},
+{
+"name": "Extensor digitorum.e1l",
+"verts": 142,
+"c": [
+0.254,
+-0.037,
+0.766
+]
+},
+{
+"name": "Extensor digitorum.e1r",
+"verts": 142,
+"c": [
+-0.254,
+-0.037,
+0.766
+]
+},
+{
+"name": "Extensor digitorum.e2l",
+"verts": 224,
+"c": [
+0.275,
+-0.036,
+0.762
+]
+},
+{
+"name": "Extensor digitorum.e2r",
+"verts": 224,
+"c": [
+-0.275,
+-0.036,
+0.762
+]
+},
+{
+"name": "Extensor digitorum.e3l",
+"verts": 172,
+"c": [
+0.297,
+-0.035,
+0.76
+]
+},
+{
+"name": "Extensor digitorum.e3r",
+"verts": 172,
+"c": [
+-0.297,
+-0.035,
+0.76
+]
+},
+{
+"name": "Extensor digitorum.e4l",
+"verts": 90,
+"c": [
+0.232,
+-0.058,
+0.746
+]
+},
+{
+"name": "Extensor digitorum.e4r",
+"verts": 90,
+"c": [
+-0.232,
+-0.058,
+0.746
+]
+},
+{
+"name": "Extensor digitorum.e5l",
+"verts": 112,
+"c": [
+0.256,
+-0.06,
+0.731
+]
+},
+{
+"name": "Extensor digitorum.e5r",
+"verts": 112,
+"c": [
+-0.256,
+-0.06,
+0.731
+]
+},
+{
+"name": "Extensor digitorum.e6l",
+"verts": 70,
+"c": [
+0.281,
+-0.06,
+0.727
+]
+},
+{
+"name": "Extensor digitorum.e6r",
+"verts": 70,
+"c": [
+-0.281,
+-0.06,
+0.727
+]
+},
+{
+"name": "Extensor digitorum.e7l",
+"verts": 146,
+"c": [
+0.313,
+-0.055,
+0.73
+]
+},
+{
+"name": "Extensor digitorum.e7r",
+"verts": 146,
+"c": [
+-0.313,
+-0.055,
+0.73
+]
+},
+{
+"name": "Extensor digitorum.el",
+"verts": 182,
+"c": [
+0.237,
+-0.04,
+0.774
+]
+},
+{
+"name": "Extensor digitorum.er",
+"verts": 182,
+"c": [
+-0.237,
+-0.04,
+0.774
+]
+},
+{
+"name": "Extensor hallucis brevis.ol",
+"verts": 252,
+"c": [
+0.099,
+0.03,
+0.051
+]
+},
+{
+"name": "Extensor hallucis brevis.or",
+"verts": 252,
+"c": [
+-0.099,
+0.03,
+0.051
+]
+},
+{
+"name": "Extensor hallucis longus.el",
+"verts": 174,
+"c": [
+0.074,
+-0.093,
+0.027
+]
+},
+{
+"name": "Extensor hallucis longus.er",
+"verts": 174,
+"c": [
+-0.074,
+-0.093,
+0.027
+]
+},
+{
+"name": "Extensor hallucis longus.ol",
+"verts": 2350,
+"c": [
+0.1,
+0.035,
+0.232
+]
+},
+{
+"name": "Extensor hallucis longus.or",
+"verts": 2350,
+"c": [
+-0.1,
+0.035,
+0.232
+]
+},
+{
+"name": "Extensor indicis.el",
+"verts": 114,
+"c": [
+0.316,
+-0.073,
+0.716
+]
+},
+{
+"name": "Extensor indicis.er",
+"verts": 114,
+"c": [
+-0.316,
+-0.073,
+0.716
+]
+},
+{
+"name": "Extensor indicis.ol",
+"verts": 388,
+"c": [
+0.245,
+-0.002,
+0.898
+]
+},
+{
+"name": "Extensor indicis.or",
+"verts": 388,
+"c": [
+-0.245,
+-0.002,
+0.898
+]
+},
+{
+"name": "Extensor pollicis brevis.el",
+"verts": 150,
+"c": [
+0.321,
+-0.047,
+0.808
+]
+},
+{
+"name": "Extensor pollicis brevis.er",
+"verts": 150,
+"c": [
+-0.321,
+-0.047,
+0.808
+]
+},
+{
+"name": "Extensor pollicis brevis.ol",
+"verts": 476,
+"c": [
+0.256,
+0.002,
+0.923
+]
+},
+{
+"name": "Extensor pollicis brevis.or",
+"verts": 476,
+"c": [
+-0.256,
+0.002,
+0.923
+]
+},
+{
+"name": "Extensor pollicis longus.el",
+"verts": 132,
+"c": [
+0.328,
+-0.061,
+0.784
+]
+},
+{
+"name": "Extensor pollicis longus.er",
+"verts": 132,
+"c": [
+-0.328,
+-0.061,
+0.784
+]
+},
+{
+"name": "Extensor pollicis longus.ol",
+"verts": 522,
+"c": [
+0.24,
+0.013,
+0.951
+]
+},
+{
+"name": "Extensor pollicis longus.or",
+"verts": 522,
+"c": [
+-0.24,
+0.013,
+0.951
+]
+},
+{
+"name": "External abdominal oblique muscle.o1l",
+"verts": 1068,
+"c": [
+0.133,
+-0.034,
+1.237
+]
+},
+{
+"name": "External abdominal oblique muscle.o1r",
+"verts": 1068,
+"c": [
+-0.133,
+-0.034,
+1.237
+]
+},
+{
+"name": "External abdominal oblique muscle.o2l",
+"verts": 864,
+"c": [
+0.14,
+-0.016,
+1.209
+]
+},
+{
+"name": "External abdominal oblique muscle.o2r",
+"verts": 864,
+"c": [
+-0.14,
+-0.016,
+1.209
+]
+},
+{
+"name": "External abdominal oblique muscle.o3l",
+"verts": 1578,
+"c": [
+0.131,
+-0.0,
+1.177
+]
+},
+{
+"name": "External abdominal oblique muscle.o3r",
+"verts": 1578,
+"c": [
+-0.131,
+-0.0,
+1.177
+]
+},
+{
+"name": "External abdominal oblique muscle.o4l",
+"verts": 598,
+"c": [
+0.09,
+-0.006,
+0.941
+]
+},
+{
+"name": "External abdominal oblique muscle.o4r",
+"verts": 598,
+"c": [
+-0.09,
+-0.006,
+0.941
+]
+},
+{
+"name": "External abdominal oblique muscle.o5l",
+"verts": 1482,
+"c": [
+0.088,
+-0.055,
+0.913
+]
+},
+{
+"name": "External abdominal oblique muscle.o5r",
+"verts": 1482,
+"c": [
+-0.088,
+-0.055,
+0.913
+]
+},
+{
+"name": "External abdominal oblique muscle.ol",
+"verts": 1018,
+"c": [
+0.12,
+-0.047,
+1.268
+]
+},
+{
+"name": "External abdominal oblique muscle.or",
+"verts": 1018,
+"c": [
+-0.12,
+-0.047,
+1.268
+]
+},
+{
+"name": "External occipital protuberance.j",
+"verts": 8,
+"c": [
+0.0,
+0.092,
+1.568
+]
+},
+{
+"name": "External surface of frontal bone.j",
+"verts": 8,
+"c": [
+0.025,
+-0.052,
+1.694
+]
+},
+{
+"name": "External surface of parietal bone.j",
+"verts": 8,
+"c": [
+-0.073,
+0.04,
+1.681
+]
+},
+{
+"name": "Extracranial bones of head.j",
+"verts": 8,
+"c": [
+0.078,
+-0.041,
+1.509
+]
+},
+{
+"name": "Facet for calcaneonavicular part of bifurcate ligament.i",
+"verts": 8,
+"c": [
+0.104,
+0.015,
+0.064
+]
+},
+{
+"name": "Facet for calcaneonavicular part of bifurcate ligament.j",
+"verts": 8,
+"c": [
+-0.104,
+0.015,
+0.064
+]
+},
+{
+"name": "Facet for dens.j",
+"verts": 8,
+"c": [
+0.0,
+0.008,
+1.543
+]
+},
+{
+"name": "Facet for plantar calcaneonavicular ligament.i",
+"verts": 8,
+"c": [
+0.045,
+0.032,
+0.057
+]
+},
+{
+"name": "Facet for plantar calcaneonavicular ligament.j",
+"verts": 8,
+"c": [
+-0.045,
+0.032,
+0.057
+]
+},
+{
+"name": "Facial bones.j",
+"verts": 8,
+"c": [
+0.074,
+-0.062,
+1.559
+]
+},
+{
+"name": "False ribs.j",
+"verts": 8,
+"c": [
+-0.147,
+-0.004,
+1.135
+]
+},
+{
+"name": "Femur.i",
+"verts": 8,
+"c": [
+0.127,
+0.01,
+0.62
+]
+},
+{
+"name": "Femur.j",
+"verts": 8,
+"c": [
+-0.127,
+0.01,
+0.62
+]
+},
+{
+"name": "Femur.l",
+"verts": 1899,
+"c": [
+0.09,
+0.02,
+0.657
+]
+},
+{
+"name": "Femur.r",
+"verts": 1899,
+"c": [
+-0.09,
+0.02,
+0.657
+]
+},
+{
+"name": "Fibula.i",
+"verts": 8,
+"c": [
+0.124,
+0.045,
+0.257
+]
+},
+{
+"name": "Fibula.j",
+"verts": 8,
+"c": [
+-0.124,
+0.045,
+0.257
+]
+},
+{
+"name": "Fibula.l",
+"verts": 653,
+"c": [
+0.107,
+0.043,
+0.236
+]
+},
+{
+"name": "Fibula.r",
+"verts": 653,
+"c": [
+-0.107,
+0.043,
+0.236
+]
+},
+{
+"name": "Fibular articular facet.i",
+"verts": 8,
+"c": [
+0.132,
+0.037,
+0.406
+]
+},
+{
+"name": "Fibular articular facet.j",
+"verts": 8,
+"c": [
+-0.132,
+0.037,
+0.406
+]
+},
+{
+"name": "Fibular notch.i",
+"verts": 8,
+"c": [
+0.116,
+0.043,
+0.099
+]
+},
+{
+"name": "Fibular notch.j",
+"verts": 8,
+"c": [
+-0.116,
+0.043,
+0.099
+]
+},
+{
+"name": "Fibularis brevis muscle.el",
+"verts": 358,
+"c": [
+0.113,
+0.013,
+0.029
+]
+},
+{
+"name": "Fibularis brevis muscle.er",
+"verts": 358,
+"c": [
+-0.113,
+0.013,
+0.029
+]
+},
+{
+"name": "Fibularis brevis muscle.ol",
+"verts": 434,
+"c": [
+0.104,
+0.054,
+0.178
+]
+},
+{
+"name": "Fibularis brevis muscle.or",
+"verts": 434,
+"c": [
+-0.104,
+0.054,
+0.178
+]
+},
+{
+"name": "Fibularis longus muscle.ol",
+"verts": 786,
+"c": [
+0.115,
+0.045,
+0.335
+]
+},
+{
+"name": "Fibularis longus muscle.or",
+"verts": 786,
+"c": [
+-0.115,
+0.045,
+0.335
+]
+},
+{
+"name": "Fibularis tertius muscle.el",
+"verts": 210,
+"c": [
+0.115,
+-0.009,
+0.037
+]
+},
+{
+"name": "Fibularis tertius muscle.er",
+"verts": 210,
+"c": [
+-0.115,
+-0.009,
+0.037
+]
+},
+{
+"name": "Fibularis tertius muscle.ol",
+"verts": 82,
+"c": [
+0.099,
+0.042,
+0.138
+]
+},
+{
+"name": "Fibularis tertius muscle.or",
+"verts": 82,
+"c": [
+-0.099,
+0.042,
+0.138
+]
+},
+{
+"name": "Fifth metacarpal bone.l",
+"verts": 258,
+"c": [
+0.243,
+-0.032,
+0.809
+]
+},
+{
+"name": "Fifth metacarpal bone.r",
+"verts": 258,
+"c": [
+-0.243,
+-0.032,
+0.809
+]
+},
+{
+"name": "Fifth metatarsal bone.i",
+"verts": 8,
+"c": [
+0.113,
+0.014,
+0.022
+]
+},
+{
+"name": "Fifth metatarsal bone.j",
+"verts": 8,
+"c": [
+-0.113,
+0.014,
+0.022
+]
+},
+{
+"name": "Fifth metatarsal bone.l",
+"verts": 449,
+"c": [
+0.119,
+-0.023,
+0.025
+]
+},
+{
+"name": "Fifth metatarsal bone.r",
+"verts": 449,
+"c": [
+-0.119,
+-0.023,
+0.025
+]
+},
+{
+"name": "Fifth rib.l",
+"verts": 4690,
+"c": [
+0.073,
+-0.007,
+1.304
+]
+},
+{
+"name": "Fifth rib.r",
+"verts": 4690,
+"c": [
+-0.073,
+-0.007,
+1.304
+]
+},
+{
+"name": "First metacarpal bone.l",
+"verts": 343,
+"c": [
+0.301,
+-0.038,
+0.829
+]
+},
+{
+"name": "First metacarpal bone.r",
+"verts": 343,
+"c": [
+-0.301,
+-0.038,
+0.829
+]
+},
+{
+"name": "First metatarsal bone.i",
+"verts": 8,
+"c": [
+0.076,
+-0.024,
+0.032
+]
+},
+{
+"name": "First metatarsal bone.j",
+"verts": 8,
+"c": [
+-0.076,
+-0.024,
+0.032
+]
+},
+{
+"name": "First metatarsal bone.l",
+"verts": 546,
+"c": [
+0.071,
+-0.053,
+0.037
+]
+},
+{
+"name": "First metatarsal bone.r",
+"verts": 546,
+"c": [
+-0.071,
+-0.053,
+0.037
+]
+},
+{
+"name": "First rib.l",
+"verts": 1607,
+"c": [
+0.044,
+-0.002,
+1.417
+]
+},
+{
+"name": "First rib.r",
+"verts": 1607,
+"c": [
+-0.044,
+-0.002,
+1.417
+]
+},
+{
+"name": "Flexor carpi ulnaris.el",
+"verts": 450,
+"c": [
+0.244,
+-0.033,
+0.849
+]
+},
+{
+"name": "Flexor carpi ulnaris.er",
+"verts": 450,
+"c": [
+-0.244,
+-0.033,
+0.849
+]
+},
+{
+"name": "Flexor digiti minimi of foot.el",
+"verts": 284,
+"c": [
+0.136,
+-0.062,
+0.012
+]
+},
+{
+"name": "Flexor digiti minimi of foot.er",
+"verts": 284,
+"c": [
+-0.136,
+-0.062,
+0.012
+]
+},
+{
+"name": "Flexor digiti minimi of hand.el",
+"verts": 566,
+"c": [
+0.234,
+-0.046,
+0.782
+]
+},
+{
+"name": "Flexor digiti minimi of hand.er",
+"verts": 566,
+"c": [
+-0.234,
+-0.046,
+0.782
+]
+},
+{
+"name": "Flexor digiti minimi of hand.ol",
+"verts": 122,
+"c": [
+0.252,
+-0.032,
+0.841
+]
+},
+{
+"name": "Flexor digiti minimi of hand.or",
+"verts": 122,
+"c": [
+-0.252,
+-0.032,
+0.841
+]
+},
+{
+"name": "Flexor digitorum brevis.e1l",
+"verts": 504,
+"c": [
+0.117,
+-0.111,
+0.013
+]
+},
+{
+"name": "Flexor digitorum brevis.e1r",
+"verts": 504,
+"c": [
+-0.117,
+-0.111,
+0.013
+]
+},
+{
+"name": "Flexor digitorum brevis.e2l",
+"verts": 254,
+"c": [
+0.14,
+-0.082,
+0.01
+]
+},
+{
+"name": "Flexor digitorum brevis.e2r",
+"verts": 254,
+"c": [
+-0.14,
+-0.082,
+0.01
+]
+},
+{
+"name": "Flexor digitorum brevis.el",
+"verts": 330,
+"c": [
+0.101,
+-0.116,
+0.014
+]
+},
+{
+"name": "Flexor digitorum brevis.er",
+"verts": 330,
+"c": [
+-0.101,
+-0.116,
+0.014
+]
+},
+{
+"name": "Flexor digitorum brevis.ol",
+"verts": 352,
+"c": [
+0.076,
+0.062,
+0.015
+]
+},
+{
+"name": "Flexor digitorum brevis.or",
+"verts": 352,
+"c": [
+-0.076,
+0.062,
+0.015
+]
+},
+{
+"name": "Flexor digitorum longus.e1l",
+"verts": 158,
+"c": [
+0.118,
+-0.119,
+0.011
+]
+},
+{
+"name": "Flexor digitorum longus.e1r",
+"verts": 158,
+"c": [
+-0.118,
+-0.119,
+0.011
+]
+},
+{
+"name": "Flexor digitorum longus.e2l",
+"verts": 102,
+"c": [
+0.13,
+-0.106,
+0.01
+]
+},
+{
+"name": "Flexor digitorum longus.e2r",
+"verts": 102,
+"c": [
+-0.13,
+-0.106,
+0.01
+]
+},
+{
+"name": "Flexor digitorum longus.e3l",
+"verts": 156,
+"c": [
+0.142,
+-0.087,
+0.01
+]
+},
+{
+"name": "Flexor digitorum longus.e3r",
+"verts": 156,
+"c": [
+-0.142,
+-0.087,
+0.01
+]
+},
+{
+"name": "Flexor digitorum longus.el",
+"verts": 158,
+"c": [
+0.103,
+-0.124,
+0.011
+]
+},
+{
+"name": "Flexor digitorum longus.er",
+"verts": 158,
+"c": [
+-0.103,
+-0.124,
+0.011
+]
+},
+{
+"name": "Flexor digitorum longus.ol",
+"verts": 212,
+"c": [
+0.076,
+0.035,
+0.258
+]
+},
+{
+"name": "Flexor digitorum longus.or",
+"verts": 212,
+"c": [
+-0.076,
+0.035,
+0.258
+]
+},
+{
+"name": "Flexor digitorum profundus.e1l",
+"verts": 112,
+"c": [
+0.258,
+-0.085,
+0.719
+]
+},
+{
+"name": "Flexor digitorum profundus.e1r",
+"verts": 112,
+"c": [
+-0.258,
+-0.085,
+0.719
+]
+},
+{
+"name": "Flexor digitorum profundus.e2l",
+"verts": 80,
+"c": [
+0.285,
+-0.083,
+0.712
+]
+},
+{
+"name": "Flexor digitorum profundus.e2r",
+"verts": 80,
+"c": [
+-0.285,
+-0.083,
+0.712
+]
+},
+{
+"name": "Flexor digitorum profundus.e3l",
+"verts": 132,
+"c": [
+0.315,
+-0.075,
+0.721
+]
+},
+{
+"name": "Flexor digitorum profundus.e3r",
+"verts": 132,
+"c": [
+-0.315,
+-0.075,
+0.721
+]
+},
+{
+"name": "Flexor digitorum profundus.el",
+"verts": 80,
+"c": [
+0.23,
+-0.074,
+0.735
+]
+},
+{
+"name": "Flexor digitorum profundus.er",
+"verts": 80,
+"c": [
+-0.23,
+-0.074,
+0.735
+]
+},
+{
+"name": "Flexor digitorum superficialis.e1l",
+"verts": 252,
+"c": [
+0.257,
+-0.065,
+0.736
+]
+},
+{
+"name": "Flexor digitorum superficialis.e1r",
+"verts": 252,
+"c": [
+-0.257,
+-0.065,
+0.736
+]
+},
+{
+"name": "Flexor digitorum superficialis.e2l",
+"verts": 270,
+"c": [
+0.282,
+-0.067,
+0.729
+]
+},
+{
+"name": "Flexor digitorum superficialis.e2r",
+"verts": 270,
+"c": [
+-0.282,
+-0.067,
+0.729
+]
+},
+{
+"name": "Flexor digitorum superficialis.e3l",
+"verts": 262,
+"c": [
+0.311,
+-0.06,
+0.732
+]
+},
+{
+"name": "Flexor digitorum superficialis.e3r",
+"verts": 262,
+"c": [
+-0.311,
+-0.06,
+0.732
+]
+},
+{
+"name": "Flexor digitorum superficialis.el",
+"verts": 244,
+"c": [
+0.233,
+-0.063,
+0.748
+]
+},
+{
+"name": "Flexor digitorum superficialis.er",
+"verts": 244,
+"c": [
+-0.233,
+-0.063,
+0.748
+]
+},
+{
+"name": "Flexor digitorum superficialis.ol",
+"verts": 404,
+"c": [
+0.246,
+0.016,
+1.029
+]
+},
+{
+"name": "Flexor digitorum superficialis.or",
+"verts": 404,
+"c": [
+-0.246,
+0.016,
+1.029
+]
+},
+{
+"name": "Flexor hallucis longus.el",
+"verts": 156,
+"c": [
+0.079,
+-0.113,
+0.011
+]
+},
+{
+"name": "Flexor hallucis longus.er",
+"verts": 156,
+"c": [
+-0.079,
+-0.113,
+0.011
+]
+},
+{
+"name": "Flexor hallucis longus.ol",
+"verts": 1815,
+"c": [
+0.099,
+0.046,
+0.239
+]
+},
+{
+"name": "Flexor hallucis longus.or",
+"verts": 1815,
+"c": [
+-0.099,
+0.046,
+0.239
+]
+},
+{
+"name": "Flexor pollicis longus.el",
+"verts": 70,
+"c": [
+0.323,
+-0.064,
+0.786
+]
+},
+{
+"name": "Flexor pollicis longus.er",
+"verts": 70,
+"c": [
+-0.323,
+-0.064,
+0.786
+]
+},
+{
+"name": "Flexor pollicis longus.o1l",
+"verts": 924,
+"c": [
+0.258,
+0.006,
+0.971
+]
+},
+{
+"name": "Flexor pollicis longus.o1r",
+"verts": 924,
+"c": [
+-0.258,
+0.006,
+0.971
+]
+},
+{
+"name": "Flexor pollicis longus.ol",
+"verts": 114,
+"c": [
+0.226,
+0.031,
+1.053
+]
+},
+{
+"name": "Flexor pollicis longus.or",
+"verts": 114,
+"c": [
+-0.226,
+0.031,
+1.053
+]
+},
+{
+"name": "Floating ribs.j",
+"verts": 8,
+"c": [
+-0.064,
+0.081,
+1.1
+]
+},
+{
+"name": "Foramen caecum of frontal bone.j",
+"verts": 8,
+"c": [
+0.0,
+-0.063,
+1.61
+]
+},
+{
+"name": "Foramen magnum.j",
+"verts": 8,
+"c": [
+0.001,
+0.03,
+1.553
+]
+},
+{
+"name": "Foramen ovale.j",
+"verts": 8,
+"c": [
+0.024,
+-0.012,
+1.584
+]
+},
+{
+"name": "Foramen rotundum.j",
+"verts": 8,
+"c": [
+-0.015,
+-0.044,
+1.591
+]
+},
+{
+"name": "Foramen spinosum.j",
+"verts": 8,
+"c": [
+0.03,
+-0.007,
+1.582
+]
+},
+{
+"name": "Foramen transversarium.j",
+"verts": 8,
+"c": [
+-0.022,
+0.011,
+1.489
+]
+},
+{
+"name": "Fossa for lacrimal gland.j",
+"verts": 8,
+"c": [
+-0.044,
+-0.061,
+1.608
+]
+},
+{
+"name": "Fourth metacarpal bone.l",
+"verts": 323,
+"c": [
+0.256,
+-0.028,
+0.804
+]
+},
+{
+"name": "Fourth metacarpal bone.r",
+"verts": 323,
+"c": [
+-0.256,
+-0.028,
+0.804
+]
+},
+{
+"name": "Fourth metatarsal bone.l",
+"verts": 419,
+"c": [
+0.109,
+-0.038,
+0.031
+]
+},
+{
+"name": "Fourth metatarsal bone.r",
+"verts": 419,
+"c": [
+-0.109,
+-0.038,
+0.031
+]
+},
+{
+"name": "Fourth rib.l",
+"verts": 4325,
+"c": [
+0.071,
+-0.008,
+1.336
+]
+},
+{
+"name": "Fourth rib.r",
+"verts": 4325,
+"c": [
+-0.071,
+-0.008,
+1.336
+]
+},
+{
+"name": "Fovea for ligament of head of femur.i",
+"verts": 8,
+"c": [
+0.045,
+0.01,
+0.874
+]
+},
+{
+"name": "Fovea for ligament of head of femur.j",
+"verts": 8,
+"c": [
+-0.045,
+0.01,
+0.874
+]
+},
+{
+"name": "Frontal angle of parietal bone.j",
+"verts": 8,
+"c": [
+0.016,
+-0.021,
+1.699
+]
+},
+{
+"name": "Frontal bone",
+"verts": 3902,
+"c": [
+0.0,
+-0.053,
+1.646
+]
+},
+{
+"name": "Frontal border of parietal bone.j",
+"verts": 8,
+"c": [
+-0.047,
+-0.044,
+1.67
+]
+},
+{
+"name": "Frontal crest.j",
+"verts": 8,
+"c": [
+0.0,
+-0.072,
+1.64
+]
+},
+{
+"name": "Frontal eminence.j",
+"verts": 8,
+"c": [
+0.034,
+-0.083,
+1.647
+]
+},
+{
+"name": "Frontal margin of greater wing.j",
+"verts": 8,
+"c": [
+0.038,
+-0.044,
+1.626
+]
+},
+{
+"name": "Frontal part of orbital margin.j",
+"verts": 8,
+"c": [
+0.037,
+-0.077,
+1.603
+]
+},
+{
+"name": "Frontalis muscle.ol",
+"verts": 596,
+"c": [
+0.025,
+-0.075,
+1.612
+]
+},
+{
+"name": "Frontalis muscle.or",
+"verts": 596,
+"c": [
+-0.025,
+-0.075,
+1.612
+]
+},
+{
+"name": "Geniohyoid muscle.el",
+"verts": 296,
+"c": [
+0.005,
+-0.032,
+1.501
+]
+},
+{
+"name": "Geniohyoid muscle.er",
+"verts": 296,
+"c": [
+-0.005,
+-0.032,
+1.501
+]
+},
+{
+"name": "Geniohyoid muscle.ol",
+"verts": 80,
+"c": [
+0.001,
+-0.069,
+1.504
+]
+},
+{
+"name": "Geniohyoid muscle.or",
+"verts": 80,
+"c": [
+-0.001,
+-0.069,
+1.504
+]
+},
+{
+"name": "Genion.j",
+"verts": 8,
+"c": [
+-0.039,
+-0.002,
+1.526
+]
+},
+{
+"name": "Glabella.j",
+"verts": 8,
+"c": [
+0.0,
+-0.093,
+1.611
+]
+},
+{
+"name": "Glenoid fossa.i",
+"verts": 8,
+"c": [
+0.157,
+0.037,
+1.378
+]
+},
+{
+"name": "Glenoid fossa.j",
+"verts": 8,
+"c": [
+-0.157,
+0.037,
+1.378
+]
+},
+{
+"name": "Glenoid process of scapula.i",
+"verts": 8,
+"c": [
+0.166,
+0.041,
+1.371
+]
+},
+{
+"name": "Glenoid process of scapula.j",
+"verts": 8,
+"c": [
+-0.166,
+0.041,
+1.371
+]
+},
+{
+"name": "Gluteal surface of ilium.i",
+"verts": 8,
+"c": [
+0.096,
+0.027,
+0.936
+]
+},
+{
+"name": "Gluteal surface of ilium.j",
+"verts": 8,
+"c": [
+-0.096,
+0.027,
+0.936
+]
+},
+{
+"name": "Gluteal tuberosity.i",
+"verts": 8,
+"c": [
+0.109,
+0.04,
+0.775
+]
+},
+{
+"name": "Gluteal tuberosity.j",
+"verts": 8,
+"c": [
+-0.109,
+0.04,
+0.775
+]
+},
+{
+"name": "Gluteus maximus muscle.el",
+"verts": 490,
+"c": [
+0.115,
+0.023,
+0.749
+]
+},
+{
+"name": "Gluteus maximus muscle.er",
+"verts": 490,
+"c": [
+-0.115,
+0.023,
+0.749
+]
+},
+{
+"name": "Gluteus maximus muscle.ol",
+"verts": 646,
+"c": [
+0.053,
+0.071,
+0.958
+]
+},
+{
+"name": "Gluteus maximus muscle.or",
+"verts": 646,
+"c": [
+-0.053,
+0.071,
+0.958
+]
+},
+{
+"name": "Gluteus medius muscle.el",
+"verts": 274,
+"c": [
+0.135,
+0.028,
+0.842
+]
+},
+{
+"name": "Gluteus medius muscle.er",
+"verts": 322,
+"c": [
+-0.135,
+0.028,
+0.842
+]
+},
+{
+"name": "Gluteus medius muscle.ol",
+"verts": 504,
+"c": [
+0.098,
+0.021,
+0.969
+]
+},
+{
+"name": "Gluteus medius muscle.or",
+"verts": 504,
+"c": [
+-0.098,
+0.021,
+0.969
+]
+},
+{
+"name": "Gluteus minimus muscle.ol",
+"verts": 704,
+"c": [
+0.094,
+0.009,
+0.928
+]
+},
+{
+"name": "Gluteus minimus muscle.or",
+"verts": 704,
+"c": [
+-0.094,
+0.009,
+0.928
+]
+},
+{
+"name": "Gnathion.j",
+"verts": 105,
+"c": [
+0.0,
+-0.09,
+1.498
+]
+},
+{
+"name": "Gracilis muscle.el",
+"verts": 134,
+"c": [
+0.061,
+0.021,
+0.367
+]
+},
+{
+"name": "Gracilis muscle.er",
+"verts": 134,
+"c": [
+-0.061,
+0.021,
+0.367
+]
+},
+{
+"name": "Gracilis muscle.ol",
+"verts": 504,
+"c": [
+0.016,
+-0.019,
+0.821
+]
+},
+{
+"name": "Gracilis muscle.or",
+"verts": 504,
+"c": [
+-0.016,
+-0.019,
+0.821
+]
+},
+{
+"name": "Greater horn of hyoid bone.j",
+"verts": 8,
+"c": [
+0.028,
+-0.014,
+1.504
+]
+},
+{
+"name": "Greater sciatic foramen.i",
+"verts": 8,
+"c": [
+0.039,
+0.055,
+0.892
+]
+},
+{
+"name": "Greater sciatic foramen.j",
+"verts": 8,
+"c": [
+-0.039,
+0.055,
+0.892
+]
+},
+{
+"name": "Greater sciatic notch.i",
+"verts": 8,
+"c": [
+0.053,
+0.041,
+0.907
+]
+},
+{
+"name": "Greater sciatic notch.j",
+"verts": 8,
+"c": [
+-0.053,
+0.041,
+0.907
+]
+},
+{
+"name": "Greater trochanter.i",
+"verts": 8,
+"c": [
+0.166,
+0.014,
+0.843
+]
+},
+{
+"name": "Greater trochanter.j",
+"verts": 8,
+"c": [
+-0.166,
+0.014,
+0.843
+]
+},
+{
+"name": "Greater tubercle.i",
+"verts": 8,
+"c": [
+0.201,
+0.022,
+1.404
+]
+},
+{
+"name": "Greater tubercle.j",
+"verts": 8,
+"c": [
+-0.201,
+0.022,
+1.404
+]
+},
+{
+"name": "Greater wing.j",
+"verts": 8,
+"c": [
+-0.039,
+-0.044,
+1.631
+]
+},
+{
+"name": "Groove for marginal sinus.j",
+"verts": 8,
+"c": [
+0.014,
+0.037,
+1.549
+]
+},
+{
+"name": "Groove for middle meningeal artery.j",
+"verts": 8,
+"c": [
+-0.046,
+-0.005,
+1.623
+]
+},
+{
+"name": "Groove for occipital sinus.j",
+"verts": 8,
+"c": [
+0.0,
+0.064,
+1.576
+]
+},
+{
+"name": "Groove for popliteus muscle.i",
+"verts": 8,
+"c": [
+0.142,
+0.045,
+0.443
+]
+},
+{
+"name": "Groove for popliteus muscle.j",
+"verts": 8,
+"c": [
+-0.142,
+0.045,
+0.443
+]
+},
+{
+"name": "Groove for spinal nerve.j",
+"verts": 8,
+"c": [
+-0.036,
+0.004,
+1.494
+]
+},
+{
+"name": "Groove for subclavius muscle.i",
+"verts": 8,
+"c": [
+0.088,
+-0.003,
+1.401
+]
+},
+{
+"name": "Groove for subclavius muscle.j",
+"verts": 8,
+"c": [
+-0.088,
+-0.003,
+1.401
+]
+},
+{
+"name": "Groove for tendon of fibularis longus muscle of cuboid bone.i",
+"verts": 8,
+"c": [
+0.121,
+0.019,
+0.033
+]
+},
+{
+"name": "Groove for tendon of fibularis longus muscle of cuboid bone.j",
+"verts": 8,
+"c": [
+-0.121,
+0.019,
+0.033
+]
+},
+{
+"name": "Groove for tendon of flexor hallucis longus of calcaneus.i",
+"verts": 8,
+"c": [
+0.049,
+0.039,
+0.049
+]
+},
+{
+"name": "Groove for tendon of flexor hallucis longus of calcaneus.j",
+"verts": 8,
+"c": [
+-0.049,
+0.039,
+0.049
+]
+},
+{
+"name": "Groove for tendon of flexor hallucis longus of talus.i",
+"verts": 8,
+"c": [
+0.064,
+0.072,
+0.067
+]
+},
+{
+"name": "Groove for tendon of flexor hallucis longus of talus.j",
+"verts": 8,
+"c": [
+-0.064,
+0.072,
+0.067
+]
+},
+{
+"name": "Groove for transverse sinus.j",
+"verts": 8,
+"c": [
+-0.029,
+0.07,
+1.584
+]
+},
+{
+"name": "Groove for ulnar nerve.i",
+"verts": 8,
+"c": [
+0.202,
+0.046,
+1.092
+]
+},
+{
+"name": "Groove for ulnar nerve.j",
+"verts": 8,
+"c": [
+-0.202,
+0.046,
+1.092
+]
+},
+{
+"name": "Groove for vertebral artery.j",
+"verts": 8,
+"c": [
+-0.023,
+0.031,
+1.55
+]
+},
+{
+"name": "Groove of pterygoid hamulus.j",
+"verts": 8,
+"c": [
+-0.008,
+-0.032,
+1.55
+]
+},
+{
+"name": "Grooves for extensor tendons.i",
+"verts": 8,
+"c": [
+0.262,
+0.013,
+0.865
+]
+},
+{
+"name": "Grooves for extensor tendons.j",
+"verts": 8,
+"c": [
+-0.262,
+0.013,
+0.865
+]
+},
+{
+"name": "Hamate bone.l",
+"verts": 270,
+"c": [
+0.252,
+-0.022,
+0.841
+]
+},
+{
+"name": "Hamate bone.r",
+"verts": 270,
+"c": [
+-0.252,
+-0.022,
+0.841
+]
+},
+{
+"name": "Handle of malleus.i",
+"verts": 8,
+"c": [
+0.05,
+0.003,
+1.58
+]
+},
+{
+"name": "Handle of malleus.j",
+"verts": 8,
+"c": [
+-0.05,
+0.003,
+1.58
+]
+},
+{
+"name": "Head of femur.i",
+"verts": 8,
+"c": [
+0.075,
+-0.0,
+0.894
+]
+},
+{
+"name": "Head of femur.j",
+"verts": 8,
+"c": [
+-0.075,
+-0.0,
+0.894
+]
+},
+{
+"name": "Head of fibula.i",
+"verts": 8,
+"c": [
+0.143,
+0.04,
+0.399
+]
+},
+{
+"name": "Head of fibula.j",
+"verts": 8,
+"c": [
+-0.143,
+0.04,
+0.399
+]
+},
+{
+"name": "Head of humerus.i",
+"verts": 8,
+"c": [
+0.171,
+0.016,
+1.411
+]
+},
+{
+"name": "Head of humerus.j",
+"verts": 8,
+"c": [
+-0.171,
+0.016,
+1.411
+]
+},
+{
+"name": "Head of malleus.i",
+"verts": 8,
+"c": [
+0.049,
+0.004,
+1.587
+]
+},
+{
+"name": "Head of malleus.j",
+"verts": 8,
+"c": [
+-0.049,
+0.004,
+1.587
+]
+},
+{
+"name": "Head of metacarpal bone.i",
+"verts": 8,
+"c": [
+0.237,
+-0.035,
+0.777
+]
+},
+{
+"name": "Head of metacarpal bone.j",
+"verts": 8,
+"c": [
+-0.237,
+-0.035,
+0.777
+]
+},
+{
+"name": "Head of metatarsal bone.i",
+"verts": 8,
+"c": [
+0.089,
+-0.076,
+0.022
+]
+},
+{
+"name": "Head of metatarsal bone.j",
+"verts": 8,
+"c": [
+-0.089,
+-0.076,
+0.022
+]
+},
+{
+"name": "Head of phalanx of foot.i",
+"verts": 8,
+"c": [
+0.1,
+-0.104,
+0.014
+]
+},
+{
+"name": "Head of phalanx of foot.j",
+"verts": 8,
+"c": [
+-0.1,
+-0.104,
+0.014
+]
+},
+{
+"name": "Head of phalanx of hand.i",
+"verts": 8,
+"c": [
+0.259,
+-0.061,
+0.734
+]
+},
+{
+"name": "Head of phalanx of hand.j",
+"verts": 8,
+"c": [
+-0.259,
+-0.061,
+0.734
+]
+},
+{
+"name": "Head of radius.i",
+"verts": 8,
+"c": [
+0.217,
+0.031,
+1.083
+]
+},
+{
+"name": "Head of radius.j",
+"verts": 8,
+"c": [
+-0.217,
+0.031,
+1.083
+]
+},
+{
+"name": "Head of rib.i",
+"verts": 8,
+"c": [
+0.025,
+0.062,
+1.348
+]
+},
+{
+"name": "Head of rib.j",
+"verts": 8,
+"c": [
+-0.025,
+0.062,
+1.348
+]
+},
+{
+"name": "Head of talus.i",
+"verts": 8,
+"c": [
+0.048,
+0.021,
+0.059
+]
+},
+{
+"name": "Head of talus.j",
+"verts": 8,
+"c": [
+-0.048,
+0.021,
+0.059
+]
+},
+{
+"name": "Head of ulna.i",
+"verts": 8,
+"c": [
+0.226,
+-0.013,
+0.87
+]
+},
+{
+"name": "Head of ulna.j",
+"verts": 8,
+"c": [
+-0.226,
+-0.013,
+0.87
+]
+},
+{
+"name": "Hip bone.i",
+"verts": 8,
+"c": [
+0.122,
+0.004,
+0.912
+]
+},
+{
+"name": "Hip bone.j",
+"verts": 8,
+"c": [
+-0.122,
+0.004,
+0.912
+]
+},
+{
+"name": "Hip bone.l",
+"verts": 1894,
+"c": [
+0.069,
+0.015,
+0.905
+]
+},
+{
+"name": "Hip bone.r",
+"verts": 1894,
+"c": [
+-0.069,
+0.015,
+0.905
+]
+},
+{
+"name": "Hook of hamate bone.i",
+"verts": 8,
+"c": [
+0.253,
+-0.045,
+0.84
+]
+},
+{
+"name": "Hook of hamate bone.j",
+"verts": 8,
+"c": [
+-0.253,
+-0.045,
+0.84
+]
+},
+{
+"name": "Humerus.i",
+"verts": 8,
+"c": [
+0.222,
+0.03,
+1.307
+]
+},
+{
+"name": "Humerus.j",
+"verts": 8,
+"c": [
+-0.222,
+0.03,
+1.307
+]
+},
+{
+"name": "Humerus.l",
+"verts": 2143,
+"c": [
+0.197,
+0.027,
+1.246
+]
+},
+{
+"name": "Humerus.r",
+"verts": 2143,
+"c": [
+-0.197,
+0.027,
+1.246
+]
+},
+{
+"name": "Hyoid bone",
+"verts": 664,
+"c": [
+0.0,
+-0.021,
+1.501
+]
+},
+{
+"name": "Hypoglossal canal.j",
+"verts": 8,
+"c": [
+-0.022,
+0.009,
+1.564
+]
+},
+{
+"name": "Hypophysial fossa.j",
+"verts": 8,
+"c": [
+-0.0,
+-0.015,
+1.6
+]
+},
+{
+"name": "Iliac crest.i",
+"verts": 8,
+"c": [
+0.131,
+-0.006,
+1.009
+]
+},
+{
+"name": "Iliac crest.j",
+"verts": 8,
+"c": [
+-0.131,
+-0.006,
+1.009
+]
+},
+{
+"name": "Iliac fossa.i",
+"verts": 8,
+"c": [
+0.08,
+-0.0,
+0.94
+]
+},
+{
+"name": "Iliac fossa.j",
+"verts": 8,
+"c": [
+-0.08,
+-0.0,
+0.94
+]
+},
+{
+"name": "Iliac tubercle.i",
+"verts": 8,
+"c": [
+0.135,
+0.006,
+1.002
+]
+},
+{
+"name": "Iliac tubercle.j",
+"verts": 8,
+"c": [
+-0.135,
+0.006,
+1.002
+]
+},
+{
+"name": "Iliac tuberosity.i",
+"verts": 8,
+"c": [
+0.056,
+0.065,
+0.998
+]
+},
+{
+"name": "Iliac tuberosity.j",
+"verts": 8,
+"c": [
+-0.056,
+0.065,
+0.998
+]
+},
+{
+"name": "Iliacus muscle.ol",
+"verts": 586,
+"c": [
+0.093,
+-0.006,
+0.954
+]
+},
+{
+"name": "Iliacus muscle.or",
+"verts": 586,
+"c": [
+-0.093,
+-0.006,
+0.954
+]
+},
+{
+"name": "Iliocostalis colli muscle.el",
+"verts": 174,
+"c": [
+0.027,
+0.011,
+1.49
+]
+},
+{
+"name": "Iliocostalis colli muscle.er",
+"verts": 174,
+"c": [
+-0.027,
+0.011,
+1.49
+]
+},
+{
+"name": "Iliopsoas muscle.el",
+"verts": 758,
+"c": [
+0.094,
+0.023,
+0.79
+]
+},
+{
+"name": "Iliopsoas muscle.er",
+"verts": 758,
+"c": [
+-0.094,
+0.023,
+0.79
+]
+},
+{
+"name": "Iliopubic eminence.i",
+"verts": 8,
+"c": [
+0.069,
+-0.033,
+0.887
+]
+},
+{
+"name": "Iliopubic eminence.j",
+"verts": 8,
+"c": [
+-0.069,
+-0.033,
+0.887
+]
+},
+{
+"name": "Ilium.i",
+"verts": 8,
+"c": [
+0.119,
+0.043,
+0.955
+]
+},
+{
+"name": "Ilium.j",
+"verts": 8,
+"c": [
+-0.119,
+0.043,
+0.955
+]
+},
+{
+"name": "Impression for costoclavicular ligament.i",
+"verts": 8,
+"c": [
+0.03,
+-0.038,
+1.394
+]
+},
+{
+"name": "Impression for costoclavicular ligament.j",
+"verts": 8,
+"c": [
+-0.03,
+-0.038,
+1.394
+]
+},
+{
+"name": "Incus.l",
+"verts": 1268,
+"c": [
+0.047,
+0.007,
+1.583
+]
+},
+{
+"name": "Incus.r",
+"verts": 1268,
+"c": [
+-0.047,
+0.007,
+1.583
+]
+},
+{
+"name": "Inferior angle of scapula.i",
+"verts": 8,
+"c": [
+0.094,
+0.101,
+1.246
+]
+},
+{
+"name": "Inferior angle of scapula.j",
+"verts": 8,
+"c": [
+-0.094,
+0.101,
+1.246
+]
+},
+{
+"name": "Inferior articular facet of vertebra.j",
+"verts": 8,
+"c": [
+0.016,
+0.039,
+1.018
+]
+},
+{
+"name": "Inferior articular surface of atlas.j",
+"verts": 8,
+"c": [
+0.016,
+0.011,
+1.532
+]
+},
+{
+"name": "Inferior articular surface of tibia.i",
+"verts": 8,
+"c": [
+0.072,
+0.042,
+0.073
+]
+},
+{
+"name": "Inferior articular surface of tibia.j",
+"verts": 8,
+"c": [
+-0.072,
+0.042,
+0.073
+]
+},
+{
+"name": "Inferior costal facet.j",
+"verts": 8,
+"c": [
+0.033,
+0.058,
+1.255
+]
+},
+{
+"name": "Inferior gemellus muscle.ol",
+"verts": 196,
+"c": [
+0.061,
+0.055,
+0.838
+]
+},
+{
+"name": "Inferior gemellus muscle.or",
+"verts": 196,
+"c": [
+-0.061,
+0.055,
+0.838
+]
+},
+{
+"name": "Inferior gluteal line.i",
+"verts": 8,
+"c": [
+0.117,
+-0.005,
+0.904
+]
+},
+{
+"name": "Inferior gluteal line.j",
+"verts": 8,
+"c": [
+-0.117,
+-0.005,
+0.904
+]
+},
+{
+"name": "Inferior horn of thyroid cartilage.j",
+"verts": 8,
+"c": [
+-0.026,
+-0.005,
+1.462
+]
+},
+{
+"name": "Inferior mental spine.j",
+"verts": 8,
+"c": [
+0.002,
+-0.06,
+1.503
+]
+},
+{
+"name": "Inferior nasal concha bone.l",
+"verts": 238,
+"c": [
+0.01,
+-0.058,
+1.563
+]
+},
+{
+"name": "Inferior nasal concha bone.r",
+"verts": 238,
+"c": [
+-0.01,
+-0.058,
+1.563
+]
+},
+{
+"name": "Inferior nuchal line.j",
+"verts": 8,
+"c": [
+0.019,
+0.067,
+1.559
+]
+},
+{
+"name": "Inferior pubic ramus.i",
+"verts": 8,
+"c": [
+0.029,
+-0.029,
+0.821
+]
+},
+{
+"name": "Inferior pubic ramus.j",
+"verts": 8,
+"c": [
+-0.029,
+-0.029,
+0.821
+]
+},
+{
+"name": "Inferior temporal line.j",
+"verts": 8,
+"c": [
+-0.08,
+0.06,
+1.63
+]
+},
+{
+"name": "Inferior thoracic aperture.j",
+"verts": 360,
+"c": [
+0.001,
+-0.042,
+1.063
+]
+},
+{
+"name": "Inferior thyroid notch.j",
+"verts": 8,
+"c": [
+0.0,
+-0.032,
+1.463
+]
+},
+{
+"name": "Inferior thyroid tubercle.j",
+"verts": 8,
+"c": [
+-0.021,
+-0.012,
+1.466
+]
+},
+{
+"name": "Inferior vertebral notch.j",
+"verts": 8,
+"c": [
+-0.031,
+0.021,
+1.044
+]
+},
+{
+"name": "Infraglenoid tubercle.i",
+"verts": 8,
+"c": [
+0.166,
+0.037,
+1.365
+]
+},
+{
+"name": "Infraglenoid tubercle.j",
+"verts": 8,
+"c": [
+-0.166,
+0.037,
+1.365
+]
+},
+{
+"name": "Infraspinatus muscle.el",
+"verts": 624,
+"c": [
+0.19,
+0.034,
+1.391
+]
+},
+{
+"name": "Infraspinatus muscle.er",
+"verts": 624,
+"c": [
+-0.19,
+0.034,
+1.391
+]
+},
+{
+"name": "Infraspinatus muscle.ol",
+"verts": 6728,
+"c": [
+0.103,
+0.087,
+1.339
+]
+},
+{
+"name": "Infraspinatus muscle.or",
+"verts": 6728,
+"c": [
+-0.103,
+0.087,
+1.339
+]
+},
+{
+"name": "Infraspinous fossa.i",
+"verts": 8,
+"c": [
+0.105,
+0.102,
+1.332
+]
+},
+{
+"name": "Infraspinous fossa.j",
+"verts": 8,
+"c": [
+-0.105,
+0.102,
+1.332
+]
+},
+{
+"name": "Infrasternal angle.j",
+"verts": 62,
+"c": [
+0.0,
+-0.103,
+1.192
+]
+},
+{
+"name": "Infratemporal surface of greater wing.j",
+"verts": 8,
+"c": [
+-0.039,
+-0.023,
+1.563
+]
+},
+{
+"name": "Inner lip of iliac crest.i",
+"verts": 8,
+"c": [
+0.106,
+0.025,
+1.024
+]
+},
+{
+"name": "Inner lip of iliac crest.j",
+"verts": 8,
+"c": [
+-0.106,
+0.025,
+1.024
+]
+},
+{
+"name": "Intercondylar area.i",
+"verts": 8,
+"c": [
+0.07,
+0.034,
+0.454
+]
+},
+{
+"name": "Intercondylar area.j",
+"verts": 8,
+"c": [
+-0.07,
+0.034,
+0.454
+]
+},
+{
+"name": "Intercondylar eminence.i",
+"verts": 8,
+"c": [
+0.07,
+0.038,
+0.441
+]
+},
+{
+"name": "Intercondylar eminence.j",
+"verts": 8,
+"c": [
+-0.07,
+0.038,
+0.441
+]
+},
+{
+"name": "Intercondylar fossa.i",
+"verts": 8,
+"c": [
+0.075,
+0.071,
+0.45
+]
+},
+{
+"name": "Intercondylar fossa.j",
+"verts": 8,
+"c": [
+-0.075,
+0.071,
+0.45
+]
+},
+{
+"name": "Intercondylar line.i",
+"verts": 8,
+"c": [
+0.076,
+0.055,
+0.467
+]
+},
+{
+"name": "Intercondylar line.j",
+"verts": 8,
+"c": [
+-0.076,
+0.055,
+0.467
+]
+},
+{
+"name": "Intercostal space.j",
+"verts": 8,
+"c": [
+-0.025,
+-0.103,
+1.167
+]
+},
+{
+"name": "Intermediate cuneiform bone.l",
+"verts": 224,
+"c": [
+0.084,
+-0.011,
+0.059
+]
+},
+{
+"name": "Intermediate cuneiform bone.r",
+"verts": 224,
+"c": [
+-0.084,
+-0.011,
+0.059
+]
+},
+{
+"name": "Intermediate sacral crest.j",
+"verts": 8,
+"c": [
+0.011,
+0.085,
+0.933
+]
+},
+{
+"name": "Intermediate zone.i",
+"verts": 8,
+"c": [
+0.113,
+0.02,
+1.021
+]
+},
+{
+"name": "Intermediate zone.j",
+"verts": 8,
+"c": [
+-0.113,
+0.02,
+1.021
+]
+},
+{
+"name": "Internal abdominal oblique muscle.o1l",
+"verts": 764,
+"c": [
+0.098,
+-0.055,
+1.103
+]
+},
+{
+"name": "Internal abdominal oblique muscle.o1r",
+"verts": 764,
+"c": [
+-0.098,
+-0.055,
+1.103
+]
+},
+{
+"name": "Internal abdominal oblique muscle.o2l",
+"verts": 656,
+"c": [
+0.123,
+-0.012,
+1.077
+]
+},
+{
+"name": "Internal abdominal oblique muscle.o2r",
+"verts": 656,
+"c": [
+-0.123,
+-0.012,
+1.077
+]
+},
+{
+"name": "Internal abdominal oblique muscle.o3l",
+"verts": 638,
+"c": [
+0.1,
+-0.004,
+0.977
+]
+},
+{
+"name": "Internal abdominal oblique muscle.o3r",
+"verts": 638,
+"c": [
+-0.1,
+-0.004,
+0.977
+]
+},
+{
+"name": "Internal abdominal oblique muscle.o4l",
+"verts": 3194,
+"c": [
+0.111,
+0.017,
+1.073
+]
+},
+{
+"name": "Internal abdominal oblique muscle.o4r",
+"verts": 3194,
+"c": [
+-0.111,
+0.017,
+1.073
+]
+},
+{
+"name": "Internal abdominal oblique muscle.ol",
+"verts": 2526,
+"c": [
+0.08,
+0.045,
+1.065
+]
+},
+{
+"name": "Internal abdominal oblique muscle.or",
+"verts": 2526,
+"c": [
+-0.08,
+0.045,
+1.065
+]
+},
+{
+"name": "Internal occipital protuberance.j",
+"verts": 8,
+"c": [
+0.0,
+0.069,
+1.589
+]
+},
+{
+"name": "Internal surface of parietal bone.j",
+"verts": 8,
+"c": [
+-0.042,
+0.038,
+1.661
+]
+},
+{
+"name": "Internal surface of squamous part of frontal bone.j",
+"verts": 8,
+"c": [
+0.026,
+-0.058,
+1.663
+]
+},
+{
+"name": "Interosseous border of radius.i",
+"verts": 8,
+"c": [
+0.23,
+0.011,
+0.965
+]
+},
+{
+"name": "Interosseous border of radius.j",
+"verts": 8,
+"c": [
+-0.23,
+0.011,
+0.965
+]
+},
+{
+"name": "Interosseous border of tibia.i",
+"verts": 8,
+"c": [
+0.113,
+0.054,
+0.29
+]
+},
+{
+"name": "Interosseous border of tibia.j",
+"verts": 8,
+"c": [
+-0.113,
+0.054,
+0.29
+]
+},
+{
+"name": "Interosseous border of ulna.i",
+"verts": 8,
+"c": [
+0.263,
+0.01,
+0.968
+]
+},
+{
+"name": "Interosseous border of ulna.j",
+"verts": 8,
+"c": [
+-0.263,
+0.01,
+0.968
+]
+},
+{
+"name": "Interosseous crest of fibula.i",
+"verts": 8,
+"c": [
+0.071,
+0.048,
+0.216
+]
+},
+{
+"name": "Interosseous crest of fibula.j",
+"verts": 8,
+"c": [
+-0.071,
+0.048,
+0.216
+]
+},
+{
+"name": "Intertrochanteric crest.i",
+"verts": 8,
+"c": [
+0.117,
+0.062,
+0.81
+]
+},
+{
+"name": "Intertrochanteric crest.j",
+"verts": 8,
+"c": [
+-0.117,
+0.062,
+0.81
+]
+},
+{
+"name": "Intertrochanteric line.i",
+"verts": 8,
+"c": [
+0.104,
+-0.014,
+0.827
+]
+},
+{
+"name": "Intertrochanteric line.j",
+"verts": 8,
+"c": [
+-0.104,
+-0.014,
+0.827
+]
+},
+{
+"name": "Intertubercular sulcus.i",
+"verts": 8,
+"c": [
+0.202,
+-0.007,
+1.392
+]
+},
+{
+"name": "Intertubercular sulcus.j",
+"verts": 8,
+"c": [
+-0.202,
+-0.007,
+1.392
+]
+},
+{
+"name": "Intervertebral foramen.j",
+"verts": 8,
+"c": [
+0.012,
+0.023,
+1.07
+]
+},
+{
+"name": "Intervertebral foramina.j",
+"verts": 8,
+"c": [
+-0.014,
+0.079,
+0.909
+]
+},
+{
+"name": "Intervertebral surface.j",
+"verts": 8,
+"c": [
+-0.0,
+0.002,
+1.068
+]
+},
+{
+"name": "Intrajugular process of occipital bone.j",
+"verts": 8,
+"c": [
+-0.029,
+0.014,
+1.565
+]
+},
+{
+"name": "Ischial spine.i",
+"verts": 8,
+"c": [
+0.034,
+0.06,
+0.867
+]
+},
+{
+"name": "Ischial spine.j",
+"verts": 8,
+"c": [
+-0.034,
+0.06,
+0.867
+]
+},
+{
+"name": "Ischial tuberosity.i",
+"verts": 8,
+"c": [
+0.081,
+0.06,
+0.815
+]
+},
+{
+"name": "Ischial tuberosity.j",
+"verts": 8,
+"c": [
+-0.081,
+0.06,
+0.815
+]
+},
+{
+"name": "Ischiopubic ramus.i",
+"verts": 8,
+"c": [
+0.035,
+-0.008,
+0.801
+]
+},
+{
+"name": "Ischiopubic ramus.j",
+"verts": 8,
+"c": [
+-0.035,
+-0.008,
+0.801
+]
+},
+{
+"name": "Ischium.i",
+"verts": 8,
+"c": [
+0.07,
+0.047,
+0.804
+]
+},
+{
+"name": "Ischium.j",
+"verts": 8,
+"c": [
+-0.07,
+0.047,
+0.804
+]
+},
+{
+"name": "Jugular notch of occipital bone.j",
+"verts": 8,
+"c": [
+0.029,
+0.008,
+1.563
+]
+},
+{
+"name": "Jugular process.j",
+"verts": 8,
+"c": [
+0.038,
+0.008,
+1.57
+]
+},
+{
+"name": "Lacrimal bone.l",
+"verts": 296,
+"c": [
+0.012,
+-0.069,
+1.586
+]
+},
+{
+"name": "Lacrimal bone.r",
+"verts": 296,
+"c": [
+-0.012,
+-0.069,
+1.586
+]
+},
+{
+"name": "Lamina of cricoid cartilage.j",
+"verts": 8,
+"c": [
+-0.012,
+0.002,
+1.467
+]
+},
+{
+"name": "Lamina of thyroid cartilage.j",
+"verts": 8,
+"c": [
+-0.018,
+-0.021,
+1.477
+]
+},
+{
+"name": "Lamina of vertebral arch.j",
+"verts": 8,
+"c": [
+0.007,
+0.049,
+1.045
+]
+},
+{
+"name": "Laryngeal cartilages.j",
+"verts": 8,
+"c": [
+0.067,
+-0.011,
+1.475
+]
+},
+{
+"name": "Laryngeal prominence.j",
+"verts": 8,
+"c": [
+0.0,
+-0.039,
+1.476
+]
+},
+{
+"name": "Lateral angle of scapula.i",
+"verts": 8,
+"c": [
+0.145,
+0.014,
+1.377
+]
+},
+{
+"name": "Lateral angle of scapula.j",
+"verts": 8,
+"c": [
+-0.145,
+0.014,
+1.377
+]
+},
+{
+"name": "Lateral border of humerus.i",
+"verts": 8,
+"c": [
+0.237,
+0.058,
+1.219
+]
+},
+{
+"name": "Lateral border of humerus.j",
+"verts": 8,
+"c": [
+-0.237,
+0.058,
+1.219
+]
+},
+{
+"name": "Lateral border of scapula.i",
+"verts": 8,
+"c": [
+0.141,
+0.059,
+1.327
+]
+},
+{
+"name": "Lateral border of scapula.j",
+"verts": 8,
+"c": [
+-0.141,
+0.059,
+1.327
+]
+},
+{
+"name": "Lateral condyle of femur.i",
+"verts": 8,
+"c": [
+0.1,
+0.047,
+0.432
+]
+},
+{
+"name": "Lateral condyle of femur.j",
+"verts": 8,
+"c": [
+-0.1,
+0.047,
+0.432
+]
+},
+{
+"name": "Lateral condyle of tibia.i",
+"verts": 8,
+"c": [
+0.138,
+0.029,
+0.422
+]
+},
+{
+"name": "Lateral condyle of tibia.j",
+"verts": 8,
+"c": [
+-0.138,
+0.029,
+0.422
+]
+},
+{
+"name": "Lateral cuneiform bone.l",
+"verts": 321,
+"c": [
+0.093,
+-0.007,
+0.054
+]
+},
+{
+"name": "Lateral cuneiform bone.r",
+"verts": 321,
+"c": [
+-0.093,
+-0.007,
+0.054
+]
+},
+{
+"name": "Lateral epicondyle of femur.i",
+"verts": 8,
+"c": [
+0.147,
+0.031,
+0.46
+]
+},
+{
+"name": "Lateral epicondyle of femur.j",
+"verts": 8,
+"c": [
+-0.147,
+0.031,
+0.46
+]
+},
+{
+"name": "Lateral epicondyle of humerus.i",
+"verts": 8,
+"c": [
+0.275,
+0.044,
+1.112
+]
+},
+{
+"name": "Lateral epicondyle of humerus.j",
+"verts": 8,
+"c": [
+-0.275,
+0.044,
+1.112
+]
+},
+{
+"name": "Lateral head of flexor hallucis brevis.el",
+"verts": 128,
+"c": [
+0.077,
+-0.084,
+0.012
+]
+},
+{
+"name": "Lateral head of flexor hallucis brevis.er",
+"verts": 128,
+"c": [
+-0.077,
+-0.084,
+0.012
+]
+},
+{
+"name": "Lateral head of flexor hallucis brevis.o1l",
+"verts": 196,
+"c": [
+0.08,
+-0.023,
+0.041
+]
+},
+{
+"name": "Lateral head of flexor hallucis brevis.o1r",
+"verts": 196,
+"c": [
+-0.08,
+-0.023,
+0.041
+]
+},
+{
+"name": "Lateral head of flexor hallucis brevis.ol",
+"verts": 662,
+"c": [
+0.068,
+-0.015,
+0.04
+]
+},
+{
+"name": "Lateral head of flexor hallucis brevis.or",
+"verts": 662,
+"c": [
+-0.068,
+-0.015,
+0.04
+]
+},
+{
+"name": "Lateral head of gastrocnemius.ol",
+"verts": 170,
+"c": [
+0.106,
+0.035,
+0.48
+]
+},
+{
+"name": "Lateral head of gastrocnemius.or",
+"verts": 170,
+"c": [
+-0.106,
+0.035,
+0.48
+]
+},
+{
+"name": "Lateral head of triceps brachii.ol",
+"verts": 578,
+"c": [
+0.196,
+0.04,
+1.298
+]
+},
+{
+"name": "Lateral head of triceps brachii.or",
+"verts": 578,
+"c": [
+-0.196,
+0.04,
+1.298
+]
+},
+{
+"name": "Lateral intercondylar tubercle.i",
+"verts": 8,
+"c": [
+0.079,
+0.04,
+0.434
+]
+},
+{
+"name": "Lateral intercondylar tubercle.j",
+"verts": 8,
+"c": [
+-0.079,
+0.04,
+0.434
+]
+},
+{
+"name": "Lateral lip of linea apera.i",
+"verts": 8,
+"c": [
+0.098,
+0.034,
+0.565
+]
+},
+{
+"name": "Lateral lip of linea apera.j",
+"verts": 8,
+"c": [
+-0.098,
+0.034,
+0.565
+]
+},
+{
+"name": "Lateral malleolar facet.i",
+"verts": 8,
+"c": [
+0.098,
+0.053,
+0.076
+]
+},
+{
+"name": "Lateral malleolar facet.j",
+"verts": 8,
+"c": [
+-0.098,
+0.053,
+0.076
+]
+},
+{
+"name": "Lateral malleolus.i",
+"verts": 67,
+"c": [
+0.129,
+0.05,
+0.069
+]
+},
+{
+"name": "Lateral malleolus.j",
+"verts": 8,
+"c": [
+-0.129,
+0.05,
+0.069
+]
+},
+{
+"name": "Lateral mass.j",
+"verts": 8,
+"c": [
+0.023,
+0.015,
+1.556
+]
+},
+{
+"name": "Lateral part of occipital bone.j",
+"verts": 8,
+"c": [
+0.029,
+0.039,
+1.569
+]
+},
+{
+"name": "Lateral part of sacrum.j",
+"verts": 8,
+"c": [
+0.057,
+0.006,
+0.923
+]
+},
+{
+"name": "Lateral part of transverse process.j",
+"verts": 8,
+"c": [
+-0.043,
+0.039,
+1.057
+]
+},
+{
+"name": "Lateral process of calcaneal tuberosity.i",
+"verts": 8,
+"c": [
+0.084,
+0.073,
+0.011
+]
+},
+{
+"name": "Lateral process of calcaneal tuberosity.j",
+"verts": 8,
+"c": [
+-0.084,
+0.073,
+0.011
+]
+},
+{
+"name": "Lateral process of malleus.i",
+"verts": 8,
+"c": [
+0.051,
+0.005,
+1.581
+]
+},
+{
+"name": "Lateral process of malleus.j",
+"verts": 8,
+"c": [
+-0.051,
+0.005,
+1.581
+]
+},
+{
+"name": "Lateral process of nasal septal cartilage.l",
+"verts": 174,
+"c": [
+0.007,
+-0.099,
+1.57
+]
+},
+{
+"name": "Lateral process of nasal septal cartilage.r",
+"verts": 174,
+"c": [
+-0.007,
+-0.099,
+1.57
+]
+},
+{
+"name": "Lateral process of talus.i",
+"verts": 8,
+"c": [
+0.103,
+0.05,
+0.056
+]
+},
+{
+"name": "Lateral process of talus.j",
+"verts": 8,
+"c": [
+-0.103,
+0.05,
+0.056
+]
+},
+{
+"name": "Lateral pterygoid muscle.o1l",
+"verts": 208,
+"c": [
+0.025,
+-0.041,
+1.552
+]
+},
+{
+"name": "Lateral pterygoid muscle.o1r",
+"verts": 208,
+"c": [
+-0.025,
+-0.041,
+1.552
+]
+},
+{
+"name": "Lateral pterygoid muscle.ol",
+"verts": 424,
+"c": [
+0.024,
+-0.039,
+1.552
+]
+},
+{
+"name": "Lateral pterygoid muscle.or",
+"verts": 424,
+"c": [
+-0.024,
+-0.039,
+1.552
+]
+},
+{
+"name": "Lateral pterygoid plate.j",
+"verts": 8,
+"c": [
+0.025,
+-0.032,
+1.546
+]
+},
+{
+"name": "Lateral sacral crest.j",
+"verts": 8,
+"c": [
+0.042,
+0.086,
+0.925
+]
+},
+{
+"name": "Lateral supracondylar line.i",
+"verts": 8,
+"c": [
+0.043,
+0.044,
+0.495
+]
+},
+{
+"name": "Lateral supracondylar line.j",
+"verts": 8,
+"c": [
+-0.043,
+0.044,
+0.495
+]
+},
+{
+"name": "Lateral supracondylar ridge.i",
+"verts": 8,
+"c": [
+0.262,
+0.051,
+1.138
+]
+},
+{
+"name": "Lateral supracondylar ridge.j",
+"verts": 8,
+"c": [
+-0.262,
+0.051,
+1.138
+]
+},
+{
+"name": "Lateral surface of fibula.i",
+"verts": 8,
+"c": [
+0.139,
+0.043,
+0.277
+]
+},
+{
+"name": "Lateral surface of fibula.j",
+"verts": 8,
+"c": [
+-0.139,
+0.043,
+0.277
+]
+},
+{
+"name": "Lateral surface of radius.i",
+"verts": 8,
+"c": [
+0.282,
+0.015,
+0.982
+]
+},
+{
+"name": "Lateral surface of radius.j",
+"verts": 8,
+"c": [
+-0.282,
+0.015,
+0.982
+]
+},
+{
+"name": "Lateral surface of tibia.i",
+"verts": 8,
+"c": [
+0.113,
+0.001,
+0.278
+]
+},
+{
+"name": "Lateral surface of tibia.j",
+"verts": 8,
+"c": [
+-0.113,
+0.001,
+0.278
+]
+},
+{
+"name": "Lateral tubercle.i",
+"verts": 8,
+"c": [
+0.074,
+0.073,
+0.061
+]
+},
+{
+"name": "Lateral tubercle.j",
+"verts": 8,
+"c": [
+-0.074,
+0.073,
+0.061
+]
+},
+{
+"name": "Latissimus dorsi muscle.el",
+"verts": 1650,
+"c": [
+0.092,
+0.106,
+1.268
+]
+},
+{
+"name": "Latissimus dorsi muscle.er",
+"verts": 1650,
+"c": [
+-0.092,
+0.106,
+1.268
+]
+},
+{
+"name": "Latissimus dorsi muscle.ol",
+"verts": 508,
+"c": [
+0.06,
+0.062,
+0.978
+]
+},
+{
+"name": "Latissimus dorsi muscle.or",
+"verts": 508,
+"c": [
+-0.06,
+0.062,
+0.978
+]
+},
+{
+"name": "Lenticular process of incus.i",
+"verts": 8,
+"c": [
+0.047,
+0.004,
+1.58
+]
+},
+{
+"name": "Lenticular process of incus.j",
+"verts": 8,
+"c": [
+-0.047,
+0.004,
+1.58
+]
+},
+{
+"name": "Lesser horn of hyoid bone.j",
+"verts": 8,
+"c": [
+0.015,
+-0.032,
+1.506
+]
+},
+{
+"name": "Lesser sciatic foramen.i",
+"verts": 8,
+"c": [
+0.051,
+0.071,
+0.849
+]
+},
+{
+"name": "Lesser sciatic foramen.j",
+"verts": 8,
+"c": [
+-0.051,
+0.071,
+0.849
+]
+},
+{
+"name": "Lesser sciatic notch.i",
+"verts": 8,
+"c": [
+0.041,
+0.061,
+0.853
+]
+},
+{
+"name": "Lesser sciatic notch.j",
+"verts": 8,
+"c": [
+-0.041,
+0.061,
+0.853
+]
+},
+{
+"name": "Lesser trochanter.i",
+"verts": 8,
+"c": [
+0.073,
+0.043,
+0.787
+]
+},
+{
+"name": "Lesser trochanter.j",
+"verts": 8,
+"c": [
+-0.073,
+0.043,
+0.787
+]
+},
+{
+"name": "Lesser tubercle.i",
+"verts": 8,
+"c": [
+0.167,
+-0.011,
+1.39
+]
+},
+{
+"name": "Lesser tubercle.j",
+"verts": 8,
+"c": [
+-0.167,
+-0.011,
+1.39
+]
+},
+{
+"name": "Lesser wing.j",
+"verts": 8,
+"c": [
+-0.024,
+-0.037,
+1.627
+]
+},
+{
+"name": "Levator anguli oris.ol",
+"verts": 178,
+"c": [
+0.021,
+-0.075,
+1.56
+]
+},
+{
+"name": "Levator anguli oris.or",
+"verts": 178,
+"c": [
+-0.021,
+-0.075,
+1.56
+]
+},
+{
+"name": "Levator ani.ol",
+"verts": 392,
+"c": [
+0.026,
+0.016,
+0.844
+]
+},
+{
+"name": "Levator ani.or",
+"verts": 392,
+"c": [
+-0.026,
+0.016,
+0.844
+]
+},
+{
+"name": "Levator labii superioris.ol",
+"verts": 580,
+"c": [
+0.027,
+-0.075,
+1.571
+]
+},
+{
+"name": "Levator labii superioris.or",
+"verts": 580,
+"c": [
+-0.027,
+-0.075,
+1.571
+]
+},
+{
+"name": "Levator nasolabialis.ol",
+"verts": 218,
+"c": [
+0.013,
+-0.079,
+1.581
+]
+},
+{
+"name": "Levator nasolabialis.or",
+"verts": 218,
+"c": [
+-0.013,
+-0.079,
+1.581
+]
+},
+{
+"name": "Levator scapulae.el",
+"verts": 5668,
+"c": [
+0.075,
+0.084,
+1.399
+]
+},
+{
+"name": "Levator scapulae.er",
+"verts": 5668,
+"c": [
+-0.075,
+0.084,
+1.399
+]
+},
+{
+"name": "Levator scapulae.o1l",
+"verts": 78,
+"c": [
+0.026,
+0.014,
+1.52
+]
+},
+{
+"name": "Levator scapulae.o1r",
+"verts": 78,
+"c": [
+-0.026,
+0.014,
+1.52
+]
+},
+{
+"name": "Levator scapulae.o2l",
+"verts": 230,
+"c": [
+0.028,
+0.012,
+1.505
+]
+},
+{
+"name": "Levator scapulae.o2r",
+"verts": 230,
+"c": [
+-0.028,
+0.012,
+1.505
+]
+},
+{
+"name": "Levator scapulae.o3l",
+"verts": 232,
+"c": [
+0.028,
+0.011,
+1.492
+]
+},
+{
+"name": "Levator scapulae.o3r",
+"verts": 232,
+"c": [
+-0.028,
+0.011,
+1.492
+]
+},
+{
+"name": "Levator scapulae.ol",
+"verts": 130,
+"c": [
+0.04,
+0.014,
+1.537
+]
+},
+{
+"name": "Levator scapulae.or",
+"verts": 130,
+"c": [
+-0.04,
+0.014,
+1.537
+]
+},
+{
+"name": "Levatores longi costarum.e10l",
+"verts": 272,
+"c": [
+0.042,
+0.063,
+1.128
+]
+},
+{
+"name": "Levatores longi costarum.e10r",
+"verts": 272,
+"c": [
+-0.042,
+0.063,
+1.128
+]
+},
+{
+"name": "Levatores longi costarum.e1l",
+"verts": 670,
+"c": [
+0.054,
+0.059,
+1.411
+]
+},
+{
+"name": "Levatores longi costarum.e1r",
+"verts": 670,
+"c": [
+-0.054,
+0.059,
+1.411
+]
+},
+{
+"name": "Levatores longi costarum.e2l",
+"verts": 694,
+"c": [
+0.055,
+0.072,
+1.389
+]
+},
+{
+"name": "Levatores longi costarum.e2r",
+"verts": 694,
+"c": [
+-0.055,
+0.072,
+1.389
+]
+},
+{
+"name": "Levatores longi costarum.e3l",
+"verts": 524,
+"c": [
+0.06,
+0.081,
+1.355
+]
+},
+{
+"name": "Levatores longi costarum.e3r",
+"verts": 524,
+"c": [
+-0.06,
+0.081,
+1.355
+]
+},
+{
+"name": "Levatores longi costarum.e4l",
+"verts": 570,
+"c": [
+0.059,
+0.092,
+1.326
+]
+},
+{
+"name": "Levatores longi costarum.e4r",
+"verts": 570,
+"c": [
+-0.059,
+0.092,
+1.326
+]
+},
+{
+"name": "Levatores longi costarum.e5l",
+"verts": 364,
+"c": [
+0.067,
+0.093,
+1.289
+]
+},
+{
+"name": "Levatores longi costarum.e5r",
+"verts": 364,
+"c": [
+-0.067,
+0.093,
+1.289
+]
+},
+{
+"name": "Levatores longi costarum.e6l",
+"verts": 492,
+"c": [
+0.065,
+0.094,
+1.256
+]
+},
+{
+"name": "Levatores longi costarum.e6r",
+"verts": 492,
+"c": [
+-0.065,
+0.094,
+1.256
+]
+},
+{
+"name": "Levatores longi costarum.e7l",
+"verts": 1142,
+"c": [
+0.06,
+0.09,
+1.228
+]
+},
+{
+"name": "Levatores longi costarum.e7r",
+"verts": 1142,
+"c": [
+-0.06,
+0.09,
+1.228
+]
+},
+{
+"name": "Levatores longi costarum.e8l",
+"verts": 910,
+"c": [
+0.063,
+0.084,
+1.188
+]
+},
+{
+"name": "Levatores longi costarum.e8r",
+"verts": 910,
+"c": [
+-0.063,
+0.084,
+1.188
+]
+},
+{
+"name": "Levatores longi costarum.e9l",
+"verts": 1034,
+"c": [
+0.056,
+0.078,
+1.158
+]
+},
+{
+"name": "Levatores longi costarum.e9r",
+"verts": 1034,
+"c": [
+-0.056,
+0.078,
+1.158
+]
+},
+{
+"name": "Levatores longi costarum.el",
+"verts": 442,
+"c": [
+0.051,
+0.041,
+1.43
+]
+},
+{
+"name": "Levatores longi costarum.er",
+"verts": 442,
+"c": [
+-0.051,
+0.041,
+1.43
+]
+},
+{
+"name": "Limbus of sphenoid.j",
+"verts": 8,
+"c": [
+-0.0,
+-0.029,
+1.614
+]
+},
+{
+"name": "Linea aspera.i",
+"verts": 8,
+"c": [
+0.097,
+0.029,
+0.658
+]
+},
+{
+"name": "Linea aspera.j",
+"verts": 8,
+"c": [
+-0.097,
+0.029,
+0.658
+]
+},
+{
+"name": "Linea terminalis.j",
+"verts": 8,
+"c": [
+-0.048,
+0.005,
+0.909
+]
+},
+{
+"name": "Lingual surface of tooth.i",
+"verts": 8,
+"c": [
+0.013,
+-0.056,
+1.527
+]
+},
+{
+"name": "Lingual surface of tooth.j",
+"verts": 8,
+"c": [
+-0.013,
+-0.056,
+1.527
+]
+},
+{
+"name": "Long head of biceps brachii.ol",
+"verts": 610,
+"c": [
+0.144,
+0.037,
+1.396
+]
+},
+{
+"name": "Long head of biceps brachii.or",
+"verts": 610,
+"c": [
+-0.144,
+0.037,
+1.396
+]
+},
+{
+"name": "Long head of biceps femoris.ol",
+"verts": 208,
+"c": [
+0.059,
+0.052,
+0.814
+]
+},
+{
+"name": "Long head of biceps femoris.or",
+"verts": 208,
+"c": [
+-0.059,
+0.052,
+0.814
+]
+},
+{
+"name": "Long head of triceps brachii.ol",
+"verts": 748,
+"c": [
+0.152,
+0.043,
+1.359
+]
+},
+{
+"name": "Long head of triceps brachii.or",
+"verts": 748,
+"c": [
+-0.152,
+0.043,
+1.359
+]
+},
+{
+"name": "Long limb of incus.i",
+"verts": 8,
+"c": [
+0.045,
+0.005,
+1.582
+]
+},
+{
+"name": "Long limb of incus.j",
+"verts": 8,
+"c": [
+-0.045,
+0.005,
+1.582
+]
+},
+{
+"name": "Long plantar ligament.o1l",
+"verts": 316,
+"c": [
+0.072,
+-0.027,
+0.037
+]
+},
+{
+"name": "Long plantar ligament.o1r",
+"verts": 316,
+"c": [
+-0.072,
+-0.027,
+0.037
+]
+},
+{
+"name": "Long plantar ligament.o2l",
+"verts": 230,
+"c": [
+0.087,
+-0.022,
+0.044
+]
+},
+{
+"name": "Long plantar ligament.o2r",
+"verts": 230,
+"c": [
+-0.087,
+-0.022,
+0.044
+]
+},
+{
+"name": "Long plantar ligament.o3l",
+"verts": 90,
+"c": [
+0.097,
+-0.024,
+0.038
+]
+},
+{
+"name": "Long plantar ligament.o3r",
+"verts": 90,
+"c": [
+-0.097,
+-0.024,
+0.038
+]
+},
+{
+"name": "Long plantar ligament.o4l",
+"verts": 170,
+"c": [
+0.102,
+-0.017,
+0.032
+]
+},
+{
+"name": "Long plantar ligament.o4r",
+"verts": 170,
+"c": [
+-0.102,
+-0.017,
+0.032
+]
+},
+{
+"name": "Long plantar ligament.ol",
+"verts": 406,
+"c": [
+0.079,
+0.044,
+0.027
+]
+},
+{
+"name": "Long plantar ligament.or",
+"verts": 406,
+"c": [
+-0.079,
+0.044,
+0.027
+]
+},
+{
+"name": "Longissimus thoracis muscle.e10l",
+"verts": 368,
+"c": [
+0.061,
+0.093,
+1.254
+]
+},
+{
+"name": "Longissimus thoracis muscle.e10r",
+"verts": 368,
+"c": [
+-0.061,
+0.093,
+1.254
+]
+},
+{
+"name": "Longissimus thoracis muscle.e11l",
+"verts": 134,
+"c": [
+0.033,
+0.084,
+1.262
+]
+},
+{
+"name": "Longissimus thoracis muscle.e11r",
+"verts": 134,
+"c": [
+-0.033,
+0.084,
+1.262
+]
+},
+{
+"name": "Longissimus thoracis muscle.e12l",
+"verts": 250,
+"c": [
+0.066,
+0.094,
+1.284
+]
+},
+{
+"name": "Longissimus thoracis muscle.e12r",
+"verts": 250,
+"c": [
+-0.066,
+0.094,
+1.284
+]
+},
+{
+"name": "Longissimus thoracis muscle.e13l",
+"verts": 214,
+"c": [
+0.035,
+0.086,
+1.296
+]
+},
+{
+"name": "Longissimus thoracis muscle.e13r",
+"verts": 214,
+"c": [
+-0.035,
+0.086,
+1.296
+]
+},
+{
+"name": "Longissimus thoracis muscle.e14l",
+"verts": 234,
+"c": [
+0.067,
+0.096,
+1.319
+]
+},
+{
+"name": "Longissimus thoracis muscle.e14r",
+"verts": 234,
+"c": [
+-0.067,
+0.096,
+1.319
+]
+},
+{
+"name": "Longissimus thoracis muscle.e15l",
+"verts": 90,
+"c": [
+0.035,
+0.089,
+1.328
+]
+},
+{
+"name": "Longissimus thoracis muscle.e15r",
+"verts": 90,
+"c": [
+-0.035,
+0.089,
+1.328
+]
+},
+{
+"name": "Longissimus thoracis muscle.e16l",
+"verts": 166,
+"c": [
+0.063,
+0.082,
+1.351
+]
+},
+{
+"name": "Longissimus thoracis muscle.e16r",
+"verts": 166,
+"c": [
+-0.063,
+0.082,
+1.351
+]
+},
+{
+"name": "Longissimus thoracis muscle.e17l",
+"verts": 140,
+"c": [
+0.037,
+0.08,
+1.355
+]
+},
+{
+"name": "Longissimus thoracis muscle.e17r",
+"verts": 140,
+"c": [
+-0.037,
+0.08,
+1.355
+]
+},
+{
+"name": "Longissimus thoracis muscle.e18l",
+"verts": 314,
+"c": [
+0.058,
+0.074,
+1.384
+]
+},
+{
+"name": "Longissimus thoracis muscle.e18r",
+"verts": 314,
+"c": [
+-0.058,
+0.074,
+1.384
+]
+},
+{
+"name": "Longissimus thoracis muscle.e19l",
+"verts": 160,
+"c": [
+0.035,
+0.074,
+1.384
+]
+},
+{
+"name": "Longissimus thoracis muscle.e19r",
+"verts": 160,
+"c": [
+-0.035,
+0.074,
+1.384
+]
+},
+{
+"name": "Longissimus thoracis muscle.e1l",
+"verts": 498,
+"c": [
+0.013,
+0.053,
+1.07
+]
+},
+{
+"name": "Longissimus thoracis muscle.e1r",
+"verts": 498,
+"c": [
+-0.013,
+0.053,
+1.07
+]
+},
+{
+"name": "Longissimus thoracis muscle.e20l",
+"verts": 286,
+"c": [
+0.053,
+0.061,
+1.408
+]
+},
+{
+"name": "Longissimus thoracis muscle.e20r",
+"verts": 286,
+"c": [
+-0.053,
+0.061,
+1.408
+]
+},
+{
+"name": "Longissimus thoracis muscle.e21l",
+"verts": 216,
+"c": [
+0.034,
+0.064,
+1.408
+]
+},
+{
+"name": "Longissimus thoracis muscle.e21r",
+"verts": 216,
+"c": [
+-0.034,
+0.064,
+1.408
+]
+},
+{
+"name": "Longissimus thoracis muscle.e22l",
+"verts": 180,
+"c": [
+0.052,
+0.044,
+1.429
+]
+},
+{
+"name": "Longissimus thoracis muscle.e22r",
+"verts": 180,
+"c": [
+-0.052,
+0.044,
+1.429
+]
+},
+{
+"name": "Longissimus thoracis muscle.e23l",
+"verts": 150,
+"c": [
+0.037,
+0.05,
+1.431
+]
+},
+{
+"name": "Longissimus thoracis muscle.e23r",
+"verts": 150,
+"c": [
+-0.037,
+0.05,
+1.431
+]
+},
+{
+"name": "Longissimus thoracis muscle.e24l",
+"verts": 250,
+"c": [
+0.044,
+0.03,
+1.44
+]
+},
+{
+"name": "Longissimus thoracis muscle.e24r",
+"verts": 250,
+"c": [
+-0.044,
+0.03,
+1.44
+]
+},
+{
+"name": "Longissimus thoracis muscle.e25l",
+"verts": 176,
+"c": [
+0.038,
+0.037,
+1.448
+]
+},
+{
+"name": "Longissimus thoracis muscle.e25r",
+"verts": 176,
+"c": [
+-0.038,
+0.037,
+1.448
+]
+},
+{
+"name": "Longissimus thoracis muscle.e26l",
+"verts": 320,
+"c": [
+0.038,
+0.058,
+1.133
+]
+},
+{
+"name": "Longissimus thoracis muscle.e26r",
+"verts": 320,
+"c": [
+-0.038,
+0.058,
+1.133
+]
+},
+{
+"name": "Longissimus thoracis muscle.e2l",
+"verts": 384,
+"c": [
+0.012,
+0.059,
+1.098
+]
+},
+{
+"name": "Longissimus thoracis muscle.e2r",
+"verts": 384,
+"c": [
+-0.012,
+0.059,
+1.098
+]
+},
+{
+"name": "Longissimus thoracis muscle.e3l",
+"verts": 276,
+"c": [
+0.021,
+0.059,
+1.148
+]
+},
+{
+"name": "Longissimus thoracis muscle.e3r",
+"verts": 276,
+"c": [
+-0.021,
+0.059,
+1.148
+]
+},
+{
+"name": "Longissimus thoracis muscle.e4l",
+"verts": 382,
+"c": [
+0.044,
+0.075,
+1.162
+]
+},
+{
+"name": "Longissimus thoracis muscle.e4r",
+"verts": 382,
+"c": [
+-0.044,
+0.075,
+1.162
+]
+},
+{
+"name": "Longissimus thoracis muscle.e5l",
+"verts": 208,
+"c": [
+0.025,
+0.065,
+1.178
+]
+},
+{
+"name": "Longissimus thoracis muscle.e5r",
+"verts": 208,
+"c": [
+-0.025,
+0.065,
+1.178
+]
+},
+{
+"name": "Longissimus thoracis muscle.e6l",
+"verts": 456,
+"c": [
+0.055,
+0.081,
+1.189
+]
+},
+{
+"name": "Longissimus thoracis muscle.e6r",
+"verts": 456,
+"c": [
+-0.055,
+0.081,
+1.189
+]
+},
+{
+"name": "Longissimus thoracis muscle.e7l",
+"verts": 344,
+"c": [
+0.033,
+0.075,
+1.203
+]
+},
+{
+"name": "Longissimus thoracis muscle.e7r",
+"verts": 344,
+"c": [
+-0.033,
+0.075,
+1.203
+]
+},
+{
+"name": "Longissimus thoracis muscle.e8l",
+"verts": 252,
+"c": [
+0.059,
+0.09,
+1.222
+]
+},
+{
+"name": "Longissimus thoracis muscle.e8r",
+"verts": 252,
+"c": [
+-0.059,
+0.09,
+1.222
+]
+},
+{
+"name": "Longissimus thoracis muscle.e9l",
+"verts": 206,
+"c": [
+0.032,
+0.083,
+1.232
+]
+},
+{
+"name": "Longissimus thoracis muscle.e9r",
+"verts": 206,
+"c": [
+-0.032,
+0.083,
+1.232
+]
+},
+{
+"name": "Longissimus thoracis muscle.el",
+"verts": 198,
+"c": [
+0.002,
+0.063,
+1.031
+]
+},
+{
+"name": "Longissimus thoracis muscle.er",
+"verts": 198,
+"c": [
+-0.002,
+0.063,
+1.031
+]
+},
+{
+"name": "Longus capitis muscle.ol",
+"verts": 74,
+"c": [
+0.006,
+-0.003,
+1.568
+]
+},
+{
+"name": "Longus capitis muscle.or",
+"verts": 74,
+"c": [
+-0.006,
+-0.003,
+1.568
+]
+},
+{
+"name": "Lower canine.l",
+"verts": 640,
+"c": [
+0.013,
+-0.076,
+1.515
+]
+},
+{
+"name": "Lower canine.r",
+"verts": 640,
+"c": [
+-0.013,
+-0.076,
+1.515
+]
+},
+{
+"name": "Lower first molar tooth.l",
+"verts": 2260,
+"c": [
+0.023,
+-0.057,
+1.523
+]
+},
+{
+"name": "Lower first molar tooth.r",
+"verts": 2260,
+"c": [
+-0.023,
+-0.057,
+1.523
+]
+},
+{
+"name": "Lower first premolar.l",
+"verts": 613,
+"c": [
+0.017,
+-0.071,
+1.517
+]
+},
+{
+"name": "Lower first premolar.r",
+"verts": 613,
+"c": [
+-0.017,
+-0.071,
+1.517
+]
+},
+{
+"name": "Lower lateral incisor.l",
+"verts": 522,
+"c": [
+0.008,
+-0.08,
+1.515
+]
+},
+{
+"name": "Lower lateral incisor.r",
+"verts": 522,
+"c": [
+-0.008,
+-0.08,
+1.515
+]
+},
+{
+"name": "Lower medial incisor.l",
+"verts": 494,
+"c": [
+0.003,
+-0.08,
+1.515
+]
+},
+{
+"name": "Lower medial incisor.r",
+"verts": 494,
+"c": [
+-0.003,
+-0.08,
+1.515
+]
+},
+{
+"name": "Lower second molar tooth.l",
+"verts": 840,
+"c": [
+0.026,
+-0.046,
+1.528
+]
+},
+{
+"name": "Lower second molar tooth.r",
+"verts": 840,
+"c": [
+-0.026,
+-0.046,
+1.528
+]
+},
+{
+"name": "Lower second premolar.l",
+"verts": 592,
+"c": [
+0.02,
+-0.065,
+1.518
+]
+},
+{
+"name": "Lower second premolar.r",
+"verts": 592,
+"c": [
+-0.02,
+-0.065,
+1.518
+]
+},
+{
+"name": "Lumbar vertebrae.j",
+"verts": 8,
+"c": [
+0.0,
+0.107,
+1.028
+]
+},
+{
+"name": "Lunate bone.l",
+"verts": 1046,
+"c": [
+0.253,
+-0.018,
+0.854
+]
+},
+{
+"name": "Lunate bone.r",
+"verts": 1046,
+"c": [
+-0.253,
+-0.018,
+0.854
+]
+},
+{
+"name": "Lunate surface.i",
+"verts": 8,
+"c": [
+0.094,
+0.012,
+0.88
+]
+},
+{
+"name": "Lunate surface.j",
+"verts": 8,
+"c": [
+-0.094,
+0.012,
+0.88
+]
+},
+{
+"name": "Major alar cartilage.l",
+"verts": 174,
+"c": [
+0.007,
+-0.101,
+1.555
+]
+},
+{
+"name": "Major alar cartilage.r",
+"verts": 174,
+"c": [
+-0.007,
+-0.101,
+1.555
+]
+},
+{
+"name": "Malleolar fossa.i",
+"verts": 8,
+"c": [
+0.096,
+0.066,
+0.059
+]
+},
+{
+"name": "Malleolar fossa.j",
+"verts": 8,
+"c": [
+-0.096,
+0.066,
+0.059
+]
+},
+{
+"name": "Malleolar groove of fibula.i",
+"verts": 8,
+"c": [
+0.098,
+0.05,
+0.052
+]
+},
+{
+"name": "Malleolar groove of fibula.j",
+"verts": 8,
+"c": [
+-0.098,
+0.05,
+0.052
+]
+},
+{
+"name": "Malleolar groove of tibia.i",
+"verts": 8,
+"c": [
+0.065,
+0.08,
+0.098
+]
+},
+{
+"name": "Malleolar groove of tibia.j",
+"verts": 8,
+"c": [
+-0.065,
+0.08,
+0.098
+]
+},
+{
+"name": "Malleus.l",
+"verts": 1993,
+"c": [
+0.048,
+0.004,
+1.582
+]
+},
+{
+"name": "Malleus.r",
+"verts": 1993,
+"c": [
+-0.048,
+0.004,
+1.582
+]
+},
+{
+"name": "Mandible",
+"verts": 9388,
+"c": [
+0.0,
+-0.043,
+1.537
+]
+},
+{
+"name": "Mandibular dental arch.j",
+"verts": 8,
+"c": [
+-0.036,
+-0.076,
+1.518
+]
+},
+{
+"name": "Manubrium of sternum",
+"verts": 1336,
+"c": [
+-0.0,
+-0.058,
+1.377
+]
+},
+{
+"name": "Manubrium of sternum.j",
+"verts": 8,
+"c": [
+0.001,
+-0.081,
+1.38
+]
+},
+{
+"name": "Masseter.el",
+"verts": 360,
+"c": [
+0.042,
+-0.029,
+1.538
+]
+},
+{
+"name": "Masseter.er",
+"verts": 360,
+"c": [
+-0.042,
+-0.029,
+1.538
+]
+},
+{
+"name": "Masseter.o1l",
+"verts": 534,
+"c": [
+0.059,
+-0.021,
+1.574
+]
+},
+{
+"name": "Masseter.o1r",
+"verts": 534,
+"c": [
+-0.059,
+-0.021,
+1.574
+]
+},
+{
+"name": "Masseter.ol",
+"verts": 691,
+"c": [
+0.054,
+-0.044,
+1.563
+]
+},
+{
+"name": "Masseter.or",
+"verts": 691,
+"c": [
+-0.054,
+-0.044,
+1.563
+]
+},
+{
+"name": "Mastoid angle of parietal bone.j",
+"verts": 8,
+"c": [
+-0.06,
+0.052,
+1.585
+]
+},
+{
+"name": "Mastoid border of occipital bone.j",
+"verts": 8,
+"c": [
+0.05,
+0.032,
+1.56
+]
+},
+{
+"name": "Mastoid notch.i",
+"verts": 8,
+"c": [
+0.052,
+0.021,
+1.561
+]
+},
+{
+"name": "Mastoid notch.j",
+"verts": 8,
+"c": [
+-0.052,
+0.021,
+1.561
+]
+},
+{
+"name": "Mastoid process.i",
+"verts": 8,
+"c": [
+0.065,
+0.016,
+1.562
+]
+},
+{
+"name": "Mastoid process.j",
+"verts": 8,
+"c": [
+-0.065,
+0.016,
+1.562
+]
+},
+{
+"name": "Maxilla.l",
+"verts": 2399,
+"c": [
+0.023,
+-0.067,
+1.571
+]
+},
+{
+"name": "Maxilla.r",
+"verts": 2399,
+"c": [
+-0.023,
+-0.067,
+1.571
+]
+},
+{
+"name": "Maxillary dental arch.i",
+"verts": 8,
+"c": [
+0.039,
+-0.076,
+1.543
+]
+},
+{
+"name": "Maxillary dental arch.j",
+"verts": 8,
+"c": [
+-0.039,
+-0.076,
+1.543
+]
+},
+{
+"name": "Maxillary surface of greater wing.j",
+"verts": 8,
+"c": [
+-0.017,
+-0.045,
+1.583
+]
+},
+{
+"name": "Medial border of fibula.i",
+"verts": 8,
+"c": [
+0.076,
+0.047,
+0.233
+]
+},
+{
+"name": "Medial border of fibula.j",
+"verts": 8,
+"c": [
+-0.076,
+0.047,
+0.233
+]
+},
+{
+"name": "Medial border of humerus.i",
+"verts": 8,
+"c": [
+0.179,
+0.053,
+1.233
+]
+},
+{
+"name": "Medial border of humerus.j",
+"verts": 8,
+"c": [
+-0.179,
+0.053,
+1.233
+]
+},
+{
+"name": "Medial border of scapula.i",
+"verts": 8,
+"c": [
+0.051,
+0.107,
+1.325
+]
+},
+{
+"name": "Medial border of scapula.j",
+"verts": 8,
+"c": [
+-0.051,
+0.107,
+1.325
+]
+},
+{
+"name": "Medial border of tibia.i",
+"verts": 8,
+"c": [
+0.055,
+0.035,
+0.216
+]
+},
+{
+"name": "Medial border of tibia.j",
+"verts": 8,
+"c": [
+-0.055,
+0.035,
+0.216
+]
+},
+{
+"name": "Medial condyle of femur.i",
+"verts": 8,
+"c": [
+0.051,
+0.047,
+0.425
+]
+},
+{
+"name": "Medial condyle of femur.j",
+"verts": 8,
+"c": [
+-0.051,
+0.047,
+0.425
+]
+},
+{
+"name": "Medial condyle of tibia.i",
+"verts": 8,
+"c": [
+0.017,
+0.043,
+0.41
+]
+},
+{
+"name": "Medial condyle of tibia.j",
+"verts": 8,
+"c": [
+-0.017,
+0.043,
+0.41
+]
+},
+{
+"name": "Medial cuneiform bone.l",
+"verts": 498,
+"c": [
+0.071,
+-0.015,
+0.052
+]
+},
+{
+"name": "Medial cuneiform bone.r",
+"verts": 498,
+"c": [
+-0.071,
+-0.015,
+0.052
+]
+},
+{
+"name": "Medial epicondyle of femur.i",
+"verts": 8,
+"c": [
+0.005,
+0.035,
+0.452
+]
+},
+{
+"name": "Medial epicondyle of femur.j",
+"verts": 8,
+"c": [
+-0.005,
+0.035,
+0.452
+]
+},
+{
+"name": "Medial epicondyle of humerus.i",
+"verts": 8,
+"c": [
+0.172,
+0.036,
+1.109
+]
+},
+{
+"name": "Medial epicondyle of humerus.j",
+"verts": 8,
+"c": [
+-0.172,
+0.036,
+1.109
+]
+},
+{
+"name": "Medial head of flexor hallucis brevis.el",
+"verts": 180,
+"c": [
+0.067,
+-0.084,
+0.014
+]
+},
+{
+"name": "Medial head of flexor hallucis brevis.er",
+"verts": 180,
+"c": [
+-0.067,
+-0.084,
+0.014
+]
+},
+{
+"name": "Medial head of gastrocnemius.ol",
+"verts": 450,
+"c": [
+0.058,
+0.027,
+0.492
+]
+},
+{
+"name": "Medial head of gastrocnemius.or",
+"verts": 450,
+"c": [
+-0.058,
+0.027,
+0.492
+]
+},
+{
+"name": "Medial head of triceps brachii.ol",
+"verts": 772,
+"c": [
+0.207,
+0.042,
+1.225
+]
+},
+{
+"name": "Medial head of triceps brachii.or",
+"verts": 772,
+"c": [
+-0.207,
+0.042,
+1.225
+]
+},
+{
+"name": "Medial intercondylar tubercle.i",
+"verts": 8,
+"c": [
+0.067,
+0.041,
+0.438
+]
+},
+{
+"name": "Medial intercondylar tubercle.j",
+"verts": 8,
+"c": [
+-0.067,
+0.041,
+0.438
+]
+},
+{
+"name": "Medial lip of linea apera.i",
+"verts": 8,
+"c": [
+0.07,
+0.03,
+0.557
+]
+},
+{
+"name": "Medial lip of linea apera.j",
+"verts": 8,
+"c": [
+-0.07,
+0.03,
+0.557
+]
+},
+{
+"name": "Medial malleolar facet.i",
+"verts": 8,
+"c": [
+0.052,
+0.037,
+0.079
+]
+},
+{
+"name": "Medial malleolar facet.j",
+"verts": 8,
+"c": [
+-0.052,
+0.037,
+0.079
+]
+},
+{
+"name": "Medial malleolus.i",
+"verts": 8,
+"c": [
+0.028,
+0.037,
+0.089
+]
+},
+{
+"name": "Medial malleolus.j",
+"verts": 8,
+"c": [
+-0.028,
+0.037,
+0.089
+]
+},
+{
+"name": "Medial process of calcaneal tuberosity.i",
+"verts": 8,
+"c": [
+0.064,
+0.058,
+0.011
+]
+},
+{
+"name": "Medial process of calcaneal tuberosity.j",
+"verts": 8,
+"c": [
+-0.064,
+0.058,
+0.011
+]
+},
+{
+"name": "Medial pterygoid muscle.el",
+"verts": 172,
+"c": [
+0.035,
+-0.019,
+1.536
+]
+},
+{
+"name": "Medial pterygoid muscle.er",
+"verts": 172,
+"c": [
+-0.035,
+-0.019,
+1.536
+]
+},
+{
+"name": "Medial pterygoid muscle.ol",
+"verts": 344,
+"c": [
+0.021,
+-0.028,
+1.566
+]
+},
+{
+"name": "Medial pterygoid muscle.or",
+"verts": 344,
+"c": [
+-0.021,
+-0.028,
+1.566
+]
+},
+{
+"name": "Medial pterygoid plate.j",
+"verts": 8,
+"c": [
+0.013,
+-0.035,
+1.549
+]
+},
+{
+"name": "Medial supracondylar line.i",
+"verts": 8,
+"c": [
+0.112,
+0.045,
+0.489
+]
+},
+{
+"name": "Medial supracondylar line.j",
+"verts": 8,
+"c": [
+-0.112,
+0.045,
+0.489
+]
+},
+{
+"name": "Medial supracondylar ridge.i",
+"verts": 8,
+"c": [
+0.172,
+0.037,
+1.131
+]
+},
+{
+"name": "Medial supracondylar ridge.j",
+"verts": 8,
+"c": [
+-0.172,
+0.037,
+1.131
+]
+},
+{
+"name": "Medial surface of arytenoid cartilage.i",
+"verts": 8,
+"c": [
+0.001,
+-0.008,
+1.475
+]
+},
+{
+"name": "Medial surface of arytenoid cartilage.j",
+"verts": 8,
+"c": [
+-0.001,
+-0.008,
+1.475
+]
+},
+{
+"name": "Medial surface of fibula.i",
+"verts": 8,
+"c": [
+0.08,
+0.045,
+0.323
+]
+},
+{
+"name": "Medial surface of fibula.j",
+"verts": 8,
+"c": [
+-0.08,
+0.045,
+0.323
+]
+},
+{
+"name": "Medial surface of tibia.i",
+"verts": 8,
+"c": [
+0.056,
+-0.01,
+0.344
+]
+},
+{
+"name": "Medial surface of tibia.j",
+"verts": 8,
+"c": [
+-0.056,
+-0.01,
+0.344
+]
+},
+{
+"name": "Medial surface of ulna.i",
+"verts": 8,
+"c": [
+0.209,
+0.051,
+1.033
+]
+},
+{
+"name": "Medial surface of ulna.j",
+"verts": 8,
+"c": [
+-0.209,
+0.051,
+1.033
+]
+},
+{
+"name": "Medial tubercle.i",
+"verts": 8,
+"c": [
+0.052,
+0.067,
+0.058
+]
+},
+{
+"name": "Medial tubercle.j",
+"verts": 8,
+"c": [
+-0.052,
+0.067,
+0.058
+]
+},
+{
+"name": "Median sacral crest.j",
+"verts": 8,
+"c": [
+-0.0,
+0.084,
+0.94
+]
+},
+{
+"name": "Mental foramen.j",
+"verts": 8,
+"c": [
+-0.036,
+-0.073,
+1.51
+]
+},
+{
+"name": "Mental protuberance.j",
+"verts": 8,
+"c": [
+-0.013,
+-0.093,
+1.5
+]
+},
+{
+"name": "Mental tubercle.j",
+"verts": 8,
+"c": [
+0.005,
+-0.078,
+1.495
+]
+},
+{
+"name": "Mentalis muscle.ol",
+"verts": 46,
+"c": [
+0.006,
+-0.08,
+1.502
+]
+},
+{
+"name": "Mentalis muscle.or",
+"verts": 46,
+"c": [
+-0.006,
+-0.08,
+1.502
+]
+},
+{
+"name": "Mesial surface of tooth.i",
+"verts": 8,
+"c": [
+0.021,
+-0.068,
+1.526
+]
+},
+{
+"name": "Mesial surface of tooth.j",
+"verts": 8,
+"c": [
+-0.021,
+-0.068,
+1.526
+]
+},
+{
+"name": "Metacarpal base.i",
+"verts": 8,
+"c": [
+0.244,
+-0.02,
+0.826
+]
+},
+{
+"name": "Metacarpal base.j",
+"verts": 8,
+"c": [
+-0.244,
+-0.02,
+0.826
+]
+},
+{
+"name": "Metacarpal bones.j",
+"verts": 8,
+"c": [
+-0.216,
+-0.028,
+0.808
+]
+},
+{
+"name": "Metatarsal bones.j",
+"verts": 8,
+"c": [
+-0.031,
+-0.053,
+0.04
+]
+},
+{
+"name": "Middle cells of ethmoid bone.l",
+"verts": 484,
+"c": [
+0.01,
+-0.052,
+1.588
+]
+},
+{
+"name": "Middle cells of ethmoid bone.r",
+"verts": 484,
+"c": [
+-0.01,
+-0.052,
+1.588
+]
+},
+{
+"name": "Middle facet for calcaneus.i",
+"verts": 8,
+"c": [
+0.068,
+0.03,
+0.051
+]
+},
+{
+"name": "Middle facet for calcaneus.j",
+"verts": 8,
+"c": [
+-0.068,
+0.03,
+0.051
+]
+},
+{
+"name": "Middle phalanx of fifth finger of foot.l",
+"verts": 110,
+"c": [
+0.141,
+-0.084,
+0.013
+]
+},
+{
+"name": "Middle phalanx of fifth finger of foot.r",
+"verts": 110,
+"c": [
+-0.141,
+-0.084,
+0.013
+]
+},
+{
+"name": "Middle phalanx of fifth finger of hand.l",
+"verts": 148,
+"c": [
+0.232,
+-0.064,
+0.744
+]
+},
+{
+"name": "Middle phalanx of fifth finger of hand.r",
+"verts": 148,
+"c": [
+-0.232,
+-0.064,
+0.744
+]
+},
+{
+"name": "Middle phalanx of fourth finger of foot.l",
+"verts": 226,
+"c": [
+0.13,
+-0.099,
+0.014
+]
+},
+{
+"name": "Middle phalanx of fourth finger of foot.r",
+"verts": 226,
+"c": [
+-0.13,
+-0.099,
+0.014
+]
+},
+{
+"name": "Middle phalanx of fourth finger of hand.l",
+"verts": 225,
+"c": [
+0.257,
+-0.069,
+0.728
+]
+},
+{
+"name": "Middle phalanx of fourth finger of hand.r",
+"verts": 225,
+"c": [
+-0.257,
+-0.069,
+0.728
+]
+},
+{
+"name": "Middle phalanx of second finger of foot.l",
+"verts": 193,
+"c": [
+0.101,
+-0.118,
+0.016
+]
+},
+{
+"name": "Middle phalanx of second finger of foot.r",
+"verts": 193,
+"c": [
+-0.101,
+-0.118,
+0.016
+]
+},
+{
+"name": "Middle phalanx of second finger of hand.l",
+"verts": 159,
+"c": [
+0.312,
+-0.062,
+0.728
+]
+},
+{
+"name": "Middle phalanx of second finger of hand.r",
+"verts": 159,
+"c": [
+-0.312,
+-0.062,
+0.728
+]
+},
+{
+"name": "Middle phalanx of third finger of foot.l",
+"verts": 202,
+"c": [
+0.116,
+-0.112,
+0.015
+]
+},
+{
+"name": "Middle phalanx of third finger of foot.r",
+"verts": 202,
+"c": [
+-0.116,
+-0.112,
+0.015
+]
+},
+{
+"name": "Middle phalanx of third finger of hand.l",
+"verts": 182,
+"c": [
+0.282,
+-0.07,
+0.721
+]
+},
+{
+"name": "Middle phalanx of third finger of hand.r",
+"verts": 182,
+"c": [
+-0.282,
+-0.07,
+0.721
+]
+},
+{
+"name": "Muscular process.i",
+"verts": 8,
+"c": [
+0.009,
+-0.004,
+1.475
+]
+},
+{
+"name": "Muscular process.j",
+"verts": 8,
+"c": [
+-0.009,
+-0.004,
+1.475
+]
+},
+{
+"name": "Mylohyoid line.j",
+"verts": 8,
+"c": [
+0.018,
+-0.032,
+1.528
+]
+},
+{
+"name": "Mylohyoid muscle.ol",
+"verts": 196,
+"c": [
+0.013,
+-0.053,
+1.513
+]
+},
+{
+"name": "Mylohyoid muscle.or",
+"verts": 196,
+"c": [
+-0.013,
+-0.053,
+1.513
+]
+},
+{
+"name": "Nasal bone.l",
+"verts": 148,
+"c": [
+0.004,
+-0.09,
+1.589
+]
+},
+{
+"name": "Nasal bone.r",
+"verts": 148,
+"c": [
+-0.004,
+-0.09,
+1.589
+]
+},
+{
+"name": "Nasal cartilages.j",
+"verts": 8,
+"c": [
+0.0,
+-0.131,
+1.572
+]
+},
+{
+"name": "Nasal margin of frontal bone.j",
+"verts": 8,
+"c": [
+0.005,
+-0.092,
+1.604
+]
+},
+{
+"name": "Nasal part of frontal bone.j",
+"verts": 8,
+"c": [
+-0.006,
+-0.076,
+1.587
+]
+},
+{
+"name": "Nasal septal cartilage",
+"verts": 182,
+"c": [
+-0.0,
+-0.095,
+1.568
+]
+},
+{
+"name": "Nasal spine of frontal bone.j",
+"verts": 8,
+"c": [
+0.0,
+-0.089,
+1.596
+]
+},
+{
+"name": "Nasalis muscle.ol",
+"verts": 266,
+"c": [
+0.004,
+-0.092,
+1.592
+]
+},
+{
+"name": "Nasalis muscle.or",
+"verts": 266,
+"c": [
+-0.004,
+-0.092,
+1.592
+]
+},
+{
+"name": "Navicular articular surface.i",
+"verts": 8,
+"c": [
+0.07,
+-0.003,
+0.063
+]
+},
+{
+"name": "Navicular articular surface.j",
+"verts": 8,
+"c": [
+-0.07,
+-0.003,
+0.063
+]
+},
+{
+"name": "Navicular bone.l",
+"verts": 368,
+"c": [
+0.073,
+0.003,
+0.062
+]
+},
+{
+"name": "Navicular bone.r",
+"verts": 368,
+"c": [
+-0.073,
+0.003,
+0.062
+]
+},
+{
+"name": "Neck of femur.i",
+"verts": 8,
+"c": [
+0.067,
+0.002,
+0.834
+]
+},
+{
+"name": "Neck of femur.j",
+"verts": 8,
+"c": [
+-0.067,
+0.002,
+0.834
+]
+},
+{
+"name": "Neck of fibula.i",
+"verts": 8,
+"c": [
+0.133,
+0.041,
+0.381
+]
+},
+{
+"name": "Neck of fibula.j",
+"verts": 8,
+"c": [
+-0.133,
+0.041,
+0.381
+]
+},
+{
+"name": "Neck of malleus.i",
+"verts": 8,
+"c": [
+0.05,
+0.004,
+1.582
+]
+},
+{
+"name": "Neck of malleus.j",
+"verts": 8,
+"c": [
+-0.05,
+0.004,
+1.582
+]
+},
+{
+"name": "Neck of radius.i",
+"verts": 8,
+"c": [
+0.258,
+0.026,
+1.075
+]
+},
+{
+"name": "Neck of radius.j",
+"verts": 8,
+"c": [
+-0.258,
+0.026,
+1.075
+]
+},
+{
+"name": "Neck of rib.i",
+"verts": 8,
+"c": [
+0.039,
+0.064,
+1.331
+]
+},
+{
+"name": "Neck of rib.j",
+"verts": 8,
+"c": [
+-0.039,
+0.064,
+1.331
+]
+},
+{
+"name": "Neck of scapula.i",
+"verts": 8,
+"c": [
+0.156,
+0.04,
+1.347
+]
+},
+{
+"name": "Neck of scapula.j",
+"verts": 8,
+"c": [
+-0.156,
+0.04,
+1.347
+]
+},
+{
+"name": "Neck of talus.i",
+"verts": 8,
+"c": [
+0.049,
+0.021,
+0.068
+]
+},
+{
+"name": "Neck of talus.j",
+"verts": 8,
+"c": [
+-0.049,
+0.021,
+0.068
+]
+},
+{
+"name": "Neck of tooth.i",
+"verts": 8,
+"c": [
+0.015,
+-0.051,
+1.526
+]
+},
+{
+"name": "Neck of tooth.j",
+"verts": 8,
+"c": [
+-0.015,
+-0.051,
+1.526
+]
+},
+{
+"name": "Neurocranium.j",
+"verts": 8,
+"c": [
+0.1,
+0.011,
+1.647
+]
+},
+{
+"name": "Ninth rib.l",
+"verts": 3891,
+"c": [
+0.076,
+0.027,
+1.181
+]
+},
+{
+"name": "Ninth rib.r",
+"verts": 3891,
+"c": [
+-0.076,
+0.027,
+1.181
+]
+},
+{
+"name": "Oblique head of adductor hallucis.el",
+"verts": 140,
+"c": [
+0.076,
+-0.064,
+0.017
+]
+},
+{
+"name": "Oblique head of adductor hallucis.er",
+"verts": 140,
+"c": [
+-0.076,
+-0.064,
+0.017
+]
+},
+{
+"name": "Oblique head of adductor hallucis.o1l",
+"verts": 546,
+"c": [
+0.099,
+-0.017,
+0.035
+]
+},
+{
+"name": "Oblique head of adductor hallucis.o1r",
+"verts": 546,
+"c": [
+-0.099,
+-0.017,
+0.035
+]
+},
+{
+"name": "Oblique head of adductor hallucis.ol",
+"verts": 280,
+"c": [
+0.095,
+-0.006,
+0.037
+]
+},
+{
+"name": "Oblique head of adductor hallucis.or",
+"verts": 280,
+"c": [
+-0.095,
+-0.006,
+0.037
+]
+},
+{
+"name": "Oblique line of mandible.j",
+"verts": 8,
+"c": [
+0.054,
+-0.047,
+1.528
+]
+},
+{
+"name": "Oblique line of thyroid cartilage.j",
+"verts": 8,
+"c": [
+-0.025,
+-0.01,
+1.475
+]
+},
+{
+"name": "Obliquus inferior capitis muscle.el",
+"verts": 174,
+"c": [
+0.003,
+0.049,
+1.513
+]
+},
+{
+"name": "Obliquus inferior capitis muscle.er",
+"verts": 174,
+"c": [
+-0.003,
+0.049,
+1.513
+]
+},
+{
+"name": "Obliquus inferior capitis muscle.ol",
+"verts": 114,
+"c": [
+0.039,
+0.018,
+1.54
+]
+},
+{
+"name": "Obliquus inferior capitis muscle.or",
+"verts": 114,
+"c": [
+-0.039,
+0.018,
+1.54
+]
+},
+{
+"name": "Obliquus superior capitis muscle.ol",
+"verts": 306,
+"c": [
+0.035,
+0.049,
+1.561
+]
+},
+{
+"name": "Obliquus superior capitis muscle.or",
+"verts": 306,
+"c": [
+-0.035,
+0.049,
+1.561
+]
+},
+{
+"name": "Oblong fovea.i",
+"verts": 8,
+"c": [
+0.007,
+-0.007,
+1.475
+]
+},
+{
+"name": "Oblong fovea.j",
+"verts": 8,
+"c": [
+-0.007,
+-0.007,
+1.475
+]
+},
+{
+"name": "Obturator crest.i",
+"verts": 8,
+"c": [
+0.055,
+-0.02,
+0.845
+]
+},
+{
+"name": "Obturator crest.j",
+"verts": 8,
+"c": [
+-0.055,
+-0.02,
+0.845
+]
+},
+{
+"name": "Obturator externus.ol",
+"verts": 4938,
+"c": [
+0.039,
+-0.001,
+0.834
+]
+},
+{
+"name": "Obturator externus.or",
+"verts": 4938,
+"c": [
+-0.039,
+-0.001,
+0.834
+]
+},
+{
+"name": "Obturator foramen.i",
+"verts": 8,
+"c": [
+0.04,
+0.001,
+0.835
+]
+},
+{
+"name": "Obturator foramen.j",
+"verts": 8,
+"c": [
+-0.04,
+0.001,
+0.835
+]
+},
+{
+"name": "Obturator groove.i",
+"verts": 8,
+"c": [
+0.05,
+-0.013,
+0.849
+]
+},
+{
+"name": "Obturator groove.j",
+"verts": 8,
+"c": [
+-0.05,
+-0.013,
+0.849
+]
+},
+{
+"name": "Obturator internus.ol",
+"verts": 910,
+"c": [
+0.038,
+0.01,
+0.849
+]
+},
+{
+"name": "Obturator internus.or",
+"verts": 910,
+"c": [
+-0.038,
+0.01,
+0.849
+]
+},
+{
+"name": "Occipital angle of parietal bone.j",
+"verts": 8,
+"c": [
+0.016,
+0.094,
+1.658
+]
+},
+{
+"name": "Occipital bone",
+"verts": 3757,
+"c": [
+0.0,
+0.045,
+1.603
+]
+},
+{
+"name": "Occipital border of parietal bone.j",
+"verts": 8,
+"c": [
+-0.047,
+0.098,
+1.609
+]
+},
+{
+"name": "Occipital condyle.j",
+"verts": 8,
+"c": [
+-0.023,
+0.017,
+1.55
+]
+},
+{
+"name": "Occipital margin of temporal bone.i",
+"verts": 8,
+"c": [
+0.03,
+0.027,
+1.56
+]
+},
+{
+"name": "Occipital margin of temporal bone.j",
+"verts": 8,
+"c": [
+-0.03,
+0.027,
+1.56
+]
+},
+{
+"name": "Occipital plane.j",
+"verts": 8,
+"c": [
+-0.0,
+0.102,
+1.584
+]
+},
+{
+"name": "Occipitalis muscle.ol",
+"verts": 252,
+"c": [
+0.037,
+0.078,
+1.591
+]
+},
+{
+"name": "Occipitalis muscle.or",
+"verts": 252,
+"c": [
+-0.037,
+0.078,
+1.591
+]
+},
+{
+"name": "Occlusal surface of tooth.i",
+"verts": 8,
+"c": [
+0.022,
+-0.058,
+1.533
+]
+},
+{
+"name": "Occlusal surface of tooth.j",
+"verts": 8,
+"c": [
+-0.022,
+-0.058,
+1.533
+]
+},
+{
+"name": "Olecranon fossa.i",
+"verts": 8,
+"c": [
+0.217,
+0.055,
+1.112
+]
+},
+{
+"name": "Olecranon fossa.j",
+"verts": 8,
+"c": [
+-0.217,
+0.055,
+1.112
+]
+},
+{
+"name": "Olecranon.i",
+"verts": 8,
+"c": [
+0.215,
+0.059,
+1.117
+]
+},
+{
+"name": "Olecranon.j",
+"verts": 8,
+"c": [
+-0.215,
+0.059,
+1.117
+]
+},
+{
+"name": "Omohyoid muscle.el",
+"verts": 132,
+"c": [
+0.015,
+-0.03,
+1.496
+]
+},
+{
+"name": "Omohyoid muscle.er",
+"verts": 132,
+"c": [
+-0.015,
+-0.03,
+1.496
+]
+},
+{
+"name": "Omohyoid muscle.ol",
+"verts": 520,
+"c": [
+0.1,
+0.057,
+1.394
+]
+},
+{
+"name": "Omohyoid muscle.or",
+"verts": 520,
+"c": [
+-0.1,
+0.057,
+1.394
+]
+},
+{
+"name": "Opening of frontal sinus.j",
+"verts": 8,
+"c": [
+0.006,
+-0.076,
+1.593
+]
+},
+{
+"name": "Opponens digiti minimi muscle of hand.ol",
+"verts": 154,
+"c": [
+0.253,
+-0.032,
+0.839
+]
+},
+{
+"name": "Opponens digiti minimi muscle of hand.or",
+"verts": 154,
+"c": [
+-0.253,
+-0.032,
+0.839
+]
+},
+{
+"name": "Optic canal.j",
+"verts": 8,
+"c": [
+-0.012,
+-0.04,
+1.603
+]
+},
+{
+"name": "Orbicularis oris muscle.ol",
+"verts": 82,
+"c": [
+0.003,
+-0.08,
+1.511
+]
+},
+{
+"name": "Orbicularis oris muscle.or",
+"verts": 82,
+"c": [
+-0.003,
+-0.08,
+1.511
+]
+},
+{
+"name": "Orbital part of frontal bone.j",
+"verts": 8,
+"c": [
+-0.027,
+-0.059,
+1.598
+]
+},
+{
+"name": "Orbital part of orbicularis oculi.ol",
+"verts": 154,
+"c": [
+0.012,
+-0.077,
+1.591
+]
+},
+{
+"name": "Orbital part of orbicularis oculi.or",
+"verts": 154,
+"c": [
+-0.012,
+-0.077,
+1.591
+]
+},
+{
+"name": "Orbital plate of frontal bone.j",
+"verts": 8,
+"c": [
+-0.023,
+-0.049,
+1.621
+]
+},
+{
+"name": "Orbital surface of frontal bone.j",
+"verts": 8,
+"c": [
+-0.036,
+-0.053,
+1.601
+]
+},
+{
+"name": "Orbital surface of greater wing.j",
+"verts": 8,
+"c": [
+0.027,
+-0.045,
+1.594
+]
+},
+{
+"name": "Outer lip of iliac crest.i",
+"verts": 8,
+"c": [
+0.121,
+0.015,
+1.015
+]
+},
+{
+"name": "Outer lip of iliac crest.j",
+"verts": 8,
+"c": [
+-0.121,
+0.015,
+1.015
+]
+},
+{
+"name": "Palatine bone.l",
+"verts": 732,
+"c": [
+0.014,
+-0.042,
+1.564
+]
+},
+{
+"name": "Palatine bone.r",
+"verts": 732,
+"c": [
+-0.014,
+-0.042,
+1.564
+]
+},
+{
+"name": "Parietal bone.l",
+"verts": 3443,
+"c": [
+0.033,
+0.029,
+1.648
+]
+},
+{
+"name": "Parietal bone.r",
+"verts": 3386,
+"c": [
+-0.034,
+0.031,
+1.648
+]
+},
+{
+"name": "Parietal eminence.j",
+"verts": 8,
+"c": [
+-0.08,
+0.031,
+1.665
+]
+},
+{
+"name": "Parietal foramen.j",
+"verts": 8,
+"c": [
+-0.008,
+0.081,
+1.687
+]
+},
+{
+"name": "Parietal margin of frontal bone.j",
+"verts": 8,
+"c": [
+-0.049,
+-0.027,
+1.685
+]
+},
+{
+"name": "Parietal margin of greater wing.j",
+"verts": 8,
+"c": [
+0.062,
+-0.032,
+1.622
+]
+},
+{
+"name": "Pars interarticularis of vertebral arch.j",
+"verts": 8,
+"c": [
+0.035,
+0.051,
+1.049
+]
+},
+{
+"name": "Patella.l",
+"verts": 140,
+"c": [
+0.084,
+-0.007,
+0.444
+]
+},
+{
+"name": "Patella.r",
+"verts": 140,
+"c": [
+-0.084,
+-0.007,
+0.444
+]
+},
+{
+"name": "Patellar ligament.el",
+"verts": 344,
+"c": [
+0.082,
+-0.003,
+0.39
+]
+},
+{
+"name": "Patellar ligament.er",
+"verts": 344,
+"c": [
+-0.082,
+-0.003,
+0.39
+]
+},
+{
+"name": "Patellar ligament.ol",
+"verts": 378,
+"c": [
+0.086,
+-0.006,
+0.428
+]
+},
+{
+"name": "Patellar ligament.or",
+"verts": 378,
+"c": [
+-0.086,
+-0.006,
+0.428
+]
+},
+{
+"name": "Patellar surface of femur.i",
+"verts": 8,
+"c": [
+0.081,
+-0.034,
+0.45
+]
+},
+{
+"name": "Patellar surface of femur.j",
+"verts": 8,
+"c": [
+-0.081,
+-0.034,
+0.45
+]
+},
+{
+"name": "Pecten pubis.i",
+"verts": 8,
+"c": [
+0.048,
+-0.03,
+0.875
+]
+},
+{
+"name": "Pecten pubis.j",
+"verts": 8,
+"c": [
+-0.048,
+-0.03,
+0.875
+]
+},
+{
+"name": "Pectineal line of femur.i",
+"verts": 8,
+"c": [
+0.093,
+0.031,
+0.766
+]
+},
+{
+"name": "Pectineal line of femur.j",
+"verts": 8,
+"c": [
+-0.093,
+0.031,
+0.766
+]
+},
+{
+"name": "Pectineus muscle.el",
+"verts": 152,
+"c": [
+-0.096,
+0.002,
+0.753
+]
+},
+{
+"name": "Pectineus muscle.ol",
+"verts": 448,
+"c": [
+0.035,
+-0.043,
+0.852
+]
+},
+{
+"name": "Pectineus muscle.or",
+"verts": 448,
+"c": [
+-0.035,
+-0.043,
+0.852
+]
+},
+{
+"name": "Pectoral girdle.j",
+"verts": 8,
+"c": [
+0.093,
+-0.007,
+1.429
+]
+},
+{
+"name": "Pectoralis major muscle.el",
+"verts": 368,
+"c": [
+0.188,
+0.016,
+1.326
+]
+},
+{
+"name": "Pectoralis major muscle.er",
+"verts": 368,
+"c": [
+-0.188,
+0.016,
+1.326
+]
+},
+{
+"name": "Pectoralis major muscle.ol",
+"verts": 810,
+"c": [
+0.059,
+-0.03,
+1.402
+]
+},
+{
+"name": "Pectoralis major muscle.or",
+"verts": 810,
+"c": [
+-0.059,
+-0.03,
+1.402
+]
+},
+{
+"name": "Pectoralis minor muscle.e1l",
+"verts": 1284,
+"c": [
+0.106,
+-0.053,
+1.304
+]
+},
+{
+"name": "Pectoralis minor muscle.e1r",
+"verts": 1284,
+"c": [
+-0.106,
+-0.053,
+1.304
+]
+},
+{
+"name": "Pectoralis minor muscle.e2l",
+"verts": 940,
+"c": [
+0.112,
+-0.065,
+1.271
+]
+},
+{
+"name": "Pectoralis minor muscle.e2r",
+"verts": 940,
+"c": [
+-0.112,
+-0.065,
+1.271
+]
+},
+{
+"name": "Pectoralis minor muscle.el",
+"verts": 756,
+"c": [
+0.091,
+-0.039,
+1.337
+]
+},
+{
+"name": "Pectoralis minor muscle.er",
+"verts": 756,
+"c": [
+-0.091,
+-0.039,
+1.337
+]
+},
+{
+"name": "Pectoralis minor muscle.ol",
+"verts": 2396,
+"c": [
+0.129,
+0.006,
+1.394
+]
+},
+{
+"name": "Pectoralis minor muscle.or",
+"verts": 2396,
+"c": [
+-0.129,
+0.006,
+1.394
+]
+},
+{
+"name": "Pedicle of vertebral arch.j",
+"verts": 8,
+"c": [
+0.031,
+0.017,
+1.053
+]
+},
+{
+"name": "Pelvic girdle.j",
+"verts": 8,
+"c": [
+0.13,
+0.019,
+0.926
+]
+},
+{
+"name": "Pelvic inlet.j",
+"verts": 760,
+"c": [
+0.0,
+0.0,
+0.898
+]
+},
+{
+"name": "Pelvic outlet.j",
+"verts": 256,
+"c": [
+0.0,
+0.004,
+0.805
+]
+},
+{
+"name": "Pelvic surface of sacrum.j",
+"verts": 8,
+"c": [
+0.004,
+0.045,
+0.914
+]
+},
+{
+"name": "Petrous part of temporal bone.i",
+"verts": 8,
+"c": [
+0.033,
+0.009,
+1.596
+]
+},
+{
+"name": "Petrous part of temporal bone.j",
+"verts": 8,
+"c": [
+-0.033,
+0.009,
+1.596
+]
+},
+{
+"name": "Phalanges of foot.j",
+"verts": 8,
+"c": [
+-0.035,
+-0.111,
+0.018
+]
+},
+{
+"name": "Phalanges of hand.j",
+"verts": 8,
+"c": [
+-0.207,
+-0.06,
+0.75
+]
+},
+{
+"name": "Pharyngeal tubercle.j",
+"verts": 8,
+"c": [
+0.0,
+-0.004,
+1.565
+]
+},
+{
+"name": "Piriformis muscle.el",
+"verts": 198,
+"c": [
+-0.126,
+0.021,
+0.858
+]
+},
+{
+"name": "Piriformis muscle.ol",
+"verts": 966,
+"c": [
+-0.035,
+0.056,
+0.903
+]
+},
+{
+"name": "Piriformis muscle.or",
+"verts": 966,
+"c": [
+0.035,
+0.056,
+0.903
+]
+},
+{
+"name": "Pisiform bone.l",
+"verts": 836,
+"c": [
+0.244,
+-0.032,
+0.846
+]
+},
+{
+"name": "Pisiform bone.r",
+"verts": 836,
+"c": [
+-0.244,
+-0.032,
+0.846
+]
+},
+{
+"name": "Plantar interossei muscles.e1l",
+"verts": 166,
+"c": [
+-0.115,
+-0.074,
+0.02
+]
+},
+{
+"name": "Plantar interossei muscles.e2l",
+"verts": 152,
+"c": [
+-0.129,
+-0.063,
+0.017
+]
+},
+{
+"name": "Plantar interossei muscles.el",
+"verts": 144,
+"c": [
+-0.103,
+-0.082,
+0.019
+]
+},
+{
+"name": "Plantar interossei muscles.o1l",
+"verts": 256,
+"c": [
+-0.106,
+-0.035,
+0.034
+]
+},
+{
+"name": "Plantar interossei muscles.o2l",
+"verts": 350,
+"c": [
+-0.114,
+-0.028,
+0.026
+]
+},
+{
+"name": "Plantar interossei muscles.ol",
+"verts": 236,
+"c": [
+-0.097,
+-0.043,
+0.036
+]
+},
+{
+"name": "Plantaris muscle.ol",
+"verts": 334,
+"c": [
+0.094,
+0.032,
+0.491
+]
+},
+{
+"name": "Plantaris muscle.or",
+"verts": 334,
+"c": [
+-0.094,
+0.032,
+0.491
+]
+},
+{
+"name": "Popliteal surface of femur.i",
+"verts": 14,
+"c": [
+0.082,
+0.059,
+0.506
+]
+},
+{
+"name": "Popliteal surface of femur.j",
+"verts": 14,
+"c": [
+-0.082,
+0.059,
+0.506
+]
+},
+{
+"name": "Popliteus muscle.el",
+"verts": 456,
+"c": [
+0.074,
+0.042,
+0.378
+]
+},
+{
+"name": "Popliteus muscle.er",
+"verts": 456,
+"c": [
+-0.074,
+0.042,
+0.378
+]
+},
+{
+"name": "Popliteus muscle.ol",
+"verts": 244,
+"c": [
+0.111,
+0.047,
+0.459
+]
+},
+{
+"name": "Popliteus muscle.or",
+"verts": 244,
+"c": [
+-0.111,
+0.047,
+0.459
+]
+},
+{
+"name": "Posterior arch of atlas.j",
+"verts": 8,
+"c": [
+0.013,
+0.044,
+1.535
+]
+},
+{
+"name": "Posterior articular facet of dens axis.j",
+"verts": 8,
+"c": [
+-0.0,
+0.03,
+1.542
+]
+},
+{
+"name": "Posterior border of fibula.i",
+"verts": 8,
+"c": [
+0.1,
+0.074,
+0.152
+]
+},
+{
+"name": "Posterior border of fibula.j",
+"verts": 8,
+"c": [
+-0.1,
+0.074,
+0.152
+]
+},
+{
+"name": "Posterior border of radius.i",
+"verts": 8,
+"c": [
+0.269,
+0.02,
+0.893
+]
+},
+{
+"name": "Posterior border of radius.j",
+"verts": 8,
+"c": [
+-0.269,
+0.02,
+0.893
+]
+},
+{
+"name": "Posterior border of ulna.i",
+"verts": 8,
+"c": [
+0.239,
+0.016,
+0.9
+]
+},
+{
+"name": "Posterior border of ulna.j",
+"verts": 8,
+"c": [
+-0.239,
+0.016,
+0.9
+]
+},
+{
+"name": "Posterior calcaneal articular facet.i",
+"verts": 8,
+"c": [
+0.077,
+0.051,
+0.055
+]
+},
+{
+"name": "Posterior calcaneal articular facet.j",
+"verts": 8,
+"c": [
+-0.077,
+0.051,
+0.055
+]
+},
+{
+"name": "Posterior cells of ethmoid bone.l",
+"verts": 614,
+"c": [
+0.009,
+-0.044,
+1.588
+]
+},
+{
+"name": "Posterior cells of ethmoid bone.r",
+"verts": 614,
+"c": [
+-0.009,
+-0.044,
+1.588
+]
+},
+{
+"name": "Posterior clinoid process.j",
+"verts": 8,
+"c": [
+0.008,
+-0.001,
+1.607
+]
+},
+{
+"name": "Posterior gluteal line.i",
+"verts": 8,
+"c": [
+0.073,
+0.079,
+0.954
+]
+},
+{
+"name": "Posterior gluteal line.j",
+"verts": 8,
+"c": [
+-0.073,
+0.079,
+0.954
+]
+},
+{
+"name": "Posterior inferior iliac spine.i",
+"verts": 8,
+"c": [
+0.04,
+0.075,
+0.916
+]
+},
+{
+"name": "Posterior inferior iliac spine.j",
+"verts": 8,
+"c": [
+-0.04,
+0.075,
+0.916
+]
+},
+{
+"name": "Posterior intercondylar area.i",
+"verts": 8,
+"c": [
+0.072,
+0.048,
+0.441
+]
+},
+{
+"name": "Posterior intercondylar area.j",
+"verts": 8,
+"c": [
+-0.072,
+0.048,
+0.441
+]
+},
+{
+"name": "Posterior limb of stapes.i",
+"verts": 8,
+"c": [
+0.042,
+0.006,
+1.58
+]
+},
+{
+"name": "Posterior limb of stapes.j",
+"verts": 8,
+"c": [
+-0.042,
+0.006,
+1.58
+]
+},
+{
+"name": "Posterior malleolus.i",
+"verts": 8,
+"c": [
+0.077,
+0.071,
+0.089
+]
+},
+{
+"name": "Posterior malleolus.j",
+"verts": 8,
+"c": [
+-0.077,
+0.071,
+0.089
+]
+},
+{
+"name": "Posterior process of talus.i",
+"verts": 8,
+"c": [
+0.061,
+0.072,
+0.063
+]
+},
+{
+"name": "Posterior process of talus.j",
+"verts": 8,
+"c": [
+-0.061,
+0.072,
+0.063
+]
+},
+{
+"name": "Posterior sacral foramina.j",
+"verts": 8,
+"c": [
+-0.022,
+0.095,
+0.914
+]
+},
+{
+"name": "Posterior superior iliac spine.i",
+"verts": 8,
+"c": [
+0.03,
+0.097,
+0.949
+]
+},
+{
+"name": "Posterior superior iliac spine.j",
+"verts": 8,
+"c": [
+-0.03,
+0.097,
+0.949
+]
+},
+{
+"name": "Posterior surface of arytenoid cartilage.i",
+"verts": 8,
+"c": [
+0.005,
+-0.001,
+1.477
+]
+},
+{
+"name": "Posterior surface of arytenoid cartilage.j",
+"verts": 8,
+"c": [
+-0.005,
+-0.001,
+1.477
+]
+},
+{
+"name": "Posterior surface of fibula.i",
+"verts": 8,
+"c": [
+0.097,
+0.073,
+0.119
+]
+},
+{
+"name": "Posterior surface of fibula.j",
+"verts": 8,
+"c": [
+-0.097,
+0.073,
+0.119
+]
+},
+{
+"name": "Posterior surface of humerus.i",
+"verts": 8,
+"c": [
+0.21,
+0.073,
+1.191
+]
+},
+{
+"name": "Posterior surface of humerus.j",
+"verts": 8,
+"c": [
+-0.21,
+0.073,
+1.191
+]
+},
+{
+"name": "Posterior surface of petrous part.i",
+"verts": 8,
+"c": [
+0.033,
+0.024,
+1.584
+]
+},
+{
+"name": "Posterior surface of petrous part.j",
+"verts": 8,
+"c": [
+-0.033,
+0.024,
+1.584
+]
+},
+{
+"name": "Posterior surface of radius.i",
+"verts": 8,
+"c": [
+0.253,
+0.036,
+0.994
+]
+},
+{
+"name": "Posterior surface of radius.j",
+"verts": 8,
+"c": [
+-0.253,
+0.036,
+0.994
+]
+},
+{
+"name": "Posterior surface of scapula.i",
+"verts": 8,
+"c": [
+0.11,
+0.093,
+1.351
+]
+},
+{
+"name": "Posterior surface of scapula.j",
+"verts": 8,
+"c": [
+-0.11,
+0.093,
+1.351
+]
+},
+{
+"name": "Posterior surface of tibia.i",
+"verts": 8,
+"c": [
+0.078,
+0.059,
+0.19
+]
+},
+{
+"name": "Posterior surface of tibia.j",
+"verts": 8,
+"c": [
+-0.078,
+0.059,
+0.19
+]
+},
+{
+"name": "Posterior surface of ulna.i",
+"verts": 8,
+"c": [
+0.234,
+0.028,
+0.941
+]
+},
+{
+"name": "Posterior surface of ulna.j",
+"verts": 8,
+"c": [
+-0.234,
+0.028,
+0.941
+]
+},
+{
+"name": "Posterior tubercle of atlas.j",
+"verts": 8,
+"c": [
+0.0,
+0.058,
+1.537
+]
+},
+{
+"name": "Posterior tubercle of transverse process.j",
+"verts": 8,
+"c": [
+-0.026,
+0.007,
+1.502
+]
+},
+{
+"name": "Posteromedial surface of fibula.i",
+"verts": 8,
+"c": [
+0.074,
+0.075,
+0.145
+]
+},
+{
+"name": "Posteromedial surface of fibula.j",
+"verts": 8,
+"c": [
+-0.074,
+0.075,
+0.145
+]
+},
+{
+"name": "Procerus muscle.el",
+"verts": 136,
+"c": [
+-0.002,
+-0.087,
+1.6
+]
+},
+{
+"name": "Procerus muscle.ol",
+"verts": 146,
+"c": [
+-0.011,
+-0.086,
+1.624
+]
+},
+{
+"name": "Procerus muscle.or",
+"verts": 146,
+"c": [
+0.011,
+-0.086,
+1.624
+]
+},
+{
+"name": "Promontory.j",
+"verts": 8,
+"c": [
+-0.0,
+-0.002,
+0.946
+]
+},
+{
+"name": "Pronator quadratus.el",
+"verts": 320,
+"c": [
+-0.27,
+-0.013,
+0.895
+]
+},
+{
+"name": "Pronator quadratus.ol",
+"verts": 132,
+"c": [
+-0.239,
+-0.009,
+0.902
+]
+},
+{
+"name": "Pronator teres.el",
+"verts": 154,
+"c": [
+0.262,
+0.016,
+0.993
+]
+},
+{
+"name": "Pronator teres.er",
+"verts": 154,
+"c": [
+-0.262,
+0.016,
+0.993
+]
+},
+{
+"name": "Pronator teres.ol",
+"verts": 162,
+"c": [
+0.198,
+0.033,
+1.119
+]
+},
+{
+"name": "Pronator teres.or",
+"verts": 162,
+"c": [
+-0.198,
+0.033,
+1.119
+]
+},
+{
+"name": "Pronator tuberosity.i",
+"verts": 8,
+"c": [
+0.278,
+0.018,
+0.99
+]
+},
+{
+"name": "Pronator tuberosity.j",
+"verts": 8,
+"c": [
+-0.278,
+0.018,
+0.99
+]
+},
+{
+"name": "Proximal phalanx of fifth finger of foot.l",
+"verts": 260,
+"c": [
+0.135,
+-0.068,
+0.015
+]
+},
+{
+"name": "Proximal phalanx of fifth finger of foot.r",
+"verts": 260,
+"c": [
+-0.135,
+-0.068,
+0.015
+]
+},
+{
+"name": "Proximal phalanx of fifth finger of hand.l",
+"verts": 282,
+"c": [
+0.237,
+-0.049,
+0.767
+]
+},
+{
+"name": "Proximal phalanx of fifth finger of hand.r",
+"verts": 282,
+"c": [
+-0.237,
+-0.049,
+0.767
+]
+},
+{
+"name": "Proximal phalanx of first finger of foot.l",
+"verts": 268,
+"c": [
+0.074,
+-0.097,
+0.02
+]
+},
+{
+"name": "Proximal phalanx of first finger of foot.r",
+"verts": 268,
+"c": [
+-0.074,
+-0.097,
+0.02
+]
+},
+{
+"name": "Proximal phalanx of first finger of hand.l",
+"verts": 166,
+"c": [
+0.319,
+-0.054,
+0.8
+]
+},
+{
+"name": "Proximal phalanx of first finger of hand.r",
+"verts": 166,
+"c": [
+-0.319,
+-0.054,
+0.8
+]
+},
+{
+"name": "Proximal phalanx of fourth finger of foot.l",
+"verts": 232,
+"c": [
+0.123,
+-0.081,
+0.017
+]
+},
+{
+"name": "Proximal phalanx of fourth finger of foot.r",
+"verts": 232,
+"c": [
+-0.123,
+-0.081,
+0.017
+]
+},
+{
+"name": "Proximal phalanx of fourth finger of hand.l",
+"verts": 186,
+"c": [
+0.255,
+-0.049,
+0.757
+]
+},
+{
+"name": "Proximal phalanx of fourth finger of hand.r",
+"verts": 186,
+"c": [
+-0.255,
+-0.049,
+0.757
+]
+},
+{
+"name": "Proximal phalanx of second finger of foot.l",
+"verts": 215,
+"c": [
+0.096,
+-0.097,
+0.02
+]
+},
+{
+"name": "Proximal phalanx of second finger of foot.r",
+"verts": 215,
+"c": [
+-0.096,
+-0.097,
+0.02
+]
+},
+{
+"name": "Proximal phalanx of second finger of hand.l",
+"verts": 209,
+"c": [
+0.301,
+-0.045,
+0.752
+]
+},
+{
+"name": "Proximal phalanx of second finger of hand.r",
+"verts": 209,
+"c": [
+-0.301,
+-0.045,
+0.752
+]
+},
+{
+"name": "Proximal phalanx of third finger of foot.l",
+"verts": 232,
+"c": [
+0.111,
+-0.091,
+0.018
+]
+},
+{
+"name": "Proximal phalanx of third finger of foot.r",
+"verts": 232,
+"c": [
+-0.111,
+-0.091,
+0.018
+]
+},
+{
+"name": "Proximal phalanx of third finger of hand.l",
+"verts": 222,
+"c": [
+0.277,
+-0.05,
+0.752
+]
+},
+{
+"name": "Proximal phalanx of third finger of hand.r",
+"verts": 222,
+"c": [
+-0.277,
+-0.05,
+0.752
+]
+},
+{
+"name": "Pterygoid canal.j",
+"verts": 8,
+"c": [
+0.014,
+-0.005,
+1.578
+]
+},
+{
+"name": "Pterygoid fossa.j",
+"verts": 8,
+"c": [
+-0.016,
+-0.028,
+1.562
+]
+},
+{
+"name": "Pterygoid hamulus.j",
+"verts": 8,
+"c": [
+-0.021,
+-0.015,
+1.551
+]
+},
+{
+"name": "Pterygoid notch.j",
+"verts": 8,
+"c": [
+0.018,
+-0.045,
+1.557
+]
+},
+{
+"name": "Pterygoid process .j",
+"verts": 8,
+"c": [
+-0.013,
+-0.055,
+1.57
+]
+},
+{
+"name": "Pterygospinous process.j",
+"verts": 8,
+"c": [
+0.033,
+-0.015,
+1.562
+]
+},
+{
+"name": "Pubic crest.i",
+"verts": 8,
+"c": [
+0.024,
+-0.049,
+0.854
+]
+},
+{
+"name": "Pubic crest.j",
+"verts": 8,
+"c": [
+-0.024,
+-0.049,
+0.854
+]
+},
+{
+"name": "Pubic tubercle.i",
+"verts": 8,
+"c": [
+0.041,
+-0.052,
+0.847
+]
+},
+{
+"name": "Pubic tubercle.j",
+"verts": 8,
+"c": [
+-0.041,
+-0.052,
+0.847
+]
+},
+{
+"name": "Pubis.i",
+"verts": 8,
+"c": [
+-0.004,
+-0.05,
+0.841
+]
+},
+{
+"name": "Pubis.j",
+"verts": 8,
+"c": [
+0.004,
+-0.05,
+0.841
+]
+},
+{
+"name": "Quadrate tubercle.i",
+"verts": 8,
+"c": [
+0.117,
+0.054,
+0.82
+]
+},
+{
+"name": "Quadrate tubercle.j",
+"verts": 8,
+"c": [
+-0.117,
+0.054,
+0.82
+]
+},
+{
+"name": "Quadratus femoris muscle.el",
+"verts": 336,
+"c": [
+0.112,
+0.035,
+0.817
+]
+},
+{
+"name": "Quadratus femoris muscle.er",
+"verts": 336,
+"c": [
+-0.112,
+0.035,
+0.817
+]
+},
+{
+"name": "Quadratus femoris muscle.ol",
+"verts": 256,
+"c": [
+0.063,
+0.033,
+0.817
+]
+},
+{
+"name": "Quadratus femoris muscle.or",
+"verts": 256,
+"c": [
+-0.063,
+0.033,
+0.817
+]
+},
+{
+"name": "Quadriceps femoris muscle.el",
+"verts": 370,
+"c": [
+0.085,
+-0.012,
+0.459
+]
+},
+{
+"name": "Quadriceps femoris muscle.er",
+"verts": 370,
+"c": [
+-0.085,
+-0.012,
+0.459
+]
+},
+{
+"name": "Radial fossa.i",
+"verts": 8,
+"c": [
+0.23,
+0.014,
+1.125
+]
+},
+{
+"name": "Radial fossa.j",
+"verts": 8,
+"c": [
+-0.23,
+0.014,
+1.125
+]
+},
+{
+"name": "Radial groove.i",
+"verts": 8,
+"c": [
+0.223,
+0.04,
+1.256
+]
+},
+{
+"name": "Radial groove.j",
+"verts": 8,
+"c": [
+-0.223,
+0.04,
+1.256
+]
+},
+{
+"name": "Radial notch.i",
+"verts": 8,
+"c": [
+0.236,
+0.037,
+1.09
+]
+},
+{
+"name": "Radial notch.j",
+"verts": 8,
+"c": [
+-0.236,
+0.037,
+1.09
+]
+},
+{
+"name": "Radial styloid process.i",
+"verts": 8,
+"c": [
+0.286,
+-0.017,
+0.845
+]
+},
+{
+"name": "Radial styloid process.j",
+"verts": 8,
+"c": [
+-0.286,
+-0.017,
+0.845
+]
+},
+{
+"name": "Radial tuberosity.i",
+"verts": 8,
+"c": [
+0.243,
+0.0,
+1.062
+]
+},
+{
+"name": "Radial tuberosity.j",
+"verts": 8,
+"c": [
+-0.243,
+0.0,
+1.062
+]
+},
+{
+"name": "Radius.i",
+"verts": 8,
+"c": [
+0.277,
+0.015,
+0.972
+]
+},
+{
+"name": "Radius.j",
+"verts": 8,
+"c": [
+-0.277,
+0.015,
+0.972
+]
+},
+{
+"name": "Radius.l",
+"verts": 394,
+"c": [
+0.258,
+0.008,
+0.975
+]
+},
+{
+"name": "Radius.r",
+"verts": 394,
+"c": [
+-0.258,
+0.008,
+0.975
+]
+},
+{
+"name": "Ramus of ischium.i",
+"verts": 8,
+"c": [
+0.056,
+0.022,
+0.81
+]
+},
+{
+"name": "Ramus of ischium.j",
+"verts": 8,
+"c": [
+-0.056,
+0.022,
+0.81
+]
+},
+{
+"name": "Rectus abdominis muscle.el",
+"verts": 482,
+"c": [
+0.005,
+-0.078,
+1.04
+]
+},
+{
+"name": "Rectus abdominis muscle.er",
+"verts": 482,
+"c": [
+-0.005,
+-0.078,
+1.04
+]
+},
+{
+"name": "Rectus abdominis muscle.ol",
+"verts": 2288,
+"c": [
+0.044,
+-0.108,
+1.235
+]
+},
+{
+"name": "Rectus abdominis muscle.or",
+"verts": 2288,
+"c": [
+-0.044,
+-0.108,
+1.235
+]
+},
+{
+"name": "Rectus anterior capitis muscle.el",
+"verts": 180,
+"c": [
+-0.02,
+0.004,
+1.548
+]
+},
+{
+"name": "Rectus anterior capitis muscle.er",
+"verts": 180,
+"c": [
+0.02,
+0.004,
+1.548
+]
+},
+{
+"name": "Rectus anterior capitis muscle.ol",
+"verts": 68,
+"c": [
+-0.006,
+0.002,
+1.563
+]
+},
+{
+"name": "Rectus anterior capitis muscle.or",
+"verts": 68,
+"c": [
+0.006,
+0.002,
+1.563
+]
+},
+{
+"name": "Rectus femoris muscle.ol",
+"verts": 288,
+"c": [
+0.104,
+-0.008,
+0.903
+]
+},
+{
+"name": "Rectus femoris muscle.or",
+"verts": 288,
+"c": [
+-0.104,
+-0.008,
+0.903
+]
+},
+{
+"name": "Rectus lateralis capitis muscle.ol",
+"verts": 260,
+"c": [
+-0.037,
+0.02,
+1.559
+]
+},
+{
+"name": "Rectus lateralis capitis muscle.or",
+"verts": 260,
+"c": [
+0.037,
+0.02,
+1.559
+]
+},
+{
+"name": "Rectus posterior major capitis muscle.el",
+"verts": 162,
+"c": [
+-0.002,
+0.048,
+1.517
+]
+},
+{
+"name": "Rectus posterior major capitis muscle.er",
+"verts": 162,
+"c": [
+0.002,
+0.048,
+1.517
+]
+},
+{
+"name": "Rectus posterior major capitis muscle.ol",
+"verts": 148,
+"c": [
+-0.031,
+0.049,
+1.559
+]
+},
+{
+"name": "Rectus posterior major capitis muscle.or",
+"verts": 148,
+"c": [
+0.031,
+0.049,
+1.559
+]
+},
+{
+"name": "Rectus posterior minor capitis muscle.el",
+"verts": 244,
+"c": [
+-0.002,
+0.045,
+1.54
+]
+},
+{
+"name": "Rectus posterior minor capitis muscle.er",
+"verts": 244,
+"c": [
+0.002,
+0.045,
+1.54
+]
+},
+{
+"name": "Rectus posterior minor capitis muscle.ol",
+"verts": 148,
+"c": [
+-0.014,
+0.063,
+1.56
+]
+},
+{
+"name": "Rectus posterior minor capitis muscle.or",
+"verts": 148,
+"c": [
+0.014,
+0.063,
+1.56
+]
+},
+{
+"name": "Rhomboid major muscle.el",
+"verts": 7950,
+"c": [
+0.074,
+0.106,
+1.309
+]
+},
+{
+"name": "Rhomboid major muscle.er",
+"verts": 7950,
+"c": [
+-0.074,
+0.106,
+1.309
+]
+},
+{
+"name": "Rhomboid minor muscle.el",
+"verts": 2350,
+"c": [
+0.063,
+0.098,
+1.373
+]
+},
+{
+"name": "Rhomboid minor muscle.er",
+"verts": 2350,
+"c": [
+-0.063,
+0.098,
+1.373
+]
+},
+{
+"name": "Rib.i",
+"verts": 8,
+"c": [
+0.117,
+0.013,
+1.269
+]
+},
+{
+"name": "Rib.j",
+"verts": 8,
+"c": [
+-0.117,
+0.013,
+1.269
+]
+},
+{
+"name": "Ribs.j",
+"verts": 8,
+"c": [
+-0.151,
+-0.018,
+1.247
+]
+},
+{
+"name": "Root apex.i",
+"verts": 8,
+"c": [
+0.028,
+-0.05,
+1.513
+]
+},
+{
+"name": "Root apex.j",
+"verts": 8,
+"c": [
+-0.028,
+-0.05,
+1.513
+]
+},
+{
+"name": "Root of tooth.i",
+"verts": 8,
+"c": [
+0.024,
+-0.049,
+1.519
+]
+},
+{
+"name": "Root of tooth.j",
+"verts": 8,
+"c": [
+-0.024,
+-0.049,
+1.519
+]
+},
+{
+"name": "Sacral canal.j",
+"verts": 8,
+"c": [
+-0.001,
+0.072,
+0.924
+]
+},
+{
+"name": "Sacral hiatus.j",
+"verts": 8,
+"c": [
+-0.0,
+0.044,
+0.967
+]
+},
+{
+"name": "Sacral horn.j",
+"verts": 8,
+"c": [
+0.011,
+0.095,
+0.871
+]
+},
+{
+"name": "Sacral tuberosity.j",
+"verts": 8,
+"c": [
+0.047,
+0.043,
+0.977
+]
+},
+{
+"name": "Sacropelvic surface of ilium.i",
+"verts": 8,
+"c": [
+0.03,
+0.052,
+0.957
+]
+},
+{
+"name": "Sacropelvic surface of ilium.j",
+"verts": 8,
+"c": [
+-0.03,
+0.052,
+0.957
+]
+},
+{
+"name": "Sacrum",
+"verts": 5832,
+"c": [
+-0.0,
+0.049,
+0.923
+]
+},
+{
+"name": "Sacrum.j",
+"verts": 8,
+"c": [
+0.0,
+0.039,
+0.918
+]
+},
+{
+"name": "Sagittal border of parietal bone.j",
+"verts": 8,
+"c": [
+0.001,
+0.036,
+1.708
+]
+},
+{
+"name": "Sartorius muscle.el",
+"verts": 90,
+"c": [
+0.066,
+0.009,
+0.373
+]
+},
+{
+"name": "Sartorius muscle.er",
+"verts": 90,
+"c": [
+-0.066,
+0.009,
+0.373
+]
+},
+{
+"name": "Sartorius muscle.ol",
+"verts": 656,
+"c": [
+0.12,
+-0.048,
+0.937
+]
+},
+{
+"name": "Sartorius muscle.or",
+"verts": 656,
+"c": [
+-0.12,
+-0.048,
+0.937
+]
+},
+{
+"name": "Scalenus anterior muscle.e1l",
+"verts": 150,
+"c": [
+-0.023,
+0.009,
+1.476
+]
+},
+{
+"name": "Scalenus anterior muscle.e1r",
+"verts": 150,
+"c": [
+0.023,
+0.009,
+1.476
+]
+},
+{
+"name": "Scalenus anterior muscle.e2l",
+"verts": 94,
+"c": [
+-0.025,
+0.01,
+1.46
+]
+},
+{
+"name": "Scalenus anterior muscle.e2r",
+"verts": 94,
+"c": [
+0.025,
+0.01,
+1.46
+]
+},
+{
+"name": "Scalenus anterior muscle.el",
+"verts": 198,
+"c": [
+-0.023,
+0.008,
+1.491
+]
+},
+{
+"name": "Scalenus anterior muscle.er",
+"verts": 198,
+"c": [
+0.023,
+0.008,
+1.491
+]
+},
+{
+"name": "Scalenus anterior muscle.ol",
+"verts": 526,
+"c": [
+0.052,
+-0.004,
+1.415
+]
+},
+{
+"name": "Scalenus anterior muscle.or",
+"verts": 526,
+"c": [
+-0.052,
+-0.004,
+1.415
+]
+},
+{
+"name": "Scalenus medius muscle.e1l",
+"verts": 212,
+"c": [
+-0.034,
+0.025,
+1.453
+]
+},
+{
+"name": "Scalenus medius muscle.e1r",
+"verts": 212,
+"c": [
+0.034,
+0.025,
+1.453
+]
+},
+{
+"name": "Scalenus medius muscle.el",
+"verts": 288,
+"c": [
+-0.029,
+0.018,
+1.462
+]
+},
+{
+"name": "Scalenus medius muscle.er",
+"verts": 288,
+"c": [
+0.029,
+0.018,
+1.462
+]
+},
+{
+"name": "Scalenus medius muscle.ol",
+"verts": 694,
+"c": [
+0.051,
+0.007,
+1.425
+]
+},
+{
+"name": "Scalenus medius muscle.or",
+"verts": 694,
+"c": [
+-0.051,
+0.007,
+1.425
+]
+},
+{
+"name": "Scalenus posterior muscle.el",
+"verts": 302,
+"c": [
+-0.029,
+0.015,
+1.475
+]
+},
+{
+"name": "Scalenus posterior muscle.er",
+"verts": 302,
+"c": [
+0.029,
+0.015,
+1.475
+]
+},
+{
+"name": "Scaphoid bone.l",
+"verts": 197,
+"c": [
+0.27,
+-0.018,
+0.855
+]
+},
+{
+"name": "Scaphoid bone.r",
+"verts": 197,
+"c": [
+-0.27,
+-0.018,
+0.855
+]
+},
+{
+"name": "Scaphoid fossa.j",
+"verts": 8,
+"c": [
+0.02,
+-0.015,
+1.571
+]
+},
+{
+"name": "Scapula.i",
+"verts": 8,
+"c": [
+0.14,
+0.068,
+1.318
+]
+},
+{
+"name": "Scapula.j",
+"verts": 8,
+"c": [
+-0.14,
+0.068,
+1.318
+]
+},
+{
+"name": "Scapula.l",
+"verts": 12690,
+"c": [
+0.117,
+0.056,
+1.336
+]
+},
+{
+"name": "Scapula.r",
+"verts": 12690,
+"c": [
+-0.117,
+0.056,
+1.336
+]
+},
+{
+"name": "Scapular notch.i",
+"verts": 8,
+"c": [
+0.115,
+0.051,
+1.398
+]
+},
+{
+"name": "Scapular notch.j",
+"verts": 8,
+"c": [
+-0.115,
+0.051,
+1.398
+]
+},
+{
+"name": "Scapular spinal part of deltoid muscle.ol",
+"verts": 5866,
+"c": [
+0.134,
+0.079,
+1.39
+]
+},
+{
+"name": "Scapular spinal part of deltoid muscle.or",
+"verts": 5866,
+"c": [
+-0.134,
+0.079,
+1.39
+]
+},
+{
+"name": "Second metacarpal bone.l",
+"verts": 384,
+"c": [
+0.286,
+-0.029,
+0.802
+]
+},
+{
+"name": "Second metacarpal bone.r",
+"verts": 384,
+"c": [
+-0.286,
+-0.029,
+0.802
+]
+},
+{
+"name": "Second metatarsal bone.l",
+"verts": 347,
+"c": [
+0.089,
+-0.05,
+0.038
+]
+},
+{
+"name": "Second metatarsal bone.r",
+"verts": 347,
+"c": [
+-0.089,
+-0.05,
+0.038
+]
+},
+{
+"name": "Second rib.l",
+"verts": 2684,
+"c": [
+0.058,
+-0.011,
+1.391
+]
+},
+{
+"name": "Second rib.r",
+"verts": 2684,
+"c": [
+-0.058,
+-0.011,
+1.391
+]
+},
+{
+"name": "Sella turcica.j",
+"verts": 8,
+"c": [
+0.0,
+-0.015,
+1.601
+]
+},
+{
+"name": "Semimembranosus muscle.el",
+"verts": 342,
+"c": [
+0.049,
+0.046,
+0.409
+]
+},
+{
+"name": "Semimembranosus muscle.er",
+"verts": 342,
+"c": [
+-0.049,
+0.046,
+0.409
+]
+},
+{
+"name": "Semimembranosus muscle.ol",
+"verts": 274,
+"c": [
+0.044,
+0.035,
+0.799
+]
+},
+{
+"name": "Semimembranosus muscle.or",
+"verts": 274,
+"c": [
+-0.044,
+0.035,
+0.799
+]
+},
+{
+"name": "Semitendinosus muscle.el",
+"verts": 234,
+"c": [
+0.054,
+0.034,
+0.377
+]
+},
+{
+"name": "Semitendinosus muscle.er",
+"verts": 234,
+"c": [
+-0.054,
+0.034,
+0.377
+]
+},
+{
+"name": "Semitendinosus muscle.ol",
+"verts": 400,
+"c": [
+0.05,
+0.047,
+0.805
+]
+},
+{
+"name": "Semitendinosus muscle.or",
+"verts": 400,
+"c": [
+-0.05,
+0.047,
+0.805
+]
+},
+{
+"name": "Septum of frontal sinuses.j",
+"verts": 8,
+"c": [
+0.002,
+-0.077,
+1.634
+]
+},
+{
+"name": "Septum of sphenoidal sinuses.j",
+"verts": 8,
+"c": [
+0.0,
+-0.027,
+1.582
+]
+},
+{
+"name": "Serratus anterior muscle.e1l",
+"verts": 1004,
+"c": [
+-0.098,
+0.004,
+1.392
+]
+},
+{
+"name": "Serratus anterior muscle.e2l",
+"verts": 1310,
+"c": [
+-0.11,
+0.001,
+1.359
+]
+},
+{
+"name": "Serratus anterior muscle.e2r",
+"verts": 1310,
+"c": [
+0.11,
+0.001,
+1.359
+]
+},
+{
+"name": "Serratus anterior muscle.e3l",
+"verts": 2080,
+"c": [
+0.121,
+-0.009,
+1.326
+]
+},
+{
+"name": "Serratus anterior muscle.e3r",
+"verts": 2080,
+"c": [
+-0.121,
+-0.009,
+1.326
+]
+},
+{
+"name": "Serratus anterior muscle.e4l",
+"verts": 868,
+"c": [
+0.125,
+-0.035,
+1.283
+]
+},
+{
+"name": "Serratus anterior muscle.e4r",
+"verts": 868,
+"c": [
+-0.125,
+-0.035,
+1.283
+]
+},
+{
+"name": "Serratus anterior muscle.e5l",
+"verts": 1004,
+"c": [
+0.134,
+-0.027,
+1.251
+]
+},
+{
+"name": "Serratus anterior muscle.e5r",
+"verts": 1004,
+"c": [
+-0.134,
+-0.027,
+1.251
+]
+},
+{
+"name": "Serratus anterior muscle.e6l",
+"verts": 1406,
+"c": [
+0.139,
+-0.015,
+1.221
+]
+},
+{
+"name": "Serratus anterior muscle.e6r",
+"verts": 1406,
+"c": [
+-0.139,
+-0.015,
+1.221
+]
+},
+{
+"name": "Serratus anterior muscle.e7l",
+"verts": 924,
+"c": [
+0.133,
+-0.002,
+1.184
+]
+},
+{
+"name": "Serratus anterior muscle.e7r",
+"verts": 924,
+"c": [
+-0.133,
+-0.002,
+1.184
+]
+},
+{
+"name": "Serratus anterior muscle.e8l",
+"verts": 670,
+"c": [
+-0.127,
+0.028,
+1.166
+]
+},
+{
+"name": "Serratus anterior muscle.el",
+"verts": 902,
+"c": [
+0.068,
+-0.003,
+1.413
+]
+},
+{
+"name": "Serratus anterior muscle.er",
+"verts": 902,
+"c": [
+-0.068,
+-0.003,
+1.413
+]
+},
+{
+"name": "Serratus anterior muscle.ol",
+"verts": 2518,
+"c": [
+0.08,
+0.096,
+1.327
+]
+},
+{
+"name": "Serratus anterior muscle.or",
+"verts": 2518,
+"c": [
+-0.08,
+0.096,
+1.327
+]
+},
+{
+"name": "Serratus posterior inferior muscle.e1l",
+"verts": 724,
+"c": [
+-0.096,
+0.068,
+1.152
+]
+},
+{
+"name": "Serratus posterior inferior muscle.e2l",
+"verts": 354,
+"c": [
+-0.087,
+0.063,
+1.121
+]
+},
+{
+"name": "Serratus posterior inferior muscle.e3l",
+"verts": 450,
+"c": [
+-0.072,
+0.062,
+1.091
+]
+},
+{
+"name": "Serratus posterior inferior muscle.el",
+"verts": 702,
+"c": [
+-0.103,
+0.074,
+1.19
+]
+},
+{
+"name": "Serratus posterior superior muscle.e1l",
+"verts": 1012,
+"c": [
+-0.084,
+0.052,
+1.401
+]
+},
+{
+"name": "Serratus posterior superior muscle.e2l",
+"verts": 2510,
+"c": [
+-0.092,
+0.064,
+1.368
+]
+},
+{
+"name": "Serratus posterior superior muscle.e3l",
+"verts": 1952,
+"c": [
+-0.092,
+0.078,
+1.346
+]
+},
+{
+"name": "Serratus posterior superior muscle.el",
+"verts": 1064,
+"c": [
+-0.071,
+0.034,
+1.422
+]
+},
+{
+"name": "Sesamoid bones of foot.l",
+"verts": 149,
+"c": [
+0.072,
+-0.07,
+0.015
+]
+},
+{
+"name": "Sesamoid bones of foot.r",
+"verts": 149,
+"c": [
+-0.072,
+-0.07,
+0.015
+]
+},
+{
+"name": "Seventh rib.l",
+"verts": 4890,
+"c": [
+0.079,
+0.006,
+1.244
+]
+},
+{
+"name": "Seventh rib.r",
+"verts": 4890,
+"c": [
+-0.079,
+0.006,
+1.244
+]
+},
+{
+"name": "Short head of biceps brachii.ol",
+"verts": 1384,
+"c": [
+-0.14,
+0.005,
+1.394
+]
+},
+{
+"name": "Short head of biceps femoris.el",
+"verts": 576,
+"c": [
+-0.097,
+0.023,
+0.588
+]
+},
+{
+"name": "Sinus of frontal bone",
+"verts": 770,
+"c": [
+0.0,
+-0.08,
+1.617
+]
+},
+{
+"name": "Sinus of sphenoid bone",
+"verts": 210,
+"c": [
+0.0,
+-0.031,
+1.594
+]
+},
+{
+"name": "Sixth rib.l",
+"verts": 5078,
+"c": [
+0.077,
+-0.001,
+1.275
+]
+},
+{
+"name": "Sixth rib.r",
+"verts": 5078,
+"c": [
+-0.077,
+-0.001,
+1.275
+]
+},
+{
+"name": "Skeleton of free lower limb.j",
+"verts": 8,
+"c": [
+0.168,
+0.018,
+0.49
+]
+},
+{
+"name": "Skeleton of free upper limb.j",
+"verts": 8,
+"c": [
+0.279,
+0.049,
+1.148
+]
+},
+{
+"name": "Skeleton of lower limbs.j",
+"verts": 8,
+"c": [
+0.179,
+0.011,
+0.53
+]
+},
+{
+"name": "Skeleton of upper limbs.j",
+"verts": 8,
+"c": [
+0.275,
+0.049,
+1.17
+]
+},
+{
+"name": "Soleal line.i",
+"verts": 8,
+"c": [
+0.075,
+0.05,
+0.363
+]
+},
+{
+"name": "Soleal line.j",
+"verts": 8,
+"c": [
+-0.075,
+0.05,
+0.363
+]
+},
+{
+"name": "Soleus muscle.o1l",
+"verts": 402,
+"c": [
+0.081,
+0.031,
+0.315
+]
+},
+{
+"name": "Soleus muscle.o1r",
+"verts": 402,
+"c": [
+-0.081,
+0.031,
+0.315
+]
+},
+{
+"name": "Soleus muscle.ol",
+"verts": 406,
+"c": [
+0.105,
+0.048,
+0.383
+]
+},
+{
+"name": "Soleus muscle.or",
+"verts": 406,
+"c": [
+-0.105,
+0.048,
+0.383
+]
+},
+{
+"name": "Sphenoid bone",
+"verts": 3650,
+"c": [
+0.0,
+-0.029,
+1.585
+]
+},
+{
+"name": "Sphenoidal angle of parietal bone.j",
+"verts": 8,
+"c": [
+-0.056,
+-0.052,
+1.617
+]
+},
+{
+"name": "Sphenoidal crest.j",
+"verts": 8,
+"c": [
+-0.0,
+-0.053,
+1.598
+]
+},
+{
+"name": "Sphenoidal lingula.j",
+"verts": 8,
+"c": [
+-0.014,
+0.002,
+1.583
+]
+},
+{
+"name": "Sphenoidal margin of frontal bone.j",
+"verts": 8,
+"c": [
+0.023,
+-0.039,
+1.613
+]
+},
+{
+"name": "Sphenoidal yoke.j",
+"verts": 8,
+"c": [
+-0.0,
+-0.032,
+1.62
+]
+},
+{
+"name": "Spinalis capitis muscle.el",
+"verts": 228,
+"c": [
+0.023,
+0.068,
+1.569
+]
+},
+{
+"name": "Spinalis capitis muscle.er",
+"verts": 228,
+"c": [
+-0.023,
+0.068,
+1.569
+]
+},
+{
+"name": "Spine of scapula.i",
+"verts": 8,
+"c": [
+0.113,
+0.102,
+1.395
+]
+},
+{
+"name": "Spine of scapula.j",
+"verts": 8,
+"c": [
+-0.113,
+0.102,
+1.395
+]
+},
+{
+"name": "Spine of sphenoid bone.j",
+"verts": 8,
+"c": [
+0.031,
+-0.002,
+1.564
+]
+},
+{
+"name": "Spinoglenoid notch.i",
+"verts": 8,
+"c": [
+0.15,
+0.053,
+1.386
+]
+},
+{
+"name": "Spinoglenoid notch.j",
+"verts": 8,
+"c": [
+-0.15,
+0.053,
+1.386
+]
+},
+{
+"name": "Spinous process.j",
+"verts": 8,
+"c": [
+-0.0,
+0.076,
+1.022
+]
+},
+{
+"name": "Splenius colli muscle.e1l",
+"verts": 282,
+"c": [
+0.038,
+0.015,
+1.538
+]
+},
+{
+"name": "Splenius colli muscle.e1r",
+"verts": 282,
+"c": [
+-0.038,
+0.015,
+1.538
+]
+},
+{
+"name": "Splenius colli muscle.el",
+"verts": 128,
+"c": [
+0.027,
+0.014,
+1.519
+]
+},
+{
+"name": "Splenius colli muscle.er",
+"verts": 128,
+"c": [
+-0.027,
+0.014,
+1.519
+]
+},
+{
+"name": "Squamosal border of parietal bone.j",
+"verts": 8,
+"c": [
+-0.067,
+0.011,
+1.601
+]
+},
+{
+"name": "Squamosal margin of greater wing.j",
+"verts": 8,
+"c": [
+0.058,
+-0.031,
+1.588
+]
+},
+{
+"name": "Squamous part of frontal bone.j",
+"verts": 8,
+"c": [
+-0.017,
+-0.089,
+1.671
+]
+},
+{
+"name": "Squamous part of occipital bone.j",
+"verts": 8,
+"c": [
+0.024,
+0.107,
+1.607
+]
+},
+{
+"name": "Squamous part of temporal bone.i",
+"verts": 8,
+"c": [
+0.081,
+0.005,
+1.6
+]
+},
+{
+"name": "Squamous part of temporal bone.j",
+"verts": 8,
+"c": [
+-0.081,
+0.005,
+1.6
+]
+},
+{
+"name": "Stapes.i",
+"verts": 8,
+"c": [
+0.045,
+0.005,
+1.581
+]
+},
+{
+"name": "Stapes.j",
+"verts": 8,
+"c": [
+-0.045,
+0.005,
+1.581
+]
+},
+{
+"name": "Stapes.l",
+"verts": 2171,
+"c": [
+0.043,
+0.004,
+1.581
+]
+},
+{
+"name": "Stapes.r",
+"verts": 2171,
+"c": [
+-0.043,
+0.004,
+1.581
+]
+},
+{
+"name": "Sternal angle.j",
+"verts": 8,
+"c": [
+0.0,
+-0.089,
+1.361
+]
+},
+{
+"name": "Sternal articular surface.i",
+"verts": 8,
+"c": [
+-0.0,
+-0.04,
+1.401
+]
+},
+{
+"name": "Sternal articular surface.j",
+"verts": 8,
+"c": [
+0.0,
+-0.04,
+1.401
+]
+},
+{
+"name": "Sternal end.i",
+"verts": 8,
+"c": [
+0.029,
+-0.042,
+1.42
+]
+},
+{
+"name": "Sternal end.j",
+"verts": 8,
+"c": [
+-0.029,
+-0.042,
+1.42
+]
+},
+{
+"name": "Sternocleidomastoid muscle.el",
+"verts": 1458,
+"c": [
+0.056,
+0.031,
+1.568
+]
+},
+{
+"name": "Sternocleidomastoid muscle.er",
+"verts": 1458,
+"c": [
+-0.056,
+0.031,
+1.568
+]
+},
+{
+"name": "Sternocleidomastoid muscle.o1l",
+"verts": 258,
+"c": [
+0.041,
+-0.037,
+1.415
+]
+},
+{
+"name": "Sternocleidomastoid muscle.o1r",
+"verts": 258,
+"c": [
+-0.041,
+-0.037,
+1.415
+]
+},
+{
+"name": "Sternocleidomastoid muscle.ol",
+"verts": 570,
+"c": [
+0.011,
+-0.056,
+1.391
+]
+},
+{
+"name": "Sternocleidomastoid muscle.or",
+"verts": 570,
+"c": [
+-0.011,
+-0.056,
+1.391
+]
+},
+{
+"name": "Sternocostal head of pectoralis major muscle.e1l",
+"verts": 2392,
+"c": [
+0.014,
+-0.097,
+1.303
+]
+},
+{
+"name": "Sternocostal head of pectoralis major muscle.e1r",
+"verts": 2392,
+"c": [
+-0.014,
+-0.097,
+1.303
+]
+},
+{
+"name": "Sternocostal head of pectoralis major muscle.e2l",
+"verts": 1166,
+"c": [
+0.019,
+-0.064,
+1.373
+]
+},
+{
+"name": "Sternocostal head of pectoralis major muscle.e2r",
+"verts": 1166,
+"c": [
+-0.019,
+-0.064,
+1.373
+]
+},
+{
+"name": "Sternocostal head of pectoralis major muscle.el",
+"verts": 3022,
+"c": [
+0.057,
+-0.103,
+1.236
+]
+},
+{
+"name": "Sternocostal head of pectoralis major muscle.er",
+"verts": 3022,
+"c": [
+-0.057,
+-0.103,
+1.236
+]
+},
+{
+"name": "Sternohyoid muscle.el",
+"verts": 228,
+"c": [
+0.008,
+-0.033,
+1.494
+]
+},
+{
+"name": "Sternohyoid muscle.er",
+"verts": 228,
+"c": [
+-0.008,
+-0.033,
+1.494
+]
+},
+{
+"name": "Sternohyoid muscle.ol",
+"verts": 804,
+"c": [
+0.016,
+-0.03,
+1.401
+]
+},
+{
+"name": "Sternohyoid muscle.or",
+"verts": 804,
+"c": [
+-0.016,
+-0.03,
+1.401
+]
+},
+{
+"name": "Sternum.j",
+"verts": 8,
+"c": [
+0.001,
+-0.131,
+1.26
+]
+},
+{
+"name": "Styloid process of temporal bone.i",
+"verts": 8,
+"c": [
+0.039,
+-0.001,
+1.547
+]
+},
+{
+"name": "Styloid process of temporal bone.j",
+"verts": 8,
+"c": [
+-0.039,
+-0.001,
+1.547
+]
+},
+{
+"name": "Styloid process of third metacarpal bone.i",
+"verts": 8,
+"c": [
+0.272,
+0.011,
+0.833
+]
+},
+{
+"name": "Styloid process of third metacarpal bone.j",
+"verts": 8,
+"c": [
+-0.272,
+0.011,
+0.833
+]
+},
+{
+"name": "Subclavius muscle.ol",
+"verts": 416,
+"c": [
+0.084,
+-0.008,
+1.406
+]
+},
+{
+"name": "Subclavius muscle.or",
+"verts": 416,
+"c": [
+-0.084,
+-0.008,
+1.406
+]
+},
+{
+"name": "Sublime tubercle.i",
+"verts": 8,
+"c": [
+0.194,
+0.03,
+1.08
+]
+},
+{
+"name": "Sublime tubercle.j",
+"verts": 8,
+"c": [
+-0.194,
+0.03,
+1.08
+]
+},
+{
+"name": "Sublingual fossa.j",
+"verts": 8,
+"c": [
+0.004,
+-0.067,
+1.509
+]
+},
+{
+"name": "Subscapular fossa.i",
+"verts": 8,
+"c": [
+0.088,
+0.078,
+1.336
+]
+},
+{
+"name": "Subscapular fossa.j",
+"verts": 8,
+"c": [
+-0.088,
+0.078,
+1.336
+]
+},
+{
+"name": "Subscapularis muscle.el",
+"verts": 250,
+"c": [
+0.165,
+0.004,
+1.383
+]
+},
+{
+"name": "Subscapularis muscle.er",
+"verts": 250,
+"c": [
+-0.165,
+0.004,
+1.383
+]
+},
+{
+"name": "Subscapularis muscle.ol",
+"verts": 8512,
+"c": [
+0.1,
+0.077,
+1.33
+]
+},
+{
+"name": "Subscapularis muscle.or",
+"verts": 8512,
+"c": [
+-0.1,
+0.077,
+1.33
+]
+},
+{
+"name": "Sulcus of auditory tube.j",
+"verts": 8,
+"c": [
+0.023,
+0.005,
+1.574
+]
+},
+{
+"name": "Supercilliary arch.j",
+"verts": 8,
+"c": [
+-0.037,
+-0.091,
+1.618
+]
+},
+{
+"name": "Superior angle of scapula.i",
+"verts": 8,
+"c": [
+0.083,
+0.076,
+1.419
+]
+},
+{
+"name": "Superior angle of scapula.j",
+"verts": 8,
+"c": [
+-0.083,
+0.076,
+1.419
+]
+},
+{
+"name": "Superior articular facet of vertebra.j",
+"verts": 8,
+"c": [
+-0.01,
+0.054,
+1.058
+]
+},
+{
+"name": "Superior articular process of sacrum.j",
+"verts": 8,
+"c": [
+0.023,
+0.039,
+0.983
+]
+},
+{
+"name": "Superior articular process of vertebra.j",
+"verts": 8,
+"c": [
+0.018,
+0.035,
+1.073
+]
+},
+{
+"name": "Superior articular surface of atlas.j",
+"verts": 8,
+"c": [
+0.017,
+0.012,
+1.553
+]
+},
+{
+"name": "Superior articular surface of lateral condyle.i",
+"verts": 8,
+"c": [
+0.091,
+0.026,
+0.455
+]
+},
+{
+"name": "Superior articular surface of lateral condyle.j",
+"verts": 8,
+"c": [
+-0.091,
+0.026,
+0.455
+]
+},
+{
+"name": "Superior articular surfaces of tibia.i",
+"verts": 8,
+"c": [
+0.077,
+0.02,
+0.464
+]
+},
+{
+"name": "Superior articular surfaces of tibia.j",
+"verts": 8,
+"c": [
+-0.077,
+0.02,
+0.464
+]
+},
+{
+"name": "Superior border of scapula.i",
+"verts": 8,
+"c": [
+0.097,
+0.03,
+1.409
+]
+},
+{
+"name": "Superior border of scapula.j",
+"verts": 8,
+"c": [
+-0.097,
+0.03,
+1.409
+]
+},
+{
+"name": "Superior costal facet.j",
+"verts": 8,
+"c": [
+0.03,
+0.062,
+1.276
+]
+},
+{
+"name": "Superior facet of talus.i",
+"verts": 8,
+"c": [
+0.07,
+0.047,
+0.085
+]
+},
+{
+"name": "Superior facet of talus.j",
+"verts": 8,
+"c": [
+-0.07,
+0.047,
+0.085
+]
+},
+{
+"name": "Superior gemellus muscle.ol",
+"verts": 312,
+"c": [
+0.049,
+0.049,
+0.868
+]
+},
+{
+"name": "Superior gemellus muscle.or",
+"verts": 312,
+"c": [
+-0.049,
+0.049,
+0.868
+]
+},
+{
+"name": "Superior horn of thyroid cartilage.j",
+"verts": 8,
+"c": [
+-0.03,
+-0.002,
+1.495
+]
+},
+{
+"name": "Superior mental spine.j",
+"verts": 8,
+"c": [
+0.001,
+-0.058,
+1.509
+]
+},
+{
+"name": "Superior nuchal line.j",
+"verts": 8,
+"c": [
+0.022,
+0.08,
+1.571
+]
+},
+{
+"name": "Superior pubic ramus.i",
+"verts": 8,
+"c": [
+0.027,
+-0.033,
+0.862
+]
+},
+{
+"name": "Superior pubic ramus.j",
+"verts": 8,
+"c": [
+-0.027,
+-0.033,
+0.862
+]
+},
+{
+"name": "Superior temporal line.j",
+"verts": 8,
+"c": [
+-0.077,
+0.07,
+1.641
+]
+},
+{
+"name": "Superior thoracic aperture.j",
+"verts": 320,
+"c": [
+0.0,
+-0.0,
+1.419
+]
+},
+{
+"name": "Superior thyroid notch.j",
+"verts": 95,
+"c": [
+0.0,
+-0.036,
+1.479
+]
+},
+{
+"name": "Superior thyroid tubercle.j",
+"verts": 8,
+"c": [
+-0.027,
+-0.008,
+1.483
+]
+},
+{
+"name": "Superior vertebral notch.j",
+"verts": 8,
+"c": [
+-0.019,
+0.022,
+1.063
+]
+},
+{
+"name": "Supinator crest.i",
+"verts": 8,
+"c": [
+0.245,
+0.039,
+1.059
+]
+},
+{
+"name": "Supinator crest.j",
+"verts": 8,
+"c": [
+-0.245,
+0.039,
+1.059
+]
+},
+{
+"name": "Supinator.el",
+"verts": 662,
+"c": [
+0.252,
+0.022,
+1.033
+]
+},
+{
+"name": "Supinator.er",
+"verts": 662,
+"c": [
+-0.252,
+0.022,
+1.033
+]
+},
+{
+"name": "Supinator.ol",
+"verts": 244,
+"c": [
+0.234,
+0.037,
+1.051
+]
+},
+{
+"name": "Supinator.or",
+"verts": 244,
+"c": [
+-0.234,
+0.037,
+1.051
+]
+},
+{
+"name": "Supra-acetabular groove.i",
+"verts": 8,
+"c": [
+0.118,
+-0.002,
+0.893
+]
+},
+{
+"name": "Supra-acetabular groove.j",
+"verts": 8,
+"c": [
+-0.118,
+-0.002,
+0.893
+]
+},
+{
+"name": "Supraglenoid tubercle.i",
+"verts": 8,
+"c": [
+0.153,
+0.026,
+1.399
+]
+},
+{
+"name": "Supraglenoid tubercle.j",
+"verts": 8,
+"c": [
+-0.153,
+0.026,
+1.399
+]
+},
+{
+"name": "Supraspinatus muscle.el",
+"verts": 676,
+"c": [
+0.188,
+0.019,
+1.396
+]
+},
+{
+"name": "Supraspinatus muscle.er",
+"verts": 676,
+"c": [
+-0.188,
+0.019,
+1.396
+]
+},
+{
+"name": "Supraspinatus muscle.ol",
+"verts": 3998,
+"c": [
+0.102,
+0.078,
+1.388
+]
+},
+{
+"name": "Supraspinatus muscle.or",
+"verts": 3998,
+"c": [
+-0.102,
+0.078,
+1.388
+]
+},
+{
+"name": "Supraspinous fossa.i",
+"verts": 8,
+"c": [
+0.105,
+0.072,
+1.393
+]
+},
+{
+"name": "Supraspinous fossa.j",
+"verts": 8,
+"c": [
+-0.105,
+0.072,
+1.393
+]
+},
+{
+"name": "Suprastyloid crest.i",
+"verts": 8,
+"c": [
+0.3,
+-0.018,
+0.874
+]
+},
+{
+"name": "Suprastyloid crest.j",
+"verts": 8,
+"c": [
+-0.3,
+-0.018,
+0.874
+]
+},
+{
+"name": "Supreme nuchal line.j",
+"verts": 8,
+"c": [
+0.027,
+0.092,
+1.581
+]
+},
+{
+"name": "Surgical neck of humerus.i",
+"verts": 8,
+"c": [
+0.139,
+0.022,
+1.352
+]
+},
+{
+"name": "Surgical neck of humerus.j",
+"verts": 8,
+"c": [
+-0.139,
+0.022,
+1.352
+]
+},
+{
+"name": "Sustentaculum tali.i",
+"verts": 8,
+"c": [
+0.049,
+0.033,
+0.051
+]
+},
+{
+"name": "Sustentaculum tali.j",
+"verts": 8,
+"c": [
+-0.049,
+0.033,
+0.051
+]
+},
+{
+"name": "Symphysial surface of pubis.i",
+"verts": 8,
+"c": [
+-0.011,
+-0.065,
+0.847
+]
+},
+{
+"name": "Symphysial surface of pubis.j",
+"verts": 8,
+"c": [
+0.011,
+-0.065,
+0.847
+]
+},
+{
+"name": "Take a picture",
+"verts": 0,
+"c": [
+0.0,
+0.0,
+1.1
+]
+},
+{
+"name": "Talar sulcus.i",
+"verts": 8,
+"c": [
+0.069,
+0.038,
+0.054
+]
+},
+{
+"name": "Talar sulcus.j",
+"verts": 8,
+"c": [
+-0.069,
+0.038,
+0.054
+]
+},
+{
+"name": "Talus.l",
+"verts": 677,
+"c": [
+0.075,
+0.037,
+0.068
+]
+},
+{
+"name": "Talus.r",
+"verts": 677,
+"c": [
+-0.075,
+0.037,
+0.068
+]
+},
+{
+"name": "Tarsal bones.j",
+"verts": 8,
+"c": [
+-0.03,
+0.04,
+0.056
+]
+},
+{
+"name": "Tarsal sinus.i",
+"verts": 8,
+"c": [
+0.085,
+0.037,
+0.056
+]
+},
+{
+"name": "Tarsal sinus.j",
+"verts": 8,
+"c": [
+-0.085,
+0.037,
+0.056
+]
+},
+{
+"name": "Teeth.j",
+"verts": 8,
+"c": [
+0.0,
+-0.114,
+1.53
+]
+},
+{
+"name": "Tegmen tympani.i",
+"verts": 8,
+"c": [
+0.042,
+0.001,
+1.591
+]
+},
+{
+"name": "Tegmen tympani.j",
+"verts": 8,
+"c": [
+-0.042,
+0.001,
+1.591
+]
+},
+{
+"name": "Temporal bone.l",
+"verts": 7051,
+"c": [
+0.041,
+0.003,
+1.586
+]
+},
+{
+"name": "Temporal bone.r",
+"verts": 7051,
+"c": [
+-0.041,
+0.003,
+1.586
+]
+},
+{
+"name": "Temporal line.j",
+"verts": 8,
+"c": [
+-0.062,
+-0.054,
+1.626
+]
+},
+{
+"name": "Temporal surface of frontal bone.j",
+"verts": 8,
+"c": [
+-0.061,
+-0.051,
+1.614
+]
+},
+{
+"name": "Temporal surface of greater wing.j",
+"verts": 8,
+"c": [
+-0.057,
+-0.042,
+1.599
+]
+},
+{
+"name": "Temporalis muscle.el",
+"verts": 912,
+"c": [
+0.042,
+-0.039,
+1.557
+]
+},
+{
+"name": "Temporalis muscle.er",
+"verts": 912,
+"c": [
+-0.042,
+-0.039,
+1.557
+]
+},
+{
+"name": "Temporalis muscle.o1l",
+"verts": 746,
+"c": [
+0.055,
+-0.047,
+1.635
+]
+},
+{
+"name": "Temporalis muscle.o1r",
+"verts": 746,
+"c": [
+-0.055,
+-0.047,
+1.635
+]
+},
+{
+"name": "Temporalis muscle.o2l",
+"verts": 1730,
+"c": [
+0.065,
+0.006,
+1.631
+]
+},
+{
+"name": "Temporalis muscle.o2r",
+"verts": 1730,
+"c": [
+-0.065,
+0.006,
+1.631
+]
+},
+{
+"name": "Temporalis muscle.o3l",
+"verts": 637,
+"c": [
+0.048,
+-0.044,
+1.604
+]
+},
+{
+"name": "Temporalis muscle.o3r",
+"verts": 637,
+"c": [
+-0.048,
+-0.044,
+1.604
+]
+},
+{
+"name": "Temporalis muscle.o4l",
+"verts": 2730,
+"c": [
+0.06,
+-0.006,
+1.601
+]
+},
+{
+"name": "Temporalis muscle.o4r",
+"verts": 2730,
+"c": [
+-0.06,
+-0.006,
+1.601
+]
+},
+{
+"name": "Tensor fasciae latae.ol",
+"verts": 200,
+"c": [
+0.124,
+-0.035,
+0.946
+]
+},
+{
+"name": "Tensor fasciae latae.or",
+"verts": 200,
+"c": [
+-0.124,
+-0.035,
+0.946
+]
+},
+{
+"name": "Tenth rib.l",
+"verts": 3515,
+"c": [
+0.075,
+0.031,
+1.151
+]
+},
+{
+"name": "Tenth rib.r",
+"verts": 3515,
+"c": [
+-0.075,
+0.031,
+1.151
+]
+},
+{
+"name": "Teres major muscle.ol",
+"verts": 2380,
+"c": [
+0.107,
+0.093,
+1.273
+]
+},
+{
+"name": "Teres major muscle.or",
+"verts": 2380,
+"c": [
+-0.107,
+0.093,
+1.273
+]
+},
+{
+"name": "Teres minor muscle.el",
+"verts": 912,
+"c": [
+0.19,
+0.032,
+1.376
+]
+},
+{
+"name": "Teres minor muscle.er",
+"verts": 912,
+"c": [
+-0.19,
+0.032,
+1.376
+]
+},
+{
+"name": "Teres minor muscle.ol",
+"verts": 2826,
+"c": [
+0.119,
+0.077,
+1.322
+]
+},
+{
+"name": "Teres minor muscle.or",
+"verts": 2826,
+"c": [
+-0.119,
+0.077,
+1.322
+]
+},
+{
+"name": "Third metacarpal bone.l",
+"verts": 356,
+"c": [
+0.271,
+-0.027,
+0.802
+]
+},
+{
+"name": "Third metacarpal bone.r",
+"verts": 356,
+"c": [
+-0.271,
+-0.027,
+0.802
+]
+},
+{
+"name": "Third metatarsal bone.l",
+"verts": 409,
+"c": [
+0.101,
+-0.047,
+0.036
+]
+},
+{
+"name": "Third metatarsal bone.r",
+"verts": 409,
+"c": [
+-0.101,
+-0.047,
+0.036
+]
+},
+{
+"name": "Third rib.l",
+"verts": 3492,
+"c": [
+0.065,
+-0.007,
+1.364
+]
+},
+{
+"name": "Third rib.r",
+"verts": 3492,
+"c": [
+-0.065,
+-0.007,
+1.364
+]
+},
+{
+"name": "Thoracic skeleton.j",
+"verts": 8,
+"c": [
+0.0,
+-0.15,
+1.311
+]
+},
+{
+"name": "Thoracic vertebra.j",
+"verts": 8,
+"c": [
+-0.037,
+0.052,
+1.266
+]
+},
+{
+"name": "Thoracic vertebrae.j",
+"verts": 8,
+"c": [
+-0.0,
+0.156,
+1.237
+]
+},
+{
+"name": "Thyrohyoid muscle.el",
+"verts": 590,
+"c": [
+0.014,
+-0.014,
+1.476
+]
+},
+{
+"name": "Thyrohyoid muscle.er",
+"verts": 590,
+"c": [
+-0.014,
+-0.014,
+1.476
+]
+},
+{
+"name": "Thyrohyoid muscle.ol",
+"verts": 270,
+"c": [
+0.013,
+-0.026,
+1.494
+]
+},
+{
+"name": "Thyrohyoid muscle.or",
+"verts": 270,
+"c": [
+-0.013,
+-0.026,
+1.494
+]
+},
+{
+"name": "Thyroid articular surface.j",
+"verts": 8,
+"c": [
+-0.016,
+0.0,
+1.462
+]
+},
+{
+"name": "Thyroid cartilage",
+"verts": 2247,
+"c": [
+0.0,
+-0.016,
+1.48
+]
+},
+{
+"name": "Tibia.i",
+"verts": 8,
+"c": [
+0.058,
+0.024,
+0.247
+]
+},
+{
+"name": "Tibia.j",
+"verts": 8,
+"c": [
+-0.058,
+0.024,
+0.247
+]
+},
+{
+"name": "Tibia.l",
+"verts": 837,
+"c": [
+0.077,
+0.029,
+0.254
+]
+},
+{
+"name": "Tibia.r",
+"verts": 837,
+"c": [
+-0.077,
+0.029,
+0.254
+]
+},
+{
+"name": "Tibial plateau.i",
+"verts": 8,
+"c": [
+0.021,
+0.033,
+0.414
+]
+},
+{
+"name": "Tibial plateau.j",
+"verts": 8,
+"c": [
+-0.021,
+0.033,
+0.414
+]
+},
+{
+"name": "Tibial tuberosity.i",
+"verts": 8,
+"c": [
+0.088,
+-0.017,
+0.398
+]
+},
+{
+"name": "Tibial tuberosity.j",
+"verts": 8,
+"c": [
+-0.088,
+-0.017,
+0.398
+]
+},
+{
+"name": "Tibialis anterior muscle.e1l",
+"verts": 284,
+"c": [
+0.062,
+-0.031,
+0.05
+]
+},
+{
+"name": "Tibialis anterior muscle.e1r",
+"verts": 284,
+"c": [
+-0.062,
+-0.031,
+0.05
+]
+},
+{
+"name": "Tibialis anterior muscle.el",
+"verts": 654,
+"c": [
+0.061,
+-0.02,
+0.049
+]
+},
+{
+"name": "Tibialis anterior muscle.er",
+"verts": 654,
+"c": [
+-0.061,
+-0.02,
+0.049
+]
+},
+{
+"name": "Tibialis anterior muscle.ol",
+"verts": 2706,
+"c": [
+0.094,
+0.016,
+0.292
+]
+},
+{
+"name": "Tibialis anterior muscle.or",
+"verts": 2706,
+"c": [
+-0.094,
+0.016,
+0.292
+]
+},
+{
+"name": "Tibialis posterior muscle.ol",
+"verts": 4238,
+"c": [
+0.094,
+0.035,
+0.3
+]
+},
+{
+"name": "Tibialis posterior muscle.or",
+"verts": 4238,
+"c": [
+-0.094,
+0.035,
+0.3
+]
+},
+{
+"name": "Transverse costal facet.j",
+"verts": 8,
+"c": [
+0.043,
+0.078,
+1.27
+]
+},
+{
+"name": "Transverse head of adductor hallucis.e1l",
+"verts": 122,
+"c": [
+0.123,
+-0.053,
+0.017
+]
+},
+{
+"name": "Transverse head of adductor hallucis.e1r",
+"verts": 122,
+"c": [
+-0.123,
+-0.053,
+0.017
+]
+},
+{
+"name": "Transverse head of adductor hallucis.e2l",
+"verts": 492,
+"c": [
+0.114,
+-0.06,
+0.018
+]
+},
+{
+"name": "Transverse head of adductor hallucis.e2r",
+"verts": 492,
+"c": [
+-0.114,
+-0.06,
+0.018
+]
+},
+{
+"name": "Transverse head of adductor hallucis.e3l",
+"verts": 302,
+"c": [
+0.102,
+-0.068,
+0.02
+]
+},
+{
+"name": "Transverse head of adductor hallucis.e3r",
+"verts": 302,
+"c": [
+-0.102,
+-0.068,
+0.02
+]
+},
+{
+"name": "Transverse head of adductor hallucis.ol",
+"verts": 70,
+"c": [
+0.079,
+-0.068,
+0.017
+]
+},
+{
+"name": "Transverse head of adductor hallucis.or",
+"verts": 70,
+"c": [
+-0.079,
+-0.068,
+0.017
+]
+},
+{
+"name": "Transverse ligament tubercle.j",
+"verts": 8,
+"c": [
+-0.009,
+0.009,
+1.536
+]
+},
+{
+"name": "Transverse part of trapezius muscle.ol",
+"verts": 1526,
+"c": [
+0.16,
+0.051,
+1.41
+]
+},
+{
+"name": "Transverse part of trapezius muscle.or",
+"verts": 1526,
+"c": [
+-0.16,
+0.051,
+1.41
+]
+},
+{
+"name": "Transverse process.j",
+"verts": 8,
+"c": [
+0.046,
+0.04,
+1.055
+]
+},
+{
+"name": "Transverse ridges.j",
+"verts": 8,
+"c": [
+-0.0,
+0.028,
+0.921
+]
+},
+{
+"name": "Transversus abdominis muscle.ol",
+"verts": 614,
+"c": [
+0.09,
+0.002,
+0.975
+]
+},
+{
+"name": "Transversus abdominis muscle.or",
+"verts": 614,
+"c": [
+-0.09,
+0.002,
+0.975
+]
+},
+{
+"name": "Transversus thoracis muscle.o1l",
+"verts": 482,
+"c": [
+0.007,
+-0.099,
+1.234
+]
+},
+{
+"name": "Transversus thoracis muscle.o1r",
+"verts": 482,
+"c": [
+-0.007,
+-0.099,
+1.234
+]
+},
+{
+"name": "Transversus thoracis muscle.ol",
+"verts": 1830,
+"c": [
+0.014,
+-0.089,
+1.284
+]
+},
+{
+"name": "Transversus thoracis muscle.or",
+"verts": 1830,
+"c": [
+-0.014,
+-0.089,
+1.284
+]
+},
+{
+"name": "Trapezium bone.l",
+"verts": 252,
+"c": [
+0.282,
+-0.025,
+0.846
+]
+},
+{
+"name": "Trapezium bone.r",
+"verts": 252,
+"c": [
+-0.282,
+-0.025,
+0.846
+]
+},
+{
+"name": "Trapezoid bone.l",
+"verts": 184,
+"c": [
+0.277,
+-0.02,
+0.839
+]
+},
+{
+"name": "Trapezoid bone.r",
+"verts": 184,
+"c": [
+-0.277,
+-0.02,
+0.839
+]
+},
+{
+"name": "Trapezoid line.i",
+"verts": 8,
+"c": [
+0.122,
+0.022,
+1.412
+]
+},
+{
+"name": "Trapezoid line.j",
+"verts": 8,
+"c": [
+-0.122,
+0.022,
+1.412
+]
+},
+{
+"name": "Triangular fovea.i",
+"verts": 8,
+"c": [
+0.005,
+-0.007,
+1.478
+]
+},
+{
+"name": "Triangular fovea.j",
+"verts": 8,
+"c": [
+-0.005,
+-0.007,
+1.478
+]
+},
+{
+"name": "Triceps brachii muscle.el",
+"verts": 454,
+"c": [
+0.214,
+0.054,
+1.101
+]
+},
+{
+"name": "Triceps brachii muscle.er",
+"verts": 454,
+"c": [
+-0.214,
+0.054,
+1.101
+]
+},
+{
+"name": "Triceps surae muscle.el",
+"verts": 476,
+"c": [
+0.069,
+0.086,
+0.04
+]
+},
+{
+"name": "Triceps surae muscle.er",
+"verts": 476,
+"c": [
+-0.069,
+0.086,
+0.04
+]
+},
+{
+"name": "Triquetrum bone.l",
+"verts": 90,
+"c": [
+0.245,
+-0.021,
+0.846
+]
+},
+{
+"name": "Triquetrum bone.r",
+"verts": 90,
+"c": [
+-0.245,
+-0.021,
+0.846
+]
+},
+{
+"name": "Trochanteric fossa.i",
+"verts": 8,
+"c": [
+0.124,
+0.014,
+0.861
+]
+},
+{
+"name": "Trochanteric fossa.j",
+"verts": 8,
+"c": [
+-0.124,
+0.014,
+0.861
+]
+},
+{
+"name": "Trochanteric insertion.el",
+"verts": 234,
+"c": [
+0.12,
+0.013,
+0.849
+]
+},
+{
+"name": "Trochanteric insertion.er",
+"verts": 234,
+"c": [
+-0.12,
+0.013,
+0.849
+]
+},
+{
+"name": "Trochlea of humerus.i",
+"verts": 8,
+"c": [
+0.217,
+0.009,
+1.098
+]
+},
+{
+"name": "Trochlea of humerus.j",
+"verts": 8,
+"c": [
+-0.217,
+0.009,
+1.098
+]
+},
+{
+"name": "Trochlea of phalanx of foot.i",
+"verts": 8,
+"c": [
+0.114,
+-0.105,
+0.013
+]
+},
+{
+"name": "Trochlea of phalanx of foot.j",
+"verts": 8,
+"c": [
+-0.114,
+-0.105,
+0.013
+]
+},
+{
+"name": "Trochlea of phalanx of hand.i",
+"verts": 8,
+"c": [
+0.281,
+-0.077,
+0.736
+]
+},
+{
+"name": "Trochlea of phalanx of hand.j",
+"verts": 8,
+"c": [
+-0.281,
+-0.077,
+0.736
+]
+},
+{
+"name": "Trochlea of talus.i",
+"verts": 8,
+"c": [
+0.074,
+0.043,
+0.087
+]
+},
+{
+"name": "Trochlea of talus.j",
+"verts": 8,
+"c": [
+-0.074,
+0.043,
+0.087
+]
+},
+{
+"name": "Trochlear fovea.j",
+"verts": 8,
+"c": [
+-0.017,
+-0.076,
+1.605
+]
+},
+{
+"name": "Trochlear notch.i",
+"verts": 8,
+"c": [
+0.218,
+0.033,
+1.1
+]
+},
+{
+"name": "Trochlear notch.j",
+"verts": 8,
+"c": [
+-0.218,
+0.033,
+1.1
+]
+},
+{
+"name": "True ribs.j",
+"verts": 8,
+"c": [
+-0.144,
+-0.019,
+1.289
+]
+},
+{
+"name": "Tubercle of iliotibial tract.i",
+"verts": 8,
+"c": [
+0.119,
+-0.009,
+0.391
+]
+},
+{
+"name": "Tubercle of iliotibial tract.j",
+"verts": 8,
+"c": [
+-0.119,
+-0.009,
+0.391
+]
+},
+{
+"name": "Tubercle of rib.i",
+"verts": 8,
+"c": [
+0.035,
+0.081,
+1.323
+]
+},
+{
+"name": "Tubercle of rib.j",
+"verts": 8,
+"c": [
+-0.035,
+0.081,
+1.323
+]
+},
+{
+"name": "Tubercle of scaphoid bone.i",
+"verts": 8,
+"c": [
+0.274,
+-0.041,
+0.852
+]
+},
+{
+"name": "Tubercle of scaphoid bone.j",
+"verts": 8,
+"c": [
+-0.274,
+-0.041,
+0.852
+]
+},
+{
+"name": "Tubercle of trapezium bone.j",
+"verts": 8,
+"c": [
+-0.276,
+-0.047,
+0.851
+]
+},
+{
+"name": "Tuberculum sellae.j",
+"verts": 8,
+"c": [
+0.0,
+-0.022,
+1.615
+]
+},
+{
+"name": "Tuberosity for coracoclavicular ligament.i",
+"verts": 8,
+"c": [
+0.117,
+0.022,
+1.406
+]
+},
+{
+"name": "Tuberosity for coracoclavicular ligament.j",
+"verts": 8,
+"c": [
+-0.117,
+0.022,
+1.406
+]
+},
+{
+"name": "Tuberosity of cuboid bone.i",
+"verts": 8,
+"c": [
+0.095,
+0.016,
+0.027
+]
+},
+{
+"name": "Tuberosity of cuboid bone.j",
+"verts": 8,
+"c": [
+-0.095,
+0.016,
+0.027
+]
+},
+{
+"name": "Tuberosity of distal phalanx of foot.i",
+"verts": 8,
+"c": [
+0.12,
+-0.13,
+0.015
+]
+},
+{
+"name": "Tuberosity of distal phalanx of foot.j",
+"verts": 8,
+"c": [
+-0.12,
+-0.13,
+0.015
+]
+},
+{
+"name": "Tuberosity of distal phalanx of hand.i",
+"verts": 8,
+"c": [
+0.287,
+-0.095,
+0.696
+]
+},
+{
+"name": "Tuberosity of distal phalanx of hand.j",
+"verts": 8,
+"c": [
+-0.287,
+-0.095,
+0.696
+]
+},
+{
+"name": "Tuberosity of navicular bone.i",
+"verts": 8,
+"c": [
+0.047,
+0.006,
+0.05
+]
+},
+{
+"name": "Tuberosity of navicular bone.j",
+"verts": 8,
+"c": [
+-0.047,
+0.006,
+0.05
+]
+},
+{
+"name": "Tuberosity of ulna.i",
+"verts": 8,
+"c": [
+0.223,
+0.018,
+1.064
+]
+},
+{
+"name": "Tuberosity of ulna.j",
+"verts": 8,
+"c": [
+-0.223,
+0.018,
+1.064
+]
+},
+{
+"name": "Twelfth rib.l",
+"verts": 1503,
+"c": [
+0.052,
+0.046,
+1.105
+]
+},
+{
+"name": "Twelfth rib.r",
+"verts": 1503,
+"c": [
+-0.052,
+0.046,
+1.105
+]
+},
+{
+"name": "Tympanic part of temporal bone.i",
+"verts": 8,
+"c": [
+0.07,
+0.003,
+1.568
+]
+},
+{
+"name": "Tympanic part of temporal bone.j",
+"verts": 8,
+"c": [
+-0.07,
+0.003,
+1.568
+]
+},
+{
+"name": "Ulna.i",
+"verts": 8,
+"c": [
+0.213,
+0.029,
+1.016
+]
+},
+{
+"name": "Ulna.j",
+"verts": 8,
+"c": [
+-0.213,
+0.029,
+1.016
+]
+},
+{
+"name": "Ulna.l",
+"verts": 454,
+"c": [
+0.229,
+0.019,
+0.983
+]
+},
+{
+"name": "Ulna.r",
+"verts": 454,
+"c": [
+-0.229,
+0.019,
+0.983
+]
+},
+{
+"name": "Ulnar head of flexor carpi ulnaris.ol",
+"verts": 1718,
+"c": [
+0.231,
+0.017,
+1.002
+]
+},
+{
+"name": "Ulnar head of flexor carpi ulnaris.or",
+"verts": 1718,
+"c": [
+-0.231,
+0.017,
+1.002
+]
+},
+{
+"name": "Ulnar notch.i",
+"verts": 8,
+"c": [
+0.246,
+-0.012,
+0.869
+]
+},
+{
+"name": "Ulnar notch.j",
+"verts": 8,
+"c": [
+-0.246,
+-0.012,
+0.869
+]
+},
+{
+"name": "Ulnar styloid process.i",
+"verts": 8,
+"c": [
+0.244,
+-0.012,
+0.846
+]
+},
+{
+"name": "Ulnar styloid process.j",
+"verts": 8,
+"c": [
+-0.244,
+-0.012,
+0.846
+]
+},
+{
+"name": "Uncinate process of first thoracic vertebra.j",
+"verts": 8,
+"c": [
+-0.016,
+0.034,
+1.382
+]
+},
+{
+"name": "Uncinate process of vertebra.j",
+"verts": 8,
+"c": [
+-0.011,
+0.012,
+1.508
+]
+},
+{
+"name": "Upper canine.l",
+"verts": 737,
+"c": [
+0.017,
+-0.081,
+1.542
+]
+},
+{
+"name": "Upper canine.r",
+"verts": 737,
+"c": [
+-0.017,
+-0.081,
+1.542
+]
+},
+{
+"name": "Upper first molar tooth.l",
+"verts": 1090,
+"c": [
+0.024,
+-0.059,
+1.544
+]
+},
+{
+"name": "Upper first molar tooth.r",
+"verts": 1090,
+"c": [
+-0.024,
+-0.059,
+1.544
+]
+},
+{
+"name": "Upper first premolar.l",
+"verts": 844,
+"c": [
+0.02,
+-0.074,
+1.543
+]
+},
+{
+"name": "Upper first premolar.r",
+"verts": 844,
+"c": [
+-0.02,
+-0.074,
+1.543
+]
+},
+{
+"name": "Upper lateral incisor.l",
+"verts": 726,
+"c": [
+0.011,
+-0.085,
+1.54
+]
+},
+{
+"name": "Upper lateral incisor.r",
+"verts": 726,
+"c": [
+-0.011,
+-0.085,
+1.54
+]
+},
+{
+"name": "Upper medial incisor.l",
+"verts": 686,
+"c": [
+0.004,
+-0.087,
+1.539
+]
+},
+{
+"name": "Upper medial incisor.r",
+"verts": 686,
+"c": [
+-0.004,
+-0.087,
+1.539
+]
+},
+{
+"name": "Upper second molar tooth.l",
+"verts": 924,
+"c": [
+0.024,
+-0.051,
+1.546
+]
+},
+{
+"name": "Upper second molar tooth.r",
+"verts": 924,
+"c": [
+-0.024,
+-0.051,
+1.546
+]
+},
+{
+"name": "Upper second premolar.l",
+"verts": 779,
+"c": [
+0.023,
+-0.068,
+1.542
+]
+},
+{
+"name": "Upper second premolar.r",
+"verts": 779,
+"c": [
+-0.023,
+-0.068,
+1.542
+]
+},
+{
+"name": "Vaginal process of sphenoid bone.j",
+"verts": 8,
+"c": [
+0.008,
+-0.018,
+1.564
+]
+},
+{
+"name": "Vastus intermedius muscle.ol",
+"verts": 792,
+"c": [
+0.106,
+-0.001,
+0.659
+]
+},
+{
+"name": "Vastus intermedius muscle.or",
+"verts": 792,
+"c": [
+-0.106,
+-0.001,
+0.659
+]
+},
+{
+"name": "Vastus lateralis muscle.ol",
+"verts": 1000,
+"c": [
+0.115,
+0.01,
+0.678
+]
+},
+{
+"name": "Vastus lateralis muscle.or",
+"verts": 1000,
+"c": [
+-0.115,
+0.01,
+0.678
+]
+},
+{
+"name": "Vastus medialis muscle.ol",
+"verts": 948,
+"c": [
+0.075,
+0.005,
+0.629
+]
+},
+{
+"name": "Vastus medialis muscle.or",
+"verts": 948,
+"c": [
+-0.075,
+0.005,
+0.629
+]
+},
+{
+"name": "Vertebra C3",
+"verts": 1216,
+"c": [
+0.0,
+0.027,
+1.506
+]
+},
+{
+"name": "Vertebra C4",
+"verts": 972,
+"c": [
+0.0,
+0.026,
+1.493
+]
+},
+{
+"name": "Vertebra C5",
+"verts": 1164,
+"c": [
+0.0,
+0.03,
+1.48
+]
+},
+{
+"name": "Vertebra C6",
+"verts": 1148,
+"c": [
+0.0,
+0.035,
+1.466
+]
+},
+{
+"name": "Vertebra C7",
+"verts": 1078,
+"c": [
+0.0,
+0.042,
+1.452
+]
+},
+{
+"name": "Vertebra L1",
+"verts": 1581,
+"c": [
+0.0,
+0.029,
+1.104
+]
+},
+{
+"name": "Vertebra L2",
+"verts": 1344,
+"c": [
+0.0,
+0.024,
+1.075
+]
+},
+{
+"name": "Vertebra L3",
+"verts": 1600,
+"c": [
+0.0,
+0.023,
+1.043
+]
+},
+{
+"name": "Vertebra L4",
+"verts": 1902,
+"c": [
+0.0,
+0.024,
+1.015
+]
+},
+{
+"name": "Vertebra L5",
+"verts": 2016,
+"c": [
+0.0,
+0.029,
+0.983
+]
+},
+{
+"name": "Vertebra T1",
+"verts": 973,
+"c": [
+0.0,
+0.047,
+1.438
+]
+},
+{
+"name": "Vertebra T10",
+"verts": 1529,
+"c": [
+0.0,
+0.053,
+1.198
+]
+},
+{
+"name": "Vertebra T11",
+"verts": 899,
+"c": [
+-0.0,
+0.045,
+1.169
+]
+},
+{
+"name": "Vertebra T12",
+"verts": 1293,
+"c": [
+0.0,
+0.037,
+1.139
+]
+},
+{
+"name": "Vertebra T2",
+"verts": 1071,
+"c": [
+0.0,
+0.053,
+1.42
+]
+},
+{
+"name": "Vertebra T3",
+"verts": 1172,
+"c": [
+-0.0,
+0.061,
+1.399
+]
+},
+{
+"name": "Vertebra T4",
+"verts": 1108,
+"c": [
+0.0,
+0.065,
+1.375
+]
+},
+{
+"name": "Vertebra T5",
+"verts": 1076,
+"c": [
+0.0,
+0.066,
+1.347
+]
+},
+{
+"name": "Vertebra T6",
+"verts": 890,
+"c": [
+0.0,
+0.067,
+1.314
+]
+},
+{
+"name": "Vertebra T7",
+"verts": 1397,
+"c": [
+0.0,
+0.065,
+1.286
+]
+},
+{
+"name": "Vertebra T8",
+"verts": 868,
+"c": [
+0.0,
+0.063,
+1.256
+]
+},
+{
+"name": "Vertebra T9",
+"verts": 1489,
+"c": [
+0.0,
+0.059,
+1.228
+]
+},
+{
+"name": "Vertebra.j",
+"verts": 8,
+"c": [
+-0.024,
+-0.023,
+1.039
+]
+},
+{
+"name": "Vertebral arch.j",
+"verts": 8,
+"c": [
+0.012,
+0.049,
+1.048
+]
+},
+{
+"name": "Vertebral body.j",
+"verts": 8,
+"c": [
+0.026,
+-0.021,
+1.041
+]
+},
+{
+"name": "Vertebral column.j",
+"verts": 8,
+"c": [
+-0.002,
+0.156,
+1.294
+]
+},
+{
+"name": "Vertebral foramen.j",
+"verts": 8,
+"c": [
+0.0,
+0.026,
+1.051
+]
+},
+{
+"name": "Vestibular surface of tooth.i",
+"verts": 8,
+"c": [
+0.032,
+-0.061,
+1.527
+]
+},
+{
+"name": "Vestibular surface of tooth.j",
+"verts": 8,
+"c": [
+-0.032,
+-0.061,
+1.527
+]
+},
+{
+"name": "Viscerocranium.j",
+"verts": 8,
+"c": [
+0.066,
+-0.071,
+1.546
+]
+},
+{
+"name": "Vocal process.j",
+"verts": 8,
+"c": [
+-0.002,
+-0.012,
+1.474
+]
+},
+{
+"name": "Vomer",
+"verts": 514,
+"c": [
+0.0,
+-0.052,
+1.569
+]
+},
+{
+"name": "Xiphoid process",
+"verts": 459,
+"c": [
+-0.0,
+-0.104,
+1.232
+]
+},
+{
+"name": "Xiphoid process.j",
+"verts": 8,
+"c": [
+0.0,
+-0.124,
+1.233
+]
+},
+{
+"name": "Zygomatic bone.l",
+"verts": 666,
+"c": [
+0.047,
+-0.052,
+1.581
+]
+},
+{
+"name": "Zygomatic bone.r",
+"verts": 666,
+"c": [
+-0.047,
+-0.052,
+1.581
+]
+},
+{
+"name": "Zygomatic margin of greater wing.j",
+"verts": 8,
+"c": [
+0.056,
+-0.051,
+1.595
+]
+},
+{
+"name": "Zygomatic process of frontal bone.j",
+"verts": 8,
+"c": [
+0.062,
+-0.068,
+1.614
+]
+},
+{
+"name": "Zygomaticus major muscle.ol",
+"verts": 70,
+"c": [
+0.053,
+-0.055,
+1.572
+]
+},
+{
+"name": "Zygomaticus major muscle.or",
+"verts": 70,
+"c": [
+-0.053,
+-0.055,
+1.572
+]
+},
+{
+"name": "Zygomaticus minor muscle.ol",
+"verts": 90,
+"c": [
+0.047,
+-0.063,
+1.573
+]
+},
+{
+"name": "Zygomaticus minor muscle.or",
+"verts": 90,
+"c": [
+-0.047,
+-0.063,
+1.573
+]
+}
+]

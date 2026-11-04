@@ -13,7 +13,7 @@ Spec: `refs/SPEC2.md`. Starts after pass 1 (`refs/TODO.md`) is finished. Resume 
 - [ ] Z-Anatomy, BodyParts3D, NIH 3D, Sketchfab CC; priced list (Zygote store, TurboSquid, CGTrader)
 - [ ] headless Blender turntable per model, quality score
 ## Phase 3 — base scene
-- [ ] face.blend + skin_crosssection.blend, materials, rig, GLB + layers.json, renders, size check
+- [x] face.blend + skin_crosssection.blend, materials, rig, GLB + layers.json, renders, size check: face.glb 8.59 MB/146 nodes, skin 1.44 MB/95 nodes, both load in Node with every manifest node; transparent turntable + cutaway sequences (PNG/WebM-alpha/MP4) for each, check_alpha PASS
 ## Phase 4 — shots
 - [ ] shots/{id}.md × 97, BUILD_LIST.md
 ## Phase 5 — /ostad/anatomy

@@ -1,0 +1,239 @@
+{
+ "file": "skin_crosssection.glb",
+ "units": "m",
+ "up": "Y",
+ "origin": "centre of the skin surface",
+ "size": "2 x 2 cm, 1.2 cm deep; epidermis thickened ~8x for legibility",
+ "palette": "placeholder",
+ "source": "built from primitives in Blender (original, no third-party assets)",
+ "depths_mm": {
+  "epidermis": 0.8,
+  "papillary_dermis": 2.0,
+  "reticular_dermis": 6.0,
+  "hypodermis": 12.0
+ },
+ "layers": [
+  {
+   "id": "epidermis",
+   "label": "Epidermis",
+   "order": 0,
+   "color": "#E9C2A6",
+   "default_visible": true,
+   "nodes": [
+    "epidermis"
+   ]
+  },
+  {
+   "id": "melanocytes",
+   "label": "Melanocytes (basal layer)",
+   "order": 1,
+   "color": "#5B3A29",
+   "default_visible": true,
+   "nodes": [
+    "melanocyte_00",
+    "melanocyte_01",
+    "melanocyte_02",
+    "melanocyte_03",
+    "melanocyte_04",
+    "melanocyte_05",
+    "melanocyte_06",
+    "melanocyte_07",
+    "melanocyte_08",
+    "melanocyte_09",
+    "melanocyte_10",
+    "melanocyte_11",
+    "melanocyte_12",
+    "melanocyte_13",
+    "melanocyte_14",
+    "melanocyte_15",
+    "melanocyte_16",
+    "melanocyte_17",
+    "melanocyte_18",
+    "melanocyte_19",
+    "melanocyte_20",
+    "melanocyte_21",
+    "melanocyte_22",
+    "melanocyte_23",
+    "melanocyte_24",
+    "melanocyte_25",
+    "melanocyte_26",
+    "melanocyte_27",
+    "melanocyte_28",
+    "melanocyte_29",
+    "melanocyte_30",
+    "melanocyte_31",
+    "melanocyte_32",
+    "melanocyte_33",
+    "melanocyte_34",
+    "melanocyte_35",
+    "melanocyte_36",
+    "melanocyte_37",
+    "melanocyte_38",
+    "melanocyte_39"
+   ]
+  },
+  {
+   "id": "papillary_dermis",
+   "label": "Papillary dermis",
+   "order": 2,
+   "color": "#E7A99B",
+   "default_visible": true,
+   "nodes": [
+    "papillary_dermis"
+   ]
+  },
+  {
+   "id": "capillaries",
+   "label": "Capillary loops",
+   "order": 3,
+   "color": "#D9534F",
+   "default_visible": true,
+   "nodes": [
+    "capillary_loop_0",
+    "capillary_loop_1",
+    "capillary_loop_2",
+    "capillary_loop_3",
+    "capillary_loop_4",
+    "capillary_loop_5",
+    "capillary_loop_6"
+   ]
+  },
+  {
+   "id": "reticular_dermis",
+   "label": "Reticular dermis",
+   "order": 4,
+   "color": "#D98F84",
+   "default_visible": true,
+   "nodes": [
+    "reticular_dermis"
+   ]
+  },
+  {
+   "id": "hair",
+   "label": "Hair shaft",
+   "order": 5,
+   "color": "#3A2A20",
+   "default_visible": true,
+   "nodes": [
+    "hair_shaft"
+   ]
+  },
+  {
+   "id": "hair_follicle",
+   "label": "Hair follicle",
+   "order": 6,
+   "color": "#C98D7A",
+   "default_visible": true,
+   "nodes": [
+    "hair_bulb",
+    "hair_follicle"
+   ]
+  },
+  {
+   "id": "sebaceous_gland",
+   "label": "Sebaceous gland",
+   "order": 7,
+   "color": "#EFD9A0",
+   "default_visible": true,
+   "nodes": [
+    "sebaceous_gland_0",
+    "sebaceous_gland_1",
+    "sebaceous_gland_2"
+   ]
+  },
+  {
+   "id": "arrector_pili",
+   "label": "Arrector pili",
+   "order": 8,
+   "color": "#B5473F",
+   "default_visible": true,
+   "nodes": [
+    "arrector_pili"
+   ]
+  },
+  {
+   "id": "sweat_gland",
+   "label": "Sweat gland",
+   "order": 9,
+   "color": "#9CC3D5",
+   "default_visible": true,
+   "nodes": [
+    "sweat_duct",
+    "sweat_gland_coil"
+   ]
+  },
+  {
+   "id": "artery",
+   "label": "Arteriole",
+   "order": 10,
+   "color": "#C0312B",
+   "default_visible": true,
+   "nodes": [
+    "artery"
+   ]
+  },
+  {
+   "id": "vein",
+   "label": "Venule",
+   "order": 11,
+   "color": "#3D5A99",
+   "default_visible": true,
+   "nodes": [
+    "vein"
+   ]
+  },
+  {
+   "id": "hypodermis",
+   "label": "Hypodermis",
+   "order": 12,
+   "color": "#F3E3B5",
+   "default_visible": true,
+   "nodes": [
+    "hypodermis"
+   ]
+  },
+  {
+   "id": "fat_lobules",
+   "label": "Fat lobules",
+   "order": 13,
+   "color": "#F2D27A",
+   "default_visible": true,
+   "nodes": [
+    "fat_lobule_00",
+    "fat_lobule_01",
+    "fat_lobule_02",
+    "fat_lobule_03",
+    "fat_lobule_04",
+    "fat_lobule_05",
+    "fat_lobule_06",
+    "fat_lobule_07",
+    "fat_lobule_08",
+    "fat_lobule_09",
+    "fat_lobule_10",
+    "fat_lobule_11",
+    "fat_lobule_12",
+    "fat_lobule_13",
+    "fat_lobule_14",
+    "fat_lobule_15",
+    "fat_lobule_16",
+    "fat_lobule_17",
+    "fat_lobule_18",
+    "fat_lobule_19",
+    "fat_lobule_20",
+    "fat_lobule_21",
+    "fat_lobule_22",
+    "fat_lobule_23",
+    "fat_lobule_24",
+    "fat_lobule_25",
+    "fat_lobule_26",
+    "fat_lobule_27",
+    "fat_lobule_28",
+    "fat_lobule_29",
+    "fat_lobule_30",
+    "fat_lobule_31",
+    "fat_lobule_32"
+   ]
+  }
+ ],
+ "node_count": 95
+}
