@@ -161,20 +161,21 @@ export default function Discography({ releases }: { releases: Release[] }) {
       <aside className={css.discoSide} data-src="10">
         <p className={css.label}>DISCOGRAPHY, {releases[releases.length - 1].year}–{releases[0].year}</p>
         <p className={css.label}>{no3(shown)} OF {no3(releases.length)}</p>
-        {/* SOURCES #23 a.filters (pages/000.html:135); SOURCES #25 anew-formatic.com brackets as buttons */}
-        <div className={css.filterLockUp} data-src="23 25">
-          <a href="#" role="button" data-src="23 25" aria-pressed={order === "default"} className={`${css.filters} ${order === "default" ? css.filtersActive : ""}`} onClick={(e) => { e.preventDefault(); setOrder("default"); }}>[YEAR]</a>
-          <a href="#" role="button" data-src="23 25" aria-pressed={order === "alphabetical"} className={`${css.filters} ${order === "alphabetical" ? css.filtersActive : ""}`} onClick={(e) => { e.preventDefault(); setOrder("alphabetical"); }}>[A–Z]</a>
+        {/* SOURCES #23 the order toggle; SOURCES #32 dauanjacari.com's filter pills (/blog, inline style) */}
+        <div className={css.pills} data-src="23 32">
+          <button type="button" data-src="23 32" aria-pressed={order === "default"} className={css.pill} onClick={() => setOrder("default")}>YEAR</button>
+          <button type="button" data-src="23 32" aria-pressed={order === "alphabetical"} className={css.pill} onClick={() => setOrder("alphabetical")}>A–Z</button>
         </div>
-        {/* SOURCES #24 eilidhduffy.com select.mobile-category-dropdown (pages/000.html:198; 16c6eebea782ae92.css:1) */}
-        <div className={css.selects} data-src="24">
-          <label>
-            <span className={css.label}>ROLE</span>
-            <select id="category-select" className={css.select} data-src="24" value={role} onChange={(e) => setRole(e.target.value)}>
-              <option value="">All</option>
-              {roles.map((x) => <option key={x} value={x}>{x}</option>)}
-            </select>
-          </label>
+        <div className={css.selects} data-src="24 32">
+          {/* the role filter: one pill per role, as dauanjacari.com's category radios (SOURCES #32) */}
+          <div>
+            <span className={css.label} id="role-label">ROLE</span>
+            <div className={css.pills} role="radiogroup" aria-labelledby="role-label" data-src="32">
+              {["", ...roles].map((x) => (
+                <button key={x || "all"} type="button" role="radio" aria-checked={role === x} className={css.pill} onClick={() => setRole(x)}>{x ? caps(x) : "ALL"}</button>
+              ))}
+            </div>
+          </div>
           <label>
             <span className={css.label}>ARTIST</span>
             <select id="subcategory-select" className={css.select} data-src="24" value={artist} onChange={(e) => setArtist(e.target.value)}>

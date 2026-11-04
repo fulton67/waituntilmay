@@ -317,13 +317,14 @@ if (want("sources")) {
   await d.getByRole("button", { name: /YEAR/ }).click(); await wait(300);
   const firstDefault = await firstTitle();
   out.S6 = { cookie: cookie?.value, firstAfterClick, firstAfterReload, firstDefault, pass: cookie?.value === "alphabetical" && firstAfterClick === firstAfterReload && firstAfterClick !== firstDefault };
-  // S14: the role select hides every row without that role; the empty choice shows all of them again
+  // S14: the role filter (a pill radio group, SOURCES #32) hides every row without that role; ALL shows them again
   const visible = () => d.evaluate(() => [...document.querySelectorAll("ol li")].filter((li) => li.style.display !== "none").map((li) => li.dataset.role));
-  const roleOpts = await d.evaluate(() => [...document.querySelectorAll("#category-select option")].map((o) => o.value).filter(Boolean));
-  const role = roleOpts.includes("Mixer") ? "Mixer" : roleOpts[0];
-  await d.selectOption("#category-select", role); await wait(300);
+  const roleOpts = await d.evaluate(() => [...document.querySelectorAll("[role=radiogroup] [role=radio]")].map((o) => o.textContent).filter((x) => x !== "ALL"));
+  const pillRole = roleOpts.includes("MIXER") ? "MIXER" : roleOpts[0];
+  await d.click(`[role=radiogroup] [role=radio]:text-is("${pillRole}")`); await wait(300);
   const shown = await visible();
-  await d.selectOption("#category-select", ""); await wait(300);
+  const role = shown[0]?.split("|").find((x) => x.toUpperCase() === pillRole) ?? pillRole;
+  await d.click(`[role=radiogroup] [role=radio]:text-is("ALL")`); await wait(300);
   const after = await visible();
   out.S14 = { role, shown: shown.length, allHaveRole: shown.every((x) => x.split("|").includes(role)), afterClear: after.length };
   out.S14.pass = out.S14.shown > 0 && out.S14.shown < 36 && out.S14.allHaveRole && out.S14.afterClear === 36;

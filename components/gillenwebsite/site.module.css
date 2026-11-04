@@ -175,10 +175,21 @@
 /* expanded: the active row lets its cover out, everything else on the page fades (opacity only) */
 .sliceBlank { display: block; height: 20px; background: #eee; }
 .discoSide { position: sticky; top: calc(var(--head) + 16px); align-self: start; padding: 0 20px; display: grid; gap: 14px; }
-/* SOURCES #23 viscosesyllabus a.filters */
-.filterLockUp { display: flex; gap: 8px; }
-.filters { background-color: #fff; padding: 0.15rem 0.2rem; border: 1px solid #000; border-radius: 2px; cursor: pointer; font-size: 12px; }
-.root .filtersActive { background: #000; color: #fff; }
+/* SOURCES #32 dauanjacari.com /blog filter pills (inline style: form[fs-list-element="filters"] label.w-radio and its
+   :hover, :has(input:checked), :has(input:focus-visible), .w-form-label), as computed: 31 px high, padding 10px 12px
+   9px, radius 100px, no border, a 10% black ground (30% hovered, 50% and near-white type when chosen), backdrop blur
+   6px, transition .3s, type 12px / 100% at .04em. Two things are the bible's, not theirs: the info face (R11, theirs
+   is Instrument Sans) and capitals typed in (R7, they set text-transform: lowercase). Rounded, so the one exception
+   to R4/R5's square controls. */
+.pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.root .pill {
+  display: inline-block; box-sizing: border-box; margin: 0; padding: 10px 12px 9px; border: 0; border-radius: 100px;
+  background: rgba(0, 0, 0, 0.1); backdrop-filter: blur(6px); color: rgb(0, 0, 0); cursor: pointer; transition: 0.3s;
+  font: 400 12px/100% var(--mono); letter-spacing: 0.04em; white-space: nowrap;
+}
+.root .pill:hover { background: rgba(0, 0, 0, 0.3); opacity: 1; }
+.root .pill[aria-pressed="true"], .root .pill[aria-checked="true"] { background: rgba(0, 0, 0, 0.5); color: rgb(250, 250, 250); }
+.root .pill:focus-visible { outline: 2px solid rgba(0, 0, 0, 0.45); outline-offset: 2px; }
 /* SOURCES #24 eilidhduffy select.mobile-category-dropdown */
 .selects { display: grid; gap: 10px; }
 .selects label { display: grid; gap: 2px; }
@@ -278,7 +289,7 @@
 .vvTracks { display: flex; flex-direction: column; border-top: 0.5px solid var(--ink); padding-top: 8px; margin-top: 6px; }
 .vvTrack { display: grid; grid-template-columns: 32px auto; gap: 0.25rem; padding: 4px 0; font-variant-numeric: tabular-nums; }
 .vvCollab { display: flex; flex-direction: column; gap: 4px; border-top: 0.5px solid var(--ink); padding-top: 8px; }
-.vvControls { display: flex; gap: 18px; margin-top: auto; padding-top: 12px; }
+.vvControls { display: flex; align-items: center; gap: 18px; margin-top: auto; padding-top: 12px; }
 /* phones: the discography's active row (Discography.tsx, data-active) grows to hold its cover as a square the width
    of the cover column, 40vw; nothing overlaps another row */
 @media (max-width: 719px) {

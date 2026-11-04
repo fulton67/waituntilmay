@@ -107,7 +107,11 @@ async function makeEngine(canvas: HTMLCanvasElement): Promise<Engine> {
   };
   const credit = { name: block(BOLD_FONT, CREDIT.name, CREDIT.ink), roles: block(LABEL_FONT, CREDIT.roles, CREDIT.ink), rest: block(LABEL_FONT, CREDIT.rest, CREDIT.grey) };
   credit.name.text = "DYLAN NEUSTADTER";
-  await new Promise<void>((r) => credit.name.sync(() => r()));
+  // the other blocks laid out with every common glyph once, so the glyph atlas and the type's programs exist before
+  // the first opening (otherwise that opening builds them, a ~100 ms frame)
+  const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789 ·,.:;'’&()-–!?/";
+  credit.roles.text = credit.rest.text = glyphs;
+  await Promise.all([credit.name, credit.roles, credit.rest].map((t) => new Promise<void>((r) => t.sync(() => r()))));
   // warm up: lay the label's type out once (loads the font, builds the glyph atlas) and compile every program the
   // open record needs, so the first opening has nothing to build
   artist.text = "A"; title.text = "A";
@@ -115,6 +119,11 @@ async function makeEngine(canvas: HTMLCanvasElement): Promise<Engine> {
   rec.set(1, 1);
   cam.position.set(0, 0, 3); cam.updateMatrixWorld();
   gl.compile(scene, cam);
+  // and one real frame on the hidden canvas, so every texture (grooves, glyph atlas, paper) is on the GPU too
+  holder.visible = true;
+  gl.setSize(64, 64, false);
+  gl.render(scene, cam);
+  gl.clear();
   rec.set(0, 0);
   holder.visible = false;
   return { gl, scene, cam, rec, holder, centre, artist, title, blank, credit, tex: { front: { t: null, w: 0, own: false }, back: { t: null, w: 0, own: false } } };
@@ -565,11 +574,12 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
             {r.collaborators.map((c) => <p key={c.name}>{c.name}, {c.roles.join(", ")}</p>)}
             {(r.label || r.catno) && <p>{[r.label, r.catno].filter(Boolean).join(" · ")}</p>}
           </div>
-          {/* SOURCES #14 rosalia carousel arrows; SOURCES #25 anew-formatic brackets as buttons */}
-          <div className={css.vvControls} data-src="14 25">
+          {/* SOURCES #14 rosalia carousel arrows */}
+          <div className={css.vvControls} data-src="14 32">
             <button type="button" aria-label="Previous release" onClick={() => show((cur! - 1 + N) % N)}>←</button>
             <button type="button" aria-label="Next release" onClick={() => show((cur! + 1) % N)}>→</button>
-            <button type="button" onClick={close}>[CLOSE]</button>
+            {/* SOURCES #32 dauanjacari.com's pill */}
+            <button type="button" className={css.pill} data-src="32" onClick={close}>CLOSE</button>
           </div>
         </div>
       )}

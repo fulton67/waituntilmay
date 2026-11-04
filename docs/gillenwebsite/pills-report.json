@@ -1,0 +1,120 @@
+{
+  "base": "http://localhost:3228",
+  "at": "2026-11-04T05:56:52.021Z",
+  "reference": "dauanjacari.com/blog, live",
+  "role": {
+    "height": {
+      "site": 31,
+      "dauanjacari": 31,
+      "same": true
+    },
+    "padding": {
+      "site": "10px 12px 9px",
+      "dauanjacari": "10px 12px 9px",
+      "same": true
+    },
+    "borderRadius": {
+      "site": "100px",
+      "dauanjacari": "100px",
+      "same": true
+    },
+    "border": {
+      "site": "0px none rgb(0, 0, 0)",
+      "dauanjacari": "0px none rgb(0, 0, 0)",
+      "same": true
+    },
+    "fontSize": {
+      "site": "12px",
+      "dauanjacari": "12px",
+      "same": true
+    },
+    "letterSpacing": {
+      "site": "0.48px",
+      "dauanjacari": "0.48px",
+      "same": true
+    },
+    "transition": {
+      "site": "0.3s",
+      "dauanjacari": "0.3s",
+      "same": true
+    },
+    "rest": {
+      "site": "rgba(0, 0, 0, 0.1)",
+      "dauanjacari": "rgba(0, 0, 0, 0.1)",
+      "same": true
+    },
+    "hover": {
+      "site": "rgba(0, 0, 0, 0.3)",
+      "dauanjacari": "rgba(0, 0, 0, 0.3)",
+      "same": true
+    },
+    "chosen": {
+      "site": "rgba(0, 0, 0, 0.5)",
+      "dauanjacari": "rgba(0, 0, 0, 0.5)",
+      "same": true
+    },
+    "chosenColor": {
+      "site": "rgb(250, 250, 250)",
+      "dauanjacari": "rgb(250, 250, 250)",
+      "same": true
+    }
+  },
+  "az": {
+    "height": {
+      "site": 31,
+      "dauanjacari": 31,
+      "same": true
+    },
+    "padding": {
+      "site": "10px 12px 9px",
+      "dauanjacari": "10px 12px 9px",
+      "same": true
+    },
+    "borderRadius": {
+      "site": "100px",
+      "dauanjacari": "100px",
+      "same": true
+    },
+    "border": {
+      "site": "0px none rgb(0, 0, 0)",
+      "dauanjacari": "0px none rgb(0, 0, 0)",
+      "same": true
+    },
+    "fontSize": {
+      "site": "12px",
+      "dauanjacari": "12px",
+      "same": true
+    },
+    "letterSpacing": {
+      "site": "0.48px",
+      "dauanjacari": "0.48px",
+      "same": true
+    },
+    "transition": {
+      "site": "0.3s",
+      "dauanjacari": "0.3s",
+      "same": true
+    },
+    "rest": {
+      "site": "rgba(0, 0, 0, 0.1)",
+      "dauanjacari": "rgba(0, 0, 0, 0.1)",
+      "same": true
+    },
+    "hover": {
+      "site": "rgba(0, 0, 0, 0.3)",
+      "dauanjacari": "rgba(0, 0, 0, 0.3)",
+      "same": true
+    },
+    "chosen": {
+      "site": "rgba(0, 0, 0, 0.5)",
+      "dauanjacari": "rgba(0, 0, 0, 0.5)",
+      "same": true
+    },
+    "chosenColor": {
+      "site": "rgb(250, 250, 250)",
+      "dauanjacari": "rgb(250, 250, 250)",
+      "same": true
+    }
+  },
+  "pass": true
+}

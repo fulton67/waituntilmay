@@ -1,6 +1,6 @@
 {
-  "base": "http://localhost:3227",
-  "at": "2026-11-04T05:40:19.057Z",
+  "base": "http://localhost:3228",
+  "at": "2026-11-04T05:56:52.938Z",
   "desktop": {
     "hover": {
       "motionMs": {
@@ -11,7 +11,7 @@
         ],
         "out": [
           233,
-          234,
+          233,
           233
         ]
       },
@@ -24,7 +24,7 @@
         "out": [
           266,
           266,
-          266
+          267
         ]
       },
       "startLatencyMs": [
@@ -33,7 +33,7 @@
         32,
         32,
         32,
-        32
+        33
       ],
       "animationDurations": [
         180
@@ -54,7 +54,7 @@
       "pass": true
     },
     "crossfade": {
-      "frames": 99,
+      "frames": 98,
       "smallestLargestCoverPx": 494,
       "sliceHeightPx": 20,
       "pass": true
@@ -66,8 +66,8 @@
       {
         "scrollY": 22,
         "open": 1,
-        "active": "05-arlo-parks-ambiguous-desire",
-        "nearest": "05-arlo-parks-ambiguous-desire",
+        "active": "01-girl-in-red-blue",
+        "nearest": "01-girl-in-red-blue",
         "coverW": 156,
         "coverH": 156,
         "overlapPx": 0,
@@ -76,8 +76,8 @@
       {
         "scrollY": 55,
         "open": 1,
-        "active": "05-arlo-parks-ambiguous-desire",
-        "nearest": "05-arlo-parks-ambiguous-desire",
+        "active": "01-girl-in-red-blue",
+        "nearest": "01-girl-in-red-blue",
         "coverW": 156,
         "coverH": 156,
         "overlapPx": 0,
@@ -86,8 +86,8 @@
       {
         "scrollY": 99,
         "open": 1,
-        "active": "07-obongjayar-paradise-now-and-forever",
-        "nearest": "07-obongjayar-paradise-now-and-forever",
+        "active": "01-girl-in-red-blue",
+        "nearest": "01-girl-in-red-blue",
         "coverW": 156,
         "coverH": 156,
         "overlapPx": 0,
@@ -96,8 +96,8 @@
       {
         "scrollY": 121,
         "open": 1,
-        "active": "08-lucy-park-good-graces",
-        "nearest": "08-lucy-park-good-graces",
+        "active": "01-girl-in-red-blue",
+        "nearest": "01-girl-in-red-blue",
         "coverW": 156,
         "coverH": 156,
         "overlapPx": 0,
@@ -105,6 +105,56 @@
       },
       {
         "scrollY": 154,
+        "open": 1,
+        "active": "02-freak-slug-amulet",
+        "nearest": "02-freak-slug-amulet",
+        "coverW": 156,
+        "coverH": 156,
+        "overlapPx": 0,
+        "inRow": true
+      },
+      {
+        "scrollY": 198,
+        "open": 1,
+        "active": "04-mike-d-thank-you",
+        "nearest": "04-mike-d-thank-you",
+        "coverW": 156,
+        "coverH": 156,
+        "overlapPx": 0,
+        "inRow": true
+      },
+      {
+        "scrollY": 220,
+        "open": 1,
+        "active": "05-arlo-parks-ambiguous-desire",
+        "nearest": "05-arlo-parks-ambiguous-desire",
+        "coverW": 156,
+        "coverH": 156,
+        "overlapPx": 0,
+        "inRow": true
+      },
+      {
+        "scrollY": 253,
+        "open": 1,
+        "active": "06-the-strokes-reality-awaits",
+        "nearest": "06-the-strokes-reality-awaits",
+        "coverW": 156,
+        "coverH": 156,
+        "overlapPx": 0,
+        "inRow": true
+      },
+      {
+        "scrollY": 297,
+        "open": 1,
+        "active": "09-luke-titus-from-what-was-will-grow-a-flower",
+        "nearest": "09-luke-titus-from-what-was-will-grow-a-flower",
+        "coverW": 156,
+        "coverH": 156,
+        "overlapPx": 0,
+        "inRow": true
+      },
+      {
+        "scrollY": 319,
         "open": 1,
         "active": "10-doja-cat-vie",
         "nearest": "10-doja-cat-vie",
@@ -114,27 +164,17 @@
         "inRow": true
       },
       {
-        "scrollY": 198,
+        "scrollY": 352,
         "open": 1,
-        "active": "12-sza-sos-deluxe-lana",
-        "nearest": "12-sza-sos-deluxe-lana",
+        "active": "11-don-toliver-doja-cat-f1-the-album",
+        "nearest": "11-don-toliver-doja-cat-f1-the-album",
         "coverW": 156,
         "coverH": 156,
         "overlapPx": 0,
         "inRow": true
       },
       {
-        "scrollY": 220,
-        "open": 1,
-        "active": "13-gossip-real-power",
-        "nearest": "13-gossip-real-power",
-        "coverW": 156,
-        "coverH": 156,
-        "overlapPx": 0,
-        "inRow": true
-      },
-      {
-        "scrollY": 253,
+        "scrollY": 396,
         "open": 1,
         "active": "14-marcus-king-mood-swings",
         "nearest": "14-marcus-king-mood-swings",
@@ -144,137 +184,7 @@
         "inRow": true
       },
       {
-        "scrollY": 297,
-        "open": 1,
-        "active": "17-brockhampton-tm",
-        "nearest": "17-brockhampton-tm",
-        "coverW": 156,
-        "coverH": 156,
-        "overlapPx": 0,
-        "inRow": true
-      },
-      {
-        "scrollY": 319,
-        "open": 1,
-        "active": "18-red-hot-chili-peppers-unlimited-love",
-        "nearest": "18-red-hot-chili-peppers-unlimited-love",
-        "coverW": 156,
-        "coverH": 156,
-        "overlapPx": 0,
-        "inRow": true
-      },
-      {
-        "scrollY": 352,
-        "open": 1,
-        "active": "19-rex-orange-county-threat",
-        "nearest": "19-rex-orange-county-threat",
-        "coverW": 156,
-        "coverH": 156,
-        "overlapPx": 0,
-        "inRow": true
-      },
-      {
-        "scrollY": 396,
-        "open": 1,
-        "active": "22-run-the-jewels-rtj-cu4tro",
-        "nearest": "22-run-the-jewels-rtj-cu4tro",
-        "coverW": 156,
-        "coverH": 156,
-        "overlapPx": 0,
-        "inRow": true
-      },
-      {
         "scrollY": 418,
-        "open": 1,
-        "active": "23-imagine-dragons-mercury-acts-1-and-2",
-        "nearest": "23-imagine-dragons-mercury-acts-1-and-2",
-        "coverW": 156,
-        "coverH": 156,
-        "overlapPx": 0,
-        "inRow": true
-      },
-      {
-        "scrollY": 451,
-        "open": 1,
-        "active": "24-jovanotti-il-boom",
-        "nearest": "24-jovanotti-il-boom",
-        "coverW": 156,
-        "coverH": 156,
-        "overlapPx": 0,
-        "inRow": true
-      },
-      {
-        "scrollY": 477,
-        "open": 1,
-        "active": "26-imagine-dragons-mercury-act-1",
-        "nearest": "26-imagine-dragons-mercury-act-1",
-        "coverW": 156,
-        "coverH": 156,
-        "overlapPx": 0,
-        "inRow": true
-      },
-      {
-        "scrollY": 477,
-        "open": 1,
-        "active": "26-imagine-dragons-mercury-act-1",
-        "nearest": "26-imagine-dragons-mercury-act-1",
-        "coverW": 156,
-        "coverH": 156,
-        "overlapPx": 0,
-        "inRow": true
-      },
-      {
-        "scrollY": 431,
-        "open": 1,
-        "active": "26-imagine-dragons-mercury-act-1",
-        "nearest": "26-imagine-dragons-mercury-act-1",
-        "coverW": 156,
-        "coverH": 156,
-        "overlapPx": 0,
-        "inRow": true
-      },
-      {
-        "scrollY": 385,
-        "open": 1,
-        "active": "24-jovanotti-il-boom",
-        "nearest": "24-jovanotti-il-boom",
-        "coverW": 156,
-        "coverH": 156,
-        "overlapPx": 0,
-        "inRow": true
-      },
-      {
-        "scrollY": 339,
-        "open": 1,
-        "active": "22-run-the-jewels-rtj-cu4tro",
-        "nearest": "22-run-the-jewels-rtj-cu4tro",
-        "coverW": 156,
-        "coverH": 156,
-        "overlapPx": 0,
-        "inRow": true
-      },
-      {
-        "scrollY": 293,
-        "open": 1,
-        "active": "20-sza-sos",
-        "nearest": "20-sza-sos",
-        "coverW": 156,
-        "coverH": 156,
-        "overlapPx": 0,
-        "inRow": true
-      },
-      {
-        "scrollY": 247,
-        "open": 1,
-        "active": "18-red-hot-chili-peppers-unlimited-love",
-        "nearest": "18-red-hot-chili-peppers-unlimited-love",
-        "coverW": 156,
-        "coverH": 156,
-        "overlapPx": 0,
-        "inRow": true
-      },
-      {
-        "scrollY": 201,
         "open": 1,
         "active": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
         "nearest": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
@@ -284,20 +194,110 @@
         "inRow": true
       },
       {
-        "scrollY": 155,
+        "scrollY": 451,
         "open": 1,
-        "active": "13-gossip-real-power",
-        "nearest": "13-gossip-real-power",
+        "active": "16-kesha-gag-order",
+        "nearest": "16-kesha-gag-order",
         "coverW": 156,
         "coverH": 156,
         "overlapPx": 0,
         "inRow": true
       },
       {
-        "scrollY": 109,
+        "scrollY": 495,
         "open": 1,
-        "active": "11-don-toliver-doja-cat-f1-the-album",
-        "nearest": "11-don-toliver-doja-cat-f1-the-album",
+        "active": "19-rex-orange-county-threat",
+        "nearest": "19-rex-orange-county-threat",
+        "coverW": 156,
+        "coverH": 156,
+        "overlapPx": 0,
+        "inRow": true
+      },
+      {
+        "scrollY": 517,
+        "open": 1,
+        "active": "20-sza-sos",
+        "nearest": "20-sza-sos",
+        "coverW": 156,
+        "coverH": 156,
+        "overlapPx": 0,
+        "inRow": true
+      },
+      {
+        "scrollY": 471,
+        "open": 1,
+        "active": "20-sza-sos",
+        "nearest": "20-sza-sos",
+        "coverW": 156,
+        "coverH": 156,
+        "overlapPx": 0,
+        "inRow": true
+      },
+      {
+        "scrollY": 425,
+        "open": 1,
+        "active": "18-red-hot-chili-peppers-unlimited-love",
+        "nearest": "18-red-hot-chili-peppers-unlimited-love",
+        "coverW": 156,
+        "coverH": 156,
+        "overlapPx": 0,
+        "inRow": true
+      },
+      {
+        "scrollY": 379,
+        "open": 1,
+        "active": "16-kesha-gag-order",
+        "nearest": "16-kesha-gag-order",
+        "coverW": 156,
+        "coverH": 156,
+        "overlapPx": 0,
+        "inRow": true
+      },
+      {
+        "scrollY": 333,
+        "open": 1,
+        "active": "14-marcus-king-mood-swings",
+        "nearest": "14-marcus-king-mood-swings",
+        "coverW": 156,
+        "coverH": 156,
+        "overlapPx": 0,
+        "inRow": true
+      },
+      {
+        "scrollY": 287,
+        "open": 1,
+        "active": "12-sza-sos-deluxe-lana",
+        "nearest": "12-sza-sos-deluxe-lana",
+        "coverW": 156,
+        "coverH": 156,
+        "overlapPx": 0,
+        "inRow": true
+      },
+      {
+        "scrollY": 241,
+        "open": 1,
+        "active": "09-luke-titus-from-what-was-will-grow-a-flower",
+        "nearest": "09-luke-titus-from-what-was-will-grow-a-flower",
+        "coverW": 156,
+        "coverH": 156,
+        "overlapPx": 0,
+        "inRow": true
+      },
+      {
+        "scrollY": 195,
+        "open": 1,
+        "active": "07-obongjayar-paradise-now-and-forever",
+        "nearest": "07-obongjayar-paradise-now-and-forever",
+        "coverW": 156,
+        "coverH": 156,
+        "overlapPx": 0,
+        "inRow": true
+      },
+      {
+        "scrollY": 149,
+        "open": 1,
+        "active": "05-arlo-parks-ambiguous-desire",
+        "nearest": "05-arlo-parks-ambiguous-desire",
         "coverW": 156,
         "coverH": 156,
         "overlapPx": 0,
@@ -312,15 +312,15 @@
     "exactlyOneEverywhere": true,
     "activeIsNearest": true,
     "fingerDown": {
-      "before": "11-don-toliver-doja-cat-f1-the-album",
-      "during": "11-don-toliver-doja-cat-f1-the-album",
-      "after": "11-don-toliver-doja-cat-f1-the-album",
+      "before": "05-arlo-parks-ambiguous-desire",
+      "during": "05-arlo-parks-ambiguous-desire",
+      "after": "05-arlo-parks-ambiguous-desire",
       "scrolled": true,
       "pass": true
     },
     "pass": true,
-    "cls": 0.06262213337526111,
+    "cls": 0,
     "tapOpens": "open"
   },
-  "clsPass": false
+  "clsPass": true
 }
