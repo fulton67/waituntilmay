@@ -1,6 +1,18 @@
 {
-  "base": "http://localhost:3228",
-  "at": "2026-11-05T21:40:00.886Z",
+  "base": "http://localhost:3227",
+  "at": "2026-11-05T22:31:47.266Z",
+  "clearance": {
+    "width": 0.44,
+    "height": 0.337,
+    "x0": -0.2294,
+    "x1": 0.2105,
+    "plateInner": [
+      -0.2528,
+      0.2339
+    ],
+    "left": 0.0234,
+    "right": 0.0234
+  },
   "sleeveSize": 0.337,
   "maxRadius": 0.409,
   "slots": 108,
