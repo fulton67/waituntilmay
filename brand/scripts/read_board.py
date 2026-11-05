@@ -1,4 +1,5 @@
-"""board/keys.txt + the by-eye reading of every block (from board/sheets/*.jpg) -> board/blocks.json, board/READ.md"""
+"""board/blocks_api.json (the API pull, 56 blocks) + the reading of every block (from board/sheets/*.jpg) -> board/blocks.json, board/READ.md.
+TYPE marks blocks where the typography is the subject."""
 import json, pathlib
 from collections import defaultdict
 
@@ -58,28 +59,34 @@ R = {
  "39832259": ("type", "List of beautiful books: grotesk numerals grid with tiny images", "numeric/index typography"),
  "40898406": ("type-over-photo", "red slip portrait, vertical small caps, line logo", "vertical caps on fashion photo"),
  "36747221": ("type", "Demande Speciale: big grey 7 behind a data table in grotesk", "data sheet typography, big numeral"),
+ "4358580": ("channel", "sub-channel _skintech (maud-giraudin, 47 blocks): skin-tech product imagery", "a whole reference shelf for clinical-tech skin imagery"),
+ "832475": ("channel", "sub-channel CGI 3D LIQUIDS (290 blocks): rendered gels, drops, serums", "the 3D/liquid render language for product and filler shots"),
+ "4341196": ("channel", "sub-channel MOTION / Typography (alex-rainer, 21 blocks): kinetic type", "motion reference for type reveals in stories and reels"),
 }
+TYPE = {"52020245", "27647159", "30248124", "31223791", "32197302", "33635746", "39832259", "36747221", "7529470", "14664481", "2145281",
+        "13828406", "11460382", "28246874", "26381730", "52302251", "47483050", "47311638", "50510620", "13607089", "16463981", "4341196"}
 FAV = {"7529470", "14664481", "41911984", "2145281"}
 
+api = json.load(open(B / "blocks_api.json", encoding="utf-8"))
 blocks = []
-for line in (B / "keys.txt").read_text().splitlines():
-    if not line.strip():
-        continue
-    bid, f = line.split()
+for a in api["blocks"]:
+    bid = str(a["id"])
     g, what, why = R[bid]
-    blocks.append({"id": int(bid), "class": "Image", "file": f"img/{bid}_{f}", "source": f"https://www.are.na/block/{bid}",
-                   "group": g, "what": what, "why": why, "favourite": bid in FAV, "animated": f.endswith(".gif")})
-json.dump(blocks, open(B / "blocks.json", "w", encoding="utf-8"), indent=1)
+    blocks.append({"id": a["id"], "class": a["class"], "title": a["title"], "file": a["file"], "source": a["source"] or f"https://www.are.na/block/{bid}",
+                   "arena": f"https://www.are.na/block/{bid}", "group": g, "what": what, "why": why, "favourite": bid in FAV, "type_driven": bid in TYPE,
+                   "animated": bool(a["file"] and a["file"].endswith(".gif")), "media": a.get("media")})
+json.dump(blocks, open(B / "blocks.json", "w", encoding="utf-8"), indent=1, ensure_ascii=False)
 
 by = defaultdict(list)
 for b in blocks:
     by[b["group"]].append(b)
 L = ["# The board, read", "",
-     "`dr-ostad` (are.na/naim-johnson/dr-ostad, private): 56 blocks listed, 53 image blocks captured at full size. "
-     "★ = one of Naim's four favourites (sent in chat 2026-11-05). Every block was looked at on `sheets/`.", ""]
+     f"`dr-ostad` (are.na/naim-johnson/dr-ostad): channel length {api['channel_length']}, pulled {api['pulled']} through the API "
+     "(49 Image, 3 Link, 1 Attachment, 3 Channel; 53 images at full size, plus the Crown Affair reel as `media/43001699.mp4`). "
+     "★ = one of Naim's four favourites. **T** = type-driven (the typography is the subject). Every block was looked at on `sheets/`.", ""]
 for g in sorted(by, key=lambda g: -len(by[g])):
     L += [f"## {g} ({len(by[g])})", ""]
-    L += [f"- {'★ ' if b['favourite'] else ''}`{b['id']}` {b['what']}: *{b['why']}*" for b in by[g]]
+    L += [f"- {'★ ' if b['favourite'] else ''}{'**T** ' if b['type_driven'] else ''}`{b['id']}` {b['what']}: *{b['why']}*" for b in by[g]]
     L.append("")
 L += ["## What the board is saying", "",
       "1. **Faces and skin, cropped tight, are the image.** 20+ blocks put a face or a skin macro full-bleed and let type sit on it. For a dermatologist, that is the subject itself.",
@@ -90,4 +97,4 @@ L += ["## What the board is saying", "",
       "6. **Story systems, not one-offs.** Half the board is phones in a row. He wants a family of formats that repeats.",
       "7. **Oversized letterforms broken across the frame** are the identity device (EQL, the SIJO corner letters, INT, the 7).", ""]
 (B / "READ.md").write_text("\n".join(L), encoding="utf-8")
-print(len(blocks), {g: len(v) for g, v in by.items()})
+print(len(blocks), sum(b["type_driven"] for b in blocks), {g: len(v) for g, v in by.items()})
