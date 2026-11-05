@@ -18,9 +18,16 @@ import { R0 } from "./cardTexture";
 import { SLEEVE, sleeveGeometry, sharpen, loadTex, setMap, sideWidth, sideFile, type Side } from "./sleeve";
 import { paperGrain } from "./textures";
 import { triplanar, materialsFrom, MATERIAL_URLS } from "./triplanar";
+import { Text } from "troika-three-text";
 import bake from "@/lib/gillenwebsite/housing-bake.json";
 
 export const MODEL = "/models/housing.glb";
+// The sleeve face's three lines (DYLAN NEUSTADTER, the artist, the release), SDF in the header's face (Archivo at 118%),
+// white with a thin dark halo, on a strip along the bottom edge just above the rail slots. One block per release, on
+// its copy nearest the front, drawn only while that copy is the front sleeve: it draws after the cover (renderOrder)
+// with no depth test, so nothing can hide it, and only the front sleeve has it so it never shows through another.
+const FACE_FONT = "/gillenwebsite/fonts/archivo-wdth118-regular.ttf";
+const FACE = { size: 0.0135, margin: 0.013, bottom: 0.042, lead: 1.18, order: 3 };
 // the baked parts: their geometry with new UVs, and per part albedo, roughness (G) + metalness (B), and normal
 const BAKED = "/models/housing-baked.glb";
 const BAKED_PARTS = [...new Set(Object.values(bake.nodes).map((n) => n.maps))];
@@ -203,7 +210,24 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       drum.add(g);
       cards.push(g);
     }
-    return { house, axis, knobs, drum, cradle, cradleScene, cards, faces, sleeveGeo, meshes, triangles };
+    const faceTextMat = new THREE.MeshBasicMaterial({ depthTest: false, depthWrite: false, transparent: true, toneMapped: false });
+    const faceText = faces.map(({ r }) => {
+      const t = new Text();
+      Object.assign(t, { font: FACE_FONT, fontSize: FACE.size, lineHeight: FACE.lead, color: 0xffffff, anchorX: "left", anchorY: "bottom", whiteSpace: "nowrap",
+        outlineWidth: "12%", outlineBlur: "10%", outlineColor: 0x000000, outlineOpacity: 0.85, maxWidth: SLEEVE - FACE.margin * 2,
+        clipRect: [0, -1, SLEEVE - FACE.margin * 2, 1] });
+      t.text = `DYLAN NEUSTADTER
+${r.artist}
+${r.release}`;
+      t.position.set(-SLEEVE / 2 + FACE.margin, R0 + FACE.bottom, 0.0004);
+      t.renderOrder = FACE.order;
+      t.visible = false;
+      // troika derives its glyph and outline materials from this base, so they inherit no depth test
+      t.material = faceTextMat;
+      t.sync();
+      return { t, holder: -1 };
+    });
+    return { house, axis, knobs, drum, cradle, cradleScene, cards, faces, faceText, sleeveGeo, meshes, triangles };
   }, [gltf, baked, tex, bakedTex, cradleGltf, cradleTex, gunTex, gl, releases, N, TOTAL]);
 
   // the first front sleeve counts as settled 150 ms after the first frame
@@ -294,6 +318,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       // the baked parts' textures and the paper, as GPU memory (RGBA8 with mips)
       bakedTextureMB: () => +(bakedTex.reduce((t, x) => { const im = x.image as { width: number; height: number }; return t + (im.width * im.height * 4 * 4) / 3; }, 0) / 2 ** 20).toFixed(2),
       cradle: built.cradle,
+      faceText: built.faceText.map((f) => f.t),
       meshes: built.meshes, triangles: built.triangles, axis: built.axis.toArray(), nodes: (() => { const n: string[] = []; built.house.traverse((o) => { if ((o as THREE.Mesh).isMesh) n.push(o.name); }); return n; })(),
     };
     console.log("Website is loaded, enjoy");
@@ -334,6 +359,14 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       built.cards[i].visible = i !== rig.lifted;
     }
     for (const k of built.knobs) k.rotation.x = FLIP_DIR * -rig.s * 0.42;
+    // each release's face text rides on its copy nearest the front, shown only while that copy is the front sleeve
+    for (let r = 0; r < N; r++) {
+      const ft = built.faceText[r];
+      let best = 0, bd = Infinity;
+      for (let k = 0; k < 3; k++) { const c = r + k * N, d = Math.abs(((((c - rig.s) % TOTAL) + TOTAL + TOTAL / 2) % TOTAL) - TOTAL / 2); if (d < bd) { bd = d; best = c; } }
+      if (ft.holder !== best) { built.cards[best].add(ft.t); ft.holder = best; }
+      ft.t.visible = bd < 0.4 && best !== rig.lifted;
+    }
     const front = wrap(Math.round(rig.s), N);
     if (front !== rig.front) { rig.front = front; rig.onFront.forEach((f) => f(front)); settle.since = now; settle.done = false; }
     if (!settle.done && now - settle.since > SETTLE_MS) { settle.done = true; bigCovers(front); }

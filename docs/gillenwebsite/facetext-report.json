@@ -1,0 +1,269 @@
+{
+  "base": "http://localhost:3227",
+  "at": "2026-11-05T20:28:30.212Z",
+  "profiles": {
+    "desktop": {
+      "rows": [
+        {
+          "release": "14-marcus-king-mood-swings",
+          "kind": "dark",
+          "coverMeanLuminance": 13,
+          "glyphPx": 1468,
+          "surroundPx": 5110,
+          "Lglyph": 0.888,
+          "Lsurround": 0.004,
+          "renderOrder": 3,
+          "depthTest": [
+            false,
+            false
+          ],
+          "box": [
+            649,
+            1105,
+            229,
+            95
+          ],
+          "contrast": 17.37
+        },
+        {
+          "release": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
+          "kind": "dark",
+          "coverMeanLuminance": 25.7,
+          "glyphPx": 2222,
+          "surroundPx": 7818,
+          "Lglyph": 0.888,
+          "Lsurround": 0.004,
+          "renderOrder": 3,
+          "depthTest": [
+            false,
+            false
+          ],
+          "box": [
+            649,
+            1095,
+            368,
+            105
+          ],
+          "contrast": 17.37
+        },
+        {
+          "release": "20-sza-sos",
+          "kind": "dark",
+          "coverMeanLuminance": 28.1,
+          "glyphPx": 1020,
+          "surroundPx": 3415,
+          "Lglyph": 0.897,
+          "Lsurround": 0.006,
+          "renderOrder": 3,
+          "depthTest": [
+            false,
+            false
+          ],
+          "box": [
+            649,
+            1105,
+            229,
+            95
+          ],
+          "contrast": 16.91
+        },
+        {
+          "release": "22-run-the-jewels-rtj-cu4tro",
+          "kind": "light",
+          "coverMeanLuminance": 206.7,
+          "glyphPx": 1430,
+          "surroundPx": 5222,
+          "Lglyph": 0.916,
+          "Lsurround": 0.03,
+          "renderOrder": 3,
+          "depthTest": [
+            false,
+            false
+          ],
+          "box": [
+            649,
+            1105,
+            229,
+            95
+          ],
+          "contrast": 12.08
+        },
+        {
+          "release": "19-rex-orange-county-threat",
+          "kind": "light",
+          "coverMeanLuminance": 215.6,
+          "glyphPx": 804,
+          "surroundPx": 3387,
+          "Lglyph": 0.939,
+          "Lsurround": 0.035,
+          "renderOrder": 3,
+          "depthTest": [
+            false,
+            false
+          ],
+          "box": [
+            649,
+            1105,
+            229,
+            95
+          ],
+          "contrast": 11.64
+        },
+        {
+          "release": "17-brockhampton-tm",
+          "kind": "light",
+          "coverMeanLuminance": 225.9,
+          "glyphPx": 123,
+          "surroundPx": 469,
+          "Lglyph": 0.871,
+          "Lsurround": 0.009,
+          "renderOrder": 3,
+          "depthTest": [
+            false,
+            false
+          ],
+          "box": [
+            649,
+            1105,
+            229,
+            95
+          ],
+          "contrast": 15.61
+        }
+      ],
+      "pass": false
+    },
+    "phone": {
+      "rows": [
+        {
+          "release": "14-marcus-king-mood-swings",
+          "kind": "dark",
+          "coverMeanLuminance": 13,
+          "glyphPx": 1008,
+          "surroundPx": 4242,
+          "Lglyph": 0.815,
+          "Lsurround": 0.005,
+          "renderOrder": 3,
+          "depthTest": [
+            false,
+            false
+          ],
+          "box": [
+            407,
+            1436,
+            204,
+            81
+          ],
+          "contrast": 15.73
+        },
+        {
+          "release": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
+          "kind": "dark",
+          "coverMeanLuminance": 25.7,
+          "glyphPx": 1509,
+          "surroundPx": 6544,
+          "Lglyph": 0.807,
+          "Lsurround": 0.004,
+          "renderOrder": 3,
+          "depthTest": [
+            false,
+            false
+          ],
+          "box": [
+            407,
+            1426,
+            325,
+            91
+          ],
+          "contrast": 15.87
+        },
+        {
+          "release": "20-sza-sos",
+          "kind": "dark",
+          "coverMeanLuminance": 28.1,
+          "glyphPx": 691,
+          "surroundPx": 2882,
+          "Lglyph": 0.813,
+          "Lsurround": 0.008,
+          "renderOrder": 3,
+          "depthTest": [
+            false,
+            false
+          ],
+          "box": [
+            407,
+            1436,
+            204,
+            81
+          ],
+          "contrast": 14.88
+        },
+        {
+          "release": "22-run-the-jewels-rtj-cu4tro",
+          "kind": "light",
+          "coverMeanLuminance": 206.7,
+          "glyphPx": 936,
+          "surroundPx": 4358,
+          "Lglyph": 0.852,
+          "Lsurround": 0.043,
+          "renderOrder": 3,
+          "depthTest": [
+            false,
+            false
+          ],
+          "box": [
+            407,
+            1436,
+            204,
+            81
+          ],
+          "contrast": 9.7
+        },
+        {
+          "release": "19-rex-orange-county-threat",
+          "kind": "light",
+          "coverMeanLuminance": 215.6,
+          "glyphPx": 501,
+          "surroundPx": 2735,
+          "Lglyph": 0.898,
+          "Lsurround": 0.046,
+          "renderOrder": 3,
+          "depthTest": [
+            false,
+            false
+          ],
+          "box": [
+            407,
+            1436,
+            204,
+            81
+          ],
+          "contrast": 9.88
+        },
+        {
+          "release": "17-brockhampton-tm",
+          "kind": "light",
+          "coverMeanLuminance": 225.9,
+          "glyphPx": 77,
+          "surroundPx": 394,
+          "Lglyph": 0.815,
+          "Lsurround": 0.012,
+          "renderOrder": 3,
+          "depthTest": [
+            false,
+            false
+          ],
+          "box": [
+            407,
+            1436,
+            204,
+            81
+          ],
+          "contrast": 13.95
+        }
+      ],
+      "pass": false
+    }
+  },
+  "pass": false
+}
