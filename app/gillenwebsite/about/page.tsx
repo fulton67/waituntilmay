@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import About from "@/components/gillenwebsite/About";
-import { about } from "@/lib/gillenwebsite/discography";
+import { about, releases } from "@/lib/gillenwebsite/discography";
 
 export const metadata: Metadata = {
   title: "About · Dylan Neustadter",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <About about={about} />;
+  return <About about={about} releases={releases} />;
 }

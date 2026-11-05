@@ -169,8 +169,9 @@ export default function Chrome({
 
       <main ref={main} className={css.main} data-src="05">{children}</main>
 
-      {/* home is one fixed stage with nothing below it, so the footer lives on the scrolling pages */}
-      {path !== BASE && <footer className={css.footer} data-src="26">
+      {/* home is one fixed stage with nothing below it, so the footer lives on the scrolling pages; About carries its
+          own contact block and nothing else */}
+      {path !== BASE && path !== `${BASE}/about` && <footer className={css.footer} data-src="26">
         <Ruler />
         <div className={css.footRow}>
           <span>DYLAN NEUSTADTER, PRODUCER, WRITER, MIXER</span>

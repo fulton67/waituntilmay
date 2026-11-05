@@ -1,37 +1,58 @@
-// /gillenwebsite/about: answers 200 (no redirect); Dylan's information only (no release list, no cover, no index
-// number); the About text's size, face and weight at 1440 and 390; contact and socials at 12 px; the nav reads
-// ROLODEX / DISCOGRAPHY / ABOUT.
-//   node scripts/gillenwebsite/about.mjs [base-url] [--out file]
+// /gillenwebsite/about at 1440 and 390: answers 200 (no redirect); nav ROLODEX / DISCOGRAPHY / ABOUT; the About text's
+// computed size (56 / 30 px), leading (1.05), face (the header's), weight and colour, left-aligned, its lines (words
+// per line, at most 22); the page holds only the text, the grey credit layer (aria-hidden, #c8c8c8, opacity 1 / 0.6)
+// and the contact block (12 px), no release list and no site footer; one cover square after each artist named in the
+// text who is in the discography (names found in the text against discography.json's credited artists).
+//   node scripts/gillenwebsite/about.mjs [base-url] [--out file] [--shots dir]
 import { chromium } from "@playwright/test";
 import fs from "node:fs/promises";
 
 const argv = process.argv.slice(2);
 const BASE = (argv.find((a) => /^https?:/.test(a)) || "http://localhost:3217").replace(/\/$/, "");
 const OUT = argv.includes("--out") ? argv[argv.indexOf("--out") + 1] : "docs/gillenwebsite/about-report.json";
+const SHOTS = argv.includes("--shots") ? argv[argv.indexOf("--shots") + 1] : null;
 const res = await fetch(`${BASE}/gillenwebsite/about`, { redirect: "manual" });
-const report = { base: BASE, at: new Date().toISOString(), status: res.status, profiles: {} };
+const about = JSON.parse(await fs.readFile("lib/gillenwebsite/about.json", "utf8"));
+const releases = JSON.parse(await fs.readFile("lib/gillenwebsite/discography.json", "utf8")).releases;
+const artists = [...new Set(releases.flatMap((r) => r.artist.split(/,|&/).map((x) => x.trim().replace(/^the /i, ""))).filter(Boolean))];
+const named = artists.filter((a) => new RegExp(`(?:The )?${a.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![\\w'])`).test(about.text.replace(/\s+/g, " ")));
+const report = { base: BASE, at: new Date().toISOString(), status: res.status, artistsNamedInDiscography: named, profiles: {} };
 const browser = await chromium.launch({ channel: "chrome", headless: false, args: ["--window-position=0,0"] });
-for (const p of [{ name: "desktop", w: 1440, h: 900, px: 28 }, { name: "phone", w: 390, h: 844, px: 22 }]) {
+for (const p of [{ name: "desktop", w: 1440, h: 900, px: 56, grey: 1 }, { name: "phone", w: 390, h: 844, px: 30, grey: 0.6 }]) {
   const ctx = await browser.newContext({ viewport: { width: p.w, height: p.h }, isMobile: p.w < 720, hasTouch: p.w < 720 });
   const page = await ctx.newPage();
   await page.goto(`${BASE}/gillenwebsite/about`);
   await page.waitForTimeout(2500);
   const out = await page.evaluate(() => {
-    const main = document.querySelector("main"), t = document.querySelector("[data-about-text]"), cs = getComputedStyle(t);
-    const links = [...main.querySelectorAll("section a, section button")].map((x) => ({ text: x.textContent, px: parseFloat(getComputedStyle(x).fontSize) }));
+    const main = document.querySelector("main"), t = document.querySelector("[data-about-text]"), cs = getComputedStyle(t), grey = document.querySelector("[data-about-grey]"), gs = getComputedStyle(grey);
+    const contact = document.querySelector("[data-about-contact]");
+    // every element in main that is not the text (and its lines and squares), the grey layer (and its lines) or the contact block (and its links)
+    const other = [...main.querySelectorAll("*")].filter((e) => !t.contains(e) && !grey.contains(e) && !contact.contains(e) && !e.contains(t) && !e.contains(contact) && !e.contains(grey));
+    const lines = [...t.children].map((l) => l.textContent.trim());
     return {
-      url: location.pathname, textPx: parseFloat(cs.fontSize), family: cs.fontFamily.split(",")[0], weight: cs.fontWeight, headerFamily: getComputedStyle(document.querySelector("nav a[href$='/about']")).fontFamily.split(",")[0],
-      releaseRows: main.querySelectorAll("li, [data-id], [data-entry], [data-inline]").length, images: main.querySelectorAll("img").length,
-      nav: [...document.querySelectorAll("nav a")].map((a) => a.textContent.trim()).filter((x) => /^[A-Z]+$/.test(x)), links,
+      url: location.pathname, textPx: parseFloat(cs.fontSize), leading: +(parseFloat(cs.lineHeight) / parseFloat(cs.fontSize)).toFixed(3), family: cs.fontFamily.split(",")[0], weight: cs.fontWeight, color: cs.color, align: cs.textAlign,
+      headerFamily: getComputedStyle(document.querySelector("nav a[href$='/about']")).fontFamily.split(",")[0],
+      lines: lines.length, maxWordsPerLine: Math.max(...lines.map((l) => l.split(/\s+/).length)),
+      greyColor: gs.color, greyOpacity: +gs.opacity, greyHidden: grey.getAttribute("aria-hidden") === "true", greyPx: parseFloat(gs.fontSize), greyLeading: +(parseFloat(gs.lineHeight) / parseFloat(gs.fontSize)).toFixed(3), greyOffsetLines: +((grey.getBoundingClientRect().top - t.getBoundingClientRect().top) / parseFloat(cs.lineHeight)).toFixed(2),
+      squares: t.querySelectorAll("img").length, squareAfter: [...t.querySelectorAll("img")].map((i) => i.closest("[class*=aboutName]")?.textContent.trim()), squareSameLine: [...t.querySelectorAll("img")].every((i) => { const n = i.closest("[class*=aboutName]"), g = document.createRange(); g.selectNodeContents(n.firstChild); const last = [...g.getClientRects()].at(-1), b = i.getBoundingClientRect(); return Math.abs(last.bottom - b.bottom) < parseFloat(cs.lineHeight) / 2 && b.left >= last.right - 1; }),
+      squarePx: (() => { const i = t.querySelector("img")?.getBoundingClientRect(); return i ? [Math.round(i.width), Math.round(i.height)] : null; })(),
+      releaseRows: main.querySelectorAll("li, [data-id], [data-entry], [data-inline], [data-footer-index]").length,
+      otherElements: other.map((e) => e.tagName + "." + e.className),
+      footer: !!document.querySelector("footer"),
+      nav: [...document.querySelectorAll("nav a")].map((a) => a.textContent.trim()).filter((x) => /^[A-Z]+$/.test(x)),
+      contactPx: [...contact.querySelectorAll("a, button")].map((x) => parseFloat(getComputedStyle(x).fontSize)),
     };
   });
-  out.pass = out.url === "/gillenwebsite/about" && out.textPx === p.px && out.family === out.headerFamily && out.weight === "400" && out.releaseRows === 0 && out.images === 0
-    && out.nav.join("/") === "ROLODEX/DISCOGRAPHY/ABOUT" && out.links.length >= 2 && out.links.every((l) => l.px === 12);
+  if (SHOTS) await page.screenshot({ path: `${SHOTS}/about-${p.name}.png`, fullPage: true });
+  out.pass = out.url === "/gillenwebsite/about" && out.textPx === p.px && Math.abs(out.leading - 1.05) < 0.01 && out.family === out.headerFamily && out.weight === "400" && out.color === "rgb(0, 0, 0)" && out.align === "left"
+    && out.maxWordsPerLine <= 22 && out.greyColor === "rgb(200, 200, 200)" && Math.abs(out.greyOpacity - p.grey) < 0.01 && out.greyHidden && out.greyPx === p.px
+    && out.squares === named.length && out.squareSameLine && out.releaseRows === 0 && out.otherElements.length === 0 && !out.footer
+    && out.nav.join("/") === "ROLODEX/DISCOGRAPHY/ABOUT" && out.contactPx.length >= 2 && out.contactPx.every((x) => x === 12);
   report.profiles[p.name] = out;
   console.log(p.name, JSON.stringify(out));
   await ctx.close();
 }
 await browser.close();
 report.pass = report.status === 200 && Object.values(report.profiles).every((x) => x.pass);
-console.log("pass", report.pass, report.status);
+console.log("named", named.length, named.join(", "), "| pass", report.pass);
 await fs.writeFile(OUT, JSON.stringify(report, null, 2) + "\n");
