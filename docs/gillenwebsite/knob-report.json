@@ -1,0 +1,42 @@
+{
+  "base": "http://localhost:3227",
+  "at": "2026-11-05T20:40:54.428Z",
+  "cursorOverKnob": "pointer",
+  "atRest": {
+    "lastDir": -1,
+    "posBefore": -1,
+    "posAfter": -2,
+    "moved": -1,
+    "frontBefore": 35,
+    "frontAfter": 34,
+    "pass": true
+  },
+  "turning": [
+    {
+      "coastingAtTap": true,
+      "before": 5.323,
+      "asked": 10.646,
+      "capped": false,
+      "ratio": 2,
+      "speedRightAfter": 11.215
+    },
+    {
+      "coastingAtTap": true,
+      "before": 5.895,
+      "asked": 11.789,
+      "capped": false,
+      "ratio": 2,
+      "speedRightAfter": 11.048
+    },
+    {
+      "coastingAtTap": true,
+      "before": 5.954,
+      "asked": 11.907,
+      "capped": false,
+      "ratio": 2,
+      "speedRightAfter": 9.898
+    }
+  ],
+  "pass": true,
+  "turningPass": true
+}

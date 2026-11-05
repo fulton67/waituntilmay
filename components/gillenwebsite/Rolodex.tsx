@@ -117,8 +117,11 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
     });
     const axis = new THREE.Box3().setFromObject(house.getObjectByName("knob_right")!).getCenter(new THREE.Vector3());
     // knobs turn on the drum axis: re-parent each part into a pivot group at the axis
+    // (idempotent: a second run, as under StrictMode, finds each part already in its pivot and keeps that pivot)
     const knobs = KNOBS.map((n) => house.getObjectByName(n)).filter(Boolean).map((m) => {
+      if (m!.parent?.userData.knobPivot) return m!.parent;
       const p = new THREE.Group();
+      p.userData.knobPivot = true;
       p.position.set(0, axis.y, axis.z);
       house.add(p);
       p.updateMatrixWorld();
@@ -317,6 +320,8 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       bakedTextureMB: () => +(bakedTex.reduce((t, x) => { const im = x.image as { width: number; height: number }; return t + (im.width * im.height * 4 * 4) / 3; }, 0) / 2 ** 20).toFixed(2),
       cradle: built.cradle,
       faceText: built.faceText.map((f) => f.t),
+      // the left knob's middle on screen (CSS px), to tap it (the right one is near the cover panel on desktop)
+      knobPoint: () => { const k = built.house.getObjectByName("knob_left")!; const c = new THREE.Box3().setFromObject(k).getCenter(new THREE.Vector3()).project(rig.camera!), b = rig.hit!.parentElement!.getBoundingClientRect(); return { x: b.left + (c.x + 1) * 0.5 * b.width, y: b.top + (1 - c.y) * 0.5 * b.height }; },
       meshes: built.meshes, triangles: built.triangles, axis: built.axis.toArray(), nodes: (() => { const n: string[] = []; built.house.traverse((o) => { if ((o as THREE.Mesh).isMesh) n.push(o.name); }); return n; })(),
     };
     console.log("Website is loaded, enjoy");

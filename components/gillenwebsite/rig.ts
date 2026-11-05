@@ -38,7 +38,9 @@ export type Rig = {
   lifted: number; // the slot whose sleeve is lifted off the ring into the record view, or -1
   // the decoded bitmaps a release's sleeve is showing now, front and back, with their widths (Rolodex.tsx)
   coverImages?: (i: number) => { front: { image: unknown; w: number } | null; back: { image: unknown; w: number } | null };
-  setPaused?: (paused: boolean) => void; // stop or restart the stage's render loop (Scene.tsx), while the record view covers it
+  setPaused?: (paused: boolean) => void;
+  lastDir: number; // the direction the drum last moved in (+1 / -1), for a knob tap at rest
+  lastBoost: { before: number; after: number; capped: boolean; at: number } | null; // the last knob tap's speeds (cards/s) // stop or restart the stage's render loop (Scene.tsx), while the record view covers it
   ready: boolean;
   axisY: number; // height of the drum axis, from knob_right's bounding box
   hit: HTMLElement | null; // the cards' hit area over the stage (touch-action: none), kept on the drum's screen rect
@@ -69,6 +71,8 @@ export const rig: Rig = {
   firstCardTexture: false,
   allSmall: false,
   lifted: -1,
+  lastDir: 1,
+  lastBoost: null,
   ready: false,
   axisY: 0.585,
   hit: null,
@@ -105,6 +109,7 @@ export function coast(f: Fling, now: number) {
 
 // The drum's position is virtual: nothing scrolls. Moves are instant and the spring in Rolodex.tsx animates the cards.
 export function setPos(x: number) {
+  if (x !== rig.pos) rig.lastDir = Math.sign(x - rig.pos);
   rig.pos = x;
   rig.lastScroll = performance.now();
 }
@@ -112,6 +117,30 @@ export function jumpTo(x: number) {
   rig.fling = null;
   setPos(x);
 }
+// the momentum maximum: the speed of a flick that carries MAX_CARRY cards
+let lo = 0, hi = 200;
+for (let k = 0; k < 50; k++) { const m = (lo + hi) / 2; if (carry(m) < MAX_CARRY) lo = m; else hi = m; }
+export const V_MAX = lo;
+
+// A knob tap. While the drum turns: its speed now (cards/s, the coasting flick's or the spring's) doubled, capped at
+// V_MAX, as a new coast from where it is, landing on the card that speed carries it to (the speed solved again, a
+// hair, to stop exactly there). At rest: one card on in the direction the drum last moved.
+export function knobTap() {
+  const now = performance.now(), v = rig.fling ? coast(rig.fling, now).v : rig.v, sp = Math.abs(v);
+  if (sp > 0.5) {
+    const want = Math.min(2 * sp, V_MAX), dir = Math.sign(v) || rig.lastDir, x = rig.s;
+    const to = Math.round(x + dir * carry(want)), D = (to - x) * dir;
+    let a = 0, b = 200;
+    for (let k = 0; k < 40; k++) { const m = (a + b) / 2; if (carry(m) < D) a = m; else b = m; }
+    rig.fling = { x0: x, v0: a, dir, t0: now, T: stopMs(a), to };
+    setPos(x);
+    rig.lastBoost = { before: +sp.toFixed(3), after: +want.toFixed(3), capped: want === V_MAX, at: now };
+  } else {
+    jumpTo(Math.round(heading()) + rig.lastDir);
+    rig.lastBoost = { before: +sp.toFixed(3), after: 0, capped: false, at: now };
+  }
+}
+
 // where the drum is heading: a coasting flick's card, otherwise pos
 export const heading = () => (rig.fling ? rig.fling.to : rig.pos);
 // bring release i to the front by the nearest of its copies, so it never spins the long way round

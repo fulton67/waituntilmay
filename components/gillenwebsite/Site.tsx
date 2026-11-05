@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import * as THREE from "three";
 import type { Release } from "@/lib/gillenwebsite/discography";
-import { rig, per, jumpTo, jumpToRelease, setPos, heading, flick, wrap, ringDelta, FLIP_DIR, DRAG_PX } from "./rig";
+import { rig, per, jumpTo, jumpToRelease, setPos, heading, flick, wrap, ringDelta, FLIP_DIR, DRAG_PX, knobTap } from "./rig";
 import { usePanel } from "./Chrome";
 import ReleaseView from "./ReleaseView";
 import { no3, caps } from "./shared";
@@ -253,9 +253,19 @@ export default function Site({ releases }: { releases: Release[] }) {
   const pointer = useMemo(() => new THREE.Vector2(), []);
   const hit = useRef<HTMLDivElement>(null);
   const moved = useRef(0);
+  const hoverPending = useRef(false);
   const trail = useRef<{ t: number; y: number }[]>([]);
   const stopped = useRef(false);
   useEffect(() => { rig.hit = hit.current; return () => { rig.hit = null; }; }, []);
+  // a knob under the pointer: tapping it speeds the drum up (knobTap), and it shows the pointer cursor
+  const knob = useRef(false);
+  const hitKnob = (e: React.PointerEvent) => {
+    if (!rig.camera || !stage.current || !rig.knobs.length) return false;
+    const b = stage.current.getBoundingClientRect();
+    pointer.set(((e.clientX - b.left) / b.width) * 2 - 1, -((e.clientY - b.top) / b.height) * 2 + 1);
+    ray.setFromCamera(pointer, rig.camera);
+    return ray.intersectObjects(rig.knobs, true).length > 0;
+  };
   const hitCard = (e: React.PointerEvent) => {
     if (!rig.camera || !stage.current) return null;
     const b = stage.current.getBoundingClientRect();
@@ -265,6 +275,9 @@ export default function Site({ releases }: { releases: Release[] }) {
   };
   const onDown = (e: React.PointerEvent) => {
     // a tap while a flick coasts stops it on the nearest card
+    // a knob: a tap there boosts the drum (on release, if it stayed a tap); it does not stop a coasting flick
+    knob.current = hitKnob(e);
+    if (knob.current) { rig.drag = null; moved.current = 0; stage.current?.setPointerCapture(e.pointerId); return; }
     stopped.current = rig.fling !== null;
     if (stopped.current) jumpTo(Math.round(rig.s));
     const onCards = e.pointerType === "mouse" ? !!hitCard(e) : e.target === hit.current;
@@ -275,6 +288,13 @@ export default function Site({ releases }: { releases: Release[] }) {
   };
   const onMove = (e: React.PointerEvent) => {
     const d = rig.drag;
+    if (knob.current) return; // a press on a knob is a tap, not a drag
+    // hover: the pointer cursor over a knob (mouse only, at most once a frame)
+    if (!d && e.pointerType === "mouse" && stage.current && !hoverPending.current) {
+      hoverPending.current = true;
+      const ev = { clientX: e.clientX, clientY: e.clientY } as React.PointerEvent;
+      requestAnimationFrame(() => { hoverPending.current = false; if (stage.current) stage.current.style.cursor = hitKnob(ev) ? "pointer" : ""; });
+    }
     if (!d) return;
     const dx = e.clientX - d.x, dy = e.clientY - d.y;
     const was = moved.current;
@@ -295,6 +315,7 @@ export default function Site({ releases }: { releases: Release[] }) {
   };
   const onUp = (e: React.PointerEvent) => {
     stage.current?.classList.remove(css.dragging);
+    if (knob.current) { knob.current = false; knobTap(); return; }
     const d = rig.drag, click = d && moved.current <= 5;
     rig.drag = null;
     if (d && d.mode !== "orbit" && !click) {
