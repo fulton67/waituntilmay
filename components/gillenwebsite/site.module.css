@@ -177,40 +177,27 @@
 .root .aboutBig { font: var(--w-info) 28px/1.3 var(--mono); max-width: 46ch; }
 .aboutLinks { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 12px; }
 
-/* /gillenwebsite/discography (Discography.tsx): About and the discography on one page. The big numbers and the
-   timestamps in --font-index-display, the text in --font-body: both the header's face (the info face) for now */
-.merged {
-  --font-index-display: var(--mono); --font-body: var(--mono);
-  display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; padding: calc(var(--head) + 24px) 20px 64px;
-}
-.stamps { display: grid; gap: 2px; }
-.stampLine { display: flex; align-items: baseline; gap: 12px; white-space: nowrap; min-width: 0; }
-.root .stampLine { font: var(--w-display) clamp(18px, 5.4vw, 76px)/1.05 var(--font-index-display); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
-.stampText { min-height: 1.05em; display: inline-block; min-width: 1ch; }
-.root .stampLabel { font-size: 12px; line-height: 1; letter-spacing: 0.5px; }
-.root .mergedAbout { font: var(--w-info) 20px/1.3 var(--font-body); max-width: 62ch; }
+/* /gillenwebsite/discography (Discography.tsx): the role pills over the index. SOURCES #20 shortnotice client list:
+   every release one line at one size, 26px / 31.2px: number | artist — release | year and role | the cover's slice */
+.disco { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; padding: calc(var(--head) + 24px) 20px 64px; }
 .pillCount { opacity: 0.6; margin-left: 2px; font-variant-numeric: tabular-nums; }
 .root .pill[aria-checked="true"] .pillCount { opacity: 0.8; }
-/* SOURCES #20 shortnotice client list: the items run on, "," between them, 26px / 31.2px */
-.root .inline { font: var(--w-display) 26px/31.2px var(--font-index-display); font-variant-numeric: tabular-nums; }
-.inlineItem a { white-space: nowrap; }
-.inlineThumb { display: inline-block; width: 0.8em; height: 0.8em; object-fit: cover; vertical-align: -0.06em; background: #eee; }
-/* the full list, every row one line at one size: number | artist — release | year | role, and the cover's slice */
-.mList { list-style: none; margin: 0; padding: 0; position: relative; }
-.mItem { display: block; }
-.mRow { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); height: 24px; overflow: hidden; }
-.root .mRow:hover { opacity: 1; }
-.mText { display: grid; grid-template-columns: 2.5ch minmax(0, 1fr) 4ch minmax(0, 24ch); gap: 0.75rem; align-items: center; height: 24px; min-width: 0; padding-right: 0.5rem; font: var(--w-info) 15px/24px var(--font-body); }
-.mNo, .mYear { font-variant-numeric: tabular-nums; }
-.mTitle, .mRole { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.mTitleText { text-decoration: underline transparent; text-decoration-thickness: 1px; text-underline-offset: 3px; transition: text-decoration-color 0.16s ease; }
+.index { list-style: none; margin: 0; padding: 0; position: relative; }
+.indexItem { display: block; }
+.indexRow { display: grid !important; grid-template-columns: auto minmax(0, 1fr) 210px 18vw; column-gap: 8px; align-items: baseline; font-size: 26px; line-height: 31.2px; }
+.root .indexRow:hover { opacity: 1; }
+/* clipped sideways only, so the underline (4 px under the text) shows */
+.indexTitle { white-space: nowrap; overflow-x: clip; text-overflow: ellipsis; }
+.indexNo, .indexMeta { font-size: 12px; line-height: 1.2; position: relative; top: -0.55em; }
+.indexNo { white-space: nowrap; }
+.indexMeta { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.indexTitleText { text-decoration: underline transparent; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 /* the active row: the hovered one (desktop), the one across the middle of the screen (phones) */
-@media (hover: hover) { .mRow:hover .mTitleText { text-decoration-color: currentColor; transition-duration: 0.12s; } }
-.mItem[data-active] .mTitleText { text-decoration-color: currentColor; }
-.slice { display: block; height: 24px; overflow: hidden; }
-.sliceClip { position: relative; display: block; height: 24px; overflow: hidden; transform-origin: 0 0; }
+.indexItem[data-active] .indexTitleText { text-decoration-color: currentColor; }
+.slice { display: block; align-self: center; height: 20px; overflow: hidden; }
+.sliceClip { position: relative; display: block; height: 20px; overflow: hidden; transform-origin: 0 0; }
 .sliceImg { position: absolute; left: 0; top: 50%; width: 100%; height: auto; aspect-ratio: 1; margin-top: -50%; display: block; transform-origin: 50% 50%; }
-.sliceBlank { display: block; height: 24px; background: #eee; }
+.sliceBlank { display: block; height: 20px; background: #eee; }
 
 /* SOURCES #32 dauanjacari.com /blog filter pills (inline style: form[fs-list-element="filters"] label.w-radio and its
    :hover, :has(input:checked), :has(input:focus-visible), .w-form-label), as computed: 31 px high, padding 10px 12px
@@ -229,12 +216,12 @@
 .root .pill:focus-visible { outline: 2px solid rgba(0, 0, 0, 0.45); outline-offset: 2px; }
 @media (max-width: 719.98px) {
   .root { --head: 62px; }
-  /* phones: the name and the nav on the first row, the clock centred on the second */
-  .siteNav { grid-template-columns: minmax(0, 1fr) auto; row-gap: 4px; padding-left: 16px; padding-right: 16px; }
+  /* phones: the name and the clock on the first row, the three words on the second (they no longer fit beside the name) */
+  .siteNav { grid-template-columns: minmax(0, 1fr) auto; row-gap: 4px; column-gap: 10px; padding-left: 16px; padding-right: 16px; }
   .name { grid-column: 1; grid-row: 1; white-space: nowrap; }
-  .timer { grid-column: 1 / -1; grid-row: 2; gap: 8px; justify-self: center; }
+  .timer { grid-column: 2; grid-row: 1; gap: 8px; justify-self: end; }
   .dateTime { min-width: 0; }
-  .words { grid-column: 2; grid-row: 1; justify-self: end; }
+  .words { grid-column: 1 / -1; grid-row: 2; justify-self: start; }
   .loadingLabel { left: 16px; }
   .cap { left: 16px; right: 16px; width: auto; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); grid-template-columns: 1fr; gap: 8px; }
   .lightbox { padding: 16px; align-items: flex-start; overflow: auto; }
@@ -242,21 +229,15 @@
   .viewPanel .coverBox { width: 100%; height: auto; aspect-ratio: 1; }
   .viewPanel .info { max-height: none; overflow: visible; }
   .backHolder { position: fixed; left: 16px; top: 12px; transform: none; }
-  /* phones: the list scrolls with the page; the active row holds its cover as a 40vw square in its own row, the
-     title, year and role beside it, the role on a line of its own */
-  .merged { padding: calc(var(--head) + 16px) 16px 48px; gap: 22px; }
-  .stampLine { flex-direction: column-reverse; align-items: flex-start; gap: 4px; }
-  .stamps { gap: 10px; }
-  .root .mergedAbout { font-size: 17px; }
-  .aboutPage { padding: calc(var(--head) + 20px) 16px 48px; gap: 22px; }
-  .root .aboutBig { font-size: 22px; }
-  .root .inline { font-size: 20px; line-height: 26px; }
-  .mRow { grid-template-columns: minmax(0, 1fr) 40vw; height: 24px; }
-  .mText { grid-template-columns: 2.5ch minmax(0, 1fr) 4ch; gap: 0.5rem; font-size: 14px; align-content: start; }
-  .mRole { display: none; }
-  .mItem[data-active] .mRow { height: 40vw; }
-  .mItem[data-active] .mRole { display: block; grid-column: 2 / -1; font-size: 11px; line-height: 14px; }
-  .mItem[data-active] .slice, .mItem[data-active] .sliceClip { height: 100%; }
+  /* phones: the number in front of the title, year and role on a small line under it; the active row shows its cover
+     whole, a 40vw square under that line, inside the row */
+  .disco { padding: calc(var(--head) + 16px) 16px 48px; gap: 18px; }
+  .indexRow { grid-template-columns: auto minmax(0, 1fr); font-size: 17px; line-height: 22px; padding-bottom: 6px; }
+  .indexMeta { grid-column: 2; font-size: 11px; line-height: 13px; top: 0; margin-top: 4px; }
+  .slice { display: none; }
+  .indexItem[data-active] .slice { display: block; grid-column: 2; width: 40vw; height: 40vw; margin-top: 8px; }
+  .indexItem[data-active] .sliceClip { width: 100%; height: 100%; }
+  .indexItem[data-active] .sliceImg { top: 0; margin-top: 0; }
 }
 
 /* SOURCES #12 the record view (VinylView.tsx): over everything, closed until .vvOn. (.vvInfo .x beats .root p's

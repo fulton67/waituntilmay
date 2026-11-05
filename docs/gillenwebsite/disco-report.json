@@ -1,0 +1,216 @@
+{
+  "base": "http://localhost:3227",
+  "at": "2026-11-05T21:11:23.334Z",
+  "pills": [
+    {
+      "pill": "ALL",
+      "count": 36,
+      "rows": 36
+    },
+    {
+      "pill": "PRODUCER",
+      "count": 12,
+      "rows": 12
+    },
+    {
+      "pill": "WRITER",
+      "count": 12,
+      "rows": 12
+    },
+    {
+      "pill": "ENGINEER",
+      "count": 14,
+      "rows": 14
+    },
+    {
+      "pill": "MIXER",
+      "count": 2,
+      "rows": 2
+    },
+    {
+      "pill": "CO-PRODUCER",
+      "count": 1,
+      "rows": 1
+    },
+    {
+      "pill": "ASSISTANT",
+      "count": 9,
+      "rows": 9
+    }
+  ],
+  "pillsPass": true,
+  "desktop": {
+    "inline": 0,
+    "stamps": 0,
+    "open": 1,
+    "underline": "rgb(0, 0, 0)",
+    "layer": {
+      "left": 865,
+      "right": 1405
+    },
+    "vw": 1425,
+    "opens": "open",
+    "pass": true
+  },
+  "phone": {
+    "bad": [],
+    "scrollHeight": 2141,
+    "viewport": 844,
+    "scrollend": true,
+    "swipes": [
+      {
+        "k": 1,
+        "from": 0,
+        "moved": 385,
+        "under": "SPAN.site-module__b9_Q7q__indexTitleText",
+        "scrollY": 385,
+        "active": "10-doja-cat-vie",
+        "expanded": 1,
+        "cover": [
+          156,
+          156
+        ],
+        "coverInRow": true,
+        "changedMsAfterScrollend": -0.1
+      },
+      {
+        "k": 2,
+        "from": 385,
+        "moved": 385,
+        "under": "SPAN.site-module__b9_Q7q__indexTitleText",
+        "scrollY": 770,
+        "active": "19-rex-orange-county-threat",
+        "expanded": 1,
+        "cover": [
+          156,
+          156
+        ],
+        "coverInRow": true,
+        "changedMsAfterScrollend": 0
+      },
+      {
+        "k": 3,
+        "from": 770,
+        "moved": 385,
+        "under": "A.site-module__b9_Q7q__indexRow",
+        "scrollY": 1155,
+        "active": "27-santana-blessings-and-miracles",
+        "expanded": 1,
+        "cover": [
+          156,
+          156
+        ],
+        "coverInRow": true,
+        "changedMsAfterScrollend": 0
+      },
+      {
+        "k": 4,
+        "from": 1,
+        "moved": 385,
+        "under": "SPAN.site-module__b9_Q7q__indexTitle",
+        "scrollY": 386,
+        "active": "10-doja-cat-vie",
+        "expanded": 1,
+        "cover": [
+          156,
+          156
+        ],
+        "coverInRow": true,
+        "changedMsAfterScrollend": 0
+      },
+      {
+        "k": 5,
+        "from": 386,
+        "moved": 385,
+        "under": "SPAN.site-module__b9_Q7q__indexTitleText",
+        "scrollY": 771,
+        "active": "19-rex-orange-county-threat",
+        "expanded": 1,
+        "cover": [
+          156,
+          156
+        ],
+        "coverInRow": true,
+        "changedMsAfterScrollend": 0
+      },
+      {
+        "k": 6,
+        "from": 771,
+        "moved": 385,
+        "under": "SPAN.site-module__b9_Q7q__indexMeta",
+        "scrollY": 1156,
+        "active": "27-santana-blessings-and-miracles",
+        "expanded": 1,
+        "cover": [
+          156,
+          156
+        ],
+        "coverInRow": true,
+        "changedMsAfterScrollend": 0
+      },
+      {
+        "k": 7,
+        "from": 1,
+        "moved": 385,
+        "under": "SPAN.site-module__b9_Q7q__indexTitle",
+        "scrollY": 386,
+        "active": "10-doja-cat-vie",
+        "expanded": 1,
+        "cover": [
+          156,
+          156
+        ],
+        "coverInRow": true,
+        "changedMsAfterScrollend": 0
+      },
+      {
+        "k": 8,
+        "from": 386,
+        "moved": 385,
+        "under": "SPAN.site-module__b9_Q7q__indexTitleText",
+        "scrollY": 771,
+        "active": "19-rex-orange-county-threat",
+        "expanded": 1,
+        "cover": [
+          156,
+          156
+        ],
+        "coverInRow": true,
+        "changedMsAfterScrollend": 0
+      },
+      {
+        "k": 9,
+        "from": 771,
+        "moved": 385,
+        "under": "SPAN.site-module__b9_Q7q__indexMeta",
+        "scrollY": 1156,
+        "active": "27-santana-blessings-and-miracles",
+        "expanded": 1,
+        "cover": [
+          156,
+          156
+        ],
+        "coverInRow": true,
+        "changedMsAfterScrollend": 0
+      },
+      {
+        "k": 10,
+        "from": 1,
+        "moved": 385,
+        "under": "SPAN.site-module__b9_Q7q__indexTitle",
+        "scrollY": 386,
+        "active": "10-doja-cat-vie",
+        "expanded": 1,
+        "cover": [
+          156,
+          156
+        ],
+        "coverInRow": true,
+        "changedMsAfterScrollend": 0
+      }
+    ],
+    "consumed": [],
+    "pass": true
+  },
+  "pass": true
+}
