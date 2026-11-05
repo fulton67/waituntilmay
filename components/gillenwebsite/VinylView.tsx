@@ -356,11 +356,13 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     setCredits(e, r);
     // the record's colour: Discogs' colour variant, or the cover's dominant colour darkened (vinyl-colour.mjs)
     e.rec.vinyl.color.set(r.vinyl?.colour ?? "#0b0b0c");
-    // the label, drawn now and again once the page's face has loaded (until then it draws in the fallback)
+    // the label, drawn and uploaded here, before any motion starts (an upload in the first frames of the opening
+    // costs them); drawn once more only if the page's face was still loading (it draws in the fallback until then)
     const colour = img ? labelColour(img) : "#e8e2d4";
-    const paint = () => { drawLabel(e.label.canvas, colour, r.artist, r.release); e.label.tex.needsUpdate = true; e.label.colour = colour; };
+    const paint = () => { drawLabel(e.label.canvas, colour, r.artist, r.release); e.label.tex.needsUpdate = true; e.gl.initTexture(e.label.tex); e.label.colour = colour; };
     paint();
-    document.fonts.load(`400 40px ${LABEL_FACE}`).then(() => { if (releases[state.current.i] === r) paint(); }, () => {});
+    const face = `400 40px ${LABEL_FACE}`;
+    if (!document.fonts.check(face)) document.fonts.load(face).then(() => { if (releases[state.current.i] === r && state.current.phase !== "anim") paint(); }, () => {});
   }, [setCredits]);
 
   // the frame loop calls itself through this ref (a callback cannot name itself before it is declared)
