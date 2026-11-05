@@ -39,6 +39,46 @@ export default function Discography({ releases }: { releases: Release[] }) {
   const list = useRef<HTMLOListElement>(null);
   const exp = useRef<ReturnType<typeof makeExpander> | null>(null);
   const hovered = useRef<string | null>(null);
+  // ---- the arrow marker (SOURCES #21, restored from the original About index, 5d0fd85 AboutIndex.tsx): three segments
+  // from the active row to its cover, drawn with gunseli.xyz's draw-line 0.25s ease, 0.08 s apart. On desktop the
+  // active row is the hovered one and its cover is the one expanding over the list (expand.ts) ----
+  const svg = useRef<SVGSVGElement>(null);
+  const marked = useRef<HTMLElement | null>(null);
+  const place = (li: HTMLElement) => {
+    const s = svg.current, id = li.dataset.id!, c = exp.current?.boxOf(id);
+    if (!s || !c) return null;
+    // from the end of the row's title to the cover's top left
+    const a = (li.querySelector("[data-title] > span") ?? li).getBoundingClientRect();
+    const y0 = a.top + a.height / 2, x0 = a.right + 8, xm = Math.max(x0 + 16, c.left - 24), y1 = c.top + 12;
+    const pts = [[x0, y0, xm, y0], [xm, y0, xm, y1], [xm, y1, c.left, y1]];
+    const lines = [...s.querySelectorAll("line")];
+    lines.forEach((o, u) => {
+      const [x1, ya, x2, yb] = pts[u];
+      o.setAttribute("x1", String(x1)); o.setAttribute("y1", String(ya)); o.setAttribute("x2", String(x2)); o.setAttribute("y2", String(yb));
+    });
+    return lines;
+  };
+  const mark = (li: HTMLElement | null) => {
+    marked.current = li;
+    const lines = li ? place(li) : null;
+    if (!lines) { svg.current?.querySelectorAll("line").forEach((o) => { o.classList.remove(css.drawing); o.style.opacity = "0"; }); return; }
+    lines.forEach((o, u) => {
+      const len = o.getTotalLength();
+      o.classList.remove(css.drawing);
+      o.style.strokeDasharray = String(len);
+      o.style.strokeDashoffset = String(len);
+      void o.getBoundingClientRect();
+      o.style.animationDelay = `${u * 0.08}s`;
+      o.classList.add(css.drawing); // draw-line 0.25s ease forwards
+      o.style.opacity = "1";
+    });
+  };
+  // once drawn, the dash is dropped (onAnimationEnd) so the line can follow the row as the page scrolls
+  useEffect(() => {
+    const follow = () => { if (marked.current) place(marked.current); };
+    addEventListener("scroll", follow, { passive: true });
+    return () => removeEventListener("scroll", follow);
+  });
   useEffect(() => {
     const el = list.current;
     if (!el) return;
@@ -49,7 +89,7 @@ export default function Discography({ releases }: { releases: Release[] }) {
     return () => { e.destroy(); exp.current = null; };
   }, [releases, small]);
   // the filter changes: the open covers' places are stale
-  useEffect(() => { exp.current?.reset(); hovered.current = null; }, [pill]);
+  useEffect(() => { exp.current?.reset(); hovered.current = null; mark(null); }, [pill]);
   // desktop: the hovered row
   const enter = (e: React.PointerEvent<HTMLLIElement>) => {
     if (e.pointerType !== "mouse" || phone()) return;
@@ -59,6 +99,7 @@ export default function Discography({ releases }: { releases: Release[] }) {
     list.current?.querySelector("li[data-active]")?.removeAttribute("data-active");
     e.currentTarget.setAttribute("data-active", "");
     exp.current?.grow(e.currentTarget);
+    mark(e.currentTarget);
   };
   const leave = (e: React.PointerEvent<HTMLLIElement>) => {
     if (e.pointerType !== "mouse" || phone()) return;
@@ -68,6 +109,7 @@ export default function Discography({ releases }: { releases: Release[] }) {
     if (hovered.current === id) hovered.current = null;
     e.currentTarget.removeAttribute("data-active");
     exp.current?.shrink(id, !!next);
+    if (!next) mark(null);
   };
 
   // a #<release-id> on arrival opens that release
@@ -90,7 +132,7 @@ export default function Discography({ releases }: { releases: Release[] }) {
       {/* SOURCES #20 shortnotice.studio client list, one item a line at 26px / 31.2px (17px / 22px on phones) */}
       {small ? <AboutIndex key={pill} rows={shown} /> : <ol ref={list} className={css.index} data-src="20 22">
         {shown.map(({ r, i }) => (
-          <li key={r.id} data-id={r.id} className={css.indexItem} onPointerEnter={enter} onPointerLeave={leave}>
+          <li key={r.id} id={`row-${r.id}`} data-id={r.id} className={css.indexItem} onPointerEnter={enter} onPointerLeave={leave}>
             <a
               href={`#${r.id}`}
               className={css.indexRow}
@@ -112,6 +154,30 @@ export default function Discography({ releases }: { releases: Release[] }) {
           </li>
         ))}
       </ol>}
+
+      {/* desktop only: the arrow marker, and the footer index (SOURCES #20c): every index number with its cover, the
+          items running on with "," between them; each links to its row */}
+      {!small && <svg ref={svg} className={css.indexLines} data-marker data-src="21" aria-hidden>
+        {[0, 1, 2].map((u) => <line key={u} onAnimationEnd={(e) => { e.currentTarget.style.strokeDasharray = "none"; }} />)}
+      </svg>}
+      {!small && (
+        <p className={css.footIndex} data-src="20" aria-label="Index">
+          {shown.map(({ r, i }, k) => (
+            <span key={r.id} className={css.footItem} data-footer-index={i + 1}>
+              <a href={`#row-${r.id}`} aria-label={`${i + 1}, ${r.artist}, ${r.release}`} onClick={(e) => {
+                e.preventDefault();
+                const li = document.getElementById(`row-${r.id}`);
+                li?.scrollIntoView({ block: "center" });
+                list.current?.querySelector("li[data-active]")?.removeAttribute("data-active");
+                li?.setAttribute("data-active", "");
+              }}>
+                {i + 1}&nbsp;{r.cover ? <Cover r={r} className={css.footThumb} sizes="1em" fixed={512} /> : <span className={css.footThumb} />}
+              </a>
+              {k < shown.length - 1 ? ", " : ""}
+            </span>
+          ))}
+        </p>
+      )}
     </section>
   );
 }

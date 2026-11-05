@@ -197,6 +197,17 @@
 .sliceClip { position: relative; display: block; height: 20px; overflow: hidden; transform-origin: 0 0; }
 .sliceImg { position: absolute; left: 0; top: 50%; width: 100%; height: auto; aspect-ratio: 1; margin-top: -50%; display: block; transform-origin: 50% 50%; }
 .sliceBlank { display: block; height: 20px; background: #eee; }
+/* SOURCES #21 gunseli draw-line: the arrow marker from the hovered row to its cover (desktop) */
+.indexLines { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 31; overflow: visible; }
+.indexLines line { stroke: var(--ink); stroke-width: 1; fill: none; opacity: 0; }
+@keyframes drawLine { to { stroke-dashoffset: 0; } }
+.drawing { animation: drawLine 0.25s ease forwards; }
+/* SOURCES #20c the footer index (desktop): shortnotice's client list run on, "," between items, 26px / 31.2px, each
+   number followed by its cover as a cap-height square */
+.root .footIndex { font: 400 26px/31.2px var(--mono); font-variant-numeric: tabular-nums; margin-top: 40px; }
+.footItem a { white-space: nowrap; }
+.footThumb { display: inline-block; width: 0.72em; height: 0.72em; object-fit: cover; vertical-align: 0; background: #eee; }
+.indexItem { scroll-margin: 40vh 0; }
 
 /* SOURCES #32 dauanjacari.com /blog filter pills (inline style: form[fs-list-element="filters"] label.w-radio and its
    :hover, :has(input:checked), :has(input:focus-visible), .w-form-label), as computed: 31 px high, padding 10px 12px

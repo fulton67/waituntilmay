@@ -118,9 +118,16 @@ export function makeExpander(list: HTMLElement, releases: Release[], onLog?: (x:
   };
 
   const layerOf = (id: string) => layers.get(id)?.el ?? null;
+  // a grown cover's box on screen once fully open (its place, not its current transform), for the arrow marker
+  const boxOf = (id: string) => {
+    const L = layers.get(id);
+    if (!L) return null;
+    const lr = list.getBoundingClientRect();
+    return { left: lr.left + L.geo.lx, top: lr.top + L.geo.ty, size: L.geo.S };
+  };
   // how many covers are open (fully grown or growing past half)
   const open = () => [...layers.values()].filter((L) => now(L) > 0.5 && L.to === 1).length;
   const reset = () => { for (const [id, L] of layers) { L.anims.forEach((a) => a.cancel()); L.el.remove(); layers.delete(id); } };
   const destroy = () => { reset(); box.remove(); };
-  return { grow, shrink, layerOf, open, reset, destroy };
+  return { grow, shrink, layerOf, boxOf, open, reset, destroy };
 }

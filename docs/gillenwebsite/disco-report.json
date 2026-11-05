@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3227",
-  "at": "2026-11-05T22:21:21.839Z",
+  "at": "2026-11-05T22:24:08.865Z",
   "pills": [
     {
       "pill": "ALL",
@@ -49,7 +49,19 @@
       "right": 1405
     },
     "vw": 1425,
+    "marker": {
+      "lines": 3,
+      "drawn": 3,
+      "endsAtCoverLeft": true
+    },
     "opens": "open",
+    "footer": {
+      "items": 36,
+      "afterList": true,
+      "rowCentredPx": 0,
+      "rowActive": true,
+      "thumbs": 36
+    },
     "pass": true
   },
   "phone": {

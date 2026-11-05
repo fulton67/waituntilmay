@@ -40,10 +40,28 @@ const browser = await chromium.launch({ channel: "chrome", headless: false, args
     const L = document.querySelector("[data-exp-layers] > div"), r = L?.getBoundingClientRect(), li = document.querySelectorAll("li[data-id]")[8];
     return { open: window.__disco.open(), underline: getComputedStyle(li.querySelector("[class*=indexTitleText]")).textDecorationColor, layer: r ? { left: Math.round(r.left), right: Math.round(r.right) } : null, vw: document.documentElement.clientWidth };
   });
+  await page.waitForTimeout(400);
+  hov.marker = await page.evaluate(() => {
+    const ls = [...document.querySelectorAll("[data-marker] line")], box = document.querySelector("[data-exp-layers] > div")?.getBoundingClientRect();
+    const end = ls[2] ? [+ls[2].getAttribute("x2"), +ls[2].getAttribute("y2")] : null;
+    return { lines: ls.length, drawn: ls.filter((l) => +getComputedStyle(l).opacity === 1 && l.getTotalLength() > 0).length, endsAtCoverLeft: !!(end && box && Math.abs(end[0] - box.left) < 2) };
+  });
   if (SHOTS) await page.screenshot({ path: `${SHOTS}/disco-desktop.png` });
   await page.mouse.click(row.x, row.y); await page.waitForTimeout(1000);
   hov.opens = await page.evaluate(() => window.__vinyl.state());
-  hov.pass = hov.open === 1 && hov.layer && hov.layer.right <= hov.vw && hov.underline === "rgb(0, 0, 0)" && hov.opens === "open";
+  await page.keyboard.press("Escape"); await page.waitForTimeout(900);
+  await page.mouse.move(4, 450); await page.waitForTimeout(200); // off the list, so no row takes the hover after the jump
+  // the footer index: one item per row, after the list; its 20th link brings row 20 to the middle and makes it active
+  hov.footer = await page.evaluate(async () => {
+    const items = [...document.querySelectorAll("[data-footer-index]")], list = document.querySelector("ol");
+    const after = items[0] && list ? items[0].getBoundingClientRect().top + scrollY > list.getBoundingClientRect().bottom + scrollY - 1 : false;
+    items[19].querySelector("a").click();
+    await new Promise((r) => setTimeout(r, 400));
+    const li = document.querySelectorAll("li[data-id]")[19], r = li.getBoundingClientRect();
+    return { items: items.length, afterList: after, rowCentredPx: Math.round(Math.abs(r.top + r.height / 2 - innerHeight / 2)), rowActive: li.hasAttribute("data-active"), thumbs: items.filter((x) => x.querySelector("img")).length };
+  });
+  hov.pass = hov.open === 1 && hov.layer && hov.layer.right <= hov.vw && hov.underline === "rgb(0, 0, 0)" && hov.opens === "open"
+    && hov.marker.lines === 3 && hov.marker.drawn === 3 && hov.marker.endsAtCoverLeft && hov.footer.items === 36 && hov.footer.afterList && hov.footer.rowCentredPx < 40 && hov.footer.rowActive;
   report.desktop = { ...extras, ...hov, pass: hov.pass && extras.inline === 0 && extras.stamps === 0 };
   console.log("desktop", JSON.stringify(report.pills.map((p) => [p.pill, p.count, p.rows])), JSON.stringify(report.desktop));
   await page.close();
