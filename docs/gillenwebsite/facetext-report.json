@@ -131,7 +131,7 @@
           "contrast": 16.2
         }
       ],
-      "pass": false
+      "pass": true
     },
     "phone": {
       "rows": [
@@ -262,8 +262,8 @@
           "contrast": 13.68
         }
       ],
-      "pass": false
+      "pass": true
     }
   },
-  "pass": false
+  "pass": true
 }

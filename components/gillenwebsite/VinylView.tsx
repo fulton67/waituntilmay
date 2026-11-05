@@ -19,7 +19,7 @@ import { Text } from "troika-three-text";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { rig, wrap } from "./rig";
 import { SLEEVE, sharpen, loadTex, sideFile, sideWidth, type Side } from "./sleeve";
-import { buildRecord, grooveNormals, OPEN_BOX, RPM, LABEL_R, type RecordModel } from "./record";
+import { buildRecord, grooveNormals, OPEN_BOX, RPM, LABEL_R, DISC_R, type RecordModel } from "./record";
 import { paperGrain } from "./textures";
 import { no3, caps, creditList, dylanLine } from "./shared";
 import css from "./site.module.css";
@@ -496,6 +496,14 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
       // the record's travel along the pocket (0 in, 1 out), the gatefold (0 shut, 1 open), every animated frame's
       // values, and how many spinning frames had the record fully out / not fully out
       slide: () => state.current.s, gate: () => state.current.g, trace: () => state.current.trace, spin: () => ({ out: state.current.spinOut, notOut: state.current.spinNotOut }),
+      // where to click on the record: a point on its half out of the pocket, past the label
+      discPoint: () => {
+        const e = eng.current;
+        if (!e) return null;
+        e.rec.disc.updateWorldMatrix(true, false);
+        const v = new THREE.Vector3(DISC_R * 0.72, 0, 0.0012).applyMatrix4(e.rec.disc.matrixWorld).project(e.cam);
+        return { x: (v.x + 1) * 0.5 * innerWidth, y: (1 - v.y) * 0.5 * innerHeight };
+      },
       // where to click: the front cover's middle on screen (the left panel when open, the sleeve in the cover state)
       coverPoint: () => {
         const e = eng.current;
@@ -556,7 +564,11 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     const hit = ray.current.intersectObject(e.rec.root, true)[0];
     if (!hit) return;
     const onCover = hit.object === e.rec.left.children[0];
-    if ((st.phase === "open" && onCover) || st.phase === "cover") toggle();
+    // the record itself (the disc, its label and type) while it is out: the full close, back onto the ring
+    let onRecord = false;
+    for (let o: THREE.Object3D | null = hit.object; o; o = o.parent) if (o === e.rec.disc) { onRecord = true; break; }
+    if (st.phase === "open" && onRecord) close();
+    else if ((st.phase === "open" && onCover) || st.phase === "cover") toggle();
   };
   const r = cur !== null ? releases[cur] : null;
   return (

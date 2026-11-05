@@ -66,7 +66,7 @@ for (const p of [{ name: "desktop", w: 1440, h: 900, dpr: 2 }, { name: "phone", 
     m.contrast = +((m.Lglyph + 0.05) / (m.Lsurround + 0.05)).toFixed(2);
     rows.push({ release: c.id, kind: c.kind, coverMeanLuminance: +c.mean.toFixed(1), ...m });
   }
-  report.profiles[p.name] = { rows, pass: rows.every((r) => r.contrast >= 4.5 && r.glyphPx > 20 && r.depthTest === false) };
+  report.profiles[p.name] = { rows, pass: rows.every((r) => r.contrast >= 4.5 && r.glyphPx > 20 && [].concat(r.depthTest).every((d) => d === false)) };
   console.log(p.name, JSON.stringify(rows.map((r) => [r.kind, r.release.slice(0, 18), r.contrast, r.glyphPx, r.depthTest, r.renderOrder])));
   await ctx.close();
 }

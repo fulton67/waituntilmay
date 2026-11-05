@@ -89,6 +89,20 @@ for (const p of PROFILES) {
   out.travel.pass = !jumps && !reversals && !spinNotOut && out.rest.every((r) => (r.at.startsWith("open") ? r.s === 1 && r.g === 1 && r.spinning : r.s === 0 && r.g === 0 && !r.spinning));
   out.liftedPass = out.lifted.every((v, k) => (k % 2 === 0 ? v >= 0 : v === -1));
 
+  // a click on the spinning record closes the view (the full close, its plan and 500 ms)
+  {
+    const pt0 = await page.evaluate(() => window.__rolodex.frontPoint());
+    await tap(pt0.x, pt0.y);
+    await until(page, "open"); await page.waitForTimeout(500);
+    const d = await page.evaluate(() => window.__vinyl.discPoint());
+    await tap(d.x, d.y);
+    const closed = await until(page, "closed");
+    const last = (await page.evaluate(() => window.__vinyl.log())).at(-1);
+    out.recordClick = { closed, motion: last.dir, ms: last.ms, fps: last.fps, target: 500 };
+    out.recordClick.pass = closed && last.dir === "close" && Math.abs(last.ms - 500) <= TOL;
+    await page.waitForTimeout(400);
+  }
+
   // open once more for the rest
   const pt = await page.evaluate(() => window.__rolodex.frontPoint());
   await tap(pt.x, pt.y);
@@ -168,7 +182,7 @@ for (const p of PROFILES) {
   await page.keyboard.press("Escape");
   await until(page, "closed");
   report.profiles[p.name] = out;
-  console.log(p.name, JSON.stringify({ transition: out.transition, travel: { ...out.travel, rest: undefined }, lifted: out.liftedPass, texels: out.texels, type: out.type, spin: out.spin, drag: out.drag, discography: out.discography }));
+  console.log(p.name, JSON.stringify({ recordClick: out.recordClick, transition: out.transition, travel: { ...out.travel, rest: undefined }, lifted: out.liftedPass, texels: out.texels, type: out.type, spin: out.spin, drag: out.drag, discography: out.discography }));
   await ctx.close();
 }
 
