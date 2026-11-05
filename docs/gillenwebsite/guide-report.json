@@ -1,10 +1,10 @@
 {
-  "base": "http://localhost:3227",
-  "at": "2026-11-05T20:52:36.273Z",
+  "base": "http://localhost:3228",
+  "at": "2026-11-05T20:54:32.387Z",
   "profiles": {
     "desktop": {
       "firstLoad": {
-        "waitedMs": 539,
+        "waitedMs": 560,
         "phases": [
           {
             "s": "drawing",
@@ -12,15 +12,15 @@
           },
           {
             "s": "holding",
-            "ms": 1345
+            "ms": 1351
           },
           {
             "s": "fading",
-            "ms": 3825
+            "ms": 3851
           },
           {
             "s": "hidden",
-            "ms": 4218
+            "ms": 4251
           }
         ]
       },
@@ -79,6 +79,7 @@
       "fpsState": "holding",
       "knobTapGone": {
         "gone": [
+          2,
           1
         ],
         "knobOpacity": 0
@@ -92,7 +93,7 @@
     },
     "phone": {
       "firstLoad": {
-        "waitedMs": 402,
+        "waitedMs": 439,
         "phases": [
           {
             "s": "drawing",
@@ -100,15 +101,15 @@
           },
           {
             "s": "holding",
-            "ms": 1365
+            "ms": 1311
           },
           {
             "s": "fading",
-            "ms": 3882
+            "ms": 3828
           },
           {
             "s": "hidden",
-            "ms": 4265
+            "ms": 4211
           }
         ]
       },
@@ -162,8 +163,8 @@
       },
       "cpuThrottle": 4,
       "fps": {
-        "fps": 56.8,
-        "worstMs": 33.4
+        "fps": 51.3,
+        "worstMs": 33.5
       },
       "fpsState": "holding",
       "knobTapGone": {
