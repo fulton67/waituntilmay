@@ -1,0 +1,28 @@
+{
+ "weighted_by_class": {
+  "neo-grotesk": 77,
+  "contemporary-serif": 15,
+  "heavy-grotesk": 10,
+  "mono": 8,
+  "geometric-display": 8,
+  "garalde": 7,
+  "condensed-grotesk": 5,
+  "didone-display": 4
+ },
+ "blocks_by_class": {
+  "neo-grotesk": 22,
+  "contemporary-serif": 8,
+  "heavy-grotesk": 3,
+  "garalde": 2,
+  "condensed-grotesk": 2,
+  "didone-display": 1,
+  "mono": 2,
+  "geometric-display": 1
+ },
+ "weighted_by_family": {
+  "grotesk": 100,
+  "serif": 26,
+  "mono": 8
+ },
+ "crops": 122
+}
