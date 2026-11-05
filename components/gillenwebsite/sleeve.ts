@@ -1,11 +1,13 @@
 // The 12" record sleeve that replaces the index card on the Rolodex, and the texture rules every cover follows.
-// A sleeve is one extruded shape: a 0.33 m square with slightly rounded corners and the card's two rail slots at the
+// A sleeve is one extruded shape: a 0.337 m square with slightly rounded corners and the card's two rail slots at the
 // bottom edge, SLEEVE_T thick. Its faces are split into three material groups: 0 the front (+z, the front cover),
 // 1 the back (-z, the back cover, mirrored so it reads from behind), 2 the edge all round (the spine).
 import * as THREE from "three";
 import type { Release } from "@/lib/gillenwebsite/discography";
 
-export const SLEEVE = 0.33, SLEEVE_T = 0.0025, CORNER = 0.004;
+// 0.337 m: the largest size (to the mm) whose far edge, R0 + SLEEVE from the axle, stays under 0.410 m through the
+// turn (the sleeves only turn about the axle, so that radius is the same at every angle)
+export const SLEEVE = 0.337, SLEEVE_T = 0.0025, CORNER = 0.004;
 // the rail slots, where the card had them: 12 mm wide, 30 mm deep, round-ended, centred at x = +-0.075
 export const SLOT_X = 0.075;
 

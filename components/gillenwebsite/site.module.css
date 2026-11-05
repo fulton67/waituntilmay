@@ -79,10 +79,9 @@
 /* SOURCES #06 felixluke loading label */
 .loadingLabel { position: absolute; left: 20px; top: calc(var(--head) + 10px); pointer-events: none; white-space: nowrap; }
 
-/* SOURCES #12 the release display beside the Rolodex (desktop). --cv is the cover's edge: 0.75 x what it was
-   (64vh, or what the header leaves), so the drum has the room its 25% larger sleeves need */
+/* SOURCES #12 the release display beside the Rolodex (desktop). --cv is the cover's edge: at least 60vh */
 .inlineSlot {
-  --cv: calc(0.75 * min(64vh, calc(100vh - var(--head) - 240px)));
+  --cv: min(64vh, calc(100vh - var(--head) - 240px));
   position: absolute; right: 20px; top: calc(var(--head) + 12px);
   width: calc(var(--cv) + 24px + 260px); height: var(--cv);
 }

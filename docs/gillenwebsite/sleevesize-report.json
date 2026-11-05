@@ -1,0 +1,14 @@
+{
+  "base": "http://localhost:3227",
+  "at": "2026-11-05T21:14:09.264Z",
+  "sleeveSize": 0.337,
+  "maxRadius": 0.409,
+  "slots": 108,
+  "pitchDeg": {
+    "ringAhead": 1.795,
+    "ringBehind": 2.325,
+    "frontFirstAhead": 72.598,
+    "frontFirstBehind": 42.015
+  },
+  "pass": true
+}
