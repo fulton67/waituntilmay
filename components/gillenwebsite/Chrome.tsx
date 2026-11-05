@@ -25,8 +25,8 @@ const PAGES = [
 ];
 
 // SOURCES #03, luckydaye.com's div.timer > span.date-time pair, now the viewer's own time of day and date from the
-// device clock: HH:MM:SS (24-hour) and DD.MM.YYYY, written into the spans on each second's turn so React does not
-// re-render.
+// device clock: h:mm:ss AM (12-hour, exactly as toLocaleTimeString("en-US") writes it) and DD.MM.YYYY, written into
+// the spans on each second's turn so React does not re-render.
 function Timer() {
   const time = useRef<HTMLSpanElement>(null), day = useRef<HTMLSpanElement>(null);
   useEffect(() => {
@@ -34,7 +34,7 @@ function Timer() {
     let id = 0;
     const tick = () => {
       const d = new Date();
-      if (time.current) time.current.textContent = `${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
+      if (time.current) time.current.textContent = d.toLocaleTimeString("en-US");
       if (day.current) day.current.textContent = `${p(d.getDate())}.${p(d.getMonth() + 1)}.${d.getFullYear()}`;
       // the next tick on the next second's turn
       id = window.setTimeout(tick, 1000 - (d.getTime() % 1000) + 5);
@@ -45,7 +45,7 @@ function Timer() {
   return (
     <div className={css.timer} data-src="03">
       {/* same-width placeholders until the clock is written, so the header does not shift */}
-      <span ref={time} className={css.dateTime}>00:00:00</span>
+      <span ref={time} className={css.dateTime}>00:00:00 AM</span>
       <span ref={day} className={css.dateTime}>00.00.0000</span>
     </div>
   );

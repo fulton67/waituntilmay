@@ -1,6 +1,7 @@
-// The header clock: the viewer's local time (HH:MM:SS) and date (DD.MM.YYYY) from the device clock, checked against
-// new Date() in the page, in two time zones; and that it is centred in the header and clears the name and the nav,
-// at 1440, 1280 and 390 px.
+// The header clock: the viewer's local time (h:mm:ss AM, the string toLocaleTimeString("en-US") gives in the page
+// this second or the last) and date (DD.MM.YYYY) from the device clock, in three time zones; centred in the header on
+// desktop (on phones it sits right of the name, the nav on the row below) and clear of the name and the nav, at
+// 1440, 1280 and 390 px.
 //   node scripts/gillenwebsite/header.mjs [base-url] [--out file]
 import { chromium } from "@playwright/test";
 import fs from "node:fs/promises";
@@ -17,15 +18,16 @@ for (const [w, h, tz] of [[1440, 900, "America/Los_Angeles"], [1280, 720, "Asia/
   await page.waitForTimeout(2500);
   const r = await page.evaluate(() => {
     const spans = [...document.querySelectorAll("[class*=timer] span")], [t, d] = spans.map((s) => s.textContent);
-    const now = new Date(), [hh, mm, ss] = t.split(":").map(Number), [DD, MM, YYYY] = d.split(".").map(Number);
-    const shown = new Date(YYYY, MM - 1, DD, hh, mm, ss);
+    const now = new Date(), [DD, MM, YYYY] = d.split(".").map(Number);
+    const matches = [now, new Date(+now - 1000)].some((x) => x.toLocaleTimeString("en-US") === t);
+    const day = `${String(now.getDate()).padStart(2, "0")}.${String(now.getMonth() + 1).padStart(2, "0")}.${now.getFullYear()}`;
     const timer = document.querySelector("[class*=timer]").getBoundingClientRect(), name = document.querySelector("header [class*=name]").getBoundingClientRect(), words = document.querySelector("header [class*=words]").getBoundingClientRect();
     const ov = (a, b) => !(a.right <= b.left || b.right <= a.left || a.bottom <= b.top || b.bottom <= a.top);
-    return { time: t, date: d, driftS: Math.abs(now - shown) / 1000, offsetMin: -now.getTimezoneOffset(), font: `${getComputedStyle(spans[0]).fontFamily.split(",")[0]} ${getComputedStyle(spans[0]).fontSize}`,
+    return { time: t, date: d, expected: now.toLocaleTimeString("en-US"), matchesLocale: matches, dateMatches: day === d && YYYY > 2000, offsetMin: -now.getTimezoneOffset(), font: `${getComputedStyle(spans[0]).fontFamily.split(",")[0]} ${getComputedStyle(spans[0]).fontSize}`,
       centreOffPx: +Math.abs((timer.left + timer.right) / 2 - document.documentElement.clientWidth / 2).toFixed(1), overlapsName: ov(timer, name), overlapsNav: ov(timer, words) };
   });
   r.viewport = `${w}x${h}`; r.timezone = tz;
-  r.pass = r.driftS <= 1 && r.centreOffPx <= 1 && !r.overlapsName && !r.overlapsNav && /^\d\d:\d\d:\d\d$/.test(r.time) && /^\d\d\.\d\d\.\d{4}$/.test(r.date);
+  r.pass = r.matchesLocale && r.dateMatches && /^\d{1,2}:\d\d:\d\d\s[AP]M$/.test(r.time) && (w < 720 || r.centreOffPx <= 1) && !r.overlapsName && !r.overlapsNav && /^\d\d\.\d\d\.\d{4}$/.test(r.date);
   report.runs.push(r);
   console.log(JSON.stringify(r));
   await ctx.close();

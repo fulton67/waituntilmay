@@ -1,11 +1,13 @@
 {
   "base": "http://localhost:3227",
-  "at": "2026-11-05T20:14:26.863Z",
+  "at": "2026-11-05T21:14:48.042Z",
   "runs": [
     {
-      "time": "12:14:30",
+      "time": "1:14:51 PM",
       "date": "05.11.2026",
-      "driftS": 0.057,
+      "expected": "1:14:51 PM",
+      "matchesLocale": true,
+      "dateMatches": true,
       "offsetMin": -480,
       "font": "univers-next-pro 12px",
       "centreOffPx": 0,
@@ -16,9 +18,11 @@
       "pass": true
     },
     {
-      "time": "01:14:33",
+      "time": "2:14:54 AM",
       "date": "06.11.2026",
-      "driftS": 0.17,
+      "expected": "2:14:54 AM",
+      "matchesLocale": true,
+      "dateMatches": true,
       "offsetMin": 300,
       "font": "univers-next-pro 12px",
       "centreOffPx": 0,
@@ -29,12 +33,14 @@
       "pass": true
     },
     {
-      "time": "20:14:36",
+      "time": "9:14:57 PM",
       "date": "05.11.2026",
-      "driftS": 0.254,
+      "expected": "9:14:57 PM",
+      "matchesLocale": true,
+      "dateMatches": true,
       "offsetMin": 0,
       "font": "univers-next-pro 12px",
-      "centreOffPx": 0,
+      "centreOffPx": 111.5,
       "overlapsName": false,
       "overlapsNav": false,
       "viewport": "390x844",
