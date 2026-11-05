@@ -12,7 +12,7 @@ import css from "./site.module.css";
 
 // the cover box: --cv in site.module.css, beside the Rolodex (inline) or in the panel (the full width on phones)
 const SIZES = {
-  inline: "min(64vh, calc(100vh - 284px))",
+  inline: "calc(0.75 * min(64vh, calc(100vh - 284px)))",
   panel: "(min-width: 720px) min(75vh, calc(100vw - 444px)), calc(100vw - 32px)",
 };
 

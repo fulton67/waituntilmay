@@ -80,7 +80,8 @@ function CameraRig() {
     const dt = Math.min(delta, 1 / 30);
     const aspect = size.width / size.height;
     // BUILD.md: 2.3, or 3.9 when aspect < 0.8; pulled back on wide screens so the detail panel fits beside the drum
-    const dist = aspect < 0.8 ? 3.9 : rig.wide ? (aspect < 1.3 ? 3.6 : 2.9) : 2.3;
+    // desktop (the release display beside the drum): 0.8 x the old 3.6 / 2.9, so the sleeves are 25% larger on screen
+    const dist = aspect < 0.8 ? 3.9 : rig.wide ? (aspect < 1.3 ? 3.6 : 2.9) * 0.8 : 2.3;
     const kf = rig.reduce ? 1 : 1 - Math.exp(-10 * dt);
     rig.camAz += (rig.az - rig.camAz) * kf;
     rig.camEl += (rig.el - rig.camEl) * kf;

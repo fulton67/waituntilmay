@@ -1,0 +1,47 @@
+{
+  "at": "2026-11-05T20:25:11.608Z",
+  "runs": [
+    {
+      "viewport": "1440x900",
+      "frontSleeveHeightPx": {
+        "before": 206.9,
+        "after": 259.5,
+        "change": "25.4%"
+      },
+      "panelWidthPx": {
+        "before": 576,
+        "after": 432,
+        "change": "-25%"
+      },
+      "rotationBox": {
+        "left": 149.6,
+        "top": 124.5,
+        "right": 613.6,
+        "bottom": 430.1
+      },
+      "panelLeftPx": 704,
+      "inViewThroughFullTurn": true
+    },
+    {
+      "viewport": "1280x720",
+      "frontSleeveHeightPx": {
+        "before": 165.5,
+        "after": 207.6,
+        "change": "25.4%"
+      },
+      "panelWidthPx": {
+        "before": 436,
+        "after": 327,
+        "change": "-25%"
+      },
+      "rotationBox": {
+        "left": 183.7,
+        "top": 99.6,
+        "right": 554.9,
+        "bottom": 344.1
+      },
+      "panelLeftPx": 649,
+      "inViewThroughFullTurn": true
+    }
+  ]
+}
