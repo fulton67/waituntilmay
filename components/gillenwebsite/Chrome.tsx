@@ -24,26 +24,28 @@ const PAGES = [
   { href: `${BASE}/about`, label: "ABOUT" },
 ];
 
-// SOURCES #03, luckydaye.com S1 (00aac55989b5a00a.js:2:49189): time since mount as HH:MM:SS:mmm every 10 ms,
-// and today's date as MM.DD.YYYY. Written straight into the spans so React does not re-render 100 times a second.
+// SOURCES #03, luckydaye.com's div.timer > span.date-time pair, now the viewer's own time of day and date from the
+// device clock: HH:MM:SS (24-hour) and DD.MM.YYYY, written into the spans on each second's turn so React does not
+// re-render.
 function Timer() {
-  const run = useRef<HTMLSpanElement>(null), day = useRef<HTMLSpanElement>(null);
+  const time = useRef<HTMLSpanElement>(null), day = useRef<HTMLSpanElement>(null);
   useEffect(() => {
-    const e = new Date();
-    if (day.current) day.current.textContent = `${String(e.getMonth() + 1).padStart(2, "0")}.${String(e.getDate()).padStart(2, "0")}.${e.getFullYear()}`;
-    const oe = Date.now();
-    const ue = () => {
-      const t = Date.now() - oe, h = Math.floor(t / 36e5), m = Math.floor((t % 36e5) / 6e4), s = Math.floor((t % 6e4) / 1e3), ms = t % 1e3;
-      if (run.current) run.current.textContent = [String(h).padStart(2, "0"), String(m).padStart(2, "0"), String(s).padStart(2, "0"), String(ms).padStart(3, "0")].join(":");
+    const p = (n: number) => String(n).padStart(2, "0");
+    let id = 0;
+    const tick = () => {
+      const d = new Date();
+      if (time.current) time.current.textContent = `${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
+      if (day.current) day.current.textContent = `${p(d.getDate())}.${p(d.getMonth() + 1)}.${d.getFullYear()}`;
+      // the next tick on the next second's turn
+      id = window.setTimeout(tick, 1000 - (d.getTime() % 1000) + 5);
     };
-    ue();
-    const ie = setInterval(ue, 10);
-    return () => clearInterval(ie);
+    tick();
+    return () => clearTimeout(id);
   }, []);
   return (
     <div className={css.timer} data-src="03">
-      <span ref={run} className={css.dateTime}>00:00:00:000</span>
-      {/* a same-width placeholder until the date is written, so the header does not shift when it appears */}
+      {/* same-width placeholders until the clock is written, so the header does not shift */}
+      <span ref={time} className={css.dateTime}>00:00:00</span>
       <span ref={day} className={css.dateTime}>00.00.0000</span>
     </div>
   );

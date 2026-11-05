@@ -1,0 +1,46 @@
+{
+  "base": "http://localhost:3227",
+  "at": "2026-11-05T20:14:26.863Z",
+  "runs": [
+    {
+      "time": "12:14:30",
+      "date": "05.11.2026",
+      "driftS": 0.057,
+      "offsetMin": -480,
+      "font": "univers-next-pro 12px",
+      "centreOffPx": 0,
+      "overlapsName": false,
+      "overlapsNav": false,
+      "viewport": "1440x900",
+      "timezone": "America/Los_Angeles",
+      "pass": true
+    },
+    {
+      "time": "01:14:33",
+      "date": "06.11.2026",
+      "driftS": 0.17,
+      "offsetMin": 300,
+      "font": "univers-next-pro 12px",
+      "centreOffPx": 0,
+      "overlapsName": false,
+      "overlapsNav": false,
+      "viewport": "1280x720",
+      "timezone": "Asia/Karachi",
+      "pass": true
+    },
+    {
+      "time": "20:14:36",
+      "date": "05.11.2026",
+      "driftS": 0.254,
+      "offsetMin": 0,
+      "font": "univers-next-pro 12px",
+      "centreOffPx": 0,
+      "overlapsName": false,
+      "overlapsNav": false,
+      "viewport": "390x844",
+      "timezone": "Europe/London",
+      "pass": true
+    }
+  ],
+  "pass": true
+}

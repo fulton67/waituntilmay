@@ -44,7 +44,7 @@
 .name { font-family: var(--name); font-stretch: 118%; letter-spacing: 0.02em; justify-self: start; }
 .root .name:hover { opacity: 1; }
 /* SOURCES #03 luckydaye div.timer > span.date-time */
-.timer { display: flex; gap: 14px; font-variant-numeric: tabular-nums; }
+.timer { display: flex; gap: 14px; font-variant-numeric: tabular-nums; justify-self: center; }
 .dateTime { display: inline-block; min-width: 9ch; }
 .words { justify-self: end; white-space: nowrap; }
 .slash { margin: 0 6px; }
@@ -242,11 +242,12 @@
 
 @media (max-width: 719.98px) {
   .root { --head: 62px; }
+  /* phones: the name and the nav on the first row, the clock centred on the second */
   .siteNav { grid-template-columns: minmax(0, 1fr) auto; row-gap: 4px; padding-left: 16px; padding-right: 16px; }
   .name { grid-column: 1; grid-row: 1; white-space: nowrap; }
-  .timer { grid-column: 2; grid-row: 1; gap: 8px; }
+  .timer { grid-column: 1 / -1; grid-row: 2; gap: 8px; justify-self: center; }
   .dateTime { min-width: 0; }
-  .words { grid-column: 1 / -1; grid-row: 2; justify-self: start; }
+  .words { grid-column: 2; grid-row: 1; justify-self: end; }
   .loadingLabel { left: 16px; }
   .cap { left: 16px; right: 16px; width: auto; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); grid-template-columns: 1fr; gap: 8px; }
   .lightbox { padding: 16px; align-items: flex-start; overflow: auto; }
