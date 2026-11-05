@@ -38,9 +38,12 @@ export type Rig = {
   lifted: number; // the slot whose sleeve is lifted off the ring into the record view, or -1
   // the decoded bitmaps a release's sleeve is showing now, front and back, with their widths (Rolodex.tsx)
   coverImages?: (i: number) => { front: { image: unknown; w: number } | null; back: { image: unknown; w: number } | null };
-  setPaused?: (paused: boolean) => void;
+  setPaused?: (paused: boolean) => void; // stop or restart the stage's render loop (Scene.tsx), while the record view covers it
   lastDir: number; // the direction the drum last moved in (+1 / -1), for a knob tap at rest
-  lastBoost: { before: number; after: number; capped: boolean; at: number } | null; // the last knob tap's speeds (cards/s) // stop or restart the stage's render loop (Scene.tsx), while the record view covers it
+  lastBoost: { before: number; after: number; capped: boolean; at: number } | null; // the last knob tap's speeds (cards/s)
+  // the first-load guide (Guide.tsx) listens for each gesture it explains: a flip (wheel, swipe or card drag), a knob
+  // tap, a drag that turns the Rolodex, and opening the record view
+  onAction?: (a: "flip" | "knob" | "orbit" | "open") => void;
   ready: boolean;
   axisY: number; // height of the drum axis, from knob_right's bounding box
   hit: HTMLElement | null; // the cards' hit area over the stage (touch-action: none), kept on the drum's screen rect

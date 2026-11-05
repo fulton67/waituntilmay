@@ -162,6 +162,15 @@
 .count { display: grid; gap: 4px; white-space: nowrap; font-variant-numeric: tabular-nums; justify-items: start; }
 .countdown { font-variant-numeric: tabular-nums; }
 
+/* the first-load guide (Guide.tsx): over the stage and the caption, under the header; it takes no input. Labels in
+   the info face, typed capitals set as small caps (font-variant-caps, not a transform: R7) */
+.guide { position: fixed; inset: 0; z-index: 35; pointer-events: none; }
+.guideSvg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.guideSvg line { stroke: var(--ink); stroke-width: 1; }
+.guideSvg circle { fill: var(--ink); }
+.guideSvg line, .guideSvg circle { opacity: 0; }
+.guideLabel { position: absolute; left: 0; top: 0; white-space: nowrap; font: var(--w-info) 13px/1 var(--mono); font-variant-caps: all-small-caps; letter-spacing: 0.06em; background: var(--ground); padding: 2px 4px; opacity: 0; will-change: transform, opacity; }
+
 /* /gillenwebsite/discography (Discography.tsx): About and the discography on one page. The big numbers and the
    timestamps in --font-index-display, the text in --font-body: both the header's face (the info face) for now */
 .merged {

@@ -1,0 +1,184 @@
+{
+  "base": "http://localhost:3227",
+  "at": "2026-11-05T20:52:36.273Z",
+  "profiles": {
+    "desktop": {
+      "firstLoad": {
+        "waitedMs": 539,
+        "phases": [
+          {
+            "s": "drawing",
+            "ms": 0
+          },
+          {
+            "s": "holding",
+            "ms": 1345
+          },
+          {
+            "s": "fading",
+            "ms": 3825
+          },
+          {
+            "s": "hidden",
+            "ms": 4218
+          }
+        ]
+      },
+      "firstLoadShows": 1,
+      "labels": [
+        {
+          "text": "SCROLL OR SWIPE TO FLIP",
+          "opacity": 1,
+          "inView": true,
+          "font": "all-small-caps"
+        },
+        {
+          "text": "TAP TO SPIN FASTER",
+          "opacity": 1,
+          "inView": true,
+          "font": "all-small-caps"
+        },
+        {
+          "text": "DRAG TO TURN",
+          "opacity": 1,
+          "inView": true,
+          "font": "all-small-caps"
+        },
+        {
+          "text": "TAP TO OPEN",
+          "opacity": 1,
+          "inView": true,
+          "font": "all-small-caps"
+        }
+      ],
+      "track": {
+        "before": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "after": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "moved": [
+          4.3,
+          69.8,
+          0,
+          0
+        ],
+        "pass": true
+      },
+      "fps": {
+        "fps": 60,
+        "worstMs": 16.8
+      },
+      "fpsState": "holding",
+      "knobTapGone": {
+        "gone": [
+          1
+        ],
+        "knobOpacity": 0
+      },
+      "secondLoad": {
+        "shows": 0,
+        "state": "hidden",
+        "seen": "1"
+      },
+      "pass": true
+    },
+    "phone": {
+      "firstLoad": {
+        "waitedMs": 402,
+        "phases": [
+          {
+            "s": "drawing",
+            "ms": 0
+          },
+          {
+            "s": "holding",
+            "ms": 1365
+          },
+          {
+            "s": "fading",
+            "ms": 3882
+          },
+          {
+            "s": "hidden",
+            "ms": 4265
+          }
+        ]
+      },
+      "firstLoadShows": 1,
+      "labels": [
+        {
+          "text": "SCROLL OR SWIPE TO FLIP",
+          "opacity": 1,
+          "inView": true,
+          "font": "all-small-caps"
+        },
+        {
+          "text": "TAP TO SPIN FASTER",
+          "opacity": 1,
+          "inView": true,
+          "font": "all-small-caps"
+        },
+        {
+          "text": "DRAG TO TURN",
+          "opacity": 1,
+          "inView": true,
+          "font": "all-small-caps"
+        },
+        {
+          "text": "TAP TO OPEN",
+          "opacity": 1,
+          "inView": true,
+          "font": "all-small-caps"
+        }
+      ],
+      "track": {
+        "before": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "after": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "moved": [
+          2.6,
+          30.9,
+          0,
+          0
+        ],
+        "pass": true
+      },
+      "cpuThrottle": 4,
+      "fps": {
+        "fps": 56.8,
+        "worstMs": 33.4
+      },
+      "fpsState": "holding",
+      "knobTapGone": {
+        "gone": [
+          1
+        ],
+        "knobOpacity": 0
+      },
+      "secondLoad": {
+        "shows": 0,
+        "state": "hidden",
+        "seen": "1"
+      },
+      "pass": true
+    }
+  },
+  "pass": true
+}
