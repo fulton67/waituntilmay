@@ -1,0 +1,71 @@
+{
+  "base": "http://localhost:3228",
+  "at": "2026-11-05T21:38:27.731Z",
+  "scene": {
+    "objects": 264,
+    "textObjects": 0,
+    "sleeveMapKinds": [
+      "bitmap"
+    ],
+    "sleeveChildren": 1
+  },
+  "plainBacks": [
+    {
+      "id": "01-girl-in-red-blue",
+      "worstStdev": 0
+    },
+    {
+      "id": "02-freak-slug-amulet",
+      "worstStdev": 0
+    },
+    {
+      "id": "03-arlo-parks-john-glacier-floette-ft-john-glacier",
+      "worstStdev": 0
+    },
+    {
+      "id": "07-obongjayar-paradise-now-and-forever",
+      "worstStdev": 0
+    },
+    {
+      "id": "08-lucy-park-good-graces",
+      "worstStdev": 0
+    },
+    {
+      "id": "09-luke-titus-from-what-was-will-grow-a-flower",
+      "worstStdev": 0
+    },
+    {
+      "id": "12-sza-sos-deluxe-lana",
+      "worstStdev": 0
+    },
+    {
+      "id": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
+      "worstStdev": 0
+    },
+    {
+      "id": "17-brockhampton-tm",
+      "worstStdev": 0
+    },
+    {
+      "id": "19-rex-orange-county-threat",
+      "worstStdev": 0
+    },
+    {
+      "id": "22-run-the-jewels-rtj-cu4tro",
+      "worstStdev": 0
+    },
+    {
+      "id": "24-jovanotti-il-boom",
+      "worstStdev": 0
+    },
+    {
+      "id": "25-lucy-park-before-i-speak",
+      "worstStdev": 0
+    },
+    {
+      "id": "29-neil-young-and-crazy-horse-shut-it-down-2020",
+      "worstStdev": 0
+    }
+  ],
+  "pass": true
+}

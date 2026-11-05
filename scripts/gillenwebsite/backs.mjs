@@ -1,5 +1,6 @@
 // Back covers, catalogue numbers and collaborators for every release, for the record sleeves on the Rolodex.
-//   node scripts/gillenwebsite/backs.mjs [--force]
+//   node scripts/gillenwebsite/backs.mjs [--force] [--plain-only]
+// (--plain-only: remake only the plain backs already in sleeves.json, fetching nothing)
 // Order per release:
 //  1. Discogs (only with a user token in DISCOGS_TOKEN or ~/.discogs_token): database search by artist + title,
 //     the master's main release, its images. Discogs types images "primary" / "secondary" only, so the back is the
@@ -9,8 +10,7 @@
 //     relationships on the release and on the recordings of the tracks Dylan worked on.
 //  3. Scrapling (plain fetcher, scripts/gillenwebsite/scrapling_back.py) on the release's Bandcamp page: any image
 //     on the page other than the album art.
-// A release none of them has a back for gets a plain sleeve back: the front's dominant colour with the catalogue
-// number set in the site's type (made in headed Chrome, so the face is the page's own woff2).
+// A release none of them has a back for gets a plain sleeve back: the front's dominant colour, and nothing on it.
 // Writes public/covers/<id>-back.jpg (full size), public/covers/{512,1024,2048}/<id>-back.{avif,jpg},
 // lib/gillenwebsite/sleeves.json and scripts/gillenwebsite/backs-report.json.
 import fs from "node:fs/promises";
@@ -260,22 +260,17 @@ async function save(id, buf) {
   return { width: m.width, height: m.height, sizes };
 }
 
-// the plain sleeve back: the front's dominant colour, the catalogue number in the site's type, bottom right
+// the plain sleeve back: the front's dominant colour, nothing on it (no type on the sleeves)
 async function plainBacks(list) {
-  if (!list.length) return;
-  const browser = await chromium.launch({ channel: "chrome" });
-  const page = await browser.newPage({ viewport: { width: 2048, height: 2048 } });
-  const font = (await fs.readFile(path.join(ROOT, "app/gillenwebsite/fonts/texgyreheros-regular.woff2"))).toString("base64");
-  for (const p of list) {
-    const lum = (0.2126 * p.rgb[0] + 0.7152 * p.rgb[1] + 0.0722 * p.rgb[2]) / 255;
-    const ink = lum > 0.5 ? "rgba(0,0,0,.78)" : "rgba(255,255,255,.82)";
-    await page.setContent(`<style>@font-face{font-family:F;src:url(data:font/woff2;base64,${font})}html,body{margin:0;width:2048px;height:2048px;background:rgb(${p.rgb.join(",")})}
-      p{position:absolute;margin:0;font:400 44px/1.2 F;letter-spacing:.02em;color:${ink}}</style>
-      <p style="right:120px;bottom:110px;text-align:right">${p.catno}</p><p style="left:120px;bottom:110px">${p.label ?? ""}</p>`);
-    await page.evaluate(() => document.fonts.ready);
-    p.buf = await page.screenshot({ type: "png" });
-  }
-  await browser.close();
+  for (const p of list) p.buf = await sharp({ create: { width: 2048, height: 2048, channels: 3, background: { r: p.rgb[0], g: p.rgb[1], b: p.rgb[2] } } }).png().toBuffer();
+}
+if (process.argv.includes("--plain-only")) {
+  const have = JSON.parse(await fs.readFile(OUT, "utf8"));
+  const list = Object.entries(have).filter(([, x]) => x.back.source === "plain").map(([id, x]) => ({ id, rgb: x.back.rgb }));
+  await plainBacks(list);
+  for (const p of list) await save(p.id, p.buf);
+  console.log(`plain backs remade: ${list.length}`);
+  process.exit(0);
 }
 
 await fs.mkdir(CACHE, { recursive: true });
@@ -337,7 +332,7 @@ const host = (u) => { try { const h = new URL(u).hostname.replace(/^www\./, "");
 await fs.writeFile(path.join(ROOT, "docs/gillenwebsite/BACKS.md"), [
   "# Sleeve backs",
   "",
-  "Written by `scripts/gillenwebsite/backs.mjs`. " + (TOKEN ? "Discogs (user token) first, then" : "No Discogs token: Chrome was not signed in to Discogs, so no user token could be made. Discogs is skipped and the order is") + " MusicBrainz + Cover Art Archive (images typed Back), then Bandcamp through Scrapling. A release with no back gets a plain sleeve back: the front's dominant colour with its label and catalogue number.",
+  "Written by `scripts/gillenwebsite/backs.mjs`. " + (TOKEN ? "Discogs (user token) first, then" : "No Discogs token: Chrome was not signed in to Discogs, so no user token could be made. Discogs is skipped and the order is") + " MusicBrainz + Cover Art Archive (images typed Back), then Bandcamp through Scrapling. A release with no back gets a plain sleeve back: the front's dominant colour, with no type on it.",
   "",
   `${rows.length - plain.length} backs found, ${plain.length} plain.`,
   "",
