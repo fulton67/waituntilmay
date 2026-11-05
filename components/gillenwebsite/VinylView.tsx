@@ -15,7 +15,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import { CSS3DRenderer, CSS3DObject } from "three/examples/jsm/renderers/CSS3DRenderer.js";
-import { Text } from "troika-three-text";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { rig, wrap } from "./rig";
 import { SLEEVE, sharpen, loadTex, sideFile, sideWidth, type Side } from "./sleeve";
@@ -36,9 +35,10 @@ const PLANS: Record<string, Plan> = {
   close: { slide: [0, 170 / 500], gate: [150 / 500, 330 / 500], move: [310 / 500, 1] },
 };
 const stage = (f: number, [a, b]: Win) => ease(Math.min(1, Math.max(0, (f - a) / (b - a))));
-// the informational face, and the header's face (Archivo at the header's 118% width, instanced static for SDF)
-// the informational face, and the name's face (Archivo at the header's 118% width, instanced static for SDF type)
-const LABEL_FONT = "/gillenwebsite/fonts/texgyreheros-regular.ttf", NAME_FONT = "/gillenwebsite/fonts/archivo-wdth118-regular.ttf";
+// The label: a plain paper disc in one colour from the cover (its lightest dominant colour), with the artist and the
+// release in the header's face, small caps, round the top arc, and the spindle hole (record.ts). Drawn on a canvas
+// in the page's own fonts (the Adobe kit's Univers, TeX Gyre Heros until it loads); no cover pixels on it.
+const LABEL_PX = 1024, LABEL_FACE = `"univers-next-pro", "TeX Gyre Heros", "Helvetica Neue", Arial, sans-serif`;
 // The credits panel's type is HTML laid onto the panel in 3D (CSS3DRenderer), so it is set by the browser in the
 // page's own fonts (the Adobe Fonts kit among them, which can't be read as a font file for SDF type), sharp at any angle.
 // The element is PANEL_PX square for the 0.33 m panel; sizes in px of that element, in the page's proportions: the small
@@ -57,7 +57,7 @@ const esc = (t: string) => t.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&l
 
 type Engine = {
   gl: THREE.WebGLRenderer; scene: THREE.Scene; cam: THREE.PerspectiveCamera; rec: RecordModel; holder: THREE.Group;
-  centre: THREE.Vector3; artist: Text; title: Text; labelName: Text; blank: THREE.Texture; credit: Credit;
+  centre: THREE.Vector3; label: { canvas: HTMLCanvasElement; tex: THREE.CanvasTexture; colour: string }; blank: THREE.Texture; credit: Credit;
   tex: Record<Side, { t: THREE.Texture | null; w: number; own: boolean }>;
 };
 
@@ -99,18 +99,14 @@ async function makeEngine(canvas: HTMLCanvasElement, overlay: HTMLElement): Prom
   rec.root.position.copy(centre).negate();
   holder.add(rec.root);
   scene.add(holder);
-  // the label's type: artist and title in the site's face, SDF, turning with the record
-  const type = (y: number, size: number) => {
-    const t = new Text();
-    Object.assign(t, { font: LABEL_FONT, fontSize: size, anchorX: "center", anchorY: "middle", textAlign: "center", maxWidth: LABEL_R * 1.5, color: 0xffffff });
-    t.position.set(0, y, 0.0012 + 0.0004);
-    rec.labelPivot.add(t);
-    return t;
-  };
-  const artist = type(-LABEL_R * 0.48, 0.0058), title = type(-LABEL_R * 0.66, 0.0046);
-  // his name on the label, above the middle, in the name's face
-  const labelName = type(LABEL_R * 0.5, 0.0052);
-  labelName.font = NAME_FONT; labelName.text = "DYLAN NEUSTADTER";
+  // the label's own texture, drawn per release (drawLabel)
+  const lc = document.createElement("canvas");
+  lc.width = lc.height = LABEL_PX;
+  const ltex = new THREE.CanvasTexture(lc);
+  ltex.colorSpace = THREE.SRGBColorSpace; ltex.anisotropy = gl.capabilities.getMaxAnisotropy();
+  drawLabel(lc, "#e8e2d4", "", "");
+  ltex.needsUpdate = true;
+  rec.label.map = ltex; rec.label.color.set("#ffffff");
   // the credits panel: an element laid on the panel's face (its middle, a hair in front), scaled from px to metres
   const css = new CSS3DRenderer();
   Object.assign(css.domElement.style, { position: "absolute", inset: "0", pointerEvents: "none" });
@@ -124,16 +120,11 @@ async function makeEngine(canvas: HTMLCanvasElement, overlay: HTMLElement): Prom
   obj.scale.setScalar(SLEEVE / PANEL_PX);
   rec.credits.add(obj);
   const credit: Credit = { el, css, lines: 0 };
-  await new Promise<void>((r) => labelName.sync(() => r()));
-
-  // warm up: lay the label's type out once (loads the font, builds the glyph atlas) and compile every program the
-  // open record needs, so the first opening has nothing to build
-  artist.text = "A"; title.text = "A";
-  await new Promise<void>((r) => artist.sync(() => title.sync(() => r())));
+  // warm up: compile every program the open record needs, so the first opening has nothing to build
   rec.set(1, 1);
   cam.position.set(0, 0, 3); cam.updateMatrixWorld();
   gl.compile(scene, cam);
-  // and one real frame on the hidden canvas, so every texture (grooves, glyph atlas, paper) is on the GPU too
+  // and one real frame on the hidden canvas, so every texture (grooves, label, paper) is on the GPU too
   holder.visible = true;
   gl.setSize(64, 64, false);
   gl.render(scene, cam);
@@ -141,21 +132,73 @@ async function makeEngine(canvas: HTMLCanvasElement, overlay: HTMLElement): Prom
   rec.set(0, 0);
   holder.visible = false;
   overlay.appendChild(css.domElement);
-  return { gl, scene, cam, rec, holder, centre, artist, title, labelName, blank, credit, tex: { front: { t: null, w: 0, own: false }, back: { t: null, w: 0, own: false } } };
+  return { gl, scene, cam, rec, holder, centre, label: { canvas: lc, tex: ltex, colour: "#e8e2d4" }, blank, credit, tex: { front: { t: null, w: 0, own: false }, back: { t: null, w: 0, own: false } } };
 }
 
-// light or dark type for the label, from the luminance of the cover's lower third
-function inkFor(img: CanvasImageSource) {
+// the label's colour: the cover's lightest dominant colour. The cover at 48 x 48, its pixels in 8 levels a channel;
+// the bins holding at least 6% of them are the dominant colours (the three largest when none does), and the lightest
+// of those (relative luminance), as the mean of its pixels, is the label
+const lum = (r: number, g: number, b: number) => { const f = (c: number) => { c /= 255; return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b); };
+function labelColour(img: CanvasImageSource) {
   try {
-    const c = new OffscreenCanvas(32, 32), x = c.getContext("2d")!;
-    x.drawImage(img, 0, 0, 32, 32);
-    // the bitmap is flipped for the GPU (flipY at decode), so its lower third is the cover's upper rows here; either
-    // way the label's type sits over the middle band, sample rows 10-22
-    const d = x.getImageData(0, 10, 32, 12).data;
-    let l = 0;
-    for (let k = 0; k < d.length; k += 4) l += 0.2126 * d[k] + 0.7152 * d[k + 1] + 0.0722 * d[k + 2];
-    return l / (d.length / 4) / 255 > 0.55 ? 0x111111 : 0xffffff;
-  } catch { return 0xffffff; }
+    const c = new OffscreenCanvas(48, 48), x = c.getContext("2d")!;
+    x.drawImage(img, 0, 0, 48, 48);
+    const d = x.getImageData(0, 0, 48, 48).data, bins = new Map<number, { n: number; r: number; g: number; b: number }>();
+    for (let k = 0; k < d.length; k += 4) {
+      const key = (d[k] >> 5) * 64 + (d[k + 1] >> 5) * 8 + (d[k + 2] >> 5), o = bins.get(key) ?? { n: 0, r: 0, g: 0, b: 0 };
+      o.n++; o.r += d[k]; o.g += d[k + 1]; o.b += d[k + 2]; bins.set(key, o);
+    }
+    const all = [...bins.values()].sort((a, b) => b.n - a.n), total = d.length / 4;
+    const dom = all.filter((o) => o.n / total >= 0.06);
+    const pick = (dom.length ? dom : all.slice(0, 3)).map((o) => [o.r / o.n, o.g / o.n, o.b / o.n]).sort((a, b) => lum(b[0], b[1], b[2]) - lum(a[0], a[1], a[2]))[0];
+    return "#" + pick.map((v) => Math.round(v).toString(16).padStart(2, "0")).join("");
+  } catch { return "#e8e2d4"; }
+}
+const inkOn = (bg: string) => { const [r, g, b] = [1, 3, 5].map((k) => parseInt(bg.slice(k, k + 2), 16)); return lum(r, g, b) > 0.3 ? "#141414" : "#f4f1ea"; };
+// the label's face: the colour edge to edge, and "ARTIST · RELEASE" round the top arc in small caps (lower-case
+// letters as capitals at 78%), reading clockwise, in near-black or near-white for the contrast. The spindle hole is
+// its own mesh (record.ts).
+function drawLabel(c: HTMLCanvasElement, bg: string, artist: string, release: string) {
+  const x = c.getContext("2d")!, P = c.width, R = P / 2;
+  x.fillStyle = bg; x.fillRect(0, 0, P, P);
+  const text = [artist, release].filter(Boolean).join(" · ");
+  if (!text) return;
+  x.fillStyle = inkOn(bg);
+  x.textAlign = "center"; x.textBaseline = "alphabetic";
+  const rt = R * 0.78, maxArc = Math.PI * 1.15;
+  let size = P * 0.052;
+  const glyphs = () => [...text].map((ch) => {
+    const up = ch.toUpperCase(), px = ch !== up ? size * 0.78 : size;
+    x.font = `400 ${px}px ${LABEL_FACE}`;
+    return { ch: up, px, w: x.measureText(up).width + size * 0.08 };
+  });
+  let gs = glyphs(), L = gs.reduce((a, q) => a + q.w, 0);
+  if (L / rt > maxArc) { size *= maxArc / (L / rt); gs = glyphs(); L = gs.reduce((a, q) => a + q.w, 0); }
+  let at = -Math.PI / 2 - L / rt / 2;
+  for (const q of gs) {
+    const a = at + q.w / 2 / rt;
+    x.save();
+    x.translate(R + Math.cos(a) * rt, R + Math.sin(a) * rt);
+    x.rotate(a + Math.PI / 2);
+    x.font = `400 ${q.px}px ${LABEL_FACE}`;
+    x.fillText(q.ch, 0, 0);
+    x.restore();
+    at += q.w / rt;
+  }
+}
+// every pixel of the label canvas against the line from its paper colour to its ink: the largest distance (0-255)
+// from that line, and how many pixels are farther than 8 from it
+function labelPixels(c: HTMLCanvasElement, bg: string) {
+  const d = c.getContext("2d")!.getImageData(0, 0, c.width, c.height).data, p = [1, 3, 5].map((k) => parseInt(bg.slice(k, k + 2), 16));
+  const ik = inkOn(bg), ink = [1, 3, 5].map((k) => parseInt(ik.slice(k, k + 2), 16)), v = ink.map((q, k) => q - p[k]), vv = v.reduce((a, q) => a + q * q, 0);
+  let worst = 0, off = 0;
+  for (let k = 0; k < d.length; k += 4) {
+    const w = [d[k] - p[0], d[k + 1] - p[1], d[k + 2] - p[2]], t = Math.max(0, Math.min(1, (w[0] * v[0] + w[1] * v[1] + w[2] * v[2]) / vv));
+    const dist = Math.hypot(w[0] - t * v[0], w[1] - t * v[1], w[2] - t * v[2]);
+    if (dist > worst) worst = dist;
+    if (dist > 8) off++;
+  }
+  return { worstOffLine: +worst.toFixed(1), pixelsOffLine: off, pixels: d.length / 4 };
 }
 
 // `handle` receives open/close once the view is mounted (it is loaded with next/dynamic, so not through a ref)
@@ -266,14 +309,14 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     e.cam.updateMatrixWorld();
   }, [sizeTo]);
 
-  // put a texture on a side, swapping only once it is decoded and uploaded (the mip-swap rule); the label is the front
+  // put a texture on a side, swapping only once it is decoded and uploaded (the mip-swap rule)
   const put = useCallback((e: Engine, side: Side, t: THREE.Texture, w: number, own: boolean) => {
     sharpen(t, e.gl, true);
     e.gl.initTexture(t);
     const slot = e.tex[side];
     if (slot.t && slot.own && slot.t !== t) slot.t.dispose();
     slot.t = t; slot.w = w; slot.own = own;
-    if (side === "front") { e.rec.front.map = t; e.rec.label.map = t; } else e.rec.back.map = t;
+    if (side === "front") e.rec.front.map = t; else e.rec.back.map = t;
   }, []);
 
   // the panels' faces on screen, in device pixels, and the files that cover them (at least 1024)
@@ -309,14 +352,14 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
   }, []);
 
   const setType = useCallback((e: Engine, r: Release, img: CanvasImageSource | null) => {
-    const ink = img ? inkFor(img) : 0xffffff;
     setCredits(e, r);
     // the record's colour: Discogs' colour variant, or the cover's dominant colour darkened (vinyl-colour.mjs)
     e.rec.vinyl.color.set(r.vinyl?.colour ?? "#0b0b0c");
-    e.artist.text = caps(r.artist); e.title.text = r.release;
-    e.artist.color = e.title.color = e.labelName.color = ink;
-    e.labelName.sync();
-    e.artist.sync(); e.title.sync();
+    // the label, drawn now and again once the page's face has loaded (until then it draws in the fallback)
+    const colour = img ? labelColour(img) : "#e8e2d4";
+    const paint = () => { drawLabel(e.label.canvas, colour, r.artist, r.release); e.label.tex.needsUpdate = true; e.label.colour = colour; };
+    paint();
+    document.fonts.load(`400 40px ${LABEL_FACE}`).then(() => { if (releases[state.current.i] === r) paint(); }, () => {});
   }, [setCredits]);
 
   // the frame loop calls itself through this ref (a callback cannot name itself before it is declared)
@@ -531,8 +574,9 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
           // the credits panel: its elements' faces and weights as computed, and its lines (name, Dylan's line, the list's
           // rows, the metadata)
           credits: { lines: e.credit.lines, opacity: e.credit.el.style.opacity, type: [...e.credit.el.querySelectorAll("p, span")].filter((x) => x.textContent?.trim()).map((x) => { const c = getComputedStyle(x); return `${c.fontFamily.split(",")[0]} ${c.fontWeight} ${c.fontSize}`; }).filter((v, k, a) => a.indexOf(v) === k) },
-          // the label shows the cover cut to its circle: the texture's width spans the label's diameter
-          label: { texturePx: w(e.rec.label.map), screenPx: proj(e.rec.labelPivot, disc) },
+          // the label: its own canvas (the texture's width spans the label's diameter), its colour, and every pixel
+          // against the line from the paper colour to the ink (so nothing of the cover is on it)
+          label: { texturePx: w(e.rec.label.map), screenPx: proj(e.rec.labelPivot, disc), isCover: e.rec.label.map === e.rec.front.map, colour: e.label.colour, ...labelPixels(e.label.canvas, e.label.colour) },
         };
       },
     };

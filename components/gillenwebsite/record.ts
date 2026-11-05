@@ -1,6 +1,6 @@
 // The open record, built in code: a gatefold sleeve opened to OPEN_DEG with the record slid out of its right
 // pocket. One model for every release; only three textures change: the front cover (left panel, both faces), the
-// back cover (the sleeve's back) and the label (the front cover, cut to the label circle). Inside, the right
+// back cover (the sleeve's back) and the label (plain paper drawn by VinylView.tsx). Inside, the right
 // pocket's front wall carries the credits.
 // Local frame, closed: exactly the Rolodex sleeve's (sleeve.ts): the front cover faces +z at z = 0, x across, y up
 // from the bottom edge at 0. So the closed model can stand in for the sleeve on the ring, face for face.

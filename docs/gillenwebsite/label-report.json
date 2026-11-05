@@ -1,0 +1,73 @@
+{
+  "base": "http://localhost:3227",
+  "at": "2026-11-05T21:18:32.882Z",
+  "rows": [
+    {
+      "release": "14-marcus-king-mood-swings",
+      "coverMean": 13,
+      "texturePx": 1024,
+      "screenPx": 95.29068969651394,
+      "isCover": false,
+      "colour": "#0c3248",
+      "worstOffLine": 1.1,
+      "pixelsOffLine": 0,
+      "pixels": 1048576
+    },
+    {
+      "release": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
+      "coverMean": 25.7,
+      "texturePx": 1024,
+      "screenPx": 89.53630351604227,
+      "isCover": false,
+      "colour": "#30302b",
+      "worstOffLine": 1.2,
+      "pixelsOffLine": 0,
+      "pixels": 1048576
+    },
+    {
+      "release": "20-sza-sos",
+      "coverMean": 28.1,
+      "texturePx": 1024,
+      "screenPx": 88.82279534678639,
+      "isCover": false,
+      "colour": "#4c708e",
+      "worstOffLine": 1.1,
+      "pixelsOffLine": 0,
+      "pixels": 1048576
+    },
+    {
+      "release": "22-run-the-jewels-rtj-cu4tro",
+      "coverMean": 206.7,
+      "texturePx": 1024,
+      "screenPx": 89.6446531604472,
+      "isCover": false,
+      "colour": "#f500f6",
+      "worstOffLine": 1.1,
+      "pixelsOffLine": 0,
+      "pixels": 1048576
+    },
+    {
+      "release": "19-rex-orange-county-threat",
+      "coverMean": 215.6,
+      "texturePx": 1024,
+      "screenPx": 89.51362877436884,
+      "isCover": false,
+      "colour": "#f7f6f6",
+      "worstOffLine": 0.7,
+      "pixelsOffLine": 0,
+      "pixels": 1048576
+    },
+    {
+      "release": "17-brockhampton-tm",
+      "coverMean": 225.9,
+      "texturePx": 1024,
+      "screenPx": 89.80590105643932,
+      "isCover": false,
+      "colour": "#eae9e3",
+      "worstOffLine": 0.8,
+      "pixelsOffLine": 0,
+      "pixels": 1048576
+    }
+  ],
+  "pass": true
+}
