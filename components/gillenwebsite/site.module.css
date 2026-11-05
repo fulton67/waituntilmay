@@ -137,13 +137,15 @@
 .cap {
   position: absolute; left: 20px; bottom: 28px; width: min(560px, calc(40vw - 20px));
   display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 16px;
-  touch-action: none; cursor: url("/gillenwebsite/cursors/ns-resize.svg") 16 16, ns-resize; cursor: -webkit-image-set(url("/gillenwebsite/cursors/ns-resize.png") 1x, url("/gillenwebsite/cursors/ns-resize@2x.png") 2x, url("/gillenwebsite/cursors/ns-resize@3x.png") 3x) 16 16, ns-resize; cursor: image-set(url("/gillenwebsite/cursors/ns-resize.png") 1x, url("/gillenwebsite/cursors/ns-resize@2x.png") 2x, url("/gillenwebsite/cursors/ns-resize@3x.png") 3x) 16 16, ns-resize; user-select: none; -webkit-user-select: none;
+  /* one button (Site.tsx Caption): the pointer cursor, and at least 44 px to tap */
+  touch-action: none; cursor: pointer; min-height: 44px; user-select: none; -webkit-user-select: none;
 }
 .root .cap > * { pointer-events: auto; } /* above .root button {all: unset}, which would inherit none */
 .capClip { overflow: hidden; height: 72px; min-width: 0; }
 .capStack { position: relative; height: 100%; transition: transform 0.12s ease; }
 .capItem { position: absolute; inset: 0; display: flex; gap: 12px; align-items: flex-end; min-width: 0; }
-.capThumb { flex: none; cursor: pointer; }
+.capThumb { flex: none; }
+.root .cap:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
 .capText { display: grid; min-width: 0; }
 .capText > span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 /* SOURCES #19 the About reveal's curve (gaeawoods [data-about] transition: ease), over 180 ms */
@@ -159,7 +161,6 @@
 .capArtist { font: var(--w-display) 20px/1.1 var(--display); font-stretch: 112%; }
 .count { display: grid; gap: 4px; white-space: nowrap; font-variant-numeric: tabular-nums; justify-items: start; }
 .countdown { font-variant-numeric: tabular-nums; }
-.hint { display: block; letter-spacing: 0.5px; }
 
 /* SOURCES #22 brian-eno.net: 66.66% / 33.33%; rows 1.25rem; 1fr 1fr; text 6fr 4.5fr 1fr, .25rem gap and padding */
 .disco { display: grid; grid-template-columns: 66.66% 33.33%; padding-top: calc(var(--head) + 16px); min-height: 100svh; }

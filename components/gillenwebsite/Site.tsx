@@ -96,15 +96,9 @@ function Caption({ releases, front, onStep, onOpen, children }: { releases: Rele
     const r = releases[i];
     return (
       <div key={(onEnd ? "out" : "in") + i} className={css.capItem + " " + cls} onAnimationEnd={onEnd} data-release={r.id}>
-        <button
-          type="button"
-          className={css.capThumb}
-          data-src="12"
-          aria-label={"Open " + r.artist + ", " + r.release}
-          onClick={() => { if (!g.current || Math.abs(g.current.dy) <= 5) onOpen(i); }}
-        >
+        <span className={css.capThumb} data-src="12">
           {r.cover ? <Cover r={r} className={css.thumb} sizes="64px" eager /> : <span className={css.thumb} />}
-        </button>
+        </span>
         <span className={css.capText}>
           <span className={css.capArtist}>{r.artist}</span>
           <span>{r.release} [{r.year}]</span>
@@ -114,16 +108,24 @@ function Caption({ releases, front, onStep, onOpen, children }: { releases: Rele
     );
   };
   const lean = (px: number) => { if (stack.current) stack.current.style.transform = px ? "translateY(" + px + "px)" : ""; };
+  const cur = releases[pair.cur];
+  // the whole block is one button: a click or tap anywhere on it (a move under 5 px) opens the record view for the
+  // current release, as the front sleeve does; Enter or Space too. A vertical swipe still steps a release.
   return (
     <div
       className={css.cap}
       data-src="17"
+      role="button"
+      tabIndex={0}
+      aria-label={`Open ${cur.artist}, ${cur.release}`}
+      onClick={() => { if (!g.current || Math.abs(g.current.dy) <= 5) onOpen(front); }}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.stopPropagation(); onOpen(front); } }}
       onPointerDown={(e) => { g.current = { y: e.clientY, id: e.pointerId, dy: 0 }; }}
       onPointerMove={(e) => {
         const s = g.current;
         if (!s || s.id !== e.pointerId) return;
         s.dy = e.clientY - s.y;
-        // past 5 px it is a swipe: capture the pointer (only now, so a click still reaches the thumbnail) and lean
+        // past 5 px it is a swipe: capture the pointer (only now, so a click is still a click) and lean
         // the block a third of the way with it, up to 24 px, until the swipe commits
         if (Math.abs(s.dy) > 5) {
           if (!e.currentTarget.hasPointerCapture(e.pointerId)) e.currentTarget.setPointerCapture(e.pointerId);
@@ -135,7 +137,7 @@ function Caption({ releases, front, onStep, onOpen, children }: { releases: Rele
         lean(0);
         if (!s) return;
         if (Math.abs(s.dy) >= 24) onStep(s.dy < 0 ? 1 : -1);
-        // the thumbnail's click fires after pointerup and reads g.current, so it is cleared on the next tick
+        // the click fires after pointerup and reads g.current, so it is cleared on the next tick
         setTimeout(() => { if (g.current === s) g.current = null; }, 0);
       }}
       onPointerCancel={() => { g.current = null; lean(0); }}
@@ -346,8 +348,6 @@ export default function Site({ releases }: { releases: Release[] }) {
           {saver !== null && saver > 0
             ? <span className={css.countdown} data-src="29">{String(saver).padStart(2, "0")}</span>
             : <span>{no3(counted + 1)} / {no3(N)}</span>}
-          {/* SOURCES #10 woodrowcommunications.com M5: typed capitals as labels */}
-          <span className={css.hint} data-src="10">SCROLL TO FLIP · DRAG TO TURN · SWIPE THE CAPTION</span>
         </div>
       </Caption>
     </div>

@@ -1,0 +1,43 @@
+{
+  "base": "http://localhost:3227",
+  "at": "2026-11-05T20:30:28.051Z",
+  "profiles": {
+    "desktop": {
+      "role": "button",
+      "tabIndex": 0,
+      "label": "Open girl in red, BLUE",
+      "heightPx": 72,
+      "focusableInside": 0,
+      "cursor": "pointer",
+      "hint": false,
+      "front": 0,
+      "rect": {
+        "x": 353.59999999999997,
+        "y": 836
+      },
+      "opensOnClick": "open",
+      "opensRelease": "01-girl-in-red-blue",
+      "opensOnEnter": "open",
+      "pass": true
+    },
+    "phone": {
+      "role": "button",
+      "tabIndex": 0,
+      "label": "Open Mike D, Thank You",
+      "heightPx": 98,
+      "focusableInside": 0,
+      "cursor": "pointer",
+      "hint": false,
+      "front": 3,
+      "rect": {
+        "x": 230.79999999999998,
+        "y": 775
+      },
+      "opensOnClick": "open",
+      "opensRelease": "04-mike-d-thank-you",
+      "opensOnEnter": "open",
+      "pass": true
+    }
+  },
+  "pass": true
+}
