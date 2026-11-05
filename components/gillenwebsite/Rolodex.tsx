@@ -22,7 +22,7 @@ import { Text } from "troika-three-text";
 import bake from "@/lib/gillenwebsite/housing-bake.json";
 
 export const MODEL = "/models/housing.glb";
-// The sleeve face's three lines (DYLAN NEUSTADTER, the artist, the release), SDF in the header's face (Archivo at 118%),
+// The sleeve face's two lines (the artist, the release; not Dylan's name), SDF in the header's face (Archivo at 118%),
 // white with a thin dark halo, on a strip along the bottom edge just above the rail slots. One block per release, on
 // its copy nearest the front, drawn only while that copy is the front sleeve: it draws after the cover (renderOrder)
 // with no depth test, so nothing can hide it, and only the front sleeve has it so it never shows through another.
@@ -216,9 +216,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       Object.assign(t, { font: FACE_FONT, fontSize: FACE.size, lineHeight: FACE.lead, color: 0xffffff, anchorX: "left", anchorY: "bottom", whiteSpace: "nowrap",
         outlineWidth: "12%", outlineBlur: "10%", outlineColor: 0x000000, outlineOpacity: 0.85, maxWidth: SLEEVE - FACE.margin * 2,
         clipRect: [0, -1, SLEEVE - FACE.margin * 2, 1] });
-      t.text = `DYLAN NEUSTADTER
-${r.artist}
-${r.release}`;
+      t.text = `${r.artist}\n${r.release}`;
       t.position.set(-SLEEVE / 2 + FACE.margin, R0 + FACE.bottom, 0.0004);
       t.renderOrder = FACE.order;
       t.visible = false;

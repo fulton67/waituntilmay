@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3227",
-  "at": "2026-11-05T20:28:30.212Z",
+  "at": "2026-11-05T20:31:43.223Z",
   "profiles": {
     "desktop": {
       "rows": [
@@ -8,9 +8,9 @@
           "release": "14-marcus-king-mood-swings",
           "kind": "dark",
           "coverMeanLuminance": 13,
-          "glyphPx": 1468,
-          "surroundPx": 5110,
-          "Lglyph": 0.888,
+          "glyphPx": 747,
+          "surroundPx": 2741,
+          "Lglyph": 0.896,
           "Lsurround": 0.004,
           "renderOrder": 3,
           "depthTest": [
@@ -18,19 +18,19 @@
             false
           ],
           "box": [
-            649,
-            1105,
-            229,
-            95
+            650,
+            1113,
+            134,
+            64
           ],
-          "contrast": 17.37
+          "contrast": 17.52
         },
         {
           "release": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
           "kind": "dark",
           "coverMeanLuminance": 25.7,
-          "glyphPx": 2222,
-          "surroundPx": 7818,
+          "glyphPx": 1501,
+          "surroundPx": 5448,
           "Lglyph": 0.888,
           "Lsurround": 0.004,
           "renderOrder": 3,
@@ -39,10 +39,10 @@
             false
           ],
           "box": [
-            649,
+            650,
             1095,
-            368,
-            105
+            367,
+            82
           ],
           "contrast": 17.37
         },
@@ -50,9 +50,9 @@
           "release": "20-sza-sos",
           "kind": "dark",
           "coverMeanLuminance": 28.1,
-          "glyphPx": 1020,
-          "surroundPx": 3415,
-          "Lglyph": 0.897,
+          "glyphPx": 294,
+          "surroundPx": 1046,
+          "Lglyph": 0.939,
           "Lsurround": 0.006,
           "renderOrder": 3,
           "depthTest": [
@@ -60,19 +60,19 @@
             false
           ],
           "box": [
-            649,
-            1105,
-            229,
-            95
+            650,
+            1119,
+            54,
+            58
           ],
-          "contrast": 16.91
+          "contrast": 17.66
         },
         {
           "release": "22-run-the-jewels-rtj-cu4tro",
           "kind": "light",
           "coverMeanLuminance": 206.7,
-          "glyphPx": 1430,
-          "surroundPx": 5222,
+          "glyphPx": 753,
+          "surroundPx": 2831,
           "Lglyph": 0.916,
           "Lsurround": 0.03,
           "renderOrder": 3,
@@ -81,10 +81,10 @@
             false
           ],
           "box": [
-            649,
-            1105,
-            229,
-            95
+            650,
+            1111,
+            158,
+            66
           ],
           "contrast": 12.08
         },
@@ -92,43 +92,43 @@
           "release": "19-rex-orange-county-threat",
           "kind": "light",
           "coverMeanLuminance": 215.6,
-          "glyphPx": 804,
-          "surroundPx": 3387,
+          "glyphPx": 341,
+          "surroundPx": 1601,
           "Lglyph": 0.939,
-          "Lsurround": 0.035,
+          "Lsurround": 0.044,
           "renderOrder": 3,
           "depthTest": [
             false,
             false
           ],
           "box": [
-            649,
-            1105,
-            229,
-            95
+            650,
+            1108,
+            194,
+            69
           ],
-          "contrast": 11.64
+          "contrast": 10.52
         },
         {
           "release": "17-brockhampton-tm",
           "kind": "light",
           "coverMeanLuminance": 225.9,
-          "glyphPx": 123,
-          "surroundPx": 469,
-          "Lglyph": 0.871,
-          "Lsurround": 0.009,
+          "glyphPx": 44,
+          "surroundPx": 215,
+          "Lglyph": 0.922,
+          "Lsurround": 0.01,
           "renderOrder": 3,
           "depthTest": [
             false,
             false
           ],
           "box": [
-            649,
-            1105,
-            229,
-            95
+            650,
+            1112,
+            147,
+            65
           ],
-          "contrast": 15.61
+          "contrast": 16.2
         }
       ],
       "pass": false
@@ -139,8 +139,8 @@
           "release": "14-marcus-king-mood-swings",
           "kind": "dark",
           "coverMeanLuminance": 13,
-          "glyphPx": 1008,
-          "surroundPx": 4242,
+          "glyphPx": 522,
+          "surroundPx": 2238,
           "Lglyph": 0.815,
           "Lsurround": 0.005,
           "renderOrder": 3,
@@ -150,9 +150,9 @@
           ],
           "box": [
             407,
-            1436,
-            204,
-            81
+            1442,
+            121,
+            56
           ],
           "contrast": 15.73
         },
@@ -160,9 +160,9 @@
           "release": "15-teezo-touchdown-how-do-you-sleep-at-night-with-you",
           "kind": "dark",
           "coverMeanLuminance": 25.7,
-          "glyphPx": 1509,
-          "surroundPx": 6544,
-          "Lglyph": 0.807,
+          "glyphPx": 1024,
+          "surroundPx": 4539,
+          "Lglyph": 0.799,
           "Lsurround": 0.004,
           "renderOrder": 3,
           "depthTest": [
@@ -172,19 +172,19 @@
           "box": [
             407,
             1426,
-            325,
-            91
+            324,
+            72
           ],
-          "contrast": 15.87
+          "contrast": 15.72
         },
         {
           "release": "20-sza-sos",
           "kind": "dark",
           "coverMeanLuminance": 28.1,
-          "glyphPx": 691,
-          "surroundPx": 2882,
-          "Lglyph": 0.813,
-          "Lsurround": 0.008,
+          "glyphPx": 204,
+          "surroundPx": 878,
+          "Lglyph": 0.792,
+          "Lsurround": 0.007,
           "renderOrder": 3,
           "depthTest": [
             false,
@@ -192,18 +192,18 @@
           ],
           "box": [
             407,
-            1436,
-            204,
-            81
+            1448,
+            49,
+            50
           ],
-          "contrast": 14.88
+          "contrast": 14.77
         },
         {
           "release": "22-run-the-jewels-rtj-cu4tro",
           "kind": "light",
           "coverMeanLuminance": 206.7,
-          "glyphPx": 936,
-          "surroundPx": 4358,
+          "glyphPx": 492,
+          "surroundPx": 2362,
           "Lglyph": 0.852,
           "Lsurround": 0.043,
           "renderOrder": 3,
@@ -213,9 +213,9 @@
           ],
           "box": [
             407,
-            1436,
-            204,
-            81
+            1441,
+            141,
+            57
           ],
           "contrast": 9.7
         },
@@ -223,10 +223,10 @@
           "release": "19-rex-orange-county-threat",
           "kind": "light",
           "coverMeanLuminance": 215.6,
-          "glyphPx": 501,
-          "surroundPx": 2735,
-          "Lglyph": 0.898,
-          "Lsurround": 0.046,
+          "glyphPx": 212,
+          "surroundPx": 1295,
+          "Lglyph": 0.906,
+          "Lsurround": 0.055,
           "renderOrder": 3,
           "depthTest": [
             false,
@@ -234,20 +234,20 @@
           ],
           "box": [
             407,
-            1436,
-            204,
-            81
+            1438,
+            174,
+            60
           ],
-          "contrast": 9.88
+          "contrast": 9.1
         },
         {
           "release": "17-brockhampton-tm",
           "kind": "light",
           "coverMeanLuminance": 225.9,
-          "glyphPx": 77,
-          "surroundPx": 394,
-          "Lglyph": 0.815,
-          "Lsurround": 0.012,
+          "glyphPx": 28,
+          "surroundPx": 183,
+          "Lglyph": 0.839,
+          "Lsurround": 0.015,
           "renderOrder": 3,
           "depthTest": [
             false,
@@ -255,11 +255,11 @@
           ],
           "box": [
             407,
-            1436,
-            204,
-            81
+            1441,
+            132,
+            57
           ],
-          "contrast": 13.95
+          "contrast": 13.68
         }
       ],
       "pass": false
