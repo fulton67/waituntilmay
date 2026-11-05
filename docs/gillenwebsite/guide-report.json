@@ -1,82 +1,190 @@
 {
   "base": "http://localhost:3228",
-  "at": "2026-11-05T21:40:01.656Z",
+  "at": "2026-11-05T22:47:37.958Z",
   "profiles": {
     "desktop": {
       "firstLoad": {
-        "waitedMs": 407,
+        "waitedMs": 421,
         "phases": [
           {
-            "s": "drawing",
+            "s": "holding",
             "ms": 0
           },
           {
-            "s": "holding",
-            "ms": 1349
-          },
-          {
             "s": "fading",
-            "ms": 3824
+            "ms": 2484
           },
           {
             "s": "hidden",
-            "ms": 4232
+            "ms": 2897
           }
-        ]
+        ],
+        "wholeWithin60ms": true
       },
       "firstLoadShows": 1,
-      "labels": [
+      "type": {
+        "px": 12,
+        "family": "univers-next-pro",
+        "header": "univers-next-pro",
+        "weight": "400",
+        "dots": 0
+      },
+      "callouts": [
         {
-          "text": "SCROLL OR SWIPE TO FLIP",
-          "opacity": 1,
-          "inView": true,
-          "font": "all-small-caps"
+          "act": "flip",
+          "label": "SCROLL TO FLIP",
+          "segments": 2,
+          "axisAligned": true,
+          "arrow": "↓",
+          "arrowMatches": true,
+          "arrowPx": 12,
+          "arrowOnTarget": true,
+          "leaderReachesArrow": true,
+          "labelLeft": 20,
+          "onGrid": true,
+          "target": {
+            "x": 481,
+            "y": 191
+          }
         },
         {
-          "text": "TAP TO SPIN FASTER",
-          "opacity": 1,
-          "inView": true,
-          "font": "all-small-caps"
+          "act": "knob",
+          "label": "TAP KNOB TO SPIN FASTER",
+          "segments": 2,
+          "axisAligned": true,
+          "arrow": "↑",
+          "arrowMatches": true,
+          "arrowPx": 12,
+          "arrowOnTarget": true,
+          "leaderReachesArrow": true,
+          "labelLeft": 20,
+          "onGrid": true,
+          "target": {
+            "x": 282,
+            "y": 413
+          }
         },
         {
-          "text": "DRAG TO TURN",
-          "opacity": 1,
-          "inView": true,
-          "font": "all-small-caps"
+          "act": "orbit",
+          "label": "DRAG TO TURN",
+          "segments": 1,
+          "axisAligned": true,
+          "arrow": "←",
+          "arrowMatches": true,
+          "arrowPx": 12,
+          "arrowOnTarget": true,
+          "leaderReachesArrow": true,
+          "labelLeft": 1160,
+          "onGrid": true,
+          "target": {
+            "x": 1002,
+            "y": 712
+          }
         },
         {
-          "text": "TAP TO OPEN",
-          "opacity": 1,
-          "inView": true,
-          "font": "all-small-caps"
+          "act": "open",
+          "label": "OPEN",
+          "segments": 2,
+          "axisAligned": true,
+          "arrow": "↓",
+          "arrowMatches": true,
+          "arrowPx": 12,
+          "arrowOnTarget": true,
+          "leaderReachesArrow": true,
+          "labelLeft": 20,
+          "onGrid": true,
+          "target": {
+            "x": 84,
+            "y": 800
+          }
         }
       ],
-      "track": {
-        "before": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "after": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "moved": [
-          3.5,
-          53.1,
-          0,
-          0
-        ],
-        "pass": true
-      },
+      "labels": [
+        "SCROLL TO FLIP",
+        "TAP KNOB TO SPIN FASTER",
+        "DRAG TO TURN",
+        "OPEN"
+      ],
+      "afterTurn": [
+        {
+          "act": "flip",
+          "label": "SCROLL TO FLIP",
+          "segments": 2,
+          "axisAligned": true,
+          "arrow": "↓",
+          "arrowMatches": true,
+          "arrowPx": 12,
+          "arrowOnTarget": true,
+          "leaderReachesArrow": true,
+          "labelLeft": 20,
+          "onGrid": true,
+          "target": {
+            "x": 488,
+            "y": 191
+          }
+        },
+        {
+          "act": "knob",
+          "label": "TAP KNOB TO SPIN FASTER",
+          "segments": 2,
+          "axisAligned": true,
+          "arrow": "↑",
+          "arrowMatches": true,
+          "arrowPx": 12,
+          "arrowOnTarget": true,
+          "leaderReachesArrow": true,
+          "labelLeft": 20,
+          "onGrid": true,
+          "target": {
+            "x": 324,
+            "y": 397
+          }
+        },
+        {
+          "act": "orbit",
+          "label": "DRAG TO TURN",
+          "segments": 1,
+          "axisAligned": true,
+          "arrow": "←",
+          "arrowMatches": true,
+          "arrowPx": 12,
+          "arrowOnTarget": true,
+          "leaderReachesArrow": true,
+          "labelLeft": 1160,
+          "onGrid": true,
+          "target": {
+            "x": 998,
+            "y": 712
+          }
+        },
+        {
+          "act": "open",
+          "label": "OPEN",
+          "segments": 2,
+          "axisAligned": true,
+          "arrow": "↓",
+          "arrowMatches": true,
+          "arrowPx": 12,
+          "arrowOnTarget": true,
+          "leaderReachesArrow": true,
+          "labelLeft": 20,
+          "onGrid": true,
+          "target": {
+            "x": 84,
+            "y": 800
+          }
+        }
+      ],
+      "moved": [
+        7,
+        45,
+        4,
+        0
+      ],
       "fps": {
         "fps": 60,
         "worstMs": 16.9
       },
-      "fpsState": "holding",
       "knobTapGone": {
         "gone": [
           1
@@ -85,87 +193,194 @@
       },
       "secondLoad": {
         "shows": 0,
-        "state": "hidden",
-        "seen": "1"
+        "state": "hidden"
       },
       "pass": true
     },
     "phone": {
       "firstLoad": {
-        "waitedMs": 450,
+        "waitedMs": 419,
         "phases": [
           {
-            "s": "drawing",
+            "s": "holding",
             "ms": 0
           },
           {
-            "s": "holding",
-            "ms": 1323
-          },
-          {
             "s": "fading",
-            "ms": 3800
+            "ms": 2487
           },
           {
             "s": "hidden",
-            "ms": 4237
+            "ms": 2897
           }
-        ]
+        ],
+        "wholeWithin60ms": true
       },
       "firstLoadShows": 1,
-      "labels": [
+      "type": {
+        "px": 12,
+        "family": "univers-next-pro",
+        "header": "univers-next-pro",
+        "weight": "400",
+        "dots": 0
+      },
+      "callouts": [
         {
-          "text": "SCROLL OR SWIPE TO FLIP",
-          "opacity": 1,
-          "inView": true,
-          "font": "all-small-caps"
+          "act": "flip",
+          "label": "SCROLL TO FLIP",
+          "segments": 2,
+          "axisAligned": true,
+          "arrow": "↓",
+          "arrowMatches": true,
+          "arrowPx": 12,
+          "arrowOnTarget": true,
+          "leaderReachesArrow": true,
+          "labelLeft": 16,
+          "onGrid": true,
+          "target": {
+            "x": 196,
+            "y": 243
+          }
         },
         {
-          "text": "TAP TO SPIN FASTER",
-          "opacity": 1,
-          "inView": true,
-          "font": "all-small-caps"
+          "act": "knob",
+          "label": "TAP KNOB TO SPIN FASTER",
+          "segments": 2,
+          "axisAligned": true,
+          "arrow": "↑",
+          "arrowMatches": true,
+          "arrowPx": 12,
+          "arrowOnTarget": true,
+          "leaderReachesArrow": true,
+          "labelLeft": 16,
+          "onGrid": true,
+          "target": {
+            "x": 333,
+            "y": 421
+          }
         },
         {
-          "text": "DRAG TO TURN",
-          "opacity": 1,
-          "inView": true,
-          "font": "all-small-caps"
+          "act": "orbit",
+          "label": "DRAG TO TURN",
+          "segments": 2,
+          "axisAligned": true,
+          "arrow": "↓",
+          "arrowMatches": true,
+          "arrowPx": 12,
+          "arrowOnTarget": true,
+          "leaderReachesArrow": true,
+          "labelLeft": 16,
+          "onGrid": true,
+          "target": {
+            "x": 354,
+            "y": 255
+          }
         },
         {
-          "text": "TAP TO OPEN",
-          "opacity": 1,
-          "inView": true,
-          "font": "all-small-caps"
+          "act": "open",
+          "label": "OPEN",
+          "segments": 2,
+          "axisAligned": true,
+          "arrow": "↓",
+          "arrowMatches": true,
+          "arrowPx": 12,
+          "arrowOnTarget": true,
+          "leaderReachesArrow": true,
+          "labelLeft": 16,
+          "onGrid": true,
+          "target": {
+            "x": 80,
+            "y": 726
+          }
         }
       ],
-      "track": {
-        "before": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "after": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "moved": [
-          2.6,
-          30.9,
-          0,
-          0
-        ],
-        "pass": true
-      },
+      "labels": [
+        "SCROLL TO FLIP",
+        "TAP KNOB TO SPIN FASTER",
+        "DRAG TO TURN",
+        "OPEN"
+      ],
+      "afterTurn": [
+        {
+          "act": "flip",
+          "label": "SCROLL TO FLIP",
+          "segments": 2,
+          "axisAligned": true,
+          "arrow": "↓",
+          "arrowMatches": true,
+          "arrowPx": 12,
+          "arrowOnTarget": true,
+          "leaderReachesArrow": true,
+          "labelLeft": 16,
+          "onGrid": true,
+          "target": {
+            "x": 200,
+            "y": 243
+          }
+        },
+        {
+          "act": "knob",
+          "label": "TAP KNOB TO SPIN FASTER",
+          "segments": 2,
+          "axisAligned": true,
+          "arrow": "↑",
+          "arrowMatches": true,
+          "arrowPx": 12,
+          "arrowOnTarget": true,
+          "leaderReachesArrow": true,
+          "labelLeft": 16,
+          "onGrid": true,
+          "target": {
+            "x": 316,
+            "y": 433
+          }
+        },
+        {
+          "act": "orbit",
+          "label": "DRAG TO TURN",
+          "segments": 2,
+          "axisAligned": true,
+          "arrow": "↓",
+          "arrowMatches": true,
+          "arrowPx": 12,
+          "arrowOnTarget": true,
+          "leaderReachesArrow": true,
+          "labelLeft": 16,
+          "onGrid": true,
+          "target": {
+            "x": 353,
+            "y": 251
+          }
+        },
+        {
+          "act": "open",
+          "label": "OPEN",
+          "segments": 2,
+          "axisAligned": true,
+          "arrow": "↓",
+          "arrowMatches": true,
+          "arrowPx": 12,
+          "arrowOnTarget": true,
+          "leaderReachesArrow": true,
+          "labelLeft": 16,
+          "onGrid": true,
+          "target": {
+            "x": 80,
+            "y": 726
+          }
+        }
+      ],
+      "moved": [
+        4,
+        21,
+        4,
+        0
+      ],
       "cpuThrottle": 4,
       "fps": {
-        "fps": 60,
-        "worstMs": 16.9
+        "fps": 58.8,
+        "worstMs": 33.5
       },
-      "fpsState": "holding",
       "knobTapGone": {
         "gone": [
           1
@@ -174,8 +389,7 @@
       },
       "secondLoad": {
         "shows": 0,
-        "state": "hidden",
-        "seen": "1"
+        "state": "hidden"
       },
       "pass": true
     }
