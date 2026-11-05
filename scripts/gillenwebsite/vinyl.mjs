@@ -1,7 +1,7 @@
 // The record view (VinylView.tsx), measured in headed Chrome: 1440 x 900 DPR 2, and 390 x 844 DPR 3 with a 4x CPU
 // throttle. On each profile:
-//  - transitions: open (650 ms, three stages), the cover-state toggle both ways (400 ms), close from either state
-//    (500 ms), each within 20 ms, and their fps from the view's own frame log (fps >= 55 desktop, >= 45 phone)
+//  - transitions: open (450 ms, three stages), the cover-state toggle both ways (300 ms), close from either state
+//    (350 ms), each within 20 ms, the record's slide 180 ms of each (within 20 ms), and their fps from the view's own frame log (fps >= 55 desktop, >= 45 phone)
 //  - the record's travel along the pocket from every animated frame: continuous, one way per motion, fully out
 //    and spinning when open, fully in and still in the cover state, never turning while not fully out
 //  - the ring's sleeve is hidden while the view is open and drawn again after it closes (rig.lifted)
@@ -61,10 +61,10 @@ for (const p of PROFILES) {
   if (p.throttle > 1) await cdp.send("Emulation.setCPUThrottlingRate", { rate: 1 });
   const log = await page.evaluate(() => window.__vinyl.log());
   out.transitions = log;
-  const TARGET = { open: 650, toCover: 400, toOpen: 400, close: 500 };
+  const TARGET = { open: 450, toCover: 300, toOpen: 300, close: 350 };
   const by = (d) => log.filter((x) => x.dir === d).map((x) => x.ms);
   out.transition = { openMs: by("open"), toCoverMs: by("toCover"), toOpenMs: by("toOpen"), closeMs: by("close"), minFps: Math.min(...log.map((x) => x.fps)), worstFrameMs: Math.max(...log.map((x) => x.worstMs)), target: TARGET };
-  out.transition.pass = log.length >= 10 && log.every((x) => Math.abs(x.ms - TARGET[x.dir]) <= TOL) && out.transition.minFps >= p.fpsMin;
+  out.transition.pass = log.length >= 10 && log.every((x) => Math.abs(x.ms - TARGET[x.dir]) <= TOL && (x.slideMs === null || Math.abs(x.slideMs - 180) <= TOL)) && out.transition.minFps >= p.fpsMin;
   // the record's travel along the pocket: fully out when open (and spinning), fully in in the cover state (and still);
   // every animated frame moves it continuously (no step over a quarter of the travel), each motion one way only,
   // and the disc never turns while it is not fully out
@@ -89,7 +89,7 @@ for (const p of PROFILES) {
   out.travel.pass = !jumps && !reversals && !spinNotOut && out.rest.every((r) => (r.at.startsWith("open") ? r.s === 1 && r.g === 1 && r.spinning : r.s === 0 && r.g === 0 && !r.spinning));
   out.liftedPass = out.lifted.every((v, k) => (k % 2 === 0 ? v >= 0 : v === -1));
 
-  // a click on the spinning record closes the view (the full close, its plan and 500 ms)
+  // a click on the spinning record closes the view (the full close, its plan and 350 ms)
   {
     const pt0 = await page.evaluate(() => window.__rolodex.frontPoint());
     await tap(pt0.x, pt0.y);
@@ -98,8 +98,8 @@ for (const p of PROFILES) {
     await tap(d.x, d.y);
     const closed = await until(page, "closed");
     const last = (await page.evaluate(() => window.__vinyl.log())).at(-1);
-    out.recordClick = { closed, motion: last.dir, ms: last.ms, fps: last.fps, target: 500 };
-    out.recordClick.pass = closed && last.dir === "close" && Math.abs(last.ms - 500) <= TOL;
+    out.recordClick = { closed, motion: last.dir, ms: last.ms, fps: last.fps, target: 350 };
+    out.recordClick.pass = closed && last.dir === "close" && Math.abs(last.ms - 350) <= TOL;
     await page.waitForTimeout(400);
   }
 
@@ -178,7 +178,7 @@ for (const p of PROFILES) {
   const opened = await until(page, "open");
   const dlog = await page.evaluate(() => window.__vinyl.log());
   out.discography = { opened, opening: dlog.at(-1) };
-  out.discography.pass = opened && Math.abs(dlog.at(-1).ms - 650) <= TOL;
+  out.discography.pass = opened && Math.abs(dlog.at(-1).ms - 450) <= TOL;
   await page.keyboard.press("Escape");
   await until(page, "closed");
   report.profiles[p.name] = out;

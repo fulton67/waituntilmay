@@ -24,15 +24,16 @@ import { no3, caps, creditList, dylanLine } from "./shared";
 import css from "./site.module.css";
 const css_ = css;
 
-export const OPEN_MS = 650, TOGGLE_MS = 400, CLOSE_MS = 500;
+// open 450 ms, the cover-state toggle 300 ms each way, close 350 ms; the record's slide takes 180 ms of each
+export const OPEN_MS = 450, TOGGLE_MS = 300, CLOSE_MS = 350;
 // each motion's stages, as fractions of its duration: [start, end] of the move, the gatefold and the record's slide
 type Win = [number, number];
 type Plan = { move: Win; gate: Win; slide: Win };
 const PLANS: Record<string, Plan> = {
-  open: { move: [0, 300 / 650], gate: [250 / 650, 480 / 650], slide: [430 / 650, 1] },
-  toCover: { slide: [0, 190 / 400], gate: [170 / 400, 1], move: [170 / 400, 1] },
-  toOpen: { move: [0, 230 / 400], gate: [0, 230 / 400], slide: [210 / 400, 1] },
-  close: { slide: [0, 170 / 500], gate: [150 / 500, 330 / 500], move: [310 / 500, 1] },
+  open: { move: [0, 210 / 450], gate: [170 / 450, 320 / 450], slide: [270 / 450, 1] },
+  toCover: { slide: [0, 180 / 300], gate: [160 / 300, 1], move: [160 / 300, 1] },
+  toOpen: { move: [0, 140 / 300], gate: [0, 140 / 300], slide: [120 / 300, 1] },
+  close: { slide: [0, 180 / 350], gate: [160 / 350, 270 / 350], move: [250 / 350, 1] },
 };
 const stage = (f: number, [a, b]: Win) => ease(Math.min(1, Math.max(0, (f - a) / (b - a))));
 // The label: a plain paper disc in one colour from the cover (its lightest dominant colour), with the artist and the
@@ -209,13 +210,13 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
   const eng = useRef<Engine | null>(null), engine = useRef<Promise<Engine> | null>(null);
   const [cur, setCur] = useState<number | null>(null);
   type Shape = { pose: Pose; g: number; s: number };
-  type Anim = { kind: string; t0: number; dur: number; plan: Plan; from: Shape; to: Shape; end: "open" | "cover" | "closed" };
+  type Anim = { kind: string; t0: number; dur: number; plan: Plan; from: Shape; to: Shape; end: "open" | "cover" | "closed"; s0?: number; s1?: number };
   const state = useRef<{ phase: "closed" | "anim" | "open" | "cover"; anim: Anim | null; rest: Pose | null; g: number; s: number; i: number; slot: number; yaw: number; spin: number;
     drag: { x: number; y: number; yaw: number; moved: number } | null; frames: number[]; raf: number; last: number; fromKind: "rolodex" | "element" | "none"; el: HTMLElement | null;
     trace: { kind: string; f: number; s: number; g: number; spin: number }[]; spinOut: number; spinNotOut: number; liftFrames: number }>({
     phase: "closed", anim: null, rest: null, g: 0, s: 0, i: 0, slot: -1, yaw: 0, spin: 0, drag: null, frames: [], raf: 0, last: 0, fromKind: "none", el: null, trace: [], spinOut: 0, spinNotOut: 0, liftFrames: 0 });
   const reduce = useRef(false);
-  const log = useRef<{ dir: string; ms: number; frames: number; fps: number; worstMs: number }[]>([]);
+  const log = useRef<{ dir: string; ms: number; slideMs: number | null; frames: number; fps: number; worstMs: number }[]>([]);
 
   // the region the open record fills: left of the info column on desktop, the top on phones (full width)
   const region = useCallback(() => {
@@ -383,6 +384,10 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
       st.frames.push(now);
       const f = Math.min(1, (now - A.t0) / A.dur);
       const m = stage(f, A.plan.move), gx = stage(f, A.plan.gate), sx = stage(f, A.plan.slide);
+      // when the slide's window opens and the first frame it has ended (the log's slideMs; none when the record
+      // does not move, as in the close from the cover state)
+      if (A.s0 === undefined && f >= A.plan.slide[0]) A.s0 = A.t0 + A.plan.slide[0] * A.dur;
+      if (A.s1 === undefined && sx >= 1) A.s1 = now;
       e.holder.position.lerpVectors(A.from.pose.p, A.to.pose.p, m);
       e.holder.quaternion.slerpQuaternions(A.from.pose.q, A.to.pose.q, m);
       st.g = A.from.g + (A.to.g - A.from.g) * gx;
@@ -390,7 +395,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
       if (st.trace.length < 4000) st.trace.push({ kind: A.kind, f: +f.toFixed(4), s: +st.s.toFixed(4), g: +st.g.toFixed(4), spin: st.spin });
       if (f >= 1) {
         const gaps = st.frames.slice(1).map((x, j) => x - st.frames[j]);
-        log.current.push({ dir: A.kind, ms: Math.round(now - A.t0), frames: st.frames.length, fps: +(((st.frames.length - 1) * 1000) / (st.frames[st.frames.length - 1] - st.frames[0] || 1)).toFixed(1), worstMs: Math.round(Math.max(0, ...gaps)) });
+        log.current.push({ dir: A.kind, ms: Math.round(now - A.t0), slideMs: A.from.s !== A.to.s && A.s0 !== undefined && A.s1 !== undefined ? Math.round(A.s1 - A.s0) : null, frames: st.frames.length, fps: +(((st.frames.length - 1) * 1000) / (st.frames[st.frames.length - 1] - st.frames[0] || 1)).toFixed(1), worstMs: Math.round(Math.max(0, ...gaps)) });
         st.anim = null; st.phase = A.end; st.rest = A.to.pose; st.yaw = 0;
         if (A.end === "closed") { finishClose(e); return; }
       }
