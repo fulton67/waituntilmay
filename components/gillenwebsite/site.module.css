@@ -162,26 +162,41 @@
 .count { display: grid; gap: 4px; white-space: nowrap; font-variant-numeric: tabular-nums; justify-items: start; }
 .countdown { font-variant-numeric: tabular-nums; }
 
-/* SOURCES #22 brian-eno.net: 66.66% / 33.33%; rows 1.25rem; 1fr 1fr; text 6fr 4.5fr 1fr, .25rem gap and padding */
-.disco { display: grid; grid-template-columns: 66.66% 33.33%; padding-top: calc(var(--head) + 16px); min-height: 100svh; }
-.discoList { list-style: none; margin: 0; padding: 0 0 64px; position: relative; }
-.discoItem { display: block; }
-.discoRow { display: grid !important; grid-template-columns: 1fr 1fr; height: 20px; max-height: 1.25rem; overflow: hidden; }
-.leftColumn { display: grid; grid-template-columns: 6fr 4.5fr 1fr; gap: 0.25rem; padding-left: 0.25rem; padding-right: 0.25rem; align-items: center; height: 20px; min-width: 0; }
-.discoTitle { font-size: 13px; line-height: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.discoWho { font-size: 10px; line-height: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: 0.3px; }
-.discoYear { font-size: 10px; line-height: 20px; font-variant-numeric: tabular-nums; }
-.root .discoRow:hover { opacity: 1; }
-/* the row's hover: the title's underline fades in over 120 ms and out over 160 ms, opacity only, no layout */
-.discoTitleText { position: relative; }
-.discoTitleText::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor; opacity: 0; transition: opacity 0.16s ease; pointer-events: none; }
-.discoRow:hover .discoTitleText::after { opacity: 1; transition-duration: 0.12s; }
-.slice { display: block; height: 20px; overflow: hidden; padding: 0 0.25rem; }
-.sliceClip { position: relative; display: block; height: 20px; overflow: hidden; transform-origin: 0 0; }
+/* /gillenwebsite/discography (Discography.tsx): About and the discography on one page. The big numbers and the
+   timestamps in --font-index-display, the text in --font-body: both the header's face (the info face) for now */
+.merged {
+  --font-index-display: var(--mono); --font-body: var(--mono);
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; padding: calc(var(--head) + 24px) 20px 64px;
+}
+.stamps { display: grid; gap: 2px; }
+.stampLine { display: flex; align-items: baseline; gap: 12px; white-space: nowrap; min-width: 0; }
+.root .stampLine { font: var(--w-display) clamp(18px, 5.4vw, 76px)/1.05 var(--font-index-display); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+.stampText { min-height: 1.05em; display: inline-block; min-width: 1ch; }
+.root .stampLabel { font-size: 12px; line-height: 1; letter-spacing: 0.5px; }
+.root .mergedAbout { font: var(--w-info) 20px/1.3 var(--font-body); max-width: 62ch; }
+.pillCount { opacity: 0.6; margin-left: 2px; font-variant-numeric: tabular-nums; }
+.root .pill[aria-checked="true"] .pillCount { opacity: 0.8; }
+/* SOURCES #20 shortnotice client list: the items run on, "," between them, 26px / 31.2px */
+.root .inline { font: var(--w-display) 26px/31.2px var(--font-index-display); font-variant-numeric: tabular-nums; }
+.inlineItem a { white-space: nowrap; }
+.inlineThumb { display: inline-block; width: 0.8em; height: 0.8em; object-fit: cover; vertical-align: -0.06em; background: #eee; }
+/* the full list, every row one line at one size: number | artist — release | year | role, and the cover's slice */
+.mList { list-style: none; margin: 0; padding: 0; position: relative; }
+.mItem { display: block; }
+.mRow { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); height: 24px; overflow: hidden; }
+.root .mRow:hover { opacity: 1; }
+.mText { display: grid; grid-template-columns: 2.5ch minmax(0, 1fr) 4ch minmax(0, 24ch); gap: 0.75rem; align-items: center; height: 24px; min-width: 0; padding-right: 0.5rem; font: var(--w-info) 15px/24px var(--font-body); }
+.mNo, .mYear { font-variant-numeric: tabular-nums; }
+.mTitle, .mRole { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mTitleText { text-decoration: underline transparent; text-decoration-thickness: 1px; text-underline-offset: 3px; transition: text-decoration-color 0.16s ease; }
+/* the active row: the hovered one (desktop), the one across the middle of the screen (phones) */
+@media (hover: hover) { .mRow:hover .mTitleText { text-decoration-color: currentColor; transition-duration: 0.12s; } }
+.mItem[data-active] .mTitleText { text-decoration-color: currentColor; }
+.slice { display: block; height: 24px; overflow: hidden; }
+.sliceClip { position: relative; display: block; height: 24px; overflow: hidden; transform-origin: 0 0; }
 .sliceImg { position: absolute; left: 0; top: 50%; width: 100%; height: auto; aspect-ratio: 1; margin-top: -50%; display: block; transform-origin: 50% 50%; }
-/* expanded: the active row lets its cover out, everything else on the page fades (opacity only) */
-.sliceBlank { display: block; height: 20px; background: #eee; }
-.discoSide { position: sticky; top: calc(var(--head) + 16px); align-self: start; padding: 0 20px; display: grid; gap: 14px; }
+.sliceBlank { display: block; height: 24px; background: #eee; }
+
 /* SOURCES #32 dauanjacari.com /blog filter pills (inline style: form[fs-list-element="filters"] label.w-radio and its
    :hover, :has(input:checked), :has(input:focus-visible), .w-form-label), as computed: 31 px high, padding 10px 12px
    9px, radius 100px, no border, a 10% black ground (30% hovered, 50% and near-white type when chosen), backdrop blur
@@ -194,54 +209,9 @@
   background: rgba(0, 0, 0, 0.1); backdrop-filter: blur(6px); color: rgb(0, 0, 0); cursor: pointer; transition: 0.3s;
   font: var(--w-info) 12px/100% var(--mono); letter-spacing: 0.04em; white-space: nowrap;
 }
-.root .pill:hover { background: rgba(0, 0, 0, 0.3); opacity: 1; }
+@media (hover: hover) { .root .pill:hover { background: rgba(0, 0, 0, 0.3); opacity: 1; } }
 .root .pill[aria-pressed="true"], .root .pill[aria-checked="true"] { background: rgba(0, 0, 0, 0.5); color: rgb(250, 250, 250); }
 .root .pill:focus-visible { outline: 2px solid rgba(0, 0, 0, 0.45); outline-offset: 2px; }
-/* SOURCES #24 eilidhduffy select.mobile-category-dropdown */
-.selects { display: grid; gap: 10px; }
-.selects label { display: grid; gap: 2px; }
-.selects .label { margin: 0; }
-.select { border: 1px solid #000; font: inherit; width: 8rem; font-size: 12px; padding: 0.1rem 0.3rem; appearance: none; -moz-appearance: none; background: none; color: #000; border-radius: 0; }
-
-/* SOURCES #19 gaeawoods [data-about]: rgba(255,255,255,.825), opacity .3s ease */
-.aboutPage { padding-top: var(--head); }
-.dataAbout {
-  position: relative; z-index: 3; padding: 16px 20px 14px;
-  background: #fff; background: rgba(255, 255, 255, 0.825); opacity: 0; transition: opacity 0.2s ease;
-}
-.dataAboutOpen { opacity: 1; }
-.aboutText { font-size: 20px !important; line-height: 1.3; max-width: 62ch; margin: 0 0 12px !important; }
-/* SOURCES #20 shortnotice client list: 26px / 31.2px, "," and <br> between items */
-.index { width: 62%; padding: 28px 20px 50vh; }
-/* every title one line at one size: number | title | a fixed column for year and role, so nothing collides */
-.indexRow { display: grid; grid-template-columns: auto minmax(0, 1fr) 210px; column-gap: 8px; align-items: baseline; font-size: 26px; line-height: 31.2px; }
-/* clipped sideways only, so the underline (4 px under the text) shows below the 22 px phone line */
-.indexTitle { white-space: nowrap; overflow-x: clip; text-overflow: ellipsis; container-type: inline-size; }
-.root .indexRow:hover { opacity: 1; }
-.indexNo, .indexMeta { font-size: 12px; line-height: 1.2; position: relative; top: -0.55em; }
-.indexNo { white-space: nowrap; }
-.indexOn .indexTitleText { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
-/* a cut title runs left once at 60 px/s, holds 0.6 s, and comes back at the same speed. --run grows 60 px a
-   second; the offset is min(--run, 2·over + 36px − --run), held between 0 and over, where over = the text's width
-   (100%) less its box's (100cqw). A title that fits has over = 0 and never moves. */
-@property --run { syntax: "<length>"; inherits: false; initial-value: 0px; }
-@keyframes titleRun { to { --run: 6000px; } }
-/* (the transform only takes once the text is an inline-block, i.e. while it runs) */
-.indexTitleText { transform: translateX(calc(-1 * clamp(0px, min(var(--run), 2 * max(0px, 100% - 100cqw) + 36px - var(--run)), max(0px, 100% - 100cqw)))); }
-@media (hover: hover) {
-  .indexRow:hover .indexTitle, .indexRow:focus-visible .indexTitle { text-overflow: clip; }
-  .indexRow:hover .indexTitleText, .indexRow:focus-visible .indexTitleText { display: inline-block; animation: titleRun 100s linear forwards; }
-}
-/* shortnotice thumb-mo-image-no-transition: the image is swapped by visibility, with no transition */
-.indexCover { position: fixed; right: 20px; top: calc(var(--head) + 26vh); width: min(30vw, 44vh); aspect-ratio: 1; z-index: 2; }
-.moThumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: none; }
-.indexCaption { position: absolute; top: calc(100% + 8px); left: 0; right: 0; }
-/* SOURCES #21 gunseli draw-line */
-.indexLines { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 2; overflow: visible; }
-.indexLines line { stroke: var(--ink); stroke-width: 1; fill: none; opacity: 0; }
-@keyframes drawLine { to { stroke-dashoffset: 0; } }
-.drawing { animation: drawLine 0.25s ease forwards; }
-
 @media (max-width: 719.98px) {
   .root { --head: 62px; }
   /* phones: the name and the nav on the first row, the clock centred on the second */
@@ -257,19 +227,20 @@
   .viewPanel .coverBox { width: 100%; height: auto; aspect-ratio: 1; }
   .viewPanel .info { max-height: none; overflow: visible; }
   .backHolder { position: fixed; left: 16px; top: 12px; transform: none; }
-  .disco { grid-template-columns: 1fr; }
-  .discoSide { position: static; order: -1; padding: 0 16px 16px; }
-  .index { width: 100%; padding: 20px 16px 60vh; }
-  /* phones: the number in front of the title, the year and role on their own small line under it */
-  .indexRow { grid-template-columns: auto minmax(0, 1fr); font-size: 17px; line-height: 22px; padding-bottom: 6px; }
-  .indexMeta { grid-column: 2; font-size: 11px; line-height: 13px; top: 0; margin-top: 4px; }
-  .indexOn .indexTitle { text-overflow: clip; }
-  .indexOn .indexTitleText { display: inline-block; animation: titleRun 100s linear forwards; }
-  .indexCover { top: auto; bottom: 16px; right: 16px; width: 34vw; }
-  .indexCaption { display: none; }
-  .indexLines { display: none; }
+  /* phones: the list scrolls with the page; the active row holds its cover as a 40vw square in its own row, the
+     title, year and role beside it, the role on a line of its own */
+  .merged { padding: calc(var(--head) + 16px) 16px 48px; gap: 22px; }
+  .stampLine { flex-direction: column-reverse; align-items: flex-start; gap: 4px; }
+  .stamps { gap: 10px; }
+  .root .mergedAbout { font-size: 17px; }
+  .root .inline { font-size: 20px; line-height: 26px; }
+  .mRow { grid-template-columns: minmax(0, 1fr) 40vw; height: 24px; }
+  .mText { grid-template-columns: 2.5ch minmax(0, 1fr) 4ch; gap: 0.5rem; font-size: 14px; align-content: start; }
+  .mRole { display: none; }
+  .mItem[data-active] .mRow { height: 40vw; }
+  .mItem[data-active] .mRole { display: block; grid-column: 2 / -1; font-size: 11px; line-height: 14px; }
+  .mItem[data-active] .slice, .mItem[data-active] .sliceClip { height: 100%; }
 }
-/* an open row's underline is gone at once: its fade-out would run past the 240 ms expand under a still pointer */
 
 /* SOURCES #12 the record view (VinylView.tsx): over everything, closed until .vvOn. (.vvInfo .x beats .root p's
    font-size: inherit.) The veil dims what is behind it
@@ -302,13 +273,6 @@
 .vvTrack { display: grid; grid-template-columns: 32px auto; gap: 0.25rem; padding: 4px 0; font-variant-numeric: tabular-nums; }
 .vvCollab { display: flex; flex-direction: column; gap: 4px; border-top: 0.5px solid var(--ink); padding-top: 8px; }
 .vvControls { display: flex; align-items: center; gap: 18px; margin-top: auto; padding-top: 12px; }
-/* phones: the discography's active row (Discography.tsx, data-active) grows to hold its cover as a square the width
-   of the cover column, 40vw; nothing overlaps another row */
-@media (max-width: 719px) {
-  .discoRow { grid-template-columns: 1fr calc(40vw + 0.5rem); transition: height 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), max-height 0.2s cubic-bezier(0.215, 0.61, 0.355, 1); }
-  .discoItem[data-active] .discoRow { height: 40vw; max-height: 40vw; }
-  .discoItem[data-active] .slice, .discoItem[data-active] .sliceClip { height: 100%; }
-}
 @media (max-width: 719px) {
   .vvInfo { top: calc(var(--head) + 62vw + 8px); left: 0; width: auto; padding: 0 16px 24px; font-size: 15px; }
 

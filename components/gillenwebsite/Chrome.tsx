@@ -21,7 +21,6 @@ const BASE = "/gillenwebsite";
 const PAGES = [
   { href: BASE, label: "ROLODEX" },
   { href: `${BASE}/discography`, label: "DISCOGRAPHY" },
-  { href: `${BASE}/about`, label: "ABOUT" },
 ];
 
 // SOURCES #03, luckydaye.com's div.timer > span.date-time pair, now the viewer's own time of day and date from the

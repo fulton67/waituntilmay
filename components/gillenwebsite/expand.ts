@@ -1,6 +1,5 @@
-// The discography's covers, expanding in place (Discography.tsx). Desktop: the hovered row's cover grows from its
+// The discography's covers, expanding in place (Discography.tsx, desktop only). The hovered row's cover grows from its
 // 20 px slice to the whole cover at 60% of the viewport height, over its neighbours, 180 ms in and 220 ms out.
-// Phones: the row nearest the middle of the screen is the active one and its cover grows to the full width.
 // A grown cover is a layer of its own over the list (pointer-events: none, so the rows under it still take the
 // hover), made when the row grows and removed once it has shrunk back. Its box is the whole cover at its open
 // place; collapsed, a transform squeezes it onto the slice exactly, and the image inside is counter-scaled so it
@@ -58,7 +57,8 @@ export function makeExpander(list: HTMLElement, releases: Release[], onLog?: (x:
     if (!slice) return null;
     const lr = list.getBoundingClientRect(), r = slice.getBoundingClientRect();
     const phone = innerWidth < 720, S = phone ? innerWidth : Math.round(innerHeight * 0.6), head = 44;
-    const lx = phone ? -lr.left : r.left - lr.left;
+    // desktop: at the slice's left edge, pulled left as far as it must be to stay inside the list
+    const lx = phone ? -lr.left : Math.min(r.left - lr.left, lr.width - S);
     const cy = r.top + r.height / 2;
     const top = Math.min(Math.max(cy - S / 2, head + 4), innerHeight - S - 4);
     return { sx: r.left - lr.left, sy: r.top - lr.top, sw: r.width, sh: r.height, lx, ty: top - lr.top, S };

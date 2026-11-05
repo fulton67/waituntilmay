@@ -33,3 +33,11 @@ export const releases: Release[] = discography.releases.map((r) => {
   return { ...r, back: s.back, catno: s.catno, label: s.label, collaborators: s.collaborators, vinyl: (vinylJson as Record<string, Release["vinyl"]>)[r.id] };
 });
 export const about: { source: string; text: string; instagram: string; contact: string } = aboutJson;
+
+// The first and the most recent credit by release date (the year is all discography.json has): Muse, Simulation
+// Theory, released 2018-11-09, and girl in red, BLUE, released 2026-10-09 (MusicBrainz and Discogs, from the
+// responses cached in scripts/gillenwebsite/cache/backs).
+export const creditDates = {
+  first: { date: "2018-11-09", id: "35-muse-simulation-theory-super-deluxe" },
+  latest: { date: "2026-10-09", id: "01-girl-in-red-blue" },
+};

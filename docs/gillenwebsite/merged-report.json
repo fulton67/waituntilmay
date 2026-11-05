@@ -1,0 +1,170 @@
+{
+  "base": "http://localhost:3227",
+  "at": "2026-11-05T20:47:37.520Z",
+  "about": {
+    "status": 308,
+    "location": "/gillenwebsite/discography",
+    "pass": true
+  },
+  "timestamps": {
+    "stamps": [
+      "09.11.2018 00:00:00 UTC−05:00",
+      "09.10.2026 00:00:00 UTC−04:00",
+      "05.11.2026 15:47:40 UTC−05:00"
+    ],
+    "nowDriftMs": 233,
+    "offsetShown": -300,
+    "offsetClock": -300,
+    "oneLine": true,
+    "pass": true
+  },
+  "pills": [
+    {
+      "pill": "ALL",
+      "count": 36,
+      "inline": 36,
+      "rows": 36,
+      "pressed": true
+    },
+    {
+      "pill": "PRODUCER",
+      "count": 12,
+      "inline": 12,
+      "rows": 12,
+      "pressed": true
+    },
+    {
+      "pill": "WRITER",
+      "count": 12,
+      "inline": 12,
+      "rows": 12,
+      "pressed": true
+    },
+    {
+      "pill": "ENGINEER",
+      "count": 14,
+      "inline": 14,
+      "rows": 14,
+      "pressed": true
+    },
+    {
+      "pill": "MIXER",
+      "count": 2,
+      "inline": 2,
+      "rows": 2,
+      "pressed": true
+    },
+    {
+      "pill": "CO-PRODUCER",
+      "count": 1,
+      "inline": 1,
+      "rows": 1,
+      "pressed": true
+    },
+    {
+      "pill": "ASSISTANT",
+      "count": 9,
+      "inline": 9,
+      "rows": 9,
+      "pressed": true
+    }
+  ],
+  "pillsPass": true,
+  "desktopHover": {
+    "open": 1,
+    "layer": {
+      "left": 713,
+      "right": 1253,
+      "w": 540
+    },
+    "vw": 1425,
+    "pass": true
+  },
+  "phone": {
+    "scrollHeight": 1978,
+    "viewport": 844,
+    "touchActionNone": false,
+    "steps": [
+      {
+        "active": "01-girl-in-red-blue",
+        "expanded": 1,
+        "coverW": 156,
+        "coverH": 156,
+        "vw40": 156,
+        "coverInRow": true,
+        "noOverlap": true,
+        "ends": 1,
+        "msAfterScrollend": null,
+        "changes": 0,
+        "changed": false
+      },
+      {
+        "active": "05-arlo-parks-ambiguous-desire",
+        "expanded": 1,
+        "coverW": 156,
+        "coverH": 156,
+        "vw40": 156,
+        "coverInRow": true,
+        "noOverlap": true,
+        "ends": 2,
+        "msAfterScrollend": -14.7,
+        "changes": 1,
+        "changed": true
+      },
+      {
+        "active": "05-arlo-parks-ambiguous-desire",
+        "expanded": 1,
+        "coverW": 156,
+        "coverH": 156,
+        "vw40": 156,
+        "coverInRow": true,
+        "noOverlap": true,
+        "ends": 2,
+        "msAfterScrollend": null,
+        "changes": 0,
+        "changed": false
+      },
+      {
+        "active": "10-doja-cat-vie",
+        "expanded": 1,
+        "coverW": 156,
+        "coverH": 156,
+        "vw40": 156,
+        "coverInRow": true,
+        "noOverlap": true,
+        "ends": 2,
+        "msAfterScrollend": -15.6,
+        "changes": 1,
+        "changed": true
+      },
+      {
+        "active": "11-don-toliver-doja-cat-f1-the-album",
+        "expanded": 1,
+        "coverW": 156,
+        "coverH": 156,
+        "vw40": 156,
+        "coverInRow": true,
+        "noOverlap": true,
+        "ends": 2,
+        "msAfterScrollend": -15.9,
+        "changes": 1,
+        "changed": true
+      },
+      {
+        "active": "06-the-strokes-reality-awaits",
+        "expanded": 1,
+        "coverW": 156,
+        "coverH": 156,
+        "vw40": 156,
+        "coverInRow": true,
+        "noOverlap": true,
+        "ends": 1,
+        "msAfterScrollend": 0,
+        "changes": 1,
+        "changed": true
+      }
+    ],
+    "pass": true
+  },
+  "pass": true
+}

@@ -1,47 +1,60 @@
 "use client";
-// /gillenwebsite/discography: the plain, complete list. All 36 releases in discography.json order, newest first.
-// Hovering a row (desktop) expands its cover in place over its neighbours (expand.ts). On phones the row nearest the
-// middle of the screen grows within itself to hold its cover as a square ~40% of the screen wide. A tap on a row opens the release in the record view (VinylView.tsx), from the row's cover. Same
-// document throughout: no route change, only the hash is replaced.
-import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
-import type { Release } from "@/lib/gillenwebsite/discography";
-import { rolesOf, caps, no3 } from "./shared";
+// /gillenwebsite/discography: About and the discography on one page (/gillenwebsite/about redirects here). From the
+// top: three timestamps (the first credit, the most recent credit, now; each in the viewer's zone with its UTC
+// offset), the About text, the role pills, every index number inline with its cover, then the full list.
+// Desktop: hovering a row expands its cover in place over its neighbours (expand.ts). Phones: the page scrolls as
+// any page does; once it rests, the row across the middle of the screen is the active one and holds its cover as a
+// 40vw square inside its own row. A click or tap opens the release in the record view (VinylView.tsx), from its
+// cover. Same document throughout: no route change, only the hash is replaced.
+import { useEffect, useMemo, useRef, useState } from "react";
+import { creditDates, type Release } from "@/lib/gillenwebsite/discography";
+import { rolesOf, caps, pad2 } from "./shared";
 import { usePanel } from "./Chrome";
 import { makeExpander } from "./expand";
-
-// phones: the active row's height change (site.module.css .discoItem[data-active])
-const ROW_MS = 200;
 import Cover from "./Cover";
 import css from "./site.module.css";
 
-// SOURCES #23, viscosesyllabus.com S6 (1c85fe7d1ee0de53.js:23): the order is kept in the alphabetOrdering cookie
-const COOKIE = "alphabetOrdering";
-const readCookie = (n: string) => document.cookie.split("; ").find((c) => c.startsWith(n + "="))?.split("=")[1];
-const listeners = new Set<() => void>();
-const subscribe = (f: () => void) => { listeners.add(f); return () => { listeners.delete(f); }; };
+// the role pills, each with what it matches in a release's roles (its own and its tracks')
+const ROLES: { label: string; test: (role: string) => boolean }[] = [
+  { label: "PRODUCER", test: (x) => x === "Producer" || x === "Executive Producer" },
+  { label: "WRITER", test: (x) => x === "Writer" },
+  { label: "ENGINEER", test: (x) => x === "Engineer" },
+  { label: "MIXER", test: (x) => x === "Mixer" },
+  { label: "CO-PRODUCER", test: (x) => x === "Co-Producer" || x === "Additional Production" },
+  { label: "ASSISTANT", test: (x) => /assistant/i.test(x) },
+];
+const matches = (r: Release, pill: string) => !pill || rolesOf(r).some(ROLES.find((p) => p.label === pill)!.test);
 
-export default function Discography({ releases }: { releases: Release[] }) {
-  const order = useSyncExternalStore(subscribe, () => (readCookie(COOKIE) === "alphabetical" ? "alphabetical" : "default"), () => "default");
-  const setOrder = (o: string) => {
-    document.cookie = `${COOKIE}=${o}; path=/gillenwebsite; max-age=31536000; samesite=lax`;
-    listeners.forEach((f) => f());
-  };
-  // SOURCES #24, eilidhduffy.com S14 (7d62584e56caa947.js:2): two selects, and an empty choice shows everything
-  const [role, setRole] = useState("");
-  const [artist, setArtist] = useState("");
-  const roles = useMemo(() => [...new Set(releases.flatMap(rolesOf))].sort(), [releases]);
-  const artists = useMemo(() => [...new Set(releases.map((r) => r.artist))].sort((a, b) => a.localeCompare(b)), [releases]);
-  const rows = useMemo(() => {
-    const all = releases.map((r, i) => ({ r, i }));
-    // S6 re-orders in place with localeCompare on the title
-    return order === "alphabetical" ? [...all].sort((a, b) => a.r.release.localeCompare(b.r.release)) : all;
-  }, [releases, order]);
-  const shown = rows.filter(({ r }) => (!role || rolesOf(r).includes(role)) && (!artist || r.artist === artist)).length;
+// "09.11.2018 00:00:00 UTC−08:00": a date and time in the viewer's zone, and that zone's offset on that day
+const stamp = (d: Date) => {
+  const o = -d.getTimezoneOffset(), a = Math.abs(o);
+  return `${pad2(d.getDate())}.${pad2(d.getMonth() + 1)}.${d.getFullYear()} ${pad2(d.getHours())}:${pad2(d.getMinutes())}:${pad2(d.getSeconds())} UTC${o < 0 ? "−" : "+"}${pad2(Math.floor(a / 60))}:${pad2(a % 60)}`;
+};
+// a release date, at midnight where the viewer is
+const day = (s: string) => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
 
-  // a tap on a row opens the record view (VinylView.tsx), the closed sleeve starting on the row's cover
+const phone = () => innerWidth < 720;
+
+export default function Discography({ releases, about }: { releases: Release[]; about: { text: string } }) {
   const { open } = usePanel();
+  const [pill, setPill] = useState("");
+  const counts = useMemo(() => Object.fromEntries(ROLES.map((p) => [p.label, releases.filter((r) => matches(r, p.label)).length])), [releases]);
+  const shown = useMemo(() => releases.map((r, i) => ({ r, i })).filter(({ r }) => matches(r, pill)), [releases, pill]);
+
+  // ---- the timestamps: written once the viewer's zone is known, the third on each second's turn ----
+  const stamps = useRef<(HTMLSpanElement | null)[]>([]);
+  useEffect(() => {
+    const [a, b, c] = stamps.current;
+    if (a) a.textContent = stamp(day(creditDates.first.date));
+    if (b) b.textContent = stamp(day(creditDates.latest.date));
+    let t = 0;
+    const tick = () => { if (c) c.textContent = stamp(new Date()); t = window.setTimeout(tick, 1000 - (Date.now() % 1000)); };
+    tick();
+    return () => clearTimeout(t);
+  }, []);
+
+  // ---- the list ----
   const list = useRef<HTMLOListElement>(null);
-  // ---- covers expanding in place ----
   const exp = useRef<ReturnType<typeof makeExpander> | null>(null);
   const hovered = useRef<string | null>(null);
   useEffect(() => {
@@ -49,69 +62,60 @@ export default function Discography({ releases }: { releases: Release[] }) {
     if (!el) return;
     const log: { id: string; dir: string; ms: number }[] = [];
     const e = (exp.current = makeExpander(el, releases, (x) => log.push(x)));
-    // phones: the row nearest the middle of the screen is the active one. It changes only once the page rests
-    // (scrollend, or 80 ms with no scroll), never while a finger is down, so the open cover does not jump under it
-    let active: string | null = null, idle = 0, touching = false;
-    const phone = () => innerWidth < 720;
+    // phones: once the page rests (scrollend, or 80 ms with no scroll where scrollend is missing), the row across
+    // the middle of the screen (else the nearest) is the active one. It grows downward from where it is: the rows
+    // above it change height too, so the page is moved by the difference in the same frame, once.
+    let active: string | null = null, idle = 0;
     const pick = () => {
-      if (!phone() || touching) return;
+      if (!phone()) return;
+      const mid = innerHeight / 2;
       let best: HTMLElement | null = null, bd = Infinity;
       for (const li of el.querySelectorAll<HTMLElement>("li[data-id]")) {
-        if (li.style.display === "none") continue;
-        const r = li.getBoundingClientRect(), d = Math.abs(r.top + r.height / 2 - innerHeight / 2);
+        const r = li.getBoundingClientRect(), d = r.top <= mid && r.bottom >= mid ? 0 : Math.min(Math.abs(r.top - mid), Math.abs(r.bottom - mid));
         if (d < bd) { bd = d; best = li; }
       }
       const id = best?.dataset.id ?? null;
-      if (id === active) return;
-      // phones: the cover grows inside its own row (data-active, site.module.css), the row taller to fit; the rows
-      // above it change height, so the page is scrolled along with them for the length of the change
-      el.querySelector(`li[data-active]`)?.removeAttribute("data-active");
-      active = id;
-      if (!best) return;
+      if (!best || id === active) return;
+      const y0 = best.getBoundingClientRect().top;
+      el.querySelector("li[data-active]")?.removeAttribute("data-active");
       best.setAttribute("data-active", "");
-      // its middle is held where it was, so it stays the row nearest the middle of the screen as it grows
-      const mid = (r: DOMRect) => r.top + r.height / 2, y0 = mid(best.getBoundingClientRect()), t0 = performance.now();
-      const hold = () => {
-        const dy = mid(best!.getBoundingClientRect()) - y0;
-        if (Math.abs(dy) > 0.5) scrollBy(0, dy);
-        if (performance.now() - t0 < ROW_MS + 80) requestAnimationFrame(hold);
-      };
-      requestAnimationFrame(hold);
+      active = id;
+      const dy = best.getBoundingClientRect().top - y0;
+      if (dy) scrollBy(0, dy);
     };
     const onScroll = () => { clearTimeout(idle); idle = window.setTimeout(pick, 80); };
-    const onDown = () => { touching = true; clearTimeout(idle); };
-    const onUp = () => { touching = false; onScroll(); };
-    const onResize = () => { e.reset(); el.querySelector("li[data-active]")?.removeAttribute("data-active"); active = null; hovered.current = null; pick(); };
+    const onEnd = () => { clearTimeout(idle); pick(); };
+    const onResize = () => {
+      e.reset(); hovered.current = null;
+      if (!phone()) { el.querySelector("li[data-active]")?.removeAttribute("data-active"); active = null; } else pick();
+    };
     addEventListener("scroll", onScroll, { passive: true });
-    addEventListener("scrollend", pick);
-    addEventListener("touchstart", onDown, { passive: true });
-    addEventListener("touchend", onUp, { passive: true });
-    addEventListener("touchcancel", onUp, { passive: true });
+    addEventListener("scrollend", onEnd);
     addEventListener("resize", onResize);
-    // the first active row once the covers have laid out
     const first = window.setTimeout(pick, 300);
-    // measurement hook (scripts/gillenwebsite/expand.mjs)
-    (window as unknown as { __disco: unknown }).__disco = { open: () => (phone() ? el.querySelectorAll("li[data-active]").length : e.open()), log: () => log, active: () => active };
+    // measurement hook (scripts/gillenwebsite/merged.mjs)
+    (window as unknown as { __disco: unknown }).__disco = { open: () => (phone() ? el.querySelectorAll("li[data-active]").length : e.open()), log: () => log, active: () => active, pick };
     return () => {
       clearTimeout(idle); clearTimeout(first);
-      removeEventListener("scroll", onScroll); removeEventListener("scrollend", pick);
-      removeEventListener("touchstart", onDown); removeEventListener("touchend", onUp); removeEventListener("touchcancel", onUp);
-      removeEventListener("resize", onResize);
+      removeEventListener("scroll", onScroll); removeEventListener("scrollend", onEnd); removeEventListener("resize", onResize);
       e.destroy(); exp.current = null;
     };
   }, [releases]);
-  // the list changes order or filter: the open covers' places are stale
-  useEffect(() => { exp.current?.reset(); hovered.current = null; window.dispatchEvent(new Event("scroll")); }, [order, role, artist]);
+  // the filter changes: the open covers' places are stale, and the active row may be gone
+  useEffect(() => {
+    exp.current?.reset(); hovered.current = null;
+    (window as unknown as { __disco?: { pick: () => void } }).__disco?.pick();
+  }, [pill]);
   // desktop: the hovered row
   const enter = (e: React.PointerEvent<HTMLLIElement>) => {
-    if (e.pointerType !== "mouse" || innerWidth < 720) return;
+    if (e.pointerType !== "mouse" || phone()) return;
     const id = e.currentTarget.dataset.id!;
     if (hovered.current && hovered.current !== id) exp.current?.shrink(hovered.current, true);
     hovered.current = id;
     exp.current?.grow(e.currentTarget);
   };
   const leave = (e: React.PointerEvent<HTMLLIElement>) => {
-    if (e.pointerType !== "mouse" || innerWidth < 720) return;
+    if (e.pointerType !== "mouse" || phone()) return;
     const id = e.currentTarget.dataset.id!;
     // leaving a row for the next one: the next row's enter hands off; leaving the list: it shrinks at once
     const next = (e.relatedTarget as HTMLElement | null)?.closest?.("li[data-id]");
@@ -126,66 +130,64 @@ export default function Discography({ releases }: { releases: Release[] }) {
   }, [releases, open]);
 
   return (
-    <section className={css.disco} data-src="22">
-      {/* SOURCES #22 brian-eno.net: the list takes 66.66%, the right 33.33% holds the controls */}
-      <ol ref={list} className={css.discoList} id="titleList" data-src="22 23">
-        {rows.map(({ r, i }) => {
-          const hide = (role && !rolesOf(r).includes(role)) || (artist && r.artist !== artist);
-          return (
-            <li key={r.id} data-id={r.id} className={css.discoItem} onPointerEnter={enter} onPointerLeave={leave} data-target={r.release} data-role={rolesOf(r).join("|")} data-artist={r.artist} style={hide ? { display: "none" } : undefined}>
-              <a
-                href={`#${r.id}`}
-                className={css.discoRow}
-                data-src="22 12"
-                onClick={(e) => { e.preventDefault(); open(i, exp.current?.layerOf(r.id) ?? e.currentTarget.querySelector<HTMLElement>("[data-clip]")); }}
-              >
-                {/* the text column: 6fr 4.5fr 1fr, title | collaborators and role | year */}
-                <span className={css.leftColumn}>
-                  <span className={css.discoTitle}><span className={css.discoTitleText}>{r.release}</span></span>
-                  <span className={css.discoWho}>{caps(r.artist)} · {caps(r.role)}</span>
-                  <span className={css.discoYear}>{r.year}</span>
+    <section className={css.merged}>
+      {/* the first credit, the most recent, and now */}
+      <div className={css.stamps}>
+        {["FIRST CREDIT", "LATEST CREDIT", "NOW"].map((l, k) => (
+          <p key={l} className={css.stampLine}><span ref={(x) => { stamps.current[k] = x; }} className={css.stampText} data-stamp={k} /><span className={css.stampLabel}>{l}</span></p>
+        ))}
+      </div>
+
+      {/* SOURCES #19 gaeawoods.com [data-about] text */}
+      <p className={css.mergedAbout} data-src="19">{about.text}</p>
+
+      {/* SOURCES #32 dauanjacari.com's filter pills: one role at a time, each with how many releases it holds */}
+      <div className={css.pills} role="radiogroup" aria-label="Role" data-src="32">
+        {["", ...ROLES.map((p) => p.label)].map((x) => (
+          <button key={x || "all"} type="button" role="radio" aria-checked={pill === x} className={css.pill} data-pill={x || "ALL"} onClick={() => setPill(pill === x ? "" : x)}>
+            {x || "ALL"} <span className={css.pillCount}>{x ? counts[x] : releases.length}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* SOURCES #20 shortnotice.studio client list, "," between items: every index number with its cover */}
+      <p className={css.inline} data-src="20">
+        {shown.map(({ r, i }, k) => (
+          <span key={r.id} className={css.inlineItem} data-inline={i + 1}>
+            <a href={`#${r.id}`} onClick={(e) => { e.preventDefault(); open(i, e.currentTarget.querySelector<HTMLElement>("img")); }} aria-label={`${r.artist}, ${r.release}`}>
+              {i + 1}&nbsp;{r.cover ? <Cover r={r} className={css.inlineThumb} sizes="1em" fixed={512} /> : <span className={css.inlineThumb} />}
+            </a>
+            {k < shown.length - 1 ? ", " : ""}
+          </span>
+        ))}
+      </p>
+
+      <ol ref={list} className={css.mList} data-src="22">
+        {shown.map(({ r, i }) => (
+          <li key={r.id} data-id={r.id} className={css.mItem} onPointerEnter={enter} onPointerLeave={leave}>
+            <a
+              href={`#${r.id}`}
+              className={css.mRow}
+              data-src="22 12"
+              onClick={(e) => { e.preventDefault(); open(i, exp.current?.layerOf(r.id) ?? e.currentTarget.querySelector<HTMLElement>("[data-clip]")); }}
+            >
+              <span className={css.mText}>
+                <span className={css.mNo}>{i + 1}</span>
+                <span className={css.mTitle}><span className={css.mTitleText}>{r.artist} — {r.release}</span></span>
+                <span className={css.mYear}>{r.year}</span>
+                <span className={css.mRole}>{caps(r.role)}</span>
+              </span>
+              {/* the cover as a slice through its middle; desktop: expanded, a layer over the list grows out of it
+                  (expand.ts); phones: the active row's slice opens to the whole square */}
+              <span className={css.slice}>
+                <span className={css.sliceClip} data-clip>
+                  {r.cover ? <Cover r={r} className={css.sliceImg} sizes="(min-width: 720px) calc(50vw - 28px), 40vw" /> : <span className={css.sliceBlank} />}
                 </span>
-                {/* the cover as a 20 px slice through its middle, half the list column (a third of the screen on desktop,
-                    half on phones); expanded, a layer over the list grows out of it (expand.ts) */}
-                <span className={css.slice}>
-                  <span className={css.sliceClip} data-clip>
-                    {r.cover ? <Cover r={r} className={css.sliceImg} sizes="(min-width: 720px) calc(33.33vw - 8px), calc(50vw - 8px)" /> : <span className={css.sliceBlank} />}
-                  </span>
-                </span>
-              </a>
-            </li>
-          );
-        })}
+              </span>
+            </a>
+          </li>
+        ))}
       </ol>
-
-      <aside className={css.discoSide} data-src="10">
-        <p className={css.label}>DISCOGRAPHY, {releases[releases.length - 1].year}–{releases[0].year}</p>
-        <p className={css.label}>{no3(shown)} OF {no3(releases.length)}</p>
-        {/* SOURCES #23 the order toggle; SOURCES #32 dauanjacari.com's filter pills (/blog, inline style) */}
-        <div className={css.pills} data-src="23 32">
-          <button type="button" data-src="23 32" aria-pressed={order === "default"} className={css.pill} onClick={() => setOrder("default")}>YEAR</button>
-          <button type="button" data-src="23 32" aria-pressed={order === "alphabetical"} className={css.pill} onClick={() => setOrder("alphabetical")}>A–Z</button>
-        </div>
-        <div className={css.selects} data-src="24 32">
-          {/* the role filter: one pill per role, as dauanjacari.com's category radios (SOURCES #32) */}
-          <div>
-            <span className={css.label} id="role-label">ROLE</span>
-            <div className={css.pills} role="radiogroup" aria-labelledby="role-label" data-src="32">
-              {["", ...roles].map((x) => (
-                <button key={x || "all"} type="button" role="radio" aria-checked={role === x} className={css.pill} onClick={() => setRole(x)}>{x ? caps(x) : "ALL"}</button>
-              ))}
-            </div>
-          </div>
-          <label>
-            <span className={css.label}>ARTIST</span>
-            <select id="subcategory-select" className={css.select} data-src="24" value={artist} onChange={(e) => setArtist(e.target.value)}>
-              <option value="">All</option>
-              {artists.map((x) => <option key={x} value={x}>{x}</option>)}
-            </select>
-          </label>
-        </div>
-      </aside>
-
     </section>
   );
 }
