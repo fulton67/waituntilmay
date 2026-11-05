@@ -177,3 +177,7 @@ research/ostad/3d/renders/survey/*_[0-3].png
 
 # housing bake intermediates (kit/bake writes them)
 kit/work/
+
+# brand kit: licensed font binaries read for metrics, never committed
+brand/metrics/fontfiles/
+brand/fonts/.chrome-profile/
