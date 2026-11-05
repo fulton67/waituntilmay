@@ -1,6 +1,6 @@
 {
-  "base": "http://localhost:3227",
-  "at": "2026-11-05T21:11:23.334Z",
+  "base": "http://localhost:3228",
+  "at": "2026-11-05T21:41:56.496Z",
   "pills": [
     {
       "pill": "ALL",
@@ -71,7 +71,7 @@
           156
         ],
         "coverInRow": true,
-        "changedMsAfterScrollend": -0.1
+        "changedMsAfterScrollend": 0
       },
       {
         "k": 2,
