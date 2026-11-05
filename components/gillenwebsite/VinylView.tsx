@@ -547,11 +547,13 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
       // values, and how many spinning frames had the record fully out / not fully out
       slide: () => state.current.s, gate: () => state.current.g, trace: () => state.current.trace, spin: () => ({ out: state.current.spinOut, notOut: state.current.spinNotOut }),
       // where to click on the record: a point on its half out of the pocket, past the label
-      discPoint: () => {
+      // where: the vinyl (0.72 of the radius), the label (half its radius) or the edge (0.99), on the half out of the pocket
+      discPoint: (where: "vinyl" | "label" | "edge" = "vinyl") => {
         const e = eng.current;
         if (!e) return null;
         e.rec.disc.updateWorldMatrix(true, false);
-        const v = new THREE.Vector3(DISC_R * 0.72, 0, 0.0012).applyMatrix4(e.rec.disc.matrixWorld).project(e.cam);
+        const r = where === "label" ? LABEL_R * 0.5 : where === "edge" ? DISC_R * 0.99 : DISC_R * 0.72;
+        const v = new THREE.Vector3(r, 0, 0.0012).applyMatrix4(e.rec.disc.matrixWorld).project(e.cam);
         return { x: (v.x + 1) * 0.5 * innerWidth, y: (1 - v.y) * 0.5 * innerHeight };
       },
       // where to click: the front cover's middle on screen (the left panel when open, the sleeve in the cover state)
@@ -612,14 +614,13 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     st.drag = null;
     if (!d || d.moved > 5 || !e) return;
     ray.current.setFromCamera(new THREE.Vector2((ev.clientX / innerWidth) * 2 - 1, 1 - (ev.clientY / innerHeight) * 2), e.cam);
+    // the record while it is out: anywhere on the disc (vinyl, label, spindle hole, edge) is the full close, back onto
+    // the ring, the same as CLOSE. The disc is tested on its own, so its whole face is the hit area.
+    if (st.phase === "open" && ray.current.intersectObject(e.rec.disc, true).length) { close(); return; }
     const hit = ray.current.intersectObject(e.rec.root, true)[0];
     if (!hit) return;
     const onCover = hit.object === e.rec.left.children[0];
-    // the record itself (the disc, its label and type) while it is out: the full close, back onto the ring
-    let onRecord = false;
-    for (let o: THREE.Object3D | null = hit.object; o; o = o.parent) if (o === e.rec.disc) { onRecord = true; break; }
-    if (st.phase === "open" && onRecord) close();
-    else if ((st.phase === "open" && onCover) || st.phase === "cover") toggle();
+    if ((st.phase === "open" && onCover) || st.phase === "cover") toggle();
   };
   const r = cur !== null ? releases[cur] : null;
   return (

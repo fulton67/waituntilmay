@@ -1,6 +1,6 @@
 {
-  "base": "http://localhost:3228",
-  "at": "2026-11-05T21:28:06.465Z",
+  "base": "http://localhost:3227",
+  "at": "2026-11-05T22:37:43.730Z",
   "profiles": {
     "desktop": {
       "viewport": "1440x900@2",
@@ -18,170 +18,170 @@
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -1.1044443501626693,
+          "a": -1.0475466175463393,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.5003586862406295,
+          "a": -2.501754949975121,
           "spinning": false
         },
         {
           "at": "open again",
           "s": 1,
           "g": 1,
-          "a": -3.6027086416338014,
+          "a": -3.4906585039886617,
           "spinning": true
         },
         {
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -1.1040952846451657,
+          "a": -1.0468484848468562,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.5593508152909337,
+          "a": -2.4431118864423214,
           "spinning": false
         },
         {
           "at": "open again",
           "s": 1,
           "g": 1,
-          "a": -3.5475562374372283,
+          "a": -3.4899603721214163,
           "spinning": true
         },
         {
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -0.9896016858807849,
+          "a": -1.0461503538118488,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.3848178900915005,
+          "a": -2.4427628209248176,
           "spinning": false
         }
       ],
       "transitions": [
         {
           "dir": "open",
-          "ms": 453,
-          "slideMs": 183,
-          "frames": 26,
-          "fps": 58.6,
+          "ms": 456,
+          "slideMs": 186,
+          "frames": 27,
+          "fps": 58.9,
           "worstMs": 60
         },
         {
           "dir": "toCover",
-          "ms": 306,
+          "ms": 307,
           "slideMs": 190,
           "frames": 19,
           "fps": 60,
-          "worstMs": 18
+          "worstMs": 17
         },
         {
           "dir": "toOpen",
+          "ms": 303,
+          "slideMs": 183,
+          "frames": 19,
+          "fps": 60,
+          "worstMs": 17
+        },
+        {
+          "dir": "close",
+          "ms": 358,
+          "slideMs": 192,
+          "frames": 22,
+          "fps": 60,
+          "worstMs": 17
+        },
+        {
+          "dir": "open",
+          "ms": 460,
+          "slideMs": 190,
+          "frames": 29,
+          "fps": 61.8,
+          "worstMs": 22
+        },
+        {
+          "dir": "toCover",
           "ms": 305,
-          "slideMs": 185,
-          "frames": 19,
-          "fps": 60.1,
-          "worstMs": 18
-        },
-        {
-          "dir": "close",
-          "ms": 365,
-          "slideMs": 182,
-          "frames": 22,
-          "fps": 60,
-          "worstMs": 18
-        },
-        {
-          "dir": "open",
-          "ms": 463,
-          "slideMs": 193,
-          "frames": 29,
-          "fps": 61.5,
-          "worstMs": 25
-        },
-        {
-          "dir": "toCover",
-          "ms": 311,
-          "slideMs": 194,
+          "slideMs": 188,
           "frames": 19,
           "fps": 60,
           "worstMs": 17
         },
         {
           "dir": "toOpen",
-          "ms": 301,
-          "slideMs": 181,
+          "ms": 304,
+          "slideMs": 184,
           "frames": 19,
           "fps": 60,
           "worstMs": 17
         },
         {
           "dir": "close",
-          "ms": 353,
-          "slideMs": 187,
+          "ms": 356,
+          "slideMs": 189,
           "frames": 22,
-          "fps": 60.8,
-          "worstMs": 19
+          "fps": 60,
+          "worstMs": 17
         },
         {
           "dir": "open",
-          "ms": 459,
-          "slideMs": 189,
-          "frames": 29,
-          "fps": 62.3,
-          "worstMs": 20
+          "ms": 460,
+          "slideMs": 190,
+          "frames": 30,
+          "fps": 64.1,
+          "worstMs": 18
         },
         {
           "dir": "toCover",
-          "ms": 306,
-          "slideMs": 189,
+          "ms": 304,
+          "slideMs": 188,
           "frames": 19,
-          "fps": 59.9,
+          "fps": 60,
           "worstMs": 17
         },
         {
           "dir": "close",
-          "ms": 359,
+          "ms": 362,
           "slideMs": null,
           "frames": 22,
           "fps": 60,
-          "worstMs": 19
+          "worstMs": 17
         }
       ],
       "transition": {
         "openMs": [
-          453,
-          463,
-          459
+          456,
+          460,
+          460
         ],
         "toCoverMs": [
-          306,
-          311,
-          306
+          307,
+          305,
+          304
         ],
         "toOpenMs": [
-          305,
-          301
+          303,
+          304
         ],
         "closeMs": [
-          365,
-          353,
-          359
+          358,
+          356,
+          362
         ],
-        "minFps": 58.6,
+        "minFps": 58.9,
         "worstFrameMs": 60,
         "target": {
           "open": 450,
@@ -192,16 +192,16 @@
         "pass": true
       },
       "travel": {
-        "frames": 245,
+        "frames": 247,
         "pops": 0,
-        "maxStepPerFrame": 0.264,
+        "maxStepPerFrame": 0.253,
         "framesPerSlide": [
+          12,
           11,
           11,
           11,
-          10,
+          12,
           11,
-          10,
           11,
           11,
           12,
@@ -214,56 +214,56 @@
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -1.1044443501626693,
+            "a": -1.0475466175463393,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.5003586862406295,
+            "a": -2.501754949975121,
             "spinning": false
           },
           {
             "at": "open again",
             "s": 1,
             "g": 1,
-            "a": -3.6027086416338014,
+            "a": -3.4906585039886617,
             "spinning": true
           },
           {
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -1.1040952846451657,
+            "a": -1.0468484848468562,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.5593508152909337,
+            "a": -2.4431118864423214,
             "spinning": false
           },
           {
             "at": "open again",
             "s": 1,
             "g": 1,
-            "a": -3.5475562374372283,
+            "a": -3.4899603721214163,
             "spinning": true
           },
           {
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -0.9896016858807849,
+            "a": -1.0461503538118488,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.3848178900915005,
+            "a": -2.4427628209248176,
             "spinning": false
           }
         ],
@@ -271,28 +271,47 @@
       },
       "liftedPass": true,
       "recordClick": {
-        "closed": true,
-        "motion": "close",
-        "ms": 355,
-        "fps": 60.2,
         "target": 350,
+        "clicks": [
+          {
+            "where": "vinyl",
+            "closed": true,
+            "motion": "close",
+            "ms": 357,
+            "fps": 60
+          },
+          {
+            "where": "label",
+            "closed": true,
+            "motion": "close",
+            "ms": 352,
+            "fps": 60
+          },
+          {
+            "where": "edge",
+            "closed": true,
+            "motion": "close",
+            "ms": 357,
+            "fps": 60
+          }
+        ],
         "pass": true
       },
       "texels": {
         "front": {
           "texturePx": 2048,
-          "screenPx": 702.4,
-          "ratio": 2.92
+          "screenPx": 698.3,
+          "ratio": 2.93
         },
         "back": {
           "texturePx": 2048,
-          "screenPx": 634.7,
-          "ratio": 3.23
+          "screenPx": 630.8,
+          "ratio": 3.25
         },
         "label": {
           "texturePx": 1024,
-          "screenPx": 149.5,
-          "ratio": 6.85
+          "screenPx": 148.5,
+          "ratio": 6.89
         },
         "pass": true
       },
@@ -661,7 +680,7 @@
         "pass": true
       },
       "spin": {
-        "radPerS": 3.546,
+        "radPerS": 3.531,
         "target": 3.491,
         "pass": true
       },
@@ -674,11 +693,11 @@
         "opened": true,
         "opening": {
           "dir": "open",
-          "ms": 464,
-          "slideMs": 194,
+          "ms": 456,
+          "slideMs": 186,
           "frames": 30,
-          "fps": 62.9,
-          "worstMs": 17
+          "fps": 63.8,
+          "worstMs": 18
         },
         "pass": true
       }
@@ -699,75 +718,75 @@
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -0.9875072902790492,
+          "a": -1.0904817169789525,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.588323280707591,
+          "a": -2.6623252411585985,
           "spinning": false
         },
         {
           "at": "open again",
           "s": 1,
           "g": 1,
-          "a": -3.635171766386684,
+          "a": -3.593981996206067,
           "spinning": true
         },
         {
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -0.9889035540135396,
+          "a": -1.1051424828621523,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.502802147359869,
+          "a": -2.6179938779914944,
           "spinning": false
         },
         {
           "at": "open again",
           "s": 1,
           "g": 1,
-          "a": -3.4337607697078543,
+          "a": -3.724183558238397,
           "spinning": true
         },
         {
           "at": "open",
           "s": 1,
           "g": 1,
-          "a": -1.0405653005383624,
+          "a": -1.106538745764405,
           "spinning": true
         },
         {
           "at": "cover",
           "s": 0,
           "g": 0,
-          "a": -2.5509732353807033,
+          "a": -2.618342943508998,
           "spinning": false
         }
       ],
       "transitions": [
         {
           "dir": "open",
-          "ms": 455,
-          "slideMs": 185,
-          "frames": 13,
-          "fps": 33.5,
-          "worstMs": 115
+          "ms": 457,
+          "slideMs": 187,
+          "frames": 21,
+          "fps": 51.9,
+          "worstMs": 41
         },
         {
           "dir": "toCover",
-          "ms": 315,
-          "slideMs": 183,
+          "ms": 306,
+          "slideMs": 190,
           "frames": 19,
-          "fps": 59.8,
-          "worstMs": 20
+          "fps": 60,
+          "worstMs": 17
         },
         {
           "dir": "toOpen",
@@ -775,118 +794,118 @@
           "slideMs": 188,
           "frames": 19,
           "fps": 60,
-          "worstMs": 18
+          "worstMs": 17
         },
         {
           "dir": "close",
           "ms": 351,
           "slideMs": 185,
           "frames": 22,
-          "fps": 61.9,
-          "worstMs": 19
+          "fps": 60.3,
+          "worstMs": 17
         },
         {
           "dir": "open",
-          "ms": 463,
-          "slideMs": 193,
-          "frames": 25,
-          "fps": 57.5,
-          "worstMs": 31
+          "ms": 452,
+          "slideMs": 182,
+          "frames": 26,
+          "fps": 60.5,
+          "worstMs": 25
         },
         {
           "dir": "toCover",
-          "ms": 311,
-          "slideMs": 195,
-          "frames": 20,
-          "fps": 61.2,
+          "ms": 307,
+          "slideMs": 191,
+          "frames": 19,
+          "fps": 60,
           "worstMs": 18
         },
         {
           "dir": "toOpen",
-          "ms": 309,
-          "slideMs": 189,
+          "ms": 311,
+          "slideMs": 191,
           "frames": 19,
-          "fps": 59.8,
+          "fps": 59.7,
           "worstMs": 18
         },
         {
           "dir": "close",
-          "ms": 359,
-          "slideMs": 194,
-          "frames": 22,
-          "fps": 60.6,
-          "worstMs": 32
+          "ms": 366,
+          "slideMs": 183,
+          "frames": 23,
+          "fps": 60.9,
+          "worstMs": 19
         },
         {
           "dir": "open",
-          "ms": 458,
-          "slideMs": 188,
+          "ms": 455,
+          "slideMs": 185,
           "frames": 25,
-          "fps": 58.3,
-          "worstMs": 29
+          "fps": 57.3,
+          "worstMs": 33
         },
         {
           "dir": "toCover",
-          "ms": 311,
+          "ms": 310,
           "slideMs": 195,
-          "frames": 19,
-          "fps": 59.6,
+          "frames": 20,
+          "fps": 61.6,
           "worstMs": 18
         },
         {
           "dir": "close",
-          "ms": 356,
+          "ms": 352,
           "slideMs": null,
           "frames": 22,
-          "fps": 60.8,
+          "fps": 60.1,
           "worstMs": 18
         }
       ],
       "transition": {
         "openMs": [
-          455,
-          463,
-          458
+          457,
+          452,
+          455
         ],
         "toCoverMs": [
-          315,
-          311,
-          311
+          306,
+          307,
+          310
         ],
         "toOpenMs": [
           308,
-          309
+          311
         ],
         "closeMs": [
           351,
-          359,
-          356
+          366,
+          352
         ],
-        "minFps": 33.5,
-        "worstFrameMs": 115,
+        "minFps": 51.9,
+        "worstFrameMs": 41,
         "target": {
           "open": 450,
           "toCover": 300,
           "toOpen": 300,
           "close": 350
         },
-        "pass": false
+        "pass": true
       },
       "travel": {
-        "frames": 225,
+        "frames": 235,
         "pops": 0,
-        "maxStepPerFrame": 0.248,
+        "maxStepPerFrame": 0.284,
         "framesPerSlide": [
-          10,
-          10,
-          12,
+          11,
           11,
           12,
           11,
-          12,
+          11,
           11,
           12,
-          10
+          11,
+          11,
+          11
         ],
         "reversals": 0,
         "spinWhileNotOut": 0,
@@ -895,56 +914,56 @@
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -0.9875072902790492,
+            "a": -1.0904817169789525,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.588323280707591,
+            "a": -2.6623252411585985,
             "spinning": false
           },
           {
             "at": "open again",
             "s": 1,
             "g": 1,
-            "a": -3.635171766386684,
+            "a": -3.593981996206067,
             "spinning": true
           },
           {
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -0.9889035540135396,
+            "a": -1.1051424828621523,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.502802147359869,
+            "a": -2.6179938779914944,
             "spinning": false
           },
           {
             "at": "open again",
             "s": 1,
             "g": 1,
-            "a": -3.4337607697078543,
+            "a": -3.724183558238397,
             "spinning": true
           },
           {
             "at": "open",
             "s": 1,
             "g": 1,
-            "a": -1.0405653005383624,
+            "a": -1.106538745764405,
             "spinning": true
           },
           {
             "at": "cover",
             "s": 0,
             "g": 0,
-            "a": -2.5509732353807033,
+            "a": -2.618342943508998,
             "spinning": false
           }
         ],
@@ -952,28 +971,47 @@
       },
       "liftedPass": true,
       "recordClick": {
-        "closed": true,
-        "motion": "close",
-        "ms": 365,
-        "fps": 60,
         "target": 350,
+        "clicks": [
+          {
+            "where": "vinyl",
+            "closed": true,
+            "motion": "close",
+            "ms": 365,
+            "fps": 60
+          },
+          {
+            "where": "label",
+            "closed": true,
+            "motion": "close",
+            "ms": 365,
+            "fps": 60
+          },
+          {
+            "where": "edge",
+            "closed": true,
+            "motion": "close",
+            "ms": 365,
+            "fps": 60
+          }
+        ],
         "pass": true
       },
       "texels": {
         "front": {
           "texturePx": 2048,
-          "screenPx": 314.7,
-          "ratio": 6.51
+          "screenPx": 311.9,
+          "ratio": 6.57
         },
         "back": {
           "texturePx": 2048,
-          "screenPx": 275.4,
-          "ratio": 7.44
+          "screenPx": 272.9,
+          "ratio": 7.5
         },
         "label": {
           "texturePx": 1024,
-          "screenPx": 68.3,
-          "ratio": 14.99
+          "screenPx": 59.1,
+          "ratio": 17.32
         },
         "pass": true
       },
@@ -1324,7 +1362,7 @@
         "pass": true
       },
       "spin": {
-        "radPerS": 3.545,
+        "radPerS": 3.515,
         "target": 3.491,
         "pass": true
       },
@@ -1337,10 +1375,10 @@
         "opened": true,
         "opening": {
           "dir": "open",
-          "ms": 463,
-          "slideMs": 193,
-          "frames": 30,
-          "fps": 62.9,
+          "ms": 452,
+          "slideMs": 182,
+          "frames": 29,
+          "fps": 62.1,
           "worstMs": 17
         },
         "pass": true

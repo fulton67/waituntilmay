@@ -90,18 +90,20 @@ for (const p of PROFILES) {
   out.liftedPass = out.lifted.every((v, k) => (k % 2 === 0 ? v >= 0 : v === -1));
 
   // a click on the spinning record closes the view (the full close, its plan and 350 ms)
-  {
+  // (on the vinyl, on the label and on the edge, each from a fresh opening)
+  out.recordClick = { target: 350, clicks: [] };
+  for (const where of ["vinyl", "label", "edge"]) {
     const pt0 = await page.evaluate(() => window.__rolodex.frontPoint());
     await tap(pt0.x, pt0.y);
     await until(page, "open"); await page.waitForTimeout(500);
-    const d = await page.evaluate(() => window.__vinyl.discPoint());
+    const d = await page.evaluate((w) => window.__vinyl.discPoint(w), where);
     await tap(d.x, d.y);
     const closed = await until(page, "closed");
     const last = (await page.evaluate(() => window.__vinyl.log())).at(-1);
-    out.recordClick = { closed, motion: last.dir, ms: last.ms, fps: last.fps, target: 350 };
-    out.recordClick.pass = closed && last.dir === "close" && Math.abs(last.ms - 350) <= TOL;
+    out.recordClick.clicks.push({ where, closed, motion: last.dir, ms: last.ms, fps: last.fps });
     await page.waitForTimeout(400);
   }
+  out.recordClick.pass = out.recordClick.clicks.every((c) => c.closed && c.motion === "close" && Math.abs(c.ms - 350) <= TOL);
 
   // open once more for the rest
   const pt = await page.evaluate(() => window.__rolodex.frontPoint());
@@ -173,7 +175,7 @@ for (const p of PROFILES) {
   await page.goto(`${BASE}/gillenwebsite/discography`);
   await page.waitForFunction(() => window.__vinyl, null, { timeout: 60000 });
   await page.waitForTimeout(4000);
-  const row = await page.$("li[data-id] a");
+  const row = await page.$("li[data-id] a, a[data-entry]");
   await row.click();
   const opened = await until(page, "open");
   const dlog = await page.evaluate(() => window.__vinyl.log());
