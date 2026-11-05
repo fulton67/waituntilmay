@@ -138,9 +138,6 @@ export default function Discography({ releases, about }: { releases: Release[]; 
         ))}
       </div>
 
-      {/* SOURCES #19 gaeawoods.com [data-about] text */}
-      <p className={css.mergedAbout} data-src="19">{about.text}</p>
-
       {/* SOURCES #32 dauanjacari.com's filter pills: one role at a time, each with how many releases it holds */}
       <div className={css.pills} role="radiogroup" aria-label="Role" data-src="32">
         {["", ...ROLES.map((p) => p.label)].map((x) => (

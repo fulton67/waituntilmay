@@ -24,10 +24,6 @@ const nextConfig: NextConfig = {
     ],
     qualities: [75],
   },
-  // /gillenwebsite: About and the discography are one page
-  async redirects() {
-    return [{ source: "/gillenwebsite/about", destination: "/gillenwebsite/discography", permanent: true }];
-  },
   async headers() {
     return [
       {

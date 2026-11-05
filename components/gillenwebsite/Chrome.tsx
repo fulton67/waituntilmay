@@ -21,6 +21,7 @@ const BASE = "/gillenwebsite";
 const PAGES = [
   { href: BASE, label: "ROLODEX" },
   { href: `${BASE}/discography`, label: "DISCOGRAPHY" },
+  { href: `${BASE}/about`, label: "ABOUT" },
 ];
 
 // SOURCES #03, luckydaye.com's div.timer > span.date-time pair, now the viewer's own time of day and date from the
@@ -51,7 +52,7 @@ function Timer() {
 }
 
 // SOURCES #27, felixluke.com S9 (8f0d4b7528454cc0.js:3): copy the address, say so for 2000 ms, put it back
-function Email({ addr }: { addr: string }) {
+export function Email({ addr }: { addr: string }) {
   const [copied, setCopied] = useState(false);
   return (
     <button

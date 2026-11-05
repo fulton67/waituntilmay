@@ -1,0 +1,58 @@
+{
+  "base": "http://localhost:3227",
+  "at": "2026-11-05T21:05:03.489Z",
+  "status": 200,
+  "profiles": {
+    "desktop": {
+      "url": "/gillenwebsite/about",
+      "textPx": 28,
+      "family": "univers-next-pro",
+      "weight": "400",
+      "headerFamily": "univers-next-pro",
+      "releaseRows": 0,
+      "images": 0,
+      "nav": [
+        "ROLODEX",
+        "DISCOGRAPHY",
+        "ABOUT"
+      ],
+      "links": [
+        {
+          "text": "[COPY] ben.buckley.sme@rcarecords.com",
+          "px": 12
+        },
+        {
+          "text": "INSTAGRAM →",
+          "px": 12
+        }
+      ],
+      "pass": true
+    },
+    "phone": {
+      "url": "/gillenwebsite/about",
+      "textPx": 22,
+      "family": "univers-next-pro",
+      "weight": "400",
+      "headerFamily": "univers-next-pro",
+      "releaseRows": 0,
+      "images": 0,
+      "nav": [
+        "ROLODEX",
+        "DISCOGRAPHY",
+        "ABOUT"
+      ],
+      "links": [
+        {
+          "text": "[COPY] ben.buckley.sme@rcarecords.com",
+          "px": 12
+        },
+        {
+          "text": "INSTAGRAM →",
+          "px": 12
+        }
+      ],
+      "pass": true
+    }
+  },
+  "pass": true
+}
