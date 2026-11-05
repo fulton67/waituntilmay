@@ -2,16 +2,16 @@
 // /gillenwebsite/discography: the role pills, then every release as one line of the index (the old About page's list,
 // SOURCES #20): number, artist — release, year and role; one size, no wrapping, a cut title ends in an ellipsis.
 // Desktop: hovering a row underlines it and expands its cover in place over its neighbours (expand.ts); a click opens
-// the record view (VinylView.tsx) from the cover. Phones: the page scrolls as any page does, nothing here listens to
-// touch or moves the page. When a scroll ends (scrollend, or 100 ms after the last scroll event where scrollend is
-// missing), the row across the middle of the screen becomes the active one: underlined, its cover a square inside
-// its own row. A tap opens the record view.
-import { useEffect, useMemo, useRef, useState } from "react";
+// the record view (VinylView.tsx) from the cover. Phones: the original About page's index, restored from git
+// (AboutIndex.tsx): normal page scroll, the title nearest the middle underlined, its cover the small square in the
+// corner. A tap opens the record view.
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { rolesOf, caps, no3 } from "./shared";
 import { usePanel } from "./Chrome";
 import { makeExpander } from "./expand";
 import Cover from "./Cover";
+import AboutIndex from "./AboutIndex";
 import css from "./site.module.css";
 
 // the role pills, each with what it matches in a release's roles (its own and its tracks')
@@ -25,6 +25,8 @@ const ROLES: { label: string; test: (role: string) => boolean }[] = [
 ];
 const matches = (r: Release, pill: string) => !pill || rolesOf(r).some(ROLES.find((p) => p.label === pill)!.test);
 const phone = () => innerWidth < 720;
+const SMALL = "(max-width: 719.98px)";
+const subscribeSmall = (f: () => void) => { const m = matchMedia(SMALL); m.addEventListener("change", f); return () => m.removeEventListener("change", f); };
 
 export default function Discography({ releases }: { releases: Release[] }) {
   const { open } = usePanel();
@@ -32,50 +34,22 @@ export default function Discography({ releases }: { releases: Release[] }) {
   const counts = useMemo(() => Object.fromEntries(ROLES.map((p) => [p.label, releases.filter((r) => matches(r, p.label)).length])), [releases]);
   const shown = useMemo(() => releases.map((r, i) => ({ r, i })).filter(({ r }) => matches(r, pill)), [releases, pill]);
 
+  // phones (under 720 px): the original About index's list and scroll, restored (AboutIndex.tsx); desktop: this list
+  const small = useSyncExternalStore(subscribeSmall, () => matchMedia(SMALL).matches, () => false);
   const list = useRef<HTMLOListElement>(null);
   const exp = useRef<ReturnType<typeof makeExpander> | null>(null);
   const hovered = useRef<string | null>(null);
-  const pickRef = useRef<() => void>(() => {});
   useEffect(() => {
     const el = list.current;
     if (!el) return;
     const log: { id: string; dir: string; ms: number }[] = [];
     const e = (exp.current = makeExpander(el, releases, (x) => log.push(x)));
-    // phones: the active row is the one across the middle of the screen; the one already active is kept while it
-    // still covers the middle, so its own growth never hands the role to a neighbour
-    let active: string | null = null;
-    const pick = () => {
-      if (!phone()) return;
-      const mid = innerHeight / 2, rows = [...el.querySelectorAll<HTMLElement>("li[data-id]")];
-      const cur = rows.find((li) => li.dataset.id === active);
-      if (cur) { const r = cur.getBoundingClientRect(); if (r.top <= mid && r.bottom >= mid) return; }
-      let best: HTMLElement | null = null, bd = Infinity;
-      for (const li of rows) {
-        const r = li.getBoundingClientRect(), d = r.top <= mid && r.bottom >= mid ? 0 : Math.min(Math.abs(r.top - mid), Math.abs(r.bottom - mid));
-        if (d < bd) { bd = d; best = li; }
-      }
-      if (!best || best.dataset.id === active) return;
-      el.querySelector("li[data-active]")?.removeAttribute("data-active");
-      best.setAttribute("data-active", "");
-      active = best.dataset.id!;
-    };
-    pickRef.current = pick;
-    // scrollend where the browser has it; otherwise 100 ms after the last scroll event
-    const hasEnd = "onscrollend" in window;
-    let t = 0;
-    const onScroll = () => { clearTimeout(t); t = window.setTimeout(pick, 100); };
-    if (hasEnd) addEventListener("scrollend", pick); else addEventListener("scroll", onScroll, { passive: true });
-    const first = window.setTimeout(pick, 300);
-    // measurement hook (scripts/gillenwebsite/disco.mjs)
-    (window as unknown as { __disco: unknown }).__disco = { open: () => (phone() ? el.querySelectorAll("li[data-active]").length : e.open()), log: () => log, active: () => active, scrollend: hasEnd };
-    return () => {
-      clearTimeout(t); clearTimeout(first);
-      if (hasEnd) removeEventListener("scrollend", pick); else removeEventListener("scroll", onScroll);
-      e.destroy(); exp.current = null;
-    };
-  }, [releases]);
-  // the filter changes: the open covers' places are stale, and the active row may be gone
-  useEffect(() => { exp.current?.reset(); hovered.current = null; pickRef.current(); }, [pill]);
+    // measurement hook (scripts/gillenwebsite/disco.mjs); phones use the About index's own (AboutIndex.tsx)
+    (window as unknown as { __disco: unknown }).__disco = { open: () => e.open(), log: () => log, phone: false };
+    return () => { e.destroy(); exp.current = null; };
+  }, [releases, small]);
+  // the filter changes: the open covers' places are stale
+  useEffect(() => { exp.current?.reset(); hovered.current = null; }, [pill]);
   // desktop: the hovered row
   const enter = (e: React.PointerEvent<HTMLLIElement>) => {
     if (e.pointerType !== "mouse" || phone()) return;
@@ -114,7 +88,7 @@ export default function Discography({ releases }: { releases: Release[] }) {
       </div>
 
       {/* SOURCES #20 shortnotice.studio client list, one item a line at 26px / 31.2px (17px / 22px on phones) */}
-      <ol ref={list} className={css.index} data-src="20 22">
+      {small ? <AboutIndex key={pill} rows={shown} /> : <ol ref={list} className={css.index} data-src="20 22">
         {shown.map(({ r, i }) => (
           <li key={r.id} data-id={r.id} className={css.indexItem} onPointerEnter={enter} onPointerLeave={leave}>
             <a
@@ -137,7 +111,7 @@ export default function Discography({ releases }: { releases: Release[] }) {
             </a>
           </li>
         ))}
-      </ol>
+      </ol>}
     </section>
   );
 }

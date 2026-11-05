@@ -228,17 +228,11 @@
   .viewPanel .coverBox { width: 100%; height: auto; aspect-ratio: 1; }
   .viewPanel .info { max-height: none; overflow: visible; }
   .backHolder { position: fixed; left: 16px; top: 12px; transform: none; }
-  /* phones: the number in front of the title, year and role on a small line under it; the active row shows its cover
-     whole, a 40vw square under that line, inside the row */
   .aboutPage { padding: calc(var(--head) + 20px) 16px 48px; gap: 22px; }
   .root .aboutBig { font-size: 22px; }
-  .disco { padding: calc(var(--head) + 16px) 16px 48px; gap: 18px; }
-  .indexRow { grid-template-columns: auto minmax(0, 1fr); font-size: 17px; line-height: 22px; padding-bottom: 6px; }
-  .indexMeta { grid-column: 2; font-size: 11px; line-height: 13px; top: 0; margin-top: 4px; }
-  .slice { display: none; }
-  .indexItem[data-active] .slice { display: block; grid-column: 2; width: 40vw; height: 40vw; margin-top: 8px; }
-  .indexItem[data-active] .sliceClip { width: 100%; height: 100%; }
-  .indexItem[data-active] .sliceImg { top: 0; margin-top: 0; }
+  /* phones: the pills, then the original About index (AboutIndex.tsx, about-index.module.css) with its own padding */
+  .disco { padding: calc(var(--head) + 16px) 0 0; gap: 0; }
+  .disco > .pills { padding: 0 16px; }
 }
 
 /* SOURCES #12 the record view (VinylView.tsx): over everything, closed until .vvOn. (.vvInfo .x beats .root p's

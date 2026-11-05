@@ -1,6 +1,6 @@
 {
-  "base": "http://localhost:3228",
-  "at": "2026-11-05T21:41:56.496Z",
+  "base": "http://localhost:3227",
+  "at": "2026-11-05T22:21:21.839Z",
   "pills": [
     {
       "pill": "ALL",
@@ -54,159 +54,192 @@
   },
   "phone": {
     "bad": [],
-    "scrollHeight": 2141,
+    "scrollHeight": 2450,
     "viewport": 844,
-    "scrollend": true,
+    "desktopOnly": {
+      "arrows": 0,
+      "footerIndex": 0
+    },
     "swipes": [
       {
         "k": 1,
         "from": 0,
         "moved": 385,
-        "under": "SPAN.site-module__b9_Q7q__indexTitleText",
+        "under": "SPAN.about-index-module__Lntika__indexMeta",
         "scrollY": 385,
-        "active": "10-doja-cat-vie",
-        "expanded": 1,
-        "cover": [
-          156,
-          156
-        ],
-        "coverInRow": true,
-        "changedMsAfterScrollend": 0
+        "active": "Marcus King — Mood Swings",
+        "activeRows": 1,
+        "underlined": "underline",
+        "nearestIsActive": true,
+        "coversShown": 1,
+        "square": [
+          133,
+          133,
+          374,
+          828
+        ]
       },
       {
         "k": 2,
         "from": 385,
         "moved": 385,
-        "under": "SPAN.site-module__b9_Q7q__indexTitleText",
+        "under": "SPAN.about-index-module__Lntika__indexTitle",
         "scrollY": 770,
-        "active": "19-rex-orange-county-threat",
-        "expanded": 1,
-        "cover": [
-          156,
-          156
-        ],
-        "coverInRow": true,
-        "changedMsAfterScrollend": 0
+        "active": "Run The Jewels — RTJ CU4TRO",
+        "activeRows": 1,
+        "underlined": "underline",
+        "nearestIsActive": true,
+        "coversShown": 1,
+        "square": [
+          133,
+          133,
+          374,
+          828
+        ]
       },
       {
         "k": 3,
         "from": 770,
         "moved": 385,
-        "under": "A.site-module__b9_Q7q__indexRow",
+        "under": "A.about-index-module__Lntika__indexRow ",
         "scrollY": 1155,
-        "active": "27-santana-blessings-and-miracles",
-        "expanded": 1,
-        "cover": [
-          156,
-          156
-        ],
-        "coverInRow": true,
-        "changedMsAfterScrollend": 0
+        "active": "Mark Ronson — Late Night Feeli",
+        "activeRows": 1,
+        "underlined": "underline",
+        "nearestIsActive": true,
+        "coversShown": 1,
+        "square": [
+          133,
+          133,
+          374,
+          828
+        ]
       },
       {
         "k": 4,
-        "from": 1,
+        "from": 1155,
         "moved": 385,
-        "under": "SPAN.site-module__b9_Q7q__indexTitle",
-        "scrollY": 386,
-        "active": "10-doja-cat-vie",
-        "expanded": 1,
-        "cover": [
-          156,
-          156
-        ],
-        "coverInRow": true,
-        "changedMsAfterScrollend": 0
+        "under": "DIV.about-index-module__Lntika__index",
+        "scrollY": 1540,
+        "active": "The Smashing Pumpkins — Shiny ",
+        "activeRows": 1,
+        "underlined": "underline",
+        "nearestIsActive": true,
+        "coversShown": 1,
+        "square": [
+          133,
+          133,
+          374,
+          828
+        ]
       },
       {
         "k": 5,
-        "from": 386,
+        "from": 0,
         "moved": 385,
-        "under": "SPAN.site-module__b9_Q7q__indexTitleText",
-        "scrollY": 771,
-        "active": "19-rex-orange-county-threat",
-        "expanded": 1,
-        "cover": [
-          156,
-          156
-        ],
-        "coverInRow": true,
-        "changedMsAfterScrollend": 0
+        "under": "SPAN.about-index-module__Lntika__indexMeta",
+        "scrollY": 385,
+        "active": "Marcus King — Mood Swings",
+        "activeRows": 1,
+        "underlined": "underline",
+        "nearestIsActive": true,
+        "coversShown": 1,
+        "square": [
+          133,
+          133,
+          374,
+          828
+        ]
       },
       {
         "k": 6,
-        "from": 771,
+        "from": 385,
         "moved": 385,
-        "under": "SPAN.site-module__b9_Q7q__indexMeta",
-        "scrollY": 1156,
-        "active": "27-santana-blessings-and-miracles",
-        "expanded": 1,
-        "cover": [
-          156,
-          156
-        ],
-        "coverInRow": true,
-        "changedMsAfterScrollend": 0
+        "under": "SPAN.about-index-module__Lntika__indexTitle",
+        "scrollY": 770,
+        "active": "Run The Jewels — RTJ CU4TRO",
+        "activeRows": 1,
+        "underlined": "underline",
+        "nearestIsActive": true,
+        "coversShown": 1,
+        "square": [
+          133,
+          133,
+          374,
+          828
+        ]
       },
       {
         "k": 7,
-        "from": 1,
+        "from": 770,
         "moved": 385,
-        "under": "SPAN.site-module__b9_Q7q__indexTitle",
-        "scrollY": 386,
-        "active": "10-doja-cat-vie",
-        "expanded": 1,
-        "cover": [
-          156,
-          156
-        ],
-        "coverInRow": true,
-        "changedMsAfterScrollend": 0
+        "under": "A.about-index-module__Lntika__indexRow ",
+        "scrollY": 1155,
+        "active": "Mark Ronson — Late Night Feeli",
+        "activeRows": 1,
+        "underlined": "underline",
+        "nearestIsActive": true,
+        "coversShown": 1,
+        "square": [
+          133,
+          133,
+          374,
+          828
+        ]
       },
       {
         "k": 8,
-        "from": 386,
+        "from": 1155,
         "moved": 385,
-        "under": "SPAN.site-module__b9_Q7q__indexTitleText",
-        "scrollY": 771,
-        "active": "19-rex-orange-county-threat",
-        "expanded": 1,
-        "cover": [
-          156,
-          156
-        ],
-        "coverInRow": true,
-        "changedMsAfterScrollend": 0
+        "under": "DIV.about-index-module__Lntika__index",
+        "scrollY": 1540,
+        "active": "The Smashing Pumpkins — Shiny ",
+        "activeRows": 1,
+        "underlined": "underline",
+        "nearestIsActive": true,
+        "coversShown": 1,
+        "square": [
+          133,
+          133,
+          374,
+          828
+        ]
       },
       {
         "k": 9,
-        "from": 771,
+        "from": 0,
         "moved": 385,
-        "under": "SPAN.site-module__b9_Q7q__indexMeta",
-        "scrollY": 1156,
-        "active": "27-santana-blessings-and-miracles",
-        "expanded": 1,
-        "cover": [
-          156,
-          156
-        ],
-        "coverInRow": true,
-        "changedMsAfterScrollend": 0
+        "under": "SPAN.about-index-module__Lntika__indexMeta",
+        "scrollY": 385,
+        "active": "Marcus King — Mood Swings",
+        "activeRows": 1,
+        "underlined": "underline",
+        "nearestIsActive": true,
+        "coversShown": 1,
+        "square": [
+          133,
+          133,
+          374,
+          828
+        ]
       },
       {
         "k": 10,
-        "from": 1,
+        "from": 385,
         "moved": 385,
-        "under": "SPAN.site-module__b9_Q7q__indexTitle",
-        "scrollY": 386,
-        "active": "10-doja-cat-vie",
-        "expanded": 1,
-        "cover": [
-          156,
-          156
-        ],
-        "coverInRow": true,
-        "changedMsAfterScrollend": 0
+        "under": "SPAN.about-index-module__Lntika__indexTitle",
+        "scrollY": 770,
+        "active": "Run The Jewels — RTJ CU4TRO",
+        "activeRows": 1,
+        "underlined": "underline",
+        "nearestIsActive": true,
+        "coversShown": 1,
+        "square": [
+          133,
+          133,
+          374,
+          828
+        ]
       }
     ],
     "consumed": [],

@@ -1,10 +1,11 @@
 // /gillenwebsite/discography. Desktop 1440 x 900: each role pill's count against the rows it leaves; hovering a row
 // underlines it and opens exactly one cover, inside the page; a click opens the record view. Phone 390 x 844
-// (touch, DPR 3): nothing on the page or its ancestors sets touch-action, overscroll-behavior or scroll-snap; ten
+// (touch, DPR 3), the original About index (AboutIndex.tsx): no arrow marker and no footer index; nothing on the page
+// or its ancestors sets touch-action, overscroll-behavior or scroll-snap; ten
 // 400 px touch swipes up (CDP touch events, held before lifting so there is no fling), scrollY before and after each;
 // (Input.synthesizeScrollGesture moves even a plain page 0 px in this emulation, so it is not used)
-// after each one the time from scrollend to the active row changing, and exactly one row active with its cover a
-// square inside its row. A swipe that moves the page less than 300 px is reported with the element under the finger.
+// after each one exactly one row active (underlined, the one nearest the middle) and exactly one cover shown in the
+// corner square. A swipe that moves the page less than 300 px is reported with the element under the finger.
 //   node scripts/gillenwebsite/disco.mjs [base-url] [--out file] [--shots dir]
 import { chromium } from "@playwright/test";
 import fs from "node:fs/promises";
@@ -53,7 +54,7 @@ const browser = await chromium.launch({ channel: "chrome", headless: false, args
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
   const page = await ctx.newPage();
   await page.goto(`${BASE}/gillenwebsite/discography`);
-  await page.waitForFunction(() => window.__disco, null, { timeout: 120000 });
+  await page.waitForFunction(() => document.querySelector("a[data-entry]"), null, { timeout: 120000 });
   await page.waitForTimeout(1500);
   const cdp = await ctx.newCDPSession(page);
   const audit = await page.evaluate(() => {
@@ -62,17 +63,11 @@ const browser = await chromium.launch({ channel: "chrome", headless: false, args
       const cs = getComputedStyle(e);
       if (cs.touchAction !== "auto" || cs.overscrollBehaviorY !== "auto" || cs.scrollSnapType !== "none") bad.push({ el: e.tagName + "." + e.className, touchAction: cs.touchAction, overscroll: cs.overscrollBehaviorY, snap: cs.scrollSnapType });
     }
-    return { bad, scrollHeight: document.documentElement.scrollHeight, viewport: innerHeight, scrollend: window.__disco.scrollend };
-  });
-  await page.evaluate(() => {
-    window.__ends = []; window.__changes = [];
-    addEventListener("scrollend", () => window.__ends.push(performance.now()));
-    new MutationObserver((ms) => { if (ms.some((m) => m.target.hasAttribute?.("data-active"))) window.__changes.push(performance.now()); }).observe(document.querySelector("ol"), { attributes: true, subtree: true, attributeFilter: ["data-active"] });
+    return { bad, scrollHeight: document.documentElement.scrollHeight, viewport: innerHeight, desktopOnly: { arrows: document.querySelectorAll("[data-marker] line").length, footerIndex: document.querySelectorAll("[data-footer-index]").length } };
   });
   const swipes = [];
   const X = 195, Y = 700;
   for (let k = 0; k < 10; k++) {
-    await page.evaluate(() => { window.__ends = []; window.__changes = []; });
     const y0 = await page.evaluate(() => scrollY);
     const under = await page.evaluate(([x, y]) => { const e = document.elementFromPoint(x, y); return e ? e.tagName + "." + (e.className?.baseVal ?? e.className) : null; }, [X, Y]);
     // a finger drawn 400 px up over 320 ms, held 100 ms (no fling), then lifted
@@ -81,21 +76,26 @@ const browser = await chromium.launch({ channel: "chrome", headless: false, args
     await page.waitForTimeout(100);
     await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
     await page.waitForTimeout(700);
+    // the original About index: the active row is the one with indexOn (underlined); its cover is the one visible
+    // in the corner square; the active row is the one nearest the middle of the screen
     const s = await page.evaluate(() => {
-      const act = [...document.querySelectorAll("li[data-active]")], a = act[0], r = a?.getBoundingClientRect(), clip = a?.querySelector("[data-clip]")?.getBoundingClientRect();
-      const end = window.__ends.at(-1), ch = window.__changes.at(-1);
-      return { scrollY: scrollY, active: window.__disco.active(), expanded: act.length, cover: clip ? [+clip.width.toFixed(1), +clip.height.toFixed(1)] : null, coverInRow: !!(clip && r && clip.top >= r.top - 0.5 && clip.bottom <= r.bottom + 0.5), changedMsAfterScrollend: end != null && ch != null ? +(ch - end).toFixed(1) : null };
+      const rows = [...document.querySelectorAll("a[data-entry]")], act = rows.filter((a) => /indexOn/.test(a.className));
+      const mid = innerHeight / 2, near = rows.reduce((b, a) => { const r = a.getBoundingClientRect(), d = Math.abs(r.top + r.height / 2 - mid); return d < b.d ? { a, d } : b; }, { a: null, d: Infinity }).a;
+      const shown = [...document.querySelectorAll("[class*=indexCover] img")].filter((i) => i.style.visibility === "visible");
+      const sq = document.querySelector("[class*=indexCover]")?.getBoundingClientRect();
+      return { scrollY, active: act[0]?.querySelector("[data-title]")?.textContent.slice(0, 30), activeRows: act.length, underlined: act[0] ? getComputedStyle(act[0].querySelector("[class*=indexTitleText]")).textDecorationLine : null, nearestIsActive: near === act[0], coversShown: shown.length, square: sq ? [Math.round(sq.width), Math.round(sq.height), Math.round(sq.right), Math.round(sq.bottom)] : null };
     });
     swipes.push({ k: k + 1, from: y0, moved: +(s.scrollY - y0).toFixed(1), under, ...s });
     // the page's end: back to the top to keep swiping through the list
-    if (s.scrollY + 844 >= audit.scrollHeight - 450) { await page.evaluate(() => scrollTo(0, document.querySelector("ol").offsetTop - 200)); await page.waitForTimeout(400); }
+    if (s.scrollY + 844 >= audit.scrollHeight - 450) { await page.evaluate(() => scrollTo(0, 0)); await page.waitForTimeout(400); }
   }
   if (SHOTS) await page.screenshot({ path: `${SHOTS}/disco-phone.png` });
   const short = swipes.filter((s) => s.moved < 300);
   report.phone = {
     ...audit, swipes, consumed: short.map((s) => ({ swipe: s.k, moved: s.moved, under: s.under })),
     pass: audit.bad.length === 0 && audit.scrollHeight > audit.viewport && short.length === 0
-      && swipes.every((s) => s.expanded === 1 && s.coverInRow && (s.changedMsAfterScrollend === null || (s.changedMsAfterScrollend >= -5 && s.changedMsAfterScrollend <= 100))),
+      && swipes.every((s) => s.activeRows === 1 && s.coversShown === 1 && s.underlined === "underline" && s.nearestIsActive)
+      && audit.desktopOnly.arrows === 0 && audit.desktopOnly.footerIndex === 0,
   };
   console.log("phone", JSON.stringify({ bad: audit.bad, scrollHeight: audit.scrollHeight }));
   for (const s of swipes) console.log(" ", JSON.stringify(s));
