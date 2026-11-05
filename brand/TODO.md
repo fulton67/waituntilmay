@@ -10,6 +10,6 @@
 
 ## FIX (brand/FIX.md)
 - [x] FIX 1 — board pulled via API: 56/56 (channel length 56), 53 images + 1 reel, 1,427 connected channels → board/blocks_api.json, blocks.json, READ.md (22 type-driven), connected.md
-- [ ] FIX 2 — colours k=6: colour/existing.json, board.json, CONTRAST.md, strips.png
+- [x] FIX 2 — colours k=6 measured: IG navy #202532 17.9%, paper #f2efed, skin #bf8662; board paper #f6f6f5, near-black, warm browns, sage-grey #7d8075/#505f53 → colour/
 - [ ] FIX 3 — fonts via Adobe visual search (Chrome) → matches.json, SYSTEM.md, specimen on /brand/ostad
 - [ ] FIX 3b — metrics: pixels.json/PIXELS.md, source.json/SOURCE.md
