@@ -1,0 +1,16 @@
+{
+ "css_vars": 59,
+ "covered": 52,
+ "mismatches": [],
+ "not_tokenised": [
+  "accent-1-rgb",
+  "accent-2-rgb",
+  "background-rgb",
+  "dot",
+  "signal-rgb",
+  "surface-rgb",
+  "text-rgb"
+ ],
+ "tokens": 55,
+ "motion": false
+}
