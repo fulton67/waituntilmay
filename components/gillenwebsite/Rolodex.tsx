@@ -15,7 +15,7 @@ import * as THREE from "three";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { rig, per, FLIP_DIR, coast, makeAngle, wrap, setPos, jumpTo, jumpToRelease } from "./rig";
 import { R0 } from "./cardTexture";
-import { SLEEVE, SLEEVE_W, sleeveGeometry, sharpen, loadTex, setMap, sideWidth, sideFile, type Side } from "./sleeve";
+import { SLEEVE, SLOT_X, sleeveGeometry, sharpen, loadTex, setMap, sideWidth, sideFile, type Side } from "./sleeve";
 import { paperGrain } from "./textures";
 import { triplanar, materialsFrom, MATERIAL_URLS } from "./triplanar";
 import bake from "@/lib/gillenwebsite/housing-bake.json";
@@ -32,9 +32,15 @@ const GUNMETAL_URLS = ["albedo.jpg", "rm.png", "normal.png"].map((f) => `/models
 // side plate's inside face is at x = +0.2399 and, on the left, the frame's side loop's at x = -0.2588 (measured in the
 // page, scripts/gillenwebsite/endplates.mjs). A 3 mm plate there: its middle 4.5 mm inside each.
 const PLATE_T = 0.003, PLATE_GAP = 0.003, PLATE_X = [-0.2588 + PLATE_GAP + PLATE_T / 2, 0.2399 - PLATE_GAP - PLATE_T / 2];
-// the sleeves (SLEEVE_W wide) sit centred between the end plates' inner faces, which are not centred on the axle:
-// SLEEVE_X from the drum's middle; their slots are moved back by as much, so they stay on the rails at x = +-0.075
-const PLATE_IN = PLATE_X.map((x) => x - Math.sign(x) * PLATE_T / 2), SLEEVE_X = (PLATE_IN[0] + PLATE_IN[1]) / 2;
+// The housing at HOUSING x its modelled size, uniformly about the drum axis: the GLB, the cradle and the drum core
+// (axle, inner drum, rails, spokes, hubs, end plates) together, the sleeves kept at their size, so the covers are
+// larger against the frame. The camera stands HOUSING x as far off (Scene.tsx), so the housing fills the screen as
+// before. 1.15 leaves every part more than 6 mm clear of the sleeves through a full turn (frameClearance below).
+export const HOUSING = 1.15;
+// the sleeves sit centred between the end plates' inner faces, which are not centred on the axle: SLEEVE_X from the
+// drum's middle (drum space, scaled); their slots are moved back by as much, so they stay on the rails at x = +-0.075
+// x HOUSING. Their bottom edge is on the scaled drum, R0 x HOUSING from the axle, so the rails run through the slots.
+const PLATE_IN = PLATE_X.map((x) => (x - Math.sign(x) * PLATE_T / 2) * HOUSING), SLEEVE_X = (PLATE_IN[0] + PLATE_IN[1]) / 2, SLEEVE_R = R0 * HOUSING;
 const CRADLE = "/models/cradle-baked.glb", CRADLE_URLS = ["albedo.jpg", "rm.png", "normal.png"].map((f) => `/models/housing-maps/cradle-${f}`);
 const BAKED_URLS = [...BAKED_PARTS.flatMap((p) => [`/models/housing-maps/${p}-albedo.jpg`, `/models/housing-maps/${p}-rm.png`, `/models/housing-maps/${p}-normal.png`]), "/materials/paper.jpg"];
 // the front release gets 2048 covers (front and back), its two neighbours 1024, once its sleeve has settled; the
@@ -96,6 +102,8 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
     paperTex.anisotropy = gl.capabilities.getMaxAnisotropy();
     paperTex.needsUpdate = true;
     const house = gltf.scene;
+    // (out of the scaled frame group of an earlier run, as under StrictMode, so it is measured as modelled)
+    house.removeFromParent();
     house.updateMatrixWorld(true);
     let meshes = 0, triangles = 0;
     house.traverse((o) => {
@@ -130,23 +138,23 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
     // drum core: axle, dark inner drum, two chrome rails through the sleeve slots, spokes, hubs
     const core = new THREE.Group(), span = 0.52;
     const axle = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.016, span + 0.04, 32), M.chrome);
-    axle.rotation.z = Math.PI / 2;
+    axle.rotation.z = Math.PI / 2; axle.name = "axle";
     const inner = new THREE.Mesh(new THREE.CylinderGeometry(R0 - 0.006, R0 - 0.006, SLEEVE - 0.02, 64, 1, true), M.plate);
-    inner.rotation.z = Math.PI / 2;
+    inner.rotation.z = Math.PI / 2; inner.name = "inner drum";
     core.add(axle, inner);
     for (const x of [-0.075, 0.075]) {
       const rail = new THREE.Mesh(new THREE.TorusGeometry(R0 + 0.022, 0.0035, 12, 96), M.chrome);
-      rail.rotation.y = Math.PI / 2; rail.position.x = x; core.add(rail);
+      rail.rotation.y = Math.PI / 2; rail.position.x = x; rail.name = "rail"; core.add(rail);
       for (let k = 0; k < 3; k++) {
         const sp = new THREE.Mesh(new THREE.CylinderGeometry(0.003, 0.003, R0 + 0.022, 8), M.chrome);
         const a = (k * Math.PI * 2) / 3;
         sp.position.set(x, (Math.cos(a) * (R0 + 0.022)) / 2, (Math.sin(a) * (R0 + 0.022)) / 2);
-        sp.rotation.x = a; core.add(sp);
+        sp.rotation.x = a; sp.name = "rail"; core.add(sp);
       }
     }
     for (const x of [-span / 2, span / 2]) {
       const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.012, 40), M.chrome);
-      hub.rotation.z = Math.PI / 2; hub.position.x = x; core.add(hub);
+      hub.rotation.z = Math.PI / 2; hub.position.x = x; hub.name = "hub"; core.add(hub);
     }
     // end plates, so the drum is closed at each end and the axle is held: a disc on the axle (radius R0 + 0.03,
     // 3 mm), a hub collar on its inner face (radius 0.03, 8 mm), and three struts along the axle, 0.05 m out (inside
@@ -170,6 +178,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       }
     }
     core.traverse((o) => { if ((o as THREE.Mesh).isMesh) o.castShadow = o.receiveShadow = true; });
+    core.scale.setScalar(HOUSING);
 
     // cradle: the saddle under the drum, kit/cradle.glb (already in the housing's frame: 0.512 m wide, on the drum
     // axis at y 0.585, z 0.005) with the maps baked from kit/painted-cradle.png (kit/bake/cradle.py)
@@ -177,12 +186,22 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
     // its scene goes in as it is, at the origin with an identity transform, like the housing's (no position, rotation
     // or scale of ours); only the material is set
     const cradleScene = cradleGltf.scene, cradle = cradleScene.getObjectByName("cradle") as THREE.Mesh;
+    cradleScene.removeFromParent();
     cradle.material = new THREE.MeshPhysicalMaterial({ map: cMap, roughnessMap: cRm, metalnessMap: cRm, normalMap: cNormal, roughness: 1, metalness: 1, clearcoat: 0.3, clearcoatRoughness: 0.5, side: THREE.DoubleSide });
     cradle.castShadow = cradle.receiveShadow = true;
+    // the housing and the cradle at HOUSING x about the drum axis, from the drum's middle (x = 0, as the drum core):
+    // a group there, scaled, holding them moved back by as much (so everything is HOUSING x as far from that point),
+    // then stood back on the floor (y = 0, where the model stands): the axis at HOUSING x its height, centre
+    const centre = new THREE.Vector3(0, axis.y * HOUSING, axis.z);
+    const frame = new THREE.Group(), held = new THREE.Group();
+    frame.position.copy(centre); frame.scale.setScalar(HOUSING);
+    held.position.set(0, -axis.y, -axis.z);
+    held.add(house, cradleScene);
+    frame.add(held);
 
     // sleeves: cardboard, roughness .7, a faint paper normal map. Every face starts on a 1x1 texture of the sleeve's
     // own board colour, so the shader has its map from the first frame and a cover arriving changes no program.
-    const sleeveGeo = sleeveGeometry(SLEEVE, undefined, true, SLEEVE_W, -SLEEVE_X);
+    const sleeveGeo = sleeveGeometry(SLEEVE, undefined, true, SLEEVE, -SLEEVE_X, SLOT_X * HOUSING);
     const grain = M.grain.clone();
     grain.repeat.set(3, 3);
     grain.wrapS = grain.wrapT = THREE.RepeatWrapping;
@@ -195,23 +214,9 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
     spineTex.repeat.set(4, 4);
     spineTex.needsUpdate = true;
     const spine = cardboard(spineTex);
-    // a face: the cover inside its square (UV 0..1), the sleeve's paper in the margins either side (u past 0..1),
-    // the paper at the spine's scale (4 tiles a metre). One program for every face.
-    const face = () => {
-      const m = cardboard(board);
-      m.onBeforeCompile = (sh) => {
-        sh.uniforms.paperMap = { value: paperTex };
-        sh.fragmentShader = "uniform sampler2D paperMap;\n" + sh.fragmentShader.replace("#include <map_fragment>", `#ifdef USE_MAP
-  vec4 sampledDiffuseColor = (vMapUv.x < 0.0 || vMapUv.x > 1.0) ? texture2D(paperMap, vMapUv * ${(SLEEVE * 4).toFixed(4)}) : texture2D(map, vMapUv);
-  diffuseColor *= sampledDiffuseColor;
-#endif`);
-      };
-      m.customProgramCacheKey = () => "sleeve-face";
-      return m;
-    };
-    const faces = releases.map((r, i) => ({ r, i, front: { mat: face(), small: null, big: null, bigW: 0, want: 0 } as Face, back: { mat: face(), small: null, big: null, bigW: 0, want: 0 } as Face }));
+    const faces = releases.map((r, i) => ({ r, i, front: { mat: cardboard(board), small: null, big: null, bigW: 0, want: 0 } as Face, back: { mat: cardboard(board), small: null, big: null, bigW: 0, want: 0 } as Face }));
     const drum = new THREE.Group();
-    drum.position.set(0, axis.y, axis.z);
+    drum.position.set(0, centre.y, centre.z);
     drum.add(core);
     const cards: THREE.Group[] = [];
     for (let i = 0; i < TOTAL; i++) {
@@ -219,13 +224,13 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       const g = new THREE.Group();
       const body = new THREE.Mesh(sleeveGeo, [f.front.mat, f.back.mat, spine]);
       body.castShadow = body.receiveShadow = true;
-      body.position.set(SLEEVE_X, R0, 0);
+      body.position.set(SLEEVE_X, SLEEVE_R, 0);
       body.userData.i = g.userData.i = i;
       g.add(body);
       drum.add(g);
       cards.push(g);
     }
-    return { house, axis, knobs, drum, cradle, cradleScene, cards, faces, sleeveGeo, meshes, triangles };
+    return { house, frame, axis: centre, knobs, drum, core, cradle, cradleScene, cards, faces, sleeveGeo, meshes, triangles };
   }, [gltf, baked, tex, bakedTex, cradleGltf, cradleTex, gunTex, gl, releases, N, TOTAL]);
 
   // the first front sleeve counts as settled 150 ms after the first frame
@@ -239,9 +244,8 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       const card = built.cards[wrap(Math.round(rig.s), TOTAL)], cam = rig.camera;
       if (!cam) return 0;
       card.updateWorldMatrix(true, true);
-      // the cover's square only (the middle SLEEVE of the SLEEVE_W face)
-      const b = built.sleeveGeo.boundingBox!, m = card.children[0].matrixWorld, sz = gl.getDrawingBufferSize(new THREE.Vector2()), h = SLEEVE / 2;
-      const pts = [[-h, b.min.y], [h, b.min.y], [-h, b.max.y], [h, b.max.y]].map(([x, y]) => new THREE.Vector3(x, y, b.max.z).applyMatrix4(m).project(cam));
+      const b = built.sleeveGeo.boundingBox!, m = card.children[0].matrixWorld, sz = gl.getDrawingBufferSize(new THREE.Vector2());
+      const pts = [[b.min.x, b.min.y], [b.max.x, b.min.y], [b.min.x, b.max.y], [b.max.x, b.max.y]].map(([x, y]) => new THREE.Vector3(x, y, b.max.z).applyMatrix4(m).project(cam));
       const xs = pts.map((q) => (q.x + 1) * 0.5 * sz.x), ys = pts.map((q) => (1 - q.y) * 0.5 * sz.y);
       return Math.max(Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys));
     };
@@ -314,6 +318,41 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       texels: () => { const f = built.faces[wrap(Math.round(rig.s), N)], w = (t: THREE.Texture | null) => (t?.image as { width: number } | undefined)?.width ?? 0; return { release: f.r.id, frontTexturePx: w(f.front.mat.map), backTexturePx: w(f.back.mat.map), faceScreenPx: facePx(), pixelRatio: gl.getPixelRatio(), bigLoaded: built.faces.flatMap((x) => [x.front.big ? `${x.r.id}@${x.front.bigW}` : "", x.back.big ? `${x.r.id}-back@${x.back.bigW}` : ""]).filter(Boolean) }; },
       // the sleeve's extent along the axle (drum space, from its geometry) against the end plates' inner faces
       clearance: () => { const b = built.sleeveGeo.boundingBox!, x = built.cards[0].children[0].position.x, x0 = x + b.min.x, x1 = x + b.max.x; return { width: +(b.max.x - b.min.x).toFixed(4), height: +(b.max.y - b.min.y).toFixed(4), x0: +x0.toFixed(4), x1: +x1.toFixed(4), plateInner: PLATE_IN.map((v) => +v.toFixed(4)), left: +(x0 - PLATE_IN[0]).toFixed(4), right: +(PLATE_IN[1] - x1).toFixed(4) }; },
+      // the nearest any part comes to a sleeve through a full turn. The sleeves only turn about the axle, so together
+      // they sweep the solid of revolution x0..x1 along the axle, rMin..rMax from it (rMax: the top corners); each
+      // part's triangles are sampled (corners, edge points, inside points at most 5 mm apart) and each point's
+      // distance to that solid taken in its (x, r) half-plane. The rails and their spokes run through the slots, so
+      // they are left out. Metres; the nearest part named.
+      frameClearance: () => {
+        built.drum.updateMatrixWorld(true); built.frame.updateMatrixWorld(true);
+        const inv = built.drum.matrixWorld.clone().invert(), p = built.sleeveGeo.attributes.position, v = new THREE.Vector3(), body = built.cards[0].children[0];
+        let x0 = Infinity, x1 = -Infinity, r0 = Infinity, r1 = 0;
+        const bm = new THREE.Matrix4().makeTranslation(body.position.x, body.position.y, body.position.z);
+        for (let k = 0; k < p.count; k++) { v.fromBufferAttribute(p, k).applyMatrix4(bm); x0 = Math.min(x0, v.x); x1 = Math.max(x1, v.x); const r = Math.hypot(v.y, v.z); r0 = Math.min(r0, r); r1 = Math.max(r1, r); }
+        const dist = (x: number, r: number) => Math.hypot(Math.max(x0 - x, 0, x - x1), Math.max(r0 - r, 0, r - r1));
+        const near = new Map<string, number>();
+        const a = new THREE.Vector3(), b = new THREE.Vector3(), c = new THREE.Vector3(), q = new THREE.Vector3();
+        const visit = (o: THREE.Object3D) => {
+          const m = o as THREE.Mesh;
+          if (!m.isMesh || !m.visible || m.name === "rail") return;
+          const g = m.geometry as THREE.BufferGeometry, pos = g.attributes.position, idx = g.index, n = idx ? idx.count : pos.count;
+          const mm = inv.clone().multiply(m.matrixWorld);
+          const at = (k: number, out: THREE.Vector3) => out.fromBufferAttribute(pos, idx ? idx.getX(k) : k).applyMatrix4(mm);
+          for (let t = 0; t < n; t += 3) {
+            at(t, a); at(t + 1, b); at(t + 2, c);
+            const steps = Math.min(40, Math.max(1, Math.ceil(Math.max(a.distanceTo(b), b.distanceTo(c), c.distanceTo(a)) / 0.005)));
+            for (let i = 0; i <= steps; i++) for (let j = 0; j <= steps - i; j++) {
+              q.copy(a).multiplyScalar(1 - (i + j) / steps).addScaledVector(b, i / steps).addScaledVector(c, j / steps);
+              const d = dist(q.x, Math.hypot(q.y, q.z));
+              const name = m.name || m.parent?.name || "?";
+              if (d < (near.get(name) ?? Infinity)) near.set(name, d);
+            }
+          }
+        };
+        built.frame.traverse(visit); built.core.traverse(visit);
+        const parts = [...near].sort((x, y) => x[1] - y[1]).map(([part, d]) => ({ part, metres: +d.toFixed(4) }));
+        return { metres: parts[0].metres, part: parts[0].part, nearest: parts.slice(0, 6), sleeve: { x0: +x0.toFixed(4), x1: +x1.toFixed(4), rMin: +r0.toFixed(4), rMax: +r1.toFixed(4) }, housingScale: HOUSING };
+      },
       // the farthest point of any sleeve from the drum axis, in metres, with the drum at s (drum space: y, z)
       sleeveRadius: () => { built.drum.updateMatrixWorld(true); const inv = built.drum.matrixWorld.clone().invert(), p = built.sleeveGeo.attributes.position, v = new THREE.Vector3(); let max = 0; for (const c of built.cards) { const m = inv.clone().multiply(c.children[0].matrixWorld); for (let k = 0; k < p.count; k++) { v.fromBufferAttribute(p, k).applyMatrix4(m); max = Math.max(max, Math.hypot(v.y, v.z)); } } return max; },
       // the baked parts' textures and the paper, as GPU memory (RGBA8 with mips)
@@ -384,9 +423,8 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
 
   return (
     <>
-      <primitive object={built.house} />
+      <primitive object={built.frame} />
       <primitive object={built.drum} />
-      <primitive object={built.cradleScene} />
     </>
   );
 }

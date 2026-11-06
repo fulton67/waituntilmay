@@ -1,20 +1,57 @@
 {
   "base": "http://localhost:3228",
-  "at": "2026-11-05T22:47:37.093Z",
+  "at": "2026-11-06T01:38:47.474Z",
   "clearance": {
-    "width": 0.44,
+    "width": 0.337,
     "height": 0.337,
-    "x0": -0.2294,
-    "x1": 0.2105,
+    "x0": -0.1794,
+    "x1": 0.1576,
     "plateInner": [
-      -0.2528,
-      0.2339
+      -0.2907,
+      0.269
     ],
-    "left": 0.0234,
-    "right": 0.0234
+    "left": 0.1114,
+    "right": 0.1114
+  },
+  "frame": {
+    "metres": 0.0069,
+    "part": "inner drum",
+    "nearest": [
+      {
+        "part": "inner drum",
+        "metres": 0.0069
+      },
+      {
+        "part": "endplate",
+        "metres": 0.0219
+      },
+      {
+        "part": "frame",
+        "metres": 0.0614
+      },
+      {
+        "part": "axle",
+        "metres": 0.0644
+      },
+      {
+        "part": "knob_left_cap",
+        "metres": 0.088
+      },
+      {
+        "part": "side_right",
+        "metres": 0.1166
+      }
+    ],
+    "sleeve": {
+      "x0": -0.1794,
+      "x1": 0.1576,
+      "rMin": 0.0828,
+      "rMax": 0.4198
+    },
+    "housingScale": 1.15
   },
   "sleeveSize": 0.337,
-  "maxRadius": 0.409,
+  "maxRadius": 0.4198,
   "slots": 108,
   "pitchDeg": {
     "ringAhead": 1.795,

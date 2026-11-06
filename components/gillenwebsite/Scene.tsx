@@ -8,7 +8,7 @@ import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { rig } from "./rig";
-import Rolodex from "./Rolodex";
+import Rolodex, { HOUSING } from "./Rolodex";
 
 function Environment() {
   const { gl, scene } = useThree();
@@ -44,7 +44,7 @@ function Floor() {
         <shadowMaterial opacity={0.13} />
       </mesh>
       <mesh rotation-x={-Math.PI / 2} position-y={0.001}>
-        <planeGeometry args={[0.95, 0.95]} />
+        <planeGeometry args={[0.95 * HOUSING, 0.95 * HOUSING]} />
         <meshBasicMaterial map={blob} transparent depthWrite={false} />
       </mesh>
     </>
