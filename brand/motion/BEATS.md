@@ -1,6 +1,19 @@
 # Motion beats
 
 Measured by `scripts/motion.py` (thresholds in `motion.json` → `thresholds`). One table per video: shots with camera motion, then text as it arrives.
+The board reel is read frame by frame in `board_detail.json` and `board_flow.json` (`scripts/motion_board.py`, `scripts/motion_board_flow.py`); its beats come first.
+
+## Board reel 43001699 — the direction
+
+One 9.75 s take, 24 fps, 1080×1920, no cuts, no text. Camera locked (border drift median 0.127 px/frame at 270 px wide); content moves on 7.91% of the frame per frame (median), 0% held frames (not stop-motion).
+
+| Beat | In | Out | What moves | Speed (px/frame at 270 px, median per second) |
+|---|---|---|---|---|
+| 1 · pattern drifts | 0.00 | 2.62 | full product pattern on white, objects drift | 2.93, 3.02, 1.52 |
+| 2 · zoom in | 2.62 | 4.12 | scale climbs to 4.47× (max at 4.792 s), motion blur; ease-in-out, peak at 0.57 of the span | 8.24, 7.31 |
+| 3 · close hold | 4.12 | 6.75 | a few large products slide past | 3.17, 1.25 |
+| 4 · zoom out | 6.75 | 9.54 | back to the pattern, scale 1.01× at the end; ease-in-out, 61% of the change in the first half | 4.83, 3.83 |
+| 5 · settle | 9.54 | 9.75 | pattern drifts to a stop | 1.25 |
 
 ## board_43001699 (board) — 9.75 s, 1080×1920 @ 24.0 fps
 
@@ -8,7 +21,7 @@ Measured by `scripts/motion.py` (thresholds in `motion.json` → `thresholds`). 
 
 | # | In | Out | Length | Camera |
 |---|---|---|---|---|
-| 1 | 0.0 | 9.75 | 9.75 | handheld/subject motion |
+| 1 | 0.0 | 9.75 | 9.75 | locked camera, content zooms |
 
 ## ig_DeSQDccjhn- (instagram) — 34.6 s, 1044×1868 @ 30.0 fps
 

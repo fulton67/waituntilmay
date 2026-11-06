@@ -13,10 +13,10 @@
   "hard_cut_share": null,
   "transition_frames_median": null,
   "camera_counts": {
-   "handheld/subject motion": 1
+   "locked camera, content zooms": 1
   },
   "camera_share_by_time": {
-   "handheld/subject motion": 1.0
+   "locked camera, content zooms": 1.0
   },
   "text_on_screen_share_median": 0.0,
   "first_text_s_median": null,

@@ -27,76 +27,108 @@
  },
  "rules": [
   {
-   "rule": "Hold shots long; cut rarely.",
-   "number": "minimum shot 4 s; aim for one take per 10-15 s",
-   "cite": "board 43001699: 0 cuts in 9.75 s, one handheld shot"
+   "rule": "One take per story; no cuts under 10 s. In longer reels a shot runs at least 4.5 s.",
+   "number": "board 0 cuts in 9.75 s; floor = feed p75 shot 4.54 s",
+   "cite": "motion.json board cuts; summary.json instagram shot_s_iqr"
   },
   {
-   "rule": "Let the camera and subject move; never add digital zoom or push.",
-   "number": "no scale keyframes on footage",
-   "cite": "board camera: {'handheld/subject motion': 1}"
+   "rule": "Lock the camera; motion comes from the subject. No digital zoom on filmed footage.",
+   "number": "board border drift median 0.127 px/frame",
+   "cite": "board_detail.json global_drift_px_median"
   },
   {
-   "rule": "Keep text off the picture unless it carries information.",
-   "number": "at most one text element on screen at a time; captions only when someone speaks",
-   "cite": "board text_on_screen_share 0.0"
+   "rule": "Graphic and product layers may move as the board does: drift, zoom in, hold, zoom out.",
+   "number": "zoom in 2.62-4.12 s to 4.47x, out 6.75-9.54 s, ends at 1.01x",
+   "cite": "board_flow.json zoom_in_spans_s, zoom_out_spans_s, cum_scale_max, cum_scale_end"
   },
   {
-   "rule": "Text arrives slowly and leaves quickly.",
-   "number": "entrances 500-700 ms ease-out; exits 300 ms; holds >= 2.5 s",
-   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+   "rule": "Every move eases in and out; the way out is slower than the way in.",
+   "number": "out takes 1.9x as long as in",
+   "cite": "board_flow.json zoom_easing"
   },
   {
-   "rule": "Join shots with a cut or a short dissolve; no wipes that slide, spin or zoom.",
-   "number": "dissolve 12 frames (400 ms)",
-   "cite": "board has no transitions; judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+   "rule": "Keep the tempo slow outside the zoom.",
+   "number": "median 3.08 px/frame at 270 px wide (1.1% of width)",
+   "cite": "board_flow.json speed_px_per_frame_median"
   },
   {
-   "rule": "Graphics use the still kit unchanged: glass panel, pill chip, caption role, hairline.",
-   "number": "kit/tokens.json",
-   "cite": "kit/look.json"
+   "rule": "End on the opening framing without faking a seamless loop.",
+   "number": "end scale 1.01x of frame 1",
+   "cite": "board_flow.json cum_scale_end"
   },
   {
-   "rule": "Footage takes the kit treatment.",
-   "number": "kit/treatment.cube (LUT) + grain opacity 0.06",
-   "cite": "kit/treatment.json, kit/look.json grain"
+   "rule": "Text only where speech needs captions: one line at a time in the feed's caption band, cut on in place. Text reveals belong to title and end cards, not to footage.",
+   "number": "band 74.6-78.7% of height; 2057 of 3264 feed text events cut on",
+   "cite": "motion.json board text_on_screen_share; summary.json instagram text_box_*_median, text_arrivals"
+  },
+  {
+   "rule": "Make it at 24 fps, 1080 x 1920.",
+   "number": "board 24.0 fps",
+   "cite": "motion.json board fps"
+  },
+  {
+   "rule": "Footage takes the kit treatment; graphics use the still kit unchanged.",
+   "number": "kit/treatment.cube + grain 0.06; kit/tokens.json",
+   "cite": "kit/treatment.json, kit/look.json"
   }
  ],
+ "fps": 24,
+ "caption_band": {
+  "top": 0.746,
+  "bottom": 0.787,
+  "arrives": "cut",
+  "cite": "summary.json instagram text_box_top_median, text_box_bottom_median, text_arrivals"
+ },
  "duration": {
   "enter": {
    "ms": 600,
    "d": "text and graphic entrances",
-   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 57)"
   },
   "enter-slow": {
    "ms": 900,
    "d": "title-card headline",
-   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 57)"
   },
   "exit": {
    "ms": 300,
    "d": "every exit",
-   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 57)"
   },
   "stagger": {
    "ms": 90,
    "d": "between lines or words in a staggered reveal",
-   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 57)"
   },
   "hold-min": {
    "ms": 2500,
    "d": "shortest time any text stays fully on",
-   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 57)"
   },
   "dissolve": {
-   "ms": 400,
-   "d": "the only transition besides a cut (12 frames at 30 fps)",
-   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+   "ms": 500,
+   "d": "the only transition besides a cut (12 frames at 24 fps)",
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 57)"
   },
   "shot-min": {
-   "ms": 4000,
-   "d": "shortest shot",
-   "cite": "board median shot 9.75 s"
+   "ms": 4500.0,
+   "d": "shortest shot in a longer reel (feed p75)",
+   "cite": "summary.json instagram shot_s_iqr"
+  },
+  "zoom-in": {
+   "ms": 1500,
+   "d": "graphic zoom in",
+   "cite": "board_flow.json zoom_in_spans_s"
+  },
+  "zoom-hold": {
+   "ms": 2630,
+   "d": "hold between zooms",
+   "cite": "board_flow.json"
+  },
+  "zoom-out": {
+   "ms": 2790,
+   "d": "graphic zoom out",
+   "cite": "board_flow.json zoom_out_spans_s"
   }
  },
  "easing": {
@@ -108,7 +140,7 @@
     1.0
    ],
    "d": "entrances (ease-out cubic)",
-   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 57)"
   },
   "in": {
    "bezier": [
@@ -118,7 +150,7 @@
     0.19
    ],
    "d": "exits",
-   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 57)"
   },
   "in-out": {
    "bezier": [
@@ -127,20 +159,30 @@
     0.35,
     1.0
    ],
-   "d": "dissolves and moves",
-   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+   "d": "zoom in, dissolves and moves (peak at 0.57 of the span)",
+   "cite": "board_flow.json zoom_easing; curve fitted by eye (judgment, RULES_PHASE4 rule 4)"
+  },
+  "zoom-out": {
+   "bezier": [
+    0.33,
+    0.0,
+    0.2,
+    1.0
+   ],
+   "d": "zoom out (peak at 0.42, 61% of change in the first half)",
+   "cite": "board_flow.json zoom_easing; curve fitted by eye (judgment, RULES_PHASE4 rule 4)"
   }
  },
  "distance": {
   "rise": {
    "cqw": 1.2,
    "d": "vertical travel of a fade-rise (1.2% of width, 13 px at 1080)",
-   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 57)"
   },
   "blur-in": {
    "cqw": 0.8,
    "d": "starting blur of a blur-in reveal",
-   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 57)"
   }
  }
 }
