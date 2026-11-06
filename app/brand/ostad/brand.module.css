@@ -1,0 +1,79 @@
+/* Paper and ink are the board's two largest colour clusters (brand/colour/board.json aggregate #1 and #2).
+   Fallbacks after the Adobe kit families are named fallbacks only. */
+.root {
+  --paper: #f6f6f5;
+  --ink: #211b15;
+  --mute: #7d8075;
+  --rule: #d7d5d0;
+  --display: "neue-haas-grotesk-display", "Inter Tight", Arial, sans-serif;
+  --text: "neue-haas-grotesk-text", Inter, Arial, sans-serif;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 17px/1.5 var(--text);
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 5.4vw;
+  border-bottom: 1px solid var(--rule);
+  font: 500 13px/1 var(--display);
+  letter-spacing: 0.0102em;
+  text-transform: uppercase;
+}
+.mark { font-weight: 600; }
+.kit { color: var(--mute); }
+.main { padding: 0 5.4vw 96px; }
+.section { padding-top: 56px; }
+.label {
+  margin: 0 0 12px;
+  font: 500 13px/1.2 var(--display);
+  letter-spacing: 0.0102em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.h1 {
+  margin: 0 0 16px;
+  max-width: 18ch;
+  font: 600 clamp(32px, 5vw, 56px)/1.033 var(--display);
+  letter-spacing: 0.0082em;
+}
+.lede { max-width: 62ch; margin: 0 0 40px; }
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 48px;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+.table caption {
+  text-align: left;
+  font: 500 13px/1.2 var(--display);
+  letter-spacing: 0.0102em;
+  text-transform: uppercase;
+  color: var(--mute);
+  padding-bottom: 8px;
+}
+.table th, .table td {
+  text-align: left;
+  padding: 8px 12px 8px 0;
+  border-top: 1px solid var(--rule);
+  vertical-align: top;
+}
+.table th { font-weight: 500; color: var(--mute); }
+.table a { color: inherit; }
+.row { margin-bottom: 40px; }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; align-items: start; }
+.grid2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: start; }
+.plate { margin: 0; }
+.plate img { display: block; width: 100%; height: auto; background: var(--rule); outline: 1px solid var(--rule); outline-offset: -1px; }
+.plate figcaption { margin-top: 6px; font-size: 13px; color: var(--mute); }
+.ranks { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.note { max-width: 80ch; font-size: 13px; color: var(--mute); }
+@media (max-width: 700px) {
+  .grid, .grid2 { grid-template-columns: 1fr 1fr; }
+  .ranks { grid-template-columns: 1fr; }
+  .table { font-size: 13px; }
+  .table th:nth-child(5), .table td:nth-child(5) { display: none; }
+}

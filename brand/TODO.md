@@ -12,6 +12,6 @@
 - [x] FIX 1 — board pulled via API: 56/56 (channel length 56), 53 images + 1 reel, 1,427 connected channels → board/blocks_api.json, blocks.json, READ.md (22 type-driven), connected.md
 - [x] FIX 2 — colours k=6 measured: IG navy #202532 17.9%, paper #f2efed, skin #bf8662; board paper #f6f6f5, near-black, warm browns, sage-grey #7d8075/#505f53 → colour/
 - [x] FIX 3 — Adobe visual search on 542/542 crops (213 added, 329 already active, 0 errors, 542 receipts) → matches.json, clusters.json (397 families), system.json, SYSTEM.md: Neue Haas Grotesk Display 65 Md / 55 Rg, no mono; losing Poppins, Cormorant Garamond; specimen 14 plates in fonts/specimen/ (kit vzz0hgt, no fallbacks)
-- [ ] FIX 3 — specimen as the first section of /brand/ostad
+- [x] FIX 3 — specimen is section 01 of /brand/ostad (app/brand/ostad, plates in public/brand/ostad/specimen; brand/scripts/publish_page.py)
 - [x] FIX 3b — metrics: 497 text regions / 98 images → metrics/pixels.json + PIXELS.md + 5 plates; 14 source pages → source.json + SOURCE.md (STK Bureau x/cap file 0.739 vs pixels 0.733)
 - [x] FIX 3 crops — 542 (278 board, 264 Instagram)

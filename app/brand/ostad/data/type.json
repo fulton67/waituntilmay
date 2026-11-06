@@ -1,0 +1,594 @@
+{
+ "renders": [
+  {
+   "file": "fonts/specimen/system_1080x1350_14664481.png",
+   "canvas": "1080x1350",
+   "ground": "board 14664481",
+   "headline": "We believe imperfection helps you connect with the work better.",
+   "caption": "Where surgical precision meets the artistry of reconstruction.",
+   "display": "Neue Haas Grotesk Display Pro 65 Medium",
+   "fonts_loaded": true,
+   "ground_luminance": 0.752,
+   "ink": "ink #211b15",
+   "src": "/brand/ostad/specimen/system_1080x1350_14664481.png"
+  },
+  {
+   "file": "fonts/specimen/system_1080x1350_41911984.png",
+   "canvas": "1080x1350",
+   "ground": "board 41911984",
+   "headline": "For naturally glowing skin",
+   "caption": "Just because a treatment is trending doesn’t mean it’s the right treatment for you.",
+   "display": "Neue Haas Grotesk Display Pro 65 Medium",
+   "fonts_loaded": true,
+   "ground_luminance": 0.423,
+   "ink": "paper #f6f6f5",
+   "src": "/brand/ostad/specimen/system_1080x1350_41911984.png"
+  },
+  {
+   "file": "fonts/specimen/system_1080x1350_2145281.png",
+   "canvas": "1080x1350",
+   "ground": "board 2145281",
+   "headline": "We believe imperfection helps you connect with the work better.",
+   "caption": "Strength is part of the aesthetic conversation.",
+   "display": "Neue Haas Grotesk Display Pro 65 Medium",
+   "fonts_loaded": true,
+   "ground_luminance": 0.521,
+   "ink": "ink #211b15",
+   "src": "/brand/ostad/specimen/system_1080x1350_2145281.png"
+  },
+  {
+   "file": "fonts/specimen/system_1080x1350_paper.png",
+   "canvas": "1080x1350",
+   "ground": "paper",
+   "headline": "For naturally glowing skin",
+   "caption": "Where surgical precision meets the artistry of reconstruction.",
+   "display": "Neue Haas Grotesk Display Pro 65 Medium",
+   "fonts_loaded": true,
+   "ground_luminance": 0.96,
+   "ink": "ink #211b15",
+   "src": "/brand/ostad/specimen/system_1080x1350_paper.png"
+  },
+  {
+   "file": "fonts/specimen/system_1080x1080_14664481.png",
+   "canvas": "1080x1080",
+   "ground": "board 14664481",
+   "headline": "We believe imperfection helps you connect with the work better.",
+   "caption": "Just because a treatment is trending doesn’t mean it’s the right treatment for you.",
+   "display": "Neue Haas Grotesk Display Pro 65 Medium",
+   "fonts_loaded": true,
+   "ground_luminance": 0.753,
+   "ink": "ink #211b15",
+   "src": "/brand/ostad/specimen/system_1080x1080_14664481.png"
+  },
+  {
+   "file": "fonts/specimen/system_1080x1080_41911984.png",
+   "canvas": "1080x1080",
+   "ground": "board 41911984",
+   "headline": "For naturally glowing skin",
+   "caption": "Strength is part of the aesthetic conversation.",
+   "display": "Neue Haas Grotesk Display Pro 65 Medium",
+   "fonts_loaded": true,
+   "ground_luminance": 0.36,
+   "ink": "paper #f6f6f5",
+   "src": "/brand/ostad/specimen/system_1080x1080_41911984.png"
+  },
+  {
+   "file": "fonts/specimen/system_1080x1080_2145281.png",
+   "canvas": "1080x1080",
+   "ground": "board 2145281",
+   "headline": "We believe imperfection helps you connect with the work better.",
+   "caption": "Where surgical precision meets the artistry of reconstruction.",
+   "display": "Neue Haas Grotesk Display Pro 65 Medium",
+   "fonts_loaded": true,
+   "ground_luminance": 0.539,
+   "ink": "ink #211b15",
+   "src": "/brand/ostad/specimen/system_1080x1080_2145281.png"
+  },
+  {
+   "file": "fonts/specimen/system_1080x1080_paper.png",
+   "canvas": "1080x1080",
+   "ground": "paper",
+   "headline": "For naturally glowing skin",
+   "caption": "Just because a treatment is trending doesn’t mean it’s the right treatment for you.",
+   "display": "Neue Haas Grotesk Display Pro 65 Medium",
+   "fonts_loaded": true,
+   "ground_luminance": 0.96,
+   "ink": "ink #211b15",
+   "src": "/brand/ostad/specimen/system_1080x1080_paper.png"
+  },
+  {
+   "file": "fonts/specimen/system_1080x1920_14664481.png",
+   "canvas": "1080x1920",
+   "ground": "board 14664481",
+   "headline": "We believe imperfection helps you connect with the work better.",
+   "caption": "Strength is part of the aesthetic conversation.",
+   "display": "Neue Haas Grotesk Display Pro 65 Medium",
+   "fonts_loaded": true,
+   "ground_luminance": 0.766,
+   "ink": "ink #211b15",
+   "src": "/brand/ostad/specimen/system_1080x1920_14664481.png"
+  },
+  {
+   "file": "fonts/specimen/system_1080x1920_41911984.png",
+   "canvas": "1080x1920",
+   "ground": "board 41911984",
+   "headline": "For naturally glowing skin",
+   "caption": "Where surgical precision meets the artistry of reconstruction.",
+   "display": "Neue Haas Grotesk Display Pro 65 Medium",
+   "fonts_loaded": true,
+   "ground_luminance": 0.391,
+   "ink": "paper #f6f6f5",
+   "src": "/brand/ostad/specimen/system_1080x1920_41911984.png"
+  },
+  {
+   "file": "fonts/specimen/system_1080x1920_2145281.png",
+   "canvas": "1080x1920",
+   "ground": "board 2145281",
+   "headline": "We believe imperfection helps you connect with the work better.",
+   "caption": "Just because a treatment is trending doesn’t mean it’s the right treatment for you.",
+   "display": "Neue Haas Grotesk Display Pro 65 Medium",
+   "fonts_loaded": true,
+   "ground_luminance": 0.491,
+   "ink": "paper #f6f6f5",
+   "src": "/brand/ostad/specimen/system_1080x1920_2145281.png"
+  },
+  {
+   "file": "fonts/specimen/system_1080x1920_paper.png",
+   "canvas": "1080x1920",
+   "ground": "paper",
+   "headline": "For naturally glowing skin",
+   "caption": "Strength is part of the aesthetic conversation.",
+   "display": "Neue Haas Grotesk Display Pro 65 Medium",
+   "fonts_loaded": true,
+   "ground_luminance": 0.96,
+   "ink": "ink #211b15",
+   "src": "/brand/ostad/specimen/system_1080x1920_paper.png"
+  },
+  {
+   "file": "fonts/specimen/losing_poppins_1080x1350.png",
+   "canvas": "1080x1350",
+   "ground": "paper",
+   "headline": "We believe imperfection helps you connect with the work better.",
+   "caption": "Where surgical precision meets the artistry of reconstruction.",
+   "display": "Poppins Medium (losing system: display score 13.03)",
+   "fonts_loaded": true,
+   "ground_luminance": 0.96,
+   "ink": "ink #211b15",
+   "src": "/brand/ostad/specimen/losing_poppins_1080x1350.png"
+  },
+  {
+   "file": "fonts/specimen/losing_cormorant-garamond_1080x1350.png",
+   "canvas": "1080x1350",
+   "ground": "paper",
+   "headline": "We believe imperfection helps you connect with the work better.",
+   "caption": "Where surgical precision meets the artistry of reconstruction.",
+   "display": "Cormorant Garamond Medium (losing system: display score 9.11)",
+   "fonts_loaded": true,
+   "ground_luminance": 0.96,
+   "ink": "ink #211b15",
+   "src": "/brand/ostad/specimen/losing_cormorant-garamond_1080x1350.png"
+  }
+ ],
+ "spec": {
+  "kit": "vzz0hgt",
+  "kit_css": "https://use.typekit.net/vzz0hgt.css",
+  "roles": {
+   "headline": {
+    "font_id": "nhg-display-600",
+    "family": "neue-haas-grotesk-display",
+    "weight": 600,
+    "adobe_style": "Neue Haas Grotesk Display Pro 65 Medium",
+    "cap_pct_h": 4.37,
+    "cap_pct_h_cite": "pixels.json regions role=headline median cap_pct_h",
+    "line_height": 1.033,
+    "line_height_cite": "pixels.json regions role=headline median leading_em (1.006) x cap_em 0.7188 / 0.7",
+    "letter_spacing_em": 0.0082,
+    "letter_spacing_cite": "calib/tracking.json nhg-display-600 headline (target pixels.json regions role=headline median tracking_pct_em)",
+    "block_w_pct": 45.7,
+    "block_w_cite": "pixels.json regions role=headline source=instagram median block_w_pct",
+    "uppercase": false,
+    "uppercase_cite": "judgment call: labels set in caps to separate them from captions of near-equal size"
+   },
+   "caption": {
+    "font_id": "nhg-display-500",
+    "family": "neue-haas-grotesk-display",
+    "weight": 500,
+    "adobe_style": "Neue Haas Grotesk Display Pro 55 Roman",
+    "cap_pct_h": 2.0,
+    "cap_pct_h_cite": "pixels.json regions role=caption median cap_pct_h",
+    "line_height": 1.271,
+    "line_height_cite": "pixels.json regions role=caption median leading_em (1.238) x cap_em 0.7188 / 0.7",
+    "letter_spacing_em": -0.0158,
+    "letter_spacing_cite": "calib/tracking.json nhg-display-500 caption (target pixels.json regions role=caption median tracking_pct_em)",
+    "block_w_pct": 35.7,
+    "block_w_cite": "pixels.json regions role=caption source=instagram median block_w_pct",
+    "uppercase": false,
+    "uppercase_cite": "judgment call: labels set in caps to separate them from captions of near-equal size"
+   },
+   "label": {
+    "font_id": "nhg-display-500",
+    "family": "neue-haas-grotesk-display",
+    "weight": 500,
+    "adobe_style": "Neue Haas Grotesk Display Pro 55 Roman",
+    "cap_pct_h": 1.895,
+    "cap_pct_h_cite": "pixels.json regions role=label median cap_pct_h",
+    "line_height": 1.078,
+    "line_height_cite": "pixels.json regions role=label median leading_em (1.05) x cap_em 0.7188 / 0.7",
+    "letter_spacing_em": 0.0102,
+    "letter_spacing_cite": "calib/tracking.json nhg-display-500 label (target pixels.json regions role=label median tracking_pct_em)",
+    "block_w_pct": 20.7,
+    "block_w_cite": "pixels.json regions role=label source=instagram median block_w_pct",
+    "uppercase": true,
+    "uppercase_cite": "judgment call: labels set in caps to separate them from captions of near-equal size"
+   }
+  },
+  "canvases": {
+   "1080x1350": {
+    "w": 1080,
+    "h": 1350,
+    "sizes": {
+     "headline": {
+      "font_size_px": 82.1,
+      "line_height_px": 84.8
+     },
+     "caption": {
+      "font_size_px": 37.6,
+      "line_height_px": 47.7
+     },
+     "label": {
+      "font_size_px": 35.6,
+      "line_height_px": 38.4
+     }
+    },
+    "size_basis": "cap % of canvas height (pixels.json)"
+   },
+   "1080x1080": {
+    "w": 1080,
+    "h": 1080,
+    "sizes": {
+     "headline": {
+      "font_size_px": 65.7,
+      "line_height_px": 67.8
+     },
+     "caption": {
+      "font_size_px": 30.1,
+      "line_height_px": 38.2
+     },
+     "label": {
+      "font_size_px": 28.5,
+      "line_height_px": 30.7
+     }
+    },
+    "size_basis": "cap % of canvas height (pixels.json)"
+   },
+   "1080x1920": {
+    "w": 1080,
+    "h": 1920,
+    "sizes": {
+     "headline": {
+      "font_size_px": 82.1,
+      "line_height_px": 84.8
+     },
+     "caption": {
+      "font_size_px": 37.6,
+      "line_height_px": 47.7
+     },
+     "label": {
+      "font_size_px": 35.6,
+      "line_height_px": 38.4
+     }
+    },
+    "size_basis": "judgment call: 4:5 sizes reused, a story is read at the same width"
+   }
+  },
+  "layout": {
+   "margin_pct_w": 5.4,
+   "margin_cite": "pixels.json images source=instagram median text_margin_left_pct",
+   "headline_top_pct_h": 13.8,
+   "headline_top_cite": "pixels.json images source=board median text_margin_top_pct",
+   "align": "left",
+   "align_cite": "PIXELS.md stack alignment: board left 53 / centre 10 / right 8; instagram left 42 / centre 21 / right 13"
+  },
+  "web": {
+   "body": {
+    "family": "neue-haas-grotesk-text",
+    "weight": 400,
+    "size_px": 17,
+    "line_height": 1.5,
+    "cite": "judgment call: 17px web body in NHG Text (optical size for small text); line-height 1.5 for long reading"
+   },
+   "h1": {
+    "family": "neue-haas-grotesk-display",
+    "weight": 600,
+    "size_px": 39,
+    "cite": "headline/caption cap ratio from pixels.json applied to the 17px body, cap-height matched across Text and Display"
+   },
+   "label": {
+    "family": "neue-haas-grotesk-display",
+    "weight": 500,
+    "size_px": 13,
+    "uppercase": true,
+    "letter_spacing_em": 0.0102,
+    "cite": "judgment call size; tracking from calib/tracking.json label"
+   },
+   "h2": {
+    "family": "neue-haas-grotesk-display",
+    "weight": 600,
+    "size_px": 30,
+    "cite": "judgment call: between h1 and body"
+   }
+  },
+  "notes": [],
+  "system": {
+   "display": {
+    "family_slug": "neue-haas-grotesk",
+    "family": "Neue Haas Grotesk Display",
+    "foundry": "Monotype",
+    "url": "https://fonts.adobe.com/fonts/neue-haas-grotesk",
+    "classification": [
+     "sans"
+    ],
+    "contrast": null,
+    "score": 21.83,
+    "board": 21.83,
+    "favourite": 0.0,
+    "instagram": 0.0
+   },
+   "text": {
+    "family_slug": "neue-haas-grotesk",
+    "family": "Neue Haas Grotesk Display",
+    "foundry": "Monotype",
+    "url": "https://fonts.adobe.com/fonts/neue-haas-grotesk",
+    "classification": [
+     "sans"
+    ],
+    "contrast": null,
+    "score": 129.21,
+    "board": 126.58,
+    "favourite": 1.5,
+    "instagram": 2.25
+   },
+   "mono": null,
+   "losing": [
+    {
+     "family_slug": "poppins",
+     "family": "Poppins",
+     "foundry": "Google",
+     "url": "https://fonts.adobe.com/fonts/poppins",
+     "classification": [
+      "sans"
+     ],
+     "contrast": "l",
+     "score": 13.03,
+     "board": 13.03,
+     "favourite": 0.0,
+     "instagram": 0.0
+    },
+    {
+     "family_slug": "cormorant-garamond",
+     "family": "Cormorant Garamond",
+     "foundry": "Google",
+     "url": "https://fonts.adobe.com/fonts/cormorant-garamond",
+     "classification": [
+      "serif"
+     ],
+     "contrast": "r",
+     "score": 9.11,
+     "board": 0.0,
+     "favourite": 0.0,
+     "instagram": 18.22
+    }
+   ]
+  }
+ },
+ "display_ranked": [
+  {
+   "family_slug": "neue-haas-grotesk",
+   "family": "Neue Haas Grotesk Display",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/neue-haas-grotesk",
+   "classification": [
+    "sans"
+   ],
+   "contrast": null,
+   "score": 21.83,
+   "board": 21.83,
+   "favourite": 0.0,
+   "instagram": 0.0
+  },
+  {
+   "family_slug": "poppins",
+   "family": "Poppins",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/poppins",
+   "classification": [
+    "sans"
+   ],
+   "contrast": "l",
+   "score": 13.03,
+   "board": 13.03,
+   "favourite": 0.0,
+   "instagram": 0.0
+  },
+  {
+   "family_slug": "helvetica-neue",
+   "family": "Helvetica Neue LT Pro",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/helvetica-neue",
+   "classification": [
+    "not tagged on its Adobe page"
+   ],
+   "contrast": null,
+   "score": 11.2,
+   "board": 11.2,
+   "favourite": 0.0,
+   "instagram": 0.0
+  },
+  {
+   "family_slug": "cormorant-garamond",
+   "family": "Cormorant Garamond",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/cormorant-garamond",
+   "classification": [
+    "serif"
+   ],
+   "contrast": "r",
+   "score": 9.11,
+   "board": 0.0,
+   "favourite": 0.0,
+   "instagram": 18.22
+  },
+  {
+   "family_slug": "cormorant",
+   "family": "Cormorant",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/cormorant",
+   "classification": [
+    "serif"
+   ],
+   "contrast": "r",
+   "score": 6.87,
+   "board": 0.0,
+   "favourite": 0.0,
+   "instagram": 13.75
+  },
+  {
+   "family_slug": "helvetica",
+   "family": "Helvetica LT Pro",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/helvetica",
+   "classification": [
+    "sans"
+   ],
+   "contrast": null,
+   "score": 6.83,
+   "board": 6.83,
+   "favourite": 0.0,
+   "instagram": 0.0
+  }
+ ],
+ "text_ranked": [
+  {
+   "family_slug": "neue-haas-grotesk",
+   "family": "Neue Haas Grotesk Display",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/neue-haas-grotesk",
+   "classification": [
+    "sans"
+   ],
+   "contrast": null,
+   "score": 129.21,
+   "board": 126.58,
+   "favourite": 1.5,
+   "instagram": 2.25
+  },
+  {
+   "family_slug": "helvetica-neue",
+   "family": "Helvetica Neue LT Pro",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/helvetica-neue",
+   "classification": [
+    "not tagged on its Adobe page"
+   ],
+   "contrast": null,
+   "score": 37.77,
+   "board": 34.92,
+   "favourite": 0.33,
+   "instagram": 5.03
+  },
+  {
+   "family_slug": "dm-sans",
+   "family": "DM Sans",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/dm-sans",
+   "classification": [
+    "sans"
+   ],
+   "contrast": null,
+   "score": 28.94,
+   "board": 4.97,
+   "favourite": 0.0,
+   "instagram": 47.95
+  },
+  {
+   "family_slug": "neue-haas-unica",
+   "family": "Neue Haas Unica",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/neue-haas-unica",
+   "classification": [
+    "sans"
+   ],
+   "contrast": null,
+   "score": 28.25,
+   "board": 27.58,
+   "favourite": 0.2,
+   "instagram": 0.93
+  },
+  {
+   "family_slug": "helvetica",
+   "family": "Helvetica LT Pro",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/helvetica",
+   "classification": [
+    "sans"
+   ],
+   "contrast": null,
+   "score": 26.5,
+   "board": 25.0,
+   "favourite": 0.25,
+   "instagram": 2.5
+  },
+  {
+   "family_slug": "halyard",
+   "family": "Halyard Display",
+   "foundry": "Darden Studio",
+   "url": "https://fonts.adobe.com/fonts/halyard",
+   "classification": [
+    "sans"
+   ],
+   "contrast": "r",
+   "score": 18.33,
+   "board": 16.33,
+   "favourite": 2.0,
+   "instagram": 0.0
+  }
+ ],
+ "losing": [
+  {
+   "family_slug": "poppins",
+   "family": "Poppins",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/poppins",
+   "classification": [
+    "sans"
+   ],
+   "contrast": "l",
+   "score": 13.03,
+   "board": 13.03,
+   "favourite": 0.0,
+   "instagram": 0.0
+  },
+  {
+   "family_slug": "cormorant-garamond",
+   "family": "Cormorant Garamond",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/cormorant-garamond",
+   "classification": [
+    "serif"
+   ],
+   "contrast": "r",
+   "score": 9.11,
+   "board": 0.0,
+   "favourite": 0.0,
+   "instagram": 18.22
+  }
+ ],
+ "rule": "Per Adobe family and per role (headline vs caption/label), using each crop's Adobe top 5 with rank weights 1..1/5:\n    score = board + favourite + 0.5 x instagram\n'board' already counts a favourite's crops x3 (fonts_matches.py), and 'favourite' adds the favourite crops once more,\nso the 4 favourites weigh most; instagram is the consistency check, at half weight.\nLogotype crops (the EQL wordmark, block 7529470) are left out: Adobe can only return look-alikes for a custom wordmark.\nDisplay = best headline score; text = best caption/label score. A mono is kept only if a mono family reaches 10% of the\ntext winner's score. Losing systems (one plate each): the best display family of every other Adobe classification, and the next display family\nof the winner's own classification that is not the winner, each paired with the text winner.\nAdobe classification (cl:ss sans, cl:se serif, cl:sl slab, cl:ms mono) comes from each family page's own filter tags,\nfetched in the signed-in tab (raw.jsonl rows __family_filters__*). -> fonts/system.json",
+ "counts": {
+  "crops": 542,
+  "searched": 542,
+  "added": 211,
+  "already": 331,
+  "families": 397
+ }
+}
