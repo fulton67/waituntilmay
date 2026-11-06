@@ -1,0 +1,676 @@
+{
+ "rules": "(dE = CIEDE2000 between aggregate clusters):\n  KEEP    an Instagram (existing) cluster whose nearest board cluster is within dE < 10: it recurs on the board, keep its hex.\n  ADD     a board cluster whose nearest kept/existing cluster is dE >= 10 and whose share is >= 5%: the board brings it.\n  RETIRE  an existing cluster whose nearest board cluster is dE >= 20: it clashes with the board.\n  (10 <= dE < 20 and not added: 'unresolved', listed but not used.)\nRoles, from the kept + added set:\n  background = the highest-share cluster with L* > 90 (paper);\n  surface    = the highest-share cluster with 75 < L* <= 90 that is dE >= 5 from background;\n  text       = the highest-share cluster with L* < 20;\n  accent-1   = the highest-share chromatic cluster (C* >= 12) that is not background/surface/text;\n  accent-2   = the next chromatic cluster that is dE >= 15 from accent-1;\n  signal     = the highest-chroma cluster in either source that is not retired (C* max), dE >= 20 from both accents, so it\n               reads as a signal. A retired colour cannot come back as the signal.\nContrast: WCAG 2.x; post captions/labels (37.6 / 35.6 px on a 1080 canvas, about 13.6 px on a 390 px phone) need 4.5;\nheadlines (82 px, about 30 px on screen) need 3.0.",
+ "palette": {
+  "background": {
+   "hex": "#f2efed",
+   "source": "instagram.aggregate[1] #f2efed (12.6%)",
+   "L": 94.6,
+   "C": 1.5,
+   "role_guess": "white / paper"
+  },
+  "surface": {
+   "hex": "#c3bdbb",
+   "source": "instagram.aggregate[3] #c3bdbb (9.3%)",
+   "L": 77.0,
+   "C": 2.5,
+   "role_guess": "light neutral"
+  },
+  "text": {
+   "hex": "#211b15",
+   "source": "board.aggregate[1] #211b15 (12.8%)",
+   "L": 10.3,
+   "C": 5.5,
+   "role_guess": "black / deep shadow"
+  },
+  "accent-1": {
+   "hex": "#bf8662",
+   "source": "instagram.aggregate[5] #bf8662 (8.3%)",
+   "L": 60.8,
+   "C": 33.1,
+   "role_guess": "skin / warm"
+  },
+  "accent-2": {
+   "hex": "#89644f",
+   "source": "instagram.aggregate[7] #89644f (6.6%)",
+   "L": 45.6,
+   "C": 21.5,
+   "role_guess": "skin / warm"
+  },
+  "signal": {
+   "hex": "#505f53",
+   "source": "board.aggregate[11] #505f53 (5.0%)",
+   "L": 38.8,
+   "C": 9.8,
+   "role_guess": "grey"
+  }
+ },
+ "kept_existing": [
+  {
+   "hex": "#f2efed",
+   "source": "instagram.aggregate[1] #f2efed (12.6%)",
+   "dE": 2.0,
+   "cluster": "board.aggregate[0] #f6f6f5 (14.8%)"
+  },
+  {
+   "hex": "#090e1b",
+   "source": "instagram.aggregate[2] #090e1b (12.4%)",
+   "dE": 7.3,
+   "cluster": "board.aggregate[2] #030203 (9.6%)"
+  },
+  {
+   "hex": "#c3bdbb",
+   "source": "instagram.aggregate[3] #c3bdbb (9.3%)",
+   "dE": 2.7,
+   "cluster": "board.aggregate[7] #bdbbb7 (6.8%)"
+  },
+  {
+   "hex": "#ded9d5",
+   "source": "instagram.aggregate[4] #ded9d5 (8.9%)",
+   "dE": 2.1,
+   "cluster": "board.aggregate[4] #d7d5d0 (8.1%)"
+  },
+  {
+   "hex": "#bf8662",
+   "source": "instagram.aggregate[5] #bf8662 (8.3%)",
+   "dE": 6.3,
+   "cluster": "board.aggregate[9] #a67958 (6.7%)"
+  },
+  {
+   "hex": "#dbad8d",
+   "source": "instagram.aggregate[6] #dbad8d (6.8%)",
+   "dE": 5.2,
+   "cluster": "board.aggregate[8] #c5a48e (6.8%)"
+  },
+  {
+   "hex": "#89644f",
+   "source": "instagram.aggregate[7] #89644f (6.6%)",
+   "dE": 5.7,
+   "cluster": "board.aggregate[10] #80543d (6.6%)"
+  },
+  {
+   "hex": "#a29b9b",
+   "source": "instagram.aggregate[8] #a29b9b (6.2%)",
+   "dE": 4.5,
+   "cluster": "board.aggregate[6] #9c968f (6.9%)"
+  },
+  {
+   "hex": "#544a47",
+   "source": "instagram.aggregate[9] #544a47 (5.7%)",
+   "dE": 8.8,
+   "cluster": "board.aggregate[3] #473b2b (8.3%)"
+  }
+ ],
+ "added_from_board": [
+  {
+   "hex": "#211b15",
+   "source": "board.aggregate[1] #211b15 (12.8%)",
+   "dE": 12.5,
+   "cluster": "instagram.aggregate[2] #090e1b (12.4%)"
+  },
+  {
+   "hex": "#7d8075",
+   "source": "board.aggregate[5] #7d8075 (7.5%)",
+   "dE": 10.4,
+   "cluster": "instagram.aggregate[10] #817a7c (4.6%)"
+  },
+  {
+   "hex": "#505f53",
+   "source": "board.aggregate[11] #505f53 (5.0%)",
+   "dE": 16.7,
+   "cluster": "instagram.aggregate[9] #544a47 (5.7%)"
+  }
+ ],
+ "retired_existing": [
+  {
+   "hex": "#37a9e8",
+   "source": "instagram.aggregate[11] #37a9e8 (0.8%)",
+   "dE": 25.8,
+   "cluster": "board.aggregate[7] #bdbbb7 (6.8%)"
+  }
+ ],
+ "unresolved_existing": [
+  {
+   "hex": "#202532",
+   "source": "instagram.aggregate[0] #202532 (17.9%)",
+   "dE": 11.4,
+   "cluster": "board.aggregate[2] #030203 (9.6%)"
+  },
+  {
+   "hex": "#817a7c",
+   "source": "instagram.aggregate[10] #817a7c (4.6%)",
+   "dE": 10.4,
+   "cluster": "board.aggregate[5] #7d8075 (7.5%)"
+  }
+ ],
+ "contrast_pairs_all": [
+  {
+   "text": "background",
+   "on": "surface",
+   "fg": "#f2efed",
+   "bg": "#c3bdbb",
+   "ratio": 1.62,
+   "caption_label_AA": false,
+   "headline_AA": false
+  },
+  {
+   "text": "background",
+   "on": "text",
+   "fg": "#f2efed",
+   "bg": "#211b15",
+   "ratio": 14.89,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "background",
+   "on": "accent-1",
+   "fg": "#f2efed",
+   "bg": "#bf8662",
+   "ratio": 2.7,
+   "caption_label_AA": false,
+   "headline_AA": false
+  },
+  {
+   "text": "background",
+   "on": "accent-2",
+   "fg": "#f2efed",
+   "bg": "#89644f",
+   "ratio": 4.59,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "background",
+   "on": "signal",
+   "fg": "#f2efed",
+   "bg": "#505f53",
+   "ratio": 5.91,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "surface",
+   "on": "background",
+   "fg": "#c3bdbb",
+   "bg": "#f2efed",
+   "ratio": 1.62,
+   "caption_label_AA": false,
+   "headline_AA": false
+  },
+  {
+   "text": "surface",
+   "on": "text",
+   "fg": "#c3bdbb",
+   "bg": "#211b15",
+   "ratio": 9.18,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "surface",
+   "on": "accent-1",
+   "fg": "#c3bdbb",
+   "bg": "#bf8662",
+   "ratio": 1.66,
+   "caption_label_AA": false,
+   "headline_AA": false
+  },
+  {
+   "text": "surface",
+   "on": "accent-2",
+   "fg": "#c3bdbb",
+   "bg": "#89644f",
+   "ratio": 2.83,
+   "caption_label_AA": false,
+   "headline_AA": false
+  },
+  {
+   "text": "surface",
+   "on": "signal",
+   "fg": "#c3bdbb",
+   "bg": "#505f53",
+   "ratio": 3.65,
+   "caption_label_AA": false,
+   "headline_AA": true
+  },
+  {
+   "text": "text",
+   "on": "background",
+   "fg": "#211b15",
+   "bg": "#f2efed",
+   "ratio": 14.89,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "text",
+   "on": "surface",
+   "fg": "#211b15",
+   "bg": "#c3bdbb",
+   "ratio": 9.18,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "text",
+   "on": "accent-1",
+   "fg": "#211b15",
+   "bg": "#bf8662",
+   "ratio": 5.52,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "text",
+   "on": "accent-2",
+   "fg": "#211b15",
+   "bg": "#89644f",
+   "ratio": 3.25,
+   "caption_label_AA": false,
+   "headline_AA": true
+  },
+  {
+   "text": "text",
+   "on": "signal",
+   "fg": "#211b15",
+   "bg": "#505f53",
+   "ratio": 2.52,
+   "caption_label_AA": false,
+   "headline_AA": false
+  },
+  {
+   "text": "accent-1",
+   "on": "background",
+   "fg": "#bf8662",
+   "bg": "#f2efed",
+   "ratio": 2.7,
+   "caption_label_AA": false,
+   "headline_AA": false
+  },
+  {
+   "text": "accent-1",
+   "on": "surface",
+   "fg": "#bf8662",
+   "bg": "#c3bdbb",
+   "ratio": 1.66,
+   "caption_label_AA": false,
+   "headline_AA": false
+  },
+  {
+   "text": "accent-1",
+   "on": "text",
+   "fg": "#bf8662",
+   "bg": "#211b15",
+   "ratio": 5.52,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "accent-1",
+   "on": "accent-2",
+   "fg": "#bf8662",
+   "bg": "#89644f",
+   "ratio": 1.7,
+   "caption_label_AA": false,
+   "headline_AA": false
+  },
+  {
+   "text": "accent-1",
+   "on": "signal",
+   "fg": "#bf8662",
+   "bg": "#505f53",
+   "ratio": 2.19,
+   "caption_label_AA": false,
+   "headline_AA": false
+  },
+  {
+   "text": "accent-2",
+   "on": "background",
+   "fg": "#89644f",
+   "bg": "#f2efed",
+   "ratio": 4.59,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "accent-2",
+   "on": "surface",
+   "fg": "#89644f",
+   "bg": "#c3bdbb",
+   "ratio": 2.83,
+   "caption_label_AA": false,
+   "headline_AA": false
+  },
+  {
+   "text": "accent-2",
+   "on": "text",
+   "fg": "#89644f",
+   "bg": "#211b15",
+   "ratio": 3.25,
+   "caption_label_AA": false,
+   "headline_AA": true
+  },
+  {
+   "text": "accent-2",
+   "on": "accent-1",
+   "fg": "#89644f",
+   "bg": "#bf8662",
+   "ratio": 1.7,
+   "caption_label_AA": false,
+   "headline_AA": false
+  },
+  {
+   "text": "accent-2",
+   "on": "signal",
+   "fg": "#89644f",
+   "bg": "#505f53",
+   "ratio": 1.29,
+   "caption_label_AA": false,
+   "headline_AA": false
+  },
+  {
+   "text": "signal",
+   "on": "background",
+   "fg": "#505f53",
+   "bg": "#f2efed",
+   "ratio": 5.91,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "signal",
+   "on": "surface",
+   "fg": "#505f53",
+   "bg": "#c3bdbb",
+   "ratio": 3.65,
+   "caption_label_AA": false,
+   "headline_AA": true
+  },
+  {
+   "text": "signal",
+   "on": "text",
+   "fg": "#505f53",
+   "bg": "#211b15",
+   "ratio": 2.52,
+   "caption_label_AA": false,
+   "headline_AA": false
+  },
+  {
+   "text": "signal",
+   "on": "accent-1",
+   "fg": "#505f53",
+   "bg": "#bf8662",
+   "ratio": 2.19,
+   "caption_label_AA": false,
+   "headline_AA": false
+  },
+  {
+   "text": "signal",
+   "on": "accent-2",
+   "fg": "#505f53",
+   "bg": "#89644f",
+   "ratio": 1.29,
+   "caption_label_AA": false,
+   "headline_AA": false
+  }
+ ],
+ "aa_pairs": [
+  {
+   "text": "background",
+   "on": "text",
+   "fg": "#f2efed",
+   "bg": "#211b15",
+   "ratio": 14.89,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "background",
+   "on": "accent-2",
+   "fg": "#f2efed",
+   "bg": "#89644f",
+   "ratio": 4.59,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "background",
+   "on": "signal",
+   "fg": "#f2efed",
+   "bg": "#505f53",
+   "ratio": 5.91,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "surface",
+   "on": "text",
+   "fg": "#c3bdbb",
+   "bg": "#211b15",
+   "ratio": 9.18,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "surface",
+   "on": "signal",
+   "fg": "#c3bdbb",
+   "bg": "#505f53",
+   "ratio": 3.65,
+   "caption_label_AA": false,
+   "headline_AA": true
+  },
+  {
+   "text": "text",
+   "on": "background",
+   "fg": "#211b15",
+   "bg": "#f2efed",
+   "ratio": 14.89,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "text",
+   "on": "surface",
+   "fg": "#211b15",
+   "bg": "#c3bdbb",
+   "ratio": 9.18,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "text",
+   "on": "accent-1",
+   "fg": "#211b15",
+   "bg": "#bf8662",
+   "ratio": 5.52,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "text",
+   "on": "accent-2",
+   "fg": "#211b15",
+   "bg": "#89644f",
+   "ratio": 3.25,
+   "caption_label_AA": false,
+   "headline_AA": true
+  },
+  {
+   "text": "accent-1",
+   "on": "text",
+   "fg": "#bf8662",
+   "bg": "#211b15",
+   "ratio": 5.52,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "accent-2",
+   "on": "background",
+   "fg": "#89644f",
+   "bg": "#f2efed",
+   "ratio": 4.59,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "accent-2",
+   "on": "text",
+   "fg": "#89644f",
+   "bg": "#211b15",
+   "ratio": 3.25,
+   "caption_label_AA": false,
+   "headline_AA": true
+  },
+  {
+   "text": "signal",
+   "on": "background",
+   "fg": "#505f53",
+   "bg": "#f2efed",
+   "ratio": 5.91,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "signal",
+   "on": "surface",
+   "fg": "#505f53",
+   "bg": "#c3bdbb",
+   "ratio": 3.65,
+   "caption_label_AA": false,
+   "headline_AA": true
+  }
+ ],
+ "contrast_basis": {
+  "caption_px": 37.6,
+  "label_px": 35.6,
+  "headline_px": 82.1,
+  "screen_scale": "390/1080 (judgment call: an iPhone-width feed)",
+  "thresholds": {
+   "caption/label (4.5)": 4.5,
+   "headline (3.0)": 3.0
+  }
+ },
+ "k_check": {
+  "board": {
+   "k5_aggregate": [
+    {
+     "hex": "#76796d",
+     "share": 0.09005089870158774
+    },
+    {
+     "hex": "#d5d2cd",
+     "share": 0.08880230658233339
+    },
+    {
+     "hex": "#1d1b16",
+     "share": 0.11118076385076382
+    },
+    {
+     "hex": "#f5f6f5",
+     "share": 0.15145987727191892
+    },
+    {
+     "hex": "#a3978c",
+     "share": 0.10027381914275976
+    },
+    {
+     "hex": "#8b5b3d",
+     "share": 0.06984170216645842
+    },
+    {
+     "hex": "#4d5042",
+     "share": 0.0819296629529389
+    },
+    {
+     "hex": "#030303",
+     "share": 0.09678200771231031
+    },
+    {
+     "hex": "#ceb7a5",
+     "share": 0.05499065118813643
+    },
+    {
+     "hex": "#432d1d",
+     "share": 0.062353879050283896
+    },
+    {
+     "hex": "#ae8361",
+     "share": 0.05567025956827157
+    },
+    {
+     "hex": "#adb3b4",
+     "share": 0.036664171812236926
+    }
+   ],
+   "k5_to_nearest_k6_dE_median": 3.25,
+   "k5_to_nearest_k6_dE_max": 7.0,
+   "chosen_roles_nearest_k5_dE": {
+    "text": 2.9,
+    "signal": 7.0
+   }
+  },
+  "instagram": {
+   "k5_aggregate": [
+    {
+     "hex": "#eeeae7",
+     "share": 0.17294989864298668
+    },
+    {
+     "hex": "#161d2d",
+     "share": 0.21282160187638535
+    },
+    {
+     "hex": "#a29b9b",
+     "share": 0.08834205029676676
+    },
+    {
+     "hex": "#6e6a6f",
+     "share": 0.04879905260737042
+    },
+    {
+     "hex": "#ddaf90",
+     "share": 0.05768726585843353
+    },
+    {
+     "hex": "#4c3d38",
+     "share": 0.07044098613033653
+    },
+    {
+     "hex": "#cbc7c5",
+     "share": 0.12257422608256863
+    },
+    {
+     "hex": "#916b54",
+     "share": 0.07387089100147208
+    },
+    {
+     "hex": "#1fa6eb",
+     "share": 0.005454861111111109
+    },
+    {
+     "hex": "#c48b68",
+     "share": 0.08103456958153067
+    },
+    {
+     "hex": "#093474",
+     "share": 0.00935015190972222
+    },
+    {
+     "hex": "#0c0a0a",
+     "share": 0.056674444901315776
+    }
+   ],
+   "k5_to_nearest_k6_dE_median": 2.75,
+   "k5_to_nearest_k6_dE_max": 15.1,
+   "chosen_roles_nearest_k5_dE": {
+    "background": 1.2,
+    "surface": 2.6,
+    "accent-1": 1.7,
+    "accent-2": 2.9
+   }
+  }
+ },
+ "k_used": "k=6 (FIX Phase 2 measurement); k=5 re-run as a check, see k_check"
+}
