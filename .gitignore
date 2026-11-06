@@ -189,3 +189,9 @@ brand/look/proof/_plates/
 
 # BUILDER B proof renders (thumbs + sheet are kept)
 brand/kit/templates/_proof/
+
+# Phase 4 motion frame grabs (regenerate with brand/scripts/motion.py; contact sheet in brand/fig/motion_contact.png)
+brand/motion/frames/
+# video kit frame sequences and ProRes masters (regenerate with brand/scripts/video_kit.cjs)
+brand/kit/video/_frames/
+brand/kit/video/_mov/

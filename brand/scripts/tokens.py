@@ -16,7 +16,7 @@ VARS = dict(re.findall(r"--ok-([\w-]+):\s*([^;]+);", css))
 pal = json.load(open(K / "palette.json", encoding="utf-8"))["roles"]
 spec = json.load(open(B / "fonts" / "specimen" / "spec.json", encoding="utf-8"))
 look = json.load(open(K / "look.json", encoding="utf-8"))["devices"]
-mot_f = B / "motion" / "motion.json"; RULES_F = B / "motion" / "rules.json"
+RULES_F = B / "motion" / "rules.json"
 W = 1080
 def cqw_px(v): return round(float(v.replace("cqw", "")) * W / 100, 2)
 def ext(cite, **kw): return {"com.ostad": {"cite": cite, **kw}}

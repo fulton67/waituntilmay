@@ -1,0 +1,36 @@
+{
+ "id": "board_43001699",
+ "role": "board",
+ "file": "brand/board/media/43001699.mp4",
+ "duration_s": 9.75,
+ "fps": 24.0,
+ "w": 1080,
+ "h": 1920,
+ "frames": 234,
+ "cuts": 0,
+ "shots": [
+  {
+   "start_s": 0.0,
+   "end_s": 9.75,
+   "len_s": 9.75,
+   "camera": "handheld/subject motion",
+   "median_mag": 1.327,
+   "radial": -0.054,
+   "consistency": 0.02,
+   "mean_dx": -0.029,
+   "mean_dy": -0.009
+  }
+ ],
+ "median_shot_s": 9.75,
+ "cuts_per_10s": 0.0,
+ "transition_frames": [],
+ "hard_cut_share": null,
+ "camera_counts": {
+  "handheld/subject motion": 1
+ },
+ "text_on_screen_share": 0.0,
+ "text_events": [],
+ "first_text_s": null,
+ "first_last_mean_abs_diff": 30.7,
+ "loops": false
+}

@@ -11,6 +11,6 @@
   "surface-rgb",
   "text-rgb"
  ],
- "tokens": 55,
- "motion": false
+ "tokens": 65,
+ "motion": true
 }

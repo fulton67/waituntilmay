@@ -1,0 +1,146 @@
+{
+ "source": {
+  "board": {
+   "id": "board_43001699",
+   "duration_s": 9.75,
+   "fps": 24.0,
+   "cuts": 0,
+   "median_shot_s": 9.75,
+   "camera_counts": {
+    "handheld/subject motion": 1
+   },
+   "text_on_screen_share": 0.0,
+   "loops": false
+  },
+  "instagram": {
+   "clips": 16,
+   "median_shot_s": 2.09,
+   "median_cuts_per_10s": 1.25,
+   "median_text_on_screen_share": 0.94,
+   "median_reveal_s": 0.04,
+   "text_arrivals": {
+    "with a cut": 220,
+    "animated in place": 987,
+    "cuts on in place": 2057
+   }
+  }
+ },
+ "rules": [
+  {
+   "rule": "Hold shots long; cut rarely.",
+   "number": "minimum shot 4 s; aim for one take per 10-15 s",
+   "cite": "board 43001699: 0 cuts in 9.75 s, one handheld shot"
+  },
+  {
+   "rule": "Let the camera and subject move; never add digital zoom or push.",
+   "number": "no scale keyframes on footage",
+   "cite": "board camera: {'handheld/subject motion': 1}"
+  },
+  {
+   "rule": "Keep text off the picture unless it carries information.",
+   "number": "at most one text element on screen at a time; captions only when someone speaks",
+   "cite": "board text_on_screen_share 0.0"
+  },
+  {
+   "rule": "Text arrives slowly and leaves quickly.",
+   "number": "entrances 500-700 ms ease-out; exits 300 ms; holds >= 2.5 s",
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+  },
+  {
+   "rule": "Join shots with a cut or a short dissolve; no wipes that slide, spin or zoom.",
+   "number": "dissolve 12 frames (400 ms)",
+   "cite": "board has no transitions; judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+  },
+  {
+   "rule": "Graphics use the still kit unchanged: glass panel, pill chip, caption role, hairline.",
+   "number": "kit/tokens.json",
+   "cite": "kit/look.json"
+  },
+  {
+   "rule": "Footage takes the kit treatment.",
+   "number": "kit/treatment.cube (LUT) + grain opacity 0.06",
+   "cite": "kit/treatment.json, kit/look.json grain"
+  }
+ ],
+ "duration": {
+  "enter": {
+   "ms": 600,
+   "d": "text and graphic entrances",
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+  },
+  "enter-slow": {
+   "ms": 900,
+   "d": "title-card headline",
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+  },
+  "exit": {
+   "ms": 300,
+   "d": "every exit",
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+  },
+  "stagger": {
+   "ms": 90,
+   "d": "between lines or words in a staggered reveal",
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+  },
+  "hold-min": {
+   "ms": 2500,
+   "d": "shortest time any text stays fully on",
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+  },
+  "dissolve": {
+   "ms": 400,
+   "d": "the only transition besides a cut (12 frames at 30 fps)",
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+  },
+  "shot-min": {
+   "ms": 4000,
+   "d": "shortest shot",
+   "cite": "board median shot 9.75 s"
+  }
+ },
+ "easing": {
+  "out": {
+   "bezier": [
+    0.22,
+    0.61,
+    0.36,
+    1.0
+   ],
+   "d": "entrances (ease-out cubic)",
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+  },
+  "in": {
+   "bezier": [
+    0.55,
+    0.06,
+    0.68,
+    0.19
+   ],
+   "d": "exits",
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+  },
+  "in-out": {
+   "bezier": [
+    0.65,
+    0.0,
+    0.35,
+    1.0
+   ],
+   "d": "dissolves and moves",
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+  }
+ },
+ "distance": {
+  "rise": {
+   "cqw": 1.2,
+   "d": "vertical travel of a fade-rise (1.2% of width, 13 px at 1080)",
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+  },
+  "blur-in": {
+   "cqw": 0.8,
+   "d": "starting blur of a blur-in reveal",
+   "cite": "judgment (the board reel has no text or cuts to time against; DECISIONS 54)"
+  }
+ }
+}

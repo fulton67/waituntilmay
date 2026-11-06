@@ -1,0 +1,113 @@
+{
+ "board": {
+  "videos": 1,
+  "total_s": 9.8,
+  "median_duration_s": 9.75,
+  "shots": 1,
+  "median_shot_s": 9.75,
+  "shot_s_iqr": [
+   9.75,
+   9.75
+  ],
+  "cuts_per_10s_median": 0.0,
+  "hard_cut_share": null,
+  "transition_frames_median": null,
+  "camera_counts": {
+   "handheld/subject motion": 1
+  },
+  "camera_share_by_time": {
+   "handheld/subject motion": 1.0
+  },
+  "text_on_screen_share_median": 0.0,
+  "first_text_s_median": null,
+  "text_events": 0,
+  "text_arrivals": {},
+  "reveal_s_median_animated": null,
+  "text_box_top_median": null,
+  "text_box_bottom_median": null,
+  "text_box_left_median": null,
+  "loops": 0,
+  "aspect": {
+   "1080x1920": 1
+  },
+  "fps": {
+   "24.0": 1
+  }
+ },
+ "instagram": {
+  "videos": 16,
+  "total_s": 1357.2,
+  "median_duration_s": 81.14500000000001,
+  "shots": 242,
+  "median_shot_s": 1.875,
+  "shot_s_iqr": [
+   0.31,
+   4.54
+  ],
+  "cuts_per_10s_median": 1.245,
+  "hard_cut_share": 0.53,
+  "transition_frames_median": 2.0,
+  "camera_counts": {
+   "static": 112,
+   "handheld/subject motion": 85,
+   "push-in": 2,
+   "pan": 28,
+   "tilt": 9,
+   "pull-out": 6
+  },
+  "camera_share_by_time": {
+   "static": 0.27,
+   "handheld/subject motion": 0.54,
+   "push-in": 0.0,
+   "pan": 0.04,
+   "tilt": 0.14,
+   "pull-out": 0.01
+  },
+  "text_on_screen_share_median": 0.945,
+  "first_text_s_median": 0.5,
+  "text_events": 3264,
+  "text_arrivals": {
+   "with a cut": 220,
+   "cuts on in place": 2057,
+   "animated in place": 987
+  },
+  "reveal_s_median_animated": 0.17,
+  "text_box_top_median": 0.746,
+  "text_box_bottom_median": 0.787,
+  "text_box_left_median": 0.178,
+  "loops": 5,
+  "aspect": {
+   "1044x1868": 1,
+   "720x900": 1,
+   "720x1280": 12,
+   "1080x1920": 2
+  },
+  "fps": {
+   "30.0": 7,
+   "29.868": 1,
+   "29.126": 1,
+   "29.816": 1,
+   "29.807": 1,
+   "28.828": 1,
+   "24.0": 2,
+   "29.929": 1,
+   "29.043": 1
+  }
+ },
+ "thresholds": {
+  "cut_hist_bhattacharyya": 0.35,
+  "cut_local_ratio": 3.0,
+  "transition_frame_dist": 0.12,
+  "min_shot_s": 0.25,
+  "flow_width_px": 160,
+  "static_px_per_frame": 0.12,
+  "push_radial_share": 0.55,
+  "pan_consistency": 0.6,
+  "ocr_every_s": 0.5,
+  "ocr_width_px": 540,
+  "ocr_conf": 0.4,
+  "ocr_min_chars": 3,
+  "reveal_box_ratio": 2.0,
+  "loop_mean_abs_diff": 12.0
+ }
+}

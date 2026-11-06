@@ -134,6 +134,20 @@ module.exports = {
     "ostad-glass": "0.613",
     "ostad-band": "0.438",
     "ostad-grain": "0.06"
+   },
+   "transitionDuration": {
+    "ostad-enter": "600ms",
+    "ostad-enter-slow": "900ms",
+    "ostad-exit": "300ms",
+    "ostad-stagger": "90ms",
+    "ostad-hold-min": "2500ms",
+    "ostad-dissolve": "400ms",
+    "ostad-shot-min": "4000ms"
+   },
+   "transitionTimingFunction": {
+    "ostad-out": "cubic-bezier(0.22, 0.61, 0.36, 1.0)",
+    "ostad-in": "cubic-bezier(0.55, 0.06, 0.68, 0.19)",
+    "ostad-in-out": "cubic-bezier(0.65, 0.0, 0.35, 1.0)"
    }
   }
  }

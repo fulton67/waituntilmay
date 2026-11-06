@@ -82,4 +82,14 @@
   --ostad-grain-sigma: 0.0026;
   --ostad-grain-opacity: 0.06;
   --ostad-filter-photo-css: saturate(0.5) sepia(0.0) contrast(0.7) brightness(1.075);
+  --ostad-motion-duration-enter: 600ms;
+  --ostad-motion-duration-enter-slow: 900ms;
+  --ostad-motion-duration-exit: 300ms;
+  --ostad-motion-duration-stagger: 90ms;
+  --ostad-motion-duration-hold-min: 2500ms;
+  --ostad-motion-duration-dissolve: 400ms;
+  --ostad-motion-duration-shot-min: 4000ms;
+  --ostad-motion-easing-out: cubic-bezier(0.22, 0.61, 0.36, 1.0);
+  --ostad-motion-easing-in: cubic-bezier(0.55, 0.06, 0.68, 0.19);
+  --ostad-motion-easing-in-out: cubic-bezier(0.65, 0.0, 0.35, 1.0);
 }
