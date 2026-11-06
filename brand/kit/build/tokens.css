@@ -87,9 +87,16 @@
   --ostad-motion-duration-exit: 300ms;
   --ostad-motion-duration-stagger: 90ms;
   --ostad-motion-duration-hold-min: 2500ms;
-  --ostad-motion-duration-dissolve: 400ms;
-  --ostad-motion-duration-shot-min: 4000ms;
+  --ostad-motion-duration-dissolve: 500ms;
+  --ostad-motion-duration-shot-min: 4500.0ms;
+  --ostad-motion-duration-zoom-in: 1500ms;
+  --ostad-motion-duration-zoom-hold: 2630ms;
+  --ostad-motion-duration-zoom-out: 2790ms;
   --ostad-motion-easing-out: cubic-bezier(0.22, 0.61, 0.36, 1.0);
   --ostad-motion-easing-in: cubic-bezier(0.55, 0.06, 0.68, 0.19);
   --ostad-motion-easing-in-out: cubic-bezier(0.65, 0.0, 0.35, 1.0);
+  --ostad-motion-easing-zoom-out: cubic-bezier(0.33, 0.0, 0.2, 1.0);
+  --ostad-video-fps: 24;
+  --ostad-video-caption-band-top: 0.746;
+  --ostad-video-caption-band-bottom: 0.787;
 }

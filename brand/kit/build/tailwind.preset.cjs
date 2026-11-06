@@ -141,13 +141,17 @@ module.exports = {
     "ostad-exit": "300ms",
     "ostad-stagger": "90ms",
     "ostad-hold-min": "2500ms",
-    "ostad-dissolve": "400ms",
-    "ostad-shot-min": "4000ms"
+    "ostad-dissolve": "500ms",
+    "ostad-shot-min": "4500.0ms",
+    "ostad-zoom-in": "1500ms",
+    "ostad-zoom-hold": "2630ms",
+    "ostad-zoom-out": "2790ms"
    },
    "transitionTimingFunction": {
     "ostad-out": "cubic-bezier(0.22, 0.61, 0.36, 1.0)",
     "ostad-in": "cubic-bezier(0.55, 0.06, 0.68, 0.19)",
-    "ostad-in-out": "cubic-bezier(0.65, 0.0, 0.35, 1.0)"
+    "ostad-in-out": "cubic-bezier(0.65, 0.0, 0.35, 1.0)",
+    "ostad-zoom-out": "cubic-bezier(0.33, 0.0, 0.2, 1.0)"
    }
   }
  }

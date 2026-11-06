@@ -1,0 +1,201 @@
+{
+ "fps": 24,
+ "size": [
+  1080,
+  1920
+ ],
+ "adobe_fonts": true,
+ "errors": [],
+ "elements": [
+  {
+   "name": "lower-third",
+   "kind": "overlay",
+   "dur_s": 4.2,
+   "frames": 101,
+   "file": "elements/lower-third.webm",
+   "poster": "elements/lower-third.png",
+   "bytes": 76810,
+   "alpha": true
+  },
+  {
+   "name": "caption",
+   "kind": "overlay",
+   "dur_s": 3.1,
+   "frames": 74,
+   "file": "elements/caption.webm",
+   "poster": "elements/caption.png",
+   "bytes": 18184,
+   "alpha": true
+  },
+  {
+   "name": "chip",
+   "kind": "overlay",
+   "dur_s": 3.5999999999999996,
+   "frames": 86,
+   "file": "elements/chip.webm",
+   "poster": "elements/chip.png",
+   "bytes": 25234,
+   "alpha": true
+  },
+  {
+   "name": "reveal-fade-rise",
+   "kind": "reveal",
+   "dur_s": 3,
+   "frames": 72,
+   "file": "elements/reveal-fade-rise.webm",
+   "poster": "elements/reveal-fade-rise.png",
+   "bytes": 104792,
+   "alpha": true
+  },
+  {
+   "name": "reveal-line-stagger",
+   "kind": "reveal",
+   "dur_s": 3,
+   "frames": 72,
+   "file": "elements/reveal-line-stagger.webm",
+   "poster": "elements/reveal-line-stagger.png",
+   "bytes": 93252,
+   "alpha": true
+  },
+  {
+   "name": "reveal-word-stagger",
+   "kind": "reveal",
+   "dur_s": 3,
+   "frames": 72,
+   "file": "elements/reveal-word-stagger.webm",
+   "poster": "elements/reveal-word-stagger.png",
+   "bytes": 93962,
+   "alpha": true
+  },
+  {
+   "name": "reveal-mask-up",
+   "kind": "reveal",
+   "dur_s": 3,
+   "frames": 72,
+   "file": "elements/reveal-mask-up.webm",
+   "poster": "elements/reveal-mask-up.png",
+   "bytes": 65590,
+   "alpha": true
+  },
+  {
+   "name": "reveal-blur-in",
+   "kind": "reveal",
+   "dur_s": 3,
+   "frames": 72,
+   "file": "elements/reveal-blur-in.webm",
+   "poster": "elements/reveal-blur-in.png",
+   "bytes": 208640,
+   "alpha": true
+  },
+  {
+   "name": "reveal-tracking",
+   "kind": "reveal",
+   "dur_s": 3,
+   "frames": 72,
+   "file": "elements/reveal-tracking.webm",
+   "poster": "elements/reveal-tracking.png",
+   "bytes": 169174,
+   "alpha": true
+  },
+  {
+   "name": "transition-glass-wipe",
+   "kind": "transition",
+   "dur_s": 1,
+   "frames": 24,
+   "file": "elements/transition-glass-wipe.webm",
+   "poster": "elements/transition-glass-wipe.png",
+   "bytes": 6767,
+   "alpha": true
+  },
+  {
+   "name": "transition-dip-paper",
+   "kind": "transition",
+   "dur_s": 1,
+   "frames": 24,
+   "file": "elements/transition-dip-paper.webm",
+   "poster": "elements/transition-dip-paper.png",
+   "bytes": 6757,
+   "alpha": true
+  },
+  {
+   "name": "card-editorial-title",
+   "kind": "card",
+   "dur_s": 3,
+   "frames": 72,
+   "file": "elements/card-editorial-title.mp4",
+   "poster": "elements/card-editorial-title.png",
+   "bytes": 55056,
+   "alpha": false
+  },
+  {
+   "name": "card-editorial-end",
+   "kind": "card",
+   "dur_s": 3,
+   "frames": 72,
+   "file": "elements/card-editorial-end.mp4",
+   "poster": "elements/card-editorial-end.png",
+   "bytes": 38307,
+   "alpha": false
+  },
+  {
+   "name": "card-clinical-title",
+   "kind": "card",
+   "dur_s": 3,
+   "frames": 72,
+   "file": "elements/card-clinical-title.mp4",
+   "poster": "elements/card-clinical-title.png",
+   "bytes": 318297,
+   "alpha": false
+  },
+  {
+   "name": "card-clinical-end",
+   "kind": "card",
+   "dur_s": 3,
+   "frames": 72,
+   "file": "elements/card-clinical-end.mp4",
+   "poster": "elements/card-clinical-end.png",
+   "bytes": 309950,
+   "alpha": false
+  },
+  {
+   "name": "card-event-title",
+   "kind": "card",
+   "dur_s": 3,
+   "frames": 72,
+   "file": "elements/card-event-title.mp4",
+   "poster": "elements/card-event-title.png",
+   "bytes": 252195,
+   "alpha": false
+  },
+  {
+   "name": "card-event-end",
+   "kind": "card",
+   "dur_s": 3,
+   "frames": 72,
+   "file": "elements/card-event-end.mp4",
+   "poster": "elements/card-event-end.png",
+   "bytes": 47933,
+   "alpha": false
+  },
+  {
+   "name": "card-guide-title",
+   "kind": "card",
+   "dur_s": 3,
+   "frames": 72,
+   "file": "elements/card-guide-title.mp4",
+   "poster": "elements/card-guide-title.png",
+   "bytes": 364712,
+   "alpha": false
+  },
+  {
+   "name": "card-guide-end",
+   "kind": "card",
+   "dur_s": 3,
+   "frames": 72,
+   "file": "elements/card-guide-end.mp4",
+   "poster": "elements/card-guide-end.png",
+   "bytes": 308209,
+   "alpha": false
+  }
+ ]
+}

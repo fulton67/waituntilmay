@@ -1,0 +1,81 @@
+{
+ "player": "lottie-web 5.12.2 (cdnjs), svg renderer",
+ "adobe_fonts": true,
+ "passed": 6,
+ "total": 6,
+ "errors": [],
+ "files": [
+  {
+   "name": "caption",
+   "frames": 74,
+   "fps": 24,
+   "layers": 2,
+   "alpha_px_frame0": 0,
+   "hold_frame": 44,
+   "alpha_px_hold": 61841,
+   "text_inside_box": true,
+   "errors": 0,
+   "ok": true
+  },
+  {
+   "name": "chip",
+   "frames": 86,
+   "fps": 24,
+   "layers": 2,
+   "alpha_px_frame0": 0,
+   "hold_frame": 52,
+   "alpha_px_hold": 14544,
+   "text_inside_box": true,
+   "errors": 0,
+   "ok": true
+  },
+  {
+   "name": "lower-third",
+   "frames": 101,
+   "fps": 24,
+   "layers": 3,
+   "alpha_px_frame0": 0,
+   "hold_frame": 61,
+   "alpha_px_hold": 108084,
+   "text_inside_box": true,
+   "errors": 0,
+   "ok": true
+  },
+  {
+   "name": "reveal-fade-rise",
+   "frames": 72,
+   "fps": 24,
+   "layers": 1,
+   "alpha_px_frame0": 0,
+   "hold_frame": 43,
+   "alpha_px_hold": 34262,
+   "text_inside_box": null,
+   "errors": 0,
+   "ok": true
+  },
+  {
+   "name": "transition-dip-paper",
+   "frames": 24,
+   "fps": 24,
+   "layers": 1,
+   "alpha_px_frame0": 0,
+   "hold_frame": 12,
+   "alpha_px_hold": 2073600,
+   "text_inside_box": null,
+   "errors": 0,
+   "ok": true
+  },
+  {
+   "name": "transition-glass-wipe",
+   "frames": 24,
+   "fps": 24,
+   "layers": 1,
+   "alpha_px_frame0": 0,
+   "hold_frame": 12,
+   "alpha_px_hold": 2073600,
+   "text_inside_box": null,
+   "errors": 0,
+   "ok": true
+  }
+ ]
+}

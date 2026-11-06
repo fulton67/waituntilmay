@@ -22,5 +22,5 @@
 - [x] C — /brand/ostad/make: picker, slots form, image drop, icons, accents, sizes, live preview = render.html, server PNG + zip, drafts, duplicate, Auto + regenerate (kit/templates/make_check.json: 33/33 browser, 33/33 server, glyph IoU ≥ 0.96, 7-slide zip, reload ok, 0 console errors)
 - [x] D — brand/post.py + .claude/commands/post.md on render_posts.cjs; CLI and page PNGs byte-identical 3/3 (kit/templates/post_check.json)
 - [x] E — 12 demo posts (7 template groups, 4 per size, 21 pages, Adobe 12/12) in brand/demo + wall.png; list and Auto quote fixed from the wall; photo content is the remaining inconsistency (DECISIONS 52)
-- [ ] F — tokens.json (W3C) → CSS / Tailwind / AE set; video kit; 10 s demo reel
+- [x] F — tokens.json (W3C) → CSS / Tailwind / AE set; video kit (19 elements, 6 Lottie 6/6 in lottie-web); 10 s demo reel (OCR 14/14)
 - [ ] G — page order: Make · Demo wall · Templates · Look · Icons · Type

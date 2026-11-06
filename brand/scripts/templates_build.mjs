@@ -41,13 +41,16 @@ window.__ready = true;
 // copy runtime to public/
 const copy = (src, dst) => { fs.mkdirSync(path.dirname(dst), { recursive: true }); fs.copyFileSync(src, dst); };
 fs.rmSync(PUB, { recursive: true, force: true });
-for (const f of ["kit.css", "tokens.css", "palette.json"]) copy(path.join(K, f), path.join(PUB, f));
+for (const f of ["kit.css", "tokens.css", "palette.json", "tokens.json"]) copy(path.join(K, f), path.join(PUB, f));
 for (const f of fs.readdirSync(path.join(K, "components"))) copy(path.join(K, "components", f), path.join(PUB, "components", f));
 for (const f of ["engine.js", "auto.js", "icons.js", "templates.css", "render.html", "index.json"]) copy(path.join(TP, f), path.join(PUB, "templates", f));
 for (const id of Object.keys(eng.TEMPLATES)) {
   copy(path.join(TP, id, "slots.json"), path.join(PUB, "templates", id, "slots.json"));
   for (const s of ["4x5", "1x1", "9x16"]) { const t = path.join(TP, id, `thumb_${s}.png`); if (fs.existsSync(t)) copy(t, path.join(PUB, "templates", id, `thumb_${s}.png`)); }
 }
+// video kit page (kit/video/kit.html)
+if (fs.existsSync(path.join(K, "video", "kit.html"))) copy(path.join(K, "video", "kit.html"), path.join(PUB, "video", "kit.html"));
+for (const f of ["reel.mp4", "reel.jpg"]) if (fs.existsSync(path.join(K, "video", f))) copy(path.join(K, "video", f), path.join(PUB, "video", f)); // demo reel for the page
 // sample photos (scripts/kit_photos.py)
 const PH = path.join(TP, "photos"); if (fs.existsSync(PH)) for (const f of fs.readdirSync(PH)) copy(path.join(PH, f), path.join(PUB, "templates", "photos", f));
 console.log(`${Object.keys(icons).length} icons, ${index.length} templates -> ${path.relative(ROOT, PUB)}`);

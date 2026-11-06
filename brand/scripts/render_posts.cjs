@@ -38,7 +38,7 @@ async function renderJobs(jobs, { port = Number(process.env.PORT || 8769), chrom
   } finally { await browser.close(); if (server) server.close(); }
   return out;
 }
-module.exports = { renderJobs };
+module.exports = { renderJobs, serve, PUBLIC };
 if (require.main === module) {
   const jobs = JSON.parse(fs.readFileSync(path.resolve(process.argv[2]), "utf8"));
   renderJobs(jobs).then((r) => {

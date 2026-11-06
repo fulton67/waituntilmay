@@ -80,6 +80,9 @@ if RULES_F.exists():
     R = json.load(open(RULES_F, encoding="utf-8"))
     T["motion"] = {"duration": {k: tok("duration", f"{v['ms']}ms", v.get("d"), v.get("cite")) for k, v in R.get("duration", {}).items()},
                    "easing": {k: tok("cubicBezier", v["bezier"], v.get("d"), v.get("cite")) for k, v in R.get("easing", {}).items()}}
+    T["video"] = {"fps": tok("number", R["fps"], "frame rate for every video piece (board reel)", "motion/rules.json fps"),
+                  "caption-band-top": tok("number", R["caption_band"]["top"], "caption box top, fraction of 9:16 height", R["caption_band"]["cite"]),
+                  "caption-band-bottom": tok("number", R["caption_band"]["bottom"], "caption box bottom, fraction of 9:16 height", R["caption_band"]["cite"])}
 json.dump(T, open(K / "tokens.json", "w", encoding="utf-8"), indent=1, ensure_ascii=False)
 
 # ---------- builds ----------

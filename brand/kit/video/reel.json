@@ -1,0 +1,69 @@
+{
+ "clip": "research/ostad/audio/in_DcjqIkoFMTF.mp4",
+ "clip_id": "ig_DcjqIkoFMTF",
+ "start_s": 229.55,
+ "footage_s": 7.5,
+ "dur_s": 10,
+ "fps": 24,
+ "frames": 240,
+ "bg_frames": 179,
+ "spec": {
+  "overlays": [
+   {
+    "name": "lower-third",
+    "at": 0.1
+   },
+   {
+    "name": "chip",
+    "at": 4.4,
+    "text": "+ Exomind"
+   }
+  ],
+  "captions": [
+   {
+    "text": "Comprehensive approach",
+    "from": 0,
+    "to": 2
+   },
+   {
+    "text": "to taking care of yourself,",
+    "from": 2,
+    "to": 3.5
+   },
+   {
+    "text": "both from the inside in",
+    "from": 3.5,
+    "to": 5.5
+   },
+   {
+    "text": "as well as from the inside out.",
+    "from": 5.5,
+    "to": 7.5
+   }
+  ],
+  "end": {
+   "card": "card-editorial-end",
+   "at": 7,
+   "dissolve": 0.5
+  }
+ },
+ "adobe_fonts": true,
+ "errors": [],
+ "bytes": 2328536,
+ "probe": {
+  "programs": [],
+  "stream_groups": [],
+  "streams": [
+   {
+    "codec_type": "video",
+    "width": 1080,
+    "height": 1920,
+    "r_frame_rate": "24/1",
+    "nb_frames": "240"
+   }
+  ],
+  "format": {
+   "duration": "10.000000"
+  }
+ }
+}

@@ -1,0 +1,223 @@
+{
+ "samples": 14,
+ "passed": 14,
+ "source_samples_with_burnt_text": 11,
+ "armed_samples": 5,
+ "rows": [
+  {
+   "t": 0.25,
+   "line": "Comprehensive approach",
+   "reel_text": [
+    "Comprehensive approach"
+   ],
+   "source_text": [
+    "APPROACH"
+   ],
+   "burnt_not_in_line": [],
+   "leaked": [],
+   "caption_read": true,
+   "ok": true
+  },
+  {
+   "t": 0.75,
+   "line": "Comprehensive approach",
+   "reel_text": [
+    "TRIPLE BOARD-CERTIFIED DERMATOLOGIST",
+    "Comprehensive approach",
+    "Ostad M D,"
+   ],
+   "source_text": [
+    "APPROACH"
+   ],
+   "burnt_not_in_line": [],
+   "leaked": [],
+   "caption_read": true,
+   "ok": true
+  },
+  {
+   "t": 1.25,
+   "line": "Comprehensive approach",
+   "reel_text": [
+    "TRIPLE BOARD-CERTIFIED DERMATOLOGIST",
+    "Comprehensive approach"
+   ],
+   "source_text": [
+    "TO TAKING CARE OF"
+   ],
+   "burnt_not_in_line": [
+    "care",
+    "taking"
+   ],
+   "leaked": [],
+   "caption_read": true,
+   "ok": true
+  },
+  {
+   "t": 1.75,
+   "line": "Comprehensive approach",
+   "reel_text": [
+    "TRIPLE BOARD-CERTIFIED DERMATOLOGIST",
+    "Comprehensive approach",
+    "Ostad M,D,"
+   ],
+   "source_text": [
+    "To TAKiNG} CARE OF"
+   ],
+   "burnt_not_in_line": [
+    "care",
+    "taking"
+   ],
+   "leaked": [],
+   "caption_read": true,
+   "ok": true
+  },
+  {
+   "t": 2.25,
+   "line": "to taking care of yourself,",
+   "reel_text": [
+    "TRIPLE BOARD-CERTIFIED DERMATOLOGIST",
+    "to taking care ofyourself;"
+   ],
+   "source_text": [
+    "YOURSELP"
+   ],
+   "burnt_not_in_line": [
+    "yourselp"
+   ],
+   "leaked": [],
+   "caption_read": true,
+   "ok": true
+  },
+  {
+   "t": 2.75,
+   "line": "to taking care of yourself,",
+   "reel_text": [
+    "TRIPLE BOARD-CERTIFIED DERMATOLOGIST",
+    "to taking care ofyourself;"
+   ],
+   "source_text": [],
+   "burnt_not_in_line": [],
+   "leaked": [],
+   "caption_read": true,
+   "ok": true
+  },
+  {
+   "t": 3.25,
+   "line": "to taking care of yourself,",
+   "reel_text": [
+    "TRIPLE BOARD-CERTIFIED DERMATOLOGIST",
+    "to taking care ofyourself;",
+    "Ostad M,D,"
+   ],
+   "source_text": [],
+   "burnt_not_in_line": [],
+   "leaked": [],
+   "caption_read": true,
+   "ok": true
+  },
+  {
+   "t": 3.75,
+   "line": "both from the inside in",
+   "reel_text": [
+    "TRIPLE BOARD-CERTIFIED DERMATOLOGIST",
+    "both from the insidein"
+   ],
+   "source_text": [
+    "BOTHFROM THE"
+   ],
+   "burnt_not_in_line": [],
+   "leaked": [],
+   "caption_read": true,
+   "ok": true
+  },
+  {
+   "t": 4.25,
+   "line": "both from the inside in",
+   "reel_text": [
+    "TRIPLE BOARDECERTIFIED DERMATOLOGIST",
+    "both from theinsidein"
+   ],
+   "source_text": [
+    "BOTH FROM THB"
+   ],
+   "burnt_not_in_line": [],
+   "leaked": [],
+   "caption_read": true,
+   "ok": true
+  },
+  {
+   "t": 4.75,
+   "line": "both from the inside in",
+   "reel_text": [
+    "both from the insidein"
+   ],
+   "source_text": [
+    "INSIDBIIN"
+   ],
+   "burnt_not_in_line": [
+    "insidbiin"
+   ],
+   "leaked": [],
+   "caption_read": true,
+   "ok": true
+  },
+  {
+   "t": 5.25,
+   "line": "both from the inside in",
+   "reel_text": [
+    "both from theinsidein",
+    "Ostad MLD,"
+   ],
+   "source_text": [
+    "AS WELL As FROM"
+   ],
+   "burnt_not_in_line": [
+    "well"
+   ],
+   "leaked": [],
+   "caption_read": true,
+   "ok": true
+  },
+  {
+   "t": 5.75,
+   "line": "as well as from the inside out.",
+   "reel_text": [
+    "as wellas from theinsideout.",
+    "Ostad M D,"
+   ],
+   "source_text": [
+    "As WELL AS} FROM"
+   ],
+   "burnt_not_in_line": [],
+   "leaked": [],
+   "caption_read": true,
+   "ok": true
+  },
+  {
+   "t": 6.25,
+   "line": "as well as from the inside out.",
+   "reel_text": [
+    "as wellas from theinsideout."
+   ],
+   "source_text": [
+    "As WELL As FROM"
+   ],
+   "burnt_not_in_line": [],
+   "leaked": [],
+   "caption_read": true,
+   "ok": true
+  },
+  {
+   "t": 6.75,
+   "line": "as well as from the inside out.",
+   "reel_text": [
+    "as wellas from theinsideout."
+   ],
+   "source_text": [],
+   "burnt_not_in_line": [],
+   "leaked": [],
+   "caption_read": true,
+   "ok": true
+  }
+ ]
+}
