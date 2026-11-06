@@ -1,0 +1,87 @@
+{
+ "cite": {
+  "margin_pct_w": "pixels.json images source=instagram median text_margin_left_pct (n=38, zeros excluded)",
+  "safe_edge_pct_w": "pixels.json images source=instagram median text_edge_min_pct (n=32, zeros excluded)",
+  "columns": "k-means on pixels.json regions source=instagram left_pct > 1 (n=225), k=2 by silhouette over 2..6",
+  "subject_cells": "pixels.json images subject_thirds_cell",
+  "text_area_pct": "pixels.json images median text_area_pct",
+  "block_w": "fonts/specimen/spec.json roles (pixels.json instagram medians)",
+  "9:16 bands": "judgment call: 250 px top / 340 px bottom kept clear of Instagram story chrome"
+ },
+ "margin_pct_w": 9.1,
+ "safe_edge_pct_w": 6.65,
+ "edge_touching_posts": 27,
+ "column_starts_pct_w": [
+  13.6,
+  53.1
+ ],
+ "columns": 2,
+ "subject_cells": {
+  "board": {
+   "middle-centre": 28,
+   "middle-left": 1,
+   "middle-right": 3,
+   "bottom-left": 1,
+   "bottom-centre": 2,
+   "top-left": 2,
+   "top-centre": 1,
+   "top-right": 1
+  },
+  "instagram": {
+   "middle-centre": 38,
+   "middle-right": 2,
+   "top-centre": 5,
+   "bottom-centre": 4,
+   "middle-left": 4,
+   "top-left": 3,
+   "top-right": 3
+  }
+ },
+ "text_area_pct": {
+  "board": 7.88,
+  "instagram": 10.38
+ },
+ "headline_block_w_pct": 45.7,
+ "caption_block_w_pct": 35.7,
+ "type_scale_px_1350": {
+  "headline": 82.1,
+  "caption": 37.6,
+  "label": 35.6
+ },
+ "type_scale_ratio": 2.184,
+ "canvases": {
+  "4:5": {
+   "w": 1080,
+   "h": 1350,
+   "margin_x_px": 98,
+   "safe_top_px": 98,
+   "safe_bottom_px": 98,
+   "columns_x_px": [
+    147,
+    573
+   ]
+  },
+  "1:1": {
+   "w": 1080,
+   "h": 1080,
+   "margin_x_px": 98,
+   "safe_top_px": 98,
+   "safe_bottom_px": 98,
+   "columns_x_px": [
+    147,
+    573
+   ]
+  },
+  "9:16": {
+   "w": 1080,
+   "h": 1920,
+   "margin_x_px": 98,
+   "safe_top_px": 250,
+   "safe_bottom_px": 340,
+   "columns_x_px": [
+    147,
+    573
+   ]
+  }
+ }
+}

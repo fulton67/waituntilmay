@@ -36,7 +36,7 @@ ig = [i for i in IMG if i.get("source") == "instagram"] if isinstance(IMG, list)
 def img_med(k):
     v = [i[k] for i in ig if i.get(k) is not None]
     return st.median(v) if v else None
-spec["layout"] = {"margin_pct_w": img_med("text_margin_left_pct"), "margin_cite": "pixels.json images source=instagram median text_margin_left_pct",
+spec["layout"] = {"margin_pct_w": json.load(open(B / "composition" / "grid.json"))["margin_pct_w"], "margin_cite": "composition/grid.json margin_pct_w (pixels.json instagram text_margin_left_pct, edge-touching posts excluded)",
                   "headline_top_pct_h": st.median([i["text_margin_top_pct"] for i in IMG.values() if i["source"] == "board" and i.get("text_margin_top_pct") is not None]), "headline_top_cite": "pixels.json images source=board median text_margin_top_pct",
                   "align": "left", "align_cite": "PIXELS.md stack alignment: board left 53 / centre 10 / right 8; instagram left 42 / centre 21 / right 13"}
 body = 17

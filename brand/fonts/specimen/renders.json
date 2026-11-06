@@ -7,7 +7,7 @@
   "caption": "Where surgical precision meets the artistry of reconstruction.",
   "display": "Neue Haas Grotesk Display Pro 65 Medium",
   "fonts_loaded": true,
-  "ground_luminance": 0.752,
+  "ground_luminance": 0.725,
   "ink": "ink #211b15"
  },
  {
@@ -18,7 +18,7 @@
   "caption": "Just because a treatment is trending doesn’t mean it’s the right treatment for you.",
   "display": "Neue Haas Grotesk Display Pro 65 Medium",
   "fonts_loaded": true,
-  "ground_luminance": 0.423,
+  "ground_luminance": 0.456,
   "ink": "paper #f6f6f5"
  },
  {
@@ -29,7 +29,7 @@
   "caption": "Strength is part of the aesthetic conversation.",
   "display": "Neue Haas Grotesk Display Pro 65 Medium",
   "fonts_loaded": true,
-  "ground_luminance": 0.521,
+  "ground_luminance": 0.518,
   "ink": "ink #211b15"
  },
  {
@@ -51,7 +51,7 @@
   "caption": "Just because a treatment is trending doesn’t mean it’s the right treatment for you.",
   "display": "Neue Haas Grotesk Display Pro 65 Medium",
   "fonts_loaded": true,
-  "ground_luminance": 0.753,
+  "ground_luminance": 0.743,
   "ink": "ink #211b15"
  },
  {
@@ -62,7 +62,7 @@
   "caption": "Strength is part of the aesthetic conversation.",
   "display": "Neue Haas Grotesk Display Pro 65 Medium",
   "fonts_loaded": true,
-  "ground_luminance": 0.36,
+  "ground_luminance": 0.396,
   "ink": "paper #f6f6f5"
  },
  {
@@ -73,7 +73,7 @@
   "caption": "Where surgical precision meets the artistry of reconstruction.",
   "display": "Neue Haas Grotesk Display Pro 65 Medium",
   "fonts_loaded": true,
-  "ground_luminance": 0.539,
+  "ground_luminance": 0.535,
   "ink": "ink #211b15"
  },
  {
@@ -95,7 +95,7 @@
   "caption": "Strength is part of the aesthetic conversation.",
   "display": "Neue Haas Grotesk Display Pro 65 Medium",
   "fonts_loaded": true,
-  "ground_luminance": 0.766,
+  "ground_luminance": 0.741,
   "ink": "ink #211b15"
  },
  {
@@ -106,8 +106,8 @@
   "caption": "Where surgical precision meets the artistry of reconstruction.",
   "display": "Neue Haas Grotesk Display Pro 65 Medium",
   "fonts_loaded": true,
-  "ground_luminance": 0.391,
-  "ink": "paper #f6f6f5"
+  "ground_luminance": 0.539,
+  "ink": "ink #211b15"
  },
  {
   "file": "fonts/specimen/system_1080x1920_2145281.png",
@@ -117,8 +117,8 @@
   "caption": "Just because a treatment is trending doesn’t mean it’s the right treatment for you.",
   "display": "Neue Haas Grotesk Display Pro 65 Medium",
   "fonts_loaded": true,
-  "ground_luminance": 0.491,
-  "ink": "paper #f6f6f5"
+  "ground_luminance": 0.52,
+  "ink": "ink #211b15"
  },
  {
   "file": "fonts/specimen/system_1080x1920_paper.png",

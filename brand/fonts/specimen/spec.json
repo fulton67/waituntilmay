@@ -111,8 +111,8 @@
   }
  },
  "layout": {
-  "margin_pct_w": 5.4,
-  "margin_cite": "pixels.json images source=instagram median text_margin_left_pct",
+  "margin_pct_w": 9.1,
+  "margin_cite": "composition/grid.json margin_pct_w (pixels.json instagram text_margin_left_pct, edge-touching posts excluded)",
   "headline_top_pct_h": 13.8,
   "headline_top_cite": "pixels.json images source=board median text_margin_top_pct",
   "align": "left",

@@ -8,7 +8,7 @@
    "caption": "Where surgical precision meets the artistry of reconstruction.",
    "display": "Neue Haas Grotesk Display Pro 65 Medium",
    "fonts_loaded": true,
-   "ground_luminance": 0.752,
+   "ground_luminance": 0.725,
    "ink": "ink #211b15",
    "src": "/brand/ostad/specimen/system_1080x1350_14664481.png"
   },
@@ -20,7 +20,7 @@
    "caption": "Just because a treatment is trending doesn’t mean it’s the right treatment for you.",
    "display": "Neue Haas Grotesk Display Pro 65 Medium",
    "fonts_loaded": true,
-   "ground_luminance": 0.423,
+   "ground_luminance": 0.456,
    "ink": "paper #f6f6f5",
    "src": "/brand/ostad/specimen/system_1080x1350_41911984.png"
   },
@@ -32,7 +32,7 @@
    "caption": "Strength is part of the aesthetic conversation.",
    "display": "Neue Haas Grotesk Display Pro 65 Medium",
    "fonts_loaded": true,
-   "ground_luminance": 0.521,
+   "ground_luminance": 0.518,
    "ink": "ink #211b15",
    "src": "/brand/ostad/specimen/system_1080x1350_2145281.png"
   },
@@ -56,7 +56,7 @@
    "caption": "Just because a treatment is trending doesn’t mean it’s the right treatment for you.",
    "display": "Neue Haas Grotesk Display Pro 65 Medium",
    "fonts_loaded": true,
-   "ground_luminance": 0.753,
+   "ground_luminance": 0.743,
    "ink": "ink #211b15",
    "src": "/brand/ostad/specimen/system_1080x1080_14664481.png"
   },
@@ -68,7 +68,7 @@
    "caption": "Strength is part of the aesthetic conversation.",
    "display": "Neue Haas Grotesk Display Pro 65 Medium",
    "fonts_loaded": true,
-   "ground_luminance": 0.36,
+   "ground_luminance": 0.396,
    "ink": "paper #f6f6f5",
    "src": "/brand/ostad/specimen/system_1080x1080_41911984.png"
   },
@@ -80,7 +80,7 @@
    "caption": "Where surgical precision meets the artistry of reconstruction.",
    "display": "Neue Haas Grotesk Display Pro 65 Medium",
    "fonts_loaded": true,
-   "ground_luminance": 0.539,
+   "ground_luminance": 0.535,
    "ink": "ink #211b15",
    "src": "/brand/ostad/specimen/system_1080x1080_2145281.png"
   },
@@ -104,7 +104,7 @@
    "caption": "Strength is part of the aesthetic conversation.",
    "display": "Neue Haas Grotesk Display Pro 65 Medium",
    "fonts_loaded": true,
-   "ground_luminance": 0.766,
+   "ground_luminance": 0.741,
    "ink": "ink #211b15",
    "src": "/brand/ostad/specimen/system_1080x1920_14664481.png"
   },
@@ -116,8 +116,8 @@
    "caption": "Where surgical precision meets the artistry of reconstruction.",
    "display": "Neue Haas Grotesk Display Pro 65 Medium",
    "fonts_loaded": true,
-   "ground_luminance": 0.391,
-   "ink": "paper #f6f6f5",
+   "ground_luminance": 0.539,
+   "ink": "ink #211b15",
    "src": "/brand/ostad/specimen/system_1080x1920_41911984.png"
   },
   {
@@ -128,8 +128,8 @@
    "caption": "Just because a treatment is trending doesn’t mean it’s the right treatment for you.",
    "display": "Neue Haas Grotesk Display Pro 65 Medium",
    "fonts_loaded": true,
-   "ground_luminance": 0.491,
-   "ink": "paper #f6f6f5",
+   "ground_luminance": 0.52,
+   "ink": "ink #211b15",
    "src": "/brand/ostad/specimen/system_1080x1920_2145281.png"
   },
   {
@@ -282,8 +282,8 @@
    }
   },
   "layout": {
-   "margin_pct_w": 5.4,
-   "margin_cite": "pixels.json images source=instagram median text_margin_left_pct",
+   "margin_pct_w": 9.1,
+   "margin_cite": "composition/grid.json margin_pct_w (pixels.json instagram text_margin_left_pct, edge-touching posts excluded)",
    "headline_top_pct_h": 13.8,
    "headline_top_cite": "pixels.json images source=board median text_margin_top_pct",
    "align": "left",

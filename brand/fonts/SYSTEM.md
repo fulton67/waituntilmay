@@ -25,7 +25,7 @@ Size / leading. Font size = measured cap height (% of canvas height) / the font'
 
 ## Layout
 
-- Margin: 5.4% of width (pixels.json images source=instagram median text_margin_left_pct).
+- Margin: 9.1% of width (composition/grid.json margin_pct_w (pixels.json instagram text_margin_left_pct, edge-touching posts excluded)).
 - Headline top: 13.8% of height (pixels.json images source=board median text_margin_top_pct).
 - Alignment: left (PIXELS.md stack alignment: board left 53 / centre 10 / right 8; instagram left 42 / centre 21 / right 13).
 

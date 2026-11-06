@@ -7,6 +7,8 @@
 const { chromium } = require('playwright'); const http = require('http'); const fs = require('fs'); const path = require('path');
 const B = path.join(__dirname, '..'); const OUT = path.join(B, 'fonts', 'specimen');
 const spec = JSON.parse(fs.readFileSync(path.join(OUT, 'spec.json'), 'utf8'));
+const grid = JSON.parse(fs.readFileSync(path.join(B, 'composition', 'grid.json'), 'utf8'));  // safe areas per canvas
+const SAFE = { '1080x1350': grid.canvases['4:5'], '1080x1080': grid.canvases['1:1'], '1080x1920': grid.canvases['9:16'] };
 const calib = JSON.parse(fs.readFileSync(path.join(OUT, 'calib', 'fonts.json'), 'utf8')).fonts;
 const trk = JSON.parse(fs.readFileSync(path.join(OUT, 'calib', 'tracking.json'), 'utf8')).fonts;
 const blocks = Object.fromEntries(JSON.parse(fs.readFileSync(path.join(B, 'board', 'blocks.json'), 'utf8')).map(b => [String(b.id), b]));
@@ -20,18 +22,18 @@ function plate({ canvas, ground, headline, caption, display }) {
   const d = display || { family: R.headline.family, weight: R.headline.weight, id: R.headline.font_id, name: R.headline.adobe_style };
   const dcap = calib.find(f => f.id === d.id).cap_em, hcap = R.headline.cap_pct_h / 100 * (canvas === '1080x1920' ? 1350 : c.h);
   const hsize = hcap / dcap, hls = trk[d.id].letter_spacing_em.headline;
-  const s = c.sizes, m = L.margin_pct_w / 100 * c.w;
+  const s = c.sizes, m = L.margin_pct_w / 100 * c.w, sf = SAFE[canvas];
   const bg = ground.kind === 'image' ? `background:#000 url(${ground.src}) center/cover no-repeat;` : `background:${ground.bg};`;
   return `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="${spec.kit_css}"><style>
   html,body{margin:0} #p{position:relative;width:${c.w}px;height:${c.h}px;${bg}overflow:hidden;color:var(--ink)}
-  .h{position:absolute;left:${m}px;top:${L.headline_top_pct_h / 100 * c.h}px;width:${R.headline.block_w_pct / 100 * c.w}px;
+  .h{position:absolute;left:${m}px;top:${Math.max(L.headline_top_pct_h / 100 * c.h, sf.safe_top_px)}px;width:${R.headline.block_w_pct / 100 * c.w}px;
      font-family:'${d.family}';font-weight:${d.weight};font-size:${hsize}px;line-height:${R.headline.line_height};letter-spacing:${hls}em}
-  .f{position:absolute;left:${m}px;bottom:${m}px}
+  .f{position:absolute;left:${m}px;bottom:${sf.safe_bottom_px}px}
   .c{width:${R.caption.block_w_pct / 100 * c.w}px;font-family:'${R.caption.family}';font-weight:${R.caption.weight};font-size:${s.caption.font_size_px}px;
      line-height:${R.caption.line_height};letter-spacing:${R.caption.letter_spacing_em}em;margin-bottom:${s.caption.font_size_px}px}
   .l{font-family:'${R.label.family}';font-weight:${R.label.weight};font-size:${s.label.font_size_px}px;line-height:${R.label.line_height};
      letter-spacing:${R.label.letter_spacing_em}em;text-transform:uppercase}
-  .meta{position:absolute;right:${m}px;bottom:${m}px;font:400 15px/1.3 'neue-haas-grotesk-text',sans-serif;text-align:right;opacity:.75;max-width:${c.w * 0.4}px}
+  .meta{position:absolute;right:${m}px;top:${m * 0.6}px;font:400 15px/1.3 'neue-haas-grotesk-text',sans-serif;text-align:right;opacity:.75;max-width:${c.w * 0.4}px}
   .fb{position:absolute;inset:0;border:12px solid #d00;color:#d00;font:700 40px sans-serif;padding:30px;display:none}
   </style></head><body><div id="p"><div class="h" id="hl">${esc(headline)}</div>
   <div class="f" id="ft"><div class="c">${esc(caption)}</div><div class="l">${content.procedures.map(esc).join('<br>')}</div></div>
