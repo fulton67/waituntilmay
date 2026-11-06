@@ -1,0 +1,351 @@
+{
+ "rule": "BUILDER Phase A icons: 24 monoline icons in the board's icon style (look.json icon_outline: 24 grid, stroke from the measured\nring stroke, round caps/joins, no fill). Selection = caption keyword counts over existing/posts.json (60 captions), each icon's\nkeywords listed below; the spec's required set is always kept. -> kit/icons/svg/*.svg, kit/icons/icons.json.\nPNG renders (plain + glass) and sheet.png come from scripts/icons_render.cjs. brand-venv python -I.",
+ "stroke_units": 1.07,
+ "icons": [
+  {
+   "name": "skin",
+   "caption_mentions": 162,
+   "keywords": [
+    "skin",
+    "complexion",
+    "skincare",
+    "skinhealth",
+    "texture",
+    "pores"
+   ],
+   "required_by_spec": true
+  },
+  {
+   "name": "user",
+   "caption_mentions": 83,
+   "keywords": [
+    "patient",
+    "patients",
+    "you",
+    "client",
+    "person"
+   ],
+   "required_by_spec": false
+  },
+  {
+   "name": "syringe",
+   "caption_mentions": 75,
+   "keywords": [
+    "filler",
+    "fillers",
+    "injection",
+    "injections",
+    "injectable",
+    "injectables",
+    "jeuveau",
+    "botox",
+    "toxin",
+    "botulinum",
+    "neurotoxin"
+   ],
+   "required_by_spec": true
+  },
+  {
+   "name": "procedure",
+   "caption_mentions": 71,
+   "keywords": [
+    "treatment",
+    "treatments",
+    "procedure",
+    "procedures",
+    "treating"
+   ],
+   "required_by_spec": true
+  },
+  {
+   "name": "before-after",
+   "caption_mentions": 71,
+   "keywords": [
+    "before",
+    "after",
+    "results",
+    "result",
+    "transformation"
+   ],
+   "required_by_spec": true
+  },
+  {
+   "name": "brain",
+   "caption_mentions": 59,
+   "keywords": [
+    "exomind",
+    "mental",
+    "stress",
+    "mind",
+    "brain",
+    "depression",
+    "anxiety",
+    "mood"
+   ],
+   "required_by_spec": false
+  },
+  {
+   "name": "plus",
+   "caption_mentions": 57,
+   "keywords": [
+    "new",
+    "add",
+    "plus",
+    "more"
+   ],
+   "required_by_spec": false
+  },
+  {
+   "name": "clock",
+   "caption_mentions": 53,
+   "keywords": [
+    "time",
+    "minutes",
+    "hours",
+    "downtime",
+    "recovery",
+    "weeks",
+    "today",
+    "now"
+   ],
+   "required_by_spec": true
+  },
+  {
+   "name": "arrow",
+   "caption_mentions": 53,
+   "keywords": [
+    "next",
+    "swipe",
+    "more",
+    "link",
+    "bio"
+   ],
+   "required_by_spec": true
+  },
+  {
+   "name": "heart",
+   "caption_mentions": 52,
+   "keywords": [
+    "wellness",
+    "health",
+    "healthy",
+    "care",
+    "love",
+    "confidence"
+   ],
+   "required_by_spec": false
+  },
+  {
+   "name": "laser",
+   "caption_mentions": 49,
+   "keywords": [
+    "laser",
+    "lasers",
+    "ellacor",
+    "technology",
+    "energy",
+    "radiofrequency",
+    "microneedling"
+   ],
+   "required_by_spec": true
+  },
+  {
+   "name": "scalpel",
+   "caption_mentions": 47,
+   "keywords": [
+    "surgery",
+    "surgical",
+    "surgeon",
+    "mohs",
+    "incision",
+    "excision"
+   ],
+   "required_by_spec": false
+  },
+  {
+   "name": "target",
+   "caption_mentions": 47,
+   "keywords": [
+    "precision",
+    "precise",
+    "targeted",
+    "target",
+    "personalized",
+    "individual",
+    "tailored"
+   ],
+   "required_by_spec": false
+  },
+  {
+   "name": "face",
+   "caption_mentions": 42,
+   "keywords": [
+    "face",
+    "facial",
+    "anatomy",
+    "features",
+    "jawline",
+    "cheek",
+    "cheeks"
+   ],
+   "required_by_spec": false
+  },
+  {
+   "name": "lines",
+   "caption_mentions": 37,
+   "keywords": [
+    "lines",
+    "wrinkles",
+    "wrinkle",
+    "aging",
+    "ageing",
+    "smoother",
+    "smooth",
+    "fine"
+   ],
+   "required_by_spec": false
+  },
+  {
+   "name": "calendar",
+   "caption_mentions": 35,
+   "keywords": [
+    "event",
+    "events",
+    "schedule",
+    "consultation",
+    "date",
+    "join",
+    "rsvp"
+   ],
+   "required_by_spec": false
+  },
+  {
+   "name": "book",
+   "caption_mentions": 32,
+   "keywords": [
+    "read",
+    "learn",
+    "guide",
+    "education",
+    "understanding",
+    "information",
+    "article"
+   ],
+   "required_by_spec": true
+  },
+  {
+   "name": "leaf",
+   "caption_mentions": 25,
+   "keywords": [
+    "natural",
+    "naturally",
+    "gentle",
+    "clean",
+    "plant",
+    "botanical"
+   ],
+   "required_by_spec": false
+  },
+  {
+   "name": "drop",
+   "caption_mentions": 22,
+   "keywords": [
+    "hydration",
+    "hydrate",
+    "hydrating",
+    "serum",
+    "moisture",
+    "moisturizer",
+    "water",
+    "acid"
+   ],
+   "required_by_spec": false
+  },
+  {
+   "name": "check",
+   "caption_mentions": 21,
+   "keywords": [
+    "yes",
+    "approved",
+    "safe",
+    "proven",
+    "results",
+    "effective"
+   ],
+   "required_by_spec": true
+  },
+  {
+   "name": "location",
+   "caption_mentions": 20,
+   "keywords": [
+    "nyc",
+    "york",
+    "office",
+    "visit",
+    "location",
+    "avenue",
+    "manhattan",
+    "park"
+   ],
+   "required_by_spec": true
+  },
+  {
+   "name": "sun",
+   "caption_mentions": 18,
+   "keywords": [
+    "sun",
+    "spf",
+    "sunscreen",
+    "uv",
+    "summer",
+    "pigmentation"
+   ],
+   "required_by_spec": true
+  },
+  {
+   "name": "phone",
+   "caption_mentions": 12,
+   "keywords": [
+    "call",
+    "phone",
+    "book",
+    "booking",
+    "schedule",
+    "appointment",
+    "contact"
+   ],
+   "required_by_spec": true
+  },
+  {
+   "name": "play",
+   "caption_mentions": 5,
+   "keywords": [
+    "watch",
+    "video",
+    "reel",
+    "listen",
+    "episode",
+    "play"
+   ],
+   "required_by_spec": true
+  }
+ ],
+ "not_chosen": [
+  {
+   "name": "sparkle",
+   "caption_mentions": 7
+  },
+  {
+   "name": "chat",
+   "caption_mentions": 19
+  },
+  {
+   "name": "close",
+   "caption_mentions": 1
+  },
+  {
+   "name": "star",
+   "caption_mentions": 13
+  }
+ ]
+}

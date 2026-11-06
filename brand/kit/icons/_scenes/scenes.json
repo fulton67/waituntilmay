@@ -1,0 +1,345 @@
+[
+ {
+  "html": "kit/icons/_scenes/p_skin.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/skin.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_skin.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/skin.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_user.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/user.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_user.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/user.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_syringe.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/syringe.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_syringe.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/syringe.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_procedure.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/procedure.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_procedure.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/procedure.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_before-after.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/before-after.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_before-after.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/before-after.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_brain.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/brain.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_brain.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/brain.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_plus.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/plus.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_plus.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/plus.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_clock.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/clock.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_clock.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/clock.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_arrow.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/arrow.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_arrow.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/arrow.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_heart.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/heart.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_heart.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/heart.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_laser.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/laser.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_laser.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/laser.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_scalpel.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/scalpel.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_scalpel.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/scalpel.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_target.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/target.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_target.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/target.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_face.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/face.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_face.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/face.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_lines.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/lines.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_lines.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/lines.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_calendar.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/calendar.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_calendar.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/calendar.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_book.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/book.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_book.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/book.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_leaf.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/leaf.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_leaf.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/leaf.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_drop.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/drop.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_drop.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/drop.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_check.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/check.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_check.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/check.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_location.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/location.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_location.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/location.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_sun.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/sun.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_sun.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/sun.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_phone.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/phone.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_phone.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/phone.png"
+ },
+ {
+  "html": "kit/icons/_scenes/p_play.html",
+  "w": 240,
+  "h": 240,
+  "clip": null,
+  "out": "kit/icons/png/play.png"
+ },
+ {
+  "html": "kit/icons/_scenes/g_play.html",
+  "w": 360,
+  "h": 360,
+  "clip": null,
+  "out": "kit/icons/glass/play.png"
+ },
+ {
+  "html": "kit/icons/_scenes/sheet.html",
+  "w": 1400,
+  "h": 1290,
+  "clip": null,
+  "out": "kit/icons/sheet.png"
+ }
+]
