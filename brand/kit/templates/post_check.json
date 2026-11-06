@@ -1,0 +1,36 @@
+{
+ "base": "http://localhost:3107",
+ "cases": [
+  {
+   "case": 0,
+   "template": "procedure-card",
+   "size": "4x5",
+   "bytes_identical": true,
+   "same_size": true,
+   "mad": 0.0,
+   "max_diff": 0,
+   "cli_fonts": "adobe"
+  },
+  {
+   "case": 1,
+   "template": "list",
+   "size": "1x1",
+   "bytes_identical": true,
+   "same_size": true,
+   "mad": 0.0,
+   "max_diff": 0,
+   "cli_fonts": "adobe"
+  },
+  {
+   "case": 2,
+   "template": "story",
+   "size": "9x16",
+   "bytes_identical": true,
+   "same_size": true,
+   "mad": 0.0,
+   "max_diff": 0,
+   "cli_fonts": "adobe"
+  }
+ ],
+ "all_identical_pixels": true
+}
