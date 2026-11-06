@@ -182,7 +182,8 @@
 .aboutLinks { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 12px; }
 
 /* /gillenwebsite/discography (Discography.tsx): the role pills over the index. SOURCES #20 shortnotice client list:
-   every release one line at one size, 26px / 31.2px: number | artist — release | year and role | the cover's slice */
+   every release one line at one size, 26px / 31.2px: number | artist — release | year and role | the cover's slice.
+   It starts the header's height (--head, measured) + 24 px down, so at scrollY 0 row 1 is clear below the header. */
 .disco { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; padding: calc(var(--head) + 24px) 20px 64px; }
 .pillCount { opacity: 0.6; margin-left: 2px; font-variant-numeric: tabular-nums; }
 .root .pill[aria-checked="true"] .pillCount { opacity: 0.8; }
@@ -230,7 +231,7 @@
 .root .pill[aria-pressed="true"], .root .pill[aria-checked="true"] { background: rgba(0, 0, 0, 0.5); color: rgb(250, 250, 250); }
 .root .pill:focus-visible { outline: 2px solid rgba(0, 0, 0, 0.45); outline-offset: 2px; }
 @media (max-width: 719.98px) {
-  .root { --head: 62px; }
+  .root { --head: 66px; } /* 14 + 18 + 4 + 18 + 12: the name and clock, the words; Chrome.tsx keeps it measured */
   /* phones: the name and the clock on the first row, the three words on the second (they no longer fit beside the name) */
   .siteNav { grid-template-columns: minmax(0, 1fr) auto; row-gap: 4px; column-gap: 10px; padding-left: 16px; padding-right: 16px; }
   .name { grid-column: 1; grid-row: 1; white-space: nowrap; }
@@ -248,7 +249,7 @@
   .aboutPage { padding: calc(var(--head) + 20px) 20px 48px 16px; gap: 22px; }
   .root .aboutBig { font-size: 30px; }
   /* phones: the pills, then the original About index (AboutIndex.tsx, about-index.module.css) with its own padding */
-  .disco { padding: calc(var(--head) + 16px) 0 0; gap: 0; }
+  .disco { padding: calc(var(--head) + 24px) 0 0; gap: 0; }
   .disco > .pills { padding: 0 16px; }
 }
 

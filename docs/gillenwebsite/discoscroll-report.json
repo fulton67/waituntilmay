@@ -1,0 +1,76 @@
+{
+  "base": "http://localhost:3227",
+  "at": "2026-11-06T21:35:27.418Z",
+  "profiles": {
+    "phone": {
+      "headerPx": 66,
+      "headVar": "66px",
+      "sectionPaddingTop": 90,
+      "listTop": 195,
+      "row1": {
+        "top": 215,
+        "bottom": 260
+      },
+      "headerBottom": 66,
+      "row1Clear": 149,
+      "rows": 36,
+      "scrollYFirst3s": [
+        0
+      ],
+      "atTop": {
+        "scrollY": 0,
+        "maxScroll": 1618,
+        "active": [
+          1
+        ]
+      },
+      "atMid": {
+        "scrollY": 809,
+        "maxScroll": 1618,
+        "active": [
+          23
+        ]
+      },
+      "atBottom": {
+        "scrollY": 1618,
+        "maxScroll": 1618,
+        "active": [
+          36
+        ]
+      },
+      "backToTop": {
+        "scrollY": 0,
+        "maxScroll": 1618,
+        "active": [
+          1
+        ]
+      },
+      "row1Underlined": true,
+      "row36Underlined": true,
+      "pass": true
+    },
+    "desktop": {
+      "headerPx": 44,
+      "headVar": "44px",
+      "sectionPaddingTop": 68,
+      "listTop": 123,
+      "row1": {
+        "top": 123,
+        "bottom": 154.2
+      },
+      "headerBottom": 44,
+      "row1Clear": 79,
+      "rows": 36,
+      "scrollYFirst3s": [
+        0
+      ],
+      "atTop": {
+        "scrollY": 0,
+        "maxScroll": 619,
+        "active": []
+      },
+      "pass": true
+    }
+  },
+  "pass": true
+}

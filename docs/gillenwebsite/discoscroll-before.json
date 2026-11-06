@@ -1,0 +1,78 @@
+{
+  "base": "https://waituntilmay.com",
+  "at": "2026-11-06T21:33:16.373Z",
+  "profiles": {
+    "phone": {
+      "headerPx": 66,
+      "headVar": "62px",
+      "sectionPaddingTop": 78,
+      "listTop": 183,
+      "row1": {
+        "top": 203,
+        "bottom": 248
+      },
+      "headerBottom": 66,
+      "row1Clear": 137,
+      "rows": 36,
+      "scrollYFirst3s": [
+        0
+      ],
+      "atTop": {
+        "scrollY": 0,
+        "maxScroll": 1606,
+        "active": [
+          5
+        ]
+      },
+      "atMid": {
+        "scrollY": 803,
+        "maxScroll": 1606,
+        "active": [
+          23
+        ]
+      },
+      "atBottom": {
+        "scrollY": 1606,
+        "maxScroll": 1606,
+        "active": [
+          36
+        ]
+      },
+      "backToTop": {
+        "scrollY": 0,
+        "maxScroll": 1606,
+        "active": [
+          5
+        ]
+      },
+      "row1Underlined": false,
+      "row36Underlined": true,
+      "pass": false
+    },
+    "desktop": {
+      "headerPx": 44,
+      "headVar": "44px",
+      "sectionPaddingTop": 68,
+      "listTop": 123,
+      "row1": {
+        "top": 123,
+        "bottom": 154.2
+      },
+      "headerBottom": 44,
+      "row1Clear": 79,
+      "rows": 36,
+      "scrollYFirst3s": [
+        0
+      ],
+      "atTop": {
+        "scrollY": 0,
+        "maxScroll": 619,
+        "active": [
+          18
+        ]
+      },
+      "pass": true
+    }
+  },
+  "pass": false
+}

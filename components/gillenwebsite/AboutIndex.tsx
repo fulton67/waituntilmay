@@ -24,15 +24,25 @@ export default function AboutIndex({ rows: list }: { rows: { r: Release; i: numb
   const svg = useRef<SVGSVGElement>(null);
 
 
-  // while nothing is hovered, the title nearest the middle of the viewport is the active one
+  // while nothing is hovered: at the top of the page (scrollY 0) the first row wholly below the header and above the
+  // bottom of the screen is the active one; scrolled to the bottom, the last row; in between, the title nearest the
+  // middle of the viewport. So the first and the last row can both be active.
   useEffect(() => {
     let raf = 0;
     const pick = () => {
       raf = 0;
       if (hovering.current) return;
+      const els = rows.current, n = els.length; // (the list remounts with each pill: Discography.tsx keys it)
+      if (scrollY <= 0) {
+        const top = document.querySelector("header")?.getBoundingClientRect().bottom ?? 0;
+        const i = els.findIndex((el) => el && el.getBoundingClientRect().top >= top && el.getBoundingClientRect().bottom <= innerHeight);
+        setActive(Math.max(0, i));
+        return;
+      }
+      if (scrollY + innerHeight >= document.documentElement.scrollHeight - 1) { setActive(n - 1); return; }
       const mid = innerHeight / 2;
       let best = 0, bd = Infinity;
-      rows.current.forEach((el, i) => {
+      els.forEach((el, i) => {
         if (!el) return;
         const b = el.getBoundingClientRect(), d = Math.abs(b.top + b.height / 2 - mid);
         if (d < bd) { bd = d; best = i; }

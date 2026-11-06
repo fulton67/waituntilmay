@@ -97,6 +97,7 @@ export default function Chrome({
   const path = usePathname();
   const router = useRouter();
   const main = useRef<HTMLElement>(null);
+  const head = useRef<HTMLElement>(null);
   const leaving = useRef(false);
   const vinyl = useRef<VinylHandle | null>(null);
 
@@ -130,6 +131,17 @@ export default function Chrome({
     return () => clearTimeout(t);
   }, [path]);
 
+  // --head is the pinned header's height (site.module.css gives it as laid out, 44 px, 66 px on phones); it is kept to
+  // the header as drawn (fonts, wrapping), so what sits below it starts where the header ends
+  useEffect(() => {
+    const h = head.current, root = h?.parentElement;
+    if (!h || !root) return;
+    const set = () => root.style.setProperty("--head", `${h.offsetHeight}px`);
+    const ro = new ResizeObserver(set);
+    ro.observe(h); set();
+    return () => ro.disconnect();
+  }, []);
+
   // SOURCES #12: the record view (VinylView.tsx). Until its code has loaded, a request waits for it.
   const open = useCallback((i: number, from: From = null) => {
     if (i < 0 || i >= N) return;
@@ -140,7 +152,7 @@ export default function Chrome({
   return (
     <PanelCtx.Provider value={{ open }}>
       {/* SOURCES #01 onehouse.com header.site-header > nav.site-nav (pages/000.html:478) */}
-      <header className={css.top} data-src="01">
+      <header ref={head} className={css.top} data-src="01">
         <nav className={css.siteNav} data-src="01">
           {/* SOURCES #02 onehouse.com a.site-nav_logo-wrapper with aria-current */}
           <a className={css.name} data-src="02 05" href={BASE} aria-current={path === BASE ? "page" : undefined} onClick={(e) => go(e, BASE)}>
