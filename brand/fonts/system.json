@@ -1,0 +1,542 @@
+{
+ "rule": "Per Adobe family and per role (headline vs caption/label), using each crop's Adobe top 5 with rank weights 1..1/5:\n    score = board + favourite + 0.5 x instagram\n'board' already counts a favourite's crops x3 (fonts_matches.py), and 'favourite' adds the favourite crops once more,\nso the 4 favourites weigh most; instagram is the consistency check, at half weight.\nLogotype crops (the EQL wordmark, block 7529470) are left out: Adobe can only return look-alikes for a custom wordmark.\nDisplay = best headline score; text = best caption/label score. A mono is kept only if a mono family reaches 10% of the\ntext winner's score. Losing systems (one plate each): the best display family of every other Adobe classification, and the next display family\nof the winner's own classification that is not the winner, each paired with the text winner.\nAdobe classification (cl:ss sans, cl:se serif, cl:sl slab, cl:ms mono) comes from each family page's own filter tags,\nfetched in the signed-in tab (raw.jsonl rows __family_filters__*). -> fonts/system.json",
+ "display_ranked": [
+  {
+   "family_slug": "neue-haas-grotesk",
+   "family": "Neue Haas Grotesk Display",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/neue-haas-grotesk",
+   "classification": [
+    "sans"
+   ],
+   "contrast": null,
+   "score": 21.83,
+   "board": 21.83,
+   "favourite": 0.0,
+   "instagram": 0.0
+  },
+  {
+   "family_slug": "poppins",
+   "family": "Poppins",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/poppins",
+   "classification": [
+    "sans"
+   ],
+   "contrast": "l",
+   "score": 13.03,
+   "board": 13.03,
+   "favourite": 0.0,
+   "instagram": 0.0
+  },
+  {
+   "family_slug": "helvetica-neue",
+   "family": "Helvetica Neue LT Pro",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/helvetica-neue",
+   "classification": [
+    "not tagged on its Adobe page"
+   ],
+   "contrast": null,
+   "score": 11.2,
+   "board": 11.2,
+   "favourite": 0.0,
+   "instagram": 0.0
+  },
+  {
+   "family_slug": "cormorant-garamond",
+   "family": "Cormorant Garamond",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/cormorant-garamond",
+   "classification": [
+    "serif"
+   ],
+   "contrast": "r",
+   "score": 9.11,
+   "board": 0.0,
+   "favourite": 0.0,
+   "instagram": 18.22
+  },
+  {
+   "family_slug": "cormorant",
+   "family": "Cormorant",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/cormorant",
+   "classification": [
+    "serif"
+   ],
+   "contrast": "r",
+   "score": 6.87,
+   "board": 0.0,
+   "favourite": 0.0,
+   "instagram": 13.75
+  },
+  {
+   "family_slug": "helvetica",
+   "family": "Helvetica LT Pro",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/helvetica",
+   "classification": [
+    "sans"
+   ],
+   "contrast": null,
+   "score": 6.83,
+   "board": 6.83,
+   "favourite": 0.0,
+   "instagram": 0.0
+  },
+  {
+   "family_slug": "ivypresto-display",
+   "family": "IvyPresto Display",
+   "foundry": "Ivy Foundry",
+   "url": "https://fonts.adobe.com/fonts/ivypresto-display",
+   "classification": [
+    "serif"
+   ],
+   "contrast": "h",
+   "score": 6.58,
+   "board": 0.0,
+   "favourite": 0.0,
+   "instagram": 13.17
+  },
+  {
+   "family_slug": "times-new-roman",
+   "family": "Times New Roman",
+   "foundry": "Microsoft",
+   "url": "https://fonts.adobe.com/fonts/times-new-roman",
+   "classification": [
+    "not tagged on its Adobe page"
+   ],
+   "contrast": null,
+   "score": 6.0,
+   "board": 1.0,
+   "favourite": 0.0,
+   "instagram": 10.0
+  },
+  {
+   "family_slug": "playfair",
+   "family": "Playfair Display",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/playfair",
+   "classification": [
+    "serif"
+   ],
+   "contrast": "r",
+   "score": 5.62,
+   "board": 0.0,
+   "favourite": 0.0,
+   "instagram": 11.25
+  },
+  {
+   "family_slug": "ivyora",
+   "family": "IvyOra Text",
+   "foundry": "Ivy Foundry",
+   "url": "https://fonts.adobe.com/fonts/ivyora",
+   "classification": [
+    "serif"
+   ],
+   "contrast": "r",
+   "score": 5.54,
+   "board": 0.83,
+   "favourite": 0.0,
+   "instagram": 9.42
+  },
+  {
+   "family_slug": "tt-commons-pro",
+   "family": "TT Commons Pro",
+   "foundry": "TypeType",
+   "url": "https://fonts.adobe.com/fonts/tt-commons-pro",
+   "classification": [
+    "sans"
+   ],
+   "contrast": "l",
+   "score": 4.5,
+   "board": 3.58,
+   "favourite": 0.0,
+   "instagram": 1.83
+  },
+  {
+   "family_slug": "archivo-black",
+   "family": "Archivo Black",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/archivo-black",
+   "classification": [
+    "not tagged on its Adobe page"
+   ],
+   "contrast": null,
+   "score": 4.0,
+   "board": 3.0,
+   "favourite": 1.0,
+   "instagram": 0.0
+  }
+ ],
+ "text_ranked": [
+  {
+   "family_slug": "neue-haas-grotesk",
+   "family": "Neue Haas Grotesk Display",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/neue-haas-grotesk",
+   "classification": [
+    "sans"
+   ],
+   "contrast": null,
+   "score": 129.21,
+   "board": 126.58,
+   "favourite": 1.5,
+   "instagram": 2.25
+  },
+  {
+   "family_slug": "helvetica-neue",
+   "family": "Helvetica Neue LT Pro",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/helvetica-neue",
+   "classification": [
+    "not tagged on its Adobe page"
+   ],
+   "contrast": null,
+   "score": 37.77,
+   "board": 34.92,
+   "favourite": 0.33,
+   "instagram": 5.03
+  },
+  {
+   "family_slug": "dm-sans",
+   "family": "DM Sans",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/dm-sans",
+   "classification": [
+    "sans"
+   ],
+   "contrast": null,
+   "score": 28.94,
+   "board": 4.97,
+   "favourite": 0.0,
+   "instagram": 47.95
+  },
+  {
+   "family_slug": "neue-haas-unica",
+   "family": "Neue Haas Unica",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/neue-haas-unica",
+   "classification": [
+    "sans"
+   ],
+   "contrast": null,
+   "score": 28.25,
+   "board": 27.58,
+   "favourite": 0.2,
+   "instagram": 0.93
+  },
+  {
+   "family_slug": "helvetica",
+   "family": "Helvetica LT Pro",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/helvetica",
+   "classification": [
+    "sans"
+   ],
+   "contrast": null,
+   "score": 26.5,
+   "board": 25.0,
+   "favourite": 0.25,
+   "instagram": 2.5
+  },
+  {
+   "family_slug": "halyard",
+   "family": "Halyard Display",
+   "foundry": "Darden Studio",
+   "url": "https://fonts.adobe.com/fonts/halyard",
+   "classification": [
+    "sans"
+   ],
+   "contrast": "r",
+   "score": 18.33,
+   "board": 16.33,
+   "favourite": 2.0,
+   "instagram": 0.0
+  },
+  {
+   "family_slug": "degular",
+   "family": "Degular Display",
+   "foundry": "OH no Type Co.",
+   "url": "https://fonts.adobe.com/fonts/degular",
+   "classification": [
+    "sans"
+   ],
+   "contrast": "l",
+   "score": 13.7,
+   "board": 13.7,
+   "favourite": 0.0,
+   "instagram": 0.0
+  },
+  {
+   "family_slug": "inter",
+   "family": "Inter 28pt",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/inter",
+   "classification": [
+    "sans"
+   ],
+   "contrast": "l",
+   "score": 13.12,
+   "board": 11.85,
+   "favourite": 0.67,
+   "instagram": 1.2
+  },
+  {
+   "family_slug": "times-new-roman",
+   "family": "Times New Roman",
+   "foundry": "Microsoft",
+   "url": "https://fonts.adobe.com/fonts/times-new-roman",
+   "classification": [
+    "not tagged on its Adobe page"
+   ],
+   "contrast": null,
+   "score": 12.38,
+   "board": 7.0,
+   "favourite": 1.0,
+   "instagram": 8.75
+  },
+  {
+   "family_slug": "nimbus-sans",
+   "family": "Nimbus Sans",
+   "foundry": "URW Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/nimbus-sans",
+   "classification": [
+    "sans"
+   ],
+   "contrast": "l",
+   "score": 11.18,
+   "board": 9.05,
+   "favourite": 0.0,
+   "instagram": 4.25
+  },
+  {
+   "family_slug": "swiss-721",
+   "family": "Swiss 721 BT",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/swiss-721",
+   "classification": [
+    "not tagged on its Adobe page"
+   ],
+   "contrast": null,
+   "score": 11.16,
+   "board": 9.37,
+   "favourite": 0.0,
+   "instagram": 3.58
+  },
+  {
+   "family_slug": "plantin",
+   "family": "Plantin",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/plantin",
+   "classification": [
+    "serif"
+   ],
+   "contrast": "r",
+   "score": 10.5,
+   "board": 7.83,
+   "favourite": 2.17,
+   "instagram": 1.0
+  }
+ ],
+ "mono_ranked": [
+  {
+   "family_slug": "roboto-mono",
+   "family": "Roboto Mono",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/roboto-mono",
+   "classification": [
+    "not tagged on its Adobe page"
+   ],
+   "contrast": null,
+   "score": 2.75,
+   "board": 1.83,
+   "favourite": 0.0,
+   "instagram": 1.83
+  },
+  {
+   "family_slug": "space-mono",
+   "family": "Space Mono",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/space-mono",
+   "classification": [
+    "not tagged on its Adobe page"
+   ],
+   "contrast": null,
+   "score": 2.5,
+   "board": 2.5,
+   "favourite": 0.0,
+   "instagram": 0.0
+  },
+  {
+   "family_slug": "monotalic",
+   "family": "Monotalic",
+   "foundry": "Kostic Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/monotalic",
+   "classification": [
+    "not tagged on its Adobe page"
+   ],
+   "contrast": null,
+   "score": 2.28,
+   "board": 2.28,
+   "favourite": 0.0,
+   "instagram": 0.0
+  },
+  {
+   "family_slug": "azeret-mono",
+   "family": "Azeret Mono",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/azeret-mono",
+   "classification": [
+    "not tagged on its Adobe page"
+   ],
+   "contrast": null,
+   "score": 2.28,
+   "board": 2.28,
+   "favourite": 0.0,
+   "instagram": 0.0
+  },
+  {
+   "family_slug": "ibm-plex-mono",
+   "family": "IBM Plex Mono",
+   "foundry": "IBM",
+   "url": "https://fonts.adobe.com/fonts/ibm-plex-mono",
+   "classification": [
+    "not tagged on its Adobe page"
+   ],
+   "contrast": null,
+   "score": 1.02,
+   "board": 0.0,
+   "favourite": 0.0,
+   "instagram": 2.03
+  }
+ ],
+ "chosen": {
+  "display": {
+   "family_slug": "neue-haas-grotesk",
+   "family": "Neue Haas Grotesk Display",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/neue-haas-grotesk",
+   "classification": [
+    "sans"
+   ],
+   "contrast": null,
+   "score": 21.83,
+   "board": 21.83,
+   "favourite": 0.0,
+   "instagram": 0.0
+  },
+  "text": {
+   "family_slug": "neue-haas-grotesk",
+   "family": "Neue Haas Grotesk Display",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/neue-haas-grotesk",
+   "classification": [
+    "sans"
+   ],
+   "contrast": null,
+   "score": 129.21,
+   "board": 126.58,
+   "favourite": 1.5,
+   "instagram": 2.25
+  },
+  "mono": null
+ },
+ "losing_display": [
+  {
+   "family_slug": "poppins",
+   "family": "Poppins",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/poppins",
+   "classification": [
+    "sans"
+   ],
+   "contrast": "l",
+   "score": 13.03,
+   "board": 13.03,
+   "favourite": 0.0,
+   "instagram": 0.0
+  },
+  {
+   "family_slug": "cormorant-garamond",
+   "family": "Cormorant Garamond",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/cormorant-garamond",
+   "classification": [
+    "serif"
+   ],
+   "contrast": "r",
+   "score": 9.11,
+   "board": 0.0,
+   "favourite": 0.0,
+   "instagram": 18.22
+  }
+ ],
+ "chosen_variations": {
+  "text": [
+   [
+    "Neue Haas Grotesk Display Pro 55 Roman",
+    65.9
+   ],
+   [
+    "Neue Haas Grotesk Text Pro 55 Roman",
+    34.0
+   ],
+   [
+    "Neue Haas Grotesk Text Pro 65 Medium",
+    12.5
+   ],
+   [
+    "Neue Haas Grotesk Display Pro 65 Medium",
+    5.33
+   ],
+   [
+    "Neue Haas Grotesk Display Pro 75 Bold",
+    3.0
+   ],
+   [
+    "Neue Haas Grotesk Text Pro 75 Bold",
+    2.37
+   ],
+   [
+    "Neue Haas Grotesk Display Pro 56 Italic",
+    1.5
+   ],
+   [
+    "Neue Haas Grotesk Text Pro 56 Italic",
+    0.5
+   ]
+  ],
+  "display": [
+   [
+    "Neue Haas Grotesk Display Pro 65 Medium",
+    7.5
+   ],
+   [
+    "Neue Haas Grotesk Text Pro 65 Medium",
+    7.0
+   ],
+   [
+    "Neue Haas Grotesk Text Pro 75 Bold",
+    3.3
+   ],
+   [
+    "Neue Haas Grotesk Display Pro 55 Roman",
+    2.0
+   ],
+   [
+    "Neue Haas Grotesk Text Pro 55 Roman",
+    1.58
+   ],
+   [
+    "Neue Haas Grotesk Display Pro 45 Light",
+    0.25
+   ],
+   [
+    "Neue Haas Grotesk Display Pro 75 Bold",
+    0.2
+   ]
+  ]
+ }
+}

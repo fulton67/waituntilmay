@@ -1,0 +1,81 @@
+{
+ "targets_pct_em_from_pixels_json": {
+  "headline": 6.5,
+  "caption": 6.6,
+  "label": 9.15
+ },
+ "fonts": {
+  "nhg-display-600": {
+   "cap_px_at_120": 85.95,
+   "zero_tracking_pct_em": 5.7,
+   "letter_spacing_em": {
+    "headline": 0.0082,
+    "caption": 0.0092,
+    "label": 0.0353
+   }
+  },
+  "nhg-display-500": {
+   "cap_px_at_120": 85.9,
+   "zero_tracking_pct_em": 8.15,
+   "letter_spacing_em": {
+    "headline": -0.0169,
+    "caption": -0.0158,
+    "label": 0.0102
+   }
+  },
+  "nhg-text-400": {
+   "cap_px_at_120": 88.95,
+   "zero_tracking_pct_em": 9.44,
+   "letter_spacing_em": {
+    "headline": -0.0312,
+    "caption": -0.0301,
+    "label": -0.0031
+   }
+  },
+  "nhg-text-500": {
+   "cap_px_at_120": 88.9,
+   "zero_tracking_pct_em": 7.87,
+   "letter_spacing_em": {
+    "headline": -0.0145,
+    "caption": -0.0135,
+    "label": 0.0135
+   }
+  },
+  "poppins-500": {
+   "cap_px_at_120": 88.69999999999999,
+   "zero_tracking_pct_em": 11.05,
+   "letter_spacing_em": {
+    "headline": -0.048,
+    "caption": -0.047,
+    "label": -0.02
+   }
+  },
+  "poppins-400": {
+   "cap_px_at_120": 88.75,
+   "zero_tracking_pct_em": 11.04,
+   "letter_spacing_em": {
+    "headline": -0.048,
+    "caption": -0.0469,
+    "label": -0.02
+   }
+  },
+  "cormorant-500": {
+   "cap_px_at_120": 80.69999999999999,
+   "zero_tracking_pct_em": 5.2,
+   "letter_spacing_em": {
+    "headline": 0.0124,
+    "caption": 0.0134,
+    "label": 0.0379
+   }
+  },
+  "cormorant-400": {
+   "cap_px_at_120": 80.69999999999999,
+   "zero_tracking_pct_em": 5.2,
+   "letter_spacing_em": {
+    "headline": 0.0124,
+    "caption": 0.0134,
+    "label": 0.0379
+   }
+  }
+ }
+}

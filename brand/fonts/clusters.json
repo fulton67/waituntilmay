@@ -1,28 +1,8025 @@
 {
- "weighted_by_class": {
-  "neo-grotesk": 77,
-  "contemporary-serif": 15,
-  "heavy-grotesk": 10,
-  "mono": 8,
-  "geometric-display": 8,
-  "garalde": 7,
-  "condensed-grotesk": 5,
-  "didone-display": 4
- },
- "blocks_by_class": {
-  "neo-grotesk": 22,
-  "contemporary-serif": 8,
-  "heavy-grotesk": 3,
-  "garalde": 2,
-  "condensed-grotesk": 2,
-  "didone-display": 1,
-  "mono": 2,
-  "geometric-display": 1
- },
- "weighted_by_family": {
-  "grotesk": 100,
-  "serif": 26,
-  "mono": 8
- },
- "crops": 122
+ "n_crops": 542,
+ "searched": 542,
+ "errors": 0,
+ "families": 397,
+ "scoring": "rank weights 1,1/2,1/3,1/4,1/5 over each crop's Adobe top 5; favourite crops x3",
+ "families_ranked": [
+  {
+   "family_slug": "neue-haas-grotesk",
+   "family": "Neue Haas Grotesk Display",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/neue-haas-grotesk",
+   "board_score": 148.42,
+   "instagram_score": 2.25,
+   "headline_score": 21.83,
+   "body_score": 96.47,
+   "favourite_score": 4.5,
+   "first_place": 90,
+   "board_blocks": 19,
+   "instagram_posts": 3,
+   "favourite_blocks": [
+    41911984
+   ],
+   "mono": false,
+   "top_variations": [
+    "Neue Haas Grotesk Display Pro 55 Roman",
+    "Neue Haas Grotesk Text Pro 55 Roman",
+    "Neue Haas Grotesk Text Pro 65 Medium",
+    "Neue Haas Grotesk Display Pro 65 Medium"
+   ]
+  },
+  {
+   "family_slug": "dm-sans",
+   "family": "DM Sans",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/dm-sans",
+   "board_score": 7.65,
+   "instagram_score": 48.2,
+   "headline_score": 2.93,
+   "body_score": 52.72,
+   "favourite_score": 0.0,
+   "first_place": 24,
+   "board_blocks": 6,
+   "instagram_posts": 6,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "DM Sans Regular",
+    "DM Sans Bold",
+    "DM Sans 18pt Regular",
+    "DM Sans 18pt Bold"
+   ]
+  },
+  {
+   "family_slug": "helvetica-neue",
+   "family": "Helvetica Neue LT Pro",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/helvetica-neue",
+   "board_score": 46.12,
+   "instagram_score": 5.03,
+   "headline_score": 11.2,
+   "body_score": 32.52,
+   "favourite_score": 1.0,
+   "first_place": 12,
+   "board_blocks": 18,
+   "instagram_posts": 3,
+   "favourite_blocks": [
+    41911984
+   ],
+   "mono": false,
+   "top_variations": [
+    "Helvetica Neue LT Pro 55 Roman",
+    "Helvetica Neue LT Pro 65 Medium",
+    "Helvetica Neue LT Pro 75 Bold",
+    "Helvetica Neue LT Pro 45 Light"
+   ]
+  },
+  {
+   "family_slug": "helvetica",
+   "family": "Helvetica LT Pro",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/helvetica",
+   "board_score": 31.83,
+   "instagram_score": 2.5,
+   "headline_score": 6.83,
+   "body_score": 22.25,
+   "favourite_score": 0.75,
+   "first_place": 10,
+   "board_blocks": 15,
+   "instagram_posts": 3,
+   "favourite_blocks": [
+    41911984
+   ],
+   "mono": false,
+   "top_variations": [
+    "Helvetica LT Pro Roman",
+    "Helvetica LT Pro Bold",
+    "Helvetica LT Pro Light"
+   ]
+  },
+  {
+   "family_slug": "cormorant-garamond",
+   "family": "Cormorant Garamond",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/cormorant-garamond",
+   "board_score": 0.0,
+   "instagram_score": 31.87,
+   "headline_score": 18.22,
+   "body_score": 13.65,
+   "favourite_score": 0.0,
+   "first_place": 16,
+   "board_blocks": 0,
+   "instagram_posts": 17,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Cormorant Garamond Medium",
+    "Cormorant Garamond Regular",
+    "Cormorant Garamond Light",
+    "Cormorant Garamond Bold"
+   ]
+  },
+  {
+   "family_slug": "neue-haas-unica",
+   "family": "Neue Haas Unica",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/neue-haas-unica",
+   "board_score": 28.63,
+   "instagram_score": 0.93,
+   "headline_score": 1.05,
+   "body_score": 23.97,
+   "favourite_score": 0.6,
+   "first_place": 9,
+   "board_blocks": 14,
+   "instagram_posts": 3,
+   "favourite_blocks": [
+    41911984
+   ],
+   "mono": false,
+   "top_variations": [
+    "Neue Haas Unica W1G Regular",
+    "Neue Haas Unica W1G Medium",
+    "Neue Haas Unica W1G Bold",
+    "Neue Haas Unica W1G Light"
+   ]
+  },
+  {
+   "family_slug": "times-new-roman",
+   "family": "Times New Roman",
+   "foundry": "Microsoft",
+   "url": "https://fonts.adobe.com/fonts/times-new-roman",
+   "board_score": 8.0,
+   "instagram_score": 18.75,
+   "headline_score": 11.0,
+   "body_score": 15.75,
+   "favourite_score": 3.0,
+   "first_place": 24,
+   "board_blocks": 2,
+   "instagram_posts": 9,
+   "favourite_blocks": [
+    14664481
+   ],
+   "mono": false,
+   "top_variations": [
+    "Times New Roman Regular",
+    "Times New Roman Italic",
+    "Times New Roman Bold"
+   ]
+  },
+  {
+   "family_slug": "cormorant",
+   "family": "Cormorant",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/cormorant",
+   "board_score": 0.0,
+   "instagram_score": 22.93,
+   "headline_score": 13.75,
+   "body_score": 9.18,
+   "favourite_score": 0.0,
+   "first_place": 8,
+   "board_blocks": 0,
+   "instagram_posts": 17,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Cormorant Bold",
+    "Cormorant Medium",
+    "Cormorant Regular",
+    "Cormorant SemiBold"
+   ]
+  },
+  {
+   "family_slug": "montserrat",
+   "family": "Montserrat",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/montserrat",
+   "board_score": 16.25,
+   "instagram_score": 5.58,
+   "headline_score": 6.5,
+   "body_score": 11.33,
+   "favourite_score": 16.0,
+   "first_place": 8,
+   "board_blocks": 2,
+   "instagram_posts": 4,
+   "favourite_blocks": [
+    7529470
+   ],
+   "mono": false,
+   "top_variations": [
+    "Montserrat Medium",
+    "Montserrat SemiBold",
+    "Montserrat Regular",
+    "Montserrat Italic"
+   ]
+  },
+  {
+   "family_slug": "ivyora",
+   "family": "IvyOra Text",
+   "foundry": "Ivy Foundry",
+   "url": "https://fonts.adobe.com/fonts/ivyora",
+   "board_score": 0.83,
+   "instagram_score": 20.1,
+   "headline_score": 10.25,
+   "body_score": 10.68,
+   "favourite_score": 0.0,
+   "first_place": 10,
+   "board_blocks": 1,
+   "instagram_posts": 12,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "IvyOra Text Regular",
+    "IvyOra Display Medium",
+    "IvyOra Display Regular",
+    "IvyOra Text Light"
+   ]
+  },
+  {
+   "family_slug": "ivypresto-headline",
+   "family": "IvyPresto Headline",
+   "foundry": "Ivy Foundry",
+   "url": "https://fonts.adobe.com/fonts/ivypresto-headline",
+   "board_score": 0.0,
+   "instagram_score": 20.55,
+   "headline_score": 6.98,
+   "body_score": 13.03,
+   "favourite_score": 0.0,
+   "first_place": 9,
+   "board_blocks": 0,
+   "instagram_posts": 8,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "IvyPresto Headline Light",
+    "IvyPresto Headline Regular",
+    "IvyPresto Headline SemiBold",
+    "IvyPresto Headline Thin"
+   ]
+  },
+  {
+   "family_slug": "georgia-pro",
+   "family": "GeorgiaPro",
+   "foundry": "Carter & Cone",
+   "url": "https://fonts.adobe.com/fonts/georgia-pro",
+   "board_score": 0.0,
+   "instagram_score": 19.5,
+   "headline_score": 0.0,
+   "body_score": 19.5,
+   "favourite_score": 0.0,
+   "first_place": 10,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Georgia Pro Regular",
+    "Georgia Pro Cond",
+    "Georgia Pro SemiBold",
+    "Georgia Pro Cond SemiBold"
+   ]
+  },
+  {
+   "family_slug": "ivypresto-display",
+   "family": "IvyPresto Display",
+   "foundry": "Ivy Foundry",
+   "url": "https://fonts.adobe.com/fonts/ivypresto-display",
+   "board_score": 0.0,
+   "instagram_score": 19.08,
+   "headline_score": 13.17,
+   "body_score": 4.17,
+   "favourite_score": 0.0,
+   "first_place": 9,
+   "board_blocks": 0,
+   "instagram_posts": 7,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "IvyPresto Display Light",
+    "IvyPresto Display Regular",
+    "IvyPresto Display SemiBold",
+    "IvyPresto Display Thin"
+   ]
+  },
+  {
+   "family_slug": "halyard",
+   "family": "Halyard Display",
+   "foundry": "Darden Studio",
+   "url": "https://fonts.adobe.com/fonts/halyard",
+   "board_score": 17.67,
+   "instagram_score": 0.0,
+   "headline_score": 1.33,
+   "body_score": 16.33,
+   "favourite_score": 6.0,
+   "first_place": 11,
+   "board_blocks": 3,
+   "instagram_posts": 0,
+   "favourite_blocks": [
+    41911984
+   ],
+   "mono": false,
+   "top_variations": [
+    "Halyard Display Regular",
+    "Halyard Display Book",
+    "Halyard Display Medium"
+   ]
+  },
+  {
+   "family_slug": "playfair",
+   "family": "Playfair Display",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/playfair",
+   "board_score": 0.0,
+   "instagram_score": 17.5,
+   "headline_score": 11.25,
+   "body_score": 6.25,
+   "favourite_score": 0.0,
+   "first_place": 13,
+   "board_blocks": 0,
+   "instagram_posts": 6,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Playfair Display Regular",
+    "Playfair Display Bold",
+    "Playfair Display Black",
+    "Playfair Display Italic"
+   ]
+  },
+  {
+   "family_slug": "swiss-721",
+   "family": "Swiss 721 BT",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/swiss-721",
+   "board_score": 13.62,
+   "instagram_score": 3.58,
+   "headline_score": 4.25,
+   "body_score": 12.08,
+   "favourite_score": 0.75,
+   "first_place": 3,
+   "board_blocks": 15,
+   "instagram_posts": 4,
+   "favourite_blocks": [
+    7529470
+   ],
+   "mono": false,
+   "top_variations": [
+    "Swiss721 BT Medium",
+    "Swiss721 BT Regular",
+    "Swiss721 BT Bold",
+    "Swiss721 BT Black"
+   ]
+  },
+  {
+   "family_slug": "inter",
+   "family": "Inter 28pt",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/inter",
+   "board_score": 14.58,
+   "instagram_score": 1.2,
+   "headline_score": 2.73,
+   "body_score": 12.8,
+   "favourite_score": 2.0,
+   "first_place": 0,
+   "board_blocks": 12,
+   "instagram_posts": 2,
+   "favourite_blocks": [
+    41911984
+   ],
+   "mono": false,
+   "top_variations": [
+    "Inter 28pt Medium",
+    "Inter 28pt SemiBold",
+    "Inter 24pt Medium",
+    "Inter 28pt Light"
+   ]
+  },
+  {
+   "family_slug": "nimbus-sans",
+   "family": "Nimbus Sans",
+   "foundry": "URW Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/nimbus-sans",
+   "board_score": 11.0,
+   "instagram_score": 4.25,
+   "headline_score": 1.95,
+   "body_score": 12.3,
+   "favourite_score": 1.5,
+   "first_place": 9,
+   "board_blocks": 11,
+   "instagram_posts": 4,
+   "favourite_blocks": [
+    7529470
+   ],
+   "mono": false,
+   "top_variations": [
+    "Nimbus Sans Regular",
+    "Nimbus Sans Bold",
+    "Nimbus Sans Extd Regular",
+    "Nimbus Sans Light"
+   ]
+  },
+  {
+   "family_slug": "poppins",
+   "family": "Poppins",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/poppins",
+   "board_score": 13.43,
+   "instagram_score": 1.53,
+   "headline_score": 13.03,
+   "body_score": 1.93,
+   "favourite_score": 0.0,
+   "first_place": 7,
+   "board_blocks": 6,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Poppins Medium",
+    "Poppins Regular",
+    "Poppins SemiBold",
+    "Poppins Italic"
+   ]
+  },
+  {
+   "family_slug": "nimbus-roman",
+   "family": "Nimbus Roman",
+   "foundry": "URW Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/nimbus-roman",
+   "board_score": 4.5,
+   "instagram_score": 9.5,
+   "headline_score": 5.5,
+   "body_score": 8.5,
+   "favourite_score": 1.5,
+   "first_place": 1,
+   "board_blocks": 3,
+   "instagram_posts": 7,
+   "favourite_blocks": [
+    14664481
+   ],
+   "mono": false,
+   "top_variations": [
+    "Nimbus Roman D Regular",
+    "Nimbus Roman D Regular Italic",
+    "Nimbus Roman D Bold"
+   ]
+  },
+  {
+   "family_slug": "degular",
+   "family": "Degular Display",
+   "foundry": "OH no Type Co.",
+   "url": "https://fonts.adobe.com/fonts/degular",
+   "board_score": 13.9,
+   "instagram_score": 0.0,
+   "headline_score": 0.2,
+   "body_score": 2.48,
+   "favourite_score": 0.0,
+   "first_place": 6,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Degular Display Medium",
+    "Degular Medium",
+    "Degular Display Semibold",
+    "Degular Display Regular"
+   ]
+  },
+  {
+   "family_slug": "nexa",
+   "family": "Nexa Text",
+   "foundry": "Fontfabric",
+   "url": "https://fonts.adobe.com/fonts/nexa",
+   "board_score": 9.0,
+   "instagram_score": 3.97,
+   "headline_score": 4.32,
+   "body_score": 6.4,
+   "favourite_score": 9.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 6,
+   "favourite_blocks": [
+    7529470
+   ],
+   "mono": false,
+   "top_variations": [
+    "Nexa Text Regular",
+    "Nexa Regular",
+    "Nexa Text Light",
+    "Nexa Text Bold"
+   ]
+  },
+  {
+   "family_slug": "big-caslon",
+   "family": "Big Caslon FB",
+   "foundry": "Carter & Cone",
+   "url": "https://fonts.adobe.com/fonts/big-caslon",
+   "board_score": 0.0,
+   "instagram_score": 12.83,
+   "headline_score": 5.5,
+   "body_score": 7.33,
+   "favourite_score": 0.0,
+   "first_place": 7,
+   "board_blocks": 0,
+   "instagram_posts": 6,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Big Caslon CC Black",
+    "Big Caslon CC Regular",
+    "Big Caslon CC Bold"
+   ]
+  },
+  {
+   "family_slug": "plantin",
+   "family": "Plantin",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/plantin",
+   "board_score": 8.17,
+   "instagram_score": 4.33,
+   "headline_score": 3.67,
+   "body_score": 8.83,
+   "favourite_score": 6.5,
+   "first_place": 1,
+   "board_blocks": 2,
+   "instagram_posts": 3,
+   "favourite_blocks": [
+    14664481
+   ],
+   "mono": false,
+   "top_variations": [
+    "Plantin MT Pro Light",
+    "Plantin MT Pro Italic",
+    "Plantin MT Pro Light Italic",
+    "Plantin MT Pro Semibold Italic"
+   ]
+  },
+  {
+   "family_slug": "eb-garamond",
+   "family": "EB Garamond",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/eb-garamond",
+   "board_score": 2.08,
+   "instagram_score": 10.17,
+   "headline_score": 4.17,
+   "body_score": 8.08,
+   "favourite_score": 0.0,
+   "first_place": 7,
+   "board_blocks": 1,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "EB Garamond Italic",
+    "EB Garamond SemiBold",
+    "EB Garamond Medium Italic",
+    "EB Garamond Medium"
+   ]
+  },
+  {
+   "family_slug": "utopia",
+   "family": "Utopia Std",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/utopia",
+   "board_score": 5.0,
+   "instagram_score": 5.58,
+   "headline_score": 0.33,
+   "body_score": 10.25,
+   "favourite_score": 5.0,
+   "first_place": 2,
+   "board_blocks": 1,
+   "instagram_posts": 3,
+   "favourite_blocks": [
+    14664481
+   ],
+   "mono": false,
+   "top_variations": [
+    "Utopia Std Regular",
+    "Utopia Std Caption",
+    "Utopia Std Italic",
+    "Utopia Std Caption Italic"
+   ]
+  },
+  {
+   "family_slug": "sentinel",
+   "family": "Sentinel",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/sentinel",
+   "board_score": 10.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 10.2,
+   "favourite_score": 0.0,
+   "first_place": 6,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Sentinel Light",
+    "Sentinel Book",
+    "Sentinel Medium",
+    "Sentinel Book Italic"
+   ]
+  },
+  {
+   "family_slug": "elza",
+   "family": "Elza",
+   "foundry": "Blackletra",
+   "url": "https://fonts.adobe.com/fonts/elza",
+   "board_score": 7.98,
+   "instagram_score": 1.25,
+   "headline_score": 1.58,
+   "body_score": 6.32,
+   "favourite_score": 0.0,
+   "first_place": 5,
+   "board_blocks": 5,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Elza Regular",
+    "Elza Medium",
+    "Elza Light",
+    "Elza Oblique"
+   ]
+  },
+  {
+   "family_slug": "kudryashev-display",
+   "family": "Kudryashev D Contrast",
+   "foundry": "Paratype",
+   "url": "https://fonts.adobe.com/fonts/kudryashev-display",
+   "board_score": 0.0,
+   "instagram_score": 9.17,
+   "headline_score": 7.33,
+   "body_score": 1.83,
+   "favourite_score": 0.0,
+   "first_place": 5,
+   "board_blocks": 0,
+   "instagram_posts": 3,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Kudryashev Display Contrast",
+    "Kudryashev Display Extra Contrast",
+    "Kudryashev Display Contrast Sans"
+   ]
+  },
+  {
+   "family_slug": "stix",
+   "family": "STIX Two Text",
+   "foundry": "STI Pub",
+   "url": "https://fonts.adobe.com/fonts/stix",
+   "board_score": 6.0,
+   "instagram_score": 2.58,
+   "headline_score": 0.0,
+   "body_score": 8.58,
+   "favourite_score": 6.0,
+   "first_place": 4,
+   "board_blocks": 1,
+   "instagram_posts": 3,
+   "favourite_blocks": [
+    14664481
+   ],
+   "mono": false,
+   "top_variations": [
+    "STIX Two Text Regular"
+   ]
+  },
+  {
+   "family_slug": "tt-commons-pro",
+   "family": "TT Commons Pro",
+   "foundry": "TypeType",
+   "url": "https://fonts.adobe.com/fonts/tt-commons-pro",
+   "board_score": 6.58,
+   "instagram_score": 1.83,
+   "headline_score": 5.42,
+   "body_score": 1.5,
+   "favourite_score": 0.0,
+   "first_place": 5,
+   "board_blocks": 3,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "TT Commons Pro DemiBold",
+    "TT Commons Pro DemiBold Italic",
+    "TT Commons Pro Medium",
+    "TT Commons Pro Bold"
+   ]
+  },
+  {
+   "family_slug": "figtree",
+   "family": "Figtree",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/figtree",
+   "board_score": 0.78,
+   "instagram_score": 7.45,
+   "headline_score": 2.08,
+   "body_score": 6.15,
+   "favourite_score": 0.0,
+   "first_place": 4,
+   "board_blocks": 3,
+   "instagram_posts": 4,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Figtree ExtraBold",
+    "Figtree Regular",
+    "Figtree Medium",
+    "Figtree Bold"
+   ]
+  },
+  {
+   "family_slug": "acumin",
+   "family": "Acumin Pro",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/acumin",
+   "board_score": 7.53,
+   "instagram_score": 0.0,
+   "headline_score": 0.2,
+   "body_score": 6.0,
+   "favourite_score": 0.0,
+   "first_place": 4,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Acumin Pro Semibold",
+    "Acumin Pro Bold"
+   ]
+  },
+  {
+   "family_slug": "work-sans",
+   "family": "Work Sans",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/work-sans",
+   "board_score": 7.33,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 7.33,
+   "favourite_score": 0.0,
+   "first_place": 4,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Work Sans Medium",
+    "Work Sans SemiBold",
+    "Work Sans Regular"
+   ]
+  },
+  {
+   "family_slug": "warnock",
+   "family": "Warnock Pro Subhead",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/warnock",
+   "board_score": 0.45,
+   "instagram_score": 6.85,
+   "headline_score": 0.45,
+   "body_score": 6.85,
+   "favourite_score": 0.0,
+   "first_place": 3,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Warnock Pro Light Subhead",
+    "Warnock Pro Subhead",
+    "Warnock Pro Display",
+    "Warnock Pro Light Display"
+   ]
+  },
+  {
+   "family_slug": "ibarra-real-nova",
+   "family": "Ibarra Real Nova",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/ibarra-real-nova",
+   "board_score": 2.03,
+   "instagram_score": 5.17,
+   "headline_score": 0.2,
+   "body_score": 5.17,
+   "favourite_score": 0.0,
+   "first_place": 3,
+   "board_blocks": 2,
+   "instagram_posts": 3,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Ibarra Real Nova Medium",
+    "Ibarra Real Nova Regular",
+    "Ibarra Real Nova Bold",
+    "Ibarra Real Nova SemiBold"
+   ]
+  },
+  {
+   "family_slug": "epilogue",
+   "family": "Epilogue",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/epilogue",
+   "board_score": 6.83,
+   "instagram_score": 0.0,
+   "headline_score": 3.67,
+   "body_score": 3.17,
+   "favourite_score": 0.0,
+   "first_place": 4,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Epilogue Regular",
+    "Epilogue Light",
+    "Epilogue Medium"
+   ]
+  },
+  {
+   "family_slug": "freight",
+   "family": "Freight Big Pro",
+   "foundry": "The Freight Collection",
+   "url": "https://fonts.adobe.com/fonts/freight",
+   "board_score": 0.0,
+   "instagram_score": 6.68,
+   "headline_score": 5.08,
+   "body_score": 1.6,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 11,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "FreightBig Pro Semibold",
+    "FreightDisp Pro Medium",
+    "FreightDisp Pro Black",
+    "FreightDisp Pro Light"
+   ]
+  },
+  {
+   "family_slug": "spectral",
+   "family": "Spectral",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/spectral",
+   "board_score": 0.0,
+   "instagram_score": 6.35,
+   "headline_score": 0.0,
+   "body_score": 6.35,
+   "favourite_score": 0.0,
+   "first_place": 3,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Spectral Light Italic",
+    "Spectral ExtraLight Italic",
+    "Spectral Regular",
+    "Spectral Italic"
+   ]
+  },
+  {
+   "family_slug": "itc-galliard",
+   "family": "ITC Galliard",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/itc-galliard",
+   "board_score": 6.0,
+   "instagram_score": 0.0,
+   "headline_score": 1.0,
+   "body_score": 4.0,
+   "favourite_score": 0.0,
+   "first_place": 6,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "ITC Galliard Pro Roman"
+   ]
+  },
+  {
+   "family_slug": "josefin-sans",
+   "family": "Josefin Sans",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/josefin-sans",
+   "board_score": 0.0,
+   "instagram_score": 5.67,
+   "headline_score": 1.5,
+   "body_score": 4.17,
+   "favourite_score": 0.0,
+   "first_place": 3,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Josefin Sans Regular",
+    "Josefin Sans Light",
+    "Josefin Sans SemiBold",
+    "Josefin Sans Italic"
+   ]
+  },
+  {
+   "family_slug": "richmond-display",
+   "family": "Richmond Display",
+   "foundry": "Carter & Cone",
+   "url": "https://fonts.adobe.com/fonts/richmond-display",
+   "board_score": 0.0,
+   "instagram_score": 5.6,
+   "headline_score": 2.1,
+   "body_score": 3.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 4,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Richmond Display Light",
+    "Richmond Display Regular"
+   ]
+  },
+  {
+   "family_slug": "articulat-cf",
+   "family": "Articulat CF",
+   "foundry": "Connary Fagen",
+   "url": "https://fonts.adobe.com/fonts/articulat-cf",
+   "board_score": 5.58,
+   "instagram_score": 0.0,
+   "headline_score": 1.83,
+   "body_score": 3.75,
+   "favourite_score": 0.0,
+   "first_place": 3,
+   "board_blocks": 4,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Articulat CF Demi Bold",
+    "Articulat CF Medium",
+    "Articulat CF Bold",
+    "Articulat CF Regular"
+   ]
+  },
+  {
+   "family_slug": "stevie-sans",
+   "family": "Stevie Sans",
+   "foundry": "Typefolio",
+   "url": "https://fonts.adobe.com/fonts/stevie-sans",
+   "board_score": 5.0,
+   "instagram_score": 0.5,
+   "headline_score": 0.25,
+   "body_score": 5.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 3,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Stevie Sans Medium",
+    "Stevie Sans Book"
+   ]
+  },
+  {
+   "family_slug": "baskerville-pt",
+   "family": "Baskerville Display PT",
+   "foundry": "Paratype",
+   "url": "https://fonts.adobe.com/fonts/baskerville-pt",
+   "board_score": 0.0,
+   "instagram_score": 5.5,
+   "headline_score": 3.5,
+   "body_score": 2.0,
+   "favourite_score": 0.0,
+   "first_place": 5,
+   "board_blocks": 0,
+   "instagram_posts": 5,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Baskerville Display PT Regular",
+    "Baskerville Poster PT Regular"
+   ]
+  },
+  {
+   "family_slug": "inclusive-sans",
+   "family": "Inclusive Sans",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/inclusive-sans",
+   "board_score": 5.17,
+   "instagram_score": 0.25,
+   "headline_score": 1.0,
+   "body_score": 4.42,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 2,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Inclusive Sans Medium",
+    "Inclusive Sans SemiBold",
+    "Inclusive Sans Medium Italic",
+    "Inclusive Sans Regular"
+   ]
+  },
+  {
+   "family_slug": "magister",
+   "family": "Magister",
+   "foundry": "Reber R41",
+   "url": "https://fonts.adobe.com/fonts/magister",
+   "board_score": 2.0,
+   "instagram_score": 3.25,
+   "headline_score": 2.75,
+   "body_score": 2.5,
+   "favourite_score": 0.75,
+   "first_place": 0,
+   "board_blocks": 2,
+   "instagram_posts": 3,
+   "favourite_blocks": [
+    14664481
+   ],
+   "mono": false,
+   "top_variations": [
+    "Magister Regular"
+   ]
+  },
+  {
+   "family_slug": "libre-caslon-text",
+   "family": "Libre Caslon Text",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/libre-caslon-text",
+   "board_score": 1.6,
+   "instagram_score": 3.6,
+   "headline_score": 3.2,
+   "body_score": 2.0,
+   "favourite_score": 0.6,
+   "first_place": 1,
+   "board_blocks": 2,
+   "instagram_posts": 4,
+   "favourite_blocks": [
+    14664481
+   ],
+   "mono": false,
+   "top_variations": [
+    "Libre Caslon Text Regular"
+   ]
+  },
+  {
+   "family_slug": "adobe-text",
+   "family": "Adobe Text Pro",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/adobe-text",
+   "board_score": 0.75,
+   "instagram_score": 4.45,
+   "headline_score": 0.0,
+   "body_score": 5.2,
+   "favourite_score": 0.75,
+   "first_place": 2,
+   "board_blocks": 1,
+   "instagram_posts": 3,
+   "favourite_blocks": [
+    14664481
+   ],
+   "mono": false,
+   "top_variations": [
+    "Adobe Text Pro Italic",
+    "Adobe Text Pro Semibold Italic",
+    "Adobe Text Pro Bold Italic",
+    "Adobe Text Pro Regular"
+   ]
+  },
+  {
+   "family_slug": "indivisible",
+   "family": "Indivisible",
+   "foundry": "Process Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/indivisible",
+   "board_score": 4.85,
+   "instagram_score": 0.2,
+   "headline_score": 0.2,
+   "body_score": 4.85,
+   "favourite_score": 0.0,
+   "first_place": 4,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Indivisible Medium",
+    "Indivisible Medium Italic",
+    "Indivisible SemiBold"
+   ]
+  },
+  {
+   "family_slug": "mvb-verdigris-pro",
+   "family": "Verdigris MVB Pro Big",
+   "foundry": "MVB Fonts",
+   "url": "https://fonts.adobe.com/fonts/mvb-verdigris-pro",
+   "board_score": 5.0,
+   "instagram_score": 0.0,
+   "headline_score": 0.83,
+   "body_score": 3.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Verdigris MVB Pro Big Bold",
+    "Verdigris MVB Pro Big Regular"
+   ]
+  },
+  {
+   "family_slug": "proxima-nova",
+   "family": "Proxima Nova",
+   "foundry": "Mark Simonson Studio",
+   "url": "https://fonts.adobe.com/fonts/proxima-nova",
+   "board_score": 0.0,
+   "instagram_score": 5.0,
+   "headline_score": 3.5,
+   "body_score": 1.5,
+   "favourite_score": 0.0,
+   "first_place": 3,
+   "board_blocks": 0,
+   "instagram_posts": 3,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Proxima Nova Semibold",
+    "Proxima Nova Medium",
+    "Proxima Nova Regular",
+    "Proxima Nova Bold"
+   ]
+  },
+  {
+   "family_slug": "synthese",
+   "family": "Synthese",
+   "foundry": "Production Type",
+   "url": "https://fonts.adobe.com/fonts/synthese",
+   "board_score": 4.83,
+   "instagram_score": 0.0,
+   "headline_score": 1.75,
+   "body_score": 3.08,
+   "favourite_score": 0.0,
+   "first_place": 3,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Synthese Book",
+    "Synthese Regular",
+    "Synthese Book Oblique",
+    "Synthese Light"
+   ]
+  },
+  {
+   "family_slug": "source-serif-4-display",
+   "family": "Source Serif 4 Display",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/source-serif-4-display",
+   "board_score": 0.0,
+   "instagram_score": 4.83,
+   "headline_score": 1.83,
+   "body_score": 3.0,
+   "favourite_score": 0.0,
+   "first_place": 3,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Source Serif 4 Display Regular",
+    "Source Serif 4 Display Semibold",
+    "Source Serif 4 Display Bold",
+    "Source Serif 4 Display Black"
+   ]
+  },
+  {
+   "family_slug": "aktiv-grotesk",
+   "family": "Aktiv Grotesk",
+   "foundry": "Dalton Maag",
+   "url": "https://fonts.adobe.com/fonts/aktiv-grotesk",
+   "board_score": 1.58,
+   "instagram_score": 3.2,
+   "headline_score": 1.0,
+   "body_score": 3.78,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 2,
+   "instagram_posts": 4,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Aktiv Grotesk SemiBold",
+    "Aktiv Grotesk Medium",
+    "Aktiv Grotesk Regular"
+   ]
+  },
+  {
+   "family_slug": "liberation-sans",
+   "family": "Liberation Sans",
+   "foundry": "Red Hat",
+   "url": "https://fonts.adobe.com/fonts/liberation-sans",
+   "board_score": 1.75,
+   "instagram_score": 3.0,
+   "headline_score": 1.75,
+   "body_score": 3.0,
+   "favourite_score": 1.75,
+   "first_place": 2,
+   "board_blocks": 1,
+   "instagram_posts": 2,
+   "favourite_blocks": [
+    14664481
+   ],
+   "mono": false,
+   "top_variations": [
+    "Liberation Sans Bold",
+    "Liberation Sans Regular",
+    "Liberation Sans Bold Italic",
+    "Liberation Sans Italic"
+   ]
+  },
+  {
+   "family_slug": "area",
+   "family": "Area Normal",
+   "foundry": "Blaze Type",
+   "url": "https://fonts.adobe.com/fonts/area",
+   "board_score": 3.82,
+   "instagram_score": 0.75,
+   "headline_score": 1.28,
+   "body_score": 3.28,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 3,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Area Normal SemiBold",
+    "Area Normal ExtraBold",
+    "Area Normal Black",
+    "Area Normal Bold"
+   ]
+  },
+  {
+   "family_slug": "filson",
+   "family": "Filson Pro",
+   "foundry": "Mostardesign",
+   "url": "https://fonts.adobe.com/fonts/filson",
+   "board_score": 0.0,
+   "instagram_score": 4.57,
+   "headline_score": 2.28,
+   "body_score": 2.28,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Filson Pro Regular",
+    "Filson Soft Regular",
+    "Filson Pro Book",
+    "Filson Pro Regular Italic"
+   ]
+  },
+  {
+   "family_slug": "coolvetica",
+   "family": "Coolvetica",
+   "foundry": "Typodermic",
+   "url": "https://fonts.adobe.com/fonts/coolvetica",
+   "board_score": 4.35,
+   "instagram_score": 0.2,
+   "headline_score": 0.95,
+   "body_score": 0.6,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 4,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Coolvetica Book",
+    "Coolvetica Regular",
+    "Coolvetica Book Italic",
+    "Coolvetica Bold"
+   ]
+  },
+  {
+   "family_slug": "panta-display",
+   "family": "Panta Display",
+   "foundry": "Lipton Letter Design",
+   "url": "https://fonts.adobe.com/fonts/panta-display",
+   "board_score": 0.0,
+   "instagram_score": 4.5,
+   "headline_score": 0.0,
+   "body_score": 4.5,
+   "favourite_score": 0.0,
+   "first_place": 3,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Panta Display Light",
+    "Panta Display Regular"
+   ]
+  },
+  {
+   "family_slug": "bahnschrift",
+   "family": "Bahnschrift",
+   "foundry": "Microsoft",
+   "url": "https://fonts.adobe.com/fonts/bahnschrift",
+   "board_score": 0.0,
+   "instagram_score": 4.45,
+   "headline_score": 4.45,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Bahnschrift Regular",
+    "Bahnschrift SemiBold",
+    "Bahnschrift SemiBold SemiCondensed",
+    "Bahnschrift SemiCondensed"
+   ]
+  },
+  {
+   "family_slug": "roboto",
+   "family": "Roboto",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/roboto",
+   "board_score": 2.4,
+   "instagram_score": 2.0,
+   "headline_score": 1.75,
+   "body_score": 2.65,
+   "favourite_score": 0.0,
+   "first_place": 3,
+   "board_blocks": 2,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Roboto Regular",
+    "Roboto Bold",
+    "Roboto ExtraBold",
+    "Roboto Italic"
+   ]
+  },
+  {
+   "family_slug": "novecento-sans",
+   "family": "Novecento Sans",
+   "foundry": "Synthview",
+   "url": "https://fonts.adobe.com/fonts/novecento-sans",
+   "board_score": 1.08,
+   "instagram_score": 3.12,
+   "headline_score": 3.87,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 2,
+   "instagram_posts": 4,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Novecento sans narrow DemiBold",
+    "Novecento sans Bold",
+    "Novecento sans narrow Bold",
+    "Novecento sans wide UltraBold"
+   ]
+  },
+  {
+   "family_slug": "quinn-display",
+   "family": "Quinn Display",
+   "foundry": "Bold Monday",
+   "url": "https://fonts.adobe.com/fonts/quinn-display",
+   "board_score": 0.0,
+   "instagram_score": 4.13,
+   "headline_score": 2.63,
+   "body_score": 1.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 6,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Quinn Display Bold",
+    "Quinn Display ExtraBold"
+   ]
+  },
+  {
+   "family_slug": "halyard-variable",
+   "family": "Halyard Display Variable",
+   "foundry": "Darden Studio",
+   "url": "https://fonts.adobe.com/fonts/halyard-variable",
+   "board_score": 4.0,
+   "instagram_score": 0.0,
+   "headline_score": 0.5,
+   "body_score": 3.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Halyard Display Regular"
+   ]
+  },
+  {
+   "family_slug": "palast-variable",
+   "family": "Palast Variable",
+   "foundry": "HVD Fonts",
+   "url": "https://fonts.adobe.com/fonts/palast-variable",
+   "board_score": 0.0,
+   "instagram_score": 4.0,
+   "headline_score": 1.0,
+   "body_score": 3.0,
+   "favourite_score": 0.0,
+   "first_place": 4,
+   "board_blocks": 0,
+   "instagram_posts": 4,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Palast Var Roman"
+   ]
+  },
+  {
+   "family_slug": "avenir",
+   "family": "Avenir LT Pro",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/avenir",
+   "board_score": 0.0,
+   "instagram_score": 3.77,
+   "headline_score": 0.2,
+   "body_score": 3.57,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Avenir LT Pro 45 Book",
+    "Avenir LT Pro 35 Light",
+    "Avenir LT Pro 55 Roman",
+    "Avenir LT Pro 45 Book Oblique"
+   ]
+  },
+  {
+   "family_slug": "darker-grotesque",
+   "family": "Darker Grotesque",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/darker-grotesque",
+   "board_score": 3.67,
+   "instagram_score": 0.0,
+   "headline_score": 3.67,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Darker Grotesque Medium",
+    "Darker Grotesque SemiBold",
+    "Darker Grotesque Regular"
+   ]
+  },
+  {
+   "family_slug": "gelica",
+   "family": "Gelica",
+   "foundry": "Dave Rowland Type",
+   "url": "https://fonts.adobe.com/fonts/gelica",
+   "board_score": 3.67,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 3.67,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Gelica Regular",
+    "Gelica Medium",
+    "Gelica Light"
+   ]
+  },
+  {
+   "family_slug": "mencken",
+   "family": "Mencken Std Head",
+   "foundry": "Typofonderie",
+   "url": "https://fonts.adobe.com/fonts/mencken",
+   "board_score": 0.0,
+   "instagram_score": 3.67,
+   "headline_score": 2.0,
+   "body_score": 1.67,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 6,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Mencken Std Head Regular",
+    "Mencken Std Head Bold"
+   ]
+  },
+  {
+   "family_slug": "bookmania",
+   "family": "Bookmania",
+   "foundry": "Mark Simonson Studio",
+   "url": "https://fonts.adobe.com/fonts/bookmania",
+   "board_score": 0.0,
+   "instagram_score": 3.67,
+   "headline_score": 0.0,
+   "body_score": 3.67,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Bookmania Regular",
+    "Bookmania Semibold",
+    "Bookmania Regular Italic"
+   ]
+  },
+  {
+   "family_slug": "roboto-mono",
+   "family": "Roboto Mono",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/roboto-mono",
+   "board_score": 1.83,
+   "instagram_score": 1.83,
+   "headline_score": 0.0,
+   "body_score": 3.67,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": true,
+   "top_variations": [
+    "Roboto Mono Regular",
+    "Roboto Mono Italic",
+    "Roboto Mono Medium"
+   ]
+  },
+  {
+   "family_slug": "minion",
+   "family": "Minion Pro Subhead",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/minion",
+   "board_score": 1.98,
+   "instagram_score": 1.4,
+   "headline_score": 0.2,
+   "body_score": 2.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 3,
+   "instagram_posts": 4,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Minion Pro Subhead",
+    "Minion Pro Italic",
+    "Minion Pro Medium Caption",
+    "Minion Pro Semibold Caption"
+   ]
+  },
+  {
+   "family_slug": "garamond-premier",
+   "family": "Garamond Premier Pro Display",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/garamond-premier",
+   "board_score": 0.0,
+   "instagram_score": 3.38,
+   "headline_score": 0.25,
+   "body_score": 3.13,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 3,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Garamond Premier Pro Italic",
+    "Garamond Premier Pro Medium Italic",
+    "Garamond Premier Pro Medium Italic Subhead",
+    "Garamond Premier Pro Medium Display"
+   ]
+  },
+  {
+   "family_slug": "miller-text",
+   "family": "Miller Text",
+   "foundry": "Carter & Cone",
+   "url": "https://fonts.adobe.com/fonts/miller-text",
+   "board_score": 0.0,
+   "instagram_score": 3.33,
+   "headline_score": 0.0,
+   "body_score": 3.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Miller Text Roman"
+   ]
+  },
+  {
+   "family_slug": "calder",
+   "family": "Calder Dark",
+   "foundry": "Inhouse Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/calder",
+   "board_score": 1.0,
+   "instagram_score": 2.28,
+   "headline_score": 0.0,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Calder Dark",
+    "Calder Dark Grit",
+    "Calder Dark Shadow",
+    "Calder Grit Shadow"
+   ]
+  },
+  {
+   "family_slug": "geller",
+   "family": "Geller Text",
+   "foundry": "Capitalics",
+   "url": "https://fonts.adobe.com/fonts/geller",
+   "board_score": 0.0,
+   "instagram_score": 3.28,
+   "headline_score": 0.0,
+   "body_score": 3.28,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 3,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Geller Headline Light",
+    "Geller Headline Regular",
+    "Geller Headline Medium",
+    "Geller Text Light"
+   ]
+  },
+  {
+   "family_slug": "kepler",
+   "family": "Kepler Std Caption",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/kepler",
+   "board_score": 1.7,
+   "instagram_score": 1.55,
+   "headline_score": 0.0,
+   "body_score": 1.55,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 6,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Kepler Std Light Italic Caption",
+    "Kepler Std Italic Subhead",
+    "Kepler Std Light Semicondensed Italic Caption",
+    "Kepler Std Light Italic"
+   ]
+  },
+  {
+   "family_slug": "archivo",
+   "family": "Archivo",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/archivo",
+   "board_score": 3.2,
+   "instagram_score": 0.0,
+   "headline_score": 1.7,
+   "body_score": 1.25,
+   "favourite_score": 1.5,
+   "first_place": 0,
+   "board_blocks": 5,
+   "instagram_posts": 0,
+   "favourite_blocks": [
+    14664481
+   ],
+   "mono": false,
+   "top_variations": [
+    "Archivo Black",
+    "Archivo Regular",
+    "Archivo Light"
+   ]
+  },
+  {
+   "family_slug": "elza-narrow",
+   "family": "Elza Narrow",
+   "foundry": "Blackletra",
+   "url": "https://fonts.adobe.com/fonts/elza-narrow",
+   "board_score": 1.7,
+   "instagram_score": 1.5,
+   "headline_score": 1.5,
+   "body_score": 1.7,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Elza Narrow Light",
+    "Elza Narrow Extralight",
+    "Elza Narrow Light Oblique",
+    "Elza Narrow Extralight Oblique"
+   ]
+  },
+  {
+   "family_slug": "lorimer-no-2",
+   "family": "Lorimer No 2",
+   "foundry": "Dunwich Type Founders",
+   "url": "https://fonts.adobe.com/fonts/lorimer-no-2",
+   "board_score": 0.0,
+   "instagram_score": 3.2,
+   "headline_score": 0.0,
+   "body_score": 3.2,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Lorimer No 2 Bold",
+    "Lorimer No 2 Black",
+    "Lorimer No 2 Semibold"
+   ]
+  },
+  {
+   "family_slug": "aileron",
+   "family": "Aileron",
+   "foundry": "TipoType",
+   "url": "https://fonts.adobe.com/fonts/aileron",
+   "board_score": 1.33,
+   "instagram_score": 1.83,
+   "headline_score": 1.33,
+   "body_score": 1.83,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Aileron Light",
+    "Aileron Regular",
+    "Aileron SemiBold",
+    "Aileron Light Italic"
+   ]
+  },
+  {
+   "family_slug": "acumin-semi-condensed",
+   "family": "Acumin Pro Semi Condensed",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/acumin-semi-condensed",
+   "board_score": 3.08,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 2.58,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 3,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Acumin Pro SemiCondensed Semibold",
+    "Acumin Pro SemiCondensed Bold",
+    "Acumin Pro SemiCondensed Light"
+   ]
+  },
+  {
+   "family_slug": "sets-grotesk",
+   "family": "Sets Grotesk M",
+   "foundry": "Dogray Foundry",
+   "url": "https://fonts.adobe.com/fonts/sets-grotesk",
+   "board_score": 3.07,
+   "instagram_score": 0.0,
+   "headline_score": 0.2,
+   "body_score": 2.47,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 5,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Sets Grotesk M SemiBold",
+    "Sets Grotesk S SemiBold",
+    "Sets Grotesk M Regular",
+    "Sets Grotesk M Medium"
+   ]
+  },
+  {
+   "family_slug": "roc-grotesk",
+   "family": "Roc Grotesk",
+   "foundry": "Kostic Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/roc-grotesk",
+   "board_score": 3.0,
+   "instagram_score": 0.0,
+   "headline_score": 1.5,
+   "body_score": 1.5,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Roc Grotesk Regular",
+    "Roc Grotesk Medium"
+   ]
+  },
+  {
+   "family_slug": "archivo-black",
+   "family": "Archivo Black",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/archivo-black",
+   "board_score": 3.0,
+   "instagram_score": 0.0,
+   "headline_score": 3.0,
+   "body_score": 0.0,
+   "favourite_score": 3.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [
+    14664481
+   ],
+   "mono": false,
+   "top_variations": [
+    "Archivo Black Regular"
+   ]
+  },
+  {
+   "family_slug": "instrument-sans-variable",
+   "family": "Instrument Sans Variable",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/instrument-sans-variable",
+   "board_score": 3.0,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 3.0,
+   "favourite_score": 3.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [
+    41911984
+   ],
+   "mono": false,
+   "top_variations": [
+    "Instrument Sans Regular"
+   ]
+  },
+  {
+   "family_slug": "afronaut",
+   "family": "Afronaut",
+   "foundry": "Capitalics",
+   "url": "https://fonts.adobe.com/fonts/afronaut",
+   "board_score": 3.0,
+   "instagram_score": 0.0,
+   "headline_score": 3.0,
+   "body_score": 0.0,
+   "favourite_score": 3.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [
+    7529470
+   ],
+   "mono": false,
+   "top_variations": [
+    "Afronaut Regular"
+   ]
+  },
+  {
+   "family_slug": "cc-designer-genes",
+   "family": "CC Designer Genes Seven",
+   "foundry": "Comicraft",
+   "url": "https://fonts.adobe.com/fonts/cc-designer-genes",
+   "board_score": 3.0,
+   "instagram_score": 0.0,
+   "headline_score": 3.0,
+   "body_score": 0.0,
+   "favourite_score": 3.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [
+    2145281
+   ],
+   "mono": false,
+   "top_variations": [
+    "CCDesignerGenes Seven"
+   ]
+  },
+  {
+   "family_slug": "castoro-titling",
+   "family": "Castoro Titling",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/castoro-titling",
+   "board_score": 0.0,
+   "instagram_score": 3.0,
+   "headline_score": 3.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 3,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Castoro Titling Regular"
+   ]
+  },
+  {
+   "family_slug": "din-1451-pro",
+   "family": "DIN 1451 LT Pro",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/din-1451-pro",
+   "board_score": 0.0,
+   "instagram_score": 3.0,
+   "headline_score": 3.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 3,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "DIN 1451 LT Pro Mittelschrift"
+   ]
+  },
+  {
+   "family_slug": "loretta-display",
+   "family": "Loretta Display",
+   "foundry": "Nova Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/loretta-display",
+   "board_score": 0.0,
+   "instagram_score": 2.75,
+   "headline_score": 1.0,
+   "body_score": 1.75,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 10,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Loretta Display Medium",
+    "Loretta Display SemiBold"
+   ]
+  },
+  {
+   "family_slug": "nunito-sans",
+   "family": "Nunito Sans",
+   "foundry": "Vernon Adams",
+   "url": "https://fonts.adobe.com/fonts/nunito-sans",
+   "board_score": 2.4,
+   "instagram_score": 0.2,
+   "headline_score": 0.6,
+   "body_score": 1.4,
+   "favourite_score": 2.4,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [
+    7529470
+   ],
+   "mono": false,
+   "top_variations": [
+    "Nunito Sans SemiBold"
+   ]
+  },
+  {
+   "family_slug": "balto",
+   "family": "Balto",
+   "foundry": "Type Supply",
+   "url": "https://fonts.adobe.com/fonts/balto",
+   "board_score": 2.53,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 2.53,
+   "favourite_score": 1.2,
+   "first_place": 1,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [
+    41911984
+   ],
+   "mono": false,
+   "top_variations": [
+    "Balto Book",
+    "Balto Book Italic"
+   ]
+  },
+  {
+   "family_slug": "gotham",
+   "family": "Gotham",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/gotham",
+   "board_score": 0.0,
+   "instagram_score": 2.53,
+   "headline_score": 0.67,
+   "body_score": 1.87,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 4,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Gotham Book",
+    "Gotham Light",
+    "Gotham Narrow Light"
+   ]
+  },
+  {
+   "family_slug": "space-mono",
+   "family": "Space Mono",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/space-mono",
+   "board_score": 2.5,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": true,
+   "top_variations": [
+    "Space Mono Regular",
+    "Space Mono Italic"
+   ]
+  },
+  {
+   "family_slug": "bitcount-grid-single",
+   "family": "Bitcount Grid Single Square",
+   "foundry": "TYPETR",
+   "url": "https://fonts.adobe.com/fonts/bitcount-grid-single",
+   "board_score": 2.5,
+   "instagram_score": 0.0,
+   "headline_score": 2.5,
+   "body_score": 0.0,
+   "favourite_score": 2.5,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [
+    2145281
+   ],
+   "mono": false,
+   "top_variations": [
+    "Bitcount Grid Single Medium Square",
+    "Bitcount Grid Single Regular Square"
+   ]
+  },
+  {
+   "family_slug": "hanken-grotesk",
+   "family": "Hanken Grotesk",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/hanken-grotesk",
+   "board_score": 0.4,
+   "instagram_score": 2.08,
+   "headline_score": 2.08,
+   "body_score": 0.4,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 2,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Hanken Grotesk Regular",
+    "Hanken Grotesk Medium",
+    "Hanken Grotesk Italic",
+    "Hanken Grotesk SemiBold"
+   ]
+  },
+  {
+   "family_slug": "daith",
+   "family": "Daith Text",
+   "foundry": "Darden Studio",
+   "url": "https://fonts.adobe.com/fonts/daith",
+   "board_score": 0.0,
+   "instagram_score": 2.48,
+   "headline_score": 0.2,
+   "body_score": 2.28,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Daith Text Thin",
+    "Daith Text Light",
+    "Daith Text Regular",
+    "Daith Text Medium"
+   ]
+  },
+  {
+   "family_slug": "superior-title",
+   "family": "Superior Title",
+   "foundry": "MCKL",
+   "url": "https://fonts.adobe.com/fonts/superior-title",
+   "board_score": 0.0,
+   "instagram_score": 2.43,
+   "headline_score": 2.43,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 4,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Superior Title Light",
+    "Superior Title Regular",
+    "Superior Title Medium"
+   ]
+  },
+  {
+   "family_slug": "ff-din-paneuropean",
+   "family": "FF DIN Paneuropean",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/ff-din-paneuropean",
+   "board_score": 0.0,
+   "instagram_score": 2.37,
+   "headline_score": 2.37,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "DIN Medium",
+    "DIN Bold"
+   ]
+  },
+  {
+   "family_slug": "elza-text",
+   "family": "Elza Text",
+   "foundry": "Blackletra",
+   "url": "https://fonts.adobe.com/fonts/elza-text",
+   "board_score": 2.35,
+   "instagram_score": 0.0,
+   "headline_score": 0.9,
+   "body_score": 0.95,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 4,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Elza Text Regular",
+    "Elza Text Light Oblique"
+   ]
+  },
+  {
+   "family_slug": "paralucent",
+   "family": "Paralucent Text",
+   "foundry": "Device Fonts",
+   "url": "https://fonts.adobe.com/fonts/paralucent",
+   "board_score": 2.33,
+   "instagram_score": 0.0,
+   "headline_score": 0.33,
+   "body_score": 2.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Paralucent Text Book",
+    "Paralucent Light",
+    "Paralucent Light Italic"
+   ]
+  },
+  {
+   "family_slug": "bebas-neue",
+   "family": "Bebas Neue",
+   "foundry": "Dharma Type",
+   "url": "https://fonts.adobe.com/fonts/bebas-neue",
+   "board_score": 1.0,
+   "instagram_score": 1.33,
+   "headline_score": 2.33,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Bebas Neue Regular"
+   ]
+  },
+  {
+   "family_slug": "loretta",
+   "family": "Loretta",
+   "foundry": "Nova Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/loretta",
+   "board_score": 1.5,
+   "instagram_score": 0.83,
+   "headline_score": 0.0,
+   "body_score": 2.33,
+   "favourite_score": 1.5,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [
+    14664481
+   ],
+   "mono": false,
+   "top_variations": [
+    "Loretta Regular"
+   ]
+  },
+  {
+   "family_slug": "parabolica",
+   "family": "Parabolica Text",
+   "foundry": "JTD",
+   "url": "https://fonts.adobe.com/fonts/parabolica",
+   "board_score": 2.33,
+   "instagram_score": 0.0,
+   "headline_score": 1.75,
+   "body_score": 0.58,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 3,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Parabolica Text Regular",
+    "Parabolica Regular",
+    "Parabolica Text Medium",
+    "Parabolica Medium"
+   ]
+  },
+  {
+   "family_slug": "quinn-text",
+   "family": "Quinn Text",
+   "foundry": "Bold Monday",
+   "url": "https://fonts.adobe.com/fonts/quinn-text",
+   "board_score": 0.0,
+   "instagram_score": 2.33,
+   "headline_score": 0.0,
+   "body_score": 2.33,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Quinn Text Italic",
+    "Quinn Text Light Italic",
+    "Quinn Text Light"
+   ]
+  },
+  {
+   "family_slug": "ibm-plex-sans",
+   "family": "IBM Plex Sans",
+   "foundry": "IBM",
+   "url": "https://fonts.adobe.com/fonts/ibm-plex-sans",
+   "board_score": 0.0,
+   "instagram_score": 2.33,
+   "headline_score": 0.0,
+   "body_score": 2.33,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "IBM Plex Sans Condensed Bold",
+    "IBM Plex Sans Condensed SemiBold",
+    "IBM Plex Sans Bold",
+    "IBM Plex Sans Regular"
+   ]
+  },
+  {
+   "family_slug": "mozilla-headline",
+   "family": "Mozilla Headline",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/mozilla-headline",
+   "board_score": 2.28,
+   "instagram_score": 0.0,
+   "headline_score": 2.28,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Mozilla Headline Light",
+    "Mozilla Headline Regular",
+    "Mozilla Headline ExtraLight",
+    "Mozilla Headline Expanded Light"
+   ]
+  },
+  {
+   "family_slug": "monotalic",
+   "family": "Monotalic",
+   "foundry": "Kostic Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/monotalic",
+   "board_score": 2.28,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 2.28,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": true,
+   "top_variations": [
+    "Monotalic Medium",
+    "Monotalic Regular",
+    "Monotalic Wide Medium",
+    "Monotalic Bold"
+   ]
+  },
+  {
+   "family_slug": "feneon-single",
+   "family": "Feneon Single",
+   "foundry": "Teeline Fonts",
+   "url": "https://fonts.adobe.com/fonts/feneon-single",
+   "board_score": 2.28,
+   "instagram_score": 0.0,
+   "headline_score": 2.28,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Feneon Single 30",
+    "Feneon Single 36",
+    "Feneon Single 24",
+    "Feneon Single 18"
+   ]
+  },
+  {
+   "family_slug": "azeret-mono",
+   "family": "Azeret Mono",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/azeret-mono",
+   "board_score": 2.28,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 2.28,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": true,
+   "top_variations": [
+    "Azeret Mono Medium",
+    "Azeret Mono Regular",
+    "Azeret Mono SemiBold",
+    "Azeret Mono Medium Italic"
+   ]
+  },
+  {
+   "family_slug": "bunyan",
+   "family": "Bunyan Pro",
+   "foundry": "Canada Type",
+   "url": "https://fonts.adobe.com/fonts/bunyan",
+   "board_score": 0.0,
+   "instagram_score": 2.28,
+   "headline_score": 2.28,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Bunyan Pro Regular",
+    "Bunyan Pro Medium",
+    "Bunyan Pro Bold",
+    "Bunyan Pro Italic"
+   ]
+  },
+  {
+   "family_slug": "objektiv",
+   "family": "Objektiv Mk1",
+   "foundry": "Dalton Maag",
+   "url": "https://fonts.adobe.com/fonts/objektiv",
+   "board_score": 0.0,
+   "instagram_score": 2.28,
+   "headline_score": 0.0,
+   "body_score": 2.28,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Objektiv Mk1 Regular",
+    "Objektiv Mk2 Regular",
+    "Objektiv Mk3 Regular",
+    "Objektiv Mk2 Italic"
+   ]
+  },
+  {
+   "family_slug": "la-mericana",
+   "family": "La Mericana",
+   "foundry": "My Creative Land",
+   "url": "https://fonts.adobe.com/fonts/la-mericana",
+   "board_score": 0.0,
+   "instagram_score": 2.28,
+   "headline_score": 0.0,
+   "body_score": 2.28,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "La Mericana Bold",
+    "La Mericana ExtraBold",
+    "La Mericana Medium",
+    "La Mericana Regular"
+   ]
+  },
+  {
+   "family_slug": "owners",
+   "family": "Owners",
+   "foundry": "MCKL",
+   "url": "https://fonts.adobe.com/fonts/owners",
+   "board_score": 2.25,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 2.25,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Owners Light Italic",
+    "Owners Regular",
+    "Owners Light",
+    "Owners Wide Light Italic"
+   ]
+  },
+  {
+   "family_slug": "area-inktrap",
+   "family": "Area Inktrap",
+   "foundry": "Blaze Type",
+   "url": "https://fonts.adobe.com/fonts/area-inktrap",
+   "board_score": 2.25,
+   "instagram_score": 0.0,
+   "headline_score": 1.0,
+   "body_score": 1.25,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 3,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Area Inktrap Bold",
+    "Area Inktrap SemiBold",
+    "Area Inktrap ExtraBold"
+   ]
+  },
+  {
+   "family_slug": "mundial",
+   "family": "Mundial",
+   "foundry": "TipoType",
+   "url": "https://fonts.adobe.com/fonts/mundial",
+   "board_score": 0.0,
+   "instagram_score": 2.23,
+   "headline_score": 0.0,
+   "body_score": 2.23,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Mundial Light",
+    "Mundial Light Italic",
+    "Mundial Bold",
+    "Mundial Regular"
+   ]
+  },
+  {
+   "family_slug": "chivo-mono",
+   "family": "Chivo Mono",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/chivo-mono",
+   "board_score": 2.15,
+   "instagram_score": 0.0,
+   "headline_score": 1.75,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": true,
+   "top_variations": [
+    "Chivo Mono Light",
+    "Chivo Mono Thin",
+    "Chivo Mono ExtraLight Italic"
+   ]
+  },
+  {
+   "family_slug": "fort",
+   "family": "Fort",
+   "foundry": "MCKL",
+   "url": "https://fonts.adobe.com/fonts/fort",
+   "board_score": 0.0,
+   "instagram_score": 2.15,
+   "headline_score": 0.0,
+   "body_score": 2.15,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 3,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Fort Bold",
+    "Fort Bold Italic",
+    "Fort Book",
+    "Fort Extrabold"
+   ]
+  },
+  {
+   "family_slug": "kepler-3-subhead",
+   "family": "Kepler 3 Subhead",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/kepler-3-subhead",
+   "board_score": 0.0,
+   "instagram_score": 2.1,
+   "headline_score": 0.0,
+   "body_score": 2.1,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 5,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Kepler 3 Subhead Italic",
+    "Kepler 3 Subhead Medium Italic",
+    "Kepler 3 Subhead Light"
+   ]
+  },
+  {
+   "family_slug": "snaga-unicase-display",
+   "family": "Snaga Unicase Display",
+   "foundry": "Lettersoup",
+   "url": "https://fonts.adobe.com/fonts/snaga-unicase-display",
+   "board_score": 2.08,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Snaga Uni Display Semibold",
+    "Snaga Uni Display Medium",
+    "Snaga Uni Display Bold",
+    "Snaga Uni Display Regular"
+   ]
+  },
+  {
+   "family_slug": "atkinson-hyperlegible-next",
+   "family": "Atkinson Hyperlegible Next",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/atkinson-hyperlegible-next",
+   "board_score": 2.08,
+   "instagram_score": 0.0,
+   "headline_score": 2.08,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Atkinson Hyperlegible Next SemiBold",
+    "Atkinson Hyperlegible Next Medium",
+    "Atkinson Hyperlegible Next Bold",
+    "Atkinson Hyperlegible Next SemiBold Italic"
+   ]
+  },
+  {
+   "family_slug": "all-round-gothic",
+   "family": "All Round Gothic",
+   "foundry": "Dharma Type",
+   "url": "https://fonts.adobe.com/fonts/all-round-gothic",
+   "board_score": 2.08,
+   "instagram_score": 0.0,
+   "headline_score": 2.08,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "All Round Gothic Demi",
+    "All Round Gothic Demi Oblique",
+    "All Round Gothic Medium",
+    "All Round Gothic Bold"
+   ]
+  },
+  {
+   "family_slug": "pf-marlet-display",
+   "family": "PF Marlet Display",
+   "foundry": "Parachute Typefoundry",
+   "url": "https://fonts.adobe.com/fonts/pf-marlet-display",
+   "board_score": 2.08,
+   "instagram_score": 0.0,
+   "headline_score": 2.08,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "PF Marlet Display Medium Italic",
+    "PF Marlet Display Italic",
+    "PF Marlet Display Bold Italic",
+    "PF Marlet Display Light Italic"
+   ]
+  },
+  {
+   "family_slug": "dapifer",
+   "family": "Dapifer",
+   "foundry": "Darden Studio",
+   "url": "https://fonts.adobe.com/fonts/dapifer",
+   "board_score": 2.08,
+   "instagram_score": 0.0,
+   "headline_score": 2.08,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Dapifer Book",
+    "Dapifer Medium",
+    "DapiferStencil Light",
+    "DapiferStencil Medium"
+   ]
+  },
+  {
+   "family_slug": "input-sans",
+   "family": "Input Sans Compressed",
+   "foundry": "DJR",
+   "url": "https://fonts.adobe.com/fonts/input-sans",
+   "board_score": 0.0,
+   "instagram_score": 2.08,
+   "headline_score": 2.08,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Input Sans Compressed Regular",
+    "Input Sans Compressed Italic",
+    "Input Sans Compressed Light",
+    "Input Sans Condensed Regular"
+   ]
+  },
+  {
+   "family_slug": "madelinette",
+   "family": "Madelinette",
+   "foundry": "Tart Workshop",
+   "url": "https://fonts.adobe.com/fonts/madelinette",
+   "board_score": 0.0,
+   "instagram_score": 2.08,
+   "headline_score": 0.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Madelinette Regular",
+    "Madelinette Rustica Regular",
+    "Madelinette Grande Regular",
+    "Madelinette Grande Vino Regular"
+   ]
+  },
+  {
+   "family_slug": "ivymode",
+   "family": "IvyMode",
+   "foundry": "Ivy Foundry",
+   "url": "https://fonts.adobe.com/fonts/ivymode",
+   "board_score": 0.0,
+   "instagram_score": 2.08,
+   "headline_score": 0.0,
+   "body_score": 2.08,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "IvyMode SemiBold",
+    "IvyMode Bold",
+    "IvyMode Regular",
+    "IvyMode SemiBold Italic"
+   ]
+  },
+  {
+   "family_slug": "jaf-bernini",
+   "family": "JAF Bernino Sans",
+   "foundry": "Just Another Foundry",
+   "url": "https://fonts.adobe.com/fonts/jaf-bernini",
+   "board_score": 2.03,
+   "instagram_score": 0.0,
+   "headline_score": 2.03,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Bernino Sans Semibold",
+    "Bernina Sans Semibold",
+    "Bernino Sans Narrow Semibold",
+    "Bernino Sans Bold"
+   ]
+  },
+  {
+   "family_slug": "cardigan",
+   "family": "Cardigan",
+   "foundry": "Typodermic",
+   "url": "https://fonts.adobe.com/fonts/cardigan",
+   "board_score": 2.03,
+   "instagram_score": 0.0,
+   "headline_score": 2.03,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Cardigan SemiBold",
+    "Cardigan Regular",
+    "Cardigan Bold",
+    "Cardigan SemiBold Italic"
+   ]
+  },
+  {
+   "family_slug": "ibm-plex-mono",
+   "family": "IBM Plex Mono",
+   "foundry": "IBM",
+   "url": "https://fonts.adobe.com/fonts/ibm-plex-mono",
+   "board_score": 0.0,
+   "instagram_score": 2.03,
+   "headline_score": 0.0,
+   "body_score": 2.03,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": true,
+   "top_variations": [
+    "IBM Plex Mono Regular",
+    "IBM Plex Mono Text",
+    "IBM Plex Mono Medium",
+    "IBM Plex Mono Bold"
+   ]
+  },
+  {
+   "family_slug": "microsoft-sans-serif",
+   "family": "Microsoft Sans Serif ",
+   "foundry": "Microsoft",
+   "url": "https://fonts.adobe.com/fonts/microsoft-sans-serif",
+   "board_score": 2.0,
+   "instagram_score": 0.0,
+   "headline_score": 0.33,
+   "body_score": 1.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 4,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Microsoft Sans Serif Regular"
+   ]
+  },
+  {
+   "family_slug": "literata-variable",
+   "family": "Literata Variable",
+   "foundry": "TypeTogether",
+   "url": "https://fonts.adobe.com/fonts/literata-variable",
+   "board_score": 2.0,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 2.0,
+   "favourite_score": 0.0,
+   "first_place": 2,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Literata Regular"
+   ]
+  },
+  {
+   "family_slug": "big-moore",
+   "family": "BigMoore",
+   "foundry": "Carter & Cone",
+   "url": "https://fonts.adobe.com/fonts/big-moore",
+   "board_score": 0.0,
+   "instagram_score": 2.0,
+   "headline_score": 1.0,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 4,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Big Moore Regular"
+   ]
+  },
+  {
+   "family_slug": "capitolium-2",
+   "family": "Capitolium 2",
+   "foundry": "TypeTogether",
+   "url": "https://fonts.adobe.com/fonts/capitolium-2",
+   "board_score": 0.0,
+   "instagram_score": 1.95,
+   "headline_score": 1.95,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Capitolium2 Regular",
+    "Capitolium2 Light",
+    "CapitoliumNews 2 Regular",
+    "Capitolium2 Bold"
+   ]
+  },
+  {
+   "family_slug": "pragmatica",
+   "family": "Pragmatica",
+   "foundry": "Paratype",
+   "url": "https://fonts.adobe.com/fonts/pragmatica",
+   "board_score": 1.33,
+   "instagram_score": 0.58,
+   "headline_score": 1.33,
+   "body_score": 0.58,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 3,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Pragmatica Bold",
+    "Pragmatica Cond Book",
+    "Pragmatica Black"
+   ]
+  },
+  {
+   "family_slug": "kings-caslon",
+   "family": "King's Caslon Display",
+   "foundry": "Dalton Maag",
+   "url": "https://fonts.adobe.com/fonts/kings-caslon",
+   "board_score": 1.0,
+   "instagram_score": 0.9,
+   "headline_score": 1.0,
+   "body_score": 0.9,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 3,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Kings Caslon Display Italic",
+    "Kings Caslon Regular",
+    "Kings Caslon Display Regular"
+   ]
+  },
+  {
+   "family_slug": "ambroise",
+   "family": "Ambroise Std",
+   "foundry": "Typofonderie",
+   "url": "https://fonts.adobe.com/fonts/ambroise",
+   "board_score": 0.83,
+   "instagram_score": 1.03,
+   "headline_score": 1.87,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Ambroise Std Regular",
+    "Ambroise Std Demi",
+    "Ambroise Std Light",
+    "Ambroise Std Bold"
+   ]
+  },
+  {
+   "family_slug": "vesterbro-variable",
+   "family": "Vesterbro VF",
+   "foundry": "Black[Foundry]",
+   "url": "https://fonts.adobe.com/fonts/vesterbro-variable",
+   "board_score": 1.2,
+   "instagram_score": 0.65,
+   "headline_score": 0.0,
+   "body_score": 1.85,
+   "favourite_score": 1.2,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [
+    14664481
+   ],
+   "mono": false,
+   "top_variations": [
+    "Vesterbro Var Regular"
+   ]
+  },
+  {
+   "family_slug": "caslonian",
+   "family": "Caslonian Std L",
+   "foundry": "Typofonderie",
+   "url": "https://fonts.adobe.com/fonts/caslonian",
+   "board_score": 0.0,
+   "instagram_score": 1.85,
+   "headline_score": 1.05,
+   "body_score": 0.8,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 7,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Caslonian Std L Bold",
+    "Caslonian Std L Regular",
+    "Caslonian Std L Italic",
+    "Caslonian Std L Light Italic"
+   ]
+  },
+  {
+   "family_slug": "riant-display",
+   "family": "Riant Display",
+   "foundry": "Kontour",
+   "url": "https://fonts.adobe.com/fonts/riant-display",
+   "board_score": 1.83,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Riant Display Semibold",
+    "Riant Display Bold",
+    "Riant Display Medium"
+   ]
+  },
+  {
+   "family_slug": "tosh",
+   "family": "Tosh B",
+   "foundry": "Black[Foundry]",
+   "url": "https://fonts.adobe.com/fonts/tosh",
+   "board_score": 1.83,
+   "instagram_score": 0.0,
+   "headline_score": 1.83,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Tosh B Medium",
+    "Tosh A Medium",
+    "Tosh B Regular"
+   ]
+  },
+  {
+   "family_slug": "nocturne-serif",
+   "family": "Nocturne Serif Lights",
+   "foundry": "Capitalics",
+   "url": "https://fonts.adobe.com/fonts/nocturne-serif",
+   "board_score": 1.83,
+   "instagram_score": 0.0,
+   "headline_score": 1.83,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Nocturne Serif Light Italic",
+    "Nocturne Serif Regular Italic",
+    "Nocturne Serif ExtraLight Italic"
+   ]
+  },
+  {
+   "family_slug": "raleway",
+   "family": "Raleway",
+   "foundry": "The League of Moveable Type",
+   "url": "https://fonts.adobe.com/fonts/raleway",
+   "board_score": 0.0,
+   "instagram_score": 1.83,
+   "headline_score": 0.0,
+   "body_score": 1.83,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Raleway Medium",
+    "Raleway SemiBold",
+    "Raleway Regular"
+   ]
+  },
+  {
+   "family_slug": "aaux-next",
+   "family": "Aaux Next",
+   "foundry": "Positype",
+   "url": "https://fonts.adobe.com/fonts/aaux-next",
+   "board_score": 0.0,
+   "instagram_score": 1.83,
+   "headline_score": 0.0,
+   "body_score": 1.83,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Aaux Next Bold",
+    "Aaux Next Black",
+    "Aaux Next SemiBold"
+   ]
+  },
+  {
+   "family_slug": "fields",
+   "family": "Fields Display",
+   "foundry": "Adam Ladd",
+   "url": "https://fonts.adobe.com/fonts/fields",
+   "board_score": 0.0,
+   "instagram_score": 1.83,
+   "headline_score": 0.0,
+   "body_score": 1.83,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Fields Display Regular",
+    "Fields Display Medium",
+    "Fields Display Semi Bold"
+   ]
+  },
+  {
+   "family_slug": "the-seasons",
+   "family": "The Seasons",
+   "foundry": "My Creative Land",
+   "url": "https://fonts.adobe.com/fonts/the-seasons",
+   "board_score": 0.0,
+   "instagram_score": 1.83,
+   "headline_score": 0.0,
+   "body_score": 1.83,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "The Seasons Regular",
+    "The Seasons Bold",
+    "The Seasons Light"
+   ]
+  },
+  {
+   "family_slug": "acumin-extra-condensed",
+   "family": "Acumin Pro Extra Condensed",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/acumin-extra-condensed",
+   "board_score": 0.0,
+   "instagram_score": 1.83,
+   "headline_score": 0.0,
+   "body_score": 1.83,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Acumin Pro ExtraCondensed Light",
+    "Acumin Pro ExtraCondensed Regular",
+    "Acumin Pro ExtraCondensed Extra Light"
+   ]
+  },
+  {
+   "family_slug": "joly-display",
+   "family": "Joly Display",
+   "foundry": "Blaze Type",
+   "url": "https://fonts.adobe.com/fonts/joly-display",
+   "board_score": 0.0,
+   "instagram_score": 1.8,
+   "headline_score": 1.2,
+   "body_score": 0.6,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 6,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Joly Display Regular",
+    "Joly Display Medium"
+   ]
+  },
+  {
+   "family_slug": "ivypresto-text",
+   "family": "IvyPresto Text",
+   "foundry": "Ivy Foundry",
+   "url": "https://fonts.adobe.com/fonts/ivypresto-text",
+   "board_score": 0.0,
+   "instagram_score": 1.8,
+   "headline_score": 0.4,
+   "body_score": 1.4,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 3,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "IvyPresto Text Light",
+    "IvyPresto Text SemiBold"
+   ]
+  },
+  {
+   "family_slug": "parry",
+   "family": "Parry",
+   "foundry": "Original Type",
+   "url": "https://fonts.adobe.com/fonts/parry",
+   "board_score": 1.75,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 1.75,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Parry Regular",
+    "Parry SemiBold",
+    "Parry Italic"
+   ]
+  },
+  {
+   "family_slug": "urw-antiqua",
+   "family": "URW Antiqua",
+   "foundry": "URW Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/urw-antiqua",
+   "board_score": 1.7,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 1.7,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "URW Antiqua Regular",
+    "URW Antiqua Medium",
+    "URW Antiqua Bold"
+   ]
+  },
+  {
+   "family_slug": "minion-3-caption",
+   "family": "Minion 3 Caption",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/minion-3-caption",
+   "board_score": 1.7,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Minion 3 Caption Regular",
+    "Minion 3 Caption Medium",
+    "Minion 3 Caption Semibold"
+   ]
+  },
+  {
+   "family_slug": "cinzel",
+   "family": "Cinzel",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/cinzel",
+   "board_score": 0.0,
+   "instagram_score": 1.7,
+   "headline_score": 1.7,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Cinzel Regular",
+    "Cinzel Medium",
+    "Cinzel SemiBold"
+   ]
+  },
+  {
+   "family_slug": "adobe-aldine",
+   "family": "Adobe Aldine Subhead",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/adobe-aldine",
+   "board_score": 0.2,
+   "instagram_score": 1.48,
+   "headline_score": 0.4,
+   "body_score": 1.28,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 3,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Adobe Aldine Medium",
+    "Adobe Aldine Subhead Bold",
+    "Adobe Aldine Regular",
+    "Adobe Aldine Caption Regular"
+   ]
+  },
+  {
+   "family_slug": "din-2014",
+   "family": "DIN 2014",
+   "foundry": "Paratype",
+   "url": "https://fonts.adobe.com/fonts/din-2014",
+   "board_score": 0.0,
+   "instagram_score": 1.6,
+   "headline_score": 1.6,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "DIN 2014 Demi"
+   ]
+  },
+  {
+   "family_slug": "heebo",
+   "family": "Heebo",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/heebo",
+   "board_score": 1.25,
+   "instagram_score": 0.33,
+   "headline_score": 0.33,
+   "body_score": 1.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 3,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Heebo Regular",
+    "Heebo Bold",
+    "Heebo Light"
+   ]
+  },
+  {
+   "family_slug": "grover",
+   "family": "Grover SC",
+   "foundry": "Sudtipos",
+   "url": "https://fonts.adobe.com/fonts/grover",
+   "board_score": 0.25,
+   "instagram_score": 1.33,
+   "headline_score": 0.0,
+   "body_score": 1.58,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Grover Caps Bold",
+    "Grover Caps Regular"
+   ]
+  },
+  {
+   "family_slug": "owners-text",
+   "family": "Owners Text",
+   "foundry": "MCKL",
+   "url": "https://fonts.adobe.com/fonts/owners-text",
+   "board_score": 1.58,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 1.58,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Owners Text Regular",
+    "Owners Text Light Italic",
+    "Owners Text Italic"
+   ]
+  },
+  {
+   "family_slug": "kazimir-text",
+   "family": "KazimirText 2",
+   "foundry": "CSTM Fonts",
+   "url": "https://fonts.adobe.com/fonts/kazimir-text",
+   "board_score": 1.58,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 1.58,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "KazimirText Regular",
+    "KazimirText Book"
+   ]
+  },
+  {
+   "family_slug": "kanit",
+   "family": "Kanit",
+   "foundry": "Cadson Demak",
+   "url": "https://fonts.adobe.com/fonts/kanit",
+   "board_score": 0.0,
+   "instagram_score": 1.58,
+   "headline_score": 0.0,
+   "body_score": 1.58,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Kanit Regular",
+    "Kanit Medium",
+    "Kanit Light"
+   ]
+  },
+  {
+   "family_slug": "ff-more",
+   "family": "FF More Pro Condensed",
+   "foundry": "FontFont",
+   "url": "https://fonts.adobe.com/fonts/ff-more",
+   "board_score": 0.0,
+   "instagram_score": 1.58,
+   "headline_score": 0.0,
+   "body_score": 1.58,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "More Pro Cond Medium",
+    "More Pro Medium",
+    "More Pro Bold"
+   ]
+  },
+  {
+   "family_slug": "sutro",
+   "family": "Sutro ",
+   "foundry": "Parkinson Type Design",
+   "url": "https://fonts.adobe.com/fonts/sutro",
+   "board_score": 1.2,
+   "instagram_score": 0.33,
+   "headline_score": 0.0,
+   "body_score": 1.53,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Sutro  Light",
+    "Sutro Shaded  Rules"
+   ]
+  },
+  {
+   "family_slug": "courier",
+   "family": "Courier Std",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/courier",
+   "board_score": 1.5,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 1.5,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": true,
+   "top_variations": [
+    "Courier Std Medium",
+    "Courier Std Medium Oblique"
+   ]
+  },
+  {
+   "family_slug": "meno-display",
+   "family": "Meno Display",
+   "foundry": "Lipton Letter Design",
+   "url": "https://fonts.adobe.com/fonts/meno-display",
+   "board_score": 1.5,
+   "instagram_score": 0.0,
+   "headline_score": 0.25,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Meno Display Regular"
+   ]
+  },
+  {
+   "family_slug": "narkiss-tam",
+   "family": "Narkiss Tam",
+   "foundry": "Fontef",
+   "url": "https://fonts.adobe.com/fonts/narkiss-tam",
+   "board_score": 1.5,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 1.5,
+   "favourite_score": 1.5,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [
+    41911984
+   ],
+   "mono": false,
+   "top_variations": [
+    "Narkiss Tam Light"
+   ]
+  },
+  {
+   "family_slug": "anziano",
+   "family": "Anziano",
+   "foundry": "MAC Rhino Fonts",
+   "url": "https://fonts.adobe.com/fonts/anziano",
+   "board_score": 1.5,
+   "instagram_score": 0.0,
+   "headline_score": 1.5,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Anziano Pro Bold",
+    "Anziano Pro Regular"
+   ]
+  },
+  {
+   "family_slug": "roboto-slab",
+   "family": "Roboto Slab",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/roboto-slab",
+   "board_score": 1.5,
+   "instagram_score": 0.0,
+   "headline_score": 1.5,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Roboto Slab Regular",
+    "Roboto Slab Medium"
+   ]
+  },
+  {
+   "family_slug": "liebling",
+   "family": "Liebling",
+   "foundry": "Fontef",
+   "url": "https://fonts.adobe.com/fonts/liebling",
+   "board_score": 1.5,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 1.5,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Liebling Medium",
+    "Liebling Bold"
+   ]
+  },
+  {
+   "family_slug": "aktiv-grotesk-condensed",
+   "family": "Aktiv Grotesk Condensed",
+   "foundry": "Dalton Maag",
+   "url": "https://fonts.adobe.com/fonts/aktiv-grotesk-condensed",
+   "board_score": 0.0,
+   "instagram_score": 1.5,
+   "headline_score": 0.0,
+   "body_score": 1.5,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Aktiv Grotesk Cd Regular",
+    "Aktiv Grotesk Cd Medium"
+   ]
+  },
+  {
+   "family_slug": "waters-titling",
+   "family": "Waters Titling Semicondensed Pro",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/waters-titling",
+   "board_score": 0.0,
+   "instagram_score": 1.5,
+   "headline_score": 1.5,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Waters Titling Pro Semicondensed"
+   ]
+  },
+  {
+   "family_slug": "p22-underground",
+   "family": "P22 Underground",
+   "foundry": "P22 Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/p22-underground",
+   "board_score": 0.0,
+   "instagram_score": 1.5,
+   "headline_score": 1.5,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "P22 Underground Heavy",
+    "P22 Underground DemiBold"
+   ]
+  },
+  {
+   "family_slug": "redaction",
+   "family": "Redaction 10",
+   "foundry": "MCKL",
+   "url": "https://fonts.adobe.com/fonts/redaction",
+   "board_score": 1.45,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 1.45,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Redaction 10 Italic",
+    "Redaction Italic",
+    "Redaction 20 Italic"
+   ]
+  },
+  {
+   "family_slug": "kepler-3-display",
+   "family": "Kepler 3 Display",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/kepler-3-display",
+   "board_score": 0.0,
+   "instagram_score": 1.45,
+   "headline_score": 1.2,
+   "body_score": 0.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 3,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Kepler 3 Display Regular",
+    "Kepler 3 Display Light"
+   ]
+  },
+  {
+   "family_slug": "sigmund-pro",
+   "family": "Sigmund Pro",
+   "foundry": "Capitalics",
+   "url": "https://fonts.adobe.com/fonts/sigmund-pro",
+   "board_score": 0.0,
+   "instagram_score": 1.45,
+   "headline_score": 0.0,
+   "body_score": 1.45,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Sigmund PRO Medium",
+    "Sigmund PRO Regular",
+    "Sigmund PRO Medium Italic"
+   ]
+  },
+  {
+   "family_slug": "acier-bat",
+   "family": "Acier BAT Text Solid",
+   "foundry": "Production Type",
+   "url": "https://fonts.adobe.com/fonts/acier-bat",
+   "board_score": 0.33,
+   "instagram_score": 1.0,
+   "headline_score": 1.33,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Acier BAT Text Solid"
+   ]
+  },
+  {
+   "family_slug": "dunbar",
+   "family": "Dunbar Tall",
+   "foundry": "CJ Type",
+   "url": "https://fonts.adobe.com/fonts/dunbar",
+   "board_score": 0.0,
+   "instagram_score": 1.33,
+   "headline_score": 1.33,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Dunbar Tall Light",
+    "Dunbar Tall Light Italic"
+   ]
+  },
+  {
+   "family_slug": "trajan",
+   "family": "Trajan Pro 3",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/trajan",
+   "board_score": 0.0,
+   "instagram_score": 1.33,
+   "headline_score": 1.33,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Trajan Pro 3 Regular",
+    "Trajan Pro 3 Light"
+   ]
+  },
+  {
+   "family_slug": "houschka-pro",
+   "family": "Houschka Pro",
+   "foundry": "G-Type",
+   "url": "https://fonts.adobe.com/fonts/houschka-pro",
+   "board_score": 0.0,
+   "instagram_score": 1.33,
+   "headline_score": 0.0,
+   "body_score": 1.33,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Houschka Pro Medium",
+    "Houschka Pro Medium Italic"
+   ]
+  },
+  {
+   "family_slug": "contempora",
+   "family": "Contempora Script",
+   "foundry": "My Creative Land",
+   "url": "https://fonts.adobe.com/fonts/contempora",
+   "board_score": 0.0,
+   "instagram_score": 1.33,
+   "headline_score": 1.33,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Contempora Script Bold",
+    "Contempora Script Regular"
+   ]
+  },
+  {
+   "family_slug": "urbane",
+   "family": "Urbane",
+   "foundry": "Device Fonts",
+   "url": "https://fonts.adobe.com/fonts/urbane",
+   "board_score": 0.0,
+   "instagram_score": 1.33,
+   "headline_score": 1.33,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Urbane Medium",
+    "Urbane Medium Italic"
+   ]
+  },
+  {
+   "family_slug": "roboto-flex",
+   "family": "Roboto Flex",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/roboto-flex",
+   "board_score": 1.25,
+   "instagram_score": 0.0,
+   "headline_score": 0.5,
+   "body_score": 0.75,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 4,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Roboto Flex Regular"
+   ]
+  },
+  {
+   "family_slug": "bebas-neue-v14-deprecated",
+   "family": "Bebas Neue v1.4 (deprecated)",
+   "foundry": "Dharma Type",
+   "url": "https://fonts.adobe.com/fonts/bebas-neue-v14-deprecated",
+   "board_score": 0.5,
+   "instagram_score": 0.75,
+   "headline_score": 1.25,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Bebas Neue Regular"
+   ]
+  },
+  {
+   "family_slug": "yrsa",
+   "family": "Yrsa",
+   "foundry": "Rosetta Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/yrsa",
+   "board_score": 1.25,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 1.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Yrsa Regular",
+    "Yrsa Medium"
+   ]
+  },
+  {
+   "family_slug": "baskerville-urw",
+   "family": "Baskerville URW",
+   "foundry": "URW Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/baskerville-urw",
+   "board_score": 0.25,
+   "instagram_score": 1.0,
+   "headline_score": 0.25,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Baskerville URW Regular Italic",
+    "Baskerville URW Medium"
+   ]
+  },
+  {
+   "family_slug": "ff-real",
+   "family": "FF Real Text Pro",
+   "foundry": "FontFont",
+   "url": "https://fonts.adobe.com/fonts/ff-real",
+   "board_score": 1.25,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 1.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Real Text Pro Book",
+    "Real Text Pro Medium",
+    "Real Head Pro Medium"
+   ]
+  },
+  {
+   "family_slug": "retiro",
+   "family": "Retiro Std 24pt",
+   "foundry": "Typofonderie",
+   "url": "https://fonts.adobe.com/fonts/retiro",
+   "board_score": 0.0,
+   "instagram_score": 1.25,
+   "headline_score": 1.25,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Retiro Std Regular 24pt",
+    "Retiro Std Regular 64pt"
+   ]
+  },
+  {
+   "family_slug": "usual",
+   "family": "Usual",
+   "foundry": "Rui Abreu",
+   "url": "https://fonts.adobe.com/fonts/usual",
+   "board_score": 0.7,
+   "instagram_score": 0.53,
+   "headline_score": 0.4,
+   "body_score": 0.83,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 2,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Usual Medium",
+    "Usual Regular"
+   ]
+  },
+  {
+   "family_slug": "akzidenz-grotesk-next",
+   "family": "Akzidenz-Grotesk Next Pro",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/akzidenz-grotesk-next",
+   "board_score": 1.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.2,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Akzidenz-Grotesk Next Medium",
+    "Akzidenz-Grotesk Next ExtraLight Condensed"
+   ]
+  },
+  {
+   "family_slug": "bembo-mt",
+   "family": "Bembo Titling MT",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/bembo-mt",
+   "board_score": 0.0,
+   "instagram_score": 1.2,
+   "headline_score": 1.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Bembo Titling MT Std Regular",
+    "Bembo Book MT Pro Bold"
+   ]
+  },
+  {
+   "family_slug": "special-gothic",
+   "family": "Special Gothic",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/special-gothic",
+   "board_score": 0.5,
+   "instagram_score": 0.67,
+   "headline_score": 0.0,
+   "body_score": 1.17,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Special Gothic SemiCondensed Bold",
+    "Special Gothic Regular"
+   ]
+  },
+  {
+   "family_slug": "host-grotesk",
+   "family": "Host Grotesk",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/host-grotesk",
+   "board_score": 1.08,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 1.08,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Host Grotesk Medium"
+   ]
+  },
+  {
+   "family_slug": "ivymazarin-variable",
+   "family": "IvyMazarin VF",
+   "foundry": "Ivy Foundry",
+   "url": "https://fonts.adobe.com/fonts/ivymazarin-variable",
+   "board_score": 0.0,
+   "instagram_score": 1.05,
+   "headline_score": 0.0,
+   "body_score": 1.05,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "IvyMazarin Var Thin"
+   ]
+  },
+  {
+   "family_slug": "arya",
+   "family": "Arya Double ",
+   "foundry": "TipoType",
+   "url": "https://fonts.adobe.com/fonts/arya",
+   "board_score": 0.0,
+   "instagram_score": 1.03,
+   "headline_score": 0.2,
+   "body_score": 0.83,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Arya Single",
+    "Arya Sigle Slant",
+    "Arya Double"
+   ]
+  },
+  {
+   "family_slug": "finder",
+   "family": "Finder",
+   "foundry": "Black[Foundry]",
+   "url": "https://fonts.adobe.com/fonts/finder",
+   "board_score": 1.0,
+   "instagram_score": 0.0,
+   "headline_score": 0.33,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Finder Bold"
+   ]
+  },
+  {
+   "family_slug": "dazzle-unicase",
+   "family": "Dazzle Unicase",
+   "foundry": "Device Fonts",
+   "url": "https://fonts.adobe.com/fonts/dazzle-unicase",
+   "board_score": 1.0,
+   "instagram_score": 0.0,
+   "headline_score": 1.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Dazzle Unicase Bold"
+   ]
+  },
+  {
+   "family_slug": "egizio-urw",
+   "family": "Egizio URW",
+   "foundry": "URW Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/egizio-urw",
+   "board_score": 1.0,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Egizio URW Regular"
+   ]
+  },
+  {
+   "family_slug": "benton-modern-text",
+   "family": "Benton Modern Text",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/benton-modern-text",
+   "board_score": 1.0,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Benton Modern Text Roman"
+   ]
+  },
+  {
+   "family_slug": "chiavettieri",
+   "family": "Chiavettieri",
+   "foundry": "Kostic Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/chiavettieri",
+   "board_score": 1.0,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Chiavettieri Regular"
+   ]
+  },
+  {
+   "family_slug": "linotype-didot",
+   "family": "Linotype Didot Headline",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/linotype-didot",
+   "board_score": 1.0,
+   "instagram_score": 0.0,
+   "headline_score": 1.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Didot LT Pro Headline"
+   ]
+  },
+  {
+   "family_slug": "fira-sans",
+   "family": "Fira Sans 2",
+   "foundry": "Mozilla",
+   "url": "https://fonts.adobe.com/fonts/fira-sans",
+   "board_score": 1.0,
+   "instagram_score": 0.0,
+   "headline_score": 1.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Fira Sans Two"
+   ]
+  },
+  {
+   "family_slug": "aktiv-grotesk-extended",
+   "family": "Aktiv Grotesk Extended",
+   "foundry": "Dalton Maag",
+   "url": "https://fonts.adobe.com/fonts/aktiv-grotesk-extended",
+   "board_score": 1.0,
+   "instagram_score": 0.0,
+   "headline_score": 1.0,
+   "body_score": 0.0,
+   "favourite_score": 1.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [
+    7529470
+   ],
+   "mono": false,
+   "top_variations": [
+    "Aktiv Grotesk Ex Regular"
+   ]
+  },
+  {
+   "family_slug": "nagel-variable",
+   "family": "Nagel Variable",
+   "foundry": "Paratype",
+   "url": "https://fonts.adobe.com/fonts/nagel-variable",
+   "board_score": 1.0,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Nagel VF Regular"
+   ]
+  },
+  {
+   "family_slug": "chorine",
+   "family": "Chorine Large",
+   "foundry": "PintassilgoPrints",
+   "url": "https://fonts.adobe.com/fonts/chorine",
+   "board_score": 1.0,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Chorine Large"
+   ]
+  },
+  {
+   "family_slug": "alfarn",
+   "family": "Alfarn",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/alfarn",
+   "board_score": 1.0,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Alfarn Regular"
+   ]
+  },
+  {
+   "family_slug": "hobo",
+   "family": "Hobo Std",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/hobo",
+   "board_score": 1.0,
+   "instagram_score": 0.0,
+   "headline_score": 1.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Hobo Std Medium"
+   ]
+  },
+  {
+   "family_slug": "atf-franklin-gothic",
+   "family": "Franklin Gothic ATF",
+   "foundry": "American Type Founders Collection",
+   "url": "https://fonts.adobe.com/fonts/atf-franklin-gothic",
+   "board_score": 1.0,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Franklin Gothic ATF Medium"
+   ]
+  },
+  {
+   "family_slug": "arial",
+   "family": "Arial",
+   "foundry": "Microsoft",
+   "url": "https://fonts.adobe.com/fonts/arial",
+   "board_score": 1.0,
+   "instagram_score": 0.0,
+   "headline_score": 1.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Arial Regular"
+   ]
+  },
+  {
+   "family_slug": "merriweather",
+   "family": "Merriweather",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/merriweather",
+   "board_score": 1.0,
+   "instagram_score": 0.0,
+   "headline_score": 1.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "MerriweatherLight Regular"
+   ]
+  },
+  {
+   "family_slug": "locator",
+   "family": "Locator Display",
+   "foundry": "Process Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/locator",
+   "board_score": 0.0,
+   "instagram_score": 1.0,
+   "headline_score": 1.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Locator Display Light"
+   ]
+  },
+  {
+   "family_slug": "natom-pro",
+   "family": "Natom Pro Title",
+   "foundry": "Mostardesign",
+   "url": "https://fonts.adobe.com/fonts/natom-pro",
+   "board_score": 0.0,
+   "instagram_score": 1.0,
+   "headline_score": 0.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Natom Pro Title Light"
+   ]
+  },
+  {
+   "family_slug": "mixta",
+   "family": "Mixta Pro",
+   "foundry": "Latinotype",
+   "url": "https://fonts.adobe.com/fonts/mixta",
+   "board_score": 0.0,
+   "instagram_score": 1.0,
+   "headline_score": 0.5,
+   "body_score": 0.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 4,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Mixta Pro Regular"
+   ]
+  },
+  {
+   "family_slug": "tribute",
+   "family": "Tribute",
+   "foundry": "Emigre",
+   "url": "https://fonts.adobe.com/fonts/tribute",
+   "board_score": 0.0,
+   "instagram_score": 1.0,
+   "headline_score": 0.0,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Tribute OT Roman"
+   ]
+  },
+  {
+   "family_slug": "castoro",
+   "family": "Castoro",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/castoro",
+   "board_score": 0.0,
+   "instagram_score": 1.0,
+   "headline_score": 0.0,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Castoro Italic"
+   ]
+  },
+  {
+   "family_slug": "powell",
+   "family": "Powell",
+   "foundry": "Lanston Type Co.",
+   "url": "https://fonts.adobe.com/fonts/powell",
+   "board_score": 0.0,
+   "instagram_score": 1.0,
+   "headline_score": 0.0,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Powell Regular"
+   ]
+  },
+  {
+   "family_slug": "baskerville",
+   "family": "Berthold Baskerville Pro",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/baskerville",
+   "board_score": 0.0,
+   "instagram_score": 1.0,
+   "headline_score": 0.0,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Baskerville Pro Regular"
+   ]
+  },
+  {
+   "family_slug": "libre-caslon-display",
+   "family": "Libre Caslon Display",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/libre-caslon-display",
+   "board_score": 0.0,
+   "instagram_score": 1.0,
+   "headline_score": 1.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Libre Caslon Display Regular"
+   ]
+  },
+  {
+   "family_slug": "avenir-next",
+   "family": "Avenir Next LT Pro",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/avenir-next",
+   "board_score": 0.0,
+   "instagram_score": 1.0,
+   "headline_score": 0.0,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Avenir Next LT Pro Regular"
+   ]
+  },
+  {
+   "family_slug": "mr-gabe",
+   "family": "Mr Gabe",
+   "foundry": "Leksen Design",
+   "url": "https://fonts.adobe.com/fonts/mr-gabe",
+   "board_score": 0.0,
+   "instagram_score": 1.0,
+   "headline_score": 1.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Mr Gabe Regular"
+   ]
+  },
+  {
+   "family_slug": "petersburg",
+   "family": "Petersburg Web",
+   "foundry": "Paratype",
+   "url": "https://fonts.adobe.com/fonts/petersburg",
+   "board_score": 0.0,
+   "instagram_score": 1.0,
+   "headline_score": 0.0,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Petersburg Italic"
+   ]
+  },
+  {
+   "family_slug": "brim-narrow",
+   "family": "Brim Narrow",
+   "foundry": "Jamie Clarke Type",
+   "url": "https://fonts.adobe.com/fonts/brim-narrow",
+   "board_score": 0.0,
+   "instagram_score": 1.0,
+   "headline_score": 0.0,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Brim Narrow Fat Lines"
+   ]
+  },
+  {
+   "family_slug": "anton",
+   "family": "Anton",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/anton",
+   "board_score": 0.0,
+   "instagram_score": 1.0,
+   "headline_score": 1.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Anton Regular"
+   ]
+  },
+  {
+   "family_slug": "pantelleria",
+   "family": "Pantelleria",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/pantelleria",
+   "board_score": 0.0,
+   "instagram_score": 1.0,
+   "headline_score": 1.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Pantelleria Regular"
+   ]
+  },
+  {
+   "family_slug": "bd-colonius",
+   "family": "BD Colonius",
+   "foundry": "Buro Destruct",
+   "url": "https://fonts.adobe.com/fonts/bd-colonius",
+   "board_score": 0.0,
+   "instagram_score": 1.0,
+   "headline_score": 1.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "BD Colonius Regular"
+   ]
+  },
+  {
+   "family_slug": "reenie-beanie",
+   "family": "Reenie Beanie",
+   "foundry": "Typeco",
+   "url": "https://fonts.adobe.com/fonts/reenie-beanie",
+   "board_score": 0.0,
+   "instagram_score": 1.0,
+   "headline_score": 0.0,
+   "body_score": 1.0,
+   "favourite_score": 0.0,
+   "first_place": 1,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Reenie Beanie Regular"
+   ]
+  },
+  {
+   "family_slug": "scotch-text",
+   "family": "Scotch Text",
+   "foundry": "Positype",
+   "url": "https://fonts.adobe.com/fonts/scotch-text",
+   "board_score": 0.95,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.95,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Scotch Text Roman",
+    "Scotch Text Medium",
+    "Scotch Text Condensed Roman"
+   ]
+  },
+  {
+   "family_slug": "portada",
+   "family": "Portada Text",
+   "foundry": "TypeTogether",
+   "url": "https://fonts.adobe.com/fonts/portada",
+   "board_score": 0.9,
+   "instagram_score": 0.0,
+   "headline_score": 0.5,
+   "body_score": 0.4,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Portada Light",
+    "Portada Text Regular"
+   ]
+  },
+  {
+   "family_slug": "colfax",
+   "family": "Colfax",
+   "foundry": "Process Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/colfax",
+   "board_score": 0.4,
+   "instagram_score": 0.5,
+   "headline_score": 0.4,
+   "body_score": 0.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Colfax Medium",
+    "Colfax Regular"
+   ]
+  },
+  {
+   "family_slug": "warbler",
+   "family": "Warbler Deck",
+   "foundry": "DJR",
+   "url": "https://fonts.adobe.com/fonts/warbler",
+   "board_score": 0.0,
+   "instagram_score": 0.87,
+   "headline_score": 0.67,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 3,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Warbler Deck Italic",
+    "Warbler Deck Regular",
+    "Warbler Text Bold"
+   ]
+  },
+  {
+   "family_slug": "schoolbook",
+   "family": "SchoolBook",
+   "foundry": "Paratype",
+   "url": "https://fonts.adobe.com/fonts/schoolbook",
+   "board_score": 0.83,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.83,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "SchoolBook Regular"
+   ]
+  },
+  {
+   "family_slug": "posterama",
+   "family": "Posterama 2001",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/posterama",
+   "board_score": 0.0,
+   "instagram_score": 0.83,
+   "headline_score": 0.83,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Posterama 2001 Black",
+    "Posterama 2001 Bold"
+   ]
+  },
+  {
+   "family_slug": "le-monde-livre",
+   "family": "Le Monde Livre Std",
+   "foundry": "Typofonderie",
+   "url": "https://fonts.adobe.com/fonts/le-monde-livre",
+   "board_score": 0.0,
+   "instagram_score": 0.83,
+   "headline_score": 0.0,
+   "body_score": 0.83,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Le Monde Livre Std Book"
+   ]
+  },
+  {
+   "family_slug": "indivisible-variable",
+   "family": "Indivisible Variable",
+   "foundry": "Process Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/indivisible-variable",
+   "board_score": 0.8,
+   "instagram_score": 0.0,
+   "headline_score": 0.2,
+   "body_score": 0.4,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 3,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Indivisible Variable Regular"
+   ]
+  },
+  {
+   "family_slug": "guyot",
+   "family": "Guyot Text",
+   "foundry": "Retype",
+   "url": "https://fonts.adobe.com/fonts/guyot",
+   "board_score": 0.6,
+   "instagram_score": 0.2,
+   "headline_score": 0.2,
+   "body_score": 0.6,
+   "favourite_score": 0.6,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [
+    14664481
+   ],
+   "mono": false,
+   "top_variations": [
+    "Guyot Text Italic",
+    "Guyot Headline Light"
+   ]
+  },
+  {
+   "family_slug": "neuzeit-grotesk",
+   "family": "Neuzeit Grotesk",
+   "foundry": "URW Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/neuzeit-grotesk",
+   "board_score": 0.75,
+   "instagram_score": 0.0,
+   "headline_score": 0.75,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Neuzeit Grotesk Regular"
+   ]
+  },
+  {
+   "family_slug": "bitcount-mono-single",
+   "family": "Bitcount Mono Single Square",
+   "foundry": "TYPETR",
+   "url": "https://fonts.adobe.com/fonts/bitcount-mono-single",
+   "board_score": 0.75,
+   "instagram_score": 0.0,
+   "headline_score": 0.75,
+   "body_score": 0.0,
+   "favourite_score": 0.75,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [
+    2145281
+   ],
+   "mono": true,
+   "top_variations": [
+    "Bitcount Mono Single Medium Square"
+   ]
+  },
+  {
+   "family_slug": "cantoni",
+   "family": "Cantoni Pro",
+   "foundry": "Debi Sementelli",
+   "url": "https://fonts.adobe.com/fonts/cantoni",
+   "board_score": 0.0,
+   "instagram_score": 0.75,
+   "headline_score": 0.0,
+   "body_score": 0.75,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Cantoni Pro Regular",
+    "Cantoni Pro Bold"
+   ]
+  },
+  {
+   "family_slug": "mvb-pinecone",
+   "family": "Pinecone MVB Wide",
+   "foundry": "MVB Fonts",
+   "url": "https://fonts.adobe.com/fonts/mvb-pinecone",
+   "board_score": 0.0,
+   "instagram_score": 0.7,
+   "headline_score": 0.0,
+   "body_score": 0.7,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Pinecone MVB Wide",
+    "Pinecone MVB Regular"
+   ]
+  },
+  {
+   "family_slug": "minion-3",
+   "family": "Minion 3",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/minion-3",
+   "board_score": 0.0,
+   "instagram_score": 0.7,
+   "headline_score": 0.0,
+   "body_score": 0.7,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Minion 3 Italic",
+    "Minion 3 Semibold Italic",
+    "Minion 3 Medium Italic"
+   ]
+  },
+  {
+   "family_slug": "ogg-display",
+   "family": "Ogg",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/ogg-display",
+   "board_score": 0.0,
+   "instagram_score": 0.7,
+   "headline_score": 0.5,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Ogg Regular"
+   ]
+  },
+  {
+   "family_slug": "kopius",
+   "family": "Kopius",
+   "foundry": "Kontour",
+   "url": "https://fonts.adobe.com/fonts/kopius",
+   "board_score": 0.67,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.67,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Kopius Regular"
+   ]
+  },
+  {
+   "family_slug": "roboto-semicondensed",
+   "family": "Roboto SemiCondensed",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/roboto-semicondensed",
+   "board_score": 0.67,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.67,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Roboto SemiCondensed Regular"
+   ]
+  },
+  {
+   "family_slug": "cofo-sans-mono-variable",
+   "family": "CoFo Sans Mono Variable",
+   "foundry": "Contrast Foundry",
+   "url": "https://fonts.adobe.com/fonts/cofo-sans-mono-variable",
+   "board_score": 0.67,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": true,
+   "top_variations": [
+    "CoFo Sans Mono VF Regular"
+   ]
+  },
+  {
+   "family_slug": "fenway-banner-variable",
+   "family": "Fenway Banner VF",
+   "foundry": "Carter & Cone",
+   "url": "https://fonts.adobe.com/fonts/fenway-banner-variable",
+   "board_score": 0.0,
+   "instagram_score": 0.67,
+   "headline_score": 0.0,
+   "body_score": 0.67,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Fenway Banner Variable Light"
+   ]
+  },
+  {
+   "family_slug": "bebas-kai",
+   "family": "Bebas Kai",
+   "foundry": "Dharma Type",
+   "url": "https://fonts.adobe.com/fonts/bebas-kai",
+   "board_score": 0.33,
+   "instagram_score": 0.33,
+   "headline_score": 0.67,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Bebas Kai Regular"
+   ]
+  },
+  {
+   "family_slug": "transat-text",
+   "family": "Transat Text",
+   "foundry": "Typetanic",
+   "url": "https://fonts.adobe.com/fonts/transat-text",
+   "board_score": 0.0,
+   "instagram_score": 0.65,
+   "headline_score": 0.25,
+   "body_score": 0.4,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Transat Text Medium",
+    "Transat Text Light"
+   ]
+  },
+  {
+   "family_slug": "proxima-nova-wide",
+   "family": "Proxima Nova Wide",
+   "foundry": "Mark Simonson Studio",
+   "url": "https://fonts.adobe.com/fonts/proxima-nova-wide",
+   "board_score": 0.0,
+   "instagram_score": 0.65,
+   "headline_score": 0.4,
+   "body_score": 0.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 3,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Proxima Nova Wide Semibold",
+    "Proxima Nova Wide Regular"
+   ]
+  },
+  {
+   "family_slug": "source-serif-4-small-text",
+   "family": "Source Serif 4 Small Text",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/source-serif-4-small-text",
+   "board_score": 0.6,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.6,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Source Serif 4 SmText Regular"
+   ]
+  },
+  {
+   "family_slug": "gopher",
+   "family": "Gopher",
+   "foundry": "Adam Ladd",
+   "url": "https://fonts.adobe.com/fonts/gopher",
+   "board_score": 0.6,
+   "instagram_score": 0.0,
+   "headline_score": 0.6,
+   "body_score": 0.0,
+   "favourite_score": 0.6,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [
+    7529470
+   ],
+   "mono": false,
+   "top_variations": [
+    "Gopher Regular"
+   ]
+  },
+  {
+   "family_slug": "bd-console-variable",
+   "family": "BD Console Variable",
+   "foundry": "Buro Destruct",
+   "url": "https://fonts.adobe.com/fonts/bd-console-variable",
+   "board_score": 0.6,
+   "instagram_score": 0.0,
+   "headline_score": 0.6,
+   "body_score": 0.0,
+   "favourite_score": 0.6,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [
+    2145281
+   ],
+   "mono": false,
+   "top_variations": [
+    "BD Console Variable"
+   ]
+  },
+  {
+   "family_slug": "cormorant-sc",
+   "family": "Cormorant SC",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/cormorant-sc",
+   "board_score": 0.0,
+   "instagram_score": 0.6,
+   "headline_score": 0.6,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Cormorant SC Regular"
+   ]
+  },
+  {
+   "family_slug": "forma-djr-display",
+   "family": "Forma DJR Display",
+   "foundry": "DJR",
+   "url": "https://fonts.adobe.com/fonts/forma-djr-display",
+   "board_score": 0.58,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Forma DJR Display Regular",
+    "Forma DJR Display Medium"
+   ]
+  },
+  {
+   "family_slug": "loos",
+   "family": "Loos Wide",
+   "foundry": "CSTM Fonts",
+   "url": "https://fonts.adobe.com/fonts/loos",
+   "board_score": 0.58,
+   "instagram_score": 0.0,
+   "headline_score": 0.25,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Loos Wide Regular"
+   ]
+  },
+  {
+   "family_slug": "kepler-3-caption",
+   "family": "Kepler 3 Caption",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/kepler-3-caption",
+   "board_score": 0.58,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Kepler 3 Caption Light Italic",
+    "Kepler 3 Caption Semicondensed Light Italic"
+   ]
+  },
+  {
+   "family_slug": "aleo",
+   "family": "Aleo",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/aleo",
+   "board_score": 0.58,
+   "instagram_score": 0.0,
+   "headline_score": 0.58,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Aleo Medium",
+    "Aleo Regular"
+   ]
+  },
+  {
+   "family_slug": "golos-text",
+   "family": "Golos Text",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/golos-text",
+   "board_score": 0.33,
+   "instagram_score": 0.2,
+   "headline_score": 0.53,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Golos Text SemiBold",
+    "Golos Text Medium"
+   ]
+  },
+  {
+   "family_slug": "dashiell-fine",
+   "family": "Dashiell Fine",
+   "foundry": "Signal Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/dashiell-fine",
+   "board_score": 0.0,
+   "instagram_score": 0.53,
+   "headline_score": 0.33,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Dashiell Fine Demi",
+    "Dashiell Fine Light"
+   ]
+  },
+  {
+   "family_slug": "stratos",
+   "family": "Stratos Lights",
+   "foundry": "Production Type",
+   "url": "https://fonts.adobe.com/fonts/stratos",
+   "board_score": 0.5,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Stratos Light"
+   ]
+  },
+  {
+   "family_slug": "likely-sans",
+   "family": "Likely Sans",
+   "foundry": "Adam Ladd",
+   "url": "https://fonts.adobe.com/fonts/likely-sans",
+   "board_score": 0.5,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Likely Sans Regular"
+   ]
+  },
+  {
+   "family_slug": "bebas-neue-semirounded",
+   "family": "Bebas Neue SemiRounded",
+   "foundry": "Dharma Type",
+   "url": "https://fonts.adobe.com/fonts/bebas-neue-semirounded",
+   "board_score": 0.25,
+   "instagram_score": 0.25,
+   "headline_score": 0.5,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Bebas Neue SemiRounded Regular"
+   ]
+  },
+  {
+   "family_slug": "noort",
+   "family": "Noort",
+   "foundry": "TypeTogether",
+   "url": "https://fonts.adobe.com/fonts/noort",
+   "board_score": 0.5,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Noort Regular"
+   ]
+  },
+  {
+   "family_slug": "kepler-3",
+   "family": "Kepler 3 Extended",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/kepler-3",
+   "board_score": 0.25,
+   "instagram_score": 0.25,
+   "headline_score": 0.0,
+   "body_score": 0.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Kepler 3 Extended",
+    "Kepler 3 Light Italic"
+   ]
+  },
+  {
+   "family_slug": "embury-text",
+   "family": "Embury Text",
+   "foundry": "Victoria Rushton",
+   "url": "https://fonts.adobe.com/fonts/embury-text",
+   "board_score": 0.5,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Embury Text Regular"
+   ]
+  },
+  {
+   "family_slug": "dm-mono",
+   "family": "DM Mono",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/dm-mono",
+   "board_score": 0.25,
+   "instagram_score": 0.25,
+   "headline_score": 0.0,
+   "body_score": 0.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": true,
+   "top_variations": [
+    "DM Mono Regular"
+   ]
+  },
+  {
+   "family_slug": "bc-novatica",
+   "family": "BC Novatica CYR",
+   "foundry": "Briefcase Type",
+   "url": "https://fonts.adobe.com/fonts/bc-novatica",
+   "board_score": 0.5,
+   "instagram_score": 0.0,
+   "headline_score": 0.5,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "BC Novatica CYR Regular"
+   ]
+  },
+  {
+   "family_slug": "mudstone-sans",
+   "family": "Mudstone Sans",
+   "foundry": "PintassilgoPrints",
+   "url": "https://fonts.adobe.com/fonts/mudstone-sans",
+   "board_score": 0.5,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Mudstone Sans Black"
+   ]
+  },
+  {
+   "family_slug": "rubik-mono-one",
+   "family": "Rubik Mono One",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/rubik-mono-one",
+   "board_score": 0.5,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": true,
+   "top_variations": [
+    "Rubik Mono One Regular"
+   ]
+  },
+  {
+   "family_slug": "hobeaux",
+   "family": "Hobeaux",
+   "foundry": "OH no Type Co.",
+   "url": "https://fonts.adobe.com/fonts/hobeaux",
+   "board_score": 0.5,
+   "instagram_score": 0.0,
+   "headline_score": 0.5,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Hobeaux Semibold"
+   ]
+  },
+  {
+   "family_slug": "arial-nova",
+   "family": "Arial Nova",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/arial-nova",
+   "board_score": 0.5,
+   "instagram_score": 0.0,
+   "headline_score": 0.5,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Arial Nova Regular"
+   ]
+  },
+  {
+   "family_slug": "p22-mackinac",
+   "family": "P22 Mackinac Pro",
+   "foundry": "P22 Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/p22-mackinac",
+   "board_score": 0.5,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "P22 Mackinac Pro Bold"
+   ]
+  },
+  {
+   "family_slug": "maecenas",
+   "family": "Maecenas",
+   "foundry": "Capitalics",
+   "url": "https://fonts.adobe.com/fonts/maecenas",
+   "board_score": 0.0,
+   "instagram_score": 0.5,
+   "headline_score": 0.0,
+   "body_score": 0.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Maecenas ExtraLight Italic"
+   ]
+  },
+  {
+   "family_slug": "gravesend-sans",
+   "family": "Gravesend Sans",
+   "foundry": "Device Fonts",
+   "url": "https://fonts.adobe.com/fonts/gravesend-sans",
+   "board_score": 0.0,
+   "instagram_score": 0.5,
+   "headline_score": 0.5,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Gravesend Sans Light"
+   ]
+  },
+  {
+   "family_slug": "phudu-variable",
+   "family": "Phudu Variable",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/phudu-variable",
+   "board_score": 0.0,
+   "instagram_score": 0.5,
+   "headline_score": 0.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Phudu Light"
+   ]
+  },
+  {
+   "family_slug": "open-sans",
+   "family": "Open Sans",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/open-sans",
+   "board_score": 0.0,
+   "instagram_score": 0.5,
+   "headline_score": 0.5,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Open Sans Light"
+   ]
+  },
+  {
+   "family_slug": "ltc-kennerley",
+   "family": "LTC Kennerley",
+   "foundry": "Lanston Type Co.",
+   "url": "https://fonts.adobe.com/fonts/ltc-kennerley",
+   "board_score": 0.0,
+   "instagram_score": 0.5,
+   "headline_score": 0.0,
+   "body_score": 0.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "LTC Kennerley Pro Bold"
+   ]
+  },
+  {
+   "family_slug": "houschka-rounded",
+   "family": "Houschka Rounded",
+   "foundry": "G-Type",
+   "url": "https://fonts.adobe.com/fonts/houschka-rounded",
+   "board_score": 0.0,
+   "instagram_score": 0.5,
+   "headline_score": 0.0,
+   "body_score": 0.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Houschka Rounded Medium"
+   ]
+  },
+  {
+   "family_slug": "dashiell-bright",
+   "family": "Dashiell Bright",
+   "foundry": "Signal Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/dashiell-bright",
+   "board_score": 0.0,
+   "instagram_score": 0.5,
+   "headline_score": 0.5,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Dashiell Bright Regular"
+   ]
+  },
+  {
+   "family_slug": "neonoir",
+   "family": "Neonoir",
+   "foundry": "Phospho",
+   "url": "https://fonts.adobe.com/fonts/neonoir",
+   "board_score": 0.0,
+   "instagram_score": 0.5,
+   "headline_score": 0.5,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Neonoir Slim"
+   ]
+  },
+  {
+   "family_slug": "adobe-kis",
+   "family": "Adobe Kis Display",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/adobe-kis",
+   "board_score": 0.0,
+   "instagram_score": 0.5,
+   "headline_score": 0.5,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Adobe Kis Display Regular"
+   ]
+  },
+  {
+   "family_slug": "tablet-gothic",
+   "family": "Tablet Gothic",
+   "foundry": "TypeTogether",
+   "url": "https://fonts.adobe.com/fonts/tablet-gothic",
+   "board_score": 0.0,
+   "instagram_score": 0.5,
+   "headline_score": 0.0,
+   "body_score": 0.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Tablet Gothic Bold"
+   ]
+  },
+  {
+   "family_slug": "anzeigen-grotesk",
+   "family": "Anzeigen Grotesk",
+   "foundry": "URW Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/anzeigen-grotesk",
+   "board_score": 0.0,
+   "instagram_score": 0.5,
+   "headline_score": 0.5,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Anzeigen Grotesk Regular"
+   ]
+  },
+  {
+   "family_slug": "hwt-mardell",
+   "family": "HWT Mardell",
+   "foundry": "Hamilton Wood Type Collection",
+   "url": "https://fonts.adobe.com/fonts/hwt-mardell",
+   "board_score": 0.0,
+   "instagram_score": 0.5,
+   "headline_score": 0.5,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "HWT Mardell Regular"
+   ]
+  },
+  {
+   "family_slug": "urbane-rounded",
+   "family": "Urbane Rounded",
+   "foundry": "Device Fonts",
+   "url": "https://fonts.adobe.com/fonts/urbane-rounded",
+   "board_score": 0.0,
+   "instagram_score": 0.5,
+   "headline_score": 0.5,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Urbane Rounded Medium"
+   ]
+  },
+  {
+   "family_slug": "malaga",
+   "family": "Malaga Narrow",
+   "foundry": "Emigre",
+   "url": "https://fonts.adobe.com/fonts/malaga",
+   "board_score": 0.0,
+   "instagram_score": 0.5,
+   "headline_score": 0.0,
+   "body_score": 0.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Malaga Narrow OTCE Med"
+   ]
+  },
+  {
+   "family_slug": "strenuous",
+   "family": "Strenuous",
+   "foundry": "Typodermic",
+   "url": "https://fonts.adobe.com/fonts/strenuous",
+   "board_score": 0.0,
+   "instagram_score": 0.5,
+   "headline_score": 0.5,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Strenuous Book"
+   ]
+  },
+  {
+   "family_slug": "wordy-diva",
+   "family": "Wordy Diva",
+   "foundry": "Chank Co",
+   "url": "https://fonts.adobe.com/fonts/wordy-diva",
+   "board_score": 0.0,
+   "instagram_score": 0.5,
+   "headline_score": 0.0,
+   "body_score": 0.5,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Wordy Diva Regular"
+   ]
+  },
+  {
+   "family_slug": "essonnes",
+   "family": "Essonnes Display",
+   "foundry": "JTD",
+   "url": "https://fonts.adobe.com/fonts/essonnes",
+   "board_score": 0.45,
+   "instagram_score": 0.0,
+   "headline_score": 0.45,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Essonnes Display Regular",
+    "Essonnes Headline Bold"
+   ]
+  },
+  {
+   "family_slug": "adelle",
+   "family": "Adelle",
+   "foundry": "TypeTogether",
+   "url": "https://fonts.adobe.com/fonts/adelle",
+   "board_score": 0.45,
+   "instagram_score": 0.0,
+   "headline_score": 0.45,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Adelle Light",
+    "Adelle Regular"
+   ]
+  },
+  {
+   "family_slug": "adobe-jenson",
+   "family": "Adobe Jenson Pro Caption",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/adobe-jenson",
+   "board_score": 0.0,
+   "instagram_score": 0.45,
+   "headline_score": 0.0,
+   "body_score": 0.45,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Adobe Jenson Pro Semibold Caption",
+    "Adobe Jenson Pro Semibold"
+   ]
+  },
+  {
+   "family_slug": "district",
+   "family": "District Pro",
+   "foundry": "GarageFonts",
+   "url": "https://fonts.adobe.com/fonts/district",
+   "board_score": 0.0,
+   "instagram_score": 0.45,
+   "headline_score": 0.0,
+   "body_score": 0.45,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "District Pro Book",
+    "District Pro Bold"
+   ]
+  },
+  {
+   "family_slug": "le-monde-livre-classic",
+   "family": "Le Monde Livre Classic Std",
+   "foundry": "Typofonderie",
+   "url": "https://fonts.adobe.com/fonts/le-monde-livre-classic",
+   "board_score": 0.0,
+   "instagram_score": 0.45,
+   "headline_score": 0.0,
+   "body_score": 0.45,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Le Monde Livre Cla Std Book"
+   ]
+  },
+  {
+   "family_slug": "quiche-flare",
+   "family": "Quiche Flare",
+   "foundry": "Adam Ladd",
+   "url": "https://fonts.adobe.com/fonts/quiche-flare",
+   "board_score": 0.0,
+   "instagram_score": 0.45,
+   "headline_score": 0.0,
+   "body_score": 0.45,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Quiche Flare Regular",
+    "Quiche Flare Medium"
+   ]
+  },
+  {
+   "family_slug": "reiher-headline",
+   "family": "Reiher Headline",
+   "foundry": "Retype",
+   "url": "https://fonts.adobe.com/fonts/reiher-headline",
+   "board_score": 0.0,
+   "instagram_score": 0.45,
+   "headline_score": 0.45,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Reiher Headline Regular",
+    "Reiher Headline Bold"
+   ]
+  },
+  {
+   "family_slug": "meno-banner",
+   "family": "Meno Banner Condensed",
+   "foundry": "Lipton Letter Design",
+   "url": "https://fonts.adobe.com/fonts/meno-banner",
+   "board_score": 0.0,
+   "instagram_score": 0.45,
+   "headline_score": 0.45,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Meno Banner Condensed Extra Bold",
+    "Meno Banner Bold"
+   ]
+  },
+  {
+   "family_slug": "atf-alternate-gothic-condensed",
+   "family": "Alternate Gothic Condensed ATF",
+   "foundry": "American Type Founders Collection",
+   "url": "https://fonts.adobe.com/fonts/atf-alternate-gothic-condensed",
+   "board_score": 0.0,
+   "instagram_score": 0.45,
+   "headline_score": 0.0,
+   "body_score": 0.45,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Alternate Gothic Condensed ATF Book",
+    "Alternate Gothic Condensed ATF Semilight"
+   ]
+  },
+  {
+   "family_slug": "rift",
+   "family": "Rift",
+   "foundry": "Fort Foundry",
+   "url": "https://fonts.adobe.com/fonts/rift",
+   "board_score": 0.2,
+   "instagram_score": 0.2,
+   "headline_score": 0.4,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Rift Bold"
+   ]
+  },
+  {
+   "family_slug": "forma-djr-deck",
+   "family": "Forma DJR Deck",
+   "foundry": "DJR",
+   "url": "https://fonts.adobe.com/fonts/forma-djr-deck",
+   "board_score": 0.4,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.4,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 2,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Forma DJR Deck Regular",
+    "Forma DJR Deck Light Italic"
+   ]
+  },
+  {
+   "family_slug": "century-old-style",
+   "family": "Century Old Style Std",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/century-old-style",
+   "board_score": 0.0,
+   "instagram_score": 0.4,
+   "headline_score": 0.0,
+   "body_score": 0.4,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Century Old Style Std Regular"
+   ]
+  },
+  {
+   "family_slug": "archivo-variable",
+   "family": "Archivo Variable",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/archivo-variable",
+   "board_score": 0.0,
+   "instagram_score": 0.4,
+   "headline_score": 0.0,
+   "body_score": 0.4,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 2,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Archivo SemiBold"
+   ]
+  },
+  {
+   "family_slug": "jaf-domus-titling",
+   "family": "JAF Domus Titling",
+   "foundry": "Just Another Foundry",
+   "url": "https://fonts.adobe.com/fonts/jaf-domus-titling",
+   "board_score": 0.33,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Domus Titling Medium"
+   ]
+  },
+  {
+   "family_slug": "proxima-sera",
+   "family": "Proxima Sera",
+   "foundry": "Mark Simonson Studio",
+   "url": "https://fonts.adobe.com/fonts/proxima-sera",
+   "board_score": 0.33,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Proxima Sera Regular"
+   ]
+  },
+  {
+   "family_slug": "logic-monospace",
+   "family": "Logic Monospace",
+   "foundry": "MCKL",
+   "url": "https://fonts.adobe.com/fonts/logic-monospace",
+   "board_score": 0.33,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": true,
+   "top_variations": [
+    "Logic Monospace Regular"
+   ]
+  },
+  {
+   "family_slug": "tuna",
+   "family": "Tuna",
+   "foundry": "Floodfonts",
+   "url": "https://fonts.adobe.com/fonts/tuna",
+   "board_score": 0.33,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Tuna Medium"
+   ]
+  },
+  {
+   "family_slug": "rooney",
+   "family": "Rooney Web",
+   "foundry": "Jan Fromm",
+   "url": "https://fonts.adobe.com/fonts/rooney",
+   "board_score": 0.33,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Rooney Light"
+   ]
+  },
+  {
+   "family_slug": "chivo",
+   "family": "Chivo",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/chivo",
+   "board_score": 0.33,
+   "instagram_score": 0.0,
+   "headline_score": 0.33,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Chivo ExtraLight"
+   ]
+  },
+  {
+   "family_slug": "delicato",
+   "family": "Delicato",
+   "foundry": "MAC Rhino Fonts",
+   "url": "https://fonts.adobe.com/fonts/delicato",
+   "board_score": 0.33,
+   "instagram_score": 0.0,
+   "headline_score": 0.33,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Delicato Pro Bold"
+   ]
+  },
+  {
+   "family_slug": "arsenica-variable",
+   "family": "Arsenica Variable",
+   "foundry": "Zetafonts",
+   "url": "https://fonts.adobe.com/fonts/arsenica-variable",
+   "board_score": 0.33,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Arsenica Variable Italic"
+   ]
+  },
+  {
+   "family_slug": "berthold-block-w1g",
+   "family": "Berthold Block W1G Condensed",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/berthold-block-w1g",
+   "board_score": 0.33,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Block W1G Condensed"
+   ]
+  },
+  {
+   "family_slug": "ff-dagny",
+   "family": "FF Dagny Pro",
+   "foundry": "FontFont",
+   "url": "https://fonts.adobe.com/fonts/ff-dagny",
+   "board_score": 0.33,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Dagny Pro Bold"
+   ]
+  },
+  {
+   "family_slug": "lexend-deca",
+   "family": "Lexend Deca",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/lexend-deca",
+   "board_score": 0.33,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Lexend Deca Regular"
+   ]
+  },
+  {
+   "family_slug": "tasman",
+   "family": "Tasman",
+   "foundry": "Retype",
+   "url": "https://fonts.adobe.com/fonts/tasman",
+   "board_score": 0.33,
+   "instagram_score": 0.0,
+   "headline_score": 0.33,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Tasman Light"
+   ]
+  },
+  {
+   "family_slug": "futura-pt",
+   "family": "Futura PT",
+   "foundry": "Paratype",
+   "url": "https://fonts.adobe.com/fonts/futura-pt",
+   "board_score": 0.0,
+   "instagram_score": 0.33,
+   "headline_score": 0.33,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Futura PT Light"
+   ]
+  },
+  {
+   "family_slug": "alegreya-sans-sc",
+   "family": "Alegreya Sans SC",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/alegreya-sans-sc",
+   "board_score": 0.0,
+   "instagram_score": 0.33,
+   "headline_score": 0.33,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Alegreya Sans SC Light"
+   ]
+  },
+  {
+   "family_slug": "komet",
+   "family": "Komet SC",
+   "foundry": "Jan Fromm",
+   "url": "https://fonts.adobe.com/fonts/komet",
+   "board_score": 0.0,
+   "instagram_score": 0.33,
+   "headline_score": 0.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Komet ExtraLight SC"
+   ]
+  },
+  {
+   "family_slug": "coranto-2",
+   "family": "Coranto 2",
+   "foundry": "TypeTogether",
+   "url": "https://fonts.adobe.com/fonts/coranto-2",
+   "board_score": 0.0,
+   "instagram_score": 0.33,
+   "headline_score": 0.33,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Coranto 2 Regular"
+   ]
+  },
+  {
+   "family_slug": "atf-garamond-micro",
+   "family": "Garamond ATF Micro",
+   "foundry": "American Type Founders Collection",
+   "url": "https://fonts.adobe.com/fonts/atf-garamond-micro",
+   "board_score": 0.0,
+   "instagram_score": 0.33,
+   "headline_score": 0.0,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Garamond ATF Micro Regular"
+   ]
+  },
+  {
+   "family_slug": "marion",
+   "family": "Marion Standard",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/marion",
+   "board_score": 0.0,
+   "instagram_score": 0.33,
+   "headline_score": 0.0,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Marion Standard Regular"
+   ]
+  },
+  {
+   "family_slug": "vinila",
+   "family": "Vinila Condensed",
+   "foundry": "Plau",
+   "url": "https://fonts.adobe.com/fonts/vinila",
+   "board_score": 0.0,
+   "instagram_score": 0.33,
+   "headline_score": 0.33,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Vinila Condensed Thin"
+   ]
+  },
+  {
+   "family_slug": "gibson",
+   "family": "Gibson",
+   "foundry": "Canada Type",
+   "url": "https://fonts.adobe.com/fonts/gibson",
+   "board_score": 0.0,
+   "instagram_score": 0.33,
+   "headline_score": 0.0,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Gibson SemiBold"
+   ]
+  },
+  {
+   "family_slug": "azo-sans",
+   "family": "Azo Sans",
+   "foundry": "Rui Abreu",
+   "url": "https://fonts.adobe.com/fonts/azo-sans",
+   "board_score": 0.0,
+   "instagram_score": 0.33,
+   "headline_score": 0.33,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Azo Sans Bold"
+   ]
+  },
+  {
+   "family_slug": "proxima-soft",
+   "family": "Proxima Soft",
+   "foundry": "Mark Simonson Studio",
+   "url": "https://fonts.adobe.com/fonts/proxima-soft",
+   "board_score": 0.0,
+   "instagram_score": 0.33,
+   "headline_score": 0.0,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Proxima Soft Regular"
+   ]
+  },
+  {
+   "family_slug": "lavigne",
+   "family": "Lavigne Display",
+   "foundry": "Retype",
+   "url": "https://fonts.adobe.com/fonts/lavigne",
+   "board_score": 0.0,
+   "instagram_score": 0.33,
+   "headline_score": 0.0,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Lavigne Display Italic"
+   ]
+  },
+  {
+   "family_slug": "operetta",
+   "family": "Operetta 32",
+   "foundry": "Synthview",
+   "url": "https://fonts.adobe.com/fonts/operetta",
+   "board_score": 0.0,
+   "instagram_score": 0.33,
+   "headline_score": 0.33,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Operetta 32 Regular"
+   ]
+  },
+  {
+   "family_slug": "p22-constructivist-pro",
+   "family": "P22 Constructivist Pro",
+   "foundry": "P22 Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/p22-constructivist-pro",
+   "board_score": 0.0,
+   "instagram_score": 0.33,
+   "headline_score": 0.33,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "P22 Constructivist Pro Regular"
+   ]
+  },
+  {
+   "family_slug": "jinky",
+   "family": "Jinky",
+   "foundry": "Rotodesign",
+   "url": "https://fonts.adobe.com/fonts/jinky",
+   "board_score": 0.0,
+   "instagram_score": 0.33,
+   "headline_score": 0.0,
+   "body_score": 0.33,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Jinky Regular"
+   ]
+  },
+  {
+   "family_slug": "joly-headline",
+   "family": "Joly Headline",
+   "foundry": "Blaze Type",
+   "url": "https://fonts.adobe.com/fonts/joly-headline",
+   "board_score": 0.25,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Joly Headline Bold"
+   ]
+  },
+  {
+   "family_slug": "odile",
+   "family": "Odile",
+   "foundry": "Kontour",
+   "url": "https://fonts.adobe.com/fonts/odile",
+   "board_score": 0.25,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Odile Book"
+   ]
+  },
+  {
+   "family_slug": "silva-text",
+   "family": "Silva Text",
+   "foundry": "Blackletra",
+   "url": "https://fonts.adobe.com/fonts/silva-text",
+   "board_score": 0.25,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Silva Text Light Italic"
+   ]
+  },
+  {
+   "family_slug": "kettler",
+   "family": "Kettler",
+   "foundry": "Process Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/kettler",
+   "board_score": 0.25,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Kettler Regular"
+   ]
+  },
+  {
+   "family_slug": "venn",
+   "family": "Venn",
+   "foundry": "Dalton Maag",
+   "url": "https://fonts.adobe.com/fonts/venn",
+   "board_score": 0.25,
+   "instagram_score": 0.0,
+   "headline_score": 0.25,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Venn Medium"
+   ]
+  },
+  {
+   "family_slug": "sweater-school",
+   "family": "Sweater School",
+   "foundry": "Typodermic",
+   "url": "https://fonts.adobe.com/fonts/sweater-school",
+   "board_score": 0.25,
+   "instagram_score": 0.0,
+   "headline_score": 0.25,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Sweater School SemiBold"
+   ]
+  },
+  {
+   "family_slug": "dutch-mediaeval",
+   "family": "Dutch Mediaeval Pro",
+   "foundry": "Canada Type",
+   "url": "https://fonts.adobe.com/fonts/dutch-mediaeval",
+   "board_score": 0.25,
+   "instagram_score": 0.0,
+   "headline_score": 0.25,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Dutch Mediaeval Pro Bold"
+   ]
+  },
+  {
+   "family_slug": "roslyn-mn",
+   "family": "Roslyn MN",
+   "foundry": "Mecanorma Collection",
+   "url": "https://fonts.adobe.com/fonts/roslyn-mn",
+   "board_score": 0.25,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Roslyn MN Bold"
+   ]
+  },
+  {
+   "family_slug": "polymath",
+   "family": "Polymath",
+   "foundry": "OH no Type Co.",
+   "url": "https://fonts.adobe.com/fonts/polymath",
+   "board_score": 0.25,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Polymath Semibold"
+   ]
+  },
+  {
+   "family_slug": "forma-djr-micro",
+   "family": "Forma DJR Micro",
+   "foundry": "DJR",
+   "url": "https://fonts.adobe.com/fonts/forma-djr-micro",
+   "board_score": 0.25,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Forma DJR Micro Regular"
+   ]
+  },
+  {
+   "family_slug": "acumin-condensed",
+   "family": "Acumin Pro Condensed",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/acumin-condensed",
+   "board_score": 0.0,
+   "instagram_score": 0.25,
+   "headline_score": 0.0,
+   "body_score": 0.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Acumin Pro Condensed Medium"
+   ]
+  },
+  {
+   "family_slug": "grover-slab",
+   "family": "Grover Slab Caps",
+   "foundry": "Sudtipos",
+   "url": "https://fonts.adobe.com/fonts/grover-slab",
+   "board_score": 0.0,
+   "instagram_score": 0.25,
+   "headline_score": 0.0,
+   "body_score": 0.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Grover Slab Caps Bold"
+   ]
+  },
+  {
+   "family_slug": "rig-shaded",
+   "family": "Rig Shaded Light Face",
+   "foundry": "Jamie Clarke Type",
+   "url": "https://fonts.adobe.com/fonts/rig-shaded",
+   "board_score": 0.0,
+   "instagram_score": 0.25,
+   "headline_score": 0.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Rig Shaded Light Face"
+   ]
+  },
+  {
+   "family_slug": "noto-sans",
+   "family": "Noto Sans",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/noto-sans",
+   "board_score": 0.0,
+   "instagram_score": 0.25,
+   "headline_score": 0.25,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Noto Sans Light"
+   ]
+  },
+  {
+   "family_slug": "raleway-v20-deprecated",
+   "family": "Raleway v2.0 (deprecated)",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/raleway-v20-deprecated",
+   "board_score": 0.0,
+   "instagram_score": 0.25,
+   "headline_score": 0.0,
+   "body_score": 0.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Raleway Regular"
+   ]
+  },
+  {
+   "family_slug": "haboro-soft",
+   "family": "Haboro Soft Extended",
+   "foundry": "Insigne Design",
+   "url": "https://fonts.adobe.com/fonts/haboro-soft",
+   "board_score": 0.0,
+   "instagram_score": 0.25,
+   "headline_score": 0.0,
+   "body_score": 0.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Haboro Soft Ext Regular"
+   ]
+  },
+  {
+   "family_slug": "benton-modern-display",
+   "family": "Benton Modern Display",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/benton-modern-display",
+   "board_score": 0.0,
+   "instagram_score": 0.25,
+   "headline_score": 0.25,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Benton Modern D Regular"
+   ]
+  },
+  {
+   "family_slug": "filmotype-lacrosse",
+   "family": "Filmotype LaCrosse",
+   "foundry": "Filmotype",
+   "url": "https://fonts.adobe.com/fonts/filmotype-lacrosse",
+   "board_score": 0.0,
+   "instagram_score": 0.25,
+   "headline_score": 0.25,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Filmotype LaCrosse Regular"
+   ]
+  },
+  {
+   "family_slug": "dejanire-headline",
+   "family": "Dejanire Headline",
+   "foundry": "Retype",
+   "url": "https://fonts.adobe.com/fonts/dejanire-headline",
+   "board_score": 0.0,
+   "instagram_score": 0.25,
+   "headline_score": 0.0,
+   "body_score": 0.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Dejanire Headline Bold"
+   ]
+  },
+  {
+   "family_slug": "menca",
+   "family": "Menca",
+   "foundry": "Kvant",
+   "url": "https://fonts.adobe.com/fonts/menca",
+   "board_score": 0.0,
+   "instagram_score": 0.25,
+   "headline_score": 0.0,
+   "body_score": 0.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Menca Bold"
+   ]
+  },
+  {
+   "family_slug": "avenir-next-world",
+   "family": "Avenir Next World",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/avenir-next-world",
+   "board_score": 0.0,
+   "instagram_score": 0.25,
+   "headline_score": 0.25,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Avenir Next World Bold"
+   ]
+  },
+  {
+   "family_slug": "miller-banner",
+   "family": "Miller Banner Condensed",
+   "foundry": "Carter & Cone",
+   "url": "https://fonts.adobe.com/fonts/miller-banner",
+   "board_score": 0.0,
+   "instagram_score": 0.25,
+   "headline_score": 0.25,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Miller Banner Condensed Regular"
+   ]
+  },
+  {
+   "family_slug": "cc-clobberin-time",
+   "family": "CCClobberinTimeSmooth",
+   "foundry": "Comicraft",
+   "url": "https://fonts.adobe.com/fonts/cc-clobberin-time",
+   "board_score": 0.0,
+   "instagram_score": 0.25,
+   "headline_score": 0.25,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "CCClobberinTimeSmooth Regular"
+   ]
+  },
+  {
+   "family_slug": "urbane-condensed",
+   "family": "Urbane Condensed",
+   "foundry": "Device Fonts",
+   "url": "https://fonts.adobe.com/fonts/urbane-condensed",
+   "board_score": 0.0,
+   "instagram_score": 0.25,
+   "headline_score": 0.25,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Urbane Condensed Medium"
+   ]
+  },
+  {
+   "family_slug": "stilson",
+   "family": "Stilson",
+   "foundry": "Carter & Cone",
+   "url": "https://fonts.adobe.com/fonts/stilson",
+   "board_score": 0.0,
+   "instagram_score": 0.25,
+   "headline_score": 0.25,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Stilson Bold"
+   ]
+  },
+  {
+   "family_slug": "patriot",
+   "family": "Patriot",
+   "foundry": "Republish Foundry",
+   "url": "https://fonts.adobe.com/fonts/patriot",
+   "board_score": 0.0,
+   "instagram_score": 0.25,
+   "headline_score": 0.25,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Patriot Regular"
+   ]
+  },
+  {
+   "family_slug": "shadows-into-light",
+   "family": "Shadows Into Light",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/shadows-into-light",
+   "board_score": 0.0,
+   "instagram_score": 0.25,
+   "headline_score": 0.0,
+   "body_score": 0.25,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Shadows Into Light Regular"
+   ]
+  },
+  {
+   "family_slug": "forma-djr-banner",
+   "family": "Forma DJR Banner",
+   "foundry": "DJR",
+   "url": "https://fonts.adobe.com/fonts/forma-djr-banner",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Forma DJR Banner Medium"
+   ]
+  },
+  {
+   "family_slug": "classic-comic",
+   "family": "Classic Comic",
+   "foundry": "Canada Type",
+   "url": "https://fonts.adobe.com/fonts/classic-comic",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Classic Comic Regular"
+   ]
+  },
+  {
+   "family_slug": "neulis-sans",
+   "family": "Neulis Sans",
+   "foundry": "Adam Ladd",
+   "url": "https://fonts.adobe.com/fonts/neulis-sans",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.2,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Neulis Sans Semi Bold"
+   ]
+  },
+  {
+   "family_slug": "cubano",
+   "family": "Cubano Sharp",
+   "foundry": "Chandler Van De Water",
+   "url": "https://fonts.adobe.com/fonts/cubano",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.2,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Cubano Sharp"
+   ]
+  },
+  {
+   "family_slug": "ff-casus",
+   "family": "FF Casus",
+   "foundry": "FontFont",
+   "url": "https://fonts.adobe.com/fonts/ff-casus",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Casus Pro Light"
+   ]
+  },
+  {
+   "family_slug": "clarendon-urw",
+   "family": "Clarendon URW",
+   "foundry": "URW Type Foundry",
+   "url": "https://fonts.adobe.com/fonts/clarendon-urw",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Clarendon URW Light"
+   ]
+  },
+  {
+   "family_slug": "courier-prime",
+   "family": "Courier Prime",
+   "foundry": "Quote-Unquote Fonts",
+   "url": "https://fonts.adobe.com/fonts/courier-prime",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": true,
+   "top_variations": [
+    "Courier Prime Regular"
+   ]
+  },
+  {
+   "family_slug": "bennet-text",
+   "family": "Bennet Text Three",
+   "foundry": "Lipton Letter Design",
+   "url": "https://fonts.adobe.com/fonts/bennet-text",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Bennet Text Three Regular"
+   ]
+  },
+  {
+   "family_slug": "oso",
+   "family": "Oso Serif",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/oso",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Oso Serif Light"
+   ]
+  },
+  {
+   "family_slug": "nyx",
+   "family": "Nyx Std",
+   "foundry": "Adobe Originals",
+   "url": "https://fonts.adobe.com/fonts/nyx",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.2,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Nyx Std Regular"
+   ]
+  },
+  {
+   "family_slug": "mozilla-text",
+   "family": "Mozilla Text",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/mozilla-text",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.2,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Mozilla Text Regular"
+   ]
+  },
+  {
+   "family_slug": "calling-code",
+   "family": "Calling Code",
+   "foundry": "Dharma Type",
+   "url": "https://fonts.adobe.com/fonts/calling-code",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": true,
+   "top_variations": [
+    "Calling Code Regular"
+   ]
+  },
+  {
+   "family_slug": "degular-mono",
+   "family": "Degular Mono",
+   "foundry": "OH no Type Co.",
+   "url": "https://fonts.adobe.com/fonts/degular-mono",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": true,
+   "top_variations": [
+    "Degular Mono Regular"
+   ]
+  },
+  {
+   "family_slug": "calluna",
+   "family": "Calluna",
+   "foundry": "exljbris Font Foundry",
+   "url": "https://fonts.adobe.com/fonts/calluna",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.2,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Calluna Bold"
+   ]
+  },
+  {
+   "family_slug": "pain-de-mie",
+   "family": "Pain de Mie",
+   "foundry": "PintassilgoPrints",
+   "url": "https://fonts.adobe.com/fonts/pain-de-mie",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Pain de Mie Regular"
+   ]
+  },
+  {
+   "family_slug": "runda",
+   "family": "Runda",
+   "foundry": "ps Type",
+   "url": "https://fonts.adobe.com/fonts/runda",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.2,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Runda Medium"
+   ]
+  },
+  {
+   "family_slug": "cy",
+   "family": "Cy",
+   "foundry": "supertype",
+   "url": "https://fonts.adobe.com/fonts/cy",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Cy SemiBold"
+   ]
+  },
+  {
+   "family_slug": "garalda",
+   "family": "Garalda",
+   "foundry": "TypeTogether",
+   "url": "https://fonts.adobe.com/fonts/garalda",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.2,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Garalda Regular"
+   ]
+  },
+  {
+   "family_slug": "ff-tisa",
+   "family": "FF Tisa Pro",
+   "foundry": "FontFont",
+   "url": "https://fonts.adobe.com/fonts/ff-tisa",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.2,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Tisa Pro Light"
+   ]
+  },
+  {
+   "family_slug": "new-spirit",
+   "family": "New Spirit",
+   "foundry": "Newlyn",
+   "url": "https://fonts.adobe.com/fonts/new-spirit",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "New Spirit Regular"
+   ]
+  },
+  {
+   "family_slug": "roca",
+   "family": "Roca",
+   "foundry": "My Creative Land",
+   "url": "https://fonts.adobe.com/fonts/roca",
+   "board_score": 0.2,
+   "instagram_score": 0.0,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 1,
+   "instagram_posts": 0,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Roca Regular"
+   ]
+  },
+  {
+   "family_slug": "input-mono",
+   "family": "Input Mono Condensed",
+   "foundry": "DJR",
+   "url": "https://fonts.adobe.com/fonts/input-mono",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.2,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": true,
+   "top_variations": [
+    "Input Mono Condensed Regular"
+   ]
+  },
+  {
+   "family_slug": "mr-eaves-sans",
+   "family": "Mr Eaves Modern",
+   "foundry": "Emigre",
+   "url": "https://fonts.adobe.com/fonts/mr-eaves-sans",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.2,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Mr Eaves Mod OT Light"
+   ]
+  },
+  {
+   "family_slug": "roboto-condensed",
+   "family": "Roboto Condensed",
+   "foundry": "Google",
+   "url": "https://fonts.adobe.com/fonts/roboto-condensed",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Roboto Condensed Regular"
+   ]
+  },
+  {
+   "family_slug": "portofino",
+   "family": "Portofino",
+   "foundry": "Tipofili",
+   "url": "https://fonts.adobe.com/fonts/portofino",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.2,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Portofino Light"
+   ]
+  },
+  {
+   "family_slug": "waverly-cf",
+   "family": "Waverly CF",
+   "foundry": "Connary Fagen",
+   "url": "https://fonts.adobe.com/fonts/waverly-cf",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Waverly CF Light"
+   ]
+  },
+  {
+   "family_slug": "boreal",
+   "family": "Boreal",
+   "foundry": "Production Type",
+   "url": "https://fonts.adobe.com/fonts/boreal",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.2,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Boreal ExtraLight"
+   ]
+  },
+  {
+   "family_slug": "bebas-neue-by-fontfabric-based-on-v14",
+   "family": "Bebas Neue by Fontfabric",
+   "foundry": "Dharma Type",
+   "url": "https://fonts.adobe.com/fonts/bebas-neue-by-fontfabric-based-on-v14",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Bebas Neue Regular"
+   ]
+  },
+  {
+   "family_slug": "handsome-pro",
+   "family": "Handsome Pro",
+   "foundry": "Shinntype",
+   "url": "https://fonts.adobe.com/fonts/handsome-pro",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.0,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Handsome Pro Thin"
+   ]
+  },
+  {
+   "family_slug": "kumbh-sans-variable",
+   "family": "Kumbh Sans Variable",
+   "foundry": "Open Source",
+   "url": "https://fonts.adobe.com/fonts/kumbh-sans-variable",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Kumbh Sans Regular"
+   ]
+  },
+  {
+   "family_slug": "code-saver",
+   "family": "Code Saver",
+   "foundry": "Dharma Type",
+   "url": "https://fonts.adobe.com/fonts/code-saver",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": true,
+   "top_variations": [
+    "Code Saver Regular"
+   ]
+  },
+  {
+   "family_slug": "oskar",
+   "family": "Oskar",
+   "foundry": "Bold Monday",
+   "url": "https://fonts.adobe.com/fonts/oskar",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.2,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Oskar One Bold"
+   ]
+  },
+  {
+   "family_slug": "the-youngest",
+   "family": "The Youngest",
+   "foundry": "My Creative Land",
+   "url": "https://fonts.adobe.com/fonts/the-youngest",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.2,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "The Youngest Regular"
+   ]
+  },
+  {
+   "family_slug": "anth",
+   "family": "Anth",
+   "foundry": "Antonio Di Spigna",
+   "url": "https://fonts.adobe.com/fonts/anth",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Anth Bold"
+   ]
+  },
+  {
+   "family_slug": "overpass-variable",
+   "family": "Overpass Variable",
+   "foundry": "Open Source",
+   "url": "https://fonts.adobe.com/fonts/overpass-variable",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.2,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Overpass Regular"
+   ]
+  },
+  {
+   "family_slug": "adelle-sans",
+   "family": "Adelle Sans Condensed",
+   "foundry": "TypeTogether",
+   "url": "https://fonts.adobe.com/fonts/adelle-sans",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Adelle Sans Cnd Bold"
+   ]
+  },
+  {
+   "family_slug": "bennet-display",
+   "family": "Bennet Display",
+   "foundry": "Lipton Letter Design",
+   "url": "https://fonts.adobe.com/fonts/bennet-display",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Bennet Display Light"
+   ]
+  },
+  {
+   "family_slug": "expressway",
+   "family": "Expressway",
+   "foundry": "Typodermic",
+   "url": "https://fonts.adobe.com/fonts/expressway",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Expressway Book"
+   ]
+  },
+  {
+   "family_slug": "bressay",
+   "family": "Bressay Display",
+   "foundry": "Dalton Maag",
+   "url": "https://fonts.adobe.com/fonts/bressay",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Bressay Display Italic"
+   ]
+  },
+  {
+   "family_slug": "chronic",
+   "family": "Chronic Black",
+   "foundry": "PintassilgoPrints",
+   "url": "https://fonts.adobe.com/fonts/chronic",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.2,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Chronic Black"
+   ]
+  },
+  {
+   "family_slug": "contralto",
+   "family": "Contralto Medium",
+   "foundry": "Synthview",
+   "url": "https://fonts.adobe.com/fonts/contralto",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Contralto Medium Demi Bold"
+   ]
+  },
+  {
+   "family_slug": "ff-unit-slab",
+   "family": "FF Unit Slab",
+   "foundry": "FontFont",
+   "url": "https://fonts.adobe.com/fonts/ff-unit-slab",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Unit Slab Pro Medium"
+   ]
+  },
+  {
+   "family_slug": "atf-wedding-gothic",
+   "family": "Wedding Gothic ATF",
+   "foundry": "American Type Founders Collection",
+   "url": "https://fonts.adobe.com/fonts/atf-wedding-gothic",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.2,
+   "body_score": 0.0,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Wedding Gothic ATF Regular"
+   ]
+  },
+  {
+   "family_slug": "rollerscript",
+   "family": "Rollerscript Rough",
+   "foundry": "G-Type",
+   "url": "https://fonts.adobe.com/fonts/rollerscript",
+   "board_score": 0.0,
+   "instagram_score": 0.2,
+   "headline_score": 0.0,
+   "body_score": 0.2,
+   "favourite_score": 0.0,
+   "first_place": 0,
+   "board_blocks": 0,
+   "instagram_posts": 1,
+   "favourite_blocks": [],
+   "mono": false,
+   "top_variations": [
+    "Rollerscript Rough"
+   ]
+  }
+ ]
 }

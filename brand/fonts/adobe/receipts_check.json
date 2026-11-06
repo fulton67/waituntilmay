@@ -1,0 +1,2712 @@
+{
+ "36747221_0.png": {
+  "own": 0.33,
+  "best_neighbour": 0.35,
+  "ocr": "demandespecialejuclj5tgldemjrecpedil27amrirtacimcukmatpaultn"
+ },
+ "36747221_1.png": {
+  "own": 0.37,
+  "best_neighbour": 0.35,
+  "ocr": "demandespecialejuclj5tgllmjmcdl13atiljrntacimcukmatpaultntyl"
+ },
+ "36747221_2.png": {
+  "own": 0.36,
+  "best_neighbour": 0.22,
+  "ocr": "salledeconferencemclcietcetclz3lslxomtrncdalrnilumaeaaarhgal"
+ },
+ "36747221_3.png": {
+  "own": 0.29,
+  "best_neighbour": 0.16,
+  "ocr": "acresseactuellemclcietcetclz3lmeexulc27dmerirtrimacrvkiaspln"
+ },
+ "36747221_4.png": {
+  "own": 0.38,
+  "best_neighbour": 0.25,
+  "ocr": "espacedetravailsnpkuluateuticucfojgatcuadirohotovevotitremte"
+ },
+ "36747221_5.png": {
+  "own": 0.3,
+  "best_neighbour": 0.2,
+  "ocr": "nomcomplet544koljmaiennautlscucfojg77drloshotodotitbemmct"
+ },
+ "36747221_6.png": {
+  "own": 0.33,
+  "best_neighbour": 0.22,
+  "ocr": "membresactueldaanakaldlucuchorgedaeohotmwatltbemoecormombroc"
+ },
+ "36747221_7.png": {
+  "own": 0.33,
+  "best_neighbour": 0.22,
+  "ocr": "placesassisesimclett3mhenanzdomntccinaat04teartetcmoftplacec"
+ },
+ "36747221_8.png": {
+  "own": 0.42,
+  "best_neighbour": 0.19,
+  "ocr": "clicsdesouri544kolcucfoj637lsui35hotovtotltbemmct"
+ },
+ "36747221_9.png": {
+  "own": 0.33,
+  "best_neighbour": 0.16,
+  "ocr": "acresseinitiaamakieeh8dgence4iermenttrdcfiliacemadmaeshomiea"
+ },
+ "36747221_10.png": {
+  "own": 0.34,
+  "best_neighbour": 0.15,
+  "ocr": "collaborateursmclcteatfivlcolibeudemebrtcrdkmcptmta7uetlandk"
+ },
+ "36747221_11.png": {
+  "own": 0.26,
+  "best_neighbour": 0.16,
+  "ocr": "disqueduieanakwfulaijjuteitaacuctojgeedanlorotomcotltbcmocot"
+ },
+ "36747221_12.png": {
+  "own": 0.32,
+  "best_neighbour": 0.24,
+  "ocr": "coordonneesehuellltaleiegjjneecaecermecldumwersokitin"
+ },
+ "36747221_13.png": {
+  "own": 0.34,
+  "best_neighbour": 0.18,
+  "ocr": "gigaoctetsetnccawineataadmenateshotoutomtrmdcccc"
+ },
+ "36747221_14.png": {
+  "own": 0.22,
+  "best_neighbour": 0.21,
+  "ocr": "35100omckkatewu3577uhmati6nteeerdcmana"
+ },
+ "36747221_15.png": {
+  "own": 0.2,
+  "best_neighbour": 0.29,
+  "ocr": "jmltecucfojgatcuadirohotovevotitremtecctetages"
+ },
+ "36747221_16.png": {
+  "own": 0.42,
+  "best_neighbour": 0.21,
+  "ocr": "acronyme5tnclalgcfcachmrmdcccc"
+ },
+ "36747221_17.png": {
+  "own": 0.3,
+  "best_neighbour": 0.1,
+  "ocr": "200omctficamtentcadekrtaitluuan0lamlpamtfnt223171200"
+ },
+ "36747221_18.png": {
+  "own": 0.24,
+  "best_neighbour": 0.21,
+  "ocr": "acressescomgicetclz3lneiameiztttgtertdaemnavrlamndedraccoc"
+ },
+ "36747221_19.png": {
+  "own": 0.27,
+  "best_neighbour": 0.17,
+  "ocr": "743800amcl84tarfadimlrtaceakeralya4trml4mnds18748800"
+ },
+ "36747221_20.png": {
+  "own": 0.23,
+  "best_neighbour": 0.14,
+  "ocr": "semainesamakieeh8dcni4iermenttrdcfiliacemadmaeshomieatcemain"
+ },
+ "36747221_21.png": {
+  "own": 0.25,
+  "best_neighbour": 0.15,
+  "ocr": "secondescomgicetclz3lonoiameiztjmlerlatulxutomants7ccncoc"
+ },
+ "36747221_22.png": {
+  "own": 0.25,
+  "best_neighbour": 0.12,
+  "ocr": "decenniesmclteti8rlpinucatoitminaat04teartetcmoftscennies"
+ },
+ "36747221_23.png": {
+  "own": 0.27,
+  "best_neighbour": 0.23,
+  "ocr": "montrealeauakwldlyaelclentmotibemtacdotmontre"
+ },
+ "36747221_24.png": {
+  "own": 0.25,
+  "best_neighbour": 0.17,
+  "ocr": "37195205tnclal4nztwineataadmenateshotoutomtrmdcccc"
+ },
+ "36747221_25.png": {
+  "own": 0.21,
+  "best_neighbour": 0.12,
+  "ocr": "membresmclcietcetclz3lsulemit27dmerirtaiimcohxacpanmmmembrec"
+ },
+ "36747221_26.png": {
+  "own": 0.23,
+  "best_neighbour": 0.17,
+  "ocr": "prorinceeauakwldlyatcuehoj6e2xdllosshotorbtitbemtacdotprovin"
+ },
+ "36747221_27.png": {
+  "own": 0.2,
+  "best_neighbour": 0.19,
+  "ocr": "quebecamakieeh8dchdeh4iermenttehkereemkawshec"
+ },
+ "36747221_28.png": {
+  "own": 0.27,
+  "best_neighbour": 0.18,
+  "ocr": "projetajmglatjrcjomtoicgcadukdaiphifni"
+ },
+ "36747221_29.png": {
+  "own": 0.2,
+  "best_neighbour": 0.09,
+  "ocr": "minutesamakileeh8daial4iermenttrdcfiliacemadmaeshomieatminut"
+ },
+ "36747221_30.png": {
+  "own": 0.18,
+  "best_neighbour": 0.15,
+  "ocr": "planeteeauakedlyaedtcuehoj6e2xdllosshotorbtitbemtacdotplanet"
+ },
+ "36747221_31.png": {
+  "own": 0.16,
+  "best_neighbour": 0.16,
+  "ocr": "armneedamakieeh8d1eiti4itlrdcfiliacemadmaeshomieatannees"
+ },
+ "36747221_32.png": {
+  "own": 0.18,
+  "best_neighbour": 0.11,
+  "ocr": "anadacomgicetclz3l2odmlzrtrtaiimcohxacpanmmcanada"
+ },
+ "36747221_33.png": {
+  "own": 0.21,
+  "best_neighbour": 0.21,
+  "ocr": "oodsdlyaceraraeiutzinbemtacdotoods"
+ },
+ "36747221_34.png": {
+  "own": 0.18,
+  "best_neighbour": 0.09,
+  "ocr": "heuredeauatkcdlyaedtcuehoj6e2xdllosshotorbtitbemtacdotheures"
+ },
+ "36747221_35.png": {
+  "own": 0.27,
+  "best_neighbour": 0.16,
+  "ocr": "dlyaednitlorlvetmbbemtacdotterre"
+ },
+ "36747221_36.png": {
+  "own": 0.19,
+  "best_neighbour": 0.15,
+  "ocr": "61992544koljeuletgtacucfojg77drloshotodotitbemmct"
+ },
+ "36747221_37.png": {
+  "own": 0.18,
+  "best_neighbour": 0.18,
+  "ocr": "9225e88sdaeddsnenteshotoeamtermccent9225"
+ },
+ "36747221_38.png": {
+  "own": 0.15,
+  "best_neighbour": 0.11,
+  "ocr": "ewjemeeadchilicdarenieshontinnilefmikrmccent54511"
+ },
+ "36747221_39.png": {
+  "own": 0.11,
+  "best_neighbour": 0.11,
+  "ocr": "paehuellltaleieghdtlmeehevamdouc"
+ },
+ "36747221_40.png": {
+  "own": 0.22,
+  "best_neighbour": 0.09,
+  "ocr": "jourseaueleeh8d4iermenttcdlaebjeramiolrc"
+ },
+ "36747221_41.png": {
+  "own": 0.17,
+  "best_neighbour": 0.16,
+  "ocr": "2583amcl84tarfa9aqllirnlscnve2583"
+ },
+ "36747221_42.png": {
+  "own": 0.14,
+  "best_neighbour": 0.07,
+  "ocr": "moiseauakedlyaedtcuehoj6e2xdllosshotorbtitbemtacdotmois"
+ },
+ "36747221_43.png": {
+  "own": 0.14,
+  "best_neighbour": 0.09,
+  "ocr": "nomamakieeh8d4iermenttvttctfrennernmknom"
+ },
+ "36747221_44.png": {
+  "own": 0.18,
+  "best_neighbour": 0.09,
+  "ocr": "snckrt84tarfadimlrtacraicmcremcpamumn4812"
+ },
+ "36747221_45.png": {
+  "own": 0.15,
+  "best_neighbour": 0.11,
+  "ocr": "smcicti84tarfadimlrtackaicmcrelomcpamumnrvlazuk4812"
+ },
+ "36747221_46.png": {
+  "own": 0.17,
+  "best_neighbour": 0.11,
+  "ocr": "369jemeea3gmoelesnaueemrmccent369"
+ },
+ "36747221_47.png": {
+  "own": 0.17,
+  "best_neighbour": 0.0,
+  "ocr": "vilaeauakedlyaedcokeoboewhmlcbemtacdotiille"
+ },
+ "36747221_48.png": {
+  "own": 0.0,
+  "best_neighbour": 0.09,
+  "ocr": "snckrt84tarfaratiatroreeakeralya4trml4mnds"
+ },
+ "36747221_49.png": {
+  "own": 0.18,
+  "best_neighbour": 0.12,
+  "ocr": "snckrt84tarfadaibrmmanlwttk181"
+ },
+ "36747221_50.png": {
+  "own": 0.0,
+  "best_neighbour": 0.0,
+  "ocr": "jhmdabrinehmiarmccent"
+ },
+ "36747221_51.png": {
+  "own": 0.05,
+  "best_neighbour": 0.09,
+  "ocr": "snckrt84tarfa9aqllirnlsttcmarttdlaemnleeau"
+ },
+ "36747221_52.png": {
+  "own": 0.0,
+  "best_neighbour": 0.09,
+  "ocr": "cancttbrucefermccent"
+ },
+ "40898406_0.png": {
+  "own": 0.0,
+  "best_neighbour": 0.67,
+  "ocr": "1"
+ },
+ "39832259_0.png": {
+  "own": 0.44,
+  "best_neighbour": 0.17,
+  "ocr": "0600utc9tjomchlnmalcwomirtct"
+ },
+ "39832259_1.png": {
+  "own": 0.27,
+  "best_neighbour": 0.2,
+  "ocr": "utc1sauawli4hunlamuule"
+ },
+ "39832259_2.png": {
+  "own": 0.46,
+  "best_neighbour": 0.29,
+  "ocr": "031219dcmcagianjamv1"
+ },
+ "39832259_3.png": {
+  "own": 0.2,
+  "best_neighbour": 0.15,
+  "ocr": "01qi20suckkilealee885dmcjntnuanaca"
+ },
+ "39832259_4.png": {
+  "own": 0.1,
+  "best_neighbour": 0.11,
+  "ocr": "13eaaleew83xfumuinm4iatpulleanalrez"
+ },
+ "39832259_5.png": {
+  "own": 0.09,
+  "best_neighbour": 0.09,
+  "ocr": "15snckeumlnltsycifhenestdeumaeutmramnenmt"
+ },
+ "39832259_6.png": {
+  "own": 0.17,
+  "best_neighbour": 0.17,
+  "ocr": "jtcmcei3rcanuldigainr"
+ },
+ "39832259_7.png": {
+  "own": 0.11,
+  "best_neighbour": 0.16,
+  "ocr": "3uncini7amlerimanchsicyiuwiamlretci"
+ },
+ "39832259_8.png": {
+  "own": 0.07,
+  "best_neighbour": 0.1,
+  "ocr": "08fumik12ltaelaiew8advosrtalsecueeaniimmianit4otlagoennud"
+ },
+ "39832259_9.png": {
+  "own": 0.1,
+  "best_neighbour": 0.05,
+  "ocr": "10eaaleew7jumletimttthaaeiddeanaverna"
+ },
+ "39832259_10.png": {
+  "own": 0.24,
+  "best_neighbour": 0.12,
+  "ocr": "14omcldatiarmte"
+ },
+ "39832259_11.png": {
+  "own": 0.05,
+  "best_neighbour": 0.0,
+  "ocr": "5uncinihvmlntmticakjueedjuleaadretci"
+ },
+ "39832259_12.png": {
+  "own": 0.09,
+  "best_neighbour": 0.04,
+  "ocr": "12smcktt0emi6uremdhssheiihjbmwolfusirdamerirt"
+ },
+ "39832259_13.png": {
+  "own": 0.08,
+  "best_neighbour": 0.08,
+  "ocr": "17unciniew15vsmluttadumulipiu69auduvukti8retci"
+ },
+ "39832259_14.png": {
+  "own": 0.11,
+  "best_neighbour": 0.26,
+  "ocr": "19emrisyupinietrirtermgoedadsrametun"
+ },
+ "39832259_15.png": {
+  "own": 0.09,
+  "best_neighbour": 0.19,
+  "ocr": "11sanckusinilaiedceechcicrevljt4keemcandrt"
+ },
+ "50510620_0.png": {
+  "own": 0.55,
+  "best_neighbour": 0.2,
+  "ocr": "icatorthatsomethingsnotrightcmetnteal4jil7thntgonetntcitjvee"
+ },
+ "50510620_1.png": {
+  "own": 0.65,
+  "best_neighbour": 0.15,
+  "ocr": "norityandcavaliersshouldalwaysfeelancltatewherdceneeededadch"
+ },
+ "50510620_2.png": {
+  "own": 0.71,
+  "best_neighbour": 0.33,
+  "ocr": "3tstofeeltooserioususuallythatsanancltatewherdulhccltaanna"
+ },
+ "50510620_3.png": {
+  "own": 0.33,
+  "best_neighbour": 0.22,
+  "ocr": "juettesthatscreamkeburiazgkohdefinitelywerealwayseyindicator"
+ },
+ "50510620_4.png": {
+  "own": 0.5,
+  "best_neighbour": 0.31,
+  "ocr": "jiullil4playfulifsomethingmntik1attelae3wamcinnitatot0"
+ },
+ "50510620_5.png": {
+  "own": 0.48,
+  "best_neighbour": 0.38,
+  "ocr": "andabitironicasincl1leufenmlacotrematrict"
+ },
+ "50510620_6.png": {
+  "own": 0.5,
+  "best_neighbour": 0.34,
+  "ocr": "eorgekeburiasamckztfincccun23dmerint"
+ },
+ "50510620_7.png": {
+  "own": 0.44,
+  "best_neighbour": 0.24,
+  "ocr": "toordermodelwhichwhilescalingquitehardasitreomctolirmedcfktu"
+ },
+ "50510620_8.png": {
+  "own": 0.46,
+  "best_neighbour": 0.17,
+  "ocr": "lvyn454ucuuhcicuuhuuaaluesformsofexpressionthatremainunexplo"
+ },
+ "50510620_9.png": {
+  "own": 0.23,
+  "best_neighbour": 0.38,
+  "ocr": "omeieatfi3drinmertnckey"
+ },
+ "50510620_10.png": {
+  "own": 0.17,
+  "best_neighbour": 0.23,
+  "ocr": "ofthefumik12ltaelaiem8thez300amtumlarknts340nnntrznraa"
+ },
+ "50510620_11.png": {
+  "own": 0.06,
+  "best_neighbour": 0.23,
+  "ocr": "jngileetad7omlzeccnt5seidwcttit"
+ },
+ "50510620_12.png": {
+  "own": 0.27,
+  "best_neighbour": 0.12,
+  "ocr": "ideaskaluesomaletntj3erdfeedmiciniauhlreetticneintnbemmedmti"
+ },
+ "50510620_13.png": {
+  "own": 0.35,
+  "best_neighbour": 0.17,
+  "ocr": "recognizabledmaltemf3erdercocmizblenmkmntatkenilarecognizabl"
+ },
+ "52313969_0.png": {
+  "own": 0.36,
+  "best_neighbour": 0.24,
+  "ocr": "facialhairstylessmnlklhrdmncoralamtclamyulaocdmerrrvoeshotuo"
+ },
+ "52313969_1.png": {
+  "own": 0.39,
+  "best_neighbour": 0.15,
+  "ocr": "terlstelhesexiessnckati3lmcielafcic2amkrbrtaifidhxmcpamumjfu"
+ },
+ "14664481_0.png": {
+  "own": 0.52,
+  "best_neighbour": 0.25,
+  "ocr": "elevateyoursleepjomclti3flromctntmrtw4flevate"
+ },
+ "14664481_1.png": {
+  "own": 0.37,
+  "best_neighbour": 0.26,
+  "ocr": "experienceeualldphkmtaieeemfcregomnkarveeott"
+ },
+ "14664481_2.png": {
+  "own": 0.23,
+  "best_neighbour": 0.21,
+  "ocr": "llectionsmcicti84tarfacolle4ratiatrore7tlwauititetcolfction"
+ },
+ "14664481_3.png": {
+  "own": 0.0,
+  "best_neighbour": 0.0,
+  "ocr": ""
+ },
+ "14664481_4.png": {
+  "own": 0.35,
+  "best_neighbour": 0.24,
+  "ocr": "eucalyptusmclcteatfivleveernedemebrtaulaktwuurt"
+ },
+ "34175362_0.png": {
+  "own": 0.15,
+  "best_neighbour": 0.21,
+  "ocr": "futtleee8srdndr1ammnelegitelnejur0dry"
+ },
+ "2527310_0.png": {
+  "own": 0.48,
+  "best_neighbour": 0.14,
+  "ocr": "velcrohulletproofvestamakieeh8dmaimixudiailmickndepatiuvcanp"
+ },
+ "16453124_0.png": {
+  "own": 0.31,
+  "best_neighbour": 0.16,
+  "ocr": "technologysmnlhrdtlunlgweueutlalnmmkomomrcmteremutticc"
+ },
+ "16453124_1.png": {
+  "own": 0.4,
+  "best_neighbour": 0.12,
+  "ocr": "onlininghighlerelsolsnckati3lcendnmimhbe2amkrbrttmalwupirumu"
+ },
+ "16453124_2.png": {
+  "own": 0.28,
+  "best_neighbour": 0.18,
+  "ocr": "spotlightamcl84tarfaawlisiidaibrmeecaeteiamf4lttcpotlcht"
+ },
+ "16453124_3.png": {
+  "own": 0.18,
+  "best_neighbour": 0.22,
+  "ocr": "enzvmiesiametatfingulsimcjomiottottcluupuguteinjalaucarmeci"
+ },
+ "16453124_4.png": {
+  "own": 0.38,
+  "best_neighbour": 0.16,
+  "ocr": "acidsithelpsskin83iiyakretllin7nueatatunfmfonsexnmleacidsith"
+ },
+ "16453124_5.png": {
+  "own": 0.16,
+  "best_neighbour": 0.16,
+  "ocr": "davs83i7nueatatunfmfonsexnmledavs"
+ },
+ "16453124_6.png": {
+  "own": 0.2,
+  "best_neighbour": 0.17,
+  "ocr": "omct13njomkrtcthcti4autbemefumtfattv"
+ },
+ "47311638_0.png": {
+  "own": 0.52,
+  "best_neighbour": 0.26,
+  "ocr": "facialistsguidelomeieat3dfichissgrinmertnc"
+ },
+ "47311638_1.png": {
+  "own": 0.59,
+  "best_neighbour": 0.27,
+  "ocr": "tosummerskin83idungntatetgtal"
+ },
+ "32335068_0.png": {
+  "own": 0.37,
+  "best_neighbour": 0.37,
+  "ocr": "typologylsmcletatumatinetmshmameent"
+ },
+ "32335068_1.png": {
+  "own": 0.26,
+  "best_neighbour": 0.26,
+  "ocr": "typologyatalalleg1jfwcaodngnlerdglfomikarmdcccc177449"
+ },
+ "21587531_0.png": {
+  "own": 0.44,
+  "best_neighbour": 0.17,
+  "ocr": "mhalel6h8rdcclygarten"
+ },
+ "21587531_1.png": {
+  "own": 0.18,
+  "best_neighbour": 0.29,
+  "ocr": "snckelauanultantgenhmkvramnenmt"
+ },
+ "21587531_2.png": {
+  "own": 0.17,
+  "best_neighbour": 0.23,
+  "ocr": "anjnckut13luamulirinl"
+ },
+ "30880633_0.png": {
+  "own": 0.48,
+  "best_neighbour": 0.21,
+  "ocr": "harcareritualdesignedolnurtureharrandmnditsaquestjomclthrlak"
+ },
+ "30880633_1.png": {
+  "own": 0.57,
+  "best_neighbour": 0.16,
+  "ocr": "forradicalcareandtangibleresulisamuncompromisingjmglatuhcram"
+ },
+ "30880633_2.png": {
+  "own": 0.43,
+  "best_neighbour": 0.21,
+  "ocr": "allnaturalactiveingredientsmclcietcetclz3lnnuraknngedenis27d"
+ },
+ "33635746_0.png": {
+  "own": 0.22,
+  "best_neighbour": 0.24,
+  "ocr": "anhmclttew83gul"
+ },
+ "33635746_1.png": {
+  "own": 0.21,
+  "best_neighbour": 0.25,
+  "ocr": "ith4ntikeemtett"
+ },
+ "33635746_2.png": {
+  "own": 0.86,
+  "best_neighbour": 0.31,
+  "ocr": "satt"
+ },
+ "41911984_0.png": {
+  "own": 0.34,
+  "best_neighbour": 0.09,
+  "ocr": "synbioticamleullauazrcdzljecorvecrmiremtecct"
+ },
+ "41911984_1.png": {
+  "own": 0.23,
+  "best_neighbour": 0.13,
+  "ocr": "dailyjuclj5tgl27amrirtialaetdlxlu41onn"
+ },
+ "41911984_2.png": {
+  "own": 0.07,
+  "best_neighbour": 0.19,
+  "ocr": "dso9eanakwfulaijjuteitaacuctojgeedanlorotomcotltbcmocot"
+ },
+ "22772082_0.png": {
+  "own": 0.41,
+  "best_neighbour": 0.25,
+  "ocr": "warmingenakealee83snduatute"
+ },
+ "22772082_1.png": {
+  "own": 0.48,
+  "best_neighbour": 0.31,
+  "ocr": "makingsmckttdaibrms"
+ },
+ "22772082_2.png": {
+  "own": 0.21,
+  "best_neighbour": 0.2,
+  "ocr": "worldiametatguljomiottotdiuletpiuwuntrmeci"
+ },
+ "22772082_3.png": {
+  "own": 0.12,
+  "best_neighbour": 0.2,
+  "ocr": "mlaiametatfinguljomiottotdiuletpiuvyaatrmeci"
+ },
+ "22772082_4.png": {
+  "own": 0.13,
+  "best_neighbour": 0.19,
+  "ocr": "juclj5tgluaihrntluuacelamuel"
+ },
+ "7529470_0.png": {
+  "own": 0.35,
+  "best_neighbour": 0.22,
+  "ocr": "fqlsmclttaalahw"
+ },
+ "7529470_1.png": {
+  "own": 0.47,
+  "best_neighbour": 0.5,
+  "ocr": "eqlomeltketa"
+ },
+ "7529470_2.png": {
+  "own": 0.1,
+  "best_neighbour": 0.23,
+  "ocr": "folklanaikkalzelua"
+ },
+ "7529470_3.png": {
+  "own": 0.22,
+  "best_neighbour": 0.3,
+  "ocr": "fquunikaltalew3"
+ },
+ "7529470_4.png": {
+  "own": 0.4,
+  "best_neighbour": 0.55,
+  "ocr": "eqmnciew"
+ },
+ "11460382_0.png": {
+  "own": 0.38,
+  "best_neighbour": 0.14,
+  "ocr": "iicacioninakkalee88sdmt"
+ },
+ "11460382_1.png": {
+  "own": 0.56,
+  "best_neighbour": 0.4,
+  "ocr": "marcasnaleu"
+ },
+ "11460382_2.png": {
+  "own": 0.33,
+  "best_neighbour": 0.35,
+  "ocr": "ctorsnckttetdeeeia"
+ },
+ "11460382_3.png": {
+  "own": 0.5,
+  "best_neighbour": 0.46,
+  "ocr": "ferocmo"
+ },
+ "11460382_4.png": {
+  "own": 0.6,
+  "best_neighbour": 0.18,
+  "ocr": "proyectocompletoendousstudicjmglateoocomeetds4jomtoicgwomhep"
+ },
+ "11460382_5.png": {
+  "own": 0.32,
+  "best_neighbour": 0.12,
+  "ocr": "enviarmensajeamakileeh8dtilatmir414iermenttzbnnrinuyernmfnvi"
+ },
+ "11460382_6.png": {
+  "own": 0.21,
+  "best_neighbour": 0.18,
+  "ocr": "2610221omct13nfuijomkrtctta4inkeawenibemefumt260221"
+ },
+ "11460382_7.png": {
+  "own": 0.21,
+  "best_neighbour": 0.21,
+  "ocr": "newsmcktdimlrbrteaaniynew"
+ },
+ "11460382_8.png": {
+  "own": 0.0,
+  "best_neighbour": 0.15,
+  "ocr": "taleieghdnjuuaaahnomelnejenfmi"
+ },
+ "13607089_0.png": {
+  "own": 0.59,
+  "best_neighbour": 0.19,
+  "ocr": "737moderationsnaleaaealu"
+ },
+ "13607089_1.png": {
+  "own": 0.67,
+  "best_neighbour": 0.26,
+  "ocr": "synchroneitdentt"
+ },
+ "13607089_2.png": {
+  "own": 0.42,
+  "best_neighbour": 0.43,
+  "ocr": "filmomclatfig"
+ },
+ "13607089_3.png": {
+  "own": 0.47,
+  "best_neighbour": 0.33,
+  "ocr": "horspieleanaeetldrauset"
+ },
+ "13607089_4.png": {
+  "own": 0.54,
+  "best_neighbour": 0.36,
+  "ocr": "theatermeieatenihen"
+ },
+ "13607089_5.png": {
+  "own": 0.15,
+  "best_neighbour": 0.21,
+  "ocr": "i02funai88sd17euecanuletemcuhimjerfmitrmccent1012"
+ },
+ "13828406_0.png": {
+  "own": 0.32,
+  "best_neighbour": 0.12,
+  "ocr": "interlinkeauakedlyasnjmomruyomrmibemtacdotmtfri"
+ },
+ "13828406_1.png": {
+  "own": 0.18,
+  "best_neighbour": 0.3,
+  "ocr": "emtthinomcti3rhisramlerictfapamtfnttht"
+ },
+ "13828406_2.png": {
+  "own": 0.19,
+  "best_neighbour": 0.19,
+  "ocr": "zergdlyaggrolskrliuvctrmibemtacdotzfro"
+ },
+ "13828406_3.png": {
+  "own": 0.12,
+  "best_neighbour": 0.15,
+  "ocr": "griamcl84tarfaj4tlbrntspuibienluuhefmmamuasctpt"
+ },
+ "13828406_4.png": {
+  "own": 0.22,
+  "best_neighbour": 0.18,
+  "ocr": "cfsnak114n4roucntlktcwtamhremoardalcells"
+ },
+ "13828406_5.png": {
+  "own": 0.13,
+  "best_neighbour": 0.16,
+  "ocr": "reasmcicti84tarfadimlrtacrerkelnlerparsmrxluumnvrwamdspfae"
+ },
+ "13828406_6.png": {
+  "own": 0.09,
+  "best_neighbour": 0.09,
+  "ocr": "smcicti84tarfadimlrtacinulatrrtulatvaeonf"
+ },
+ "13828406_7.png": {
+  "own": 0.1,
+  "best_neighbour": 0.1,
+  "ocr": "funaiew17euecchloaenouchivcertirmccent"
+ },
+ "13828406_8.png": {
+  "own": 0.15,
+  "best_neighbour": 0.15,
+  "ocr": "e88sdjemeeaedcelcanahcumuhmrmccentnd"
+ },
+ "13828406_9.png": {
+  "own": 0.05,
+  "best_neighbour": 0.21,
+  "ocr": "comgicetclz3lmamlartnb3msatcrarubteeint"
+ },
+ "47483050_0.png": {
+  "own": 1.0,
+  "best_neighbour": 0.25,
+  "ocr": "artah"
+ },
+ "47483050_1.png": {
+  "own": 0.48,
+  "best_neighbour": 0.18,
+  "ocr": "doseotbothpreandprobioticstohelpfeedthezunaikeehitmtentealih"
+ },
+ "47483050_2.png": {
+  "own": 0.65,
+  "best_neighbour": 0.24,
+  "ocr": "excessbulkthroughthebowelandithasagoodjmglatthmouaheijmchina"
+ },
+ "47483050_3.png": {
+  "own": 0.42,
+  "best_neighbour": 0.35,
+  "ocr": "takethismetatfwlmnitcadomiotgt"
+ },
+ "47483050_4.png": {
+  "own": 0.58,
+  "best_neighbour": 0.12,
+  "ocr": "asagentlelaxativeeffectthatwillhelpmoveeualldlrtelbadnsvktxe"
+ },
+ "47483050_5.png": {
+  "own": 0.19,
+  "best_neighbour": 0.35,
+  "ocr": "gut83i7nueajhecobrinenmlagut"
+ },
+ "47483045_0.png": {
+  "own": 0.52,
+  "best_neighbour": 0.2,
+  "ocr": "yogawithrhianstephensonaanakaldlutocluh3ioomfbemoecorvoc4wih"
+ },
+ "32197302_0.png": {
+  "own": 1.0,
+  "best_neighbour": 0.32,
+  "ocr": "imperfectionhelps"
+ },
+ "32197302_1.png": {
+  "own": 0.78,
+  "best_neighbour": 0.41,
+  "ocr": "youconnectwitheelsizae"
+ },
+ "32197302_2.png": {
+  "own": 0.67,
+  "best_neighbour": 0.3,
+  "ocr": "theworkbettersncbtotaaiboe"
+ },
+ "32197302_3.png": {
+  "own": 0.55,
+  "best_neighbour": 0.36,
+  "ocr": "webelmntik1attelae3w"
+ },
+ "32197302_4.png": {
+  "own": 0.33,
+  "best_neighbour": 0.1,
+  "ocr": "jurjenversteegzunaik88sdcimyenctmctmcolatilaumjehmermccentju"
+ },
+ "32197302_5.png": {
+  "own": 0.29,
+  "best_neighbour": 0.21,
+  "ocr": "cofoundereauakedlyalie10estdutaocikbemtacdotcofoundfr"
+ },
+ "32197302_6.png": {
+  "own": 0.06,
+  "best_neighbour": 0.19,
+  "ocr": "66mntktt83gl77umenciejwmlulam"
+ },
+ "31223791_0.png": {
+  "own": 0.29,
+  "best_neighbour": 0.0,
+  "ocr": "a"
+ },
+ "31223791_1.png": {
+  "own": 0.0,
+  "best_neighbour": 0.13,
+  "ocr": "enakkalflat"
+ },
+ "31223791_2.png": {
+  "own": 0.05,
+  "best_neighbour": 0.42,
+  "ocr": "16fosterstsutryhillsnsw2015tnclalincestkajinwineatamscgomank"
+ },
+ "31223791_3.png": {
+  "own": 0.12,
+  "best_neighbour": 0.38,
+  "ocr": "omaltketal2m"
+ },
+ "31223791_4.png": {
+  "own": 0.59,
+  "best_neighbour": 0.07,
+  "ocr": "chinahergnts16fosterstsultyhillsnsw2010544kolmurujeuletgtaic"
+ },
+ "31223791_5.png": {
+  "own": 0.39,
+  "best_neighbour": 0.21,
+  "ocr": "banjomclachlangiametatfingulhinrdaienjomiottotietuairmeci"
+ },
+ "31223791_6.png": {
+  "own": 0.36,
+  "best_neighbour": 0.24,
+  "ocr": "beachlooksjuclj5tglxalodk27amrirttumenetulut"
+ },
+ "31223791_7.png": {
+  "own": 0.27,
+  "best_neighbour": 0.18,
+  "ocr": "1110202488sdjemeeamierroninkenlcueatikrmccent102024"
+ },
+ "30248124_0.png": {
+  "own": 0.55,
+  "best_neighbour": 0.14,
+  "ocr": "ist"
+ },
+ "30248124_1.png": {
+  "own": 0.67,
+  "best_neighbour": 0.15,
+  "ocr": "photobookawards8grddtelaeteeee"
+ },
+ "30248124_2.png": {
+  "own": 0.62,
+  "best_neighbour": 0.37,
+  "ocr": "newzealsmcltten4ade"
+ },
+ "30248124_3.png": {
+  "own": 0.6,
+  "best_neighbour": 0.23,
+  "ocr": "australisncbt81waeei"
+ },
+ "30248124_4.png": {
+  "own": 0.39,
+  "best_neighbour": 0.14,
+  "ocr": "photocollectivejuclj5tgl6mmctocolcc13atiljrntlxerdemacnmiemc"
+ },
+ "30248124_5.png": {
+  "own": 0.27,
+  "best_neighbour": 0.33,
+  "ocr": "photo2024mclcteatfivluiuzademebrtuctirlauuirm4utedaatoaco"
+ },
+ "30248124_6.png": {
+  "own": 0.37,
+  "best_neighbour": 0.24,
+  "ocr": "abbotsfordjuclj5tglnbaobere27amrirtoaeluuaet"
+ },
+ "30248124_7.png": {
+  "own": 0.3,
+  "best_neighbour": 0.24,
+  "ocr": "conventjmglatentettoemiotratixctephifni"
+ },
+ "27647159_0.png": {
+  "own": 1.0,
+  "best_neighbour": 0.4,
+  "ocr": "int"
+ },
+ "27647159_1.png": {
+  "own": 0.56,
+  "best_neighbour": 0.18,
+  "ocr": "designinternjnckut13li3aulljrnt"
+ },
+ "27647159_2.png": {
+  "own": 0.27,
+  "best_neighbour": 0.45,
+  "ocr": "desmalilherdwinmlar"
+ },
+ "27647159_3.png": {
+  "own": 0.32,
+  "best_neighbour": 0.25,
+  "ocr": "wantednmeaycuehaulka7ilaltrmeut"
+ },
+ "27454118_0.png": {
+  "own": 0.56,
+  "best_neighbour": 0.2,
+  "ocr": "joiningbcorpmonthcelebrationsandreflectingsmckerdubectueebal"
+ },
+ "27454118_1.png": {
+  "own": 0.56,
+  "best_neighbour": 0.27,
+  "ocr": "asabcorpwevespentthelastfewweeksjomckekennctcaeltjaomrtctcrd"
+ },
+ "27454118_2.png": {
+  "own": 0.51,
+  "best_neighbour": 0.2,
+  "ocr": "tobeconstantlychallengingourselvestodoiametatfingulmoheensam"
+ },
+ "27454118_3.png": {
+  "own": 0.58,
+  "best_neighbour": 0.24,
+  "ocr": "invitationtojointhejourneytobetterbusinesssuckhajokiniltpala"
+ },
+ "27454118_4.png": {
+  "own": 0.5,
+  "best_neighbour": 0.24,
+  "ocr": "bebetterandintheprocessbringasmanyjomckejicanstenrocznhdmatt"
+ },
+ "27454118_5.png": {
+  "own": 0.59,
+  "best_neighbour": 0.29,
+  "ocr": "certificationnotasadestinationbutasar5tnclaluh4naaamaatwwine"
+ },
+ "27454118_6.png": {
+  "own": 0.56,
+  "best_neighbour": 0.2,
+  "ocr": "ideeplyonthisyearscampaignthemesnekerutaij3rdhatulokonnthene"
+ },
+ "27454118_7.png": {
+  "own": 0.55,
+  "best_neighbour": 0.25,
+  "ocr": "peopleaswecanalongfortheridejmokutar0ccjcnkeroc27murtrtccibc"
+ },
+ "27454118_8.png": {
+  "own": 0.51,
+  "best_neighbour": 0.25,
+  "ocr": "whichinvitesusalltoseebcorpgantk1trluewshhimaresus2iegttoi7j"
+ },
+ "27454118_9.png": {
+  "own": 0.25,
+  "best_neighbour": 0.18,
+  "ocr": "forwardmclcteatfivlromicdemebrtcrdkmcptmtauetlandk"
+ },
+ "27454118_10.png": {
+  "own": 0.15,
+  "best_neighbour": 0.19,
+  "ocr": "wayjmokuta27murtrtccibcadatpguenvmra"
+ },
+ "27454118_11.png": {
+  "own": 0.1,
+  "best_neighbour": 0.14,
+  "ocr": "beeualldaieeeacuchilcdmemeuteshotiutlt"
+ },
+ "27454118_12.png": {
+  "own": 0.14,
+  "best_neighbour": 0.11,
+  "ocr": "thisehuellltalei8jjneecardcpilrjaceimamenoeshonineofk"
+ },
+ "27454118_13.png": {
+  "own": 0.08,
+  "best_neighbour": 0.26,
+  "ocr": "dosanekatduldjeuletgtacucfojg77drloshotodotitbemmct"
+ },
+ "27454118_14.png": {
+  "own": 0.17,
+  "best_neighbour": 0.26,
+  "ocr": "ancjmglataoimzphifni"
+ },
+ "27454113_0.png": {
+  "own": 0.51,
+  "best_neighbour": 0.19,
+  "ocr": "letstakealookatwherethecommunitysentitssupportforcomgicetclz"
+ },
+ "27454113_1.png": {
+  "own": 0.49,
+  "best_neighbour": 0.17,
+  "ocr": "pfrevenuetoworkforgoodviaourimpactgivingmodelpureimcletti8rl"
+ },
+ "27454113_2.png": {
+  "own": 0.46,
+  "best_neighbour": 0.24,
+  "ocr": "asanorganisationpurefinanceiscommittedtoputting59amakieeh8da"
+ },
+ "27454113_3.png": {
+  "own": 0.44,
+  "best_neighbour": 0.13,
+  "ocr": "communitythisbisthensplitbetweenthreedistinctamakileeh8dcann"
+ },
+ "27454113_4.png": {
+  "own": 0.39,
+  "best_neighbour": 0.22,
+  "ocr": "thethirdquarterottheyeareauakwldlyatcuehoj6e2xdllosshotorbti"
+ },
+ "27454113_5.png": {
+  "own": 0.33,
+  "best_neighbour": 0.16,
+  "ocr": "bforournfpayourssmcicti84tar1fljorurfrrolrsdimlrtaclffadutnn"
+ },
+ "27454113_6.png": {
+  "own": 0.27,
+  "best_neighbour": 0.26,
+  "ocr": "19fortthefarthjuailekifcaihejjutinlicuchoxgexicxfme5nelumatr"
+ },
+ "27454113_7.png": {
+  "own": 0.28,
+  "best_neighbour": 0.1,
+  "ocr": "impactareassmcicti84tarfadimlrtackaicmcrelomcpamumnrvlazukmp"
+ },
+ "27454113_8.png": {
+  "own": 0.14,
+  "best_neighbour": 0.2,
+  "ocr": "ppaytmclteti8rldabtenr44crdgtidicmoftdav"
+ },
+ "27454113_9.png": {
+  "own": 0.16,
+  "best_neighbour": 0.25,
+  "ocr": "itc83i1meultadcholsgaeecnoemile1to"
+ },
+ "13902728_0.png": {
+  "own": 0.77,
+  "best_neighbour": 0.25,
+  "ocr": "ldesignerslanguageprofessionalssmckttcaidamerirt"
+ },
+ "13902728_1.png": {
+  "own": 0.49,
+  "best_neighbour": 0.24,
+  "ocr": "after1oyearsofworktheydecidedsanckdruulamlitinntsaruckojsgat"
+ },
+ "13902728_2.png": {
+  "own": 0.79,
+  "best_neighbour": 0.35,
+  "ocr": "teacherstheyworkasateamonealeeeltfhlte"
+ },
+ "13902728_3.png": {
+  "own": 0.48,
+  "best_neighbour": 0.2,
+  "ocr": "lapostrofisabarcelonacoopofsmckleetedeunwubrek2imlitbottcene"
+ },
+ "13902728_4.png": {
+  "own": 1.0,
+  "best_neighbour": 0.49,
+  "ocr": "togoaheadwithanewlookand"
+ },
+ "13902728_5.png": {
+  "own": 0.65,
+  "best_neighbour": 0.25,
+  "ocr": "identitydevelopingitalongsidelomclkentleceaitarjoledftnmecnt"
+ },
+ "13902728_6.png": {
+  "own": 0.83,
+  "best_neighbour": 0.35,
+  "ocr": "creatisocialcommunicationttlytive"
+ },
+ "13902728_7.png": {
+  "own": 0.51,
+  "best_neighbour": 0.27,
+  "ocr": "askedustobepartofthenewsincl1lmtetnnmlacotwniceuatdhrtdeattr"
+ },
+ "13902728_8.png": {
+  "own": 0.56,
+  "best_neighbour": 0.24,
+  "ocr": "ljournalistsprogrammersandaatkilealee885dncanith4ktnuanacana"
+ },
+ "13902728_9.png": {
+  "own": 0.52,
+  "best_neighbour": 0.35,
+  "ocr": "jtheirdesignteamlomelettj3rdarashnan7nmcmng"
+ },
+ "13902728_10.png": {
+  "own": 0.48,
+  "best_neighbour": 0.29,
+  "ocr": "brandidentitykanailka7juletiintlydjedamia"
+ },
+ "13902728_11.png": {
+  "own": 0.55,
+  "best_neighbour": 0.31,
+  "ocr": "laprostrofewee4nttaeuaea"
+ },
+ "13902728_12.png": {
+  "own": 0.53,
+  "best_neighbour": 0.23,
+  "ocr": "projectsomcltnmecntcal"
+ },
+ "13902728_13.png": {
+  "own": 0.32,
+  "best_neighbour": 0.13,
+  "ocr": "enviarmensajeamakieeh8dtilatmir414iermenttzbnnrinuyernmfnvia"
+ },
+ "13902728_14.png": {
+  "own": 0.12,
+  "best_neighbour": 0.2,
+  "ocr": "engew7amlerimanyuhugouidadassfuteavitvlrdlretci"
+ },
+ "2145281_0.png": {
+  "own": 0.2,
+  "best_neighbour": 0.3,
+  "ocr": "dmetj3rd7nmcmngco"
+ },
+ "15688099_0.png": {
+  "own": 0.18,
+  "best_neighbour": 0.19,
+  "ocr": "incomgicetclz3lsesieltaw27dmerirtamatraenulutjecfscfntif"
+ },
+ "15688099_1.png": {
+  "own": 0.26,
+  "best_neighbour": 0.18,
+  "ocr": "88sduhnretamlauecncrmatmelnnikrmccentcombeauccs"
+ },
+ "28246874_0.png": {
+  "own": 0.32,
+  "best_neighbour": 0.18,
+  "ocr": "embracda4natdlujionobodyerrmibemoecor"
+ },
+ "28246874_1.png": {
+  "own": 0.26,
+  "best_neighbour": 0.17,
+  "ocr": "aturala4natdlunojitmuchtdjzormlbemoecor"
+ },
+ "28246874_2.png": {
+  "own": 0.29,
+  "best_neighbour": 0.26,
+  "ocr": "whatsa4natdluxmeaibemoecorwka"
+ },
+ "26381730_0.png": {
+  "own": 0.4,
+  "best_neighbour": 0.25,
+  "ocr": "iai"
+ },
+ "26381730_1.png": {
+  "own": 0.64,
+  "best_neighbour": 0.2,
+  "ocr": "collectionofperfumeswithasnckeamlihabadtouramnenmt"
+ },
+ "26381730_2.png": {
+  "own": 0.52,
+  "best_neighbour": 0.23,
+  "ocr": "etsophisticatedanduntie4lenhdimanmadcdrjrrmeut"
+ },
+ "26381730_3.png": {
+  "own": 0.49,
+  "best_neighbour": 0.25,
+  "ocr": "sensualtouchallatoncejomckeetenewdtinttmscrduduanctta7uicban"
+ },
+ "26381730_4.png": {
+  "own": 0.3,
+  "best_neighbour": 0.28,
+  "ocr": "warsweetjamtktansuiatlrantrfumeiatudedamreci"
+ },
+ "26381730_5.png": {
+  "own": 0.14,
+  "best_neighbour": 0.32,
+  "ocr": "yetsuckhapalaiuulidcouokmnkarmixbemtecjot"
+ },
+ "52340827_0.png": {
+  "own": 0.54,
+  "best_neighbour": 0.5,
+  "ocr": "aaronmeyersancltatdain7amlotrt"
+ },
+ "52340827_1.png": {
+  "own": 0.49,
+  "best_neighbour": 0.28,
+  "ocr": "projectsaaronmeyerscomaanakaldludeolwemibemoecornrcioctc2aro"
+ },
+ "52340827_2.png": {
+  "own": 0.11,
+  "best_neighbour": 0.37,
+  "ocr": "90euataleieghdjjneecajdtgjewtmbnof"
+ },
+ "52020245_0.png": {
+  "own": 0.49,
+  "best_neighbour": 0.21,
+  "ocr": "palestijnennkkaleem88sdhnaehmm"
+ },
+ "52020245_1.png": {
+  "own": 0.31,
+  "best_neighbour": 0.29,
+  "ocr": "doodancltathutamnj"
+ },
+ "52020245_2.png": {
+  "own": 0.36,
+  "best_neighbour": 0.21,
+  "ocr": "nogomckew13flwomirtct"
+ },
+ "52302251_0.png": {
+  "own": 0.31,
+  "best_neighbour": 0.17,
+  "ocr": "deroffenentursnck88rdfeculmgalnilinlbrmidtrmllmoftage"
+ },
+ "52302251_1.png": {
+  "own": 0.68,
+  "best_neighbour": 0.25,
+  "ocr": "judkberlin17190726ealeewrdameuaea"
+ },
+ "52302251_2.png": {
+  "own": 0.86,
+  "best_neighbour": 0.32,
+  "ocr": "fertigew"
+ },
+ "38944212_0.png": {
+  "own": 0.49,
+  "best_neighbour": 0.24,
+  "ocr": "fornaturallyglowingskinsuckhajeaipalaiuulyotkeithnetkajuomcm"
+ },
+ "41432513_0.png": {
+  "own": 0.45,
+  "best_neighbour": 0.21,
+  "ocr": "skinensuringeffectiveandomctcneunmoriaameucamirccddipamtfnts"
+ },
+ "41432513_1.png": {
+  "own": 0.46,
+  "best_neighbour": 0.27,
+  "ocr": "andprotectyourskinusingomctndomea0unramlerictddipamtfntandpr"
+ },
+ "41432513_2.png": {
+  "own": 0.41,
+  "best_neighbour": 0.24,
+  "ocr": "organicingredientstozunaikejenktaltjm4vccteedechmermccentora"
+ },
+ "41432513_3.png": {
+  "own": 0.39,
+  "best_neighbour": 0.21,
+  "ocr": "deeplynourishhydrateomctaoknennsichadaieucamirccbltjiietpamt"
+ },
+ "41432513_4.png": {
+  "own": 0.39,
+  "best_neighbour": 0.17,
+  "ocr": "wecarefullychoosenonzunaikeccrunjemeeaneahehauumjcaamieermcc"
+ },
+ "41432513_5.png": {
+  "own": 0.4,
+  "best_neighbour": 0.18,
+  "ocr": "sootheandfortifyyoursnckati3lhetnarurmamlzrienlccemccatannim"
+ },
+ "41432513_6.png": {
+  "own": 0.43,
+  "best_neighbour": 0.24,
+  "ocr": "wemeticulouslyselectamcl84tarfacalncuanratiatroreeahawemetic"
+ },
+ "41432513_7.png": {
+  "own": 0.36,
+  "best_neighbour": 0.2,
+  "ocr": "gentlecarenjuabcldumicvlimeremoardalaentlecare"
+ },
+ "24130326_0.png": {
+  "own": 0.57,
+  "best_neighbour": 0.19,
+  "ocr": "series0fconversationsshedinglightontheeveruntie4jfntmfeneenn"
+ },
+ "24130326_1.png": {
+  "own": 0.61,
+  "best_neighbour": 0.18,
+  "ocr": "changingwaysintopracticelomeletteneneninenin7nmcmng47mn"
+ },
+ "24130326_2.png": {
+  "own": 0.41,
+  "best_neighbour": 0.2,
+  "ocr": "akemeelnocent83ijaenarntet7nueariicenoncuamjethmljelsenleein"
+ },
+ "24130326_3.png": {
+  "own": 0.33,
+  "best_neighbour": 0.2,
+  "ocr": "dulanestensrudsnckati3ljujjnacnmkamlljrnccemccatannimtwiatet"
+ },
+ "24130326_4.png": {
+  "own": 0.36,
+  "best_neighbour": 0.2,
+  "ocr": "rimelndelaz12me5025liteivtmtbzilremoardalrimelandflias"
+ },
+ "24130326_5.png": {
+  "own": 0.25,
+  "best_neighbour": 0.18,
+  "ocr": "bakhtaversaanakaldlutkitxittlsrueumtbemoecorcalltrave"
+ },
+ "24130326_6.png": {
+  "own": 0.28,
+  "best_neighbour": 0.24,
+  "ocr": "freelanceeanakwfulai11alulteduulztdcmlhodcmezmlsbcmocot"
+ },
+ "24130326_7.png": {
+  "own": 0.26,
+  "best_neighbour": 0.13,
+  "ocr": "003520vulejdconuotatmabtikremoardal003520"
+ },
+ "24130326_8.png": {
+  "own": 0.22,
+  "best_neighbour": 0.15,
+  "ocr": "004546jjaletcuchoruhkiimechmwemimremoardal004546"
+ },
+ "24130326_9.png": {
+  "own": 0.28,
+  "best_neighbour": 0.04,
+  "ocr": "aartic83iamcir7nueajdchlculetehmurmiarticle"
+ },
+ "24130326_10.png": {
+  "own": 0.26,
+  "best_neighbour": 0.15,
+  "ocr": "articieee83iamcir7nueajdchlculetehmurmiarticle"
+ },
+ "24130326_11.png": {
+  "own": 0.29,
+  "best_neighbour": 0.24,
+  "ocr": "artce83iamcir7nueajdchlculetehmurmiarticle"
+ },
+ "24130326_12.png": {
+  "own": 0.27,
+  "best_neighbour": 0.2,
+  "ocr": "ocationsnckati3locum2amkrbrtcshktecotntmeeltlocation"
+ },
+ "24130326_13.png": {
+  "own": 0.25,
+  "best_neighbour": 0.19,
+  "ocr": "durationsnckati3lumordamlariorecshktecotntmeeltduration"
+ },
+ "24130326_14.png": {
+  "own": 0.13,
+  "best_neighbour": 0.19,
+  "ocr": "mmostaleieghdjjneecaacfilniieihehimueafaiune"
+ },
+ "24130326_15.png": {
+  "own": 0.18,
+  "best_neighbour": 0.21,
+  "ocr": "evenssnckati3l2amkrbrtacalonatvvmameeven"
+ },
+ "24130326_16.png": {
+  "own": 0.2,
+  "best_neighbour": 0.05,
+  "ocr": "playomct13njomkrtcttanailbemefumtplay"
+ },
+ "24130326_17.png": {
+  "own": 0.2,
+  "best_neighbour": 0.1,
+  "ocr": "playomct13njomkrtcttanailbemefumtplay"
+ },
+ "24130326_18.png": {
+  "own": 0.2,
+  "best_neighbour": 0.1,
+  "ocr": "playomct13njomkrtcttanailbemefumtplay"
+ },
+ "24130326_19.png": {
+  "own": 0.24,
+  "best_neighbour": 0.12,
+  "ocr": "oslosnckati3laicnlsntnr1utosio"
+ },
+ "24130326_20.png": {
+  "own": 0.21,
+  "best_neighbour": 0.13,
+  "ocr": "mso183i7nueaehrerdeunmls01"
+ },
+ "24130326_21.png": {
+  "own": 0.13,
+  "best_neighbour": 0.16,
+  "ocr": "moiomct13njomkrtctuhiamawflamalebemefumts01"
+ },
+ "24130326_22.png": {
+  "own": 0.11,
+  "best_neighbour": 0.24,
+  "ocr": "omct13nwatcandtetoelntbemefumtkno"
+ },
+ "ig_Db3cmpDObqH_0.png": {
+  "own": 0.56,
+  "best_neighbour": 0.24,
+  "ocr": "donehasfarexceededmyexpectationsheljuclj5tgleninomanecicccol"
+ },
+ "ig_Db3cmpDObqH_1.png": {
+  "own": 0.58,
+  "best_neighbour": 0.24,
+  "ocr": "drostadisnothingshortofthebestkindmclcteatfivlunjjbithroncta"
+ },
+ "ig_Db3cmpDObqH_2.png": {
+  "own": 0.6,
+  "best_neighbour": 0.22,
+  "ocr": "andallofhisstaffareabsolutestarsandaanakaldlualaljaraifgroma"
+ },
+ "ig_Db3cmpDObqH_3.png": {
+  "own": 0.54,
+  "best_neighbour": 0.27,
+  "ocr": "conservativeinhisapproachyei540utaplfulaijjuteitaa0oromminnj"
+ },
+ "ig_Db3cmpDObqH_4.png": {
+  "own": 0.49,
+  "best_neighbour": 0.17,
+  "ocr": "kouldnotrecommendthemmoreehuellleghdeaittlamejjneecamierromo"
+ },
+ "ig_Db3cmpDObqH_5.png": {
+  "own": 0.51,
+  "best_neighbour": 0.29,
+  "ocr": "deliveryeverysinglethjmglatatnkedanijomtoicgit134iphifni"
+ },
+ "ig_Db3cmpDObqH_6.png": {
+  "own": 0.33,
+  "best_neighbour": 0.25,
+  "ocr": "haveeverhadjomckeinzarcenmo3jaomrtctumetngrlul4baneacl"
+ },
+ "ig_Db3cmpDObqH_7.png": {
+  "own": 0.3,
+  "best_neighbour": 0.15,
+  "ocr": "hhonestinhissmcicti84tarfafan5nnedimlrtacfnntetnfletul4thone"
+ },
+ "ig_Db3cmpDObqH_8.png": {
+  "own": 0.19,
+  "best_neighbour": 0.23,
+  "ocr": "thingehuellltaleieghdjjneecamierromonkcalruatetrl"
+ },
+ "ig_Db3cmpDObqH_9.png": {
+  "own": 0.14,
+  "best_neighbour": 0.22,
+  "ocr": "yetieauakedlyaedmekromjnkauljrbemtacdot"
+ },
+ "ig_Db3i3ueE0OQ_0.png": {
+  "own": 0.26,
+  "best_neighbour": 0.29,
+  "ocr": "morpheus8snickkataltnbdaulatintscoutjmgjrmordvolmemfmybemrec"
+ },
+ "ig_Db6eEhVibrQ_0.png": {
+  "own": 0.38,
+  "best_neighbour": 0.24,
+  "ocr": "exomindjnckut13ldcmmdi27jmrirt"
+ },
+ "ig_Db6eEhVibrQ_1.png": {
+  "own": 0.52,
+  "best_neighbour": 0.12,
+  "ocr": "supportingvourmindvourbalanceeauakwliomesetcivatamalc4jmkbem"
+ },
+ "ig_Db6eEhVibrQ_2.png": {
+  "own": 0.44,
+  "best_neighbour": 0.21,
+  "ocr": "andyouroveralwelbeingomctotalehcmramlerict3ceuhealpamtfntvou"
+ },
+ "ig_Db6eEhVibrQ_3.png": {
+  "own": 0.25,
+  "best_neighbour": 0.2,
+  "ocr": "lielosladmmeauakwldlyajnealaicljhotodyjmlbemtacdotrieloctad"
+ },
+ "ig_Db8Xf9YgANa_0.png": {
+  "own": 0.32,
+  "best_neighbour": 0.29,
+  "ocr": "rev0aatkilealeee885dtnuanaca"
+ },
+ "ig_Db8Xf9YgANa_1.png": {
+  "own": 0.56,
+  "best_neighbour": 0.38,
+  "ocr": "somethingelnaikaewumtin"
+ },
+ "ig_Db8Xf9YgANa_2.png": {
+  "own": 0.36,
+  "best_neighbour": 0.14,
+  "ocr": "mentalwellnessehuellleghdmmaiic15eagmilacdserettomkamcntmwfl"
+ },
+ "ig_Db8Xf9YgANa_3.png": {
+  "own": 0.71,
+  "best_neighbour": 0.59,
+  "ocr": "omingiam"
+ },
+ "ig_Db8Xf9YgANa_4.png": {
+  "own": 0.24,
+  "best_neighbour": 0.25,
+  "ocr": "exomndjuclj5tgligamtrizctqwahcmuwpalualtul"
+ },
+ "ig_Db8Xf9YgANa_5.png": {
+  "own": 0.14,
+  "best_neighbour": 0.19,
+  "ocr": "cnelkltl837jumtlerichatomf"
+ },
+ "ig_Db8Xf9YgANa_6.png": {
+  "own": 0.24,
+  "best_neighbour": 0.09,
+  "ocr": "eauakwldlyanchcla0mkodokeemtbemtacdotsyomind"
+ },
+ "ig_Db8Xf9YgANa_7.png": {
+  "own": 0.08,
+  "best_neighbour": 0.26,
+  "ocr": "omckkatu3amhicnewueetrik"
+ },
+ "ig_Db8Xf9YgANa_8.png": {
+  "own": 0.05,
+  "best_neighbour": 0.27,
+  "ocr": "funai88sdeetlatmontalnlauenmirmccent"
+ },
+ "ig_Db_Cd2PD4Jv_0.png": {
+  "own": 0.29,
+  "best_neighbour": 0.21,
+  "ocr": "sunshadegutk1teig4h4vuilorntsxruudatptreuliwucau"
+ },
+ "ig_Db_Cd2PD4Jv_1.png": {
+  "own": 0.33,
+  "best_neighbour": 0.19,
+  "ocr": "sunscreenjamtkt4atjamioictajututduaxiaedamreci"
+ },
+ "ig_Db_Cd2PD4Jv_2.png": {
+  "own": 0.23,
+  "best_neighbour": 0.18,
+  "ocr": "mineraliametatfingulneujomiottotajututdueiaeitlmtrmeci"
+ },
+ "ig_Db_Cd2PD4Jv_3.png": {
+  "own": 0.37,
+  "best_neighbour": 0.23,
+  "ocr": "protectionforamcl84tarfadnicdnioidaibrmtacmdamnderotection"
+ },
+ "ig_Db_Cd2PD4Jv_4.png": {
+  "own": 0.38,
+  "best_neighbour": 0.12,
+  "ocr": "advancedamcl84tarfaajm00idimlrtactacmfkantaavanceddaily"
+ },
+ "ig_Db_Cd2PD4Jv_5.png": {
+  "own": 0.18,
+  "best_neighbour": 0.19,
+  "ocr": "jomcltkehetciznkromctntaelraakatmaltvchanffadshade"
+ },
+ "ig_Db_Cd2PD4Jv_6.png": {
+  "own": 0.21,
+  "best_neighbour": 0.18,
+  "ocr": "ehuellltaleieghdcetliuelteumakrulatic4ostad"
+ },
+ "ig_Db_Cd2PD4Jv_7.png": {
+  "own": 0.2,
+  "best_neighbour": 0.25,
+  "ocr": "clearomctramlerictatiainaatlpamtfntshadclear"
+ },
+ "ig_Db_Cd2PD4Jv_8.png": {
+  "own": 0.17,
+  "best_neighbour": 0.15,
+  "ocr": "nak1jjaletiekeronnhzculjreozilremoardal2ariflcasariel"
+ },
+ "ig_DbbedwxCabC_0.png": {
+  "own": 0.35,
+  "best_neighbour": 0.12,
+  "ocr": "tielostadmdjomckejaomrtctxtlumuttanefebaneacl"
+ },
+ "ig_DbbedwxCabC_1.png": {
+  "own": 0.36,
+  "best_neighbour": 0.24,
+  "ocr": "picowaylasersuckhapalaiuulcomtjmgjcmojnolmwcembemtecjot"
+ },
+ "ig_Dbd6VzbFf_F_0.png": {
+  "own": 0.44,
+  "best_neighbour": 0.31,
+  "ocr": "picowaylaserjamtktoeieincjamioictdamreciaje"
+ },
+ "ig_Dbdq6Pbj8K__0.png": {
+  "own": 0.54,
+  "best_neighbour": 0.21,
+  "ocr": "supporthealthyskinwichinjomclttehmshtrattlgromctntfrom"
+ },
+ "ig_Dbdq6Pbj8K__1.png": {
+  "own": 0.51,
+  "best_neighbour": 0.15,
+  "ocr": "500ingvegetarianglucenfreeeualldahaimclriaieeecmtomtrmotrtlm"
+ },
+ "ig_Dbdq6Pbj8K__2.png": {
+  "own": 0.48,
+  "best_neighbour": 0.29,
+  "ocr": "niacinamidejomclti3fldmomideromctnt"
+ },
+ "ig_DblL_nOHGTF_0.png": {
+  "own": 0.17,
+  "best_neighbour": 0.21,
+  "ocr": "eanakwfulaicoicmujjuteitaavttcxruvmchmbbcmocotckdicon"
+ },
+ "ig_DblL_nOHGTF_1.png": {
+  "own": 0.13,
+  "best_neighbour": 0.22,
+  "ocr": "euallddmnataraieeejdignneiimvelatinaaaret"
+ },
+ "ig_DblL_nOHGTF_2.png": {
+  "own": 0.18,
+  "best_neighbour": 0.14,
+  "ocr": "ancletatwhillugiltalambeantssixt7ulboubtbamanclariel"
+ },
+ "ig_DblL_nOHGTF_3.png": {
+  "own": 0.13,
+  "best_neighbour": 0.17,
+  "ocr": "3e8544kolrsoprvcxmpirci3lmetiuaadcomuligviuotikbemmctcg"
+ },
+ "ig_DblL_nOHGTF_4.png": {
+  "own": 0.21,
+  "best_neighbour": 0.17,
+  "ocr": "5tnceaeudatwineatatrieaeidechmtrmdccccshade"
+ },
+ "ig_DblL_nOHGTF_5.png": {
+  "own": 0.26,
+  "best_neighbour": 0.15,
+  "ocr": "osteualldwtaeanltarrla54747ujtemiy"
+ },
+ "ig_DblL_nOHGTF_6.png": {
+  "own": 0.15,
+  "best_neighbour": 0.09,
+  "ocr": "ehuellltaleieghdfoaergiamuarula3oumomakotmdaniapifiocpanpari"
+ },
+ "ig_DblL_nOHGTF_7.png": {
+  "own": 0.18,
+  "best_neighbour": 0.18,
+  "ocr": "amcl84tarfaonpsaniedimlrtac7tlwauititetostadskincarf"
+ },
+ "ig_DblL_nOHGTF_8.png": {
+  "own": 0.09,
+  "best_neighbour": 0.14,
+  "ocr": "ehuellltaleieghdtnmauleuiceajenzmidici"
+ },
+ "ig_DblL_nOHGTF_9.png": {
+  "own": 0.17,
+  "best_neighbour": 0.1,
+  "ocr": "omctanndabeeaehcimsllzetasuratulutpamtfntostadskincare"
+ },
+ "ig_DblL_nOHGTF_10.png": {
+  "own": 0.13,
+  "best_neighbour": 0.1,
+  "ocr": "comgicetclz3lijingiennsmamlartnbmdecaretputemtii4tmewlamnltf"
+ },
+ "ig_DblL_nOHGTF_11.png": {
+  "own": 0.08,
+  "best_neighbour": 0.14,
+  "ocr": "jomckelal6jcjaomrtct241lunaretulanbaneaclakifi"
+ },
+ "ig_DblL_nOHGTF_12.png": {
+  "own": 0.22,
+  "best_neighbour": 0.3,
+  "ocr": "omct13nwacbtemskauaibemefumthyla"
+ },
+ "ig_Dbq_QFyE6yg_0.png": {
+  "own": 0.59,
+  "best_neighbour": 0.22,
+  "ocr": "gentleiractionatedlasereauellalevllclaikedxljeereea"
+ },
+ "ig_Dbq_QFyE6yg_1.png": {
+  "own": 0.51,
+  "best_neighbour": 0.2,
+  "ocr": "glowingskinstartshereomotfii3frldoaneananchefepambrint"
+ },
+ "ig_Dbq_QFyE6yg_2.png": {
+  "own": 0.38,
+  "best_neighbour": 0.27,
+  "ocr": "mhalixsafet0useomckkatewulcdusatmaejauddaue"
+ },
+ "ig_Dbq_QFyE6yg_3.png": {
+  "own": 0.57,
+  "best_neighbour": 0.26,
+  "ocr": "yearrouidmcldigainr"
+ },
+ "ig_Dbq_QFyE6yg_4.png": {
+  "own": 0.36,
+  "best_neighbour": 0.22,
+  "ocr": "brilliaritisaannmk7amlerimanaattatcirclauautretci"
+ },
+ "ig_Dbq_QFyE6yg_5.png": {
+  "own": 0.15,
+  "best_neighbour": 0.17,
+  "ocr": "learsnpkulaatrlasljes7ujcrmiyremtecct"
+ },
+ "ig_Dbtnt8ClkHr_0.png": {
+  "own": 0.31,
+  "best_neighbour": 0.24,
+  "ocr": "underevetillergutk1teig4undreichlcndemizrintscaingtnntncivue"
+ },
+ "ig_Dbtnt8ClkHr_1.png": {
+  "own": 0.46,
+  "best_neighbour": 0.17,
+  "ocr": "weeksposttreatinenujuclj5tglacnetnt7t27amrirtauctulvueet"
+ },
+ "ig_DbvhQMouQyo_0.png": {
+  "own": 0.49,
+  "best_neighbour": 0.13,
+  "ocr": "hyaluronicotcht13flhetnwomirtct"
+ },
+ "ig_DbvhQMouQyo_1.png": {
+  "own": 0.56,
+  "best_neighbour": 0.31,
+  "ocr": "peptideealeedcptar"
+ },
+ "ig_DbvhQMouQyo_2.png": {
+  "own": 0.38,
+  "best_neighbour": 0.4,
+  "ocr": "serum83idtceinwenaeut"
+ },
+ "ig_DbvhQMouQyo_3.png": {
+  "own": 0.45,
+  "best_neighbour": 0.17,
+  "ocr": "healthierstrongerskinaanakaldluejik4untt13auejbhjtlchotllbem"
+ },
+ "ig_DbvhQMouQyo_4.png": {
+  "own": 0.54,
+  "best_neighbour": 0.25,
+  "ocr": "visiblerejuvenationcomgicetclz3lweciueailrncunvicikl"
+ },
+ "ig_DbvhQMouQyo_5.png": {
+  "own": 0.31,
+  "best_neighbour": 0.28,
+  "ocr": "peptideserumamakieeh8ddidtonram4iermenttjdronmokdjevamkpfpti"
+ },
+ "ig_DbvhQMouQyo_6.png": {
+  "own": 0.32,
+  "best_neighbour": 0.19,
+  "ocr": "drarielostadimclettfini8rlaaelcsalamkrinttmctn4ncmoftdparici"
+ },
+ "ig_DbvhQMouQyo_7.png": {
+  "own": 0.28,
+  "best_neighbour": 0.23,
+  "ocr": "hyaluronicamcl84tar1flhvpkoncdaibrmcerles4nmateatitehyaluron"
+ },
+ "ig_DbvhQMouQyo_8.png": {
+  "own": 0.38,
+  "best_neighbour": 0.25,
+  "ocr": "hydrationjomcltmrnankamlrkntrajuuidead"
+ },
+ "ig_DbWatn0n7lO_0.png": {
+  "own": 0.34,
+  "best_neighbour": 0.19,
+  "ocr": "morpheus8jmokutauemncu27murtrtpunutvfkuk6778"
+ },
+ "ig_DbWaZHPgW0f_0.png": {
+  "own": 0.3,
+  "best_neighbour": 0.17,
+  "ocr": "advancedlumaeanakwfulaiiindmn11alultejoatensj0ualdvexbmbbcmo"
+ },
+ "ig_DbWaZHPgW0f_1.png": {
+  "own": 0.3,
+  "best_neighbour": 0.3,
+  "ocr": "drarielosnak1jjaletzorelikcaljrmllremoardaldrarielos"
+ },
+ "ig_DbYvZHgn1jq_0.png": {
+  "own": 0.47,
+  "best_neighbour": 0.21,
+  "ocr": "thankssomuchaswelllohenursingandadministraliveomctihankfmian"
+ },
+ "ig_DbYvZHgn1jq_1.png": {
+  "own": 0.51,
+  "best_neighbour": 0.17,
+  "ocr": "almoslatalossforwordsonhowamazingthispracliceisfemnfeerakrje"
+ },
+ "ig_DbYvZHgn1jq_2.png": {
+  "own": 0.59,
+  "best_neighbour": 0.33,
+  "ocr": "thereweremullipleothersurgeonsiconsulledwithdreanaekealdluua"
+ },
+ "ig_DbYvZHgn1jq_3.png": {
+  "own": 0.48,
+  "best_neighbour": 0.2,
+  "ocr": "andtheskllofdrostadkewwasinexcellenthandssnckati3lzndmcawloa"
+ },
+ "ig_DbYvZHgn1jq_4.png": {
+  "own": 0.46,
+  "best_neighbour": 0.23,
+  "ocr": "ostadworkisbeyondanylhingmhoughtwouldbehleeiaeuktrelhngiluut"
+ },
+ "ig_DbYvZHgn1jq_5.png": {
+  "own": 0.48,
+  "best_neighbour": 0.2,
+  "ocr": "staffthataresolovelyandkindnak1jjaletgconorabriatiremoardals"
+ },
+ "ig_DbYvZHgn1jq_6.png": {
+  "own": 0.33,
+  "best_neighbour": 0.23,
+  "ocr": "anhardlyevenbeseen9dazunaikembadyanirscenudajemeeagnikccntve"
+ },
+ "ig_DbYvZHgn1jq_7.png": {
+  "own": 0.26,
+  "best_neighbour": 0.15,
+  "ocr": "possiblezunaikewjemeeagontkcomorvuetrmccentdossiblell"
+ },
+ "ig_DbYvZHgn1jq_8.png": {
+  "own": 0.16,
+  "best_neighbour": 0.19,
+  "ocr": "dayszunaikew88sdjemeeagonrcquijt4iirmccentdavs"
+ },
+ "ig_Dc3qMypOwQU_0.png": {
+  "own": 0.14,
+  "best_neighbour": 0.1,
+  "ocr": "cahesanei2imlitbotceheteaieemzadnrt"
+ },
+ "ig_Dc3qMypOwQU_1.png": {
+  "own": 0.13,
+  "best_neighbour": 0.21,
+  "ocr": "anekatew83w"
+ },
+ "ig_Dc3qMypOwQU_2.png": {
+  "own": 0.24,
+  "best_neighbour": 0.29,
+  "ocr": "offnkkalee88sdatcmcn"
+ },
+ "ig_Dc3qMypOwQU_3.png": {
+  "own": 0.42,
+  "best_neighbour": 0.1,
+  "ocr": "curatedapproachtohydration83imealnlamutnathinhsltrkn7nueabim"
+ },
+ "ig_Dc3qMypOwQU_4.png": {
+  "own": 0.43,
+  "best_neighbour": 0.16,
+  "ocr": "prepareyourskinforthesnckati3luaicnlsucrilaadesralantprenare"
+ },
+ "ig_Dc3qMypOwQU_5.png": {
+  "own": 0.29,
+  "best_neighbour": 0.27,
+  "ocr": "eventsnpkulkucumvcarmiremtecct"
+ },
+ "ig_Dc3qMypOwQU_6.png": {
+  "own": 0.12,
+  "best_neighbour": 0.12,
+  "ocr": "n0w5tnclaleuotitahhaviirmdcccc"
+ },
+ "ig_Dc3qMypOwQU_7.png": {
+  "own": 0.21,
+  "best_neighbour": 0.12,
+  "ocr": "8731726mclteti8rllamkrintuldeptrulatcmoft96"
+ },
+ "ig_Dc3qMypOwQU_8.png": {
+  "own": 0.17,
+  "best_neighbour": 0.13,
+  "ocr": "114726mclteti8rlmaulamkrintvixpmacmoft0146"
+ },
+ "ig_Dc3qMypOwQU_9.png": {
+  "own": 0.18,
+  "best_neighbour": 0.06,
+  "ocr": "thejmokuta27murtrtlinendeaamelg"
+ },
+ "ig_Dc3qMypOwQU_10.png": {
+  "own": 0.15,
+  "best_neighbour": 0.14,
+  "ocr": "0neualldjauejotcautueatk"
+ },
+ "ig_Dc3qMypOwQU_11.png": {
+  "own": 0.09,
+  "best_neighbour": 0.31,
+  "ocr": "seualldkictklnbvefmiy"
+ },
+ "ig_Dc3swP_ObKi_0.png": {
+  "own": 0.4,
+  "best_neighbour": 0.2,
+  "ocr": "plareletrichplasmasuckhaduhxflpalaiuulcomtjmgjcmojnolmwcembe"
+ },
+ "ig_Dc3swP_ObKi_1.png": {
+  "own": 0.36,
+  "best_neighbour": 0.22,
+  "ocr": "arielosladmdsnckati3lmczedmal2amkrbrtianmtnarielostadmd"
+ },
+ "ig_DcbazZHio4C_0.png": {
+  "own": 0.36,
+  "best_neighbour": 0.26,
+  "ocr": "melanomajmokutaavelno4jtihjrmtsaemi"
+ },
+ "ig_DcbazZHio4C_1.png": {
+  "own": 0.26,
+  "best_neighbour": 0.31,
+  "ocr": "vaccine5nceuulaniwineatalchicuttoiduamtermdcccc"
+ },
+ "ig_DchALqsH9OD_0.png": {
+  "own": 0.11,
+  "best_neighbour": 0.26,
+  "ocr": "emalelenmlacottlrcnmasrematrict"
+ },
+ "ig_DchALqsH9OD_1.png": {
+  "own": 0.23,
+  "best_neighbour": 0.28,
+  "ocr": "jncicteatelva2mlzriort"
+ },
+ "ig_DchALqsH9OD_2.png": {
+  "own": 0.17,
+  "best_neighbour": 0.17,
+  "ocr": "15offsanck13amlalul3cmicusdexhikqiljrveermixeemcandrt"
+ },
+ "ig_DcjqIkoFMTF_0.png": {
+  "own": 0.15,
+  "best_neighbour": 0.26,
+  "ocr": "emalelherdwiemaclmlorccthiinibiuttt"
+ },
+ "ig_DcjqIkoFMTF_1.png": {
+  "own": 0.27,
+  "best_neighbour": 0.16,
+  "ocr": "drarihlostadeauakwldlya4rctatjccisknledhonkrvcatimbemtacdotd"
+ },
+ "ig_DcjqIkoFMTF_2.png": {
+  "own": 0.4,
+  "best_neighbour": 0.12,
+  "ocr": "mnankyoujorwatchingathngjjaletcunnicalittalcremoardalthankvo"
+ },
+ "ig_DcL1hPplPoZ_0.png": {
+  "own": 0.09,
+  "best_neighbour": 0.4,
+  "ocr": "xaresmckttpamkrizt"
+ },
+ "ig_DcL1hPplPoZ_1.png": {
+  "own": 0.29,
+  "best_neighbour": 0.29,
+  "ocr": "eventsnpkulbtchcrjtoiremtecct"
+ },
+ "ig_DclsBIXnQZE_0.png": {
+  "own": 0.53,
+  "best_neighbour": 0.22,
+  "ocr": "surigcalmoleeualldaieeecmeoamhonwefmiy"
+ },
+ "ig_DcLuxCYj9lg_0.png": {
+  "own": 0.39,
+  "best_neighbour": 0.17,
+  "ocr": "aviclearlasermntktt83gljkcolar77umenciecuagtueimiretm"
+ },
+ "ig_DctIbaKut5r_0.png": {
+  "own": 0.47,
+  "best_neighbour": 0.34,
+  "ocr": "skinczmcictetkeutariwa"
+ },
+ "ig_DctIbaKut5r_1.png": {
+  "own": 0.48,
+  "best_neighbour": 0.41,
+  "ocr": "eventoncltew83al"
+ },
+ "ig_DctIbaKut5r_2.png": {
+  "own": 0.33,
+  "best_neighbour": 0.35,
+  "ocr": "offllangif4ew"
+ },
+ "ig_DctIbaKut5r_3.png": {
+  "own": 0.36,
+  "best_neighbour": 0.4,
+  "ocr": "falisanelatfatae21"
+ },
+ "ig_DctIbaKut5r_4.png": {
+  "own": 0.26,
+  "best_neighbour": 0.14,
+  "ocr": "drarielostadzunaikew88sdkaccstel1huelnolemicteronanrelrueati"
+ },
+ "ig_DctIbaKut5r_5.png": {
+  "own": 0.43,
+  "best_neighbour": 0.23,
+  "ocr": "gradecareyoucantrust83iaaasi7nueaeicicunc45hocaiefnkaaradeca"
+ },
+ "ig_DctIbaKut5r_6.png": {
+  "own": 0.38,
+  "best_neighbour": 0.21,
+  "ocr": "prepareforthesnckati3lipinc2amkrbrtaaniitn4mickm6uandlgprepa"
+ },
+ "ig_DcUGBbZlRQ6_0.png": {
+  "own": 0.6,
+  "best_neighbour": 0.29,
+  "ocr": "improvedbrainactivityuntie4imnmiitacurunoaswrmeut"
+ },
+ "ig_DcUGBbZlRQ6_1.png": {
+  "own": 0.42,
+  "best_neighbour": 0.22,
+  "ocr": "andtheoverallbetteramakieeh8dhalaemcnijinlnmteleuefmiandtheo"
+ },
+ "ig_DcUGBbZlRQ6_2.png": {
+  "own": 0.36,
+  "best_neighbour": 0.18,
+  "ocr": "mentawellnesscomgicetclz3lmmikdmsdalrnamalnemantalwnellnecc"
+ },
+ "ig_DcvzRR5oPAd_0.png": {
+  "own": 0.47,
+  "best_neighbour": 0.16,
+  "ocr": "calmbrightenrestoremclcietcetclz3lcalmenatcnrezic27dmerirtcu"
+ },
+ "ig_DcvzRR5oPAd_1.png": {
+  "own": 0.29,
+  "best_neighbour": 0.16,
+  "ocr": "recoveryjuclj5tfinglkecuvet27amrirtgclcltacu4nd"
+ },
+ "ig_DcvzRR5oPAd_2.png": {
+  "own": 0.33,
+  "best_neighbour": 0.18,
+  "ocr": "intensivejuclj5tglinibiyve27amrirtgclcltacu4nd"
+ },
+ "ig_DcvzRR5oPAd_3.png": {
+  "own": 0.16,
+  "best_neighbour": 0.19,
+  "ocr": "niacsnaknxlmmliculejrgj3chctulzricxtmtremtecct"
+ },
+ "ig_DcvzRR5oPAd_4.png": {
+  "own": 0.27,
+  "best_neighbour": 0.26,
+  "ocr": "complexjuclj5tfinglomflb27amrirtgclcltacu4nd"
+ },
+ "ig_DcwT_9BCTlD_0.png": {
+  "own": 0.46,
+  "best_neighbour": 0.13,
+  "ocr": "uteraexcelvlaserjuclj5tglcoizodco27amrirtauctulvratan"
+ },
+ "ig_DcwT_9BCTlD_1.png": {
+  "own": 0.25,
+  "best_neighbour": 0.16,
+  "ocr": "sessionssuckhaselpalaiuulcomtjmgjcmojnolmwcembemtecjot"
+ },
+ "ig_DczGaeVCQpu_0.png": {
+  "own": 0.63,
+  "best_neighbour": 0.2,
+  "ocr": "hyaluronicacidfillerlomeletthabma4fi7nmcmng"
+ },
+ "ig_DczGaeVCQpu_1.png": {
+  "own": 0.49,
+  "best_neighbour": 0.26,
+  "ocr": "chinaugmentationaanakaldluangicmoyelmceembemoecor"
+ },
+ "ig_Dd4MSBHOic4_0.png": {
+  "own": 0.39,
+  "best_neighbour": 0.27,
+  "ocr": "ouictdoctorsnewvapv70emtalthn"
+ },
+ "ig_Dd4MSBHOic4_1.png": {
+  "own": 0.29,
+  "best_neighbour": 0.32,
+  "ocr": "supersanek1kcatareucufendoctor"
+ },
+ "ig_Dd4MSBHOic4_2.png": {
+  "own": 0.47,
+  "best_neighbour": 0.27,
+  "ocr": "physicianssmel4felaherdniceeclded"
+ },
+ "ig_Dd4MSBHOic4_3.png": {
+  "own": 0.41,
+  "best_neighbour": 0.42,
+  "ocr": "newyorksmck2aj3rdcel7nmcmng"
+ },
+ "ig_Dd4MSBHOic4_4.png": {
+  "own": 0.38,
+  "best_neighbour": 0.24,
+  "ocr": "rielostadmdsnpkulmmcductekomjnbodc4nmiremtecct"
+ },
+ "ig_Dd4MSBHOic4_5.png": {
+  "own": 0.42,
+  "best_neighbour": 0.29,
+  "ocr": "newyork2026jomcltctudpeuaromctntnfiodvjojk"
+ },
+ "ig_Dd4MSBHOic4_6.png": {
+  "own": 0.46,
+  "best_neighbour": 0.18,
+  "ocr": "dermatologistbecauseehuellltaleihdiliainbtcteitn271lteeokuat"
+ },
+ "ig_Dd4MSBHOic4_7.png": {
+  "own": 0.26,
+  "best_neighbour": 0.36,
+  "ocr": "jomoktiamllartmietop"
+ },
+ "ig_DdCI9zyuvgh_0.png": {
+  "own": 0.3,
+  "best_neighbour": 0.2,
+  "ocr": "arilostadmdpcehuellltaleieghdkftammmd15eagmilaumcjondhtcwtml"
+ },
+ "ig_DdCUlfFtc7__0.png": {
+  "own": 0.67,
+  "best_neighbour": 0.33,
+  "ocr": "skincarelmakieat"
+ },
+ "ig_DdCUlfFtc7__1.png": {
+  "own": 0.28,
+  "best_neighbour": 0.4,
+  "ocr": "weeksanelatfatae21dmi"
+ },
+ "ig_DdCUlfFtc7__2.png": {
+  "own": 0.56,
+  "best_neighbour": 0.29,
+  "ocr": "eventlmakieat"
+ },
+ "ig_DdCUlfFtc7__3.png": {
+  "own": 0.38,
+  "best_neighbour": 0.32,
+  "ocr": "offsnekkule"
+ },
+ "ig_DdCUlfFtc7__4.png": {
+  "own": 0.52,
+  "best_neighbour": 0.35,
+  "ocr": "therightproductsehuellltaleieghdec1lteegufmick"
+ },
+ "ig_DdCUlfFtc7__5.png": {
+  "own": 0.51,
+  "best_neighbour": 0.21,
+  "ocr": "makeallthedifferencejuclj5tglmjacjuohmonoe27amrirtcuunetetk"
+ },
+ "ig_DdCUlfFtc7__6.png": {
+  "own": 0.57,
+  "best_neighbour": 0.41,
+  "ocr": "fortherightseasonjomclti3fleemfntonoromctnt"
+ },
+ "ig_DdCUlfFtc7__7.png": {
+  "own": 0.33,
+  "best_neighbour": 0.31,
+  "ocr": "drarielostadsnckati3lelcswa2amkrbrtanenxulrnfanasdrarielosta"
+ },
+ "ig_DdCUlfFtc7__8.png": {
+  "own": 0.39,
+  "best_neighbour": 0.2,
+  "ocr": "prepareprotectandrenewomct13nnenifefolcoindferjomkrtcttehinb"
+ },
+ "ig_DdCUlfFtc7__9.png": {
+  "own": 0.41,
+  "best_neighbour": 0.24,
+  "ocr": "approachtoskinhealthomcteonaanni5lamlrantrxalaatcapamtfntann"
+ },
+ "ig_DdCUlfFtc7__10.png": {
+  "own": 0.17,
+  "best_neighbour": 0.25,
+  "ocr": "sh0paanakaldlutouanynheurucwambbemoecorchop"
+ },
+ "ig_DdCUlfFtc7__11.png": {
+  "own": 0.19,
+  "best_neighbour": 0.14,
+  "ocr": "fallnak1jjaletctvthakootilremoardalfall"
+ },
+ "ig_DdCUlfFtc7__12.png": {
+  "own": 0.13,
+  "best_neighbour": 0.26,
+  "ocr": "theomcti3rramlerictkhonradkaamiapamtfntthf"
+ },
+ "ig_DdCUlfFtc7__13.png": {
+  "own": 0.06,
+  "best_neighbour": 0.18,
+  "ocr": "tomclcteatfivli2atlljrmsmaalr4tuae"
+ },
+ "ig_DdE0wLPG--S_0.png": {
+  "own": 0.42,
+  "best_neighbour": 0.22,
+  "ocr": "drarielostadjmokutaajelclgibrmsyaacelnvetlnak"
+ },
+ "ig_DdFExnSI6wJ_0.png": {
+  "own": 0.57,
+  "best_neighbour": 0.19,
+  "ocr": "designedt0complementyourroutineaanakaldlucot3rdonkelik4otimb"
+ },
+ "ig_DdFExnSI6wJ_1.png": {
+  "own": 0.31,
+  "best_neighbour": 0.26,
+  "ocr": "hydramilk544kolmxyikjeuletgtactijujiermbemmctnoer"
+ },
+ "ig_DdFExnSI6wJ_2.png": {
+  "own": 0.51,
+  "best_neighbour": 0.25,
+  "ocr": "layerofhydrationomckkatewujrlathedztnafuccnulae"
+ },
+ "ig_DdHiaONo_cd_0.png": {
+  "own": 0.4,
+  "best_neighbour": 0.31,
+  "ocr": "picowaylasersmnentdaueneinemecagkunmnttebemmehmt"
+ },
+ "ig_DdHVydJidVU_0.png": {
+  "own": 0.48,
+  "best_neighbour": 0.2,
+  "ocr": "patintwasalittleancletataainismmufaduewjaabamancl"
+ },
+ "ig_DdHVydJidVU_1.png": {
+  "own": 0.4,
+  "best_neighbour": 0.24,
+  "ocr": "thankfullytheressnckethjnallixthireamlihabctemhchntaahmleram"
+ },
+ "ig_DdHVydJidVU_2.png": {
+  "own": 0.34,
+  "best_neighbour": 0.23,
+  "ocr": "whenthelastomckkatewumfemielosmatinetmxuikruneuulmtaml"
+ },
+ "ig_DdHVydJidVU_3.png": {
+  "own": 0.33,
+  "best_neighbour": 0.17,
+  "ocr": "stressfuluntiiealkpnhm3inia51jpruinkchuitrmeut"
+ },
+ "ig_DdHVydJidVU_4.png": {
+  "own": 0.26,
+  "best_neighbour": 0.24,
+  "ocr": "exomndancletatsat3ixtaltfuuineltbamancl"
+ },
+ "ig_Ddj9_XJDKwt_0.png": {
+  "own": 0.33,
+  "best_neighbour": 0.27,
+  "ocr": "lasergenesiszunaikew88sdiaeenjemeeaconmambowcefmiyrmccentasc"
+ },
+ "ig_DdJnObBDmBY_0.png": {
+  "own": 0.44,
+  "best_neighbour": 0.26,
+  "ocr": "weremembersncien13wekeyembak2imlric"
+ },
+ "ig_DdJnObBDmBY_1.png": {
+  "own": 0.46,
+  "best_neighbour": 0.23,
+  "ocr": "endhufuneillaltleee8srdauinctirngt3ueecladetitgitalkandtheen"
+ },
+ "ig_DdmFXlPjdJl_0.png": {
+  "own": 0.54,
+  "best_neighbour": 0.34,
+  "ocr": "bashinganckku"
+ },
+ "ig_DdmFXlPjdJl_1.png": {
+  "own": 0.71,
+  "best_neighbour": 0.32,
+  "ocr": "whyareplasticsurgeonssnkaoamtoaefuncsu"
+ },
+ "ig_DdR3CnxGHfH_0.png": {
+  "own": 0.24,
+  "best_neighbour": 0.21,
+  "ocr": "neomckkatewuandeudmlpemicoioct"
+ },
+ "ig_DdR3CnxGHfH_1.png": {
+  "own": 0.35,
+  "best_neighbour": 0.26,
+  "ocr": "fraxelco2eualldgeuaieeecmtomtrmotrtlmuefmk"
+ },
+ "ig_DduEQP5FPX2_0.png": {
+  "own": 0.14,
+  "best_neighbour": 0.28,
+  "ocr": "eualld4slstmmmrktumlcvmk"
+ },
+ "ig_DdUprPDEWae_0.png": {
+  "own": 0.56,
+  "best_neighbour": 0.29,
+  "ocr": "muscllomclat"
+ },
+ "ig_DdUprPDEWae_1.png": {
+  "own": 0.36,
+  "best_neighbour": 0.2,
+  "ocr": "iddmtt"
+ },
+ "ig_DdW7PTDIzVT_0.png": {
+  "own": 0.37,
+  "best_neighbour": 0.23,
+  "ocr": "owerfaceandnecksmcicti84tarfalotutoinuncdimlrtacuianna0utout"
+ },
+ "ig_DdW7PTDIzVT_1.png": {
+  "own": 0.41,
+  "best_neighbour": 0.17,
+  "ocr": "transformationeanakwfulai1ate7ujjuteitaajmaambobcmocot"
+ },
+ "ig_DdZgxeDkxq0_0.png": {
+  "own": 0.38,
+  "best_neighbour": 0.35,
+  "ocr": "askaneaewd"
+ },
+ "ig_DdZmyRAF9Gi_0.png": {
+  "own": 0.51,
+  "best_neighbour": 0.27,
+  "ocr": "sclerotherapygmtk4utteeleagwucthtroyin"
+ },
+ "ig_DdZmyRAF9Gi_1.png": {
+  "own": 0.29,
+  "best_neighbour": 0.16,
+  "ocr": "vejntrealmenlomctarenaneramlerictudedzbrtulanpamtfntveinreal"
+ },
+ "ig_De2Uxl-F_tv_0.png": {
+  "own": 0.36,
+  "best_neighbour": 0.22,
+  "ocr": "mohssntkkteaaleem7jumletimttebunmatnasurgeryllhti7"
+ },
+ "ig_De2Uxl-F_tv_1.png": {
+  "own": 0.39,
+  "best_neighbour": 0.31,
+  "ocr": "monthspostopcomgicetclz3lmnuurl0d27dmerirtlwoant"
+ },
+ "ig_DeIAMb_gDnx_0.png": {
+  "own": 0.47,
+  "best_neighbour": 0.29,
+  "ocr": "mmindmclae"
+ },
+ "ig_DeIAMb_gDnx_1.png": {
+  "own": 0.39,
+  "best_neighbour": 0.14,
+  "ocr": "whatisinvolvedinanzunaikee88sdtehajemeeacduomrncmkrmccentwha"
+ },
+ "ig_DeIAMb_gDnx_2.png": {
+  "own": 0.33,
+  "best_neighbour": 0.25,
+  "ocr": "treatmentjmokutairnmei27murtrtdluilultwyenett"
+ },
+ "ig_DeIAMb_gDnx_3.png": {
+  "own": 0.44,
+  "best_neighbour": 0.25,
+  "ocr": "arielostadmdmcltet3cnldatisrmmcmoftricoelad"
+ },
+ "ig_DekAyR0l3Pa_0.png": {
+  "own": 0.45,
+  "best_neighbour": 0.3,
+  "ocr": "ellacorjmcictetkeutarfin"
+ },
+ "ig_DekAyR0l3Pa_1.png": {
+  "own": 0.52,
+  "best_neighbour": 0.18,
+  "ocr": "treatmenteveryoneisaskingaboutjomcltdejtmtcgrnrneeionaj3trom"
+ },
+ "ig_DekAyR0l3Pa_2.png": {
+  "own": 0.42,
+  "best_neighbour": 0.11,
+  "ocr": "joindrostadiveonlinetolearnaboutthesnckati3llondcczduecmnlnc"
+ },
+ "ig_DekAyR0l3Pa_3.png": {
+  "own": 0.38,
+  "best_neighbour": 0.3,
+  "ocr": "virtualeventsuckhavinmu4ctstjmjicbdldvctmbbemtecjot"
+ },
+ "ig_DekAyR0l3Pa_4.png": {
+  "own": 0.35,
+  "best_neighbour": 0.19,
+  "ocr": "october20530pmjomcltcueransnyromctntmsairrerulactopfd205opha"
+ },
+ "ig_DeKHHnkF8Pj_0.png": {
+  "own": 0.36,
+  "best_neighbour": 0.26,
+  "ocr": "depressedscarsnickkatdupatedaulatintscomtrjmhomvarmybemrect"
+ },
+ "ig_DeKs_NEjDBT_0.png": {
+  "own": 0.57,
+  "best_neighbour": 0.21,
+  "ocr": "intherightplacehisempathyextensiveknowledgemclcietcetclz3lvt"
+ },
+ "ig_DeKs_NEjDBT_1.png": {
+  "own": 0.63,
+  "best_neighbour": 0.22,
+  "ocr": "especiallyishaniandmarthawhowentaboveandmclcteatfivledlienre"
+ },
+ "ig_DeKs_NEjDBT_2.png": {
+  "own": 0.56,
+  "best_neighbour": 0.22,
+  "ocr": "andyearsofexperienceareevidentineveryaspeetamakieeh8dha74eoo"
+ },
+ "ig_DeKs_NEjDBT_3.png": {
+  "own": 0.58,
+  "best_neighbour": 0.24,
+  "ocr": "heistrulyanartisthisprecisioncompassionmclcietcetclz3lmktana"
+ },
+ "ig_DeKs_NEjDBT_4.png": {
+  "own": 0.57,
+  "best_neighbour": 0.26,
+  "ocr": "beyondtomakemefeelcomfortablethroughoutcomgicetclz3lbaol13mj"
+ },
+ "ig_DeKs_NEjDBT_5.png": {
+  "own": 0.51,
+  "best_neighbour": 0.24,
+  "ocr": "tvehadwithdrostadandhisentirepracticemclcietcetclz3lichidutt"
+ },
+ "ig_DeKs_NEjDBT_6.png": {
+  "own": 0.53,
+  "best_neighbour": 0.3,
+  "ocr": "visitswouldhighlyrecommenddrostadeualldmtt4xmutalhteatdsi6ee"
+ },
+ "ig_DeKs_NEjDBT_7.png": {
+  "own": 0.56,
+  "best_neighbour": 0.29,
+  "ocr": "tmincrediblygratefulfortheexperienceamakileeh8daeclaaciriiak"
+ },
+ "ig_DeKs_NEjDBT_8.png": {
+  "own": 0.54,
+  "best_neighbour": 0.27,
+  "ocr": "theentireteamatdrostadsofficeiswonderfulmcltetfini8rlinccntz"
+ },
+ "ig_DeKs_NEjDBT_9.png": {
+  "own": 0.65,
+  "best_neighbour": 0.31,
+  "ocr": "ofhisworkwhenitcomestoreconstructioneauakwldlyasinalajtcrtmb"
+ },
+ "ig_DeKs_NEjDBT_10.png": {
+  "own": 0.63,
+  "best_neighbour": 0.31,
+  "ocr": "fromtheveryfirstconsultationknewwzaanakaldluhezofouclocvnoik"
+ },
+ "ig_DeKs_NEjDBT_11.png": {
+  "own": 0.4,
+  "best_neighbour": 0.24,
+  "ocr": "arielostadmd544koljdelljeuletgtarmanvercimbemmct"
+ },
+ "ig_DeKs_NEjDBT_12.png": {
+  "own": 0.46,
+  "best_neighbour": 0.25,
+  "ocr": "achievingthebestpossiblecomgicetclz3laideremcrsbeeailrnytiae"
+ },
+ "ig_DeKs_NEjDBT_13.png": {
+  "own": 0.57,
+  "best_neighbour": 0.17,
+  "ocr": "resultsareextraordinaryaanakaldluhezofouclocvnoikbemoecor"
+ },
+ "ig_DeKs_NEjDBT_14.png": {
+  "own": 0.41,
+  "best_neighbour": 0.24,
+  "ocr": "andhisteamtoanyonemcltet3endbeeimtoaminedomntccvaetjartcmoft"
+ },
+ "ig_DeKs_NEjDBT_15.png": {
+  "own": 0.18,
+  "best_neighbour": 0.5,
+  "ocr": "66suck1eigulpemtirrt"
+ },
+ "ig_DeKs_NEjDBT_16.png": {
+  "own": 0.38,
+  "best_neighbour": 0.27,
+  "ocr": "anddedicationtoadraniekaletocknclhhsbrelremaetdetanddedicati"
+ },
+ "ig_DeNQcHXCOAo_0.png": {
+  "own": 0.77,
+  "best_neighbour": 0.77,
+  "ocr": "lptra"
+ },
+ "ig_DeNQcHXCOAo_1.png": {
+  "own": 0.3,
+  "best_neighbour": 0.3,
+  "ocr": "sculptraomctramlerictaadtageauapamtfntschldtra"
+ },
+ "ig_Deq_kn-FzE4_0.png": {
+  "own": 0.53,
+  "best_neighbour": 0.25,
+  "ocr": "closercmofoet13dcos"
+ },
+ "ig_Deq_kn-FzE4_1.png": {
+  "own": 0.56,
+  "best_neighbour": 0.41,
+  "ocr": "atellacorcmofoet13dkube"
+ },
+ "ig_Deq_kn-FzE4_2.png": {
+  "own": 0.4,
+  "best_neighbour": 0.14,
+  "ocr": "uesdayoctober20530pmmmalkalehrdtirdiceehtacplweueutladnmkadd"
+ },
+ "ig_Deq_kn-FzE4_3.png": {
+  "own": 0.47,
+  "best_neighbour": 0.24,
+  "ocr": "exclusivesavingsandjomcltduckcaczamromctntmsairrerulaclucicc"
+ },
+ "ig_Deq_kn-FzE4_4.png": {
+  "own": 0.38,
+  "best_neighbour": 0.22,
+  "ocr": "privateliveq8qehuellltaleihdfenscjjneecadnlmubifmirvate"
+ },
+ "ig_Deq_kn-FzE4_5.png": {
+  "own": 0.41,
+  "best_neighbour": 0.12,
+  "ocr": "onlitomorrowfornak1frwtgljhscriubwumimiremoardalonlinetomorr"
+ },
+ "ig_Deq_kn-FzE4_6.png": {
+  "own": 0.32,
+  "best_neighbour": 0.18,
+  "ocr": "expertinsightscomgicetclz3lurctmem27dmerirt3msirreruibveeunt"
+ },
+ "ig_Deq_kn-FzE4_7.png": {
+  "own": 0.19,
+  "best_neighbour": 0.2,
+  "ocr": "jacorancletat3cuccdlevumiatiebamancl"
+ },
+ "ig_DeSQDccjhn-_0.png": {
+  "own": 0.57,
+  "best_neighbour": 0.22,
+  "ocr": "he"
+ },
+ "ig_DeSQDccjhn-_1.png": {
+  "own": 0.11,
+  "best_neighbour": 0.32,
+  "ocr": "aisnckiteethu"
+ },
+ "ig_DeSQDccjhn-_2.png": {
+  "own": 0.38,
+  "best_neighbour": 0.27,
+  "ocr": "ostadmdmetatlmsderatinnem"
+ },
+ "ig_DetkX_wlrGe_0.png": {
+  "own": 0.56,
+  "best_neighbour": 0.43,
+  "ocr": "todayein4"
+ },
+ "ig_DetkX_wlrGe_1.png": {
+  "own": 0.48,
+  "best_neighbour": 0.27,
+  "ocr": "anexclusive25offellacorpackagespecialomct13njnedidsetelecmee"
+ },
+ "ig_DetkX_wlrGe_2.png": {
+  "own": 0.45,
+  "best_neighbour": 0.19,
+  "ocr": "ellacorexplainediivebydrarielostad83inlatarkecaimeakcganicu7"
+ },
+ "ig_DetkX_wlrGe_3.png": {
+  "own": 0.39,
+  "best_neighbour": 0.25,
+  "ocr": "joindrostadlamleljudieoluegjntenevrmiremtecct"
+ },
+ "ig_DetkX_wlrGe_4.png": {
+  "own": 0.22,
+  "best_neighbour": 0.27,
+  "ocr": "530pmsanckamlitinntsgdccmgicefmieemcandrt"
+ },
+ "ig_DetkX_wlrGe_5.png": {
+  "own": 0.3,
+  "best_neighbour": 0.21,
+  "ocr": "onlineateanakwfulaijjuteitaaeedtchicfmibcmocot"
+ },
+ "ig_DeuyxCNEujF_0.png": {
+  "own": 0.3,
+  "best_neighbour": 0.32,
+  "ocr": "livesanelurietafmhendne"
+ },
+ "ig_DeuyxCNEujF_1.png": {
+  "own": 0.45,
+  "best_neighbour": 0.13,
+  "ocr": "ellacorvirtualexperienceamcl84tar1flnencdimlrtaccacicamellac"
+ },
+ "ig_DeuyxCNEujF_2.png": {
+  "own": 0.33,
+  "best_neighbour": 0.23,
+  "ocr": "onlinenowamtktjamioictncauarudlllvumuydamreci"
+ },
+ "ig_DeuyxCNEujF_3.png": {
+  "own": 0.3,
+  "best_neighbour": 0.25,
+  "ocr": "dojnnnowomctoctujomkrtctbemefumtjoinnow"
+ },
+ "ig_DeuyxCNEujF_4.png": {
+  "own": 0.35,
+  "best_neighbour": 0.24,
+  "ocr": "mnkinbicomctmmnbijomkrtctbemefumtlinkinbio"
+ },
+ "ig_DeuyxCNEujF_5.png": {
+  "own": 0.2,
+  "best_neighbour": 0.21,
+  "ocr": "weareomct13nmearejomkrtcttaaiciabemefumtweare"
+ },
+ "ig_Dewz9q6lzUy_0.png": {
+  "own": 0.62,
+  "best_neighbour": 0.39,
+  "ocr": "joiningsanakeu"
+ },
+ "ig_Dewz9q6lzUy_1.png": {
+  "own": 0.55,
+  "best_neighbour": 0.31,
+  "ocr": "thankeualltyel"
+ },
+ "ig_Dewz9q6lzUy_2.png": {
+  "own": 0.49,
+  "best_neighbour": 0.29,
+  "ocr": "dconnectingwithyoumntkttdocnicancere77umenciecascbau"
+ },
+ "ig_Dewz9q6lzUy_3.png": {
+  "own": 0.48,
+  "best_neighbour": 0.2,
+  "ocr": "insightsandiiveqsa544kolrtaio74jusi67rkjuvrotdtbemmct"
+ },
+ "ig_Dewz9q6lzUy_4.png": {
+  "own": 0.43,
+  "best_neighbour": 0.22,
+  "ocr": "thankyoutoeveryoneomckkatewuinankeoubcrnrncwumljrtnt3ecirmiu"
+ },
+ "ig_Dewz9q6lzUy_5.png": {
+  "own": 0.42,
+  "best_neighbour": 0.18,
+  "ocr": "whojoineddrostadeanakwfulai60ahilatitat3usicfjwmcmixbcmocotf"
+ },
+ "ig_Dewz9q6lzUy_6.png": {
+  "own": 0.45,
+  "best_neighbour": 0.18,
+  "ocr": "eveningofexpertjuclj5tglncannicid27amrirttsinwettnk"
+ },
+ "ig_Dewz9q6lzUy_7.png": {
+  "own": 0.19,
+  "best_neighbour": 0.16,
+  "ocr": "dlacorsnickkatdaulatintsjitdonlubcvnrmbemrect"
+ },
+ "ig_Dewz9q6lzUy_8.png": {
+  "own": 0.22,
+  "best_neighbour": 0.19,
+  "ocr": "welovedkeauakwldlyaewedtlecmsjicbeldewtmbbemtacdotneloved"
+ },
+ "ig_Dewz9q6lzUy_9.png": {
+  "own": 0.21,
+  "best_neighbour": 0.29,
+  "ocr": "foranomctramlerictjusatcrerubatpamtfntforan"
+ },
+ "ig_DfAsdjIIK-C_0.png": {
+  "own": 0.62,
+  "best_neighbour": 0.28,
+  "ocr": "4lljetlookingyoungersncbtiecuig"
+ },
+ "ig_DfAsdjIIK-C_1.png": {
+  "own": 0.53,
+  "best_neighbour": 0.21,
+  "ocr": "morethanjustmclietilmicton27mrbrt"
+ },
+ "ig_DfAsdjIIK-C_2.png": {
+  "own": 0.36,
+  "best_neighbour": 0.21,
+  "ocr": "whyhealthygnck0teeleeew83ulwmchcstha6hmlarntt"
+ },
+ "ig_DfAsdjIIK-C_3.png": {
+  "own": 0.47,
+  "best_neighbour": 0.23,
+  "ocr": "skinmattersewmutan144ml4mmarcrametun"
+ },
+ "ig_DfAsdjIIK-C_4.png": {
+  "own": 0.37,
+  "best_neighbour": 0.26,
+  "ocr": "skinlongevityismaletet8mf3erdkolnetleenmkmntkedilyskinlongev"
+ },
+ "ig_DfAsdjIIK-C_5.png": {
+  "own": 0.23,
+  "best_neighbour": 0.21,
+  "ocr": "lucirelsnickkatdaulatintsjzjelaclmktjtlbemrect"
+ },
+ "ig_DfAsdjIIK-C_6.png": {
+  "own": 0.37,
+  "best_neighbour": 0.2,
+  "ocr": "functioningproperlyraniekalhntnicimzowgnehomunrlurfutinremae"
+ },
+ "ig_DfAsdjIIK-C_7.png": {
+  "own": 0.3,
+  "best_neighbour": 0.33,
+  "ocr": "rougetaleieghdjjneecaetrnmie"
+ },
+ "ig_DfC2zoDERg8_0.png": {
+  "own": 0.72,
+  "best_neighbour": 0.29,
+  "ocr": "howsurgicalexpertiseshapedzeluajuntiniccithtne"
+ },
+ "ig_DfC2zoDERg8_1.png": {
+  "own": 0.67,
+  "best_neighbour": 0.29,
+  "ocr": "drarielostadscosmeticpracticeemaoldfutmntseidciacierametun"
+ },
+ "ig_DfC2zoDERg8_2.png": {
+  "own": 0.6,
+  "best_neighbour": 0.19,
+  "ocr": "approachtobusinessdecisionsandthemedicalpracticehefoundednea"
+ },
+ "ig_DfC2zoDERg8_3.png": {
+  "own": 0.67,
+  "best_neighbour": 0.2,
+  "ocr": "hehasbuilthisreputationaspatientfirstphysicianwhichhasalsosh"
+ },
+ "ig_DfC2zoDERg8_4.png": {
+  "own": 0.49,
+  "best_neighbour": 0.27,
+  "ocr": "entrepreneurdma8m3debcucludatinnmomcz"
+ },
+ "ig_DfC2zoDERg8_5.png": {
+  "own": 0.37,
+  "best_neighbour": 0.25,
+  "ocr": "bymatthewkayserxmckt8ibvancrtzaramlretstchrlrngnlanrvmatthew"
+ },
+ "ig_DfFbugqCI4J_0.png": {
+  "own": 0.75,
+  "best_neighbour": 0.19,
+  "ocr": "jeuveaue1"
+ },
+ "ig_DfFbugqCI4J_1.png": {
+  "own": 0.24,
+  "best_neighbour": 0.25,
+  "ocr": "chogmtk4utteeleaemgwllulude"
+ },
+ "ig_DfFbugqCI4J_2.png": {
+  "own": 0.61,
+  "best_neighbour": 0.25,
+  "ocr": "toolkitcla"
+ },
+ "ig_DfFbugqCI4J_3.png": {
+  "own": 0.54,
+  "best_neighbour": 0.22,
+  "ocr": "ifitsbeautifullymclieatfinilhemuld27mrbrt"
+ },
+ "ig_DfFbugqCI4J_4.png": {
+  "own": 0.49,
+  "best_neighbour": 0.24,
+  "ocr": "lonsetandthefactitancletatjmtryutdulleltvuetrtbamancl"
+ },
+ "ig_DfFbugqCI4J_5.png": {
+  "own": 0.6,
+  "best_neighbour": 0.31,
+  "ocr": "islonglastingomoti3frlometcarm"
+ },
+ "ig_DfFbugqCI4J_6.png": {
+  "own": 0.52,
+  "best_neighbour": 0.27,
+  "ocr": "becauseofitsfastemalelherddfneeecacingeaavtmiy"
+ },
+ "ig_DfFbugqCI4J_7.png": {
+  "own": 0.7,
+  "best_neighbour": 0.19,
+  "ocr": "prabotulinumtoxinaxvfsinjectionsmckttnbjumuntr4usdamerirt"
+ },
+ "ig_DfFbugqCI4J_8.png": {
+  "own": 0.38,
+  "best_neighbour": 0.32,
+  "ocr": "jeuveauomeieat3dieeaarinmertnc"
+ },
+ "ig_DfFbugqCI4J_9.png": {
+  "own": 0.12,
+  "best_neighbour": 0.22,
+  "ocr": "a4natdluck142204iznckosk7u3fewimkbemoecor"
+ },
+ "ig_DfSU79sEmJ5_0.png": {
+  "own": 0.54,
+  "best_neighbour": 0.24,
+  "ocr": "neuromoduomeltketacanon"
+ },
+ "ig_DfSU79sEmJ5_1.png": {
+  "own": 0.55,
+  "best_neighbour": 0.2,
+  "ocr": "ssessmentganaikkalzelua"
+ }
+}

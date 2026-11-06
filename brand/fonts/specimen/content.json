@@ -1,0 +1,37 @@
+{
+ "headlines": [
+  "We believe imperfection helps you connect with the work better.",
+  "For naturally glowing skin"
+ ],
+ "headline_source": "board blocks 32197302 (crops 3,0,1,2) and 38944212 (crop 0), OCR text",
+ "captions": [
+  "Where surgical precision meets the artistry of reconstruction.",
+  "Just because a treatment is trending doesn’t mean it’s the right treatment for you.",
+  "Strength is part of the aesthetic conversation."
+ ],
+ "caption_source": [
+  "existing/posts.json De2Uxl-F_tv",
+  "existing/posts.json DeNQcHXCOAo",
+  "existing/posts.json DdUprPDEWae"
+ ],
+ "procedures": [
+  "Hyaluronic acid fillers",
+  "Neurotoxins",
+  "Sclerotherapy",
+  "Radiofrequency tightening",
+  "PRP for hair loss"
+ ],
+ "procedure_source": [
+  "ha-filler",
+  "neurotoxin",
+  "sclerotherapy",
+  "rf-microneedling",
+  "prp-hair"
+ ],
+ "grounds": [
+  "14664481",
+  "41911984",
+  "2145281"
+ ],
+ "grounds_source": "board favourites with a photograph (SIJO, Seed, Reve Humide); EQL 7529470 is a logotype grid"
+}

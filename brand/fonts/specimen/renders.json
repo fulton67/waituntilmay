@@ -1,0 +1,156 @@
+[
+ {
+  "file": "fonts/specimen/system_1080x1350_14664481.png",
+  "canvas": "1080x1350",
+  "ground": "board 14664481",
+  "headline": "We believe imperfection helps you connect with the work better.",
+  "caption": "Where surgical precision meets the artistry of reconstruction.",
+  "display": "Neue Haas Grotesk Display Pro 65 Medium",
+  "fonts_loaded": true,
+  "ground_luminance": 0.752,
+  "ink": "ink #211b15"
+ },
+ {
+  "file": "fonts/specimen/system_1080x1350_41911984.png",
+  "canvas": "1080x1350",
+  "ground": "board 41911984",
+  "headline": "For naturally glowing skin",
+  "caption": "Just because a treatment is trending doesn’t mean it’s the right treatment for you.",
+  "display": "Neue Haas Grotesk Display Pro 65 Medium",
+  "fonts_loaded": true,
+  "ground_luminance": 0.423,
+  "ink": "paper #f6f6f5"
+ },
+ {
+  "file": "fonts/specimen/system_1080x1350_2145281.png",
+  "canvas": "1080x1350",
+  "ground": "board 2145281",
+  "headline": "We believe imperfection helps you connect with the work better.",
+  "caption": "Strength is part of the aesthetic conversation.",
+  "display": "Neue Haas Grotesk Display Pro 65 Medium",
+  "fonts_loaded": true,
+  "ground_luminance": 0.521,
+  "ink": "ink #211b15"
+ },
+ {
+  "file": "fonts/specimen/system_1080x1350_paper.png",
+  "canvas": "1080x1350",
+  "ground": "paper",
+  "headline": "For naturally glowing skin",
+  "caption": "Where surgical precision meets the artistry of reconstruction.",
+  "display": "Neue Haas Grotesk Display Pro 65 Medium",
+  "fonts_loaded": true,
+  "ground_luminance": 0.96,
+  "ink": "ink #211b15"
+ },
+ {
+  "file": "fonts/specimen/system_1080x1080_14664481.png",
+  "canvas": "1080x1080",
+  "ground": "board 14664481",
+  "headline": "We believe imperfection helps you connect with the work better.",
+  "caption": "Just because a treatment is trending doesn’t mean it’s the right treatment for you.",
+  "display": "Neue Haas Grotesk Display Pro 65 Medium",
+  "fonts_loaded": true,
+  "ground_luminance": 0.753,
+  "ink": "ink #211b15"
+ },
+ {
+  "file": "fonts/specimen/system_1080x1080_41911984.png",
+  "canvas": "1080x1080",
+  "ground": "board 41911984",
+  "headline": "For naturally glowing skin",
+  "caption": "Strength is part of the aesthetic conversation.",
+  "display": "Neue Haas Grotesk Display Pro 65 Medium",
+  "fonts_loaded": true,
+  "ground_luminance": 0.36,
+  "ink": "paper #f6f6f5"
+ },
+ {
+  "file": "fonts/specimen/system_1080x1080_2145281.png",
+  "canvas": "1080x1080",
+  "ground": "board 2145281",
+  "headline": "We believe imperfection helps you connect with the work better.",
+  "caption": "Where surgical precision meets the artistry of reconstruction.",
+  "display": "Neue Haas Grotesk Display Pro 65 Medium",
+  "fonts_loaded": true,
+  "ground_luminance": 0.539,
+  "ink": "ink #211b15"
+ },
+ {
+  "file": "fonts/specimen/system_1080x1080_paper.png",
+  "canvas": "1080x1080",
+  "ground": "paper",
+  "headline": "For naturally glowing skin",
+  "caption": "Just because a treatment is trending doesn’t mean it’s the right treatment for you.",
+  "display": "Neue Haas Grotesk Display Pro 65 Medium",
+  "fonts_loaded": true,
+  "ground_luminance": 0.96,
+  "ink": "ink #211b15"
+ },
+ {
+  "file": "fonts/specimen/system_1080x1920_14664481.png",
+  "canvas": "1080x1920",
+  "ground": "board 14664481",
+  "headline": "We believe imperfection helps you connect with the work better.",
+  "caption": "Strength is part of the aesthetic conversation.",
+  "display": "Neue Haas Grotesk Display Pro 65 Medium",
+  "fonts_loaded": true,
+  "ground_luminance": 0.766,
+  "ink": "ink #211b15"
+ },
+ {
+  "file": "fonts/specimen/system_1080x1920_41911984.png",
+  "canvas": "1080x1920",
+  "ground": "board 41911984",
+  "headline": "For naturally glowing skin",
+  "caption": "Where surgical precision meets the artistry of reconstruction.",
+  "display": "Neue Haas Grotesk Display Pro 65 Medium",
+  "fonts_loaded": true,
+  "ground_luminance": 0.391,
+  "ink": "paper #f6f6f5"
+ },
+ {
+  "file": "fonts/specimen/system_1080x1920_2145281.png",
+  "canvas": "1080x1920",
+  "ground": "board 2145281",
+  "headline": "We believe imperfection helps you connect with the work better.",
+  "caption": "Just because a treatment is trending doesn’t mean it’s the right treatment for you.",
+  "display": "Neue Haas Grotesk Display Pro 65 Medium",
+  "fonts_loaded": true,
+  "ground_luminance": 0.491,
+  "ink": "paper #f6f6f5"
+ },
+ {
+  "file": "fonts/specimen/system_1080x1920_paper.png",
+  "canvas": "1080x1920",
+  "ground": "paper",
+  "headline": "For naturally glowing skin",
+  "caption": "Strength is part of the aesthetic conversation.",
+  "display": "Neue Haas Grotesk Display Pro 65 Medium",
+  "fonts_loaded": true,
+  "ground_luminance": 0.96,
+  "ink": "ink #211b15"
+ },
+ {
+  "file": "fonts/specimen/losing_poppins_1080x1350.png",
+  "canvas": "1080x1350",
+  "ground": "paper",
+  "headline": "We believe imperfection helps you connect with the work better.",
+  "caption": "Where surgical precision meets the artistry of reconstruction.",
+  "display": "Poppins Medium (losing system: display score 13.03)",
+  "fonts_loaded": true,
+  "ground_luminance": 0.96,
+  "ink": "ink #211b15"
+ },
+ {
+  "file": "fonts/specimen/losing_cormorant-garamond_1080x1350.png",
+  "canvas": "1080x1350",
+  "ground": "paper",
+  "headline": "We believe imperfection helps you connect with the work better.",
+  "caption": "Where surgical precision meets the artistry of reconstruction.",
+  "display": "Cormorant Garamond Medium (losing system: display score 9.11)",
+  "fonts_loaded": true,
+  "ground_luminance": 0.96,
+  "ink": "ink #211b15"
+ }
+]

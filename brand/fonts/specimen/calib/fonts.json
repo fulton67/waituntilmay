@@ -1,0 +1,71 @@
+{
+ "kit": "vzz0hgt",
+ "line": "Hamburgefonstiv clinic results",
+ "font_size_px": 120,
+ "fonts": [
+  {
+   "id": "nhg-display-600",
+   "family": "neue-haas-grotesk-display",
+   "weight": 600,
+   "loaded": true,
+   "cap_em": 0.7188,
+   "x_em": 0.5156
+  },
+  {
+   "id": "nhg-display-500",
+   "family": "neue-haas-grotesk-display",
+   "weight": 500,
+   "loaded": true,
+   "cap_em": 0.7188,
+   "x_em": 0.5313
+  },
+  {
+   "id": "nhg-text-400",
+   "family": "neue-haas-grotesk-text",
+   "weight": 400,
+   "loaded": true,
+   "cap_em": 0.75,
+   "x_em": 0.5469
+  },
+  {
+   "id": "nhg-text-500",
+   "family": "neue-haas-grotesk-text",
+   "weight": 500,
+   "loaded": true,
+   "cap_em": 0.75,
+   "x_em": 0.5469
+  },
+  {
+   "id": "poppins-500",
+   "family": "poppins",
+   "weight": 500,
+   "loaded": true,
+   "cap_em": 0.7031,
+   "x_em": 0.5625
+  },
+  {
+   "id": "poppins-400",
+   "family": "poppins",
+   "weight": 400,
+   "loaded": true,
+   "cap_em": 0.7031,
+   "x_em": 0.5469
+  },
+  {
+   "id": "cormorant-500",
+   "family": "cormorant-garamond",
+   "weight": 500,
+   "loaded": true,
+   "cap_em": 0.625,
+   "x_em": 0.3906
+  },
+  {
+   "id": "cormorant-400",
+   "family": "cormorant-garamond",
+   "weight": 400,
+   "loaded": true,
+   "cap_em": 0.625,
+   "x_em": 0.3906
+  }
+ ]
+}

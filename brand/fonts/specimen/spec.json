@@ -1,0 +1,212 @@
+{
+ "kit": "vzz0hgt",
+ "kit_css": "https://use.typekit.net/vzz0hgt.css",
+ "roles": {
+  "headline": {
+   "font_id": "nhg-display-600",
+   "family": "neue-haas-grotesk-display",
+   "weight": 600,
+   "adobe_style": "Neue Haas Grotesk Display Pro 65 Medium",
+   "cap_pct_h": 4.37,
+   "cap_pct_h_cite": "pixels.json regions role=headline median cap_pct_h",
+   "line_height": 1.033,
+   "line_height_cite": "pixels.json regions role=headline median leading_em (1.006) x cap_em 0.7188 / 0.7",
+   "letter_spacing_em": 0.0082,
+   "letter_spacing_cite": "calib/tracking.json nhg-display-600 headline (target pixels.json regions role=headline median tracking_pct_em)",
+   "block_w_pct": 45.7,
+   "block_w_cite": "pixels.json regions role=headline source=instagram median block_w_pct",
+   "uppercase": false,
+   "uppercase_cite": "judgment call: labels set in caps to separate them from captions of near-equal size"
+  },
+  "caption": {
+   "font_id": "nhg-display-500",
+   "family": "neue-haas-grotesk-display",
+   "weight": 500,
+   "adobe_style": "Neue Haas Grotesk Display Pro 55 Roman",
+   "cap_pct_h": 2.0,
+   "cap_pct_h_cite": "pixels.json regions role=caption median cap_pct_h",
+   "line_height": 1.271,
+   "line_height_cite": "pixels.json regions role=caption median leading_em (1.238) x cap_em 0.7188 / 0.7",
+   "letter_spacing_em": -0.0158,
+   "letter_spacing_cite": "calib/tracking.json nhg-display-500 caption (target pixels.json regions role=caption median tracking_pct_em)",
+   "block_w_pct": 35.7,
+   "block_w_cite": "pixels.json regions role=caption source=instagram median block_w_pct",
+   "uppercase": false,
+   "uppercase_cite": "judgment call: labels set in caps to separate them from captions of near-equal size"
+  },
+  "label": {
+   "font_id": "nhg-display-500",
+   "family": "neue-haas-grotesk-display",
+   "weight": 500,
+   "adobe_style": "Neue Haas Grotesk Display Pro 55 Roman",
+   "cap_pct_h": 1.895,
+   "cap_pct_h_cite": "pixels.json regions role=label median cap_pct_h",
+   "line_height": 1.078,
+   "line_height_cite": "pixels.json regions role=label median leading_em (1.05) x cap_em 0.7188 / 0.7",
+   "letter_spacing_em": 0.0102,
+   "letter_spacing_cite": "calib/tracking.json nhg-display-500 label (target pixels.json regions role=label median tracking_pct_em)",
+   "block_w_pct": 20.7,
+   "block_w_cite": "pixels.json regions role=label source=instagram median block_w_pct",
+   "uppercase": true,
+   "uppercase_cite": "judgment call: labels set in caps to separate them from captions of near-equal size"
+  }
+ },
+ "canvases": {
+  "1080x1350": {
+   "w": 1080,
+   "h": 1350,
+   "sizes": {
+    "headline": {
+     "font_size_px": 82.1,
+     "line_height_px": 84.8
+    },
+    "caption": {
+     "font_size_px": 37.6,
+     "line_height_px": 47.7
+    },
+    "label": {
+     "font_size_px": 35.6,
+     "line_height_px": 38.4
+    }
+   },
+   "size_basis": "cap % of canvas height (pixels.json)"
+  },
+  "1080x1080": {
+   "w": 1080,
+   "h": 1080,
+   "sizes": {
+    "headline": {
+     "font_size_px": 65.7,
+     "line_height_px": 67.8
+    },
+    "caption": {
+     "font_size_px": 30.1,
+     "line_height_px": 38.2
+    },
+    "label": {
+     "font_size_px": 28.5,
+     "line_height_px": 30.7
+    }
+   },
+   "size_basis": "cap % of canvas height (pixels.json)"
+  },
+  "1080x1920": {
+   "w": 1080,
+   "h": 1920,
+   "sizes": {
+    "headline": {
+     "font_size_px": 82.1,
+     "line_height_px": 84.8
+    },
+    "caption": {
+     "font_size_px": 37.6,
+     "line_height_px": 47.7
+    },
+    "label": {
+     "font_size_px": 35.6,
+     "line_height_px": 38.4
+    }
+   },
+   "size_basis": "judgment call: 4:5 sizes reused, a story is read at the same width"
+  }
+ },
+ "layout": {
+  "margin_pct_w": 5.4,
+  "margin_cite": "pixels.json images source=instagram median text_margin_left_pct",
+  "headline_top_pct_h": 13.8,
+  "headline_top_cite": "pixels.json images source=board median text_margin_top_pct",
+  "align": "left",
+  "align_cite": "PIXELS.md stack alignment: board left 53 / centre 10 / right 8; instagram left 42 / centre 21 / right 13"
+ },
+ "web": {
+  "body": {
+   "family": "neue-haas-grotesk-text",
+   "weight": 400,
+   "size_px": 17,
+   "line_height": 1.5,
+   "cite": "judgment call: 17px web body in NHG Text (optical size for small text); line-height 1.5 for long reading"
+  },
+  "h1": {
+   "family": "neue-haas-grotesk-display",
+   "weight": 600,
+   "size_px": 39,
+   "cite": "headline/caption cap ratio from pixels.json applied to the 17px body, cap-height matched across Text and Display"
+  },
+  "label": {
+   "family": "neue-haas-grotesk-display",
+   "weight": 500,
+   "size_px": 13,
+   "uppercase": true,
+   "letter_spacing_em": 0.0102,
+   "cite": "judgment call size; tracking from calib/tracking.json label"
+  },
+  "h2": {
+   "family": "neue-haas-grotesk-display",
+   "weight": 600,
+   "size_px": 30,
+   "cite": "judgment call: between h1 and body"
+  }
+ },
+ "notes": [],
+ "system": {
+  "display": {
+   "family_slug": "neue-haas-grotesk",
+   "family": "Neue Haas Grotesk Display",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/neue-haas-grotesk",
+   "classification": [
+    "sans"
+   ],
+   "contrast": null,
+   "score": 21.83,
+   "board": 21.83,
+   "favourite": 0.0,
+   "instagram": 0.0
+  },
+  "text": {
+   "family_slug": "neue-haas-grotesk",
+   "family": "Neue Haas Grotesk Display",
+   "foundry": "Monotype",
+   "url": "https://fonts.adobe.com/fonts/neue-haas-grotesk",
+   "classification": [
+    "sans"
+   ],
+   "contrast": null,
+   "score": 129.21,
+   "board": 126.58,
+   "favourite": 1.5,
+   "instagram": 2.25
+  },
+  "mono": null,
+  "losing": [
+   {
+    "family_slug": "poppins",
+    "family": "Poppins",
+    "foundry": "Google",
+    "url": "https://fonts.adobe.com/fonts/poppins",
+    "classification": [
+     "sans"
+    ],
+    "contrast": "l",
+    "score": 13.03,
+    "board": 13.03,
+    "favourite": 0.0,
+    "instagram": 0.0
+   },
+   {
+    "family_slug": "cormorant-garamond",
+    "family": "Cormorant Garamond",
+    "foundry": "Google",
+    "url": "https://fonts.adobe.com/fonts/cormorant-garamond",
+    "classification": [
+     "serif"
+    ],
+    "contrast": "r",
+    "score": 9.11,
+    "board": 0.0,
+    "favourite": 0.0,
+    "instagram": 18.22
+   }
+  ]
+ }
+}
