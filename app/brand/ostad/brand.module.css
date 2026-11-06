@@ -1,7 +1,7 @@
-/* Paper and ink are the board's two largest colour clusters (brand/colour/board.json aggregate #1 and #2).
+/* Paper and ink are the final palette roles background and text (brand/colour/palette.json).
    Fallbacks after the Adobe kit families are named fallbacks only. */
 .root {
-  --paper: #f6f6f5;
+  --paper: #f2efed;
   --ink: #211b15;
   --mute: #7d8075;
   --rule: #d7d5d0;

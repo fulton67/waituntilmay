@@ -13,7 +13,9 @@ const calib = JSON.parse(fs.readFileSync(path.join(OUT, 'calib', 'fonts.json'), 
 const trk = JSON.parse(fs.readFileSync(path.join(OUT, 'calib', 'tracking.json'), 'utf8')).fonts;
 const blocks = Object.fromEntries(JSON.parse(fs.readFileSync(path.join(B, 'board', 'blocks.json'), 'utf8')).map(b => [String(b.id), b]));
 const content = JSON.parse(fs.readFileSync(path.join(OUT, 'content.json'), 'utf8'));
-const PAPER = '#f6f6f5', INK = '#211b15';  // colour/board.json aggregate #1 (white / paper) and #2 (black / deep shadow)
+const PAL = JSON.parse(fs.readFileSync(path.join(B, 'colour', 'palette.json'), 'utf8'));
+const role = r => PAL.palette[r].hex;
+const PAPER = role('background'), INK = role('text');  // colour/palette.json roles
 const GROUNDS = [...content.grounds.map(id => ({ kind: 'image', id, src: '/board/' + blocks[id].file })), { kind: 'colour', id: 'paper', bg: PAPER }];
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
@@ -68,7 +70,7 @@ const srv = http.createServer((q, r) => {
     const p = plates[i], c = spec.canvases[p.canvas];
     const pg = await b.newPage({ viewport: { width: c.w, height: c.h } });
     await pg.goto('http://localhost:8767/p' + i); await pg.evaluate(() => document.fonts.ready);
-    const res = await pg.evaluate(async () => {
+    const res = await pg.evaluate(async ([INK_, PAPER_]) => {
       const ok = window.__fonts.every(([f, w]) => document.fonts.check(`${w} 40px "${f}"`));
       if (!ok) document.getElementById('fb').style.display = 'block';
       // ink: paper or ink, whichever contrasts with the mean luminance behind the text blocks
@@ -82,9 +84,9 @@ const srv = http.createServer((q, r) => {
           let t = 0; for (let j = 0; j < d.length; j += 4) t += (0.2126 * d[j] + 0.7152 * d[j + 1] + 0.0722 * d[j + 2]) / 255; return t / (d.length / 4); };
         lum = (zone(document.getElementById('hl')) + zone(document.getElementById('ft'))) / 2;
       }
-      P.style.setProperty('--ink', lum > 0.5 ? '#211b15' : '#f6f6f5');
-      return { fonts_loaded: ok, ground_luminance: +lum.toFixed(3), ink: lum > 0.5 ? 'ink #211b15' : 'paper #f6f6f5' };
-    });
+      P.style.setProperty('--ink', lum > 0.5 ? INK_ : PAPER_);
+      return { fonts_loaded: ok, ground_luminance: +lum.toFixed(3), ink: lum > 0.5 ? 'ink ' + INK_ : 'paper ' + PAPER_ };
+    }, [INK, PAPER]);
     await pg.locator('#p').screenshot({ path: path.join(OUT, p.file) });
     log.push({ file: 'fonts/specimen/' + p.file, canvas: p.canvas, ground: p.ground.kind === 'image' ? 'board ' + p.ground.id : 'paper', headline: p.headline, caption: p.caption,
                display: p.display ? p.display.name : spec.roles.headline.adobe_style, ...res });

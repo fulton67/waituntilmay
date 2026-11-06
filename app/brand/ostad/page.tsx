@@ -13,7 +13,7 @@ function Plate({ r }: { r: Render }) {
     <figure className={css.plate}>
       <Image src={r.src} alt={`${r.display} on ${r.ground}, ${r.canvas}`} width={w} height={h} sizes="(max-width: 700px) 50vw, 25vw" />
       <figcaption>
-        {r.ground === "paper" ? "Paper #f6f6f5" : `Board ${r.ground.replace("board ", "")}`}
+        {r.ground === "paper" ? "Paper #f2efed" : `Board ${r.ground.replace("board ", "")}`}
         {r.fonts_loaded ? "" : " · FALLBACK"}
       </figcaption>
     </figure>
