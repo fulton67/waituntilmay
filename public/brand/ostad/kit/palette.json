@@ -1,0 +1,210 @@
+{
+ "roles": {
+  "background": {
+   "hex": "#f2efed",
+   "L": 94.6,
+   "C": 1.5,
+   "source": "instagram.aggregate[1] #f2efed (12.6%)"
+  },
+  "surface": {
+   "hex": "#c3bdbb",
+   "L": 77.0,
+   "C": 2.5,
+   "source": "instagram.aggregate[3] #c3bdbb (9.3%)"
+  },
+  "text": {
+   "hex": "#211b15",
+   "L": 10.3,
+   "C": 5.5,
+   "source": "board.aggregate[1] #211b15 (12.8%)"
+  },
+  "accent-1": {
+   "hex": "#bf8662",
+   "L": 60.8,
+   "C": 33.1,
+   "source": "instagram.aggregate[5] #bf8662 (8.3%)"
+  },
+  "accent-2": {
+   "hex": "#89644f",
+   "L": 45.6,
+   "C": 21.5,
+   "source": "instagram.aggregate[7] #89644f (6.6%)"
+  },
+  "signal": {
+   "hex": "#505f53",
+   "L": 38.8,
+   "C": 9.8,
+   "source": "board.aggregate[11] #505f53 (5.0%)"
+  }
+ },
+ "pairs": [
+  {
+   "text": "background",
+   "on": "text",
+   "fg": "#f2efed",
+   "bg": "#211b15",
+   "ratio": 14.89,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "background",
+   "on": "accent-2",
+   "fg": "#f2efed",
+   "bg": "#89644f",
+   "ratio": 4.59,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "background",
+   "on": "signal",
+   "fg": "#f2efed",
+   "bg": "#505f53",
+   "ratio": 5.91,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "surface",
+   "on": "text",
+   "fg": "#c3bdbb",
+   "bg": "#211b15",
+   "ratio": 9.18,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "surface",
+   "on": "signal",
+   "fg": "#c3bdbb",
+   "bg": "#505f53",
+   "ratio": 3.65,
+   "caption_label_AA": false,
+   "headline_AA": true
+  },
+  {
+   "text": "text",
+   "on": "background",
+   "fg": "#211b15",
+   "bg": "#f2efed",
+   "ratio": 14.89,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "text",
+   "on": "surface",
+   "fg": "#211b15",
+   "bg": "#c3bdbb",
+   "ratio": 9.18,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "text",
+   "on": "accent-1",
+   "fg": "#211b15",
+   "bg": "#bf8662",
+   "ratio": 5.52,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "text",
+   "on": "accent-2",
+   "fg": "#211b15",
+   "bg": "#89644f",
+   "ratio": 3.25,
+   "caption_label_AA": false,
+   "headline_AA": true
+  },
+  {
+   "text": "accent-1",
+   "on": "text",
+   "fg": "#bf8662",
+   "bg": "#211b15",
+   "ratio": 5.52,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "accent-2",
+   "on": "background",
+   "fg": "#89644f",
+   "bg": "#f2efed",
+   "ratio": 4.59,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "accent-2",
+   "on": "text",
+   "fg": "#89644f",
+   "bg": "#211b15",
+   "ratio": 3.25,
+   "caption_label_AA": false,
+   "headline_AA": true
+  },
+  {
+   "text": "signal",
+   "on": "background",
+   "fg": "#505f53",
+   "bg": "#f2efed",
+   "ratio": 5.91,
+   "caption_label_AA": true,
+   "headline_AA": true
+  },
+  {
+   "text": "signal",
+   "on": "surface",
+   "fg": "#505f53",
+   "bg": "#c3bdbb",
+   "ratio": 3.65,
+   "caption_label_AA": false,
+   "headline_AA": true
+  }
+ ],
+ "rule": {
+  "background": {
+   "text": [
+    "text",
+    "signal",
+    "accent-2"
+   ],
+   "fill_accent": "accent-1 (with text ink)"
+  },
+  "surface": {
+   "text": [
+    "text"
+   ],
+   "headline_only": [
+    "signal"
+   ]
+  },
+  "accent-1": {
+   "text": [
+    "text"
+   ]
+  },
+  "accent-2": {
+   "headline_only": [
+    "text"
+   ]
+  },
+  "text (dark card)": {
+   "text": [
+    "background"
+   ],
+   "accent": "accent-1"
+  },
+  "glass": {
+   "text": [
+    "text"
+   ],
+   "note": "glass = surface at the measured alpha over a treated photo; text ink is checked per render"
+  }
+ },
+ "rule_cite": "colour/palette.json aa_pairs (caption >= 4.5, headline >= 3.0)",
+ "source": "colour/palette.json"
+}

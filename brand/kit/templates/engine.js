@@ -2,6 +2,7 @@
 // the server PNG (Playwright opening render.html) and the CLI (brand/post.py), so all three produce the same layout.
 // Templates are built only from kit/components classes, palette roles and the type roles; layouts cite composition/layouts.json.
 import { ICONS } from "./icons.js";
+export { ICONS };
 
 export const SIZES = { "4x5": [1080, 1350], "1x1": [1080, 1080], "9x16": [1080, 1920] };
 // accent -> fill + ink for pills, and the colour used as text on paper (kit/palette.json rule: accent-1 takes text ink;

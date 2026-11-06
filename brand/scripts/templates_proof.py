@@ -1,5 +1,5 @@
 """BUILDER Phase B proof: every template x 3 sizes through the server renderer (scripts/render_posts.cjs), with Dr. Ostad's own
-Instagram photos (existing/thumbs, photographic subset from colour/treatment.json). Overflow tests: an over-long statement must
+Instagram photos (scripts/kit_photos.py, served from public/brand/ostad/kit). Overflow tests: an over-long statement must
 truncate with a warning; a long caption must paginate; a 7-slide carousel must number 1/7..7/7.
 -> kit/templates/{id}/thumb_{size}.png, fig/templates_sheet.png, kit/templates/templates_check.json. brand-venv python -I."""
 import json, pathlib, subprocess, sys, os
@@ -7,11 +7,8 @@ from PIL import Image, ImageDraw, ImageFont
 sys.stdout.reconfigure(encoding="utf-8")
 B = pathlib.Path(__file__).resolve().parents[1]; ROOT = B.parent; TP = B / "kit" / "templates"; W = TP / "_proof"; W.mkdir(exist_ok=True)
 idx = json.load(open(TP / "index.json", encoding="utf-8"))
-tr = json.load(open(B / "colour" / "treatment.json", encoding="utf-8"))["per_image"]
-# clean pool: Ostad's own photographic posts with the least burnt-in text (text_area_pct < 2.5, colour/treatment.json; judgment
-# threshold, DECISIONS 45) -- 7 images, ordered by text area so slot 0 gets the cleanest
-PHOTO_TEXT_MAX = 2.5
-photos = [f"/existing/thumbs/{r['image']}.jpg" for r in sorted(tr, key=lambda r: r["text_area_pct"]) if r["source"] == "instagram" and r["photo"] and r["text_area_pct"] < PHOTO_TEXT_MAX]
+# clean pool: scripts/kit_photos.py (Ostad's own photographic posts, text_area_pct < 2.5; DECISIONS 45), served from public/
+photos = [r["src"] for r in json.load(open(TP / "photos" / "photos.json", encoding="utf-8"))]
 SIZES = ["4x5", "1x1", "9x16"]
 def slots_for(tid, k):
     s = {}
