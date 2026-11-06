@@ -98,11 +98,11 @@ for var, st in (("rebuilt", f"--ok-frame-radius:{sf['radius_px'] / sf['w_px']:.4
 PROOFS.append(("screen_frame", 14664481, (l - 20, t - 20, r_ + 20, b + 20), "screen_frame_14664481"))
 
 # ---- dark card + meta label (27454113 rebuilt as a whole slide) ----
-body = ('<div style="position:absolute;left:144px;top:140px;width:1100px;font:400 37px/1.36 var(--ok-text)">As an organisation, Pure Finance is committed to putting 5% of revenue to work for good via our impact giving model: Pure Community. This 5% is then split between three distinct impact areas:'
+body = ('<div style="position:absolute;left:144px;top:140px;width:1100px;font:400 37px/1.36 var(--ok-font-text)">As an organisation, Pure Finance is committed to putting 5% of revenue to work for good via our impact giving model: Pure Community. This 5% is then split between three distinct impact areas:'
         '<p style="font-weight:500;margin:52px 0">1% to Pay the Rent<br>1% For the Earth<br>3% for our NFP, YOURS</p>Let\'s take a look at where the community sent its support for the third quarter of the year.</div>')
 foot = '<div class="ok-footer" style="left:144px;right:144px;font-size:33px;--ok-meta-dot:29px"><span class="ok-meta" style="text-transform:none;font-size:33px;margin-left:61px">Pure Community&nbsp; /&nbsp; Q3, 2023</span><span class="ok-count" style="font-size:33px">1 / 9</span></div>'
 scene("dark_card_27454113_rebuilt", 1440, 1800, body + foot, "background:#000;color:#fff")
-scene("dark_card_27454113_kit", 1440, 1800, body.replace("font:400 37px/1.36 var(--ok-text)", "font:400 37px/1.36 var(--ok-text)") + foot.replace("--ok-meta-dot:29px", ""), "", )
+scene("dark_card_27454113_kit", 1440, 1800, body.replace("font:400 37px/1.36 var(--ok-font-text)", "font:400 37px/1.36 var(--ok-font-text)") + foot.replace("--ok-meta-dot:29px", ""), "", )
 (SC / "dark_card_27454113_kit.html").write_text((SC / "dark_card_27454113_kit.html").read_text(encoding="utf-8").replace('class="ok"', 'class="ok ok--dark"'), encoding="utf-8")
 PROOFS.append(("dark_card", 27454113, (0, 0, 1440, 1800), "dark_card_27454113"))
 PROOFS.append(("meta_label", 27454113, (100, 1580, 1340, 1700), "dark_card_27454113"))

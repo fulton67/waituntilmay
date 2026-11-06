@@ -15,7 +15,7 @@
   --ok-signal: #505f53;
   --ok-signal-rgb: 80, 95, 83;
   --ok-display: "neue-haas-grotesk-display", "Inter Tight", Arial, sans-serif;
-  --ok-text: "neue-haas-grotesk-text", Inter, Arial, sans-serif;
+  --ok-font-text: "neue-haas-grotesk-text", Inter, Arial, sans-serif;
   --ok-margin: 9.1cqw;
   --ok-headline-size: 7.602cqw;
   --ok-headline-lh: 1.033;

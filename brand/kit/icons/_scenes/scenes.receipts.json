@@ -3,343 +3,495 @@
   "out": "kit/icons/png/skin.png",
   "html": "kit/icons/_scenes/p_skin.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/skin.png",
   "html": "kit/icons/_scenes/g_skin.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/user.png",
   "html": "kit/icons/_scenes/p_user.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/user.png",
   "html": "kit/icons/_scenes/g_user.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/syringe.png",
   "html": "kit/icons/_scenes/p_syringe.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/syringe.png",
   "html": "kit/icons/_scenes/g_syringe.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/procedure.png",
   "html": "kit/icons/_scenes/p_procedure.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/procedure.png",
   "html": "kit/icons/_scenes/g_procedure.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/before-after.png",
   "html": "kit/icons/_scenes/p_before-after.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/before-after.png",
   "html": "kit/icons/_scenes/g_before-after.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/brain.png",
   "html": "kit/icons/_scenes/p_brain.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/brain.png",
   "html": "kit/icons/_scenes/g_brain.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/plus.png",
   "html": "kit/icons/_scenes/p_plus.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/plus.png",
   "html": "kit/icons/_scenes/g_plus.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/clock.png",
   "html": "kit/icons/_scenes/p_clock.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/clock.png",
   "html": "kit/icons/_scenes/g_clock.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/arrow.png",
   "html": "kit/icons/_scenes/p_arrow.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/arrow.png",
   "html": "kit/icons/_scenes/g_arrow.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/heart.png",
   "html": "kit/icons/_scenes/p_heart.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/heart.png",
   "html": "kit/icons/_scenes/g_heart.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/laser.png",
   "html": "kit/icons/_scenes/p_laser.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/laser.png",
   "html": "kit/icons/_scenes/g_laser.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/scalpel.png",
   "html": "kit/icons/_scenes/p_scalpel.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/scalpel.png",
   "html": "kit/icons/_scenes/g_scalpel.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/target.png",
   "html": "kit/icons/_scenes/p_target.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/target.png",
   "html": "kit/icons/_scenes/g_target.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/face.png",
   "html": "kit/icons/_scenes/p_face.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/face.png",
   "html": "kit/icons/_scenes/g_face.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/lines.png",
   "html": "kit/icons/_scenes/p_lines.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/lines.png",
   "html": "kit/icons/_scenes/g_lines.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/calendar.png",
   "html": "kit/icons/_scenes/p_calendar.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/calendar.png",
   "html": "kit/icons/_scenes/g_calendar.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/book.png",
   "html": "kit/icons/_scenes/p_book.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/book.png",
   "html": "kit/icons/_scenes/g_book.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/leaf.png",
   "html": "kit/icons/_scenes/p_leaf.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/leaf.png",
   "html": "kit/icons/_scenes/g_leaf.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/drop.png",
   "html": "kit/icons/_scenes/p_drop.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/drop.png",
   "html": "kit/icons/_scenes/g_drop.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/check.png",
   "html": "kit/icons/_scenes/p_check.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/check.png",
   "html": "kit/icons/_scenes/g_check.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/location.png",
   "html": "kit/icons/_scenes/p_location.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/location.png",
   "html": "kit/icons/_scenes/g_location.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/sun.png",
   "html": "kit/icons/_scenes/p_sun.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/sun.png",
   "html": "kit/icons/_scenes/g_sun.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/phone.png",
   "html": "kit/icons/_scenes/p_phone.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/phone.png",
   "html": "kit/icons/_scenes/g_phone.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/png/play.png",
   "html": "kit/icons/_scenes/p_play.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500"
+  ],
   "errors": []
  },
  {
   "out": "kit/icons/glass/play.png",
   "html": "kit/icons/_scenes/g_play.html",
   "fonts_loaded": false,
-  "text_font_loaded": false,
+  "text_on_page": false,
+  "fonts_used": [],
+  "fonts_loaded_list": [],
   "errors": []
  },
  {
   "out": "kit/icons/sheet.png",
   "html": "kit/icons/_scenes/sheet.html",
   "fonts_loaded": true,
-  "text_font_loaded": false,
+  "text_on_page": true,
+  "fonts_used": [
+   "normal 600 20px neue-haas-grotesk-display, \"Inter Tight\", Arial, sans-serif",
+   "normal 500 20px neue-haas-grotesk-display, \"Inter Tight\", Arial, sans-serif"
+  ],
+  "fonts_loaded_list": [
+   "neue-haas-grotesk-display 500",
+   "neue-haas-grotesk-display 600"
+  ],
   "errors": []
  }
 ]

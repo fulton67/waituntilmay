@@ -108,7 +108,7 @@
   "grain": {
    "sigma": 0.0026,
    "add_sigma": 0.0024,
-   "cite": "colour/treatment.json board.grain and grain_add_sigma; overlay opacity calibrated in proof (look/proof_check.json); overlay opacity 0.06 gives sigma 0.0026 on a flat mid-tone (look/proof_check.json grain); overlay opacity 0.06 gives sigma 0.0026 on a flat mid-tone (look/proof_check.json grain)",
+   "cite": "colour/treatment.json board.grain and grain_add_sigma; overlay opacity calibrated in proof (look/proof_check.json); overlay opacity 0.06 gives sigma 0.0026 on a flat mid-tone (look/proof_check.json grain)",
    "overlay_opacity": 0.06
   },
   "photo_treatment": {
