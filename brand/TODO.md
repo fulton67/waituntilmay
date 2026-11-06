@@ -15,3 +15,12 @@
 - [x] FIX 3 — specimen is section 01 of /brand/ostad (app/brand/ostad, plates in public/brand/ostad/specimen; brand/scripts/publish_page.py)
 - [x] FIX 3b — metrics: 497 text regions / 98 images → metrics/pixels.json + PIXELS.md + 5 plates; 14 source pages → source.json + SOURCE.md (STK Bureau x/cap file 0.739 vs pixels 0.733)
 - [x] FIX 3 crops — 542 (278 board, 264 Instagram)
+
+## BUILDER (brand/BUILDER.md, received 2026-11-06) — supersedes BRANDKIT_RUN Phases 5–7
+- [ ] A — look as components: CATALOG.md + crops, kit/components/*, look/proof/*, kit/look.json, kit/palette.json + CSS vars + treatment.cube + CSS filters, 24 icons + sheet
+- [ ] B — 8–10 templates with slots.json, 3 sizes, autofit, board citations
+- [ ] C — /brand/ostad/make builder (preview, server PNG, carousel zip, drafts, duplicate, Auto) + checks
+- [ ] D — brand/post.py + .claude/commands/post.md on the same renderer
+- [ ] E — 12 demo posts (≥6 templates, 3 sizes) + wall
+- [ ] F — tokens.json (W3C) → CSS / Tailwind / AE set; video kit; 10 s demo reel
+- [ ] G — page order: Make · Demo wall · Templates · Look · Icons · Type
