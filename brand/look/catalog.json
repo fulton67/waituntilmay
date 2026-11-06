@@ -1,0 +1,416 @@
+{
+ "rule": "BUILDER Phase A: catalogue the board's visual devices -> look/catalog.json, look/CATALOG.md, look/fig_catalog.png.\nPresence tags for the drawn devices are a judgment call made from the contact sheets (look/_board_sheet_*.jpg) and each block's\nown description in board/blocks.json. Rules, grain and the photo treatment are not tagged by eye: they come from\nshapes/catalogue.json (per_image counts) and colour/treatment.json (photographic subset). Weight = images, favourites x3\n(the same weight shapes.py uses). Keep rule: weighted count >= 4 and at least 2 distinct images (>= 3 kept 16, over the spec's 10-15 cap). brand-venv python -I.",
+ "devices": [
+  {
+   "device": "photo_treatment",
+   "images": 36,
+   "favourites": [
+    "14664481",
+    "2145281",
+    "41911984"
+   ],
+   "weighted": 42,
+   "blocks": [
+    "12087163",
+    "12400773",
+    "13828406",
+    "14664481",
+    "15688099",
+    "16453124",
+    "16463981",
+    "2145281",
+    "21587531",
+    "22772082",
+    "23958815",
+    "24130326",
+    "24946075",
+    "2527310",
+    "26381730",
+    "28246874",
+    "30880633",
+    "30940781",
+    "31815447",
+    "32335068",
+    "34126462",
+    "34175362",
+    "34771058",
+    "38155009",
+    "38275156",
+    "38944212",
+    "40898406",
+    "41432513",
+    "41911984",
+    "43001699",
+    "47161957",
+    "47311638",
+    "47483045",
+    "52313969",
+    "52340827",
+    "52386109"
+   ],
+   "tagged_by": "measured",
+   "what": "Photo treatment: desaturated, warm, low-contrast photography (measured by treatment.py).",
+   "kept": true,
+   "measured_in": "colour/treatment.json"
+  },
+  {
+   "device": "hairline_rule",
+   "images": 24,
+   "favourites": [
+    "14664481",
+    "41911984"
+   ],
+   "weighted": 28,
+   "blocks": [
+    "11460382",
+    "12087163",
+    "13607089",
+    "13828406",
+    "13902728",
+    "14664481",
+    "16453124",
+    "16463981",
+    "23958815",
+    "24130326",
+    "24946075",
+    "28246874",
+    "30880633",
+    "30940781",
+    "32335068",
+    "33635746",
+    "34771058",
+    "36747221",
+    "38944212",
+    "41911984",
+    "47161957",
+    "47483050",
+    "50510620",
+    "52020245"
+   ],
+   "tagged_by": "measured",
+   "what": "Hairline rule: a thin horizontal divider (measured by shapes.py).",
+   "kept": true,
+   "measured_in": "shapes/catalogue.json"
+  },
+  {
+   "device": "grain",
+   "images": 26,
+   "favourites": [],
+   "weighted": 26,
+   "blocks": [
+    "11460382",
+    "12087163",
+    "13607089",
+    "13828406",
+    "13902728",
+    "15688099",
+    "16453124",
+    "24130326",
+    "24946075",
+    "27454113",
+    "27454118",
+    "27647159",
+    "30248124",
+    "30880633",
+    "30940781",
+    "31223791",
+    "31815447",
+    "32197302",
+    "33635746",
+    "34771058",
+    "36747221",
+    "39832259",
+    "47161957",
+    "47483050",
+    "52302251",
+    "52340827"
+   ],
+   "tagged_by": "measured",
+   "what": "Grain: visible film noise in flat areas (measured by shapes.py).",
+   "kept": true,
+   "measured_in": "look/measure.json"
+  },
+  {
+   "device": "meta_label",
+   "images": 11,
+   "favourites": [
+    "14664481",
+    "2145281",
+    "7529470"
+   ],
+   "weighted": 17,
+   "blocks": [
+    "13828406",
+    "14664481",
+    "16463981",
+    "2145281",
+    "22772082",
+    "23958815",
+    "24130326",
+    "28246874",
+    "30248124",
+    "34126462",
+    "7529470"
+   ],
+   "tagged_by": "judgment (contact sheets + blocks.json)",
+   "what": "Meta label: small caps or mono data text in the corners ('/ Outside /', codes, dates).",
+   "kept": true,
+   "measured_in": null
+  },
+  {
+   "device": "screen_frame",
+   "images": 9,
+   "favourites": [
+    "14664481",
+    "7529470"
+   ],
+   "weighted": 13,
+   "blocks": [
+    "11460382",
+    "12087163",
+    "13607089",
+    "13828406",
+    "14664481",
+    "15688099",
+    "16453124",
+    "34771058",
+    "7529470"
+   ],
+   "tagged_by": "judgment (contact sheets + blocks.json)",
+   "what": "Screen frame: a tall rounded rectangle (phone screen) holding a story.",
+   "kept": true,
+   "measured_in": "look/measure.json"
+  },
+  {
+   "device": "step_marks",
+   "images": 7,
+   "favourites": [
+    "14664481"
+   ],
+   "weighted": 9,
+   "blocks": [
+    "11460382",
+    "14664481",
+    "16463981",
+    "27454113",
+    "27454118",
+    "31815447",
+    "34175362"
+   ],
+   "tagged_by": "judgment (contact sheets + blocks.json)",
+   "what": "Step marks: numbered rings on a dotted line, story progress bars, page count '1 / 9'.",
+   "kept": true,
+   "measured_in": "look/measure.json"
+  },
+  {
+   "device": "leader_line",
+   "images": 8,
+   "favourites": [],
+   "weighted": 8,
+   "blocks": [
+    "12400773",
+    "16463981",
+    "21587531",
+    "23958815",
+    "30940781",
+    "33635746",
+    "34126462",
+    "52386109"
+   ],
+   "tagged_by": "judgment (contact sheets + blocks.json)",
+   "what": "Leader line: a hairline from a point on the subject to a label, ending in a small dot.",
+   "kept": true,
+   "measured_in": "look/measure.json"
+  },
+  {
+   "device": "dark_card",
+   "images": 8,
+   "favourites": [],
+   "weighted": 8,
+   "blocks": [
+    "11460382",
+    "12087163",
+    "13902728",
+    "24130326",
+    "2527310",
+    "27454113",
+    "27454118",
+    "47311638"
+   ],
+   "tagged_by": "judgment (contact sheets + blocks.json)",
+   "what": "Dark card: black or deep brown slide with small light text.",
+   "kept": true,
+   "measured_in": "look/measure.json"
+  },
+  {
+   "device": "glass_panel",
+   "images": 3,
+   "favourites": [
+    "2145281",
+    "41911984"
+   ],
+   "weighted": 7,
+   "blocks": [
+    "2145281",
+    "41432513",
+    "41911984"
+   ],
+   "tagged_by": "judgment (contact sheets + blocks.json)",
+   "what": "Frosted glass: a translucent card or band over a photo, backdrop blurred, no rim light, no drop shadow.",
+   "kept": true,
+   "measured_in": "look/measure.json"
+  },
+  {
+   "device": "pill_chip",
+   "images": 5,
+   "favourites": [
+    "41911984"
+   ],
+   "weighted": 7,
+   "blocks": [
+    "11460382",
+    "27647159",
+    "41432513",
+    "41911984",
+    "52313969"
+   ],
+   "tagged_by": "judgment (contact sheets + blocks.json)",
+   "what": "Pill: a fully rounded label (radius = half the height), filled white or grey, or outlined on dark.",
+   "kept": true,
+   "measured_in": "look/measure.json"
+  },
+  {
+   "device": "photo_card",
+   "images": 5,
+   "favourites": [
+    "41911984"
+   ],
+   "weighted": 7,
+   "blocks": [
+    "15688099",
+    "24130326",
+    "34771058",
+    "41432513",
+    "41911984"
+   ],
+   "tagged_by": "judgment (contact sheets + blocks.json)",
+   "what": "Photo card: an image with small rounded corners set inside a glass card at a fixed inset.",
+   "kept": true,
+   "measured_in": "look/measure.json"
+  },
+  {
+   "device": "vertical_type",
+   "images": 4,
+   "favourites": [
+    "2145281"
+   ],
+   "weighted": 6,
+   "blocks": [
+    "2145281",
+    "30940781",
+    "40898406",
+    "50510620"
+   ],
+   "tagged_by": "judgment (contact sheets + blocks.json)",
+   "what": "Vertical type: a caps line rotated 90 degrees along an edge.",
+   "kept": true,
+   "measured_in": null
+  },
+  {
+   "device": "icon_outline",
+   "images": 4,
+   "favourites": [
+    "14664481"
+   ],
+   "weighted": 6,
+   "blocks": [
+    "11460382",
+    "13607089",
+    "14664481",
+    "24130326"
+   ],
+   "tagged_by": "judgment (contact sheets + blocks.json)",
+   "what": "Icons: white monoline outlines (close, menu, send, play), round ends, no fill.",
+   "kept": true,
+   "measured_in": null
+  },
+  {
+   "device": "outline_box",
+   "images": 4,
+   "favourites": [],
+   "weighted": 4,
+   "blocks": [
+    "21587531",
+    "23958815",
+    "30940781",
+    "47161957"
+   ],
+   "tagged_by": "judgment (contact sheets + blocks.json)",
+   "what": "Outline box: a hairline rectangle around a caps title or a product callout.",
+   "kept": true,
+   "measured_in": "look/measure.json"
+  },
+  {
+   "device": "dotted_path",
+   "images": 4,
+   "favourites": [],
+   "weighted": 4,
+   "blocks": [
+    "33635746",
+    "34126462",
+    "34175362",
+    "47161957"
+   ],
+   "tagged_by": "judgment (contact sheets + blocks.json)",
+   "what": "Dotted path: dotted connector or perforated edge.",
+   "kept": true,
+   "measured_in": null
+  },
+  {
+   "device": "ring_button",
+   "images": 3,
+   "favourites": [],
+   "weighted": 3,
+   "blocks": [
+    "13607089",
+    "34175362",
+    "38155009"
+   ],
+   "tagged_by": "judgment (contact sheets + blocks.json)",
+   "what": "Ring button: a large hairline circle with a centred label (PLAY / REEL), or flat pale circles.",
+   "kept": false,
+   "measured_in": "look/measure.json"
+  },
+  {
+   "device": "glow_line",
+   "images": 1,
+   "favourites": [],
+   "weighted": 1,
+   "blocks": [
+    "38155009"
+   ],
+   "tagged_by": "judgment (contact sheets + blocks.json)",
+   "what": "Glow line: a hot light streak with a warm halo across the face.",
+   "kept": false,
+   "measured_in": "look/measure.json"
+  }
+ ],
+ "kept": [
+  "photo_treatment",
+  "hairline_rule",
+  "grain",
+  "meta_label",
+  "screen_frame",
+  "step_marks",
+  "leader_line",
+  "dark_card",
+  "glass_panel",
+  "pill_chip",
+  "photo_card",
+  "vertical_type",
+  "icon_outline",
+  "outline_box",
+  "dotted_path"
+ ],
+ "n_board_images": 53
+}
