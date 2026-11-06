@@ -1,0 +1,53 @@
+{
+ "template": "single-statement",
+ "name": "Single statement",
+ "cluster": "C9",
+ "board_blocks": [
+  "32197302",
+  "31223791",
+  "30248124"
+ ],
+ "sizes": [
+  "4x5",
+  "1x1",
+  "9x16"
+ ],
+ "paginates": null,
+ "carousel_role": null,
+ "slots": [
+  {
+   "key": "statement",
+   "type": "text",
+   "label": "Statement",
+   "max": 90,
+   "optional": false,
+   "default": "Imperfection helps you connect with the work."
+  },
+  {
+   "key": "byline",
+   "type": "text",
+   "label": "Byline",
+   "max": 40,
+   "optional": true,
+   "default": "Dr. Ariel Ostad"
+  },
+  {
+   "key": "ground",
+   "type": "choice",
+   "label": "Ground",
+   "optional": false,
+   "default": "paper",
+   "options": [
+    "paper",
+    "dark",
+    "image"
+   ]
+  },
+  {
+   "key": "image",
+   "type": "image",
+   "label": "Image",
+   "optional": true
+  }
+ ]
+}

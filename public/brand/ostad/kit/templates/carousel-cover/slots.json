@@ -1,0 +1,60 @@
+{
+ "template": "carousel-cover",
+ "name": "Carousel cover",
+ "cluster": "C6",
+ "board_blocks": [
+  "27647159",
+  "30940781"
+ ],
+ "sizes": [
+  "4x5",
+  "1x1",
+  "9x16"
+ ],
+ "paginates": null,
+ "carousel_role": "cover",
+ "slots": [
+  {
+   "key": "kicker",
+   "type": "text",
+   "label": "Kicker pill",
+   "max": 24,
+   "optional": false,
+   "default": "+ Treatment guide"
+  },
+  {
+   "key": "title",
+   "type": "text",
+   "label": "Title",
+   "max": 70,
+   "optional": false,
+   "default": "What to expect from your first laser session"
+  },
+  {
+   "key": "subtitle",
+   "type": "text",
+   "label": "Subtitle",
+   "max": 90,
+   "optional": true,
+   "default": "Five things Dr. Ostad tells every patient."
+  },
+  {
+   "key": "ground",
+   "type": "choice",
+   "label": "Ground",
+   "optional": false,
+   "default": "image",
+   "options": [
+    "image",
+    "paper",
+    "dark"
+   ]
+  },
+  {
+   "key": "image",
+   "type": "image",
+   "label": "Image",
+   "optional": true
+  }
+ ]
+}

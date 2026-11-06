@@ -1,0 +1,64 @@
+{
+ "template": "before-after",
+ "name": "Before / after",
+ "cluster": "C3",
+ "board_blocks": [
+  "52386109"
+ ],
+ "sizes": [
+  "4x5",
+  "1x1",
+  "9x16"
+ ],
+ "paginates": null,
+ "carousel_role": null,
+ "slots": [
+  {
+   "key": "before",
+   "type": "image",
+   "label": "Before",
+   "optional": false
+  },
+  {
+   "key": "after",
+   "type": "image",
+   "label": "After",
+   "optional": false
+  },
+  {
+   "key": "title",
+   "type": "text",
+   "label": "Treatment",
+   "max": 40,
+   "optional": false,
+   "default": "Under-eye filler"
+  },
+  {
+   "key": "note",
+   "type": "text",
+   "label": "Note",
+   "max": 90,
+   "optional": true,
+   "default": "One session, photographed at two weeks."
+  },
+  {
+   "key": "footnote",
+   "type": "text",
+   "label": "Footnote",
+   "max": 60,
+   "optional": false,
+   "default": "Patient consented. Results vary."
+  },
+  {
+   "key": "ground",
+   "type": "choice",
+   "label": "Ground",
+   "optional": false,
+   "default": "paper",
+   "options": [
+    "paper",
+    "dark"
+   ]
+  }
+ ]
+}

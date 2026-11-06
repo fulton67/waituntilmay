@@ -1,0 +1,45 @@
+{
+ "template": "caption-card",
+ "name": "Caption card",
+ "cluster": "C0",
+ "board_blocks": [
+  "27454113",
+  "27454118"
+ ],
+ "sizes": [
+  "4x5",
+  "1x1",
+  "9x16"
+ ],
+ "paginates": "text",
+ "carousel_role": null,
+ "slots": [
+  {
+   "key": "text",
+   "type": "longtext",
+   "label": "Text",
+   "max": 3000,
+   "optional": false,
+   "default": "Exomind is a new approach to mental wellness. It uses transcranial magnetic stimulation, a non-invasive technology, to support mood and focus.\n\nSessions take about twenty minutes and need no downtime. Dr. Ostad offers a consultation first, to see whether it suits you."
+  },
+  {
+   "key": "footer",
+   "type": "text",
+   "label": "Footer",
+   "max": 40,
+   "optional": false,
+   "default": "Dr. Ariel Ostad / Wellness"
+  },
+  {
+   "key": "ground",
+   "type": "choice",
+   "label": "Ground",
+   "optional": false,
+   "default": "dark",
+   "options": [
+    "dark",
+    "paper"
+   ]
+  }
+ ]
+}

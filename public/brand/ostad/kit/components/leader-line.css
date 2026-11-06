@@ -1,0 +1,10 @@
+/* leader_line: hairline from a point to a label, dot at the point. Board: 30940781, 12400773, 21587531, 23958815 ...
+   Draw the line in SVG inside .ok-leaders (viewBox 0 0 100 H in cqw-like units) or with .ok-leader (CSS, horizontal/vertical). */
+.ok-leaders { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+.ok-leaders line, .ok-leaders polyline, .ok-leaders path { stroke: var(--ok-leader-ink, var(--ok-background)); stroke-width: var(--ok-hair); fill: none; vector-effect: non-scaling-stroke; }
+.ok-leaders circle { fill: var(--ok-leader-ink, var(--ok-background)); }
+.ok-leader { position: absolute; background: var(--ok-leader-ink, var(--ok-background)); }
+.ok-leader--h { height: var(--ok-hair); } .ok-leader--v { width: var(--ok-hair); }
+.ok-leader-dot { position: absolute; width: var(--ok-dot); height: var(--ok-dot); border-radius: 50%; background: var(--ok-leader-ink, var(--ok-background)); transform: translate(-50%, -50%); }
+.ok-leader-label { position: absolute; font: var(--ok-label-weight) var(--ok-label-size)/var(--ok-label-lh) var(--ok-display);
+  letter-spacing: calc(var(--ok-label-track) + 0.08em); text-transform: uppercase; color: var(--ok-leader-ink, var(--ok-background)); }

@@ -1,0 +1,65 @@
+{
+ "template": "list",
+ "name": "List",
+ "cluster": "C1",
+ "board_blocks": [
+  "33635746",
+  "36747221",
+  "31223791"
+ ],
+ "sizes": [
+  "4x5",
+  "1x1",
+  "9x16"
+ ],
+ "paginates": null,
+ "carousel_role": null,
+ "slots": [
+  {
+   "key": "title",
+   "type": "text",
+   "label": "Title",
+   "max": 50,
+   "optional": false,
+   "default": "What laser resurfacing treats"
+  },
+  {
+   "key": "items",
+   "type": "list",
+   "label": "Items",
+   "max": 5,
+   "optional": false,
+   "default": [
+    {
+     "text": "Fine lines around the eyes",
+     "icon": "lines"
+    },
+    {
+     "text": "Sun damage and uneven tone",
+     "icon": "sun"
+    },
+    {
+     "text": "Acne scarring",
+     "icon": "skin"
+    },
+    {
+     "text": "Enlarged pores",
+     "icon": "target"
+    }
+   ],
+   "min": 3,
+   "itemMax": 60
+  },
+  {
+   "key": "ground",
+   "type": "choice",
+   "label": "Ground",
+   "optional": false,
+   "default": "paper",
+   "options": [
+    "paper",
+    "dark"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,59 @@
+{
+ "template": "quote",
+ "name": "Quote",
+ "cluster": "C9",
+ "board_blocks": [
+  "32197302"
+ ],
+ "sizes": [
+  "4x5",
+  "1x1",
+  "9x16"
+ ],
+ "paginates": null,
+ "carousel_role": null,
+ "slots": [
+  {
+   "key": "quote",
+   "type": "longtext",
+   "label": "Quote",
+   "max": 220,
+   "optional": false,
+   "default": "Every treatment starts with understanding the anatomy, not the trend."
+  },
+  {
+   "key": "name",
+   "type": "text",
+   "label": "Name",
+   "max": 40,
+   "optional": false,
+   "default": "Dr. Ariel Ostad"
+  },
+  {
+   "key": "role",
+   "type": "text",
+   "label": "Role",
+   "max": 50,
+   "optional": true,
+   "default": "Board-certified dermatologist, NYC"
+  },
+  {
+   "key": "ground",
+   "type": "choice",
+   "label": "Ground",
+   "optional": false,
+   "default": "paper",
+   "options": [
+    "paper",
+    "dark",
+    "image"
+   ]
+  },
+  {
+   "key": "image",
+   "type": "image",
+   "label": "Image",
+   "optional": true
+  }
+ ]
+}

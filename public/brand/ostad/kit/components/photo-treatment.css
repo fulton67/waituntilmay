@@ -1,0 +1,5 @@
+/* photo_treatment: the board look on any photo. Primary: inline kit/components/treatment-filter.svg once per page and the
+   photo uses filter:url(#ok-treat) (LUT tables + fitted matrix). Fallback: the CSS shorthand fitted to the LUT (--ok-photo-filter). */
+.ok-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: var(--ok-photo-filter); }
+.ok-treated { filter: var(--ok-photo-filter); }
+.ok--svgtreat .ok-bg, .ok--svgtreat .ok-treated, .ok--svgtreat .ok-photo, .ok--svgtreat .ok-frame > img { filter: url(#ok-treat); }

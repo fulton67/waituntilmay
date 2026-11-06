@@ -1,0 +1,83 @@
+{
+ "template": "procedure-card",
+ "name": "Procedure card",
+ "cluster": "C5",
+ "board_blocks": [
+  "41432513",
+  "41911984",
+  "21587531",
+  "12400773"
+ ],
+ "sizes": [
+  "4x5",
+  "1x1",
+  "9x16"
+ ],
+ "paginates": null,
+ "carousel_role": null,
+ "slots": [
+  {
+   "key": "image",
+   "type": "image",
+   "label": "Image",
+   "optional": false
+  },
+  {
+   "key": "chip",
+   "type": "text",
+   "label": "Chip",
+   "max": 22,
+   "optional": false,
+   "default": "Injectable"
+  },
+  {
+   "key": "name",
+   "type": "text",
+   "label": "Procedure",
+   "max": 40,
+   "optional": false,
+   "default": "Hyaluronic acid filler"
+  },
+  {
+   "key": "what",
+   "type": "text",
+   "label": "One line: what it does",
+   "max": 110,
+   "optional": false,
+   "default": "Restores lost volume and softens folds, with results the same day."
+  },
+  {
+   "key": "icon",
+   "type": "icon",
+   "label": "Icon",
+   "optional": false,
+   "default": "syringe",
+   "options": [
+    "arrow",
+    "before-after",
+    "book",
+    "brain",
+    "calendar",
+    "check",
+    "clock",
+    "drop",
+    "face",
+    "heart",
+    "laser",
+    "leaf",
+    "lines",
+    "location",
+    "phone",
+    "play",
+    "plus",
+    "procedure",
+    "scalpel",
+    "skin",
+    "sun",
+    "syringe",
+    "target",
+    "user"
+   ]
+  }
+ ]
+}

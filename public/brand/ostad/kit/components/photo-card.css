@@ -1,0 +1,4 @@
+/* photo_card: rounded image inset in a glass card. Board: 41911984, 41432513. */
+.ok-photo { display: block; width: 100%; border-radius: var(--ok-photo-radius); object-fit: cover; filter: var(--ok-photo-filter); }
+.ok-glass > .ok-photo, .ok-glass > .ok-inset { margin: var(--ok-photo-inset); width: calc(100% - 2 * var(--ok-photo-inset)); }
+.ok-inset { padding: 0; }

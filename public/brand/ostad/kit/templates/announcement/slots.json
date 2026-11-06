@@ -1,0 +1,71 @@
+{
+ "template": "announcement",
+ "name": "Announcement",
+ "cluster": "C4",
+ "board_blocks": [
+  "47483050"
+ ],
+ "sizes": [
+  "4x5",
+  "1x1",
+  "9x16"
+ ],
+ "paginates": null,
+ "carousel_role": null,
+ "slots": [
+  {
+   "key": "image",
+   "type": "image",
+   "label": "Image",
+   "optional": false
+  },
+  {
+   "key": "kicker",
+   "type": "text",
+   "label": "Kicker pill",
+   "max": 24,
+   "optional": false,
+   "default": "Live event"
+  },
+  {
+   "key": "title",
+   "type": "text",
+   "label": "Title",
+   "max": 50,
+   "optional": false,
+   "default": "Fall skincare evening"
+  },
+  {
+   "key": "date",
+   "type": "text",
+   "label": "Date",
+   "max": 24,
+   "optional": false,
+   "default": "Oct 20"
+  },
+  {
+   "key": "time",
+   "type": "text",
+   "label": "Time",
+   "max": 24,
+   "optional": true,
+   "default": "5:30 PM"
+  },
+  {
+   "key": "place",
+   "type": "text",
+   "label": "Place",
+   "max": 50,
+   "optional": false,
+   "default": "Upper East Side office"
+  },
+  {
+   "key": "cta",
+   "type": "text",
+   "label": "Button",
+   "max": 24,
+   "optional": false,
+   "default": "RSVP in bio"
+  }
+ ]
+}

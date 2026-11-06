@@ -1,0 +1,102 @@
+[
+ {
+  "id": "single-statement",
+  "name": "Single statement",
+  "cluster": "C9",
+  "board_blocks": [
+   "32197302",
+   "31223791",
+   "30248124"
+  ]
+ },
+ {
+  "id": "quote",
+  "name": "Quote",
+  "cluster": "C9",
+  "board_blocks": [
+   "32197302"
+  ]
+ },
+ {
+  "id": "procedure-card",
+  "name": "Procedure card",
+  "cluster": "C5",
+  "board_blocks": [
+   "41432513",
+   "41911984",
+   "21587531",
+   "12400773"
+  ]
+ },
+ {
+  "id": "carousel-cover",
+  "name": "Carousel cover",
+  "cluster": "C6",
+  "board_blocks": [
+   "27647159",
+   "30940781"
+  ]
+ },
+ {
+  "id": "carousel-body",
+  "name": "Carousel body",
+  "cluster": "C7",
+  "board_blocks": [
+   "2145281",
+   "22772082"
+  ]
+ },
+ {
+  "id": "carousel-end",
+  "name": "Carousel end",
+  "cluster": "C8",
+  "board_blocks": [
+   "41911984"
+  ]
+ },
+ {
+  "id": "story",
+  "name": "Story",
+  "cluster": "C2",
+  "board_blocks": [
+   "14664481",
+   "16453124",
+   "13828406"
+  ]
+ },
+ {
+  "id": "before-after",
+  "name": "Before / after",
+  "cluster": "C3",
+  "board_blocks": [
+   "52386109"
+  ]
+ },
+ {
+  "id": "list",
+  "name": "List",
+  "cluster": "C1",
+  "board_blocks": [
+   "33635746",
+   "36747221",
+   "31223791"
+  ]
+ },
+ {
+  "id": "announcement",
+  "name": "Announcement",
+  "cluster": "C4",
+  "board_blocks": [
+   "47483050"
+  ]
+ },
+ {
+  "id": "caption-card",
+  "name": "Caption card",
+  "cluster": "C0",
+  "board_blocks": [
+   "27454113",
+   "27454118"
+  ]
+ }
+]

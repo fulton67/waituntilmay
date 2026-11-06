@@ -1,0 +1,62 @@
+{
+ "template": "carousel-end",
+ "name": "Carousel end",
+ "cluster": "C8",
+ "board_blocks": [
+  "41911984"
+ ],
+ "sizes": [
+  "4x5",
+  "1x1",
+  "9x16"
+ ],
+ "paginates": null,
+ "carousel_role": "end",
+ "slots": [
+  {
+   "key": "image",
+   "type": "image",
+   "label": "Image",
+   "optional": false
+  },
+  {
+   "key": "heading",
+   "type": "text",
+   "label": "Heading",
+   "max": 40,
+   "optional": false,
+   "default": "Book a consultation"
+  },
+  {
+   "key": "cta",
+   "type": "text",
+   "label": "Button",
+   "max": 24,
+   "optional": false,
+   "default": "Link in bio"
+  },
+  {
+   "key": "handle",
+   "type": "text",
+   "label": "Handle",
+   "max": 30,
+   "optional": false,
+   "default": "@drarielostad"
+  },
+  {
+   "key": "location",
+   "type": "text",
+   "label": "Location",
+   "max": 40,
+   "optional": true,
+   "default": "Upper East Side, New York"
+  },
+  {
+   "key": "phone",
+   "type": "text",
+   "label": "Phone",
+   "max": 24,
+   "optional": true
+  }
+ ]
+}

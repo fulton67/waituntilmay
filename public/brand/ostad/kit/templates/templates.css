@@ -1,0 +1,97 @@
+/* Ostad post templates (BUILDER Phase B). Built only from kit/tokens.css + kit/components/*.css.
+   A post is one .ok element sized by its canvas class; type sizes follow fonts/specimen/spec.json per canvas:
+   4:5 and 9:16 use the 1080x1350 sizes (9:16 reuses them: DECISIONS 24); 1:1 uses the 1080x1080 sizes. */
+.ok { box-sizing: border-box; font-feature-settings: "kern"; -webkit-font-smoothing: antialiased; }
+.ok *, .ok *::before, .ok *::after { box-sizing: border-box; }
+.ok--4x5 { width: 1080px; height: 1350px; --safe-t: var(--ok-margin); --safe-b: var(--ok-margin); }
+.ok--1x1 { width: 1080px; height: 1080px; --safe-t: var(--ok-margin); --safe-b: var(--ok-margin);
+  --ok-headline-size: 6.083cqw; --ok-caption-size: 2.787cqw; --ok-label-size: 2.639cqw; }
+.ok--9x16 { width: 1080px; height: 1920px; --safe-t: 13.021cqh; --safe-b: 17.708cqh; }
+/* safe area: grid margin left/right (composition/grid.json), story chrome bands on 9:16 */
+.ok-safe { position: absolute; left: var(--ok-margin); right: var(--ok-margin); top: var(--safe-t); bottom: var(--safe-b); display: flex; flex-direction: column; }
+.ok-h { margin: 0; font: var(--ok-headline-weight) var(--ok-headline-size)/var(--ok-headline-lh) var(--ok-display); letter-spacing: var(--ok-headline-track); text-wrap: balance; }
+.ok-c { margin: 0; font: var(--ok-caption-weight) var(--ok-caption-size)/var(--ok-caption-lh) var(--ok-display); letter-spacing: var(--ok-caption-track); text-wrap: pretty; }
+.ok-l { margin: 0; font: var(--ok-label-weight) var(--ok-label-size)/var(--ok-label-lh) var(--ok-display); letter-spacing: var(--ok-label-track); text-transform: uppercase; }
+.ok-fit { min-height: 0; overflow: hidden; }
+.ok-grow { flex: 1 1 auto; min-height: 0; }
+.ok-ink-light { color: var(--ok-background); --ok-leader-ink: var(--ok-background); }
+.ok-scrim { position: absolute; left: 0; right: 0; bottom: 0; height: 55%; background: linear-gradient(to top, rgba(var(--ok-text-rgb), .55), rgba(var(--ok-text-rgb), 0)); pointer-events: none; }
+.ok-scrim--top { top: 0; bottom: auto; height: 38%; background: linear-gradient(to bottom, rgba(var(--ok-text-rgb), .45), rgba(var(--ok-text-rgb), 0)); }
+.ok-ph { position: absolute; inset: 0; background: var(--ok-surface); display: grid; place-items: center; color: var(--ok-text); }
+.ok-ph::after { content: "image"; font: var(--ok-label-weight) var(--ok-label-size)/1 var(--ok-display); text-transform: uppercase; opacity: .5; }
+.ok-pill--acc { background: var(--acc); color: var(--acc-ink); }
+.ok-row { display: flex; align-items: center; gap: 2.4cqw; }
+.ok-between { display: flex; justify-content: space-between; align-items: baseline; gap: 2.4cqw; }
+
+/* single-statement (C9: 32197302, 31223791, 30248124) */
+.t-single .ok-safe { justify-content: center; align-items: center; text-align: center; }
+.t-single .stmt { max-width: 72.8cqw; display: flex; align-items: center; justify-content: center; }
+.t-single .by { position: absolute; left: 0; right: 0; bottom: 0; text-align: center; }
+
+/* quote (C9: 32197302) */
+.t-quote .ok-safe { justify-content: center; }
+.t-quote .mark { font: var(--ok-headline-weight) calc(var(--ok-headline-size) * 1.6)/0.8 var(--ok-display); color: var(--acc-text); margin-bottom: 2cqw; }
+.t-quote .q { max-width: 72.8cqw; }
+.t-quote .who { margin-top: 4cqw; display: grid; gap: 1.6cqw; justify-items: start; }
+
+/* procedure-card (C5: 41432513, 41911984, 21587531, 12400773) */
+.t-procedure .card { position: absolute; left: var(--ok-margin); right: var(--ok-margin); bottom: var(--safe-b); padding: 4.2cqw; display: grid; gap: 2.4cqw; }
+.t-procedure .card .top { display: flex; justify-content: space-between; align-items: center; }
+.t-procedure .card .ok-h { font-size: calc(var(--ok-headline-size) * .8); }
+.t-procedure .name { max-height: 28cqw; } .t-procedure .what { max-height: 16cqw; }
+
+/* carousel-cover (C6: 27647159, ellacor feed covers) */
+.t-cover .ok-safe { justify-content: space-between; }
+.t-cover .title { max-height: 62%; display: flex; align-items: flex-end; }
+.t-cover .foot { margin-top: 3cqw; }
+
+/* carousel-body (C7: 2145281, 22772082) */
+.t-body .band { padding: var(--safe-t) 4.2cqw var(--safe-b) var(--ok-margin); display: flex; flex-direction: column; gap: 3cqw; width: calc(var(--ok-margin) + 35.7cqw + 4.2cqw); } /* caption block 35.7cqw = composition/grid.json caption_block_w_pct */
+.t-body .idx { font: var(--ok-headline-weight) calc(var(--ok-headline-size) * 1.3)/1 var(--ok-display); }
+.t-body .body { flex: 1 1 auto; }
+.t-body .ok-vert { right: 3.2cqw; bottom: var(--safe-b); }
+.t-body.is-paper .band { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+
+/* carousel-end (C8: 41911984, bio posts) */
+.t-end .card { position: absolute; left: 18cqw; right: 18cqw; top: 50%; transform: translateY(-50%); padding: 5cqw 4.2cqw; display: grid; gap: 3cqw; justify-items: center; text-align: center; }
+.t-end .meta { display: grid; gap: 1.6cqw; justify-items: center; }
+.t-end .meta .ok-row { gap: 1.4cqw; } .t-end .ok-icon { --ok-icon: 3.6cqw; }
+
+/* story (C2: 14664481, 16453124, 13828406) */
+.t-story .ok-safe { justify-content: space-between; }
+.t-story .labels { display: flex; justify-content: space-between; }
+.t-story .mid { display: grid; gap: 3cqw; }
+.t-story .progress-wrap { position: absolute; left: var(--ok-margin); right: var(--ok-margin); top: calc(var(--safe-t) - 4cqw); }
+
+/* before-after (C3: 52386109, feed before/after posts) */
+.t-ba .ok-safe { gap: 3cqw; }
+.t-ba .pair { flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1.6cqw; }
+.t-ba .side { position: relative; border-radius: var(--ok-photo-radius); overflow: hidden; background: var(--ok-surface); }
+.t-ba .side img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.t-ba .side .ok-pill { position: absolute; left: 1.6cqw; top: 1.6cqw; }
+.t-ba .head { display: grid; gap: 1.6cqw; }
+
+/* list (C1: 33635746, 36747221, 31223791) */
+.t-list .ok-safe { gap: 4cqw; }
+.t-list .items { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: flex-start; }
+.t-list .item { display: grid; grid-template-columns: var(--ok-icon) 1fr; gap: 3cqw; align-items: center; padding: 2.6cqw 0; border-top: var(--ok-rule) solid currentColor; }
+.t-list .item:last-child { border-bottom: var(--ok-rule) solid currentColor; }
+.t-list .ok-icon { --ok-icon: 5cqw; }
+
+/* announcement (C4: 47483050, fall skincare event posts) */
+.t-ann .photo { position: absolute; left: 0; right: 0; top: 0; height: 46%; overflow: hidden; }
+.t-ann .ok-safe { top: calc(46% + 4.5cqw); gap: 2.4cqw; }
+.t-ann .date { font: var(--ok-headline-weight) calc(var(--ok-headline-size) * 1.15)/1 var(--ok-display); letter-spacing: var(--ok-headline-track); }
+.t-ann .details { display: grid; gap: 1.2cqw; }
+.t-ann .details .ok-row { gap: 1.4cqw; } .t-ann .ok-icon { --ok-icon: 3.6cqw; }
+.t-ann .cta { margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
+
+/* caption-card (C0: 27454113, 27454118) */
+.t-caption .ok-safe { bottom: calc(var(--ok-meta-bottom) + var(--ok-label-size) * 2.4); }
+.t-caption .text { flex: 1 1 auto; }
+.t-caption .text p { margin: 0 0 0.9em; }
+.t-caption.ok--9x16 .ok-footer { bottom: var(--safe-b); }
+.t-caption.ok--9x16 .ok-safe { bottom: calc(var(--safe-b) + var(--ok-label-size) * 2.4); }
+
+/* fallback label for browser previews without the Adobe kit */
+.ok-fallback { position: absolute; right: 1cqw; top: 1cqw; z-index: 60; background: #c00; color: #fff; font: 600 14px/1 Arial, sans-serif; padding: 4px 6px; }

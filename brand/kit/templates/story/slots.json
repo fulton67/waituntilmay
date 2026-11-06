@@ -1,0 +1,65 @@
+{
+ "template": "story",
+ "name": "Story",
+ "cluster": "C2",
+ "board_blocks": [
+  "14664481",
+  "16453124",
+  "13828406"
+ ],
+ "sizes": [
+  "9x16",
+  "4x5",
+  "1x1"
+ ],
+ "paginates": null,
+ "carousel_role": null,
+ "slots": [
+  {
+   "key": "image",
+   "type": "image",
+   "label": "Image",
+   "optional": false
+  },
+  {
+   "key": "label_left",
+   "type": "text",
+   "label": "Corner label",
+   "max": 24,
+   "optional": false,
+   "default": "Skin / journal"
+  },
+  {
+   "key": "label_right",
+   "type": "text",
+   "label": "Corner label right",
+   "max": 24,
+   "optional": true,
+   "default": "No. 04"
+  },
+  {
+   "key": "headline",
+   "type": "text",
+   "label": "Headline",
+   "max": 60,
+   "optional": false,
+   "default": "Glow comes from barrier repair"
+  },
+  {
+   "key": "caption",
+   "type": "text",
+   "label": "Caption",
+   "max": 140,
+   "optional": true,
+   "default": "Three habits that protect the skin barrier, from the clinic."
+  },
+  {
+   "key": "cta",
+   "type": "text",
+   "label": "Button",
+   "max": 20,
+   "optional": true,
+   "default": "Read more"
+  }
+ ]
+}

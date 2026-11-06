@@ -1,0 +1,24 @@
+{
+ "renders": 36,
+ "pages": 43,
+ "adobe_fonts": 36,
+ "errors": 0,
+ "warnings": {
+  "test_truncate": [
+   "single-statement ok-h: text truncated to 120 of 145 words"
+  ]
+ },
+ "test_truncate": {
+  "warned": true,
+  "pages": 1
+ },
+ "test_paginate": {
+  "pages": 2,
+  "ok": true
+ },
+ "test_carousel": {
+  "pages": 7,
+  "ok": true
+ },
+ "size_mismatches": []
+}

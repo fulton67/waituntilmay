@@ -1,0 +1,48 @@
+{
+ "template": "carousel-body",
+ "name": "Carousel body",
+ "cluster": "C7",
+ "board_blocks": [
+  "2145281",
+  "22772082"
+ ],
+ "sizes": [
+  "4x5",
+  "1x1",
+  "9x16"
+ ],
+ "paginates": "body",
+ "carousel_role": "body",
+ "slots": [
+  {
+   "key": "heading",
+   "type": "text",
+   "label": "Heading",
+   "max": 50,
+   "optional": false,
+   "default": "Before your session"
+  },
+  {
+   "key": "body",
+   "type": "longtext",
+   "label": "Body",
+   "max": 1200,
+   "optional": false,
+   "default": "Skip retinoids and exfoliating acids for five days. Arrive with clean skin, no makeup. Tell us about any recent sun exposure, cold sores or new medication, because each changes the settings we choose."
+  },
+  {
+   "key": "label",
+   "type": "text",
+   "label": "Vertical label",
+   "max": 30,
+   "optional": true,
+   "default": "Laser · step 1"
+  },
+  {
+   "key": "image",
+   "type": "image",
+   "label": "Image",
+   "optional": true
+  }
+ ]
+}

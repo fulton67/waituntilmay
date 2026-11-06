@@ -1,0 +1,3 @@
+/* screen_frame: tall rounded screen. Board: 14664481, 16453124, 34771058, 13828406, 15688099 ... radius = 11.7% of frame width. */
+.ok-frame { --w: 40cqw; position: absolute; width: var(--w); aspect-ratio: var(--ok-frame-aspect); border-radius: calc(var(--w) * var(--ok-frame-radius)); overflow: hidden; }
+.ok-frame > img { width: 100%; height: 100%; object-fit: cover; filter: var(--ok-photo-filter); }
