@@ -1,10 +1,10 @@
 {
   "base": "http://localhost:3228",
-  "at": "2026-11-05T22:47:37.958Z",
+  "at": "2026-11-06T01:35:26.667Z",
   "profiles": {
     "desktop": {
       "firstLoad": {
-        "waitedMs": 421,
+        "waitedMs": 403,
         "phases": [
           {
             "s": "holding",
@@ -12,11 +12,11 @@
           },
           {
             "s": "fading",
-            "ms": 2484
+            "ms": 2504
           },
           {
             "s": "hidden",
-            "ms": 2897
+            "ms": 2883
           }
         ],
         "wholeWithin60ms": true
@@ -43,8 +43,8 @@
           "labelLeft": 20,
           "onGrid": true,
           "target": {
-            "x": 481,
-            "y": 191
+            "x": 482,
+            "y": 217
           }
         },
         {
@@ -60,7 +60,7 @@
           "labelLeft": 20,
           "onGrid": true,
           "target": {
-            "x": 282,
+            "x": 283,
             "y": 413
           }
         },
@@ -105,6 +105,7 @@
         "DRAG TO TURN",
         "OPEN"
       ],
+      "afterTurnAtMs": 1520,
       "afterTurn": [
         {
           "act": "flip",
@@ -119,8 +120,8 @@
           "labelLeft": 20,
           "onGrid": true,
           "target": {
-            "x": 488,
-            "y": 191
+            "x": 487,
+            "y": 217
           }
         },
         {
@@ -176,8 +177,8 @@
         }
       ],
       "moved": [
-        7,
-        45,
+        5,
+        44,
         4,
         0
       ],
@@ -186,6 +187,8 @@
         "worstMs": 16.9
       },
       "knobTapGone": {
+        "atMs": 5616,
+        "state": "holding",
         "gone": [
           1
         ],
@@ -199,7 +202,7 @@
     },
     "phone": {
       "firstLoad": {
-        "waitedMs": 419,
+        "waitedMs": 417,
         "phases": [
           {
             "s": "holding",
@@ -207,11 +210,11 @@
           },
           {
             "s": "fading",
-            "ms": 2487
+            "ms": 2488
           },
           {
             "s": "hidden",
-            "ms": 2897
+            "ms": 2892
           }
         ],
         "wholeWithin60ms": true
@@ -238,8 +241,8 @@
           "labelLeft": 16,
           "onGrid": true,
           "target": {
-            "x": 196,
-            "y": 243
+            "x": 195,
+            "y": 261
           }
         },
         {
@@ -273,7 +276,7 @@
           "onGrid": true,
           "target": {
             "x": 354,
-            "y": 255
+            "y": 272
           }
         },
         {
@@ -300,6 +303,7 @@
         "DRAG TO TURN",
         "OPEN"
       ],
+      "afterTurnAtMs": 1518,
       "afterTurn": [
         {
           "act": "flip",
@@ -314,8 +318,8 @@
           "labelLeft": 16,
           "onGrid": true,
           "target": {
-            "x": 200,
-            "y": 243
+            "x": 199,
+            "y": 261
           }
         },
         {
@@ -349,7 +353,7 @@
           "onGrid": true,
           "target": {
             "x": 353,
-            "y": 251
+            "y": 268
           }
         },
         {
@@ -378,10 +382,12 @@
       ],
       "cpuThrottle": 4,
       "fps": {
-        "fps": 58.8,
-        "worstMs": 33.5
+        "fps": 59.5,
+        "worstMs": 33.3
       },
       "knobTapGone": {
+        "atMs": 5678,
+        "state": "holding",
         "gone": [
           1
         ],

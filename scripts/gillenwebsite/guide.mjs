@@ -58,7 +58,7 @@ for (const p of [{ name: "desktop", w: 1440, h: 900 }, { name: "phone", w: 390, 
   }));
   out.firstLoad = tl;
   out.firstLoadShows = await page.evaluate(() => window.__guide.shows());
-  await page.evaluate(() => window.__guide.show(15000));
+  await page.evaluate(() => { window.__shownAt = performance.now(); window.__guide.show(15000); });
   await page.waitForTimeout(300);
   if (SHOTS) await page.screenshot({ path: `${SHOTS}/guide-${p.name}.png` });
   const grid = await page.evaluate(() => [document.querySelector("[data-src='17'][role=button]"), document.querySelector("[class*=inlineSlot] [class*=info]")].filter(Boolean).map((e) => e.getBoundingClientRect().left));
@@ -68,6 +68,7 @@ for (const p of [{ name: "desktop", w: 1440, h: 900 }, { name: "phone", w: 390, 
   // turn the camera with no input event, and the drum by one card: the leaders follow, still square and on target
   await page.evaluate(() => { const { rig } = window.__rolodex; rig.az += 0.3; rig.pos += 1; });
   await page.waitForTimeout(1200);
+  out.afterTurnAtMs = await page.evaluate(() => Math.round(performance.now() - window.__shownAt));
   out.afterTurn = check(await page.evaluate(() => window.__guide.points()), grid);
   out.moved = out.callouts.map((c, k) => c.target && out.afterTurn[k].target ? Math.round(Math.hypot(c.target.x - out.afterTurn[k].target.x, c.target.y - out.afterTurn[k].target.y)) : null);
   if (p.throttle) { const cdp = await ctx.newCDPSession(page); await cdp.send("Emulation.setCPUThrottlingRate", { rate: p.throttle }); out.cpuThrottle = p.throttle; }
@@ -77,7 +78,7 @@ for (const p of [{ name: "desktop", w: 1440, h: 900 }, { name: "phone", w: 390, 
   const k = await page.evaluate(() => window.__rolodex.knobPoint());
   if (p.w < 720) await page.touchscreen.tap(k.x, k.y); else await page.mouse.click(k.x, k.y);
   await page.waitForTimeout(60);
-  out.knobTapGone = await page.evaluate(() => ({ gone: window.__guide.gone(), knobOpacity: window.__guide.points()[1].opacity }));
+  out.knobTapGone = await page.evaluate(() => ({ atMs: Math.round(performance.now() - window.__shownAt), state: window.__guide.state(), gone: window.__guide.gone(), knobOpacity: window.__guide.points()[1].opacity }));
   await page.reload();
   await page.waitForFunction(() => window.__guide && window.__rolodex?.rig?.ready, null, { timeout: 120000 });
   await page.waitForTimeout(3500);

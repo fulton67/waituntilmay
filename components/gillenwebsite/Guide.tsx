@@ -130,13 +130,14 @@ export default function Guide({ ready }: { ready: boolean }) {
       });
       raf = requestAnimationFrame(frame);
     };
+    // (a set whose time is up counts as over even before its last frame has hidden it, so a show then starts anew)
     const show = (holdMs = HOLD) => {
-      if (document.querySelector("[role=dialog]") || t0 >= 0) return;
+      if (document.querySelector("[role=dialog]") || state() !== "hidden") return;
       gone.clear(); shows++; hold = holdMs;
       t0 = performance.now();
       s.parentElement!.style.visibility = "visible";
       markSeen();
-      raf = requestAnimationFrame(frame);
+      if (!raf) raf = requestAnimationFrame(frame);
     };
     const hide = () => {
       t0 = -1; cancelAnimationFrame(raf); raf = 0;
