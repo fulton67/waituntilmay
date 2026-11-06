@@ -79,13 +79,15 @@ function CameraRig() {
   useFrame((_, delta) => {
     const dt = Math.min(delta, 1 / 30);
     const aspect = size.width / size.height;
-    // BUILD.md: 2.3, or 3.9 when aspect < 0.8; pulled back on wide screens so the detail panel fits beside the drum
-    const dist = aspect < 0.8 ? 3.9 : rig.wide ? (aspect < 1.3 ? 3.6 : 2.9) : 2.3;
+    // BUILD.md: 2.3, or 3.9 when aspect < 0.8; pulled back on wide screens so the detail panel fits beside the drum.
+    // All of it x HOUSING (the housing's scale, Rolodex.tsx), the look point's offsets too, so the housing fills the
+    // screen as it did before it was scaled.
+    const dist = (aspect < 0.8 ? 3.9 : rig.wide ? (aspect < 1.3 ? 3.6 : 2.9) : 2.3) * HOUSING;
     const kf = rig.reduce ? 1 : 1 - Math.exp(-10 * dt);
     rig.camAz += (rig.az - rig.camAz) * kf;
     rig.camEl += (rig.el - rig.camEl) * kf;
-    const shift = rig.wide ? 0.4 : 0;
-    target.set(Math.cos(rig.camAz) * shift, rig.axisY - 0.035, -Math.sin(rig.camAz) * shift);
+    const shift = rig.wide ? 0.4 * HOUSING : 0;
+    target.set(Math.cos(rig.camAz) * shift, rig.axisY - 0.035 * HOUSING, -Math.sin(rig.camAz) * shift);
     camera.position.set(
       target.x + Math.sin(rig.camAz) * Math.cos(rig.camEl) * dist,
       target.y + Math.sin(rig.camEl) * dist,

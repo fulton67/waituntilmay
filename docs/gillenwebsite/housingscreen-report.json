@@ -1,0 +1,22 @@
+{
+  "base": "http://localhost:3228",
+  "at": "2026-11-06T01:38:54.788Z",
+  "profiles": {
+    "phone": {
+      "housingWidthPx": 342.9,
+      "housingHeightPx": 360.8,
+      "housingLeft": 21.4,
+      "housingTop": 324.6,
+      "coverFaceDevicePx": 127.4,
+      "pixelRatio": 1
+    },
+    "desktop": {
+      "housingWidthPx": 515.2,
+      "housingHeightPx": 522.5,
+      "housingLeft": 216.2,
+      "housingTop": 311.2,
+      "coverFaceDevicePx": 183.3,
+      "pixelRatio": 1
+    }
+  }
+}
