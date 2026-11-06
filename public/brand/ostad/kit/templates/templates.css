@@ -75,6 +75,9 @@
 .t-list .ok-safe { gap: 4cqw; }
 .t-list .items { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: flex-start; }
 .t-list .item { display: grid; grid-template-columns: var(--ok-icon) 1fr; gap: 3cqw; align-items: center; padding: 2.6cqw 0; border-top: var(--ok-rule) solid currentColor; }
+/* C1 reads as "text spans" (composition/LAYOUTS.md): rows share the free height, capped so 3 rows do not turn into slabs */
+.t-list .items > div { height: 100%; display: flex; flex-direction: column; }
+.t-list .item { flex: 1 1 auto; max-height: 20cqw; }  /* min-height stays auto so long items still overflow and trigger autofit */
 .t-list .item:last-child { border-bottom: var(--ok-rule) solid currentColor; }
 .t-list .ok-icon { --ok-icon: 5cqw; }
 

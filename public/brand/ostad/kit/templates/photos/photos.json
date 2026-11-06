@@ -4,41 +4,53 @@
   "src": "/brand/ostad/kit/templates/photos/DduEQP5FPX2.jpg",
   "w": 1350,
   "h": 1013,
-  "text_area_pct": 0.12
+  "text_area_pct": 0.12,
+  "caption_band_px": 0,
+  "kind": "photo"
  },
  {
   "image": "DbWatn0n7lO",
   "src": "/brand/ostad/kit/templates/photos/DbWatn0n7lO.jpg",
   "w": 1080,
-  "h": 1350,
-  "text_area_pct": 1.47
+  "h": 1054,
+  "text_area_pct": 1.47,
+  "caption_band_px": 296,
+  "kind": "composite"
  },
  {
   "image": "Ddj9_XJDKwt",
   "src": "/brand/ostad/kit/templates/photos/Ddj9_XJDKwt.jpg",
   "w": 1074,
-  "h": 1136,
-  "text_area_pct": 1.95
+  "h": 968,
+  "text_area_pct": 1.95,
+  "caption_band_px": 168,
+  "kind": "composite"
  },
  {
   "image": "Dbd6VzbFf_F",
   "src": "/brand/ostad/kit/templates/photos/Dbd6VzbFf_F.jpg",
   "w": 1080,
-  "h": 1350,
-  "text_area_pct": 2.01
+  "h": 1171,
+  "text_area_pct": 2.01,
+  "caption_band_px": 179,
+  "kind": "composite"
  },
  {
   "image": "Db3i3ueE0OQ",
   "src": "/brand/ostad/kit/templates/photos/Db3i3ueE0OQ.jpg",
   "w": 1080,
-  "h": 1095,
-  "text_area_pct": 2.38
+  "h": 911,
+  "text_area_pct": 2.38,
+  "caption_band_px": 184,
+  "kind": "composite"
  },
  {
   "image": "DeKHHnkF8Pj",
   "src": "/brand/ostad/kit/templates/photos/DeKHHnkF8Pj.jpg",
   "w": 1074,
-  "h": 1123,
-  "text_area_pct": 2.38
+  "h": 966,
+  "text_area_pct": 2.38,
+  "caption_band_px": 157,
+  "kind": "composite"
  }
 ]

@@ -1,0 +1,319 @@
+{
+ "method": "BUILDER Phase E: 12 demo posts from Dr. Ostad's 12 most recent captions with usable text (existing/posts.json, newest first;\ncaptions under 120 characters or mostly prescribing boilerplate are skipped).\nEach goes through brand/post.py in Auto mode, so the demo exercises exactly what the builder and the CLI ship. Rules (DECISIONS 51):\n  size     cycles 4x5, 1x1, 9x16 (4 of each)\n  template Auto's first candidate, unless that template already appears twice; then the first candidate used fewer than\n           twice. caption-card counts too. This keeps at least 6 templates without hand-picking.\n  photo    the post's own picture when OCR finds < 5% text on it (colour/treatment.json); otherwise the kit pool\n-> demo/NN_template_size.png (+ -NN pages), demo/demo.json, demo/wall.png. brand-venv python -I.",
+ "summary": {
+  "posts": 12,
+  "templates": [
+   "announcement",
+   "before-after",
+   "carousel",
+   "list",
+   "procedure-card",
+   "single-statement",
+   "story"
+  ],
+  "template_count": 7,
+  "sizes": {
+   "4x5": 4,
+   "1x1": 4,
+   "9x16": 4
+  },
+  "adobe_fonts": 12,
+  "pages": 21,
+  "warnings": 0,
+  "errors": 0
+ },
+ "posts": [
+  {
+   "n": 1,
+   "shortCode": "DfSU79sEmJ5",
+   "date": "2026-11-03",
+   "caption_start": "The art of neuromodulators begins with understanding the anatomy behind every expression.\n",
+   "size": "4x5",
+   "template": "procedure-card",
+   "auto_candidates": [
+    "procedure-card",
+    "carousel",
+    "single-statement",
+    "caption-card"
+   ],
+   "photo": "kit pool",
+   "files": [
+    "demo\\01_procedure-card_4x5.png"
+   ],
+   "pages": 1,
+   "fonts": "adobe",
+   "warnings": [],
+   "errors": [],
+   "accent": "accent-1"
+  },
+  {
+   "n": 2,
+   "shortCode": "DfC2zoDERg8",
+   "date": "2026-10-28",
+   "caption_start": "For nearly 30 years, Dr.Ariel Ostad has built his practice around a patient-first philosop",
+   "size": "1x1",
+   "template": "carousel",
+   "auto_candidates": [
+    "carousel",
+    "single-statement",
+    "caption-card"
+   ],
+   "photo": "kit pool",
+   "files": [
+    "demo\\02_carousel_1x1-01.png",
+    "demo\\02_carousel_1x1-02.png",
+    "demo\\02_carousel_1x1-03.png",
+    "demo\\02_carousel_1x1-04.png"
+   ],
+   "pages": 4,
+   "fonts": "adobe",
+   "warnings": [],
+   "errors": [],
+   "accent": "accent-2"
+  },
+  {
+   "n": 3,
+   "shortCode": "De2Uxl-F_tv",
+   "date": "2026-10-23",
+   "caption_start": "Where surgical precision meets the artistry of reconstruction.\n\nMohs micrographic surgery ",
+   "size": "9x16",
+   "template": "before-after",
+   "auto_candidates": [
+    "before-after",
+    "procedure-card",
+    "carousel",
+    "single-statement",
+    "story",
+    "caption-card"
+   ],
+   "photo": "kit pool",
+   "files": [
+    "demo\\03_before-after_9x16.png"
+   ],
+   "pages": 1,
+   "fonts": "adobe",
+   "warnings": [],
+   "errors": [],
+   "accent": "signal"
+  },
+  {
+   "n": 4,
+   "shortCode": "Dewz9q6lzUy",
+   "date": "2026-10-21",
+   "caption_start": "Thank you to everyone who joined our ellacor virtual event last night! Your thoughtful que",
+   "size": "4x5",
+   "template": "list",
+   "auto_candidates": [
+    "list",
+    "procedure-card",
+    "carousel",
+    "single-statement",
+    "caption-card"
+   ],
+   "photo": "kit pool",
+   "files": [
+    "demo\\04_list_4x5.png"
+   ],
+   "pages": 1,
+   "fonts": "adobe",
+   "warnings": [],
+   "errors": [],
+   "accent": "accent-1"
+  },
+  {
+   "n": 5,
+   "shortCode": "DeuyxCNEujF",
+   "date": "2026-10-20",
+   "caption_start": "We're LIVE! \ud83c\udf89\n\nJoin Dr. Ariel Ostad, Triple Board Certified Dermatologist and Facial Cosme",
+   "size": "1x1",
+   "template": "procedure-card",
+   "auto_candidates": [
+    "procedure-card",
+    "carousel",
+    "single-statement",
+    "caption-card"
+   ],
+   "photo": "kit pool",
+   "files": [
+    "demo\\05_procedure-card_1x1.png"
+   ],
+   "pages": 1,
+   "fonts": "adobe",
+   "warnings": [],
+   "errors": [],
+   "accent": "accent-2"
+  },
+  {
+   "n": 6,
+   "shortCode": "DetkX_wlrGe",
+   "date": "2026-10-20",
+   "caption_start": "It's the BIG day! Have you registered yet? \ud83d\udea8\n\nTODAY at 5:30pm, Dr. Ariel Ostad, Triple Boa",
+   "size": "9x16",
+   "template": "announcement",
+   "auto_candidates": [
+    "announcement",
+    "list",
+    "procedure-card",
+    "carousel",
+    "single-statement",
+    "story",
+    "caption-card"
+   ],
+   "photo": "kit pool",
+   "files": [
+    "demo\\06_announcement_9x16.png"
+   ],
+   "pages": 1,
+   "fonts": "adobe",
+   "warnings": [],
+   "errors": [],
+   "accent": "signal"
+  },
+  {
+   "n": 7,
+   "shortCode": "Deq_kn-FzE4",
+   "date": "2026-10-19",
+   "caption_start": "We are only ONE DAY AWAY from our Ellacor Virtual Event with Dr. Ariel Ostad, Triple Board",
+   "size": "4x5",
+   "template": "announcement",
+   "auto_candidates": [
+    "announcement",
+    "procedure-card",
+    "carousel",
+    "caption-card"
+   ],
+   "photo": "kit pool",
+   "files": [
+    "demo\\07_announcement_4x5.png"
+   ],
+   "pages": 1,
+   "fonts": "adobe",
+   "warnings": [],
+   "errors": [],
+   "accent": "accent-1"
+  },
+  {
+   "n": 8,
+   "shortCode": "DekAyR0l3Pa",
+   "date": "2026-10-16",
+   "caption_start": "Noticing deeper lines around your mouth? Softening along the jawline? A lower face that is",
+   "size": "1x1",
+   "template": "list",
+   "auto_candidates": [
+    "announcement",
+    "list",
+    "procedure-card",
+    "carousel",
+    "single-statement",
+    "caption-card"
+   ],
+   "photo": "kit pool",
+   "files": [
+    "demo\\08_list_1x1.png"
+   ],
+   "pages": 1,
+   "fonts": "adobe",
+   "warnings": [],
+   "errors": [],
+   "accent": "accent-2"
+  },
+  {
+   "n": 9,
+   "shortCode": "DeSQDccjhn-",
+   "date": "2026-10-09",
+   "caption_start": "The Science of Healthy Skin.\n\nRooted in dermatologic expertise. Guided by science. Formula",
+   "size": "9x16",
+   "template": "carousel",
+   "auto_candidates": [
+    "carousel",
+    "single-statement",
+    "story",
+    "caption-card"
+   ],
+   "photo": "kit pool",
+   "files": [
+    "demo\\09_carousel_9x16-01.png",
+    "demo\\09_carousel_9x16-02.png",
+    "demo\\09_carousel_9x16-03.png",
+    "demo\\09_carousel_9x16-04.png",
+    "demo\\09_carousel_9x16-05.png",
+    "demo\\09_carousel_9x16-06.png",
+    "demo\\09_carousel_9x16-07.png"
+   ],
+   "pages": 7,
+   "fonts": "adobe",
+   "warnings": [],
+   "errors": [],
+   "accent": "signal"
+  },
+  {
+   "n": 10,
+   "shortCode": "DeNQcHXCOAo",
+   "date": "2026-10-07",
+   "caption_start": "Just because a treatment is trending doesn\u2019t mean it\u2019s the right treatment for you.\n\nSculp",
+   "size": "4x5",
+   "template": "single-statement",
+   "auto_candidates": [
+    "procedure-card",
+    "carousel",
+    "single-statement",
+    "caption-card"
+   ],
+   "photo": "kit pool",
+   "files": [
+    "demo\\10_single-statement_4x5.png"
+   ],
+   "pages": 1,
+   "fonts": "adobe",
+   "warnings": [],
+   "errors": [],
+   "accent": "accent-1"
+  },
+  {
+   "n": 11,
+   "shortCode": "DeKs_NEjDBT",
+   "date": "2026-10-06",
+   "caption_start": "There is no greater privilege than earning a patient\u2019s trust.\n\nReconstructive surgery is a",
+   "size": "1x1",
+   "template": "single-statement",
+   "auto_candidates": [
+    "carousel",
+    "single-statement",
+    "caption-card"
+   ],
+   "photo": "kit pool",
+   "files": [
+    "demo\\11_single-statement_1x1.png"
+   ],
+   "pages": 1,
+   "fonts": "adobe",
+   "warnings": [],
+   "errors": [],
+   "accent": "accent-2"
+  },
+  {
+   "n": 12,
+   "shortCode": "DeKHHnkF8Pj",
+   "date": "2026-10-06",
+   "caption_start": "Sometimes, the smallest adjustments can make a meaningful difference.\n\nThis depressed scar",
+   "size": "9x16",
+   "template": "story",
+   "auto_candidates": [
+    "procedure-card",
+    "carousel",
+    "single-statement",
+    "story",
+    "caption-card"
+   ],
+   "photo": "own (2.38% text)",
+   "files": [
+    "demo\\12_story_9x16.png"
+   ],
+   "pages": 1,
+   "fonts": "adobe",
+   "warnings": [],
+   "errors": [],
+   "accent": "signal"
+  }
+ ]
+}

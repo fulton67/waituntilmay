@@ -50,7 +50,8 @@ export function parse(caption) {
   const all = lines.map((l) => l.text).join(" \n ");
   const hook = sentences(paras[0] || bullets[0] || "")[0] || "";
   const date = (all.match(RE_DATE) || [""])[0]; const time = (all.match(RE_TIME) || [""])[0];
-  const quote = (all.match(/[“"]([^”"]{20,220})[”"]/) || [])[1] || "";
+  // a pull quote is a quoted statement; questions ("What treatment is everyone getting?") are not quotes
+  const quote = [...all.matchAll(/[“"]([^”"]{20,220})[”"]/g)].map((m) => m[1].trim()).find((q) => !q.endsWith("?")) || "";
   const treatment = TREATMENTS.find((t) => new RegExp(`\\b${t.replace(/\s/g, "\\s")}\\b`, "i").test(all)) || "";
   return { lines, bullets, paras, meta, hook, date, time, quote, treatment, event: RE_EVENT.test(all), beforeAfter: RE_BA.test(all), words: words(all).length };
 }
