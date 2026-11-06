@@ -53,10 +53,13 @@ export default function About({ about, releases }: { about: { text: string; inst
       <p className={css.aboutBig} data-about-text>
         {parts.map((line, k) => (
           <span key={k} className={css.aboutLine}>
-            {/* the name and its square never part at a line end */}
-            {line.map((p, j) => typeof p === "string" ? p : (
-              <span key={j} className={css.aboutName}>{p.name}<Cover r={p.r} className={css.aboutCover} sizes="1em" fixed={512} alt="" /></span>
-            ))}
+            {/* the name's last word and its square never part at a line end; a long name ("The Red Hot Chili
+                Peppers") may break before it, so no line is wider than the column */}
+            {line.map((p, j) => {
+              if (typeof p === "string") return p;
+              const k = p.name.lastIndexOf(" ") + 1;
+              return <span key={j}>{p.name.slice(0, k)}<span className={css.aboutName}>{p.name.slice(k)}<Cover r={p.r} className={css.aboutCover} sizes="1em" fixed={512} alt="" /></span></span>;
+            })}
           </span>
         ))}
       </p>

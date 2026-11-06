@@ -2,7 +2,10 @@
 // computed size (56 / 30 px), leading (1.05), face (the header's), weight and colour, left-aligned, its lines (words
 // per line, at most 22); the page holds only the text and the contact block (12 px): no grey credit layer (no
 // [data-about-grey], no element in light grey), no release list and no site footer; one cover square after each artist named in the
-// text who is in the discography (names found in the text against discography.json's credited artists).
+// text who is in the discography (names found in the text against discography.json's credited artists). Overflow:
+// every element whose right edge is past the viewport (none), the document's scrollWidth (= the viewport's), every
+// text line's right edge (line boxes, through Range rects) inside the right gutter (20 px), and the text's left edge
+// on the header's (Dylan's name).
 //   node scripts/gillenwebsite/about.mjs [base-url] [--out file] [--shots dir]
 import { chromium } from "@playwright/test";
 import fs from "node:fs/promises";
@@ -41,12 +44,17 @@ for (const p of [{ name: "desktop", w: 1440, h: 900, px: 56 }, { name: "phone", 
       footer: !!document.querySelector("footer"),
       nav: [...document.querySelectorAll("nav a")].map((a) => a.textContent.trim()).filter((x) => /^[A-Z]+$/.test(x)),
       contactPx: [...contact.querySelectorAll("a, button")].map((x) => parseFloat(getComputedStyle(x).fontSize)),
+      scrollWidth: document.documentElement.scrollWidth, clientWidth: document.documentElement.clientWidth, innerWidth,
+      overflowing: [...document.body.querySelectorAll("*")].filter((e) => e.getBoundingClientRect().right > innerWidth + 0.5).map((e) => `${e.tagName}.${String(e.className).split("__").pop()} right ${e.getBoundingClientRect().right.toFixed(1)}`),
+      lineRightMax: (() => { let m = 0; for (const el of [t, contact]) { const g = document.createRange(); g.selectNodeContents(el); for (const r of g.getClientRects()) m = Math.max(m, r.right); } return +m.toFixed(1); })(),
+      textLeft: +t.getBoundingClientRect().left.toFixed(1), headerLeft: +document.querySelector("nav a").getBoundingClientRect().left.toFixed(1),
     };
   });
   if (SHOTS) await page.screenshot({ path: `${SHOTS}/about-${p.name}.png`, fullPage: true });
   out.pass = out.url === "/gillenwebsite/about" && out.textPx === p.px && Math.abs(out.leading - 1.05) < 0.01 && out.family === out.headerFamily && out.weight === "400" && out.color === "rgb(0, 0, 0)" && out.align === "left"
     && out.maxWordsPerLine <= 22 && out.greyLayer === 0 && out.greyText === 0 && out.ariaHidden === 0
     && out.squares === named.length && out.squareSameLine && out.releaseRows === 0 && out.otherElements.length === 0 && !out.footer
+    && out.scrollWidth === out.clientWidth && out.overflowing.length === 0 && out.lineRightMax <= out.clientWidth - 20 && out.textLeft === out.headerLeft
     && out.nav.join("/") === "ROLODEX/DISCOGRAPHY/ABOUT" && out.contactPx.length >= 2 && out.contactPx.every((x) => x === 12);
   report.profiles[p.name] = out;
   console.log(p.name, JSON.stringify(out));

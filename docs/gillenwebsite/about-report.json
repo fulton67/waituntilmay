@@ -1,6 +1,6 @@
 {
-  "base": "http://localhost:3228",
-  "at": "2026-11-06T01:38:48.019Z",
+  "base": "http://localhost:3227",
+  "at": "2026-11-06T21:31:08.086Z",
   "status": 200,
   "artistsNamedInDiscography": [
     "Freak Slug",
@@ -30,15 +30,15 @@
       "ariaHidden": 0,
       "squares": 9,
       "squareAfter": [
-        "Harry Styles",
-        "The Strokes",
-        "The Red Hot Chili Peppers",
+        "Styles",
+        "Strokes",
+        "Peppers",
         "SZA",
-        "Teezo Touchdown",
+        "Touchdown",
         "Obongjayar",
-        "Freak Slug",
-        "The Gossip",
-        "Arlo Parks"
+        "Slug",
+        "Gossip",
+        "Parks"
       ],
       "squareSameLine": true,
       "squarePx": [
@@ -57,6 +57,13 @@
         12,
         12
       ],
+      "scrollWidth": 1425,
+      "clientWidth": 1425,
+      "innerWidth": 1440,
+      "overflowing": [],
+      "lineRightMax": 1252,
+      "textLeft": 20,
+      "headerLeft": 20,
       "pass": true
     },
     "phone": {
@@ -75,15 +82,15 @@
       "ariaHidden": 0,
       "squares": 9,
       "squareAfter": [
-        "Harry Styles",
-        "The Strokes",
-        "The Red Hot Chili Peppers",
+        "Styles",
+        "Strokes",
+        "Peppers",
         "SZA",
-        "Teezo Touchdown",
+        "Touchdown",
         "Obongjayar",
-        "Freak Slug",
-        "The Gossip",
-        "Arlo Parks"
+        "Slug",
+        "Gossip",
+        "Parks"
       ],
       "squareSameLine": true,
       "squarePx": [
@@ -102,6 +109,13 @@
         12,
         12
       ],
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "innerWidth": 390,
+      "overflowing": [],
+      "lineRightMax": 370,
+      "textLeft": 16,
+      "headerLeft": 16,
       "pass": true
     }
   },
