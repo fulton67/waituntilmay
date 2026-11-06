@@ -172,16 +172,12 @@
 
 /* /gillenwebsite/about (About.tsx). SOURCES #19: the About text left-aligned in the header's face at one weight,
    black on white, 56 px on 1.05 leading (30 px on phones), a clause to a line; #19b a cap-height cover square after
-   each artist; #19c the credit list behind it in #c8c8c8 at the same size, half a line down so the lines interleave
-   (60% on phones). Contact and socials at the interface size. */
+   each artist. Contact and socials at the interface size. Nothing else. */
 .aboutPage { padding: calc(var(--head) + 32px) 20px 64px; display: grid; gap: 40px; }
-.aboutStack { position: relative; overflow: hidden; }
-.root .aboutBig { position: relative; font: var(--w-info) 56px/1.05 var(--mono); color: var(--ink); text-align: left; max-width: 22em; }
+.root .aboutBig { font: var(--w-info) 56px/1.05 var(--mono); color: var(--ink); text-align: left; max-width: 22em; }
 .aboutLine { display: block; }
 .aboutName { white-space: nowrap; }
 .aboutCover { display: inline-block; width: 0.7em; height: 0.7em; object-fit: cover; vertical-align: baseline; margin-left: 0.1em; background: #eee; }
-.aboutGrey { position: absolute; left: 0; right: 0; top: 0.525em; font: var(--w-info) 56px/1.05 var(--mono); color: #c8c8c8; white-space: nowrap; pointer-events: none; user-select: none; }
-.aboutGrey span { display: block; overflow: hidden; text-overflow: clip; }
 .aboutLinks { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 12px; }
 
 /* /gillenwebsite/discography (Discography.tsx): the role pills over the index. SOURCES #20 shortnotice client list:
@@ -249,7 +245,6 @@
   .backHolder { position: fixed; left: 16px; top: 12px; transform: none; }
   .aboutPage { padding: calc(var(--head) + 20px) 16px 48px; gap: 22px; }
   .root .aboutBig { font-size: 30px; }
-  .aboutGrey { font-size: 30px; top: 0.525em; opacity: 0.6; }
   /* phones: the pills, then the original About index (AboutIndex.tsx, about-index.module.css) with its own padding */
   .disco { padding: calc(var(--head) + 16px) 0 0; gap: 0; }
   .disco > .pills { padding: 0 16px; }

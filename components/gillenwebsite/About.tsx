@@ -2,9 +2,8 @@
 // /gillenwebsite/about: Dylan's information only. SOURCES #19: his About text large in the header's face at one weight,
 // black on white, left-aligned, 56 px (30 px on phones) on 1.05 leading (designbykatalyst.com's studio paragraph),
 // set in short lines, a sentence or clause to a line. Each artist named in it who is in the discography is followed
-// by a cap-height square of that artist's latest cover (SOURCES #19b). Behind it, aria-hidden, his credit list in the
-// same face and size in light grey, offset half a line so the lines interleave (SOURCES #19c). Then contact and
-// socials at the interface size. Nothing else.
+// by a cap-height square of that artist's latest cover (SOURCES #19b). Then contact and socials at the interface
+// size. Nothing else.
 import { useMemo } from "react";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { Email } from "./Chrome";
@@ -48,26 +47,19 @@ export default function About({ about, releases }: { about: { text: string; inst
       return out;
     });
   }, [lines, releases]);
-  const credits = useMemo(() => releases.map((r) => `${r.artist} — ${r.release}`), [releases]);
 
   return (
     <section className={css.aboutPage} data-src="19">
-      <div className={css.aboutStack}>
-        {/* SOURCES #19c the credit list behind the text, light grey, decorative */}
-        <div className={css.aboutGrey} aria-hidden data-about-grey>
-          {credits.map((c, k) => <span key={k}>{c}</span>)}
-        </div>
-        <p className={css.aboutBig} data-about-text>
-          {parts.map((line, k) => (
-            <span key={k} className={css.aboutLine}>
-              {/* the name and its square never part at a line end */}
-              {line.map((p, j) => typeof p === "string" ? p : (
-                <span key={j} className={css.aboutName}>{p.name}<Cover r={p.r} className={css.aboutCover} sizes="1em" fixed={512} alt="" /></span>
-              ))}
-            </span>
-          ))}
-        </p>
-      </div>
+      <p className={css.aboutBig} data-about-text>
+        {parts.map((line, k) => (
+          <span key={k} className={css.aboutLine}>
+            {/* the name and its square never part at a line end */}
+            {line.map((p, j) => typeof p === "string" ? p : (
+              <span key={j} className={css.aboutName}>{p.name}<Cover r={p.r} className={css.aboutCover} sizes="1em" fixed={512} alt="" /></span>
+            ))}
+          </span>
+        ))}
+      </p>
       <div className={css.aboutLinks} data-about-contact>
         {about.contact && <Email addr={about.contact} />}
         {/* SOURCES #28 viscosejournal.com M3: the arrow is typed into the link */}
