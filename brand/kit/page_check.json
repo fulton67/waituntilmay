@@ -1,0 +1,51 @@
+{
+ "base": "http://localhost:3107",
+ "widths": {
+  "390": {
+   "order": [
+    "make",
+    "demo-wall",
+    "templates",
+    "look",
+    "icons",
+    "type"
+   ],
+   "images": 102,
+   "broken": [],
+   "video": {
+    "ready": 4,
+    "w": 1080,
+    "h": 1920,
+    "dur": 10
+   },
+   "overflow_px": 0,
+   "h1": 1,
+   "make_href": "/brand/ostad/make",
+   "errors": []
+  },
+  "1440": {
+   "order": [
+    "make",
+    "demo-wall",
+    "templates",
+    "look",
+    "icons",
+    "type"
+   ],
+   "images": 102,
+   "broken": [],
+   "video": {
+    "ready": 4,
+    "w": 1080,
+    "h": 1920,
+    "dur": 10
+   },
+   "overflow_px": 0,
+   "h1": 1,
+   "make_href": "/brand/ostad/make",
+   "errors": []
+  }
+ },
+ "make_status": 200,
+ "ok": true
+}

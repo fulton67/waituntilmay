@@ -1,0 +1,907 @@
+{
+ "make": {
+  "href": "/brand/ostad/make",
+  "templates": 11,
+  "icons": 24,
+  "check": {
+   "browser_ok": "33/33",
+   "server_ok": "33/33",
+   "server_adobe": "33/33",
+   "zip_7": true,
+   "draft_reload": true,
+   "image_drop": true,
+   "console_errors": 0,
+   "match": {
+    "pairs": 33,
+    "max_mad": 0.646,
+    "max_text_diff_pct": 22.749,
+    "median_text_diff_pct": 5.863,
+    "min_glyph_iou": 0.9597,
+    "note": "text_diff counts antialiasing; glyph_iou compares binarised glyph shapes (1.0 = same lines, same positions)",
+    "size_mismatches": 0
+   }
+  }
+ },
+ "demo": {
+  "posts": [
+   {
+    "n": 1,
+    "code": "DfSU79sEmJ5",
+    "date": "2026-11-03",
+    "caption": "The art of neuromodulators begins with understanding the anatomy behind every expression.",
+    "size": "4x5",
+    "template": "procedure-card",
+    "pages": [
+     {
+      "src": "/brand/ostad/page/demo/01_procedure-card_4x5.jpg",
+      "w": 540,
+      "h": 675
+     }
+    ]
+   },
+   {
+    "n": 2,
+    "code": "DfC2zoDERg8",
+    "date": "2026-10-28",
+    "caption": "For nearly 30 years, Dr.Ariel Ostad has built his practice around a patient-first philosop",
+    "size": "1x1",
+    "template": "carousel",
+    "pages": [
+     {
+      "src": "/brand/ostad/page/demo/02_carousel_1x1-01.jpg",
+      "w": 540,
+      "h": 540
+     },
+     {
+      "src": "/brand/ostad/page/demo/02_carousel_1x1-02.jpg",
+      "w": 540,
+      "h": 540
+     },
+     {
+      "src": "/brand/ostad/page/demo/02_carousel_1x1-03.jpg",
+      "w": 540,
+      "h": 540
+     },
+     {
+      "src": "/brand/ostad/page/demo/02_carousel_1x1-04.jpg",
+      "w": 540,
+      "h": 540
+     }
+    ]
+   },
+   {
+    "n": 3,
+    "code": "De2Uxl-F_tv",
+    "date": "2026-10-23",
+    "caption": "Where surgical precision meets the artistry of reconstruction.\n\nMohs micrographic surgery",
+    "size": "9x16",
+    "template": "before-after",
+    "pages": [
+     {
+      "src": "/brand/ostad/page/demo/03_before-after_9x16.jpg",
+      "w": 540,
+      "h": 960
+     }
+    ]
+   },
+   {
+    "n": 4,
+    "code": "Dewz9q6lzUy",
+    "date": "2026-10-21",
+    "caption": "Thank you to everyone who joined our ellacor virtual event last night! Your thoughtful que",
+    "size": "4x5",
+    "template": "list",
+    "pages": [
+     {
+      "src": "/brand/ostad/page/demo/04_list_4x5.jpg",
+      "w": 540,
+      "h": 675
+     }
+    ]
+   },
+   {
+    "n": 5,
+    "code": "DeuyxCNEujF",
+    "date": "2026-10-20",
+    "caption": "We're LIVE! \ud83c\udf89\n\nJoin Dr. Ariel Ostad, Triple Board Certified Dermatologist and Facial Cosme",
+    "size": "1x1",
+    "template": "procedure-card",
+    "pages": [
+     {
+      "src": "/brand/ostad/page/demo/05_procedure-card_1x1.jpg",
+      "w": 540,
+      "h": 540
+     }
+    ]
+   },
+   {
+    "n": 6,
+    "code": "DetkX_wlrGe",
+    "date": "2026-10-20",
+    "caption": "It's the BIG day! Have you registered yet? \ud83d\udea8\n\nTODAY at 5:30pm, Dr. Ariel Ostad, Triple Boa",
+    "size": "9x16",
+    "template": "announcement",
+    "pages": [
+     {
+      "src": "/brand/ostad/page/demo/06_announcement_9x16.jpg",
+      "w": 540,
+      "h": 960
+     }
+    ]
+   },
+   {
+    "n": 7,
+    "code": "Deq_kn-FzE4",
+    "date": "2026-10-19",
+    "caption": "We are only ONE DAY AWAY from our Ellacor Virtual Event with Dr. Ariel Ostad, Triple Board",
+    "size": "4x5",
+    "template": "announcement",
+    "pages": [
+     {
+      "src": "/brand/ostad/page/demo/07_announcement_4x5.jpg",
+      "w": 540,
+      "h": 675
+     }
+    ]
+   },
+   {
+    "n": 8,
+    "code": "DekAyR0l3Pa",
+    "date": "2026-10-16",
+    "caption": "Noticing deeper lines around your mouth? Softening along the jawline? A lower face that is",
+    "size": "1x1",
+    "template": "list",
+    "pages": [
+     {
+      "src": "/brand/ostad/page/demo/08_list_1x1.jpg",
+      "w": 540,
+      "h": 540
+     }
+    ]
+   },
+   {
+    "n": 9,
+    "code": "DeSQDccjhn-",
+    "date": "2026-10-09",
+    "caption": "The Science of Healthy Skin.\n\nRooted in dermatologic expertise. Guided by science. Formula",
+    "size": "9x16",
+    "template": "carousel",
+    "pages": [
+     {
+      "src": "/brand/ostad/page/demo/09_carousel_9x16-01.jpg",
+      "w": 540,
+      "h": 960
+     },
+     {
+      "src": "/brand/ostad/page/demo/09_carousel_9x16-02.jpg",
+      "w": 540,
+      "h": 960
+     },
+     {
+      "src": "/brand/ostad/page/demo/09_carousel_9x16-03.jpg",
+      "w": 540,
+      "h": 960
+     },
+     {
+      "src": "/brand/ostad/page/demo/09_carousel_9x16-04.jpg",
+      "w": 540,
+      "h": 960
+     },
+     {
+      "src": "/brand/ostad/page/demo/09_carousel_9x16-05.jpg",
+      "w": 540,
+      "h": 960
+     },
+     {
+      "src": "/brand/ostad/page/demo/09_carousel_9x16-06.jpg",
+      "w": 540,
+      "h": 960
+     },
+     {
+      "src": "/brand/ostad/page/demo/09_carousel_9x16-07.jpg",
+      "w": 540,
+      "h": 960
+     }
+    ]
+   },
+   {
+    "n": 10,
+    "code": "DeNQcHXCOAo",
+    "date": "2026-10-07",
+    "caption": "Just because a treatment is trending doesn\u2019t mean it\u2019s the right treatment for you.\n\nSculp",
+    "size": "4x5",
+    "template": "single-statement",
+    "pages": [
+     {
+      "src": "/brand/ostad/page/demo/10_single-statement_4x5.jpg",
+      "w": 540,
+      "h": 675
+     }
+    ]
+   },
+   {
+    "n": 11,
+    "code": "DeKs_NEjDBT",
+    "date": "2026-10-06",
+    "caption": "There is no greater privilege than earning a patient\u2019s trust.\n\nReconstructive surgery is a",
+    "size": "1x1",
+    "template": "single-statement",
+    "pages": [
+     {
+      "src": "/brand/ostad/page/demo/11_single-statement_1x1.jpg",
+      "w": 540,
+      "h": 540
+     }
+    ]
+   },
+   {
+    "n": 12,
+    "code": "DeKHHnkF8Pj",
+    "date": "2026-10-06",
+    "caption": "Sometimes, the smallest adjustments can make a meaningful difference.\n\nThis depressed scar",
+    "size": "9x16",
+    "template": "story",
+    "pages": [
+     {
+      "src": "/brand/ostad/page/demo/12_story_9x16.jpg",
+      "w": 540,
+      "h": 960
+     }
+    ]
+   }
+  ],
+  "summary": {
+   "posts": 12,
+   "templates": [
+    "announcement",
+    "before-after",
+    "carousel",
+    "list",
+    "procedure-card",
+    "single-statement",
+    "story"
+   ],
+   "template_count": 7,
+   "sizes": {
+    "4x5": 4,
+    "1x1": 4,
+    "9x16": 4
+   },
+   "adobe_fonts": 12,
+   "pages": 21,
+   "warnings": 0,
+   "errors": 0
+  },
+  "wall": {
+   "src": "/brand/ostad/page/demo/wall.jpg",
+   "w": 1600,
+   "h": 1511
+  }
+ },
+ "reel": {
+  "src": "/brand/ostad/kit/video/reel.mp4",
+  "poster": "/brand/ostad/kit/video/reel.jpg",
+  "clip": "ig_DcjqIkoFMTF",
+  "start_s": 229.55,
+  "dur_s": 10,
+  "fps": 24,
+  "check": {
+   "samples": 14,
+   "passed": 14,
+   "source_samples_with_burnt_text": 11,
+   "armed_samples": 5
+  }
+ },
+ "video": {
+  "elements": 19,
+  "lottie": 6
+ },
+ "templates": [
+  {
+   "id": "single-statement",
+   "name": "Single statement",
+   "cluster": "C9",
+   "thumbs": {
+    "4x5": {
+     "src": "/brand/ostad/page/templates/single-statement_4x5.jpg",
+     "w": 360,
+     "h": 450
+    },
+    "1x1": {
+     "src": "/brand/ostad/page/templates/single-statement_1x1.jpg",
+     "w": 360,
+     "h": 360
+    },
+    "9x16": {
+     "src": "/brand/ostad/page/templates/single-statement_9x16.jpg",
+     "w": 360,
+     "h": 640
+    }
+   },
+   "board": [
+    {
+     "src": "/brand/ostad/page/board/32197302.jpg",
+     "w": 360,
+     "h": 448,
+     "id": "32197302"
+    },
+    {
+     "src": "/brand/ostad/page/board/31223791.jpg",
+     "w": 360,
+     "h": 448,
+     "id": "31223791"
+    },
+    {
+     "src": "/brand/ostad/page/board/30248124.jpg",
+     "w": 360,
+     "h": 359,
+     "id": "30248124"
+    }
+   ]
+  },
+  {
+   "id": "quote",
+   "name": "Quote",
+   "cluster": "C9",
+   "thumbs": {
+    "4x5": {
+     "src": "/brand/ostad/page/templates/quote_4x5.jpg",
+     "w": 360,
+     "h": 450
+    },
+    "1x1": {
+     "src": "/brand/ostad/page/templates/quote_1x1.jpg",
+     "w": 360,
+     "h": 360
+    },
+    "9x16": {
+     "src": "/brand/ostad/page/templates/quote_9x16.jpg",
+     "w": 360,
+     "h": 640
+    }
+   },
+   "board": [
+    {
+     "src": "/brand/ostad/page/board/32197302.jpg",
+     "w": 360,
+     "h": 448,
+     "id": "32197302"
+    }
+   ]
+  },
+  {
+   "id": "procedure-card",
+   "name": "Procedure card",
+   "cluster": "C5",
+   "thumbs": {
+    "4x5": {
+     "src": "/brand/ostad/page/templates/procedure-card_4x5.jpg",
+     "w": 360,
+     "h": 450
+    },
+    "1x1": {
+     "src": "/brand/ostad/page/templates/procedure-card_1x1.jpg",
+     "w": 360,
+     "h": 360
+    },
+    "9x16": {
+     "src": "/brand/ostad/page/templates/procedure-card_9x16.jpg",
+     "w": 360,
+     "h": 640
+    }
+   },
+   "board": [
+    {
+     "src": "/brand/ostad/page/board/41432513.jpg",
+     "w": 360,
+     "h": 450,
+     "id": "41432513"
+    },
+    {
+     "src": "/brand/ostad/page/board/41911984.jpg",
+     "w": 360,
+     "h": 347,
+     "id": "41911984"
+    },
+    {
+     "src": "/brand/ostad/page/board/21587531.jpg",
+     "w": 360,
+     "h": 450,
+     "id": "21587531"
+    },
+    {
+     "src": "/brand/ostad/page/board/12400773.jpg",
+     "w": 360,
+     "h": 360,
+     "id": "12400773"
+    }
+   ]
+  },
+  {
+   "id": "carousel-cover",
+   "name": "Carousel cover",
+   "cluster": "C6",
+   "thumbs": {
+    "4x5": {
+     "src": "/brand/ostad/page/templates/carousel-cover_4x5.jpg",
+     "w": 360,
+     "h": 450
+    },
+    "1x1": {
+     "src": "/brand/ostad/page/templates/carousel-cover_1x1.jpg",
+     "w": 360,
+     "h": 360
+    },
+    "9x16": {
+     "src": "/brand/ostad/page/templates/carousel-cover_9x16.jpg",
+     "w": 360,
+     "h": 640
+    }
+   },
+   "board": [
+    {
+     "src": "/brand/ostad/page/board/27647159.jpg",
+     "w": 360,
+     "h": 360,
+     "id": "27647159"
+    },
+    {
+     "src": "/brand/ostad/page/board/30940781.jpg",
+     "w": 360,
+     "h": 480,
+     "id": "30940781"
+    }
+   ]
+  },
+  {
+   "id": "carousel-body",
+   "name": "Carousel body",
+   "cluster": "C7",
+   "thumbs": {
+    "4x5": {
+     "src": "/brand/ostad/page/templates/carousel-body_4x5.jpg",
+     "w": 360,
+     "h": 450
+    },
+    "1x1": {
+     "src": "/brand/ostad/page/templates/carousel-body_1x1.jpg",
+     "w": 360,
+     "h": 360
+    },
+    "9x16": {
+     "src": "/brand/ostad/page/templates/carousel-body_9x16.jpg",
+     "w": 360,
+     "h": 640
+    }
+   },
+   "board": [
+    {
+     "src": "/brand/ostad/page/board/2145281.jpg",
+     "w": 360,
+     "h": 357,
+     "id": "2145281"
+    },
+    {
+     "src": "/brand/ostad/page/board/22772082.jpg",
+     "w": 360,
+     "h": 450,
+     "id": "22772082"
+    }
+   ]
+  },
+  {
+   "id": "carousel-end",
+   "name": "Carousel end",
+   "cluster": "C8",
+   "thumbs": {
+    "4x5": {
+     "src": "/brand/ostad/page/templates/carousel-end_4x5.jpg",
+     "w": 360,
+     "h": 450
+    },
+    "1x1": {
+     "src": "/brand/ostad/page/templates/carousel-end_1x1.jpg",
+     "w": 360,
+     "h": 360
+    },
+    "9x16": {
+     "src": "/brand/ostad/page/templates/carousel-end_9x16.jpg",
+     "w": 360,
+     "h": 640
+    }
+   },
+   "board": [
+    {
+     "src": "/brand/ostad/page/board/41911984.jpg",
+     "w": 360,
+     "h": 347,
+     "id": "41911984"
+    }
+   ]
+  },
+  {
+   "id": "story",
+   "name": "Story",
+   "cluster": "C2",
+   "thumbs": {
+    "4x5": {
+     "src": "/brand/ostad/page/templates/story_4x5.jpg",
+     "w": 360,
+     "h": 450
+    },
+    "1x1": {
+     "src": "/brand/ostad/page/templates/story_1x1.jpg",
+     "w": 360,
+     "h": 360
+    },
+    "9x16": {
+     "src": "/brand/ostad/page/templates/story_9x16.jpg",
+     "w": 360,
+     "h": 640
+    }
+   },
+   "board": [
+    {
+     "src": "/brand/ostad/page/board/14664481.jpg",
+     "w": 360,
+     "h": 211,
+     "id": "14664481"
+    },
+    {
+     "src": "/brand/ostad/page/board/16453124.jpg",
+     "w": 360,
+     "h": 248,
+     "id": "16453124"
+    },
+    {
+     "src": "/brand/ostad/page/board/13828406.jpg",
+     "w": 360,
+     "h": 270,
+     "id": "13828406"
+    }
+   ]
+  },
+  {
+   "id": "before-after",
+   "name": "Before / after",
+   "cluster": "C3",
+   "thumbs": {
+    "4x5": {
+     "src": "/brand/ostad/page/templates/before-after_4x5.jpg",
+     "w": 360,
+     "h": 450
+    },
+    "1x1": {
+     "src": "/brand/ostad/page/templates/before-after_1x1.jpg",
+     "w": 360,
+     "h": 360
+    },
+    "9x16": {
+     "src": "/brand/ostad/page/templates/before-after_9x16.jpg",
+     "w": 360,
+     "h": 640
+    }
+   },
+   "board": [
+    {
+     "src": "/brand/ostad/page/board/52386109.jpg",
+     "w": 360,
+     "h": 380,
+     "id": "52386109"
+    }
+   ]
+  },
+  {
+   "id": "list",
+   "name": "List",
+   "cluster": "C1",
+   "thumbs": {
+    "4x5": {
+     "src": "/brand/ostad/page/templates/list_4x5.jpg",
+     "w": 360,
+     "h": 450
+    },
+    "1x1": {
+     "src": "/brand/ostad/page/templates/list_1x1.jpg",
+     "w": 360,
+     "h": 360
+    },
+    "9x16": {
+     "src": "/brand/ostad/page/templates/list_9x16.jpg",
+     "w": 360,
+     "h": 640
+    }
+   },
+   "board": [
+    {
+     "src": "/brand/ostad/page/board/33635746.jpg",
+     "w": 360,
+     "h": 640,
+     "id": "33635746"
+    },
+    {
+     "src": "/brand/ostad/page/board/36747221.jpg",
+     "w": 360,
+     "h": 492,
+     "id": "36747221"
+    },
+    {
+     "src": "/brand/ostad/page/board/31223791.jpg",
+     "w": 360,
+     "h": 448,
+     "id": "31223791"
+    }
+   ]
+  },
+  {
+   "id": "announcement",
+   "name": "Announcement",
+   "cluster": "C4",
+   "thumbs": {
+    "4x5": {
+     "src": "/brand/ostad/page/templates/announcement_4x5.jpg",
+     "w": 360,
+     "h": 450
+    },
+    "1x1": {
+     "src": "/brand/ostad/page/templates/announcement_1x1.jpg",
+     "w": 360,
+     "h": 360
+    },
+    "9x16": {
+     "src": "/brand/ostad/page/templates/announcement_9x16.jpg",
+     "w": 360,
+     "h": 640
+    }
+   },
+   "board": [
+    {
+     "src": "/brand/ostad/page/board/47483050.jpg",
+     "w": 360,
+     "h": 450,
+     "id": "47483050"
+    }
+   ]
+  },
+  {
+   "id": "caption-card",
+   "name": "Caption card",
+   "cluster": "C0",
+   "thumbs": {
+    "4x5": {
+     "src": "/brand/ostad/page/templates/caption-card_4x5.jpg",
+     "w": 360,
+     "h": 450
+    },
+    "1x1": {
+     "src": "/brand/ostad/page/templates/caption-card_1x1.jpg",
+     "w": 360,
+     "h": 360
+    },
+    "9x16": {
+     "src": "/brand/ostad/page/templates/caption-card_9x16.jpg",
+     "w": 360,
+     "h": 640
+    }
+   },
+   "board": [
+    {
+     "src": "/brand/ostad/page/board/27454113.jpg",
+     "w": 360,
+     "h": 450,
+     "id": "27454113"
+    },
+    {
+     "src": "/brand/ostad/page/board/27454118.jpg",
+     "w": 360,
+     "h": 449,
+     "id": "27454118"
+    }
+   ]
+  }
+ ],
+ "look": {
+  "devices": [
+   {
+    "src": "/brand/ostad/page/look/photo_treatment.jpg",
+    "w": 720,
+    "h": 360,
+    "device": "photo_treatment",
+    "images": 36,
+    "weighted": 42
+   },
+   {
+    "src": "/brand/ostad/page/look/hairline_rule.jpg",
+    "w": 720,
+    "h": 178,
+    "device": "hairline_rule",
+    "images": 24,
+    "weighted": 28
+   },
+   {
+    "src": "/brand/ostad/page/look/grain.jpg",
+    "w": 720,
+    "h": 417,
+    "device": "grain",
+    "images": 26,
+    "weighted": 26
+   },
+   {
+    "src": "/brand/ostad/page/look/meta_label.jpg",
+    "w": 720,
+    "h": 178,
+    "device": "meta_label",
+    "images": 11,
+    "weighted": 17
+   },
+   {
+    "src": "/brand/ostad/page/look/screen_frame.jpg",
+    "w": 720,
+    "h": 538,
+    "device": "screen_frame",
+    "images": 9,
+    "weighted": 13
+   },
+   {
+    "src": "/brand/ostad/page/look/step_marks.jpg",
+    "w": 720,
+    "h": 178,
+    "device": "step_marks",
+    "images": 7,
+    "weighted": 9
+   },
+   {
+    "src": "/brand/ostad/page/look/leader_line.jpg",
+    "w": 720,
+    "h": 239,
+    "device": "leader_line",
+    "images": 8,
+    "weighted": 8
+   },
+   {
+    "src": "/brand/ostad/page/look/dark_card.jpg",
+    "w": 720,
+    "h": 345,
+    "device": "dark_card",
+    "images": 8,
+    "weighted": 8
+   },
+   {
+    "src": "/brand/ostad/page/look/glass_panel.jpg",
+    "w": 720,
+    "h": 536,
+    "device": "glass_panel",
+    "images": 3,
+    "weighted": 7
+   },
+   {
+    "src": "/brand/ostad/page/look/pill_chip.jpg",
+    "w": 720,
+    "h": 178,
+    "device": "pill_chip",
+    "images": 5,
+    "weighted": 7
+   },
+   {
+    "src": "/brand/ostad/page/look/photo_card.jpg",
+    "w": 720,
+    "h": 280,
+    "device": "photo_card",
+    "images": 5,
+    "weighted": 7
+   },
+   {
+    "src": "/brand/ostad/page/look/vertical_type.jpg",
+    "w": 507,
+    "h": 690,
+    "device": "vertical_type",
+    "images": 4,
+    "weighted": 6
+   },
+   {
+    "src": "/brand/ostad/page/look/icon_outline.jpg",
+    "w": 720,
+    "h": 280,
+    "device": "icon_outline",
+    "images": 4,
+    "weighted": 6
+   },
+   {
+    "src": "/brand/ostad/page/look/outline_box.jpg",
+    "w": 720,
+    "h": 178,
+    "device": "outline_box",
+    "images": 4,
+    "weighted": 4
+   },
+   {
+    "src": "/brand/ostad/page/look/dotted_path.jpg",
+    "w": 720,
+    "h": 178,
+    "device": "dotted_path",
+    "images": 4,
+    "weighted": 4
+   }
+  ],
+  "kept": 15,
+  "board_images": 53,
+  "palette": [
+   {
+    "role": "background",
+    "hex": "#f2efed",
+    "L": 94.6,
+    "C": 1.5
+   },
+   {
+    "role": "surface",
+    "hex": "#c3bdbb",
+    "L": 77.0,
+    "C": 2.5
+   },
+   {
+    "role": "text",
+    "hex": "#211b15",
+    "L": 10.3,
+    "C": 5.5
+   },
+   {
+    "role": "accent-1",
+    "hex": "#bf8662",
+    "L": 60.8,
+    "C": 33.1
+   },
+   {
+    "role": "accent-2",
+    "hex": "#89644f",
+    "L": 45.6,
+    "C": 21.5
+   },
+   {
+    "role": "signal",
+    "hex": "#505f53",
+    "L": 38.8,
+    "C": 9.8
+   }
+  ],
+  "treatment": [
+   {
+    "src": "/brand/ostad/page/look/treatment_curve.jpg",
+    "w": 845,
+    "h": 745,
+    "name": "curve"
+   },
+   {
+    "src": "/brand/ostad/page/look/treatment_saturation.jpg",
+    "w": 900,
+    "h": 380,
+    "name": "saturation"
+   },
+   {
+    "src": "/brand/ostad/page/look/treatment_contrast.jpg",
+    "w": 900,
+    "h": 380,
+    "name": "contrast"
+   },
+   {
+    "src": "/brand/ostad/page/look/treatment_grain.jpg",
+    "w": 900,
+    "h": 380,
+    "name": "grain"
+   }
+  ],
+  "treatment_params": {
+   "saturate": 0.5,
+   "sepia": 0.0,
+   "contrast": 0.7,
+   "brightness": 1.075
+  }
+ },
+ "icons": {
+  "sheet": {
+   "src": "/brand/ostad/page/icons/sheet.jpg",
+   "w": 1400,
+   "h": 1290
+  },
+  "count": 24
+ }
+}

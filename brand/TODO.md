@@ -23,4 +23,4 @@
 - [x] D — brand/post.py + .claude/commands/post.md on render_posts.cjs; CLI and page PNGs byte-identical 3/3 (kit/templates/post_check.json)
 - [x] E — 12 demo posts (7 template groups, 4 per size, 21 pages, Adobe 12/12) in brand/demo + wall.png; list and Auto quote fixed from the wall; photo content is the remaining inconsistency (DECISIONS 52)
 - [x] F — tokens.json (W3C) → CSS / Tailwind / AE set; video kit (19 elements, 6 Lottie 6/6 in lottie-web); 10 s demo reel (OCR 14/14)
-- [ ] G — page order: Make · Demo wall · Templates · Look · Icons · Type
+- [x] G — page order: Make · Demo wall · Templates · Look · Icons · Type (+ reel; page_check 1440 / 390 px ok)

@@ -195,3 +195,4 @@ brand/motion/frames/
 # video kit frame sequences and ProRes masters (regenerate with brand/scripts/video_kit.cjs)
 brand/kit/video/_frames/
 brand/kit/video/_mov/
+brand/kit/_page/

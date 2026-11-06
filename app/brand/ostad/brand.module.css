@@ -39,6 +39,27 @@
   font: 600 clamp(32px, 5vw, 56px)/1.033 var(--display);
   letter-spacing: 0.0082em;
 }
+.h2 {
+  margin: 0 0 16px;
+  max-width: 22ch;
+  font: 600 clamp(28px, 4vw, 44px)/1.05 var(--display);
+  letter-spacing: 0.0082em;
+}
+.nav { display: flex; flex-wrap: wrap; gap: 8px 20px; padding-top: 24px; font: 500 13px/1.2 var(--display); letter-spacing: 0.0102em; text-transform: uppercase; }
+.nav a { color: var(--mute); text-decoration: none; }
+.nav a:hover { color: var(--ink); }
+.cta { display: inline-block; margin: 0 0 24px; padding: 14px 22px; border-radius: 999px; background: var(--ink); color: var(--paper); font: 500 16px/1 var(--display); text-decoration: none; }
+.cta:hover { background: #3a322b; }
+.section code { font-size: 0.92em; }
+.wall { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; align-items: start; margin-bottom: 40px; }
+.reel { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 60ch); gap: 32px; align-items: start; }
+.video { display: block; width: 100%; height: auto; background: var(--ink); }
+.trow { margin-bottom: 28px; }
+.tgrid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; align-items: start; }
+.src { font-style: italic; }
+.swatches { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 32px; }
+.swatch span { display: block; aspect-ratio: 1; outline: 1px solid var(--rule); outline-offset: -1px; }
+.swatch p { margin: 6px 0 0; font-size: 13px; color: var(--mute); }
 .lede { max-width: 62ch; margin: 0 0 40px; }
 .table {
   width: 100%;
@@ -72,7 +93,10 @@
 .ranks { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
 .note { max-width: 80ch; font-size: 13px; color: var(--mute); }
 @media (max-width: 700px) {
-  .grid, .grid2 { grid-template-columns: 1fr 1fr; }
+  .grid, .grid2, .wall { grid-template-columns: 1fr 1fr; }
+  .tgrid { grid-template-columns: repeat(3, 1fr); }
+  .swatches { grid-template-columns: repeat(3, 1fr); }
+  .reel { grid-template-columns: 1fr; }
   .ranks { grid-template-columns: 1fr; }
   .table { font-size: 13px; }
   .table th:nth-child(5), .table td:nth-child(5) { display: none; }
