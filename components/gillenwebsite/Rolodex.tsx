@@ -43,9 +43,9 @@ export const HOUSING = 1.15;
 const PLATE_IN = PLATE_X.map((x) => (x - Math.sign(x) * PLATE_T / 2) * HOUSING), SLEEVE_X = (PLATE_IN[0] + PLATE_IN[1]) / 2, SLEEVE_R = R0 * HOUSING;
 const CRADLE = "/models/cradle-baked.glb", CRADLE_URLS = ["albedo.jpg", "rm.png", "normal.png"].map((f) => `/models/housing-maps/cradle-${f}`);
 const BAKED_URLS = [...BAKED_PARTS.flatMap((p) => [`/models/housing-maps/${p}-albedo.jpg`, `/models/housing-maps/${p}-rm.png`, `/models/housing-maps/${p}-normal.png`]), "/materials/paper.jpg"];
-// the front release gets 2048 covers (front and back), its two neighbours 1024, once its sleeve has settled; the
+// the front sleeve and its two neighbours get their 2048 covers (front and back) once the front has settled; the
 // rest stay at 512. Never less than the face's device pixels on screen.
-const BIG = 2048, NEAR = 1024, BIG_SPAN = 1;
+const BIG = 2048, BIG_SPAN = 1;
 // a sleeve has to stay at the front this long before its big covers load, so a fast run through the drum loads none
 const SETTLE_MS = 150;
 
@@ -159,7 +159,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
     // end plates, so the drum is closed at each end and the axle is held: a disc on the axle (radius R0 + 0.03,
     // 3 mm), a hub collar on its inner face (radius 0.03, 8 mm), and three struts along the axle, 0.05 m out (inside
     // the sleeves' 0.072 m), from the plate to the rail ring's spokes at x = +-0.075, in line with them
-    const [gMap, gRm, gNormal] = gunTex.map((t, j) => { t.colorSpace = j === 0 ? THREE.SRGBColorSpace : THREE.NoColorSpace; t.needsUpdate = true; return t; });
+    const [gMap, gRm, gNormal] = gunTex.map((t, j) => { t.anisotropy = gl.capabilities.getMaxAnisotropy(); t.colorSpace = j === 0 ? THREE.SRGBColorSpace : THREE.NoColorSpace; t.needsUpdate = true; return t; });
     const gunmetal = triplanar(new THREE.MeshPhysicalMaterial({ color: "#ffffff", metalness: 0.7, clearcoat: 0.3, clearcoatRoughness: 0.5, side: THREE.DoubleSide }),
       { map: gMap, roughnessMap: gRm, normalMap: gNormal }, { tileM: GUNMETAL_TILE_M });
     for (const x of PLATE_X) {
@@ -207,7 +207,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
     grain.wrapS = grain.wrapT = THREE.RepeatWrapping;
     grain.needsUpdate = true;
     const board = new THREE.DataTexture(new Uint8Array([214, 204, 186, 255]), 1, 1);
-    board.colorSpace = THREE.SRGBColorSpace; board.needsUpdate = true;
+    board.colorSpace = THREE.SRGBColorSpace; board.anisotropy = gl.capabilities.getMaxAnisotropy(); board.needsUpdate = true;
     const cardboard = (map: THREE.Texture) => new THREE.MeshStandardMaterial({ map, roughness: 0.7, metalness: 0, normalMap: grain, normalScale: new THREE.Vector2(0.12, 0.12), envMapIntensity: 0.6 });
     // the spine: the aged paper from the sheets (its UVs run round the outline in metres: a tile every 0.25 m)
     const spineTex = paperTex.clone();
@@ -249,7 +249,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       const xs = pts.map((q) => (q.x + 1) * 0.5 * sz.x), ys = pts.map((q) => (1 - q.y) * 0.5 * sz.y);
       return Math.max(Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys));
     };
-    // the front release's big covers (2048, or more if its face needs it), 1024 for the two beside it; the rest go
+    // the big covers (2048, or more if the face needs it) for the front release and the two beside it; the rest go
     // back to 512 and their big textures are freed. The 512 stays on until the big one is decoded and uploaded.
     const bigCovers = (front: number) => {
       const px = Math.ceil(facePx());
@@ -262,7 +262,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
             if (face.big) { if (face.small) setMap(gl, face.mat, face.small); face.big.dispose(); face.big = null; face.bigW = 0; face.want = 0; }
             continue;
           }
-          const w = sideWidth(f.r, side, Math.max(d === 0 ? BIG : NEAR, px));
+          const w = sideWidth(f.r, side, Math.max(BIG, px));
           if (face.bigW >= w || face.want >= w || w <= 512) continue;
           face.want = w;
           loadTex(sideFile(f.r, side, w)).then((t) => {
@@ -355,6 +355,19 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       },
       // the farthest point of any sleeve from the drum axis, in metres, with the drum at s (drum space: y, z)
       sleeveRadius: () => { built.drum.updateMatrixWorld(true); const inv = built.drum.matrixWorld.clone().invert(), p = built.sleeveGeo.attributes.position, v = new THREE.Vector3(); let max = 0; for (const c of built.cards) { const m = inv.clone().multiply(c.children[0].matrixWorld); for (let k = 0; k < p.count; k++) { v.fromBufferAttribute(p, k).applyMatrix4(m); max = Math.max(max, Math.hypot(v.y, v.z)); } } return max; },
+      // every texture on a material in the scene: its size, anisotropy (against the renderer's max) and min filter
+      textures: () => {
+        const seen = new Map<THREE.Texture, { name: string; w: number; h: number; anisotropy: number; mip: boolean }>();
+        built.drum.parent?.traverse((o) => {
+          const ms = (o as THREE.Mesh).material; if (!ms) return;
+          for (const m of Array.isArray(ms) ? ms : [ms]) for (const v of Object.values(m)) {
+            if (!(v instanceof THREE.Texture) || seen.has(v)) continue;
+            const im = v.image as { width?: number; height?: number; src?: string } | undefined;
+            seen.set(v, { name: `${o.name || o.type}.${Object.keys(m).find((k) => (m as unknown as Record<string, unknown>)[k] === v)}${im?.src ? " " + im.src.split("/").pop() : ""}`, w: im?.width ?? 0, h: im?.height ?? 0, anisotropy: v.anisotropy, mip: v.minFilter === THREE.LinearMipmapLinearFilter });
+          }
+        });
+        return { max: gl.capabilities.getMaxAnisotropy(), list: [...seen.values()] };
+      },
       // the baked parts' textures and the paper, as GPU memory (RGBA8 with mips)
       bakedTextureMB: () => +(bakedTex.reduce((t, x) => { const im = x.image as { width: number; height: number }; return t + (im.width * im.height * 4 * 4) / 3; }, 0) / 2 ** 20).toFixed(2),
       cradle: built.cradle,

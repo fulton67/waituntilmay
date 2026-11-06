@@ -26,6 +26,7 @@ function Environment() {
 }
 
 function Floor() {
+  const gl = useThree((st) => st.gl);
   const blob = useMemo(() => {
     const c = document.createElement("canvas");
     c.width = c.height = 256;
@@ -35,8 +36,10 @@ function Floor() {
     g.addColorStop(1, "rgba(0,0,0,0)");
     x.fillStyle = g;
     x.fillRect(0, 0, 256, 256);
-    return new THREE.CanvasTexture(c);
-  }, []);
+    const t = new THREE.CanvasTexture(c);
+    t.anisotropy = gl.capabilities.getMaxAnisotropy();
+    return t;
+  }, [gl]);
   return (
     <>
       <mesh rotation-x={-Math.PI / 2} receiveShadow>

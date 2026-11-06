@@ -190,10 +190,10 @@ if __name__ == "__main__":
     # ---- 4. maps (as the frame: metal paint) ----
     rm, normal, st = maps("A", albedo)
     os.makedirs(os.path.join(OUT, "housing-maps"), exist_ok=True)
-    cv2.imwrite(os.path.join(OUT, "housing-maps", "cradle-albedo.jpg"), cv2.resize(albedo, (1024, 1024), interpolation=cv2.INTER_AREA), [cv2.IMWRITE_JPEG_QUALITY, 90])
+    cv2.imwrite(os.path.join(OUT, "housing-maps", "cradle-albedo.jpg"), albedo, [cv2.IMWRITE_JPEG_QUALITY, 90])  # the full 2048 atlas
     cv2.imwrite(os.path.join(OUT, "housing-maps", "cradle-rm.png"), cv2.resize(rm, (512, 512), interpolation=cv2.INTER_AREA))
     cv2.imwrite(os.path.join(OUT, "housing-maps", "cradle-normal.png"), cv2.resize(normal, (512, 512), interpolation=cv2.INTER_AREA))
-    rep["maps"] = {**st, "albedo": 1024, "rm": 512, "normal": 512, "gpuMB": round((1024 * 1024 + 2 * 512 * 512) * 4 * 4 / 3 / 2 ** 20, 2)}
+    rep["maps"] = {**st, "albedo": SIZE, "rm": 512, "normal": 512, "gpuMB": round((SIZE * SIZE + 2 * 512 * 512) * 4 * 4 / 3 / 2 ** 20, 2)}
 
     # ---- geometry with its UVs (glTF v as xatlas's; trimesh flips on export, so it gets 1 - v) ----
     t = np.array(uvs, np.float64); t[:, 1] = 1 - t[:, 1]

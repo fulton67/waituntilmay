@@ -6,8 +6,9 @@
 # three.js reads them.
 # The paper: from panel H (the single card) of the painted front sheet, the largest square inside the card with
 # its edges and stains left out, made seamless and written at 1024.
-# Runtime sizes keep the textures' GPU memory under 40 MB: the frame and side plate at 1024 (normal 512), the base
-# at 768 (roughness/metal 512, normal 256), the discs and knobs at 512 (normal 256), the paper at 512. Writes public/models/housing-maps/<part>-{albedo.jpg,rm.png,
+# Runtime sizes: every part's albedo at its full 2048 atlas (the bake's own resolution, so the housing is as sharp as
+# the bake on a DPR 3 screen); roughness/metal and normal as before: the frame and side plate 1024 / 512, the base
+# 512 / 256, the discs and knobs 512 / 256; the paper at 512. Writes public/models/housing-maps/<part>-{albedo.jpg,rm.png,
 # normal.png}, public/materials/paper.jpg and kit/work/pbr.json.
 import json
 import os
@@ -24,7 +25,7 @@ from bake import seamless_tile
 OUT = os.path.join(ROOT, "public", "models", "housing-maps")
 KIND = {"A": "metal", "B": "metal", "C": "metal", "D": "metal", "E": "bakelite", "F": "bakelite"}
 NAMES = {"A": "frame", "B": "base", "C": "side_right", "D": "side_inner", "E": "knob_right", "F": "knob_left"}
-RUNTIME = {"A": (1024, 1024, 512), "B": (768, 512, 256), "C": (1024, 1024, 512), "D": (512, 512, 256), "E": (512, 512, 256), "F": (512, 512, 256)}
+RUNTIME = {"A": (2048, 1024, 512), "B": (2048, 512, 256), "C": (2048, 1024, 512), "D": (2048, 512, 256), "E": (2048, 512, 256), "F": (2048, 512, 256)}
 PAPER = 512
 
 

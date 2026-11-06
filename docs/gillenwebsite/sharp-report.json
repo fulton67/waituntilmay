@@ -1,0 +1,365 @@
+{
+  "base": "http://localhost:3228",
+  "at": "2026-11-06T01:38:15.048Z",
+  "pixelRatio": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 3
+  },
+  "profiles": {
+    "phone": {
+      "textures": {
+        "maxAnisotropy": 16,
+        "count": 105,
+        "belowMax": [],
+        "housingAlbedo": [
+          "frame-albedo.jpg 2048x2048",
+          "base-albedo.jpg 2048x2048",
+          "side_right-albedo.jpg 2048x2048",
+          "side_inner-albedo.jpg 2048x2048",
+          "knob_right-albedo.jpg 2048x2048",
+          "knob_left-albedo.jpg 2048x2048",
+          "cradle-albedo.jpg 2048x2048"
+        ],
+        "housingAlbedoAll2048": true
+      },
+      "front": {
+        "release": "01-girl-in-red-blue",
+        "frontTexturePx": 2048,
+        "backTexturePx": 2048,
+        "faceScreenPx": 382.14496713189374,
+        "pixelRatio": 3,
+        "bigLoaded": [
+          "01-girl-in-red-blue@2048",
+          "01-girl-in-red-blue-back@2048",
+          "02-freak-slug-amulet@2048",
+          "02-freak-slug-amulet-back@2048",
+          "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun@2048",
+          "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun-back@1762"
+        ],
+        "sourcePxPerScreenPx": 5.36
+      },
+      "aspect": [
+        {
+          "id": "01-girl-in-red-blue",
+          "big2048": true,
+          "faceMetres": [
+            0.337,
+            0.337
+          ],
+          "uv": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "renderedPx": [
+            119.1,
+            119.1
+          ],
+          "renderedAspect": 1,
+          "texturePx": [
+            2048,
+            2048
+          ],
+          "pixelAspect": 1
+        },
+        {
+          "id": "13-gossip-real-power",
+          "big2048": true,
+          "faceMetres": [
+            0.337,
+            0.337
+          ],
+          "uv": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "renderedPx": [
+            119.1,
+            119.1
+          ],
+          "renderedAspect": 1,
+          "texturePx": [
+            2048,
+            2048
+          ],
+          "pixelAspect": 1
+        },
+        {
+          "id": "20-sza-sos",
+          "big2048": true,
+          "faceMetres": [
+            0.337,
+            0.337
+          ],
+          "uv": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "renderedPx": [
+            119.1,
+            119.1
+          ],
+          "renderedAspect": 1,
+          "texturePx": [
+            2048,
+            2048
+          ],
+          "pixelAspect": 1
+        },
+        {
+          "id": "28-the-strokes-the-new-abnormal",
+          "big2048": true,
+          "faceMetres": [
+            0.337,
+            0.337
+          ],
+          "uv": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "renderedPx": [
+            119.1,
+            119.1
+          ],
+          "renderedAspect": 1,
+          "texturePx": [
+            2048,
+            2048
+          ],
+          "pixelAspect": 1
+        },
+        {
+          "id": "34-santana-africa-speaks",
+          "big2048": true,
+          "faceMetres": [
+            0.337,
+            0.337
+          ],
+          "uv": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "renderedPx": [
+            119.1,
+            119.1
+          ],
+          "renderedAspect": 1,
+          "texturePx": [
+            2048,
+            2048
+          ],
+          "pixelAspect": 1
+        }
+      ],
+      "pass": true
+    },
+    "desktop": {
+      "textures": {
+        "maxAnisotropy": 16,
+        "count": 105,
+        "belowMax": [],
+        "housingAlbedo": [
+          "frame-albedo.jpg 2048x2048",
+          "base-albedo.jpg 2048x2048",
+          "side_right-albedo.jpg 2048x2048",
+          "side_inner-albedo.jpg 2048x2048",
+          "knob_right-albedo.jpg 2048x2048",
+          "knob_left-albedo.jpg 2048x2048",
+          "cradle-albedo.jpg 2048x2048"
+        ],
+        "housingAlbedoAll2048": true
+      },
+      "front": {
+        "release": "01-girl-in-red-blue",
+        "frontTexturePx": 2048,
+        "backTexturePx": 2048,
+        "faceScreenPx": 549.8521625777184,
+        "pixelRatio": 3,
+        "bigLoaded": [
+          "01-girl-in-red-blue@2048",
+          "01-girl-in-red-blue-back@2048",
+          "02-freak-slug-amulet@2048",
+          "02-freak-slug-amulet-back@2048",
+          "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun@2048",
+          "36-the-smashing-pumpkins-shiny-and-oh-so-bright-vol-1-no-past-no-future-no-sun-back@1762"
+        ],
+        "sourcePxPerScreenPx": 3.72
+      },
+      "aspect": [
+        {
+          "id": "01-girl-in-red-blue",
+          "big2048": true,
+          "faceMetres": [
+            0.337,
+            0.337
+          ],
+          "uv": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "renderedPx": [
+            171.2,
+            171.2
+          ],
+          "renderedAspect": 1,
+          "texturePx": [
+            2048,
+            2048
+          ],
+          "pixelAspect": 1
+        },
+        {
+          "id": "13-gossip-real-power",
+          "big2048": true,
+          "faceMetres": [
+            0.337,
+            0.337
+          ],
+          "uv": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "renderedPx": [
+            171.2,
+            171.2
+          ],
+          "renderedAspect": 1,
+          "texturePx": [
+            2048,
+            2048
+          ],
+          "pixelAspect": 1
+        },
+        {
+          "id": "20-sza-sos",
+          "big2048": true,
+          "faceMetres": [
+            0.337,
+            0.337
+          ],
+          "uv": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "renderedPx": [
+            171.2,
+            171.2
+          ],
+          "renderedAspect": 1,
+          "texturePx": [
+            2048,
+            2048
+          ],
+          "pixelAspect": 1
+        },
+        {
+          "id": "28-the-strokes-the-new-abnormal",
+          "big2048": true,
+          "faceMetres": [
+            0.337,
+            0.337
+          ],
+          "uv": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "renderedPx": [
+            171.2,
+            171.2
+          ],
+          "renderedAspect": 1,
+          "texturePx": [
+            2048,
+            2048
+          ],
+          "pixelAspect": 1
+        },
+        {
+          "id": "34-santana-africa-speaks",
+          "big2048": true,
+          "faceMetres": [
+            0.337,
+            0.337
+          ],
+          "uv": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "renderedPx": [
+            171.2,
+            171.2
+          ],
+          "renderedAspect": 1,
+          "texturePx": [
+            2048,
+            2048
+          ],
+          "pixelAspect": 1
+        }
+      ],
+      "pass": true
+    }
+  },
+  "pass": true
+}
