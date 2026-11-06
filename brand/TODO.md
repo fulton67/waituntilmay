@@ -19,7 +19,7 @@
 ## BUILDER (brand/BUILDER.md, received 2026-11-06) — supersedes BRANDKIT_RUN Phases 5–7
 - [x] A — look as components: 15 devices kept of 17 catalogued (look/CATALOG.md), 15 components + grain/treatment SVGs (kit/components), 19 proof boards (look/proof, numbers in look/proof_check.json), kit/look.json, kit/palette.json, kit/tokens.css, kit/treatment.cube + SVG filter + CSS fallback, 24 icons + sheet (kit/icons). DECISIONS 34–40.
 - [x] B — 11 templates in 10 clusters, slots.json, 3 sizes, autofit + paginate/truncate, board citations (kit/templates, fig/templates_sheet.png)
-- [ ] C — /brand/ostad/make builder (preview, server PNG, carousel zip, drafts, duplicate, Auto) + checks
+- [x] C — /brand/ostad/make: picker, slots form, image drop, icons, accents, sizes, live preview = render.html, server PNG + zip, drafts, duplicate, Auto + regenerate (kit/templates/make_check.json: 33/33 browser, 33/33 server, glyph IoU ≥ 0.96, 7-slide zip, reload ok, 0 console errors)
 - [ ] D — brand/post.py + .claude/commands/post.md on the same renderer
 - [ ] E — 12 demo posts (≥6 templates, 3 sizes) + wall
 - [ ] F — tokens.json (W3C) → CSS / Tailwind / AE set; video kit; 10 s demo reel

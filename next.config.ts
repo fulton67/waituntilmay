@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
   // The CRM e2e server builds into its own folder so it can run beside a normal `next dev`.
   ...(process.env.NEXT_DIST_DIR ? { distDir: process.env.NEXT_DIST_DIR } : {}),
   // PGlite (local-dev database) loads its WASM from node_modules at runtime.
-  serverExternalPackages: ["@electric-sql/pglite"],
+  serverExternalPackages: ["@electric-sql/pglite", "playwright", "playwright-core"],
   // /work tiles are served as small optimized renditions of these originals
   images: {
     remotePatterns: [

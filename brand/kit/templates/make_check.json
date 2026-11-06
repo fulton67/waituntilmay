@@ -1,0 +1,1217 @@
+{
+ "base": "http://localhost:3107",
+ "browser": [
+  {
+   "id": "single-statement",
+   "size": "4x5",
+   "pages": 1,
+   "cls": "ok t-single ok--4x5 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "single-statement",
+   "size": "1x1",
+   "pages": 1,
+   "cls": "ok t-single ok--1x1 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "single-statement",
+   "size": "9x16",
+   "pages": 1,
+   "cls": "ok t-single ok--9x16 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "quote",
+   "size": "4x5",
+   "pages": 1,
+   "cls": "ok t-quote ok--4x5 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "quote",
+   "size": "1x1",
+   "pages": 1,
+   "cls": "ok t-quote ok--1x1 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "quote",
+   "size": "9x16",
+   "pages": 1,
+   "cls": "ok t-quote ok--9x16 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "procedure-card",
+   "size": "4x5",
+   "pages": 1,
+   "cls": "ok t-procedure ok--4x5 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "procedure-card",
+   "size": "1x1",
+   "pages": 1,
+   "cls": "ok t-procedure ok--1x1 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "procedure-card",
+   "size": "9x16",
+   "pages": 1,
+   "cls": "ok t-procedure ok--9x16 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "carousel-cover",
+   "size": "4x5",
+   "pages": 1,
+   "cls": "ok t-cover ok-ink-light ok--4x5 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "carousel-cover",
+   "size": "1x1",
+   "pages": 1,
+   "cls": "ok t-cover ok-ink-light ok--1x1 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "carousel-cover",
+   "size": "9x16",
+   "pages": 1,
+   "cls": "ok t-cover ok-ink-light ok--9x16 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "carousel-body",
+   "size": "4x5",
+   "pages": 1,
+   "cls": "ok t-body is-paper ok--4x5 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "carousel-body",
+   "size": "1x1",
+   "pages": 1,
+   "cls": "ok t-body is-paper ok--1x1 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "carousel-body",
+   "size": "9x16",
+   "pages": 1,
+   "cls": "ok t-body is-paper ok--9x16 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "carousel-end",
+   "size": "4x5",
+   "pages": 1,
+   "cls": "ok t-end ok--4x5 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "carousel-end",
+   "size": "1x1",
+   "pages": 1,
+   "cls": "ok t-end ok--1x1 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "carousel-end",
+   "size": "9x16",
+   "pages": 1,
+   "cls": "ok t-end ok--9x16 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "story",
+   "size": "4x5",
+   "pages": 1,
+   "cls": "ok t-story ok-ink-light ok--4x5 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "story",
+   "size": "1x1",
+   "pages": 1,
+   "cls": "ok t-story ok-ink-light ok--1x1 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "story",
+   "size": "9x16",
+   "pages": 1,
+   "cls": "ok t-story ok-ink-light ok--9x16 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "before-after",
+   "size": "4x5",
+   "pages": 1,
+   "cls": "ok t-ba ok--4x5 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "before-after",
+   "size": "1x1",
+   "pages": 1,
+   "cls": "ok t-ba ok--1x1 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "before-after",
+   "size": "9x16",
+   "pages": 1,
+   "cls": "ok t-ba ok--9x16 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "list",
+   "size": "4x5",
+   "pages": 1,
+   "cls": "ok t-list ok--4x5 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "list",
+   "size": "1x1",
+   "pages": 1,
+   "cls": "ok t-list ok--1x1 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "list",
+   "size": "9x16",
+   "pages": 1,
+   "cls": "ok t-list ok--9x16 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "announcement",
+   "size": "4x5",
+   "pages": 1,
+   "cls": "ok t-ann ok--4x5 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "announcement",
+   "size": "1x1",
+   "pages": 1,
+   "cls": "ok t-ann ok--1x1 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "announcement",
+   "size": "9x16",
+   "pages": 1,
+   "cls": "ok t-ann ok--9x16 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "caption-card",
+   "size": "4x5",
+   "pages": 1,
+   "cls": "ok t-caption ok--dark ok--4x5 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "caption-card",
+   "size": "1x1",
+   "pages": 1,
+   "cls": "ok t-caption ok--dark ok--1x1 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  },
+  {
+   "id": "caption-card",
+   "size": "9x16",
+   "pages": 1,
+   "cls": "ok t-caption ok--dark ok--9x16 ok--svgtreat",
+   "status": "1 page \u00b7 preview fonts: Adobe"
+  }
+ ],
+ "server": [
+  {
+   "id": "single-statement",
+   "size": "4x5",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1350
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "single-statement",
+   "size": "1x1",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1080
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "single-statement",
+   "size": "9x16",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1920
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "quote",
+   "size": "4x5",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1350
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "quote",
+   "size": "1x1",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1080
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "quote",
+   "size": "9x16",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1920
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "procedure-card",
+   "size": "4x5",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1350
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "procedure-card",
+   "size": "1x1",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1080
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "procedure-card",
+   "size": "9x16",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1920
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "carousel-cover",
+   "size": "4x5",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1350
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "carousel-cover",
+   "size": "1x1",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1080
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "carousel-cover",
+   "size": "9x16",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1920
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "carousel-body",
+   "size": "4x5",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1350
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "carousel-body",
+   "size": "1x1",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1080
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "carousel-body",
+   "size": "9x16",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1920
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "carousel-end",
+   "size": "4x5",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1350
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "carousel-end",
+   "size": "1x1",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1080
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "carousel-end",
+   "size": "9x16",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1920
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "story",
+   "size": "4x5",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1350
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "story",
+   "size": "1x1",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1080
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "story",
+   "size": "9x16",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1920
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "before-after",
+   "size": "4x5",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1350
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "before-after",
+   "size": "1x1",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1080
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "before-after",
+   "size": "9x16",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1920
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "list",
+   "size": "4x5",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1350
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "list",
+   "size": "1x1",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1080
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "list",
+   "size": "9x16",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1920
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "announcement",
+   "size": "4x5",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1350
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "announcement",
+   "size": "1x1",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1080
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "announcement",
+   "size": "9x16",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1920
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "caption-card",
+   "size": "4x5",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1350
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "caption-card",
+   "size": "1x1",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1080
+   ],
+   "size_ok": true
+  },
+  {
+   "id": "caption-card",
+   "size": "9x16",
+   "status": 200,
+   "type": "image/png",
+   "fonts": "adobe",
+   "pages": 1,
+   "wh": [
+    1080,
+    1920
+   ],
+   "size_ok": true
+  }
+ ],
+ "match": [
+  {
+   "id": "single-statement",
+   "size": "4x5",
+   "preview": "_proof\\make\\single-statement_4x5_preview.png",
+   "server": "_proof\\make\\single-statement_4x5_server.png"
+  },
+  {
+   "id": "single-statement",
+   "size": "1x1",
+   "preview": "_proof\\make\\single-statement_1x1_preview.png",
+   "server": "_proof\\make\\single-statement_1x1_server.png"
+  },
+  {
+   "id": "single-statement",
+   "size": "9x16",
+   "preview": "_proof\\make\\single-statement_9x16_preview.png",
+   "server": "_proof\\make\\single-statement_9x16_server.png"
+  },
+  {
+   "id": "quote",
+   "size": "4x5",
+   "preview": "_proof\\make\\quote_4x5_preview.png",
+   "server": "_proof\\make\\quote_4x5_server.png"
+  },
+  {
+   "id": "quote",
+   "size": "1x1",
+   "preview": "_proof\\make\\quote_1x1_preview.png",
+   "server": "_proof\\make\\quote_1x1_server.png"
+  },
+  {
+   "id": "quote",
+   "size": "9x16",
+   "preview": "_proof\\make\\quote_9x16_preview.png",
+   "server": "_proof\\make\\quote_9x16_server.png"
+  },
+  {
+   "id": "procedure-card",
+   "size": "4x5",
+   "preview": "_proof\\make\\procedure-card_4x5_preview.png",
+   "server": "_proof\\make\\procedure-card_4x5_server.png"
+  },
+  {
+   "id": "procedure-card",
+   "size": "1x1",
+   "preview": "_proof\\make\\procedure-card_1x1_preview.png",
+   "server": "_proof\\make\\procedure-card_1x1_server.png"
+  },
+  {
+   "id": "procedure-card",
+   "size": "9x16",
+   "preview": "_proof\\make\\procedure-card_9x16_preview.png",
+   "server": "_proof\\make\\procedure-card_9x16_server.png"
+  },
+  {
+   "id": "carousel-cover",
+   "size": "4x5",
+   "preview": "_proof\\make\\carousel-cover_4x5_preview.png",
+   "server": "_proof\\make\\carousel-cover_4x5_server.png"
+  },
+  {
+   "id": "carousel-cover",
+   "size": "1x1",
+   "preview": "_proof\\make\\carousel-cover_1x1_preview.png",
+   "server": "_proof\\make\\carousel-cover_1x1_server.png"
+  },
+  {
+   "id": "carousel-cover",
+   "size": "9x16",
+   "preview": "_proof\\make\\carousel-cover_9x16_preview.png",
+   "server": "_proof\\make\\carousel-cover_9x16_server.png"
+  },
+  {
+   "id": "carousel-body",
+   "size": "4x5",
+   "preview": "_proof\\make\\carousel-body_4x5_preview.png",
+   "server": "_proof\\make\\carousel-body_4x5_server.png"
+  },
+  {
+   "id": "carousel-body",
+   "size": "1x1",
+   "preview": "_proof\\make\\carousel-body_1x1_preview.png",
+   "server": "_proof\\make\\carousel-body_1x1_server.png"
+  },
+  {
+   "id": "carousel-body",
+   "size": "9x16",
+   "preview": "_proof\\make\\carousel-body_9x16_preview.png",
+   "server": "_proof\\make\\carousel-body_9x16_server.png"
+  },
+  {
+   "id": "carousel-end",
+   "size": "4x5",
+   "preview": "_proof\\make\\carousel-end_4x5_preview.png",
+   "server": "_proof\\make\\carousel-end_4x5_server.png"
+  },
+  {
+   "id": "carousel-end",
+   "size": "1x1",
+   "preview": "_proof\\make\\carousel-end_1x1_preview.png",
+   "server": "_proof\\make\\carousel-end_1x1_server.png"
+  },
+  {
+   "id": "carousel-end",
+   "size": "9x16",
+   "preview": "_proof\\make\\carousel-end_9x16_preview.png",
+   "server": "_proof\\make\\carousel-end_9x16_server.png"
+  },
+  {
+   "id": "story",
+   "size": "4x5",
+   "preview": "_proof\\make\\story_4x5_preview.png",
+   "server": "_proof\\make\\story_4x5_server.png"
+  },
+  {
+   "id": "story",
+   "size": "1x1",
+   "preview": "_proof\\make\\story_1x1_preview.png",
+   "server": "_proof\\make\\story_1x1_server.png"
+  },
+  {
+   "id": "story",
+   "size": "9x16",
+   "preview": "_proof\\make\\story_9x16_preview.png",
+   "server": "_proof\\make\\story_9x16_server.png"
+  },
+  {
+   "id": "before-after",
+   "size": "4x5",
+   "preview": "_proof\\make\\before-after_4x5_preview.png",
+   "server": "_proof\\make\\before-after_4x5_server.png"
+  },
+  {
+   "id": "before-after",
+   "size": "1x1",
+   "preview": "_proof\\make\\before-after_1x1_preview.png",
+   "server": "_proof\\make\\before-after_1x1_server.png"
+  },
+  {
+   "id": "before-after",
+   "size": "9x16",
+   "preview": "_proof\\make\\before-after_9x16_preview.png",
+   "server": "_proof\\make\\before-after_9x16_server.png"
+  },
+  {
+   "id": "list",
+   "size": "4x5",
+   "preview": "_proof\\make\\list_4x5_preview.png",
+   "server": "_proof\\make\\list_4x5_server.png"
+  },
+  {
+   "id": "list",
+   "size": "1x1",
+   "preview": "_proof\\make\\list_1x1_preview.png",
+   "server": "_proof\\make\\list_1x1_server.png"
+  },
+  {
+   "id": "list",
+   "size": "9x16",
+   "preview": "_proof\\make\\list_9x16_preview.png",
+   "server": "_proof\\make\\list_9x16_server.png"
+  },
+  {
+   "id": "announcement",
+   "size": "4x5",
+   "preview": "_proof\\make\\announcement_4x5_preview.png",
+   "server": "_proof\\make\\announcement_4x5_server.png"
+  },
+  {
+   "id": "announcement",
+   "size": "1x1",
+   "preview": "_proof\\make\\announcement_1x1_preview.png",
+   "server": "_proof\\make\\announcement_1x1_server.png"
+  },
+  {
+   "id": "announcement",
+   "size": "9x16",
+   "preview": "_proof\\make\\announcement_9x16_preview.png",
+   "server": "_proof\\make\\announcement_9x16_server.png"
+  },
+  {
+   "id": "caption-card",
+   "size": "4x5",
+   "preview": "_proof\\make\\caption-card_4x5_preview.png",
+   "server": "_proof\\make\\caption-card_4x5_server.png"
+  },
+  {
+   "id": "caption-card",
+   "size": "1x1",
+   "preview": "_proof\\make\\caption-card_1x1_preview.png",
+   "server": "_proof\\make\\caption-card_1x1_server.png"
+  },
+  {
+   "id": "caption-card",
+   "size": "9x16",
+   "preview": "_proof\\make\\caption-card_9x16_preview.png",
+   "server": "_proof\\make\\caption-card_9x16_server.png"
+  }
+ ],
+ "zip": {
+  "auto": "Auto picked carousel (4 candidates; regenerate cycles them).",
+  "slides": 7,
+  "file": "_proof\\make\\carousel.zip",
+  "entries": [
+   "ostad-carousel-4x5-01.png",
+   "ostad-carousel-4x5-02.png",
+   "ostad-carousel-4x5-03.png",
+   "ostad-carousel-4x5-04.png",
+   "ostad-carousel-4x5-05.png",
+   "ostad-carousel-4x5-06.png",
+   "ostad-carousel-4x5-07.png"
+  ],
+  "count": 7,
+  "preview_pages": 7,
+  "note": "Rendered 7 page(s) on the server with the Adobe fonts."
+ },
+ "draft": {
+  "name": "Check draft",
+  "statement": "Drafts survive a reload.",
+  "drafts": [
+   "Draft 1",
+   "Check draft"
+  ],
+  "preview_text": "Drafts survive a reload. DR. ARIEL OSTAD",
+  "ok": true
+ },
+ "image": {
+  "dropped": "Db3i3ueE0OQ.jpg",
+  "data_url": true,
+  "filter": "ok t-procedure ok--4x5 ok--svgtreat"
+ },
+ "errors": [],
+ "summary": {
+  "browser_ok": "33/33",
+  "server_ok": "33/33",
+  "server_adobe": "33/33",
+  "zip_7": true,
+  "draft_reload": true,
+  "image_drop": true,
+  "console_errors": 0,
+  "match": {
+   "pairs": 33,
+   "max_mad": 0.646,
+   "max_text_diff_pct": 22.749,
+   "median_text_diff_pct": 5.863,
+   "min_glyph_iou": 0.9597,
+   "note": "text_diff counts antialiasing; glyph_iou compares binarised glyph shapes (1.0 = same lines, same positions)",
+   "size_mismatches": 0
+  }
+ },
+ "match_measured": [
+  {
+   "id": "single-statement",
+   "size": "4x5",
+   "mad": 0.035,
+   "diff_px_pct": 0.096,
+   "text_px": 45957,
+   "text_diff_pct": 2.724,
+   "glyph_iou": 0.9988
+  },
+  {
+   "id": "single-statement",
+   "size": "1x1",
+   "mad": 0.0,
+   "diff_px_pct": 0.0,
+   "text_px": 36061,
+   "text_diff_pct": 0.0,
+   "glyph_iou": 1.0
+  },
+  {
+   "id": "single-statement",
+   "size": "9x16",
+   "mad": 0.025,
+   "diff_px_pct": 0.067,
+   "text_px": 45957,
+   "text_diff_pct": 2.724,
+   "glyph_iou": 0.9988
+  },
+  {
+   "id": "quote",
+   "size": "4x5",
+   "mad": 0.092,
+   "diff_px_pct": 0.289,
+   "text_px": 55739,
+   "text_diff_pct": 5.863,
+   "glyph_iou": 0.9963
+  },
+  {
+   "id": "quote",
+   "size": "1x1",
+   "mad": 0.295,
+   "diff_px_pct": 0.811,
+   "text_px": 42642,
+   "text_diff_pct": 18.261,
+   "glyph_iou": 0.9856
+  },
+  {
+   "id": "quote",
+   "size": "9x16",
+   "mad": 0.065,
+   "diff_px_pct": 0.203,
+   "text_px": 55739,
+   "text_diff_pct": 5.863,
+   "glyph_iou": 0.9963
+  },
+  {
+   "id": "procedure-card",
+   "size": "4x5",
+   "mad": 0.011,
+   "diff_px_pct": 0.031,
+   "text_px": 35977,
+   "text_diff_pct": 0.411,
+   "glyph_iou": 0.9989
+  },
+  {
+   "id": "procedure-card",
+   "size": "1x1",
+   "mad": 0.0,
+   "diff_px_pct": 0.001,
+   "text_px": 26445,
+   "text_diff_pct": 0.008,
+   "glyph_iou": 1.0
+  },
+  {
+   "id": "procedure-card",
+   "size": "9x16",
+   "mad": 0.005,
+   "diff_px_pct": 0.022,
+   "text_px": 35977,
+   "text_diff_pct": 0.411,
+   "glyph_iou": 0.9989
+  },
+  {
+   "id": "carousel-cover",
+   "size": "4x5",
+   "mad": 0.184,
+   "diff_px_pct": 0.206,
+   "text_px": 32805,
+   "text_diff_pct": 5.295,
+   "glyph_iou": 0.9922
+  },
+  {
+   "id": "carousel-cover",
+   "size": "1x1",
+   "mad": 0.057,
+   "diff_px_pct": 0.001,
+   "text_px": 23220,
+   "text_diff_pct": 0.017,
+   "glyph_iou": 0.9996
+  },
+  {
+   "id": "carousel-cover",
+   "size": "9x16",
+   "mad": 0.169,
+   "diff_px_pct": 0.131,
+   "text_px": 28096,
+   "text_diff_pct": 4.798,
+   "glyph_iou": 0.9958
+  },
+  {
+   "id": "carousel-body",
+   "size": "4x5",
+   "mad": 0.438,
+   "diff_px_pct": 1.212,
+   "text_px": 76967,
+   "text_diff_pct": 19.352,
+   "glyph_iou": 0.9943
+  },
+  {
+   "id": "carousel-body",
+   "size": "1x1",
+   "mad": 0.0,
+   "diff_px_pct": 0.0,
+   "text_px": 53946,
+   "text_diff_pct": 0.0,
+   "glyph_iou": 1.0
+  },
+  {
+   "id": "carousel-body",
+   "size": "9x16",
+   "mad": 0.308,
+   "diff_px_pct": 0.852,
+   "text_px": 76967,
+   "text_diff_pct": 19.352,
+   "glyph_iou": 0.9943
+  },
+  {
+   "id": "carousel-end",
+   "size": "4x5",
+   "mad": 0.003,
+   "diff_px_pct": 0.0,
+   "text_px": 29341,
+   "text_diff_pct": 0.007,
+   "glyph_iou": 1.0
+  },
+  {
+   "id": "carousel-end",
+   "size": "1x1",
+   "mad": 0.0,
+   "diff_px_pct": 0.001,
+   "text_px": 21886,
+   "text_diff_pct": 0.009,
+   "glyph_iou": 1.0
+  },
+  {
+   "id": "carousel-end",
+   "size": "9x16",
+   "mad": 0.0,
+   "diff_px_pct": 0.0,
+   "text_px": 29341,
+   "text_diff_pct": 0.007,
+   "glyph_iou": 1.0
+  },
+  {
+   "id": "story",
+   "size": "4x5",
+   "mad": 0.319,
+   "diff_px_pct": 0.364,
+   "text_px": 38174,
+   "text_diff_pct": 7.793,
+   "glyph_iou": 0.9945
+  },
+  {
+   "id": "story",
+   "size": "1x1",
+   "mad": 0.312,
+   "diff_px_pct": 0.361,
+   "text_px": 26994,
+   "text_diff_pct": 8.12,
+   "glyph_iou": 0.9933
+  },
+  {
+   "id": "story",
+   "size": "9x16",
+   "mad": 0.289,
+   "diff_px_pct": 0.243,
+   "text_px": 33380,
+   "text_diff_pct": 7.406,
+   "glyph_iou": 0.9951
+  },
+  {
+   "id": "before-after",
+   "size": "4x5",
+   "mad": 0.149,
+   "diff_px_pct": 0.462,
+   "text_px": 39175,
+   "text_diff_pct": 14.471,
+   "glyph_iou": 0.9887
+  },
+  {
+   "id": "before-after",
+   "size": "1x1",
+   "mad": 0.149,
+   "diff_px_pct": 0.44,
+   "text_px": 28378,
+   "text_diff_pct": 14.779,
+   "glyph_iou": 0.9867
+  },
+  {
+   "id": "before-after",
+   "size": "9x16",
+   "mad": 0.105,
+   "diff_px_pct": 0.325,
+   "text_px": 39175,
+   "text_diff_pct": 14.471,
+   "glyph_iou": 0.9887
+  },
+  {
+   "id": "list",
+   "size": "4x5",
+   "mad": 0.212,
+   "diff_px_pct": 0.575,
+   "text_px": 87850,
+   "text_diff_pct": 8.055,
+   "glyph_iou": 0.9979
+  },
+  {
+   "id": "list",
+   "size": "1x1",
+   "mad": 0.0,
+   "diff_px_pct": 0.0,
+   "text_px": 73054,
+   "text_diff_pct": 0.0,
+   "glyph_iou": 1.0
+  },
+  {
+   "id": "list",
+   "size": "9x16",
+   "mad": 0.149,
+   "diff_px_pct": 0.405,
+   "text_px": 87853,
+   "text_diff_pct": 8.063,
+   "glyph_iou": 0.9978
+  },
+  {
+   "id": "announcement",
+   "size": "4x5",
+   "mad": 0.099,
+   "diff_px_pct": 0.275,
+   "text_px": 44121,
+   "text_diff_pct": 7.001,
+   "glyph_iou": 0.9962
+  },
+  {
+   "id": "announcement",
+   "size": "1x1",
+   "mad": 0.163,
+   "diff_px_pct": 0.452,
+   "text_px": 33139,
+   "text_diff_pct": 12.918,
+   "glyph_iou": 0.9932
+  },
+  {
+   "id": "announcement",
+   "size": "9x16",
+   "mad": 0.07,
+   "diff_px_pct": 0.193,
+   "text_px": 44122,
+   "text_diff_pct": 7.001,
+   "glyph_iou": 0.9962
+  },
+  {
+   "id": "caption-card",
+   "size": "4x5",
+   "mad": 0.646,
+   "diff_px_pct": 1.639,
+   "text_px": 91312,
+   "text_diff_pct": 22.749,
+   "glyph_iou": 0.9597
+  },
+  {
+   "id": "caption-card",
+   "size": "1x1",
+   "mad": 0.002,
+   "diff_px_pct": 0.002,
+   "text_px": 62403,
+   "text_diff_pct": 0.032,
+   "glyph_iou": 0.9997
+  },
+  {
+   "id": "caption-card",
+   "size": "9x16",
+   "mad": 0.454,
+   "diff_px_pct": 1.152,
+   "text_px": 91312,
+   "text_diff_pct": 22.749,
+   "glyph_iou": 0.9597
+  }
+ ]
+}
