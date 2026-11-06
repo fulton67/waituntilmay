@@ -1,0 +1,13 @@
+{
+ "css_filter": "saturate(0.5) sepia(0.0) contrast(0.7) brightness(1.075)",
+ "median_dE_to_lut": 4.86,
+ "svg_filter": "components/treatment-filter.svg",
+ "params": {
+  "saturate": 0.5,
+  "sepia": 0.0,
+  "contrast": 0.7,
+  "brightness": 1.075
+ },
+ "lut": "treatment.cube",
+ "source": "colour/treatment.json"
+}

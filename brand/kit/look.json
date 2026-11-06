@@ -1,0 +1,163 @@
+{
+ "units": "cqw = % of canvas width, cqh = % of canvas height, em = of the element's font size",
+ "devices": {
+  "glass_panel": {
+   "radius_cqw": 2.74,
+   "blur_cqw": 1.65,
+   "tint_alpha": 0.613,
+   "tint_role": "surface",
+   "rim": null,
+   "shadow": null,
+   "cite": "look/measure.json glass_panel 41911984 + 41432513 (medians); blur = sigma of the Gaussian whose blurred backdrop best predicts the inside (max R^2); rim dL 1.22, -0.01 and edge shadow dL -0.56, -1.08 are under 1.5 L*, so neither is built",
+   "judgment": "tint hue: the board's glass takes the hue of the photo behind it (measured #a9bea4, #909a82); the kit uses the palette surface role at the measured alpha"
+  },
+  "glass_band": {
+   "blur_cqw": 5.0,
+   "blur_is_lower_bound": true,
+   "tint_alpha": 0.438,
+   "tint_role": "surface",
+   "width_cqw": 36.25,
+   "radius": 0,
+   "cite": "look/measure.json glass_band 2145281 (R^2 still rising at sigma 64 px: blur is at least this)"
+  },
+  "photo_card": {
+   "inset_cqw": 2.06,
+   "radius_cqw": 1.0,
+   "cite": "look/measure.json photo_card 41911984 + 41432513 (colour mask, circle fit)"
+  },
+  "pill_chip": {
+   "radius": "50% of height (measured radius/height 0.523, 0.509, 0.504, 0.497, 0.557)",
+   "cap_pct_h": 32.7,
+   "pad_x_pct_h": 41.7,
+   "fills": {
+    "light": "#f2efed",
+    "grey": "#c3bdbb",
+    "outline_on_dark": "transparent"
+   },
+   "outline_stroke_pct_h": 3.88,
+   "font": "label role (Neue Haas Grotesk Display Pro 55 Roman), sentence case",
+   "cite": "look/measure.json pill_chip (5 exemplars; cap height from the 3 whose text detection held)",
+   "judgment": "fills map to palette roles: measured #fefffe, #dddee2, #fbfbfc, #1f3916"
+  },
+  "leader_line": {
+   "stroke_cqw": 0.214,
+   "dot_over_stroke": 5.6,
+   "colour_role": "background (light, on photos)",
+   "label": "label role, caps",
+   "cite": "look/measure.json leader_line (4 profiles, FWHM) + end_dots"
+  },
+  "outline_box": {
+   "stroke_cqw": 0.177,
+   "pad_x_cap": 1.06,
+   "pad_y_cap": 0.89,
+   "cite": "look/measure.json outline_box 30940781"
+  },
+  "hairline_rule": {
+   "stroke_cqw": 0.139,
+   "length_cqw": 45.9,
+   "cite": "shapes/catalogue.json proportions_median_n (n=152)",
+   "colour_role": "text"
+  },
+  "step_marks": {
+   "ring_d_cqw": 3.54,
+   "pitch_cqw": 14.54,
+   "stroke_cqw": 0.139,
+   "active": "filled ring (34175362 step 6)",
+   "page_count": "label role 'n / N'",
+   "cite": "look/measure.json step_marks 34175362 (Hough circles); stroke floored at the hairline rule"
+  },
+  "screen_frame": {
+   "radius_pct_frame_w": 11.72,
+   "aspect_w_h": 0.474,
+   "cite": "look/measure.json screen_frame 14664481 (bottom-left corners)"
+  },
+  "meta_label": {
+   "dot_d_cqw": 2.01,
+   "baseline_from_bottom_cqh": 8.06,
+   "left_cqw": 9.1,
+   "font": "label role (Neue Haas Grotesk Display Pro 55 Roman), caps, tracking 0.0102 em",
+   "cite": "look/measure.json meta_footer 27454113; left edge = composition/grid.json margin (27454113 measured 10.0%)"
+  },
+  "dark_card": {
+   "ground_role": "text",
+   "ink_role": "background",
+   "cite": "look/measure.json dark_card grounds #000000, #261209",
+   "judgment": "ground = palette text #211b15 (the board's warm black), not pure #000"
+  },
+  "vertical_type": {
+   "rotation_deg": -90,
+   "font": "label role, caps",
+   "cite": "catalog.json vertical_type (4 images); type from fonts/specimen/spec.json"
+  },
+  "icon_outline": {
+   "grid": 24,
+   "stroke_units": 1.07,
+   "display_cqw": 6.0,
+   "linecap": "round",
+   "linejoin": "round",
+   "fill": "none",
+   "cite": "stroke = ring_button 13607089 stroke 2 px on a 750 px canvas (0.267 cqw), drawn at 6 cqw on a 24 grid",
+   "judgment": "display size 6 cqw and round caps/joins, read from the close/menu/send icons on 11460382, 13607089, 14664481"
+  },
+  "dotted_path": {
+   "dot_cqw": 0.139,
+   "dash_cqw": 0.3,
+   "gap_cqw": 0.28,
+   "cite": "judgment: a dashed hairline (thickness 0.139 cqw = the rule), dash 0.3 cqw / gap 0.28 cqw (about 3 px / 3 px at 1080), matched to 34175362 in the step_marks proof; the runs are too JPEG-soft to measure"
+  },
+  "grain": {
+   "sigma": 0.0026,
+   "add_sigma": 0.0024,
+   "cite": "colour/treatment.json board.grain and grain_add_sigma; overlay opacity calibrated in proof (look/proof_check.json); overlay opacity 0.06 gives sigma 0.0026 on a flat mid-tone (look/proof_check.json grain); overlay opacity 0.06 gives sigma 0.0026 on a flat mid-tone (look/proof_check.json grain)",
+   "overlay_opacity": 0.06
+  },
+  "photo_treatment": {
+   "lut": "kit/treatment.cube",
+   "css_filter": "saturate(0.5) sepia(0.0) contrast(0.7) brightness(1.075)",
+   "saturation": 0.493,
+   "cast_shift_lab": {
+    "a": -5.68,
+    "b": -1.47
+   },
+   "cite": "colour/treatment.json",
+   "css_filter_median_dE_to_lut": 4.86,
+   "css_filter_cite": "grid search (saturate, sepia, contrast, brightness) minimising median CIE76 dE to the LUT on 24000 pixels sampled from existing/thumbs",
+   "svg_filter": "kit/components/treatment-filter.svg (#ok-treat)",
+   "svg_filter_median_dE_to_lut": 0.49
+  }
+ },
+ "components": {
+  "glass-panel": "kit/components/glass-panel.css",
+  "photo-card": "kit/components/photo-card.css",
+  "pill-chip": "kit/components/pill-chip.css",
+  "leader-line": "kit/components/leader-line.css",
+  "outline-box": "kit/components/outline-box.css",
+  "hairline-rule": "kit/components/hairline-rule.css",
+  "step-marks": "kit/components/step-marks.css",
+  "screen-frame": "kit/components/screen-frame.css",
+  "meta-label": "kit/components/meta-label.css",
+  "dark-card": "kit/components/dark-card.css",
+  "vertical-type": "kit/components/vertical-type.css",
+  "icon": "kit/components/icon.css",
+  "dotted-path": "kit/components/dotted-path.css",
+  "grain": "kit/components/grain.css",
+  "photo-treatment": "kit/components/photo-treatment.css"
+ },
+ "kept_devices": [
+  "photo_treatment",
+  "hairline_rule",
+  "grain",
+  "meta_label",
+  "screen_frame",
+  "step_marks",
+  "leader_line",
+  "dark_card",
+  "glass_panel",
+  "pill_chip",
+  "photo_card",
+  "vertical_type",
+  "icon_outline",
+  "outline_box",
+  "dotted_path"
+ ]
+}

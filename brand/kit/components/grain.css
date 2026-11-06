@@ -1,0 +1,3 @@
+/* grain: film noise over the whole post. Opacity calibrated to the board's sigma in look/proof_check.json. */
+.ok-grain { position: absolute; inset: 0; pointer-events: none; z-index: 50; opacity: var(--ok-grain-opacity); mix-blend-mode: overlay;
+  background-image: url("grain.svg"); background-size: 256px 256px; }

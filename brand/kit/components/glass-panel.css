@@ -1,0 +1,9 @@
+/* glass_panel + glass_band: frosted surface over a photo. Board: 41911984, 41432513, 2145281. Matte: no rim light, no shadow (measured). */
+.ok-glass { position: absolute; border-radius: var(--ok-glass-radius);
+  background: rgba(var(--ok-surface-rgb), var(--ok-glass-alpha));
+  -webkit-backdrop-filter: blur(var(--ok-glass-blur)); backdrop-filter: blur(var(--ok-glass-blur));
+  color: var(--ok-text); overflow: hidden; }
+.ok-glass--band { border-radius: 0; top: 0; bottom: 0; left: 0; width: var(--ok-band-w);
+  background: rgba(var(--ok-surface-rgb), var(--ok-band-alpha));
+  -webkit-backdrop-filter: blur(var(--ok-band-blur)); backdrop-filter: blur(var(--ok-band-blur)); }
+.ok-glass--band.ok-glass--right { left: auto; right: 0; }

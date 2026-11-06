@@ -1,0 +1,10 @@
+/* pill_chip: fully rounded label. Board: 41911984, 41432513, 11460382, 27647159, 52313969. */
+.ok-pill { display: inline-flex; align-items: center; height: var(--ok-pill-h); padding: 0 var(--ok-pill-pad);
+  border-radius: calc(var(--ok-pill-h) / 2); white-space: nowrap; box-sizing: border-box;
+  font: var(--ok-label-weight) var(--ok-label-size)/1 var(--ok-display); letter-spacing: var(--ok-label-track);
+  background: var(--ok-background); color: var(--ok-text); }
+.ok-pill--grey { background: var(--ok-surface); }
+.ok-pill--accent { background: var(--ok-accent-1); color: var(--ok-text); }
+.ok-pill--outline { background: transparent; color: var(--ok-background); box-shadow: inset 0 0 0 var(--ok-pill-stroke) currentColor; }
+.ok-pill--dark { background: var(--ok-text); color: var(--ok-background); }
+.ok-pills { display: flex; flex-wrap: wrap; gap: calc(var(--ok-pill-h) * 0.18); }

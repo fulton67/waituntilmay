@@ -1,0 +1,2 @@
+/* dark_card: warm black slide. Board: 27454118, 27454113, 11460382, 13902728 ... */
+.ok--dark { background: var(--ok-text); color: var(--ok-background); --ok-leader-ink: var(--ok-background); --ok-step-on-ink: var(--ok-text); }

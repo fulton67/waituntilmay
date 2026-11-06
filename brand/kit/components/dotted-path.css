@@ -1,0 +1,3 @@
+/* dotted_path: dashed hairline connector. Board: 34126462, 33635746, 47161957, 34175362. */
+.ok-dotted { display: block; height: var(--ok-dotted-dot); background: linear-gradient(90deg, currentColor 0 var(--ok-dotted-dash), transparent 0) 0 0 / calc(var(--ok-dotted-dash) + var(--ok-dotted-gap)) 100% repeat-x; }
+.ok-dotted--v { width: var(--ok-dotted-dot); height: auto; background: linear-gradient(180deg, currentColor 0 var(--ok-dotted-dash), transparent 0) 0 0 / 100% calc(var(--ok-dotted-dash) + var(--ok-dotted-gap)) repeat-y; }

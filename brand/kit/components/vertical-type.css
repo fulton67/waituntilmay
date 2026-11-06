@@ -1,0 +1,3 @@
+/* vertical_type: caps line rotated along an edge. Board: 40898406, 50510620, 2145281, 30940781. */
+.ok-vert { position: absolute; writing-mode: vertical-rl; transform: rotate(180deg); font: var(--ok-label-weight) var(--ok-label-size)/1 var(--ok-display);
+  letter-spacing: calc(var(--ok-label-track) + 0.06em); text-transform: uppercase; white-space: nowrap; }

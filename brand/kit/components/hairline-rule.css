@@ -1,0 +1,3 @@
+/* hairline_rule: divider. shapes/catalogue.json: median stroke 0.139% w, length 45.9% w. */
+.ok-rule { display: block; height: var(--ok-rule); width: var(--ok-rule-len); background: currentColor; border: 0; margin: 0; }
+.ok-rule--full { width: auto; } .ok-rule--v { width: var(--ok-rule); height: var(--ok-rule-len); }

@@ -1,0 +1,6 @@
+/* meta_label: small caps data text in corners; footer dot + text + page count. Board: 14664481, 16463981, 27454113, 2145281 ... */
+.ok-meta { font: var(--ok-label-weight) var(--ok-label-size)/var(--ok-label-lh) var(--ok-display); letter-spacing: var(--ok-label-track); text-transform: uppercase; }
+.ok-meta--slash::before { content: "/ "; } .ok-meta--slash::after { content: " /"; }
+.ok-footer { position: absolute; left: var(--ok-margin); right: var(--ok-margin); bottom: var(--ok-meta-bottom); display: flex; align-items: baseline; gap: 2.5cqw; }
+.ok-footer::before { content: ""; width: var(--ok-meta-dot); height: var(--ok-meta-dot); border-radius: 50%; background: currentColor; align-self: center; flex: none; }
+.ok-footer > .ok-count { margin-left: auto; }
