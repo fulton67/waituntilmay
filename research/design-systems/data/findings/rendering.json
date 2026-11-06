@@ -1,0 +1,1105 @@
+{
+ "tools": [
+  {
+   "tool": "Puppeteer / Playwright / headless Chrome (self-hosted)",
+   "what_it_does": "Drive a real Chromium: load an HTML template or live page, screenshot to PNG/JPEG (or print to PDF). Full CSS, web fonts, canvas/WebGL available.",
+   "recommend_count": 17,
+   "mention_count": 51,
+   "packet_tag_count_raw": {
+    "Puppeteer": 161,
+    "Headless Chrome": 29,
+    "Playwright": 77,
+    "note": "packet tags heavily inflated by testing/scraping/hiring posts"
+   },
+   "recommended_for": [
+    {
+     "claim": "Fill an HTML template with data and screenshot it; full CSS/fonts means the image matches what the browser shows",
+     "ids": [
+      "29810032",
+      "27077171",
+      "37651785",
+      "42314744",
+      "36905688"
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "Production exports (PNG/PDF receipts, invoices, manuals) in a few lines",
+     "ids": [
+      "15029845",
+      "42315616",
+      "40577842",
+      "49658230"
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "Reuse existing front-end code as the renderer instead of maintaining a second drawing codebase",
+     "ids": [
+      "16670286"
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "HTML template -> browser frames -> ffmpeg produced paid short-form social videos (Reddit-thread videos side project ~$500/mo) and blog-to-scrolling-video",
+     "ids": [
+      "29810032",
+      "20506966"
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "100 images/min feasible on <1GB RAM if one browser instance is reused rather than launched per image",
+     "ids": [
+      "21697342",
+      "21698932"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Site social/OG images (puppeteer-social-image, next-banner at build time, meta-tag OG tools)",
+     "ids": [
+      "22904835",
+      "33166656",
+      "46585401"
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "Playwright preferred on small boxes: roughly half the RAM of Puppeteer for the same pool",
+     "ids": [
+      "47160137"
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Heavy: Chrome binary hundreds of MB, multi-second cold starts, does not fit serverless limits",
+     "ids": [
+      "47440652",
+      "33158551",
+      "17796893",
+      "30799548",
+      "27595127"
+     ]
+    },
+    {
+     "claim": "Memory/OOM and random crashes; needs big machines, gets expensive",
+     "ids": [
+      "45253318",
+      "41940681",
+      "41940682",
+      "21924999",
+      "20849788",
+      "29371578",
+      "21696505"
+     ]
+    },
+    {
+     "claim": "Timing flakiness: screenshot fires before CSS background images/fonts load; a page is never truly 'done'",
+     "ids": [
+      "27459098",
+      "23146054",
+      "20849788"
+     ]
+    },
+    {
+     "claim": "Rendering inconsistencies: headless vs headful pixel differences, viewport-fixed and lazy content in full-page shots, emoji differ from the browser, out-of-box accuracy needs tuning",
+     "ids": [
+      "29410864",
+      "42967333",
+      "34369647",
+      "21911182",
+      "34858121",
+      "50053338"
+     ]
+    },
+    {
+     "claim": "PDF pagination (page breaks, orphan headings, TOC) is painful",
+     "ids": [
+      "47350248",
+      "42315616"
+     ]
+    },
+    {
+     "claim": "Some conclude a hosted screenshot SaaS is cheaper than maintaining it",
+     "ids": [
+      "42970995",
+      "39444846"
+     ]
+    },
+    {
+     "claim": "Teams replaced it with Satori or a 2D canvas library for speed (ms vs seconds)",
+     "ids": [
+      "33158551",
+      "46212773",
+      "46235341",
+      "41940682"
+     ]
+    }
+   ],
+   "strongest_criticism": "Screenshot rendering via Puppeteer constantly hit OOM errors, needed expensive high-end machines, and a homegrown microservice kept crashing until moved to a job runner (45253318)."
+  },
+  {
+   "tool": "Satori / @vercel/og (next/og, workers-og)",
+   "what_it_does": "Satori converts a JSX/HTML + inline-CSS subset to SVG with its own layout engine and explicitly supplied font buffers; @vercel/og wraps it with resvg-wasm to output PNG at the edge.",
+   "recommend_count": 13,
+   "mention_count": 33,
+   "packet_tag_count_raw": {
+    "Satori": 14,
+    "@vercel/og": 15
+   },
+   "recommended_for": [
+    {
+     "claim": "OG/social cards expected to take hours took minutes; renders in ms instead of seconds",
+     "ids": [
+      "33155870",
+      "33156201"
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "Replaced Chrome-based share cards (up to 5s, 50MB lambda limit) with near-instant renders",
+     "ids": [
+      "33158551"
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "Common default for per-page OG images in Next.js / Astro / Cloudflare Workers sites",
+     "ids": [
+      "42604616",
+      "46881700",
+      "47120875",
+      "41163309",
+      "47307140",
+      "46655514",
+      "49629447"
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "Satori itself runs in Node/anywhere; only the @vercel/og wrapper was edge-only at launch",
+     "ids": [
+      "33166668",
+      "33252670"
+     ],
+     "context": "general"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Only a subset of HTML/CSS; 'JSX that pretends to be CSS'; web page and image card cannot share markup, so two renderers are needed",
+     "ids": [
+      "33161865",
+      "47765329",
+      "49629447",
+      "33576688"
+     ]
+    },
+    {
+     "claim": "Fonts must be supplied explicitly; broken fonts and image errors are common; SVG loaded via img ignores webfonts",
+     "ids": [
+      "47765329",
+      "33156811"
+     ]
+    },
+    {
+     "claim": "Cold renders took a few seconds, longer than social crawlers wait, so images had to be pre-rendered and cached",
+     "ids": [
+      "49629447"
+     ]
+    },
+    {
+     "claim": "PNG output (~800KB) silently dropped by some crawlers' size limits; re-encoded to ~95KB JPEG with sharp",
+     "ids": [
+      "48774122"
+     ]
+    },
+    {
+     "claim": "@vercel/og initially tied to Vercel's edge runtime, not self-hostable in Node/GitHub Actions",
+     "ids": [
+      "33164632",
+      "33164100"
+     ]
+    },
+    {
+     "claim": "Platforms generally won't display SVG og:images, so an SVG->PNG step is mandatory",
+     "ids": [
+      "33167186",
+      "46237473"
+     ]
+    }
+   ],
+   "strongest_criticism": "Builders describe 'fighting Satori/vercel-og': broken fonts, image errors and a JSX dialect that looks like CSS but isn't (47765329)."
+  },
+  {
+   "tool": "resvg / resvg-js / resvg-wasm",
+   "what_it_does": "Rust SVG rasterizer (JS/WASM bindings) used to turn Satori or hand-built SVG into PNG.",
+   "recommend_count": 5,
+   "mention_count": 8,
+   "packet_tag_count_raw": {
+    "resvg": 5
+   },
+   "recommended_for": [
+    {
+     "claim": "What Vercel uses for SVG->PNG; a good standalone choice alongside Sharp",
+     "ids": [
+      "33182568"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "resvg-wasm on Cloudflare Workers for per-page OG images",
+     "ids": [
+      "47613840",
+      "47638476"
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "Deterministic template engine: props -> layout IR -> pixels with only ffmpeg + resvg as dependencies; suits headless/CI video",
+     "ids": [
+      "49786497"
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "One pure geometry function emitting primitives feeds SVG preview, PDF and build-time OG images with no duplicated drawing logic",
+     "ids": [
+      "48761320"
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "No direct criticism; when behind Satori it inherits cold-render and PNG-size issues",
+     "ids": [
+      "49629447",
+      "48774122"
+     ]
+    }
+   ],
+   "strongest_criticism": "No direct criticism in corpus; paired with Satori on Workers, cold renders still exceeded crawler timeouts and required pre-rendering (49629447)."
+  },
+  {
+   "tool": "node-canvas / skia-canvas / @napi-rs/canvas",
+   "what_it_does": "Server-side Canvas 2D API (Cairo or Skia backed): imperative draw calls exported to PNG/JPEG; skia-canvas also emits vector PDF/SVG.",
+   "recommend_count": 7,
+   "mention_count": 13,
+   "packet_tag_count_raw": {
+    "node-canvas / skia-canvas": 8
+   },
+   "recommended_for": [
+    {
+     "claim": "Fast OG-image APIs at 50-100ms per image, chosen explicitly over Puppeteer",
+     "ids": [
+      "46212773",
+      "46235341"
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "Build-time OG images for a static site with hand-written canvas draw calls",
+     "ids": [
+      "33164632"
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "skia-canvas adds multiline text, text decoration, perspective, and true vector PDF/SVG output",
+     "ids": [
+      "42310796",
+      "42310766"
+     ],
+     "context": "general"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Imperative draw calls are less flexible than HTML/CSS; Satori would have been easier",
+     "ids": [
+      "33164632",
+      "41940682"
+     ]
+    },
+    {
+     "claim": "Text layout (wrapping, measuring, bidi) is on you; canvas text APIs are limited",
+     "ids": [
+      "50206284",
+      "47566122"
+     ]
+    }
+   ],
+   "strongest_criticism": "Dropping the browser for a 2D library lowers cost 'at the cost of some decreased flexibility', and you own text layout yourself (41940682, 50206284)."
+  },
+  {
+   "tool": "Skia / CanvasKit (wasm)",
+   "what_it_does": "Google's 2D engine (Chrome, Flutter); CanvasKit is the WASM build with paragraph shaping and Lottie (Skottie) playback.",
+   "recommend_count": 5,
+   "mention_count": 12,
+   "packet_tag_count_raw": {
+    "Skia / CanvasKit": 44,
+    "note": "most packet hits are UI-framework chatter"
+   },
+   "recommended_for": [
+    {
+     "claim": "Best-in-class 2D API with GPU backends; outperforms Cairo",
+     "ids": [
+      "42312097"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Real multiline text shaping and Lottie (After Effects) playback",
+     "ids": [
+      "41440659",
+      "29641323",
+      "29636761",
+      "47566122"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Custom scene renderer (Skia + yoga layout + fontkit) wired to Remotion for video output",
+     "ids": [
+      "46267204"
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "~2MB browser download; low-level, examples are opaque",
+     "ids": [
+      "31347100",
+      "20484236"
+     ]
+    }
+   ],
+   "strongest_criticism": "Low-level and opaque: CanvasKit demos hide the real work in exported JSON with no tutorial (20484236)."
+  },
+  {
+   "tool": "html2canvas / dom-to-image / html-to-image / snapDOM (client-side DOM capture)",
+   "what_it_does": "Capture a live DOM subtree in the browser to canvas/PNG/SVG (html2canvas re-implements CSS painting; dom-to-image/html-to-image serialize into SVG foreignObject).",
+   "recommend_count": 7,
+   "mention_count": 13,
+   "packet_tag_count_raw": {
+    "html2canvas": 4,
+    "dom-to-image / html-to-image": 7
+   },
+   "recommended_for": [
+    {
+     "claim": "html-to-image handles custom fonts, pseudo-elements and computed styles; outputs PNG/SVG/canvas",
+     "ids": [
+      "46332542",
+      "47425423"
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "foreignObject approach (dom-to-image-more) is simpler than per-property re-implementation",
+     "ids": [
+      "33576688"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Fine for user-facing 'download this card' features",
+     "ids": [
+      "35612610",
+      "41984875"
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Browser-only, not a server pipeline",
+     "ids": [
+      "33576814"
+     ]
+    },
+    {
+     "claim": "html2canvas fails on modern CSS, pseudo-elements, fonts, Shadow DOM, Safari",
+     "ids": [
+      "47425423",
+      "45394753"
+     ]
+    },
+    {
+     "claim": "html2canvas paints text a few pixels off from the DOM layout",
+     "ids": [
+      "48991516"
+     ]
+    }
+   ],
+   "strongest_criticism": "html2canvas draws text a few pixels lower than the DOM lays it out, enough to leak redacted digits in one product (48991516)."
+  },
+  {
+   "tool": "Bannerbear",
+   "what_it_does": "Hosted template-to-image/video API: design a template in their editor, POST JSON (or Zapier/spreadsheet) to swap layers, get PNG/PDF/video.",
+   "recommend_count": 9,
+   "mention_count": 22,
+   "packet_tag_count_raw": {
+    "Bannerbear": 53,
+    "note": "most packet hits are indie-hacker revenue chatter, not usage"
+   },
+   "recommended_for": [
+    {
+     "claim": "Main real use is spreadsheet/catalog -> Instagram posts and ad variations; OG images became a small niche",
+     "ids": [
+      "25936711",
+      "25936864",
+      "25936813"
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "Works well for automated blog/social thumbnails",
+     "ids": [
+      "25741891"
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "Programmatic image/video generation via API or Zapier",
+     "ids": [
+      "31692411",
+      "32574534"
+     ],
+     "context": "brand"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Price ($49-149/mo, about $49 per 1000 images) too high for low volume",
+     "ids": [
+      "46212773",
+      "40263983",
+      "25962543"
+     ]
+    },
+    {
+     "claim": "Closed source; repeated asks for an open-source equivalent",
+     "ids": [
+      "33244312",
+      "28499580",
+      "28499573"
+     ]
+    },
+    {
+     "claim": "Believed to be headless Chromium underneath, so clones are cheap to build",
+     "ids": [
+      "40263983",
+      "46205285"
+     ]
+    }
+   ],
+   "strongest_criticism": "Builders call the ~$49/mo-per-1000-images pricing shared by Bannerbear, Placid and peers 'crazy' for low-volume use (46212773, 40263983)."
+  },
+  {
+   "tool": "Placid",
+   "what_it_does": "Hosted social-image templates filled via URL parameters or API; WordPress plugin.",
+   "recommend_count": 2,
+   "mention_count": 7,
+   "packet_tag_count_raw": {
+    "Placid": 5
+   },
+   "recommended_for": [
+    {
+     "claim": "URL-parameter templates for per-article share images with a WordPress integration; built to escape Photoshop templates",
+     "ids": [
+      "17462161",
+      "19993227"
+     ],
+     "context": "brand"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Free tier watermarked; Facebook caches og:image (~50 interactions) so swapping/A-B testing images is limited",
+     "ids": [
+      "17469684",
+      "17463803",
+      "17469167"
+     ]
+    },
+    {
+     "claim": "Same price-tier criticism as Bannerbear",
+     "ids": [
+      "46212773",
+      "40263983"
+     ]
+    }
+   ],
+   "strongest_criticism": "Grouped with Bannerbear as $49-149/mo, too expensive for small projects (46212773)."
+  },
+  {
+   "tool": "Figma REST API / plugins",
+   "what_it_does": "Export rendered frames as images via REST; plugins for tokens (Tokens Studio, variable export) and generation.",
+   "recommend_count": 5,
+   "mention_count": 9,
+   "packet_tag_count_raw": {
+    "Figma API": 27,
+    "note": "many packet hits are hiring posts"
+   },
+   "recommended_for": [
+    {
+     "claim": "Design OG images in Figma and resolve a stable frame link to a rendered image via REST, so design edits flow to the og:image",
+     "ids": [
+      "25932979"
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "Tokens Studio JSON in git -> Style Dictionary -> CSS variables for several front-ends",
+     "ids": [
+      "42456253",
+      "42449151"
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "Slides and websites generated directly from existing Figma components",
+     "ids": [
+      "49523899"
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Native Figma Variables gated to enterprise; no standard variable import format",
+     "ids": [
+      "42456253",
+      "42449144"
+     ]
+    },
+    {
+     "claim": "Tokens only work with design/eng alignment; new designers ignored them",
+     "ids": [
+      "42449151"
+     ]
+    },
+    {
+     "claim": "Figma restricting MCP access pushes people to the raw REST API",
+     "ids": [
+      "49929966"
+     ]
+    }
+   ],
+   "strongest_criticism": "Token pipelines broke when new designers simply chose not to use the tokens (42449151)."
+  },
+  {
+   "tool": "Canva (editor, API/MCP, Autofill)",
+   "what_it_does": "Template editor for non-designers; has a Connect API/MCP and an enterprise-gated Autofill for data-driven templates.",
+   "recommend_count": 2,
+   "mention_count": 9,
+   "packet_tag_count_raw": {
+    "Canva": 123,
+    "note": "nearly all packet hits are 'canvas' substring matches or resume links (noise)"
+   },
+   "recommended_for": [
+    {
+     "claim": "A lifesaver for a non-designer making one cover image per post",
+     "ids": [
+      "45927187"
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "Non-technical user automating Canva -> Pinterest through an API token and Claude-written scripts",
+     "ids": [
+      "49853036"
+     ],
+     "context": "brand"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Autofill (what makes the API/MCP useful for automation) is enterprise-only",
+     "ids": [
+      "47564886"
+     ]
+    },
+    {
+     "claim": "API/MCP options are messy and insufficient; people want code-first generation with editor touch-up after",
+     "ids": [
+      "50052788"
+     ]
+    },
+    {
+     "claim": "Too manual and slow once post volume rises",
+     "ids": [
+      "45927187"
+     ]
+    },
+    {
+     "claim": "Gap filled by Canva-like editor + API products (Orshot)",
+     "ids": [
+      "45634186",
+      "46271906"
+     ]
+    }
+   ],
+   "strongest_criticism": "The one feature that would make Canva's MCP useful for automation, Autofill, is enterprise-only (47564886)."
+  },
+  {
+   "tool": "Sharp",
+   "what_it_does": "libvips-based Node image processing: resize, re-encode (WebP/JPEG), composite; can rasterize SVG.",
+   "recommend_count": 5,
+   "mention_count": 5,
+   "packet_tag_count_raw": {
+    "Sharp": 1
+   },
+   "recommended_for": [
+    {
+     "claim": "Render SVG-producing JSX to PNG with Sharp instead of Chromium",
+     "ids": [
+      "33158221"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Post-process step: re-encode heavy PNG to small JPEG; produce WebP that Playwright can't",
+     "ids": [
+      "48774122",
+      "47160137",
+      "47059353"
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [],
+   "strongest_criticism": "No criticism found in corpus."
+  },
+  {
+   "tool": "ImageMagick / GraphicsMagick",
+   "what_it_does": "CLI/library image manipulation and text drawing.",
+   "recommend_count": 3,
+   "mention_count": 6,
+   "packet_tag_count_raw": {
+    "ImageMagick": 6
+   },
+   "recommended_for": [
+    {
+     "claim": "Batch resize/convert in a shell loop; draw text onto images without HTML",
+     "ids": [
+      "49166277",
+      "21696974"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Resize/optimize Chrome screenshots in a pipeline (GraphicsMagick)",
+     "ids": [
+      "18488064"
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Chokes on some SVG filters (noise)",
+     "ids": [
+      "7578207"
+     ]
+    }
+   ],
+   "strongest_criticism": "Struggles with SVG noise filters (7578207)."
+  },
+  {
+   "tool": "wkhtmltoimage / wkhtmltopdf / PhantomJS (legacy)",
+   "what_it_does": "Older WebKit-based HTML-to-image/PDF tools.",
+   "recommend_count": 4,
+   "mention_count": 8,
+   "packet_tag_count_raw": {
+    "wkhtmltoimage/pdf": 1
+   },
+   "recommended_for": [
+    {
+     "claim": "Worked for HTML->image/PDF (.NET); PhantomJS supported webfonts",
+     "ids": [
+      "21709710",
+      "4870617"
+     ],
+     "context": "general"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "PhantomJS deprecated once Chrome got headless mode; older HTML->PDF libs lack modern CSS/Tailwind",
+     "ids": [
+      "15079709",
+      "40577842"
+     ]
+    },
+    {
+     "claim": "Early hosted HTML->image produced grainy fonts and broken CSS",
+     "ids": [
+      "4870023"
+     ]
+    }
+   ],
+   "strongest_criticism": "Superseded: PhantomJS's maintainer stepped down after headless Chrome arrived (15079709)."
+  },
+  {
+   "tool": "Screenshot / OG SaaS APIs (Urlbox, GrabShot, PixShot, Linkshot, og.plus, Mugshot Bot, Orshot, Rendria, Gleam, etc.)",
+   "what_it_does": "Hosted URL-or-template -> image endpoints; most run Chromium (+Sharp) behind a cache.",
+   "recommend_count": 5,
+   "mention_count": 15,
+   "packet_tag_count_raw": {},
+   "recommended_for": [
+    {
+     "claim": "Offload Chromium ops; paying for quality avoids headaches",
+     "ids": [
+      "42970995",
+      "39444846"
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "Template editor + REST/n8n/Zapier to autofill Instagram/TikTok/Pinterest posts at scale",
+     "ids": [
+      "46271906",
+      "45634186"
+     ],
+     "context": "brand"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Vendor risk: an OG service effectively shut down; many near-identical clones",
+     "ids": [
+      "41785788",
+      "42133634"
+     ]
+    },
+    {
+     "claim": "Self-hosters must handle SSRF, deterministic cache keys and RAM",
+     "ids": [
+      "47160137"
+     ]
+    }
+   ],
+   "strongest_criticism": "A user's OG image provider (ogimpact.sh) effectively went out of business, forcing a rebuild (41785788)."
+  },
+  {
+   "tool": "Remotion",
+   "what_it_does": "React-based programmatic video rendering (frames rendered through headless Chrome).",
+   "recommend_count": 2,
+   "mention_count": 4,
+   "packet_tag_count_raw": {},
+   "recommended_for": [
+    {
+     "claim": "In-house image + video editor for a D2C brand producing premium social and ad creatives",
+     "ids": [
+      "48810576"
+     ],
+     "context": "brand"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Needs headless Chrome; output not always identical across machines; setup is a pain",
+     "ids": [
+      "50053338",
+      "46855698"
+     ]
+    }
+   ],
+   "strongest_criticism": "Rendering through headless Chrome means frames are not always the same across machines (50053338)."
+  },
+  {
+   "tool": "Typst / Pillow / Cloudinary / imgix / Browserless / Cloudflare Browser Rendering",
+   "what_it_does": "Mentioned only in passing in this corpus.",
+   "recommend_count": 0,
+   "mention_count": 5,
+   "packet_tag_count_raw": {
+    "Pillow / PIL": 2,
+    "Cloudinary": 1,
+    "imgix": 1,
+    "Browserless": 3
+   },
+   "recommended_for": [],
+   "criticisms": [
+    {
+     "claim": "No substantive reports of using these for branded image generation; Browserless named once as an OSS/commercial headless Chrome",
+     "ids": [
+      "23146054"
+     ]
+    }
+   ],
+   "strongest_criticism": "No substantive evidence in corpus."
+  }
+ ],
+ "approaches": [
+  {
+   "pattern": "React/JSX template -> Satori -> resvg -> PNG (edge or build time), cached",
+   "worked_or_rotted": "mixed",
+   "evidence": [
+    {
+     "claim": "Fast and cheap; replaced multi-second Chrome renders",
+     "ids": [
+      "33158551",
+      "33155870",
+      "33156201"
+     ]
+    },
+    {
+     "claim": "CSS subset forces a separate image renderer; one builder keeps both renderers reading one theme file so they cannot drift",
+     "ids": [
+      "49629447",
+      "47765329"
+     ]
+    },
+    {
+     "claim": "Pre-render and cache (cold renders exceed crawler wait); re-encode PNG to JPEG for crawler size limits",
+     "ids": [
+      "49629447",
+      "48774122"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "HTML/CSS template + headless Chrome screenshot (Puppeteer/Playwright), pooled browser, cached",
+   "worked_or_rotted": "mixed",
+   "evidence": [
+    {
+     "claim": "Highest fidelity: same CSS and fonts as the web page",
+     "ids": [
+      "27077171",
+      "37651785",
+      "42314744",
+      "36905688"
+     ]
+    },
+    {
+     "claim": "Ops burden: OOM, cold starts, flaky load timing, serverless size limits",
+     "ids": [
+      "45253318",
+      "47440652",
+      "27459098",
+      "33158551",
+      "41940681"
+     ]
+    },
+    {
+     "claim": "Works when browsers are kept warm and reused",
+     "ids": [
+      "17796893",
+      "21697342",
+      "21698932",
+      "47160137"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Imperative 2D canvas (node-canvas / skia-canvas / @napi-rs/canvas) with templates in code",
+   "worked_or_rotted": "worked",
+   "evidence": [
+    {
+     "claim": "50-100ms renders with no browser",
+     "ids": [
+      "46212773",
+      "46235341"
+     ]
+    },
+    {
+     "claim": "Trades away flexibility; text layout is manual",
+     "ids": [
+      "41940682",
+      "33164632"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "One source of props/geometry -> many outputs (SVG preview, PDF, OG PNG, video) through a deterministic renderer",
+   "worked_or_rotted": "worked",
+   "evidence": [
+    {
+     "claim": "One buildPaper(config) emits primitives for screen, PDF and OG images with no duplicated drawing logic",
+     "ids": [
+      "48761320"
+     ]
+    },
+    {
+     "claim": "Templates as deterministic props -> pixels functions using ffmpeg + resvg; suited to CI/headless video",
+     "ids": [
+      "49786497"
+     ]
+    },
+    {
+     "claim": "Skia + yoga + fontkit scene graph exported to video via Remotion",
+     "ids": [
+      "46267204"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "HTML template -> browser frames -> ffmpeg for short-form video",
+   "worked_or_rotted": "worked",
+   "evidence": [
+    {
+     "claim": "Paid Reddit-story video product; blog-to-scrolling-video for social",
+     "ids": [
+      "29810032",
+      "20506966"
+     ]
+    },
+    {
+     "claim": "Remotion used for in-house brand creatives",
+     "ids": [
+      "48810576"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Hosted template API (Bannerbear / Placid / Orshot): design in their editor, fill via JSON / URL / Zapier / spreadsheet",
+   "worked_or_rotted": "mixed",
+   "evidence": [
+    {
+     "claim": "Real demand is spreadsheet -> social posts and ad variants",
+     "ids": [
+      "25936711",
+      "25936813",
+      "46271906"
+     ]
+    },
+    {
+     "claim": "Pricing, lock-in complaints, vendor shutdown risk",
+     "ids": [
+      "46212773",
+      "40263983",
+      "41785788"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Design in Figma, export frames via REST as images",
+   "worked_or_rotted": "worked",
+   "evidence": [
+    {
+     "claim": "Stable frame URL resolves to the latest render, so design edits propagate",
+     "ids": [
+      "25932979"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Hand-built SVG templates (Inkscape prototype, string substitution) then rasterize",
+   "worked_or_rotted": "worked",
+   "evidence": [
+    {
+     "claim": "Quick to implement for OG images; SVG is easy to generate programmatically",
+     "ids": [
+      "36665437",
+      "21699294"
+     ]
+    },
+    {
+     "claim": "Platforms won't show SVG og:images; rasterize first",
+     "ids": [
+      "46237473",
+      "33167186"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Client-side DOM capture (html2canvas, html-to-image) for user downloads",
+   "worked_or_rotted": "mixed",
+   "evidence": [
+    {
+     "claim": "html-to-image handles fonts and pseudo-elements well",
+     "ids": [
+      "46332542",
+      "47425423"
+     ]
+    },
+    {
+     "claim": "html2canvas misrenders modern CSS and text position",
+     "ids": [
+      "45394753",
+      "48991516"
+     ]
+    }
+   ]
+  }
+ ],
+ "notable_threads": [
+  {
+   "id": "33155829",
+   "why": "Vercel OG launch thread: Satori speed praise, platforms rejecting SVG og:images, resvg/Sharp for rasterizing"
+  },
+  {
+   "id": "21696173",
+   "why": "Ask HN HTML->PNG server-side: Puppeteer RAM debate (100 images/min on <1GB), wkhtmltopdf, plain-SVG alternative"
+  },
+  {
+   "id": "49629447",
+   "why": "Satori + resvg on Workers: two renderers from one theme file; cold renders slower than crawlers so pre-render and cache"
+  },
+  {
+   "id": "48774122",
+   "why": "next/og PNG too large for crawlers, re-encoded to JPEG with sharp; Slack header gotchas"
+  },
+  {
+   "id": "47765329",
+   "why": "Linkshot: concrete list of Satori pain (fonts, image errors, fake CSS) motivating a screenshot approach"
+  },
+  {
+   "id": "45253318",
+   "why": "Magic Patterns: Puppeteer OOM and cost in a production screenshot pipeline"
+  },
+  {
+   "id": "25936813",
+   "why": "Bannerbear founder: real use is repetitive e-commerce/social asset generation with logo/coupon overlays"
+  },
+  {
+   "id": "48761320",
+   "why": "One renderer function feeding SVG, PDF and OG images: clean one-source-many-outputs pattern"
+  },
+  {
+   "id": "34367139",
+   "why": "Preview Card thread: emoji rendered differently in a Chrome screenshot than in the browser"
+  },
+  {
+   "id": "46212773",
+   "why": "OG Image API on @napi-rs/canvas at 50-100ms, with pricing critique of Bannerbear/Placid"
+  },
+  {
+   "id": "47160137",
+   "why": "PixShot: Playwright half the RAM of Puppeteer, WebP via Sharp, SSRF and cache-key lessons"
+  },
+  {
+   "id": "29810032",
+   "why": "HTML template + Puppeteer + ffmpeg as a paying short-form video pipeline"
+  }
+ ],
+ "articles_fetched": [
+  {
+   "url": "https://vercel.com/blog/introducing-vercel-og-image-generation-fast-dynamic-social-card-images",
+   "summary": "Vercel replaced Puppeteer + Chromium (about 50MB, ~4s cold starts, too large for functions) with Satori + resvg-wasm (~500KB) at the edge, claiming ~5x faster TTFB and 160x lower cost; Next.js Conf rendered 100k+ ticket images at ~800ms average. Limitations are only loosely stated (basic CSS layout/typography, fonts and emoji fetched as subsets, edge runtime, beta) and the numbers are Vercel's own."
+  },
+  {
+   "url": "https://github.com/vercel/satori",
+   "summary": "The current README lists many limits: its own layout engine that may differ from browsers, @font-face/@import/@keyframes ignored, fonts passed as TTF/OTF/WOFF buffers (variable fonts at default instance, no generic families), emoji only via graphemeImages, partial bidi, lineHeight rounded to whole px, and invalid inline styles fail the whole render. It now claims Grid support (except subgrid/masonry), which is newer than the 2022 HN 'subset' comments."
+  },
+  {
+   "url": "https://github.blog/2021-06-22-framework-building-open-graph-images/",
+   "summary": "GitHub fills an HTML template from GraphQL data and screenshots it with self-hosted Puppeteer, serving ~2M images/day with ~40% cache hits at ~280ms average. The big wins were replacing networkidle0 with a custom wait for fonts/images (2.25s -> 600ms) and giving containers more than 512MB so Chromium avoids a slow low-memory mode."
+  }
+ ],
+ "notes": "recommend_count / mention_count are distinct on-topic comment ids identified by reading the packet, the 11 threads and ontopic.json. packet_tag_count_raw is the packet's keyword tag count, inflated by unrelated matches (e.g. 'Canva' matching 'canvas', hiring posts listing Playwright/Puppeteer). Ids such as 47765329, 49629447, 48774122, 47425423, 45394753, 48991516, 40263983, 46205285, 36665437, 46237473 come from ontopic.json, not the packet."
+}

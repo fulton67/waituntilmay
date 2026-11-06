@@ -1,0 +1,1220 @@
+{
+ "tools": [
+  {
+   "tool": "Lucide",
+   "what_it_does": "ISC-licensed community fork of Feather (24px grid, 2px stroke, ~1600-1900 icons); SVG files plus React/Vue/Svelte packages.",
+   "recommend_count": 12,
+   "mention_count": 50,
+   "recommended_for": [
+    {
+     "claim": "Active Feather fork that keeps Feather's look and design guidelines but has many more icons",
+     "ids": [
+      "33225949",
+      "31122110"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "A good free stand-in for SF Symbols / Font Awesome on the web; works well with Svelte",
+     "ids": [
+      "42101401",
+      "42195852",
+      "42195877"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Easy to vendor: copy only the few SVGs you use (attribution kept) rather than adding a dependency",
+     "ids": [
+      "50381640"
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "Cleaner cross-platform than emoji for UI glyphs",
+     "ids": [
+      "47484634"
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "Used as the icon set on landing pages and in production stacks",
+     "ids": [
+      "42386929",
+      "48106107",
+      "39302405",
+      "46666375"
+     ],
+     "context": "general"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "It is what LLM tools reach for by default (shadcn + Tailwind + lucide-react), so it now reads as a sign of an AI-generated, 'slop' site",
+     "ids": [
+      "46667103",
+      "46674925",
+      "46674933",
+      "47668467",
+      "44679986",
+      "44833859",
+      "44834162",
+      "46666565",
+      "49129644"
+     ]
+    },
+    {
+     "claim": "Not distinctive: Lucide plus neutral Tailwind is 'unopinionated', the default when design was an afterthought, and people are tired of seeing static Lucide everywhere",
+     "ids": [
+      "48377571",
+      "46837133"
+     ]
+    },
+    {
+     "claim": "Its license notice has to travel with the icon, which makes Lucide icons a poor base for a logo",
+     "ids": [
+      "38709694",
+      "38709488"
+     ]
+    },
+    {
+     "claim": "Loading it per icon from an ESM CDN is fragile: ad blockers kill some icon files (e.g. 'fingerprint')",
+     "ids": [
+      "44193912"
+     ]
+    }
+   ],
+   "strongest_criticism": "Lucide is now an instant 'slop' tell because every LLM uses it unless told otherwise, so picking it hurts a brand that wants to look distinctive (46674925, 46667103)."
+  },
+  {
+   "tool": "Heroicons",
+   "what_it_does": "MIT-licensed SVG set from the Tailwind team (outline/solid/mini/micro); copy SVG/JSX from the site or use React/Vue packages.",
+   "recommend_count": 14,
+   "mention_count": 33,
+   "recommended_for": [
+    {
+     "claim": "Tiny, elegant SVGs; a go-to set",
+     "ids": [
+      "24025850",
+      "29866895",
+      "30288614",
+      "33227459",
+      "45091117"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "The 'copy SVG/JSX' button makes it easy to paste inline SVG without adding a library",
+     "ids": [
+      "25875907",
+      "35720720"
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "More consistent than Font Awesome; switching from FA to Heroicons improved alignment and screen-reader labelling",
+     "ids": [
+      "31122886",
+      "35861220"
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "Works best inside the Tailwind/Headless UI ecosystem",
+     "ids": [
+      "27763053",
+      "29258382",
+      "38721373",
+      "35357753"
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "The set is too small, so you end up adding Font Awesome or another set",
+     "ids": [
+      "29872253",
+      "31121495",
+      "45091117"
+     ]
+    },
+    {
+     "claim": "Its MIT license confuses users about where the notice must go on a website",
+     "ids": [
+      "34184175",
+      "34184600",
+      "34185234"
+     ]
+    }
+   ],
+   "strongest_criticism": "Too small a set, so in practice you keep reaching for Font Awesome to fill gaps, which breaks visual consistency (29872253)."
+  },
+  {
+   "tool": "Phosphor",
+   "what_it_does": "MIT-licensed family of ~1,500 icons in six weights (thin/light/regular/bold/fill/duotone) on one grid; SVG, web components, React/Vue, Figma.",
+   "recommend_count": 11,
+   "mention_count": 14,
+   "recommended_for": [
+    {
+     "claim": "Repeatedly named as a favourite / 'hidden gem'; stylish",
+     "ids": [
+      "29871163",
+      "33232615",
+      "35725277",
+      "41847334",
+      "46666148",
+      "31129986"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Website shows off how flexibly the icons can be styled, and the docs are excellent",
+     "ids": [
+      "40891453",
+      "40890643"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Roomy grid on its site (7 per row) makes the icons easy to scan",
+     "ids": [
+      "41847233"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Used for logo-maker and product work, sourced via icones/Iconify",
+     "ids": [
+      "43070456",
+      "45091117"
+     ],
+     "context": "brand"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Still has gaps (e.g. no checked-bell); people turn to other sets or AI generation to fill missing glyphs",
+     "ids": [
+      "41847233",
+      "45091117"
+     ]
+    }
+   ],
+   "strongest_criticism": "Even a go-to set like Phosphor sometimes lacks the exact glyph needed, so people end up generating style-matched extras (45091117)."
+  },
+  {
+   "tool": "Feather",
+   "what_it_does": "Original MIT 24px/2px-stroke minimalist set (~287 icons); now largely superseded by Lucide.",
+   "recommend_count": 4,
+   "mention_count": 10,
+   "recommended_for": [
+    {
+     "claim": "Clean, good design guidelines; a nice open-source set",
+     "ids": [
+      "33227459",
+      "33225949",
+      "24567079",
+      "42195852"
+     ],
+     "context": "general"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Far too few icons; unmaintained relative to forks",
+     "ids": [
+      "33225949",
+      "31122110"
+     ]
+    }
+   ],
+   "strongest_criticism": "Feather is great but 'needs way way more icons', which is why people moved to Lucide (33225949)."
+  },
+  {
+   "tool": "Tabler Icons",
+   "what_it_does": "MIT 24px/2px-stroke set in the Feather style, ~4,500-5,900 icons; SVG, webfont and framework packages.",
+   "recommend_count": 4,
+   "mention_count": 6,
+   "recommended_for": [
+    {
+     "claim": "Very large free set with design specs similar to Feather, so it suits anyone who wants the Feather/Lucide look plus coverage",
+     "ids": [
+      "31122110",
+      "33228067",
+      "46675144",
+      "31121495"
+     ],
+     "context": "general"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "The 'pixel perfect' claim is doubted; off-by-one pixel misalignment is common across sets",
+     "ids": [
+      "31122886"
+     ]
+    },
+    {
+     "claim": "No easy way to keep Tabler/Lucide icons consistent between a web app and native toolchains",
+     "ids": [
+      "47822467"
+     ]
+    }
+   ],
+   "strongest_criticism": "Its 'pixel perfect' claim is doubted, since icon sets are 'still a Wild West' of off-by-one alignment errors (31122886)."
+  },
+  {
+   "tool": "Iconify",
+   "what_it_does": "Aggregator of 200+ open-source sets (~200k-300k icons) with one naming scheme; HTTP API returning SVG, framework components, Figma plugin, used by icones.js.org and unplugin-icons.",
+   "recommend_count": 19,
+   "mention_count": 40,
+   "recommended_for": [
+    {
+     "claim": "The single source for SVG icons; 'solved icons for us', and you can send a designer there to browse",
+     "ids": [
+      "31125158",
+      "46673790",
+      "46666519",
+      "46666188",
+      "46671370",
+      "44871750",
+      "36842294"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Figma plugin used daily, so designers can drop the same icons into design files",
+     "ids": [
+      "46670140",
+      "31427403"
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "Its API serves any icon as an SVG URL, handy for diagrams and templates",
+     "ids": [
+      "46667000"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "With unplugin-icons it ends the 'spaghetti' of icon setups: build-time import of only the icons you use",
+     "ids": [
+      "41600241"
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "Covers brand logos too (Simple Icons is an Iconify pack), so separate logo sites aren't needed",
+     "ids": [
+      "41598239",
+      "41598391"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Iconify plus some basic composition beats commissioning cheap Fiverr icons",
+     "ids": [
+      "44061638"
+     ],
+     "context": "brand"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Sites rebuilt on top of Iconify can drop each icon's license and attribution data (e.g. CC BY-SA sets)",
+     "ids": [
+      "34955665"
+     ]
+    },
+    {
+     "claim": "Mixing sets from the catalog gives inconsistent sizes, so stick to one pack or expect to edit the SVGs",
+     "ids": [
+      "46667166"
+     ]
+    },
+    {
+     "claim": "With so many sets it gets overwhelming, and there's no quick visual comparison",
+     "ids": [
+      "24567079",
+      "46667248"
+     ]
+    }
+   ],
+   "strongest_criticism": "Because it merges sets under different licenses, downstream tools can strip attribution: one clone omitted the CC BY-SA author and license info (34955665)."
+  },
+  {
+   "tool": "unplugin-icons",
+   "what_it_does": "Build-time plugin (Vite/webpack) that imports Iconify icons on demand as components.",
+   "recommend_count": 1,
+   "mention_count": 1,
+   "recommended_for": [
+    {
+     "claim": "Paired with Iconify, it fixes messy icon setups",
+     "ids": [
+      "41600241"
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [],
+   "strongest_criticism": "No criticism found; only one comment mentions it (41600241)."
+  },
+  {
+   "tool": "Material Symbols / Material Icons",
+   "what_it_does": "Google's huge set (variable font + SVG; outlined/rounded/sharp, fill/weight/grade axes), Apache 2.0.",
+   "recommend_count": 5,
+   "mention_count": 18,
+   "recommended_for": [
+    {
+     "claim": "Huge coverage and a neutral style; a default unless a specific style is needed",
+     "ids": [
+      "46665979",
+      "46666148"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Simple enough that you can draw your own icons that fit in",
+     "ids": [
+      "46666165"
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "The rounded, outline or two-tone variants look less obviously Google",
+     "ids": [
+      "46669940"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Used in place of the USWDS icons, which are roughly based on Material",
+     "ids": [
+      "30844500"
+     ],
+     "context": "general"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Instantly looks/feels Google-related, which works against differentiation",
+     "ids": [
+      "46666306"
+     ]
+    },
+    {
+     "claim": "The ligature icon font shows raw icon names as text when the font is blocked or fails",
+     "ids": [
+      "37444224",
+      "49546703",
+      "29410994"
+     ]
+    }
+   ],
+   "strongest_criticism": "Material instantly reads as 'something Google-related', so it is the wrong pick if you want to stand apart (46666306)."
+  },
+  {
+   "tool": "Font Awesome",
+   "what_it_does": "Long-running icon set, once the default icon font, now SVG+JS/kits; free tier plus paid Pro with tens of thousands of icons.",
+   "recommend_count": 8,
+   "mention_count": 40,
+   "recommended_for": [
+    {
+     "claim": "Free, covers the basics, and very easy to use",
+     "ids": [
+      "7344120",
+      "7344184",
+      "26959133"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "FA5+ is SVG-based, so you can import just the handful of icons you need",
+     "ids": [
+      "17857887"
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "Better to build on a well-known set and add custom icons only where it matters",
+     "ids": [
+      "37461428"
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "FA ligatures were meant to make the icons usable in design apps like InDesign",
+     "ids": [
+      "30846909"
+     ],
+     "context": "brand"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "As an icon font it breaks when users disable custom fonts, and private-use glyphs are unreadable to screen readers",
+     "ids": [
+      "7352080",
+      "23328319",
+      "37444224",
+      "12355899"
+     ]
+    },
+    {
+     "claim": "Alignment problems: only pixel-perfect at multiples of 14px; viewBox/margin inconsistencies need CSS hacks",
+     "ids": [
+      "7344843",
+      "35710469",
+      "31122886"
+     ]
+    },
+    {
+     "claim": "Font Awesome itself recommends SVG over its webfont",
+     "ids": [
+      "30846958",
+      "30846909"
+     ]
+    },
+    {
+     "claim": "It commoditized icons, so using it gives you a generic look",
+     "ids": [
+      "45031390"
+     ]
+    }
+   ],
+   "strongest_criticism": "Even FA has inconsistent SVG viewBox/size metrics, so icons sit misaligned next to each other unless you hard-code margins (35710469)."
+  },
+  {
+   "tool": "IcoMoon",
+   "what_it_does": "Web app to cherry-pick icons from many sets plus your own SVGs and export a custom icon font or SVG sprite.",
+   "recommend_count": 8,
+   "mention_count": 10,
+   "recommended_for": [
+    {
+     "claim": "Build a font/sprite with only the icons you need, including your own custom SVGs",
+     "ids": [
+      "7344451",
+      "7345052",
+      "7345441",
+      "15090290",
+      "7345231"
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "Easiest and most flexible of the icon-compilation apps",
+     "ids": [
+      "7345270",
+      "7345210",
+      "7348482"
+     ],
+     "context": "general"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Doesn't produce Compass markup for cross-browser support (minor gripe from 2014)",
+     "ids": [
+      "7345237"
+     ]
+    }
+   ],
+   "strongest_criticism": "No real criticism; the only complaint was missing Compass output (7345237)."
+  },
+  {
+   "tool": "Noun Project",
+   "what_it_does": "Huge crowd-sourced icon marketplace (CC BY / royalty-free / paid); also makes the Lingo brand-asset manager.",
+   "recommend_count": 1,
+   "mention_count": 4,
+   "recommended_for": [
+    {
+     "claim": "Huge source with mixed CC BY and paid icons",
+     "ids": [
+      "46669999"
+     ],
+     "context": "general"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Free SVGs come with junk you must clean out by hand unless you pay",
+     "ids": [
+      "46670033"
+     ]
+    }
+   ],
+   "strongest_criticism": "Unless you pay, you have to manually strip junk from the SVGs to make them usable (46670033)."
+  },
+  {
+   "tool": "Streamline",
+   "what_it_does": "Commercial icon library (multiple styles/sizes, vector formats).",
+   "recommend_count": 1,
+   "mention_count": 2,
+   "recommended_for": [
+    {
+     "claim": "Commercial-grade: two sizes, filled vs outline versions designed separately, free updates",
+     "ids": [
+      "7345678"
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Restrictive license (max 100 icons per project, per-project terms)",
+     "ids": [
+      "7345803"
+     ]
+    }
+   ],
+   "strongest_criticism": "Its 2014 license capped use at 100 icons per project, an odd and hard-to-enforce restriction (7345803)."
+  },
+  {
+   "tool": "Iconic",
+   "what_it_does": "Commercial 2014 'icon system' (SVG with JS-driven size-specific detail, multicolour, states) plus free Open Iconic.",
+   "recommend_count": 6,
+   "mention_count": 30,
+   "recommended_for": [
+    {
+     "claim": "Size-dependent detail, multicolour icons themable with a few CSS lines, available as SVG/webfont/PNG",
+     "ids": [
+      "7349001",
+      "7345824",
+      "7348656",
+      "7348918"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Easy to implement on a personal site",
+     "ids": [
+      "7345912"
+     ],
+     "context": "general"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Needs JavaScript to render the icons; not open source",
+     "ids": [
+      "7344234",
+      "7344222"
+     ]
+    },
+    {
+     "claim": "Detail and weight vary between icons so they look like several sets shuffled; auto-swapping detail by size hurts consistency",
+     "ids": [
+      "7345682",
+      "7346069",
+      "7345718"
+     ]
+    },
+    {
+     "claim": "Per-project paid licensing is too restrictive for teams",
+     "ids": [
+      "7345654",
+      "7348918",
+      "7344325"
+     ]
+    }
+   ],
+   "strongest_criticism": "Weight and detail vary so much that it looks like 'two or three different icon sets shuffled around', and size-swapping makes the same icon look different (7345682)."
+  },
+  {
+   "tool": "Fluent UI System Icons",
+   "what_it_does": "Microsoft's MIT-licensed monochrome set (regular/filled, multiple sizes) for cross-platform apps.",
+   "recommend_count": 7,
+   "mention_count": 12,
+   "recommended_for": [
+    {
+     "claim": "Pleasant, approachable, multi-platform, MIT",
+     "ids": [
+      "24992810",
+      "24993100",
+      "24993309",
+      "24994250",
+      "24995015"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Monochrome SVGs can be recoloured with CSS and theme colours",
+     "ids": [
+      "24996169",
+      "24995903"
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Pared back on purpose, so it's a good base a design system can build on without too much personality",
+     "ids": [
+      "24993215"
+     ],
+     "context": "brand"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Bland monochrome icons that all look alike are bad for recognition",
+     "ids": [
+      "24992853",
+      "24993279",
+      "24993801",
+      "24993576"
+     ]
+    },
+    {
+     "claim": "Couldn't set fill colours freely at launch; no Windows platform support",
+     "ids": [
+      "24993733",
+      "24995302"
+     ]
+    }
+   ],
+   "strongest_criticism": "Monochrome, look-alike icons 'are bad for users because they all look the same and lack color' (24992853)."
+  },
+  {
+   "tool": "Ionicons",
+   "what_it_does": "Ionic's open-source icon font/SVG set.",
+   "recommend_count": 2,
+   "mention_count": 4,
+   "recommended_for": [
+    {
+     "claim": "More detailed at large sizes; pairs with Font Awesome",
+     "ids": [
+      "7345010",
+      "7351978"
+     ],
+     "context": "general"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "The extra detail looks ugly at small sizes",
+     "ids": [
+      "7345010"
+     ]
+    }
+   ],
+   "strongest_criticism": "Ionicons' extra detail makes them ugly at small sizes (7345010)."
+  },
+  {
+   "tool": "Remix Icon",
+   "what_it_does": "Open-source neutral icon set (line/fill).",
+   "recommend_count": 1,
+   "mention_count": 2,
+   "recommended_for": [
+    {
+     "claim": "Another good open-source set",
+     "ids": [
+      "24567079"
+     ],
+     "context": "general"
+    }
+   ],
+   "criticisms": [],
+   "strongest_criticism": "No criticism found."
+  },
+  {
+   "tool": "Simple Icons",
+   "what_it_does": "Monochrome SVG brand logos (social/company), available on Iconify.",
+   "recommend_count": 2,
+   "mention_count": 4,
+   "recommended_for": [
+    {
+     "claim": "Monochrome brand logos, with brand-guideline and license metadata to stay compliant",
+     "ids": [
+      "44281307",
+      "41598391"
+     ],
+     "context": "brand"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Companies' brand guidelines often require their official logo assets, so lookalike logo sets can break the rules",
+     "ids": [
+      "5546824",
+      "15091238"
+     ]
+    }
+   ],
+   "strongest_criticism": "Real brands often require their official logo files unaltered, so a lookalike logo set may break their guidelines (5546824)."
+  },
+  {
+   "tool": "SVG Repo",
+   "what_it_does": "Search site for free SVGs with in-browser stroke/colour customization.",
+   "recommend_count": 1,
+   "mention_count": 3,
+   "recommended_for": [
+    {
+     "claim": "Lets you adjust stroke width and colour and copy the edited SVG",
+     "ids": [
+      "46666409"
+     ],
+     "context": "general"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "No link to source/license; listed licenses are sometimes wrong",
+     "ids": [
+      "46666820"
+     ]
+    }
+   ],
+   "strongest_criticism": "License labels are sometimes wrong (e.g. CC artwork listed as MIT) and sources aren't linked (46666820)."
+  }
+ ],
+ "approaches": [
+  {
+   "pattern": "Icon fonts (Font Awesome webfont, Material ligature font, IcoMoon fonts)",
+   "worked_or_rotted": "rotted",
+   "evidence": [
+    {
+     "claim": "Once won on IE support, single download, CSS colouring, and needing less CSS than sprite positioning",
+     "ids": [
+      "3730307",
+      "4324714",
+      "4662986",
+      "7344381",
+      "25304451"
+     ]
+    },
+    {
+     "claim": "Breaks when users or the Tor browser block custom fonts, showing tofu or raw ligature names; fonts are an attack surface",
+     "ids": [
+      "12355899",
+      "7352080",
+      "28261382",
+      "37444224",
+      "49546703"
+     ]
+    },
+    {
+     "claim": "Inaccessible: private-use glyphs and <i> tags give screen readers nothing",
+     "ids": [
+      "30844714",
+      "30846856",
+      "23328319"
+     ]
+    },
+    {
+     "claim": "Can't tree-shake; subsetting needs special tools; harder to align",
+     "ids": [
+      "30847011",
+      "30845870"
+     ]
+    },
+    {
+     "claim": "Once IE supported SVG there was no reason left for icon fonts; even Font Awesome now recommends SVG",
+     "ids": [
+      "37444224",
+      "30846958",
+      "26253562"
+     ]
+    },
+    {
+     "claim": "Counterpoint: a font is fine for many icons, SVG for a few, so measure for your case",
+     "ids": [
+      "26257994"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "SVG sprite (<symbol> + <use href>) recoloured with currentColor",
+   "worked_or_rotted": "worked",
+   "evidence": [
+    {
+     "claim": "One cached file; <svg><use href='sprite.svg#icon'/></svg> plus fill:currentColor inherits the text colour; wrap it in an icon component",
+     "ids": [
+      "31810882",
+      "26253749",
+      "36561474"
+     ]
+    },
+    {
+     "claim": "Inlining the sprite in the HTML makes icons available before the JS bundle runs",
+     "ids": [
+      "36561250",
+      "45241304"
+     ]
+    },
+    {
+     "claim": "Compile only the icons you need into one sprite to stay small (vs a 42KB Material font)",
+     "ids": [
+      "26326977"
+     ]
+    },
+    {
+     "claim": "Gotchas: can't reference a symbol from a CSS background url; cross-browser trouble in XSLT; old browsers rasterised sprites badly; don't wrap bitmaps in SVG",
+     "ids": [
+      "12725193",
+      "41579003",
+      "25304451",
+      "36561474"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Copy-paste / vendor raw inline SVGs (no icon library)",
+   "worked_or_rotted": "worked",
+   "evidence": [
+    {
+     "claim": "Copy SVG/JSX buttons make it easy to paste only what you need",
+     "ids": [
+      "25875907",
+      "35720720",
+      "23324238"
+     ]
+    },
+    {
+     "claim": "Vendoring a handful of Lucide SVGs (with attribution) instead of a dependency was praised",
+     "ids": [
+      "50381640"
+     ]
+    },
+    {
+     "claim": "Inline SVG called the most capable and compatible 'gold standard'; Font Awesome's own site uses inline SVG",
+     "ids": [
+      "24997114",
+      "25001344",
+      "26253562"
+     ]
+    },
+    {
+     "claim": "Inlining avoids layout shift, but it grows the DOM and can't be cached, so reserve width/height instead",
+     "ids": [
+      "46665930",
+      "46666839",
+      "46669037"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Icons as framework components / npm packages",
+   "worked_or_rotted": "mixed",
+   "evidence": [
+    {
+     "claim": "Components give clear props, built-in accessibility and per-icon imports",
+     "ids": [
+      "21820912",
+      "41600241"
+     ]
+    },
+    {
+     "claim": "Libraries often bundle the whole collection, inflating builds; viewBox/size inconsistencies remain",
+     "ids": [
+      "35710469"
+     ]
+    },
+    {
+     "claim": "Per-icon ESM CDN loading is brittle (ad blockers, CDN mismatches)",
+     "ids": [
+      "44193912"
+     ]
+    },
+    {
+     "claim": "An abandoned React wrapper forced a switch (Tabler UI)",
+     "ids": [
+      "32218236"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Mixing multiple icon sets",
+   "worked_or_rotted": "rotted",
+   "evidence": [
+    {
+     "claim": "SVGs from different libraries (and even one library) have subtly wrong viewBox/width/height, so they misalign side by side",
+     "ids": [
+      "35710469",
+      "31122886"
+     ]
+    },
+    {
+     "claim": "Stick to one pack for size consistency, or be ready to edit SVGs",
+     "ids": [
+      "46667166"
+     ]
+    },
+    {
+     "claim": "Varying detail and weight makes a set look like several sets shuffled together",
+     "ids": [
+      "7345682",
+      "7346069"
+     ]
+    },
+    {
+     "claim": "People still mix sets to fill gaps (Font Awesome + Ionicons, Heroicons + Font Awesome)",
+     "ids": [
+      "7351978",
+      "29872253"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Strict grid/stroke spec; extending a base set with custom icons drawn to its rules",
+   "worked_or_rotted": "mixed",
+   "evidence": [
+    {
+     "claim": "Treat icons as a system: encode grid, optical padding, stroke width, cap/join and corner radius, or stroke widths drift",
+     "ids": [
+      "46986823"
+     ]
+    },
+    {
+     "claim": "Material is simple enough to draw your own matching icons; a neutral base set is a good starting point to build out",
+     "ids": [
+      "46666165",
+      "24993215"
+     ]
+    },
+    {
+     "claim": "IcoMoon lets you add your own SVGs when the bought set lacks an icon",
+     "ids": [
+      "7345052",
+      "7345441"
+     ]
+    },
+    {
+     "claim": "Build on a well-known set and add custom icons only where it matters",
+     "ids": [
+      "37461428"
+     ]
+    },
+    {
+     "claim": "AI tools now restyle or generate icons to match a set's style (SF Symbols, Material, Phosphor, Lucide)",
+     "ids": [
+      "46006027",
+      "46277919",
+      "45091117",
+      "46667080"
+     ]
+    },
+    {
+     "claim": "Rotted: domain-specific icons never get drawn, and a generic placeholder stays forever",
+     "ids": [
+      "24996751"
+     ]
+    },
+    {
+     "claim": "LLMs drawing icons by hand get them wrong (a refresh arrow pointing the wrong way)",
+     "ids": [
+      "44597780"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Monochrome, recolourable icons tinted by theme vs multicolour icons",
+   "worked_or_rotted": "mixed",
+   "evidence": [
+    {
+     "claim": "Monochrome lets the system apply 1-2 semantic/theme colours; avoids shipping light/dark/state variants",
+     "ids": [
+      "24993010",
+      "24995903",
+      "24995828",
+      "24996169"
+     ]
+    },
+    {
+     "claim": "Multicolour icons themable via CSS were Iconic's selling point",
+     "ids": [
+      "7349001",
+      "7344932"
+     ]
+    },
+    {
+     "claim": "Monochrome look-alikes hurt recognition (GIMP users switched colour icons back on)",
+     "ids": [
+      "24992853",
+      "24993279",
+      "24993714"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "License compliance and attribution for 'free' icons",
+   "worked_or_rotted": "mixed",
+   "evidence": [
+    {
+     "claim": "MIT/ISC sets need the notice kept; the usual advice is a /license or credits page, or a link inside the SVG",
+     "ids": [
+      "34184175",
+      "34184600",
+      "34185234"
+     ]
+    },
+    {
+     "claim": "Using a licensed open-source icon as a logo means shipping its notice, which is awkward for branding",
+     "ids": [
+      "38709694",
+      "38709488"
+     ]
+    },
+    {
+     "claim": "Aggregators and SEO sites mislabel or drop licenses (CC BY-SA, CC 4.0)",
+     "ids": [
+      "34955665",
+      "46666820"
+     ]
+    },
+    {
+     "claim": "Commercial licenses capped per project or per icon count",
+     "ids": [
+      "7345654",
+      "7345803"
+     ]
+    },
+    {
+     "claim": "Using a brand's logo usually means following its official brand guidelines",
+     "ids": [
+      "5546824",
+      "44281307",
+      "15091238"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Size-specific icon detail (different drawings at small vs large sizes)",
+   "worked_or_rotted": "mixed",
+   "evidence": [
+    {
+     "claim": "Fewer details at small sizes improves legibility; few sets do it",
+     "ids": [
+      "7345824",
+      "7345466"
+     ]
+    },
+    {
+     "claim": "Changing the drawing by size hurts consistency and recall",
+     "ids": [
+      "7345682",
+      "7345718"
+     ]
+    },
+    {
+     "claim": "Hinting matters: SVG can't be hinted, while fonts can be grid-fitted",
+     "ids": [
+      "3730307",
+      "24994821"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Animated icons (Lottie, JS motion libs, CSS-only SVG transitions)",
+   "worked_or_rotted": "mixed",
+   "evidence": [
+    {
+     "claim": "Animated Lucide ports are popular, but many animations are just stroke-draws or wiggles that don't convey meaning",
+     "ids": [
+      "48432127",
+      "48436310"
+     ]
+    },
+    {
+     "claim": "Users asked for no-JS CSS/SVG hover versions; transform/opacity/stroke-draw can be flattened, springs and morphs can't",
+     "ids": [
+      "48434014",
+      "48434251",
+      "48444913",
+      "47309652"
+     ]
+    },
+    {
+     "claim": "Lottie icons from designers mean a heavy JS player and a JSON format that devs find painful",
+     "ids": [
+      "44095565",
+      "44088844"
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Defaulting to the AI/shadcn stack icon set (Lucide)",
+   "worked_or_rotted": "rotted",
+   "evidence": [
+    {
+     "claim": "Lucide plus Inter plus all-caps badges now reads as an AI-made product",
+     "ids": [
+      "47668467",
+      "44679986",
+      "46674925",
+      "48377571"
+     ]
+    },
+    {
+     "claim": "LLM system prompts hard-code lucide-react, which is why it is everywhere",
+     "ids": [
+      "44833859",
+      "44834162"
+     ]
+    }
+   ]
+  }
+ ],
+ "notable_threads": [
+  {
+   "id": "46665411",
+   "why": "2026 Iconify thread: 'best icon library?' poll (Material, Phosphor, Lucide, Tabler), the Lucide-as-slop debate, Noun Project SVG junk, inlining vs CLS"
+  },
+  {
+   "id": "7343956",
+   "why": "Iconic (2014): multicolour, size-dependent detail, JS vs font tradeoffs, licensing backlash, IcoMoon custom-font workflow"
+  },
+  {
+   "id": "24991908",
+   "why": "Fluent icons: monochrome vs colour debate, recolouring via CSS, neutral base set for a design system, why generic sets leave placeholder icons"
+  },
+  {
+   "id": "30844002",
+   "why": "USWDS thread: concise case against icon fonts (accessibility, tree-shaking); Font Awesome itself recommends SVG"
+  },
+  {
+   "id": "48395648",
+   "why": "Animated Lucide for Vue: which icon animations are meaningful vs decorative; no-JS CSS export"
+  },
+  {
+   "id": "34184175",
+   "why": "How to satisfy MIT attribution for icons on a website"
+  },
+  {
+   "id": "35710469",
+   "why": "Comment (Iconify for React Native) that best summarises cross-platform icon pain: unscalable PNGs vs viewBox chaos in SVG vs bundle bloat from libraries"
+  },
+  {
+   "id": "38709694",
+   "why": "Logo maker built on Lucide: licensed icons make poor logos"
+  },
+  {
+   "id": "31122110",
+   "why": "Tabler launch comment: Feather -> Lucide -> Tabler lineage and icon counts"
+  }
+ ],
+ "articles_fetched": [
+  {
+   "url": "https://iconify.design/",
+   "summary": "Iconify is an open-source framework unifying many icon sets, now 300k+ vector icons, with developer libraries and an API. Iconify's code is MIT/Apache, but each icon set keeps its own license, so you have to check each set's terms."
+  },
+  {
+   "url": "https://css-tricks.com/svg-sprites-use-better-icon-fonts/",
+   "summary": "Chris Coyier argues inline SVG via <symbol> sprites and <use> beats icon fonts: icons can be styled part by part with CSS, render more reliably and are semantically images (<title> works like alt text). Technique: combine the SVG files into one sprite (e.g. grunt-svgstore), include it at the top of the document, reference each icon with <use> and size it via CSS."
+  },
+  {
+   "url": "https://lucide.dev/license",
+   "summary": "Lucide is ISC-licensed; icons derived from Feather also carry Cole Bemis's MIT notice. Both require the copyright/permission notice to be kept in copies, which is the attribution obligation HN commenters flagged for logos."
+  }
+ ]
+}

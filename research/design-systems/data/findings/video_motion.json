@@ -1,0 +1,236 @@
+{
+ "_notes": "Source: packets/video_motion.txt (805 lines, all read), full threads 44088216, 29634114, 13543927, 37133128, 39930493, 33886673, 46732672, 48468095, plus an ontopic.json grep for mogrt / essential graphics / lower third / nexrender / extendscript / after effects template / remotion / hyperframes / motion canvas / expressions. mention_count is the number of distinct packet comments whose text names the tool, after removing name collisions: Lottie.org the care-home company, people named Lottie, Remotion the 2020-22 video-chat app, and a repeated freelancer signature. It is approximate and inflated by repeated hiring and freelancer posts, mainly for Framer Motion and Lottie. The ontopic grep added about 45 more on-topic Remotion stories that are not counted here. recommend_count is a hand count of distinct comments that read as an endorsement from use. nexrender has zero hits. MOGRT, Essential Graphics and ExtendScript have almost no discussion on HN.",
+ "tools": [
+  {"tool": "Lottie", "what_it_does": "JSON vector-animation format, originally an After Effects export via Bodymovin, with runtime players for web, iOS, Android, RN, Skia/ThorVG; now governed by the Lottie Animation Community (Linux Foundation).",
+   "recommend_count": 45, "mention_count": 429,
+   "recommended_for": [
+    {"claim": "Replaces multi-MB PNG sequences/GIFs with KB-sized resolution-independent JSON", "ids": ["13545440","13548838","22306171"], "context": "product"},
+    {"claim": "Closes the animator-to-developer handoff gap; one AE animator's work ships natively", "ids": ["13544878","44088610","44088996"], "context": "brand"},
+    {"claim": "PBS KIDS uses it for brand animations: one AE artist exports Lottie JSON for apps/games, MOV for broadcast and YouTube, and simplified SVG for low-end devices from the same source", "ids": ["44091391"], "context": "brand"},
+    {"claim": "Used for brand logo/hero animations on marketing sites (Stephen Hawking site logo, Webflow ecommerce hero)", "ids": ["29635131","16621314","17211815"], "context": "brand"},
+    {"claim": "Health/patient-education animation: a doctor's breathing app and a patient-education series built with AE + Lottie", "ids": ["34537791","34536823","13547637"], "context": "brand"},
+    {"claim": "Transparency/alpha overlays are its best feature vs video", "ids": ["29635554","29635768","44097138"], "context": "general"},
+    {"claim": "Runtime-editable text enables localisation without shipping many assets", "ids": ["44089657"], "context": "product"},
+    {"claim": "Data-driven 'wrapped'-style recap by addressing AE layers by name at runtime (works, but needed an extra library)", "ids": ["44092255"], "context": "brand"},
+    {"claim": "Best export target if a cloud animation tool shuts down (preserves vectors)", "ids": ["41851706"], "context": "general"}
+   ],
+   "criticisms": [
+    {"claim": "Most AE features are unsupported and AE gives no warning, so animators must author within limits from scratch", "ids": ["44090280","17211262","44088911","29636395","44091075"]},
+    {"claim": "Player/runtime weight (65kB to 250kB+) and bundle bloat hurt web performance/Lighthouse", "ids": ["29638670","29635960","24259944","28623270","44090044","44088590","39935218"]},
+    {"claim": "JSON is a poor, unreadable format; dynamic manipulation is near-impossible", "ids": ["44088844","43872748","44094484","44089109"]},
+    {"claim": "Tied to expensive proprietary After Effects; designers lack AE skills so it goes unused", "ids": ["29630488","29634870","29635321","21389032"]},
+    {"claim": "Hard to maintain; every UI change needs an AE person", "ids": ["29634924"]},
+    {"claim": "Teams reverted to MP4/WebM or animated WebP instead", "ids": ["29639114","44093363","44097031","44094826"]},
+    {"claim": "Rendering differs across the separate Airbnb players", "ids": ["39932491","39932721"]},
+    {"claim": "CPU hog in browser; rlottie unsafe for untrusted files", "ids": ["44091551","44090348","44090133"]},
+    {"claim": "Rendering Lottie to other formats is awkward (tools screenshot Chromium, breaking transparency)", "ids": ["44091415"]}
+   ],
+   "strongest_criticism": "You cannot take an existing After Effects project and convert it, because about 95% of AE features are off-limits and AE gives no feedback when you overstep, so an artist has to author from scratch within Lottie's limits (44090280)."},
+  {"tool": "Bodymovin", "what_it_does": "After Effects extension that exports compositions to Lottie JSON (also experimental AVD/SMIL exporters).",
+   "recommend_count": 6, "mention_count": 22,
+   "recommended_for": [
+    {"claim": "Simple to use: AE animation into a React app in about 15 minutes", "ids": ["13545117"], "context": "product"},
+    {"claim": "Go-to, most reliable way to get keyframe animation out of AE for the web", "ids": ["38413831","44376132"], "context": "general"},
+    {"claim": "bodymovin-to-smil gives JS-free SVG animation for above-the-fold content", "ids": ["29636597","44097200"], "context": "brand"}
+   ],
+   "criticisms": [
+    {"claim": "AVD exporter extremely beta, undocumented subset; SMIL converter poorly maintained", "ids": ["17211833","17213000","44097200"]}
+   ],
+   "strongest_criticism": "Lottie Android's author said the Bodymovin-to-AVD plugin is extremely beta and supports only a subset of AE features and none of Lottie's own, such as setting progress or dynamic properties (17211833)."},
+  {"tool": "dotLottie", "what_it_does": "LottieFiles' zipped superset of Lottie that bundles multiple animations and assets and adds theming, state machines, and a Rust/ThorVG cross-platform player.",
+   "recommend_count": 3, "mention_count": 9,
+   "recommended_for": [
+    {"claim": "Bundles animations and assets, so it is easier to keep out of the JS bundle and serve from a CDN", "ids": ["29641747","39936116"], "context": "product"},
+    {"claim": "One renderer (ThorVG) gives consistent output across platforms; theming built in", "ids": ["39932491","39933522","46856846"], "context": "general"}
+   ],
+   "criticisms": [
+    {"claim": "Web player WASM is about 308-326 KB, not the 16 KB people assumed", "ids": ["39936156","39936116"]}
+   ],
+   "strongest_criticism": "The dotLottie web player loads about 308 KB of WASM in addition to roughly 18 KB of JS (39936156)."},
+  {"tool": "Lottielab", "what_it_does": "Browser-based Lottie editor (Figma import, export to Lottie/dotLottie/GIF/MP4/WebM, interactivity standard).",
+   "recommend_count": 7, "mention_count": 18,
+   "recommended_for": [
+    {"claim": "Create/edit Lotties without After Effects", "ids": ["29634964","37133128","33889331"], "context": "product"},
+    {"claim": "Feels closest to Flash-like quick results; editor works well with SVGs", "ids": ["39680639","44089087","37141738"], "context": "brand"},
+    {"claim": "Figma to Lottie plugin", "ids": ["38530891"], "context": "product"}
+   ],
+   "criticisms": [
+    {"claim": "Exports are too big for landing pages unless you pay a monthly fee for their compressed hosting", "ids": ["44089087"]},
+    {"claim": "Cloud and subscription editors lock edit history behind a subscription", "ids": ["37142453"]}
+   ],
+   "strongest_criticism": "One user's landing-page animations were too large to use until they paid a $30 subscription for Lottielab's compressed hosting (44089087)."},
+  {"tool": "Rive", "what_it_does": "Interactive vector animation editor + binary runtime with state machines, data binding, scripting; open-source renderer.",
+   "recommend_count": 20, "mention_count": 93,
+   "recommended_for": [
+    {"claim": "Better than Lottie for interactivity/state machines and smaller files", "ids": ["29635279","36443069","39778089","44088594","44089082","32898409"], "context": "product"},
+    {"claim": "Consultant pushing healthcare and gaming clients from Lottie to Rive; others replaced Lottie and were happy", "ids": ["39770065","39770486"], "context": "product"},
+    {"claim": "Closest modern Flash replacement", "ids": ["47257764","47259087","49941467"], "context": "general"}
+   ],
+   "criticisms": [
+    {"claim": "Cloud-only editor at $39/mo; files locked online; free plan can't export", "ids": ["39816996","39817019","47257621","41846493","47262867"]},
+    {"claim": "Performance and React Native problems in practice", "ids": ["44094025","43662662","46268126","37143225"]},
+    {"claim": "Not an AE pipeline; less artistic drawing tools; text support came late", "ids": ["33887782","44089151","32898409"]},
+    {"claim": "Vendor comparison vs Lottie disputed as inaccurate", "ids": ["43573680"]}
+   ],
+   "strongest_criticism": "The editor is a $39/month online tool and your files stay locked online, so you have to keep paying to edit even a simple animation later (39817019)."},
+  {"tool": "After Effects (incl. expressions/scripting)", "what_it_does": "Adobe's motion-graphics compositor; JS-based expressions and ExtendScript; source for Lottie, MOGRTs, broadcast renders.",
+   "recommend_count": 10, "mention_count": 121,
+   "recommended_for": [
+    {"claim": "Still hard to beat for motion graphics; JS expressions/scripting are a plus", "ids": ["43654878","687573","17548059"], "context": "brand"},
+    {"claim": "Single source exporting to broadcast MOV, YouTube and Lottie", "ids": ["44091391"], "context": "brand"},
+    {"claim": "Assets made in AE, then templated and batch-rendered with code (Remotion)", "ids": ["47485960"], "context": "brand"},
+    {"claim": "Agent/MCP control of AE comps (create text layers, keyframes, expressions)", "ids": ["43674811"], "context": "general"},
+    {"claim": "Agentic tools keep AE export so humans can polish", "ids": ["47157518"], "context": "brand"}
+   ],
+   "criticisms": [
+    {"claim": "Steep learning curve; misery to use; few product designers know it", "ids": ["13547230","29634870","37133128","37141738"]},
+    {"claim": "Wrong tool for UI/web animation; lets designers make unbuildable things", "ids": ["39125241","29636395","14201622"]},
+    {"claim": "Simple effects like a typewriter need complicated expressions", "ids": ["43878910"]}
+   ],
+   "strongest_criticism": "Lottielab's founder called AE a 30-year-old VFX tool that isn't fit for product animation, with a steep learning curve and a patchwork of error-prone plugins (37133128)."},
+  {"tool": "Premiere MOGRT / Essential Graphics", "what_it_does": "Motion Graphics Templates authored in AE with exposed properties, editable in Premiere's Essential Graphics panel.",
+   "recommend_count": 0, "mention_count": 4,
+   "recommended_for": [
+    {"claim": "Developers want MOGRT access in Premiere's UXP API so overlay graphics can be placed automatically from transcript cues", "ids": ["44203377","44206848","44231843"], "context": "brand"}
+   ],
+   "criticisms": [
+    {"claim": "Premiere's new UXP API lacks MOGRT and transcript support that CEP had; Adobe says MOGRT is coming in UXP 1.0", "ids": ["44203377","44228794"]}
+   ],
+   "strongest_criticism": "Premiere Pro's UXP scripting API still lacks the MOGRT and transcript support that CEP had, which blocks automating overlay graphics (44203377)."},
+  {"tool": "Remotion", "what_it_does": "React framework that renders videos frame by frame via headless Chrome and FFmpeg; props or JSON drive templated videos; Lambda render fan-out; source-available license (company license above 3 employees).",
+   "recommend_count": 30, "mention_count": 131,
+   "recommended_for": [
+    {"claim": "Template + script that pumps out repeat-format videos; good partial AE replacement for overlays", "ids": ["47485960"], "context": "brand"},
+    {"claim": "D2C brand built an in-house editor on Remotion to produce luxury-look social and ad creatives quickly", "ids": ["48810576"], "context": "brand"},
+    {"claim": "Captions/subtitles: burn in .srt with effects, TikTok-style captions, caption-style skills", "ids": ["40655710","48453561","41196000","48016741","39873987"], "context": "brand"},
+    {"claim": "Social-ready shareable videos and marketing videos generated from app, recipe or site data", "ids": ["47304910","47240837","48370535"], "context": "brand"},
+    {"claim": "Brand-inheriting pipelines: scrape a site's computed colors/fonts and inject into components; agent skill that analyzes your styling to set branding and exposes scene props for live tweaking", "ids": ["46732672","46694975"], "context": "brand"},
+    {"claim": "Reusable animation primitives in place of a $2000 motion-design agency launch video", "ids": ["47263802"], "context": "brand"},
+    {"claim": "Good for data-driven/templated, reproducible video; parameterized React templates with props", "ids": ["46720373","46705553"], "context": "general"},
+    {"claim": "Pairs well with Claude Code / LLMs, which code video better than they prompt generative video", "ids": ["45983189","48940484","48871804","50329141"], "context": "brand"},
+    {"claim": "Lambda fan-out speeds rendering; WYSIWYG editing with complex timelines", "ids": ["50369261","50369392","40877191"], "context": "general"},
+    {"claim": "Can embed Lottie", "ids": ["44061811"], "context": "general"}
+   ],
+   "criticisms": [
+    {"claim": "Slow and costly rendering via Chromium: 1-2 full-HD frames/sec per instance; subtitles ~10x FFmpeg cost; machines maxed out; PixiJS rewrite 3-4x faster", "ids": ["40653433","47473885","40878942","50302553","48461381"]},
+    {"claim": "Declarative React is a poor language for motion graphics beyond basics; text-on-canvas weak", "ids": ["47176428","47177441","34899421"]},
+    {"claim": "Source-available license; companies over 3 people must pay", "ids": ["40656963","42813933","47176428"]},
+    {"claim": "Preview/render mismatches and non-deterministic headless Chrome; people rebuilt their own renderers", "ids": ["44182738","50053338","43822170","43816908"]},
+    {"claim": "React/Remotion is not agent-friendly; agents must learn a custom framework (HyperFrames' pitch)", "ids": ["47902856"]},
+    {"claim": "Results mediocre without strong models/skills; poor on mobile", "ids": ["46855764","34668949","43555239"]}
+   ],
+   "strongest_criticism": "One builder of a large Remotion pipeline for a major AI-video company said a single instance renders at best 1-2 full-HD frames per second, which makes longer videos expensive (40653433)."},
+  {"tool": "Revideo / Motion Canvas", "what_it_does": "Canvas-based code-to-video using generator functions; Revideo is an MIT-licensed Motion Canvas fork adding headless rendering and audio.",
+   "recommend_count": 3, "mention_count": 9,
+   "recommended_for": [
+    {"claim": "Generator/procedural timelines are more natural than Remotion's frame-number model", "ids": ["34899421","40649236","40650713"], "context": "general"},
+    {"claim": "MIT license vs Remotion's paid company license", "ids": ["40656963","40656948"], "context": "brand"}
+   ],
+   "criticisms": [
+    {"claim": "Speed vs Remotion unproven: faster in some cases, slower in others", "ids": ["40655238"]}
+   ],
+   "strongest_criticism": "Revideo's own author said it was faster than Remotion in some cases and slightly slower in others (40655238)."},
+  {"tool": "HyperFrames", "what_it_does": "HeyGen's Apache-2.0 HTML+CSS+GSAP to MP4 framework (headless Chrome + FFmpeg), aimed at coding agents; supports Lottie and a frame.md brand-to-video file.",
+   "recommend_count": 1, "mention_count": 3,
+   "recommended_for": [
+    {"claim": "Plain HTML/GSAP is easier for agents than React/Remotion", "ids": ["47902856","47822362"], "context": "brand"}
+   ],
+   "criticisms": [
+    {"claim": "Feels vibe-coded; Remotion has better infra/rendering; heavy on resources", "ids": ["50369261","50302553"]}
+   ],
+   "strongest_criticism": "A builder compared it with Remotion and said it feels vibe-coded, that LLMs have to learn its syntax from scratch, and that rendering is slow (50369261)."},
+  {"tool": "Cavalry", "what_it_does": "Procedural 2D motion design app; exports Lottie.",
+   "recommend_count": 2, "mention_count": 3,
+   "recommended_for": [{"claim": "Most powerful AE competitor for 2D procedural motion; exports Lottie", "ids": ["33891446","29636653"], "context": "brand"}],
+   "criticisms": [{"claim": "Lottie export only in Pro", "ids": ["29637064"]}],
+   "strongest_criticism": "Lottie export appears to require the Pro version (29637064)."},
+  {"tool": "GSAP", "what_it_does": "JS timeline animation library (now free via Webflow).",
+   "recommend_count": 3, "mention_count": 11,
+   "recommended_for": [{"claim": "Code-defined dynamic web animation where Lottie's static JSON can't adapt", "ids": ["43872748","20204972"], "context": "general"}],
+   "criticisms": [{"claim": "Too big for small site animations; authoring cumbersome", "ids": ["24259944","43872748"]}],
+   "strongest_criticism": "One team ruled GSAP out as too large for its simple site animations and used SVGator instead (24259944)."},
+  {"tool": "Framer Motion", "what_it_does": "React UI animation library.",
+   "recommend_count": 2, "mention_count": 43,
+   "recommended_for": [{"claim": "React UI micro-animation alongside design systems", "ids": ["30317557","35183081"], "context": "product"}],
+   "criticisms": [{"claim": "Hard to use outside React (Svelte/Vue)", "ids": ["49933048"]}],
+   "strongest_criticism": "The JS version could not be used with Svelte or Vue without big caveats, which made complex animations impossible (49933048)."},
+  {"tool": "Manim", "what_it_does": "Python math-animation engine (3Blue1Brown).",
+   "recommend_count": 1, "mention_count": 7,
+   "recommended_for": [{"claim": "Math-visualization explainers alongside Remotion for process videos", "ids": ["49259309"], "context": "general"}],
+   "criticisms": [{"claim": "Designed for a specific use case", "ids": ["40589696"]}],
+   "strongest_criticism": "One commenter who tried it found it cool but built for one specific use case (40589696)."},
+  {"tool": "DaVinci Resolve / Fusion", "what_it_does": "Editing/color/Fusion compositing suite; recently added Lottie and OGraf (EBU HTML motion-graphics standard) support.",
+   "recommend_count": 2, "mention_count": 6,
+   "recommended_for": [
+    {"claim": "Overtaking Premiere for editing, though AE still wins for motion graphics", "ids": ["43654878","33373076"], "context": "brand"},
+    {"claim": "New release adds Lottie support and OGraf, an EBU standard for HTML motion graphics", "ids": ["47762065"], "context": "brand"}
+   ],
+   "criticisms": [{"claim": "Features buried in menus; hard for simple tasks", "ids": ["45980760"]}],
+   "strongest_criticism": "Founders said simple tasks were frustrating in Resolve and Premiere because features are hidden behind menus, buttons and icons (45980760)."},
+  {"tool": "Theatre.js", "what_it_does": "Open-source motion graphics editor for the web.", "recommend_count": 0, "mention_count": 3,
+   "recommended_for": [], "criticisms": [], "strongest_criticism": "None found. The only mentions are hiring posts (21940999, 29410230)."},
+  {"tool": "nexrender", "what_it_does": "CLI/server for data-driven After Effects template rendering.", "recommend_count": 0, "mention_count": 0,
+   "recommended_for": [], "criticisms": [], "strongest_criticism": "None found. It has no mentions in the corpus."}
+ ],
+ "approaches": [
+  {"pattern": "AE -> Bodymovin -> Lottie for web/app brand moments (logo, hero, loaders)", "worked_or_rotted": "mixed",
+   "evidence": [
+    {"claim": "Worked for small sets of brand moments with a dedicated motion designer", "ids": ["29635131","17211815","29634924","44091391"]},
+    {"claim": "Rotted when the AE-skilled person was missing or animations had to keep pace with UI changes; teams fell back to video/WebP", "ids": ["29634870","29634924","44093363","44097031"]},
+    {"claim": "Animators must be told which features to avoid, and sign-off sometimes comes on designs that won't export", "ids": ["17211262","44088911","44091075"]}
+   ]},
+  {"pattern": "One AE master -> many outputs (Lottie JSON for apps, MOV for broadcast/YouTube, simplified SVG fallback)", "worked_or_rotted": "worked",
+   "evidence": [{"claim": "PBS KIDS has run this for years across game, app and video pipelines, with static fallbacks for Roku", "ids": ["44091391"]}]},
+  {"pattern": "Brand tokens / site styles -> Remotion props -> rendered social video", "worked_or_rotted": "mixed",
+   "evidence": [
+    {"claim": "Scraping a live site's colors/fonts into Remotion components, or an agent skill deriving branding from your styles and exposing scene props", "ids": ["46732672","46694975"]},
+    {"claim": "AE-made assets + Remotion template + script mass-produce repeat-format videos", "ids": ["47485960"]},
+    {"claim": "D2C brand's in-house Remotion editor for consistent luxury social creatives", "ids": ["48810576"]},
+    {"claim": "Cost and speed of Chromium rendering and the license are recurring pain points; several teams left for PixiJS or custom renderers", "ids": ["40653433","47473885","43822170","48461381","40656963"]}
+   ]},
+  {"pattern": "Code-generated captions/subtitles (Whisper transcript -> styled captions -> render)", "worked_or_rotted": "mixed",
+   "evidence": [
+    {"claim": "Built and used for subtitles/TikTok captions", "ids": ["40655710","48453561","41196000","41181522","39873987"]},
+    {"claim": "Text measurement for dynamic subtitles is hard; chromium subtitle burn-in ~10x FFmpeg cost", "ids": ["47566261","47473885"]}
+   ]},
+  {"pattern": "LLM/agent writes motion-graphics code (Remotion/HyperFrames) instead of generative video", "worked_or_rotted": "mixed",
+   "evidence": [
+    {"claim": "Code-based videos look better and are more controllable/editable than generative clips", "ids": ["48940484","48871804","50329141","45983189","49826854"]},
+    {"claim": "Output is generic without brand injection or strong models; models lack visual feedback", "ids": ["46855764","45488065","46732672"]}
+   ]},
+  {"pattern": "HTML/CSS overlay primitives (lower thirds, title cards) rendered without a timeline app", "worked_or_rotted": "mixed",
+   "evidence": [{"claim": "Several new tools ship lower thirds, headline cards and kinetic type as HTML/CSS (some skip the browser entirely for speed); all are new and unproven", "ids": ["47487694","47369377","50086224"]}]},
+  {"pattern": "MOGRT with exposed properties, driven by Premiere scripting", "worked_or_rotted": "mixed",
+   "evidence": [{"claim": "Wanted for transcript-cued overlays, but the new UXP API lacked MOGRT support until a promised 1.0 release", "ids": ["44203377","44228794","44231843"]}]},
+  {"pattern": "Lottie theming / recolor at runtime (dotLottie themes, LottieFiles color editor)", "worked_or_rotted": "mixed",
+   "evidence": [
+    {"claim": "dotLottie adds theming and multi-animation bundling", "ids": ["39932491","39936116"]},
+    {"claim": "The LottieFiles web editor only changes layer colors in existing files", "ids": ["33888592"]},
+    {"claim": "Dynamic data/layer access in Lottie is all but impossible without extra libraries", "ids": ["44092255","43872748"]}
+   ]},
+  {"pattern": "Render to transparent video (HEVC/VP9 alpha, ProRes -> ffmpeg) instead of a runtime format", "worked_or_rotted": "worked",
+   "evidence": [{"claim": "Works for complex AE animations on web with two encodes; designers export ProRes and devs compress", "ids": ["44094826","44106052","44161163"]}]},
+  {"pattern": "Cloud-only animation editors (Fable, Rive, Lottielab hosting)", "worked_or_rotted": "rotted",
+   "evidence": [{"claim": "Fable shut down and deleted project files, offering only rendered exports; Rive has no local save, and its free plan can't export", "ids": ["41851706","41846493","47257621"]}]}
+ ],
+ "notable_threads": [
+  {"id": "44088216", "why": "Lottie as an open format (2025): the most candid thread on the AE-to-Lottie pain, file size, and PBS KIDS multi-output brand use."},
+  {"id": "29634114", "why": "Lottie ecosystem 2021: non-AE authoring tools, dotLottie origin, the 'nobody knows AE' adoption failure."},
+  {"id": "13543927", "why": "Lottie launch with the Airbnb authors; why AE was chosen and its perf caveats (masks/mattes)."},
+  {"id": "37133128", "why": "Lottielab launch: AE called unfit for product animation; Rive vs Lottie performance argument."},
+  {"id": "39930493", "why": "dotLottie Rust/ThorVG player: cross-platform rendering consistency, theming, real web payload size."},
+  {"id": "40646741", "why": "Revideo launch: generator vs Remotion's frame model, licensing, render cost at scale (40653433)."},
+  {"id": "47176428", "why": "Cardboard launch subthread: detailed argument that declarative Remotion is wrong for motion graphics, plus WebCodecs pitfalls."},
+  {"id": "50368804", "why": "Kino AI (Nov 2026): why teams choose Remotion over HyperFrames (Lambda fan-out, maturity)."},
+  {"id": "47473885", "why": "WebGPU editor: Remotion DX great but chromium overhead about 10x for subtitles; Remotion as partial AE replacement for templated videos (47485960)."},
+  {"id": "44203377", "why": "The only real MOGRT discussion: Premiere UXP API gaps and Adobe's roadmap reply."},
+  {"id": "46732672", "why": "FreeMotion: scraping site styles to make Remotion videos inherit brand identity, the closest to tokens-to-video."},
+  {"id": "47902856", "why": "HyperFrames launch: HTML+GSAP framework built because agents struggled to write Remotion."},
+  {"id": "48468095", "why": "Remotion as an LLM video benchmark; linked mesmer.tools comparisons (1 comment)."}
+ ],
+ "articles_fetched": [
+  {"url": "https://lottie.github.io/", "summary": "The Lottie Animation Community, a non-profit project hosted by the Linux Foundation under the Joint Development Foundation, is formalizing a Lottie spec. The page admits some features used by current players are still outside the spec. AE plus a plugin remains the common authoring path, and dotLottie (.lottie) is described as a separate LottieFiles archive format."},
+  {"url": "https://www.lottielab.com/", "summary": "Lottielab pitches a collaborative browser editor for product teams, with fast Figma and After Effects import, free templates and 1:1 Lottie playback across iOS, Android and web. Its tools convert to dotLottie, GIF, MP4 and WebM and include hosting. The homepage says nothing about brand theming or variables."},
+  {"url": "https://github.com/heygen-com/hyperframes", "summary": "HyperFrames (Apache 2.0, from HeyGen) turns HTML files with timing data-attributes into deterministic MP4. It animates via GSAP, CSS, Lottie or Three.js and renders through headless Chrome and FFmpeg, locally, in Docker or on Lambda. It ships agent skills, a block catalog that includes captions and overlays, and a 'frame.md' that converts a brand's design system into a form suitable for video."}
+ ]
+}

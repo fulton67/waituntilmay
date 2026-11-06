@@ -1,0 +1,1248 @@
+{
+ "tools": [
+  {
+   "tool": "Storybook",
+   "what_it_does": "Isolated component workshop and living docs site; renders components with states, controls and stories; base for visual tests.",
+   "recommend_count": 23,
+   "mention_count": 32,
+   "recommended_for": [
+    {
+     "claim": "Implemented-DS showcase that devs and designers trust more than a Figma spec; best single change for designer-developer relations",
+     "ids": [
+      28496035,
+      32152165,
+      37227723,
+      47565472
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "Must-have once 3+ devs share components; good on fresh projects",
+     "ids": [
+      28499348,
+      28499447,
+      41594763,
+      44223321
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "Paired with Chromatic/MSW gives strong ROI on UI testing",
+     "ids": [
+      24133124,
+      28499447,
+      39700168,
+      48433451
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "Discoverability: lets brand updates propagate across teams and lets freelancers grasp the UI feel",
+     "ids": [
+      39698579,
+      38480671
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "Hub in token pipelines (Figma -> Tokens Studio -> library <-> Storybook -> MCP for agents)",
+     "ids": [
+      46672545
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Generic endorsements as the default component workshop",
+     "ids": [
+      28499394,
+      28499425,
+      28502937,
+      26300213,
+      36799161,
+      36983789,
+      14509589,
+      35384915,
+      33073443
+     ],
+     "context": "general"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Encourages treating components in isolation, missing page/context composition",
+     "ids": [
+      28498897,
+      28501541
+     ]
+    },
+    {
+     "claim": "Heavy dependency tree and security-advisory churn; some moved to Ladle or Histoire for speed",
+     "ids": [
+      39701233,
+      37067790,
+      37072618
+     ]
+    },
+    {
+     "claim": "Maintenance overhead (CMS integration, upgrades); many public Storybook sites are poor docs; 'Storybook hell'",
+     "ids": [
+      39698388,
+      41055820,
+      47819304,
+      32215534
+     ]
+    }
+   ],
+   "strongest_criticism": "Overhead and dependency weight only pay off when several devs maintain a coded component library; a single-brand content system without a component codebase gets little from it (28499348, 47819304, 39701233)."
+  },
+  {
+   "tool": "Chromatic",
+   "what_it_does": "Hosted visual regression testing and Storybook publishing (screenshots each story across browsers/viewports, diffs on PR).",
+   "recommend_count": 10,
+   "mention_count": 10,
+   "recommended_for": [
+    {
+     "claim": "Replaces brittle snapshot tests with visual diffs across browsers and viewports",
+     "ids": [
+      24133077,
+      24133451,
+      24134832,
+      24133207
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "High ROI when paired with Storybook; used in migrations from Figma-as-truth to code-as-truth",
+     "ids": [
+      28499447,
+      28499394,
+      28502970,
+      28499425,
+      39700168,
+      48433451
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [],
+   "strongest_criticism": "No substantive criticism found; only relevant if there is a Storybook. Many keyword hits were 'chromatic' in the colour/optics sense and were excluded (e.g. 943716, 14324099, 35991173)."
+  },
+  {
+   "tool": "Ladle",
+   "what_it_does": "Lightweight Vite-based Storybook alternative for React stories.",
+   "recommend_count": 2,
+   "mention_count": 2,
+   "recommended_for": [
+    {
+     "claim": "Faster, fewer deps; chosen after Storybook vulnerability churn",
+     "ids": [
+      37571346,
+      39701233
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [],
+   "strongest_criticism": "Thin evidence (2 comments); React-only."
+  },
+  {
+   "tool": "Histoire",
+   "what_it_does": "Vite-native story/workshop tool, Vue-first, Storybook alternative.",
+   "recommend_count": 4,
+   "mention_count": 6,
+   "recommended_for": [
+    {
+     "claim": "Noticeably better performance than Storybook for Vue/Svelte projects",
+     "ids": [
+      37069818,
+      37067190,
+      37072618,
+      37068056
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Weak landing page/docs; seen as Vue-ecosystem NIH",
+     "ids": [
+      37067790,
+      37070333
+     ]
+    }
+   ],
+   "strongest_criticism": "Ecosystem-specific (Vue) and small community (37070333)."
+  },
+  {
+   "tool": "Fractal",
+   "what_it_does": "Node-based pattern library/component documentation tool (template-agnostic).",
+   "recommend_count": 1,
+   "mention_count": 2,
+   "recommended_for": [
+    {
+     "claim": "Simpler than Storybook for template/HTML-first pattern libraries",
+     "ids": [
+      28494979
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Heavy dependency footprint",
+     "ids": [
+      28499118
+     ]
+    }
+   ],
+   "strongest_criticism": "Barely discussed; most keyword hits were the maths term (excluded: 9095613, 31263708, 32371994, 46955146, 46256659)."
+  },
+  {
+   "tool": "Pattern Lab",
+   "what_it_does": "Atomic-design pattern library generator (Brad Frost).",
+   "recommend_count": 0,
+   "mention_count": 0,
+   "recommended_for": [],
+   "criticisms": [],
+   "strongest_criticism": "Only mentioned in passing; no substantive recommend/criticise comments found."
+  },
+  {
+   "tool": "zeroheight",
+   "what_it_does": "Hosted design system documentation site that pulls from Figma and Storybook.",
+   "recommend_count": 5,
+   "mention_count": 12,
+   "recommended_for": [
+    {
+     "claim": "Docs site can be styled to your own brand; good content; used alongside Figma+Storybook",
+     "ids": [
+      21410514,
+      21412512,
+      41594763,
+      44223279,
+      43536508
+     ],
+     "context": "brand"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Keeping design and code component parity in docs is still hard",
+     "ids": [
+      21412412
+     ]
+    },
+    {
+     "claim": "Exists because Figma can't host system docs natively, adding another paid layer",
+     "ids": [
+      33073443
+     ]
+    }
+   ],
+   "strongest_criticism": "Another paid layer to keep in sync; parity between Figma, code and docs remains manual (21412412, 33073443). Mention count includes 5 job posts naming it."
+  },
+  {
+   "tool": "Figma",
+   "what_it_does": "Collaborative browser design tool; libraries, components, Variables (tokens), auto layout; common design source of truth.",
+   "recommend_count": 10,
+   "mention_count": 28,
+   "recommended_for": [
+    {
+     "claim": "Won the market through browser collaboration, libraries and tokens; migrations of 200 designers from Sketch",
+     "ids": [
+      45782595,
+      33114380,
+      44492885,
+      34258558
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "A small DS file (colours, gradients, shadows, type) is enough for a brand; libraries are 'bliss' when used correctly",
+     "ids": [
+      33101860,
+      47813174
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "Marketing use: OG/social images rendered from frames; Tokens Studio PR flow syncs tokens to code",
+     "ids": [
+      25932979,
+      42456253,
+      29115325
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "AI tools (Claude Design) can build a DS from brand guidelines",
+     "ids": [
+      47858158
+     ],
+     "context": "brand"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Tokens are painful: Variables limited/enterprise-locked, tokens couldn't reference tokens, need plugins, generated token sets balloon",
+     "ids": [
+      32852715,
+      32859454,
+      42456253,
+      42457647,
+      47744586,
+      42450322,
+      46507108
+     ]
+    },
+    {
+     "claim": "Treats the DS as a picture; code is the real source of truth; Inspect/Copy CSS output misleading",
+     "ids": [
+      33015114,
+      38631807,
+      38634837,
+      32928133,
+      47819584,
+      41061237,
+      26298515
+     ]
+    },
+    {
+     "claim": "Figma Make/AI ignores your tokens and can't import brand guidelines",
+     "ids": [
+      47813174,
+      48432333
+     ]
+    },
+    {
+     "claim": "No enforcement of spacing/classes; heavy files (M3 kit) unresponsive; fussing over social images is slow",
+     "ids": [
+      25142677,
+      37145720,
+      44490181,
+      46512866
+     ]
+    }
+   ],
+   "strongest_criticism": "Figma is a picture of the system, not the system: tokens are better kept in code/JSON and pushed into Figma, not the reverse (33015114, 38634837, 42457647)."
+  },
+  {
+   "tool": "Penpot",
+   "what_it_does": "Open-source, self-hostable, SVG/CSS-native Figma alternative with tokens and MCP.",
+   "recommend_count": 9,
+   "mention_count": 19,
+   "recommended_for": [
+    {
+     "claim": "Close Figma-like UI, self-hostable, standards-based (SVG/CSS), cheaper; native design tokens and MCP",
+     "ids": [
+      32851779,
+      33018639,
+      46067169,
+      46069831,
+      32879911,
+      46066151,
+      46066155,
+      46073458
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Claude Design -> Penpot MCP can build tokens/components",
+     "ids": [
+      47833070
+     ],
+     "context": "brand"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Performance collapses on large files (around 1000 layers vs 10-40k typical DS files); crashes, memory",
+     "ids": [
+      33013123,
+      46065853,
+      46065445,
+      46917938
+     ]
+    },
+    {
+     "claim": "Bugs: doc changes on navigation, text can't convert to paths, font export issues; weaker variants/auto layout historically",
+     "ids": [
+      46068577,
+      46067374,
+      46076140,
+      46071014,
+      46076987,
+      32859537
+     ]
+    }
+   ],
+   "strongest_criticism": "Performance and export fidelity (text-to-path, fonts) are weak spots that matter for social-asset export; new renderer promised (33013123, 46076140, 46073458)."
+  },
+  {
+   "tool": "Sketch",
+   "what_it_does": "Mac vector UI design tool; symbols/libraries.",
+   "recommend_count": 1,
+   "mention_count": 6,
+   "recommended_for": [
+    {
+     "claim": "Craft/shared libraries worked for early teams",
+     "ids": [
+      11770274
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Symbol systems got messy (Airbnb used layer groups); a Sketch kit without code is not a design system; tokens were an afterthought",
+     "ids": [
+      11768420,
+      11771482,
+      16160052,
+      16820309,
+      45782595
+     ]
+    }
+   ],
+   "strongest_criticism": "Superseded by Figma; a drawing kit is not a system (16160052, 16820309)."
+  },
+  {
+   "tool": "Framer",
+   "what_it_does": "Visual site builder with React components; used for marketing sites.",
+   "recommend_count": 3,
+   "mention_count": 5,
+   "recommended_for": [
+    {
+     "claim": "Marketing site in Framer mirroring the app's shadcn global.css colour variables kept brand consistent",
+     "ids": [
+      46065877
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "Auto layout / prototyping praised",
+     "ids": [
+      26604578,
+      32859537
+     ],
+     "context": "general"
+    }
+   ],
+   "criticisms": [],
+   "strongest_criticism": "Little criticism; its token copy must be kept in sync by hand (46065877)."
+  },
+  {
+   "tool": "shadcn/ui",
+   "what_it_does": "Copy-into-your-repo React components on Radix + Tailwind, themed via CSS variables in one global.css.",
+   "recommend_count": 9,
+   "mention_count": 24,
+   "recommended_for": [
+    {
+     "claim": "Fast scaffold for a branded component library; themable via a single CSS variable file; good basis for a DS",
+     "ids": [
+      36730103,
+      43545255,
+      46536193,
+      47985163,
+      38984699
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "General praise for defaults and ownership model",
+     "ids": [
+      46531752,
+      48162008,
+      46690343,
+      39953444
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Default look is instantly recognisable / generic 'AI slop'; branded companies don't ship it raw",
+     "ids": [
+      47985939,
+      47865416,
+      43812386,
+      46685650,
+      46437769,
+      40861040
+     ]
+    },
+    {
+     "claim": "Too few tokens, no versioning, copy-paste drift; teams end up rewriting or restarting from Radix",
+     "ids": [
+      43910048,
+      43346628,
+      39348588,
+      43543022,
+      37664897,
+      46534316
+     ]
+    },
+    {
+     "claim": "Overcomplex primitives and React-only assumptions",
+     "ids": [
+      46690569,
+      46689431,
+      46689962
+     ]
+    }
+   ],
+   "strongest_criticism": "Left at its defaults it looks generic; brand value only comes from replacing them (47985939, 47865416, 40861040)."
+  },
+  {
+   "tool": "Radix",
+   "what_it_does": "Unstyled accessible React primitives (plus Radix Themes with tokens).",
+   "recommend_count": 12,
+   "mention_count": 16,
+   "recommended_for": [
+    {
+     "claim": "Default foundation for custom DSs and white-label theming",
+     "ids": [
+      38629896,
+      41618884,
+      41594763,
+      29116824,
+      30317557,
+      31242649,
+      33788903
+     ],
+     "context": "product"
+    },
+    {
+     "claim": "Radix Themes / Colors token scales are well designed",
+     "ids": [
+      40065644,
+      40867812
+     ],
+     "context": "general"
+    },
+    {
+     "claim": "Nicer DX",
+     "ids": [
+      35853692,
+      35857460,
+      41534007
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Bundle size/'bloat'; support worries after acquisition; React-only; Base UI now preferred by some",
+     "ids": [
+      34337597,
+      34337549,
+      35853692,
+      46689962,
+      47011788
+     ]
+    }
+   ],
+   "strongest_criticism": "React-only web primitives; irrelevant to social/video outputs (46689962)."
+  },
+  {
+   "tool": "React Aria",
+   "what_it_does": "Adobe's accessible hooks/components (behind Spectrum).",
+   "recommend_count": 10,
+   "mention_count": 13,
+   "recommended_for": [
+    {
+     "claim": "Best-in-class accessibility; WCAG AA out of the box saved days",
+     "ids": [
+      29118016,
+      23921320,
+      23920567,
+      29120692,
+      29120902,
+      37723152,
+      46691400,
+      46698835,
+      42308804,
+      36082122
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Learning curve, odd TS, not Preact-friendly; Spectrum itself hard to restyle",
+     "ids": [
+      37723152,
+      29123245,
+      30420887,
+      26735736
+     ]
+    }
+   ],
+   "strongest_criticism": "Steep learning curve for a small site (37723152)."
+  },
+  {
+   "tool": "Base UI",
+   "what_it_does": "Unstyled React primitives from the MUI/Radix authors (v1 2025).",
+   "recommend_count": 5,
+   "mention_count": 7,
+   "recommended_for": [
+    {
+     "claim": "Seen as successor to Radix with better primitives",
+     "ids": [
+      46245401,
+      46245480,
+      46245638,
+      47011788,
+      46956364
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Docs examples with invisible inputs (disputed)",
+     "ids": [
+      46260946,
+      46273740
+     ]
+    }
+   ],
+   "strongest_criticism": "Young project; minor docs complaints (46260946)."
+  },
+  {
+   "tool": "Headless UI",
+   "what_it_does": "Tailwind Labs' unstyled accessible components.",
+   "recommend_count": 5,
+   "mention_count": 7,
+   "recommended_for": [
+    {
+     "claim": "Pairs with Tailwind for custom-styled UIs",
+     "ids": [
+      27763053,
+      29117536,
+      29119444,
+      31122886,
+      46245638
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Not truly headless (opinionated markup)",
+     "ids": [
+      29118832,
+      29119019
+     ]
+    }
+   ],
+   "strongest_criticism": "Small component set; opinionated markup (29118832)."
+  },
+  {
+   "tool": "MUI",
+   "what_it_does": "Material-based React component library with theming.",
+   "recommend_count": 5,
+   "mention_count": 11,
+   "recommended_for": [
+    {
+     "claim": "Fast start; can be customised to a brand (Lago)",
+     "ids": [
+      33021311,
+      33022080,
+      40802114,
+      39504371,
+      32915557
+     ],
+     "context": "product"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Looks 'too Google-y'; reskinning is limited; theme is just tokens; wrappers lag",
+     "ids": [
+      22326777,
+      29120692,
+      41862479,
+      39505945,
+      26297663,
+      32920711
+     ]
+    }
+   ],
+   "strongest_criticism": "Hard to escape the Material look (22326777, 29120692)."
+  },
+  {
+   "tool": "Bootstrap",
+   "what_it_does": "CSS/JS framework with Sass variables; often themed as a company DS.",
+   "recommend_count": 12,
+   "mention_count": 22,
+   "recommended_for": [
+    {
+     "claim": "A themed Bootstrap is a legitimate DS (Swiss Post, Rails+React theme); a font+palette override goes far",
+     "ids": [
+      33149981,
+      33151625,
+      43641737,
+      37617796,
+      26298002,
+      30848393,
+      41592672
+     ],
+     "context": "brand"
+    },
+    {
+     "claim": "General praise",
+     "ids": [
+      4724439,
+      33020655,
+      34608300,
+      34763543,
+      42996633
+     ],
+     "context": "general"
+    }
+   ],
+   "criticisms": [
+    {
+     "claim": "Everything looks the same / bland; generic DS plus brand colours is not design",
+     "ids": [
+      6808117,
+      21793147,
+      43001632,
+      44650814,
+      45301194,
+      47985939,
+      32280025
+     ]
+    },
+    {
+     "claim": "Last 10% of customisation fights the framework; a consumer of tokens, not a source",
+     "ids": [
+      29113669,
+      30847950,
+      42453447
+     ]
+    }
+   ],
+   "strongest_criticism": "Generic framework + brand colours = no distinct design (45301194, 43001632)."
+  }
+ ],
+ "reference_systems": [
+  {
+   "system": "GOV.UK Design System",
+   "good_reference_for": "Content style guide, plain language, form/page patterns, research-backed docs format",
+   "brand_relevance": "medium",
+   "evidence": [
+    {
+     "claim": "Widely called the gold standard / best open DS",
+     "ids": [
+      37622038,
+      30877798,
+      30877617,
+      30877664,
+      33643490
+     ]
+    },
+    {
+     "claim": "Content style guide and form guidance useful to any site",
+     "ids": [
+      30881394,
+      30877490
+     ]
+    },
+    {
+     "claim": "Reused by other governments (Slovakia); look implies officialness",
+     "ids": [
+      30852315,
+      41427025
+     ]
+    },
+    {
+     "claim": "Criticised as bloated",
+     "ids": [
+      30880712,
+      30846047
+     ]
+    }
+   ]
+  },
+  {
+   "system": "USWDS",
+   "good_reference_for": "Colour token grading with 'magic numbers' guaranteeing contrast; accessible contrast tooling",
+   "brand_relevance": "high",
+   "evidence": [
+    {
+     "claim": "Grade-based colour tokens where the grade difference guarantees WCAG contrast",
+     "ids": [
+      30845302,
+      30846418
+     ]
+    },
+    {
+     "claim": "Spec as HTML/CSS visual spec plus UX language",
+     "ids": [
+      30845688
+     ]
+    },
+    {
+     "claim": "Compliance-driven; near 1:1 Bootstrap NIH",
+     "ids": [
+      30844865,
+      30849615,
+      30844736
+     ]
+    }
+   ]
+  },
+  {
+   "system": "Wise Design",
+   "good_reference_for": "Brand-led accessible colour rebrand; cautionary on trust vs fun",
+   "brand_relevance": "high",
+   "evidence": [
+    {
+     "claim": "Fun rebrand undermines trust for a money brand (analogous to medical)",
+     "ids": [
+      35036772,
+      35044777
+     ]
+    },
+    {
+     "claim": "Lost distinctiveness; accessibility used as excuse; dizzying palette",
+     "ids": [
+      35040440,
+      35037349
+     ]
+    },
+    {
+     "claim": "Test accessibility first, then choose; shallow WCAG-table spec",
+     "ids": [
+      35036896,
+      35037409
+     ]
+    },
+    {
+     "claim": "Whitespace, texture, poster font praised; title font readability criticised",
+     "ids": [
+      35039380,
+      35038847
+     ]
+    }
+   ]
+  },
+  {
+   "system": "Airbnb DLS",
+   "good_reference_for": "Early example of a visual language unifying brand and product",
+   "brand_relevance": "medium",
+   "evidence": [
+    {
+     "claim": "Sketch symbols got messy, layer groups instead; libraries worked",
+     "ids": [
+      11768420,
+      11771482,
+      11770274
+     ]
+    },
+    {
+     "claim": "Kills individuality",
+     "ids": [
+      11770782
+     ]
+    }
+   ]
+  },
+  {
+   "system": "IBM Carbon",
+   "good_reference_for": "Layering/theming model (multiple themes from one token set)",
+   "brand_relevance": "medium",
+   "evidence": [
+    {
+     "claim": "Layer tokens and 6 themes",
+     "ids": [
+      36082122
+     ]
+    },
+    {
+     "claim": "Mixed opinions",
+     "ids": [
+      32280025,
+      44223321
+     ]
+    }
+   ]
+  },
+  {
+   "system": "Shopify Polaris",
+   "good_reference_for": "Content/voice guidelines",
+   "brand_relevance": "low",
+   "evidence": [
+    {
+     "claim": "Not usable standalone outside Shopify",
+     "ids": [
+      39505320,
+      26911149
+     ]
+    }
+   ]
+  },
+  {
+   "system": "Atlassian",
+   "good_reference_for": "Mature DS that got simpler over time",
+   "brand_relevance": "low",
+   "evidence": [
+    {
+     "claim": "Mature DSs simplified",
+     "ids": [
+      38633837,
+      13373825
+     ]
+    }
+   ]
+  },
+  {
+   "system": "Material",
+   "good_reference_for": "Token naming taxonomy (but avoid the look)",
+   "brand_relevance": "low",
+   "evidence": [
+    {
+     "claim": "Too much whitespace, floaty look",
+     "ids": [
+      38631419,
+      30848765
+     ]
+    }
+   ]
+  },
+  {
+   "system": "Kiwi Orbit",
+   "good_reference_for": "Cautionary: closed font",
+   "brand_relevance": "low",
+   "evidence": [
+    {
+     "claim": "Non-open Circular font, poorly built Figma",
+     "ids": [
+      27836734
+     ]
+    }
+   ]
+  },
+  {
+   "system": "Audi CI / Mailchimp",
+   "good_reference_for": "Brand-first, on-brand design systems spanning media",
+   "brand_relevance": "high",
+   "evidence": [
+    {
+     "claim": "Cited as on-brand DS examples",
+     "ids": [
+      35384915
+     ]
+    }
+   ]
+  },
+  {
+   "system": "Zomato Sushi",
+   "good_reference_for": "DS meaning brand consistency across media",
+   "brand_relevance": "medium",
+   "evidence": [
+    {
+     "claim": "DS originally meant brand across media",
+     "ids": [
+      21791063,
+      21793147
+     ]
+    }
+   ]
+  },
+  {
+   "system": "DRUIDS (Datadog)",
+   "good_reference_for": "Docs presentation with live examples",
+   "brand_relevance": "low",
+   "evidence": [
+    {
+     "claim": "Great docs but not open",
+     "ids": [
+      32916592,
+      32912093,
+      32911922
+     ]
+    },
+    {
+     "claim": "Publishing a DS is partly branding/recruiting",
+     "ids": [
+      32912026
+     ]
+    }
+   ]
+  },
+  {
+   "system": "Others (Spectrum, Primer, Fluent, Clarity, PatternFly, Lightning, Helios)",
+   "good_reference_for": "Product UI only",
+   "brand_relevance": "low",
+   "evidence": [
+    {
+     "claim": "Mentioned as references",
+     "ids": [
+      44889121,
+      21610362,
+      12965409,
+      41095964,
+      35491030,
+      35491594,
+      41592672,
+      34608300
+     ]
+    }
+   ]
+  }
+ ],
+ "approaches": [
+  {
+   "pattern": "Single source of truth in code/JSON tokens, pushed to every surface (one brand green everywhere)",
+   "worked_or_rotted": "worked",
+   "evidence": [
+    {
+     "claim": "One brand colour defined once across web/iOS/Figma/docs",
+     "ids": [
+      42451571
+     ]
+    },
+    {
+     "claim": "Layered base/semantic tokens; mode x theme axes",
+     "ids": [
+      42449008,
+      37826760,
+      44017329
+     ]
+    },
+    {
+     "claim": "Tokens in prompts / brand md files for AI agents",
+     "ids": [
+      46898280,
+      47893608,
+      44939196
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Brand guide as a colour list without accessible pairs/tints",
+   "worked_or_rotted": "rotted",
+   "evidence": [
+    {
+     "claim": "Brand guides lack accessible pairs; need a semantic layer",
+     "ids": [
+      41966188,
+      44017329
+     ]
+    },
+    {
+     "claim": "Dark-yellow-type problems: hue nonlinear, background-dependent; APCA better",
+     "ids": [
+      33246929,
+      33247992,
+      33250423,
+      33261265
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Themed off-the-shelf library (font+palette override)",
+   "worked_or_rotted": "mixed",
+   "evidence": [
+    {
+     "claim": "Fast (a week or two), DS as config",
+     "ids": [
+      39506646,
+      33019776,
+      39508980,
+      33018969
+     ]
+    },
+    {
+     "claim": "Looks generic",
+     "ids": [
+      45301194,
+      47985939
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Integrated branding / systematic identity spanning media (vertical design)",
+   "worked_or_rotted": "worked",
+   "evidence": [
+    {
+     "claim": "Brand identity systems predate UI DSs; parametric identity",
+     "ids": [
+      38633927,
+      38628814,
+      38636118,
+      38630514,
+      38644071
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Big docs site nobody reads; tokens designers stop using",
+   "worked_or_rotted": "rotted",
+   "evidence": [
+    {
+     "claim": "Marketers won't read docs; only codify what repeats",
+     "ids": [
+      38632344,
+      38629072,
+      38635837
+     ]
+    },
+    {
+     "claim": "Tokens fail when designers stop using them",
+     "ids": [
+      42449151
+     ]
+    },
+    {
+     "claim": "Company frameworks rot; Australian gov DS decommissioned",
+     "ids": [
+      39506462,
+      30852084
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Pace layers: brand yearly, DS every 2-3 yrs, content daily",
+   "worked_or_rotted": "worked",
+   "evidence": [
+    {
+     "claim": "Cadence model",
+     "ids": [
+      39503312,
+      39502458
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Code-driven video graphics (Remotion) vs Lottie",
+   "worked_or_rotted": "mixed",
+   "evidence": [
+    {
+     "claim": "Remotion for video graphics",
+     "ids": [
+      47176886
+     ]
+    },
+    {
+     "claim": "Lottie red flag / Jitter Lottie from Figma",
+     "ids": [
+      44095565,
+      40083060
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Restricting config to theme colours to catch off-brand mocks",
+   "worked_or_rotted": "worked",
+   "evidence": [
+    {
+     "claim": "Tailwind theme-only colours caught bad mocks",
+     "ids": [
+      34923677
+     ]
+    }
+   ]
+  },
+  {
+   "pattern": "Healthcare tone: calm/professional over fun",
+   "worked_or_rotted": "worked",
+   "evidence": [
+    {
+     "claim": "Style signals audience; healthcare aesthetic differs",
+     "ids": [
+      30848007,
+      39506774,
+      30877801,
+      35036772
+     ]
+    }
+   ]
+  }
+ ],
+ "notable_threads": [
+  {
+   "id": 38627674,
+   "why": "Design systems vs brand/vertical design debate; core brand framing"
+  },
+  {
+   "id": 39501469,
+   "why": "DS cadence and maturity"
+  },
+  {
+   "id": 35036068,
+   "why": "Wise accessible rebrand, trust vs fun"
+  },
+  {
+   "id": 33246700,
+   "why": "Dark yellow contrast/APCA"
+  },
+  {
+   "id": 42448251,
+   "why": "Token-based UI architecture, multi-brand"
+  },
+  {
+   "id": 30844002,
+   "why": "USWDS colour tokens"
+  },
+  {
+   "id": 30877049,
+   "why": "GOV.UK DS"
+  },
+  {
+   "id": 37613572,
+   "why": "DS as framework-agnostic spec"
+  },
+  {
+   "id": 33018520,
+   "why": "Small-company DS quickly"
+  },
+  {
+   "id": 21409845,
+   "why": "zeroheight/docs"
+  },
+  {
+   "id": 32911549,
+   "why": "DRUIDS and list of open DSs"
+  },
+  {
+   "id": 46064757,
+   "why": "Penpot state 2025"
+  },
+  {
+   "id": 11767814,
+   "why": "Airbnb DLS"
+  }
+ ],
+ "articles_fetched": [
+  {
+   "url": "https://bigmedium.com/ideas/design-system-pace-layers-slow-fast.html",
+   "summary": "Pace layers: products iterate fast, the system is slow stable infrastructure; 'fast learns, slow remembers'; teams build recipes when the system lacks something."
+  },
+  {
+   "url": "https://bradfrost.com/blog/post/the-design-system-ecosystem/",
+   "summary": "Five layers: core (tokens, icons, components, reference site), optional tech-specific, recipe and smart layers, then products; start simple, add layers only when needed."
+  },
+  {
+   "url": "https://wise.design (accessible rebrand article)",
+   "summary": "FAILED: 404; archive.org blocked."
+  },
+  {
+   "url": "https://uxdesign.cc dark-yellow article",
+   "summary": "FAILED: 403; archive.org blocked."
+  },
+  {
+   "url": "https://www.airbnb.com/building-a-visual-language/",
+   "summary": "FAILED: 404 after redirect from airbnb.design."
+  }
+ ]
+}

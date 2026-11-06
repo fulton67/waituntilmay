@@ -181,3 +181,5 @@ kit/work/
 # brand kit: licensed font binaries read for metrics, never committed
 brand/metrics/fontfiles/
 brand/fonts/.chrome-profile/
+
+research/design-systems/raw/
