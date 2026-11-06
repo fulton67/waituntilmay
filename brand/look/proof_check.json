@@ -1,0 +1,245 @@
+{
+ "glass_panel_41911984": {
+  "source": {
+   "radius_px": 27,
+   "tint_alpha": 0.626,
+   "backdrop_blur_sigma_px": 32,
+   "rim_dL": 1.22,
+   "edge_shadow_dL": -0.56
+  },
+  "rebuilt": {
+   "radius_px": 27,
+   "tint_alpha": 0.67,
+   "backdrop_blur_sigma_px": 32,
+   "rim_dL": 0.33,
+   "edge_shadow_dL": 2.32
+  },
+  "kit": {
+   "radius_px": 6,
+   "tint_alpha": 0.482,
+   "backdrop_blur_sigma_px": 48,
+   "rim_dL": -0.02,
+   "edge_shadow_dL": -0.05
+  }
+ },
+ "glass_panel_41432513": {
+  "source": {
+   "radius_px": 66,
+   "tint_alpha": 0.6,
+   "backdrop_blur_sigma_px": 24,
+   "rim_dL": -0.01,
+   "edge_shadow_dL": -1.08
+  },
+  "rebuilt": {
+   "radius_px": 75,
+   "tint_alpha": 0.425,
+   "backdrop_blur_sigma_px": 64,
+   "rim_dL": -0.52,
+   "edge_shadow_dL": -0.17
+  },
+  "kit": {
+   "radius_px": 46,
+   "tint_alpha": 0.632,
+   "backdrop_blur_sigma_px": 2,
+   "rim_dL": -0.36,
+   "edge_shadow_dL": 0.51
+  }
+ },
+ "pill_chip_27647159": {
+  "source": {
+   "h_px": 56,
+   "radius_over_h": 0.509,
+   "text_h_pct_pill_h": 39.3,
+   "pad_x_pct_pill_h": 50.0,
+   "fill_hex": "#dddee2",
+   "stroke_px": null
+  },
+  "rebuilt": {
+   "h_px": 56,
+   "radius_over_h": 0.515,
+   "text_h_pct_pill_h": 33.9,
+   "pad_x_pct_pill_h": 44.6,
+   "fill_hex": "#dddee2",
+   "stroke_px": null
+  },
+  "kit": {
+   "h_px": 71,
+   "radius_over_h": 0.453,
+   "text_h_pct_pill_h": 36.6,
+   "pad_x_pct_pill_h": 50.7,
+   "fill_hex": "#c3bdbb",
+   "stroke_px": null
+  }
+ },
+ "pill_chip_11460382_outline": {
+  "source": {
+   "h_px": 103,
+   "radius_over_h": 0.497,
+   "text_h_pct_pill_h": 29.1,
+   "pad_x_pct_pill_h": 34.0,
+   "fill_hex": null,
+   "stroke_px": 4.0
+  },
+  "rebuilt": {
+   "h_px": 107,
+   "radius_over_h": 0.504,
+   "text_h_pct_pill_h": 31.8,
+   "pad_x_pct_pill_h": 43.0,
+   "fill_hex": null,
+   "stroke_px": 4.0
+  }
+ },
+ "leader_line_30940781": {
+  "source": [
+   {
+    "stroke_fwhm_px": 1.5,
+    "peak_L": 98.2
+   },
+   {
+    "stroke_fwhm_px": 1.75,
+    "peak_L": 97.3
+   }
+  ],
+  "rebuilt": [
+   {
+    "stroke_fwhm_px": 1.25,
+    "peak_L": 94.5
+   },
+   {
+    "stroke_fwhm_px": 1.25,
+    "peak_L": 94.5
+   }
+  ],
+  "kit": [
+   {
+    "stroke_fwhm_px": 1.25,
+    "peak_L": 94.5
+   },
+   {
+    "stroke_fwhm_px": 1.25,
+    "peak_L": 94.5
+   }
+  ]
+ },
+ "outline_box_30940781": {
+  "source": {
+   "stroke_px": 1.0,
+   "text_h_px": 18,
+   "pad_x_px": 19,
+   "pad_y_px": 16
+  },
+  "rebuilt": {
+   "stroke_px": 1.0,
+   "text_h_px": 18,
+   "pad_x_px": 20,
+   "pad_y_px": 18
+  },
+  "kit": {
+   "stroke_px": 1.0,
+   "text_h_px": 18,
+   "pad_x_px": 20,
+   "pad_y_px": 19
+  }
+ },
+ "step_marks_34175362": {
+  "source": {
+   "n": 5,
+   "d_px": 38.2,
+   "pitch_px": 157.0,
+   "ring_stroke_px": 1
+  },
+  "rebuilt": {
+   "n": 6,
+   "d_px": 33.6,
+   "pitch_px": 157.0,
+   "ring_stroke_px": 1
+  },
+  "kit": {
+   "n": 6,
+   "d_px": 33.6,
+   "pitch_px": 157.0,
+   "ring_stroke_px": 1
+  }
+ },
+ "screen_frame_14664481": {
+  "source": {
+   "radius_px": 58,
+   "w_px": 499,
+   "aspect_w_h": 0.474
+  },
+  "rebuilt": {
+   "radius_px": 58,
+   "w_px": 499,
+   "aspect_w_h": 0.478
+  },
+  "kit": {
+   "radius_px": 59,
+   "w_px": 499,
+   "aspect_w_h": 0.478
+  }
+ },
+ "glass_band_2145281": {
+  "source": {
+   "band_w_pct_w": 36.25,
+   "tint_alpha": 0.438,
+   "backdrop_blur_sigma_px": 64.0
+  },
+  "rebuilt": {
+   "band_w_pct_w": 36.17,
+   "tint_alpha": 0.488,
+   "backdrop_blur_sigma_px": 64.0
+  },
+  "kit": {
+   "band_w_pct_w": 36.17,
+   "tint_alpha": 0.488,
+   "backdrop_blur_sigma_px": 64.0
+  }
+ },
+ "icon_outline_13607089": {
+  "source": {
+   "stroke_px": 2
+  },
+  "rebuilt": {
+   "stroke_px": 2
+  },
+  "kit": {
+   "stroke_px": 2,
+   "note": "kit icon at its own 6 cqw size"
+  }
+ },
+ "grain": {
+  "target_sigma": 0.0026,
+  "opacity_vs_sigma": {
+   "0.04": 0.00057,
+   "0.08": 0.00464,
+   "0.12": 0.00483,
+   "0.18": 0.00683,
+   "0.26": 0.01011,
+   "0.36": 0.01327
+  },
+  "calibrated_opacity": 0.06
+ },
+ "photo_treatment": {
+  "thumb": "Db8Xf9YgANa.jpg",
+  "median_dE_css_vs_lut": 13.05,
+  "median_dE_svg_vs_lut": 1.07,
+  "css_filter": "saturate(0.5) sepia(0.0) contrast(0.7) brightness(1.075)"
+ },
+ "fonts_loaded": {
+  "pill_chip_27647159_rebuilt": true,
+  "pill_chip_27647159_kit": true,
+  "pill_chip_11460382_rebuilt": true,
+  "pill_chip_11460382_kit": true,
+  "leader_line_30940781_rebuilt": true,
+  "leader_line_30940781_kit": true,
+  "outline_box_30940781_rebuilt": true,
+  "outline_box_30940781_kit": true,
+  "step_marks_34175362_rebuilt": true,
+  "step_marks_34175362_kit": true,
+  "dark_card_27454113_rebuilt": true,
+  "dark_card_27454113_kit": true,
+  "vertical_type_2145281_rebuilt": true,
+  "vertical_type_2145281_kit": true
+ },
+ "render_errors": 0
+}

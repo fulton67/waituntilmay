@@ -183,3 +183,6 @@ brand/metrics/fontfiles/
 brand/fonts/.chrome-profile/
 
 research/design-systems/raw/
+# BUILDER proofs: full-canvas renders and inpainted plates are reproducible intermediates (scripts/look_proof.py)
+brand/look/proof/_r/
+brand/look/proof/_plates/
