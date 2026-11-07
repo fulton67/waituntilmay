@@ -1,0 +1,811 @@
+{
+ "src": "C:/Users/naimj/Downloads/Video Sep 17 2026, 12 56 13 PM.mov",
+ "speed": 1.2,
+ "fps": 24,
+ "source_s": 164.4573125,
+ "footage_frames": 3290,
+ "footage_s": 137.08333333333334,
+ "dur_s": 139.4666666666667,
+ "frames": 3347,
+ "render_s": 135,
+ "loudness_in": {
+  "input_i": "-14.05",
+  "input_tp": "-2.00",
+  "input_lra": "2.00",
+  "input_thresh": "-24.26",
+  "output_i": "-14.29",
+  "output_tp": "-2.02",
+  "output_lra": "1.80",
+  "output_thresh": "-24.48",
+  "normalization_type": "dynamic",
+  "target_offset": "0.29"
+ },
+ "adobe_fonts": true,
+ "errors": [],
+ "captions": 130,
+ "captions_unfit": [],
+ "fixed_words": [
+  {
+   "w": "rosacea.",
+   "from": "Rosacea",
+   "t": 2.98
+  },
+  {
+   "w": "rosacea,",
+   "from": "Rosacea",
+   "t": 4.83
+  },
+  {
+   "w": "Rosacea",
+   "from": "Rosacea",
+   "t": 15.97
+  },
+  {
+   "w": "Excel V.",
+   "from": "XLV",
+   "t": 62.18
+  },
+  {
+   "w": "Laser Genesis",
+   "from": "laser genesis",
+   "t": 74.08
+  },
+  {
+   "w": "in appropriate patients",
+   "from": "inappropriate patients",
+   "t": 75.68
+  },
+  {
+   "w": "rosacea",
+   "from": "Rosacea",
+   "t": 106.17
+  },
+  {
+   "w": "driving cause",
+   "from": "driving course",
+   "t": 110.93
+  },
+  {
+   "w": "Excel V",
+   "from": "XLV",
+   "t": 126.58
+  },
+  {
+   "w": "Laser Genesis,",
+   "from": "laser genesis",
+   "t": 127.3
+  }
+ ],
+ "rects": {
+  "lower_third": {
+   "x": 98.265625,
+   "y": 1262.21875,
+   "width": 812.046875,
+   "height": 148.515625,
+   "top": 1262.21875,
+   "right": 910.3125,
+   "bottom": 1410.734375,
+   "left": 98.265625
+  },
+  "caption": {
+   "x": 98.265625,
+   "y": 1432.3125,
+   "width": 459,
+   "height": 95.28125,
+   "top": 1432.3125,
+   "right": 557.265625,
+   "bottom": 1527.59375,
+   "left": 98.265625
+  },
+  "chip": null
+ },
+ "spec": {
+  "overlays": [
+   {
+    "name": "lower-third",
+    "at": 0.1
+   },
+   {
+    "name": "chip",
+    "at": 61.983333333333334,
+    "text": "+ Excel V",
+    "said": 62.18333333333334
+   },
+   {
+    "name": "chip",
+    "at": 73.88333333333334,
+    "text": "+ Laser Genesis",
+    "said": 74.08333333333334
+   }
+  ],
+  "captions": [
+   {
+    "text": "Hi, everyone.",
+    "from": 0.25,
+    "to": 1.0666666666666667
+   },
+   {
+    "text": "I wanted to just spend a",
+    "from": 1.0666666666666667,
+    "to": 2.1166666666666667
+   },
+   {
+    "text": "few minutes to talk to you",
+    "from": 2.1166666666666667,
+    "to": 2.8
+   },
+   {
+    "text": "about rosacea.",
+    "from": 2.8,
+    "to": 4.500000000000001
+   },
+   {
+    "text": "If you have rosacea,",
+    "from": 4.500000000000001,
+    "to": 5.2666666666666675
+   },
+   {
+    "text": "I don't believe the answer",
+    "from": 5.2666666666666675,
+    "to": 6.083333333333333
+   },
+   {
+    "text": "should always be just",
+    "from": 6.083333333333333,
+    "to": 6.8999999999999995
+   },
+   {
+    "text": "another prescription,",
+    "from": 6.8999999999999995,
+    "to": 8.266666666666667
+   },
+   {
+    "text": "which is what I see",
+    "from": 8.266666666666667,
+    "to": 9.083333333333334
+   },
+   {
+    "text": "happens for patients who",
+    "from": 9.083333333333334,
+    "to": 10.033333333333333
+   },
+   {
+    "text": "come in here,",
+    "from": 10.033333333333333,
+    "to": 10.65
+   },
+   {
+    "text": "especially when what",
+    "from": 10.65,
+    "to": 11.816666666666666
+   },
+   {
+    "text": "we're trying to treat is",
+    "from": 11.816666666666666,
+    "to": 12.666666666666666
+   },
+   {
+    "text": "really persistent redness",
+    "from": 12.666666666666666,
+    "to": 14.000000000000002
+   },
+   {
+    "text": "and visible blood vessels.",
+    "from": 14.000000000000002,
+    "to": 15.966666666666667
+   },
+   {
+    "text": "Rosacea is a chronic",
+    "from": 15.966666666666667,
+    "to": 17.05
+   },
+   {
+    "text": "condition,",
+    "from": 17.05,
+    "to": 17.983333333333334
+   },
+   {
+    "text": "and both oral and topical",
+    "from": 17.983333333333334,
+    "to": 19.05
+   },
+   {
+    "text": "medications absolutely",
+    "from": 19.05,
+    "to": 19.883333333333333
+   },
+   {
+    "text": "have a role,",
+    "from": 19.883333333333333,
+    "to": 20.433333333333334
+   },
+   {
+    "text": "particularly when we're",
+    "from": 20.433333333333334,
+    "to": 21.35
+   },
+   {
+    "text": "dealing with inflammatory",
+    "from": 21.35,
+    "to": 22.983333333333334
+   },
+   {
+    "text": "bumps, pustules,",
+    "from": 22.983333333333334,
+    "to": 24.416666666666668
+   },
+   {
+    "text": "acne.",
+    "from": 24.416666666666668,
+    "to": 24.75
+   },
+   {
+    "text": "But I also don't want my",
+    "from": 24.75,
+    "to": 26.46666666666667
+   },
+   {
+    "text": "patients unnecessarily",
+    "from": 26.46666666666667,
+    "to": 27.48333333333333
+   },
+   {
+    "text": "relying on medications",
+    "from": 27.48333333333333,
+    "to": 28.583333333333332
+   },
+   {
+    "text": "indefinitely when we have",
+    "from": 28.583333333333332,
+    "to": 29.616666666666667
+   },
+   {
+    "text": "other ways to really target",
+    "from": 29.616666666666667,
+    "to": 31.366666666666667
+   },
+   {
+    "text": "this condition.",
+    "from": 31.366666666666667,
+    "to": 32.35
+   },
+   {
+    "text": "Repeated, prolonged",
+    "from": 33.21666666666667,
+    "to": 34.1
+   },
+   {
+    "text": "courses of oral",
+    "from": 34.1,
+    "to": 34.93333333333334
+   },
+   {
+    "text": "antibiotics,",
+    "from": 34.93333333333334,
+    "to": 35.61666666666667
+   },
+   {
+    "text": "which I see patients take",
+    "from": 35.61666666666667,
+    "to": 36.88333333333333
+   },
+   {
+    "text": "elsewhere, can really",
+    "from": 36.88333333333333,
+    "to": 37.93333333333334
+   },
+   {
+    "text": "affect our gut",
+    "from": 37.93333333333334,
+    "to": 38.56666666666667
+   },
+   {
+    "text": "microbiome.",
+    "from": 38.56666666666667,
+    "to": 39.333333333333336
+   },
+   {
+    "text": "And while topical",
+    "from": 39.333333333333336,
+    "to": 40.083333333333336
+   },
+   {
+    "text": "medications can be very",
+    "from": 40.083333333333336,
+    "to": 41.31666666666667
+   },
+   {
+    "text": "effective and appropriate",
+    "from": 41.31666666666667,
+    "to": 42.25000000000001
+   },
+   {
+    "text": "for long-term use in some",
+    "from": 42.25000000000001,
+    "to": 43.800000000000004
+   },
+   {
+    "text": "patients, they still require",
+    "from": 43.800000000000004,
+    "to": 44.95
+   },
+   {
+    "text": "ongoing applications,",
+    "from": 44.95,
+    "to": 46.1
+   },
+   {
+    "text": "which can lead to",
+    "from": 46.1,
+    "to": 47.2
+   },
+   {
+    "text": "irritation, dryness.",
+    "from": 47.2,
+    "to": 48.50000000000001
+   },
+   {
+    "text": "And it doesn't really",
+    "from": 48.50000000000001,
+    "to": 49.833333333333336
+   },
+   {
+    "text": "adequately establish,",
+    "from": 49.833333333333336,
+    "to": 50.91666666666667
+   },
+   {
+    "text": "it doesn't really treat",
+    "from": 50.91666666666667,
+    "to": 52.2
+   },
+   {
+    "text": "established blood",
+    "from": 52.2,
+    "to": 53.016666666666666
+   },
+   {
+    "text": "vessels.",
+    "from": 53.016666666666666,
+    "to": 53.583333333333336
+   },
+   {
+    "text": "And when a patient's",
+    "from": 53.583333333333336,
+    "to": 54.53333333333333
+   },
+   {
+    "text": "primary concern is",
+    "from": 54.53333333333333,
+    "to": 55.43333333333333
+   },
+   {
+    "text": "persistent redness,",
+    "from": 55.43333333333333,
+    "to": 56.41666666666667
+   },
+   {
+    "text": "flushing, visible blood",
+    "from": 56.41666666666667,
+    "to": 57.516666666666666
+   },
+   {
+    "text": "vessels, I prefer to",
+    "from": 57.516666666666666,
+    "to": 58.53333333333333
+   },
+   {
+    "text": "address that directly with",
+    "from": 58.53333333333333,
+    "to": 60.150000000000006
+   },
+   {
+    "text": "the help of laser.",
+    "from": 60.150000000000006,
+    "to": 61.28333333333334
+   },
+   {
+    "text": "In our practice,",
+    "from": 61.28333333333334,
+    "to": 61.86666666666667
+   },
+   {
+    "text": "I use Excel V.",
+    "from": 61.86666666666667,
+    "to": 62.78333333333334
+   },
+   {
+    "text": "It's a vascular laser that",
+    "from": 62.78333333333334,
+    "to": 63.86666666666667
+   },
+   {
+    "text": "targets hemoglobin,",
+    "from": 63.86666666666667,
+    "to": 65.51666666666668
+   },
+   {
+    "text": "which is what the blood",
+    "from": 65.51666666666668,
+    "to": 66.21666666666667
+   },
+   {
+    "text": "vessels are.",
+    "from": 66.21666666666667,
+    "to": 66.76666666666668
+   },
+   {
+    "text": "It selectively treats those",
+    "from": 66.76666666666668,
+    "to": 67.96666666666667
+   },
+   {
+    "text": "blood vessels that are",
+    "from": 67.96666666666667,
+    "to": 68.80000000000001
+   },
+   {
+    "text": "contributing to the",
+    "from": 68.80000000000001,
+    "to": 69.58333333333334
+   },
+   {
+    "text": "redness,",
+    "from": 69.58333333333334,
+    "to": 70.4
+   },
+   {
+    "text": "where medication really",
+    "from": 70.4,
+    "to": 71.35000000000001
+   },
+   {
+    "text": "doesn't manage the",
+    "from": 71.35000000000001,
+    "to": 72.25
+   },
+   {
+    "text": "condition.",
+    "from": 72.25,
+    "to": 72.7
+   },
+   {
+    "text": "We can also use",
+    "from": 72.7,
+    "to": 74.08333333333334
+   },
+   {
+    "text": "Laser Genesis in addition",
+    "from": 74.08333333333334,
+    "to": 75.41666666666667
+   },
+   {
+    "text": "with",
+    "from": 75.41666666666667,
+    "to": 75.68333333333334
+   },
+   {
+    "text": "in appropriate patients to",
+    "from": 75.68333333333334,
+    "to": 76.68333333333334
+   },
+   {
+    "text": "address more diffuse",
+    "from": 76.68333333333334,
+    "to": 77.65
+   },
+   {
+    "text": "redness and improve",
+    "from": 77.65,
+    "to": 78.48333333333335
+   },
+   {
+    "text": "overall skin quality.",
+    "from": 78.48333333333335,
+    "to": 79.76666666666668
+   },
+   {
+    "text": "To me, it's about really",
+    "from": 80.43333333333334,
+    "to": 81.33333333333333
+   },
+   {
+    "text": "being more using",
+    "from": 81.33333333333333,
+    "to": 82.48333333333333
+   },
+   {
+    "text": "targeted therapy as",
+    "from": 82.48333333333333,
+    "to": 83.51666666666667
+   },
+   {
+    "text": "opposed to oral",
+    "from": 83.51666666666667,
+    "to": 84.06666666666666
+   },
+   {
+    "text": "medications.",
+    "from": 84.06666666666666,
+    "to": 84.71666666666667
+   },
+   {
+    "text": "So it's really about",
+    "from": 84.71666666666667,
+    "to": 85.71666666666667
+   },
+   {
+    "text": "treating the vascular",
+    "from": 85.71666666666667,
+    "to": 86.76666666666668
+   },
+   {
+    "text": "component, which leads",
+    "from": 86.76666666666668,
+    "to": 87.65
+   },
+   {
+    "text": "to redness.",
+    "from": 87.65,
+    "to": 88.7
+   },
+   {
+    "text": "It doesn't mean",
+    "from": 88.7,
+    "to": 89.16666666666667
+   },
+   {
+    "text": "medication should never",
+    "from": 89.16666666666667,
+    "to": 90
+   },
+   {
+    "text": "be used.",
+    "from": 90,
+    "to": 90.56666666666668
+   },
+   {
+    "text": "Some patients need it,",
+    "from": 90.56666666666668,
+    "to": 91.55
+   },
+   {
+    "text": "and combination therapy",
+    "from": 91.55,
+    "to": 92.35
+   },
+   {
+    "text": "can be very effective in",
+    "from": 92.35,
+    "to": 93.48333333333335
+   },
+   {
+    "text": "selected patients.",
+    "from": 93.48333333333335,
+    "to": 94.3
+   },
+   {
+    "text": "But when appropriate,",
+    "from": 94.3,
+    "to": 95.61666666666666
+   },
+   {
+    "text": "I would rather directly",
+    "from": 95.61666666666666,
+    "to": 97.05
+   },
+   {
+    "text": "treat the visible vascular",
+    "from": 97.05,
+    "to": 98.56666666666668
+   },
+   {
+    "text": "component than having a",
+    "from": 98.56666666666668,
+    "to": 100.11666666666667
+   },
+   {
+    "text": "patient unnecessarily",
+    "from": 100.11666666666667,
+    "to": 101
+   },
+   {
+    "text": "depend on repeated",
+    "from": 101,
+    "to": 102.23333333333335
+   },
+   {
+    "text": "antibiotics,",
+    "from": 102.23333333333335,
+    "to": 103.45
+   },
+   {
+    "text": "topical daily,",
+    "from": 103.45,
+    "to": 104.43333333333334
+   },
+   {
+    "text": "topical medications.",
+    "from": 104.43333333333334,
+    "to": 105.98333333333335
+   },
+   {
+    "text": "And rosacea shouldn't",
+    "from": 105.98333333333335,
+    "to": 106.73333333333335
+   },
+   {
+    "text": "simply be a treatment of",
+    "from": 106.73333333333335,
+    "to": 108.33333333333334
+   },
+   {
+    "text": "treating with oral",
+    "from": 108.33333333333334,
+    "to": 108.88333333333334
+   },
+   {
+    "text": "medications.",
+    "from": 108.88333333333334,
+    "to": 109.38333333333333
+   },
+   {
+    "text": "It's about identifying",
+    "from": 109.38333333333333,
+    "to": 110.33333333333334
+   },
+   {
+    "text": "what's the driving cause",
+    "from": 110.33333333333334,
+    "to": 112.05000000000001
+   },
+   {
+    "text": "behind the symptoms",
+    "from": 112.05000000000001,
+    "to": 112.96666666666667
+   },
+   {
+    "text": "and using the most",
+    "from": 112.96666666666667,
+    "to": 114.00000000000001
+   },
+   {
+    "text": "targeted treatment,",
+    "from": 114.00000000000001,
+    "to": 115.41666666666667
+   },
+   {
+    "text": "which is really addressing",
+    "from": 115.41666666666667,
+    "to": 116.64999999999999
+   },
+   {
+    "text": "those oil glands,",
+    "from": 116.64999999999999,
+    "to": 117.5
+   },
+   {
+    "text": "which lead to basically",
+    "from": 117.5,
+    "to": 119.45
+   },
+   {
+    "text": "inflammation and excess",
+    "from": 119.45,
+    "to": 120.85000000000001
+   },
+   {
+    "text": "blood vessels and really",
+    "from": 120.85000000000001,
+    "to": 122.05000000000001
+   },
+   {
+    "text": "lasers,",
+    "from": 122.05000000000001,
+    "to": 123.03333333333333
+   },
+   {
+    "text": "especially vascular",
+    "from": 123.03333333333333,
+    "to": 123.88333333333334
+   },
+   {
+    "text": "lasers, approach that.",
+    "from": 123.88333333333334,
+    "to": 125.10000000000001
+   },
+   {
+    "text": "And the combination of",
+    "from": 125.10000000000001,
+    "to": 126.58333333333334
+   },
+   {
+    "text": "Excel V and",
+    "from": 126.58333333333334,
+    "to": 127.3
+   },
+   {
+    "text": "Laser Genesis,",
+    "from": 127.3,
+    "to": 128.05
+   },
+   {
+    "text": "which go at different",
+    "from": 128.05,
+    "to": 128.8
+   },
+   {
+    "text": "depths of the skin,",
+    "from": 128.8,
+    "to": 129.63333333333335
+   },
+   {
+    "text": "really target those blood",
+    "from": 129.63333333333335,
+    "to": 130.68333333333334
+   },
+   {
+    "text": "vessels and help really",
+    "from": 130.68333333333334,
+    "to": 131.78333333333333
+   },
+   {
+    "text": "long-term reduce",
+    "from": 131.78333333333333,
+    "to": 132.65
+   },
+   {
+    "text": "redness better than any",
+    "from": 132.65,
+    "to": 133.98333333333335
+   },
+   {
+    "text": "topical or oral medication.",
+    "from": 133.98333333333335,
+    "to": 135.83333333333334
+   },
+   {
+    "text": "Thank you.",
+    "from": 135.83333333333334,
+    "to": 136.51666666666668
+   }
+  ],
+  "capWide": false,
+  "end": {
+   "card": "card-editorial-end",
+   "at": 136.4666666666667,
+   "dissolve": 0.5
+  }
+ },
+ "out": "C:\\Users\\naimj\\orca\\workspaces\\waituntilmay\\OSTAD-CONTENT-INTEL\\brand\\edits\\rosacea-laser\\rosacea-laser.mp4",
+ "copy": "C:/Users/naimj/Downloads/Ostad - Rosacea laser (1.2x, brand kit).mp4",
+ "probe": {
+  "programs": [],
+  "stream_groups": [],
+  "streams": [
+   {
+    "codec_name": "h264",
+    "codec_type": "video",
+    "width": 1080,
+    "height": 1920,
+    "r_frame_rate": "24/1",
+    "nb_frames": "3346",
+    "side_data_list": [
+     {}
+    ]
+   },
+   {
+    "codec_name": "aac",
+    "codec_type": "audio",
+    "sample_rate": "48000",
+    "channels": 2,
+    "r_frame_rate": "0/0",
+    "nb_frames": "6536"
+   }
+  ],
+  "format": {
+   "duration": "139.434667",
+   "size": "212580782"
+  }
+ }
+}

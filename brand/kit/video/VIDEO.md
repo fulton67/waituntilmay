@@ -47,3 +47,10 @@ These are judgment calls (DECISIONS 57). The fps, the caption band and the zoom 
 | MOGRT | Not shipped. Export it from Essential Graphics by hand if needed: there is no scripting route (DECISIONS 57). |
 
 Fonts: Neue Haas Grotesk Display Medium and Roman, through Adobe Fonts (kit `vzz0hgt`).
+
+## Editing a talking-head video
+
+1. `python -I scripts/video_transcribe.py <video> edits/<slug>/transcript.json` (word timings, faster-whisper).
+2. Write `edits/<slug>/edit.json`: `src`, `speed`, `fixes` for misheard names, `chips` (`say` → `text`), `end` card, `capWide` (true only over burnt-in captions), `loudness`, and `audio_pre` when the mic is quiet.
+3. `PLAN=1,<t>,<t> node scripts/video_edit.cjs edits/<slug>/edit.json` writes the caption plan and proof frames; drop `PLAN` for the full render (`REUSE=1` re-encodes without re-rendering).
+4. `python -I scripts/video_edit_check.py edits/<slug>` checks format, speed, loudness, OCR captions, layout and end card (`check.json`). Example: `edits/rosacea-laser` (DECISIONS 61).

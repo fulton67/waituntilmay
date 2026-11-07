@@ -196,3 +196,6 @@ brand/motion/frames/
 brand/kit/video/_frames/
 brand/kit/video/_mov/
 brand/kit/_page/
+# edits made with scripts/video_edit.cjs: frame sequences and the mp4 stay local (regenerate from edit.json)
+brand/edits/*/_frames/
+brand/edits/*/*.mp4

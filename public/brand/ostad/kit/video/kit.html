@@ -129,7 +129,15 @@ window.VK = {
   },
   background(src) { if (src) { bg.src = src; bg.style.display = "block"; return bg.decode(); } bg.style.display = "none"; return Promise.resolve(); },
   // a reel (scripts/video_reel.cjs): footage frames under overlays, speech captions cut on in the band, an end card dissolved in.
-  // spec = { overlays: [{ name, at, text? }], captions: [{ text, from, to }], end: { card, at, dissolve }, grain: true }
+  // spec = { overlays: [{ name, at, text? }], captions: [{ text, from, to }], end: { card, at, dissolve }, capWide (default true; false = the
+  // measured caption block, for footage with no burnt-in captions) }
+  // VK.fits(text, wide): does a caption line fit on one line of the caption box (scripts/video_edit.cjs phrase chunking)
+  fits(text, wide) {
+    let m = document.getElementById("vkmeasure");
+    if (!m) { m = document.createElement("div"); m.id = "vkmeasure"; m.className = "ok ok--9x16 ok--clear"; m.style.cssText = "position:absolute;inset:0;visibility:hidden"; document.getElementById("stage").appendChild(m); }
+    m.innerHTML = `<div class="vk"><div class="vk-cap${wide ? " vk-cap--wide" : ""} ok-glass"><p style="white-space:nowrap"></p></div></div>`;
+    const p = m.querySelector("p"); p.textContent = text; return p.scrollWidth <= p.clientWidth;
+  },
   async reel(spec, t, frameSrc) {
     if (!cur || cur.name !== "__reel") {
       document.getElementById("cardhost")?.remove(); document.querySelectorAll(".vk-multi").forEach((e) => e.remove()); layer.style.display = "none";
@@ -140,7 +148,7 @@ window.VK = {
         if (o.text) { const tx = h.querySelector(".ok-pill, .vk-cap p"); if (tx) tx.textContent = o.text; if (o.role) h.querySelector(".r").textContent = o.role; if (o.nameText) h.querySelector(".n").textContent = o.nameText; }
         hosts.push({ o, h });
       }
-      const cap = mk(); cap.innerHTML = `<div class="vk"><div class="vk-cap vk-cap--wide ok-glass" style="top:${BAND_TOP * 100}%;display:none"><p></p></div></div>`;
+      const cap = mk(); cap.innerHTML = `<div class="vk"><div class="vk-cap${spec.capWide === false ? "" : " vk-cap--wide"} ok-glass"style="top:${BAND_TOP * 100}%;display:none"><p></p></div></div>`;
       const grain = mk(); grain.innerHTML = '<div class="ok-grain"></div>';
       let end = null;
       if (spec.end) { end = mk(); end.className = "vk-multi"; end.style.opacity = 0; const c = EL[spec.end.card].card;
