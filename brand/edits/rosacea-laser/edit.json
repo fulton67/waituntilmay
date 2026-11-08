@@ -3,12 +3,62 @@
  "src": "C:/Users/naimj/Downloads/Video Sep 17 2026, 12 56 13 PM_1.mp4",
  "speed": 1.1,
  "transcript": "transcript.json",
- "fixes": [["XLV", "Excel V"], ["laser genesis", "Laser Genesis"], ["inappropriate patients", "in appropriate patients"], ["driving course", "driving cause"], ["Rosacea", "rosacea"]],
- "chips": [{ "say": "Excel V", "text": "+ Excel V" }, { "say": "Laser Genesis", "text": "+ Laser Genesis" }],
+ "fixes": [
+  [
+   "XLV",
+   "Excel V"
+  ],
+  [
+   "laser genesis",
+   "Laser Genesis"
+  ],
+  [
+   "inappropriate patients",
+   "in appropriate patients"
+  ],
+  [
+   "driving course",
+   "driving cause"
+  ],
+  [
+   "Rosacea",
+   "rosacea"
+  ]
+ ],
+ "chips": [
+  {
+   "say": "Excel V",
+   "text": "+ Excel V"
+  },
+  {
+   "say": "Laser Genesis",
+   "text": "+ Laser Genesis"
+  }
+ ],
  "end": "card-editorial-end",
  "capWide": false,
  "grade": false,
- "loudness": { "I": -14, "TP": -1.5, "LRA": 11 },
+ "loudness": {
+  "I": -14,
+  "TP": -1.5,
+  "LRA": 11
+ },
  "audio_pre": "highpass=f=80,acompressor=threshold=-42dB:ratio=5:attack=5:release=150:makeup=20dB,volume=10dB,alimiter=limit=-3dB:attack=2:release=60:level=false",
- "out": "C:/Users/naimj/Downloads/Ostad - Rosacea laser (1.1x, brand kit).mp4"
+ "out": "C:/Users/naimj/Downloads/Ostad - Rosacea laser (1.1x, brand kit).mp4",
+ "remotion": {
+  "hook": {
+   "text": "Rosacea? Not another prescription.",
+   "at": 0,
+   "dur": 2.4
+  },
+  "keywords": [
+   "Excel V",
+   "Laser Genesis",
+   "redness",
+   "blood vessels",
+   "laser",
+   "microbiome",
+   "antibiotics"
+  ]
+ }
 }

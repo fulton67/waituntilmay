@@ -1,0 +1,21 @@
+{
+  "name": "ostad-remotion",
+  "private": true,
+  "description": "Dr. Ostad reels in Remotion: footage + Elza captions + liquid-glass name card + machine pop-ins (DECISIONS 67)",
+  "scripts": {
+    "prepare-edit": "node scripts/prepare.cjs",
+    "studio": "remotion studio",
+    "still": "remotion still OstadReel",
+    "render": "remotion render OstadReel"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.541",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "remotion": "4.0.541"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "typescript": "^5"
+  }
+}

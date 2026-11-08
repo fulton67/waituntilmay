@@ -1,0 +1,4 @@
+node_modules/
+out/
+# filled by scripts/prepare.cjs: footage, machine cutouts (makers' photos) and the end card stay local
+public/

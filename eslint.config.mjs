@@ -13,6 +13,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Remotion reels: their own package, deps and tsconfig (brand/remotion)
+    "brand/remotion/**",
   ]),
 ]);
 
