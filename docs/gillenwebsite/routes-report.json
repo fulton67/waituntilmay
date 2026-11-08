@@ -1,0 +1,146 @@
+{
+  "base": "https://waituntilmay.com",
+  "at": "2026-11-08T06:02:00.026Z",
+  "aboutSentence": "DYLAN NEUSTADTER is a multi-instrumentalist",
+  "routes": {
+    "about": {
+      "desktop": {
+        "section": {
+          "tag": "section",
+          "class": "aboutPage",
+          "src": "19",
+          "elements": 56,
+          "text": "DYLAN NEUSTADTER is a multi-instrumentalist, producer, and m"
+        },
+        "children": [
+          {
+            "tag": "p",
+            "class": "aboutBig",
+            "src": null,
+            "elements": 52,
+            "text": "DYLAN NEUSTADTER is a multi-instrumentalist, producer, and m"
+          },
+          {
+            "tag": "div",
+            "class": "aboutLinks",
+            "src": null,
+            "elements": 2,
+            "text": "[COPY] ben.buckley.sme@rcarecords.comINSTAGRAM →"
+          }
+        ],
+        "footer": false,
+        "releaseRows": 0,
+        "aboutText": true,
+        "coverSquares": 9,
+        "pass": true
+      },
+      "phone": {
+        "section": {
+          "tag": "section",
+          "class": "aboutPage",
+          "src": "19",
+          "elements": 56,
+          "text": "DYLAN NEUSTADTER is a multi-instrumentalist, producer, and m"
+        },
+        "children": [
+          {
+            "tag": "p",
+            "class": "aboutBig",
+            "src": null,
+            "elements": 52,
+            "text": "DYLAN NEUSTADTER is a multi-instrumentalist, producer, and m"
+          },
+          {
+            "tag": "div",
+            "class": "aboutLinks",
+            "src": null,
+            "elements": 2,
+            "text": "[COPY] ben.buckley.sme@rcarecords.comINSTAGRAM →"
+          }
+        ],
+        "footer": false,
+        "releaseRows": 0,
+        "aboutText": true,
+        "coverSquares": 9,
+        "pass": true
+      }
+    },
+    "discography": {
+      "desktop": {
+        "section": {
+          "tag": "section",
+          "class": "disco",
+          "src": "20",
+          "elements": 670,
+          "text": "ALL 36PRODUCER 12WRITER 12ENGINEER 14MIXER 2CO-PRODUCER 1ASS"
+        },
+        "children": [
+          {
+            "tag": "div",
+            "class": "pills",
+            "src": "32",
+            "elements": 14,
+            "text": "ALL 36PRODUCER 12WRITER 12ENGINEER 14MIXER 2CO-PRODUCER 1ASS"
+          },
+          {
+            "tag": "ol",
+            "class": "index",
+            "src": "20 22",
+            "elements": 469,
+            "text": "001.girl in red — BLUE2026 PRODUCER, WRITER002.Freak Slug — "
+          },
+          {
+            "tag": "svg",
+            "class": "[object SVGAnimatedString]",
+            "src": "21",
+            "elements": 3,
+            "text": ""
+          },
+          {
+            "tag": "p",
+            "class": "footIndex",
+            "src": "20",
+            "elements": 180,
+            "text": "1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13 , 14 ,"
+          }
+        ],
+        "footer": true,
+        "releaseRows": 36,
+        "aboutText": false,
+        "coverSquares": 0,
+        "pass": true
+      },
+      "phone": {
+        "section": {
+          "tag": "section",
+          "class": "disco",
+          "src": "20",
+          "elements": 383,
+          "text": "ALL 36PRODUCER 12WRITER 12ENGINEER 14MIXER 2CO-PRODUCER 1ASS"
+        },
+        "children": [
+          {
+            "tag": "div",
+            "class": "pills",
+            "src": "32",
+            "elements": 14,
+            "text": "ALL 36PRODUCER 12WRITER 12ENGINEER 14MIXER 2CO-PRODUCER 1ASS"
+          },
+          {
+            "tag": "section",
+            "class": "",
+            "src": "20",
+            "elements": 367,
+            "text": "001.girl in red — BLUE2026 PRODUCER, WRITER002.Freak Slug — "
+          }
+        ],
+        "footer": true,
+        "releaseRows": 36,
+        "aboutText": false,
+        "coverSquares": 0,
+        "pass": true
+      }
+    }
+  },
+  "pass": true
+}
