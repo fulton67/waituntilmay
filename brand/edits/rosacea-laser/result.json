@@ -7,7 +7,7 @@
  "footage_s": 137.08333333333334,
  "dur_s": 139.4666666666667,
  "frames": 3347,
- "render_s": 135,
+ "render_s": 386,
  "loudness_in": {
   "input_i": "-14.05",
   "input_tp": "-2.00",
@@ -106,16 +106,26 @@
     "at": 0.1
    },
    {
-    "name": "chip",
+    "name": "device",
     "at": 61.983333333333334,
-    "text": "+ Excel V",
-    "said": 62.18333333333334
+    "said": 62.18333333333334,
+    "id": "excel-v",
+    "fill": {
+     "img": "../devices/img/excel-v.png",
+     "label": "Excel V",
+     "maker": "Cutera"
+    }
    },
    {
-    "name": "chip",
+    "name": "device",
     "at": 73.88333333333334,
-    "text": "+ Laser Genesis",
-    "said": 74.08333333333334
+    "said": 74.08333333333334,
+    "id": "laser-genesis",
+    "fill": {
+     "img": "../devices/img/laser-genesis.png",
+     "label": "Laser Genesis",
+     "maker": "Cutera"
+    }
    }
   ],
   "captions": [
@@ -805,7 +815,7 @@
   ],
   "format": {
    "duration": "139.434667",
-   "size": "212580782"
+   "size": "212145983"
   }
  }
 }
