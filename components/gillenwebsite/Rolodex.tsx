@@ -13,7 +13,7 @@ import { useFrame, useThree, useLoader } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import type { Release } from "@/lib/gillenwebsite/discography";
-import { rig, per, FLIP_DIR, coast, makeAngle, wrap, setPos, jumpTo, jumpToRelease, bounceLift } from "./rig";
+import { rig, per, FLIP_DIR, coast, makeAngle, wrap, setPos, jumpTo, jumpToRelease, introAt, INTRO } from "./rig";
 import { R0 } from "./cardTexture";
 import { SLEEVE, SLOT_X, sleeveGeometry, sharpen, loadTex, setMap, sideWidth, sideFile, type Side } from "./sleeve";
 import { paperGrain } from "./textures";
@@ -235,7 +235,6 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
 
   // the first front sleeve counts as settled 150 ms after the first frame
   const settle = useMemo(() => ({ since: 0, done: false }), []);
-  const bounced = useMemo(() => ({ slot: -1 }), []);
   // big covers, decoded and waiting to be uploaded: a 2048 upload with its mips takes a frame's worth of time, so
   // they go up one a frame, front first, and only while the drum stands still
   const uploads = useMemo<(() => void)[]>(() => [], []);
@@ -391,6 +390,14 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
     const now = performance.now();
     if (rig.moveT) { rig.lag.push(now - rig.moveT); if (rig.lag.length > 400) rig.lag.shift(); rig.moveT = 0; }
     const dt = Math.min(delta, 1 / 30);
+    // the intro spin (rig.ts introAt) drives the drum like a flick's coast; at its end the spring has it, from
+    // INTRO.cards out toward INTRO.settle (from the next frame, so its farthest point is drawn)
+    const intro = !!rig.intro;
+    if (rig.intro) {
+      const c = introAt(now - rig.intro.t0);
+      if (c.done) { rig.s = rig.intro.s0 + INTRO.cards; rig.v = 0; setPos(rig.intro.s0 + INTRO.settle); rig.lastScroll = 0; rig.intro = null; }
+      else { rig.s = rig.intro.s0 + c.x; rig.v = c.v; setPos(rig.s); }
+    }
     // a flick coasts on its own curve (rig.ts) and stops on its sleeve
     if (rig.fling !== null) {
       const c = coast(rig.fling, now);
@@ -398,7 +405,9 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       else { setPos(c.x); rig.s = c.x; rig.v = c.v; }
     }
     const raw = rig.pos;
-    if (rig.drag?.mode === "flip" || rig.fling !== null) {
+    if (intro) {
+      // (the intro has set the drum for this frame)
+    } else if (rig.drag?.mode === "flip" || rig.fling !== null) {
       // the finger (or the flick) drives the drum directly: the sleeve under it follows 1:1; the spring waits for release
       if (rig.fling === null) { rig.s = raw; rig.v = 0; }
     } else {
@@ -414,16 +423,6 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       built.cards[i].visible = i !== rig.lifted;
     }
     for (const k of built.knobs) k.rotation.x = FLIP_DIR * -rig.s * 0.42;
-    // the bounce (rig.ts bounceLift): the front sleeve off the ring along its own height, and back; a gesture or the
-    // record view ends it at once
-    const slot = wrap(Math.round(rig.s), TOTAL);
-    let lift = rig.bounceAt ? bounceLift(now - rig.bounceAt) : 0;
-    if (lift === null || rig.drag || rig.fling || rig.lifted >= 0) { lift = 0; rig.bounceAt = 0; }
-    if (lift !== rig.lift || slot !== bounced.slot) {
-      if (bounced.slot >= 0) built.cards[bounced.slot].children[0].position.y = SLEEVE_R;
-      built.cards[slot].children[0].position.y = SLEEVE_R + lift;
-      bounced.slot = slot; rig.lift = lift;
-    }
     const front = wrap(Math.round(rig.s), N);
     if (front !== rig.front) { rig.front = front; rig.onFront.forEach((f) => f(front)); settle.since = now; settle.done = false; }
     if (!settle.done && now - settle.since > SETTLE_MS) { settle.done = true; bigCovers(front); }

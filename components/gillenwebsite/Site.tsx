@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import * as THREE from "three";
 import type { Release } from "@/lib/gillenwebsite/discography";
-import { rig, per, jumpTo, jumpToRelease, setPos, heading, flick, wrap, ringDelta, FLIP_DIR, DRAG_PX, knobTap } from "./rig";
+import { rig, per, jumpTo, jumpToRelease, setPos, heading, flick, wrap, ringDelta, FLIP_DIR, DRAG_PX, knobTap, INTRO } from "./rig";
 import { usePanel } from "./Chrome";
 import ReleaseView from "./ReleaseView";
 import { no3, caps } from "./shared";
@@ -42,6 +42,44 @@ function useSettled(front: number) {
 // SOURCES #29, ad93.ltd S12 (67db9042bba8379f.js:36, 87): after 20 s with no mousemove, keydown, mousedown,
 // touchstart or scroll, count down from 10, one step per 1000 ms, then turn through the releases by themselves
 // until any of those events.
+// The intro spin (rig.ts INTRO, drawn by Rolodex.tsx): INTRO.delay after the home page is interactive (the drum is up
+// and "Loaded" shows) on the first visit (localStorage), and again after INTRO.idle with no input. Any press, wheel or
+// key during it stops it where it is and the drum is the user's at once (a capture listener, ahead of the stage's
+// own). Not with reduced motion, nor while the record view is up or the drum is moving.
+const INTRO_KEY = "gillenwebsite:intro-seen";
+function useIntro(on: boolean) {
+  useEffect(() => {
+    if (!on) return;
+    const seen = () => { try { return localStorage.getItem(INTRO_KEY) === "1"; } catch { return false; } };
+    const start = () => {
+      if (rig.reduce || rig.drag || rig.fling || rig.intro || rig.lifted >= 0 || document.querySelector("[role=dialog]")) return;
+      try { localStorage.setItem(INTRO_KEY, "1"); } catch { /* private mode: it runs each visit */ }
+      rig.intro = { t0: performance.now(), s0: Math.round(heading()) };
+      rig.introLog.push({ at: rig.intro.t0, s0: rig.intro.s0 });
+    };
+    let idle = 0;
+    const arm = () => { clearTimeout(idle); idle = window.setTimeout(() => { start(); arm(); }, INTRO.idle); };
+    const input = () => {
+      if (rig.intro) { rig.introLog[rig.introLog.length - 1].cancelled = performance.now(); rig.intro = null; setPos(rig.s); }
+      arm();
+    };
+    const evs = ["pointerdown", "wheel", "keydown", "touchstart"];
+    evs.forEach((e) => addEventListener(e, input, { capture: true, passive: true }));
+    // a pointer moving over the page keeps it from going idle, but it is no hand-over
+    addEventListener("pointermove", arm, { passive: true });
+    arm();
+    const first = seen() ? 0 : window.setTimeout(start, INTRO.delay);
+    // measurement hook (scripts/gillenwebsite/intro.mjs)
+    (window as unknown as { __intro: unknown }).__intro = { interactiveAt: performance.now(), log: () => rig.introLog, start };
+    return () => {
+      clearTimeout(idle); clearTimeout(first);
+      evs.forEach((e) => removeEventListener(e, input, { capture: true }));
+      removeEventListener("pointermove", arm);
+      rig.intro = null;
+    };
+  }, [on]);
+}
+
 function useScreensaver(N: number) {
   const [count, setCount] = useState<number | null>(null);
   useEffect(() => {
@@ -164,6 +202,7 @@ export default function Site({ releases }: { releases: Release[] }) {
   const counted = useCounted(front, N);
   const settled = useSettled(front);
   const saver = useScreensaver(N);
+  useIntro(ready && loaded);
 
   // the home page is one fixed stage: no page scroll here (the other pages scroll as usual)
   useEffect(() => {

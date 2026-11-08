@@ -41,10 +41,10 @@ export type Rig = {
   setPaused?: (paused: boolean) => void; // stop or restart the stage's render loop (Scene.tsx), while the record view covers it
   lastDir: number; // the direction the drum last moved in (+1 / -1), for a knob tap at rest
   lastBoost: { before: number; after: number; capped: boolean; at: number } | null; // the last knob tap's speeds (cards/s)
-  // the "you can tap this" bounce (Rolodex.tsx draws it): when it started
-  // (performance.now), 0 when none; the front sleeve's lift off the ring now, metres
-  bounceAt: number;
-  lift: number;
+  // the intro spin while it runs (rig.ts introAt), and every one started (for measurement: when, from which card,
+  // and when input cut it short)
+  intro: Intro | null;
+  introLog: { at: number; s0: number; cancelled?: number }[];
   ready: boolean;
   axisY: number; // height of the drum axis, from knob_right's bounding box
   hit: HTMLElement | null; // the cards' hit area over the stage (touch-action: none), kept on the drum's screen rect
@@ -77,8 +77,8 @@ export const rig: Rig = {
   lifted: -1,
   lastDir: 1,
   lastBoost: null,
-  bounceAt: 0,
-  lift: 0,
+  intro: null,
+  introLog: [],
   ready: false,
   axisY: 0.585,
   hit: null,
@@ -147,18 +147,20 @@ export function knobTap() {
   }
 }
 
-// The bounce: the front sleeve lifts BOUNCE.h off the ring and drops back, BOUNCE.n times, each BOUNCE.ms long and
-// BOUNCE.gap ms after the last. Each one rises over 45% of its time (ease-out), falls over 35% (ease-in), and dips
-// BOUNCE.over below the ring and back over the last 20%, the small overshoot. The lift (metres) at t ms from the start,
-// or null once it is over.
-export const BOUNCE = { h: 0.012, n: 2, ms: 350, gap: 200, over: 0.15 };
-export function bounceLift(t: number) {
-  const k = Math.floor(t / (BOUNCE.ms + BOUNCE.gap));
-  if (t < 0 || k >= BOUNCE.n) return null;
-  const u = (t - k * (BOUNCE.ms + BOUNCE.gap)) / BOUNCE.ms;
-  if (u >= 1) return 0;
-  const f = u < 0.45 ? 1 - (1 - u / 0.45) ** 3 : u < 0.8 ? 1 - ((u - 0.45) / 0.35) ** 3 : -BOUNCE.over * Math.sin((Math.PI * (u - 0.8)) / 0.2);
-  return BOUNCE.h * f;
+// The intro spin (Site.tsx useIntro starts it, Rolodex.tsx draws it), as if someone flicked the drum lightly: it
+// coasts INTRO.cards on a flick's own curve (dv/dt = -FRICTION v - BRAKE, the coast of the flick that reaches that
+// far), slowed to take INTRO.ms (the flick itself would take about 320 ms), and stops; then the ratchet's spring, the
+// one that settles a user's flick, pulls it back to the whole card before (INTRO.settle: 0.5 card of recoil).
+// INTRO.delay after the home page is interactive on the first visit, and after INTRO.idle with no input.
+export const INTRO = { cards: 2.5, settle: 2, ms: 900, delay: 800, idle: 90000 };
+let iLo = 0, iHi = 200;
+for (let k = 0; k < 50; k++) { const m = (iLo + iHi) / 2; if (carry(m) < INTRO.cards) iLo = m; else iHi = m; }
+const INTRO_V0 = iLo, INTRO_T = stopMs(iLo) / 1000;
+export type Intro = { t0: number; s0: number };
+// the intro's travel (cards from where it started) and speed (cards/s) at t ms
+export function introAt(t: number) {
+  const k = INTRO_T / (INTRO.ms / 1000), tt = (Math.min(t, INTRO.ms) / 1000) * k, a = INTRO_V0 + BRAKE / FRICTION, e = Math.exp(-FRICTION * tt);
+  return { x: (a * (1 - e)) / FRICTION - (BRAKE / FRICTION) * tt, v: (a * e - BRAKE / FRICTION) * k, done: t >= INTRO.ms };
 }
 
 // where the drum is heading: a coasting flick's card, otherwise pos

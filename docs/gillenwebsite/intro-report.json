@@ -1,0 +1,85 @@
+{
+  "base": "http://localhost:3228",
+  "at": "2026-11-08T07:18:19.230Z",
+  "runs": {
+    "firstVisitDesktop": {
+      "started": true,
+      "s0": 0,
+      "delayAfterInteractiveMs": 805,
+      "coastMs": 911,
+      "coastFrames": 55,
+      "travelled": 2.5,
+      "recoil": 0.5,
+      "settledOn": 2,
+      "settledOnWholeCard": true,
+      "cardsAdvanced": 2,
+      "settledMsAfterStart": 1528,
+      "knobOverDrumAtPeak": -0.42,
+      "cancelled": null,
+      "starts": 1
+    },
+    "firstVisitPhone": {
+      "started": true,
+      "s0": 0,
+      "delayAfterInteractiveMs": 1205,
+      "coastMs": 909,
+      "coastFrames": 23,
+      "travelled": 2.5,
+      "recoil": 0.5,
+      "settledOn": 2,
+      "settledOnWholeCard": true,
+      "cardsAdvanced": 2,
+      "settledMsAfterStart": 1792,
+      "knobOverDrumAtPeak": -0.42,
+      "cancelled": null,
+      "starts": 1
+    },
+    "seenNoIntro": {
+      "started": false,
+      "starts": 0
+    },
+    "interruptDesktop": {
+      "started": true,
+      "s0": 0,
+      "delayAfterInteractiveMs": 809,
+      "coastMs": 347,
+      "coastFrames": 21,
+      "travelled": 3.04,
+      "recoil": 0.04,
+      "settledOn": 3,
+      "settledOnWholeCard": true,
+      "cardsAdvanced": 3,
+      "settledMsAfterStart": 997,
+      "knobOverDrumAtPeak": -0.42,
+      "cancelled": 365,
+      "starts": 1,
+      "handOver": {
+        "sAtInput": 1.564,
+        "introRunningNextFrame": false,
+        "settledOn": 3
+      }
+    },
+    "interruptPhone": {
+      "started": true,
+      "s0": 0,
+      "delayAfterInteractiveMs": 962,
+      "coastMs": 399,
+      "coastFrames": 18,
+      "travelled": 2,
+      "recoil": 0,
+      "settledOn": 2,
+      "settledOnWholeCard": true,
+      "cardsAdvanced": 2,
+      "settledMsAfterStart": 649,
+      "knobOverDrumAtPeak": -0.42,
+      "cancelled": 484,
+      "starts": 1,
+      "handOver": {
+        "sAtInput": 1.522,
+        "introRunningNextFrame": false,
+        "settledOn": 2
+      }
+    }
+  },
+  "pass": false
+}
