@@ -215,6 +215,16 @@ for (const p of PROFILES) {
     out.nameClose = { at: { x: Math.round(q.x), y: Math.round(q.y) }, cursor, back, closeMs: l?.ms ?? null, fps: l?.fps ?? null };
     await page.waitForTimeout(400); await open();
   }
+  // 4e. so does a click on the panel away from the type (its bottom left corner)
+  {
+    const n0 = await V(() => window.__vinyl.log().length), q = await V(() => window.__vinyl.panelCornerPoint());
+    const cursor = p.mobile ? null : await (async () => { await page.mouse.move(q.x, q.y); await page.waitForTimeout(100); return V(() => document.querySelector("[data-src='12'] canvas").style.cursor); })();
+    await tap(q.x, q.y);
+    const back = await until(page, () => window.__vinyl.state() === "closed" && window.__rolodex.rig.lifted === -1, 2500);
+    const l = (await V((n0) => window.__vinyl.log().slice(n0), n0)).find((x) => x.dir === "close");
+    out.panelClose = { at: { x: Math.round(q.x), y: Math.round(q.y) }, cursor, back, closeMs: l?.ms ?? null };
+    await page.waitForTimeout(400); await open();
+  }
 
   // 5. vertical drags: 60 px nothing, 100 px back to the ring (from open, then from shut); Escape
   const vert = async (dy) => { const e0 = await V(() => window.__vinyl.events().length); const q = await V(() => window.__vinyl.state() === "open" ? window.__vinyl.panelPoint() : window.__vinyl.coverPoint()); const n0 = await V(() => window.__vinyl.log().length); await drag(q.x, q.y, 0, dy, 12); const back = await until(page, () => window.__vinyl.state() === "closed" && window.__rolodex.rig.lifted === -1, 2500); return { why: await V((e0) => window.__vinyl.events().slice(e0).filter((x) => x.ev.startsWith("closeBy")).map((x) => x.ev).join(","), e0), from: { x: Math.round(q.x), y: Math.round(q.y) }, dy, back, ran: await V((n0) => window.__vinyl.log().slice(n0).map((l) => `${l.dir} ${l.ms}ms ${l.fps}fps`).join(", "), n0), after: await now() }; };
@@ -250,6 +260,7 @@ for (const p of PROFILES) {
     sensitivity: Math.abs(out.sensitivity.measuredDegPerPx - 0.6) <= 0.03 && out.flick.carriedTurns > 0 && Math.abs(out.flick.carriedTurns - out.flick.carryPredictedTurns) <= 0.03 + 0.1 * out.flick.carryPredictedTurns,
     diagonal: !out.diagonal.sentBack,
     nameClose: out.nameClose.back && Math.abs(out.nameClose.closeMs - 350) <= 20 && (p.mobile || out.nameClose.cursor === "pointer"),
+    panelClose: out.panelClose.back && Math.abs(out.panelClose.closeMs - 350) <= 20 && (p.mobile || out.panelClose.cursor === "pointer"),
     whiteTaps: out.whiteTaps.every((t) => t.unchanged),
     closeThenTurn: !!(C.foldStartFrame && C.recordInFrame && C.gatefoldShutFrame && C.rotationStartFrame) && C.recordInFrame < C.gatefoldShutFrame && C.rotationStartFrame > C.gatefoldShutFrame && C.maxYawBeforeShut === 0 && C.gateAtRotationStart === 0,
     shutTurning: out.shutTurning.turnsRound >= 1 && out.shutTurning.maxGateWhileTurning === 0 && out.shutTurning.maxSlideWhileTurning === 0,
@@ -259,7 +270,7 @@ for (const p of PROFILES) {
   };
   out.pass = Object.values(out.checks).every(Boolean);
   report.profiles[p.name] = out;
-  console.log(p.name, JSON.stringify({ checks: out.checks, sleeve: out.sleeve, spinDegPerS: out.spinDegPerS, sensitivity: out.sensitivity, flick: out.flick, diagonal: out.diagonal, nameClose: out.nameClose, sdf: out.sdf, dom: out.dom, closeThenTurn: out.closeThenTurn, shutTurning: { ...out.shutTurning, drags: undefined }, reopen: out.reopen, swipes: Object.fromEntries(Object.entries(S).map(([k, v]) => [k, v.back])), fps: out.fps, whiteTaps: out.whiteTaps.map((t) => t.unchanged), box: out.box, panel: out.panelSize }));
+  console.log(p.name, JSON.stringify({ checks: out.checks, sleeve: out.sleeve, spinDegPerS: out.spinDegPerS, sensitivity: out.sensitivity, flick: out.flick, diagonal: out.diagonal, nameClose: out.nameClose, panelClose: out.panelClose, sdf: out.sdf, dom: out.dom, closeThenTurn: out.closeThenTurn, shutTurning: { ...out.shutTurning, drags: undefined }, reopen: out.reopen, swipes: Object.fromEntries(Object.entries(S).map(([k, v]) => [k, v.back])), fps: out.fps, whiteTaps: out.whiteTaps.map((t) => t.unchanged), box: out.box, panel: out.panelSize }));
   await ctx.close();
 }
 await browser.close();

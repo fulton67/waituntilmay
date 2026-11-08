@@ -9,7 +9,7 @@
 //    about anyone else. On phones (under PHONE px wide) the open sleeve is centred in the viewport at 92% of its width
 //    and the same type is on its panel, scaled with the sleeve (the name about 18 px on a 390 px screen). No DOM text
 //    on any width. The label is the cover's light colour with the release's title round its top, so the 33 1/3 rpm
-//    turn shows. A click or tap on the name sends the sleeve back to the ring.
+//    turn shows. A click or tap on the panel with the name sends the sleeve back to the ring.
 //  - shut, turning: a horizontal drag on the open record closes it first (the record slides in over SLIDE_MS, then the
 //    gatefold shuts over GATE_MS, the type fading with it, the sleeve moving to the middle). Only then does the shut
 //    sleeve turn with the drag about its upright axis, 1:1 with the finger (TURN: 0.6 degrees a px, a turn in 600 px),
@@ -42,8 +42,8 @@ const FOLD_MS = SLIDE_MS + GATE_MS;
 // it back to the ring; under TAP px of movement is a tap; the drag's axis is decided once it has moved AXIS px
 const TURN = THREE.MathUtils.degToRad(0.6), FLICK = 1500, FRICTION = (FLICK * TURN) / Math.PI, SWIPE = 80, TAP = 5, AXIS = 8;
 // phones: the open sleeve centred in the viewport at PHONE_W of its width, the name at PHONE_NAME px on a 390 px
-// screen (in proportion on others)
-const PHONE = 720, PHONE_W = 0.92, PHONE_NAME = 18;
+// screen (in proportion on others); the shut sleeve nearer, at PHONE_SHUT of the width (at most half the height)
+const PHONE = 720, PHONE_W = 0.92, PHONE_NAME = 18, PHONE_SHUT = 0.72;
 // each motion's stages, as fractions of its duration: [start, end] of the move (and turn), the gatefold and the
 // record's slide
 type Win = [number, number];
@@ -94,7 +94,14 @@ type Engine = {
   steps: (() => void)[];
 };
 
-const synced = (ts: Text[]) => Promise.all(ts.map((t) => new Promise<void>((res) => t.sync(() => res()))));
+// each text laid out with its current properties. troika's sync(cb) never calls cb when there is nothing left to start:
+// when the frame loop's onBeforeRender has already started this layout (then wait for its synccomplete) or it is done
+const synced = (ts: Text[]) => Promise.all(ts.map((t) => new Promise<void>((res) => {
+  const s = t as unknown as { _needsSync: boolean; _isSyncing: boolean };
+  if (s._needsSync) t.sync(() => res());
+  else if (s._isSyncing) { const done = () => { t.removeEventListener("synccomplete" as never, done); res(); }; t.addEventListener("synccomplete" as never, done); }
+  else res();
+})));
 const blockH = (t: Text) => { const b = t.textRenderInfo?.blockBounds; return b ? b[3] - b[1] : 0; };
 
 async function makeEngine(canvas: HTMLCanvasElement): Promise<Engine> {
@@ -195,27 +202,37 @@ function sizePanel(e: Engine, pose: Pose, g: number, s: number, phone: boolean) 
 }
 
 // the panel's type for a release, laid out top down: the name, a gap, the roles with their tracks, a gap, the artist,
-// release and year. If that runs past the panel's bottom margin the two smaller blocks shrink together until it fits.
+// release and year. If that runs past the panel's bottom margin the two smaller blocks shrink together, to the
+// largest size that fits (halving the range 6 times from 0.3-1: smaller type wraps to fewer lines, so it is found by
+// laying it out, not by proportion).
 async function setPanel(e: Engine, r: Release) {
   const P = e.panel, sz = P.size, tok = ++P.token;
   if (!sz) return;
   P.roles.text = dylanRoles(r).map((x) => caps(x.role) + (x.tracks.length ? "\n" + x.tracks.join(", ") : "")).join("\n");
   P.line.text = `${r.artist}, ${r.release} (${r.year})`;
   P.name.fontSize = sz.name;
-  let k = 1;
-  for (let pass = 0; pass < 4; pass++) {
+  const top = SLEEVE - P.margin, avail = SLEEVE - 2 * P.margin;
+  // lay it out at k; whether it fits
+  const at = async (k: number) => {
     P.roles.fontSize = P.line.fontSize = sz.line * k;
     await synced([P.name, P.roles, P.line]);
-    if (tok !== P.token) return;
-    const gap = PANEL.gap * sz.line * k, top = SLEEVE - P.margin;
+    if (tok !== P.token) return null;
+    const gap = PANEL.gap * sz.line * k;
     P.name.position.y = top;
     P.roles.position.y = top - blockH(P.name) - gap;
     P.line.position.y = P.roles.position.y - blockH(P.roles) - gap;
-    const used = top - (P.line.position.y - blockH(P.line)), avail = SLEEVE - 2 * P.margin;
-    if (used <= avail + 1e-6) break;
-    const rest = blockH(P.roles) + blockH(P.line), room = avail - blockH(P.name) - 2 * gap;
-    k *= Math.max(0.3, Math.min(0.98, room / rest));
+    return top - (P.line.position.y - blockH(P.line)) <= avail + 1e-6;
+  };
+  const full = await at(1);
+  if (full !== false) return;
+  let lo = 0.3, hi = 1, fit = false;
+  for (let pass = 0; pass < 6; pass++) {
+    const k = (lo + hi) / 2, ok = await at(k);
+    if (ok === null) return;
+    if (ok) lo = k; else hi = k;
+    fit = ok;
   }
+  if (!fit) await at(lo);
 }
 
 // the label's colour: the cover's lightest dominant colour. The cover at 48 x 48, its pixels in 8 levels a channel;
@@ -294,7 +311,8 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
 
   // the open pose: face on, at the distance and offset where the open model's projected box fills its region with a
   // margin (on phones PHONE_W of the width), centred in it. Found by measuring: place, project, correct. The shut pose is
-  // the same distance with the sleeve's centre on the region's.
+  // the same distance with the sleeve's centre on the region's; on phones, where that leaves it small, nearer, so the
+  // sleeve is PHONE_SHUT of the width. sleevePx: the shut sleeve's edge on screen.
   const fitPoses = useCallback((e: Engine): Poses => {
     const cam = e.cam, R = region(), W = innerWidth, H = innerHeight, tan = Math.tan(THREE.MathUtils.degToRad(cam.fov / 2));
     const q = cam.quaternion.clone();
@@ -326,7 +344,8 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     }
     e.holder.position.copy(was.p); e.holder.quaternion.copy(was.q);
     e.rec.set(state.current.g, state.current.s);
-    return { open: { p: at(cx, cy, d), q }, shut: { p: at(ccx, ccy, d), q: q.clone() }, sleevePx: (SLEEVE * H) / (2 * tan * d), phone: R.phone };
+    const ds = R.phone ? Math.min(d, (SLEEVE * H) / (2 * tan * Math.min(W * PHONE_SHUT, H * 0.5))) : d;
+    return { open: { p: at(cx, cy, d), q }, shut: { p: at(ccx, ccy, ds), q: q.clone() }, sleevePx: (SLEEVE * H) / (2 * tan * ds), phone: R.phone };
   }, [region]);
 
   // the closed model standing exactly on the ring's front sleeve, or on a cover in the page
@@ -647,6 +666,8 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
       // the sleeve's centre (the holder: the shut sleeve's middle)
       discPoint: () => { const e = eng.current; return e ? project(e, e.rec.disc, new THREE.Vector3(DISC_R * 0.72, 0, 0.0012)) : null; },
       panelPoint: () => { const e = eng.current; return e ? project(e, e.rec.credits, new THREE.Vector3(0, SLEEVE / 2, 0)) : null; },
+      // (and the panel's bottom left corner, inside by its margin: the board, no type)
+      panelCornerPoint: () => { const e = eng.current; return e ? project(e, e.rec.credits, new THREE.Vector3(-SLEEVE / 2 + e.panel.margin, e.panel.margin, 0)) : null; },
       coverPoint: () => { const e = eng.current; return e ? project(e, e.holder, new THREE.Vector3(0, 0, 0)) : null; },
       // the model's box on screen (CSS px): every mesh's corners projected, the type left out (the record unturned
       // for it, so its square box is the disc's)
@@ -689,6 +710,14 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
         return out;
       },
       release: () => releases[state.current.i]?.id ?? null,
+      // the panel's type against the panel: the bottom of the last block over the bottom margin (metres; <= 0 fits)
+      panelFit: () => {
+        const P = eng.current?.panel;
+        if (!P) return null;
+        // (stale: the blocks are not where the layout of their current text puts them, as when a layout never finished)
+        const gap = PANEL.gap * P.roles.fontSize, stale = Math.abs(P.roles.position.y - (P.name.position.y - blockH(P.name) - gap)) > 1e-4 || Math.abs(P.line.position.y - (P.roles.position.y - blockH(P.roles) - gap)) > 1e-4;
+        return { over: +(P.margin - (P.line.position.y - blockH(P.line))).toFixed(5), stale, roles: +P.roles.fontSize.toFixed(5), line: P.size?.line ?? null };
+      },
       // the drag's turn and the friction (radians a px; per second), and the turn's speed now (radians a second)
       turning: () => ({ radPerPx: TURN, degPerPx: +THREE.MathUtils.radToDeg(TURN).toFixed(4), friction: +FRICTION.toFixed(3), velocity: state.current.turnV }),
       // where to click on the name (its middle)
@@ -708,15 +737,17 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     ray.current.setFromCamera(new THREE.Vector2((x / innerWidth) * 2 - 1, 1 - (y / innerHeight) * 2), e.cam);
     return ray.current.intersectObject(e.rec.root, true).length > 0;
   };
-  // is a point on the panel's name (open)?
-  const onName = (x: number, y: number) => {
+  // is a point on the panel with the name (open): the credits board or its type, not the record in front of it?
+  const onPanel = (x: number, y: number) => {
     const e = eng.current;
     if (!e || state.current.mode !== "open") return false;
     ray.current.setFromCamera(new THREE.Vector2((x / innerWidth) * 2 - 1, 1 - (y / innerHeight) * 2), e.cam);
-    return ray.current.intersectObject(e.panel.name, false).length > 0;
+    const hit = ray.current.intersectObject(e.rec.root, true)[0]?.object, wall = e.rec.credits.parent;
+    for (let o: THREE.Object3D | null | undefined = hit; o; o = o.parent) if (o === wall) return true;
+    return false;
   };
   // a press on the model starts a drag: sideways it shuts the open record and then turns it, up or down past SWIPE
-  // it goes back to the ring; a tap on the shut sleeve opens it, a tap on the name sends it back. A press on the
+  // it goes back to the ring; a tap on the shut sleeve opens it, a tap on the panel with the name sends it back. A press on the
   // white does nothing.
   const onDown = (ev: React.PointerEvent) => {
     const st = state.current;
@@ -728,7 +759,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
   const onMove = (ev: React.PointerEvent) => {
     const st = state.current, d = st.drag;
     if (!d) {
-      if (st.mode === "open" || st.mode === "shut") (ev.currentTarget as HTMLElement).style.cursor = onName(ev.clientX, ev.clientY) ? "pointer" : onModel(ev.clientX, ev.clientY) ? "grab" : "";
+      if (st.mode === "open" || st.mode === "shut") (ev.currentTarget as HTMLElement).style.cursor = onPanel(ev.clientX, ev.clientY) ? "pointer" : onModel(ev.clientX, ev.clientY) ? "grab" : "";
       return;
     }
     d.x = ev.clientX; d.y = ev.clientY;
@@ -749,7 +780,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     if (!d) return;
     if (!d.axis && d.moved <= TAP) {
       if (st.mode === "shut") unfold();
-      else if (onName(ev.clientX, ev.clientY)) close("name");
+      else if (onPanel(ev.clientX, ev.clientY)) close("panel");
       return;
     }
     // a turn let go: the finger's speed over its last 100 ms carries on
