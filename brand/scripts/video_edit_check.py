@@ -29,7 +29,7 @@ def read(im, a, b):
     h = im.shape[0]; return " ".join(t for _, t, c in rd.readtext(im[int(h * a):int(h * b)]) if c >= 0.3)
 caps = []
 for c in spec["captions"]:
-    t = (c["from"] + c["to"]) / 2; im = frame(t); txt = read(im, 0.72, 0.86)
+    t = (c["from"] + c["to"]) / 2; im = frame(t); txt = read(im, 0.78, 0.93)
     # the lower third (first ~4 s) and the embroidery share these rows: score the best-matching run of letters of the same length
     want, got = letters(c["text"]), letters(txt); n = len(want)
     best = max((difflib.SequenceMatcher(None, want, got[i:i + n]).ratio() for i in range(0, max(1, len(got) - n + 1))), default=0)
