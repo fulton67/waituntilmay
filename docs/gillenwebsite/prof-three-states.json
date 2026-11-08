@@ -1,0 +1,348 @@
+{
+  "base": "http://localhost:3228",
+  "at": "2026-11-08T19:51:25.445Z",
+  "seconds": 20,
+  "profiles": {
+    "desktop": {
+      "home": {
+        "frames": 1195,
+        "over33": 2,
+        "over33Pct": 0.17,
+        "fps": 59.8,
+        "worstFrameMs": 66.7,
+        "longTasks": 1,
+        "longTaskMs": [
+          54
+        ],
+        "uploads": {
+          "count": 323,
+          "inGesture": 6,
+          "totalMs": 156.1,
+          "over4ms": []
+        },
+        "reactCommits": 160,
+        "commitsPerFrame": 0.134,
+        "slowFrames": [
+          {
+            "atS": 0.39,
+            "ms": 66.7,
+            "uploads": [],
+            "commits": 0,
+            "gesture": false
+          },
+          {
+            "atS": 2.43,
+            "ms": 50.1,
+            "uploads": [],
+            "commits": 1,
+            "gesture": false
+          }
+        ],
+        "traced": {
+          "tracedLongTasks": 1,
+          "longTasks": [
+            {
+              "atS": 6.97,
+              "ms": 67,
+              "kinds": [
+                "Commit 65.5ms",
+                "FunctionCall e2 1.1ms"
+              ],
+              "functions": [
+                "(program) 32.5ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 0.5ms",
+                "drawArrays 0.5ms"
+              ]
+            }
+          ],
+          "topFunctions": [
+            "needsUpdate node_modules/three/build/three.module.js:15178 341ms",
+            "renderBufferDirect node_modules/three/build/three.module.js:29463 68ms",
+            "setup node_modules/three/build/three.module.js:15730 57ms",
+            "texSubImage2D 47ms",
+            "setProgram node_modules/three/build/three.module.js:29469 46ms",
+            "uniformMatrix4fv 44ms",
+            "updateMatrixWorld node_modules/three/build/three.module.js:7772 44ms",
+            "projectObject node_modules/three/build/three.module.js:30038 39ms",
+            "copyArray node_modules/three/build/three.module.js:18275 35ms",
+            "refreshUniformsCommon node_modules/three/build/three.module.js:27918 31ms",
+            "upload node_modules/three/build/three.module.js:19283 20ms",
+            "(garbage collector) 19ms"
+          ],
+          "gc": {
+            "MinorGC": {
+              "n": 17,
+              "ms": 7.6,
+              "maxMs": 0.7
+            },
+            "V8.GCScavenger": {
+              "n": 17,
+              "ms": 6.8,
+              "maxMs": 0.6
+            },
+            "V8.GC_SCAVENGER": {
+              "n": 17,
+              "ms": 6.3,
+              "maxMs": 0.5
+            },
+            "MajorGC": {
+              "n": 4,
+              "ms": 20.2,
+              "maxMs": 6
+            },
+            "V8.GC_MARK_COMPACTOR": {
+              "n": 4,
+              "ms": 20,
+              "maxMs": 5.9
+            }
+          }
+        }
+      },
+      "open": {
+        "frames": 1199,
+        "over33": 0,
+        "over33Pct": 0,
+        "fps": 60,
+        "worstFrameMs": 16.9,
+        "longTasks": 0,
+        "longTaskMs": [],
+        "uploads": {
+          "count": 129,
+          "inGesture": 0,
+          "totalMs": 41.7,
+          "over4ms": []
+        },
+        "reactCommits": 33,
+        "commitsPerFrame": 0.028,
+        "slowFrames": [],
+        "traced": {
+          "tracedLongTasks": 0,
+          "longTasks": [],
+          "topFunctions": [
+            "needsUpdate node_modules/three/build/three.module.js:15178 61ms",
+            "commitMutationEffectsOnFiber node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.production.js:10415 32ms",
+            "texSubImage2D 18ms",
+            "setProgram node_modules/three/build/three.module.js:29469 16ms",
+            "renderBufferDirect node_modules/three/build/three.module.js:29463 15ms",
+            "projectObject node_modules/three/build/three.module.js:30038 13ms",
+            "copyArray node_modules/three/build/three.module.js:18275 12ms",
+            "setup node_modules/three/build/three.module.js:15730 12ms",
+            "requestAnimationFrame 11ms",
+            "refreshUniformsCommon node_modules/three/build/three.module.js:27918 10ms",
+            "(anon) components/gillenwebsite/VinylView.tsx:410 9ms",
+            "arraysEqual node_modules/three/build/three.module.js:18261 8ms"
+          ],
+          "gc": {
+            "MajorGC": {
+              "n": 2,
+              "ms": 7,
+              "maxMs": 4.2
+            },
+            "V8.GC_MARK_COMPACTOR": {
+              "n": 2,
+              "ms": 7,
+              "maxMs": 4.2
+            },
+            "MinorGC": {
+              "n": 2,
+              "ms": 1.2,
+              "maxMs": 0.6
+            },
+            "V8.GCScavenger": {
+              "n": 2,
+              "ms": 1.1,
+              "maxMs": 0.6
+            },
+            "V8.GC_SCAVENGER": {
+              "n": 2,
+              "ms": 0.8,
+              "maxMs": 0.4
+            }
+          }
+        }
+      }
+    },
+    "phone": {
+      "home": {
+        "frames": 1196,
+        "over33": 1,
+        "over33Pct": 0.08,
+        "fps": 59.8,
+        "worstFrameMs": 50,
+        "longTasks": 0,
+        "longTaskMs": [],
+        "uploads": {
+          "count": 298,
+          "inGesture": 245,
+          "totalMs": 524.9,
+          "over4ms": [
+            "texSubImage2D 2048x2048 ImageBitmap 4.2ms (gesture)"
+          ]
+        },
+        "reactCommits": 135,
+        "commitsPerFrame": 0.113,
+        "slowFrames": [
+          {
+            "atS": 0.07,
+            "ms": 50,
+            "uploads": [],
+            "commits": 0,
+            "gesture": false
+          }
+        ],
+        "traced": {
+          "tracedLongTasks": 1,
+          "longTasks": [
+            {
+              "atS": 20.03,
+              "ms": 80,
+              "kinds": [],
+              "functions": [
+                "(program) 0.5ms"
+              ]
+            }
+          ],
+          "topFunctions": [
+            "needsUpdate node_modules/three/build/three.module.js:15178 459ms",
+            "renderBufferDirect node_modules/three/build/three.module.js:29463 308ms",
+            "uniformMatrix4fv 277ms",
+            "setProgram node_modules/three/build/three.module.js:29469 262ms",
+            "setup node_modules/three/build/three.module.js:15730 244ms",
+            "texSubImage2D 242ms",
+            "updateMatrixWorld node_modules/three/build/three.module.js:7772 209ms",
+            "copyArray node_modules/three/build/three.module.js:18275 202ms",
+            "projectObject node_modules/three/build/three.module.js:30038 165ms",
+            "refreshUniformsCommon node_modules/three/build/three.module.js:27918 147ms",
+            "upload node_modules/three/build/three.module.js:19283 110ms",
+            "flatten node_modules/three/build/three.module.js:18226 82ms"
+          ],
+          "gc": {
+            "MinorGC": {
+              "n": 20,
+              "ms": 34.2,
+              "maxMs": 2.8
+            },
+            "V8.GCScavenger": {
+              "n": 20,
+              "ms": 30.4,
+              "maxMs": 2.6
+            },
+            "V8.GC_SCAVENGER": {
+              "n": 20,
+              "ms": 25.9,
+              "maxMs": 2.2
+            },
+            "MajorGC": {
+              "n": 5,
+              "ms": 49.1,
+              "maxMs": 12.5
+            },
+            "V8.GC_MARK_COMPACTOR": {
+              "n": 5,
+              "ms": 48.2,
+              "maxMs": 12.1
+            }
+          }
+        }
+      },
+      "open": {
+        "frames": 1189,
+        "over33": 3,
+        "over33Pct": 0.25,
+        "fps": 59.5,
+        "worstFrameMs": 83.3,
+        "longTasks": 0,
+        "longTaskMs": [],
+        "uploads": {
+          "count": 108,
+          "inGesture": 0,
+          "totalMs": 179.9,
+          "over4ms": [
+            "texSubImage2D 2048x2048 ImageBitmap 4.1ms"
+          ]
+        },
+        "reactCommits": 32,
+        "commitsPerFrame": 0.027,
+        "slowFrames": [
+          {
+            "atS": 0.08,
+            "ms": 33.4,
+            "uploads": [
+              "2048x2048 1.6"
+            ],
+            "commits": 1,
+            "gesture": false
+          },
+          {
+            "atS": 9.96,
+            "ms": 50,
+            "uploads": [],
+            "commits": 2,
+            "gesture": false
+          },
+          {
+            "atS": 10.01,
+            "ms": 83.3,
+            "uploads": [],
+            "commits": 2,
+            "gesture": false
+          }
+        ],
+        "traced": {
+          "tracedLongTasks": 1,
+          "longTasks": [
+            {
+              "atS": 20.04,
+              "ms": 69.8,
+              "kinds": [],
+              "functions": [
+                "(program) 0.5ms"
+              ]
+            }
+          ],
+          "topFunctions": [
+            "needsUpdate node_modules/three/build/three.module.js:15178 82ms",
+            "setProgram node_modules/three/build/three.module.js:29469 80ms",
+            "renderBufferDirect node_modules/three/build/three.module.js:29463 79ms",
+            "texSubImage2D 74ms",
+            "requestAnimationFrame 60ms",
+            "refreshUniformsCommon node_modules/three/build/three.module.js:27918 56ms",
+            "(anon) components/gillenwebsite/VinylView.tsx:410 56ms",
+            "setup node_modules/three/build/three.module.js:15730 53ms",
+            "uniformMatrix4fv 50ms",
+            "projectObject node_modules/three/build/three.module.js:30038 41ms",
+            "copyArray node_modules/three/build/three.module.js:18275 36ms",
+            "commitMutationEffectsOnFiber node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.production.js:10415 34ms"
+          ],
+          "gc": {
+            "MinorGC": {
+              "n": 3,
+              "ms": 6.8,
+              "maxMs": 2.8
+            },
+            "V8.GCScavenger": {
+              "n": 3,
+              "ms": 5.8,
+              "maxMs": 2.4
+            },
+            "V8.GC_SCAVENGER": {
+              "n": 3,
+              "ms": 4.2,
+              "maxMs": 1.6
+            },
+            "MajorGC": {
+              "n": 2,
+              "ms": 22.1,
+              "maxMs": 11.5
+            },
+            "V8.GC_MARK_COMPACTOR": {
+              "n": 2,
+              "ms": 22,
+              "maxMs": 11.4
+            }
+          }
+        }
+      }
+    }
+  }
+}

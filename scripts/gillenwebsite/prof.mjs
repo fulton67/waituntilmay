@@ -10,8 +10,9 @@
 //    self time, mapped through the build's source maps when it serves them (a local build with
 //    productionBrowserSourceMaps), else minified names.
 // Input. Home: 12 wheel notches (touch: swipes), 3 drags on the sleeves, 2 orbit drags off them, then idle with two more
-// steps. Open view: the front release opened, idle, a horizontal drag one way and back, a tap to close, a second
-// release opened, a long drag (past 90 degrees) and back, idle.
+// steps. Open view (the three states, VinylView.tsx): the front release opened, idle, a horizontal drag on it (it shuts,
+// then turns) and back, a tap on the shut sleeve (it opens again), Escape (back to the ring), a second release opened,
+// a long drag (shut and turned past 90 degrees) and back, idle. Each drag starts on the sleeve's middle.
 //   node scripts/gillenwebsite/prof.mjs [base-url] [--out file] [--seconds 20] [--only desktop|phone] [--views home,open] [--no-trace] [--task-ms 50]
 import { chromium } from "@playwright/test";
 import fs from "node:fs/promises";
@@ -110,15 +111,17 @@ async function script(page, cdp, p, view, t0) {
     for (const s of [16, 18]) { await at(s); if (p.mobile) await drag(p.w * 0.85, p.h * 0.55, p.w * 0.85, p.h * 0.55 - 160, 180); else { await page.mouse.move(hit.x, hit.y); await page.mouse.wheel(0, 100); } }
   } else {
     const open = () => page.evaluate(() => window.__site.openFront());
-    const mid = { x: p.w / 2, y: p.mobile ? p.h * 0.3 : p.h / 2 };
+    const mid = () => page.evaluate(() => window.__vinyl.coverPoint());
+    const span = p.mobile ? 120 : 200, long = p.mobile ? 150 : 320;
     await at(0); await open();
-    await at(3); await drag(mid.x - 100, mid.y, mid.x + 100, mid.y, 600);
-    await at(5); await drag(mid.x + 100, mid.y, mid.x - 100, mid.y, 600);
-    await at(8); await tap(mid.x, mid.y);
+    await at(3); { const m = await mid(); await drag(m.x, m.y, m.x + span, m.y, 600); }
+    await at(5); { const m = await mid(); await drag(m.x, m.y, m.x - span, m.y, 600); }
+    await at(7); { const m = await mid(); await tap(m.x, m.y); }
+    await at(8.5); await page.keyboard.press("Escape");
     await at(9.5); await page.evaluate(() => window.__rolodex.jumpToRelease((window.__rolodex.rig.front + 5) % window.__rolodex.rig.N));
     await at(11); await open();
-    await at(13); await drag(mid.x - 160, mid.y, mid.x + 160, mid.y, 900);
-    await at(16); await drag(mid.x + 160, mid.y, mid.x - 160, mid.y, 900);
+    await at(13); { const m = await mid(); await drag(m.x, m.y, m.x + long, m.y, 900); }
+    await at(16); { const m = await mid(); await drag(m.x, m.y, m.x - long, m.y, 900); }
   }
   await at(SECS);
 }
