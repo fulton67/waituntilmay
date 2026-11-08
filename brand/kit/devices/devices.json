@@ -1,0 +1,371 @@
+{
+ "source": "research/ostad/refs/procedures.json + EXTRA in scripts/devices.py",
+ "n": 26,
+ "with_image": 0,
+ "devices": [
+  {
+   "id": "fraxel",
+   "label": "Fraxel",
+   "maker": "Solta Medical (Bausch Health)",
+   "procedure": "Fraxel Dual and Restore",
+   "mentions": 8,
+   "say": [
+    "1550 nm",
+    "1927 nm thulium",
+    "Fraxel",
+    "Fraxel DUAL",
+    "Fraxel Dual",
+    "non-ablative fractional laser",
+    "re:store"
+   ],
+   "img": null
+  },
+  {
+   "id": "co2-laser",
+   "label": "Fraxel CO2",
+   "maker": "Solta Medical",
+   "procedure": "Fraxel CO2 (ablative fractional)",
+   "mentions": 0,
+   "say": [
+    "CO2 laser",
+    "Fraxel CO2",
+    "Fraxel re:pair",
+    "ablative resurfacing"
+   ],
+   "img": null
+  },
+  {
+   "id": "clear-brilliant",
+   "label": "Clear + Brilliant",
+   "maker": "Solta Medical",
+   "procedure": "Clear + Brilliant",
+   "mentions": 3,
+   "say": [
+    "1440 nm",
+    "Clear + Brilliant",
+    "Permea 1927",
+    "clear and brilliant",
+    "gentle fractional laser"
+   ],
+   "img": null
+  },
+  {
+   "id": "picoway",
+   "label": "PicoWay",
+   "maker": "Candela",
+   "procedure": "PicoWay",
+   "mentions": 2,
+   "say": [
+    "PicoWay",
+    "Resolve",
+    "photoacoustic",
+    "pico laser",
+    "pico way",
+    "picosecond laser"
+   ],
+   "img": null
+  },
+  {
+   "id": "excel-v",
+   "label": "Excel V",
+   "maker": "Cutera",
+   "procedure": "Cutera excel V (vascular laser)",
+   "mentions": 11,
+   "say": [
+    "1064 Nd:YAG",
+    "532 nm KTP",
+    "Excel V",
+    "XLV",
+    "excel V plus",
+    "excel V+",
+    "vascular laser"
+   ],
+   "img": null
+  },
+  {
+   "id": "laser-genesis",
+   "label": "Laser Genesis",
+   "maker": "Cutera",
+   "procedure": "Laser Genesis",
+   "mentions": 2,
+   "say": [
+    "1064 nm laser toning",
+    "Cutera xeo",
+    "Laser Genesis",
+    "Laser Genesis on xeo",
+    "laser genesis"
+   ],
+   "img": null
+  },
+  {
+   "id": "aviclear",
+   "label": "AviClear",
+   "maker": "Cutera",
+   "procedure": "AviClear",
+   "mentions": 3,
+   "say": [
+    "1726 nm laser",
+    "AviClear",
+    "sebaceous gland laser"
+   ],
+   "img": null
+  },
+  {
+   "id": "laser-hair-removal",
+   "label": "LightSheer",
+   "maker": "Lumenis",
+   "procedure": "Laser hair removal",
+   "mentions": 5,
+   "say": [
+    "ChillTip",
+    "LightSheer",
+    "Lumenis LightSheer",
+    "diode laser"
+   ],
+   "img": null
+  },
+  {
+   "id": "tattoo-removal",
+   "label": "PicoWay",
+   "maker": "Candela",
+   "procedure": "Laser tattoo removal",
+   "mentions": 2,
+   "say": [
+    "PicoWay",
+    "Q-switched",
+    "picosecond tattoo"
+   ],
+   "img": null
+  },
+  {
+   "id": "juliet",
+   "label": "Juliet",
+   "maker": "Cynosure",
+   "procedure": "Juliet vaginal laser",
+   "mentions": 0,
+   "say": [
+    "Er:YAG vaginal rejuvenation",
+    "Juliet"
+   ],
+   "img": null
+  },
+  {
+   "id": "morpheus8",
+   "label": "Morpheus8",
+   "maker": "InMode",
+   "procedure": "Morpheus8",
+   "mentions": 4,
+   "say": [
+    "Morpheus8",
+    "RF microneedling",
+    "fractional radiofrequency",
+    "morpheus",
+    "morpheus 8"
+   ],
+   "img": null
+  },
+  {
+   "id": "rf-microneedling",
+   "label": "RF microneedling",
+   "maker": null,
+   "procedure": "Radiofrequency tightening (RF microneedling, EndyMed, PelleFirm)",
+   "mentions": 12,
+   "say": [
+    "3DEEP RF",
+    "EndyMed and PelleFirm RF",
+    "PelleFirm",
+    "Pelleve",
+    "Potenza",
+    "RF microneedling",
+    "Secret RF",
+    "Vivace",
+    "fractional radiofrequency microneedling"
+   ],
+   "img": null
+  },
+  {
+   "id": "facetite",
+   "label": "FaceTite",
+   "maker": "InMode",
+   "procedure": "FaceTite, AccuTite and BodyTite",
+   "mentions": 0,
+   "say": [
+    "AccuTite",
+    "BodyTite",
+    "Evoke",
+    "FaceTite",
+    "RF-assisted lipolysis",
+    "RFAL",
+    "RFAL body"
+   ],
+   "img": null
+  },
+  {
+   "id": "evoke",
+   "label": "Evoke",
+   "maker": "InMode",
+   "procedure": "Evoke (hands-free RF)",
+   "mentions": 0,
+   "say": [
+    "Evoke",
+    "InMode Evoke",
+    "hands-free radiofrequency"
+   ],
+   "img": null
+  },
+  {
+   "id": "emface",
+   "label": "EMFACE",
+   "maker": "BTL Aesthetics",
+   "procedure": "EMFACE",
+   "mentions": 5,
+   "say": [
+    "EMFACE",
+    "Emface Submentum",
+    "HIFES",
+    "synchronized RF"
+   ],
+   "img": null
+  },
+  {
+   "id": "emsculpt-neo",
+   "label": "EMSCULPT NEO",
+   "maker": "BTL Aesthetics",
+   "procedure": "EMSCULPT NEO",
+   "mentions": 6,
+   "say": [
+    "EMSCULPT NEO",
+    "Emsculpt",
+    "HIFEM",
+    "Muscle rehab with HIFEM",
+    "body contouring",
+    "disuse atrophy",
+    "muscle re-education"
+   ],
+   "img": null
+  },
+  {
+   "id": "ultherapy",
+   "label": "Ultherapy",
+   "maker": "Merz Aesthetics",
+   "procedure": "Ultherapy",
+   "mentions": 1,
+   "say": [
+    "MFU-V",
+    "SMAS lift",
+    "Ultherapy",
+    "micro-focused ultrasound"
+   ],
+   "img": null
+  },
+  {
+   "id": "miradry",
+   "label": "miraDry",
+   "maker": "Sientra / miraDry",
+   "procedure": "Underarm sweating: miraDry and toxin",
+   "mentions": 3,
+   "say": [
+    "Excessive sweating",
+    "Underarm sweating toxin",
+    "axillary hyperhidrosis Botox",
+    "hyperhidrosis",
+    "microwave sweat reduction",
+    "miraDry"
+   ],
+   "img": null
+  },
+  {
+   "id": "coolsculpting",
+   "label": "CoolSculpting Elite",
+   "maker": "Allergan Aesthetics (AbbVie)",
+   "procedure": "CoolSculpting",
+   "mentions": 0,
+   "say": [
+    "CoolSculpting Elite",
+    "cryolipolysis"
+   ],
+   "img": null
+  },
+  {
+   "id": "bbl",
+   "label": "BBL",
+   "maker": "Sciton",
+   "say": [
+    "BBL",
+    "broadband light"
+   ],
+   "procedure": null,
+   "mentions": null,
+   "img": null
+  },
+  {
+   "id": "halo",
+   "label": "Halo",
+   "maker": "Sciton",
+   "say": [
+    "Halo laser",
+    "Halo"
+   ],
+   "procedure": null,
+   "mentions": null,
+   "img": null
+  },
+  {
+   "id": "thermage",
+   "label": "Thermage",
+   "maker": "Solta Medical",
+   "say": [
+    "Thermage"
+   ],
+   "procedure": null,
+   "mentions": null,
+   "img": null
+  },
+  {
+   "id": "sofwave",
+   "label": "Sofwave",
+   "maker": "Sofwave",
+   "say": [
+    "Sofwave",
+    "soft wave"
+   ],
+   "procedure": null,
+   "mentions": null,
+   "img": null
+  },
+  {
+   "id": "moxi",
+   "label": "Moxi",
+   "maker": "Sciton",
+   "say": [
+    "Moxi"
+   ],
+   "procedure": null,
+   "mentions": null,
+   "img": null
+  },
+  {
+   "id": "ellacor",
+   "label": "Ellacor",
+   "maker": "Cytrellis",
+   "say": [
+    "Ellacor"
+   ],
+   "procedure": null,
+   "mentions": null,
+   "img": null
+  },
+  {
+   "id": "exomind",
+   "label": "Exomind",
+   "maker": "BTL Aesthetics",
+   "say": [
+    "Exomind",
+    "exo mind"
+   ],
+   "procedure": null,
+   "mentions": null,
+   "img": null
+  }
+ ]
+}

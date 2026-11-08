@@ -51,6 +51,7 @@ function fixWords(words, fixes) {
     const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
     page.on("pageerror", (e) => errors.push(String(e))); page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
     await page.route("**/edit_bg/*", (r) => r.fulfill({ path: path.join(BG, path.basename(new URL(r.request().url()).pathname)), contentType: "image/jpeg" }));
+    await page.route("**/edit_asset/*", (r) => r.fulfill({ path: ASSET[path.basename(new URL(r.request().url()).pathname)] }));
     await page.goto("http://localhost:8774/brand/ostad/kit/video/kit.html", { waitUntil: "networkidle" });
     await page.waitForFunction(() => window.__vkReady === true, null, { timeout: 30000 });
     return page;
@@ -77,9 +78,33 @@ function fixWords(words, fixes) {
 
   // ---- overlays: lower third at the top of the first shot; a chip when a treatment is first named ----
   const overlays = [{ name: "lower-third", at: 0.1 }];
-  for (const ch of C.chips || []) {
-    const ft = ch.say.split(" ").map(norm), hit = words.find((w) => norm(w.w.replace(/[^\w' ]/g, "").split(" ").join("")) === ft.join(""));
+  // find(say): the first word where `say` starts (joined letters over up to 4 words, so "Laser Genesis" matches one fixed token or two)
+  const key = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+  const find = (say, from = 0) => { const k = key(say); for (let i = 0; i < words.length; i++) { if (words[i].s < from) continue; let acc = "";
+    for (let j = i; j < Math.min(i + 4, words.length); j++) { acc += key(words[j].w); if (acc === k) return words[i]; if (!k.startsWith(acc)) break; } } return null; };
+  // machine cards: a device in kit/devices/devices.json with a cutout gets a card the first time he names it (DECISIONS 62); its chip is dropped
+  const REG = JSON.parse(fs.readFileSync(path.resolve(__dirname, "..", "kit", "devices", "devices.json"), "utf8")).devices;
+  const DEV_DUR = 0.2 + 0.6 + parseFloat(T.motion.duration["hold-min"].$value) / 1000 + 1 + 0.3, carded = new Set();
+  if (C.devices !== false) for (const d of REG.filter((d) => d.img)) {
+    const hit = d.say.map((s) => find(s)).filter(Boolean).sort((a, b) => a.s - b.s)[0]; if (!hit) continue;
+    overlays.push({ name: "device", at: Math.max(0, hit.s / S - 0.2), said: hit.s / S, id: d.id, fill: { img: `../devices/${d.img}`, label: d.label, maker: d.maker || "" } }); carded.add(key(d.label));
+  }
+  for (const ch of C.chips || []) { // chips for named treatments without a card
+    if (carded.has(key(ch.say))) continue; const hit = find(ch.say);
     if (hit) overlays.push({ name: "chip", at: Math.max(0, hit.s / S - 0.2), text: ch.text, said: hit.s / S });
+  }
+  // hand-placed overlays from edit.json: { name: "tile" | "tile-pair" | ..., at (s, output) or say (phrase), fill: { img, img2, label, ... } }
+  const ASSET = {}; // local images are served to the page as /edit_asset/<n>
+  for (const o of C.overlays || []) {
+    const hit = o.say ? find(o.say) : null; if (o.say && !hit) { console.warn("overlay phrase not found:", o.say); continue; }
+    const fill = Object.fromEntries(Object.entries(o.fill || {}).map(([k, v]) => {
+      if (!/^img/.test(k) || /^(https?:|\.\.\/|\/)/.test(v)) return [k, v];
+      const n = `${Object.keys(ASSET).length}${path.extname(v)}`; ASSET[n] = path.resolve(DIR, v); return [k, `/edit_asset/${n}`]; }));
+    overlays.push({ ...o, at: hit ? Math.max(0, hit.s / S - 0.2) : o.at, said: hit ? hit.s / S : undefined, fill });
+  }
+  // a card waits for the previous card in the same slot to leave (one machine card / one tile group on screen at a time)
+  for (const slot of [["device"], ["tile", "tile-pair"]]) {
+    let free = 0; for (const o of overlays.filter((o) => slot.includes(o.name)).sort((a, b) => a.at - b.at)) { o.at = Math.max(o.at, free); free = o.at + (o.name === "device" ? DEV_DUR : 5); }
   }
   const SPEC = { overlays, captions, capWide: wide, end: { card: C.end || "card-editorial-end", at: endAt, dissolve: DISSOLVE } };
 

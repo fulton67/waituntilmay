@@ -29,6 +29,21 @@
   .vk-rev h1 .ln { display: block; }
   .vk-wipe { position: absolute; left: 0; right: 0; height: 100%; background: rgba(var(--ok-surface-rgb), var(--ok-band-alpha)); -webkit-backdrop-filter: blur(var(--ok-band-blur)); backdrop-filter: blur(var(--ok-band-blur)); }
   .vk-dip { position: absolute; inset: 0; background: var(--ok-background); }
+  /* square tiles: a photo squared by scripts/square.py, kit photo radius and photo filter, in the gap between his face and the caption band:
+     bottom 1.5cqw above video.caption-band-top (set inline), sized to clear the face box (YuNet face bottom p50 0.571, max 0.591 of height in
+     edits/rosacea-laser); the label is a glass pill inset on the photo. tile-pair = A vs B side by side. (DECISIONS 62) */
+  .vk-tiles { position: absolute; left: var(--ok-margin); right: var(--ok-margin); display: flex; justify-content: center; align-items: center; gap: 2.4cqw; }
+  .vk-tile { position: relative; }
+  .vk-tile img { display: block; width: 28cqw; aspect-ratio: 1; object-fit: cover; border-radius: var(--ok-photo-radius); filter: var(--ok-photo-filter); }
+  .vk-tiles--pair .vk-tile img { width: 26cqw; }
+  .vk-tile .ok-pill { position: absolute; left: 1.4cqw; top: 1.4cqw; z-index: 1; font-size: 0.82em; max-width: calc(100% - 2.8cqw); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vk-tile .ok-pill, .vk-dev .ok-pill { background: rgba(var(--ok-surface-rgb), var(--ok-glass-alpha)); -webkit-backdrop-filter: blur(var(--ok-glass-blur)); backdrop-filter: blur(var(--ok-glass-blur)); }
+  .vk-vs { font: var(--ok-label-weight) var(--ok-label-size)/1 var(--ok-display); letter-spacing: var(--ok-label-track); text-transform: uppercase; color: var(--ok-background); }
+  /* machine card: the cutout layered on a glass panel (the clear layer behind it), name + maker under it, top right of the safe area */
+  .vk-dev { position: absolute; right: var(--ok-margin); top: calc(var(--safe-t) + 2cqw); width: 34cqw; padding: 2.6cqw; display: grid; gap: 1.6cqw; justify-items: center; }
+  .vk-dev img { display: block; width: 100%; height: 30cqw; object-fit: contain; filter: drop-shadow(0 1.2cqw 1.6cqw rgba(0,0,0,.18)); }
+  .vk-dev .n { margin: 0; font: 600 var(--ok-caption-size)/1.1 var(--ok-display); letter-spacing: var(--ok-headline-track); text-align: center; }
+  .vk-dev .m { margin: 0; font: var(--ok-label-weight) var(--ok-label-size)/1.1 var(--ok-display); letter-spacing: var(--ok-label-track); text-transform: uppercase; opacity: .8; text-align: center; }
 </style>
 <div id="stage"><img id="bg" alt=""><div id="layer" class="ok ok--9x16 ok--clear"></div></div>
 <script type="module">
@@ -81,6 +96,13 @@ const EL = {
     tl: (d) => [{ sel: ".vk-cap", fx: "cut", at: 0.1, dur: 0.001, out: d - 0.04 }] },
   "chip": { dur: 0.2 + ENTER + HOLD + EXIT, html: `<div class="vk-chip"><span class="ok-pill">+ Ellacor</span></div>`,
     tl: (d) => [{ sel: ".vk-chip", fx: "scale-in", at: 0.2, out: d - EXIT }] },
+  // fillable (VK.reel overlays fill [data-f] by key: img src or text): tile, tile-pair, device
+  "tile": { dur: 0.2 + ENTER + HOLD + EXIT, html: `<div class="vk-tiles" style="bottom:calc(${(1 - BAND_TOP) * 100}% + 1.5cqw)"><div class="vk-tile"><span class="ok-pill" data-f="label">Dry skin</span><img data-f="img" alt=""></div></div>`,
+    tl: (d) => [{ sel: ".vk-tile", fx: "scale-in", at: 0.2, out: d - EXIT }] },
+  "tile-pair": { dur: 0.2 + ENTER + HOLD + 1 + EXIT, html: `<div class="vk-tiles vk-tiles--pair" style="bottom:calc(${(1 - BAND_TOP) * 100}% + 1.5cqw)"><div class="vk-tile"><span class="ok-pill" data-f="label">Option A</span><img data-f="img" alt=""></div><span class="vk-vs">vs</span><div class="vk-tile"><span class="ok-pill" data-f="label2">Option B</span><img data-f="img2" alt=""></div></div>`,
+    tl: (d) => [{ sel: ".vk-tiles--pair", children: true, fx: "fade-rise", at: 0.2, stagger: STAG * 2, out: d - EXIT }] },
+  "device": { dur: 0.2 + ENTER + HOLD + 1 + EXIT, html: `<div class="vk-dev ok-glass"><img data-f="img" alt=""><p class="n" data-f="label">Excel V</p><p class="m" data-f="maker">Cutera</p></div>`,
+    tl: (d) => [{ sel: ".vk-dev", fx: "fade-rise", at: 0.2, out: d - EXIT }, { sel: ".vk-dev img", fx: "scale-in", at: 0.2 + STAG, dur: ms("enter-slow"), out: d - EXIT }, { sel: ".vk-dev .m", fx: "fade", at: 0.2 + STAG * 3, out: d - EXIT }] },
   "reveal-fade-rise": { dur: 3, html: `<div class="vk-rev"><h1>${HEAD}</h1></div>`, tl: (d) => [{ sel: ".vk-rev h1", fx: "fade-rise", at: 0.2, dur: ms("enter-slow"), out: d - EXIT }] },
   "reveal-line-stagger": { dur: 3, html: `<div class="vk-rev"><h1>${lines(["Natural results", "come from", "restraint."])}</h1></div>`, tl: (d) => [{ sel: ".vk-rev h1", children: true, fx: "fade-rise", at: 0.2, stagger: STAG * 2, out: d - EXIT }] },
   "reveal-word-stagger": { dur: 3, html: `<div class="vk-rev"><h1>${words(HEAD)}</h1></div>`, tl: (d) => [{ sel: ".vk-rev h1", children: true, fx: "fade-rise", at: 0.2, stagger: STAG, out: d - EXIT }] },
@@ -145,6 +167,7 @@ window.VK = {
       const mk = (cls) => { const h = document.createElement("div"); h.className = "vk-multi ok ok--9x16 ok--clear " + (cls || ""); h.style.cssText = "position:absolute;inset:0"; stage.appendChild(h); return h; };
       for (const o of spec.overlays) {
         const h = mk(); h.innerHTML = `<div class="vk">${EL[o.name].html}</div>`;
+        for (const [k, v] of Object.entries(o.fill || {})) h.querySelectorAll(`[data-f="${k}"]`).forEach((e) => { if (e.tagName === "IMG") e.src = v; else e.textContent = v; });
         if (o.text) { const tx = h.querySelector(".ok-pill, .vk-cap p"); if (tx) tx.textContent = o.text; if (o.role) h.querySelector(".r").textContent = o.role; if (o.nameText) h.querySelector(".n").textContent = o.nameText; }
         hosts.push({ o, h });
       }
@@ -155,6 +178,7 @@ window.VK = {
         await E.render(end, { size: "9x16", accent: "accent-1", slides: [c], labelFallback: false }); end.querySelectorAll("[data-count]").forEach((e) => e.remove()); }
       cur = { name: "__reel", hosts, cap: cap.querySelector(".vk-cap"), grain: grain.querySelector(".ok-grain"), end };
       await document.fonts.ready;
+      await Promise.all([...document.querySelectorAll(".vk-multi img[src]")].map((i) => i.decode().catch(() => { throw new Error("image failed: " + i.src); })));
     }
     if (frameSrc) await VK.background(frameSrc);
     for (const { o, h } of cur.hosts) { const el = EL[o.name], lt = t - o.at; h.style.display = lt >= 0 && lt < el.dur ? "" : "none"; if (lt >= 0 && lt < el.dur) pose(h, el.tl(el.dur), lt); }

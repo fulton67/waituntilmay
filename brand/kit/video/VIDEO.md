@@ -54,3 +54,8 @@ Fonts: Neue Haas Grotesk Display Medium and Roman, through Adobe Fonts (kit `vzz
 2. Write `edits/<slug>/edit.json`: `src`, `speed`, `fixes` for misheard names, `chips` (`say` → `text`), `end` card, `capWide` (true only over burnt-in captions), `loudness`, and `audio_pre` when the mic is quiet.
 3. `PLAN=1,<t>,<t> node scripts/video_edit.cjs edits/<slug>/edit.json` writes the caption plan and proof frames; drop `PLAN` for the full render (`REUSE=1` re-encodes without re-rendering).
 4. `python -I scripts/video_edit_check.py edits/<slug>` checks format, speed, loudness, OCR captions, layout and end card (`check.json`). Example: `edits/rosacea-laser` (DECISIONS 61).
+
+## Tiles and machine cards
+
+- **Machine cards** (`device`): drop cutouts (transparent PNG, the machine's name in the filename) into a folder and run `python -I scripts/devices_ingest.py <folder>`. Every edit then shows the card the first time he says that machine. `python -I scripts/devices.py <word>` searches the registry and says which machines still need a cutout.
+- **Square tiles** (`tile`, `tile-pair`): `python -I scripts/square.py <images> --out <dir>` squares photos (on the face, or on the most detailed area) and cutouts. In `edit.json`, add `"overlays": [{ "name": "tile", "say": "persistent redness", "fill": { "img": "sq/x.jpg", "label": "Persistent redness" } }]`; `tile-pair` also takes `img2` and `label2`. `say` anchors the tile to the phrase in the transcript; `at` (seconds) also works.
