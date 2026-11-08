@@ -39,11 +39,12 @@
   .vk-tile .ok-pill { position: absolute; left: 1.4cqw; top: 1.4cqw; z-index: 1; font-size: 0.82em; max-width: calc(100% - 2.8cqw); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .vk-tile .ok-pill, .vk-dev .ok-pill { background: rgba(var(--ok-surface-rgb), var(--ok-glass-alpha)); -webkit-backdrop-filter: blur(var(--ok-glass-blur)); backdrop-filter: blur(var(--ok-glass-blur)); }
   .vk-vs { font: var(--ok-label-weight) var(--ok-label-size)/1 var(--ok-display); letter-spacing: var(--ok-label-track); text-transform: uppercase; color: var(--ok-background); }
-  /* machine card: the cutout layered on a glass panel (the clear layer behind it), name + maker under it, top right of the safe area */
-  .vk-dev { position: absolute; right: var(--ok-margin); top: calc(var(--safe-t) + 2cqw); width: 34cqw; padding: 2.6cqw; display: grid; gap: 1.6cqw; justify-items: center; }
-  .vk-dev img { display: block; width: 100%; height: 30cqw; object-fit: contain; filter: drop-shadow(0 1.2cqw 1.6cqw rgba(0,0,0,.18)); }
-  .vk-dev .n { margin: 0; font: 600 var(--ok-caption-size)/1.1 var(--ok-display); letter-spacing: var(--ok-headline-track); text-align: center; }
-  .vk-dev .m { margin: 0; font: var(--ok-label-weight) var(--ok-label-size)/1.1 var(--ok-display); letter-spacing: var(--ok-label-track); text-transform: uppercase; opacity: .8; text-align: center; }
+  /* machine: the cutout alone, full size, no panel (client direction 2026-11-08, DECISIONS 64): right side of the frame between the safe top and
+     the caption band, name under it in the kit ink with a light halo (his walls are light); pops in with an overshoot, sways a little while it holds, pops out */
+  .vk-dev { position: absolute; right: 2.5cqw; top: calc(var(--safe-t) + 1cqw); width: 31cqw; display: grid; justify-items: center; gap: 1.2cqw; transform-origin: 50% 100%; }
+  .vk-dev img { display: block; width: 100%; height: 34vh; object-fit: contain; object-position: 100% 100%; filter: drop-shadow(0 2cqw 2.4cqw rgba(0,0,0,.28)); }
+  .vk-dev .n { margin: 0; font: 600 var(--ok-caption-size)/1.1 var(--ok-display); letter-spacing: var(--ok-headline-track); color: var(--ok-text); text-shadow: 0 0 1.2cqw rgba(255,255,255,.9), 0 0 0.4cqw rgba(255,255,255,.9); text-align: center; }
+  .vk-dev .m { display: none; }
 </style>
 <div id="stage"><img id="bg" alt=""><div id="layer" class="ok ok--9x16 ok--clear"></div></div>
 <script type="module">
@@ -101,8 +102,14 @@ const EL = {
     tl: (d) => [{ sel: ".vk-tile", fx: "scale-in", at: 0.2, out: d - EXIT }] },
   "tile-pair": { dur: 0.2 + ENTER + HOLD + 1 + EXIT, html: `<div class="vk-tiles vk-tiles--pair" style="bottom:calc(${(1 - BAND_TOP) * 100}% + 1.5cqw)"><div class="vk-tile"><span class="ok-pill" data-f="label">Option A</span><img data-f="img" alt=""></div><span class="vk-vs">vs</span><div class="vk-tile"><span class="ok-pill" data-f="label2">Option B</span><img data-f="img2" alt=""></div></div>`,
     tl: (d) => [{ sel: ".vk-tiles--pair", children: true, fx: "fade-rise", at: 0.2, stagger: STAG * 2, out: d - EXIT }] },
-  "device": { dur: 0.2 + ENTER + HOLD + 1 + EXIT, html: `<div class="vk-dev ok-glass"><img data-f="img" alt=""><p class="n" data-f="label">Excel V</p><p class="m" data-f="maker">Cutera</p></div>`,
-    tl: (d) => [{ sel: ".vk-dev", fx: "fade-rise", at: 0.2, out: d - EXIT }, { sel: ".vk-dev img", fx: "scale-in", at: 0.2 + STAG, dur: ms("enter-slow"), out: d - EXIT }, { sel: ".vk-dev .m", fx: "fade", at: 0.2 + STAG * 3, out: d - EXIT }] },
+  "device": { dur: 5.2, html: `<div class="vk-dev"><img data-f="img" alt=""><p class="n" data-f="label">Excel V</p><p class="m" data-f="maker">Cutera</p></div>`,
+    custom: (root, t, d = 5.2) => { // pop in 0.15-0.65 s with overshoot, sway (rotate +-2.2deg, drift +-1.4cqw, float 0.8cqw) while it holds, pop out over EXIT
+      const el = root.querySelector(".vk-dev"), pin = clamp((t - 0.15) / 0.5), pout = clamp((t - (d - EXIT)) / EXIT);
+      const back = (p) => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * (p - 1) ** 3 + c1 * (p - 1) ** 2; }; // easeOutBack
+      const sc = (pin <= 0 ? 0.55 : 0.55 + 0.45 * back(pin)) * (1 - 0.35 * IN(pout)), op = Math.min(OUT(clamp((t - 0.15) / 0.25)), 1 - IN(pout));
+      const w = Math.min(1, clamp((t - 0.4) / 0.6)) * (1 - pout), ph = (t - 0.4) * 2 * Math.PI / 3.2;
+      el.setAttribute("style", `opacity:${op};transform:translate(${(Math.sin(ph) * 1.4 * w).toFixed(3)}cqw,${(Math.sin(ph * 2) * -0.8 * w).toFixed(3)}cqw) rotate(${(Math.sin(ph + 0.6) * 2.2 * w).toFixed(3)}deg) scale(${sc.toFixed(4)})`);
+      root.querySelector(".vk-dev .n").style.opacity = OUT(clamp((t - 0.45) / 0.4)); } },
   "reveal-fade-rise": { dur: 3, html: `<div class="vk-rev"><h1>${HEAD}</h1></div>`, tl: (d) => [{ sel: ".vk-rev h1", fx: "fade-rise", at: 0.2, dur: ms("enter-slow"), out: d - EXIT }] },
   "reveal-line-stagger": { dur: 3, html: `<div class="vk-rev"><h1>${lines(["Natural results", "come from", "restraint."])}</h1></div>`, tl: (d) => [{ sel: ".vk-rev h1", children: true, fx: "fade-rise", at: 0.2, stagger: STAG * 2, out: d - EXIT }] },
   "reveal-word-stagger": { dur: 3, html: `<div class="vk-rev"><h1>${words(HEAD)}</h1></div>`, tl: (d) => [{ sel: ".vk-rev h1", children: true, fx: "fade-rise", at: 0.2, stagger: STAG, out: d - EXIT }] },
@@ -181,7 +188,7 @@ window.VK = {
       await Promise.all([...document.querySelectorAll(".vk-multi img[src]")].map((i) => i.decode().catch(() => { throw new Error("image failed: " + i.src); })));
     }
     if (frameSrc) await VK.background(frameSrc);
-    for (const { o, h } of cur.hosts) { const el = EL[o.name], lt = t - o.at; h.style.display = lt >= 0 && lt < el.dur ? "" : "none"; if (lt >= 0 && lt < el.dur) pose(h, el.tl(el.dur), lt); }
+    for (const { o, h } of cur.hosts) { const el = EL[o.name], lt = t - o.at; h.style.display = lt >= 0 && lt < el.dur ? "" : "none"; if (lt >= 0 && lt < el.dur) { if (el.custom) el.custom(h, lt); else pose(h, el.tl(el.dur), lt); } }
     const line = spec.captions.find((c) => t >= c.from && t < c.to);
     cur.cap.style.display = line ? "" : "none"; if (line) cur.cap.querySelector("p").textContent = line.text;
     const f = Math.round(t * 24); cur.grain.style.backgroundPosition = `${(f * 97) % 256}px ${(f * 61) % 256}px`; // grain moves each frame

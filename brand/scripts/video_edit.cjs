@@ -42,7 +42,7 @@ function fixWords(words, fixes) {
   // ---- footage ----
   const REUSE = process.env.REUSE && fs.existsSync(FR) && fs.readdirSync(FR).length > 0; // REUSE=1: keep rendered frames (re-run audio + encode only)
   if (!REUSE) for (const d of [BG, FR]) { fs.rmSync(d, { recursive: true, force: true }); fs.mkdirSync(d, { recursive: true }); }
-  if (!REUSE) ff(["-i", C.src, "-an", "-vf", `setpts=PTS/${S},fps=${FPS},scale=1080:1920,lut3d=brand/kit/treatment.cube`, "-q:v", "2", path.join(BG, "%05d.jpg")]);
+  if (!REUSE) ff(["-i", C.src, "-an", "-vf", `setpts=PTS/${S},fps=${FPS},scale=1080:1920${C.grade === false ? "" : ",lut3d=brand/kit/treatment.cube"}`, "-q:v", "2", path.join(BG, "%05d.jpg")]);
   const nBg = fs.readdirSync(BG).length, FOOT = nBg / FPS;
 
   const server = await serve(8774); const browser = await chromium.launch();
@@ -84,7 +84,7 @@ function fixWords(words, fixes) {
     for (let j = i; j < Math.min(i + 4, words.length); j++) { acc += key(words[j].w); if (acc === k) return words[i]; if (!k.startsWith(acc)) break; } } return null; };
   // machine cards: a device in kit/devices/devices.json with a cutout gets a card the first time he names it (DECISIONS 62); its chip is dropped
   const REG = JSON.parse(fs.readFileSync(path.resolve(__dirname, "..", "kit", "devices", "devices.json"), "utf8")).devices;
-  const DEV_DUR = 0.2 + 0.6 + parseFloat(T.motion.duration["hold-min"].$value) / 1000 + 1 + 0.3, carded = new Set();
+  const DEV_DUR = 5.2 /* kit.html EL.device.dur */, carded = new Set();
   if (C.devices !== false) for (const d of REG.filter((d) => d.img)) {
     const hit = d.say.map((s) => find(s)).filter(Boolean).sort((a, b) => a.s - b.s)[0]; if (!hit) continue;
     overlays.push({ name: "device", at: Math.max(0, hit.s / S - 0.2), said: hit.s / S, id: d.id, fill: { img: `../devices/${d.img}`, label: d.label, maker: d.maker || "" } }); carded.add(key(d.label));

@@ -6,18 +6,18 @@
   "fps": "24/1",
   "vcodec": "h264",
   "acodec": "aac",
-  "dur_s": 139.434667,
+  "dur_s": 109.708,
   "ok": true
  },
  "speed": {
-  "source_s": 164.4573125,
-  "footage_s": 137.08333333333334,
-  "expected_s": 137.04776041666668,
+  "source_s": 128.64,
+  "footage_s": 107.20833333333333,
+  "expected_s": 107.19999999999999,
   "ok": true
  },
  "loudness": {
   "I": -13.9,
-  "TP": -4.0,
+  "TP": -1.6,
   "target": {
    "I": -14,
    "TP": -1.5,
@@ -26,917 +26,777 @@
   "ok": true
  },
  "captions": {
-  "n": 130,
-  "passed": 130,
+  "n": 110,
+  "passed": 110,
   "min_sim": 0.833,
   "rows": [
    {
-    "t": 0.66,
-    "text": "Hi, everyone.",
-    "read": "Hi,everyone:",
+    "t": 0.78,
+    "text": "Hi everyone.",
+    "read": "Hieveryone",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 1.59,
-    "text": "I wanted to just spend a",
-    "read": "Iwanted tojust spenda FiGS",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 2.46,
-    "text": "few minutes to talk to you",
-    "read": "fewminutes to talk toyou Figs",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 3.65,
-    "text": "about rosacea.",
-    "read": "aboutrosacea Figs",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 4.88,
+    "t": 1.62,
     "text": "If you have rosacea,",
     "read": "Ifyouhaverosacea;",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 5.68,
+    "t": 2.38,
     "text": "I don't believe the answer",
-    "read": "Idont believe theanswer FiGS",
+    "read": "Idont believe theanswer",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 6.49,
+    "t": 3.18,
     "text": "should always be just",
-    "read": "shouldalways bejust Figs",
+    "read": "shouldalways bejust FigS",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 7.58,
+    "t": 4.02,
     "text": "another prescription,",
     "read": "another prescription; Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 8.68,
+    "t": 4.82,
     "text": "which is what I see",
-    "read": "whichis what I see",
+    "read": "whichis what I see Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 9.56,
+    "t": 5.65,
     "text": "happens for patients who",
     "read": "happens for patients who Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 10.34,
+    "t": 6.43,
     "text": "come in here,",
-    "read": "comeinhere; FIGS",
+    "read": "comeinhere; FiGS",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 11.23,
+    "t": 7.17,
     "text": "especially when what",
     "read": "especially when what FiGS",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 12.24,
+    "t": 8.03,
     "text": "we're trying to treat is",
-    "read": "wetre trying to treatis",
-    "sim": 0.947,
+    "read": "we're trying to treatis Figs",
+    "sim": 1.0,
     "ok": true
    },
    {
-    "t": 13.33,
+    "t": 9.12,
     "text": "really persistent redness",
-    "read": "really persistentredness",
+    "read": "really persistentredness FiGS",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 14.98,
+    "t": 10.58,
     "text": "and visible blood vessels.",
-    "read": "andvisible bloodvessels: FiGS",
+    "read": "andvisible blood vessels: Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 16.51,
+    "t": 11.89,
     "text": "Rosacea is a chronic",
-    "read": "Rosaceaisachronic",
+    "read": "Rosaceaisachronic Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 17.52,
-    "text": "condition,",
-    "read": "condition;",
+    "t": 13.16,
+    "text": "condition and both oral",
+    "read": "conditionand both oral Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 18.52,
-    "text": "and both oral and topical",
-    "read": "andboth oraland topical Figs",
+    "t": 14.38,
+    "text": "and topical medications",
+    "read": "and topicalmedications",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 19.47,
-    "text": "medications absolutely",
-    "read": "medications absolutely FIgs",
+    "t": 15.33,
+    "text": "absolutely have a role,",
+    "read": "absolutely havearole; Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 20.16,
-    "text": "have a role,",
-    "read": "havearole;",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 20.89,
+    "t": 16.27,
     "text": "particularly when we're",
-    "read": "particularly when wetre ~FIGS",
+    "read": "particularly when wetre FIGS",
     "sim": 0.95,
     "ok": true
    },
    {
-    "t": 22.17,
+    "t": 17.54,
     "text": "dealing with inflammatory",
-    "read": "dealingwith inflammatory Figs",
+    "read": "dealing with inflammatory Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 23.7,
+    "t": 19.08,
     "text": "bumps, pustules,",
     "read": "bumps;pustules; Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 24.58,
+    "t": 19.95,
     "text": "acne.",
     "read": "acne: Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 25.61,
+    "t": 20.68,
     "text": "But I also don't want my",
-    "read": "But lalsodonttwant my",
+    "read": "But lalsodonttwant my Figs",
     "sim": 0.889,
     "ok": true
    },
    {
-    "t": 26.98,
+    "t": 21.68,
     "text": "patients unnecessarily",
     "read": "patients unnecessarily Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 28.03,
+    "t": 22.74,
     "text": "relying on medications",
     "read": "relying on medications Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 29.1,
+    "t": 23.91,
     "text": "indefinitely when we have",
-    "read": "indefinitely whenwehave Figs",
+    "read": "indefinitely whenwehave",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 30.49,
+    "t": 25.0,
     "text": "other ways to really target",
-    "read": "other ways toreally target FiGS",
+    "read": "other ways toreally target",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 31.86,
+    "t": 25.99,
     "text": "this condition.",
-    "read": "this condition: FiGS",
+    "read": "this condition FiGS",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 33.66,
-    "text": "Repeated, prolonged",
-    "read": "Repeated,prolonged FiGS",
+    "t": 26.82,
+    "text": "Repeated prolonged",
+    "read": "Repeatedprolonged FiGS",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 34.52,
+    "t": 27.62,
     "text": "courses of oral",
     "read": "courses of oral Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 35.28,
+    "t": 28.4,
     "text": "antibiotics,",
     "read": "antibiotics;",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 36.25,
+    "t": 29.35,
     "text": "which I see patients take",
-    "read": "which Iseepatients take",
+    "read": "which Iseepatients take Figs ",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 37.41,
+    "t": 30.48,
     "text": "elsewhere, can really",
-    "read": "elsewhere, can really figs",
+    "read": "elsewhere, can really Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 38.25,
+    "t": 31.37,
     "text": "affect our gut",
-    "read": "affectour _ FiGs gut",
+    "read": "affectour _ Figs gut",
     "sim": 0.833,
     "ok": true
    },
    {
-    "t": 38.95,
+    "t": 32.07,
     "text": "microbiome.",
-    "read": "microbiome Figs",
+    "read": "microbiome FiGS",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 39.71,
+    "t": 32.82,
     "text": "And while topical",
-    "read": "Andwhile topical Figs",
+    "read": "Andwhile topical FiGs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 40.7,
+    "t": 33.78,
     "text": "medications can be very",
-    "read": "medications canbevery Figs",
+    "read": "medications canbevery",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 41.78,
+    "t": 34.87,
     "text": "effective and appropriate",
     "read": "effectiveandappropriate Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 43.03,
+    "t": 36.13,
     "text": "for long-term use in some",
-    "read": "for long-term usein some FiGS",
+    "read": "for long-term usein some Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 44.38,
+    "t": 37.48,
     "text": "patients, they still require",
-    "read": "patients; they stillrequire figs",
+    "read": "patients; they stillrequire Figs ",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 45.53,
+    "t": 38.65,
     "text": "ongoing applications,",
     "read": "ongoingapplications; Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 46.65,
+    "t": 39.61,
     "text": "which can lead to",
-    "read": "which canleadto",
+    "read": "which canleadto Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 47.85,
-    "text": "irritation, dryness.",
-    "read": "irritation,dryness: Figs",
+    "t": 40.62,
+    "text": "irritation, dryness,",
+    "read": "irritation;dryness; FIGs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 49.17,
-    "text": "And it doesn't really",
-    "read": "Anditdoesntreally Figs",
+    "t": 41.7,
+    "text": "doesn't really treat",
+    "read": "doesntreally treat Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 50.38,
-    "text": "adequately establish,",
-    "read": "adequately establish; Figs",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 51.56,
-    "text": "it doesn't really treat",
-    "read": "itdoesnttreally treat figs",
-    "sim": 0.947,
-    "ok": true
-   },
-   {
-    "t": 52.61,
+    "t": 42.47,
     "text": "established blood",
-    "read": "established blood Fics",
+    "read": "established blood Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 53.3,
+    "t": 43.06,
     "text": "vessels.",
-    "read": "vessels: Fics",
+    "read": "vessels: figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 54.06,
+    "t": 43.71,
     "text": "And when a patient's",
-    "read": "Andwhenapatients",
+    "read": "Andwhenapatients Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 54.98,
+    "t": 44.67,
     "text": "primary concern is",
-    "read": "primary concernis  Figs",
+    "read": "primary concernis Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 55.92,
+    "t": 45.73,
     "text": "persistent redness,",
-    "read": "persistentredness; FiGs",
+    "read": "persistentredness; Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 56.97,
+    "t": 46.78,
     "text": "flushing, visible blood",
-    "read": "flushing; visibleblood",
+    "read": "flushing; visible blood Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 58.02,
+    "t": 47.82,
     "text": "vessels, I prefer to",
     "read": "vessels; Iprefer to FIGS",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 59.34,
+    "t": 48.88,
     "text": "address that directly with",
     "read": "address that directlywith",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 60.72,
+    "t": 50.01,
     "text": "the help of laser.",
-    "read": "thehelp of laser: Fics",
+    "read": "thehelp of laser: FIGS",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 61.58,
+    "t": 50.87,
     "text": "In our practice,",
-    "read": "Inour practice; FiGS",
+    "read": "Inour practice; Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 62.33,
+    "t": 51.61,
     "text": "I use Excel V.",
-    "read": "luse ExcelV: Figs",
-    "sim": 0.9,
+    "read": "Iuse Excel V: figs",
+    "sim": 1.0,
     "ok": true
    },
    {
-    "t": 63.33,
+    "t": 52.62,
     "text": "It's a vascular laser that",
-    "read": "Itsavascular laser that ",
+    "read": "It'savascular laser that  FiGS",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 64.69,
+    "t": 53.78,
     "text": "targets hemoglobin,",
-    "read": "targetshemoglobin; FiGS",
+    "read": "targetshemoglobin; FIGs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 65.87,
+    "t": 54.7,
     "text": "which is what the blood",
-    "read": "whichis what theblood Figs",
+    "read": "whichis what theblood",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 66.49,
+    "t": 55.29,
     "text": "vessels are.",
-    "read": "vesselsare: FiGS",
+    "read": "vesselsare",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 67.37,
+    "t": 56.16,
     "text": "It selectively treats those",
-    "read": "Itselectively treats those",
+    "read": "Itselectively treats those Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 68.38,
+    "t": 57.17,
     "text": "blood vessels that are",
-    "read": "blood vessels that are",
+    "read": "blood vessels thatare",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 69.19,
+    "t": 57.98,
     "text": "contributing to the",
-    "read": "contributingto the",
+    "read": "contributing to the",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 69.99,
-    "text": "redness,",
-    "read": "redness; FIGS",
+    "t": 58.91,
+    "text": "redness and also use",
+    "read": "redness andalso use Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 70.88,
-    "text": "where medication really",
-    "read": "where medication really",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 71.8,
-    "text": "doesn't manage the",
-    "read": "doesntmanage the",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 72.47,
-    "text": "condition.",
-    "read": "condition:",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 73.39,
-    "text": "We can also use",
-    "read": "We canalso use Figs",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 74.75,
+    "t": 60.09,
     "text": "Laser Genesis in addition",
     "read": "Laser Genesisin addition Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 75.55,
+    "t": 60.86,
     "text": "with",
-    "read": "with",
+    "read": "with Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 76.18,
+    "t": 61.49,
     "text": "in appropriate patients to",
     "read": "inappropriate patients to Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 77.17,
+    "t": 62.48,
     "text": "address more diffuse",
-    "read": "address more diffuse Figs",
+    "read": "address more diffuse",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 78.07,
+    "t": 63.38,
     "text": "redness and improve",
-    "read": "redness and improve FiGS",
+    "read": "rednessandimprove Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 79.13,
+    "t": 64.33,
     "text": "overall skin quality.",
-    "read": "overall skin quality: FiGs",
+    "read": "overall skin quality: Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 80.88,
+    "t": 65.28,
     "text": "To me, it's about really",
     "read": "Tome,it's about really Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 81.91,
-    "text": "being more using",
-    "read": "being more using FIGS",
+    "t": 66.31,
+    "text": "using targeted therapy as",
+    "read": "using targeted therapyas FIcs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 83.0,
-    "text": "targeted therapy as",
-    "read": "targeted therapy as FIcs",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 83.79,
+    "t": 67.2,
     "text": "opposed to oral",
-    "read": "opposedtooral",
+    "read": "opposedtooral Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 84.39,
+    "t": 67.83,
     "text": "medications.",
-    "read": "medications: Figs",
+    "read": "medications:",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 85.22,
+    "t": 68.55,
     "text": "So it's really about",
     "read": "Soit'sreally about",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 86.24,
+    "t": 69.42,
     "text": "treating the vascular",
-    "read": "treating the vascular Figs",
+    "read": "treating the vascular FiGS",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 87.21,
+    "t": 70.35,
     "text": "component, which leads",
     "read": "component; whichleads Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 88.18,
+    "t": 71.16,
     "text": "to redness.",
-    "read": "toredness: Figs",
+    "read": "toredness:",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 88.93,
+    "t": 71.78,
     "text": "It doesn't mean",
     "read": "It doesnt mean Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 89.58,
+    "t": 72.43,
     "text": "medication should never",
-    "read": "medication should never Figs",
+    "read": "medication should never Fics",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 90.28,
+    "t": 73.13,
     "text": "be used.",
-    "read": "be used: FiGS",
+    "read": "be used: Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 91.06,
-    "text": "Some patients need it,",
-    "read": "Somepatients needit;",
+    "t": 73.82,
+    "text": "Some patients need it.",
+    "read": "Somepatients needit: Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 91.95,
-    "text": "and combination therapy",
-    "read": "and combination therapy",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 92.92,
-    "text": "can be very effective in",
-    "read": "can be very effectivein Figs",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 93.89,
-    "text": "selected patients.",
-    "read": "selectedpatients: Figs",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 94.96,
+    "t": 74.57,
     "text": "But when appropriate,",
     "read": "But when appropriate; Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 96.33,
+    "t": 75.5,
     "text": "I would rather directly",
     "read": "Iwouldrather directly",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 97.81,
+    "t": 76.85,
     "text": "treat the visible vascular",
     "read": "treat thevisible vascular Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 99.34,
+    "t": 78.17,
     "text": "component than having a",
-    "read": "component thanhavinga Figs",
+    "read": "component thanhavinga",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 100.56,
+    "t": 79.12,
     "text": "patient unnecessarily",
-    "read": "patientunnecessarily",
+    "read": "patientunnecessarily FiGS",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 101.62,
+    "t": 79.92,
     "text": "depend on repeated",
-    "read": "dependonrepeated FIGS",
+    "read": "dependonrepeated Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 102.84,
+    "t": 80.83,
     "text": "antibiotics,",
-    "read": "antibiotics; FiGS",
+    "read": "antibiotics; Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 103.94,
-    "text": "topical daily,",
-    "read": "topical daily; figs",
+    "t": 81.96,
+    "text": "topical daily medications.",
+    "read": "topical daily medications FiGs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 105.21,
-    "text": "topical medications.",
-    "read": "topicalmedications",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 106.36,
-    "text": "And rosacea shouldn't",
-    "read": "Androsacea shouldnt FIgs",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 107.53,
-    "text": "simply be a treatment of",
-    "read": "simply beatreatment of Figs",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 108.61,
-    "text": "treating with oral",
-    "read": "treating with oral Figs",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 109.13,
-    "text": "medications.",
-    "read": "medications: FiGs",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 109.86,
+    "t": 83.03,
     "text": "It's about identifying",
-    "read": "Itsaboutidentifying",
+    "read": "Itsaboutidentifying FIGS",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 111.19,
+    "t": 84.38,
     "text": "what's the driving cause",
     "read": "what's the driving cause",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 112.51,
+    "t": 85.7,
     "text": "behind the symptoms",
     "read": "behind the symptoms Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 113.48,
+    "t": 86.67,
     "text": "and using the most",
     "read": "andusing themost",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 114.71,
+    "t": 87.67,
     "text": "targeted treatment,",
-    "read": "targeted treatment;",
+    "read": "targeted treatment; Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 116.03,
+    "t": 88.78,
     "text": "which is really addressing",
     "read": "whichis really addressing",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 117.07,
+    "t": 89.81,
     "text": "those oil glands,",
-    "read": "thoseoil glands; Figs",
+    "read": "those oil glands;",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 118.47,
-    "text": "which lead to basically",
-    "read": "whichlead to basically Figs",
+    "t": 90.69,
+    "text": "which lead to",
+    "read": "whichleadto",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 120.15,
+    "t": 91.78,
     "text": "inflammation and excess",
-    "read": "inflammation and excess Figs",
+    "read": "inflammation and excess",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 121.45,
-    "text": "blood vessels and really",
-    "read": "bloodvessels andreally Figs",
+    "t": 92.86,
+    "text": "blood vessels,",
+    "read": "blood vessels; FIGS",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 122.54,
-    "text": "lasers,",
-    "read": "lasers; FIGS",
+    "t": 93.95,
+    "text": "and really lasers,",
+    "read": "andreally lasers; Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 123.46,
+    "t": 94.99,
     "text": "especially vascular",
-    "read": "especially vascular Figs",
+    "read": "especially vascular FiGs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 124.49,
+    "t": 96.03,
     "text": "lasers, approach that.",
-    "read": "lasers; approachthat:",
+    "read": "lasers;approach that: FIGS",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 125.84,
+    "t": 97.4,
     "text": "And the combination of",
     "read": "And the combinationof Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 126.94,
+    "t": 98.5,
     "text": "Excel V and",
-    "read": "Excel V and Figs",
+    "read": "Excel V and FiGS",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 127.68,
+    "t": 99.22,
     "text": "Laser Genesis,",
-    "read": "Laser Genesis; FiGS",
+    "read": "Laser Genesis;",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 128.43,
+    "t": 99.97,
     "text": "which go at different",
-    "read": "whichgoat different Figs",
+    "read": "whichgoat different",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 129.22,
+    "t": 100.76,
     "text": "depths of the skin,",
-    "read": "depthsof theskin;",
+    "read": "depthsoftheskin;",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 130.16,
+    "t": 101.7,
     "text": "really target those blood",
-    "read": "really target thoseblood Fig?",
+    "read": "really target thoseblood",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 131.23,
+    "t": 102.78,
     "text": "vessels and help really",
-    "read": "vessels andhelp really eigs",
+    "read": "vesselsandhelp really",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 132.22,
+    "t": 103.78,
     "text": "long-term reduce",
-    "read": "long-term reduce Flgs",
+    "read": "long-term reduce Figs",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 133.32,
+    "t": 104.87,
     "text": "redness better than any",
-    "read": "redness better thanany Figs",
+    "read": "redness better thanany FIGS",
     "sim": 1.0,
     "ok": true
    },
    {
-    "t": 134.91,
+    "t": 106.24,
     "text": "topical or oral medication.",
-    "read": "topical or oralmedication Flgs",
-    "sim": 1.0,
-    "ok": true
-   },
-   {
-    "t": 136.18,
-    "text": "Thank you.",
-    "read": "Thankyou: Figs",
+    "read": "topical or oralmedication Figs",
     "sim": 1.0,
     "ok": true
    }

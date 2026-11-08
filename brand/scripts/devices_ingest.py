@@ -14,6 +14,16 @@ for a in sys.argv[1:]:
     if "=" in a and not pathlib.Path(a).exists(): i, p = a.split("=", 1); forced[pathlib.Path(p).resolve()] = i; files.append(pathlib.Path(p))
     elif pathlib.Path(a).is_dir(): files += [f for f in pathlib.Path(a).rglob("*") if f.suffix.lower() in (".png", ".webp", ".tif", ".tiff")]
     else: files.append(pathlib.Path(a))
+def fade_cut(im):
+    """a maker photo cropped by its frame (a hard horizontal edge: the bottom opaque row spans > 15% of the object's width) fades out over
+    its lowest 15%, so it does not read as a chopped-off box on screen"""
+    import numpy as np
+    a = np.asarray(im.getchannel("A"), dtype=np.float32); h, w = a.shape; ys = np.where((a > 16).any(1))[0]
+    if not len(ys): return im
+    y1 = ys[-1]; width = (a > 16).any(0).sum()
+    if (a[y1] > 128).sum() <= 0.15 * width: return im
+    n = max(2, int(0.15 * (y1 - ys[0]))); ramp = np.ones(h, np.float32); ramp[y1 - n + 1:y1 + 1] = np.linspace(1, 0, n) ** 1.4
+    out = im.copy(); out.putalpha(Image.fromarray((a * ramp[:, None]).astype("uint8"))); return out
 report = []
 for f in files:
     did = forced.get(f.resolve()) or next((i for n, i in names if n in key(f.stem)), None)
@@ -21,7 +31,7 @@ for f in files:
     im = Image.open(f).convert("RGBA"); a = im.getchannel("A")
     clear = sum(a.histogram()[:16]) / (im.width * im.height)
     if clear < 0.05: report.append({"file": str(f), "id": did, "status": f"not a cutout ({clear:.1%} transparent); remove the background first"}); continue
-    im = im.crop(a.point(lambda v: 255 if v > 16 else 0).getbbox()); pad = round(max(im.size) * 0.04)
+    im = fade_cut(im.crop(a.point(lambda v: 255 if v > 16 else 0).getbbox())); pad = round(max(im.size) * 0.04)
     out = Image.new("RGBA", (im.width + 2 * pad, im.height + 2 * pad), (0, 0, 0, 0)); out.paste(im, (pad, pad))
     out.thumbnail((1600, 1600), Image.LANCZOS); out.save(K / "img" / f"{did}.png", optimize=True)
     report.append({"file": str(f), "id": did, "status": "ok", "size": out.size, "transparent": round(clear, 3)})
