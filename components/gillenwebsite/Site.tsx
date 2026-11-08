@@ -396,7 +396,7 @@ export default function Site({ releases }: { releases: Release[] }) {
       {/* (while the record view is up, the release display and the caption block are taken off; back on its close) */}
       {wide && r && !recordOpen && (
         <div className={css.inlineSlot} data-src="12">
-          <ReleaseView releases={releases} i={settled} mode="inline" onPrev={() => step(-1)} onNext={() => step(1)} />
+          <ReleaseView releases={releases} i={settled} mode="inline" onPrev={() => step(-1)} onNext={() => step(1)} onOpen={() => open(rig.front, "rolodex")} />
         </div>
       )}
 

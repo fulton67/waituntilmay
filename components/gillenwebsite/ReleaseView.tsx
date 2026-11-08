@@ -28,13 +28,15 @@ function Art({ r, cls, sizes, jpeg }: { r: Release; cls: string; sizes: string; 
 }
 
 export default function ReleaseView({
-  releases, i, mode, onPrev, onNext,
+  releases, i, mode, onPrev, onNext, onOpen,
 }: {
   releases: Release[];
   i: number;
   mode: "inline" | "panel";
   onPrev: () => void;
   onNext: () => void;
+  // a click on the cover (beside the Rolodex): open the record view
+  onOpen?: () => void;
 }) {
   const r = releases[i];
   // the outgoing cover stays on top of the stack until its .25s fade-out ends
@@ -62,7 +64,7 @@ export default function ReleaseView({
 
   return (
     <article className={mode === "panel" ? css.viewPanel : css.viewInline} data-release={r.id} data-src="12">
-      <div className={css.coverBox} ref={box}>
+      <div className={onOpen ? `${css.coverBox} ${css.coverOpens}` : css.coverBox} ref={box} onClick={onOpen}>
         <Art key={`c${i}`} r={r} cls={`${css.cover} ${css.coverIn}`} sizes={sizes} jpeg={jpeg} />
         {pair.prev !== null && pair.prev !== i && (
           <span

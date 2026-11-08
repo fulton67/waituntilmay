@@ -85,6 +85,8 @@
 }
 .viewInline { display: grid; grid-template-columns: var(--cv) 260px; gap: 24px; height: 100%; }
 .viewInline .coverBox { width: var(--cv); height: var(--cv); }
+/* the big cover beside the Rolodex opens the record view, as the front sleeve does */
+.coverOpens { cursor: pointer; }
 .viewInline .info { max-height: var(--cv); }
 
 /* SOURCES #12 luckydaye .lightbox: fixed, inset 0, padding 40px, centred; slides in like .gallery-panel */
