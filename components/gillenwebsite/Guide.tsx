@@ -9,7 +9,8 @@
 // Rolodex, the caption block's top edge. The leaders follow their 3D targets every frame, the bend recomputed so the
 // segments stay axis-aligned. Everything appears at once (no draw-in, T2); the arrows step 4 px toward their targets
 // and back, half a second each; the set holds 2.5 s, then fades over 400 ms. A callout goes at once when its gesture
-// is made (rig.onAction). Shown on the first visit (localStorage), and again after 90 s with no input.
+// is made (rig.onAction). Shown on the first visit (localStorage), and again after 90 s with no input; each time the
+// front sleeve bounces twice with it (rig.ts bounceLift).
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { rig, wrap } from "./rig";
@@ -134,6 +135,8 @@ export default function Guide({ ready }: { ready: boolean }) {
     const show = (holdMs = HOLD) => {
       if (document.querySelector("[role=dialog]") || state() !== "hidden") return;
       gone.clear(); shows++; hold = holdMs;
+      // the "you can tap this" bounce of the front sleeve goes with the hints (rig.ts bounceLift; not with reduced motion)
+      if (!rig.reduce) rig.bounceAt = performance.now();
       t0 = performance.now();
       s.parentElement!.style.visibility = "visible";
       markSeen();

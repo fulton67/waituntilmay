@@ -44,6 +44,10 @@ export type Rig = {
   // the first-load guide (Guide.tsx) listens for each gesture it explains: a flip (wheel, swipe or card drag), a knob
   // tap, a drag that turns the Rolodex, and opening the record view
   onAction?: (a: "flip" | "knob" | "orbit" | "open") => void;
+  // the "you can tap this" bounce (Guide.tsx starts it with the hints; Rolodex.tsx draws it): when it started
+  // (performance.now), 0 when none; the front sleeve's lift off the ring now, metres
+  bounceAt: number;
+  lift: number;
   ready: boolean;
   axisY: number; // height of the drum axis, from knob_right's bounding box
   hit: HTMLElement | null; // the cards' hit area over the stage (touch-action: none), kept on the drum's screen rect
@@ -76,6 +80,8 @@ export const rig: Rig = {
   lifted: -1,
   lastDir: 1,
   lastBoost: null,
+  bounceAt: 0,
+  lift: 0,
   ready: false,
   axisY: 0.585,
   hit: null,
@@ -142,6 +148,20 @@ export function knobTap() {
     jumpTo(Math.round(heading()) + rig.lastDir);
     rig.lastBoost = { before: +sp.toFixed(3), after: 0, capped: false, at: now };
   }
+}
+
+// The bounce: the front sleeve lifts BOUNCE.h off the ring and drops back, BOUNCE.n times, each BOUNCE.ms long and
+// BOUNCE.gap ms after the last. Each one rises over 45% of its time (ease-out), falls over 35% (ease-in), and dips
+// BOUNCE.over below the ring and back over the last 20%, the small overshoot. The lift (metres) at t ms from the start,
+// or null once it is over.
+export const BOUNCE = { h: 0.012, n: 2, ms: 350, gap: 200, over: 0.15 };
+export function bounceLift(t: number) {
+  const k = Math.floor(t / (BOUNCE.ms + BOUNCE.gap));
+  if (t < 0 || k >= BOUNCE.n) return null;
+  const u = (t - k * (BOUNCE.ms + BOUNCE.gap)) / BOUNCE.ms;
+  if (u >= 1) return 0;
+  const f = u < 0.45 ? 1 - (1 - u / 0.45) ** 3 : u < 0.8 ? 1 - ((u - 0.45) / 0.35) ** 3 : -BOUNCE.over * Math.sin((Math.PI * (u - 0.8)) / 0.2);
+  return BOUNCE.h * f;
 }
 
 // where the drum is heading: a coasting flick's card, otherwise pos

@@ -13,7 +13,7 @@ import { useFrame, useThree, useLoader } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import type { Release } from "@/lib/gillenwebsite/discography";
-import { rig, per, FLIP_DIR, coast, makeAngle, wrap, setPos, jumpTo, jumpToRelease } from "./rig";
+import { rig, per, FLIP_DIR, coast, makeAngle, wrap, setPos, jumpTo, jumpToRelease, bounceLift } from "./rig";
 import { R0 } from "./cardTexture";
 import { SLEEVE, SLOT_X, sleeveGeometry, sharpen, loadTex, setMap, sideWidth, sideFile, type Side } from "./sleeve";
 import { paperGrain } from "./textures";
@@ -235,6 +235,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
 
   // the first front sleeve counts as settled 150 ms after the first frame
   const settle = useMemo(() => ({ since: 0, done: false }), []);
+  const bounced = useMemo(() => ({ slot: -1 }), []);
   // big covers, decoded and waiting to be uploaded: a 2048 upload with its mips takes a frame's worth of time, so
   // they go up one a frame, front first, and only while the drum stands still
   const uploads = useMemo<(() => void)[]>(() => [], []);
@@ -413,6 +414,16 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       built.cards[i].visible = i !== rig.lifted;
     }
     for (const k of built.knobs) k.rotation.x = FLIP_DIR * -rig.s * 0.42;
+    // the bounce (rig.ts bounceLift): the front sleeve off the ring along its own height, and back; a gesture or the
+    // record view ends it at once
+    const slot = wrap(Math.round(rig.s), TOTAL);
+    let lift = rig.bounceAt ? bounceLift(now - rig.bounceAt) : 0;
+    if (lift === null || rig.drag || rig.fling || rig.lifted >= 0) { lift = 0; rig.bounceAt = 0; }
+    if (lift !== rig.lift || slot !== bounced.slot) {
+      if (bounced.slot >= 0) built.cards[bounced.slot].children[0].position.y = SLEEVE_R;
+      built.cards[slot].children[0].position.y = SLEEVE_R + lift;
+      bounced.slot = slot; rig.lift = lift;
+    }
     const front = wrap(Math.round(rig.s), N);
     if (front !== rig.front) { rig.front = front; rig.onFront.forEach((f) => f(front)); settle.since = now; settle.done = false; }
     if (!settle.done && now - settle.since > SETTLE_MS) { settle.done = true; bigCovers(front); }
