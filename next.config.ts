@@ -24,6 +24,19 @@ const nextConfig: NextConfig = {
     ],
     qualities: [75],
   },
+  // Dylan Neustadter's own domain serves the /gillenwebsite pages at its root (it moved off Wix).
+  async rewrites() {
+    const dylan = [{ type: "host" as const, value: "(www\\.)?dylansproduce\\.net" }];
+    return {
+      beforeFiles: [
+        { source: "/", has: dylan, destination: "/gillenwebsite" },
+        { source: "/about", has: dylan, destination: "/gillenwebsite/about" },
+        { source: "/discography", has: dylan, destination: "/gillenwebsite/discography" },
+      ],
+      afterFiles: [],
+      fallback: [],
+    };
+  },
   async headers() {
     return [
       {
