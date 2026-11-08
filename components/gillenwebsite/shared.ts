@@ -15,21 +15,14 @@ export const coverFile = (r: Release, w: number, ext: "jpg" | "avif" = "jpg") =>
 export const rolesOf = (r: Release) =>
   [...new Set([r.role, ...r.tracks.map((t) => t.role)].flatMap((s) => s.split(",")).map((s) => s.trim()).filter(Boolean))];
 
-// The other credits on a release as an index list: the credited artists first, then the collaborators by how much
-// their role shapes the record (production, writing, mixing, mastering, playing, engineering, the rest), at most
-// CREDITS_MAX with the count of the rest. One entry per name, its first role.
-export const CREDITS_MAX = 12;
-const RELEVANCE = [/^(artist|featured)/, /^producer|^co-producer|executive producer/, /writ|compos|lyric|songwriter/, /^mix/, /master/, /vocal|guitar|bass|drum|piano|keyboard|synth|string|percussion|program/, /engineer/];
-export const creditList = (r: Release) => {
-  const rank = (role: string) => { const k = RELEVANCE.findIndex((re) => re.test(role.toLowerCase())); return k < 0 ? RELEVANCE.length : k; };
-  const artists = r.artist.split(/,|&/).map((x) => x.trim()).filter(Boolean).map((name, k) => ({ name, role: k ? "featured artist" : "artist" }));
-  const seen = new Set(artists.map((a) => a.name.toLowerCase()));
-  const others = r.collaborators.filter((c) => !seen.has(c.name.toLowerCase())).map((c) => ({ name: c.name, role: c.roles[0] ?? "" }));
-  const all = [...artists, ...others.sort((a, b) => rank(a.role) - rank(b.role))];
-  return { items: all.slice(0, CREDITS_MAX), more: Math.max(0, all.length - CREDITS_MAX), meta: [r.label, r.catno, String(r.year)].filter(Boolean).join(" · ") };
-};
-// Dylan's line under his name: his roles on the release, and the release
-export const dylanLine = (r: Release) => `${caps(r.role)} · ${r.release}`;
+// Dylan's roles on a release, each with the tracks it applies to (in track order), for the record view. A track's
+// "(feat. ...)" is left off: the view names no one but Dylan.
+export const trackTitle = (t: string) => t.replace(/\s*[([](?:feat\.?|ft\.?|featuring|with)\s[^)\]]*[)\]]/gi, "").trim();
+export const dylanRoles = (r: Release) =>
+  r.role.split(",").map((x) => x.trim()).filter(Boolean).map((role) => ({
+    role,
+    tracks: r.tracks.filter((t) => t.role.split(",").map((x) => x.trim()).includes(role)).map((t) => trackTitle(t.title)),
+  }));
 
 // capitals are typed into the string, never set by CSS (bible R7)
 export const caps = (s: string) => s.toUpperCase();

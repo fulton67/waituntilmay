@@ -12,9 +12,10 @@ import css from "./site.module.css";
 const VinylView = dynamic(() => import("./VinylView"), { ssr: false });
 
 // open(i, from): the record view for release i, lifting off the Rolodex ("rolodex"), starting on a cover in the
-// page (an element), or coming up from below (null)
-type Ctx = { open: (i: number, from?: From) => void };
-const PanelCtx = createContext<Ctx>({ open: () => {} });
+// page (an element), or coming up from below (null). recordOpen: the record view is up (from its opening until the
+// sleeve is back on the ring)
+type Ctx = { open: (i: number, from?: From) => void; recordOpen: boolean };
+const PanelCtx = createContext<Ctx>({ open: () => {}, recordOpen: false });
 export const usePanel = () => useContext(PanelCtx);
 
 const BASE = "/gillenwebsite";
@@ -100,6 +101,7 @@ export default function Chrome({
   const head = useRef<HTMLElement>(null);
   const leaving = useRef(false);
   const vinyl = useRef<VinylHandle | null>(null);
+  const [recordOpen, setRecordOpen] = useState(false);
 
   // SOURCES #05, viscosesyllabus.com S7 (1c85fe7d1ee0de53.js:23): the page goes out to translate(90vw), and
   // navigation waits for it. The new page comes in from 80vw to 0. The first load does not slide. viscosesyllabus
@@ -107,6 +109,8 @@ export default function Chrome({
   const go = (e: React.MouseEvent, href: string) => {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
     e.preventDefault();
+    // a nav link is the one thing that works while the record view is up: it closes the view and goes
+    vinyl.current?.close();
     if (href === path || leaving.current) return;
     leaving.current = true;
     const o = main.current!;
@@ -150,9 +154,10 @@ export default function Chrome({
   }, [N]);
 
   return (
-    <PanelCtx.Provider value={{ open }}>
+    <PanelCtx.Provider value={{ open, recordOpen }}>
       {/* SOURCES #01 onehouse.com header.site-header > nav.site-nav (pages/000.html:478) */}
-      <header ref={head} className={css.top} data-src="01">
+      {/* above the record view, so its nav links stay live; a click anywhere else on it closes the view (VinylView) */}
+      <header ref={head} className={css.top} data-src="01" onClick={(e) => { if (recordOpen && !(e.target as HTMLElement).closest("a")) vinyl.current?.close(); }}>
         <nav className={css.siteNav} data-src="01">
           {/* SOURCES #02 onehouse.com a.site-nav_logo-wrapper with aria-current */}
           <a className={css.name} data-src="02 05" href={BASE} aria-current={path === BASE ? "page" : undefined} onClick={(e) => go(e, BASE)}>
@@ -193,7 +198,7 @@ export default function Chrome({
         </div>
       </footer>}
 
-      <VinylView releases={releases} handle={vinyl} />
+      <VinylView releases={releases} handle={vinyl} onState={setRecordOpen} />
 
       {/* SOURCES #31 the credit rides in the served HTML (siteplan.lidofestival.co.uk 7ceda4973e966175.js:4530) */}
       <div hidden data-src="31" dangerouslySetInnerHTML={{ __html: "<!-- Site Development & Design; waituntilmay -->" }} />

@@ -1,0 +1,308 @@
+{
+  "base": "http://localhost:3227",
+  "at": "2026-11-08T05:59:36.800Z",
+  "namesChecked": 219,
+  "profiles": {
+    "desktop": {
+      "captionBefore": true,
+      "captionWhileOpen": false,
+      "panel": [
+        {
+          "text": "DYLAN\nNEUSTADTER",
+          "font": "archivo-wdth118-regular.ttf",
+          "fontSizeM": 0.03629,
+          "capped": true,
+          "screenEmPx": 30.3,
+          "opacity": 0.9999999999999998,
+          "sdf": true
+        },
+        {
+          "text": "PRODUCER, WRITER\nBLUE",
+          "font": "archivo-wdth118-regular.ttf",
+          "fontSizeM": 0.01815,
+          "capped": true,
+          "screenEmPx": 15.3,
+          "opacity": 0.9999999999999998,
+          "sdf": true
+        }
+      ],
+      "side": [
+        {
+          "text": "DYLAN NEUSTADTER",
+          "px": 36,
+          "family": "Archivo",
+          "stretch": "118%",
+          "weight": "400"
+        },
+        {
+          "text": "PRODUCER",
+          "px": 18,
+          "family": "Archivo",
+          "stretch": "118%",
+          "weight": "400"
+        },
+        {
+          "text": "clean slate",
+          "px": 18,
+          "family": "Archivo",
+          "stretch": "118%",
+          "weight": "400"
+        },
+        {
+          "text": "WRITER",
+          "px": 18,
+          "family": "Archivo",
+          "stretch": "118%",
+          "weight": "400"
+        },
+        {
+          "text": "clean slate",
+          "px": 18,
+          "family": "Archivo",
+          "stretch": "118%",
+          "weight": "400"
+        },
+        {
+          "text": "BLUE [2026]",
+          "px": 18,
+          "family": "Archivo",
+          "stretch": "118%",
+          "weight": "400"
+        }
+      ],
+      "headerNamePx": 12,
+      "closeButton": false,
+      "labelText": "BLUE",
+      "namesRendered": [
+        "DYLAN NEUSTADTER"
+      ],
+      "travel": {
+        "slideM": 0.3245,
+        "pocketHalfWidthM": 0.1685,
+        "discR": 0.15,
+        "clearMm": 6,
+        "slideNow": 1
+      },
+      "closeTargets": [
+        {
+          "what": "record",
+          "x": 735,
+          "y": 520,
+          "closed": true,
+          "ran": "close 356ms 60fps",
+          "backOnRing": true
+        },
+        {
+          "what": "sleeve (front cover)",
+          "x": 243,
+          "y": 477,
+          "closed": true,
+          "ran": "close 362ms 60fps",
+          "backOnRing": true
+        },
+        {
+          "what": "panel text",
+          "x": 537,
+          "y": 397,
+          "closed": true,
+          "ran": "close 353ms 60fps",
+          "backOnRing": true
+        },
+        {
+          "what": "white ground",
+          "x": 970,
+          "y": 870,
+          "closed": true,
+          "ran": "close 362ms 60fps",
+          "backOnRing": true
+        },
+        {
+          "what": "dimmed Rolodex",
+          "x": 144,
+          "y": 780,
+          "closed": true,
+          "ran": "close 355ms 60fps",
+          "backOnRing": true
+        }
+      ],
+      "captionAfterClose": true,
+      "slide": {
+        "openMaxS": 1,
+        "closeEndS": 0,
+        "spinNotOut": 0
+      },
+      "fps": {
+        "open": 62,
+        "close": 60,
+        "openMs": [
+          458,
+          455,
+          454,
+          457,
+          450
+        ],
+        "closeMs": [
+          356,
+          362,
+          353,
+          355
+        ]
+      },
+      "navLink": {
+        "url": "/gillenwebsite/discography",
+        "viewState": "closed"
+      },
+      "pass": true
+    },
+    "phone": {
+      "captionBefore": true,
+      "captionWhileOpen": false,
+      "panel": [
+        {
+          "text": "DYLAN\nNEUSTADTER",
+          "font": "archivo-wdth118-regular.ttf",
+          "fontSizeM": 0.03629,
+          "capped": true,
+          "screenEmPx": 13.1,
+          "opacity": 0.9999999999999998,
+          "sdf": true
+        },
+        {
+          "text": "PRODUCER, WRITER\nBLUE",
+          "font": "archivo-wdth118-regular.ttf",
+          "fontSizeM": 0.01815,
+          "capped": true,
+          "screenEmPx": 6.6,
+          "opacity": 0.9999999999999998,
+          "sdf": true
+        }
+      ],
+      "side": [
+        {
+          "text": "DYLAN NEUSTADTER",
+          "px": 36,
+          "family": "Archivo",
+          "stretch": "118%",
+          "weight": "400"
+        },
+        {
+          "text": "PRODUCER",
+          "px": 18,
+          "family": "Archivo",
+          "stretch": "118%",
+          "weight": "400"
+        },
+        {
+          "text": "clean slate",
+          "px": 18,
+          "family": "Archivo",
+          "stretch": "118%",
+          "weight": "400"
+        },
+        {
+          "text": "WRITER",
+          "px": 18,
+          "family": "Archivo",
+          "stretch": "118%",
+          "weight": "400"
+        },
+        {
+          "text": "clean slate",
+          "px": 18,
+          "family": "Archivo",
+          "stretch": "118%",
+          "weight": "400"
+        },
+        {
+          "text": "BLUE [2026]",
+          "px": 18,
+          "family": "Archivo",
+          "stretch": "118%",
+          "weight": "400"
+        }
+      ],
+      "headerNamePx": 12,
+      "closeButton": false,
+      "labelText": "BLUE",
+      "namesRendered": [
+        "DYLAN NEUSTADTER"
+      ],
+      "travel": {
+        "slideM": 0.3245,
+        "pocketHalfWidthM": 0.1685,
+        "discR": 0.15,
+        "clearMm": 6,
+        "slideNow": 1
+      },
+      "closeTargets": [
+        {
+          "what": "record",
+          "x": 282,
+          "y": 208,
+          "closed": true,
+          "ran": "close 356ms 60.8fps",
+          "backOnRing": true
+        },
+        {
+          "what": "sleeve (front cover)",
+          "x": 74,
+          "y": 188,
+          "closed": true,
+          "ran": "close 362ms 60fps",
+          "backOnRing": true
+        },
+        {
+          "what": "panel text",
+          "x": 196,
+          "y": 159,
+          "closed": true,
+          "ran": "close 362ms 60fps",
+          "backOnRing": true
+        },
+        {
+          "what": "side column name",
+          "x": 36,
+          "y": 354,
+          "closed": true,
+          "ran": "close 358ms 60fps",
+          "backOnRing": true
+        },
+        {
+          "what": "dimmed Rolodex",
+          "x": 39,
+          "y": 724,
+          "closed": true,
+          "ran": "close 358ms 59.8fps",
+          "backOnRing": true
+        }
+      ],
+      "captionAfterClose": true,
+      "slide": {
+        "openMaxS": 1,
+        "closeEndS": 0,
+        "spinNotOut": 0
+      },
+      "fps": {
+        "open": 48.1,
+        "close": 59.8,
+        "openMs": [
+          462,
+          458,
+          461,
+          465
+        ],
+        "closeMs": [
+          356,
+          362,
+          358
+        ]
+      },
+      "navLink": {
+        "url": "/gillenwebsite/discography",
+        "viewState": "closed"
+      },
+      "pass": true
+    }
+  },
+  "pass": true
+}

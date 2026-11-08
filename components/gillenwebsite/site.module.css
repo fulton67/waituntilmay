@@ -253,52 +253,26 @@
   .disco > .pills { padding: 0 16px; }
 }
 
-/* SOURCES #12 the record view (VinylView.tsx): over everything, closed until .vvOn. (.vvInfo .x beats .root p's
-   font-size: inherit.) The veil dims what is behind it
-   to the white ground (R1); the canvas takes the whole screen so the sleeve can lift from where it was; the info is a
-   column on the right (desktop) or under the record (phones, where the record is the full width at the top).
-   One face and one weight throughout (R2, R11): the info face at 400. */
-.vv { position: fixed; inset: 0; z-index: 40; pointer-events: none; visibility: hidden; }
+/* SOURCES #12 the record view (VinylView.tsx): over everything but the header (so the nav links stay live), closed
+   until .vvOn. (.vvInfo .x beats .root p's font-size: inherit.) The veil dims what is behind it to the white ground
+   (R1); the canvas takes the whole screen so the sleeve can lift from where it was; the info is a column on the right
+   (desktop) or under the record (phones, where the record is the full width at the top). A click anywhere on it
+   closes the view, so the pointer is the default arrow over the column. */
+.vv { position: fixed; inset: 0; z-index: 39; pointer-events: none; visibility: hidden; }
 .vvOn { pointer-events: auto; visibility: visible; }
 .vvVeil { position: absolute; inset: 0; background: rgba(255, 255, 255, 0.86); opacity: 0; }
 .vvCanvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; cursor: grab; }
 .vvInfo {
   position: absolute; top: calc(var(--head) + 24px); right: 0; bottom: 0; width: 420px; box-sizing: border-box;
-  padding: 0 28px 28px 20px; overflow: auto; display: flex; flex-direction: column; gap: 10px;
-  font: var(--w-info) 16px/1.35 var(--mono); opacity: 0; background: var(--ground);
+  padding: 0 28px 28px 20px; overflow: auto; display: flex; flex-direction: column; gap: 14px;
+  font: 400 18px/1.25 var(--name); font-stretch: 118%; opacity: 0; background: var(--ground); cursor: pointer;
 }
 /* Dylan's name: the header's face (.name) at three times its 12 px, regular, capitals typed in */
 .vvInfo .vvDylan { font: 400 36px/1.05 var(--name) !important; font-stretch: 118% !important; letter-spacing: 0.02em; text-wrap: balance; }
-/* the other credits: the About index's grid (SOURCES #20: number | name | role, 8 px column gap, 12 px on 1.2 leading,
-   the same 20 px left edge), grey, in one column or two past 8 names */
-.vvCredits { display: flex; flex-wrap: wrap; column-gap: 20px; row-gap: 4px; margin-top: 12px; color: #777; }
-.vvCreditCol { display: grid; grid-template-columns: auto minmax(0, 3fr) minmax(0, 2fr); column-gap: 8px; align-content: start; flex: 1 1 160px; min-width: 0; }
-.vvCredit { display: contents; }
-.vvCredit span, .vvInfo .vvMeta { font-size: 12px; line-height: 1.2; }
-.vvCredit span:nth-child(n + 2) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.vvCredit span:first-child { white-space: nowrap; }
-.vvInfo .vvMeta { flex-basis: 100%; margin-top: 8px !important; }
-.vvInfo .vvRelease { font-size: 24px; line-height: 1.15; }
-.vvInfo .vvSmall { font-size: 12px; line-height: 1.2; }
-.vvTracks { display: flex; flex-direction: column; border-top: 0.5px solid var(--ink); padding-top: 8px; margin-top: 6px; }
-.vvTrack { display: grid; grid-template-columns: 32px auto; gap: 0.25rem; padding: 4px 0; font-variant-numeric: tabular-nums; }
-.vvCollab { display: flex; flex-direction: column; gap: 4px; border-top: 0.5px solid var(--ink); padding-top: 8px; }
-.vvControls { display: flex; align-items: center; gap: 18px; margin-top: auto; padding-top: 12px; }
+/* his roles, each with the tracks it applies to, then the release and year: the header's face at 1.5 x the 12 px
+   interface size */
+.vvRoles { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.vvRoles dt, .vvRoles dd, .vvInfo .vvRelease { margin: 0; font-size: 18px; line-height: 1.25; }
 @media (max-width: 719px) {
-  .vvInfo { top: calc(var(--head) + 62vw + 8px); left: 0; width: auto; padding: 0 16px 24px; font-size: 15px; }
-
-  .vvInfo .vvRelease { font-size: 20px; }
-  .vvInfo .vvSmall { font-size: 12px; }
+  .vvInfo { top: calc(var(--head) + 62vw + 8px); left: 0; width: auto; padding: 0 16px 24px; }
 }
-
-/* the record view's credits panel (VinylView.tsx): HTML laid onto the gatefold's right panel in 3D. The About index's
-   grid (SOURCES #20b); Dylan's name in the header's face (Archivo at 118%), the rest in the info face, all at 400 */
-.vvLayer { position: absolute; inset: 0; pointer-events: none; }
-.vvPanel { box-sizing: border-box; pointer-events: none; padding: 44px; color: #111; font: 400 14.4px/1.2 var(--mono); transition: opacity 0.12s linear; backface-visibility: hidden; }
-.vvPanel p { margin: 0; }
-.vvPanel .vvPanelName { font: 400 43.2px/1.05 var(--name); font-stretch: 118%; letter-spacing: 0.02em; margin-bottom: 9px !important; }
-.vvPanel .vvPanelLine { margin-bottom: 29px !important; }
-.vvPanelList { display: flex; gap: 29px; color: #666; }
-.vvPanelCol { display: grid; grid-template-columns: auto minmax(0, 3fr) minmax(0, 2fr); column-gap: 9.6px; flex: 1 1 0; min-width: 0; align-content: start; }
-.vvPanelCol span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.vvPanel .vvPanelMeta { color: #666; margin-top: 17px !important; }

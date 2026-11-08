@@ -1,3 +1,5 @@
+// Superseded 2026-11-08 by vinylopen.mjs for the open view: the cover-state toggle measured here is gone (a click
+// anywhere closes the view), so its toggle checks no longer apply.
 // The record view (VinylView.tsx), measured in headed Chrome: 1440 x 900 DPR 2, and 390 x 844 DPR 3 with a 4x CPU
 // throttle. On each profile:
 //  - transitions: open (450 ms, three stages), the cover-state toggle both ways (300 ms), close from either state

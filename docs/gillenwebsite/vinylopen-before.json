@@ -1,0 +1,36 @@
+{
+  "base": "https://waituntilmay.com",
+  "at": "2026-11-08T05:51:39.747Z",
+  "desktop": {
+    "captionWhileOpen": true,
+    "panelText": "DYLAN NEUSTADTER | PRODUCER, WRITER · BLUE | 001. | girl in red | ARTIST | Columbia · 2026",
+    "panelSizes": [
+      "Archivo 43.2px",
+      "univers-next-pro 14.4px"
+    ],
+    "side": "001. / 036. @12px | DYLAN NEUSTADTER @36px | PRODUCER, WRITER · BLUE @12px | 001. @12px | girl in red @12px | ARTIST @12px | Columbia · 2026 @12px | ← @16px | → @16px | CLOSE @12px",
+    "buttons": [
+      "←",
+      "→",
+      "CLOSE"
+    ],
+    "slideMax": 1,
+    "clickCover": "cover"
+  },
+  "phone": {
+    "captionWhileOpen": true,
+    "panelText": "DYLAN NEUSTADTER | PRODUCER, WRITER · BLUE | 001. | girl in red | ARTIST | Columbia · 2026",
+    "panelSizes": [
+      "Archivo 43.2px",
+      "univers-next-pro 14.4px"
+    ],
+    "side": "001. / 036. @12px | DYLAN NEUSTADTER @36px | PRODUCER, WRITER · BLUE @12px | 001. @12px | girl in red @12px | ARTIST @12px | Columbia · 2026 @12px | ← @15px | → @15px | CLOSE @12px",
+    "buttons": [
+      "←",
+      "→",
+      "CLOSE"
+    ],
+    "slideMax": 1,
+    "clickCover": "cover"
+  }
+}

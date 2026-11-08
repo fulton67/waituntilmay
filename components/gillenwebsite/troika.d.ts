@@ -7,7 +7,7 @@ declare module "troika-three-text" {
     /** polygon offset factor and units for the batch's material (troika sets them each frame) */
     depthOffset: number;
   }
-  /** one SDF text mesh (VinylView.tsx's label type) */
+  /** one SDF text mesh (VinylView.tsx: the gatefold panel's type) */
   export class Text extends Mesh {
     text: string;
     font: string;
@@ -16,6 +16,8 @@ declare module "troika-three-text" {
     anchorY: string | number;
     textAlign: string;
     maxWidth: number;
+    lineHeight: number | string;
+    fillOpacity: number;
     color: number | string;
     sync(cb?: () => void): void;
     dispose(): void;

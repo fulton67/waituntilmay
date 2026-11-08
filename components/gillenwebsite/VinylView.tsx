@@ -6,46 +6,45 @@
 // From the Rolodex the front sleeve itself lifts off the ring: this canvas draws over the stage with the stage
 // camera's own view and the closed model stands exactly where the sleeve was. Opening (OPEN_MS) runs three
 // overlapping stages: the sleeve moves to the middle, the gatefold opens, the record slides out of the right
-// pocket; a white veil dims the Rolodex meanwhile. A click on the front cover while open puts the record back,
-// shuts the gatefold and leaves the closed sleeve facing the camera, large (the cover state); a click on it opens
-// it again (TOGGLE_MS each way). Closing (CLOSE_MS) runs the opening backwards from either state, onto the ring or
-// the discography row it came from. The record only ever slides along the pocket, and it spins (33 1/3 rpm, not
-// with reduced motion) only when fully out. Drag turns the record. Plain three.js, one requestAnimationFrame loop.
+// pocket, all the way; a white veil dims the Rolodex meanwhile. While it is open a click or tap anywhere (record,
+// sleeve, panel, the column beside it, the ground, the dimmed Rolodex; not the nav links, Chrome.tsx) is the close
+// (CLOSE_MS): the opening backwards, onto the ring or the discography row it came from. The record only ever slides
+// along the pocket, and it spins (33 1/3 rpm, not with reduced motion) only when fully out. Drag turns the record.
+// The view names Dylan only: his name, his roles and the release (and on the side, the tracks and the year).
+// Plain three.js, one requestAnimationFrame loop.
 import { useCallback, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
-import { CSS3DRenderer, CSS3DObject } from "three/examples/jsm/renderers/CSS3DRenderer.js";
+import { Text } from "troika-three-text";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { rig, wrap } from "./rig";
 import { SLEEVE, sharpen, loadTex, sideFile, sideWidth, type Side } from "./sleeve";
-import { buildRecord, grooveNormals, OPEN_BOX, RPM, LABEL_R, DISC_R, type RecordModel } from "./record";
+import { buildRecord, grooveNormals, OPEN_BOX, RPM, LABEL_R, DISC_R, SLIDE, type RecordModel } from "./record";
 import { paperGrain } from "./textures";
-import { no3, caps, creditList, dylanLine } from "./shared";
+import { caps, dylanRoles } from "./shared";
 import css from "./site.module.css";
-const css_ = css;
 
-// open 450 ms, the cover-state toggle 300 ms each way, close 350 ms; the record's slide takes 180 ms of each
-export const OPEN_MS = 450, TOGGLE_MS = 300, CLOSE_MS = 350;
+// open 450 ms, close 350 ms; the record's slide takes 180 ms of each
+export const OPEN_MS = 450, CLOSE_MS = 350;
 // each motion's stages, as fractions of its duration: [start, end] of the move, the gatefold and the record's slide
 type Win = [number, number];
 type Plan = { move: Win; gate: Win; slide: Win };
 const PLANS: Record<string, Plan> = {
   open: { move: [0, 210 / 450], gate: [170 / 450, 320 / 450], slide: [270 / 450, 1] },
-  toCover: { slide: [0, 180 / 300], gate: [160 / 300, 1], move: [160 / 300, 1] },
-  toOpen: { move: [0, 140 / 300], gate: [0, 140 / 300], slide: [120 / 300, 1] },
   close: { slide: [0, 180 / 350], gate: [160 / 350, 270 / 350], move: [250 / 350, 1] },
 };
 const stage = (f: number, [a, b]: Win) => ease(Math.min(1, Math.max(0, (f - a) / (b - a))));
-// The label: a plain paper disc in one colour from the cover (its lightest dominant colour), with the artist and the
-// release in the header's face, small caps, round the top arc, and the spindle hole (record.ts). Drawn on a canvas
+// The label: a plain paper disc in one colour from the cover (its lightest dominant colour), with the release's title
+// in the header's face, small caps, round the top arc, and the spindle hole (record.ts). Drawn on a canvas
 // in the page's own fonts (the Adobe kit's Univers, TeX Gyre Heros until it loads); no cover pixels on it.
 const LABEL_PX = 1024, LABEL_FACE = `"univers-next-pro", "TeX Gyre Heros", "Helvetica Neue", Arial, sans-serif`;
-// The credits panel's type is HTML laid onto the panel in 3D (CSS3DRenderer), so it is set by the browser in the
-// page's own fonts (the Adobe Fonts kit among them, which can't be read as a font file for SDF type), sharp at any angle.
-// The element is PANEL_PX square for the 0.33 m panel; sizes in px of that element, in the page's proportions: the small
-// interface size (12 px) is `small`, Dylan's name three times the header (36 px); leading 1.2 and an 8 px column gap
-// as the About index (SOURCES #20b).
-const PANEL_PX = 660;
+// The gatefold's right panel: SDF type (troika-three-text) in the header's face, Archivo at 118% width, regular
+// (public/gillenwebsite/fonts/archivo-wdth118-regular.ttf, the static instance of what the header sets). DYLAN /
+// NEUSTADTER on two lines at three times the header's 12 px as it stands on screen in the open pose (36 CSS px an
+// em), or as large as the panel's width takes it where that is smaller (phones); his roles and the release under it
+// at half that, 1.5 times the interface's 12 px (18). Nothing else. sizePanel sets it for each opening.
+const PANEL_FONT = "/gillenwebsite/fonts/archivo-wdth118-regular.ttf";
+const PANEL = { margin: 0.022, header: 12, gap: 0.25 };
 const INFO_W = 420; // the info column on desktop
 const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
 
@@ -53,16 +52,16 @@ export type From = "rolodex" | HTMLElement | null;
 export type VinylHandle = { open: (i: number, from: From) => void; close: () => void };
 type Pose = { p: THREE.Vector3; q: THREE.Quaternion; s: number };
 
-type Credit = { el: HTMLDivElement; css: CSS3DRenderer; lines: number };
-const esc = (t: string) => t.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
+// widthPerSize: the name's widest line (NEUSTADTER) over its font size; size: the last sizePanel
+type Panel = { name: Text; line: Text; widthPerSize: number; size: { pxPerM: number; name: number; line: number; capped: boolean } | null };
 
 type Engine = {
   gl: THREE.WebGLRenderer; scene: THREE.Scene; cam: THREE.PerspectiveCamera; rec: RecordModel; holder: THREE.Group;
-  centre: THREE.Vector3; label: { canvas: HTMLCanvasElement; tex: THREE.CanvasTexture; colour: string }; blank: THREE.Texture; credit: Credit;
+  centre: THREE.Vector3; label: { canvas: HTMLCanvasElement; tex: THREE.CanvasTexture; colour: string; text: string }; blank: THREE.Texture; panel: Panel;
   tex: Record<Side, { t: THREE.Texture | null; w: number; own: boolean }>;
 };
 
-async function makeEngine(canvas: HTMLCanvasElement, overlay: HTMLElement): Promise<Engine> {
+async function makeEngine(canvas: HTMLCanvasElement): Promise<Engine> {
   const gl = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   gl.setPixelRatio(Math.min(devicePixelRatio, 2));
   gl.toneMapping = THREE.NeutralToneMapping;
@@ -105,22 +104,27 @@ async function makeEngine(canvas: HTMLCanvasElement, overlay: HTMLElement): Prom
   lc.width = lc.height = LABEL_PX;
   const ltex = new THREE.CanvasTexture(lc);
   ltex.colorSpace = THREE.SRGBColorSpace; ltex.anisotropy = gl.capabilities.getMaxAnisotropy();
-  drawLabel(lc, "#e8e2d4", "", "");
+  drawLabel(lc, "#e8e2d4", "");
   ltex.needsUpdate = true;
   rec.label.map = ltex; rec.label.color.set("#ffffff");
-  // the credits panel: an element laid on the panel's face (its middle, a hair in front), scaled from px to metres
-  const css = new CSS3DRenderer();
-  Object.assign(css.domElement.style, { position: "absolute", inset: "0", pointerEvents: "none" });
-  const el = document.createElement("div");
-  el.className = css_.vvPanel;
-  Object.assign(el.style, { width: `${PANEL_PX}px`, height: `${PANEL_PX}px`, opacity: "0" });
-  const obj = new CSS3DObject(el);
-  // CSS3DObject sets pointer-events: auto on its element; the panel's type must let clicks through to the record
-  el.style.pointerEvents = "none";
-  obj.position.set(0, SLEEVE / 2, 0.0003);
-  obj.scale.setScalar(SLEEVE / PANEL_PX);
-  rec.credits.add(obj);
-  const credit: Credit = { el, css, lines: 0 };
+  // the panel's type: the name, and under it one block for his roles and the release, from the panel's top left
+  // (rec.credits: x across from its middle, y up from its bottom edge), a hair in front of its face
+  const text = (size: number) => {
+    const t = new Text();
+    Object.assign(t, { font: PANEL_FONT, fontSize: size, color: 0x111111, anchorX: "left", anchorY: "top", lineHeight: 1.2, maxWidth: SLEEVE - 2 * PANEL.margin });
+    t.position.set(-SLEEVE / 2 + PANEL.margin, 0, 0.0002);
+    rec.credits.add(t);
+    return t;
+  };
+  const panel: Panel = { name: text(0.03), line: text(0.015), widthPerSize: 7.5, size: null };
+  panel.name.position.y = SLEEVE - PANEL.margin;
+  panel.name.lineHeight = 1.05;
+  panel.name.text = "DYLAN\nNEUSTADTER"; panel.line.text = "PRODUCER\nRELEASE";
+  // the font is fetched and its glyphs laid out now, so the first opening has it; the name's width measured
+  await Promise.all([panel.name, panel.line].map((t) => new Promise<void>((res) => t.sync(() => res()))));
+  panel.name.geometry.computeBoundingBox();
+  const nb = panel.name.geometry.boundingBox;
+  if (nb && !nb.isEmpty()) panel.widthPerSize = (nb.max.x - nb.min.x) / panel.name.fontSize;
   // warm up: compile every program the open record needs, so the first opening has nothing to build
   rec.set(1, 1);
   cam.position.set(0, 0, 3); cam.updateMatrixWorld();
@@ -132,8 +136,24 @@ async function makeEngine(canvas: HTMLCanvasElement, overlay: HTMLElement): Prom
   gl.clear();
   rec.set(0, 0);
   holder.visible = false;
-  overlay.appendChild(css.domElement);
-  return { gl, scene, cam, rec, holder, centre, label: { canvas: lc, tex: ltex, colour: "#e8e2d4" }, blank, credit, tex: { front: { t: null, w: 0, own: false }, back: { t: null, w: 0, own: false } } };
+  return { gl, scene, cam, rec, holder, centre, label: { canvas: lc, tex: ltex, colour: "#e8e2d4", text: "" }, blank, panel, tex: { front: { t: null, w: 0, own: false }, back: { t: null, w: 0, own: false } } };
+}
+
+// the panel's type for a pose of the open model: the panel's metres to CSS px there, from its middle up 0.1 m
+// projected; the name at 36 px an em, or the panel's width less its margins over the name's widest line where that
+// is smaller; his line at half the name. The model goes back to gatefold g and slide s.
+function sizePanel(e: Engine, pose: Pose, g: number, s: number) {
+  const was = { p: e.holder.position.clone(), q: e.holder.quaternion.clone() };
+  e.holder.position.copy(pose.p); e.holder.quaternion.copy(pose.q); e.rec.set(1, 1); e.holder.updateMatrixWorld(true);
+  const m = e.rec.credits.matrixWorld, a = new THREE.Vector3(0, SLEEVE / 2, 0).applyMatrix4(m).project(e.cam), b = new THREE.Vector3(0, SLEEVE / 2 + 0.1, 0).applyMatrix4(m).project(e.cam);
+  const pxPerM = Math.hypot(((a.x - b.x) * innerWidth) / 2, ((a.y - b.y) * innerHeight) / 2) / 0.1;
+  e.holder.position.copy(was.p); e.holder.quaternion.copy(was.q); e.rec.set(g, s); e.holder.updateMatrixWorld(true);
+  const want = (3 * PANEL.header) / pxPerM, fit = (SLEEVE - 2 * PANEL.margin) / e.panel.widthPerSize, name = Math.min(want, fit), line = name / 2;
+  const { name: n, line: l } = e.panel;
+  n.fontSize = name; l.fontSize = line;
+  l.position.y = SLEEVE - PANEL.margin - 2 * 1.05 * name - PANEL.gap * name;
+  n.sync(); l.sync();
+  e.panel.size = { pxPerM, name, line, capped: want > fit };
 }
 
 // the label's colour: the cover's lightest dominant colour. The cover at 48 x 48, its pixels in 8 levels a channel;
@@ -156,13 +176,12 @@ function labelColour(img: CanvasImageSource) {
   } catch { return "#e8e2d4"; }
 }
 const inkOn = (bg: string) => { const [r, g, b] = [1, 3, 5].map((k) => parseInt(bg.slice(k, k + 2), 16)); return lum(r, g, b) > 0.3 ? "#141414" : "#f4f1ea"; };
-// the label's face: the colour edge to edge, and "ARTIST · RELEASE" round the top arc in small caps (lower-case
+// the label's face: the colour edge to edge, and the release's title round the top arc in small caps (lower-case
 // letters as capitals at 78%), reading clockwise, in near-black or near-white for the contrast. The spindle hole is
 // its own mesh (record.ts).
-function drawLabel(c: HTMLCanvasElement, bg: string, artist: string, release: string) {
+function drawLabel(c: HTMLCanvasElement, bg: string, text: string) {
   const x = c.getContext("2d")!, P = c.width, R = P / 2;
   x.fillStyle = bg; x.fillRect(0, 0, P, P);
-  const text = [artist, release].filter(Boolean).join(" · ");
   if (!text) return;
   x.fillStyle = inkOn(bg);
   x.textAlign = "center"; x.textBaseline = "alphabetic";
@@ -205,29 +224,28 @@ function labelPixels(c: HTMLCanvasElement, bg: string) {
 // `handle` receives open/close once the view is mounted (it is loaded with next/dynamic, so not through a ref)
 export default function VinylView({ releases, handle, onState }: { releases: Release[]; handle: React.RefObject<VinylHandle | null>; onState?: (open: boolean) => void }) {
   const N = releases.length;
-  const layer = useRef<HTMLDivElement>(null);
   const box = useRef<HTMLDivElement>(null), canvas = useRef<HTMLCanvasElement>(null), veil = useRef<HTMLDivElement>(null), info = useRef<HTMLDivElement>(null);
   const eng = useRef<Engine | null>(null), engine = useRef<Promise<Engine> | null>(null);
   const [cur, setCur] = useState<number | null>(null);
   type Shape = { pose: Pose; g: number; s: number };
-  type Anim = { kind: string; t0: number; dur: number; plan: Plan; from: Shape; to: Shape; end: "open" | "cover" | "closed"; s0?: number; s1?: number };
-  const state = useRef<{ phase: "closed" | "anim" | "open" | "cover"; anim: Anim | null; rest: Pose | null; g: number; s: number; i: number; slot: number; yaw: number; spin: number;
+  type Anim = { kind: string; t0: number; dur: number; plan: Plan; from: Shape; to: Shape; end: "open" | "closed"; s0?: number; s1?: number };
+  const state = useRef<{ phase: "closed" | "anim" | "open"; anim: Anim | null; rest: Pose | null; g: number; s: number; i: number; slot: number; yaw: number; spin: number;
     drag: { x: number; y: number; yaw: number; moved: number } | null; frames: number[]; raf: number; last: number; fromKind: "rolodex" | "element" | "none"; el: HTMLElement | null;
     trace: { kind: string; f: number; s: number; g: number; spin: number }[]; spinOut: number; spinNotOut: number; liftFrames: number }>({
     phase: "closed", anim: null, rest: null, g: 0, s: 0, i: 0, slot: -1, yaw: 0, spin: 0, drag: null, frames: [], raf: 0, last: 0, fromKind: "none", el: null, trace: [], spinOut: 0, spinNotOut: 0, liftFrames: 0 });
   const reduce = useRef(false);
   const log = useRef<{ dir: string; ms: number; slideMs: number | null; frames: number; fps: number; worstMs: number }[]>([]);
 
-  // the region the open record fills: left of the info column on desktop, the top on phones (full width)
+  // the region the open record fills, under the header: left of the info column on desktop, the top on phones (full
+  // width)
   const region = useCallback(() => {
-    const W = innerWidth, H = innerHeight, head = 44;
+    const W = innerWidth, H = innerHeight, head = document.querySelector("header")?.offsetHeight ?? 44;
     return W >= 720 ? { x: 0, y: head, w: W - INFO_W, h: H - head } : { x: 0, y: head, w: W, h: Math.round(W * 0.62) };
   }, []);
 
-  // the open pose (open: true) or the cover state's (the closed sleeve facing the camera): in the camera's frame, at
-  // the distance and offset where the model's projected box fills its region with a margin, centred in it; the open
-  // record is tilted back a little. Found by measuring: place, project, correct.
-  const fitPose = useCallback((e: Engine, open: boolean): Pose => {
+  // the open pose: in the camera's frame, at the distance and offset where the open model's projected box fills its
+  // region with a margin, centred in it, tilted back a little. Found by measuring: place, project, correct.
+  const fitPose = useCallback((e: Engine, open = true): Pose => {
     const cam = e.cam, R = region(), W = innerWidth, H = innerHeight, tan = Math.tan(THREE.MathUtils.degToRad(cam.fov / 2));
     const q = cam.quaternion.clone().multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(open ? -0.18 : 0, 0, 0)));
     const at = (cx: number, cy: number, d: number) => new THREE.Vector3(cx * d * tan * (W / H), cy * d * tan, -d).applyMatrix4(cam.matrixWorld);
@@ -291,7 +309,6 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
   const sizeTo = useCallback((e: Engine) => {
     const W = innerWidth, H = innerHeight;
     e.gl.setSize(W, H, false);
-    e.credit.css.setSize(W, H);
     e.cam.aspect = W / H;
     e.cam.updateProjectionMatrix();
   }, []);
@@ -338,43 +355,37 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     }
   }, [releases, facePx, put]);
 
-  // the credits panel, on the About index's grid: Dylan's name, his line, the index list (one column up to 8 names,
-  // two past that, 12 at most with "+N more"), the metadata line last
-  const setCredits = useCallback((e: Engine, r: Release) => {
-    const L = creditList(r);
-    const rows = L.items.map((x, k) => ({ num: no3(k + 1), name: x.name, role: caps(x.role) }));
-    if (L.more) rows.push({ num: "", name: `+${L.more} more`, role: "" });
-    const split = rows.length > 8 ? Math.ceil(rows.length / 2) : rows.length;
-    const cols = [rows.slice(0, split), rows.slice(split)].filter((c) => c.length);
-    e.credit.el.innerHTML = `<p class="${css.vvPanelName}">DYLAN NEUSTADTER</p><p class="${css.vvPanelLine}">${esc(dylanLine(r))}</p>`
-      + `<div class="${css.vvPanelList}">${cols.map((c) => `<div class="${css.vvPanelCol}">${c.map((x) => `<span>${esc(x.num)}</span><span>${esc(x.name)}</span><span>${esc(x.role)}</span>`).join("")}</div>`).join("")}</div>`
-      + `<p class="${css.vvPanelMeta}">${esc(L.meta)}</p>`;
-    e.credit.lines = 2 + rows.length + (L.meta ? 1 : 0);
+  // the panel's type: his roles, then the release (the name never changes)
+  const setPanel = useCallback((e: Engine, r: Release) => {
+    e.panel.line.text = `${caps(r.role)}\n${r.release}`;
+    e.panel.line.sync();
   }, []);
 
   const setType = useCallback((e: Engine, r: Release, img: CanvasImageSource | null) => {
-    setCredits(e, r);
+    setPanel(e, r);
     // the record's colour: Discogs' colour variant, or the cover's dominant colour darkened (vinyl-colour.mjs)
     e.rec.vinyl.color.set(r.vinyl?.colour ?? "#0b0b0c");
     // the label, drawn and uploaded here, before any motion starts (an upload in the first frames of the opening
     // costs them); drawn once more only if the page's face was still loading (it draws in the fallback until then)
     const colour = img ? labelColour(img) : "#e8e2d4";
-    const paint = () => { drawLabel(e.label.canvas, colour, r.artist, r.release); e.label.tex.needsUpdate = true; e.gl.initTexture(e.label.tex); e.label.colour = colour; };
+    const paint = () => { drawLabel(e.label.canvas, colour, r.release); e.label.tex.needsUpdate = true; e.gl.initTexture(e.label.tex); e.label.colour = colour; e.label.text = r.release; };
     paint();
     const face = `400 40px ${LABEL_FACE}`;
     if (!document.fonts.check(face)) document.fonts.load(face).then(() => { if (releases[state.current.i] === r && state.current.phase !== "anim") paint(); }, () => {});
-  }, [setCredits]);
+  }, [setPanel]);
 
   // the frame loop calls itself through this ref (a callback cannot name itself before it is declared)
   const loopRef = useRef<() => void>(() => {});
   const finishClose = useCallback((e: Engine) => {
     e.rec.set(0, 0);
+    // the record goes back into the pocket unturned, so the next opening starts it from 0
+    state.current.spin = 0; e.rec.disc.rotation.z = 0;
     e.gl.render(e.scene, e.cam);
     // the ring draws its sleeve again in the next frame, and this canvas clears one frame later, so the sleeve is
     // always drawn by one of the two
     rig.lifted = -1;
     rig.setPaused?.(false);
-    requestAnimationFrame(() => requestAnimationFrame(() => { e.holder.visible = false; e.gl.clear(); e.credit.el.style.opacity = "0"; box.current?.classList.remove(css.vvOn); setCur(null); onState?.(false); }));
+    requestAnimationFrame(() => requestAnimationFrame(() => { e.holder.visible = false; e.gl.clear(); box.current?.classList.remove(css.vvOn); setCur(null); onState?.(false); }));
   }, [onState]);
   const loop = useCallback(() => {
     const st = state.current, e = eng.current;
@@ -401,7 +412,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
         st.anim = null; st.phase = A.end; st.rest = A.to.pose; st.yaw = 0;
         if (A.end === "closed") { finishClose(e); return; }
       }
-    } else if (st.phase === "open" || st.phase === "cover") {
+    } else if (st.phase === "open") {
       // drag turns the record (the holder's yaw about its own vertical)
       e.holder.quaternion.copy(st.rest!.q).multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), st.yaw));
     }
@@ -410,10 +421,10 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     if (!reduce.current && st.phase === "open" && st.s >= 1) { st.spin -= ((RPM * Math.PI * 2) / 60) * dt; st.spinOut++; }
     else if (st.phase === "anim" && st.s < 1 && e.rec.disc.rotation.z !== st.spin) st.spinNotOut++;
     e.rec.disc.rotation.z = st.spin;
+    // the panel's type shows once the gatefold is (nearly) open
+    const op = Math.min(1, Math.max(0, (st.g - 0.9) / 0.1));
+    for (const t of [e.panel.name, e.panel.line]) { t.visible = op > 0; t.fillOpacity = op; }
     e.gl.render(e.scene, e.cam);
-    // the credits' type shows once the gatefold is (nearly) open and nothing covers the panel
-    e.credit.el.style.opacity = String(Math.min(1, Math.max(0, (st.g - 0.9) / 0.1)));
-    e.credit.css.render(e.scene, e.cam);
     // the ring's sleeve is hidden one frame after this canvas has drawn its stand-in (both draw it for that frame);
     // two frames later the stage has drawn the ring without it and stops drawing until the view has closed again
     if (A?.kind === "open" && st.fromKind === "rolodex") {
@@ -439,21 +450,11 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     // back to where the sleeve is now: its slot on the ring, or the row (the stage stays paused until it has landed)
     const back = st.fromKind === "rolodex" ? startPose(e, "rolodex", null, st.slot) : st.fromKind === "element" && st.el?.isConnected ? startPose(e, "element", st.el, -1) : null;
     const pose = back ?? { p: e.holder.position.clone().add(new THREE.Vector3(0, -0.6, 0).applyQuaternion(e.cam.quaternion)), q: e.holder.quaternion.clone(), s: 1 };
-    // from the cover state the record is in and the gatefold shut already: the whole time is the return
-    const plan = st.s > 0 || st.g > 0 ? PLANS.close : { move: [0, 1] as Win, gate: [0, 1] as Win, slide: [0, 1] as Win };
-    run(e, "close", CLOSE_MS, plan, { pose, g: 0, s: 0 }, "closed");
+    run(e, "close", CLOSE_MS, PLANS.close, { pose, g: 0, s: 0 }, "closed");
     veil.current?.animate([{ opacity: 1 }, { opacity: 0 }], { duration: CLOSE_MS, easing: "ease", fill: "forwards" });
     info.current?.animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateY(16px)" }], { duration: 180, easing: "ease-in", fill: "forwards" });
     if (location.hash) history.replaceState(history.state, "", location.pathname + location.search);
   }, [startPose, run]);
-
-  // open <-> cover state
-  const toggle = useCallback(() => {
-    const st = state.current, e = eng.current;
-    if (!e || (st.phase !== "open" && st.phase !== "cover")) return;
-    if (st.phase === "open") run(e, "toCover", TOGGLE_MS, PLANS.toCover, { pose: fitPose(e, false), g: 0, s: 0 }, "cover");
-    else run(e, "toOpen", TOGGLE_MS, PLANS.toOpen, { pose: fitPose(e, true), g: 1, s: 1 }, "open");
-  }, [run, fitPose]);
 
   // switch the open view to another release: the three textures change, each once its file is decoded
   const show = useCallback((i: number) => {
@@ -473,9 +474,9 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
 
   const open = useCallback(async (i: number, from: From) => {
     const st = state.current;
-    if (st.phase === "open" || st.phase === "cover") { show(i); return; }
+    if (st.phase === "open") { show(i); return; }
     if (st.phase !== "closed") return;
-    if (!eng.current && canvas.current) eng.current = await (engine.current ??= makeEngine(canvas.current, layer.current!));
+    if (!eng.current && canvas.current) eng.current = await (engine.current ??= makeEngine(canvas.current));
     const e = eng.current;
     if (!e) return;
     const kind: "rolodex" | "element" | "none" = from === "rolodex" && rig.ready && rig.camera ? "rolodex" : from instanceof HTMLElement ? "element" : "none";
@@ -497,6 +498,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     }
     aim(e, kind);
     const to = fitPose(e, true);
+    sizePanel(e, to, 0, 0);
     const from0 = kind === "none" ? null : startPose(e, kind, st.el, st.slot);
     const start = from0 ?? { p: to.p.clone().add(new THREE.Vector3(0, -0.4, 0).applyQuaternion(e.cam.quaternion)), q: to.q.clone(), s: 1 };
     e.holder.position.copy(start.p); e.holder.quaternion.copy(start.q);
@@ -523,7 +525,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
 
   // the engine is built while the page is idle, so the first opening starts at once
   useEffect(() => {
-    const go = () => { if (!engine.current && canvas.current) engine.current = makeEngine(canvas.current, layer.current!).then((e) => (eng.current = e)); };
+    const go = () => { if (!engine.current && canvas.current) engine.current = makeEngine(canvas.current).then((e) => (eng.current = e)); };
     const id = "requestIdleCallback" in window ? requestIdleCallback(go, { timeout: 4000 }) : (setTimeout(go, 1500) as unknown as number);
     return () => { if ("cancelIdleCallback" in window) cancelIdleCallback(id); };
   }, []);
@@ -537,7 +539,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
       if (ev.key === "ArrowRight") show((st.i + 1) % N);
       if (ev.key === "ArrowLeft") show((st.i - 1 + N) % N);
     };
-    const onResize = () => { const e = eng.current, st = state.current; if (e && (st.phase === "open" || st.phase === "cover")) { sizeTo(e); st.rest = fitPose(e, st.phase === "open"); } };
+    const onResize = () => { const e = eng.current, st = state.current; if (e && st.phase === "open") { sizeTo(e); st.rest = fitPose(e); sizePanel(e, st.rest, st.g, st.s); } };
     addEventListener("keydown", onKey);
     addEventListener("resize", onResize);
     // measurement hook (scripts/gillenwebsite/vinyl.mjs)
@@ -556,7 +558,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
         const v = new THREE.Vector3(r, 0, 0.0012).applyMatrix4(e.rec.disc.matrixWorld).project(e.cam);
         return { x: (v.x + 1) * 0.5 * innerWidth, y: (1 - v.y) * 0.5 * innerHeight };
       },
-      // where to click: the front cover's middle on screen (the left panel when open, the sleeve in the cover state)
+      // where to click: the front cover's middle on screen (the left panel)
       coverPoint: () => {
         const e = eng.current;
         if (!e) return null;
@@ -580,26 +582,43 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
           front: { texturePx: w(e.rec.front.map), screenPx: proj(left, sq.map((p) => p.clone().setX(p.x))) },
           // the back cover is the sleeve's back now; measured face-on at the open pose's distance
           back: { texturePx: w(e.rec.back.map), screenPx: proj(rear, sq) },
-          // the credits panel: its elements' faces and weights as computed, and its lines (name, Dylan's line, the list's
-          // rows, the metadata)
-          credits: { lines: e.credit.lines, opacity: e.credit.el.style.opacity, type: [...e.credit.el.querySelectorAll("p, span")].filter((x) => x.textContent?.trim()).map((x) => { const c = getComputedStyle(x); return `${c.fontFamily.split(",")[0]} ${c.fontWeight} ${c.fontSize}`; }).filter((v, k, a) => a.indexOf(v) === k) },
           // the label: its own canvas (the texture's width spans the label's diameter), its colour, and every pixel
           // against the line from the paper colour to the ink (so nothing of the cover is on it)
           label: { texturePx: w(e.rec.label.map), screenPx: proj(e.rec.labelPivot, disc), isCover: e.rec.label.map === e.rec.front.map, colour: e.label.colour, ...labelPixels(e.label.canvas, e.label.colour) },
         };
       },
+      // the panel's SDF type: each block's text, face, size (metres) and its em on screen now (CSS px; the name
+      // capped by the panel's width or not), and its opacity
+      panel: () => {
+        const e = eng.current;
+        if (!e) return [];
+        return [e.panel.name, e.panel.line].map((t) => {
+          t.updateWorldMatrix(true, false);
+          const a = new THREE.Vector3(0, 0, 0).applyMatrix4(t.matrixWorld).project(e.cam), b = new THREE.Vector3(0, -t.fontSize, 0).applyMatrix4(t.matrixWorld).project(e.cam);
+          return { text: t.text, font: t.font.split("/").pop(), fontSizeM: +t.fontSize.toFixed(5), capped: e.panel.size?.capped ?? null, screenEmPx: +Math.hypot(((a.x - b.x) * innerWidth) / 2, ((a.y - b.y) * innerHeight) / 2).toFixed(1), opacity: t.fillOpacity, sdf: true };
+        });
+      },
+      // where to click on the panel's type: the middle of the name
+      panelPoint: () => {
+        const e = eng.current;
+        if (!e) return null;
+        const t = e.panel.name, bb = t.geometry.boundingBox;
+        t.updateWorldMatrix(true, false);
+        const v = (bb ? bb.getCenter(new THREE.Vector3()) : new THREE.Vector3(0.1, -0.01, 0)).applyMatrix4(t.matrixWorld).project(e.cam);
+        return { x: (v.x + 1) * 0.5 * innerWidth, y: (1 - v.y) * 0.5 * innerHeight };
+      },
+      // the text drawn on the record's label
+      labelText: () => eng.current?.label.text ?? "",
+      // the record's travel: SLIDE metres, and at full travel how far its near edge is past the pocket's mouth (mm)
+      travel: () => ({ slideM: +SLIDE.toFixed(4), pocketHalfWidthM: +(SLEEVE / 2).toFixed(4), discR: DISC_R, clearMm: +((SLIDE - DISC_R - SLEEVE / 2) * 1000).toFixed(1), slideNow: state.current.s }),
     };
     return () => { removeEventListener("keydown", onKey); removeEventListener("resize", onResize); };
   }, [N, close, show, sizeTo, fitPose]);
 
-  // drag turns the record; a click (under 5 px) on the front cover toggles the cover state, in the cover state a click
-  // on the sleeve opens it again; a press outside the record and the info closes
-  const ray = useRef(new THREE.Raycaster());
+  // drag turns the record; a click or tap (under 5 px) anywhere is the close
   const onDown = (ev: React.PointerEvent) => {
     const st = state.current;
-    if (st.phase !== "open" && st.phase !== "cover") return;
-    const R = region();
-    if (ev.clientX < R.x || ev.clientX > R.x + R.w || ev.clientY < R.y || ev.clientY > R.y + R.h) { close(); return; }
+    if (st.phase !== "open") return;
     st.drag = { x: ev.clientX, y: ev.clientY, yaw: st.yaw, moved: 0 };
     (ev.currentTarget as HTMLElement).setPointerCapture(ev.pointerId);
   };
@@ -609,60 +628,31 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     d.moved = Math.max(d.moved, Math.hypot(ev.clientX - d.x, ev.clientY - d.y));
     if (d.moved > 5) state.current.yaw = d.yaw + (ev.clientX - d.x) * 0.008;
   };
-  const onUp = (ev: React.PointerEvent) => {
-    const st = state.current, d = st.drag, e = eng.current;
+  const onUp = () => {
+    const st = state.current, d = st.drag;
     st.drag = null;
-    if (!d || d.moved > 5 || !e) return;
-    ray.current.setFromCamera(new THREE.Vector2((ev.clientX / innerWidth) * 2 - 1, 1 - (ev.clientY / innerHeight) * 2), e.cam);
-    // the record while it is out: anywhere on the disc (vinyl, label, spindle hole, edge) is the full close, back onto
-    // the ring, the same as CLOSE. The disc is tested on its own, so its whole face is the hit area.
-    if (st.phase === "open" && ray.current.intersectObject(e.rec.disc, true).length) { close(); return; }
-    const hit = ray.current.intersectObject(e.rec.root, true)[0];
-    if (!hit) return;
-    const onCover = hit.object === e.rec.left.children[0];
-    if ((st.phase === "open" && onCover) || st.phase === "cover") toggle();
+    if (d && d.moved <= 5) close();
   };
   const r = cur !== null ? releases[cur] : null;
   return (
     <div ref={box} className={css.vv} data-src="12">
       <div ref={veil} className={css.vvVeil} onClick={close} aria-hidden />
       <canvas ref={canvas} className={css.vvCanvas} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={() => { state.current.drag = null; }} aria-hidden />
-      {/* the credits panel's type, over the canvas (it takes no pointer events, so drag and clicks reach the record) */}
-      <div ref={layer} className={css.vvLayer} aria-hidden />
       {r && (
-        <div ref={info} className={css.vvInfo} role="dialog" aria-modal="true" aria-label={`${r.artist}, ${r.release}`} data-release={r.id}>
-          <p className={css.vvSmall} data-src="09">{no3(cur! + 1)} / {no3(N)}</p>
-          {/* Dylan first: his name in the header's face at three times its size, then his line in the informational
-              face; the other credits as an index list on the About index's grid (SOURCES #20), the metadata last */}
+        // the column beside the record: Dylan's name in the header's face at three times its size, his roles each
+        // with the tracks it applies to, the release and its year, in the header's face at 1.5 times the interface
+        // size. A click on it closes, as anywhere.
+        <div ref={info} className={css.vvInfo} role="dialog" aria-modal="true" aria-label={`Dylan Neustadter, ${r.release}`} data-release={r.id} onClick={close}>
           <h2 className={css.vvDylan}>DYLAN NEUSTADTER</h2>
-          <p className={css.vvSmall}>{dylanLine(r)}</p>
-          {(() => {
-            const L = creditList(r);
-            const rows = L.items.map((x, k) => ({ num: no3(k + 1), name: x.name, role: caps(x.role) }));
-            if (L.more) rows.push({ num: "", name: `+${L.more} more`, role: "" });
-            const split = rows.length > 8 ? Math.ceil(rows.length / 2) : rows.length;
-            return (
-              <div className={css.vvCredits} role="list" aria-label="Credits" data-src="20">
-                {[rows.slice(0, split), rows.slice(split)].filter((c) => c.length).map((c, i) => (
-                  <div key={i} className={css.vvCreditCol}>
-                    {c.map((x) => (
-                      <div key={x.name} className={css.vvCredit} role="listitem">
-                        <span>{x.num}</span><span>{x.name}</span><span>{x.role}</span>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-                <p className={css.vvMeta}>{L.meta}</p>
+          <dl className={css.vvRoles}>
+            {dylanRoles(r).map((x) => (
+              <div key={x.role}>
+                <dt>{caps(x.role)}</dt>
+                {x.tracks.length > 0 && <dd>{x.tracks.join(", ")}</dd>}
               </div>
-            );
-          })()}
-          {/* SOURCES #14 rosalia carousel arrows */}
-          <div className={css.vvControls} data-src="14 32">
-            <button type="button" aria-label="Previous release" onClick={() => show((cur! - 1 + N) % N)}>←</button>
-            <button type="button" aria-label="Next release" onClick={() => show((cur! + 1) % N)}>→</button>
-            {/* SOURCES #32 dauanjacari.com's pill */}
-            <button type="button" className={css.pill} data-src="32" onClick={close}>CLOSE</button>
-          </div>
+            ))}
+          </dl>
+          <p className={css.vvRelease}>{r.release} [{r.year}]</p>
         </div>
       )}
     </div>

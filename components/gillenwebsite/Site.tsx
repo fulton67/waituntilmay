@@ -157,7 +157,7 @@ function Caption({ releases, front, onStep, onOpen, children }: { releases: Rele
 export default function Site({ releases }: { releases: Release[] }) {
   const N = releases.length;
   const stage = useRef<HTMLDivElement>(null);
-  const { open } = usePanel();
+  const { open, recordOpen } = usePanel();
   const [front, setFront] = useState(0);
   const [wide, setWide] = useState(true);
   const [ready, setReady] = useState(false);
@@ -173,6 +173,11 @@ export default function Site({ releases }: { releases: Release[] }) {
     scrollTo(0, 0);
     return () => els.forEach((e, k) => { e.style.overflow = was[k]; });
   }, []);
+
+  // measurement hook (scripts/gillenwebsite/vinylopen.mjs): open the front release, as a tap on the front sleeve does
+  useEffect(() => {
+    (window as unknown as { __site: unknown }).__site = { openFront: () => { rig.onAction?.("open"); open(rig.front, "rolodex"); } };
+  }, [open]);
 
   // phone/desktop switch, front-card bookkeeping
   useEffect(() => {
@@ -363,20 +368,21 @@ export default function Site({ releases }: { releases: Release[] }) {
       <p className={css.loadingLabel} data-src="06" aria-live="polite">{ready && loaded ? "Loaded" : "Loading..."}</p>
 
       {/* SOURCES #12: the release display beside the Rolodex, on desktop; on phones the panel opens on tap */}
-      {wide && r && (
+      {/* (while the record view is up, the release display and the caption block are taken off; back on its close) */}
+      {wide && r && !recordOpen && (
         <div className={css.inlineSlot} data-src="12">
           <ReleaseView releases={releases} i={settled} mode="inline" onPrev={() => step(-1)} onNext={() => step(1)} />
         </div>
       )}
 
-      <Caption releases={releases} front={front} onStep={step} onOpen={(i) => { rig.onAction?.("open"); open(i, "rolodex"); }}>
+      {!recordOpen && <Caption releases={releases} front={front} onStep={step} onOpen={(i) => { rig.onAction?.("open"); open(i, "rolodex"); }}>
         {/* SOURCES #09 viscosesyllabus.com "001." index numbers; SOURCES #29 the screensaver counts down in the same slot */}
         <div className={css.count} data-src="09">
           {saver !== null && saver > 0
             ? <span className={css.countdown} data-src="29">{String(saver).padStart(2, "0")}</span>
             : <span>{no3(counted + 1)} / {no3(N)}</span>}
         </div>
-      </Caption>
+      </Caption>}
     </div>
   );
 }

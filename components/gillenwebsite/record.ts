@@ -9,8 +9,8 @@ import { SLEEVE, sleeveGeometry } from "./sleeve";
 
 export const OPEN_DEG = 150;
 export const DISC_R = 0.15, DISC_T = 0.002, LABEL_R = 0.05;
-// the record slides out of the pocket until its label clears the pocket's edge
-export const SLIDE = SLEEVE / 2 + LABEL_R + 0.006;
+// the record slides all the way out of the pocket: its near edge 6 mm past the pocket's mouth
+export const SLIDE = SLEEVE / 2 + DISC_R + 0.006;
 export const RPM = 100 / 3;
 const PANEL_T = 0.0011;
 
