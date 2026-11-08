@@ -161,15 +161,6 @@
 .count { display: grid; gap: 4px; white-space: nowrap; font-variant-numeric: tabular-nums; justify-items: start; }
 .countdown { font-variant-numeric: tabular-nums; }
 
-/* the first-load guide (Guide.tsx, SOURCES #33): drafting callouts over the stage and the caption, under the header;
-   no input. Leaders 1 px solid black, crisp; labels and arrows in the interface type (12 px, the header face), the
-   capitals typed (R7), on the ground so they read over the drum */
-.guide { position: fixed; inset: 0; z-index: 35; pointer-events: none; }
-.guideSvg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.guideSvg polyline { fill: none; stroke: #000; stroke-width: 1; stroke-linecap: square; stroke-linejoin: miter; opacity: 0; }
-.guideLabel, .guideArrow { position: absolute; left: 0; top: 0; white-space: nowrap; font: var(--w-info) 12px/1 var(--mono); color: #000; opacity: 0; will-change: transform, opacity; }
-.guideLabel { letter-spacing: 0.5px; background: var(--ground); padding: 1px 0; }
-
 /* /gillenwebsite/about (About.tsx). SOURCES #19: the About text left-aligned in the header's face at one weight,
    black on white, 56 px on 1.05 leading (30 px on phones), a clause to a line; #19b a cap-height cover square after
    each artist. Contact and socials at the interface size. Nothing else. */

@@ -10,7 +10,6 @@ import { usePanel } from "./Chrome";
 import ReleaseView from "./ReleaseView";
 import { no3, caps } from "./shared";
 import Cover from "./Cover";
-import Guide from "./Guide";
 import css from "./site.module.css";
 
 const Scene = dynamic(() => import("./Scene"), { ssr: false });
@@ -176,7 +175,7 @@ export default function Site({ releases }: { releases: Release[] }) {
 
   // measurement hook (scripts/gillenwebsite/vinylopen.mjs): open the front release, as a tap on the front sleeve does
   useEffect(() => {
-    (window as unknown as { __site: unknown }).__site = { openFront: () => { rig.onAction?.("open"); open(rig.front, "rolodex"); } };
+    (window as unknown as { __site: unknown }).__site = { openFront: () => { open(rig.front, "rolodex"); } };
   }, [open]);
 
   // phone/desktop switch, front-card bookkeeping
@@ -233,14 +232,13 @@ export default function Site({ releases }: { releases: Release[] }) {
         step(k);
         held = { key: e.key, id: window.setInterval(() => step(k), 125) };
       }
-      if (e.key === "Enter" && tag !== "BUTTON" && tag !== "A") { e.preventDefault(); rig.onAction?.("open"); open(rig.front, "rolodex"); }
+      if (e.key === "Enter" && tag !== "BUTTON" && tag !== "A") { e.preventDefault(); open(rig.front, "rolodex"); }
     };
     const onKeyUp = (e: KeyboardEvent) => { if (held?.key === e.key) { clearInterval(held.id); held = null; } };
     const stop = () => { if (held) { clearInterval(held.id); held = null; } };
     const onWheel = (e: WheelEvent) => {
       if (e.ctrlKey || document.querySelector("[role=dialog]")) return;
       e.preventDefault();
-      rig.onAction?.("flip");
       const notch = e.deltaMode !== 0 || (e.deltaX === 0 && Math.abs(e.deltaY) >= 50 && Number.isInteger(e.deltaY));
       if (notch) step(Math.sign(e.deltaY) * Math.max(1, Math.round(Math.abs(e.deltaMode !== 0 ? 100 : e.deltaY) / 100)));
       else { rig.fling = null; setPos(rig.pos + e.deltaY / per()); }
@@ -307,7 +305,6 @@ export default function Site({ releases }: { releases: Release[] }) {
     const was = moved.current;
     moved.current = Math.max(moved.current, Math.hypot(dx, dy));
     if (moved.current > 5) stage.current?.classList.add(css.dragging);
-    if (was <= 5 && moved.current > 5) rig.onAction?.(d.mode === "orbit" && (e.pointerType === "mouse" || Math.abs(dx) >= Math.abs(dy)) ? "orbit" : "flip");
     // a touch off the cards that starts out vertical is a swipe through the cards
     if (d.mode === "orbit" && e.pointerType !== "mouse" && was <= 5 && moved.current > 5 && Math.abs(dy) > Math.abs(dx)) d.mode = "swipe";
     if (d.mode !== "orbit") {
@@ -323,7 +320,7 @@ export default function Site({ releases }: { releases: Release[] }) {
   };
   const onUp = (e: React.PointerEvent) => {
     stage.current?.classList.remove(css.dragging);
-    if (knob.current) { knob.current = false; knobTap(); rig.onAction?.("knob"); return; }
+    if (knob.current) { knob.current = false; knobTap(); return; }
     const d = rig.drag, click = d && moved.current <= 5;
     rig.drag = null;
     if (d && d.mode !== "orbit" && !click) {
@@ -339,7 +336,7 @@ export default function Site({ releases }: { releases: Release[] }) {
     if (!h) return;
     // the card's slot on the ring; open it if it is the front card, otherwise turn to it the short way
     const slot = h.object.userData.i as number, at = Math.round(rig.s), ahead = ringDelta(at, slot, rig.TOTAL);
-    if (ahead === 0) { rig.onAction?.("open"); open(wrap(slot, N), "rolodex"); } else jumpTo(at + ahead);
+    if (ahead === 0) { open(wrap(slot, N), "rolodex"); } else jumpTo(at + ahead);
   };
   const onCancel = () => { stage.current?.classList.remove(css.dragging); rig.drag = null; };
 
@@ -361,9 +358,6 @@ export default function Site({ releases }: { releases: Release[] }) {
         <div ref={hit} className={css.hit} aria-hidden />
       </div>
 
-      {/* the first-load guide over the stage (Guide.tsx) */}
-      <Guide ready={ready && loaded} />
-
       {/* SOURCES #06 felixluke.com loading label */}
       <p className={css.loadingLabel} data-src="06" aria-live="polite">{ready && loaded ? "Loaded" : "Loading..."}</p>
 
@@ -375,7 +369,7 @@ export default function Site({ releases }: { releases: Release[] }) {
         </div>
       )}
 
-      {!recordOpen && <Caption releases={releases} front={front} onStep={step} onOpen={(i) => { rig.onAction?.("open"); open(i, "rolodex"); }}>
+      {!recordOpen && <Caption releases={releases} front={front} onStep={step} onOpen={(i) => { open(i, "rolodex"); }}>
         {/* SOURCES #09 viscosesyllabus.com "001." index numbers; SOURCES #29 the screensaver counts down in the same slot */}
         <div className={css.count} data-src="09">
           {saver !== null && saver > 0

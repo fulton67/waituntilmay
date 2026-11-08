@@ -41,10 +41,7 @@ export type Rig = {
   setPaused?: (paused: boolean) => void; // stop or restart the stage's render loop (Scene.tsx), while the record view covers it
   lastDir: number; // the direction the drum last moved in (+1 / -1), for a knob tap at rest
   lastBoost: { before: number; after: number; capped: boolean; at: number } | null; // the last knob tap's speeds (cards/s)
-  // the first-load guide (Guide.tsx) listens for each gesture it explains: a flip (wheel, swipe or card drag), a knob
-  // tap, a drag that turns the Rolodex, and opening the record view
-  onAction?: (a: "flip" | "knob" | "orbit" | "open") => void;
-  // the "you can tap this" bounce (Guide.tsx starts it with the hints; Rolodex.tsx draws it): when it started
+  // the "you can tap this" bounce (Rolodex.tsx draws it): when it started
   // (performance.now), 0 when none; the front sleeve's lift off the ring now, metres
   bounceAt: number;
   lift: number;
