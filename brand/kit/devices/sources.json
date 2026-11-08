@@ -1,0 +1,163 @@
+{
+ "excel-v": {
+  "page": "https://cutera.com/us-en/products/excel-v-plus/",
+  "url": "https://cutera.com/us-en/wp-content/uploads/sites/22/2023/10/cutera_product_hero_excel_v_plus.png",
+  "official": true,
+  "how": "own alpha",
+  "note": "transparent png 1300x1508, excel V+ console"
+ },
+ "laser-genesis": {
+  "page": "https://cutera.com/us-en/products/xeo/",
+  "url": "https://cutera.com/us-en/wp-content/uploads/sites/22/2023/10/cutera_xeo_product_hero.png",
+  "official": true,
+  "how": "own alpha",
+  "note": "transparent png 1300x1508, xeo console (Laser Genesis platform)"
+ },
+ "aviclear": {
+  "page": "https://cutera.com/us-en/products/aviclear/",
+  "url": "https://cutera.com/us-en/wp-content/uploads/sites/22/2023/10/cutera_aviclear_product_hero.png",
+  "official": true,
+  "how": "own alpha",
+  "note": "transparent png 1300x1508"
+ },
+ "fraxel": {
+  "page": "https://www.fraxel.com/hcp/",
+  "url": "https://www.fraxel.com/siteassets/hcp/img/img-machine.webp",
+  "official": true,
+  "how": "rembg isnet",
+  "chosen_by": "review of the cutout sheet",
+  "note": "Fraxel FTX console (current successor to DUAL), near-white studio bg 572x930, cropped at base"
+ },
+ "clear-brilliant": {
+  "page": "https://www.clearandbrilliant.com/hcp/",
+  "url": "https://www.solta.com/SysSiteAssets/images/img-1740x1000-cnb.jpg",
+  "official": true,
+  "how": "rembg isnet, cropped to the device",
+  "chosen_by": "review of the cutout sheet",
+  "note": "C+B Touch console on pale bg, logo + copy on left (crop right half); 1740x1000"
+ },
+ "thermage": {
+  "page": "https://www.thermage.com/hcp/",
+  "url": "https://www.thermage.com/siteassets/hcp/img/photo-894x496-thermage-system.png",
+  "official": true,
+  "how": "own alpha",
+  "note": "transparent png 496x894 (not visually checked)"
+ },
+ "picoway": {
+  "page": "https://candelamedical.com/products/picoway/",
+  "url": "https://webappsmarketing.blob.core.windows.net/webapp/media/uploads/picoway-system-light-bg.webp",
+  "official": true,
+  "how": "rembg isnet",
+  "note": "full PicoWay console with arm, on pastel white/lilac gradient bg; 1580x1080 (Candela's own asset CDN used by candelamedical.com)"
+ },
+ "laser-hair-removal": {
+  "page": "https://lumenis.com/aesthetics/products/lightsheer-desire-legacy/",
+  "url": "https://lumenis.com/wp-content/uploads/2018/07/LightSheerDUET-machine.png",
+  "official": true,
+  "how": "own alpha",
+  "note": "transparent png 533x400, LightSheer DUET"
+ },
+ "morpheus8": {
+  "page": "https://www.inmodemd.com/workstation/optimas-max/",
+  "url": "https://www.inmodemd.com/wp-content/uploads/2024/05/OptimasMAX-Workstation-Image-1.png",
+  "official": true,
+  "how": "own alpha",
+  "chosen_by": "review of the cutout sheet",
+  "note": "transparent png 448x777, Optimas MAX console (runs Morpheus8 Burst)"
+ },
+ "facetite": {
+  "page": "https://www.inmodemd.com/workstation/igniterf/",
+  "url": "https://www.inmodemd.com/wp-content/uploads/2024/05/IgniteRF-Workstation-Image.png",
+  "official": true,
+  "how": "own alpha",
+  "note": "transparent png 448x777, IgniteRF console (current FaceTite platform)"
+ },
+ "evoke": {
+  "page": "https://www.inmodemd.com/",
+  "url": "https://www.inmodemd.com/wp-content/uploads/2022/01/Evoke-Full-Side-Carosel.png",
+  "official": true,
+  "how": "own alpha",
+  "note": "transparent png 383x771, blue Evoke console; from InMode media library (no live Evoke page; /workstation/evoke redirects to Define)"
+ },
+ "emface": {
+  "page": "https://btlaesthetics.com.au/for-providers/emface-providers/",
+  "url": "https://btlaesthetics.com.au/wp-content/uploads/2025/09/Emface_PIC_Web-product-page-unit-top_EN101_1741011639_original.png",
+  "official": true,
+  "how": "own alpha, cropped to the device",
+  "chosen_by": "review of the cutout sheet",
+  "note": "transparent 820x474, EMFACE console in centre but surrounded by 4 circular patient photos (crop centre); BTL Australia official site"
+ },
+ "emsculpt-neo": {
+  "page": "https://btlaesthetics.com.au/for-providers/emsculpt-neo-providers/",
+  "url": "https://btlaesthetics.com.au/wp-content/uploads/2026/02/Emsculpt_Neo_PIC_Device_4660_EN100_transparent-scaled.png",
+  "official": true,
+  "how": "own alpha",
+  "chosen_by": "review of the cutout sheet",
+  "note": "transparent 1707x2560, device (not visually checked)"
+ },
+ "exomind": {
+  "page": "https://btlaesthetics.com.au/for-providers/exomind-providers/",
+  "url": "https://btlaesthetics.com.au/wp-content/uploads/2026/03/EXOMIND_PIC_Unit-2193_EN100.png",
+  "official": true,
+  "how": "own alpha",
+  "note": "transparent png 5464x8192 (~21MB), unit (not visually checked)"
+ },
+ "miradry": {
+  "page": "https://www.miradry.com/",
+  "url": "https://www.miradry.com/wp-content/uploads/2023/02/console_no_bg_fpo-min.png",
+  "official": true,
+  "how": "own alpha",
+  "note": "transparent png, only 305x492 (low-res), miraDry console"
+ },
+ "ultherapy": {
+  "page": "https://ultherapy.com/physicians-the-gold-standard",
+  "url": "https://ultherapy.com/app/themes/ultherapy2020/static/images/pages/hcp-machine-ultherapy-prime.webp",
+  "official": true,
+  "how": "own alpha",
+  "note": "transparent webp 602x1222, Ultherapy PRIME cart"
+ },
+ "juliet": {
+  "page": "https://asclepion.com/juliet/",
+  "url": "https://asclepion.com/wp-content/uploads/2022/01/mcl31_dermablate.jpg",
+  "official": true,
+  "how": "rembg isnet",
+  "chosen_by": "review of the cutout sheet",
+  "note": "white bg 1024x1024, MCL31 Dermablate Er:YAG console (Juliet host platform); manufacturer site"
+ },
+ "bbl": {
+  "page": "https://sciton.com/joule/",
+  "url": "https://sciton.com/wp-content/uploads/2025/09/Joule-tribrid.png",
+  "official": true,
+  "how": "own alpha",
+  "note": "transparent 993x1248, Joule console (not visually checked)"
+ },
+ "halo": {
+  "page": "https://sciton.com/halo/",
+  "url": "https://sciton.com/wp-content/uploads/2025/08/Halo-Tribrid-w-Joule-X-Asset-10-Final.png",
+  "official": true,
+  "how": "own alpha",
+  "note": "transparent 767x1800, full Joule console with Halo handpiece, Halo/Moxi on screen + BBL arm"
+ },
+ "moxi": {
+  "page": "https://sciton.com/moxi/",
+  "url": "https://sciton.com/wp-content/uploads/2025/08/Halo-Tribrid-w-Joule-X-Asset-10-Final.png",
+  "official": true,
+  "how": "own alpha",
+  "note": "same full Joule console image (Moxi runs on Joule; Moxi on screen)"
+ },
+ "sofwave": {
+  "page": "https://sofwave.com/providers",
+  "url": "https://api.sofwave.com/app/uploads/2024/11/Sofwave_R01_02_9X16_00142-1-1.png",
+  "official": true,
+  "how": "rembg isnet",
+  "chosen_by": "review of the cutout sheet",
+  "note": "close-up render of console screen/top, grey bg 1080x1920"
+ },
+ "ellacor": {
+  "page": "https://ellacor.com/physicians/",
+  "url": "https://ellacor.com/wp-content/uploads/2023/09/ellacor_device-min.png",
+  "official": true,
+  "how": "own alpha",
+  "note": "transparent png 386x711, full ellacor console"
+ }
+}

@@ -199,3 +199,7 @@ brand/kit/_page/
 # edits made with scripts/video_edit.cjs: frame sequences and the mp4 stay local (regenerate from edit.json)
 brand/edits/*/_frames/
 brand/edits/*/*.mp4
+# machine cutouts are the manufacturers' product photos: kept local, not republished in this public repo (rebuild: scripts/devices_fetch.py + kit/devices/sources.json)
+brand/kit/devices/img/*.png
+public/brand/ostad/kit/devices/img/
+brand/kit/devices/ingest_report.json

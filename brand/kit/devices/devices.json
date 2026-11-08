@@ -1,7 +1,7 @@
 {
  "source": "research/ostad/refs/procedures.json + EXTRA in scripts/devices.py",
  "n": 26,
- "with_image": 0,
+ "with_image": 22,
  "devices": [
   {
    "id": "fraxel",
@@ -18,7 +18,7 @@
     "non-ablative fractional laser",
     "re:store"
    ],
-   "img": null
+   "img": "img/fraxel.png"
   },
   {
    "id": "co2-laser",
@@ -47,7 +47,7 @@
     "clear and brilliant",
     "gentle fractional laser"
    ],
-   "img": null
+   "img": "img/clear-brilliant.png"
   },
   {
    "id": "picoway",
@@ -63,7 +63,7 @@
     "pico way",
     "picosecond laser"
    ],
-   "img": null
+   "img": "img/picoway.png"
   },
   {
    "id": "excel-v",
@@ -80,7 +80,7 @@
     "excel V+",
     "vascular laser"
    ],
-   "img": null
+   "img": "img/excel-v.png"
   },
   {
    "id": "laser-genesis",
@@ -95,7 +95,7 @@
     "Laser Genesis on xeo",
     "laser genesis"
    ],
-   "img": null
+   "img": "img/laser-genesis.png"
   },
   {
    "id": "aviclear",
@@ -108,7 +108,7 @@
     "AviClear",
     "sebaceous gland laser"
    ],
-   "img": null
+   "img": "img/aviclear.png"
   },
   {
    "id": "laser-hair-removal",
@@ -122,7 +122,7 @@
     "Lumenis LightSheer",
     "diode laser"
    ],
-   "img": null
+   "img": "img/laser-hair-removal.png"
   },
   {
    "id": "tattoo-removal",
@@ -147,7 +147,7 @@
     "Er:YAG vaginal rejuvenation",
     "Juliet"
    ],
-   "img": null
+   "img": "img/juliet.png"
   },
   {
    "id": "morpheus8",
@@ -162,7 +162,7 @@
     "morpheus",
     "morpheus 8"
    ],
-   "img": null
+   "img": "img/morpheus8.png"
   },
   {
    "id": "rf-microneedling",
@@ -198,7 +198,7 @@
     "RFAL",
     "RFAL body"
    ],
-   "img": null
+   "img": "img/facetite.png"
   },
   {
    "id": "evoke",
@@ -211,7 +211,7 @@
     "InMode Evoke",
     "hands-free radiofrequency"
    ],
-   "img": null
+   "img": "img/evoke.png"
   },
   {
    "id": "emface",
@@ -225,7 +225,7 @@
     "HIFES",
     "synchronized RF"
    ],
-   "img": null
+   "img": "img/emface.png"
   },
   {
    "id": "emsculpt-neo",
@@ -242,7 +242,7 @@
     "disuse atrophy",
     "muscle re-education"
    ],
-   "img": null
+   "img": "img/emsculpt-neo.png"
   },
   {
    "id": "ultherapy",
@@ -256,7 +256,7 @@
     "Ultherapy",
     "micro-focused ultrasound"
    ],
-   "img": null
+   "img": "img/ultherapy.png"
   },
   {
    "id": "miradry",
@@ -272,7 +272,7 @@
     "microwave sweat reduction",
     "miraDry"
    ],
-   "img": null
+   "img": "img/miradry.png"
   },
   {
    "id": "coolsculpting",
@@ -296,7 +296,7 @@
    ],
    "procedure": null,
    "mentions": null,
-   "img": null
+   "img": "img/bbl.png"
   },
   {
    "id": "halo",
@@ -308,7 +308,7 @@
    ],
    "procedure": null,
    "mentions": null,
-   "img": null
+   "img": "img/halo.png"
   },
   {
    "id": "thermage",
@@ -319,7 +319,7 @@
    ],
    "procedure": null,
    "mentions": null,
-   "img": null
+   "img": "img/thermage.png"
   },
   {
    "id": "sofwave",
@@ -331,7 +331,7 @@
    ],
    "procedure": null,
    "mentions": null,
-   "img": null
+   "img": "img/sofwave.png"
   },
   {
    "id": "moxi",
@@ -342,7 +342,7 @@
    ],
    "procedure": null,
    "mentions": null,
-   "img": null
+   "img": "img/moxi.png"
   },
   {
    "id": "ellacor",
@@ -353,7 +353,7 @@
    ],
    "procedure": null,
    "mentions": null,
-   "img": null
+   "img": "img/ellacor.png"
   },
   {
    "id": "exomind",
@@ -365,7 +365,7 @@
    ],
    "procedure": null,
    "mentions": null,
-   "img": null
+   "img": "img/exomind.png"
   }
  ]
 }
