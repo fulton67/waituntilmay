@@ -3,7 +3,7 @@
      window.VK.seek(name, t) poses element `name` at time t (seconds), so scripts/video_kit.cjs can capture exact frames.
      Durations and easings come from motion/rules.json through kit/tokens.json (inlined below by templates_build.mjs as RULES). -->
 <meta charset="utf-8"><meta name="robots" content="noindex">
-<link rel="stylesheet" href="https://use.typekit.net/vzz0hgt.css">
+<link rel="stylesheet" href="https://use.typekit.net/vzz0hgt.css"><link rel="stylesheet" href="https://use.typekit.net/rwy7toj.css"><!-- rwy7toj: Elza 400/600/700, captions + lower third -->
 <link rel="stylesheet" href="../kit.css"><link rel="stylesheet" href="../templates/templates.css">
 <style>
   html, body { margin: 0; background: transparent; }
@@ -11,16 +11,24 @@
   #bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; }
   .ok--clear { background: transparent !important; }
   .vk { position: absolute; inset: 0; }
-  /* lower third: glass panel, name in caption role at headline weight, role in label role; sits directly above the caption band
-     (bottom set inline from video.caption-band-top) so it can share the screen with a caption (DECISIONS 57) */
-  .vk-lt { position: absolute; left: var(--ok-margin); padding: 2.6cqw 3.4cqw; display: grid; gap: 1.1cqw; }
-  .vk-lt .n { margin: 0; font: 600 var(--ok-caption-size)/1.1 var(--ok-display); letter-spacing: var(--ok-headline-track); }
-  .vk-lt .r { margin: 0; font: var(--ok-label-weight) var(--ok-label-size)/1.1 var(--ok-display); letter-spacing: var(--ok-label-track); text-transform: uppercase; opacity: .8; }
-  /* caption: the caption role in the measured caption block (35.7cqw + padding), one line at a time, its box top on the feed's
-     caption band (video.caption-band-top, set from tokens below); cut on in place (motion rule 7) */
-  .vk-cap { position: absolute; left: var(--ok-margin); width: calc(35.7cqw + 6.8cqw); padding: 2.2cqw 3.4cqw; }
-  .vk-cap--wide { width: auto; right: var(--ok-margin); } /* over footage with burnt-in captions: margin to margin (DECISIONS 57) */
-  .vk-cap p { margin: 0; font: var(--ok-caption-weight) var(--ok-caption-size)/var(--ok-caption-lh) var(--ok-display); letter-spacing: var(--ok-caption-track); }
+  /* lower third: the only liquid-glass element (client direction 2026-11-08, DECISIONS 65; recipe from components/ui/liquid-glass.tsx at 3x):
+     margin to margin, rounded, a blurred and slightly warped backdrop (::before, SVG #vk-glass-distortion), a white tint with bright
+     inset rims (::after), soft drop shadow; name in Elza Bold, role in Elza Regular caps, dark ink (his card reference). Sits directly
+     above the caption band (bottom set inline from video.caption-band-top) so it can share the screen with a caption (DECISIONS 57) */
+  .vk-lt { position: absolute; left: var(--ok-margin); right: var(--ok-margin); padding: 3.3cqw 4.4cqw; display: grid; gap: 1.2cqw; border-radius: 3.6cqw;
+    color: #1c1c1e; isolation: isolate; overflow: hidden; box-shadow: 0 1.1cqw 1.1cqw rgba(0,0,0,.2), 0 0 3.7cqw rgba(0,0,0,.1); }
+  .vk-lt::before { content: ""; position: absolute; inset: 0; z-index: -2; -webkit-backdrop-filter: blur(2.4cqw); backdrop-filter: blur(2.4cqw); filter: url(#vk-glass-distortion); }
+  .vk-lt::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: rgba(255,255,255,.5);
+    box-shadow: inset 0.55cqw 0.55cqw 0.28cqw 0 rgba(255,255,255,.55), inset -0.28cqw -0.28cqw 0.28cqw 0.28cqw rgba(255,255,255,.5); }
+  .vk-lt .n { margin: 0; font: 700 4.1cqw/1.1 "elza", sans-serif; letter-spacing: -0.005em; }
+  .vk-lt .r { margin: 0; font: 400 3.5cqw/1.1 "elza", sans-serif; letter-spacing: 0.01em; text-transform: uppercase; }
+  /* caption standard (client direction 2026-11-08, DECISIONS 65): no panel; Elza Bold, white, "size 17" as in the client's reference
+     frame (Screenshot 2026-11-08 171541: "dealing with inflamatory" spans 301/360 = 83.6% of the width), measured: 75.4 px = 6.98cqw at
+     1080 with 0.02em tracking; a 4 px black stroke outside the letters (an 8 px centred stroke painted under the fill);
+     centred margin to margin, box top on the feed's caption band (video.caption-band-top); one line at a time, cut on in place (motion rule 7) */
+  .vk { --vk-cap-size: 6.98cqw; --vk-cap-stroke: calc(4 / 1080 * 100cqw); }
+  .vk-cap { position: absolute; left: var(--ok-margin); right: var(--ok-margin); text-align: center; }
+  .vk-cap p { margin: 0; font: 700 var(--vk-cap-size)/1.2 "elza", sans-serif; letter-spacing: 0.02em; color: #fff; -webkit-text-stroke: calc(var(--vk-cap-stroke) * 2) #000; paint-order: stroke fill; }
   .vk-chip { position: absolute; left: var(--ok-margin); top: calc(var(--safe-t) + 2cqw); }
   .vk-chip .ok-pill { background: rgba(var(--ok-surface-rgb), var(--ok-glass-alpha)); -webkit-backdrop-filter: blur(var(--ok-glass-blur)); backdrop-filter: blur(var(--ok-glass-blur)); }
   .vk-rev { position: absolute; left: var(--ok-margin); right: var(--ok-margin); top: 38%; }
@@ -46,6 +54,7 @@
   .vk-dev .n { margin: 0; font: 600 var(--ok-caption-size)/1.1 var(--ok-display); letter-spacing: var(--ok-headline-track); color: var(--ok-text); text-shadow: 0 0 1.2cqw rgba(255,255,255,.9), 0 0 0.4cqw rgba(255,255,255,.9); text-align: center; }
   .vk-dev .m { display: none; }
 </style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="vk-glass-distortion" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox"><feTurbulence type="fractalNoise" baseFrequency="0.001 0.005" numOctaves="1" seed="17" result="turbulence"/><feGaussianBlur in="turbulence" stdDeviation="3" result="softMap"/><feDisplacementMap in="SourceGraphic" in2="softMap" scale="200" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
 <div id="stage"><img id="bg" alt=""><div id="layer" class="ok ok--9x16 ok--clear"></div></div>
 <script type="module">
 import * as E from "../templates/engine.js";
@@ -91,9 +100,9 @@ const lenOf = (enter, holdTo) => holdTo + EXIT;
 const HEAD = "Natural results come from restraint.";
 // ---- registry ----
 const EL = {
-  "lower-third": { dur: 0.2 + ENTER + HOLD + 0.6 + EXIT, html: `<div class="vk-lt ok-glass" style="bottom:calc(${(1 - BAND_TOP) * 100}% + 2cqw)"><p class="n">Dr. Ariel Ostad</p><p class="r">Triple board-certified dermatologist</p></div>`,
+  "lower-third": { dur: 0.2 + ENTER + HOLD + 0.6 + EXIT, html: `<div class="vk-lt" style="bottom:calc(${(1 - BAND_TOP) * 100}% + 2cqw)"><p class="n">Dr. Ariel Ostad</p><p class="r">Triple board-certified dermatologist</p></div>`,
     tl: (d) => [{ sel: ".vk-lt", fx: "fade-rise", at: 0.2, out: d - EXIT }, { sel: ".vk-lt .r", fx: "fade", at: 0.2 + STAG * 2, out: d - EXIT }] },
-  "caption": { dur: 0.1 + HOLD + 0.5, html: `<div class="vk-cap ok-glass" style="top:${BAND_TOP * 100}%"><p>Sessions take about twenty minutes.</p></div>`,
+  "caption": { dur: 0.1 + HOLD + 0.5, html: `<div class="vk-cap" style="top:${BAND_TOP * 100}%"><p>Sessions take about twenty minutes.</p></div>`,
     tl: (d) => [{ sel: ".vk-cap", fx: "cut", at: 0.1, dur: 0.001, out: d - 0.04 }] },
   "chip": { dur: 0.2 + ENTER + HOLD + EXIT, html: `<div class="vk-chip"><span class="ok-pill">+ Ellacor</span></div>`,
     tl: (d) => [{ sel: ".vk-chip", fx: "scale-in", at: 0.2, out: d - EXIT }] },
@@ -164,7 +173,7 @@ window.VK = {
   fits(text, wide) {
     let m = document.getElementById("vkmeasure");
     if (!m) { m = document.createElement("div"); m.id = "vkmeasure"; m.className = "ok ok--9x16 ok--clear"; m.style.cssText = "position:absolute;inset:0;visibility:hidden"; document.getElementById("stage").appendChild(m); }
-    m.innerHTML = `<div class="vk"><div class="vk-cap${wide ? " vk-cap--wide" : ""} ok-glass"><p style="white-space:nowrap"></p></div></div>`;
+    m.innerHTML = `<div class="vk"><div class="vk-cap${wide ? " vk-cap--wide" : ""}"><p style="white-space:nowrap"></p></div></div>`;
     const p = m.querySelector("p"); p.textContent = text; return p.scrollWidth <= p.clientWidth;
   },
   async reel(spec, t, frameSrc) {
@@ -178,7 +187,7 @@ window.VK = {
         if (o.text) { const tx = h.querySelector(".ok-pill, .vk-cap p"); if (tx) tx.textContent = o.text; if (o.role) h.querySelector(".r").textContent = o.role; if (o.nameText) h.querySelector(".n").textContent = o.nameText; }
         hosts.push({ o, h });
       }
-      const cap = mk(); cap.innerHTML = `<div class="vk"><div class="vk-cap${spec.capWide === false ? "" : " vk-cap--wide"} ok-glass"style="top:${BAND_TOP * 100}%;display:none"><p></p></div></div>`;
+      const cap = mk(); cap.innerHTML = `<div class="vk"><div class="vk-cap${spec.capWide === false ? "" : " vk-cap--wide"}" style="top:${BAND_TOP * 100}%;display:none"><p></p></div></div>`;
       const grain = mk(); grain.innerHTML = '<div class="ok-grain"></div>';
       let end = null;
       if (spec.end) { end = mk(); end.className = "vk-multi"; end.style.opacity = 0; const c = EL[spec.end.card].card;
@@ -196,6 +205,6 @@ window.VK = {
     return true;
   },
 };
-const fontsOk = await Promise.all(["600 40px neue-haas-grotesk-display", "500 40px neue-haas-grotesk-display"].map((f) => document.fonts.load(f)));
+const fontsOk = await Promise.all(["600 40px neue-haas-grotesk-display", "500 40px neue-haas-grotesk-display", "700 40px elza", "400 40px elza"].map((f) => document.fonts.load(f)));
 window.__vkReady = true;
 </script>

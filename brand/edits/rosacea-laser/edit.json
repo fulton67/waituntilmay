@@ -1,7 +1,7 @@
 {
  "title": "Rosacea: laser over another prescription",
  "src": "C:/Users/naimj/Downloads/Video Sep 17 2026, 12 56 13 PM.mp4",
- "speed": 1.2,
+ "speed": 1.1,
  "transcript": "transcript.json",
  "fixes": [["XLV", "Excel V"], ["laser genesis", "Laser Genesis"], ["inappropriate patients", "in appropriate patients"], ["driving course", "driving cause"], ["Rosacea", "rosacea"]],
  "chips": [{ "say": "Excel V", "text": "+ Excel V" }, { "say": "Laser Genesis", "text": "+ Laser Genesis" }],
@@ -10,5 +10,5 @@
  "grade": false,
  "loudness": { "I": -14, "TP": -1.5, "LRA": 11 },
  "audio_pre": "highpass=f=80,acompressor=threshold=-42dB:ratio=5:attack=5:release=150:makeup=20dB,volume=10dB,alimiter=limit=-2dB:attack=2:release=60:level=false",
- "out": "C:/Users/naimj/Downloads/Ostad - Rosacea laser (1.2x, brand kit).mp4"
+ "out": "C:/Users/naimj/Downloads/Ostad - Rosacea laser (1.1x, brand kit).mp4"
 }

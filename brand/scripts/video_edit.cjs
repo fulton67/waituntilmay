@@ -129,7 +129,7 @@ function fixWords(words, fixes) {
       if (++done % 240 === 0) console.log(`${done}/${n} frames, ${Math.round((Date.now() - t0) / 1000)} s`);
     }
   }));
-  const fonts = await p0.evaluate(() => ["600 40px neue-haas-grotesk-display", "500 40px neue-haas-grotesk-display"].every((f) => document.fonts.check(f)));
+  const fonts = await p0.evaluate(() => ["600 40px neue-haas-grotesk-display", "500 40px neue-haas-grotesk-display", "700 40px elza", "400 40px elza"].every((f) => document.fonts.check(f)));
   const rects = await p0.evaluate(([s, t]) => window.VK.reel(s, t, null).then(() => { // lower third vs caption band at 1.0 s, both on screen
     const r = (sel) => { const e = [...document.querySelectorAll(sel)].find((x) => x.offsetParent !== null && getComputedStyle(x).display !== "none"); return e ? e.getBoundingClientRect().toJSON() : null; };
     return { lower_third: r(".vk-lt"), caption: r(".vk-multi .vk-cap"), chip: r(".vk-chip") };

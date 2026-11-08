@@ -7,8 +7,8 @@ The still kit, animated. Everything is 1080 × 1920 at **24 fps** (`tokens.json`
 | when | element | file | rule |
 |---|---|---|---|
 | 0–3 s, optional | title card per family (editorial, clinical, event, guide) | `elements/card-*-title.mp4` | Text reveals live **only** on cards |
-| first 0.5 s of the first shot | lower third (name, role) | `elements/lower-third.webm`, `lottie/lower-third.json` | Sits directly above the caption band, so it can overlap captions |
-| whenever he speaks | caption, one line, cut on and cut off | `elements/caption.webm`, `lottie/caption.json` | Box top at **74.6%** of height (`video.caption-band-top`, feed band 74.6–78.7%); one spoken phrase per line |
+| first 0.5 s of the first shot | lower third (name, role): the only liquid glass, Elza (DECISIONS 65) | `elements/lower-third.webm`, `lottie/lower-third.json` | Sits directly above the caption band, so it can overlap captions |
+| whenever he speaks | caption, one line, cut on and cut off: Elza Bold white, 4 px black outside stroke, no panel (DECISIONS 65) | `elements/caption.webm`, `lottie/caption.json` | Box top at **74.6%** of height (`video.caption-band-top`, feed band 74.6–78.7%); one spoken phrase per line |
 | when a treatment is named | chip | `elements/chip.webm`, `lottie/chip.json` | Top of the safe area (13.0% of height) |
 | between shots | cut, or a 12-frame dissolve | `transition-dip-paper`, `transition-glass-wipe` | Dissolve = 500 ms; no other transitions on footage |
 | last 2.5–3 s | end card | `elements/card-*-end.mp4` | Dissolve in over 12 frames |
