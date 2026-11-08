@@ -1,21 +1,21 @@
 {
   "base": "http://localhost:3228",
-  "at": "2026-11-06T01:38:54.788Z",
+  "at": "2026-11-08T06:12:57.222Z",
   "profiles": {
     "phone": {
       "housingWidthPx": 342.9,
       "housingHeightPx": 360.8,
       "housingLeft": 21.4,
       "housingTop": 324.6,
-      "coverFaceDevicePx": 127.4,
+      "coverFaceDevicePx": 147.5,
       "pixelRatio": 1
     },
     "desktop": {
-      "housingWidthPx": 515.2,
+      "housingWidthPx": 517.7,
       "housingHeightPx": 522.5,
-      "housingLeft": 216.2,
+      "housingLeft": 183.6,
       "housingTop": 311.2,
-      "coverFaceDevicePx": 183.3,
+      "coverFaceDevicePx": 212.3,
       "pixelRatio": 1
     }
   }

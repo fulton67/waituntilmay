@@ -1,4 +1,4 @@
-// The sleeve size on the Rolodex: its width (along the axle) and height (square, 0.337 m), its side clearance to the
+// The sleeve size on the Rolodex: its width (along the axle) and height (square, 0.39 m), its side clearance to the
 // end plates' inner faces, the nearest any part of the housing (GLB, cradle, drum core but the rails it rides on)
 // comes to the sleeves through a full turn (>= 6 mm, __rolodex.frameClearance), the housing scale, and the farthest
 // point of any sleeve from the axle (drum space, metres)
@@ -28,7 +28,7 @@ const r = await page.evaluate(async () => {
   rig.reduce = was;
   return { clearance: window.__rolodex.clearance(), frame: window.__rolodex.frameClearance(), sleeveSize: size, maxRadius: +max.toFixed(4), slots: T, pitchDeg: { ringAhead: +Math.abs(at(30) - at(31)).toFixed(3), ringBehind: +Math.abs(at(-30) - at(-31)).toFixed(3), frontFirstAhead: +Math.abs(at(0) - at(1)).toFixed(3), frontFirstBehind: +Math.abs(at(0) - at(-1)).toFixed(3) } };
 });
-r.pass = r.clearance.width === 0.337 && r.clearance.height === 0.337 && r.frame.metres >= 0.006 && r.frame.housingScale === 1.15 && r.slots === 108;
+r.pass = r.clearance.width === 0.39 && r.clearance.height === 0.39 && r.frame.metres >= 0.006 && r.frame.housingScale === 1.15 && r.slots === 108;
 console.log(JSON.stringify(r));
 await browser.close();
 await fs.writeFile(OUT, JSON.stringify({ base: BASE, at: new Date().toISOString(), ...r }, null, 2) + "\n");

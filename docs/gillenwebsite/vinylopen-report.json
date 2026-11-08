@@ -1,6 +1,6 @@
 {
-  "base": "http://localhost:3227",
-  "at": "2026-11-08T05:59:36.800Z",
+  "base": "http://localhost:3228",
+  "at": "2026-11-08T06:14:12.814Z",
   "namesChecked": 219,
   "profiles": {
     "desktop": {
@@ -10,18 +10,18 @@
         {
           "text": "DYLAN\nNEUSTADTER",
           "font": "archivo-wdth118-regular.ttf",
-          "fontSizeM": 0.03629,
+          "fontSizeM": 0.04286,
           "capped": true,
-          "screenEmPx": 30.3,
+          "screenEmPx": 32.2,
           "opacity": 0.9999999999999998,
           "sdf": true
         },
         {
           "text": "PRODUCER, WRITER\nBLUE",
           "font": "archivo-wdth118-regular.ttf",
-          "fontSizeM": 0.01815,
+          "fontSizeM": 0.02143,
           "capped": true,
-          "screenEmPx": 15.3,
+          "screenEmPx": 16.3,
           "opacity": 0.9999999999999998,
           "sdf": true
         }
@@ -77,8 +77,8 @@
         "DYLAN NEUSTADTER"
       ],
       "travel": {
-        "slideM": 0.3245,
-        "pocketHalfWidthM": 0.1685,
+        "slideM": 0.351,
+        "pocketHalfWidthM": 0.195,
         "discR": 0.15,
         "clearMm": 6,
         "slideNow": 1
@@ -86,26 +86,26 @@
       "closeTargets": [
         {
           "what": "record",
-          "x": 735,
-          "y": 520,
+          "x": 750,
+          "y": 504,
           "closed": true,
-          "ran": "close 356ms 60fps",
+          "ran": "close 357ms 60fps",
           "backOnRing": true
         },
         {
           "what": "sleeve (front cover)",
-          "x": 243,
+          "x": 250,
           "y": 477,
           "closed": true,
-          "ran": "close 362ms 60fps",
+          "ran": "close 363ms 60fps",
           "backOnRing": true
         },
         {
           "what": "panel text",
-          "x": 537,
-          "y": 397,
+          "x": 557,
+          "y": 392,
           "closed": true,
-          "ran": "close 353ms 60fps",
+          "ran": "close 356ms 60fps",
           "backOnRing": true
         },
         {
@@ -113,7 +113,7 @@
           "x": 970,
           "y": 870,
           "closed": true,
-          "ran": "close 362ms 60fps",
+          "ran": "close 351ms 60fps",
           "backOnRing": true
         },
         {
@@ -121,7 +121,7 @@
           "x": 144,
           "y": 780,
           "closed": true,
-          "ran": "close 355ms 60fps",
+          "ran": "close 363ms 60fps",
           "backOnRing": true
         }
       ],
@@ -132,20 +132,19 @@
         "spinNotOut": 0
       },
       "fps": {
-        "open": 62,
+        "open": 62.1,
         "close": 60,
         "openMs": [
-          458,
-          455,
-          454,
           457,
-          450
+          456,
+          466,
+          459
         ],
         "closeMs": [
+          357,
+          363,
           356,
-          362,
-          353,
-          355
+          351
         ]
       },
       "navLink": {
@@ -161,18 +160,18 @@
         {
           "text": "DYLAN\nNEUSTADTER",
           "font": "archivo-wdth118-regular.ttf",
-          "fontSizeM": 0.03629,
+          "fontSizeM": 0.04286,
           "capped": true,
-          "screenEmPx": 13.1,
+          "screenEmPx": 14,
           "opacity": 0.9999999999999998,
           "sdf": true
         },
         {
           "text": "PRODUCER, WRITER\nBLUE",
           "font": "archivo-wdth118-regular.ttf",
-          "fontSizeM": 0.01815,
+          "fontSizeM": 0.02143,
           "capped": true,
-          "screenEmPx": 6.6,
+          "screenEmPx": 7,
           "opacity": 0.9999999999999998,
           "sdf": true
         }
@@ -228,8 +227,8 @@
         "DYLAN NEUSTADTER"
       ],
       "travel": {
-        "slideM": 0.3245,
-        "pocketHalfWidthM": 0.1685,
+        "slideM": 0.351,
+        "pocketHalfWidthM": 0.195,
         "discR": 0.15,
         "clearMm": 6,
         "slideNow": 1
@@ -237,26 +236,26 @@
       "closeTargets": [
         {
           "what": "record",
-          "x": 282,
-          "y": 208,
+          "x": 291,
+          "y": 207,
           "closed": true,
-          "ran": "close 356ms 60.8fps",
+          "ran": "close 358ms 60.1fps",
           "backOnRing": true
         },
         {
           "what": "sleeve (front cover)",
-          "x": 74,
+          "x": 77,
           "y": 188,
           "closed": true,
-          "ran": "close 362ms 60fps",
+          "ran": "close 360ms 60fps",
           "backOnRing": true
         },
         {
           "what": "panel text",
-          "x": 196,
-          "y": 159,
+          "x": 204,
+          "y": 157,
           "closed": true,
-          "ran": "close 362ms 60fps",
+          "ran": "close 362ms 59.9fps",
           "backOnRing": true
         },
         {
@@ -264,7 +263,7 @@
           "x": 36,
           "y": 354,
           "closed": true,
-          "ran": "close 358ms 60fps",
+          "ran": "close 359ms 60fps",
           "backOnRing": true
         },
         {
@@ -272,7 +271,7 @@
           "x": 39,
           "y": 724,
           "closed": true,
-          "ran": "close 358ms 59.8fps",
+          "ran": "close 360ms 60fps",
           "backOnRing": true
         }
       ],
@@ -283,18 +282,20 @@
         "spinNotOut": 0
       },
       "fps": {
-        "open": 48.1,
-        "close": 59.8,
+        "open": 58.9,
+        "close": 59.9,
         "openMs": [
-          462,
-          458,
           461,
-          465
+          456,
+          463,
+          458,
+          455
         ],
         "closeMs": [
-          356,
+          358,
+          360,
           362,
-          358
+          359
         ]
       },
       "navLink": {

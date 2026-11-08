@@ -1,0 +1,30 @@
+{
+  "base": "https://waituntilmay.com",
+  "at": "2026-11-08T06:13:43.374Z",
+  "profiles": {
+    "phone": {
+      "sleeveMetres": 0.337,
+      "box": [
+        135.4,
+        253.9,
+        257.3,
+        384.7
+      ],
+      "heightPx": 127.5,
+      "widthPx": 118.5,
+      "clearOfPanelPx": null
+    },
+    "desktop": {
+      "sleeveMetres": 0.337,
+      "box": [
+        402.7,
+        563.3,
+        212.8,
+        396.2
+      ],
+      "heightPx": 183.4,
+      "widthPx": 160.6,
+      "clearOfPanelPx": -3.3
+    }
+  }
+}

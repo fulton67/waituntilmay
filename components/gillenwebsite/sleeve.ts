@@ -8,8 +8,12 @@ import type { Release } from "@/lib/gillenwebsite/discography";
 
 // 0.337 m: the largest size (to the mm) whose far edge, R0 + SLEEVE from the axle, stays under 0.410 m through the
 // turn (the sleeves only turn about the axle, so that radius is the same at every angle)
-// (the housing is now 1.15x about the drum axis, Rolodex.tsx HOUSING, and the sleeve kept at this size)
-export const SLEEVE = 0.337, SLEEVE_T = 0.0025, CORNER = 0.004;
+// The housing is now 1.15x about the drum axis (Rolodex.tsx HOUSING) with the camera 1.15x as far, so a sleeve kept
+// at 0.337 came out 1/1.15 the size on screen. It is 0.39 m, the largest (to the cm) that keeps 6 mm off every part
+// through a full turn: 8.4 mm under the housing's frame over the drum, which is the limit (it loses about a mm per mm
+// of sleeve), 6.9 mm off the inner drum at the slotted bottom edge (frameClearance in Rolodex.tsx). On screen that
+// is 1.16x the 0.337 sleeve, about the size before the housing was scaled.
+export const SLEEVE = 0.39, SLEEVE_T = 0.0025, CORNER = 0.004;
 // the rail slots, where the card had them: 12 mm wide, 30 mm deep, round-ended, centred at x = +-0.075 (+-slotX on a
 // scaled drum)
 export const SLOT_X = 0.075;

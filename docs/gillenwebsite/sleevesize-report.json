@@ -1,17 +1,17 @@
 {
   "base": "http://localhost:3228",
-  "at": "2026-11-06T01:38:47.474Z",
+  "at": "2026-11-08T06:12:56.523Z",
   "clearance": {
-    "width": 0.337,
-    "height": 0.337,
-    "x0": -0.1794,
-    "x1": 0.1576,
+    "width": 0.39,
+    "height": 0.39,
+    "x0": -0.2059,
+    "x1": 0.1841,
     "plateInner": [
       -0.2907,
       0.269
     ],
-    "left": 0.1114,
-    "right": 0.1114
+    "left": 0.0849,
+    "right": 0.0849
   },
   "frame": {
     "metres": 0.0069,
@@ -22,36 +22,36 @@
         "metres": 0.0069
       },
       {
+        "part": "frame",
+        "metres": 0.0084
+      },
+      {
         "part": "endplate",
         "metres": 0.0219
       },
       {
-        "part": "frame",
-        "metres": 0.0614
+        "part": "knob_left_cap",
+        "metres": 0.0615
       },
       {
         "part": "axle",
         "metres": 0.0644
       },
       {
-        "part": "knob_left_cap",
-        "metres": 0.088
-      },
-      {
-        "part": "side_right",
-        "metres": 0.1166
+        "part": "cradle",
+        "metres": 0.0718
       }
     ],
     "sleeve": {
-      "x0": -0.1794,
-      "x1": 0.1576,
+      "x0": -0.2059,
+      "x1": 0.1841,
       "rMin": 0.0828,
-      "rMax": 0.4198
+      "rMax": 0.4728
     },
     "housingScale": 1.15
   },
-  "sleeveSize": 0.337,
-  "maxRadius": 0.4198,
+  "sleeveSize": 0.39,
+  "maxRadius": 0.4789,
   "slots": 108,
   "pitchDeg": {
     "ringAhead": 1.795,

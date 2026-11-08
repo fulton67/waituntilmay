@@ -1,0 +1,30 @@
+{
+  "base": "http://localhost:3228",
+  "at": "2026-11-08T06:13:57.151Z",
+  "profiles": {
+    "phone": {
+      "sleeveMetres": 0.39,
+      "box": [
+        126.7,
+        263.9,
+        237.9,
+        385.5
+      ],
+      "heightPx": 147.6,
+      "widthPx": 137.2,
+      "clearOfPanelPx": null
+    },
+    "desktop": {
+      "sleeveMetres": 0.39,
+      "box": [
+        359.5,
+        544.9,
+        184.9,
+        397.3
+      ],
+      "heightPx": 212.4,
+      "widthPx": 185.3,
+      "clearOfPanelPx": 15.1
+    }
+  }
+}

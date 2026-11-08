@@ -89,7 +89,9 @@ function CameraRig() {
     const kf = rig.reduce ? 1 : 1 - Math.exp(-10 * dt);
     rig.camAz += (rig.az - rig.camAz) * kf;
     rig.camEl += (rig.el - rig.camEl) * kf;
-    const shift = rig.wide ? 0.4 * HOUSING : 0;
+    // (and on wide screens 0.06 m more, for the 0.38 m sleeves: the front one's right edge clear of the release
+    // display beside the drum)
+    const shift = rig.wide ? 0.4 * HOUSING + 0.06 : 0;
     target.set(Math.cos(rig.camAz) * shift, rig.axisY - 0.035 * HOUSING, -Math.sin(rig.camAz) * shift);
     camera.position.set(
       target.x + Math.sin(rig.camAz) * Math.cos(rig.camEl) * dist,
