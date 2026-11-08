@@ -12,7 +12,7 @@ const browser = await chromium.launch({ channel: "chrome", headless: false, args
 const report = { base: BASE, at: new Date().toISOString(), profiles: {} };
 for (const [n, w, h] of [["phone", 390, 844], ["desktop", 1440, 900]]) {
   const ctx = await browser.newContext({ viewport: { width: w, height: h }, isMobile: w < 720, hasTouch: w < 720 });
-  await ctx.addInitScript(() => { try { localStorage.setItem("gillenwebsite:guide-seen", "1"); } catch {} });
+  await ctx.addInitScript(() => { try { localStorage.setItem("gillenwebsite:guide-seen", "1"); localStorage.setItem("gillenwebsite:intro-seen", "1"); } catch {} });
   const page = await ctx.newPage();
   await page.goto(`${BASE}/gillenwebsite`);
   await page.waitForFunction(() => window.__rolodex?.rig?.ready, null, { timeout: 120000 });

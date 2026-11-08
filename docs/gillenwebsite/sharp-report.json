@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3228",
-  "at": "2026-11-08T06:13:05.477Z",
+  "at": "2026-11-08T08:26:32.656Z",
   "pixelRatio": {
     "1": 1,
     "2": 2,
@@ -11,7 +11,7 @@
     "phone": {
       "textures": {
         "maxAnisotropy": 16,
-        "count": 105,
+        "count": 68,
         "belowMax": [],
         "housingAlbedo": [
           "frame-albedo.jpg 2048x2048",
@@ -187,7 +187,7 @@
     "desktop": {
       "textures": {
         "maxAnisotropy": 16,
-        "count": 105,
+        "count": 68,
         "belowMax": [],
         "housingAlbedo": [
           "frame-albedo.jpg 2048x2048",

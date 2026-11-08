@@ -1,0 +1,129 @@
+{
+  "base": "http://localhost:3228",
+  "at": "2026-11-08T08:21:36.281Z",
+  "seconds": 20,
+  "profiles": {
+    "desktop": {
+      "home": {
+        "frames": 1191,
+        "over33": 3,
+        "over33Pct": 0.25,
+        "fps": 59.6,
+        "worstFrameMs": 66.8,
+        "longTasks": 1,
+        "longTaskMs": [
+          53
+        ],
+        "uploads": {
+          "count": 323,
+          "inGesture": 2,
+          "totalMs": 158.7,
+          "over4ms": []
+        },
+        "reactCommits": 160,
+        "commitsPerFrame": 0.134,
+        "slowFrames": [
+          {
+            "atS": 0.41,
+            "ms": 50,
+            "uploads": [],
+            "commits": 0,
+            "gesture": false
+          },
+          {
+            "atS": 4.92,
+            "ms": 50,
+            "uploads": [],
+            "commits": 1,
+            "gesture": false
+          },
+          {
+            "atS": 6.92,
+            "ms": 66.8,
+            "uploads": [],
+            "commits": 1,
+            "gesture": false
+          }
+        ],
+        "traced": null
+      },
+      "open": {
+        "frames": 1199,
+        "over33": 0,
+        "over33Pct": 0,
+        "fps": 60,
+        "worstFrameMs": 16.9,
+        "longTasks": 0,
+        "longTaskMs": [],
+        "uploads": {
+          "count": 159,
+          "inGesture": 0,
+          "totalMs": 68.5,
+          "over4ms": []
+        },
+        "reactCommits": 33,
+        "commitsPerFrame": 0.028,
+        "slowFrames": [],
+        "traced": null
+      }
+    },
+    "phone": {
+      "home": {
+        "frames": 1198,
+        "over33": 0,
+        "over33Pct": 0,
+        "fps": 59.9,
+        "worstFrameMs": 33.4,
+        "longTasks": 0,
+        "longTaskMs": [],
+        "uploads": {
+          "count": 302,
+          "inGesture": 249,
+          "totalMs": 534.6,
+          "over4ms": [
+            "texSubImage2D 2048x2048 ImageBitmap 4.1ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 4.1ms (gesture)"
+          ]
+        },
+        "reactCommits": 133,
+        "commitsPerFrame": 0.111,
+        "slowFrames": [],
+        "traced": null
+      },
+      "open": {
+        "frames": 1191,
+        "over33": 2,
+        "over33Pct": 0.17,
+        "fps": 59.6,
+        "worstFrameMs": 66.7,
+        "longTasks": 0,
+        "longTaskMs": [],
+        "uploads": {
+          "count": 123,
+          "inGesture": 0,
+          "totalMs": 193.1,
+          "over4ms": []
+        },
+        "reactCommits": 30,
+        "commitsPerFrame": 0.025,
+        "slowFrames": [
+          {
+            "atS": 10.01,
+            "ms": 66.7,
+            "uploads": [],
+            "commits": 0,
+            "gesture": false
+          },
+          {
+            "atS": 10.08,
+            "ms": 33.4,
+            "uploads": [],
+            "commits": 0,
+            "gesture": false
+          }
+        ],
+        "traced": null
+      }
+    }
+  }
+}

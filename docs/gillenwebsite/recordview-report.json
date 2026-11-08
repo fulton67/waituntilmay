@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3228",
-  "at": "2026-11-08T07:07:18.042Z",
+  "at": "2026-11-08T08:25:11.999Z",
   "profiles": {
     "desktop": {
       "captionBefore": true,
@@ -81,38 +81,38 @@
       "halfOut": {
         "slide": 0.5556,
         "half": 0.5556,
-        "spinningRadIn500ms": 1.804
+        "spinningRadIn500ms": 1.744
       },
       "toBack": {
         "fps": 60,
         "over33": 0,
-        "frames": 116
+        "frames": 113
       },
       "toBackState": {
         "flips": [
           {
             "to": "back",
             "yawDeg": 93.5,
-            "at": 6864
+            "at": 6374
           }
         ],
         "yawDeg": 180,
         "goalDeg": 180,
         "slide": 0,
         "spinningWhileBack": false,
-        "inAfterTurnFrames": 124
+        "inAfterTurnFrames": 123
       },
       "toFront": {
         "fps": 60,
         "over33": 0,
-        "frames": 113
+        "frames": 116
       },
       "toFrontState": {
         "flips": [
           {
             "to": "front",
             "yawDeg": 86.5,
-            "at": 9197
+            "at": 8741
           }
         ],
         "yawDeg": 0,
@@ -126,45 +126,45 @@
           "x": 720,
           "y": 450,
           "closed": true,
-          "ran": "close 357ms 60fps"
+          "ran": "close 355ms 60fps"
         },
         {
           "what": "record",
-          "x": 1149,
-          "y": 638,
+          "x": 1170,
+          "y": 628,
           "closed": true,
-          "ran": "close 359ms 60fps"
+          "ran": "close 364ms 60fps"
         },
         {
           "what": "ground, bottom left",
           "x": 30,
           "y": 870,
           "closed": true,
-          "ran": "close 354ms 60fps"
+          "ran": "close 361ms 60fps"
         },
         {
           "what": "right edge",
           "x": 1428,
           "y": 675,
           "closed": true,
-          "ran": "close 355ms 60fps"
+          "ran": "close 356ms 60fps"
         },
         {
           "what": "sleeve middle, turned back on",
           "x": 720,
           "y": 450,
           "closed": true,
-          "ran": "close 362ms 60fps"
+          "ran": "close 353ms 60fps"
         }
       ],
       "captionAfterClose": true,
       "fps": {
-        "open": 62.1,
+        "open": 60.2,
         "close": 60,
         "turn": 60
       },
       "spin": {
-        "out": 345,
+        "out": 343,
         "notOut": 0
       },
       "navLink": "/gillenwebsite/discography",
@@ -249,7 +249,7 @@
       "halfOut": {
         "slide": 0.5556,
         "half": 0.5556,
-        "spinningRadIn500ms": 1.795
+        "spinningRadIn500ms": 1.799
       },
       "toBack": {
         "fps": 60,
@@ -261,26 +261,26 @@
           {
             "to": "back",
             "yawDeg": 93.5,
-            "at": 6225
+            "at": 5748
           }
         ],
         "yawDeg": 180,
         "goalDeg": 180,
         "slide": 0,
         "spinningWhileBack": false,
-        "inAfterTurnFrames": 144
+        "inAfterTurnFrames": 143
       },
       "toFront": {
         "fps": 60,
         "over33": 0,
-        "frames": 137
+        "frames": 135
       },
       "toFrontState": {
         "flips": [
           {
             "to": "front",
             "yawDeg": 86.5,
-            "at": 8958
+            "at": 8482
           }
         ],
         "yawDeg": 0,
@@ -294,45 +294,45 @@
           "x": 195,
           "y": 422,
           "closed": true,
-          "ran": "close 362ms 60fps"
+          "ran": "close 362ms 59.9fps"
         },
         {
           "what": "record",
           "x": 385,
           "y": 501,
           "closed": true,
-          "ran": "close 363ms 60fps"
+          "ran": "close 358ms 60fps"
         },
         {
           "what": "ground, bottom left",
           "x": 30,
           "y": 814,
           "closed": true,
-          "ran": "close 362ms 60fps"
+          "ran": "close 360ms 59.9fps"
         },
         {
           "what": "right edge",
           "x": 378,
           "y": 633,
           "closed": true,
-          "ran": "close 362ms 60fps"
+          "ran": "close 361ms 60fps"
         },
         {
           "what": "sleeve middle, turned back on",
           "x": 195,
           "y": 422,
           "closed": true,
-          "ran": "close 362ms 60fps"
+          "ran": "close 361ms 60fps"
         }
       ],
       "captionAfterClose": true,
       "fps": {
-        "open": 56.2,
-        "close": 60,
+        "open": 60.5,
+        "close": 59.9,
         "turn": 60
       },
       "spin": {
-        "out": 397,
+        "out": 396,
         "notOut": 0
       },
       "navLink": "/gillenwebsite/discography",

@@ -14,7 +14,7 @@ const browser = await chromium.launch({ channel: "chrome", headless: false, args
 const report = { base: BASE, at: new Date().toISOString(), profiles: {} };
 for (const p of [{ name: "phone", w: 390, h: 844 }, { name: "desktop", w: 1440, h: 900 }]) {
   const ctx = await browser.newContext({ viewport: { width: p.w, height: p.h }, isMobile: p.w < 720, hasTouch: p.w < 720 });
-  await ctx.addInitScript(() => { try { localStorage.setItem("gillenwebsite:guide-seen", "1"); } catch {} });
+  await ctx.addInitScript(() => { try { localStorage.setItem("gillenwebsite:guide-seen", "1"); localStorage.setItem("gillenwebsite:intro-seen", "1"); } catch {} });
   const page = await ctx.newPage();
   await page.goto(`${BASE}/gillenwebsite`);
   await page.waitForFunction(() => window.__rolodex?.rig?.ready && window.__rolodex.rig.camera, null, { timeout: 120000 });
