@@ -76,8 +76,6 @@
 /* the cards' hit area, kept on the drum's screen rect by Rolodex.tsx: a drag on it flips the cards, not the page */
 .hit { position: absolute; left: 0; top: 0; width: 0; height: 0; touch-action: none; }
 .dragging { cursor: url("/gillenwebsite/cursors/grabbing.svg") 16 16, grabbing !important; cursor: -webkit-image-set(url("/gillenwebsite/cursors/grabbing.png") 1x, url("/gillenwebsite/cursors/grabbing@2x.png") 2x, url("/gillenwebsite/cursors/grabbing@3x.png") 3x) 16 16, grabbing !important; cursor: image-set(url("/gillenwebsite/cursors/grabbing.png") 1x, url("/gillenwebsite/cursors/grabbing@2x.png") 2x, url("/gillenwebsite/cursors/grabbing@3x.png") 3x) 16 16, grabbing !important; }
-/* SOURCES #06 felixluke loading label */
-.loadingLabel { position: absolute; left: 20px; top: calc(var(--head) + 10px); pointer-events: none; white-space: nowrap; }
 
 /* SOURCES #12 the release display beside the Rolodex (desktop). --cv is the cover's edge: at least 60vh */
 .inlineSlot {
@@ -229,7 +227,6 @@
   .timer { grid-column: 2; grid-row: 1; gap: 8px; justify-self: end; }
   .dateTime { min-width: 0; }
   .words { grid-column: 1 / -1; grid-row: 2; justify-self: start; }
-  .loadingLabel { left: 16px; }
   .cap { left: 16px; right: 16px; width: auto; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); grid-template-columns: 1fr; gap: 8px; }
   .lightbox { padding: 16px; align-items: flex-start; overflow: auto; }
   .viewPanel { grid-template-columns: 1fr; width: 100%; padding-top: 28px; max-height: none; }

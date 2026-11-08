@@ -1,19 +1,19 @@
 {
   "base": "http://localhost:3228",
-  "at": "2026-11-08T08:25:55.455Z",
+  "at": "2026-11-08T20:54:50.490Z",
   "runs": {
     "firstVisitDesktop": {
       "started": true,
       "s0": 0,
-      "delayAfterInteractiveMs": 802,
-      "coastMs": 904,
+      "delayAfterInteractiveMs": 805,
+      "coastMs": 906,
       "coastFrames": 55,
       "travelled": 2.5,
       "recoil": 0.5,
       "settledOn": 2,
       "settledOnWholeCard": true,
       "cardsAdvanced": 2,
-      "settledMsAfterStart": 1521,
+      "settledMsAfterStart": 1522,
       "knobOverDrumAtPeak": -0.42,
       "cancelled": null,
       "starts": 1
@@ -21,15 +21,15 @@
     "firstVisitPhone": {
       "started": true,
       "s0": 0,
-      "delayAfterInteractiveMs": 805,
-      "coastMs": 905,
+      "delayAfterInteractiveMs": 810,
+      "coastMs": 885,
       "coastFrames": 48,
       "travelled": 2.5,
       "recoil": 0.5,
       "settledOn": 2,
       "settledOnWholeCard": true,
       "cardsAdvanced": 2,
-      "settledMsAfterStart": 1522,
+      "settledMsAfterStart": 1602,
       "knobOverDrumAtPeak": -0.42,
       "cancelled": null,
       "starts": 1
@@ -41,20 +41,20 @@
     "interruptDesktop": {
       "started": true,
       "s0": 0,
-      "delayAfterInteractiveMs": 812,
-      "coastMs": 351,
+      "delayAfterInteractiveMs": 810,
+      "coastMs": 365,
       "coastFrames": 22,
-      "travelled": 3.04,
-      "recoil": 0.04,
+      "travelled": 3.038,
+      "recoil": 0.038,
       "settledOn": 3,
       "settledOnWholeCard": true,
       "cardsAdvanced": 3,
-      "settledMsAfterStart": 1001,
+      "settledMsAfterStart": 998,
       "knobOverDrumAtPeak": -0.42,
-      "cancelled": 368,
+      "cancelled": 382,
       "starts": 1,
       "handOver": {
-        "sAtInput": 1.567,
+        "sAtInput": 1.616,
         "introRunningNextFrame": false,
         "settledOn": 3
       }
@@ -62,25 +62,24 @@
     "interruptPhone": {
       "started": true,
       "s0": 0,
-      "delayAfterInteractiveMs": 801,
-      "coastMs": 390,
-      "coastFrames": 22,
+      "delayAfterInteractiveMs": 817,
+      "coastMs": 373,
+      "coastFrames": 21,
       "travelled": 2,
       "recoil": 0,
       "settledOn": 2,
       "settledOnWholeCard": true,
       "cardsAdvanced": 2,
-      "settledMsAfterStart": 557,
+      "settledMsAfterStart": 539,
       "knobOverDrumAtPeak": -0.42,
-      "cancelled": 403,
+      "cancelled": 409,
       "starts": 1,
       "handOver": {
-        "sAtInput": 1.667,
+        "sAtInput": 1.588,
         "introRunningNextFrame": false,
         "settledOn": 2
       }
     }
   },
-  "pass": true,
-  "note": "seenIdle92s from the run at e4f8813 (same intro code); the rest on the final perf build"
+  "pass": true
 }

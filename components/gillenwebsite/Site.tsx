@@ -43,7 +43,7 @@ function useSettled(front: number) {
 // touchstart or scroll, count down from 10, one step per 1000 ms, then turn through the releases by themselves
 // until any of those events.
 // The intro spin (rig.ts INTRO, drawn by Rolodex.tsx): INTRO.delay after the home page is interactive (the drum is up
-// and "Loaded" shows) on the first visit (localStorage), and again after INTRO.idle with no input. Any press, wheel or
+// and taking input) on the first visit (localStorage), and again after INTRO.idle with no input. Any press, wheel or
 // key during it stops it where it is and the drum is the user's at once (a capture listener, ahead of the stage's
 // own). Not with reduced motion, nor while the record view is up or the drum is moving.
 const INTRO_KEY = "gillenwebsite:intro-seen";
@@ -198,11 +198,10 @@ export default function Site({ releases }: { releases: Release[] }) {
   const [front, setFront] = useState(0);
   const [wide, setWide] = useState(true);
   const [ready, setReady] = useState(false);
-  const [loaded, setLoaded] = useState(false);
   const counted = useCounted(front, N);
   const settled = useSettled(front);
   const saver = useScreensaver(N);
-  useIntro(ready && loaded);
+  useIntro(ready);
 
   // the home page is one fixed stage: no page scroll here (the other pages scroll as usual)
   useEffect(() => {
@@ -247,13 +246,6 @@ export default function Site({ releases }: { releases: Release[] }) {
     addEventListener("hashchange", go);
     return () => removeEventListener("hashchange", go);
   }, [releases]);
-
-  // SOURCES #06, felixluke.com S8 (06485f2817250046.js:311): "Loading..." until the drum is up, "Loaded" from
-  // 2000 ms after DOMContentLoaded
-  useEffect(() => {
-    const t = setTimeout(() => setLoaded(true), Math.max(0, 2000 - performance.now()));
-    return () => clearTimeout(t);
-  }, []);
 
   // one card per arrow, caption swipe or button, from where the drum is heading, through the wrap
   const step = useCallback((k: number) => jumpTo(Math.round(heading()) + k), []);
@@ -399,8 +391,6 @@ export default function Site({ releases }: { releases: Release[] }) {
         <div ref={hit} className={css.hit} aria-hidden />
       </div>
 
-      {/* SOURCES #06 felixluke.com loading label */}
-      <p className={css.loadingLabel} data-src="06" aria-live="polite">{ready && loaded ? "Loaded" : "Loading..."}</p>
 
       {/* SOURCES #12: the release display beside the Rolodex, on desktop; on phones the panel opens on tap */}
       {/* (while the record view is up, the release display and the caption block are taken off; back on its close) */}
