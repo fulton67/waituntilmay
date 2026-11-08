@@ -17,7 +17,7 @@ import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { rig, wrap } from "./rig";
-import { SLEEVE, sharpen, loadTex, sideFile, sideWidth, type Side } from "./sleeve";
+import { SLEEVE, sharpen, loadTex, sideFile, sideWidth, coverTexture, type Side } from "./sleeve";
 import { buildRecord, grooveNormals, RPM, DISC_R, SLIDE, type RecordModel } from "./record";
 import { paperGrain } from "./textures";
 import css from "./site.module.css";
@@ -350,8 +350,8 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     // otherwise the files, decoded before the view starts to move
     const ring = kind === "rolodex" ? rig.coverImages?.(i) : null;
     if (ring?.front && ring.back) {
-      put(e, "front", Object.assign(new THREE.Texture(ring.front.image as HTMLImageElement), { flipY: false }), ring.front.w, true);
-      put(e, "back", Object.assign(new THREE.Texture(ring.back.image as HTMLImageElement), { flipY: false }), ring.back.w, true);
+      put(e, "front", coverTexture(ring.front.image), ring.front.w, true);
+      put(e, "back", coverTexture(ring.back.image), ring.back.w, true);
       setColours(e, r, ring.front.image as CanvasImageSource);
     } else {
       const w = 1024;

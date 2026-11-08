@@ -74,11 +74,66 @@ export function sharpen(t: THREE.Texture, gl: THREE.WebGLRenderer, color: boolea
   t.needsUpdate = true;
   return t;
 }
-// a cover file as a texture, decoded off the main thread: fetch, then createImageBitmap, flipped there since an
-// ImageBitmap ignores flipY. AVIF, or the JPEG beside it where the browser cannot decode AVIF.
-const bitmaps = new THREE.ImageBitmapLoader().setOptions({ imageOrientation: "flipY", premultiplyAlpha: "none" });
-const loadBitmap = (url: string) => bitmaps.loadAsync(url).then((b) => { const t = new THREE.Texture(b as unknown as HTMLImageElement); t.flipY = false; return t; });
+// a cover file as a texture, decoded off the main thread: fetch, then createImageBitmap. Only colorSpaceConversion is
+// asked of it (as three's ImageBitmapLoader did, so the colours are unchanged): asking it to flip the image or not to
+// premultiply as well makes Chrome redo the decoded bitmap on the main thread (a 333 ms frame for six 2048 covers on
+// a 4x throttled phone; none without). So the bitmap stays top row first, and coverTexture puts it the right way up
+// with the texture's transform (an ImageBitmap ignores flipY). AVIF, or the JPEG beside it where the browser cannot
+// decode AVIF.
+export const coverTexture = (image: unknown) => {
+  const t = new THREE.Texture(image as HTMLImageElement);
+  t.flipY = false; t.repeat.set(1, -1); t.offset.set(0, 1);
+  return t;
+};
+const loadBitmap = (url: string) =>
+  fetch(url).then((r) => { if (!r.ok) throw new Error(`${r.status} ${url}`); return r.blob(); }).then((b) => createImageBitmap(b, { colorSpaceConversion: "none" })).then(coverTexture);
 export const loadTex = (url: string) => loadBitmap(url).catch(() => loadBitmap(url.replace(/\.avif$/, ".jpg")));
+// A big cover goes up to the GPU a strip at a time: a 2048 upload with its mips is one long frame on a slow phone.
+// stripUpload returns the steps, one a frame: storage for the whole mip chain, then STRIP_ROWS rows of the bitmap a
+// step (WebGL 2 takes a sub-rectangle of an ImageBitmap through UNPACK_SKIP_ROWS), then the mips and the sampling
+// state. After the last the renderer holds it as its own (its WebGL texture put in the renderer's record of the
+// texture, at the texture's version), so a material takes it with no upload; disposing it deletes the WebGL texture.
+// Without WebGL 2 it is one step, the plain upload.
+export const STRIP_ROWS = 128;
+export function stripUpload(gl: THREE.WebGLRenderer, t: THREE.Texture): (() => void)[] {
+  const c = gl.getContext(), img = t.image as ImageBitmap;
+  if (!(c instanceof WebGL2RenderingContext) || !img?.width) return [() => gl.initTexture(t)];
+  const w = img.width, h = img.height, levels = Math.floor(Math.log2(Math.max(w, h))) + 1;
+  let tex: WebGLTexture | null = null;
+  const bind = () => { gl.state.activeTexture(c.TEXTURE0); gl.state.bindTexture(c.TEXTURE_2D, tex); };
+  const steps = [() => {
+    tex = c.createTexture();
+    t.addEventListener("dispose", () => { if (tex) c.deleteTexture(tex); tex = null; });
+    bind();
+    c.texStorage2D(c.TEXTURE_2D, levels, t.colorSpace === THREE.SRGBColorSpace ? c.SRGB8_ALPHA8 : c.RGBA8, w, h);
+  }];
+  for (let y = 0; y < h; y += STRIP_ROWS) {
+    const y0 = y, rows = Math.min(STRIP_ROWS, h - y);
+    steps.push(() => {
+      if (!tex) return;
+      bind();
+      c.pixelStorei(c.UNPACK_FLIP_Y_WEBGL, false); c.pixelStorei(c.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false); c.pixelStorei(c.UNPACK_ALIGNMENT, 4);
+      c.pixelStorei(c.UNPACK_SKIP_ROWS, y0);
+      c.texSubImage2D(c.TEXTURE_2D, 0, 0, y0, w, rows, c.RGBA, c.UNSIGNED_BYTE, img);
+      c.pixelStorei(c.UNPACK_SKIP_ROWS, 0);
+    });
+  }
+  steps.push(() => {
+    if (!tex) return;
+    bind();
+    c.generateMipmap(c.TEXTURE_2D);
+    c.texParameteri(c.TEXTURE_2D, c.TEXTURE_MIN_FILTER, c.LINEAR_MIPMAP_LINEAR);
+    c.texParameteri(c.TEXTURE_2D, c.TEXTURE_MAG_FILTER, c.LINEAR);
+    c.texParameteri(c.TEXTURE_2D, c.TEXTURE_WRAP_S, c.CLAMP_TO_EDGE);
+    c.texParameteri(c.TEXTURE_2D, c.TEXTURE_WRAP_T, c.CLAMP_TO_EDGE);
+    const ani = c.getExtension("EXT_texture_filter_anisotropic");
+    if (ani) c.texParameterf(c.TEXTURE_2D, ani.TEXTURE_MAX_ANISOTROPY_EXT, gl.capabilities.getMaxAnisotropy());
+    const p = gl.properties.get(t) as { __webglTexture?: WebGLTexture; __webglInit?: boolean; __version?: number };
+    p.__webglTexture = tex; p.__webglInit = true; p.__version = t.version;
+  });
+  return steps;
+}
+
 // The mip-swap rule: put a texture on a material in one frame and only once it is ready. The bitmap is already
 // decoded (an ImageBitmap resolves decoded) and initTexture uploads it and its mips to the GPU now, so the frame that
 // shows it has nothing left to do. Until then the old texture stays: a face never shows an undecoded texture.

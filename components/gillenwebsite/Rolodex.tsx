@@ -15,7 +15,7 @@ import * as THREE from "three";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { rig, per, FLIP_DIR, coast, makeAngle, wrap, setPos, jumpTo, jumpToRelease, introAt, INTRO } from "./rig";
 import { R0 } from "./cardTexture";
-import { SLEEVE, SLOT_X, sleeveGeometry, sharpen, loadTex, setMap, sideWidth, sideFile, type Side } from "./sleeve";
+import { SLEEVE, SLOT_X, sleeveGeometry, sharpen, loadTex, setMap, sideWidth, sideFile, stripUpload, type Side } from "./sleeve";
 import { paperGrain } from "./textures";
 import { triplanar, materialsFrom, MATERIAL_URLS } from "./triplanar";
 import bake from "@/lib/gillenwebsite/housing-bake.json";
@@ -208,6 +208,8 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
     grain.needsUpdate = true;
     const board = new THREE.DataTexture(new Uint8Array([214, 204, 186, 255]), 1, 1);
     board.colorSpace = THREE.SRGBColorSpace; board.anisotropy = gl.capabilities.getMaxAnisotropy(); board.needsUpdate = true;
+    // (turned as the covers are, sleeve.ts coverTexture)
+    board.repeat.set(1, -1); board.offset.set(0, 1);
     const cardboard = (map: THREE.Texture) => new THREE.MeshStandardMaterial({ map, roughness: 0.7, metalness: 0, normalMap: grain, normalScale: new THREE.Vector2(0.12, 0.12), envMapIntensity: 0.6 });
     // the spine: the aged paper from the sheets (its UVs run round the outline in metres: a tile every 0.25 m)
     const spineTex = paperTex.clone();
@@ -267,11 +269,14 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
           face.want = w;
           loadTex(sideFile(f.r, side, w)).then((t) => {
             if (face.want !== w) return t.dispose();
-            // decoded; the upload waits its turn (one a frame, with the drum still: see useFrame)
-            uploads.push(() => {
+            // decoded; the upload goes up a strip a frame (sleeve.ts stripUpload) with the drum still (see useFrame),
+            // and the face takes it with the last strip
+            const steps = stripUpload(gl, sharpen(t, gl, true)), last = steps.pop()!;
+            uploads.push(...steps.map((step) => () => { if (face.want === w) step(); }), () => {
               if (face.want !== w) return t.dispose();
+              last();
               const old = face.big;
-              setMap(gl, face.mat, sharpen(t, gl, true));
+              setMap(gl, face.mat, t);
               old?.dispose();
               face.big = t; face.bigW = w;
             });
