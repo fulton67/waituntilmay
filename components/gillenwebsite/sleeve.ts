@@ -59,6 +59,11 @@ export function sleeveGeometry(size = SLEEVE, t = SLEEVE_T, slots = true, width 
   out.addGroup(0, front.length * 3, 0);
   out.addGroup(front.length * 3, back.length * 3, 1);
   out.addGroup(order.length * 3, sides.count, 2);
+  // the same three parts as a vertex attribute (0 front, 1 back, 2 edge), for a material that draws the whole sleeve
+  // in one call (Rolodex.tsx)
+  const face = new Float32Array(tris.length);
+  face.fill(1, front.length * 3); face.fill(2, order.length * 3);
+  out.setAttribute("face", new THREE.BufferAttribute(face, 1));
   g.dispose();
   out.computeBoundingBox();
   out.computeBoundingSphere();

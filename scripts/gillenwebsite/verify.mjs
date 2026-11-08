@@ -54,7 +54,7 @@ out.materials = await page.evaluate(() => {
     res[o.name] = { type: m.type, roughnessMap: map(m.roughnessMap), normalMap: map(m.normalMap), clearcoatRoughnessMap: map(m.clearcoatRoughnessMap), edgeWearVertexShare: worn };
   });
   // a sleeve: material 0 is its front cover, 1 its back, 2 the spine
-  const face = window.__rolodex.rig.cards[0].children[0].material[0];
+  const face = window.__rolodex.rig.cards[0].children[0].material;
   res.sleeve = { roughness: face.roughness, normalMap: face.normalMap ? `${face.normalMap.image.width}x${face.normalMap.image.height} procedural, repeat ${face.normalMap.repeat.x}x${face.normalMap.repeat.y}` : null, map: `${face.map.image.width}x${face.map.image.height}` };
   return res;
 });
@@ -442,7 +442,7 @@ if (want("sync")) {
 if (want("textures")) {
   out.textures = await page.evaluate(() => {
     const slot = ((Math.round(window.__rolodex.rig.s) % window.__rolodex.rig.TOTAL) + window.__rolodex.rig.TOTAL) % window.__rolodex.rig.TOTAL;
-    const face = window.__rolodex.rig.cards[slot].children[0].material[0].map;
+    const face = window.__rolodex.rig.cards[slot].children[0].material.map;
     return { frontCover: { w: face.image.width, h: face.image.height, anisotropy: face.anisotropy }, maxAnisotropy: window.__rolodex.gl.capabilities.getMaxAnisotropy() };
   });
   out.textures.pass = out.textures.frontCover.w >= 1024 && out.textures.frontCover.anisotropy === out.textures.maxAnisotropy;
@@ -512,7 +512,7 @@ if (want("phone")) {
     const thumb = document.querySelector("[class*=capThumb] img");
     return {
       scrollWidth: document.documentElement.scrollWidth, innerWidth,
-      wide: window.__rolodex.rig.wide, sleeveFrontW: window.__rolodex.rig.cards[0].children[0].material[0].map.image.width,
+      wide: window.__rolodex.rig.wide, sleeveFrontW: window.__rolodex.rig.cards[0].children[0].material.map.image.width,
       thumb: thumb ? { w: thumb.getBoundingClientRect().width, h: thumb.getBoundingClientRect().height } : null,
       caption: document.querySelector("[class*=capArtist]")?.textContent,
     };

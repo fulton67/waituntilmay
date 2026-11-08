@@ -6,8 +6,9 @@
 // lib/gillenwebsite/housing-bake.json) take their baked geometry (new UVs, housing-baked.glb) and maps; the rest keep
 // the tileable materials mapped triplanar (triplanar.ts): chrome on the axle, rails
 // and hubs. Sleeves are cardboard, their spines the aged paper from the sheets.
-// A sleeve (sleeve.ts) is one mesh with three material groups: the front cover, the back cover and the spine. Each
-// release has one front and one back material, shared by its three sleeves. No text is drawn on a sleeve.
+// A sleeve (sleeve.ts) is one mesh drawn in one call: one material per release (shared by its three sleeves) draws
+// the front cover, the back cover and the paper edge, picked by the geometry's `face` attribute. No text is drawn on
+// a sleeve.
 import { useMemo, useEffect } from "react";
 import { useFrame, useThree, useLoader } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
@@ -73,8 +74,18 @@ function makeMaterials(gl: THREE.WebGLRenderer, tex: THREE.Texture[]) {
   };
 }
 
-// one side of one release: its material (shared by the release's three sleeves) and the textures it has loaded
-type Face = { mat: THREE.MeshStandardMaterial; small: THREE.Texture | null; big: THREE.Texture | null; bigW: number; want: number };
+// one side of one release: the release's material (shared by its three sleeves) and the textures the side has loaded
+type Face = { side: Side; mat: THREE.MeshStandardMaterial; small: THREE.Texture | null; big: THREE.Texture | null; bigW: number; want: number };
+// a side's texture now, and putting one on it by the mip-swap rule (sleeve.ts setMap): the front is the material's
+// map, the back its backMap uniform
+const backOf = (m: THREE.MeshStandardMaterial) => m.userData.backMap as { value: THREE.Texture };
+const faceMap = (f: Face) => (f.side === "front" ? f.mat.map : backOf(f.mat).value);
+const putFace = (gl: THREE.WebGLRenderer, f: Face, t: THREE.Texture) => {
+  if (f.side === "front") { setMap(gl, f.mat, t); return; }
+  if (backOf(f.mat).value === t) return;
+  gl.initTexture(t);
+  backOf(f.mat).value = t;
+};
 
 export default function Rolodex({ releases }: { releases: Release[] }) {
   const gltf = useGLTF(MODEL);
@@ -208,15 +219,30 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
     grain.needsUpdate = true;
     const board = new THREE.DataTexture(new Uint8Array([214, 204, 186, 255]), 1, 1);
     board.colorSpace = THREE.SRGBColorSpace; board.anisotropy = gl.capabilities.getMaxAnisotropy(); board.needsUpdate = true;
-    // (turned as the covers are, sleeve.ts coverTexture)
+    // (turned as the covers are, sleeve.ts coverTexture: the sleeve material reads both covers through its map's
+    // transform, and the map is this board until the front cover comes)
     board.repeat.set(1, -1); board.offset.set(0, 1);
-    const cardboard = (map: THREE.Texture) => new THREE.MeshStandardMaterial({ map, roughness: 0.7, metalness: 0, normalMap: grain, normalScale: new THREE.Vector2(0.12, 0.12), envMapIntensity: 0.6 });
-    // the spine: the aged paper from the sheets (its UVs run round the outline in metres: a tile every 0.25 m)
-    const spineTex = paperTex.clone();
-    spineTex.repeat.set(4, 4);
-    spineTex.needsUpdate = true;
-    const spine = cardboard(spineTex);
-    const faces = releases.map((r, i) => ({ r, i, front: { mat: cardboard(board), small: null, big: null, bigW: 0, want: 0 } as Face, back: { mat: cardboard(board), small: null, big: null, bigW: 0, want: 0 } as Face }));
+    // One material a release draws its whole sleeve, so a sleeve is one draw call (three before, one a part, in the
+    // main pass and the shadow's): the front cover from map, the back cover from backMap, the edge from the aged paper
+    // of the sheets (its UVs run round the outline in metres: a tile every 0.25 m), picked by the `face` attribute.
+    // All three are sampled and one kept, so no texture is read in a branch. One program for every release.
+    const edge = { value: paperTex };
+    const sleeveMat = () => {
+      const m = new THREE.MeshStandardMaterial({ map: board, roughness: 0.7, metalness: 0, normalMap: grain, normalScale: new THREE.Vector2(0.12, 0.12), envMapIntensity: 0.6 });
+      const back = { value: board as THREE.Texture };
+      m.userData.backMap = back;
+      m.onBeforeCompile = (sh) => {
+        sh.uniforms.backMap = back; sh.uniforms.edgeMap = edge;
+        sh.vertexShader = "attribute float face;\nvarying float vFace;\n" + sh.vertexShader.replace("#include <uv_vertex>", "#include <uv_vertex>\n\tvFace = face;");
+        sh.fragmentShader = "uniform sampler2D backMap;\nuniform sampler2D edgeMap;\nvarying float vFace;\n" + sh.fragmentShader.replace("#include <map_fragment>", `#ifdef USE_MAP
+	vec4 cFront = texture2D( map, vMapUv ), cBack = texture2D( backMap, vMapUv ), cEdge = texture2D( edgeMap, vMapUv * 4.0 );
+	diffuseColor *= vFace < 0.5 ? cFront : ( vFace < 1.5 ? cBack : cEdge );
+#endif`);
+      };
+      m.customProgramCacheKey = () => "sleeve-one-draw";
+      return m;
+    };
+    const faces = releases.map((r, i) => { const mat = sleeveMat(); return { r, i, mat, front: { side: "front", mat, small: null, big: null, bigW: 0, want: 0 } as Face, back: { side: "back", mat, small: null, big: null, bigW: 0, want: 0 } as Face }; });
     const drum = new THREE.Group();
     drum.position.set(0, centre.y, centre.z);
     drum.add(core);
@@ -224,7 +250,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
     for (let i = 0; i < TOTAL; i++) {
       const f = faces[i % N];
       const g = new THREE.Group();
-      const body = new THREE.Mesh(sleeveGeo, [f.front.mat, f.back.mat, spine]);
+      const body = new THREE.Mesh(sleeveGeo, f.mat);
       body.castShadow = body.receiveShadow = true;
       body.position.set(SLEEVE_X, SLEEVE_R, 0);
       body.userData.i = g.userData.i = i;
@@ -237,6 +263,9 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
 
   // the first front sleeve counts as settled 150 ms after the first frame
   const settle = useMemo(() => ({ since: 0, done: false }), []);
+  // the key light's shadow is drawn again only when it can have changed (useFrame): s and lifted as last drawn
+  const shadow = useMemo(() => ({ s: NaN, lifted: -2, frame: 0 }), []);
+  useEffect(() => { gl.shadowMap.autoUpdate = false; gl.shadowMap.needsUpdate = true; return () => { gl.shadowMap.autoUpdate = true; }; }, [gl]);
   // big covers, decoded and waiting to be uploaded: a 2048 upload with its mips takes a frame's worth of time, so
   // they go up one a frame, front first, and only while the drum stands still
   const uploads = useMemo<(() => void)[]>(() => [], []);
@@ -261,7 +290,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
           const face = f[side];
           if (side === "front" && !f.r.cover) continue;
           if (d > BIG_SPAN) {
-            if (face.big) { if (face.small) setMap(gl, face.mat, face.small); face.big.dispose(); face.big = null; face.bigW = 0; face.want = 0; }
+            if (face.big) { if (face.small) putFace(gl, face, face.small); face.big.dispose(); face.big = null; face.bigW = 0; face.want = 0; }
             continue;
           }
           const w = sideWidth(f.r, side, Math.max(BIG, px));
@@ -276,7 +305,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
               if (face.want !== w) return t.dispose();
               last();
               const old = face.big;
-              setMap(gl, face.mat, t);
+              putFace(gl, face, t);
               old?.dispose();
               face.big = t; face.bigW = w;
             });
@@ -299,7 +328,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
           if (!live) return t.dispose();
           const face = f[side];
           face.small = sharpen(t, gl, true);
-          if (!face.big) setMap(gl, face.mat, face.small);
+          if (!face.big) putFace(gl, face, face.small);
           if (f.i === 0 && side === "front") rig.firstCardTexture = true;
           if (--left === 0) rig.allSmall = true;
         });
@@ -311,8 +340,8 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
   useEffect(() => {
     rig.N = N; rig.TOTAL = TOTAL; rig.axisY = built.axis.y; rig.cards = built.cards; rig.knobs = built.knobs;
     rig.coverImages = (i) => {
-      const f = built.faces[i], side = (x: Face) => (x.mat.map && x.mat.map.image && (x.mat.map.image as { width: number }).width > 1 ? { image: x.mat.map.image, w: (x.mat.map.image as { width: number }).width } : null);
-      return { front: side(f.front), back: side(f.back) };
+      const f = built.faces[i], img = (t: THREE.Texture | null | undefined) => (t?.image && (t.image as { width: number }).width > 1 ? { image: t.image, w: (t.image as { width: number }).width } : null);
+      return { front: img(faceMap(f.front)), back: img(faceMap(f.back)) };
     };
     rig.ready = true;
     // measurement hook for the verification scripts (scripts/gillenwebsite/*.mjs)
@@ -320,7 +349,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       rig, per, jumpTo, jumpToRelease, gl, house: built.house, faceIds: built.faces.map((f) => f.r.id),
       frontPoint: () => { const c = new THREE.Box3().setFromObject(built.cards[wrap(Math.round(rig.s), TOTAL)]).getCenter(new THREE.Vector3()).project(rig.camera!), b = rig.hit!.parentElement!.getBoundingClientRect(); return { x: b.left + (c.x + 1) * 0.5 * b.width, y: b.top + (1 - c.y) * 0.5 * b.height }; },
       // texture vs screen: the front sleeve's two cover textures against its face's device pixels on screen
-      texels: () => { const f = built.faces[wrap(Math.round(rig.s), N)], w = (t: THREE.Texture | null) => (t?.image as { width: number } | undefined)?.width ?? 0; return { release: f.r.id, frontTexturePx: w(f.front.mat.map), backTexturePx: w(f.back.mat.map), faceScreenPx: facePx(), pixelRatio: gl.getPixelRatio(), bigLoaded: built.faces.flatMap((x) => [x.front.big ? `${x.r.id}@${x.front.bigW}` : "", x.back.big ? `${x.r.id}-back@${x.back.bigW}` : ""]).filter(Boolean) }; },
+      texels: () => { const f = built.faces[wrap(Math.round(rig.s), N)], w = (t: THREE.Texture | null) => (t?.image as { width: number } | undefined)?.width ?? 0; return { release: f.r.id, frontTexturePx: w(faceMap(f.front)), backTexturePx: w(faceMap(f.back)), faceScreenPx: facePx(), pixelRatio: gl.getPixelRatio(), bigLoaded: built.faces.flatMap((x) => [x.front.big ? `${x.r.id}@${x.front.bigW}` : "", x.back.big ? `${x.r.id}-back@${x.back.bigW}` : ""]).filter(Boolean) }; },
       // the sleeve's extent along the axle (drum space, from its geometry) against the end plates' inner faces
       clearance: () => { const b = built.sleeveGeo.boundingBox!, x = built.cards[0].children[0].position.x, x0 = x + b.min.x, x1 = x + b.max.x; return { width: +(b.max.x - b.min.x).toFixed(4), height: +(b.max.y - b.min.y).toFixed(4), x0: +x0.toFixed(4), x1: +x1.toFixed(4), plateInner: PLATE_IN.map((v) => +v.toFixed(4)), left: +(x0 - PLATE_IN[0]).toFixed(4), right: +(PLATE_IN[1] - x1).toFixed(4) }; },
       // the nearest any part comes to a sleeve through a full turn. The sleeves only turn about the axle, so together
@@ -428,6 +457,12 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
       built.cards[i].visible = i !== rig.lifted;
     }
     for (const k of built.knobs) k.rotation.x = FLIP_DIR * -rig.s * 0.42;
+    // the light and the housing stand still, so the shadow map only changes when the sleeves (and knobs) turn or one
+    // is lifted off: then it is drawn again, every third frame while the drum moves (the shadow is faint, 0.13) and on
+    // the frame it comes to rest
+    if (rig.s !== shadow.s || rig.lifted !== shadow.lifted) {
+      if (++shadow.frame % 3 === 0 || Math.abs(rig.v) < 0.05 || rig.lifted !== shadow.lifted) { gl.shadowMap.needsUpdate = true; shadow.s = rig.s; shadow.lifted = rig.lifted; }
+    }
     const front = wrap(Math.round(rig.s), N);
     if (front !== rig.front) { rig.front = front; rig.onFront.forEach((f) => f(front)); settle.since = now; settle.done = false; }
     if (!settle.done && now - settle.since > SETTLE_MS) { settle.done = true; bigCovers(front); }

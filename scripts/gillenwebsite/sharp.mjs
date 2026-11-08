@@ -21,7 +21,7 @@ const browser = await chromium.launch({ channel: "chrome", headless: false, args
 const report = { base: BASE, at: new Date().toISOString(), pixelRatio: {}, profiles: {} };
 const open = async (o) => {
   const ctx = await browser.newContext(o);
-  await ctx.addInitScript(() => { try { localStorage.setItem("gillenwebsite:guide-seen", "1"); } catch {} });
+  await ctx.addInitScript(() => { try { localStorage.setItem("gillenwebsite:guide-seen", "1"); localStorage.setItem("gillenwebsite:intro-seen", "1"); } catch {} });
   const page = await ctx.newPage();
   await page.goto(`${BASE}/gillenwebsite`);
   await page.waitForFunction(() => window.__rolodex?.rig?.ready && window.__rolodex.rig.allSmall, null, { timeout: 120000 });
@@ -72,7 +72,7 @@ for (const p of [{ name: "phone", w: 390, h: 844 }, { name: "desktop", w: 1440, 
       const xm = (x0 + x1) / 2, ym = (y0 + y1) / 2, L = sc(x0, ym), R = sc(x1, ym), B = sc(xm, y0), T = sc(xm, y1);
       body.quaternion.copy(was); body.updateMatrixWorld(true);
       const w = Math.hypot(R[0] - L[0], R[1] - L[1]), h = Math.hypot(T[0] - B[0], T[1] - B[1]);
-      const img = body.material[0].map.image, iw = img.width, ih = img.height;
+      const img = [body.material].flat()[0].map.image, iw = img.width, ih = img.height;
       return { faceMetres: [+(x1 - x0).toFixed(4), +(y1 - y0).toFixed(4)], uv: [[+u0.toFixed(4), +u1.toFixed(4)], [+v0.toFixed(4), +v1.toFixed(4)]], renderedPx: [+w.toFixed(1), +h.toFixed(1)], renderedAspect: +(w / h).toFixed(4), texturePx: [iw, ih], pixelAspect: +((w / ((u1 - u0) * iw)) / (h / ((v1 - v0) * ih))).toFixed(4) };
     });
     out.aspect.push({ id, big2048: big, ...a });
