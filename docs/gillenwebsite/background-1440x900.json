@@ -1,0 +1,302 @@
+{
+  "base": "http://localhost:3228",
+  "at": "2026-11-08T20:55:38.799Z",
+  "viewport": [
+    1440,
+    900,
+    1
+  ],
+  "floor": [
+    {
+      "type": "ShadowMaterial",
+      "size": {
+        "width": 40,
+        "height": 40,
+        "widthSegments": 1,
+        "heightSegments": 1
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "transparent": true,
+      "opacity": 0.13
+    },
+    {
+      "type": "MeshBasicMaterial",
+      "size": {
+        "width": 1.0924999999999998,
+        "height": 1.0924999999999998,
+        "widthSegments": 1,
+        "heightSegments": 1
+      },
+      "position": [
+        0,
+        0.001,
+        0
+      ],
+      "transparent": true,
+      "opacity": 1
+    }
+  ],
+  "lightExtent": {
+    "light": [
+      -0.442,
+      0.43,
+      -0.155,
+      0.879
+    ],
+    "shadowCamera": [
+      -1.2,
+      1.2,
+      -1.2,
+      1.2
+    ]
+  },
+  "angles": [
+    {
+      "az": -1.2,
+      "el": 0.04,
+      "checkedPx": 1025823,
+      "silhouettePx": 254423,
+      "shadowPx": 15754,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": 0,
+      "el": 0.04,
+      "checkedPx": 1038907,
+      "silhouettePx": 236438,
+      "shadowPx": 20655,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": 1.2,
+      "el": 0.04,
+      "checkedPx": 1023430,
+      "silhouettePx": 232463,
+      "shadowPx": 40107,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": 2.6,
+      "el": 0.04,
+      "checkedPx": 985924,
+      "silhouettePx": 256804,
+      "shadowPx": 53272,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": -1.2,
+      "el": 0.15,
+      "checkedPx": 1014385,
+      "silhouettePx": 261144,
+      "shadowPx": 20471,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": 0,
+      "el": 0.15,
+      "checkedPx": 1026689,
+      "silhouettePx": 240230,
+      "shadowPx": 29081,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": 1.2,
+      "el": 0.15,
+      "checkedPx": 998237,
+      "silhouettePx": 242018,
+      "shadowPx": 55745,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": 2.6,
+      "el": 0.15,
+      "checkedPx": 986132,
+      "silhouettePx": 258191,
+      "shadowPx": 51677,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": -1.2,
+      "el": 0.4,
+      "checkedPx": 1006531,
+      "silhouettePx": 265544,
+      "shadowPx": 23925,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": 0,
+      "el": 0.4,
+      "checkedPx": 1012412,
+      "silhouettePx": 239681,
+      "shadowPx": 43907,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": 1.2,
+      "el": 0.4,
+      "checkedPx": 965024,
+      "silhouettePx": 252210,
+      "shadowPx": 78766,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": 2.6,
+      "el": 0.4,
+      "checkedPx": 991577,
+      "silhouettePx": 251319,
+      "shadowPx": 53104,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": -1.2,
+      "el": 0.8,
+      "checkedPx": 1030169,
+      "silhouettePx": 242819,
+      "shadowPx": 23012,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": 0,
+      "el": 0.8,
+      "checkedPx": 1023443,
+      "silhouettePx": 223220,
+      "shadowPx": 49337,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": 1.2,
+      "el": 0.8,
+      "checkedPx": 967007,
+      "silhouettePx": 239485,
+      "shadowPx": 89508,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": 2.6,
+      "el": 0.8,
+      "checkedPx": 1000277,
+      "silhouettePx": 226280,
+      "shadowPx": 69443,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": -1.2,
+      "el": 1.2,
+      "checkedPx": 1068626,
+      "silhouettePx": 210618,
+      "shadowPx": 16756,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": 0,
+      "el": 1.2,
+      "checkedPx": 1035985,
+      "silhouettePx": 205764,
+      "shadowPx": 54251,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": 1.2,
+      "el": 1.2,
+      "checkedPx": 993597,
+      "silhouettePx": 213845,
+      "shadowPx": 88558,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    },
+    {
+      "az": 2.6,
+      "el": 1.2,
+      "checkedPx": 1008968,
+      "silhouettePx": 202147,
+      "shadowPx": 84885,
+      "faults": 0,
+      "darkest": null,
+      "faultBox": null,
+      "shadowCutPx": 0,
+      "cutBox": null
+    }
+  ],
+  "faultyAngles": 0,
+  "cutAngles": 0,
+  "pass": true
+}

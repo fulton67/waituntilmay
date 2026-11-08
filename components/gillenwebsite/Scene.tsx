@@ -25,28 +25,34 @@ function Environment() {
   return null;
 }
 
+// The floor: a shadow-only plane 40 x 40 m centred under the Rolodex (the camera's far plane past its corners, so its
+// edge is never in view), drawing nothing but the key light's shadow (a ShadowMaterial: alpha 0 wherever it is lit,
+// no depth written); and the contact decal under the base, a radial blur whose alpha is 0 from 90% of its radius out,
+// so its square's edge carries nothing either. The white around them is the scene's background.
+export const FLOOR = 40;
 function Floor() {
   const gl = useThree((st) => st.gl);
   const blob = useMemo(() => {
     const c = document.createElement("canvas");
     c.width = c.height = 256;
     const x = c.getContext("2d")!;
-    const g = x.createRadialGradient(128, 128, 10, 128, 128, 128);
+    const g = x.createRadialGradient(128, 128, 10, 128, 128, 115);
     g.addColorStop(0, "rgba(0,0,0,.35)");
     g.addColorStop(1, "rgba(0,0,0,0)");
     x.fillStyle = g;
     x.fillRect(0, 0, 256, 256);
     const t = new THREE.CanvasTexture(c);
     t.anisotropy = gl.capabilities.getMaxAnisotropy();
+    t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping;
     return t;
   }, [gl]);
   return (
     <>
-      <mesh rotation-x={-Math.PI / 2} receiveShadow>
-        <planeGeometry args={[12, 12]} />
-        <shadowMaterial opacity={0.13} />
+      <mesh name="floor" rotation-x={-Math.PI / 2} receiveShadow>
+        <planeGeometry args={[FLOOR, FLOOR]} />
+        <shadowMaterial opacity={0.13} transparent depthWrite={false} />
       </mesh>
-      <mesh rotation-x={-Math.PI / 2} position-y={0.001}>
+      <mesh name="contact" rotation-x={-Math.PI / 2} position-y={0.001}>
         <planeGeometry args={[0.95 * HOUSING, 0.95 * HOUSING]} />
         <meshBasicMaterial map={blob} transparent depthWrite={false} />
       </mesh>
@@ -119,7 +125,7 @@ export default function Scene({ releases }: { releases: Release[] }) {
     <Canvas
       shadows={{ type: THREE.PCFSoftShadowMap }}
       dpr={[1, 3]}
-      camera={{ fov: 30, near: 0.1, far: 20, position: [0.7, 1.2, 2.2] }}
+      camera={{ fov: 30, near: 0.1, far: 40, position: [0.7, 1.2, 2.2] }}
       gl={{ antialias: true }}
     >
       <Environment />
