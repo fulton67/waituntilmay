@@ -1,0 +1,1324 @@
+{
+  "base": "http://localhost:3228",
+  "at": "2026-11-08T06:54:49.237Z",
+  "seconds": 20,
+  "profiles": {
+    "desktop": {
+      "home": {
+        "frames": 1195,
+        "over33": 1,
+        "over33Pct": 0.08,
+        "fps": 59.8,
+        "worstFrameMs": 50,
+        "longTasks": 0,
+        "longTaskMs": [],
+        "uploads": {
+          "count": 36,
+          "inGesture": 1,
+          "totalMs": 275,
+          "over4ms": [
+            "texSubImage2D 2048x2048 ImageBitmap 11.8ms",
+            "texSubImage2D 2048x2048 ImageBitmap 10.2ms",
+            "texSubImage2D 2048x2048 ImageBitmap 8.2ms",
+            "texSubImage2D 2048x2048 ImageBitmap 8.9ms",
+            "texSubImage2D 1781x1781 ImageBitmap 6.1ms",
+            "texSubImage2D 2048x2048 ImageBitmap 10.6ms",
+            "texSubImage2D 2048x2048 ImageBitmap 10.2ms",
+            "texSubImage2D 2048x2048 ImageBitmap 10.0ms",
+            "texSubImage2D 2048x2048 ImageBitmap 9.5ms",
+            "texSubImage2D 2048x2048 ImageBitmap 10.1ms",
+            "texSubImage2D 2048x2048 ImageBitmap 9.7ms",
+            "texSubImage2D 2048x2048 ImageBitmap 9.3ms",
+            "texSubImage2D 2048x2048 ImageBitmap 8.6ms",
+            "texSubImage2D 2048x2048 ImageBitmap 10.5ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 13.8ms",
+            "texSubImage2D 2048x2048 ImageBitmap 10.9ms",
+            "texSubImage2D 2048x2048 ImageBitmap 12.4ms",
+            "texSubImage2D 2048x2048 ImageBitmap 9.3ms",
+            "texSubImage2D 2048x2048 ImageBitmap 8.7ms",
+            "texSubImage2D 2048x2048 ImageBitmap 10.3ms",
+            "texSubImage2D 2048x2048 ImageBitmap 9.1ms",
+            "texSubImage2D 2048x2048 ImageBitmap 9.0ms",
+            "texSubImage2D 2048x2048 ImageBitmap 9.0ms",
+            "texSubImage2D 2048x2048 ImageBitmap 8.3ms",
+            "texSubImage2D 2048x2048 ImageBitmap 8.2ms",
+            "texSubImage2D 1781x1781 ImageBitmap 5.0ms",
+            "texSubImage2D 2048x2048 ImageBitmap 8.6ms",
+            "texSubImage2D 2048x2048 ImageBitmap 9.9ms"
+          ]
+        },
+        "reactCommits": 160,
+        "commitsPerFrame": 0.134,
+        "traced": {
+          "tracedLongTasks": 1,
+          "longTasks": [
+            {
+              "atS": 6.98,
+              "ms": 60.1,
+              "kinds": [
+                "FunctionCall e2 2.8ms"
+              ],
+              "functions": [
+                "(program) 32.5ms",
+                "(anon) node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.production.js:13762 0.5ms",
+                "setMaterial node_modules/three/build/three.module.js:23896 0.5ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 0.5ms"
+              ]
+            }
+          ],
+          "topFunctions": [
+            "needsUpdate node_modules/three/build/three.module.js:15178 868ms",
+            "setup node_modules/three/build/three.module.js:15730 157ms",
+            "renderBufferDirect node_modules/three/build/three.module.js:29463 148ms",
+            "setProgram node_modules/three/build/three.module.js:29469 117ms",
+            "texSubImage2D 116ms",
+            "copyArray node_modules/three/build/three.module.js:18275 103ms",
+            "uniformMatrix4fv 91ms",
+            "refreshUniformsCommon node_modules/three/build/three.module.js:27918 54ms",
+            "updateMatrixWorld node_modules/three/build/three.module.js:7772 53ms",
+            "renderObject node_modules/three/build/three.module.js:22551 49ms",
+            "setMaterial node_modules/three/build/three.module.js:23896 45ms",
+            "setValueM4 node_modules/three/build/three.module.js:18481 42ms"
+          ]
+        }
+      },
+      "open": {
+        "frames": 1188,
+        "over33": 2,
+        "over33Pct": 0.17,
+        "fps": 59.4,
+        "worstFrameMs": 149.9,
+        "longTasks": 2,
+        "longTaskMs": [
+          147,
+          50
+        ],
+        "uploads": {
+          "count": 14,
+          "inGesture": 0,
+          "totalMs": 126.8,
+          "over4ms": [
+            "texSubImage2D 2048x2048 ImageBitmap 15.2ms",
+            "texSubImage2D 2048x2048 ImageBitmap 16.6ms",
+            "texSubImage2D 2048x2048 ImageBitmap 14.9ms",
+            "texSubImage2D 2048x2048 ImageBitmap 16.6ms",
+            "texSubImage2D 1781x1781 ImageBitmap 6.5ms",
+            "texSubImage2D 2048x2048 ImageBitmap 17.5ms",
+            "texSubImage2D 2048x2048 ImageBitmap 16.0ms",
+            "texSubImage2D 2048x2048 ImageBitmap 13.9ms",
+            "texSubImage2D 1781x1781 ImageBitmap 6.3ms"
+          ]
+        },
+        "reactCommits": 31,
+        "commitsPerFrame": 0.026,
+        "traced": {
+          "tracedLongTasks": 1,
+          "longTasks": [
+            {
+              "atS": 0.03,
+              "ms": 92.2,
+              "kinds": [
+                "CommandBufferProxyImpl::WaitForGetOffset 37.0ms",
+                "RasterImplementation::RasterCHROMIUM 13.3ms",
+                "CommandBufferProxyImpl::WaitForToken 12.5ms"
+              ],
+              "functions": [
+                "texSubImage2D 13.5ms",
+                "setSize node_modules/three/build/three.module.js:29108 12.0ms",
+                "getImageData 10.0ms",
+                "(program) 1.5ms"
+              ]
+            }
+          ],
+          "topFunctions": [
+            "needsUpdate node_modules/three/build/three.module.js:15178 145ms",
+            "texSubImage2D 55ms",
+            "renderBufferDirect node_modules/three/build/three.module.js:29463 41ms",
+            "setup node_modules/three/build/three.module.js:15730 38ms",
+            "setProgram node_modules/three/build/three.module.js:29469 36ms",
+            "commitMutationEffectsOnFiber node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.production.js:10415 33ms",
+            "copyArray node_modules/three/build/three.module.js:18275 28ms",
+            "uniformMatrix4fv 28ms",
+            "refreshUniformsCommon node_modules/three/build/three.module.js:27918 18ms",
+            "getImageData 17ms",
+            "setValueM4 node_modules/three/build/three.module.js:18481 15ms",
+            "projectObject node_modules/three/build/three.module.js:30038 13ms"
+          ]
+        }
+      }
+    },
+    "phone": {
+      "home": {
+        "frames": 951,
+        "over33": 107,
+        "over33Pct": 11.25,
+        "fps": 42,
+        "worstFrameMs": 116.6,
+        "longTasks": 34,
+        "longTaskMs": [
+          55,
+          53,
+          52,
+          87,
+          64,
+          53,
+          62,
+          54,
+          63,
+          62,
+          59,
+          70,
+          52,
+          59,
+          73,
+          57,
+          72,
+          51,
+          55,
+          67,
+          54,
+          51,
+          55,
+          57,
+          52,
+          72,
+          56,
+          55,
+          54,
+          60,
+          50,
+          64,
+          80,
+          59
+        ],
+        "uploads": {
+          "count": 38,
+          "inGesture": 38,
+          "totalMs": 973.3,
+          "over4ms": [
+            "texSubImage2D 2048x2048 ImageBitmap 33.1ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 28.0ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 26.1ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 29.8ms (gesture)",
+            "texSubImage2D 1781x1781 ImageBitmap 15.7ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 26.4ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 27.8ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 27.0ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 27.9ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 25.5ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 53.3ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 47.6ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 42.0ms (gesture)",
+            "texSubImage2D 1425x1425 ImageBitmap 9.6ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 38.6ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 40.2ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 41.0ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 33.2ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 34.7ms (gesture)",
+            "texSubImage2D 1425x1425 ImageBitmap 7.7ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 45.2ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 33.5ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 28.5ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 28.5ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 26.1ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 25.3ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 43.2ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 35.4ms (gesture)",
+            "texSubImage2D 1781x1781 ImageBitmap 30.6ms (gesture)",
+            "texSubImage2D 2048x2048 ImageBitmap 39.2ms (gesture)"
+          ]
+        },
+        "reactCommits": 124,
+        "commitsPerFrame": 0.13,
+        "traced": {
+          "tracedLongTasks": 60,
+          "longTasks": [
+            {
+              "atS": 1.38,
+              "ms": 76.2,
+              "kinds": [
+                "FunctionCall fT 27.2ms",
+                "FunctionCall e2 26.8ms",
+                "V8.HandleInterrupts 9.3ms",
+                "FunctionCall R 3.1ms"
+              ],
+              "functions": [
+                "(program) 12.5ms",
+                "denormalize node_modules/three/build/three.module.js:537 3.0ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 2.5ms",
+                "renderBufferDirect node_modules/three/build/three.module.js:29463 2.5ms"
+              ]
+            },
+            {
+              "atS": 2.16,
+              "ms": 57.6,
+              "kinds": [
+                "FunctionCall e2 47.2ms",
+                "CommandBufferProxyImpl::WaitForToken 5.3ms",
+                "CommandBufferProxyImpl::Flush 2.1ms"
+              ],
+              "functions": [
+                "texSubImage2D 13.0ms",
+                "(program) 4.0ms",
+                "drawElements 1.0ms",
+                "setup node_modules/three/build/three.module.js:15730 1.0ms"
+              ]
+            },
+            {
+              "atS": 2.22,
+              "ms": 77.5,
+              "kinds": [
+                "FunctionCall e2 58.2ms",
+                "CommandBufferProxyImpl::WaitForToken 10.3ms",
+                "MinorGC 1.1ms",
+                "CommandBufferProxyImpl::Flush 1.1ms"
+              ],
+              "functions": [
+                "texSubImage2D 22.5ms",
+                "(program) 5.0ms",
+                "(garbage collector) 2.0ms",
+                "renderBufferDirect node_modules/three/build/three.module.js:29463 1.5ms"
+              ]
+            },
+            {
+              "atS": 3.25,
+              "ms": 61.4,
+              "kinds": [],
+              "functions": [
+                "(program) 28.5ms"
+              ]
+            },
+            {
+              "atS": 3.49,
+              "ms": 58.6,
+              "kinds": [
+                "FunctionCall e2 45.3ms",
+                "CommandBufferProxyImpl::WaitForToken 4.9ms",
+                "Blink.Accessibility.UpdateTime 1.6ms",
+                "V8.HandleInterrupts 1.0ms"
+              ],
+              "functions": [
+                "texSubImage2D 16.0ms",
+                "(program) 6.5ms",
+                "uniformMatrix4fv 2.5ms",
+                "projectObject node_modules/three/build/three.module.js:30038 1.0ms"
+              ]
+            },
+            {
+              "atS": 4.15,
+              "ms": 62,
+              "kinds": [
+                "FunctionCall e2 34.7ms",
+                "FunctionCall fT 14.8ms",
+                "V8.HandleInterrupts 4.7ms",
+                "CommandBufferProxyImpl::Flush 2.4ms"
+              ],
+              "functions": [
+                "(program) 9.5ms",
+                "uniformMatrix4fv 2.5ms",
+                "intersectTriangle node_modules/three/build/three.module.js:5819 2.0ms",
+                "(anon) components/gillenwebsite/Rolodex.tsx:390 2.0ms"
+              ]
+            },
+            {
+              "atS": 4.32,
+              "ms": 63.1,
+              "kinds": [
+                "FunctionCall e2 29.5ms",
+                "Blink.Accessibility.UpdateTime 5.5ms",
+                "LocalFrameView::performLayout 3.8ms",
+                "Paint 3.5ms"
+              ],
+              "functions": [
+                "(program) 14.0ms",
+                "fetch 2.0ms",
+                "setMaterial node_modules/three/build/three.module.js:23896 2.0ms",
+                "multiplyMatrices node_modules/three/build/three.module.js:6262 1.5ms"
+              ]
+            },
+            {
+              "atS": 4.9,
+              "ms": 76.6,
+              "kinds": [
+                "FunctionCall e2 63.2ms",
+                "CommandBufferProxyImpl::WaitForToken 7.2ms",
+                "CommandBufferProxyImpl::Flush 1.4ms"
+              ],
+              "functions": [
+                "texSubImage2D 22.5ms",
+                "(program) 5.0ms",
+                "renderBufferDirect node_modules/three/build/three.module.js:29463 2.5ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 1.0ms"
+              ]
+            },
+            {
+              "atS": 6.27,
+              "ms": 84,
+              "kinds": [
+                "FunctionCall e2 70.7ms",
+                "CommandBufferProxyImpl::WaitForToken 6.9ms",
+                "CommandBufferProxyImpl::Flush 2.1ms"
+              ],
+              "functions": [
+                "texSubImage2D 25.5ms",
+                "(program) 4.5ms",
+                "renderBufferDirect node_modules/three/build/three.module.js:29463 3.5ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 1.5ms"
+              ]
+            },
+            {
+              "atS": 6.35,
+              "ms": 61.4,
+              "kinds": [
+                "FunctionCall e2 57.5ms"
+              ],
+              "functions": [
+                "texSubImage2D 17.0ms",
+                "(program) 2.0ms",
+                "drawArrays 1.5ms",
+                "refreshUniformsCommon node_modules/three/build/three.module.js:27918 1.5ms"
+              ]
+            },
+            {
+              "atS": 6.89,
+              "ms": 51.3,
+              "kinds": [
+                "FunctionCall e2 40.4ms",
+                "Commit 3.3ms",
+                "V8.BytecodeBudgetInterruptWithStackCheck 3.0ms",
+                "CommandBufferProxyImpl::Flush 2.5ms"
+              ],
+              "functions": [
+                "setProgram node_modules/three/build/three.module.js:29469 5.0ms",
+                "(program) 3.0ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 2.5ms",
+                "setMaterial node_modules/three/build/three.module.js:23896 2.0ms"
+              ]
+            },
+            {
+              "atS": 6.95,
+              "ms": 52.7,
+              "kinds": [
+                "FunctionCall fT 22.7ms",
+                "FunctionCall e2 21.4ms"
+              ],
+              "functions": [
+                "(program) 10.0ms",
+                "denormalize node_modules/three/build/three.module.js:537 3.5ms",
+                "getX node_modules/three/build/three.module.js:32017 2.0ms",
+                "copy node_modules/three/build/three.module.js:2452 1.5ms"
+              ]
+            },
+            {
+              "atS": 7.05,
+              "ms": 56.5,
+              "kinds": [
+                "FunctionCall e2 22.1ms",
+                "CommandBufferProxyImpl::Flush 9.9ms",
+                "Blink.Accessibility.UpdateTime 4.8ms",
+                "LocalFrameView::performLayout 3.9ms"
+              ],
+              "functions": [
+                "(program) 17.0ms",
+                "uniformMatrix4fv 4.5ms",
+                "flatten node_modules/three/build/three.module.js:18226 1.5ms",
+                "copyArray node_modules/three/build/three.module.js:18275 1.5ms"
+              ]
+            },
+            {
+              "atS": 7.29,
+              "ms": 71.1,
+              "kinds": [
+                "V8.GC_MC_MARK_ROOTS 1.8ms",
+                "V8.GC_MC_INCREMENTAL_START 1.0ms"
+              ],
+              "functions": [
+                "(program) 30.0ms"
+              ]
+            },
+            {
+              "atS": 7.36,
+              "ms": 52.3,
+              "kinds": [
+                "FunctionCall e2 41.4ms",
+                "CommandBufferProxyImpl::Flush 1.4ms"
+              ],
+              "functions": [
+                "(program) 6.0ms",
+                "renderBufferDirect node_modules/three/build/three.module.js:29463 3.5ms",
+                "updateMatrixWorld node_modules/three/build/three.module.js:7772 3.0ms",
+                "setup node_modules/three/build/three.module.js:15730 1.5ms"
+              ]
+            },
+            {
+              "atS": 7.45,
+              "ms": 66.8,
+              "kinds": [],
+              "functions": [
+                "(program) 28.0ms"
+              ]
+            },
+            {
+              "atS": 7.81,
+              "ms": 73.5,
+              "kinds": [
+                "FunctionCall e2 59.8ms",
+                "CommandBufferProxyImpl::WaitForToken 4.4ms",
+                "CommandBufferProxyImpl::Flush 3.0ms"
+              ],
+              "functions": [
+                "texSubImage2D 18.0ms",
+                "(program) 5.5ms",
+                "uniformMatrix4fv 2.0ms",
+                "renderBufferDirect node_modules/three/build/three.module.js:29463 1.5ms"
+              ]
+            },
+            {
+              "atS": 7.88,
+              "ms": 63.3,
+              "kinds": [
+                "FunctionCall e2 53.8ms",
+                "CommandBufferProxyImpl::WaitForToken 4.1ms",
+                "CommandBufferProxyImpl::Flush 1.1ms"
+              ],
+              "functions": [
+                "texSubImage2D 21.0ms",
+                "(program) 3.0ms",
+                "copyArray node_modules/three/build/three.module.js:18275 2.0ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 1.0ms"
+              ]
+            },
+            {
+              "atS": 8.59,
+              "ms": 51.3,
+              "kinds": [
+                "FunctionCall e2 25.5ms",
+                "Blink.Accessibility.UpdateTime 5.0ms",
+                "LocalFrameView::performLayout 3.9ms",
+                "InlineNode::ShapeTextIncludingFirstLine 3.5ms"
+              ],
+              "functions": [
+                "(program) 12.0ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 2.0ms",
+                "setup node_modules/three/build/three.module.js:15730 2.0ms",
+                "setProgram node_modules/three/build/three.module.js:29469 1.0ms"
+              ]
+            },
+            {
+              "atS": 8.73,
+              "ms": 52.4,
+              "kinds": [
+                "FunctionCall e2 33.7ms",
+                "V8.HandleInterrupts 3.5ms",
+                "V8.DeoptimizeCode 2.0ms",
+                "CommandBufferProxyImpl::Flush 2.0ms"
+              ],
+              "functions": [
+                "(program) 7.0ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 2.0ms",
+                "update node_modules/three/build/three.module.js:18100 1.5ms",
+                "renderObject node_modules/three/build/three.module.js:22551 1.5ms"
+              ]
+            },
+            {
+              "atS": 8.88,
+              "ms": 68.1,
+              "kinds": [],
+              "functions": [
+                "(program) 28.5ms",
+                "(idle) 0.5ms"
+              ]
+            },
+            {
+              "atS": 8.95,
+              "ms": 67.8,
+              "kinds": [],
+              "functions": [
+                "(program) 29.5ms"
+              ]
+            },
+            {
+              "atS": 9.24,
+              "ms": 86.2,
+              "kinds": [
+                "FunctionCall e2 73.6ms",
+                "CommandBufferProxyImpl::WaitForToken 5.2ms",
+                "CommandBufferProxyImpl::Flush 2.5ms"
+              ],
+              "functions": [
+                "texSubImage2D 23.5ms",
+                "(program) 5.0ms",
+                "renderBufferDirect node_modules/three/build/three.module.js:29463 2.0ms",
+                "renderObject node_modules/three/build/three.module.js:22551 1.5ms"
+              ]
+            },
+            {
+              "atS": 9.32,
+              "ms": 73.4,
+              "kinds": [
+                "FunctionCall e2 59.2ms",
+                "CommandBufferProxyImpl::WaitForToken 10.2ms",
+                "CommandBufferProxyImpl::Flush 1.9ms"
+              ],
+              "functions": [
+                "texSubImage2D 21.5ms",
+                "(program) 1.5ms",
+                "renderBufferDirect node_modules/three/build/three.module.js:29463 1.5ms",
+                "setup node_modules/three/build/three.module.js:15730 1.0ms"
+              ]
+            },
+            {
+              "atS": 10.06,
+              "ms": 60.6,
+              "kinds": [
+                "FunctionCall e2 16.5ms",
+                "FunctionCall fT 15.0ms",
+                "Blink.Accessibility.UpdateTime 5.7ms",
+                "LocalFrameView::performLayout 2.6ms"
+              ],
+              "functions": [
+                "(program) 17.5ms",
+                "getX node_modules/three/build/three.module.js:10134 1.5ms",
+                "denormalize node_modules/three/build/three.module.js:537 1.5ms",
+                "setup node_modules/three/build/three.module.js:15730 1.5ms"
+              ]
+            },
+            {
+              "atS": 10.58,
+              "ms": 55.5,
+              "kinds": [],
+              "functions": [
+                "(program) 25.5ms"
+              ]
+            },
+            {
+              "atS": 10.76,
+              "ms": 52.8,
+              "kinds": [
+                "FunctionCall e2 40.7ms",
+                "V8.HandleInterrupts 3.6ms",
+                "CommandBuffer::OrderingBarrier 2.4ms",
+                "CommandBufferProxyImpl::Flush 2.1ms"
+              ],
+              "functions": [
+                "renderBufferDirect node_modules/three/build/three.module.js:29463 6.0ms",
+                "uniformMatrix3fv 3.5ms",
+                "(program) 3.0ms",
+                "drawArrays 1.5ms"
+              ]
+            },
+            {
+              "atS": 10.81,
+              "ms": 89.3,
+              "kinds": [
+                "FunctionCall e2 77.9ms",
+                "CommandBufferProxyImpl::WaitForToken 5.9ms",
+                "CommandBufferProxyImpl::Flush 1.0ms"
+              ],
+              "functions": [
+                "texSubImage2D 27.5ms",
+                "(program) 5.0ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 1.5ms",
+                "bindVertexArray 1.0ms"
+              ]
+            },
+            {
+              "atS": 10.9,
+              "ms": 82,
+              "kinds": [
+                "FunctionCall e2 68.9ms",
+                "CommandBufferProxyImpl::WaitForToken 8.1ms",
+                "CommandBufferProxyImpl::Flush 1.5ms"
+              ],
+              "functions": [
+                "texSubImage2D 27.0ms",
+                "(program) 2.0ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 1.5ms",
+                "setProgram node_modules/three/build/three.module.js:29469 1.5ms"
+              ]
+            },
+            {
+              "atS": 11.61,
+              "ms": 52.6,
+              "kinds": [
+                "FunctionCall fT 23.0ms",
+                "FunctionCall e2 18.8ms",
+                "CommandBufferProxyImpl::Flush 1.1ms"
+              ],
+              "functions": [
+                "(program) 9.5ms",
+                "denormalize node_modules/three/build/three.module.js:537 5.0ms",
+                "getX node_modules/three/build/three.module.js:10134 1.5ms",
+                "getZ node_modules/three/build/three.module.js:32037 1.0ms"
+              ]
+            },
+            {
+              "atS": 11.75,
+              "ms": 60.4,
+              "kinds": [
+                "FunctionCall e2 28.4ms",
+                "LocalFrameView::performLayout 9.1ms",
+                "Blink.Accessibility.UpdateTime 4.7ms",
+                "CommandBufferProxyImpl::Flush 3.1ms"
+              ],
+              "functions": [
+                "(program) 8.5ms",
+                "uniformMatrix4fv 2.5ms",
+                "drawArrays 2.5ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 1.5ms"
+              ]
+            },
+            {
+              "atS": 12.12,
+              "ms": 69.9,
+              "kinds": [],
+              "functions": [
+                "(program) 33.0ms"
+              ]
+            },
+            {
+              "atS": 12.43,
+              "ms": 72.4,
+              "kinds": [
+                "FunctionCall e2 58.2ms",
+                "CommandBufferProxyImpl::WaitForToken 7.4ms",
+                "CommandBufferProxyImpl::Flush 1.3ms",
+                "Blink.Accessibility.UpdateTime 1.2ms"
+              ],
+              "functions": [
+                "texSubImage2D 19.0ms",
+                "(program) 3.0ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 2.0ms",
+                "setProgram node_modules/three/build/three.module.js:29469 1.5ms"
+              ]
+            },
+            {
+              "atS": 13.03,
+              "ms": 62.9,
+              "kinds": [
+                "FunctionCall e2 25.8ms",
+                "FunctionCall fT 22.9ms",
+                "FunctionCall  1.2ms",
+                "FunctionCall fO 1.1ms"
+              ],
+              "functions": [
+                "(program) 11.0ms",
+                "denormalize node_modules/three/build/three.module.js:537 4.0ms",
+                "renderBufferDirect node_modules/three/build/three.module.js:29463 2.0ms",
+                "getX node_modules/three/build/three.module.js:32017 1.5ms"
+              ]
+            },
+            {
+              "atS": 13.74,
+              "ms": 53.1,
+              "kinds": [
+                "FunctionCall e2 47.8ms",
+                "CommandBufferProxyImpl::Flush 1.3ms"
+              ],
+              "functions": [
+                "texSubImage2D 8.5ms",
+                "(program) 5.0ms",
+                "renderBufferDirect node_modules/three/build/three.module.js:29463 3.5ms",
+                "setProgram node_modules/three/build/three.module.js:29469 2.0ms"
+              ]
+            },
+            {
+              "atS": 14.28,
+              "ms": 56.8,
+              "kinds": [
+                "FunctionCall e2 26.6ms",
+                "FunctionCall fT 21.0ms",
+                "CommandBufferProxyImpl::Flush 1.6ms"
+              ],
+              "functions": [
+                "(program) 10.5ms",
+                "denormalize node_modules/three/build/three.module.js:537 2.5ms",
+                "renderObject node_modules/three/build/three.module.js:22551 1.5ms",
+                "setup node_modules/three/build/three.module.js:15730 1.5ms"
+              ]
+            },
+            {
+              "atS": 14.73,
+              "ms": 61.5,
+              "kinds": [],
+              "functions": [
+                "(program) 29.0ms"
+              ]
+            },
+            {
+              "atS": 14.81,
+              "ms": 51.7,
+              "kinds": [],
+              "functions": [
+                "(program) 25.0ms"
+              ]
+            },
+            {
+              "atS": 15.02,
+              "ms": 78,
+              "kinds": [
+                "FunctionCall e2 67.4ms",
+                "CommandBufferProxyImpl::WaitForToken 5.5ms",
+                "CommandBufferProxyImpl::Flush 1.6ms",
+                "V8.HandleInterrupts 1.0ms"
+              ],
+              "functions": [
+                "texSubImage2D 22.5ms",
+                "(program) 2.0ms",
+                "uniformMatrix4fv 1.5ms",
+                "setMaterial node_modules/three/build/three.module.js:23896 1.5ms"
+              ]
+            },
+            {
+              "atS": 15.1,
+              "ms": 85.9,
+              "kinds": [
+                "FunctionCall e2 73.5ms",
+                "CommandBufferProxyImpl::WaitForToken 4.8ms",
+                "FunctionCall fO 2.0ms",
+                "CommandBufferProxyImpl::Flush 1.2ms"
+              ],
+              "functions": [
+                "texSubImage2D 22.5ms",
+                "(program) 6.0ms",
+                "setup node_modules/three/build/three.module.js:15730 3.0ms",
+                "copyArray node_modules/three/build/three.module.js:18275 1.5ms"
+              ]
+            },
+            {
+              "atS": 16.15,
+              "ms": 65.9,
+              "kinds": [
+                "RunMicrotasks 1.7ms"
+              ],
+              "functions": [
+                "(program) 31.0ms",
+                "(anon) components/gillenwebsite/sleeve.ts:80 1.0ms"
+              ]
+            },
+            {
+              "atS": 16.36,
+              "ms": 66.1,
+              "kinds": [
+                "FunctionCall e2 52.4ms",
+                "CommandBufferProxyImpl::WaitForToken 6.3ms",
+                "V8.HandleInterrupts 2.9ms",
+                "CommandBufferProxyImpl::Flush 2.2ms"
+              ],
+              "functions": [
+                "texSubImage2D 14.5ms",
+                "(program) 2.0ms",
+                "copyArray node_modules/three/build/three.module.js:18275 2.0ms",
+                "sort node_modules/three/build/three.module.js:21422 1.5ms"
+              ]
+            },
+            {
+              "atS": 17.36,
+              "ms": 51.9,
+              "kinds": [],
+              "functions": [
+                "(program) 22.5ms"
+              ]
+            },
+            {
+              "atS": 17.44,
+              "ms": 59.1,
+              "kinds": [],
+              "functions": [
+                "(program) 25.0ms"
+              ]
+            },
+            {
+              "atS": 19.87,
+              "ms": 53.4,
+              "kinds": [],
+              "functions": [
+                "(program) 25.0ms"
+              ]
+            },
+            {
+              "atS": 20.97,
+              "ms": 53.2,
+              "kinds": [],
+              "functions": [
+                "(program) 25.0ms"
+              ]
+            },
+            {
+              "atS": 21.88,
+              "ms": 77.1,
+              "kinds": [
+                "FunctionCall e2 66.2ms",
+                "CommandBufferProxyImpl::WaitForToken 4.5ms",
+                "CommandBufferProxyImpl::Flush 2.2ms"
+              ],
+              "functions": [
+                "texSubImage2D 18.5ms",
+                "(program) 5.0ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 2.0ms",
+                "renderObject node_modules/three/build/three.module.js:22551 1.5ms"
+              ]
+            },
+            {
+              "atS": 21.96,
+              "ms": 61.3,
+              "kinds": [
+                "FunctionCall e2 50.2ms",
+                "CommandBufferProxyImpl::WaitForToken 4.5ms",
+                "Blink.PrePaint.UpdateTime 1.7ms",
+                "CommandBufferProxyImpl::Flush 1.0ms"
+              ],
+              "functions": [
+                "texSubImage2D 16.5ms",
+                "(program) 2.5ms",
+                "setProgram node_modules/three/build/three.module.js:29469 1.5ms",
+                "renderBufferDirect node_modules/three/build/three.module.js:29463 1.5ms"
+              ]
+            },
+            {
+              "atS": 22.02,
+              "ms": 50.8,
+              "kinds": [
+                "FunctionCall e2 40.8ms",
+                "FunctionCall fO 2.0ms",
+                "v8.callFunction 1.8ms",
+                "CommandBufferProxyImpl::Flush 1.4ms"
+              ],
+              "functions": [
+                "texSubImage2D 9.0ms",
+                "(program) 5.0ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 1.5ms",
+                "renderObject node_modules/three/build/three.module.js:22551 1.0ms"
+              ]
+            },
+            {
+              "atS": 22.14,
+              "ms": 70.3,
+              "kinds": [
+                "FunctionCall e2 62.5ms",
+                "CommandBufferProxyImpl::WaitForToken 2.4ms",
+                "CommandBufferProxyImpl::Flush 1.3ms"
+              ],
+              "functions": [
+                "texSubImage2D 18.5ms",
+                "(program) 2.5ms",
+                "renderBufferDirect node_modules/three/build/three.module.js:29463 2.0ms",
+                "copyArray node_modules/three/build/three.module.js:18275 2.0ms"
+              ]
+            },
+            {
+              "atS": 22.21,
+              "ms": 68.7,
+              "kinds": [
+                "FunctionCall e2 60.5ms",
+                "CommandBufferProxyImpl::WaitForToken 3.0ms"
+              ],
+              "functions": [
+                "texSubImage2D 21.0ms",
+                "(program) 2.0ms",
+                "setProgram node_modules/three/build/three.module.js:29469 1.5ms",
+                "renderBufferDirect node_modules/three/build/three.module.js:29463 1.0ms"
+              ]
+            },
+            {
+              "atS": 22.28,
+              "ms": 77.8,
+              "kinds": [
+                "FunctionCall e2 46.4ms",
+                "LocalFrameView::UpdateStyleAndLayout 7.5ms",
+                "CommandBufferProxyImpl::WaitForToken 2.6ms",
+                "V8.GC_MC_EVACUATE_UPDATE_POINTERS_TO_NEW_ROOTS 2.4ms"
+              ],
+              "functions": [
+                "texSubImage2D 12.5ms",
+                "(garbage collector) 8.0ms",
+                "(program) 3.5ms",
+                "setValueM4 node_modules/three/build/three.module.js:18481 1.5ms"
+              ]
+            },
+            {
+              "atS": 22.36,
+              "ms": 57.6,
+              "kinds": [
+                "FunctionCall e2 48.6ms",
+                "CommandBufferProxyImpl::WaitForToken 2.7ms",
+                "V8.HandleInterrupts 2.3ms"
+              ],
+              "functions": [
+                "texSubImage2D 20.0ms",
+                "(program) 4.5ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 1.0ms",
+                "setup node_modules/three/build/three.module.js:15730 1.0ms"
+              ]
+            },
+            {
+              "atS": 23.97,
+              "ms": 71.1,
+              "kinds": [
+                "FunctionCall e2 60.5ms",
+                "CommandBufferProxyImpl::WaitForToken 4.5ms",
+                "CommandBufferProxyImpl::Flush 1.4ms",
+                "Commit 1.1ms"
+              ],
+              "functions": [
+                "texSubImage2D 19.0ms",
+                "uniformMatrix4fv 3.5ms",
+                "(program) 2.5ms",
+                "drawArrays 1.5ms"
+              ]
+            },
+            {
+              "atS": 24.04,
+              "ms": 63.9,
+              "kinds": [
+                "FunctionCall e2 55.8ms",
+                "CommandBufferProxyImpl::WaitForToken 3.9ms",
+                "CommandBufferProxyImpl::Flush 1.3ms"
+              ],
+              "functions": [
+                "texSubImage2D 18.0ms",
+                "(program) 2.0ms",
+                "setProgram node_modules/three/build/three.module.js:29469 1.0ms",
+                "renderScene node_modules/three/build/three.module.js:30152 1.0ms"
+              ]
+            },
+            {
+              "atS": 25.77,
+              "ms": 59.8,
+              "kinds": [
+                "FunctionCall e2 48.6ms",
+                "CommandBufferProxyImpl::WaitForToken 6.3ms"
+              ],
+              "functions": [
+                "texSubImage2D 15.0ms",
+                "(program) 2.0ms",
+                "copyArray node_modules/three/build/three.module.js:18275 2.0ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 1.5ms"
+              ]
+            },
+            {
+              "atS": 25.83,
+              "ms": 58,
+              "kinds": [
+                "FunctionCall e2 51.4ms",
+                "CommandBufferProxyImpl::Flush 1.9ms"
+              ],
+              "functions": [
+                "texSubImage2D 11.0ms",
+                "(program) 5.0ms",
+                "setProgram node_modules/three/build/three.module.js:29469 1.5ms",
+                "uniformMatrix4fv 1.0ms"
+              ]
+            },
+            {
+              "atS": 26.95,
+              "ms": 63.3,
+              "kinds": [],
+              "functions": [
+                "(program) 30.0ms"
+              ]
+            },
+            {
+              "atS": 27.23,
+              "ms": 72,
+              "kinds": [
+                "FunctionCall e2 62.9ms",
+                "CommandBufferProxyImpl::WaitForToken 4.5ms",
+                "CommandBufferProxyImpl::Flush 2.4ms"
+              ],
+              "functions": [
+                "texSubImage2D 22.0ms",
+                "(program) 2.0ms",
+                "copyArray node_modules/three/build/three.module.js:18275 1.5ms",
+                "drawElements 1.0ms"
+              ]
+            },
+            {
+              "atS": 27.8,
+              "ms": 144.3,
+              "kinds": [],
+              "functions": [
+                "(program) 0.5ms"
+              ]
+            }
+          ],
+          "topFunctions": [
+            "needsUpdate node_modules/three/build/three.module.js:15178 957ms",
+            "renderBufferDirect node_modules/three/build/three.module.js:29463 788ms",
+            "uniformMatrix4fv 646ms",
+            "setup node_modules/three/build/three.module.js:15730 630ms",
+            "setProgram node_modules/three/build/three.module.js:29469 617ms",
+            "texSubImage2D 571ms",
+            "copyArray node_modules/three/build/three.module.js:18275 497ms",
+            "drawArrays 418ms",
+            "renderObject node_modules/three/build/three.module.js:22551 317ms",
+            "uniformMatrix3fv 263ms",
+            "projectObject node_modules/three/build/three.module.js:30038 256ms",
+            "renderObjects node_modules/three/build/three.module.js:30300 243ms"
+          ]
+        }
+      },
+      "open": {
+        "frames": 1127,
+        "over33": 18,
+        "over33Pct": 1.6,
+        "fps": 56.3,
+        "worstFrameMs": 166.6,
+        "longTasks": 4,
+        "longTaskMs": [
+          165,
+          55,
+          50,
+          130
+        ],
+        "uploads": {
+          "count": 14,
+          "inGesture": 0,
+          "totalMs": 279.5,
+          "over4ms": [
+            "texSubImage2D 2048x2048 ImageBitmap 31.6ms",
+            "texSubImage2D 2048x2048 ImageBitmap 36.3ms",
+            "texSubImage2D 2048x2048 ImageBitmap 29.1ms",
+            "texSubImage2D 2048x2048 ImageBitmap 27.7ms",
+            "texSubImage2D 1781x1781 ImageBitmap 20.0ms",
+            "texSubImage2D 2048x2048 ImageBitmap 34.4ms",
+            "texSubImage2D 2048x2048 ImageBitmap 28.9ms",
+            "texSubImage2D 2048x2048 ImageBitmap 36.6ms",
+            "texSubImage2D 1781x1781 ImageBitmap 21.7ms",
+            "texSubImage2D 1024x1024 HTMLCanvasElement 6.4ms"
+          ]
+        },
+        "reactCommits": 31,
+        "commitsPerFrame": 0.028,
+        "traced": {
+          "tracedLongTasks": 15,
+          "longTasks": [
+            {
+              "atS": 0.06,
+              "ms": 270.5,
+              "kinds": [
+                "CommandBufferProxyImpl::WaitForGetOffset 86.7ms",
+                "RasterImplementation::RasterCHROMIUM 56.6ms",
+                "CommandBufferProxyImpl::WaitForToken 14.1ms",
+                "Document::recalcStyle 1.5ms"
+              ],
+              "functions": [
+                "getImageData 49.5ms",
+                "texSubImage2D 38.5ms",
+                "setSize node_modules/three/build/three.module.js:29108 19.5ms",
+                "(anon) components/gillenwebsite/VinylView.tsx:475 3.0ms"
+              ]
+            },
+            {
+              "atS": 0.4,
+              "ms": 50.8,
+              "kinds": [
+                "FunctionCall e2 24.3ms",
+                "InlineNode::ShapeTextIncludingFirstLine 10.8ms",
+                "LocalFrameView::performLayout 5.2ms",
+                "PaintArtifactCompositor::Update 3.0ms"
+              ],
+              "functions": [
+                "(program) 13.0ms",
+                "renderObject node_modules/three/build/three.module.js:22551 2.0ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 2.0ms",
+                "renderBufferDirect node_modules/three/build/three.module.js:29463 1.0ms"
+              ]
+            },
+            {
+              "atS": 9.64,
+              "ms": 52.7,
+              "kinds": [
+                "FunctionCall e2 18.6ms",
+                "Blink.Accessibility.UpdateTime 5.9ms",
+                "InlineNode::ShapeTextIncludingFirstLine 5.5ms",
+                "Document::recalcStyle 5.2ms"
+              ],
+              "functions": [
+                "(program) 17.0ms",
+                "uniformMatrix4fv 1.5ms",
+                "updateMatrixWorld node_modules/three/build/three.module.js:7772 1.0ms",
+                "renderBufferDirect node_modules/three/build/three.module.js:29463 1.0ms"
+              ]
+            },
+            {
+              "atS": 9.89,
+              "ms": 58.9,
+              "kinds": [
+                "FunctionCall e2 28.4ms",
+                "LocalFrameView::performLayout 11.1ms",
+                "V8.HandleInterrupts 2.9ms",
+                "Document::recalcStyle 2.4ms"
+              ],
+              "functions": [
+                "(program) 13.0ms",
+                "setProgram node_modules/three/build/three.module.js:29469 4.5ms",
+                "drawArrays 2.0ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 2.0ms"
+              ]
+            },
+            {
+              "atS": 10.13,
+              "ms": 53.7,
+              "kinds": [
+                "FunctionCall e2 31.0ms",
+                "ResourceFetcher::requestResource 10.8ms",
+                "Blink.Accessibility.UpdateTime 3.6ms",
+                "CommandBufferProxyImpl::Flush 2.0ms"
+              ],
+              "functions": [
+                "fetch 5.5ms",
+                "(program) 4.5ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 2.5ms",
+                "load node_modules/three/build/three.module.js:47804 1.5ms"
+              ]
+            },
+            {
+              "atS": 10.51,
+              "ms": 58.9,
+              "kinds": [],
+              "functions": [
+                "(program) 28.0ms"
+              ]
+            },
+            {
+              "atS": 10.56,
+              "ms": 57.8,
+              "kinds": [],
+              "functions": [
+                "(program) 27.5ms"
+              ]
+            },
+            {
+              "atS": 10.65,
+              "ms": 61.2,
+              "kinds": [
+                "V8.GC_SCAVENGER_COMPLETE_SWEEP_ARRAY_BUFFERS 2.8ms"
+              ],
+              "functions": [
+                "(program) 28.5ms"
+              ]
+            },
+            {
+              "atS": 10.97,
+              "ms": 79.2,
+              "kinds": [
+                "FunctionCall e2 67.2ms",
+                "CommandBufferProxyImpl::WaitForToken 6.1ms",
+                "CommandBufferProxyImpl::Flush 1.9ms"
+              ],
+              "functions": [
+                "texSubImage2D 17.0ms",
+                "uniformMatrix4fv 4.0ms",
+                "(program) 2.0ms",
+                "get node_modules/three/build/three.module.js:17676 2.0ms"
+              ]
+            },
+            {
+              "atS": 11.06,
+              "ms": 91.9,
+              "kinds": [
+                "FunctionCall e2 71.4ms",
+                "CommandBufferProxyImpl::WaitForToken 8.8ms",
+                "CommandBufferProxyImpl::Flush 2.6ms",
+                "Blink.Accessibility.UpdateTime 1.8ms"
+              ],
+              "functions": [
+                "texSubImage2D 25.5ms",
+                "(program) 4.0ms",
+                "uniformMatrix4fv 3.0ms",
+                "setProgram node_modules/three/build/three.module.js:29469 1.5ms"
+              ]
+            },
+            {
+              "atS": 11.16,
+              "ms": 55.9,
+              "kinds": [
+                "RasterImplementation::RasterCHROMIUM 11.8ms",
+                "CommandBufferProxyImpl::WaitForGetOffset 3.7ms",
+                "ResourceFetcher::requestResource 2.7ms",
+                "V8.HandleInterrupts 1.4ms"
+              ],
+              "functions": [
+                "texSubImage2D 7.0ms",
+                "measureText 4.5ms",
+                "getImageData 2.5ms",
+                "fetch 2.0ms"
+              ]
+            },
+            {
+              "atS": 11.22,
+              "ms": 107.8,
+              "kinds": [
+                "FunctionCall e2 64.2ms",
+                "CommandBufferProxyImpl::WaitForToken 33.9ms",
+                "CommandBufferProxyImpl::Flush 2.1ms",
+                "FunctionCall  1.6ms"
+              ],
+              "functions": [
+                "texSubImage2D 31.5ms",
+                "(program) 3.0ms",
+                "setup node_modules/three/build/three.module.js:15730 2.5ms",
+                "renderBufferDirect node_modules/three/build/three.module.js:29463 1.5ms"
+              ]
+            },
+            {
+              "atS": 11.34,
+              "ms": 68.1,
+              "kinds": [
+                "FunctionCall e2 51.2ms",
+                "FunctionCall  3.9ms",
+                "InlineNode::ShapeTextIncludingFirstLine 1.9ms",
+                "Commit 1.9ms"
+              ],
+              "functions": [
+                "texSubImage2D 15.0ms",
+                "(program) 7.0ms",
+                "uniformMatrix4fv 1.5ms",
+                "renderObject node_modules/three/build/three.module.js:30323 1.0ms"
+              ]
+            },
+            {
+              "atS": 11.44,
+              "ms": 106.9,
+              "kinds": [
+                "FunctionCall e2 84.0ms",
+                "CommandBufferProxyImpl::WaitForToken 3.4ms",
+                "Blink.Accessibility.UpdateTime 3.0ms",
+                "FunctionCall  2.3ms"
+              ],
+              "functions": [
+                "texSubImage2D 27.5ms",
+                "(program) 7.0ms",
+                "setup node_modules/three/build/three.module.js:15730 2.0ms",
+                "needsUpdate node_modules/three/build/three.module.js:15178 1.5ms"
+              ]
+            },
+            {
+              "atS": 20.06,
+              "ms": 71.2,
+              "kinds": [],
+              "functions": [
+                "(program) 0.5ms"
+              ]
+            }
+          ],
+          "topFunctions": [
+            "texSubImage2D 175ms",
+            "setProgram node_modules/three/build/three.module.js:29469 161ms",
+            "renderBufferDirect node_modules/three/build/three.module.js:29463 136ms",
+            "needsUpdate node_modules/three/build/three.module.js:15178 124ms",
+            "setup node_modules/three/build/three.module.js:15730 107ms",
+            "uniformMatrix4fv 90ms",
+            "requestAnimationFrame 75ms",
+            "copyArray node_modules/three/build/three.module.js:18275 74ms",
+            "updateMatrixWorld node_modules/three/build/three.module.js:7772 69ms",
+            "drawArrays 66ms",
+            "refreshUniformsCommon node_modules/three/build/three.module.js:27918 65ms",
+            "projectObject node_modules/three/build/three.module.js:30038 64ms"
+          ]
+        }
+      }
+    }
+  }
+}
