@@ -341,7 +341,7 @@ export default function Rolodex({ releases }: { releases: Release[] }) {
     rig.N = N; rig.TOTAL = TOTAL; rig.axisY = built.axis.y; rig.cards = built.cards; rig.knobs = built.knobs;
     rig.coverImages = (i) => {
       const f = built.faces[i], img = (t: THREE.Texture | null | undefined) => (t?.image && (t.image as { width: number }).width > 1 ? { image: t.image, w: (t.image as { width: number }).width } : null);
-      return { front: img(faceMap(f.front)), back: img(faceMap(f.back)) };
+      return { front: img(faceMap(f.front)), back: img(faceMap(f.back)), small: { front: img(f.front.small), back: img(f.back.small) } };
     };
     rig.ready = true;
     // measurement hook for the verification scripts (scripts/gillenwebsite/*.mjs)

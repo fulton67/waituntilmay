@@ -13,6 +13,7 @@ export type Drag = { x: number; y: number; p0: number; az: number; el: number; m
 // a coasting flick: from x0 at t0 (performance.now), speed v0 cards/s in direction dir, stopping on card `to` after T ms
 export type Fling = { x0: number; v0: number; dir: number; t0: number; T: number; to: number };
 
+type CoverImage = { image: unknown; w: number } | null;
 export type Rig = {
   N: number;
   TOTAL: number;
@@ -37,7 +38,8 @@ export type Rig = {
   allSmall: boolean; // every sleeve has its 512 covers, front and back
   lifted: number; // the slot whose sleeve is lifted off the ring into the record view, or -1
   // the decoded bitmaps a release's sleeve is showing now, front and back, with their widths (Rolodex.tsx)
-  coverImages?: (i: number) => { front: { image: unknown; w: number } | null; back: { image: unknown; w: number } | null };
+  // (and the 512 ones it has under them, small)
+  coverImages?: (i: number) => { front: CoverImage; back: CoverImage; small: { front: CoverImage; back: CoverImage } };
   setPaused?: (paused: boolean) => void; // stop or restart the stage's render loop (Scene.tsx), while the record view covers it
   lastDir: number; // the direction the drum last moved in (+1 / -1), for a knob tap at rest
   lastBoost: { before: number; after: number; capped: boolean; at: number } | null; // the last knob tap's speeds (cards/s)

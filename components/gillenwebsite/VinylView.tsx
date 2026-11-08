@@ -17,7 +17,7 @@ import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { rig, wrap } from "./rig";
-import { SLEEVE, sharpen, loadTex, sideFile, sideWidth, coverTexture, type Side } from "./sleeve";
+import { SLEEVE, sharpen, loadTex, sideFile, sideWidth, stripUpload, coverTexture, type Side } from "./sleeve";
 import { buildRecord, grooveNormals, RPM, DISC_R, SLIDE, type RecordModel } from "./record";
 import { paperGrain } from "./textures";
 import css from "./site.module.css";
@@ -50,6 +50,8 @@ type Engine = {
   gl: THREE.WebGLRenderer; scene: THREE.Scene; cam: THREE.PerspectiveCamera; rec: RecordModel; holder: THREE.Group;
   centre: THREE.Vector3; label: { canvas: HTMLCanvasElement; tex: THREE.CanvasTexture; colour: string }; blank: THREE.Texture;
   tex: Record<Side, { t: THREE.Texture | null; w: number; own: boolean }>; size: { w: number; h: number };
+  // big covers going up a strip a frame (sleeve.ts stripUpload): the frame loop runs one step a frame
+  steps: (() => void)[];
 };
 
 async function makeEngine(canvas: HTMLCanvasElement): Promise<Engine> {
@@ -109,16 +111,19 @@ async function makeEngine(canvas: HTMLCanvasElement): Promise<Engine> {
   gl.clear();
   rec.set(0, 0);
   holder.visible = false;
-  return { gl, scene, cam, rec, holder, centre, label: { canvas: lc, tex: ltex, colour: "#e8e2d4" }, blank, tex: { front: { t: null, w: 0, own: false }, back: { t: null, w: 0, own: false } }, size: { w: 64, h: 64 } };
+  return { gl, scene, cam, rec, holder, centre, label: { canvas: lc, tex: ltex, colour: "#e8e2d4" }, blank, tex: { front: { t: null, w: 0, own: false }, back: { t: null, w: 0, own: false } }, size: { w: 64, h: 64 }, steps: [] };
 }
 
 // the label's colour: the cover's lightest dominant colour. The cover at 48 x 48, its pixels in 8 levels a channel;
 // the bins holding at least 6% of them are the dominant colours (the three largest when none does), and the lightest
 // of those (relative luminance), as the mean of its pixels, is the label
+// (read on a canvas kept in memory, willReadFrequently, so the pixels come back with no wait on the GPU; once a
+// release, from its 512 cover)
+const labelColours = new Map<string, string>();
 const lum = (r: number, g: number, b: number) => { const f = (c: number) => { c /= 255; return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b); };
 function labelColour(img: CanvasImageSource) {
   try {
-    const c = new OffscreenCanvas(48, 48), x = c.getContext("2d")!;
+    const c = new OffscreenCanvas(48, 48), x = c.getContext("2d", { willReadFrequently: true })!;
     x.drawImage(img, 0, 0, 48, 48);
     const d = x.getImageData(0, 0, 48, 48).data, bins = new Map<number, { n: number; r: number; g: number; b: number }>();
     for (let k = 0; k < d.length; k += 4) {
@@ -207,15 +212,22 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     e.cam.updateMatrixWorld();
   }, [sizeTo]);
 
-  // put a texture on a side, swapping only once it is decoded and uploaded (the mip-swap rule)
-  const put = useCallback((e: Engine, side: Side, t: THREE.Texture, w: number, own: boolean) => {
-    sharpen(t, e.gl, true);
+  // put a texture on a side, swapping only once it is decoded and uploaded (the mip-swap rule); one that went up in
+  // strips is the renderer's already (prepared: its sampling set, nothing to upload)
+  const put = useCallback((e: Engine, side: Side, t: THREE.Texture, w: number, own: boolean, prepared = false) => {
+    if (!prepared) sharpen(t, e.gl, true);
     e.gl.initTexture(t);
     const slot = e.tex[side];
     if (slot.t && slot.own && slot.t !== t) slot.t.dispose();
     slot.t = t; slot.w = w; slot.own = own;
     if (side === "front") e.rec.front.map = t; else e.rec.back.map = t;
   }, []);
+
+  // a big cover goes up a strip a frame and takes its side with the last strip, if the view still wants it
+  const putLater = useCallback((e: Engine, side: Side, t: THREE.Texture, w: number, want: () => boolean) => {
+    const steps = stripUpload(e.gl, sharpen(t, e.gl, true)), last = steps.pop()!;
+    e.steps.push(...steps.map((step) => () => { if (want()) step(); }), () => { if (!want()) { t.dispose(); return; } last(); put(e, side, t, w, true, true); });
+  }, [put]);
 
   // the sleeve's face on screen, in device pixels, and the files that cover it (at least 1024)
   const facePx = useCallback((e: Engine) => Math.ceil(SIZE * Math.min(innerWidth, innerHeight) * e.gl.getPixelRatio()), []);
@@ -224,18 +236,17 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     for (const side of ["front", "back"] as Side[]) {
       const w = sideWidth(r, side, need);
       if (e.tex[side].w >= w) continue;
-      loadTex(sideFile(r, side, w)).then((t) => {
-        if (state.current.i !== i || state.current.phase === "closed") return t.dispose();
-        put(e, side, t, w, true);
-      });
+      const want = () => state.current.i === i && state.current.phase !== "closed";
+      loadTex(sideFile(r, side, w)).then((t) => { if (!want()) return t.dispose(); putLater(e, side, t, w, want); });
     }
-  }, [releases, facePx, put]);
+  }, [releases, facePx, putLater]);
 
   // the record's colour (Discogs' colour variant, or the cover's dominant colour darkened: vinyl-colour.mjs) and the
   // label's (the cover's lightest dominant colour), set before any motion starts
   const setColours = useCallback((e: Engine, r: Release, img: CanvasImageSource | null) => {
     e.rec.vinyl.color.set(r.vinyl?.colour ?? "#0b0b0c");
-    const colour = img ? labelColour(img) : "#e8e2d4";
+    const colour = labelColours.get(r.id) ?? (img ? labelColour(img) : "#e8e2d4");
+    labelColours.set(r.id, colour);
     drawLabel(e.label.canvas, colour); e.label.tex.needsUpdate = true; e.gl.initTexture(e.label.tex); e.label.colour = colour;
   }, []);
 
@@ -250,6 +261,8 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     // always drawn by one of the two
     rig.lifted = -1;
     rig.setPaused?.(false);
+    // covers still going up are dropped (each step finds the view closed)
+    for (const step of e.steps.splice(0)) step();
     requestAnimationFrame(() => requestAnimationFrame(() => { e.holder.visible = false; e.gl.clear(); box.current?.classList.remove(css.vvOn); setCur(null); onState?.(false); }));
   }, [onState]);
   const loop = useCallback(() => {
@@ -257,6 +270,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     if (!e) return;
     const now = performance.now(), dt = st.last ? Math.min((now - st.last) / 1000, 1 / 20) : 0;
     st.last = now;
+    e.steps.shift()?.();
     const A = st.anim;
     if (st.phase === "anim" && A) {
       st.frames.push(now);
@@ -327,13 +341,14 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     const r = releases[i], need = Math.max(1024, facePx(e));
     for (const side of ["front", "back"] as Side[]) {
       const w = sideWidth(r, side, need);
+      const want = () => st.i === i && st.phase !== "closed";
       loadTex(sideFile(r, side, w)).then((t) => {
-        if (st.i !== i) return t.dispose();
-        put(e, side, t, w, true);
+        if (!want()) return t.dispose();
         if (side === "front") setColours(e, r, t.image as CanvasImageSource);
+        putLater(e, side, t, w, want);
       });
     }
-  }, [releases, facePx, put, setColours]);
+  }, [releases, facePx, putLater, setColours]);
 
   const open = useCallback(async (i: number, from: From) => {
     const st = state.current;
@@ -346,13 +361,19 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     const r = releases[i];
     st.i = i; st.yaw = st.goal = 0; st.back = false; st.slot = kind === "rolodex" ? wrap(Math.round(rig.s), rig.TOTAL) : -1;
     st.fromKind = kind; st.el = from instanceof HTMLElement ? from : null;
-    // the covers: from the Rolodex, the very bitmaps the sleeve is showing (already decoded, uploaded here now);
-    // otherwise the files, decoded before the view starts to move
+    // the covers: from the Rolodex, the very bitmaps the sleeve has (already decoded): its 512 ones go up now, the big
+    // ones it is showing go up a strip a frame while it moves (putLater); otherwise the files, decoded before the view
+    // starts to move
     const ring = kind === "rolodex" ? rig.coverImages?.(i) : null;
+    const bitmap = (x: { image: unknown }) => coverTexture(x.image);
     if (ring?.front && ring.back) {
-      put(e, "front", coverTexture(ring.front.image), ring.front.w, true);
-      put(e, "back", coverTexture(ring.back.image), ring.back.w, true);
-      setColours(e, r, ring.front.image as CanvasImageSource);
+      const want = () => st.i === i && st.phase !== "closed";
+      for (const side of ["front", "back"] as Side[]) {
+        const big = ring[side]!, small = ring.small[side];
+        if (small && small.w < big.w) { put(e, side, bitmap(small), small.w, true); putLater(e, side, bitmap(big), big.w, want); }
+        else put(e, side, bitmap(big), big.w, true);
+      }
+      setColours(e, r, ((ring.small.front ?? ring.front).image) as CanvasImageSource);
     } else {
       const w = 1024;
       const [f, b] = await Promise.all((["front", "back"] as Side[]).map((s) => loadTex(sideFile(r, s, w))));
@@ -375,7 +396,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     st.raf = requestAnimationFrame(loop);
     history.replaceState(history.state, "", `#${r.id}`);
     upgrade(e, i);
-  }, [releases, aim, fitPose, startPose, put, setColours, upgrade, loop, show, onState, run]);
+  }, [releases, aim, fitPose, startPose, put, putLater, setColours, upgrade, loop, show, onState, run]);
 
   useEffect(() => { handle.current = { open, close }; return () => { handle.current = null; }; }, [handle, open, close]);
 
