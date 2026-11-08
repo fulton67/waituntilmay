@@ -1,7 +1,7 @@
-// The record in its sleeve, built in code: a gatefold sleeve (the record view keeps it shut; it can open to OPEN_DEG)
-// with the record sliding out of its right pocket. One model for every release; only three textures change: the
-// front cover (left panel, both faces), the back cover (the sleeve's back) and the label (plain colour drawn by
-// VinylView.tsx).
+// The record in its sleeve, built in code: a gatefold sleeve that opens to OPEN_DEG with the record sliding out of its
+// right pocket. One model for every release; only three textures change: the front cover (left panel, both faces),
+// the back cover (the sleeve's back) and the label (plain colour drawn by VinylView.tsx). Inside, the right pocket's
+// front wall is the credits panel (white board; VinylView sets the SDF type on it).
 // Local frame, closed: exactly the Rolodex sleeve's (sleeve.ts): the front cover faces +z at z = 0, x across, y up
 // from the bottom edge at 0. So the closed model can stand in for the sleeve on the ring, face for face.
 import * as THREE from "three";
@@ -56,7 +56,8 @@ export type RecordModel = {
   root: THREE.Group; // place and turn this
   left: THREE.Group; // the left panel's hinge (rotation.y opens it)
   disc: THREE.Group; // slides (position.x) and spins (rotation.z)
-  labelPivot: THREE.Group; // the label and its type, spinning with the disc
+  labelPivot: THREE.Group; // the label, spinning with the disc
+  credits: THREE.Group; // on the credits panel's face: x across from its middle, y up from its bottom edge (0..SLEEVE)
   front: THREE.MeshStandardMaterial;
   back: THREE.MeshStandardMaterial;
   label: THREE.MeshStandardMaterial;
@@ -79,9 +80,14 @@ export function buildRecord(blank: THREE.Texture, grain: THREE.Texture, grooves:
   const lp = new THREE.Mesh(panel, [front, front, paper]);
   lp.position.set(SLEEVE / 2, 0, 0);
   left.add(lp);
-  // the right pocket: a front wall of bare board, and a rear wall whose outside is the back cover, the back of the
-  // sleeve; the record between them
-  const wall = new THREE.Mesh(panel, [paper, paper, paper]);
+  // the right pocket: a front wall, whose inside face is the credits panel (white board, the site's ground, with the
+  // paper's grain only), and a rear wall whose outside is the back cover, the back of the sleeve; the record between
+  const board = card(null);
+  board.color.set("#ffffff");
+  const wall = new THREE.Mesh(panel, [board, paper, paper]);
+  const credits = new THREE.Group();
+  credits.position.z = 0.0003;
+  wall.add(credits);
   wall.position.z = -PANEL_T - 0.0002;
   const rear = new THREE.Mesh(panel, [paper, back, paper]);
   rear.position.z = -PANEL_T * 2 - DISC_T - 0.0008;
@@ -115,5 +121,5 @@ export function buildRecord(blank: THREE.Texture, grain: THREE.Texture, grooves:
     disc.position.x = SLIDE * s;
   };
   set(0, 0);
-  return { root, left, disc, labelPivot, front, back, label, paper, vinyl, set };
+  return { root, left, disc, labelPivot, credits, front, back, label, paper, vinyl, set };
 }

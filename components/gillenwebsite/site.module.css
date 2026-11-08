@@ -246,8 +246,23 @@
 
 /* SOURCES #12 the record view (VinylView.tsx): over everything but the header (so the nav links stay live), closed
    until .vvOn. The veil is the white ground (R1), opaque once open, so the record stands alone on white; the canvas
-   takes the whole screen so the sleeve can lift from where it was. A tap anywhere closes the view. */
+   takes the whole screen so the sleeve can lift from where it was. The pointer is the arrow over the white (a press
+   there does nothing) and the hand over the record (VinylView sets it). */
 .vv { position: fixed; inset: 0; z-index: 39; pointer-events: none; visibility: hidden; }
 .vvOn { pointer-events: auto; visibility: visible; }
 .vvVeil { position: absolute; inset: 0; background: var(--ground); opacity: 0; }
-.vvCanvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; cursor: grab; }
+.vvCanvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+/* the open record's text as DOM: on desktop for screen readers only (the gatefold's panel carries it as SDF type); on
+   phones under the open sleeve (its top set by VinylView), Dylan's name in the header's face at 22 px, his roles with
+   their tracks and the artist, release and year at 15 px. It fades with the gatefold. (.vvInfo .x beats .root p's
+   font-size: inherit.) */
+.vvInfo { position: absolute; left: 0; top: 0; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; opacity: 0; }
+@media (max-width: 719px) {
+  .vvInfo {
+    right: 0; bottom: 0; width: auto; height: auto; clip-path: none; white-space: normal; overflow: auto; box-sizing: border-box;
+    padding: 0 16px 24px; display: flex; flex-direction: column; gap: 10px; font: 400 15px/1.3 var(--name); font-stretch: 118%;
+  }
+  .vvInfo .vvDylan { margin: 0; font: 400 22px/1.1 var(--name) !important; font-stretch: 118% !important; letter-spacing: 0.02em; }
+  .vvRoles { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .vvRoles dt, .vvRoles dd, .vvInfo .vvRelease { margin: 0; font-size: 15px; line-height: 1.3; }
+}

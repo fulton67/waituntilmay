@@ -156,8 +156,9 @@ export default function Chrome({
   return (
     <PanelCtx.Provider value={{ open, recordOpen }}>
       {/* SOURCES #01 onehouse.com header.site-header > nav.site-nav (pages/000.html:478) */}
-      {/* above the record view, so its nav links stay live; a click anywhere else on it closes the view (VinylView) */}
-      <header ref={head} className={css.top} data-src="01" onClick={(e) => { if (recordOpen && !(e.target as HTMLElement).closest("a")) vinyl.current?.close(); }}>
+      {/* above the record view, so its nav links stay live (a click elsewhere on it does nothing: VinylView closes on
+          a vertical drag or Escape only) */}
+      <header ref={head} className={css.top} data-src="01">
         <nav className={css.siteNav} data-src="01">
           {/* SOURCES #02 onehouse.com a.site-nav_logo-wrapper with aria-current */}
           <a className={css.name} data-src="02 05" href={BASE} aria-current={path === BASE ? "page" : undefined} onClick={(e) => go(e, BASE)}>

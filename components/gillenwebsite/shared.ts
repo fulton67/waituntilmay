@@ -15,5 +15,19 @@ export const coverFile = (r: Release, w: number, ext: "jpg" | "avif" = "jpg") =>
 export const rolesOf = (r: Release) =>
   [...new Set([r.role, ...r.tracks.map((t) => t.role)].flatMap((s) => s.split(",")).map((s) => s.trim()).filter(Boolean))];
 
+// Dylan's roles on a release, each with the tracks it applies to (in track order), for the record view; roles on
+// exactly the same tracks share one heading ("EXECUTIVE PRODUCER, PRODUCER"), so no list of tracks is given twice. A
+// track's "(feat. ...)" is left off: the view names no one but Dylan (and the release's artist).
+export const trackTitle = (t: string) => t.replace(/\s*[([](?:feat\.?|ft\.?|featuring|with)\s[^)\]]*[)\]]/gi, "").trim();
+export const dylanRoles = (r: Release) => {
+  const out: { role: string; tracks: string[] }[] = [];
+  for (const role of r.role.split(",").map((x) => x.trim()).filter(Boolean)) {
+    const tracks = r.tracks.filter((t) => t.role.split(",").map((x) => x.trim()).includes(role)).map((t) => trackTitle(t.title));
+    const same = out.find((o) => o.tracks.join("|") === tracks.join("|"));
+    if (same) same.role += `, ${role}`; else out.push({ role, tracks });
+  }
+  return out;
+};
+
 // capitals are typed into the string, never set by CSS (bible R7)
 export const caps = (s: string) => s.toUpperCase();
