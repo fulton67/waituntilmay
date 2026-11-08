@@ -1,3 +1,4 @@
+// Superseded 2026-11-08 by recordview.mjs: the open view is now the object alone (no panel type, no column).
 // The open record view (VinylView.tsx), at 1440 x 900 DPR 2 and 390 x 844 DPR 3 (touch, 4x CPU throttle):
 //  - the caption block under the drum: there before opening, gone while open, back after the close
 //  - the gatefold panel's type (__vinyl.panel(): troika SDF text): each block's text, face file, size in metres and

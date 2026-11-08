@@ -1,7 +1,7 @@
-// The open record, built in code: a gatefold sleeve opened to OPEN_DEG with the record slid out of its right
-// pocket. One model for every release; only three textures change: the front cover (left panel, both faces), the
-// back cover (the sleeve's back) and the label (plain paper drawn by VinylView.tsx). Inside, the right
-// pocket's front wall carries the credits.
+// The record in its sleeve, built in code: a gatefold sleeve (the record view keeps it shut; it can open to OPEN_DEG)
+// with the record sliding out of its right pocket. One model for every release; only three textures change: the
+// front cover (left panel, both faces), the back cover (the sleeve's back) and the label (plain colour drawn by
+// VinylView.tsx).
 // Local frame, closed: exactly the Rolodex sleeve's (sleeve.ts): the front cover faces +z at z = 0, x across, y up
 // from the bottom edge at 0. So the closed model can stand in for the sleeve on the ring, face for face.
 import * as THREE from "three";
@@ -57,7 +57,6 @@ export type RecordModel = {
   left: THREE.Group; // the left panel's hinge (rotation.y opens it)
   disc: THREE.Group; // slides (position.x) and spins (rotation.z)
   labelPivot: THREE.Group; // the label and its type, spinning with the disc
-  credits: THREE.Group; // on the credits panel's face: x across, y up from its bottom edge (0..SLEEVE)
   front: THREE.MeshStandardMaterial;
   back: THREE.MeshStandardMaterial;
   label: THREE.MeshStandardMaterial;
@@ -80,20 +79,15 @@ export function buildRecord(blank: THREE.Texture, grain: THREE.Texture, grooves:
   const lp = new THREE.Mesh(panel, [front, front, paper]);
   lp.position.set(SLEEVE / 2, 0, 0);
   left.add(lp);
-  // the right pocket: a front wall, whose inside face is the credits panel (paper, SDF type from VinylView), and a
-  // rear wall whose outside is the back cover, the back of the sleeve; the record between them
-  // the credits panel's face is white board, the site's ground, with the paper's grain only
-  const board = card(null);
-  board.color.set("#ffffff");
-  const wall = new THREE.Mesh(panel, [board, paper, paper]);
-  const credits = new THREE.Group();
-  credits.position.z = 0.0003;
-  wall.add(credits);
+  // the right pocket: a front wall of bare board, and a rear wall whose outside is the back cover, the back of the
+  // sleeve; the record between them
+  const wall = new THREE.Mesh(panel, [paper, paper, paper]);
   wall.position.z = -PANEL_T - 0.0002;
   const rear = new THREE.Mesh(panel, [paper, back, paper]);
   rear.position.z = -PANEL_T * 2 - DISC_T - 0.0008;
   // the record: black vinyl, a clear coat over the grooves, 2 mm thick, on the sleeve's centre
-  const vinyl = new THREE.MeshPhysicalMaterial({ color: "#0b0b0c", roughness: 0.25, metalness: 0, clearcoat: 0.9, clearcoatRoughness: 0.12, normalMap: grooves, normalScale: new THREE.Vector2(1, 1), envMapIntensity: 0.9 });
+  // (its reflection of the room kept low: face on, a brighter one reads as grey vinyl, not black)
+  const vinyl = new THREE.MeshPhysicalMaterial({ color: "#0b0b0c", roughness: 0.25, metalness: 0, clearcoat: 0.9, clearcoatRoughness: 0.12, normalMap: grooves, normalScale: new THREE.Vector2(1, 1), envMapIntensity: 0.35 });
   const rim = new THREE.MeshStandardMaterial({ color: "#111", roughness: 0.4 });
   const dg = new THREE.CylinderGeometry(DISC_R, DISC_R, DISC_T, 128, 1);
   dg.rotateX(Math.PI / 2); // axis along z, cylinder caps face +z and -z with UVs spanning the disc
@@ -121,11 +115,5 @@ export function buildRecord(blank: THREE.Texture, grain: THREE.Texture, grooves:
     disc.position.x = SLIDE * s;
   };
   set(0, 0);
-  return { root, left, disc, labelPivot, credits, front, back, label, paper, vinyl, set };
+  return { root, left, disc, labelPivot, front, back, label, paper, vinyl, set };
 }
-
-// the open model's extent in its own frame (x: left panel's far edge to the disc's far edge; y: 0 to SLEEVE)
-export const OPEN_BOX = (() => {
-  const a = THREE.MathUtils.degToRad(OPEN_DEG);
-  return { x0: -SLEEVE / 2 + Math.cos(Math.PI - a) * -SLEEVE, x1: SLIDE + DISC_R, y0: 0, y1: SLEEVE, z1: Math.sin(Math.PI - a) * SLEEVE };
-})();

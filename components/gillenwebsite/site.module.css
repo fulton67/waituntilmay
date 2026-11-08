@@ -254,25 +254,9 @@
 }
 
 /* SOURCES #12 the record view (VinylView.tsx): over everything but the header (so the nav links stay live), closed
-   until .vvOn. (.vvInfo .x beats .root p's font-size: inherit.) The veil dims what is behind it to the white ground
-   (R1); the canvas takes the whole screen so the sleeve can lift from where it was; the info is a column on the right
-   (desktop) or under the record (phones, where the record is the full width at the top). A click anywhere on it
-   closes the view, so the pointer is the default arrow over the column. */
+   until .vvOn. The veil is the white ground (R1), opaque once open, so the record stands alone on white; the canvas
+   takes the whole screen so the sleeve can lift from where it was. A tap anywhere closes the view. */
 .vv { position: fixed; inset: 0; z-index: 39; pointer-events: none; visibility: hidden; }
 .vvOn { pointer-events: auto; visibility: visible; }
-.vvVeil { position: absolute; inset: 0; background: rgba(255, 255, 255, 0.86); opacity: 0; }
+.vvVeil { position: absolute; inset: 0; background: var(--ground); opacity: 0; }
 .vvCanvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; cursor: grab; }
-.vvInfo {
-  position: absolute; top: calc(var(--head) + 24px); right: 0; bottom: 0; width: 420px; box-sizing: border-box;
-  padding: 0 28px 28px 20px; overflow: auto; display: flex; flex-direction: column; gap: 14px;
-  font: 400 18px/1.25 var(--name); font-stretch: 118%; opacity: 0; background: var(--ground); cursor: pointer;
-}
-/* Dylan's name: the header's face (.name) at three times its 12 px, regular, capitals typed in */
-.vvInfo .vvDylan { font: 400 36px/1.05 var(--name) !important; font-stretch: 118% !important; letter-spacing: 0.02em; text-wrap: balance; }
-/* his roles, each with the tracks it applies to, then the release and year: the header's face at 1.5 x the 12 px
-   interface size */
-.vvRoles { margin: 0; display: flex; flex-direction: column; gap: 10px; }
-.vvRoles dt, .vvRoles dd, .vvInfo .vvRelease { margin: 0; font-size: 18px; line-height: 1.25; }
-@media (max-width: 719px) {
-  .vvInfo { top: calc(var(--head) + 62vw + 8px); left: 0; width: auto; padding: 0 16px 24px; }
-}

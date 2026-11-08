@@ -1,0 +1,343 @@
+{
+  "base": "http://localhost:3228",
+  "at": "2026-11-08T07:07:18.042Z",
+  "profiles": {
+    "desktop": {
+      "captionBefore": true,
+      "captionWhileOpen": false,
+      "textNodes": 0,
+      "dialogText": "",
+      "objects": [
+        {
+          "name": "",
+          "type": "Group",
+          "parent": "holder"
+        },
+        {
+          "name": "",
+          "type": "Group",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Group",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Mesh",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Mesh",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Mesh",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Group",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Mesh",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Group",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Mesh",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Mesh",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Mesh",
+          "parent": "Group"
+        }
+      ],
+      "textObjects": 0,
+      "sleeve": {
+        "w": 720,
+        "h": 720,
+        "cx": 720,
+        "cy": 450,
+        "shorter": 900,
+        "ratio": 0.8
+      },
+      "halfOut": {
+        "slide": 0.5556,
+        "half": 0.5556,
+        "spinningRadIn500ms": 1.804
+      },
+      "toBack": {
+        "fps": 60,
+        "over33": 0,
+        "frames": 116
+      },
+      "toBackState": {
+        "flips": [
+          {
+            "to": "back",
+            "yawDeg": 93.5,
+            "at": 6864
+          }
+        ],
+        "yawDeg": 180,
+        "goalDeg": 180,
+        "slide": 0,
+        "spinningWhileBack": false,
+        "inAfterTurnFrames": 124
+      },
+      "toFront": {
+        "fps": 60,
+        "over33": 0,
+        "frames": 113
+      },
+      "toFrontState": {
+        "flips": [
+          {
+            "to": "front",
+            "yawDeg": 86.5,
+            "at": 9197
+          }
+        ],
+        "yawDeg": 0,
+        "goalDeg": 0,
+        "slide": 0.5556,
+        "spinning": true
+      },
+      "closeTargets": [
+        {
+          "what": "sleeve middle",
+          "x": 720,
+          "y": 450,
+          "closed": true,
+          "ran": "close 357ms 60fps"
+        },
+        {
+          "what": "record",
+          "x": 1149,
+          "y": 638,
+          "closed": true,
+          "ran": "close 359ms 60fps"
+        },
+        {
+          "what": "ground, bottom left",
+          "x": 30,
+          "y": 870,
+          "closed": true,
+          "ran": "close 354ms 60fps"
+        },
+        {
+          "what": "right edge",
+          "x": 1428,
+          "y": 675,
+          "closed": true,
+          "ran": "close 355ms 60fps"
+        },
+        {
+          "what": "sleeve middle, turned back on",
+          "x": 720,
+          "y": 450,
+          "closed": true,
+          "ran": "close 362ms 60fps"
+        }
+      ],
+      "captionAfterClose": true,
+      "fps": {
+        "open": 62.1,
+        "close": 60,
+        "turn": 60
+      },
+      "spin": {
+        "out": 345,
+        "notOut": 0
+      },
+      "navLink": "/gillenwebsite/discography",
+      "pass": true
+    },
+    "phone": {
+      "captionBefore": true,
+      "captionWhileOpen": false,
+      "textNodes": 0,
+      "dialogText": "",
+      "objects": [
+        {
+          "name": "",
+          "type": "Group",
+          "parent": "holder"
+        },
+        {
+          "name": "",
+          "type": "Group",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Group",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Mesh",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Mesh",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Mesh",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Group",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Mesh",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Group",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Mesh",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Mesh",
+          "parent": "Group"
+        },
+        {
+          "name": "",
+          "type": "Mesh",
+          "parent": "Group"
+        }
+      ],
+      "textObjects": 0,
+      "sleeve": {
+        "w": 312,
+        "h": 312,
+        "cx": 195,
+        "cy": 422,
+        "shorter": 390,
+        "ratio": 0.8
+      },
+      "halfOut": {
+        "slide": 0.5556,
+        "half": 0.5556,
+        "spinningRadIn500ms": 1.795
+      },
+      "toBack": {
+        "fps": 60,
+        "over33": 0,
+        "frames": 137
+      },
+      "toBackState": {
+        "flips": [
+          {
+            "to": "back",
+            "yawDeg": 93.5,
+            "at": 6225
+          }
+        ],
+        "yawDeg": 180,
+        "goalDeg": 180,
+        "slide": 0,
+        "spinningWhileBack": false,
+        "inAfterTurnFrames": 144
+      },
+      "toFront": {
+        "fps": 60,
+        "over33": 0,
+        "frames": 137
+      },
+      "toFrontState": {
+        "flips": [
+          {
+            "to": "front",
+            "yawDeg": 86.5,
+            "at": 8958
+          }
+        ],
+        "yawDeg": 0,
+        "goalDeg": 0,
+        "slide": 0.5556,
+        "spinning": true
+      },
+      "closeTargets": [
+        {
+          "what": "sleeve middle",
+          "x": 195,
+          "y": 422,
+          "closed": true,
+          "ran": "close 362ms 60fps"
+        },
+        {
+          "what": "record",
+          "x": 385,
+          "y": 501,
+          "closed": true,
+          "ran": "close 363ms 60fps"
+        },
+        {
+          "what": "ground, bottom left",
+          "x": 30,
+          "y": 814,
+          "closed": true,
+          "ran": "close 362ms 60fps"
+        },
+        {
+          "what": "right edge",
+          "x": 378,
+          "y": 633,
+          "closed": true,
+          "ran": "close 362ms 60fps"
+        },
+        {
+          "what": "sleeve middle, turned back on",
+          "x": 195,
+          "y": 422,
+          "closed": true,
+          "ran": "close 362ms 60fps"
+        }
+      ],
+      "captionAfterClose": true,
+      "fps": {
+        "open": 56.2,
+        "close": 60,
+        "turn": 60
+      },
+      "spin": {
+        "out": 397,
+        "notOut": 0
+      },
+      "navLink": "/gillenwebsite/discography",
+      "pass": true
+    }
+  },
+  "pass": true
+}

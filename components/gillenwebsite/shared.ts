@@ -15,14 +15,5 @@ export const coverFile = (r: Release, w: number, ext: "jpg" | "avif" = "jpg") =>
 export const rolesOf = (r: Release) =>
   [...new Set([r.role, ...r.tracks.map((t) => t.role)].flatMap((s) => s.split(",")).map((s) => s.trim()).filter(Boolean))];
 
-// Dylan's roles on a release, each with the tracks it applies to (in track order), for the record view. A track's
-// "(feat. ...)" is left off: the view names no one but Dylan.
-export const trackTitle = (t: string) => t.replace(/\s*[([](?:feat\.?|ft\.?|featuring|with)\s[^)\]]*[)\]]/gi, "").trim();
-export const dylanRoles = (r: Release) =>
-  r.role.split(",").map((x) => x.trim()).filter(Boolean).map((role) => ({
-    role,
-    tracks: r.tracks.filter((t) => t.role.split(",").map((x) => x.trim()).includes(role)).map((t) => trackTitle(t.title)),
-  }));
-
 // capitals are typed into the string, never set by CSS (bible R7)
 export const caps = (s: string) => s.toUpperCase();
