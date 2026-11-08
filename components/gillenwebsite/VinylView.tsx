@@ -6,15 +6,18 @@
 //    spinning (33 1/3 rpm, not with reduced motion). On the right-hand panel, SDF type (troika-three-text) in the
 //    header's face, regular: DYLAN NEUSTADTER at three times the header's 12 px, then his roles on this release, each
 //    with the tracks it applies to, then the artist, release and year, at 1.5 times the 12 px interface size. Nothing
-//    about anyone else. On phones (under PHONE px wide) the open sleeve fills the width and the same text is DOM under
-//    it at 22 / 15 px; the panel is bare. The label is plain colour.
+//    about anyone else. On phones (under PHONE px wide) the open sleeve is centred in the viewport at 92% of its width
+//    and the same type is on its panel, scaled with the sleeve (the name about 18 px on a 390 px screen). No DOM text
+//    on any width. The label is the cover's light colour with the release's title round its top, so the 33 1/3 rpm
+//    turn shows. A click or tap on the name sends the sleeve back to the ring.
 //  - shut, turning: a horizontal drag on the open record closes it first (the record slides in over SLIDE_MS, then the
 //    gatefold shuts over GATE_MS, the type fading with it, the sleeve moving to the middle). Only then does the shut
-//    sleeve turn with the drag about its upright axis, so the back cover comes round; it stays shut, all the way
-//    round, any number of times. A tap on the shut sleeve opens it again, facing the camera.
-//  - back to the Rolodex: a vertical drag of more than SWIPE px on the sleeve, open or shut, or Escape: the record in,
-//    the gatefold shut, the sleeve back to its slot on the ring (or the discography row it came from). A tap on the
-//    white does nothing; there is no close button.
+//    sleeve turn with the drag about its upright axis, 1:1 with the finger (TURN: 0.6 degrees a px, a turn in 600 px),
+//    so the back cover comes round; let go it carries on and slows (FRICTION: a 1500 px/s flick carries half a turn).
+//    It stays shut, all the way round, any number of times. A tap on the shut sleeve opens it again, facing the camera.
+//  - back to the Rolodex: a vertical drag of more than SWIPE px on the sleeve (more vertical than horizontal), open or
+//    shut, a click on the name, or Escape: the record in, the gatefold shut, the sleeve back to its slot on the ring
+//    (or the discography row it came from). A tap on the white does nothing; there is no close button.
 // From the Rolodex the front sleeve itself lifts off the ring: this canvas draws over the stage with the stage
 // camera's own view, and the model starts exactly where the sleeve was. Plain three.js, one requestAnimationFrame
 // loop.
@@ -34,11 +37,13 @@ import css from "./site.module.css";
 // gatefold one after the other
 export const OPEN_MS = 450, CLOSE_MS = 350, SHUT_CLOSE_MS = 300, SLIDE_MS = 180, GATE_MS = 220;
 const FOLD_MS = SLIDE_MS + GATE_MS;
-// a drag turns the shut sleeve TURN radians a px; a vertical drag past SWIPE px sends it back to the ring; under TAP
-// px of movement is a tap; the drag's axis is decided once it has moved AXIS px
-const TURN = 0.008, SWIPE = 80, TAP = 5, AXIS = 8;
-// phones: the open sleeve the full width, the text in the DOM under it
-const PHONE = 720;
+// a drag turns the shut sleeve TURN radians a px (0.6 degrees); let go, it turns on at the finger's speed and slows
+// by FRICTION a second (exponentially: a flick of FLICK px/s carries half a turn); a vertical drag past SWIPE px sends
+// it back to the ring; under TAP px of movement is a tap; the drag's axis is decided once it has moved AXIS px
+const TURN = THREE.MathUtils.degToRad(0.6), FLICK = 1500, FRICTION = (FLICK * TURN) / Math.PI, SWIPE = 80, TAP = 5, AXIS = 8;
+// phones: the open sleeve centred in the viewport at PHONE_W of its width, the name at PHONE_NAME px on a 390 px
+// screen (in proportion on others)
+const PHONE = 720, PHONE_W = 0.92, PHONE_NAME = 18;
 // each motion's stages, as fractions of its duration: [start, end] of the move (and turn), the gatefold and the
 // record's slide
 type Win = [number, number];
@@ -55,27 +60,31 @@ const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2
 const stage = (f: number, [a, b]: Win) => ease(Math.min(1, Math.max(0, (f - a) / (b - a))));
 // the nearest whole turn: the sleeve faces the camera there
 const whole = (y: number) => Math.PI * 2 * Math.round(y / (Math.PI * 2));
-// the label: a plain paper disc in one colour from the cover (its lightest dominant colour) and the spindle hole
-// (record.ts); no type, no cover pixels
-const LABEL_PX = 256;
+// The label: a paper disc in one colour from the cover (its lightest dominant colour) with the release's title round
+// its top arc, in the header's face, and the spindle hole (record.ts); no cover pixels. Without the title the disc
+// would look the same at every angle and the turn would not show.
+const LABEL_PX = 512;
+// (the header's own face, as the page has loaded it: its family name is next/font's)
+const labelFace = () => (document.querySelector("header a") ? getComputedStyle(document.querySelector("header a")!).fontFamily : "") || `"Helvetica Neue", Arial, sans-serif`;
 // The panel's type: Archivo at 118% width, regular (public/gillenwebsite/fonts/archivo-wdth118-regular.ttf, the
 // static instance of what the header sets). The name at three times the header's 12 px as it stands on screen in the
 // open pose (36 CSS px an em), or as large as the panel's width takes NEUSTADTER where that is smaller; the roles and
 // tracks, and the artist, release and year, at 18 px an em, made smaller only if they would run off the panel.
 const PANEL_FONT = "/gillenwebsite/fonts/archivo-wdth118-regular.ttf";
 const NAME = "DYLAN NEUSTADTER";
-const PANEL = { margin: 0.026, header: 12, ui: 12, gap: 0.9 };
+// (the margin round the type: 26 mm; on phones 12 mm, so the name can be as large as the narrow panel takes)
+const PANEL = { margin: 0.026, phoneMargin: 0.012, header: 12, ui: 12, gap: 0.9 };
 
 export type From = "rolodex" | HTMLElement | null;
-export type VinylHandle = { open: (i: number, from: From) => void; close: () => void };
+export type VinylHandle = { open: (i: number, from: From) => void; close: (why?: string) => void };
 type Pose = { p: THREE.Vector3; q: THREE.Quaternion };
 // the open pose and the shut one (the same distance, the shut sleeve's centre on the region's), the sleeve's edge on
-// screen (CSS px), and where the DOM text starts on phones
-type Poses = { open: Pose; shut: Pose; sleevePx: number; infoTop: number; phone: boolean };
+// screen (CSS px), and whether it is the phone layout
+type Poses = { open: Pose; shut: Pose; sleevePx: number; phone: boolean };
 
 // widthPerSize: NEUSTADTER's width over its font size; size: the last sizePanel (metres an em, and the panel's metres
 // to CSS px; setPanel may make the two smaller blocks smaller than `line`); token: the latest layout (a newer one wins)
-type Panel = { name: Text; roles: Text; line: Text; widthPerSize: number; size: { pxPerM: number; name: number; line: number; nameCapped: boolean } | null; token: number };
+type Panel = { name: Text; roles: Text; line: Text; widthPerSize: number; margin: number; size: { pxPerM: number; name: number; line: number; nameCapped: boolean } | null; token: number };
 
 type Engine = {
   gl: THREE.WebGLRenderer; scene: THREE.Scene; cam: THREE.PerspectiveCamera; rec: RecordModel; holder: THREE.Group; panel: Panel;
@@ -130,8 +139,8 @@ async function makeEngine(canvas: HTMLCanvasElement): Promise<Engine> {
   const lc = document.createElement("canvas");
   lc.width = lc.height = LABEL_PX;
   const ltex = new THREE.CanvasTexture(lc);
-  ltex.colorSpace = THREE.SRGBColorSpace;
-  drawLabel(lc, "#e8e2d4");
+  ltex.colorSpace = THREE.SRGBColorSpace; ltex.anisotropy = gl.capabilities.getMaxAnisotropy();
+  drawLabel(lc, "#e8e2d4", "RELEASE");
   ltex.needsUpdate = true;
   rec.label.map = ltex; rec.label.color.set("#ffffff");
   // the panel's type: the name, his roles with their tracks, and the artist, release and year, from the panel's top
@@ -144,7 +153,7 @@ async function makeEngine(canvas: HTMLCanvasElement): Promise<Engine> {
     rec.credits.add(t);
     return t;
   };
-  const panel: Panel = { name: text(0.03, 1.05), roles: text(0.015, 1.25), line: text(0.015, 1.25), widthPerSize: 6.5, size: null, token: 0 };
+  const panel: Panel = { name: text(0.03, 1.05), roles: text(0.015, 1.25), line: text(0.015, 1.25), widthPerSize: 6.5, margin: PANEL.margin, size: null, token: 0 };
   // the font is fetched and its glyphs laid out now, so the first opening has it; NEUSTADTER's width measured
   panel.name.text = "NEUSTADTER"; panel.roles.text = "PRODUCER"; panel.line.text = "RELEASE";
   await synced([panel.name, panel.roles, panel.line]);
@@ -169,14 +178,20 @@ async function makeEngine(canvas: HTMLCanvasElement): Promise<Engine> {
 // the panel's type sizes for the open pose: the panel's metres to CSS px there (from its middle up 0.1 m, projected);
 // the name at 36 px an em, or the panel's width less its margins over NEUSTADTER where that is smaller; the rest at
 // 18 px. The model goes back to where it was.
-function sizePanel(e: Engine, pose: Pose, g: number, s: number) {
+function sizePanel(e: Engine, pose: Pose, g: number, s: number, phone: boolean) {
   const was = { p: e.holder.position.clone(), q: e.holder.quaternion.clone() };
   e.holder.position.copy(pose.p); e.holder.quaternion.copy(pose.q); e.rec.set(1, 1); e.holder.updateMatrixWorld(true);
   const m = e.rec.credits.matrixWorld, a = new THREE.Vector3(0, SLEEVE / 2, 0).applyMatrix4(m).project(e.cam), b = new THREE.Vector3(0, SLEEVE / 2 + 0.1, 0).applyMatrix4(m).project(e.cam);
   const pxPerM = Math.hypot(((a.x - b.x) * innerWidth) / 2, ((a.y - b.y) * innerHeight) / 2) / 0.1;
   e.holder.position.copy(was.p); e.holder.quaternion.copy(was.q); e.rec.set(g, s); e.holder.updateMatrixWorld(true);
-  const want = (3 * PANEL.header) / pxPerM, fit = (SLEEVE - 2 * PANEL.margin) / e.panel.widthPerSize;
-  e.panel.size = { pxPerM, name: Math.min(want, fit), line: (1.5 * PANEL.ui) / pxPerM, nameCapped: want > fit };
+  // (phones: the name at PHONE_NAME px on a 390 px screen, in proportion to the screen's width, the rest at half that,
+  // inside the narrower margin)
+  const mg = phone ? PANEL.phoneMargin : PANEL.margin;
+  e.panel.margin = mg;
+  for (const t of [e.panel.name, e.panel.roles, e.panel.line]) { t.maxWidth = SLEEVE - 2 * mg; t.position.x = -SLEEVE / 2 + mg; }
+  const want = (phone ? (PHONE_NAME * innerWidth) / 390 : 3 * PANEL.header) / pxPerM, fit = (SLEEVE - 2 * mg) / e.panel.widthPerSize;
+  const name = Math.min(want, fit);
+  e.panel.size = { pxPerM, name, line: phone ? name / 2 : (1.5 * PANEL.ui) / pxPerM, nameCapped: want > fit };
 }
 
 // the panel's type for a release, laid out top down: the name, a gap, the roles with their tracks, a gap, the artist,
@@ -192,11 +207,11 @@ async function setPanel(e: Engine, r: Release) {
     P.roles.fontSize = P.line.fontSize = sz.line * k;
     await synced([P.name, P.roles, P.line]);
     if (tok !== P.token) return;
-    const gap = PANEL.gap * sz.line * k, top = SLEEVE - PANEL.margin;
+    const gap = PANEL.gap * sz.line * k, top = SLEEVE - P.margin;
     P.name.position.y = top;
     P.roles.position.y = top - blockH(P.name) - gap;
     P.line.position.y = P.roles.position.y - blockH(P.roles) - gap;
-    const used = top - (P.line.position.y - blockH(P.line)), avail = SLEEVE - 2 * PANEL.margin;
+    const used = top - (P.line.position.y - blockH(P.line)), avail = SLEEVE - 2 * P.margin;
     if (used <= avail + 1e-6) break;
     const rest = blockH(P.roles) + blockH(P.line), room = avail - blockH(P.name) - 2 * gap;
     k *= Math.max(0.3, Math.min(0.98, room / rest));
@@ -225,10 +240,27 @@ function labelColour(img: CanvasImageSource) {
     return "#" + pick.map((v) => Math.round(v).toString(16).padStart(2, "0")).join("");
   } catch { return "#e8e2d4"; }
 }
-// the label's face: the colour edge to edge (the spindle hole is its own mesh, record.ts)
-function drawLabel(c: HTMLCanvasElement, bg: string) {
-  const x = c.getContext("2d")!;
-  x.fillStyle = bg; x.fillRect(0, 0, c.width, c.height);
+const inkOn = (bg: string) => { const [r, g, b] = [1, 3, 5].map((k) => parseInt(bg.slice(k, k + 2), 16)); return lum(r, g, b) > 0.3 ? "#141414" : "#f4f1ea"; };
+// the label's face: the colour edge to edge, and the title round the top arc in capitals, reading clockwise, in
+// near-black or near-white for the contrast, large enough to see turn on a phone (smaller to fit 225 degrees of arc).
+// The spindle hole is its own mesh.
+function drawLabel(c: HTMLCanvasElement, bg: string, text = "") {
+  const x = c.getContext("2d")!, P = c.width, R = P / 2;
+  x.fillStyle = bg; x.fillRect(0, 0, P, P);
+  if (!text) return;
+  x.fillStyle = inkOn(bg); x.textAlign = "center"; x.textBaseline = "alphabetic";
+  const rt = R * 0.7, maxArc = Math.PI * 1.25, up = text.toUpperCase();
+  let size = P * 0.13;
+  const face = labelFace();
+  const glyphs = () => { x.font = `400 ${size}px ${face}`; return [...up].map((ch) => ({ ch, w: x.measureText(ch).width + size * 0.12 })); };
+  let gs = glyphs(), L = gs.reduce((a, q) => a + q.w, 0);
+  if (L / rt > maxArc) { size *= maxArc / (L / rt); gs = glyphs(); L = gs.reduce((a, q) => a + q.w, 0); }
+  let at = -Math.PI / 2 - L / rt / 2;
+  for (const q of gs) {
+    const a = at + q.w / 2 / rt;
+    x.save(); x.translate(R + Math.cos(a) * rt, R + Math.sin(a) * rt); x.rotate(a + Math.PI / 2); x.fillText(q.ch, 0, 0); x.restore();
+    at += q.w / rt;
+  }
 }
 
 type Mode = "closed" | "anim" | "open" | "shut";
@@ -236,32 +268,32 @@ type Shape = { pose: Pose; g: number; s: number; yaw: number };
 type Anim = { kind: "open" | "close" | "fold" | "unfold"; t0: number; dur: number; plan: Plan; from: Shape; to: Shape; end: "open" | "shut" | "closed"; slidAt?: number };
 // a pointer on the sleeve: where it went down and is now, the most it has moved, its axis once decided, and for a
 // turn the x it counts from and the turn then
-type Drag = { x0: number; y0: number; x: number; y: number; moved: number; axis: "h" | "v" | null; turnX: number | null; yaw0: number };
+// (and its last positions, for the speed it is let go at)
+type Drag = { x0: number; y0: number; x: number; y: number; moved: number; axis: "h" | "v" | null; turnX: number | null; yaw0: number; trail: { t: number; x: number }[] };
 
 // `handle` receives open/close once the view is mounted (it is loaded with next/dynamic, so not through a ref)
 export default function VinylView({ releases, handle, onState }: { releases: Release[]; handle: React.RefObject<VinylHandle | null>; onState?: (open: boolean) => void }) {
   const N = releases.length;
-  const box = useRef<HTMLDivElement>(null), canvas = useRef<HTMLCanvasElement>(null), veil = useRef<HTMLDivElement>(null), info = useRef<HTMLDivElement>(null);
+  const box = useRef<HTMLDivElement>(null), canvas = useRef<HTMLCanvasElement>(null), veil = useRef<HTMLDivElement>(null);
   const eng = useRef<Engine | null>(null), engine = useRef<Promise<Engine> | null>(null);
   const [cur, setCur] = useState<number | null>(null);
   const state = useRef<{ mode: Mode; anim: Anim | null; q: THREE.Quaternion; poses: Poses | null; g: number; s: number; yaw: number; i: number; slot: number; spin: number;
-    drag: Drag | null; frames: number[]; raf: number; last: number; frame: number; fromKind: "rolodex" | "element" | "none"; el: HTMLElement | null; op: number; turned: boolean;
+    drag: Drag | null; turnV: number; frames: number[]; raf: number; last: number; frame: number; fromKind: "rolodex" | "element" | "none"; el: HTMLElement | null; op: number; turned: boolean;
     trace: { kind: string; frame: number; g: number; s: number; yaw: number }[]; events: { ev: string; frame: number; t: number }[]; spinOut: number; spinNotOut: number; liftFrames: number }>({
-    mode: "closed", anim: null, q: new THREE.Quaternion(), poses: null, g: 0, s: 0, yaw: 0, i: 0, slot: -1, spin: 0, drag: null, frames: [], raf: 0, last: 0, frame: 0, fromKind: "none", el: null, op: -1, turned: false,
+    mode: "closed", anim: null, q: new THREE.Quaternion(), poses: null, g: 0, s: 0, yaw: 0, i: 0, slot: -1, spin: 0, drag: null, turnV: 0, frames: [], raf: 0, last: 0, frame: 0, fromKind: "none", el: null, op: -1, turned: false,
     trace: [], events: [], spinOut: 0, spinNotOut: 0, liftFrames: 0 });
   const reduce = useRef(false);
   const log = useRef<{ dir: string; ms: number; frames: number; fps: number; worstMs: number }[]>([]);
   const ray = useRef(new THREE.Raycaster());
 
-  // the region the open record is centred in, under the header: the whole width on desktop; on phones a band at the
-  // top as wide as the screen, the text under it
+  // the region the open record is centred in: under the header on desktop; the whole viewport on phones
   const region = useCallback(() => {
     const W = innerWidth, H = innerHeight, head = document.querySelector("header")?.offsetHeight ?? 44;
-    return W >= PHONE ? { x: 0, y: head, w: W, h: H - head, phone: false } : { x: 0, y: head + 8, w: W, h: Math.round(W * 0.44), phone: true };
+    return W >= PHONE ? { x: 0, y: head, w: W, h: H - head, phone: false } : { x: 0, y: 0, w: W, h: H, phone: true };
   }, []);
 
   // the open pose: face on, at the distance and offset where the open model's projected box fills its region with a
-  // margin (the full width on phones), centred in it. Found by measuring: place, project, correct. The shut pose is
+  // margin (on phones PHONE_W of the width), centred in it. Found by measuring: place, project, correct. The shut pose is
   // the same distance with the sleeve's centre on the region's.
   const fitPoses = useCallback((e: Engine): Poses => {
     const cam = e.cam, R = region(), W = innerWidth, H = innerHeight, tan = Math.tan(THREE.MathUtils.degToRad(cam.fov / 2));
@@ -282,7 +314,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
       });
       return { x0: (bb.min.x + 1) * 0.5 * W, x1: (bb.max.x + 1) * 0.5 * W, y0: (1 - bb.max.y) * 0.5 * H, y1: (1 - bb.min.y) * 0.5 * H };
     };
-    const mw = R.phone ? 0.96 : 0.84, mh = R.phone ? 0.96 : 0.78;
+    const mw = R.phone ? PHONE_W : 0.84, mh = R.phone ? 0.9 : 0.78;
     const ccx = ((R.x + R.w / 2) / W) * 2 - 1, ccy = 1 - ((R.y + R.h / 2) / H) * 2;
     let cx = ccx, cy = ccy, d = 2;
     for (let k = 0; k < 4; k++) {
@@ -294,7 +326,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     }
     e.holder.position.copy(was.p); e.holder.quaternion.copy(was.q);
     e.rec.set(state.current.g, state.current.s);
-    return { open: { p: at(cx, cy, d), q }, shut: { p: at(ccx, ccy, d), q: q.clone() }, sleevePx: (SLEEVE * H) / (2 * tan * d), infoTop: R.y + R.h + 8, phone: R.phone };
+    return { open: { p: at(cx, cy, d), q }, shut: { p: at(ccx, ccy, d), q: q.clone() }, sleevePx: (SLEEVE * H) / (2 * tan * d), phone: R.phone };
   }, [region]);
 
   // the closed model standing exactly on the ring's front sleeve, or on a cover in the page
@@ -344,12 +376,11 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     e.cam.updateMatrixWorld();
   }, [sizeTo]);
 
-  // the new poses for the viewport, the panel's type sized for the open one, and the DOM text placed under it (phones)
+  // the new poses for the viewport, and the panel's type sized for the open one
   const place = useCallback((e: Engine) => {
     const st = state.current, P = fitPoses(e);
     st.poses = P;
-    sizePanel(e, P.open, st.g, st.s);
-    if (info.current) info.current.style.top = P.phone ? `${Math.round(P.infoTop)}px` : "";
+    sizePanel(e, P.open, st.g, st.s, P.phone);
     return P;
   }, [fitPoses]);
 
@@ -388,7 +419,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     e.rec.vinyl.color.set(r.vinyl?.colour ?? "#0b0b0c");
     const colour = labelColours.get(r.id) ?? (img ? labelColour(img) : "#e8e2d4");
     labelColours.set(r.id, colour);
-    drawLabel(e.label.canvas, colour); e.label.tex.needsUpdate = true; e.gl.initTexture(e.label.tex); e.label.colour = colour;
+    drawLabel(e.label.canvas, colour, r.release); e.label.tex.needsUpdate = true; e.gl.initTexture(e.label.tex); e.label.colour = colour;
   }, []);
 
   // the frame loop calls itself through this ref (a callback cannot name itself before it is declared)
@@ -410,7 +441,8 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
   const loop = useCallback(() => {
     const st = state.current, e = eng.current;
     if (!e) return;
-    const now = performance.now(), dt = st.last ? Math.min((now - st.last) / 1000, 1 / 20) : 0;
+    // dt for the motions (capped, so a long frame does not jump them); the record's spin keeps to the clock (raw)
+    const now = performance.now(), raw = st.last ? Math.min((now - st.last) / 1000, 0.5) : 0, dt = Math.min(raw, 1 / 20);
     st.last = now; st.frame++;
     e.steps.shift()?.();
     const A = st.anim;
@@ -440,18 +472,22 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
       if (d && d.turnX !== null) {
         const y = d.yaw0 + (d.x - d.turnX) * TURN;
         if (y !== st.yaw) { if (!st.turned) { st.turned = true; st.events.push({ ev: "turn", frame: st.frame, t: now }); } st.yaw = y; }
+      } else if (!d && st.turnV !== 0) {
+        // let go: on at the finger's speed, slowing by FRICTION
+        st.yaw += st.turnV * dt;
+        st.turnV *= Math.exp(-FRICTION * dt);
+        if (Math.abs(st.turnV) < 0.01) st.turnV = 0;
       }
     }
     e.holder.quaternion.copy(st.q).multiply(turn.current.setFromAxisAngle(up.current, st.yaw));
     e.rec.set(st.g, st.s);
     // the record spins only while it is all the way out
-    if (!reduce.current && st.mode === "open" && st.s >= 1) { st.spin -= ((RPM * Math.PI * 2) / 60) * dt; st.spinOut++; }
+    if (!reduce.current && st.mode === "open" && st.s >= 1) { st.spin -= ((RPM * Math.PI * 2) / 60) * raw; st.spinOut++; }
     else if (e.rec.disc.rotation.z !== st.spin) st.spinNotOut++;
     e.rec.disc.rotation.z = st.spin;
-    // the type fades with the gatefold: on the panel (desktop), or the DOM under it (phones)
-    const op = Math.min(1, Math.max(0, (st.g - 0.5) / 0.5)), phone = !!st.poses?.phone;
-    for (const t of [e.panel.name, e.panel.roles, e.panel.line]) { t.visible = op > 0 && !phone; t.fillOpacity = op; }
-    if (op !== st.op && info.current) { info.current.style.opacity = String(op); st.op = op; }
+    // the type fades with the gatefold
+    const op = Math.min(1, Math.max(0, (st.g - 0.5) / 0.5));
+    if (op !== st.op) { for (const t of [e.panel.name, e.panel.roles, e.panel.line]) { t.visible = op > 0; t.fillOpacity = op; } st.op = op; }
     e.gl.render(e.scene, e.cam);
     if (st.trace.length < 6000) st.trace.push({ kind: A?.kind ?? st.mode, frame: st.frame, g: +st.g.toFixed(4), s: +st.s.toFixed(4), yaw: +st.yaw.toFixed(4) });
     // the ring's sleeve is hidden one frame after this canvas has drawn its stand-in (both draw it for that frame);
@@ -470,7 +506,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     const st = state.current;
     const from: Shape = { pose: { p: e.holder.position.clone(), q: st.q.clone() }, g: st.g, s: st.s, yaw: st.yaw };
     st.anim = { kind, t0: performance.now(), dur, plan, from, to, end };
-    st.mode = "anim"; st.frames = [];
+    st.mode = "anim"; st.frames = []; st.turnV = 0;
     st.events.push({ ev: kind + "Start", frame: st.frame, t: st.anim.t0 });
   }, []);
 
@@ -487,9 +523,11 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     run(e, "unfold", FOLD_MS, PLANS.unfold, { pose: st.poses.open, g: 1, s: 1, yaw: whole(st.yaw) }, "open");
   }, [run]);
 
-  const close = useCallback(() => {
+  // (why: what sent it back, for the event log)
+  const close = useCallback((why = "api") => {
     const st = state.current, e = eng.current;
     if (!e || st.mode === "closed" || st.anim?.end === "closed") return;
+    st.events.push({ ev: `closeBy:${why}`, frame: st.frame, t: performance.now() });
     // back to where the sleeve is now: its slot on the ring, or the row (the stage stays paused until it has landed)
     const back = st.fromKind === "rolodex" ? startPose(e, "rolodex", null, st.slot) : st.fromKind === "element" && st.el?.isConnected ? startPose(e, "element", st.el, -1) : null;
     const pose = back ?? { p: e.holder.position.clone().add(new THREE.Vector3(0, -0.6, 0).applyQuaternion(e.cam.quaternion)), q: st.q.clone() };
@@ -581,7 +619,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     const onKey = (ev: KeyboardEvent) => {
       const st = state.current;
       if (st.mode === "closed") return;
-      if (ev.key === "Escape") close();
+      if (ev.key === "Escape") close("escape");
       if (ev.key === "Enter" && st.mode === "shut") unfold();
       if (ev.key === "ArrowRight") show((st.i + 1) % N);
       if (ev.key === "ArrowLeft") show((st.i - 1 + N) % N);
@@ -640,7 +678,7 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
           const n = w.currentNode, el = n.parentElement!, txt = n.textContent?.trim();
           if (!txt) continue;
           const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
-          dom.push({ text: txt, px: parseFloat(cs.fontSize), onScreen: r.width > 2 && r.height > 2 && cs.visibility !== "hidden" && +getComputedStyle(info.current!).opacity > 0 });
+          dom.push({ text: txt, px: parseFloat(cs.fontSize), onScreen: r.width > 2 && r.height > 2 && cs.visibility !== "hidden" });
         }
         return { sdf, dom, panel: sz && e ? { ...sz, lineScale: +(e.panel.roles.fontSize / sz.line).toFixed(3) } : null };
       },
@@ -650,7 +688,14 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
         e?.holder.traverse((o) => { if (o !== e.holder) out.push({ name: o.name, type: o.type, parent: o.parent === e.holder ? "holder" : `${o.parent?.type}${o.parent?.name ? " " + o.parent.name : ""}`, ...(o.userData.type ? { text: (o as unknown as Text).text } : {}) }); });
         return out;
       },
-      infoBox: () => { const r = info.current?.getBoundingClientRect(); return r ? { top: r.top, bottom: r.bottom, left: r.left, right: r.right } : null; },
+      release: () => releases[state.current.i]?.id ?? null,
+      // the drag's turn and the friction (radians a px; per second), and the turn's speed now (radians a second)
+      turning: () => ({ radPerPx: TURN, degPerPx: +THREE.MathUtils.radToDeg(TURN).toFixed(4), friction: +FRICTION.toFixed(3), velocity: state.current.turnV }),
+      // where to click on the name (its middle)
+      namePoint: () => {
+        const e = eng.current, t = e?.panel.name, b = t?.textRenderInfo?.blockBounds;
+        return e && t && b ? project(e, t, new THREE.Vector3((b[0] + b[2]) / 2, (b[1] + b[3]) / 2, 0)) : null;
+      },
       texels: () => { const e = eng.current; const w = (t: THREE.Texture | null) => (t?.image as { width: number } | undefined)?.width ?? 0; return e ? { dpr: e.gl.getPixelRatio(), front: w(e.rec.front.map), back: w(e.rec.back.map), facePx: facePx(e), label: e.label.colour } : null; },
     };
     return () => { removeEventListener("keydown", onKey); removeEventListener("resize", onResize); };
@@ -663,55 +708,61 @@ export default function VinylView({ releases, handle, onState }: { releases: Rel
     ray.current.setFromCamera(new THREE.Vector2((x / innerWidth) * 2 - 1, 1 - (y / innerHeight) * 2), e.cam);
     return ray.current.intersectObject(e.rec.root, true).length > 0;
   };
+  // is a point on the panel's name (open)?
+  const onName = (x: number, y: number) => {
+    const e = eng.current;
+    if (!e || state.current.mode !== "open") return false;
+    ray.current.setFromCamera(new THREE.Vector2((x / innerWidth) * 2 - 1, 1 - (y / innerHeight) * 2), e.cam);
+    return ray.current.intersectObject(e.panel.name, false).length > 0;
+  };
   // a press on the model starts a drag: sideways it shuts the open record and then turns it, up or down past SWIPE
-  // it goes back to the ring; a tap on the shut sleeve opens it. A press on the white does nothing.
+  // it goes back to the ring; a tap on the shut sleeve opens it, a tap on the name sends it back. A press on the
+  // white does nothing.
   const onDown = (ev: React.PointerEvent) => {
     const st = state.current;
     if ((st.mode !== "open" && st.mode !== "shut") || !onModel(ev.clientX, ev.clientY)) return;
-    st.drag = { x0: ev.clientX, y0: ev.clientY, x: ev.clientX, y: ev.clientY, moved: 0, axis: null, turnX: null, yaw0: st.yaw };
+    st.turnV = 0;
+    st.drag = { x0: ev.clientX, y0: ev.clientY, x: ev.clientX, y: ev.clientY, moved: 0, axis: null, turnX: null, yaw0: st.yaw, trail: [{ t: ev.timeStamp, x: ev.clientX }] };
     (ev.currentTarget as HTMLElement).setPointerCapture(ev.pointerId);
   };
   const onMove = (ev: React.PointerEvent) => {
     const st = state.current, d = st.drag;
     if (!d) {
-      if (st.mode === "open" || st.mode === "shut") (ev.currentTarget as HTMLElement).style.cursor = onModel(ev.clientX, ev.clientY) ? "grab" : "";
+      if (st.mode === "open" || st.mode === "shut") (ev.currentTarget as HTMLElement).style.cursor = onName(ev.clientX, ev.clientY) ? "pointer" : onModel(ev.clientX, ev.clientY) ? "grab" : "";
       return;
     }
     d.x = ev.clientX; d.y = ev.clientY;
+    d.trail.push({ t: ev.timeStamp, x: ev.clientX });
+    while (d.trail.length > 2 && ev.timeStamp - d.trail[0].t > 100) d.trail.shift();
     d.moved = Math.max(d.moved, Math.hypot(d.x - d.x0, d.y - d.y0));
     if (!d.axis && d.moved > AXIS) {
       d.axis = Math.abs(d.x - d.x0) >= Math.abs(d.y - d.y0) ? "h" : "v";
       if (d.axis === "h" && st.mode === "open") fold();
       else if (d.axis === "h" && st.mode === "shut") { d.turnX = d.x; d.yaw0 = st.yaw; }
     }
-    if (d.axis === "v" && Math.abs(d.y - d.y0) > SWIPE) close();
+    // (only a drag more vertical than horizontal)
+    if (d.axis === "v" && Math.abs(d.y - d.y0) > SWIPE && Math.abs(d.y - d.y0) > Math.abs(d.x - d.x0)) close(`swipe ${Math.round(d.x - d.x0)},${Math.round(d.y - d.y0)}`);
   };
-  const onUp = () => {
+  const onUp = (ev: React.PointerEvent) => {
     const st = state.current, d = st.drag;
     st.drag = null;
-    if (d && !d.axis && d.moved <= TAP && st.mode === "shut") unfold();
+    if (!d) return;
+    if (!d.axis && d.moved <= TAP) {
+      if (st.mode === "shut") unfold();
+      else if (onName(ev.clientX, ev.clientY)) close("name");
+      return;
+    }
+    // a turn let go: the finger's speed over its last 100 ms carries on
+    if (st.mode === "shut" && d.turnX !== null && d.trail.length > 1) {
+      const a = d.trail[0], b = d.trail[d.trail.length - 1], ms = b.t - a.t;
+      st.turnV = ms > 0 && ev.timeStamp - b.t < 80 ? ((b.x - a.x) / ms) * 1000 * TURN : 0;
+    }
   };
   const r = cur !== null ? releases[cur] : null;
   return (
     <div ref={box} className={css.vv} data-src="12" role={r ? "dialog" : undefined} aria-modal={r ? true : undefined} aria-label={r ? `Dylan Neustadter, ${r.release}` : undefined}>
       <div ref={veil} className={css.vvVeil} aria-hidden />
       <canvas ref={canvas} className={css.vvCanvas} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={() => { state.current.drag = null; }} aria-hidden />
-      {/* the panel's text as DOM: under the open sleeve on phones (22 / 15 px); on desktop for screen readers only
-          (the panel carries it as SDF type) */}
-      <div ref={info} className={css.vvInfo} data-release={r?.id}>
-        {r && (<>
-          <h2 className={css.vvDylan}>{NAME}</h2>
-          <dl className={css.vvRoles}>
-            {dylanRoles(r).map((x) => (
-              <div key={x.role}>
-                <dt>{caps(x.role)}</dt>
-                {x.tracks.length > 0 && <dd>{x.tracks.join(", ")}</dd>}
-              </div>
-            ))}
-          </dl>
-          <p className={css.vvRelease}>{`${r.artist}, ${r.release} (${r.year})`}</p>
-        </>)}
-      </div>
     </div>
   );
 }

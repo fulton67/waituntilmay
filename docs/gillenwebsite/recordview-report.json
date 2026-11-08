@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3228",
-  "at": "2026-11-08T19:55:07.213Z",
+  "at": "2026-11-08T21:17:23.065Z",
   "profiles": {
     "desktop": {
       "captionBefore": true,
@@ -40,32 +40,7 @@
           "notAllowed": []
         }
       ],
-      "dom": [
-        {
-          "text": "DYLAN NEUSTADTER",
-          "px": 12,
-          "onScreen": false,
-          "notAllowed": []
-        },
-        {
-          "text": "PRODUCER, WRITER",
-          "px": 12,
-          "onScreen": false,
-          "notAllowed": []
-        },
-        {
-          "text": "clean slate",
-          "px": 12,
-          "onScreen": false,
-          "notAllowed": []
-        },
-        {
-          "text": "girl in red, BLUE (2026)",
-          "px": 12,
-          "onScreen": false,
-          "notAllowed": []
-        }
-      ],
+      "dom": [],
       "panelSize": {
         "pxPerM": 1095.5057726159812,
         "name": 0.032861533822897936,
@@ -166,20 +141,24 @@
         "w": 1440,
         "h": 900
       },
-      "infoBox": {
-        "top": 0,
-        "bottom": 1,
-        "left": 0,
-        "right": 1
+      "sleeve": {
+        "cx": 720,
+        "cy": 472,
+        "widthPx": 1209.6,
+        "widthOfViewport": 0.84,
+        "viewportCentre": [
+          720,
+          450
+        ]
       },
       "openState": {
         "state": "open",
         "gate": 1,
         "slide": 1,
         "yaw": 0,
-        "lifted": 0,
-        "spinningRadIn500ms": 1.804
+        "lifted": 0
       },
+      "spinDegPerS": 200,
       "whiteTaps": [
         {
           "x": 30,
@@ -245,13 +224,13 @@
       "turnDrag": {
         "fps": 60,
         "over33": 0,
-        "frames": 133
+        "frames": 136
       },
       "closeThenTurn": {
-        "foldStartFrame": 237,
-        "recordInFrame": 249,
-        "gatefoldShutFrame": 262,
-        "rotationStartFrame": 264,
+        "foldStartFrame": 333,
+        "recordInFrame": 345,
+        "gatefoldShutFrame": 358,
+        "rotationStartFrame": 359,
         "slideMs": 183,
         "gateMs": 217,
         "maxYawBeforeShut": 0,
@@ -260,7 +239,7 @@
           "state": "shut",
           "gate": 0,
           "slide": 0,
-          "yaw": 1.728,
+          "yaw": 2.7354,
           "lifted": 0
         }
       },
@@ -270,7 +249,7 @@
             "state": "shut",
             "gate": 0,
             "slide": 0,
-            "yaw": 4.048,
+            "yaw": 6.2979,
             "lifted": 0,
             "fps": 60
           },
@@ -278,26 +257,26 @@
             "state": "shut",
             "gate": 0,
             "slide": 0,
-            "yaw": 6.368,
+            "yaw": 9.9833,
             "lifted": 0,
-            "fps": 120.7
+            "fps": 120.6
           },
           {
             "state": "shut",
             "gate": 0,
             "slide": 0,
-            "yaw": 8.688,
+            "yaw": 13.5476,
             "lifted": 0,
             "fps": 181.3
           }
         ],
-        "yawRad": 8.688,
-        "turnsRound": 1.38,
+        "yawRad": 13.5476,
+        "turnsRound": 2.16,
         "maxGateWhileTurning": 0,
         "maxSlideWhileTurning": 0
       },
       "reopen": {
-        "yawBeforeTap": 8.688,
+        "yawBeforeTap": 15.3684,
         "state": "open",
         "gate": 1,
         "slide": 1,
@@ -311,8 +290,49 @@
           1
         ]
       },
+      "sensitivity": {
+        "radPerPx": 0.010471975511965976,
+        "degPerPx": 0.6,
+        "friction": 5,
+        "velocity": 0,
+        "draggedPx": 300,
+        "countedPx": 290,
+        "turnedDeg": 174,
+        "measuredDegPerPx": 0.6
+      },
+      "flick": {
+        "carryAt1500PxPerSTurns": 0.5,
+        "px": 200,
+        "releaseRadPerS": 11.284,
+        "releasePxPerS": 1078,
+        "carriedTurns": 0.374,
+        "carryPredictedTurns": 0.359
+      },
+      "diagonal": {
+        "path": "30 px up, then 150 px sideways and 55 px more up (85 up in all)",
+        "ran": "",
+        "after": {
+          "state": "open",
+          "gate": 1,
+          "slide": 1,
+          "yaw": 0,
+          "lifted": 0
+        },
+        "sentBack": false
+      },
+      "nameClose": {
+        "at": {
+          "x": 776,
+          "y": 322
+        },
+        "cursor": "pointer",
+        "back": true,
+        "closeMs": 355,
+        "fps": 60
+      },
       "swipes": {
         "open60": {
+          "why": "",
           "from": {
             "x": 776,
             "y": 469
@@ -329,13 +349,14 @@
           }
         },
         "open100up": {
+          "why": "closeBy:swipe 0,-83",
           "from": {
             "x": 776,
             "y": 469
           },
           "dy": -100,
           "back": true,
-          "ran": "close 366ms 60.1fps",
+          "ran": "close 367ms 60.1fps",
           "after": {
             "state": "closed",
             "gate": 0,
@@ -345,6 +366,7 @@
           }
         },
         "shut60": {
+          "why": "",
           "from": {
             "x": 720,
             "y": 472
@@ -361,13 +383,14 @@
           }
         },
         "shut100down": {
+          "why": "closeBy:swipe 0,83",
           "from": {
             "x": 720,
             "y": 472
           },
           "dy": 100,
           "back": true,
-          "ran": "close 300ms 60.1fps",
+          "ran": "close 316ms 60.1fps",
           "after": {
             "state": "closed",
             "gate": 0,
@@ -382,7 +405,7 @@
         "back": true
       },
       "fps": {
-        "open": 60.2,
+        "open": 60.3,
         "close": 60,
         "fold": 60,
         "unfold": 60,
@@ -392,9 +415,23 @@
       "motions": [
         {
           "dir": "open",
-          "ms": 451,
-          "frames": 28,
-          "fps": 60.5,
+          "ms": 458,
+          "frames": 29,
+          "fps": 61.8,
+          "worstMs": 17
+        },
+        {
+          "dir": "fold",
+          "ms": 400,
+          "frames": 25,
+          "fps": 60,
+          "worstMs": 17
+        },
+        {
+          "dir": "unfold",
+          "ms": 410,
+          "frames": 25,
+          "fps": 60,
           "worstMs": 17
         },
         {
@@ -412,17 +449,45 @@
           "worstMs": 17
         },
         {
+          "dir": "fold",
+          "ms": 417,
+          "frames": 26,
+          "fps": 60,
+          "worstMs": 17
+        },
+        {
+          "dir": "unfold",
+          "ms": 402,
+          "frames": 25,
+          "fps": 60,
+          "worstMs": 17
+        },
+        {
           "dir": "close",
-          "ms": 366,
+          "ms": 355,
+          "frames": 22,
+          "fps": 60,
+          "worstMs": 17
+        },
+        {
+          "dir": "open",
+          "ms": 452,
+          "frames": 28,
+          "fps": 60.3,
+          "worstMs": 17
+        },
+        {
+          "dir": "close",
+          "ms": 367,
           "frames": 23,
           "fps": 60.1,
           "worstMs": 17
         },
         {
           "dir": "open",
-          "ms": 455,
+          "ms": 452,
           "frames": 28,
-          "fps": 60.2,
+          "fps": 60.3,
           "worstMs": 17
         },
         {
@@ -434,28 +499,28 @@
         },
         {
           "dir": "close",
-          "ms": 300,
-          "frames": 19,
+          "ms": 316,
+          "frames": 20,
           "fps": 60.1,
           "worstMs": 17
         },
         {
           "dir": "open",
-          "ms": 458,
+          "ms": 453,
           "frames": 28,
-          "fps": 60.5,
-          "worstMs": 18
+          "fps": 60.4,
+          "worstMs": 17
         },
         {
           "dir": "close",
-          "ms": 364,
+          "ms": 358,
           "frames": 22,
           "fps": 60,
           "worstMs": 17
         }
       ],
       "spin": {
-        "out": 559,
+        "out": 840,
         "notOut": 0
       },
       "checks": {
@@ -463,6 +528,10 @@
         "layout": true,
         "caption": true,
         "open": true,
+        "spin": true,
+        "sensitivity": true,
+        "diagonal": true,
+        "nameClose": true,
         "whiteTaps": true,
         "closeThenTurn": true,
         "shutTurning": true,
@@ -485,63 +554,38 @@
         {
           "text": "DYLAN NEUSTADTER",
           "font": "archivo-wdth118-regular.ttf",
-          "fontSizeM": 0.04187,
-          "emPx": 14.8,
+          "fontSizeM": 0.04534,
+          "emPx": 15.4,
           "opacity": 1,
-          "visible": false,
+          "visible": true,
           "notAllowed": []
         },
         {
           "text": "PRODUCER, WRITER\nclean slate",
           "font": "archivo-wdth118-regular.ttf",
-          "fontSizeM": 0.02115,
-          "emPx": 7.5,
+          "fontSizeM": 0.02267,
+          "emPx": 7.7,
           "opacity": 1,
-          "visible": false,
+          "visible": true,
           "notAllowed": []
         },
         {
           "text": "girl in red, BLUE (2026)",
           "font": "archivo-wdth118-regular.ttf",
-          "fontSizeM": 0.02115,
-          "emPx": 7.5,
+          "fontSizeM": 0.02267,
+          "emPx": 7.7,
           "opacity": 1,
-          "visible": false,
+          "visible": true,
           "notAllowed": []
         }
       ],
-      "dom": [
-        {
-          "text": "DYLAN NEUSTADTER",
-          "px": 22,
-          "onScreen": true,
-          "notAllowed": []
-        },
-        {
-          "text": "PRODUCER, WRITER",
-          "px": 15,
-          "onScreen": true,
-          "notAllowed": []
-        },
-        {
-          "text": "clean slate",
-          "px": 15,
-          "onScreen": true,
-          "notAllowed": []
-        },
-        {
-          "text": "girl in red, BLUE (2026)",
-          "px": 15,
-          "onScreen": true,
-          "notAllowed": []
-        }
-      ],
+      "dom": [],
       "panelSize": {
-        "pxPerM": 354.21430832745574,
-        "name": 0.041867954911433164,
-        "line": 0.050816693670544165,
+        "pxPerM": 339.7666054784024,
+        "name": 0.04533630620587141,
+        "line": 0.022668153102935705,
         "nameCapped": true,
-        "lineScale": 0.416
+        "lineScale": 1
       },
       "objects": [
         {
@@ -629,31 +673,35 @@
         }
       ],
       "box": {
-        "x0": 7.799951847978378,
-        "x1": 382.20007792050734,
-        "y0": 83.32081235565931,
-        "y1": 236.67920626240627,
+        "x0": 15.599958199175392,
+        "x1": 374.4000671126613,
+        "y0": 352.8054675596876,
+        "y1": 491.1945324403047,
         "w": 390,
         "h": 844
       },
-      "infoBox": {
-        "top": 254,
-        "bottom": 844,
-        "left": 0,
-        "right": 390
+      "sleeve": {
+        "cx": 195,
+        "cy": 422,
+        "widthPx": 358.8,
+        "widthOfViewport": 0.92,
+        "viewportCentre": [
+          195,
+          422
+        ]
       },
       "openState": {
         "state": "open",
         "gate": 1,
         "slide": 1,
         "yaw": 0,
-        "lifted": 0,
-        "spinningRadIn500ms": 1.861
+        "lifted": 0
       },
+      "spinDegPerS": 199.9,
       "whiteTaps": [
         {
           "x": 195,
-          "y": 75,
+          "y": 229,
           "target": "canvas.site-module__b9_Q7q__vvCanvas",
           "before": {
             "state": "open",
@@ -673,7 +721,7 @@
         },
         {
           "x": 195,
-          "y": 245,
+          "y": 668,
           "target": "canvas.site-module__b9_Q7q__vvCanvas",
           "before": {
             "state": "open",
@@ -694,7 +742,7 @@
         {
           "x": 378,
           "y": 832,
-          "target": "div.site-module__b9_Q7q__vvInfo",
+          "target": "canvas.site-module__b9_Q7q__vvCanvas",
           "before": {
             "state": "open",
             "gate": 1,
@@ -715,22 +763,22 @@
       "turnDrag": {
         "fps": 60,
         "over33": 0,
-        "frames": 189
+        "frames": 143
       },
       "closeThenTurn": {
-        "foldStartFrame": 251,
-        "recordInFrame": 263,
-        "gatefoldShutFrame": 277,
-        "rotationStartFrame": 281,
-        "slideMs": 184,
-        "gateMs": 233,
+        "foldStartFrame": 341,
+        "recordInFrame": 353,
+        "gatefoldShutFrame": 366,
+        "rotationStartFrame": 368,
+        "slideMs": 182,
+        "gateMs": 219,
         "maxYawBeforeShut": 0,
         "gateAtRotationStart": 0,
         "after": {
           "state": "shut",
           "gate": 0,
           "slide": 0,
-          "yaw": -1.2278,
+          "yaw": -1.6906,
           "lifted": 0
         }
       },
@@ -740,7 +788,7 @@
             "state": "shut",
             "gate": 0,
             "slide": 0,
-            "yaw": 0.1162,
+            "yaw": 0.3228,
             "lifted": 0,
             "fps": 60
           },
@@ -748,7 +796,7 @@
             "state": "shut",
             "gate": 0,
             "slide": 0,
-            "yaw": 1.4602,
+            "yaw": 2.3516,
             "lifted": 0,
             "fps": 120.5
           },
@@ -756,7 +804,7 @@
             "state": "shut",
             "gate": 0,
             "slide": 0,
-            "yaw": 2.8042,
+            "yaw": 4.3132,
             "lifted": 0,
             "fps": 60
           },
@@ -764,48 +812,93 @@
             "state": "shut",
             "gate": 0,
             "slide": 0,
-            "yaw": 4.1482,
-            "lifted": 0,
-            "fps": 60
-          },
-          {
-            "state": "shut",
-            "gate": 0,
-            "slide": 0,
-            "yaw": 5.4922,
-            "lifted": 0,
-            "fps": 60
-          },
-          {
-            "state": "shut",
-            "gate": 0,
-            "slide": 0,
-            "yaw": 6.8362,
+            "yaw": 6.3321,
             "lifted": 0,
             "fps": 120.5
+          },
+          {
+            "state": "shut",
+            "gate": 0,
+            "slide": 0,
+            "yaw": 8.3564,
+            "lifted": 0,
+            "fps": 180.9
+          },
+          {
+            "state": "shut",
+            "gate": 0,
+            "slide": 0,
+            "yaw": 10.3095,
+            "lifted": 0,
+            "fps": 241.4
           }
         ],
-        "yawRad": 6.8362,
-        "turnsRound": 1.09,
+        "yawRad": 10.3095,
+        "turnsRound": 1.64,
         "maxGateWhileTurning": 0,
         "maxSlideWhileTurning": 0
       },
       "reopen": {
-        "yawBeforeTap": 6.8362,
+        "yawBeforeTap": 10.3198,
         "state": "open",
         "gate": 1,
         "slide": 1,
         "yaw": 0,
         "lifted": 0,
         "wholeTurns": 0,
-        "spinningRadIn500ms": 2.022,
-        "typeOpacity": "1"
+        "spinningRadIn500ms": 2.269,
+        "typeOpacity": [
+          1,
+          1,
+          1
+        ]
+      },
+      "sensitivity": {
+        "radPerPx": 0.010471975511965976,
+        "degPerPx": 0.6,
+        "friction": 5,
+        "velocity": 0,
+        "draggedPx": 150,
+        "countedPx": 140,
+        "turnedDeg": 84,
+        "measuredDegPerPx": 0.6
+      },
+      "flick": {
+        "carryAt1500PxPerSTurns": 0.5,
+        "px": 160,
+        "releaseRadPerS": 5.993,
+        "releasePxPerS": 572,
+        "carriedTurns": 0.198,
+        "carryPredictedTurns": 0.191
+      },
+      "diagonal": {
+        "path": "30 px up, then 150 px sideways and 55 px more up (85 up in all)",
+        "ran": "",
+        "after": {
+          "state": "open",
+          "gate": 1,
+          "slide": 1,
+          "yaw": 0,
+          "lifted": 0
+        },
+        "sentBack": false
+      },
+      "nameClose": {
+        "at": {
+          "x": 204,
+          "y": 376
+        },
+        "cursor": null,
+        "back": true,
+        "closeMs": 358,
+        "fps": 60.2
       },
       "swipes": {
         "open60": {
+          "why": "",
           "from": {
-            "x": 205,
-            "y": 167
+            "x": 204,
+            "y": 422
           },
           "dy": -60,
           "back": false,
@@ -819,13 +912,14 @@
           }
         },
         "open100up": {
+          "why": "closeBy:swipe 0,-83",
           "from": {
-            "x": 205,
-            "y": 167
+            "x": 204,
+            "y": 422
           },
           "dy": -100,
           "back": true,
-          "ran": "close 365ms 60.8fps",
+          "ran": "close 366ms 60.5fps",
           "after": {
             "state": "closed",
             "gate": 0,
@@ -835,9 +929,10 @@
           }
         },
         "shut60": {
+          "why": "",
           "from": {
             "x": 195,
-            "y": 160
+            "y": 422
           },
           "dy": 60,
           "back": false,
@@ -851,13 +946,14 @@
           }
         },
         "shut100down": {
+          "why": "closeBy:swipe 0,83",
           "from": {
             "x": 195,
-            "y": 160
+            "y": 422
           },
           "dy": 100,
           "back": true,
-          "ran": "close 315ms 60.6fps",
+          "ran": "close 316ms 60.8fps",
           "after": {
             "state": "closed",
             "gate": 0,
@@ -872,80 +968,122 @@
         "back": true
       },
       "fps": {
-        "open": 56,
-        "close": 60.1,
-        "fold": 60.2,
-        "unfold": 60,
+        "open": 51.2,
+        "close": 60,
+        "fold": 59.9,
+        "unfold": 59.9,
         "turnDrag": 60,
         "shutDrags": 60
       },
       "motions": [
         {
           "dir": "open",
-          "ms": 452,
+          "ms": 453,
+          "frames": 23,
+          "fps": 51.2,
+          "worstMs": 48
+        },
+        {
+          "dir": "fold",
+          "ms": 401,
           "frames": 25,
-          "fps": 56,
-          "worstMs": 40
+          "fps": 59.9,
+          "worstMs": 19
+        },
+        {
+          "dir": "unfold",
+          "ms": 410,
+          "frames": 25,
+          "fps": 59.9,
+          "worstMs": 17
         },
         {
           "dir": "fold",
           "ms": 416,
           "frames": 26,
           "fps": 60.2,
-          "worstMs": 19
+          "worstMs": 18
         },
         {
           "dir": "unfold",
-          "ms": 407,
+          "ms": 411,
+          "frames": 25,
+          "fps": 60,
+          "worstMs": 17
+        },
+        {
+          "dir": "fold",
+          "ms": 416,
+          "frames": 26,
+          "fps": 60.1,
+          "worstMs": 18
+        },
+        {
+          "dir": "unfold",
+          "ms": 410,
           "frames": 25,
           "fps": 60,
           "worstMs": 17
         },
         {
           "dir": "close",
-          "ms": 365,
-          "frames": 23,
-          "fps": 60.8,
-          "worstMs": 19
+          "ms": 358,
+          "frames": 22,
+          "fps": 60.2,
+          "worstMs": 17
         },
         {
           "dir": "open",
-          "ms": 451,
-          "frames": 28,
-          "fps": 61.8,
-          "worstMs": 23
+          "ms": 460,
+          "frames": 29,
+          "fps": 62.6,
+          "worstMs": 19
+        },
+        {
+          "dir": "close",
+          "ms": 366,
+          "frames": 23,
+          "fps": 60.5,
+          "worstMs": 18
+        },
+        {
+          "dir": "open",
+          "ms": 466,
+          "frames": 29,
+          "fps": 61.9,
+          "worstMs": 21
         },
         {
           "dir": "fold",
           "ms": 416,
           "frames": 26,
           "fps": 60.2,
-          "worstMs": 19
+          "worstMs": 18
         },
         {
           "dir": "close",
-          "ms": 315,
+          "ms": 316,
           "frames": 20,
-          "fps": 60.6,
-          "worstMs": 19
+          "fps": 60.8,
+          "worstMs": 18
         },
         {
           "dir": "open",
-          "ms": 463,
-          "frames": 29,
-          "fps": 61.9,
-          "worstMs": 19
+          "ms": 454,
+          "frames": 26,
+          "fps": 57.5,
+          "worstMs": 32
         },
         {
           "dir": "close",
-          "ms": 353,
+          "ms": 361,
           "frames": 22,
-          "fps": 60.1,
-          "worstMs": 17
+          "fps": 60,
+          "worstMs": 18
         }
       ],
       "spin": {
-        "out": 612,
+        "out": 926,
         "notOut": 0
       },
       "checks": {
@@ -953,6 +1091,10 @@
         "layout": true,
         "caption": true,
         "open": true,
+        "spin": true,
+        "sensitivity": true,
+        "diagonal": true,
+        "nameClose": true,
         "whiteTaps": true,
         "closeThenTurn": true,
         "shutTurning": true,

@@ -110,7 +110,7 @@ export default function Chrome({
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
     e.preventDefault();
     // a nav link is the one thing that works while the record view is up: it closes the view and goes
-    vinyl.current?.close();
+    vinyl.current?.close("nav");
     if (href === path || leaving.current) return;
     leaving.current = true;
     const o = main.current!;

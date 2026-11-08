@@ -1,17 +1,21 @@
 // The record view's three states (VinylView.tsx), at 1440 x 900 DPR 2 and 390 x 844 DPR 3 (touch, 4x CPU throttle):
-//  - open: every text the view renders (the panel's SDF blocks and every DOM text node), each checked word by word
-//    against Dylan's name, his roles, their tracks, the artist, the release and the year; every object under the open
-//    record's group; desktop: the SDF type drawn at 36 / 18 px an em (or smaller where the panel's size says) and the
-//    DOM text off screen (screen readers only); phones: the SDF type not drawn, the open sleeve the screen's width,
-//    the DOM text under it at 22 / 15 px; the caption block gone while open and back after
+//  - open: every text the view renders (the panel's SDF blocks; DOM text nodes: there must be none), each checked
+//    word by word against Dylan's name, his roles, their tracks, the artist, the release and the year; every object
+//    under the open record's group; the SDF type drawn on every width, at 36 / 18 px an em on desktop (or smaller where
+//    the panel's size says) and the name at about 18 px on a 390 px phone; on the phone the open sleeve's centre within
+//    4 px of the viewport's and its width 92% of the viewport's; the caption block gone while open and back after
+//  - the record's turn over 2 s (33 1/3 rpm: 200 degrees a second)
 //  - a tap on the white (three points off the model) changes nothing: state, gatefold, slide, turn all the same
 //  - a horizontal drag on the open record: the frame the record is in, the frame the gatefold has shut, and the first
 //    frame the sleeve turns (it must be after the shut frame; the turn is 0 on every frame before it); more drags on
 //    the shut sleeve: it stays shut (gatefold 0, record in) past a full turn
 //  - a tap on the shut sleeve opens it again, facing the camera (the turn back to a whole turn), the record out and
 //    spinning, the type back
+//  - the turn's sensitivity: a slow drag on the shut sleeve held still before it is let go (no carry), degrees per px;
+//    a flick (about 2000 px/s), how far it carries after the finger has left, in turns
 //  - a vertical drag of 100 px on the sleeve sends it back to the ring from open and from shut; one of 60 px does not;
-//    Escape does
+//    nor does a drag more horizontal than vertical (one that starts upward and then goes sideways past 80 px up);
+//    Escape does; a click on the name does (the close's duration, 350 ms)
 //  - fps of each motion (>= 55 desktop, >= 45 phone) and over the drags
 //   node scripts/gillenwebsite/recordview.mjs [base-url] [--out file]
 import { chromium } from "@playwright/test";
@@ -75,7 +79,7 @@ for (const p of PROFILES) {
   await page.waitForTimeout(600);
   out.captionWhileOpen = await caption();
   await shot("1-open");
-  const id = await V(() => document.querySelector("[data-src='12'] [data-release]")?.getAttribute("data-release"));
+  const id = await V(() => window.__vinyl.release());
   const rel = RELEASES.find((r) => r.id === id), ok = allowed(rel);
   const T = await V(() => window.__vinyl.texts());
   const check = (s) => { const bad = words(s).filter((w) => !ok.has(w)); return bad; };
@@ -85,16 +89,21 @@ for (const p of PROFILES) {
   out.panelSize = T.panel;
   out.objects = await V(() => window.__vinyl.objects());
   out.box = await V(() => window.__vinyl.objectBox());
-  out.infoBox = await V(() => window.__vinyl.infoBox());
-  const a0 = await V(() => window.__vinyl.discAngle()); await page.waitForTimeout(500);
-  out.openState = { ...(await now()), spinningRadIn500ms: +Math.abs((await V(() => window.__vinyl.discAngle())) - a0).toFixed(3) };
+  out.sleeve = { cx: +((out.box.x0 + out.box.x1) / 2).toFixed(1), cy: +((out.box.y0 + out.box.y1) / 2).toFixed(1), widthPx: +(out.box.x1 - out.box.x0).toFixed(1), widthOfViewport: +((out.box.x1 - out.box.x0) / p.w).toFixed(4), viewportCentre: [p.w / 2, p.h / 2] };
+  out.openState = await now();
+  // the record's turn over 2 s, by the clock, read in the page at animation frames (so both ends are frames)
+  out.spinDegPerS = await V(async () => {
+    const f = () => new Promise((r) => requestAnimationFrame(r));
+    await f(); const a = window.__vinyl.discAngle(), t = performance.now();
+    while (performance.now() - t < 2000) await f();
+    return +((Math.abs(window.__vinyl.discAngle() - a) * 180) / Math.PI / ((performance.now() - t) / 1000)).toFixed(1);
+  });
 
   // 2. taps on the white: nothing changes
   const head = await V(() => document.querySelector("header").offsetHeight);
   const b = out.box;
-  // (phones: above the sleeve, between it and the text, and the bottom right corner past the text)
   const white = p.mobile
-    ? [{ x: p.w / 2, y: (head + b.y0) / 2 }, { x: p.w / 2, y: (b.y1 + out.infoBox.top) / 2 }, { x: p.w - 12, y: p.h - 12 }]
+    ? [{ x: p.w / 2, y: (head + b.y0) / 2 + 20 }, { x: p.w / 2, y: (b.y1 + p.h) / 2 }, { x: p.w - 12, y: p.h - 12 }]
     : [{ x: 30, y: p.h - 30 }, { x: p.w / 2, y: (head + b.y0) / 2 }, { x: p.w - 30, y: (b.y1 + p.h) / 2 }];
   out.whiteTaps = [];
   for (const pt of white) {
@@ -142,10 +151,73 @@ for (const p of PROFILES) {
   const a1 = await V(() => window.__vinyl.discAngle()); await page.waitForTimeout(500);
   const T4 = await V(() => window.__vinyl.texts());
   out.reopen = { yawBeforeTap, ...(await now()), wholeTurns: +((await V(() => window.__vinyl.trace())).at(-1).yaw / (2 * Math.PI)).toFixed(3),
-    spinningRadIn500ms: +Math.abs((await V(() => window.__vinyl.discAngle())) - a1).toFixed(3), typeOpacity: p.mobile ? T4.dom.length && (await V(() => getComputedStyle(document.querySelector("[data-src='12'] [data-release]")).opacity)) : T4.sdf.map((t) => t.opacity) };
+    spinningRadIn500ms: +Math.abs((await V(() => window.__vinyl.discAngle())) - a1).toFixed(3), typeOpacity: T4.sdf.map((t) => t.opacity) };
+
+  // 4b. the turn's sensitivity: shut, then a slow drag held still before it is let go (no carry), then a flick
+  { const q = await V(() => window.__vinyl.panelPoint()); await drag(q.x, q.y, (p.mobile ? -1 : 1) * 40, 0, 8, 300); await settled("shut"); await page.waitForTimeout(1500); }
+  const slowPx = p.mobile ? 150 : 300, steps = 30;
+  {
+    // (from a third of the shut sleeve left of its middle: on it on every screen)
+    const c = await V(() => window.__vinyl.coverPoint()), y0 = (await now()).yaw, in3 = (await V(() => window.__vinyl.sleevePx())) / 3;
+    await drag(c.x - in3, c.y, slowPx, 0, steps, 400);
+    await page.waitForTimeout(800);
+    const y1 = (await now()).yaw;
+    // the turn counts from the move that decided the drag's axis (the first past AXIS = 8 px)
+    const stepPx = slowPx / steps, counted = slowPx - Math.ceil(8.001 / stepPx) * stepPx;
+    out.sensitivity = { ...(await V(() => window.__vinyl.turning())), draggedPx: slowPx, countedPx: counted, turnedDeg: +(((y1 - y0) * 180) / Math.PI).toFixed(2), measuredDegPerPx: +(((y1 - y0) * 180) / Math.PI / counted).toFixed(4) };
+    // (then opened and shut again, so the flick starts with the sleeve face on)
+    const c2 = await V(() => window.__vinyl.coverPoint());
+    if (Math.abs(Math.cos((await now()).yaw)) < 0.5) await drag(c2.x - in3, c2.y, 100, 0, 20, 400);
+    await tap(c2.x, c2.y); await settled("open"); await page.waitForTimeout(400);
+    const q = await V(() => window.__vinyl.panelPoint()); await drag(q.x, q.y, (p.mobile ? -1 : 1) * 40, 0, 8, 300); await settled("shut"); await page.waitForTimeout(800);
+  }
+  {
+    const c0 = await V(() => window.__vinyl.coverPoint()), in3 = (await V(() => window.__vinyl.sleevePx())) / 3, fx = p.mobile ? 160 : 200, c = { x: c0.x - in3 + fx / 2, y: c0.y };
+    // 6 moves 16 ms apart, let go at once; the yaw when let go is the start plus the counted px (the turn is 1:1)
+    const y0 = (await now()).yaw, counted = fx - Math.ceil(8.001 / (fx / 6)) * (fx / 6);
+    if (p.mobile) {
+      await cdp.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [{ x: c.x - fx / 2, y: c.y }] });
+      for (let k = 1; k <= 6; k++) { await page.waitForTimeout(16); await cdp.send("Input.dispatchTouchEvent", { type: "touchMove", touchPoints: [{ x: c.x - fx / 2 + (fx * k) / 6, y: c.y }] }); }
+      await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+    } else {
+      await page.mouse.move(c.x - fx / 2, c.y); await page.mouse.down();
+      for (let k = 1; k <= 6; k++) { await page.waitForTimeout(16); await page.mouse.move(c.x - fx / 2 + (fx * k) / 6, c.y); }
+      await page.mouse.up();
+    }
+    const yUp = y0 + counted * out.sensitivity.radPerPx;
+    const v0 = await V(() => window.__vinyl.turning().velocity);
+    await until(page, () => window.__vinyl.turning().velocity === 0, 4000);
+    const yEnd = (await now()).yaw;
+    out.flick = { carryAt1500PxPerSTurns: +((1500 * out.sensitivity.radPerPx) / out.sensitivity.friction / (2 * Math.PI)).toFixed(3), px: fx, releaseRadPerS: +v0.toFixed(3), releasePxPerS: Math.round(v0 / out.sensitivity.radPerPx), carriedTurns: +((yEnd - yUp) / (2 * Math.PI)).toFixed(3), carryPredictedTurns: +(v0 / out.sensitivity.friction / (2 * Math.PI)).toFixed(3) };
+  }
+  { const c = await V(() => window.__vinyl.coverPoint()); await tap(c.x, c.y); await settled("open"); await page.waitForTimeout(400); }
+
+  // 4c. a drag more horizontal than vertical never sends it back: 30 px up, then 150 px sideways while going on up
+  // to 85 px in all (it shuts and turns instead)
+  {
+    const q = await V(() => window.__vinyl.panelPoint()), n0 = await V(() => window.__vinyl.log().length);
+    const pts = [...Array.from({ length: 6 }, (_, k) => [0, -5 * (k + 1)]), ...Array.from({ length: 15 }, (_, k) => [(p.mobile ? -1 : 1) * 10 * (k + 1), -30 - (55 * (k + 1)) / 15])];
+    if (p.mobile) { await cdp.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [{ x: q.x, y: q.y }] }); for (const [dx, dy] of pts) { await page.waitForTimeout(16); await cdp.send("Input.dispatchTouchEvent", { type: "touchMove", touchPoints: [{ x: q.x + dx, y: q.y + dy }] }); } await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] }); }
+    else { await page.mouse.move(q.x, q.y); await page.mouse.down(); for (const [dx, dy] of pts) { await page.waitForTimeout(16); await page.mouse.move(q.x + dx, q.y + dy); } await page.mouse.up(); }
+    await page.waitForTimeout(800);
+    out.diagonal = { path: "30 px up, then 150 px sideways and 55 px more up (85 up in all)", ran: await V((n0) => window.__vinyl.log().slice(n0).map((l) => l.dir).join(", "), n0), after: await now() };
+    out.diagonal.sentBack = /close/.test(out.diagonal.ran);
+    if ((await now()).state !== "open") { const c = await V(() => window.__vinyl.coverPoint()); await tap(c.x, c.y); await settled("open"); await page.waitForTimeout(400); }
+  }
+
+  // 4d. a click on the name sends it back to the ring
+  {
+    const n0 = await V(() => window.__vinyl.log().length), q = await V(() => window.__vinyl.namePoint());
+    const cursor = p.mobile ? null : await (async () => { await page.mouse.move(q.x, q.y); await page.waitForTimeout(100); return V(() => document.querySelector("[data-src='12'] canvas").style.cursor); })();
+    await tap(q.x, q.y);
+    const back = await until(page, () => window.__vinyl.state() === "closed" && window.__rolodex.rig.lifted === -1, 2500);
+    const l = (await V((n0) => window.__vinyl.log().slice(n0), n0)).find((x) => x.dir === "close");
+    out.nameClose = { at: { x: Math.round(q.x), y: Math.round(q.y) }, cursor, back, closeMs: l?.ms ?? null, fps: l?.fps ?? null };
+    await page.waitForTimeout(400); await open();
+  }
 
   // 5. vertical drags: 60 px nothing, 100 px back to the ring (from open, then from shut); Escape
-  const vert = async (dy) => { const q = await V(() => window.__vinyl.state() === "open" ? window.__vinyl.panelPoint() : window.__vinyl.coverPoint()); const n0 = await V(() => window.__vinyl.log().length); await drag(q.x, q.y, 0, dy, 12); const back = await until(page, () => window.__vinyl.state() === "closed" && window.__rolodex.rig.lifted === -1, 2500); return { from: { x: Math.round(q.x), y: Math.round(q.y) }, dy, back, ran: await V((n0) => window.__vinyl.log().slice(n0).map((l) => `${l.dir} ${l.ms}ms ${l.fps}fps`).join(", "), n0), after: await now() }; };
+  const vert = async (dy) => { const e0 = await V(() => window.__vinyl.events().length); const q = await V(() => window.__vinyl.state() === "open" ? window.__vinyl.panelPoint() : window.__vinyl.coverPoint()); const n0 = await V(() => window.__vinyl.log().length); await drag(q.x, q.y, 0, dy, 12); const back = await until(page, () => window.__vinyl.state() === "closed" && window.__rolodex.rig.lifted === -1, 2500); return { why: await V((e0) => window.__vinyl.events().slice(e0).filter((x) => x.ev.startsWith("closeBy")).map((x) => x.ev).join(","), e0), from: { x: Math.round(q.x), y: Math.round(q.y) }, dy, back, ran: await V((n0) => window.__vinyl.log().slice(n0).map((l) => `${l.dir} ${l.ms}ms ${l.fps}fps`).join(", "), n0), after: await now() }; };
   out.swipes = {};
   out.swipes.open60 = await vert(-60);
   out.swipes.open100up = await vert(-100);
@@ -167,12 +239,17 @@ for (const p of PROFILES) {
 
   const C = out.closeThenTurn, S = out.swipes;
   const textOk = [...out.sdf, ...out.dom].every((t) => t.notAllowed.length === 0) && out.sdf.length === 3 && out.objects.filter((o) => o.text !== undefined).length === 3;
-  const layoutOk = p.mobile
-    ? out.sdf.every((t) => !t.visible) && out.dom.every((t) => t.onScreen) && out.dom[0].px === 22 && out.dom.slice(1).every((t) => t.px === 15) && out.infoBox.top >= out.box.y1 && out.box.x1 - out.box.x0 >= p.w * 0.9
-    : out.sdf.every((t) => t.visible && t.opacity === 1) && out.dom.every((t) => !t.onScreen) && (out.panelSize.nameCapped || Math.abs(out.sdf[0].emPx - 36) < 0.5) && Math.abs(out.sdf[1].emPx - 18 * out.panelSize.lineScale) < 0.5;
+  const layoutOk = out.dom.length === 0 && out.sdf.every((t) => t.visible && t.opacity === 1) && (p.mobile
+    ? (Math.abs(out.sdf[0].emPx - 18) <= 2 || out.panelSize.nameCapped) && Math.hypot(out.sleeve.cx - p.w / 2, out.sleeve.cy - p.h / 2) <= 4 && Math.abs(out.sleeve.widthOfViewport - 0.92) <= 0.005
+    : (out.panelSize.nameCapped || Math.abs(out.sdf[0].emPx - 36) < 0.5) && Math.abs(out.sdf[1].emPx - 18 * out.panelSize.lineScale) < 0.5);
   out.checks = {
     text: textOk, layout: layoutOk, caption: out.captionBefore && !out.captionWhileOpen && out.captionAfterClose,
-    open: out.openState.state === "open" && out.openState.gate === 1 && out.openState.slide === 1 && out.openState.spinningRadIn500ms > 0.5,
+    open: out.openState.state === "open" && out.openState.gate === 1 && out.openState.slide === 1,
+    spin: Math.abs(out.spinDegPerS - 200) <= 10,
+    // (the flick carries what the friction says for its speed: at 1500 px/s that is half a turn)
+    sensitivity: Math.abs(out.sensitivity.measuredDegPerPx - 0.6) <= 0.03 && out.flick.carriedTurns > 0 && Math.abs(out.flick.carriedTurns - out.flick.carryPredictedTurns) <= 0.03 + 0.1 * out.flick.carryPredictedTurns,
+    diagonal: !out.diagonal.sentBack,
+    nameClose: out.nameClose.back && Math.abs(out.nameClose.closeMs - 350) <= 20 && (p.mobile || out.nameClose.cursor === "pointer"),
     whiteTaps: out.whiteTaps.every((t) => t.unchanged),
     closeThenTurn: !!(C.foldStartFrame && C.recordInFrame && C.gatefoldShutFrame && C.rotationStartFrame) && C.recordInFrame < C.gatefoldShutFrame && C.rotationStartFrame > C.gatefoldShutFrame && C.maxYawBeforeShut === 0 && C.gateAtRotationStart === 0,
     shutTurning: out.shutTurning.turnsRound >= 1 && out.shutTurning.maxGateWhileTurning === 0 && out.shutTurning.maxSlideWhileTurning === 0,
@@ -182,7 +259,7 @@ for (const p of PROFILES) {
   };
   out.pass = Object.values(out.checks).every(Boolean);
   report.profiles[p.name] = out;
-  console.log(p.name, JSON.stringify({ checks: out.checks, sdf: out.sdf, dom: out.dom, closeThenTurn: out.closeThenTurn, shutTurning: { ...out.shutTurning, drags: undefined }, reopen: out.reopen, swipes: Object.fromEntries(Object.entries(S).map(([k, v]) => [k, v.back])), fps: out.fps, whiteTaps: out.whiteTaps.map((t) => t.unchanged), box: out.box, infoBox: out.infoBox, panel: out.panelSize }));
+  console.log(p.name, JSON.stringify({ checks: out.checks, sleeve: out.sleeve, spinDegPerS: out.spinDegPerS, sensitivity: out.sensitivity, flick: out.flick, diagonal: out.diagonal, nameClose: out.nameClose, sdf: out.sdf, dom: out.dom, closeThenTurn: out.closeThenTurn, shutTurning: { ...out.shutTurning, drags: undefined }, reopen: out.reopen, swipes: Object.fromEntries(Object.entries(S).map(([k, v]) => [k, v.back])), fps: out.fps, whiteTaps: out.whiteTaps.map((t) => t.unchanged), box: out.box, panel: out.panelSize }));
   await ctx.close();
 }
 await browser.close();
