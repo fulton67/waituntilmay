@@ -35,7 +35,7 @@ const analyse = (log, introLog, interactiveAt) => {
   const pk = run.find((x) => x[1] === peak);
   return {
     started: true, s0: L.s0, delayAfterInteractiveMs: Math.round(L.at - interactiveAt), coastMs: Math.round(active.at(-1)[0] - L.at), coastFrames: active.length,
-    travelled: +(peak - L.s0).toFixed(3), recoil: +(peak - final).toFixed(3), settledOn: +final.toFixed(4), settledOnWholeCard: Math.abs(final - Math.round(final)) < 0.002, cardsAdvanced: Math.round(final) - L.s0,
+    travelled: +(peak - L.s0).toFixed(3), windUp: +(Math.min(...active.map((x) => x[1])) - L.s0).toFixed(3), recoil: +(peak - final).toFixed(3), settledOn: +final.toFixed(4), settledOnWholeCard: Math.abs(final - Math.round(final)) < 0.002, cardsAdvanced: Math.round(final) - L.s0,
     settledMsAfterStart: settledAt ? Math.round(settledAt - L.at) : null, knobOverDrumAtPeak: pk ? +(pk[3] / pk[1]).toFixed(4) : null, cancelled: L.cancelled ? Math.round(L.cancelled - L.at) : null,
   };
 };
@@ -67,7 +67,7 @@ const visit = async (name, p, { seen = false, waitMs = 4000, interrupt = false }
   return res;
 };
 const D = { w: 1440, h: 900, mobile: false, throttle: 1 }, P = { w: 390, h: 844, mobile: true, throttle: 4 };
-const ok = (r) => r.started && Math.abs(r.delayAfterInteractiveMs - 800) <= 50 && Math.abs(r.coastMs - 900) <= 40 && Math.abs(r.travelled - 2.5) <= 0.02 && Math.abs(r.recoil - 0.5) <= 0.02 && r.settledOnWholeCard && r.cardsAdvanced === 2 && Math.abs(r.knobOverDrumAtPeak + 0.42) < 0.01 && r.cancelled === null;
+const ok = (r) => r.started && Math.abs(r.delayAfterInteractiveMs - 800) <= 50 && Math.abs(r.coastMs - 1420) <= 40 && Math.abs(r.travelled - 6.5) <= 0.02 && Math.abs(r.windUp + 0.4) <= 0.02 && Math.abs(r.recoil - 0.5) <= 0.02 && r.settledOnWholeCard && r.cardsAdvanced === 6 && Math.abs(r.knobOverDrumAtPeak + 0.42) < 0.01 && r.cancelled === null;
 const a = await visit("firstVisitDesktop", D);
 const b = await visit("firstVisitPhone", P, { waitMs: 5000 });
 const c = await visit("seenNoIntro", D, { seen: true, waitMs: 5000 });
@@ -77,6 +77,6 @@ let f = null;
 if (!argv.includes("--no-idle")) f = await visit("seenIdle92s", D, { seen: true, waitMs: 92000 });
 await browser.close();
 report.pass = ok(a) && ok(b) && !c.started && d.cancelled !== null && !d.handOver.introRunningNextFrame && e.cancelled !== null && !e.handOver.introRunningNextFrame
-  && (!f || (f.started && f.delayAfterInteractiveMs > 89500 && Math.abs(f.travelled - 2.5) <= 0.02 && f.settledOnWholeCard));
+  && (!f || (f.started && f.delayAfterInteractiveMs > 89500 && Math.abs(f.travelled - 6.5) <= 0.02 && f.settledOnWholeCard));
 console.log("pass", report.pass);
 await fs.writeFile(OUT, JSON.stringify(report, null, 2) + "\n");

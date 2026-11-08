@@ -149,20 +149,27 @@ export function knobTap() {
   }
 }
 
-// The intro spin (Site.tsx useIntro starts it, Rolodex.tsx draws it), as if someone flicked the drum lightly: it
-// coasts INTRO.cards on a flick's own curve (dv/dt = -FRICTION v - BRAKE, the coast of the flick that reaches that
-// far), slowed to take INTRO.ms (the flick itself would take about 320 ms), and stops; then the ratchet's spring, the
-// one that settles a user's flick, pulls it back to the whole card before (INTRO.settle: 0.5 card of recoil).
+// The intro spin (Site.tsx useIntro starts it, Rolodex.tsx draws it), as if a hand flicked the drum, so it reads as a
+// thing to spin: first the wind-up, the drum pulled back INTRO.wind of a card over INTRO.windMs (eased in and out, as a
+// thumb catches a card); then the flick, hard, on a flick's own curve (dv/dt = -FRICTION v - BRAKE, the coast of the
+// flick that reaches that far) slowed to take INTRO.ms (the flick itself would take about 460 ms), INTRO.cards past
+// where it started, the cards blurring by; then the ratchet's spring, the one that settles a user's flick, pulls it
+// back to the whole card before (INTRO.settle: 0.5 card of recoil).
 // INTRO.delay after the home page is interactive on the first visit, and after INTRO.idle with no input.
-export const INTRO = { cards: 2.5, settle: 2, ms: 900, delay: 800, idle: 90000 };
-let iLo = 0, iHi = 200;
-for (let k = 0; k < 50; k++) { const m = (iLo + iHi) / 2; if (carry(m) < INTRO.cards) iLo = m; else iHi = m; }
+export const INTRO = { wind: 0.4, windMs: 320, cards: 6.5, settle: 6, ms: 1100, delay: 800, idle: 90000 };
+let iLo = 0, iHi = 400;
+for (let k = 0; k < 50; k++) { const m = (iLo + iHi) / 2; if (carry(m) < INTRO.cards + INTRO.wind) iLo = m; else iHi = m; }
 const INTRO_V0 = iLo, INTRO_T = stopMs(iLo) / 1000;
 export type Intro = { t0: number; s0: number };
 // the intro's travel (cards from where it started) and speed (cards/s) at t ms
 export function introAt(t: number) {
-  const k = INTRO_T / (INTRO.ms / 1000), tt = (Math.min(t, INTRO.ms) / 1000) * k, a = INTRO_V0 + BRAKE / FRICTION, e = Math.exp(-FRICTION * tt);
-  return { x: (a * (1 - e)) / FRICTION - (BRAKE / FRICTION) * tt, v: (a * e - BRAKE / FRICTION) * k, done: t >= INTRO.ms };
+  if (t < INTRO.windMs) {
+    const u = t / INTRO.windMs;
+    return { x: (-INTRO.wind * (1 - Math.cos(Math.PI * u))) / 2, v: ((-INTRO.wind * Math.PI * Math.sin(Math.PI * u)) / 2) * (1000 / INTRO.windMs), done: false };
+  }
+  const f = t - INTRO.windMs;
+  const k = INTRO_T / (INTRO.ms / 1000), tt = (Math.min(f, INTRO.ms) / 1000) * k, a = INTRO_V0 + BRAKE / FRICTION, e = Math.exp(-FRICTION * tt);
+  return { x: -INTRO.wind + (a * (1 - e)) / FRICTION - (BRAKE / FRICTION) * tt, v: (a * e - BRAKE / FRICTION) * k, done: f >= INTRO.ms };
 }
 
 // where the drum is heading: a coasting flick's card, otherwise pos
