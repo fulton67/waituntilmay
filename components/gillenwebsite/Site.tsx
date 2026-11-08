@@ -1,7 +1,7 @@
 "use client";
 // Dylan Neustadter, home: the Rolodex, the release display beside it, and the caption block under the drum.
 // Wheel, drag, swipe and keys turn the drum, which loops forever (rig.ts). Every component names its row in docs/gillenwebsite/SOURCES.md.
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { startTransition, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import * as THREE from "three";
 import type { Release } from "@/lib/gillenwebsite/discography";
@@ -225,7 +225,9 @@ export default function Site({ releases }: { releases: Release[] }) {
     const size = () => { rig.wide = mq.matches; setWide(mq.matches); };
     size();
     mq.addEventListener("change", size);
-    const onFront = (i: number) => setFront(i);
+    // (called from the drum's frame loop as each card comes to the front: a transition, so the render it starts can
+    // wait for the frame)
+    const onFront = (i: number) => startTransition(() => setFront(i));
     rig.onFront.add(onFront);
     const poll = setInterval(() => { if (rig.ready) { setReady(true); clearInterval(poll); } }, 100);
     return () => {
