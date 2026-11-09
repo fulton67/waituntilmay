@@ -9,7 +9,13 @@
 <meta property="og:image" content="assets/cd-front.webp">
 <link rel="stylesheet" href="css/fonts.v1.css">
 <link rel="stylesheet" href="vendor/myth-index/myth-index.css">
-<link rel="stylesheet" href="css/sie.v14.css">
+<link rel="stylesheet" href="css/sie.v15.css">
+<script type="importmap">
+{"imports":{
+  "three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+  "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+}}
+</script>
 </head>
 <body>
 
@@ -28,7 +34,9 @@
 
   <section class="stage" aria-label="the cd">
     <div class="gal" id="gal">
-      <div class="slide wide" data-copy="five songs on the disc, in this physical format only.">
+      <div class="slide wide case-slide" data-copy="five songs on the disc, in this physical format only.">
+        <div class="case3d" id="case3d"></div>
+        <button type="button" class="tilt" id="case-tilt" aria-pressed="false">tilt</button>
         <div class="case">
           <img src="assets/cd-open.webp" alt="the case open, disc in the tray">
           <img class="disc" id="disc" src="assets/disc.webp" alt="" draggable="false">
@@ -39,8 +47,11 @@
         <img src="assets/cd-poster.webp" alt="the folded poster, opened"></div>
       <div class="slide" data-copy="om cover, 1 of 3 included.">
         <img src="assets/cd-front.webp" alt="alternative cover, om"></div>
-      <div class="slide wide" data-copy="everything in the box — the cd, the case, the folded poster, three covers.">
-        <img src="assets/cd-bundle.webp" alt="everything in the box"></div>
+      <div class="slide wide bundle" data-copy="everything in the box — the cd, the case, the folded poster, three covers.">
+        <div class="case">
+          <img src="assets/cd-bundle.webp" alt="everything in the box">
+          <img class="disc" src="assets/disc.webp" alt="" draggable="false">
+        </div></div>
     </div>
     <div class="dots" id="dots" role="tablist" aria-label="views"></div>
   </section>
@@ -52,7 +63,7 @@
       <p id="desc-roll">This is Sie's first physical release from their late brother, Taz Paris. This physical interpretation of From Paris, With Love. includes 5 songs that will only be available in this physical format and will never be re-released on any major DSP or streaming service. You are purchasing ownership of the music in its totality. That's why this release is such a limited run of the physical version.</p>
       <p>ships from brooklyn. 100 units. jewel case, disc, folded poster, 3 alternative covers.</p>
     </div>
-    <p class="price">$80</p>
+    <p class="price">$80 <span class="unit">usd</span></p>
     <a class="myth-index__toggle sie-buy" href="https://ysrtvh-pa.myshopify.com/cart/49227493146807:1" rel="noopener">buy</a>
   </section>
 </main>
@@ -65,106 +76,118 @@
 
   <section class="sie">
     <div class="vids" id="vids">
+      <a class="vid" data-yt="lYR-UgVK7t8"
+         href="https://www.youtube.com/watch?v=lYR-UgVK7t8"
+         target="_blank" rel="noopener" aria-label="hunnakay — cringe">
+        <span class="vid-thumb"><img src="assets/yt/lYR-UgVK7t8.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-label">hunnakay — cringe</span>
+      </a>
+      <a class="vid" data-yt="L8TPg-hc6ZA"
+         href="https://www.youtube.com/watch?v=L8TPg-hc6ZA"
+         target="_blank" rel="noopener" aria-label="hunnakay — myself">
+        <span class="vid-thumb"><img src="assets/yt/L8TPg-hc6ZA.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-label">hunnakay — myself</span>
+      </a>
       <a class="vid" data-yt="k3JJfNnI7ss"
          href="https://www.youtube.com/watch?v=k3JJfNnI7ss"
          target="_blank" rel="noopener" aria-label="hunnakay — lost my sanity">
-        <span class="vid-thumb"><img src="https://i.ytimg.com/vi/k3JJfNnI7ss/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-thumb"><img src="assets/yt/k3JJfNnI7ss.jpg" alt="" loading="lazy" width="480" height="360"></span>
         <span class="vid-label">hunnakay — lost my sanity</span>
       </a>
       <a class="vid" data-yt="W6n73KxSkn0"
          href="https://www.youtube.com/watch?v=W6n73KxSkn0"
          target="_blank" rel="noopener" aria-label="hunnakay — triple krosssss">
-        <span class="vid-thumb"><img src="https://i.ytimg.com/vi/W6n73KxSkn0/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-thumb"><img src="assets/yt/W6n73KxSkn0.jpg" alt="" loading="lazy" width="480" height="360"></span>
         <span class="vid-label">hunnakay — triple krosssss</span>
       </a>
       <a class="vid" data-yt="hY4yIF5t618"
          href="https://www.youtube.com/watch?v=hY4yIF5t618"
          target="_blank" rel="noopener" aria-label="hunnakay — no one left">
-        <span class="vid-thumb"><img src="https://i.ytimg.com/vi/hY4yIF5t618/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-thumb"><img src="assets/yt/hY4yIF5t618.jpg" alt="" loading="lazy" width="480" height="360"></span>
         <span class="vid-label">hunnakay — no one left</span>
       </a>
       <a class="vid" data-yt="OIUexrJQ89A"
          href="https://www.youtube.com/watch?v=OIUexrJQ89A"
          target="_blank" rel="noopener" aria-label="hunnakay — numb">
-        <span class="vid-thumb"><img src="https://i.ytimg.com/vi/OIUexrJQ89A/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-thumb"><img src="assets/yt/OIUexrJQ89A.jpg" alt="" loading="lazy" width="480" height="360"></span>
         <span class="vid-label">hunnakay — numb</span>
       </a>
       <a class="vid" data-yt="cm8-lW25-e4"
          href="https://www.youtube.com/watch?v=cm8-lW25-e4"
          target="_blank" rel="noopener" aria-label="kllhhr — skin">
-        <span class="vid-thumb"><img src="https://i.ytimg.com/vi/cm8-lW25-e4/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-thumb"><img src="assets/yt/cm8-lW25-e4.jpg" alt="" loading="lazy" width="480" height="360"></span>
         <span class="vid-label">kllhhr — skin</span>
       </a>
       <a class="vid" data-yt="2L9ZwUIzAX8"
          href="https://www.youtube.com/watch?v=2L9ZwUIzAX8"
          target="_blank" rel="noopener" aria-label="kllhhr — be cool">
-        <span class="vid-thumb"><img src="https://i.ytimg.com/vi/2L9ZwUIzAX8/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-thumb"><img src="assets/yt/2L9ZwUIzAX8.jpg" alt="" loading="lazy" width="480" height="360"></span>
         <span class="vid-label">kllhhr — be cool</span>
       </a>
       <a class="vid" data-yt="3KxkXT0U6PM"
          href="https://www.youtube.com/watch?v=3KxkXT0U6PM"
          target="_blank" rel="noopener" aria-label="tazparis — on my terms">
-        <span class="vid-thumb"><img src="https://i.ytimg.com/vi/3KxkXT0U6PM/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-thumb"><img src="assets/yt/3KxkXT0U6PM.jpg" alt="" loading="lazy" width="480" height="360"></span>
         <span class="vid-label">tazparis — on my terms</span>
       </a>
       <a class="vid" data-yt="q0cq_Ny0Hkg"
          href="https://www.youtube.com/watch?v=q0cq_Ny0Hkg"
          target="_blank" rel="noopener" aria-label="kllhhr — tweak">
-        <span class="vid-thumb"><img src="https://i.ytimg.com/vi/q0cq_Ny0Hkg/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-thumb"><img src="assets/yt/q0cq_Ny0Hkg.jpg" alt="" loading="lazy" width="480" height="360"></span>
         <span class="vid-label">kllhhr — tweak</span>
       </a>
       <a class="vid" data-yt="Vf-I12GW8Pk"
          href="https://www.youtube.com/watch?v=Vf-I12GW8Pk"
          target="_blank" rel="noopener" aria-label="sheroy — fate">
-        <span class="vid-thumb"><img src="https://i.ytimg.com/vi/Vf-I12GW8Pk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-thumb"><img src="assets/yt/Vf-I12GW8Pk.jpg" alt="" loading="lazy" width="480" height="360"></span>
         <span class="vid-label">sheroy — fate</span>
       </a>
       <a class="vid" data-yt="_swh-ZVvAro"
          href="https://www.youtube.com/watch?v=_swh-ZVvAro"
          target="_blank" rel="noopener" aria-label="sheroy — lastyear">
-        <span class="vid-thumb"><img src="https://i.ytimg.com/vi/_swh-ZVvAro/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-thumb"><img src="assets/yt/_swh-ZVvAro.jpg" alt="" loading="lazy" width="480" height="360"></span>
         <span class="vid-label">sheroy — lastyear</span>
       </a>
       <a class="vid" data-yt="P1fFSZUrW3k"
          href="https://www.youtube.com/watch?v=P1fFSZUrW3k"
          target="_blank" rel="noopener" aria-label="sheroy wit suckrball — not my v">
-        <span class="vid-thumb"><img src="https://i.ytimg.com/vi/P1fFSZUrW3k/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-thumb"><img src="assets/yt/P1fFSZUrW3k.jpg" alt="" loading="lazy" width="480" height="360"></span>
         <span class="vid-label">sheroy wit suckrball — not my v</span>
       </a>
       <a class="vid" data-yt="E5zMqyOE61o"
          href="https://www.youtube.com/watch?v=E5zMqyOE61o"
          target="_blank" rel="noopener" aria-label="sheroy — 18">
-        <span class="vid-thumb"><img src="https://i.ytimg.com/vi/E5zMqyOE61o/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-thumb"><img src="assets/yt/E5zMqyOE61o.jpg" alt="" loading="lazy" width="480" height="360"></span>
         <span class="vid-label">sheroy — 18</span>
       </a>
       <a class="vid" data-yt="Izu3k-agHEM"
          href="https://www.youtube.com/watch?v=Izu3k-agHEM"
          target="_blank" rel="noopener" aria-label="suckrball — i feel alone">
-        <span class="vid-thumb"><img src="https://i.ytimg.com/vi/Izu3k-agHEM/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-thumb"><img src="assets/yt/Izu3k-agHEM.jpg" alt="" loading="lazy" width="480" height="360"></span>
         <span class="vid-label">suckrball — i feel alone</span>
       </a>
       <a class="vid" data-yt="QNqd8_XWc58"
          href="https://www.youtube.com/watch?v=QNqd8_XWc58"
          target="_blank" rel="noopener" aria-label="suckrball — alone">
-        <span class="vid-thumb"><img src="https://i.ytimg.com/vi/QNqd8_XWc58/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-thumb"><img src="assets/yt/QNqd8_XWc58.jpg" alt="" loading="lazy" width="480" height="360"></span>
         <span class="vid-label">suckrball — alone</span>
       </a>
       <a class="vid" data-yt="wETb3ybNNKg"
          href="https://www.youtube.com/watch?v=wETb3ybNNKg"
          target="_blank" rel="noopener" aria-label="suckrball — moss">
-        <span class="vid-thumb"><img src="https://i.ytimg.com/vi/wETb3ybNNKg/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-thumb"><img src="assets/yt/wETb3ybNNKg.jpg" alt="" loading="lazy" width="480" height="360"></span>
         <span class="vid-label">suckrball — moss</span>
       </a>
       <a class="vid" data-yt="gTsLN7wq9DY"
          href="https://www.youtube.com/watch?v=gTsLN7wq9DY"
          target="_blank" rel="noopener" aria-label="tazparis — onestopshop">
-        <span class="vid-thumb"><img src="https://i.ytimg.com/vi/gTsLN7wq9DY/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-thumb"><img src="assets/yt/gTsLN7wq9DY.jpg" alt="" loading="lazy" width="480" height="360"></span>
         <span class="vid-label">tazparis — onestopshop</span>
       </a>
       <a class="vid" data-yt="S_OO6kivZ8Y"
          href="https://www.youtube.com/watch?v=S_OO6kivZ8Y"
          target="_blank" rel="noopener" aria-label="tazparis — disgusted">
-        <span class="vid-thumb"><img src="https://i.ytimg.com/vi/S_OO6kivZ8Y/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></span>
+        <span class="vid-thumb"><img src="assets/yt/S_OO6kivZ8Y.jpg" alt="" loading="lazy" width="480" height="360"></span>
         <span class="vid-label">tazparis — disgusted</span>
       </a>
     </div>
@@ -172,7 +195,8 @@
 </main>
 
 <script src="vendor/myth-index/myth-index.js"></script>
-<script type="application/json" id="catalogue">[{"href":"/","title":"shop","thumb":"assets/cd-front.webp"},{"href":"/videos#k3JJfNnI7ss","thumb":"assets/yt/k3JJfNnI7ss.jpg","title":"hunnakay — lost my sanity"},{"href":"/videos#W6n73KxSkn0","thumb":"assets/yt/W6n73KxSkn0.jpg","title":"hunnakay — triple krosssss"},{"href":"/videos#hY4yIF5t618","thumb":"assets/yt/hY4yIF5t618.jpg","title":"hunnakay — no one left"},{"href":"/videos#OIUexrJQ89A","thumb":"assets/yt/OIUexrJQ89A.jpg","title":"hunnakay — numb"},{"href":"/videos#cm8-lW25-e4","thumb":"assets/yt/cm8-lW25-e4.jpg","title":"kllhhr — skin"},{"href":"/videos#2L9ZwUIzAX8","thumb":"assets/yt/2L9ZwUIzAX8.jpg","title":"kllhhr — be cool"},{"href":"/videos#3KxkXT0U6PM","thumb":"assets/yt/3KxkXT0U6PM.jpg","title":"tazparis — on my terms"},{"href":"/videos#q0cq_Ny0Hkg","thumb":"assets/yt/q0cq_Ny0Hkg.jpg","title":"kllhhr — tweak"},{"href":"/videos#Vf-I12GW8Pk","thumb":"assets/yt/Vf-I12GW8Pk.jpg","title":"sheroy — fate"},{"href":"/videos#_swh-ZVvAro","thumb":"assets/yt/_swh-ZVvAro.jpg","title":"sheroy — lastyear"},{"href":"/videos#P1fFSZUrW3k","thumb":"assets/yt/P1fFSZUrW3k.jpg","title":"sheroy wit suckrball — not my v"},{"href":"/videos#E5zMqyOE61o","thumb":"assets/yt/E5zMqyOE61o.jpg","title":"sheroy — 18"},{"href":"/videos#Izu3k-agHEM","thumb":"assets/yt/Izu3k-agHEM.jpg","title":"suckrball — i feel alone"},{"href":"/videos#QNqd8_XWc58","thumb":"assets/yt/QNqd8_XWc58.jpg","title":"suckrball — alone"},{"href":"/videos#wETb3ybNNKg","thumb":"assets/yt/wETb3ybNNKg.jpg","title":"suckrball — moss"},{"href":"/videos#gTsLN7wq9DY","thumb":"assets/yt/gTsLN7wq9DY.jpg","title":"tazparis — onestopshop"},{"href":"/videos#S_OO6kivZ8Y","thumb":"assets/yt/S_OO6kivZ8Y.jpg","title":"tazparis — disgusted"}]</script>
-<script src="js/sie.v14.js"></script>
+<script type="application/json" id="videos-data">[{"id":"lYR-UgVK7t8","label":"hunnakay — cringe"},{"id":"L8TPg-hc6ZA","label":"hunnakay — myself"},{"id":"k3JJfNnI7ss","label":"hunnakay — lost my sanity"},{"id":"W6n73KxSkn0","label":"hunnakay — triple krosssss"},{"id":"hY4yIF5t618","label":"hunnakay — no one left"},{"id":"OIUexrJQ89A","label":"hunnakay — numb"},{"id":"cm8-lW25-e4","label":"kllhhr — skin"},{"id":"2L9ZwUIzAX8","label":"kllhhr — be cool"},{"id":"3KxkXT0U6PM","label":"tazparis — on my terms"},{"id":"q0cq_Ny0Hkg","label":"kllhhr — tweak"},{"id":"Vf-I12GW8Pk","label":"sheroy — fate"},{"id":"_swh-ZVvAro","label":"sheroy — lastyear"},{"id":"P1fFSZUrW3k","label":"sheroy wit suckrball — not my v"},{"id":"E5zMqyOE61o","label":"sheroy — 18"},{"id":"Izu3k-agHEM","label":"suckrball — i feel alone"},{"id":"QNqd8_XWc58","label":"suckrball — alone"},{"id":"wETb3ybNNKg","label":"suckrball — moss"},{"id":"gTsLN7wq9DY","label":"tazparis — onestopshop"},{"id":"S_OO6kivZ8Y","label":"tazparis — disgusted"}]</script>
+<script src="js/sie.v15.js"></script>
+<script type="module" src="js/case.v1.js"></script>
 </body>
 </html>
