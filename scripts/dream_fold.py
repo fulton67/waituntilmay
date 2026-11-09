@@ -97,11 +97,31 @@ def read_mv(path, n, rows, cols):
     return mv, has
 
 
+def read_mvbin(path, n, rows, cols):
+    """The same field in the renderer's own binary: four int32 (frames,
+    rows, cols, 2) then float32 x,y per block, already in pixels.
+
+    The clip bank exports the ffedit JSON and the tuning lab exports this,
+    and they are the same numbers in two containers - so the warp can read
+    whichever the clip being dreamed happens to have, instead of the lab
+    getting a dream with no temporal term in it."""
+    raw = open(path, "rb").read()
+    f, r, c, d = np.frombuffer(raw, "<i4", count=4)
+    a = np.frombuffer(raw, "<f4", offset=16).reshape(f, r, c, d)
+    mv = np.zeros((n, rows, cols, 2), np.float32)
+    k = min(n, f)
+    mv[:k, :min(rows, r), :min(cols, c)] = a[:k, :min(rows, r), :min(cols, c), :2]
+    return mv, np.ones((n, rows, cols), bool)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--in", dest="src", required=True)
     ap.add_argument("--out", required=True)
-    ap.add_argument("--mv", default=None)
+    ap.add_argument("--mv", default=None, help="an ffedit mv export")
+    ap.add_argument("--mvbin", default=None,
+                    help="the renderer's mv.bin, for a clip that has one "
+                         "instead of an ffedit export")
     ap.add_argument("--frames", type=int, required=True)
     ap.add_argument("--width", type=int, default=640)
     ap.add_argument("--height", type=int, default=360)
@@ -164,7 +184,9 @@ def main():
     # is measured over comes from the same field, and a flicker figure that
     # only exists when the warp is on could not be compared with one
     mv = has = None
-    if args.mv:
+    if args.mvbin:
+        mv, has = read_mvbin(args.mvbin, n, rows, cols)
+    elif args.mv:
         mv, has = read_mv(args.mv, n, rows, cols)
 
     src = decode(args.src, n, W, H)
@@ -241,6 +263,7 @@ def main():
 
     rec = {
         "src": args.src, "out": args.out, "frames": n,
+        "motion": args.mvbin or args.mv,
         "device": dev, "layer": layer, "layer_index": li,
         "dream_size": [sw, sh], "full_size": [W, H],
         "strength": args.strength, "depth": args.depth, "warp": args.warp,

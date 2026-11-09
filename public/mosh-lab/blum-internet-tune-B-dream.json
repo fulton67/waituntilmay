@@ -1,0 +1,26 @@
+{
+ "src": "bank/lab-fold.mp4",
+ "out": "public/mosh-lab/blum-internet-tune-B-dream.mp4",
+ "frames": 300,
+ "motion": "public/mosh-lab/blum-internet-tune-mv.bin",
+ "device": "cuda",
+ "layer": "inception4b",
+ "layer_index": 4,
+ "dream_size": [
+  320,
+  192
+ ],
+ "full_size": [
+  640,
+  360
+ ],
+ "strength": 0.6,
+ "depth": 0.5,
+ "warp": 0.6,
+ "scale": 0.5,
+ "iterations": 12,
+ "seconds_total": 80.5,
+ "seconds_per_frame": 0.2575,
+ "flicker_still_dreamed": 12.4191,
+ "flicker_still_fold": 2.8522
+}

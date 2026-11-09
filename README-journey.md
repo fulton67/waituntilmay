@@ -212,6 +212,16 @@ not the default — the card is not the bottleneck at this geometry.
 `/mosh-lab/compare` has the clip four ways: the fold, the dreamed fold, the
 look over it, and the look over the dreamed one.
 
+The tuning lab plays it too. Dreaming is a CUDA pass and the page is a
+shader, so the four dials describe what gets baked; the lab clip has one
+bake kept beside it - its fold picture, through `dream_fold.py`, which is
+the order the bank builds in - and the DeepDream switch swaps the underlayer
+to it. The whole stack is then visible rather than described: the fold at
+the bottom, the dream over it, the look on top, with the fold dial deciding
+how much of the frame the Julia map takes. `refs/stack-fold-dream-look.png`
+is that grid - the published fold at 0.5 and the fold at maximum, each
+without the dream and with it.
+
 ## Publishing a look
 
 Pressing **publish look** writes `journey/look.json` and queues a re-layer.

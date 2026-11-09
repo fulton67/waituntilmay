@@ -1095,7 +1095,8 @@
  "layers": {
   "a": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-tune-A.mp4",
   "b": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-tune-B.mp4",
-  "c": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-tune-C.mp4"
+  "c": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-tune-C.mp4",
+  "bDream": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/blum-internet-tune-B-dream.mp4"
  },
  "mvBin": "/mosh-lab/blum-internet-tune-mv.bin",
  "intensityParams": {

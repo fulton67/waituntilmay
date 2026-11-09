@@ -53,7 +53,18 @@ interface TuneData {
   conceptHits: { stem: string; frame: number }[];
   words: { w: string; f0: number; f1: number; stem: string }[];
   rawNoLoudness: number[]; loudness: number[]; drift: number[];
-  layers: { a: string; b: string; c: string };
+  /**
+   * `bDream` is this clip's underlayer built the way the bank builds one -
+   * the fold picture, through scripts/dream_fold.py, kept - so the preview
+   * can show the dream slot rather than describing it. Dreaming is a CUDA
+   * pass and the page is a shader, so the four dials still describe what
+   * gets baked when the bank is shaded; this is one bake, at the settings
+   * journey/look.json carries. It is the fold that is dreamed and not the
+   * layer the lab normally plays, because that is the order the bank uses,
+   * and a preview that stacked them differently would be showing a
+   * picture the piece cannot produce.
+   */
+  layers: { a: string; b: string; c: string; bDream?: string };
   mvBin: string;
   /** the surface's field, for the feather; B's is used if it is absent */
   mvBinA?: string;
@@ -518,6 +529,15 @@ export default function MoshTune() {
     } else { a.pause(); b.pause(); c.pause(); }
   }, [playing, rate, data, cfg.b.speed, renderMode]);
 
+  /**
+   * Which underlayer the preview is playing. Swapping the element's src
+   * reloads it, so it has to be put back on the clock afterwards - the
+   * three layers are frame-locked and a layer that restarts at zero is a
+   * layer compositing the wrong frame.
+   */
+  const bSrc = (cfg.dream?.enabled && data?.layers.bDream)
+    ? data.layers.bDream : data?.layers.b;
+
   const seekAll = useCallback((t: number) => {
     for (const r of [aRef, bRef, cRef]) {
       const v = r.current;
@@ -977,8 +997,16 @@ export default function MoshTune() {
         <div className="mt-sources">
           <video ref={aRef} src={data.layers.a} crossOrigin="anonymous"
                  muted playsInline preload="auto" />
-          <video ref={bRef} src={data.layers.b} crossOrigin="anonymous"
-                 muted playsInline preload="auto" />
+          <video ref={bRef} src={bSrc} crossOrigin="anonymous"
+                 muted playsInline preload="auto"
+                 onLoadedData={() => {
+                   const b = bRef.current, a = aRef.current;
+                   if (!b) return;
+                   b.currentTime = a ? a.currentTime : frame / data.fps;
+                   b.playbackRate = rate * cfg.b.speed;
+                   if (playing) b.play().catch(() => {});
+                   rendRef.current?.resetBloom();
+                 }} />
           <video ref={cRef} src={data.layers.c} crossOrigin="anonymous"
                  muted playsInline preload="auto" />
         </div>
@@ -1083,9 +1111,14 @@ export default function MoshTune() {
           <span className="mt-hint">
             Runs DeepDream on the fold underlayer before it is encoded, so
             the dream shows only through the grain where the figure moves.
-            It happens on the GPU in Python, not here, so the preview will
-            not change until the bank is shaded &mdash; these four dials
-            travel with the look the way the exchange&rsquo;s do.
+            It happens on the GPU in Python, not here, so the four dials
+            describe what gets baked when the bank is shaded &mdash; they
+            travel with the look the way the exchange&rsquo;s do. This clip
+            has one bake kept beside it &mdash; its fold picture, dreamed,
+            which is the order the bank builds in &mdash; and the switch
+            plays that, so the stack is visible rather than described: the
+            fold at the bottom, the dream over it, the look on top, and the
+            fold dial deciding how much of the frame the Julia map takes.
           </span>
           {DREAM.map((d) => (
             <label key={d.key} className="mt-row">
