@@ -225,7 +225,7 @@
   "TP": -1.5,
   "LRA": 11
  },
- "audio_pre": "highpass=f=80,anlmdn=s=4,acompressor=threshold=-42dB:ratio=5:attack=5:release=150:makeup=20dB,volume=10dB,alimiter=limit=-3dB:attack=2:release=60:level=false",
+ "audio_pre": "highpass=f=80,acompressor=threshold=-42dB:ratio=5:attack=5:release=150:makeup=20dB,volume=10dB,alimiter=limit=-3dB:attack=2:release=60:level=false",
  "out": "C:/Users/naimj/Downloads/Ostad - Exomind (1.1x, brand kit).mp4",
  "remotion": {
   "hook": {
