@@ -12,10 +12,13 @@ export type Spec = {
   slug: string; speed: number; fps: number; durationInSeconds: number;
   captions: Caption[]; overlays: Overlay[]; end?: { src: string; at: number; dissolve: number; glass?: boolean; lines?: string[]; handle?: string };
   footage: string; audio: string;
+  // speaker reframes (Exomind, style DECISIONS 13): from "at" (s) the footage is scaled about (ox, oy) in frame px, held until the next
+  // entry; set at the cut joins so a jump cut reads as a punch-in on whoever is talking ("seamless when the patient interrupts")
+  frames?: { at: number; scale: number; ox?: number; oy?: number }[];
   hook?: Hook;            // opening title on glass (edit.json "remotion": { "hook": {...} }); lines split after ?.!: or on 
 
   cards?: SkinCardSpec[]; // image cards (condition photo, rings on the red areas, before -> after), components/SkinCard
-  graphics?: { kind: string; at: number; dur: number; pos?: Pos; label?: string; phases?: DiagramPhases; treat?: TreatPhases; [k: string]: unknown }[]; // explainers: components/Ro (calm cards; kind -> component map in OstadReel) and components/Explainers
+  graphics?: { kind: string; at: number; dur: number; pos?: Pos | string; label?: string; phases?: DiagramPhases; treat?: TreatPhases; [k: string]: unknown }[]; // explainers: components/Ro (calm cards; kind -> component map in OstadReel) and components/Explainers
   capStyle?: "stroke" | "clean"; // caption look (edit.json remotion.capStyle); --props {"capStyle": ...} overrides
   keywords?: string[];    // caption words set in the brand light blue as he says them
 };

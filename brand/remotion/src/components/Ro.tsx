@@ -15,10 +15,14 @@ export const NAVY = "#1d2230", MUTED = "#6b7183", RULE = "#e2e5eb", BLUE = "#2f9
 const quint = (q: number) => 1 - (1 - q) ** 5;
 
 export type Pos = "top" | "topLeft" | "topRight" | "chest" | "chestLeft" | "chestRight";
-export const place = (pos: Pos = "top", w: number): { left: number; top: number } => ({
-  top: pos.startsWith("chest") ? CHEST_T : SAFE_T + 10,
-  left: pos.endsWith("Left") ? 56 : pos.endsWith("Right") ? 1080 - 56 - w : (1080 - w) / 2,
-});
+// "xy:<left>,<top>" places a card at measured coordinates (Exomind: the free column between two seated faces)
+export const place = (pos: Pos | string = "top", w: number): { left: number; top: number } => {
+  if (pos.startsWith("xy:")) { const [left, top] = pos.slice(3).split(",").map(Number); return { left, top }; }
+  return {
+    top: pos.startsWith("chest") ? CHEST_T : SAFE_T + 10,
+    left: pos.endsWith("Left") ? 56 : pos.endsWith("Right") ? 1080 - 56 - w : (1080 - w) / 2,
+  };
+};
 
 export const card = (radius = 28): React.CSSProperties => ({
   position: "absolute", overflow: "hidden", borderRadius: radius, color: NAVY, fontFamily: FONT,

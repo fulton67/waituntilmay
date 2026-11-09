@@ -11,7 +11,7 @@ const C = JSON.parse(fs.readFileSync(path.join(E, "edit.json"), "utf8")), R = JS
 const edited = [path.join(E, `${slug}.mp4`), C.out].find((p) => p && fs.existsSync(p));
 if (!edited) throw new Error(`no rendered edit for ${slug}: run brand/scripts/video_edit.cjs first (its audio is the reel's audio)`);
 fs.mkdirSync(path.join(OUT, "devices"), { recursive: true });
-fs.copyFileSync(C.src, path.join(OUT, "footage.mp4"));
+fs.copyFileSync(path.resolve(BRAND, "..", C.src), path.join(OUT, "footage.mp4")); // edit.json paths are repo-relative or absolute
 execFileSync("ffmpeg", ["-v", "error", "-y", "-i", edited, "-vn", "-c:a", "copy", path.join(OUT, "audio.m4a")]);
 fs.copyFileSync(path.join(BRAND, "kit", "video", "elements", `${R.spec.end.card}.mp4`), path.join(OUT, "end.mp4"));
 const overlays = R.spec.overlays.map((o) => {

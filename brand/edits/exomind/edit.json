@@ -1,0 +1,663 @@
+{
+ "title": "Exomind: what it treats, how it feels",
+ "src": "brand/edits/exomind/exomind_cut.mp4",
+ "speed": 1.1,
+ "cut": {
+  "raw": "C:/Users/naimj/Downloads/Video Nov 05 2026, 10 50 41 AM.mov",
+  "transcript": "raw_transcript.json",
+  "maxPause": 0.3,
+  "keep": [
+   [
+    7.33,
+    8.84,
+    "this treatment is FDA approved for",
+    "ostad"
+   ],
+   [
+    10.94,
+    13.98,
+    "better sleep quality, anxiety, depression,",
+    "ostad"
+   ],
+   [
+    17.01,
+    18.26,
+    "the most recent one is",
+    "ostad"
+   ],
+   [
+    18.84,
+    20.22,
+    "obsessive-compulsive disorder.",
+    "ostad"
+   ],
+   [
+    20.62,
+    21.98,
+    "a lot of these conditions,",
+    "ostad"
+   ],
+   [
+    22.9,
+    26.34,
+    "the underlying issue is neurotransmitter issues.",
+    "ostad"
+   ],
+   [
+    28.12,
+    30.28,
+    "this treatment helps with neuroplasticity.",
+    "ostad"
+   ],
+   [
+    30.28,
+    31.56,
+    "It quiets my brain.",
+    "patient"
+   ],
+   [
+    31.56,
+    33.6,
+    "Yeah, I would say in a good way.",
+    "ostad"
+   ],
+   [
+    33.88,
+    37.02,
+    "I've tried this myself and truly my sleep is better.",
+    "ostad"
+   ],
+   [
+    37.3,
+    42.7,
+    "My experience is when I do it, I feel a tapping technique and you do feel a little bit of a headache right afterwards",
+    "ostad"
+   ],
+   [
+    43.76,
+    44.8,
+    "up to an hour.",
+    "ostad"
+   ],
+   [
+    45.42,
+    47.2,
+    "I wouldn't even call it a headache. I would say",
+    "patient"
+   ],
+   [
+    47.84,
+    49.3,
+    "just gentle pressure.",
+    "patient"
+   ],
+   [
+    49.4,
+    51.38,
+    "Almost like if you've gone swimming or",
+    "ostad"
+   ],
+   [
+    51.77,
+    53.74,
+    "drinking from a straw of something cold.",
+    "ostad"
+   ],
+   [
+    54.0,
+    58.32,
+    "It's not a painful headache. It's just your head feels a little heavy,",
+    "ostad"
+   ],
+   [
+    58.52,
+    58.8,
+    "but",
+    "ostad"
+   ],
+   [
+    59.66,
+    60.76,
+    "it dissipates quickly.",
+    "ostad"
+   ],
+   [
+    61.03,
+    61.64,
+    "you showed us",
+    "ostad"
+   ],
+   [
+    64.34,
+    65.62,
+    "your numbers have actually improved.",
+    "ostad"
+   ],
+   [
+    65.62,
+    68.66,
+    "So that to me is an objective way of assessing.",
+    "ostad"
+   ],
+   [
+    68.98,
+    69.66,
+    "So it's not",
+    "ostad"
+   ],
+   [
+    70.06,
+    73.9,
+    "just some placebo effect where you feel like, oh my god, I'm sleeping better.",
+    "ostad"
+   ],
+   [
+    73.96,
+    81.3,
+    "Those numbers reflect the fact that you're actually sleeping better. And I have the poor track record to prove that these are actually good numbers.",
+    "ostad+patient"
+   ]
+  ]
+ },
+ "transcript": "transcript.json",
+ "fixes": [
+  [
+   "ExoMind",
+   "Exomind"
+  ],
+  [
+   "like a compulsive disorder",
+   "obsessive-compulsive disorder"
+  ],
+  [
+   "like obsessive compulsive disorder",
+   "obsessive-compulsive disorder"
+  ],
+  [
+   "obsessive compulsive",
+   "obsessive-compulsive"
+  ],
+  [
+   "brain, is what I would say",
+   "brain. Yeah, I would say"
+  ],
+  [
+   "brain is what I would say",
+   "brain. Yeah, I would say"
+  ],
+  [
+   "you came from",
+   "drinking from"
+  ],
+  [
+   "you're getting from",
+   "drinking from"
+  ],
+  [
+   "neurotransmitter issue",
+   "neurotransmitter issues"
+  ],
+  [
+   "feel like, my God",
+   "feel like, oh my god"
+  ],
+  [
+   "oh my God",
+   "oh my god"
+  ]
+ ],
+ "chips": [],
+ "end": "card-editorial-end",
+ "capWide": false,
+ "grade": false,
+ "loudness": {
+  "I": -14,
+  "TP": -1.5,
+  "LRA": 11
+ },
+ "audio_pre": "highpass=f=80,acompressor=threshold=-42dB:ratio=5:attack=5:release=150:makeup=20dB,volume=10dB,alimiter=limit=-3dB:attack=2:release=60:level=false",
+ "out": "C:/Users/naimj/Downloads/Ostad - Exomind (1.1x, brand kit).mp4",
+ "remotion": {
+  "hook": {
+   "text": "Exomind?\nWhat it feels like, what it treats.",
+   "at": 0,
+   "dur": 3.4
+  },
+  "keywords": [
+   "Exomind",
+   "sleep",
+   "anxiety",
+   "depression",
+   "neuroplasticity",
+   "neurotransmitter",
+   "gentle pressure",
+   "numbers"
+  ],
+  "frames": [
+   {
+    "at": 0,
+    "scale": 1
+   },
+   {
+    "at": 1.37,
+    "scale": 1.1,
+    "ox": 170,
+    "oy": 660
+   },
+   {
+    "at": 2.73,
+    "scale": 1
+   },
+   {
+    "at": 4.06,
+    "scale": 1.1,
+    "ox": 170,
+    "oy": 660
+   },
+   {
+    "at": 5.2,
+    "scale": 1
+   },
+   {
+    "at": 6.45,
+    "scale": 1.1,
+    "ox": 170,
+    "oy": 660
+   },
+   {
+    "at": 7.69,
+    "scale": 1
+   },
+   {
+    "at": 10.82,
+    "scale": 1.1,
+    "ox": 170,
+    "oy": 660
+   },
+   {
+    "at": 12.78,
+    "scale": 1.16,
+    "ox": 900,
+    "oy": 720
+   },
+   {
+    "at": 13.95,
+    "scale": 1
+   },
+   {
+    "at": 15.8,
+    "scale": 1.1,
+    "ox": 170,
+    "oy": 660
+   },
+   {
+    "at": 18.65,
+    "scale": 1
+   },
+   {
+    "at": 23.56,
+    "scale": 1.1,
+    "ox": 170,
+    "oy": 660
+   },
+   {
+    "at": 24.51,
+    "scale": 1.16,
+    "ox": 900,
+    "oy": 720
+   },
+   {
+    "at": 26.13,
+    "scale": 1.06,
+    "ox": 900,
+    "oy": 720
+   },
+   {
+    "at": 27.45,
+    "scale": 1
+   },
+   {
+    "at": 29.25,
+    "scale": 1.1,
+    "ox": 170,
+    "oy": 660
+   },
+   {
+    "at": 31.05,
+    "scale": 1
+   },
+   {
+    "at": 35.23,
+    "scale": 1.1,
+    "ox": 170,
+    "oy": 660
+   },
+   {
+    "at": 36.23,
+    "scale": 1
+   },
+   {
+    "at": 36.78,
+    "scale": 1.1,
+    "ox": 170,
+    "oy": 660
+   },
+   {
+    "at": 37.95,
+    "scale": 1
+   },
+   {
+    "at": 40.71,
+    "scale": 1.1,
+    "ox": 170,
+    "oy": 660
+   },
+   {
+    "at": 41.33,
+    "scale": 1
+   },
+   {
+    "at": 44.82,
+    "scale": 1.1,
+    "ox": 170,
+    "oy": 660
+   },
+   {
+    "at": 47.44,
+    "scale": 1.16,
+    "ox": 900,
+    "oy": 720
+   }
+  ],
+  "graphics": [
+   {
+    "kind": "checklist",
+    "at": 0.9,
+    "dur": 5.4,
+    "pos": "xy:220,890",
+    "title": "What it’s approved for",
+    "rows": [
+     {
+      "text": "Sleep quality",
+      "at": 0.8,
+      "tick": true
+     },
+     {
+      "text": "Anxiety",
+      "at": 2.0,
+      "tick": true
+     },
+     {
+      "text": "Depression",
+      "at": 2.6,
+      "tick": true
+     },
+     {
+      "text": "Obsessive-compulsive disorder",
+      "at": 4.3,
+      "tick": true
+     }
+    ],
+    "_note": "raised above the kit lower third (y~1390-1550, 0.1-4.3 s)"
+   },
+   {
+    "kind": "video",
+    "at": 3.6,
+    "dur": 2.8,
+    "pos": "xy:322,300",
+    "w": 436,
+    "aspect": 1.0,
+    "src": "exomind/clips/treat1.mp4",
+    "caps": "In the office",
+    "title": "Exomind"
+   },
+   {
+    "kind": "balance",
+    "at": 6.4,
+    "dur": 4.5,
+    "pos": "chest",
+    "levelAt": 99,
+    "off": "Off balance"
+   },
+   {
+    "kind": "video",
+    "at": 7.6,
+    "dur": 3.2,
+    "pos": "xy:322,300",
+    "w": 436,
+    "src": "exomind/clips/synapse.mp4",
+    "caps": "The underlying issue",
+    "title": "Neurotransmitters",
+    "credit": "Animation: BTL"
+   },
+   {
+    "kind": "network",
+    "at": 10.9,
+    "dur": 1.9,
+    "pos": "chest",
+    "from": 0.3
+   },
+   {
+    "kind": "video",
+    "at": 10.9,
+    "dur": 1.85,
+    "pos": "xy:322,300",
+    "w": 436,
+    "src": "exomind/clips/plasticity.mp4",
+    "caps": "This treatment helps",
+    "title": "Neuroplasticity",
+    "credit": "Animation: BTL"
+   },
+   {
+    "kind": "wave",
+    "at": 12.85,
+    "dur": 2.9,
+    "pos": "xy:322,300",
+    "w": 420,
+    "calmAt": 0.8
+   },
+   {
+    "kind": "balance",
+    "at": 13.95,
+    "dur": 1.8,
+    "pos": "chest",
+    "levelAt": 0.5,
+    "title": "In a good way",
+    "off": "Busy",
+    "on": "Quieter"
+   },
+   {
+    "kind": "bars",
+    "at": 15.85,
+    "dur": 2.8,
+    "pos": "chest",
+    "w": 520,
+    "caps": "Dr. Ostad, on himself",
+    "title": "Sleep: truly better",
+    "bars": [
+     {
+      "label": "Before",
+      "v": 0.45
+     },
+     {
+      "label": "After",
+      "v": 0.85
+     }
+    ],
+    "from": 0.9,
+    "step": 0.9,
+    "note": "Illustration"
+   },
+   {
+    "kind": "ripple",
+    "at": 19.6,
+    "dur": 1.6,
+    "x": 95,
+    "y": 445,
+    "taps": [
+     0.1,
+     0.45,
+     0.8,
+     1.15
+    ],
+    "label": "Tapping",
+    "labelSide": "right",
+    "mode": "tap",
+    "_note": "his tap on the top of his head, raw 38.6-39.4 s"
+   },
+   {
+    "kind": "video",
+    "at": 21.1,
+    "dur": 2.4,
+    "pos": "xy:322,300",
+    "w": 436,
+    "aspect": 1.25,
+    "src": "exomind/clips/treat2.mp4",
+    "caps": "What it feels like",
+    "title": "A tapping"
+   },
+   {
+    "kind": "timer",
+    "at": 22.6,
+    "dur": 1.9,
+    "pos": "chest",
+    "caps": "A little headache after",
+    "title": "Up to an hour"
+   },
+   {
+    "kind": "swap",
+    "at": 24.55,
+    "dur": 2.85,
+    "pos": "chest",
+    "w": 520,
+    "from": "A headache",
+    "to": "Gentle pressure",
+    "swapAt": 1.3
+   },
+   {
+    "kind": "ripple",
+    "at": 26.15,
+    "dur": 1.3,
+    "x": 930,
+    "y": 548,
+    "taps": [
+     0.05,
+     0.5
+    ],
+    "mode": "press",
+    "_note": "her fingertips on the top-left of her head, measured on the cut at 28.9-30.2 s"
+   },
+   {
+    "kind": "chips",
+    "at": 27.5,
+    "dur": 3.5,
+    "pos": "xy:322,300",
+    "items": [
+     {
+      "text": "After swimming",
+      "at": 0.75
+     },
+     {
+      "text": "A cold drink, through a straw",
+      "at": 2.0,
+      "strong": true
+     }
+    ]
+   },
+   {
+    "kind": "meter",
+    "at": 31.1,
+    "dur": 5.1,
+    "pos": "chest",
+    "caps": "Not a painful headache",
+    "title": "Your head feels a little heavy",
+    "drainAt": 4.4,
+    "drain": 0.9,
+    "foot": "It dissipates quickly"
+   },
+   {
+    "kind": "phone",
+    "at": 36.3,
+    "dur": 4.4,
+    "pos": "xy:390,300",
+    "label": "Her sleep numbers",
+    "from": 0.7
+   },
+   {
+    "kind": "compare",
+    "at": 38.0,
+    "dur": 6.8,
+    "pos": "chest",
+    "left": [
+     "Objective",
+     "Numbers you can track"
+    ],
+    "right": [
+     "Placebo",
+     "Just feeling better"
+    ],
+    "rightAt": 3.1
+   },
+   {
+    "kind": "video",
+    "at": 40.9,
+    "dur": 3.9,
+    "pos": "xy:322,300",
+    "w": 436,
+    "src": "exomind/clips/coil.mp4",
+    "caps": "How it works",
+    "title": "Magnetic pulses",
+    "credit": "Animation: BTL"
+   },
+   {
+    "kind": "bars",
+    "at": 44.9,
+    "dur": 3.4,
+    "pos": "chest",
+    "w": 560,
+    "caps": "Those numbers reflect",
+    "title": "Actually sleeping better",
+    "bars": [
+     {
+      "label": "Wk 1",
+      "v": 0.35
+     },
+     {
+      "label": "Wk 2",
+      "v": 0.45
+     },
+     {
+      "label": "Wk 3",
+      "v": 0.6
+     },
+     {
+      "label": "Wk 4",
+      "v": 0.82
+     }
+    ],
+    "from": 0.6,
+    "step": 0.3,
+    "note": "Illustration"
+   },
+   {
+    "kind": "video",
+    "at": 47.5,
+    "dur": 3.6,
+    "pos": "xy:322,300",
+    "w": 436,
+    "src": "exomind/clips/brainlit.mp4",
+    "caps": "Her track record",
+    "title": "Good numbers",
+    "credit": "Animation: BTL"
+   }
+  ],
+  "end": {
+   "glass": true,
+   "lines": [
+    "Book a consultation.",
+    "Link in bio."
+   ],
+   "handle": "@drarielostad"
+  }
+ }
+}

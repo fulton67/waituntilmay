@@ -7,13 +7,16 @@ import { EndCard as GlassEnd } from "./components/EndCard";
 import { NAME_CARD_DUR, NameCard } from "./components/NameCard";
 import { SkinCard } from "./components/SkinCard";
 import { MicrobeCard, PillCard, SkinDiagram } from "./components/Explainers";
+import { Balance, Bars, Meter, Network, Phone, Ripple, Swap, Timer, VideoCard, Wave } from "./components/Exo";
 import { Calendar, Chain, Checklist, Chips, Chronic, ClipFull, Compare, Note, RoutineCard, RxCard, RxStack, TreatmentCard } from "./components/Ro";
 
 // explainer kinds (edit.json remotion.graphics[].kind); every other key of the entry is passed through as a prop
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const KINDS: Record<string, React.FC<any>> = { rx: RxCard, routine: RoutineCard, stack: RxStack, chronic: Chronic, checklist: Checklist, calendar: Calendar,
-  compare: Compare, chain: Chain, note: Note, chips: Chips, clip: ClipFull, pills: PillCard, microbes: MicrobeCard };
+  compare: Compare, chain: Chain, note: Note, chips: Chips, clip: ClipFull, pills: PillCard, microbes: MicrobeCard,
+  video: VideoCard, balance: Balance, network: Network, wave: Wave, bars: Bars, meter: Meter, timer: Timer, phone: Phone, swap: Swap };
 import type { ReelProps } from "./types";
+import type { Pos } from "./components/Ro";
 
 // A talking-head reel: the source clip at the edit's speed (muted), the edit's finished audio, and the kit's graphics on top.
 // Everything is driven by public/<slug>/props.json from scripts/prepare.cjs, so the timings match brand/scripts/video_edit.cjs.
@@ -24,7 +27,14 @@ export const OstadReel: React.FC<ReelProps> = ({ spec, capStyle }) => {
   const f = (s: number) => Math.round(s * fps);
   return (
     <AbsoluteFill style={{ background: "#000" }}>
-      <OffthreadVideo src={staticFile(spec.footage)} muted playbackRate={spec.speed} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+      <Footage spec={spec}>
+        {spec.graphics?.filter((g) => g.kind === "ripple").map((g, i) => (
+          <Sequence key={`rip${i}`} from={f(g.at)} durationInFrames={f(g.dur)} name="Gesture: ripple">
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+            <Ripple {...(g as any)} />
+          </Sequence>
+        ))}
+      </Footage>
       <Audio src={staticFile(spec.audio)} />
       {spec.overlays.map((o, i) =>
         o.name === "lower-third" ? (
@@ -42,9 +52,9 @@ export const OstadReel: React.FC<ReelProps> = ({ spec, capStyle }) => {
           <SkinCard card={c} />
         </Sequence>
       ))}
-      {spec.graphics?.map((g, i) => (
+      {spec.graphics?.filter((g) => g.kind !== "ripple").map((g, i) => (
         <Sequence key={`gfx${i}`} from={f(g.at)} durationInFrames={f(g.dur)} name={`Explainer: ${g.kind}`}>
-          {g.kind === "treatment" ? <TreatmentCard dur={g.dur} at={g.treat ?? {}} clipsPos={g.pos} />
+          {g.kind === "treatment" ? <TreatmentCard dur={g.dur} at={g.treat ?? {}} clipsPos={g.pos as Pos | undefined} />
             : g.kind === "diagram" ? <SkinDiagram dur={g.dur} at={g.phases ?? {}} />
             : (() => { const K = KINDS[g.kind]; return K ? <K {...g} /> : null; })()}
         </Sequence>
@@ -60,6 +70,19 @@ export const OstadReel: React.FC<ReelProps> = ({ spec, capStyle }) => {
           {spec.end.glass ? <GlassEnd lines={spec.end.lines} handle={spec.end.handle} /> : <EndCard src={spec.end.src} dissolve={spec.end.dissolve} />}
         </Sequence>
       )}
+    </AbsoluteFill>
+  );
+};
+
+// the footage plus anything anchored to it (gesture ripples), reframed per spec.frames: a held scale about a point, switched at cuts
+const Footage: React.FC<{ spec: NonNullable<ReelProps["spec"]>; children?: React.ReactNode }> = ({ spec, children }) => {
+  const t = useCurrentFrame() / useVideoConfig().fps;
+  const fr = [...(spec.frames ?? [])].reverse().find((x) => t >= x.at);
+  const s = fr?.scale ?? 1;
+  return (
+    <AbsoluteFill style={{ transform: `scale(${s})`, transformOrigin: `${fr?.ox ?? 540}px ${fr?.oy ?? 960}px` }}>
+      <OffthreadVideo src={staticFile(spec.footage)} muted playbackRate={spec.speed} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+      {children}
     </AbsoluteFill>
   );
 };

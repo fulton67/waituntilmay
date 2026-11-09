@@ -1,0 +1,407 @@
+{
+ "src": "brand/edits/exomind/exomind_cut.mp4",
+ "speed": 1.1,
+ "fps": 24,
+ "source_s": 56.7728125,
+ "footage_frames": 1239,
+ "footage_s": 51.625,
+ "dur_s": 54.125,
+ "frames": 1299,
+ "render_s": 139,
+ "loudness_in": {
+  "input_i": "-12.67",
+  "input_tp": "-3.00",
+  "input_lra": "2.00",
+  "input_thresh": "-22.67",
+  "output_i": "-13.94",
+  "output_tp": "-4.04",
+  "output_lra": "1.60",
+  "output_thresh": "-23.94",
+  "normalization_type": "dynamic",
+  "target_offset": "-0.06"
+ },
+ "adobe_fonts": true,
+ "errors": [],
+ "captions": 56,
+ "captions_unfit": [
+  "obsessive-compulsive disorder.",
+  "neurotransmitter issues."
+ ],
+ "fixed_words": [
+  {
+   "w": "obsessive-compulsive disorder.",
+   "from": "like a compulsive disorder",
+   "t": 5.24
+  },
+  {
+   "w": "neurotransmitter issues.",
+   "from": "neurotransmitter issue",
+   "t": 8.89
+  },
+  {
+   "w": "brain. Yeah, I would say,",
+   "from": "brain, is what I would say",
+   "t": 13.71
+  },
+  {
+   "w": "drinking from",
+   "from": "you came from",
+   "t": 29.36
+  },
+  {
+   "w": "feel like, oh my god,",
+   "from": "feel like, my God",
+   "t": 43.55
+  }
+ ],
+ "rects": {
+  "lower_third": {
+   "x": 98.265625,
+   "y": 1369.65625,
+   "width": 789.140625,
+   "height": 198.03125,
+   "top": 1369.65625,
+   "right": 887.40625,
+   "bottom": 1567.6875,
+   "left": 98.265625
+  },
+  "caption": {
+   "x": 98.265625,
+   "y": 1593.59375,
+   "width": 883.46875,
+   "height": 90.46875,
+   "top": 1593.59375,
+   "right": 981.734375,
+   "bottom": 1684.0625,
+   "left": 98.265625
+  },
+  "chip": null
+ },
+ "spec": {
+  "overlays": [
+   {
+    "name": "lower-third",
+    "at": 0.1
+   }
+  ],
+  "captions": [
+   {
+    "text": "This treatment is FDA",
+    "from": 0,
+    "to": 0.8909090909090909
+   },
+   {
+    "text": "approved for better",
+    "from": 0.8909090909090909,
+    "to": 1.7090909090909088
+   },
+   {
+    "text": "sleep quality,",
+    "from": 1.7090909090909088,
+    "to": 2.909090909090909
+   },
+   {
+    "text": "anxiety, depression.",
+    "from": 2.909090909090909,
+    "to": 4.145454545454545
+   },
+   {
+    "text": "The most recent one is",
+    "from": 4.145454545454545,
+    "to": 5.236363636363635
+   },
+   {
+    "text": "obsessive-compulsive disorder.",
+    "from": 5.236363636363635,
+    "to": 6.5272727272727264
+   },
+   {
+    "text": "A lot of these",
+    "from": 6.5272727272727264,
+    "to": 7.072727272727272
+   },
+   {
+    "text": "conditions, the",
+    "from": 7.072727272727272,
+    "to": 8
+   },
+   {
+    "text": "underlying issue is",
+    "from": 8,
+    "to": 8.890909090909089
+   },
+   {
+    "text": "neurotransmitter issues.",
+    "from": 8.890909090909089,
+    "to": 10.89090909090909
+   },
+   {
+    "text": "This treatment helps",
+    "from": 10.89090909090909,
+    "to": 11.654545454545454
+   },
+   {
+    "text": "with neuroplasticity.",
+    "from": 11.654545454545454,
+    "to": 12.836363636363634
+   },
+   {
+    "text": "It quiets my",
+    "from": 12.836363636363634,
+    "to": 13.709090909090907
+   },
+   {
+    "text": "brain. Yeah, I would say,",
+    "from": 13.709090909090907,
+    "to": 14.745454545454542
+   },
+   {
+    "text": "in a good way.",
+    "from": 14.745454545454542,
+    "to": 15.872727272727273
+   },
+   {
+    "text": "I've tried this myself",
+    "from": 15.872727272727273,
+    "to": 16.96363636363636
+   },
+   {
+    "text": "and truly my sleep is",
+    "from": 16.96363636363636,
+    "to": 18.4
+   },
+   {
+    "text": "better.",
+    "from": 18.4,
+    "to": 18.763636363636362
+   },
+   {
+    "text": "My experience is when I",
+    "from": 18.763636363636362,
+    "to": 19.78181818181818
+   },
+   {
+    "text": "do it, I feel a tapping",
+    "from": 19.78181818181818,
+    "to": 20.69090909090909
+   },
+   {
+    "text": "technique and you do",
+    "from": 20.69090909090909,
+    "to": 21.763636363636362
+   },
+   {
+    "text": "feel a little bit of a",
+    "from": 21.763636363636362,
+    "to": 22.563636363636363
+   },
+   {
+    "text": "headache right",
+    "from": 22.563636363636363,
+    "to": 22.98181818181818
+   },
+   {
+    "text": "afterwards, up to an",
+    "from": 22.98181818181818,
+    "to": 24.16363636363636
+   },
+   {
+    "text": "hour.",
+    "from": 24.16363636363636,
+    "to": 24.599999999999998
+   },
+   {
+    "text": "I wouldn't even call it a",
+    "from": 24.599999999999998,
+    "to": 25.454545454545453
+   },
+   {
+    "text": "headache.",
+    "from": 25.454545454545453,
+    "to": 25.599999999999998
+   },
+   {
+    "text": "I would say just gentle",
+    "from": 25.599999999999998,
+    "to": 27.018181818181816
+   },
+   {
+    "text": "pressure, almost like if",
+    "from": 27.018181818181816,
+    "to": 28.327272727272724
+   },
+   {
+    "text": "you've gone swimming",
+    "from": 28.327272727272724,
+    "to": 29.10909090909091
+   },
+   {
+    "text": "or drinking from a straw",
+    "from": 29.10909090909091,
+    "to": 30.16363636363636
+   },
+   {
+    "text": "of something cold.",
+    "from": 30.16363636363636,
+    "to": 31.127272727272725
+   },
+   {
+    "text": "It's not a painful",
+    "from": 31.127272727272725,
+    "to": 32.14545454545454
+   },
+   {
+    "text": "headache.",
+    "from": 32.14545454545454,
+    "to": 32.56363636363636
+   },
+   {
+    "text": "It's just your head feels",
+    "from": 32.56363636363636,
+    "to": 33.92727272727272
+   },
+   {
+    "text": "a little heavy,",
+    "from": 33.92727272727272,
+    "to": 35.127272727272725
+   },
+   {
+    "text": "but it dissipates",
+    "from": 35.127272727272725,
+    "to": 35.92727272727273
+   },
+   {
+    "text": "quickly.",
+    "from": 35.92727272727273,
+    "to": 36.599999999999994
+   },
+   {
+    "text": "You showed us your",
+    "from": 36.599999999999994,
+    "to": 37.018181818181816
+   },
+   {
+    "text": "numbers have actually",
+    "from": 37.018181818181816,
+    "to": 37.78181818181818
+   },
+   {
+    "text": "improved.",
+    "from": 37.78181818181818,
+    "to": 38.07272727272727
+   },
+   {
+    "text": "So that to me is an",
+    "from": 38.07272727272727,
+    "to": 38.92727272727272
+   },
+   {
+    "text": "objective way of",
+    "from": 38.92727272727272,
+    "to": 40.345454545454544
+   },
+   {
+    "text": "assessing.",
+    "from": 40.345454545454544,
+    "to": 40.90909090909091
+   },
+   {
+    "text": "So it's not just some",
+    "from": 40.90909090909091,
+    "to": 42.18181818181818
+   },
+   {
+    "text": "placebo effect where",
+    "from": 42.18181818181818,
+    "to": 43.309090909090905
+   },
+   {
+    "text": "you feel like, oh my god,",
+    "from": 43.309090909090905,
+    "to": 44.29090909090909
+   },
+   {
+    "text": "I'm sleeping better.",
+    "from": 44.29090909090909,
+    "to": 45.03636363636363
+   },
+   {
+    "text": "Those numbers reflect",
+    "from": 45.03636363636363,
+    "to": 45.92727272727273
+   },
+   {
+    "text": "the fact that you're",
+    "from": 45.92727272727273,
+    "to": 46.72727272727272
+   },
+   {
+    "text": "actually sleeping",
+    "from": 46.72727272727272,
+    "to": 47.43636363636363
+   },
+   {
+    "text": "better.",
+    "from": 47.43636363636363,
+    "to": 47.43636363636363
+   },
+   {
+    "text": "And I have the poor",
+    "from": 47.43636363636363,
+    "to": 48.43636363636363
+   },
+   {
+    "text": "track record to prove",
+    "from": 48.43636363636363,
+    "to": 49.50909090909091
+   },
+   {
+    "text": "that these are actually",
+    "from": 49.50909090909091,
+    "to": 50.81818181818181
+   },
+   {
+    "text": "good numbers.",
+    "from": 50.81818181818181,
+    "to": 51.375
+   }
+  ],
+  "capWide": false,
+  "end": {
+   "card": "card-editorial-end",
+   "at": 51.125,
+   "dissolve": 0.5
+  }
+ },
+ "out": "C:\\Users\\naimj\\orca\\workspaces\\waituntilmay\\OSTAD-CONTENT-INTEL\\brand\\edits\\exomind\\exomind.mp4",
+ "copy": "C:/Users/naimj/Downloads/Ostad - Exomind (1.1x, brand kit).mp4",
+ "probe": {
+  "programs": [],
+  "stream_groups": [],
+  "streams": [
+   {
+    "codec_name": "h264",
+    "codec_type": "video",
+    "width": 1080,
+    "height": 1920,
+    "r_frame_rate": "24/1",
+    "nb_frames": "1299",
+    "side_data_list": [
+     {}
+    ]
+   },
+   {
+    "codec_name": "aac",
+    "codec_type": "audio",
+    "sample_rate": "48000",
+    "channels": 2,
+    "r_frame_rate": "0/0",
+    "nb_frames": "2539"
+   }
+  ],
+  "format": {
+   "duration": "54.125000",
+   "size": "50425154"
+  }
+ }
+}

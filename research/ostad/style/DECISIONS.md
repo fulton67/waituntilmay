@@ -84,3 +84,27 @@ Built:
 - Captions: `capStyle` "stroke" (8 px black outline) or "clean" (no outline, 5.8cqw, soft shadow). Set in edit.json remotion.capStyle or at render time with `--props '{"capStyle":"clean"}'`.
 - References added (refs.yaml): evident (80 latest posts, 56 reels) and colin (40 posts), downloaded via the existing pipeline (ig_media.py; common.py maps them to refs `evident` / `colin`). The full M1–M21 measurement is queued behind pass 2 and will re-tune cadence, placement, easing and SFX.
 - First manual read of Evident's animation: inserts build up piece by piece (title, baseline draw, bars grow, value tags pop), with a slow push-in on the held graphic and labels typed on inside a growing highlight box. Candidates once measured.
+
+## 13. Exomind reel: an edit, not just an overlay (2026-11-09)
+
+Client: "edit this one as well, not just add the visuals on top of it ... take out the dead spaces and cut out the things where he repeats himself. Use the other video as a standard." Start at "This treatment is FDA approved"; 1.1x; a header that is different but sits on the same grid as the rosacea title; the treatment itself shown muted in a card beside him or below; head taps and presses shown where they land; neurotransmitters off balance, neuroplasticity improving, numbers improving; seamless cuts where the patient comes in.
+
+Measured / decided:
+- **Cut** (new brand/scripts/video_cut.py; edit.json `cut.keep` in raw seconds, chosen from the word-timed raw transcript): 85 s raw -> 25 kept phrases -> 56.6 s cut -> 54.1 s at 1.1x with the end card. Gone: the false start, the repeated "obsessive compulsive" take, the repeated "headache" explanation, the "you came from" slip, and pauses longer than 0.30 s. Every join was checked on the audio envelope (each cut sits in a dip) and by re-transcribing the cut; four joins were moved after whisper heard a clipped word ("like", "you've", "better", "You").
+- **Faces** (YuNet every 0.25 s on the cut): Ostad x 28–285, y 487–818; patient x 760–1012, y 555–852. Two seated faces leave a free column x ≈ 300–750 from the top band to the chest, so this reel uses that column (`pos: "xy:322,300"`, new in place()) as well as the chest band. The rosacea zones assumed one centred face.
+- **Gestures** (from frames): Ostad taps the top of his head at raw 38.6–39.4 s, final 19.8–20.6 s, during "I feel a tapping". The patient's fingertips are on the top-left of her head at final 26.1–27.4 s, during "gentle pressure", measured at (930, 548) on the cut.
+- **Reframes** (`spec.frames`, new): at each of the 25 joins the footage alternates between wide and a 1.10 punch-in on Ostad, so a jump cut reads as a cut. Patient lines punch in 1.16 toward her ("It quiets my brain", "I wouldn't even call it a headache", "the poor track record"). Ripples are drawn inside the reframed layer, so they stay on the heads.
+
+Built (components/Exo.tsx, same calm glass and enter/Sfx as Ro.tsx):
+- `video`: a muted clip in a glass card. Used for the practice's own treatment footage (Oct 30 video: the patient under the coil; Ostad showing the tapping on his own head) and for BTL's "What is EXOMIND?" animation (synapse, plasticity, coil, brain). BTL clips are cropped clear of their watermark and credited "Animation: BTL". They are manufacturer media: gitignored, and the client needs to approve them.
+- `balance`: a tilted scale levels out (neurotransmitters off balance; reused as "busy -> quieter" for "in a good way").
+- `network`: new connections draw between nodes, with a counter (neuroplasticity).
+- `wave`: a busy line settles ("It quiets my brain").
+- `bars`, `phone`: sleep numbers climbing. Labelled "Illustration": the reel has no real data.
+- `meter`: "a little heavy", which drains on "dissipates quickly".
+- `timer`: "up to an hour".
+- `swap`: "A headache" struck and replaced by "Gentle pressure".
+- `ripple`: taps (expanding rings) or a press (contracting rings) anchored to footage coordinates, with an optional chip.
+- Header: the rosacea Hook template unchanged in grid, type and box ("Exomind?" / "What it feels like, what it treats."). There is no strike: the difference is in the content, not the layout.
+- 22 beats in 51 s; the longest stretch without a new element is about 3 s. Repeated subjects change form: sleep goes checklist -> his bars -> her phone -> weekly bars; the treatment goes office clip -> tapping clip -> coil animation; the headache goes timer -> swap -> meter.
+- The checklist was raised to y 890 so it clears the kit's lower third (0.1–4.3 s).
