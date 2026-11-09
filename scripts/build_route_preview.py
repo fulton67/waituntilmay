@@ -52,7 +52,7 @@ def main():
     intro = re.sub(r'(src|href)=(["\'])assets/', r'\1=\2/assets/',
                    m.group(0)) if m else ''
     css = re.findall(r'<link rel="stylesheet" href="(css/[^"]+)"', html)
-    js = re.search(r'<script src="(js/sie\.v\d+\.js)"></script>', html).group(1)
+    js = re.search(r'<script[^>]*src="(js/sie\.v\d+\.js)"></script>', html).group(1)
     case = re.search(r'<script type="module" src="(js/case\.v\d+\.js)"></script>', html).group(1)
 
     def fix(frag, route, cls):
@@ -72,10 +72,10 @@ def main():
               '  "three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",\n'
               '  "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"\n'
               '}}\n</script>')
-    foot = ('<script src="/vendor/myth-index/myth-index.js"></script>\n'
+    foot = ('<script defer src="/vendor/myth-index/myth-index.js"></script>\n'
             '<script>window.SIE_ASSETS="/assets/yt/";</script>\n'
             '<script type="application/json" id="videos-data">%s</script>\n'
-            '<script src="/%s"></script>\n'
+            '<script defer src="/%s"></script>\n'
             '<script type="module" src="/%s"></script>' % (blob, js, case))
 
     pages = (("index.html", "home", "/"), ("videos/index.html", "sie", "/videos"))
