@@ -70,7 +70,15 @@ def main():
     blob = re.search(r'<script type="application/json" id="videos-data">(.*?)</script>',
                      html, re.S).group(1)
 
-    def fix(frag, route, cls):
+    # the intro splash is a sibling of <main>, not a child of one, so the
+    # <main> scrape above never saw it. It is site-wide: ride the footer.
+    m = re.search(r'<div id="intro"[^>]*>(?:(?!<div\b).)*?</div>', html, re.S)
+    if m is None:
+        print('  WARNING: no #intro block in site/index.html')
+    intro = m.group(0) if m else ''
+
+    def rewrite(frag):
+        """local asset paths -> the hosts that serve them"""
         # hash routes -> real routes
         frag = re.sub(r'href=(["\'])(#[\w-]*)\1',
                       lambda m: 'href=%s%s%s' % (m.group(1), ROUTES.get(m.group(2), m.group(2)), m.group(1)),
@@ -86,8 +94,11 @@ def main():
         # the 3D host needs an absolute model URL
         frag = frag.replace('<div class="case3d" id="case3d"></div>',
                             '<div class="case3d" id="case3d" data-model="%s/%s"></div>' % (CDN, GLB))
+        return frag
+
+    def fix(frag, route, cls):
         return ('<main class="%s" data-route="%s">' % (cls, route)) \
-            + frag.strip() + '</main>'
+            + rewrite(frag).strip() + '</main>'
 
     unresolved = sorted(set(re.findall(r'["\'](assets/[^"\']+)', html))
                         - set(images) - {p for p in re.findall(r'["\'](assets/yt/[^"\']+)', html)}
@@ -108,7 +119,8 @@ def main():
             '</script>\n',
         "2-site-footer.html":
             '<!-- Site settings / Custom code / Footer code -->\n'
-            f'<script src="{CDN}/myth-index.v1.js"></script>\n'
+            + (rewrite(intro) + '\n' if intro else '')
+            + f'<script src="{CDN}/myth-index.v1.js"></script>\n'
             f'<script>window.SIE_ASSETS="{CDN}/yt/";</script>\n'
             f'<script type="application/json" id="videos-data">{blob}</script>\n'
             f'<script src="{CDN}/{JS}"></script>\n'

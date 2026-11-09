@@ -48,6 +48,9 @@ def main():
 
     blob = re.search(r'<script type="application/json" id="videos-data">(.*?)</script>',
                      html, re.S).group(1)
+    m = re.search(r'<div id="intro"[^>]*>(?:(?!<div\b).)*?</div>', html, re.S)
+    intro = re.sub(r'(src|href)=(["\'])assets/', r'\1=\2/assets/',
+                   m.group(0)) if m else ''
     css = re.findall(r'<link rel="stylesheet" href="(css/[^"]+)"', html)
     js = re.search(r'<script src="(js/sie\.v\d+\.js)"></script>', html).group(1)
     case = re.search(r'<script type="module" src="(js/case\.v\d+\.js)"></script>', html).group(1)
@@ -80,8 +83,8 @@ def main():
     for name, key, route in pages:
         doc = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
                '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
-               '<title>sie.market %s</title>\n%s\n</head>\n<body>\n%s\n%s\n</body>\n</html>\n'
-               % (route, head, fix(mains[key], route, mclass[key]), foot))
+               '<title>sie.market %s</title>\n%s\n</head>\n<body>\n%s\n%s\n%s\n</body>\n</html>\n'
+               % (route, head, intro, fix(mains[key], route, mclass[key]), foot))
         p = os.path.join(OUT, name)
         with open(p, "w", encoding="utf-8", newline="\n") as fh:
             fh.write(doc)
