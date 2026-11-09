@@ -1,0 +1,654 @@
+{
+ "ok": true,
+ "error": null,
+ "render": {
+  "toneMapping": "NeutralToneMapping",
+  "toneMappingExposure": 1,
+  "outputColorSpace": "srgb",
+  "environment": "dark studio, 2 emitters + dim back fill, PMREM sigma 0.02",
+  "environmentIntensity": 0.6,
+  "keyLight": {
+   "colour": "#fff4e8",
+   "intensity": 1.2,
+   "shadowRadius": 4,
+   "mapSize": 1024
+  },
+  "shadowMap": "PCFSoftShadowMap",
+  "groundShadowOpacity": 0.28,
+  "transmissionResolutionScale": "absent in three r169 (added r171) \u2014 full-res pass",
+  "pixelRatio": 2
+ },
+ "framing": {
+  "radius_closed": 0.95207,
+  "radius_open": 1.40418,
+  "dolly_ratio": 1.4749,
+  "world_extent": 2.10391,
+  "samples": [
+   {
+    "c": [
+     -0.0,
+     0,
+     0
+    ],
+    "r": 0.95207
+   },
+   {
+    "c": [
+     -0.00227,
+     0,
+     0.12273
+    ],
+    "r": 0.9683
+   },
+   {
+    "c": [
+     -0.00422,
+     0,
+     0.24132
+    ],
+    "r": 0.99799
+   },
+   {
+    "c": [
+     -0.0058,
+     0,
+     0.35216
+    ],
+    "r": 1.03713
+   },
+   {
+    "c": [
+     -0.00697,
+     0,
+     0.45188
+    ],
+    "r": 1.08071
+   },
+   {
+    "c": [
+     -0.00767,
+     0,
+     0.53745
+    ],
+    "r": 1.12364
+   },
+   {
+    "c": [
+     -0.00791,
+     0,
+     0.60627
+    ],
+    "r": 1.16139
+   },
+   {
+    "c": [
+     -0.00766,
+     0,
+     0.65625
+    ],
+    "r": 1.19029
+   },
+   {
+    "c": [
+     -0.00693,
+     0,
+     0.68588
+    ],
+    "r": 1.20772
+   },
+   {
+    "c": [
+     -0.00575,
+     0,
+     0.69425
+    ],
+    "r": 1.21216
+   },
+   {
+    "c": [
+     -0.12849,
+     0,
+     0.68414
+    ],
+    "r": 1.28322
+   },
+   {
+    "c": [
+     -0.24708,
+     0,
+     0.65283
+    ],
+    "r": 1.34757
+   },
+   {
+    "c": [
+     -0.35791,
+     0,
+     0.60127
+    ],
+    "r": 1.40418
+   }
+  ],
+  "ground_y": -0.629
+ },
+ "tucked": [
+  {
+   "part": "C_back_traycard",
+   "band_px": 7,
+   "map_px": "2048x1752",
+   "band_pct": 0.4
+  },
+  {
+   "part": "D_spine_hinge",
+   "band_px": 2,
+   "map_px": "256x2048",
+   "band_pct": 0.781
+  },
+  {
+   "part": "E_spine_open",
+   "band_px": 2,
+   "map_px": "256x2048",
+   "band_pct": 0.781
+  },
+  {
+   "part": "A_front_cover",
+   "band_px": 8,
+   "map_px": "2048x2048",
+   "band_pct": 0.391
+  },
+  {
+   "part": "B_inside_cover",
+   "band_px": 8,
+   "map_px": "2048x2048",
+   "band_pct": 0.391
+  }
+ ],
+ "rounded": [
+  {
+   "part": "base_back_clear",
+   "size_local": [
+    2,
+    1.7856,
+    0.0171
+   ],
+   "node_scale": 0.7,
+   "radius_local": 0.00837,
+   "radius_model": 0.00586,
+   "clamped": true
+  },
+  {
+   "part": "base_wall_top",
+   "size_local": [
+    2,
+    0.0171,
+    0.0986
+   ],
+   "node_scale": 0.7,
+   "radius_local": 0.00837,
+   "radius_model": 0.00586,
+   "clamped": true
+  },
+  {
+   "part": "base_wall_bottom",
+   "size_local": [
+    2,
+    0.0171,
+    0.0986
+   ],
+   "node_scale": 0.7,
+   "radius_local": 0.00837,
+   "radius_model": 0.00586,
+   "clamped": true
+  },
+  {
+   "part": "base_wall_right",
+   "size_local": [
+    0.0193,
+    2,
+    0.1104
+   ],
+   "node_scale": 0.625,
+   "radius_local": 0.00945,
+   "radius_model": 0.00591,
+   "clamped": true
+  },
+  {
+   "part": "lid_clear",
+   "size_local": [
+    2,
+    1.7605,
+    0.0493
+   ],
+   "node_scale": 0.71,
+   "radius_local": 0.01127,
+   "radius_model": 0.008,
+   "clamped": false
+  }
+ ],
+ "materials": {
+  "base_back_clear": {
+   "type": "MeshPhysicalMaterial",
+   "roughness": 0.06,
+   "metalness": 0,
+   "transmission": 1,
+   "ior": 1.59,
+   "thickness": 0.02,
+   "specularIntensity": 0.35,
+   "clearcoat": 0,
+   "sheen": 0,
+   "colour": "#ffffff",
+   "attenuationColor": "#f4f8f8",
+   "attenuationDistance": 3,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "base_wall_top": {
+   "type": "MeshPhysicalMaterial",
+   "roughness": 0.06,
+   "metalness": 0,
+   "transmission": 1,
+   "ior": 1.59,
+   "thickness": 0.02,
+   "specularIntensity": 0.35,
+   "clearcoat": 0,
+   "sheen": 0,
+   "colour": "#ffffff",
+   "attenuationColor": "#f4f8f8",
+   "attenuationDistance": 3,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "base_wall_bottom": {
+   "type": "MeshPhysicalMaterial",
+   "roughness": 0.06,
+   "metalness": 0,
+   "transmission": 1,
+   "ior": 1.59,
+   "thickness": 0.02,
+   "specularIntensity": 0.35,
+   "clearcoat": 0,
+   "sheen": 0,
+   "colour": "#ffffff",
+   "attenuationColor": "#f4f8f8",
+   "attenuationDistance": 3,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "base_wall_right": {
+   "type": "MeshPhysicalMaterial",
+   "roughness": 0.06,
+   "metalness": 0,
+   "transmission": 1,
+   "ior": 1.59,
+   "thickness": 0.02,
+   "specularIntensity": 0.35,
+   "clearcoat": 0,
+   "sheen": 0,
+   "colour": "#ffffff",
+   "attenuationColor": "#f4f8f8",
+   "attenuationDistance": 3,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "tray_black": {
+   "type": "MeshStandardMaterial",
+   "roughness": 0.55,
+   "metalness": 0,
+   "transmission": null,
+   "ior": null,
+   "thickness": null,
+   "specularIntensity": null,
+   "clearcoat": null,
+   "sheen": null,
+   "colour": "#0b0b0c",
+   "attenuationColor": null,
+   "attenuationDistance": null,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "hub": {
+   "type": "MeshStandardMaterial",
+   "roughness": 0.55,
+   "metalness": 0,
+   "transmission": null,
+   "ior": null,
+   "thickness": null,
+   "specularIntensity": null,
+   "clearcoat": null,
+   "sheen": null,
+   "colour": "#0b0b0c",
+   "attenuationColor": null,
+   "attenuationDistance": null,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "C_back_traycard": {
+   "type": "MeshStandardMaterial",
+   "roughness": 0.85,
+   "metalness": 0,
+   "transmission": null,
+   "ior": null,
+   "thickness": null,
+   "specularIntensity": null,
+   "clearcoat": null,
+   "sheen": null,
+   "colour": "#ffffff",
+   "attenuationColor": null,
+   "attenuationDistance": null,
+   "map": true,
+   "map_colorSpace": "srgb",
+   "side": "double"
+  },
+  "D_spine_hinge": {
+   "type": "MeshStandardMaterial",
+   "roughness": 0.85,
+   "metalness": 0,
+   "transmission": null,
+   "ior": null,
+   "thickness": null,
+   "specularIntensity": null,
+   "clearcoat": null,
+   "sheen": null,
+   "colour": "#ffffff",
+   "attenuationColor": null,
+   "attenuationDistance": null,
+   "map": true,
+   "map_colorSpace": "srgb",
+   "side": "double"
+  },
+  "E_spine_open": {
+   "type": "MeshStandardMaterial",
+   "roughness": 0.85,
+   "metalness": 0,
+   "transmission": null,
+   "ior": null,
+   "thickness": null,
+   "specularIntensity": null,
+   "clearcoat": null,
+   "sheen": null,
+   "colour": "#ffffff",
+   "attenuationColor": null,
+   "attenuationDistance": null,
+   "map": true,
+   "map_colorSpace": "srgb",
+   "side": "double"
+  },
+  "lid_clear": {
+   "type": "MeshPhysicalMaterial",
+   "roughness": 0.06,
+   "metalness": 0,
+   "transmission": 1,
+   "ior": 1.59,
+   "thickness": 0.02,
+   "specularIntensity": 0.35,
+   "clearcoat": 0,
+   "sheen": 0,
+   "colour": "#ffffff",
+   "attenuationColor": "#f4f8f8",
+   "attenuationDistance": 3,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "lid_knuckle_0": {
+   "type": "MeshPhysicalMaterial",
+   "roughness": 0.06,
+   "metalness": 0,
+   "transmission": 1,
+   "ior": 1.59,
+   "thickness": 0.02,
+   "specularIntensity": 0.35,
+   "clearcoat": 0,
+   "sheen": 0,
+   "colour": "#ffffff",
+   "attenuationColor": "#f4f8f8",
+   "attenuationDistance": 3,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "lid_knuckle_1": {
+   "type": "MeshPhysicalMaterial",
+   "roughness": 0.06,
+   "metalness": 0,
+   "transmission": 1,
+   "ior": 1.59,
+   "thickness": 0.02,
+   "specularIntensity": 0.35,
+   "clearcoat": 0,
+   "sheen": 0,
+   "colour": "#ffffff",
+   "attenuationColor": "#f4f8f8",
+   "attenuationDistance": 3,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "A_front_cover": {
+   "type": "MeshStandardMaterial",
+   "roughness": 0.85,
+   "metalness": 0,
+   "transmission": null,
+   "ior": null,
+   "thickness": null,
+   "specularIntensity": null,
+   "clearcoat": null,
+   "sheen": null,
+   "colour": "#ffffff",
+   "attenuationColor": null,
+   "attenuationDistance": null,
+   "map": true,
+   "map_colorSpace": "srgb",
+   "side": "double"
+  },
+  "B_inside_cover": {
+   "type": "MeshStandardMaterial",
+   "roughness": 0.85,
+   "metalness": 0,
+   "transmission": null,
+   "ior": null,
+   "thickness": null,
+   "specularIntensity": null,
+   "clearcoat": null,
+   "sheen": null,
+   "colour": "#ffffff",
+   "attenuationColor": null,
+   "attenuationDistance": null,
+   "map": true,
+   "map_colorSpace": "srgb",
+   "side": "double"
+  },
+  "F_disc": {
+   "type": "MeshStandardMaterial",
+   "roughness": 0.4,
+   "metalness": 0.1,
+   "transmission": null,
+   "ior": null,
+   "thickness": null,
+   "specularIntensity": null,
+   "clearcoat": null,
+   "sheen": null,
+   "colour": "#ffffff",
+   "attenuationColor": null,
+   "attenuationDistance": null,
+   "map": true,
+   "map_colorSpace": "srgb",
+   "side": "double"
+  }
+ },
+ "tris": 6826,
+ "slide": {
+  "has3d": true,
+  "descendants_total": 5,
+  "visible_total": 2,
+  "visible": [
+   {
+    "tag": "div",
+    "cls": "case3d",
+    "paints": false,
+    "box": "493x370"
+   },
+   {
+    "tag": "canvas",
+    "cls": "",
+    "paints": false,
+    "box": "493x370"
+   }
+  ],
+  "hidden_by_has3d": [
+   "div.case",
+   "img.",
+   "img.disc"
+  ],
+  "visible_canvases": 1,
+  "visible_images": 0,
+  "visible_painting_non_canvas": 0,
+  "animations_in_slide": 0,
+  "slide_paints": false
+ },
+ "shots": [
+  {
+   "px": 733096,
+   "size": "988x742",
+   "edge_lit_px": 0,
+   "cropped": false,
+   "lit_px": 138384,
+   "lit_pct": 18.88,
+   "mean_v": 16.12,
+   "peak_v": 177,
+   "file": "qa/case-closed-front.png",
+   "pose": {
+    "theta": 0,
+    "pitch": 0,
+    "yaw": 0
+   },
+   "theta_deg": 0,
+   "calls": 38,
+   "tris": 18538,
+   "cam_z": 3.9728
+  },
+  {
+   "px": 733096,
+   "size": "988x742",
+   "edge_lit_px": 0,
+   "cropped": false,
+   "lit_px": 81108,
+   "lit_pct": 11.06,
+   "mean_v": 10.14,
+   "peak_v": 181,
+   "file": "qa/case-open-120.png",
+   "pose": {
+    "theta": 120,
+    "pitch": -8,
+    "yaw": -30,
+    "spin": 18
+   },
+   "theta_deg": 120,
+   "calls": 38,
+   "tris": 18538,
+   "cam_z": 6.1978
+  },
+  {
+   "px": 733096,
+   "size": "988x742",
+   "edge_lit_px": 0,
+   "cropped": false,
+   "lit_px": 56926,
+   "lit_pct": 7.77,
+   "mean_v": 6.94,
+   "peak_v": 173,
+   "file": "qa/case-open-120-front.png",
+   "pose": {
+    "theta": 120,
+    "pitch": 0,
+    "yaw": 0
+   },
+   "theta_deg": 120,
+   "calls": 38,
+   "tris": 18538,
+   "cam_z": 6.4606
+  }
+ ],
+ "errors": [],
+ "fps390": {
+  "sway": 60,
+  "drag_samples": [
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60
+  ],
+  "drag_median": 60,
+  "drag_min": 60,
+  "open_static": 60
+ },
+ "info390": {
+  "calls": 38,
+  "tris": 18538
+ },
+ "slide390": {
+  "has3d": true,
+  "descendants_total": 5,
+  "visible_total": 2,
+  "visible": [
+   {
+    "tag": "div",
+    "cls": "case3d",
+    "paints": false,
+    "box": "343x257"
+   },
+   {
+    "tag": "canvas",
+    "cls": "",
+    "paints": false,
+    "box": "343x257"
+   }
+  ],
+  "hidden_by_has3d": [
+   "div.case",
+   "img.",
+   "img.disc"
+  ],
+  "visible_canvases": 1,
+  "visible_images": 0,
+  "visible_painting_non_canvas": 0,
+  "animations_in_slide": 0,
+  "slide_paints": false
+ },
+ "canvas390": {
+  "css": "343x257",
+  "buffer": "686x514"
+ }
+}
