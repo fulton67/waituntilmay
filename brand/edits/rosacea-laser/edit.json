@@ -106,7 +106,8 @@
      "before": "Rosacea"
     },
     "credit": "Photo: M. Sand et al., CC BY 2.0, via Wikimedia Commons",
-    "_note": "spots auto (redness_spots.py single image)"
+    "_note": "spots auto (redness_spots.py single image)",
+    "pos": "chest"
    },
    {
     "at": 41.6,
@@ -121,7 +122,8 @@
      "before": "Irritation · dryness"
     },
     "credit": "Perioral dermatitis. Photo: Johannes Köhler, CC BY-SA 4.0, via Wikimedia Commons",
-    "_note": "CC BY-SA: shown unaltered, X outside the card"
+    "_note": "CC BY-SA: shown unaltered, X outside the card",
+    "pos": "chest"
    },
    {
     "at": 44.85,
@@ -150,7 +152,8 @@
      "before": "Visible vessels"
     },
     "credit": "Telangiectasia. Photo: Klaus D. Peter, Wiehl, Germany, CC BY 3.0 de, via Wikimedia Commons",
-    "_note": "spot auto (redness_spots single image)"
+    "_note": "spot auto (redness_spots single image)",
+    "pos": "chest"
    },
    {
     "at": 49.4,
@@ -164,7 +167,8 @@
      "before": "Flushing"
     },
     "credit": "Niacin flush. Photo: JBCH, CC BY-SA 4.0, via Wikimedia Commons",
-    "_note": "CC BY-SA: shown unaltered"
+    "_note": "CC BY-SA: shown unaltered",
+    "pos": "chest"
    },
    {
     "at": 60.9,
@@ -196,7 +200,8 @@
      "after": "After laser"
     },
     "credit": "Patient of Dr. Ostad. Individual results vary.",
-    "_note": "spot placed by hand on the purple vessels: redness_spots cleared() found no spot (ECC 0.82, after still pink there). Ostad gallery image: needs-approval (patient consent)"
+    "_note": "spot placed by hand on the purple vessels: redness_spots cleared() found no spot (ECC 0.82, after still pink there). Ostad gallery image: needs-approval (patient consent)",
+    "pos": "chest"
    },
    {
     "at": 111.0,
@@ -228,15 +233,101 @@
      "after": "After laser"
     },
     "credit": "Patient of Dr. Ostad. Individual results vary.",
-    "_note": "spot auto (cleared: red 0.17 of before remains). Ostad gallery image: needs-approval (patient consent)"
+    "_note": "spot auto (cleared: red 0.17 of before remains). Ostad gallery image: needs-approval (patient consent)",
+    "pos": "chest"
    }
   ],
   "graphics": [
    {
+    "kind": "stack",
+    "at": 4.4,
+    "dur": 4.4,
+    "pos": "chest",
+    "items": [
+     {
+      "text": "Topical cream",
+      "at": 0.2
+     },
+     {
+      "text": "Oral antibiotic",
+      "at": 0.9
+     },
+     {
+      "text": "Another refill",
+      "at": 1.6
+     }
+    ],
+    "title": "Another prescription"
+   },
+   {
+    "kind": "chronic",
+    "at": 12.3,
+    "dur": 2.6,
+    "pos": "top"
+   },
+   {
+    "kind": "checklist",
+    "at": 14.3,
+    "dur": 7.3,
+    "pos": "chest",
+    "title": "Where medication has a role",
+    "rows": [
+     {
+      "text": "Oral + topical",
+      "at": 0.1,
+      "tick": true
+     },
+     {
+      "text": "Inflammatory bumps",
+      "at": 4.7,
+      "tick": true
+     },
+     {
+      "text": "Pustules",
+      "at": 6.2,
+      "tick": true
+     },
+     {
+      "text": "Acne",
+      "at": 6.8,
+      "tick": true
+     }
+    ]
+   },
+   {
+    "kind": "calendar",
+    "at": 21.7,
+    "dur": 6.7,
+    "pos": "top",
+    "title": "Relying on medication",
+    "cells": [
+     "J",
+     "F",
+     "M",
+     "A",
+     "M",
+     "J",
+     "J",
+     "A",
+     "S",
+     "O",
+     "N",
+     "D"
+    ],
+    "from": 0.6,
+    "step": 0.25,
+    "foot": "Indefinitely",
+    "chip": {
+     "text": "Other ways to target it",
+     "at": 4.5
+    }
+   },
+   {
     "kind": "rx",
     "at": 29.2,
     "dur": 3.85,
-    "label": "Oral antibiotics"
+    "label": "Oral antibiotics",
+    "pos": "chest"
    },
    {
     "kind": "microbes",
@@ -245,9 +336,151 @@
     "label": "Gut microbiome"
    },
    {
+    "kind": "calendar",
+    "at": 36.0,
+    "dur": 5.5,
+    "pos": "chest",
+    "title": "Topical medication",
+    "cells": [
+     "M",
+     "T",
+     "W",
+     "T",
+     "F",
+     "S",
+     "S"
+    ],
+    "from": 0.6,
+    "step": 0.4,
+    "foot": "Every day, ongoing"
+   },
+   {
+    "kind": "chips",
+    "at": 52.2,
+    "dur": 3.2,
+    "pos": "topLeft",
+    "items": [
+     {
+      "text": "Address it directly",
+      "at": 0.1,
+      "strong": true
+     },
+     {
+      "text": "With laser",
+      "at": 1.2
+     }
+    ]
+   },
+   {
+    "kind": "chips",
+    "at": 57.6,
+    "dur": 3.1,
+    "pos": "topLeft",
+    "items": [
+     {
+      "text": "Targets hemoglobin",
+      "at": 0.1,
+      "strong": true
+     },
+     {
+      "text": "The red in blood vessels",
+      "at": 1.4
+     }
+    ]
+   },
+   {
+    "kind": "chips",
+    "at": 67.8,
+    "dur": 2.6,
+    "pos": "topLeft",
+    "items": [
+     {
+      "text": "Diffuse redness",
+      "at": 0.1,
+      "strong": true
+     },
+     {
+      "text": "Overall skin quality",
+      "at": 1.2
+     }
+    ]
+   },
+   {
+    "kind": "compare",
+    "at": 70.5,
+    "dur": 3.4,
+    "pos": "chest",
+    "left": [
+     "Oral medication",
+     "Works through the whole body"
+    ],
+    "right": [
+     "Targeted therapy",
+     "Aims at the vessel"
+    ],
+    "rightAt": 0.9
+   },
+   {
+    "kind": "chain",
+    "at": 74.0,
+    "dur": 3.6,
+    "pos": "top",
+    "w": 760,
+    "title": "The vascular component",
+    "steps": [
+     {
+      "text": "Blood vessels",
+      "at": 0.9,
+      "img": "rosacea-laser/images/nose_pair_before.jpg"
+     },
+     {
+      "text": "Redness",
+      "at": 2.6
+     }
+    ]
+   },
+   {
+    "kind": "note",
+    "at": 77.7,
+    "dur": 3.6,
+    "pos": "topLeft",
+    "caps": "To be clear",
+    "text": "Some patients need medication."
+   },
+   {
+    "kind": "clip",
+    "at": 81.4,
+    "dur": 4.9,
+    "src": "rosacea-laser/clips/excelv.mp4",
+    "caps": "In our practice",
+    "title": "Treat it directly"
+   },
+   {
     "kind": "routine",
     "at": 86.4,
-    "dur": 3.6
+    "dur": 3.6,
+    "pos": "top"
+   },
+   {
+    "kind": "chain",
+    "at": 90.0,
+    "dur": 6.4,
+    "pos": "chest",
+    "title": "Find the cause first",
+    "steps": [
+     {
+      "text": "Symptoms",
+      "at": 0.2
+     },
+     {
+      "text": "Driving cause",
+      "at": 1.4
+     },
+     {
+      "text": "Targeted treatment",
+      "at": 4.8
+     }
+    ]
    },
    {
     "kind": "treatment",
@@ -263,7 +496,8 @@
      "excelv": 5.7,
      "split": 10.1,
      "genesis": 10.9
-    }
+    },
+    "pos": "chest"
    }
   ],
   "end": {

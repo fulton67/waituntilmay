@@ -1,5 +1,5 @@
 import { Audio, Img, Sequence, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
-import { FONT, SAFE_T, clamp, easeOutBack } from "../brand";
+import { CHEST_T, FONT, SAFE_T, clamp, easeOutBack } from "../brand";
 import { Chip, Mark, Ring, glass } from "../devices/Markup";
 
 // Image card for a beat (style DECISIONS 9; client 2026-11-09: "pop up the image of that [condition] ... circle those red spots ...
@@ -17,6 +17,7 @@ export type SkinCardSpec = {
   afterAt?: number;                                           // when the after photo crossfades in (check at +0.2 s)
   labels?: { before?: string; after?: string };
   credit?: string;
+  pos?: "top" | "chest";                                      // top: above his head (default); chest: below his chin, over the scrubs
 };
 
 const SFX_GAIN = 0.32; // about -10 dB under the voice
@@ -36,7 +37,7 @@ export const SkinCard: React.FC<{ card: SkinCardSpec }> = ({ card }) => {
   let IW = MAXW - 2 * PAD, IH = (IW * card.h) / card.w;
   if (IH > MAXH) { IH = MAXH; IW = (IH * card.w) / card.h; }
   const CW = IW + 2 * PAD, CH = IH + 2 * PAD;
-  const X = (1080 - CW) / 2, Y = SAFE_T + 10;
+  const X = (1080 - CW) / 2, Y = card.pos === "chest" ? CHEST_T : SAFE_T + 10;
   const ix = X + PAD, iy = Y + PAD;
   const q = clamp(t / 0.36);
   const out = clamp((t - (card.dur - 0.3)) / 0.3);

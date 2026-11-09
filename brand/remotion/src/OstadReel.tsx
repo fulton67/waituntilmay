@@ -7,12 +7,17 @@ import { EndCard as GlassEnd } from "./components/EndCard";
 import { NAME_CARD_DUR, NameCard } from "./components/NameCard";
 import { SkinCard } from "./components/SkinCard";
 import { MicrobeCard, PillCard, SkinDiagram } from "./components/Explainers";
-import { RoutineCard, RxCard, TreatmentCard } from "./components/Ro";
+import { Calendar, Chain, Checklist, Chips, Chronic, ClipFull, Compare, Note, RoutineCard, RxCard, RxStack, TreatmentCard } from "./components/Ro";
+
+// explainer kinds (edit.json remotion.graphics[].kind); every other key of the entry is passed through as a prop
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const KINDS: Record<string, React.FC<any>> = { rx: RxCard, routine: RoutineCard, stack: RxStack, chronic: Chronic, checklist: Checklist, calendar: Calendar,
+  compare: Compare, chain: Chain, note: Note, chips: Chips, clip: ClipFull, pills: PillCard, microbes: MicrobeCard };
 import type { ReelProps } from "./types";
 
 // A talking-head reel: the source clip at the edit's speed (muted), the edit's finished audio, and the kit's graphics on top.
 // Everything is driven by public/<slug>/props.json from scripts/prepare.cjs, so the timings match brand/scripts/video_edit.cjs.
-export const OstadReel: React.FC<ReelProps> = ({ spec }) => {
+export const OstadReel: React.FC<ReelProps> = ({ spec, capStyle }) => {
   useElza();
   const { fps } = useVideoConfig();
   if (!spec) return <AbsoluteFill style={{ background: "#000" }} />;
@@ -39,12 +44,9 @@ export const OstadReel: React.FC<ReelProps> = ({ spec }) => {
       ))}
       {spec.graphics?.map((g, i) => (
         <Sequence key={`gfx${i}`} from={f(g.at)} durationInFrames={f(g.dur)} name={`Explainer: ${g.kind}`}>
-          {g.kind === "rx" ? <RxCard dur={g.dur} label={g.label} />
-            : g.kind === "routine" ? <RoutineCard dur={g.dur} />
-            : g.kind === "treatment" ? <TreatmentCard dur={g.dur} at={g.treat ?? {}} />
-            : g.kind === "pills" ? <PillCard dur={g.dur} label={g.label} />
-            : g.kind === "microbes" ? <MicrobeCard dur={g.dur} label={g.label} />
-            : <SkinDiagram dur={g.dur} at={g.phases ?? {}} />}
+          {g.kind === "treatment" ? <TreatmentCard dur={g.dur} at={g.treat ?? {}} clipsPos={g.pos} />
+            : g.kind === "diagram" ? <SkinDiagram dur={g.dur} at={g.phases ?? {}} />
+            : (() => { const K = KINDS[g.kind]; return K ? <K {...g} /> : null; })()}
         </Sequence>
       ))}
       {spec.hook && (
@@ -52,7 +54,7 @@ export const OstadReel: React.FC<ReelProps> = ({ spec }) => {
           <Hook text={spec.hook.text} dur={spec.hook.dur ?? 3.4} strike={spec.hook.strike} />
         </Sequence>
       )}
-      <Captions captions={spec.captions} keywords={spec.keywords} />
+      <Captions captions={spec.captions} keywords={spec.keywords} look={capStyle ?? spec.capStyle} />
       {spec.end && (
         <Sequence from={f(spec.end.at)} name="End card">
           {spec.end.glass ? <GlassEnd lines={spec.end.lines} handle={spec.end.handle} /> : <EndCard src={spec.end.src} dissolve={spec.end.dissolve} />}

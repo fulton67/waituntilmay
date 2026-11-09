@@ -24,7 +24,7 @@ STYLE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEDIA, MEASURE = os.path.join(STYLE, "media"), os.path.join(STYLE, "measure")
 ANALYSIS_W = 270
 DIRECT = {"DfTeuSYK23y", "DdrkdrYv-yW", "DYKh5yyPxxg"}
-ACCOUNT_REF = {"dr.jc.global": "drjc", "doctor.grove": "grove"}
+ACCOUNT_REF = {"dr.jc.global": "drjc", "doctor.grove": "grove", "evidentmediaorg": "evident", "colinandsamir": "colin"}
 
 
 def load_json(p, default=None):
@@ -52,7 +52,8 @@ def _np(o):
 @lru_cache(None)
 def _ig_ref_by_shortcode():
     m = {}
-    for p in load_json(os.path.join(STYLE, "raw", "ig_posts.json"), []):
+    dumps = [load_json(os.path.join(STYLE, "raw", n), []) for n in ("ig_posts.json", "ig_evident.json", "ig_colin.json")]
+    for p in [x for d in dumps for x in d]:
         u = (p.get("inputUrl") or "").rstrip("/").split("/")[-1]
         m[p["shortCode"]] = ACCOUNT_REF.get(u, u)
     for sc in DIRECT: m[sc] = "ig_" + sc

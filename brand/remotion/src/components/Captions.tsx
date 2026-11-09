@@ -9,19 +9,22 @@ import type { Caption } from "../types";
 const norm = (w: string) => w.toLowerCase().replace(/[^a-z0-9]/g, "");
 const KEY = "#7cc8f2"; // brand blue #37a9e8, lifted for legibility on the black stroke
 const SIZE = cqw(6.98), TRACK = 0.01;
+// "clean" (client: "the black outline ... kind of outdated"; reference Colin and Samir DfAik8-piUm, measured): no stroke, no box,
+// white NHG 600 at 5.8cqw (their glyphs: ~5.8% of frame width, centred, 1-3 words), a soft shadow only for legibility.
+const CLEAN = cqw(5.8);
 
-export const Captions: React.FC<{ captions: Caption[]; keywords?: string[] }> = ({ captions, keywords = [] }) => {
+export const Captions: React.FC<{ captions: Caption[]; keywords?: string[]; look?: "stroke" | "clean" }> = ({ captions, keywords = [], look = "stroke" }) => {
   const t = useCurrentFrame() / useVideoConfig().fps;
   const line = captions.find((c) => t >= c.from && t < c.to);
   if (!line) return null;
   const q = 1 - (1 - clamp((t - line.from) / 0.14)) ** 3;
   const keys = new Set(keywords.flatMap((k) => k.split(" ").map(norm)));
-  const px = fitPx(line.text, 600, SIZE, W - 2 * MARGIN - 16, TRACK);
+  const px = fitPx(line.text, 600, look === "clean" ? CLEAN : SIZE, W - 2 * MARGIN - 16, TRACK);
+  const ink: React.CSSProperties = look === "clean" ? { textShadow: "0 2px 10px rgba(0,0,0,.38), 0 0 2px rgba(0,0,0,.25)" } : { WebkitTextStroke: "8px #000", paintOrder: "stroke fill" };
   return (
     <AbsoluteFill>
       <div style={{ position: "absolute", left: MARGIN, right: MARGIN, top: CAP_TOP * H, textAlign: "center" }}>
-        <p style={{ margin: 0, font: `600 ${px}px/1.2 ${FONT}`, letterSpacing: `${TRACK}em`, color: "#fff", WebkitTextStroke: "8px #000",
-          paintOrder: "stroke fill", whiteSpace: "nowrap", transform: `scale(${0.95 + 0.05 * q})`, opacity: Math.min(1, q * 2) }}>
+        <p style={{ margin: 0, font: `600 ${px}px/1.2 ${FONT}`, letterSpacing: `${TRACK}em`, color: "#fff", ...ink, whiteSpace: "nowrap", transform: `scale(${0.95 + 0.05 * q})`, opacity: Math.min(1, q * 2) }}>
           {line.text.split(" ").map((w, i) => (
             <span key={i} style={keys.has(norm(w)) ? { color: KEY } : undefined}>{(i ? " " : "") + w}</span>
           ))}

@@ -44,3 +44,43 @@ Client on v3: the title, the outro brackets, the glass keyword letters and the p
   - Clips live in brand/remotion/public (gitignored).
 - SFX v2 (scripts/sfx.py): a soft rounded tap, a low airy whoosh, a single soft tone and a muted thud, each peaking at -8 to -12 dBFS. If the client sends an SFX reference, it replaces these.
 - Render (Downloads/Ostad - Rosacea laser (v4 calm).mp4): 119.125 s, -13.9 LUFS, true peak -2.1 dBFS. Stills were checked for the title, both antibiotic cards, all three treatment phases and the outro.
+
+## 12. Visuals every few seconds, face-safe placement zones, calm signature glass, clean captions; Evident + Colin and Samir (2026-11-09)
+Client on v4 (loved it, "almost done"):
+- "something happen every 5 seconds or so ... representations of every subject ... the same thing shown in different ways".
+- "not completely covering his face ... it can be below him ... in different places"; placement should come from the scraped references measured frame by frame, not a fixed rule.
+- "we want the glass features ... that's our signature ... something in between" (glass, Ro and Evident).
+- A version with and one without the black caption outline ("kind of outdated").
+
+Measured:
+- **Face track** (YuNet every 0.5 s over the whole reel, public/rosacea-laser/face_reel.json): hairline y 494–551, eyes y 711–767, face x 288–749 (1080x1920). That gives four zones in brand.ts:
+  - `top`: SAFE_T to about 610, over the hair, never the eyes;
+  - `chest`: 1040–1560, over the scrubs and above the captions;
+  - `*Left` / `*Right` variants;
+  - a `full` cutaway.
+  The image cards moved to `chest`.
+- **Cadence** (frame difference on the two key reels):
+  - Colin and Samir DfAik8-piUm: something changes every 2.55 s on average (median 1.67 s, longest gap 7.1 s).
+  - Evident Ddos1QZRGmV: every 2.52 s (median 1.47 s, longest gap 10.9 s).
+  - v4 had two 17 s gaps (12.4–29.2 and 69.5–86.4).
+- **Captions** (Colin and Samir): white semibold, no outline, no box, 1–3 words, centred at 70% height, glyphs about 5.8% of frame width.
+
+Built:
+- New card kinds in components/Ro.tsx, mapped from edit.json kind to component in OstadReel:
+  - `stack` (Rx labels, "another prescription");
+  - `chronic` (flares drawn across a year);
+  - `checklist` (ticks, or strikes);
+  - `calendar` (months on medication, days of topicals);
+  - `compare` (oral = whole body vs targeted therapy = the vessel);
+  - `chain` (vessels -> redness; symptoms -> driving cause -> targeted treatment);
+  - `note` ("some patients need medication");
+  - `chips` (facts beside the device: hemoglobin, diffuse redness / skin quality);
+  - `clip` (full cutaway of the practice's Excel V footage over the blurred room, after Evident's full-screen inserts, but light).
+- 17 explainer beats plus 6 image cards: nothing goes more than about 4 s without a new element or a step inside one. Repeated subjects get a different form each time:
+  - antibiotics: Rx label -> capsule card -> struck checklist;
+  - topicals: calendar -> struck checklist;
+  - lasers: chips -> full clip -> two clip cards.
+- Card material: the signature glass made calm. Translucent frost (white 72–86%, blur 26, saturate 1.5), a hairline light rim, a top highlight, navy type. No tint, glint or gloss; the inner cells are glass too.
+- Captions: `capStyle` "stroke" (8 px black outline) or "clean" (no outline, 5.8cqw, soft shadow). Set in edit.json remotion.capStyle or at render time with `--props '{"capStyle":"clean"}'`.
+- References added (refs.yaml): evident (80 latest posts, 56 reels) and colin (40 posts), downloaded via the existing pipeline (ig_media.py; common.py maps them to refs `evident` / `colin`). The full M1–M21 measurement is queued behind pass 2 and will re-tune cadence, placement, easing and SFX.
+- First manual read of Evident's animation: inserts build up piece by piece (title, baseline draw, bars grow, value tags pop), with a slow push-in on the held graphic and labels typed on inside a growing highlight box. Candidates once measured.

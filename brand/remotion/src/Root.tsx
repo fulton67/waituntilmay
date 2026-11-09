@@ -22,7 +22,7 @@ export const RemotionRoot: React.FC = () => (
     defaultProps={{ spec: null } as ReelProps}
     calculateMetadata={async ({ props }) => {
       const spec = props.spec ?? (await (await fetch(staticFile("rosacea-laser/props.json"))).json()).spec;
-      return { durationInFrames: Math.round(spec.durationInSeconds * 24), props: { spec } };
+      return { durationInFrames: Math.round(spec.durationInSeconds * 24), props: { ...props, spec } };
     }}
   />
   </>

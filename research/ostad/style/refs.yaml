@@ -43,3 +43,17 @@ refs:
     kind: local
     path: brand/kit/video/ + brand/remotion/src/components/Glass.tsx
     target: approved glass animation - keep; new devices must sit next to it without clashing
+  - id: evident
+    kind: ig_account
+    url: https://www.instagram.com/evidentmediaorg/
+    sample: latest 80 posts (56 reels), Apify 2026-11-09
+    key_post: https://www.instagram.com/reel/Ddos1QZRGmV/
+    target: infographics, animation and SFX standard (not the chalk-black background); reinvent for the derm niche, used in parts
+    added: 2026-11-09
+  - id: colin
+    kind: ig_account
+    url: https://www.instagram.com/colinandsamir/
+    sample: latest 40 posts, Apify 2026-11-09
+    key_post: https://www.instagram.com/reel/DfAik8-piUm/
+    target: captions without an outline (client: the black outline is "kind of outdated"); pacing of a talking-head explainer
+    added: 2026-11-09

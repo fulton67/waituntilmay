@@ -1,9 +1,12 @@
-"""Download every IG item's media from the Apify dumps (raw/ig_posts.json, raw/ig_direct.json): reels -> media/ig/<owner>/<shortcode>.mp4
+"""Download every IG item's media from the Apify dumps (raw/ig_posts.json, raw/ig_direct.json, raw/ig_evident.json, raw/ig_colin.json): reels -> media/ig/<owner>/<shortcode>.mp4
 (+ cover .jpg), carousels -> <shortcode>_<n>.jpg (or .mp4 for video slides), stills -> <shortcode>.jpg. Writes raw/ig_index.json.
 Usage: python -I ig_media.py <style dir>"""
 import json, os, sys, urllib.request
 S = sys.argv[1]
 items = json.load(open(f"{S}/raw/ig_posts.json", encoding="utf8")) + json.load(open(f"{S}/raw/ig_direct.json", encoding="utf8"))
+# later account samples (2026-11-09: Evident and Colin and Samir, client: SFX / infographics / captions without an outline)
+for extra in ("ig_evident.json", "ig_colin.json"):
+    if os.path.exists(f"{S}/raw/{extra}"): items += json.load(open(f"{S}/raw/{extra}", encoding="utf8"))
 def fetch(url, dst):
     if os.path.exists(dst) and os.path.getsize(dst) > 0: return True
     try:

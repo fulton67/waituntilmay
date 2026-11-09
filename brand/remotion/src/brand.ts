@@ -3,6 +3,9 @@ export const W = 1080, H = 1920;
 export const cqw = (n: number) => n * (W / 100);
 export const MARGIN = cqw(9.1);
 export const SAFE_T = 0.13021 * H;
+// layout zones from the face track (public/rosacea-laser/face_reel.json, YuNet every 0.5 s): hairline y 494-551, eyes y 711-767,
+// face x 288-749. TOP band = SAFE_T..~610 (over the hair, never the eyes); CHEST band = 1040..1560 (over the scrubs, above captions).
+export const CHEST_T = 1040, TOP_B = 610;
 export const CAP_TOP = 0.83; // caption box top (client reference frame, DECISIONS 66)
 export const ACCENT = "#bf8662"; // --ok-accent-1
 // Brand blues for coloured words (Instagram navy #202532 + blue #37a9e8, lighter; same stops as GradientText in app/globals.css)
