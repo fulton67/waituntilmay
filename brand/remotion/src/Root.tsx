@@ -1,6 +1,6 @@
 import { Composition, staticFile } from "remotion";
 import { OstadReel } from "./OstadReel";
-import { MARKUP_DEMO_SECONDS, MarkupDemo } from "./compositions/MarkupDemo";
+import { MARKUP_DEMO_SECONDS, MarkupDemo, type FaceTrack } from "./compositions/MarkupDemo";
 import { H, W } from "./brand";
 import type { ReelProps } from "./types";
 
@@ -9,7 +9,9 @@ import type { ReelProps } from "./types";
 export const RemotionRoot: React.FC = () => (
   <>
   <Composition id="MarkupDemo" component={MarkupDemo} width={W} height={H} fps={30} durationInFrames={30 * MARKUP_DEMO_SECONDS} defaultProps={{ footage: false }} />
-  <Composition id="MarkupOnFootage" component={MarkupDemo} width={W} height={H} fps={30} durationInFrames={30 * MARKUP_DEMO_SECONDS} defaultProps={{ footage: true }} />
+  <Composition id="MarkupOnFootage" component={MarkupDemo} width={W} height={H} fps={30} durationInFrames={30 * MARKUP_DEMO_SECONDS}
+    defaultProps={{ footage: true, track: null as FaceTrack }}
+    calculateMetadata={async ({ props }) => ({ props: { ...props, track: props.track ?? (await (await fetch(staticFile("rosacea-laser/face_track.json"))).json()) } })} />
   <Composition
     id="OstadReel"
     component={OstadReel}

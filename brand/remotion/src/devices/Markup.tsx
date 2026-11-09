@@ -1,147 +1,190 @@
 import { useCurrentFrame, useVideoConfig } from "remotion";
-import { clamp } from "../brand";
+import { ELZA, clamp, easeOutBack } from "../brand";
 
-// Markup overlays after the client's two Conor Harris references (IG DdrkdrYv-yW, DYKh5yyPxxg; research/ostad/style/refs.yaml):
-// drawn on a transparent layer (no background), so they sit over Ostad's footage or render alone as alpha video.
-// Timings read frame by frame from the reference at 30 fps (style/read/ + measure/ig_*), expressed in seconds here:
-//   Arrow   : grows from 20% at its tail while the tip travels to the target, 8 frames (0.27 s), ease-out, no overshoot; holds still;
-//             leaves by shrinking back to the tail in 3 frames.
-//   Badge   : red disc + white ring + white X (or a check), scale 0.2 -> 1 over 10 frames (0.33 s), ease-out, no overshoot.
-//   Dot     : translucent disc with a white ring on a point of interest, pops 0.2 -> 1 in 8 frames, fades out in 3.
-//   Leader  : a line drawn from one dot to the next (stroke draw-on), then the second dot pops.
-//   Arc     : a curved arrow drawn along an arc (direction of a rotation / a movement), draw-on 10 frames.
-//   Region  : a tinted, soft-edged region (the muscle / the area being talked about) fading to 45% opacity, gently pulsing.
-// Colours default to the reference's markup colours; MarkupColours lets a palette token set override them.
+// Markup overlays, v2 (style DECISIONS 8). The client on v1 (big yellow arrow, red disc badges, filled tint): "too big and not circling
+// anything ... they would need to be glass icons like the rest of the UI ... a lot cuter and smaller, kind of like the Are.na board".
+// The Are.na board's annotation language: white hairlines, tiny dots, small spaced-caps labels on soft glass, rings and corner
+// brackets AROUND the feature instead of shapes ON it. So every device is now one of:
+//   Ring     : a 3 px white hairline ellipse that draws itself around a feature (0.55 s), a bright dot riding the drawing tip,
+//              then an optional glass label chip on a hairline leader.
+//   Pin      : a small glass dot (26 px) on a point, one soft pulse, hairline leader to a glass label chip.
+//   Flow     : a dotted hairline arc with a small open chevron (a movement / a spread), revealed along its length.
+//   Mark     : a 68 px glass disc with a thin white X or check, faintly tinted (rose / brand blue), with an optional label chip.
+//   Brackets : four hairline corner marks framing a region, closing in 14 px as they appear (viewfinder).
+// Positions are px in the 1080x1920 frame and may be functions of the frame, so a device can follow a tracked face
+// (public/<slug>/face_track.json, YuNet landmarks per frame). Motion stays quick (0.3-0.55 s); chips pop with a small overshoot.
+// All transparent: render alone with alpha or over footage.
 
-export type MarkupColours = { arrow: string; bad: string; good: string; dot: string; ring: string; region: string; arc: string };
-export const MARKUP_DEFAULT: MarkupColours = {
-  arrow: "#ffe600", bad: "#e8113c", good: "#1fbf5f", dot: "rgba(126, 211, 33, 0.62)", ring: "#ffffff", region: "rgba(255, 230, 0, 0.45)", arc: "#e8113c",
-};
+export type Pt = { x: number; y: number };
+export type P = Pt | ((frame: number) => Pt);
+const pos = (p: P, f: number) => (typeof p === "function" ? p(f) : p);
 
-const outCubic = (q: number) => 1 - (1 - q) ** 3;
-const useT = () => {
-  const f = useCurrentFrame();
+const inOut = (q: number) => (q < 0.5 ? 4 * q ** 3 : 1 - (-2 * q + 2) ** 3 / 2);
+const out = (q: number) => 1 - (1 - q) ** 3;
+
+const useLocal = (at: number, dur: number) => {
+  const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  return { t: f / fps, fps };
+  const local = frame / fps - at;
+  const show = local >= 0 && local <= dur;
+  const exit = clamp((local - (dur - 0.25)) / 0.25); // shared 0.25 s fade out
+  return { frame, local, show, exit };
 };
 
-type Pt = { x: number; y: number };
+const HAIR = "rgba(255,255,255,.96)";
+const GLOW = "drop-shadow(0 0 5px rgba(255,255,255,.35)) drop-shadow(0 1px 2px rgba(0,0,0,.25))";
+const Svg: React.FC<{ children: React.ReactNode; opacity?: number }> = ({ children, opacity = 1 }) => (
+  <svg style={{ position: "absolute", inset: 0, overflow: "visible", opacity }} width="100%" height="100%" viewBox="0 0 1080 1920">
+    <g style={{ filter: GLOW }}>{children}</g>
+  </svg>
+);
 
-// Arrow from `from` (tail) to `to` (tip), px in a 1080-wide frame. `dur` = how long it stays (s).
-export const Arrow: React.FC<{ from: Pt; to: Pt; at?: number; dur: number; width?: number; colour?: string }> = ({ from, to, at = 0, dur, width = 34, colour = MARKUP_DEFAULT.arrow }) => {
-  const { t } = useT();
-  const local = t - at;
-  if (local < 0 || local > dur) return null;
-  const grow = outCubic(clamp(local / 0.27));
-  const shrink = clamp((local - (dur - 0.1)) / 0.1);
-  const s = (0.2 + 0.8 * grow) * (1 - shrink);
-  if (s <= 0.01) return null;
-  const dx = to.x - from.x, dy = to.y - from.y;
-  const len = Math.hypot(dx, dy) * s;
-  const ang = (Math.atan2(dy, dx) * 180) / Math.PI;
-  const head = width * 1.9 * Math.min(1, s * 1.4);
-  const shaft = Math.max(0, len - head * 0.9);
+// Small liquid-glass surface (the name card's material scaled down: no displacement at this size, just blur, lift and a bright rim).
+const glass = (radius: number, tint = "rgba(255,255,255,0)"): React.CSSProperties => ({
+  position: "absolute", borderRadius: radius, overflow: "hidden", isolation: "isolate",
+  backdropFilter: "blur(9px) saturate(1.35) brightness(1.06)",
+  // + a faint navy (#202532) floor so the white label still reads on a white wall
+  background: `linear-gradient(${tint}, ${tint}), linear-gradient(160deg, rgba(255,255,255,.26), rgba(255,255,255,.06) 58%, rgba(255,255,255,.14)), rgba(32,37,50,.16)`,
+  boxShadow: "inset 0 0 0 1.5px rgba(255,255,255,.6), inset 1.5px 2px 2px -1px rgba(255,255,255,.75), 0 6px 18px rgba(0,0,0,.16)",
+});
+
+const pop = (local: number, delay = 0, len = 0.32) => {
+  const q = clamp((local - delay) / len);
+  return { s: 0.72 + 0.28 * easeOutBack(q, 1.2), o: clamp(q * 2.2) };
+};
+
+// Glass label chip. `anchor` = where the leader ends; the chip sits to its `side`.
+export const Chip: React.FC<{ at: Pt; side?: "left" | "right"; text: string; s?: number; o?: number }> = ({ at, side = "right", text, s = 1, o = 1 }) => (
+  <div style={{ ...glass(999), left: at.x, top: at.y, padding: "9px 17px 8px", color: "#fff", opacity: o, whiteSpace: "nowrap",
+    transform: `translate(${side === "right" ? "0" : "-100%"}, -50%) scale(${s})`, transformOrigin: side === "right" ? "left center" : "right center",
+    font: `700 21px/1 ${ELZA}`, letterSpacing: "0.16em", textTransform: "uppercase", textShadow: "0 1px 3px rgba(0,0,0,.25)" }}>
+    {text}
+  </div>
+);
+
+// Leader + chip from point a, `len` px out to the side, rising `rise` px. Leader draws (0.25 s) after `delay`, then the chip pops.
+const Callout: React.FC<{ a: Pt; side: "left" | "right"; len?: number; rise?: number; text: string; local: number; delay: number; exit: number }> = ({ a, side, len = 120, rise = -40, text, local, delay, exit }) => {
+  const d = side === "right" ? 1 : -1;
+  const b = { x: a.x + d * len, y: a.y + rise };
+  const q = out(clamp((local - delay) / 0.25));
+  const { s, o } = pop(local, delay + 0.18);
   return (
-    <svg style={{ position: "absolute", inset: 0, overflow: "visible" }} width="100%" height="100%" viewBox="0 0 1080 1920">
-      <g transform={`translate(${from.x} ${from.y}) rotate(${ang})`} filter="drop-shadow(0 3px 6px rgba(0,0,0,.35))">
-        <rect x={0} y={(-width * s) / 2} width={shaft} height={width * s} fill={colour} />
-        <polygon points={`${shaft - 1},${-head * 0.62} ${shaft + head},0 ${shaft - 1},${head * 0.62}`} fill={colour} />
-      </g>
-    </svg>
+    <>
+      <Svg opacity={1 - exit}>
+        {q > 0 && <polyline points={`${a.x},${a.y} ${a.x + (b.x - a.x) * q},${a.y + (b.y - a.y) * q}`} stroke={HAIR} strokeWidth={2} fill="none" strokeLinecap="round" />}
+      </Svg>
+      {local >= delay + 0.18 && <Chip at={{ x: b.x + d * 8, y: b.y }} side={side} text={text} s={s} o={o * (1 - exit)} />}
+    </>
   );
 };
 
-// X (bad) or check (good) badge centred at `at`.
-export const Badge: React.FC<{ x: number; y: number; at?: number; dur: number; kind?: "bad" | "good"; size?: number; colours?: Partial<MarkupColours> }> = ({ x, y, at = 0, dur, kind = "bad", size = 150, colours = {} }) => {
-  const { t } = useT();
-  const local = t - at;
-  if (local < 0 || local > dur) return null;
-  const c = { ...MARKUP_DEFAULT, ...colours };
-  const s = (0.2 + 0.8 * outCubic(clamp(local / 0.33))) * (1 - clamp((local - (dur - 0.1)) / 0.1));
-  const r = (size / 2) * s;
-  const fill = kind === "bad" ? c.bad : c.good;
-  const k = r * 0.42;
+export const Ring: React.FC<{ c: P; rx: number; ry: number; rot?: number; at?: number; dur: number; label?: string; side?: "left" | "right" }> = ({ c, rx, ry, rot = -10, at = 0, dur, label, side = "left" }) => {
+  const { frame, local, show, exit } = useLocal(at, dur);
+  if (!show) return null;
+  const p = pos(c, frame);
+  const draw = inOut(clamp(local / 0.55));
+  // start at the upper-left (about 200 deg) and draw clockwise
+  const a0 = 200, r = (rot * Math.PI) / 180;
+  const E = (deg: number) => {
+    const a = (deg * Math.PI) / 180, ex = rx * Math.cos(a), ey = ry * Math.sin(a);
+    return { x: p.x + ex * Math.cos(r) - ey * Math.sin(r), y: p.y + ex * Math.sin(r) + ey * Math.cos(r) };
+  };
+  const n = Math.max(2, Math.ceil(96 * draw));
+  const pts = Array.from({ length: n + 1 }, (_, i) => E(a0 + (360 * draw * i) / n));
+  const tip = pts[pts.length - 1];
+  const edge = E(side === "left" ? 180 : 0);
   return (
-    <svg style={{ position: "absolute", inset: 0, overflow: "visible" }} width="100%" height="100%" viewBox="0 0 1080 1920">
-      <defs>
-        <radialGradient id={`bg-${kind}`} cx="35%" cy="30%" r="80%">
-          <stop offset="0%" stopColor={fill} stopOpacity={1} />
-          <stop offset="100%" stopColor={fill} stopOpacity={0.88} />
-        </radialGradient>
-      </defs>
-      <g filter="drop-shadow(0 4px 10px rgba(0,0,0,.3))">
-        <circle cx={x} cy={y} r={r} fill={`url(#bg-${kind})`} stroke={c.ring} strokeWidth={Math.max(2, r * 0.09)} />
-        {kind === "bad" ? (
-          <path d={`M ${x - k} ${y - k} L ${x + k} ${y + k} M ${x + k} ${y - k} L ${x - k} ${y + k}`} stroke="#fff" strokeWidth={r * 0.2} strokeLinecap="round" />
-        ) : (
-          <path d={`M ${x - k} ${y + k * 0.05} L ${x - k * 0.25} ${y + k * 0.75} L ${x + k} ${y - k * 0.6}`} stroke="#fff" strokeWidth={r * 0.2} strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        )}
-      </g>
-    </svg>
+    <>
+      <Svg opacity={1 - exit}>
+        {draw > 0.01 && <polyline points={pts.map((q) => `${q.x},${q.y}`).join(" ")} stroke={HAIR} strokeWidth={3} fill="none" strokeLinecap="round" strokeLinejoin="round" />}
+        {draw < 1 && <circle cx={tip.x} cy={tip.y} r={5} fill="#fff" />}
+      </Svg>
+      {label && <Callout a={edge} side={side} text={label} local={local} delay={0.5} exit={exit} />}
+    </>
   );
 };
 
-// Target dot(s) on points of interest, optionally joined by a drawn leader line: dot A pops, the line draws to B, B pops.
-export const Dots: React.FC<{ a: Pt; b?: Pt; at?: number; dur: number; r?: number; colours?: Partial<MarkupColours> }> = ({ a, b, at = 0, dur, r = 52, colours = {} }) => {
-  const { t } = useT();
-  const local = t - at;
-  if (local < 0 || local > dur) return null;
-  const c = { ...MARKUP_DEFAULT, ...colours };
-  const out = 1 - clamp((local - (dur - 0.1)) / 0.1);
-  const popA = 0.2 + 0.8 * outCubic(clamp(local / 0.27));
-  const line = b ? outCubic(clamp((local - 0.3) / 0.35)) : 0;
-  const popB = b ? 0.2 + 0.8 * outCubic(clamp((local - 0.65) / 0.27)) : 0;
-  const showB = b && local >= 0.65;
-  const lx = b ? a.x + (b.x - a.x) * line : 0, ly = b ? a.y + (b.y - a.y) * line : 0;
+export const Pin: React.FC<{ p: P; at?: number; dur: number; label?: string; side?: "left" | "right"; len?: number; rise?: number }> = ({ p, at = 0, dur, label, side = "right", len, rise }) => {
+  const { frame, local, show, exit } = useLocal(at, dur);
+  if (!show) return null;
+  const q = pos(p, frame);
+  const { s, o } = pop(local, 0, 0.3);
+  const pulse = clamp((local - 0.15) / 0.7);
+  const D = 26;
   return (
-    <svg style={{ position: "absolute", inset: 0, overflow: "visible", opacity: out }} width="100%" height="100%" viewBox="0 0 1080 1920">
-      {b && line > 0 && <line x1={a.x} y1={a.y} x2={lx} y2={ly} stroke={c.ring} strokeWidth={6} strokeLinecap="round" opacity={0.95} />}
-      <circle cx={a.x} cy={a.y} r={r * popA} fill={c.dot} stroke={c.ring} strokeWidth={6} />
-      {showB && b && <circle cx={b.x} cy={b.y} r={r * popB} fill={c.dot} stroke={c.ring} strokeWidth={6} />}
-    </svg>
+    <>
+      <Svg opacity={(1 - pulse) * 0.9 * (1 - exit)}>
+        {local > 0.15 && <circle cx={q.x} cy={q.y} r={D / 2 + 26 * out(pulse)} stroke={HAIR} strokeWidth={2} fill="none" />}
+      </Svg>
+      <div style={{ ...glass(999), left: q.x - D / 2, top: q.y - D / 2, width: D, height: D, transform: `scale(${s})`, opacity: o * (1 - exit) }}>
+        <div style={{ position: "absolute", left: D / 2 - 4, top: D / 2 - 4, width: 8, height: 8, borderRadius: 8, background: "#fff", boxShadow: "0 0 6px rgba(255,255,255,.9)" }} />
+      </div>
+      {label && <Callout a={{ x: q.x + (side === "right" ? D / 2 : -D / 2), y: q.y }} side={side} len={len} rise={rise} text={label} local={local} delay={0.3} exit={exit} />}
+    </>
   );
 };
 
-// Curved arrow along a circular arc centred at c, radius rad, from angle a0 to a1 (deg, 0 = right, clockwise positive).
-export const Arc: React.FC<{ c: Pt; rad: number; a0: number; a1: number; at?: number; dur: number; width?: number; colour?: string }> = ({ c, rad, a0, a1, at = 0, dur, width = 14, colour = MARKUP_DEFAULT.arc }) => {
-  const { t } = useT();
-  const local = t - at;
-  if (local < 0 || local > dur) return null;
-  const draw = outCubic(clamp(local / 0.33));
-  const out = 1 - clamp((local - (dur - 0.1)) / 0.1);
+// Dotted arc around c from a0 to a1 (deg, 0 = right, clockwise positive) with a small open chevron at the end.
+export const Flow: React.FC<{ c: P; rad: number; a0: number; a1: number; at?: number; dur: number }> = ({ c, rad, a0, a1, at = 0, dur }) => {
+  const { frame, local, show, exit } = useLocal(at, dur);
+  if (!show) return null;
+  const p = pos(c, frame);
+  const draw = inOut(clamp(local / 0.5));
   const aEnd = a0 + (a1 - a0) * draw;
-  const P = (a: number) => ({ x: c.x + rad * Math.cos((a * Math.PI) / 180), y: c.y + rad * Math.sin((a * Math.PI) / 180) });
-  const p0 = P(a0), p1 = P(aEnd);
-  const large = Math.abs(aEnd - a0) > 180 ? 1 : 0;
-  const sweep = a1 > a0 ? 1 : 0;
+  const P_ = (a: number) => ({ x: p.x + rad * Math.cos((a * Math.PI) / 180), y: p.y + rad * Math.sin((a * Math.PI) / 180) });
+  const s = P_(a0), e = P_(aEnd);
   const dir = a1 > a0 ? 1 : -1;
-  const tang = ((aEnd + 90 * dir) * Math.PI) / 180;
-  const h = width * 2.4;
-  const tip = { x: p1.x + Math.cos(tang) * h * 0.6, y: p1.y + Math.sin(tang) * h * 0.6 };
-  const nx = Math.cos((aEnd * Math.PI) / 180), ny = Math.sin((aEnd * Math.PI) / 180);
+  const tan = ((aEnd + 90 * dir) * Math.PI) / 180; // travel direction at the tip
+  const h = 13, wing = (k: number) => ({ x: e.x - h * Math.cos(tan + k), y: e.y - h * Math.sin(tan + k) });
+  const w1 = wing(0.6), w2 = wing(-0.6);
   return (
-    <svg style={{ position: "absolute", inset: 0, overflow: "visible", opacity: out }} width="100%" height="100%" viewBox="0 0 1080 1920">
-      <g filter="drop-shadow(0 3px 6px rgba(0,0,0,.3))">
-        <path d={`M ${p0.x} ${p0.y} A ${rad} ${rad} 0 ${large} ${sweep} ${p1.x} ${p1.y}`} stroke={colour} strokeWidth={width} fill="none" strokeLinecap="round" />
-        {draw > 0.05 && <polygon points={`${tip.x},${tip.y} ${p1.x + nx * h * 0.5},${p1.y + ny * h * 0.5} ${p1.x - nx * h * 0.5},${p1.y - ny * h * 0.5}`} fill={colour} />}
-      </g>
-    </svg>
+    <Svg opacity={1 - exit}>
+      <path d={`M ${s.x} ${s.y} A ${rad} ${rad} 0 ${Math.abs(aEnd - a0) > 180 ? 1 : 0} ${dir > 0 ? 1 : 0} ${e.x} ${e.y}`} stroke={HAIR} strokeWidth={3.2}
+        strokeDasharray="0.1 10" strokeLinecap="round" fill="none" />
+      {draw > 0.08 && <polyline points={`${w1.x},${w1.y} ${e.x},${e.y} ${w2.x},${w2.y}`} stroke={HAIR} strokeWidth={2.6} fill="none" strokeLinecap="round" strokeLinejoin="round" />}
+    </Svg>
   );
 };
 
-// Soft tinted region (ellipse or SVG path) over the area being discussed; fades to 45%, breathes +-8% while held.
-export const Region: React.FC<{ d?: string; ellipse?: { cx: number; cy: number; rx: number; ry: number; rot?: number }; at?: number; dur: number; colour?: string }> = ({ d, ellipse, at = 0, dur, colour = MARKUP_DEFAULT.region }) => {
-  const { t } = useT();
-  const local = t - at;
-  if (local < 0 || local > dur) return null;
-  const op = outCubic(clamp(local / 0.3)) * (1 - clamp((local - (dur - 0.2)) / 0.2)) * (0.92 + 0.08 * Math.sin(local * Math.PI * 2 / 1.6));
+export const Mark: React.FC<{ p: P; kind: "no" | "yes"; at?: number; dur: number; label?: string; side?: "left" | "right" }> = ({ p, kind, at = 0, dur, label, side = "right" }) => {
+  const { frame, local, show, exit } = useLocal(at, dur);
+  if (!show) return null;
+  const q = pos(p, frame);
+  const { s, o } = pop(local, 0, 0.34);
+  const D = 68, k = 11;
+  const tint = kind === "no" ? "rgba(255, 92, 118, .26)" : "rgba(55, 169, 232, .30)";
+  const icon = clamp((local - 0.12) / 0.3);
+  const lenX = 2 * k * Math.SQRT2;
   return (
-    <svg style={{ position: "absolute", inset: 0, overflow: "visible", opacity: op }} width="100%" height="100%" viewBox="0 0 1080 1920">
-      <defs>
-        <filter id="soft"><feGaussianBlur stdDeviation="6" /></filter>
-      </defs>
-      {d && <path d={d} fill={colour} filter="url(#soft)" />}
-      {ellipse && <ellipse cx={ellipse.cx} cy={ellipse.cy} rx={ellipse.rx} ry={ellipse.ry} transform={`rotate(${ellipse.rot ?? 0} ${ellipse.cx} ${ellipse.cy})`} fill={colour} filter="url(#soft)" />}
-    </svg>
+    <>
+      <div style={{ ...glass(999, tint), left: q.x - D / 2, top: q.y - D / 2, width: D, height: D, transform: `scale(${s})`, opacity: o * (1 - exit) }}>
+        <svg width={D} height={D} viewBox={`0 0 ${D} ${D}`} style={{ position: "absolute", inset: 0 }}>
+          {kind === "no" ? (
+            <path d={`M ${D / 2 - k} ${D / 2 - k} L ${D / 2 + k} ${D / 2 + k} M ${D / 2 + k} ${D / 2 - k} L ${D / 2 - k} ${D / 2 + k}`} stroke="#fff" strokeWidth={3.4}
+              strokeLinecap="round" strokeDasharray={`${lenX * icon} ${lenX}`} />
+          ) : (
+            <path d={`M ${D / 2 - k} ${D / 2 + 1} L ${D / 2 - 3} ${D / 2 + k - 2} L ${D / 2 + k + 1} ${D / 2 - k + 2}`} stroke="#fff" strokeWidth={3.4} fill="none"
+              strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={`${icon} 1`} />
+          )}
+        </svg>
+      </div>
+      {label && local >= 0.2 && (() => { const c = pop(local, 0.2); return <Chip at={{ x: q.x + (side === "right" ? D / 2 + 10 : -D / 2 - 10), y: q.y }} side={side} text={label} s={c.s} o={c.o * (1 - exit)} />; })()}
+    </>
+  );
+};
+
+// Corner brackets around a box (x, y = top-left; w, h), closing in from 14 px outside.
+export const Brackets: React.FC<{ box: { x: number; y: number; w: number; h: number } | ((f: number) => { x: number; y: number; w: number; h: number }); at?: number; dur: number; len?: number }> = ({ box, at = 0, dur, len = 30 }) => {
+  const { frame, local, show, exit } = useLocal(at, dur);
+  if (!show) return null;
+  const b = typeof box === "function" ? box(frame) : box;
+  const q = out(clamp(local / 0.4)), g = 14 * (1 - q);
+  const corners: [number, number, number, number][] = [[b.x - g, b.y - g, 1, 1], [b.x + b.w + g, b.y - g, -1, 1], [b.x - g, b.y + b.h + g, 1, -1], [b.x + b.w + g, b.y + b.h + g, -1, -1]];
+  return (
+    <Svg opacity={q * (1 - exit)}>
+      {corners.map(([x, y, dx, dy], i) => (
+        <polyline key={i} points={`${x},${y + dy * len} ${x},${y} ${x + dx * len},${y}`} stroke={HAIR} strokeWidth={2.6} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      ))}
+    </Svg>
   );
 };
