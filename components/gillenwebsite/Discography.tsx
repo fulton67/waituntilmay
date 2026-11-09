@@ -5,7 +5,7 @@
 // the record view (VinylView.tsx) from the cover. Phones: the original About page's index, restored from git
 // (AboutIndex.tsx): normal page scroll, the title nearest the middle underlined, its cover the small square in the
 // corner. A tap opens the record view.
-import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { Release } from "@/lib/gillenwebsite/discography";
 import { rolesOf, caps, no3 } from "./shared";
 import { usePanel } from "./Chrome";
@@ -37,6 +37,25 @@ export default function Discography({ releases }: { releases: Release[] }) {
   // phones (under 720 px): the original About index's list and scroll, restored (AboutIndex.tsx); desktop: this list
   const small = useSyncExternalStore(subscribeSmall, () => matchMedia(SMALL).matches, () => false);
   const list = useRef<HTMLOListElement>(null);
+  // phones: the pills in an even grid, 3 columns, or 2 where a label would not fit its cell at 12 px (measured at 3:
+  // a pill whose text is wider than its box). With an odd count ALL takes a row of its own, so the roles fill whole rows.
+  const pillBox = useRef<HTMLDivElement>(null);
+  const [cols, setCols] = useState<2 | 3>(3);
+  useLayoutEffect(() => {
+    const el = pillBox.current;
+    if (!small || !el) return;
+    const fit = () => {
+      el.dataset.cols = "3";
+      const over = [...el.querySelectorAll<HTMLElement>("button")].some((b) => b.scrollWidth > b.clientWidth + 0.5);
+      el.dataset.cols = over ? "2" : "3";
+      setCols(over ? 2 : 3);
+    };
+    fit();
+    const ro = new ResizeObserver(fit);
+    ro.observe(el);
+    document.fonts?.ready.then(fit);
+    return () => ro.disconnect();
+  }, [small]);
   const exp = useRef<ReturnType<typeof makeExpander> | null>(null);
   const hovered = useRef<string | null>(null);
   // ---- the arrow marker (SOURCES #21, restored from the original About index, 5d0fd85 AboutIndex.tsx): three segments
@@ -121,7 +140,7 @@ export default function Discography({ releases }: { releases: Release[] }) {
   return (
     <section className={css.disco} data-src="20">
       {/* SOURCES #32 dauanjacari.com's filter pills: one role at a time, each with how many releases it holds */}
-      <div className={css.pills} role="radiogroup" aria-label="Role" data-src="32">
+      <div ref={pillBox} className={css.pills} role="radiogroup" aria-label="Role" data-src="32" data-cols={small ? cols : undefined} data-odd={(ROLES.length + 1) % 2 === 1 || undefined}>
         {["", ...ROLES.map((p) => p.label)].map((x) => (
           <button key={x || "all"} type="button" role="radio" aria-checked={pill === x} className={css.pill} data-pill={x || "ALL"} onClick={() => setPill(pill === x ? "" : x)}>
             {x || "ALL"} <span className={css.pillCount}>{x ? counts[x] : releases.length}</span>

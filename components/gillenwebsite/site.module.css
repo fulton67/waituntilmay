@@ -240,7 +240,13 @@
   .root .aboutBig { font-size: 30px; }
   /* phones: the pills, then the original About index (AboutIndex.tsx, about-index.module.css) with its own padding */
   .disco { padding: calc(var(--head) + 24px) 0 0; gap: 0; }
-  .disco > .pills { padding: 0 16px; }
+  /* phones: the pills an even grid between 20 px gutters, 3 equal columns (2 where a label would not fit, Discography.tsx
+     measures), 8 px apart both ways; every pill fills its cell, 36 px high, its text centred on one line. With an odd
+     count ALL is a row of its own, so the role pills fill whole rows. */
+  .disco > .pills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 0 20px; }
+  .disco > .pills[data-cols="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .disco > .pills[data-odd] > .pill:first-child { grid-column: 1 / -1; }
+  .root .disco > .pills > .pill { display: flex; align-items: center; justify-content: center; width: 100%; height: 36px; min-width: 0; overflow: hidden; }
 }
 
 /* SOURCES #12 the record view (VinylView.tsx): over everything but the header (so the nav links stay live), closed
