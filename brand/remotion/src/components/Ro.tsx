@@ -341,19 +341,27 @@ export const Chips: React.FC<{ dur: number; items: { text: string; at: number; s
 };
 
 // ---------- full cutaway: the real treatment, big, over the blurred footage (Evident's full-screen inserts, made light) ----------
-export const ClipFull: React.FC<{ dur: number; src: string; caps: string; title: string }> = ({ dur, src, caps, title }) => {
+// titles: later captions for a clip that changes subject mid-cutaway (Exomind: synapse -> neuroplasticity in one shot)
+export const ClipFull: React.FC<{ dur: number; src: string; caps: string; title: string; startFrom?: number; titles?: { at: number; caps: string; title: string }[] }> = ({
+  dur, src, caps: caps0, title: title0, startFrom = 1.5, titles = [],
+}) => {
   const t = useT();
+  const cur = [...titles].reverse().find((x) => t >= x.at);
+  const caps = cur?.caps ?? caps0, title = cur?.title ?? title0;
+  const swap = titles.reduce((q, x) => Math.max(q, 1 - clamp(Math.abs(t - x.at) / 0.18)), 0); // brief dip as the title changes
   const { fps } = useVideoConfig();
   const bg = quint(clamp(t / 0.4)) * (1 - clamp((t - (dur - 0.3)) / 0.3));
   return (
     <>
       <AbsoluteFill style={{ backdropFilter: `blur(${26 * bg}px)`, background: `rgba(14,16,22,${0.45 * bg})` }} />
       <div style={{ position: "absolute", left: 56, right: 56, top: 330, ...enter(t, 0.05, dur - 0.3) }}>
-        <Caps style={{ color: "rgba(255,255,255,.8)" }}>{caps}</Caps>
-        <div style={{ font: `600 64px/1.05 ${FONT}`, letterSpacing: "-0.015em", color: "#fff", marginTop: 12 }}>{title}</div>
+        <div style={{ opacity: 1 - swap }}>
+          <Caps style={{ color: "rgba(255,255,255,.8)" }}>{caps}</Caps>
+          <div style={{ font: `600 64px/1.05 ${FONT}`, letterSpacing: "-0.015em", color: "#fff", marginTop: 12 }}>{title}</div>
+        </div>
         <div style={{ marginTop: 30, height: (1080 - 112) * 0.75, borderRadius: 28, overflow: "hidden", boxShadow: "0 30px 80px rgba(0,0,0,.35)" }}>
           <Sequence layout="none" from={0}>
-            <OffthreadVideo src={staticFile(src)} muted startFrom={Math.round(1.5 * fps)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <OffthreadVideo src={staticFile(src)} muted startFrom={Math.round(startFrom * fps)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </Sequence>
         </div>
       </div>

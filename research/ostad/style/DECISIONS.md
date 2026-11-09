@@ -117,3 +117,15 @@ Client on v1: "I don't like the drinking-out-of-a-straw graphic ... it feels unn
 - **BTL animation where it explains:** "neurotransmitter issues" now cuts away to BTL's synapse release (the release lands on "issues"). "helps with neuroplasticity" cuts away to its growing branches. These are full cutaways (`clip`) instead of small side cards, and the drawn network and the small synapse/plasticity cards are gone. The drawn balance stays for "off balance" just before the cutaway.
 - **Reactive heads** (`burst`, footage layer): coral jagged squiggles burst out of the head, then settle into slow blue waves rising off it. They run on her head for "It quiets my brain" (busy on "quiets", calm on "brain", "Quieter" chip) and on his head at the tap, together with the tap rings. Coral and blue rather than white, because the back wall is white.
 - **Removed:** the swimming / cold-straw chips and the second "in a good way" balance, which the quieting now carries.
+
+### 13c. Exomind v3 (2026-11-09)
+
+Client on v2: "weird glitches ... blue flashes"; "the loud fan in the background ... really distracting"; "the quieter and disruptive brain to stay white instead of being red ... more brand"; "completely remove ... drinking a straw or something cold ... 'almost like if you've gone swimming. It's not a painful headache' ... that's a lot stronger".
+
+- **Blue flashes** were two things, found by scanning every frame for bright-cyan area and frame-to-frame jumps:
+  - BTL's cyan light beams sweeping through both clips. Graded down with ffmpeg huesaturation on cyan and blue (saturation −0.55, intensity −0.12), which cuts bright-cyan area from 17% to 8% on average and from 45% to 23% at peak.
+  - A 0.3 s unblurred flash of the room between the two cutaways. They are now one continuous `clip`: synapse release cross-fades (0.3 s) into the growing branches, and the title changes mid-shot (ClipFull `titles`, `startFrom`).
+  - What's left are the cutaway's own 0.3 s fade-in and fade-out.
+- **Fan:** `anlmdn=s=4` goes before the compressor in audio_pre. Measured on the cut: the fan in the pauses drops 12 dB; speech loses 0.6 dB at 300 Hz–1 kHz and 1.1 dB at 2–6 kHz. afftdn at any strength did less than 1 dB. On the finished reel the floor-to-speech gap goes from 7.6 dB to 17.0 dB.
+- **Bursts:** white throughout, with a thin dark edge and shadow so they read on the white wall. The motion alone carries busy -> calm.
+- **Straw line cut:** "or drinking from a straw of something cold" is gone. "Swimming" ends at the 51.13 s envelope dip before "or" (in tailSkip), and the next phrase is "It's not a painful headache". The reel is 52.9 s.

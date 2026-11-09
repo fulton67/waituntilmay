@@ -93,14 +93,8 @@
    ],
    [
     49.4,
-    51.38,
-    "Almost like if you've gone swimming or",
-    "ostad"
-   ],
-   [
-    51.77,
-    53.74,
-    "drinking from a straw of something cold.",
+    51.14,
+    "Almost like if you've gone swimming.",
     "ostad"
    ],
    [
@@ -162,8 +156,10 @@
   "tailSkip": [
    8.84,
    18.26,
-   47.2
-  ]
+   47.2,
+   51.14
+  ],
+  "_v3_note": "client v2: cut 'or drinking from a straw of something cold' completely -> 'almost like if you've gone swimming. It's not a painful headache'; 'swimming' ends at the 51.13 dip before 'or'"
  },
  "transcript": "transcript.json",
  "fixes": [
@@ -229,7 +225,7 @@
   "TP": -1.5,
   "LRA": 11
  },
- "audio_pre": "highpass=f=80,acompressor=threshold=-42dB:ratio=5:attack=5:release=150:makeup=20dB,volume=10dB,alimiter=limit=-3dB:attack=2:release=60:level=false",
+ "audio_pre": "highpass=f=80,anlmdn=s=4,acompressor=threshold=-42dB:ratio=5:attack=5:release=150:makeup=20dB,volume=10dB,alimiter=limit=-3dB:attack=2:release=60:level=false",
  "out": "C:/Users/naimj/Downloads/Ostad - Exomind (1.1x, brand kit).mp4",
  "remotion": {
   "hook": {
@@ -321,43 +317,37 @@
     "oy": 720
    },
    {
-    "at": 29.86,
-    "scale": 1.1,
-    "ox": 170,
-    "oy": 660
-   },
-   {
-    "at": 31.67,
+    "at": 29.57,
     "scale": 1
    },
    {
-    "at": 35.62,
+    "at": 33.52,
     "scale": 1.1,
     "ox": 170,
     "oy": 660
    },
    {
-    "at": 36.99,
+    "at": 34.89,
     "scale": 1
    },
    {
-    "at": 37.55,
+    "at": 35.45,
     "scale": 1.1,
     "ox": 170,
     "oy": 660
    },
    {
-    "at": 41.49,
+    "at": 39.39,
     "scale": 1
    },
    {
-    "at": 42.19,
+    "at": 40.09,
     "scale": 1.1,
     "ox": 170,
     "oy": 660
    },
    {
-    "at": 48.36,
+    "at": 46.26,
     "scale": 1.16,
     "ox": 900,
     "oy": 720
@@ -367,7 +357,7 @@
    {
     "kind": "checklist",
     "at": 0.9,
-    "dur": 5.5,
+    "dur": 5.49,
     "pos": "xy:220,890",
     "title": "What it’s approved for",
     "rows": [
@@ -397,7 +387,7 @@
    {
     "kind": "video",
     "at": 3.67,
-    "dur": 2.83,
+    "dur": 2.82,
     "pos": "xy:322,300",
     "w": 436,
     "aspect": 1.0,
@@ -408,7 +398,7 @@
    {
     "kind": "balance",
     "at": 6.56,
-    "dur": 1.71,
+    "dur": 1.7,
     "pos": "chest",
     "levelAt": 99,
     "off": "Off balance"
@@ -416,25 +406,24 @@
    {
     "kind": "clip",
     "at": 8.27,
-    "dur": 2.95,
-    "src": "exomind/clips/synapse_full.mp4",
+    "dur": 4.87,
+    "src": "exomind/clips/neuro_full.mp4",
     "caps": "The underlying issue",
     "title": "Neurotransmitter signalling",
-    "_note": "BTL 'What is EXOMIND?' 83.0-86.5 s (release at ~85.8 lands on 'issues'); manufacturer media, needs client approval"
-   },
-   {
-    "kind": "clip",
-    "at": 11.24,
-    "dur": 1.9,
-    "src": "exomind/clips/plasticity_full.mp4",
-    "caps": "This treatment helps",
-    "title": "Neuroplasticity: new connections",
-    "_note": "BTL 72.5-79 s, branches growing (BTL labels this 'Neuroplasticity')"
+    "_note": "one continuous cutaway (v2 had a 0.3 s unblurred gap between two): BTL synapse release -> growing branches, cross-faded; cyan beams graded down (huesaturation -0.55 sat / -0.12 intensity on cyan+blue: bright-cyan area 17% -> 8% mean)",
+    "startFrom": 0,
+    "titles": [
+     {
+      "at": 2.97,
+      "caps": "This treatment helps",
+      "title": "Neuroplasticity: new connections"
+     }
+    ]
    },
    {
     "kind": "burst",
     "at": 13.12,
-    "dur": 3.0,
+    "dur": 2.99,
     "x": 915,
     "y": 505,
     "burstAt": 0.0,
@@ -452,7 +441,7 @@
    {
     "kind": "bars",
     "at": 16.23,
-    "dur": 2.79,
+    "dur": 2.78,
     "pos": "chest",
     "w": 520,
     "caps": "Dr. Ostad, on himself",
@@ -474,7 +463,7 @@
    {
     "kind": "ripple",
     "at": 20.1,
-    "dur": 1.4,
+    "dur": 1.39,
     "x": 95,
     "y": 445,
     "taps": [
@@ -489,7 +478,7 @@
    {
     "kind": "burst",
     "at": 20.1,
-    "dur": 2.1,
+    "dur": 2.09,
     "x": 112,
     "y": 458,
     "burstAt": 0.1,
@@ -505,7 +494,7 @@
    {
     "kind": "video",
     "at": 21.5,
-    "dur": 2.39,
+    "dur": 2.38,
     "pos": "xy:322,300",
     "w": 436,
     "aspect": 1.25,
@@ -516,7 +505,7 @@
    {
     "kind": "timer",
     "at": 23.0,
-    "dur": 1.92,
+    "dur": 1.91,
     "pos": "chest",
     "caps": "A little headache after",
     "title": "Up to an hour"
@@ -524,7 +513,7 @@
    {
     "kind": "swap",
     "at": 25.0,
-    "dur": 2.84,
+    "dur": 2.83,
     "pos": "chest",
     "w": 520,
     "from": "A headache",
@@ -534,7 +523,7 @@
    {
     "kind": "ripple",
     "at": 26.57,
-    "dur": 1.4,
+    "dur": 1.39,
     "x": 930,
     "y": 548,
     "taps": [
@@ -546,8 +535,8 @@
    },
    {
     "kind": "meter",
-    "at": 31.73,
-    "dur": 5.14,
+    "at": 29.63,
+    "dur": 5.13,
     "pos": "chest",
     "caps": "Not a painful headache",
     "title": "Your head feels a little heavy",
@@ -557,16 +546,16 @@
    },
    {
     "kind": "phone",
-    "at": 37.06,
-    "dur": 4.39,
+    "at": 34.96,
+    "dur": 4.38,
     "pos": "xy:390,300",
     "label": "Her sleep numbers",
     "from": 0.7
    },
    {
     "kind": "compare",
-    "at": 38.76,
-    "dur": 6.89,
+    "at": 36.66,
+    "dur": 6.88,
     "pos": "chest",
     "left": [
      "Objective",
@@ -580,8 +569,8 @@
    },
    {
     "kind": "video",
-    "at": 41.68,
-    "dur": 3.97,
+    "at": 39.58,
+    "dur": 3.96,
     "pos": "xy:322,300",
     "w": 436,
     "src": "exomind/clips/coil.mp4",
@@ -591,8 +580,8 @@
    },
    {
     "kind": "bars",
-    "at": 45.82,
-    "dur": 3.39,
+    "at": 43.72,
+    "dur": 3.38,
     "pos": "chest",
     "w": 560,
     "caps": "Those numbers reflect",
@@ -621,8 +610,8 @@
    },
    {
     "kind": "video",
-    "at": 48.42,
-    "dur": 3.59,
+    "at": 46.32,
+    "dur": 3.58,
     "pos": "xy:322,300",
     "w": 436,
     "src": "exomind/clips/brainlit.mp4",
@@ -639,5 +628,6 @@
    ],
    "handle": "@drarielostad"
   }
- }
+ },
+ "_audio_note": "anlmdn=s=4 before the compressor (v2 client: 'the loud fan in the background ... really distracting'): fan in the pauses -12 dB (100 Hz-6 kHz), speech -0.6 dB (300 Hz-1 kHz) / -1.1 dB (2-6 kHz); afftdn tested, < 1 dB"
 }

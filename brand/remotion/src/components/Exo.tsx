@@ -280,7 +280,7 @@ export const Burst: React.FC<{ dur: number; x: number; y: number; burstAt?: numb
   const c = quint(clamp((t - calmAt) / 1.1));
   const kick = Math.exp(-Math.max(0, t - burstAt) * 3.2); // the jolt at the burst, decaying
   const out = 1 - clamp((t - (dur - 0.45)) / 0.45);
-  const col = (a: number) => `rgba(${Math.round(232 - 177 * c)},${Math.round(105 + 64 * c)},${Math.round(125 + 107 * c)},${a})`; // agitated coral #e8697d -> brand blue #37a9e8 (white wall: both need colour, not white)
+  const col = (a: number) => `rgba(255,255,255,${a})`; // white throughout (v2 client: "stay white instead of being red ... more brand"); the motion carries busy -> calm
   const paths = Array.from({ length: rays }, (_, i) => {
     const ang = ((spread[0] + ((spread[1] - spread[0]) * (i + 0.5)) / rays + Math.sin(i * 7.3) * 6) * Math.PI) / 180;
     const L = len * (0.75 + 0.35 * ((i * 37) % 10) / 10) * grow * (1 + 0.25 * c);
@@ -299,7 +299,7 @@ export const Burst: React.FC<{ dur: number; x: number; y: number; burstAt?: numb
   });
   return (
     <>
-      <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, overflow: "visible", opacity: out, filter: "drop-shadow(0 0 3px rgba(255,255,255,.9)) drop-shadow(0 2px 8px rgba(0,0,0,.22))" }}>
+      <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, overflow: "visible", opacity: out, filter: "drop-shadow(0 0 1.5px rgba(10,14,24,.55)) drop-shadow(0 2px 10px rgba(10,14,24,.35))"  /* a dark edge so white reads on the white wall */ }}>
         {paths}
       </svg>
       {label && (

@@ -1,6 +1,6 @@
 {
  "raw": "C:/Users/naimj/Downloads/Video Nov 05 2026, 10 50 41 AM.mov",
- "duration": 57.67,
+ "duration": 55.36,
  "pieces": [
   {
    "raw": [
@@ -104,7 +104,7 @@
   {
    "raw": [
     47.84,
-    51.46
+    51.14
    ],
    "at": 29.23,
    "text": "just gentle pressure.",
@@ -112,19 +112,10 @@
   },
   {
    "raw": [
-    51.77,
-    53.76
-   ],
-   "at": 32.85,
-   "text": "drinking from a straw of something cold.",
-   "who": "ostad"
-  },
-  {
-   "raw": [
     54.0,
     58.34
    ],
-   "at": 34.84,
+   "at": 32.53,
    "text": "It's not a painful headache. It's just your head feels a little heavy,",
    "who": "ostad"
   },
@@ -133,7 +124,7 @@
     58.52,
     58.84
    ],
-   "at": 39.18,
+   "at": 36.87,
    "text": "but",
    "who": "ostad"
   },
@@ -142,7 +133,7 @@
     59.66,
     60.85
    ],
-   "at": 39.5,
+   "at": 37.19,
    "text": "it dissipates quickly.",
    "who": "ostad"
   },
@@ -151,7 +142,7 @@
     61.03,
     61.64
    ],
-   "at": 40.69,
+   "at": 38.38,
    "text": "you showed us",
    "who": "ostad"
   },
@@ -160,7 +151,7 @@
     64.34,
     68.68
    ],
-   "at": 41.3,
+   "at": 38.99,
    "text": "your numbers have actually improved.",
    "who": "ostad"
   },
@@ -169,7 +160,7 @@
     68.98,
     69.75
    ],
-   "at": 45.64,
+   "at": 43.33,
    "text": "So it's not",
    "who": "ostad"
   },
@@ -178,7 +169,7 @@
     70.06,
     81.32
    ],
-   "at": 46.41,
+   "at": 44.1,
    "text": "just some placebo effect where you feel like, oh my god, I'm sleeping better.",
    "who": "ostad"
   }
