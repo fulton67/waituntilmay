@@ -1,0 +1,529 @@
+/* sie.v22.css — sie.market
+   v21: the type scale is up 12.5% and the covers with it (see
+   tokens.v3.css), the second-rank ink is lighter so the copy reads, and the
+   large player carries a transport of our own instead of YouTube's — §4.
+   Ground black, near-white type, system Helvetica stack (matches ear-music.org /
+   shop.ear-music.org, which load no webfonts).
+   Type law measured on the references: clamp(11px, 3.136vw, 16px).
+
+   v19: /videos is a three-up grid, the same shape as the preview panel, and
+   the controls get a glass that reads on a black page. The vertical
+   proximity-scaled rail is gone.
+
+   v18: the corner nav is a real <a> with a caret button beside it, the price
+   is a black-glass pill 12% wider than buy, and every control on the page — nav
+   link, caret, price, buy, the player's close — carries the one glass surface.
+
+   v17: slide 1 is the WebGL canvas and nothing else — the photographic
+   fallback and its spinning-disc overlay are display:none the moment the canvas
+   reports it loaded, the host box paints nothing at all, and the tilt control
+   has moved out of the slide into the stage. The fallback returns only if WebGL
+   fails. See js/case.v2.js.
+
+   v16: tokens moved out to css/tokens.v1.css, which loads first. Buttons and
+   pills share one black-glass treatment (§1). /videos is a vertical looping rail
+   whose tiles scale with distance from the viewport centre (§2).
+
+   §3 tokens come from Naim's own source, not the live site:
+   Controls are NOT styled here. site/vendor/myth-index/ is loaded verbatim and owns
+   the pill, panel, rows and hover preview. Only its four documented variables are
+   set (README.md:88-95); no token is copied out of it. */
+
+/* ground, ink, type, rhythm, the glass palette and the rail geometry all live in
+   css/tokens.v1.css, which loads first. Only the vendored component's documented
+   variables and the box model are set here. */
+:root{
+  /* ---- the ONLY theming of the vendored component: its four documented variables
+     (site/vendor/myth-index/README.md:88-95). Nothing else is overridden. ---- */
+  --myth-card-bg:#161616;
+  --myth-index-font:var(--type-family);
+  --myth-index-gutter:var(--gutter);
+  --myth-index-gutter-sm:var(--gutter);
+
+
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#000; --fg:#ededed; } }
+:root[data-theme="dark"]{ --bg:#000; --fg:#ededed; }
+html{ height:100%; scroll-padding-top:env(safe-area-inset-top,0px); }
+html,body{ overflow-x:hidden; }
+*,*::before,*::after{ box-sizing:inherit; }
+body{ margin:0; min-height:100%; background:var(--bg); color:var(--fg);
+      font:var(--base)/1.4 var(--type-family); -webkit-font-smoothing:antialiased; }
+a{ color:inherit; text-decoration:none; }
+a:focus-visible,button:focus-visible{ outline:1px solid var(--fg); outline-offset:4px; }
+img{ display:block; max-width:100%; }
+
+.page{ max-width:var(--page-max,640px); margin:0 auto; min-height:100dvh; display:flex; flex-direction:column; }
+.page[hidden]{ display:none; }
+
+/* ---- wordmark stays top-left and still goes home ---- */
+header{ position:relative; height:30vw; }
+.markbox{ position:fixed; top:calc(12px + env(safe-area-inset-top,0px)); left:var(--gutter); display:block; z-index:3; }
+.mark{ width:22vw; max-width:150px; height:auto; margin:0; }
+
+@media (min-width:700px){
+  header{ height:180px; }
+  .markbox{ top:22px; left:28px; }
+  .mark{ width:9vw; min-width:110px; max-width:150px; }
+}
+
+/* ---- component mounts. The component needs normal flow or position:relative
+   (README.md:36) and brings its own padding via --myth-index-gutter. ---- */
+#corner-mount{ position:fixed; z-index:3;
+  top:calc(12px + env(safe-area-inset-top,0px)); right:0; }
+@media (min-width:700px){ #corner-mount{ top:22px; } }
+
+/* ---- gallery: one centred object, air on every side ---- */
+.stage{ flex:1; display:flex; flex-direction:column; justify-content:center; padding:calc(var(--base)*2.4) 0; }
+.gal{ display:flex; overflow-x:auto; scroll-snap-type:x mandatory; overscroll-behavior-x:contain; scrollbar-width:none; }
+.gal::-webkit-scrollbar{ display:none; }
+/* v21: the covers carry the page, so they are bigger in their box and the
+   box is taller. 66->76% and 88->94% of a column that is itself 560->640. */
+.slide{ flex:0 0 100%; width:100%; scroll-snap-align:center; display:grid; place-items:center; min-height:72vw; }
+.slide > img{ width:76%; height:auto; }
+.slide.wide > img{ width:94%; }
+@media (min-width:700px){ .slide{ min-height:480px; } }
+
+/* the disc already in the photo, cut out and laid back over itself so only it turns.
+   geometry from the 3243x1515 original: centre (2447,743), r=710 */
+/* ---- slide 1 is a WebGL canvas (js/case.v1.js). The open-case photo with the
+   CSS disc stays in the markup underneath as the fallback, and is hidden only
+   once the canvas has actually loaded and added .has3d. ---- */
+/* Nothing in this slide may paint except the canvas. The host is a bare sizing
+   box: no background, no border, no radius, no shadow, no gradient. The
+   photographic fallback and the CSS spinning disc inside it go to display:none
+   as soon as case.v2.js adds .has3d, so they are not composited at all rather
+   than merely hidden behind the canvas. */
+.case-slide{ position:relative; background:none; box-shadow:none; }
+/* 88% left a band of empty slide on both sides of a case that was already
+   being asked to be bigger; with FIT_MARGIN down to 1.02 in case.v6.js the
+   render fills its canvas, so the canvas may as well fill the slide. */
+.case3d{ display:none; width:94%; aspect-ratio:4/3;
+         background:none; border:0; border-radius:0; box-shadow:none;
+         filter:none; -webkit-backdrop-filter:none; backdrop-filter:none; }
+.case-slide.has3d .case3d{ display:block; }
+.case-slide.has3d > .case{ display:none; }
+.case-slide.has3d::before,.case-slide.has3d::after{ content:none; }
+
+/* ---- the corner nav: a link, and a caret that is a separate control -------
+   The word is an <a href>, so a click or a tap on it navigates and nothing
+   intercepts it. The caret is its own <button> next to it, with a 44x44 tap
+   area, and it is the only thing that opens the preview. They sit in one pill
+   and share the glass, so the split is invisible until you reach for it.
+
+   The vendored component still renders its own toggle and its own panel; the
+   toggle is taken out of the flow here and the caret drives the component's
+   open/close through its returned API. No vendored file is edited. */
+.sie-nav{ display:inline-flex; align-items:stretch; gap:4px; }
+#corner-mount .myth-index__toggle{ position:absolute; width:1px; height:1px;
+  padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); border:0; }
+.sie-nav__link{
+  display:inline-flex; align-items:center;
+  padding:8px 18px; font:500 12px/1 var(--type-family);
+  text-transform:lowercase; letter-spacing:.02em; }
+.sie-nav__caret{
+  position:relative;
+  appearance:none; -webkit-appearance:none; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:34px; min-height:34px; padding:0;
+  font:500 12px/1 var(--type-family); }
+/* The tap area is 44x44, the brief's minimum, but the drawn pill is not: a
+   44px-tall caret would force the whole nav pill to 44px and make it chunky.
+   The target is extended past the box with a pseudo-element instead, which is
+   what the hit test in site/qa/verify.json checks — elementFromPoint at all
+   four corners of the 44x44 box must return the caret. */
+.sie-nav__caret::after{ content:''; position:absolute;
+  left:50%; top:50%; width:44px; height:44px;
+  transform:translate(-50%,-50%); }
+/* the glyph is 10px like the component's own chevron; the 44x44 is the target,
+   not the mark, so the pill does not grow to meet the accessibility minimum */
+.sie-nav__caret span{ display:block; font-size:10px; line-height:1;
+  transition:transform 220ms ease; }
+.sie-nav__caret[aria-expanded="true"] span{ transform:rotate(180deg); }
+/* The tilt toggle is for phones: it needs a device-orientation sensor. It used
+   to be absolutely positioned inside slide 1; as of v17 it sits in the stage
+   under the dots, so slide 1 contains the canvas and nothing else. */
+.tilt{ display:none; align-self:center; margin-top:calc(var(--base)*1.1);
+       appearance:none; -webkit-appearance:none; cursor:pointer;
+       padding:8px 18px; font:500 12px/1 var(--type-family);
+       text-transform:lowercase; letter-spacing:.02em; }
+/* The tilt button asks for the device's motion sensors, and it only has any
+   meaning on the one slide that is a 3D object. It used to sit under all five,
+   including the flat photographs -- "the tilt should only come out when you
+   actually click it... the rest it shouldn't be there because it's just not
+   needed for those". .on-case is put on the stage by the gallery in sie.*.js
+   as the case slide comes into view. */
+@media (hover:none) and (pointer:coarse){
+  .stage.on-case:has(.case-slide.has3d) .tilt{ display:inline-flex; }
+}
+.tilt[aria-pressed="true"]{ color:var(--fg); }
+
+/* ---- the bundle: the same .case construct as the case slide, at full
+   gallery width rather than the 94% other wide slides get, so it reads largest
+   view. Its disc overlay is located in cd-bundle.webp by masked normalised
+   cross-correlation against assets/disc.webp (peak 0.9831). ---- */
+.slide.bundle{ overflow:visible; }
+.slide.bundle > .case{ width:100%; }
+.slide.bundle .disc{ left:26.718%; top:51.122%; width:21.609%; }
+
+.case{ position:relative; width:88%; }
+.case > img:first-child{ width:100%; }
+.case .disc{ position:absolute; left:53.685%; top:2.442%; width:43.54%; height:auto; border-radius:50%;
+             animation:spin 12s linear infinite; touch-action:none; user-select:none; -webkit-user-drag:none; will-change:transform; }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+@media (prefers-reduced-motion:reduce){ .case .disc{ animation:none; } }
+
+.dots{ display:flex; justify-content:center; gap:8px; margin-top:calc(var(--base)*1.6); }
+.dots button{ width:5px; height:5px; padding:0; border:0; border-radius:50%; background:var(--line); }
+.dots button[aria-current="true"]{ background:var(--fg); }
+
+/* ---- product block: one column, centred, ONE gap between every item ---- */
+.product{ display:flex; flex-direction:column; align-items:center; text-align:center;
+          gap:calc(var(--base)*1.5);
+          padding:0 var(--gutter) calc(var(--base)*3.2); }
+.product > *{ margin:0; }
+
+.title{ font-size:1.15em; font-weight:400; line-height:1.35; }   /* static. no transform. */
+.sub{ color:var(--fg-2); }
+
+/* The price is the eye-catcher: its own black-glass pill, sitting directly
+   above buy and 12% wider than it. The width cannot be expressed in CSS alone
+   because it is relative to another element's intrinsic width, so sie.v17.js
+   measures buy once per layout and publishes --price-w.
+
+   12% is applied as a FLOOR, not as the width. Measured, buy is 59.8px wide, so
+   12% wider is 67.0px — and "$80 usd" set at 2.4x base is 131px, which wraps to
+   two lines inside it. The two numbers the brief gives cannot both hold. The
+   pill therefore takes its content width with 1.12x buy as the minimum, which
+   keeps the price the eye-catcher the section is named for; the measured ratio
+   is in site/qa/verify.json. 2.4x base, weight 500, pure
+   white, 16px of vertical padding, with "usd" back at body size. */
+.price{ display:flex; align-items:baseline; justify-content:center; gap:.28em;
+        box-sizing:border-box;
+        width:max-content; min-width:var(--price-w, 0); max-width:100%;
+        padding:16px 18px;
+        font-size:2.4em; font-weight:500; line-height:1.1; color:#fff; }
+.price .unit{ font-size:var(--base); font-weight:400; letter-spacing:.02em;
+              color:#fff; }
+/* The price is the link now, not just a label beside one: clicking $80 was the
+   obvious way to buy and it did nothing, because it was a <p>. It carries the
+   same href as buy, so it needs an anchor's manners and none of its decoration. */
+.price{ text-decoration:none; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+.price:hover .unit,.price:focus-visible .unit{ color:#fff; }
+.sie-buy{ display:inline-flex; align-items:center; justify-content:center;
+          padding:8px 18px; font:500 12px/1 var(--type-family);
+          text-transform:lowercase; letter-spacing:.02em; }
+
+/* v21: the copy was set a size down from the page and in the old dim ink,
+   which is why it read as a footnote. Same words, same place, at the page's
+   own size and with air between the lines. */
+.desc{ max-width:38em; }
+.desc p{ margin:0 0 calc(var(--base)*1.05); color:var(--fg-2); font-size:1em;
+         line-height:1.58;
+         text-align:justify; text-align-last:left; hyphens:auto; -webkit-hyphens:auto; }
+.desc p:last-child{ margin-bottom:0; }
+/* the description is the only thing that animates: 40ms/word, 180ms fade */
+.desc .w{ display:inline-block; opacity:1; }
+.desc.rolling .w{ opacity:0; transition:opacity 180ms ease; }
+.desc.rolling.in .w{ opacity:1; }
+@media (prefers-reduced-motion:reduce){ .desc .w{ opacity:1!important; transition:none!important; } }
+
+/* ---- scroll reveal: a block fades and rises as it comes into view, once.
+
+   Technique studied from ninepointsixthree.co/journal, which was pulled apart
+   first: Next.js app router, one Tailwind stylesheet, ten JS chunks, no WASM
+   and therefore nothing for a disassembler to open. It carries NO scroll
+   library at all — no Lenis, GSAP, Locomotive, framer-motion or ScrollTrigger.
+   The whole effect is native scrolling plus two IntersectionObservers driving a
+   fade / translateY keyframe, one position:sticky and one blurred widget.
+
+   So this is the pattern, not their code: our own class names, our own curve
+   (the one already in @keyframes pop below) and our own timing. Theirs runs 2s,
+   which on a page this short would read as lag, not calm. ---- */
+.rv{ opacity:0; transform:translateY(14px);
+     transition:opacity 520ms cubic-bezier(.2,.8,.2,1),
+                transform 520ms cubic-bezier(.2,.8,.2,1); }
+.rv-in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){
+  .rv{ opacity:1; transform:none; transition:none; }
+}
+
+/* ================= §1 BLACK GLASS =================
+   One treatment for every button and pill on the site: the nav pill, the buy
+   anchor, the tilt toggle and the player's close control. Translucent dark fill
+   over a backdrop blur, a half-pixel border, a 24px radius, and a 500ms colour
+   transition on hover.
+
+   The surface idea was studied on ninepointsixthree.co (ref/963/SPEC.md §3 —
+   measured there as rgba(219,219,219,.698) fill, blur(64px), 0.5px border, 24px
+   radius, 500ms cubic-bezier(.4,0,.2,1)). Nothing is copied: their palette is a
+   light grey built for a #FAF9F6 ground, ours is black glass on #000, and every
+   value below comes from css/tokens.v1.css.
+
+   Only background-color, border-color and color transition. backdrop-filter is
+   NEVER animated — every frame of a moving blur is a fresh convolution of the
+   whole layer underneath. That is the one genuinely expensive thing on the
+   reference site, which animates it in its email widget. We do not.
+
+   Geometry still comes from .myth-index__toggle for the pill and for buy:
+   padding, font-size and letter-spacing are the component's and untouched. The
+   toggle gets .sie-buy in JS after mount; no vendored file is edited. ---- */
+/* backdrop-filter alone cannot show on this page. It blurs what is BEHIND the
+   element, and behind every control here is the flat black ground — a blur of
+   #000 is #000, so the pills rendered as plain dark lozenges and the glass that
+   was visible in earlier builds, where the pill sat over the case or over the
+   preview panel, had quietly disappeared everywhere else.
+
+   The blur stays, because it is still right wherever there IS something behind
+   — over the video grid, over the panel, over the case. What is added is the
+   part of glass that does not need a backdrop: a light fall from the top edge,
+   a bright hairline on the top rim and a dark one on the bottom, and a soft
+   drop that lifts the pill off the page. The brief said box-shadow:none; that
+   was written when the surface was only ever described by its fill, and it is
+   what made these read flat. Colour-only transitions still hold — the blur is
+   never animated. */
+.sie-glass,.sie-buy,.tilt,.player-x,
+.sie-nav__link,.sie-nav__caret,.price{
+  text-decoration:none;
+  background-color:var(--glass-bg);
+  background-image:var(--glass-sheen);
+  -webkit-backdrop-filter:var(--glass-blur); backdrop-filter:var(--glass-blur);
+  border:0.5px solid var(--glass-border);
+  border-radius:var(--glass-radius);
+  color:var(--glass-ink);
+  box-shadow:var(--glass-rim);
+  transition:background-color var(--glass-ease),
+             border-color var(--glass-ease),
+             box-shadow var(--glass-ease),
+             color var(--glass-ease); }
+.sie-glass:hover,.sie-buy:hover,.tilt:hover,.player-x:hover,
+.sie-nav__link:hover,.sie-nav__caret:hover,
+.sie-glass:focus-visible,.sie-buy:focus-visible,.tilt:focus-visible,
+.player-x:focus-visible,.sie-nav__link:focus-visible,.sie-nav__caret:focus-visible{
+  background-color:var(--glass-bg-hover); border-color:var(--glass-border-hover);
+  box-shadow:var(--glass-rim-hover); }
+.sie-glass:active,.sie-buy:active,.tilt:active,.player-x:active,
+.sie-nav__link:active,.sie-nav__caret:active{
+  background-color:var(--glass-bg-active); }
+/* hovering anywhere on the pill lights both halves, so it still reads as one
+   control even though it is two elements for the two different jobs */
+.sie-nav:hover .sie-nav__link,.sie-nav:hover .sie-nav__caret{
+  background-color:var(--glass-bg-hover); border-color:var(--glass-border-hover);
+  box-shadow:var(--glass-rim-hover); }
+/* no backdrop-filter support (older Firefox, or blur disabled): opaque, same border */
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .sie-glass,.sie-buy,.tilt,.player-x,
+  .sie-nav__link,.sie-nav__caret,.price{ background-color:var(--glass-solid); }
+  .sie-glass:hover,.sie-buy:hover,.tilt:hover,.player-x:hover,
+  .sie-nav:hover .sie-nav__link,.sie-nav:hover .sie-nav__caret{ background-color:var(--glass-solid-hover); }
+  .sie-glass:active,.sie-buy:active,.tilt:active,.player-x:active,
+  .sie-nav__link:active,.sie-nav__caret:active{ background-color:var(--glass-solid-active); }
+}
+@media (prefers-reduced-motion:reduce){
+  .sie-glass,.sie-buy,.tilt,.player-x,
+  .sie-nav__link,.sie-nav__caret,.price{ transition:none; }
+}
+
+/* ---- sie page: lowercase sentences, no dividers, lots of air ---- */
+.sie{ padding:calc(var(--base)*1.2) var(--gutter) calc(var(--base)*3); flex:1; }
+.sentences a{ display:flex; align-items:center; min-height:44px; padding:calc(var(--base)*.3) 0;
+              color:var(--fg-2); transition:color 160ms ease; }
+.sentences a:hover,.sentences a:focus-visible{ color:var(--fg); }
+
+/* ---- /videos: a three-up grid -------------------------------------------
+   This was a vertical rail: one tile per row, each thumbnail scaled by its
+   distance from the centre of the viewport, the column looping endlessly. It
+   read well in isolation and badly as a page — nineteen videos took nineteen
+   screens to walk past, and the only way to see what was there was to scroll
+   the whole thing.
+
+   It is now the same shape as the preview panel the nav pill opens: three to a
+   row, poster thumbnails, the hover preview and the large player from the wall
+   unchanged. The grid is three columns at every width, as the panel's is, so
+   the page and the panel are recognisably the same object.
+
+   The rail's own rules — the 100dvh lockup, the 50dvh end padding, the cached
+   centre positions, the transform transition, the dimmed non-centre labels —
+   are all gone rather than overridden, and so is the JS that drove them. */
+.page-videos{ max-width:none; }
+.vid-rail{ width:100%; max-width:1080px; margin:0 auto;
+           padding:calc(var(--base)*1.6) var(--gutter) calc(var(--base)*3); }
+/* The row gap was .9 base with a label sitting above it. The label is gone, so
+   the gap absorbs what the label occupied and the grid keeps the rhythm it had:
+   .45 base of label margin + .96em x 1.3 of line box (1.248 base, since .96em
+   resolves against body's var(--base)) + .9 base of gap = 2.598 base. */
+.vid-rail .vids{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+                 gap:calc(var(--base)*2.6) var(--rail-gap); margin:0; padding:0; }
+
+.vid{ display:block; color:var(--fg); }
+.vid-thumb{ position:relative; display:block; aspect-ratio:3/2; background:#161616; overflow:hidden; }
+.vid-thumb img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+/* Fills the thumb exactly. An earlier version oversized this to crop YouTube
+   chrome off the edges — that chrome turned out to be headless Chromium failing
+   to start playback, not something real Chrome ever paints. Verified against
+   channel=chrome: 19 tiles playing, no overlay. */
+/* .yt is the div js/sie.v22.js mounts; the API replaces it with an iframe of
+   its own, so both are sized here and neither may take the tap.
+
+   The frame is transparent until the player reports PLAYING and the script
+   adds .live. What shows until then is the poster underneath, because
+   YouTube's own loading state is a title bar, a channel avatar, a centre
+   pause glyph and a YouTube button -- measured on the live site, 11 of 12
+   tiles wearing it at once on a cold cache. */
+.vid-thumb iframe,.vid-thumb .yt{ position:absolute; inset:0; width:100%; height:100%;
+                   border:0; pointer-events:none;
+                   opacity:0; transition:opacity 260ms ease; }
+.vid.live .vid-thumb iframe,.vid.live .vid-thumb .yt{ opacity:1; }
+@media (prefers-reduced-motion:reduce){
+  .vid-thumb iframe,.vid-thumb .yt{ transition:none; }
+}
+/* The wall is videos and nothing else: no titles under the tiles. The span
+   stays in the markup because both grids build it, but every .vid already
+   carries an aria-label with the same string (index.html, and sie.v22.js:306),
+   and aria-label wins over an element's contents, so display:none costs the
+   screen reader nothing. */
+.vid-label{ display:none; }
+/* The label used to be the hover affordance: it lit from --fg-2 to --fg. With
+   it hidden a tile had no hover state at all, so the thumb takes one -- a
+   hairline inside the frame, above the iframe and deaf to the pointer. */
+.vid-thumb::after{ content:''; position:absolute; inset:0; pointer-events:none;
+                   box-shadow:inset 0 0 0 1px transparent;
+                   transition:box-shadow 160ms ease; }
+.vid:hover .vid-thumb::after,
+.vid:focus-visible .vid-thumb::after{ box-shadow:inset 0 0 0 1px rgba(255,255,255,.3); }
+@media (prefers-reduced-motion:reduce){ .vid-thumb::after{ transition:none; } }
+
+/* ---- the large in-place player ---- */
+body.playing-large{ overflow:hidden; }
+.player{ position:fixed; inset:0; z-index:50; background:#000;
+         display:grid; place-items:center; }
+/* the largest true 16:9 box that fits — this is also the landscape fill */
+.player-frame{ position:relative; width:min(100vw, calc(100dvh * 16 / 9)); aspect-ratio:16/9;
+               background:#000; max-height:100dvh; }
+.player-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+/* The stage holds the player; the bar sits over its foot. Splitting them means
+   the bar is not a child of the thing YouTube replaces. */
+.player-stage{ position:absolute; inset:0; }
+/* pointer-events:none is the whole trick. controls:0 removes YouTube's bar but
+   NOT its hover state: move a cursor over the picture and it still paints the
+   title, the channel, a centre play/pause and a "More videos" strip with its
+   logo. None of that is addressable from outside the frame -- but it is only
+   ever drawn in response to a pointer, so the frame is simply never given one.
+   Everything the viewer needs is in .pbar below, which sits above this. */
+.player-stage,.player-stage .yt,.player-stage iframe{ pointer-events:none; }
+.player-stage .yt{ position:absolute; inset:0; width:100%; height:100%; }
+/* and the same rule as a tile: the ground stays black until it is really
+   playing, so YouTube's loading state is never the thing on screen */
+.player-stage{ opacity:0; transition:opacity 260ms ease; }
+.player.live .player-stage{ opacity:1; }
+@media (prefers-reduced-motion:reduce){ .player-stage{ transition:none; } }
+
+/* ---- §4 the large player's transport ------------------------------------
+   YouTube's control bar is YouTube's branding, so js/sie.v22.js asks for
+   controls:0 and this is what goes there instead: the same black glass as
+   every other control on the site, holding a play/pause, a seek rail, a clock
+   and a mute. Nothing here says YouTube because nothing here is theirs. ---- */
+.pbar{ position:absolute; left:0; right:0; bottom:0; z-index:2;
+       display:flex; align-items:center; gap:calc(var(--base)*.7);
+       padding:calc(var(--base)*.6) calc(var(--base)*.9);
+       background:linear-gradient(0deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,0) 100%);
+       opacity:1; transition:opacity 400ms ease; }
+.player.idle .pbar{ opacity:0; }
+.pbar-btn{ flex:0 0 auto; width:34px; height:34px; padding:0;
+           appearance:none; -webkit-appearance:none; cursor:pointer;
+           background:var(--glass-bg); border:0.5px solid var(--glass-border);
+           border-radius:50%; color:var(--glass-ink);
+           -webkit-backdrop-filter:var(--glass-blur); backdrop-filter:var(--glass-blur);
+           position:relative; }
+.pbar-btn:hover,.pbar-btn:focus-visible{ background:var(--glass-bg-hover);
+                                         border-color:var(--glass-border-hover); }
+/* pause: two bars. play (.is-paused): one triangle. Drawn, not a glyph, so the
+   font never has a say in it. */
+.pbar-pp::before,.pbar-pp::after{ content:''; position:absolute; top:50%; left:50%;
+  width:3px; height:12px; background:currentColor; transform:translate(-50%,-50%); }
+.pbar-pp::before{ margin-left:-3.5px; }
+.pbar-pp::after{ margin-left:3.5px; }
+.pbar-pp.is-paused::before{ margin:0; width:0; height:0; background:none;
+  border-left:10px solid currentColor;
+  border-top:6px solid transparent; border-bottom:6px solid transparent;
+  transform:translate(-40%,-50%); }
+.pbar-pp.is-paused::after{ display:none; }
+/* mute: a speaker wedge, and a bar across it when muted */
+.pbar-snd::before{ content:''; position:absolute; top:50%; left:50%;
+  width:0; height:0; border-right:9px solid currentColor;
+  border-top:7px solid transparent; border-bottom:7px solid transparent;
+  transform:translate(-50%,-50%); }
+.pbar-snd.is-muted::after{ content:''; position:absolute; top:50%; left:50%;
+  width:18px; height:1px; background:currentColor;
+  transform:translate(-50%,-50%) rotate(-45deg); }
+.pbar-rail{ flex:1 1 auto; height:22px; cursor:pointer; position:relative;
+            display:flex; align-items:center; }
+.pbar-rail::before{ content:''; position:absolute; left:0; right:0; height:2px;
+                    background:rgba(255,255,255,.22); border-radius:2px; }
+.pbar-fill{ position:relative; height:2px; width:0%; background:var(--fg);
+            border-radius:2px; }
+.pbar-time{ flex:0 0 auto; font-size:.82em; color:var(--glass-ink);
+            font-variant-numeric:tabular-nums; min-width:7.5em; text-align:right; }
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .pbar-btn{ background:var(--glass-solid); }
+}
+@media (prefers-reduced-motion:reduce){ .pbar{ transition:none; } }
+/* close: an overlay control, so it wears the §1 glass. Two 1px hairlines crossed
+   inside it, in currentColor so they follow the same hover transition. */
+.player-x{ position:fixed; z-index:51;
+           top:calc(8px + env(safe-area-inset-top,0px)); right:8px;
+           width:44px; height:44px; padding:0;
+           appearance:none; -webkit-appearance:none;
+           cursor:pointer; }
+.player-x span{ position:absolute; left:50%; top:50%; width:16px; height:1px;
+                background:currentColor; }
+.player-x span:first-child{ transform:translate(-50%,-50%) rotate(45deg); }
+.player-x span:last-child{  transform:translate(-50%,-50%) rotate(-45deg); }
+@media (orientation:landscape) and (max-height:500px){
+  .player-x{ top:4px; right:4px; }
+}
+.player:fullscreen .player-frame,.player:-webkit-full-screen .player-frame{
+  width:min(100vw, calc(100vh * 16 / 9)); max-height:100vh;
+}
+
+/* ---- intro: the slam plays full-screen once per visit, then fades into the site ---- */
+#intro{ position:fixed; inset:0; z-index:9; background:#000; display:grid; place-items:center; transition:opacity .55s ease; }
+#intro.out{ opacity:0; pointer-events:none; }
+#intro video{ width:88vw; max-width:560px; height:auto; background:#000; }
+#intro img{ width:62vw; max-width:400px; height:auto; animation:pop .9s cubic-bezier(.2,.8,.2,1) both; }
+#intro [hidden]{ display:none; }
+@keyframes pop{ from{ transform:scale(1.7); opacity:0; } to{ transform:scale(1); opacity:1; } }
+body.intro{ overflow:hidden; }
+
+/* ---- index panel: a LIVE mini copy of the videos page — the same tiles, the
+   same labels, the same local posters, three columns wide, scrolling inside the
+   component's own panel. No screenshot anywhere.
+
+   The pill, the glass shell, the panel box, its height, radius and scrolling are
+   all the component's. Three things are ours: an explicit width (the mount is
+   fixed and shrink-to-fit, so the component's own
+   `max-width: calc(100% - gutter*2)` resolves against the PILL and collapses the
+   panel to ~87px), the corner anchor, and a dark glass for a black ground. ---- */
+.myth-index__panel:has(.sie-mini){
+  width:721px; max-width:calc(100vw - var(--gutter)*2);
+  left:auto; right:var(--gutter);
+  background:rgba(10,10,10,.86);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 20px 60px -12px rgba(0,0,0,.8);
+}
+/* __cols is the component's two-column row holder; the mini grid owns columns now.
+   Its padding, flex and overflow-y:auto stay, so the panel scrolls as shipped. */
+.myth-index__cols:has(.sie-mini){ display:block; }
+
+/* Square gaps: with no caption between the rows there is nothing for a taller
+   row gap to clear. minmax(0,1fr) stays -- the three columns still have to
+   divide a fixed 721px panel evenly. */
+.sie-mini{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+
+@media (max-width:767px){
+  .myth-index__panel:has(.sie-mini){ width:calc(100vw - var(--gutter)*2); }
+  .sie-mini{ gap:8px; }
+}
