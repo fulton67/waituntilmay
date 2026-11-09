@@ -207,3 +207,16 @@ brand/edits/*/*.mp4
 brand/kit/devices/img/*.png
 public/brand/ostad/kit/devices/img/
 brand/kit/devices/ingest_report.json
+
+# ostad style study: reference media, decoded frames and contact sheets stay local (other creators' work; the repo is public)
+research/ostad/style/media/
+research/ostad/style/frames/
+research/ostad/style/sheets/
+research/ostad/style/raw/
+research/ostad/style/bank/**/*.jpg
+research/ostad/style/bank/**/*.jpeg
+research/ostad/style/bank/**/*.png
+research/ostad/style/bank/**/*.webp
+research/ostad/style/stems/
+research/ostad/style/measure/_calibration/*.mp4
+research/ostad/style/tools/__pycache__/

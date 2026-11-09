@@ -1,0 +1,45 @@
+# Ostad style study references (brief: research/ostad/style/BRIEF.md). `target` is what Naim wants from each one.
+# Sampling (client 2026-11-08): Apify has ~$1.15 left this month, so the IG accounts are SAMPLED, not exhausted:
+# the latest posts per account within a $1.00 cap; the completeness gate logs sample vs profile count instead of saved == total.
+refs:
+  - id: drjc
+    kind: ig_account
+    url: https://www.instagram.com/dr.jc.global/
+    sample: latest
+    target: clinical images of conditions (the rednesses, disease photos) - crop, label, sequence, timing against speech
+  - id: grove
+    kind: ig_account
+    url: https://www.instagram.com/doctor.grove/
+    sample: latest
+    target: image treatment - shapes, rounded corners on image cards, framing and placement
+  - id: glp1
+    kind: youtube
+    url: https://youtu.be/yhPRJ-dWP80
+    target: (1) the "GLP-1" pop-up and its animation; (2) the moment she goes on her phone - frame-by-frame keyframes for both
+  - id: ig_DfTeuSYK23y
+    kind: ig_post
+    url: https://www.instagram.com/p/DfTeuSYK23y/
+    target: full study
+  - id: ig_DdrkdrYv-yW
+    kind: ig_post
+    url: https://www.instagram.com/p/DdrkdrYv-yW/
+    target: the animated graphics (likely made in Higgsfield) - not the whole page; rebuild them with no background
+    added: 2026-11-08 (ADDITIONAL)
+  - id: ig_DYKh5yyPxxg
+    kind: ig_post
+    url: https://www.instagram.com/p/DYKh5yyPxxg/
+    target: the look of its animations - rebuild them with no background
+    added: 2026-11-08 (ADDITIONAL)
+  - id: ro
+    kind: youtube_channel
+    url: https://www.youtube.com/@ro
+    sample: last 20 shorts
+    target: graphics system - on-screen type, cards, transitions, colour
+  - id: arena
+    kind: arena_board
+    url: https://www.are.na/naim-johnson/dr-ostad
+    target: Naim's favourites and notes (brand/board_marks.json if present); starred blocks are targets
+  - id: glass
+    kind: local
+    path: brand/kit/video/ + brand/remotion/src/components/Glass.tsx
+    target: approved glass animation - keep; new devices must sit next to it without clashing
