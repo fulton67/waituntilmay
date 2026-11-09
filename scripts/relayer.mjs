@@ -55,13 +55,14 @@ const WEB = argOf("--web", "renders_bank/web");
 // and upscaling adds no detail, but the browser would upscale it anyway on
 // any screen worth looking at, and it would do it smoothly - which rounds
 // off the hard 16-pixel edges the whole look is made of. Nearest-neighbour
-// to 720p keeps them square. crf 29 rather than the 24 the look-less pool
-// used, because the look is grain and grain is expensive: measured on the
-// heaviest version of the batch, 720p costs 8.6 MB at crf 27 and 6.8 at
-// 29, against a budget of 8 MB a file. At 27 six of the thirty were over
-// it.
+// to 720p keeps them square. crf 31 rather than the 24 the look-less pool
+// used, because the look is grain and grain is expensive, and the feather
+// is more grain: measured over the whole batch at 720p, crf 29 came to
+// 212.2 MB with three of the thirty over the 8 MB budget (max 8.44), and
+// 31 to 164.0 MB with a maximum of 6.54. Before the feather the same
+// batch fitted at 29, which is the size of what the skirt adds.
 const HEIGHT = argOf("--height", "720");
-const CRF = argOf("--crf", "29");
+const CRF = argOf("--crf", "31");
 const BASE_PREFIX = argOf("--prefix-base", "journey-arc");
 const LIVE_PREFIX = argOf("--live-prefix", "journey-arc");
 const SKIP_UPLOAD = has("--skip-upload");

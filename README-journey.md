@@ -64,7 +64,11 @@ no look. Measured on this machine, 7.5s a version — 0.1s to plan and gather,
 ## The look
 
 `journey/look.json` is what the footage is wearing, and `/mosh-lab/tune`
-writes it with **publish look**. Nothing else decides what the piece looks
+writes it with **publish look**. Two files sit beside it and are not the
+look: `journey/look-nofeather.json`, the control the feather is measured
+against, and `journey/look-dream.json`, the demonstration on
+`/mosh-lab/compare`. Each differs from the published look in exactly one
+group, which is what makes the difference between two shades attributable. Nothing else decides what the piece looks
 like, which is the point: the sliders are the control surface and the file is
 what they produce.
 
@@ -96,6 +100,117 @@ composite. One dial is new and sits above the rest — **underlayer strength**,
 dial describes. It is one blend against layer C applied last, so it can be
 taken to nothing without changing the shape of anything above it, and the two
 transitions ride on top of it at any setting.
+
+## The feather
+
+The damage map is a mask on the macroblock grid, so before this the edge
+between a glitched area and a clean one was a cut line: the fold showed
+through a 16-pixel rectangle and stopped dead at its boundary, which on a
+face reads as a sticker rather than as damage.
+
+The feather is a ring of blocks around the damage, one to three wide, that
+does to its neighbours what the two transitions do to a whole frame —
+duplicate P-frame data. A coded block is a pair, a motion vector and a
+residual; decoding that pair where it does not belong is what a datamosh
+is. A ring block has no useful pair of its own, because the background did
+not move — measured on `blum_00324115`, half the coded blocks carry under
+half a pixel — so it borrows its damaged neighbour's and holds it for a few
+frames, most at the inner edge and none at the outer.
+
+Three passes, two of them at block resolution:
+
+* **DMGSEED** — is there any damage in this block at all, sixteen taps a
+  block so a 4px cell cannot hide.
+* **RINGMV** — how far is this block from damage, which direction is the
+  damage in, and what is the longest vector among the blocks in reach. One
+  7×7 gather rather than a dilation chain: 920 block-pixels, and it gives a
+  true Euclidean distance, which matters because the distance sets the hold.
+* **FEATHER** — one sample of the pass's own previous output, displaced, mixed
+  with this frame's picture by a weight of `1 - 1/N`.
+
+It spreads because it is recursive and it reads the previous frame: a block
+at distance 1 takes the damage's content, and on the next frame a block at
+distance 2 takes distance 1, which is already carrying it. The bloom crawls
+outward one step a frame, which is what a bloom does in a stream with its
+keyframes removed.
+
+Two decisions inside it were measured rather than chosen, and both were
+wrong the first time:
+
+* **Whose field.** The first version repeated the field the bloom uses,
+  which is B's. B is a leaky integrator with a 3×3 blur over it and comes
+  out about a fifth of A's length — 0.31 px at the 90th percentile against
+  2.59. Repeating a fifth of a pixel repeats nothing: it moved the band's
+  gradient by 1.6%. The surface's field is what the damage was made with, so
+  it is sent to the page as a second motion binary and the feather reads
+  that one.
+* **Read between the blocks, not from them.** Reading the ring field per
+  block gives every pixel of a block the same hold, which is a step at the
+  block boundary — a new hard edge one macroblock out from the one being
+  softened. Measured, it put **43.7% more** gradient in the band than the
+  control. The pixel pass interpolates the ring field by hand, and the same
+  frames then came out **15.3%** softer.
+
+`scripts/verify_feather.py` shades one clip twice — the published look and
+`journey/look-nofeather.json`, which is the same file with the ring and the
+hold at zero — and compares them where the pass says it acted, using the
+ring map the GPU itself wrote through `shade_bank.mjs --rings`:
+
+```
+the three frames with the hardest edge in the control
+  frame   band px   |grad| off    |grad| on     change
+      4     18760       10.137        8.176    -1.961  (-19.3%)
+      9     29968        9.764        7.872    -1.892  (-19.4%)
+      7     22712        9.747        7.250    -2.497  (-25.6%)
+  all 101 frames                 8.578        7.265    -1.314  (-15.3%)
+
+beyond the ring             9279968 px   61.63 dB   (JPEG spill included)
+beyond it by a whole MCU    7383752 px   85.97 dB   868 px differ at all
+```
+
+The PSNR is reported twice because the bank is stored as JPEG and JPEG does
+not have pixels, it has 16×16 MCUs: change one and every pixel sharing its
+MCU re-quantises, which is a fact about the codec and not about this pass.
+Excluding the pixels that share an MCU with the skirt, 868 pixels of 7.4
+million differ at all, and the gate is 45 dB.
+
+## The dream slot
+
+Off in the piece, built and measured, and the four dials travel with the
+look the way the exchange's do — `scripts/dream_fold.py` reads them through
+`scripts/shade_bank.mjs`, because by the time a frame reaches WebGL the
+dreaming has already happened.
+
+It runs on **the fold**, before the fold is encoded as layer B. Not on the
+footage, which would turn the whole frame into wallpaper, and not on the
+composite, which would repaint every pixel and leave the damage map meaning
+nothing. Dream the fold and the dream appears exactly where the grain
+already is, because the exchange only lets B through where the two layers
+disagree.
+
+DeepDream is a gradient ascent, and an ascent from a slightly different
+start lands somewhere else, so run frame by frame it boils. Before dreaming
+frame *f*, the previous dreamed frame is warped along the clip's own
+exported vectors — `cleanA-mv.json`, the same field the surface is built
+from, so there is one motion field in the pipeline and not two — and
+blended into the input. Measured on `blum_00324115`, mean absolute
+frame-to-frame difference in the still regions, where any difference at all
+is the dream boiling rather than the picture moving:
+
+| | flicker, of 255 |
+|---|---|
+| no warp | 15.807 |
+| warp 0.6 | **6.514** |
+| the fold underneath, for scale | 2.165 |
+
+GoogLeNet, which is the network DeepDream was written against; depth walks
+its ten blocks from `conv3` (weave and edges) to `inception5b` (eyes, dogs).
+On the 3050 at 640×360 it costs **0.245 s a frame** at full size and 0.247
+at half, so the half-size path exists as a dial for a larger frame and is
+not the default — the card is not the bottleneck at this geometry.
+
+`/mosh-lab/compare` has the clip four ways: the fold, the dreamed fold, the
+look over it, and the look over the dreamed one.
 
 ## Publishing a look
 

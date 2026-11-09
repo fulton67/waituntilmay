@@ -33,6 +33,7 @@
  *   node scripts/shade_bank.mjs --only blum_00547682 --force
  *   node scripts/shade_bank.mjs --prep-only
  *   node scripts/shade_bank.mjs --force --force-prep   (a clip was recut)
+ *   node scripts/shade_bank.mjs --only blum_00547682 --rings probe/rings
  *
  * Needs the dev server up for /mosh-lab/tune.
  */
@@ -68,6 +69,16 @@ const KEEP = has("--keep-work");
 // JPEG quality for the shaded frames, 0-1. The bank is an intermediate that
 // a version is stitched out of, so it is kept high.
 const QUALITY = Number(argOf("--q", "0.9"));
+/**
+ * Where to put the feather's ring map, per frame, if it is wanted.
+ *
+ * The sharpness and PSNR numbers are both about WHICH pixels - inside the
+ * damage, in the skirt, or beyond it - and that cannot be recovered from
+ * the two pictures afterwards. So the pass that draws the ring hands its
+ * own map over, and the measurement reads it rather than guessing. It costs
+ * a GPU flush a frame, so it is off unless asked for.
+ */
+const RINGS = argOf("--rings", "");
 /**
  * How many frames cross the wire at once.
  *
@@ -121,10 +132,28 @@ const P = { ...EXCHANGE, ...(look.exchange ?? {}) };
 const CLAMP = Math.min(FCODE_RANGE, Math.round(P.clampPx * 2));
 const CURVE = look.damageCurve ?? [];
 const STRENGTH = look.underlayer?.strength ?? 1;
+const DREAM = look.dream ?? { enabled: false };
+const PY = process.env.PYTHON || ".venv/Scripts/python.exe";
+/**
+ * The dream's own cache key.
+ *
+ * Dreaming is not slider-independent the way the rest of the prep is - the
+ * strength, the depth and the warp all change the picture - so it cannot
+ * live in prep.json beside things a slider cannot touch. It gets a
+ * directory of its own named after the four numbers, which makes trying a
+ * depth and going back to the previous one free, and makes the fold that
+ * every un-dreamed look uses untouched either way.
+ */
+const DREAM_KEY = createHash("sha256")
+  .update(JSON.stringify([DREAM.strength, DREAM.depth, DREAM.warp,
+    DREAM.scale, DREAM.iterations]))
+  .digest("hex").slice(0, 8);
 
 console.log(`look ${LOOK}  hash ${HASH}`);
 console.log(`  fold ${look.fold?.amount} (${look.fold?.where}, `
   + `centre ${look.fold?.center})   underlayer strength ${STRENGTH}`);
+console.log(`  feather ring ${look.feather?.ring} MB, hold ${look.feather?.length}f`
+  + `   dream ${look.dream?.enabled ? "ON" : "off"}`);
 console.log(`  curve ${look.curveEnabled ? "on" : "off"}`
   + `${look.curveEnabled && look.curveBlend ? ", blended with the words" : ""}`
   + `   amplify ${P.amplify}  accum ${P.accum}`
@@ -278,11 +307,38 @@ function prep(clip) {
 function layers(clip, pre) {
   const dir = path.join(PREPDIR, clip.id);
   const p = (f) => path.join(dir, f);
+  // where layer B's stream comes from: the plain fold, or a dreamed one
+  const bdir = DREAM.enabled ? path.join(dir, `dream-${DREAM_KEY}`) : dir;
+  const bp = (f) => path.join(bdir, f);
   const w = path.join(WORK, clip.id);
   const q = (f) => path.join(w, f);
   mkdirSync(w, { recursive: true });
   const N = pre.frames, NB = pre.cols * pre.rows;
   const t = {};
+
+  if (DREAM.enabled && !existsSync(bp("B-tmpl.json"))) {
+    const t0 = now();
+    mkdirSync(bdir, { recursive: true });
+    sh(PY, ["-u", "scripts/dream_fold.py", "--in", p("fold.mp4"),
+      "--out", bp("fold.mp4"), "--mv", p("cleanA-mv.json"),
+      "--frames", String(pre.frames), "--width", String(pre.w),
+      "--height", String(pre.h), "--fps", String(pre.fps),
+      "--strength", String(DREAM.strength), "--depth", String(DREAM.depth),
+      "--warp", String(DREAM.warp), "--scale", String(DREAM.scale),
+      "--iterations", String(DREAM.iterations),
+      "--report", bp("dream.json")], { stdio: ["ignore", "inherit", "pipe"] });
+    // the same encode the plain fold gets, so the only difference between a
+    // dreamed layer B and an ordinary one is the picture that went in
+    sh(`${FG}/ffgac.exe`, ["-i", bp("fold.mp4"), "-an",
+      "-mpv_flags", "+forcemv+nopimb",
+      "-g", "max", "-sc_threshold", "max", "-qscale:v", "3",
+      "-me_range", "1023", "-fcode", String(FCODE),
+      "-force_key_frames", "0.000000", "-frames:v", String(pre.frames),
+      "-vcodec", "mpeg4", "-f", "m4v", "-y", bp("cleanB.m4v")]);
+    sh(`${FG}/ffedit.exe`, ["-i", bp("cleanB.m4v"), "-f", "mv",
+      "-e", bp("B-tmpl.json")]);
+    t.dream = now() - t0;
+  }
 
   const env = envOf(clip);
   const E = followed(env, look);
@@ -308,7 +364,7 @@ function layers(clip, pre) {
   const isKey = (f) => f === 0;
   const B = respond(A, { response: P.bResponse, accum: P.bAccum,
     smooth: P.bSmooth, isKey, clamp: CLAMP });
-  const bdoc = JSON.parse(readFileSync(p("B-tmpl.json"), "utf8"));
+  const bdoc = JSON.parse(readFileSync(bp("B-tmpl.json"), "utf8"));
   let bSet = 0, bNull = 0;
   for (let f = 0; f < N; f++) {
     const fr = bdoc.streams[0].frames[f];
@@ -333,7 +389,7 @@ function layers(clip, pre) {
   }
   const bjson = q("B-mv.json");
   writeFileSync(bjson, JSON.stringify(bdoc));
-  sh(`${FG}/ffedit.exe`, ["-i", p("cleanB.m4v"), "-f", "mv",
+  sh(`${FG}/ffedit.exe`, ["-i", bp("cleanB.m4v"), "-f", "mv",
     "-a", bjson, "-o", q("B.m4v"), "-y"]);
   t.respond = now() - t0;
 
@@ -353,6 +409,22 @@ function layers(clip, pre) {
     }
   }
   const mvbin = Buffer.concat([head, body]);
+
+  // ---- and the SURFACE's field, in the same layout, for the feather. Not
+  // the same field scaled: B is a leaky integrator with a 3x3 blur over it,
+  // so its vectors are about a fifth of A's, and a feather driven off it
+  // repeats a fifth of a pixel and smears nothing. The bloom wants the slow
+  // field, the feather wants the one the damage was made with, so both are
+  // sent.
+  const bodyA = Buffer.alloc(N * NB * 2 * 4);
+  for (let f = 0; f < N; f++) {
+    for (let k = 0; k < NB; k++) {
+      const i = f * NB + k;
+      bodyA.writeFloatLE(A.has[i] ? A.x[i] / 2 : 0, (i * 2) * 4);
+      bodyA.writeFloatLE(A.has[i] ? A.y[i] / 2 : 0, (i * 2 + 1) * 4);
+    }
+  }
+  const mvabin = Buffer.concat([head, bodyA]);
 
   // ---- the three layers as raw planes
   t0 = now();
@@ -377,7 +449,7 @@ function layers(clip, pre) {
         + `${Math.floor(v.length / stride)} of ${N} frames`);
     }
   }
-  return { planes, mvbin, stride, env, E, gain, bSet, bNull, t };
+  return { planes, mvbin, mvabin, stride, env, E, gain, bSet, bNull, t };
 }
 
 /* ------------------------------------------------------------ the server */
@@ -411,12 +483,13 @@ const srv = createServer((req, res) => {
       ...state.lay.env,
       layers: { a: "", b: "", c: "" },
       mvBin: `${BASE}/mv/${id}`,
+      mvBinA: `${BASE}/mva/${id}`,
     }));
     return;
   }
-  if (kind === "mv") {
+  if (kind === "mv" || kind === "mva") {
     res.writeHead(200, { ...cors, "content-type": "application/octet-stream" });
-    res.end(state.lay.mvbin);
+    res.end(kind === "mv" ? state.lay.mvbin : state.lay.mvabin);
     return;
   }
   if (kind === "raw3") {
@@ -436,6 +509,27 @@ const srv = createServer((req, res) => {
     }
     res.writeHead(200, { ...cors, "content-type": "application/octet-stream" });
     res.end(Buffer.concat(parts));
+    return;
+  }
+  if (kind === "rings" && req.method === "POST") {
+    // one clip's whole ring map: four int32 (frames, cols, rows, mb) then
+    // float32 (openness, distance, in-ring, |mv|) per block per frame
+    const chunks = [];
+    req.on("data", (c) => chunks.push(c));
+    req.on("end", () => {
+      const body = Buffer.concat(chunks);
+      const [cols, rows, mb] = rest.map(Number);
+      const n = cols * rows * 4;
+      const frames = Math.floor(body.length / 4 / n);
+      const head = Buffer.alloc(16);
+      head.writeInt32LE(frames, 0); head.writeInt32LE(cols, 4);
+      head.writeInt32LE(rows, 8); head.writeInt32LE(mb, 12);
+      const dir = path.join(RINGS, id);
+      mkdirSync(dir, { recursive: true });
+      writeFileSync(path.join(dir, "rings.bin"),
+        Buffer.concat([head, body]));
+      res.writeHead(204, cors); res.end();
+    });
     return;
   }
   if (kind === "out" && req.method === "POST") {
@@ -515,7 +609,7 @@ async function openPage() {
   await page.evaluate((c) => window.__tune.setConfig(c), look);
   const got = await page.evaluate(() => window.__tune.getConfig());
   for (const k of ["squares", "reveals", "bloom", "fold", "inside", "life",
-    "underlayer"]) {
+    "underlayer", "feather", "dream"]) {
     if (JSON.stringify(got[k]) !== JSON.stringify(look[k])) {
       throw new Error(`the page did not take "${k}": sent `
         + `${JSON.stringify(look[k])}, live ${JSON.stringify(got[k])}`);
@@ -563,6 +657,8 @@ async function shade(clip, i) {
   const run = await page.evaluate(async (a) => {
     const t = { fetch: 0, render: 0, grab: 0, post: 0 };
     const out = [];
+    const rings = [];
+    let ring = null;
     // rgb24: three bytes a pixel, matching what the server decodes.
     const stride = a.w * a.h * 3;
     for (let from = 0; from < a.n; from += a.batch) {
@@ -580,6 +676,10 @@ async function shade(clip, i) {
           all.subarray(base + stride, base + stride * 2),
           all.subarray(base + stride * 2, base + stride * 3), a.w, a.h));
         t.render += performance.now() - t0;
+        if (a.rings) {
+          const r = window.__tune.rings();
+          if (r) { rings.push(r.field); ring = r; }
+        }
         t0 = performance.now();
         jpegs.push(await window.__tune.grabJpeg(a.quality));
         t.grab += performance.now() - t0;
@@ -600,10 +700,18 @@ async function shade(clip, i) {
         + `${await r.text()}`);
       t.post += performance.now() - t0;
     }
+    if (a.rings && ring) {
+      const per = ring.field.length;
+      const all = new Float32Array(per * rings.length);
+      rings.forEach((f, i) => all.set(f, i * per));
+      const r = await fetch(`${a.base}/rings/${a.id}/${ring.cols}/`
+        + `${ring.rows}/${ring.mb}`, { method: "POST", body: all });
+      if (!r.ok) throw new Error(`rings: ${r.status} ${await r.text()}`);
+    }
     for (const k of Object.keys(t)) t[k] = Math.round(t[k]);
     return { cov: out, t };
   }, { base: BASE, id: clip.id, n: pre.frames, w: pre.w, h: pre.h,
-    batch: BATCH, quality: QUALITY });
+    batch: BATCH, quality: QUALITY, rings: !!RINGS });
   const cov = run.cov;
   lay.t.render = now() - tR;
   lay.inside = run.t;
@@ -634,6 +742,7 @@ async function shade(clip, i) {
     concept_hits: (lay.env.conceptHits ?? []).length,
     underlayer_blocks_set: lay.bSet, underlayer_blocks_null: lay.bNull,
     damage_split: split, debug: dbg,
+    dream: DREAM.enabled ? { key: DREAM_KEY, ...DREAM } : null,
     ms: { prep: pre.ms, ...lay.t, total: now() - t0 },
     ms_in_page: lay.inside,
     prep_cached: pre.cached,
@@ -703,12 +812,34 @@ if (done.length) {
     + `  readback ${ins("grab").toFixed(1)}ms`
     + `  post ${ins("post").toFixed(1)}ms`);
 }
+/**
+ * The bank summary is READ OFF the per-clip stamps, not written from this
+ * run's results.
+ *
+ * --only shades one clip, and writing this file from that run's records
+ * replaced a hundred-and-three-clip summary with a one-clip one. Nothing
+ * failed and the frames were all still there, so it surfaced two steps
+ * later as verify_look.py reporting that the fold was off - it reads the
+ * damage split from here, and the ninety-nine clips whose split it wanted
+ * were no longer listed. Deriving it from what is on disk makes a partial
+ * run self-healing instead of destructive.
+ */
+const stamps = [];
+for (const d of await readdir(OUTDIR, { withFileTypes: true })) {
+  if (!d.isDirectory()) continue;
+  const f = path.join(OUTDIR, d.name, "shade.json");
+  if (!existsSync(f)) continue;
+  try { stamps.push(JSON.parse(readFileSync(f, "utf8"))); } catch { /* mid-write */ }
+}
+stamps.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
 await writeFile(path.join(OUTDIR, "shade.json"), JSON.stringify({
   look: HASH, look_file: LOOK, bank: BANKJSON,
   built: new Date().toISOString(),
-  clips: recs.length, seconds: +(tot / 1000).toFixed(1),
+  clips: stamps.length, shaded_this_run: recs.length,
+  seconds: +(tot / 1000).toFixed(1),
   fold: look.fold, underlayer: look.underlayer,
+  feather: look.feather, dream: look.dream,
   curveEnabled: look.curveEnabled, curveBlend: look.curveBlend,
-  per_clip: recs,
+  per_clip: stamps,
 }, null, 1));
 console.log(`\n-> ${path.join(OUTDIR, "shade.json")}`);

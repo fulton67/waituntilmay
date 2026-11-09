@@ -157,6 +157,10 @@ transforms.trf
 bank/clean/
 bank/prep/
 bank/look-*/
+# the feather's ring maps and the dream's scratch: measurement inputs, not
+# measurements. scripts/verify_feather.py's report is the thing kept.
+bank/rings-*/
+bank/dreamtest/
 bank/env/
 .shade/
 renders_bank/

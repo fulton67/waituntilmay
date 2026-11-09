@@ -55,6 +55,8 @@ interface TuneData {
   rawNoLoudness: number[]; loudness: number[]; drift: number[];
   layers: { a: string; b: string; c: string };
   mvBin: string;
+  /** the surface's field, for the feather; B's is used if it is absent */
+  mvBinA?: string;
 }
 
 const clone = <T,>(c: T): T => JSON.parse(JSON.stringify(c));
@@ -136,6 +138,14 @@ const OLDER_MACROS: { key: keyof Macros; label: string; hint: string }[] = [
     hint: "How much of the layer underneath shows through a hole, instead of staying half-closed." },
   { key: "followsWords", label: "Follows words",
     hint: "How much the speech drives it. Left ignores the talk, right bursts open on words like “internet”." },
+];
+
+/** The dream's four numbers, which the shader never sees. */
+const DREAM: Spec[] = [
+  { key: "strength", label: "strength", min: 0, max: 2, step: 0.05 },
+  { key: "depth", label: "depth (texture -> eyes)", min: 0, max: 1, step: 0.01 },
+  { key: "warp", label: "warp blend", min: 0, max: 0.95, step: 0.05 },
+  { key: "scale", label: "dream at", min: 0.25, max: 1, step: 0.25 },
 ];
 
 const LOOKS: { v: InsideLook; label: string; hint: string }[] = [
@@ -363,6 +373,9 @@ export default function MoshTune() {
         setData(d);
         setLoop([0, d.frames - 1]);
         const mv = await (await fetch(d.mvBin, { cache: "no-store" })).arrayBuffer();
+        const mva = d.mvBinA
+          ? await (await fetch(d.mvBinA, { cache: "no-store" })).arrayBuffer()
+          : null;
         if (!alive) return;
         const r = rendRef.current;
         if (r) {
@@ -372,6 +385,7 @@ export default function MoshTune() {
           // so the renderer has to be told which
           r.setFps(d.fps);
           r.setMotion(mv);
+          if (mva) r.setMotionA(mva);
         }
       } catch (e) {
         if (alive) setErr(String((e as Error).message ?? e));
@@ -813,11 +827,15 @@ export default function MoshTune() {
           await (await fetch(url, { cache: "no-store" })).json();
         const mv =
           await (await fetch(d.mvBin, { cache: "no-store" })).arrayBuffer();
+        const mva = d.mvBinA
+          ? await (await fetch(d.mvBinA, { cache: "no-store" })).arrayBuffer()
+          : null;
         const r = rendRef.current;
         if (r) {
           r.setSize(d.width, d.height, d.mb);
           r.setFps(d.fps);
           r.setMotion(mv);
+          if (mva) r.setMotionA(mva);
         }
         setData(d);
         setLoop([0, d.frames - 1]);
@@ -895,6 +913,8 @@ export default function MoshTune() {
       showInside: () => rendRef.current?.blitInside(),
       stretchStats: () => rendRef.current?.sims?.[0]?.stats() ?? null,
       damageSplit: () => rendRef.current?.lastSplit ?? null,
+      /** The feather's ring for the frame just rendered, bottom-up. */
+      rings: () => rendRef.current?.ringField() ?? null,
       foldState: () => {
         const r = rendRef.current;
         if (!r) return null;
@@ -1006,6 +1026,86 @@ export default function MoshTune() {
             of it at any setting.
           </span>
         </label>
+        <label className="mt-macro mt-feather">
+          <span className="mt-macro-name">Feather</span>
+          <input type="range" min={0} max={3} step={1}
+                 value={cfg.feather?.ring ?? 0}
+                 onChange={(e) => {
+                   overridden.current = true;
+                   const ring = Number(e.target.value);
+                   setCfg((c) => ({
+                     ...clone(c),
+                     feather: { ring, length: c.feather?.length ?? 6 },
+                   }));
+                 }} />
+          <b>{cfg.feather?.ring ?? 0} MB</b>
+          <span className="mt-hint">
+            How far the damage&rsquo;s edge smears outward, in macroblocks.
+            The blocks in that ring have no motion of their own &mdash; the
+            background did not move, which is exactly why the edge was a cut
+            line &mdash; so they repeat their damaged neighbour&rsquo;s
+            vectors instead, which is what a datamosh is. 0 turns the pass
+            off entirely.
+          </span>
+        </label>
+        <label className="mt-macro mt-feather">
+          <span className="mt-macro-name">Feather length</span>
+          <input type="range" min={0} max={12} step={1}
+                 value={cfg.feather?.length ?? 0}
+                 onChange={(e) => {
+                   overridden.current = true;
+                   const length = Number(e.target.value);
+                   setCfg((c) => ({
+                     ...clone(c),
+                     feather: { ring: c.feather?.ring ?? 2, length },
+                   }));
+                 }} />
+          <b>{cfg.feather?.length ?? 0}f</b>
+          <span className="mt-hint">
+            The longest hold, in frames, at the inner edge of the ring. It
+            decays to nothing at the outer edge, so the skirt fades rather
+            than ending somewhere of its own.
+          </span>
+        </label>
+        <div className="mt-dream">
+          <span className="mt-look-label">DeepDream the fold</span>
+          <button aria-pressed={!!cfg.dream?.enabled}
+                  onClick={() => {
+                    overridden.current = true;
+                    setCfg((c) => ({
+                      ...clone(c),
+                      dream: { ...(c.dream ?? DEFAULTS.dream),
+                        enabled: !c.dream?.enabled },
+                    }));
+                  }}>
+            {cfg.dream?.enabled ? "on" : "off"}
+          </button>
+          <span className="mt-hint">
+            Runs DeepDream on the fold underlayer before it is encoded, so
+            the dream shows only through the grain where the figure moves.
+            It happens on the GPU in Python, not here, so the preview will
+            not change until the bank is shaded &mdash; these four dials
+            travel with the look the way the exchange&rsquo;s do.
+          </span>
+          {DREAM.map((d) => (
+            <label key={d.key} className="mt-row">
+              <span>{d.label}</span>
+              <input type="range" min={d.min} max={d.max} step={d.step}
+                     value={(cfg.dream as unknown as Record<string, number>)
+                       ?.[d.key] ?? 0}
+                     onChange={(e) => {
+                       overridden.current = true;
+                       const v = Number(e.target.value);
+                       setCfg((c) => ({
+                         ...clone(c),
+                         dream: { ...(c.dream ?? DEFAULTS.dream), [d.key]: v },
+                       }));
+                     }} />
+              <b>{(cfg.dream as unknown as Record<string, number>)
+                ?.[d.key] ?? 0}</b>
+            </label>
+          ))}
+        </div>
         {MACROS.map((m) => (
           <label key={m.key} className="mt-macro">
             <span className="mt-macro-name">{m.label}</span>

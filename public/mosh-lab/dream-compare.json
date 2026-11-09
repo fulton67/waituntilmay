@@ -1,0 +1,82 @@
+{
+ "name": "dream",
+ "clip": "blum_00324115",
+ "look": "dac8bb67",
+ "lookDream": "cf127dcc",
+ "layers": [
+  {
+   "key": "fold",
+   "label": "fold (the underlayer's picture)",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/dream-fold.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/dream-fold-mv.mp4",
+   "frames": 101,
+   "duration": 4.208008,
+   "mb": 0.350669,
+   "width": 640,
+   "height": 360,
+   "fps": "24/1"
+  },
+  {
+   "key": "fold-dreamed",
+   "label": "fold, dreamed",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/dream-fold-dreamed.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/dream-fold-dreamed-mv.mp4",
+   "frames": 101,
+   "duration": 4.208333,
+   "mb": 2.600821,
+   "width": 640,
+   "height": 360,
+   "fps": "24/1"
+  },
+  {
+   "key": "shaded",
+   "label": "the look, dream off",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/dream-shaded.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/dream-shaded-mv.mp4",
+   "frames": 101,
+   "duration": 4.208333,
+   "mb": 0.858909,
+   "width": 640,
+   "height": 360,
+   "fps": "24/1"
+  },
+  {
+   "key": "shaded-dreamed",
+   "label": "the look, dream on",
+   "video": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/dream-shaded-dreamed.mp4",
+   "mv": "https://6gou1uitbmkd2uvc.public.blob.vercel-storage.com/mosh-lab/dream-shaded-dreamed-mv.mp4",
+   "frames": 101,
+   "duration": 4.208333,
+   "mb": 1.178982,
+   "width": 640,
+   "height": 360,
+   "fps": "24/1"
+  }
+ ],
+ "dream": {
+  "src": "bank\\prep\\blum_00324115\\fold.mp4",
+  "out": "bank\\prep\\blum_00324115\\dream-37acc519\\fold.mp4",
+  "frames": 101,
+  "device": "cuda",
+  "layer": "inception4b",
+  "layer_index": 4,
+  "dream_size": [
+   640,
+   352
+  ],
+  "full_size": [
+   640,
+   360
+  ],
+  "strength": 0.6,
+  "depth": 0.5,
+  "warp": 0.6,
+  "scale": 1,
+  "iterations": 12,
+  "seconds_total": 26.65,
+  "seconds_per_frame": 0.2428,
+  "flicker_still_dreamed": 6.4581,
+  "flicker_still_fold": 2.1648
+ },
+ "blobPrefix": "mosh-lab"
+}

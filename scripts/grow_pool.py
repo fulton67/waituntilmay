@@ -97,12 +97,13 @@ def main():
     ap.add_argument("--log", default="logs/pool.log")
     # these must match the settings the shipped pool was built with, or a
     # version that joins overnight arrives a different size from its
-    # neighbours - and the settings moved when the look did. The look is
-    # grain and grain is expensive: measured on the heaviest version of the
-    # batch at 720p, crf 27 costs 8.6 MB and 29 costs 6.8, where the
-    # look-less batch before it came out at 1.7-4.8 MB at crf 24. 29 is
-    # what holds every file inside the 8 MB budget without a bitrate cap.
-    ap.add_argument("--crf", type=int, default=29)
+    # neighbours - and the settings moved twice, once when the look went on
+    # and once when the feather did. The look is grain and the feather is
+    # more grain: measured over the whole batch at 720p, crf 29 came to
+    # 212.2 MB with three files over the 8 MB budget, and 31 to 164.0 MB
+    # with a maximum of 6.54, where the look-less batch before any of it
+    # came out at 1.7-4.8 MB a file at crf 24.
+    ap.add_argument("--crf", type=int, default=31)
     ap.add_argument("--height", type=int, default=720)
     ap.add_argument("--maxrate-kbps", type=int, default=0)
     ap.add_argument("--budget-mb", type=float, default=8.0)

@@ -18,7 +18,8 @@ import {
 } from "./tune-shaders";
 import { StretchSim, STRETCH_DEFAULTS, type StretchCfg } from "./StretchSim";
 import {
-  FRAG_COPY, FRAG_DAMAGE, FRAG_DMGSTAT, FRAG_FOLDSTAT, FRAG_OPENINGS,
+  FRAG_COPY, FRAG_DAMAGE, FRAG_DMGSEED, FRAG_DMGSTAT, FRAG_FEATHER,
+  FRAG_FOLDSTAT, FRAG_OPENINGS, FRAG_RINGMV,
   FRAG_SUM4,
 } from "./damage-shaders";
 
@@ -104,6 +105,39 @@ export interface TuneConfig {
    * the instruments down with it.
    */
   underlayer: { strength: number };
+  /**
+   * The P-frame feather: the skirt around the damage.
+   *
+   * `ring` is how many macroblocks out it reaches and `length` is the
+   * longest hold at its inner edge, in frames. At ring 0 or length 0 the
+   * pass does not run at all and the picture is what it was before this
+   * existed, which is the control the measurements are taken against.
+   */
+  feather: { ring: number; length: number };
+  /**
+   * DeepDream on the fold, off by default.
+   *
+   * Like `exchange`, this is a group the preview carries but does not
+   * execute: dreaming is a CUDA pass over the fold BEFORE it is encoded as
+   * layer B, so by the time a frame reaches WebGL it has already happened.
+   * scripts/dream_fold.py is what reads these, through
+   * scripts/shade_bank.mjs.
+   *
+   *   strength  how hard the gradient ascent pushes
+   *   depth     0 is the shallow inception blocks - texture, fur, edges -
+   *             and 1 the deep ones, which is where the eyes and the dogs
+   *             live
+   *   warp      how much of the previous dreamed frame, moved along the
+   *             clip's own motion field, is blended in before the next one
+   *             is dreamed. This is the only thing standing between a
+   *             dreamed sequence and a boiling mess.
+   *   scale     dream at this fraction of the full frame and add the
+   *             difference back at full size
+   */
+  dream: {
+    enabled: boolean; strength: number; depth: number; warp: number;
+    scale: number; iterations: number;
+  };
   /**
    * The three relationships, all of them read off the footage's own
    * motion. These travel to scripts/exchange-mosh.mjs, which is where they
@@ -237,6 +271,14 @@ export const DEFAULTS: TuneConfig = {
   life: { timeJitter: 0.15, spaceJitter: 0.1 },
   b: { speed: 1.0, dupP: 4 },
   underlayer: { strength: 1 },
+  feather: { ring: 2, length: 6 },
+  dream: {
+    enabled: false, strength: 0.6, depth: 0.5, warp: 0.6,
+    // measured on the 3050 at 640x360: 0.247s a frame at half size and
+    // 0.245 at full, so the half-size path buys nothing at this geometry
+    // and is left as a dial for a bigger one rather than a default
+    scale: 1, iterations: 12,
+  },
   exchange: {
     calmGain: 1, amplify: 22, accum: 0.55, clampPx: 150,
     bResponse: 1.2, bAccum: 0.85, bSmooth: 1,
@@ -442,7 +484,8 @@ export function sanitizeConfig(c: unknown): TuneConfig {
   if (typeof inc.curveEnabled === "boolean") out.curveEnabled = inc.curveEnabled;
   if (typeof inc.curveBlend === "boolean") out.curveBlend = inc.curveBlend;
   for (const k of ["squares", "reveals", "bloom", "stretch", "organic",
-                   "inside", "fold", "life", "b", "underlayer"] as const) {
+                   "inside", "fold", "life", "b", "underlayer", "feather",
+                   "dream", "exchange"] as const) {
     const g = inc[k];
     if (g && typeof g === "object") {
       // only keys the group already has, so a stale field cannot sneak in
@@ -497,6 +540,18 @@ export class TuneRenderer {
   private vao: WebGLVertexArrayObject;
   private texA: WebGLTexture; private texB: WebGLTexture; private texC: WebGLTexture;
   private texMv: WebGLTexture;
+  /**
+   * The SURFACE's field, which is a different field from B's and not a
+   * stronger version of it. B's is a leaky integrator with a (1 - accum)
+   * factor of 0.15 and a 3x3 blur over it - by design, because B is
+   * supposed to lag and smooth - so it comes out about an order of
+   * magnitude shorter: measured on blum_00324115, B's vectors are 0.31 px
+   * at the 90th percentile against A's 2.59, and only 5.9% of its blocks
+   * reach half a pixel. The bloom wants the slow field. The feather wants
+   * the one the damage was actually made with, because repeating a vector
+   * of a fifth of a pixel repeats nothing.
+   */
+  private texMvA: WebGLTexture;
   private diff!: Target; private distA!: Target; private distB!: Target;
   // One pair of feedback buffers PER SLOT. The variation tiles all render
   // through this one context, and bloom and drag are feedback buffers, so
@@ -513,6 +568,10 @@ export class TuneRenderer {
   private statChain: Target[] = [];
   private folded!: Target;
   private strengthT!: Target;
+  /** The feather's ring, at block resolution, and its own feedback pair. */
+  private ringSeed!: Target; private ringMv!: Target;
+  private featherA: Target[] = []; private featherB: Target[] = [];
+  private featherPrimed: boolean[] = [];
   /** The last frame rendered, as a target, for an exact readback. */
   private lastFinal: Target | null = null;
   private centroid!: Target;
@@ -523,6 +582,8 @@ export class TuneRenderer {
   private mb = 16;
   private mvFrames = 0; private mvRows = 0; private mvCols = 0;
   private mv: Float32Array | null = null;
+  private mvaFrames = 0; private mvaRows = 0; private mvaCols = 0;
+  private mva: Float32Array | null = null;
   private bloomPrimed: boolean[] = [];
   private dragPrimed: boolean[] = [];
   readonly slots: number;
@@ -551,6 +612,7 @@ export class TuneRenderer {
     this.slots = Math.max(1, slots);
     this.bloomPrimed = new Array(this.slots).fill(false);
     this.dragPrimed = new Array(this.slots).fill(false);
+    this.featherPrimed = new Array(this.slots).fill(false);
     const gl = canvas.getContext("webgl2", {
       antialias: false, preserveDrawingBuffer: true, premultipliedAlpha: false,
     });
@@ -566,7 +628,8 @@ export class TuneRenderer {
       bloom: FRAG_BLOOM, inside: FRAG_INSIDE, comp: FRAG_COMP,
       fold: FRAG_FOLD, centroid: FRAG_CENTROID, drag: FRAG_DRAG,
       reduce: FRAG_REDUCE, damage: FRAG_DAMAGE, openings: FRAG_OPENINGS,
-      strength: FRAG_STRENGTH,
+      strength: FRAG_STRENGTH, dmgseed: FRAG_DMGSEED, ringmv: FRAG_RINGMV,
+      feather: FRAG_FEATHER,
       sum4: FRAG_SUM4, foldstat: FRAG_FOLDSTAT, dmgstat: FRAG_DMGSTAT,
       copy: FRAG_COPY,
     })) this.progs[k] = program(gl, f as string);
@@ -589,6 +652,7 @@ export class TuneRenderer {
     this.texB = this.videoTex();
     this.texC = this.videoTex();
     this.texMv = gl.createTexture()!;
+    this.texMvA = gl.createTexture()!;
   }
 
   /** A unit quad plus a per-instance buffer of eight floats per stretch. */
@@ -681,6 +745,14 @@ export class TuneRenderer {
     }
     this.folded = this.target(w, h, false, false);
     this.strengthT = this.target(w, h, false, false);
+    // float, because the ring carries a motion vector and a distance
+    this.ringSeed = this.target(this.cols, this.rows);
+    this.ringMv = this.target(this.cols, this.rows);
+    this.featherA = []; this.featherB = [];
+    for (let i = 0; i < this.slots; i++) {
+      this.featherA.push(this.target(w, h, false, false));
+      this.featherB.push(this.target(w, h, false, false));
+    }
     this.lastFinal = null;
     this.centroid = this.target(1, 1);
     // a reduction chain down to 1x1 so coverage comes back as one pixel
@@ -709,6 +781,31 @@ export class TuneRenderer {
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  }
+
+  /** The surface's field, same layout, for the feather. Optional. */
+  setMotionA(buf: ArrayBuffer) {
+    const head = new Int32Array(buf, 0, 4);
+    this.mvaFrames = head[0]; this.mvaRows = head[1]; this.mvaCols = head[2];
+    this.mva = new Float32Array(buf, 16);
+    const gl = this.gl;
+    gl.bindTexture(gl.TEXTURE_2D, this.texMvA);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  }
+
+  private uploadMvA(frame: number) {
+    if (!this.mva) return;
+    const gl = this.gl;
+    const f = Math.max(0, Math.min(this.mvaFrames - 1, Math.round(frame)));
+    const per = this.mvaRows * this.mvaCols * 2;
+    const rg = new Float32Array(per);
+    rg.set(this.mva.subarray(f * per, (f + 1) * per));
+    gl.bindTexture(gl.TEXTURE_2D, this.texMvA);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RG32F, this.mvaCols, this.mvaRows, 0,
+      gl.RG, gl.FLOAT, rg);
   }
 
   private uploadMv(frame: number) {
@@ -783,6 +880,7 @@ export class TuneRenderer {
   resetBloom() {
     this.bloomPrimed = new Array(this.slots).fill(false);
     this.dragPrimed = new Array(this.slots).fill(false);
+    this.featherPrimed = new Array(this.slots).fill(false);
   }
 
   private use(name: string) {
@@ -1025,12 +1123,65 @@ export class TuneRenderer {
       this.lastFold = { c, zoom, center: [cx, cy], spread };
     }
 
+    /**
+     * ---- the feather: the damage's edge, smeared outward
+     *
+     * Here and not earlier, because what is being feathered is the finished
+     * glitch - the squares, the openings, the stretches and the fold, after
+     * they have all had their say - and not any one of them. Here and not
+     * later, because the strength dial has to stay last: at 0 the output is
+     * layer C to the bit, and a smear applied after it would put movement
+     * on a picture that is supposed to be untouched.
+     */
+    let feathered = folded;
+    const fe = cfg.feather ?? DEFAULTS.feather;
+    if (fe.ring >= 0.5 && fe.length >= 1) {
+      {
+        const p = this.use("dmgseed");
+        this.bind(p, "uDamage", 0, this.damage.tex);
+        gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
+        gl.uniform1f(this.u(p, "uMb"), this.mb);
+        this.draw(this.ringSeed);
+      }
+      {
+        // the surface's field where there is one; B's, with a warning in
+        // the manifest, where there is not
+        this.uploadMvA(frame);
+        const p = this.use("ringmv");
+        this.bind(p, "uSeed", 0, this.ringSeed.tex);
+        this.bind(p, "uMv", 1, this.mva ? this.texMvA : this.texMv);
+        gl.uniform2f(this.u(p, "uGrid"), grid[0], grid[1]);
+        gl.uniform1f(this.u(p, "uRing"), Math.min(3, fe.ring));
+        gl.uniform1f(this.u(p, "uMb"), this.mb);
+        gl.uniform1f(this.u(p, "uLen"), Math.min(12, fe.length));
+        this.draw(this.ringMv);
+      }
+      {
+        const p = this.use("feather");
+        this.bind(p, "uSrc", 0, folded.tex);
+        this.bind(p, "uPrev", 1, this.featherA[sl].tex);
+        this.bind(p, "uRing", 2, this.ringMv.tex);
+        this.bind(p, "uDamage", 3, this.damage.tex);
+        gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
+        gl.uniform2f(this.u(p, "uGrid"), grid[0], grid[1]);
+        gl.uniform1f(this.u(p, "uMb"), this.mb);
+        gl.uniform1f(this.u(p, "uRingW"), Math.min(3, fe.ring));
+        gl.uniform1f(this.u(p, "uLen"), Math.min(12, fe.length));
+        gl.uniform1i(this.u(p, "uReset"), this.featherPrimed[sl] ? 0 : 1);
+        this.draw(this.featherB[sl]);
+        const t = this.featherA[sl];
+        this.featherA[sl] = this.featherB[sl]; this.featherB[sl] = t;
+        this.featherPrimed[sl] = true;
+        feathered = this.featherA[sl];
+      }
+    }
+
     // ---- the underlayer's strength, last, against the footage itself
-    let final = folded;
+    let final = feathered;
     const str = cfg.underlayer?.strength ?? 1;
     if (str < 0.999) {
       const p = this.use("strength");
-      this.bind(p, "uLook", 0, folded.tex);
+      this.bind(p, "uLook", 0, feathered.tex);
       this.bind(p, "uClean", 1, this.texC);
       gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
       gl.uniform1f(this.u(p, "uStrength"), Math.max(0, str));
@@ -1104,6 +1255,38 @@ export class TuneRenderer {
     // ---- to the canvas
     this.lastFinal = final;
     this.blit(final);
+  }
+
+  /**
+   * The feather's own ring, as the measurement needs it.
+   *
+   * Two block-resolution readbacks: where the damage is, and where the ring
+   * is and which vector it is repeating. The sharpness and PSNR numbers are
+   * both questions about WHICH pixels, so they cannot be answered from the
+   * two pictures alone - this is the map that says which is which, straight
+   * out of the pass that drew it rather than reconstructed afterwards.
+   *
+   * It forces a pipeline flush, so it is only asked for by the probe.
+   */
+  ringField() {
+    const gl = this.gl;
+    const n = this.cols * this.rows;
+    const seed = new Float32Array(n * 4);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, this.ringSeed.fb);
+    gl.readPixels(0, 0, this.cols, this.rows, gl.RGBA, gl.FLOAT, seed);
+    const ring = new Float32Array(n * 4);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, this.ringMv.fb);
+    gl.readPixels(0, 0, this.cols, this.rows, gl.RGBA, gl.FLOAT, ring);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+    // one row per block, bottom-up out of GL; the caller flips it
+    const out = new Float32Array(n * 4);
+    for (let i = 0; i < n; i++) {
+      out[i * 4] = seed[i * 4 + 1];        // openness in the block
+      out[i * 4 + 1] = ring[i * 4 + 2];    // distance to damage, blocks
+      out[i * 4 + 2] = ring[i * 4 + 3];    // 1 if in the ring
+      out[i * 4 + 3] = Math.hypot(ring[i * 4], ring[i * 4 + 1]);
+    }
+    return { cols: this.cols, rows: this.rows, mb: this.mb, field: out };
   }
 
   /**

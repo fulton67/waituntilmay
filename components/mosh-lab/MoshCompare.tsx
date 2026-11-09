@@ -16,6 +16,9 @@ const CLIPS = [
   { name: "blum", label: "fibre clip", manifest: "/mosh-lab/blum-compare.json" },
   { name: "blum-internet", label: "internet clip", manifest: "/mosh-lab/blum-internet-compare.json" },
   { name: "journey-30s", label: "journey · 30s edit", manifest: "/mosh-lab/journey-30s-compare.json" },
+  // the dream slot, which is off in the piece: one bank clip, its fold, the
+  // dreamed fold, and the look over each
+  { name: "dream", label: "deepdream · one bank clip", manifest: "/mosh-lab/dream-compare.json" },
 ];
 const DRIFT_FRAMES = 1;          // correct any layer more than a frame out
 

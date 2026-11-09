@@ -310,3 +310,236 @@ uniform vec2 uRes;
 out vec4 outColor;
 void main() { outColor = texture(uSrc, gl_FragCoord.xy / uRes); }
 `;
+
+/* ------------------------------------------------------------- feather */
+/**
+ * The P-frame feather: the three passes that smear the edge of the damage
+ * outward instead of letting it stop at a macroblock boundary.
+ *
+ * What a datamosh actually is, in one line: a macroblock whose motion
+ * vectors are re-used for a frame it was not coded for, so the decoder
+ * keeps fetching from a picture that has moved on and the content slides.
+ * The transitions do that by removing an I-VOP, which hands the whole frame
+ * stale vectors at once. This does it to a RING of blocks around the
+ * damage, one to three macroblocks wide, for a number of frames that decays
+ * from the inner edge outward - so the glitch has a skirt rather than a cut
+ * line.
+ *
+ * It is the same arithmetic as the real thing: a block's predicted content
+ * is the previous picture sampled at px + mv, and this pass samples its own
+ * previous output at px + mv with a weight that keeps it alive for N
+ * frames. A ring block has no vector of its own - the background did not
+ * move, which is exactly why the edge was hard - so the vector it repeats
+ * is its damaged neighbour's. That is the duplication: the P-frame data
+ * belonging to the blocks that did move is applied to the blocks beside
+ * them.
+ *
+ * Three passes rather than one because the ring is a question about blocks
+ * and the smear is a question about pixels:
+ *
+ *   DMGSEED   is there any damage in this block at all          -> block grid
+ *   RINGMV    how far is this block from damage, and which      -> block grid
+ *             vector should it repeat
+ *   FEATHER   re-apply that vector to the previous output       -> full res
+ *
+ * Nothing outside the ring is read or written, which is the claim the PSNR
+ * measurement checks: a block with no damaged neighbour inside the ring
+ * width comes out of this pass bit-identical.
+ */
+export const FRAG_DMGSEED = `#version 300 es
+precision highp float;
+uniform sampler2D uDamage;
+uniform vec2 uRes;
+uniform float uMb;
+out vec4 outColor;
+void main() {
+  vec2 blk = floor(gl_FragCoord.xy);
+  float best = 0.0;
+  // sixteen taps a block. The finest damage is a 4px cell inside a 16px
+  // square, so a 4x4 grid cannot miss an opening, and the answer wanted
+  // here is only "anything at all".
+  for (int y = 0; y < 4; y++) {
+    for (int x = 0; x < 4; x++) {
+      vec2 px = (blk + (vec2(float(x), float(y)) + 0.5) / 4.0) * uMb;
+      vec4 d = texture(uDamage, px / uRes);
+      best = max(best, max(max(d.r, d.g), d.b));
+    }
+  }
+  outColor = vec4(best > 0.002 ? 0.0 : 1e9, best, 0.0, 1.0);
+}
+`;
+
+/**
+ * The ring, and the P-frame data each of its blocks borrows.
+ *
+ * The ring is at most three blocks, so a 7x7 search at block resolution is
+ * 920 pixels times 49 taps - cheaper than three ping-pong passes, and it
+ * gives the true Euclidean distance instead of a 4-connected approximation,
+ * which matters because the distance is what sets the hold length.
+ *
+ * What a ring block borrows is a WHOLE coded block, not just a vector.
+ * Duplicating P-frame data means taking a macroblock's (vector, residual)
+ * pair and decoding it where it does not belong: the prediction comes from
+ * the previous picture displaced by that vector, and the residual on top is
+ * the change that was coded for the block it was taken from. The second
+ * half is what carries the glitch outward, and it is the half that matters
+ * here, because a ring block's own vector is the background's and the
+ * background did not move - measured on this clip, half the coded blocks
+ * are under half a pixel. Repeat that and nothing happens, which is what
+ * the first attempt measured: 0.38 px carried, 1.6% off the edge.
+ *
+ * So the offset written here is two things added together:
+ *
+ *   one macroblock toward the damage   which is where the borrowed block
+ *                                      sits, so sampling there is what
+ *                                      "apply its data here" comes to once
+ *                                      the picture is pixels and the
+ *                                      bitstream is gone
+ *   its longest vector                 the repeat proper. The longest among
+ *                                      the blocks in reach rather than
+ *                                      their mean: a mean of a mover and
+ *                                      three still neighbours is a quarter
+ *                                      of a mover, and vectors pointing
+ *                                      different ways cancel to nothing.
+ *
+ * The direction toward the damage is an inverse-square-weighted mean over
+ * every damaged block in reach rather than the nearest one: a figure's edge
+ * is jagged at block resolution, and picking one neighbour makes the skirt
+ * jagged with it.
+ */
+export const FRAG_RINGMV = `#version 300 es
+precision highp float;
+uniform sampler2D uSeed;   // R: 0 where there is damage, 1e9 where there is not
+uniform sampler2D uMv;     // the motion field, px, per block
+uniform vec2 uGrid;
+uniform float uRing;       // ring width, blocks
+uniform float uMb;         // macroblock size, px
+uniform float uLen;        // the hold at the inner edge, frames
+out vec4 outColor;         // rg = where to read, px; b = distance; a = in ring
+void main() {
+  ivec2 p = ivec2(gl_FragCoord.xy);
+  // a damaged block is distance zero and carries no offset. It is marked
+  // rather than skipped because the pixel pass interpolates this field, and
+  // a hole in it would put a step back exactly where the step is being
+  // taken out.
+  if (texelFetch(uSeed, p, 0).r < 0.5) { outColor = vec4(0.0, 0.0, 0.0, 1.0); return; }
+  // one block further than the ring, so the weight reaches zero inside the
+  // marked region and the outer edge of the skirt is not an edge
+  float reach = uRing + 1.0;
+  int R = int(reach + 0.5);
+  float bestD = 1e9;
+  vec2 dirAcc = vec2(0.0);
+  float wsum = 0.0;
+  vec2 held = vec2(0.0);
+  float heldMag = -1.0;
+  for (int dy = -4; dy <= 4; dy++) {
+    for (int dx = -4; dx <= 4; dx++) {
+      if (dx > R || dx < -R || dy > R || dy < -R) continue;
+      float d = length(vec2(float(dx), float(dy)));
+      if (d > reach + 0.001) continue;
+      ivec2 q = p + ivec2(dx, dy);
+      if (q.x < 0 || q.y < 0 || q.x >= int(uGrid.x) || q.y >= int(uGrid.y)) continue;
+      if (texelFetch(uSeed, q, 0).r > 0.5) continue;
+      bestD = min(bestD, d);
+      float w = 1.0 / (1.0 + d * d);
+      dirAcc += vec2(float(dx), float(dy)) * w;
+      wsum += w;
+      vec2 m = texelFetch(uMv, q, 0).rg;
+      if (length(m) > heldMag) { heldMag = length(m); held = m; }
+    }
+  }
+  if (wsum <= 0.0) { outColor = vec4(0.0); return; }
+  vec2 dir = length(dirAcc) > 1e-5 ? normalize(dirAcc) : vec2(0.0);
+  // How far in to read, per frame: far enough that content leaving the
+  // damage arrives at the outer edge of the ring exactly as the hold at
+  // that edge runs out. It ties the two sliders to each other instead of
+  // letting the ring be a width and the length a duration with nothing
+  // between them - and it is the difference between a feather and a
+  // transplant. A whole macroblock a frame was measured first: it moved
+  // the neighbouring block bodily outward six times over, which smeared
+  // the background as well as the edge.
+  float step = uRing * uMb / max(uLen, 1.0);
+  outColor = vec4(dir * step + held, bestD, 1.0);
+}
+`;
+
+/**
+ * The smear itself.
+ *
+ * One sample of the PREVIOUS output, one macroblock in toward the damage
+ * and along the borrowed vector, mixed with this frame's picture. That is
+ * the decoder's own expression - pred(px) = ref(px + mv), an MPEG vector
+ * pointing from the current picture to the reference - applied to this
+ * pass's own last frame.
+ *
+ * It spreads because it is recursive and the previous frame is where it
+ * reads. On the first frame a block at distance 1 takes the damage's
+ * content; on the next, a block at distance 2 takes distance 1, which is
+ * already carrying it. The bloom crawls outward one macroblock a frame, up
+ * to the ring width, which is exactly what a bloom does in a stream with
+ * its keyframes removed - and it is why N has to decay outward rather than
+ * the ring simply being wider.
+ *
+ * A hold of N frames is written as a leaky one rather than a counter: keep
+ * p of the previous output every frame and content stays visible for about
+ * 1/(1-p) frames, so p = 1 - 1/N holds for N and decays of its own accord.
+ * A counter would need a second state texture and would end every hold on
+ * a hard frame, which is the edge this pass exists to remove.
+ */
+export const FRAG_FEATHER = `#version 300 es
+precision highp float;
+uniform sampler2D uSrc;    // this frame's look, after the fold
+uniform sampler2D uPrev;   // the previous frame's feathered output
+uniform sampler2D uRing;   // rg = offset px, b = distance in blocks, a = marked
+uniform sampler2D uDamage; // the map itself, at full resolution
+uniform vec2 uRes;
+uniform vec2 uGrid;
+uniform float uMb;
+uniform float uRingW;      // ring width, blocks
+uniform float uLen;        // the longest hold, frames, at the inner edge
+uniform bool uReset;       // no history to carry
+out vec4 outColor;
+
+/**
+ * The ring field, read between its blocks.
+ *
+ * Nearest would hand every pixel of a block the same hold, which is a step
+ * at the block boundary - a new hard edge one macroblock out from the one
+ * being softened, and measurably worse: nearest put 43.7% MORE gradient in
+ * the band than the control. Bilinear by hand rather than by sampler state
+ * because this is a float texture and linear filtering of one is an
+ * extension rather than a guarantee.
+ */
+vec4 ringAt(vec2 px) {
+  vec2 g = px / uMb - 0.5;
+  vec2 b0 = floor(g), f = g - b0;
+  ivec2 lim = ivec2(uGrid) - 1;
+  ivec2 a = clamp(ivec2(b0), ivec2(0), lim);
+  ivec2 b = clamp(ivec2(b0) + ivec2(1, 0), ivec2(0), lim);
+  ivec2 c = clamp(ivec2(b0) + ivec2(0, 1), ivec2(0), lim);
+  ivec2 d = clamp(ivec2(b0) + ivec2(1, 1), ivec2(0), lim);
+  return mix(mix(texelFetch(uRing, a, 0), texelFetch(uRing, b, 0), f.x),
+             mix(texelFetch(uRing, c, 0), texelFetch(uRing, d, 0), f.x), f.y);
+}
+
+void main() {
+  vec2 px = gl_FragCoord.xy;
+  vec2 uv = px / uRes;
+  vec4 src = texture(uSrc, uv);
+  if (uReset || uRingW < 0.5 || uLen < 1.0) { outColor = src; return; }
+  // inside the damage, nothing: the glitch is the thing being feathered,
+  // not a thing to feather over
+  vec4 dmg = texture(uDamage, uv);
+  if (max(max(dmg.r, dmg.g), dmg.b) > 0.002) { outColor = src; return; }
+  vec4 r = ringAt(px);
+  if (r.a < 0.004) { outColor = src; return; }
+  // most repeats at the inner edge, none one block past the outer
+  float s = clamp(1.0 - (r.b - 1.0) / max(uRingW, 1.0), 0.0, 1.0) * r.a;
+  float n = uLen * s;
+  if (n < 1.0) { outColor = src; return; }
+  float p = clamp(1.0 - 1.0 / n, 0.0, 0.97) * s;
+  vec2 q = clamp((px + r.rg) / uRes, vec2(0.0), vec2(1.0));
+  vec3 held = texture(uPrev, q).rgb;
+  outColor = vec4(mix(src.rgb, held, p), src.a);
+}
+`;
