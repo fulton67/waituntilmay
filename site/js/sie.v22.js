@@ -1,4 +1,4 @@
-/* sie.v21.js — sie.market. No dependencies of our own; the video half
+/* sie.v22.js — sie.market. No dependencies of our own; the video half
    loads YouTube's IFrame API, for the reasons in §2.
 
    v21 is the video round. Every embed is built through the IFrame API now
@@ -168,7 +168,7 @@
     var MAX = opts.max || 24, live = [];
     function stopTile(el){
       if(el.__siePlayer){ el.__siePlayer.destroy(); el.__siePlayer = null; }
-      el.classList.remove('previewing');
+      el.classList.remove('previewing','live');
       var k = live.indexOf(el); if(k >= 0) live.splice(k, 1);
     }
     function stopAll(){ live.slice().forEach(stopTile); }
@@ -177,8 +177,17 @@
       if(el.classList.contains('previewing')) return;
       while(live.length >= MAX) stopTile(live[0]);
       var box = el.querySelector('.vid-thumb'); if(!box) return;
+      /* The frame stays transparent until the player says PLAYING, so what is
+         on screen while it loads is our own poster rather than YouTube's
+         loading state -- which is a title bar, a channel avatar, a centre
+         pause glyph and a YouTube button. On a cold cache that was most of the
+         wall for several seconds. .live is never taken away again: a mid-play
+         rebuffer should not flash the poster back. */
       el.__siePlayer = mountPlayer(box, el.getAttribute('data-yt'),
-                                   { muted:true, loop:true });
+                                   { muted:true, loop:true,
+                                     onState:function(d){
+                                       if(d === 1) el.classList.add('live');
+                                     } });
       el.classList.add('previewing'); live.push(el);
     }
     if(REDUCE || !('IntersectionObserver' in window))
@@ -630,7 +639,12 @@
          rather than starting the video again from the top. */
       big = mountPlayer(stage, el.getAttribute('data-yt'),
                         { muted:false, loop:true, start:at,
-                          onReady:function(){ paint(); } });
+                          onReady:function(){ paint(); },
+                          /* same rule as a tile: black ground until it is
+                             really playing, never YouTube's loading state */
+                          onState:function(d){
+                            if(d === 1 && overlay) overlay.classList.add('live');
+                          } });
       barTick = setInterval(paint, 250);
 
       close.addEventListener('click',function(e){ e.stopPropagation(); closePlayer(false); });

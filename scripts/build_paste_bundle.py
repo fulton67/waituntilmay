@@ -27,9 +27,9 @@ SRC = os.path.join(ROOT, "site", "index.html")
 OUT = os.path.join(ROOT, "site", "build", "webflow-paste")
 
 CDN = "https://assets.sie.market"
-TOKENS = "tokens.v2.css"
-CSS = "sie.v20.css"
-JS = "sie.v19.js"
+TOKENS = "tokens.v3.css"
+CSS = "sie.v22.css"
+JS = "sie.v22.js"
 CASE = "case.v5.js"
 GLB = "sie-case.glb"
 ROUTES = {"#home": "/", "#sie": "/videos"}
@@ -111,6 +111,12 @@ def main():
             f'<link rel="stylesheet" href="{CDN}/myth-index.v1.css">\n'
             f'<link rel="stylesheet" href="{CDN}/{TOKENS}">\n'
             f'<link rel="stylesheet" href="{CDN}/{CSS}">\n'
+            # The wall talks to these three origins before it can show a frame.
+            # Naming them here opens the sockets during parse rather than after
+            # first paint, which is part of why a tile used to sit on a spinner.
+            '<link rel="preconnect" href="https://www.youtube-nocookie.com" crossorigin>\n'
+            '<link rel="preconnect" href="https://www.youtube.com" crossorigin>\n'
+            '<link rel="preconnect" href="https://i.ytimg.com" crossorigin>\n'
             '<script type="importmap">\n'
             '{"imports":{\n'
             '  "three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",\n'
