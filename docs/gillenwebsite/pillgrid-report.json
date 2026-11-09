@@ -1,0 +1,243 @@
+{
+  "base": "https://waituntilmay.com",
+  "at": "2026-11-09T01:05:35.054Z",
+  "phones": {
+    "320": {
+      "cols": 2,
+      "gutters": [
+        20,
+        20
+      ],
+      "roleWidths": [
+        136
+      ],
+      "heights": [
+        36
+      ],
+      "colGap": 8,
+      "rowGap": 8,
+      "allRow": {
+        "own": true,
+        "w": 280
+      },
+      "rowsFull": true,
+      "allFit": true,
+      "maxTextOff": 0.01,
+      "style": [
+        "10px 12px 9px | 100px | 0px | 12px"
+      ],
+      "pass": true
+    },
+    "360": {
+      "cols": 2,
+      "gutters": [
+        20,
+        20
+      ],
+      "roleWidths": [
+        156
+      ],
+      "heights": [
+        36
+      ],
+      "colGap": 8,
+      "rowGap": 8,
+      "allRow": {
+        "own": true,
+        "w": 320
+      },
+      "rowsFull": true,
+      "allFit": true,
+      "maxTextOff": 0.01,
+      "style": [
+        "10px 12px 9px | 100px | 0px | 12px"
+      ],
+      "pass": true
+    },
+    "375": {
+      "cols": 2,
+      "gutters": [
+        20,
+        20
+      ],
+      "roleWidths": [
+        163.5
+      ],
+      "heights": [
+        36
+      ],
+      "colGap": 8,
+      "rowGap": 8,
+      "allRow": {
+        "own": true,
+        "w": 335
+      },
+      "rowsFull": true,
+      "allFit": true,
+      "maxTextOff": 0.01,
+      "style": [
+        "10px 12px 9px | 100px | 0px | 12px"
+      ],
+      "pass": true
+    },
+    "390": {
+      "cols": 2,
+      "gutters": [
+        20,
+        20
+      ],
+      "roleWidths": [
+        171
+      ],
+      "heights": [
+        36
+      ],
+      "colGap": 8,
+      "rowGap": 8,
+      "allRow": {
+        "own": true,
+        "w": 350
+      },
+      "rowsFull": true,
+      "allFit": true,
+      "maxTextOff": 0.01,
+      "style": [
+        "10px 12px 9px | 100px | 0px | 12px"
+      ],
+      "pass": true
+    },
+    "414": {
+      "cols": 2,
+      "gutters": [
+        20,
+        20
+      ],
+      "roleWidths": [
+        183
+      ],
+      "heights": [
+        36
+      ],
+      "colGap": 8,
+      "rowGap": 8,
+      "allRow": {
+        "own": true,
+        "w": 374
+      },
+      "rowsFull": true,
+      "allFit": true,
+      "maxTextOff": 0.01,
+      "style": [
+        "10px 12px 9px | 100px | 0px | 12px"
+      ],
+      "pass": true
+    },
+    "430": {
+      "cols": 2,
+      "gutters": [
+        20,
+        20
+      ],
+      "roleWidths": [
+        191
+      ],
+      "heights": [
+        36
+      ],
+      "colGap": 8,
+      "rowGap": 8,
+      "allRow": {
+        "own": true,
+        "w": 390
+      },
+      "rowsFull": true,
+      "allFit": true,
+      "maxTextOff": 0.01,
+      "style": [
+        "10px 12px 9px | 100px | 0px | 12px"
+      ],
+      "pass": true
+    },
+    "600": {
+      "cols": 3,
+      "gutters": [
+        20,
+        20.01
+      ],
+      "roleWidths": [
+        181.33
+      ],
+      "heights": [
+        36
+      ],
+      "colGap": 8,
+      "rowGap": 8,
+      "allRow": {
+        "own": true,
+        "w": 559.98
+      },
+      "rowsFull": true,
+      "allFit": true,
+      "maxTextOff": 0.01,
+      "style": [
+        "10px 12px 9px | 100px | 0px | 12px"
+      ],
+      "pass": true
+    },
+    "719": {
+      "cols": 3,
+      "gutters": [
+        20,
+        20
+      ],
+      "roleWidths": [
+        221
+      ],
+      "heights": [
+        36
+      ],
+      "colGap": 8,
+      "rowGap": 8,
+      "allRow": {
+        "own": true,
+        "w": 679
+      },
+      "rowsFull": true,
+      "allFit": true,
+      "maxTextOff": 0.01,
+      "style": [
+        "10px 12px 9px | 100px | 0px | 12px"
+      ],
+      "pass": true
+    }
+  },
+  "desktop": {
+    "display": "flex",
+    "cols": null,
+    "heights": [
+      31
+    ],
+    "widths": [
+      68.48,
+      114.89,
+      94.11,
+      109.31,
+      78.3,
+      130.22,
+      106.75
+    ],
+    "y": [
+      68
+    ],
+    "x": [
+      20,
+      94.48,
+      215.38,
+      315.48,
+      430.8,
+      515.09,
+      651.31
+    ]
+  },
+  "pass": true
+}
