@@ -1,0 +1,79 @@
+/* tokens.v3.css — sie.market design tokens.
+   Loaded before sie.*.css. Nothing here but :root, so the whole surface of the
+   site has one place to change. Every value is ours; none is copied from any
+   reference. Where a technique was studied elsewhere, the technique is named in
+   sie.*.css and the numbers here are chosen for a black ground. */
+:root{
+  /* ---- ground and ink ---- */
+  --bg:#000;
+  --fg:#ededed;
+  /* Lifted in v21. #8a8a8a measured 6.08:1 against #000 and the body copy
+     set in it was hard to read; #a8a8a8 is 8.86:1 and still clearly second
+     rank beside --fg. */
+  --fg-2:#a8a8a8;
+  --line:#2a2a2a;
+
+  /* ---- type. One family, one law. v21 lifts the whole scale 12.5%: 12.5px
+     at 350px wide, 18px from 522px up. Everything on the site is measured
+     in --base, so this is the one dial for "a bit larger". ---- */
+  --type-family:"Schibsted Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --base:clamp(12.5px, 3.45vw, 18px);
+
+  /* the column everything on the shop page is measured against */
+  --page-max:640px;
+
+  /* ---- rhythm ---- */
+  --gutter:6vw;
+
+  /* ---- black glass: every button and pill on the site wears this ----
+     Translucent fill over a blur, a half-pixel border, a 24px radius and a slow
+     colour transition. The blur is a static property: only the colours move. */
+  --glass-bg:rgba(10,10,10,.62);
+  --glass-bg-hover:rgba(28,28,28,.72);
+  --glass-bg-active:rgba(0,0,0,.8);
+  --glass-border:rgba(255,255,255,.14);
+  --glass-border-hover:rgba(255,255,255,.24);
+  --glass-blur:blur(16px) saturate(1.2);
+  --glass-ink:#f2f2f2;
+  --glass-radius:24px;
+  --glass-ease:500ms ease;
+  /* the fallback where backdrop-filter is unsupported: opaque, same border */
+  --glass-solid:#0c0c0c;
+  --glass-solid-hover:#161616;
+  --glass-solid-active:#000;
+  /* The parts of glass that do not need something behind them to show. A pure
+     backdrop-filter is invisible over a flat black page, which is why the pills
+     read as plain dark lozenges: --glass-sheen is the light falling down the
+     face, --glass-rim the bright top edge, the dark bottom edge and the drop
+     that lifts the control off the ground. */
+  --glass-sheen:linear-gradient(180deg,
+                  rgba(255,255,255,.085) 0%,
+                  rgba(255,255,255,.028) 42%,
+                  rgba(255,255,255,0) 72%);
+  --glass-rim:inset 0 1px 0 rgba(255,255,255,.16),
+              inset 0 -1px 0 rgba(0,0,0,.42),
+              0 10px 26px -14px rgba(0,0,0,.95);
+  --glass-rim-hover:inset 0 1px 0 rgba(255,255,255,.26),
+                    inset 0 -1px 0 rgba(0,0,0,.42),
+                    0 12px 30px -14px rgba(0,0,0,.95);
+
+  /* ---- the video rail ----
+     --rail-tile is the UNSCALED tile width. A centred tile is drawn at
+     --rail-scale-max, so the tile must still fit the gutters at that size:
+     at 390px, 54vw = 210.6px and 210.6 x 1.4 = 294.8 < 390 - 2*23.4 = 343.2. */
+  --rail-tile:min(54vw, 280px);
+  --rail-gap:8px;
+  --rail-dur:300ms;
+  --rail-ease:cubic-bezier(0,0,.2,1);
+  --rail-scale-max:1.4;          /* MAX  — coarse pointers */
+  --rail-label-dim:.5;           /* every label but the centred one */
+}
+
+@media (min-width:700px){
+  :root{
+    --gutter:32px;
+    --rail-tile:min(30vw, 420px);
+    --rail-gap:14px;
+    --rail-scale-max:1.5;
+  }
+}
