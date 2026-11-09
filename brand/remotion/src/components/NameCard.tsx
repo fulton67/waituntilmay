@@ -1,5 +1,5 @@
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
-import { CAP_TOP, ELZA, H, MARGIN, clamp, cqw, easeIn, easeOut } from "../brand";
+import { CAP_TOP, FONT, H, MARGIN, clamp, cqw, easeIn, easeOut } from "../brand";
 import { GlassFilter, GlassLayers } from "./Glass";
 
 // Liquid-glass name card after the client's "Derek Yeung" reference (DECISIONS 66): clear glass sized to its text, blurred and slightly
@@ -25,8 +25,8 @@ export const NameCard: React.FC<{ name?: string; role?: string }> = ({ name = "D
         <GlassLayers />
         <div style={{ position: "absolute", inset: 0, zIndex: -1, opacity: sweep > 0 && sweep < 1 ? 1 : 0,
           background: `linear-gradient(105deg, transparent ${sweep * 140 - 40}%, rgba(255,255,255,.22) ${sweep * 140 - 25}%, transparent ${sweep * 140 - 10}%)` }} />
-        <p style={{ margin: 0, font: `400 ${cqw(5.6)}px/1.05 ${ELZA}`, letterSpacing: "-0.01em" }}>{name}</p>
-        <p style={{ margin: 0, font: `700 ${cqw(3.6)}px/1.1 ${ELZA}` }}>{role}</p>
+        <p style={{ margin: 0, font: `600 ${cqw(5.6)}px/1.05 ${FONT}`, letterSpacing: "-0.01em" }}>{name}</p>
+        <p style={{ margin: 0, font: `500 ${cqw(3.6)}px/1.1 ${FONT}` }}>{role}</p>
       </div>
     </AbsoluteFill>
   );

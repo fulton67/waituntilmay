@@ -1,5 +1,5 @@
 import { useCurrentFrame, useVideoConfig } from "remotion";
-import { ELZA, clamp, easeOutBack } from "../brand";
+import { FONT, clamp, easeOutBack } from "../brand";
 
 // Markup overlays, v2 (style DECISIONS 8). The client on v1 (big yellow arrow, red disc badges, filled tint): "too big and not circling
 // anything ... they would need to be glass icons like the rest of the UI ... a lot cuter and smaller, kind of like the Are.na board".
@@ -44,7 +44,7 @@ export const glass = (radius: number, tint = "rgba(255,255,255,0)"): React.CSSPr
   position: "absolute", borderRadius: radius, overflow: "hidden", isolation: "isolate",
   backdropFilter: "blur(9px) saturate(1.35) brightness(1.06)",
   // + a faint navy (#202532) floor so the white label still reads on a white wall
-  background: `linear-gradient(${tint}, ${tint}), linear-gradient(160deg, rgba(255,255,255,.26), rgba(255,255,255,.06) 58%, rgba(255,255,255,.14)), rgba(32,37,50,.16)`,
+  background: `linear-gradient(${tint}, ${tint}), linear-gradient(160deg, rgba(255,255,255,.26), rgba(255,255,255,.06) 58%, rgba(255,255,255,.14)), rgba(32,37,50,.28)`,
   boxShadow: "inset 0 0 0 1.5px rgba(255,255,255,.6), inset 1.5px 2px 2px -1px rgba(255,255,255,.75), 0 6px 18px rgba(0,0,0,.16)",
 });
 
@@ -54,10 +54,11 @@ const pop = (local: number, delay = 0, len = 0.32) => {
 };
 
 // Glass label chip. `anchor` = where the leader ends; the chip sits to its `side`.
-export const Chip: React.FC<{ at: Pt; side?: "left" | "right"; text: string; s?: number; o?: number }> = ({ at, side = "right", text, s = 1, o = 1 }) => (
+export const Chip: React.FC<{ at: Pt; side?: "left" | "right" | "center"; text: string; s?: number; o?: number }> = ({ at, side = "right", text, s = 1, o = 1 }) => (
   <div style={{ ...glass(999), left: at.x, top: at.y, padding: "9px 17px 8px", color: "#fff", opacity: o, whiteSpace: "nowrap",
-    transform: `translate(${side === "right" ? "0" : "-100%"}, -50%) scale(${s})`, transformOrigin: side === "right" ? "left center" : "right center",
-    font: `700 21px/1 ${ELZA}`, letterSpacing: "0.16em", textTransform: "uppercase", textShadow: "0 1px 3px rgba(0,0,0,.25)" }}>
+    transform: `translate(${side === "right" ? "0" : side === "left" ? "-100%" : "-50%"}, -50%) scale(${s})`,
+    transformOrigin: side === "right" ? "left center" : side === "left" ? "right center" : "center",
+    font: `500 21px/1 ${FONT}`, letterSpacing: "0.12em", textTransform: "uppercase", textShadow: "0 1px 3px rgba(0,0,0,.25)" }}>
     {text}
   </div>
 );

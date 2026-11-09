@@ -22,5 +22,7 @@ const overlays = R.spec.overlays.map((o) => {
 });
 const spec = { slug, speed: C.speed, fps: 24, durationInSeconds: R.dur_s, captions: R.spec.captions, overlays, end: { ...R.spec.end, src: `${slug}/end.mp4` },
   footage: `${slug}/footage.mp4`, audio: `${slug}/audio.m4a`, ...(C.remotion || {}) };
+// edit.json "remotion.end" (e.g. { "glass": true }) adds to the end card from result.json instead of replacing its time
+if (C.remotion && C.remotion.end) spec.end = { ...R.spec.end, src: `${slug}/end.mp4`, ...C.remotion.end };
 fs.writeFileSync(path.join(OUT, "props.json"), JSON.stringify({ spec }, null, 1));
 console.log(`${slug}: ${spec.captions.length} captions, ${overlays.length} overlays, ${spec.durationInSeconds.toFixed(2)} s -> public/${slug}/props.json`);

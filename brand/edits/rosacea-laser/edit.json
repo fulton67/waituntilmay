@@ -49,7 +49,8 @@
   "hook": {
    "text": "Rosacea?\nNot another prescription.",
    "at": 0,
-   "dur": 3.4
+   "dur": 3.4,
+   "strike": "prescription"
   },
   "keywords": [
    "Excel V",
@@ -106,6 +107,64 @@
     },
     "credit": "Photo: M. Sand et al., CC BY 2.0, via Wikimedia Commons",
     "_note": "spots auto (redness_spots.py single image)"
+   },
+   {
+    "at": 41.6,
+    "dur": 3.2,
+    "before": "rosacea-laser/images/perioral.jpg",
+    "w": 1920,
+    "h": 1403,
+    "spots": [],
+    "rings": [],
+    "no": 1.7,
+    "labels": {
+     "before": "Irritation · dryness"
+    },
+    "credit": "Perioral dermatitis. Photo: Johannes Köhler, CC BY-SA 4.0, via Wikimedia Commons",
+    "_note": "CC BY-SA: shown unaltered, X outside the card"
+   },
+   {
+    "at": 44.85,
+    "dur": 3.0,
+    "before": "rosacea-laser/images/vessels_ear.jpg",
+    "w": 1059,
+    "h": 1518,
+    "spots": [
+     {
+      "cx": 0.6022,
+      "cy": 0.6132,
+      "rx": 0.0608,
+      "ry": 0.1262,
+      "angle": 47.2
+     }
+    ],
+    "rings": [
+     {
+      "spot": 0,
+      "at": 0.6,
+      "label": "Blood vessels"
+     }
+    ],
+    "no": 1.6,
+    "labels": {
+     "before": "Visible vessels"
+    },
+    "credit": "Telangiectasia. Photo: Klaus D. Peter, Wiehl, Germany, CC BY 3.0 de, via Wikimedia Commons",
+    "_note": "spot auto (redness_spots single image)"
+   },
+   {
+    "at": 49.4,
+    "dur": 3.5,
+    "before": "rosacea-laser/images/flush.jpg",
+    "w": 1920,
+    "h": 2880,
+    "spots": [],
+    "rings": [],
+    "labels": {
+     "before": "Flushing"
+    },
+    "credit": "Niacin flush. Photo: JBCH, CC BY-SA 4.0, via Wikimedia Commons",
+    "_note": "CC BY-SA: shown unaltered"
    },
    {
     "at": 60.9,
@@ -171,6 +230,47 @@
     "credit": "Patient of Dr. Ostad. Individual results vary.",
     "_note": "spot auto (cleared: red 0.17 of before remains). Ostad gallery image: needs-approval (patient consent)"
    }
-  ]
+  ],
+  "graphics": [
+   {
+    "kind": "pills",
+    "at": 29.2,
+    "dur": 3.8,
+    "label": "Oral antibiotics"
+   },
+   {
+    "kind": "microbes",
+    "at": 33.1,
+    "dur": 2.9,
+    "label": "Gut microbiome"
+   },
+   {
+    "kind": "pills",
+    "at": 86.4,
+    "dur": 3.4,
+    "label": "Repeated antibiotics"
+   },
+   {
+    "kind": "diagram",
+    "at": 96.6,
+    "dur": 14.2,
+    "phases": {
+     "gland": 1.2,
+     "inflamed": 3.0,
+     "vessels": 3.9,
+     "excelv": 10.1,
+     "genesis": 10.9,
+     "depth": 12.4
+    }
+   }
+  ],
+  "end": {
+   "glass": true,
+   "lines": [
+    "Book a consultation.",
+    "Link in bio."
+   ],
+   "handle": "@drarielostad"
+  }
  }
 }

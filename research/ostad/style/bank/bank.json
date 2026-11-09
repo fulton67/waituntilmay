@@ -4839,5 +4839,27 @@
   "attribution": "Dr. Ariel Ostad (drarielostad.com gallery); all rights reserved",
   "use": "needs-approval",
   "notes": "Dr. Ostad's own gallery (procedures/tattoo-removal); gallery gives no caption or diagnosis (data-title 'tattoo-removal-'); kind assumed before_after from the gallery's before/after format (checked on a contact sheet); patient consent for social use must be confirmed by the practice. Some gallery images carry device-maker captions (e.g. 'Pre-treatment / 14 Days Post treatment'); confirm each one is the practice's own patient before use."
+ },
+ {
+  "file": "bank/rosacea-redness/commons_Flush01.jpg",
+  "topic": "rosacea-redness",
+  "kind": "condition",
+  "source_page": "https://commons.wikimedia.org/wiki/File:Flush01.jpg",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Flush01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "licence": "CC BY-SA 4.0",
+  "attribution": "JBCH / CC BY-SA 4.0, via Wikimedia Commons",
+  "use": "on-air",
+  "notes": "Source description (diagnosis as given): \"Flush eine Stunde nach Einnahme vom 100 mg Niacin\" ShareAlike: show unaltered (no markup drawn on the photo); credit under the card. Added 2026-11-09 for the rosacea reel (flushing / irritation beats)."
+ },
+ {
+  "file": "bank/rosacea-redness/commons_Periorale_Dermatitis.jpg",
+  "topic": "rosacea-redness",
+  "kind": "condition",
+  "source_page": "https://commons.wikimedia.org/wiki/File:Periorale_Dermatitis.jpg",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Periorale_Dermatitis.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "licence": "CC BY-SA 4.0",
+  "attribution": "Johannes Köhler / CC BY-SA 4.0, via Wikimedia Commons",
+  "use": "on-air",
+  "notes": "Source description (diagnosis as given): \"Typisches Bild einer milden perioralen Dermatitis: flächiges Erythem (Rötung), entzündliche Papeln (Knötchen) und periorale Blässe.\" ShareAlike: show unaltered (no markup drawn on the photo); credit under the card. Added 2026-11-09 for the rosacea reel (flushing / irritation beats)."
  }
 ]

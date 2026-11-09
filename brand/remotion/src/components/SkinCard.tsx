@@ -1,5 +1,5 @@
 import { Audio, Img, Sequence, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
-import { ELZA, SAFE_T, clamp, easeOutBack } from "../brand";
+import { FONT, SAFE_T, clamp, easeOutBack } from "../brand";
 import { Chip, Mark, Ring, glass } from "../devices/Markup";
 
 // Image card for a beat (style DECISIONS 9; client 2026-11-09: "pop up the image of that [condition] ... circle those red spots ...
@@ -50,7 +50,7 @@ export const SkinCard: React.FC<{ card: SkinCardSpec }> = ({ card }) => {
   const markAt = first ? (() => {
     const p = px(first), away = first.cx < 0.5 ? 1 : -1;
     return { x: Math.min(ix + IW - 44, Math.max(ix + 44, p.x + away * (p.rx * 0.7 + 30))), y: Math.max(iy + 44, p.y - p.ry - 34) };
-  })() : { x: ix + IW - 50, y: iy + 50 };
+  })() : { x: X + CW + 44, y: Y + 56 }; // no rings (a ShareAlike photo is shown unaltered): the X sits just outside the card
   const chipAt = { x: ix + 18, y: iy + 34 };
   return (
     <>
@@ -62,7 +62,7 @@ export const SkinCard: React.FC<{ card: SkinCardSpec }> = ({ card }) => {
           </div>
         </div>
         {card.credit && (
-          <div style={{ position: "absolute", left: X + 6, top: Y + CH + 10, width: CW - 12, color: "rgba(255,255,255,.78)", font: `400 15px/1.25 ${ELZA}`,
+          <div style={{ position: "absolute", left: X + 6, top: Y + CH + 10, width: CW - 12, color: "rgba(255,255,255,.78)", font: `500 15px/1.25 ${FONT}`,
             textShadow: "0 1px 3px rgba(0,0,0,.45)" }}>{card.credit}</div>
         )}
         {t >= 0.3 && <Chip at={chipAt} text={fade > 0.5 ? card.labels?.after ?? "After" : card.labels?.before ?? "Before"} s={0.72 + 0.28 * easeOutBack(clamp((t - (fade > 0.5 ? card.afterAt! : 0.3)) / 0.3), 1.2)} o={clamp((t - 0.3) / 0.15)} />}
