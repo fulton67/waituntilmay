@@ -1,0 +1,551 @@
+{
+ "case_ok": true,
+ "case_err": null,
+ "render": {
+  "toneMapping": "NeutralToneMapping",
+  "toneMappingExposure": 0.4926,
+  "exposure_note": "brief asked 1.25; calibrated to the print, see EXPOSURE",
+  "outputColorSpace": "srgb",
+  "environment": "bright soft studio: 3x3 softbox above/front tilted 30deg (6), fill behind camera (2.5), low strip right (3), neutral white, PMREM sigma 0.02",
+  "environmentIntensity": 1,
+  "keyLight": {
+   "colour": "#ffffff",
+   "intensity": 2.4,
+   "shadowRadius": 4,
+   "mapSize": 1024
+  },
+  "shadowMap": "PCFSoftShadowMap",
+  "groundShadowOpacity": 0.28,
+  "transmissionResolutionScale": "absent in three r169 (added r171) \u2014 full-res pass",
+  "pixelRatio": 2
+ },
+ "framing": {
+  "mode": "projected box, per frame",
+  "fit_margin": 1.07,
+  "radius_closed": 0.95207,
+  "radius_open": 1.40418,
+  "world_extent": 2.10391,
+  "ground_y": -0.629
+ },
+ "fill_1400": {
+  "canvas_css": "493x370",
+  "slide_css": 560,
+  "host_pct_of_slide": 88,
+  "case_pct_of_canvas_w": 80.4,
+  "case_pct_of_canvas_h": 93.5,
+  "case_pct_of_slide_w": 70.8
+ },
+ "materials": {
+  "base_back_clear": {
+   "type": "MeshPhysicalMaterial",
+   "roughness": 0.05,
+   "metalness": 0,
+   "transmission": 1,
+   "ior": 1.59,
+   "thickness": 0.02,
+   "specularIntensity": 0.5,
+   "clearcoat": 0,
+   "sheen": 0,
+   "colour": "#ffffff",
+   "attenuationColor": "#f4f8f8",
+   "attenuationDistance": 3,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "base_wall_top": {
+   "type": "MeshPhysicalMaterial",
+   "roughness": 0.05,
+   "metalness": 0,
+   "transmission": 1,
+   "ior": 1.59,
+   "thickness": 0.02,
+   "specularIntensity": 0.5,
+   "clearcoat": 0,
+   "sheen": 0,
+   "colour": "#ffffff",
+   "attenuationColor": "#f4f8f8",
+   "attenuationDistance": 3,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "base_wall_bottom": {
+   "type": "MeshPhysicalMaterial",
+   "roughness": 0.05,
+   "metalness": 0,
+   "transmission": 1,
+   "ior": 1.59,
+   "thickness": 0.02,
+   "specularIntensity": 0.5,
+   "clearcoat": 0,
+   "sheen": 0,
+   "colour": "#ffffff",
+   "attenuationColor": "#f4f8f8",
+   "attenuationDistance": 3,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "base_wall_right": {
+   "type": "MeshPhysicalMaterial",
+   "roughness": 0.05,
+   "metalness": 0,
+   "transmission": 1,
+   "ior": 1.59,
+   "thickness": 0.02,
+   "specularIntensity": 0.5,
+   "clearcoat": 0,
+   "sheen": 0,
+   "colour": "#ffffff",
+   "attenuationColor": "#f4f8f8",
+   "attenuationDistance": 3,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "tray_black": {
+   "type": "MeshStandardMaterial",
+   "roughness": 0.55,
+   "metalness": 0,
+   "transmission": null,
+   "ior": null,
+   "thickness": null,
+   "specularIntensity": null,
+   "clearcoat": null,
+   "sheen": null,
+   "colour": "#0b0b0c",
+   "attenuationColor": null,
+   "attenuationDistance": null,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "hub": {
+   "type": "MeshStandardMaterial",
+   "roughness": 0.55,
+   "metalness": 0,
+   "transmission": null,
+   "ior": null,
+   "thickness": null,
+   "specularIntensity": null,
+   "clearcoat": null,
+   "sheen": null,
+   "colour": "#0b0b0c",
+   "attenuationColor": null,
+   "attenuationDistance": null,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "C_back_traycard": {
+   "type": "MeshStandardMaterial",
+   "roughness": 0.8,
+   "metalness": 0,
+   "transmission": null,
+   "ior": null,
+   "thickness": null,
+   "specularIntensity": null,
+   "clearcoat": null,
+   "sheen": null,
+   "colour": "#ffffff",
+   "attenuationColor": null,
+   "attenuationDistance": null,
+   "map": true,
+   "map_colorSpace": "srgb",
+   "side": "double"
+  },
+  "D_spine_hinge": {
+   "type": "MeshStandardMaterial",
+   "roughness": 0.8,
+   "metalness": 0,
+   "transmission": null,
+   "ior": null,
+   "thickness": null,
+   "specularIntensity": null,
+   "clearcoat": null,
+   "sheen": null,
+   "colour": "#ffffff",
+   "attenuationColor": null,
+   "attenuationDistance": null,
+   "map": true,
+   "map_colorSpace": "srgb",
+   "side": "double"
+  },
+  "E_spine_open": {
+   "type": "MeshStandardMaterial",
+   "roughness": 0.8,
+   "metalness": 0,
+   "transmission": null,
+   "ior": null,
+   "thickness": null,
+   "specularIntensity": null,
+   "clearcoat": null,
+   "sheen": null,
+   "colour": "#ffffff",
+   "attenuationColor": null,
+   "attenuationDistance": null,
+   "map": true,
+   "map_colorSpace": "srgb",
+   "side": "double"
+  },
+  "lid_clear": {
+   "type": "MeshPhysicalMaterial",
+   "roughness": 0.05,
+   "metalness": 0,
+   "transmission": 1,
+   "ior": 1.59,
+   "thickness": 0.02,
+   "specularIntensity": 0.5,
+   "clearcoat": 0,
+   "sheen": 0,
+   "colour": "#ffffff",
+   "attenuationColor": "#f4f8f8",
+   "attenuationDistance": 3,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "lid_knuckle_0": {
+   "type": "MeshPhysicalMaterial",
+   "roughness": 0.05,
+   "metalness": 0,
+   "transmission": 1,
+   "ior": 1.59,
+   "thickness": 0.02,
+   "specularIntensity": 0.5,
+   "clearcoat": 0,
+   "sheen": 0,
+   "colour": "#ffffff",
+   "attenuationColor": "#f4f8f8",
+   "attenuationDistance": 3,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "lid_knuckle_1": {
+   "type": "MeshPhysicalMaterial",
+   "roughness": 0.05,
+   "metalness": 0,
+   "transmission": 1,
+   "ior": 1.59,
+   "thickness": 0.02,
+   "specularIntensity": 0.5,
+   "clearcoat": 0,
+   "sheen": 0,
+   "colour": "#ffffff",
+   "attenuationColor": "#f4f8f8",
+   "attenuationDistance": 3,
+   "map": false,
+   "map_colorSpace": null,
+   "side": "double"
+  },
+  "A_front_cover": {
+   "type": "MeshStandardMaterial",
+   "roughness": 0.8,
+   "metalness": 0,
+   "transmission": null,
+   "ior": null,
+   "thickness": null,
+   "specularIntensity": null,
+   "clearcoat": null,
+   "sheen": null,
+   "colour": "#ffffff",
+   "attenuationColor": null,
+   "attenuationDistance": null,
+   "map": true,
+   "map_colorSpace": "srgb",
+   "side": "double"
+  },
+  "B_inside_cover": {
+   "type": "MeshStandardMaterial",
+   "roughness": 0.8,
+   "metalness": 0,
+   "transmission": null,
+   "ior": null,
+   "thickness": null,
+   "specularIntensity": null,
+   "clearcoat": null,
+   "sheen": null,
+   "colour": "#ffffff",
+   "attenuationColor": null,
+   "attenuationDistance": null,
+   "map": true,
+   "map_colorSpace": "srgb",
+   "side": "double"
+  },
+  "F_disc": {
+   "type": "MeshStandardMaterial",
+   "roughness": 0.4,
+   "metalness": 0.1,
+   "transmission": null,
+   "ior": null,
+   "thickness": null,
+   "specularIntensity": null,
+   "clearcoat": null,
+   "sheen": null,
+   "colour": "#ffffff",
+   "attenuationColor": null,
+   "attenuationDistance": null,
+   "map": true,
+   "map_colorSpace": "srgb",
+   "side": "double"
+  }
+ },
+ "tucked": [
+  {
+   "part": "C_back_traycard",
+   "band_px": 7,
+   "map_px": "2048x1752",
+   "band_pct": 0.4
+  },
+  {
+   "part": "D_spine_hinge",
+   "band_px": 2,
+   "map_px": "256x2048",
+   "band_pct": 0.781
+  },
+  {
+   "part": "E_spine_open",
+   "band_px": 2,
+   "map_px": "256x2048",
+   "band_pct": 0.781
+  },
+  {
+   "part": "A_front_cover",
+   "band_px": 8,
+   "map_px": "2048x2048",
+   "band_pct": 0.391
+  },
+  {
+   "part": "B_inside_cover",
+   "band_px": 8,
+   "map_px": "2048x2048",
+   "band_pct": 0.391
+  }
+ ],
+ "glass": {
+  "nav link": {
+   "tag": "a",
+   "bg": "rgba(10, 10, 10, 0.62)",
+   "blur": "blur(16px) saturate(1.2)",
+   "border": "1px solid rgba(255, 255, 255, 0.14)",
+   "radius": "24px",
+   "colour": "rgb(242, 242, 242)",
+   "font": "500 12px/12px",
+   "pad": "8px 18px 8px 18px",
+   "transition": "background-color, border-color, color 0.5s, 0.5s, 0.5s",
+   "box": "76.92x34"
+  },
+  "nav caret": {
+   "tag": "button",
+   "bg": "rgba(10, 10, 10, 0.62)",
+   "blur": "blur(16px) saturate(1.2)",
+   "border": "1px solid rgba(255, 255, 255, 0.14)",
+   "radius": "24px",
+   "colour": "rgb(242, 242, 242)",
+   "font": "500 12px/12px",
+   "pad": "0px 0px 0px 0px",
+   "transition": "background-color, border-color, color 0.5s, 0.5s, 0.5s",
+   "box": "34x34"
+  },
+  "price": {
+   "tag": "p",
+   "bg": "rgba(10, 10, 10, 0.62)",
+   "blur": "blur(16px) saturate(1.2)",
+   "border": "1px solid rgba(255, 255, 255, 0.14)",
+   "radius": "24px",
+   "colour": "rgb(242, 242, 242)",
+   "font": "500 38.4px/42.24px",
+   "pad": "16px 18px 16px 18px",
+   "transition": "background-color, border-color, color 0.5s, 0.5s, 0.5s",
+   "box": "146.98x76.23"
+  },
+  "buy": {
+   "tag": "a",
+   "bg": "rgba(10, 10, 10, 0.62)",
+   "blur": "blur(16px) saturate(1.2)",
+   "border": "1px solid rgba(255, 255, 255, 0.14)",
+   "radius": "24px",
+   "colour": "rgb(242, 242, 242)",
+   "font": "500 12px/12px",
+   "pad": "8px 18px 8px 18px",
+   "transition": "background-color, border-color, color 0.5s, 0.5s, 0.5s",
+   "box": "59.83x30"
+  },
+  "buy :hover": {
+   "tag": "a",
+   "bg": "rgba(28, 28, 28, 0.72)",
+   "blur": "blur(16px) saturate(1.2)",
+   "border": "1px solid rgba(255, 255, 255, 0.24)",
+   "radius": "24px",
+   "colour": "rgb(242, 242, 242)",
+   "font": "500 12px/12px",
+   "pad": "8px 18px 8px 18px",
+   "transition": "background-color, border-color, color 0.5s, 0.5s, 0.5s",
+   "box": "59.83x30"
+  },
+  "nav link :hover": {
+   "tag": "a",
+   "bg": "rgba(28, 28, 28, 0.72)",
+   "blur": "blur(16px) saturate(1.2)",
+   "border": "1px solid rgba(255, 255, 255, 0.24)",
+   "radius": "24px",
+   "colour": "rgb(242, 242, 242)",
+   "font": "500 12px/12px",
+   "pad": "8px 18px 8px 18px",
+   "transition": "background-color, border-color, color 0.5s, 0.5s, 0.5s",
+   "box": "76.92x34"
+  }
+ },
+ "price_vs_buy": {
+  "price_w": 146.98,
+  "buy_w": 59.83,
+  "ratio": 2.4568,
+  "wider_by_pct": 145.68,
+  "price_above_buy": true,
+  "gap_px": 33.19,
+  "buy_label": "buy",
+  "price_text": "$80 usd"
+ },
+ "caret": {
+  "drawn_w": 34,
+  "drawn_h": 34,
+  "hit_44_corners": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "hit_44_all": true,
+  "own_element": "button",
+  "inside_pill": true,
+  "sibling_of_link": true,
+  "aria": "false"
+ },
+ "caret_opens_panel": {
+  "panel_open": true,
+  "caret_aria": "true",
+  "url_unchanged": "http://127.0.0.1:8788/"
+ },
+ "caret_closes_panel": false,
+ "hover_dropdown": {
+  "open_on_mouseenter": true,
+  "still_open_at_120ms": true,
+  "closed_by_520ms": true
+ },
+ "clicks": {
+  "home -> videos": {
+   "href": "#sie",
+   "label": "videos",
+   "url_before": "http://127.0.0.1:8788/",
+   "url_after": "http://127.0.0.1:8788/#sie",
+   "default_prevented": false,
+   "videos_page_shown": true
+  },
+  "videos -> home": {
+   "href": "#home",
+   "label": "shop",
+   "url_after": "http://127.0.0.1:8788/#home",
+   "home_page_shown": true
+  }
+ },
+ "clicks_real_routes": {
+  "/ -> /videos": {
+   "href": "/videos",
+   "label": "videos",
+   "url_before": "http://127.0.0.1:8799/",
+   "url_after": "http://127.0.0.1:8799/videos",
+   "pathname_after": "/videos",
+   "default_prevented": false
+  },
+  "/videos -> /": {
+   "href": "/",
+   "label": "shop",
+   "url_before": "http://127.0.0.1:8799/videos",
+   "url_after": "http://127.0.0.1:8799/",
+   "pathname_after": "/"
+  }
+ },
+ "errors": [
+  "console: Failed to load resource: net::ERR_CONNECTION_REFUSED",
+  "console: Failed to load resource: net::ERR_CONNECTION_REFUSED",
+  "console: Failed to load resource: net::ERR_CONNECTION_REFUSED",
+  "console: Failed to load resource: net::ERR_CONNECTION_REFUSED",
+  "console: Failed to load resource: net::ERR_CONNECTION_REFUSED",
+  "console: Failed to load resource: net::ERR_CONNECTION_REFUSED",
+  "console: Failed to load resource: net::ERR_CONNECTION_REFUSED"
+ ],
+ "fill_390": {
+  "canvas_css": "343x257",
+  "slide_css": 390,
+  "host_pct_of_slide": 87.9,
+  "case_pct_of_canvas_w": 80,
+  "case_pct_of_canvas_h": 93.5,
+  "case_pct_of_slide_w": 70.3
+ },
+ "caret_390": {
+  "tap_w": 34,
+  "tap_h": 34
+ },
+ "price_vs_buy_390": {
+  "price_w": 121.31,
+  "buy_w": 59.83,
+  "wider_by_pct": 102.77
+ },
+ "caret_touch": {
+  "drawn": "34x34",
+  "hit_44_all": true,
+  "opens_panel": true,
+  "url": "http://127.0.0.1:8788/"
+ },
+ "fps390": {
+  "idle": 60,
+  "drag_samples": [
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60
+  ],
+  "drag_median": 60,
+  "drag_min": 60,
+  "after": 60
+ },
+ "info390": {
+  "calls": 38,
+  "tris": 18538
+ },
+ "slide390": {
+  "has3d": true,
+  "descendants": 5,
+  "visible": 2,
+  "visible_canvases": 1,
+  "visible_images": 0
+ }
+}
