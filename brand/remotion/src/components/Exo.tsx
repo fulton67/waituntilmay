@@ -267,3 +267,46 @@ export const Swap: React.FC<{ dur: number; from: string; to: string; swapAt?: nu
     </>
   );
 };
+
+// ---------- a reaction coming out of the head: an outburst of jagged squiggles that settles into slow, calm waves ----------
+// v2 client note: "when they tap their head ... some type of outburst and then it goes to a quieting"; "it quiets my brain: it
+// actually comes out from her brain ... that kind of squiggly line that comes out from their brain". Drawn in the reframed footage
+// layer at a measured head point, so it stays on the head through punch-ins. burstAt: the outburst (s); calmAt: the settle (s).
+export const Burst: React.FC<{ dur: number; x: number; y: number; burstAt?: number; calmAt?: number; spread?: [number, number]; len?: number; rays?: number; label?: string; labelSide?: "left" | "right" }> = ({
+  dur, x, y, burstAt = 0, calmAt = 1, spread = [-160, -20], len = 190, rays = 7, label, labelSide = "right",
+}) => {
+  const t = useT();
+  const grow = quint(clamp((t - burstAt) / 0.35));
+  const c = quint(clamp((t - calmAt) / 1.1));
+  const kick = Math.exp(-Math.max(0, t - burstAt) * 3.2); // the jolt at the burst, decaying
+  const out = 1 - clamp((t - (dur - 0.45)) / 0.45);
+  const col = (a: number) => `rgba(${Math.round(232 - 177 * c)},${Math.round(105 + 64 * c)},${Math.round(125 + 107 * c)},${a})`; // agitated coral #e8697d -> brand blue #37a9e8 (white wall: both need colour, not white)
+  const paths = Array.from({ length: rays }, (_, i) => {
+    const ang = ((spread[0] + ((spread[1] - spread[0]) * (i + 0.5)) / rays + Math.sin(i * 7.3) * 6) * Math.PI) / 180;
+    const L = len * (0.75 + 0.35 * ((i * 37) % 10) / 10) * grow * (1 + 0.25 * c);
+    const r0 = 12 + 18 * c;
+    const ux = Math.cos(ang), uy = Math.sin(ang), px = -uy, py = ux;
+    const ph = i * 1.9;
+    const pts = Array.from({ length: 40 }, (_, k) => {
+      const s = k / 39;
+      const busy = (11 + 15 * kick) * Math.sin(s * 8 * Math.PI + ph - t * 14) + 4 * Math.sin(s * 23 * Math.PI + ph * 2 - t * 22);
+      const calm = 9 * Math.sin(s * 2.6 * Math.PI + ph - t * 3);
+      const off = (busy * (1 - c) + calm * c) * Math.min(1, s * 2.2);
+      const r = r0 + L * s;
+      return `${(x + ux * r + px * off).toFixed(1)},${(y + uy * r + py * off).toFixed(1)}`;
+    }).join(" ");
+    return <polyline key={i} points={pts} fill="none" stroke={col(0.95 - 0.1 * c)} strokeWidth={3.4} strokeLinecap="round" strokeLinejoin="round" />;
+  });
+  return (
+    <>
+      <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, overflow: "visible", opacity: out, filter: "drop-shadow(0 0 3px rgba(255,255,255,.9)) drop-shadow(0 2px 8px rgba(0,0,0,.22))" }}>
+        {paths}
+      </svg>
+      {label && (
+        <div style={{ ...card(999), padding: "12px 20px", font: `600 28px/1 ${FONT}`, top: y - len * 0.9, ...(labelSide === "right" ? { left: x + 70 } : { right: 1080 - x + 70 }), ...enter(t, calmAt + 0.2, dur - 0.4) }}>{label}</div>
+      )}
+      <Sfx at={burstAt} name="swish" gain={0.8} />
+      <Sfx at={calmAt} name="yes" gain={0.5} />
+    </>
+  );
+};

@@ -24,6 +24,30 @@ for s, e, text, who in cut["keep"]:
             pieces.append([a, w0["e"] + maxp / 2, text, who]); a = w1["s"] - maxp / 2
     pieces.append([a, e, text, who])
 
+# "tail" (s, max): whisper's word ends land early on trailing consonants and breaths (v1 client note: "the cuts are a bit too fast
+# and it cuts off what he says"), so each piece's end is pushed forward to the first quiet 10 ms frame (within 5 dB of the
+# room tone) within "tail" seconds. If no dip comes in that window the next sound is joined speech (a filler that
+# was cut, often missing from the transcript), and the end stays where it was.
+tail = cut.get("tail", 0.0)
+if tail:
+    import numpy as np
+    pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", cut["raw"], "-vn", "-ac", "1", "-ar", "16000", "-f", "s16le", "-"], capture_output=True, check=True).stdout
+    x = np.frombuffer(pcm, np.int16).astype(np.float32) / 32768
+    rms = np.sqrt(np.mean(x[: len(x) // 160 * 160].reshape(-1, 160) ** 2, axis=1))
+    quiet = np.percentile(rms, 10) * 10 ** (5 / 20)  # 5 dB over the room tone (10th percentile frame); this recording peaks only ~16 dB above it
+    skip = set(cut.get("tailSkip", []))  # range ends (raw s) where the next sound is a dropped retake or filler, checked by ear and re-transcription
+    for p in pieces:
+        if round(p[1], 2) in skip: continue
+        i0 = int(p[1] * 100)
+        dips = [i for i in range(i0, min(len(rms), i0 + int(tail * 100))) if rms[i] < quiet]
+        if dips: p[1] = max(p[1], dips[0] / 100 + 0.02)
+# pieces that now touch (adjacent keep ranges, short internal pauses) are merged so no sound plays twice
+merged = []
+for p in pieces:
+    if merged and p[0] <= merged[-1][1] + 0.06: merged[-1][1] = max(merged[-1][1], p[1])
+    else: merged.append(p)
+pieces = merged
+
 F = 0.015
 fc, n = [], 0
 for i, (s, e, _, _) in enumerate(pieces):

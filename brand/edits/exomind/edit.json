@@ -5,7 +5,7 @@
  "cut": {
   "raw": "C:/Users/naimj/Downloads/Video Nov 05 2026, 10 50 41 AM.mov",
   "transcript": "raw_transcript.json",
-  "maxPause": 0.3,
+  "maxPause": 0.34,
   "keep": [
    [
     7.33,
@@ -157,6 +157,12 @@
     "Those numbers reflect the fact that you're actually sleeping better. And I have the poor track record to prove that these are actually good numbers.",
     "ostad+patient"
    ]
+  ],
+  "tail": 0.22,
+  "tailSkip": [
+   8.84,
+   18.26,
+   47.2
   ]
  },
  "transcript": "transcript.json",
@@ -204,6 +210,14 @@
   [
    "oh my God",
    "oh my god"
+  ],
+  [
+   "you've been from",
+   "drinking from"
+  ],
+  [
+   "actually sleeping",
+   "actually sleeping better"
   ]
  ],
  "chips": [],
@@ -245,125 +259,105 @@
     "oy": 660
    },
    {
-    "at": 2.73,
+    "at": 4.17,
     "scale": 1
    },
    {
-    "at": 4.06,
+    "at": 5.31,
     "scale": 1.1,
     "ox": 170,
     "oy": 660
    },
    {
-    "at": 5.2,
+    "at": 6.72,
     "scale": 1
    },
    {
-    "at": 6.45,
+    "at": 7.97,
     "scale": 1.1,
     "ox": 170,
     "oy": 660
    },
    {
-    "at": 7.69,
+    "at": 11.18,
     "scale": 1
    },
    {
-    "at": 10.82,
-    "scale": 1.1,
-    "ox": 170,
-    "oy": 660
-   },
-   {
-    "at": 12.78,
+    "at": 13.12,
     "scale": 1.16,
     "ox": 900,
     "oy": 720
    },
    {
-    "at": 13.95,
-    "scale": 1
-   },
-   {
-    "at": 15.8,
+    "at": 14.05,
     "scale": 1.1,
     "ox": 170,
     "oy": 660
    },
    {
-    "at": 18.65,
+    "at": 16.18,
     "scale": 1
    },
    {
-    "at": 23.56,
+    "at": 19.05,
     "scale": 1.1,
     "ox": 170,
     "oy": 660
    },
    {
-    "at": 24.51,
+    "at": 23.99,
+    "scale": 1
+   },
+   {
+    "at": 24.95,
     "scale": 1.16,
     "ox": 900,
     "oy": 720
    },
    {
-    "at": 26.13,
+    "at": 26.57,
     "scale": 1.06,
     "ox": 900,
     "oy": 720
    },
    {
-    "at": 27.45,
-    "scale": 1
-   },
-   {
-    "at": 29.25,
+    "at": 29.86,
     "scale": 1.1,
     "ox": 170,
     "oy": 660
    },
    {
-    "at": 31.05,
+    "at": 31.67,
     "scale": 1
    },
    {
-    "at": 35.23,
+    "at": 35.62,
     "scale": 1.1,
     "ox": 170,
     "oy": 660
    },
    {
-    "at": 36.23,
+    "at": 36.99,
     "scale": 1
    },
    {
-    "at": 36.78,
+    "at": 37.55,
     "scale": 1.1,
     "ox": 170,
     "oy": 660
    },
    {
-    "at": 37.95,
+    "at": 41.49,
     "scale": 1
    },
    {
-    "at": 40.71,
+    "at": 42.19,
     "scale": 1.1,
     "ox": 170,
     "oy": 660
    },
    {
-    "at": 41.33,
-    "scale": 1
-   },
-   {
-    "at": 44.82,
-    "scale": 1.1,
-    "ox": 170,
-    "oy": 660
-   },
-   {
-    "at": 47.44,
+    "at": 48.36,
     "scale": 1.16,
     "ox": 900,
     "oy": 720
@@ -373,7 +367,7 @@
    {
     "kind": "checklist",
     "at": 0.9,
-    "dur": 5.4,
+    "dur": 5.5,
     "pos": "xy:220,890",
     "title": "What it’s approved for",
     "rows": [
@@ -402,8 +396,8 @@
    },
    {
     "kind": "video",
-    "at": 3.6,
-    "dur": 2.8,
+    "at": 3.67,
+    "dur": 2.83,
     "pos": "xy:322,300",
     "w": 436,
     "aspect": 1.0,
@@ -413,63 +407,52 @@
    },
    {
     "kind": "balance",
-    "at": 6.4,
-    "dur": 4.5,
+    "at": 6.56,
+    "dur": 1.71,
     "pos": "chest",
     "levelAt": 99,
     "off": "Off balance"
    },
    {
-    "kind": "video",
-    "at": 7.6,
-    "dur": 3.2,
-    "pos": "xy:322,300",
-    "w": 436,
-    "src": "exomind/clips/synapse.mp4",
+    "kind": "clip",
+    "at": 8.27,
+    "dur": 2.95,
+    "src": "exomind/clips/synapse_full.mp4",
     "caps": "The underlying issue",
-    "title": "Neurotransmitters",
-    "credit": "Animation: BTL"
+    "title": "Neurotransmitter signalling",
+    "_note": "BTL 'What is EXOMIND?' 83.0-86.5 s (release at ~85.8 lands on 'issues'); manufacturer media, needs client approval"
    },
    {
-    "kind": "network",
-    "at": 10.9,
+    "kind": "clip",
+    "at": 11.24,
     "dur": 1.9,
-    "pos": "chest",
-    "from": 0.3
-   },
-   {
-    "kind": "video",
-    "at": 10.9,
-    "dur": 1.85,
-    "pos": "xy:322,300",
-    "w": 436,
-    "src": "exomind/clips/plasticity.mp4",
+    "src": "exomind/clips/plasticity_full.mp4",
     "caps": "This treatment helps",
-    "title": "Neuroplasticity",
-    "credit": "Animation: BTL"
+    "title": "Neuroplasticity: new connections",
+    "_note": "BTL 72.5-79 s, branches growing (BTL labels this 'Neuroplasticity')"
    },
    {
-    "kind": "wave",
-    "at": 12.85,
-    "dur": 2.9,
-    "pos": "xy:322,300",
-    "w": 420,
-    "calmAt": 0.8
-   },
-   {
-    "kind": "balance",
-    "at": 13.95,
-    "dur": 1.8,
-    "pos": "chest",
-    "levelAt": 0.5,
-    "title": "In a good way",
-    "off": "Busy",
-    "on": "Quieter"
+    "kind": "burst",
+    "at": 13.12,
+    "dur": 3.0,
+    "x": 915,
+    "y": 505,
+    "burstAt": 0.0,
+    "calmAt": 0.75,
+    "spread": [
+     -168,
+     -48
+    ],
+    "len": 150,
+    "rays": 7,
+    "label": "Quieter",
+    "labelSide": "left",
+    "_note": "her head, cut 14.4-16.6 (YuNet face top 555); busy on 'It quiets', settles on 'my brain'"
    },
    {
     "kind": "bars",
-    "at": 15.85,
-    "dur": 2.8,
+    "at": 16.23,
+    "dur": 2.79,
     "pos": "chest",
     "w": 520,
     "caps": "Dr. Ostad, on himself",
@@ -490,25 +473,39 @@
    },
    {
     "kind": "ripple",
-    "at": 19.6,
-    "dur": 1.6,
+    "at": 20.1,
+    "dur": 1.4,
     "x": 95,
     "y": 445,
     "taps": [
      0.1,
      0.45,
-     0.8,
-     1.15
+     0.8
     ],
-    "label": "Tapping",
     "labelSide": "right",
     "mode": "tap",
     "_note": "his tap on the top of his head, raw 38.6-39.4 s"
    },
    {
+    "kind": "burst",
+    "at": 20.1,
+    "dur": 2.1,
+    "x": 112,
+    "y": 458,
+    "burstAt": 0.1,
+    "calmAt": 1.05,
+    "spread": [
+     -118,
+     -12
+    ],
+    "len": 150,
+    "rays": 6,
+    "_note": "his tap (raw 38.6-39.4 s): outburst on the tap, then the quieting"
+   },
+   {
     "kind": "video",
-    "at": 21.1,
-    "dur": 2.4,
+    "at": 21.5,
+    "dur": 2.39,
     "pos": "xy:322,300",
     "w": 436,
     "aspect": 1.25,
@@ -518,16 +515,16 @@
    },
    {
     "kind": "timer",
-    "at": 22.6,
-    "dur": 1.9,
+    "at": 23.0,
+    "dur": 1.92,
     "pos": "chest",
     "caps": "A little headache after",
     "title": "Up to an hour"
    },
    {
     "kind": "swap",
-    "at": 24.55,
-    "dur": 2.85,
+    "at": 25.0,
+    "dur": 2.84,
     "pos": "chest",
     "w": 520,
     "from": "A headache",
@@ -536,8 +533,8 @@
    },
    {
     "kind": "ripple",
-    "at": 26.15,
-    "dur": 1.3,
+    "at": 26.57,
+    "dur": 1.4,
     "x": 930,
     "y": 548,
     "taps": [
@@ -548,26 +545,9 @@
     "_note": "her fingertips on the top-left of her head, measured on the cut at 28.9-30.2 s"
    },
    {
-    "kind": "chips",
-    "at": 27.5,
-    "dur": 3.5,
-    "pos": "xy:322,300",
-    "items": [
-     {
-      "text": "After swimming",
-      "at": 0.75
-     },
-     {
-      "text": "A cold drink, through a straw",
-      "at": 2.0,
-      "strong": true
-     }
-    ]
-   },
-   {
     "kind": "meter",
-    "at": 31.1,
-    "dur": 5.1,
+    "at": 31.73,
+    "dur": 5.14,
     "pos": "chest",
     "caps": "Not a painful headache",
     "title": "Your head feels a little heavy",
@@ -577,16 +557,16 @@
    },
    {
     "kind": "phone",
-    "at": 36.3,
-    "dur": 4.4,
+    "at": 37.06,
+    "dur": 4.39,
     "pos": "xy:390,300",
     "label": "Her sleep numbers",
     "from": 0.7
    },
    {
     "kind": "compare",
-    "at": 38.0,
-    "dur": 6.8,
+    "at": 38.76,
+    "dur": 6.89,
     "pos": "chest",
     "left": [
      "Objective",
@@ -600,8 +580,8 @@
    },
    {
     "kind": "video",
-    "at": 40.9,
-    "dur": 3.9,
+    "at": 41.68,
+    "dur": 3.97,
     "pos": "xy:322,300",
     "w": 436,
     "src": "exomind/clips/coil.mp4",
@@ -611,8 +591,8 @@
    },
    {
     "kind": "bars",
-    "at": 44.9,
-    "dur": 3.4,
+    "at": 45.82,
+    "dur": 3.39,
     "pos": "chest",
     "w": 560,
     "caps": "Those numbers reflect",
@@ -641,8 +621,8 @@
    },
    {
     "kind": "video",
-    "at": 47.5,
-    "dur": 3.6,
+    "at": 48.42,
+    "dur": 3.59,
     "pos": "xy:322,300",
     "w": 436,
     "src": "exomind/clips/brainlit.mp4",

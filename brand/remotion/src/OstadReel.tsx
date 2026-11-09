@@ -7,7 +7,7 @@ import { EndCard as GlassEnd } from "./components/EndCard";
 import { NAME_CARD_DUR, NameCard } from "./components/NameCard";
 import { SkinCard } from "./components/SkinCard";
 import { MicrobeCard, PillCard, SkinDiagram } from "./components/Explainers";
-import { Balance, Bars, Meter, Network, Phone, Ripple, Swap, Timer, VideoCard, Wave } from "./components/Exo";
+import { Balance, Bars, Burst, Meter, Network, Phone, Ripple, Swap, Timer, VideoCard, Wave } from "./components/Exo";
 import { Calendar, Chain, Checklist, Chips, Chronic, ClipFull, Compare, Note, RoutineCard, RxCard, RxStack, TreatmentCard } from "./components/Ro";
 
 // explainer kinds (edit.json remotion.graphics[].kind); every other key of the entry is passed through as a prop
@@ -15,6 +15,8 @@ import { Calendar, Chain, Checklist, Chips, Chronic, ClipFull, Compare, Note, Ro
 const KINDS: Record<string, React.FC<any>> = { rx: RxCard, routine: RoutineCard, stack: RxStack, chronic: Chronic, checklist: Checklist, calendar: Calendar,
   compare: Compare, chain: Chain, note: Note, chips: Chips, clip: ClipFull, pills: PillCard, microbes: MicrobeCard,
   video: VideoCard, balance: Balance, network: Network, wave: Wave, bars: Bars, meter: Meter, timer: Timer, phone: Phone, swap: Swap };
+// drawn in the footage layer at frame coordinates (they follow the reframes)
+const ANCHORED = new Set(["ripple", "burst"]);
 import type { ReelProps } from "./types";
 import type { Pos } from "./components/Ro";
 
@@ -28,10 +30,10 @@ export const OstadReel: React.FC<ReelProps> = ({ spec, capStyle }) => {
   return (
     <AbsoluteFill style={{ background: "#000" }}>
       <Footage spec={spec}>
-        {spec.graphics?.filter((g) => g.kind === "ripple").map((g, i) => (
-          <Sequence key={`rip${i}`} from={f(g.at)} durationInFrames={f(g.dur)} name="Gesture: ripple">
+        {spec.graphics?.filter((g) => ANCHORED.has(g.kind)).map((g, i) => (
+          <Sequence key={`anc${i}`} from={f(g.at)} durationInFrames={f(g.dur)} name={`Gesture: ${g.kind}`}>
             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-            <Ripple {...(g as any)} />
+            {g.kind === "ripple" ? <Ripple {...(g as any)} /> : <Burst {...(g as any)} />}
           </Sequence>
         ))}
       </Footage>
@@ -52,7 +54,7 @@ export const OstadReel: React.FC<ReelProps> = ({ spec, capStyle }) => {
           <SkinCard card={c} />
         </Sequence>
       ))}
-      {spec.graphics?.filter((g) => g.kind !== "ripple").map((g, i) => (
+      {spec.graphics?.filter((g) => !ANCHORED.has(g.kind)).map((g, i) => (
         <Sequence key={`gfx${i}`} from={f(g.at)} durationInFrames={f(g.dur)} name={`Explainer: ${g.kind}`}>
           {g.kind === "treatment" ? <TreatmentCard dur={g.dur} at={g.treat ?? {}} clipsPos={g.pos as Pos | undefined} />
             : g.kind === "diagram" ? <SkinDiagram dur={g.dur} at={g.phases ?? {}} />

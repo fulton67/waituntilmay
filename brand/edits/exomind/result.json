@@ -2,56 +2,56 @@
  "src": "brand/edits/exomind/exomind_cut.mp4",
  "speed": 1.1,
  "fps": 24,
- "source_s": 56.7728125,
- "footage_frames": 1239,
- "footage_s": 51.625,
- "dur_s": 54.125,
- "frames": 1299,
- "render_s": 139,
+ "source_s": 57.7945,
+ "footage_frames": 1261,
+ "footage_s": 52.541666666666664,
+ "dur_s": 55.041666666666664,
+ "frames": 1321,
+ "render_s": 173,
  "loudness_in": {
-  "input_i": "-12.67",
+  "input_i": "-12.66",
   "input_tp": "-3.00",
-  "input_lra": "2.00",
-  "input_thresh": "-22.67",
+  "input_lra": "1.90",
+  "input_thresh": "-22.66",
   "output_i": "-13.94",
-  "output_tp": "-4.04",
-  "output_lra": "1.60",
+  "output_tp": "-4.10",
+  "output_lra": "1.50",
   "output_thresh": "-23.94",
   "normalization_type": "dynamic",
   "target_offset": "-0.06"
  },
  "adobe_fonts": true,
  "errors": [],
- "captions": 56,
+ "captions": 58,
  "captions_unfit": [
-  "obsessive-compulsive disorder.",
-  "neurotransmitter issues."
+  "obsessive-compulsive disorder",
+  "actually sleeping better."
  ],
  "fixed_words": [
   {
-   "w": "obsessive-compulsive disorder.",
+   "w": "obsessive-compulsive disorder",
    "from": "like a compulsive disorder",
-   "t": 5.24
+   "t": 5.35
   },
   {
-   "w": "neurotransmitter issues.",
-   "from": "neurotransmitter issue",
-   "t": 8.89
-  },
-  {
-   "w": "brain. Yeah, I would say,",
+   "w": "brain. Yeah, I would say",
    "from": "brain, is what I would say",
-   "t": 13.71
+   "t": 14.05
   },
   {
    "w": "drinking from",
-   "from": "you came from",
-   "t": 29.36
+   "from": "you've been from",
+   "t": 29.85
   },
   {
-   "w": "feel like, oh my god,",
-   "from": "feel like, my God",
-   "t": 43.55
+   "w": "oh my god,",
+   "from": "oh my God",
+   "t": 44.8
+  },
+  {
+   "w": "actually sleeping better.",
+   "from": "actually sleeping",
+   "t": 47.65
   }
  ],
  "rects": {
@@ -98,278 +98,288 @@
    {
     "text": "sleep quality,",
     "from": 1.7090909090909088,
-    "to": 2.909090909090909
+    "to": 2.9818181818181815
    },
    {
     "text": "anxiety, depression.",
-    "from": 2.909090909090909,
-    "to": 4.145454545454545
+    "from": 2.9818181818181815,
+    "to": 4.254545454545454
    },
    {
     "text": "The most recent one is",
-    "from": 4.145454545454545,
-    "to": 5.236363636363635
+    "from": 4.254545454545454,
+    "to": 5.345454545454545
    },
    {
-    "text": "obsessive-compulsive disorder.",
-    "from": 5.236363636363635,
-    "to": 6.5272727272727264
+    "text": "obsessive-compulsive disorder",
+    "from": 5.345454545454545,
+    "to": 6.563636363636363
    },
    {
-    "text": "A lot of these",
-    "from": 6.5272727272727264,
-    "to": 7.072727272727272
+    "text": "and a lot of these",
+    "from": 6.563636363636363,
+    "to": 7.327272727272727
    },
    {
     "text": "conditions, the",
-    "from": 7.072727272727272,
-    "to": 8
+    "from": 7.327272727272727,
+    "to": 8.272727272727272
    },
    {
     "text": "underlying issue is",
-    "from": 8,
-    "to": 8.890909090909089
+    "from": 8.272727272727272,
+    "to": 9.18181818181818
    },
    {
-    "text": "neurotransmitter issues.",
-    "from": 8.890909090909089,
-    "to": 10.89090909090909
+    "text": "neurotransmitter",
+    "from": 9.18181818181818,
+    "to": 10.436363636363636
+   },
+   {
+    "text": "issues.",
+    "from": 10.436363636363636,
+    "to": 11.236363636363635
    },
    {
     "text": "This treatment helps",
-    "from": 10.89090909090909,
-    "to": 11.654545454545454
+    "from": 11.236363636363635,
+    "to": 11.999999999999998
    },
    {
     "text": "with neuroplasticity.",
-    "from": 11.654545454545454,
-    "to": 12.836363636363634
+    "from": 11.999999999999998,
+    "to": 13.163636363636362
    },
    {
     "text": "It quiets my",
-    "from": 12.836363636363634,
-    "to": 13.709090909090907
+    "from": 13.163636363636362,
+    "to": 14.054545454545455
    },
    {
-    "text": "brain. Yeah, I would say,",
-    "from": 13.709090909090907,
-    "to": 14.745454545454542
+    "text": "brain. Yeah, I would say",
+    "from": 14.054545454545455,
+    "to": 15.036363636363633
    },
    {
     "text": "in a good way.",
-    "from": 14.745454545454542,
-    "to": 15.872727272727273
+    "from": 15.036363636363633,
+    "to": 16.236363636363635
    },
    {
     "text": "I've tried this myself",
-    "from": 15.872727272727273,
-    "to": 16.96363636363636
+    "from": 16.236363636363635,
+    "to": 17.30909090909091
    },
    {
     "text": "and truly my sleep is",
-    "from": 16.96363636363636,
-    "to": 18.4
-   },
-   {
-    "text": "better.",
-    "from": 18.4,
+    "from": 17.30909090909091,
     "to": 18.763636363636362
    },
    {
-    "text": "My experience is when I",
+    "text": "better.",
     "from": 18.763636363636362,
-    "to": 19.78181818181818
+    "to": 19.14545454545454
+   },
+   {
+    "text": "My experience is when I",
+    "from": 19.14545454545454,
+    "to": 20.16363636363636
    },
    {
     "text": "do it, I feel a tapping",
-    "from": 19.78181818181818,
-    "to": 20.69090909090909
+    "from": 20.16363636363636,
+    "to": 21.07272727272727
    },
    {
     "text": "technique and you do",
-    "from": 20.69090909090909,
-    "to": 21.763636363636362
+    "from": 21.07272727272727,
+    "to": 22.145454545454545
    },
    {
     "text": "feel a little bit of a",
-    "from": 21.763636363636362,
-    "to": 22.563636363636363
+    "from": 22.145454545454545,
+    "to": 22.94545454545454
    },
    {
     "text": "headache right",
-    "from": 22.563636363636363,
-    "to": 22.98181818181818
+    "from": 22.94545454545454,
+    "to": 23.38181818181818
    },
    {
     "text": "afterwards, up to an",
-    "from": 22.98181818181818,
-    "to": 24.16363636363636
+    "from": 23.38181818181818,
+    "to": 24.545454545454543
    },
    {
     "text": "hour.",
-    "from": 24.16363636363636,
-    "to": 24.599999999999998
+    "from": 24.545454545454543,
+    "to": 25.018181818181816
    },
    {
     "text": "I wouldn't even call it a",
-    "from": 24.599999999999998,
-    "to": 25.454545454545453
+    "from": 25.018181818181816,
+    "to": 25.87272727272727
    },
    {
     "text": "headache.",
-    "from": 25.454545454545453,
-    "to": 25.599999999999998
+    "from": 25.87272727272727,
+    "to": 26.036363636363635
    },
    {
     "text": "I would say just gentle",
-    "from": 25.599999999999998,
-    "to": 27.018181818181816
+    "from": 26.036363636363635,
+    "to": 27.454545454545453
    },
    {
-    "text": "pressure, almost like if",
-    "from": 27.018181818181816,
-    "to": 28.327272727272724
+    "text": "pressure,",
+    "from": 27.454545454545453,
+    "to": 28.454545454545453
    },
    {
-    "text": "you've gone swimming",
-    "from": 28.327272727272724,
-    "to": 29.10909090909091
+    "text": "almost like if you've",
+    "from": 28.454545454545453,
+    "to": 29.054545454545455
    },
    {
-    "text": "or drinking from a straw",
-    "from": 29.10909090909091,
-    "to": 30.16363636363636
+    "text": "gone swimming or",
+    "from": 29.054545454545455,
+    "to": 29.854545454545455
    },
    {
-    "text": "of something cold.",
-    "from": 30.16363636363636,
-    "to": 31.127272727272725
+    "text": "drinking from a straw of",
+    "from": 29.854545454545455,
+    "to": 30.909090909090907
    },
    {
-    "text": "It's not a painful",
-    "from": 31.127272727272725,
-    "to": 32.14545454545454
+    "text": "something cold,",
+    "from": 30.909090909090907,
+    "to": 31.709090909090907
+   },
+   {
+    "text": "it's not a painful",
+    "from": 31.709090909090907,
+    "to": 32.74545454545454
    },
    {
     "text": "headache.",
-    "from": 32.14545454545454,
-    "to": 32.56363636363636
+    "from": 32.74545454545454,
+    "to": 33.16363636363636
    },
    {
     "text": "It's just your head feels",
-    "from": 32.56363636363636,
-    "to": 33.92727272727272
+    "from": 33.16363636363636,
+    "to": 34.50909090909091
    },
    {
     "text": "a little heavy,",
-    "from": 33.92727272727272,
-    "to": 35.127272727272725
+    "from": 34.50909090909091,
+    "to": 35.8
    },
    {
     "text": "but it dissipates",
-    "from": 35.127272727272725,
-    "to": 35.92727272727273
+    "from": 35.8,
+    "to": 36.58181818181818
    },
    {
     "text": "quickly.",
-    "from": 35.92727272727273,
-    "to": 36.599999999999994
+    "from": 36.58181818181818,
+    "to": 37.32727272727273
    },
    {
     "text": "You showed us your",
-    "from": 36.599999999999994,
-    "to": 37.018181818181816
-   },
-   {
-    "text": "numbers have actually",
-    "from": 37.018181818181816,
+    "from": 37.32727272727273,
     "to": 37.78181818181818
    },
    {
-    "text": "improved.",
+    "text": "numbers have actually",
     "from": 37.78181818181818,
-    "to": 38.07272727272727
+    "to": 38.527272727272724
+   },
+   {
+    "text": "improved.",
+    "from": 38.527272727272724,
+    "to": 38.83636363636363
    },
    {
     "text": "So that to me is an",
-    "from": 38.07272727272727,
-    "to": 38.92727272727272
+    "from": 38.83636363636363,
+    "to": 39.69090909090909
    },
    {
     "text": "objective way of",
-    "from": 38.92727272727272,
-    "to": 40.345454545454544
+    "from": 39.69090909090909,
+    "to": 41.127272727272725
    },
    {
     "text": "assessing.",
-    "from": 40.345454545454544,
-    "to": 40.90909090909091
+    "from": 41.127272727272725,
+    "to": 41.70909090909091
    },
    {
     "text": "So it's not just some",
-    "from": 40.90909090909091,
-    "to": 42.18181818181818
+    "from": 41.70909090909091,
+    "to": 43.03636363636364
    },
    {
     "text": "placebo effect where",
-    "from": 42.18181818181818,
-    "to": 43.309090909090905
+    "from": 43.03636363636364,
+    "to": 44.16363636363636
    },
    {
-    "text": "you feel like, oh my god,",
-    "from": 43.309090909090905,
-    "to": 44.29090909090909
+    "text": "you feel like,",
+    "from": 44.16363636363636,
+    "to": 44.8
    },
    {
-    "text": "I'm sleeping better.",
-    "from": 44.29090909090909,
-    "to": 45.03636363636363
-   },
-   {
-    "text": "Those numbers reflect",
-    "from": 45.03636363636363,
-    "to": 45.92727272727273
-   },
-   {
-    "text": "the fact that you're",
-    "from": 45.92727272727273,
-    "to": 46.72727272727272
-   },
-   {
-    "text": "actually sleeping",
-    "from": 46.72727272727272,
-    "to": 47.43636363636363
+    "text": "oh my god, I'm sleeping",
+    "from": 44.8,
+    "to": 45.54545454545454
    },
    {
     "text": "better.",
-    "from": 47.43636363636363,
-    "to": 47.43636363636363
+    "from": 45.54545454545454,
+    "to": 45.90909090909091
+   },
+   {
+    "text": "Those numbers reflect",
+    "from": 45.90909090909091,
+    "to": 46.836363636363636
+   },
+   {
+    "text": "the fact that you're",
+    "from": 46.836363636363636,
+    "to": 47.65454545454545
+   },
+   {
+    "text": "actually sleeping better.",
+    "from": 47.65454545454545,
+    "to": 48.36363636363636
    },
    {
     "text": "And I have the poor",
-    "from": 47.43636363636363,
-    "to": 48.43636363636363
+    "from": 48.36363636363636,
+    "to": 49.345454545454544
    },
    {
     "text": "track record to prove",
-    "from": 48.43636363636363,
-    "to": 49.50909090909091
+    "from": 49.345454545454544,
+    "to": 50.527272727272724
    },
    {
     "text": "that these are actually",
-    "from": 49.50909090909091,
-    "to": 50.81818181818181
+    "from": 50.527272727272724,
+    "to": 51.72727272727272
    },
    {
     "text": "good numbers.",
-    "from": 50.81818181818181,
-    "to": 51.375
+    "from": 51.72727272727272,
+    "to": 52.291666666666664
    }
   ],
   "capWide": false,
   "end": {
    "card": "card-editorial-end",
-   "at": 51.125,
+   "at": 52.041666666666664,
    "dissolve": 0.5
   }
  },
@@ -385,7 +395,7 @@
     "width": 1080,
     "height": 1920,
     "r_frame_rate": "24/1",
-    "nb_frames": "1299",
+    "nb_frames": "1321",
     "side_data_list": [
      {}
     ]
@@ -396,12 +406,12 @@
     "sample_rate": "48000",
     "channels": 2,
     "r_frame_rate": "0/0",
-    "nb_frames": "2539"
+    "nb_frames": "2581"
    }
   ],
   "format": {
-   "duration": "54.125000",
-   "size": "50425154"
+   "duration": "55.041667",
+   "size": "51156534"
   }
  }
 }
