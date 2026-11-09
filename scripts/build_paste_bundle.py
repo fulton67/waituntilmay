@@ -28,7 +28,7 @@ OUT = os.path.join(ROOT, "site", "build", "webflow-paste")
 
 CDN = "https://assets.sie.market"
 TOKENS = "tokens.v3.css"
-CSS = "sie.v22.css"
+CSS = "sie.v23.css"
 JS = "sie.v22.js"
 CASE = "case.v5.js"
 GLB = "sie-case.glb"
