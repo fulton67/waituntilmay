@@ -1,0 +1,122 @@
+/* sie.v7.css — sie.market
+   Ground black, near-white type, system Helvetica stack (matches ear-music.org / shop.ear-music.org, which load no webfonts).
+   Type law measured on the references: clamp(11px, 3.136vw, 16px). Nothing scales above 1.15× of it. */
+
+:root{
+  --bg:#000; --fg:#ededed; --fg-2:#8a8a8a; --line:#2a2a2a;
+  --base:clamp(11px, 3.136vw, 16px);
+  --gutter:6vw;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#000; --fg:#ededed; } }
+:root[data-theme="dark"]{ --bg:#000; --fg:#ededed; }
+html{ height:100%; scroll-padding-top:env(safe-area-inset-top,0px); }
+html,body{ overflow-x:hidden; }
+*,*::before,*::after{ box-sizing:inherit; }
+body{ margin:0; min-height:100%; background:var(--bg); color:var(--fg);
+      font:var(--base)/1.4 "Helvetica Neue",Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+a{ color:inherit; text-decoration:none; }
+a:focus-visible,button:focus-visible{ outline:1px solid var(--fg); outline-offset:4px; }
+img{ display:block; max-width:100%; }
+
+.page{ max-width:560px; margin:0 auto; min-height:100dvh; display:flex; flex-direction:column; }
+.page[hidden]{ display:none; }
+
+/* ---- wordmark: the sie mark (red 愛 over SIE), small, in the top-left corner, no bleed.
+   Phones: in the header flow. Desktop: pinned to the screen corner so it stays put while scrolling. ---- */
+header{ position:relative; height:30vw; }
+.markbox{ position:fixed; top:calc(12px + env(safe-area-inset-top,0px)); left:var(--gutter); display:block; z-index:2; }
+.mark{ width:22vw; max-width:150px; height:auto; margin:0; }
+header > a:active{ opacity:.6; }
+header > a:last-child:not(.markbox){ position:absolute; right:var(--gutter); top:calc(var(--base)*1.4); }
+@media (min-width:700px){
+  :root{ --gutter:32px; }
+  header{ height:180px; }
+  .markbox{ position:fixed; top:22px; left:28px; z-index:2; }
+  .mark{ width:9vw; min-width:110px; max-width:150px; }
+  header > a:last-child:not(.markbox){ position:fixed; right:28px; top:22px; z-index:2; }
+}
+
+/* ---- gallery: one centred object, air on every side, nothing framing it ---- */
+.stage{ flex:1; display:flex; flex-direction:column; justify-content:center; padding:calc(var(--base)*2) 0; }
+.gal{ display:flex; overflow-x:auto; scroll-snap-type:x mandatory; overscroll-behavior-x:contain; scrollbar-width:none; }
+.gal::-webkit-scrollbar{ display:none; }
+.slide{ flex:0 0 100%; width:100%; scroll-snap-align:center; display:grid; place-items:center; min-height:64vw; }
+.slide > img{ width:66%; height:auto; }
+.slide.wide > img{ width:88%; }
+@media (min-width:700px){ .slide{ min-height:420px; } }
+
+/* the disc already in the photo, cut out and laid back over itself so only it turns.
+   geometry from the 3243×1515 original: centre (2447,743), r=710 → left 53.685% top 2.442% width 43.54% */
+.case{ position:relative; width:88%; }
+.case > img:first-child{ width:100%; }
+.case .disc{ position:absolute; left:53.685%; top:2.442%; width:43.54%; height:auto; border-radius:50%;
+             animation:spin 12s linear infinite; touch-action:none; user-select:none; -webkit-user-drag:none; will-change:transform; }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+@media (prefers-reduced-motion:reduce){ .case .disc{ animation:none; } }
+
+.dots{ display:flex; justify-content:center; gap:8px; margin-top:calc(var(--base)*1.6); }
+.dots button{ width:5px; height:5px; padding:0; border:0; border-radius:50%; background:var(--line); }
+.dots button[aria-current="true"]{ background:var(--fg); }
+
+/* ---- product copy: small, centred, quiet ---- */
+.product{ text-align:center; padding:0 var(--gutter) calc(var(--base)*2.6); }
+.product p{ margin:0; }
+.product .s{ color:var(--fg-2); }
+.product .desc{ text-align:justify; text-align-last:left; hyphens:auto; -webkit-hyphens:auto; max-width:36em; margin:calc(var(--base)*1.2) auto 0; color:var(--fg-2); }
+.product .cap-title{ margin-top:calc(var(--base)*1.2); }
+.product .cap-title[hidden]{ display:none; }
+.product .desc{ transition:opacity .25s; }
+.product .desc.fade{ opacity:0; }
+.product .desc[data-align="center"]{ text-align:center; text-align-last:center; hyphens:manual; max-width:28em; }
+.product .price{ margin-top:calc(var(--base)*1.2); }
+.buy{ display:inline-block; margin-top:calc(var(--base)*1.2); padding:calc(var(--base)*.6) calc(var(--base)*1.6);
+      border:1px solid var(--fg-2); border-radius:999px; min-height:36px; }
+.buy:active{ opacity:.6; }
+.fine{ margin-top:calc(var(--base)*1.4); color:var(--fg-2); }
+
+/* ---- sie page: ear-music /about model — plain lowercase sentences, platform in parentheses, no dividers, lots of air ---- */
+.sie{ padding:calc(var(--base)*1.2) var(--gutter) calc(var(--base)*3); flex:1; }
+.sentences a{ display:flex; align-items:center; min-height:44px;   /* WCAG 2.5.8; v5 gave 30.6px */
+               padding:calc(var(--base)*.3) 0; }
+.sentences a:active{ opacity:.6; }
+/* ---- the wall: thumbnails at rest, one player alive at a time.
+   Tile aspect 3:2 and gaps 16 / 24 are taken from clintonvanarnam.net (reference/video-wall.md).
+   Column count is NOT: that reference runs 8 cols at 390 because it carries 120 unlabelled tiles.
+   With a body-size label under each tile, 4 cols at 390 gives a 73.8px tile under a 2.7-line
+   caption. 2 cols gives 163.6px and a 1.2-line caption, so the wall starts at 2 and widens. ---- */
+.vids{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px;
+       margin-top:calc(var(--base)*2.4); }
+@media (min-width:560px){ .vids{ grid-template-columns:repeat(3,1fr); } }
+@media (min-width:900px){
+  /* the wall is the one thing that leaves the 560px product column: inside it, 5 tiles
+     would be 80px wide and carry a 4-line caption. */
+  /* #sie on the single-file build; data-route on the split Webflow pages */
+  #sie.page,.page[data-route="/sie"]{ max-width:1200px; }
+  .vids{ grid-template-columns:repeat(4,1fr); gap:24px; }
+}
+@media (min-width:1200px){ .vids{ grid-template-columns:repeat(5,1fr); } }
+
+.vid{ display:block; color:var(--fg); }
+.vid-thumb{ position:relative; display:block; aspect-ratio:3/2; background:#161616; overflow:hidden; }
+.vid-thumb img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+                transition:opacity .2s; }
+.vid-label{ display:block; position:relative; z-index:2; margin-top:calc(var(--base)*.45); color:var(--fg-2);
+            line-height:1.25; min-height:2.5em; overflow-wrap:anywhere; }
+.vid:hover .vid-label,.vid:focus-visible .vid-label{ color:var(--fg); }
+.vid.playing .vid-thumb img{ opacity:0; }
+.vid iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; z-index:1; }
+.vid:active{ opacity:.7; }
+@media (prefers-reduced-motion:reduce){ .vid-thumb img{ transition:none; } }
+
+/* ---- intro: the slam plays full-screen once per visit, then fades into the site. Plain H.264 over black —
+   no alpha needed on a black screen, so it plays on iOS too. Logo sits at 70.8% of the frame width. ---- */
+#intro{ position:fixed; inset:0; z-index:9; background:#000; display:grid; place-items:center; transition:opacity .55s ease; }
+#intro.out{ opacity:0; pointer-events:none; }
+#intro video{ width:88vw; max-width:560px; height:auto; background:#000; }
+#intro img{ width:62vw; max-width:400px; height:auto; animation:pop .9s cubic-bezier(.2,.8,.2,1) both; }
+#intro [hidden]{ display:none; }
+@keyframes pop{ from{ transform:scale(1.7); opacity:0; } to{ transform:scale(1); opacity:1; } }
+body.intro{ overflow:hidden; }

@@ -27,10 +27,10 @@ SRC = os.path.join(ROOT, "site", "index.html")
 OUT = os.path.join(ROOT, "site", "build", "webflow-paste")
 
 CDN = "https://assets.sie.market"
-TOKENS = "tokens.v1.css"
-CSS = "sie.v18.css"
-JS = "sie.v17.js"
-CASE = "case.v3.js"
+TOKENS = "tokens.v2.css"
+CSS = "sie.v19.css"
+JS = "sie.v18.js"
+CASE = "case.v4.js"
 GLB = "sie-case.glb"
 ROUTES = {"#home": "/", "#sie": "/videos"}
 
@@ -61,14 +61,16 @@ def main():
     images = existing_image_map()
     images.update(EXTRA)
 
-    mains = {}
-    for m in re.finditer(r'<main\s+id="([^"]+)"[^>]*>(.*?)</main>', html, re.S):
-        mains[m.group(1)] = m.group(2)
+    mains, mclass = {}, {}
+    for m in re.finditer(r'<main\s+id="([^"]+)"([^>]*)>(.*?)</main>', html, re.S):
+        mains[m.group(1)] = m.group(3)
+        cm = re.search(r'class="([^"]*)"', m.group(2))
+        mclass[m.group(1)] = cm.group(1) if cm else "page"
 
     blob = re.search(r'<script type="application/json" id="videos-data">(.*?)</script>',
                      html, re.S).group(1)
 
-    def fix(frag, route):
+    def fix(frag, route, cls):
         # hash routes -> real routes
         frag = re.sub(r'href=(["\'])(#[\w-]*)\1',
                       lambda m: 'href=%s%s%s' % (m.group(1), ROUTES.get(m.group(2), m.group(2)), m.group(1)),
@@ -84,7 +86,8 @@ def main():
         # the 3D host needs an absolute model URL
         frag = frag.replace('<div class="case3d" id="case3d"></div>',
                             '<div class="case3d" id="case3d" data-model="%s/%s"></div>' % (CDN, GLB))
-        return ('<main class="page" data-route="%s">' % route) + frag.strip() + '</main>'
+        return ('<main class="%s" data-route="%s">' % (cls, route)) \
+            + frag.strip() + '</main>'
 
     unresolved = sorted(set(re.findall(r'["\'](assets/[^"\']+)', html))
                         - set(images) - {p for p in re.findall(r'["\'](assets/yt/[^"\']+)', html)}
@@ -112,10 +115,10 @@ def main():
             f'<script type="module" src="{CDN}/{CASE}"></script>\n',
         "3-page-home.html":
             '<!-- page "/" / Page settings / Custom code / Before </body> -->\n'
-            + fix(mains["home"], "/") + "\n",
+            + fix(mains["home"], "/", mclass["home"]) + "\n",
         "4-page-videos.html":
             '<!-- page "/videos" / Page settings / Custom code / Before </body> -->\n'
-            + fix(mains["sie"], "/videos") + "\n",
+            + fix(mains["sie"], "/videos", mclass["sie"]) + "\n",
     }
 
     os.makedirs(OUT, exist_ok=True)

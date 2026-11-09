@@ -36,8 +36,11 @@ ROUTES = {"#home": "/", "#sie": "/videos"}
 def main():
     html = open(SRC, encoding="utf-8").read()
 
-    mains = {m.group(1): m.group(2) for m in
-             re.finditer(r'<main\s+id="([^"]+)"[^>]*>(.*?)</main>', html, re.S)}
+    mains, mclass = {}, {}
+    for m in re.finditer(r'<main\s+id="([^"]+)"([^>]*)>(.*?)</main>', html, re.S):
+        mains[m.group(1)] = m.group(3)
+        cm = re.search(r'class="([^"]*)"', m.group(2))
+        mclass[m.group(1)] = cm.group(1) if cm else "page"
     for key in ("home", "sie"):
         if key not in mains:
             print("no <main id=%r> in site/index.html" % key)
@@ -49,7 +52,7 @@ def main():
     js = re.search(r'<script src="(js/sie\.v\d+\.js)"></script>', html).group(1)
     case = re.search(r'<script type="module" src="(js/case\.v\d+\.js)"></script>', html).group(1)
 
-    def fix(frag, route):
+    def fix(frag, route, cls):
         """the paste bundle's rewrite, left on local paths"""
         frag = re.sub(r'href=(["\'])(#[\w-]*)\1',
                       lambda m: 'href=%s%s%s' % (m.group(1),
@@ -57,7 +60,8 @@ def main():
                                                  m.group(1)),
                       frag)
         frag = re.sub(r'(src|href)=(["\'])assets/', r'\1=\2/assets/', frag)
-        return ('<main class="page" data-route="%s">' % route) + frag.strip() + '</main>'
+        return ('<main class="%s" data-route="%s">' % (cls, route)) \
+            + frag.strip() + '</main>'
 
     head = ('<link rel="stylesheet" href="/vendor/myth-index/myth-index.css">\n'
             + "".join('<link rel="stylesheet" href="/%s">\n' % c for c in css)
@@ -77,7 +81,7 @@ def main():
         doc = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
                '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
                '<title>sie.market %s</title>\n%s\n</head>\n<body>\n%s\n%s\n</body>\n</html>\n'
-               % (route, head, fix(mains[key], route), foot))
+               % (route, head, fix(mains[key], route, mclass[key]), foot))
         p = os.path.join(OUT, name)
         with open(p, "w", encoding="utf-8", newline="\n") as fh:
             fh.write(doc)
