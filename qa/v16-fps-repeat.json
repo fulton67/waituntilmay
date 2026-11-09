@@ -1,0 +1,62 @@
+{
+ "cap4": {
+  "runs": [
+   {
+    "fps": 58.7,
+    "median_ms": 16.7,
+    "p95_ms": 16.8,
+    "over_33": 3,
+    "playing": 4
+   },
+   {
+    "fps": 58.7,
+    "median_ms": 16.7,
+    "p95_ms": 16.8,
+    "over_33": 3,
+    "playing": 4
+   },
+   {
+    "fps": 57.8,
+    "median_ms": 16.7,
+    "p95_ms": 16.8,
+    "over_33": 5,
+    "playing": 4
+   }
+  ],
+  "fps_median": 58.7,
+  "fps_min": 57.8,
+  "fps_max": 58.7,
+  "over33_median": 3,
+  "playing": 4
+ },
+ "cap6": {
+  "runs": [
+   {
+    "fps": 58.2,
+    "median_ms": 16.7,
+    "p95_ms": 16.8,
+    "over_33": 4,
+    "playing": 6
+   },
+   {
+    "fps": 58.7,
+    "median_ms": 16.7,
+    "p95_ms": 16.8,
+    "over_33": 3,
+    "playing": 6
+   },
+   {
+    "fps": 58.6,
+    "median_ms": 16.7,
+    "p95_ms": 16.8,
+    "over_33": 3,
+    "playing": 6
+   }
+  ],
+  "fps_median": 58.6,
+  "fps_min": 58.2,
+  "fps_max": 58.7,
+  "over33_median": 3,
+  "playing": 6
+ }
+}

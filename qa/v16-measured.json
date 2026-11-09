@@ -1,0 +1,179 @@
+{
+ "fps390_cap0": {
+  "frames": 139,
+  "span_ms": 2299.9,
+  "fps": 60,
+  "median_ms": 16.7,
+  "p95_ms": 16.8,
+  "worst_ms": 16.8,
+  "over_16_7": 28,
+  "over_33": 0,
+  "cap": 0,
+  "playing_during": 0
+ },
+ "fps390_cap2": {
+  "frames": 127,
+  "span_ms": 2233.2,
+  "fps": 56.4,
+  "median_ms": 16.7,
+  "p95_ms": 16.8,
+  "worst_ms": 66.7,
+  "over_16_7": 61,
+  "over_33": 5,
+  "cap": 2,
+  "playing_during": 2
+ },
+ "fps390_cap4": {
+  "frames": 135,
+  "span_ms": 2316.7,
+  "fps": 57.8,
+  "median_ms": 16.7,
+  "p95_ms": 16.8,
+  "worst_ms": 66.7,
+  "over_16_7": 74,
+  "over_33": 3,
+  "cap": 4,
+  "playing_during": 4
+ },
+ "fps390_cap6": {
+  "frames": 121,
+  "span_ms": 2699.9,
+  "fps": 44.4,
+  "median_ms": 16.7,
+  "p95_ms": 83.3,
+  "worst_ms": 149.9,
+  "over_16_7": 63,
+  "over_33": 10,
+  "cap": 6,
+  "playing_during": 6
+ },
+ "final_390": {
+  "playing": 6,
+  "iframes": 6,
+  "max_delta": 5.5e-05,
+  "rows": [
+   {
+    "d": 515.29,
+    "scale": 1,
+    "pred": 1,
+    "delta": 0
+   },
+   {
+    "d": 346.15,
+    "scale": 1,
+    "pred": 1,
+    "delta": 0
+   },
+   {
+    "d": 177.01,
+    "scale": 1.0806,
+    "pred": 1.0805,
+    "delta": 5.5e-05
+   },
+   {
+    "d": 7.87,
+    "scale": 1.4,
+    "pred": 1.4,
+    "delta": 0
+   },
+   {
+    "d": 161.27,
+    "scale": 1.1178,
+    "pred": 1.1178,
+    "delta": -4.4e-05
+   },
+   {
+    "d": 330.41,
+    "scale": 1,
+    "pred": 1,
+    "delta": 0
+   },
+   {
+    "d": 499.55,
+    "scale": 1,
+    "pred": 1,
+    "delta": 0
+   }
+  ],
+  "R": 211,
+  "MAX": 1.4,
+  "vh": 844
+ },
+ "loop_390": {
+  "lo": 3283.8671875,
+  "hi": 6497.5390625,
+  "blockH": 3213.671875,
+  "maxScroll": 9633,
+  "samples": 102,
+  "min": 3298,
+  "max": 6914,
+  "travelled": 4046,
+  "never_hit_end": true,
+  "within_window": true,
+  "wrapped": true
+ },
+ "fps1440": {
+  "frames": 131,
+  "span_ms": 2399.9,
+  "fps": 54.2,
+  "median_ms": 16.7,
+  "p95_ms": 33.3,
+  "worst_ms": 50,
+  "over_16_7": 43,
+  "over_33": 13,
+  "playing_during": 3
+ },
+ "buy_rest": {
+  "bg": "rgba(10, 10, 10, 0.62)",
+  "border": "1px rgba(255, 255, 255, 0.14)",
+  "radius": "24px",
+  "blur": "blur(16px) saturate(1.2)",
+  "colour": "rgb(242, 242, 242)",
+  "tp": "background-color, border-color, color",
+  "td": "0.5s, 0.5s, 0.5s",
+  "tf": "ease, ease, ease",
+  "box": "59.83 x 30",
+  "dpr": 1
+ },
+ "buy_hover": {
+  "bg": "rgba(28, 28, 28, 0.72)",
+  "border": "1px rgba(255, 255, 255, 0.24)",
+  "radius": "24px",
+  "blur": "blur(16px) saturate(1.2)",
+  "colour": "rgb(242, 242, 242)",
+  "tp": "background-color, border-color, color",
+  "td": "0.5s, 0.5s, 0.5s",
+  "tf": "ease, ease, ease",
+  "box": "59.83 x 30",
+  "dpr": 1
+ },
+ "pill_rest": {
+  "bg": "rgba(10, 10, 10, 0.62)",
+  "border": "1px rgba(255, 255, 255, 0.14)",
+  "radius": "24px",
+  "blur": "blur(16px) saturate(1.2)",
+  "colour": "rgb(242, 242, 242)",
+  "tp": "background-color, border-color, color",
+  "td": "0.5s, 0.5s, 0.5s",
+  "tf": "ease, ease, ease",
+  "box": "93.53 x 30",
+  "dpr": 1
+ },
+ "pill_hover": {
+  "bg": "rgba(28, 28, 28, 0.72)",
+  "border": "1px rgba(255, 255, 255, 0.24)",
+  "radius": "24px",
+  "blur": "blur(16px) saturate(1.2)",
+  "colour": "rgb(242, 242, 242)",
+  "tp": "background-color, border-color, color",
+  "td": "0.5s, 0.5s, 0.5s",
+  "tf": "ease, ease, ease",
+  "box": "93.53 x 30",
+  "dpr": 1
+ },
+ "border_dpr2": {
+  "used": "1px",
+  "dpr": 2,
+  "declared": []
+ }
+}
