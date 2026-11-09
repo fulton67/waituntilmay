@@ -8,6 +8,8 @@ _model = None
 def model():
     global _model
     if _model is None:
+        from common import cuda_dlls
+        cuda_dlls()
         from faster_whisper import WhisperModel
         _model = WhisperModel("medium", device="cuda", compute_type="float16")
     return _model

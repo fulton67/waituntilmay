@@ -12,6 +12,14 @@ import json, math, os, subprocess, sys
 from functools import lru_cache
 import numpy as np
 
+
+def cuda_dlls():
+    """faster-whisper (CTranslate2) looks for cublas64_12 / cudnn 9 on PATH; on Windows they ship inside torch/lib, so add that
+    folder before loading a Whisper model (without it the first GPU encode raises 'cublas64_12.dll is not found' or hangs)."""
+    if os.name == "nt":
+        import torch
+        os.add_dll_directory(os.path.join(os.path.dirname(torch.__file__), "lib"))
+
 STYLE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEDIA, MEASURE = os.path.join(STYLE, "media"), os.path.join(STYLE, "measure")
 ANALYSIS_W = 270

@@ -4,7 +4,7 @@
 # Usage: bash tools/run_pass2.sh (from research/ostad/style). Idempotent. Logs: logs/pass2_*.log
 cd "$(dirname "$0")/.." || exit 1
 PY="C:/Users/naimj/tools/style-venv/Scripts/python.exe"
-T() { $PY -I tools/run.py "$@" 2>&1 | grep -v "Broken pipe\|rawvideo @\|Last message\|out#0\|vost#"; }
+T() { $PY -I tools/run.py "$@" 2>&1 | grep --line-buffered -v "Broken pipe\|rawvideo @\|Last message\|out#0\|vost#"; }
 mkdir -p logs
 ( T ocr_track; T audio_track; T transcribe; T loudness ) > logs/pass2_gpu.log 2>&1 &
 G=$!
