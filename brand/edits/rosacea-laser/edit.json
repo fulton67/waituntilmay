@@ -233,9 +233,9 @@
   ],
   "graphics": [
    {
-    "kind": "pills",
+    "kind": "rx",
     "at": 29.2,
-    "dur": 3.8,
+    "dur": 3.85,
     "label": "Oral antibiotics"
    },
    {
@@ -245,22 +245,24 @@
     "label": "Gut microbiome"
    },
    {
-    "kind": "pills",
+    "kind": "routine",
     "at": 86.4,
-    "dur": 3.4,
-    "label": "Repeated antibiotics"
+    "dur": 3.6
    },
    {
-    "kind": "diagram",
+    "kind": "treatment",
     "at": 96.6,
     "dur": 14.2,
-    "phases": {
-     "gland": 1.2,
-     "inflamed": 3.0,
-     "vessels": 3.9,
-     "excelv": 10.1,
-     "genesis": 10.9,
-     "depth": 12.4
+    "treat": {
+     "drivers": [
+      0.2,
+      2.5,
+      3.5
+     ],
+     "driversOut": 5.3,
+     "excelv": 5.7,
+     "split": 10.1,
+     "genesis": 10.9
     }
    }
   ],

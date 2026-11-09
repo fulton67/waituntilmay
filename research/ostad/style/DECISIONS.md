@@ -28,3 +28,19 @@ Client: "it does a great job when it says before and after laser ... that is exa
 - New beats on rosacea-laser: pills 29.2 s (oral antibiotics) and 86.4 s (repeated antibiotics); gut microbiome 33.1 s; irritation/dryness photo 41.6 s; visible vessels photo 44.85 s (auto ring); flushing photo 49.4 s; skin cross-section 96.6-110.8 s (oil gland ringed, inflamed, vessels lit, Excel V beams stopping on a superficial and a deep vessel, Laser Genesis as a broad warm band in the upper dermis, depth ruler). Drawn explainers carry "illustration".
 - Photos for the gaps from Wikimedia Commons, added to the bank: Flush01 (JBCH, CC BY-SA 4.0, a niacin flush) and Periorale Dermatitis (Johannes Köhler, CC BY-SA 4.0). ShareAlike photos are shown unaltered (no rings on them; the X sits outside the card); the credit line names the actual diagnosis. No "dryness" face photo on Commons fit; the irritation card carries both words.
 - Render (Downloads/Ostad - Rosacea laser (v3 visuals).mp4): 119.125 s, -13.9 LUFS, true peak -2.1 dBFS; stills checked at every new element.
+
+## 11. Calm v3: Ro-style cards, real treatment footage, quiet sound (2026-11-09)
+Client on v3: the title, the outro brackets, the glass keyword letters and the pill pop-ups "look really cheap ... it shouldn't be distracting"; "oral antibiotics" and "repeated antibiotics" should be two different animations, "like Ro"; the depth diagram is "kind of confusing ... being able to show it in the way that it's actually done is important"; SFX should be "more low-key or familiar".
+- One card material from the Ro set (media/yt/ro): light frosted white, navy type, soft long shadow, no rims, glints or tint. Motion everywhere is a fade + 18 px rise in 0.45 s (quint), out in 0.3 s. No overshoot or shake (components/Ro.tsx). The drawn explainers' panel lost its overshoot too.
+- Title (Hook.tsx): no glass. "Rosacea?" is big white NHG 600 over a soft top scrim; "Not another prescription." sits in Ro's small white caption box, and a thin navy line strikes "prescription".
+- Outro (EndCard.tsx): no brackets and no glass chip. One frosted card over the blurred footage: "Book a consultation." / "Link in bio." / hairline / handle.
+- Captions: keywords are solid light brand blue (#7cc8f2). The glass fill, rim, glow and glint are gone, and the pop is 0.95 -> 1 with no overshoot.
+- 29.2 s RxCard: a real photo of doxycycline capsules (Shorelander, CC BY 2.5, cropped, credited) and a 4-segment "repeated courses" bar that fills as he says "repeated, prolonged courses".
+- 86.4 s RoutineCard: a different beat, built as a Ro checklist. "Instead of depending on": "Repeated antibiotics", "Daily topical creams", each struck through as he finishes the line.
+- 96.6-110.8 s TreatmentCard replaces the diagram:
+  - "What drives the redness": oil glands -> inflammation -> excess blood vessels, as three rows on a hairline.
+  - Then the practice's own treatment footage (Dr. Ostad's YouTube shorts yo_NQn3K9Ilr5o and yo_OGdAzf1D3c0, cut to segments without burned-in text): Excel V at 102.3 s, with Laser Genesis sliding in beside it at 107.5 s.
+  - Each clip has a three-line depth glyph: "Vessels near the surface" for Excel V, "Deeper in the skin" for Laser Genesis.
+  - Clips live in brand/remotion/public (gitignored).
+- SFX v2 (scripts/sfx.py): a soft rounded tap, a low airy whoosh, a single soft tone and a muted thud, each peaking at -8 to -12 dBFS. If the client sends an SFX reference, it replaces these.
+- Render (Downloads/Ostad - Rosacea laser (v4 calm).mp4): 119.125 s, -13.9 LUFS, true peak -2.1 dBFS. Stills were checked for the title, both antibiotic cards, all three treatment phases and the outro.

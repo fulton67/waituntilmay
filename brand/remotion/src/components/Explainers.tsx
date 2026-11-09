@@ -32,7 +32,7 @@ const Sfx: React.FC<{ at: number; name: string; gain?: number }> = ({ at, name, 
 const usePanel = (dur: number) => {
   const t = useCurrentFrame() / useVideoConfig().fps;
   const q = clamp(t / 0.36), out = clamp((t - (dur - 0.3)) / 0.3);
-  return { t, s: (0.9 + 0.1 * easeOutBack(q, 1.3)) * (1 - 0.04 * out), op: clamp(q * 2.5) * (1 - out), out };
+  return { t, s: (0.97 + 0.03 * (1 - (1 - q) ** 5)) * (1 - 0.02 * out), op: clamp(q * 2) * (1 - out), out }; // v3: no overshoot
 };
 
 const Panel: React.FC<{ w: number; h: number; s: number; op: number; dx?: number; children: React.ReactNode }> = ({ w, h, s, op, dx = 0, children }) => (

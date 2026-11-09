@@ -1,11 +1,12 @@
-"""Synthesised UI sound effects for the markup devices (style DECISIONS 9): small, soft and glassy to match the glass chips; made
-here so there is no licence question. 48 kHz mono 16-bit WAVs in public/sfx/ (gitignored; re-run to recreate):
-  pop.wav    chip / card / pin appears: sine blip 1400 -> 700 Hz over 60 ms + a 4 ms air transient
-  swish.wav  a ring drawing on (0.5 s): band-passed noise sweeping 1.2 -> 4 kHz, soft in and out
-  yes.wav    check mark: two glassy partial-rich tones (E6 then B6), 90 ms apart, ~0.5 s ring-out
-  no.wav     X mark: muted low tock (A3 + A4 sine, fast decay) with a tiny click
-  card.wav   an image card opening: airy noise rise 0.25 s into a soft pop
-Peak -1 dBFS each; the reel mixes them under the voice (gain in OstadReel).
+"""Synthesised UI sound effects (style DECISIONS 9, softened in 11): made here so there is no licence question.
+v2 after client feedback ("swishes and things like that that aren't as distracting ... more low-key or familiar"): everything is
+quieter, lower and shorter, closer to a phone UI than a cartoon. 48 kHz mono 16-bit WAVs in public/sfx/ (gitignored; re-run):
+  pop.wav    something appears: a soft rounded tap (low-passed click + 620 Hz body, 70 ms)
+  swish.wav  a line draws / a card slides: a low airy whoosh (band 350 -> 1400 Hz, 0.42 s, slow in and out)
+  yes.wav    a check / the good result: one soft two-partial tone (A5), gentle ring-out
+  no.wav     a strike / X: a muted low thud (180 Hz, very fast decay)
+  card.wav   a card opening: just the low whoosh, shorter, with a faint tap at the end
+Peaks are set per sound (-6 to -12 dBFS) so nothing jumps out; the reel mixes them under the voice.
 Usage: python -I scripts/sfx.py public/sfx"""
 import os
 import sys
@@ -56,49 +57,50 @@ def norm(x, peak_db=-1.0):
     return x / (np.abs(x).max() + 1e-9) * 10 ** (peak_db / 20)
 
 
+def lowpass(x, fc):
+    X = np.fft.rfft(x)
+    f = np.fft.rfftfreq(len(x), 1 / SR)
+    X /= np.sqrt(1 + (f / fc) ** 4)
+    return np.fft.irfft(X, len(x))
+
+
 def pop():
-    tt = t(0.12)
-    f = 700 + 700 * np.exp(-tt / 0.02)
-    ph = 2 * np.pi * np.cumsum(f) / SR
-    x = np.sin(ph) * np.exp(-tt / 0.03)
-    x[: int(SR * 0.004)] += bandnoise(int(SR * 0.004), 3000, 9000, 3) * 0.6
-    return norm(x * env(len(x), 0.001, 0.08))
+    tt = t(0.09)
+    body = np.sin(2 * np.pi * (620 + 180 * np.exp(-tt / 0.01)) * tt) * np.exp(-tt / 0.018)
+    click = np.zeros(len(tt))
+    click[: int(SR * 0.003)] = bandnoise(int(SR * 0.003), 800, 3000, 3)
+    x = lowpass(body + 0.5 * click, 2600)
+    return norm(x * env(len(x), 0.0015, 0.05), -8)
 
 
 def swish():
-    x = sweep_noise(0.5, 1200, 4000)
+    x = lowpass(sweep_noise(0.42, 350, 1400), 2200)
     n = len(x)
-    e = np.sin(np.linspace(0, np.pi, n)) ** 1.5
-    return norm(x * e, -4)
+    e = np.sin(np.linspace(0, np.pi, n)) ** 2.2
+    return norm(x * e, -12)
 
 
-def tone(f, d, partials=((1, 1), (2.76, 0.35), (5.4, 0.12)), tau=0.18):
+def tone(f, d, partials=((1, 1), (2.0, 0.18)), tau=0.16):
     tt = t(d)
     return sum(a * np.sin(2 * np.pi * f * k * tt) * np.exp(-tt / (tau / k ** 0.5)) for k, a in partials)
 
 
 def yes():
-    a = tone(1318.5, 0.6)
-    b = tone(1975.5, 0.6)
-    x = np.zeros(int(SR * 0.7))
-    x[: len(a)] += a * 0.8
-    o = int(SR * 0.09)
-    x[o:o + len(b)] += b
-    return norm(x * env(len(x), 0.002, 0.3))
+    x = tone(880, 0.5)
+    return norm(x * env(len(x), 0.004, 0.25), -10)
 
 
 def no():
-    tt = t(0.25)
-    x = (np.sin(2 * np.pi * 220 * tt) + 0.4 * np.sin(2 * np.pi * 440 * tt)) * np.exp(-tt / 0.045)
-    x[: int(SR * 0.003)] += bandnoise(int(SR * 0.003), 1500, 6000, 3) * 0.5
-    return norm(x * env(len(x), 0.001, 0.1), -2)
+    tt = t(0.16)
+    x = np.sin(2 * np.pi * 180 * tt) * np.exp(-tt / 0.03)
+    return norm(lowpass(x, 900) * env(len(x), 0.002, 0.08), -9)
 
 
 def card():
-    rise = sweep_noise(0.25, 800, 3500, 7) * np.linspace(0, 1, int(SR * 0.25)) ** 2
-    p = pop()
-    x = np.concatenate([norm(rise, -9), p * 0.7])
-    return norm(x)
+    n = int(SR * 0.3)
+    w = lowpass(sweep_noise(0.3, 400, 1200, 7), 2000) * np.sin(np.linspace(0, np.pi, n)) ** 2
+    x = np.concatenate([norm(w, -12), np.zeros(int(SR * 0.01)), pop() * 0.35])
+    return x
 
 
 def write(path, x):
