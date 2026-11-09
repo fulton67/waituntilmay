@@ -1,0 +1,6 @@
+# Third-party study artifacts: downloaded bundle, REA Evidence, HARs.
+# Study only — never shipped, never edited, not redistributed.
+extracted/
+js-analysis.json
+js-analysis.err
+*.har

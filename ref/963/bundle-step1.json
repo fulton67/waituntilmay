@@ -1,0 +1,20 @@
+{
+ "origin": "https://ninepointsixthree.co",
+ "fetched_utc": "2026-11-09T06:18:36Z",
+ "root": {
+  "status": 200,
+  "bytes": 579121,
+  "server": null,
+  "x_nextjs_cache": null,
+  "x_vercel_id": false,
+  "content_type": null
+ },
+ "buildId_candidates": [],
+ "static_dirs_in_html": [],
+ "router": {
+  "has___NEXT_DATA__": false,
+  "has_self___next_f": true,
+  "next_version": false
+ },
+ "manifests": {}
+}

@@ -1,0 +1,154 @@
+{
+ "1440": {
+  "vh": 900,
+  "n": 7,
+  "rows": [
+   {
+    "d": 40.01,
+    "w": 147.547,
+    "h": 185.109,
+    "actual_w_scale": 1.34134,
+    "actual_h_scale": 1.34137,
+    "predicted": 1.38887,
+    "pred_w": 152.775,
+    "dw": -5.229
+   },
+   {
+    "d": 136.77,
+    "w": 131.094,
+    "h": 164.453,
+    "actual_w_scale": 1.19176,
+    "actual_h_scale": 1.19169,
+    "predicted": 1.12007,
+    "pred_w": 123.208,
+    "dw": 7.886
+   },
+   {
+    "d": 203.56,
+    "w": 110,
+    "h": 138,
+    "actual_w_scale": 1,
+    "actual_h_scale": 1,
+    "predicted": 1,
+    "pred_w": 110,
+    "dw": 0
+   },
+   {
+    "d": 290,
+    "w": 110,
+    "h": 138,
+    "actual_w_scale": 1,
+    "actual_h_scale": 1,
+    "predicted": 1,
+    "pred_w": 110,
+    "dw": 0
+   },
+   {
+    "d": 343.56,
+    "w": 110,
+    "h": 138,
+    "actual_w_scale": 1,
+    "actual_h_scale": 1,
+    "predicted": 1,
+    "pred_w": 110,
+    "dw": 0
+   },
+   {
+    "d": 430,
+    "w": 110,
+    "h": 138,
+    "actual_w_scale": 1,
+    "actual_h_scale": 1,
+    "predicted": 1,
+    "pred_w": 110,
+    "dw": 0
+   },
+   {
+    "d": 483.56,
+    "w": 110,
+    "h": 138,
+    "actual_w_scale": 1,
+    "actual_h_scale": 1,
+    "predicted": 1,
+    "pred_w": 110,
+    "dw": 0
+   }
+  ]
+ },
+ "390": {
+  "vh": 844,
+  "n": 7,
+  "rows": [
+   {
+    "d": 49.44,
+    "w": 154,
+    "h": 193.188,
+    "actual_w_scale": 1.4,
+    "actual_h_scale": 1.39991,
+    "predicted": 1.38285,
+    "pred_w": 152.113,
+    "dw": 1.887
+   },
+   {
+    "d": 131.66,
+    "w": 131.531,
+    "h": 165.016,
+    "actual_w_scale": 1.19574,
+    "actual_h_scale": 1.19577,
+    "predicted": 1.188,
+    "pred_w": 130.68,
+    "dw": 0.851
+   },
+   {
+    "d": 224.48,
+    "w": 121.891,
+    "h": 152.906,
+    "actual_w_scale": 1.1081,
+    "actual_h_scale": 1.10802,
+    "predicted": 1,
+    "pred_w": 110,
+    "dw": 11.891
+   },
+   {
+    "d": 285.17,
+    "w": 110,
+    "h": 138,
+    "actual_w_scale": 1,
+    "actual_h_scale": 1,
+    "predicted": 1,
+    "pred_w": 110,
+    "dw": 0
+   },
+   {
+    "d": 371.94,
+    "w": 110,
+    "h": 138,
+    "actual_w_scale": 1,
+    "actual_h_scale": 1,
+    "predicted": 1,
+    "pred_w": 110,
+    "dw": 0
+   },
+   {
+    "d": 425.17,
+    "w": 110,
+    "h": 138,
+    "actual_w_scale": 1,
+    "actual_h_scale": 1,
+    "predicted": 1,
+    "pred_w": 110,
+    "dw": 0
+   },
+   {
+    "d": 511.94,
+    "w": 110,
+    "h": 138,
+    "actual_w_scale": 1,
+    "actual_h_scale": 1,
+    "predicted": 1,
+    "pred_w": 110,
+    "dw": 0
+   }
+  ]
+ }
+}

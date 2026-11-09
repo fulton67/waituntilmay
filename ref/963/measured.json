@@ -1,0 +1,644 @@
+{
+ "390/": {
+  "vw": 390,
+  "vh": 844,
+  "tokens": {
+   "background": "#f8f8f8",
+   "foreground": "#373737",
+   "bodyBg": "rgb(250, 249, 246)",
+   "bodyColor": "rgb(55, 55, 55)",
+   "bodyFont": "Helvetica, \"Helvetica Fallback\"",
+   "bodySize": "11px",
+   "bodyLH": "13.75px"
+  },
+  "fontFamilies": {
+   "Helvetica, \"Helvetica Fallback\"": {
+    "count": 83,
+    "sizes": {
+     "11px": 77,
+     "14px": 6
+    },
+    "weights": {
+     "400": 83
+    }
+   }
+  },
+  "pill": {
+   "box": {
+    "w": 71.41,
+    "h": 35.75,
+    "x": 24,
+    "y": 34
+   },
+   "style": {
+    "background-color": "rgba(219, 219, 219, 0.698)",
+    "color": "rgb(55, 55, 55)",
+    "border-radius": "24px",
+    "backdrop-filter": "blur(64px)",
+    "box-shadow": "none",
+    "padding": "0px",
+    "font-size": "11px",
+    "font-weight": "400",
+    "letter-spacing": "normal",
+    "transition": "color 0.5s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), fill 0.5s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+    "transition-duration": "0.5s",
+    "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "position": "static",
+    "bottom": "auto"
+   },
+   "cls": "drop-shadow-xs flex rounded-[24px] border-[0.5px] border-[#BCBCBCB2] bg-[#DBDBDBB2] text-[#373737] backdrop-blur-[64px] transition-colors duration-500 hover:bg-[#BCBCBCB2] hover:text-[#373737]",
+   "text": "9.63"
+  },
+  "pillWrap": {
+   "box": {
+    "w": 71.41,
+    "h": 35.75,
+    "x": 24,
+    "y": 34
+   },
+   "style": {
+    "background-color": "rgba(219, 219, 219, 0.698)",
+    "border-radius": "24px",
+    "backdrop-filter": "blur(64px)",
+    "box-shadow": "none",
+    "padding": "0px",
+    "gap": "normal",
+    "position": "static",
+    "bottom": "auto",
+    "animation": "none",
+    "animation-duration": "0s",
+    "animation-timing-function": "ease",
+    "animation-fill-mode": "none"
+   },
+   "cls": "drop-shadow-xs flex rounded-[24px] border-[0.5px] border-[#BCBCBCB2] bg-[#DBDBDBB2] text-[#373737] backdrop-blur-[64px] transition-colors duration-500 hover:bg-[#BCBCBCB2] hover:text-[#373737]"
+  },
+  "pillLinks": [
+   {
+    "text": "Selected",
+    "box": {
+     "w": 0,
+     "h": 0,
+     "x": 0,
+     "y": 0
+    },
+    "style": {
+     "background-color": "rgba(108, 108, 108, 0.698)",
+     "color": "rgb(248, 248, 248)",
+     "border-radius": "24px",
+     "padding": "10px 0px",
+     "font-size": "11px",
+     "transition-duration": "0.5s",
+     "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
+     "transition-property": "color, background-color, border-color, text-decoration-color, fill, stroke"
+    }
+   },
+   {
+    "text": "Journal",
+    "box": {
+     "w": 0,
+     "h": 0,
+     "x": 0,
+     "y": 0
+    },
+    "style": {
+     "background-color": "rgba(219, 219, 219, 0.698)",
+     "color": "rgb(55, 55, 55)",
+     "border-radius": "24px",
+     "padding": "10px 0px",
+     "font-size": "11px",
+     "transition-duration": "0.5s",
+     "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
+     "transition-property": "color, background-color, border-color, text-decoration-color, fill, stroke"
+    }
+   },
+   {
+    "text": "Sounds",
+    "box": {
+     "w": 0,
+     "h": 0,
+     "x": 0,
+     "y": 0
+    },
+    "style": {
+     "background-color": "rgba(219, 219, 219, 0.698)",
+     "color": "rgb(55, 55, 55)",
+     "border-radius": "24px",
+     "padding": "10px 0px",
+     "font-size": "11px",
+     "transition-duration": "0.5s",
+     "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
+     "transition-property": "color, background-color, border-color, text-decoration-color, fill, stroke"
+    }
+   }
+  ],
+  "tileCount": 282,
+  "tileCentre": {
+   "box": {
+    "w": 150.3,
+    "h": 188.56,
+    "x": 119.84,
+    "y": 281.06
+   },
+   "dist": 46.7,
+   "cls": "image-container relative overflow-hidden rounded-[12px] transition-all duration-300 ease-out",
+   "style": {
+    "width": "150.297px",
+    "height": "188.562px",
+    "border-radius": "12px",
+    "transition-property": "all",
+    "transition-duration": "0.3s",
+    "transition-timing-function": "cubic-bezier(0, 0, 0.2, 1)",
+    "transform-origin": "75.1484px 94.2812px",
+    "overflow": "hidden"
+   }
+  },
+  "tileFar": {
+   "box": {
+    "w": 147,
+    "h": 184.42,
+    "x": 121.5,
+    "y": -19786
+   },
+   "dist": 20115.8
+  },
+  "scroll": {
+   "docScrollH": 844,
+   "bodyScrollH": 844,
+   "docScrolls": false,
+   "swiperWrapper": false,
+   "swiperSlides": 0,
+   "imageContainers": 282,
+   "slides": 0,
+   "overflowScrollEls": 1
+  }
+ },
+ "390/journal": {
+  "vw": 390,
+  "vh": 844,
+  "tokens": {
+   "background": "#f8f8f8",
+   "foreground": "#373737",
+   "bodyBg": "rgb(250, 249, 246)",
+   "bodyColor": "rgb(55, 55, 55)",
+   "bodyFont": "Helvetica, \"Helvetica Fallback\"",
+   "bodySize": "11px",
+   "bodyLH": "13.75px"
+  },
+  "fontFamilies": {
+   "Helvetica, \"Helvetica Fallback\"": {
+    "count": 242,
+    "sizes": {
+     "11px": 182,
+     "14px": 6,
+     "7.5px": 43,
+     "13.4px": 11
+    },
+    "weights": {
+     "400": 242
+    }
+   }
+  },
+  "pill": {
+   "box": {
+    "w": 71.41,
+    "h": 35.75,
+    "x": 24,
+    "y": 34
+   },
+   "style": {
+    "background-color": "rgba(219, 219, 219, 0.698)",
+    "color": "rgb(55, 55, 55)",
+    "border-radius": "24px",
+    "backdrop-filter": "blur(64px)",
+    "box-shadow": "none",
+    "padding": "0px",
+    "font-size": "11px",
+    "font-weight": "400",
+    "letter-spacing": "normal",
+    "transition": "color 0.5s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), fill 0.5s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+    "transition-duration": "0.5s",
+    "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "position": "static",
+    "bottom": "auto"
+   },
+   "cls": "drop-shadow-xs flex rounded-[24px] border-[0.5px] border-[#BCBCBCB2] bg-[#DBDBDBB2] text-[#373737] backdrop-blur-[64px] transition-colors duration-500 hover:bg-[#BCBCBCB2] hover:text-[#373737]",
+   "text": "9.63"
+  },
+  "pillWrap": {
+   "box": {
+    "w": 71.41,
+    "h": 35.75,
+    "x": 24,
+    "y": 34
+   },
+   "style": {
+    "background-color": "rgba(219, 219, 219, 0.698)",
+    "border-radius": "24px",
+    "backdrop-filter": "blur(64px)",
+    "box-shadow": "none",
+    "padding": "0px",
+    "gap": "normal",
+    "position": "static",
+    "bottom": "auto",
+    "animation": "none",
+    "animation-duration": "0s",
+    "animation-timing-function": "ease",
+    "animation-fill-mode": "none"
+   },
+   "cls": "drop-shadow-xs flex rounded-[24px] border-[0.5px] border-[#BCBCBCB2] bg-[#DBDBDBB2] text-[#373737] backdrop-blur-[64px] transition-colors duration-500 hover:bg-[#BCBCBCB2] hover:text-[#373737]"
+  },
+  "pillLinks": [
+   {
+    "text": "Selected",
+    "box": {
+     "w": 0,
+     "h": 0,
+     "x": 0,
+     "y": 0
+    },
+    "style": {
+     "background-color": "rgba(219, 219, 219, 0.698)",
+     "color": "rgb(55, 55, 55)",
+     "border-radius": "24px",
+     "padding": "10px 0px",
+     "font-size": "11px",
+     "transition-duration": "0.5s",
+     "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
+     "transition-property": "color, background-color, border-color, text-decoration-color, fill, stroke"
+    }
+   },
+   {
+    "text": "Journal",
+    "box": {
+     "w": 0,
+     "h": 0,
+     "x": 0,
+     "y": 0
+    },
+    "style": {
+     "background-color": "rgba(108, 108, 108, 0.698)",
+     "color": "rgb(248, 248, 248)",
+     "border-radius": "24px",
+     "padding": "10px 0px",
+     "font-size": "11px",
+     "transition-duration": "0.5s",
+     "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
+     "transition-property": "color, background-color, border-color, text-decoration-color, fill, stroke"
+    }
+   },
+   {
+    "text": "Sounds",
+    "box": {
+     "w": 0,
+     "h": 0,
+     "x": 0,
+     "y": 0
+    },
+    "style": {
+     "background-color": "rgba(219, 219, 219, 0.698)",
+     "color": "rgb(55, 55, 55)",
+     "border-radius": "24px",
+     "padding": "10px 0px",
+     "font-size": "11px",
+     "transition-duration": "0.5s",
+     "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
+     "transition-property": "color, background-color, border-color, text-decoration-color, fill, stroke"
+    }
+   }
+  ],
+  "tileCount": 0,
+  "tileCentre": null,
+  "tileFar": null,
+  "scroll": {
+   "docScrollH": 7424,
+   "bodyScrollH": 7424,
+   "docScrolls": true,
+   "swiperWrapper": false,
+   "swiperSlides": 0,
+   "imageContainers": 0,
+   "slides": 0,
+   "overflowScrollEls": 0
+  }
+ },
+ "1440/": {
+  "vw": 1440,
+  "vh": 900,
+  "tokens": {
+   "background": "#f8f8f8",
+   "foreground": "#373737",
+   "bodyBg": "rgb(250, 249, 246)",
+   "bodyColor": "rgb(55, 55, 55)",
+   "bodyFont": "Helvetica, \"Helvetica Fallback\"",
+   "bodySize": "11px",
+   "bodyLH": "13.75px"
+  },
+  "fontFamilies": {
+   "Helvetica, \"Helvetica Fallback\"": {
+    "count": 65,
+    "sizes": {
+     "11px": 62,
+     "14px": 3
+    },
+    "weights": {
+     "400": 65
+    }
+   }
+  },
+  "pill": {
+   "box": {
+    "w": 71.41,
+    "h": 35.75,
+    "x": 60,
+    "y": 34
+   },
+   "style": {
+    "background-color": "rgba(219, 219, 219, 0.698)",
+    "color": "rgb(55, 55, 55)",
+    "border-radius": "24px",
+    "backdrop-filter": "blur(64px)",
+    "box-shadow": "none",
+    "padding": "0px",
+    "font-size": "11px",
+    "font-weight": "400",
+    "letter-spacing": "normal",
+    "transition": "color 0.5s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), fill 0.5s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+    "transition-duration": "0.5s",
+    "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "position": "static",
+    "bottom": "auto"
+   },
+   "cls": "drop-shadow-xs flex rounded-[24px] border-[0.5px] border-[#BCBCBCB2] bg-[#DBDBDBB2] text-[#373737] backdrop-blur-[64px] transition-colors duration-500 hover:bg-[#BCBCBCB2] hover:text-[#373737]",
+   "text": "9.63"
+  },
+  "pillWrap": {
+   "box": {
+    "w": 71.41,
+    "h": 35.75,
+    "x": 60,
+    "y": 34
+   },
+   "style": {
+    "background-color": "rgba(219, 219, 219, 0.698)",
+    "border-radius": "24px",
+    "backdrop-filter": "blur(64px)",
+    "box-shadow": "none",
+    "padding": "0px",
+    "gap": "normal",
+    "position": "static",
+    "bottom": "auto",
+    "animation": "none",
+    "animation-duration": "0s",
+    "animation-timing-function": "ease",
+    "animation-fill-mode": "none"
+   },
+   "cls": "drop-shadow-xs flex rounded-[24px] border-[0.5px] border-[#BCBCBCB2] bg-[#DBDBDBB2] text-[#373737] backdrop-blur-[64px] transition-colors duration-500 hover:bg-[#BCBCBCB2] hover:text-[#373737]"
+  },
+  "pillLinks": [
+   {
+    "text": "Selected",
+    "box": {
+     "w": 74,
+     "h": 35.75,
+     "x": 1146,
+     "y": 34
+    },
+    "style": {
+     "background-color": "rgba(108, 108, 108, 0.698)",
+     "color": "rgb(248, 248, 248)",
+     "border-radius": "24px",
+     "padding": "10px 0px",
+     "font-size": "11px",
+     "transition-duration": "0.5s",
+     "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
+     "transition-property": "color, background-color, border-color, text-decoration-color, fill, stroke"
+    }
+   },
+   {
+    "text": "Journal",
+    "box": {
+     "w": 74,
+     "h": 35.75,
+     "x": 1226,
+     "y": 34
+    },
+    "style": {
+     "background-color": "rgba(219, 219, 219, 0.698)",
+     "color": "rgb(55, 55, 55)",
+     "border-radius": "24px",
+     "padding": "10px 0px",
+     "font-size": "11px",
+     "transition-duration": "0.5s",
+     "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
+     "transition-property": "color, background-color, border-color, text-decoration-color, fill, stroke"
+    }
+   },
+   {
+    "text": "Sounds",
+    "box": {
+     "w": 74,
+     "h": 35.75,
+     "x": 1306,
+     "y": 34
+    },
+    "style": {
+     "background-color": "rgba(219, 219, 219, 0.698)",
+     "color": "rgb(55, 55, 55)",
+     "border-radius": "24px",
+     "padding": "10px 0px",
+     "font-size": "11px",
+     "transition-duration": "0.5s",
+     "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
+     "transition-property": "color, background-color, border-color, text-decoration-color, fill, stroke"
+    }
+   }
+  ],
+  "tileCount": 188,
+  "tileCentre": {
+   "box": {
+    "w": 151.28,
+    "h": 189.8,
+    "x": 644.36,
+    "y": 399.95
+   },
+   "dist": 44.9,
+   "cls": "slide relative mx-auto overflow-hidden rounded-[12px] transition-all duration-300 ease-out",
+   "style": {
+    "width": "151.281px",
+    "height": "189.797px",
+    "border-radius": "12px",
+    "transition-property": "all",
+    "transition-duration": "0.3s",
+    "transition-timing-function": "cubic-bezier(0, 0, 0.2, 1)",
+    "transform-origin": "75.6406px 94.8984px",
+    "overflow": "hidden"
+   }
+  },
+  "tileFar": {
+   "box": {
+    "w": 110,
+    "h": 138,
+    "x": 665,
+    "y": -13339
+   },
+   "dist": 13720
+  },
+  "scroll": {
+   "docScrollH": 900,
+   "bodyScrollH": 900,
+   "docScrolls": false,
+   "swiperWrapper": true,
+   "swiperSlides": 188,
+   "imageContainers": 0,
+   "slides": 188,
+   "overflowScrollEls": 1
+  }
+ },
+ "1440/journal": {
+  "vw": 1440,
+  "vh": 900,
+  "tokens": {
+   "background": "#f8f8f8",
+   "foreground": "#373737",
+   "bodyBg": "rgb(250, 249, 246)",
+   "bodyColor": "rgb(55, 55, 55)",
+   "bodyFont": "Helvetica, \"Helvetica Fallback\"",
+   "bodySize": "11px",
+   "bodyLH": "13.75px"
+  },
+  "fontFamilies": {
+   "Helvetica, \"Helvetica Fallback\"": {
+    "count": 224,
+    "sizes": {
+     "11px": 167,
+     "7.5px": 43,
+     "13.4px": 11,
+     "14px": 3
+    },
+    "weights": {
+     "400": 224
+    }
+   }
+  },
+  "pill": {
+   "box": {
+    "w": 71.41,
+    "h": 35.75,
+    "x": 60,
+    "y": 34
+   },
+   "style": {
+    "background-color": "rgba(219, 219, 219, 0.698)",
+    "color": "rgb(55, 55, 55)",
+    "border-radius": "24px",
+    "backdrop-filter": "blur(64px)",
+    "box-shadow": "none",
+    "padding": "0px",
+    "font-size": "11px",
+    "font-weight": "400",
+    "letter-spacing": "normal",
+    "transition": "color 0.5s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), fill 0.5s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+    "transition-duration": "0.5s",
+    "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "position": "static",
+    "bottom": "auto"
+   },
+   "cls": "drop-shadow-xs flex rounded-[24px] border-[0.5px] border-[#BCBCBCB2] bg-[#DBDBDBB2] text-[#373737] backdrop-blur-[64px] transition-colors duration-500 hover:bg-[#BCBCBCB2] hover:text-[#373737]",
+   "text": "9.63"
+  },
+  "pillWrap": {
+   "box": {
+    "w": 71.41,
+    "h": 35.75,
+    "x": 60,
+    "y": 34
+   },
+   "style": {
+    "background-color": "rgba(219, 219, 219, 0.698)",
+    "border-radius": "24px",
+    "backdrop-filter": "blur(64px)",
+    "box-shadow": "none",
+    "padding": "0px",
+    "gap": "normal",
+    "position": "static",
+    "bottom": "auto",
+    "animation": "none",
+    "animation-duration": "0s",
+    "animation-timing-function": "ease",
+    "animation-fill-mode": "none"
+   },
+   "cls": "drop-shadow-xs flex rounded-[24px] border-[0.5px] border-[#BCBCBCB2] bg-[#DBDBDBB2] text-[#373737] backdrop-blur-[64px] transition-colors duration-500 hover:bg-[#BCBCBCB2] hover:text-[#373737]"
+  },
+  "pillLinks": [
+   {
+    "text": "Selected",
+    "box": {
+     "w": 74,
+     "h": 35.75,
+     "x": 1146,
+     "y": 34
+    },
+    "style": {
+     "background-color": "rgba(219, 219, 219, 0.698)",
+     "color": "rgb(55, 55, 55)",
+     "border-radius": "24px",
+     "padding": "10px 0px",
+     "font-size": "11px",
+     "transition-duration": "0.5s",
+     "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
+     "transition-property": "color, background-color, border-color, text-decoration-color, fill, stroke"
+    }
+   },
+   {
+    "text": "Journal",
+    "box": {
+     "w": 74,
+     "h": 35.75,
+     "x": 1226,
+     "y": 34
+    },
+    "style": {
+     "background-color": "rgba(108, 108, 108, 0.698)",
+     "color": "rgb(248, 248, 248)",
+     "border-radius": "24px",
+     "padding": "10px 0px",
+     "font-size": "11px",
+     "transition-duration": "0.5s",
+     "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
+     "transition-property": "color, background-color, border-color, text-decoration-color, fill, stroke"
+    }
+   },
+   {
+    "text": "Sounds",
+    "box": {
+     "w": 74,
+     "h": 35.75,
+     "x": 1306,
+     "y": 34
+    },
+    "style": {
+     "background-color": "rgba(219, 219, 219, 0.698)",
+     "color": "rgb(55, 55, 55)",
+     "border-radius": "24px",
+     "padding": "10px 0px",
+     "font-size": "11px",
+     "transition-duration": "0.5s",
+     "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
+     "transition-property": "color, background-color, border-color, text-decoration-color, fill, stroke"
+    }
+   }
+  ],
+  "tileCount": 0,
+  "tileCentre": null,
+  "tileFar": null,
+  "scroll": {
+   "docScrollH": 8650,
+   "bodyScrollH": 8650,
+   "docScrolls": true,
+   "swiperWrapper": false,
+   "swiperSlides": 0,
+   "imageContainers": 0,
+   "slides": 0,
+   "overflowScrollEls": 0
+  }
+ }
+}

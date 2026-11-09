@@ -1,0 +1,471 @@
+{
+ "origin": "https://ninepointsixthree.co",
+ "utc": "2026-11-09T06:19:53Z",
+ "probes": {
+  "/robots.txt": {
+   "status": 404,
+   "bytes": 0
+  },
+  "/sitemap.xml": {
+   "status": 200,
+   "bytes": 12472
+  },
+  "/sitemap-0.xml": {
+   "status": 404,
+   "bytes": 0
+  }
+ },
+ "routes": {
+  "/": {
+   "status": 200,
+   "bytes": 579125,
+   "ct": ""
+  },
+  "/journal": {
+   "status": 200,
+   "bytes": 152980,
+   "ct": ""
+  },
+  "/journal/blending-business-and-creativity-lisa-liu-on-building-an-agency-where-one-victory-belongs-to-all": {
+   "status": 200,
+   "bytes": 42627,
+   "ct": ""
+  },
+  "/journal/creative-tension-samson-ossedryver-on-designing-with-attitude": {
+   "status": 200,
+   "bytes": 40936,
+   "ct": ""
+  },
+  "/journal/editorial-design-for-justsmile-magazine": {
+   "status": 200,
+   "bytes": 38417,
+   "ct": ""
+  },
+  "/journal/noa-featured-on-design-everywhere": {
+   "status": 200,
+   "bytes": 34368,
+   "ct": ""
+  },
+  "/journal/noa-featured-on-logos-ai": {
+   "status": 200,
+   "bytes": 34091,
+   "ct": ""
+  },
+  "/journal/perdiem-featured-on-contemporary-type": {
+   "status": 200,
+   "bytes": 36057,
+   "ct": ""
+  },
+  "/journal/perdiem-featured-on-digital-archive": {
+   "status": 200,
+   "bytes": 36130,
+   "ct": ""
+  },
+  "/journal/perdiem-featured-on-visual-journal": {
+   "status": 200,
+   "bytes": 33742,
+   "ct": ""
+  },
+  "/journal/perdiem-featured-on-visuelle": {
+   "status": 200,
+   "bytes": 37008,
+   "ct": ""
+  },
+  "/journal/serena-congiu-featured-on-klikkentheke": {
+   "status": 200,
+   "bytes": 34394,
+   "ct": ""
+  },
+  "/journal/talome-featured-on-bounty-hunters": {
+   "status": 200,
+   "bytes": 35529,
+   "ct": ""
+  },
+  "/sounds": {
+   "status": 200,
+   "bytes": 46797,
+   "ct": ""
+  },
+  "/site.webmanifest": {
+   "status": 404,
+   "bytes": 0,
+   "ct": ""
+  }
+ },
+ "route_count": 15,
+ "routes_200": 14,
+ "sitemap_routes": [
+  "/",
+  "/journal",
+  "/journal/blending-business-and-creativity-lisa-liu-on-building-an-agency-where-one-victory-belongs-to-all",
+  "/journal/creative-tension-samson-ossedryver-on-designing-with-attitude",
+  "/journal/editorial-design-for-justsmile-magazine",
+  "/journal/noa-featured-on-design-everywhere",
+  "/journal/noa-featured-on-logos-ai",
+  "/journal/perdiem-featured-on-contemporary-type",
+  "/journal/perdiem-featured-on-digital-archive",
+  "/journal/perdiem-featured-on-visual-journal",
+  "/journal/perdiem-featured-on-visuelle",
+  "/journal/serena-congiu-featured-on-klikkentheke",
+  "/journal/talome-featured-on-bounty-hunters",
+  "/sounds"
+ ],
+ "webpack_runtimes": [
+  "/_next/static/chunks/webpack-ce48ed05e66117be.js"
+ ],
+ "chunk_map_entries": 12,
+ "asset_candidates": 32,
+ "downloaded": 30,
+ "js_files": 24,
+ "css_files": 2,
+ "font_files": 4,
+ "bytes_js": 1239849,
+ "bytes_css": 27149,
+ "maps_found": 0,
+ "maps_declared": 0,
+ "missing": [
+  {
+   "path": "/_next/static/chunks/654.151515842e21433f.js",
+   "status": 404
+  },
+  {
+   "path": "/_next/static/chunks/678.37d1a008835cba6e.js",
+   "status": 404
+  }
+ ],
+ "missing_count": 2,
+ "files": [
+  {
+   "path": "/_next/static/chunks/106-89bb4c0e93e2b81a.js",
+   "bytes": 160285
+  },
+  {
+   "path": "/_next/static/chunks/167.0cb5fad4fb0825f0.js",
+   "bytes": 8848
+  },
+  {
+   "path": "/_next/static/chunks/284.9ed557ce790fc946.js",
+   "bytes": 390
+  },
+  {
+   "path": "/_next/static/chunks/341.98f343258807ea9f.js",
+   "bytes": 42110
+  },
+  {
+   "path": "/_next/static/chunks/4bd1b696-328c8d90f2f24e29.js",
+   "bytes": 167090
+  },
+  {
+   "path": "/_next/static/chunks/517-3cc4f654c4fd9f9d.js",
+   "bytes": 200256
+  },
+  {
+   "path": "/_next/static/chunks/571.0212ed6858d81b3e.js",
+   "bytes": 884
+  },
+  {
+   "path": "/_next/static/chunks/589.f7c25eb65cbb8209.js",
+   "bytes": 268
+  },
+  {
+   "path": "/_next/static/chunks/757-a2b2e80dec15ba81.js",
+   "bytes": 9288
+  },
+  {
+   "path": "/_next/static/chunks/805.e69cb3754e1e4da8.js",
+   "bytes": 12008
+  },
+  {
+   "path": "/_next/static/chunks/836.e7ea00b7c58d38e3.js",
+   "bytes": 6846
+  },
+  {
+   "path": "/_next/static/chunks/848.5f387f4c2b579e4c.js",
+   "bytes": 312
+  },
+  {
+   "path": "/_next/static/chunks/869.bf6fcd523bad1e7d.js",
+   "bytes": 535
+  },
+  {
+   "path": "/_next/static/chunks/940-8e218d0aa4c4ec51.js",
+   "bytes": 93218
+  },
+  {
+   "path": "/_next/static/chunks/970-740549c797f3c914.js",
+   "bytes": 13545
+  },
+  {
+   "path": "/_next/static/chunks/996.5d215cea2d98a17e.js",
+   "bytes": 379830
+  },
+  {
+   "path": "/_next/static/chunks/app/journal/%5Bslug%5D/page-1b254229535d6435.js",
+   "bytes": 524
+  },
+  {
+   "path": "/_next/static/chunks/app/journal/page-0dd588dd811268d6.js",
+   "bytes": 524
+  },
+  {
+   "path": "/_next/static/chunks/app/layout-f5af0f8f6e07d72d.js",
+   "bytes": 18419
+  },
+  {
+   "path": "/_next/static/chunks/app/page-b014faced7707c4e.js",
+   "bytes": 6863
+  },
+  {
+   "path": "/_next/static/chunks/app/sounds/page-38d4bcf1f55b9ef4.js",
+   "bytes": 524
+  },
+  {
+   "path": "/_next/static/chunks/main-app-a849309caff0f7ba.js",
+   "bytes": 463
+  },
+  {
+   "path": "/_next/static/chunks/polyfills-42372ed130431b0a.js",
+   "bytes": 112594
+  },
+  {
+   "path": "/_next/static/chunks/webpack-ce48ed05e66117be.js",
+   "bytes": 4225
+  },
+  {
+   "path": "/_next/static/css/1d8d46c9fe364036.css",
+   "bytes": 6517
+  },
+  {
+   "path": "/_next/static/css/4c127f03eca4c747.css",
+   "bytes": 20632
+  },
+  {
+   "path": "/_next/static/media/07076b773ed786e9-s.p.ttf",
+   "bytes": 61164
+  },
+  {
+   "path": "/_next/static/media/1506853152b26b89-s.p.otf",
+   "bytes": 24128
+  },
+  {
+   "path": "/_next/static/media/69ba774d16c6fa3f-s.p.ttf",
+   "bytes": 125532
+  },
+  {
+   "path": "/_next/static/media/6bd478aaa72c2c95-s.p.ttf",
+   "bytes": 126636
+  }
+ ],
+ "map_probes": [
+  {
+   "for": "/_next/static/chunks/106-89bb4c0e93e2b81a.js",
+   "url": "/_next/static/chunks/106-89bb4c0e93e2b81a.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/167.0cb5fad4fb0825f0.js",
+   "url": "/_next/static/chunks/167.0cb5fad4fb0825f0.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/284.9ed557ce790fc946.js",
+   "url": "/_next/static/chunks/284.9ed557ce790fc946.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/341.98f343258807ea9f.js",
+   "url": "/_next/static/chunks/341.98f343258807ea9f.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/4bd1b696-328c8d90f2f24e29.js",
+   "url": "/_next/static/chunks/4bd1b696-328c8d90f2f24e29.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/517-3cc4f654c4fd9f9d.js",
+   "url": "/_next/static/chunks/517-3cc4f654c4fd9f9d.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/571.0212ed6858d81b3e.js",
+   "url": "/_next/static/chunks/571.0212ed6858d81b3e.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/589.f7c25eb65cbb8209.js",
+   "url": "/_next/static/chunks/589.f7c25eb65cbb8209.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/757-a2b2e80dec15ba81.js",
+   "url": "/_next/static/chunks/757-a2b2e80dec15ba81.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/805.e69cb3754e1e4da8.js",
+   "url": "/_next/static/chunks/805.e69cb3754e1e4da8.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/836.e7ea00b7c58d38e3.js",
+   "url": "/_next/static/chunks/836.e7ea00b7c58d38e3.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/848.5f387f4c2b579e4c.js",
+   "url": "/_next/static/chunks/848.5f387f4c2b579e4c.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/869.bf6fcd523bad1e7d.js",
+   "url": "/_next/static/chunks/869.bf6fcd523bad1e7d.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/940-8e218d0aa4c4ec51.js",
+   "url": "/_next/static/chunks/940-8e218d0aa4c4ec51.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/970-740549c797f3c914.js",
+   "url": "/_next/static/chunks/970-740549c797f3c914.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/996.5d215cea2d98a17e.js",
+   "url": "/_next/static/chunks/996.5d215cea2d98a17e.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/app/journal/%5Bslug%5D/page-1b254229535d6435.js",
+   "url": "/_next/static/chunks/app/journal/%5Bslug%5D/page-1b254229535d6435.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/app/journal/page-0dd588dd811268d6.js",
+   "url": "/_next/static/chunks/app/journal/page-0dd588dd811268d6.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/app/layout-f5af0f8f6e07d72d.js",
+   "url": "/_next/static/chunks/app/layout-f5af0f8f6e07d72d.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/app/page-b014faced7707c4e.js",
+   "url": "/_next/static/chunks/app/page-b014faced7707c4e.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/app/sounds/page-38d4bcf1f55b9ef4.js",
+   "url": "/_next/static/chunks/app/sounds/page-38d4bcf1f55b9ef4.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/main-app-a849309caff0f7ba.js",
+   "url": "/_next/static/chunks/main-app-a849309caff0f7ba.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/polyfills-42372ed130431b0a.js",
+   "url": "/_next/static/chunks/polyfills-42372ed130431b0a.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/chunks/webpack-ce48ed05e66117be.js",
+   "url": "/_next/static/chunks/webpack-ce48ed05e66117be.js.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/css/1d8d46c9fe364036.css",
+   "url": "/_next/static/css/1d8d46c9fe364036.css.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/css/4c127f03eca4c747.css",
+   "url": "/_next/static/css/4c127f03eca4c747.css.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/media/07076b773ed786e9-s.p.ttf",
+   "url": "/_next/static/media/07076b773ed786e9-s.p.ttf.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/media/1506853152b26b89-s.p.otf",
+   "url": "/_next/static/media/1506853152b26b89-s.p.otf.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/media/69ba774d16c6fa3f-s.p.ttf",
+   "url": "/_next/static/media/69ba774d16c6fa3f-s.p.ttf.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  },
+  {
+   "for": "/_next/static/media/6bd478aaa72c2c95-s.p.ttf",
+   "url": "/_next/static/media/6bd478aaa72c2c95-s.p.ttf.map",
+   "declared": false,
+   "status": 404,
+   "bytes": 0
+  }
+ ]
+}
