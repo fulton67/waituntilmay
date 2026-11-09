@@ -29,8 +29,8 @@ export const OstadReel: React.FC<ReelProps> = ({ spec }) => {
         ) : null,
       )}
       {spec.hook && (
-        <Sequence from={f(spec.hook.at ?? 0)} durationInFrames={f(spec.hook.dur ?? 2.2)} name="Hook">
-          <Hook text={spec.hook.text} dur={spec.hook.dur ?? 2.2} />
+        <Sequence from={f(spec.hook.at ?? 0)} durationInFrames={f(spec.hook.dur ?? 3.4)} name="Title">
+          <Hook text={spec.hook.text} dur={spec.hook.dur ?? 3.4} />
         </Sequence>
       )}
       <Captions captions={spec.captions} keywords={spec.keywords} />

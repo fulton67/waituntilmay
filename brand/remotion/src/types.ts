@@ -9,7 +9,8 @@ export type Spec = {
   slug: string; speed: number; fps: number; durationInSeconds: number;
   captions: Caption[]; overlays: Overlay[]; end?: { src: string; at: number; dissolve: number };
   footage: string; audio: string;
-  hook?: Hook;            // opening title, words pop on one by one (edit.json "remotion": { "hook": {...} })
-  keywords?: string[];    // caption words drawn in the accent colour as he says them
+  hook?: Hook;            // opening title on glass (edit.json "remotion": { "hook": {...} }); lines split after ?.!: or on 
+
+  keywords?: string[];    // caption words drawn in the brand-blue gradient as he says them
 };
 export type ReelProps = { spec: Spec | null };
