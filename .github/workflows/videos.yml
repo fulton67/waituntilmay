@@ -24,28 +24,24 @@ jobs:
 
       - name: Install tools
         run: |
-          python -m pip install --upgrade --quiet yt-dlp pillow playwright
-          python -m playwright install --with-deps chromium
+          python -m pip install --upgrade --quiet yt-dlp pillow
 
       - name: Refresh videos.json and posters
         run: python scripts/refresh_feed.py
 
-      - name: Rebuild the grid markup
+      - name: Rebuild the grid, the index-panel data and index.html
         run: python scripts/build_video_grid.py || true
-
-      - name: Re-capture the /videos previews
-        run: python scripts/capture_videos_page.py
 
       - name: Commit when changed
         id: commit
         run: |
-          if [ -z "$(git status --porcelain site/videos.json site/assets/yt site/assets/preview-videos-1280.webp site/assets/preview-videos-390.webp)" ]; then
+          if [ -z "$(git status --porcelain site/videos.json site/assets/yt site/index.html site/build/sie-grid.html site/build/videos-data.json)" ]; then
             echo "no change"; exit 0
           fi
           git config user.name  "sie-feed"
           git config user.email "noreply@anthropic.com"
-          git add site/videos.json site/assets/yt site/assets/preview-videos-*.webp
-          git commit -m "chore(videos): refresh feed, posters and page previews"
+          git add site/videos.json site/assets/yt site/index.html site/build/sie-grid.html site/build/videos-data.json
+          git commit -m "chore(videos): refresh feed, posters, grid and index panel"
           git push
 
       - name: Summary

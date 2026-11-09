@@ -9,6 +9,15 @@ A video present in videos.json but absent from artist-map.json is still
 rendered, using channelDefaults[handle] for the artist and the cleaned
 upload title, and is reported in the Action summary so a human can name it.
 
+Posters are ALWAYS the local `assets/yt/<id>.jpg` written by refresh_feed.py,
+never i.ytimg.com — the page must render with zero third-party image requests.
+
+Writes three things, so a new upload reaches the page without a hand edit:
+
+    site/build/sie-grid.html     the /videos fragment (Webflow paste source)
+    site/build/videos-data.json  [{id,label}] — the index panel's mini grid
+    site/index.html              #vids tiles and the #videos-data blob, in place
+
     python scripts/build_video_grid.py
 """
 
@@ -30,6 +39,9 @@ ROOT = os.path.abspath(os.path.join(HERE, ".."))
 VIDEOS = os.path.join(ROOT, "site", "videos.json")
 ARTISTS = os.path.join(ROOT, "reference", "artist-map.json")
 OUT_HTML = os.path.join(ROOT, "site", "build", "sie-grid.html")
+OUT_DATA = os.path.join(ROOT, "site", "build", "videos-data.json")
+INDEX = os.path.join(ROOT, "site", "index.html")
+POSTER = "assets/yt/{}.jpg"
 
 TRAILING = re.compile(r"\s*\((?:official\s+)?(?:music\s+)?video\)\s*$", re.I)
 
@@ -43,6 +55,37 @@ def clean_title(raw, artist, channel=None):
         lead = re.compile(r"^\s*" + re.escape(name) + r"\s*[-–—:]\s*", re.I)
         t = lead.sub("", t)
     return re.sub(r"\s+", " ", t).strip().lower()
+
+
+VIDS_OPEN = '<div class="vids" id="vids">'
+VIDS_SHUT = "\n    </div>"
+DATA_OPEN = '<script type="application/json" id="videos-data">'
+DATA_SHUT = "</script>"
+
+
+def patch_index(tiles_html, data_json):
+    """Rewrite the #vids tiles and the #videos-data blob inside site/index.html.
+
+    site/index.html is the single-file local build AND the source
+    build_webflow_pages.py splits into the two Webflow pages, so the tiles have
+    to land here or a new upload never reaches either page.
+    """
+    html = open(INDEX, encoding="utf-8").read()
+    before = html
+
+    i = html.index(VIDS_OPEN) + len(VIDS_OPEN)
+    j = html.index(VIDS_SHUT, i)
+    html = html[:i] + "\n" + tiles_html + html[j:]
+
+    i = html.index(DATA_OPEN) + len(DATA_OPEN)
+    j = html.index(DATA_SHUT, i)
+    html = html[:i] + data_json + html[j:]
+
+    if html == before:
+        return 0
+    with open(INDEX, "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(html)
+    return len(html)
 
 
 def main():
@@ -72,7 +115,7 @@ def main():
             f'         href="https://www.youtube.com/watch?v={r["id"]}"\n'
             f'         target="_blank" rel="noopener" aria-label="{html.escape(label, quote=True)}">\n'
             f'        <span class="vid-thumb">'
-            f'<img src="https://i.ytimg.com/vi/{r["id"]}/hqdefault.jpg" alt="" loading="lazy"'
+            f'<img src="{POSTER.format(r["id"])}" alt="" loading="lazy"'
             f' width="480" height="360"></span>\n'
             f'        <span class="vid-label">{html.escape(label)}</span>\n'
             f'      </a>'
@@ -98,14 +141,24 @@ def main():
         + '    <div class="vids" id="vids">\n' + "\n".join(tiles) + "\n    </div>\n"
     )
     os.makedirs(os.path.dirname(OUT_HTML), exist_ok=True)
-    with open(OUT_HTML, "w", encoding="utf-8") as fh:
+    with open(OUT_HTML, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(frag)
+
+    # The index panel renders this same grid live, from this list.
+    data = [{"id": r["id"], "label": f"{r['artist']} — {r['title']}"} for r in rows]
+    blob = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+    with open(OUT_DATA, "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(blob + "\n")
+    patched = patch_index("\n".join(tiles), blob)
 
     # ---- Action summary ----
     print(f"tiles           {len(rows)}")
     print(f"mapped          {len(rows) - len(unmapped)}")
     print(f"unmapped        {len(unmapped)}")
     print(f"wrote           {os.path.relpath(OUT_HTML, ROOT)}  ({len(frag):,} B)")
+    print(f"wrote           {os.path.relpath(OUT_DATA, ROOT)}  ({len(blob):,} B)")
+    print(f"index.html      {'rewritten (' + format(patched, ',') + ' B)' if patched else 'already current'}")
+    print(f"posters         local assets/yt/<id>.jpg  x{len(rows)}   remote: 0")
     print()
     print(f"{'id':<12} {'label'}")
     for r in rows:
