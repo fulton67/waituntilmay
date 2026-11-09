@@ -1054,6 +1054,29 @@ export default function MoshTune() {
             of it at any setting.
           </span>
         </label>
+        <label className="mt-macro mt-strength">
+          <span className="mt-macro-name">Distortion speed</span>
+          <input type="range" min={0.1} max={2} step={0.05}
+                 value={cfg.tempo?.speed ?? 1}
+                 onChange={(e) => {
+                   overridden.current = true;
+                   setCfg((c) => ({
+                     ...clone(c), tempo: { speed: Number(e.target.value) },
+                   }));
+                 }} />
+          <b>{(cfg.tempo?.speed ?? 1).toFixed(2)}&times;</b>
+          <span className="mt-hint">
+            How fast everything in the look moves, with the footage left
+            alone. One number in front of all of it: the squares&rsquo;
+            cycle, the fold&rsquo;s walk, the filaments, the bloom&rsquo;s
+            smear, the feather&rsquo;s hold and how many stretches are born.
+            At 0.5 a square lives twice as many frames and half as many
+            stretches arrive, while the speech, the cuts and the two
+            transitions keep their own time. This is not the playback rate
+            in the bar above &mdash; that slows the picture, this slows what
+            is done to it.
+          </span>
+        </label>
         <label className="mt-macro mt-feather">
           <span className="mt-macro-name">Feather</span>
           <input type="range" min={0} max={3} step={1}

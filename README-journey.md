@@ -174,6 +174,38 @@ MCU re-quantises, which is a fact about the codec and not about this pass.
 Excluding the pixels that share an MCU with the skirt, 868 pixels of 7.4
 million differ at all, and the gate is 45 dB.
 
+## How fast it moves
+
+Everything in the look that advances does so per FRAME - the squares' cycle,
+the fold's walk, the filaments in the inside look, the bloom's smear, the
+feather's hold, the stretch population - so at 24 frames a second the whole
+thing churned at one rate, and calming it meant reaching for six dials at
+once and getting them to disagree. **Distortion speed** is one number in
+front of all of them.
+
+It is not the transport's playback rate, which slows the picture. This slows
+what is done to the picture: the speech, the cuts and the two transitions
+keep their own time. Each kind of term gets the rescaling that belongs to
+it - a cycle read off the frame index gets a scaled index, a per-frame
+geometric decay `d` becomes `d^speed` so its half-life in seconds stays
+put, a displacement per frame is multiplied, and the stretch simulation is
+stepped fewer times rather than stepped differently, so it is the same
+population seen slowly rather than a different one. The motion field it
+reads is still the current frame's: a stretch born in slowed time should
+follow the picture in front of it.
+
+Measured on one clip, 101 frames, at 1.00x against 0.25x:
+
+| | 1.00x | 0.25x |
+|---|---|---|
+| frame-to-frame difference | 4.063 of 255 | **2.310** |
+| damage blocks flipping a frame | 23.6 of 920 | **12.1** |
+
+The flips halve rather than quarter, and that is the dial working rather
+than failing: a block also enters and leaves the damage because the voice
+opened a reveal or because the footage moved, and neither of those is on
+this clock.
+
 ## The dream slot
 
 Off in the piece, built and measured, and the four dials travel with the

@@ -184,7 +184,12 @@ export class StretchSim {
     return [rnd(this.seed, k, 104) * this.w, rnd(this.seed, k, 105) * this.h];
   }
 
-  step(frame: number, env: number, fps: number) {
+  /**
+   * One step. `flowFrame` is which frame of the motion field to read, which
+   * is the current one even when the population is being stepped in slowed
+   * time - see TuneRenderer's drawStretches.
+   */
+  step(frame: number, env: number, fps: number, flowFrame = frame) {
     const c = this.cfg;
     if (c.amount <= 0.001) { this.live = []; this.frame = frame; return; }
     const loose = Math.min(1, Math.max(0, c.loose));
@@ -212,7 +217,7 @@ export class StretchSim {
       const [sx, sy] = this.spawnPoint(k);
       const w = c.widthMin + rnd(this.seed, k, 2) * (c.widthMax - c.widthMin);
       const hh = c.headMin + rnd(this.seed, k, 3) * (c.headMax - c.headMin);
-      const [fx, fy] = this.flowAt(sx, sy, frame);
+      const [fx, fy] = this.flowAt(sx, sy, flowFrame);
       const dx = flow * fx;
       const dy = (1 - flow) * -1 + flow * fy;
       const dm = Math.hypot(dx, dy) || 1;
@@ -309,7 +314,7 @@ export class StretchSim {
       const stalled = frame <= s.stallUntil;
 
       if (!stalled) {
-        const [fx, fy] = this.flowAt(s.x, s.y, frame);
+        const [fx, fy] = this.flowAt(s.x, s.y, flowFrame);
         const gx = flow * fx * c.gravity * 2.2;
         const gy = (1 - flow) * -c.gravity + flow * fy * c.gravity * 2.2;
         // each one accelerates at its own rate: no two move the same way
@@ -371,9 +376,12 @@ export class StretchSim {
   }
 
   /** Replay from the beginning, so a scrub agrees with having played here. */
-  seekTo(frame: number, envAt: (i: number) => number, fps: number) {
+  seekTo(frame: number, envAt: (i: number) => number, fps: number,
+         flowAt?: (i: number) => number) {
     this.reset();
-    for (let i = 0; i <= frame; i++) this.step(i, envAt(i), fps);
+    for (let i = 0; i <= frame; i++) {
+      this.step(i, envAt(i), fps, flowAt ? flowAt(i) : i);
+    }
   }
 
   /** Instance data: four vec4 per stretch. */

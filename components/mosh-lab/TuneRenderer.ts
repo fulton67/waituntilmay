@@ -106,6 +106,30 @@ export interface TuneConfig {
    */
   underlayer: { strength: number };
   /**
+   * How fast the distortion moves, with the footage left alone.
+   *
+   * Everything in the look that advances - the squares' cycle, the fold's
+   * walk, the filaments in the inside look, the bloom's smear, the
+   * feather's hold, the stretch population - advances per FRAME, so at 24
+   * or 30 of them a second the whole thing churns at one rate and the only
+   * way to calm it was to reach for six dials at once and get them
+   * disagreeing. This is one number in front of all of them: a time scale.
+   *
+   * It is not the transport's playback rate, which slows the picture. This
+   * slows what is done to the picture. At 0.5 a square lives twice as many
+   * frames, the fold walks half as far a second, the smear persists twice
+   * as long and half as many stretches are born; the speech, the cuts and
+   * the two transitions keep their own time.
+   *
+   * The rescalings are the honest ones for each kind of term. A cycle
+   * read off the frame index gets a scaled index. A per-frame geometric
+   * decay d becomes d^speed, which is what keeps its half-life in seconds
+   * where it was. A displacement per frame is multiplied. A simulation is
+   * stepped fewer times rather than stepped differently, so it is the same
+   * simulation seen slowly and not a different one.
+   */
+  tempo: { speed: number };
+  /**
    * The P-frame feather: the skirt around the damage.
    *
    * `ring` is how many macroblocks out it reaches and `length` is the
@@ -271,6 +295,7 @@ export const DEFAULTS: TuneConfig = {
   life: { timeJitter: 0.15, spaceJitter: 0.1 },
   b: { speed: 1.0, dupP: 4 },
   underlayer: { strength: 1 },
+  tempo: { speed: 1 },
   feather: { ring: 2, length: 6 },
   dream: {
     enabled: false, strength: 0.6, depth: 0.5, warp: 0.6,
@@ -485,7 +510,7 @@ export function sanitizeConfig(c: unknown): TuneConfig {
   if (typeof inc.curveBlend === "boolean") out.curveBlend = inc.curveBlend;
   for (const k of ["squares", "reveals", "bloom", "stretch", "organic",
                    "inside", "fold", "life", "b", "underlayer", "feather",
-                   "dream", "exchange"] as const) {
+                   "dream", "tempo", "exchange"] as const) {
     const g = inc[k];
     if (g && typeof g === "object") {
       // only keys the group already has, so a stale field cannot sneak in
@@ -922,6 +947,9 @@ export class TuneRenderer {
     const sl = Math.min(Math.max(slot, 0), this.slots - 1);
     const mvGrid: [number, number] = [this.mvCols || this.cols,
       this.mvRows || this.rows];
+    // one time scale, in front of everything in the look that advances
+    const sp = Math.max(0.05, Math.min(4, cfg.tempo?.speed ?? 1));
+    const ft = frame * sp;
 
     // ---- |A - C| per block
     {
@@ -962,7 +990,7 @@ export class TuneRenderer {
       this.bind(p, "uMv", 1, this.texMv);
       gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
       gl.uniform2f(this.u(p, "uGrid"), mvGrid[0], mvGrid[1]);
-      gl.uniform1f(this.u(p, "uFrame"), frame);
+      gl.uniform1f(this.u(p, "uFrame"), ft);
       gl.uniform1f(this.u(p, "uSeed"), cfg.seed);
       gl.uniform1i(this.u(p, "uLook"), LOOK_ID[ic.look] ?? 0);
       gl.uniform1f(this.u(p, "uHueShift"), ic.hueShift);
@@ -985,7 +1013,7 @@ export class TuneRenderer {
       gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
       gl.uniform2f(this.u(p, "uGrid"), grid[0], grid[1]);
       gl.uniform1f(this.u(p, "uMb"), this.mb);
-      gl.uniform1f(this.u(p, "uFrame"), frame);
+      gl.uniform1f(this.u(p, "uFrame"), ft);
       gl.uniform1f(this.u(p, "uSeed"), cfg.seed);
       const sq = cfg.squares;
       gl.uniform3f(this.u(p, "uSizeW"), sq.weight16, sq.weight8, sq.weight4);
@@ -1012,7 +1040,7 @@ export class TuneRenderer {
     }
 
     // the stretches are part of the map, not an overlay on it
-    this.drawStretches(cfg, sl, frame, env, bTex, true);
+    this.drawStretches(cfg, sl, frame, env, bTex, true, sp);
 
     // ---- bloom feedback
     {
@@ -1023,8 +1051,8 @@ export class TuneRenderer {
       gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
       gl.uniform2f(this.u(p, "uGrid"), mvGrid[0], mvGrid[1]);
       gl.uniform1f(this.u(p, "uStrength"), cfg.bloom.strength);
-      gl.uniform1f(this.u(p, "uDecay"), cfg.bloom.decay);
-      gl.uniform1f(this.u(p, "uScale"), cfg.bloom.scale);
+      gl.uniform1f(this.u(p, "uDecay"), Math.pow(cfg.bloom.decay, sp));
+      gl.uniform1f(this.u(p, "uScale"), cfg.bloom.scale * sp);
       this.bind(p, "uDamage", 4, this.damage.tex);
       gl.uniform1i(this.u(p, "uReset"), this.bloomPrimed[sl] ? 0 : 1);
       this.draw(this.bloomB[sl]);
@@ -1079,7 +1107,7 @@ export class TuneRenderer {
       gl.uniform2f(this.u(p, "uRes"), this.w, this.h);
       this.draw(this.work[sl]);
     }
-    this.drawStretches(cfg, sl, frame, env, bTex, false);
+    this.drawStretches(cfg, sl, frame, env, bTex, false, sp);
     {
       const p = this.use("openings");
       this.bind(p, "uB", 0, bTex);
@@ -1100,7 +1128,7 @@ export class TuneRenderer {
       // the tighter the region, the further in the fold zooms
       const zoom = fc.zoom / Math.max(0.12,
         1 - fc.followZoom * (1 - Math.min(1, spread * 2.2)));
-      const c = cAt(cfg, frame, this.fps || 30, env);
+      const c = cAt(cfg, ft, this.fps || 30, env);
       const p = this.use("fold");
       this.bind(p, "uComp", 0, opened.tex);
       this.bind(p, "uA", 1, this.texA);
@@ -1153,7 +1181,7 @@ export class TuneRenderer {
         gl.uniform2f(this.u(p, "uGrid"), grid[0], grid[1]);
         gl.uniform1f(this.u(p, "uRing"), Math.min(3, fe.ring));
         gl.uniform1f(this.u(p, "uMb"), this.mb);
-        gl.uniform1f(this.u(p, "uLen"), Math.min(12, fe.length));
+        gl.uniform1f(this.u(p, "uLen"), Math.min(12, fe.length) / sp);
         this.draw(this.ringMv);
       }
       {
@@ -1166,7 +1194,7 @@ export class TuneRenderer {
         gl.uniform2f(this.u(p, "uGrid"), grid[0], grid[1]);
         gl.uniform1f(this.u(p, "uMb"), this.mb);
         gl.uniform1f(this.u(p, "uRingW"), Math.min(3, fe.ring));
-        gl.uniform1f(this.u(p, "uLen"), Math.min(12, fe.length));
+        gl.uniform1f(this.u(p, "uLen"), Math.min(12, fe.length) / sp);
         gl.uniform1i(this.u(p, "uReset"), this.featherPrimed[sl] ? 0 : 1);
         this.draw(this.featherB[sl]);
         const t = this.featherA[sl];
@@ -1338,7 +1366,8 @@ export class TuneRenderer {
    * pass reuses that step rather than advancing time twice.
    */
   private drawStretches(cfg: TuneConfig, sl: number, frame: number,
-                        env: number, bTex: WebGLTexture, damagePass: boolean) {
+                        env: number, bTex: WebGLTexture, damagePass: boolean,
+                        sp = 1) {
     const gl = this.gl;
     const sim = this.sims[sl];
     if (cfg.stretch.amount <= 0.001) return;
@@ -1360,9 +1389,24 @@ export class TuneRenderer {
       sim.setWeights(this.diffRead, this.diff.w, this.diff.h,
         cfg.squares.threshold);
       if (this.mv) sim.setFlow(this.mv, this.mvFrames, this.mvRows, this.mvCols);
-      // a jump re-runs the simulation rather than guessing where it would be
-      if (frame !== sim.frame + 1) sim.seekTo(frame, () => env, this.fps);
-      else sim.step(frame, env, this.fps);
+      /**
+       * How many steps the population has taken by this frame: floor of
+       * frame x speed, so it is a function of where we are and not of how
+       * we got here. At half speed the simulation stands still every other
+       * frame, which is the same population moving slowly rather than a
+       * different one moving the same way - and the spawn rate falls with
+       * it, because half as many steps is half as many arrivals.
+       *
+       * The flow it reads is still THIS frame's motion field. A stretch
+       * born in slowed time should still follow the picture in front of
+       * it; indexing the field by the step count instead would have the
+       * stretches drifting along motion from seconds ago.
+       */
+      const want = Math.max(0, Math.round(frame * sp));
+      const real = (i: number) => Math.round(i / sp);
+      if (want === sim.frame) { /* the slow frames: no step at all */ }
+      else if (want === sim.frame + 1) sim.step(want, env, this.fps, frame);
+      else sim.seekTo(want, () => env, this.fps, real);
     }
 
     const { buf, count } = sim.pack(this.instData);
