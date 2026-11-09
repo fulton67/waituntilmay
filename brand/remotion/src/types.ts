@@ -1,3 +1,4 @@
+import type { SkinCardSpec } from "./components/SkinCard";
 // spec.json written by scripts/prepare.cjs from brand/edits/<slug>/result.json (times in seconds of the sped-up edit)
 export type Caption = { text: string; from: number; to: number };
 export type Overlay =
@@ -11,6 +12,7 @@ export type Spec = {
   footage: string; audio: string;
   hook?: Hook;            // opening title on glass (edit.json "remotion": { "hook": {...} }); lines split after ?.!: or on 
 
+  cards?: SkinCardSpec[]; // image cards (condition photo, rings on the red areas, before -> after), components/SkinCard
   keywords?: string[];    // caption words drawn in the brand-blue gradient as he says them
 };
 export type ReelProps = { spec: Spec | null };

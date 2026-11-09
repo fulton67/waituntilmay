@@ -4,6 +4,7 @@ import { Captions } from "./components/Captions";
 import { DEVICE_DUR, Device } from "./components/Device";
 import { Hook } from "./components/Hook";
 import { NAME_CARD_DUR, NameCard } from "./components/NameCard";
+import { SkinCard } from "./components/SkinCard";
 import type { ReelProps } from "./types";
 
 // A talking-head reel: the source clip at the edit's speed (muted), the edit's finished audio, and the kit's graphics on top.
@@ -28,6 +29,11 @@ export const OstadReel: React.FC<ReelProps> = ({ spec }) => {
           </Sequence>
         ) : null,
       )}
+      {spec.cards?.map((c, i) => (
+        <Sequence key={`card${i}`} from={f(c.at)} durationInFrames={f(c.dur)} name={`Image: ${c.before.split("/").pop()}`}>
+          <SkinCard card={c} />
+        </Sequence>
+      ))}
       {spec.hook && (
         <Sequence from={f(spec.hook.at ?? 0)} durationInFrames={f(spec.hook.dur ?? 3.4)} name="Title">
           <Hook text={spec.hook.text} dur={spec.hook.dur ?? 3.4} />

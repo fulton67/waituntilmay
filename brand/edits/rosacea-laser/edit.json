@@ -58,6 +58,119 @@
    "blood vessels",
    "microbiome",
    "antibiotics"
+  ],
+  "cards": [
+   {
+    "at": 9.0,
+    "dur": 3.4,
+    "before": "rosacea-laser/images/rosacea_cheek.jpg",
+    "w": 1200,
+    "h": 793,
+    "spots": [
+     {
+      "cx": 0.6105,
+      "cy": 0.4079,
+      "rx": 0.05,
+      "ry": 0.1479,
+      "angle": 115.8
+     },
+     {
+      "cx": 0.8075,
+      "cy": 0.6535,
+      "rx": 0.05,
+      "ry": 0.0841,
+      "angle": 116.2
+     },
+     {
+      "cx": 0.2668,
+      "cy": 0.6391,
+      "rx": 0.05,
+      "ry": 0.1383,
+      "angle": 90.7
+     }
+    ],
+    "rings": [
+     {
+      "spot": 0,
+      "at": 0.75,
+      "label": "Redness"
+     },
+     {
+      "spot": 1,
+      "at": 2.03,
+      "label": "Blood vessels"
+     }
+    ],
+    "labels": {
+     "before": "Rosacea"
+    },
+    "credit": "Photo: M. Sand et al., CC BY 2.0, via Wikimedia Commons",
+    "_note": "spots auto (redness_spots.py single image)"
+   },
+   {
+    "at": 60.9,
+    "dur": 3.3,
+    "before": "rosacea-laser/images/nose_pair_before.jpg",
+    "after": "rosacea-laser/images/nose_pair_after.jpg",
+    "w": 730,
+    "h": 600,
+    "spots": [
+     {
+      "cx": 0.575,
+      "cy": 0.61,
+      "rx": 0.19,
+      "ry": 0.1,
+      "angle": -8
+     }
+    ],
+    "rings": [
+     {
+      "spot": 0,
+      "at": 0.45,
+      "label": "Vessels"
+     }
+    ],
+    "no": 1.0,
+    "afterAt": 1.9,
+    "labels": {
+     "before": "Before",
+     "after": "After laser"
+    },
+    "credit": "Patient of Dr. Ostad. Individual results vary.",
+    "_note": "spot placed by hand on the purple vessels: redness_spots cleared() found no spot (ECC 0.82, after still pink there). Ostad gallery image: needs-approval (patient consent)"
+   },
+   {
+    "at": 111.0,
+    "dur": 5.0,
+    "before": "rosacea-laser/images/cheek_pair_before.jpg",
+    "after": "rosacea-laser/images/cheek_pair_after.jpg",
+    "w": 599,
+    "h": 614,
+    "spots": [
+     {
+      "cx": 0.5198,
+      "cy": 0.4096,
+      "rx": 0.06,
+      "ry": 0.0639,
+      "angle": 26.0
+     }
+    ],
+    "rings": [
+     {
+      "spot": 0,
+      "at": 0.5,
+      "label": "Redness"
+     }
+    ],
+    "no": 1.1,
+    "afterAt": 2.3,
+    "labels": {
+     "before": "Before",
+     "after": "After laser"
+    },
+    "credit": "Patient of Dr. Ostad. Individual results vary.",
+    "_note": "spot auto (cleared: red 0.17 of before remains). Ostad gallery image: needs-approval (patient consent)"
+   }
   ]
  }
 }

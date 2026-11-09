@@ -40,7 +40,7 @@ const Svg: React.FC<{ children: React.ReactNode; opacity?: number }> = ({ childr
 );
 
 // Small liquid-glass surface (the name card's material scaled down: no displacement at this size, just blur, lift and a bright rim).
-const glass = (radius: number, tint = "rgba(255,255,255,0)"): React.CSSProperties => ({
+export const glass = (radius: number, tint = "rgba(255,255,255,0)"): React.CSSProperties => ({
   position: "absolute", borderRadius: radius, overflow: "hidden", isolation: "isolate",
   backdropFilter: "blur(9px) saturate(1.35) brightness(1.06)",
   // + a faint navy (#202532) floor so the white label still reads on a white wall
