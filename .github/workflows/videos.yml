@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '0 * * * *'      # hourly
   workflow_dispatch:
+    inputs:
+      check_publish:
+        description: 'Only prove VERCEL_TOKEN can deploy sie-assets (preview deploy, production untouched)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -13,7 +18,29 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Manual only. Deploys vercel-assets as a PREVIEW with the same secret and ids
+  # the publish step uses, so the token can be proven without waiting for a new
+  # upload and without touching assets.sie.market (the runner has no wall MP4,
+  # so a production deploy from here would drop it).
+  publish-check:
+    if: github.event_name == 'workflow_dispatch' && inputs.check_publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preview-deploy vercel-assets with VERCEL_TOKEN
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: team_HHqqxJEntpcKGaFDgsxDHQee
+          VERCEL_PROJECT_ID: prj_X4SqxXyc42AGMHjOfWpwSGb4H6Ig
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then echo "::error::VERCEL_TOKEN is not set"; exit 1; fi
+          url=$(npx --yes vercel@latest deploy vercel-assets --yes --token "$VERCEL_TOKEN")
+          echo "preview: $url"
+          echo "### VERCEL_TOKEN works" >> "$GITHUB_STEP_SUMMARY"
+          echo "Preview deploy of sie-assets: $url" >> "$GITHUB_STEP_SUMMARY"
+
   refresh:
+    if: github.event_name != 'workflow_dispatch' || !inputs.check_publish
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
