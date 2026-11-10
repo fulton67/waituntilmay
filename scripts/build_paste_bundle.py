@@ -28,8 +28,8 @@ OUT = os.path.join(ROOT, "site", "build", "webflow-paste")
 
 CDN = "https://assets.sie.market"
 TOKENS = "tokens.v3.css"
-CSS = "sie.v26.css"
-JS = "sie.v27.js"
+CSS = "sie.v34.css"
+JS = "sie.v34.js"
 CASE = "case.v6.js"
 GLB = "sie-case.glb"
 ROUTES = {"#home": "/", "#sie": "/videos"}
