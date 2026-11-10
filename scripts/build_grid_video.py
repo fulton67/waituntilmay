@@ -67,10 +67,16 @@ OUT = os.path.join(ROOT, "site", "build", "grid")
 # a 390px phone a tile is about 115px wide; at device-pixel-ratio 3 that is
 # 345 real pixels. 320 is the nearest sane 16:9 width, and going higher costs
 # bitrate on every one of the nineteen at once.
-CELL_W, CELL_H = 320, 180
+# 320x180 cells at 1.5 Mbps for the whole grid read as soft and blocky next to the
+# films themselves ("they should be high res when you look at them on the
+# website"). A tile is drawn about 200 CSS px wide on a desktop and 130 on a
+# phone, i.e. ~400 device px on a 2x-3x screen, so 480x270 is the cell that is
+# actually sharp there, and the encode is quality-led (CRF) with a ceiling.
+CELL_W, CELL_H = 480, 270
 COLS, ROWS = 4, 5                 # 20 cells for 19 videos; the spare is black
 FPS = 24
-BITRATE = "1500k"                 # ~1.5 Mbps across the whole grid
+BITRATE = "4500k"                 # the CEILING; the encode itself is CRF 22
+CRF = "22"
 
 
 def run(args, **kw):
@@ -135,7 +141,7 @@ def make_cell(src, dest, seconds):
     run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y",
          "-stream_loop", "-1", "-t", "%.3f" % seconds, "-i", src,
          "-vf", vf, "-an",
-         "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+         "-c:v", "libx264", "-preset", "veryfast", "-crf", "16",
          "-pix_fmt", "yuv420p", dest])
 
 
@@ -160,7 +166,7 @@ def tile(cells, dest):
         + "xstack=inputs=%d:layout=%s:fill=black[v]" % (len(cells), layout),
         "-map", "[v]", "-an",
         "-c:v", "libx264", "-preset", "medium",
-        "-b:v", BITRATE, "-maxrate", "1800k", "-bufsize", "3000k",
+        "-crf", CRF, "-maxrate", BITRATE, "-bufsize", "9000k",
         "-r", str(FPS), "-pix_fmt", "yuv420p",
         "-movflags", "+faststart", dest,
     ]

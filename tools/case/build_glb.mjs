@@ -8,7 +8,14 @@ import { Document, NodeIO } from '@gltf-transform/core';
 import { KHRMaterialsTransmission, KHRMaterialsIOR } from '@gltf-transform/extensions';
 import fs from 'fs';
 
-const X0 = -0.04, X1 = 1.38, Y0 = 0, Y1 = 1.25;      // 142 x 125 mm
+/* v9: "the bottom and top of the front are a bit too thin ... you can't really tell it's
+   still the CD", and from below "I don't want to see inside". So the top and bottom edges are
+   real edges now: the case is 131 mm tall instead of 125 (the booklet stays 120 and centred),
+   and the walls along those two edges are 2.6 mm thick instead of 1.3. With the lid's wall
+   outside and the base's wall inside it, that is a 5.4 mm band of plastic above and below
+   the cover, and the viewer draws those walls as solid smoked plastic rather than clear. */
+const X0 = -0.04, X1 = 1.38, Y0 = -0.03, Y1 = 1.28;   // 142 x 131 mm
+const TW = 0.026;                                     // top and bottom walls
 const ZB = -0.052, ZF = 0.052;                        // 10.4 mm
 const T = 0.013;                                      // 1.3 mm walls and panels
 const R = 0.004, SEG = 3;                             // 0.4 mm edge radius, 3 segments
@@ -17,7 +24,7 @@ const COVER_X = 0.746;                                // booklet centre (measure
 /* v8: "it looks really thin from the top or the bottom". A real case is 10.4 mm; this one is
    drawn 14 mm deep. Every part is built at true size and then stretched along z about the
    hinge pin (z = 0), so the pin, the lid's swing and the flat 180 degree pose are unchanged. */
-const DEPTH_SCALE = 14 / 10.4;
+const DEPTH_SCALE = 15 / 10.4;
 
 const box = (x0, x1, y0, y1, z0, z1, r = R, seg = SEG) => {
   const g = new RoundedBoxGeometry(x1 - x0, y1 - y0, z1 - z0, seg,
@@ -39,9 +46,9 @@ const add = (name, geo, mat, parent = null, t = [0, 0, 0]) => parts.push({ name,
 
 /* ------------------------------------------------------------------ base */
 add('base_back_clear', box(X0, X1, Y0, Y1, ZB, ZB + T), 'clear');
-const WY0 = Y0 + T + 0.002, WY1 = Y1 - T - 0.002;     // base walls sit just inside the lid's walls
-add('base_wall_top', box(X0, X1, WY1 - T, WY1, ZB + T - R, 0.024), 'clear');
-add('base_wall_bottom', box(X0, X1, WY0, WY0 + T, ZB + T - R, 0.024), 'clear');
+const WY0 = Y0 + TW + 0.002, WY1 = Y1 - TW - 0.002;     // base walls sit just inside the lid's walls
+add('base_wall_top', box(X0, X1, WY1 - TW, WY1, ZB + T - R, 0.024), 'clear');
+add('base_wall_bottom', box(X0, X1, WY0, WY0 + TW, ZB + T - R, 0.024), 'clear');
 add('base_wall_right', box(X1 - T, X1, WY0, WY1, ZB + T - R, 0.024), 'clear');
 add('base_wall_hinge', box(X0, X0 + T, WY0, WY1, ZB + T - R, 0.024), 'clear');
 
@@ -49,7 +56,7 @@ add('base_wall_hinge', box(X0, X0 + T, WY0, WY1, ZB + T - R, 0.024), 'clear');
    tray is tall, so it breaks through top and bottom exactly as in photo 3), and the ribbed strip
    beside the hinge that shows through the lid to the left of the booklet in photo 1. */
 const TZ0 = -0.035, TZ1 = -0.022, TTOP = 0.012, WELL = 0.615;
-const TX0 = -0.025, TX1 = 1.365, TY0 = WY0 + T + 0.001, TY1 = WY1 - T - 0.001, RIBX = 0.10;
+const TX0 = -0.025, TX1 = 1.365, TY0 = WY0 + TW + 0.001, TY1 = WY1 - TW - 0.001, RIBX = 0.10;
 const cheek = side => {
   const hy = (TY1 - TY0) / 2, dx = Math.sqrt(WELL * WELL - hy * hy), phi = Math.atan2(hy, dx), N = 40;
   const xe = side < 0 ? RIBX : TX1;
@@ -117,15 +124,15 @@ add('F_disc_inner_clear', ring(0.075, 0.11, 0.006, true), 'clear', 'F_disc');
 add('hinge', null, null);
 const LX0 = 0.035, LZ = ZF - T;                      // LZ = underside of the lid panel
 add('lid_clear', box(LX0, X1, Y0, Y1, LZ, ZF), 'clear', 'hinge');
-add('lid_wall_bottom', box(0.022, X1, Y0, Y0 + T, -0.020, LZ + R), 'clear', 'hinge');
-add('lid_wall_top', box(0.022, X1, Y1 - T, Y1, -0.020, LZ + R), 'clear', 'hinge');
+add('lid_wall_bottom', box(0.022, X1, Y0, Y0 + TW, -0.020, LZ + R), 'clear', 'hinge');
+add('lid_wall_top', box(0.022, X1, Y1 - TW, Y1, -0.020, LZ + R), 'clear', 'hinge');
 /* hinge arms: the lid's side walls run on past the panel and carry the pins that sit in the base walls */
 const pin = (y0, y1) => { const g = new THREE.CylinderGeometry(0.012, 0.012, y1 - y0, 16); g.translate(0, (y0 + y1) / 2, 0); return g; };
-add('lid_knuckle_0', merge([box(-0.03, 0.03, Y0, Y0 + T, -0.03, 0.03, 0.006), pin(Y0 + T, WY0 + T)]), 'clear', 'hinge');
-add('lid_knuckle_1', merge([box(-0.03, 0.03, Y1 - T, Y1, -0.03, 0.03, 0.006), pin(WY1 - T, Y1 - T)]), 'clear', 'hinge');
+add('lid_knuckle_0', merge([box(-0.03, 0.03, Y0, Y0 + TW, -0.03, 0.03, 0.006), pin(Y0 + TW, WY0 + TW)]), 'clear', 'hinge');
+add('lid_knuckle_1', merge([box(-0.03, 0.03, Y1 - TW, Y1, -0.03, 0.03, 0.006), pin(WY1 - TW, Y1 - TW)]), 'clear', 'hinge');
 /* four half-moon booklet tabs, two on each side wall, 4 mm radius, 0.8 mm thick, 1 mm under the panel */
 let ti = 0;
-for (const y of [Y0 + T, Y1 - T]) for (const x of [0.28, 1.15]) {
+for (const y of [Y0 + TW, Y1 - TW]) for (const x of [0.28, 1.15]) {
   const g = new THREE.CylinderGeometry(0.04, 0.04, 0.008, 20, 1, false, 0, Math.PI);   // half disc, axis Y, bulging +x
   g.rotateX(Math.PI / 2);                                                             // axis -> Z
   g.rotateZ(y < CY ? Math.PI / 2 : -Math.PI / 2);                                      // bulge into the case
