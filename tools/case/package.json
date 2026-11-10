@@ -1,0 +1,2 @@
+{ "name": "case-tools", "private": true, "type": "module",
+  "dependencies": { "@gltf-transform/core": "^4", "@gltf-transform/extensions": "^4", "@gltf-transform/functions": "^4", "@gltf-transform/cli": "^4", "three": "0.169.0", "sharp": "^0.33", "meshoptimizer": "^0.22" } }
