@@ -14,8 +14,12 @@ import fs from 'fs';
    and the walls along those two edges are 2.6 mm thick instead of 1.3. With the lid's wall
    outside and the base's wall inside it, that is a 5.4 mm band of plastic above and below
    the cover, and the viewer draws those walls as solid smoked plastic rather than clear. */
-const X0 = -0.04, X1 = 1.38, Y0 = -0.03, Y1 = 1.28;   // 142 x 131 mm
-const TW = 0.026;                                     // top and bottom walls
+/* v10: v9 overshot -- "the bottom is too chunky now, and it looks unrealistic because it's
+   not textured". So the edges come most of the way back (1.6 mm walls, 127.4 mm tall, 13 mm
+   deep) and get what a real jewel case has there instead of bulk: the ribbed thumb grips
+   moulded into the top and bottom edges of the lid near the opening side. */
+const X0 = -0.04, X1 = 1.38, Y0 = -0.012, Y1 = 1.262; // 142 x 127.4 mm
+const TW = 0.016;                                     // top and bottom walls
 const ZB = -0.052, ZF = 0.052;                        // 10.4 mm
 const T = 0.013;                                      // 1.3 mm walls and panels
 const R = 0.004, SEG = 3;                             // 0.4 mm edge radius, 3 segments
@@ -24,7 +28,7 @@ const COVER_X = 0.746;                                // booklet centre (measure
 /* v8: "it looks really thin from the top or the bottom". A real case is 10.4 mm; this one is
    drawn 14 mm deep. Every part is built at true size and then stretched along z about the
    hinge pin (z = 0), so the pin, the lid's swing and the flat 180 degree pose are unchanged. */
-const DEPTH_SCALE = 15 / 10.4;
+const DEPTH_SCALE = 13 / 10.4;
 
 const box = (x0, x1, y0, y1, z0, z1, r = R, seg = SEG) => {
   const g = new RoundedBoxGeometry(x1 - x0, y1 - y0, z1 - z0, seg,
@@ -124,8 +128,17 @@ add('F_disc_inner_clear', ring(0.075, 0.11, 0.006, true), 'clear', 'F_disc');
 add('hinge', null, null);
 const LX0 = 0.035, LZ = ZF - T;                      // LZ = underside of the lid panel
 add('lid_clear', box(LX0, X1, Y0, Y1, LZ, ZF), 'clear', 'hinge');
-add('lid_wall_bottom', box(0.022, X1, Y0, Y0 + TW, -0.020, LZ + R), 'clear', 'hinge');
-add('lid_wall_top', box(0.022, X1, Y1 - TW, Y1, -0.020, LZ + R), 'clear', 'hinge');
+/* the thumb grips: fourteen fine ribs standing 0.3 mm proud of each edge, by the opening side */
+const grips = (yFace, dir) => {
+  const out = [];
+  for (let i = 0; i < 14; i++) {
+    const x = 0.98 + i * 0.022;
+    out.push(box(x, x + 0.010, dir > 0 ? yFace : yFace - 0.003, dir > 0 ? yFace + 0.003 : yFace, -0.016, LZ - 0.004, 0.0012, 1));
+  }
+  return out;
+};
+add('lid_wall_bottom', merge([box(0.022, X1, Y0, Y0 + TW, -0.020, LZ + R), ...grips(Y0, -1)]), 'clear', 'hinge');
+add('lid_wall_top', merge([box(0.022, X1, Y1 - TW, Y1, -0.020, LZ + R), ...grips(Y1, 1)]), 'clear', 'hinge');
 /* hinge arms: the lid's side walls run on past the panel and carry the pins that sit in the base walls */
 const pin = (y0, y1) => { const g = new THREE.CylinderGeometry(0.012, 0.012, y1 - y0, 16); g.translate(0, (y0 + y1) / 2, 0); return g; };
 add('lid_knuckle_0', merge([box(-0.03, 0.03, Y0, Y0 + TW, -0.03, 0.03, 0.006), pin(Y0 + TW, WY0 + TW)]), 'clear', 'hinge');

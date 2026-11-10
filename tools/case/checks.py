@@ -3,7 +3,7 @@ Writes case-check/results.json, hinge curves as CSV, and the three comparison im
 import sys, subprocess, csv, statistics
 from checks_lib import *
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.join(HERE, '..', '..')
-GLB = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'site', 'assets', 'case', 'sie-case-v9.glb')
+GLB = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'site', 'assets', 'case', 'sie-case-v10.glb')
 R = {'checks': {}}
 
 
