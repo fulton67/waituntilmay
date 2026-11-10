@@ -78,6 +78,19 @@ FPS = 24
 BITRATE = "4500k"                 # the CEILING; the encode itself is CRF 22
 CRF = "22"
 
+# ---- and the same wall again, small enough for a phone ----------------------
+# 480x270 at 4.5 Mbps is the sharp wall a desktop was asked for, and it is also
+# a wall a phone never starts: the tiles are rectangles of ONE stream, so a
+# connection that cannot hold the bitrate does not drop a tile, it freezes all
+# eighteen at once. SMALL_N/SMALL_D scale the finished grid (2/3: 1920x1350 ->
+# 1280x900, cell 480x270 -> 320x180) and SMALL_BITRATE is what a phone can
+# actually hold. Two thirds is not arbitrary -- it is the largest fraction that
+# divides every cell edge and every tile origin exactly, so the small map is
+# the big one times a constant and no rectangle lands off by a pixel.
+SMALL_N, SMALL_D = 2, 3
+SMALL_BITRATE = "900k"
+SMALL_MAXRATE = "1100k"
+
 
 def run(args, **kw):
     return subprocess.run(args, check=True, capture_output=True, text=True,
@@ -151,6 +164,18 @@ def black_cell(dest, seconds):
          "-i", "color=c=black:s=%dx%d:r=%d" % (CELL_W, CELL_H, FPS),
          "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "30",
          "-pix_fmt", "yuv420p", dest])
+
+
+def shrink(src, dest):
+    """The finished grid again at SMALL_N/SMALL_D and a phone's bitrate."""
+    run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", src,
+         "-vf", "scale=%d:%d:flags=lanczos"
+                % (COLS * CELL_W * SMALL_N // SMALL_D,
+                   ROWS * CELL_H * SMALL_N // SMALL_D),
+         "-an", "-c:v", "libx264", "-preset", "medium",
+         "-b:v", SMALL_BITRATE, "-maxrate", SMALL_MAXRATE, "-bufsize", "2000k",
+         "-r", str(FPS), "-pix_fmt", "yuv420p",
+         "-movflags", "+faststart", dest])
 
 
 def tile(cells, dest):
@@ -285,13 +310,33 @@ def main():
     sig = hashlib.sha256(json.dumps(
         {"ids": [v for v, _ in ids], "missing": [m["id"] for m in missing],
          "cell": [CELL_W, CELL_H], "grid": [COLS, ROWS], "fps": FPS,
-         "bitrate": BITRATE, "seconds": round(seconds, 2)},
+         "bitrate": BITRATE, "seconds": round(seconds, 2),
+         # the small copy rides the same immutable name, so its settings have
+         # to move the hash too or a changed bitrate would be published to a
+         # URL the CDN has already been told to keep for a year
+         "small": [SMALL_N, SMALL_D, SMALL_BITRATE]},
         sort_keys=True).encode()).hexdigest()[:10]
 
     mp4 = os.path.join(OUT, "sie-grid.%s.mp4" % sig)
     print("\ntiling -> %s" % os.path.basename(mp4))
     tile(cells, mp4)
     size = os.path.getsize(mp4)
+
+    small_name = "sie-grid.%s.small.mp4" % sig
+    print("shrinking -> %s" % small_name)
+    shrink(mp4, os.path.join(OUT, small_name))
+    small_size = os.path.getsize(os.path.join(OUT, small_name))
+
+    # every rectangle times SMALL_N/SMALL_D, asserted exact rather than rounded
+    small_tiles = {}
+    for vid, r in tiles.items():
+        t = {}
+        for k in ("x", "y", "w", "h"):
+            assert r[k] * SMALL_N % SMALL_D == 0, (vid, k, r[k])
+            t[k] = r[k] * SMALL_N // SMALL_D
+        if "dur" in r:
+            t["dur"] = r["dur"]
+        small_tiles[vid] = t
 
     payload = {
         "version": sig,
@@ -306,6 +351,17 @@ def main():
         "canvas": [COLS * CELL_W, ROWS * CELL_H],
         "tiles": tiles,
         "missing": missing,
+        # The same wall, small enough for a phone to actually stream. The
+        # front end picks one; everything else about them is identical, down
+        # to the frame count and the order of the tiles.
+        "small": {
+            "mp4": small_name,
+            "bytes": small_size,
+            "cell": [CELL_W * SMALL_N // SMALL_D, CELL_H * SMALL_N // SMALL_D],
+            "canvas": [COLS * CELL_W * SMALL_N // SMALL_D,
+                       ROWS * CELL_H * SMALL_N // SMALL_D],
+            "tiles": small_tiles,
+        },
     }
     with open(os.path.join(OUT, "latest.json"), "w", encoding="utf-8",
               newline="\n") as fh:
@@ -314,8 +370,12 @@ def main():
     shutil.copyfile(os.path.join(OUT, "latest.json"),
                     os.path.join(OUT, "sie-grid.%s.json" % sig))
 
-    print("\n  grid   %s  %.2f MB  (%s B)"
-          % (os.path.basename(mp4), size / 1e6, format(size, ",")))
+    print("\n  grid   %s  %.2f MB  %.2f Mbps  (%s B)"
+          % (os.path.basename(mp4), size / 1e6,
+             size * 8 / seconds / 1e6, format(size, ",")))
+    print("  phone  %s  %.2f MB  %.2f Mbps  (%s B)"
+          % (small_name, small_size / 1e6,
+             small_size * 8 / seconds / 1e6, format(small_size, ",")))
     print("  tiles  %d placed, %d missing" % (len(tiles), len(missing)))
     print("  map    site/build/grid/latest.json")
     return 0
