@@ -5,7 +5,8 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.join(HERE, '..
 OUT = os.path.join(HERE, 'build', 'tex'); CHK = os.path.join(ROOT, '..', 'case-check', 'textures'); OLD = os.path.join(CHK, 'old')
 os.makedirs(OUT, exist_ok=True); os.makedirs(CHK, exist_ok=True)
 cfg = json.load(open(os.path.join(HERE, 'corners.json')))
-OLDMAP = {'A': 'tex5.webp', 'B': None, 'C': 'tex1.webp', 'F': None, 'D': 'tex2.webp', 'E': 'tex3.webp'}
+# v8: A is now the emoji side and C the om side, so each is compared with the OTHER old texture
+OLDMAP = {'A': 'tex1.webp', 'B': None, 'C': 'tex5.webp', 'F': None, 'D': 'tex2.webp', 'E': 'tex3.webp'}
 INSET = 0.004          # crop this fraction inside the picked corners so no frame plastic gets in
 report = {}
 

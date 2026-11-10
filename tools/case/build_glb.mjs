@@ -14,6 +14,10 @@ const T = 0.013;                                      // 1.3 mm walls and panels
 const R = 0.004, SEG = 3;                             // 0.4 mm edge radius, 3 segments
 const CX = 0.7325, CY = 0.625;                        // hub centre
 const COVER_X = 0.746;                                // booklet centre (measured off photo 1)
+/* v8: "it looks really thin from the top or the bottom". A real case is 10.4 mm; this one is
+   drawn 14 mm deep. Every part is built at true size and then stretched along z about the
+   hinge pin (z = 0), so the pin, the lid's swing and the flat 180 degree pose are unchanged. */
+const DEPTH_SCALE = 14 / 10.4;
 
 const box = (x0, x1, y0, y1, z0, z1, r = R, seg = SEG) => {
   const g = new RoundedBoxGeometry(x1 - x0, y1 - y0, z1 - z0, seg,
@@ -148,11 +152,20 @@ for (const k of 'ABCDEF') {
 }
 const nodes = {}; let tris = 0; const bounds = new THREE.Box3();
 for (const p of parts) {
-  const n = doc.createNode(p.name).setTranslation(p.t); nodes[p.name] = n;
+  const n = doc.createNode(p.name).setTranslation([p.t[0], p.t[1], p.t[2] * DEPTH_SCALE]); nodes[p.name] = n;
   if (!p.geo) continue;
   const g = p.geo;
+  {
+    const pos = g.attributes.position, nor = g.attributes.normal;
+    for (let i = 0; i < pos.count; i++) {
+      pos.setZ(i, pos.getZ(i) * DEPTH_SCALE);
+      /* normals transform by the inverse scale, then renormalise: keeps the bevels smooth */
+      const x = nor.getX(i), y = nor.getY(i), z = nor.getZ(i) / DEPTH_SCALE, l = Math.hypot(x, y, z) || 1;
+      nor.setXYZ(i, x / l, y / l, z / l);
+    }
+  }
   g.computeBoundingBox();
-  bounds.union(g.boundingBox.clone().translate(new THREE.Vector3(...(p.parent === 'F_disc' ? [CX, CY, DZ] : p.t))));
+  bounds.union(g.boundingBox.clone().translate(new THREE.Vector3(...(p.parent === 'F_disc' ? [CX, CY, DZ * DEPTH_SCALE] : [p.t[0], p.t[1], p.t[2] * DEPTH_SCALE]))));
   const prim = doc.createPrimitive().setMaterial(mats[p.mat]);
   prim.setAttribute('POSITION', doc.createAccessor().setType('VEC3').setArray(new Float32Array(g.attributes.position.array)).setBuffer(buf));
   prim.setAttribute('NORMAL', doc.createAccessor().setType('VEC3').setArray(new Float32Array(g.attributes.normal.array)).setBuffer(buf));

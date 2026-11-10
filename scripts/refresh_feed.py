@@ -25,6 +25,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "site", "videos.json")
 POSTERS = os.path.join(ROOT, "site", "assets", "yt")
 YTDLP = os.environ.get("YTDLP", "yt-dlp")
+# Videos that must never be on the site, whatever the channels list. Seeded
+# into `seen` so every path below skips them.
+#   _swh-ZVvAro  sheroy — lastyear: age-restricted on YouTube, so it can be
+#                neither embedded nor fetched for the wall (removed 2026-11-09)
+EXCLUDE = {"_swh-ZVvAro"}
 
 
 def enumerate_channel(handle):
@@ -40,7 +45,7 @@ def enumerate_channel(handle):
 
 
 def main():
-    channels, videos, seen = {}, [], set()
+    channels, videos, seen = {}, [], set(EXCLUDE)
     failed = []
     for h in HANDLES:
         cid, entries = enumerate_channel(h)
