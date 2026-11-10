@@ -32,22 +32,88 @@ jobs:
       - name: Rebuild the grid, the index-panel data and index.html
         run: python scripts/build_video_grid.py || true
 
+      # ---- the stitched video wall -------------------------------------
+      # Every video tiled into ONE silent MP4, so the page spends one hardware
+      # video decoder on nineteen moving tiles instead of nineteen. Rebuilding
+      # it costs nineteen downloads and a 155-second encode, so --check asks
+      # first: it compares the feed's ids against the ids the committed map was
+      # built from and exits 10 only when they differ. A new upload therefore
+      # triggers exactly one rebuild, and the other 23 runs that day do nothing.
+      - name: Does the stitched wall need rebuilding?
+        id: grid
+        run: |
+          set +e
+          out=$(python scripts/build_grid_video.py --check); code=$?
+          echo "$out"
+          if [ "$code" = "10" ]; then
+            echo "rebuild=yes" >> "$GITHUB_OUTPUT"
+          else
+            echo "rebuild=no" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install ffmpeg
+        if: steps.grid.outputs.rebuild == 'yes'
+        run: |
+          ffmpeg -version >/dev/null 2>&1 || {
+            sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg; }
+          ffmpeg -version | head -1
+
+      - name: Rebuild the stitched wall
+        if: steps.grid.outputs.rebuild == 'yes'
+        run: python scripts/build_grid_video.py
+
+      # The MP4 is ~29MB and is NOT committed (see .gitignore) -- it goes to
+      # assets.sie.market, where the filename carries a hash of the id list so
+      # each rebuild is a new immutable URL. Only VERCEL_TOKEN is a secret; the
+      # two ids below are identifiers and are useless without it. Without the
+      # token this warns and leaves the live grid alone rather than half-ship.
+      - name: Publish the wall to assets.sie.market
+        if: steps.grid.outputs.rebuild == 'yes'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: team_HHqqxJEntpcKGaFDgsxDHQee
+          VERCEL_PROJECT_ID: prj_X4SqxXyc42AGMHjOfWpwSGb4H6Ig
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "::warning title=Grid not published::A new grid was built but \
+          VERCEL_TOKEN is not set, so assets.sie.market still serves the old \
+          one. Add the secret and re-run to publish it."
+            exit 0
+          fi
+          mkdir -p vercel-assets/grid
+          cp site/build/grid/latest.json \
+             site/build/grid/sie-grid.*.json \
+             site/build/grid/sie-grid.*.mp4 vercel-assets/grid/
+          npx --yes vercel@latest deploy vercel-assets \
+            --prod --yes --token "$VERCEL_TOKEN" | tail -3
+
       - name: Commit when changed
         id: commit
         run: |
-          if [ -z "$(git status --porcelain site/videos.json site/assets/yt site/index.html site/build/sie-grid.html site/build/videos-data.json)" ]; then
+          PATHS="site/videos.json site/assets/yt site/index.html \
+                 site/build/sie-grid.html site/build/videos-data.json \
+                 site/build/grid/latest.json"
+          if [ -z "$(git status --porcelain $PATHS)" ]; then
             echo "no change"; exit 0
           fi
           git config user.name  "sie-feed"
           git config user.email "noreply@anthropic.com"
-          git add site/videos.json site/assets/yt site/index.html site/build/sie-grid.html site/build/videos-data.json
+          git add $PATHS
           git commit -m "chore(videos): refresh feed, posters, grid and index panel"
           git push
 
       - name: Summary
         run: |
           python - <<'PY'
-          import json
-          d=json.load(open('site/videos.json',encoding='utf-8'))
+          import json, os
+          d = json.load(open('site/videos.json', encoding='utf-8'))
           print(f"items: {d['count']}  channels: {len(d['channels'])}  generated: {d['generated']}")
+          p = 'site/build/grid/latest.json'
+          if os.path.isfile(p):
+              g = json.load(open(p, encoding='utf-8'))
+              print(f"grid {g['version']}: {g['bytes']/1e6:.1f} MB  {g['duration']:.0f}s  "
+                    f"{g['canvas'][0]}x{g['canvas'][1]}  "
+                    f"{len(g['tiles'])} tiles, {len(g['missing'])} missing")
+              for m in g['missing']:
+                  print(f"  missing {m['id']}: {m['reason'][:90]}")
           PY

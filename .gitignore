@@ -42,3 +42,16 @@ next-env.d.ts
 
 .vercel
 .env*.local
+
+# scrape tooling: raw captured HTML (regenerate with scrape/_tooling/scrape_sites.py)
+scrape/_tooling/raw/
+scrape/_tooling/pass3_raw/
+qa/report.json
+__pycache__/
+
+# minted at runtime from client credentials, never commit
+.shopify-token.json
+
+# the stitched video wall: the map is committed, the 29MB grid is not
+.grid-work/
+site/build/grid/*.mp4
