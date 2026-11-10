@@ -193,8 +193,29 @@ def main():
         except Exception:
             built = None
         if built == sorted(want):
-            print("skip (grid %s already covers these %d ids)"
-                  % (have.get("version"), len(want)))
+            # The id list alone is not enough. A video recorded as `missing`
+            # keeps its id in the feed, so lifting its age restriction -- or
+            # dropping its source into media/grid-src -- changes nothing the
+            # list can see, and the grid would never pick it up. So each
+            # missing id is re-tested: an override file now present, or a
+            # plain metadata probe that now succeeds, both mean rebuild.
+            stuck = []
+            for m in have.get("missing", []):
+                if override_for(m["id"]):
+                    print("rebuild (%s now has a local source)" % m["id"])
+                    return 10
+                try:
+                    run(["yt-dlp", "-q", "--no-warnings", "--simulate",
+                         "--no-playlist", "--print", "%(duration)s",
+                         "https://www.youtube.com/watch?v=" + m["id"]])
+                except subprocess.CalledProcessError:
+                    stuck.append(m["id"])
+                    continue
+                print("rebuild (%s is reachable again)" % m["id"])
+                return 10
+            print("skip (grid %s covers these %d ids%s)"
+                  % (have.get("version"), len(want),
+                     "; still unreachable: " + ", ".join(stuck) if stuck else ""))
             return 0
         print("rebuild (feed has %d ids; grid covers %s)"
               % (len(want), len(built) if built else "none"))
