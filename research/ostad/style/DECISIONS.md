@@ -198,3 +198,44 @@ They asked to keep his size, the clips they liked, the 1.15x speed, his pauses a
 - **Measured on the final v2** (90.22 s, 1920x1080, 24 fps, -14.1 LUFS, true peak -4.3 dBFS; same audio as A and B):
   - **Movement:** the 1 s-lag frame difference above the caption band moves in every section (1.1-61 levels mean), with no still stretch. The question card's empty corner first held still for 1.1 s, then 2.5 s, with blobs alone. A slowly turning tint was added to the glass, and it now moves at 4.2 levels with no still stretch; the end card moves at 6.2.
   - **Footage:** the client's "Oct 30 ... (1).mov" is byte-identical to the Oct 30 recording already used for section 3 (md5 match).
+
+## 14c. YouTube v3: the mechanism on real pictures, light in a room, calm type, captions on the word (2026-11-13)
+
+Client notes on v2: the drawn head and brain in the mechanism section "look horrible, it doesn't look like a skull at all" (no freehand anatomy again; trace from a real source frame by frame if anything is illustrated). Labels must never truncate ("PREFRO", "Total"). The step labels should be bigger. Frames that look empty mid-animation (the s5 phone outline, the s6 thank-you card) must start with content in place. White should feel like their reference (Are.na 52762267, a defocused bright interior), not a blank page. The progress control should follow Bencho's "Step player" (Are.na 50822604). Type: "a Helvetica would look better", the bible's Helvetica Neue LT Pro, "a semi bold one", calm and small like the Homevolt posters and the 963 journal. "The captions are laggy."
+
+- **s11 (13.32 s), rebuilt on real pictures:**
+  - 0-2.6 s: the Oct 30 session (session.mp4 from 7 s; s3 uses 0-6.25 s), in a 1570x740 window at 0.82-0.86x. A leader is tracked to the coil (source px (640, 290)), and pulse rings run from the coil pad into the head, clipped to the head ellipse. The head did not move over 7-12.5 s (1 fps strip).
+  - 2.6-6.4 s: the mechanism slot. Two Flora clips are being re-rendered: a fixed head-and-coil shot zooming into the prefrontal cortex, then new connections forming. They will be played full frame at 1.3x (5 s becomes 3.85 s), nearest-frame, with no blending and no added blur (`MECH` in OstadYT.tsx). Until they land, the slot holds BTL's own lit-brain render at native 1066x600 in a white window. A white outline over it is traced frame by frame from that render (scripts/trace_outline.py: top-hat rim, contour, only points on a real bright rim, Douglas-Peucker; 66 frames), with "Prefrontal cortex" and "Neuroplasticity" beside it.
+  - 6.4-10.2 s: second slot, interim. BTL's dendrite render at native 968x726, the new-connections counter, and the neurotransmitters chip at the word.
+  - 10.2 s on: her, calm under the coil (session from 12.5 s, at 0.83x) beside "Focused, in flow" and the busy line settling into one wave.
+  - The client-picked first head clip (head_coil_anim) was cut in and then held when the client said the head looks wrong. It was toned in comp with saturate(0.55) and no glow or bloom. It is not in this render, so its glow saturation was not measured.
+- **s8 opener:** Flora's coil clip, full frame. It is slowed to 0.875x with frame blending to cover the 5.7 s section, never looped (yt_assets.sh). The type sits in the left third, with skin care / the mind / technology listed quietly. The ring graphic is gone.
+- **AI renders:** both Flora clips are AI renders (Nano Banana Pro stills made from a real BTL coil frame, animated with Kling v4), supplied in public/exomind-skin/flora/ and gitignored. The mechanism span is labelled "Illustration" on screen once the Flora clips are in.
+- **Canvas, "light in a room":**
+  - Measured on the reference with k-means, k = 6, by share: #f6f8f5 21 %, #eaede7 20 %, #a9ab95 17 %, #c7cbbb 15 %, #d9ded4 14 %, #babca7 12 %. L* runs 66-99 (p1-p99), median 87. Bands from top to bottom: #d9ddd7 #e4e8e3 #edefe9 #e5e7da #bebfa9 #abaf9c.
+  - The canvas is that vertical gradient, two soft window glows, a warm cream pool and sage shade, all radial with no hard edge and slowly drifting. The neural field stays at a quarter of its strength, in white.
+  - Homevolt's thin four-colour strip runs along the bottom edge (#abaf9c #e5e7da #37a9e8 #373737).
+- **Step player:**
+  - Reimplemented from the measured behaviour of Bencho's Step player (bencho.dev/blocks/step-player), not copied. Credit: Bencho.
+  - Geometry at 2x (the block is CSS px at UI distance): dot 16, bar 72, gap 16, slab inset 28, so the slab and the play pill are both 72 high, with a pill radius of half the height.
+  - Every dot is a pill with two edges. On a step change, every edge moves from its old slot to its new one in 520 ms on a cubic ease-out, with no travelling bar.
+  - The current pill fills with ink at a steady speed over its step. It is never narrower than a dot, and that dot fades in over the first 1/14 of the fill.
+  - Wake (at 100): crossed dots stand up in order after a 60 ms lead, 300 ms each on a half sine, with a 55 ms stagger and amplitude 0.34. The landing pill answers last at 0.3.
+  - The play mark morphs between two quads over 300 ms (in-out cubic), with the block's squash, tip and lean.
+  - It replaces v2's rail of six 20 px labels: one current label at 24 px, with "03 / 06". It is also used for s5's three visit steps.
+- **Type:**
+  - One weight, 500, for headline, label and caption. In the kit, 500 is Helvetica Neue LT Pro 65 Medium, the face the client asked for ("semi bold"). Until the kit has it, the weight is NHG Display 500.
+  - Text is #373737. Greys are #8E8E8E and #BCBCBC.
+  - Display sizes are 0.65x of v2 (headline 44, hero 88). Labels and small text are at least 22 px, and labels are tracked +0.04em.
+  - Cards are the 963 frosted grey (rgba(219,219,219,.7), 24 px radius, 22 px blur, a hairline, no long shadow).
+  - Entrances use the 963 fadeUp: 2 s, CSS ease, 20 px rise.
+  - Tags became quiet chips: a pale fill, a 0.65 px #8E8E8E hairline and a blue dot. The whole label is there from its first frame, so nothing reads truncated. Kinetic words are never clipped by their slot.
+  - **Helvetica Neue LT Pro is not in kit vzz0hgt.** It was not added, because editing the user's Adobe web project needs the user's own go-ahead. The code is ready: flip `TYPEFACE` to "helvetica" in components/YT.tsx, and the font loader then requires 55/65 via document.fonts.load (no system Helvetica or Arial stand-in).
+- **Captions:**
+  - Measured on the first v3 render: phrase starts vs word onsets from a fresh transcript of the delivered audio (faster-whisper on audio.m4a). All 82/82 matched. Median -0.014 s, mean -0.009, p10 -0.052, p90 +0.018, slope 0.0007 s/s. So there was no double speed scaling and no offset.
+  - The lag was the presentation: a 3-5 word phrase appeared whole at its first word, behind a 0.14 s fade and rise.
+  - Now each word cuts on at its own measured onset frame (scripts/caption_words.py, 267/268 words matched, then edits/exomind-skin/yt_words.json, prepare.cjs, props), with no fade, no rise and no shadow. The rest of the line holds its place invisibly, so nothing reflows.
+  - Read back from exact decoded frames (0-6 s): every word appears on its onset frame (offset 0 frames). A seek-based sampler said -1 frame on 26/27 words, which turned out to be ffmpeg seek bias.
+- **Fixes:** the s5 phone is in place from the first frame, with the first bubble already there. The s6 thank-you content swaps in at 60 % opacity rather than from empty.
+- **s2 without a drawn head:** v2's line-drawn head profile is gone, since drawn heads have been rejected twice. Her head under the coil now sits in a white window: a native-pixel 560 px crop from the Oct 30 session at 13 s, a different moment and framing from s3. It is desaturated until the toggle switches the mind on. The dotted link runs from it to the skin diagram. `S2_HEAD` takes the Flora glass-head clip (head_final_anim.mp4) when it is approved.
+- **BTL windows graded toward the room:** brightness 1.3, contrast 0.8 and saturation 0.55, with a sage-cream screen over them (rgba(237,239,233,.30) to rgba(199,203,187,.24)) and a #c9cdbf window ground. This replaces navy against the light canvas. Her footage windows are not graded. The Flora neuroplasticity clip (neuro_anim.mp4) goes into `MECH.clip2` at 1.3x when it lands.
