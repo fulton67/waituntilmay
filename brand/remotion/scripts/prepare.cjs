@@ -27,4 +27,6 @@ if (C.remotion && C.remotion.end) spec.end = { ...R.spec.end, src: `${slug}/end.
 fs.writeFileSync(path.join(OUT, "props.json"), JSON.stringify({ spec }, null, 1));
 // edit.json "wide" (style DECISIONS 14): the 16:9 cut's keyed presenter, panels, cards and chapter titles -> props_wide.json (OstadWide)
 if (C.wide) fs.writeFileSync(path.join(OUT, "props_wide.json"), JSON.stringify({ spec: { ...spec, graphics: [], hook: undefined, wide: C.wide } }, null, 1));
+// edit.json "yt" (style DECISIONS 14b): the YouTube v2 sections and keyed shot -> props_yt.json (OstadYT)
+if (C.yt) fs.writeFileSync(path.join(OUT, "props_yt.json"), JSON.stringify({ spec: { ...spec, graphics: [], hook: undefined, yt: C.yt } }, null, 1));
 console.log(`${slug}: ${spec.captions.length} captions, ${overlays.length} overlays, ${spec.durationInSeconds.toFixed(2)} s -> public/${slug}/props.json`);

@@ -1,6 +1,8 @@
 import { Composition, staticFile } from "remotion";
 import { OstadReel } from "./OstadReel";
 import { OstadWide, WIDE_H, WIDE_W } from "./OstadWide";
+import { OstadYT, type YTProps } from "./OstadYT";
+import { YTSystem } from "./compositions/YTSystem";
 import { MARKUP_DEMO_SECONDS, MarkupDemo, type FaceTrack } from "./compositions/MarkupDemo";
 import { H, W } from "./brand";
 import type { ReelProps, WideProps } from "./types";
@@ -40,5 +42,21 @@ export const RemotionRoot: React.FC = () => (
       return { durationInFrames: Math.round(spec.durationInSeconds * 24), props: { ...props, spec } };
     }}
   />
+  {/* OstadYT: the YouTube v2 cut (style DECISIONS 14b): varied sections, Exomind footage, the white line system; --props=public/<slug>/props_yt.json */}
+  <Composition
+    id="OstadYT"
+    component={OstadYT}
+    width={1920}
+    height={1080}
+    fps={24}
+    durationInFrames={24 * 10}
+    defaultProps={{ spec: undefined, debugFonts: false } as YTProps}
+    calculateMetadata={async ({ props }) => {
+      const spec = props.spec ?? (await (await fetch(staticFile("exomind-skin/props_yt.json"))).json()).spec;
+      return { durationInFrames: Math.round(spec.durationInSeconds * 24), props: { ...props, spec } };
+    }}
+  />
+  {/* YTSystem: one board of the v2 system (icons, tag, toggle, counter, cursor tap) for review stills */}
+  <Composition id="YTSystem" component={YTSystem} width={1920} height={1080} fps={24} durationInFrames={24 * 4} />
   </>
 );
