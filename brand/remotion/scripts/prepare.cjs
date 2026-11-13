@@ -28,5 +28,9 @@ fs.writeFileSync(path.join(OUT, "props.json"), JSON.stringify({ spec }, null, 1)
 // edit.json "wide" (style DECISIONS 14): the 16:9 cut's keyed presenter, panels, cards and chapter titles -> props_wide.json (OstadWide)
 if (C.wide) fs.writeFileSync(path.join(OUT, "props_wide.json"), JSON.stringify({ spec: { ...spec, graphics: [], hook: undefined, wide: C.wide } }, null, 1));
 // edit.json "yt" (style DECISIONS 14b): the YouTube v2 sections and keyed shot -> props_yt.json (OstadYT)
-if (C.yt) fs.writeFileSync(path.join(OUT, "props_yt.json"), JSON.stringify({ spec: { ...spec, graphics: [], hook: undefined, yt: C.yt } }, null, 1));
+// v3: edits/<slug>/yt_words.json (scripts/caption_words.py, word onsets measured on the edit's own audio) gives each caption word its
+// onset, so OstadYT cuts every word on as it is spoken instead of showing the whole phrase at its first word
+const YW = path.join(E, "yt_words.json"), words = fs.existsSync(YW) ? JSON.parse(fs.readFileSync(YW, "utf8")) : null;
+const ytCaps = words ? spec.captions.map((c, i) => ({ ...c, words: words[i] })) : spec.captions;
+if (C.yt) fs.writeFileSync(path.join(OUT, "props_yt.json"), JSON.stringify({ spec: { ...spec, captions: ytCaps, graphics: [], hook: undefined, yt: C.yt } }, null, 1));
 console.log(`${slug}: ${spec.captions.length} captions, ${overlays.length} overlays, ${spec.durationInSeconds.toFixed(2)} s -> public/${slug}/props.json`);

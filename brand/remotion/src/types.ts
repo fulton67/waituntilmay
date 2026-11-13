@@ -2,7 +2,7 @@ import type { SkinCardSpec } from "./components/SkinCard";
 import type { DiagramPhases } from "./components/Explainers";
 import type { Pos, TreatPhases } from "./components/Ro";
 // spec.json written by scripts/prepare.cjs from brand/edits/<slug>/result.json (times in seconds of the sped-up edit)
-export type Caption = { text: string; from: number; to: number };
+export type Caption = { text: string; from: number; to: number; words?: number[] };
 export type Overlay =
   | { name: "lower-third"; at: number; nameText?: string; role?: string }
   | { name: "device"; at: number; id: string; fill: { img: string; label: string; maker?: string } }

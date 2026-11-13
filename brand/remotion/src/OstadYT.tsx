@@ -1,8 +1,9 @@
-import { AbsoluteFill, Audio, OffthreadVideo, Sequence, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import React from "react";
+import { AbsoluteFill, Audio, OffthreadVideo, continueRender, delayRender, Sequence, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { FONT, clamp, fitPx } from "./brand";
-import { useElza } from "./Fonts";
+import { HN_NEED, useElza } from "./Fonts";
 import { Sfx } from "./components/Ro";
-import { BG0, BLUE, Bar, Callout, Canvas, Counter, Cursor, Grain, H1, HERO, ICON, INK, Icon, Kinetic, LAB, LINE, M, MUTE, RADIUS, RULE, SKY, TOP, Tag, Toggle, glass, GlassLife, head, label, life, prog, quint, small, useT } from "./components/YT";
+import { BG0, BLUE, Bar, DISPLAY, StepPlayer, TYPEFACE, Callout, Canvas, Counter, Cursor, Grain, H1, HERO, ICON, INK, Icon, Kinetic, LAB, LINE, M, MUTE, RADIUS, RULE, SKY, TOP, Tag, Toggle, glass, GlassLife, head, label, life, prog, quint, small, useT } from "./components/YT";
 import type { Caption } from "./types";
 
 // OstadYT: the YouTube v2 cut of the Exomind closing remarks (style DECISIONS 14b). Client on v1 (OstadWide, 6/10): "extremely
@@ -166,7 +167,7 @@ const S5: React.FC = () => {
   const t = useT();
   const P = { x: M + 40, y: 110, w: 430, h: 820 };
   const bub = (text: string, at: number, me: boolean, y: number) => {
-    const q = prog(t, at, 0.35);
+    const q = at <= 0 ? 0.6 + 0.4 * prog(t, 0, 0.35) : prog(t, at, 0.35);
     if (t < at) return null;
     return <div style={{ position: "absolute", top: y, [me ? "right" : "left"]: 26, maxWidth: 320, padding: "14px 20px 16px", borderRadius: 22, background: me ? BLUE : BG0, ...small(26, 500, me ? "#fff" : INK), opacity: q, transform: `translateY(${(1 - q) * 14}px) scale(${0.94 + 0.06 * q})`, transformOrigin: me ? "100% 100%" : "0 100%" }}>{text}</div>;
   };
@@ -185,11 +186,13 @@ const S5: React.FC = () => {
     <>
       <Canvas glow={[0.3, 0.5]} px={-0.2} />
       <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
-        <rect x={P.x} y={P.y} width={P.w} height={P.h} rx={56} fill="#fff" stroke={INK} strokeWidth={LINE} pathLength={1} strokeDasharray={`${prog(t, 0, 0.8)} 1`} />
-        <path d={`M${P.x + 170} ${P.y + 30} h90`} stroke={INK} strokeWidth={LINE} strokeLinecap="round" opacity={prog(t, 0.6)} />
+        <g style={{ opacity: 0.6 + 0.4 * prog(t, 0, 0.3) }} transform={`translate(0 ${(1 - prog(t, 0, 0.5)) * 16})`}>
+          <rect x={P.x} y={P.y} width={P.w} height={P.h} rx={56} fill="#fff" stroke={INK} strokeWidth={LINE} />
+          <path d={`M${P.x + 170} ${P.y + 30} h90`} stroke={INK} strokeWidth={LINE} strokeLinecap="round" />
+        </g>
       </svg>
       <div style={{ position: "absolute", left: P.x, top: P.y, width: P.w, height: P.h }}>
-        {bub("Reply to book your consultation", 0.3, false, 90)}
+        {bub("Reply to book your consultation", 0.0, false, 90)}
         {bub("Yes, please", 1.0, true, 210)}
         {bub("We'll help you find an appointment", 2.1, false, 300)}
         {t > 2.6 && (
@@ -206,6 +209,7 @@ const S5: React.FC = () => {
           {row("clipboard", "Your medical history", 5.8, 1)}
           {row("coil", "Is Exomind right for you?", 7.6, 2)}
         </div>
+        <div style={{ marginTop: 34, ...life(t, 4.2) }}><StepPlayer times={[4.2, 5.1, 5.8]} end={7.6} /></div>
       </div>
       <Cursor path={[{ at: 0.9, x: 520, y: 700 }, { at: 1.35, x: 600, y: 340 }, { at: 1.5, x: 600, y: 340, tap: true }, { at: 2.6, x: 540, y: 640 }, { at: 3.0, x: P.x + 26 + 74 * 1 + 32, y: P.y + 450 + 62 + 26, tap: true }, { at: 3.6, x: 700, y: 760 }]} show={[0.9, 3.8]} />
       {[5.1, 5.8, 7.6].map((a, i) => <Sfx key={i} at={a} name="yes" gain={0.4} />)}
@@ -245,10 +249,10 @@ const S6: React.FC<{ dur: number }> = () => {
             </>
           )}
           {thanks && (
-            <div style={life(t, 7.8)}>
+            <div style={{ opacity: 0.6 + 0.4 * prog(t, 7.8, 0.3), transform: `translateY(${(1 - prog(t, 7.8, 0.4)) * 8}px)` }}>
               <div style={{ ...head(H1), marginTop: 22 }}>Thank you for joining us</div>
               <div style={{ ...small(28), marginTop: 14 }}>and for trusting our team with your care.</div>
-              <div style={{ display: "flex", gap: 18, marginTop: 50 }}><Icon name="brain" size={64} color={BLUE} draw={prog(t, 8, 0.8)} /><Icon name="wave" size={64} color={BLUE} draw={prog(t, 8.2, 0.8)} /></div>
+              <div style={{ display: "flex", gap: 18, marginTop: 50 }}><Icon name="brain" size={64} color={BLUE} draw={0.5 + 0.5 * prog(t, 7.8, 0.6)} /><Icon name="wave" size={64} color={BLUE} draw={0.5 + 0.5 * prog(t, 7.9, 0.6)} /></div>
             </div>
           )}
         </div>
@@ -362,121 +366,170 @@ const S10: React.FC<{ dur: number }> = ({ dur }) => {
   );
 };
 
-// 11. how Exomind works (illustration): coil -> magnetic pulse -> prefrontal cortex -> new connections -> neurotransmitters -> focus
+// 11. how Exomind works, on real pictures (v3; client on v2's drawn head: "doesn't look like a skull at all", so no drawn anatomy):
+// A the session in our office (Oct 30), the coil on her head, pulse rings into the head and the prefrontal region lit, all tracked to
+// the footage; C-E BTL's own Exomind renders at native size in white windows (new connections, neurotransmitters, the lit brain).
+// The rail, counters and tags sit on the white canvas around them. C-E run in their own Sequence, so Tag/Kinetic/Counter and the
+// clips use scene time.
 const STEPS = [{ icon: "coil", label: "Coil", at: 0 }, { icon: "pulse", label: "Magnetic pulse", at: 1.4 }, { icon: "brain", label: "Prefrontal cortex", at: 3.3 }, { icon: "network", label: "New connections", at: 5.4 }, { icon: "spark", label: "Neurotransmitters", at: 7.6 }, { icon: "wave", label: "Focus and flow", at: 10.9 }];
 export const S11: React.FC<{ dur: number }> = ({ dur }) => {
   const t = useT();
-  const cur = STEPS.filter((s) => t >= s.at).length - 1;
-  const scene = (a: number, b: number) => Math.min(prog(t, a, 0.4), 1 - clamp((t - b) / 0.35));
+  const scene = (a: number, b: number) => (a === 0 ? 1 : prog(t, a, 0.35)) * (1 - clamp((t - b) / 0.3));
+  const src = t < 5.3 ? "Exomind session in our office" : "Exomind animation by BTL";
   return (
     <>
       <Canvas glow={[0.5, 0.45]} field={0.5} />
-      <div style={{ position: "absolute", left: M, right: M, top: 64, display: "flex", justifyContent: "space-between", ...life(t, 0) }}>
-        {STEPS.map((s, i) => (
-          <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, opacity: i <= cur ? 1 : 0.35 }}>
-            <Icon name={s.icon} size={36} color={i === cur ? BLUE : INK} />
-            <span style={label(20, i === cur ? BLUE : INK)}>{s.label}</span>
-          </div>
-        ))}
-      </div>
-      <div style={{ position: "absolute", left: M, top: 122 }}><Bar at={0} d={dur - 0.5} w={1920 - 2 * M} /></div>
-      <div style={{ position: "absolute", left: M, top: 160, ...label(20, MUTE) }}>Illustration</div>
-      <div style={{ position: "absolute", inset: 0, opacity: scene(0, 5.3) }}><HeadScene t={t} /></div>
-      <div style={{ position: "absolute", inset: 0, opacity: scene(5.3, 7.5) }}><NetScene t={t - 5.3} /></div>
-      <div style={{ position: "absolute", inset: 0, opacity: scene(7.5, 10.8) }}><SynapseScene t={t - 7.5} /></div>
-      <div style={{ position: "absolute", inset: 0, opacity: scene(10.8, 99) }}><FlowScene t={t - 10.8} /></div>
+      {/* the progress control: the step player (components/YT.tsx; replaces v2's rail of six 20 px labels): one pill per step, the
+          current step named beside it at label size */}
+      <div style={{ position: "absolute", left: M, top: 40 }}><StepPlayer times={STEPS.map((x) => x.at)} end={dur - 0.4} labels={STEPS.map((x) => x.label)} /></div>
+      <div style={{ position: "absolute", right: M, top: 40 + 36 - 12, ...label(22, MUTE), whiteSpace: "nowrap" }}>{src}</div>
+      <div style={{ position: "absolute", inset: 0, opacity: scene(0, 5.3) }}><SessionScene t={t} /></div>
+      <Sequence from={Math.round(5.3 * 24)} durationInFrames={Math.round(2.6 * 24)} layout="none"><div style={{ position: "absolute", inset: 0, opacity: scene(5.3, 7.5) }}><ConnScene t={t - 5.3} /></div></Sequence>
+      <Sequence from={Math.round(7.5 * 24)} durationInFrames={Math.round(3.7 * 24)} layout="none"><div style={{ position: "absolute", inset: 0, opacity: scene(7.5, 10.8) }}><SynScene t={t - 7.5} /></div></Sequence>
+      <Sequence from={Math.round(10.8 * 24)} layout="none"><div style={{ position: "absolute", inset: 0, opacity: scene(10.8, 99) }}><BrainScene t={t - 10.8} /></div></Sequence>
       {STEPS.slice(1).map((s, i) => <Sfx key={i} at={s.at} name={i === 3 ? "swish" : "pop"} gain={0.4} />)}
     </>
   );
 };
-// A: a head in profile, the coil settles on top, pulses pass down into the brain, the prefrontal region lights
-const HeadScene: React.FC<{ t: number }> = ({ t }) => {
-  const coil = prog(t, 0.2, 1.0), pfc = prog(t, 3.3, 0.6);
-  const pulses = t > 1.4 ? [0, 1, 2].map((k) => ((t - 1.4 - k * 0.3) % 0.9 + 0.9) % 0.9 / 0.9) : [];
+// a white rounded window that holds footage at native size (or less); lifts in, never enlarges the picture
+const Win: React.FC<{ x: number; y: number; w: number; h: number; t: number; children: React.ReactNode }> = ({ x, y, w, h, t, children }) => {
+  const q = prog(t, 0, 0.5);
   return (
-    <>
-      <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
-        <g transform="translate(-60 60)">
-          <path d="M560 900 C 500 820 480 740 500 670 C 455 645 465 600 500 575 C 470 430 560 300 700 285 C 850 270 950 360 965 480 C 990 515 1010 560 990 578 C 1010 615 1000 640 975 652 C 990 700 975 745 915 752 C 890 800 845 822 800 822 L 800 905"
-            fill="#fff" stroke={INK} strokeWidth={LINE} strokeLinecap="round" pathLength={1} strokeDasharray={`${prog(t, 0, 0.9)} 1`} />
-          <path d="M590 520 C 560 420 640 345 735 350 C 820 345 905 400 915 490 C 935 560 880 625 800 630 C 720 650 640 630 605 585 Z" fill="none" stroke={MUTE} strokeWidth={2} pathLength={1} strokeDasharray={`${prog(t, 0.4, 0.9)} 1`} />
-          <ellipse cx={860} cy={470} rx={62 + 5 * Math.sin(t * 6) * pfc} ry={86} fill={`rgba(55,169,232,${0.22 * pfc})`} stroke={BLUE} strokeWidth={LINE} opacity={pfc} />
-          {pulses.map((q, k) => <path key={k} d={`M${820 - 160 * q} ${300 + 130 * q} Q 820 ${300 + 230 * q} ${820 + 160 * q} ${300 + 130 * q}`} fill="none" stroke={BLUE} strokeWidth={LINE + 2} opacity={1 - q * 0.8} />)}
-          <g transform={`translate(0 ${-200 * (1 - coil)})`} opacity={coil}>
-            <path d="M660 250 C 700 180 940 180 980 250" fill="none" stroke={INK} strokeWidth={LINE + 3} strokeLinecap="round" />
-            <path d="M680 262 H 960" stroke={BLUE} strokeWidth={LINE + 4} strokeLinecap="round" opacity={0.6 + 0.4 * Math.sin(t * 8)} />
-            <path d="M980 250 L 1120 190 L 1300 190" fill="none" stroke={INK} strokeWidth={LINE} strokeLinecap="round" />
-          </g>
-        </g>
-      </svg>
-      <div style={{ position: "absolute", left: 1080, top: 330 }}><Tag text="Pulsed magnetic field" at={1.5} out={3.2} /></div>
-      <div style={{ position: "absolute", left: 1080, top: 330 }}><Tag text="Prefrontal cortex" at={3.4} /></div>
-      <div style={{ position: "absolute", left: 1080, top: 430 }}><Kinetic text="Neuroplasticity" at={4.1} size={HERO * 0.8} /></div>
-    </>
+    <div style={{ position: "absolute", left: x - 10, top: y - 10, width: w + 20, height: h + 20, borderRadius: RADIUS + 10, background: "#fff", boxShadow: elev, transform: `translateY(${(1 - q) * 18}px) scale(${0.985 + 0.015 * q})` }}>
+      <div style={{ position: "absolute", left: 10, top: 10, width: w, height: h, borderRadius: RADIUS, overflow: "hidden", background: "#0d1b33" }}>{children}</div>
+    </div>
   );
 };
-// B: neurons; signals travel; at "rewire" new links draw and old ones thicken; a counter ticks
-const NEUR = [[380, 420], [620, 310], [860, 460], [1080, 340], [1320, 440], [1560, 330], [470, 680], [760, 740], [1010, 650], [1250, 760], [1500, 660], [640, 860], [1150, 880], [1700, 540]];
-const OLD: [number, number][] = [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [6, 7], [7, 8], [8, 9], [9, 10], [0, 6], [2, 8], [4, 10], [5, 13]];
-const NEW: [number, number][] = [[1, 7], [3, 8], [6, 11], [7, 11], [9, 12], [8, 12], [10, 13], [2, 7], [3, 9], [4, 9]];
-const NetScene: React.FC<{ t: number }> = ({ t }) => {
-  const re = t - 0.7;
+// a leader from a point to a label: white under-stroke so the blue line reads on footage
+const Lead: React.FC<{ x: number; y: number; lx: number; ly: number; q: number }> = ({ x, y, lx, ly, q }) => (
+  <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, overflow: "visible" }}>
+    <path d={`M${x} ${y} L${lx} ${ly}`} stroke="#fff" strokeWidth={LINE + 4} strokeLinecap="round" pathLength={1} strokeDasharray={`${q} 1`} opacity={0.9} />
+    <path d={`M${x} ${y} L${lx} ${ly}`} stroke={BLUE} strokeWidth={LINE} strokeLinecap="round" pathLength={1} strokeDasharray={`${q} 1`} />
+    <circle cx={x} cy={y} r={9} fill={BLUE} stroke="#fff" strokeWidth={3} opacity={Math.min(1, q * 3)} />
+  </svg>
+);
+// A: Oct 30 session (session.mp4 from 7 s; s3 used 0-6.25 s). Window 1570 x 740; the picture is drawn at 0.82-0.86x of its 1920
+// px, pushed in slowly about (960, 470). Everything tracked lives in source pixels: coil body ~(650, 320), its pad on the forehead
+// ~(730, 340); the forehead under the pad, where the prefrontal cortex sits, ~(705, 330) (v3 first pass at (775, 365) landed on the brow and eye, moved after a frame check); the head did not move over 7-12.5 s (measured on a 1 fps strip).
+const AW = { x: M, y: 190, w: 1570, h: 740 };
+const SessionScene: React.FC<{ t: number }> = ({ t }) => {
+  const k = 0.82 + 0.04 * clamp(t / 5.6);
+  const tx = AW.w / 2 - 960 * k, ty = AW.h / 2 - 470 * k;
+  const sc = (x: number, y: number) => [AW.x + tx + x * k, AW.y + ty + y * k];
+  const pfc = prog(t, 3.3, 0.6), coilQ = prog(t, 0.35, 0.5);
+  const rings = t > 1.4 ? [0, 1, 2].map((j) => (((t - 1.4 - j * 0.33) % 1) + 1) % 1) : [];
+  const [cx, cy] = sc(640, 290), [px, py] = sc(705, 330);
   return (
     <>
-      <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
-        {OLD.map(([a, b], k) => { const A = NEUR[a], B = NEUR[b]; return <line key={k} x1={A[0]} y1={A[1]} x2={B[0]} y2={B[1]} stroke={INK} strokeWidth={2 + 2 * prog(re, 0.6, 1)} opacity={0.5} />; })}
-        {NEW.map(([a, b], k) => { const A = NEUR[a], B = NEUR[b], q = prog(re, k * 0.12, 0.5); return <line key={`n${k}`} x1={A[0]} y1={A[1]} x2={A[0] + (B[0] - A[0]) * q} y2={A[1] + (B[1] - A[1]) * q} stroke={BLUE} strokeWidth={LINE + 1} strokeLinecap="round" />; })}
-        {[...OLD, ...NEW.filter((_, k) => re > k * 0.12 + 0.5)].map(([a, b], k) => { const A = NEUR[a], B = NEUR[b], q = ((t * 0.9 + k * 0.37) % 1); return <circle key={`s${k}`} cx={A[0] + (B[0] - A[0]) * q} cy={A[1] + (B[1] - A[1]) * q} r={5} fill={BLUE} />; })}
-        {NEUR.map(([x, y], k) => <g key={`c${k}`}><circle cx={x} cy={y} r={16 + 3 * Math.sin(t * 3 + k)} fill="#fff" stroke={INK} strokeWidth={LINE} /><circle cx={x} cy={y} r={6} fill={BLUE} /></g>)}
-      </svg>
-      <div style={{ position: "absolute", left: M, top: 210, display: "flex", alignItems: "baseline", gap: 18, ...life(t, 0.7) }}>
-        <Counter from={0} to={NEW.length} at={0.7} d={1.3} color={BLUE} /><span style={label(28)}>New connections</span>
+      <div style={{ position: "absolute", left: AW.x, top: AW.y, width: AW.w, height: AW.h, borderRadius: RADIUS, overflow: "hidden", boxShadow: elev, background: "#ddd" }}>
+        <div style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, transformOrigin: "0 0", transform: `translate(${tx}px, ${ty}px) scale(${k})` }}>
+          <OffthreadVideo src={v("session.mp4")} muted startFrom={7 * 24} style={{ position: "absolute", inset: 0, width: 1920, height: 1080 }} />
+          <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
+            <defs>
+              <clipPath id="s11head"><ellipse cx={820} cy={400} rx={330} ry={215} transform="rotate(-22 820 400)" /></clipPath>
+              <radialGradient id="s11pfc"><stop offset="0" stopColor="#5cc3ff" stopOpacity={0.75} /><stop offset="0.55" stopColor="#37a9e8" stopOpacity={0.35} /><stop offset="1" stopColor="#37a9e8" stopOpacity={0} /></radialGradient>
+            </defs>
+            <g clipPath="url(#s11head)">
+              {rings.map((q, j) => <ellipse key={j} cx={700} cy={320} rx={40 + 300 * q} ry={26 + 190 * q} transform="rotate(-22 700 320)" fill="none" stroke="#fff" strokeWidth={10 * (1 - q) + 2} opacity={(1 - q) * 0.55} />)}
+              {rings.map((q, j) => <ellipse key={`b${j}`} cx={700} cy={320} rx={40 + 300 * q} ry={26 + 190 * q} transform="rotate(-22 700 320)" fill="none" stroke={BLUE} strokeWidth={5} opacity={(1 - q) * 0.95} />)}
+            </g>
+            <ellipse cx={705} cy={330} rx={140 + 8 * Math.sin(t * 5)} ry={88} transform="rotate(-24 705 330)" fill="url(#s11pfc)" opacity={pfc} style={{ mixBlendMode: "screen" }} />
+            <ellipse cx={705} cy={330} rx={118} ry={70} transform="rotate(-24 705 330)" fill="none" stroke="#fff" strokeWidth={3} strokeDasharray="6 10" opacity={pfc * 0.9} />
+          </svg>
+        </div>
       </div>
+      {/* coil, then prefrontal cortex: leaders tracked to the picture, labels as solid tags (never on bare footage as navy text) */}
+      <div style={{ opacity: 1 - clamp((t - 3.1) / 0.3) }}>
+        <Lead x={cx} y={cy} lx={cx - 120} ly={AW.y + 70} q={coilQ} />
+        <div style={{ position: "absolute", left: cx - 120 - 10, top: AW.y + 70 - 64 }}><Tag text="Exomind coil" at={0.6} size={28} sfx={false} /></div>
+      </div>
+      {t > 1.5 && t < 3.4 && <div style={{ position: "absolute", left: AW.x + AW.w - 560, top: AW.y + 40, opacity: 1 - clamp((t - 3.1) / 0.3) }}><Tag text="Magnetic pulses" at={1.5} size={28} /></div>}
+      <Lead x={px} y={py} lx={AW.x + AW.w - 470} ly={AW.y + 120} q={prog(t, 3.35, 0.5)} />
+      <div style={{ position: "absolute", left: AW.x + AW.w - 470 + 6, top: AW.y + 120 - 30 }}><Tag text="Prefrontal cortex" at={3.6} size={30} /></div>
+      {t > 4.0 && (
+        <div style={{ ...glass(), background: "rgba(250,249,246,.9)", left: AW.x + AW.w - 620, top: AW.y + AW.h - 210, width: 580, height: 170, ...life(t, 3.9) }}>
+          <GlassLife />
+          <div style={{ position: "relative", padding: "26px 36px" }}>
+            <div style={label(22, MUTE)}>Creates</div>
+            <div style={{ ...head(72, BLUE), marginTop: 10, whiteSpace: "nowrap" }}>Neuroplasticity</div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
-// C: a synapse: neurotransmitters cross the gap, receptors light; a balance levels
-const SynapseScene: React.FC<{ t: number }> = ({ t }) => {
-  const rel = t - 0.9, lvl = prog(t, 1.4, 1.2);
-  const dots = Array.from({ length: 26 }, (_, k) => ({ x: 760 + ((k * 53) % 400), d: (k % 7) * 0.12 }));
+// C: "rewire": BTL's dendrite render (plasticity_full, 968 x 726, native) from 2.5 s; a counter of new links on the canvas
+const ConnScene: React.FC<{ t: number }> = ({ t }) => (
+  <>
+    <Win x={777} y={196} w={968} h={726} t={t}><OffthreadVideo src={staticFile("exomind/clips/plasticity_full.mp4")} muted startFrom={60} style={{ width: 968, height: 726, filter: "brightness(1.12) saturate(1.05)" }} /></Win>
+    <div style={{ position: "absolute", left: M, top: 300, width: 540 }}>
+      <Tag text="New connections" at={0.15} size={30} sfx={false} />
+      <div style={{ display: "flex", alignItems: "baseline", gap: 16, marginTop: 40, ...life(t, 0.3) }}>
+        <span style={head(HERO, BLUE)}>+</span><Counter from={0} to={24} at={0.45} d={1.4} size={HERO} color={BLUE} />
+      </div>
+      <div style={{ ...small(30, 500, INK), marginTop: 6, ...life(t, 0.6) }}>links forming between neurons</div>
+      <div style={{ marginTop: 40, ...life(t, 0.75) }}><Kinetic text="Your brain rewires" at={0.75} size={56} key_={["rewires"]} /></div>
+    </div>
+  </>
+);
+// D: neurotransmitters: BTL's synapse render (synapse_full, native) from 2.5 s, so a release and the receptors lighting fall inside
+const SynScene: React.FC<{ t: number }> = ({ t }) => {
+  const lvl = prog(t, 1.2, 1.2);
   return (
     <>
-      <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
-        <path d="M700 190 C 700 370 720 450 960 450 C 1200 450 1220 370 1220 190" fill="#fff" stroke={INK} strokeWidth={LINE} pathLength={1} strokeDasharray={`${prog(t, 0, 0.7)} 1`} />
-        <path d="M680 800 C 760 680 1160 680 1240 800" fill="#fff" stroke={INK} strokeWidth={LINE} pathLength={1} strokeDasharray={`${prog(t, 0.2, 0.7)} 1`} />
-        {Array.from({ length: 9 }, (_, k) => { const x = 790 + k * 42, lit = rel > 0.5 + k * 0.05; return <rect key={k} x={x - 8} y={712 + Math.abs(k - 4) * 4} width={16} height={22} rx={6} fill={lit ? BLUE : "#fff"} stroke={lit ? BLUE : INK} strokeWidth={2} />; })}
-        {rel > 0 && dots.map((d, k) => { const q = clamp((rel - d.d) / 0.9); return q > 0 && q < 1 ? <circle key={k} cx={d.x + 12 * Math.sin(k + rel * 4)} cy={440 + 270 * quint(q)} r={7} fill={BLUE} opacity={1 - q * 0.4} /> : null; })}
-        {[0, 1, 2].map((k) => <circle key={`v${k}`} cx={880 + k * 80} cy={340} r={30} fill="none" stroke={BLUE} strokeWidth={2} opacity={1 - prog(rel, 0, 0.4)} />)}
-      </svg>
-      <div style={{ position: "absolute", left: 1320, top: 400, width: 420, ...life(t, 1.0) }}>
-        <Tag text="Neurotransmitters" at={1.2} />
-        <svg width={420} height={160} style={{ marginTop: 30, overflow: "visible" }}>
-          <g transform={`rotate(${-14 * (1 - lvl)} 210 80)`}>
-            <line x1={20} y1={80} x2={400} y2={80} stroke={INK} strokeWidth={LINE} strokeLinecap="round" />
-            <circle cx={40} cy={64} r={16} fill={BLUE} /><circle cx={380} cy={64} r={16} fill={lvl > 0.5 ? BLUE : "#fff"} stroke={BLUE} strokeWidth={2} />
+      <Win x={M} y={196} w={968} h={726} t={t}><OffthreadVideo src={staticFile("exomind/clips/synapse_full.mp4")} muted startFrom={60} style={{ width: 968, height: 726, filter: "brightness(1.15) saturate(1.05)" }} /></Win>
+      <div style={{ position: "absolute", left: 1220, top: 300, width: 525 }}>
+        <Tag text="Neurotransmitters" at={0.15} size={30} sfx={false} />
+        <div style={{ ...small(30, 500, INK), marginTop: 30, ...life(t, 0.4) }}>released across the synapse</div>
+        <svg width={460} height={170} style={{ marginTop: 40, overflow: "visible", ...life(t, 0.6) }}>
+          <g transform={`rotate(${-14 * (1 - lvl)} 230 80)`}>
+            <line x1={20} y1={80} x2={440} y2={80} stroke={INK} strokeWidth={LINE} strokeLinecap="round" />
+            <circle cx={44} cy={62} r={18} fill={BLUE} /><circle cx={416} cy={62} r={18} fill={lvl > 0.5 ? BLUE : "#fff"} stroke={BLUE} strokeWidth={2} />
           </g>
-          <path d="M210 84 L 190 130 H 230 Z" fill="none" stroke={INK} strokeWidth={LINE} strokeLinejoin="round" />
+          <path d="M230 84 L 208 134 H 252 Z" fill="none" stroke={INK} strokeWidth={LINE} strokeLinejoin="round" />
         </svg>
-        <div style={{ ...small(28, 500, INK), marginTop: 10, ...life(t, 2.4) }}>Production in balance</div>
+        <div style={{ ...head(48), marginTop: 18, ...life(t, 1.6) }}>Production in balance</div>
       </div>
     </>
   );
 };
-// D: a busy line that settles into one calm, flowing wave
-const FlowScene: React.FC<{ t: number }> = ({ t }) => {
-  const calm = prog(t, 0.5, 1.3);
-  const pts = Array.from({ length: 140 }, (_, i) => {
-    const x = M + i * ((1920 - 2 * M) / 139);
-    const busy = 70 * Math.sin(i * 1.7 + t * 9) * Math.sin(i * 0.31 + t * 2) + 30 * Math.sin(i * 3.1 - t * 7);
-    const smooth = 80 * Math.sin(i * 0.09 - t * 2.2);
-    return `${x},${600 + busy * (1 - calm) + smooth * calm}`;
+// the illustrated layer, traced from the real render frame by frame (scripts/trace_outline.py: top-hat rim -> contour -> only the
+// points on a real bright rim -> Douglas-Peucker); white line at our weight, drawn on, then breathing with the picture under it
+const Traced: React.FC<{ src: string; t: number }> = ({ src, t }) => {
+  const f = useCurrentFrame();
+  const [data, setData] = React.useState<{ frames: string[] } | null>(null);
+  const [h] = React.useState(() => delayRender("trace"));
+  React.useEffect(() => { fetch(staticFile(src)).then((r) => r.json()).then((j) => { setData(j); continueRender(h); }); }, [src, h]);
+  if (!data) return null;
+  const d = data.frames[Math.min(f, data.frames.length - 1)];
+  const q = prog(t, 0.15, 0.9);
+  return (
+    <svg width={1066} height={600} style={{ position: "absolute", inset: 0 }}>
+      <path d={d} fill="none" stroke="#fff" strokeWidth={LINE} strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={`${q} 1`} opacity={0.55 + 0.35 * (1 - q) + 0.1 * Math.sin(t * 3)} />
+    </svg>
+  );
+};
+// E: BTL's lit brain (1066 x 600, native) from 2 s; the busy line settles into one calm wave beside it
+const BrainScene: React.FC<{ t: number }> = ({ t }) => {
+  const calm = prog(t, 0.4, 1.3), W = 470;
+  const pts = Array.from({ length: 80 }, (_, i) => {
+    const x = i * (W / 79);
+    const busy = 34 * Math.sin(i * 1.7 + t * 9) * Math.sin(i * 0.31 + t * 2) + 14 * Math.sin(i * 3.1 - t * 7);
+    return `${x},${50 + busy * (1 - calm) + 34 * Math.sin(i * 0.16 - t * 2.4) * calm}`;
   });
   return (
     <>
-      <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
-        <polyline points={pts.join(" ")} fill="none" stroke={calm > 0.5 ? BLUE : INK} strokeWidth={LINE + 1} strokeLinejoin="round" strokeLinecap="round" />
-      </svg>
-      <div style={{ position: "absolute", left: M, top: 240 }}><Kinetic text="Focused, in flow" at={0.5} size={HERO} key_={["flow"]} /></div>
+      <Win x={679} y={250} w={1066} h={600} t={t}>
+        <OffthreadVideo src={staticFile("exomind-skin/clips/brainlit.mp4")} muted startFrom={48} style={{ width: 1066, height: 600, filter: "brightness(1.12) saturate(1.05)" }} />
+        <Traced src="exomind-skin/yt/brain_trace.json" t={t} />
+      </Win>
+      <div style={{ position: "absolute", left: M, top: 330, width: W }}>
+        <Kinetic text="Focused," at={0.3} size={96} />
+        <Kinetic text="in flow" at={0.45} size={96} key_={["flow"]} />
+        <svg width={W} height={100} style={{ marginTop: 40, overflow: "visible", ...life(t, 0.2) }}>
+          <polyline points={pts.join(" ")} fill="none" stroke={calm > 0.5 ? BLUE : INK} strokeWidth={LINE + 1} strokeLinejoin="round" strokeLinecap="round" />
+        </svg>
+      </div>
     </>
   );
 };
@@ -550,21 +603,30 @@ const ZONES: Record<string, Zone> = {
 };
 const CAP = 42; // the bible's caption cap ratio on a 1080-high canvas puts the caption at 30-38 px; 42 for viewing at YouTube distance (judgment call)
 const YTCaptions: React.FC<{ captions: Caption[]; keywords: string[]; sections: YTSection[] }> = ({ captions, keywords, sections }) => {
-  const t = useCurrentFrame() / useVideoConfig().fps;
-  const line = captions.find((c) => t >= c.from && t < c.to);
+  // v3 (client: "the captions are laggy"). Measured on v3 first render: phrase starts vs word onsets from a fresh transcript of the
+  // delivered audio: median -0.014 s, p10 -0.052, p90 +0.018, no drift (slope 0.0007 s/s), so not a scaling or offset fault; the lag
+  // was the presentation: a 3-5 word phrase appeared whole at its first word and sat ahead of him, behind a 0.14 s fade and rise.
+  // Now every word cuts on at its own measured onset frame (yt_words.json via prepare.cjs), no fade, no rise, no shadow; the rest of
+  // the line holds its place invisibly, so nothing reflows.
+  const f = useCurrentFrame(), fps = useVideoConfig().fps, t = f / fps;
+  const on = (c: Caption) => Math.min(c.from, c.words?.[0] ?? c.from);
+  const line = captions.find((c) => f >= Math.round(on(c) * fps) && f < Math.round(c.to * fps));
   const sec = [...sections].reverse().find((s) => t >= s.at);
   if (!line || !sec) return null;
   const z = ZONES[sec.kind] ?? ZONES.s2;
   const px = fitPx(line.text, 500, CAP, z.width - 20, -0.0158);
-  const q = 1 - (1 - clamp((t - line.from) / 0.14)) ** 3;
   const keys = new Set(keywords.map((k) => k.toLowerCase()));
   const color = z.ink === "navy" ? INK : "#fff";
   return (
     <AbsoluteFill>
       {z.soft && <div style={{ position: "absolute", left: z.left - 120, width: z.width + 240, top: z.top - 80, height: px * 1.271 + 160, background: "radial-gradient(50% 50% at 50% 50%, rgba(16,24,40,.26) 0%, rgba(16,24,40,.16) 45%, rgba(16,24,40,0) 100%)" }} />}
       <div style={{ position: "absolute", left: z.left, width: z.width, top: z.top, textAlign: "left" }}>
-        <p style={{ margin: 0, font: `500 ${px}px/1.271 ${FONT}`, letterSpacing: "-0.0158em", color, whiteSpace: "nowrap", opacity: Math.min(1, q * 2), transform: `translateY(${(1 - q) * 6}px)` }}>
-          {line.text.split(" ").map((w, i) => <span key={i} style={keys.has(w.toLowerCase().replace(/[^a-z]/g, "")) ? { color: z.ink === "navy" ? BLUE : SKY } : undefined}>{(i ? " " : "") + w}</span>)}
+        <p style={{ margin: 0, font: `500 ${px}px/1.271 ${DISPLAY}`, letterSpacing: "-0.0158em", color, whiteSpace: "nowrap" }}>
+          {line.text.split(" ").map((w, i) => {
+            const shown = f >= Math.round((line.words?.[i] ?? line.from) * fps);
+            const key = keys.has(w.toLowerCase().replace(/[^a-z]/g, ""));
+            return <span key={i} style={{ opacity: shown ? 1 : 0, color: key ? (z.ink === "navy" ? BLUE : SKY) : undefined }}>{(i ? " " : "") + w}</span>;
+          })}
         </p>
       </div>
     </AbsoluteFill>
@@ -583,7 +645,7 @@ const Keyed: React.FC<{ showFrom: number; src: string; speed: number }> = ({ sho
 };
 
 // font check (DECISIONS 14b): with debugFonts the frame prints document.fonts.check for every face the cut uses
-const FACES = ["500 40px neue-haas-grotesk-display", "600 40px neue-haas-grotesk-display", "400 40px neue-haas-grotesk-text", "500 40px neue-haas-grotesk-text"];
+const FACES = TYPEFACE === "helvetica" ? ["400 40px helvetica-neue-lt-pro", "500 40px helvetica-neue-lt-pro"] : ["500 40px neue-haas-grotesk-display", "600 40px neue-haas-grotesk-display", "400 40px neue-haas-grotesk-text", "500 40px neue-haas-grotesk-text"];
 // font check (DECISIONS 14b): with debugFonts the frame shows, per face, the DOM width of a test string in that face and in Arial
 // (different widths = the brand face is drawing, not the fallback) and the same string set in each face for a visual check
 const FontCheck: React.FC = () => {
@@ -600,7 +662,7 @@ const BODY: Record<string, React.FC<{ dur: number }>> = { s1: S1, s2: S2, s3: S3
 const AROLL: Record<string, "panelR" | "panelL" | "window"> = { s1: "panelR", s4: "window", s9: "panelL" };
 
 export const OstadYT: React.FC<YTProps> = ({ spec, debugFonts }) => {
-  useElza();
+  useElza(TYPEFACE === "helvetica" ? HN_NEED : []);
   const { fps } = useVideoConfig();
   if (!spec) return <AbsoluteFill style={{ background: BG0 }} />;
   const f = (s: number) => Math.round(s * fps);
