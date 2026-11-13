@@ -273,9 +273,12 @@ const S7: React.FC<{ dur: number }> = ({ dur }) => {
   const t = useT();
   return (
     <>
-      <Sequence durationInFrames={Math.round(2.3 * 24)} layout="none"><Full src="couch.mp4" dur={2.3} /></Sequence>
+      {/* v4: the field-at-sunset frames at the head of couch.mp4 are gone; the client's pick, the woman on the couch with her hand on
+          her forehead (real BTL video, stressed.mp4 0.45-1.55 s), opens the section, then the patient relaxing under the coil */}
+      <Sequence durationInFrames={Math.round(1.1 * 24)} layout="none"><Full src="stressed.mp4" from={0.45} dur={1.1} pos="40% 50%" /></Sequence>
+      <Sequence from={Math.round(1.1 * 24)} durationInFrames={Math.round(1.2 * 24)} layout="none"><Full src="couch.mp4" from={1.1} dur={1.2} /></Sequence>
       <Sequence from={Math.round(2.3 * 24)} layout="none"><Full src="trio.mp4" from={2.2} dur={dur - 2.3} /></Sequence>
-      <Callout x={760} y={200} lx={980} ly={120} text="An Exomind session" at={0.35} out={2.1} />
+      <Callout x={760} y={200} lx={980} ly={120} text="An Exomind session" at={1.15} out={2.1} />
       <div style={{ ...glass(999), position: "absolute", right: M - 60, top: TOP - 60, display: "flex", alignItems: "center", gap: 16, padding: "14px 28px 14px 18px", ...life(t, 2.5) }}>
         <Icon name="calendar" size={48} draw={prog(t, 2.5, 0.7)} color={t > 3.3 ? BLUE : INK} />
         <span style={label(28)}>See you in the office</span>
@@ -291,14 +294,16 @@ const S8: React.FC = () => {
   // Kling; slow lateral dolly, soft daylight, an empty left third). 5.04 s slowed to 0.875x with frame blending (coil_s8.mp4,
   // yt_assets.sh) for the 5.7 s section, never looped. Type sits in the left third, small; the three parts list quietly under it.
   const t = useT();
-  const parts = [{ icon: "skin", label: "Skin care", at: 0.6 }, { icon: "brain", label: "The mind", at: 1.4 }, { icon: "coil", label: "Technology", at: 2.2 }];
+  const parts = [{ icon: "face", label: "Skin care", at: 0.6 }, { icon: "brain", label: "The mind", at: 1.4 }, { icon: "coil", label: "Technology", at: 2.2 }];
   return (
     <>
-      <OffthreadVideo src={staticFile("exomind-skin/flora/coil_s8.mp4")} muted style={{ position: "absolute", inset: 0, width: 1920, height: 1080, objectFit: "cover" }} />
+      {/* v4: the coil no longer floats on blown-out window: tightened 1.12x toward the coil and the room, and the type block
+          occupies the bright side from the first frames (client: "on the sky where nothing is happening") */}
+      <OffthreadVideo src={staticFile("exomind-skin/flora/coil_s8.mp4")} muted style={{ position: "absolute", inset: 0, width: 1920, height: 1080, objectFit: "cover", transform: "scale(1.12)", transformOrigin: "100% 85%" }} />
       <div style={{ position: "absolute", left: M, top: TOP, ...life(t, 0) }}><span style={label(LAB, MUTE)}>Total skin health</span></div>
       <div style={{ position: "absolute", left: M, top: 380, width: 760 }}>
-        <Kinetic text="A comprehensive approach to" at={2.3} size={H1} step={0.07} />
-        <Kinetic text="total skin health" at={3.85} size={HERO} key_={["total", "skin", "health"]} />
+        <Kinetic text="A comprehensive approach to" at={0.1} size={H1} step={0.07} />
+        <Kinetic text="total skin health" at={0.5} size={HERO} key_={["total", "skin", "health"]} />
       </div>
       <div style={{ position: "absolute", left: M, top: 740, display: "flex", gap: 44 }}>
         {parts.map((p, i) => (
@@ -328,7 +333,7 @@ const S9: React.FC = () => {
         {t > 4.4 && <circle cx={mx} cy={Y} r={18} fill="#fff" stroke={BLUE} strokeWidth={6} />}
       </svg>
       <div style={{ position: "absolute", left: X0, top: Y + 40, display: "flex", alignItems: "center", gap: 14, ...life(t, 3.0) }}>
-        <Icon name="skin" size={48} draw={prog(t, 3.0, 0.7)} /><span style={label(26)}>{t > 6.6 ? "Classic treatments" : "Caring for the skin"}</span>
+        <Icon name="face" size={48} draw={prog(t, 3.0, 0.7)} /><span style={label(26)}>{t > 6.6 ? "Classic treatments" : "Caring for the skin"}</span>
       </div>
       <div style={{ position: "absolute", left: XF + 40, top: Y - 120, display: "flex", alignItems: "center", gap: 14, ...life(t, 5.0) }}>
         <Icon name="brain" size={56} draw={prog(t, 5.0, 0.7)} color={BLUE} /><span style={label(28, BLUE)}>Beyond: the mind</span>
@@ -344,7 +349,7 @@ const S10: React.FC<{ dur: number }> = ({ dur }) => {
   const wipe = quint((t - 1.6) / 0.7), knob = quint((t - 2.0) / 0.9);
   return (
     <>
-      <div style={{ position: "absolute", left: 0, top: 0, width: 1920 - 960 * wipe, height: 1080, overflow: "hidden" }}><Full src="stressed.mp4" dur={dur} pos="40% 50%" /></div>
+      <div style={{ position: "absolute", left: 0, top: 0, width: 1920 - 960 * wipe, height: 1080, overflow: "hidden" }}><Full src="stressed2.mp4" dur={dur} pos="50% 40%" /></div>
       <div style={{ position: "absolute", left: 1920 - 960 * wipe, top: 0, width: 960, height: 1080, overflow: "hidden", borderLeft: "4px solid #fff" }}>
         <OffthreadVideo src={v("smile.mp4")} muted style={{ position: "absolute", left: -480, top: 0, width: 1920, height: 1080 }} />
       </div>
@@ -367,7 +372,7 @@ const S10: React.FC<{ dur: number }> = ({ dur }) => {
 // the footage; C-E BTL's own Exomind renders at native size in white windows (new connections, neurotransmitters, the lit brain).
 // The rail, counters and tags sit on the white canvas around them. C-E run in their own Sequence, so Tag/Kinetic/Counter and the
 // clips use scene time.
-const STEPS = [{ icon: "coil", label: "Coil", at: 0 }, { icon: "pulse", label: "Magnetic pulse", at: 1.1 }, { icon: "brain", label: "Prefrontal cortex", at: 2.6 }, { icon: "network", label: "New connections", at: 6.0 }, { icon: "spark", label: "Neurotransmitters", at: 8.6 }, { icon: "wave", label: "Focus and flow", at: 10.2 }];
+const STEPS = [{ icon: "coil", label: "Coil", at: 0 }, { icon: "pulse", label: "Magnetic pulse", at: 1.1 }, { icon: "brain", label: "Prefrontal cortex", at: 2.6 }, { icon: "network", label: "New connections", at: 6.0 }, { icon: "synapse", label: "Neurotransmitters", at: 8.6 }, { icon: "wave", label: "Focus and flow", at: 10.2 }];
 // the mechanism slot (v3): two Flora clips are being re-rendered (client: the first head "looks wrong"): a fixed head-and-coil shot that
 // zooms into the prefrontal cortex, then new neural connections forming. Rendered at 5 s and slow; played here at 1.3x (5 s -> 3.85 s),
 // nearest-frame (no blending, no added blur), full frame. Until they land, each slot holds BTL's own render in a window.
@@ -396,10 +401,10 @@ const Win: React.FC<{ x: number; y: number; w: number; h: number; t: number; gra
   const q = prog(t, 0, 0.5);
   return (
     <div style={{ position: "absolute", left: x - 10, top: y - 10, width: w + 20, height: h + 20, borderRadius: RADIUS + 10, background: "#fff", boxShadow: elev, transform: `translateY(${(1 - q) * 18}px) scale(${0.985 + 0.015 * q})` }}>
-      <div style={{ position: "absolute", left: 10, top: 10, width: w, height: h, borderRadius: RADIUS, overflow: "hidden", background: "#c9cdbf" }}>
+      <div style={{ position: "absolute", left: 10, top: 10, width: w, height: h, borderRadius: RADIUS, overflow: "hidden", background: "#c8ced6" }}>
         <div style={{ position: "absolute", inset: 0, filter: grade ? "brightness(1.3) contrast(0.8) saturate(0.55)" : "none" }}>{children}</div>
         {/* v3: BTL's navy renders graded toward the room (lifted, flattened, desaturated, a sage-cream screen over them) */}
-        {grade && <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(237,239,233,.30), rgba(199,203,187,.24))", mixBlendMode: "screen" }} />}
+        {grade && <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(232,239,248,.30), rgba(196,202,210,.24))", mixBlendMode: "screen" }} />}
       </div>
     </div>
   );
@@ -544,7 +549,7 @@ const S12: React.FC = () => {
         <div style={{ display: "flex", alignItems: "center", gap: 22, marginTop: 64, ...life(t, 0.9) }}>
           {node("wave", "Feel better", 1.05)}
           <svg width={110} height={20}><path d="M4 10 H 100 M88 2 l12 8 -12 8" fill="none" stroke={INK} strokeWidth={LINE} strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={`${prog(t, 2.0, 0.8)} 1`} /></svg>
-          {node("skin", "Better skin", 3.05)}
+          {node("face", "Better skin", 3.05)}
         </div>
       </div>
       <Sfx at={1.05} name="yes" gain={0.4} />

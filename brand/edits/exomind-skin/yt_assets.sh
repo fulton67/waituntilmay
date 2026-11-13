@@ -19,6 +19,8 @@ btl trio 117.6 123.4
 btl outdoor 107.4 109.6
 btl smile 110.0 113.3
 btl stressed 16.0 19.6
+# v4: the stress side of s10 (the couch woman moved to s7 at the client's request): the sleepless woman in bed, real video
+btl stressed2 22.0 26.2
 btl smile_close 124.4 127.4
 btl studio 32.0 37.0
 btl hiker 10.0 13.5
