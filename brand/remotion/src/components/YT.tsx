@@ -14,23 +14,37 @@ import { Sfx } from "./Ro";
 //            the 16:9 frame from the bible's 1080-high canvas (headline 68 px, label 30 px), a hero size of 2x headline for the one
 //            focal statement of a section; margin 9.1 % of width (175 px), headline top 13.8 % of height (149 px). No text shadows.
 //   sound:   pop = something appears or is tapped, swish = a new section, card = glass, yes = a tick.
-export const BG0 = "#f4f7fa", BG1 = "#ffffff", INK = "#1d2230", MUTE = "#6b7183", RULE = "#dfe4ea", BLUE = "#37a9e8", SKY = "#7cc8f2", LINE = 3;
-export const TEXT = '"neue-haas-grotesk-text", Inter, Arial, sans-serif';
-export const M = 175, TOP = 149, H1 = 68, HERO = 136, LAB = 30, SMALL = 26, RADIUS = 30;
-export const head = (px = H1, color = INK): React.CSSProperties => ({ font: `600 ${px}px/1.033 ${FONT}`, letterSpacing: "0.0082em", color });
-export const label = (px = LAB, color = INK): React.CSSProperties => ({ font: `500 ${px}px/1.078 ${FONT}`, letterSpacing: "0.0102em", textTransform: "uppercase", color });
-export const small = (px = SMALL, w = 400, color = MUTE): React.CSSProperties => ({ font: `${w} ${px}px/1.3 ${TEXT}`, color });
-// the brand's matte-white glass (Ro's card material, made for 16:9): frost, a hairline rim, a soft long shadow, no hard border
+// v3 type direction (client: "a Helvetica would look better", the bible's Helvetica Neue LT Pro, "a semi bold one"; the Homevolt posters
+// and the 963 journal study: small quiet type, size steps and grey values for hierarchy, far apart, frosted grey cards, slow 2 s fade-ups).
+// One weight for headline, label and caption: 500 (= Helvetica Neue LT Pro 65 Medium in the kit; NHG Display 500 until the kit has it).
+// Text #373737, greys #8E8E8E / #BCBCBC; display sizes at 0.65x of v2 (68 -> 44, 136 -> 88), labels/small text no smaller than 22 px.
+export const TYPEFACE = "nhg" as "nhg" | "helvetica"; // flip to "helvetica" once Helvetica Neue LT Pro 55/65 is in kit vzz0hgt (Fonts.tsx then requires it)
+export const DISPLAY = TYPEFACE === "helvetica" ? '"helvetica-neue-lt-pro", sans-serif' : FONT;
+export const BG0 = "#faf9f6", BG1 = "#ffffff", INK = "#373737", MUTE = "#8e8e8e", MUTE2 = "#bcbcbc", RULE = "#dcdcdc", BLUE = "#37a9e8", SKY = "#7cc8f2", LINE = 3;
+export const TEXT = TYPEFACE === "helvetica" ? '"helvetica-neue-lt-pro", sans-serif' : '"neue-haas-grotesk-text", Inter, Arial, sans-serif';
+export const M = 175, TOP = 149, H1 = 68, HERO = 136, LAB = 30, SMALL = 26, RADIUS = 24;
+const DS = 0.65; // display scale (v3)
+export const head = (px = H1, color = INK): React.CSSProperties => ({ font: `500 ${Math.round(px * DS)}px/1.033 ${DISPLAY}`, letterSpacing: "0.0082em", color });
+export const label = (px = LAB, color = INK): React.CSSProperties => ({ font: `500 ${Math.max(22, Math.round(px * 0.8))}px/1.078 ${DISPLAY}`, letterSpacing: "0.04em", textTransform: "uppercase", color });
+export const small = (px = SMALL, w = 400, color = MUTE): React.CSSProperties => ({ font: `${TYPEFACE === "helvetica" ? 400 : w} ${Math.max(22, Math.round(px * 0.85))}px/1.3 ${TEXT}`, color });
+// v3 card: the 963 journal's frosted grey card (rgba(219,219,219,.7), 24 px radius) with a 22 px backdrop blur, a hairline, no long shadow
 export const glass = (r = RADIUS): React.CSSProperties => ({
   position: "absolute", borderRadius: r, overflow: "hidden", color: INK,
-  background: "linear-gradient(180deg, rgba(255,255,255,.80), rgba(255,255,255,.62))", backdropFilter: "blur(30px) saturate(1.2)",
-  boxShadow: "inset 0 1px 0 rgba(255,255,255,.9), inset 0 0 0 1px rgba(255,255,255,.55), 0 24px 60px rgba(29,34,48,.14)",
+  background: "rgba(219,219,219,.70)", backdropFilter: "blur(22px)",
+  boxShadow: "inset 0 0 0 0.5px rgba(188,188,188,.7)",
 });
 export const quint = (q: number) => 1 - (1 - clamp(q)) ** 5;
 export const prog = (t: number, at: number, d = 0.5) => quint((t - at) / d);
+// CSS "ease" (cubic-bezier(.25,.1,.25,1)), solved for x
+export const ease = (u: number) => {
+  const x = clamp(u); let lo = 0, hi = 1, m = x;
+  for (let i = 0; i < 24; i++) { m = (lo + hi) / 2; const bx = 3 * (1 - m) ** 2 * m * 0.25 + 3 * (1 - m) * m * m * 0.25 + m ** 3; if (bx < x) lo = m; else hi = m; }
+  return 3 * (1 - m) ** 2 * m * 0.1 + 3 * (1 - m) * m * m + m ** 3;
+};
 export const useT = () => useCurrentFrame() / useVideoConfig().fps;
-export const life = (t: number, at: number, out = 1e9, rise = 14) => {
-  const i = prog(t, at), o = clamp((t - out) / 0.3);
+// v3 entrance: the 963 fadeUp, 2 s, ease, opacity 0 -> 1 and 20 px rise
+export const life = (t: number, at: number, out = 1e9, rise = 20) => {
+  const i = ease((t - at) / 2), o = clamp((t - out) / 0.3);
   return { opacity: i * (1 - o), transform: `translateY(${(1 - i) * rise}px)` };
 };
 // two slow light blobs inside any glass (client: "movement behind the glass ... clean and not stagnant")
@@ -75,17 +89,33 @@ const NODES = Array.from({ length: 46 }, (_, i) => {
 });
 const EDGES: [number, number][] = [];
 NODES.forEach((a, i) => NODES.forEach((b, j) => { if (j > i && Math.hypot(a.x - b.x, a.y - b.y) < 250) EDGES.push([i, j]); }));
+// v3: the client's "this is more what I mean by white" (Are.na 52762267, a defocused bright interior). Measured on that image (k-means,
+// k = 6, by share): #f6f8f5 21 %, #eaede7 20 %, #a9ab95 17 %, #c7cbbb 15 %, #d9ded4 14 %, #babca7 12 %; L* 66-99 (p1-p99), median 87;
+// horizontal bands top to bottom #d9ddd7 #e4e8e3 #edefe9 #e5e7da #bebfa9 #abaf9c. So the canvas is light in a room: two soft window
+// glows and a warm cream pool over a cool sage floor, all radial (no hard edge), drifting slowly; the neural field stays, faint.
+export const ROOM = { top: "#d9ddd7", hi: "#f6f8f5", mid: "#edefe9", warm: "#e5e7da", sage: "#c7cbbb", sage2: "#babca7", floor: "#abaf9c" };
 export const Canvas: React.FC<{ glow?: [number, number]; field?: number; px?: number }> = ({ glow = [0.4, 0.4], field = 1, px = 0 }) => {
   const t = useCurrentFrame() / 24;
   const pos = NODES.map((n) => ({ x: n.x + Math.sin(t * 0.13 + n.p) * 26 * n.z - px * n.z * 40, y: n.y + Math.cos(t * 0.11 + n.p) * 18 * n.z, z: n.z }));
   const gx = glow[0] * 100 + 6 * Math.sin(t * 0.17), gy = glow[1] * 100 + 5 * Math.cos(t * 0.13);
+  const d = (f: number, a: number) => a * Math.sin(t * f);
+  const room = [
+    `radial-gradient(26% 34% at ${gx - 14 + d(0.11, 3)}% ${gy - 8 + d(0.09, 2)}%, rgba(255,255,255,.95), rgba(246,248,245,0) 100%)`,
+    `radial-gradient(22% 30% at ${gx + 20 + d(0.08, 3)}% ${gy - 6 + d(0.12, 2)}%, rgba(252,253,250,.9), rgba(246,248,245,0) 100%)`,
+    `radial-gradient(40% 26% at ${50 + d(0.07, 4)}% ${66 + d(0.1, 2)}%, rgba(240,238,220,.75), rgba(229,231,218,0) 100%)`,
+    `radial-gradient(30% 60% at ${98 + d(0.06, 2)}% ${48 + d(0.09, 3)}%, rgba(199,203,187,.75), rgba(199,203,187,0) 100%)`,
+    `radial-gradient(45% 35% at ${12 + d(0.05, 3)}% ${92 + d(0.08, 2)}%, rgba(186,188,167,.6), rgba(186,188,167,0) 100%)`,
+    `linear-gradient(180deg, ${ROOM.top} 0%, #e4e8e3 17%, ${ROOM.mid} 40%, ${ROOM.warm} 60%, ${ROOM.sage2} 84%, ${ROOM.floor} 100%)`,
+  ].join(", ");
   return (
-    <div style={{ position: "absolute", inset: 0, overflow: "hidden", background: `radial-gradient(70% 80% at ${gx}% ${gy}%, ${BG1} 0%, ${BG0} 75%)` }}>
-      <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, opacity: 0.5 * field }}>
-        {EDGES.map(([i, j], k) => { const a = pos[i], b = pos[j]; return <line key={k} x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke={SKY} strokeWidth={1} opacity={0.35 * Math.min(a.z, b.z)} />; })}
-        {pos.map((p, k) => <circle key={k} cx={p.x} cy={p.y} r={1.6 + 2 * p.z} fill={SKY} opacity={0.35 + 0.3 * Math.sin(t * 0.8 + k)} />)}
+    <div style={{ position: "absolute", inset: 0, overflow: "hidden", background: room }}>
+      <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, opacity: 0.22 * field }}>
+        {EDGES.map(([i, j], k) => { const a = pos[i], b = pos[j]; return <line key={k} x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke="#ffffff" strokeWidth={1.2} opacity={0.6 * Math.min(a.z, b.z)} />; })}
+        {pos.map((p, k) => <circle key={k} cx={p.x} cy={p.y} r={1.6 + 2 * p.z} fill="#ffffff" opacity={0.5 + 0.3 * Math.sin(t * 0.8 + k)} />)}
       </svg>
-      <Grain />
+      <Grain opacity={0.035} />
+      {/* Homevolt's thin four-colour strip on the bottom edge, in the room's colours and the brand blue */}
+      <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 6, display: "flex" }}>{["#abaf9c", "#e5e7da", BLUE, INK].map((c) => <div key={c} style={{ flex: 1, background: c }} />)}</div>
     </div>
   );
 };
@@ -100,17 +130,18 @@ export const Grain: React.FC<{ opacity?: number }> = ({ opacity = 0.05 }) => {
 };
 
 // ---------- tag: a label typed on inside a highlight that grows (Evident's label move): brand blue, white caps ----------
-export const Tag: React.FC<{ text: string; at: number; size?: number; fill?: string; color?: string; out?: number; sfx?: boolean }> = ({ text, at, size = LAB, fill = BLUE, color = "#fff", out = 1e9, sfx = true }) => {
+export const Tag: React.FC<{ text: string; at: number; size?: number; fill?: string; color?: string; out?: number; sfx?: boolean }> = ({ text, at, size = LAB, fill = "rgba(250,249,246,.94)", color = INK, out = 1e9, sfx = true }) => {
+  // v3: never truncated (v2 typed it on: "PREFRO"); the whole chip fades up over 2 s on the CSS ease; 963's chip: pale fill, 0.65 px
+  // #8E8E8E hairline, label caps; a brand-blue dot keeps the "active" colour
   const t = useT();
-  const box = prog(t, at, 0.35), n = Math.round(text.length * clamp((t - at - 0.1) / 0.45)), o = 1 - clamp((t - out) / 0.3);
+  const q = ease((t - at) / 2), o = 1 - clamp((t - out) / 0.3);
   const snd = sfx ? <Sfx at={at} name="pop" gain={0.45} /> : null;
+  const L = label(size, color), px = parseInt(String(L.font).split(" ")[1]);
   return (
     <>{snd}{t >= at && (
-      <span style={{ position: "relative", display: "inline-block", opacity: o }}>
-        <span style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: `${box * 100}%`, background: fill, borderRadius: 8 }} />
-        <span style={{ position: "relative", display: "inline-block", padding: `${size * 0.26}px ${size * 0.42}px ${size * 0.22}px`, ...label(size, color), whiteSpace: "nowrap" }}>
-          <span>{text.slice(0, n)}</span><span style={{ opacity: 0 }}>{text.slice(n)}</span>
-        </span>
+      <span style={{ position: "relative", display: "inline-flex", alignItems: "center", gap: px * 0.45, opacity: o * q, transform: `translateY(${(1 - q) * 12}px)`, background: fill, borderRadius: 999, boxShadow: "inset 0 0 0 0.65px #8e8e8e", padding: `${px * 0.42}px ${px * 0.75}px ${px * 0.36}px` }}>
+        <span style={{ width: px * 0.36, height: px * 0.36, borderRadius: 99, background: BLUE, flex: "none" }} />
+        <span style={{ ...L, whiteSpace: "nowrap" }}>{text}</span>
       </span>)}</>
   );
 };
@@ -120,12 +151,13 @@ export const Kinetic: React.FC<{ text: string; at: number; size?: number; key_?:
   const t = useT();
   const o = 1 - clamp((t - out) / 0.3);
   return (
-    <div style={{ ...head(size, color), opacity: o }}>
+    <div style={{ ...head(size, color), opacity: o }}>{/* v3: 2 s ease fade-up per word */}
       {text.split(" ").map((w, i) => {
-        const q = prog(t, at + i * step, 0.45);
+        const q = ease((t - at - i * step * 0.7) / 2);
         return (
-          <span key={i} style={{ display: "inline-block", overflow: "hidden", verticalAlign: "top", paddingBottom: size * 0.14, marginRight: size * 0.26 }}>
-            <span style={{ display: "inline-block", transform: `translateY(${(1 - q) * 105}%)`, color: key_.includes(w.replace(/[^\w]/g, "").toLowerCase()) ? BLUE : undefined }}>{w}</span>
+          <span key={i} style={{ display: "inline-block", verticalAlign: "top", paddingBottom: size * 0.1, marginRight: size * 0.17 }}>
+            {/* v3: no overflow clip (a word half out of its slot read as truncated); the word rises 30 % and fades in whole */}
+            <span style={{ display: "inline-block", opacity: q, transform: `translateY(${(1 - q) * 20}px)`, color: key_.includes(w.replace(/[^\w]/g, "").toLowerCase()) ? BLUE : undefined }}>{w}</span>
           </span>
         );
       })}
@@ -205,5 +237,81 @@ export const Callout: React.FC<{ x: number; y: number; lx: number; ly: number; t
         </div>
       )}
     </>
+  );
+};
+
+// ---------- step player: after Bencho's "Step player" (bencho.dev/blocks/step-player, Are.na 50822604), reimplemented from its
+// measured behaviour, not its code, and driven by the timeline instead of requestAnimationFrame. Its geometry at SP = 2 (the block is
+// CSS px at UI distance; 2x for a 1080p frame watched on YouTube, every ratio kept): dot 8, bar 36, gap 8, slab inset 14 (so slab and
+// play pill are one height, dot + 2 x inset = 36), pill radius = half height. Every dot is a pill with two edges; the current one's
+// slot is wide, and a step change moves every edge from its old slot to its new one in 520 ms on a cubic ease-out (no travelling
+// bar). The current pill fills with ink at a steady speed over its step (never narrower than a dot; that dot fades in over the first
+// 1/14 of the fill); visited pills are full. The wake (wake = 100): the crossed dots stand up and settle in crossing order, 60 ms lead,
+// 300 ms each on a half sine, 55 ms stagger, amplitude 0.34 of their height; the landing pill answers last at 0.3 of that. The play
+// mark is two quads morphing pause <-> play in 300 ms (in-out cubic) with the block's goo (squash 0.13/0.11, 9 deg tip, 1.6 lean).
+const SP = 2, SDOT = 8 * SP, SBAR = 36 * SP, SGAP = 8 * SP, SPAD = 14 * SP, SH = SDOT + 2 * SPAD;
+const spLay = (n: number, at: number) => { const o: [number, number][] = []; let x = 0; for (let i = 0; i < n; i++) { const w = i === at ? SBAR : SDOT; o.push([x, x + w]); x += w + SGAP; } return o; };
+const eOut3 = (u: number) => 1 - (1 - clamp(u)) ** 3;
+const swing = (u: number) => (u < 0.5 ? 4 * u ** 3 : 1 - (-2 * u + 2) ** 3 / 2);
+const PAUSE_L = [6, 4, 10, 4, 10, 20, 6, 20], PLAY_L = [6.5, 4, 13.25, 8, 13.25, 16, 6.5, 20], PAUSE_R = [14, 4, 18, 4, 18, 20, 14, 20], PLAY_R = [13.25, 8, 20, 12, 20, 12, 13.25, 16];
+const quadD = (a: number[], b: number[], u: number) => { let d = ""; for (let i = 0; i < 8; i += 2) d += `${i ? "L" : "M"}${(a[i] + (b[i] - a[i]) * u).toFixed(2)} ${(a[i + 1] + (b[i + 1] - a[i + 1]) * u).toFixed(2)}`; return d + "Z"; };
+export const stepAt = (times: number[], t: number) => Math.max(0, times.filter((s) => t >= s).length - 1);
+export const StepPlayer: React.FC<{ times: number[]; end: number; ink?: string; labels?: string[]; labelSize?: number }> = ({ times, end, ink = BLUE, labels, labelSize = LAB }) => {
+  const t = useT();
+  const n = times.length, cur = stepAt(times, t);
+  const since = t - times[cur];
+  const lay = spLay(n, cur), prev = spLay(n, Math.max(0, cur - 1));
+  const mv = cur > 0 ? eOut3((since * 1000) / 520) : 1;
+  const fill = t < times[0] ? 0 : clamp(since / ((times[cur + 1] ?? end) - times[cur]));
+  const ms = since * 1000;
+  const shape = (i: number) => {
+    if (cur === 0) return 1;
+    let delay = -1, share = 1;
+    if (i === cur) { delay = 55; share = 0.3; } else if (i === cur - 1) delay = 0;
+    if (delay < 0) return 1;
+    const u = (ms - 60 - delay) / 300;
+    return u > 0 && u < 1 ? 1 + Math.sin(Math.PI * u) * 0.34 * share : 1;
+  };
+  // the mark: play -> pause when the sequence starts, pause -> play when the last step is full
+  const mu = t < end ? 1 - swing(clamp((t - times[0] + 0.3) / 0.3)) : swing(clamp((t - end) / 0.3));
+  const goo = Math.sin(clamp(mu) * Math.PI), pull = 1.6 * goo, tip = (t < end ? -9 : 9) * goo;
+  const width = spLay(n, 0)[n - 1][1];
+  const slab: React.CSSProperties = { background: "rgba(255,255,255,.86)", boxShadow: "inset 0 1px 0 rgba(255,255,255,.9), 0 10px 30px rgba(29,34,48,.10)", backdropFilter: "blur(20px)" };
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: SGAP }}>
+      <div style={{ ...slab, padding: SPAD, borderRadius: SH / 2, flex: "none" }}>
+        <div style={{ position: "relative", width, height: SDOT }}>
+          {lay.map(([l1, r1], i) => {
+            const l = prev[i][0] + (l1 - prev[i][0]) * mv, r = prev[i][1] + (r1 - prev[i][1]) * mv, w = r - l;
+            const k = i < cur ? 1 : i === cur ? fill : 0;
+            return (
+              <div key={i} style={{ position: "absolute", left: 0, top: 0, height: "100%", width: w, borderRadius: 999, background: "#dbdcde", transform: `translateX(${l.toFixed(2)}px) scaleY(${shape(i).toFixed(3)})` }}>
+                <div style={{ position: "absolute", left: 0, top: 0, height: "100%", borderRadius: 999, background: ink, width: k > 0.001 ? Math.max(Math.min(SDOT, w), w * k) : 0, opacity: i === cur ? Math.min(1, k * 14) : 1 }} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div style={{ ...slab, width: SH, height: SH, borderRadius: SH / 2, display: "grid", placeItems: "center", flex: "none", color: INK }}>
+        <svg width={14 * SP} height={14 * SP} viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" style={{ transformOrigin: "50% 50%", transform: `rotate(${tip}deg) scale(${1 - 0.13 * goo}, ${1 + 0.11 * goo})` }}>
+          <path d={quadD(PAUSE_L, PLAY_L, mu)} transform={`translate(${pull} 0)`} />
+          <path d={quadD(PAUSE_R, PLAY_R, mu)} transform={`translate(${-pull} 0)`} />
+        </svg>
+      </div>
+      {labels && (
+        <div style={{ position: "relative", marginLeft: 28 - SGAP, height: SH, minWidth: 520 }}>
+          {labels.map((s, i) => {
+            const on = i === cur, q = on ? prog(t, times[i], 0.4) : 0, off = i === cur - 1 ? 1 - clamp((t - times[cur]) / 0.2) : 0;
+            if (!on && off <= 0) return null;
+            return (
+              <div key={i} style={{ position: "absolute", left: 0, top: 0, height: SH, display: "flex", alignItems: "center", gap: 16, whiteSpace: "nowrap", opacity: on ? q : off, transform: `translateY(${on ? (1 - q) * 10 : -8 * (1 - off)}px)` }}>
+                <span style={{ ...label(labelSize * 0.8, MUTE), fontVariantNumeric: "tabular-nums" }}>{String(i + 1).padStart(2, "0")} / {String(n).padStart(2, "0")}</span>
+                <span style={label(labelSize, INK)}>{s}</span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
   );
 };
