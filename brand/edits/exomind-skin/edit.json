@@ -672,5 +672,79 @@
    }
   ],
   "_plan": "style DECISIONS 14 (client layout reference: a console home screen, 'the glass glossiness and the box on the right side and the curved boxes'): defocused full-bleed footage, chapter headline + outlined pill top left, presenter keyed (RVM) large on the left (scale 0.86, head top ~230 px, face ~390 px wide), right column x 1236-1860 of two tall frosted cards (radius 38-40): point card (label, brand-blue pill, 2-line title, muted line) and media card (BTL Exomind stock at <= native size: 1066x600 crop below BTL's logos, object-fit cover in 624x560 = 0.93x; or a ticked list / comparison). No practice footage behind him: all of it has Dr. Ostad in frame. Background blur 38 px: it only carries colour."
+ },
+ "yt": {
+  "_note": "YouTube v2 (style DECISIONS 14b): sections on the output timeline; layouts per kind in remotion/src/OstadYT.tsx; footage from yt_assets.sh; keyed = refined matte packed from cut time 42.4 s",
+  "sections": [
+   {
+    "at": 0,
+    "dur": 6.62,
+    "kind": "s1"
+   },
+   {
+    "at": 6.62,
+    "dur": 4.33,
+    "kind": "s2"
+   },
+   {
+    "at": 10.95,
+    "dur": 6.25,
+    "kind": "s3"
+   },
+   {
+    "at": 17.2,
+    "dur": 10.28,
+    "kind": "s4"
+   },
+   {
+    "at": 27.48,
+    "dur": 9.72,
+    "kind": "s5"
+   },
+   {
+    "at": 37.2,
+    "dur": 10.05,
+    "kind": "s6"
+   },
+   {
+    "at": 47.25,
+    "dur": 4.45,
+    "kind": "s7"
+   },
+   {
+    "at": 51.7,
+    "dur": 5.7,
+    "kind": "s8"
+   },
+   {
+    "at": 57.4,
+    "dur": 7.55,
+    "kind": "s9"
+   },
+   {
+    "at": 64.95,
+    "dur": 4.45,
+    "kind": "s10"
+   },
+   {
+    "at": 69.4,
+    "dur": 13.32,
+    "kind": "s11"
+   },
+   {
+    "at": 82.72,
+    "dur": 4.43,
+    "kind": "s12"
+   },
+   {
+    "at": 87.15,
+    "dur": 3.08,
+    "kind": "s13"
+   }
+  ],
+  "keyed": {
+   "src": "exomind-skin/yt/presenter_k.webm",
+   "at": 42.4
+  }
  }
 }

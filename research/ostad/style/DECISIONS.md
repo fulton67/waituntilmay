@@ -145,3 +145,56 @@ Client: "Dr. Ostad is a slower talker. I don't want the cuts to distort his talk
 - **B footage rules** (client): clean, crisp and high resolution; never upscaled into a full 16:9 background; never footage with Dr. Ostad in it behind him. So B uses only BTL's Exomind stock: the device, patients under the headset, the neuro animation and the lifestyle shots, from BTL's "What is EXOMIND?" film (1280x720). Each clip is cropped 1066x600 below BTL's logos and shown in the media card at 0.93x or less. The full-bleed copy behind the glass is blurred 38 px, so it carries only colour and motion. One light grade across everything (contrast 1.03, saturation 0.9; the cyan beams graded down as in 13c). The practice's own footage, all of which shows him, stays in A's side cards. The BTL support site (btlsupport.com) needs a login, so nothing new was downloaded from it. All BTL media is gitignored and needs the client's approval before posting.
 - **Audio:** the v3b chain unchanged (no denoise), loudnorm -14 LUFS.
 - **Measured on the finals.** Motion behind the glass: for each card, the mean change against the frame 1 s earlier, taken in an empty part of the card. In the first A render the right-column note and wave cards sat at 0.4 levels/s, with still stretches up to 2.3 s, so the blobs were made faster and stronger (periods ~10-14 s, ~25 % travel). On the final A every card moves (0.75-6.4 levels mean) and the longest still stretch is 0.71 s. On B the point cards, list cards and open background all move (worst still stretch 0.29 s). Each background clip is slowed to fill its window (rate 0.16-1.0) instead of holding a frozen last frame. Final A re-transcribed: 268 of 269 words, the 3 differences are recogniser variance. Measured speed 1.150 / 1.151 per piece (word-start slope). Both A and B: 90.22 s, -14.1 LUFS, true peak -4.4 dBFS. Keying: hair-band alpha change 0.86 levels/frame mean (p99 1.98); stray components appeared in 10 frames, and 5783 px were dropped in total.
+
+## 14b. YouTube v2: varied shots, Exomind first, a white line system that responds to him (2026-11-13)
+
+The client rated v1 (OstadWide) 6/10. Their notes:
+- "extremely repetitive ... looks super generative": 90 s of the same presenter-left + two-cards layout.
+- "around the head looks really bad ... the cut out is very visible and looks cheap".
+- "focus and show the Exomind as much as possible ... someone experiencing it, the results".
+- The Evident Media graphics they liked (refs `evident`, Ddos1QZRGmV): "I don't want every graphic in a box".
+- "Think about visual graphics like you made on the rosacea".
+- "new animations showing how Exomind actually works".
+- "I don't want the black around the captions".
+- One themed system, and "make the whole page feel interactive".
+- "a bit more white".
+- "I don't know if the font is the brand bible font ... it doesn't seem clean".
+
+They asked to keep his size, the clips they liked, the 1.15x speed, his pauses and the linear order. New composition `OstadYT` (src/OstadYT.tsx + components/YT.tsx), config `yt` in brand/edits/exomind-skin/edit.json, footage from brand/edits/exomind-skin/yt_assets.sh.
+
+- **13 sections, no two neighbours share a layout:**
+
+  | # | Time (s) | Layout | Content |
+  |---|---|---|---|
+  | 1 | 0-6.6 | A-roll panel right | name, then "Exomind" with the coil pulsing |
+  | 2 | 6.6-11.0 | line diagram | head + skin; an "Include the mind" toggle tapped on "mind"; a live link travels between them |
+  | 3 | 11.0-17.2 | full-frame practice footage | the Oct 30 session, the patient under the coil, his face cropped out; coil callout; live session timer |
+  | 4 | 17.2-27.5 | A-roll window left + type | giveaway: email and phone chips light on the words; "check your texts" with an unread badge the cursor taps |
+  | 5 | 27.5-37.2 | phone UI + checklist | a reply thread, a calendar slot booked, the visit's three steps tick on his words |
+  | 6 | 37.2-47.3 | the one keyed shot | over a bright white plate, with a matte-white question box that types, sends and answers |
+  | 7 | 47.3-51.7 | full-frame BTL footage | patients under the coil; calendar chip tapped on "seeing you in the office" |
+  | 8 | 51.7-57.4 | chapter type + ring | "A comprehensive approach to total skin health"; three arcs (skin care, the mind, technology) close into one ring |
+  | 9 | 57.4-65.0 | A-roll panel left + timeline | "the next frontier": the cursor drags a marker past the frontier into "beyond: the mind" |
+  | 10 | 65.0-69.4 | split screen | BTL stress \| calm, each half at native scale; a slider dragged across |
+  | 11 | 69.4-82.7 | mechanism illustration (13.3 s) | coil -> pulsed magnetic field -> prefrontal cortex -> new connections (counter) -> neurotransmitters (synapse + a balance that levels) -> focused, in flow (a busy line settles); a progress rail on top |
+  | 12 | 82.7-87.2 | testimonial | the patient's own frame (Nov 05, muted) with her words "It quiets my brain." revealed word by word; feel better -> better skin |
+  | 13 | 87.2-90.2 | end | BTL smile, matte-white CTA card, "Book now" pressed |
+
+  He is on screen for 4 of the 13 sections (about 38 s of 90). The rest is Exomind footage and drawn graphics.
+- **The head edge:** keying is used once only. The other A-roll is his original shot, unkeyed, at 0.8x (4:5 panel) or 0.5x (rounded window), never enlarged. For the keyed shot, `video_matte.py --pack --refine` pulls the matte in 1 px, feathers it 0.8 px, and recolours edge pixels from the solid body inside. He sits over a plate lit like his own wall (the white canvas), so grey hair never rims against a dark ground (v1 put him over dark blue). Zoom crops of the head at 6 points across the shot show no rim.
+- **Footage:** the BTL "What is EXOMIND?" film (720p) with BTL/EXOMIND corner logos removed by delogo, scaled 1.5x (lanczos + light unsharp) for full frame, one light grade. The split screen uses each half at 1:1. Practice footage: Oct 30 (the session, crop below his face, 1080 wide -> 1.78x) and Nov 05 (the patient's half, native 440x780).
+- **System (components/YT.tsx):** white / near-white canvas with a faint blue neural field drifting at two depths and live grain. Navy line and type, brand blue for the active thing. One 3 px line, one icon set (brain, coil, pulse, network, wave, envelope, phone, chat, calendar, target, clipboard, check, question, skin, spark), one curve (quint out). Tags type on inside a growing highlight (Evident's label move). A cursor glides and taps; toggles, counters, sliders and progress respond to his words. The house matte-white glass appears only twice (question box, end card), with drifting light inside. SFX family: pop / swish / card / yes. Board: brand/edits/exomind-skin/yt_system.jpg.
+- **Type, per the bible** (fonts/SYSTEM.md, kit/tokens.css):
+  - headline NHG Display 600 / 1.033 / +0.0082em
+  - labels NHG Display 500 caps / 1.078 / +0.0102em
+  - small text NHG Text 400-500
+  - captions NHG Display 500 / 1.271 / -0.0158em
+
+  Sizes come from the bible's 1080-high canvas (headline 68, label 30), with a hero at 2x for one focal statement per section. Captions are 42 px (the bible's 30-38 px is sized for phone viewing; this is a judgment call for YouTube distance). Margin 175 px (9.1 % of width), top 149 px, left aligned, one radius (30 px). No text shadows anywhere. OstadWide's -0.02em headline tracking was the crammed look.
+- **Font check:** Fonts.tsx now waits for the kit stylesheet and requires `document.fonts.load()` to return a face for each weight. `document.fonts.check()` alone also returns true for a family with no faces at all. Debug frame (OstadYT `debugFonts`): the DOM width of a test string in the brand face against Arial differs (Display 500: 502.2 vs 544.8 px; Display 600: 531.2 vs 584.6). The glyph sample shows NHG Display and NHG Text, not the fallback.
+- **Captions:** no stroke, shadow or box. They are navy on the white canvases and white over footage. On the three bright footage sections only, a wide, soft navy wash sits far behind the line. Measured on 12 caption frames, the mean luminance 1-5 px outside the glyphs vs 14-26 px out differs by -2.1 to +2.2 levels, so there is no halo.
+- **Medical content:** limited to his words and BTL's own film (coil, magnetic pulse, prefrontal cortex, neuroplasticity, neurotransmitters). The mechanism carries an "Illustration" label. The "new connections" count is illustrative. The patient's quote is her own words from the Nov 05 recording, shown over her own frame. No new outcome claims.
+- **Not available:** BTL support files (still behind the login; nothing typed). No before/after or results footage exists on disk, so "results" is carried by the patient's words and the calm/flow graphics.
+- **Measured on the final v2** (90.22 s, 1920x1080, 24 fps, -14.1 LUFS, true peak -4.3 dBFS; same audio as A and B):
+  - **Movement:** the 1 s-lag frame difference above the caption band moves in every section (1.1-61 levels mean), with no still stretch. The question card's empty corner first held still for 1.1 s, then 2.5 s, with blobs alone. A slowly turning tint was added to the glass, and it now moves at 4.2 levels with no still stretch; the end card moves at 6.2.
+  - **Footage:** the client's "Oct 30 ... (1).mov" is byte-identical to the Oct 30 recording already used for section 3 (md5 match).
