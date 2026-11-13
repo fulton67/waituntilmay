@@ -239,3 +239,23 @@ Client notes on v2: the drawn head and brain in the mechanism section "look horr
 - **Fixes:** the s5 phone is in place from the first frame, with the first bubble already there. The s6 thank-you content swaps in at 60 % opacity rather than from empty.
 - **s2 without a drawn head:** v2's line-drawn head profile is gone, since drawn heads have been rejected twice. Her head under the coil now sits in a white window: a native-pixel 560 px crop from the Oct 30 session at 13 s, a different moment and framing from s3. It is desaturated until the toggle switches the mind on. The dotted link runs from it to the skin diagram. `S2_HEAD` takes the Flora glass-head clip (head_final_anim.mp4) when it is approved.
 - **BTL windows graded toward the room:** brightness 1.3, contrast 0.8 and saturation 0.55, with a sage-cream screen over them (rgba(237,239,233,.30) to rgba(199,203,187,.24)) and a #c9cdbf window ground. This replaces navy against the light canvas. Her footage windows are not graded. The Flora neuroplasticity clip (neuro_anim.mp4) goes into `MECH.clip2` at 1.3x when it lands.
+
+## 14d. Client rules (2026-11-13, after YouTube v3). Every future Ostad edit follows these
+
+1. **No play/pause/press UI effects.** No play or pause buttons, morphing play marks or press taps on progress controls. A quiet progress indicator is fine. The step player now has no play pill.
+2. **Real video over stills and over generic stock.** No sunset-field-style stock. If a real clip of the subject exists, it runs as video.
+3. **Never leave the subject against empty sky or dead space.** Reframe or crop toward the room, or give the empty area a purpose (the type block).
+4. **The palette stays in the brand-bible blues, never green.** The light-room canvas was moved from a green-grey cast to cool blue-grey (measured hues in the v4 notes below). No new green tints.
+5. **Icons must literally match their word.** A face for skin care, a synapse for neurotransmitters, a brain for the mind, the coil for Exomind/technology. Each icon is checked against its word.
+6. **No hand-drawn heads or anatomy.** Use real footage, or real renders traced frame by frame.
+7. **Long-form/YouTube type: Helvetica Neue LT Pro 65 Medium** (current choice, can change). Vertical reels keep the bible NHG system. The `TYPEFACE` switch in components/YT.tsx keeps a font swap to one line.
+8. **Captions go word by word, each word on its measured onset.** No fade, no rise, no shadow.
+
+### v4 changes under these rules
+- The step player has no play/pause control.
+- s7 no longer opens on the field-at-sunset frames at the head of couch.mp4. It opens on the client's pick: the woman on the couch, hand on her forehead (real BTL video, stressed.mp4 from 0.45 s, 1.1 s), then the patient relaxing under the coil.
+- s10's stress side is now a different real shot: the sleepless woman in bed (BTL 22.0-26.2 s, stressed2.mp4), so the couch shot is not used twice.
+- s8: the Flora coil shot is tightened 1.12x toward the coil and the room. The headline and the three parts fill the bright window side from the first frames.
+- Canvas: every room colour was moved 55 % toward a luminance-matched cool blue-grey, and the floor tones further. HSV hue of each palette colour, before and after: top 100 -> 212, mid 80 -> 214, warm 69 -> 205, sage 75 -> 200, floor 73 -> 210. The BTL window grade follows (screen rgba(232,239,248,.30) to rgba(196,202,210,.24), ground #c8ced6).
+- Icons: a new `face` icon (front-on face with a small glint) for "Skin care", "Caring for the skin" and "Better skin". A new `synapse` icon (two membranes with messengers crossing) for "Neurotransmitters". The rest were checked and kept: coil (Exomind/technology), brain (mind/prefrontal cortex), pulse (magnetic pulse), network (new connections), wave (focus and flow), target (goals), clipboard (medical history), chat (texts), envelope/phone, calendar, check, question.
+- Not changed: the Flora coil render itself has a sage-green curtain in its room, which is part of the AI render. It needs a Flora re-render, or a recolour if the client flags it.
