@@ -31,8 +31,9 @@ let GLASS_T = 0;
 export const setGlassClock = (t: number) => { GLASS_T = t; };
 const glassLife = () => {
   const t = GLASS_T;
-  const bx = 22 + 18 * Math.sin(t * 0.33), by = 18 + 14 * Math.cos(t * 0.27), wx = 78 - 16 * Math.sin(t * 0.21 + 1.3), wy = 82 - 12 * Math.cos(t * 0.29 + 0.7);
-  return `radial-gradient(60% 70% at ${bx.toFixed(2)}% ${by.toFixed(2)}%, rgba(55,169,232,.10), rgba(55,169,232,0) 70%), radial-gradient(55% 65% at ${wx.toFixed(2)}% ${wy.toFixed(2)}%, rgba(255,255,255,.22), rgba(255,255,255,0) 70%), `;
+  // periods ~10-14 s, travel ~25 % of the card: measured on v1 the slower set left the right-column cards near-still (0.4 levels/s)
+  const bx = 30 + 28 * Math.sin(t * 0.55), by = 30 + 24 * Math.cos(t * 0.47), wx = 70 - 26 * Math.sin(t * 0.43 + 1.3), wy = 70 - 22 * Math.cos(t * 0.51 + 0.7);
+  return `radial-gradient(55% 65% at ${bx.toFixed(2)}% ${by.toFixed(2)}%, rgba(55,169,232,.16), rgba(55,169,232,0) 70%), radial-gradient(50% 60% at ${wx.toFixed(2)}% ${wy.toFixed(2)}%, rgba(255,255,255,.34), rgba(255,255,255,0) 70%), `;
 };
 export const card = (radius = 28): React.CSSProperties => ({
   position: "absolute", overflow: "hidden", borderRadius: radius, color: NAVY, fontFamily: FONT,
