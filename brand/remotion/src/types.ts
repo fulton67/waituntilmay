@@ -23,3 +23,13 @@ export type Spec = {
   keywords?: string[];    // caption words set in the brand light blue as he says them
 };
 export type ReelProps = { spec: Spec | null; capStyle?: "stroke" | "clean" }; // capStyle: render-time switch (--props) for the caption look
+// OstadWide (16:9, style DECISIONS 14): spec.wide from edit.json "wide", written to public/<slug>/props_wide.json by scripts/prepare.cjs
+export type WideBg = { at: number; dur: number; src: string; from?: number; rate?: number };
+export type WidePoint = { at: number; dur: number; label: string; pill: string; title: string; sub?: string; titles?: { at: number; title: string; sub?: string }[] };
+export type WideMedia = { at: number; dur: number; kind: "clip" | "list" | "pair"; src?: string; from?: number; rate?: number; focus?: string; credit?: string;
+  head?: string; rows?: { text: string; at: number }[]; pair?: [string, string][]; pairAt?: number; cutout?: string };
+export type Wide = {
+  presenter: string; place: { scale: number; left: number; top: number };
+  bg: WideBg[]; chapters: { at: number; dur: number; title: string; pill: string }[]; points: WidePoint[]; media: WideMedia[];
+};
+export type WideProps = { spec: (Spec & { wide: Wide }) | null };

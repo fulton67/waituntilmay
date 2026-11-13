@@ -8,23 +8,28 @@ import { NAME_CARD_DUR, NameCard } from "./components/NameCard";
 import { SkinCard } from "./components/SkinCard";
 import { MicrobeCard, PillCard, SkinDiagram } from "./components/Explainers";
 import { Balance, Bars, Burst, Meter, Network, Phone, Ripple, Swap, Timer, VideoCard, Wave } from "./components/Exo";
-import { Calendar, Chain, Checklist, Chips, Chronic, ClipFull, Compare, Note, RoutineCard, RxCard, RxStack, TreatmentCard } from "./components/Ro";
+import { Calendar, Chain, Checklist, Chips, Chronic, ClipFull, Compare, Note, RoutineCard, RxCard, RxStack, TreatmentCard, setGlassClock } from "./components/Ro";
 
 // explainer kinds (edit.json remotion.graphics[].kind); every other key of the entry is passed through as a prop
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const KINDS: Record<string, React.FC<any>> = { rx: RxCard, routine: RoutineCard, stack: RxStack, chronic: Chronic, checklist: Checklist, calendar: Calendar,
   compare: Compare, chain: Chain, note: Note, chips: Chips, clip: ClipFull, pills: PillCard, microbes: MicrobeCard,
-  video: VideoCard, balance: Balance, network: Network, wave: Wave, bars: Bars, meter: Meter, timer: Timer, phone: Phone, swap: Swap };
+  title: ChapterTitle, video: VideoCard, balance: Balance, network: Network, wave: Wave, bars: Bars, meter: Meter, timer: Timer, phone: Phone, swap: Swap };
 // drawn in the footage layer at frame coordinates (they follow the reframes)
 const ANCHORED = new Set(["ripple", "burst"]);
 import type { ReelProps } from "./types";
 import type { Pos } from "./components/Ro";
+
+// a chapter title later in the video (edit.json graphics kind "title"): the opening title's look (components/Hook), its own text
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function ChapterTitle({ text, dur }: any) { return <Hook text={text} dur={dur} />; }
 
 // A talking-head reel: the source clip at the edit's speed (muted), the edit's finished audio, and the kit's graphics on top.
 // Everything is driven by public/<slug>/props.json from scripts/prepare.cjs, so the timings match brand/scripts/video_edit.cjs.
 export const OstadReel: React.FC<ReelProps> = ({ spec, capStyle }) => {
   useElza();
   const { fps } = useVideoConfig();
+  setGlassClock(useCurrentFrame() / fps);
   if (!spec) return <AbsoluteFill style={{ background: "#000" }} />;
   const f = (s: number) => Math.round(s * fps);
   return (

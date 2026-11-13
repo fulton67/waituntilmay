@@ -25,4 +25,6 @@ const spec = { slug, speed: C.speed, fps: 24, durationInSeconds: R.dur_s, captio
 // edit.json "remotion.end" (e.g. { "glass": true }) adds to the end card from result.json instead of replacing its time
 if (C.remotion && C.remotion.end) spec.end = { ...R.spec.end, src: `${slug}/end.mp4`, ...C.remotion.end };
 fs.writeFileSync(path.join(OUT, "props.json"), JSON.stringify({ spec }, null, 1));
+// edit.json "wide" (style DECISIONS 14): the 16:9 cut's keyed presenter, panels, cards and chapter titles -> props_wide.json (OstadWide)
+if (C.wide) fs.writeFileSync(path.join(OUT, "props_wide.json"), JSON.stringify({ spec: { ...spec, graphics: [], hook: undefined, wide: C.wide } }, null, 1));
 console.log(`${slug}: ${spec.captions.length} captions, ${overlays.length} overlays, ${spec.durationInSeconds.toFixed(2)} s -> public/${slug}/props.json`);

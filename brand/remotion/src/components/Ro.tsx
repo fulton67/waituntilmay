@@ -24,11 +24,21 @@ export const place = (pos: Pos | string = "top", w: number): { left: number; top
   };
 };
 
+// "movement behind the glass ... clean and not stagnant" (client, style DECISIONS 14): behind his static back wall a card would sit
+// over a frozen patch, so every card carries two very soft light blobs (brand blue, white) that drift slowly inside the frost. The
+// clock is the composition time, set once per frame by the composition (setGlassClock) before its cards render.
+let GLASS_T = 0;
+export const setGlassClock = (t: number) => { GLASS_T = t; };
+const glassLife = () => {
+  const t = GLASS_T;
+  const bx = 22 + 18 * Math.sin(t * 0.33), by = 18 + 14 * Math.cos(t * 0.27), wx = 78 - 16 * Math.sin(t * 0.21 + 1.3), wy = 82 - 12 * Math.cos(t * 0.29 + 0.7);
+  return `radial-gradient(60% 70% at ${bx.toFixed(2)}% ${by.toFixed(2)}%, rgba(55,169,232,.10), rgba(55,169,232,0) 70%), radial-gradient(55% 65% at ${wx.toFixed(2)}% ${wy.toFixed(2)}%, rgba(255,255,255,.22), rgba(255,255,255,0) 70%), `;
+};
 export const card = (radius = 28): React.CSSProperties => ({
   position: "absolute", overflow: "hidden", borderRadius: radius, color: NAVY, fontFamily: FONT,
   // the signature glass, made calm (DECISIONS 12: "we want the glass features ... that's our signature ... something in between"):
   // translucent frost you can see the room through, a hairline light rim and top highlight; no tint, glint or gloss
-  background: "linear-gradient(165deg, rgba(255,255,255,.86) 0%, rgba(255,255,255,.72) 55%, rgba(255,255,255,.78) 100%)",
+  background: glassLife() + "linear-gradient(165deg, rgba(255,255,255,.86) 0%, rgba(255,255,255,.72) 55%, rgba(255,255,255,.78) 100%)",
   backdropFilter: "blur(26px) saturate(1.5)", border: "1px solid rgba(255,255,255,.75)",
   boxShadow: "inset 0 1px 0 rgba(255,255,255,.95), inset 0 -1px 0 rgba(255,255,255,.35), 0 22px 60px rgba(8,12,22,.24), 0 2px 8px rgba(8,12,22,.10)",
 });
