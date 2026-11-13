@@ -76,7 +76,7 @@ const S1: React.FC = () => {
 };
 
 // 2. "why we include the mind in our approach to your total skin health": head and skin; a toggle switches the mind on; a live link
-const S2_HEAD: string | null = null; // "exomind-skin/flora/head_final_anim.mp4" once the client approves it
+const S2_HEAD: string | null = "exomind-skin/flora/head_final_anim.mp4"; // Flora glass head (AI render), at 1.16x to fill the 4.33 s section
 const bez = (q: number, p: number[]) => (1 - q) ** 3 * p[0] + 3 * (1 - q) ** 2 * q * p[1] + 3 * (1 - q) * q * q * p[2] + q ** 3 * p[3];
 const S2: React.FC = () => {
   const t = useT();
@@ -101,7 +101,7 @@ const S2: React.FC = () => {
           under the coil from the Oct 30 session, at native pixels (a 560 px crop, a different framing and moment from s3) */}
       <div style={{ position: "absolute", left: 380, top: 250, width: 580, height: 580, borderRadius: RADIUS + 10, background: "#fff", boxShadow: elev, ...life(t, -0.6) }}>
         <div style={{ position: "absolute", left: 10, top: 10, width: 560, height: 560, borderRadius: RADIUS, overflow: "hidden", filter: lit ? "none" : "saturate(0.6)" }}>
-          {S2_HEAD ? <OffthreadVideo src={staticFile(S2_HEAD)} muted style={{ position: "absolute", inset: 0, width: 560, height: 560, objectFit: "cover" }} />
+          {S2_HEAD ? <OffthreadVideo src={staticFile(S2_HEAD)} muted playbackRate={1.16} style={{ position: "absolute", left: -210, top: -10, width: 1043, height: 582 }} />
             : <OffthreadVideo src={v("session.mp4")} muted startFrom={Math.round(13 * 24)} style={{ position: "absolute", left: -470, top: -120, width: 1920, height: 1080 }} />}
         </div>
       </div>
@@ -376,7 +376,7 @@ const STEPS = [{ icon: "coil", label: "Coil", at: 0 }, { icon: "pulse", label: "
 // the mechanism slot (v3): two Flora clips are being re-rendered (client: the first head "looks wrong"): a fixed head-and-coil shot that
 // zooms into the prefrontal cortex, then new neural connections forming. Rendered at 5 s and slow; played here at 1.3x (5 s -> 3.85 s),
 // nearest-frame (no blending, no added blur), full frame. Until they land, each slot holds BTL's own render in a window.
-const MECH = { clip1: null as string | null, clip2: null as string | null, rate: 1.3, a: 2.6, b: 6.4, c: 10.2 };
+const MECH = { clip1: "exomind-skin/flora/head_final_anim.mp4" as string | null, clip2: "exomind-skin/flora/neuro_anim.mp4" as string | null, rate: 1.3, a: 2.6, b: 6.4, c: 10.2 };
 export const S11: React.FC<{ dur: number }> = ({ dur }) => {
   const t = useT();
   const scene = (a: number, b: number) => (a === 0 ? 1 : prog(t, a, 0.35)) * (1 - clamp((t - b) / 0.3));
@@ -384,14 +384,14 @@ export const S11: React.FC<{ dur: number }> = ({ dur }) => {
   return (
     <>
       <Canvas glow={[0.5, 0.45]} field={0.5} />
-      {/* the progress control: the step player (components/YT.tsx; replaces v2's rail of six 20 px labels): one pill per step, the
+      <div style={{ position: "absolute", inset: 0, opacity: scene(0, 2.6) }}><SessionScene t={t} /></div>
+      <Sequence from={Math.round(MECH.a * 24)} durationInFrames={Math.round((MECH.b - MECH.a + 0.35) * 24)} layout="none"><div style={{ position: "absolute", inset: 0, opacity: scene(MECH.a, MECH.b) }}>{MECH.clip1 ? <><MechClip src={MECH.clip1} /><HeadNotes t={t - MECH.a} /></> : <PfcSlot t={t - MECH.a} />}</div></Sequence>
+      <Sequence from={Math.round(MECH.b * 24)} durationInFrames={Math.round((MECH.c - MECH.b + 0.35) * 24)} layout="none"><div style={{ position: "absolute", inset: 0, opacity: scene(MECH.b, MECH.c) }}>{MECH.clip2 ? <><MechClip src={MECH.clip2} /><NeuroNotes t={t - MECH.b} /></> : <ConnSlot t={t - MECH.b} />}</div></Sequence>
+      <Sequence from={Math.round(MECH.c * 24)} layout="none"><div style={{ position: "absolute", inset: 0, opacity: scene(MECH.c, 99) }}><BrainScene t={t - MECH.c} /></div></Sequence>
+      {/* drawn after the scenes so the full-frame clips never cover it. the progress control: the step player (components/YT.tsx; replaces v2's rail of six 20 px labels): one pill per step, the
           current step named beside it at label size */}
       <div style={{ position: "absolute", left: M, top: 40 }}><StepPlayer times={STEPS.map((x) => x.at)} end={dur - 0.4} labels={STEPS.map((x) => x.label)} /></div>
       <div style={{ position: "absolute", right: M, top: 40 + 36 - 12, ...label(22, MUTE), whiteSpace: "nowrap" }}>{src}</div>
-      <div style={{ position: "absolute", inset: 0, opacity: scene(0, 2.6) }}><SessionScene t={t} /></div>
-      <Sequence from={Math.round(MECH.a * 24)} durationInFrames={Math.round((MECH.b - MECH.a + 0.35) * 24)} layout="none"><div style={{ position: "absolute", inset: 0, opacity: scene(MECH.a, MECH.b) }}>{MECH.clip1 ? <MechClip src={MECH.clip1} /> : <PfcSlot t={t - MECH.a} />}</div></Sequence>
-      <Sequence from={Math.round(MECH.b * 24)} durationInFrames={Math.round((MECH.c - MECH.b + 0.35) * 24)} layout="none"><div style={{ position: "absolute", inset: 0, opacity: scene(MECH.b, MECH.c) }}>{MECH.clip2 ? <MechClip src={MECH.clip2} /> : <ConnSlot t={t - MECH.b} />}</div></Sequence>
-      <Sequence from={Math.round(MECH.c * 24)} layout="none"><div style={{ position: "absolute", inset: 0, opacity: scene(MECH.c, 99) }}><BrainScene t={t - MECH.c} /></div></Sequence>
       {STEPS.slice(1).map((s, i) => <Sfx key={i} at={s.at} name={i === 3 ? "swish" : "pop"} gain={0.4} />)}
     </>
   );
@@ -470,6 +470,34 @@ const Traced: React.FC<{ src: string; t: number }> = ({ src, t }) => {
     </svg>
   );
 };
+// v4 notes over the Flora clips: small type only, no boxes over the head. Head clip (glass head, brain inside, the real coil on the
+// forehead, blue glow in the frontal lobe at full-frame px ~(1020-1140, 280-460)): a hairline from the step player's own
+// "Prefrontal cortex" label down to the frontal lobe (no second copy of the word); "Neuroplasticity" in the empty left third. Neuro clip (sparse -> connected): the counter of new
+// connections and the neurotransmitters line, small, lower left.
+const HeadNotes: React.FC<{ t: number }> = ({ t }) => {
+  const q = prog(t, 0.5, 0.8);
+  return (
+    <>
+      <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
+        <path d="M1000 110 L1070 318" stroke={INK} strokeWidth={1.5} pathLength={1} strokeDasharray={`${q} 1`} opacity={0.85} />
+        <circle cx={1070} cy={318} r={5} fill={INK} opacity={Math.min(1, q * 2)} />
+      </svg>
+      <div style={{ position: "absolute", left: M, top: 640 }}>
+        <div style={life(t, 1.2)}><span style={label(24, MUTE)}>Creates</span></div>
+        <div style={{ ...head(68, INK), marginTop: 10, ...life(t, 1.3) }}>Neuroplasticity</div>
+      </div>
+    </>
+  );
+};
+const NeuroNotes: React.FC<{ t: number }> = ({ t }) => (
+  <div style={{ position: "absolute", left: M, top: 690 }}>
+    <div style={{ display: "flex", alignItems: "baseline", gap: 14, ...life(t, 0.1) }}>
+      <span style={head(HERO, BLUE)}>+</span><Counter from={0} to={24} at={0.2} d={2.6} size={HERO} color={BLUE} />
+      <span style={label(24, INK)}>New connections</span>
+    </div>
+    <div style={{ marginTop: 16, ...life(t, 2.1) }}><span style={label(24, INK)}>Neurotransmitters</span><span style={{ ...small(24, 400, INK), marginLeft: 14 }}>in balance</span></div>
+  </div>
+);
 const MechClip: React.FC<{ src: string }> = ({ src }) => (
   <OffthreadVideo src={staticFile(src)} muted playbackRate={MECH.rate} style={{ position: "absolute", inset: 0, width: 1920, height: 1080, objectFit: "cover" }} />
 );
