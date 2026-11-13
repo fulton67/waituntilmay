@@ -1,0 +1,519 @@
+{
+ "src": "brand/edits/exomind-skin/exomind-skin_cut.mp4",
+ "speed": 1.15,
+ "fps": 24,
+ "source_s": 100.8853125,
+ "footage_frames": 2106,
+ "footage_s": 87.75,
+ "dur_s": 90.22826086956523,
+ "frames": 2165,
+ "render_s": 337,
+ "loudness_in": {
+  "input_i": "-16.11",
+  "input_tp": "-3.00",
+  "input_lra": "1.40",
+  "input_thresh": "-26.11",
+  "output_i": "-14.28",
+  "output_tp": "-1.50",
+  "output_lra": "1.30",
+  "output_thresh": "-24.28",
+  "normalization_type": "dynamic",
+  "target_offset": "0.28"
+ },
+ "adobe_fonts": true,
+ "errors": [],
+ "captions": 82,
+ "captions_unfit": [],
+ "fixed_words": [
+  {
+   "w": "Exomind",
+   "from": "ExoMind",
+   "t": 5.17
+  },
+  {
+   "w": "Exomind",
+   "from": "ExoMind",
+   "t": 35.11
+  }
+ ],
+ "rects": {
+  "lower_third": {
+   "x": 98.265625,
+   "y": 1369.65625,
+   "width": 789.140625,
+   "height": 198.03125,
+   "top": 1369.65625,
+   "right": 887.40625,
+   "bottom": 1567.6875,
+   "left": 98.265625
+  },
+  "caption": {
+   "x": 98.265625,
+   "y": 1593.59375,
+   "width": 883.46875,
+   "height": 90.46875,
+   "top": 1593.59375,
+   "right": 981.734375,
+   "bottom": 1684.0625,
+   "left": 98.265625
+  },
+  "chip": null
+ },
+ "spec": {
+  "overlays": [
+   {
+    "name": "lower-third",
+    "at": 0.1
+   }
+  ],
+  "captions": [
+   {
+    "text": "Thank you for spending",
+    "from": 0,
+    "to": 1.3391304347826087
+   },
+   {
+    "text": "part of your evening",
+    "from": 1.3391304347826087,
+    "to": 2.121739130434783
+   },
+   {
+    "text": "with us.",
+    "from": 2.121739130434783,
+    "to": 2.7826086956521743
+   },
+   {
+    "text": "I hope tonight's",
+    "from": 2.7826086956521743,
+    "to": 3.547826086956522
+   },
+   {
+    "text": "conversation has",
+    "from": 3.547826086956522,
+    "to": 4.434782608695652
+   },
+   {
+    "text": "helped you understand",
+    "from": 4.434782608695652,
+    "to": 5.165217391304348
+   },
+   {
+    "text": "Exomind and",
+    "from": 5.165217391304348,
+    "to": 6.660869565217392
+   },
+   {
+    "text": "why we include the",
+    "from": 6.660869565217392,
+    "to": 7.773913043478261
+   },
+   {
+    "text": "mind in our approach to",
+    "from": 7.773913043478261,
+    "to": 8.956521739130435
+   },
+   {
+    "text": "your total skin health.",
+    "from": 8.956521739130435,
+    "to": 10.373913043478261
+   },
+   {
+    "text": "Your questions are an",
+    "from": 10.991304347826087,
+    "to": 12.208695652173914
+   },
+   {
+    "text": "important part of this",
+    "from": 12.208695652173914,
+    "to": 13.026086956521741
+   },
+   {
+    "text": "conversation,",
+    "from": 13.026086956521741,
+    "to": 13.600000000000001
+   },
+   {
+    "text": "and I appreciate your",
+    "from": 13.600000000000001,
+    "to": 14.643478260869566
+   },
+   {
+    "text": "interest in learning",
+    "from": 14.643478260869566,
+    "to": 15.304347826086959
+   },
+   {
+    "text": "more about your care.",
+    "from": 15.304347826086959,
+    "to": 16.530434782608697
+   },
+   {
+    "text": "We'll notify our",
+    "from": 17.252173913043478,
+    "to": 18.243478260869566
+   },
+   {
+    "text": "giveaway winners by",
+    "from": 18.243478260869566,
+    "to": 19.1304347826087
+   },
+   {
+    "text": "email or phone,",
+    "from": 19.1304347826087,
+    "to": 20.05217391304348
+   },
+   {
+    "text": "so please keep an eye",
+    "from": 20.05217391304348,
+    "to": 21.008695652173916
+   },
+   {
+    "text": "out for messages from",
+    "from": 21.008695652173916,
+    "to": 22.260869565217394
+   },
+   {
+    "text": "our team.",
+    "from": 22.260869565217394,
+    "to": 22.76521739130435
+   },
+   {
+    "text": "Please also check your",
+    "from": 22.76521739130435,
+    "to": 24.678260869565218
+   },
+   {
+    "text": "text messages after",
+    "from": 24.678260869565218,
+    "to": 25.47826086956522
+   },
+   {
+    "text": "the event.",
+    "from": 25.47826086956522,
+    "to": 25.91304347826087
+   },
+   {
+    "text": "If you would like to",
+    "from": 25.91304347826087,
+    "to": 26.486956521739135
+   },
+   {
+    "text": "schedule a",
+    "from": 26.486956521739135,
+    "to": 26.973913043478262
+   },
+   {
+    "text": "consultation,",
+    "from": 26.973913043478262,
+    "to": 27.773913043478263
+   },
+   {
+    "text": "you can reply to our",
+    "from": 27.773913043478263,
+    "to": 28.608695652173914
+   },
+   {
+    "text": "text and we'll help you",
+    "from": 28.608695652173914,
+    "to": 30.069565217391304
+   },
+   {
+    "text": "find an appointment.",
+    "from": 30.069565217391304,
+    "to": 31.286956521739132
+   },
+   {
+    "text": "During your visit,",
+    "from": 31.286956521739132,
+    "to": 31.930434782608696
+   },
+   {
+    "text": "we'll discuss your goals,",
+    "from": 31.930434782608696,
+    "to": 33.095652173913045
+   },
+   {
+    "text": "review your medical",
+    "from": 33.095652173913045,
+    "to": 33.84347826086957
+   },
+   {
+    "text": "history, and determine",
+    "from": 33.84347826086957,
+    "to": 34.76521739130435
+   },
+   {
+    "text": "whether Exomind is",
+    "from": 34.76521739130435,
+    "to": 35.756521739130434
+   },
+   {
+    "text": "appropriate for you.",
+    "from": 35.756521739130434,
+    "to": 37.2
+   },
+   {
+    "text": "Before you go,",
+    "from": 37.2,
+    "to": 37.86086956521739
+   },
+   {
+    "text": "please stay with us and",
+    "from": 37.86086956521739,
+    "to": 38.85217391304348
+   },
+   {
+    "text": "continue sending your",
+    "from": 38.85217391304348,
+    "to": 39.70434782608696
+   },
+   {
+    "text": "questions throughout",
+    "from": 39.70434782608696,
+    "to": 40.27826086956522
+   },
+   {
+    "text": "the question box.",
+    "from": 40.27826086956522,
+    "to": 41.547826086956526
+   },
+   {
+    "text": "If there's something we",
+    "from": 41.547826086956526,
+    "to": 42.539130434782614
+   },
+   {
+    "text": "haven't covered,",
+    "from": 42.539130434782614,
+    "to": 43.14782608695652
+   },
+   {
+    "text": "I'd love to hear about it.",
+    "from": 43.14782608695652,
+    "to": 45.04347826086956
+   },
+   {
+    "text": "Thank you again for",
+    "from": 45.04347826086956,
+    "to": 46.139130434782615
+   },
+   {
+    "text": "joining us and trusting",
+    "from": 46.139130434782615,
+    "to": 47.75652173913044
+   },
+   {
+    "text": "our team with your",
+    "from": 47.75652173913044,
+    "to": 48.90434782608696
+   },
+   {
+    "text": "care.",
+    "from": 48.90434782608696,
+    "to": 49.18260869565218
+   },
+   {
+    "text": "We look forward to",
+    "from": 49.18260869565218,
+    "to": 49.8608695652174
+   },
+   {
+    "text": "seeing you in the office,",
+    "from": 49.8608695652174,
+    "to": 51.40869565217392
+   },
+   {
+    "text": "and again, I am so",
+    "from": 51.40869565217392,
+    "to": 52.869565217391305
+   },
+   {
+    "text": "excited in creating this",
+    "from": 52.869565217391305,
+    "to": 54.12173913043479
+   },
+   {
+    "text": "comprehensive",
+    "from": 54.12173913043479,
+    "to": 54.83478260869566
+   },
+   {
+    "text": "approach to total skin",
+    "from": 54.83478260869566,
+    "to": 56.31304347826088
+   },
+   {
+    "text": "health.",
+    "from": 56.31304347826088,
+    "to": 57.04347826086956
+   },
+   {
+    "text": "For me, it's about really",
+    "from": 57.04347826086956,
+    "to": 58.295652173913055
+   },
+   {
+    "text": "being at the next",
+    "from": 58.295652173913055,
+    "to": 59.07826086956522
+   },
+   {
+    "text": "frontier of",
+    "from": 59.07826086956522,
+    "to": 60.365217391304355
+   },
+   {
+    "text": "taking care of one's",
+    "from": 60.365217391304355,
+    "to": 61.80869565217392
+   },
+   {
+    "text": "skin beyond just the",
+    "from": 61.80869565217392,
+    "to": 63.756521739130434
+   },
+   {
+    "text": "sort of classic",
+    "from": 63.756521739130434,
+    "to": 65.07826086956523
+   },
+   {
+    "text": "treatments that are",
+    "from": 65.07826086956523,
+    "to": 65.86086956521739
+   },
+   {
+    "text": "available and helping",
+    "from": 65.86086956521739,
+    "to": 66.9913043478261
+   },
+   {
+    "text": "you become aware of",
+    "from": 66.9913043478261,
+    "to": 68.45217391304348
+   },
+   {
+    "text": "how our emotions",
+    "from": 68.45217391304348,
+    "to": 69.44347826086957
+   },
+   {
+    "text": "improve our skin,",
+    "from": 69.44347826086957,
+    "to": 71.23478260869565
+   },
+   {
+    "text": "and if there's",
+    "from": 71.23478260869565,
+    "to": 71.61739130434783
+   },
+   {
+    "text": "technology that can",
+    "from": 71.61739130434783,
+    "to": 72.5217391304348
+   },
+   {
+    "text": "actually help create",
+    "from": 72.5217391304348,
+    "to": 73.96521739130435
+   },
+   {
+    "text": "neuroplasticity,",
+    "from": 73.96521739130435,
+    "to": 74.44347826086957
+   },
+   {
+    "text": "rewire the brain,",
+    "from": 75.47826086956522,
+    "to": 76.54782608695653
+   },
+   {
+    "text": "increase proper",
+    "from": 77.07826086956523,
+    "to": 78.15652173913044
+   },
+   {
+    "text": "neurotransmitter",
+    "from": 78.15652173913044,
+    "to": 79.09565217391304
+   },
+   {
+    "text": "production where we",
+    "from": 79.09565217391304,
+    "to": 79.8608695652174
+   },
+   {
+    "text": "can actually be more",
+    "from": 79.8608695652174,
+    "to": 80.76521739130435
+   },
+   {
+    "text": "focused in flow and",
+    "from": 80.76521739130435,
+    "to": 82.80000000000001
+   },
+   {
+    "text": "help us just feel better",
+    "from": 82.80000000000001,
+    "to": 84.20869565217393
+   },
+   {
+    "text": "and how that can",
+    "from": 84.20869565217393,
+    "to": 84.85217391304349
+   },
+   {
+    "text": "actually translate into",
+    "from": 84.85217391304349,
+    "to": 85.84347826086957
+   },
+   {
+    "text": "better skin.",
+    "from": 85.84347826086957,
+    "to": 86.57391304347827
+   },
+   {
+    "text": "Thank you.",
+    "from": 86.57391304347827,
+    "to": 87.27826086956523
+   }
+  ],
+  "capWide": false,
+  "end": {
+   "card": "card-editorial-end",
+   "at": 87.22826086956523,
+   "dissolve": 0.5
+  }
+ },
+ "out": "C:\\Users\\naimj\\orca\\workspaces\\waituntilmay\\OSTAD-CONTENT-INTEL\\brand\\edits\\exomind-skin\\exomind-skin.mp4",
+ "copy": null,
+ "probe": {
+  "programs": [],
+  "stream_groups": [],
+  "streams": [
+   {
+    "codec_name": "h264",
+    "codec_type": "video",
+    "width": 1080,
+    "height": 1920,
+    "r_frame_rate": "24/1",
+    "nb_frames": "2165",
+    "side_data_list": [
+     {}
+    ]
+   },
+   {
+    "codec_name": "aac",
+    "codec_type": "audio",
+    "sample_rate": "48000",
+    "channels": 2,
+    "r_frame_rate": "0/0",
+    "nb_frames": "4226"
+   }
+  ],
+  "format": {
+   "duration": "90.208008",
+   "size": "124247148"
+  }
+ }
+}

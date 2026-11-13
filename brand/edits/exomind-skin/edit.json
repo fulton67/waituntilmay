@@ -1,0 +1,676 @@
+{
+ "title": "Exomind and total skin health: closing remarks",
+ "src": "brand/edits/exomind-skin/exomind-skin_cut.mp4",
+ "speed": 1.15,
+ "cut": {
+  "raw": "C:/Users/naimj/Downloads/Video Nov 04 2026, 4 20 45 PM.mov",
+  "transcript": "raw_transcript.json",
+  "maxPause": 1.2,
+  "keep": [
+   [
+    1.4,
+    43.98,
+    "Thank you for spending part of your evening with us ... determine whether Exomind is appropriate for you.",
+    "ostad"
+   ],
+   [
+    44.4,
+    103.0,
+    "Before you go, please stay with us ... translate into better skin. Thank you.",
+    "ostad"
+   ]
+  ],
+  "xfade": 0.3,
+  "_note": "style DECISIONS 14: he is a slow, even talker, so nothing inside his delivery is touched. Cut: 1.4 s of dead air before the first word, the 1.41 s silence at 43.46-44.87 (topic change) brought to 0.69 s with one 0.3 s cross-dissolve, room tone after the last 'Thank you'. Every other pause (0.4-0.9 s of room tone, 18 of them) stays. maxPause 1.2 so video_cut.py splits nothing inside the ranges (whisper folds pauses into word durations here, so its gaps are not used)."
+ },
+ "transcript": "transcript.json",
+ "fixes": [
+  [
+   "ExoMind",
+   "Exomind"
+  ],
+  [
+   "Exo Mind",
+   "Exomind"
+  ]
+ ],
+ "chips": [],
+ "devices": false,
+ "end": "card-editorial-end",
+ "capWide": false,
+ "grade": false,
+ "loudness": {
+  "I": -14,
+  "TP": -1.5,
+  "LRA": 11
+ },
+ "audio_pre": "highpass=f=80,acompressor=threshold=-42dB:ratio=5:attack=5:release=150:makeup=20dB,volume=10dB,alimiter=limit=-3dB:attack=2:release=60:level=false",
+ "remotion": {
+  "hook": {
+   "text": "Exomind\nThe mind in total skin health",
+   "at": 0,
+   "dur": 3.25
+  },
+  "keywords": [
+   "Exomind",
+   "mind",
+   "neuroplasticity",
+   "neurotransmitter",
+   "emotions",
+   "consultation"
+  ],
+  "graphics": [
+   {
+    "kind": "video",
+    "at": 3.04,
+    "dur": 2.83,
+    "pos": "xy:584,262",
+    "w": 440,
+    "aspect": 1.25,
+    "src": "exomind-skin/clips/office_treat.mp4",
+    "caps": "In our office",
+    "title": "Exomind"
+   },
+   {
+    "kind": "chain",
+    "at": 5.87,
+    "dur": 4.48,
+    "pos": "xy:90,1110",
+    "w": 900,
+    "title": "Our approach",
+    "steps": [
+     {
+      "text": "The skin",
+      "at": 0.1
+     },
+     {
+      "text": "The mind",
+      "at": 1.87
+     },
+     {
+      "text": "Total skin health",
+      "at": 3.4
+     }
+    ]
+   },
+   {
+    "kind": "video",
+    "at": 10.87,
+    "dur": 5.56,
+    "pos": "xy:584,262",
+    "w": 440,
+    "aspect": 1.25,
+    "src": "exomind-skin/clips/consult_q.mp4",
+    "caps": "Your questions",
+    "title": "Part of the conversation"
+   },
+   {
+    "kind": "checklist",
+    "at": 17.04,
+    "dur": 8.8,
+    "pos": "xy:220,1110",
+    "w": 640,
+    "title": "After tonight",
+    "rows": [
+     {
+      "text": "Giveaway winners: email or phone",
+      "at": 0.39,
+      "tick": true
+     },
+     {
+      "text": "Check your text messages",
+      "at": 7.15,
+      "tick": true
+     }
+    ]
+   },
+   {
+    "kind": "note",
+    "at": 25.86,
+    "dur": 5.05,
+    "pos": "xy:584,262",
+    "w": 440,
+    "caps": "To book a consultation",
+    "text": "Reply to our text"
+   },
+   {
+    "kind": "checklist",
+    "at": 31.17,
+    "dur": 5.79,
+    "pos": "xy:220,1110",
+    "w": 640,
+    "title": "During your visit",
+    "rows": [
+     {
+      "text": "Your goals",
+      "at": 0.88,
+      "tick": true
+     },
+     {
+      "text": "Your medical history",
+      "at": 1.87,
+      "tick": true
+     },
+     {
+      "text": "Is Exomind right for you?",
+      "at": 3.3,
+      "tick": true
+     }
+    ]
+   },
+   {
+    "kind": "note",
+    "at": 37.11,
+    "dur": 7.48,
+    "pos": "xy:584,262",
+    "w": 440,
+    "caps": "Before you go",
+    "text": "Send us your questions"
+   },
+   {
+    "kind": "video",
+    "at": 44.77,
+    "dur": 6.34,
+    "pos": "xy:584,262",
+    "w": 440,
+    "aspect": 1.25,
+    "src": "exomind-skin/clips/office_team.mp4",
+    "caps": "Our team",
+    "title": "See you in the office"
+   },
+   {
+    "kind": "title",
+    "at": 51.46,
+    "dur": 4.09,
+    "text": "Total skin health\nA comprehensive approach"
+   },
+   {
+    "kind": "video",
+    "at": 56.94,
+    "dur": 5.04,
+    "pos": "xy:584,262",
+    "w": 440,
+    "aspect": 0.5628517823639775,
+    "src": "exomind-skin/clips/brainlit.mp4",
+    "caps": "The next frontier",
+    "title": "Skin care, beyond the skin",
+    "credit": "Animation: BTL"
+   },
+   {
+    "kind": "compare",
+    "at": 61.98,
+    "dur": 4.26,
+    "pos": "xy:90,1110",
+    "left": [
+     "Classic treatments",
+     "Care for the skin"
+    ],
+    "right": [
+     "Beyond them",
+     "Care for the mind"
+    ],
+    "rightAt": 1.92
+   },
+   {
+    "kind": "chain",
+    "at": 66.26,
+    "dur": 4.61,
+    "pos": "xy:90,1110",
+    "w": 900,
+    "title": "Mind and skin",
+    "steps": [
+     {
+      "text": "Our emotions",
+      "at": 2.63
+     },
+     {
+      "text": "Our skin",
+      "at": 4.07
+     }
+    ]
+   },
+   {
+    "kind": "clip",
+    "at": 71.11,
+    "dur": 8.44,
+    "src": "exomind-skin/clips/neuro.mp4",
+    "startFrom": 0,
+    "caps": "The technology",
+    "title": "Exomind",
+    "credit": "Animation: BTL",
+    "titles": [
+     {
+      "at": 2.82,
+      "caps": "It helps create",
+      "title": "Neuroplasticity: rewiring the brain"
+     },
+     {
+      "at": 5.99,
+      "caps": "And increases",
+      "title": "Neurotransmitter production"
+     }
+    ]
+   },
+   {
+    "kind": "wave",
+    "at": 79.63,
+    "dur": 4.48,
+    "pos": "xy:584,262",
+    "w": 440,
+    "caps": "Focused, in flow",
+    "title": "Feeling better",
+    "calmAt": 2.0
+   },
+   {
+    "kind": "chain",
+    "at": 84.2,
+    "dur": 2.22,
+    "pos": "xy:90,1110",
+    "w": 900,
+    "title": "The goal",
+    "steps": [
+     {
+      "text": "Feel better",
+      "at": 0.1
+     },
+     {
+      "text": "Better skin",
+      "at": 1.61
+     }
+    ]
+   }
+  ],
+  "end": {
+   "glass": true,
+   "lines": [
+    "Book a consultation.",
+    "Link in bio."
+   ],
+   "handle": "@drarielostad"
+  },
+  "_plan": "style DECISIONS 14: linear, one visual idea at a time, each tied to the point he is making; no punch-ins (the only join is a 0.3 s dissolve). Right-column cards at x 584-1024 (YuNet face box x 65-515, y 476-1072 over the whole source); wide cards from y 1110 (below his chin, above captions at 1593)."
+ },
+ "wide": {
+  "presenter": "exomind-skin/presenter.webm",
+  "place": {
+   "scale": 0.86,
+   "left": 0,
+   "top": -140
+  },
+  "bg": [
+   {
+    "at": 0,
+    "dur": 11.3,
+    "src": "exomind-skin/clips/device_arm.mp4",
+    "rate": 0.26
+   },
+   {
+    "at": 10.9,
+    "dur": 34.2,
+    "src": "exomind-skin/clips/care.mp4",
+    "rate": 0.157
+   },
+   {
+    "at": 44.7,
+    "dur": 12.6,
+    "src": "exomind-skin/clips/office.mp4",
+    "rate": 0.47
+   },
+   {
+    "at": 56.9,
+    "dur": 5.5,
+    "src": "exomind-skin/clips/brainlit.mp4",
+    "rate": 0.95
+   },
+   {
+    "at": 62.0,
+    "dur": 9.5,
+    "src": "exomind-skin/clips/emotions.mp4",
+    "rate": 0.4
+   },
+   {
+    "at": 71.1,
+    "dur": 8.9,
+    "src": "exomind-skin/clips/neuro.mp4",
+    "rate": 1.0
+   },
+   {
+    "at": 79.6,
+    "dur": 5.0,
+    "src": "exomind-skin/clips/flow.mp4",
+    "rate": 0.95
+   },
+   {
+    "at": 84.2,
+    "dur": 8.8,
+    "src": "exomind-skin/clips/smile_close.mp4",
+    "rate": 0.38
+   }
+  ],
+  "chapters": [
+   {
+    "at": 0,
+    "dur": 10.85,
+    "title": "Exomind",
+    "pill": "The mind in total skin health"
+   },
+   {
+    "at": 10.87,
+    "dur": 26.13,
+    "title": "Your care",
+    "pill": "Questions, booking, your visit"
+   },
+   {
+    "at": 37.11,
+    "dur": 14.19,
+    "title": "Before you go",
+    "pill": "Thank you for joining us"
+   },
+   {
+    "at": 51.46,
+    "dur": 19.54,
+    "title": "Total skin health",
+    "pill": "The next frontier"
+   },
+   {
+    "at": 71.11,
+    "dur": 8.44,
+    "title": "The technology",
+    "pill": "How Exomind works"
+   },
+   {
+    "at": 79.63,
+    "dur": 7.47,
+    "title": "Feeling better",
+    "pill": "And better skin"
+   },
+   {
+    "at": 87.15,
+    "dur": 5.85,
+    "title": "Thank you",
+    "pill": "Dr. Ariel Ostad"
+   }
+  ],
+  "points": [
+   {
+    "at": 0.3,
+    "dur": 5.55,
+    "label": "Exomind",
+    "pill": "Tonight",
+    "title": "Understanding Exomind",
+    "sub": "Thank you for spending your evening with us"
+   },
+   {
+    "at": 5.87,
+    "dur": 4.98,
+    "label": "Our approach",
+    "pill": "Mind + skin",
+    "title": "The mind is part of skin health",
+    "sub": "Why we include it in your care"
+   },
+   {
+    "at": 10.87,
+    "dur": 5.48,
+    "label": "Your questions",
+    "pill": "Welcome",
+    "title": "An important part of the conversation",
+    "sub": "Learning more about your care"
+   },
+   {
+    "at": 17.04,
+    "dur": 8.8,
+    "label": "After tonight",
+    "pill": "Giveaway",
+    "title": "Keep an eye out for our messages",
+    "sub": "From our team, after the event"
+   },
+   {
+    "at": 25.86,
+    "dur": 5.24,
+    "label": "Booking",
+    "pill": "Consultation",
+    "title": "Want to schedule a visit?",
+    "sub": "It starts with a text"
+   },
+   {
+    "at": 31.17,
+    "dur": 5.83,
+    "label": "Your visit",
+    "pill": "Consultation",
+    "title": "What happens at your visit",
+    "sub": "A consultation comes first"
+   },
+   {
+    "at": 37.11,
+    "dur": 7.59,
+    "label": "Before you go",
+    "pill": "Q&A",
+    "title": "Send us your questions",
+    "sub": "Something we haven't covered? Tell us"
+   },
+   {
+    "at": 44.77,
+    "dur": 6.53,
+    "label": "Thank you",
+    "pill": "Our team",
+    "title": "See you in the office",
+    "sub": "Thank you for trusting us with your care"
+   },
+   {
+    "at": 51.46,
+    "dur": 14.74,
+    "label": "Total skin health",
+    "pill": "Next frontier",
+    "title": "A comprehensive approach",
+    "sub": "Beyond the classic treatments"
+   },
+   {
+    "at": 66.26,
+    "dur": 4.74,
+    "label": "Mind and skin",
+    "pill": "Emotions",
+    "title": "How emotions show in our skin",
+    "sub": "Becoming aware of the connection"
+   },
+   {
+    "at": 71.11,
+    "dur": 8.44,
+    "label": "The technology",
+    "pill": "Exomind",
+    "title": "Technology for the mind",
+    "sub": "Technology that can actually help",
+    "titles": [
+     {
+      "at": 2.82,
+      "title": "Neuroplasticity",
+      "sub": "Helping the brain rewire"
+     },
+     {
+      "at": 5.99,
+      "title": "Neurotransmitters",
+      "sub": "Proper production"
+     }
+    ]
+   },
+   {
+    "at": 79.63,
+    "dur": 7.47,
+    "label": "The goal",
+    "pill": "Feel better",
+    "title": "Focused, in flow",
+    "sub": "And feeling better",
+    "titles": [
+     {
+      "at": 4.57,
+      "title": "Better skin",
+      "sub": "How the mind translates to the skin"
+     }
+    ]
+   },
+   {
+    "at": 87.3,
+    "dur": 5.7,
+    "label": "Dr. Ariel Ostad",
+    "pill": "@drarielostad",
+    "title": "Book a consultation.",
+    "sub": "Link in the description."
+   }
+  ],
+  "media": [
+   {
+    "at": 2.78,
+    "dur": 3.07,
+    "kind": "clip",
+    "src": "exomind-skin/clips/device_arm.mp4",
+    "rate": 0.95,
+    "credit": "Footage: BTL",
+    "cutout": "exomind-skin/exomind.png"
+   },
+   {
+    "at": 5.87,
+    "dur": 4.98,
+    "kind": "list",
+    "head": "Our approach",
+    "rows": [
+     {
+      "text": "The skin",
+      "at": 0.1
+     },
+     {
+      "text": "The mind",
+      "at": 1.87
+     },
+     {
+      "text": "Total skin health",
+      "at": 3.4
+     }
+    ]
+   },
+   {
+    "at": 10.87,
+    "dur": 5.48,
+    "kind": "clip",
+    "src": "exomind-skin/clips/care.mp4",
+    "rate": 0.97,
+    "credit": "Footage: BTL"
+   },
+   {
+    "at": 17.04,
+    "dur": 8.8,
+    "kind": "list",
+    "head": "After tonight",
+    "rows": [
+     {
+      "text": "Giveaway winners: email or phone",
+      "at": 0.39
+     },
+     {
+      "text": "Check your text messages",
+      "at": 7.15
+     }
+    ]
+   },
+   {
+    "at": 25.86,
+    "dur": 5.24,
+    "kind": "list",
+    "head": "To book a consultation",
+    "rows": [
+     {
+      "text": "Reply to our text",
+      "at": 2.09
+     },
+     {
+      "text": "We find you an appointment",
+      "at": 3.65
+     }
+    ]
+   },
+   {
+    "at": 31.17,
+    "dur": 5.83,
+    "kind": "list",
+    "head": "During your visit",
+    "rows": [
+     {
+      "text": "Your goals",
+      "at": 0.88
+     },
+     {
+      "text": "Your medical history",
+      "at": 1.87
+     },
+     {
+      "text": "Is Exomind right for you?",
+      "at": 3.3
+     }
+    ]
+   },
+   {
+    "at": 44.77,
+    "dur": 6.53,
+    "kind": "clip",
+    "src": "exomind-skin/clips/office.mp4",
+    "rate": 0.95,
+    "credit": "Footage: BTL"
+   },
+   {
+    "at": 56.94,
+    "dur": 5.01,
+    "kind": "clip",
+    "src": "exomind-skin/clips/brainlit.mp4",
+    "rate": 1.0,
+    "credit": "Animation: BTL"
+   },
+   {
+    "at": 61.98,
+    "dur": 4.22,
+    "kind": "pair",
+    "pair": [
+     [
+      "Classic treatments",
+      "Care for the skin"
+     ],
+     [
+      "Beyond them",
+      "Care for the mind"
+     ]
+    ],
+    "pairAt": 0.64
+   },
+   {
+    "at": 66.26,
+    "dur": 4.69,
+    "kind": "clip",
+    "src": "exomind-skin/clips/emotions.mp4",
+    "rate": 0.81,
+    "credit": "Footage: BTL"
+   },
+   {
+    "at": 71.11,
+    "dur": 8.44,
+    "kind": "clip",
+    "src": "exomind-skin/clips/neuro.mp4",
+    "rate": 1.0,
+    "credit": "Animation: BTL"
+   },
+   {
+    "at": 79.63,
+    "dur": 4.52,
+    "kind": "clip",
+    "src": "exomind-skin/clips/flow.mp4",
+    "rate": 1.0,
+    "credit": "Footage: BTL"
+   },
+   {
+    "at": 84.2,
+    "dur": 2.9,
+    "kind": "clip",
+    "src": "exomind-skin/clips/smile_close.mp4",
+    "rate": 1.0,
+    "credit": "Footage: BTL"
+   }
+  ],
+  "_plan": "style DECISIONS 14 (client layout reference: a console home screen, 'the glass glossiness and the box on the right side and the curved boxes'): defocused full-bleed footage, chapter headline + outlined pill top left, presenter keyed (RVM) large on the left (scale 0.86, head top ~230 px, face ~390 px wide), right column x 1236-1860 of two tall frosted cards (radius 38-40): point card (label, brand-blue pill, 2-line title, muted line) and media card (BTL Exomind stock at <= native size: 1066x600 crop below BTL's logos, object-fit cover in 624x560 = 0.93x; or a ticked list / comparison). No practice footage behind him: all of it has Dr. Ostad in frame. Background blur 38 px: it only carries colour."
+ }
+}

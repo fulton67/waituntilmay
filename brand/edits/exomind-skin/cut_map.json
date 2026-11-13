@@ -1,0 +1,24 @@
+{
+ "raw": "C:/Users/naimj/Downloads/Video Nov 04 2026, 4 20 45 PM.mov",
+ "duration": 100.88,
+ "pieces": [
+  {
+   "raw": [
+    1.4,
+    43.98
+   ],
+   "at": 0.0,
+   "text": "Thank you for spending part of your evening with us ... determine whether Exomind is appropriate for you.",
+   "who": "ostad"
+  },
+  {
+   "raw": [
+    44.4,
+    103.0
+   ],
+   "at": 42.28,
+   "text": "Before you go, please stay with us ... translate into better skin. Thank you.",
+   "who": "ostad"
+  }
+ ]
+}
