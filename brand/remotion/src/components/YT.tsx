@@ -71,6 +71,10 @@ export const ICON: Record<string, string> = {
   check: "M12 25l8 8 16-17",
   question: "M18 18a6 6 0 1 1 9 5c-2 1-3 2-3 5 M24 34v1",
   skin: "M6 15c6-4 12 4 18 0s12-4 18 0 M6 25h36 M6 35h36 M15 15v20 M33 15v20",
+  // v4: icons must literally mean their word (client: a "face"/skin-care chip needs a proper face icon). A face, front on, with a small
+  // glint at its cheek for skin care; a synapse (two membranes, messengers crossing) for neurotransmitters.
+  face: "M24 6c-8 0-13 6.5-13 15 0 9.5 6 19 13 19s13-9.5 13-19c0-8.5-5-15-13-15z M18.5 20.5h3 M26.5 20.5h3 M24 22v5h-1.5 M20 31c2.6 2 5.4 2 8 0 M37 9v5 M34.5 11.5h5",
+  synapse: "M8 12c4 7 28 7 32 0 M8 38c4-7 28-7 32 0 M18 21a1.6 1.6 0 1 0 .1 0 M25 24a1.6 1.6 0 1 0 .1 0 M31 21.5a1.6 1.6 0 1 0 .1 0 M21 28a1.6 1.6 0 1 0 .1 0 M28 29a1.6 1.6 0 1 0 .1 0",
   spark: "M24 6v8 M24 34v8 M6 24h8 M34 24h8 M11 11l6 6 M31 31l6 6 M37 11l-6 6 M17 31l-6 6",
 };
 export const Icon: React.FC<{ name: string; size?: number; draw?: number; color?: string; style?: React.CSSProperties }> = ({ name, size = 64, draw = 1, color = INK, style }) => (
@@ -93,19 +97,22 @@ NODES.forEach((a, i) => NODES.forEach((b, j) => { if (j > i && Math.hypot(a.x - 
 // k = 6, by share): #f6f8f5 21 %, #eaede7 20 %, #a9ab95 17 %, #c7cbbb 15 %, #d9ded4 14 %, #babca7 12 %; L* 66-99 (p1-p99), median 87;
 // horizontal bands top to bottom #d9ddd7 #e4e8e3 #edefe9 #e5e7da #bebfa9 #abaf9c. So the canvas is light in a room: two soft window
 // glows and a warm cream pool over a cool sage floor, all radial (no hard edge), drifting slowly; the neural field stays, faint.
-export const ROOM = { top: "#d9ddd7", hi: "#f6f8f5", mid: "#edefe9", warm: "#e5e7da", sage: "#c7cbbb", sage2: "#babca7", floor: "#abaf9c" };
+// v4 (client: the room "reads slightly green ... just a little more blue"; rule: brand-bible blues, never green): every room colour
+// moved to a luminance-matched cool blue-grey, 55 % (the darker floor tones further, to hue ~210), so the light stays but the cast is blue.
+// HSV hue before -> after: top 100 -> 212, mid 80 -> 214, warm 69 -> 205, sage 75 -> 200, sage2 63 -> 205, floor 73 -> 210.
+export const ROOM = { top: "#d6dde5", hi: "#f1f8ff", mid: "#e8eff8", warm: "#e0e7ec", sage: "#c4cacd", sage2: "#b8bec4", floor: "#a8aeb4" };
 export const Canvas: React.FC<{ glow?: [number, number]; field?: number; px?: number }> = ({ glow = [0.4, 0.4], field = 1, px = 0 }) => {
   const t = useCurrentFrame() / 24;
   const pos = NODES.map((n) => ({ x: n.x + Math.sin(t * 0.13 + n.p) * 26 * n.z - px * n.z * 40, y: n.y + Math.cos(t * 0.11 + n.p) * 18 * n.z, z: n.z }));
   const gx = glow[0] * 100 + 6 * Math.sin(t * 0.17), gy = glow[1] * 100 + 5 * Math.cos(t * 0.13);
   const d = (f: number, a: number) => a * Math.sin(t * f);
   const room = [
-    `radial-gradient(26% 34% at ${gx - 14 + d(0.11, 3)}% ${gy - 8 + d(0.09, 2)}%, rgba(255,255,255,.95), rgba(246,248,245,0) 100%)`,
-    `radial-gradient(22% 30% at ${gx + 20 + d(0.08, 3)}% ${gy - 6 + d(0.12, 2)}%, rgba(252,253,250,.9), rgba(246,248,245,0) 100%)`,
-    `radial-gradient(40% 26% at ${50 + d(0.07, 4)}% ${66 + d(0.1, 2)}%, rgba(240,238,220,.75), rgba(229,231,218,0) 100%)`,
-    `radial-gradient(30% 60% at ${98 + d(0.06, 2)}% ${48 + d(0.09, 3)}%, rgba(199,203,187,.75), rgba(199,203,187,0) 100%)`,
-    `radial-gradient(45% 35% at ${12 + d(0.05, 3)}% ${92 + d(0.08, 2)}%, rgba(186,188,167,.6), rgba(186,188,167,0) 100%)`,
-    `linear-gradient(180deg, ${ROOM.top} 0%, #e4e8e3 17%, ${ROOM.mid} 40%, ${ROOM.warm} 60%, ${ROOM.sage2} 84%, ${ROOM.floor} 100%)`,
+    `radial-gradient(26% 34% at ${gx - 14 + d(0.11, 3)}% ${gy - 8 + d(0.09, 2)}%, rgba(255,255,255,.95), rgba(241,248,255,0) 100%)`,
+    `radial-gradient(22% 30% at ${gx + 20 + d(0.08, 3)}% ${gy - 6 + d(0.12, 2)}%, rgba(250,252,255,.9), rgba(241,248,255,0) 100%)`,
+    `radial-gradient(40% 26% at ${50 + d(0.07, 4)}% ${66 + d(0.1, 2)}%, rgba(233,238,242,.75), rgba(224,231,236,0) 100%)`,
+    `radial-gradient(30% 60% at ${98 + d(0.06, 2)}% ${48 + d(0.09, 3)}%, rgba(196,202,205,.75), rgba(196,202,205,0) 100%)`,
+    `radial-gradient(45% 35% at ${12 + d(0.05, 3)}% ${92 + d(0.08, 2)}%, rgba(184,190,196,.6), rgba(184,190,196,0) 100%)`,
+    `linear-gradient(180deg, ${ROOM.top} 0%, #e1e8f1 17%, ${ROOM.mid} 40%, ${ROOM.warm} 60%, ${ROOM.sage2} 84%, ${ROOM.floor} 100%)`,
   ].join(", ");
   return (
     <div style={{ position: "absolute", inset: 0, overflow: "hidden", background: room }}>
@@ -115,7 +122,7 @@ export const Canvas: React.FC<{ glow?: [number, number]; field?: number; px?: nu
       </svg>
       <Grain opacity={0.035} />
       {/* Homevolt's thin four-colour strip on the bottom edge, in the room's colours and the brand blue */}
-      <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 6, display: "flex" }}>{["#abaf9c", "#e5e7da", BLUE, INK].map((c) => <div key={c} style={{ flex: 1, background: c }} />)}</div>
+      <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 6, display: "flex" }}>{[ROOM.floor, ROOM.warm, BLUE, INK].map((c) => <div key={c} style={{ flex: 1, background: c }} />)}</div>
     </div>
   );
 };
@@ -248,13 +255,10 @@ export const Callout: React.FC<{ x: number; y: number; lx: number; ly: number; t
 // bar). The current pill fills with ink at a steady speed over its step (never narrower than a dot; that dot fades in over the first
 // 1/14 of the fill); visited pills are full. The wake (wake = 100): the crossed dots stand up and settle in crossing order, 60 ms lead,
 // 300 ms each on a half sine, 55 ms stagger, amplitude 0.34 of their height; the landing pill answers last at 0.3 of that. The play
-// mark is two quads morphing pause <-> play in 300 ms (in-out cubic) with the block's goo (squash 0.13/0.11, 9 deg tip, 1.6 lean).
+// mark is left out (v4 client: "a weird pause and play"; rule: no play/pause/press UI): a quiet progress row only.
 const SP = 2, SDOT = 8 * SP, SBAR = 36 * SP, SGAP = 8 * SP, SPAD = 14 * SP, SH = SDOT + 2 * SPAD;
 const spLay = (n: number, at: number) => { const o: [number, number][] = []; let x = 0; for (let i = 0; i < n; i++) { const w = i === at ? SBAR : SDOT; o.push([x, x + w]); x += w + SGAP; } return o; };
 const eOut3 = (u: number) => 1 - (1 - clamp(u)) ** 3;
-const swing = (u: number) => (u < 0.5 ? 4 * u ** 3 : 1 - (-2 * u + 2) ** 3 / 2);
-const PAUSE_L = [6, 4, 10, 4, 10, 20, 6, 20], PLAY_L = [6.5, 4, 13.25, 8, 13.25, 16, 6.5, 20], PAUSE_R = [14, 4, 18, 4, 18, 20, 14, 20], PLAY_R = [13.25, 8, 20, 12, 20, 12, 13.25, 16];
-const quadD = (a: number[], b: number[], u: number) => { let d = ""; for (let i = 0; i < 8; i += 2) d += `${i ? "L" : "M"}${(a[i] + (b[i] - a[i]) * u).toFixed(2)} ${(a[i + 1] + (b[i + 1] - a[i + 1]) * u).toFixed(2)}`; return d + "Z"; };
 export const stepAt = (times: number[], t: number) => Math.max(0, times.filter((s) => t >= s).length - 1);
 export const StepPlayer: React.FC<{ times: number[]; end: number; ink?: string; labels?: string[]; labelSize?: number }> = ({ times, end, ink = BLUE, labels, labelSize = LAB }) => {
   const t = useT();
@@ -272,9 +276,6 @@ export const StepPlayer: React.FC<{ times: number[]; end: number; ink?: string; 
     const u = (ms - 60 - delay) / 300;
     return u > 0 && u < 1 ? 1 + Math.sin(Math.PI * u) * 0.34 * share : 1;
   };
-  // the mark: play -> pause when the sequence starts, pause -> play when the last step is full
-  const mu = t < end ? 1 - swing(clamp((t - times[0] + 0.3) / 0.3)) : swing(clamp((t - end) / 0.3));
-  const goo = Math.sin(clamp(mu) * Math.PI), pull = 1.6 * goo, tip = (t < end ? -9 : 9) * goo;
   const width = spLay(n, 0)[n - 1][1];
   const slab: React.CSSProperties = { background: "rgba(255,255,255,.86)", boxShadow: "inset 0 1px 0 rgba(255,255,255,.9), 0 10px 30px rgba(29,34,48,.10)", backdropFilter: "blur(20px)" };
   return (
@@ -292,14 +293,8 @@ export const StepPlayer: React.FC<{ times: number[]; end: number; ink?: string; 
           })}
         </div>
       </div>
-      <div style={{ ...slab, width: SH, height: SH, borderRadius: SH / 2, display: "grid", placeItems: "center", flex: "none", color: INK }}>
-        <svg width={14 * SP} height={14 * SP} viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" style={{ transformOrigin: "50% 50%", transform: `rotate(${tip}deg) scale(${1 - 0.13 * goo}, ${1 + 0.11 * goo})` }}>
-          <path d={quadD(PAUSE_L, PLAY_L, mu)} transform={`translate(${pull} 0)`} />
-          <path d={quadD(PAUSE_R, PLAY_R, mu)} transform={`translate(${-pull} 0)`} />
-        </svg>
-      </div>
       {labels && (
-        <div style={{ position: "relative", marginLeft: 28 - SGAP, height: SH, minWidth: 520 }}>
+        <div style={{ position: "relative", marginLeft: 28 - SGAP + 8, height: SH, minWidth: 520 }}>
           {labels.map((s, i) => {
             const on = i === cur, q = on ? prog(t, times[i], 0.4) : 0, off = i === cur - 1 ? 1 - clamp((t - times[cur]) / 0.2) : 0;
             if (!on && off <= 0) return null;
