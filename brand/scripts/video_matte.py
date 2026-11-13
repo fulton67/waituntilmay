@@ -8,17 +8,25 @@ usage: ~/tools/brand-venv/Scripts/python -I brand/scripts/video_matte.py <video>
        ~/tools/brand-venv/Scripts/python -I brand/scripts/video_matte.py --pack <fgr_cut.mp4> <pha_cut.mp4> <out.webm>
   --pack: one VP9 + alpha webm for Remotion (<OffthreadVideo transparent>). The alpha is cleaned per frame: only the largest connected
   body (alpha > 0.25) and what lies within 24 px of it are kept, so stray bits of the Exomind machine beside his hand (RVM leaves a few,
-  e.g. ~24 s, ~46 s, ~68 s in the source) are dropped while hair fringe and motion-blurred fingers stay."""
+  e.g. ~24 s, ~46 s, ~68 s in the source) are dropped while hair fringe and motion-blurred fingers stay.
+  --refine (YouTube v2, style DECISIONS 14b; client: "around the head looks really bad ... the cut out is very visible"): the edge is
+  pulled in 1 px and feathered (sigma 0.8 px), and edge pixels take their colour from the solid body just inside (normalised blur of
+  the alpha>0.97 core) in proportion to their transparency, so the light of his back wall no longer rims the hair.
+  --ss <s> --to <s>: pack only that span of the cut (the few seconds where the keyed shot is used)."""
 import os, subprocess, sys, time
 import numpy as np
 
 if sys.argv[1] == "--pack":
     import cv2
     fg, ph, out = sys.argv[2:5]
+    opt = sys.argv[5:]
+    refine = "--refine" in opt
+    span = ["-ss", opt[opt.index("--ss") + 1]] if "--ss" in opt else []
+    span += ["-to", opt[opt.index("--to") + 1]] if "--to" in opt else []
     probe = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height,r_frame_rate",
                             "-of", "csv=p=0", fg], capture_output=True, text=True, check=True).stdout.strip().split(",")
     w, h, rate = int(probe[0]), int(probe[1]), probe[2]
-    rd = lambda p, fmt: subprocess.Popen(["ffmpeg", "-v", "error", "-i", p, "-f", "rawvideo", "-pix_fmt", fmt, "-"], stdout=subprocess.PIPE)
+    rd = lambda p, fmt: subprocess.Popen(["ffmpeg", "-v", "error", *span, "-i", p, "-f", "rawvideo", "-pix_fmt", fmt, "-"], stdout=subprocess.PIPE)
     dfg, dph = rd(fg, "rgb24"), rd(ph, "gray")
     enc = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgba", "-s", f"{w}x{h}", "-r", rate, "-i", "-",
                             "-c:v", "libvpx-vp9", "-pix_fmt", "yuva420p", "-b:v", "0", "-crf", "18", "-deadline", "good", "-cpu-used", "4",
@@ -34,7 +42,17 @@ if sys.argv[1] == "--pack":
             main = 1 + int(np.argmax(st[1:, 4]))
             keep = cv2.dilate((lab == main).astype(np.uint8), ker)
             before = int((al > 64).sum()); al[keep == 0] = 0; dropped += before - int((al > 64).sum())
-        rgba = np.dstack([np.frombuffer(c, np.uint8).reshape(h, w, 3), al])
+        rgb = np.frombuffer(c, np.uint8).reshape(h, w, 3)
+        if refine:
+            a = cv2.GaussianBlur(cv2.erode(al, np.ones((3, 3), np.uint8)).astype(np.float32) / 255, (0, 0), 0.8)
+            core = (a > 0.97).astype(np.float32)
+            f32 = rgb.astype(np.float32)
+            inner = cv2.GaussianBlur(f32 * core[..., None], (0, 0), 4) / np.maximum(cv2.GaussianBlur(core, (0, 0), 4), 1e-3)[..., None]
+            has = cv2.GaussianBlur(core, (0, 0), 4) > 0.02
+            m = np.where(has & (a < 0.97), 1 - a, 0)[..., None]
+            rgb = (f32 * (1 - m) + inner * m).clip(0, 255).astype(np.uint8)
+            al = (a * 255).round().astype(np.uint8)
+        rgba = np.dstack([rgb, al])
         enc.stdin.write(rgba.tobytes()); n += 1
     enc.stdin.close(); enc.wait()
     print(f"{n} frames packed -> {out}; {dropped} stray alpha px dropped in total"); sys.exit(0)
