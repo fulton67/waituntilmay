@@ -76,6 +76,7 @@ const S1: React.FC = () => {
 };
 
 // 2. "why we include the mind in our approach to your total skin health": head and skin; a toggle switches the mind on; a live link
+const S2_HEAD: string | null = null; // "exomind-skin/flora/head_final_anim.mp4" once the client approves it
 const bez = (q: number, p: number[]) => (1 - q) ** 3 * p[0] + 3 * (1 - q) ** 2 * q * p[1] + 3 * (1 - q) * q * q * p[2] + q ** 3 * p[3];
 const S2: React.FC = () => {
   const t = useT();
@@ -89,19 +90,22 @@ const S2: React.FC = () => {
         <span style={head(48)}>Include the mind</span>
       </div>
       <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
-        <g transform="translate(40 40)">
-          <path d="M520 760 C 470 700 455 640 470 580 C 430 560 440 520 470 500 C 450 380 520 270 640 255 C 760 240 850 320 860 420 C 880 450 900 490 880 505 C 900 540 890 560 870 570 C 880 610 870 650 820 655 C 800 700 760 720 720 720 L 720 790"
-            fill="none" stroke={INK} strokeWidth={LINE} strokeLinecap="round" pathLength={1} strokeDasharray={`${prog(t, 0.05, 1)} 1`} />
-          <g transform="translate(560 330) scale(4.2)"><path d={ICON.brain.split(" M")[0]} fill={lit ? "rgba(55,169,232,.16)" : "none"} stroke={lit ? BLUE : INK} strokeWidth={0.72} strokeLinecap="round" opacity={0.35 + 0.65 * on} /></g>
-        </g>
         <g transform="translate(1290 370)">
           {[0, 1, 2].map((k) => <path key={k} d={k ? `M0 ${70 + k * 70} H 380` : "M0 60 C 60 30 120 90 190 60 S 320 30 380 60"} fill="none" stroke={INK} strokeWidth={LINE} pathLength={1} strokeDasharray={`${prog(t, 0.3 + k * 0.15, 0.8)} 1`} />)}
           {[80, 190, 300].map((x, k) => <path key={k} d={`M${x} 64 V 210`} stroke={BLUE} strokeWidth={2} pathLength={1} strokeDasharray={`${prog(t, 0.8 + k * 0.1, 0.6)} 1`} />)}
         </g>
-        <path d="M680 470 C 860 290, 1110 290, 1280 470" fill="none" stroke={lit ? BLUE : RULE} strokeWidth={LINE} strokeDasharray="2 12" strokeLinecap="round" opacity={prog(t, 1.3, 0.5)} />
-        {lit && <circle cx={bez(travel, [680, 860, 1110, 1280])} cy={bez(travel, [470, 290, 290, 470])} r={9} fill={BLUE} />}
+        <path d="M960 470 C 1060 350, 1180 350, 1280 470" fill="none" stroke={lit ? BLUE : RULE} strokeWidth={LINE} strokeDasharray="2 12" strokeLinecap="round" opacity={prog(t, 1.3, 0.5)} />
+        {lit && <circle cx={bez(travel, [960, 1060, 1180, 1280])} cy={bez(travel, [470, 350, 350, 470])} r={9} fill={BLUE} />}
       </svg>
-      <div style={{ position: "absolute", left: 560, top: 850 - 40 }}><Tag text="The mind" at={1.15} /></div>
+      {/* v3: no drawn head (rejected twice). A real head: the Flora glass head and brain when it lands (S2_HEAD), until then her head
+          under the coil from the Oct 30 session, at native pixels (a 560 px crop, a different framing and moment from s3) */}
+      <div style={{ position: "absolute", left: 380, top: 250, width: 580, height: 580, borderRadius: RADIUS + 10, background: "#fff", boxShadow: elev, ...life(t, -0.6) }}>
+        <div style={{ position: "absolute", left: 10, top: 10, width: 560, height: 560, borderRadius: RADIUS, overflow: "hidden", filter: lit ? "none" : "saturate(0.6)" }}>
+          {S2_HEAD ? <OffthreadVideo src={staticFile(S2_HEAD)} muted style={{ position: "absolute", inset: 0, width: 560, height: 560, objectFit: "cover" }} />
+            : <OffthreadVideo src={v("session.mp4")} muted startFrom={Math.round(13 * 24)} style={{ position: "absolute", left: -470, top: -120, width: 1920, height: 1080 }} />}
+        </div>
+      </div>
+      <div style={{ position: "absolute", left: 380, top: 860 }}><Tag text="The mind" at={1.15} /></div>
       <div style={{ position: "absolute", left: 1290, top: 620 }}><Tag text="Your skin" at={1.8} /></div>
       <div style={{ position: "absolute", left: 1290, top: 700, width: 480 }}><Kinetic text="Total skin health" at={2.65} size={H1} key_={["total", "skin", "health"]} /></div>
       <Cursor path={[{ at: 0.4, x: 700, y: 330 }, { at: 1.0, x: M + 46, y: TOP + 26 }, { at: 1.18, x: M + 46, y: TOP + 26, tap: true }, { at: 1.9, x: 520, y: 300 }]} show={[0.4, 2.4]} />
@@ -283,35 +287,27 @@ const S7: React.FC<{ dur: number }> = ({ dur }) => {
 
 // 8. chapter: a comprehensive approach to total skin health; three arcs close into one ring (skin care, the mind, technology)
 const S8: React.FC = () => {
+  // v3: a section opener on the coil itself (an AI render: Flora, Nano Banana Pro still from a real BTL coil frame, animated with
+  // Kling; slow lateral dolly, soft daylight, an empty left third). 5.04 s slowed to 0.875x with frame blending (coil_s8.mp4,
+  // yt_assets.sh) for the 5.7 s section, never looped. Type sits in the left third, small; the three parts list quietly under it.
   const t = useT();
-  const C = { x: 1400, y: 540, r: 250 };
-  const pt = (a: number, r = C.r) => [C.x + r * Math.cos((a - 90) * Math.PI / 180), C.y + r * Math.sin((a - 90) * Math.PI / 180)];
-  const arc = (a0: number, a1: number) => { const [x0, y0] = pt(a0), [x1, y1] = pt(a1); return `M${x0} ${y0} A ${C.r} ${C.r} 0 0 1 ${x1} ${y1}`; };
-  const parts = [{ a: [4, 116], icon: "skin", label: "Skin care", at: 0.6 }, { a: [124, 236], icon: "brain", label: "The mind", at: 1.4 }, { a: [244, 356], icon: "coil", label: "Technology", at: 2.2 }];
-  const whole = prog(t, 3.9, 0.6);
+  const parts = [{ icon: "skin", label: "Skin care", at: 0.6 }, { icon: "brain", label: "The mind", at: 1.4 }, { icon: "coil", label: "Technology", at: 2.2 }];
   return (
     <>
-      <Canvas glow={[0.7, 0.5]} />
-      <div style={{ position: "absolute", left: M, top: TOP }}><span style={label(LAB, MUTE)}>Total skin health</span></div>
-      <div style={{ position: "absolute", left: M, top: 380, width: 780 }}>
+      <OffthreadVideo src={staticFile("exomind-skin/flora/coil_s8.mp4")} muted style={{ position: "absolute", inset: 0, width: 1920, height: 1080, objectFit: "cover" }} />
+      <div style={{ position: "absolute", left: M, top: TOP, ...life(t, 0) }}><span style={label(LAB, MUTE)}>Total skin health</span></div>
+      <div style={{ position: "absolute", left: M, top: 380, width: 760 }}>
         <Kinetic text="A comprehensive approach to" at={2.3} size={H1} step={0.07} />
         <Kinetic text="total skin health" at={3.85} size={HERO} key_={["total", "skin", "health"]} />
       </div>
-      <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
-        <circle cx={C.x} cy={C.y} r={C.r} fill="none" stroke={BLUE} strokeWidth={14} opacity={0.15 * whole} />
-        {parts.map((p, i) => <path key={i} d={arc(p.a[0], p.a[1])} fill="none" stroke={whole > 0.5 ? BLUE : INK} strokeWidth={LINE + 1} strokeLinecap="round" pathLength={1} strokeDasharray={`${prog(t, p.at, 0.9)} 1`} />)}
-        <circle cx={C.x} cy={C.y} r={14 + 4 * Math.sin(t * 3)} fill={BLUE} opacity={0.25 + 0.75 * whole} />
-      </svg>
-      {parts.map((p, i) => {
-        const [x, y] = pt((p.a[0] + p.a[1]) / 2, C.r + 96);
-        return (
-          <div key={i} style={{ position: "absolute", left: x - 120, top: y - 56, width: 240, textAlign: "center", ...life(t, p.at + 0.3) }}>
-            <Icon name={p.icon} size={56} draw={prog(t, p.at + 0.3, 0.7)} color={whole > 0.5 ? BLUE : INK} />
-            <div style={{ ...label(26), marginTop: 8 }}>{p.label}</div>
+      <div style={{ position: "absolute", left: M, top: 740, display: "flex", gap: 44 }}>
+        {parts.map((p, i) => (
+          <div key={i} style={{ display: "flex", alignItems: "center", gap: 12, ...life(t, p.at) }}>
+            <Icon name={p.icon} size={36} draw={prog(t, p.at, 1.2)} color={INK} /><span style={label(24, INK)}>{p.label}</span>
           </div>
-        );
-      })}
-      {parts.map((p, i) => <Sfx key={i} at={p.at + 0.3} name="pop" gain={0.4} />)}
+        ))}
+      </div>
+      {parts.map((p, i) => <Sfx key={i} at={p.at} name="pop" gain={0.35} />)}
     </>
   );
 };
@@ -371,11 +367,15 @@ const S10: React.FC<{ dur: number }> = ({ dur }) => {
 // the footage; C-E BTL's own Exomind renders at native size in white windows (new connections, neurotransmitters, the lit brain).
 // The rail, counters and tags sit on the white canvas around them. C-E run in their own Sequence, so Tag/Kinetic/Counter and the
 // clips use scene time.
-const STEPS = [{ icon: "coil", label: "Coil", at: 0 }, { icon: "pulse", label: "Magnetic pulse", at: 1.4 }, { icon: "brain", label: "Prefrontal cortex", at: 3.3 }, { icon: "network", label: "New connections", at: 5.4 }, { icon: "spark", label: "Neurotransmitters", at: 7.6 }, { icon: "wave", label: "Focus and flow", at: 10.9 }];
+const STEPS = [{ icon: "coil", label: "Coil", at: 0 }, { icon: "pulse", label: "Magnetic pulse", at: 1.1 }, { icon: "brain", label: "Prefrontal cortex", at: 2.6 }, { icon: "network", label: "New connections", at: 6.0 }, { icon: "spark", label: "Neurotransmitters", at: 8.6 }, { icon: "wave", label: "Focus and flow", at: 10.2 }];
+// the mechanism slot (v3): two Flora clips are being re-rendered (client: the first head "looks wrong"): a fixed head-and-coil shot that
+// zooms into the prefrontal cortex, then new neural connections forming. Rendered at 5 s and slow; played here at 1.3x (5 s -> 3.85 s),
+// nearest-frame (no blending, no added blur), full frame. Until they land, each slot holds BTL's own render in a window.
+const MECH = { clip1: null as string | null, clip2: null as string | null, rate: 1.3, a: 2.6, b: 6.4, c: 10.2 };
 export const S11: React.FC<{ dur: number }> = ({ dur }) => {
   const t = useT();
   const scene = (a: number, b: number) => (a === 0 ? 1 : prog(t, a, 0.35)) * (1 - clamp((t - b) / 0.3));
-  const src = t < 5.3 ? "Exomind session in our office" : "Exomind animation by BTL";
+  const src = t < MECH.a ? "Exomind session in our office" : t < MECH.c ? (MECH.clip1 ? "Illustration" : "Exomind animation by BTL") : "Exomind session in our office";
   return (
     <>
       <Canvas glow={[0.5, 0.45]} field={0.5} />
@@ -383,20 +383,24 @@ export const S11: React.FC<{ dur: number }> = ({ dur }) => {
           current step named beside it at label size */}
       <div style={{ position: "absolute", left: M, top: 40 }}><StepPlayer times={STEPS.map((x) => x.at)} end={dur - 0.4} labels={STEPS.map((x) => x.label)} /></div>
       <div style={{ position: "absolute", right: M, top: 40 + 36 - 12, ...label(22, MUTE), whiteSpace: "nowrap" }}>{src}</div>
-      <div style={{ position: "absolute", inset: 0, opacity: scene(0, 5.3) }}><SessionScene t={t} /></div>
-      <Sequence from={Math.round(5.3 * 24)} durationInFrames={Math.round(2.6 * 24)} layout="none"><div style={{ position: "absolute", inset: 0, opacity: scene(5.3, 7.5) }}><ConnScene t={t - 5.3} /></div></Sequence>
-      <Sequence from={Math.round(7.5 * 24)} durationInFrames={Math.round(3.7 * 24)} layout="none"><div style={{ position: "absolute", inset: 0, opacity: scene(7.5, 10.8) }}><SynScene t={t - 7.5} /></div></Sequence>
-      <Sequence from={Math.round(10.8 * 24)} layout="none"><div style={{ position: "absolute", inset: 0, opacity: scene(10.8, 99) }}><BrainScene t={t - 10.8} /></div></Sequence>
+      <div style={{ position: "absolute", inset: 0, opacity: scene(0, 2.6) }}><SessionScene t={t} /></div>
+      <Sequence from={Math.round(MECH.a * 24)} durationInFrames={Math.round((MECH.b - MECH.a + 0.35) * 24)} layout="none"><div style={{ position: "absolute", inset: 0, opacity: scene(MECH.a, MECH.b) }}>{MECH.clip1 ? <MechClip src={MECH.clip1} /> : <PfcSlot t={t - MECH.a} />}</div></Sequence>
+      <Sequence from={Math.round(MECH.b * 24)} durationInFrames={Math.round((MECH.c - MECH.b + 0.35) * 24)} layout="none"><div style={{ position: "absolute", inset: 0, opacity: scene(MECH.b, MECH.c) }}>{MECH.clip2 ? <MechClip src={MECH.clip2} /> : <ConnSlot t={t - MECH.b} />}</div></Sequence>
+      <Sequence from={Math.round(MECH.c * 24)} layout="none"><div style={{ position: "absolute", inset: 0, opacity: scene(MECH.c, 99) }}><BrainScene t={t - MECH.c} /></div></Sequence>
       {STEPS.slice(1).map((s, i) => <Sfx key={i} at={s.at} name={i === 3 ? "swish" : "pop"} gain={0.4} />)}
     </>
   );
 };
 // a white rounded window that holds footage at native size (or less); lifts in, never enlarges the picture
-const Win: React.FC<{ x: number; y: number; w: number; h: number; t: number; children: React.ReactNode }> = ({ x, y, w, h, t, children }) => {
+const Win: React.FC<{ x: number; y: number; w: number; h: number; t: number; grade?: boolean; children: React.ReactNode }> = ({ x, y, w, h, t, grade = true, children }) => {
   const q = prog(t, 0, 0.5);
   return (
     <div style={{ position: "absolute", left: x - 10, top: y - 10, width: w + 20, height: h + 20, borderRadius: RADIUS + 10, background: "#fff", boxShadow: elev, transform: `translateY(${(1 - q) * 18}px) scale(${0.985 + 0.015 * q})` }}>
-      <div style={{ position: "absolute", left: 10, top: 10, width: w, height: h, borderRadius: RADIUS, overflow: "hidden", background: "#0d1b33" }}>{children}</div>
+      <div style={{ position: "absolute", left: 10, top: 10, width: w, height: h, borderRadius: RADIUS, overflow: "hidden", background: "#c9cdbf" }}>
+        <div style={{ position: "absolute", inset: 0, filter: grade ? "brightness(1.3) contrast(0.8) saturate(0.55)" : "none" }}>{children}</div>
+        {/* v3: BTL's navy renders graded toward the room (lifted, flattened, desaturated, a sage-cream screen over them) */}
+        {grade && <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(237,239,233,.30), rgba(199,203,187,.24))", mixBlendMode: "screen" }} />}
+      </div>
     </div>
   );
 };
@@ -416,9 +420,9 @@ const SessionScene: React.FC<{ t: number }> = ({ t }) => {
   const k = 0.82 + 0.04 * clamp(t / 5.6);
   const tx = AW.w / 2 - 960 * k, ty = AW.h / 2 - 470 * k;
   const sc = (x: number, y: number) => [AW.x + tx + x * k, AW.y + ty + y * k];
-  const pfc = prog(t, 3.3, 0.6), coilQ = prog(t, 0.35, 0.5);
+  const coilQ = prog(t, 0.2, 0.5);
   const rings = t > 1.4 ? [0, 1, 2].map((j) => (((t - 1.4 - j * 0.33) % 1) + 1) % 1) : [];
-  const [cx, cy] = sc(640, 290), [px, py] = sc(705, 330);
+  const [cx, cy] = sc(640, 290);
   return (
     <>
       <div style={{ position: "absolute", left: AW.x, top: AW.y, width: AW.w, height: AW.h, borderRadius: RADIUS, overflow: "hidden", boxShadow: elev, background: "#ddd" }}>
@@ -433,63 +437,15 @@ const SessionScene: React.FC<{ t: number }> = ({ t }) => {
               {rings.map((q, j) => <ellipse key={j} cx={700} cy={320} rx={40 + 300 * q} ry={26 + 190 * q} transform="rotate(-22 700 320)" fill="none" stroke="#fff" strokeWidth={10 * (1 - q) + 2} opacity={(1 - q) * 0.55} />)}
               {rings.map((q, j) => <ellipse key={`b${j}`} cx={700} cy={320} rx={40 + 300 * q} ry={26 + 190 * q} transform="rotate(-22 700 320)" fill="none" stroke={BLUE} strokeWidth={5} opacity={(1 - q) * 0.95} />)}
             </g>
-            <ellipse cx={705} cy={330} rx={140 + 8 * Math.sin(t * 5)} ry={88} transform="rotate(-24 705 330)" fill="url(#s11pfc)" opacity={pfc} style={{ mixBlendMode: "screen" }} />
-            <ellipse cx={705} cy={330} rx={118} ry={70} transform="rotate(-24 705 330)" fill="none" stroke="#fff" strokeWidth={3} strokeDasharray="6 10" opacity={pfc * 0.9} />
           </svg>
         </div>
       </div>
       {/* coil, then prefrontal cortex: leaders tracked to the picture, labels as solid tags (never on bare footage as navy text) */}
-      <div style={{ opacity: 1 - clamp((t - 3.1) / 0.3) }}>
+      <div>
         <Lead x={cx} y={cy} lx={cx - 120} ly={AW.y + 70} q={coilQ} />
-        <div style={{ position: "absolute", left: cx - 120 - 10, top: AW.y + 70 - 64 }}><Tag text="Exomind coil" at={0.6} size={28} sfx={false} /></div>
+        <div style={{ position: "absolute", left: cx - 120 - 10, top: AW.y + 70 - 64 }}><Tag text="Exomind coil" at={0.2} size={28} sfx={false} /></div>
       </div>
-      {t > 1.5 && t < 3.4 && <div style={{ position: "absolute", left: AW.x + AW.w - 560, top: AW.y + 40, opacity: 1 - clamp((t - 3.1) / 0.3) }}><Tag text="Magnetic pulses" at={1.5} size={28} /></div>}
-      <Lead x={px} y={py} lx={AW.x + AW.w - 470} ly={AW.y + 120} q={prog(t, 3.35, 0.5)} />
-      <div style={{ position: "absolute", left: AW.x + AW.w - 470 + 6, top: AW.y + 120 - 30 }}><Tag text="Prefrontal cortex" at={3.6} size={30} /></div>
-      {t > 4.0 && (
-        <div style={{ ...glass(), background: "rgba(250,249,246,.9)", left: AW.x + AW.w - 620, top: AW.y + AW.h - 210, width: 580, height: 170, ...life(t, 3.9) }}>
-          <GlassLife />
-          <div style={{ position: "relative", padding: "26px 36px" }}>
-            <div style={label(22, MUTE)}>Creates</div>
-            <div style={{ ...head(72, BLUE), marginTop: 10, whiteSpace: "nowrap" }}>Neuroplasticity</div>
-          </div>
-        </div>
-      )}
-    </>
-  );
-};
-// C: "rewire": BTL's dendrite render (plasticity_full, 968 x 726, native) from 2.5 s; a counter of new links on the canvas
-const ConnScene: React.FC<{ t: number }> = ({ t }) => (
-  <>
-    <Win x={777} y={196} w={968} h={726} t={t}><OffthreadVideo src={staticFile("exomind/clips/plasticity_full.mp4")} muted startFrom={60} style={{ width: 968, height: 726, filter: "brightness(1.12) saturate(1.05)" }} /></Win>
-    <div style={{ position: "absolute", left: M, top: 300, width: 540 }}>
-      <Tag text="New connections" at={0.15} size={30} sfx={false} />
-      <div style={{ display: "flex", alignItems: "baseline", gap: 16, marginTop: 40, ...life(t, 0.3) }}>
-        <span style={head(HERO, BLUE)}>+</span><Counter from={0} to={24} at={0.45} d={1.4} size={HERO} color={BLUE} />
-      </div>
-      <div style={{ ...small(30, 500, INK), marginTop: 6, ...life(t, 0.6) }}>links forming between neurons</div>
-      <div style={{ marginTop: 40, ...life(t, 0.75) }}><Kinetic text="Your brain rewires" at={0.75} size={56} key_={["rewires"]} /></div>
-    </div>
-  </>
-);
-// D: neurotransmitters: BTL's synapse render (synapse_full, native) from 2.5 s, so a release and the receptors lighting fall inside
-const SynScene: React.FC<{ t: number }> = ({ t }) => {
-  const lvl = prog(t, 1.2, 1.2);
-  return (
-    <>
-      <Win x={M} y={196} w={968} h={726} t={t}><OffthreadVideo src={staticFile("exomind/clips/synapse_full.mp4")} muted startFrom={60} style={{ width: 968, height: 726, filter: "brightness(1.15) saturate(1.05)" }} /></Win>
-      <div style={{ position: "absolute", left: 1220, top: 300, width: 525 }}>
-        <Tag text="Neurotransmitters" at={0.15} size={30} sfx={false} />
-        <div style={{ ...small(30, 500, INK), marginTop: 30, ...life(t, 0.4) }}>released across the synapse</div>
-        <svg width={460} height={170} style={{ marginTop: 40, overflow: "visible", ...life(t, 0.6) }}>
-          <g transform={`rotate(${-14 * (1 - lvl)} 230 80)`}>
-            <line x1={20} y1={80} x2={440} y2={80} stroke={INK} strokeWidth={LINE} strokeLinecap="round" />
-            <circle cx={44} cy={62} r={18} fill={BLUE} /><circle cx={416} cy={62} r={18} fill={lvl > 0.5 ? BLUE : "#fff"} stroke={BLUE} strokeWidth={2} />
-          </g>
-          <path d="M230 84 L 208 134 H 252 Z" fill="none" stroke={INK} strokeWidth={LINE} strokeLinejoin="round" />
-        </svg>
-        <div style={{ ...head(48), marginTop: 18, ...life(t, 1.6) }}>Production in balance</div>
-      </div>
+      {t > 1.1 && <div style={{ position: "absolute", left: AW.x + AW.w - 560, top: AW.y + 40 }}><Tag text="Magnetic pulses" at={1.1} size={28} /></div>}
     </>
   );
 };
@@ -509,7 +465,39 @@ const Traced: React.FC<{ src: string; t: number }> = ({ src, t }) => {
     </svg>
   );
 };
-// E: BTL's lit brain (1066 x 600, native) from 2 s; the busy line settles into one calm wave beside it
+const MechClip: React.FC<{ src: string }> = ({ src }) => (
+  <OffthreadVideo src={staticFile(src)} muted playbackRate={MECH.rate} style={{ position: "absolute", inset: 0, width: 1920, height: 1080, objectFit: "cover" }} />
+);
+// interim slot 1: BTL's lit brain (1066 x 600, native) in a window, its outline traced frame by frame, the frontal region named
+const PfcSlot: React.FC<{ t: number }> = ({ t }) => (
+  <>
+    <Win x={679} y={230} w={1066} h={600} t={t}>
+      <OffthreadVideo src={staticFile("exomind-skin/clips/brainlit.mp4")} muted startFrom={48} style={{ width: 1066, height: 600 }} />
+      <Traced src="exomind-skin/yt/brain_trace.json" t={t} />
+    </Win>
+    <div style={{ position: "absolute", left: M, top: 330, width: 460 }}>
+      <div style={life(t, 0.1)}><span style={label(26, INK)}>Prefrontal cortex</span></div>
+      <div style={{ ...small(26, 400, MUTE), marginTop: 14, ...life(t, 0.3) }}>behind the forehead, under the coil</div>
+      <div style={{ marginTop: 90, ...life(t, 1.4) }}><span style={label(24, MUTE)}>Creates</span></div>
+      <div style={{ ...head(68, BLUE), marginTop: 10, ...life(t, 1.5) }}>Neuroplasticity</div>
+    </div>
+  </>
+);
+// interim slot 2: BTL's dendrite render (plasticity_full, 968 x 726, native) from 2.5 s; new links counted; neurotransmitters named
+const ConnSlot: React.FC<{ t: number }> = ({ t }) => (
+  <>
+    <Win x={777} y={196} w={968} h={726} t={t}><OffthreadVideo src={staticFile("exomind/clips/plasticity_full.mp4")} muted startFrom={60} style={{ width: 968, height: 726 }} /></Win>
+    <div style={{ position: "absolute", left: M, top: 330, width: 540 }}>
+      <div style={{ display: "flex", alignItems: "baseline", gap: 14, ...life(t, 0.1) }}>
+        <span style={head(HERO, BLUE)}>+</span><Counter from={0} to={24} at={0.2} d={1.6} size={HERO} color={BLUE} />
+      </div>
+      <div style={{ marginTop: 8, ...life(t, 0.2) }}><span style={label(24, INK)}>New connections</span></div>
+      <div style={{ marginTop: 70, ...life(t, 2.0) }}><Tag text="Neurotransmitters" at={2.2} size={26} sfx={false} /></div>
+      <div style={{ ...small(26, 400, MUTE), marginTop: 14, ...life(t, 2.4) }}>production in balance</div>
+    </div>
+  </>
+);
+// E: her, calm under the coil (session.mp4 from 12.5 s at 0.83x, under native), and the busy line settling into one calm wave
 const BrainScene: React.FC<{ t: number }> = ({ t }) => {
   const calm = prog(t, 0.4, 1.3), W = 470;
   const pts = Array.from({ length: 80 }, (_, i) => {
@@ -519,9 +507,8 @@ const BrainScene: React.FC<{ t: number }> = ({ t }) => {
   });
   return (
     <>
-      <Win x={679} y={250} w={1066} h={600} t={t}>
-        <OffthreadVideo src={staticFile("exomind-skin/clips/brainlit.mp4")} muted startFrom={48} style={{ width: 1066, height: 600, filter: "brightness(1.12) saturate(1.05)" }} />
-        <Traced src="exomind-skin/yt/brain_trace.json" t={t} />
+      <Win x={679} y={250} w={1066} h={600} t={t} grade={false}>
+        <OffthreadVideo src={v("session.mp4")} muted startFrom={Math.round(12.5 * 24)} style={{ position: "absolute", left: -330, top: -110, width: 1600, height: 900 }} />
       </Win>
       <div style={{ position: "absolute", left: M, top: 330, width: W }}>
         <Kinetic text="Focused," at={0.3} size={96} />
