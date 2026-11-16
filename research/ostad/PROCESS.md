@@ -1,6 +1,6 @@
 # How we make Dr. Ostad's videos: the process so far
 
-Updated 2026-11-16. This is the working process behind the rosacea reel, the Exomind reels (v1–v3) and the Exomind / total skin health YouTube edit (v1–v4). Each step names the files that do the work. The *why* behind each choice is in `research/ostad/style/DECISIONS.md` (sections 8–14d).
+Updated 2026-11-16. New references and data are **added on top of** this process to make it stronger; they don't reset it. This is the working process behind the rosacea reel, the Exomind reels (v1–v3) and the Exomind / total skin health YouTube edit (v1–v4). Each step names the files that do the work. The *why* behind each choice is in `research/ostad/style/DECISIONS.md` (sections 8–14d).
 
 ---
 
