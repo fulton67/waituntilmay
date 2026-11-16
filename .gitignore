@@ -234,3 +234,9 @@ research/gnarls/index.tsv
 research/gnarls/psd_index.tsv
 research/gnarls/sheets.json
 research/gnarls/logs/
+research/gnarls/build/refs/
+research/gnarls/build/gen/
+research/gnarls/build/renders/
+research/gnarls/build/models/
+research/gnarls/build/nano_views_req.json
+research/gnarls/build/*.jpg

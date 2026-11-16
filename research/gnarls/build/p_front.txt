@@ -1,0 +1,13 @@
+CHARACTER: Gnarls the Narwhal, The New School mascot (match the reference art exactly in identity).
+- One bullet-shaped grey body: head and torso are a single rounded shape, NO neck. Body grey #909faa with lighter grey #c1c7ca on the back of the head and a few small light-grey round spots on the crown and back.
+- ONE spiral tusk (4-5 raised bands, pale #d5dce5 with blue-grey #9db5c1 grooves) rooted on the top of the head, slightly to the character's left, leaning back at ~45 degrees in the 3/4 view.
+- Big round brown glasses (#5e2818), thick round rims, tinted pale grey-blue lenses, WIDER than the head: the temple arms stick out past both sides of the head.
+- Behind the lenses: big glossy black dot eyes with a white highlight, a small eyelash flick, short black brows above the lens tops. Small closed gentle smile under the far lens.
+- Red short-sleeve T-shirt (#ed1d2f) with a white blocky "N" logo with two bars beneath it (like N over "="), centred low on the chest, letters reading correctly (never mirrored).
+- White shorts band under the tee.
+- NO legs: below the shorts the body tapers into a tail that ends in a wide two-lobed whale fluke, which the character stands on like feet.
+- Two flat paddle fins coming out of the short sleeves, hanging at the sides, lighter underside, three soft scallops on the trailing edge.
+- Proportions (fraction of total height H, tusk tip to fluke bottom): glasses at 0.16-0.36 H, tee 0.40-0.69 H, shorts 0.68-0.77 H, fluke 0.77-1.00 H, fluke span 0.40 H, overall width 0.66 H.
+STYLE: stylised 3D cartoon, like a premium vinyl designer toy / modern animated feature character. Smooth soft forms, clean simple shapes, matte plastic and soft fabric, gentle soft studio light, subtle ambient occlusion. NOT hyper-real: no skin pores, no wet realistic textures, no fur, no photographic detail. Keep a crisp graphic read like the 2D sticker.
+
+TASK: Character turnaround sheet image for 3D modelling. The FIRST reference image is the approved 3D design: match it exactly (same shapes, colours, materials, proportions, lighting). FRONT view: character facing the camera straight on. Tusk centred on top of the head, vertical. Both lenses equal and round. N logo centred. Neutral standing pose: fins held slightly away from the body (about 20 degrees) so they do not touch the tee; fluke flat on the ground. ORTHOGRAPHIC camera at mid-body height, no perspective distortion, full body, centred, same scale as a full-height character filling 90% of the frame height. Plain flat light grey (#eeeeee) background, soft even light, no cast shadow, no text, no other objects.

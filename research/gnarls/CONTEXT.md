@@ -101,6 +101,11 @@ TV, flyer and easel get the Narwhal Nation QR code. University logo: black or wh
 - Gap to solve: the drawn library has no back view and only 3 profiles, so the back is designed from the costume (I1062) and the
   silhouettes on guide p.4.
 
+**Built (2026-11-16, `build/BUILD.md`):** a textured 3D master (Muse-designed turnaround → Tripo H3.1 multiview mesh →
+flat skins projected in Blender and snapped to the guide palette) and a rig. The rig has a spine S-chain, fin chains with
+grip sockets, two fluke lobes, and face controls `eyes` / `mouth` (14 states each, freely mixed). The six guide poses are
+keyed and rendered. Next: measure the ¾ render against the primary mark.
+
 **Modernising (proposals):** keep the silhouette, glasses and tusk (the identity), and update the finish: soft-toy or vinyl
 toy shading with the cel outline kept as an option, real in-betweens on the 2-key poses, a consistent prop and outfit kit
 instead of crude repaints, and one 3D master that renders every sticker pose so the 23% off-model rate goes away.
