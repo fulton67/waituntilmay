@@ -221,3 +221,6 @@ research/ostad/style/stems/
 research/ostad/style/measure/_calibration/*.mp4
 research/ostad/style/tools/__pycache__/
 research/ostad/style/logs/
+# IdeaStills renders and their boards contain BTL, Flora and practice (patient) imagery: local only (BOARD.md is committed)
+brand/edits/*/stills/*.png
+brand/edits/*/stills/*.jpg

@@ -3,6 +3,7 @@ import { OstadReel } from "./OstadReel";
 import { OstadWide, WIDE_H, WIDE_W } from "./OstadWide";
 import { OstadYT, type YTProps } from "./OstadYT";
 import { YTSystem } from "./compositions/YTSystem";
+import { IdeaStills, type IdeaProps } from "./IdeaStills";
 import { MARKUP_DEMO_SECONDS, MarkupDemo, type FaceTrack } from "./compositions/MarkupDemo";
 import { H, W } from "./brand";
 import type { ReelProps, WideProps } from "./types";
@@ -58,5 +59,7 @@ export const RemotionRoot: React.FC = () => (
   />
   {/* YTSystem: one board of the v2 system (icons, tag, toggle, counter, cursor tap) for review stills */}
   <Composition id="YTSystem" component={YTSystem} width={1920} height={1080} fps={24} durationInFrames={24 * 4} />
+  {/* IdeaStills: still frames of new explainer ideas, three looks each, for the client to pick (edits/exomind-skin/stills/BOARD.md); --props='{"idea":1,"look":"A"}' */}
+  <Composition id="IdeaStills" component={IdeaStills} width={1920} height={1080} fps={30} durationInFrames={1} defaultProps={{ idea: 1, look: "A" } as IdeaProps} />
   </>
 );
