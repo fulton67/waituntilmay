@@ -1,13 +1,18 @@
 """Render the face rig going through every expression (and the mix proofs) as a frame sequence, for an MP4 on white.
 blender -b gnarls_rig.blend --factory-startup -P render_faces_video.py -- OUTDIR [test]
-Each state: 30 frames at 24 fps. On every switch the head does a small eased tilt/nod (the rig moving), then holds.
+Needs the geometric face rig from face_rig.py (controls + presets on the armature).
+
+Each state lasts 30 frames at 24 fps and every frame is animated (no held stills):
+- in-betweens: every face control eases from the old expression's value to the new one over 7 frames (lids close,
+  brows travel, the mouth opens), while the head squashes and stretches and tilts, then settles;
+- blinks: the eyelids close and reopen once during each hold where the eyes are open;
+- idle: breathing (chest, fins, a small rise) and a slow head sway run under everything.
 Frames are rendered with a transparent film; faces_video.py composites them on white, labels them and encodes the MP4.
-Keys go on frames 2001+ so the file's own pose/face keys are untouched (the rig's face index is keyed animation, which
-would override values set directly)."""
+Keys go on frames 2001+ so the file's own pose/face keys are untouched."""
 import json, math, os, sys
 import bpy
 import numpy as np
-from mathutils import Matrix, Quaternion, Vector
+from mathutils import Matrix, Vector
 
 A = sys.argv[sys.argv.index("--") + 1:]
 OUT = A[0]; TEST = len(A) > 1 and A[1] == "test"
@@ -15,25 +20,31 @@ os.makedirs(OUT, exist_ok=True)
 sc = bpy.context.scene; cam = sc.camera
 arm = next(o for o in sc.objects if o.type == "ARMATURE")
 ob = bpy.data.objects["Gnarls"]
-ORDER = arm.id_properties_ui("eyes").as_dict()["description"].split("index into ", 1)[1].split(",")
+assert "gnarls_face_presets" in sc.keys(), "run face_rig.py on the rig first"
+PRE = json.loads(sc["gnarls_face_presets"]); CTRL = list(PRE["controls"])
+ORDER = ["neutral", "neutral_open", "happy", "laugh", "excited", "surprised", "sad", "angry", "fired_up", "smug",
+         "sleepy", "wink", "shout", "thinking"]
 STATES = [(n, n) for n in ORDER] + [("happy", "surprised"), ("angry", "laugh"), ("sad", "shout"), ("neutral", "neutral")]
-HOLD, F0 = 30, 2001
+HOLD, F0, T_BLEND = 30, 2001, 7
+
+
+def target(e, m):
+    v = dict(PRE["eyes"][e]); v.update(PRE["mouth"][m]); return v
 sc.render.film_transparent = True
 sc.render.resolution_x = sc.render.resolution_y = 1080
 sc.render.image_settings.file_format = "PNG"; sc.render.image_settings.color_mode = "RGBA"
-try: sc.eevee.taa_render_samples = 48
+try: sc.eevee.taa_render_samples = 32
 except Exception: pass
 
 
 def bone_q(pb, axis, deg):
     """World-axis rotation expressed in the pose bone's local space (armature is unrotated)."""
     B = pb.bone.matrix_local.to_3x3()
-    Rw = Matrix.Rotation(math.radians(deg), 3, axis)
-    return (B.inverted() @ Rw @ B).to_quaternion()
+    return (B.inverted() @ Matrix.Rotation(math.radians(deg), 3, axis) @ B).to_quaternion()
 
 
-def ease(t):  # 0..1 -> overshooting settle: quick tilt, spring back
-    return math.sin(math.pi * min(t, 1)) * math.exp(-2.2 * t)
+def smooth(x): x = min(max(x, 0.0), 1.0); return x * x * (3 - 2 * x)
+def settle(t): return math.sin(math.pi * min(t, 1)) * math.exp(-2.2 * t)  # quick move, spring back
 
 
 # rest framing: head + top of the tee, fixed for the whole clip
@@ -47,41 +58,61 @@ yaw, elev = math.radians(-18), math.radians(5)
 fwd = -np.array([math.sin(yaw) * math.cos(elev), -math.cos(yaw) * math.cos(elev), math.sin(elev)])
 right = np.cross(fwd, [0, 0, 1]); right /= np.linalg.norm(right); up = np.cross(right, fwd)
 pr, pu = P @ right, P @ up
-c = right * (pr.max() + pr.min()) / 2 + up * (pu.max() + pu.min()) / 2 + up * 0.01
-cam.data.type = "ORTHO"; cam.data.ortho_scale = 1.22 * max(pu.max() - pu.min(), pr.max() - pr.min())
+c = right * (pr.max() + pr.min()) / 2 + up * (pu.max() + pu.min()) / 2 + up * 0.005
+cam.data.type = "ORTHO"; cam.data.ortho_scale = 1.28 * max(pu.max() - pu.min(), pr.max() - pr.min())
 cam.location = Vector(c - fwd * 6); cam.rotation_euler = Vector(-fwd).to_track_quat("Z", "Y").to_euler()
 
-head, chest = arm.pose.bones["head"], arm.pose.bones["chest"]
+PB = arm.pose.bones
+head, chest, spine = PB["head"], PB["chest"], PB["spine"]
+fins = [PB[n] for n in ("fin_L_1", "fin_R_1") if n in PB]
 base_loc = arm.location.copy()
 labels = []
 fr = F0
 for si, (e, m) in enumerate(STATES):
+    pe, pm = STATES[si - 1] if si else (e, m)
     side = 1 if si % 2 == 0 else -1
     for k in range(HOLD):
-        t = k / 10.0; a = ease(t)
-        for pb in arm.pose.bones:
-            pb.rotation_quaternion = (1, 0, 0, 0); pb.location = (0, 0, 0)
-        head.rotation_quaternion = bone_q(head, "Y", 7 * side * a) @ bone_q(head, "X", -5 * a)
-        chest.rotation_quaternion = bone_q(chest, "Y", 2.5 * side * a)
-        arm.location = base_loc + Vector((0, 0, 0.012 * a))
-        arm["eyes"] = ORDER.index(e); arm["mouth"] = ORDER.index(m)
-        for pb in arm.pose.bones:
-            pb.keyframe_insert("rotation_quaternion", frame=fr); pb.keyframe_insert("location", frame=fr)
-        arm.keyframe_insert("location", frame=fr); arm.keyframe_insert('["eyes"]', frame=fr); arm.keyframe_insert('["mouth"]', frame=fr)
-        labels.append({"frame": fr - F0, "eyes": e, "mouth": m})
+        g = fr - F0
+        # --- face: ease every control from the previous expression to this one, then blink once ---
+        tv, pv = target(e, m), target(pe, pm)
+        f_ = smooth((k + 1) / T_BLEND) if si else 1.0
+        vals = {c_: pv[c_] + (tv[c_] - pv[c_]) * f_ for c_ in CTRL}
+        if 18 <= k <= 23:
+            bl = [0.35, 0.85, 1.0, 0.8, 0.4, 0.1][k - 18]
+            for sd in ("L", "R"):
+                if tv[f"happy_{sd}"] + tv[f"blink_{sd}"] < 0.5: vals[f"blink_{sd}"] = max(vals[f"blink_{sd}"], bl)
+        for c_, v_ in vals.items(): arm[c_] = float(v_)
+        # --- body ---
+        for pb in PB:
+            pb.rotation_quaternion = (1, 0, 0, 0); pb.location = (0, 0, 0); pb.scale = (1, 1, 1)
+        a = settle(k / 10.0) if si else 0.0
+        breath = math.sin(2 * math.pi * g / 48.0)
+        sway = math.sin(2 * math.pi * g / 80.0)
+        head.rotation_quaternion = (bone_q(head, "Z", 3.0 * sway) @ bone_q(head, "Y", 7 * side * a)
+                                    @ bone_q(head, "X", -5 * a + 1.2 * breath))
+        chest.rotation_quaternion = bone_q(chest, "Y", 2.5 * side * a) @ bone_q(chest, "X", 1.0 * breath)
+        spine.rotation_quaternion = bone_q(spine, "Z", -1.2 * sway)
+        for i_, fb in enumerate(fins):
+            fb.rotation_quaternion = bone_q(fb, "Y", (4.0 * breath + 9 * a) * (1 if i_ == 0 else -1))
+        # squash then stretch on each change (the head bone's Y axis runs up the head)
+        if si and k < 12:
+            sq = -0.045 * math.sin(2 * math.pi * k / 9.0) * math.exp(-k / 5.0)
+            head.scale = (1 - sq / 2, 1 + sq, 1 - sq / 2)
+        arm.location = base_loc + Vector((0, 0, 0.004 * breath + 0.014 * a))
+        for pb in PB:
+            for path in ("rotation_quaternion", "location", "scale"): pb.keyframe_insert(path, frame=fr)
+        arm.keyframe_insert("location", frame=fr)
+        for c_ in CTRL: arm.keyframe_insert(f'["{c_}"]', frame=fr)
+        labels.append({"frame": g, "eyes": e, "mouth": m})
         fr += 1
 json.dump(labels, open(os.path.join(OUT, "labels.json"), "w"))
 for o_ in (bpy.data.objects.get("prop_sign"), bpy.data.objects.get("prop_stick")):
     if o_: o_.hide_render = True; o_.animation_data_clear()
 
 frames = range(F0, fr)
-if TEST: frames = [F0 + 2 * HOLD + 29, F0 + 7 * HOLD + 4, F0 + 12 * HOLD + 29]  # happy hold, angry mid-tilt, shout
-import shutil
+if TEST: frames = [F0 + i * HOLD + 14 for i in range(len(STATES) - 1)]  # every state, settled (an expression sheet)
 for f in frames:
-    k = (f - F0) % HOLD
-    if not TEST and k > 10:  # the tilt has settled by frame 10 (ease() is 0 from there): the hold repeats that frame
-        shutil.copy(os.path.join(OUT, f"f_{f - F0 - k + 10:04d}.png"), os.path.join(OUT, f"f_{f - F0:04d}.png")); continue
     sc.frame_set(f)
     sc.render.filepath = os.path.join(OUT, f"f_{f - F0:04d}.png")
     bpy.ops.render.render(write_still=True)
-    print("frame", f - F0, "eyes", ob.get("eyes"), "mouth", ob.get("mouth"), flush=True)
+    print("frame", f - F0, "open", round(float(arm["mouth_open"]), 2), "blink_L", round(float(arm["blink_L"]), 2), flush=True)

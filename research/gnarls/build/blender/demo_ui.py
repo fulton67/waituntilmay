@@ -1,8 +1,9 @@
 """Open the Gnarls rig in Blender's UI with a control panel (sidebar N > Gnarls).
-blender renders/rig_v5/gnarls_rig.blend -P blender/demo_ui.py
+blender renders/rig_v8/gnarls_rig.blend -P blender/demo_ui.py
 
-Panel: Pose (jumps to the keyed pose frame), Eyes / Mouth (any of the 14 states each, keyed on the current frame so they
-stick), Play poses (2-key holds at ~1.5 poses/s). The viewport opens in EEVEE Rendered shading with the bones shown, so
+Panel: Pose (jumps to the keyed pose frame); Eyes / Mouth expression presets (any eyes with any mouth, keyed on the
+current frame); every face control as a slider (brows, lids, pupils, mouth: drag to see the rig move, right-click >
+Insert Keyframe to animate); Play poses (2-key holds at ~1.5 poses/s). The viewport opens in EEVEE Rendered shading with the bones shown, so
 you can orbit, pick the rig in Pose mode and rotate bones (R) yourself. Nothing is saved unless you save."""
 import json
 import bpy
@@ -10,7 +11,8 @@ import bpy
 sc = bpy.context.scene
 ARM = next(o for o in sc.objects if o.type == "ARMATURE")
 BODY = bpy.data.objects["Gnarls"]
-ORDER = ARM.id_properties_ui("eyes").as_dict()["description"].split("index into ", 1)[1].split(",")
+PRE = json.loads(sc["gnarls_face_presets"]); CTRL = list(PRE["controls"])
+ORDER = list(PRE["eyes"])
 FRAMES = json.loads(sc["gnarls_frames"])
 POSES = [f for f in FRAMES if f["kind"] == "pose"]
 LABEL = lambda s: s.replace("_", " ").replace("+", " + ").capitalize()
@@ -37,10 +39,9 @@ def _refresh():
 
 def _set_face(zone):
     def upd(self, ctx):
-        ARM[zone] = int(getattr(self, "gn_" + zone))
-        ARM.keyframe_insert(f'["{zone}"]', frame=ctx.scene.frame_current)
-        for fc in _fcurves(ARM.animation_data.action):
-            for kp in fc.keyframe_points: kp.interpolation = "CONSTANT"
+        vals = PRE[zone][ORDER[int(getattr(self, "gn_" + zone))]]
+        for k, v in vals.items():
+            ARM[k] = float(v); ARM.keyframe_insert(f'["{k}"]', frame=ctx.scene.frame_current)
         _refresh()
     return upd
 
@@ -50,10 +51,7 @@ def _set_pose(self, ctx):
 
 
 def _sync(scene):
-    # keep the dropdowns showing what the current frame holds (without re-keying)
-    for z in ("eyes", "mouth"):
-        v = str(int(ARM.get(z, 0)))
-        if scene.get("gn_" + z) != int(v): scene["gn_" + z] = int(v)
+    pass  # presets are applied on choice; the sliders always show the live control values
 
 
 bpy.types.Scene.gn_pose = bpy.props.EnumProperty(name="Pose", items=_items_pose, update=_set_pose)
@@ -77,6 +75,8 @@ class GNARLS_PT_panel(bpy.types.Panel):
         L.prop(s, "gn_pose"); L.operator("gnarls.play", icon="PLAY")
         L.separator(); L.label(text="Face (keyed on this frame)")
         L.prop(s, "gn_eyes"); L.prop(s, "gn_mouth")
+        box = L.box(); box.label(text="Face controls")
+        for k in CTRL: box.prop(ARM, f'["{k}"]', text=k.replace("_", " "), slider=True)
         L.separator(); L.label(text=f"Frame {s.frame_current}")
         L.label(text="Pose mode: click a bone, R to rotate")
 
@@ -112,4 +112,4 @@ def _setup_view():
 
 if not bpy.app.background:
     bpy.app.timers.register(_setup_view, first_interval=0.5)
-print("gnarls demo ui ready:", len(POSES), "poses,", len(ORDER), "face states")
+print("gnarls demo ui ready:", len(POSES), "poses,", len(ORDER), "expression presets,", len(CTRL), "face controls")

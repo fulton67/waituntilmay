@@ -40,7 +40,8 @@ the team's drive art.
   - trunk: z-bands;
   - fins: start outside the tee body (half-width 0.169 = 0.92 × the neck slice) at sleeve height, z 0.31–0.58;
   - lobes: split on x below z 0.12.
-- **Faces: two integer controls on the armature, `eyes` and `mouth` (0–13),** each mixable with the other.
+- **Faces (first version, superseded by `face_rig.py`): two integer controls on the armature, `eyes` and `mouth`
+  (0–13),** each mixable with the other.
   - Order: neutral, neutral_open, happy, laugh, excited, surprised, sad, angry, fired_up, smug, sleepy, wink, shout, thinking.
   - Each control picks a cell of its atlas, read through the mesh's `proj_front` UVs and laid over the skin where the
     `face_mask` attribute (front-facing rest normals) is on.
@@ -63,8 +64,11 @@ the team's drive art.
   `../tools/construction.py`. That is the next step of the method.
 - Known gaps:
   - Fixed in rig_v6 (`blender/fix_glasses.py`): the fused glasses (sculpted ghost eyes in the lenses, frame painted on
-    the head, chrome lenses) are pressed back onto a fitted head surface and replaced by separate glasses parented to
-    the head bone (rims, bridge, temples, tinted lens discs). A faint trace of the old rim is still visible up close.
+    the head, chrome lenses) are pressed onto a head surface r(theta, z) fitted locally around them (rms 0.0012), loose
+    rim pieces and protrusions are taken in or cut, and separate glasses parented to the head bone replace them (rims,
+    bridge, temples, tinted lens discs).
+  - The interior ink line (inverted hull) is off: it dashes across the glasses patch. Lines come from the die-cut
+    contour only.
   - The back/side read glassy (rim light).
   - The lounge pose needs work and has no gold hex glasses yet (the glasses are now separate, so a hex set can be
     swapped in, A3).
@@ -81,14 +85,27 @@ blender -b renders/mv7_v4/gnarls_master.blend --factory-startup -P blender/rig.p
 blender -b renders/rig_v5/gnarls_rig.blend --factory-startup -P blender/render_rig.py -- renders/rig_v5
 python -I make_lens_mask.py
 blender -b renders/rig_v5/gnarls_rig.blend --factory-startup -P blender/fix_glasses.py -- gen/lens_mask.png renders/rig_v6/gnarls_rig.blend
-blender -b renders/rig_v6/gnarls_rig.blend --factory-startup -P blender/render_faces_video.py -- renders/faces_video
+python -I make_face_features.py
+blender -b renders/rig_v6/gnarls_rig.blend --factory-startup -P blender/face_rig.py -- gen/face_features.json renders/rig_v7/gnarls_rig.blend
+blender -b renders/rig_v7/gnarls_rig.blend --factory-startup -P blender/toon_look.py -- renders/rig_v8/gnarls_rig.blend
+blender -b renders/rig_v8/gnarls_rig.blend --factory-startup -P blender/render_faces_video.py -- renders/faces_video
 python -I faces_video.py renders/faces_video renders/gnarls_faces.mp4
 ```
-The last two make the expression reel: every face state plus the mixes, 30 frames each at 24 fps, with a small head tilt
-on each switch, on white.
+- `face_rig.py` makes the face a real rig. Pupils, highlights, brows, mouth outline, mouth interior, teeth and tongue
+  are separate strip meshes, measured from the neutral skin (`make_face_features.py`). Each is shrinkwrapped onto the
+  head and parented to the head bone, with shape keys driven by 19 controls on the armature: brow raise/angry, blink,
+  happy (^), squint, pupil size, sparkle, look x/z, and mouth open/smile/wide/round/smirk. Every shape shares one
+  vertex layout, so any mix of values is a valid in-between. The 14 expressions are presets of these values, split into
+  eyes and mouth parts, and the old picture-swap decals are blanked.
+- `toon_look.py` gives the crisp look: emitted base colours times a hard 2-step light ramp (shade = the guide's shade
+  ratio), a hard specular dot, one key light without self-shadows, and the Standard view transform, so flat areas are
+  exact palette colours.
+- The reel: every expression plus the mixes, 30 frames each at 24 fps, every frame animated. On each change the
+  controls ease over 7 frames, with a squash-and-stretch and a tilt; there are real blinks, breathing and head sway.
+  It's composited on white with the guide's die-cut contour.
 Paths go to Blender as Windows absolute paths (`cygpath -w`).
 
-To play with the rig in the Blender UI: `blender renders/rig_v6/gnarls_rig.blend -P blender/demo_ui.py`. The sidebar
+To play with the rig in the Blender UI: `blender renders/rig_v8/gnarls_rig.blend -P blender/demo_ui.py`. The sidebar
 (N) gets a **Gnarls** tab with Pose, Eyes, Mouth and Play controls. The viewport opens in EEVEE Rendered shading in Pose
 mode, so you can orbit and rotate bones yourself.
 

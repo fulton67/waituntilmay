@@ -117,7 +117,14 @@ for f0 in bm.faces:
                 if g not in seenf: seenf.add(g); st.append(g)
     islands.append(isl)
 islands.sort(key=len, reverse=True)
-drop = [isl for isl in islands[1:] if np.mean([v_[rl] for f in isl for v_ in f.verts]) > 0.5]
+drop = []  # the "shells" are the lens surface itself: dropping them leaves holes behind the lenses, so they are projected too
+# a separate piece that holds any glasses vertex is glasses through and through (the rim's grey outer wall is one)
+for isl in islands[1:]:
+    vs = {v_ for f in isl for v_ in f.verts}
+    if any(v_[rl] for v_ in vs):
+        for v_ in vs:
+            if not v_[rl]: v_[rl] = 1
+        print("island of", len(isl), "faces taken into the glasses region")
 print("islands", len(islands), "dropping", len(drop), "glasses shells,", sum(len(i) for i in drop), "faces")
 bmesh.ops.delete(bm, geom=[f for isl in drop for f in isl], context="FACES")
 dl = bm.verts.layers.deform.verify(); hi = ob.vertex_groups["head"].index
@@ -136,41 +143,50 @@ bm.to_mesh(me); bm.free(); me.update()
 nv2 = len(me.vertices)
 co2 = np.empty(nv2 * 3); me.vertices.foreach_get("co", co2); co2 = co2.reshape(-1, 3)
 rg = np.empty(nv2, np.int32); me.attributes["reg"].data.foreach_get("value", rg)
-free = rg > 0
-w = np.clip((8.5 - rg) / 4.0, 0, 1) * free  # core rings 1, fading over the outer rings
-gz0, gz1 = co2[free][:, 2].min() - 0.08, co2[free][:, 2].max() + 0.08
-hs = (co2[:, 2] > gz0) & (co2[:, 2] < gz1)
-ax = np.array([np.median(co2[hs][:, 0]), (co2[hs][:, 1].min() + co2[hs][:, 1].max()) / 2])  # head axis (x, y)
-th = np.arctan2(co2[:, 0] - ax[0], -(co2[:, 1] - ax[1])); rr_ = np.hypot(co2[:, 0] - ax[0], co2[:, 1] - ax[1])
-fit = (~free) & hs & (np.abs(th) < np.radians(125))
+ed2 = np.empty(len(me.edges) * 2, np.int64); me.edges.foreach_get("vertices", ed2); ed2 = ed2.reshape(-1, 2)
+
+
+def rings_out(mask, n):
+    """ring index of each vertex outside `mask` (1 = touching it .. n), 0 inside, 99 beyond"""
+    out = np.where(mask, 0, 99); cur = mask.copy()
+    for k in range(1, n + 1):
+        nx = cur.copy(); nx[ed2[:, 0]] |= cur[ed2[:, 1]]; nx[ed2[:, 1]] |= cur[ed2[:, 0]]
+        out[nx & ~cur] = k; cur = nx
+    return out
 
 
 def feats(t, z):
-    return np.stack([t ** i * z ** j for i in range(5) for j in range(5 - i)], 1)
+    return np.stack([t ** i * z ** j for i in range(7) for j in range(7 - i)], 1)  # degree 6
 
 
-cf, *_ = np.linalg.lstsq(feats(th[fit], co2[fit][:, 2]), rr_[fit], rcond=None)
-res = feats(th[fit], co2[fit][:, 2]) @ cf - rr_[fit]
-print("head fit r(theta,z): verts", int(fit.sum()), "rms", round(float(np.sqrt((res ** 2).mean())), 4))
+core = rg > 0
+gz0, gz1 = co2[core][:, 2].min() - 0.08, co2[core][:, 2].max() + 0.08
+hs = (co2[:, 2] > gz0) & (co2[:, 2] < gz1)
+ax = np.array([np.median(co2[hs][:, 0]), (co2[hs][:, 1].min() + co2[hs][:, 1].max()) / 2])  # head axis (x, y)
+th = np.arctan2(co2[:, 0] - ax[0], -(co2[:, 1] - ax[1])); rr_ = np.hypot(co2[:, 0] - ax[0], co2[:, 1] - ax[1])
+ro0 = rings_out(core, 30)
+for pas in range(2):
+    ro = rings_out(core, 30)
+    # fit only to the untouched head close around the glasses (a local fit follows the real head far better)
+    fit = (ro >= 4) & ((ro <= 30) | (np.abs(th) > np.radians(55))) & hs & (np.abs(th) < np.radians(140))  # local, plus the sides
+    cf, *_ = np.linalg.lstsq(feats(th[fit], co2[fit][:, 2]), rr_[fit], rcond=None)
+    res = feats(th[fit], co2[fit][:, 2]) @ cf - rr_[fit]
+    print(f"pass {pas}: head fit r(theta,z) verts", int(fit.sum()), "rms", round(float(np.sqrt((res ** 2).mean())), 4))
+    if pas == 0:
+        # anything else in the glasses band standing proud of the head model is old glasses too (temple arms, flecks)
+        band_z = (co2[:, 2] > gz0 + 0.05) & (co2[:, 2] < gz1 - 0.05)
+        proud = band_z & (np.abs(th) < np.radians(150)) & (rr_ > feats(th, co2[:, 2]) @ cf + 0.008) & ~core  # no ring limit: some old rim pieces join the head only far round the back
+        core = core | (rings_out(proud, 2) <= 2)
+        print("proud of the head:", int(proud.sum()), "core now", int(core.sum()))
+# the whole glasses region goes onto the surface; the next 5 rings blend back to the original head
+ro = rings_out(core, 30)
+w = np.where(core, 1.0, np.clip(1 - ro / 6.0, 0, 1))
+free = w > 0
 
 
 def surf(t, z):
     r = feats(t, z) @ cf
     return np.stack([ax[0] + r * np.sin(t), ax[1] - r * np.cos(t), z], 1)
-
-
-# anything else in the glasses band standing proud of the head model is also old glasses (temple arms, light flecks the
-# colour test missed): add it, plus two rings of neighbours at half strength
-ed2 = np.empty(len(me.edges) * 2, np.int64); me.edges.foreach_get("vertices", ed2); ed2 = ed2.reshape(-1, 2)
-band_z = (co2[:, 2] > gz0 + 0.05) & (co2[:, 2] < gz1 - 0.05)
-proud = band_z & (np.abs(th) < np.radians(125)) & (rr_ > feats(th, co2[:, 2]) @ cf + 0.008) & ~(free & (w >= 1))
-grow = proud.copy()
-for _ in range(2):
-    g2 = grow.copy(); g2[ed2[:, 0]] |= grow[ed2[:, 1]]; g2[ed2[:, 1]] |= grow[ed2[:, 0]]; grow = g2
-w = np.maximum(w, np.where(proud, 1.0, np.where(grow, 0.5, 0.0)))
-newly = (w > 0) & ~free
-free = w > 0
-print("proud of the head:", int(proud.sum()), "verts added", int(newly.sum()))
 
 
 tz = co2[:, 2]; tgt = surf(th, tz)
@@ -184,6 +200,45 @@ Pt = (surf(th + eps, tz) - surf(th - eps, tz)) / (2 * eps); Pz = (surf(th, tz + 
 nrm = np.cross(Pt, Pz); out_ = np.stack([np.sin(th), -np.cos(th), 0 * th], 1)
 nrm *= np.sign((nrm * out_).sum(1))[:, None]; nrm /= np.linalg.norm(nrm, axis=1, keepdims=True) + 1e-9
 vn0 = np.empty(nv2 * 3); me.vertex_normals.foreach_get("vector", vn0); vn0 = vn0.reshape(-1, 3)
+# Collapsed layers that now face into the head shade, shadow and outline wrongly: flip them to face out like the surface
+# (deleting them would open holes where a folded layer is the only one).
+lv2 = np.empty(len(me.loops), np.int64); me.loops.foreach_get("vertex_index", lv2)
+ls_ = np.empty(len(me.polygons), np.int64); me.polygons.foreach_get("loop_start", ls_)
+lt_ = np.empty(len(me.polygons), np.int64); me.polygons.foreach_get("loop_total", lt_)
+fid = np.repeat(np.arange(len(me.polygons)), lt_)
+pn = np.empty(len(me.polygons) * 3); me.polygons.foreach_get("normal", pn); pn = pn.reshape(-1, 3)
+fn = np.zeros((len(me.polygons), 3)); np.add.at(fn, fid, nrm[lv2] * w[lv2][:, None])
+inpatch = np.zeros(len(me.polygons)); np.add.at(inpatch, fid, (w[lv2] > 0.5).astype(float)); inpatch = inpatch == lt_
+flipf = inpatch & ((pn * fn).sum(1) < 0)
+# whatever still sticks out of the head model in the glasses band after that (old temple stubs past the cheek) is cut off
+th2 = np.arctan2(co2[:, 0] - ax[0], -(co2[:, 1] - ax[1])); r2_ = np.hypot(co2[:, 0] - ax[0], co2[:, 1] - ax[1])
+stick = (co2[:, 2] > gz0 + 0.04) & (co2[:, 2] < gz1 - 0.04) & (np.abs(th2) < np.radians(160)) &         (r2_ > feats(th2, co2[:, 2]) @ cf + 0.006)
+cnt_s = np.zeros(len(me.polygons)); np.add.at(cnt_s, fid, stick[lv2].astype(float)); cutf = cnt_s * 3 >= lt_ * 2
+bm = bmesh.new(); bm.from_mesh(me); bm.faces.ensure_lookup_table()
+bmesh.ops.reverse_faces(bm, faces=[bm.faces[i] for i in np.nonzero(flipf & ~cutf)[0]])
+bmesh.ops.delete(bm, geom=[bm.faces[i] for i in np.nonzero(cutf)[0]], context="FACES")
+bm.to_mesh(me); bm.free(); me.update()
+print("flipped inward-facing patch faces", int(flipf.sum()), "of", int(inpatch.sum()), "; cut protruding faces", int(cutf.sum()))
+nv2 = len(me.vertices)
+keep_v = np.ones(len(co2), bool)  # loose verts were removed with the faces: re-read per-vertex arrays
+co3 = np.empty(nv2 * 3); me.vertices.foreach_get("co", co3); co3 = co3.reshape(-1, 3)
+if nv2 != len(co2):
+    from mathutils.kdtree import KDTree
+    kd = KDTree(len(co2))
+    for i_, p_ in enumerate(co2): kd.insert(p_, i_)
+    kd.balance()
+    remap = np.array([kd.find(p_)[1] for p_ in co3])
+    w, free, nrm, vn0 = w[remap], free[remap], nrm[remap], vn0[remap]
+co2 = co3
+ed2 = np.empty(len(me.edges) * 2, np.int64); me.edges.foreach_get("vertices", ed2); ed2 = ed2.reshape(-1, 2)
+# The ink outline is kept off the whole patch: vertex group "outline" (0 on the patch, back to 1 over 4 rings) drives the
+# outline modifier's thickness.
+ow = np.clip(1 - rings_out(free, 4) / 4.0, 0, 1); ow = 1 - np.maximum(ow, free.astype(float))
+vg = ob.vertex_groups.get("outline") or ob.vertex_groups.new(name="outline")
+for val in np.unique(np.round(ow, 2)):
+    idx = np.nonzero(np.round(ow, 2) == val)[0].tolist()
+    if idx: vg.add(idx, float(val), "REPLACE")
+print("outline group: off on", int((ow < 0.01).sum()), "verts")
 
 # ---- 4. patch data ----
 lv2 = np.empty(len(me.loops), np.int64); me.loops.foreach_get("vertex_index", lv2)
@@ -215,16 +270,6 @@ me.normals_split_custom_set([tuple(x) for x in kk])
 for nm in ("keep_n", "reg"):
     if nm in me.attributes: me.attributes.remove(me.attributes[nm])
 me.update()
-# collapsed layers that now face into the head (or are slivers) shade and shadow badly: delete them; the face layer stays
-pn = np.empty(len(me.polygons) * 3); me.polygons.foreach_get("normal", pn); pn = pn.reshape(-1, 3)
-pa = np.empty(len(me.polygons)); me.polygons.foreach_get("area", pa)
-core_f = np.zeros(len(me.polygons)); np.add.at(core_f, fid, (w[lv2] >= 1).astype(float)); core_f = core_f == lt_
-fn = np.zeros((len(me.polygons), 3)); np.add.at(fn, fid, nrm[lv2])
-bad_f = core_f & (((pn * fn).sum(1) / (np.linalg.norm(fn, axis=1) + 1e-9) < 0.5) | (pa < 1e-8))
-bm = bmesh.new(); bm.from_mesh(me); bm.faces.ensure_lookup_table()
-bmesh.ops.delete(bm, geom=[bm.faces[i] for i in np.nonzero(bad_f)[0]], context="FACES")
-bm.to_mesh(me); bm.free(); me.update()
-print("deleted folded/sliver faces", int(bad_f.sum()), "of", int(core_f.sum()), "patch faces")
 
 # ---- 5. new glasses ----
 def mat(name, hexc, rough, alpha=1.0, spec=0.4):
