@@ -81,6 +81,10 @@ blender -b renders/rig_v5/gnarls_rig.blend --factory-startup -P blender/render_r
 ```
 Paths go to Blender as Windows absolute paths (`cygpath -w`).
 
+To play with the rig in the Blender UI: `blender renders/rig_v5/gnarls_rig.blend -P blender/demo_ui.py`. The sidebar
+(N) gets a **Gnarls** tab with Pose, Eyes, Mouth and Play controls. The viewport opens in EEVEE Rendered shading in Pose
+mode, so you can orbit and rotate bones yourself.
+
 To add an expression:
 1. Add a row to `expr.tsv` and generate it with `gen_muse.py` (prompt pattern in the session: edit only the eyes, brows
    and mouth; the glasses are fixed).
