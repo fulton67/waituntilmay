@@ -2,7 +2,7 @@
 
 Corpus: every reference video/still under research/ostad/style/media, mapped to its ref id (refs.yaml):
   media/ig/<owner>/<sc>.mp4 -> ref from raw/ig_index.json + raw/ig_posts.json inputUrl (collabs belong to the account scraped),
-  the three named posts -> ig_<shortcode>; media/yt/glp1.mp4 -> glp1; media/yt/ro/<id>.mp4 -> ro; media/arena/* -> arena.
+  the three named posts -> ig_<shortcode>; media/yt/glp1.mp4 -> glp1; media/yt/ro/<id>.mp4 -> ro; media/yt/evident/<id>.mp4 -> evident_yt; media/arena/* -> arena.
 Outputs: measure/<ref>/<video>/<name>.json. Every per-frame output carries one row per decoded frame.
 Frames are decoded with ffmpeg at native frame rate, every frame (-fps_mode passthrough, no -r, no select), scaled down for
 analysis only (ANALYSIS_W wide); frame index = source frame index.
@@ -78,6 +78,10 @@ def corpus(kind="video"):
         rodir = os.path.join(MEDIA, "yt", "ro")
         for f in sorted(os.listdir(rodir)) if os.path.isdir(rodir) else []:
             if f.endswith(".mp4"): out.append(("ro", f[:-4], os.path.join(rodir, f)))
+        # Evident's YouTube Shorts (2026-11-16, client: the Ddos1QZRGmV post is the target; Apify was out, so their channel via yt-dlp)
+        evdir = os.path.join(MEDIA, "yt", "evident")
+        for f in sorted(os.listdir(evdir)) if os.path.isdir(evdir) else []:
+            if f.endswith(".mp4"): out.append(("evident_yt", f[:-4], os.path.join(evdir, f)))
     adir = os.path.join(MEDIA, "arena")
     for f in sorted(os.listdir(adir)) if os.path.isdir(adir) else []:
         stem, ext = os.path.splitext(f)
