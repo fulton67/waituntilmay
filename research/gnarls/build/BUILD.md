@@ -62,11 +62,12 @@ the team's drive art.
 - Not yet measured: the ¾ render against the primary mark (W/H, tee/shorts bands, glasses span, outline %) with
   `../tools/construction.py`. That is the next step of the method.
 - Known gaps:
-  - Tripo baked sculpted eyes into the lens geometry, so the neutral eyes show faintly under other expressions. Fix:
-    flatten that region or regenerate the mesh from eye-less views.
-  - The back/side read glassy (rim light and the lens shell).
-  - The lounge pose needs work and has no gold hex glasses (glasses are fused in the mesh, so they can't be swapped
-    yet, A3).
+  - Fixed in rig_v6 (`blender/fix_glasses.py`): the fused glasses (sculpted ghost eyes in the lenses, frame painted on
+    the head, chrome lenses) are pressed back onto a fitted head surface and replaced by separate glasses parented to
+    the head bone (rims, bridge, temples, tinted lens discs). A faint trace of the old rim is still visible up close.
+  - The back/side read glassy (rim light).
+  - The lounge pose needs work and has no gold hex glasses yet (the glasses are now separate, so a hex set can be
+    swapped in, A3).
   - The sign isn't held by a fin yet.
   - Outfits are the master tee only; the stickers' tank, jeans and white tee aren't built.
 - Spend: Flora ≈ $3.84 (Nano Banana Pro $0.36, Tripo P2 $1.32, 2 × H3.1 multiview $1.44, 2 × earlier Nano view sets
@@ -78,10 +79,16 @@ bash run_build.sh models/tripo_mv_s7.glb mv7_v4 gen/flat_muse_front.png gen/flat
 python -I make_face_atlas.py
 blender -b renders/mv7_v4/gnarls_master.blend --factory-startup -P blender/rig.py -- gen/face_zones.json gen/atlas_eyes.png gen/atlas_mouth.png renders/rig_v5
 blender -b renders/rig_v5/gnarls_rig.blend --factory-startup -P blender/render_rig.py -- renders/rig_v5
+python -I make_lens_mask.py
+blender -b renders/rig_v5/gnarls_rig.blend --factory-startup -P blender/fix_glasses.py -- gen/lens_mask.png renders/rig_v6/gnarls_rig.blend
+blender -b renders/rig_v6/gnarls_rig.blend --factory-startup -P blender/render_faces_video.py -- renders/faces_video
+python -I faces_video.py renders/faces_video renders/gnarls_faces.mp4
 ```
+The last two make the expression reel: every face state plus the mixes, 30 frames each at 24 fps, with a small head tilt
+on each switch, on white.
 Paths go to Blender as Windows absolute paths (`cygpath -w`).
 
-To play with the rig in the Blender UI: `blender renders/rig_v5/gnarls_rig.blend -P blender/demo_ui.py`. The sidebar
+To play with the rig in the Blender UI: `blender renders/rig_v6/gnarls_rig.blend -P blender/demo_ui.py`. The sidebar
 (N) gets a **Gnarls** tab with Pose, Eyes, Mouth and Play controls. The viewport opens in EEVEE Rendered shading in Pose
 mode, so you can orbit and rotate bones yourself.
 

@@ -9,7 +9,7 @@ import bpy
 
 sc = bpy.context.scene
 ARM = next(o for o in sc.objects if o.type == "ARMATURE")
-BODY = next(o for o in sc.objects if o.type == "MESH" and not o.name.startswith("prop_"))
+BODY = bpy.data.objects["Gnarls"]
 ORDER = ARM.id_properties_ui("eyes").as_dict()["description"].split("index into ", 1)[1].split(",")
 FRAMES = json.loads(sc["gnarls_frames"])
 POSES = [f for f in FRAMES if f["kind"] == "pose"]
