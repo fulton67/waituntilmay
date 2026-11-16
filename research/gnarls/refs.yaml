@@ -1,0 +1,18 @@
+# Gnarls image study. Same method as research/ostad/style/FRAME_BY_FRAME.md, applied to still images (one image = one "frame").
+# `target` is what we want from the reference.
+refs:
+  - id: gnarls_drive
+    kind: google_drive_folder
+    url: https://drive.google.com/drive/folders/1ipCsX3vpAt0y0BUfQNDe3Aj_J8A0Z_H3
+    name: "Gnarls Graphic Design" (New School SLI / Recreation graphic design team shared drive)
+    pulled: 2026-11-16 with rclone (gdrive: remote, --drive-root-folder-id), see logs/
+    target: >
+      Gnarls the Narwhal (they/them), the New School mascot. (1) Pin down the canonical character to the pixel:
+      silhouette, proportions, colours, line weight, features (tusk, glasses, fins, tail, outfit), so a 3D model can be built
+      that matches it from every angle. (2) Catalogue every pose and action the character performs across the corpus, so a rig
+      gets the actions it needs. (3) Read the house art style (sticker treatment, outline, type, layout, palette) so it can be
+      made on command and modernised.
+    note: >
+      The brief (media/key/design_brief.pdf, Jan 2024): the brand is red, white and black; type is Neu Random; logo is black or
+      white only, never recoloured or effected. The mascot is "Gnarl(s) the Narwhal", pronouns they/them. SLI uses sticker
+      cut-outs of Gnarls: transparent photo, illustrated, and GIF PNGs. Formats: media/key/design_requirements.png.

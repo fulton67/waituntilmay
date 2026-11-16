@@ -221,3 +221,16 @@ research/ostad/style/stems/
 research/ostad/style/measure/_calibration/*.mp4
 research/ostad/style/tools/__pycache__/
 research/ostad/style/logs/
+
+# gnarls image study (research/gnarls): the drive's images, PSDs, sheets and per-image tables stay local. They are the SLI design
+# team's internal work, and file names and OCR text carry students' names (the repo is public). Tools and aggregate docs are committed.
+research/gnarls/media/
+research/gnarls/sheets/
+research/gnarls/crops/
+research/gnarls/measure/
+research/gnarls/read/*
+!research/gnarls/read/gnarls_drive.md
+research/gnarls/index.tsv
+research/gnarls/psd_index.tsv
+research/gnarls/sheets.json
+research/gnarls/logs/
