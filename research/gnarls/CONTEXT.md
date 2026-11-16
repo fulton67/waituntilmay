@@ -105,5 +105,7 @@ TV, flyer and easel get the Narwhal Nation QR code. University logo: black or wh
 toy shading with the cel outline kept as an option, real in-betweens on the 2-key poses, a consistent prop and outfit kit
 instead of crude repaints, and one 3D master that renders every sticker pose so the 23% off-model rate goes away.
 
-**Gate:** the guide says "Do not re-create the character or alter the character's shape or colors in any way". Any 3D or
-modernised Gnarls needs sign-off from The New School Marketing & Communications before public use.
+**Ownership:** this is the New School graphic design team's own work on the character, so building the 3D master and
+modernising the style are in scope. The guide's "do not re-create" line addresses units that use the stickers. Keep every change
+traceable to the guide's identity (silhouette, glasses, tusk, red N tee, colours). The finished master goes to the branding
+office as the new official files, the same way the team already clears logos (DECISIONS X1).

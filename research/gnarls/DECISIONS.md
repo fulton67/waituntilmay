@@ -50,4 +50,4 @@ Numbers come from `measure/` (G1–G10) and the read (`read/images.tsv`, 1,714 r
 
 | # | Rule | Source | Verdict |
 |---|---|---|---|
-| X1 | "Please use the files provided. Do not re-create the character or alter the character's shape or colors in any way." | guide p.2 | **adopt as a gate**: a 3D or modernised Gnarls is a re-creation. It needs sign-off from The New School Marketing & Communications before anything ships publicly. Internal study and prototypes are fine |
+| X1 | "Please use the files provided. Do not re-create the character or alter the character's shape or colors in any way." | guide p.2 | **adapt**: the guide is written for units that *use* Gnarls. This project is the New School graphic design team's own work on the character (2026-11-16), so the 3D master and the modernisation are in scope. Keep the identity (silhouette, glasses, tusk, red N tee, colours) traceable to the guide. Route the finished master through the branding office the way the team already does for logos (`read/docs/Memo for graphic designers…`), so the new files can replace the old stickers as "the files provided" |
