@@ -242,14 +242,16 @@ Client notes on v2: the drawn head and brain in the mechanism section "look horr
 
 ## 14d. Client rules (2026-11-13, after YouTube v3). Every future Ostad edit follows these
 
-1. **No play/pause/press UI effects.** No play or pause buttons, morphing play marks or press taps on progress controls. A quiet progress indicator is fine. The step player now has no play pill.
+1. **No play/pause/press UI effects.** No play or pause buttons, morphing play marks or press taps on progress controls. A quiet progress indicator is fine. The step player now has no play pill. *Sharpened 2026-11-16 (14e):* no sliders either. A before/after is two labelled cards or a labelled split (Evident Shorts R27, `read/evident_yt_group1.md` §5), and UI appears only when the UI itself is the evidence (G1 §5, R1).
 2. **Real video over stills and over generic stock.** No sunset-field-style stock. If a real clip of the subject exists, it runs as video.
 3. **Never leave the subject against empty sky or dead space.** Reframe or crop toward the room, or give the empty area a purpose (the type block).
 4. **The palette stays in the brand-bible blues, never green.** The light-room canvas was moved from a green-grey cast to cool blue-grey (measured hues in the v4 notes below). No new green tints.
 5. **Icons must literally match their word.** A face for skin care, a synapse for neurotransmitters, a brain for the mind, the coil for Exomind/technology. Each icon is checked against its word.
-6. **No hand-drawn heads or anatomy.** Use real footage, or real renders traced frame by frame.
+6. **No hand-drawn heads or anatomy.** Use real footage, or real renders traced frame by frame. *Sharpened 2026-11-16 (14e):* a mechanism is shown step by step on the real image (the Flora glass head, the neurons, or practice footage), with only paths, rings and hairline leaders drawn on top (G1 R22). Markup never goes on his face (G1 R23).
 7. **Long-form/YouTube type: Helvetica Neue LT Pro 65 Medium** (current choice, can change). Vertical reels keep the bible NHG system. The `TYPEFACE` switch in components/YT.tsx keeps a font swap to one line.
 8. **Captions go word by word, each word on its measured onset.** No fade, no rise, no shadow.
+9. **Every graphic lands on the word he says** (added 2026-11-16, 14e). A pop, highlight or label starts 1 frame after the word's onset (Evident median, `read/ig_Ddos1QZRGmV.md` §1.2). A long build may start on the clause before, but it ends on the word (`read/evident_yt_group3.md` §5). The animation library (`ANIMATION_LIBRARY.md`) starts from his line, never from a template.
+10. **Numbers are cited or absent** (added 2026-11-16, 14e). A chart, counter or share shows only a figure with a source line on the frame; otherwise it's a `[cited figure]` slot. A counter of things on screen says that's what it is.
 
 ### v4 changes under these rules
 - The step player has no play/pause control.
@@ -263,3 +265,58 @@ Client notes on v2: the drawn head and brain in the mechanism section "look horr
   - **head_final_anim:** a glass head with the brain inside and the real coil on the forehead. It is used in s2, inside the white window, at 1.16x so it fills the 4.33 s section without a hold. It is also the s11 mechanism shot, full frame at 1.3x (2.6-6.4 s), nearest-frame with no blending. Over it: a hairline from the step player's "Prefrontal cortex" label down to the frontal lobe, and "Neuroplasticity" in the empty left third, with no boxes over the head.
   - **neuro_anim:** sparse to connected, reversed by the coordinator; blue synapse pixels measured at 144 at the start and 449 at the end. It plays full frame at 1.3x (6.4-10.2 s) in place of the navy BTL dendrite and synapse renders, with the new-connections counter and the neurotransmitters line in small type.
   - The step player is drawn above the full-frame clips. The span is labelled "Illustration". The BTL renders remain only as the code's fallback.
+
+## 14e. Motion system from the Evident and newapology studies (2026-11-16)
+
+Inputs:
+- Evident's model post read sheet by sheet (`read/ig_Ddos1QZRGmV.md`).
+- 53 Evident YouTube Shorts read board by board (`read/evident_yt_group1..4.md`).
+- The newapology.com study: its site, 12 case studies and 14 linked live sites (`web/newapology/`).
+
+Outputs:
+- `MOTION.md`: the brand bible's motion chapter, with tokens, reveal grammar, transitions, spacing and the don'ts.
+- `ANIMATION_LIBRARY.md`: 23 parameterised animations, with the 6 BOARD ideas mapped onto them.
+- `brand/remotion/src/library/`: the proof components.
+
+This is **additive**. The calm glass (11–12), the YouTube system (14b–14c), the room canvas and blues (14d v4) and every 14d rule stay. Two of those rules are sharpened, and two are added (9 and 10, above).
+
+**Adopted**
+- **Reveal on the word, +1 frame.** The DDOS median over 23 reveals is +1 f (abs median 2 f, 65 % within ±3 f; §1.2). Highlights in the Shorts are also +1 f (n = 7; G1 §2 T1). Long builds land on the word rather than start on it (G3 §5 R2). Token `cut`.
+- **Build in place.** DDOS B05 makes 4 reveals in 10.9 s (§1.3), and graphic-led Shorts hold one scene for 10–24 s (G1 §3). For us: a visual every ≤ 5 s (DEC 12), and a step every 2–4 s inside a held scene.
+- **The highlighter as `sweep`, `.6,0,.25,1`.** Evident's sweeps peak at 44–45 % of their duration (DDOS Moments A–C). newapology's `--nap-control-ease` has the same shape (peak 0.43; `web/newapology/pages/site.md` §6). Durations at 24 fps: highlighter 16 f, row wipe 14 f, bar 26 f, trace 27 f, dot fill 18 f.
+- **Counters run linear and end 2 f after their bar** (DDOS Moment B). Token `count`. Cited figures only.
+- **`arrive`: `.22,1,.36,1`, 14 f (600 ms), 16 px rise, 2 f stagger capped at 10 f.** From newapology's `nap-page-enter`: 600 ms, 12 px, `min(85·i, 425)` (site.md §5A). It's practically our existing quint-out entrance: 99 % at 65 % vs 60 % of the duration, both fastest at t = 0. So nothing already approved changes visibly.
+- **`morph`: `.66,0,.25,1`, 26 f, radius 24 → 0,** for card ↔ full frame. From newapology's View Transition: 1100 ms, radius 19 → 5 px, old page out in 200 ms (site.md §3B).
+- **`swap`: outExpo, 16 f,** for the masked rolling label, with the box sized to the longest value. From softunion S2: 650 ms, fit RMS 0.0017–0.0029 (`sites/softunion.online.md`).
+- **`blank`: inOutQuart 11 f out, 7 f blank, 11 f in,** at chapter changes only. From softunion S5: 450 / ~290 / 450 ms. It matches the old `brand/motion/RULES.md` dissolve (500 ms, 12 f).
+- **`plate`: march2004's `.15,0,.25,1`, plate 18 f, then the picture through it 18 f** (`sites/march2004.com.md` M1–M2, 750 + 750 ms). Index stagger 1 f, capped at 12 steps (`350 + 50·min(i,12)` ms).
+- **`exit`: `.4,0,1,1`, 7 f, 7 px.** newapology's `index-out` curve (site.md §3C), using the duration we already had: Ro `enter()` 0.3 s and RULES.md `duration.exit` 300 ms.
+- **Dim the rest instead of scaling the focus,** to 0.33–0.5 (roko-g, georgedavies), never 0.2 (colelferguson flags that as too strong). Shorts: dim over 10–24 f, then isolate 15–25 f after the highlight (G4 T6, G3 T12).
+- **Spacing:** base unit 8 px at 1080 high on a doubling scale. It's march2004's 6 px doubling scaled 1440 → 1920 (6 × 1.333 = 8). The gutter is 24 px (3u): newapology's and softunion's 20 px gutter is 26.7 px at 1920, rounded onto the scale. The 16:9 grid is 12 columns (column 108.8 px) inside our existing 175 px margins; 9:16 is 6 columns (127.3 px) inside 98 px. Radii are 24 (glass), 2 % of width (footage windows) and 0 (highlighters, full frames).
+- **New Shorts rules, taken as library entries:**
+  - R22 mechanism on real imagery → L03, L04.
+  - R23 annotation on footage → L07.
+  - R24 re-typeset headline → L01.
+  - R26 ID card → L20.
+  - R27 labelled before/after, no slider → L06, L23.
+
+**Kept (reconciled, not replaced)**
+- YT `life()`, the 963 fadeUp (2 s, CSS ease, 20 px; DEC 14c), becomes the `settle` token. It's for type that isn't tied to a word. A word-tied reveal can't use a 2 s fade.
+- The step player's 520 ms cubic ease-out (14c) stays as the allowed quiet progress indicator.
+- RULES.md's in-out `.65,0,.35,1` (peak 0.50) stays for board-reel zooms. Explainer progress uses `sweep`.
+
+**Adapted**
+- **Stepped animation on 2s/3s** (DDOS R11, 44 % duplicate frames in graphics) is weaker in the wider corpus: Shorts graphic segments step a median 7.8 % (G1 §3), whole videos 0–11.1 % (G3 §3). The default is now smooth at 24 fps. Stepping stays only as an A/B option on data graphics.
+- **Seconds per idea.** The Shorts' per-video medians are 2.81 s (G1), about 2.2 s (G2), 1.21 s (G3, design-led) and 3.13 s (G4). For calm long-form we keep a new *visual* every ≤ 5 s with an in-scene step every 2–4 s (G1 §5, R4 refined). G3's 1.0–1.4 s design-led pace is too fast for him (DEC 14).
+- **Kinetic word stamps** at most once a minute, each on a different background (G1 R25). Typing is used only while the words are being spoken, with no caret.
+- **Scroll-scrubbed motion** (cellar's rotation, `180 × (1 − (1 − s)^2)`) is taken only as "progress mapped to speech" (the progressive highlight). Nothing spins freely.
+
+**Rejected**
+- **Lime, or any second accent hue.** One accent per video, never two on one chart (G4 A6), ice blue only (14d rule 4).
+- **Charcoal data canvases** (DDOS R8). We use the room canvas or navy #202532.
+- **Overshoot.** No spring anywhere on newapology (site.md §6). Its one "pop" keyframe (scale 1.045) isn't taken.
+- **Blur-heavy entrances** (softunion 8 px, roko-g 16 px). They hide clinical detail. At most a 6 f defocus-in into a still (DDOS B21).
+- **Cursor pills, hover inflates, marquees, preloaders, random placement.** These are web interaction devices, and the client bans cursor and press UI (14d rule 1).
+- **The Shorts' stutter edits** (9 cuts in 4.6 s, G1 qf_jdmTkPgg) and their −20 LUFS mixes (G2 §3, "do not copy").
+
+**Still pending:** M12/M17/M19 (`easing.json`, `pacing.json`, `sfx.json`) for the 53 Shorts: 0 of 53 on disk. Re-check the `sweep` and `arrive` peaks, and the SFX rule, when they land. Until then the Shorts numbers are board reads at about ±2 f (G1 §6).
