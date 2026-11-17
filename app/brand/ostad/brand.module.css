@@ -53,6 +53,10 @@
 .section code { font-size: 0.92em; }
 .wall { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; align-items: start; margin-bottom: 40px; }
 .reel { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 60ch); gap: 32px; align-items: start; }
+.edit { display: grid; grid-template-columns: minmax(0, 720px) minmax(0, 52ch); gap: 32px; align-items: start; margin-bottom: 40px; }
+.h3 { margin: 0 0 12px; font: 600 clamp(22px, 2.6vw, 30px)/1.1 var(--display); letter-spacing: 0.0082em; }
+.facts { margin: 0 0 16px; padding-left: 18px; font-size: 15px; }
+.facts li { margin-bottom: 4px; }
 .video { display: block; width: 100%; height: auto; background: var(--ink); }
 .trow { margin-bottom: 28px; }
 .tgrid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; align-items: start; }
@@ -96,7 +100,7 @@
   .grid, .grid2, .wall { grid-template-columns: 1fr 1fr; }
   .tgrid { grid-template-columns: repeat(3, 1fr); }
   .swatches { grid-template-columns: repeat(3, 1fr); }
-  .reel { grid-template-columns: 1fr; }
+  .reel, .edit { grid-template-columns: 1fr; }
   .ranks { grid-template-columns: 1fr; }
   .table { font-size: 13px; }
   .table th:nth-child(5), .table td:nth-child(5) { display: none; }

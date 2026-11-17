@@ -57,12 +57,12 @@ export default function Page() {
   const { spec, counts, renders } = type_;
   const sizes = spec.canvases["1080x1350"].sizes;
   const roles = Object.entries(spec.roles) as [keyof typeof sizes, (typeof spec.roles)["headline"]][];
-  const { make, demo, reel, video, templates, look, icons } = page;
+  const { make, demo, reel, video, templates, look, icons, edit } = page;
   const chk = make.check;
   return (
     <>
       <nav className={css.nav} aria-label="Sections">
-        {["Make", "Demo wall", "Templates", "Look", "Icons", "Type"].map((n) => <a key={n} href={`#${n.toLowerCase().replace(" ", "-")}`}>{n}</a>)}
+        {["Make", "Demo wall", "Edits", "Templates", "Look", "Icons", "Type"].map((n) => <a key={n} href={`#${n.toLowerCase().replace(" ", "-")}`}>{n}</a>)}
       </nav>
 
       <section className={css.section} id="make">
@@ -92,6 +92,20 @@ export default function Page() {
             <Pic key={p.n} img={p.pages[0]} alt={`Demo ${p.n}: ${p.template}, ${p.size}`} sizes="(max-width: 700px) 50vw, 25vw"
               caption={<>{String(p.n).padStart(2, "0")} · {TITLE(p.template)} · {SIZE_LABEL[p.size]}{p.pages.length > 1 ? ` · ${p.pages.length} slides` : ""}</>} />
           ))}
+        </div>
+        <div className={css.edit} id="edits">
+          <video className={css.video} src={edit.src} poster={edit.poster} width={1920} height={1080} controls playsInline preload="none">
+            Your browser does not play MP4 video.
+          </video>
+          <div>
+            <p className={css.label}>Edit · {edit.version} · {edit.duration_s} s · 16:9</p>
+            <h3 className={css.h3}>{edit.title}</h3>
+            <p>{edit.summary}</p>
+            <ul className={css.facts}>
+              {edit.facts.map((t) => <li key={t}>{t}</li>)}
+            </ul>
+            <p className={css.note}>{edit.local_note}</p>
+          </div>
         </div>
         <div className={css.reel}>
           <video className={css.video} src={reel.src} poster={reel.poster} width={1080} height={1920} controls muted loop playsInline preload="none" />

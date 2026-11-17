@@ -903,5 +903,21 @@
    "h": 1290
   },
   "count": 24
+ },
+ "edit": {
+  "src": "/brand/ostad/edits/exomind-v6.mp4",
+  "poster": "/brand/ostad/edits/exomind-v6.jpg",
+  "version": "YouTube v6",
+  "duration_s": 90.3,
+  "title": "Exomind and total skin health",
+  "summary": "His evening talk, rebuilt beat by beat with the rosacea method: he stays keyed on the cream room, and every line shows its literal subject: his own consult room, team, patients and the ExoMind coil, with BTL's own mechanism film for the technology.",
+  "facts": [
+   "20 beats, a title card, 4 section cards (each title held 2.5 s) and an end card; 29 distinct devices, 3 animations made only for ExoMind",
+   "One arrow system: brand blue, tapered stroke, one barb head; 0 arrows across text",
+   "Image fill 42 % of the frame, 4.7 full-frame takeovers a minute, no layout for more than 3 segments",
+   "Head-tracked callouts within 10 px of his temple; the circular portrait centred within 2 % of its diameter; no straight source edge on his keyed arm",
+   "Checks: variety, reuse against every earlier edit, dot-and-line lint, still-image, arrow\u2013text, source-edge, flash scan; \u221214.1 LUFS, \u22123.8 dBTP"
+  ],
+  "local_note": "Local preview only: the file is gitignored and served from this machine. A public deploy waits on the client's approvals (the patients shown, the staff photo, BTL's licensed material and the \u26a0 claims)."
  }
 }
