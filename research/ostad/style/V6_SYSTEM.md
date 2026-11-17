@@ -31,6 +31,17 @@ v6 (`OstadYT6.tsx`, 2026-11-17) is the current system. An agent starting a new O
 - **No graphic is reused across topics, and each edit must beat the last.** Hash check: `tools/reuse_check.py`.
 - **Real material comes from the clinic library,** `C:\Users\naimj\clinic-library`. Read `HANDOFF.md` first. Read-only, local previews and frames only, never write to iCloud, no names, nothing flagged SENSITIVE or needs_review, every patient item goes on the client-approval list.
 
+**Gap rounds 1–2 lessons** (DECISIONS 14o, 14p; `exomind/gap/ROUND1.md`, `ROUND2.md`). The numbers are in `brand/motion/RULES.md` (the hand-written block); the workflow is the `ostad-video` skill (`.claude/skills/ostad-video/SKILL.md`):
+- **Immersion is measured, not felt.** Mean image fill ≥ 35 %, ≥ 3 takeovers/min, no layout family for more than 3 segments or 15 s (variety_check R13). Section cards sit full frame on a real picture.
+- **One image subject on at most 2 beats** (R14). A diptych shows two different subjects, never two moments of one clip.
+- **A section title is fully lit for 60 f** (hold-min 2.5 s); check a still at the hold midpoint. Every other text keeps the same hold: move an exit into the next beat rather than cut a hold.
+- **No straight source edge on the keyed presenter.** His phone frame's right edge is feathered over 140 source px; the pip's left edge over 16 %. `tools/edge_check.py` must find 0 frames.
+- **A licensed film's marks are fully in or fully out.** Crop the MOA film's top band (EXOMIND mark, BTL emblem) and its subtitle band together; never cut through a mark, never dissolve two marks over each other.
+- **Footage an earlier edit used full frame** needs a new crop or role (reuse_check).
+- **Arrows never cross text** (`tools/arrow_text_lint.py`); tracked tails anchor on `templeR + (40, −6)`.
+- **One sound per event class** (`beats.json sfx_map`), on ≥ 72 % of entries.
+- **Measure a sheet's complaint on the render itself** before fixing: a "clipped" title was a hold caught mid-type, a "clipped" mark was a sheet label.
+
 ## 2. What the references taught (read before designing)
 | File | What it holds |
 |---|---|
@@ -66,5 +77,8 @@ v6 (`OstadYT6.tsx`, 2026-11-17) is the current system. An agent starting a new O
 | `tools/lint_compositions.py` | Dot-and-line callouts in the code. The no-static-image frame diff on the render. |
 | Flash scan | ffmpeg `scdet=threshold=8`. Every cut must be an intended one. |
 | `exomind/track_verify.json`, `pip_verify.json` | Tip-to-landmark error (median under 6 px, p95 under 15 px); PiP centring. |
+| `tools/arrow_text_lint.py` | Arrow centrelines crossing text boxes (TextAudit `ARROWTEXT` lines from an `audit` render): 0. |
+| `tools/edge_check.py` | A straight source-frame edge on the keyed presenter (column-edge detector on the effective alpha): 0 frames. |
+| ffmpeg `ebur128=peak=true` | −14 LUFS integrated, true peak ≤ −1 dBTP. |
 
 The current render is `C:\Users\naimj\Downloads\Ostad - Exomind and total skin health (YouTube v6).mp4`.

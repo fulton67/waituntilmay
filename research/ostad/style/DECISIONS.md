@@ -782,3 +782,41 @@ The single builder fixed the five gap reports (exomind/gap/*.md) in priority ord
   - B11's two halves are two moments of one session and read alike.
   - The MOA film's EXOMIND mark touches the top edge in S4 / B17.
   - The velocity-peak re-fit was not re-run.
+
+## 14p. ExoMind v6 gap round 2 and the finish (2026-11-17)
+
+The last gap round on the orchestrator's sheet notes. Each note was measured on the render before it was fixed. Before → after is in `exomind/gap/ROUND2.md`; the numbers are in `gap/round2.json`.
+
+- **Section titles "clipped".**
+  - The diagnosis: the typewriter was caught mid-line, with a hold of only 10 f (0.42 s).
+  - `SECTION_TIMING` is now 12 / 60 / 8 (`SECTION_LEN` 80 f). Every title is fully lit for 60 f (pixel run); stills at start + 42 f show every title whole.
+  - S2 holds across the cut, at 120 px, over the darkened consult half.
+  - S3 moves the ring arrival to the f1322 cut. The ring's exit runs into B14's first 16 f, and B14's decode starts at local 18.
+  - The DonutRingFill now fades fully out.
+- **Straight source edge on his keyed arm.**
+  - New `tools/edge_check.py`, a column-edge detector on matte × ramp.
+  - The keyed plate's right 140 source px now fade out on a linear mask (`RIGHT_FEATHER`).
+  - Straight-edge frames 61 → 0; on render pixels 50 → 0 frames, max run 239 → 9 px. The left and bottom edges are off screen.
+- **B11.** The right half is now clinic row 222 (Dr. Ostad and a staff member at the practice's silver painting; preview at 1.25×), so the halves read "the care | the team". The alternative was a single takeover. I kept the diptych because the line names both.
+- **MOA film marks.**
+  - B17 and B19 now crop the film's top band (mark + emblem) and subtitle band fully out (`moaFrame`, k 1.40 → 1.46), and B18 shows both whole at 1×.
+  - "Fully out" rather than "fully in": at 1× the film does not fill the frame.
+  - The B12 recrop exposed the console's BTL emblem at the frame edge, so its push origin moved to 60 % 30 %.
+- **B12 reuse.** The session clip is now a 1.30 → 1.36 crop on the coil and her face: 0.023 → 0.289. The round-1 exception is closed.
+- **B14 reuse.** The new feather left B14's mostly empty key-frame crop at 0.070 against v5. The crop is now the graphic's own box: 0.242.
+- **Checks, all on the round-2 render:**
+  - variety, reuse, committed lint, static-image, arrow–text: all PASS.
+  - edge_check: 0 frames.
+  - Flash scan: 15 intended cuts.
+  - Loudness: −14.1 LUFS / −3.8 dBTP.
+  - Fill 42.5 %, takeovers 4.65 /min, SFX entry coverage 78.0 %.
+  - Tracked tails: B03 3.0 / 5.6 / 7.5 px, B16 2.2 / 4.9 / 9.7 px. Pip max 1.9 % of the diameter.
+- **Tools.**
+  - `track_verify.py` and `pip_verify.py` assume the pre-gap layout; their round-2 output was discarded with `git checkout`, and the gap round-1 tools were used instead (`gap_track.py` needs `-X utf8`).
+  - Another session's uncommitted PAL / BOX1 lint rules (Oct 14 L5, "no blue") flag v6's brand-blue arrows: 109 hits. The committed rules were used. This is left open for Naim.
+- **Finish.**
+  - **Page.** v6 is on `/brand/ostad#edits`, served from the gitignored `public/brand/ostad/edits/` (check-ignore confirmed). Page 200, video 206, 0 console errors. Another session's dev server on 3107 was used and left running. A public deploy waits on client approvals.
+  - **RULES.md.** It gains a hand-written "Ostad video rules" block with the v6 numbers, and `motion_rules.py` now keeps that block when it regenerates.
+  - **Skill.** New `ostad-video` skill.
+  - **Lists.** The approval, ⚠ claim and finish lists are in `exomind/TODO.md`.
+- **Render.** `Downloads/Ostad - Exomind and total skin health (YouTube v6).mp4`. The round-1 render was copied to `(YouTube v6 round1).mp4`; nothing was deleted.
