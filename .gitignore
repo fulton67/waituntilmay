@@ -234,3 +234,5 @@ research/ostad/style/exomind/track_check*.jpg
 # reference device sheets (DEVICE_LIBRARY.md; tools/ref_device_sheet.py) are crops of other creators' footage: local only
 research/ostad/style/exomind/ref_*.jpg
 research/ostad/style/measure/_devices/*.jpg
+# rosacea method contact sheets (ROSACEA_METHOD.md) show his face and patient photos: local only
+research/ostad/style/exomind/rosacea_sheets/
