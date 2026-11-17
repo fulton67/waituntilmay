@@ -224,3 +224,6 @@ research/ostad/style/logs/
 # IdeaStills renders and their boards contain BTL, Flora and practice (patient) imagery: local only (BOARD.md is committed)
 brand/edits/*/stills/*.png
 brand/edits/*/stills/*.jpg
+# storyboard stills hold BTL / practice / patient pictures (brand/edits/exomind-skin/storyboard/STORYBOARD.md); code + .md are committed
+brand/edits/*/storyboard/*.png
+brand/edits/*/storyboard/*.jpg

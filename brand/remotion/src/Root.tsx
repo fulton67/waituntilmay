@@ -6,6 +6,7 @@ import { OstadYT5 } from "./OstadYT5";
 import { YTSystem } from "./compositions/YTSystem";
 import { IdeaStills, type IdeaProps } from "./IdeaStills";
 import { LibraryProof, type ProofProps } from "./library/LibraryProof";
+import { Storyboard, type SBProps } from "./storyboard/Storyboard";
 import { MARKUP_DEMO_SECONDS, MarkupDemo, type FaceTrack } from "./compositions/MarkupDemo";
 import { H, W } from "./brand";
 import type { ReelProps, WideProps } from "./types";
@@ -79,5 +80,7 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="IdeaStills" component={IdeaStills} width={1920} height={1080} fps={30} durationInFrames={1} defaultProps={{ idea: 1, look: "A" } as IdeaProps} />
   {/* LibraryProof: the built animation-library entries (research/ostad/style/ANIMATION_LIBRARY.md); --props='{"piece":"trace"}' --frame=N */}
   <Composition id="LibraryProof" component={LibraryProof} width={1920} height={1080} fps={24} durationInFrames={24 * 5} defaultProps={{ piece: "headline" } as ProofProps} />
+  {/* Storyboard: YouTube v6 proposal stills (edits/exomind-skin/storyboard/STORYBOARD.md); --props='{"id":"F01A","font":"proposal"}' */}
+  <Composition id="Storyboard" component={Storyboard} width={1920} height={1080} fps={24} durationInFrames={1} defaultProps={{ id: "F01A", font: "proposal" } as SBProps} />
   </>
 );
