@@ -424,3 +424,38 @@ Probe notes:
   - `track_full.json.gz` (gitignored, 21 MB): all 478 landmarks, raw and smoothed.
   - `track_check.jpg` (gitignored, his face): 12 frames with the mesh, named points and boxes. Checked: points sit on the features, and the head-top dot sits on the hair crown.
 - **Helper:** `brand/remotion/src/devices/track.ts`: `useTrack`, `srcFrameAt`, `landmark`, `follow` (gives Markup's `P`), `pose`, `faceBox`, `faceSafeRect`, `intersects`, `LAYERS`. It reads `public/exomind-skin/track.json`, a gitignored copy of the committed file.
+
+## 14h. Device library from the reference study: 79 ids, arrows and text entries measured frame by frame (2026-11-17)
+
+`DEVICE_LIBRARY.md` (DESIGN_PER_BEAT §2) lists every distinct device in the reference study, each with a stable kebab-case id that beat sheets, the builder and `tools/variety_check.py` key on. It has §A arrows (13), §T text entries (19) and §D other devices (47). Built status, from a grep of `brand/remotion/src`: 13 built, 33 partial, 33 never.
+
+- **Timings are 24 fps.**
+  - Measured values come from `easing.json` / `text_elements.json` / `graphic_elements.json`, via the new `tools/device_stats.py` → `measure/_devices/entry_stats.json` (committed: JSON only).
+  - Others are frame counts off the reference sheets (G1–G4, DDOS read files), or new frame-by-frame crops.
+  - Anything only seen on a sheet is marked E (estimated).
+- **Corpus norm (text):**
+  - rise: 11.2 f, 4.2 % H (n 2,187)
+  - side slide: 9 f
+  - scale pop: 5 f
+  - type-on: 5.6 f
+  - Overshoot shares are upper bounds (OCR jitter). No frame-counted entry overshoots.
+  - Our `arrive` (14 f, 1.5 % H) travels a third as far. `settle` (48 f) is slower than any reference text entry, so word-tied lines should never use it.
+- **Arrows:**
+  - No reference uses a dot-plus-line as an arrow. The headed arrows found are a curved callout, dashed flow, straight pointer, zigzag trend, arc connector, glyph delta, light ribbon, orbit arcs, hand-drawn, marker ticks, route trace and elbow connectors.
+  - The head always lands on the last draw frame, with no overshoot (GMu3 7 f, WZ 7 f, GRM 10 f, D_bh 26 f).
+  - Only the ribbon and orbit arcs keep moving while held. That is the model for our "alive" hold.
+- **Sheets:**
+  - `exomind/ref_arrows.jpg` and `exomind/ref_type_entries.jpg`, made with the new `tools/ref_device_sheet.py` from `tools/sheet_specs/*.json`.
+  - They are crops of other creators' footage, so they stay gitignored: `research/ostad/style/exomind/ref_*.jpg`. That rule landed in 9419ccf together with the head-track lines, because both agents edited `.gitignore` at the same time.
+- **ExoMind shortlist** (10, in the file):
+  - phone-message-arrives
+  - intake-form-fill
+  - timeline-markers
+  - region-light-on-model
+  - arrow-orbit-arc / arrow-light-ribbon
+  - flow-diagram-build with real arrows
+  - mechanism-on-real-image
+  - portrait-pip-circle
+  - chapter-title-card + wordmark-depth-sandwich
+  - radial-leader-callouts
+- **Not done:** the Are.na connected channels stay context, not corpus (DEC 6). Not every one of the ~2,900 sheets was opened. Devices come from the read files' catalogues (which were read sheet by sheet), plus new looks at the GLP-1 ad, Ro, the three single posts, grove, drjc, colin and all 56 Are.na blocks.
