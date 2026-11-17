@@ -72,7 +72,7 @@ export const DonutRingFill: React.FC<DonutProps> = ({ start = 30, labelsAt = 46,
         const lq = p(f, la, 3, ease.arrive);
         return (
           <React.Fragment key={i}>
-            <RoundWindow at={la} {...s.chip} x={x} y={y} d={d} out={exitAt} phase={i * 1.7} />
+            <RoundWindow at={la} {...s.chip} x={x} y={y} d={d} out={exitAt} phase={i * 1.7} push={0.14} life={84} />{/* gap round 1: pushes 14 % for its whole life (motion_easing.md: ceg 0.11 / 12 f read as still) */}
             {f >= la && <div style={{ position: "absolute", left: x + d / 2, top: y + d + 18, transform: `translateX(-50%) translateY(${(1 - io(lq)) * 12}px)`, opacity: lq * (1 - ret), ...caps(28, C.ink), whiteSpace: "nowrap" }}>{s.label}</div>}
           </React.Fragment>
         );

@@ -240,14 +240,15 @@ export const B16Emotions: React.FC<{ tail: (lf: number) => Pt }> = ({ tail }) =>
 export const B17MoaHead: React.FC<{ dur: number }> = ({ dur }) => {
   const f = useCurrentFrame();
   const chipQ = p(f, 66, 6, ease.arrive);
-  const lit = { x: 1079, y: 525 }; // the lit region with the film anchored left (was 925 at a centre origin: +0.16 x 960)
+  // the lit region (film px 930, 453) carried through the film's push: screen = -30u + s * film, s = 1.16 + 0.07u, u = f / dur
+  const litAt = (lf: number) => { const u = cl(lf / dur), k = 1.16 + 0.07 * u; return { x: -30 * u + k * 930, y: k * 453 }; };
   return (
     <AbsoluteFill style={{ background: "#0b1220" }}>
       <OffthreadVideo src={src("exomind-skin/btl/video/Exomind_VIDEO_Mechanism-of-Action_ENNA101.mp4")} muted startFrom={Math.round(49.0 * 24)}
-        style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, transform: `scale(${1.16 + 0.02 * cl(f / dur)})`, transformOrigin: "0% 0%" }} />{/* left-anchored: the film's EXOMIND mark stays whole, its BTL emblem falls off the right */}
+        style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, transform: `translateX(${-30 * cl(f / dur)}px) scale(${1.16 + 0.07 * cl(f / dur)})`, transformOrigin: "0% 0%" }} />{/* left-anchored: the film's EXOMIND mark stays whole, its BTL emblem falls off the right */}
       <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 320, background: "linear-gradient(180deg, rgba(11,18,32,0), rgba(11,18,32,.55))" }} />
       <SectionOver num="04" title="The technology" />
-      <Arrow variant="orbit-arc" from={lit} to={{ x: lit.x + 150, y: lit.y + 40 }} bend={0.78} start={50} end={dur - 1} color={C.blue} />
+      <Arrow variant="orbit-arc" from={litAt} to={(lf: number) => { const c = litAt(lf); return { x: c.x + 150, y: c.y + 40 }; }} bend={0.78} start={50} end={dur - 1} color={C.blue} />
       {f >= 66 && (
         <div style={{ position: "absolute", left: 1330, top: 300, opacity: chipQ, transform: `scale(${0.95 + 0.05 * chipQ})`, transformOrigin: "0% 50%", padding: "16px 26px", borderRadius: 999,
           background: "rgba(255,255,255,.14)", backdropFilter: "blur(16px)", boxShadow: "inset 0 1px 0 rgba(255,255,255,.4), inset 0 0 0 1px rgba(255,255,255,.22)", ...text(34, 500, "#fff"), whiteSpace: "nowrap" }}>Neuroplasticity</div>
