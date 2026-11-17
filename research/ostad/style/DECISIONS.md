@@ -749,3 +749,36 @@ Learning (after the piece):
 - **Before/after: the before frame is IMG_3637 (4:42 PM), not the intro.** The brief asked for the intro "with the same angle where possible". It is not possible: in every intro frame she faces him (yaw 24-43 deg), while the after has her facing the camera (+1 to +27 deg). IMG_3637 is before any injection and 6.5 deg from the after frame. The card says "4:42 PM · before".
 - **Arrows: one, "Fuller cheek"** (measured +19.4 against a 4.5 noise floor, and visible). Laugh lines, marionette lines and jawline get no arrow: no measured or visible change minutes after injecting, and the jaw signal on the right was his glove in the background. Upper face: the neuromodulator was injected after the after clip. Logged in `oct14/ARROWS.md`.
 - **Placement:** in his two-shots the pop-ups sit bottom-left, under his face, with a curved callout to her point. On her close-up the pop-up sits bottom-right, clear of her face. B09's pop-up morphs to the full-frame cannula shot (one continuous shot).
+
+## 14o. ExoMind v6 gap round 1: layout, signifiers, arrows, motion, tracking, audio (2026-11-17)
+
+The single builder fixed the five gap reports (exomind/gap/*.md) in priority order. The before and after numbers are in `exomind/gap/ROUND1.md`. The render was made in place; the old one was copied to "(YouTube v6 pre-gap).mp4".
+
+- **Layout.** He steps out on purpose for:
+  - B04, B11 and B12: full bleed, with him in the tracked circular pip;
+  - B06: the phone centred;
+  - S2 to B09: the waiting room, then a consult | question-box split;
+  - S3;
+  - B15: a full-height split;
+  - S4 to B18: the BTL MOA film, with B18 dissolving in over 8 f.
+
+  Section cards now sit on a picture. Results: fill 14.8 → 40.2 %, takeovers 0.66 → 5.32 /min, longest layout run 13 segments → 3. New rules `variety_check` R13 (layout runs) and R14 (same subject at most 2 beats). R9 now lets him step out for a split or a centred object.
+- **Images.** B03 uses real treated skin (clinic row 741); B08 the treatment room (3601); S2 the waiting room (3614); S3 the reception (3612); B15 BTL Applicator_0108; B17 and B19 the MOA film. No Flora shots remain. Coil-on-patient now appears on B11 and B12 only. B09 has no names.
+- **B16.** The rosacea trigger chart was replaced by "The mind–skin link", which cites Kabat-Zinn et al., Psychosomatic Medicine 1998 (37 psoriasis patients). Marked ⚠ physician-check on the wording.
+- **Arrows.**
+  - One barb head on every arrow.
+  - B02 and B07 rerouted. B07 now runs under the calendar card and up the clear lane between the Wed and Thu times, so it crosses no text.
+  - B12 carries rosacea-style markup on IMG_3714: a callout to the coil pad and a ring on the timer.
+  - New check `tools/arrow_text_lint.py`, which reads TextAudit ARROWTEXT lines: 0 crossings.
+- **Motion.** `arrive` 10 f; x/y moves on `sweep` via `io()`; rise 16 px. B08's form rise is 14 f, with focus eased over 12 f. Exits end by `end_f`. B13 chips push 14 % for their whole life. B15 and B17 move harder (they were measured still at quarter scale).
+- **Tracking.** The B03 tail moved from headTop to templeR + (40, −6): 3.1 / 5.6 / 7.1 px (was 5.1 / 12.8 / 16.1). The pip's source left edge is feathered by a mask ramp. Pip centring max is 3.9 px.
+- **Audio.**
+  - SFX gain 0.32 / 0.16.
+  - `beats.json sfx_map` assigns a sound by event class.
+  - New wavs `exo_draw`, `exo_card` and `exo_chapter` from `tools/make_exo_sfx.py` (the wavs are gitignored; the existing wavs are untouched).
+  - Entry coverage 62.6 → 80.8 %. Loudness −14.1 LUFS / −3.8 dBTP.
+- **Accepted exception.** `reuse_check` fails B12 at 0.023 against YouTube v3 at 12 s. The match is the raw Oct 30 session footage, which is the only session clip, not a reused graphic. Kept, and flagged for Naim.
+- **Still open.**
+  - B11's two halves are two moments of one session and read alike.
+  - The MOA film's EXOMIND mark touches the top edge in S4 / B17.
+  - The velocity-peak re-fit was not re-run.
