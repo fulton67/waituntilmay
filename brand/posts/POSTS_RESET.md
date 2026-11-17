@@ -4,12 +4,14 @@ Grid 3 is scrapped (Naim: "the worst one yet ... the are.na board doesn't look l
 the page isn't cool either ... no aesthetic that is cohesive ... taking screenshots from the videos isn't utilizing the hundreds of
 photos that are in the iCloud"). Don't redo the other 6 carousels in the grid 3 direction.
 
+**Anatomy (correction 2026-11-17):** drawn anatomy is NOT banned. Naim likes drawn anatomy, on its own and drawn over the face,
+in posts and reels; what he rejected was one inaccurate skull. Anatomy drawings must be accurate to a reference (see LESSONS P5).
+
 **Banned in posts:**
 - frame grabs or screenshots from any video
 - screenshots of web pages, press pages or award listings
 - transcript lines as word-by-word captions, and the video caption style in general
 - the video system's pill labels, blue arrows and moving warm background, dropped in as-is
-- drawn anatomy diagrams
 - upscaled small images when a full-size original exists
 - text-heavy tiles, beyond the information layer Naim asked for in round 2 (see Step 3)
 
