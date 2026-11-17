@@ -8,7 +8,7 @@ def st(a):
     return {"n": int(len(a)), "median": q(a, 50), "p95": q(a, 95), "max": round(float(a.max()), 2)} if len(a) else {"n": 0}
 res = {}
 # 1. arrow tail (the tracked end) vs the measured landmark + the composition's offset
-arrows = {"B03": dict(lm="headTop", off=(0, -24), vis=(188, 262), held=(195, 255)),
+arrows = {"B03": dict(lm="templeR", off=(40, -6), vis=(190, 254), held=(198, 247)),  # gap round 1: B03 tail moved from headTop to templeR
           "B16": dict(lm="templeR", off=(40, -6), vis=(1655, 1709), held=(1662, 1702))}
 per = {}
 for k, a in arrows.items():

@@ -39,6 +39,7 @@ def sfx(bid, rows, hero):
 def layer(asset, box, f0, f1, subject):
     return {"asset": asset, "box": box, "from_f": f0, "to_f": f1, "subject": subject}
 
+# chip boxes: the inner 140 px of each orbiting chip at B13 local f90 (ring rot -55 deg, chip radius 378 px round (1360, 476))
 # ---------------------------------------------------------------------------------------------------------------- per beat
 B["B01"].update(layout="LT")
 sfx("B01", [(3, "reveal"), (26, "chip")], (3, "reveal"))
@@ -146,9 +147,9 @@ b["assets"] = [{"kind": "image", "src": "clinic: clinic-library row 3612, the re
                {"kind": "image", "src": "BTL MOA film 98 s, the lit brain (mind chip) -> btl/web/moa_brainlit_98s.jpg", "source": "moa"}]
 b["compliance"] = dict(b.get("compliance", {}), moa_label=True)
 b["image_layers"] = [layer("clinic/reception_03612.jpg", [0, 0, 1920, 1080], s, s + 29, "clinic_reception_3612"),
-                     layer("clinic/ceg_ferulic.jpg", [1500, 180, 140, 140], s + 47, s + 135, "ceg_ferulic"),
-                     layer("clinic/cb_00451.jpg", [1560, 560, 140, 140], s + 47, s + 135, "clinic_cb_451"),
-                     layer("btl/web/moa_brainlit_98s.jpg", [960, 380, 140, 140], s + 47, s + 135, "btl_moa_head")]
+                     layer("clinic/ceg_ferulic.jpg", [1323, 29, 140, 140], s + 47, s + 135, "ceg_ferulic"),
+                     layer("clinic/cb_00451.jpg", [1600, 623, 140, 140], s + 47, s + 135, "clinic_cb_451"),
+                     layer("btl/web/moa_brainlit_98s.jpg", [947, 566, 140, 140], s + 47, s + 135, "btl_moa_head")]
 ev("B13", [(0, "again", "S3 'Total skin health' on the reception, full frame"), (30, "excited", "picture cut back to him; the ring track arrives"),
            (47, "creating", "labels fan out, chips (moving: 8 % push + pan)"), (59, "comprehensive", "segments fill clockwise"),
            (95, "total", "centre words light 95 / 104 / 112"), (104, "skin", "disclaimer"), (128, "(exit)", "segments retract")])
@@ -220,6 +221,14 @@ for c in d["cards"]:
         c["layout"] = "LC"
         c["sfx"] = [[c["start_f"], "card"], [c["start_f"] + 26, "draw"]]
         c["sfx_hero"] = [c["start_f"], "card"]
+# key frames (stills sheet, reuse_check): a held frame of each beat on the new layout; full-frame layouts hash the full-bleed area
+KF = {"B01": 60, "B02": 140, "B03": 230, "B04": 380, "B05": 500, "B06": 620, "B07": 735, "B08": 840, "B09": 960, "B10": 1040, "B11": 1150,
+      "B12": 1225, "B13": 1340, "B14": 1420, "B15": 1530, "B16": 1690, "B17": 1790, "B18": 1830, "B19": 1930, "B20": 2050}
+for b in d["beats"]:
+    kf = b.setdefault("keyframe", {})
+    kf["f"] = KF[b["id"]]
+    if b.get("layout") in ("FB", "SPLIT", "CO"):
+        kf["crop"] = [0, 0, 1920, 860]
 for b in d["beats"]:
     b["never_built_devices"] = [x for x in b.get("never_built_devices", []) if x in b["devices"]]
 
