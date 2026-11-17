@@ -17,3 +17,4 @@ positions, before/after gate, rhythm, page, token + contrast lint).
 | Date | Piece | Checks | Client | Notes |
 |---|---|---|---|---|
 | 2026-11-17 | Oct 14 injection reel, devices stage (`style/oct14/LAB.md`) | lab: pip reveal +0/+1 f, 0 px overshoot, point never covered; before/after push lands on word +1; static min 0.80; 0 flashes; lint PASS | not shown | footage pending (tmp\oct14); NOT FOR POSTING until patient consent = yes |
+| 2026-11-17 | Oct 14 injections, by area (`style/oct14/BEATS.md`), 93.9 s | variety PASS; lint PASS; static PASS; dup lines 0 (max sim 0.27); area line->injection <= 1 beat; captions median 0 f; reveals median +1 f; -14.2 LUFS; 0 flashes; name words 0 | not shown | before = 4:42 PM clip (intro angle 45 deg off); one arrow (cheek): NOT FOR POSTING until patient consent = yes |

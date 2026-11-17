@@ -1,0 +1,210 @@
+{
+ "nasoL": {
+  "ridge_before": 1.346,
+  "ridge_after": 2.005,
+  "shadow_before": -22.014,
+  "shadow_after": -14.483,
+  "ridge_change": 0.658,
+  "shadow_change": 7.531,
+  "noise_ridge": 0.289,
+  "noise_shadow": 6.122,
+  "ridge_improves": false,
+  "shadow_improves": false,
+  "ellipse_px": [
+   15.4,
+   26.3
+  ]
+ },
+ "marioL": {
+  "ridge_before": 0.61,
+  "ridge_after": 0.876,
+  "shadow_before": -36.329,
+  "shadow_after": -36.4,
+  "ridge_change": 0.266,
+  "shadow_change": -0.072,
+  "noise_ridge": 0.173,
+  "noise_shadow": 4.914,
+  "ridge_improves": false,
+  "shadow_improves": false,
+  "ellipse_px": [
+   15.4,
+   21.9
+  ]
+ },
+ "lipCL": {
+  "ridge_before": 9.395,
+  "ridge_after": 10.955,
+  "shadow_before": -45.822,
+  "shadow_after": -48.289,
+  "ridge_change": 1.56,
+  "shadow_change": -2.467,
+  "noise_ridge": 0.641,
+  "noise_shadow": 3.568,
+  "ridge_improves": false,
+  "shadow_improves": false,
+  "ellipse_px": [
+   11.0,
+   11.0
+  ]
+ },
+ "jawL": {
+  "ridge_before": 0.562,
+  "ridge_after": 0.796,
+  "shadow_before": -59.358,
+  "shadow_after": -63.295,
+  "ridge_change": 0.234,
+  "shadow_change": -3.937,
+  "noise_ridge": 0.095,
+  "noise_shadow": 5.038,
+  "ridge_improves": false,
+  "shadow_improves": false,
+  "ellipse_px": [
+   17.6,
+   17.6
+  ]
+ },
+ "cheekL": {
+  "ridge_before": 1.383,
+  "ridge_after": 1.68,
+  "shadow_before": -27.565,
+  "shadow_after": -8.143,
+  "ridge_change": 0.297,
+  "shadow_change": 19.422,
+  "noise_ridge": 0.006,
+  "noise_shadow": 4.494,
+  "ridge_improves": false,
+  "shadow_improves": true,
+  "ellipse_px": [
+   21.9,
+   19.7
+  ]
+ },
+ "malarL": {
+  "ridge_before": 0.807,
+  "ridge_after": 0.57,
+  "shadow_before": -10.624,
+  "shadow_after": 5.27,
+  "ridge_change": -0.237,
+  "shadow_change": 15.894,
+  "noise_ridge": 0.21,
+  "noise_shadow": 6.179,
+  "ridge_improves": false,
+  "shadow_improves": false,
+  "ellipse_px": [
+   19.7,
+   15.4
+  ]
+ },
+ "nasoR": {
+  "ridge_before": 3.064,
+  "ridge_after": 3.359,
+  "shadow_before": -8.846,
+  "shadow_after": -23.475,
+  "ridge_change": 0.295,
+  "shadow_change": -14.63,
+  "noise_ridge": 0.841,
+  "noise_shadow": 0.082,
+  "ridge_improves": false,
+  "shadow_improves": false,
+  "ellipse_px": [
+   15.4,
+   26.3
+  ]
+ },
+ "marioR": {
+  "ridge_before": 4.133,
+  "ridge_after": 4.634,
+  "shadow_before": -21.713,
+  "shadow_after": -25.933,
+  "ridge_change": 0.501,
+  "shadow_change": -4.221,
+  "noise_ridge": 3.787,
+  "noise_shadow": 8.844,
+  "ridge_improves": false,
+  "shadow_improves": false,
+  "ellipse_px": [
+   15.4,
+   21.9
+  ]
+ },
+ "lipCR": {
+  "ridge_before": 11.245,
+  "ridge_after": 12.359,
+  "shadow_before": -35.041,
+  "shadow_after": -46.595,
+  "ridge_change": 1.114,
+  "shadow_change": -11.554,
+  "noise_ridge": 2.105,
+  "noise_shadow": 2.008,
+  "ridge_improves": false,
+  "shadow_improves": false,
+  "ellipse_px": [
+   11.0,
+   11.0
+  ]
+ },
+ "jawR": {
+  "ridge_before": 3.545,
+  "ridge_after": 1.826,
+  "shadow_before": -6.233,
+  "shadow_after": -21.398,
+  "ridge_change": -1.719,
+  "shadow_change": -15.165,
+  "noise_ridge": 0.044,
+  "noise_shadow": 10.224,
+  "ridge_improves": true,
+  "shadow_improves": false,
+  "ellipse_px": [
+   17.6,
+   17.6
+  ]
+ },
+ "cheekR": {
+  "ridge_before": 1.793,
+  "ridge_after": 2.687,
+  "shadow_before": 0.093,
+  "shadow_after": -11.917,
+  "ridge_change": 0.894,
+  "shadow_change": -12.009,
+  "noise_ridge": 0.624,
+  "noise_shadow": 22.057,
+  "ridge_improves": false,
+  "shadow_improves": false,
+  "ellipse_px": [
+   21.9,
+   19.7
+  ]
+ },
+ "malarR": {
+  "ridge_before": 2.201,
+  "ridge_after": 2.498,
+  "shadow_before": 19.686,
+  "shadow_after": -15.557,
+  "ridge_change": 0.297,
+  "shadow_change": -35.244,
+  "noise_ridge": 0.202,
+  "noise_shadow": 3.153,
+  "ridge_improves": false,
+  "shadow_improves": false,
+  "ellipse_px": [
+   19.7,
+   15.4
+  ]
+ },
+ "chin": {
+  "ridge_before": 1.903,
+  "ridge_after": 2.178,
+  "shadow_before": -46.927,
+  "shadow_after": -46.569,
+  "ridge_change": 0.276,
+  "shadow_change": 0.358,
+  "noise_ridge": 0.268,
+  "noise_shadow": 10.177,
+  "ridge_improves": false,
+  "shadow_improves": false,
+  "ellipse_px": [
+   26.3,
+   17.6
+  ]
+ }
+}

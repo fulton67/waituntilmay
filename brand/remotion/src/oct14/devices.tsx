@@ -62,6 +62,9 @@ export const Badge: React.FC<{ n: number; s: number; out?: number; x: number; y:
 export type PipSpec = {
   n: number; label: string; s: number; out: number; park?: number; anchor: PtSrc;
   clip: string; clipFrom?: number; rate?: number; srcW?: number; srcH?: number; focus?: { fx: number; fy: number; z: number }; box?: Box; eyebrow?: string;
+  // morph: instead of collapsing back into its point, the window grows to the full frame over the last `morph` 26 f before `out`
+  // (card-full-morph, MOTION §4.2), handing over to the same shot full frame in the next piece; arrow: the pointer variant
+  morph?: boolean; arrow?: "curved-callout" | "straight-pointer";
 };
 export const PIP = { w: 380, ring: 28, labelH: 120, gap: 26 };
 
@@ -72,27 +75,33 @@ export const pipBox = (a: Pt, w = PIP.w, aspect = 16 / 9): Box => {
   return { x, y, w, h };
 };
 
-export const InjectionPip: React.FC<PipSpec> = ({ n, label, s, out, park = out, anchor, clip, clipFrom = 0, rate = 1, srcW = 1080, srcH = 1920, focus = { fx: 0.5, fy: 0.5, z: 1 }, box, eyebrow }) => {
+export const InjectionPip: React.FC<PipSpec> = ({ n, label, s, out, park = out, anchor, clip, clipFrom = 0, rate = 1, srcW = 1080, srcH = 1920, focus = { fx: 0.5, fy: 0.5, z: 1 }, box, eyebrow, morph = false, arrow = "curved-callout" }) => {
   const frame = useCurrentFrame();
   if (frame <= s) return null;
   const r0 = s + 1;
   const A = at(anchor, frame);
   const B = box ?? pipBox(at(anchor, r0), PIP.w, srcH / srcW);
-  const grow = p(frame, r0, D.arrive, "arrive"), shut = p(frame, out, D.exit, "exit");
+  const mS = out - D.morph; // morph start
+  const grow = p(frame, r0, D.arrive, "arrive"), shut = morph ? 0 : p(frame, out, D.exit, "exit");
   const k = grow * (1 - shut);
-  const showWin = frame < out + D.exit;
+  const showWin = morph ? frame < out : frame < out + D.exit;
+  const mq = morph ? p(frame, mS, D.morph, "morph") : 0;
+  const lout = morph ? mS : out; // when the label, badge and arrow leave
   // the window rect grows out of a small rect centred on the point and goes back into it
   const s0 = { w: 54, h: 54 * (B.h / B.w) };
   const dx = breathe(frame, 3, 140), dy = breathe(frame, 2, 170, 1);
-  const R = { x: lerp(A.x - s0.w / 2, B.x + dx, k), y: lerp(A.y - s0.h / 2, B.y + dy, k), w: lerp(s0.w, B.w, k), h: lerp(s0.h, B.h, k) };
+  const R0 = { x: lerp(A.x - s0.w / 2, B.x + dx, k), y: lerp(A.y - s0.h / 2, B.y + dy, k), w: lerp(s0.w, B.w, k), h: lerp(s0.h, B.h, k) };
+  const R = { x: lerp(R0.x, 0, mq), y: lerp(R0.y, 0, mq), w: lerp(R0.w, W, mq), h: lerp(R0.h, H, mq) };
   // the clip, covering the window around its focus point
-  const sc = (R.w * focus.z) / srcW, cw = srcW * sc, ch = srcH * sc;
-  const left = Math.min(0, Math.max(R.w - cw, R.w / 2 - focus.fx * cw)), top = Math.min(0, Math.max(R.h - ch, R.h / 2 - focus.fy * ch));
+  // the focus zoom eases back to the whole frame during a morph, so the window lands exactly on the full-frame shot that follows
+  const fz = lerp(focus.z, 1, mq), ffx = lerp(focus.fx, 0.5, mq), ffy = lerp(focus.fy, 0.5, mq);
+  const sc = (R.w * fz) / srcW, cw = srcW * sc, ch = srcH * sc;
+  const left = Math.min(0, Math.max(R.w - cw, R.w / 2 - ffx * cw)), top = Math.min(0, Math.max(R.h - ch, R.h / 2 - ffy * ch));
   // arrow: from the window edge facing the point to just outside the ring
   const towardPip = B.x > A.x ? 1 : -1;
   const from = (f: number): Pt => { const a = at(anchor, f); return { x: towardPip > 0 ? B.x + dx - 14 : B.x + B.w + dx + 14, y: Math.max(B.y + 60, Math.min(B.y + B.h - 60, a.y - 40)) }; };
   const to = (f: number): Pt => { const a = at(anchor, f), fr = from(f), ux = fr.x - a.x, uy = fr.y - a.y, l = Math.hypot(ux, uy) || 1; return { x: a.x + (ux / l) * (PIP.ring + 12), y: a.y + (uy / l) * (PIP.ring + 12) }; };
-  const ring = p(frame, r0, 10, "sweep") * (1 - p(frame, park, D.exit, "exit"));
+  const ring = p(frame, r0, 10, "sweep") * (1 - p(frame, morph ? mS : park, D.exit, "exit"));
   return (
     <AbsoluteFill>
       {/* the ring on the exact point (the PointMarker takes over after the window closes) */}
@@ -100,20 +109,20 @@ export const InjectionPip: React.FC<PipSpec> = ({ n, label, s, out, park = out, 
         <circle cx={A.x} cy={A.y} r={PIP.ring} fill="none" stroke={WHITE} strokeWidth={3.5} pathLength={1} strokeDasharray={`${ring} 1`} transform={`rotate(-90 ${A.x} ${A.y})`} />
       </svg>
       {showWin && (
-        <div style={{ position: "absolute", left: R.x, top: R.y, width: R.w, height: R.h, borderRadius: Math.max(8, 0.02 * R.w * 2), overflow: "hidden", opacity: Math.min(1, grow * 2.2) * (1 - shut * 0.6),
-          background: "#11151d", boxShadow: "0 0 0 3px rgba(255,255,255,.95), 0 24px 60px -18px rgba(8,12,22,.6), 0 4px 12px rgba(8,12,22,.25)" }}>
+        <div style={{ position: "absolute", left: R.x, top: R.y, width: R.w, height: R.h, borderRadius: Math.max(8, 0.02 * R0.w * 2) * (1 - mq), overflow: "hidden", opacity: Math.min(1, grow * 2.2) * (1 - shut * 0.6),
+          background: "#11151d", boxShadow: `0 0 0 ${3 * (1 - mq)}px rgba(255,255,255,.95), 0 24px 60px -18px rgba(8,12,22,${0.6 * (1 - mq)}), 0 4px 12px rgba(8,12,22,${0.25 * (1 - mq)})` }}>
           <Sequence from={r0} layout="none">
             <Media src={clip} trimBefore={Math.round(clipFrom * 24)} rate={rate} style={{ left, top, width: cw, height: ch }} />
           </Sequence>
         </div>
       )}
-      {showWin && <Badge n={n} s={s + 6} out={out} x={R.x + 40 * (R.w / B.w)} y={R.y + 40 * (R.w / B.w)} />}
-      <Arrow variant="curved-callout" from={from} to={to} start={r0 + 10} end={out + D.exit} color={WHITE} weight={6} bend={towardPip * 0.22} />
+      {showWin && <Badge n={n} s={s + 6} out={lout} x={R0.x + 40 * (R0.w / B.w)} y={R0.y + 40 * (R0.w / B.w)} />}
+      <Arrow variant={arrow} from={from} to={to} start={r0 + 10} end={lout + D.exit} color={WHITE} weight={6} bend={arrow === "curved-callout" ? towardPip * 0.22 : 0} />
       <div style={{ position: "absolute", left: B.x, width: B.w, top: B.y + B.h + PIP.gap, textShadow: ON_FOOTAGE }}>
-        {eyebrow && <div style={{ ...caps(24, "rgba(255,255,255,.92)"), marginBottom: 8, ...life(frame, r0 + 4, out, 8) }}>{eyebrow}</div>}
-        <Typed text={label} s={r0 + 4} out={out} style={{ ...disp(44, WHITE) }} />
+        {eyebrow && <div style={{ ...caps(24, "rgba(255,255,255,.92)"), marginBottom: 8, ...life(frame, r0 + 4, lout, 8) }}>{eyebrow}</div>}
+        <Typed text={label} s={r0 + 4} out={lout} style={{ ...disp(44, WHITE) }} />
       </div>
-      {frame >= out && <PointMarker n={n} s={out} out={park} anchor={anchor} away={towardPip} />}
+      {!morph && frame >= out && <PointMarker n={n} s={out} out={park} anchor={anchor} away={towardPip} />}
     </AbsoluteFill>
   );
 };

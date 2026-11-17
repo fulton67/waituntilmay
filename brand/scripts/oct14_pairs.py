@@ -32,6 +32,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PUB = ROOT / "brand/remotion/public/oct14"
 EDIT = ROOT / "brand/edits/oct14-injection"
 MODEL = "C:/Users/naimj/tools/models/face_landmarker.task"
+BROLE, BFACE = "pre1", "left"  # before = IMG_3637 (16:42, before any injection): the intro has her turned ~30 deg toward him (DECISIONS 16)
 STABLE = [33, 133, 362, 263, 168, 6, 197, 1, 10, 151, 9, 70, 300]
 sys.path.insert(0, str(ROOT / "brand/scripts"))
 from oct14_track import named  # noqa: E402
@@ -63,10 +64,14 @@ def detect(img, face="largest"):
         return None
     c = [(np.array([[p.x * w, p.y * h] for p in f]), pose(r.facial_transformation_matrixes[i].data if hasattr(r.facial_transformation_matrixes[i], "data") else r.facial_transformation_matrixes[i]))
          for i, f in enumerate(r.face_landmarks)]
+    # left / right = the patient's half of the frame: a face whose nose tip is on the other half is never taken (in a one-face
+    # frame that face is the doctor's: the first pick took his face at intro 46 s)
     if face == "left":
-        return min(c, key=lambda q: q[0][1, 0])
+        c = [q for q in c if q[0][1, 0] < w / 2]
+        return min(c, key=lambda q: q[0][1, 0]) if c else None
     if face == "right":
-        return max(c, key=lambda q: q[0][1, 0])
+        c = [q for q in c if q[0][1, 0] > w / 2]
+        return max(c, key=lambda q: q[0][1, 0]) if c else None
     return max(c, key=lambda q: np.ptp(q[0][:, 0]) * np.ptp(q[0][:, 1]))
 
 
@@ -96,15 +101,15 @@ def sim(src, dst):
     return M, float(np.sqrt(((pr - dst[STABLE]) ** 2).sum(1)).mean())
 
 
-def pick(brng=None, arng=None, face="largest"):
-    B = [(f, i, detect(i, face)) for f, i in frames("intro", 4, brng)]
-    A = [(f, i, detect(i, face)) for f, i in frames("after", 4, arng)]
+def pick(brng=None, arng=None, bface="largest", aface="largest"):
+    B = [(f, i, detect(i, bface)) for f, i in frames(BROLE, 4, brng)]
+    A = [(f, i, detect(i, aface)) for f, i in frames("after", 4, arng)]
     B = [(f, i, d, sharp(i, d[0])) for f, i, d in B if d is not None]
     A = [(f, i, d, sharp(i, d[0])) for f, i, d in A if d is not None]
     sb, sa = np.median([x[3] for x in B]), np.median([x[3] for x in A])
     best = None
     for fb, ib, db, shb in B:
-        if shb < 0.8 * sb or abs(db[1][0]) > 12:
+        if shb < 0.8 * sb:
             continue
         for fa, ia, da, sha in A:
             if sha < 0.8 * sa:
@@ -126,7 +131,7 @@ def pick(brng=None, arng=None, face="largest"):
     pts_b = {k: [round(float(v[0]), 1), round(float(v[1]), 1)] for k, v in named(db[0]).items()}
     pts_a = {k: [round(float(v[0]), 1), round(float(v[1]), 1)] for k, v in named(La).items()}
     face_w = float(np.ptp(db[0][:, 0]))
-    out = {"before_frame": fb, "after_frame": fa, "before_s": round(fb / 24, 2), "after_s": round(fa / 24, 2), "score": round(float(score), 2),
+    out = {"before_role": BROLE, "before_frame": fb, "after_frame": fa, "before_s": round(fb / 24, 2), "after_s": round(fa / 24, 2), "score": round(float(score), 2),
            "pose_before": [round(float(x), 1) for x in db[1]], "pose_after": [round(float(x), 1) for x in da[1]], "pose_diff_deg": [round(float(x), 1) for x in dp],
            "align_residual_px": round(res, 2), "transform": M.tolist(), "face_width_px": round(face_w, 1), "w": w, "h": h, "pts_before": pts_b, "pts_after_aligned": pts_a,
            "face_box": [float(db[0][:, 0].min()), float(db[0][:, 1].min()), float(db[0][:, 0].max()), float(db[0][:, 1].max())]}
@@ -186,8 +191,8 @@ def measure(keys):
     gb, ga = gain_match(b, a, face)
     m = metrics(gb, ga, masks, ref, k)
     # noise floor: two BEFORE frames 1-3 s apart, aligned the same way
-    cap = cv2.VideoCapture(str(PUB / "intro.mp4"))
-    Lb = detect(b)[0]
+    cap = cv2.VideoCapture(str(PUB / f"{BROLE}.mp4"))
+    Lb = detect(b, BFACE)[0]
     noise = {n: [] for n in m}
     for off in (24, 48, 72, -24, -48):
         f2 = P["before_frame"] + off
@@ -195,7 +200,7 @@ def measure(keys):
             continue
         cap.set(cv2.CAP_PROP_POS_FRAMES, f2)
         ok, im2 = cap.read()
-        d2 = detect(im2) if ok else None
+        d2 = detect(im2, BFACE) if ok else None
         if d2 is None:
             continue
         M, _ = sim(d2[0], Lb)
@@ -239,6 +244,7 @@ if __name__ == "__main__":
     cmd = sys.argv[1]
     arg = lambda k: [float(x) for x in sys.argv[sys.argv.index(k) + 1].split(",")] if k in sys.argv else None
     if cmd == "pick":
-        pick(arg("--before"), arg("--after"), sys.argv[sys.argv.index("--face") + 1] if "--face" in sys.argv else "largest")
+        opt = lambda k: sys.argv[sys.argv.index(k) + 1] if k in sys.argv else "largest"
+        pick(arg("--before"), arg("--after"), opt("--bface"), opt("--aface"))
     else:
         measure(sys.argv[2].split(","))

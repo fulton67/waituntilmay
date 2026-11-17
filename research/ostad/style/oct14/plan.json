@@ -1,0 +1,930 @@
+{
+ "speed": 1.15,
+ "raw_s": 104.45,
+ "runtime_s": 93.83,
+ "target_s": [
+  85,
+  95
+ ],
+ "pieces": 16,
+ "duplicates": {
+  "pairs": 120,
+  "max_ratio": {
+   "a": "intro-midface",
+   "b": "intro-cheeks",
+   "ratio": 0.27,
+   "trigram_jaccard": 0.074
+  },
+  "fails": []
+ },
+ "adjacency": {
+  "S1": {
+   "piece": "intro-dynamic",
+   "how": "pip: IMG_3657 (neuro) 0:04, the frown injection, at her glabella",
+   "beats_from_line": 0
+  },
+  "S1b": {
+   "piece": "neuro-more-less",
+   "how": "full frame: IMG_3657 1:37, injecting the crow's feet, his line said while injecting",
+   "beats_from_line": 0
+  },
+  "S2": {
+   "piece": "inj2-syringe",
+   "how": "pip: IMG_3641 (inj1) 0:06, the cheek injection, at her outer cheekbone",
+   "beats_from_line": 0
+  },
+  "S3": {
+   "piece": "after-smooth",
+   "how": "pip: IMG_3653 (inj6) cannula, at her laugh line; morphs into the full-frame bruising line",
+   "beats_from_line": 0
+  }
+ },
+ "order": [
+  "intro-patient",
+  "intro-typical",
+  "intro-dynamic",
+  "neuro-more-less",
+  "intro-lasts",
+  "intro-onset-vs-filler",
+  "intro-midface",
+  "intro-deflation",
+  "intro-cheeks",
+  "inj2-syringe",
+  "inj5-less-needed",
+  "after-smooth",
+  "inj6-bruising",
+  "after-summary",
+  "after-15min",
+  "after-lasts"
+ ],
+ "ranking": [
+  {
+   "id": "intro-hi",
+   "clip": "IMG_3640 16:44",
+   "score": 1,
+   "point": "greeting",
+   "kept": false,
+   "reason": "pleasantry",
+   "dur_s": 1.22
+  },
+  {
+   "id": "intro-patient",
+   "clip": "IMG_3640 16:44",
+   "score": 4,
+   "point": "opening",
+   "kept": true,
+   "reason": "the opening the brief asks for",
+   "dur_s": 1.78
+  },
+  {
+   "id": "intro-consent",
+   "clip": "IMG_3640 16:44",
+   "score": 1,
+   "point": "thanks",
+   "kept": false,
+   "reason": "thanks for filming; not information (consent to film is not consent to post)",
+   "dur_s": 5.58
+  },
+  {
+   "id": "intro-typical",
+   "clip": "IMG_3640 16:44",
+   "score": 5,
+   "point": "presents",
+   "kept": true,
+   "reason": "what a typical patient presents with: forehead and frown lines",
+   "dur_s": 5.96
+  },
+  {
+   "id": "intro-frown",
+   "clip": "IMG_3640 16:44",
+   "score": 3,
+   "point": "frown",
+   "kept": false,
+   "reason": "shows the frown line, but 'frown lines' is already said in intro-typical",
+   "dur_s": 2.09
+  },
+  {
+   "id": "intro-dynamic",
+   "clip": "IMG_3640 16:44",
+   "score": 5,
+   "point": "dynamic",
+   "kept": true,
+   "reason": "crow's feet; why: dynamic lines, seen when expressive; treated with a neuromodulator",
+   "dur_s": 12.9
+  },
+  {
+   "id": "intro-brand",
+   "clip": "IMG_3640 16:44",
+   "score": 2,
+   "point": "neuro-brand",
+   "kept": false,
+   "reason": "his product preference; promotional rather than explanatory",
+   "dur_s": 3.34
+  },
+  {
+   "id": "intro-onset",
+   "clip": "IMG_3640 16:44",
+   "score": 3,
+   "point": "neuro-brand",
+   "kept": false,
+   "reason": "faster onset, longer lasting: a product claim with no figure; cut for length",
+   "dur_s": 6.62
+  },
+  {
+   "id": "intro-30y",
+   "clip": "IMG_3640 16:44",
+   "score": 2,
+   "point": "neuro-brand",
+   "kept": false,
+   "reason": "experience and preference",
+   "dur_s": 9.32
+  },
+  {
+   "id": "intro-lasts",
+   "clip": "IMG_3640 16:44",
+   "score": 5,
+   "point": "neuro-lasts",
+   "kept": true,
+   "reason": "how long it lasts: four or five months (his figure)",
+   "dur_s": 1.45
+  },
+  {
+   "id": "pre1-lasts",
+   "clip": "IMG_3637 16:42",
+   "score": 4,
+   "point": "neuro-lasts",
+   "kept": false,
+   "reason": "same figure, said before the intro; the intro take is in sequence and on the same shot",
+   "dur_s": 2.29
+  },
+  {
+   "id": "intro-brows",
+   "clip": "IMG_3640 16:44",
+   "score": 4,
+   "point": "neuro-technique",
+   "kept": false,
+   "reason": "too much in the forehead drops the brows; same point as the take he gives while injecting",
+   "dur_s": 9.26
+  },
+  {
+   "id": "intro-elsewhere",
+   "clip": "IMG_3640 16:44",
+   "score": 2,
+   "point": "neuro-technique",
+   "kept": false,
+   "reason": "anecdote about other clinics",
+   "dur_s": 9.5
+  },
+  {
+   "id": "neuro-units",
+   "clip": "IMG_3657 16:57",
+   "score": 3,
+   "point": "neuro-technique",
+   "kept": false,
+   "reason": "units = the amount; setup for the next line",
+   "dur_s": 7.84
+  },
+  {
+   "id": "neuro-strategic",
+   "clip": "IMG_3657 16:57",
+   "score": 4,
+   "point": "neuro-technique",
+   "kept": false,
+   "reason": "strategic placement for smoothing and brow lift; long with pauses",
+   "dur_s": 11.82
+  },
+  {
+   "id": "neuro-more-less",
+   "clip": "IMG_3657 16:57",
+   "score": 5,
+   "point": "neuro-technique",
+   "kept": true,
+   "reason": "the technique in one line, said while injecting: more where it needs lift, less where it droops",
+   "dur_s": 8.36
+  },
+  {
+   "id": "neuro-12h",
+   "clip": "IMG_3657 16:57",
+   "score": 4,
+   "point": "neuro-onset",
+   "kept": false,
+   "reason": "difference by tomorrow; conflicts in wording with 'a day or two', and lacks the filler contrast",
+   "dur_s": 5.64
+  },
+  {
+   "id": "intro-onset-vs-filler",
+   "clip": "IMG_3640 16:44",
+   "score": 5,
+   "point": "neuro-onset",
+   "kept": true,
+   "reason": "neuromodulator takes a day or two, filler shows right away: also why the after shows only the filler areas",
+   "dur_s": 7.36
+  },
+  {
+   "id": "intro-midface",
+   "clip": "IMG_3640 16:44",
+   "score": 4,
+   "point": "midface",
+   "kept": true,
+   "reason": "names the mid-face concerns: jowling, laugh lines",
+   "dur_s": 5.28
+  },
+  {
+   "id": "intro-deflation",
+   "clip": "IMG_3640 16:44",
+   "score": 5,
+   "point": "laugh-cause",
+   "kept": true,
+   "reason": "why laugh lines form: deflation and soft tissue moving down, not the line itself",
+   "dur_s": 13.75
+  },
+  {
+   "id": "intro-ligaments",
+   "clip": "IMG_3640 16:44",
+   "score": 3,
+   "point": "laugh-cause",
+   "kept": false,
+   "reason": "ligaments not holding the skin: the same cause, said again; cut for length",
+   "dur_s": 2.69
+  },
+  {
+   "id": "inj5-laugh-filled",
+   "clip": "IMG_3652 16:50",
+   "score": 3,
+   "point": "laugh-cause",
+   "kept": false,
+   "reason": "patients want the laugh lines filled: duplicate of intro-deflation's first sentence",
+   "dur_s": 7.02
+  },
+  {
+   "id": "intro-cheeks",
+   "clip": "IMG_3640 16:44",
+   "score": 5,
+   "point": "target-cheeks",
+   "kept": true,
+   "reason": "what he targets: filler in the cheeks",
+   "dur_s": 2.06
+  },
+  {
+   "id": "intro-rejuv",
+   "clip": "IMG_3640 16:44",
+   "score": 3,
+   "point": "target-cheeks",
+   "kept": false,
+   "reason": "the same target restated as a principle",
+   "dur_s": 10.19
+  },
+  {
+   "id": "intro-hollow",
+   "clip": "IMG_3640 16:44",
+   "score": 3,
+   "point": "laugh-cause",
+   "kept": false,
+   "reason": "deflation in the mid cheek: a third take of the cause",
+   "dur_s": 4.23
+  },
+  {
+   "id": "intro-jaw-predict",
+   "clip": "IMG_3640 16:44",
+   "score": 4,
+   "point": "jaw-lift",
+   "kept": false,
+   "reason": "a tiny amount lifts the jawline: the result is shown and said at the end (after-summary)",
+   "dur_s": 4.45
+  },
+  {
+   "id": "intro-overfilled",
+   "clip": "IMG_3640 16:44",
+   "score": 3,
+   "point": "natural",
+   "kept": false,
+   "reason": "patients fear looking overfilled; long; the after says 'not overfilled' again",
+   "dur_s": 16.2
+  },
+  {
+   "id": "intro-plan",
+   "clip": "IMG_3640 16:44",
+   "score": 1,
+   "point": "plan",
+   "kept": false,
+   "reason": "we'll show pictures afterwards: chatter",
+   "dur_s": 4.8
+  },
+  {
+   "id": "inj2-syringe",
+   "clip": "IMG_3642 16:48",
+   "score": 5,
+   "point": "cheek-product",
+   "kept": true,
+   "reason": "the product, the amount and the spot: one syringe of Evolysse Form in the outer cheekbone",
+   "dur_s": 5.92
+  },
+  {
+   "id": "inj5-syringe",
+   "clip": "IMG_3652 16:50",
+   "score": 4,
+   "point": "cheek-product",
+   "kept": false,
+   "reason": "same syringe plus Cold-X / stable / structure: the brand claims are the weaker take",
+   "dur_s": 14.0
+  },
+  {
+   "id": "inj2-jaw",
+   "clip": "IMG_3642 16:48",
+   "score": 4,
+   "point": "jaw-lift",
+   "kept": false,
+   "reason": "jaw raised vs the other side: the same result as after-summary",
+   "dur_s": 7.1
+  },
+  {
+   "id": "inj2-heaviness",
+   "clip": "IMG_3642 16:48",
+   "score": 3,
+   "point": "jaw-lift",
+   "kept": false,
+   "reason": "heaviness lifted: a third take of the jaw lift",
+   "dur_s": 8.78
+  },
+  {
+   "id": "inj2-replenish",
+   "clip": "IMG_3642 16:48",
+   "score": 3,
+   "point": "laugh-cause",
+   "kept": false,
+   "reason": "loss of volume replenished: the cause again, to the patient",
+   "dur_s": 11.51
+  },
+  {
+   "id": "inj5-jaw",
+   "clip": "IMG_3652 16:50",
+   "score": 3,
+   "point": "jaw-lift",
+   "kept": false,
+   "reason": "fuller cheekbones, jaw raised, slimmer: the result before it is finished",
+   "dur_s": 10.96
+  },
+  {
+   "id": "inj5-less-needed",
+   "clip": "IMG_3652 16:50",
+   "score": 5,
+   "point": "laugh-less",
+   "kept": true,
+   "reason": "the payoff of treating the cheeks: the laugh lines improved, so less filler goes in them",
+   "dur_s": 4.16
+  },
+  {
+   "id": "after-less-needed",
+   "clip": "IMG_3656 16:55",
+   "score": 4,
+   "point": "laugh-less",
+   "kept": false,
+   "reason": "same point at the end; the inj5 take is in place in the story",
+   "dur_s": 7.38
+  },
+  {
+   "id": "inj6-pinpricks",
+   "clip": "IMG_3653 16:51",
+   "score": 3,
+   "point": "cannula",
+   "kept": false,
+   "reason": "one entry point vs many: starts mid-sentence ('versus before')",
+   "dur_s": 5.12
+  },
+  {
+   "id": "inj6-cannula",
+   "clip": "IMG_3653 16:51",
+   "score": 4,
+   "point": "cannula",
+   "kept": false,
+   "reason": "we use a cannula under the skin; the bruising line says why, which matters more",
+   "dur_s": 7.22
+  },
+  {
+   "id": "inj6-bruising",
+   "clip": "IMG_3653 16:51",
+   "score": 5,
+   "point": "cannula",
+   "kept": true,
+   "reason": "technique and downtime: a cannula, to minimise bruising",
+   "dur_s": 3.66
+  },
+  {
+   "id": "inj7-chin",
+   "clip": "IMG_3654 16:53",
+   "score": 3,
+   "point": "chin",
+   "kept": false,
+   "reason": "chin recession: named only here, never in the intro, so no area to anchor it to; cut for length",
+   "dur_s": 8.98
+  },
+  {
+   "id": "after-smooth",
+   "clip": "IMG_3656 16:55",
+   "score": 5,
+   "point": "lines-product",
+   "kept": true,
+   "reason": "product handling for the lines: Evolysse Smooth, a hyaluronic acid in the same family",
+   "dur_s": 8.66
+  },
+  {
+   "id": "after-thinner",
+   "clip": "IMG_3656 16:55",
+   "score": 4,
+   "point": "lines-product",
+   "kept": false,
+   "reason": "not as thick as the cheek filler; cut for length",
+   "dur_s": 2.16
+  },
+  {
+   "id": "after-summary",
+   "clip": "IMG_3656 16:55",
+   "score": 5,
+   "point": "result",
+   "kept": true,
+   "reason": "the result named area by area: laugh lines and marionette lines, cheekbone projection, jawline, softer lines",
+   "dur_s": 16.34
+  },
+  {
+   "id": "after-15min",
+   "clip": "IMG_3656 16:55",
+   "score": 5,
+   "point": "time",
+   "kept": true,
+   "reason": "treatment time: about 15 minutes",
+   "dur_s": 3.34
+  },
+  {
+   "id": "after-collagen",
+   "clip": "IMG_3656 16:55",
+   "score": 3,
+   "point": "laugh-cause",
+   "kept": false,
+   "reason": "ageing: collagen and fat loss; a fourth take of the cause",
+   "dur_s": 5.28
+  },
+  {
+   "id": "after-natural",
+   "clip": "IMG_3656 16:55",
+   "score": 3,
+   "point": "natural",
+   "kept": false,
+   "reason": "nice projection, natural, not overfilled: repeats the summary",
+   "dur_s": 7.54
+  },
+  {
+   "id": "after-lasts",
+   "clip": "IMG_3656 16:55",
+   "score": 5,
+   "point": "filler-lasts",
+   "kept": true,
+   "reason": "how long the filler lasts: over a year, a year and a half",
+   "dur_s": 3.47
+  },
+  {
+   "id": "after-patient",
+   "clip": "IMG_3656 16:55",
+   "score": 1,
+   "point": "patient",
+   "kept": false,
+   "reason": "her reaction; another voice, chatter",
+   "dur_s": 3.2
+  }
+ ],
+ "duplicate_map": {
+  "greeting": [
+   {
+    "id": "intro-hi",
+    "clip": "IMG_3640 16:44",
+    "at": "0:00.52",
+    "score": 1,
+    "chosen": false,
+    "reason": "pleasantry"
+   }
+  ],
+  "opening": [
+   {
+    "id": "intro-patient",
+    "clip": "IMG_3640 16:44",
+    "at": "0:01.84",
+    "score": 4,
+    "chosen": true,
+    "reason": "the opening the brief asks for"
+   }
+  ],
+  "thanks": [
+   {
+    "id": "intro-consent",
+    "clip": "IMG_3640 16:44",
+    "at": "0:03.64",
+    "score": 1,
+    "chosen": false,
+    "reason": "thanks for filming; not information (consent to film is not consent to post)"
+   }
+  ],
+  "presents": [
+   {
+    "id": "intro-typical",
+    "clip": "IMG_3640 16:44",
+    "at": "0:09.38",
+    "score": 5,
+    "chosen": true,
+    "reason": "what a typical patient presents with: forehead and frown lines"
+   }
+  ],
+  "frown": [
+   {
+    "id": "intro-frown",
+    "clip": "IMG_3640 16:44",
+    "at": "0:17.36",
+    "score": 3,
+    "chosen": false,
+    "reason": "shows the frown line, but 'frown lines' is already said in intro-typical"
+   }
+  ],
+  "dynamic": [
+   {
+    "id": "intro-dynamic",
+    "clip": "IMG_3640 16:44",
+    "at": "0:20.54",
+    "score": 5,
+    "chosen": true,
+    "reason": "crow's feet; why: dynamic lines, seen when expressive; treated with a neuromodulator"
+   }
+  ],
+  "neuro-brand": [
+   {
+    "id": "intro-brand",
+    "clip": "IMG_3640 16:44",
+    "at": "0:33.86",
+    "score": 2,
+    "chosen": false,
+    "reason": "his product preference; promotional rather than explanatory"
+   },
+   {
+    "id": "intro-onset",
+    "clip": "IMG_3640 16:44",
+    "at": "0:37.88",
+    "score": 3,
+    "chosen": false,
+    "reason": "faster onset, longer lasting: a product claim with no figure; cut for length"
+   },
+   {
+    "id": "intro-30y",
+    "clip": "IMG_3640 16:44",
+    "at": "0:45.04",
+    "score": 2,
+    "chosen": false,
+    "reason": "experience and preference"
+   }
+  ],
+  "neuro-lasts": [
+   {
+    "id": "intro-lasts",
+    "clip": "IMG_3640 16:44",
+    "at": "0:55.10",
+    "score": 5,
+    "chosen": true,
+    "reason": "how long it lasts: four or five months (his figure)"
+   },
+   {
+    "id": "pre1-lasts",
+    "clip": "IMG_3637 16:42",
+    "at": "0:07.45",
+    "score": 4,
+    "chosen": false,
+    "reason": "same figure, said before the intro; the intro take is in sequence and on the same shot"
+   }
+  ],
+  "neuro-technique": [
+   {
+    "id": "intro-brows",
+    "clip": "IMG_3640 16:44",
+    "at": "0:56.55",
+    "score": 4,
+    "chosen": false,
+    "reason": "too much in the forehead drops the brows; same point as the take he gives while injecting"
+   },
+   {
+    "id": "intro-elsewhere",
+    "clip": "IMG_3640 16:44",
+    "at": "1:05.84",
+    "score": 2,
+    "chosen": false,
+    "reason": "anecdote about other clinics"
+   },
+   {
+    "id": "neuro-units",
+    "clip": "IMG_3657 16:57",
+    "at": "1:16.32",
+    "score": 3,
+    "chosen": false,
+    "reason": "units = the amount; setup for the next line"
+   },
+   {
+    "id": "neuro-strategic",
+    "clip": "IMG_3657 16:57",
+    "at": "1:24.68",
+    "score": 4,
+    "chosen": false,
+    "reason": "strategic placement for smoothing and brow lift; long with pauses"
+   },
+   {
+    "id": "neuro-more-less",
+    "clip": "IMG_3657 16:57",
+    "at": "1:37.26",
+    "score": 5,
+    "chosen": true,
+    "reason": "the technique in one line, said while injecting: more where it needs lift, less where it droops"
+   }
+  ],
+  "neuro-onset": [
+   {
+    "id": "neuro-12h",
+    "clip": "IMG_3657 16:57",
+    "at": "1:46.22",
+    "score": 4,
+    "chosen": false,
+    "reason": "difference by tomorrow; conflicts in wording with 'a day or two', and lacks the filler contrast"
+   },
+   {
+    "id": "intro-onset-vs-filler",
+    "clip": "IMG_3640 16:44",
+    "at": "2:20.18",
+    "score": 5,
+    "chosen": true,
+    "reason": "neuromodulator takes a day or two, filler shows right away: also why the after shows only the filler areas"
+   }
+  ],
+  "midface": [
+   {
+    "id": "intro-midface",
+    "clip": "IMG_3640 16:44",
+    "at": "1:15.64",
+    "score": 4,
+    "chosen": true,
+    "reason": "names the mid-face concerns: jowling, laugh lines"
+   }
+  ],
+  "laugh-cause": [
+   {
+    "id": "intro-deflation",
+    "clip": "IMG_3640 16:44",
+    "at": "1:20.92",
+    "score": 5,
+    "chosen": true,
+    "reason": "why laugh lines form: deflation and soft tissue moving down, not the line itself"
+   },
+   {
+    "id": "intro-ligaments",
+    "clip": "IMG_3640 16:44",
+    "at": "1:34.67",
+    "score": 3,
+    "chosen": false,
+    "reason": "ligaments not holding the skin: the same cause, said again; cut for length"
+   },
+   {
+    "id": "inj5-laugh-filled",
+    "clip": "IMG_3652 16:50",
+    "at": "0:26.96",
+    "score": 3,
+    "chosen": false,
+    "reason": "patients want the laugh lines filled: duplicate of intro-deflation's first sentence"
+   },
+   {
+    "id": "intro-hollow",
+    "clip": "IMG_3640 16:44",
+    "at": "1:49.70",
+    "score": 3,
+    "chosen": false,
+    "reason": "deflation in the mid cheek: a third take of the cause"
+   },
+   {
+    "id": "inj2-replenish",
+    "clip": "IMG_3642 16:48",
+    "at": "0:37.06",
+    "score": 3,
+    "chosen": false,
+    "reason": "loss of volume replenished: the cause again, to the patient"
+   },
+   {
+    "id": "after-collagen",
+    "clip": "IMG_3656 16:55",
+    "at": "0:39.72",
+    "score": 3,
+    "chosen": false,
+    "reason": "ageing: collagen and fat loss; a fourth take of the cause"
+   }
+  ],
+  "target-cheeks": [
+   {
+    "id": "intro-cheeks",
+    "clip": "IMG_3640 16:44",
+    "at": "1:37.40",
+    "score": 5,
+    "chosen": true,
+    "reason": "what he targets: filler in the cheeks"
+   },
+   {
+    "id": "intro-rejuv",
+    "clip": "IMG_3640 16:44",
+    "at": "1:39.46",
+    "score": 3,
+    "chosen": false,
+    "reason": "the same target restated as a principle"
+   }
+  ],
+  "jaw-lift": [
+   {
+    "id": "intro-jaw-predict",
+    "clip": "IMG_3640 16:44",
+    "at": "1:53.93",
+    "score": 4,
+    "chosen": false,
+    "reason": "a tiny amount lifts the jawline: the result is shown and said at the end (after-summary)"
+   },
+   {
+    "id": "inj2-jaw",
+    "clip": "IMG_3642 16:48",
+    "at": "0:09.74",
+    "score": 4,
+    "chosen": false,
+    "reason": "jaw raised vs the other side: the same result as after-summary"
+   },
+   {
+    "id": "inj2-heaviness",
+    "clip": "IMG_3642 16:48",
+    "at": "0:18.66",
+    "score": 3,
+    "chosen": false,
+    "reason": "heaviness lifted: a third take of the jaw lift"
+   },
+   {
+    "id": "inj5-jaw",
+    "clip": "IMG_3652 16:50",
+    "at": "0:16.00",
+    "score": 3,
+    "chosen": false,
+    "reason": "fuller cheekbones, jaw raised, slimmer: the result before it is finished"
+   }
+  ],
+  "natural": [
+   {
+    "id": "intro-overfilled",
+    "clip": "IMG_3640 16:44",
+    "at": "1:59.02",
+    "score": 3,
+    "chosen": false,
+    "reason": "patients fear looking overfilled; long; the after says 'not overfilled' again"
+   },
+   {
+    "id": "after-natural",
+    "clip": "IMG_3656 16:55",
+    "at": "0:45.30",
+    "score": 3,
+    "chosen": false,
+    "reason": "nice projection, natural, not overfilled: repeats the summary"
+   }
+  ],
+  "plan": [
+   {
+    "id": "intro-plan",
+    "clip": "IMG_3640 16:44",
+    "at": "2:15.38",
+    "score": 1,
+    "chosen": false,
+    "reason": "we'll show pictures afterwards: chatter"
+   }
+  ],
+  "cheek-product": [
+   {
+    "id": "inj2-syringe",
+    "clip": "IMG_3642 16:48",
+    "at": "0:03.82",
+    "score": 5,
+    "chosen": true,
+    "reason": "the product, the amount and the spot: one syringe of Evolysse Form in the outer cheekbone"
+   },
+   {
+    "id": "inj5-syringe",
+    "clip": "IMG_3652 16:50",
+    "at": "0:01.78",
+    "score": 4,
+    "chosen": false,
+    "reason": "same syringe plus Cold-X / stable / structure: the brand claims are the weaker take"
+   }
+  ],
+  "laugh-less": [
+   {
+    "id": "inj5-less-needed",
+    "clip": "IMG_3652 16:50",
+    "at": "0:34.12",
+    "score": 5,
+    "chosen": true,
+    "reason": "the payoff of treating the cheeks: the laugh lines improved, so less filler goes in them"
+   },
+   {
+    "id": "after-less-needed",
+    "clip": "IMG_3656 16:55",
+    "at": "0:22.28",
+    "score": 4,
+    "chosen": false,
+    "reason": "same point at the end; the inj5 take is in place in the story"
+   }
+  ],
+  "cannula": [
+   {
+    "id": "inj6-pinpricks",
+    "clip": "IMG_3653 16:51",
+    "at": "0:00.00",
+    "score": 3,
+    "chosen": false,
+    "reason": "one entry point vs many: starts mid-sentence ('versus before')"
+   },
+   {
+    "id": "inj6-cannula",
+    "clip": "IMG_3653 16:51",
+    "at": "0:07.28",
+    "score": 4,
+    "chosen": false,
+    "reason": "we use a cannula under the skin; the bruising line says why, which matters more"
+   },
+   {
+    "id": "inj6-bruising",
+    "clip": "IMG_3653 16:51",
+    "at": "0:39.02",
+    "score": 5,
+    "chosen": true,
+    "reason": "technique and downtime: a cannula, to minimise bruising"
+   }
+  ],
+  "chin": [
+   {
+    "id": "inj7-chin",
+    "clip": "IMG_3654 16:53",
+    "at": "1:37.62",
+    "score": 3,
+    "chosen": false,
+    "reason": "chin recession: named only here, never in the intro, so no area to anchor it to; cut for length"
+   }
+  ],
+  "lines-product": [
+   {
+    "id": "after-smooth",
+    "clip": "IMG_3656 16:55",
+    "at": "0:53.36",
+    "score": 5,
+    "chosen": true,
+    "reason": "product handling for the lines: Evolysse Smooth, a hyaluronic acid in the same family"
+   },
+   {
+    "id": "after-thinner",
+    "clip": "IMG_3656 16:55",
+    "at": "1:02.02",
+    "score": 4,
+    "chosen": false,
+    "reason": "not as thick as the cheek filler; cut for length"
+   }
+  ],
+  "result": [
+   {
+    "id": "after-summary",
+    "clip": "IMG_3656 16:55",
+    "at": "0:01.70",
+    "score": 5,
+    "chosen": true,
+    "reason": "the result named area by area: laugh lines and marionette lines, cheekbone projection, jawline, softer lines"
+   }
+  ],
+  "time": [
+   {
+    "id": "after-15min",
+    "clip": "IMG_3656 16:55",
+    "at": "0:18.12",
+    "score": 5,
+    "chosen": true,
+    "reason": "treatment time: about 15 minutes"
+   }
+  ],
+  "filler-lasts": [
+   {
+    "id": "after-lasts",
+    "clip": "IMG_3656 16:55",
+    "at": "1:04.58",
+    "score": 5,
+    "chosen": true,
+    "reason": "how long the filler lasts: over a year, a year and a half"
+   }
+  ],
+  "patient": [
+   {
+    "id": "after-patient",
+    "clip": "IMG_3656 16:55",
+    "at": "0:34.18",
+    "score": 1,
+    "chosen": false,
+    "reason": "her reaction; another voice, chatter"
+   }
+  ]
+ }
+}

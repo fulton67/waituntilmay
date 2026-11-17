@@ -1,0 +1,25 @@
+{
+ "before_role": "pre1",
+ "before_frame": 404,
+ "after_frame": 292,
+ "before_s": 16.83,
+ "after_s": 12.17,
+ "pose_before": [
+  30.0,
+  -16.5,
+  3.3
+ ],
+ "pose_after": [
+  23.5,
+  -16.2,
+  3.4
+ ],
+ "pose_diff_deg": [
+  6.5,
+  0.4,
+  0.1
+ ],
+ "align_residual_px": 2.63,
+ "face_width_px": 219.4,
+ "score": 17.26
+}

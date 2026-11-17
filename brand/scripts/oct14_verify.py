@@ -61,10 +61,51 @@ def stream_diffs(f, scale=0.5):
     return np.array(capd), np.array(gfx), np.array(luma)
 
 
+# each area: the beat where he names the problem, and the pip that shows the injection on that spot (coordinator, 2026-11-17)
+AREAS = [("upper face", "dynamic", 0), ("cheeks and jawline", "deflation", 1), ("laugh lines", "laugh3", 2)]
+
+
+def structure(props):
+    """the coordinator's three checks: no duplicate lines, each area's line within 1 beat of its injection footage, ~90 s"""
+    import itertools
+    beats = json.loads((ROOT / "research/ostad/style/oct14/beats.json").read_text(encoding="utf-8"))["beats"]
+    beat_of = lambda f: next(i for i, b in enumerate(beats) if b["start_f"] <= f <= b["end_f"])
+    c = props["cues"]
+    adj = []
+    for name, line_cue, pip_i in AREAS:
+        pf = c[props["pips"][pip_i]["cue"]] + 1
+        d = beat_of(pf) - beat_of(c[line_cue])
+        adj.append({"area": name, "line_cue": line_cue, "line_f": c[line_cue], "line_beat": beats[beat_of(c[line_cue])]["id"], "injection_on_screen_f": pf,
+                    "injection_beat": beats[beat_of(pf)]["id"], "beats_apart": d, "ok": 0 <= d <= 1})
+    norm = lambda t: re.sub(r"[^a-z ]", "", t.lower()).split()
+    spans = {p["id"]: " ".join(w["w"] for w in props["words"] if w["piece"] == p["id"]) for p in props["pieces"]}
+    tri = lambda t: {tuple(norm(t)[i:i + 3]) for i in range(max(0, len(norm(t)) - 2))}
+    pairs = [{"a": a, "b": b, "ratio": round(difflib.SequenceMatcher(None, norm(spans[a]), norm(spans[b])).ratio(), 3),
+              "trigram_jaccard": round(len(tri(spans[a]) & tri(spans[b])) / max(1, len(tri(spans[a]) | tri(spans[b]))), 3)} for a, b in itertools.combinations(spans, 2)]
+    worst = max(pairs, key=lambda d: (d["ratio"], d["trigram_jaccard"]))
+    # shots: no source time range of any clip is on screen twice (pieces + pips), except the deliberate before/after stills
+    used = []
+    for p in props["pieces"]:
+        used.append((p["pictureRole"], p["pictureFrom"], p["pictureFrom"] + p["dur"] / 24 * props["speed"], p["id"]))
+    for q in props["pips"]:
+        s0, s1 = c[q["cue"]] + 1, c[q["out"]]
+        if q.get("morphTo"):
+            tp = next(p for p in props["pieces"] if p["id"] == q["morphTo"])
+            a0 = tp["pictureFrom"] - (s1 - s0) / 24 * props["speed"]
+            used.append((q["clip"], a0, tp["pictureFrom"], "pip" + str(q["n"])))  # flows straight into its own full-frame piece
+        else:
+            used.append((q["clip"], q.get("clipFrom", 0), q.get("clipFrom", 0) + (s1 - s0) / 24, "pip" + str(q["n"])))
+    overlaps = [(u[3], v[3]) for u, v in itertools.combinations(used, 2) if u[0] == v[0] and min(u[2], v[2]) - max(u[1], v[1]) > 0.05]
+    runtime = (props["durationInFrames"] + props["tail"]) / 24
+    return {"adjacency": adj, "adjacency_ok": all(a["ok"] for a in adj),
+            "duplicates": {"pairs": len(pairs), "worst": worst, "fails": [d for d in pairs if d["ratio"] > 0.6 or d["trigram_jaccard"] > 0.25]},
+            "shots_reused": overlaps, "runtime_s": round(runtime, 2), "runtime_ok": 85 <= runtime <= 95}
+
+
 def main():
     final, bare = Path(sys.argv[1]), Path(sys.argv[2])
     props = json.loads((PUB / "props.json").read_text(encoding="utf-8"))
-    res = {"render": final.name, "format": probe(final), "bare_format": probe(bare)}
+    res = {"render": final.name, "format": probe(final), "bare_format": probe(bare), "structure": structure(props)}
     secrets = prep.secret_names()
     segs, _ = prep.model().transcribe(prep.audio16k(final), language="en", word_timestamps=True)
     heard = [w for s in segs for w in (s.words or [])]

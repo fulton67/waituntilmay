@@ -1,0 +1,180 @@
+{
+ "render": "Ostad - Oct 14 injections - NOT FOR POSTING until patient consent = yes.mp4",
+ "format": {
+  "width": 1080,
+  "height": 1920,
+  "fps": "24/1",
+  "frames": 2251,
+  "duration_s": 93.9
+ },
+ "bare_format": {
+  "width": 1080,
+  "height": 1920,
+  "fps": "24/1",
+  "frames": 2251,
+  "duration_s": 93.803
+ },
+ "structure": {
+  "adjacency": [
+   {
+    "area": "upper face",
+    "line_cue": "dynamic",
+    "line_f": 261,
+    "line_beat": "B02",
+    "injection_on_screen_f": 262,
+    "injection_beat": "B02",
+    "beats_apart": 0,
+    "ok": true
+   },
+   {
+    "area": "cheeks and jawline",
+    "line_cue": "deflation",
+    "line_f": 1041,
+    "line_beat": "B06",
+    "injection_on_screen_f": 1235,
+    "injection_beat": "B07",
+    "beats_apart": 1,
+    "ok": true
+   },
+   {
+    "area": "laugh lines",
+    "line_cue": "laugh3",
+    "line_f": 1381,
+    "line_beat": "B08",
+    "injection_on_screen_f": 1452,
+    "injection_beat": "B09",
+    "beats_apart": 1,
+    "ok": true
+   }
+  ],
+  "adjacency_ok": true,
+  "duplicates": {
+   "pairs": 120,
+   "worst": {
+    "a": "intro-midface",
+    "b": "intro-cheeks",
+    "ratio": 0.27,
+    "trigram_jaccard": 0.074
+   },
+   "fails": []
+  },
+  "shots_reused": [],
+  "runtime_s": 93.79,
+  "runtime_ok": true
+ },
+ "name": {
+  "name_like_words_in_render_audio": 0,
+  "secret_tokens_checked": 0
+ },
+ "words": {
+  "cut_words": 336,
+  "heard_words": 341,
+  "sequence_ratio": 0.978
+ },
+ "loudness": {
+  "integrated_lufs": -14.2,
+  "true_peak_dbfs": -1.3
+ },
+ "captions": {
+  "words": 336,
+  "measured": 319,
+  "median_offset_f": 0.0,
+  "share_at_0f": 0.781,
+  "share_within_1f": 0.806
+ },
+ "reveals": {
+  "beats": [
+   {
+    "beat": "B01",
+    "cue": "typical",
+    "target_f": 95,
+    "first_change_f": 96,
+    "offset_f": 1
+   },
+   {
+    "beat": "B02",
+    "cue": "dynamic",
+    "target_f": 262,
+    "first_change_f": 263,
+    "offset_f": 1
+   },
+   {
+    "beat": "B03",
+    "cue": "lifted",
+    "target_f": 525,
+    "first_change_f": 526,
+    "offset_f": 1
+   },
+   {
+    "beat": "B04",
+    "cue": "four",
+    "target_f": 619,
+    "first_change_f": 611,
+    "offset_f": -8
+   },
+   {
+    "beat": "B05",
+    "cue": "day",
+    "target_f": 711,
+    "first_change_f": 711,
+    "offset_f": 0
+   },
+   {
+    "beat": "B06",
+    "cue": "deflation",
+    "target_f": 1042,
+    "first_change_f": 1043,
+    "offset_f": 1
+   },
+   {
+    "beat": "B07",
+    "cue": "literally",
+    "target_f": 1235,
+    "first_change_f": 1236,
+    "offset_f": 1
+   },
+   {
+    "beat": "B08",
+    "cue": "laugh3",
+    "target_f": 1382,
+    "first_change_f": 1383,
+    "offset_f": 1
+   },
+   {
+    "beat": "B09",
+    "cue": "used",
+    "target_f": 1452,
+    "first_change_f": 1444,
+    "offset_f": -8
+   },
+   {
+    "beat": "B10",
+    "cue": "bruising",
+    "target_f": 1672,
+    "first_change_f": 1675,
+    "offset_f": 3
+   },
+   {
+    "beat": "B11",
+    "cue": "ba",
+    "target_f": 1868,
+    "first_change_f": 1869,
+    "offset_f": 1
+   },
+   {
+    "beat": "B12",
+    "cue": "fifteen",
+    "target_f": 2072,
+    "first_change_f": null,
+    "offset_f": null
+   }
+  ],
+  "median_offset_f": 1.0,
+  "within_1f": 8,
+  "measured": 11
+ },
+ "flashes": {
+  "one_frame_luma_spikes": 0,
+  "frames": []
+ }
+}

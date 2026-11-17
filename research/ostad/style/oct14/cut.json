@@ -1,0 +1,380 @@
+{
+ "speed": 1.15,
+ "tail": 72,
+ "pieces": [
+  {
+   "id": "intro-patient",
+   "section": "S1",
+   "role": "intro",
+   "from": 1.84,
+   "to": 3.62,
+   "pictureRole": "intro",
+   "pictureFrom": 1.84
+  },
+  {
+   "id": "intro-typical",
+   "section": "S1",
+   "role": "intro",
+   "from": 9.38,
+   "to": 15.34,
+   "pictureRole": "intro",
+   "pictureFrom": 9.38
+  },
+  {
+   "id": "intro-dynamic",
+   "section": "S1",
+   "role": "intro",
+   "from": 20.54,
+   "to": 33.44,
+   "pictureRole": "intro",
+   "pictureFrom": 20.54
+  },
+  {
+   "id": "neuro-more-less",
+   "section": "S1",
+   "role": "neuro",
+   "from": 97.26,
+   "to": 105.62,
+   "pictureRole": "neuro",
+   "pictureFrom": 97.26
+  },
+  {
+   "id": "intro-lasts",
+   "section": "S1",
+   "role": "intro",
+   "from": 55.1,
+   "to": 56.55,
+   "pictureRole": "intro",
+   "pictureFrom": 55.1
+  },
+  {
+   "id": "intro-onset-vs-filler",
+   "section": "S1",
+   "role": "intro",
+   "from": 140.18,
+   "to": 147.54,
+   "pictureRole": "intro",
+   "pictureFrom": 140.18
+  },
+  {
+   "id": "intro-midface",
+   "section": "S2",
+   "role": "intro",
+   "from": 75.64,
+   "to": 80.92,
+   "pictureRole": "intro",
+   "pictureFrom": 75.64
+  },
+  {
+   "id": "intro-deflation",
+   "section": "S2",
+   "role": "intro",
+   "from": 80.92,
+   "to": 94.67,
+   "pictureRole": "intro",
+   "pictureFrom": 80.92
+  },
+  {
+   "id": "intro-cheeks",
+   "section": "S2",
+   "role": "intro",
+   "from": 97.4,
+   "to": 99.46,
+   "pictureRole": "intro",
+   "pictureFrom": 97.4
+  },
+  {
+   "id": "inj2-syringe",
+   "section": "S2",
+   "role": "inj2",
+   "from": 3.82,
+   "to": 9.74,
+   "pictureRole": "inj2",
+   "pictureFrom": 3.82
+  },
+  {
+   "id": "inj5-less-needed",
+   "section": "S3",
+   "role": "inj5",
+   "from": 34.12,
+   "to": 38.28,
+   "pictureRole": "inj5",
+   "pictureFrom": 34.12
+  },
+  {
+   "id": "after-smooth",
+   "section": "S3",
+   "role": "after",
+   "from": 53.36,
+   "to": 62.02,
+   "pictureRole": "inj5",
+   "pictureFrom": 16.0
+  },
+  {
+   "id": "inj6-bruising",
+   "section": "S3",
+   "role": "inj6",
+   "from": 39.02,
+   "to": 42.68,
+   "pictureRole": "inj6",
+   "pictureFrom": 39.02
+  },
+  {
+   "id": "after-summary",
+   "section": "S4",
+   "role": "after",
+   "from": 1.7,
+   "to": 18.04,
+   "pictureRole": "after",
+   "pictureFrom": 1.7
+  },
+  {
+   "id": "after-15min",
+   "section": "S4",
+   "role": "after",
+   "from": 18.12,
+   "to": 21.46,
+   "pictureRole": "after",
+   "pictureFrom": 18.12
+  },
+  {
+   "id": "after-lasts",
+   "section": "S4",
+   "role": "after",
+   "from": 64.58,
+   "to": 68.05,
+   "pictureRole": "after",
+   "pictureFrom": 64.58
+  }
+ ],
+ "cues": {
+  "typical": [
+   "intro-typical",
+   36
+  ],
+  "patient2": [
+   "intro-typical",
+   37
+  ],
+  "forehead": [
+   "intro-typical",
+   41
+  ],
+  "frown": [
+   "intro-typical",
+   44
+  ],
+  "dynamic": [
+   "intro-dynamic",
+   80
+  ],
+  "pip1out": [
+   "intro-dynamic",
+   97,
+   4
+  ],
+  "lifted": [
+   "neuro-more-less",
+   95
+  ],
+  "drooping": [
+   "neuro-more-less",
+   104
+  ],
+  "four": [
+   "intro-lasts",
+   160
+  ],
+  "five": [
+   "intro-lasts",
+   162
+  ],
+  "day": [
+   "intro-onset-vs-filler",
+   472
+  ],
+  "away": [
+   "intro-onset-vs-filler",
+   484
+  ],
+  "deflation": [
+   "intro-deflation",
+   280
+  ],
+  "moving": [
+   "intro-deflation",
+   289
+  ],
+  "literally": [
+   "inj2-syringe",
+   8
+  ],
+  "pip2out": [
+   "inj2-syringe",
+   21,
+   8
+  ],
+  "laugh3": [
+   "inj5-less-needed",
+   105
+  ],
+  "better3": [
+   "inj5-less-needed",
+   108
+  ],
+  "used": [
+   "after-smooth",
+   156
+  ],
+  "bruising": [
+   "inj6-bruising",
+   34
+  ],
+  "ba": [
+   "after-summary",
+   36
+  ],
+  "cheek": [
+   "after-summary",
+   44
+  ],
+  "jaw": [
+   "after-summary",
+   48
+  ],
+  "laugh": [
+   "after-summary",
+   55
+  ],
+  "mario": [
+   "after-summary",
+   34
+  ],
+  "treatment": [
+   "after-15min",
+   65
+  ],
+  "fifteen": [
+   "after-15min",
+   68
+  ],
+  "year": [
+   "after-lasts",
+   201
+  ]
+ },
+ "pips": [
+  {
+   "n": 1,
+   "cue": "dynamic",
+   "out": "pip1out",
+   "anchorRole": "intro",
+   "key": "glabella",
+   "clip": "neuro",
+   "clipFrom": 4.0,
+   "label": "Frown lines",
+   "eyebrow": "Injection 1 \u00b7 neuromodulator",
+   "focus": {
+    "fx": 0.8,
+    "fy": 0.44,
+    "z": 2.2
+   },
+   "box": {
+    "x": 98,
+    "y": 865,
+    "w": 320,
+    "h": 569
+   }
+  },
+  {
+   "n": 2,
+   "cue": "literally",
+   "out": "pip2out",
+   "anchorRole": "inj2",
+   "key": "cheekL",
+   "clip": "inj1",
+   "clipFrom": 6.0,
+   "label": "Outer cheekbone",
+   "eyebrow": "Injection 2 \u00b7 Evolysse Form",
+   "focus": {
+    "fx": 0.55,
+    "fy": 0.52,
+    "z": 2.0
+   },
+   "box": {
+    "x": 98,
+    "y": 865,
+    "w": 320,
+    "h": 569
+   }
+  },
+  {
+   "n": 3,
+   "cue": "used",
+   "out": "start:inj6-bruising",
+   "morphTo": "inj6-bruising",
+   "anchorRole": "inj5",
+   "key": "nasoL",
+   "clip": "inj6",
+   "label": "Laugh lines",
+   "eyebrow": "Injection 3 \u00b7 Evolysse Smooth",
+   "arrow": "straight-pointer",
+   "focus": {
+    "fx": 0.5,
+    "fy": 0.35,
+    "z": 1.6
+   },
+   "box": {
+    "x": 682,
+    "y": 901,
+    "w": 300,
+    "h": 533
+   }
+  }
+ ],
+ "ba": {
+  "cue": "ba",
+  "out": "end",
+  "pull": "treatment",
+  "crop": {
+   "x": 0.02,
+   "y": 0.305,
+   "w": 0.32
+  },
+  "subs": [
+   "4:42 PM \u00b7 before",
+   "4:55 PM \u00b7 right after"
+  ],
+  "regions": [
+   {
+    "id": "cheekbone",
+    "label": "Fuller cheek",
+    "cue": "cheek",
+    "key": "cheekL",
+    "rx": 46,
+    "ry": 38,
+    "zoom": 1.35
+   }
+  ]
+ },
+ "sfx": [
+  {
+   "cue": "dynamic",
+   "name": "pop"
+  },
+  {
+   "cue": "ba",
+   "name": "swish"
+  },
+  {
+   "cue": "treatment",
+   "name": "yes"
+  }
+ ],
+ "hideCaps": [
+  [
+   "start:intro-typical",
+   "end:intro-typical"
+  ]
+ ]
+}

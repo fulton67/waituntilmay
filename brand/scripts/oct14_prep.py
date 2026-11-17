@@ -64,6 +64,8 @@ def local_time(s: str | None):
 
 
 def select():
+    if SRC == Path("C:/Users/naimj/clinic-library/tmp/oct14") and not (SRC / "_COMPLETE.txt").exists():
+        raise SystemExit("tmp/oct14/_COMPLETE.txt is missing: the download is not finished, so no MOV is read yet")
     vids, photos = [], []
     for f in sorted(SRC.rglob("*")):
         if f.suffix.lower() in VIDEO:
@@ -76,15 +78,17 @@ def select():
         v["hm"] = t.strftime("%H:%M") if t else None
         v["source_of_time"] = "com.apple.quicktime.creationdate" if v["creation"] else "MISSING (not using the file time)"
     timed = sorted([v for v in vids if v["creation"]], key=lambda v: local_time(v["creation"]))
-    intro = next((v for v in timed if v["hm"] == "16:44"), None)
-    after = next((v for v in timed if v["hm"] == "16:55"), None)
+    # several clips can share a minute (16:55:43 and 16:55:44): take the longest one with audio, and confirm it from its transcript
+    # and its picture before it is used (DECISIONS 16)
+    best = lambda hm: max((v for v in timed if v["hm"] == hm), key=lambda v: (v["audio"], v["duration"]), default=None)
+    intro, after = best("16:44"), best("16:55")
     roles = {}
     if intro:
         roles["intro"] = intro["name"]
     if after:
         roles["after"] = after["name"]
     if intro and after:
-        mids = [v for v in timed if local_time(intro["creation"]) < local_time(v["creation"]) < local_time(after["creation"])]
+        mids = [v for v in timed if local_time(intro["creation"]) < local_time(v["creation"]) < local_time(after["creation"]) and v["duration"] >= 2.0]  # < 2 s = an accidental tap
         for i, v in enumerate(mids, 1):
             roles[f"inj{i}"] = v["name"]
     out = {"clips": vids, "photos": photos, "roles": roles,
@@ -186,38 +190,72 @@ def transcode():
         print("transcoded", role)
 
 
+# caption spelling for the product names he says (whisper hears them several ways); the label is never readable, he says them
+SPELL = {"eboli's": "Evolysse", "evolice": "Evolysse", "everly's": "Evolysse", "evelise": "Evolysse", "form": "Form"}
+
+
+def fix(w, prev):
+    k = re.sub(r"[^a-z']", "", w.lower())
+    if k in ("eboli's", "evolice", "everly's", "evelise"):
+        return re.sub(r"[A-Za-z']+", SPELL[k], w)
+    if k == "form" and prev and "Evolysse" in prev:
+        return w.replace("form", "Form")
+    return w
+
+
 def props():
-    """cut.json: {speed, pieces: [{id, role, from, to}], cues: {name: [role, word_index]}, ...}: raw seconds -> composition frames"""
+    """cut.json -> public/oct14/props.json. Pieces carry raw seconds of their audio clip (role) and of the picture under them
+    (pictureRole / pictureFrom). Cues: {name: [pieceId, roleWordIndex, offsetFrames?]} -> the composition frame of that word's onset."""
     cut = json.loads(CUT.read_text(encoding="utf-8"))
     sp = cut["speed"]
     W = {r: json.loads((EDIT / f"words_{r}.json").read_text()) for r in {p["role"] for p in cut["pieces"]}}
     at, pieces, out_words = 0, [], []
     for p in cut["pieces"]:
-        ws = [w for w in W[p["role"]] if w["t0"] >= p["from"] - 0.02 and w["t1"] <= p["to"] + 0.02]
+        ws = [w for w in W[p["role"]] if w["t0"] >= p["from"] - 0.02 and w["t1"] <= p["to"] + 0.05]
         if any(w.get("redacted") for w in ws):
             raise SystemExit(f"piece {p['id']} contains a redacted name word: move its bounds")
         dur = round((p["to"] - p["from"]) / sp * FPS)
         pieces.append({**p, "at": at, "dur": dur})
+        prev = ""
         for w in ws:
-            out_words.append({"w": w["w"], "f": at + round((w["t0"] - p["from"]) / sp * FPS), "f1": at + round((w["t1"] - p["from"]) / sp * FPS), "piece": p["id"]})
+            t = fix(w["w"], prev)
+            prev = t
+            out_words.append({"w": t, "f": at + round((w["t0"] - p["from"]) / sp * FPS), "f1": at + round((w["t1"] - p["from"]) / sp * FPS), "piece": p["id"]})
         at += dur
+    byid = {p["id"]: p for p in pieces}
     cues = {}
     for k, v in cut.get("cues", {}).items():
-        if isinstance(v, (int, float)):  # a fixed composition frame
+        if isinstance(v, (int, float)):
             cues[k] = int(v)
             continue
-        pid, idx = v[0], v[1]
-        pw = [w for w in out_words if w["piece"] == pid]
-        cues[k] = pw[idx]["f"] + (v[2] if len(v) > 2 else 0)
+        pc = byid[v[0]]
+        t0 = W[pc["role"]][v[1]]["t0"]
+        cues[k] = pc["at"] + round((t0 - pc["from"]) / sp * FPS) + (v[2] if len(v) > 2 else 0)
+    for k in byid:  # every piece's start and end as cues too
+        cues["start:" + k], cues["end:" + k] = byid[k]["at"], byid[k]["at"] + byid[k]["dur"]
+    tr = json.loads((EDIT / "tracks.json").read_text()) if (EDIT / "tracks.json").exists() else {}
     res = {"fps": FPS, "speed": sp, "durationInFrames": at, "pieces": pieces, "words": out_words, "cues": cues,
            "pips": cut.get("pips", []), "title": cut.get("title"), "hideCaps": cut.get("hideCaps", []), "sfx": cut.get("sfx", []), "tail": cut.get("tail", 72),
-           "tracks": json.loads((EDIT / "tracks.json").read_text()) if (EDIT / "tracks.json").exists() else {}}
+           "beats": cut.get("beats", {}), "tracks": {r: tr[r] for r in tr if r in {p["pictureRole"] for p in pieces}}}
     if cut.get("ba") and (EDIT / "pair.json").exists():
         pair = json.loads((EDIT / "pair.json").read_text())
         res["ba"] = {**cut["ba"], "iw": pair["w"], "ih": pair["h"], "pts": pair["pts_before"]}
     (PUB / "props.json").write_text(json.dumps(res))
     print("frames", at, f"({at / FPS:.1f} s)", "pieces", len(pieces), "words", len(out_words))
+    return res
+
+
+def master():
+    """two-pass ffmpeg loudnorm of the render to -14 LUFS, true peak -1.5 dBFS (style DECISIONS 14f); the picture is copied untouched.
+    The phone audio renders at about -34 LUFS. Usage: master <raw_mix.mp4> <final.mp4>"""
+    src, dst = sys.argv[2], sys.argv[3]
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-i", src, "-af", "loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json", "-f", "null", "-"], capture_output=True, text=True)
+    j = json.loads(r.stderr[r.stderr.rindex("{"):r.stderr.rindex("}") + 1])
+    af = (f"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={j['input_i']}:measured_TP={j['input_tp']}:measured_LRA={j['input_lra']}:"
+          f"measured_thresh={j['input_thresh']}:offset={j['target_offset']}:linear=true,aresample=48000")
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", src, "-c:v", "copy", "-af", af, "-c:a", "aac", "-b:a", "192k", dst], check=True)
+    print("input", j["input_i"], "LUFS ->", dst)
 
 
 if __name__ == "__main__":
-    {"select": select, "transcribe": transcribe, "words": words, "transcode": transcode, "props": props}[sys.argv[1]]()
+    {"master": master, "select": select, "transcribe": transcribe, "words": words, "transcode": transcode, "props": props}[sys.argv[1]]()

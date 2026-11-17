@@ -11,7 +11,7 @@ Named points (image side L/R = the viewer's left/right). They are built from Fac
   lipU / lipL / lipC*  upper lip (0), lower lip (17), lip corners (61/291)
   chin (152 to 199 midpoint), jaw* (172/397), cheek* (50/280), malar* (117/346)
   under*   tear trough: 1/3 from the lower lid (145/374) to the cheek point (50/280)
-  temple* (162/389), forehead (151), glabella (9), crow* (lateral canthus 33/263 moved 25 % outward)
+  temple* (162/389), forehead (151), glabella (9), crow* (lateral canthus 33/263 moved 25 % outward), brow* (lateral brow 70/300)
 Output: brand/edits/oct14-injection/tracks.json {role: {n, pts: {name: [[x, y] per clip frame at 24 fps]}}} in 1080-wide frame px.
   $PY -I brand/scripts/oct14_track.py intro [--face largest]
 """
@@ -46,6 +46,7 @@ def named(L):
         P["under" + side] = mix(L, lid, ck, 1 / 3)
         P["temple" + side] = L[tmp]
         P["crow" + side] = L[can] + (L[can] - L[168]) * 0.25
+    P["browL"], P["browR"] = L[70], L[300]  # brow tails (lateral brow)
     P["lipU"], P["lipL"] = L[0], L[17]
     P["chin"] = (L[152] + L[199]) / 2
     P["forehead"], P["glabella"] = L[151], L[9]
