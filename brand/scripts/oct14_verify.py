@@ -65,9 +65,8 @@ def main():
     final, bare = Path(sys.argv[1]), Path(sys.argv[2])
     props = json.loads((PUB / "props.json").read_text(encoding="utf-8"))
     res = {"render": final.name, "format": probe(final), "bare_format": probe(bare)}
-    from faster_whisper import WhisperModel
     secrets = prep.secret_names()
-    segs, _ = WhisperModel("medium", device="cuda", compute_type="int8_float16").transcribe(str(final), language="en", word_timestamps=True)
+    segs, _ = prep.model().transcribe(prep.audio16k(final), language="en", word_timestamps=True)
     heard = [w for s in segs for w in (s.words or [])]
     hits = [w for w in heard if any(difflib.SequenceMatcher(None, prep.norm(w.word), s).ratio() >= 0.75 for s in secrets)]
     cut_words = [prep.norm(w["w"]) for w in props["words"]]

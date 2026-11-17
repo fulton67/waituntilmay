@@ -6,7 +6,7 @@ that folder and writes only its own transcripts there. iCloud is never called.
   PY=C:/Users/naimj/tools/style-venv/Scripts/python.exe
   $PY -I brand/scripts/oct14_prep.py select      # ffprobe com.apple.quicktime.creationdate (NOT the file time) -> clips.json
   $PY -I brand/scripts/oct14_prep.py transcribe  # clinic-library transcribe.py (local faster-whisper) per clip -> <clip>.MOV.txt
-  $PY -I brand/scripts/oct14_prep.py words       # local faster-whisper word timings -> words_<role>.json (name redacted on read)
+  $PY -I brand/scripts/oct14_prep.py words       # local faster-whisper (GPU) word timings -> words_<role>.json (name redacted on read)
   $PY -I brand/scripts/oct14_prep.py transcode   # -> brand/remotion/public/oct14/<role>.mp4 (H.264, 1080x1920, 24 fps, rotation applied)
   $PY -I brand/scripts/oct14_prep.py props       # research/ostad/style/oct14/cut.json + words -> public/oct14/props.json
 
@@ -136,14 +136,39 @@ def redact(words, secrets):
     return out
 
 
+def model():
+    """the clinic pipeline's own local model (clinic-library/scripts/preview.py whisper(): medium on the GPU, read-only import) when run
+    with the clinic venv; otherwise faster-whisper medium on the CPU. Both are local: nothing leaves this PC."""
+    import os
+    for sub in ("cublas", "cudnn"):  # the CUDA runtime DLLs the clinic venv ships, so the style venv can use the GPU too (read-only)
+        d = f"C:/Users/naimj/clinic-library/.venv/Lib/site-packages/nvidia/{sub}/bin"
+        if os.path.isdir(d):
+            os.add_dll_directory(d)
+            os.environ["PATH"] = d + os.pathsep + os.environ["PATH"]
+    try:
+        sys.path.insert(0, "C:/Users/naimj/clinic-library/scripts")
+        from preview import whisper  # noqa: E402
+        return whisper()
+    except Exception:  # noqa: BLE001
+        from faster_whisper import WhisperModel
+        return WhisperModel("medium", device="cpu", compute_type="int8")
+
+
+def audio16k(path):
+    """the clip's first audio track as 16 kHz mono float32 (decoded by ffmpeg, as clinic-library transcribe.py does; the PyAV path fails here)"""
+    import numpy as np
+    pcm = subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", str(path), "-map", "0:a:0", "-ac", "1", "-ar", "16000", "-f", "s16le", "-"],
+                         capture_output=True).stdout
+    return np.frombuffer(pcm, np.int16).astype(np.float32) / 32768.0
+
+
 def words():
-    from faster_whisper import WhisperModel
     c = clips()
     secrets = secret_names()
     print(f"name tokens to redact: {len(secrets)} (not shown)")
-    model = WhisperModel("medium", device="cuda", compute_type="int8_float16")
+    model_ = model()
     for role, name in c["roles"].items():
-        segs, _ = model.transcribe(str(SRC / name), language="en", word_timestamps=True, vad_filter=False, beam_size=5)
+        segs, _ = model_.transcribe(audio16k(SRC / name), language="en", word_timestamps=True, vad_filter=False, beam_size=5)
         ws = [{"w": w.word.strip(), "t0": round(w.start, 3), "t1": round(w.end, 3), "p": round(w.probability, 3)} for s in segs for w in (s.words or [])]
         ws = redact(ws, secrets)
         (EDIT / f"words_{role}.json").write_text(json.dumps(ws))
