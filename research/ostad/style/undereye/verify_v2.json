@@ -1,0 +1,157 @@
+{
+ "render": "UndereyeReel_v3.mp4",
+ "format": {
+  "width": 1080,
+  "height": 1920,
+  "fps": "24/1",
+  "frames": 2224,
+  "duration_s": 92.7
+ },
+ "cuts": {
+  "cut_points": 24,
+  "min_gap_ms": 80,
+  "all_in_gaps_ge_80ms": true,
+  "joins": 11,
+  "fade_ms_each_side": 15
+ },
+ "name": {
+  "name_like_words_in_render_audio": 0
+ },
+ "words": {
+  "cut_words": 343,
+  "heard_words": 343,
+  "sequence_ratio": 0.985
+ },
+ "fillers": {
+  "remaining": 0,
+  "in_first_10s": 0,
+  "list": []
+ },
+ "opening": {
+  "first_words": [
+   [
+    "So",
+    0.0
+   ],
+   [
+    "I",
+    0.16
+   ],
+   [
+    "wasn't",
+    0.2
+   ],
+   [
+    "sure",
+    0.4
+   ],
+   [
+    "what",
+    0.56
+   ],
+   [
+    "to",
+    0.7
+   ],
+   [
+    "expect,",
+    0.86
+   ],
+   [
+    "but",
+    1.28
+   ]
+  ]
+ },
+ "loudness": {
+  "integrated_lufs": -14.5,
+  "true_peak_dbfs": -1.2
+ },
+ "hook": {
+  "first_picture_change_f": 12,
+  "first_picture_change_s": 0.5,
+  "first_text_f": 0,
+  "first_text_s": 0.0,
+  "pass_le_1_5s": true
+ },
+ "captions": {
+  "words": 343,
+  "measured": 343,
+  "median_offset_f": 0.0,
+  "share_at_0f": 0.671,
+  "share_within_1f": 0.714
+ },
+ "flashes": {
+  "one_frame_luma_spikes": 0,
+  "frames": []
+ },
+ "pace": {
+  "picture_changes": 23,
+  "median_s_between": 2.96,
+  "max_s_between": 14.92,
+  "duration_s": 89.67
+ },
+ "sketch_accuracy": {
+  "target_px": 15,
+  "sides": {
+   "R_patient": {
+    "entry_error_px": [
+     4.1,
+     4.1
+    ],
+    "entry_error_px_max": 4.1,
+    "entry_within_target": true,
+    "readings": 2,
+    "path": "n/a: one axis per reading; each drawn stroke is a reading's own axis (0 px by construction)",
+    "method": "points read on 2x gridded crops of decoded frames, registered to the reference"
+   },
+   "L_patient": {
+    "entry_error_px": [
+     24.8,
+     24.8
+    ],
+    "entry_error_px_max": 24.8,
+    "entry_within_target": false,
+    "readings": 2,
+    "path": "n/a: one axis per reading; each drawn stroke is a reading's own axis (0 px by construction)",
+    "method": "points read on 2x gridded crops of decoded frames, registered to the reference"
+   }
+  },
+  "marks_backed_by_footage": {
+   "R_patient": [
+    "IMG_6817 @ 66.0 s",
+    "IMG_6817 @ 72.0 s"
+   ],
+   "L_patient": [
+    "IMG_6817 @ 214.0 s",
+    "IMG_6817 @ 244.0 s"
+   ]
+  },
+  "arrows": {
+   "count": 10,
+   "each_above_noise_floor": true,
+   "min_margin_Lstar": 0.97,
+   "floors_Lstar": {
+    "R_patient": 4.01,
+    "L_patient": 7.65
+   },
+   "registration_error_px": {
+    "before": 5.35,
+    "after": 5.68
+   }
+  },
+  "orbital_rim": {
+   "R_patient": {
+    "outline_diff_px_median": 1.0,
+    "outline_diff_px_p90": 3.12,
+    "pass": true
+   },
+   "L_patient": {
+    "outline_diff_px_median": 1.4,
+    "outline_diff_px_p90": 5.32,
+    "pass": true
+   },
+   "ostad_check": "pending"
+  }
+ }
+}

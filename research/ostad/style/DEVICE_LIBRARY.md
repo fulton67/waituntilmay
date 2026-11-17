@@ -174,6 +174,23 @@ Sheet: `exomind/ref_type_entries.jpg`. Direction, distance, duration, easing and
 | partial | 4 | 9 | 20 | **33** |
 | never | 8 | 6 | 19 | **33** |
 
+## STANDARD devices for every reel (client 2026-11-17, from two screenshots of the rosacea reel; DECISIONS 16d)
+
+These two are reused as built, or as exact derivatives with the same tokens, radius, glass, type and motion. This overrides the "reuse the method, never the graphic" rule for these two devices only.
+
+| id | Name | Source | Used for | Entry / hold / exit (24 fps) | Rules |
+|---|---|---|---|---|---|
+| `std-clip-card` | **STANDARD** Layered glass ClipCard over the main video: the clip or image on top in an 18-radius window (315 px high, 10 px inset), then a small caps label (17 px), a 38 px title and a small depth-scale line (three layer lines, a dot on the layer) | `components/Ro.tsx` `ClipCard` (l.398), `TreatmentCard`, `Compare`; data `brand/edits/rosacea-laser/edit.json`; oct14 derivative `oct14/std.tsx` `ClipCard`, `InjectionCard` | a treatment, product or step shown as a clip along the bottom of his talking head; anchored near the treated area where possible | Ro `enter`: quint 0.45 s with an 18 px rise; out 0.3 s; the depth dot grows 0.6 s after entry | `card(26)` glass from Ro, 440 px wide; two cards side by side for a comparison (`CompareClips`), with the one not used struck, dimmed and chipped "Not used" (or what is true, e.g. "Not first, here"); the depth line in ink, never blue; a clinical depth label is ostad_check: pending |
+| `std-skin-window` | **STANDARD** Before/after window: a large rounded glass window over the lower half, a glass BEFORE pill top-left that becomes AFTER, a thin white ellipse ring (or white surgeon markup: X entry points, pen paths, hatched zones) locked on landmarks, and the credit line "Patient of Dr. Ostad. Individual results vary." | `components/SkinCard.tsx` (commit 965984d), `devices/Markup.tsx` (`glass`, `Chip`, `Ring`); oct14 derivative `oct14/v3.tsx` `SurgeonBA` | any result shown on a patient photo or frame | the window scales in from 0.9 with easeOutBack over 0.36 s; the pill pops (0.72 → 1); markup strokes 6–12 f in treatment order; the line wipe to the after on `sweep` | Markup `glass(30)`, a 10 px frame, the photo in a 22-radius window; all markup white (hairline), no blue; arrows only where a change is measured; the credit line always |
+
+### Built for the Oct 14 injection reel (v3, DECISIONS 16d)
+
+| id | Name | Ref frames (primary sheet) | Used for | Entry / hold / exit (24 fps) | Built | Exo |
+|---|---|---|---|---|---|---|
+| `anatomy-trace-card` | Anatomy traced from the 3D model on a glass plate (muscles, fat, bone), with force arrows or a deflate / descend / restore sequence | face.glb renders (`research/ostad/style/oct14/anatomy_measure.json`) | what a neuromodulator relaxes; deflation vs the filler that restores it | plate, then strokes 10 f each, 4 f apart; changes on his words | yes | |
+| `day-axis-lanes` | Two lanes on a real day axis: one bar from day 0, one ramp from day 1-2, dotted past what was said | (none; replaces a text table) | "a day or two" vs "right away" | axis 18 f, bars on their words | yes | |
+| `needle-cannula-section` | A skin section traced from skin_crosssection.glb: a sharp needle crosses a vessel, a blunt cannula glides in the fat layer | skin_crosssection.glb render | "a cannula, to minimise bruising" | layers 12 f, needle 22 f, cannula 30 f on "cannula" | yes | |
+
 ## For ExoMind: the shortlist
 
 These ten cover its lines with things, not text. The never-built ones count toward the ≥ 3 new devices rule.
@@ -192,3 +209,15 @@ These ten cover its lines with things, not text. The never-built ones count towa
 Type entries to rotate for ExoMind: `type-box-slam` ("ExoTMS"), `type-message-lines`, `type-ghost-to-lit` (thesis), `type-line-accumulate` (patient quote "felt like some tapping on my head", in `type-italic-voice`), `type-card-rise` (brochure page), `type-orbit-labels` (emotional regulation · cognitive function · self-control).
 
 **Compliance applies to every device:** no skin-treatment claim for Exomind (FDA-cleared only for MDD in adults who failed antidepressants), and every clinical line is ⚠ physician-check.
+
+## §U. Topic-only devices: under-eye filler (2026-11-17, DECISIONS 15d)
+
+Built for one topic (the ostad-video skill: at least 3 animations that exist only for it). Reuse the method, never the graphic.
+
+| id | Name | Ref frames | Used for | Entry / hold / exit (24 fps) | Built | Exo |
+|---|---|---|---|---|---|---|
+| `tear-trough-section` | The tear trough in section: the face model's own lines (face.glb cut through the pupil line), the hollow's shadow, deep vs shallow placement | `brand/edits/undereye-filler/anatomy/section_lines.json` (from `brand/scripts/undereye_section_lines.py`) | "hollows", "deep, underneath the muscle" | lines draw 18 f `sweep`; labels `arrive` 14 f | yes: `undereye/devices_v3.tsx` `SectionDiagram` | — |
+| `tyndall-light-scatter` | Light into a shallow deposit scatters blue back out; the deep deposit shows none, on the same section | as above | "that bluish hue called the Tyndall effect" | rays 20 f per pass, looping 48 f while held | yes: `undereye/devices_v3.tsx` `SectionDiagram mode="tyndall"` | — |
+| `cannula-vs-needle-glide` | A needle's path through a vessel vs the blunt cannula sliding around it | none (designed instrument and vessel lines) | "a cannula ... blunt ... more advanced, delicate" | needle 30 f, cannula 36 f `sweep` | yes: `undereye/devices_v3.tsx` `GlideAnim` | — |
+| `syringe-lidocaine` | The syringe with the HA gel and the lidocaine dissolving into it | none (designed object) | "anesthetic already in the filler ... lidocaine" | `arrive` 20 f; dissolve 40 f `settle` | yes: `undereye/devices_v3.tsx` `SyringeLido` | — |
+| `surgeon-fan-map` | The read entry point and the cannula paths drawn on her face in the injection footage, head-tracked | `research/ostad/style/undereye/sketch_measure.json` | "inject the filler deep" | x 6 f, each path 12 f `sweep`, 8 f apart | yes: `undereye/devices_v3.tsx` `FanMap` | — |

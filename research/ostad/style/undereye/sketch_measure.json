@@ -1,0 +1,165 @@
+{
+ "reference": "IMG_6815 @ 1.0 s",
+ "reference_iod_px": 215.3,
+ "sides": {
+  "R_patient": {
+   "image_side": "L",
+   "method": "points read on 2x gridded crops of decoded frames, registered to the reference",
+   "readings": [
+    {
+     "t": 66.0,
+     "entry_src": [
+      396,
+      962
+     ],
+     "shaft_src": [
+      365,
+      1070
+     ]
+    },
+    {
+     "t": 72.0,
+     "entry_src": [
+      414,
+      962
+     ],
+     "shaft_src": [
+      427,
+      1100
+     ]
+    }
+   ],
+   "entry_px": [
+    363.4,
+    1035.7
+   ],
+   "entry_error_px": [
+    4.1,
+    4.1
+   ],
+   "entry_error_px_max": 4.1,
+   "axes": 2,
+   "axes_reaching_trough": 2,
+   "path_error_px": "n/a: one axis per reading; each drawn stroke is a reading's own axis (0 px by construction)",
+   "detectors_rejected": "Hough shaft end: median scatter 28 px; densest cluster: wrong cheek; red-dot search: nostrils, 123 px off"
+  },
+  "L_patient": {
+   "image_side": "R",
+   "method": "points read on 2x gridded crops of decoded frames, registered to the reference",
+   "readings": [
+    {
+     "t": 214.0,
+     "entry_src": [
+      701,
+      937
+     ],
+     "shaft_src": [
+      814,
+      1110
+     ]
+    },
+    {
+     "t": 244.0,
+     "entry_src": [
+      682,
+      917
+     ],
+     "shaft_src": null
+    }
+   ],
+   "entry_px": [
+    659.3,
+    1053.7
+   ],
+   "entry_error_px": [
+    24.8,
+    24.8
+   ],
+   "entry_error_px_max": 24.8,
+   "axes": 1,
+   "axes_reaching_trough": 1,
+   "path_error_px": "n/a: one axis per reading; each drawn stroke is a reading's own axis (0 px by construction)",
+   "detectors_rejected": "Hough shaft end: median scatter 28 px; densest cluster: wrong cheek; red-dot search: nostrils, 123 px off"
+  }
+ },
+ "registration_error_px_mean": {
+  "before": 5.35,
+  "after": 5.68
+ },
+ "change": {
+  "R_patient": {
+   "trough_profile_change_Lstar": [
+    4.98,
+    7.15,
+    10.97,
+    16.53,
+    20.9,
+    24.93,
+    23.23,
+    17.38,
+    14.43
+   ],
+   "control_change_Lstar": [
+    1.7,
+    -0.57,
+    -2.41,
+    -4.17,
+    -5.32,
+    -5.47,
+    -0.8,
+    0.31,
+    0.4
+   ],
+   "noise_floor_Lstar": 4.01,
+   "points_changed": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "mean_change": 15.61
+  },
+  "L_patient": {
+   "trough_profile_change_Lstar": [
+    11.56,
+    11.78,
+    15.81,
+    19.76,
+    22.18,
+    20.52,
+    16.94,
+    11.34,
+    10.99
+   ],
+   "control_change_Lstar": [
+    -0.74,
+    -3.37,
+    -5.44,
+    -6.2,
+    -6.28,
+    -6.47,
+    -2.6,
+    -1.24,
+    -2.16
+   ],
+   "noise_floor_Lstar": 7.65,
+   "points_changed": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "mean_change": 15.65
+  }
+ }
+}

@@ -820,3 +820,55 @@ The last gap round on the orchestrator's sheet notes. Each note was measured on 
   - **Skill.** New `ostad-video` skill.
   - **Lists.** The approval, ⚠ claim and finish lists are in `exomind/TODO.md`.
 - **Render.** `Downloads/Ostad - Exomind and total skin health (YouTube v6).mp4`. The round-1 render was copied to `(YouTube v6 round1).mp4`; nothing was deleted.
+
+### 15c. v2 notes: cuts in silence, the name, the sketch before/after, no blue (2026-11-17)
+
+- Every cut sits in a measured silence gap ≥ 80 ms with 15 ms fades (`undereye_prep_v2.py`, `undereye_gaps.py`); the name is removed by cutting whole phrases, redacted by spelling + the catalog's "[name]" context. "bothered" is split once with a `cut_t` (re-transcribed: heard once).
+- Extra clips IMG_6813/6814/6815 used; follow-up material face-matched with insightface (`facematch.json`: all candidates her, 0.62-0.84).
+- Before/after: the 9-20 / 10-04 halves registered on eyes, nose, mouth (stable landmarks), a wipe in place; the sketch (x at each entry, cannula paths, hatch on the hollow) read by hand on decoded frames (Hough / cluster / red-dot detectors rejected: they disagreed with the footage). Entry error: her right 4.1 px (pass), her left 24.8 px (over the 15 px target; reported, open). Arrows only where the trough profile changed above its noise floor (15.6 L* vs 4.0 / 7.65).
+- Blue: every blue highlight, tint and zone fill removed; markup is white / ink on the glass system. `palette_check.py` and lint PAL/BOX1/BOX2 enforce it. The only blue left is the Tyndall effect itself (the condition's example), waived inline.
+- AI slots (Flora/Higgsfield) not connected: designed Remotion fallbacks used; `AI_SLOTS.md` keeps the briefs.
+
+### 15d. v3: consent yes, STANDARD devices, the model's anatomy, CRITIQUE_v2 rows (2026-11-17)
+
+- Consent confirmed in writing (catalog consent=yes): the render is `UndereyeReel_v3.mp4`, no NOT FOR POSTING label. Patient media still never in git (public repo); no names; no injectable brand.
+- STANDARD looks (rosacea): `std-clip-card` and `std-skin-window` throughout; the before/after is BEFORE then AFTER in the same window, pill changes, marks locked, white.
+- Anatomy: the tear-trough section is face.glb itself, cut by the vertical plane through the right eyeball centre (`undereye_section_lines.py`, bmesh bisect); nothing drawn by hand; labelled "Illustration · face model"; ostad_check: pending.
+- CRITIQUE_v2 fixes: full-frame chapter cards (title + 4 sections, ≥ 124 px, held 60 f) replace the small pills; the blur pillarbox and the blurred end card are gone (landscape 6814 only inside a ClipCard; end card is glass over the sharp shot); text-only beats replaced ("Tired?" dropped, the Lidocaine word is a syringe object, ledger adjectives removed); topic-only animations: tear-trough section, deep-vs-shallow placement, Tyndall scatter, needle-vs-cannula glide, the head-tracked fan map on the injection footage; the payoff carries the measured shadow-contrast stat.
+- Conflict logged: RULES says arrows are brand blue (`devices/Arrow`); today's ruling says no blue. The ruling wins: the pinprick arrow uses the Arrow device in white.
+
+### 16c. Oct 14 v2: the editing rules, measured (2026-11-17)
+
+Every cut sits in measured silence: the gap is found on a 10 ms RMS envelope at noise floor + 8 dB, and the cut goes mid-gap with a 15 ms fade. Smallest gap 80 ms; energy at the cuts is 12.8 dB (max) / 18 dB (median) below speech p90. Fillers: 0 in the first 10 s, 1 in total. Pacing: the last third against the first has a change rate of 1.15x and a median shot of 1.02x (ok). Hook: first word at 0.12 s, first visual change at 0.5 s. Lines after cuts: 17 of 19 re-transcribed clean. Loudness −14.3 LUFS. Word sequence ratio 0.977. Runtime 91.9 s. The v1 render is kept.
+
+### 16d. Oct 14 v3: the critique, the client's rulings, consent (2026-11-17)
+
+- **Consent = yes** (written, before the procedure; clinic-library DECISIONS 2026-11-17). The consent flag is gone from the frames and from the v3 file name ("Ostad - Oct 14 injections v3.mp4"). CRITIQUE_v2's last bar line ("the banner stays until consent is confirmed") is met by this. Patient footage and renders stay out of git (the repo is public). The no-name and no-brand-guess rules still apply.
+- **STANDARD devices (client ruling).** The rosacea ClipCard and SkinCard are now the standard for every reel (DEVICE_LIBRARY "STANDARD": `std-clip-card`, `std-skin-window`). This overrides the no-reuse rule for these two. variety_check R1 lets `std-*` repeat. The injection pop-ups are ClipCards. "Usually vs here" is two ClipCards: the usual approach (fill the lines first) is struck and chipped "Not first, here". The coordinator's note named "neuromodulator vs what he does here", but the argument map shows he does use the neuromodulator, so the contrast stays on the laugh lines. The before/after is the SkinCard window: a BEFORE → AFTER pill with the times, white surgeon markup, and the credit line.
+- **No blue (client ruling).** Every highlight, tint, zone, pen line and markup is white or ink, and the new lint rule PAL catches off-palette colours. One conflict, resolved for V6: arrows stay brand blue. RULES says "brand blue on every arrow", and the ruling named highlights, fills and markup, not the arrow system.
+- **Drawn anatomy (client ruling, LESSONS P5).** Every drawing is traced from a silhouette render of face.glb or skin_crosssection.glb at the same view and measured against it (`anatomy_measure.json`). Bone and muscle outlines have a mean error ≤ 0.36 px and a max ≤ 2.8 px; all four views pass. The model's fat compartments are its own approximations, and are named as such. Clinical drawings and the ClipCard depth lines are ostad_check: pending. He never states a depth, so the depth labels are inference for him to confirm.
+- **CRITIQUE_v2 fixes:**
+  - a title card ("Treat the source, not the line") and three 80 f section cards with the title fully lit for 60 f at 118 px;
+  - the dot-and-line inset is replaced by ClipCards with headed arrows;
+  - the muscle map with lift and pull-down force arrows replaces "More where it lifts";
+  - a day-axis timeline replaces the text table;
+  - the deflation profile sequence (shrink, descend, filler restores) replaces the one-word label;
+  - pen lines along the folds replace the ovals;
+  - a needle vs cannula skin section replaces the cannula text;
+  - no blur anywhere: the window photo arrives with its plate, and the end card sits on the sharp frame;
+  - a measured cheek shadow line on the before/after: before dashed, after solid, 9 px lower after, the same sign in 100 % of columns (`contour_measure.json`);
+  - the window is 1000 × 840 (41 % of the frame);
+  - the short glossary text labels are removed (they were under the 60 f hold);
+  - the tail is 120 f, so the last fact holds 60 f.
+- **Open items:**
+  - the cheek line has no temporal noise estimate;
+  - the profile drawing sits small in its card;
+  - arrow_text_lint needs a TextAudit render, which is not built for this reel.
+- **REELS_HOW_I_WOULD_BUILD (applied within the time box).** The reel opens on the result: a full-frame 4:42 → 4:55 PM wipe with the measured cheek line. The 25 s with no picture change (0:22–0:47) now has 4 picture-only B-roll changes from the same visit: a filler injection on "with fillers", her with the hand mirror on "patients come in", back on him for "but really", and him assessing her before on "deflation". The largest gap is now 9.5 s, on the Smooth line, which is covered by the gel graphic. Three topic-only graphics: the frown muscles contracting and then relaxing, plus the lift / pull-down forces; volume loss vs descent with the filler restoring; Form vs Smooth gel drops.
+- **Left open:**
+  - the maker's product photos (allowed; not fetched; approval list);
+  - an Ostad cut-out (this reel is phone footage of the session, so there is no keyed presenter);
+  - the marionette and jawline measures on the before/after;
+  - the 15-minute clock object;
+  - the needle vs cannula redraw as a top-down map;
+  - a credited hand-drawn anatomy pass (the drawings are traces of the 3D model).

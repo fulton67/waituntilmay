@@ -60,7 +60,8 @@ def check(sheet: dict, lib: dict[str, str]) -> list[tuple[str, bool, str]]:
     for b in beats:
         for d in dict.fromkeys(b["devices"]):
             uses.setdefault(d, []).append(b["id"])
-    over = {d: ids for d, ids in uses.items() if len(ids) > 2}
+    # STANDARD devices (DEVICE_LIBRARY "STANDARD", ids `std-*`; client 2026-11-17) are the reel's fixed look and may repeat
+    over = {d: ids for d, ids in uses.items() if len(ids) > 2 and not d.startswith("std-")}
     add("R1 device used <= 2x", not over, f"max uses {max(len(v) for v in uses.values())}" + (f"; over: {over}" if over else ""))
 
     # R2

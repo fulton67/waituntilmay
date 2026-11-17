@@ -1,0 +1,34 @@
+{
+ "model": "research/ostad/3d/base/face.glb (Z-Anatomy, CC BY-SA 4.0), bone layer",
+ "render": "orthographic front, 1080x1350, Blender Workbench",
+ "trace": "ray cast on the bone mesh: first point >= 8 mm forward of the orbit's interior depth, 144 directions per orbit",
+ "tolerance_bone": {
+  "median_px": 3,
+  "p90_px": 6
+ },
+ "mm_per_render_px": 0.284,
+ "orbits": {
+  "R_patient": {
+   "points": 125,
+   "outline_diff_px_median": 1.0,
+   "outline_diff_px_p90": 3.12,
+   "outline_diff_mm_median": 0.28,
+   "pass": true,
+   "inferior_arc_points": 51
+  },
+  "L_patient": {
+   "points": 125,
+   "outline_diff_px_median": 1.4,
+   "outline_diff_px_p90": 5.32,
+   "outline_diff_mm_median": 0.4,
+   "pass": true,
+   "inferior_arc_points": 51
+  }
+ },
+ "ostad_check": "pending",
+ "placement": {
+  "method": "similarity, model eyeball centres -> her iris centres (MediaPipe 468 / 473) on IMG_6815 @ 1.0 s",
+  "scale": 0.8275
+ },
+ "pass": true
+}

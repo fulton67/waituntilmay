@@ -15,6 +15,13 @@ Two modes; each exits 1 on a violation, 0 when clean, 2 on bad input.
      LEAD  a component named *Callout / *Lead / *Leader / *Pin that strokes a straight line and has no arrowhead
            (arrow-leader-hairline, banned as an arrow)  -> Markup.tsx Callout
      PROP  a JSX element given a `bead=` or `dot` prop
+     BOX1  text set inside a FLAT filled box: an element whose style has a solid background (a colour, a token like ICE / HL / INK,
+           or a hard-stop highlighter gradient) and no depth (no backdropFilter / boxShadow / card() / glass()), with text in it
+           -> the "THE SOURCE / Deflation" block label (client 2026-11-17: "looks cheap"; research/ostad/learning/LESSONS.md L1)
+     BOX2  the same look built as two layers: an empty, absolutely placed filled div (a box-slam or highlighter block) with text laid
+           next to it in the same parent -> oct14 beats.tsx DownTrace / LiftTicks v2, library/Highlighter.tsx
+     PAL   a markup / highlight / fill / type colour that is not an identity token or a glass-system neutral (brand blue, ice, the
+           highlighter, any saturated literal) -> client 2026-11-17 "blue throws off the glass cohesion" (LESSONS L5)
      USE   a JSX element whose component is flagged by any rule above (local or imported)
    An arrowhead is structural: markerEnd / marker-end / <marker / <polygon / data-arrowhead, or an open chevron (a 3-point
    <polyline>, or a path "M..L..L" with nothing else). Names don't count (`head_final_anim.mp4` is not a head). New arrows (devices/Arrow.tsx) put `data-arrowhead` on the head element.
@@ -143,6 +150,65 @@ def any_stroke(body: str) -> bool:
     return bool(re.search(r"<(?:path|line|polyline)\b", body))
 
 
+# PAL: markup / highlight / fill colours must be identity tokens or glass-system neutrals (client 2026-11-17: "where you highlighted in
+# blue it isn't good because it throws off the glass cohesion"; LESSONS L5). Allowed: brand/kit/tokens.json colours, white, the reel
+# ink and mutes, and neutral greys / navy shadows. Flagged: the blue / ice / highlighter tokens and any other saturated literal.
+PAL_ALLOWED = {"#f2efed", "#c3bdbb", "#211b15", "#bf8662", "#89644f", "#505f53", "#fff", "#ffffff", "#1d2230", "#6b7183", "#202532", "#000", "#000000",
+               "#373737", "#8e8e8e", "#bcbcbc", "#11151d", "#faf8f5", "#9a918a", "#5d544c", "#e2e5eb"}
+PAL_BANNED_ID = re.compile(r"\b(?:BLUE|ICE|HL|SKY|C\.blue|C\.sky|C\.ice|ARROW_TOKENS\.blue)\b")
+PAL_ATTR = re.compile(r"\b(stroke|fill|color|background|backgroundColor|borderColor)\s*[=:]\s*\{?\s*([^,}\s>]+)")
+PAL_HEX = re.compile(r"#[0-9a-fA-F]{3,8}\b")
+
+
+def pal_bad(v: str) -> str | None:
+    if PAL_BANNED_ID.search(v):
+        return PAL_BANNED_ID.search(v).group(0)
+    for h in PAL_HEX.findall(v):
+        if h.lower() not in PAL_ALLOWED:
+            return h
+    m = re.search(r"rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)", v)
+    if m:
+        r, g, b = map(int, m.groups())
+        if max(r, g, b) - min(r, g, b) > 40 and not (r < 60 and g < 70 and b < 90):  # saturated, not a dark navy shadow
+            return m.group(0)
+    return None
+
+# flat filled box behind text (BOX1 / BOX2)
+BG = re.compile(r"background(?:Color)?:\s*([^,}\n]+(?:\([^)]*\)[^,}\n]*)?)")
+DEPTH = re.compile(r"backdropFilter|WebkitBackdropFilter|boxShadow|\.\.\.\s*(?:card|glass)\(")
+TEXTISH = re.compile(r"disp\(|caps\(|font:|fontSize|>\s*[A-Za-z]{2,}|\{\s*(?:text|label|title|children|r\.k|r\.v|r\.label|num|n|eyebrow|t)\s*\}|<Typed")
+
+
+def style_of(el: str) -> str:
+    i = el.find("style={{")
+    if i < 0:
+        return ""
+    depth, j = 0, i + 7
+    while j < len(el):
+        if el[j] == "{":
+            depth += 1
+        elif el[j] == "}":
+            depth -= 1
+            if depth == 0:
+                return el[i:j + 1]
+        j += 1
+    return el[i:]
+
+
+def flat_fill(style: str) -> bool:
+    m = BG.search(style)
+    if not m or DEPTH.search(style):
+        return False
+    v = m.group(1).strip()
+    if re.fullmatch(r"[\"'`]?(?:transparent|none)[\"'`]?", v) or "url(" in v or "radial-gradient" in v:
+        return False
+    if "linear-gradient" in v:
+        return bool(re.search(r"transparent\s*0|%\s*,\s*transparent", v))  # a hard-stop highlighter sweep
+    if re.search(r"rgba\([^)]*,\s*0?\.?0*\s*\)", v) and not re.search(r"rgba\([^)]*,\s*0?\.[1-9]", v):
+        return False
+    return True
+
+
 def line_of(src: str, off: int) -> int:
     return src.count("\n", 0, off) + 1
 
@@ -244,6 +310,26 @@ class Linter:
         for mm in re.finditer(r"width:\s*(\d+)\s*,\s*height:\s*(\d+)\s*,\s*borderRadius", b):
             if int(mm.group(1)) <= 14 and int(mm.group(2)) <= 14 and not head and (strokes or re.search(r"<(?:\w*Callout|\w*Lead\w*)\b", b)):
                 self.flag(m, c, "DOT3", mm.start(), f"{mm.group(1)}x{mm.group(2)} round div dot with a leader")
+        for tag in ("div", "span"):
+            for off, el in tags(b, tag):
+                st = style_of(el)
+                if not st or not flat_fill(st):
+                    continue
+                after = b[off + len(el): off + len(el) + 360]
+                if el.rstrip().endswith("/>"):
+                    nxt = after.split("</div>")[0]
+                    if re.search(r"position:\s*[\"']absolute", st) and TEXTISH.search(nxt):
+                        self.flag(m, c, "BOX2", off, "an empty flat filled block with text laid next to it (box-slam / highlighter look)")
+                elif TEXTISH.search(st) or TEXTISH.search(after.split("</" + tag)[0]):
+                    self.flag(m, c, "BOX1", off, "text inside a flat filled box (no depth: no blur, shadow or glass)")
+        for mm in PAL_ATTR.finditer(code):
+            bad = pal_bad(mm.group(2))
+            if bad:
+                self.flag(m, c, "PAL", mm.start(), f"{mm.group(1)} = {bad}: not an identity token or glass-system neutral")
+        for mm in re.finditer(r"\b(?:disp|caps|text|display)\(\s*[\d.]+\s*,\s*([A-Za-z_.#0-9\"']+)", code):
+            bad = pal_bad(mm.group(1))
+            if bad:
+                self.flag(m, c, "PAL", mm.start(), f"type colour {bad}: not an identity token")
         sig = re.search(r"React\.FC<\{([^}]*)\}>", code)
         if sig and re.search(r"\b(bead|dot)\??\s*:", sig.group(1)):
             self.flag(m, c, "PROP", sig.start(), "component takes a bead/dot prop")
@@ -263,7 +349,7 @@ class Linter:
         if (c.file, c.name) in seen:
             return []
         seen.add((c.file, c.name))
-        hits = [r for r, _, _ in c.rules if r != "USE"]
+        hits = [r for r, _, _ in c.rules if r not in ("USE", "PAL")]  # PAL is per call site: a component's default colour is overridable
         m = self.mods[c.file.resolve()]
         for u in set(re.findall(r"<([A-Z]\w*)\b", c.body)):
             cc = self.resolve(m, u)
@@ -376,6 +462,8 @@ def main() -> int:
         v41 = Path(__file__).resolve().parents[4] / "brand/remotion/src/OstadYT.tsx"
         good = True
         for p, want_fail, need in [(fx / "clean_arrow.tsx", False, set()), (fx / "bad_callout.tsx", True, {"DOT1", "DOT2", "RING", "PROP", "USE"}),
+                                   (fx / "bad_textbox.tsx", True, {"BOX1", "BOX2"}), (fx / "clean_glass_label.tsx", False, set()),
+                                   (fx / "bad_palette.tsx", True, {"PAL"}),
                                    (v41, True, {"DOT1", "DOT2", "DOT3", "USE"})]:
             if not p.is_file():
                 print(f"  skip {p} (missing)")
@@ -412,7 +500,7 @@ def main() -> int:
         print("  waiver:", w)
     for v in viol:
         print("  " + v)
-    print(f"lint_compositions: {'FAIL' if viol else 'PASS'} ({len(viol)} dot-and-line violation{'s' * (len(viol) != 1)} in {len(a.tsx)} file(s))")
+    print(f"lint_compositions: {'FAIL' if viol else 'PASS'} ({len(viol)} violation{'s' * (len(viol) != 1)} (dot-and-line, text-on-flat-box) in {len(a.tsx)} file(s))")
     return 1 if viol else 0
 
 

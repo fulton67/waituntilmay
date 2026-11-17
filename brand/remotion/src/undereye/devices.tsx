@@ -53,7 +53,7 @@ export const HeadedArrow: React.FC<{ variant: Variant; from: PtSrc; to: PtSrc; v
 };
 
 // marker tick (arrow-marker-tick): a small solid triangle that pops in 1 f at its point and falls 7 px on exit (WZ f940/944)
-export const Tick: React.FC<{ x: number; y: number; s: number; out?: number; color?: string }> = ({ x, y, s, out = Infinity, color = BLUE }) => {
+export const Tick: React.FC<{ x: number; y: number; s: number; out?: number; color?: string }> = ({ x, y, s, out = Infinity, color = INK }) => {
   const frame = useCurrentFrame();
   if (!vis(frame, s + 1, out)) return null;
   const e = p(frame, out, D.exit, "exit");
@@ -117,7 +117,7 @@ export const SectionPill: React.FC<{ num: string; title: string; s: number; out:
   if (!vis(frame, s, out)) return null;
   return (
     <div style={{ ...card(999), left: M, top: SAFE_T, padding: "16px 30px 16px 22px", display: "flex", alignItems: "center", gap: 16, ...life(frame, s, out) }}>
-      <span style={{ ...disp(26, BLUE, 600), fontVariantNumeric: "tabular-nums" }}>{num}</span>
+      <span style={{ ...disp(26, INK, 600), fontVariantNumeric: "tabular-nums" }}>{num}</span>
       <span style={{ width: 1.5, height: 26, background: "rgba(29,34,48,.25)" }} />
       <span style={{ ...caps(26, INK) }}>{title}</span>
     </div>
@@ -168,7 +168,7 @@ export const StrikeReplace: React.FC<{ oldText: string; newText: string; s: numb
     <div style={{ position: "absolute", left: M, right: M, top: y, opacity: 1 - e, textShadow: "0 2px 14px rgba(0,0,0,.4)" }}>
       <div style={{ display: "inline-block", position: "relative", transform: `translateY(${-0.02 * H * mv}px)`, opacity: lerp(1, 0.55, mv), ...disp(96, WHITE), ...life(frame, s + 1) }}>
         {oldText}
-        <span style={{ position: "absolute", left: -6, top: "54%", height: 7, width: `calc(${k * 100}% + ${12 * k}px)`, background: BLUE, borderRadius: 4 }} />
+        <span style={{ position: "absolute", left: -6, top: "54%", height: 7, width: `calc(${k * 100}% + ${12 * k}px)`, background: WHITE, borderRadius: 4, boxShadow: "0 2px 10px rgba(0,0,0,.35)" }} />
       </div>
       <div style={{ ...disp(96, WHITE), marginTop: 6, ...life(frame, newS + 1) }}>{newText}</div>
     </div>
@@ -258,8 +258,10 @@ export const Lasts: React.FC<{ s: number; out: number; yearS: number; halfS: num
   return (
     <div style={{ ...card(24), left: M, top: y, width: W - 2 * M, height: 330, ...life(frame, s + 1, out) }}>
       <div style={{ position: "absolute", left: 60, top: 34, ...caps(24, MUTED) }}>How long it lasts</div>
-      <div style={{ position: "absolute", left: u(12) - M, top: 150, width: (u(18) - u(12)) * band, height: 26, background: ICE }} />
-      <div style={{ position: "absolute", left: x0 - M, top: 176, width: (x1 - x0) * rule, height: 3, background: INK }} />
+      <svg width={W} height={200} style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }}>
+        <line x1={x0 - M} y1={177.5} x2={x0 - M + (x1 - x0) * rule} y2={177.5} stroke={INK} strokeWidth={3} />
+        <line x1={u(12) - M} y1={177} x2={u(12) - M + (u(18) - u(12)) * band} y2={177} stroke={INK} strokeWidth={10} strokeLinecap="round" opacity={0.85} />
+      </svg>
       {[0, 6, 12, 18].map((m) => (
         <div key={m} style={{ position: "absolute", left: u(m) - M - 40, width: 80, top: 192, textAlign: "center", ...caps(22, MUTED), opacity: rule >= m / 18 ? 1 : 0 }}>{m} mo</div>
       ))}
@@ -268,7 +270,7 @@ export const Lasts: React.FC<{ s: number; out: number; yearS: number; halfS: num
         <Tick x={u(18) - M} y={146} s={halfS} out={out} />
       </div>
       <div style={{ position: "absolute", left: u(12) - M - 120, top: 244, width: 240, textAlign: "center", ...disp(36, INK), ...life(frame, yearS + 1, out, 8) }}>A year</div>
-      <div style={{ position: "absolute", left: u(18) - M - 170, top: 244, width: 200, textAlign: "right", ...disp(36, BLUE), ...life(frame, halfS + 1, out, 8) }}>1½ years</div>
+      <div style={{ position: "absolute", left: u(18) - M - 170, top: 244, width: 200, textAlign: "right", ...disp(36, INK), ...life(frame, halfS + 1, out, 8) }}>1½ years</div>
     </div>
   );
 };
@@ -331,13 +333,13 @@ export const SideBoxes: React.FC<{ s: number; out: number; boxes: { box: (f: num
             {boxes.map((b, i) => { const r = b.box(frame); return frame > b.s ? <rect key={i} x={r.x} y={r.y} width={r.w} height={r.h} rx={18} fill="black" /> : null; })}
           </mask>
         </defs>
-        <rect width={W} height={H} fill="rgb(10,14,24)" opacity={0.4 * dim} mask="url(#sideholes)" />
+        {/* v2b: no flat fill over footage (the dim scrim is gone); the boxes carry the focus */}
         {boxes.map((b, i) => {
           const r = b.box(frame), q = p(frame, b.s + 1, D.rowWipe, "sweep");
-          return <rect key={i} x={r.x} y={r.y} width={r.w} height={r.h} rx={18} fill="none" stroke={b.accent ? HL : WHITE} strokeWidth={3.5} pathLength={1} strokeDasharray={`${q} 1`} opacity={1 - e} />;
+          return <rect key={i} x={r.x} y={r.y} width={r.w} height={r.h} rx={18} fill="none" stroke={WHITE} strokeWidth={3.5} style={{ filter: "drop-shadow(0 1px 3px rgba(0,0,0,.5))" }} pathLength={1} strokeDasharray={`${q} 1`} opacity={1 - e} />;
         })}
       </svg>
-      {boxes.map((b, i) => { const r = b.box(frame); return <TypedLabel key={i} text={b.label} s={b.s + 4} out={out} x={r.x + r.w / 2} y={r.y + r.h + 18} align="center" size={44} color={b.accent ? ICE : WHITE} />; })}
+      {boxes.map((b, i) => { const r = b.box(frame); return <TypedLabel key={i} text={b.label} s={b.s + 4} out={out} x={r.x + r.w / 2} y={r.y + r.h + 18} align="center" size={44} color={WHITE} />; })}
     </AbsoluteFill>
   );
 };

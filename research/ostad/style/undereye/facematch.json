@@ -1,0 +1,282 @@
+{
+ "references": [
+  "ref_6816_3.jpg",
+  "ref_6817_138.jpg",
+  "ref_6821_21.jpg"
+ ],
+ "patient_ref_vs_ref": [
+  0.79,
+  0.858,
+  0.794
+ ],
+ "ostad_vs_patient_floor": [
+  -0.09,
+  -0.073,
+  -0.05
+ ],
+ "candidates": {
+  "p1215.jpg": {
+   "faces": [
+    {
+     "box": [
+      215,
+      196,
+      844,
+      1048
+     ],
+     "median_sim": 0.813,
+     "max_sim": 0.889
+    },
+    {
+     "box": [
+      1218,
+      218,
+      1850,
+      1074
+     ],
+     "median_sim": 0.797,
+     "max_sim": 0.818
+    }
+   ],
+   "best_median_sim": 0.813,
+   "same_patient": true
+  },
+  "p7278.jpg": {
+   "faces": [
+    {
+     "box": [
+      213,
+      194,
+      845,
+      1046
+     ],
+     "median_sim": 0.817,
+     "max_sim": 0.886
+    },
+    {
+     "box": [
+      1220,
+      214,
+      1848,
+      1070
+     ],
+     "median_sim": 0.788,
+     "max_sim": 0.815
+    }
+   ],
+   "best_median_sim": 0.817,
+   "same_patient": true
+  },
+  "pFD04.jpg": {
+   "faces": [
+    {
+     "box": [
+      1256,
+      498,
+      1745,
+      1149
+     ],
+     "median_sim": 0.806,
+     "max_sim": 0.833
+    },
+    {
+     "box": [
+      270,
+      466,
+      747,
+      1125
+     ],
+     "median_sim": 0.832,
+     "max_sim": 0.884
+    }
+   ],
+   "best_median_sim": 0.832,
+   "same_patient": true
+  },
+  "v6813.jpg": {
+   "faces": [
+    {
+     "box": [
+      512,
+      437,
+      1363,
+      1566
+     ],
+     "median_sim": 0.623,
+     "max_sim": 0.625
+    }
+   ],
+   "best_median_sim": 0.623,
+   "same_patient": true
+  },
+  "v6814.jpg": {
+   "faces": [],
+   "best_median_sim": null,
+   "same_patient": false
+  },
+  "v6815.jpg": {
+   "faces": [
+    {
+     "box": [
+      254,
+      690,
+      718,
+      1300
+     ],
+     "median_sim": 0.842,
+     "max_sim": 0.869
+    }
+   ],
+   "best_median_sim": 0.842,
+   "same_patient": true
+  },
+  "v7044_10.jpg": {
+   "faces": [
+    {
+     "box": [
+      324,
+      476,
+      681,
+      954
+     ],
+     "median_sim": 0.721,
+     "max_sim": 0.809
+    }
+   ],
+   "best_median_sim": 0.721,
+   "same_patient": true
+  },
+  "v7044_14.jpg": {
+   "faces": [
+    {
+     "box": [
+      317,
+      498,
+      677,
+      980
+     ],
+     "median_sim": 0.723,
+     "max_sim": 0.816
+    }
+   ],
+   "best_median_sim": 0.723,
+   "same_patient": true
+  },
+  "v7044_2.jpg": {
+   "faces": [
+    {
+     "box": [
+      345,
+      495,
+      719,
+      988
+     ],
+     "median_sim": 0.772,
+     "max_sim": 0.826
+    }
+   ],
+   "best_median_sim": 0.772,
+   "same_patient": true
+  },
+  "v7044_6.jpg": {
+   "faces": [
+    {
+     "box": [
+      351,
+      465,
+      704,
+      911
+     ],
+     "median_sim": 0.665,
+     "max_sim": 0.719
+    }
+   ],
+   "best_median_sim": 0.665,
+   "same_patient": true
+  },
+  "vref_150.jpg": {
+   "faces": [
+    {
+     "box": [
+      430,
+      322,
+      729,
+      727
+     ],
+     "median_sim": 0.789,
+     "max_sim": 0.92
+    }
+   ],
+   "best_median_sim": 0.789,
+   "same_patient": true
+  },
+  "vref_20.jpg": {
+   "faces": [
+    {
+     "box": [
+      292,
+      178,
+      439,
+      402
+     ],
+     "median_sim": -0.057,
+     "max_sim": -0.041
+    },
+    {
+     "box": [
+      698,
+      321,
+      828,
+      508
+     ],
+     "median_sim": 0.826,
+     "max_sim": 0.925
+    }
+   ],
+   "best_median_sim": 0.826,
+   "same_patient": true
+  },
+  "vref_300.jpg": {
+   "faces": [
+    {
+     "box": [
+      244,
+      382,
+      368,
+      538
+     ],
+     "median_sim": 0.776,
+     "max_sim": 0.852
+    },
+    {
+     "box": [
+      627,
+      184,
+      781,
+      441
+     ],
+     "median_sim": 0.016,
+     "max_sim": 0.032
+    }
+   ],
+   "best_median_sim": 0.776,
+   "same_patient": true
+  },
+  "vref_60.jpg": {
+   "faces": [
+    {
+     "box": [
+      291,
+      159,
+      497,
+      497
+     ],
+     "median_sim": -0.044,
+     "max_sim": -0.006
+    }
+   ],
+   "best_median_sim": -0.044,
+   "same_patient": false
+  }
+ }
+}

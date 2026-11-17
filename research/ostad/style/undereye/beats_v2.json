@@ -1,0 +1,632 @@
+{
+ "edit": "Ostad - under-eye filler with a blunt cannula (reel v2)",
+ "fps": 24,
+ "width": 1080,
+ "height": 1920,
+ "speed": 1.18,
+ "duration_f": 2224,
+ "time_base": "composition frames at 24 fps on the 1.15x edit; reveals at word onset + 1 f",
+ "device_library": "research/ostad/style/DEVICE_LIBRARY.md",
+ "cut": "research/ostad/style/undereye/cut_v2.json",
+ "compliance_profile": "injectable",
+ "consent": "yes",
+ "not_for_posting": false,
+ "status": "consent = yes (catalog, 2026-11-17: written consent before every procedure)",
+ "sections": [
+  {
+   "id": "S0",
+   "title": "Hook",
+   "start_f": 0
+  },
+  {
+   "id": "S1",
+   "title": "The concern",
+   "start_f": 127
+  },
+  {
+   "id": "S2",
+   "title": "The procedure",
+   "start_f": 384
+  },
+  {
+   "id": "S3",
+   "title": "The decision",
+   "start_f": 1083
+  },
+  {
+   "id": "S4",
+   "title": "The result",
+   "start_f": 1531
+  }
+ ],
+ "cards": [
+  {
+   "kind": "title",
+   "device": "chapter-title-card",
+   "start_f": 0
+  },
+  {
+   "kind": "section",
+   "device": "chapter-title-card",
+   "start_f": 127,
+   "title": "The concern"
+  },
+  {
+   "kind": "section",
+   "device": "chapter-title-card",
+   "start_f": 384,
+   "title": "The procedure"
+  },
+  {
+   "kind": "section",
+   "device": "chapter-title-card",
+   "start_f": 1083,
+   "title": "The decision"
+  },
+  {
+   "kind": "section",
+   "device": "chapter-title-card",
+   "start_f": 1531,
+   "title": "The result"
+  },
+  {
+   "kind": "end",
+   "device": "end-card",
+   "start_f": 2152
+  }
+ ],
+ "beats": [
+  {
+   "id": "B01",
+   "section": "S0",
+   "start_f": 0,
+   "end_f": 126,
+   "start_s": 0.0,
+   "end_s": 5.25,
+   "pieces": [
+    "H1"
+   ],
+   "said": "so I wasn't sure what to expect but Dr. Ostad took his time and talked me through all the entire procedure.",
+   "noun": "HOOK: the real result first, in the STANDARD before/after window over her own testimonial (BEFORE pill -> AFTER); the title card above",
+   "cue": "so",
+   "cue_f": 0,
+   "reveal_f": 1,
+   "devices": [
+    "std-skin-window",
+    "name-super"
+   ],
+   "entry": "type-italic-voice",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "SkinCard (rosacea, STANDARD); italic voice DDOS R14",
+   "text_only": false,
+   "compliance": {
+    "results_vary": "individual results vary"
+   },
+   "keyframe": {
+    "f": 21,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "result_claim": true,
+   "assets": [
+    {
+     "kind": "image",
+     "src": "undereye-filler/ba_wipe_before.jpg",
+     "source": "clinic",
+     "consent": "yes"
+    }
+   ],
+   "image_layers": [
+    {
+     "asset": "undereye-filler/ba_wipe_before.jpg",
+     "box": [
+      230,
+      1050,
+      620,
+      449
+     ],
+     "from_f": 12,
+     "to_f": 116
+    }
+   ]
+  },
+  {
+   "id": "B02",
+   "section": "S1",
+   "start_f": 127,
+   "end_f": 270,
+   "start_s": 5.292,
+   "end_s": 11.25,
+   "pieces": [
+    "P03"
+   ],
+   "said": "She's a bit bothered by kind of the hollows under her eyes which kind of creates this illusion of kind of being tired. She's not she just wants us to fill in her lower eyelids.",
+   "noun": "her real 9-20 eye close-up in a ClipCard, white rings drawn in place on each hollow; beside it the tear trough in section, the face model's own lines",
+   "cue": "hollows",
+   "cue_f": 199,
+   "reveal_f": 200,
+   "devices": [
+    "std-clip-card",
+    "tear-trough-section"
+   ],
+   "entry": "type-card-rise",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "ClipCard (STANDARD); section = face.glb cut through the pupil line",
+   "text_only": false,
+   "compliance": {
+    "illustration_label": "Illustration"
+   },
+   "keyframe": {
+    "f": 215,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "illustration": true
+  },
+  {
+   "id": "B03",
+   "section": "S1",
+   "start_f": 271,
+   "end_f": 383,
+   "start_s": 11.292,
+   "end_s": 15.958,
+   "pieces": [
+    "P03",
+    "P03b"
+   ],
+   "said": "She's a bit bothered by kind of the hollows under her eyes which kind of creates this illusion of kind of being tired. She's not she just wants us to fill in her lower eyelids.",
+   "noun": "his name super on his first full shot; her 9-20 front and eye shots (the hollows themselves)",
+   "cue": "tired",
+   "cue_f": 275,
+   "reveal_f": 276,
+   "devices": [
+    "name-super"
+   ],
+   "entry": "type-rise",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "name super G3 13/13",
+   "text_only": false,
+   "compliance": {},
+   "keyframe": {
+    "f": 291,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   }
+  },
+  {
+   "id": "B04",
+   "section": "S2",
+   "start_f": 384,
+   "end_f": 605,
+   "start_s": 16.0,
+   "end_s": 25.208,
+   "pieces": [
+    "P04",
+    "P05"
+   ],
+   "said": "This is a hyaluronic acid filler and we're gonna use a cannula. I like using cannulas because they're blunt. Cannulas are a much more advanced delicate way of actually injecting fillers and you'll see that afterwards she'll look great and these fillers typically last anywhere from a year to a year and a half.",
+   "noun": "needle vs blunt cannula at a vessel: the needle goes through, the cannula slides around; one entry point fanning out",
+   "cue": "cannula",
+   "cue_f": 447,
+   "reveal_f": 448,
+   "devices": [
+    "cannula-vs-needle-glide",
+    "std-clip-card"
+   ],
+   "entry": "type-scale-pop",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "topic-only animation",
+   "text_only": false,
+   "compliance": {
+    "illustration_label": "Illustration"
+   },
+   "keyframe": {
+    "f": 463,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "illustration": true
+  },
+  {
+   "id": "B05",
+   "section": "S2",
+   "start_f": 606,
+   "end_f": 721,
+   "start_s": 25.25,
+   "end_s": 30.042,
+   "pieces": [
+    "P05"
+   ],
+   "said": "Cannulas are a much more advanced delicate way of actually injecting fillers and you'll see that afterwards she'll look great and these fillers typically last anywhere from a year to a year and a half.",
+   "noun": "'afterwards she'll look great': the real 10-04 photo; then a months ruler with ticks at 12 and 18",
+   "cue": "afterwards",
+   "cue_f": 610,
+   "reveal_f": 611,
+   "devices": [
+    "timeline-markers",
+    "arrow-marker-tick"
+   ],
+   "entry": "type-rise",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "Are.na 16463981; WZ f940/944",
+   "text_only": false,
+   "compliance": {
+    "results_vary": "individual results vary"
+   },
+   "keyframe": {
+    "f": 626,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "result_claim": true,
+   "assets": [
+    {
+     "kind": "image",
+     "src": "undereye-filler/ba_after.jpg",
+     "source": "clinic",
+     "consent": "P0002 yes"
+    }
+   ],
+   "image_layers": [
+    {
+     "asset": "undereye-filler/ba_after.jpg",
+     "box": [
+      0,
+      250,
+      1080,
+      1300
+     ],
+     "from_f": 612,
+     "to_f": 649
+    }
+   ]
+  },
+  {
+   "id": "B06",
+   "section": "S2",
+   "start_f": 722,
+   "end_f": 830,
+   "start_s": 30.083,
+   "end_s": 34.583,
+   "pieces": [
+    "P08"
+   ],
+   "said": "a bit of anesthetic already in the filler. It's what we call lidocaine.",
+   "noun": "the syringe barrel with the HA gel and the lidocaine dissolving in it",
+   "cue": "lidocaine",
+   "cue_f": 806,
+   "reveal_f": 807,
+   "devices": [
+    "syringe-lidocaine"
+   ],
+   "entry": "type-card-rise",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "topic-only object",
+   "text_only": false,
+   "compliance": {
+    "illustration_label": "Illustration"
+   },
+   "keyframe": {
+    "f": 822,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "illustration": true
+  },
+  {
+   "id": "B07",
+   "section": "S2",
+   "start_f": 831,
+   "end_f": 983,
+   "start_s": 34.625,
+   "end_s": 40.958,
+   "pieces": [
+    "P09"
+   ],
+   "said": "inject the filler deep into the tissue. We basically go right underneath the muscle",
+   "noun": "the fan map: the read entry point and the cannula paths drawn on her face in the injection footage, head-tracked; the section card: deep, under the muscle",
+   "cue": "deep",
+   "cue_f": 879,
+   "reveal_f": 880,
+   "devices": [
+    "surgeon-fan-map",
+    "tear-trough-section"
+   ],
+   "entry": "type-typewriter",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "measured in sketch_measure.json; section = face.glb",
+   "text_only": false,
+   "compliance": {
+    "illustration_label": "Illustration"
+   },
+   "keyframe": {
+    "f": 895,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "illustration": true
+  },
+  {
+   "id": "B08",
+   "section": "S2",
+   "start_f": 984,
+   "end_f": 1082,
+   "start_s": 41.0,
+   "end_s": 45.083,
+   "pieces": [
+    "P10"
+   ],
+   "said": "her lower eyelid is fuller on the right versus here where it's kind of deeper.",
+   "noun": "boxes round both under-eyes: Fuller (her right) / Deeper (her left)",
+   "cue": "fuller",
+   "cue_f": 1032,
+   "reveal_f": 1033,
+   "devices": [
+    "annotation-box-footage"
+   ],
+   "entry": "type-rise",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "G4 T2 5J8M f2293-2311",
+   "text_only": false,
+   "compliance": {},
+   "keyframe": {
+    "f": 1048,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   }
+  },
+  {
+   "id": "B09",
+   "section": "S3",
+   "start_f": 1083,
+   "end_f": 1472,
+   "start_s": 45.125,
+   "end_s": 61.333,
+   "pieces": [
+    "P14",
+    "P15"
+   ],
+   "said": "the issue that comes up in these situations is do we want to put another syringe in there? And I always take into account the fact that this is going to expand. We never want to have a patient who has this pillowy look under the eyelids because it doesn't just look right. In her situation, there's already a really beautiful improvement. Again, the key is to inject deep to avoid that bluish hue called the Tyndall effect.",
+   "noun": "one syringe (used) beside another syringe (not used: it expands into a pillowy look)",
+   "cue": "another",
+   "cue_f": 1139,
+   "reveal_f": 1140,
+   "devices": [
+    "std-clip-card"
+   ],
+   "entry": "type-card-rise",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "STANDARD ClipCards side by side; the one not used marked",
+   "text_only": false,
+   "compliance": {
+    "illustration_label": "Illustration"
+   },
+   "keyframe": {
+    "f": 1155,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "illustration": true
+  },
+  {
+   "id": "B10",
+   "section": "S3",
+   "start_f": 1473,
+   "end_f": 1530,
+   "start_s": 61.375,
+   "end_s": 63.75,
+   "pieces": [
+    "P15"
+   ],
+   "said": "In her situation, there's already a really beautiful improvement. Again, the key is to inject deep to avoid that bluish hue called the Tyndall effect.",
+   "noun": "the Tyndall effect in section: light into a shallow deposit scatters blue, the deep one shows none",
+   "cue": "bluish",
+   "cue_f": 1477,
+   "reveal_f": 1478,
+   "devices": [
+    "tyndall-light-scatter"
+   ],
+   "entry": "type-scale-pop",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "topic-only animation on the face model's section",
+   "text_only": false,
+   "compliance": {
+    "illustration_label": "Illustration"
+   },
+   "keyframe": {
+    "f": 1493,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "illustration": true
+  },
+  {
+   "id": "B11",
+   "section": "S4",
+   "start_f": 1531,
+   "end_f": 1855,
+   "start_s": 63.792,
+   "end_s": 77.292,
+   "pieces": [
+    "P17"
+   ],
+   "said": "she had a syringe put in without using needles Just the cannula and the beauty is she can go out here and nobody would know yet She had fillers done the conventional way of using actually needles will cause a lot of swelling bruising Patients get bruised for over a week and here You can't tell other than that really one actual pinprick that was used to inject the filler and that's the beauty of using cannulas we're gonna basically show her photo in about a week or two when really the filler is settled it's Expanded and you can kind of see the difference, but she won't have any bruising or swelling",
+   "noun": "needles (not used: bruising) beside the blunt cannula (used: one pinprick), STANDARD ClipCards",
+   "cue": "conventional",
+   "cue_f": 1665,
+   "reveal_f": 1666,
+   "devices": [
+    "std-clip-card",
+    "split-labelled"
+   ],
+   "entry": "type-card-rise",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "G1 T11 / G3 T6 (L23)",
+   "text_only": false,
+   "compliance": {
+    "illustration_label": "Illustration"
+   },
+   "keyframe": {
+    "f": 1681,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "illustration": true
+  },
+  {
+   "id": "B12",
+   "section": "S4",
+   "start_f": 1856,
+   "end_f": 1998,
+   "start_s": 77.333,
+   "end_s": 83.25,
+   "pieces": [
+    "P17"
+   ],
+   "said": "she had a syringe put in without using needles Just the cannula and the beauty is she can go out here and nobody would know yet She had fillers done the conventional way of using actually needles will cause a lot of swelling bruising Patients get bruised for over a week and here You can't tell other than that really one actual pinprick that was used to inject the filler and that's the beauty of using cannulas we're gonna basically show her photo in about a week or two when really the filler is settled it's Expanded and you can kind of see the difference, but she won't have any bruising or swelling",
+   "noun": "a blue curved arrow (devices/Arrow) to the read entry point on her cheek, head-tracked",
+   "cue": "pinprick",
+   "cue_f": 1860,
+   "reveal_f": 1861,
+   "devices": [
+    "arrow-curved-callout"
+   ],
+   "entry": "type-typewriter",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "GMu3 f395-401",
+   "text_only": false,
+   "compliance": {
+    "results_vary": "individual results vary"
+   },
+   "keyframe": {
+    "f": 1876,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "arrow": "curved-callout",
+   "result_claim": true
+  },
+  {
+   "id": "B13",
+   "section": "S4",
+   "start_f": 1999,
+   "end_f": 2151,
+   "start_s": 83.292,
+   "end_s": 89.625,
+   "pieces": [
+    "P17"
+   ],
+   "said": "she had a syringe put in without using needles Just the cannula and the beauty is she can go out here and nobody would know yet She had fillers done the conventional way of using actually needles will cause a lot of swelling bruising Patients get bruised for over a week and here You can't tell other than that really one actual pinprick that was used to inject the filler and that's the beauty of using cannulas we're gonna basically show her photo in about a week or two when really the filler is settled it's Expanded and you can kind of see the difference, but she won't have any bruising or swelling",
+   "noun": "the STANDARD window: BEFORE -> AFTER wiped in place, registered on eyes, nose and mouth, the sketch locked on faintly; white arrows only where the trough measured lighter; the measured shadow contrast counts down",
+   "cue": "two",
+   "cue_f": 2003,
+   "reveal_f": 2004,
+   "devices": [
+    "std-skin-window",
+    "hud-face-labels",
+    "arrow-straight-pointer",
+    "counter-roll"
+   ],
+   "entry": "type-rise",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "measured in sketch_measure.json / beforeafter.json",
+   "text_only": false,
+   "compliance": {
+    "results_vary": "individual results vary"
+   },
+   "keyframe": {
+    "f": 2019,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "arrow": "straight-pointer",
+   "result_claim": true,
+   "assets": [
+    {
+     "kind": "image",
+     "src": "undereye-filler/ba_wipe_before.jpg",
+     "source": "clinic",
+     "consent": "yes"
+    }
+   ],
+   "image_layers": [
+    {
+     "asset": "undereye-filler/ba_wipe_before.jpg",
+     "box": [
+      230,
+      1050,
+      620,
+      449
+     ],
+     "from_f": 2011,
+     "to_f": 2141
+    }
+   ]
+  }
+ ]
+}

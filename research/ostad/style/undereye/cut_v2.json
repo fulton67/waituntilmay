@@ -1,0 +1,435 @@
+{
+  "$comment": "Under-eye filler reel v2 (user notes 2026-11-17). Pieces are spoken phrases; brand/scripts/undereye_prep_v2.py snaps every in/out into a measured silence gap >= 80 ms and refuses one that has none. `drop` cuts words inside a piece (repeats, restarts). `pics` is the picture under the piece: each entry starts at word `w` (or the piece start) and shows `clip` from `from` s (omitted = in sync with the audio), or a `still`. `voice: patient` = her words (italic captions). No name: her introduction in IMG_6816 and IMG_7044 is not used at all.",
+  "speed": 1.18,
+  "fps": 24,
+  "pieces": [
+    {
+      "id": "H1",
+      "clip": "7044",
+      "start": "so I wasn't sure",
+      "end": "entire procedure",
+      "section": "S0",
+      "voice": "patient",
+      "pics": [
+        {
+          "clip": "7044"
+        }
+      ],
+      "in_gap": 8.3,
+      "out_gap": 14.72
+    },
+    {
+      "id": "P03",
+      "clip": "6816",
+      "start": "She's a bit bothered",
+      "end": "She's not",
+      "section": "S1",
+      "pics": [
+        {
+          "clip": "6816",
+          "scale": 1.25,
+          "ox": 820,
+          "oy": 560
+        },
+        {
+          "w": "the",
+          "clip": "6816"
+        },
+        {
+          "w": "which",
+          "clip": "6815",
+          "from": 0.0
+        },
+        {
+          "w": "tired",
+          "clip": "6816"
+        }
+      ],
+      "cut_t": [
+        [
+          15.08,
+          15.57
+        ]
+      ]
+    },
+    {
+      "id": "P03b",
+      "clip": "6816",
+      "start": "she just wants us",
+      "end": "her lower eyelids",
+      "section": "S1",
+      "pics": [
+        {
+          "clip": "6816",
+          "scale": 1.12,
+          "ox": 540,
+          "oy": 700
+        },
+        {
+          "w": "eyelids",
+          "clip": "6815",
+          "from": 0.0
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "clip": "6816",
+      "start": "This is a hyaluronic",
+      "end": "they're blunt",
+      "section": "S2",
+      "pics": [
+        {
+          "clip": "6817",
+          "from": 33.0
+        },
+        {
+          "w": "I",
+          "clip": "6816"
+        }
+      ]
+    },
+    {
+      "id": "P05",
+      "clip": "6816",
+      "start": "Cannulas are a much more",
+      "end": "a year and a half",
+      "section": "S2",
+      "pics": [
+        {
+          "clip": "6816",
+          "scale": 1.12,
+          "ox": 300,
+          "oy": 600
+        },
+        {
+          "w": "afterwards",
+          "still": "after"
+        },
+        {
+          "w": "typically",
+          "clip": "6816"
+        }
+      ]
+    },
+    {
+      "id": "P08",
+      "clip": "6817",
+      "start": "a bit of anesthetic",
+      "end": "call lidocaine",
+      "section": "S2",
+      "in_gap": 57.2,
+      "in_lead": 0.66
+    },
+    {
+      "id": "P09",
+      "clip": "6817",
+      "start": "inject the filler deep",
+      "end": "underneath the muscle",
+      "section": "S2",
+      "pics": [
+        {
+          "clip": "6817",
+          "scale": 1.1,
+          "ox": 540,
+          "oy": 900
+        }
+      ]
+    },
+    {
+      "id": "P10",
+      "clip": "6817",
+      "start": "her lower eyelid is",
+      "end": "kind of deeper",
+      "section": "S2"
+    },
+    {
+      "id": "P14",
+      "clip": "6818",
+      "start": "the issue that comes up",
+      "end": "doesn't just look right",
+      "section": "S3",
+      "pics": [
+        {
+          "clip": "6818"
+        },
+        {
+          "w": "And",
+          "clip": "6818",
+          "scale": 1.15,
+          "ox": 250,
+          "oy": 800
+        },
+        {
+          "w": "never",
+          "clip": "6818"
+        }
+      ]
+    },
+    {
+      "id": "P15",
+      "clip": "6818",
+      "start": "In her situation",
+      "end": "Tyndall effect",
+      "section": "S3",
+      "pics": [
+        {
+          "clip": "6818",
+          "scale": 1.15,
+          "ox": 250,
+          "oy": 800
+        },
+        {
+          "w": "Again",
+          "clip": "6817",
+          "from": 138.0
+        }
+      ]
+    },
+    {
+      "id": "P17",
+      "clip": "6821",
+      "start": "she had a syringe put in",
+      "end": "bruising or swelling",
+      "section": "S4",
+      "pics": [
+        {
+          "clip": "6821"
+        },
+        {
+          "w": "You",
+          "clip": "6821",
+          "from": 18.0
+        }
+      ],
+      "in_gap": 2.67
+    }
+  ],
+  "cues": {
+    "expect": [
+      "H1",
+      "expect",
+      1
+    ],
+    "hollows": [
+      "P03",
+      "hollows",
+      1
+    ],
+    "tired": [
+      "P03",
+      "tired",
+      1
+    ],
+    "not": [
+      "P03",
+      "not",
+      1
+    ],
+    "fill": [
+      "P03b",
+      "fill",
+      1
+    ],
+    "hyaluronic": [
+      "P04",
+      "hyaluronic",
+      1
+    ],
+    "acid": [
+      "P04",
+      "acid",
+      1
+    ],
+    "cannula": [
+      "P04",
+      "cannula",
+      1
+    ],
+    "blunt": [
+      "P04",
+      "blunt",
+      1
+    ],
+    "advanced": [
+      "P05",
+      "advanced",
+      1
+    ],
+    "delicate": [
+      "P05",
+      "delicate",
+      1
+    ],
+    "last": [
+      "P05",
+      "last",
+      1
+    ],
+    "year": [
+      "P05",
+      "year",
+      1
+    ],
+    "half": [
+      "P05",
+      "half",
+      1
+    ],
+    "lidocaine": [
+      "P08",
+      "lidocaine",
+      1
+    ],
+    "anesthetic": [
+      "P08",
+      "anesthetic",
+      1
+    ],
+    "deep": [
+      "P09",
+      "deep",
+      1
+    ],
+    "underneath": [
+      "P09",
+      "underneath",
+      1
+    ],
+    "fuller": [
+      "P10",
+      "fuller",
+      1
+    ],
+    "deeper": [
+      "P10",
+      "deeper",
+      1
+    ],
+    "another": [
+      "P14",
+      "another",
+      1
+    ],
+    "expand": [
+      "P14",
+      "expand",
+      1
+    ],
+    "deep2": [
+      "P15",
+      "deep",
+      1
+    ],
+    "bluish": [
+      "P15",
+      "bluish",
+      1
+    ],
+    "tyndall": [
+      "P15",
+      "tyndall",
+      1
+    ],
+    "pinprick": [
+      "P17",
+      "pinprick",
+      1
+    ],
+    "week": [
+      "P17",
+      "week",
+      2
+    ],
+    "settled": [
+      "P17",
+      "settled",
+      1
+    ],
+    "so": [
+      "H1",
+      "so",
+      1
+    ],
+    "afterwards": [
+      "P05",
+      "afterwards",
+      1
+    ],
+    "typically": [
+      "P05",
+      "typically",
+      1
+    ],
+    "sure": [
+      "H1",
+      "sure",
+      1
+    ],
+    "conventional": [
+      "P17",
+      "conventional",
+      1
+    ],
+    "needles": [
+      "P17",
+      "needles",
+      1
+    ],
+    "swelling0": [
+      "P17",
+      "swelling",
+      1
+    ],
+    "bruised": [
+      "P17",
+      "bruised",
+      1
+    ],
+    "pillowy": [
+      "P14",
+      "pillowy",
+      1
+    ],
+    "never": [
+      "P14",
+      "never",
+      1
+    ],
+    "situation": [
+      "P15",
+      "situation",
+      1
+    ],
+    "beautiful": [
+      "P15",
+      "beautiful",
+      1
+    ],
+    "again": [
+      "P15",
+      "again",
+      1
+    ],
+    "here": [
+      "P17",
+      "here",
+      2
+    ],
+    "we": [
+      "P09",
+      "We",
+      1
+    ],
+    "two": [
+      "P17",
+      "two",
+      1
+    ],
+    "took": [
+      "H1",
+      "took",
+      1
+    ]
+  }
+}
