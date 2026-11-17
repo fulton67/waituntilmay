@@ -4,7 +4,8 @@ blender -b gnarls_rig.blend --factory-startup -P face_rig.py -- gen/face_feature
 
 Features (measured from the neutral front skin, gen/face_features.json, converted to 3D with the proj_front mapping):
 - per eye: pupil + highlight; per side: brow;
-- mouth: ink outline, dark interior, teeth band, tongue.
+- mouth: an ink rim, and one mouth surface whose interior shadow, top teeth and tongue are painted from its UVs
+  (the old four stacked layers fought each other and flickered while the mouth moved).
 Each is a strip mesh (top edge / bottom edge over x) with shape keys, shrinkwrapped onto the head and parented to the head
 bone. Because every shape (round pupil, ^ closed arc, flat closed line, D-shaped open mouth, O) has the same vertex
 layout, any mix of keys is a valid in-between.
@@ -122,7 +123,7 @@ def mouth_edges(o=0.0, s=0.0, wd=0.0, k=0.0):
 
 
 def mouth_round():
-    rx, ry, c0 = 0.95 * HW, 1.25 * HW, -0.7 * HW
+    rx, ry, c0 = 0.95 * HW, 1.2 * HW, -0.85 * HW  # top stays below the mouth crease
     s = np.sqrt(np.clip(1 - U ** 2, 0, 1))
     return U * rx, c0 + ry * s, c0 - ry * s
 
@@ -131,14 +132,11 @@ INK = 3.5
 
 
 def mouth_set(xs, T, B):
-    gap = np.maximum(T - B - T0, 0)
-    q = 1 - U ** 2
+    # two surfaces only: the ink rim behind, and one mouth surface whose teeth / tongue / inner shadow are painted by
+    # its shader from UVs (face_mouth material), so no layers can cross, poke out or flicker while it moves
     ink = strip(xs * (1 + INK / max(abs(xs).max(), 1)), T + INK, B - INK)
     fill = strip(xs, T, B)
-    teeth = strip(xs * 0.96, T - 0.35 * T0, T - 0.35 * T0 - 0.30 * gap)
-    tongue_top = B + 0.30 * T0 + 0.42 * gap * np.sqrt(np.clip(q, 0, 1))
-    tongue = strip(xs * 0.78, tongue_top, B + 0.30 * T0)
-    return {"mouth_ink": ink, "mouth_fill": fill, "mouth_teeth": teeth, "mouth_tongue": tongue}
+    return {"mouth_ink": ink, "mouth_fill": fill}
 
 
 MB = mouth_set(*mouth_edges())
@@ -160,9 +158,57 @@ def emat(name, hexc):
     o = N.new("ShaderNodeOutputMaterial"); m.node_tree.links.new(e.outputs[0], o.inputs["Surface"]); return m
 
 
+def mouth_mat():
+    """The inside of the mouth, painted on one surface from its UVs (u across 0..1, v bottom 0 .. top 1):
+    a maroon interior darker under the upper lip, one smooth band of top teeth, and a rounded tongue with a crease
+    and a soft highlight. Teeth and tongue fade in with the object's "mouth_open" (driven from the rig), so a closed
+    mouth stays a clean dark line."""
+    m = bpy.data.materials.get("face_mouth") or bpy.data.materials.new("face_mouth")
+    m.use_nodes = True; nt = m.node_tree; N, L = nt.nodes, nt.links; N.clear()
+    def nd(t, **kw):
+        n = N.new(t)
+        for k, v in kw.items(): setattr(n, k, v)
+        return n
+    def math(op, a, b):
+        n = nd("ShaderNodeMath", operation=op)
+        for sk, v in ((n.inputs[0], a), (n.inputs[1], b)):
+            if isinstance(v, (int, float)): sk.default_value = v
+            else: L.new(v, sk)
+        return n.outputs[0]
+    def ramp(x, lo, hi):
+        n = nd("ShaderNodeMapRange"); n.inputs["From Min"].default_value = lo; n.inputs["From Max"].default_value = hi
+        L.new(x, n.inputs["Value"]); return n.outputs["Result"]
+    def mixc(a, b, f):
+        n = nd("ShaderNodeMix", data_type="RGBA")
+        for sk, v in ((n.inputs["A"], a), (n.inputs["B"], b)):
+            if isinstance(v, tuple): sk.default_value = v
+            else: L.new(v, sk)
+        L.new(f, n.inputs["Factor"]); return n.outputs["Result"]
+    uvn = nd("ShaderNodeUVMap", uv_map="mouth_uv"); sp = nd("ShaderNodeSeparateXYZ"); L.new(uvn.outputs[0], sp.inputs[0])
+    u, v = sp.outputs[0], sp.outputs[1]
+    op = nd("ShaderNodeAttribute", attribute_type="OBJECT", attribute_name="mouth_open").outputs["Fac"]
+    du = math("SUBTRACT", u, 0.5)
+    interior = mixc(lin("6a1d27"), lin("2c0a10"), ramp(v, 0.45, 1.0))  # darker under the upper lip
+    # teeth: the top band, rounded off at the corners, only once the mouth is open
+    corner = ramp(math("ABSOLUTE", du, 0), 0.40, 0.33)
+    teeth = math("MULTIPLY", math("MULTIPLY", ramp(v, 0.76, 0.80), corner), ramp(op, 0.06, 0.22))
+    c1 = mixc(interior, lin("f4f1ea"), teeth)
+    # tongue: an ellipse sitting in the bottom of the mouth, with a centre crease and a highlight
+    ex = math("DIVIDE", du, 0.30); ey = math("DIVIDE", math("SUBTRACT", v, 0.02), 0.46)
+    d2 = math("ADD", math("MULTIPLY", ex, ex), math("MULTIPLY", ey, ey))
+    tongue = math("MULTIPLY", ramp(d2, 1.0, 0.9), ramp(op, 0.10, 0.30))
+    tcol = mixc(lin("e46f7b"), lin("c4505d"), ramp(math("ABSOLUTE", du, 0), 0.02, 0.0))  # the crease
+    hx = math("DIVIDE", math("SUBTRACT", u, 0.42), 0.08); hy = math("DIVIDE", math("SUBTRACT", v, 0.22), 0.07)
+    hd = math("ADD", math("MULTIPLY", hx, hx), math("MULTIPLY", hy, hy))
+    tcol = mixc(tcol, lin("f6a8b0"), ramp(hd, 1.0, 0.4))
+    c2 = mixc(c1, tcol, tongue)
+    em = nd("ShaderNodeEmission"); L.new(c2, em.inputs["Color"])
+    o = nd("ShaderNodeOutputMaterial"); L.new(em.outputs[0], o.inputs["Surface"])
+    return m
+
+
 MAT = {"pupil": emat("face_pupil", "141418"), "hl": emat("face_highlight", "ffffff"), "brow": emat("face_brow", "1c1816"),
-       "mouth_ink": emat("face_ink", "100f0d"), "mouth_fill": emat("face_mouth", "5a1620"),
-       "mouth_teeth": emat("face_teeth", "f7f5ef"), "mouth_tongue": emat("face_tongue", "e46f7b")}
+       "mouth_ink": emat("face_ink", "100f0d"), "mouth_fill": mouth_mat()}
 
 # ---- controls on the armature ----
 CTRL = {}
@@ -181,11 +227,26 @@ col = bpy.data.collections.new("face"); sc.collection.children.link(col)
 made = []
 
 
-def build(name, centre_px, base, keys, mat, offset, drivers):
+def grid(P, R):
+    """strip (top row, bottom row) -> R rows between them (top first), so the surface bends with the head"""
+    top, bot = P[:NS + 1], P[NS + 1:]
+    return np.concatenate([top + (bot - top) * j / (R - 1) for j in range(R)])
+
+
+def build(name, centre_px, base, keys, mat, offset, drivers, rows=2):
     cx, cz = px2xz(*centre_px)
     def to3(P): d = (J @ np.c_[P[:, 0], -P[:, 1]].T).T; return [(float(x), 0.0, float(z)) for x, z in d]
-    faces = [(i, i + 1, NS + 2 + i, NS + 1 + i) for i in range(NS)]
+    if rows > 2:
+        base = grid(base, rows); keys = {k: grid(P, rows) for k, P in keys.items()}
+    W_ = NS + 1
+    faces = [(j * W_ + i, j * W_ + i + 1, (j + 1) * W_ + i + 1, (j + 1) * W_ + i) for j in range(rows - 1) for i in range(NS)]
     mesh = bpy.data.meshes.new(name); mesh.from_pydata(to3(base), [], faces); mesh.update()
+    if rows > 2:
+        uvl = mesh.uv_layers.new(name="mouth_uv")
+        for poly in mesh.polygons:
+            for li in poly.loop_indices:
+                vi = mesh.loops[li].vertex_index; j, i = divmod(vi, W_)
+                uvl.data[li].uv = (i / NS, 1 - j / (rows - 1))
     o = bpy.data.objects.new(name, mesh); col.objects.link(o); o.location = (cx, y_front, cz)
     mesh.materials.append(mat)
     o.shape_key_add(name="Basis")
@@ -221,8 +282,11 @@ for side in ("L", "R"):
           {"raise": one(f"brow_raise_{side}"), "angry": one(f"brow_angry_{side}")})
 MDRV = {"open": one("mouth_open"), "smile": one("mouth_smile"), "wide": one("mouth_wide"), "round": one("mouth_round"),
         "smirk": one("mouth_smirk")}
-for nm, off in (("mouth_ink", 0.0010), ("mouth_fill", 0.0016), ("mouth_tongue", 0.0021), ("mouth_teeth", 0.0025)):
-    build(f"face_{nm}", m0["c"], MB[nm], {kn: MK[kn][nm] for kn in MK}, MAT[nm], off, MDRV)
+build("face_mouth_ink", m0["c"], MB["mouth_ink"], {kn: MK[kn]["mouth_ink"] for kn in MK}, MAT["mouth_ink"], 0.0012, MDRV, rows=7)
+mo = build("face_mouth_fill", m0["c"], MB["mouth_fill"], {kn: MK[kn]["mouth_fill"] for kn in MK}, MAT["mouth_fill"], 0.0036, MDRV, rows=9)
+mo["mouth_open"] = 0.0
+d = mo.driver_add('["mouth_open"]').driver; d.type = "AVERAGE"
+v = d.variables.new(); v.name = "v"; v.type = "SINGLE_PROP"; v.targets[0].id = arm; v.targets[0].data_path = '["mouth_open"]'
 bpy.context.view_layer.update()
 for o in made:
     mw = o.matrix_world.copy(); o.parent = arm; o.parent_type = "BONE"; o.parent_bone = head_bone; o.matrix_world = mw

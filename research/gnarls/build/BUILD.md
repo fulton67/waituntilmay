@@ -1,8 +1,8 @@
 # Gnarls 3D master: how it is built
 
 The last step of `research/ostad/style/FRAME_BY_FRAME.md`, applied to Gnarls: build from the rules in `../CONTEXT.md` /
-`../DECISIONS.md`, then render and check against the guide. Target look: a 3D cartoon (soft vinyl toy), not hyper-real,
-with the guide's black die-cut contour kept. Media (refs/, gen/, models/, renders/) is gitignored: it is generated from
+`../DECISIONS.md`, then render and check against the guide. Target look: a 3D cartoon (soft vinyl toy), not hyper-real.
+The die-cut contour is used for stickers and the face reel; the 3D action reel goes without it, with a floor shadow. Media (refs/, gen/, models/, renders/) is gitignored: it is generated from
 the team's drive art.
 
 ## Pipeline
@@ -86,11 +86,44 @@ blender -b renders/rig_v5/gnarls_rig.blend --factory-startup -P blender/render_r
 python -I make_lens_mask.py
 blender -b renders/rig_v5/gnarls_rig.blend --factory-startup -P blender/fix_glasses.py -- gen/lens_mask.png renders/rig_v6/gnarls_rig.blend
 python -I make_face_features.py
-blender -b renders/rig_v6/gnarls_rig.blend --factory-startup -P blender/face_rig.py -- gen/face_features.json renders/rig_v7/gnarls_rig.blend
-blender -b renders/rig_v7/gnarls_rig.blend --factory-startup -P blender/toon_look.py -- renders/rig_v8/gnarls_rig.blend
-blender -b renders/rig_v8/gnarls_rig.blend --factory-startup -P blender/render_faces_video.py -- renders/faces_video
-python -I faces_video.py renders/faces_video renders/gnarls_faces.mp4
+blender -b renders/rig_v6/gnarls_rig.blend --factory-startup -P blender/repair_mesh.py -- renders/rig_v6r/gnarls_rig.blend
+blender -b renders/rig_v6r/gnarls_rig.blend --factory-startup -P blender/export_mesh.py -- gen/mesh.npz
+python -I make_parts.py gen/mesh.npz
+blender -b renders/rig_v6r/gnarls_rig.blend --factory-startup -P blender/face_rig.py -- gen/face_features.json renders/rig_v7/gnarls_rig.blend
+blender -b renders/rig_v7/gnarls_rig.blend --factory-startup -P blender/look3d.py -- gen/parts_faces.npz renders/rig_v9/gnarls_rig.blend
+blender -b renders/rig_v9/gnarls_rig.blend --factory-startup -P blender/rig_more.py -- gen/parts_faces.npz renders/rig_v10/gnarls_rig.blend
+blender -b renders/rig_v10/gnarls_rig.blend --factory-startup -P blender/actions.py -- renders/actions samples=40
+python -I actions_video.py renders/actions renders/gnarls_actions.mp4
 ```
+Checks along the way: `blender/look_test.py -- OUTDIR [VIEW_TRANSFORM] [EXPOSURE] [ONLY|mouth]` renders the rest pose
+(¾, side, back, front, face) or a mouth sweep; `actions.py -- OUTDIR test` renders ten key frames of the reel.
+
+The 3D pass (after rig_v6):
+- `repair_mesh.py` fixes what real light exposes. It lays the old glasses zone onto a smooth fitted head surface
+  (crumples and the normals seam round each lens gone, inward fold faces deleted). It pulls the fin-like tab that
+  Tripo built from the back reference's tail back into the tee, fills 10 holes, and points the old frame paint at
+  plain skin.
+- `make_parts.py` splits the fused mesh into parts by shape, not paint: skin, tee, belly band and horn. The collar,
+  hem and band edges come per angle from robust percentiles of the paint, median-filtered so paint mistakes can't
+  move them. Sleeves stop on the fin roots, and the horn is what sticks out of the fitted dome.
+- `look3d.py` replaces the flat toon look, which read 2D, with a soft vinyl-toy render in Cycles (GPU):
+  - per-part materials: skin keeps the spots and flank patches, minus the baked shine and stray ink; the tee is flat
+    red with the N kept only in the logo zone; cloth sheen on the tee and band; the horn is glossier;
+  - glossy glasses, clear lenses with a fresnel reflection;
+  - a soft high key, a cool rim, a white world for the fill and AO, and a shadow-catcher floor;
+  - Khronos PBR Neutral at exposure −1.75, measured so lit colours land on the palette (tee 230,28,46 vs #ed1d2f).
+- `face_rig.py` builds the face rig (see the next paragraph). Its mouth is one surface: the inner shadow, the top teeth
+  and the tongue are painted from UVs and fade in with the opening. The old four stacked layers flickered.
+- `rig_more.py` adds a glasses bone and a horn bone. The horn's base fades into the head over 2 cm.
+- `actions.py` is the full-body reel: hello, jump, wave, cheer, present, twirl, turnaround with a glance back, and a
+  happy settle (468 f, 19.5 s), timed from `ANIMATION.md`:
+  - primary keys from its tables, with a monotone cubic between them; the jump's airborne frames are the gravity table;
+  - squash and stretch about the base with the volume kept;
+  - follow-through on the head, horn, glasses, fins (a whip down the chain), tail and flukes, simulated by damped
+    springs from the body's vertical acceleration and spin rate;
+  - breathing under everything;
+  - the face keyed per phase, with blinks per the head-turn rules and speed limits on the mouth;
+  - it also saves `renders/actions/gnarls_actions.blend` with every frame keyed, for scrubbing in Blender.
 - `face_rig.py` makes the face a real rig. Pupils, highlights, brows, mouth outline, mouth interior, teeth and tongue
   are separate strip meshes, measured from the neutral skin (`make_face_features.py`). Each is shrinkwrapped onto the
   head and parented to the head bone, with shape keys driven by 19 controls on the armature: brow raise/angry, blink,
@@ -105,8 +138,12 @@ python -I faces_video.py renders/faces_video renders/gnarls_faces.mp4
   It's composited on white with the guide's die-cut contour.
 Paths go to Blender as Windows absolute paths (`cygpath -w`).
 
-To play with the rig in the Blender UI: `blender renders/rig_v8/gnarls_rig.blend -P blender/demo_ui.py`. The sidebar
-(N) gets a **Gnarls** tab with Pose, Eyes, Mouth and Play controls. The viewport opens in EEVEE Rendered shading in Pose
+To play with the rig in the Blender UI: `blender renders/actions/gnarls_actions.blend -P blender/demo_ui.py`. The
+sidebar (N) gets a **Gnarls** tab with:
+- Pose, and Play poses;
+- Play action reel;
+- Eyes and Mouth presets;
+- every face control as a slider. The viewport opens in EEVEE Rendered shading in Pose
 mode, so you can orbit and rotate bones yourself.
 
 To add an expression:

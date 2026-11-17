@@ -1,5 +1,6 @@
 """Open the Gnarls rig in Blender's UI with a control panel (sidebar N > Gnarls).
-blender renders/rig_v8/gnarls_rig.blend -P blender/demo_ui.py
+blender renders/actions/gnarls_actions.blend -P blender/demo_ui.py   (the rig with the action reel baked in)
+blender renders/rig_v10/gnarls_rig.blend -P blender/demo_ui.py        (the rig alone)
 
 Panel: Pose (jumps to the keyed pose frame); Eyes / Mouth expression presets (any eyes with any mouth, keyed on the
 current frame); every face control as a slider (brows, lids, pupils, mouth: drag to see the rig move, right-click >
@@ -68,11 +69,29 @@ class GNARLS_OT_play(bpy.types.Operator):
         bpy.ops.screen.animation_play(); return {"FINISHED"}
 
 
+class GNARLS_OT_reel(bpy.types.Operator):
+    bl_idname = "gnarls.reel"; bl_label = "Play action reel"
+    @staticmethod
+    def span(scene):
+        if scene.get("gnarls_reel"): return tuple(scene["gnarls_reel"])
+        act = ARM.animation_data.action if ARM.animation_data else None
+        if act and act.frame_range[1] > 3000: return 3001, int(act.frame_range[1])
+        return None
+    @classmethod
+    def poll(cls, ctx): return cls.span(ctx.scene) is not None
+    def execute(self, ctx):
+        s = ctx.scene; a, b = self.span(s); s.frame_start, s.frame_end = a, b
+        s.render.fps, s.render.fps_base = 24, 1.0
+        if not (a <= s.frame_current <= b): s.frame_set(a)
+        bpy.ops.screen.animation_play(); return {"FINISHED"}
+
+
 class GNARLS_PT_panel(bpy.types.Panel):
     bl_label = "Gnarls rig"; bl_space_type = "VIEW_3D"; bl_region_type = "UI"; bl_category = "Gnarls"
     def draw(self, ctx):
         L = self.layout; s = ctx.scene
         L.prop(s, "gn_pose"); L.operator("gnarls.play", icon="PLAY")
+        L.operator("gnarls.reel", icon="PLAY")
         L.separator(); L.label(text="Face (keyed on this frame)")
         L.prop(s, "gn_eyes"); L.prop(s, "gn_mouth")
         box = L.box(); box.label(text="Face controls")
@@ -81,7 +100,7 @@ class GNARLS_PT_panel(bpy.types.Panel):
         L.label(text="Pose mode: click a bone, R to rotate")
 
 
-for c in (GNARLS_OT_play, GNARLS_PT_panel): bpy.utils.register_class(c)
+for c in (GNARLS_OT_play, GNARLS_OT_reel, GNARLS_PT_panel): bpy.utils.register_class(c)
 bpy.app.handlers.frame_change_post.append(lambda scene, *a: _sync(scene))
 
 
