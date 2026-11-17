@@ -17,16 +17,18 @@ W, H = 1080, 1350
 UP = json.loads((RM / "src/posts/up.json").read_text())
 
 # id, frames, keys, photo check: (source id, box x, y, w, h, fx, fy) -- same numbers as Posts.tsx
+M = 48
+# Grid 2 (brand/remotion/src/posts/g2/Grid2.tsx GRID2): id, keys, (source id, box x, y, w, h, fx, fy, zoom, measured rect not covered by type)
 POSTS = [
-    ("FillerScale", [36, 58, 95], ("07640", 0, 0, W, H, 0.5, 0.0)),
-    ("LayerOrder", [48, 72, 95], None),
-    ("CegFerulic", [50, 100, 119], ("00374", 0, 0, 500, H, 0.2, 0.5)),
-    ("BccFacts", [46, 82, 119], None),
-    ("QuotePodium", [44, 80, 109], ("08710", 560, 0, W - 560, H, 0.05, 0.5)),
-    ("Reapply", [44, 80, 109], ("09677", 0, 0, W, H, 1.0, 0.5, 1.4, (0, 0, 520, H))),  # measured left of the glass card
-    ("FifteenYears", [50, 82, 109], ("06354", 0, 0, W, 800, 0.5, 0.28)),
-    ("EmsculptBars", [70, 92, 119], ("02204", 600, 0, W - 600, H, 0.75, 0.5)),
-    ("Office", [40, 72, 95], ("09035", 0, 0, W, 820, 0.5, 0.5)),
+    ("G01Filler", [30, 66, 99], ("07640", 0, 0, W, H, 0.5, 0.0, 1, (0, 330, W, 300))),
+    ("G02Layers", [44, 80, 109], None),
+    ("G03Ceg", [40, 76, 109], ("00374", 0, 0, W, 930, 0.25, 0.55, 1, (0, 60, W, 160))),
+    ("G04Bcc", [24, 64, 109], None),
+    ("G05Quote", [30, 70, 109], ("08710", 0, 0, W, 760, 0.5, 0.2, 1, (200, 200, 680, 480))),
+    ("G06Reapply", [44, 80, 109], ("09677", 0, 0, 560, H, 0.54, 0.5, 1.1, (0, 450, 560, 400))),
+    ("G07Fifteen", [40, 76, 109], ("06354", M, 200, 480, 600, 0.5, 0, 1.3, (M, 560, 480, 230))),
+    ("G08Emsculpt", [56, 96, 119], ("02204", W - 440, 0, 440, H, 0.62, 0.5, 1, (W - 440, 300, 440, 700))),
+    ("G09Office", [40, 70, 99], ("09035", 0, 0, W, H, 0.5, 0.5, 1, (200, 420, 680, 500))),
 ]
 
 
@@ -66,11 +68,11 @@ def main():
     g = Image.new("RGB", (T[0] * 3 + 8, T[1] * 3 + 8), "white")
     for i, (pid, _, _) in enumerate(POSTS):
         g.paste(Image.open(OUT / f"{pid}.png").convert("RGB").resize(T), ((i % 3) * (T[0] + 4), (i // 3) * (T[1] + 4)))
-    g.save(OUT / "_grid.jpg", quality=90)
+    g.save(OUT / "_grid2.jpg", quality=90)
     report["pass"] = all(r.get("photo", {}).get("pass", True) for r in report["posts"])
     report["stills"] = sum(len(r["stills"]) for r in report["posts"])
     (ROOT / "brand/posts").mkdir(exist_ok=True)
-    (ROOT / "brand/posts/posts_check.json").write_text(json.dumps(report, indent=1))
+    (ROOT / "brand/posts/posts_check_grid2.json").write_text(json.dumps(report, indent=1))
     print(json.dumps({"pass": report["pass"], "stills": report["stills"], "tint": {r["id"]: r["photo"]["tint_spread"] for r in report["posts"] if "photo" in r}}))
 
 

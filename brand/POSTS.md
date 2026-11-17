@@ -1,5 +1,14 @@
 # Feed posts, built in Remotion (2026-11-17)
 
+> **Grid 2 supersedes grid 1** (Naim: grid 1 was "too similar to his current grid", thin on information and detail, cheap).
+> Grid 2 = `brand/remotion/src/posts/g2/` ("the clinical index"): his own palette from `brand/EXISTING.md` (navy `#152235`, ivory
+> `#f5f2eb`, sand `#d6c3a0`, silver), in the are.na board's language: four-corner meta, figure captions with the catalog photo
+> dates, key/value data rows, rulers, labelled hairline leaders, big tight NHG Display, IBM Plex Mono for data, and a Cormorant
+> italic accent. No glass chips, rounded tiles or bright blue. Review copies: `brand/posts/grid2/`; measured in
+> `brand/posts/posts_check_grid2.json` (27 stills; photo tint spread ≤ 0.15 levels on 7 of 7); lint PASS.
+> Next: multi-slide carousels on what the audience values (`clinic-library/network/swipe_file.md`, `questions.md`), with
+> procedure facts from `clinic-library/reference/` and the catalog, plus consent-gated before/afters.
+
 Replaces the POST_GRID tile templates, which Naim rejected ("everything is tinted blue", off the bible, inaccurate; never use).
 Posts are made like the reels: each one is a timed Remotion composition on the MOTION.md tokens, and the stills are frames of that
 motion. The carousel slides are the moments where the motion lands. The last key frame is the cover, which is also the grid tile.
