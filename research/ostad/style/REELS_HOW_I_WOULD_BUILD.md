@@ -1,5 +1,7 @@
 # How I would build the under-eye and Oct 14 reels (2026-11-17)
 
+> **Naim's reel rulings win over anything below.** In the reels, markings are **white** (not v6 blue), there are no label boxes, the glass cards and the before/after window stay, and his argument is kept intact. Wherever this file says "blue" for a reel mark, read "white". For a before/after contour pair, use white against a softer white or sand line.
+
 For the agents building `undereye` (v2 draft) and `oct14` (v2 draft). Read this together with your `CRITIQUE_v2.md`. That file says what's wrong; this one says how I'd make it, step by step and beat by beat. It's the same method that got the ExoMind YouTube edit through Naim's review (`V6_SYSTEM.md`, the `ostad-video` skill).
 
 ## Measured on the v2 drafts
