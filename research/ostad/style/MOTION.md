@@ -19,7 +19,7 @@ Written 2026-11-16. This chapter **adds to** the system we already have and does
 
 **Frame rates.** OstadYT renders at 24 fps (DEC 14b, "24 fps"). Reels and the Evident references run at 30 fps. Every token below is given at both rates. Evident frame counts (30 fps) are converted to 24 fps by × 0.8; web durations (ms) by × 0.024 (24 fps) and × 0.030 (30 fps). Everything is rounded to the nearest whole frame.
 
-**Pending.** `pacing.json`, `sfx.json` and `easing.json` (M12/M17/M19) don't exist yet for any of the 53 Evident Shorts (checked on disk: `measure/evident_yt/*/`, 0 of 53; also stated in G1 §6, G2 §5, G3 §5 and G4 Caveats). So every Shorts timing here comes from the board reads, at about ±2 f per reveal (G1 §6). The easing *shapes* come from the DDOS pixel tables (§4, Moments A–C) and the newapology bezier fits. When the Shorts' M12 lands, re-check the `sweep` and `arrive` peaks against it.
+**Measured on all 53 Evident Shorts (2026-11-16).** `pacing.json` and `sfx.json` (M17/M19) are in for 53 of 53. Pacing: median 2.74 words/s (range 1.65–3.79), 9.4 pauses a minute (median 0.42 s), 3.0 % dead air, sentences 5.4 s. Sound: graphic and caption entries land within ±3 f of an audio onset 60 % of the time against 59 % chance (random frames, same onset density; text 66 %, graphics 60 %), and only 20 % meet a strong onset (strength ≥ 0.5). That repeats the DDOS result (62.6 % vs 58.7 %): Evident does not sync a sound to each reveal. `easing.json` (M12) is still computing; until it lands the Shorts timings come from the board reads (±2 f, G1 §6), the easing *shapes* from the DDOS pixel tables (§4, Moments A–C) and the newapology bezier fits.
 
 ---
 
@@ -160,6 +160,6 @@ The outgoing shot fades to the room canvas (`blank`, 11 f), holds the canvas for
 | Datamosh, glitches, tape breaks | DDOS R18 adapted: only the soft inverse (noise clearing to calm) |
 | Invented numbers or illustrative charts with fake values | R1, "graphics only for what's said". BOARD: every unsourced slot is `[cited figure]`. A counter shows a cited value or a literal on-screen count |
 | Kinetic "stamps" more than once a minute | G1 R25 caps them at one per minute, each on a different background |
-| Per-graphic SFX on every reveal | Not evidenced: DDOS SFX hits 62.6 % vs 58.7 % chance (R20); the Shorts' `sfx.json` is still pending (G1 §6). Keep one sound per hero reveal; voice stays ≥ 8 LU over the bed (DDOS 8.42 LU; the Shorts measure 10.2–12.0 LU, G1–G4 §3) |
+| Per-graphic SFX on every reveal | Not evidenced: DDOS SFX hits 62.6 % vs 58.7 % chance (R20); the 53 Shorts measure 60 % vs 59 % chance, 20 % on a strong onset (`sfx.json`, M19). Keep one sound per hero reveal; voice stays ≥ 8 LU over the bed (DDOS 8.42 LU; the Shorts measure 10.2–12.0 LU, G1–G4 §3) |
 | Cuts faster than his speech | Gentle cuts, then 1.1–1.2x (DEC 14). The Shorts' stutter edits (9 cuts in 4.6 s, G1 qf_jdmTkPgg) are rejected for long-form |
 | Scroll-scrubbed motion tied to nothing | CEL M1's rotation is mapped to scroll (`180 × (1 − (1 − s)^2)`). The only video equivalent we take is mapping a rotation or progress to *his speech* (the progressive highlight); free-spinning objects are out |
