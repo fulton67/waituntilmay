@@ -80,7 +80,7 @@ def main():
         # photo layers for the static-image check (lint_compositions.py --static-image): the box is the photo's own rect
         if bid == "B04":
             b["assets"] = [{"kind": "image", "src": "undereye-filler/syringe.jpg (a still of this session's syringe)", "source": "clinic", "consent": "P0001/P0002 unknown"}]
-            b["image_layers"] = [{"asset": "undereye-filler/syringe.jpg", "box": [98, 1000, 480, 480], "from_f": pc["P04"]["at"] + 6 + 1 + 36, "to_f": P["cues"]["cannula"] - 8}]
+            b["image_layers"] = [{"asset": "undereye-filler/syringe.jpg", "box": [98, 1000, 480, 480], "from_f": P["cues"]["hyaluronic"] + 1 + 36, "to_f": P["cues"]["cannula"] - 8}]
         if bid == "B12":
             e13 = pc["P13"]["at"] + pc["P13"]["dur"] - 1
             b["assets"] = [{"kind": "image", "src": "undereye-filler/syringe.jpg (thumbnail)", "source": "clinic", "consent": "P0001/P0002 unknown"}]

@@ -576,3 +576,26 @@ These replace the dot-and-line callout and v4.1's single 48 f fade-up (EXOMIND_R
 - **Font.** TypeEntry inherits the YT `DISPLAY` face (the type pairing is the builder's call, 14j) and takes any `style`.
 - **Sheets.** `exomind/arrows_vs_refs.jpg` and `type_vs_refs.jpg` hold our frames next to reference crops, plus v4.1 frames. They are gitignored like `ref_*.jpg`, and `git check-ignore` was run before the commit.
 - **Lint.** `tools/lint_compositions.py` passes on Arrow.tsx, TypeEntry.tsx and ArrowTypeLab.tsx (0 violations).
+
+## 15. Under-eye filler reel: 2021-09-20 session, built on a stills proxy while iCloud holds the originals (2026-11-17)
+
+**NOT FOR POSTING until patient consent = yes.** The catalog has consent = unknown for this session (P0001/P0002). Every render file name carries `NOT-FOR-POSTING_consent-unknown`; the proxy also carries an on-screen "PROXY · STILLS · NOT FOR POSTING" badge.
+
+Sources: IMG_6816 (intro), IMG_6817 (procedure), IMG_6818 (assessment), IMG_6821 (result), 1080×1920. Onboarding first (`research/ostad/learning/ONBOARDING.md`; nine files on the reading list do not exist anywhere in the repo or its history). Design: `undereye/BEATS.md`, `undereye/beats.json`, `undereye/cut.json`. Code: `brand/remotion/src/undereye/` with its own entry point, so the shared `Root.tsx` (being changed by the exo6 work at the same time) is untouched; `brand/scripts/undereye_{prep,track,verify}.py`.
+
+Decisions, none asked of the user:
+- **Format:** 9:16, 1080×1920, 24 fps, NHG Display (MR; DEC 14d rule 7). **Speed 1.1×** after the cut (DEC 14: 1.1–1.2×); only false starts, asides and the patient's name are cut, never his pauses inside a phrase.
+- **Patient name.** It is spoken once in IMG_6816 (between "beautiful patient," and "who has just requested") and twice in IMG_6817 (outside every piece). The cut ends P01 on the word before it and starts P02 on the word after it, with an 80 ms berth; `undereye_prep.py` reads the name from the catalog at run time, redacts it to "[name]" before anything is stored, and refuses a piece that would contain it. On screen she is never named. The final render is re-transcribed to prove 0 name-like words in the audio.
+- **Filler brand not named.** The product name he says at IMG_6818 0:35 is not clear in the catalog transcript and no label is readable in the stills; the reel says "hyaluronic acid filler · with lidocaine" (his words).
+- **One reorder (B12):** "half a syringe" (6817 1:26) is moved next to "did one syringe" (3:31) so one card rolls the amount once.
+- **B-roll under his voice** for P07, P15–P17, from the same session, so the markup sits on the treated area (DEC 9: markup on condition footage, never on his face).
+- **Markup positions are measured,** not placed by eye: MediaPipe Face Landmarker on her face (the patient picked by side and continuity), One Euro 0.1 / 0.03 as in 14g. Fuller = her right side (image left), treated first (entry on the image-left cheek in 6817 f0013).
+- **Arrows:** local headed arrows (`undereye/devices.tsx` `HeadedArrow`, head lands on the last draw frame, `data-arrowhead`) because `devices/Arrow.tsx` was another agent's uncommitted work when this was built; lint passes.
+- **variety_check R11** gains `compliance_profile: "injectable"`: consent yes or the sheet marked not_for_posting; every illustration beat labelled; no brand without evidence; result claims carry "Individual results vary.". The ExoMind profile is unchanged (default).
+- **Proxy (coordinator, 11:20):** iCloud's library index failed server-side, so the reel was built and measured on the catalog's stills (`clinic-library/frames`, **one every 3 s**, not 1 fps: 93 stills for 4:37) behind one `<Footage>` wrapper (`FOOTAGE` in `Reel.tsx`: one line per clip, "stills" → "video"), with words placed from the catalog's [m:ss] timestamps (0.055 s per letter + 0.11 s per word from each timestamp, squeezed to fit). Proxy timings are approximate by construction; the final uses faster-whisper word onsets on the originals.
+
+Measured on the proxy (`undereye/verify_proxy.json`; 103.9 s, 2,493 f; proxy 540×960, bare graphics-only pass 1080×1920):
+- variety_check PASS (17 beats, 19 devices, 9 entries, text-only 2/17, 5 never-built); lint_compositions PASS (0 dot-and-line); static-image PASS (B04 17.9, B12 11.4 grey levels vs 0.16); reuse_check PASS (nearest 0.227–0.312 vs threshold 0.107); flashes 0.
+- Captions: 289/313 words measured, median 0 f from the onset, 87.5 % at 0 f, 88.6 % within ±1 f (the rest are words inside a line already on screen whose change is too small to see).
+- Reveals: median +1 f over 14 measured beats, 9 within ±1 f. By design: B02's loupe opens 6 f early so its label lands on "hollows" (long build, MOTION §3); B14's tint is a multiply layer, invisible on the black bare pass. "+1" here is the first changed pixel, which is the frame after the token's start frame (`prog` is 0 on its start frame).
+- Not measurable on the proxy: audio (name check, words, loudness, speed). They run on the final.

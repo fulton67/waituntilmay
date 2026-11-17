@@ -123,7 +123,7 @@ export const UndereyeReel: React.FC<UEProps> = (P) => {
       {/* B03 "illusion of being tired. She's not." */}
       <StrikeReplace oldText="Tired?" newText="An illusion." s={c.tired} strikeS={c.not} newS={c.not + 6} out={E("P03")} y={1030} />
       {/* B04 the filler itself, plate then picture */}
-      <ProductPlate s={S("P04") + 6} out={c.cannula - 1} img="undereye-filler/syringe.jpg" crop={{ x: 300, y: 850, w: 520, h: 520 }} srcW={1080} srcH={1920} box={{ x: M, y: 1000, w: 480, h: 480 }}
+      <ProductPlate s={c.hyaluronic} out={c.cannula - 1} img="undereye-filler/syringe.jpg" crop={{ x: 300, y: 850, w: 520, h: 520 }} srcW={1080} srcH={1920} box={{ x: M, y: 1000, w: 480, h: 480 }}
         chip="Hyaluronic acid filler" chipS={c.acid} sub="with lidocaine" />
       {/* B05 needle vs cannula */}
       <TipCompare s={c.cannula} out={E("P05")} bluntS={c.blunt} needleS={c.sharp} sharpS={c.sharp + 4} chips={[{ text: "Swelling", s: c.swelling }, { text: "Bruising", s: c.bruising }]} y={1060} />

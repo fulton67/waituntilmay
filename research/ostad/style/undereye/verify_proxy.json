@@ -1,0 +1,158 @@
+{
+ "render": "UndereyeReel_PROXY_NOT-FOR-POSTING_consent-unknown_540p.mp4",
+ "format": {
+  "width": 540,
+  "height": 960,
+  "fps": "24/1",
+  "frames": 2493,
+  "duration_s": 103.893
+ },
+ "bare_format": {
+  "width": 1080,
+  "height": 1920,
+  "fps": "24/1",
+  "frames": 2493,
+  "duration_s": 103.893
+ },
+ "mode": "proxy (catalog stills, catalog timestamps, no audio)",
+ "name": "n/a: the proxy has no audio track",
+ "words": "n/a: the proxy has no audio track",
+ "loudness": "n/a: the proxy has no audio track",
+ "captions": {
+  "words": 313,
+  "measured": 289,
+  "median_offset_f": 0.0,
+  "share_at_0f": 0.875,
+  "share_within_1f": 0.886
+ },
+ "reveals": {
+  "beats": [
+   {
+    "beat": "B01",
+    "cue": "fillers",
+    "target_f": 122,
+    "first_change_f": 123,
+    "offset_f": 1
+   },
+   {
+    "beat": "B02",
+    "cue": "hollows",
+    "target_f": 243,
+    "first_change_f": 238,
+    "offset_f": -5
+   },
+   {
+    "beat": "B03",
+    "cue": "tired",
+    "target_f": 347,
+    "first_change_f": 345,
+    "offset_f": -2
+   },
+   {
+    "beat": "B04",
+    "cue": "hyaluronic",
+    "target_f": 453,
+    "first_change_f": 461,
+    "offset_f": 8
+   },
+   {
+    "beat": "B05",
+    "cue": "cannula",
+    "target_f": 499,
+    "first_change_f": 498,
+    "offset_f": -1
+   },
+   {
+    "beat": "B06",
+    "cue": "last",
+    "target_f": 680,
+    "first_change_f": 681,
+    "offset_f": 1
+   },
+   {
+    "beat": "B07",
+    "cue": "insertion",
+    "target_f": 761,
+    "first_change_f": 762,
+    "offset_f": 1
+   },
+   {
+    "beat": "B08",
+    "cue": "lidocaine",
+    "target_f": 944,
+    "first_change_f": 945,
+    "offset_f": 1
+   },
+   {
+    "beat": "B09",
+    "cue": "deep",
+    "target_f": 985,
+    "first_change_f": null,
+    "offset_f": null
+   },
+   {
+    "beat": "B10",
+    "cue": "fuller",
+    "target_f": 1228,
+    "first_change_f": 1229,
+    "offset_f": 1
+   },
+   {
+    "beat": "B11",
+    "cue": "absorb",
+    "target_f": 1321,
+    "first_change_f": 1322,
+    "offset_f": 1
+   },
+   {
+    "beat": "B12",
+    "cue": "halfsyringe",
+    "target_f": 1798,
+    "first_change_f": null,
+    "offset_f": null
+   },
+   {
+    "beat": "B13",
+    "cue": "another",
+    "target_f": 1890,
+    "first_change_f": 1887,
+    "offset_f": -3
+   },
+   {
+    "beat": "B14",
+    "cue": "bluish",
+    "target_f": 2053,
+    "first_change_f": 2082,
+    "offset_f": 29
+   },
+   {
+    "beat": "B15",
+    "cue": "nobody",
+    "target_f": 2119,
+    "first_change_f": 2120,
+    "offset_f": 1
+   },
+   {
+    "beat": "B16",
+    "cue": "pinprick",
+    "target_f": 2215,
+    "first_change_f": 2215,
+    "offset_f": 0
+   },
+   {
+    "beat": "B17",
+    "cue": "week",
+    "target_f": 2279,
+    "first_change_f": null,
+    "offset_f": null
+   }
+  ],
+  "median_offset_f": 1.0,
+  "within_1f": 9,
+  "measured": 14
+ },
+ "flashes": {
+  "one_frame_luma_spikes": 0,
+  "frames": []
+ }
+}
