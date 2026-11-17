@@ -1,0 +1,148 @@
+{
+ "posts": [
+  {
+   "id": "FillerScale",
+   "stills": [
+    "FillerScale_1.png",
+    "FillerScale_2.png",
+    "FillerScale.png"
+   ],
+   "photo": {
+    "source": "clinic-library row 7640",
+    "mean_shift_rgb": [
+     0.32,
+     0.81,
+     1.04
+    ],
+    "tint_spread": 0.72,
+    "pass": true
+   }
+  },
+  {
+   "id": "LayerOrder",
+   "stills": [
+    "LayerOrder_1.png",
+    "LayerOrder_2.png",
+    "LayerOrder.png"
+   ]
+  },
+  {
+   "id": "CegFerulic",
+   "stills": [
+    "CegFerulic_1.png",
+    "CegFerulic_2.png",
+    "CegFerulic.png"
+   ],
+   "photo": {
+    "source": "clinic-library row 374",
+    "mean_shift_rgb": [
+     -1.45,
+     -0.74,
+     -0.35
+    ],
+    "tint_spread": 1.1,
+    "pass": true
+   }
+  },
+  {
+   "id": "BccFacts",
+   "stills": [
+    "BccFacts_1.png",
+    "BccFacts_2.png",
+    "BccFacts.png"
+   ]
+  },
+  {
+   "id": "QuotePodium",
+   "stills": [
+    "QuotePodium_1.png",
+    "QuotePodium_2.png",
+    "QuotePodium.png"
+   ],
+   "photo": {
+    "source": "clinic-library row 8710",
+    "mean_shift_rgb": [
+     -0.34,
+     -0.35,
+     -0.36
+    ],
+    "tint_spread": 0.02,
+    "pass": true
+   }
+  },
+  {
+   "id": "Reapply",
+   "stills": [
+    "Reapply_1.png",
+    "Reapply_2.png",
+    "Reapply.png"
+   ],
+   "photo": {
+    "source": "clinic-library row 9677",
+    "mean_shift_rgb": [
+     -0.9,
+     -0.63,
+     -0.44
+    ],
+    "tint_spread": 0.46,
+    "pass": true
+   }
+  },
+  {
+   "id": "FifteenYears",
+   "stills": [
+    "FifteenYears_1.png",
+    "FifteenYears_2.png",
+    "FifteenYears.png"
+   ],
+   "photo": {
+    "source": "clinic-library row 6354",
+    "mean_shift_rgb": [
+     -0.8,
+     -0.43,
+     -0.23
+    ],
+    "tint_spread": 0.57,
+    "pass": true
+   }
+  },
+  {
+   "id": "EmsculptBars",
+   "stills": [
+    "EmsculptBars_1.png",
+    "EmsculptBars_2.png",
+    "EmsculptBars.png"
+   ],
+   "photo": {
+    "source": "clinic-library row 2204",
+    "mean_shift_rgb": [
+     -0.15,
+     -0.15,
+     -0.15
+    ],
+    "tint_spread": 0.0,
+    "pass": true
+   }
+  },
+  {
+   "id": "Office",
+   "stills": [
+    "Office_1.png",
+    "Office_2.png",
+    "Office.png"
+   ],
+   "photo": {
+    "source": "clinic-library row 9035",
+    "mean_shift_rgb": [
+     -0.37,
+     -0.38,
+     -0.39
+    ],
+    "tint_spread": 0.02,
+    "pass": true
+   }
+  }
+ ],
+ "pass": true,
+ "stills": 27
+}

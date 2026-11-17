@@ -1,5 +1,10 @@
 # POST GRID: feed tiles, grid planner, photo intake (2026-11-17)
 
+> **REJECTED. Do not use these tiles or their output.** Naim (2026-11-17): everything is tinted blue (the kit photo treatment,
+> `--ok-photo-filter` + `#ok-treat`), it doesn't follow the brand bible, and it is "extremely inaccurate". Posts are now built in
+> Remotion like the reels, with photos shown ungraded: see `brand/POSTS.md`. The intake (`brand/scripts/intake.py`) and the
+> before/after consent gate are the only parts still in use.
+
 Brief: post templates that work as a feed, built on the existing kit (tokens, type, icons, server renderer). Nine square-cropped
 tiles that read as one system: a meta corner "(…)", a label corner, one large headline on text tiles, and photo, text, diagram and
 graphic tiles alternating. References: `brand/refs/grid/` (6 images supplied with the brief).

@@ -10,7 +10,7 @@ positions, before/after gate, rhythm, page, token + contrast lint).
 
 | Date | Piece | Templates | Export | Crop | Gate | Rhythm | Lint | Client | Notes |
 |---|---|---|---|---|---|---|---|---|---|
-| 2026-11-17 | Demo grid (`GOLDEN/posts/demo-grid/`) | product ×2, notice ×2, before-after ×2, graphic, diagram, ruled | 36/36 renders, Adobe fonts | 18/18 inside 1080² | 403 / 403 / 200 | pass (0 warnings) | 9/9 | not shown yet | before/after tiles are gallery placeholders, locked; notices and clock hours need confirming |
+| 2026-11-17 | ~~Demo grid~~ REJECTED | product ×2, notice ×2, before-after ×2, graphic, diagram, ruled | 36/36 renders, Adobe fonts | 18/18 inside 1080² | 403 / 403 / 200 | pass (0 warnings) | 9/9 | **rejected**: tinted blue, off the bible, inaccurate; never use | before/after tiles are gallery placeholders, locked; notices and clock hours need confirming |
 
 ## Reels
 

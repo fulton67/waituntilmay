@@ -5,6 +5,11 @@ argument-hint: <caption text | template name + what to say> [size 4x5|1x1|9x16]
 
 Make an Ostad post from: $ARGUMENTS
 
+**Feed posts are built in Remotion now (`brand/POSTS.md`, `brand/remotion/src/posts/`).** The kit tile templates
+(`tiles.js`, `/brand/ostad/grid`) were rejected on 2026-11-17 (blue-tinted photos, off the bible, inaccurate) and must not be
+used for feed posts. Add a composition to `posts/Posts.tsx`, then render it with `python brand/scripts/posts_render.py`.
+Photos come from the clinic-library catalog only (no patients until consent = yes) and are never graded.
+
 **Two requests route straight to a page (dev server running, `npx next dev -p 3107`):**
 - **"make a post" / "make a <template> post"** → open `/brand/ostad/make` and pick the template. Feed tiles: `product`
   (photo / line / ingredients), `before-after`, `statement`, `notice`, `diagram` (radial / list / two-column / callouts), `ruled`,

@@ -4,6 +4,7 @@ import json, os, sys, time, urllib.error, urllib.request
 S = sys.argv[1]; R = os.path.join(S, "raw", "arena"); M = os.path.join(S, "media", "arena")
 os.makedirs(R, exist_ok=True); os.makedirs(M, exist_ok=True)
 def get(u):
+    time.sleep(3)  # pace requests: the 2026-11-17 pull hit 429s at full speed
     for i in range(6):
         try: return json.load(urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "ostad-style"}), timeout=60))
         except urllib.error.HTTPError as e:
