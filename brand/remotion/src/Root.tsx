@@ -8,6 +8,7 @@ import { IdeaStills, type IdeaProps } from "./IdeaStills";
 import { LibraryProof, type ProofProps } from "./library/LibraryProof";
 import { Storyboard, type SBProps } from "./storyboard/Storyboard";
 import { MARKUP_DEMO_SECONDS, MarkupDemo, type FaceTrack } from "./compositions/MarkupDemo";
+import { ArrowTypeLab, type LabProps } from "./devices/ArrowTypeLab";
 import { H, W } from "./brand";
 import type { ReelProps, WideProps } from "./types";
 
@@ -82,5 +83,7 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="LibraryProof" component={LibraryProof} width={1920} height={1080} fps={24} durationInFrames={24 * 5} defaultProps={{ piece: "headline" } as ProofProps} />
   {/* Storyboard: YouTube v6 proposal stills (edits/exomind-skin/storyboard/STORYBOARD.md); --props='{"id":"F01A","font":"proposal"}' */}
   <Composition id="Storyboard" component={Storyboard} width={1920} height={1080} fps={24} durationInFrames={1} defaultProps={{ id: "F01A", font: "proposal" } as SBProps} />
+  {/* ArrowTypeLab: devices/Arrow.tsx + devices/TypeEntry.tsx, one device alone, for the proof sheets (research/ostad/style/exomind/ARROW_TYPE_PROOF.md); --props='{"item":"curved-callout"}' */}
+  <Composition id="ArrowTypeLab" component={ArrowTypeLab} width={1920} height={1080} fps={24} durationInFrames={700} defaultProps={{ item: "curved-callout" } as LabProps} />
   </>
 );

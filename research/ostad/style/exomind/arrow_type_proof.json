@@ -1,0 +1,719 @@
+{
+ "method": "arrow_type_proof.py: measure the ArrowTypeLab renders with the reference method, and build the two proof sheets.\n\nInput: PNG sequences of the ArrowTypeLab composition (brand/remotion/src/devices/ArrowTypeLab.tsx), one folder per item:\n    npx remotion render ArrowTypeLab <LAB>/r/<item> --sequence --image-format=png --frames=0-72 --props='{\"item\":\"<item>\"}'\n    (follow: --frames=0-110; f04: --frames=570-640)\nMethod (the same as measure/_devices/entry_stats.json, i.e. graphic_track.py + easing_fit.py, on our own pixels):\n  - the element is every pixel that differs from the empty first frame (max channel |diff| > 25); per frame its bbox (cx, cy, w)\n    and opacity (mean |diff| inside the settled bbox / its settled value);\n  - each channel that changes is normalised to progress and fitted with easing_fit.fit_track: frames_to_settle (|p - 1| <= 1 % for\n    good), overshoot %, cubic bezier. Entry settle = the max over channels (device_stats.py), counted from the item's start frame.\n  - arrows: draw progress = ink pixels / held ink pixels (fit_track); the head = ink inside a box round the known tip: landing frame\n    (>= 99 % of its held ink for good), its centroid after landing (overshoot px, frames to settle within 0.5 px), the hold breathe\n    (centroid range of the whole arrow and of the head) and the exit (largest one-frame ink drop: 100 % would be a cut).\n  - specials: highlighter / box block width from the ice-blue pixels; ghost/accumulate word lighting from the ink-dark pixels;\n    typewriter / letter-out characters per frame from the ink width; follow: the tip against the tracked landmark.",
+ "arrows": {
+  "curved-callout": {
+   "ref": {
+    "draw_f": 7,
+    "overshoot": 0,
+    "head": "lands on the last draw frame",
+    "hold": "static",
+    "src": "GMu3 f395-401 (M)"
+   },
+   "draw": {
+    "frames_to_settle": 7,
+    "overshoot_pct": 0.34,
+    "bezier": [
+     0.6274,
+     0.1427,
+     0.3181,
+     0.9619
+    ],
+    "bezier_rmse": 0.0061,
+    "velocity_peak_pct": 50.0
+   },
+   "head": {
+    "landing_frame_rel_start": 7,
+    "apex_overshoot_px": 0.0,
+    "frames_to_settle_after_landing": 0,
+    "apex_hold_range_px": 0.0
+   },
+   "hold": {
+    "centroid_range_px": 2.84,
+    "centroid_speed_px_per_f": 0.25
+   },
+   "exit": {
+    "frames": 6,
+    "last_visible_frame_rel_end": -1,
+    "max_one_frame_drop_pct": 27.0
+   }
+  },
+  "straight-pointer": {
+   "ref": {
+    "draw_f": 7,
+    "overshoot": 0,
+    "head": "pops at the end",
+    "hold": "static",
+    "src": "WZ f926-933 (M)"
+   },
+   "draw": {
+    "frames_to_settle": 7,
+    "overshoot_pct": 0.16,
+    "bezier": [
+     0.5901,
+     -0.1229,
+     0.3506,
+     1.0495
+    ],
+    "bezier_rmse": 0.0078,
+    "velocity_peak_pct": 50.0
+   },
+   "head": {
+    "landing_frame_rel_start": 7,
+    "apex_overshoot_px": 0.0,
+    "frames_to_settle_after_landing": 0,
+    "apex_hold_range_px": 0.0
+   },
+   "hold": {
+    "centroid_range_px": 2.4,
+    "centroid_speed_px_per_f": 0.08
+   },
+   "exit": {
+    "frames": 6,
+    "last_visible_frame_rel_end": -1,
+    "max_one_frame_drop_pct": 19.9
+   }
+  },
+  "bracket-pointer": {
+   "ref": {
+    "draw_f": null,
+    "overshoot": 0,
+    "head": "-",
+    "hold": "-",
+    "src": "no corpus bracket; timed as the callout"
+   },
+   "draw": {
+    "frames_to_settle": 7,
+    "overshoot_pct": 0.0,
+    "bezier": [
+     0.6563,
+     -0.0778,
+     0.3312,
+     1.0116
+    ],
+    "bezier_rmse": 0.0046,
+    "velocity_peak_pct": 50.0
+   },
+   "head": {
+    "landing_frame_rel_start": 7,
+    "apex_overshoot_px": 0.0,
+    "frames_to_settle_after_landing": 0,
+    "apex_hold_range_px": 0.0
+   },
+   "hold": {
+    "centroid_range_px": 0.0,
+    "centroid_speed_px_per_f": 0.0
+   },
+   "exit": {
+    "frames": 6,
+    "last_visible_frame_rel_end": -1,
+    "max_one_frame_drop_pct": 33.8
+   }
+  },
+  "route-trace": {
+   "ref": {
+    "draw_f": 27,
+    "peak": 44,
+    "overshoot": 0,
+    "head": "at the end",
+    "hold": "-",
+    "src": "DDOS f216-250 (M), sweep peak 44 %"
+   },
+   "draw": {
+    "frames_to_settle": 30,
+    "overshoot_pct": 0.56,
+    "bezier": [
+     0.6202,
+     -0.0836,
+     0.1918,
+     1.073
+    ],
+    "bezier_rmse": 0.0067,
+    "velocity_peak_pct": 38.3
+   },
+   "head": {
+    "landing_frame_rel_start": 26,
+    "apex_overshoot_px": 0.0,
+    "frames_to_settle_after_landing": 1,
+    "apex_hold_range_px": 0.0
+   },
+   "hold": {
+    "centroid_range_px": 7.48,
+    "centroid_speed_px_per_f": 0.83
+   },
+   "exit": {
+    "frames": 6,
+    "last_visible_frame_rel_end": -1,
+    "max_one_frame_drop_pct": 28.4
+   }
+  },
+  "arc-connector": {
+   "ref": {
+    "draw_f": 26,
+    "overshoot": 0,
+    "head": "icon rides the end",
+    "hold": "static",
+    "src": "D_bh f1108-1140 (M)"
+   },
+   "draw": {
+    "frames_to_settle": 24,
+    "overshoot_pct": 0.34,
+    "bezier": [
+     0.6738,
+     -0.0959,
+     0.3346,
+     0.9032
+    ],
+    "bezier_rmse": 0.0094,
+    "velocity_peak_pct": 47.9
+   },
+   "head": {
+    "landing_frame_rel_start": 25,
+    "apex_overshoot_px": 0.0,
+    "frames_to_settle_after_landing": 0,
+    "apex_hold_range_px": 0.0
+   },
+   "hold": {
+    "centroid_range_px": 1.44,
+    "centroid_speed_px_per_f": 0.22
+   },
+   "exit": {
+    "frames": 6,
+    "last_visible_frame_rel_end": -1,
+    "max_one_frame_drop_pct": 28.2
+   }
+  },
+  "dashed-flow": {
+   "ref": {
+    "draw_f": 8,
+    "overshoot": 0,
+    "head": "appears at the end",
+    "hold": "static",
+    "src": "GMu3 f460-468 (E)"
+   },
+   "draw": {
+    "frames_to_settle": 8,
+    "overshoot_pct": 0.6,
+    "bezier": [
+     0.6787,
+     -0.0694,
+     0.2671,
+     0.9913
+    ],
+    "bezier_rmse": 0.0039,
+    "velocity_peak_pct": 43.8
+   },
+   "head": {
+    "landing_frame_rel_start": 8,
+    "apex_overshoot_px": 0.0,
+    "frames_to_settle_after_landing": 0,
+    "apex_hold_range_px": 0.0
+   },
+   "hold": {
+    "centroid_range_px": 2.54,
+    "centroid_speed_px_per_f": 0.18
+   },
+   "exit": {
+    "frames": 6,
+    "last_visible_frame_rel_end": -1,
+    "max_one_frame_drop_pct": 27.7
+   }
+  },
+  "light-ribbon": {
+   "ref": {
+    "draw_f": 28,
+    "overshoot": 0,
+    "head": "-",
+    "hold": "keeps travelling",
+    "src": "glp1 f1100-1170 (M)"
+   },
+   "draw": {
+    "frames_to_settle": 37,
+    "overshoot_pct": 4.04,
+    "bezier": [
+     0.5629,
+     0.1519,
+     0.0228,
+     1.33
+    ],
+    "bezier_rmse": 0.0177,
+    "velocity_peak_pct": 31.1
+   },
+   "hold": {
+    "centroid_range_px": 403.7,
+    "centroid_speed_px_per_f": 17.81
+   },
+   "exit": {
+    "frames": 6,
+    "last_visible_frame_rel_end": -1,
+    "max_one_frame_drop_pct": 24.7
+   }
+  },
+  "orbit-arc": {
+   "ref": {
+    "draw_f": 9,
+    "overshoot": 0,
+    "head": "-",
+    "hold": "drifts with the model",
+    "src": "DYKh5yyPxxg f1200-1264 (E, 8-10 f)"
+   },
+   "draw": {
+    "frames_to_settle": 11,
+    "overshoot_pct": 1.01,
+    "bezier": [
+     0.5712,
+     -0.0503,
+     0.128,
+     1.1695
+    ],
+    "bezier_rmse": 0.007,
+    "velocity_peak_pct": 31.8
+   },
+   "head": {
+    "landing_frame_rel_start": 26,
+    "apex_overshoot_px": 0.0,
+    "frames_to_settle_after_landing": 0,
+    "apex_hold_range_px": 0.0
+   },
+   "hold": {
+    "centroid_range_px": 14.13,
+    "centroid_speed_px_per_f": 0.31
+   },
+   "exit": {
+    "frames": 6,
+    "last_visible_frame_rel_end": -1,
+    "max_one_frame_drop_pct": 29.1
+   }
+  },
+  "marker-tick": {
+   "ref": {
+    "draw_f": 1,
+    "overshoot": 0,
+    "head": "pops",
+    "hold": "static",
+    "src": "WZ f940/944 (M)"
+   },
+   "draw": {
+    "frames_to_settle": 1,
+    "overshoot_pct": 0.18,
+    "bezier": [
+     0.25,
+     0.1,
+     0.25,
+     1.0
+    ],
+    "bezier_rmse": 0.0012,
+    "velocity_peak_pct": 50.0
+   },
+   "head": {
+    "landing_frame_rel_start": 1,
+    "apex_overshoot_px": 1.0,
+    "frames_to_settle_after_landing": 12,
+    "apex_hold_range_px": 2.0
+   },
+   "hold": {
+    "centroid_range_px": 0.46,
+    "centroid_speed_px_per_f": 0.01
+   },
+   "exit": {
+    "frames": 6,
+    "last_visible_frame_rel_end": -1,
+    "max_one_frame_drop_pct": 22.4
+   }
+  }
+ },
+ "type": {
+  "type-word-fade-rise": {
+   "ref": {
+    "settle": 5,
+    "dy": -6.0,
+    "src": "DDOS f3-9"
+   },
+   "ours": {
+    "settle_f": 5,
+    "overshoot_pct": 0.0,
+    "channels": {
+     "cy": {
+      "settle": 5,
+      "overshoot": 0.0,
+      "bezier": [
+       0.0951,
+       0.2173,
+       0.5406,
+       1.0178
+      ],
+      "rmse": 0.0
+     },
+     "opacity": {
+      "settle": 5,
+      "overshoot": 0.0,
+      "bezier": [
+       0.6179,
+       -0.128,
+       0.4621,
+       0.8379
+      ],
+      "rmse": 0.0
+     }
+    },
+    "dy_pct_h_visible": -5.74,
+    "dx_pct_h_visible": 0.0,
+    "scale_change_pct": 0.0
+   }
+  },
+  "type-highlight-sweep": {
+   "ref": {
+    "settle": 16,
+    "peak": 44,
+    "src": "DDOS f27-47 (block width)"
+   },
+   "ours": {
+    "settle_f": 16,
+    "overshoot_pct": 0.0,
+    "bezier": [
+     0.6134,
+     -0.0109,
+     0.3182,
+     0.93
+    ],
+    "velocity_peak_pct": 46.9
+   }
+  },
+  "type-box-slam": {
+   "ref": {
+    "settle": 4,
+    "dy": -7.0,
+    "box": 4,
+    "src": "GMu3 f1512-1520"
+   },
+   "ours": {
+    "settle_f": 4,
+    "overshoot_pct": 0.0,
+    "channels": {
+     "cy": {
+      "settle": 4,
+      "overshoot": 0.0,
+      "bezier": [
+       0.375,
+       0.6712,
+       0.4033,
+       0.9885
+      ],
+      "rmse": 0.0
+     },
+     "w": {
+      "settle": 4,
+      "overshoot": 0.0,
+      "bezier": [
+       0.2475,
+       0.1377,
+       0.2458,
+       1.0443
+      ],
+      "rmse": 0.0
+     }
+    },
+    "dy_pct_h_visible": -7.27,
+    "dx_pct_h_visible": 0.0,
+    "scale_change_pct": 15.93,
+    "box_starts_rel_start": 5,
+    "box_frames": 4
+   }
+  },
+  "type-ghost-to-lit": {
+   "ref": {
+    "settle": 5,
+    "dy": -2.0,
+    "lit_f": 1,
+    "src": "WZ f238-263"
+   },
+   "ours": {
+    "words_lit": 6,
+    "frames_per_light_up": [
+     1
+    ],
+    "line_rise_settle_f": 6,
+    "line_rise_overshoot_pct": 0.0,
+    "dy_pct_h_visible": -1.76
+   }
+  },
+  "type-line-accumulate": {
+   "ref": {
+    "settle": 0,
+    "lit_f": 1,
+    "src": "DDOS f2595-2821 (lines cut on)"
+   },
+   "ours": {
+    "words_lit": 6,
+    "frames_per_light_up": [
+     1
+    ],
+    "line_appear_frames": 2
+   }
+  },
+  "type-typewriter": {
+   "ref": {
+    "cpf": 3.9,
+    "src": "DDOS f1539-1556"
+   },
+   "ours": {
+    "frames_first_to_full": 7,
+    "chars_per_frame": 3.43,
+    "ref_frames_for_this_text": 7
+   }
+  },
+  "type-message-lines": {
+   "ref": {
+    "settle": 4,
+    "line_dy": -1.0,
+    "src": "glp1 f860-940"
+   },
+   "ours": {
+    "plate_settle_f": 3,
+    "lines": [
+     {
+      "first_ink_rel_start": 5,
+      "settled_rel_start": 8,
+      "fade_frames": 4
+     },
+     {
+      "first_ink_rel_start": 13,
+      "settled_rel_start": 16,
+      "fade_frames": 4
+     },
+     {
+      "first_ink_rel_start": 19,
+      "settled_rel_start": 22,
+      "fade_frames": 4
+     }
+    ]
+   }
+  },
+  "type-orbit-labels": {
+   "ref": {
+    "settle": 3,
+    "total": 9,
+    "src": "glp1 f622-644"
+   },
+   "ours": {
+    "all_labels_settled_rel_start": 9,
+    "first_ink_rel_start": 1,
+    "third_label_starts_rel_start": 6,
+    "first_pair_settled_rel_start": 3
+   }
+  },
+  "type-letter-stagger-out": {
+   "ref": {
+    "f_per_char": 2.4,
+    "src": "Are.na 12087163"
+   },
+   "ours": {
+    "exit_frames": 32,
+    "frames_per_char": 2.29
+   }
+  },
+  "type-card-rise": {
+   "ref": {
+    "settle": 17,
+    "dy": -10.7,
+    "src": "colin DZiJljQJEKN f46-64 (easing.json)"
+   },
+   "ours": {
+    "settle_f": 17,
+    "overshoot_pct": 0.0,
+    "channels": {
+     "cy": {
+      "settle": 17,
+      "overshoot": 0.0,
+      "bezier": [
+       0.0,
+       0.1522,
+       0.3519,
+       0.8121
+      ],
+      "rmse": 0.0037
+     },
+     "opacity": {
+      "settle": 17,
+      "overshoot": 0.0,
+      "bezier": [
+       0.1082,
+       0.6966,
+       0.0,
+       0.7928
+      ],
+      "rmse": 0.0085
+     }
+    },
+    "dy_pct_h_visible": -10.74,
+    "dx_pct_h_visible": 0.0,
+    "scale_change_pct": 0.0
+   }
+  },
+  "type-rise": {
+   "ref": {
+    "settle": 11.2,
+    "dy": -4.2,
+    "src": "entry_stats _all text rise (n 2,187)"
+   },
+   "ours": {
+    "settle_f": 11,
+    "overshoot_pct": 0.0,
+    "channels": {
+     "cy": {
+      "settle": 11,
+      "overshoot": 0.0,
+      "bezier": [
+       0.0,
+       -0.0679,
+       0.3932,
+       0.8822
+      ],
+      "rmse": 0.0063
+     },
+     "opacity": {
+      "settle": 11,
+      "overshoot": 0.0,
+      "bezier": [
+       0.2363,
+       -0.1554,
+       0.7834,
+       1.0361
+      ],
+      "rmse": 0.0095
+     }
+    },
+    "dy_pct_h_visible": -4.17,
+    "dx_pct_h_visible": 0.0,
+    "scale_change_pct": 0.0
+   }
+  },
+  "type-slide-side": {
+   "ref": {
+    "settle": 9,
+    "dx": 2.8,
+    "src": "entry_stats _all text slide-right (n 1,609)"
+   },
+   "ours": {
+    "settle_f": 9,
+    "overshoot_pct": 0.0,
+    "channels": {
+     "cx": {
+      "settle": 9,
+      "overshoot": 0.0,
+      "bezier": [
+       0.575,
+       1.1511,
+       1.0,
+       0.9733
+      ],
+      "rmse": 0.0058
+     },
+     "opacity": {
+      "settle": 8,
+      "overshoot": 0.0,
+      "bezier": [
+       0.6393,
+       1.0446,
+       1.0,
+       0.9708
+      ],
+      "rmse": 0.0032
+     }
+    },
+    "dy_pct_h_visible": 0.0,
+    "dx_pct_h_visible": 2.78,
+    "scale_change_pct": 0.0
+   }
+  },
+  "type-scale-pop": {
+   "ref": {
+    "settle": 5,
+    "scale": 5.0,
+    "src": "entry_stats _all text scale-in (n 2,270)"
+   },
+   "ours": {
+    "settle_f": 5,
+    "overshoot_pct": 0.0,
+    "channels": {
+     "w": {
+      "settle": 5,
+      "overshoot": 0.0,
+      "bezier": [
+       0.4868,
+       0.7944,
+       0.1927,
+       0.5293
+      ],
+      "rmse": 0.0
+     },
+     "opacity": {
+      "settle": 5,
+      "overshoot": 0.0,
+      "bezier": [
+       0.7671,
+       1.3534,
+       1.0,
+       0.8518
+      ],
+      "rmse": 0.0021
+     }
+    },
+    "dy_pct_h_visible": 0.0,
+    "dx_pct_h_visible": 0.0,
+    "scale_change_pct": 4.96
+   }
+  },
+  "type-name-decode": {
+   "ref": {
+    "span": 70,
+    "src": "G4 FWfMMmC6mzE f960-1029"
+   },
+   "ours": {
+    "resolve_span_f": 59,
+    "changing_frames": 6
+   }
+  }
+ },
+ "follow": {
+  "landmark": "templeL (LAYERS.keyed)",
+  "frames": 84,
+  "target_travel_px": 77.0,
+  "tip_error_median_px": 2.97,
+  "tip_error_p95_px": 3.15,
+  "note": "apex = ink pixel furthest along from->target within 60 px of the landmark; includes the round cap (~2.2 px)",
+  "spec": "median < 6 px, p95 < 15 px (EXOMIND_REDO \u00a73)"
+ },
+ "f04": {
+  "Check": {
+   "onset_f": 580,
+   "first_ink_f": 582,
+   "settled_f": 584,
+   "first_ink_minus_onset": 2,
+   "settled_minus_onset": 4
+  },
+  "your": {
+   "onset_f": 587,
+   "first_ink_f": 589,
+   "settled_f": 592,
+   "first_ink_minus_onset": 2,
+   "settled_minus_onset": 5
+  },
+  "texts": {
+   "onset_f": 592,
+   "first_ink_f": 594,
+   "settled_f": 596,
+   "first_ink_minus_onset": 2,
+   "settled_minus_onset": 4
+  },
+  "v41": {
+   "Check": {
+    "onset_f": 580,
+    "first_ink_f": 553,
+    "settled_f": 590,
+    "first_ink_minus_onset": -27,
+    "settled_minus_onset": 10
+   },
+   "note": "TYPE_AUDIT.md \u00a71 (48 f CSS-ease fade, 30 px visible rise, 33 f early)"
+  }
+ }
+}

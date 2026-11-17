@@ -507,3 +507,48 @@ Design and tooling only; nothing is built or rendered here. Files: `exomind/BEAT
     - Gold-pick frames: 20/20 PASS. The nearest are 0.156–0.188, and these are true near-relatives: v2 / v3 / v5 used other frames of the same BTL films (checked side by side). A different frame of licensed footage isn't a reused graphic, so PASS is the intended call.
   - The bank (`measure/_reuse/bank.npz`) is gitignored and rebuilt from local renders. `calibration.json` is committed.
 - **Not done here (builder's part):** Arrow.tsx, the type system, OstadYT6, stills and render; the confirmed column of USAGE_AUDIT; tracking error and face-overlap measures; evolution_sheet.jpg.
+
+## 14k. Arrow system and type-entry system: devices/Arrow.tsx and devices/TypeEntry.tsx, measured against the references (2026-11-17)
+
+These replace the dot-and-line callout and v4.1's single 48 f fade-up (EXOMIND_REDO §3 "Arrows", DESIGN_PER_BEAT §4–5). Usage is in `brand/remotion/src/devices/README.md`. The proof is in `exomind/ARROW_TYPE_PROOF.md`, with the raw numbers in `exomind/arrow_type_proof.json`. Both were measured by `tools/arrow_type_proof.py` with the reference method (graphic_track boxes and opacity, easing_fit.fit_track) on renders of the new `ArrowTypeLab`.
+
+- **Variants.** 9 in all: the 8 that beats.json names (curved-callout, straight-pointer, route-trace, arc-connector, dashed-flow, light-ribbon, orbit-arc, marker-tick), plus bracket-pointer from the EXOMIND_REDO list. Bracket-pointer has no corpus reference, so it borrows the callout's 7 f.
+- **Shape.**
+  - Every arrow is a filled, tapered outline: it grows from the kit `rule` (1.5 px) at the tail to 2 × `hairline` (4.62 px, 0.43 % H, inside the references' 0.3–0.5 % H). The default colour is tokens `color.text`.
+  - Heads come from the brand shape vocabulary:
+    - an open V of two tapered rules (`rule_h`);
+    - or a solid triangle with corners rounded at the `rounded_rect` ratio (27.9 % of the short side, shapes/CATALOGUE.md).
+  - Head size is 6 × weight.
+  - Dashes keep the kit dotted-path proportions scaled to the weight: dash 2.16 ×, gap 2.01 ×.
+  - Straight-pointer is solid, although its reference is dashed. Dashes stay for flow and connector arrows, where they mean "a path". The taper is the brand's look on a single pointer.
+  - No `<circle>` anywhere. Every head carries `data-arrowhead`.
+- **Overshoot vs "small overshoot and settle": resolved by measurement as no overshoot.**
+  - None of the 13 reference arrows overshoots (DEVICE_LIBRARY §A).
+  - Ours draw tail→tip on `sweep` over the reference frame count. The head grows over the last 22 % of the draw and lands on the last draw frame: measured at f+7 / f+7 / f+8 for the 7 / 7 / 8 f variants.
+  - Apex overshoot is 0.0 px. **Frames to settle after landing: 0** (1 for route-trace, which is ink settling at a join, not head motion).
+  - The "settle" the brief asked for lives in the hold instead: the shaft interior breathes ≤ 1.5 px on a 72 f period, with tail and tip pinned.
+- **Alive while held, and following.**
+  - Ribbon: travels one loop per 96 f.
+  - Orbit: drifts ±4°.
+  - Tick: bobs 1 px.
+  - Every point is a PtSrc. A curved callout with `to = follow(track, "templeL", LAYERS.keyed)` measured a tip error of median 2.97 px and p95 3.15 px (cap included), against the spec's median < 6 and p95 < 15.
+- **Exit.** On the `exit` token (7 f): the tail erases, or the tip retracts for the straight pointer, the ribbon rides on, and the tick fades and falls. The largest one-frame ink drop is 20–34 %, so nothing is cut.
+- **Arrows, measured against the references.**
+  - Matched: curved-callout, straight-pointer, bracket-pointer and dashed-flow each draw in 7 / 7 / 7 / 8 f against 7 / 7 / n.a. / 8, and marker-tick pops in 1 f against 1.
+  - Arc-connector: 24 f against 26.
+  - Route-trace: 30 f by ink mass against 27. The overrun is the hold breathe inside the 1 % band; the head lands at f+26.
+  - Orbit: 11 f against 8–10 (E).
+- **Type entries: 14 ids, every §T id that beats.json uses.**
+  - They cover at least 7 distinct mechanics: rise family, wipe/box, lighting, character-level, plate + lines, arc fan, letter exit.
+  - Each is tuned until our render measures the reference: settle in frames, visible travel in % H, 0 overshoot (table in ARROW_TYPE_PROOF).
+  - Two findings drove the tuning:
+    1. An ease-out moves text most of its path before it is legible. So nominal travel is set to give the reference's *visible* travel (rise 5 % → 4.17 % measured against 4.2 %).
+    2. Box-slam pops on whole, then moves, as the reference does ("pops white"). That gives 7.27 % against ≈ 7 %.
+  - `wordTimes` are composition frames. A word reveals at onset + 1 f (MOTION §1.2), and `wordFrames()` converts `yt_words.json` seconds.
+- **F04 "check your texts" rebuilt on the word onsets.**
+  - Each word's first ink comes onset + 2 f and it settles at + 4–5 f.
+  - v4.1 started 27 f before "check" and settled 10 f after it.
+  - The B06 message card lands its plate on "check".
+- **Font.** TypeEntry inherits the YT `DISPLAY` face (the type pairing is the builder's call, 14j) and takes any `style`.
+- **Sheets.** `exomind/arrows_vs_refs.jpg` and `type_vs_refs.jpg` hold our frames next to reference crops, plus v4.1 frames. They are gitignored like `ref_*.jpg`, and `git check-ignore` was run before the commit.
+- **Lint.** `tools/lint_compositions.py` passes on Arrow.tsx, TypeEntry.tsx and ArrowTypeLab.tsx (0 violations).
