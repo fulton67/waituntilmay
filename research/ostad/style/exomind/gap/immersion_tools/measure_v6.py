@@ -30,7 +30,10 @@ render, plain, beats_p, out_p = sys.argv[1:5]
 beats = json.load(open(beats_p, encoding="utf-8"))
 # presenter not keyed on the canvas (pip or out). Gap round 1 (OstadYT6.tsx OUT_RANGES + S3); the v6 pre-gap render used
 # [(1181, 1241), (1754, 1849)]: pass --pregap as a 5th argument to measure that render
-OUT = [(263, 413), (546, 666), (893, 996), (1081, 1271), (1449, 1599), (1710, 1849)]
+# gap round 2 (DECISIONS 14p): S3 holds 80 f, so he is out to f1321; pass --round1 for the round-1 render (S3 30 f, out to f1271)
+OUT = [(263, 413), (546, 666), (893, 996), (1081, 1321), (1449, 1599), (1710, 1849)]
+if len(sys.argv) > 5 and sys.argv[5] == "--round1":
+    OUT = [(263, 413), (546, 666), (893, 996), (1081, 1271), (1449, 1599), (1710, 1849)]
 if len(sys.argv) > 5 and sys.argv[5] == "--pregap":
     OUT = [(1181, 1241), (1754, 1849)]
 

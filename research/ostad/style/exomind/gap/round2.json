@@ -1,0 +1,134 @@
+{
+ "render": "Downloads/Ostad - Exomind and total skin health (YouTube v6).mp4 (gap round 2, 2166 f, 90.261 s); round 1 kept as '(YouTube v6 round1).mp4'",
+ "section_title_hold_px_measured": {
+  "round1": {
+   "S1": 10,
+   "S2": 10,
+   "S3": 10,
+   "S4": 10,
+   "unit": "frames fully lit"
+  },
+  "round2": {
+   "S1": 60,
+   "S2": 60,
+   "S3": 60,
+   "S4": 60,
+   "unit": "frames fully lit (2.5 s)"
+  }
+ },
+ "keyed_right_edge": {
+  "alpha_model": {
+   "round1": {
+    "frames": 61,
+    "max_run_px": 305.9
+   },
+   "round2": {
+    "frames": 0,
+    "max_run_px": 0.0,
+    "steepest_column_drop": 0.233
+   }
+  },
+  "render_pixels_x725_727_ge24_grey": {
+   "round1": {
+    "frames_run_ge12": 50,
+    "max_run_px": 239,
+    "median_run_px": 47
+   },
+   "round2": {
+    "frames_run_ge12": 0,
+    "max_run_px": 9,
+    "median_run_px": 0
+   }
+  }
+ },
+ "reuse_check": {
+  "B12": {
+   "round1": 0.023,
+   "round2": 0.289
+  },
+  "B14": {
+   "round2_old_crop": 0.07,
+   "round2_graphic_box": 0.242
+  },
+  "threshold": 0.1069,
+  "result": "PASS"
+ },
+ "tracking": {
+  "B03_tail_held": {
+   "n": 50,
+   "median": 3.01,
+   "p95": 5.58,
+   "max": 7.54
+  },
+  "B16_tail_held_f1662_1701": {
+   "n": 40,
+   "median": 2.19,
+   "p95": 4.92,
+   "max": 9.7,
+   "note": "leftmost blue component in x < 960 (gap_track.py's largest-component rule picked the arrowhead at x 1001)"
+  },
+  "pip_B12": {
+   "frames": 48,
+   "offset_px": {
+    "n": 48,
+    "median": 2.05,
+    "p95": 3.43,
+    "max": 4.8
+   },
+   "offset_pct_of_d": {
+    "n": 48,
+    "median": 0.79,
+    "p95": 1.33,
+    "max": 1.88
+   },
+   "edge_radius_median": 129.0,
+   "face_h_px": 88.7
+  },
+  "face_overlay_while_keyed_on_canvas": 0,
+  "overlay_hits_note": "every gap_track overlay hit (B04 263-413, B09 923-996, B11 1081-1178) is in a takeover where he is not on the canvas: the detector sees Dr. Ostad in the clinic footage"
+ },
+ "immersion": {
+  "frames": 2166,
+  "fill_mean": 42.5,
+  "fill_when_on": 60.2,
+  "img_on_share": 70.5,
+  "moving_share_of_img": 87.7,
+  "takeover50_s": 36.12,
+  "takeovers_per_min": 4.65,
+  "fill_ge_33_s": 42.12
+ },
+ "flash_scan_cuts_f": [
+  263,
+  414,
+  546,
+  667,
+  893,
+  923,
+  997,
+  1081,
+  1180,
+  1242,
+  1322,
+  1449,
+  1710,
+  1850,
+  1852
+ ],
+ "loudness": {
+  "I_LUFS": -14.1,
+  "true_peak_dBFS": -3.8
+ },
+ "sfx_entry_coverage_by_events": {
+  "round1": "79/101 = 78.2 %",
+  "round2": "78/100 = 78.0 %"
+ },
+ "checks": {
+  "variety_check": "PASS R1-R14",
+  "reuse_check": "PASS",
+  "lint_compositions (committed rules)": "PASS, 31 files",
+  "static_image": "PASS",
+  "arrow_text_lint": "PASS, 4332 audited frames, 0 crossings",
+  "edge_check": "PASS 0 frames",
+  "min_text_px": 22.8
+ }
+}
