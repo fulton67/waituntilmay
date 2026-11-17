@@ -12,7 +12,11 @@ import { Glass } from "./parts";
 // Ours, 30 f in all (beats.json cards): number + rule draw and the title types on in 12 f, holds 10 f, letters leave from the line
 // end in 8 f (type-letter-stagger-out). Each letter arrives defocused (6 px -> 0 in 3 f) under a light bloom that rides the typing
 // head, so the light, not a slide, does the reveal. Sits on the clean canvas right of keyed Ostad, who keeps talking.
-export const SECTION_TIMING = { typeIn: 12, hold: 10, out: 8 } as const;
+// gap round 2 (DECISIONS 14p): the 10 f hold was the stills sheet's "Your questi" / "Before y" / "Total skin hea": not a clip or an
+// overflow (the DOM text box is whole), the sheet caught the typing head mid-line and the whole title was then legible for only
+// 0.4 s. RULES duration.hold-min is 2500 ms for any text, so the title now holds 60 f (2.5 s) fully lit, 80 f in all.
+export const SECTION_TIMING = { typeIn: 12, hold: 60, out: 8 } as const;
+export const SECTION_LEN = SECTION_TIMING.typeIn + SECTION_TIMING.hold + SECTION_TIMING.out; // 80 f
 
 export const SectionCard: React.FC<{ num: string; title: string; start: number; x?: number; y?: number; size?: number; onImage?: boolean }> = ({ num, title, start, x = 860, y = 400, size = 118, onImage = false }) => {
   // gap round 1 (DECISIONS 14o): the section cards go full frame over a real picture (onImage = white type on a darkened image)

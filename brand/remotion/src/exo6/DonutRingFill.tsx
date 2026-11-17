@@ -39,7 +39,7 @@ export const DonutRingFill: React.FC<DonutProps> = ({ start = 30, labelsAt = 46,
   const span = 360 / segs.length, gap = 6;
   const W = 34;
   return (
-    <div style={{ position: "absolute", inset: 0, opacity: 1 - ret * 0.6 }}>
+    <div style={{ position: "absolute", inset: 0, opacity: 1 - ret }}>{/* gap round 2: the track faded only to 0.4 and was cut at the beat line */}
       <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
         <defs>
           <filter id="drf-soft"><feGaussianBlur stdDeviation={10} /></filter>

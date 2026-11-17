@@ -54,12 +54,14 @@
       "num": "01",
       "title": "Your questions",
       "start_f": 263,
-      "end_f": 292,
+      "end_f": 342,
       "device": "chapter-title-card",
       "entry": "type-typewriter",
       "exit": "type-letter-stagger-out",
       "layout": "FB",
-      "background": "consult (clinic row 30)"
+      "background": "consult (clinic row 30)",
+      "hold_f": 60,
+      "timing": "type-in 12 f, hold 60 f fully lit (RULES duration.hold-min 2500 ms), letters out 8 f; 80 f (gap round 2, DECISIONS 14p)"
     },
     {
       "kind": "section",
@@ -67,12 +69,14 @@
       "num": "02",
       "title": "Before you go",
       "start_f": 893,
-      "end_f": 922,
+      "end_f": 972,
       "device": "chapter-title-card",
       "entry": "type-typewriter",
       "exit": "type-letter-stagger-out",
       "layout": "FB",
-      "background": "waiting room (clinic row 3614)"
+      "background": "waiting room (clinic row 3614)",
+      "hold_f": 60,
+      "timing": "type-in 12 f, hold 60 f fully lit (RULES duration.hold-min 2500 ms), letters out 8 f; 80 f (gap round 2, DECISIONS 14p)"
     },
     {
       "kind": "section",
@@ -80,12 +84,14 @@
       "num": "03",
       "title": "Total skin health",
       "start_f": 1242,
-      "end_f": 1271,
+      "end_f": 1321,
       "device": "chapter-title-card",
       "entry": "type-typewriter",
       "exit": "type-letter-stagger-out",
       "layout": "FB",
-      "background": "reception (clinic row 3612)"
+      "background": "reception (clinic row 3612)",
+      "hold_f": 60,
+      "timing": "type-in 12 f, hold 60 f fully lit (RULES duration.hold-min 2500 ms), letters out 8 f; 80 f (gap round 2, DECISIONS 14p)"
     },
     {
       "kind": "section",
@@ -93,12 +99,14 @@
       "num": "04",
       "title": "The technology",
       "start_f": 1710,
-      "end_f": 1739,
+      "end_f": 1789,
       "device": "chapter-title-card",
       "entry": "type-typewriter",
       "exit": "type-letter-stagger-out",
       "layout": "FB",
-      "background": "BTL MOA film 49 s"
+      "background": "BTL MOA film 49 s",
+      "hold_f": 60,
+      "timing": "type-in 12 f, hold 60 f fully lit (RULES duration.hold-min 2500 ms), letters out 8 f; 80 f (gap round 2, DECISIONS 14p)"
     },
     {
       "kind": "end",
@@ -488,7 +496,7 @@
         "title": "Your questions",
         "num": "01",
         "start_f": 263,
-        "end_f": 292
+        "end_f": 342
       },
       "assets": [
         {
@@ -507,7 +515,12 @@
         {
           "f": 293,
           "word": "questions",
-          "what": "card leaves; he pops into the pip bottom-left (tracked, feathered)"
+          "what": "he pops into the pip bottom-left (tracked, feathered) under the held title"
+        },
+        {
+          "f": 335,
+          "word": "(card out)",
+          "what": "S1 letters leave (f 335-342), the darkening lifts"
         },
         {
           "f": 315,
@@ -1057,7 +1070,8 @@
         "title": "Before you go",
         "num": "02",
         "start_f": 893,
-        "end_f": 922
+        "end_f": 972,
+        "note": "holds across the cut to the split: 120 px, on the left half (gap round 2)"
       },
       "assets": [
         {
@@ -1086,7 +1100,7 @@
         {
           "f": 923,
           "word": "us",
-          "what": "picture cut to the split: consult left, question box right"
+          "what": "picture cut to the split: consult left, question box right; the S2 title holds on the consult half until f965"
         },
         {
           "f": 936,
@@ -1308,7 +1322,13 @@
       "assets": [
         {
           "kind": "video",
-          "src": "clips/office_team.mp4 + clips/office_treat.mp4 (practice footage: Dr. Ostad and staff with a patient), each a full-height half at 1.33x",
+          "src": "clips/office_team.mp4 (practice footage: Dr. Ostad and staff with a patient in the ExoMind room), left half at 1.33x",
+          "source": "clinic",
+          "approval": true
+        },
+        {
+          "kind": "image",
+          "src": "clinic: clinic-library row 222 (IMG_8356, 2025-11-11): Dr. Ostad and a staff member at the practice's silver painting -> clinic/team_00222.jpg, the 768x1024 preview at 1.25x (re-pull the original when iCloud recovers)",
           "source": "clinic",
           "approval": true
         }
@@ -1322,7 +1342,7 @@
         {
           "f": 1089,
           "word": "you",
-          "what": "right half wipes in on sweep (12 f)"
+          "what": "right half revealed in place by a mask on sweep (12 f): Dr. Ostad and a staff member (row 222)"
         },
         {
           "f": 1157,
@@ -1377,7 +1397,7 @@
           "subject": "coil_session"
         },
         {
-          "asset": "clips/office_treat.mp4",
+          "asset": "clinic/team_00222.jpg",
           "box": [
             960,
             0,
@@ -1386,7 +1406,7 @@
           ],
           "from_f": 1089,
           "to_f": 1179,
-          "subject": "coil_session"
+          "subject": "team_portrait_222"
         }
       ],
       "compliance": {},
@@ -1400,7 +1420,8 @@
       },
       "never_built_devices": [],
       "never_built": false,
-      "layout": "FB"
+      "layout": "FB",
+      "review": "gap round 2 (DECISIONS 14p): the two halves were two moments of one session; now the care (left) and the team itself (right)"
     },
     {
       "id": "B12",
@@ -1562,7 +1583,7 @@
         "arrow-marker-tick"
       ],
       "never_built": true,
-      "review": "Naim's review of v6, notes 7-9 (DECISIONS 14n)",
+      "review": "Naim's review of v6, notes 7-9 (DECISIONS 14n) | gap round 2: the session clip is now a 1.30 -> 1.36 crop on the coil and her face (v3 showed it full frame; reuse_check 0.023)",
       "layout": "FB",
       "markup_on_real_photo": [
         "callout -> coil pad (IMG_3714)",
@@ -1585,7 +1606,7 @@
         "title": "Total skin health",
         "num": "03",
         "start_f": 1242,
-        "end_f": 1271
+        "end_f": 1321
       },
       "assets": [
         {
@@ -1613,22 +1634,22 @@
         {
           "f": 1242,
           "word": "again",
-          "what": "S3 'Total skin health' on the reception, full frame"
+          "what": "S3 'Total skin health' on the reception, full frame; title fully lit f1256-1313"
         },
         {
-          "f": 1272,
-          "word": "excited",
-          "what": "picture cut back to him; the ring track arrives"
+          "f": 1314,
+          "word": "(card out)",
+          "what": "S3 letters leave, the darkening lifts"
         },
         {
-          "f": 1289,
-          "word": "creating",
-          "what": "labels fan out, chips (moving: 8 % push + pan)"
+          "f": 1322,
+          "word": "approach",
+          "what": "picture cut back to him; the ring track arrives and the labels + chips fan out (moving: 14 % push)"
         },
         {
-          "f": 1301,
-          "word": "comprehensive",
-          "what": "segments fill clockwise"
+          "f": 1328,
+          "word": "approach",
+          "what": "segments fill clockwise (1328 / 1336 / 1344)"
         },
         {
           "f": 1337,
@@ -1641,9 +1662,9 @@
           "what": "disclaimer"
         },
         {
-          "f": 1370,
+          "f": 1388,
           "word": "(exit)",
-          "what": "segments retract"
+          "what": "segments retract and the ring fades (f1388-1395, the first 16 f of B14)"
         }
       ],
       "image_layers": [
@@ -1656,7 +1677,7 @@
             1080
           ],
           "from_f": 1242,
-          "to_f": 1271,
+          "to_f": 1321,
           "subject": "clinic_reception_3612"
         },
         {
@@ -1667,8 +1688,8 @@
             140,
             140
           ],
-          "from_f": 1289,
-          "to_f": 1377,
+          "from_f": 1322,
+          "to_f": 1395,
           "subject": "ceg_ferulic"
         },
         {
@@ -1679,8 +1700,8 @@
             140,
             140
           ],
-          "from_f": 1289,
-          "to_f": 1377,
+          "from_f": 1322,
+          "to_f": 1395,
           "subject": "clinic_cb_451"
         },
         {
@@ -1691,8 +1712,8 @@
             140,
             140
           ],
-          "from_f": 1289,
-          "to_f": 1377,
+          "from_f": 1322,
+          "to_f": 1395,
           "subject": "btl_moa_head"
         }
       ],
@@ -1715,15 +1736,11 @@
           "chapter"
         ],
         [
-          1272,
+          1322,
           "card"
         ],
         [
-          1289,
-          "chip"
-        ],
-        [
-          1301,
+          1328,
           "reveal"
         ]
       ],
@@ -1767,8 +1784,8 @@
       ],
       "events": [
         {
-          "f": 1380,
-          "word": "it's",
+          "f": 1397,
+          "word": "being",
           "what": "'The next frontier' set as dim asterisks; characters resolve left to right"
         },
         {
@@ -1782,7 +1799,7 @@
           "what": "last letter of 'frontier' resolves on its onset +1 (40 f resolve, G4 T22 rate)"
         },
         {
-          "f": 1380,
+          "f": 1397,
           "word": "(hold)",
           "what": "a horizon hairline draws under the line (`sweep` 26 f) and the type layer pushes 1.00->1.04"
         },
@@ -1795,15 +1812,16 @@
       "keyframe": {
         "f": 1420,
         "crop": [
-          760,
-          60,
-          1120,
-          840
-        ]
+          700,
+          330,
+          1160,
+          260
+        ],
+        "note": "gap round 2: the graphic's own box (title + horizon line). The old crop [760, 60, 1120, 840] was 80 % empty cream; once the feather removed the arm's hard edge it near-matched v5's empty canvas at 0.070"
       },
       "sfx": [
         [
-          1380,
+          1397,
           "reveal"
         ]
       ],
@@ -1825,7 +1843,8 @@
         "type-name-decode"
       ],
       "never_built": true,
-      "layout": "LT"
+      "layout": "LT",
+      "note_gap2": "type-name-decode starts at local 18 (after B13's ring has left); words 18 / 34 / 40"
     },
     {
       "id": "B15",
@@ -2064,7 +2083,7 @@
         "title": "The technology",
         "num": "04",
         "start_f": 1710,
-        "end_f": 1739
+        "end_f": 1789
       },
       "assets": [
         {
@@ -2152,7 +2171,8 @@
         "arrow-orbit-arc"
       ],
       "never_built": true,
-      "layout": "FB"
+      "layout": "FB",
+      "review": "gap round 2 (DECISIONS 14p): the film is framed so its EXOMIND mark and BTL emblem (film y <= 160) sit above the frame and its subtitles (film y >= 930) below it: k 1.40 -> 1.46, y = -160k, x -200 -> -240; title 130 px"
     },
     {
       "id": "B18",
@@ -2346,7 +2366,8 @@
       },
       "never_built_devices": [],
       "never_built": false,
-      "layout": "LW"
+      "layout": "LW",
+      "review": "gap round 2: the synapse film at 1.2x, top band and subtitles outside the window, so the BTL emblem is never cut by the window edge"
     },
     {
       "id": "B20",

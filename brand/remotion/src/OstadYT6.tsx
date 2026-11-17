@@ -5,7 +5,7 @@ import { Arrow } from "./devices/Arrow";
 import { follow, useTrack, type LayerTransform } from "./devices/track";
 import { C, SANS, drift, ease, io, p, roomBg, text, useExoFonts } from "./exo6/look";
 import { Glass, src } from "./exo6/parts";
-import { EndCard, WordmarkDepthSandwich } from "./exo6/Cards";
+import { EndCard, SECTION_LEN, WordmarkDepthSandwich } from "./exo6/Cards";
 import { ProductPlateReveal } from "./exo6/ProductPlateReveal";
 import { FlowDiagramBuild } from "./exo6/FlowDiagramBuild";
 import { SpatialGlassUI } from "./exo6/SpatialGlassUI";
@@ -49,8 +49,13 @@ export const LAYER6: LayerTransform = { scale: 0.7, x: -30, y: -150 };
 const KEYED = "exomind-skin/yt/presenter_cut_k.webm"; // 756x1344 VP9 alpha, matte_fgr_cut + matte_pha_cut (the whole 100.9 s cut)
 const SPEED = 1.15;
 
+// gap round 2 (DECISIONS 14p): when he gestures, his arm runs off his phone frame's right side, which showed as a hard vertical cut at
+// screen x 726 (B14 306 px; 61 keyed frames in B02, B03, B05, B10, B14, B19; tools/edge_check.py). The plate's right 140 source px
+// (13 %, 98 screen px) now fade to nothing on a linear alpha ramp, so the frame edge is never a line. His body sits left of the ramp in
+// 88 % of frames (rightmost opaque column median 768 of 1080). The left (x -30) and bottom (y 1194) frame edges are off screen.
+const RIGHT_FEATHER = "linear-gradient(90deg, #000 0%, #000 87.04%, transparent 100%)";
 const Presenter: React.FC<{ opacity?: number; seqFrom?: number; style?: React.CSSProperties }> = ({ opacity = 1, seqFrom = 0, style }) => (
-  <div style={{ position: "absolute", left: LAYER6.x, top: LAYER6.y, width: 1080 * LAYER6.scale, height: 1920 * LAYER6.scale, opacity, ...style }}>
+  <div style={{ position: "absolute", left: LAYER6.x, top: LAYER6.y, width: 1080 * LAYER6.scale, height: 1920 * LAYER6.scale, opacity, WebkitMaskImage: RIGHT_FEATHER, maskImage: RIGHT_FEATHER, ...style }}>
     <OffthreadVideo src={staticFile(KEYED)} muted transparent playbackRate={SPEED} startFrom={Math.round(seqFrom * SPEED)} style={{ width: "100%", height: "100%" }} />
   </div>
 );
@@ -186,7 +191,7 @@ const TextAudit: React.FC = () => {
 // B11-B12 (team diptych and session full bleed, him in the pip) and S3, B15 (the full-height split), S4-B18 (the BTL MOA film).
 // Every step is a picture cut on the beat line (Ro / Evident cut a frame every 4.9 s; v6 cut 1.3 /min), except B17 -> B18 (dissolve).
 export const OUT_RANGES: [string, string][] = [["B04", "B04"], ["B06", "B06"], ["B09", "B09"], ["B11", "B12"], ["B15", "B15"], ["B17", "B18"]];
-const S3_END = 1271; // S3 runs on the first 30 f of B13 (beats.json cards)
+const S3_END = 1242 + SECTION_LEN - 1; // S3 runs on the first 80 f of B13 (beats.json cards; gap round 2: the 2.5 s title hold)
 const outRanges = (): [number, number][] => [...OUT_RANGES.map(([a, b]) => [S(a), BT[b].end_f] as [number, number]), [S("B13"), S3_END]];
 // captions are white over full-frame picture; on the splits they sit on the half that has room for them
 const WHITE: [string, string][] = [["B04", "B04"], ["B11", "B12"], ["B15", "B15"], ["B17", "B18"]];
@@ -279,13 +284,15 @@ export const OstadYT6: React.FC<YT6Props> = ({ spec, plain = false, audit = fals
           ))}
           {seq("B11", <B11Team track={track} seqStart={S("B11")} dur={DUR("B11")} />)}
           {seq("B12", <B12Session track={track} seqStart={S("B12")} dur={DUR("B12")} />)}
+          {/* gap round 2: S3 holds 80 f, so the ring arrives on the cut back to him (f80, "approach" 75) and holds its labels 60 f
+              (hold-min), retracting over B14's first 16 f; B14's decode starts after it (f18, "being" 20) */}
           {seq("B13", (
             <>
-              <Sequence from={0} durationInFrames={30} layout="none"><S3Over /></Sequence>
-              <DonutRingFill cx={1360} cy={476} start={30} labelsAt={47} fillAt={59} words={[95, 104, 112]} discAt={104} exitAt={128} />
+              <Sequence from={0} durationInFrames={SECTION_LEN} layout="none"><S3Over /></Sequence>
+              <DonutRingFill cx={1360} cy={476} start={SECTION_LEN} labelsAt={SECTION_LEN} fillAt={SECTION_LEN + 6} words={[95, 104, 112]} discAt={104} exitAt={146} />
             </>
-          ))}
-          {seq("B14", <TypeNameDecode x={1250} y={380} w={1100} size={128} exitAt={60} />)}
+          ), undefined, 17)}
+          {seq("B14", <TypeNameDecode x={1250} y={380} w={1100} size={128} start={18} words={[18, 34, 40]} exitAt={60} />)}
           {seq("B15", <SplitLabelled start={0} wipeAt={41} leftLabelAt={92} exitAt={143} rightImg="exomind-skin/btl/web/applicator_0108.jpg" />)}
           {seq("B16", <B16Emotions tail={(lf: number) => temple(lf + S("B16"))} />)}
           {seq("B17", <B17MoaHead dur={DUR("B17")} />, "S4 + B17 MOA head", 8)}

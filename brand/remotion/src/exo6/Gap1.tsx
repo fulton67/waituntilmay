@@ -5,7 +5,7 @@ import { TypeEntry } from "../devices/TypeEntry";
 import { faceBox, type Track } from "../devices/track";
 import { C, SERIF, SKIN_DISCLAIMER, caps, cl, display, drift, ease, io, p, text } from "./look";
 import { Chip, Disclaimer, DrawnCircle, Glass, MoaLabel, src } from "./parts";
-import { SectionCard } from "./Cards";
+import { SECTION_LEN, SectionCard } from "./Cards";
 import { PortraitPipCircle } from "./PortraitPipCircle";
 import { TimelineMarkers } from "./TimelineMarkers";
 
@@ -39,15 +39,18 @@ export const Bleed: React.FC<{
 };
 
 // ------------------------------------------------------------------------------------------------ section card over a picture (S1-S4)
-// 30 f (beats.json cards): the picture is already full frame and moving; a left-weighted darkening holds the type and lifts after
-// the letters leave (f 22 -> 30), so the card hands over to the takeover (or cuts back to him) without a flash.
-export const SectionOver: React.FC<{ num: string; title: string; size?: number }> = ({ num, title, size = 150 }) => {
+// SECTION_LEN (80 f; gap round 2: the title holds 60 f = RULES hold-min 2.5 s): the picture is already full frame and moving; a
+// left-weighted darkening holds the type and lifts while the letters leave (the last 8 f), so the card hands over to the takeover (or
+// cuts back to him) without a flash. `half`: the darkening covers only the left half from that frame on (S2 holds across the cut to
+// the B09 split, so the title stays whole on the consult half).
+export const SectionOver: React.FC<{ num: string; title: string; size?: number; half?: number }> = ({ num, title, size = 150, half }) => {
   const f = useCurrentFrame();
-  if (f > 31) return null;
-  const lift = p(f, 22, 9, ease.exit);
+  if (f > SECTION_LEN + 1) return null;
+  const lift = p(f, SECTION_LEN - 8, 9, ease.exit);
+  const w = half !== undefined && f >= half ? 960 : 1920;
   return (
     <>
-      <div style={{ position: "absolute", inset: 0, opacity: 1 - lift, background: "linear-gradient(90deg, rgba(12,16,24,.72) 0%, rgba(12,16,24,.5) 46%, rgba(12,16,24,.18) 100%)" }} />
+      <div style={{ position: "absolute", left: 0, top: 0, width: w, height: 1080, opacity: 1 - lift, background: "linear-gradient(90deg, rgba(12,16,24,.72) 0%, rgba(12,16,24,.5) 46%, rgba(12,16,24,.18) 100%)" }} />
       <SectionCard num={num} title={title} start={0} x={150} y={540 - size * 0.62} size={size} onImage />
     </>
   );
@@ -102,10 +105,7 @@ export const B09Questions: React.FC<{ children: React.ReactNode }> = ({ children
   return (
     <AbsoluteFill>
       {f < cut ? (
-        <>
-          <Bleed file="exomind-skin/clinic/waiting_03614.jpg" from={0} to={cut} s0={1.02} s1={1.07} focus="40% 50%" />
-          <SectionOver num="02" title="Before you go" />
-        </>
+        <Bleed file="exomind-skin/clinic/waiting_03614.jpg" from={0} to={cut} s0={1.02} s1={1.07} focus="40% 50%" />
       ) : (
         <>
           <Bleed file="exomind-skin/clinic/consult.mp4" video from={cut} to={110} s0={1.0} s1={1.05} box={{ x: 0, y: 0, w: 960, h: 1080 }} focus="50% 40%" pos="50% 30%" />
@@ -115,13 +115,18 @@ export const B09Questions: React.FC<{ children: React.ReactNode }> = ({ children
           {children}
         </>
       )}
+      {/* gap round 2: S2 holds its 60 f across the cut; at 120 px the title (640 px) sits inside the consult half */}
+      <SectionOver num="02" title="Before you go" size={120} half={cut} />
     </AbsoluteFill>
   );
 };
 
 // ------------------------------------------------------------------------------------------------ B11: our team, a full-frame diptych
-// Two moments of the practice's own session footage (office_team | office_treat: Dr. Ostad and his staff with a patient), each a
-// full-height half at 1.33x (720 x 900 phone frames, never upscaled more), the right half wiping in on `sweep`. He is in the pip.
+// Gap round 2 (DECISIONS 14p): the two halves were two moments of one session (office_team | office_treat) and read as the same
+// picture twice. Now two different subjects of "trusting our team with your care": left, the care (office_team: Dr. Ostad and his
+// staff with a patient in the ExoMind room, 720 x 900 at 1.33x); right, the team itself (clinic-library row 222, Dr. Ostad and a staff
+// member at the practice's silver painting, the 768 x 1024 preview at 1.25x; re-pull the original when iCloud recovers). The right
+// half is revealed in place by a mask wiping in on `sweep` (the picture does not re-fit while the mask grows). He is in the pip.
 export const B11Team: React.FC<{ track: Track; seqStart: number; dur: number }> = ({ track, seqStart, dur }) => {
   const f = useCurrentFrame();
   const w = p(f, 8, 12, ease.sweep);
@@ -130,7 +135,11 @@ export const B11Team: React.FC<{ track: Track; seqStart: number; dur: number }> 
   return (
     <AbsoluteFill style={{ background: C.navy }}>
       <Bleed file="exomind-skin/clips/office_team.mp4" video from={0} to={dur} s0={1.0} s1={1.05} box={{ x: 0, y: 0, w: 960, h: 1080 }} focus="50% 35%" />
-      {w > 0 && <Bleed file="exomind-skin/clips/office_treat.mp4" video from={8} to={dur} s0={1.04} s1={1.0} box={{ x: 1920 - rw, y: 0, w: rw, h: 1080 }} focus="50% 40%" pos="50% 40%" />}
+      {w > 0 && (
+        <div style={{ position: "absolute", left: 1920 - rw, top: 0, width: rw, height: 1080, overflow: "hidden" }}>
+          <Bleed file="exomind-skin/clinic/team_00222.jpg" from={8} to={dur} s0={1.0} s1={1.07} box={{ x: rw - 960, y: 0, w: 960, h: 1080 }} focus="50% 22%" pos="50% 16%" dx={6} dy={4} />
+        </div>
+      )}
       {w > 0 && <div style={{ position: "absolute", left: 1920 - rw - 1.5, top: 0, width: 3, height: 1080, background: "#fff", boxShadow: "0 0 18px rgba(159,214,245,.8)" }} />}
       <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 420, background: "linear-gradient(180deg, rgba(14,18,26,0), rgba(14,18,26,.5))" }} />
       {f >= 76 && (
@@ -164,7 +173,10 @@ export const B12Session: React.FC<{ track: Track; seqStart: number; dur: number 
   const x0 = 380, x1 = 1180, ty = 830;
   return (
     <AbsoluteFill style={{ background: C.navy }}>
-      <Bleed file="exomind-skin/yt/session.mp4" video startFrom={7 * 24} from={0} to={dur} s0={1.0} s1={1.06} focus="40% 40%" />
+      {/* gap round 2: v3 showed this same clip full frame (reuse_check 0.023). Now a closer crop, 1.30 -> 1.36 on the coil and her face
+          (the 1920 x 1080 clip, so 1.36x at most), so B12 is the detail and the IMG_3714 card is the wide. The push origin (60 % 30 %)
+          keeps the console's BTL emblem (clip px 1490, 256) behind the card, never cut by the frame's right edge */}
+      <Bleed file="exomind-skin/yt/session.mp4" video startFrom={7 * 24} from={0} to={dur} s0={1.3} s1={1.36} focus="60% 30%" />
       <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 380, background: "linear-gradient(180deg, rgba(14,18,26,0), rgba(14,18,26,.55))" }} />
       <div style={{ position: "absolute", left: CARD.x + (1 - io(q)) * 24, top: CARD.y + o * 7, width: CARD.w, height: CARD.h, borderRadius: 24, overflow: "hidden", opacity: q * (1 - o),
         boxShadow: "0 40px 70px -30px rgba(0,0,0,.6), 0 4px 12px rgba(0,0,0,.2), 0 0 0 1px rgba(255,255,255,.7)" }}>
@@ -186,7 +198,7 @@ export const B12Session: React.FC<{ track: Track; seqStart: number; dur: number 
 // ------------------------------------------------------------------------------------------------ S3 on the practice (first 30 f of B13)
 export const S3Over: React.FC = () => (
   <AbsoluteFill>
-    <Bleed file="exomind-skin/clinic/reception_03612.jpg" from={0} to={30} s0={1.02} s1={1.07} focus="60% 50%" />
+    <Bleed file="exomind-skin/clinic/reception_03612.jpg" from={0} to={SECTION_LEN} s0={1.02} s1={1.08} focus="60% 50%" />
     <SectionOver num="03" title="Total skin health" size={140} />
   </AbsoluteFill>
 );
@@ -237,20 +249,28 @@ export const B16Emotions: React.FC<{ tail: (lf: number) => Pt }> = ({ tail }) =>
 // burned-in subtitles (which name indications we may not show) fall below the frame. 'Conceptual depiction. Results may vary.' is
 // on for the whole span. An orbit arc (full brand blue) rings the lit region on "create"; 'Neuroplasticity' lands on its word.
 // The layer runs 8 f into B18 so B18's film can dissolve over it (motion_easing.md gap 4).
+// Gap round 2 (DECISIONS 14p): at 1.16x from the top-left the film's own EXOMIND mark sat in the top-left corner and its BTL emblem
+// was cut by the right edge (and in B18's dissolve the scaled mark ghosted over B18's 1x mark). Now the framing crops the film's whole
+// top band (mark and emblem, film y <= 160) above the frame and its subtitle band (film y >= 930) below it: k = 1.40 -> 1.46,
+// y = -160k, x = -200 -> -240. Both marks are fully out for the whole span; B18 brings them back, whole, at 1x.
+const MOA_TOP = 160;
+export const moaFrame = (u: number) => { const k = 1.4 + 0.06 * u; return { k, tx: -200 - 40 * u, ty: -MOA_TOP * k }; };
 export const B17MoaHead: React.FC<{ dur: number }> = ({ dur }) => {
   const f = useCurrentFrame();
   const chipQ = p(f, 66, 6, ease.arrive);
-  // the lit region (film px 930, 453) carried through the film's push: screen = -30u + s * film, s = 1.16 + 0.07u, u = f / dur
-  const litAt = (lf: number) => { const u = cl(lf / dur), k = 1.16 + 0.07 * u; return { x: -30 * u + k * 930, y: k * 453 }; };
+  // the lit region (film px 930, 453) carried through the film's push
+  const litAt = (lf: number) => { const m = moaFrame(cl(lf / dur)); return { x: m.tx + m.k * 930, y: m.ty + m.k * 453 }; };
+  const m = moaFrame(cl(f / dur));
+  const chip = litAt(f);
   return (
     <AbsoluteFill style={{ background: "#0b1220" }}>
       <OffthreadVideo src={src("exomind-skin/btl/video/Exomind_VIDEO_Mechanism-of-Action_ENNA101.mp4")} muted startFrom={Math.round(49.0 * 24)}
-        style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, transform: `translateX(${-30 * cl(f / dur)}px) scale(${1.16 + 0.07 * cl(f / dur)})`, transformOrigin: "0% 0%" }} />{/* left-anchored: the film's EXOMIND mark stays whole, its BTL emblem falls off the right */}
+        style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, transform: `translate(${m.tx}px, ${m.ty}px) scale(${m.k})`, transformOrigin: "0% 0%" }} />
       <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 320, background: "linear-gradient(180deg, rgba(11,18,32,0), rgba(11,18,32,.55))" }} />
-      <SectionOver num="04" title="The technology" />
+      <SectionOver num="04" title="The technology" size={130} />
       <Arrow variant="orbit-arc" from={litAt} to={(lf: number) => { const c = litAt(lf); return { x: c.x + 150, y: c.y + 40 }; }} bend={0.78} start={50} end={dur - 1} color={C.blue} />
       {f >= 66 && (
-        <div style={{ position: "absolute", left: 1330, top: 300, opacity: chipQ, transform: `scale(${0.95 + 0.05 * chipQ})`, transformOrigin: "0% 50%", padding: "16px 26px", borderRadius: 999,
+        <div style={{ position: "absolute", left: chip.x - 60, top: chip.y + 150, opacity: chipQ, transform: `scale(${0.95 + 0.05 * chipQ})`, transformOrigin: "0% 50%", padding: "16px 26px", borderRadius: 999,
           background: "rgba(255,255,255,.14)", backdropFilter: "blur(16px)", boxShadow: "inset 0 1px 0 rgba(255,255,255,.4), inset 0 0 0 1px rgba(255,255,255,.22)", ...text(34, 500, "#fff"), whiteSpace: "nowrap" }}>Neuroplasticity</div>
       )}
       <MoaLabel at={0} dark y={812} />
@@ -272,8 +292,10 @@ export const B19Window: React.FC<{ dur: number; children?: React.ReactNode }> = 
     <>
       <div style={{ position: "absolute", left: box.x + (1 - io(q)) * 24, top: box.y + o * 7, width: box.w, height: box.h, borderRadius: 24, overflow: "hidden", opacity: q * (1 - o), background: "#0b1220",
         boxShadow: "0 40px 70px -30px rgba(32,37,50,.5), 0 4px 12px rgba(32,37,50,.14), 0 0 0 1px rgba(255,255,255,.7)" }}>
+        {/* gap round 2: at 1x the film's BTL emblem was cut by the window's right edge (and a sliver of its EXOMIND mark sat at the left).
+            At 1.2x with the top band (film y <= 160) above the window and the subtitles (film y >= 930) below it, both marks are out */}
         <OffthreadVideo src={src("exomind-skin/btl/video/Exomind_VIDEO_Mechanism-of-Action_ENNA101.mp4")} muted startFrom={Math.round(74.6 * 24)} playbackRate={0.8}
-          style={{ position: "absolute", left: -560, top: -10, width: 1920, height: 1080, transform: `scale(${s}) translate(${drift(f, 6, 150)}px, 0px)`, transformOrigin: "980px 560px" }} />
+          style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, transform: `translate(${-790 + drift(f, 6, 150)}px, ${-165 * 1.2 * s}px) scale(${1.2 * s})`, transformOrigin: "0% 0%" }} />
         <div style={{ position: "absolute", left: 30, top: 28, ...caps(26, "rgba(255,255,255,.9)") }}>Synapse · BTL Exomind film</div>
       </div>
       <div style={{ opacity: 1 - o }}>{children}</div>
