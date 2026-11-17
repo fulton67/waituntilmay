@@ -13,6 +13,9 @@
  ],
  "paginates": "body",
  "carousel_role": "body",
+ "tile": "text",
+ "carouselable": false,
+ "gated": false,
  "slots": [
   {
    "key": "heading",

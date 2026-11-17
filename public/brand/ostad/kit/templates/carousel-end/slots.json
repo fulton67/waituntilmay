@@ -12,6 +12,9 @@
  ],
  "paginates": null,
  "carousel_role": "end",
+ "tile": "photo",
+ "carouselable": false,
+ "gated": false,
  "slots": [
   {
    "key": "image",

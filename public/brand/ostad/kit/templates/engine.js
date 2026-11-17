@@ -2,7 +2,8 @@
 // the server PNG (Playwright opening render.html) and the CLI (brand/post.py), so all three produce the same layout.
 // Templates are built only from kit/components classes, palette roles and the type roles; layouts cite composition/layouts.json.
 import { ICONS } from "./icons.js";
-export { ICONS };
+import { TILES, TILE_KIND, exportBlock, metaHTML } from "./tiles.js";
+export { ICONS, TILE_KIND, exportBlock };
 
 export const SIZES = { "4x5": [1080, 1350], "1x1": [1080, 1080], "9x16": [1080, 1920] };
 // accent -> fill + ink for pills, and the colour used as text on paper (kit/palette.json rule: accent-1 takes text ink;
@@ -43,10 +44,11 @@ export const TEMPLATES = {
   quote: {
     name: "Quote", cluster: "C9", blocks: ["32197302"], sizes: ["4x5", "1x1", "9x16"],
     slots: [L("quote", "Quote", 220, { default: "Every treatment starts with understanding the anatomy, not the trend." }), T("name", "Name", 40, { default: "Dr. Ariel Ostad" }),
-      T("role", "Role", 50, { optional: true, default: "Board-certified dermatologist, NYC" }), GROUND("paper", ["paper", "dark", "image"]), IMG("image", "Image", { optional: true })],
+      T("role", "Role", 50, { optional: true, default: "Board-certified dermatologist, NYC" }), GROUND("paper", ["paper", "dark", "image"]), IMG("image", "Image", { optional: true }),
+      T("meta", "Meta: source (tile)", 30, { optional: true })],
     build: (s, c) => {
       const img = s.ground === "image";
-      return `<div class="ok t-quote ${s.ground === "dark" ? "ok--dark" : ""} ${img ? "ok-ink-light" : ""}">${img ? bg(s) + '<div class="ok-scrim" style="height:100%"></div>' : ""}
+      return `<div class="ok t-quote ${s.meta ? "tl" : ""} ${s.ground === "dark" ? "ok--dark" : ""} ${img ? "ok-ink-light" : ""}">${img ? bg(s) + '<div class="ok-scrim" style="height:100%"></div>' : ""}${metaHTML(s.meta)}
       <div class="ok-safe"><div class="mark" style="${img || s.ground === "dark" ? "" : "color:var(--acc-text)"}">&ldquo;</div>
       <div class="q ok-fit" style="max-height:58%"><p class="ok-h" ${fitAttr("hq")}>${esc(s.quote)}</p></div>
       <div class="who"><hr class="ok-rule" style="width:12cqw"><p class="ok-l">${esc(s.name)}</p>${s.role ? `<p class="ok-c" style="opacity:.75">${esc(s.role)}</p>` : ""}</div></div></div>`;
@@ -152,9 +154,11 @@ export const TEMPLATES = {
   },
 };
 
+Object.assign(TEMPLATES, TILES); // feed tiles (tiles.js); the tile before-after replaces the older one
+
 export function slotsSchema(id) {
   const t = TEMPLATES[id];
-  return { template: id, name: t.name, cluster: t.cluster, board_blocks: t.blocks, sizes: t.sizes, paginates: t.paginate || null, carousel_role: t.carousel || null,
+  return { template: id, name: t.name, cluster: t.cluster, board_blocks: t.blocks, sizes: t.sizes, paginates: t.paginate || null, carousel_role: t.carousel || null, tile: TILE_KIND[id] || null, carouselable: !!t.carouselable, gated: !!t.gated,
     slots: t.slots.map(({ key, type, label, max, optional, default: d, options, min, itemMax }) => ({ key, type, label, max, optional: !!optional, default: d, options, min, itemMax })) };
 }
 export function defaults(id) { const o = {}; for (const s of TEMPLATES[id].slots) if (s.default !== undefined) o[s.key] = JSON.parse(JSON.stringify(s.default)); return o; }
@@ -181,6 +185,7 @@ function makePage(id, slots, ctx, opts) {
   const tpl = document.createElement("template"); tpl.innerHTML = html.trim(); const page = tpl.content.firstElementChild;
   page.classList.add(`ok--${opts.size}`, "ok--svgtreat"); const a = ACCENTS[opts.accent] || ACCENTS["accent-1"];
   page.style.setProperty("--acc", a.fill); page.style.setProperty("--acc-ink", a.ink); page.style.setProperty("--acc-text", a.text);
+  if (opts.guides) page.classList.add("ok-guides");
   page.dataset.template = id; return page;
 }
 async function waitImages(page) { await Promise.all([...page.querySelectorAll("img")].map((i) => (i.complete ? null : new Promise((r) => { i.onload = i.onerror = r; })))); }
@@ -214,7 +219,7 @@ async function renderOne(container, id, slots, opts, idx) {
 
 async function fontsState() {
   // Typekit faces load lazily; ask for the three the templates use, then check (fails over to fallbacks after 6 s)
-  const want = ['600 40px "neue-haas-grotesk-display"', '500 40px "neue-haas-grotesk-display"', '400 20px "neue-haas-grotesk-text"'];
+  const want = ['600 40px "neue-haas-grotesk-display"', '500 40px "neue-haas-grotesk-display"', '400 20px "neue-haas-grotesk-text"', '500 20px "neue-haas-grotesk-text"', '400 40px "cormorant-garamond"', '500 20px "cormorant-garamond"'];
   await Promise.race([Promise.all(want.map((f) => document.fonts.load(f).catch(() => null))), new Promise((r) => setTimeout(r, 6000))]);
   await document.fonts.ready;
   const ok = document.fonts.check('600 40px "neue-haas-grotesk-display"') && document.fonts.check('500 40px "neue-haas-grotesk-display"');
@@ -232,7 +237,7 @@ export async function render(container, spec) {
     container.innerHTML = ""; const idx = { next: 1, total }; out = { pages: [], warnings: [] };
     for (const sl of spec.slides) {
       const slots = { ...defaults(sl.template), ...(sl.slots || {}) };
-      const r = await renderOne(container, sl.template, slots, { size, accent: spec.accent }, idx); out.pages.push(...r.pages); out.warnings.push(...r.warnings);
+      const r = await renderOne(container, sl.template, slots, { size, accent: spec.accent, guides: !!spec.guides }, idx); out.pages.push(...r.pages); out.warnings.push(...r.warnings);
     }
     if (out.pages.length === total) break; total = out.pages.length;
   }

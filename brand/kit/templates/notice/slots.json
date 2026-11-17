@@ -1,0 +1,53 @@
+{
+ "template": "notice",
+ "name": "Notice",
+ "cluster": "T4",
+ "board_blocks": [],
+ "sizes": [
+  "4x5",
+  "1x1",
+  "9x16"
+ ],
+ "paginates": null,
+ "carousel_role": null,
+ "tile": "text",
+ "carouselable": false,
+ "gated": false,
+ "slots": [
+  {
+   "key": "meta",
+   "type": "text",
+   "label": "Meta: date and time (one per line)",
+   "max": 60,
+   "optional": false,
+   "default": "09:00–17:00\n2026.11.27.Fri"
+  },
+  {
+   "key": "headline",
+   "type": "text",
+   "label": "Notice",
+   "max": 40,
+   "optional": false,
+   "default": "Closed for Thanksgiving"
+  },
+  {
+   "key": "label",
+   "type": "text",
+   "label": "Detail (optional)",
+   "max": 70,
+   "optional": true
+  },
+  {
+   "key": "ground",
+   "type": "choice",
+   "label": "Ground",
+   "optional": false,
+   "default": "white",
+   "options": [
+    "white",
+    "paper",
+    "dark"
+   ]
+  }
+ ]
+}

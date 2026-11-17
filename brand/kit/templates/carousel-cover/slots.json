@@ -13,6 +13,9 @@
  ],
  "paginates": null,
  "carousel_role": "cover",
+ "tile": "photo",
+ "carouselable": false,
+ "gated": false,
  "slots": [
   {
    "key": "kicker",

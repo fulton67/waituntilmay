@@ -52,5 +52,95 @@
   "text_area_pct": 2.38,
   "caption_band_px": 157,
   "kind": "composite"
+ },
+ {
+  "image": "p_ceg-ferulic",
+  "src": "/brand/ostad/kit/templates/photos/p_ceg-ferulic.jpg",
+  "w": 1200,
+  "h": 1800,
+  "kind": "product",
+  "what": "CEG + Ferulic Complex, dropper over a glass dish",
+  "source": "client product shoot (IMAGES.zip, 2026-11-17)"
+ },
+ {
+  "image": "p_editorial-flatlay",
+  "src": "/brand/ostad/kit/templates/photos/p_editorial-flatlay.jpg",
+  "w": 1800,
+  "h": 1440,
+  "kind": "product",
+  "what": "Flat lay: Eye Restore, Ret-Nia, Hyla Complex, Sun Shade Tint, pads, capsules",
+  "source": "client product shoot (IMAGES.zip, 2026-11-17)"
+ },
+ {
+  "image": "p_texture-trio",
+  "src": "/brand/ostad/kit/templates/photos/p_texture-trio.jpg",
+  "w": 1440,
+  "h": 1800,
+  "kind": "product",
+  "what": "Texture swatches: CEG serum, Sun Shade Clear, LUMA Cream",
+  "source": "client product shoot (IMAGES.zip, 2026-11-17)"
+ },
+ {
+  "image": "p_texture-rosacea",
+  "src": "/brand/ostad/kit/templates/photos/p_texture-rosacea.jpg",
+  "w": 1800,
+  "h": 1200,
+  "kind": "product",
+  "what": "Texture swatches from the Rosacea/Redness set",
+  "source": "client product shoot (IMAGES.zip, 2026-11-17)"
+ },
+ {
+  "image": "p_line-group",
+  "src": "/brand/ostad/kit/templates/photos/p_line-group.jpg",
+  "w": 1800,
+  "h": 1162,
+  "kind": "product",
+  "what": "The full skincare line, group shot",
+  "source": "client product shoot (IMAGES.zip, 2026-11-17)"
+ },
+ {
+  "image": "p_ha-peptide",
+  "src": "/brand/ostad/kit/templates/photos/p_ha-peptide.jpg",
+  "w": 1440,
+  "h": 1800,
+  "kind": "product",
+  "what": "Hyaluronic Peptide Serum gel with spatula",
+  "source": "client product shoot (IMAGES.zip, 2026-11-17)"
+ },
+ {
+  "image": "p_luma-jar",
+  "src": "/brand/ostad/kit/templates/photos/p_luma-jar.jpg",
+  "w": 1200,
+  "h": 1800,
+  "kind": "product",
+  "what": "Advanced LUMA Cream jar",
+  "source": "client product shoot (IMAGES.zip, 2026-11-17)"
+ },
+ {
+  "image": "p_luma-texture",
+  "src": "/brand/ostad/kit/templates/photos/p_luma-texture.jpg",
+  "w": 1800,
+  "h": 1246,
+  "kind": "product",
+  "what": "LUMA Cream texture in a petri dish",
+  "source": "client product shoot (IMAGES.zip, 2026-11-17)"
+ },
+ {
+  "image": "p_niacinamide-caps",
+  "src": "/brand/ostad/kit/templates/photos/p_niacinamide-caps.jpg",
+  "w": 1545,
+  "h": 1800,
+  "kind": "product",
+  "what": "Niacinamide capsules",
+  "source": "client product shoot (IMAGES.zip, 2026-11-17)"
+ },
+ {
+  "image": "p_sunshades",
+  "src": "/brand/ostad/kit/templates/photos/p_sunshades.jpg",
+  "w": 1440,
+  "h": 1800,
+  "kind": "product",
+  "what": "Sun Shade Tint and Sun Shade Clear SPF",
+  "source": "client product shoot (IMAGES.zip, 2026-11-17)"
  }
 ]

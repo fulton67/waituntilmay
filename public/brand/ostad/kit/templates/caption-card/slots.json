@@ -13,6 +13,9 @@
  ],
  "paginates": "text",
  "carousel_role": null,
+ "tile": "text",
+ "carouselable": false,
+ "gated": false,
  "slots": [
   {
    "key": "text",

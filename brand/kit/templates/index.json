@@ -67,7 +67,7 @@
  {
   "id": "before-after",
   "name": "Before / after",
-  "cluster": "C3",
+  "cluster": "T2",
   "board_blocks": [
    "52386109"
   ]
@@ -98,5 +98,47 @@
    "27454113",
    "27454118"
   ]
+ },
+ {
+  "id": "product",
+  "name": "Product",
+  "cluster": "T1",
+  "board_blocks": []
+ },
+ {
+  "id": "statement",
+  "name": "Statement",
+  "cluster": "T3",
+  "board_blocks": []
+ },
+ {
+  "id": "notice",
+  "name": "Notice",
+  "cluster": "T4",
+  "board_blocks": []
+ },
+ {
+  "id": "diagram",
+  "name": "Diagram",
+  "cluster": "T5",
+  "board_blocks": []
+ },
+ {
+  "id": "ruled",
+  "name": "Ruled poster",
+  "cluster": "T6",
+  "board_blocks": []
+ },
+ {
+  "id": "procedure",
+  "name": "Procedure",
+  "cluster": "T7",
+  "board_blocks": []
+ },
+ {
+  "id": "graphic",
+  "name": "Graphic",
+  "cluster": "T8",
+  "board_blocks": []
  }
 ]

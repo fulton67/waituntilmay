@@ -12,6 +12,9 @@
  ],
  "paginates": null,
  "carousel_role": null,
+ "tile": "text",
+ "carouselable": false,
+ "gated": false,
  "slots": [
   {
    "key": "quote",
@@ -53,6 +56,13 @@
    "key": "image",
    "type": "image",
    "label": "Image",
+   "optional": true
+  },
+  {
+   "key": "meta",
+   "type": "text",
+   "label": "Meta: source (tile)",
+   "max": 30,
    "optional": true
   }
  ]

@@ -1,0 +1,179 @@
+{
+ "template": "product",
+ "name": "Product",
+ "cluster": "T1",
+ "board_blocks": [],
+ "sizes": [
+  "4x5",
+  "1x1"
+ ],
+ "paginates": null,
+ "carousel_role": null,
+ "tile": "photo",
+ "carouselable": true,
+ "gated": false,
+ "slots": [
+  {
+   "key": "variant",
+   "type": "choice",
+   "label": "Variant",
+   "optional": false,
+   "default": "photo",
+   "options": [
+    "photo",
+    "line",
+    "ingredients"
+   ]
+  },
+  {
+   "key": "image",
+   "type": "image",
+   "label": "Photo",
+   "optional": false
+  },
+  {
+   "key": "meta",
+   "type": "text",
+   "label": "Meta (in brackets)",
+   "max": 30,
+   "optional": false,
+   "default": "Skincare"
+  },
+  {
+   "key": "name",
+   "type": "text",
+   "label": "Label (name)",
+   "max": 40,
+   "optional": false,
+   "default": "Advanced LUMA Cream"
+  },
+  {
+   "key": "line",
+   "type": "text",
+   "label": "One line",
+   "max": 70,
+   "optional": true,
+   "default": "Made to order, for sun damage."
+  },
+  {
+   "key": "right",
+   "type": "text",
+   "label": "Label right",
+   "max": 30,
+   "optional": true
+  },
+  {
+   "key": "ink",
+   "type": "choice",
+   "label": "Text colour",
+   "optional": false,
+   "default": "dark",
+   "options": [
+    "dark",
+    "light"
+   ]
+  },
+  {
+   "key": "headline",
+   "type": "text",
+   "label": "Line headline (**bold**)",
+   "max": 50,
+   "optional": true,
+   "default": "1 Serum. **4 Actives.**"
+  },
+  {
+   "key": "drawing",
+   "type": "choice",
+   "label": "Line drawing",
+   "optional": false,
+   "default": "jar",
+   "options": [
+    "dropper",
+    "jar",
+    "pump",
+    "capsule",
+    "tube"
+   ]
+  },
+  {
+   "key": "measure",
+   "type": "text",
+   "label": "Measure label",
+   "max": 20,
+   "optional": true,
+   "default": "1.25 oz / 35 g"
+  },
+  {
+   "key": "c1_kicker",
+   "type": "text",
+   "label": "Card 1 kicker",
+   "max": 40,
+   "optional": true,
+   "default": "Brightening"
+  },
+  {
+   "key": "c1_text",
+   "type": "longtext",
+   "label": "Card 1 text",
+   "max": 140,
+   "optional": true,
+   "default": "Arbutin and retinoic acid fade sun spots; made to order at 4, 6 or 8 %."
+  },
+  {
+   "key": "c1_pills",
+   "type": "text",
+   "label": "Card 1 pills (comma)",
+   "max": 80,
+   "optional": true,
+   "default": "Arbutin, Retin-A, AHA"
+  },
+  {
+   "key": "c1_a",
+   "type": "image",
+   "label": "Card 1 photo A",
+   "optional": true
+  },
+  {
+   "key": "c1_b",
+   "type": "image",
+   "label": "Card 1 photo B",
+   "optional": true
+  },
+  {
+   "key": "c2_kicker",
+   "type": "text",
+   "label": "Card 2 kicker",
+   "max": 40,
+   "optional": true,
+   "default": "Antioxidant"
+  },
+  {
+   "key": "c2_text",
+   "type": "longtext",
+   "label": "Card 2 text",
+   "max": 140,
+   "optional": true,
+   "default": "Vitamins C and E with ferulic acid, for daytime protection under SPF."
+  },
+  {
+   "key": "c2_pills",
+   "type": "text",
+   "label": "Card 2 pills (comma)",
+   "max": 80,
+   "optional": true,
+   "default": "Vitamin C, Vitamin E, Ferulic"
+  },
+  {
+   "key": "c2_a",
+   "type": "image",
+   "label": "Card 2 photo A",
+   "optional": true
+  },
+  {
+   "key": "c2_b",
+   "type": "image",
+   "label": "Card 2 photo B",
+   "optional": true
+  }
+ ]
+}

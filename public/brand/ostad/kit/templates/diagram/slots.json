@@ -1,0 +1,113 @@
+{
+ "template": "diagram",
+ "name": "Diagram",
+ "cluster": "T5",
+ "board_blocks": [],
+ "sizes": [
+  "4x5",
+  "1x1"
+ ],
+ "paginates": null,
+ "carousel_role": null,
+ "tile": "diagram",
+ "carouselable": false,
+ "gated": false,
+ "slots": [
+  {
+   "key": "variant",
+   "type": "choice",
+   "label": "Variant",
+   "optional": false,
+   "default": "radial",
+   "options": [
+    "radial",
+    "list",
+    "two-column",
+    "callouts"
+   ]
+  },
+  {
+   "key": "headline",
+   "type": "text",
+   "label": "Headline",
+   "max": 60,
+   "optional": false,
+   "default": "What niacinamide does for skin"
+  },
+  {
+   "key": "meta",
+   "type": "text",
+   "label": "Meta",
+   "max": 30,
+   "optional": true,
+   "default": "Nia-C+"
+  },
+  {
+   "key": "image",
+   "type": "image",
+   "label": "Centre / background photo",
+   "optional": true,
+   "default": "/brand/ostad/kit/templates/photos/p_niacinamide-caps.jpg"
+  },
+  {
+   "key": "surface",
+   "type": "choice",
+   "label": "Surface",
+   "optional": false,
+   "default": "plain",
+   "options": [
+    "plain",
+    "blurred photo",
+    "photo"
+   ]
+  },
+  {
+   "key": "nodes",
+   "type": "longtext",
+   "label": "Labels (one per line; callouts: text @x,y)",
+   "max": 260,
+   "optional": false,
+   "default": "Calms redness\nEvens tone\nStrengthens barrier\nControls oil\nSupports repair"
+  },
+  {
+   "key": "center",
+   "type": "text",
+   "label": "Centre label (list / two-column)",
+   "max": 30,
+   "optional": true,
+   "default": "Niacinamide"
+  },
+  {
+   "key": "center2",
+   "type": "text",
+   "label": "Second centre (two-column)",
+   "max": 30,
+   "optional": true,
+   "default": "Retinoid"
+  },
+  {
+   "key": "nodes2",
+   "type": "longtext",
+   "label": "Second labels (two-column)",
+   "max": 200,
+   "optional": true,
+   "default": "Turnover\nFine lines\nTexture"
+  },
+  {
+   "key": "vertical",
+   "type": "text",
+   "label": "Vertical words (callouts)",
+   "max": 40,
+   "optional": true,
+   "default": "measured. made. to order."
+  },
+  {
+   "key": "label",
+   "type": "text",
+   "label": "Footer / wordmark",
+   "max": 40,
+   "optional": true,
+   "default": "Dr. Ariel Ostad"
+  }
+ ]
+}

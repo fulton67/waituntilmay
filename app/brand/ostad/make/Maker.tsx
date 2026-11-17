@@ -16,7 +16,7 @@ type Slots = Record<string, SlotValue>;
 type Slide = { template: string; slots: Slots };
 type Draft = { id: string; name: string; size: Size; accent: string; slides: Slide[]; active: number; caption: string; seed: number; updated: number };
 type SlotDef = { key: string; type: "text" | "longtext" | "choice" | "image" | "icon" | "list"; label: string; max?: number; optional: boolean; default?: unknown; options?: string[]; min?: number; itemMax?: number };
-type Schema = { template: string; name: string; cluster: string; board_blocks: string[]; sizes: string[]; paginates: string | null; carousel_role: string | null; slots: SlotDef[] };
+type Schema = { template: string; name: string; cluster: string; board_blocks: string[]; sizes: string[]; paginates: string | null; carousel_role: string | null; carouselable?: boolean; gated?: boolean; slots: SlotDef[] };
 type IndexRow = { id: string; name: string; cluster: string; board_blocks: string[] };
 type Photo = { image: string; src: string; w: number; h: number };
 type RenderInfo = { fonts: string; warnings: string[]; pages: number; w: number; h: number };
@@ -227,6 +227,8 @@ export default function Maker() {
                 </span>
               ))}
               <button onClick={() => update((d) => ({ ...d, slides: [...d.slides, JSON.parse(JSON.stringify(d.slides[d.active]))], active: d.slides.length }))} data-testid="add-slide" disabled={dr.slides.length >= 20}>+ Slide</button>
+              {schema?.carouselable && dr.slides.length === 1 && <button data-testid="make-carousel" title="Cover = this tile, then 2 body slides and an end slide (existing carousel templates)"
+                onClick={() => update((d) => ({ ...d, slides: [d.slides[0], { template: "carousel-body", slots: { ...ok!.defaults("carousel-body"), heading: String(d.slides[0].slots.name || d.slides[0].slots.meta || "Step 1") } }, { template: "carousel-body", slots: ok!.defaults("carousel-body") }, { template: "carousel-end", slots: ok!.defaults("carousel-end") }], active: 1 }))}>Make carousel (cover + 2 body + end)</button>}
             </div>
           </fieldset>
 

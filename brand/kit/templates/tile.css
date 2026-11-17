@@ -1,0 +1,121 @@
+/* Ostad feed tiles (POST_GRID §1). Every size is a multiple of a kit token (tokens.css); nothing here is a new colour or face.
+   --crop: distance from the canvas edge to the centred 1080 x 1080 crop the profile grid shows (4:5 = 135 px, 9:16 = 420 px).
+   --tm: tile margin = half the kit grid margin (9.1cqw -> 4.55cqw), measured against the café reference (20 / 480 = 4.2 %).
+   Meta and label = the caption size; the text-tile headline = 2 x the headline token (café "Notice": 15.6 % of the tile). */
+.tl { --tm: calc(var(--ok-margin) * .5); --crop: 0px; --tl-small: var(--ok-caption-size); --tl-head: calc(var(--ok-headline-size) * 2); --tl-hair: var(--ok-hair); }
+.ok--4x5.tl { --crop: 12.5cqw; } .ok--9x16.tl { --crop: 38.889cqw; }
+.ok--1x1.tl { --tl-small: calc(var(--ok-caption-size) * 1.15); }
+.tl--white { background: #fff; }
+.tl .ok-bg { z-index: 0; }
+.tl-meta, .tl-label, .tl-foot, .tl-ends, .tl-node, .tl-callout, .tl-fanlabel, .tl-word, .tl-tag, .tl-lock { font: var(--ok-caption-weight) var(--tl-small)/1.25 var(--ok-font-text); letter-spacing: var(--ok-caption-track); }
+.tl-meta { position: absolute; z-index: 3; left: var(--tm); top: calc(var(--crop) + var(--tm)); display: grid; }
+.tl-label { margin: 0; }
+.tl-bottom { position: absolute; z-index: 3; left: var(--tm); right: var(--tm); bottom: calc(var(--crop) + var(--tm)); display: grid; gap: 1.6cqw; }
+.tl-row { display: flex; justify-content: space-between; align-items: end; gap: 3cqw; }
+.tl-right { text-align: right; }
+.tl-strong { font-weight: 600; }
+.tl-hair { border: 0; border-top: var(--tl-hair) solid currentColor; color: inherit; margin: 0; width: 100%; }
+.tl-shade { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to top, rgba(var(--ok-text-rgb), .5) 0, rgba(var(--ok-text-rgb), 0) 42%), linear-gradient(to bottom, rgba(var(--ok-text-rgb), .28) 0, rgba(var(--ok-text-rgb), 0) 25%); }
+.tl-blur { filter: blur(1.4cqw) !important; transform: scale(1.08); }
+
+/* text tiles: statement, notice (café "Notice" / "Closed for Holiday") */
+.tl-text .tl-hbox { max-height: 44cqw; display: flex; align-items: flex-end; }
+.tl-head { margin: 0; font: 500 var(--tl-head)/1.0 var(--ok-display); letter-spacing: -0.01em; text-wrap: balance; }
+
+/* product: photo tile (café), line frame (serum ref 3), ingredient cards (glass cards ref) */
+.tl-product--line .tl-drawbox { position: absolute; z-index: 2; right: 12cqw; top: calc(var(--crop) + 12cqw); bottom: calc(var(--crop) + 34cqw); width: 30cqw; color: var(--ok-background); }
+.tl-product--line:not(.ok-ink-light) .tl-drawbox { color: var(--ok-text); }
+.tl-draw { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: var(--tl-hair); vector-effect: non-scaling-stroke; }
+.tl-draw path { vector-effect: non-scaling-stroke; stroke-width: 2.3px; }
+.tl-measure { position: absolute; z-index: 2; right: 6cqw; top: calc(var(--crop) + 12cqw); bottom: calc(var(--crop) + 34cqw); width: 6cqw; }
+.tl-measure i { position: absolute; left: 0; top: 0; bottom: 0; border-left: var(--tl-hair) solid currentColor; }
+.tl-measure i::before, .tl-measure i::after { content: ""; position: absolute; left: -1.2cqw; width: 2.4cqw; border-top: var(--tl-hair) solid currentColor; top: 0; }
+.tl-measure i::after { top: auto; bottom: 0; }
+.tl-measure span { position: absolute; left: 1.6cqw; top: 50%; transform: translateY(-50%) rotate(90deg); transform-origin: left center; white-space: nowrap; font: var(--ok-caption-weight) calc(var(--tl-small) * .8)/1 var(--ok-font-text); }
+.tl-mixed { margin: 0; font: 400 calc(var(--ok-headline-size) * 1.05)/1.05 var(--ok-display); letter-spacing: -0.005em; }
+.tl-mixed b { font-weight: 600; }
+.tl-product--ing .tl-cards { position: absolute; z-index: 2; left: 12cqw; right: 12cqw; top: calc(var(--crop) + 6cqw); bottom: calc(var(--crop) + 6cqw); display: grid; grid-template-columns: 1fr 1fr; gap: 2.2cqw; }
+.tl-card { position: relative; inset: auto; padding: 2cqw; display: flex; flex-direction: column; gap: 1.3cqw; border-radius: calc(var(--ok-glass-radius) * 1.5); }
+.tl-card-ph { position: relative; aspect-ratio: 1; border-radius: var(--ok-glass-radius); overflow: hidden; background: var(--ok-surface); flex: none; }
+.tl-card-ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tl-kicker { margin: .6cqw 0 0; font: 500 calc(var(--ok-label-size) * .8)/1.1 "cormorant-garamond", Georgia, serif; text-transform: uppercase; letter-spacing: .04em; }
+.tl-card-t { margin: 0; font: var(--ok-caption-weight) calc(var(--ok-caption-size) * .86)/1.2 var(--ok-font-text); flex: 1 1 auto; min-height: 0; overflow: hidden; }
+.tl-pills { display: flex; flex-wrap: wrap; gap: .8cqw; }
+.tl-pills span { background: #fff; color: var(--ok-text); border-radius: 999px; padding: .7cqw 1.6cqw; font: var(--ok-caption-weight) calc(var(--ok-caption-size) * .62)/1.2 var(--ok-font-text); }
+
+/* before / after: the measured pair (signature). Two photos edge to edge with a hairline seam, the same dashed ring on both
+   halves when markup is on, and a ruler from Day 0 to the time since treatment, one tick per week. */
+.tl-pair { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--tl-hair); background: var(--ok-background); }
+.tl-ba--stacked .tl-pair { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+.tl-half { position: relative; overflow: hidden; container-type: size; }
+.tl-half > img, .tl-half > .ok-ph { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.tl-tag { position: absolute; top: calc(var(--crop) + var(--tm)); right: 3cqw; z-index: 2; color: var(--ok-background); }
+.tl-ba--stacked .tl-tag { top: 3cqw; } .tl-ba--stacked .tl-half:first-child .tl-tag { top: calc(var(--crop) + var(--tm)); }
+.tl-ring { position: absolute; z-index: 2; transform: translate(-50%, -50%); border-radius: 50%; border: var(--tl-hair) dashed var(--ok-background); }
+.tl-ruler { position: relative; height: 2.6cqw; border-bottom: var(--tl-hair) solid currentColor; }
+.tl-ruler i { position: absolute; bottom: 0; height: 1.2cqw; border-left: var(--tl-hair) solid currentColor; transform: translateX(-50%); }
+.tl-ruler i.tl-major { height: 2.6cqw; }
+.tl-ends { display: flex; justify-content: space-between; margin-top: -.6cqw; }
+.tl-foot { margin: 0; opacity: .78; font-size: calc(var(--tl-small) * .72); }
+.tl-ba .tl-bottom { gap: 1.2cqw; }
+.tl-lock { position: absolute; z-index: 4; right: var(--tm); top: calc(var(--crop) + var(--tm)); background: var(--ok-signal); color: var(--ok-background); padding: .6cqw 1.4cqw; border-radius: 999px; font-size: calc(var(--tl-small) * .62); }
+.tl-ba--side .tl-tag { top: auto; bottom: calc(var(--crop) + var(--tm) + 22cqw); left: 3cqw; right: auto; }
+
+/* diagram: radial (Seed capsule), list / two-column (dashed circle + straight labelled lines), callouts (profile ref) */
+.tl-dia { --dash: var(--ok-dotted-dash); }
+.tl-dhead { position: absolute; z-index: 3; left: 14cqw; right: 14cqw; top: calc(var(--crop) + var(--tm) * 1.6); margin: 0; text-align: center; font: 500 calc(var(--ok-headline-size) * .9)/1.12 var(--ok-display); text-wrap: balance; }
+.tl-dhead--left { text-align: left; top: calc(var(--crop) + var(--tm) * 2.6); left: var(--tm); right: 20cqw; }
+.tl-field { position: absolute; z-index: 2; left: 50%; width: 70cqw; aspect-ratio: 1; transform: translateX(-50%); top: calc(var(--crop) + 21cqw); }
+.ok--1x1 .tl-field { width: 62cqw; top: calc(var(--crop) + 19cqw); }
+.tl-field--wide { left: var(--tm); right: var(--tm); width: auto; aspect-ratio: auto; transform: none; top: calc(var(--crop) + 30cqw); bottom: calc(var(--crop) + 14cqw); }
+.tl-rays { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.tl-rays line { stroke: currentColor; stroke-width: 1.6px; stroke-dasharray: 5 5; vector-effect: non-scaling-stroke; }
+.tl-plate { position: absolute; left: 50%; top: 50%; width: 22cqw; height: 22cqw; transform: translate(-50%, -50%); border-radius: 50%; overflow: hidden; box-shadow: 0 2cqw 4cqw rgba(var(--ok-text-rgb), .16); }
+.tl-plate img { width: 100%; height: 100%; object-fit: cover; }
+.tl-dot-ring { position: absolute; left: 50%; top: 50%; width: 20cqw; height: 20cqw; transform: translate(-50%, -50%); border-radius: 50%; border: 2px dashed currentColor; }
+.tl-node { position: absolute; transform: translate(-50%, -50%); text-align: center; width: 24cqw; font-size: calc(var(--tl-small) * 1.05); }
+.tl-word { position: absolute; z-index: 3; left: 0; right: 0; bottom: calc(var(--crop) + var(--tm)); text-align: center; margin: 0; font: 600 calc(var(--ok-headline-size) * .62)/1 var(--ok-display); letter-spacing: -.01em; }
+.tl-circle { position: absolute; left: 4cqw; width: 26cqw; aspect-ratio: 1; transform: translateY(-50%); border-radius: 50%; border: 2px dashed currentColor; display: grid; place-items: center; text-align: center; font: 600 var(--tl-small)/1.15 var(--ok-font-text); padding: 2cqw; }
+.tl-fanlabel { position: absolute; transform: translateY(-50%); white-space: nowrap; }
+.tl-bl { position: absolute; z-index: 3; left: var(--tm); bottom: calc(var(--crop) + var(--tm)); }
+.tl-leads { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; color: var(--ok-background); }
+.tl-leads path { fill: none; stroke: currentColor; stroke-width: 1.6px; vector-effect: non-scaling-stroke; }
+.tl-callout { position: absolute; z-index: 3; transform: translate(.8cqw, -50%); white-space: nowrap; font-weight: 600; }
+.tl-callout--l { transform: translate(calc(-100% - .8cqw), -50%); }
+.tl-vwords { position: absolute; z-index: 3; right: var(--tm); top: calc(var(--crop) + 18cqw); display: flex; gap: 2.4cqw; writing-mode: vertical-rl; font: 400 calc(var(--tl-small) * .62)/1 var(--ok-font-text); letter-spacing: .3em; opacity: .9; }
+
+/* ruled poster (Roam skin poster, fashion poster): words spread over three columns, three hairlines, three-part footer */
+.tl-ruled-in { position: absolute; z-index: 2; left: var(--tm); right: var(--tm); top: calc(var(--crop) + var(--tm) * 2); bottom: calc(var(--crop) + var(--tm)); display: flex; flex-direction: column; justify-content: flex-end; gap: 2.4cqw; }
+.tl-words { display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: baseline; margin-bottom: 1cqw; }
+.tl-words span:nth-child(2) { text-align: center; } .tl-words span:nth-child(3) { text-align: right; }
+.tl-ruled--serif .tl-words { font: 400 calc(var(--ok-headline-size) * 1.45)/1 "cormorant-garamond", Georgia, serif; letter-spacing: -.01em; }
+.tl-ruled--grot .tl-words { font: 500 calc(var(--ok-headline-size) * 1.2)/1 var(--ok-display); text-transform: uppercase; letter-spacing: .02em; }
+.tl-ruled-in .tl-words:first-child { margin-bottom: auto; }
+.tl-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4cqw; }
+.tl-cols p, .tl-foot3 { margin: 0; font: 400 calc(var(--tl-small) * .74)/1.32 var(--ok-font-text); letter-spacing: .005em; }
+.tl-mono { letter-spacing: .06em !important; white-space: pre; }
+.tl-foot3 { display: grid; grid-template-columns: 1fr 1fr 1fr; } .tl-foot3 span:nth-child(2) { text-align: center; } .tl-foot3 span:nth-child(3) { text-align: right; font-weight: 600; }
+
+/* graphic: clock face (café), number, ring text (Seed feed), timeline, large icon */
+.tl-gfx { display: block; }
+.tl-clock { position: absolute; left: 12cqw; right: 12cqw; top: calc(var(--crop) + 12cqw); aspect-ratio: 1; }
+.tl-clock > span { position: absolute; transform: translate(-50%, -50%); font: 500 calc(var(--ok-headline-size) * .72)/1 var(--ok-display); }
+.tl-clock .tl-clockmark { left: 50% !important; top: 50% !important; transform: translate(-50%, -50%); text-align: center; transform: none; font: 600 calc(var(--tl-small) * .62)/1.1 var(--ok-font-text); letter-spacing: .18em; text-transform: uppercase; width: 14cqw; }
+.tl-arc { position: absolute; inset: 0; width: 100%; height: 100%; }
+.tl-arc path { fill: none; stroke: var(--acc-text); stroke-width: 2.3px; vector-effect: non-scaling-stroke; }
+.tl-num { position: absolute; left: var(--tm); top: calc(var(--crop) + 12cqw); font: 500 calc(var(--ok-headline-size) * 6)/.8 var(--ok-display); letter-spacing: -.04em; }
+.tl-ringtext { position: absolute; z-index: 2; left: 8cqw; right: 8cqw; top: 50%; transform: translateY(-50%); aspect-ratio: 1; overflow: visible; }
+.tl-ringtext text { fill: currentColor; font: 600 2.9px/1 var(--ok-font-text); letter-spacing: .25px; text-transform: uppercase; }
+.tl-gfx--ring .tl-bottom { z-index: 3; }
+.tl-tline { position: absolute; left: calc(var(--tm) + 2cqw); right: calc(var(--tm) + 8cqw); top: 50%; border-top: var(--tl-hair) solid currentColor; }
+.tl-tline span { position: absolute; top: 0; }
+.tl-tline i { position: absolute; left: 0; top: -1.5cqw; height: 3cqw; border-left: var(--tl-hair) solid currentColor; }
+.tl-tline b { position: absolute; top: 3cqw; left: 0; transform: translateX(-50%); white-space: nowrap; font: var(--ok-caption-weight) var(--tl-small)/1 var(--ok-font-text); }
+.tl-bigicon { position: absolute; left: 50%; top: 50%; width: 40cqw; height: 40cqw; transform: translate(-50%, -50%); }
+.tl-bigicon svg { width: 100%; height: 100%; stroke-width: .5; }
+
+/* quote tile: meta in the same corner as every tile */
+.t-quote.tl .ok-safe { top: calc(var(--crop) + var(--ok-margin)); bottom: calc(var(--crop) + var(--ok-margin)); }
+
+/* planner / proof guide: the 1080 x 1080 centre crop (only when a spec asks for guides) */
+.ok-guides .tl::after, .ok-guides.tl::after { content: ""; position: absolute; left: 0; right: 0; top: var(--crop); bottom: var(--crop); outline: 2px dashed rgba(255, 0, 128, .7); outline-offset: -1px; z-index: 9; pointer-events: none; }

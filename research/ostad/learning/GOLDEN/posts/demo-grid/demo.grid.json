@@ -1,0 +1,142 @@
+{
+ "name": "Demo grid (POST_GRID proof)",
+ "size": "4x5",
+ "accent": "accent-1",
+ "order": "newest first: posts[0] is top left; posting order is bottom right first",
+ "posts": [
+  {
+   "id": "demo1",
+   "template": "product",
+   "status": "draft",
+   "slots": {
+    "variant": "photo",
+    "image": "/brand/ostad/kit/templates/photos/p_line-group.jpg",
+    "meta": "Skincare",
+    "name": "Dr. Ariel Ostad skincare",
+    "line": "Medical-grade. 33 products.",
+    "ink": "dark"
+   }
+  },
+  {
+   "id": "demo2",
+   "template": "notice",
+   "status": "needs info",
+   "note": "Confirm the office closes on Thanksgiving (Thu 26 Nov 2026).",
+   "slots": {
+    "meta": "2026.11.26.Thu",
+    "headline": "Closed for Thanksgiving",
+    "ground": "white"
+   }
+  },
+  {
+   "id": "demo3",
+   "template": "before-after",
+   "status": "needs approval",
+   "intake": "pair-P0006-5442-5255",
+   "note": "Gallery photo placeholder: P0006 consent unknown; photos 13 days apart; time since treatment not confirmed.",
+   "slots": {
+    "before": "/api/brand/ostad/intake/img?row=5442",
+    "after": "/api/brand/ostad/intake/img?row=5255",
+    "meta": "Fraxel",
+    "label": "Full face, frontal",
+    "since": "Day 13",
+    "ticks": "13",
+    "layout": "side",
+    "patient_consent": "no",
+    "approved_by_ostad": "no"
+   }
+  },
+  {
+   "id": "demo4",
+   "template": "graphic",
+   "status": "needs info",
+   "note": "Confirm office hours (shown 9 to 5).",
+   "slots": {
+    "variant": "clock",
+    "meta": "Office hours",
+    "hours": "9-17",
+    "wordmark": "Dr. Ariel Ostad",
+    "ground": "white"
+   }
+  },
+  {
+   "id": "demo5",
+   "template": "product",
+   "status": "draft",
+   "slots": {
+    "variant": "line",
+    "image": "/brand/ostad/kit/templates/photos/p_ha-peptide.jpg",
+    "meta": "Skincare",
+    "drawing": "dropper",
+    "headline": "1 Serum. **2 Actives.**",
+    "name": "Hyaluronic Peptide Serum: concentrated HA gel + peptides",
+    "measure": "1 fl oz / 30 mL",
+    "ink": "dark"
+   }
+  },
+  {
+   "id": "demo6",
+   "template": "diagram",
+   "status": "draft",
+   "note": "Actives from the shop listing (CLIENT.md §3).",
+   "slots": {
+    "variant": "radial",
+    "headline": "What is in Nia-C+",
+    "meta": "Skincare",
+    "image": "/brand/ostad/kit/templates/photos/p_texture-trio.jpg",
+    "surface": "plain",
+    "nodes": "5 % niacinamide\nCeramides\nFatty acids",
+    "label": "Dr. Ariel Ostad"
+   }
+  },
+  {
+   "id": "demo7",
+   "template": "before-after",
+   "status": "needs approval",
+   "intake": "pair-P0010-3492-2903",
+   "note": "Gallery photo placeholder: P0010 consent unknown; photos 79 days apart; procedure (acne) needs confirming.",
+   "slots": {
+    "before": "/api/brand/ostad/intake/img?row=3492",
+    "after": "/api/brand/ostad/intake/img?row=2903",
+    "meta": "Acne",
+    "label": "Full face, frontal",
+    "since": "Week 11",
+    "ticks": "11",
+    "layout": "side",
+    "patient_consent": "no",
+    "approved_by_ostad": "no"
+   }
+  },
+  {
+   "id": "demo8",
+   "template": "notice",
+   "status": "needs info",
+   "note": "Confirm the date and that the office is closed.",
+   "slots": {
+    "meta": "2026.12.25.Fri",
+    "headline": "Closed for Christmas",
+    "ground": "white"
+   }
+  },
+  {
+   "id": "demo9",
+   "template": "ruled",
+   "status": "draft",
+   "slots": {
+    "image": "/brand/ostad/kit/templates/photos/p_luma-texture.jpg",
+    "w1": "|Measured|",
+    "w2": "Made||",
+    "w3": "||to order",
+    "face": "serif",
+    "ink": "dark",
+    "a1": "Advanced LUMA Cream,\ncompounded for each patient.",
+    "b1": "ARBUTIN\nRETIN-A\nANTIOXIDANTS · AHA",
+    "a2": "Brightening for sun damage and hyperpigmentation, after a consultation with Dr. Ostad.",
+    "b2": "drarielostadskincare.com\n212-517-7900",
+    "f1": "(Skincare)",
+    "f2": "Upper East Side, NYC",
+    "f3": "Dr. Ariel Ostad"
+   }
+  }
+ ]
+}

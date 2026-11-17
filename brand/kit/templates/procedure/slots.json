@@ -1,0 +1,58 @@
+{
+ "template": "procedure",
+ "name": "Procedure",
+ "cluster": "T7",
+ "board_blocks": [],
+ "sizes": [
+  "4x5",
+  "1x1"
+ ],
+ "paginates": null,
+ "carousel_role": null,
+ "tile": "photo",
+ "carouselable": true,
+ "gated": false,
+ "slots": [
+  {
+   "key": "image",
+   "type": "image",
+   "label": "Photo or graphic",
+   "optional": false
+  },
+  {
+   "key": "meta",
+   "type": "text",
+   "label": "Meta: category",
+   "max": 30,
+   "optional": false,
+   "default": "Lasers"
+  },
+  {
+   "key": "name",
+   "type": "text",
+   "label": "Procedure",
+   "max": 40,
+   "optional": false,
+   "default": "Fraxel Dual"
+  },
+  {
+   "key": "fact",
+   "type": "text",
+   "label": "One fact",
+   "max": 80,
+   "optional": false,
+   "default": "Two wavelengths: one for texture, one for pigment."
+  },
+  {
+   "key": "ink",
+   "type": "choice",
+   "label": "Text colour",
+   "optional": false,
+   "default": "light",
+   "options": [
+    "light",
+    "dark"
+   ]
+  }
+ ]
+}

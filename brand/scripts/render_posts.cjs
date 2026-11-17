@@ -20,6 +20,10 @@ async function renderJobs(jobs, { port = Number(process.env.PORT || 8769), chrom
   const server = base ? null : await serve(port); base = base || `http://localhost:${port}`; const browser = await chromium.launch(); const out = [];
   try {
     for (const job of jobs) {
+      // before/after rule (POST_GRID §2): no export without patient_consent + approved_by_ostad = yes. job.draft renders the
+      // locked draft (with its on-tile stamp) for internal proofs only.
+      const gated = (job.spec.slides || []).find((sl) => sl.template === "before-after" && !["patient_consent", "approved_by_ostad"].every((k) => String((sl.slots || {})[k] || "").toLowerCase() === "yes"));
+      if (gated && !job.draft) { out.push({ out: job.out, files: [], fonts: null, warnings: [], pages: 0, errors: ["refused: before/after needs patient_consent and approved_by_ostad = yes"], refused: true }); continue; }
       const page = await browser.newPage({ viewport: { width: 1200, height: 2000 }, deviceScaleFactor: 1 });
       const errors = []; page.on("pageerror", (e) => errors.push(String(e))); page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
       await page.goto(base + PAGE, { waitUntil: "networkidle" });

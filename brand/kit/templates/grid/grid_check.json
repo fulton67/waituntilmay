@@ -1,0 +1,600 @@
+{
+ "base": "http://localhost:3107",
+ "at": "2026-11-17T16:35:48.426Z",
+ "templates": [
+  {
+   "template": "product",
+   "variant": "photo",
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "product",
+   "variant": "photo",
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "product",
+   "variant": "line",
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "product",
+   "variant": "line",
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "product",
+   "variant": "ingredients",
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "product",
+   "variant": "ingredients",
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "before-after",
+   "variant": null,
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "before-after",
+   "variant": null,
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "statement",
+   "variant": null,
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "statement",
+   "variant": null,
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "notice",
+   "variant": null,
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "notice",
+   "variant": null,
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "diagram",
+   "variant": "radial",
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "diagram",
+   "variant": "radial",
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "diagram",
+   "variant": "list",
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "diagram",
+   "variant": "list",
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "diagram",
+   "variant": "two-column",
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "diagram",
+   "variant": "two-column",
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "diagram",
+   "variant": "callouts",
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "diagram",
+   "variant": "callouts",
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "ruled",
+   "variant": null,
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "ruled",
+   "variant": null,
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "procedure",
+   "variant": null,
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "procedure",
+   "variant": null,
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "quote",
+   "variant": null,
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "quote",
+   "variant": null,
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "graphic",
+   "variant": "clock",
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "graphic",
+   "variant": "clock",
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "graphic",
+   "variant": "number",
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "graphic",
+   "variant": "number",
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "graphic",
+   "variant": "ring",
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "graphic",
+   "variant": "ring",
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "graphic",
+   "variant": "timeline",
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "graphic",
+   "variant": "timeline",
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "graphic",
+   "variant": "icon",
+   "size": "4x5",
+   "status": 200,
+   "w": 1080,
+   "h": 1350,
+   "fonts": "adobe",
+   "pass": true
+  },
+  {
+   "template": "graphic",
+   "variant": "icon",
+   "size": "1x1",
+   "status": 200,
+   "w": 1080,
+   "h": 1080,
+   "fonts": "adobe",
+   "pass": true
+  }
+ ],
+ "crop": [
+  {
+   "template": "product",
+   "variant": "photo",
+   "boxes": 3,
+   "outside": [],
+   "pass": true
+  },
+  {
+   "template": "product",
+   "variant": "line",
+   "boxes": 4,
+   "outside": [],
+   "pass": true
+  },
+  {
+   "template": "product",
+   "variant": "ingredients",
+   "boxes": 1,
+   "outside": [],
+   "pass": true
+  },
+  {
+   "template": "before-after",
+   "variant": null,
+   "boxes": 3,
+   "outside": [],
+   "pass": true
+  },
+  {
+   "template": "statement",
+   "variant": null,
+   "boxes": 3,
+   "outside": [],
+   "pass": true
+  },
+  {
+   "template": "notice",
+   "variant": null,
+   "boxes": 3,
+   "outside": [],
+   "pass": true
+  },
+  {
+   "template": "diagram",
+   "variant": "radial",
+   "boxes": 2,
+   "outside": [],
+   "pass": true
+  },
+  {
+   "template": "diagram",
+   "variant": "list",
+   "boxes": 3,
+   "outside": [],
+   "pass": true
+  },
+  {
+   "template": "diagram",
+   "variant": "two-column",
+   "boxes": 3,
+   "outside": [],
+   "pass": true
+  },
+  {
+   "template": "diagram",
+   "variant": "callouts",
+   "boxes": 1,
+   "outside": [],
+   "pass": true
+  },
+  {
+   "template": "ruled",
+   "variant": null,
+   "boxes": 1,
+   "outside": [],
+   "pass": true
+  },
+  {
+   "template": "procedure",
+   "variant": null,
+   "boxes": 4,
+   "outside": [],
+   "pass": true
+  },
+  {
+   "template": "quote",
+   "variant": null,
+   "boxes": 2,
+   "outside": [],
+   "pass": true
+  },
+  {
+   "template": "graphic",
+   "variant": "clock",
+   "boxes": 1,
+   "outside": [],
+   "pass": true
+  },
+  {
+   "template": "graphic",
+   "variant": "number",
+   "boxes": 4,
+   "outside": [],
+   "pass": true
+  },
+  {
+   "template": "graphic",
+   "variant": "ring",
+   "boxes": 3,
+   "outside": [],
+   "pass": true
+  },
+  {
+   "template": "graphic",
+   "variant": "timeline",
+   "boxes": 4,
+   "outside": [],
+   "pass": true
+  },
+  {
+   "template": "graphic",
+   "variant": "icon",
+   "boxes": 3,
+   "outside": [],
+   "pass": true
+  }
+ ],
+ "gate": {
+  "consent_only": 403,
+  "approval_only": 403,
+  "both_yes": 200,
+  "pass": true
+ },
+ "rhythm": {
+  "demo": [],
+  "bad": [
+   "text-side",
+   "text-stacked",
+   "photo-run",
+   "template-repeat"
+  ],
+  "fill9": [],
+  "pass": true
+ },
+ "page": {
+  "status": 200,
+  "tiles": 9,
+  "rhythm": "RHYTHM CHECK Passes: no text tiles touching, no photo runs over two, no template over 3 in 9.",
+  "console_errors": [],
+  "pass": true
+ },
+ "lint": [
+  {
+   "id": "demo1",
+   "template": "product",
+   "off_token": [],
+   "contrast_fail": [],
+   "pairs": 0,
+   "pass": true
+  },
+  {
+   "id": "demo2",
+   "template": "notice",
+   "off_token": [],
+   "contrast_fail": [],
+   "pairs": 2,
+   "pass": true
+  },
+  {
+   "id": "demo3",
+   "template": "before-after",
+   "off_token": [],
+   "contrast_fail": [],
+   "pairs": 1,
+   "pass": true
+  },
+  {
+   "id": "demo4",
+   "template": "graphic",
+   "off_token": [],
+   "contrast_fail": [],
+   "pairs": 14,
+   "pass": true
+  },
+  {
+   "id": "demo5",
+   "template": "product",
+   "off_token": [],
+   "contrast_fail": [],
+   "pairs": 0,
+   "pass": true
+  },
+  {
+   "id": "demo6",
+   "template": "diagram",
+   "off_token": [],
+   "contrast_fail": [],
+   "pairs": 5,
+   "pass": true
+  },
+  {
+   "id": "demo7",
+   "template": "before-after",
+   "off_token": [],
+   "contrast_fail": [],
+   "pairs": 1,
+   "pass": true
+  },
+  {
+   "id": "demo8",
+   "template": "notice",
+   "off_token": [],
+   "contrast_fail": [],
+   "pairs": 2,
+   "pass": true
+  },
+  {
+   "id": "demo9",
+   "template": "ruled",
+   "off_token": [],
+   "contrast_fail": [],
+   "pairs": 0,
+   "pass": true
+  }
+ ],
+ "pass": {
+  "templates": true,
+  "crop": true,
+  "gate": true,
+  "rhythm": true,
+  "page": true,
+  "lint": true
+ }
+}

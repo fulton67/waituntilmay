@@ -1,7 +1,7 @@
 {
  "template": "before-after",
  "name": "Before / after",
- "cluster": "C3",
+ "cluster": "T2",
  "board_blocks": [
   "52386109"
  ],
@@ -12,6 +12,9 @@
  ],
  "paginates": null,
  "carousel_role": null,
+ "tile": "photo",
+ "carouselable": true,
+ "gated": true,
  "slots": [
   {
    "key": "before",
@@ -26,38 +29,95 @@
    "optional": false
   },
   {
-   "key": "title",
+   "key": "meta",
    "type": "text",
-   "label": "Treatment",
-   "max": 40,
+   "label": "Meta: procedure",
+   "max": 30,
    "optional": false,
-   "default": "Under-eye filler"
+   "default": "Morpheus8"
   },
   {
-   "key": "note",
+   "key": "label",
    "type": "text",
-   "label": "Note",
-   "max": 90,
+   "label": "Label: what was done",
+   "max": 70,
+   "optional": false,
+   "default": "Lower face, three sessions"
+  },
+  {
+   "key": "since",
+   "type": "text",
+   "label": "Time since (e.g. Week 6)",
+   "max": 20,
+   "optional": false,
+   "default": "Week 6"
+  },
+  {
+   "key": "ticks",
+   "type": "text",
+   "label": "Ruler ticks (number)",
+   "max": 3,
+   "optional": false,
+   "default": "6"
+  },
+  {
+   "key": "layout",
+   "type": "choice",
+   "label": "Layout",
+   "optional": false,
+   "default": "side",
+   "options": [
+    "side",
+    "stacked"
+   ]
+  },
+  {
+   "key": "markup",
+   "type": "choice",
+   "label": "Markup ring",
+   "optional": false,
+   "default": "none",
+   "options": [
+    "none",
+    "ring"
+   ]
+  },
+  {
+   "key": "ring",
+   "type": "text",
+   "label": "Ring x,y,r (% of each photo)",
+   "max": 20,
    "optional": true,
-   "default": "One session, photographed at two weeks."
+   "default": "50,55,18"
   },
   {
    "key": "footnote",
    "type": "text",
    "label": "Footnote",
-   "max": 60,
+   "max": 50,
    "optional": false,
-   "default": "Patient consented. Results vary."
+   "default": "Results vary. Shared with consent."
   },
   {
-   "key": "ground",
+   "key": "patient_consent",
    "type": "choice",
-   "label": "Ground",
+   "label": "Patient consent",
    "optional": false,
-   "default": "paper",
+   "default": "no",
    "options": [
-    "paper",
-    "dark"
+    "no",
+    "yes"
+   ]
+  },
+  {
+   "key": "approved_by_ostad",
+   "type": "choice",
+   "label": "Approved by Dr. Ostad",
+   "optional": false,
+   "default": "no",
+   "options": [
+    "no",
+    "yes"
    ]
   }
  ]

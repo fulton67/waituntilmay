@@ -23,7 +23,8 @@ const available = () => process.env.NODE_ENV !== "production" || process.env.OST
 const SIZES = new Set(["4x5", "1x1", "9x16"]);
 const KIT_HOSTS = new Set(["localhost", "127.0.0.1", "waituntilmay.com", "www.waituntilmay.com"]);
 // images may only be inline data or the kit's own sample photos: the headless browser must not fetch arbitrary URLs
-const okImage = (v: unknown) => typeof v !== "string" || !/^(https?:|\/\/|\/)/i.test(v) || v.startsWith("/brand/ostad/kit/");
+// (and, locally, clinic previews through /api/brand/ostad/intake/img?row=N, which only resolves numeric catalog rows)
+const okImage = (v: unknown) => typeof v !== "string" || !/^(https?:|\/\/|\/)/i.test(v) || v.startsWith("/brand/ostad/kit/") || /^\/api\/brand\/ostad\/intake\/img\?row=\d+$/.test(v);
 
 function validate(spec: unknown): string | null {
   const s = spec as { size?: string; slides?: { template?: string; slots?: Record<string, unknown> }[] };
@@ -33,6 +34,16 @@ function validate(spec: unknown): string | null {
   for (const sl of s.slides) {
     if (typeof sl.template !== "string") return "slide template missing";
     for (const v of Object.values(sl.slots || {})) if (!okImage(v)) return "images must be dropped files or kit photos";
+  }
+  return null;
+}
+// before/after rule (POST_GRID §2): export refuses until patient_consent and approved_by_ostad are both "yes"
+function gate(spec: unknown): string | null {
+  const s = spec as { slides: { template: string; slots?: Record<string, unknown> }[] };
+  for (const sl of s.slides) {
+    if (sl.template !== "before-after") continue;
+    const y = (k: string) => String(sl.slots?.[k] ?? "").toLowerCase() === "yes";
+    if (!y("patient_consent") || !y("approved_by_ostad")) return "Before/after export refused: patient_consent and approved_by_ostad must both be yes.";
   }
   return null;
 }
@@ -47,6 +58,8 @@ export async function POST(request: Request) {
   try { body = await request.json(); } catch { return Response.json({ error: "bad JSON" }, { status: 400 }); }
   const bad = validate(body.spec);
   if (bad) return Response.json({ error: bad }, { status: 400 });
+  const blocked = gate(body.spec);
+  if (blocked) return Response.json({ error: blocked, gated: true }, { status: 403 });
 
   const url = new URL(request.url);
   const base = KIT_HOSTS.has(url.hostname) ? url.origin : `http://localhost:${process.env.PORT || 3000}`;

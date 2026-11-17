@@ -25,14 +25,15 @@ fs.writeFileSync(path.join(TP, "render.html"), `<!doctype html>
      the server PNG route and brand/post.py. Call window.OK.render(spec); each .ok element is one PNG page. -->
 <meta charset="utf-8"><meta name="robots" content="noindex">
 <link rel="stylesheet" href="https://use.typekit.net/vzz0hgt.css">
-<link rel="stylesheet" href="../kit.css"><link rel="stylesheet" href="templates.css">
+<link rel="stylesheet" href="../kit.css"><link rel="stylesheet" href="templates.css"><link rel="stylesheet" href="tile.css">
 <style>html,body{margin:0;background:transparent}#stage{display:flex;flex-direction:column;gap:40px;align-items:flex-start;width:max-content}</style>
 ${filt}
 <div id="stage"></div>
 <script type="module">
 import * as E from "./engine.js";
 import * as A from "./auto.js";
-window.OK = { ...E, auto: A.auto, parse: A.parse, render: (spec) => E.render(document.getElementById("stage"), spec).then((r) => ({ fonts: r.fonts, warnings: r.warnings, pages: r.pages.length, w: r.w, h: r.h })) };
+import * as R from "./rhythm.js";
+window.OK = { ...E, auto: A.auto, parse: A.parse, rhythm: R.rhythm, fill9: R.fill9, kindOf: R.kindOf, render: (spec) => E.render(document.getElementById("stage"), spec).then((r) => ({ fonts: r.fonts, warnings: r.warnings, pages: r.pages.length, w: r.w, h: r.h })) };
 const q = new URLSearchParams(location.hash.slice(1)); if (q.get("spec")) window.OK.render(JSON.parse(q.get("spec"))).then((r) => (window.__done = r));
 window.__ready = true;
 </script>
@@ -43,11 +44,13 @@ const copy = (src, dst) => { fs.mkdirSync(path.dirname(dst), { recursive: true }
 fs.rmSync(PUB, { recursive: true, force: true });
 for (const f of ["kit.css", "tokens.css", "palette.json", "tokens.json"]) copy(path.join(K, f), path.join(PUB, f));
 for (const f of fs.readdirSync(path.join(K, "components"))) copy(path.join(K, "components", f), path.join(PUB, "components", f));
-for (const f of ["engine.js", "auto.js", "icons.js", "templates.css", "render.html", "index.json"]) copy(path.join(TP, f), path.join(PUB, "templates", f));
+for (const f of ["engine.js", "tiles.js", "rhythm.js", "auto.js", "icons.js", "templates.css", "tile.css", "render.html", "index.json"]) copy(path.join(TP, f), path.join(PUB, "templates", f));
 for (const id of Object.keys(eng.TEMPLATES)) {
   copy(path.join(TP, id, "slots.json"), path.join(PUB, "templates", id, "slots.json"));
   for (const s of ["4x5", "1x1", "9x16"]) { const t = path.join(TP, id, `thumb_${s}.png`); if (fs.existsSync(t)) copy(t, path.join(PUB, "templates", id, `thumb_${s}.png`)); }
 }
+// grid planner demo (POST_GRID §4)
+if (fs.existsSync(path.join(TP, "grid", "demo.grid.json"))) copy(path.join(TP, "grid", "demo.grid.json"), path.join(PUB, "templates", "grid", "demo.grid.json"));
 // video kit page (kit/video/kit.html)
 if (fs.existsSync(path.join(K, "video", "kit.html"))) copy(path.join(K, "video", "kit.html"), path.join(PUB, "video", "kit.html"));
 for (const f of ["reel.mp4", "reel.jpg"]) if (fs.existsSync(path.join(K, "video", f))) copy(path.join(K, "video", f), path.join(PUB, "video", f)); // demo reel for the page

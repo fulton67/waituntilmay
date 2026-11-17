@@ -1,0 +1,127 @@
+{
+ "template": "ruled",
+ "name": "Ruled poster",
+ "cluster": "T6",
+ "board_blocks": [],
+ "sizes": [
+  "4x5",
+  "9x16",
+  "1x1"
+ ],
+ "paginates": null,
+ "carousel_role": null,
+ "tile": "photo",
+ "carouselable": false,
+ "gated": false,
+ "slots": [
+  {
+   "key": "image",
+   "type": "image",
+   "label": "Photo",
+   "optional": false,
+   "default": "/brand/ostad/kit/templates/photos/p_texture-trio.jpg"
+  },
+  {
+   "key": "w1",
+   "type": "text",
+   "label": "Words line 1 (| = next column)",
+   "max": 40,
+   "optional": false,
+   "default": "|Measured|"
+  },
+  {
+   "key": "w2",
+   "type": "text",
+   "label": "Words line 2",
+   "max": 40,
+   "optional": false,
+   "default": "Made||"
+  },
+  {
+   "key": "w3",
+   "type": "text",
+   "label": "Words line 3",
+   "max": 40,
+   "optional": false,
+   "default": "||to order"
+  },
+  {
+   "key": "face",
+   "type": "choice",
+   "label": "Word face",
+   "optional": false,
+   "default": "serif",
+   "options": [
+    "serif",
+    "grotesk"
+   ]
+  },
+  {
+   "key": "a1",
+   "type": "longtext",
+   "label": "Row 1 left",
+   "max": 90,
+   "optional": false,
+   "default": "If it is made for you,\nit is made to order."
+  },
+  {
+   "key": "b1",
+   "type": "longtext",
+   "label": "Row 1 right",
+   "max": 90,
+   "optional": false,
+   "default": "4 %   GENTLE\n6 %   STANDARD\n8 %   STRONG"
+  },
+  {
+   "key": "a2",
+   "type": "longtext",
+   "label": "Row 2 left",
+   "max": 140,
+   "optional": true,
+   "default": "Advanced LUMA Cream is compounded for each patient after a consultation with Dr. Ostad."
+  },
+  {
+   "key": "b2",
+   "type": "longtext",
+   "label": "Row 2 right",
+   "max": 90,
+   "optional": true,
+   "default": "drarielostadskincare.com\n212-517-7900"
+  },
+  {
+   "key": "f1",
+   "type": "text",
+   "label": "Footer left",
+   "max": 30,
+   "optional": false,
+   "default": "(Skincare)"
+  },
+  {
+   "key": "f2",
+   "type": "text",
+   "label": "Footer centre",
+   "max": 30,
+   "optional": false,
+   "default": "Upper East Side, NYC"
+  },
+  {
+   "key": "f3",
+   "type": "text",
+   "label": "Footer right",
+   "max": 30,
+   "optional": false,
+   "default": "Dr. Ariel Ostad"
+  },
+  {
+   "key": "ink",
+   "type": "choice",
+   "label": "Text colour",
+   "optional": false,
+   "default": "light",
+   "options": [
+    "light",
+    "dark"
+   ]
+  }
+ ]
+}

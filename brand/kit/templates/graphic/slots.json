@@ -1,0 +1,138 @@
+{
+ "template": "graphic",
+ "name": "Graphic",
+ "cluster": "T8",
+ "board_blocks": [],
+ "sizes": [
+  "4x5",
+  "1x1"
+ ],
+ "paginates": null,
+ "carousel_role": null,
+ "tile": "graphic",
+ "carouselable": false,
+ "gated": false,
+ "slots": [
+  {
+   "key": "variant",
+   "type": "choice",
+   "label": "Variant",
+   "optional": false,
+   "default": "clock",
+   "options": [
+    "clock",
+    "number",
+    "ring",
+    "timeline",
+    "icon"
+   ]
+  },
+  {
+   "key": "meta",
+   "type": "text",
+   "label": "Meta",
+   "max": 30,
+   "optional": true,
+   "default": "Office hours"
+  },
+  {
+   "key": "hours",
+   "type": "text",
+   "label": "Clock: open hours (e.g. 9-17)",
+   "max": 10,
+   "optional": true,
+   "default": "9-17"
+  },
+  {
+   "key": "wordmark",
+   "type": "text",
+   "label": "Wordmark",
+   "max": 30,
+   "optional": true,
+   "default": "Dr. Ariel Ostad"
+  },
+  {
+   "key": "number",
+   "type": "text",
+   "label": "Number",
+   "max": 8,
+   "optional": true,
+   "default": "17"
+  },
+  {
+   "key": "label",
+   "type": "text",
+   "label": "Label",
+   "max": 70,
+   "optional": true,
+   "default": "Years in a row on Castle Connolly's Top Doctors list"
+  },
+  {
+   "key": "ring",
+   "type": "text",
+   "label": "Ring text",
+   "max": 120,
+   "optional": true,
+   "default": "Examine · Measure · Treat · Recheck · "
+  },
+  {
+   "key": "image",
+   "type": "image",
+   "label": "Photo (ring)",
+   "optional": true
+  },
+  {
+   "key": "steps",
+   "type": "longtext",
+   "label": "Timeline marks (one per line)",
+   "max": 120,
+   "optional": true,
+   "default": "Day 0\nWeek 2\nWeek 6\nMonth 3"
+  },
+  {
+   "key": "icon",
+   "type": "icon",
+   "label": "Icon",
+   "optional": false,
+   "default": "sun",
+   "options": [
+    "arrow",
+    "before-after",
+    "book",
+    "brain",
+    "calendar",
+    "check",
+    "clock",
+    "drop",
+    "face",
+    "heart",
+    "laser",
+    "leaf",
+    "lines",
+    "location",
+    "phone",
+    "play",
+    "plus",
+    "procedure",
+    "scalpel",
+    "skin",
+    "sun",
+    "syringe",
+    "target",
+    "user"
+   ]
+  },
+  {
+   "key": "ground",
+   "type": "choice",
+   "label": "Ground",
+   "optional": false,
+   "default": "white",
+   "options": [
+    "white",
+    "paper",
+    "dark"
+   ]
+  }
+ ]
+}

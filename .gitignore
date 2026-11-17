@@ -243,3 +243,12 @@ research/ostad/style/exomind/lab/
 # arrow/type proof sheets (tools/arrow_type_proof.py): our lab frames beside reference crops and v4.1 frames: local only
 research/ostad/style/exomind/arrows_vs_refs.jpg
 research/ostad/style/exomind/type_vs_refs.jpg
+# YouTube v6 (OstadYT6) sheets: his face, BTL, practice and patient imagery, reference crops: local only
+research/ostad/style/exomind/v6_stills_sheet.jpg
+research/ostad/style/exomind/evolution_sheet.jpg
+research/ostad/style/exomind/v6_frames/
+
+# POST_GRID photo intake: patient and clinic photos stay on this machine
+/brand/intake/*
+!/brand/intake/README.md
+/brand/kit/templates/_grid_proof/private/
