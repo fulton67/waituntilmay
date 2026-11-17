@@ -101,7 +101,8 @@ NODES.forEach((a, i) => NODES.forEach((b, j) => { if (j > i && Math.hypot(a.x - 
 // moved to a luminance-matched cool blue-grey, 55 % (the darker floor tones further, to hue ~210), so the light stays but the cast is blue.
 // HSV hue before -> after: top 100 -> 212, mid 80 -> 214, warm 69 -> 205, sage 75 -> 200, sage2 63 -> 205, floor 73 -> 210.
 export const ROOM = { top: "#d6dde5", hi: "#f1f8ff", mid: "#e8eff8", warm: "#e0e7ec", sage: "#c4cacd", sage2: "#b8bec4", floor: "#a8aeb4" };
-export const Canvas: React.FC<{ glow?: [number, number]; field?: number; px?: number }> = ({ glow = [0.4, 0.4], field = 1, px = 0 }) => {
+// v5: `strip` false drops the bottom four-colour strip (client 2026-11-16: decorative lines read as random; a line must do a job)
+export const Canvas: React.FC<{ glow?: [number, number]; field?: number; px?: number; strip?: boolean }> = ({ glow = [0.4, 0.4], field = 1, px = 0, strip = true }) => {
   const t = useCurrentFrame() / 24;
   const pos = NODES.map((n) => ({ x: n.x + Math.sin(t * 0.13 + n.p) * 26 * n.z - px * n.z * 40, y: n.y + Math.cos(t * 0.11 + n.p) * 18 * n.z, z: n.z }));
   const gx = glow[0] * 100 + 6 * Math.sin(t * 0.17), gy = glow[1] * 100 + 5 * Math.cos(t * 0.13);
@@ -122,7 +123,7 @@ export const Canvas: React.FC<{ glow?: [number, number]; field?: number; px?: nu
       </svg>
       <Grain opacity={0.035} />
       {/* Homevolt's thin four-colour strip on the bottom edge, in the room's colours and the brand blue */}
-      <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 6, display: "flex" }}>{[ROOM.floor, ROOM.warm, BLUE, INK].map((c) => <div key={c} style={{ flex: 1, background: c }} />)}</div>
+      {strip && <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 6, display: "flex" }}>{[ROOM.floor, ROOM.warm, BLUE, INK].map((c) => <div key={c} style={{ flex: 1, background: c }} />)}</div>}
     </div>
   );
 };

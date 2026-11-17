@@ -13,8 +13,9 @@ export const ICE_HL = "#c4e4f8";
 
 export const Highlighter: React.FC<{
   words: HLWord[]; punch: [number, number]; mode?: "sweep" | "karaoke"; size?: number; ink?: string; dim?: string; fill?: string;
-  maxWidth?: number; lineHeight?: number; style?: React.CSSProperties;
-}> = ({ words, punch, mode = "sweep", size = 88, ink = INK, dim = MUTE2, fill = ICE_HL, maxWidth = 1400, lineHeight = 1.12, style }) => {
+  maxWidth?: number; lineHeight?: number; style?: React.CSSProperties; other?: string; italic?: boolean;
+}> = ({ words, punch, mode = "sweep", size = 88, ink = INK, dim = MUTE2, fill = ICE_HL, maxWidth = 1400, lineHeight = 1.12, style, other, italic }) => {
+  // v5: `other` inks the words outside the punch (white over footage; the punch stays ink on the ice block)
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const [a, b] = punch;
@@ -38,7 +39,7 @@ export const Highlighter: React.FC<{
         }
         return (
           <React.Fragment key={i}>
-            <span style={{ color: lit ? ink : dim, background: bg, padding: "0 0.1em", margin: "0 -0.1em", boxDecorationBreak: "clone", WebkitBoxDecorationBreak: "clone" }}>{w.text}</span>
+            <span style={{ color: lit ? (other && (i < a || i > b) ? other : ink) : dim, fontStyle: italic ? "italic" : undefined, background: bg, padding: "0 0.1em", margin: "0 -0.1em", boxDecorationBreak: "clone", WebkitBoxDecorationBreak: "clone" }}>{w.text}</span>
             {i < words.length - 1 ? " " : ""}
           </React.Fragment>
         );

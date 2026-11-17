@@ -18,16 +18,16 @@ export type YTSection = { at: number; dur: number; kind: string };
 export type YTSpec = { speed: number; captions: Caption[]; keywords?: string[]; audio: string; footage: string; durationInSeconds: number; yt: { sections: YTSection[]; keyed: { src: string; at: number } } };
 export type YTProps = { spec?: YTSpec; debugFonts?: boolean };
 
-const v = (src: string) => staticFile(`exomind-skin/yt/${src}`);
-const Full: React.FC<{ src: string; rate?: number; from?: number; push?: number; pos?: string; dur: number; style?: React.CSSProperties }> = ({ src, rate = 1, from = 0, push = 0.04, pos = "50% 50%", dur, style }) => {
+export const v = (src: string) => staticFile(`exomind-skin/yt/${src}`);
+export const Full: React.FC<{ src: string; rate?: number; from?: number; push?: number; pos?: string; dur: number; style?: React.CSSProperties }> = ({ src, rate = 1, from = 0, push = 0.04, pos = "50% 50%", dur, style }) => {
   const t = useT();
   const s = 1 + push * (t / dur) + 0.03 * (1 - prog(t, 0, 0.5));
   return <OffthreadVideo src={v(src)} muted playbackRate={rate} startFrom={Math.round(from * 24)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: pos, transform: `scale(${s})`, ...style }} />;
 };
-const elev = "0 24px 60px rgba(29,34,48,.16)";
+export const elev = "0 24px 60px rgba(29,34,48,.16)";
 
 // ---------- his unkeyed shot: the edit's own picture (the cut, played at the edit speed), never enlarged ----------
-const ARoll: React.FC<{ at: number; speed: number; src: string; box: "panelR" | "panelL" | "window" }> = ({ at, speed, src, box }) => {
+export const ARoll: React.FC<{ at: number; speed: number; src: string; box: "panelR" | "panelL" | "window" }> = ({ at, speed, src, box }) => {
   const t = useT();
   const from = Math.round(at * speed * 24);
   const vid = (w: number, top: number) => <OffthreadVideo src={staticFile(src)} muted playbackRate={speed} startFrom={from} style={{ position: "absolute", left: 0, top, width: w, height: (w * 1920) / 1080 }} />;
@@ -397,7 +397,7 @@ export const S11: React.FC<{ dur: number }> = ({ dur }) => {
   );
 };
 // a white rounded window that holds footage at native size (or less); lifts in, never enlarges the picture
-const Win: React.FC<{ x: number; y: number; w: number; h: number; t: number; grade?: boolean; children: React.ReactNode }> = ({ x, y, w, h, t, grade = true, children }) => {
+export const Win: React.FC<{ x: number; y: number; w: number; h: number; t: number; grade?: boolean; children: React.ReactNode }> = ({ x, y, w, h, t, grade = true, children }) => {
   const q = prog(t, 0, 0.5);
   return (
     <div style={{ position: "absolute", left: x - 10, top: y - 10, width: w + 20, height: h + 20, borderRadius: RADIUS + 10, background: "#fff", boxShadow: elev, transform: `translateY(${(1 - q) * 18}px) scale(${0.985 + 0.015 * q})` }}>
@@ -614,15 +614,17 @@ const S13: React.FC<{ dur: number }> = ({ dur }) => {
 // ---------- captions: NHG Display 500 (the bible's caption role), 1.271 leading, -0.0158em, no stroke, no shadow, no box (client: "I
 // don't want the black around the captions"). Navy on the white canvases; white over footage, where a very soft, wide navy wash sits far
 // behind the line (no edge near the glyphs) only on bright shots. Placed in each layout's calm zone.
-type Zone = { left: number; width: number; top: number; ink: "navy" | "white"; soft?: boolean };
-const ZONES: Record<string, Zone> = {
+export type Zone = { left: number; width: number; top: number; ink: "navy" | "white"; soft?: boolean };
+export const ZONES: Record<string, Zone> = {
   s1: { left: M, width: 820, top: 930, ink: "navy" }, s2: { left: M, width: 1570, top: 950, ink: "navy" }, s3: { left: M, width: 1570, top: 950, ink: "white", soft: true },
   s4: { left: 780, width: 1000, top: 950, ink: "navy" }, s5: { left: 840, width: 940, top: 950, ink: "navy" }, s6: { left: 1060, width: 700, top: 930, ink: "navy" },
   s7: { left: M, width: 1570, top: 950, ink: "white", soft: true }, s8: { left: M, width: 1570, top: 950, ink: "navy" }, s9: { left: 990, width: 790, top: 950, ink: "navy" },
   s10: { left: M, width: 1570, top: 950, ink: "white", soft: true }, s11: { left: M, width: 1570, top: 970, ink: "navy" }, s12: { left: 760, width: 1020, top: 950, ink: "navy" }, s13: { left: M, width: 860, top: 950, ink: "white", soft: true },
 };
 const CAP = 42; // the bible's caption cap ratio on a 1080-high canvas puts the caption at 30-38 px; 42 for viewing at YouTube distance (judgment call)
-const YTCaptions: React.FC<{ captions: Caption[]; keywords: string[]; sections: YTSection[] }> = ({ captions, keywords, sections }) => {
+// v5 (additive): `hide` = output-time spans with no caption (the thesis karaoke is the caption there, Evident R19); `override` = output-time
+// spans that use another zone (a canvas phase inside a footage section needs navy, not white)
+export const YTCaptions: React.FC<{ captions: Caption[]; keywords: string[]; sections: YTSection[]; hide?: [number, number][]; override?: { from: number; to: number; zone: Zone }[] }> = ({ captions, keywords, sections, hide = [], override = [] }) => {
   // v3 (client: "the captions are laggy"). Measured on v3 first render: phrase starts vs word onsets from a fresh transcript of the
   // delivered audio: median -0.014 s, p10 -0.052, p90 +0.018, no drift (slope 0.0007 s/s), so not a scaling or offset fault; the lag
   // was the presentation: a 3-5 word phrase appeared whole at its first word and sat ahead of him, behind a 0.14 s fade and rise.
@@ -633,7 +635,9 @@ const YTCaptions: React.FC<{ captions: Caption[]; keywords: string[]; sections: 
   const line = captions.find((c) => f >= Math.round(on(c) * fps) && f < Math.round(c.to * fps));
   const sec = [...sections].reverse().find((s) => t >= s.at);
   if (!line || !sec) return null;
-  const z = ZONES[sec.kind] ?? ZONES.s2;
+  if (hide.some(([a, b]) => f >= Math.round(a * fps) && f < Math.round(b * fps))) return null;
+  const ov = override.find((o) => f >= Math.round(o.from * fps) && f < Math.round(o.to * fps));
+  const z = ov?.zone ?? ZONES[sec.kind] ?? ZONES.s2;
   const px = fitPx(line.text, 500, CAP, z.width - 20, -0.0158);
   const keys = new Set(keywords.map((k) => k.toLowerCase()));
   const color = z.ink === "navy" ? INK : "#fff";
@@ -654,7 +658,7 @@ const YTCaptions: React.FC<{ captions: Caption[]; keywords: string[]; sections: 
 };
 
 // the keyed shot: refined matte (video_matte.py --refine), packed from cut time keyed.at; its own clock so it stays in sync
-const Keyed: React.FC<{ showFrom: number; src: string; speed: number }> = ({ showFrom, src, speed }) => {
+export const Keyed: React.FC<{ showFrom: number; src: string; speed: number }> = ({ showFrom, src, speed }) => {
   const t = useT();
   const q = prog(t, showFrom, 0.5);
   return (
