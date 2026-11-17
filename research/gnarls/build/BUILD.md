@@ -92,11 +92,12 @@ python -I make_parts.py gen/mesh.npz
 blender -b renders/rig_v6r/gnarls_rig.blend --factory-startup -P blender/face_rig.py -- gen/face_features.json renders/rig_v7/gnarls_rig.blend
 blender -b renders/rig_v7/gnarls_rig.blend --factory-startup -P blender/look3d.py -- gen/parts_faces.npz renders/rig_v9/gnarls_rig.blend
 blender -b renders/rig_v9/gnarls_rig.blend --factory-startup -P blender/rig_more.py -- gen/parts_faces.npz renders/rig_v10/gnarls_rig.blend
-blender -b renders/rig_v10/gnarls_rig.blend --factory-startup -P blender/actions.py -- renders/actions samples=40
+blender -b renders/rig_v10/gnarls_rig.blend --factory-startup -P blender/fix_normals.py -- renders/rig_v11/gnarls_rig.blend
+blender -b renders/rig_v11/gnarls_rig.blend --factory-startup -P blender/actions.py -- renders/actions samples=40
 python -I actions_video.py renders/actions renders/gnarls_actions.mp4
 ```
-Checks along the way: `blender/look_test.py -- OUTDIR [VIEW_TRANSFORM] [EXPOSURE] [ONLY|mouth]` renders the rest pose
-(¾, side, back, front, face) or a mouth sweep; `actions.py -- OUTDIR test` renders ten key frames of the reel.
+Checks along the way: `blender/look_test.py -- OUTDIR [VIEW_TRANSFORM] [EXPOSURE] [ONLY|mouth|glasses]` renders the rest
+pose (¾, side, back, front, face), a mouth sweep, or close-ups round the glasses at seven angles; `actions.py -- OUTDIR test` renders ten key frames of the reel.
 
 The 3D pass (after rig_v6):
 - `repair_mesh.py` fixes what real light exposes. It lays the old glasses zone onto a smooth fitted head surface
@@ -114,6 +115,13 @@ The 3D pass (after rig_v6):
   - Khronos PBR Neutral at exposure −1.75, measured so lit colours land on the palette (tee 230,28,46 vs #ed1d2f).
 - `face_rig.py` builds the face rig (see the next paragraph). Its mouth is one surface: the inner shadow, the top teeth
   and the tongue are painted from UVs and fade in with the opening. The old four stacked layers flickered.
+- `fix_normals.py` (last, as it changes the face count) clears the black flecks on the brow and bridge:
+  - it relays the band round the glasses onto a fitted head surface (rms 0.2 mm), since it was crumpled just outside
+    repair_mesh's zone;
+  - it splits the hole-fill triangles that sagged up to 4 mm under the curve (the "ledge");
+  - it points faces with stray texels, or UVs spanning several islands (a pink smear), at plain grey;
+  - it flips faces wound into the body against their own normals (58 left after the relay, which deleted 211 inward folds; Cycles shades those black);
+  - it resets every corner normal that disagrees with its face: 2,082 bad faces down to 0.
 - `rig_more.py` adds a glasses bone and a horn bone. The horn's base fades into the head over 2 cm.
 - `actions.py` is the full-body reel: hello, jump, wave, cheer, present, twirl, turnaround with a glance back, and a
   happy settle (468 f, 19.5 s), timed from `ANIMATION.md`:

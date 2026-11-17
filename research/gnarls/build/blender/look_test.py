@@ -1,6 +1,7 @@
 """Quick look check: full body front 3/4, side, back and a face close-up, at rest.
 blender -b gnarls_rig.blend --factory-startup -P look_test.py -- OUTDIR [VIEW_TRANSFORM] [EXPOSURE] [ONLY]
-ONLY: a view name to render just that view, or "mouth" for a mouth sweep close-up (open, O, frown, smirk, shout)."""
+ONLY: a view name to render just that view, "mouth" for a mouth sweep close-up (open, O,
+frown, smirk, shout), or "glasses" for close-ups round the glasses at seven angles."""
 import math, os, sys
 import bpy
 import numpy as np
@@ -58,6 +59,10 @@ if ONLY == "mouth":
         for k in ("mouth_open", "mouth_smile", "mouth_round", "mouth_wide", "mouth_smirk"): arm[k] = float(d_.get(k, 0.0))
         arm.update_tag(); sc.frame_set(1)
         shoot(f"m{i:02d}.png", -10, 0.26, Vector((0, 0.0, 0.585)), res=(500, 400))
+    sys.exit(0)
+if ONLY == "glasses":  # close-ups round the glasses from the front to both sides
+    for yaw in (0, -30, -60, -90, 30, 60, 90):
+        shoot(f"g{yaw:+04d}.png", yaw, 0.34, Vector((0, 0.0, 0.73)), res=(800, 800))
     sys.exit(0)
 for name, yaw in (("a_front34.png", -30), ("b_side.png", -90), ("c_back.png", 180), ("d_front.png", 0)):
     if ONLY and ONLY not in name: continue
