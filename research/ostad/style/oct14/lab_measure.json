@@ -1,0 +1,116 @@
+{
+ "note": "placeholder lab (synthetic face, no patient); frames are composition frames at 24 fps",
+ "pip": {
+  "pips": [
+   {
+    "n": 1,
+    "cue_f": 30,
+    "target_reveal_f": 31,
+    "reveal_f": 32,
+    "reveal_offset_f": 1,
+    "open_f": 40,
+    "open_token_end_f": 45,
+    "open_note": "98 % of the area is open at about 65 % of `arrive` (the curve is 99 % there, MOTION \u00a72)",
+    "overshoot_px": 0.0,
+    "arrow_land_f": 47,
+    "arrow_target_f": 48,
+    "anchor_clear": true,
+    "box": [
+     602,
+     758,
+     380,
+     676
+    ],
+    "anchor": [
+     408,
+     1218
+    ],
+    "gap_box_to_point_px": 186.6
+   },
+   {
+    "n": 2,
+    "cue_f": 110,
+    "target_reveal_f": 111,
+    "reveal_f": 111,
+    "reveal_offset_f": 0,
+    "open_f": 120,
+    "open_token_end_f": 125,
+    "open_note": "98 % of the area is open at about 65 % of `arrive` (the curve is 99 % there, MOTION \u00a72)",
+    "overshoot_px": 0.0,
+    "arrow_land_f": 127,
+    "arrow_target_f": 128,
+    "anchor_clear": true,
+    "box": [
+     98,
+     712,
+     380,
+     676
+    ],
+    "anchor": [
+     664,
+     1053
+    ],
+    "gap_box_to_point_px": 187.0
+   },
+   {
+    "n": 3,
+    "cue_f": 190,
+    "target_reveal_f": 191,
+    "reveal_f": 191,
+    "reveal_offset_f": 0,
+    "open_f": 200,
+    "open_token_end_f": 205,
+    "open_note": "98 % of the area is open at about 65 % of `arrive` (the curve is 99 % there, MOTION \u00a72)",
+    "overshoot_px": 0.0,
+    "arrow_land_f": 207,
+    "arrow_target_f": 208,
+    "anchor_clear": true,
+    "box": [
+     602,
+     739,
+     380,
+     676
+    ],
+    "anchor": [
+     545,
+     1076
+    ],
+    "gap_box_to_point_px": 62.4
+   }
+  ],
+  "safe_violation_frames": 0,
+  "frames": 288
+ },
+ "ba": {
+  "plate_f": 7,
+  "plate_target_f": 6,
+  "regions": [
+   {
+    "cue_f": 70,
+    "push_settle_f": 71,
+    "push_target_f": 71,
+    "outline_f": 74,
+    "outline_target_f": 71,
+    "arrow_land_f": 86,
+    "arrow_target_f": 88
+   },
+   {
+    "cue_f": 140,
+    "push_settle_f": 141,
+    "push_target_f": 141,
+    "outline_f": 144,
+    "outline_target_f": 141,
+    "arrow_land_f": 155,
+    "arrow_target_f": 158
+   }
+  ],
+  "moving_min_grey": 0.8,
+  "static_threshold": 0.16,
+  "safe_violation_frames": 0,
+  "frames": 264
+ },
+ "flashes": {
+  "lab_ba": 0,
+  "lab_pip": 0
+ }
+}

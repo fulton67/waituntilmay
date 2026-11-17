@@ -16,3 +16,4 @@ positions, before/after gate, rhythm, page, token + contrast lint).
 
 | Date | Piece | Checks | Client | Notes |
 |---|---|---|---|---|
+| 2026-11-17 | Oct 14 injection reel, devices stage (`style/oct14/LAB.md`) | lab: pip reveal +0/+1 f, 0 px overshoot, point never covered; before/after push lands on word +1; static min 0.80; 0 flashes; lint PASS | not shown | footage pending (tmp\oct14); NOT FOR POSTING until patient consent = yes |

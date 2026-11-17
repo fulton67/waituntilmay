@@ -599,3 +599,17 @@ Measured on the proxy (`undereye/verify_proxy.json`; 103.9 s, 2,493 f; proxy 540
 - Captions: 289/313 words measured, median 0 f from the onset, 87.5 % at 0 f, 88.6 % within ±1 f (the rest are words inside a line already on screen whose change is too small to see).
 - Reveals: median +1 f over 14 measured beats, 9 within ±1 f. By design: B02's loupe opens 6 f early so its label lands on "hollows" (long build, MOTION §3); B14's tint is a multiply layer, invisible on the black bare pass. "+1" here is the first changed pixel, which is the frame after the token's start frame (`prog` is 0 on its start frame).
 - Not measurable on the proxy: audio (name check, words, loudness, speed). They run on the final.
+
+## 16. Oct 14 injection reel: devices first, footage pending (2026-11-17)
+
+**NOT FOR POSTING until patient consent = yes.** Consent for this patient is unknown. Every render file name carries `NOT FOR POSTING until patient consent = yes`, and every frame carries a "Not for posting · consent pending" flag.
+
+The brief: the Oct 14 (2026) session. The 4:44 PM intro ("we're here with our lovely patient…": the lines and his targets), a pop-up of each injection clip at the exact facial point he names, the 4:55 PM after clip, and a before/after with arrows and highlights on each improved area. About 90 s. Onboarding: `research/ostad/learning/ONBOARDING_oct14.md` (the missing reading-list files are listed there).
+
+- **Footage status.** The clips are not in the iCloud catalog, and the photo index is FAILED, so iCloud is never called. A background loop polls `C:\Users\naimj\clinic-library\tmp\oct14\` every 3 min for up to 6 h. A clip set counts as present once it stops growing between two polls.
+- **Code.** `brand/remotion/src/oct14/` has its own entry point. The shared `Root.tsx` and the other agent's `undereye/` are untouched. It imports only committed shared code: `devices/Arrow.tsx` (the local working copy adds a `shadow` prop that this code does not use), `components/Ro` `card()`, `Fonts`, `library/motion`.
+- **The pop-up is anchored, not floated.** The window grows out of the named point and goes back into it, taking the side of the frame away from the point, so it never covers what it points at (measured: `oct14/LAB.md`). It reads as one move (G4 T5 zoom-box-inset) instead of the "pop-up" glass the client called cheap (DEC 11).
+- **The before/after highlight is a dim of the rest, never a tint on her skin.** Recolouring the treated area would fake a result, so the region keeps its own pixels and everything else dims to 0.45 (MOTION §3).
+- **Arrows only where a change is visible.** The regions will come from `brand/scripts/oct14_pairs.py` (written when the footage lands): the after frame is aligned to the before frame, and a region needs his named target, a measured change above the same-clip noise floor, and a visible difference on the side-by-side check. Each choice is logged in `oct14/ARROWS.md`. "Right after" is labelled as immediate, with "Individual results vary."
+- **The lab used placeholder media** (`oct14_placeholder.py`: a synthetic mannequin face). No patient frame was used to build the devices.
+- **Measured (lab):** pips reveal at cue +0/+1 f with 0 px overshoot, and the point is never covered. Before/after pushes land on the word +1 and outlines start on their token. Static-image minimum 0.80 against 0.16. 0 flashes. Lint PASS.
