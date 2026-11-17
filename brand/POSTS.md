@@ -1,5 +1,14 @@
 # Feed posts, built in Remotion (2026-11-17)
 
+> **Grid 3 (current): the video system.** Naim on grid 2: "canva-esque", weak photos, "no glass effects", "no translation from what
+> we do in videos into feed posts ... treat each post in the process of the video". Each carousel is now one short Remotion video
+> (`brand/remotion/src/posts/g3/`, 5 scenes x 60 f) in the YouTube v4 system: warm field with light moving behind glass, pictures
+> in white rounded windows (ungraded), 963 glass cards, caps chips, his own spoken line as the caption (word by word, keywords
+> blue), v4 leaders ending in arrowheads. Slides = where each scene lands. Three carousels so far: Mohs (what actually happens),
+> Jeuveau (his assessment, dose vs duration), Meet Dr. Ostad (NYU teaching award, Super Doctors, Castle Connolly, billboards).
+> Facts: his transcripts (clinic-library reference/ostad_transcripts.md), procedures-guide.md, his BCC post (row 4018), catalog
+> photo data. Photos upscaled in Flora (Topaz; mean colour shift <= 1.5 levels, channels together). Review: `brand/posts/grid3/`.
+
 > **Grid 2 supersedes grid 1** (Naim: grid 1 was "too similar to his current grid", thin on information and detail, cheap).
 > Grid 2 = `brand/remotion/src/posts/g2/` ("the clinical index"): his own palette from `brand/EXISTING.md` (navy `#152235`, ivory
 > `#f5f2eb`, sand `#d6c3a0`, silver), in the are.na board's language: four-corner meta, figure captions with the catalog photo
