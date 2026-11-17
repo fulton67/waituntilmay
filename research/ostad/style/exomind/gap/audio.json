@@ -1,0 +1,2498 @@
+{
+ "v6": {
+  "short_term_lufs": {
+   "median": -14.06,
+   "p10": -14.72,
+   "p95": -13.46,
+   "max": -12.92,
+   "range_p95_minus_p10": 1.27
+  },
+  "momentary_max": -11.24,
+  "voice_vs_bed": {
+   "voice_lufs": -14.16,
+   "bed_lufs": -51.28,
+   "voice_minus_bed_lu": 37.12,
+   "voiceband_snr_db_median": 43.0,
+   "voiceband_snr_db_p5": 34.4,
+   "voiceband_snr_db_min": 25.0,
+   "windows_400ms_snr_below_10db": 0,
+   "speech_windows": 220
+  },
+  "bed_onsets_per_min": 315.7,
+  "bed_50ms_rms_pcts": [
+   -57.4,
+   -49.5,
+   -43.5,
+   -36.1
+  ],
+  "bed_windows_over_-40dbfs_per_min": 6.6
+ },
+ "ro5": {
+  "short_term_lufs": {
+   "median": -14.06,
+   "p10": -14.91,
+   "p95": -13.03,
+   "max": -11.4,
+   "range_p95_minus_p10": 1.88
+  },
+  "momentary_max": -9.78,
+  "voice_vs_bed": {
+   "voice_lufs": -13.99,
+   "bed_lufs": -49.19,
+   "voice_minus_bed_lu": 35.2,
+   "voiceband_snr_db_median": 44.9,
+   "voiceband_snr_db_p5": 40.2,
+   "voiceband_snr_db_min": 11.9,
+   "windows_400ms_snr_below_10db": 0,
+   "speech_windows": 292
+  },
+  "bed_onsets_per_min": 363.7,
+  "bed_50ms_rms_pcts": [
+   -52.1,
+   -48.8,
+   -44.1,
+   -30.4
+  ],
+  "bed_windows_over_-40dbfs_per_min": 6.5
+ },
+ "sfx_files": {
+  "card": {
+   "dur_s": 0.4,
+   "peak_dbfs": -12.0,
+   "centroid_hz": 1140
+  },
+  "swish": {
+   "dur_s": 0.42,
+   "peak_dbfs": -12.0,
+   "centroid_hz": 1096
+  },
+  "pop": {
+   "dur_s": 0.09,
+   "peak_dbfs": -8.0,
+   "centroid_hz": 1308
+  },
+  "yes": {
+   "dur_s": 0.5,
+   "peak_dbfs": -10.0,
+   "centroid_hz": 1948
+  },
+  "no": {
+   "dur_s": 0.16,
+   "peak_dbfs": -9.0,
+   "centroid_hz": 657
+  }
+ },
+ "v6_sfx": {
+  "scheduled": 56,
+  "hero": 20,
+  "non_hero": 36,
+  "by_type": {
+   "card": 15,
+   "swish": 17,
+   "pop": 20,
+   "yes": 4,
+   "no": 0
+  },
+  "scheduled_detected_within_2f": 0.75,
+  "hero_detected_within_2f": 0.75,
+  "nonhero_detected_within_2f": 0.75,
+  "hero_sfx_minus_voice_db_median": -23.8,
+  "nonhero_sfx_minus_voice_db_median": -32.900000000000006,
+  "graphic_entries": 110,
+  "entries_with_scheduled_sfx_within_2f": 0.518,
+  "entries_with_bed_onset_within_2f": 0.773,
+  "chance_onset_within_2f": 0.73,
+  "entries_without_sfx": [
+   [
+    "B01",
+    0,
+    "title card "
+   ],
+   [
+    "B01",
+    8,
+    "subline 'Total skin health' rises 3 f later, 5 f"
+   ],
+   [
+    "B01",
+    98,
+    "wordmark defocuses 0->8 px and fades on `exit` 7 f; name-super fades 7 f"
+   ],
+   [
+    "B02",
+    150,
+    "chip 'FDA-cleared: major depressive disorder' arrives (`arrive` 14 f) under the "
+   ],
+   [
+    "B02",
+    152,
+    "pointer retracts tip->tail 7 f, plate+unit exit 7 f"
+   ],
+   [
+    "B03",
+    224,
+    "'total' lit (1 f)"
+   ],
+   [
+    "B03",
+    238,
+    "'health' lit; disclaimer line fades in under the diagram"
+   ],
+   [
+    "B03",
+    255,
+    "arrows retract tail-first along the path 7 f; windows exit 7 f"
+   ],
+   [
+    "B04",
+    263,
+    "section card Your questions"
+   ],
+   [
+    "B04",
+    386,
+    "window -> card on `morph` 26 f; card exits 7 f at f406"
+   ],
+   [
+    "B05",
+    516,
+    "both panels' sender row 'Our team' lights (ink -> blue, 1 f)"
+   ],
+   [
+    "B05",
+    538,
+    "panels exit 7 f, far one first"
+   ],
+   [
+    "B06",
+    588,
+    "sender row 'Dr. Ostad's office \u00b7 now' fades 4 f"
+   ],
+   [
+    "B06",
+    593,
+    "line 1 'Thanks for joining us tonight.' fades + rises 1 % H in 4 f"
+   ],
+   [
+    "B06",
+    598,
+    "line 2 'Reply to schedule a consultation.' 4 f"
+   ],
+   [
+    "B06",
+    637,
+    "'schedule a consultation' gets a highlighter block (sweep 16 f)"
+   ],
+   [
+    "B06",
+    660,
+    "phone stays for B07 (same object, not a new device)"
+   ],
+   [
+    "B07",
+    667,
+    "phone slides to the left half of the graphic area; a hairline divider wipes 14 f"
+   ],
+   [
+    "B07",
+    688,
+    "bubble sends (rises 6 px, 4 f)"
+   ],
+   [
+    "B07",
+    723,
+    "arc head lands on a free slot (last draw frame, no overshoot)"
+   ],
+   [
+    "B07",
+    744,
+    "arc retracts along its path 7 f, both halves exit 7 f"
+   ],
+   [
+    "B08",
+    784,
+    "field 'Your goals' fills (handwritten-weight type, +16 f: f800)"
+   ],
+   [
+    "B08",
+    813,
+    "three rows tick +16/+20/+24 f: 'Current medications' f829, 'Implanted devices' f"
+   ],
+   [
+    "B08",
+    844,
+    "last field 'Is Exomind appropriate for you?' lights"
+   ],
+   [
+    "B08",
+    885,
+    "form exits 7 f"
+   ],
+   [
+    "B09",
+    893,
+    "section card Before you go"
+   ],
+   [
+    "B09",
+    990,
+    "panel exits 7 f"
+   ],
+   [
+    "B10",
+    1049,
+    "light sweep crosses the empty row (sweep 16 f)"
+   ],
+   [
+    "B10",
+    1073,
+    "rows exit 7 f bottom-up"
+   ],
+   [
+    "B11",
+    1172,
+    "window exits 7 f"
+   ],
+   [
+    "B12",
+    1234,
+    "cut back to keyed Ostad"
+   ],
+   [
+    "B13",
+    1242,
+    "section card Total skin health"
+   ],
+   [
+    "B13",
+    1335,
+    "centre 'Total skin health' lights word by word on total/skin/health"
+   ],
+   [
+    "B13",
+    1344,
+    "disclaimer line fades in under the ring"
+   ],
+   [
+    "B13",
+    1371,
+    "segments retract anticlockwise 7 f"
+   ],
+   [
+    "B14",
+    1413,
+    "'next' fully resolved"
+   ],
+   [
+    "B14",
+    1419,
+    "last letter of 'frontier' resolves on its onset +1 (40 f resolve, G4 T22 rate)"
+   ],
+   [
+    "B14",
+    1442,
+    "type exits 7 f"
+   ],
+   [
+    "B15",
+    1592,
+    "split closes 7 f"
+   ],
+   [
+    "B16",
+    1614,
+    "bars grow one by one, 26 f each, 9 f apart (bar-build, DDOS f421-693); values co"
+   ],
+   [
+    "B16",
+    1640,
+    "source line fades in: National Rosacea Society survey of 1,066 patients"
+   ],
+   [
+    "B16",
+    1702,
+    "card and arrow exit 7 f"
+   ],
+   [
+    "B17",
+    1710,
+    "section card The technology"
+   ],
+   [
+    "B17",
+    1765,
+    "the arcs pulse outward on a 12 f rhythm (one pulse = one arc pushed 6 px inward "
+   ],
+   [
+    "B17",
+    1803,
+    "hard cut to B18 on 'rewire'"
+   ],
+   [
+    "B19",
+    1856,
+    "pulse train starts: a tick every 12 f slides along the top strip"
+   ],
+   [
+    "B19",
+    1900,
+    "line 'focused, in flow' set dim under the panel"
+   ],
+   [
+    "B19",
+    1961,
+    "'flow' lit; the wave is steady"
+   ],
+   [
+    "B19",
+    1979,
+    "panel exits 7 f"
+   ],
+   [
+    "B20",
+    2037,
+    "dashed flow reveals 8 f from her clip to where her quote lands"
+   ],
+   [
+    "B20",
+    2061,
+    "disclaimer line fades in under the quote"
+   ],
+   [
+    "B20",
+    2084,
+    "everything exits 7 f into the end card"
+   ],
+   [
+    "END",
+    2092,
+    "end card "
+   ]
+  ],
+  "schedule": [
+   {
+    "beat": "B01",
+    "f": 3,
+    "sfx": "swish",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -26.0,
+    "sfx_minus_voice_rms_db": -23.6,
+    "onset_within_2f": true,
+    "onset": [
+     -0.8,
+     1.24
+    ],
+    "onset_within_0.5s": [
+     -0.8,
+     1.24
+    ],
+    "event": "giant EXOMIND wordmark rises 6 % H out of its mask behind keyed Ostad, 5 f ease-out, opaci",
+    "bed_rise_db": NaN,
+    "mf_corr": 0.059,
+    "mf_lag_f": 2.86,
+    "mf_gain": 0.224,
+    "mf_ctrl_corr_max": 0.109
+   },
+   {
+    "beat": "B01",
+    "f": 26,
+    "sfx": "pop",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -34.0,
+    "sfx_minus_voice_rms_db": -31.0,
+    "onset_within_2f": true,
+    "onset": [
+     0.2,
+     0.1
+    ],
+    "onset_within_0.5s": [
+     0.2,
+     0.1
+    ],
+    "event": "name-super 'Dr. Ariel Ostad / Triple Board-Certified Dermatologist' lower left under him (",
+    "bed_rise_db": -4.0,
+    "mf_corr": 0.079,
+    "mf_lag_f": 0.93,
+    "mf_gain": 0.158,
+    "mf_ctrl_corr_max": 0.213
+   },
+   {
+    "beat": "B02",
+    "f": 106,
+    "sfx": "card",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -34.5,
+    "onset_within_2f": true,
+    "onset": [
+     -0.7,
+     0.2
+    ],
+    "onset_within_0.5s": [
+     -0.7,
+     0.2
+    ],
+    "event": "neutral glass plate in the unit's final rect (`plate` 18 f)",
+    "bed_rise_db": -2.2,
+    "mf_corr": 0.078,
+    "mf_lag_f": -0.56,
+    "mf_gain": 0.208,
+    "mf_ctrl_corr_max": 0.117
+   },
+   {
+    "beat": "B02",
+    "f": 125,
+    "sfx": "pop",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -22.0,
+    "sfx_minus_voice_rms_db": -15.1,
+    "onset_within_2f": true,
+    "onset": [
+     0.9,
+     0.88
+    ],
+    "onset_within_0.5s": [
+     0.9,
+     0.88
+    ],
+    "event": "unit cut-out fades through the plate (`plate` 18 f); word 'Exomind' rises 4 f then a box w",
+    "bed_rise_db": -0.7,
+    "mf_corr": 0.168,
+    "mf_lag_f": -0.9,
+    "mf_gain": 0.193,
+    "mf_ctrl_corr_max": 0.276
+   },
+   {
+    "beat": "B02",
+    "f": 143,
+    "sfx": "swish",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -31.9,
+    "onset_within_2f": true,
+    "onset": [
+     -1.5,
+     0.97
+    ],
+    "onset_within_0.5s": [
+     -1.5,
+     0.97
+    ],
+    "event": "straight pointer: shaft grows 7 f tail->tip toward the applicator head, solid head lands o",
+    "bed_rise_db": -2.3,
+    "mf_corr": 0.068,
+    "mf_lag_f": -1.15,
+    "mf_gain": 0.133,
+    "mf_ctrl_corr_max": 0.112
+   },
+   {
+    "beat": "B03",
+    "f": 160,
+    "sfx": "card",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -36.6,
+    "onset_within_2f": false,
+    "onset": null,
+    "onset_within_0.5s": [
+     3.3,
+     0.62
+    ],
+    "event": "three round masked windows arrive on an arc (`arrive` 14 f, 2 f stagger); line 'total skin",
+    "bed_rise_db": -4.5,
+    "mf_corr": 0.134,
+    "mf_lag_f": -0.52,
+    "mf_gain": 0.455,
+    "mf_ctrl_corr_max": 0.125
+   },
+   {
+    "beat": "B03",
+    "f": 188,
+    "sfx": "swish",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -26.0,
+    "sfx_minus_voice_rms_db": -25.2,
+    "onset_within_2f": false,
+    "onset": null,
+    "onset_within_0.5s": [
+     -4.1,
+     0.34
+    ],
+    "event": "curved callout #1 draws tail->tip 7 f from Ostad's head crown (track headTop) to the 'Mind",
+    "bed_rise_db": 0.6,
+    "mf_corr": 0.087,
+    "mf_lag_f": 1.5,
+    "mf_gain": 0.302,
+    "mf_ctrl_corr_max": 0.117
+   },
+   {
+    "beat": "B03",
+    "f": 201,
+    "sfx": "swish",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -35.7,
+    "onset_within_2f": true,
+    "onset": [
+     -0.9,
+     0.97
+    ],
+    "onset_within_0.5s": [
+     -0.9,
+     0.97
+    ],
+    "event": "curved callout #2 'Mind' -> 'Our approach' draws 7 f, head lands f208",
+    "bed_rise_db": 1.0,
+    "mf_corr": 0.061,
+    "mf_lag_f": -2.63,
+    "mf_gain": 0.199,
+    "mf_ctrl_corr_max": 0.119
+   },
+   {
+    "beat": "B03",
+    "f": 231,
+    "sfx": "swish",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -35.6,
+    "onset_within_2f": true,
+    "onset": [
+     0.8,
+     0.07
+    ],
+    "onset_within_0.5s": [
+     0.8,
+     0.07
+    ],
+    "event": "curved callout #3 -> 'Your skin' 7 f, head lands f238; 'skin' lit",
+    "bed_rise_db": -2.0,
+    "mf_corr": 0.082,
+    "mf_lag_f": 2.09,
+    "mf_gain": 0.237,
+    "mf_ctrl_corr_max": 0.12
+   },
+   {
+    "beat": "B04",
+    "f": 293,
+    "sfx": "card",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -35.2,
+    "onset_within_2f": false,
+    "onset": null,
+    "onset_within_0.5s": [
+     -2.1,
+     0.64
+    ],
+    "event": "consult clip in a rounded window (r 24) arrives right (`arrive` 14 f), playing",
+    "bed_rise_db": -2.5,
+    "mf_corr": 0.089,
+    "mf_lag_f": -1.21,
+    "mf_gain": 0.241,
+    "mf_ctrl_corr_max": 0.108
+   },
+   {
+    "beat": "B04",
+    "f": 314,
+    "sfx": "swish",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -26.0,
+    "sfx_minus_voice_rms_db": -25.7,
+    "onset_within_2f": true,
+    "onset": [
+     -0.3,
+     0.4
+    ],
+    "onset_within_0.5s": [
+     -0.3,
+     0.4
+    ],
+    "event": "card grows on `morph` 26 f into a large clean rounded window on the cream canvas beside hi",
+    "bed_rise_db": 2.6,
+    "mf_corr": 0.087,
+    "mf_lag_f": 0.26,
+    "mf_gain": 0.339,
+    "mf_ctrl_corr_max": 0.102
+   },
+   {
+    "beat": "B04",
+    "f": 341,
+    "sfx": "pop",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -34.0,
+    "sfx_minus_voice_rms_db": -29.0,
+    "onset_within_2f": true,
+    "onset": [
+     -0.5,
+     0.98
+    ],
+    "onset_within_0.5s": [
+     -0.5,
+     0.98
+    ],
+    "event": "chip 'In our office' pops inside the window (`type-scale-pop` 5 f)",
+    "bed_rise_db": -2.2,
+    "mf_corr": 0.067,
+    "mf_lag_f": -2.58,
+    "mf_gain": 0.105,
+    "mf_ctrl_corr_max": 0.31
+   },
+   {
+    "beat": "B05",
+    "f": 439,
+    "sfx": "card",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -36.6,
+    "onset_within_2f": true,
+    "onset": [
+     1.8,
+     0.67
+    ],
+    "onset_within_0.5s": [
+     1.8,
+     0.67
+    ],
+    "event": "far-plane glass panel 'Giveaway winners' arrives (`arrive` 14 f) at depth 0.6 (smaller, so",
+    "bed_rise_db": 0.3,
+    "mf_corr": 0.106,
+    "mf_lag_f": -2.98,
+    "mf_gain": 0.342,
+    "mf_ctrl_corr_max": 0.164
+   },
+   {
+    "beat": "B05",
+    "f": 460,
+    "sfx": "pop",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -22.0,
+    "sfx_minus_voice_rms_db": -19.0,
+    "onset_within_2f": true,
+    "onset": [
+     -1.4,
+     0.72
+    ],
+    "onset_within_0.5s": [
+     -1.4,
+     0.72
+    ],
+    "event": "near panel: envelope icon + 'Email \u00b7 from our team' slides in from the right 9 f, 3.4 % H ",
+    "bed_rise_db": 2.2,
+    "mf_corr": 0.09,
+    "mf_lag_f": 0.0,
+    "mf_gain": 0.16,
+    "mf_ctrl_corr_max": 0.289
+   },
+   {
+    "beat": "B05",
+    "f": 473,
+    "sfx": "pop",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -34.0,
+    "sfx_minus_voice_rms_db": -30.3,
+    "onset_within_2f": true,
+    "onset": [
+     1.2,
+     0.46
+    ],
+    "onset_within_0.5s": [
+     1.2,
+     0.46
+    ],
+    "event": "second near panel: incoming-call card slides in 9 f; its ring pulses 3x (12 f period)",
+    "bed_rise_db": 0.6,
+    "mf_corr": 0.313,
+    "mf_lag_f": -0.79,
+    "mf_gain": 0.602,
+    "mf_ctrl_corr_max": 0.369
+   },
+   {
+    "beat": "B06",
+    "f": 547,
+    "sfx": "card",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -30.0,
+    "onset_within_2f": true,
+    "onset": [
+     -2.0,
+     1.03
+    ],
+    "onset_within_0.5s": [
+     -2.0,
+     1.03
+    ],
+    "event": "phone object rises 4.2 % H in 11 f (`arrive`), tilted -8 deg; lock screen dim",
+    "bed_rise_db": -1.5,
+    "mf_corr": 0.102,
+    "mf_lag_f": 2.91,
+    "mf_gain": 0.161,
+    "mf_ctrl_corr_max": 0.171
+   },
+   {
+    "beat": "B06",
+    "f": 582,
+    "sfx": "pop",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -22.0,
+    "sfx_minus_voice_rms_db": -16.5,
+    "onset_within_2f": true,
+    "onset": [
+     -0.2,
+     1.39
+    ],
+    "onset_within_0.5s": [
+     -0.2,
+     1.39
+    ],
+    "event": "message plate lands on the lock screen in 4 f; badge '1' pops on the same frame (glp1 f860",
+    "bed_rise_db": -0.2,
+    "mf_corr": 0.124,
+    "mf_lag_f": 1.64,
+    "mf_gain": 0.131,
+    "mf_ctrl_corr_max": 0.202
+   },
+   {
+    "beat": "B06",
+    "f": 648,
+    "sfx": "yes",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -36.0,
+    "sfx_minus_voice_rms_db": -30.1,
+    "onset_within_2f": true,
+    "onset": [
+     -0.4,
+     0.84
+    ],
+    "onset_within_0.5s": [
+     -0.4,
+     0.84
+    ],
+    "event": "status chip spinner -> tick (glp1 f935)",
+    "bed_rise_db": 1.1,
+    "mf_corr": 0.058,
+    "mf_lag_f": -2.4,
+    "mf_gain": 0.092,
+    "mf_ctrl_corr_max": 0.057
+   },
+   {
+    "beat": "B07",
+    "f": 673,
+    "sfx": "pop",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -34.0,
+    "sfx_minus_voice_rms_db": -25.8,
+    "onset_within_2f": true,
+    "onset": [
+     -0.9,
+     0.51
+    ],
+    "onset_within_0.5s": [
+     -0.9,
+     0.51
+    ],
+    "event": "reply bubble types 'Yes, I'd like to book' at 3.9 chars/f, linear (DDOS f1539-1556)",
+    "bed_rise_db": -5.7,
+    "mf_corr": 0.179,
+    "mf_lag_f": 2.52,
+    "mf_gain": 0.292,
+    "mf_ctrl_corr_max": 0.226
+   },
+   {
+    "beat": "B07",
+    "f": 696,
+    "sfx": "swish",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -31.8,
+    "onset_within_2f": true,
+    "onset": [
+     0.0,
+     0.84
+    ],
+    "onset_within_0.5s": [
+     0.0,
+     0.84
+    ],
+    "event": "calendar arrives right (`arrive` 14 f); arc connector grows 26 f from the bubble to the ca",
+    "bed_rise_db": -0.9,
+    "mf_corr": 0.073,
+    "mf_lag_f": 2.16,
+    "mf_gain": 0.171,
+    "mf_ctrl_corr_max": 0.119
+   },
+   {
+    "beat": "B07",
+    "f": 733,
+    "sfx": "yes",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -24.0,
+    "sfx_minus_voice_rms_db": -18.4,
+    "onset_within_2f": true,
+    "onset": [
+     1.5,
+     1.13
+    ],
+    "onset_within_0.5s": [
+     1.5,
+     1.13
+    ],
+    "event": "circle draws round the slot 12 f (`sweep`), slot fills blue",
+    "bed_rise_db": 1.7,
+    "mf_corr": 0.082,
+    "mf_lag_f": -0.11,
+    "mf_gain": 0.139,
+    "mf_ctrl_corr_max": 0.072
+   },
+   {
+    "beat": "B08",
+    "f": 752,
+    "sfx": "card",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -37.5,
+    "onset_within_2f": true,
+    "onset": [
+     0.3,
+     0.56
+    ],
+    "onset_within_0.5s": [
+     0.3,
+     0.56
+    ],
+    "event": "form card slides up 27 f (G4 T14 cover) and the canvas dims to 0.5 over 14 f",
+    "bed_rise_db": -4.7,
+    "mf_corr": 0.073,
+    "mf_lag_f": -0.44,
+    "mf_gain": 0.273,
+    "mf_ctrl_corr_max": 0.102
+   },
+   {
+    "beat": "B08",
+    "f": 806,
+    "sfx": "swish",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -26.0,
+    "sfx_minus_voice_rms_db": -24.0,
+    "onset_within_2f": true,
+    "onset": [
+     0.4,
+     0.54
+    ],
+    "onset_within_0.5s": [
+     0.4,
+     0.54
+    ],
+    "event": "highlighter sweeps behind 'Medical history' 16 f (DDOS Moment A)",
+    "bed_rise_db": -5.6,
+    "mf_corr": 0.055,
+    "mf_lag_f": 0.58,
+    "mf_gain": 0.173,
+    "mf_ctrl_corr_max": 0.121
+   },
+   {
+    "beat": "B08",
+    "f": 829,
+    "sfx": "yes",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -36.0,
+    "sfx_minus_voice_rms_db": -31.2,
+    "onset_within_2f": true,
+    "onset": [
+     -0.3,
+     1.02
+    ],
+    "onset_within_0.5s": [
+     -0.3,
+     1.02
+    ],
+    "event": null,
+    "bed_rise_db": 1.0,
+    "mf_corr": 0.015,
+    "mf_lag_f": 1.91,
+    "mf_gain": 0.026,
+    "mf_ctrl_corr_max": 0.045
+   },
+   {
+    "beat": "B08",
+    "f": 859,
+    "sfx": "yes",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -36.0,
+    "sfx_minus_voice_rms_db": -29.2,
+    "onset_within_2f": true,
+    "onset": [
+     0.9,
+     0.4
+    ],
+    "onset_within_0.5s": [
+     0.9,
+     0.4
+    ],
+    "event": "answer 'Decided with Dr. Ostad' checks in a drawn circle 12 f",
+    "bed_rise_db": 2.7,
+    "mf_corr": 0.038,
+    "mf_lag_f": 1.34,
+    "mf_gain": 0.056,
+    "mf_ctrl_corr_max": 0.04
+   },
+   {
+    "beat": "B09",
+    "f": 923,
+    "sfx": "card",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -34.9,
+    "onset_within_2f": true,
+    "onset": [
+     -1.8,
+     1.39
+    ],
+    "onset_within_0.5s": [
+     -1.8,
+     1.39
+    ],
+    "event": "Q&A panel arrives (`arrive` 14 f)",
+    "bed_rise_db": 2.1,
+    "mf_corr": 0.076,
+    "mf_lag_f": 2.68,
+    "mf_gain": 0.209,
+    "mf_ctrl_corr_max": 0.12
+   },
+   {
+    "beat": "B09",
+    "f": 933,
+    "sfx": "pop",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -22.0,
+    "sfx_minus_voice_rms_db": -16.8,
+    "onset_within_2f": true,
+    "onset": [
+     1.6,
+     1.55
+    ],
+    "onset_within_0.5s": [
+     1.6,
+     1.55
+    ],
+    "event": "card 1 'Does it hurt?' rises 10.7 % H in 17 f, keeps drifting up 4 px/s (colin DZiJljQJEKN",
+    "bed_rise_db": 1.9,
+    "mf_corr": 0.109,
+    "mf_lag_f": 0.0,
+    "mf_gain": 0.151,
+    "mf_ctrl_corr_max": 0.292
+   },
+   {
+    "beat": "B09",
+    "f": 954,
+    "sfx": "pop",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -34.0,
+    "sfx_minus_voice_rms_db": -28.3,
+    "onset_within_2f": true,
+    "onset": [
+     0.1,
+     0.76
+    ],
+    "onset_within_0.5s": [
+     0.1,
+     0.76
+    ],
+    "event": "card 2 'Will it disrupt my daily life?' pushes in from the right; card 1 steps back (scale",
+    "bed_rise_db": -1.1,
+    "mf_corr": 0.247,
+    "mf_lag_f": -1.73,
+    "mf_gain": 0.395,
+    "mf_ctrl_corr_max": 0.204
+   },
+   {
+    "beat": "B09",
+    "f": 975,
+    "sfx": "pop",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -34.0,
+    "sfx_minus_voice_rms_db": -28.0,
+    "onset_within_2f": true,
+    "onset": [
+     -0.9,
+     0.47
+    ],
+    "onset_within_0.5s": [
+     -0.9,
+     0.47
+    ],
+    "event": "card 3 'Is Exomind right for me?' pushes in; its phrase 'right for me' highlights +4 f",
+    "bed_rise_db": -1.6,
+    "mf_corr": 0.179,
+    "mf_lag_f": -1.59,
+    "mf_gain": 0.237,
+    "mf_ctrl_corr_max": 0.161
+   },
+   {
+    "beat": "B10",
+    "f": 998,
+    "sfx": "card",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -36.1,
+    "onset_within_2f": true,
+    "onset": [
+     0.1,
+     1.94
+    ],
+    "onset_within_0.5s": [
+     0.1,
+     1.94
+    ],
+    "event": "4 ruled rows wipe in 14 f each, 2 f stagger, each ticks +1 f after its wipe",
+    "bed_rise_db": -1.8,
+    "mf_corr": 0.11,
+    "mf_lag_f": 1.98,
+    "mf_gain": 0.34,
+    "mf_ctrl_corr_max": 0.09
+   },
+   {
+    "beat": "B10",
+    "f": 1022,
+    "sfx": "pop",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -22.0,
+    "sfx_minus_voice_rms_db": -15.8,
+    "onset_within_2f": true,
+    "onset": [
+     1.2,
+     0.58
+    ],
+    "onset_within_0.5s": [
+     1.2,
+     0.58
+    ],
+    "event": "5th row slides in 9 f from the left as an empty dashed row: 'Your question'",
+    "bed_rise_db": 1.9,
+    "mf_corr": 0.215,
+    "mf_lag_f": 0.0,
+    "mf_gain": 0.267,
+    "mf_ctrl_corr_max": 0.202
+   },
+   {
+    "beat": "B11",
+    "f": 1082,
+    "sfx": "card",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -36.3,
+    "onset_within_2f": true,
+    "onset": [
+     -0.3,
+     2.35
+    ],
+    "onset_within_0.5s": [
+     -0.3,
+     2.35
+    ],
+    "event": "rounded window (r 24) arrives right (`arrive` 14 f), footage plays",
+    "bed_rise_db": -3.5,
+    "mf_corr": 0.067,
+    "mf_lag_f": -0.4,
+    "mf_gain": 0.216,
+    "mf_ctrl_corr_max": 0.126
+   },
+   {
+    "beat": "B11",
+    "f": 1158,
+    "sfx": "pop",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -22.0,
+    "sfx_minus_voice_rms_db": -19.6,
+    "onset_within_2f": true,
+    "onset": [
+     -0.5,
+     0.12
+    ],
+    "onset_within_0.5s": [
+     -0.5,
+     0.12
+    ],
+    "event": "'Our team' rises 6 % H in 5 f with its fade; credit 'Our office' 3 f later",
+    "bed_rise_db": 2.9,
+    "mf_corr": 0.105,
+    "mf_lag_f": 0.0,
+    "mf_gain": 0.201,
+    "mf_ctrl_corr_max": 0.212
+   },
+   {
+    "beat": "B12",
+    "f": 1181,
+    "sfx": "swish",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -26.0,
+    "sfx_minus_voice_rms_db": -24.9,
+    "onset_within_2f": true,
+    "onset": [
+     -0.1,
+     0.54
+    ],
+    "onset_within_0.5s": [
+     -0.1,
+     0.54
+    ],
+    "event": "hard cut: IMG_3714 in a clean rounded window right (640x853, never upscaled), 2 depth laye",
+    "bed_rise_db": 0.8,
+    "mf_corr": 0.104,
+    "mf_lag_f": 1.08,
+    "mf_gain": 0.362,
+    "mf_ctrl_corr_max": 0.094
+   },
+   {
+    "beat": "B12",
+    "f": 1198,
+    "sfx": "pop",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -34.0,
+    "sfx_minus_voice_rms_db": -31.0,
+    "onset_within_2f": false,
+    "onset": null,
+    "onset_within_0.5s": [
+     2.9,
+     0.51
+    ],
+    "event": "timeline hairline draws along the bottom 14 f; marker 'Arrive' pops (1 f)",
+    "bed_rise_db": 0.6,
+    "mf_corr": 0.061,
+    "mf_lag_f": 0.22,
+    "mf_gain": 0.111,
+    "mf_ctrl_corr_max": 0.198
+   },
+   {
+    "beat": "B12",
+    "f": 1207,
+    "sfx": "pop",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -34.0,
+    "sfx_minus_voice_rms_db": -28.0,
+    "onset_within_2f": true,
+    "onset": [
+     1.7,
+     1.1
+    ],
+    "onset_within_0.5s": [
+     1.7,
+     1.1
+    ],
+    "event": "marker 'Session' pops, segment label 'about 20-30 min' scale-pops 5 f \u26a0",
+    "bed_rise_db": 1.9,
+    "mf_corr": 0.091,
+    "mf_lag_f": 2.94,
+    "mf_gain": 0.166,
+    "mf_ctrl_corr_max": 0.197
+   },
+   {
+    "beat": "B12",
+    "f": 1214,
+    "sfx": "pop",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -34.0,
+    "sfx_minus_voice_rms_db": -22.3,
+    "onset_within_2f": false,
+    "onset": null,
+    "onset_within_0.5s": [
+     4.2,
+     0.94
+    ],
+    "event": "marker 'Walk out' pops (pair pop, 1 f each, WZ f940/944)",
+    "bed_rise_db": -4.5,
+    "mf_corr": 0.218,
+    "mf_lag_f": -1.55,
+    "mf_gain": 0.229,
+    "mf_ctrl_corr_max": 0.328
+   },
+   {
+    "beat": "B13",
+    "f": 1272,
+    "sfx": "card",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -35.8,
+    "onset_within_2f": true,
+    "onset": [
+     -0.8,
+     0.94
+    ],
+    "onset_within_0.5s": [
+     -0.8,
+     0.94
+    ],
+    "event": "ring outline (3 segments, gaps 6 deg) appears (`arrive` 14 f)",
+    "bed_rise_db": -0.7,
+    "mf_corr": 0.114,
+    "mf_lag_f": 1.77,
+    "mf_gain": 0.353,
+    "mf_ctrl_corr_max": 0.115
+   },
+   {
+    "beat": "B13",
+    "f": 1288,
+    "sfx": "pop",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -34.0,
+    "sfx_minus_voice_rms_db": -32.1,
+    "onset_within_2f": true,
+    "onset": [
+     -1.8,
+     0.4
+    ],
+    "onset_within_0.5s": [
+     -1.8,
+     0.4
+    ],
+    "event": "labels 'Skin care' / 'Treatments' / 'The mind' fan out on an arc: first pair 3 f, third la",
+    "bed_rise_db": -1.6,
+    "mf_corr": 0.064,
+    "mf_lag_f": 1.88,
+    "mf_gain": 0.11,
+    "mf_ctrl_corr_max": 0.367
+   },
+   {
+    "beat": "B13",
+    "f": 1300,
+    "sfx": "swish",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -26.0,
+    "sfx_minus_voice_rms_db": -24.6,
+    "onset_within_2f": true,
+    "onset": [
+     -0.4,
+     0.44
+    ],
+    "onset_within_0.5s": [
+     -0.4,
+     0.44
+    ],
+    "event": "ring fills clockwise segment by segment, 22 f per ring with 12 f stagger is compressed to ",
+    "bed_rise_db": 2.8,
+    "mf_corr": 0.075,
+    "mf_lag_f": 0.0,
+    "mf_gain": 0.258,
+    "mf_ctrl_corr_max": 0.11
+   },
+   {
+    "beat": "B14",
+    "f": 1380,
+    "sfx": "swish",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -26.0,
+    "sfx_minus_voice_rms_db": -25.2,
+    "onset_within_2f": true,
+    "onset": [
+     0.4,
+     0.95
+    ],
+    "onset_within_0.5s": [
+     0.4,
+     0.95
+    ],
+    "event": "'The next frontier' set as dim asterisks; characters resolve left to right",
+    "bed_rise_db": -2.1,
+    "mf_corr": 0.071,
+    "mf_lag_f": 1.39,
+    "mf_gain": 0.259,
+    "mf_ctrl_corr_max": 0.12
+   },
+   {
+    "beat": "B15",
+    "f": 1450,
+    "sfx": "card",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -33.7,
+    "onset_within_2f": true,
+    "onset": [
+     1.2,
+     0.36
+    ],
+    "onset_within_0.5s": [
+     1.2,
+     0.36
+    ],
+    "event": "left panel arrives (`arrive` 14 f): a Fraxel laser pass from the practice catalog (drifts ",
+    "bed_rise_db": -5.0,
+    "mf_corr": 0.069,
+    "mf_lag_f": 1.57,
+    "mf_gain": 0.173,
+    "mf_ctrl_corr_max": 0.108
+   },
+   {
+    "beat": "B15",
+    "f": 1490,
+    "sfx": "swish",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -26.0,
+    "sfx_minus_voice_rms_db": -25.8,
+    "onset_within_2f": true,
+    "onset": [
+     -1.0,
+     0.38
+    ],
+    "onset_within_0.5s": [
+     -1.0,
+     0.38
+    ],
+    "event": "a vertical line wipes 14 f (`sweep`) and opens the right panel: the ExoMind session footag",
+    "bed_rise_db": 5.0,
+    "mf_corr": 0.077,
+    "mf_lag_f": 0.99,
+    "mf_gain": 0.31,
+    "mf_ctrl_corr_max": 0.107
+   },
+   {
+    "beat": "B15",
+    "f": 1540,
+    "sfx": "pop",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -34.0,
+    "sfx_minus_voice_rms_db": -29.1,
+    "onset_within_2f": true,
+    "onset": [
+     1.4,
+     1.27
+    ],
+    "onset_within_0.5s": [
+     1.4,
+     1.27
+    ],
+    "event": "left label 'Classic treatments' rises 4.2 % H in 11 f",
+    "bed_rise_db": 0.4,
+    "mf_corr": 0.161,
+    "mf_lag_f": -2.41,
+    "mf_gain": 0.242,
+    "mf_ctrl_corr_max": 0.383
+   },
+   {
+    "beat": "B16",
+    "f": 1601,
+    "sfx": "card",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -35.7,
+    "onset_within_2f": true,
+    "onset": [
+     -1.6,
+     0.49
+    ],
+    "onset_within_0.5s": [
+     -1.6,
+     0.49
+    ],
+    "event": "glass card arrives right (`arrive` 14 f): 'Rosacea flare triggers / What patients say sets",
+    "bed_rise_db": -0.6,
+    "mf_corr": 0.081,
+    "mf_lag_f": -2.56,
+    "mf_gain": 0.228,
+    "mf_ctrl_corr_max": 0.131
+   },
+   {
+    "beat": "B16",
+    "f": 1655,
+    "sfx": "swish",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -26.0,
+    "sfx_minus_voice_rms_db": -25.5,
+    "onset_within_2f": true,
+    "onset": [
+     1.2,
+     0.41
+    ],
+    "onset_within_0.5s": [
+     1.2,
+     0.41
+    ],
+    "event": "the 'Emotional stress' row lights blue (highlighter sweep 16 f) and a curved callout draws",
+    "bed_rise_db": -2.3,
+    "mf_corr": 0.055,
+    "mf_lag_f": 0.0,
+    "mf_gain": 0.208,
+    "mf_ctrl_corr_max": 0.119
+   },
+   {
+    "beat": "B17",
+    "f": 1740,
+    "sfx": "card",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -34.7,
+    "onset_within_2f": false,
+    "onset": null,
+    "onset_within_0.5s": [
+     2.6,
+     1.19
+    ],
+    "event": "full frame: glass head in profile on the cream canvas; applicator descends onto the forehe",
+    "bed_rise_db": -0.9,
+    "mf_corr": 0.052,
+    "mf_lag_f": 2.71,
+    "mf_gain": 0.153,
+    "mf_ctrl_corr_max": 0.118
+   },
+   {
+    "beat": "B17",
+    "f": 1750,
+    "sfx": "swish",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -35.0,
+    "onset_within_2f": false,
+    "onset": null,
+    "onset_within_0.5s": [
+     -2.9,
+     0.45
+    ],
+    "event": "three dashed orbit arcs grow from the coil into the skull, 9 f each, 4 f stagger (DYKh5yyP",
+    "bed_rise_db": -0.6,
+    "mf_corr": 0.126,
+    "mf_lag_f": -2.84,
+    "mf_gain": 0.374,
+    "mf_ctrl_corr_max": 0.096
+   },
+   {
+    "beat": "B17",
+    "f": 1776,
+    "sfx": "pop",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -22.0,
+    "sfx_minus_voice_rms_db": -19.4,
+    "onset_within_2f": false,
+    "onset": null,
+    "onset_within_0.5s": [
+     -2.2,
+     0.51
+    ],
+    "event": "the prefrontal region under the coil lights (tint fades on 6 f); 'Prefrontal cortex' rises",
+    "bed_rise_db": 4.5,
+    "mf_corr": 0.092,
+    "mf_lag_f": 0.0,
+    "mf_gain": 0.168,
+    "mf_ctrl_corr_max": 0.233
+   },
+   {
+    "beat": "B18",
+    "f": 1812,
+    "sfx": "swish",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -26.0,
+    "sfx_minus_voice_rms_db": -25.7,
+    "onset_within_2f": false,
+    "onset": null,
+    "onset_within_0.5s": [
+     -4.7,
+     0.61
+    ],
+    "event": "hard cut to the MOA neuron shot full frame; a path traces leg by leg along one dendrite to",
+    "bed_rise_db": 0.6,
+    "mf_corr": 0.091,
+    "mf_lag_f": -2.73,
+    "mf_gain": 0.379,
+    "mf_ctrl_corr_max": 0.12
+   },
+   {
+    "beat": "B18",
+    "f": 1826,
+    "sfx": "pop",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -34.0,
+    "sfx_minus_voice_rms_db": -30.6,
+    "onset_within_2f": false,
+    "onset": null,
+    "onset_within_0.5s": [
+     4.7,
+     0.68
+    ],
+    "event": "chip 'Neural connectivity' pops 5 f (brochure wording)",
+    "bed_rise_db": -0.3,
+    "mf_corr": 0.094,
+    "mf_lag_f": -0.24,
+    "mf_gain": 0.157,
+    "mf_ctrl_corr_max": 0.184
+   },
+   {
+    "beat": "B19",
+    "f": 1851,
+    "sfx": "card",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -36.3,
+    "onset_within_2f": false,
+    "onset": null,
+    "onset_within_0.5s": [
+     -2.5,
+     0.79
+    ],
+    "event": "panel scales 0.97->1 (`arrive` 14 f) right of keyed Ostad, under the face-safe line",
+    "bed_rise_db": -4.3,
+    "mf_corr": 0.046,
+    "mf_lag_f": -0.64,
+    "mf_gain": 0.155,
+    "mf_ctrl_corr_max": 0.108
+   },
+   {
+    "beat": "B19",
+    "f": 1877,
+    "sfx": "pop",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -22.0,
+    "sfx_minus_voice_rms_db": -18.8,
+    "onset_within_2f": false,
+    "onset": null,
+    "onset_within_0.5s": [
+     2.7,
+     0.53
+    ],
+    "event": "each tick now releases 6-9 vesicles that cross the cleft in 10 f and dock; chip 'SYNAPSE' ",
+    "bed_rise_db": 0.0,
+    "mf_corr": 0.083,
+    "mf_lag_f": 2.83,
+    "mf_gain": 0.117,
+    "mf_ctrl_corr_max": 0.194
+   },
+   {
+    "beat": "B19",
+    "f": 1939,
+    "sfx": "swish",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -37.3,
+    "onset_within_2f": false,
+    "onset": null,
+    "onset_within_0.5s": [
+     2.0,
+     0.13
+    ],
+    "event": "'focused' lit; a jittery trace along the panel bottom settles to a calm wave over 26 f (`s",
+    "bed_rise_db": -13.3,
+    "mf_corr": 0.081,
+    "mf_lag_f": 1.99,
+    "mf_gain": 0.255,
+    "mf_ctrl_corr_max": 0.122
+   },
+   {
+    "beat": "B20",
+    "f": 1988,
+    "sfx": "card",
+    "hero": false,
+    "gain": 0.05,
+    "sfx_peak_dbfs": -38.0,
+    "sfx_minus_voice_rms_db": -36.0,
+    "onset_within_2f": true,
+    "onset": [
+     0.9,
+     0.55
+    ],
+    "onset_within_0.5s": [
+     0.9,
+     0.55
+    ],
+    "event": "clip card arrives left of centre (`arrive` 14 f): she sits up on the treatment bed and tal",
+    "bed_rise_db": -1.8,
+    "mf_corr": 0.102,
+    "mf_lag_f": -1.97,
+    "mf_gain": 0.306,
+    "mf_ctrl_corr_max": 0.091
+   },
+   {
+    "beat": "B20",
+    "f": 2045,
+    "sfx": "swish",
+    "hero": true,
+    "gain": 0.2,
+    "sfx_peak_dbfs": -26.0,
+    "sfx_minus_voice_rms_db": -25.2,
+    "onset_within_2f": false,
+    "onset": null,
+    "onset_within_0.5s": [
+     -2.6,
+     0.48
+    ],
+    "event": "quote card arrives (`arrive` 14 f): \u201cIt quiets my brain.\u201d in italic (her voice), attributi",
+    "bed_rise_db": 3.0,
+    "mf_corr": 0.07,
+    "mf_lag_f": -2.75,
+    "mf_gain": 0.259,
+    "mf_ctrl_corr_max": 0.124
+   }
+  ],
+  "hero_bed_rise_db_median": NaN,
+  "nonhero_bed_rise_db_median": -1.5236524555560074,
+  "hero_audible_share_rise6db": 0.0,
+  "nonhero_audible_share_rise6db": 0.0,
+  "hero_mf_corr_median": 0.087,
+  "hero_mf_present_share": 0.15,
+  "nonhero_mf_corr_median": 0.081,
+  "nonhero_mf_present_share": 0.19444444444444445
+ },
+ "v6_clicks_hf": [
+  [
+   472,
+   11.3,
+   12.4,
+   -8.4
+  ],
+  [
+   1412,
+   33.9,
+   22.3,
+   -15.3
+  ],
+  [
+   3110,
+   74.6,
+   13.0,
+   -14.2
+  ],
+  [
+   7579,
+   181.9,
+   13.4,
+   -20.0
+  ],
+  [
+   8272,
+   198.5,
+   15.8,
+   -16.4
+  ],
+  [
+   9225,
+   221.4,
+   15.1,
+   -12.0
+  ],
+  [
+   11706,
+   280.9,
+   13.0,
+   -9.6
+  ],
+  [
+   18225,
+   437.4,
+   13.6,
+   -16.2
+  ],
+  [
+   18338,
+   440.1,
+   13.9,
+   -16.0
+  ],
+  [
+   22477,
+   539.4,
+   14.1,
+   -9.3
+  ],
+  [
+   23778,
+   570.7,
+   12.4,
+   -8.5
+  ],
+  [
+   24638,
+   591.3,
+   12.4,
+   -16.7
+  ],
+  [
+   28611,
+   686.7,
+   17.0,
+   -10.6
+  ],
+  [
+   29535,
+   708.8,
+   12.4,
+   -16.8
+  ],
+  [
+   30488,
+   731.7,
+   17.2,
+   -16.2
+  ],
+  [
+   31315,
+   751.6,
+   32.1,
+   -6.7
+  ],
+  [
+   32657,
+   783.8,
+   32.2,
+   -12.9
+  ],
+  [
+   33762,
+   810.3,
+   23.5,
+   -10.8
+  ],
+  [
+   36056,
+   865.3,
+   14.9,
+   -15.6
+  ],
+  [
+   37286,
+   894.9,
+   12.2,
+   -15.0
+  ],
+  [
+   40401,
+   969.6,
+   16.2,
+   -13.4
+  ],
+  [
+   42239,
+   1013.7,
+   12.1,
+   -15.7
+  ],
+  [
+   42862,
+   1028.7,
+   13.1,
+   -15.4
+  ],
+  [
+   44272,
+   1062.5,
+   14.2,
+   -11.4
+  ],
+  [
+   45435,
+   1090.4,
+   22.7,
+   -10.7
+  ],
+  [
+   46250,
+   1110.0,
+   13.9,
+   -16.7
+  ],
+  [
+   46566,
+   1117.6,
+   16.2,
+   -13.2
+  ],
+  [
+   47961,
+   1151.1,
+   15.3,
+   -10.1
+  ],
+  [
+   54460,
+   1307.0,
+   12.2,
+   -15.5
+  ],
+  [
+   55686,
+   1336.5,
+   16.0,
+   -13.9
+  ],
+  [
+   58466,
+   1403.2,
+   12.1,
+   -20.5
+  ],
+  [
+   60668,
+   1456.0,
+   16.5,
+   -10.0
+  ],
+  [
+   62302,
+   1495.2,
+   14.2,
+   -16.5
+  ],
+  [
+   62822,
+   1507.7,
+   14.1,
+   -11.8
+  ],
+  [
+   63536,
+   1524.9,
+   12.4,
+   -15.5
+  ],
+  [
+   64673,
+   1552.2,
+   19.9,
+   -12.4
+  ],
+  [
+   67006,
+   1608.1,
+   14.7,
+   -15.6
+  ],
+  [
+   67800,
+   1627.2,
+   37.6,
+   -10.2
+  ],
+  [
+   67919,
+   1630.1,
+   16.8,
+   -10.4
+  ],
+  [
+   70220,
+   1685.3,
+   12.1,
+   -13.7
+  ],
+  [
+   71871,
+   1724.9,
+   18.0,
+   -11.7
+  ],
+  [
+   72477,
+   1739.4,
+   18.9,
+   -11.2
+  ],
+  [
+   73294,
+   1759.1,
+   24.5,
+   -17.2
+  ],
+  [
+   73796,
+   1771.1,
+   18.3,
+   -12.8
+  ],
+  [
+   74446,
+   1786.7,
+   12.7,
+   -15.7
+  ],
+  [
+   76035,
+   1824.8,
+   12.0,
+   -20.6
+  ],
+  [
+   76998,
+   1848.0,
+   14.0,
+   -9.6
+  ],
+  [
+   77851,
+   1868.4,
+   23.9,
+   -13.2
+  ],
+  [
+   78099,
+   1874.4,
+   20.1,
+   -17.5
+  ],
+  [
+   79176,
+   1900.2,
+   12.7,
+   -18.1
+  ],
+  [
+   81162,
+   1947.9,
+   18.8,
+   -14.2
+  ],
+  [
+   83211,
+   1997.1,
+   14.4,
+   -19.8
+  ],
+  [
+   86673,
+   2080.2,
+   13.2,
+   -18.8
+  ]
+ ],
+ "v6_cuts": [
+  {
+   "f": 106,
+   "rms_20ms_pre_db": [
+    -16.1,
+    -19.3,
+    -22.8,
+    -25.5,
+    -21.3
+   ],
+   "rms_20ms_post_db": [
+    -18.6,
+    -15.9,
+    -16.8,
+    -15.6,
+    -18.4
+   ],
+   "M_pre": -13.9,
+   "M_post": -13.8,
+   "M_delta": 0.1,
+   "min_20ms_db": -25.5,
+   "sample_step_at_cut": 0.0441,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 160,
+   "rms_20ms_pre_db": [
+    -16.4,
+    -15.6,
+    -16.3,
+    -15.6,
+    -17.2
+   ],
+   "rms_20ms_post_db": [
+    -19.0,
+    -15.2,
+    -13.6,
+    -11.9,
+    -14.6
+   ],
+   "M_pre": -15.3,
+   "M_post": -14.5,
+   "M_delta": 0.8,
+   "min_20ms_db": -19.0,
+   "sample_step_at_cut": 0.0082,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 263,
+   "rms_20ms_pre_db": [
+    -15.5,
+    -17.0,
+    -16.5,
+    -16.2,
+    -13.8
+   ],
+   "rms_20ms_post_db": [
+    -14.9,
+    -15.1,
+    -14.5,
+    -15.9,
+    -17.6
+   ],
+   "M_pre": -14.7,
+   "M_post": -13.8,
+   "M_delta": 0.9,
+   "min_20ms_db": -17.6,
+   "sample_step_at_cut": 0.0114,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 414,
+   "rms_20ms_pre_db": [
+    -16.7,
+    -17.3,
+    -15.9,
+    -16.3,
+    -14.4
+   ],
+   "rms_20ms_post_db": [
+    -15.2,
+    -13.9,
+    -14.1,
+    -14.0,
+    -14.2
+   ],
+   "M_pre": -14.1,
+   "M_post": -13.7,
+   "M_delta": 0.4,
+   "min_20ms_db": -17.3,
+   "sample_step_at_cut": 0.0174,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 546,
+   "rms_20ms_pre_db": [
+    -13.9,
+    -14.1,
+    -14.3,
+    -20.5,
+    -27.4
+   ],
+   "rms_20ms_post_db": [
+    -26.6,
+    -26.5,
+    -26.2,
+    -24.1,
+    -22.8
+   ],
+   "M_pre": -12.9,
+   "M_post": -19.5,
+   "M_delta": -6.6,
+   "min_20ms_db": -27.4,
+   "sample_step_at_cut": 0.006,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 667,
+   "rms_20ms_pre_db": [
+    -19.1,
+    -16.6,
+    -15.0,
+    -20.5,
+    -24.1
+   ],
+   "rms_20ms_post_db": [
+    -23.1,
+    -20.5,
+    -22.0,
+    -16.2,
+    -14.5
+   ],
+   "M_pre": -14.9,
+   "M_post": -15.5,
+   "M_delta": -0.6,
+   "min_20ms_db": -24.1,
+   "sample_step_at_cut": 0.0157,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 751,
+   "rms_20ms_pre_db": [
+    -17.7,
+    -21.1,
+    -23.4,
+    -22.4,
+    -24.3
+   ],
+   "rms_20ms_post_db": [
+    -20.4,
+    -17.2,
+    -13.5,
+    -12.2,
+    -13.4
+   ],
+   "M_pre": -15.1,
+   "M_post": -13.3,
+   "M_delta": 1.8,
+   "min_20ms_db": -24.3,
+   "sample_step_at_cut": 0.0132,
+   "hf_click_within_1.5f": [
+    [
+     31315,
+     751.6,
+     32.1,
+     -6.7
+    ]
+   ]
+  },
+  {
+   "f": 882.4,
+   "rms_20ms_pre_db": [
+    -25.7,
+    -24.8,
+    -22.1,
+    -22.2,
+    -20.3
+   ],
+   "rms_20ms_post_db": [
+    -21.3,
+    -21.9,
+    -23.3,
+    -23.2,
+    -25.6
+   ],
+   "M_pre": -16.0,
+   "M_post": -16.9,
+   "M_delta": -0.8,
+   "min_20ms_db": -25.7,
+   "sample_step_at_cut": 0.0261,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 893,
+   "rms_20ms_pre_db": [
+    -22.1,
+    -23.8,
+    -23.6,
+    -24.2,
+    -22.1
+   ],
+   "rms_20ms_post_db": [
+    -15.6,
+    -14.0,
+    -16.8,
+    -17.2,
+    -16.3
+   ],
+   "M_pre": -18.9,
+   "M_post": -13.0,
+   "M_delta": 5.9,
+   "min_20ms_db": -24.2,
+   "sample_step_at_cut": 0.0138,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 997,
+   "rms_20ms_pre_db": [
+    -23.4,
+    -24.0,
+    -23.1,
+    -22.2,
+    -22.4
+   ],
+   "rms_20ms_post_db": [
+    -22.2,
+    -23.3,
+    -24.7,
+    -20.9,
+    -15.5
+   ],
+   "M_pre": -20.2,
+   "M_post": -12.5,
+   "M_delta": 7.7,
+   "min_20ms_db": -24.7,
+   "sample_step_at_cut": 0.0019,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 1081,
+   "rms_20ms_pre_db": [
+    -21.5,
+    -23.2,
+    -23.5,
+    -23.0,
+    -22.8
+   ],
+   "rms_20ms_post_db": [
+    -23.9,
+    -23.0,
+    -23.9,
+    -22.0,
+    -16.3
+   ],
+   "M_pre": -19.1,
+   "M_post": -13.7,
+   "M_delta": 5.4,
+   "min_20ms_db": -23.9,
+   "sample_step_at_cut": 0.0253,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 1181,
+   "rms_20ms_pre_db": [
+    -21.6,
+    -15.7,
+    -13.8,
+    -18.9,
+    -17.8
+   ],
+   "rms_20ms_post_db": [
+    -17.7,
+    -15.9,
+    -17.6,
+    -20.2,
+    -22.8
+   ],
+   "M_pre": -13.2,
+   "M_post": -13.5,
+   "M_delta": -0.2,
+   "min_20ms_db": -22.8,
+   "sample_step_at_cut": 0.0101,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 1242,
+   "rms_20ms_pre_db": [
+    -16.4,
+    -15.4,
+    -16.9,
+    -14.2,
+    -14.1
+   ],
+   "rms_20ms_post_db": [
+    -15.3,
+    -18.0,
+    -22.7,
+    -23.2,
+    -13.3
+   ],
+   "M_pre": -14.9,
+   "M_post": -12.9,
+   "M_delta": 2.1,
+   "min_20ms_db": -23.2,
+   "sample_step_at_cut": 0.0245,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 1379,
+   "rms_20ms_pre_db": [
+    -16.1,
+    -16.0,
+    -15.6,
+    -16.0,
+    -16.0
+   ],
+   "rms_20ms_post_db": [
+    -16.6,
+    -22.4,
+    -18.5,
+    -14.5,
+    -16.8
+   ],
+   "M_pre": -13.6,
+   "M_post": -14.2,
+   "M_delta": -0.6,
+   "min_20ms_db": -22.4,
+   "sample_step_at_cut": 0.0156,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 1449,
+   "rms_20ms_pre_db": [
+    -21.8,
+    -22.1,
+    -22.0,
+    -23.5,
+    -22.0
+   ],
+   "rms_20ms_post_db": [
+    -20.0,
+    -21.1,
+    -23.8,
+    -23.5,
+    -22.7
+   ],
+   "M_pre": -18.6,
+   "M_post": -15.0,
+   "M_delta": 3.5,
+   "min_20ms_db": -23.8,
+   "sample_step_at_cut": 0.0074,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 1600,
+   "rms_20ms_pre_db": [
+    -20.5,
+    -18.6,
+    -19.6,
+    -17.8,
+    -17.8
+   ],
+   "rms_20ms_post_db": [
+    -17.7,
+    -16.9,
+    -15.4,
+    -18.6,
+    -17.6
+   ],
+   "M_pre": -14.7,
+   "M_post": -13.5,
+   "M_delta": 1.2,
+   "min_20ms_db": -20.5,
+   "sample_step_at_cut": 0.0403,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 1710,
+   "rms_20ms_pre_db": [
+    -21.4,
+    -20.4,
+    -20.1,
+    -16.0,
+    -18.6
+   ],
+   "rms_20ms_post_db": [
+    -18.5,
+    -18.8,
+    -20.1,
+    -25.1,
+    -18.6
+   ],
+   "M_pre": -14.5,
+   "M_post": -14.5,
+   "M_delta": -0.0,
+   "min_20ms_db": -25.1,
+   "sample_step_at_cut": 0.0535,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 1811,
+   "rms_20ms_pre_db": [
+    -17.6,
+    -18.9,
+    -17.8,
+    -17.5,
+    -14.8
+   ],
+   "rms_20ms_post_db": [
+    -13.6,
+    -15.6,
+    -14.9,
+    -15.3,
+    -15.0
+   ],
+   "M_pre": -13.6,
+   "M_post": -14.8,
+   "M_delta": -1.2,
+   "min_20ms_db": -18.9,
+   "sample_step_at_cut": 0.0146,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 1850,
+   "rms_20ms_pre_db": [
+    -17.2,
+    -18.1,
+    -17.4,
+    -16.8,
+    -22.2
+   ],
+   "rms_20ms_post_db": [
+    -20.7,
+    -16.3,
+    -17.7,
+    -18.2,
+    -14.6
+   ],
+   "M_pre": -16.1,
+   "M_post": -12.4,
+   "M_delta": 3.7,
+   "min_20ms_db": -22.2,
+   "sample_step_at_cut": 0.0307,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 1987,
+   "rms_20ms_pre_db": [
+    -20.7,
+    -21.7,
+    -20.0,
+    -17.6,
+    -16.8
+   ],
+   "rms_20ms_post_db": [
+    -17.0,
+    -18.2,
+    -17.4,
+    -16.2,
+    -15.2
+   ],
+   "M_pre": -14.7,
+   "M_post": -12.6,
+   "M_delta": 2.1,
+   "min_20ms_db": -21.7,
+   "sample_step_at_cut": 0.0746,
+   "hf_click_within_1.5f": []
+  },
+  {
+   "f": 2092,
+   "rms_20ms_pre_db": [
+    -20.2,
+    -22.7,
+    -22.0,
+    -19.5,
+    -24.0
+   ],
+   "rms_20ms_post_db": [
+    -21.7,
+    -21.5,
+    -22.4,
+    -21.6,
+    -22.1
+   ],
+   "M_pre": -18.7,
+   "M_post": -20.6,
+   "M_delta": -1.9,
+   "min_20ms_db": -24.0,
+   "sample_step_at_cut": 0.0235,
+   "hf_click_within_1.5f": []
+  }
+ ],
+ "v6_sample_step_p999": 0.3489
+}
