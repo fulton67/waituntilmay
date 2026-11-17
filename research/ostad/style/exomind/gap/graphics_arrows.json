@@ -1,0 +1,286 @@
+{
+ "render": "Downloads/Ostad - Exomind and total skin health (YouTube v6).mp4 (2166 f, 24 fps, 1920x1080)",
+ "method": "arrows: pixels within RGB distance 70 (38 on the B18 teal film) of #37a9e8 in a per-arrow ROI; skeleton + distance transform for stroke width; tip = extreme mask pixel along the arrow direction; text: EasyOCR via research/ostad/style/tools/ocr_track.read at the reference settings (detect 640/360 px, read 960/540 px), box height scaled to a 1080 short side; reuse: tools/reuse_check.py on the 20 key frames",
+ "arrows": [
+  {
+   "beat": "B02",
+   "frame": 151,
+   "mask_px": 3062,
+   "mean_rgb": [
+    57,
+    167,
+    230
+   ],
+   "dRGB_from_brand_blue": 3.2,
+   "tip_px": [
+    1453,
+    583
+   ],
+   "shaft_w_px_60_140_from_tip": 8.4,
+   "shaft_w_px_140_300_from_tip": 7.6,
+   "head_width_px": 27.5,
+   "head_len_px_proxy": 41.9,
+   "tip_vs_code_to_px": 2.5,
+   "target": "applicator coil pad rim"
+  },
+  {
+   "beat": "B03a",
+   "frame": 245,
+   "mask_px": 4450,
+   "mean_rgb": [
+    55,
+    167,
+    231
+   ],
+   "dRGB_from_brand_blue": 1.7,
+   "tip_px": [
+    851,
+    288
+   ],
+   "shaft_w_px_60_140_from_tip": 8.0,
+   "shaft_w_px_140_300_from_tip": 8.0,
+   "head_width_px": 53.0,
+   "head_len_px_proxy": 41.8,
+   "target": "MIND window rim (r 130+16)"
+  },
+  {
+   "beat": "B03b",
+   "frame": 245,
+   "mask_px": 583,
+   "mean_rgb": [
+    56,
+    168,
+    232
+   ],
+   "dRGB_from_brand_blue": 1.6,
+   "tip_px": [
+    1185,
+    290
+   ],
+   "shaft_w_px_60_140_from_tip": 2.0,
+   "shaft_w_px_140_300_from_tip": null,
+   "head_width_px": 33.1,
+   "head_len_px_proxy": 41.6,
+   "target": "OUR APPROACH window rim"
+  },
+  {
+   "beat": "B03c",
+   "frame": 245,
+   "mask_px": 608,
+   "mean_rgb": [
+    56,
+    168,
+    232
+   ],
+   "dRGB_from_brand_blue": 1.6,
+   "tip_px": [
+    1537,
+    339
+   ],
+   "shaft_w_px_60_140_from_tip": 2.8,
+   "shaft_w_px_140_300_from_tip": null,
+   "head_width_px": 23.1,
+   "head_len_px_proxy": 41.8,
+   "target": "YOUR SKIN window rim"
+  },
+  {
+   "beat": "B07",
+   "frame": 740,
+   "mask_px": 2332,
+   "mean_rgb": [
+    55,
+    168,
+    230
+   ],
+   "dRGB_from_brand_blue": 2.2,
+   "tip_px": [
+    1644,
+    465
+   ],
+   "shaft_w_px_60_140_from_tip": 2.0,
+   "shaft_w_px_140_300_from_tip": 8.0,
+   "head_width_px": 33.8,
+   "head_len_px_proxy": 41.4,
+   "tip_to_target_edge_px": 3.0,
+   "tip_to_target_centre_px": 43.0,
+   "target": "Thu 17 10:30 slot"
+  },
+  {
+   "beat": "B16",
+   "frame": 1690,
+   "mask_px": 1221,
+   "mean_rgb": [
+    55,
+    168,
+    232
+   ],
+   "dRGB_from_brand_blue": 1.4,
+   "tip_px": [
+    1078,
+    490
+   ],
+   "shaft_w_px_60_140_from_tip": 8.0,
+   "shaft_w_px_140_300_from_tip": 2.0,
+   "head_width_px": 33.5,
+   "head_len_px_proxy": 41.9,
+   "tip_vs_code_to_px": 2.0,
+   "tip_to_target_edge_px": 10.0,
+   "tip_to_target_centre_px": 160.0,
+   "target": "'Emotional stress' row label"
+  },
+  {
+   "beat": "B18",
+   "frame": 1845,
+   "mask_px": 2247,
+   "mean_rgb": [
+    55,
+    168,
+    232
+   ],
+   "dRGB_from_brand_blue": 1.0,
+   "tip_px": [
+    1823,
+    226
+   ],
+   "shaft_w_px_60_140_from_tip": 7.2,
+   "shaft_w_px_140_300_from_tip": 7.2,
+   "head_width_px": 31.7,
+   "head_len_px_proxy": 41.6,
+   "target": "lit neuron soma"
+  },
+  {
+   "beat": "B20",
+   "frame": 2065,
+   "mask_px": 938,
+   "mean_rgb": [
+    54,
+    167,
+    230
+   ],
+   "dRGB_from_brand_blue": 2.9,
+   "tip_px": [
+    1421,
+    370
+   ],
+   "shaft_w_px_60_140_from_tip": 5.6,
+   "shaft_w_px_140_300_from_tip": null,
+   "head_width_px": 23.0,
+   "head_len_px_proxy": 41.1,
+   "tip_vs_code_to_px": 3.0,
+   "tip_to_target_edge_px": 19.0,
+   "tip_to_target_centre_px": 238.3,
+   "target": "quote card left edge"
+  },
+  {
+   "beat": "B17a",
+   "frame": 1795,
+   "mask_px": 4456,
+   "mean_rgb": [
+    75,
+    174,
+    229
+   ],
+   "dRGB_from_brand_blue": 20.9,
+   "tip_px": [
+    1150,
+    298
+   ],
+   "shaft_w_px_60_140_from_tip": 8.0,
+   "shaft_w_px_140_300_from_tip": 6.0,
+   "head_width_px": 33.6,
+   "head_len_px_proxy": 41.2,
+   "target": "frontal cortex (field region)"
+  },
+  {
+   "beat": "B12tick",
+   "frame": 1225,
+   "mask_px": 289,
+   "mean_rgb": [
+    56,
+    168,
+    233
+   ],
+   "dRGB_from_brand_blue": 2.0,
+   "tip_px": [
+    446,
+    690
+   ],
+   "shaft_w_px_60_140_from_tip": null,
+   "shaft_w_px_140_300_from_tip": null,
+   "head_width_px": 20.0,
+   "head_len_px_proxy": 23.0,
+   "target": "timeline line"
+  }
+ ],
+ "ref_arrows": {
+  "GMu3_f404_curved_callout_shaft_px": {
+   "median": 2.8,
+   "p90": 4.0
+  },
+  "Dbh_f1140_arc_dashes_px": {
+   "median": 8.0,
+   "p90": 8.8
+  }
+ },
+ "collisions": {
+  "B02_arrow_px_inside_FDA_chip": 577,
+  "B02_path_len_in_chip_px": 123,
+  "B07_arrow_px_inside_Wed16_1030_slot": 681,
+  "B07_path_len_in_slot_px": 114
+ },
+ "text_ocr_1080": {
+  "v6": {
+   "boxes": 211,
+   "min": 18,
+   "p5": 24,
+   "share_le_24_pct": 10.4,
+   "median_boxes_per_frame": 7
+  },
+  "rosacea_v5": {
+   "boxes": 25,
+   "min": 18,
+   "p5": 24,
+   "share_le_24_pct": 20.0,
+   "median_boxes_per_frame": 2
+  },
+  "refs_share_le_24_pct": {
+   "evident_yt": 10.4,
+   "ro": 25.1,
+   "glp1": 23.2,
+   "drjc": 3.9,
+   "colin": 3.5,
+   "grove": 3.0
+  },
+  "refs_p5_px": {
+   "evident_yt": 24,
+   "ro": 18,
+   "glp1": 24,
+   "drjc": 36,
+   "colin": 31.5,
+   "grove": 36
+  }
+ },
+ "reuse_check_nearest": {
+  "B01": 0.258,
+  "B02": 0.227,
+  "B03": 0.203,
+  "B04": 0.25,
+  "B05": 0.273,
+  "B06": 0.242,
+  "B07": 0.242,
+  "B08": 0.281,
+  "B09": 0.203,
+  "B10": 0.234,
+  "B11": 0.234,
+  "B12": 0.227,
+  "B13": 0.273,
+  "B14": 0.195,
+  "B15": 0.242,
+  "B16": 0.273,
+  "B17": 0.266,
+  "B18": 0.281,
+  "B19": 0.195,
+  "B20": 0.266,
+  "threshold": 0.1069
+ }
+}
