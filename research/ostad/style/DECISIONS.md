@@ -508,6 +508,30 @@ Design and tooling only; nothing is built or rendered here. Files: `exomind/BEAT
   - The bank (`measure/_reuse/bank.npz`) is gitignored and rebuilt from local renders. `calibration.json` is committed.
 - **Not done here (builder's part):** Arrow.tsx, the type system, OstadYT6, stills and render; the confirmed column of USAGE_AUDIT; tracking error and face-overlap measures; evolution_sheet.jpg.
 
+## 14j. ExoMind v6 components: brand/remotion/src/exo6/, the 4 ExoMind-only animations, the type pairing (2026-11-17)
+- **Where:** `brand/remotion/src/exo6/`. One file per device, frames as props (defaults = the lab's local frames: beats.json f minus the beat start). Arrows and text entries are imported from `devices/Arrow.tsx` and `devices/TypeEntry.tsx` (the parallel agent's), never re-implemented. Lab: the `Exo6Lab` composition renders one item alone (`labItems.tsx`); stills and clips go to `research/ostad/style/exomind/lab/`, which is now gitignored (they contain BTL, practice and patient imagery).
+- **Font decision: Cormorant Garamond 500 (display) + Neue Haas Grotesk Text 500/400 (labels, chips, UI).** Both are in the Adobe kit (vzz0hgt); renders hold on `useElza` until both are loaded. Helvetica Neue is not in the kit, and the all-NHG look of v4.1 wasn't a favourite, so the display line moves to the serif while every functional label stays NHG. One look across the title (wordmark-depth-sandwich), the 4 section cards and the end card.
+- **The 4 ExoMind-only animations** (each moves for its whole time on screen; clips in lab/):
+  - **field-through-skull (B17):** Flora glass head (head_a.png) feathered from its own blurred plate, turning 4 deg (coil 1.5x the parallax); a cyan cone and pad bloom swell on every 12 f pulse; 3 orbit-arc Arrows from the pad into the skull step 6 px and dip on the pulse; the prefrontal region lights (region-light-on-model, 6 f, breathes on the pulse); the coil's light strip answers each pulse; 'Prefrontal cortex ⚠' box-slam; MOA label.
+  - **rewire-trace (B18):** MOA film 59.0-60.6 s at 1x; a route-trace Arrow (27 f) whose 4 points are keyframed on the film at 59.0 s and 60.6 s and interpolated per frame, so it rides the moving neurons; a travelling glow on the growing end, the neighbour blooms when the head lands; 'Neural connectivity' chip; a blurred opaque band hides the film's burned-in subtitle (which mentions OCD); MOA label.
+  - **pulse-train-synapse (B19):** topic-glass-panel (new look, reusable) with a scrolling spike train (12 f = the coil rhythm), bouton releasing 6-9 vesicles per spike across the cleft in 10 f, receptors flashing; noise-clears (reusable) settles on 'focused'; 'focused, in flow' ghost-to-lit; 'Synapse ⚠' chip; MOA label. Vesicle circles carry `// lint-ok`.
+  - **session-timeline (B12):** IMG_3714 in 3 planes (blurred room 0.3, sharp photo 0.6, staff+console polygon-masked 1.0), push 1.00-1.06; Ostad in portrait-pip-circle; timeline-markers with Arrow marker-ticks Arrive / Session / Walk out and 'about 20-30 min ⚠'.
+- **Assets:**
+  - **iCloud originals unreachable** ('Photo Library has not finished indexing'), so the clinic photos are the 768x1024 previews. Session-timeline never upscales past 1.06x, and the planes hide the low resolution.
+  - **Applicator cut-out** made locally by GrabCut from BTL Applicator_0082 (`public/exomind-skin/btl/applicator_0082_cut.png`). The beat sheet named 0429 and head_B; 0082 matched head_a's angle better.
+  - **Web-size copies** of the BTL model stills are in `btl/web/`, plus a face crop of Model3_0249 for the donut chip.
+  - Nothing new is committed: everything sits under the gitignored `public/`.
+- **AI shots (for the client):** Flora head_a.png (B17), and head_A_glass_brain.png (B03 Mind window, B13 mind chip, B15 right panel).
+- **Client approval needed before publishing:** P0006 in IMG_3712 / IMG_3714 (B03, B12, B13), with the staff name tag readable in IMG_3714 (B12); P0001 in the consult clip (B04); practice footage office_team / office_treat (B11, B15); BTL images and the MOA film (licensed).
+- **Compliance on screen:** 'Exomind does not directly treat skin conditions.' on B03, B13 and B20. The MOA label is on B17, B18 and B19. ⚠ marks the clinical text: Prefrontal cortex, Synapse, about 20-30 min, and the FDA chip ('FDA-cleared: major depressive disorder'). No sleep, anxiety or OCD claim appears anywhere.
+- **Checks:**
+  - `lint_compositions.py brand/remotion/src/exo6/*.tsx`: PASS (0 violations, 29 files). `tsc --noEmit`: PASS.
+  - scdet (threshold 12) on the 4 clips: the only detections are at frame 1 of rewire-trace and session-timeline, which are the designed hard cuts into the footage.
+- **Not built / open:**
+  - wordmark-depth-sandwich is built, but B16's light-ribbon on the head needs the track and matte, so it is left to the builder.
+  - EndCard: shortened to 340 px with a straight-pointer Arrow down toward the description (lands after the lines).
+  - Lab presenter placement stands in for the real matte and track: callout #1 in B03 takes a PtSrc, so the builder passes `follow(track, "headTop", ...)`.
+
 ## 14k. Arrow system and type-entry system: devices/Arrow.tsx and devices/TypeEntry.tsx, measured against the references (2026-11-17)
 
 These replace the dot-and-line callout and v4.1's single 48 f fade-up (EXOMIND_REDO §3 "Arrows", DESIGN_PER_BEAT §4–5). Usage is in `brand/remotion/src/devices/README.md`. The proof is in `exomind/ARROW_TYPE_PROOF.md`, with the raw numbers in `exomind/arrow_type_proof.json`. Both were measured by `tools/arrow_type_proof.py` with the reference method (graphic_track boxes and opacity, easing_fit.fit_track) on renders of the new `ArrowTypeLab`.
