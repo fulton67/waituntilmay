@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, OffthreadVideo, useCurrentFrame } from "remotion";
-import { C, cl, ease, lerp, p, text } from "./look";
+import { C, cl, ease, lerp, p, text, io } from "./look";
 import { Chip, src } from "./parts";
 
 // card-full-morph (B04 f263-413). Ref: Colin f300-330 (a footage card grows and back on one curve). Naim's review of v6 (DECISIONS
@@ -17,7 +17,7 @@ export type MorphProps = {
 export const CardFullMorph: React.FC<MorphProps> = ({ start = 30, fullAt = 51, chipAt = 78, backAt = 123, exitAt = 143, clip = "exomind-skin/clinic/consult_wide.mp4", chip = "In our office",
   card = { x: 1080, y: 150, w: 620, h: 776 }, big = { x: 640, y: 36, w: 1240, h: 900 }, surround }) => {
   const f = useCurrentFrame();
-  const arrive = p(f, start, 14, ease.arrive);
+  const arrive = p(f, start, 10, ease.arrive);
   const m = p(f, fullAt, 26, ease.morph) * (1 - p(f, backAt, 26, ease.morph)); // 0 card .. 1 big window
   const o = p(f, exitAt, 7, ease.exit);
   const box = { x: lerp(card.x, big.x, m), y: lerp(card.y, big.y, m), w: lerp(card.w, big.w, m), h: lerp(card.h, big.h, m) };
@@ -28,7 +28,7 @@ export const CardFullMorph: React.FC<MorphProps> = ({ start = 30, fullAt = 51, c
     <AbsoluteFill>
       {surround}
       {f >= start && (
-        <div style={{ position: "absolute", left: box.x + (1 - arrive) * 60, top: box.y + o * 7, width: box.w, height: box.h, borderRadius: r, overflow: "hidden", opacity: arrive * (1 - o),
+        <div style={{ position: "absolute", left: box.x + (1 - io(arrive)) * 24, top: box.y + o * 7, width: box.w, height: box.h, borderRadius: r, overflow: "hidden", opacity: arrive * (1 - o),
           boxShadow: "0 40px 70px -30px rgba(32,37,50,.5), 0 4px 12px rgba(32,37,50,.14), 0 0 0 1px rgba(255,255,255,.7)", background: C.navy }}>
           <OffthreadVideo src={src(clip)} muted style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transform: `scale(${push})`, transformOrigin: "50% 45%" }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0) 62%, rgba(14,18,26,.32))" }} />

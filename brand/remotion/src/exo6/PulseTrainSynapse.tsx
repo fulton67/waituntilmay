@@ -18,7 +18,7 @@ import { NoiseClears } from "./NoiseClears";
 // Defaults = the lab's local frames (beat start 1850 -> 0).
 export type SynapseProps = {
   start?: number; trainFrom?: number; releaseFrom?: number; lineAt?: number; calmAt?: number; wordTimes?: number[]; exitAt?: number;
-  x?: number; y?: number; line?: string;
+  x?: number; y?: number; line?: string; lineColor?: string; moa?: boolean; // gap round 1: white line over the film; the window carries the MOA label
 };
 
 const W = 760, H = 470; // panel
@@ -29,7 +29,7 @@ const spike = (x: number, base: number, k = 1) =>
   `M${x - 26} ${base} L${x - 10} ${base} L${x - 6} ${base + 5 * k} L${x} ${base - 34 * k} L${x + 5} ${base + 9 * k} L${x + 12} ${base + 3 * k} L${x + 26} ${base}`;
 
 export const PulseTrainSynapse: React.FC<SynapseProps> = ({ start = 1, trainFrom = 6, releaseFrom = 27, lineAt = 50, calmAt = 89, wordTimes = [88, 88, 110], exitAt = 129,
-  x = 1040, y = 250, line = "focused, in flow" }) => {
+  x = 1040, y = 250, line = "focused, in flow", lineColor = C.ink, moa = true }) => {
   const f = useCurrentFrame();
   if (f < start) return null;
   const tTrain = f - trainFrom;
@@ -111,9 +111,9 @@ export const PulseTrainSynapse: React.FC<SynapseProps> = ({ start = 1, trainFrom
         </div>
       </TopicGlassPanel>
       <div style={{ position: "absolute", left: x + 4, top: y + H + 34 }}>
-        <TypeEntry entry="type-ghost-to-lit" start={lineAt} text={line} wordTimes={wordTimes} exitAt={exitAt} style={{ fontFamily: SERIF, fontWeight: 500, fontSize: 64, color: C.ink }} />
+        <TypeEntry entry="type-ghost-to-lit" start={lineAt} text={line} wordTimes={wordTimes} exitAt={exitAt} style={{ fontFamily: SERIF, fontWeight: 500, fontSize: 64, color: lineColor, textShadow: lineColor === C.ink ? undefined : "0 2px 14px rgba(0,0,0,.5)" }} />
       </div>
-      <MoaLabel at={start} />
+      {moa && <MoaLabel at={start} />}
     </>
   );
 };

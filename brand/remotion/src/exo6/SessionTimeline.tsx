@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Img, useCurrentFrame } from "remotion";
-import { cl, ease, p } from "./look";
+import { cl, ease, p, io } from "./look";
 import { src } from "./parts";
 import { PortraitPipCircle } from "./PortraitPipCircle";
 import { TimelineMarkers, type Marker } from "./TimelineMarkers";
@@ -39,13 +39,13 @@ export const SessionTimeline: React.FC<SessionProps> = ({ start = 0, cutAt = 1, 
   const u = ease.blank(cl((f - cutAt) / Math.max(1, end - cutAt)));
   const push = (rate: number) => 1 + 0.06 * rate * u;
   const win = { x: 1180, y: 40, w: 640, h: 853 };
-  const q = p(f, cutAt, 14, ease.arrive), o = p(f, end + 1, 7, ease.exit);
+  const q = p(f, cutAt, 10, ease.arrive), o = p(f, end + 1, 7, ease.exit);
   const layer = (rate: number, extra: React.CSSProperties = {}) => ({
     position: "absolute" as const, left: 0, top: 0, width: win.w, height: win.h, transform: `scale(${push(rate)}) translateX(${-10 * rate * u}px)`, transformOrigin: "50% 55%", ...extra,
   });
   return (
     <AbsoluteFill>
-      <div style={{ position: "absolute", left: win.x + (1 - q) * 40, top: win.y + o * 7, width: win.w, height: win.h, borderRadius: 24, overflow: "hidden", opacity: q * (1 - o), background: "#d8d2cc",
+      <div style={{ position: "absolute", left: win.x + (1 - io(q)) * 24, top: win.y + o * 7, width: win.w, height: win.h, borderRadius: 24, overflow: "hidden", opacity: q * (1 - o), background: "#d8d2cc",
         boxShadow: "0 40px 70px -30px rgba(32,37,50,.5), 0 4px 12px rgba(32,37,50,.14), 0 0 0 1px rgba(255,255,255,.7)" }}>
         <div style={layer(0.6)}><Img src={src(photo)} style={{ width: "100%", height: "100%" }} /></div>
         <div style={layer(1.0, { WebkitMaskImage: maskUri, maskImage: maskUri, WebkitMaskSize: "100% 100%", maskSize: "100% 100%" })}><Img src={src(photo)} style={{ width: "100%", height: "100%" }} /></div>

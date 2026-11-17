@@ -13,7 +13,7 @@ export const TopicGlassPanel: React.FC<{
   const f = useCurrentFrame();
   if (f < start) return null;
   const t = f - start;
-  const q = p(f, start, 14, ease.arrive), o = p(f, exitAt, 7, ease.exit);
+  const q = p(f, start, 10, ease.arrive), o = p(f, exitAt, 7, ease.exit);
   const cq = p(f, chipAt ?? start + 2, 5, ease.arrive);
   return (
     <div style={{ position: "absolute", left: x, top: y + drift(f, 4, 77) + o * 7, width: w, height: h, opacity: q * (1 - o), transform: `scale(${0.97 + 0.03 * q})` }}>

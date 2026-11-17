@@ -1,6 +1,6 @@
 import React from "react";
 import { useCurrentFrame } from "remotion";
-import { C, caps, cl, drift, ease, p, text } from "./look";
+import { C, caps, cl, drift, ease, p, text, io } from "./look";
 import { DrawnCircle, Glass } from "./parts";
 
 // calendar-date-circle. Refs: Are.na 31223791 (date type); the rosacea "circle the exact spot" method applied to time (ROS f235).
@@ -27,12 +27,12 @@ export const CalendarDateCircle: React.FC<{
   const f = useCurrentFrame();
   if (f < start) return null;
   const t = f - start;
-  const i = p(f, start, 14, ease.arrive), o = p(f, exitAt, 7, ease.exit);
+  const i = p(f, start, 10, ease.arrive), o = p(f, exitAt, 7, ease.exit);
   const fill = p(f, circleAt + 6, 8, ease.arrive);
   const cw = (CAL.w - 2 * CAL.padX - (CAL.cols - 1) * CAL.gap) / CAL.cols;
   const dx = drift(f, 4, 180) - t * 0.0;
   return (
-    <div style={{ position: "absolute", left: x + dx, top: y + (1 - i) * 16 + o * 7, width: CAL.w, height: CAL.h, opacity: i * (1 - o) }}>
+    <div style={{ position: "absolute", left: x + dx, top: y + (1 - io(i)) * 16 + o * 7, width: CAL.w, height: CAL.h, opacity: i * (1 - o) }}>
       <Glass r={26} t={t} style={{ inset: 0 }}>
         <div style={{ position: "absolute", left: CAL.padX, top: 30, right: CAL.padX, display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
           <span style={{ ...caps(26, C.ink2) }}>{month}</span>

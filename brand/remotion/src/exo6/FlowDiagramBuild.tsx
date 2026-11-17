@@ -16,14 +16,17 @@ export type FlowProps = {
   start?: number; from?: PtSrc; arrows?: number[]; words?: number[]; discAt?: number; exitAt?: number; nodes?: FlowNode[]; line?: string; d?: number;
 };
 
+// gap round 1 (graphics_arrows.md gap 1, DECISIONS 14o): no Flora brain and no BTL stock face. The mind is HIS head (callout #1 leaves
+// his temple, tracked); Our approach = the Exomind unit (BTL cut-out, the B02 subject's 2nd and last beat); Your skin
+// = a real treated-skin result from the practice (clinic-library row 741: the 'after' half of a cheek before/after, lower face only, no
+// eyes, no patient code; on the client-approval list). Windows are 320 px and 540 px apart so every connector is >= 120 px long.
 const NODES: FlowNode[] = [
-  { file: "exomind-skin/flora/head_A_glass_brain.png", iw: 2752, ih: 1536, fx: 1180, fy: 600, z: 0.23, x: 860, y: 200, label: "Mind" },
-  { file: "exomind-skin/clinic/IMG_3712.jpg", iw: 768, ih: 1024, fx: 320, fy: 440, z: 0.62, x: 1200, y: 130, label: "Our approach" },
-  { file: "exomind-skin/btl/web/model_1012.jpg", iw: 1800, ih: 1013, fx: 905, fy: 640, z: 0.55, x: 1540, y: 200, label: "Your skin" },
+  { file: "exomind-skin/btl/unit_cut.png", iw: 2400, ih: 1265, fx: 1250, fy: 640, z: 0.2, x: 960, y: 150, label: "Our approach" },
+  { file: "exomind-skin/clinic/skin_after_00741.jpg", iw: 1024, ih: 1024, fx: 470, fy: 760, z: 0.62, x: 1500, y: 150, label: "Your skin" },
 ];
 
-export const FlowDiagramBuild: React.FC<FlowProps> = ({ start = 0, from = { x: 230, y: 150 }, arrows = [28, 41, 71], words = [64, 71, 78], discAt = 79, exitAt = 95,
-  nodes = NODES, line = "total skin health", d = 260 }) => {
+export const FlowDiagramBuild: React.FC<FlowProps> = ({ start = 0, from = { x: 230, y: 150 }, arrows = [29, 42], words = [66, 72, 79], discAt = 79, exitAt = 94,
+  nodes = NODES, line = "total skin health", d = 320 }) => {
   const f = useCurrentFrame();
   if (f < start) return null;
   const c = (n: FlowNode) => ({ x: n.x + d / 2, y: n.y + d / 2 });
@@ -36,7 +39,6 @@ export const FlowDiagramBuild: React.FC<FlowProps> = ({ start = 0, from = { x: 2
   const ends: [PtSrc, PtSrc][] = [
     [from, (fr: number) => edge(c(nodes[0]), typeof from === "function" ? from(fr) : from, R)],
     [edge(c(nodes[0]), c(nodes[1]), R), edge(c(nodes[1]), c(nodes[0]), R)],
-    [edge(c(nodes[1]), c(nodes[2]), R), edge(c(nodes[2]), c(nodes[1]), R)],
   ];
   return (
     <>
@@ -48,12 +50,12 @@ export const FlowDiagramBuild: React.FC<FlowProps> = ({ start = 0, from = { x: 2
         );
       })}
       {ends.map(([a, b], i) => (
-        <Arrow key={i} variant="curved-callout" from={a} to={b} start={arrows[i]} end={exitAt + 7} color={C.blue} bend={i === 0 ? -0.3 : -0.36} />
+        <Arrow key={i} variant="curved-callout" from={a} to={b} start={arrows[i]} end={exitAt + 7} color={C.blue} bend={i === 0 ? -0.22 : -0.3} />
       ))}
-      <div style={{ position: "absolute", left: 860, top: 560, width: 940, textAlign: "center" }}>
+      <div style={{ position: "absolute", left: 900, top: 600, width: 960, textAlign: "center" }}>
         <TypeEntry entry="type-ghost-to-lit" start={start} text={line} wordTimes={words} exitAt={exitAt} style={{ fontFamily: SERIF, fontWeight: 500, fontSize: 76, color: C.ink }} />
       </div>
-      <Disclaimer at={discAt} out={exitAt} text={SKIN_DISCLAIMER} style={{ left: 860, top: 670, width: 940, textAlign: "center" }} />
+      <Disclaimer at={discAt} out={exitAt} text={SKIN_DISCLAIMER} style={{ left: 900, top: 710, width: 960, textAlign: "center" }} />
     </>
   );
 };

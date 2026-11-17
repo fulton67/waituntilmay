@@ -38,8 +38,8 @@ export const FieldThroughSkull: React.FC<FieldProps> = ({ start = 30, headIn = 3
   const turn = 4 * ease.blank(life); // degrees, over the beat
   const hx = -turn * 3.2; // px the head layer travels with the turn
   const cx = hx * 1.5; // the coil is nearer: 1.5x
-  const fade = p(f, headIn, 14, ease.arrive);
-  const descend = p(f, headIn, 14, ease.arrive);
+  const fade = p(f, headIn, 10, ease.arrive);
+  const descend = p(f, headIn, 10, ease.arrive);
   const n = f >= pulseFrom ? Math.floor((f - pulseFrom) / 12) : -1; // pulse index
   const ph = f >= pulseFrom ? (f - pulseFrom) % 12 : 99; // frames since the last pulse
   const dip = ph < 4 ? ease.arrive(ph / 4) : ph < 12 ? 1 - ease.arrive((ph - 4) / 8) : 0; // 0..1..0 over a pulse

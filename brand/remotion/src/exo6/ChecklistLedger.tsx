@@ -1,6 +1,6 @@
 import React from "react";
 import { useCurrentFrame } from "remotion";
-import { C, caps, cl, ease, p, text } from "./look";
+import { C, caps, cl, ease, p, text, io } from "./look";
 import { Glass, Tick } from "./parts";
 
 // checklist-ledger. Ref: DDOS f1686-1745 (Moment C: ruled rows wipe 18 f @30 = 14 f @24 on `sweep`, a tick +1 f after the word).
@@ -18,7 +18,7 @@ export const ChecklistLedger: React.FC<{
   const n = rows.length + (open ? 1 : 0);
   const RH = 118, TOP = 178, H = TOP + n * RH + 30;
   const s = 1 + 0.008 * ease.blank(cl(t / Math.max(1, (end ?? start + 80) - start)));
-  const head = p(f, start, 14, ease.arrive);
+  const head = p(f, start, 10, ease.arrive);
   const leave = (k: number) => p(f, exitAt + (n - 1 - k), 7, ease.exit); // bottom-up
   return (
     <div style={{ position: "absolute", left: x, top: y, width: w, height: H, transform: `scale(${s})`, transformOrigin: "0% 0%", opacity: head * (1 - leave(0)) }}>
@@ -49,7 +49,7 @@ export const ChecklistLedger: React.FC<{
         const sw = open.sweepAt != null ? cl((f - open.sweepAt) / 16) : 0;
         const k = rows.length;
         return (
-          <div style={{ position: "absolute", left: 44, right: 44, top: TOP + k * RH, height: RH - 18, opacity: q * (1 - lv), transform: `translateX(${-(1 - q) * 0.028 * 1080}px)`,
+          <div style={{ position: "absolute", left: 44, right: 44, top: TOP + k * RH, height: RH - 18, opacity: q * (1 - lv), transform: `translateX(${-(1 - io(q)) * 0.028 * 1080}px)`,
             borderRadius: 18, border: `2px dashed ${C.blue}`, display: "flex", alignItems: "center", gap: 20, padding: "0 18px", overflow: "hidden" }}>
             <div style={{ width: 64, height: 64, borderRadius: 16, border: `2px dashed rgba(55,169,232,.6)`, display: "grid", placeItems: "center", ...text(30, 500, C.blue) }}>+</div>
             <div style={{ ...text(36, 500, C.blue) }}>{open.label}</div>

@@ -2,7 +2,7 @@ import React from "react";
 import { Img, useCurrentFrame } from "remotion";
 import { Arrow, type PtSrc } from "../devices/Arrow";
 import { TypeEntry } from "../devices/TypeEntry";
-import { C, SERIF, cl, drift, ease, p, text } from "./look";
+import { C, SERIF, cl, drift, ease, p, text, io } from "./look";
 import { Glass, src } from "./parts";
 
 // product-plate-reveal. Ref: ro yaFInenV3Eg f618-674 (a blurred plate, the product sharp by +52 f, a status chip lands last); the
@@ -12,7 +12,7 @@ import { Glass, src } from "./parts";
 // 1.00 -> 1.02 and 6 px left across its life; a floor reflection and a soft key light sit under it so it reads as an object.
 export const ProductPlateReveal: React.FC<{
   file: string; box: [number, number, number, number]; plateAt: number; imageAt: number; name: string; nameAt: number; chip?: React.ReactNode; chipAt?: number;
-  pointer?: { from: PtSrc; to: PtSrc; at: number; end: number }; exitAt?: number; end?: number; imgStyle?: React.CSSProperties;
+  pointer?: { from: PtSrc; to: PtSrc; at: number; end: number; weight?: number }; exitAt?: number; end?: number; imgStyle?: React.CSSProperties;
 }> = ({ file, box, plateAt, imageAt, name, nameAt, chip, chipAt = Infinity, pointer, exitAt = Infinity, end, imgStyle }) => {
   const f = useCurrentFrame();
   if (f < plateAt) return null;
@@ -23,7 +23,7 @@ export const ProductPlateReveal: React.FC<{
   const o = p(f, exitAt, 7, ease.exit);
   const life = cl(t / Math.max(1, (end ?? plateAt + 54) - plateAt));
   const s = 1 + 0.02 * ease.blank(life), dx = -6 * ease.blank(life);
-  const chipQ = p(f, chipAt, 14, ease.arrive);
+  const chipQ = p(f, chipAt, 10, ease.arrive);
   return (
     <>
       <div style={{ position: "absolute", left: x, top: y + o * 7, width: w, height: h, opacity: (1 - o) }}>
@@ -45,11 +45,11 @@ export const ProductPlateReveal: React.FC<{
           <TypeEntry entry="type-box-slam" start={nameAt} text={name} exitAt={exitAt} style={{ fontFamily: SERIF, fontWeight: 500, fontSize: 64, color: C.ink }} />
         </div>
         {chip && f >= chipAt && (
-          <div style={{ position: "absolute", left: 34, bottom: 34 + drift(f, 2, 90), opacity: chipQ * (1 - o), transform: `translateY(${(1 - chipQ) * 16}px)`,
+          <div style={{ position: "absolute", left: 34, bottom: 34 + drift(f, 2, 90), opacity: chipQ * (1 - o), transform: `translateY(${(1 - io(chipQ)) * 16}px)`,
             padding: "12px 20px", borderRadius: 999, background: C.navy, ...text(26, 500, "#fff"), whiteSpace: "nowrap", boxShadow: "0 10px 24px -10px rgba(32,37,50,.5)" }}>{chip}</div>
         )}
       </div>
-      {pointer && <Arrow variant="straight-pointer" from={pointer.from} to={pointer.to} start={pointer.at} end={pointer.end} color={C.blue} />}
+      {pointer && <Arrow variant="straight-pointer" from={pointer.from} to={pointer.to} start={pointer.at} end={pointer.end} color={C.blue} weight={pointer.weight} />}
     </>
   );
 };

@@ -51,12 +51,24 @@ export const D = D24;
 export const p = (frame: number, s: number, d: number, c: (x: number) => number = curve.arrive) =>
   d <= 0 ? (frame >= s ? 1 : 0) : c(cl((frame - s) / d));
 /** in with `arrive` (or a given curve) and out with `exit` (7 f): returns [in, out] */
-export const life = (frame: number, start: number, exitAt = Infinity, din = D24.arrive, cin = curve.arrive): [number, number] => [
+export const life = (frame: number, start: number, exitAt = Infinity, din = ARRIVE, cin = curve.arrive): [number, number] => [
   p(frame, start, din, cin), p(frame, exitAt, D24.exit, curve.exit),
 ];
 /** slow sinus drift, px; period in frames */
 export const drift = (frame: number, amp: number, period: number, phase = 0) => amp * Math.sin((2 * Math.PI * frame) / period + phase);
 export const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+// gap round 1 (DECISIONS 14o, motion_easing.md): entries on `arrive` 10 f, not the library's 14 f (settle ~7 f, Evident 7.2 f);
+// x/y travel rides `sweep` (in-out, velocity peak 41-46 %) on the same clock; `arrive` stays on opacity. Travel is the 16 px token.
+export const ARRIVE = 10;
+export const RISE = 16;
+const _arr = curve.arrive, _sw = curve.sweep;
+/** an `arrive` progress value -> the `sweep` progress at the same moment (so a position driven by io(q) eases in-out) */
+export const io = (q: number) => {
+  if (q <= 0) return 0; if (q >= 1) return 1;
+  let lo = 0, hi = 1;
+  for (let i = 0; i < 22; i++) { const m = (lo + hi) / 2; if (_arr(m) < q) lo = m; else hi = m; }
+  return _sw((lo + hi) / 2);
+};
 export const outBack = Easing.bezier(0.34, 1.4, 0.64, 1); // a 3-4 % overshoot, used only where a reference overshoots (pip pop)
 
 // ------------------------------------------------------------------------------------------------ the glass material, v6

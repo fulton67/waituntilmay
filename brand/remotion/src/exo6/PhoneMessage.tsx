@@ -1,6 +1,6 @@
 import React from "react";
 import { useCurrentFrame } from "remotion";
-import { C, caps, cl, drift, ease, glass, lerp, p, text } from "./look";
+import { C, caps, cl, drift, ease, glass, lerp, p, text, io } from "./look";
 import { Tick } from "./parts";
 import { IconChat } from "./icons";
 
@@ -28,7 +28,7 @@ export const PhoneMessage: React.FC<PhoneProps> = ({ start, plateAt, senderAt, l
   const mv = move ? p(f, move.at, move.d ?? 14, ease.sweep) * move.dx : 0;
   const ry = -8 + drift(f, 1.5, 77), rx = 3 + drift(f, 0.8, 101, 1.3);
   const push = 1 + 0.03 * ease.blank(cl(t / Math.max(1, (endAt ?? start + 120) - start)));
-  const dy = (1 - rise) * 0.042 * 1080 + drift(f, 4, 77, 0.5) + out * 7;
+  const dy = (1 - io(rise)) * 16 + drift(f, 4, 77, 0.5) + out * 7;
   const plate = p(f, plateAt, 4, ease.arrive);
   const sweepX = 30 + ry * 6; // specular band follows the tilt
   const W = PHONE.w, H = PHONE.h;

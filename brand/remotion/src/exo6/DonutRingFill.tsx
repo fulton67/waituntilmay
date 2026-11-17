@@ -1,7 +1,7 @@
 import React from "react";
 import { useCurrentFrame } from "remotion";
 import { TypeEntry } from "../devices/TypeEntry";
-import { C, SERIF, SKIN_DISCLAIMER, caps, cl, ease, p } from "./look";
+import { C, SERIF, SKIN_DISCLAIMER, caps, cl, ease, p, io } from "./look";
 import { Disclaimer } from "./parts";
 import { RoundWindow } from "./RoundWindow";
 
@@ -20,7 +20,8 @@ export type DonutProps = { start?: number; labelsAt?: number; fillAt?: number; w
 const SEGS: DonutSeg[] = [
   { label: "Skin care", color: "#9fd6f5", chip: { file: "exomind-skin/clinic/ceg_ferulic.jpg", iw: 683, ih: 1024, fx: 300, fy: 520, z: 0.3 } },
   { label: "Treatments", color: "#5fb8ea", chip: { file: "exomind-skin/clinic/cb_00451.jpg", iw: 282, ih: 610, fx: 150, fy: 310, z: 0.64 } },
-  { label: "The mind", color: "#202532", chip: { file: "exomind-skin/clinic/IMG_3712.jpg", iw: 768, ih: 1024, fx: 450, fy: 505, z: 0.64 } },
+  // gap round 1: the coil-on-patient subject is capped at 2 beats (B11, B12); the mind chip is the BTL MOA film's lit brain (98 s)
+  { label: "The mind", color: "#202532", chip: { file: "exomind-skin/btl/web/moa_brainlit_98s.jpg", iw: 1920, ih: 1080, fx: 900, fy: 420, z: 0.34 } },
 ];
 
 const arc = (cx: number, cy: number, r: number, a0: number, a1: number) => {
@@ -32,7 +33,7 @@ const arc = (cx: number, cy: number, r: number, a0: number, a1: number) => {
 export const DonutRingFill: React.FC<DonutProps> = ({ start = 30, labelsAt = 46, fillAt = 58, words = [93, 102, 108], discAt = 102, exitAt = 129, cx = 1380, cy = 470, R = 250, segs = SEGS, center = "Total skin health" }) => {
   const f = useCurrentFrame();
   if (f < start) return null;
-  const q = p(f, start, 14, ease.arrive);
+  const q = p(f, start, 10, ease.arrive);
   const ret = p(f, exitAt, 7, ease.exit);
   const rot = -60 + ((f - start) / 24) * 2; // 2 deg/s; -60 keeps every chip off the bottom (the disclaimer sits there)
   const span = 360 / segs.length, gap = 6;
@@ -72,7 +73,7 @@ export const DonutRingFill: React.FC<DonutProps> = ({ start = 30, labelsAt = 46,
         return (
           <React.Fragment key={i}>
             <RoundWindow at={la} {...s.chip} x={x} y={y} d={d} out={exitAt} phase={i * 1.7} />
-            {f >= la && <div style={{ position: "absolute", left: x + d / 2, top: y + d + 18, transform: `translateX(-50%) translateY(${(1 - lq) * 12}px)`, opacity: lq * (1 - ret), ...caps(28, C.ink), whiteSpace: "nowrap" }}>{s.label}</div>}
+            {f >= la && <div style={{ position: "absolute", left: x + d / 2, top: y + d + 18, transform: `translateX(-50%) translateY(${(1 - io(lq)) * 12}px)`, opacity: lq * (1 - ret), ...caps(28, C.ink), whiteSpace: "nowrap" }}>{s.label}</div>}
           </React.Fragment>
         );
       })}

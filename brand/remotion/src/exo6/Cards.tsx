@@ -14,7 +14,9 @@ import { Glass } from "./parts";
 // head, so the light, not a slide, does the reveal. Sits on the clean canvas right of keyed Ostad, who keeps talking.
 export const SECTION_TIMING = { typeIn: 12, hold: 10, out: 8 } as const;
 
-export const SectionCard: React.FC<{ num: string; title: string; start: number; x?: number; y?: number; size?: number }> = ({ num, title, start, x = 860, y = 400, size = 118 }) => {
+export const SectionCard: React.FC<{ num: string; title: string; start: number; x?: number; y?: number; size?: number; onImage?: boolean }> = ({ num, title, start, x = 860, y = 400, size = 118, onImage = false }) => {
+  // gap round 1 (DECISIONS 14o): the section cards go full frame over a real picture (onImage = white type on a darkened image)
+  const ink = onImage ? "#fff" : C.ink, accent = onImage ? C.sky : C.blue, sub = onImage ? "rgba(255,255,255,.82)" : C.ink2;
   const f = useCurrentFrame();
   const t = f - start;
   const { typeIn, hold, out } = SECTION_TIMING;
@@ -32,15 +34,15 @@ export const SectionCard: React.FC<{ num: string; title: string; start: number; 
     <div style={{ position: "absolute", left: x, top: y }}>
       {/* travelling light: a wide soft bloom + a tight warm core at the typing head */}
       <div style={{ position: "absolute", left: `${bloomX * 0.01 * n * size * 0.42 - 260}px`, top: -150, width: 520, height: 420,
-        background: "radial-gradient(ellipse at 50% 55%, rgba(255,255,255,.95), rgba(255,255,255,0) 62%)", opacity: bloomO, filter: "blur(6px)" }} />
+        background: "radial-gradient(ellipse at 50% 55%, rgba(255,255,255,.95), rgba(255,255,255,0) 62%)", opacity: bloomO * (onImage ? 0.25 : 1), filter: "blur(6px)" }} />
       <div style={{ position: "absolute", left: `${bloomX * 0.01 * n * size * 0.42 - 70}px`, top: 8, width: 140, height: 150,
         background: "radial-gradient(ellipse at 50% 50%, rgba(159,214,245,.55), rgba(159,214,245,0) 65%)", opacity: bloomO }} />
       <div style={{ display: "flex", alignItems: "center", gap: 18, opacity: numO, marginBottom: 18 }}>
-        <span style={{ ...caps(30, C.blue), letterSpacing: "0.2em" }}>{num}</span>
-        <span style={{ width: 220, height: 3, borderRadius: 2, background: C.blue, transformOrigin: "0 50%", transform: `scaleX(${rule})` }} />
-        <span style={{ ...caps(26, C.ink2), opacity: rule }}>Chapter</span>
+        <span style={{ ...caps(30, accent), letterSpacing: "0.2em" }}>{num}</span>
+        <span style={{ width: 220, height: 3, borderRadius: 2, background: accent, transformOrigin: "0 50%", transform: `scaleX(${rule})` }} />
+        <span style={{ ...caps(26, sub), opacity: rule }}>Chapter</span>
       </div>
-      <div style={{ ...display(size), whiteSpace: "nowrap", position: "relative" }}>
+      <div style={{ ...display(size, ink), whiteSpace: "nowrap", position: "relative", textShadow: onImage ? "0 2px 30px rgba(0,0,0,.35)" : undefined }}>
         {title.split("").map((ch, i) => {
           const local = head - i + Math.max(0, t - typeIn) * rate; // > 0 once the head passes letter i; keeps growing after the line is typed, so the last letters sharpen too
           const a = cl(local / 1.5);
@@ -102,7 +104,7 @@ export const EndCard: React.FC<{ lines: [string, string, string]; start: number;
   if (f < start) return null;
   const t = f - start;
   const plate = p(f, start, 18, ease.plate);
-  const L = (i: number) => p(f, start + 10 + 4 * i, 14, ease.arrive);
+  const L = (i: number) => p(f, start + 10 + 4 * i, 10, ease.arrive);
   const u = p(f, start + 20, 16, ease.sweep);
   const s = 0.985 + 0.015 * plate + 0.008 * ease.blank(cl(t / Math.max(1, end - start)));
   return (

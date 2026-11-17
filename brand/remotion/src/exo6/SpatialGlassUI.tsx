@@ -1,6 +1,6 @@
 import React from "react";
 import { useCurrentFrame } from "remotion";
-import { C, caps, drift, ease, glass, lerp, p, text } from "./look";
+import { C, caps, drift, ease, glass, lerp, p, text, io } from "./look";
 
 // spatial-glass-ui. Ref: ro _MAYscxxhDE f746-812 (frosted panels floating in depth round the presenter; they drift with a slow
 // parallax and arrive ~10 f apart). Beat B05: the far panel arrives on `arrive` (14 f) at depth 0.6 (smaller, softer, slightly
@@ -18,12 +18,12 @@ export const SpatialGlassUI: React.FC<{ panels: SpatialPanel[]; lightAt?: number
       {order.map(({ pp, i }) => {
         if (f < pp.at) return null;
         const near = pp.depth >= 0.9;
-        const q = near && pp.from !== "fade" ? p(f, pp.at, 9, ease.arrive) : p(f, pp.at, 14, ease.arrive);
+        const q = near && pp.from !== "fade" ? p(f, pp.at, 9, ease.arrive) : p(f, pp.at, 10, ease.arrive);
         const out = p(f, exitAt + (near ? 2 : 0), 7, ease.exit); // far exits first
         const speed = near ? 12 : -5; // px per second, opposite directions
         const t = f - pp.at;
         const dx = (speed * t) / 24 + drift(f, 3 * pp.depth, 130, i);
-        const slide = near && pp.from !== "fade" ? (1 - q) * 0.034 * 1080 * 2.4 : 0;
+        const slide = near && pp.from !== "fade" ? (1 - io(q)) * 24 : 0;
         const sc = lerp(0.8, 1, pp.depth);
         const lit = p(f, lightAt, 1, (x) => x);
         const ringT = f - pp.at - 9;

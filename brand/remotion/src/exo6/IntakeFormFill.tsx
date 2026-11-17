@@ -1,6 +1,6 @@
 import React from "react";
 import { useCurrentFrame } from "remotion";
-import { C, SERIF, caps, cl, ease, lerp, p, text } from "./look";
+import { C, SERIF, caps, cl, ease, lerp, p, text, io } from "./look";
 import { DrawnCircle, Sweep, Tick } from "./parts";
 import { IconClipboard } from "./icons";
 
@@ -19,21 +19,22 @@ export const IntakeFormFill: React.FC<{
   const f = useCurrentFrame();
   if (f < start) return null;
   const t = f - start;
-  const up = p(f, start, 27, ease.arrive);
+  const up = p(f, start, 14, ease.arrive); // gap round 1: 27 f / 194 px rise -> 14 f / 16 px (motion_easing.md)
   const o = p(f, exitAt, 7, ease.exit);
-  const dim = p(f, start, 14, ease.arrive) * (1 - o);
+  const dim = p(f, start, 10, ease.arrive) * (1 - o);
   // which field is active: the last one whose first event has passed
   const firsts = fields.map((fl) => (fl.kind === "write" ? fl.at : fl.kind === "check" ? (fl.markAt ?? fl.rows[0]?.at ?? Infinity) : fl.litAt));
   let act = 0; firsts.forEach((s, i) => { if (f >= s - 6) act = i; });
   const ROW0 = 210, ROWH = 150;
-  const focusY = ROW0 + act * ROWH + 40;
+  // gap round 1 (motion_easing.md: a 7.7 px one-frame jolt at f838): the focus eases between fields on `sweep` over 12 f instead of stepping
+  const focusY = ROW0 + 40 + firsts.slice(1).reduce((acc, s0) => acc + ROWH * p(f, s0 - 6, 12, ease.sweep), 0);
   const total = (end ?? start + 140) - start;
   const push = 1 + 0.06 * ease.blank(cl(t / total));
   const W = 880, H = 820;
   return (
     <>
       {dimBackdrop && <div style={{ position: "absolute", inset: 0, background: "rgba(242,239,237,1)", opacity: 0.5 * dim, pointerEvents: "none" }} />}
-      <div style={{ position: "absolute", left: x, top: y + (1 - up) * 0.18 * 1080 + o * 7, width: W, height: H, opacity: cl(up * 1.6) * (1 - o),
+      <div style={{ position: "absolute", left: x, top: y + (1 - io(up)) * 16 + o * 7, width: W, height: H, opacity: cl(up * 1.6) * (1 - o),
         transform: `scale(${push})`, transformOrigin: `50% ${focusY}px`, transition: "none" }}>
         <div style={{ position: "absolute", inset: 0, borderRadius: 22, background: "linear-gradient(170deg, #fffdfa, #f6f1ea)",
           boxShadow: "0 1px 0 rgba(255,255,255,.9) inset, 0 2px 3px rgba(33,27,21,.08), 0 30px 70px -24px rgba(32,37,50,.3)" }} />
@@ -50,7 +51,7 @@ export const IntakeFormFill: React.FC<{
         <div style={{ position: "absolute", left: 56, right: 56, top: 150, height: 1.5, background: C.rule }} />
         {fields.map((fl, i) => <Field key={i} fl={fl} top={ROW0 + i * ROWH} active={i === act} />)}
         <Signature top={ROW0 + fields.length * ROWH + 4} at={firsts[firsts.length - 1] + 22} />
-        {note && <div style={{ position: "absolute", left: 56, right: 56, bottom: 26, ...text(22, 400, C.ink2), lineHeight: 1.3 }}>{note}</div>}
+        {note && <div style={{ position: "absolute", left: 56, right: 56, bottom: 26, ...text(24, 400, C.ink2), lineHeight: 1.3 }}>{note}</div>}
       </div>
     </>
   );

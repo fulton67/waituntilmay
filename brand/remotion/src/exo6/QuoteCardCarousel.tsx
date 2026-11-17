@@ -1,6 +1,6 @@
 import React from "react";
 import { Easing, useCurrentFrame } from "remotion";
-import { C, SERIF, caps, cl, drift, ease, p, text } from "./look";
+import { C, SERIF, caps, cl, drift, ease, p, text, io } from "./look";
 import { Glass, Sweep } from "./parts";
 import { IconQuestion } from "./icons";
 
@@ -18,11 +18,11 @@ export const QuoteCardCarousel: React.FC<{
   const f = useCurrentFrame();
   if (f < start) return null;
   const t = f - start;
-  const i = p(f, start, 14, ease.arrive), o = p(f, exitAt, 7, ease.exit);
+  const i = p(f, start, 10, ease.arrive), o = p(f, exitAt, 7, ease.exit);
   const live = 0.5 + 0.5 * Math.sin(t / 5);
   const H = 640;
   return (
-    <div style={{ position: "absolute", left: x, top: y + (1 - i) * 16 + o * 7 + drift(f, 3, 140), width: w, height: H, opacity: i * (1 - o) }}>
+    <div style={{ position: "absolute", left: x, top: y + (1 - io(i)) * 16 + o * 7 + drift(f, 3, 140), width: w, height: H, opacity: i * (1 - o) }}>
       <Glass r={28} t={t} style={{ inset: 0 }}>
         <div style={{ position: "absolute", left: 40, top: 34, right: 40, display: "flex", alignItems: "center", gap: 12 }}>
           <div style={{ width: 52, height: 52, borderRadius: 14, background: C.ice, color: C.blue, display: "grid", placeItems: "center" }}><IconQuestion size={30} color={C.blue} /></div>
@@ -41,18 +41,17 @@ export const QuoteCardCarousel: React.FC<{
           const q = colin(cl((f - c.at) / 17));
           const later = cards.filter((d, j) => j > k && f >= d.at).length; // how many cards came after this one
           const step = cards.slice(k + 1).reduce((s, d) => s + p(f, d.at, 12, ease.arrive), 0);
-          const fromRight = k > 0 ? (1 - q) * 160 : 0;
-          const rise = (1 - q) * 0.107 * 1080 - Math.max(0, f - c.at - 17) * (4 / 24);
+          const fromRight = k > 0 ? (1 - io(q)) * 24 : 0;
+          const rise = (1 - io(q)) * 16 - Math.max(0, f - c.at - 17) * (4 / 24);
           const sc = 1 - 0.06 * step, op = cl(q * 1.4) * (1 - 0.4 * Math.min(1, step)) * (later > 2 ? 0 : 1);
           return (
             <div key={k} style={{ position: "absolute", left: 0, right: 0, top: 236 - step * 112, transform: `translate(${fromRight}px, ${rise}px) scale(${sc})`, transformOrigin: "50% 0%",
               opacity: op, zIndex: k, padding: "26px 30px", borderRadius: 22, background: "linear-gradient(170deg, #ffffff, #f8f6f3)",
               boxShadow: "0 1px 0 rgba(255,255,255,.9) inset, 0 2px 4px rgba(33,27,21,.06), 0 22px 40px -18px rgba(32,37,50,.28)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-                <div style={{ width: 46, height: 46, borderRadius: 23, background: ["#d9e8f2", "#efe1d6", "#dfe6dc"][k % 3], ...text(30, 500, C.ink2), display: "grid", placeItems: "center" }}>
-                  {(c.who ?? "Guest")[0]}
-                </div>
-                <div style={{ ...text(30, 500, C.ink2) }}>{c.who ?? "Guest"}</div>
+                {/* gap round 1 (graphics_arrows.md): no invented askers. Each card is an anonymous question from the box, with its icon */}
+                <div style={{ width: 46, height: 46, borderRadius: 23, background: ["#d9e8f2", "#efe1d6", "#dfe6dc"][k % 3], display: "grid", placeItems: "center" }}><IconQuestion size={26} color={C.ink2} /></div>
+                <div style={{ ...text(30, 500, C.ink2) }}>{c.who ?? "Question box"}</div>
                 <div style={{ ...text(30, 400, C.mute) }}>· just now</div>
               </div>
               <div style={{ fontFamily: SERIF, fontWeight: 500, fontSize: 54, lineHeight: 1.06, color: C.ink }}>
