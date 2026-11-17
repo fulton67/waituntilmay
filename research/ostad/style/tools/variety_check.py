@@ -18,6 +18,9 @@ Rules (DESIGN_PER_BEAT section 3, plus the structure rules of EXOMIND_REDO secti
       With "compliance_profile": "injectable" (procedure reels): consent must be "yes" or the sheet marked not_for_posting;
       illustration beats carry an on-screen "Illustration" label; no product brand without evidence; result claims carry "results vary"
   R12 every arrow variant is backed by an arrow-* device on that beat
+  R13 layout runs (gap round 1, immersion_layout.md): beats carrying `layout` never hold one layout family for more than 3
+      segments in a row or 15 s (him-left family = LC / LT / LW / SPLIT-L; FB, SPLIT and CO each their own); the end card counts
+  R14 same subject (gap round 1, graphics_arrows.md: coil-on-patient on 5 beats): no image-layer `subject` on more than 2 beats
 
 Usage: python -I variety_check.py research/ostad/style/exomind/beats.json [--library research/ostad/style/DEVICE_LIBRARY.md] [--selftest]
 """
@@ -116,9 +119,10 @@ def check(sheet: dict, lib: dict[str, str]) -> list[tuple[str, bool, str]]:
     # R9
     badi = [(b["id"], b["immersion"]) for b in beats if b["immersion"] not in IMMERSION]
     bado = [(b["id"], b.get("ostad")) for b in beats if b.get("ostad", "keyed-left") not in OSTAD
-            or (b.get("ostad", "keyed-left") != "keyed-left" and b["immersion"] != "full-bleed")]
+            or (b.get("ostad", "keyed-left") != "keyed-left" and b["immersion"] not in ("full-bleed", "split") and b.get("layout") != "CO")
+            or (b.get("ostad") == "pip" and b["immersion"] != "full-bleed")]
     fb = sum(b["immersion"] == "full-bleed" for b in beats)
-    add("R9 one keyed presentation, steps out only for full-bleed", not badi and not bado,
+    add("R9 one keyed presentation, steps out only for full-bleed / a split / a centred object", not badi and not bado,
         f"modes {sorted({b['immersion'] for b in beats})}; full-bleed beats {fb}" + (f"; bad {badi + bado}" if badi or bado else ""))
 
     # R10
@@ -145,6 +149,33 @@ def check(sheet: dict, lib: dict[str, str]) -> list[tuple[str, bool, str]]:
     # R12
     noarrow = [b["id"] for b in beats if b.get("arrow") and not any(d.startswith("arrow-") for d in b["devices"])]
     add("R12 arrow variants backed by an arrow device", not noarrow, "ok" if not noarrow else f"{noarrow}")
+
+    # R13 (only when the sheet carries layouts)
+    if any("layout" in b for b in beats):
+        fam = lambda L: "him-left" if L in ("LC", "LT", "LW", "SPLIT-L") else L
+        segs = [(b["id"], fam(b.get("layout", "?")), b["start_f"], b["end_f"]) for b in beats]
+        segs += [("END", fam(c.get("layout", "?")), c["start_f"], c["end_f"]) for c in sheet.get("cards", []) if c["kind"] == "end"]
+        runs, cur = [], [segs[0]]
+        for sg in segs[1:]:
+            if sg[1] == cur[-1][1]:
+                cur.append(sg)
+            else:
+                runs.append(cur); cur = [sg]
+        runs.append(cur)
+        long = [(r[0][0] + "-" + r[-1][0], len(r), round((r[-1][3] - r[0][2] + 1) / fps, 1)) for r in runs
+                if len(r) > 3 or (r[-1][3] - r[0][2] + 1) / fps > 15]
+        worst = max(runs, key=lambda r: r[-1][3] - r[0][2])
+        add("R13 no layout run > 3 segments or 15 s", not long,
+            f"{len(runs)} runs; longest {worst[0][0]}-{worst[-1][0]} {len(worst)} seg {(worst[-1][3] - worst[0][2] + 1) / fps:.1f} s" + (f"; too long {long}" if long else ""))
+
+    # R14
+    subj: dict[str, set[str]] = {}
+    for b in beats:
+        for l in b.get("image_layers", []):
+            if l.get("subject"):
+                subj.setdefault(l["subject"], set()).add(b["id"])
+    over_s = {k: sorted(v) for k, v in subj.items() if len(v) > 2}
+    add("R14 no image subject on more than 2 beats", not over_s, f"{len(subj)} subjects" + (f"; over {over_s}" if over_s else ""))
     return res
 
 
@@ -171,7 +202,9 @@ def selftest(sheet: dict, lib: dict[str, str]) -> bool:
     def r10(s): B(s)[4]["start_f"] = B(s)[3]["start_f"]
     def r11(s): [b.get("compliance", {}).pop("moa_label", None) for b in B(s)]
     def r12(s): B(s)[6].update(arrow="curved-callout", devices=["calendar-date-circle"])
-    cases = [("R1", r1), ("R2", r2), ("R3", r3), ("R4", r4), ("R5", r5), ("R6", r6), ("R7", r7), ("R8", r8), ("R9", r9), ("R10", r10), ("R11", r11), ("R12", r12)]
+    def r13(s): [b.__setitem__("layout", "LC") for b in B(s)]
+    def r14(s): [b.setdefault("image_layers", []).append({"asset": "x", "subject": "same"}) for b in B(s)[:3]]
+    cases = [("R1", r1), ("R2", r2), ("R3", r3), ("R4", r4), ("R5", r5), ("R6", r6), ("R7", r7), ("R8", r8), ("R9", r9), ("R10", r10), ("R11", r11), ("R12", r12), ("R13", r13), ("R14", r14)]
     good = True
     base = check(sheet, lib)
     print(f"selftest: baseline {'passes' if all(r[1] for r in base) else 'FAILS'}")

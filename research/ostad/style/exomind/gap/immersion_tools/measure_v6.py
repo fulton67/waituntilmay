@@ -28,7 +28,11 @@ def blocks(a):  # (H,W) -> (H/B, W/B, B*B)
 
 render, plain, beats_p, out_p = sys.argv[1:5]
 beats = json.load(open(beats_p, encoding="utf-8"))
-OUT = [(1181, 1241), (1754, 1849)]  # presenter not keyed (OstadYT6.tsx line 276)
+# presenter not keyed on the canvas (pip or out). Gap round 1 (OstadYT6.tsx OUT_RANGES + S3); the v6 pre-gap render used
+# [(1181, 1241), (1754, 1849)]: pass --pregap as a 5th argument to measure that render
+OUT = [(263, 413), (546, 666), (893, 996), (1081, 1271), (1449, 1599), (1710, 1849)]
+if len(sys.argv) > 5 and sys.argv[5] == "--pregap":
+    OUT = [(1181, 1241), (1754, 1849)]
 
 rows = []
 prev_luma, prev_img = None, None

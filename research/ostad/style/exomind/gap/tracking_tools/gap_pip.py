@@ -2,19 +2,23 @@
 import json, sys
 import numpy as np, cv2, mediapipe as mp
 RENDER, OUT = sys.argv[1], sys.argv[2]
+# gap round 1: optional 3rd arg "a-b,c-d" (frame ranges) and the pip sits lower (centre ~ (200, 830), r 130): search rows Y0..1080
+RANGES = [tuple(map(int, r.split("-"))) for r in sys.argv[3].split(",")] if len(sys.argv) > 3 else [(1176, 1245)]
+Y0, Y1 = (440, 940) if len(sys.argv) <= 3 else (600, 1080)
 MODEL = "C:/Users/naimj/tools/models/face_landmarker.task"
 V = mp.tasks.vision
 det = V.FaceLandmarker.create_from_options(V.FaceLandmarkerOptions(base_options=mp.tasks.BaseOptions(model_asset_path=MODEL), running_mode=V.RunningMode.IMAGE, num_faces=1))
-cap = cv2.VideoCapture(RENDER); cap.set(cv2.CAP_PROP_POS_FRAMES, 1176)
+cap = cv2.VideoCapture(RENDER)
 rows = []
-for f in range(1176, 1246):
+for f in [f for a, b in RANGES for f in range(a, b + 1)]:
+    cap.set(cv2.CAP_PROP_POS_FRAMES, f)
     ok, bgr = cap.read()
     if not ok: break
-    reg = bgr[440:940, 0:460]; g = cv2.GaussianBlur(cv2.cvtColor(reg, cv2.COLOR_BGR2GRAY), (5, 5), 1.2)
+    reg = bgr[Y0:Y1, 0:460]; g = cv2.GaussianBlur(cv2.cvtColor(reg, cv2.COLOR_BGR2GRAY), (5, 5), 1.2)
     c = cv2.HoughCircles(g, cv2.HOUGH_GRADIENT, dp=1, minDist=400, param1=60, param2=20, minRadius=100, maxRadius=150)
     row = {"f": f}
     if c is None: rows.append(row); continue
-    cx, cy, r = c[0][0]; cy += 440
+    cx, cy, r = c[0][0]; cy += Y0
     # radial edge: from the centre outwards, first radius where grey jumps > 60 into the light ring (dark inside -> white ring)
     G = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY).astype(int)
     radii = []

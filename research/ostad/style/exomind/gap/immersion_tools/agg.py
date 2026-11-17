@@ -24,6 +24,6 @@ for name,s,e in segs:
 for o in out: print(o)
 allf=np.array([r['fill'] for r in R]); d=np.array([r['dimg'] if r['dimg'] is not None else np.nan for r in R]); on=allf>0.03; imgf=on&~np.isnan(d)
 tot=dict(frames=len(R),fill_mean=round(float(allf.mean())*100,1),fill_when_on=round(float(allf[on].mean())*100,1),img_on_share=round(float(on.mean())*100,1),
-  moving_share_of_img=round(float(((d>THR)&imgf).sum()/imgf.sum())*100,1),takeover50_s=round(float((allf>=0.5).sum())/24,2),fill_ge_33_s=round(float((allf>=0.33).sum())/24,2))
+  moving_share_of_img=round(float(((d>THR)&imgf).sum()/imgf.sum())*100,1),takeover50_s=round(float((allf>=0.5).sum())/24,2),takeovers_per_min=round(sum(1 for r in __import__('itertools').groupby(allf>=0.5) if r[0] and len(list(r[1]))>=6)/(len(R)/24/60),2),fill_ge_33_s=round(float((allf>=0.33).sum())/24,2))
 print(tot)
 json.dump({'thr':THR,'segments':out,'total':tot},open(S+f'/v6_segments.json','w'),indent=1)
