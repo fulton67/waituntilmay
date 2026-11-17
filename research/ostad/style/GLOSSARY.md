@@ -32,3 +32,16 @@ Sources:
 
 - **Jowling, laugh lines, marionette lines:** shown on the patient's own footage with markup. For other reels, the briefs for a neutral-face illustration are in `oct14/AI_SLOTS.md` (slots G1-G3). They are labelled "Illustration" and never show a result.
 - **Brow drop:** the bank has condition panels (`botox-brow-ptosis`), but they are journal figures with several panels and need cropping per use.
+
+## Under-eye filler reel terms (2026-11-17, re-added by the under-eye agent)
+
+| Term | He says | Shown as (v3) |
+|---|---|---|
+| Hollows / tear trough | "she has hollows… illusion of being tired" | her own Sept 20 eye close-up (IMG_6814) beside the tear trough in section from face.glb, overhead light leaving the dip in shadow |
+| Hyaluronic acid (HA) filler | "hyaluronic acid filler" | syringe barrel with the gel (designed object; no brand) |
+| Lidocaine | "anesthetic already in the filler… lidocaine" | the lidocaine dissolving into the gel in the same syringe |
+| Blunt cannula | "a cannula… blunt… more delicate" | needle vs cannula at a vessel (the cannula slides around); the cannula drawn in its ClipCard |
+| Deep, under the muscle | "inject deep, right underneath the muscle" | face.glb section, deposit on the bone under the orbicularis; tracked fan map on her injection |
+| Pillowy | "it's going to expand… pillowy" | lower-lid profile growing past the natural line (Another syringe, marked Not used) |
+| Tyndall effect | "that bluish hue called the Tyndall effect" | light scatter on the section: the shallow deposit scatters blue, the deep one none |
+| Bruising | "needles cause swelling, bruising" | bruise swatch in the Needles card, labelled illustration, marked Not used |
