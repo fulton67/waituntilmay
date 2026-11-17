@@ -4,14 +4,14 @@
  "width": 1080,
  "height": 1920,
  "speed": 1.15,
- "duration_f": 2251,
+ "duration_f": 2307,
  "time_base": "composition frames at 24 fps on the 1.15x edit; reveals at word onset + 1 f",
  "device_library": "research/ostad/style/DEVICE_LIBRARY.md",
  "cut": "research/ostad/style/oct14/cut.json",
  "compliance_profile": "injectable",
- "consent": "unknown",
- "not_for_posting": true,
- "status": "NOT FOR POSTING until patient consent = yes",
+ "consent": "yes",
+ "not_for_posting": false,
+ "status": "consent = yes (written, before the procedure; clinic-library DECISIONS 2026-11-17)",
  "presentation": {
   "ostad": "in his own footage throughout (handheld 9:16 session video); no keying"
  },
@@ -24,22 +24,22 @@
   {
    "id": "S1",
    "title": "Upper face",
-   "start_f": 161
+   "start_f": 108
   },
   {
    "id": "S2",
    "title": "Cheeks and jawline",
-   "start_f": 788
+   "start_f": 715
   },
   {
    "id": "S3",
    "title": "Laugh lines",
-   "start_f": 1352
+   "start_f": 1243
   },
   {
    "id": "S4",
    "title": "The result",
-   "start_f": 1696
+   "start_f": 1708
   }
  ],
  "cards": [
@@ -51,31 +51,31 @@
   {
    "kind": "section",
    "device": "chapter-title-card",
-   "start_f": 161,
+   "start_f": 108,
    "title": "Upper face"
   },
   {
    "kind": "section",
    "device": "chapter-title-card",
-   "start_f": 788,
+   "start_f": 715,
    "title": "Cheeks and jawline"
   },
   {
    "kind": "section",
    "device": "chapter-title-card",
-   "start_f": 1352,
+   "start_f": 1243,
    "title": "Laugh lines"
   },
   {
    "kind": "section",
    "device": "chapter-title-card",
-   "start_f": 1696,
+   "start_f": 1708,
    "title": "The result"
   },
   {
    "kind": "end",
    "device": "end-card",
-   "start_f": 2179
+   "start_f": 2187
   }
  ],
  "beats": [
@@ -83,20 +83,21 @@
    "id": "B01",
    "section": "S0",
    "start_f": 0,
-   "end_f": 160,
+   "end_f": 107,
    "start_s": 0.0,
-   "end_s": 6.708,
+   "end_s": 4.5,
    "pieces": [
     "intro-patient",
     "intro-typical"
    ],
-   "said": "We're here with our lovely patient. She comes to us just basically with a typical patient presents with some forehead lines, some frown lines.",
-   "noun": "his opening line; the title 'A typical patient', with 'Forehead lines · frown lines' landing on his words; his name",
+   "said": "We're here with our lovely patient. a typical patient presents with some forehead lines, some frown lines.",
+   "noun": "hook: the needle at her cheek, then his opening line; Label C 'A typical patient', then punch-ins on her own forehead and frown with 'This is / Forehead lines', 'Frown lines'; crow's feet with three pen strokes; his name",
    "cue": "typical",
-   "cue_f": 94,
-   "reveal_f": 95,
+   "cue_f": 41,
+   "reveal_f": 42,
    "devices": [
-    "name-super"
+    "name-super",
+    "stepped-punch-in"
    ],
    "entry": "type-word-fade-rise",
    "immersion": "full-bleed",
@@ -108,21 +109,20 @@
   {
    "id": "B02",
    "section": "S1",
-   "start_f": 161,
-   "end_f": 429,
-   "start_s": 6.708,
-   "end_s": 17.917,
+   "start_f": 108,
+   "end_f": 350,
+   "start_s": 4.5,
+   "end_s": 14.625,
    "pieces": [
     "intro-dynamic"
    ],
-   "said": "She's got, you know, just relatively strong crow's feet. These are what we call dynamic lines, meaning they're more noticeable when patients are expressive, and those are typically treated with a neuromodulator.",
-   "noun": "the frown-line injection (IMG_3657) grows out of her glabella in a window while he explains dynamic lines; ring on the point, badge 1, curved callout",
+   "said": "She's got, relatively strong crow's feet. These are what we call dynamic lines, meaning they're more noticeable when patients are expressive, and those are typically treated with a neuromodulator.",
+   "noun": "the frown-line injection (IMG_3657) on a STANDARD glass ClipCard along the bottom (Injection 1 · neuromodulator · used here / Frown lines, depth: into the muscle), a white curved arrow to her glabella; then the traced muscle drawing (frontalis, corrugator, procerus, orbicularis oculi)",
    "cue": "dynamic",
-   "cue_f": 261,
-   "reveal_f": 262,
+   "cue_f": 189,
+   "reveal_f": 190,
    "devices": [
-    "zoom-box-inset",
-    "windowed-footage",
+    "std-clip-card",
     "arrow-curved-callout"
    ],
    "entry": "type-typewriter",
@@ -135,43 +135,43 @@
   {
    "id": "B03",
    "section": "S1",
-   "start_f": 430,
-   "end_f": 603,
-   "start_s": 17.917,
-   "end_s": 25.167,
+   "start_f": 351,
+   "end_f": 524,
+   "start_s": 14.625,
+   "end_s": 21.875,
    "pieces": [
     "neuro-more-less"
    ],
    "said": "It's about putting more in some areas that need to be lifted and less in areas that tend to cause drooping.",
    "noun": "him injecting her crow's feet (his line said while injecting); ticks point up over her brow tails on 'lifted'; 'More where it lifts' / 'Less where it droops'",
    "cue": "lifted",
-   "cue_f": 524,
-   "reveal_f": 525,
+   "cue_f": 447,
+   "reveal_f": 448,
    "devices": [
-    "arrow-marker-tick"
+    "anatomy-trace-card"
    ],
-   "entry": "type-box-slam",
+   "entry": "type-word-fade-rise",
    "immersion": "full-bleed",
    "ostad": "in-footage",
-   "refs": "WZ f940/944 ticks; GMu3 f1512-1522 box slam",
+   "refs": "WZ f940/944 ticks; GMu3 f1512-1522 box slam; anatomy traced from face.glb (anatomy_measure.json)",
    "text_only": false,
    "compliance": {}
   },
   {
    "id": "B04",
    "section": "S1",
-   "start_f": 604,
-   "end_f": 633,
-   "start_s": 25.167,
-   "end_s": 26.417,
+   "start_f": 525,
+   "end_f": 567,
+   "start_s": 21.875,
+   "end_s": 23.667,
    "pieces": [
     "intro-lasts"
    ],
    "said": "It lasts about four or five months.",
    "noun": "a months rule 0-6; ticks on 'four' and 'five', the span fills: 4-5 months (his figure)",
    "cue": "four",
-   "cue_f": 618,
-   "reveal_f": 619,
+   "cue_f": 553,
+   "reveal_f": 554,
    "devices": [
     "timeline-markers",
     "arrow-marker-tick"
@@ -186,22 +186,23 @@
   {
    "id": "B05",
    "section": "S1",
-   "start_f": 634,
-   "end_f": 787,
-   "start_s": 26.417,
-   "end_s": 32.833,
+   "start_f": 568,
+   "end_f": 714,
+   "start_s": 23.667,
+   "end_s": 29.792,
    "pieces": [
     "intro-onset-vs-filler"
    ],
-   "said": "You know, with the neuromodulators, the results kind of take a day or two to kick in. With fillers, you see it right away.",
+   "said": "with the neuromodulators, the results kind of take a day or two to kick in. With fillers, you see it right away.",
    "noun": "a two-row ledger: Neuromodulator · a day or two / Filler · right away, each row wiped on its words",
    "cue": "day",
-   "cue_f": 710,
-   "reveal_f": 711,
+   "cue_f": 635,
+   "reveal_f": 636,
    "devices": [
-    "checklist-ledger"
+    "day-axis-lanes",
+    "timeline-markers"
    ],
-   "entry": "type-highlight-sweep",
+   "entry": "type-typewriter",
    "immersion": "full-bleed",
    "ostad": "in-footage",
    "refs": "DDOS Moment C f1686-1745 (row wipe 14 f)",
@@ -211,49 +212,53 @@
   {
    "id": "B06",
    "section": "S2",
-   "start_f": 788,
-   "end_f": 1184,
-   "start_s": 32.833,
-   "end_s": 49.375,
+   "start_f": 715,
+   "end_f": 1075,
+   "start_s": 29.792,
+   "end_s": 44.833,
    "pieces": [
     "intro-midface",
     "intro-deflation"
    ],
-   "said": "Then moving to her mid face, you know, she's got a little bit of jowling. She's got a little bit of laugh lines. A lot of times patients come in saying they want their laugh lines filled. But really, the source of the problem is more like what we call deflation and just skin stretching from just soft tissue moving down.",
-   "noun": "'Deflation' slams up; on 'moving down' a headed route draws on her face from the cheekbone past the jaw line",
+   "said": "Then moving to her mid face, she's got a little bit of jowling. She's got a little bit of laugh lines. A lot of times patients come in saying they want their laugh lines filled. But really, the source of the problem is more like what we call deflation and skin stretching from soft tissue moving down.",
+   "noun": "jowling: punch-in on her jaw with a pen contour; 'Patients usually ask / Fill the laugh lines first' struck on his 'but' ('Not first, here'), 'Here / Cheekbones first'; on 'moving down' a headed route on her face, the glass anatomy card 'The source / Deflation' traced from face.glb, the fat sliding down from a dashed ghost, the cheekbone strengthening on 'cheekbones'",
    "cue": "deflation",
-   "cue_f": 1041,
-   "reveal_f": 1042,
+   "cue_f": 956,
+   "reveal_f": 957,
    "devices": [
     "arrow-route-trace",
-    "mechanism-on-real-image"
+    "mechanism-on-real-image",
+    "type-strike-replace",
+    "std-clip-card",
+    "stepped-punch-in",
+    "anatomy-trace-card"
    ],
-   "entry": "type-box-slam",
+   "entry": "type-word-fade-rise",
    "immersion": "full-bleed",
    "ostad": "in-footage",
-   "refs": "DDOS f216-250 (27 f); G1 T8 IkrW f610-880",
+   "refs": "DDOS f216-250 (27 f); G1 T8 IkrW f610-880; anatomy traced from face.glb (anatomy_measure.json)",
    "text_only": false,
    "compliance": {}
   },
   {
    "id": "B07",
    "section": "S2",
-   "start_f": 1185,
-   "end_f": 1351,
-   "start_s": 49.375,
-   "end_s": 56.333,
+   "start_f": 1076,
+   "end_f": 1242,
+   "start_s": 44.833,
+   "end_s": 51.792,
    "pieces": [
     "intro-cheeks",
+    "intro-cheekbones",
     "inj2-syringe"
    ],
-   "said": "So we're just going to put a little bit of filler in the cheeks. we literally put a syringe of what I call Evolysse Form into her outer cheekbone",
-   "noun": "the cheek injection (IMG_3641) grows out of her outer cheekbone while he names the product and the spot; badge 2",
+   "said": "So we're just going to put a little bit of filler in the cheeks. It's really more about addressing the cheekbones. we literally put a syringe of what I call Evolysse Form",
+   "noun": "the cheek injection (IMG_3641) on a STANDARD ClipCard (Injection 2 · Evolysse Form / Outer cheekbone, depth: deep, over the bone), a white arrow to her outer cheekbone, while he names the product and the spot",
    "cue": "literally",
-   "cue_f": 1234,
-   "reveal_f": 1235,
+   "cue_f": 1176,
+   "reveal_f": 1177,
    "devices": [
-    "zoom-box-inset",
-    "windowed-footage",
+    "std-clip-card",
     "arrow-curved-callout"
    ],
    "entry": "type-typewriter",
@@ -268,22 +273,22 @@
   {
    "id": "B08",
    "section": "S3",
-   "start_f": 1352,
-   "end_f": 1438,
-   "start_s": 56.333,
-   "end_s": 59.958,
+   "start_f": 1243,
+   "end_f": 1330,
+   "start_s": 51.792,
+   "end_s": 55.458,
    "pieces": [
     "inj5-less-needed"
    ],
    "said": "And you can see the laugh lines got better, so we don't need to put as much in there.",
-   "noun": "her close-up after the cheeks; rings on both laugh lines (tracked); 'Laugh lines: better' with the highlighter on 'better'",
+   "noun": "her close-up after the cheeks; white pen rings on both laugh lines (tracked); 'Laugh lines: better' with a pen underline on 'better'",
    "cue": "laugh3",
-   "cue_f": 1381,
-   "reveal_f": 1382,
+   "cue_f": 1274,
+   "reveal_f": 1275,
    "devices": [
-    "tracking-ring"
+    "arrow-hand-drawn"
    ],
-   "entry": "type-highlight-sweep",
+   "entry": "type-word-fade-rise",
    "immersion": "full-bleed",
    "ostad": "in-footage",
    "refs": "G4 T20 tQkjtXJEtxY f851-1091; DDOS Moment A",
@@ -293,20 +298,20 @@
   {
    "id": "B09",
    "section": "S3",
-   "start_f": 1439,
-   "end_f": 1619,
-   "start_s": 59.958,
-   "end_s": 67.5,
+   "start_f": 1331,
+   "end_f": 1557,
+   "start_s": 55.458,
+   "end_s": 64.917,
    "pieces": [
     "after-smooth"
    ],
-   "said": "And we used Evolysse Smooth here, it's also a hyaluronic acid in the same family and it just really does such a nice job of filling.",
-   "noun": "the cannula injection (IMG_3653) grows out of her laugh line on her close-up, a straight pointer to the point, then the window morphs to full frame",
+   "said": "And we used Evolysse Smooth here, it's also a hyaluronic acid in the same family and it just really does such a nice job of filling. It's not as thick as what I put here.",
+   "noun": "the cannula injection (IMG_3653) on a STANDARD ClipCard (Injection 3 · Evolysse Smooth / Laugh lines, depth: under the skin, by cannula), a straight white pointer to her laugh line; the clip plays in sync with the next shot, which cuts to it full frame",
    "cue": "used",
-   "cue_f": 1451,
-   "reveal_f": 1452,
+   "cue_f": 1347,
+   "reveal_f": 1348,
    "devices": [
-    "card-full-morph",
+    "std-clip-card",
     "arrow-straight-pointer"
    ],
    "entry": "type-typewriter",
@@ -321,20 +326,20 @@
   {
    "id": "B10",
    "section": "S3",
-   "start_f": 1620,
-   "end_f": 1695,
-   "start_s": 67.5,
-   "end_s": 70.667,
+   "start_f": 1558,
+   "end_f": 1707,
+   "start_s": 64.917,
+   "end_s": 71.167,
    "pieces": [
     "inj6-bruising"
    ],
    "said": "I like using a cannula because we can minimize bruising.",
-   "noun": "the cannula in her lower face, full frame; 'A cannula, to minimise bruising' with the highlighter on his phrase",
+   "noun": "the cannula in her lower face, full frame; Label C 'A cannula' with a pen underline under 'to minimise bruising'",
    "cue": "bruising",
-   "cue_f": 1671,
-   "reveal_f": 1672,
+   "cue_f": 1686,
+   "reveal_f": 1687,
    "devices": [],
-   "entry": "type-highlight-sweep",
+   "entry": "type-word-fade-rise",
    "immersion": "full-bleed",
    "ostad": "in-footage",
    "refs": "DDOS Moment A (highlighter 16 f)",
@@ -344,23 +349,23 @@
   {
    "id": "B11",
    "section": "S4",
-   "start_f": 1696,
-   "end_f": 2036,
-   "start_s": 70.667,
-   "end_s": 84.875,
+   "start_f": 1708,
+   "end_f": 2047,
+   "start_s": 71.167,
+   "end_s": 85.333,
    "pieces": [
     "after-summary"
    ],
    "said": "You can see how when she came in, she was complaining of her laugh lines being deep and she had some deep and sort of what we call marionette lines. And you can see how she has proper cheek bone projection, her jaw line is lifted and then her laugh lines are so much softer.",
-   "noun": "him pointing at her result, then two labelled cards (4:42 PM before / 4:55 PM right after, aligned); both push to the cheek, the same outline on both, the rest dims, a pointer to 'Fuller cheek'",
+   "noun": "marionette lines: pen strokes from her mouth corners on the after close-up; then the surgeon before/after: one aligned card, entry X marks, pen paths and hatched zones in treatment order with product labels, a line wipe to 4:55 PM with the markup faint, one straight arrow outward, 'Fuller cheek' (measured), honest notes where no change is measurable",
    "cue": "ba",
-   "cue_f": 1867,
-   "reveal_f": 1868,
+   "cue_f": 1880,
+   "reveal_f": 1881,
    "devices": [
-    "split-labelled",
-    "stepped-punch-in",
-    "annotation-box-footage",
-    "arrow-straight-pointer"
+    "std-skin-window",
+    "brand-shape-wipe",
+    "arrow-straight-pointer",
+    "arrow-hand-drawn"
    ],
    "entry": "type-typewriter",
    "immersion": "full-bleed",
@@ -375,19 +380,19 @@
   {
    "id": "B12",
    "section": "S4",
-   "start_f": 2037,
-   "end_f": 2178,
-   "start_s": 84.875,
-   "end_s": 90.792,
+   "start_f": 2048,
+   "end_f": 2186,
+   "start_s": 85.333,
+   "end_s": 91.125,
    "pieces": [
     "after-15min",
     "after-lasts"
    ],
-   "said": "And you know, the treatment took about 15 minutes, not even. And you will see this easily last you over like a year, a year and a half.",
+   "said": "the treatment took about 15 minutes, not even. And you will see this easily last you over like a year, a year and a half.",
    "noun": "the cards pull back with the numbered summary; a card rolls 'about 15 min' then 'Filler lasts 1-1½ years' (his figures)",
    "cue": "fifteen",
-   "cue_f": 2071,
-   "reveal_f": 2072,
+   "cue_f": 2072,
+   "reveal_f": 2073,
    "devices": [
     "rx-card"
    ],

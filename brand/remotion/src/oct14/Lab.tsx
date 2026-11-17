@@ -4,12 +4,13 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import { useElza } from "../Fonts";
-import { BeforeAfter, ConsentFlag, InjectionPip, Media, WordCaptions, type Word } from "./devices";
+import { InjectionPip, Media, WordCaptions, type Word } from "./devices";
+import { Label } from "./v3";
 import type { Pt } from "./look";
 
 export type Points = { f0: number; pts: Record<string, [number, number][]> };
-export type LabProps = { item: "pip" | "ba"; bare?: boolean; marks?: boolean; points?: Points };
-export const LAB_DUR = { pip: 288, ba: 264 } as const;
+export type LabProps = { item: "pip" | "ba" | "label"; bare?: boolean; marks?: boolean; points?: Points; opt?: "A" | "B" | "C" };
+export const LAB_DUR = { pip: 288, ba: 264, label: 48 } as const;
 const PH = "oct14/placeholder/";
 
 // the lab timeline (frames): the same numbers measure.py checks against
@@ -20,7 +21,7 @@ export const LAB_PIPS = [
 ];
 export const LAB_BA = { s: 5, out: 250, pullS: 200, regions: [{ id: "mario", s: 70, key: "marioL", label: "Softer marionette line" }, { id: "naso", s: 140, key: "nasoR", label: "Softer smile line" }] };
 
-export const Oct14Lab: React.FC<LabProps> = ({ item, bare = false, marks = true, points }) => {
+export const Oct14Lab: React.FC<LabProps> = ({ item, bare = false, marks = true, points, opt = "C" }) => {
   useElza();
 
   const tp = (key: string) => (f: number): Pt => {
@@ -39,13 +40,9 @@ export const Oct14Lab: React.FC<LabProps> = ({ item, bare = false, marks = true,
       {item === "pip" && LAB_PIPS.map((q) => (
         <InjectionPip key={q.n} n={q.n} s={q.s} out={q.out} park={276} anchor={tp(q.key)} clip={bare ? PH + "before.jpg" : PH + q.clip} label={q.label} eyebrow={`Point ${q.n}`} />
       ))}
-      {item === "ba" && (
-        <BeforeAfter s={LAB_BA.s} out={LAB_BA.out} pullS={LAB_BA.pullS} before={PH + "before.jpg"} after={PH + "after.jpg"} iw={1080} ih={1920} crop={{ x: 0.14, y: 0, w: 0.72 }}
-          regions={LAB_BA.regions.map((r) => { const a = points?.pts[r.key]?.[0] ?? [540, 960]; return { id: r.id, s: r.s, label: r.label, c: { x: a[0] / 1080, y: a[1] / 1920 }, r: { x: 70 / 1080, y: 95 / 1920 } }; })}
-          marks={marks} subs={["4:44 PM", "4:55 PM"]} note="Immediately after treatment. Individual results vary." />
-      )}
-      <WordCaptions words={words} />
-      <ConsentFlag />
+      {item === "label" && <Media src="oct14/intro.mp4" trimBefore={Math.round(87.5 * 24)} style={{ left: 0, top: 0, width: 1080, height: 1920, objectFit: "cover" }} />}
+      {item === "label" && <Label style={opt} eyebrow="The source" word="Deflation" sub="Soft tissue moving down" s={2} subS={12} out={999} x={98} y={1150} />}
+      {item !== "label" && <WordCaptions words={words} />}
     </AbsoluteFill>
   );
 };

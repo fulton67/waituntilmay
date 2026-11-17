@@ -1,6 +1,6 @@
 # Oct 14 injection reel: how the before/after arrows were chosen
 
-**NOT FOR POSTING until patient consent = yes.** The rule: an arrow or highlight goes only where a change is actually visible. No improvement is invented (clinic brief; DECISIONS 9: spots are measured, not hand-placed).
+**Consent = yes since 2026-11-17 (DECISIONS 16d).** The rule: an arrow or highlight goes only where a change is actually visible. No improvement is invented (clinic brief; DECISIONS 9: spots are measured, not hand-placed).
 
 ## The pair
 
@@ -42,3 +42,34 @@
   - The jaw change measured on the right is his glove in the before frame's background.
   - His words stay in the audio and captions as his account. The graphics do not illustrate them, and the card says "Immediately after the filler. Individual results vary."
 - **No arrow on the upper face either.** The neuromodulator (IMG_3657, 16:57) was injected after the after clip, and he says its results take a day or two.
+
+
+## v3 surgeon markup: every mark mapped to a clip (2026-11-17)
+
+Each X is a needle tip seen in an injection clip. It is located by face landmarks at that moment (MediaPipe, nearest frame with her face within 1 s), carried to the before frame (IMG_3637 at 16.83 s) by the same landmark offset, and drawn in treatment order. Error = landmark-fit residual + spread across frames. Target < 15 px. Result: max 12.0 px, all 8 marks under 15 px.
+
+| Mark | Order | Product | Seen in | Anchor | Before-frame px | Error px |
+|---|---|---|---|---|---|---|
+| cheekR-a | 1 | Evolysse Form | inj1 @ 2 s, tip (505, 968) | landmark 137 + (13.3, 1.6) | (120.4, 901.7) | 4.46 |
+| cheekR-d | 1 | Evolysse Form | inj1 @ 8 s, tip (515, 968) | landmark 50 + (2.0, -9.4) | (162.6, 874.3) | 5.34 |
+| cheekR-c | 2 | Evolysse Form | inj1 @ 26 s, tip (500, 950) | landmark 227 + (3.9, -8.7) | (105.9, 869.5) | 4.44 |
+| cheekL | 3 | Evolysse Form | inj3 @ 4 s, tip (487, 937) | landmark 280 + (-5.9, -0.5) | (292.6, 872.0) | 12.03 |
+| lowerR | 4 | Evolysse Smooth | inj7 @ 10 s, tip (537, 946) | landmark 212 + (3.2, 6.0) | (189.0, 942.8) | 10.0 |
+| chin | 5 | Evolysse Smooth | inj7 @ 60 s, tip (515, 940) | landmark 149 + (2.8, -0.5) | (199.6, 993.1) | 3.28 |
+| jawL | 6 | Evolysse Smooth | inj7 @ 100 s, tip (555, 1130) | landmark 400 + (9.4, 4.7) | (290.5, 988.4) | 3.47 |
+| crowL | 9 | Neuromodulator | neuro @ 92 s, tip (335, 778) | landmark 447 + (-5.1, -1.8) | (291.8, 862.9) | 6.05 |
+
+Not drawn as an X (no landmarks while his hand covered her face):
+- cheekR-b: no face landmarks within 1 s of any annotated frame (her face is behind his hand). Shown as a hatched zone from her landmarks, not as an entry X.
+- glabella: no face landmarks within 1 s of any annotated frame (her face is behind his hand). Shown as a hatched zone from her landmarks, not as an entry X.
+- corrugator: no face landmarks within 1 s of any annotated frame (her face is behind his hand). Shown as a hatched zone from her landmarks, not as an entry X.
+
+### Arrows on the after (v3)
+
+| Arrow | Measured | Visible | Drawn |
+|---|---|---|---|
+| Fuller cheek, her right cheek (image left), a straight pointer outward | yes (pair_measure.json: the cheek contour moved outward; see v1 table above) | yes | yes, white, on the glass system |
+| Laugh lines | no change measurable at this photo angle | he says softer | no arrow; the note "Laugh lines: softer, he says. This photo angle cannot measure it, so no arrow." |
+| Marionette lines, neuromodulator areas | no | no (the neuromodulator shows in a day or two) | no arrow; markup only, faint on the after |
+
+No blue anywhere: the marks are white pen on the photo and ink on glass (client 2026-11-17; LESSONS L5; lint rule PAL).

@@ -1,0 +1,311 @@
+{
+ "note": "Needle / cannula tip at her skin, read by eye off native-resolution locator crops (20 px grid; brand/scripts/oct14_marks.py loc). x, y = source px of that clip at 1080 wide. face = which detected face is hers in that frame. Reading precision about +-5 px. NOT FOR POSTING until patient consent = yes.",
+ "marks": [
+  {
+   "id": "cheekR-a",
+   "area": "cheek R",
+   "product": "Evolysse Form",
+   "order": 1,
+   "frames": [
+    {
+     "clip": "inj1",
+     "s": 2,
+     "x": 505,
+     "y": 968
+    }
+   ]
+  },
+  {
+   "id": "cheekR-d",
+   "area": "cheek R",
+   "product": "Evolysse Form",
+   "order": 1,
+   "frames": [
+    {
+     "clip": "inj1",
+     "s": 8,
+     "x": 515,
+     "y": 968
+    }
+   ]
+  },
+  {
+   "id": "cheekR-c",
+   "area": "cheek R",
+   "product": "Evolysse Form",
+   "order": 2,
+   "frames": [
+    {
+     "clip": "inj1",
+     "s": 26,
+     "x": 500,
+     "y": 950
+    }
+   ]
+  },
+  {
+   "id": "cheekR-b",
+   "area": "cheek R",
+   "product": "Evolysse Form",
+   "order": 2,
+   "frames": [
+    {
+     "clip": "inj1",
+     "s": 20,
+     "x": 465,
+     "y": 962
+    }
+   ]
+  },
+  {
+   "id": "cheekL",
+   "area": "cheek L",
+   "product": "Evolysse Form",
+   "order": 3,
+   "frames": [
+    {
+     "clip": "inj3",
+     "s": 4,
+     "x": 487,
+     "y": 937
+    },
+    {
+     "clip": "inj3",
+     "s": 12,
+     "x": 498,
+     "y": 908
+    },
+    {
+     "clip": "inj3",
+     "s": 36,
+     "x": 497,
+     "y": 926
+    },
+    {
+     "clip": "inj3",
+     "s": 42,
+     "x": 482,
+     "y": 916
+    }
+   ]
+  },
+  {
+   "id": "lowerR",
+   "area": "laugh line / marionette R",
+   "product": "Evolysse Smooth",
+   "order": 4,
+   "frames": [
+    {
+     "clip": "inj7",
+     "s": 10,
+     "x": 537,
+     "y": 946
+    },
+    {
+     "clip": "inj7",
+     "s": 14,
+     "x": 534,
+     "y": 967
+    }
+   ]
+  },
+  {
+   "id": "chin",
+   "area": "below the mouth",
+   "product": "Evolysse Smooth",
+   "order": 5,
+   "frames": [
+    {
+     "clip": "inj7",
+     "s": 60,
+     "x": 515,
+     "y": 940
+    },
+    {
+     "clip": "inj7",
+     "s": 70,
+     "x": 510,
+     "y": 935
+    }
+   ]
+  },
+  {
+   "id": "jawL",
+   "area": "marionette L",
+   "product": "Evolysse Smooth",
+   "order": 6,
+   "frames": [
+    {
+     "clip": "inj7",
+     "s": 100,
+     "x": 555,
+     "y": 1130
+    }
+   ]
+  },
+  {
+   "id": "glabella",
+   "area": "frown lines",
+   "product": "Neuromodulator",
+   "order": 7,
+   "frames": [
+    {
+     "clip": "neuro",
+     "s": 6,
+     "x": 775,
+     "y": 825,
+     "face": "smallest"
+    },
+    {
+     "clip": "neuro",
+     "s": 10,
+     "x": 785,
+     "y": 835,
+     "face": "smallest"
+    }
+   ]
+  },
+  {
+   "id": "corrugator",
+   "area": "frown lines",
+   "product": "Neuromodulator",
+   "order": 8,
+   "frames": [
+    {
+     "clip": "neuro",
+     "s": 14,
+     "x": 760,
+     "y": 825,
+     "face": "smallest"
+    }
+   ]
+  },
+  {
+   "id": "crowL",
+   "area": "crow's feet",
+   "product": "Neuromodulator",
+   "order": 9,
+   "frames": [
+    {
+     "clip": "neuro",
+     "s": 92,
+     "x": 335,
+     "y": 778,
+     "face": "left"
+    },
+    {
+     "clip": "neuro",
+     "s": 96,
+     "x": 325,
+     "y": 775,
+     "face": "left"
+    }
+   ]
+  }
+ ],
+ "paths": [
+  {
+   "from": "lowerR",
+   "to_landmark": "nasoL",
+   "note": "cannula advanced up toward the laugh line (IMG_3654 0:10-0:16, IMG_3653 0:12-0:40)"
+  },
+  {
+   "from": "lowerR",
+   "to_landmark": "marioL",
+   "note": "the second pass toward the marionette line"
+  },
+  {
+   "from": "jawL",
+   "to_landmark": "marioR",
+   "note": "the left side from the jaw (IMG_3654 1:40)"
+  }
+ ],
+ "zones": [
+  {
+   "id": "cheekR",
+   "landmarks": [
+    "malarL",
+    "cheekL"
+   ],
+   "marks": [
+    "cheekR-a",
+    "cheekR-d",
+    "cheekR-c",
+    "cheekR-b"
+   ],
+   "product": "Evolysse Form",
+   "amount": "1 syringe (both cheeks)",
+   "clip": "IMG_3641 0:00-0:37"
+  },
+  {
+   "id": "cheekL",
+   "landmarks": [
+    "malarR",
+    "cheekR"
+   ],
+   "marks": [
+    "cheekL"
+   ],
+   "product": "Evolysse Form",
+   "amount": "1 syringe (both cheeks)",
+   "clip": "IMG_3650 0:00-0:46, IMG_3651"
+  },
+  {
+   "id": "laughR",
+   "landmarks": [
+    "nasoL",
+    "marioL"
+   ],
+   "marks": [
+    "lowerR",
+    "chin"
+   ],
+   "product": "Evolysse Smooth",
+   "clip": "IMG_3653, IMG_3654 0:00-1:20"
+  },
+  {
+   "id": "marioL",
+   "landmarks": [
+    "marioR",
+    "lipCR"
+   ],
+   "marks": [
+    "jawL"
+   ],
+   "product": "Evolysse Smooth",
+   "clip": "IMG_3654 1:24-1:48"
+  },
+  {
+   "id": "glabella",
+   "landmarks": [
+    "glabella"
+   ],
+   "marks": [
+    "glabella",
+    "corrugator"
+   ],
+   "product": "Neuromodulator",
+   "clip": "IMG_3657 0:00-0:20 (tips read at 0:06 / 0:10 / 0:14, but no face landmarks within 1 s there: zone only)"
+  },
+  {
+   "id": "forehead",
+   "landmarks": [
+    "forehead"
+   ],
+   "marks": [],
+   "product": "Neuromodulator",
+   "clip": "IMG_3657 0:30-0:58 (tips not visible: his hand covers them)"
+  },
+  {
+   "id": "crowL",
+   "landmarks": [
+    "crowR"
+   ],
+   "marks": [
+    "crowL"
+   ],
+   "product": "Neuromodulator",
+   "clip": "IMG_3657 1:24-1:44"
+  }
+ ]
+}

@@ -10,7 +10,7 @@ export const Arrow: React.FC<{ d: string; q: number; tip: [number, number]; ang:
 export const Synapse: React.FC<{ v: [number, number][] }> = ({ v }) => (
   <svg width={720} height={420}>
     <path d="M300 60 L300 360" stroke="#202532" strokeWidth={2} />
-    {v.map(([x, y], i) => <circle key={i} cx={x} cy={y} r={4} fill="#37a9e8" />)} {/* lint-ok: vesicles, not a callout */}
+    {v.map(([x, y], i) => <circle key={i} cx={x} cy={y} r={4} fill="#202532" />)} {/* lint-ok: vesicles, not a callout */}
   </svg>
 );
 export const Divider: React.FC = () => (

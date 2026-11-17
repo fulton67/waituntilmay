@@ -203,6 +203,35 @@ def fix(w, prev):
     return w
 
 
+def audio():
+    """v2: the voice track as ONE file (public/oct14/mix.wav), so every cut gets a 15 ms crossfade (Remotion can only fade per
+    frame = 42 ms). Each piece: its clip's audio from..to, sped up (atempo, pitch kept), padded or trimmed to its exact frame length,
+    a 15 ms fade in and out; consecutive pieces of one continuous span (audioJoin) join without a fade. The fades overlap the
+    neighbouring piece by 7.5 ms each side (acrossfade would shift the frame grid, so a fade-out + fade-in on the frame line is used)."""
+    pr = json.loads((PUB / "props.json").read_text())
+    sp, segs = pr["speed"], []
+    pcs = pr["pieces"]
+    for i, p in enumerate(pcs):
+        d = p["dur"] / FPS
+        fin = 0 if p.get("audioJoin") else 0.015
+        fout = 0 if i + 1 < len(pcs) and pcs[i + 1].get("audioJoin") else 0.015
+        f = f"atrim={p['from']}:{p['to']},asetpts=PTS-STARTPTS,atempo={sp},aresample=48000,apad,atrim=0:{d:.6f}"
+        if fin:
+            f += f",afade=t=in:st=0:d={fin}"
+        if fout:
+            f += f",afade=t=out:st={d - fout:.6f}:d={fout}"
+        segs.append((p["role"], f))
+    roles = sorted({r for r, _ in segs})
+    args = ["ffmpeg", "-y", "-loglevel", "error"]
+    for r in roles:
+        args += ["-i", str(PUB / f"{r}.mp4")]
+    fc = ";".join(f"[{roles.index(r)}:a]{f},aformat=channel_layouts=stereo[a{i}]" for i, (r, f) in enumerate(segs))
+    fc += ";" + "".join(f"[a{i}]" for i in range(len(segs))) + f"concat=n={len(segs)}:v=0:a=1[out]"
+    args += ["-filter_complex", fc, "-map", "[out]", "-c:a", "pcm_s16le", str(PUB / "mix.wav")]
+    subprocess.run(args, check=True)
+    print("mix.wav", len(segs), "pieces")
+
+
 def props():
     """cut.json -> public/oct14/props.json. Pieces carry raw seconds of their audio clip (role) and of the picture under them
     (pictureRole / pictureFrom). Cues: {name: [pieceId, roleWordIndex, offsetFrames?]} -> the composition frame of that word's onset."""
@@ -211,7 +240,8 @@ def props():
     W = {r: json.loads((EDIT / f"words_{r}.json").read_text()) for r in {p["role"] for p in cut["pieces"]}}
     at, pieces, out_words = 0, [], []
     for p in cut["pieces"]:
-        ws = [w for w in W[p["role"]] if w["t0"] >= p["from"] - 0.02 and w["t1"] <= p["to"] + 0.05]
+        # a word belongs to the piece whose span holds its midpoint (whisper's word edges are loose; the cut itself sits in measured silence)
+        ws = [w for w in W[p["role"]] if p["from"] <= (w["t0"] + w["t1"]) / 2 < p["to"]]
         if any(w.get("redacted") for w in ws):
             raise SystemExit(f"piece {p['id']} contains a redacted name word: move its bounds")
         dur = round((p["to"] - p["from"]) / sp * FPS)
@@ -222,24 +252,36 @@ def props():
             prev = t
             out_words.append({"w": t, "f": at + round((w["t0"] - p["from"]) / sp * FPS), "f1": at + round((w["t1"] - p["from"]) / sp * FPS), "piece": p["id"]})
         at += dur
-    byid = {p["id"]: p for p in pieces}
     cues = {}
     for k, v in cut.get("cues", {}).items():
         if isinstance(v, (int, float)):
             cues[k] = int(v)
             continue
-        pc = byid[v[0]]
-        t0 = W[pc["role"]][v[1]]["t0"]
+        # v[0] is a LINE id; the word lands in whichever of that line's pieces covers it (micro-cuts split lines into pieces)
+        line = [p for p in pieces if p.get("line", p["id"]) == v[0]]
+        t0 = W[line[0]["role"]][v[1]]["t0"]
+        pc = next((p for p in line if p["from"] - 0.03 <= t0 < p["to"]), None)
+        if pc is None:
+            raise SystemExit(f"cue {k}: word {v[1]} of {v[0]} was cut out")
         cues[k] = pc["at"] + round((t0 - pc["from"]) / sp * FPS) + (v[2] if len(v) > 2 else 0)
-    for k in byid:  # every piece's start and end as cues too
-        cues["start:" + k], cues["end:" + k] = byid[k]["at"], byid[k]["at"] + byid[k]["dur"]
+    for p in pieces:  # every line's start and end (first piece's start, last piece's end) as cues too
+        ln = p.get("line", p["id"])
+        cues.setdefault("start:" + ln, p["at"])
+        cues["end:" + ln] = p["at"] + p["dur"]
     tr = json.loads((EDIT / "tracks.json").read_text()) if (EDIT / "tracks.json").exists() else {}
     res = {"fps": FPS, "speed": sp, "durationInFrames": at, "pieces": pieces, "words": out_words, "cues": cues,
            "pips": cut.get("pips", []), "title": cut.get("title"), "hideCaps": cut.get("hideCaps", []), "sfx": cut.get("sfx", []), "tail": cut.get("tail", 72),
-           "beats": cut.get("beats", {}), "tracks": {r: tr[r] for r in tr if r in {p["pictureRole"] for p in pieces}}}
+           "beats": cut.get("beats", {}), "surgeon": cut.get("surgeon"), "tracks": {r: tr[r] for r in tr if r in {p["pictureRole"] for p in pieces}}}
     if cut.get("ba") and (EDIT / "pair.json").exists():
         pair = json.loads((EDIT / "pair.json").read_text())
         res["ba"] = {**cut["ba"], "iw": pair["w"], "ih": pair["h"], "pts": pair["pts_before"]}
+    cm = ROOT / "research/ostad/style/oct14/contour_measure.json"
+    if res.get("surgeon") and cm.exists():  # the measured cheek shadow line, before vs after (oct14_contour.py)
+        c = json.loads(cm.read_text())
+        if c.get("drawn"):
+            res["surgeon"]["contour"] = {"before": c["before"], "after": c["after"], "shift_px": c["median_shift_px"]}
+    if (PUB / "anatomy.json").exists():  # line drawings traced from face.glb (brand/scripts/oct14_anatomy.py)
+        res["anatomy"] = json.loads((PUB / "anatomy.json").read_text())
     (PUB / "props.json").write_text(json.dumps(res))
     print("frames", at, f"({at / FPS:.1f} s)", "pieces", len(pieces), "words", len(out_words))
     return res
@@ -258,4 +300,4 @@ def master():
 
 
 if __name__ == "__main__":
-    {"master": master, "select": select, "transcribe": transcribe, "words": words, "transcode": transcode, "props": props}[sys.argv[1]]()
+    {"master": master, "audio": audio, "select": select, "transcribe": transcribe, "words": words, "transcode": transcode, "props": props}[sys.argv[1]]()

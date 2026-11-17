@@ -1,0 +1,266 @@
+{
+ "terms": [
+  {
+   "term": "Forehead lines",
+   "in_clips": {
+    "intro": [
+     13.76
+    ],
+    "pre1": [
+     4.98
+    ]
+   },
+   "in_cut": [
+    77
+   ]
+  },
+  {
+   "term": "Frown lines",
+   "in_clips": {
+    "intro": [
+     14.86,
+     18.84
+    ],
+    "pre1": [
+     3.78
+    ]
+   },
+   "in_cut": [
+    100
+   ]
+  },
+  {
+   "term": "Crow's feet",
+   "in_clips": {
+    "intro": [
+     23.56
+    ],
+    "pre1": [
+     6.28
+    ]
+   },
+   "in_cut": [
+    154
+   ]
+  },
+  {
+   "term": "Dynamic lines",
+   "in_clips": {
+    "intro": [
+     25.34,
+     27.92
+    ]
+   },
+   "in_cut": [
+    191,
+    245
+   ]
+  },
+  {
+   "term": "Brow drop",
+   "in_clips": {
+    "intro": [
+     64.74,
+     72.64
+    ],
+    "neuro": [
+     104.94
+    ]
+   },
+   "in_cut": [
+    521
+   ]
+  },
+  {
+   "term": "Jowling",
+   "in_clips": {
+    "intro": [
+     79.44
+    ]
+   },
+   "in_cut": [
+    787
+   ]
+  },
+  {
+   "term": "Laugh lines",
+   "in_clips": {
+    "after": [
+     5.22,
+     15.94,
+     29.18,
+     49.54
+    ],
+    "inj5": [
+     30.04,
+     35.5
+    ],
+    "intro": [
+     80.5,
+     82.86
+    ]
+   },
+   "in_cut": [
+    809,
+    858,
+    1234,
+    1740,
+    1964
+   ]
+  },
+  {
+   "term": "Deflation",
+   "in_clips": {
+    "after": [
+     43.82
+    ],
+    "inj2": [
+     39.28
+    ],
+    "intro": [
+     87.78,
+     110.7,
+     113.56
+    ],
+    "pre2": [
+     3.98
+    ]
+   },
+   "in_cut": [
+    960
+   ]
+  },
+  {
+   "term": "Soft tissue descent",
+   "in_clips": {
+    "intro": [
+     90.54,
+     92.8,
+     95.04
+    ]
+   },
+   "in_cut": [
+    1008,
+    1048
+   ]
+  },
+  {
+   "term": "Cheekbones",
+   "in_clips": {
+    "after": [
+     12.12,
+     13.18,
+     47.18
+    ],
+    "inj2": [
+     8.74,
+     9.08,
+     44.86
+    ],
+    "inj5": [
+     17.32,
+     51.16,
+     52.82
+    ],
+    "intro": [
+     108.88
+    ]
+   },
+   "in_cut": [
+    1884,
+    1906
+   ]
+  },
+  {
+   "term": "Marionette lines",
+   "in_clips": {
+    "after": [
+     8.18
+    ]
+   },
+   "in_cut": [
+    1802
+   ]
+  },
+  {
+   "term": "Jawline",
+   "in_clips": {
+    "after": [
+     14.34,
+     48.1
+    ],
+    "inj2": [
+     13.48,
+     26.92,
+     47.2
+    ],
+    "inj5": [
+     20.3,
+     55.5
+    ],
+    "intro": [
+     117.56
+    ]
+   },
+   "in_cut": [
+    1930
+   ]
+  },
+  {
+   "term": "Cannula",
+   "in_clips": {
+    "inj6": [
+     11.24,
+     40.62
+    ]
+   },
+   "in_cut": [
+    1624
+   ]
+  },
+  {
+   "term": "Neuromodulator",
+   "in_clips": {
+    "intro": [
+     32.32,
+     34.92,
+     35.7,
+     58.6,
+     141.66
+    ],
+    "neuro": [
+     83.18
+    ]
+   },
+   "in_cut": [
+    337,
+    596
+   ]
+  },
+  {
+   "term": "Hyaluronic acid filler",
+   "in_clips": {
+    "after": [
+     57.24
+    ],
+    "inj5": [
+     5.34
+    ],
+    "intro": [
+     98.82,
+     146.14
+    ],
+    "pre1": [
+     26.06,
+     30.78
+    ]
+   },
+   "in_cut": [
+    690,
+    1119,
+    1373
+   ]
+  }
+ ],
+ "missing_example": []
+}

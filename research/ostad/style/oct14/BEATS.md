@@ -1,6 +1,6 @@
 # Oct 14 injection reel: beat sheet, line ranking, duplicate map and briefs
 
-**NOT FOR POSTING until patient consent = yes.** Consent for this patient is unknown. She agreed on camera to be filmed (intro 0:04), which is not consent to post.
+**Consent = yes since 2026-11-17 (written, before the procedure; DECISIONS 16d). v1 and v2 were made while consent was unknown, and their file names still carry the flag.** Earlier text: consent for this patient was unknown. She agreed on camera to be filmed (intro 0:04), which is not consent to post.
 
 Dr. Ostad, Oct 14 2026: one session, 13 phone clips. The clips are picked by `com.apple.quicktime.creationdate`, never the file time (`brand/scripts/oct14_prep.py select`):
 
@@ -195,3 +195,77 @@ PASS:
   - B12's rolling value is below the probe threshold, so it isn't measured.
 - **Other checks:** static-image PASS; 0 one-frame flashes; lint_compositions PASS (0 dot-and-line, 5 files); variety_check PASS.
 - **Fixed after the first render:** the B06 route started on "moving" and could not finish before the cut. It now draws early and lands on the word.
+
+
+## v3 cut list, one reason per cut (2026-11-17)
+
+29 cuts. Every voice cut sits in measured silence (≥ 80 ms; see verify.json v2.cut_gap).
+
+| At | From → to | Kind | Reason |
+|---|---|---|---|
+|   1.5 s | intro-patient → intro-typical | voice + picture, in silence | Hook over: from the needle-at-her-cheek B-roll (picture) back to the two-shot for his first line, "a typical patient". |
+|   3.2 s | intro-typical → intro-typical/b | picture only (voice continuous) | Glossary: he says "forehead lines". Picture-only cut to her own forehead in the neuromodulator clip, punched in 2.4x on the landmark. |
+|   4.1 s | intro-typical/b → intro-typical/b/b | picture only (voice continuous) | Glossary: "frown lines". Picture-only cut to her frown in the same clip, punched in on the glabella. |
+|   4.5 s | intro-typical/b/b → intro-dynamic | voice + picture, in silence | Back to the two-shot for "crow's feet" (sentence start, 80+ ms silence). |
+|   5.3 s | intro-dynamic → intro-dynamic~2 | voice + picture, in silence | Trim of a false start ("she's got … she's got"). The jump is covered by the 1.1 punch. |
+|   6.3 s | intro-dynamic~2 → intro-dynamic~2/b | picture only (voice continuous) | Glossary: "crow's feet". Punch in 2.0x at her eye, with pen strokes along the fan. |
+|   7.1 s | intro-dynamic~2/b → intro-dynamic~2/b/b | picture only (voice continuous) | Back to wide for "dynamic lines … neuromodulator". Injection 1 pops up over it. |
+|  14.6 s | intro-dynamic~2/b/b → neuro-more-less | voice + picture, in silence | Technique line, cut to the clip where he injects the neuromodulator (he says it while injecting). |
+|  21.9 s | neuro-more-less → intro-lasts | voice + picture, in silence | Duration line (back to the intro). The 30 s of brand talk between them are dropped (ranking). |
+|  23.7 s | intro-lasts → intro-onset-vs-filler | voice + picture, in silence | The onset contrast he makes at the end of the intro, moved up to close the upper face (same topic). Punch 1.1 covers the jump. |
+|  29.8 s | intro-onset-vs-filler → intro-midface | voice + picture, in silence | Section turn 02: "moving to her mid face". |
+|  31.8 s | intro-midface → intro-midface~2 | voice + picture, in silence | Filler trim ("um"). Covered by the 1.1 punch. |
+|  32.6 s | intro-midface~2 → intro-midface~2/b | picture only (voice continuous) | Glossary: "jowling". Punch in 2.0x on her jaw, with a pen contour. |
+|  33.8 s | intro-midface~2/b → intro-deflation | picture only (voice continuous) | Kept joined to the jowling line: "patients want their laugh lines filled. But really …" stays one span (setup with its "but"). |
+|  41.5 s | intro-deflation → intro-deflation~2 | voice + picture, in silence | Trim of the ligament aside (repeats the deflation claim). Same claim, punch back to 1.0. |
+|  43.1 s | intro-deflation~2 → intro-deflation~3 | voice + picture, in silence | Trim of a stutter. Covered by the 1.1 punch. |
+|  44.8 s | intro-deflation~3 → intro-cheeks | voice + picture, in silence | "So we're just going to put a little filler in the cheeks": the "instead" of the argument. |
+|  46.6 s | intro-cheeks → intro-cheekbones | voice + picture, in silence | His reason, "it's really more about addressing the cheekbones" (restored in v3; cut in v2). |
+|  48.8 s | intro-cheekbones → inj2-syringe | voice + picture, in silence | Cut to the injection: he names the product and the spot while injecting. Pop-up 2. |
+|  51.8 s | inj2-syringe → inj5-less-needed | voice + picture, in silence | Section turn 03: her close-up after the cheeks, "the laugh lines got better" (the result of the "instead"). |
+|  55.5 s | inj5-less-needed → after-smooth | voice + picture, in silence | His product line for the lines (said in the after clip), laid over the line injection (picture inj5 16 s), so the words sit on the act. |
+|  64.9 s | after-smooth → inj6-bruising | voice + picture, in silence | Cut to the cannula clip for "I like using a cannula" (said while injecting). |
+|  70.2 s | inj6-bruising → inj6-bruising/b | picture only (voice continuous) | Same shot, the tail of the sentence. A 1.12 punch covers a removed pause. |
+|  71.2 s | inj6-bruising/b → after-summary | voice + picture, in silence | Section turn 04: "we're done", the result. |
+|  74.3 s | after-summary → after-summary/b | picture only (voice continuous) | B-roll of the line injection (inj7) under "when she came in … laugh lines deep": shows what he is describing. |
+|  76.5 s | after-summary/b → after-summary/b/b | picture only (voice continuous) | Back to the after close-up for "marionette lines" (glossary pen strokes). |
+|  78.3 s | after-summary/b/b → after-summary/b/b/b | picture only (voice continuous) | Into the surgeon before/after under "proper cheek bone projection, jaw line lifted". |
+|  85.3 s | after-summary/b/b/b → after-15min | voice + picture, in silence | Treatment time (same clip, a later sentence). 1.1 punch. |
+|  87.8 s | after-15min → after-lasts | voice + picture, in silence | Duration line, from 45 s later in the after clip. 1.0 punch (alternation). |
+
+## v3 glossary: terms he names and what is shown
+
+| Term (in cut) | Shown |
+|---|---|
+| Forehead lines | punch-in 2.4x on her forehead (neuromodulator clip), label "This is / Forehead lines" |
+| Frown lines | punch-in on her frown, label "This is / Frown lines" |
+| Crow's feet | punch-in 2.0x at her eye on her smile, three white pen strokes along the fan, label |
+| Dynamic lines | the three above, then pop-up 1 "Frown lines (dynamic)" |
+| Jowling | punch-in 2.0x on her jaw, white pen contour, label |
+| Deflation / soft tissue descent | the route trace from cheekbone to below the jaw, Label C "The source / Deflation" |
+| Laugh lines | rings on her close-up (inj5), "Usually vs here" columns |
+| Cheekbones | pop-up 2 at the outer cheekbone; the surgeon X marks and hatched zone on the before |
+| Marionette lines | white pen strokes from the mouth corners on her after close-up, label |
+| Cannula | TechLine "A cannula / to minimise bruising" over the cannula clip |
+| Neuromodulator | pop-up 1 "used here", MonthsRule, Ledger |
+| Hyaluronic acid filler | named by his words only (Evolysse Form / Smooth labels) |
+
+No bank examples were needed: every named condition had an example on her own face (GLOSSARY.md bank examples stay on-air only).
+
+## v3 photo and source per beat (REELS_HOW_I_WOULD_BUILD item 7)
+
+| Beat | Picture / image | Source |
+|---|---|---|
+| Hook 0–1.8 s | her face 4:42 PM → 4:55 PM, registered, with the measured cheek line | IMG_3637 at 16.83 s and IMG_3656 at 12.17 s (pair.json; contour_measure.json) |
+| B01 | needle at her cheek; her forehead and frown (punch-ins) | IMG_3650 0:08; IMG_3657 0:33.6 and 0:04.6 |
+| B02–B03 | ClipCard: the neuromodulator injection; frown-muscle drawing (contracting, then lift / pull-down forces) | IMG_3657 0:09; face.glb (Z-Anatomy muscles), anatomy_measure.json |
+| B04–B05 | month ruler; day-axis lanes; B-roll of a filler injection on "with fillers" | his figures; IMG_3642 0:25 |
+| B06 | jowl punch-in; her with a hand mirror ("patients come in…"); him assessing her before ("deflation"); profile drawing, deflate / descend / filler restores; compare ClipCards | IMG_3640; IMG_3638 (pre2) 0:05; IMG_3637 (pre1) 0:10; face.glb; IMG_3654 1:10 and IMG_3650 0:20 |
+| B07 | ClipCard: the cheek injection | IMG_3641 0:06 |
+| B08 | her close-up, pen lines on both folds (tracked) | IMG_3652 0:34 |
+| B09 | ClipCard: the cannula; Form vs Smooth gel drops (illustration) | IMG_3653; drawn, his words "not as thick" |
+| B10 | the cannula clip; needle vs cannula skin section | IMG_3653 0:35; skin_crosssection.glb |
+| B11 | marionette pen lines; SkinCard window with markup and the measured cheek line | IMG_3656 0:24.6; pair as the hook |
+| B12 | facts; end card on the sharp last frame | IMG_3656 |
+
+Searched and not used (time box): the clinic library for product boxes / syringe close-ups from Oct 14 (only the 13 clips exist for the visit); the maker's Evolysse Form / Smooth product photos (allowed, not fetched; open item, approval list).

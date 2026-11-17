@@ -53,12 +53,12 @@ def named(L):
     return P
 
 
-def run(role, face="largest"):
+def run(role, face="largest", euro=(0.1, 0.03)):
     cap = cv2.VideoCapture(str(PUB / f"{role}.mp4"))
     W, H = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     opts = mp.tasks.vision.FaceLandmarkerOptions(base_options=mp.tasks.BaseOptions(model_asset_path=MODEL), running_mode=mp.tasks.vision.RunningMode.VIDEO, num_faces=2)
     lm = mp.tasks.vision.FaceLandmarker.create_from_options(opts)
-    euro = OneEuro(0.1, 0.03)
+    euro = OneEuro(*euro)  # 0.1 / 0.03 for a still camera (DEC 14g); a handheld clip with fast moves needs a faster filter (--euro 1.0,0.3)
     out, prev, i, found = {}, None, 0, 0
     while True:
         ok, fr = cap.read()
@@ -120,4 +120,5 @@ if __name__ == "__main__":
     if "--check" in sys.argv:
         check(role, [int(x) for x in sys.argv[sys.argv.index("--check") + 1].split(",")])
     else:
-        run(role, face)
+        eu = tuple(float(x) for x in sys.argv[sys.argv.index("--euro") + 1].split(",")) if "--euro" in sys.argv else (0.1, 0.03)
+        run(role, face, eu)

@@ -1,150 +1,423 @@
 {
  "speed": 1.15,
- "tail": 72,
+ "tail": 120,
  "pieces": [
   {
    "id": "intro-patient",
+   "line": "intro-patient",
    "section": "S1",
    "role": "intro",
-   "from": 1.84,
-   "to": 3.62,
-   "pictureRole": "intro",
-   "pictureFrom": 1.84
+   "from": 1.765,
+   "to": 3.48,
+   "pictureRole": "inj3",
+   "pictureFrom": 8.0,
+   "punch": 1.0
   },
   {
    "id": "intro-typical",
+   "line": "intro-typical",
    "section": "S1",
    "role": "intro",
-   "from": 9.38,
-   "to": 15.34,
+   "from": 11.845,
+   "to": 13.74,
    "pictureRole": "intro",
-   "pictureFrom": 9.38
+   "pictureFrom": 11.845,
+   "punch": 1.0
+  },
+  {
+   "id": "intro-typical/b",
+   "line": "intro-typical",
+   "section": "S1",
+   "role": "intro",
+   "from": 13.74,
+   "to": 14.84,
+   "pictureRole": "neuro",
+   "pictureFrom": 33.6,
+   "punch": 2.4,
+   "audioJoin": true,
+   "keepPunch": true,
+   "punchO": [
+    0.696,
+    0.402
+   ]
+  },
+  {
+   "id": "intro-typical/b/b",
+   "line": "intro-typical",
+   "section": "S1",
+   "role": "intro",
+   "from": 14.84,
+   "to": 15.25,
+   "pictureRole": "neuro",
+   "pictureFrom": 4.6,
+   "punch": 2.4,
+   "audioJoin": true,
+   "keepPunch": true,
+   "punchO": [
+    0.721,
+    0.416
+   ]
   },
   {
    "id": "intro-dynamic",
+   "line": "intro-dynamic",
    "section": "S1",
    "role": "intro",
-   "from": 20.54,
-   "to": 33.44,
+   "from": 20.46,
+   "to": 21.36,
    "pictureRole": "intro",
-   "pictureFrom": 20.54
+   "pictureFrom": 20.46,
+   "punch": 1.0
+  },
+  {
+   "id": "intro-dynamic~2",
+   "line": "intro-dynamic",
+   "section": "S1",
+   "role": "intro",
+   "from": 22.405,
+   "to": 23.54,
+   "pictureRole": "intro",
+   "pictureFrom": 22.405,
+   "punch": 1.1
+  },
+  {
+   "id": "intro-dynamic~2/b",
+   "line": "intro-dynamic",
+   "section": "S1",
+   "role": "intro",
+   "from": 23.54,
+   "to": 24.5,
+   "pictureRole": "intro",
+   "pictureFrom": 23.54,
+   "punch": 2.0,
+   "audioJoin": true,
+   "keepPunch": true,
+   "punchO": [
+    0.827,
+    0.463
+   ]
+  },
+  {
+   "id": "intro-dynamic~2/b/b",
+   "line": "intro-dynamic",
+   "section": "S1",
+   "role": "intro",
+   "from": 24.5,
+   "to": 33.14,
+   "pictureRole": "intro",
+   "pictureFrom": 24.5,
+   "punch": 1.0,
+   "audioJoin": true,
+   "keepPunch": true
   },
   {
    "id": "neuro-more-less",
+   "line": "neuro-more-less",
    "section": "S1",
    "role": "neuro",
-   "from": 97.26,
-   "to": 105.62,
+   "from": 97.18,
+   "to": 105.5,
    "pictureRole": "neuro",
-   "pictureFrom": 97.26
+   "pictureFrom": 97.18,
+   "punch": 1.0
   },
   {
    "id": "intro-lasts",
+   "line": "intro-lasts",
    "section": "S1",
    "role": "intro",
-   "from": 55.1,
-   "to": 56.55,
+   "from": 54.42,
+   "to": 56.46,
    "pictureRole": "intro",
-   "pictureFrom": 55.1
+   "pictureFrom": 54.42,
+   "punch": 1.0
   },
   {
    "id": "intro-onset-vs-filler",
+   "line": "intro-onset-vs-filler",
    "section": "S1",
    "role": "intro",
-   "from": 140.18,
-   "to": 147.54,
+   "from": 140.61,
+   "to": 145.84,
    "pictureRole": "intro",
-   "pictureFrom": 140.18
+   "pictureFrom": 140.61,
+   "punch": 1.1
+  },
+  {
+   "id": "intro-onset-vs-filler/b",
+   "line": "intro-onset-vs-filler",
+   "section": "S1",
+   "role": "intro",
+   "from": 145.84,
+   "to": 147.63,
+   "pictureRole": "inj2",
+   "pictureFrom": 25.0,
+   "punch": 1.0,
+   "audioJoin": true,
+   "keepPunch": true
   },
   {
    "id": "intro-midface",
+   "line": "intro-midface",
    "section": "S2",
    "role": "intro",
-   "from": 75.64,
-   "to": 80.92,
+   "from": 75.45,
+   "to": 77.715,
    "pictureRole": "intro",
-   "pictureFrom": 75.64
+   "pictureFrom": 75.45,
+   "punch": 1.0
+  },
+  {
+   "id": "intro-midface~2",
+   "line": "intro-midface",
+   "section": "S2",
+   "role": "intro",
+   "from": 78.48,
+   "to": 79.42,
+   "pictureRole": "intro",
+   "pictureFrom": 78.48,
+   "punch": 1.1
+  },
+  {
+   "id": "intro-midface~2/b",
+   "line": "intro-midface",
+   "section": "S2",
+   "role": "intro",
+   "from": 79.42,
+   "to": 80.86,
+   "pictureRole": "intro",
+   "pictureFrom": 79.42,
+   "punch": 2.0,
+   "audioJoin": true,
+   "keepPunch": true,
+   "punchO": [
+    0.865,
+    0.498
+   ]
   },
   {
    "id": "intro-deflation",
+   "line": "intro-deflation",
    "section": "S2",
    "role": "intro",
-   "from": 80.92,
-   "to": 94.67,
+   "from": 80.86,
+   "to": 81.32,
    "pictureRole": "intro",
-   "pictureFrom": 80.92
+   "pictureFrom": 80.86,
+   "punch": 2.0,
+   "audioJoin": true
+  },
+  {
+   "id": "intro-deflation/b",
+   "line": "intro-deflation",
+   "section": "S2",
+   "role": "intro",
+   "from": 81.32,
+   "to": 83.74,
+   "pictureRole": "pre2",
+   "pictureFrom": 5.0,
+   "punch": 1.0,
+   "audioJoin": true,
+   "keepPunch": true
+  },
+  {
+   "id": "intro-deflation/b/b",
+   "line": "intro-deflation",
+   "section": "S2",
+   "role": "intro",
+   "from": 83.74,
+   "to": 87.76,
+   "pictureRole": "pre2",
+   "pictureFrom": 7.42,
+   "punch": 1.0,
+   "audioJoin": true,
+   "keepPunch": true
+  },
+  {
+   "id": "intro-deflation/b/b/b",
+   "line": "intro-deflation",
+   "section": "S2",
+   "role": "intro",
+   "from": 87.76,
+   "to": 89.695,
+   "pictureRole": "pre1",
+   "pictureFrom": 10.0,
+   "punch": 1.0,
+   "audioJoin": true,
+   "keepPunch": true
+  },
+  {
+   "id": "intro-deflation~2",
+   "line": "intro-deflation",
+   "section": "S2",
+   "role": "intro",
+   "from": 90.395,
+   "to": 92.2,
+   "pictureRole": "intro",
+   "pictureFrom": 90.395,
+   "punch": 1.0
+  },
+  {
+   "id": "intro-deflation~3",
+   "line": "intro-deflation",
+   "section": "S2",
+   "role": "intro",
+   "from": 92.67,
+   "to": 94.68,
+   "pictureRole": "intro",
+   "pictureFrom": 92.67,
+   "punch": 1.1
   },
   {
    "id": "intro-cheeks",
+   "line": "intro-cheeks",
    "section": "S2",
    "role": "intro",
-   "from": 97.4,
-   "to": 99.46,
+   "from": 97.405,
+   "to": 99.455,
    "pictureRole": "intro",
-   "pictureFrom": 97.4
+   "pictureFrom": 97.405,
+   "punch": 1.0
+  },
+  {
+   "id": "intro-cheekbones",
+   "line": "intro-cheekbones",
+   "section": "S2",
+   "role": "intro",
+   "from": 106.96,
+   "to": 109.5,
+   "pictureRole": "intro",
+   "pictureFrom": 106.96,
+   "punch": 1.1
   },
   {
    "id": "inj2-syringe",
+   "line": "inj2-syringe",
    "section": "S2",
    "role": "inj2",
-   "from": 3.82,
-   "to": 9.74,
+   "from": 3.925,
+   "to": 7.31,
    "pictureRole": "inj2",
-   "pictureFrom": 3.82
+   "pictureFrom": 3.925,
+   "punch": 1.0
   },
   {
    "id": "inj5-less-needed",
+   "line": "inj5-less-needed",
    "section": "S3",
    "role": "inj5",
-   "from": 34.12,
-   "to": 38.28,
+   "from": 34.02,
+   "to": 38.25,
    "pictureRole": "inj5",
-   "pictureFrom": 34.12
+   "pictureFrom": 34.02,
+   "punch": 1.0
   },
   {
    "id": "after-smooth",
+   "line": "after-smooth",
    "section": "S3",
    "role": "after",
-   "from": 53.36,
-   "to": 62.02,
+   "from": 53.18,
+   "to": 64.06,
    "pictureRole": "inj5",
-   "pictureFrom": 16.0
+   "pictureFrom": 16.0,
+   "punch": 1.1
   },
   {
    "id": "inj6-bruising",
+   "line": "inj6-bruising",
    "section": "S3",
    "role": "inj6",
-   "from": 39.02,
-   "to": 42.68,
+   "from": 35.31,
+   "to": 41.46,
    "pictureRole": "inj6",
-   "pictureFrom": 39.02
+   "pictureFrom": 35.31,
+   "punch": 1.0
+  },
+  {
+   "id": "inj6-bruising/b",
+   "line": "inj6-bruising",
+   "section": "S3",
+   "role": "inj6",
+   "from": 41.46,
+   "to": 42.535,
+   "pictureRole": "inj6",
+   "pictureFrom": 41.46,
+   "punch": 1.12,
+   "audioJoin": true,
+   "keepPunch": true
   },
   {
    "id": "after-summary",
+   "line": "after-summary",
    "section": "S4",
    "role": "after",
-   "from": 1.7,
-   "to": 18.04,
+   "from": 1.6,
+   "to": 5.2,
    "pictureRole": "after",
-   "pictureFrom": 1.7
+   "pictureFrom": 1.6,
+   "punch": 1.0
+  },
+  {
+   "id": "after-summary/b",
+   "line": "after-summary",
+   "section": "S4",
+   "role": "after",
+   "from": 5.2,
+   "to": 7.8,
+   "pictureRole": "inj7",
+   "pictureFrom": 28.0,
+   "punch": 1.0,
+   "audioJoin": true,
+   "keepPunch": true
+  },
+  {
+   "id": "after-summary/b/b",
+   "line": "after-summary",
+   "section": "S4",
+   "role": "after",
+   "from": 7.8,
+   "to": 9.86,
+   "pictureRole": "after",
+   "pictureFrom": 24.6,
+   "punch": 1.0,
+   "audioJoin": true,
+   "keepPunch": true
+  },
+  {
+   "id": "after-summary/b/b/b",
+   "line": "after-summary",
+   "section": "S4",
+   "role": "after",
+   "from": 9.86,
+   "to": 17.925,
+   "pictureRole": "after",
+   "pictureFrom": 40.0,
+   "punch": 1.0,
+   "audioJoin": true,
+   "keepPunch": true
   },
   {
    "id": "after-15min",
+   "line": "after-15min",
    "section": "S4",
    "role": "after",
-   "from": 18.12,
-   "to": 21.46,
+   "from": 18.58,
+   "to": 21.45,
    "pictureRole": "after",
-   "pictureFrom": 18.12
+   "pictureFrom": 18.58,
+   "punch": 1.1
   },
   {
    "id": "after-lasts",
+   "line": "after-lasts",
    "section": "S4",
    "role": "after",
-   "from": 64.58,
-   "to": 68.05,
+   "from": 64.25,
+   "to": 68.035,
    "pictureRole": "after",
-   "pictureFrom": 64.58
+   "pictureFrom": 64.25,
+   "punch": 1.0
   }
  ],
  "cues": {
@@ -205,14 +478,54 @@
    "intro-deflation",
    289
   ],
+  "filled": [
+   "intro-deflation",
+   266
+  ],
+  "but": [
+   "intro-deflation",
+   267
+  ],
+  "cheeks": [
+   "intro-cheeks",
+   315
+  ],
+  "cheekbones": [
+   "intro-cheekbones",
+   344
+  ],
+  "crows": [
+   "intro-dynamic",
+   73
+  ],
+  "these": [
+   "intro-dynamic",
+   75
+  ],
+  "jowling": [
+   "intro-midface",
+   244
+  ],
+  "neuromod": [
+   "intro-dynamic",
+   97
+  ],
+  "marionette": [
+   "after-summary",
+   34
+  ],
+  "softer": [
+   "after-summary",
+   60
+  ],
   "literally": [
    "inj2-syringe",
    8
   ],
   "pip2out": [
    "inj2-syringe",
-   21,
-   8
+   17,
+   10
   ],
   "laugh3": [
    "inj5-less-needed",
@@ -229,6 +542,10 @@
   "bruising": [
    "inj6-bruising",
    34
+  ],
+  "cannula": [
+   "inj6-bruising",
+   30
   ],
   "ba": [
    "after-summary",
@@ -271,9 +588,13 @@
    "anchorRole": "intro",
    "key": "glabella",
    "clip": "neuro",
-   "clipFrom": 4.0,
-   "label": "Frown lines",
-   "eyebrow": "Injection 1 \u00b7 neuromodulator",
+   "clipFrom": 9.0,
+   "label": "Frown lines (dynamic)",
+   "depth": [
+    2,
+    "Into the muscle"
+   ],
+   "eyebrow": "Injection 1 \u00b7 neuromodulator \u00b7 used here",
    "focus": {
     "fx": 0.8,
     "fy": 0.44,
@@ -295,6 +616,10 @@
    "clip": "inj1",
    "clipFrom": 6.0,
    "label": "Outer cheekbone",
+   "depth": [
+    2,
+    "Deep, over the bone"
+   ],
    "eyebrow": "Injection 2 \u00b7 Evolysse Form",
    "focus": {
     "fx": 0.55,
@@ -317,6 +642,10 @@
    "key": "nasoL",
    "clip": "inj6",
    "label": "Laugh lines",
+   "depth": [
+    1,
+    "Under the skin, by cannula"
+   ],
    "eyebrow": "Injection 3 \u00b7 Evolysse Smooth",
    "arrow": "straight-pointer",
    "focus": {
@@ -342,8 +671,8 @@
    "w": 0.32
   },
   "subs": [
-   "4:42 PM \u00b7 before",
-   "4:55 PM \u00b7 right after"
+   "Before \u00b7 4:42 PM",
+   "After \u00b7 4:55 PM"
   ],
   "regions": [
    {
@@ -376,5 +705,279 @@
    "start:intro-typical",
    "end:intro-typical"
   ]
- ]
+ ],
+ "surgeon": {
+  "cue": "ba",
+  "wipe": "jaw",
+  "out": "end",
+  "crop": {
+   "x": 0.017,
+   "y": 0.3646,
+   "w": 0.327
+  },
+  "box": {
+   "x": 40,
+   "y": 500,
+   "w": 1000,
+   "h": 840
+  },
+  "subs": [
+   "Before \u00b7 4:42 PM",
+   "After \u00b7 4:55 PM"
+  ],
+  "marks": [
+   {
+    "id": "cheekR-d",
+    "xy": [
+     162.6,
+     874.3
+    ],
+    "product": "Evolysse Form",
+    "order": 0
+   },
+   {
+    "id": "cheekR-a",
+    "xy": [
+     120.4,
+     901.7
+    ],
+    "product": "Evolysse Form",
+    "order": 0
+   },
+   {
+    "id": "cheekR-c",
+    "xy": [
+     105.9,
+     869.5
+    ],
+    "product": "Evolysse Form",
+    "order": 1
+   },
+   {
+    "id": "cheekL",
+    "xy": [
+     292.6,
+     872.0
+    ],
+    "product": "Evolysse Form",
+    "order": 2
+   },
+   {
+    "id": "lowerR",
+    "xy": [
+     189.0,
+     942.8
+    ],
+    "product": "Evolysse Smooth",
+    "order": 3
+   },
+   {
+    "id": "chin",
+    "xy": [
+     199.6,
+     993.1
+    ],
+    "product": "Evolysse Smooth",
+    "order": 4
+   },
+   {
+    "id": "jawL",
+    "xy": [
+     290.5,
+     988.4
+    ],
+    "product": "Evolysse Smooth",
+    "order": 5
+   },
+   {
+    "id": "crowL",
+    "xy": [
+     291.8,
+     862.9
+    ],
+    "product": "Neuromodulator",
+    "order": 7
+   }
+  ],
+  "zones": [
+   {
+    "id": "cheekR",
+    "c": [
+     130,
+     882
+    ],
+    "rx": 42,
+    "ry": 28,
+    "rot": -15,
+    "product": "Evolysse Form",
+    "order": 1
+   },
+   {
+    "id": "cheekL",
+    "c": [
+     292.6,
+     872.0
+    ],
+    "rx": 13,
+    "ry": 28,
+    "rot": 0,
+    "product": "Evolysse Form",
+    "order": 2
+   },
+   {
+    "id": "laughR",
+    "c": [
+     196,
+     928
+    ],
+    "rx": 13,
+    "ry": 32,
+    "rot": -25,
+    "product": "Evolysse Smooth",
+    "order": 4
+   },
+   {
+    "id": "marioL",
+    "c": [
+     287,
+     962
+    ],
+    "rx": 11,
+    "ry": 30,
+    "rot": 10,
+    "product": "Evolysse Smooth",
+    "order": 5
+   },
+   {
+    "id": "glabella",
+    "c": [
+     229.1,
+     786.5
+    ],
+    "rx": 16,
+    "ry": 12,
+    "rot": 0,
+    "product": "Neuromodulator",
+    "order": 6
+   },
+   {
+    "id": "forehead",
+    "c": [
+     224.9,
+     770.2
+    ],
+    "rx": 46,
+    "ry": 13,
+    "rot": -6,
+    "product": "Neuromodulator",
+    "order": 6
+   },
+   {
+    "id": "crowL",
+    "c": [
+     291.8,
+     862.9
+    ],
+    "rx": 9,
+    "ry": 15,
+    "rot": 0,
+    "product": "Neuromodulator",
+    "order": 7
+   }
+  ],
+  "paths": [
+   {
+    "pts": [
+     [
+      189.0,
+      942.8
+     ],
+     [
+      206.5,
+      905.9
+     ]
+    ],
+    "order": 3
+   },
+   {
+    "pts": [
+     [
+      199.6,
+      993.1
+     ],
+     [
+      184.1,
+      955.0
+     ]
+    ],
+    "order": 4
+   },
+   {
+    "pts": [
+     [
+      290.5,
+      988.4
+     ],
+     [
+      282.7,
+      941.4
+     ]
+    ],
+    "order": 5
+   }
+  ],
+  "labels": [
+   {
+    "text": "Evolysse Form \u00b7 1 syringe",
+    "xy": [
+     128,
+     832
+    ],
+    "order": 1
+   },
+   {
+    "text": "Evolysse Smooth \u00b7 cannula",
+    "xy": [
+     176,
+     984
+    ],
+    "order": 4
+   },
+   {
+    "text": "Neuromodulator",
+    "xy": [
+     232,
+     733
+    ],
+    "order": 6
+   }
+  ],
+  "gains": [
+   {
+    "from": [
+     168,
+     940
+    ],
+    "to": [
+     126,
+     896
+    ],
+    "label": "Fuller cheek",
+    "labelXY": [
+     150,
+     968
+    ]
+   }
+  ],
+  "notes": [
+   {
+    "text": "Laugh lines: softer, he says. This photo angle cannot measure it, so no arrow.",
+    "cue": "softer"
+   },
+   {
+    "text": "Neuromodulator: shows in a day or two (his words).",
+    "cue": "treatment"
+   }
+  ]
+ }
 }

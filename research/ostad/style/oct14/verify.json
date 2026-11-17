@@ -1,27 +1,27 @@
 {
- "render": "Ostad - Oct 14 injections - NOT FOR POSTING until patient consent = yes.mp4",
+ "render": "Ostad - Oct 14 injections v2 - NOT FOR POSTING until patient consent = yes.mp4",
  "format": {
   "width": 1080,
   "height": 1920,
   "fps": "24/1",
-  "frames": 2251,
-  "duration_s": 93.9
+  "frames": 2204,
+  "duration_s": 91.9
  },
  "bare_format": {
   "width": 1080,
   "height": 1920,
   "fps": "24/1",
-  "frames": 2251,
-  "duration_s": 93.803
+  "frames": 2204,
+  "duration_s": 91.84
  },
  "structure": {
   "adjacency": [
    {
     "area": "upper face",
     "line_cue": "dynamic",
-    "line_f": 261,
+    "line_f": 191,
     "line_beat": "B02",
-    "injection_on_screen_f": 262,
+    "injection_on_screen_f": 192,
     "injection_beat": "B02",
     "beats_apart": 0,
     "ok": true
@@ -29,9 +29,9 @@
    {
     "area": "cheeks and jawline",
     "line_cue": "deflation",
-    "line_f": 1041,
+    "line_f": 960,
     "line_beat": "B06",
-    "injection_on_screen_f": 1235,
+    "injection_on_screen_f": 1139,
     "injection_beat": "B07",
     "beats_apart": 1,
     "ok": true
@@ -39,9 +39,9 @@
    {
     "area": "laugh lines",
     "line_cue": "laugh3",
-    "line_f": 1381,
+    "line_f": 1234,
     "line_beat": "B08",
-    "injection_on_screen_f": 1452,
+    "injection_on_screen_f": 1306,
     "injection_beat": "B09",
     "beats_apart": 1,
     "ok": true
@@ -49,17 +49,17 @@
   ],
   "adjacency_ok": true,
   "duplicates": {
-   "pairs": 120,
+   "pairs": 276,
    "worst": {
-    "a": "intro-midface",
-    "b": "intro-cheeks",
-    "ratio": 0.27,
-    "trigram_jaccard": 0.074
+    "a": "inj5-less-needed",
+    "b": "after-summary/b/b/b",
+    "ratio": 0.364,
+    "trigram_jaccard": 0.053
    },
    "fails": []
   },
   "shots_reused": [],
-  "runtime_s": 93.79,
+  "runtime_s": 91.83,
   "runtime_ok": true
  },
  "name": {
@@ -67,111 +67,254 @@
   "secret_tokens_checked": 0
  },
  "words": {
-  "cut_words": 336,
-  "heard_words": 341,
-  "sequence_ratio": 0.978
+  "cut_words": 323,
+  "heard_words": 320,
+  "sequence_ratio": 0.977
  },
  "loudness": {
-  "integrated_lufs": -14.2,
-  "true_peak_dbfs": -1.3
+  "integrated_lufs": -14.3,
+  "true_peak_dbfs": -1.1
+ },
+ "v2": {
+  "cut_gap": {
+   "min_silent_gap_ms": 80,
+   "cuts": 20,
+   "rule_ms": 80,
+   "micro_cuts_refused_for_lack_of_gap": {
+    "after-summary": [
+     [
+      28,
+      30,
+      0.06,
+      0.04
+     ]
+    ],
+    "after-lasts": [
+     [
+      199,
+      199,
+      0.14,
+      0.06
+     ]
+    ]
+   },
+   "energy_at_cuts_db_below_speech_p90": {
+    "max": -12.800000190734863,
+    "median": -17.950000762939453,
+    "n": 18
+   }
+  },
+  "fillers": {
+   "in_first_10s": 0,
+   "total": 1,
+   "found": [
+    [
+     "repeat year",
+     88.42
+    ]
+   ],
+   "hedges_left_by_plan": [
+    {
+     "line": "intro-onset-vs-filler",
+     "word": 468,
+     "what": "hedge kind of"
+    },
+    {
+     "line": "intro-deflation",
+     "word": 276,
+     "what": "hedge like"
+    },
+    {
+     "line": "after-summary",
+     "word": 29,
+     "what": "hedge sort of"
+    },
+    {
+     "line": "after-lasts",
+     "word": 199,
+     "what": "hedge like"
+    }
+   ]
+  },
+  "pacing": {
+   "first_third": {
+    "frames": [
+     0,
+     735
+    ],
+    "shots": 8,
+    "median_shot_s": 2.5,
+    "events": 27,
+    "events_per_10s": 8.82
+   },
+   "middle_third": {
+    "frames": [
+     735,
+     1469
+    ],
+    "shots": 8,
+    "median_shot_s": 2.54,
+    "events": 27,
+    "events_per_10s": 8.82
+   },
+   "last_third": {
+    "frames": [
+     1469,
+     2204
+    ],
+    "shots": 9,
+    "median_shot_s": 2.54,
+    "events": 31,
+    "events_per_10s": 10.13
+   },
+   "last_vs_first_change_rate": 1.15,
+   "last_vs_first_median_shot": 1.02,
+   "ok": true
+  },
+  "hook": {
+   "first_word_s": 0.12,
+   "first_visual_change_s": 0.5,
+   "frame0": "the needle at her cheek (IMG_3650 0:08)",
+   "ok": true
+  },
+  "lines_after_cuts": {
+   "checked": 19,
+   "clean": 17,
+   "not_clean": [
+    {
+     "piece": "inj2-syringe",
+     "at_s": 47.21,
+     "expect": [
+      "we",
+      "literally"
+     ],
+     "heard": [
+      "the",
+      "cheeks",
+      "literally",
+      "put",
+      "a",
+      "syringe",
+      "of",
+      "what",
+      "i"
+     ],
+     "ok": false
+    },
+    {
+     "piece": "inj6-bruising",
+     "at_s": 63.25,
+     "expect": [
+      "i",
+      "like"
+     ],
+     "heard": [],
+     "ok": false
+    }
+   ]
+  },
+  "first_sentence": {
+   "expect": "We're here with our lovely patient. a",
+   "heard": "We're here with our lovely patient. A"
+  }
  },
  "captions": {
-  "words": 336,
-  "measured": 319,
+  "words": 323,
+  "measured": 313,
   "median_offset_f": 0.0,
-  "share_at_0f": 0.781,
-  "share_within_1f": 0.806
+  "share_at_0f": 0.767,
+  "share_within_1f": 0.792
  },
  "reveals": {
   "beats": [
    {
     "beat": "B01",
     "cue": "typical",
-    "target_f": 95,
-    "first_change_f": 96,
-    "offset_f": 1
+    "target_f": 44,
+    "first_change_f": null,
+    "offset_f": null
    },
    {
     "beat": "B02",
     "cue": "dynamic",
-    "target_f": 262,
-    "first_change_f": 263,
+    "target_f": 192,
+    "first_change_f": 193,
     "offset_f": 1
    },
    {
     "beat": "B03",
     "cue": "lifted",
-    "target_f": 525,
-    "first_change_f": 526,
+    "target_f": 456,
+    "first_change_f": 457,
     "offset_f": 1
    },
    {
     "beat": "B04",
     "cue": "four",
-    "target_f": 619,
-    "first_change_f": 611,
-    "offset_f": -8
+    "target_f": 560,
+    "first_change_f": 575,
+    "offset_f": 15
    },
    {
     "beat": "B05",
     "cue": "day",
-    "target_f": 711,
-    "first_change_f": 711,
+    "target_f": 643,
+    "first_change_f": 643,
     "offset_f": 0
    },
    {
     "beat": "B06",
     "cue": "deflation",
-    "target_f": 1042,
-    "first_change_f": 1043,
+    "target_f": 961,
+    "first_change_f": 962,
     "offset_f": 1
    },
    {
     "beat": "B07",
     "cue": "literally",
-    "target_f": 1235,
-    "first_change_f": 1236,
+    "target_f": 1139,
+    "first_change_f": 1140,
     "offset_f": 1
    },
    {
     "beat": "B08",
     "cue": "laugh3",
-    "target_f": 1382,
-    "first_change_f": 1383,
+    "target_f": 1235,
+    "first_change_f": 1236,
     "offset_f": 1
    },
    {
     "beat": "B09",
     "cue": "used",
-    "target_f": 1452,
-    "first_change_f": 1444,
-    "offset_f": -8
+    "target_f": 1306,
+    "first_change_f": 1307,
+    "offset_f": 1
    },
    {
     "beat": "B10",
     "cue": "bruising",
-    "target_f": 1672,
-    "first_change_f": 1675,
+    "target_f": 1643,
+    "first_change_f": 1646,
     "offset_f": 3
    },
    {
     "beat": "B11",
     "cue": "ba",
-    "target_f": 1868,
-    "first_change_f": 1869,
+    "target_f": 1838,
+    "first_change_f": 1839,
     "offset_f": 1
    },
    {
     "beat": "B12",
     "cue": "fifteen",
-    "target_f": 2072,
+    "target_f": 2032,
     "first_change_f": null,
     "offset_f": null
    }
   ],
   "median_offset_f": 1.0,
   "within_1f": 8,
-  "measured": 11
+  "measured": 10
  },
  "flashes": {
   "one_frame_luma_spikes": 0,

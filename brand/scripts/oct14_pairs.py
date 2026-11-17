@@ -72,6 +72,8 @@ def detect(img, face="largest"):
     if face == "right":
         c = [q for q in c if q[0][1, 0] > w / 2]
         return max(c, key=lambda q: q[0][1, 0]) if c else None
+    if face == "smallest":  # in his two-shots she is the smaller, frontal face (he leans in, larger and in profile)
+        return min(c, key=lambda q: np.ptp(q[0][:, 0]) * np.ptp(q[0][:, 1]))
     return max(c, key=lambda q: np.ptp(q[0][:, 0]) * np.ptp(q[0][:, 1]))
 
 
