@@ -872,3 +872,21 @@ Every cut sits in measured silence: the gap is found on a 10 ms RMS envelope at 
   - the 15-minute clock object;
   - the needle vs cannula redraw as a top-down map;
   - a credited hand-drawn anatomy pass (the drawings are traces of the 3D model).
+- **v3 measured** (`oct14/verify.json`):
+  - format: 1080×1920, 24 fps, 96.2 s;
+  - loudness: −14.2 LUFS, true peak −1.3 dBTP;
+  - smallest cut gap: 80 ms;
+  - fillers: 0 in the first 10 s, 1 in total;
+  - hook: first visual change at 0.29 s;
+  - lines after cuts: 19 of 20 clean;
+  - word sequence ratio: 0.977;
+  - captions: median offset 0 f, 80 % within 1 f;
+  - surgeon marks: 8 of 8 mapped, max 12.0 px;
+  - anatomy: all 4 views pass;
+  - flash scan: every scdet change is an intended cut or card;
+  - static-image check, lint and variety_check: all pass.
+- **v3 failing:**
+  - pacing: the last third is slower (change rate 0.6x, median shot 2.05x), because of the longer before/after hold and the 120 f tail added for the 60 f text hold-min;
+  - runtime: 96 s against about 90 s.
+  
+  Both are open items for the next round, with no re-render in this time box. The "duplicate" flag (intro-midface~2 vs ~2/b) is one sentence split for a picture change, not a repeat. The name check loaded 0 secret tokens in this checkout, so it was not exercised.
