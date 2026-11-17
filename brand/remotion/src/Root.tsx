@@ -1,4 +1,6 @@
 import { Composition, staticFile } from "remotion";
+import { Exo6Lab, type Exo6LabProps } from "./exo6/Exo6Lab";
+import { LAB as EXO6_LAB } from "./exo6/labItems";
 import { OstadReel } from "./OstadReel";
 import { OstadWide, WIDE_H, WIDE_W } from "./OstadWide";
 import { OstadYT, type YTProps } from "./OstadYT";
@@ -16,6 +18,9 @@ import type { ReelProps, WideProps } from "./types";
 // render another edit with --props=public/<slug>/props.json after `node scripts/prepare.cjs <slug>`.
 export const RemotionRoot: React.FC = () => (
   <>
+  {/* Exo6Lab: one exo6 (YouTube v6) component alone for its proof still/clip (research/ostad/style/exomind/lab/); --props='{"item":"section-card"}' */}
+  <Composition id="Exo6Lab" component={Exo6Lab} width={1920} height={1080} fps={24} durationInFrames={24} defaultProps={{ item: "section-card" } as Exo6LabProps}
+    calculateMetadata={({ props }) => ({ durationInFrames: EXO6_LAB[props.item]?.dur ?? 24 })} />
   <Composition id="MarkupDemo" component={MarkupDemo} width={W} height={H} fps={30} durationInFrames={30 * MARKUP_DEMO_SECONDS} defaultProps={{ footage: false }} />
   <Composition id="MarkupOnFootage" component={MarkupDemo} width={W} height={H} fps={30} durationInFrames={30 * MARKUP_DEMO_SECONDS}
     defaultProps={{ footage: true, track: null as FaceTrack }}
