@@ -1,0 +1,40 @@
+/* Shared material for designed feed stills (brand/posts/POST_RULES.md). Tokens are Dr. Ostad's palette; type is the video type
+   (NHG Display / NHG Text / Cormorant italic). One key light from the upper right: glass highlights on top + right edges,
+   contact shadows fall down-left. Photos are never graded. */
+:root{
+  --ivory:#f5f2eb; --navy:#152235; --sand:#d6c3a0; --silver:#bcb8b7; --ink:#1d1a16; --paper:#ece8e0; --mute:#3b3730;
+  --disp:"neue-haas-grotesk-display",Helvetica,Arial,sans-serif; --text:"neue-haas-grotesk-text",Helvetica,Arial,sans-serif;
+  --serif:"cormorant-garamond",Georgia,serif;
+  --body:32px; --label:24px; --row:25px;
+}
+html,body{margin:0;background:#888}
+#stage{display:flex;flex-wrap:wrap;gap:40px;width:max-content;max-width:3500px}
+.tile{position:relative;width:1080px;height:1350px;overflow:hidden;background:var(--ivory);color:var(--ink);font-family:var(--text);
+  -webkit-font-smoothing:antialiased;font-kerning:normal}
+.tile img.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+
+/* glass: blur of what's behind, white veil a .30 (Naim ref 2: 66 -> 122 luma), highlight band on the lit edge (+28 levels,
+   ~1.2 % width), thin bright rim, soft contact shadow down-left, grain */
+.glass{position:absolute;border-radius:var(--r,28px);isolation:isolate;
+  backdrop-filter:blur(28px) saturate(1.12) brightness(1.04);-webkit-backdrop-filter:blur(28px) saturate(1.12) brightness(1.04);
+  background:linear-gradient(222deg,rgba(255,255,255,.26) 0%,rgba(255,255,255,0) 26%),rgba(255,255,255,.30);
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.92),inset -1.5px 0 0 rgba(255,255,255,.70),inset 0 0 0 1px rgba(255,255,255,.34),
+    inset 0 -1px 0 rgba(0,0,0,.05),inset 1px 0 0 rgba(0,0,0,.04),
+    -10px 16px 30px -14px rgba(25,22,18,.34),-2px 3px 6px -2px rgba(25,22,18,.14)}
+.glass::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.glass.dark{background:linear-gradient(222deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,0) 30%),rgba(29,26,22,.26);color:#fff}  /* ink #1d1a16 at .26 */
+
+.lab{font:500 var(--label)/1.25 var(--disp);letter-spacing:.01em}
+.head{font:500 44px/1.08 var(--disp);letter-spacing:-.012em}
+.body{font:400 var(--body)/1.32 var(--text);letter-spacing:-.003em}
+.meta{font:500 20px/1.2 var(--text);letter-spacing:.06em;text-transform:uppercase;opacity:.62}
+.serif{font-family:var(--serif);font-style:italic;font-weight:500}
+/* spec rows (Are.na spec-sheet language): key left, value right, hairline between */
+.rows{font:400 var(--row)/1.25 var(--text)}
+.rows>div{display:flex;justify-content:space-between;gap:24px;padding:13px 0;border-top:1px solid currentColor;border-color:color-mix(in srgb,currentColor 22%,transparent)}
+.rows>div>b{font-weight:500}
+.rows>div>span{opacity:.72;text-align:right}
+/* ingredient chips (glass ingredient cards, Naim ref 2) */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips span{font:500 21px/1 var(--text);padding:11px 16px;border-radius:99px;background:rgba(255,255,255,.88);color:var(--ink)}

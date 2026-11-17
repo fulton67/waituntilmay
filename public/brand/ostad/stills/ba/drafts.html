@@ -1,0 +1,158 @@
+<!doctype html>
+<!-- Before/after tiles. Consent = yes for every patient (Naim 2026-11-17: company phone and iCloud, photos used under patient
+     contracts; clinic-library HANDOFF rule 4). Patient codes only, no names; source previews stay gitignored in ba/src.
+     Each tile shows WHAT changed: arrows land on measured points (brand/scripts/ba_measure.py -> marks.js): MediaPipe landmarks
+     for the AviClear cheeks, the traced profile edge and his guide line for the chin. One arrow style: v6 blue, one weight,
+     a real head. Markup goes on the condition photos only (never on Dr. Ostad). -->
+<meta charset="utf-8"><meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://use.typekit.net/vzz0hgt.css">
+<link rel="stylesheet" href="../stills.css">
+<script src="marks.js"></script>
+<style>
+:root{--blue:#37a9e8}
+.pane{position:absolute;overflow:hidden;border-radius:6px}
+.pane img{position:absolute;display:block;max-width:none}
+.tag{position:absolute;padding:11px 16px;--r:14px}
+.tag .lab{font-size:21px}
+svg.ov{position:absolute;inset:0;overflow:visible;pointer-events:none;z-index:5}
+.tag{z-index:6}
+
+#a1{background:var(--ink);color:#fff}
+#a1 .top,#a2 .top,#a3 .top{position:absolute;left:64px;right:64px;top:62px;display:flex;justify-content:space-between}
+#a1 .top .meta,#a2 .top .meta{color:#fff;opacity:.7}
+#a1 .info{position:absolute;left:64px;right:64px;top:1150px;color:#fff}
+#a1 .info .head,#a2 .info .head,#a3 .info .head{margin-bottom:14px}
+
+#a3{background:var(--ivory)}
+#a3 .top{color:var(--navy)}
+#a3 .info{position:absolute;left:64px;right:64px;top:986px;color:var(--navy)}
+
+#a2{background:var(--ink);color:#fff}
+#a2 .info{position:absolute;left:64px;right:64px;top:1110px}
+</style>
+<div id="stage">
+
+<div class="tile" id="a1" data-name="07_aviclear">
+  <div class="top"><div class="meta">AviClear · 1726 nm laser</div><div class="meta">Patient P0010</div></div>
+  <div class="info"><div class="head">Acne, before and 3 months after the 3rd treatment</div>
+    <div class="rows"><div><b>Target</b><span>the oil glands behind acne</span></div></div></div>
+</div>
+
+<div class="tile" id="a3" data-name="09_chin">
+  <div class="top"><div class="meta">Chin filler · left profile</div><div class="meta">Patient P0013</div></div>
+  <div class="info"><div class="head">The chin closes about half the gap to the line</div>
+    <div class="rows"><div><b>Gap to his line</b><span>10.2 % → 5.5 % of its length</span></div></div></div>
+</div>
+
+<div class="tile" id="a2" data-name="alt_acne">
+  <div class="top"><div class="meta">Acne · 137 days apart · Patient P0005</div></div>
+  <div class="info"><div class="head">Cheek and jaw, January to June 2022</div>
+    <div class="rows"><div><b>January</b><span>inflamed papules, peeling around the mouth</span></div><div><b>June</b><span>cheek and jaw clear</span></div></div></div>
+</div>
+
+</div>
+<script>
+const M = window.MARKS, NS = "http://www.w3.org/2000/svg";
+const P = { avi_0:["02965.jpg",156,0,512,458], avi_1:["02965.jpg",512,0,878,470], avi_2:["02965.jpg",146,512,512,982], avi_3:["02965.jpg",512,540,868,998],
+  acne_b:["09736.jpg",0,0,768,1024], acne_a:["08278.jpg",0,0,768,1024], chin_b:["06069.jpg",0,0,512,696], chin_a:["06069.jpg",512,0,1024,696] };
+function pane(tile, key, x, y, w, h, zoom) {
+  const [f, x0, y0, x1, y1] = P[key], cw = x1 - x0, ch = y1 - y0;
+  zoom = zoom || { zx: 0, zy: 0, zw: 100 };
+  const s = w / (cw * zoom.zw / 100); h = h || ch * s;
+  const d = document.createElement("div"); d.className = "pane"; Object.assign(d.style, { left: x + "px", top: y + "px", width: w + "px", height: h + "px" });
+  const im = document.createElement("img"); im.src = "src/" + f;
+  Object.assign(im.style, { width: 1024 * s + "px", left: -(x0 + cw * zoom.zx / 100) * s + "px", top: -(y0 + ch * zoom.zy / 100) * s + "px" });
+  d.appendChild(im); tile.appendChild(d);
+  return { w, h, pt: (px, py) => [x + (px / 100 * cw - cw * zoom.zx / 100) * s, y + (py / 100 * ch - ch * zoom.zy / 100) * s] };
+}
+function svg(tile) { const s = document.createElementNS(NS, "svg"); s.setAttribute("class", "ov"); s.setAttribute("width", 1080); s.setAttribute("height", 1350); tile.appendChild(s);
+  s.innerHTML = `<defs><filter id="ash${tile.id}" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="-1.5" dy="2" stdDeviation="2.2" flood-color="#000" flood-opacity=".35"/></filter></defs>`; s.dataset.f = "ash" + tile.id; return s; }
+function el(s, tag, at) { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); s.appendChild(e); return e; }
+// one arrow style: blue, 4 px, curved tail, real filled head; stops `gap` px short so the target stays visible
+function arrow(s, [x1, y1], [x2, y2], bend = 0.25, gap = 10) {
+  const dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L;
+  const ex = x2 - ux * gap, ey = y2 - uy * gap, cx = (x1 + ex) / 2 - uy * L * bend, cy = (y1 + ey) / 2 + ux * L * bend;
+  const tx = ex - cx, ty = ey - cy, tl = Math.hypot(tx, ty) || 1, vx = tx / tl, vy = ty / tl, hl = 20, hw = 9;
+  const g = el(s, "g", { filter: `url(#${s.dataset.f})` });
+  el(g, "path", { d: `M${x1} ${y1} Q${cx} ${cy} ${ex - vx * hl * .6} ${ey - vy * hl * .6}`, fill: "none", stroke: "#37a9e8", "stroke-width": 4, "stroke-linecap": "round" });
+  el(g, "path", { d: `M${ex} ${ey} L${ex - vx * hl - vy * hw} ${ey - vy * hl + vx * hw} L${ex - vx * hl + vy * hw} ${ey - vy * hl - vx * hw} Z`, fill: "#37a9e8" });
+}
+function label(tile, text, x, y, dark, right) {
+  const d = document.createElement("div"); d.className = "glass tag" + (dark ? " dark" : "");
+  d.innerHTML = `<div class="lab">${text}</div>`; d.style.top = y + "px"; if (right) d.style.right = (1080 - x) + "px"; else d.style.left = x + "px";
+  tile.appendChild(d);
+}
+
+// ---------- AviClear: before and 3 months after large; the four visits as a strip on a timeline ----------
+{
+  const t = document.getElementById("a1");
+  const B = pane(t, "avi_0", 64, 130, 466, 598), A = pane(t, "avi_3", 550, 130, 466, 598);
+  const s = svg(t);
+  // cheeks from MediaPipe landmarks 50 / 280, nudged outward to where the papules sit
+  const cb = [M.avi_0.l_cheek, M.avi_0.r_cheek], ca = [M.avi_3.l_cheek, M.avi_3.r_cheek];
+  const bL = B.pt(cb[0][0] - 6, cb[0][1] + 2), bR = B.pt(cb[1][0] + 6, cb[1][1] + 2);
+  const aL = A.pt(ca[0][0] - 6, ca[0][1] + 2), aR = A.pt(ca[1][0] + 6, ca[1][1] + 2);
+  arrow(s, [B.pt(2, 0)[0] + 6, bL[1] + 120], bL, 0.18); arrow(s, [B.pt(98, 0)[0] - 6, bR[1] + 120], bR, -0.18);
+  arrow(s, [A.pt(2, 0)[0] + 6, aL[1] + 120], aL, 0.18); arrow(s, [A.pt(98, 0)[0] - 6, aR[1] + 120], aR, -0.18);
+  label(t, "Before · inflamed papules", 64, 762, true); label(t, "3 months after the 3rd · clear", 550, 762, true);
+  const xs = [64, 302, 540, 778], keys = ["avi_0", "avi_1", "avi_2", "avi_3"], names = ["Before", "1 mo after 1st", "1 mo after 2nd", "3 mo after 3rd"];
+  el(s, "line", { x1: 64, y1: 1066, x2: 1016, y2: 1066, stroke: "#fff", "stroke-opacity": .28, "stroke-width": 1 });
+  keys.forEach((k, i) => {
+    pane(t, k, xs[i], 852, 238, 186, { zx: 14, zy: 30, zw: 72 });
+    el(s, "circle", { cx: xs[i] + 119, cy: 1066, r: i === 3 ? 6 : 4, fill: i === 3 ? "#37a9e8" : "#fff", "fill-opacity": i === 3 ? 1 : .7 });
+    const m = document.createElement("div"); m.className = "meta"; m.textContent = names[i];
+    Object.assign(m.style, { position: "absolute", left: xs[i] + 9 + "px", top: "1082px", width: "220px", textAlign: "center", color: "#fff", fontSize: "16px", opacity: .7 });
+    t.appendChild(m);
+  });
+}
+
+// ---------- Chin: each chin measured against his own guide line (nose tip to chin), with a glass loupe on the chin ----------
+{
+  const t = document.getElementById("a3");
+  // measured (ba chin probe, crop px of 512 x 696): chin point and guide line x = a*y + b
+  const C = { chin_b: { c: [129, 609], a: 0, b: 108, pct: 10.2 }, chin_a: { c: [75, 610], a: 0, b: 64.5, pct: 5.5 } };  // raw row profile: line centre, first skin px
+  const Z = { zx: 0, zy: 10, zw: 70 };
+  const panes = { chin_b: pane(t, "chin_b", 64, 130, 466, 800, Z), chin_a: pane(t, "chin_a", 550, 130, 466, 800, Z) };
+  const s = svg(t);
+  const toPct = (x, y) => [x / 512 * 100, y / 696 * 100];
+  for (const k of ["chin_b", "chin_a"]) {
+    const P0 = panes[k], m = C[k], [cx, cy] = m.c, lx = m.a * cy + m.b;
+    const c = P0.pt(...toPct(cx, cy)), l = P0.pt(...toPct(lx, cy));
+    // gap marker: hairline from the line to the chin with end ticks
+    el(s, "line", { x1: l[0], y1: l[1], x2: c[0], y2: c[1], stroke: "#37a9e8", "stroke-width": 3 });
+    for (const q of [l, c]) el(s, "line", { x1: q[0], y1: q[1] - 9, x2: q[0], y2: q[1] + 9, stroke: "#37a9e8", "stroke-width": 3 });
+    // loupe: glass ring, 2.2x of the chin region, placed lower right of the panel
+    const R = 118, X = P0.pt(0, 0)[0] + 466 - R - 26, Y = 130 + 800 - R - 96, zf = 2.2;
+    const L = document.createElement("div"); Object.assign(L.style, { position: "absolute", left: X - R + "px", top: Y - R + "px", width: 2 * R + "px", height: 2 * R + "px", borderRadius: "50%", overflow: "hidden" });
+    const im = document.createElement("img"); im.src = "src/06069.jpg"; const S = 466 / (512 * 0.70) * zf, ox = k === "chin_a" ? 512 : 0;
+    Object.assign(im.style, { position: "absolute", maxWidth: "none", width: 1024 * S + "px", left: R - (ox + (cx + lx) / 2) * S + "px", top: R - cy * S + "px" });
+    L.appendChild(im); t.appendChild(L);
+    const ring = document.createElement("div"); ring.className = "glass"; Object.assign(ring.style, { left: X - R - 7 + "px", top: Y - R - 7 + "px", width: 2 * R + 14 + "px", height: 2 * R + 14 + "px", background: "transparent", backdropFilter: "none", webkitBackdropFilter: "none", zIndex: 4 });
+    ring.style.setProperty("--r", "50%");
+    t.appendChild(ring);
+    // gap marker inside the loupe too
+    const gl = [X + (lx - (cx + lx) / 2) * S, Y], gc = [X + (cx - (cx + lx) / 2) * S, Y];
+    el(s, "line", { x1: gl[0], y1: gl[1], x2: gc[0], y2: gc[1], stroke: "#37a9e8", "stroke-width": 4 });
+    for (const q of [gl, gc]) el(s, "line", { x1: q[0], y1: q[1] - 14, x2: q[0], y2: q[1] + 14, stroke: "#37a9e8", "stroke-width": 4 });
+    // leader from the chin to the loupe (thin, white) so the reader sees what is magnified
+    el(s, "line", { x1: c[0] + 6, y1: c[1] + 4, x2: X - R * 0.72, y2: Y - R * 0.70, stroke: "#fff", "stroke-opacity": .7, "stroke-width": 1.5 });
+    label(t, (k === "chin_b" ? "Gap " : "Gap ") + m.pct.toFixed(1) + " %", X - 64, Y + R + 18, true);
+  }
+  // the change: one arrow on the after, at the chin, pointing forward (toward the line)
+  const ca = panes.chin_a.pt(...toPct(75, 610));
+  arrow(s, [ca[0] + 92, ca[1] + 70], [ca[0] + 4, ca[1] + 6], 0.25, 8);
+  label(t, "Before", 82, 148, false); label(t, "After", 568, 148, false);
+}
+
+// ---------- Acne profile (alternate, not in the nine) ----------
+{
+  const t = document.getElementById("a2");
+  const B = pane(t, "acne_b", 64, 130, 466, 900, { zx: 18, zy: 18, zw: 52 }), A = pane(t, "acne_a", 550, 130, 466, 900, { zx: 16, zy: 18, zw: 52 });
+  const s = svg(t);
+  const c = M.acne_b.cluster_pct, pb = B.pt(c[0], c[1]);
+  arrow(s, [pb[0] + 120, pb[1] + 200], pb, 0.2);
+  label(t, "January · inflamed papules", 64, 930, true); label(t, "June · clear", 550, 930, true);
+}
+Promise.all([document.fonts.ready, ...[...document.images].map((i) => (i.complete ? 1 : new Promise((r) => { i.onload = i.onerror = r; })))])
+  .then(() => { window.__fonts = [...document.fonts].filter((f) => f.status === "loaded").map((f) => f.family); window.__ready = true; });
+</script>

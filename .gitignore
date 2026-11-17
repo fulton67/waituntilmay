@@ -255,3 +255,8 @@ research/ostad/style/exomind/v6_frames/
 
 # gap-check sheets hold practice / patient / BTL frames
 research/ostad/style/exomind/gap/*.jpg
+research/ostad/style/raw/ritclinic/media/
+
+# patient source previews (rendered tiles are committed; raw previews stay local)
+public/brand/ostad/stills/ba/src/
+brand/intake/ba_drafts/

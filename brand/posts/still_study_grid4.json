@@ -1,0 +1,919 @@
+{
+ "brand/posts/grid4/01_ceg-ferulic.png": {
+  "layer": {
+   "text_share": 0.034,
+   "empty_share": 0.339,
+   "photo_share": 0.627,
+   "words": 16,
+   "type_h_over_w_median": 0.0222,
+   "type_h_over_w_max": 0.0833,
+   "type_positions": [
+    "middle-left",
+    "bottom-left",
+    "bottom-centre",
+    "bottom-left",
+    "bottom-centre",
+    "bottom-left",
+    "bottom-left",
+    "bottom-centre",
+    "bottom-left"
+   ]
+  },
+  "light": {
+   "key_dir_deg": -146.9,
+   "key_offset": 0.31,
+   "key_ratio": 24.6,
+   "warmth_b": 0.5,
+   "softness_grad": 25.05
+  },
+  "material": [],
+  "edge": "full-bleed",
+  "stats": {
+   "luma": 157.52,
+   "rms_contrast": 0.3026,
+   "saturation": 0.0594,
+   "black_point": 1.5,
+   "white_point": 246.0
+  },
+  "palette": [
+   [
+    "#dde0e1",
+    0.424
+   ],
+   [
+    "#aeb0b0",
+    0.2377
+   ],
+   [
+    "#11100e",
+    0.1341
+   ],
+   [
+    "#727170",
+    0.1239
+   ],
+   [
+    "#393736",
+    0.0803
+   ]
+  ]
+ },
+ "brand/posts/grid4/02_bcc.png": {
+  "layer": {
+   "text_share": 0.156,
+   "empty_share": 0.778,
+   "photo_share": 0.066,
+   "words": 21,
+   "type_h_over_w_median": 0.0389,
+   "type_h_over_w_max": 0.1833,
+   "type_positions": [
+    "top-left",
+    "middle-left",
+    "middle-centre",
+    "middle-left",
+    "middle-left",
+    "bottom-centre",
+    "bottom-left",
+    "bottom-left"
+   ]
+  },
+  "light": {
+   "key_dir_deg": -14.9,
+   "key_offset": 0.15,
+   "key_ratio": 1.0,
+   "warmth_b": 19.2,
+   "softness_grad": 3.72
+  },
+  "material": [],
+  "edge": "inset",
+  "stats": {
+   "luma": 192.44,
+   "rms_contrast": 0.0858,
+   "saturation": 0.2527,
+   "black_point": 37.7,
+   "white_point": 196.5
+  },
+  "palette": [
+   [
+    "#d4c2a1",
+    0.9613
+   ],
+   [
+    "#152537",
+    0.0124
+   ],
+   [
+    "#a39985",
+    0.0104
+   ],
+   [
+    "#717069",
+    0.0099
+   ],
+   [
+    "#4b5054",
+    0.006
+   ]
+  ]
+ },
+ "brand/posts/grid4/03_emsculpt.png": {
+  "layer": {
+   "text_share": 0.035,
+   "empty_share": 0.602,
+   "photo_share": 0.363,
+   "words": 14,
+   "type_h_over_w_median": 0.0222,
+   "type_h_over_w_max": 0.0556,
+   "type_positions": [
+    "top-right",
+    "bottom-centre",
+    "bottom-left",
+    "bottom-centre",
+    "bottom-centre",
+    "bottom-centre",
+    "bottom-left",
+    "bottom-centre",
+    "bottom-left",
+    "bottom-centre"
+   ]
+  },
+  "light": {
+   "key_dir_deg": 66.8,
+   "key_offset": 0.23,
+   "key_ratio": 3.38,
+   "warmth_b": 2.8,
+   "softness_grad": 15.65
+  },
+  "material": [],
+  "edge": "inset",
+  "stats": {
+   "luma": 189.52,
+   "rms_contrast": 0.2024,
+   "saturation": 0.0662,
+   "black_point": 27.9,
+   "white_point": 243.4
+  },
+  "palette": [
+   [
+    "#e8e5df",
+    0.494
+   ],
+   [
+    "#babbb7",
+    0.1985
+   ],
+   [
+    "#a0a29c",
+    0.1764
+   ],
+   [
+    "#686b6c",
+    0.0746
+   ],
+   [
+    "#2f3130",
+    0.0564
+   ]
+  ]
+ },
+ "brand/posts/grid4/04_lexington.png": {
+  "layer": {
+   "text_share": 0.057,
+   "empty_share": 0.406,
+   "photo_share": 0.537,
+   "words": 23,
+   "type_h_over_w_median": 0.0333,
+   "type_h_over_w_max": 0.0685,
+   "type_positions": [
+    "bottom-left",
+    "bottom-centre",
+    "bottom-left",
+    "bottom-right",
+    "bottom-left",
+    "bottom-right",
+    "bottom-left",
+    "bottom-right"
+   ]
+  },
+  "light": {
+   "key_dir_deg": 104.2,
+   "key_offset": 0.62,
+   "key_ratio": 4.89,
+   "warmth_b": 5.8,
+   "softness_grad": 16.64
+  },
+  "material": [
+   {
+    "bbox_pct": [
+     5.9,
+     70.3,
+     94.0,
+     95.2
+    ],
+    "radius_pct_w": null,
+    "sharp_ratio": 2.145,
+    "tint_rgb": [
+     40.2,
+     36.9,
+     37.0
+    ],
+    "highlight_edge": "bottom",
+    "rim": {
+     "top": {
+      "width_px": 2,
+      "alpha": 0.369
+     },
+     "bottom": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "left": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "right": {
+      "width_px": 2,
+      "alpha": 0.144
+     }
+    },
+    "shadow": {
+     "top": {
+      "depth": 8.3,
+      "alpha": 0.137,
+      "extent_px": 14
+     },
+     "bottom": {
+      "depth": 65.7,
+      "alpha": 0.295,
+      "extent_px": 32
+     },
+     "left": {
+      "depth": 37.3,
+      "alpha": 0.161,
+      "extent_px": 30
+     },
+     "right": {
+      "depth": 4.7,
+      "alpha": 0.036,
+      "extent_px": 2
+     }
+    }
+   }
+  ],
+  "edge": "full-bleed",
+  "stats": {
+   "luma": 154.51,
+   "rms_contrast": 0.2196,
+   "saturation": 0.1267,
+   "black_point": 29.2,
+   "white_point": 238.5
+  },
+  "palette": [
+   [
+    "#b9b5a8",
+    0.3094
+   ],
+   [
+    "#dad9d3",
+    0.2418
+   ],
+   [
+    "#8a877a",
+    0.2239
+   ],
+   [
+    "#4e5450",
+    0.1413
+   ],
+   [
+    "#23321d",
+    0.0835
+   ]
+  ]
+ },
+ "brand/posts/grid4/05_reapply.png": {
+  "layer": {
+   "text_share": 0.059,
+   "empty_share": 0.782,
+   "photo_share": 0.159,
+   "words": 19,
+   "type_h_over_w_median": 0.0222,
+   "type_h_over_w_max": 0.1333,
+   "type_positions": [
+    "top-centre",
+    "middle-right",
+    "middle-centre",
+    "bottom-left",
+    "bottom-right",
+    "bottom-left",
+    "bottom-right",
+    "bottom-left",
+    "bottom-left",
+    "bottom-left",
+    "bottom-centre"
+   ]
+  },
+  "light": {
+   "key_dir_deg": -64.1,
+   "key_offset": 0.74,
+   "key_ratio": 1.21,
+   "warmth_b": 12.9,
+   "softness_grad": 3.33
+  },
+  "material": [],
+  "edge": "inset",
+  "stats": {
+   "luma": 214.22,
+   "rms_contrast": 0.0782,
+   "saturation": 0.1599,
+   "black_point": 141.5,
+   "white_point": 243.4
+  },
+  "palette": [
+   [
+    "#e1d6be",
+    0.3657
+   ],
+   [
+    "#d5c6a6",
+    0.3186
+   ],
+   [
+    "#efebdd",
+    0.2984
+   ],
+   [
+    "#908f87",
+    0.0133
+   ],
+   [
+    "#273241",
+    0.004
+   ]
+  ]
+ },
+ "brand/posts/grid4/06_jeuveau.png": {
+  "layer": {
+   "text_share": 0.025,
+   "empty_share": 0.683,
+   "photo_share": 0.292,
+   "words": 12,
+   "type_h_over_w_median": 0.0333,
+   "type_h_over_w_max": 0.0444,
+   "type_positions": [
+    "middle-centre",
+    "bottom-left",
+    "bottom-left",
+    "bottom-left",
+    "bottom-right",
+    "bottom-left",
+    "bottom-right"
+   ]
+  },
+  "light": {
+   "key_dir_deg": -28.4,
+   "key_offset": 0.59,
+   "key_ratio": 1.5,
+   "warmth_b": 4.3,
+   "softness_grad": 6.9
+  },
+  "material": [],
+  "edge": "inset",
+  "stats": {
+   "luma": 220.54,
+   "rms_contrast": 0.1097,
+   "saturation": 0.0629,
+   "black_point": 102.1,
+   "white_point": 244.2
+  },
+  "palette": [
+   [
+    "#ebe8e3",
+    0.7807
+   ],
+   [
+    "#cbc8c3",
+    0.1149
+   ],
+   [
+    "#b3a6a1",
+    0.0718
+   ],
+   [
+    "#c95554",
+    0.0168
+   ],
+   [
+    "#777370",
+    0.0157
+   ]
+  ]
+ },
+ "brand/posts/grid4/07_aviclear.png": {
+  "layer": {
+   "text_share": 0.063,
+   "empty_share": 0.339,
+   "photo_share": 0.599,
+   "words": 22,
+   "type_h_over_w_median": 0.0333,
+   "type_h_over_w_max": 0.0556,
+   "type_positions": [
+    "top-left",
+    "middle-left",
+    "middle-centre",
+    "bottom-centre",
+    "bottom-left",
+    "bottom-right"
+   ]
+  },
+  "light": {
+   "key_dir_deg": -59.7,
+   "key_offset": 0.28,
+   "key_ratio": 7.59,
+   "warmth_b": 9.1,
+   "softness_grad": 25.41
+  },
+  "material": [
+   {
+    "bbox_pct": [
+     5.7,
+     63.0,
+     94.2,
+     77.0
+    ],
+    "radius_pct_w": null,
+    "sharp_ratio": 9.138,
+    "tint_rgb": [
+     161.8,
+     119.9,
+     103.2
+    ],
+    "highlight_edge": "right",
+    "rim": {
+     "top": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "bottom": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "left": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "right": {
+      "width_px": 0,
+      "alpha": 0.0
+     }
+    },
+    "shadow": {
+     "top": {
+      "depth": 12.6,
+      "alpha": 0.336,
+      "extent_px": 41
+     },
+     "bottom": {
+      "depth": 0.0,
+      "alpha": 0.0,
+      "extent_px": 0
+     },
+     "left": {
+      "depth": 0.0,
+      "alpha": 0.0,
+      "extent_px": 0
+     },
+     "right": {
+      "depth": 0.0,
+      "alpha": 0.0,
+      "extent_px": 0
+     }
+    }
+   },
+   {
+    "bbox_pct": [
+     50.7,
+     56.3,
+     77.4,
+     60.1
+    ],
+    "radius_pct_w": null,
+    "sharp_ratio": 76759.234,
+    "tint_rgb": [
+     41.4,
+     41.7,
+     41.7
+    ],
+    "highlight_edge": "top",
+    "rim": {
+     "top": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "bottom": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "left": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "right": {
+      "width_px": 0,
+      "alpha": 0.0
+     }
+    },
+    "shadow": {
+     "top": {
+      "depth": 112.1,
+      "alpha": 0.812,
+      "extent_px": 33
+     },
+     "bottom": {
+      "depth": 105.1,
+      "alpha": 0.814,
+      "extent_px": 41
+     },
+     "left": {
+      "depth": 0.8,
+      "alpha": 0.0,
+      "extent_px": 0
+     },
+     "right": {
+      "depth": 0.5,
+      "alpha": 0.0,
+      "extent_px": 0
+     }
+    }
+   },
+   {
+    "bbox_pct": [
+     50.7,
+     9.5,
+     94.2,
+     54.0
+    ],
+    "radius_pct_w": null,
+    "sharp_ratio": 0.44,
+    "tint_rgb": [
+     163.7,
+     124.7,
+     118.9
+    ],
+    "highlight_edge": "right",
+    "rim": {
+     "top": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "bottom": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "left": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "right": {
+      "width_px": 0,
+      "alpha": 0.0
+     }
+    },
+    "shadow": {
+     "top": {
+      "depth": 0.0,
+      "alpha": 0.0,
+      "extent_px": 0
+     },
+     "bottom": {
+      "depth": 33.1,
+      "alpha": 0.57,
+      "extent_px": 33
+     },
+     "left": {
+      "depth": 93.4,
+      "alpha": 0.782,
+      "extent_px": 19
+     },
+     "right": {
+      "depth": 0.0,
+      "alpha": 0.0,
+      "extent_px": 0
+     }
+    }
+   },
+   {
+    "bbox_pct": [
+     5.7,
+     9.5,
+     49.2,
+     54.0
+    ],
+    "radius_pct_w": null,
+    "sharp_ratio": 0.2,
+    "tint_rgb": [
+     124.7,
+     97.6,
+     76.9
+    ],
+    "highlight_edge": "bottom",
+    "rim": {
+     "top": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "bottom": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "left": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "right": {
+      "width_px": 0,
+      "alpha": 0.0
+     }
+    },
+    "shadow": {
+     "top": {
+      "depth": 8.6,
+      "alpha": 0.249,
+      "extent_px": 48
+     },
+     "bottom": {
+      "depth": 31.9,
+      "alpha": 0.558,
+      "extent_px": 33
+     },
+     "left": {
+      "depth": 0.0,
+      "alpha": 0.0,
+      "extent_px": 0
+     },
+     "right": {
+      "depth": 142.6,
+      "alpha": 0.846,
+      "extent_px": 19
+     }
+    }
+   }
+  ],
+  "edge": "inset",
+  "stats": {
+   "luma": 92.18,
+   "rms_contrast": 0.2675,
+   "saturation": 0.2763,
+   "black_point": 25.3,
+   "white_point": 222.7
+  },
+  "palette": [
+   [
+    "#1e1b18",
+    0.4775
+   ],
+   [
+    "#ca9e8b",
+    0.2131
+   ],
+   [
+    "#9e7864",
+    0.1393
+   ],
+   [
+    "#dfc6ba",
+    0.102
+   ],
+   [
+    "#5e4c40",
+    0.0681
+   ]
+  ]
+ },
+ "brand/posts/grid4/08_prevention.png": {
+  "layer": {
+   "text_share": 0.087,
+   "empty_share": 0.813,
+   "photo_share": 0.1,
+   "words": 12,
+   "type_h_over_w_median": 0.0389,
+   "type_h_over_w_max": 0.0778,
+   "type_positions": [
+    "top-left",
+    "middle-centre",
+    "middle-centre",
+    "middle-left",
+    "bottom-left"
+   ]
+  },
+  "light": {
+   "key_dir_deg": -147.0,
+   "key_offset": 0.35,
+   "key_ratio": 1.0,
+   "warmth_b": -13.7,
+   "softness_grad": 3.48
+  },
+  "material": [],
+  "edge": "inset",
+  "stats": {
+   "luma": 35.63,
+   "rms_contrast": 0.078,
+   "saturation": 0.5894,
+   "black_point": 32.6,
+   "white_point": 159.4
+  },
+  "palette": [
+   [
+    "#132235",
+    0.9723
+   ],
+   [
+    "#697079",
+    0.008
+   ],
+   [
+    "#364352",
+    0.0071
+   ],
+   [
+    "#a0a4a7",
+    0.0064
+   ],
+   [
+    "#e0e1dd",
+    0.0062
+   ]
+  ]
+ },
+ "brand/posts/grid4/09_chin.png": {
+  "layer": {
+   "text_share": 0.06,
+   "empty_share": 0.515,
+   "photo_share": 0.425,
+   "words": 22,
+   "type_h_over_w_median": 0.0333,
+   "type_h_over_w_max": 0.0667,
+   "type_positions": [
+    "top-left",
+    "top-left",
+    "top-right",
+    "middle-centre",
+    "bottom-centre",
+    "bottom-left",
+    "bottom-right",
+    "bottom-right"
+   ]
+  },
+  "light": {
+   "key_dir_deg": 89.7,
+   "key_offset": 0.63,
+   "key_ratio": 4.5,
+   "warmth_b": 12.6,
+   "softness_grad": 23.45
+  },
+  "material": [
+   {
+    "bbox_pct": [
+     50.7,
+     9.5,
+     94.2,
+     69.0
+    ],
+    "radius_pct_w": null,
+    "sharp_ratio": 0.662,
+    "tint_rgb": [
+     -85.3,
+     -119.8,
+     -138.4
+    ],
+    "highlight_edge": "top",
+    "rim": {
+     "top": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "bottom": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "left": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "right": {
+      "width_px": 0,
+      "alpha": 0.0
+     }
+    },
+    "shadow": {
+     "top": {
+      "depth": 0.0,
+      "alpha": 0.0,
+      "extent_px": 0
+     },
+     "bottom": {
+      "depth": 0.0,
+      "alpha": 0.0,
+      "extent_px": 0
+     },
+     "left": {
+      "depth": 0.0,
+      "alpha": 0.0,
+      "extent_px": 0
+     },
+     "right": {
+      "depth": 0.0,
+      "alpha": 0.0,
+      "extent_px": 0
+     }
+    }
+   },
+   {
+    "bbox_pct": [
+     5.7,
+     9.5,
+     49.2,
+     69.0
+    ],
+    "radius_pct_w": null,
+    "sharp_ratio": 0.497,
+    "tint_rgb": [
+     -88.1,
+     -124.0,
+     -144.1
+    ],
+    "highlight_edge": "top",
+    "rim": {
+     "top": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "bottom": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "left": {
+      "width_px": 0,
+      "alpha": 0.0
+     },
+     "right": {
+      "width_px": 0,
+      "alpha": 0.0
+     }
+    },
+    "shadow": {
+     "top": {
+      "depth": 49.1,
+      "alpha": 0.212,
+      "extent_px": 2
+     },
+     "bottom": {
+      "depth": 0.0,
+      "alpha": 0.0,
+      "extent_px": 0
+     },
+     "left": {
+      "depth": 0.0,
+      "alpha": 0.0,
+      "extent_px": 0
+     },
+     "right": {
+      "depth": 81.9,
+      "alpha": 0.582,
+      "extent_px": 2
+     }
+    }
+   }
+  ],
+  "edge": "inset",
+  "stats": {
+   "luma": 175.43,
+   "rms_contrast": 0.2831,
+   "saturation": 0.22,
+   "black_point": 39.6,
+   "white_point": 242.1
+  },
+  "palette": [
+   [
+    "#f2f2ec",
+    0.4753
+   ],
+   [
+    "#3f3a33",
+    0.1815
+   ],
+   [
+    "#e4a67b",
+    0.135
+   ],
+   [
+    "#c68359",
+    0.1267
+   ],
+   [
+    "#7c6250",
+    0.0815
+   ]
+  ]
+ }
+}

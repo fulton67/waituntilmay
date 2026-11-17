@@ -1,4 +1,12 @@
-# Feed posts, built in Remotion (2026-11-17)
+# Feed posts (2026-11-17)
+
+> **Grid 4 (current): designed stills.** Grid 3 was rejected ("the worst one yet": video frames, screenshots, quotes,
+> infographics; see `research/ostad/learning/REJECTED/2026-11-17_posts_grid3.md`). Posts are now HTML/CSS/SVG stills
+> (`public/brand/ostad/stills/`, rendered by `brand/scripts/render_stills.cjs`) built to `brand/posts/POST_RULES.md`, which
+> is measured from rit.clinic, Are.na and Naim's refs (`STILL_STUDY.md`). There are nine single posts, two of them
+> before/afters with measured arrows (consent = yes for every patient since 2026-11-17). Checklist and gap numbers:
+> `brand/posts/CHECKLIST_grid4.md`. Review: `brand/posts/grid4/`, and `/brand/ostad/grid`. Everything below this note is history
+> (grids 1–3, Remotion), kept for reference; don't build posts that way.
 
 > **Grid 3 (current): the video system.** Naim on grid 2: "canva-esque", weak photos, "no glass effects", "no translation from what
 > we do in videos into feed posts ... treat each post in the process of the video". Each carousel is now one short Remotion video

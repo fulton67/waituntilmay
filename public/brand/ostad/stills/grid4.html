@@ -1,0 +1,168 @@
+<!doctype html>
+<!-- Grid 4: nine single feed posts as designed stills (brand/posts/POST_RULES.md). Rendered by brand/scripts/render_stills.cjs
+     (headless Chromium, same server renderer as the kit), one PNG per .tile. No video compositions, no frame grabs.
+     Round 2 (Naim: "a bit closer though not enough information"): each tile keeps one idea and gains a sourced information layer
+     (spec rows / ingredient chips), up to ~25 words (Naim's grid refs median 24.5 words, Are.na p75 19.5). -->
+<meta charset="utf-8"><meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://use.typekit.net/vzz0hgt.css">
+<link rel="stylesheet" href="stills.css">
+<style>
+/* T1 CEG + Ferulic: full-bleed product on glass; dark label plate with the four ingredients (row 4826) and the label (row 374) */
+#t1 img.ph{object-position:50% 46%}
+#t1 .glass{left:64px;bottom:72px;width:560px;padding:36px 40px 40px;--r:30px}
+#t1 .meta{color:#fff;opacity:.8;margin:12px 0 26px}
+
+/* T2 BCC: quiet text tile, two numbers (row 4018) */
+#t2{background:var(--sand)}
+#t2 .k{position:absolute;left:90px;width:900px;color:var(--navy)}
+#t2 .num{font:500 200px/0.9 var(--disp);letter-spacing:-.045em}
+#t2 .num span{font-size:110px;letter-spacing:-.02em}
+#t2 .k1{top:300px}#t2 .k2{top:760px}
+#t2 .k .body{margin-top:26px;width:640px}
+#t2 .num2{font:500 120px/0.9 var(--disp);letter-spacing:-.035em}
+#t2 .rule{position:absolute;left:90px;right:90px;top:690px;height:1px;background:var(--navy);opacity:.22}
+#t2 .meta{position:absolute;left:90px;bottom:84px;color:var(--navy)}
+
+/* T3 EMSCULPT NEO: inset photo, glass spec plate over the photo edge (row 2267) */
+#t3{background:var(--paper)}
+#t3 .win{position:absolute;left:96px;top:96px;right:96px;bottom:250px;overflow:hidden;border-radius:6px}
+#t3 .win img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
+#t3 .glass{left:150px;bottom:150px;width:520px;padding:30px 36px 18px;--r:26px;color:var(--ink)}
+#t3 .glass .head{margin-bottom:18px}
+#t3 .meta{position:absolute;left:96px;bottom:88px;color:var(--ink)}
+
+/* T4 flowers + his credentials: full bleed, glass plate (rows 6354, 1326, 3071; address row 5920) */
+#t4 img.ph{object-position:50% 58%}
+#t4 .glass{left:64px;right:64px;bottom:64px;padding:34px 40px 22px;--r:30px;color:var(--ink)}
+#t4 .glass .serif{font-size:54px;line-height:1;margin-bottom:6px}
+#t4 .glass .meta{margin-bottom:22px}
+
+/* T5 designed graphic: reapply every 2-3 h (row 4015) */
+#t5{background:radial-gradient(120% 90% at 82% 8%,var(--ivory) 0%,var(--sand) 100%)}
+#t5 svg{position:absolute;inset:0}
+#t5 .glass{left:290px;top:200px;width:500px;height:500px;--r:250px;
+  background:linear-gradient(222deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,0) 34%),rgba(255,255,255,.26)}
+#t5 .in{position:absolute;left:290px;top:200px;width:500px;height:500px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--navy)}
+#t5 .in .big{font:500 132px/1 var(--disp);letter-spacing:-.04em}
+#t5 .in .big small{font-size:56px;letter-spacing:-.01em;margin-left:6px}
+#t5 .in .lab{margin-top:12px;font-size:28px;opacity:.8}
+#t5 .rows{position:absolute;left:150px;right:150px;top:930px;color:var(--navy)}
+#t5 .meta{position:absolute;left:150px;bottom:84px;color:var(--navy)}
+
+/* T6 Jeuveau: product behind glass; label facts (row 897), procedures guide, billboard (row 538) */
+#t6{background:var(--paper)}
+#t6 img{position:absolute;left:60px;top:90px;width:900px;height:auto;mix-blend-mode:multiply}
+#t6 .glass{left:680px;top:70px;width:280px;height:780px;--r:34px}
+#t6 .cap{position:absolute;left:90px;right:90px;bottom:80px;color:var(--ink)}
+#t6 .cap .head{margin-bottom:18px}
+
+/* T7 office dog: full bleed, corner meta only (the quiet photo) */
+#t7 img.ph{object-position:46% 64%}
+#t7 .meta{position:absolute;right:72px;top:72px;color:#fff;opacity:.9;text-shadow:0 1px 10px rgba(0,0,0,.3)}
+
+/* T8 navy text tile (row 4015 + TOPICS.md) */
+#t9{background:var(--navy);color:var(--ivory)}
+#t9 .lines{position:absolute;left:90px;top:300px;width:860px}
+#t9 .lines div{font:500 64px/1.12 var(--disp);letter-spacing:-.02em;padding:26px 0;border-top:1px solid rgba(245,242,235,.22)}
+#t9 .lines div:last-child{border-bottom:1px solid rgba(245,242,235,.22)}
+#t9 .body{position:absolute;left:90px;top:640px;width:640px;opacity:.78}
+#t9 .meta{position:absolute;left:90px;bottom:84px;color:var(--ivory)}
+
+/* T9 procedure room: rit.clinic split 63 / 37 (row 3611) */
+#t8 .top{position:absolute;left:0;top:0;width:100%;height:63%;overflow:hidden}
+#t8 .top img{width:100%;height:100%;object-fit:cover;object-position:56% 50%;display:block}
+#t8 .panel{position:absolute;left:0;right:0;bottom:0;height:37%;background:var(--paper);padding:66px 90px 0;box-sizing:border-box;color:var(--navy)}
+#t8 .panel .head{margin-bottom:22px}
+#t8 .panel .meta{position:absolute;right:90px;top:80px}
+</style>
+<div id="stage">
+
+<div class="tile" id="t1" data-name="01_ceg-ferulic">
+  <img class="ph" src="src/00374.jpg">
+  <div class="glass dark">
+    <div class="head">CEG + Ferulic Complex</div>
+    <div class="meta">Antioxidant serum · 1 fl oz / 30 mL</div>
+    <div class="chips"><span>Vitamin C</span><span>Vitamin E</span><span>Green tea</span><span>Ferulic acid</span></div>
+  </div>
+</div>
+
+<div class="tile" id="t2" data-name="02_bcc">
+  <div class="k k1"><div class="num">3.6<span> million</span></div><div class="body">basal cell carcinomas diagnosed in the US every year.</div></div>
+  <div class="rule"></div>
+  <div class="k k2"><div class="num2">+77%</div><div class="body">nonmelanoma skin cancer diagnoses, 1994 to 2014.</div></div>
+  <div class="meta">Skin Cancer Foundation</div>
+</div>
+
+<div class="tile" id="t3" data-name="03_emsculpt">
+  <div class="win"><img src="src/02204.jpg"></div>
+  <div class="glass">
+    <div class="head">30 minutes a session</div>
+    <div class="rows"><div><b>Course</b><span>4 sessions, a week apart</span></div><div><b>Fat</b><span>−30%</span></div><div><b>Muscle</b><span>+25%</span></div></div>
+  </div>
+  <div class="meta">Emsculpt Neo · clinical studies</div>
+</div>
+
+<div class="tile" id="t4" data-name="04_lexington">
+  <img class="ph" src="src/03798.jpg">
+  <div class="glass">
+    <div class="serif">897 Lexington Avenue</div><div class="meta">Upper East Side</div>
+    <div class="rows">
+      <div><b>Castle Connolly</b><span>Top Doctor, 15 years</span></div>
+      <div><b>Super Doctors NY</b><span>Hall of Fame, 2024</span></div>
+      <div><b>NYU Dermatology</b><span>Attending of the Year, 2023</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="tile" id="t5" data-name="05_reapply">
+  <svg viewBox="0 0 1080 1350" width="1080" height="1350">
+    <defs><linearGradient id="arc" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#152235" stop-opacity=".9"/><stop offset="1" stop-color="#152235" stop-opacity=".55"/></linearGradient></defs>
+    <g transform="translate(540 450)">
+      <g stroke="#152235" stroke-opacity=".32" stroke-width="2">
+        <line x1="0" y1="-302" x2="0" y2="-326"/><line x1="0" y1="-302" x2="0" y2="-326" transform="rotate(30)"/>
+        <line x1="0" y1="-302" x2="0" y2="-326" transform="rotate(60)"/><line x1="0" y1="-302" x2="0" y2="-326" transform="rotate(90)"/>
+        <line x1="0" y1="-302" x2="0" y2="-326" transform="rotate(120)"/><line x1="0" y1="-302" x2="0" y2="-326" transform="rotate(150)"/>
+        <line x1="0" y1="-302" x2="0" y2="-326" transform="rotate(180)"/><line x1="0" y1="-302" x2="0" y2="-326" transform="rotate(210)"/>
+        <line x1="0" y1="-302" x2="0" y2="-326" transform="rotate(240)"/><line x1="0" y1="-302" x2="0" y2="-326" transform="rotate(270)"/>
+        <line x1="0" y1="-302" x2="0" y2="-326" transform="rotate(300)"/><line x1="0" y1="-302" x2="0" y2="-326" transform="rotate(330)"/>
+      </g>
+      <path d="M0 -314 A314 314 0 0 1 271.9 -157" fill="none" stroke="url(#arc)" stroke-width="3"/>
+      <path d="M271.9 -157 A314 314 0 0 1 314 0" fill="none" stroke="#152235" stroke-opacity=".9" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+      <circle cx="0" cy="-314" r="7" fill="#152235"/>
+      <text x="0" y="-348" text-anchor="middle" font-family="neue-haas-grotesk-text" font-size="22" letter-spacing="1.4" fill="#152235" fill-opacity=".7">APPLY</text>
+      <text x="298" y="-170" font-family="neue-haas-grotesk-text" font-size="22" letter-spacing="1.4" fill="#152235" fill-opacity=".7">2 H</text>
+      <text x="340" y="8" font-family="neue-haas-grotesk-text" font-size="22" letter-spacing="1.4" fill="#152235" fill-opacity=".7">3 H</text>
+    </g>
+  </svg>
+  <div class="glass"></div>
+  <div class="in"><div class="big">2–3<small>h</small></div><div class="lab">Reapply sunscreen</div></div>
+  <div class="rows"><div><b>Sunscreen</b><span>broad spectrum, every day</span></div><div><b>Reapply</b><span>every 2–3 hours outdoors</span></div><div><b>Shade</b><span>a hat, every time</span></div></div>
+  <div class="meta">Prevention is key · Dr. Ostad</div>
+</div>
+
+<div class="tile" id="t6" data-name="06_jeuveau">
+  <img src="src/00897.jpg">
+  <div class="glass"></div>
+  <div class="cap">
+    <div class="head">Jeuveau</div>
+    <div class="rows">
+      <div><b>Toxin</b><span>prabotulinumtoxinA-xvfs</span></div>
+      <div><b>Vial</b><span>100 units</span></div>
+      <div><b>Treats</b><span>frown lines between the brows</span></div>
+    </div>
+  </div>
+</div>
+
+
+<div class="tile" id="t9" data-name="08_prevention">
+  <div class="lines"><div>No tanning beds.</div><div>A skin check every year.</div></div>
+  <div class="body">Basal cell carcinoma is the most common skin cancer.</div>
+  <div class="meta">Prevention</div>
+</div>
+
+
+</div>
+<script>
+Promise.all([document.fonts.ready, ...[...document.images].map(i => i.complete ? 1 : new Promise(r => { i.onload = i.onerror = r; }))])
+  .then(() => { window.__fonts = [...document.fonts].filter(f => f.status === "loaded").map(f => f.family); window.__ready = true; });
+</script>

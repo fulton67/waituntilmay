@@ -1,0 +1,47 @@
+{
+ "01_ceg-ferulic.png": {
+  "nearest": "brand/posts/grid2/G03Ceg_1.jpg",
+  "dist": 0.305,
+  "fail": false
+ },
+ "02_bcc.png": {
+  "nearest": "brand/posts/grid3/P3Jeuveau_04.jpg",
+  "dist": 0.234,
+  "fail": false
+ },
+ "03_emsculpt.png": {
+  "nearest": "brand/posts/grid3/P3Jeuveau_04.jpg",
+  "dist": 0.273,
+  "fail": false
+ },
+ "04_lexington.png": {
+  "nearest": "brand/posts/grid3/P3Jeuveau_01.jpg",
+  "dist": 0.32,
+  "fail": false
+ },
+ "05_reapply.png": {
+  "nearest": "brand/posts/grid2/G03Ceg.jpg",
+  "dist": 0.32,
+  "fail": false
+ },
+ "06_jeuveau.png": {
+  "nearest": "brand/posts/grid2/G04Bcc_1.jpg",
+  "dist": 0.266,
+  "fail": false
+ },
+ "07_aviclear.png": {
+  "nearest": "brand/posts/grid1/Reapply_1.jpg",
+  "dist": 0.312,
+  "fail": false
+ },
+ "08_prevention.png": {
+  "nearest": "brand/posts/grid2/G04Bcc_1.jpg",
+  "dist": 0.188,
+  "fail": false
+ },
+ "09_chin.png": {
+  "nearest": "brand/posts/grid1/Office.jpg",
+  "dist": 0.289,
+  "fail": false
+ }
+}

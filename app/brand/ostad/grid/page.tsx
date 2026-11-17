@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Grid from "./Grid";
+import Grid4 from "./Grid4";
 
 export const metadata: Metadata = {
   title: "Grid · Ostad brand kit",
@@ -9,5 +10,10 @@ export const metadata: Metadata = {
 
 // Client-only planner: every tile is the kit's render.html in an iframe (brand/POST_GRID.md §3).
 export default function Page() {
-  return <Grid />;
+  return (
+    <>
+      <Grid4 />
+      <Grid />
+    </>
+  );
 }
