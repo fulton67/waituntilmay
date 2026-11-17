@@ -1,0 +1,43 @@
+--- a/brand/remotion/src/OstadYT.tsx	2026-11-17 05:42:29.689609200 -0500
++++ b/brand/remotion/src/OstadYT.tsx	2026-11-17 05:42:46.286124200 -0500
+@@ -270,9 +270,13 @@
+     <>
+       {/* v4: the field-at-sunset frames at the head of couch.mp4 are gone; the client's pick, the woman on the couch with her hand on
+           her forehead (real BTL video, stressed.mp4 0.45-1.55 s), opens the section, then the patient relaxing under the coil */}
+-      <Sequence durationInFrames={Math.round(1.1 * 24)} layout="none"><Full src="stressed.mp4" from={0.45} dur={1.1} pos="40% 50%" /></Sequence>
+-      <Sequence from={Math.round(1.1 * 24)} durationInFrames={Math.round(1.2 * 24)} layout="none"><Full src="couch.mp4" from={1.1} dur={1.2} /></Sequence>
+-      <Sequence from={Math.round(2.3 * 24)} layout="none"><Full src="trio.mp4" from={2.2} dur={dur - 2.3} /></Sequence>
++      {/* fix: stressed.mp4 cuts shots at 0.500 s (frame 12); from 0.45 started on frame 11, the last frame of the previous BTL shot (1-frame flash at 47.25 s) */}
++      <Sequence durationInFrames={Math.round(1.1 * 24)} layout="none"><Full src="stressed.mp4" from={0.5} dur={1.1} pos="40% 50%" /></Sequence>
++      {/* fix: couch.mp4 cuts from the sunset field at 1.125 s (frame 27); from 1.1 rounded to frame 26, one field frame (48.33 s) */}
++      <Sequence from={Math.round(1.1 * 24)} durationInFrames={Math.round(1.2 * 24)} layout="none"><Full src="couch.mp4" from={1.125} dur={1.2} /></Sequence>
++      {/* fix: trio.mp4 cuts to another BTL model at 4.167 s (frame 100); from 2.2 (frame 53) + the 52 frames left in s7 ran to frame 104,
++          5 frames of her under the coil before the s8 cut (51.50-51.67 s). from 2.0 (frame 48) ends on frame 99; its earlier cut is at 1.917 s */}
++      <Sequence from={Math.round(2.3 * 24)} layout="none"><Full src="trio.mp4" from={2.0} dur={dur - 2.3} /></Sequence>
+       <Callout x={760} y={200} lx={980} ly={120} text="An Exomind session" at={1.15} out={2.1} />
+       <div style={{ ...glass(999), position: "absolute", right: M - 60, top: TOP - 60, display: "flex", alignItems: "center", gap: 16, padding: "14px 28px 14px 18px", ...life(t, 2.5) }}>
+         <Icon name="calendar" size={48} draw={prog(t, 2.5, 0.7)} color={t > 3.3 ? BLUE : INK} />
+@@ -342,7 +346,9 @@
+   const wipe = quint((t - 1.6) / 0.7), knob = quint((t - 2.0) / 0.9);
+   return (
+     <>
+-      <div style={{ position: "absolute", left: 0, top: 0, width: 1920 - 960 * wipe, height: 1080, overflow: "hidden" }}><Full src="stressed2.mp4" dur={dur} pos="50% 40%" /></div>
++      {/* fix: stressed2.mp4 opens on 2 frames of the previous BTL shot (cut at 0.083 s): start at 0.125 s (frame 3), and slow to 0.8x so the
++          3.58 s shot (to its next cut at 3.708 s) covers the 4.45 s section instead of cutting to a new shot at 68.66 s and freezing at 69.16 s */}
++      <div style={{ position: "absolute", left: 0, top: 0, width: 1920 - 960 * wipe, height: 1080, overflow: "hidden" }}><Full src="stressed2.mp4" from={0.125} rate={0.8} dur={dur} pos="50% 40%" /></div>
+       <div style={{ position: "absolute", left: 1920 - 960 * wipe, top: 0, width: 960, height: 1080, overflow: "hidden", borderLeft: "4px solid #fff" }}>
+         <OffthreadVideo src={v("smile.mp4")} muted style={{ position: "absolute", left: -480, top: 0, width: 1920, height: 1080 }} />
+       </div>
+@@ -688,8 +694,11 @@
+     <AbsoluteFill style={{ background: BG0 }}>
+       {S.map((s, i) => {
+         const B = BODY[s.kind];
++        // fix: each section ends where the next one starts, in frames. f(at) + f(dur) rounded separately left frame 2091 (87.125 s)
++        // with no section (a cream canvas flash before s13) and drew s12 one frame early over s11 (frame 1985)
++        const end = i + 1 < S.length ? f(S[i + 1].at) : f(s.at) + f(s.dur);
+         return (
+-          <Sequence key={i} from={f(s.at)} durationInFrames={f(s.dur)} name={s.kind}>
++          <Sequence key={i} from={f(s.at)} durationInFrames={end - f(s.at)} name={s.kind}>
+             <B dur={s.dur} />
+             {AROLL[s.kind] && <ARoll at={s.at} speed={spec.speed} src={spec.footage} box={AROLL[s.kind]} />}
+             {i > 0 && <Sfx at={0} name="swish" gain={0.3} />}
