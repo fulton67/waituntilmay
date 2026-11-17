@@ -85,3 +85,16 @@ in posts and reels; what he rejected was one inaccurate skull. Anatomy drawings 
    - real clinic-library material
    - an arrow only lands on a meaningful target, in one colour and one weight
    - no graphic reused (`tools/reuse_check.py`)
+
+## Correction (2026-11-17): drawn anatomy is wanted, it must be accurate
+
+Drawn anatomy is NOT banned. Naim likes drawn anatomy, on its own and drawn over the face, in posts and in reels. What he
+rejected was one inaccurate skull. The rule is accuracy:
+- Every anatomy drawing is built from a real reference: the layered face and skin models (`research/ostad/3d/base/face.glb`,
+  `skin_crosssection.glb`, Z-Anatomy) or a gold-pick frame for that structure. Trace proportions from the model; never draw
+  anatomy from memory.
+- Before use, overlay the drawing on a render of the model from the same angle and measure the outline difference; report the
+  number. Skulls, bone and muscle shapes get the strictest tolerance.
+- Drawings on a face use the face-tracking landmarks, so structures sit where they really are.
+- Any drawing that makes a clinical point is marked for Ostad to check.
+- If a drawing can't pass, use a render of the 3D model in the line style instead, or a real licensed image.
