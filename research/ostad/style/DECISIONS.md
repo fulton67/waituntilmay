@@ -403,3 +403,24 @@ Probe notes:
 - **Couch shot:** the patient-relaxing shot (couch.mp4) was dropped from s7, so the morph stays on one shot.
 - **Green curtain:** the Flora coil clip (s8) still has it. A blue Flora re-render is allowed, and was not done here.
 - **Type:** still NHG Display 500. Helvetica Neue LT Pro isn't in the kit (14c).
+
+## 14g. ExoMind head track: MediaPipe Face Landmarker + One Euro, for face-anchored arrows and a dynamic face-safe area (2026-11-17)
+
+- **Footage:** `brand/edits/exomind-skin/exomind-skin_cut.mp4` (= `remotion/public/exomind-skin/footage.mp4`, same bytes), 1080×1920, 30 fps, 3027 frames. The older `faces_raw.json` (YuNet box every 0.5 s, no script in the repo) is superseded for tracking.
+- **Composition → source:** every use of his footage in OstadYT plays the cut at the edit speed on the global clock (ARoll: Sequence at `at`, `startFrom = round(at·speed·24)`; Keyed: Sequence at `keyed.at / speed`, matte packed from cut time `keyed.at`). So `srcFrame = compFrame / 24 · 1.15 · 30`, interpolated. Rounding of `startFrom` shifts it by ≤ 0.5 comp frame. Layer transforms at rest: keyed scale 0.86 at (0, −150); window 0.5 at (115, 60); panelR 0.8 at (1056, −264); panelL 0.8 at (0, −264).
+- **Detector:** MediaPipe Face Landmarker 1.2.3 (`face_landmarker.task` float16, VIDEO mode, 1 face, 478 landmarks + facial transformation matrix) on every frame. Tool: `research/ostad/style/tools/face_track.py` (style venv, `-I`). Coverage **3027 / 3027 frames (100 %)**. No face jump at the cut's cross-dissolve, so no filter reset.
+- **Pose signs:** fixed against image geometry (corr yaw +0.99, pitch 0.92, roll 0.99 after the flip). Yaw + = face turned to image right, pitch + = chin up, roll + = clockwise on screen.
+- **Top of head:** `headTop = foreheadTop + k·(foreheadTop − chin)`, with k = 0.333 calibrated on the alpha matte (`matte_pha_cut.mp4`, 122 frames, p10 0.312, p90 0.377).
+- **One Euro:** min_cutoff **0.1 Hz**, beta **0.03**, d_cutoff 1.0 (px, s; pose in deg). Picked from a 9×10 grid: the lowest high-frequency jitter (second difference on the stillest 1 s, 6.40–7.37 s) whose error against a zero-lag reference (centred gaussian, σ 1.5 f) has median < 3 px, p95 < 7.5 px, and p95 < 10 px on fast moves. That is half the overlay budget (tip-to-landmark median < 6, p95 < 15 px), leaving the rest for the layer transform. Values 0.1–0.3 for min_cutoff are within 0.002 px of each other.
+- **Measured (24 named landmarks, source px = 1080 short side):**
+  - static jitter frame to frame: median 0.26 px (raw 0.31). The raw is already steady, since VIDEO mode tracks.
+  - second-difference jitter: 0.063 px/f² (raw 0.163, −62 %).
+  - lag on fast moves (top 3 % nose speed, ≥ 5.6 px/f): 1.0 frame (33 ms).
+  - smoothed vs raw: median 2.50 px, p95 6.33 px. On fast moves: median 5.86, p95 10.08.
+  - smoothed vs zero-lag reference: median 2.37, p95 5.97.
+- **Exports:**
+  - `research/ostad/style/exomind/track.json` (committed, 1.1 MB): per frame pose, face box, head box, and 25 named points at 0.1 px.
+  - `track_stats.json` (committed): the grid and the numbers above.
+  - `track_full.json.gz` (gitignored, 21 MB): all 478 landmarks, raw and smoothed.
+  - `track_check.jpg` (gitignored, his face): 12 frames with the mesh, named points and boxes. Checked: points sit on the features, and the head-top dot sits on the hair crown.
+- **Helper:** `brand/remotion/src/devices/track.ts`: `useTrack`, `srcFrameAt`, `landmark`, `follow` (gives Markup's `P`), `pose`, `faceBox`, `faceSafeRect`, `intersects`, `LAYERS`. It reads `public/exomind-skin/track.json`, a gitignored copy of the committed file.

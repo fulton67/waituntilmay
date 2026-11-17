@@ -227,3 +227,10 @@ brand/edits/*/stills/*.jpg
 # storyboard stills hold BTL / practice / patient pictures (brand/edits/exomind-skin/storyboard/STORYBOARD.md); code + .md are committed
 brand/edits/*/storyboard/*.png
 brand/edits/*/storyboard/*.jpg
+# head track (research/ostad/style/tools/face_track.py): track.json + track_stats.json committed; full landmarks, raw cache and the contact sheet (his face) are not
+research/ostad/style/exomind/track_full.json.gz
+research/ostad/style/exomind/_raw_cache.npz
+research/ostad/style/exomind/track_check*.jpg
+# reference device sheets (DEVICE_LIBRARY.md; tools/ref_device_sheet.py) are crops of other creators' footage: local only
+research/ostad/style/exomind/ref_*.jpg
+research/ostad/style/measure/_devices/*.jpg
