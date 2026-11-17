@@ -43,7 +43,7 @@ export const ZoomBoxInset: React.FC<ZoomProps> = ({ start = 1, boxAt = 58, words
           <rect x={dB.x} y={dB.y} width={dB.w} height={dB.h} rx={6} fill="none" stroke="#fff" strokeWidth={2.5} strokeDasharray={`${per * draw} ${per}`} style={{ filter: "drop-shadow(0 1px 4px rgba(0,0,0,.35))" }} />
         </svg>
       )}
-      <Arrow variant="dashed-flow" from={{ x: dB.x + dB.w + 10, y: dB.y + dB.h * 0.3 }} to={{ x: inset.x - 16, y: inset.y + inset.h * 0.55 }} start={boxAt + 10} end={exitAt + 7} color={C.ink} bend={-0.25} />
+      <Arrow variant="dashed-flow" from={{ x: dB.x + dB.w + 10, y: dB.y + dB.h * 0.3 }} to={{ x: inset.x - 16, y: inset.y + inset.h * 0.55 }} start={boxAt + 10} end={exitAt + 7} color={C.blue} bend={-0.25} />
       {f >= boxAt + 12 && (
         <div style={{ position: "absolute", left: inset.x + dx, top: inset.y, width: inset.w, height: inset.h, borderRadius: 18, overflow: "hidden", opacity: iq,
           transform: `scale(${0.6 + 0.4 * iq})`, transformOrigin: "0% 50%", boxShadow: "0 26px 50px -20px rgba(32,37,50,.5), 0 0 0 2px #fff" }}>
@@ -51,10 +51,10 @@ export const ZoomBoxInset: React.FC<ZoomProps> = ({ start = 1, boxAt = 58, words
           <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 30% 20%, rgba(255,255,255,.22), rgba(255,255,255,0) 50%)" }} />
         </div>
       )}
-      <div style={{ position: "absolute", left: card.x, top: card.y + card.h + 34, width: 900 }}>
+      <div style={{ position: "absolute", left: inset.x, top: inset.y + inset.h + 64, width: 520 }}>
         <TypeEntry entry="type-line-accumulate" start={start} text={lines} wordTimes={words} style={{ fontFamily: SERIF, fontWeight: 500, fontSize: 64, lineHeight: 1.05, color: C.ink }} />
       </div>
-      <Disclaimer at={discAt} text={SKIN_DISCLAIMER} style={{ left: card.x, top: card.y + card.h + 190 }} />
+      <Disclaimer at={discAt} text={SKIN_DISCLAIMER} style={{ left: inset.x, top: inset.y + inset.h + 230, width: 440, lineHeight: 1.3 }} />
     </div>
   );
 };

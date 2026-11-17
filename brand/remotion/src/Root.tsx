@@ -5,6 +5,7 @@ import { OstadReel } from "./OstadReel";
 import { OstadWide, WIDE_H, WIDE_W } from "./OstadWide";
 import { OstadYT, type YTProps } from "./OstadYT";
 import { OstadYT5 } from "./OstadYT5";
+import { OstadYT6, type YT6Props } from "./OstadYT6";
 import { YTSystem } from "./compositions/YTSystem";
 import { IdeaStills, type IdeaProps } from "./IdeaStills";
 import { LibraryProof, type ProofProps } from "./library/LibraryProof";
@@ -78,6 +79,20 @@ export const RemotionRoot: React.FC = () => (
     calculateMetadata={async ({ props }) => {
       const spec = props.spec ?? (await (await fetch(staticFile("exomind-skin/props_yt.json"))).json()).spec;
       return { durationInFrames: Math.round(spec.durationInSeconds * 24), props: { ...props, spec } };
+    }}
+  />
+  {/* OstadYT6: YouTube v6 (style DECISIONS 14l): implements research/ostad/style/exomind/beats.json; same props as OstadYT */}
+  <Composition
+    id="OstadYT6"
+    component={OstadYT6}
+    width={1920}
+    height={1080}
+    fps={24}
+    durationInFrames={2166}
+    defaultProps={{ spec: undefined, plain: false, audit: false } as YT6Props}
+    calculateMetadata={async ({ props }) => {
+      const spec = props.spec ?? (await (await fetch(staticFile("exomind-skin/props_yt.json"))).json()).spec;
+      return { durationInFrames: 2166, props: { ...props, spec } }; // beats.json duration_f (the audio ends at 2164.8 f)
     }}
   />
   {/* YTSystem: one board of the v2 system (icons, tag, toggle, counter, cursor tap) for review stills */}

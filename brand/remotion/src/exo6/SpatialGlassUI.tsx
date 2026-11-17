@@ -34,18 +34,18 @@ export const SpatialGlassUI: React.FC<{ panels: SpatialPanel[]; lightAt?: number
               const u = ((ringT + r * 6) % 12) / 12;
               return <div key={r} style={{ position: "absolute", left: 30 - 30 * u, top: 30 - 30 * u, width: 64 + 60 * u, height: 64 + 60 * u, borderRadius: "50%", border: `2px solid ${C.blue}`, opacity: 0.6 * (1 - u) }} />;
             })}
-            <div style={{ position: "relative", ...glass(22, near ? 1 : 0.85), padding: "22px 26px", display: "flex", gap: 18, alignItems: "flex-start",
+            <div style={{ position: "relative", ...glass(22, near ? 1 : 0.85), padding: "28px 32px", display: "flex", gap: 24, alignItems: "flex-start",
               boxShadow: near ? glass(22).boxShadow : "0 10px 30px -14px rgba(32,37,50,.18), inset 0 1px 0 rgba(255,255,255,.9)" }}>
-              <div style={{ width: 64, height: 64, borderRadius: 18, flex: "0 0 auto", display: "grid", placeItems: "center", color: "#fff",
+              <div style={{ width: 84, height: 84, borderRadius: 22, flex: "0 0 auto", display: "grid", placeItems: "center", color: "#fff",
                 background: pp.ring ? "linear-gradient(160deg, #6fd59a, #2fae6a)" : `linear-gradient(160deg, #6cc6f5, ${C.blue})` }}>{pp.icon}</div>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-                  <div style={{ ...caps(15, lit ? C.blue : C.ink2) }}>{sender}</div>
-                  <div style={{ ...text(14, 400, C.mute) }}>now</div>
+                  <div style={{ ...caps(30, lit ? C.blue : C.ink2) }}>{sender}</div>
+                  <div style={{ ...text(30, 400, C.mute) }}>now</div>
                 </div>
-                <div style={{ ...text(near ? 32 : 28, 500), marginTop: 6 }}>{pp.title}</div>
-                {pp.sub && <div style={{ ...text(21, 400, C.ink2), marginTop: 4 }}>{pp.sub}</div>}
-                {pp.body && <div style={{ ...text(21, 400, C.ink2), marginTop: 10, lineHeight: 1.35 }}>{pp.body}</div>}
+                <div style={{ ...text(near ? 42 : 38, 500), marginTop: 8 }}>{pp.title}</div>
+                {pp.sub && <div style={{ ...text(30, 400, C.ink2), marginTop: 6 }}>{pp.sub}</div>}
+                {pp.body && <div style={{ ...text(30, 400, C.ink2), marginTop: 10, lineHeight: 1.3 }}>{pp.body}</div>}
               </div>
             </div>
           </div>

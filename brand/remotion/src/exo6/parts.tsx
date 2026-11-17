@@ -29,7 +29,7 @@ export const Glass: React.FC<{ r?: number; t?: number; style?: React.CSSProperti
 );
 
 /** a small glass chip: icon slot + label; pops 0.95 -> 1 in 5 f (type-scale-pop) */
-export const Chip: React.FC<{ at: number; label: React.ReactNode; out?: number; tone?: "glass" | "ink" | "blue"; size?: number; style?: React.CSSProperties; icon?: React.ReactNode }> = ({ at, label, out = Infinity, tone = "glass", size = 22, style, icon }) => {
+export const Chip: React.FC<{ at: number; label: React.ReactNode; out?: number; tone?: "glass" | "ink" | "blue"; size?: number; style?: React.CSSProperties; icon?: React.ReactNode }> = ({ at, label, out = Infinity, tone = "glass", size = 26, style, icon }) => {
   const f = useCurrentFrame();
   if (f < at) return null;
   const i = p(f, at, 5, ease.arrive), o = p(f, out, 7, ease.exit);
@@ -47,7 +47,7 @@ export const MoaLabel: React.FC<{ at: number; out?: number; dark?: boolean; x?: 
   const f = useCurrentFrame();
   if (f < at) return null;
   const o = p(f, at, 10) * (1 - p(f, out, 7, ease.exit));
-  return <div style={{ position: "absolute", right: 1920 - x, top: y, ...text(19, 400, dark ? "rgba(255,255,255,.82)" : C.ink2), opacity: o, letterSpacing: "0.01em", textShadow: dark ? "0 1px 8px rgba(0,0,0,.45)" : undefined }}>{MOA_LABEL}</div>;
+  return <div style={{ position: "absolute", right: 1920 - x, top: y, ...text(23, 400, dark ? "rgba(255,255,255,.86)" : C.ink2), opacity: o, letterSpacing: "0.01em", textShadow: dark ? "0 1px 8px rgba(0,0,0,.45)" : undefined }}>{MOA_LABEL}</div>;
 };
 
 /** a one-line disclaimer that fades on (10 f) and holds */
@@ -55,11 +55,11 @@ export const Disclaimer: React.FC<{ at: number; text: string; out?: number; styl
   const f = useCurrentFrame();
   if (f < at) return null;
   const o = p(f, at, 10) * (1 - p(f, out, 7, ease.exit));
-  return <div style={{ position: "absolute", ...text(20, 400, C.ink2), opacity: o, ...style }}>{t}</div>;
+  return <div style={{ position: "absolute", ...text(24, 400, C.ink2), opacity: o, ...style }}>{t}</div>;
 };
 
 /** small caps label with a hairline, used as a panel header */
-export const Eyebrow: React.FC<{ children: React.ReactNode; color?: string; size?: number; style?: React.CSSProperties }> = ({ children, color = C.ink2, size = 17, style }) => (
+export const Eyebrow: React.FC<{ children: React.ReactNode; color?: string; size?: number; style?: React.CSSProperties }> = ({ children, color = C.ink2, size = 26, style }) => (
   <div style={{ ...caps(size, color), display: "flex", alignItems: "center", gap: 10, ...style }}>{children}</div>
 );
 

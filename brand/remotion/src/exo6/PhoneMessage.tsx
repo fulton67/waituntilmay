@@ -13,13 +13,13 @@ import { IconChat } from "./icons";
 export type PhoneProps = {
   start: number; plateAt: number; senderAt: number; lineAt: number[]; sender: string; lines: string[]; mark?: string; markAt?: number;
   statusAt?: number; statusText?: string; reply?: { text: string; at: number; sendAt: number }; x?: number; y?: number; exitAt?: number;
-  move?: { at: number; dx: number; d?: number }; time?: string; endAt?: number;
+  move?: { at: number; dx: number; d?: number }; time?: string; endAt?: number; statusRight?: boolean; statusOut?: number; dateLine?: string;
 };
 
 export const PHONE = { w: 400, h: 820 };
 
 export const PhoneMessage: React.FC<PhoneProps> = ({ start, plateAt, senderAt, lineAt, sender, lines, mark, markAt = Infinity, statusAt = Infinity,
-  statusText = "Reply to book", reply, x = 1180, y = 130, exitAt = Infinity, move, time = "8:41", endAt }) => {
+  statusText = "Reply to book", reply, x = 1180, y = 130, exitAt = Infinity, move, time = "7:48", endAt, statusRight = false, statusOut = Infinity, dateLine = "Tuesday, December 8" }) => {
   const f = useCurrentFrame();
   if (f < start) return null;
   const t = f - start;
@@ -50,36 +50,36 @@ export const PhoneMessage: React.FC<PhoneProps> = ({ start, plateAt, senderAt, l
           {/* dynamic island */}
           <div style={{ position: "absolute", left: "50%", top: 14, width: 110, height: 32, marginLeft: -55, borderRadius: 20, background: "#000" }} />
           {/* lock screen clock (dims while the plate is up) */}
-          <div style={{ position: "absolute", top: 82, width: "100%", textAlign: "center", ...text(20, 500, "rgba(255,255,255,.85)") }}>Tuesday, November 18</div>
-          <div style={{ position: "absolute", top: 104, width: "100%", textAlign: "center", fontFamily: text(10).fontFamily, fontWeight: 500, fontSize: 104, letterSpacing: "-0.02em",
+          <div style={{ position: "absolute", top: 82, width: "100%", textAlign: "center", ...text(26, 500, "rgba(255,255,255,.88)") }}>{dateLine}</div>
+          <div style={{ position: "absolute", top: 112, width: "100%", textAlign: "center", fontFamily: text(10).fontFamily, fontWeight: 500, fontSize: 104, letterSpacing: "-0.02em",
             color: "rgba(255,255,255,.92)", opacity: 1 - 0.25 * plate }}>{time}</div>
           {/* the message plate (glass on the screen) */}
           <div style={{ position: "absolute", left: 16, right: 16, top: 276, padding: "18px 20px 20px", borderRadius: 26, ...glass(26, 0.95),
             opacity: plate, transform: `translateY(${(1 - plate) * -14}px) scale(${0.96 + 0.04 * plate})`, transformOrigin: "50% 0%" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, opacity: p(f, senderAt, 4) }}>
-              <div style={{ width: 34, height: 34, borderRadius: 9, background: "linear-gradient(160deg, #6cc6f5, #2b8fd0)", display: "grid", placeItems: "center", color: "#fff" }}><IconChat size={20} color="#fff" /></div>
-              <div style={{ ...text(17, 500, C.ink), flex: 1 }}>{sender}</div>
-              <div style={{ ...text(15, 400, C.ink2) }}>now</div>
+              <div style={{ width: 40, height: 40, borderRadius: 10, background: "linear-gradient(160deg, #6cc6f5, #2b8fd0)", display: "grid", placeItems: "center", color: "#fff" }}><IconChat size={24} color="#fff" /></div>
+              <div style={{ ...text(26, 500, C.ink), flex: 1 }}>{sender}</div>
+              <div style={{ ...text(26, 400, C.ink2) }}>now</div>
             </div>
             {lines.map((l, i) => {
               const q = p(f, lineAt[i] ?? Infinity, 4, ease.arrive);
               const has = mark && l.includes(mark);
               return (
-                <div key={i} style={{ ...text(20, i === 0 ? 500 : 400, C.ink), marginTop: i === 0 ? 12 : 4, opacity: q, transform: `translateY(${(1 - q) * 0.01 * 1080}px)` }}>
+                <div key={i} style={{ ...text(29, i === 0 ? 500 : 400, C.ink), lineHeight: 1.22, marginTop: i === 0 ? 14 : 6, opacity: q, transform: `translateY(${(1 - q) * 0.01 * 1080}px)` }}>
                   {has ? <>{l.split(mark!)[0]}<HL at={markAt}>{mark}</HL>{l.split(mark!)[1]}</> : l}
                 </div>
               );
             })}
           </div>
           {/* badge */}
-          <div style={{ position: "absolute", right: 12, top: 266, width: 30, height: 30, borderRadius: 15, background: "#ff5a4e", color: "#fff", display: "grid", placeItems: "center",
-            ...text(16, 500, "#fff"), transform: `scale(${plate ? 0.6 + 0.4 * plate : 0})` }}>1</div>
+          <div style={{ position: "absolute", right: 10, top: 262, width: 38, height: 38, borderRadius: 19, background: "#ff5a4e", color: "#fff", display: "grid", placeItems: "center",
+            ...text(26, 500, "#fff"), transform: `scale(${plate ? 0.6 + 0.4 * plate : 0})` }}>1</div>
           {reply && <Reply {...reply} />}
           {/* glass specular band over the whole screen */}
           <div style={{ position: "absolute", inset: 0, background: `linear-gradient(118deg, rgba(255,255,255,0) ${sweepX}%, rgba(255,255,255,.22) ${sweepX + 8}%, rgba(255,255,255,0) ${sweepX + 20}%)` }} />
         </div>
       </div>
-      {f >= statusAt - 10 && <Status at={statusAt} label={statusText} y={H + 28} />}
+      {f >= statusAt - 10 && <Status at={statusAt} label={statusText} y={statusRight ? 300 : H + 28} x={statusRight ? W + 40 : undefined} out={statusOut} />}
     </div>
   );
 };
@@ -100,12 +100,12 @@ const Reply: React.FC<{ text: string; at: number; sendAt: number }> = ({ text: s
   return (
     <>
       <div style={{ position: "absolute", left: 16, right: 16, bottom: 34, height: 58, borderRadius: 29, ...glass(29, 0.9), opacity: field * (1 - sent * 0.4),
-        display: "flex", alignItems: "center", padding: "0 20px", ...text(19, 400, C.ink) }}>
+        display: "flex", alignItems: "center", padding: "0 20px", ...text(26, 400, C.ink) }}>
         {sent < 1 ? s.slice(0, n) : ""}<span style={{ width: 2, height: 24, background: C.blue, marginLeft: 2, opacity: sent < 1 && Math.floor(f / 6) % 2 === 0 ? 1 : 0 }} />
       </div>
       {sent > 0 && (
-        <div style={{ position: "absolute", right: 22, bottom: 110 + sent * 6, maxWidth: 280, padding: "12px 18px", borderRadius: 22, borderBottomRightRadius: 6,
-          background: `linear-gradient(160deg, #57b8ee, ${C.blue})`, ...text(19, 500, "#fff"), opacity: sent, transform: `scale(${0.9 + 0.1 * sent})`, transformOrigin: "100% 100%",
+        <div style={{ position: "absolute", right: 22, bottom: 110 + sent * 6, maxWidth: 330, padding: "14px 20px", borderRadius: 22, borderBottomRightRadius: 6,
+          background: `linear-gradient(160deg, #57b8ee, ${C.blue})`, ...text(26, 500, "#fff"), opacity: sent, transform: `scale(${0.9 + 0.1 * sent})`, transformOrigin: "100% 100%",
           boxShadow: "0 8px 20px -6px rgba(55,169,232,.5)" }}>{s}</div>
       )}
     </>
@@ -113,15 +113,15 @@ const Reply: React.FC<{ text: string; at: number; sendAt: number }> = ({ text: s
 };
 
 // status chip under the phone: a spinner that becomes a tick (glp1 f935)
-const Status: React.FC<{ at: number; label: string; y: number }> = ({ at, label, y }) => {
+const Status: React.FC<{ at: number; label: string; y: number; x?: number; out?: number }> = ({ at, label, y, x, out = Infinity }) => {
   const f = useCurrentFrame();
-  const i = p(f, at - 10, 8, ease.arrive);
+  const i = p(f, at - 10, 8, ease.arrive) * (1 - p(f, out, 7, ease.exit));
   const done = f >= at;
   const rot = (f * 18) % 360;
   return (
-    <div style={{ position: "absolute", left: "50%", top: y, transform: `translateX(-50%) translateY(${(1 - i) * 10}px)`, opacity: i, display: "flex", alignItems: "center", gap: 10,
-      padding: "10px 18px", borderRadius: 999, ...glass(999), ...caps(15, C.ink), whiteSpace: "nowrap" }}>
-      {done ? <Tick at={at} size={20} /> : (
+    <div style={{ position: "absolute", left: x ?? "50%", top: y, transform: `translateX(${x == null ? "-50%" : "0"}) translateY(${(1 - i) * 10}px)`, opacity: i, display: "flex", alignItems: "center", gap: 10,
+      padding: "14px 24px", borderRadius: 999, ...glass(999), ...caps(26, C.ink), whiteSpace: "nowrap" }}>
+      {done ? <Tick at={at} size={28} /> : (
         <svg width={20} height={20} viewBox="0 0 20 20" style={{ transform: `rotate(${rot}deg)` }}>
           <path d="M10 2 a8 8 0 1 1 -8 8" fill="none" stroke={C.blue} strokeWidth={2.4} strokeLinecap="round" />
         </svg>

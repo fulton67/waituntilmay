@@ -36,13 +36,13 @@ export const SectionCard: React.FC<{ num: string; title: string; start: number; 
       <div style={{ position: "absolute", left: `${bloomX * 0.01 * n * size * 0.42 - 70}px`, top: 8, width: 140, height: 150,
         background: "radial-gradient(ellipse at 50% 50%, rgba(159,214,245,.55), rgba(159,214,245,0) 65%)", opacity: bloomO }} />
       <div style={{ display: "flex", alignItems: "center", gap: 18, opacity: numO, marginBottom: 18 }}>
-        <span style={{ ...caps(22, C.blue), letterSpacing: "0.2em" }}>{num}</span>
-        <span style={{ width: 150, height: 1.5, background: C.blue, transformOrigin: "0 50%", transform: `scaleX(${rule})` }} />
-        <span style={{ ...caps(16, C.ink2), opacity: rule }}>Chapter</span>
+        <span style={{ ...caps(30, C.blue), letterSpacing: "0.2em" }}>{num}</span>
+        <span style={{ width: 220, height: 3, borderRadius: 2, background: C.blue, transformOrigin: "0 50%", transform: `scaleX(${rule})` }} />
+        <span style={{ ...caps(26, C.ink2), opacity: rule }}>Chapter</span>
       </div>
       <div style={{ ...display(size), whiteSpace: "nowrap", position: "relative" }}>
         {title.split("").map((ch, i) => {
-          const local = head - i; // > 0 once the head passes letter i
+          const local = head - i + Math.max(0, t - typeIn) * rate; // > 0 once the head passes letter i; keeps growing after the line is typed, so the last letters sharpen too
           const a = cl(local / 1.5);
           const blur = (1 - cl(local / 3)) * 6;
           const visible = i < n - gone;
@@ -85,7 +85,7 @@ export const WordmarkDepthSandwich: React.FC<{
         <div style={{ position: "absolute", left: centerX, top: baselineY + 26, transform: `translate(-50%, ${(1 - sub) * 0.06 * 1080 * 0.4}px)`, opacity: sub,
           display: "flex", gap: 22, alignItems: "center", whiteSpace: "nowrap" }}>
           <span style={{ width: 40 * sub, height: 1.5, background: C.blue }} />
-          <span style={{ ...caps(22, C.ink2), letterSpacing: "0.26em" }}>{subline}</span>
+          <span style={{ ...caps(28, C.ink2), letterSpacing: "0.22em" }}>{subline}</span>
           <span style={{ width: 40 * sub, height: 1.5, background: C.blue }} />
         </div>
       </div>
@@ -112,13 +112,13 @@ export const EndCard: React.FC<{ lines: [string, string, string]; start: number;
         <div style={{ position: "absolute", left: 64, top: 52 }}>
           <div style={{ ...display(92), opacity: L(0), transform: `translateY(${(1 - L(0)) * 16}px)` }}>{lines[0]}</div>
           <div style={{ width: 360, height: 1.5, background: C.blue, marginTop: 18, transformOrigin: "0 50%", transform: `scaleX(${u})` }} />
-          <div style={{ ...text(32, 500), marginTop: 34, opacity: L(1), transform: `translateY(${(1 - L(1)) * 16}px)` }}>{lines[1]}</div>
-          <div style={{ ...text(24, 400, C.ink2), marginTop: 12, opacity: L(2), transform: `translateY(${(1 - L(2)) * 16}px)` }}>{lines[2]}</div>
+          <div style={{ ...text(38, 500), marginTop: 34, opacity: L(1), transform: `translateY(${(1 - L(1)) * 16}px)` }}>{lines[1]}</div>
+          <div style={{ ...text(30, 400, C.ink2), marginTop: 12, opacity: L(2), transform: `translateY(${(1 - L(2)) * 16}px)` }}>{lines[2]}</div>
         </div>
       </Glass>
     </div>
     {/* a straight pointer from under the card down toward the description (the CTA the third line names), after the lines land */}
-    <Arrow variant="straight-pointer" from={{ x: x + 160, y: y + 360 }} to={{ x: x + 160, y: y + 500 }} start={start + 26} end={end} color={C.ink} />
+    <Arrow variant="straight-pointer" from={{ x: x + 160, y: y + 360 }} to={{ x: x + 160, y: y + 500 }} start={start + 26} end={end} color={C.blue} />
     </>
   );
 };

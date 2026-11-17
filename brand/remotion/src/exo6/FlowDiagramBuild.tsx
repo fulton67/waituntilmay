@@ -44,11 +44,11 @@ export const FlowDiagramBuild: React.FC<FlowProps> = ({ start = 0, from = { x: 2
         const rim = p(f, arrows[i] + 7, 4, ease.arrive);
         return (
           <RoundWindow key={i} at={start + 2 * i} {...n} d={d} out={exitAt} rim={rim} phase={i * 2.1}
-            label={<div style={{ position: "absolute", left: d / 2, top: d + 22, transform: "translateX(-50%)", ...caps(17, rim > 0.5 ? C.blue : C.ink2), whiteSpace: "nowrap" }}>{n.label}</div>} />
+            label={<div style={{ position: "absolute", left: d / 2, top: d + 22, transform: "translateX(-50%)", ...caps(26, rim > 0.5 ? C.blue : C.ink2), whiteSpace: "nowrap" }}>{n.label}</div>} />
         );
       })}
       {ends.map(([a, b], i) => (
-        <Arrow key={i} variant="curved-callout" from={a} to={b} start={arrows[i]} end={exitAt + 7} color={C.ink} bend={i === 0 ? -0.3 : -0.36} />
+        <Arrow key={i} variant="curved-callout" from={a} to={b} start={arrows[i]} end={exitAt + 7} color={C.blue} bend={i === 0 ? -0.3 : -0.36} />
       ))}
       <div style={{ position: "absolute", left: 860, top: 560, width: 940, textAlign: "center" }}>
         <TypeEntry entry="type-ghost-to-lit" start={start} text={line} wordTimes={words} exitAt={exitAt} style={{ fontFamily: SERIF, fontWeight: 500, fontSize: 76, color: C.ink }} />

@@ -25,14 +25,14 @@ export const QuoteCardCarousel: React.FC<{
     <div style={{ position: "absolute", left: x, top: y + (1 - i) * 16 + o * 7 + drift(f, 3, 140), width: w, height: H, opacity: i * (1 - o) }}>
       <Glass r={28} t={t} style={{ inset: 0 }}>
         <div style={{ position: "absolute", left: 40, top: 34, right: 40, display: "flex", alignItems: "center", gap: 12 }}>
-          <div style={{ width: 40, height: 40, borderRadius: 12, background: C.ice, color: C.blue, display: "grid", placeItems: "center" }}><IconQuestion size={24} color={C.blue} /></div>
-          <div style={{ ...text(28, 500), flex: 1 }}>{title}</div>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 14px", borderRadius: 999, background: "rgba(55,169,232,.1)", ...caps(13, C.blue) }}>
+          <div style={{ width: 52, height: 52, borderRadius: 14, background: C.ice, color: C.blue, display: "grid", placeItems: "center" }}><IconQuestion size={30} color={C.blue} /></div>
+          <div style={{ ...text(38, 500), flex: 1 }}>{title}</div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 14px", borderRadius: 999, background: "rgba(55,169,232,.1)", ...caps(26, C.blue) }}>
             <span style={{ width: 10, height: 10, borderRadius: 5, background: C.blue, boxShadow: `0 0 0 ${5 * live}px rgba(55,169,232,${0.25 * (1 - live)})` }} />Live
           </div>
         </div>
-        <div style={{ position: "absolute", left: 40, right: 40, top: 102, height: 1.5, background: C.rule }} />
-        {credit && <div style={{ position: "absolute", left: 40, bottom: 26, ...text(15, 400, C.mute) }}>{credit}</div>}
+        <div style={{ position: "absolute", left: 40, right: 40, top: 112, height: 1.5, background: C.rule }} />
+        {credit && <div style={{ position: "absolute", left: 40, bottom: 22, ...text(27, 400, C.ink2) }}>{credit}</div>}
       </Glass>
       {/* the stack, outside the glass clip so cards can rise in from below the box */}
       <div style={{ position: "absolute", left: 40, right: 40, top: 128, height: H - 190 }}>
@@ -49,13 +49,13 @@ export const QuoteCardCarousel: React.FC<{
               opacity: op, zIndex: k, padding: "26px 30px", borderRadius: 22, background: "linear-gradient(170deg, #ffffff, #f8f6f3)",
               boxShadow: "0 1px 0 rgba(255,255,255,.9) inset, 0 2px 4px rgba(33,27,21,.06), 0 22px 40px -18px rgba(32,37,50,.28)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-                <div style={{ width: 30, height: 30, borderRadius: 15, background: ["#d9e8f2", "#efe1d6", "#dfe6dc"][k % 3], ...text(14, 500, C.ink2), display: "grid", placeItems: "center" }}>
+                <div style={{ width: 46, height: 46, borderRadius: 23, background: ["#d9e8f2", "#efe1d6", "#dfe6dc"][k % 3], ...text(30, 500, C.ink2), display: "grid", placeItems: "center" }}>
                   {(c.who ?? "Guest")[0]}
                 </div>
-                <div style={{ ...text(16, 500, C.ink2) }}>{c.who ?? "Guest"}</div>
-                <div style={{ ...text(15, 400, C.mute) }}>· just now</div>
+                <div style={{ ...text(30, 500, C.ink2) }}>{c.who ?? "Guest"}</div>
+                <div style={{ ...text(30, 400, C.mute) }}>· just now</div>
               </div>
-              <div style={{ fontFamily: SERIF, fontWeight: 500, fontSize: 46, lineHeight: 1.08, color: C.ink }}>
+              <div style={{ fontFamily: SERIF, fontWeight: 500, fontSize: 54, lineHeight: 1.06, color: C.ink }}>
                 {c.mark && c.q.includes(c.mark) ? <>{c.q.split(c.mark)[0]}<Sweep at={c.at + 4}>{c.mark}</Sweep>{c.q.split(c.mark)[1]}</> : c.q}
               </div>
             </div>

@@ -60,9 +60,9 @@ export const FieldThroughSkull: React.FC<FieldProps> = ({ start = 30, headIn = 3
   });
   return (
     <AbsoluteFill style={{ opacity: fade }}>
-      {/* L0 room */}
-      <Img src={src(head)} style={{ position: "absolute", left: -60 + hx * 0.3, top: -40, width: 2040, height: 2040 * PLATE.h / PLATE.w, objectFit: "cover", filter: "blur(28px) saturate(0.9)", transform: "scale(1.02)" }} />
-      <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 80% 70% at 62% 40%, rgba(250,248,245,0), rgba(242,239,237,.55))" }} />
+      {/* L0 room: the cream canvas (Naim's note 7, DECISIONS 14n: no full-frame blurred copy of the photo behind it any more); the
+          masked head plate fades into it */}
+      <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 80% 70% at 62% 40%, #fbfaf8, #efebe7)" }} />
       {/* L1 head, 2.5D turn */}
       <div style={{ position: "absolute", inset: 0, perspective: 2200 }}>
         <div style={{ position: "absolute", left: PLATE.x + hx, top: PLATE.y, width: PLATE.w * PLATE.s, height: PLATE.h * PLATE.s, transform: `rotateY(${-turn}deg)`, transformOrigin: "62% 50%",
@@ -87,7 +87,7 @@ export const FieldThroughSkull: React.FC<FieldProps> = ({ start = 30, headIn = 3
       {/* L4 orbit arcs, stepping inward and dipping on each pulse */}
       {rings.map((g, k) => (
         <div key={k} style={{ position: "absolute", inset: 0, opacity: 1 - 0.6 * dip, transform: `translate(${-N.x * 6 * dip}px, ${-N.y * 6 * dip}px) rotate(-21deg)`, transformOrigin: `${SKULL.pad.x}px ${SKULL.pad.y}px` }}>
-          <Arrow variant="orbit-arc" from={at(g.c.x, g.c.y)} to={at(g.to.x, g.to.y)} bend={0.34} start={arcsAt + 4 * k} end={end + 30} color={k === 0 ? C.blue : k === 1 ? "#4fb2ea" : "#7cc8f2"} weight={4.6 - k * 0.6} />
+          <Arrow variant="orbit-arc" from={at(g.c.x, g.c.y)} to={at(g.to.x, g.to.y)} bend={0.34} start={arcsAt + 4 * k} end={end + 30} color={C.blue} />
         </div>
       ))}
       {/* L5 the applicator, descending onto the scalp */}

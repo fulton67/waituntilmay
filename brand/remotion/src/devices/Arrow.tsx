@@ -15,7 +15,7 @@ import tokens from "../../../kit/tokens.json";
 //     tracked landmark keeps 0 px error); every point is a PtSrc, so `to: follow(track, "templeL", LAYERS.keyed)` keeps the tip on him;
 //   - exits along its path over the `exit` token (7 f, .4,0,1,1): the tail erases toward the tip (or the tip retracts for straight
 //     pointers, the ribbon rides on and thins, the tick fades and falls 7 px). Never a cut.
-// Weights and colours come from brand/kit/tokens.json. Lint: the head element carries data-arrowhead (tools/lint_compositions.py).
+// Weights and colours come from brand/kit/tokens.json. v6: default colour brand blue, ink on light imagery. Lint: the head element carries data-arrowhead (tools/lint_compositions.py).
 
 export type Pt = { x: number; y: number };
 export type PtSrc = Pt | ((frame: number) => Pt);
@@ -28,8 +28,12 @@ const T = tokens as any;
 export const ARROW_TOKENS = {
   ink: T.color.text.$value as string, // #211b15
   accent: T.color["accent-1"].$value as string,
-  tail: px(T.dimension.rule.$value), // 1.5 px
-  weight: 2 * px(T.dimension.hairline.$value), // 4.62 px
+  blue: "#37a9e8", // brand.ts BLUES[0] / exo6 look C.blue: the Instagram blue the YT system uses (not in kit tokens.json)
+  // v6 (Naim: "it's just the circle and the line. It feels very cheap"; the 1.5 -> 4.6 px stroke read as a hairline on cream):
+  // a visible taper, 2 px at the tail to 8 px near the head at 1080p (= 0.74 % H), a filled barbed head sized to the stroke,
+  // and a soft contact shadow + glow so the arrow sits in depth on the cream room.
+  tail: 2,
+  weight: 8,
   dashRatio: px(T.dimension["dotted-dash"].$value) / px(T.dimension["dotted-dot"].$value), // 2.16 x weight
   gapRatio: px(T.dimension["dotted-gap"].$value) / px(T.dimension["dotted-dot"].$value), // 2.01 x weight
   cornerRatio: 0.279, // brand/shapes/CATALOGUE.md rounded_radius_pct_short (kit/shapes/rounded_rect.svg)
@@ -51,6 +55,7 @@ export const ARROW_SPEC: Record<ArrowVariant, Spec> = {
   "marker-tick": { draw: 1, head: "triangle", bend: 0, dashed: false, exit: "fade", label: "tip", ref: "WZ f940/944, pops in 1 f" },
 };
 export const EXIT_F = 7; // MOTION.md `exit`
+export const HEAD_K = 4.6; // head length = 4.6 x weight (37 px at 8 px)
 export const BREATHE_PX = 1.5, BREATHE_PERIOD_F = 72;
 
 const sweep = Easing.bezier(0.6, 0, 0.25, 1);
@@ -153,6 +158,15 @@ const chevronD = (tip: Pt, t: Pt, size: number, W: number, tail: number): string
   };
   return arm(1) + arm(-1);
 };
+// filled barbed head (v6): tip, two swept wings, a concave notch on the shaft line; reads as a designed arrowhead at any weight
+const barbD = (tip: Pt, t: Pt, size: number): string => {
+  const no = perp(t), back = add(tip, t, -size), notch = add(tip, t, -size * 0.66), hw = size * 0.52;
+  const w1 = add(back, no, hw), w2 = add(back, no, -hw);
+  const c1 = add(add(tip, t, -size * 0.42), no, hw * 0.34), c2 = add(add(tip, t, -size * 0.42), no, -hw * 0.34);
+  const k1 = add(lerp(w1, notch, 0.5), t, size * 0.08), k2 = add(lerp(w2, notch, 0.5), t, size * 0.08);
+  return `M${f2(tip.x)} ${f2(tip.y)}Q${f2(c1.x)} ${f2(c1.y)} ${f2(w1.x)} ${f2(w1.y)}Q${f2(k1.x)} ${f2(k1.y)} ${f2(notch.x)} ${f2(notch.y)}` +
+    `Q${f2(k2.x)} ${f2(k2.y)} ${f2(w2.x)} ${f2(w2.y)}Q${f2(c2.x)} ${f2(c2.y)} ${f2(tip.x)} ${f2(tip.y)}Z`;
+};
 // solid triangle, corners rounded at the kit's rounded_rect ratio
 const triangleD = (tip: Pt, t: Pt, size: number): string => {
   const no = perp(t), base = add(tip, t, -size), hw = size * 0.46;
@@ -179,8 +193,8 @@ const dashes = (ln: Line, a: number, b: number, w: (d: number) => number, dash: 
 // ------------------------------------------------------------------------------------------------ the component
 export const Arrow: React.FC<{
   variant: ArrowVariant; from: PtSrc; to: PtSrc; via?: PtSrc[]; start: number; end: number; color?: string; weight?: number;
-  bend?: number; label?: React.ReactNode;
-}> = ({ variant, from, to, via = [], start, end, color = ARROW_TOKENS.ink, weight = ARROW_TOKENS.weight, bend, label }) => {
+  bend?: number; label?: React.ReactNode; shadow?: boolean;
+}> = ({ variant, from, to, via = [], start, end, color = ARROW_TOKENS.blue, weight = ARROW_TOKENS.weight, bend, label, shadow = true }) => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   if (frame < start || frame > end) return null;
@@ -195,7 +209,8 @@ export const Arrow: React.FC<{
   const A = at(from, frame), B = at(to, frame), V = via.map((v) => at(v, frame));
   const bnd = bend ?? S.bend;
   const W = weight, tailW = Math.min(ARROW_TOKENS.tail, W);
-  const hsize = W * 6;
+  const hsize = W * HEAD_K;
+  const fx = shadow ? `drop-shadow(0 ${f2(W * 0.4)}px ${f2(W * 0.7)}px rgba(32,37,50,.26)) drop-shadow(0 0 ${f2(W * 1.4)}px ${color}40)` : undefined;
   const parts: React.ReactNode[] = [];
   const id = `arw-${variant}-${start}-${Math.round(A.x)}-${Math.round(A.y)}`;
 
@@ -217,7 +232,7 @@ export const Arrow: React.FC<{
     const bob = Math.sin((2 * Math.PI * held) / BREATHE_PERIOD_F) * cl(held / 6);
     const tip = add(B, dir, bob + q * 7);
     parts.push(<path key="h" data-arrowhead d={triangleD(tip, dir, hsize * 0.7)} fill={color} opacity={draw * (1 - q)} />);
-    return <Frame w={width} h={height}>{parts}{label ? <Label at={add(B, dir, -hsize * 0.7 - 10)} t={dir} side="back" o={draw * (1 - q)}>{label}</Label> : null}</Frame>;
+    return <Frame w={width} h={height} fx={fx}>{parts}{label ? <Label at={add(B, dir, -hsize * 0.7 - 10)} t={dir} side="back" o={draw * (1 - q)}>{label}</Label> : null}</Frame>;
   }
 
   // ---- bracket-pointer: a "]" that closes from both ends toward its middle (first 45 % of the draw), then the pointer shaft
@@ -238,8 +253,8 @@ export const Arrow: React.FC<{
     const tipD = shaft.L * pS, a0 = shaft.L * cl(exitA * 2 - 1);
     const hk = arrive(cl((pS - 0.6) / 0.4)) * (1 - cl((q - 0.6) / 0.4));
     if (pS > 0 && tipD - a0 > 0.5) parts.push(<path key="s" d={outline(slice(shaft, a0, Math.max(a0, tipD - W * 0.6 * hk)), (d) => W * 0.8 + (W - W * 0.8) * (d / shaft.L))} fill={color} />);
-    if (hk > 0) { const P = pointAt(shaft, tipD); parts.push(<path key="h" data-arrowhead d={chevronD(P.p, P.t, hsize * hk, W, tailW)} fill={color} />); }
-    return <Frame w={width} h={height}>{parts}{label ? <Label at={A} t={dir} side="back" o={arrive(cl(t / 14)) * (1 - q)}>{label}</Label> : null}</Frame>;
+    if (hk > 0) { const P = pointAt(shaft, tipD); parts.push(<path key="h" data-arrowhead d={barbD(P.p, P.t, hsize * hk)} fill={color} />); }
+    return <Frame w={width} h={height} fx={fx}>{parts}{label ? <Label at={A} t={dir} side="back" o={arrive(cl(t / 14)) * (1 - q)}>{label}</Label> : null}</Frame>;
   }
 
   const ln = mkLine(pts);
@@ -265,10 +280,10 @@ export const Arrow: React.FC<{
       </linearGradient></defs>,
       <g key="g" style={{ filter: `drop-shadow(0 0 ${W * 2.5}px ${color}99)` }} opacity={1 - q}>
         <path d={dpath} fill={`url(#${id})`} />
-        {length > hsize ? <path data-arrowhead d={chevronD(P.p, P.t, hsize * 0.8, W * 0.9, tailW)} fill={color} /> : null}
+        {length > hsize ? <path data-arrowhead d={barbD(P.p, P.t, hsize * 0.9)} fill={color} /> : null}
       </g>,
     );
-    return <Frame w={width} h={height}>{parts}</Frame>;
+    return <Frame w={width} h={height} fx={fx}>{parts}</Frame>;
   }
 
   // ---- every other variant: tapered shaft (solid or dashed) + head
@@ -277,23 +292,23 @@ export const Arrow: React.FC<{
   if (S.exit === "tail") a = L * q; // the tail erases toward the tip
   if (S.exit === "tip") b = tipD * (1 - q); // the tip retracts toward the tail
   const hk = arrive(cl((draw - 0.78) / 0.22)) * (1 - cl((S.exit === "tail" ? q - 0.7 : q - 0.85) / 0.3)); // head lands on the last draw frame
-  const headLen = S.head === "triangle" ? hsize * 0.8 : W * 0.6;
+  const headLen = S.head === "triangle" ? hsize * 0.8 : hsize * 0.6; // the shaft ends inside the barb's notch
   const wS = (d: number) => tailW + (W - tailW) * (1 - (1 - cl(d / (0.7 * L))) ** 2);
   const shaftEnd = Math.max(a, b - headLen * hk);
   if (variant === "orbit-arc") {
     // the tilted ring the arc rides on: kit dotted-path proportions at rule weight
     const ring = mkLine(orbit(A, B, 1, 0.42, 0, 120));
-    parts.push(<path key="r" d={dashes(ring, 0, ring.L * Math.min(1, draw), () => tailW, tailW * 4, tailW * 4)} fill={color} opacity={0.45 * (1 - q)} />);
+    parts.push(<path key="r" d={dashes(ring, 0, ring.L * Math.min(1, draw), () => W * 0.42, W * 1.6, W * 1.5)} fill={color} opacity={0.5 * (1 - q)} />);
   }
   if (shaftEnd - a > 0.5) {
     parts.push(
-      <path key="s" d={S.dashed ? dashes(ln, a, shaftEnd, wS, W * ARROW_TOKENS.dashRatio, W * ARROW_TOKENS.gapRatio) : outline(slice(ln, a, shaftEnd), wS)} fill={color} />,
+      <path key="s" d={S.dashed ? dashes(ln, a, shaftEnd, (d) => Math.max(W * 0.72, wS(d)), W * ARROW_TOKENS.dashRatio * 1.15, W * ARROW_TOKENS.gapRatio * 0.95) : outline(slice(ln, a, shaftEnd), wS)} fill={color} />,
     );
   }
   if (hk > 0.001 && S.head !== "none") {
     const P = pointAt(ln, b), Tb = unit(sub(P.p, pointAt(ln, Math.max(0, b - hsize)).p));
     parts.push(
-      <path key="h" data-arrowhead d={S.head === "triangle" ? triangleD(P.p, Tb, hsize * 0.8 * hk) : chevronD(P.p, Tb, hsize * hk, W, tailW)} fill={color} />,
+      <path key="h" data-arrowhead d={S.head === "triangle" ? triangleD(P.p, Tb, hsize * 0.8 * hk) : barbD(P.p, Tb, hsize * hk)} fill={color} />,
     );
   }
   let lab: React.ReactNode = null;
@@ -301,15 +316,15 @@ export const Arrow: React.FC<{
     if (S.label === "tip") { const P = pointAt(ln, b); lab = <Label at={add(P.p, perp(P.t), -22)} t={P.t} side="side" o={cl(draw * 4) * (1 - q)}>{label}</Label>; }
     else { const P = pointAt(ln, 0); lab = <Label at={P.p} t={P.t} side="back" o={arrive(cl(t / 14)) * (1 - q)}>{label}</Label>; }
   }
-  return <Frame w={width} h={height}>{parts}{lab}</Frame>;
+  return <Frame w={width} h={height} fx={fx}>{parts}{lab}</Frame>;
 };
 
-const Frame: React.FC<{ w: number; h: number; children: React.ReactNode }> = ({ w, h, children }) => {
+const Frame: React.FC<{ w: number; h: number; fx?: string; children: React.ReactNode }> = ({ w, h, fx, children }) => {
   const svg: React.ReactNode[] = [], html: React.ReactNode[] = [];
   React.Children.forEach(children, (c) => { if (React.isValidElement(c) && c.type === Label) html.push(c); else if (c) svg.push(c); });
   return (
     <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
-      <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{ position: "absolute", inset: 0, overflow: "visible" }}>{svg}</svg>
+      <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{ position: "absolute", inset: 0, overflow: "visible", filter: fx }}>{svg}</svg>
       {html}
     </div>
   );

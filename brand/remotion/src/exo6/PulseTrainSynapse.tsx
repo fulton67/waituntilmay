@@ -79,7 +79,7 @@ export const PulseTrainSynapse: React.FC<SynapseProps> = ({ start = 1, trainFrom
           <g clipPath="url(#pts-strip)">
             {spikes.map((sx, i) => <path key={i} d={spike(sx, 48)} fill="none" stroke={Math.abs(sx - TRIG_X) < 14 ? C.blue : C.navy} strokeWidth={2.4} strokeLinejoin="round" strokeLinecap="round" />)}
           </g>
-          <text x={W - 30} y={-48} textAnchor="end" style={{ font: `500 13px ${"neue-haas-grotesk-text, Arial"}`, letterSpacing: "0.14em", fill: C.ink2 }}>PULSE TRAIN</text>
+          <text x={W - 30} y={-48} textAnchor="end" style={{ font: `500 24px ${"neue-haas-grotesk-text, Arial"}`, letterSpacing: "0.12em", fill: C.ink2 }}>PULSE TRAIN</text>
           {/* the synapse */}
           <g transform="translate(0, 74)">
             {/* axon + bouton (presynaptic) */}
@@ -102,8 +102,8 @@ export const PulseTrainSynapse: React.FC<SynapseProps> = ({ start = 1, trainFrom
               </g>
             ))}
             {ves}
-            <text x={BX - 150} y={286} style={{ font: `500 13px ${"neue-haas-grotesk-text, Arial"}`, letterSpacing: "0.14em", fill: C.ink2 }}>NERVE ENDING</text>
-            <text x={MX + 30} y={286} style={{ font: `500 13px ${"neue-haas-grotesk-text, Arial"}`, letterSpacing: "0.14em", fill: C.ink2 }}>NEXT NEURON</text>
+            <text x={BX - 200} y={292} style={{ font: `500 24px ${"neue-haas-grotesk-text, Arial"}`, letterSpacing: "0.1em", fill: C.ink2 }}>NERVE ENDING</text>
+            <text x={MX + 40} y={292} style={{ font: `500 24px ${"neue-haas-grotesk-text, Arial"}`, letterSpacing: "0.1em", fill: C.ink2 }}>NEXT NEURON</text>
           </g>
         </svg>
         <div style={{ position: "absolute", left: 30, top: H - 80 - 64 }}>

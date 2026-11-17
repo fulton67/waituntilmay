@@ -13,10 +13,14 @@ import { RoundWindow } from "./RoundWindow";
 export type DonutSeg = { label: string; chip: { file: string; iw: number; ih: number; fx: number; fy: number; z: number }; color: string };
 export type DonutProps = { start?: number; labelsAt?: number; fillAt?: number; words?: number[]; discAt?: number; exitAt?: number; cx?: number; cy?: number; R?: number; segs?: DonutSeg[]; center?: string };
 
+// Naim's review of v6 (DECISIONS 14m): each chip shows what its label says. Skin care = his own line (Dr. Ariel Ostad CEG + Ferulic
+// Complex serum, product shot from the practice bank); Treatments = a classic in-office skin treatment (Clear + Brilliant laser
+// handpiece on the forehead, practice bank, patient not identifiable); The mind = the ExoMind coil on a patient's head in his office
+// (IMG_3712, P0006 consent unknown), i.e. the way this practice treats the mind, not a generic brain render.
 const SEGS: DonutSeg[] = [
-  { label: "Skin care", color: "#9fd6f5", chip: { file: "exomind-skin/btl/web/chip_0249.jpg", iw: 600, ih: 600, fx: 330, fy: 130, z: 0.52 } },
-  { label: "Treatments", color: "#5fb8ea", chip: { file: "exomind-skin/clinic/IMG_3712.jpg", iw: 768, ih: 1024, fx: 320, fy: 440, z: 0.42 } },
-  { label: "The mind", color: "#202532", chip: { file: "exomind-skin/flora/head_A_glass_brain.png", iw: 2752, ih: 1536, fx: 1180, fy: 600, z: 0.15 } },
+  { label: "Skin care", color: "#9fd6f5", chip: { file: "exomind-skin/clinic/ceg_ferulic.jpg", iw: 683, ih: 1024, fx: 300, fy: 520, z: 0.3 } },
+  { label: "Treatments", color: "#5fb8ea", chip: { file: "exomind-skin/clinic/cb_00451.jpg", iw: 282, ih: 610, fx: 150, fy: 310, z: 0.64 } },
+  { label: "The mind", color: "#202532", chip: { file: "exomind-skin/clinic/IMG_3712.jpg", iw: 768, ih: 1024, fx: 450, fy: 505, z: 0.64 } },
 ];
 
 const arc = (cx: number, cy: number, r: number, a0: number, a1: number) => {
@@ -61,21 +65,21 @@ export const DonutRingFill: React.FC<DonutProps> = ({ start = 30, labelsAt = 46,
       </svg>
       {segs.map((s, i) => {
         const a = ((i * span + span / 2 + rot - 90) * Math.PI) / 180;
-        const d = 140, rr = R + 128;
+        const d = 180, rr = R + 128; // 180 px chips (Naim: each chip must read as what it is)
         const x = cx + rr * Math.cos(a) - d / 2, y = cy + rr * Math.sin(a) - d / 2;
         const la = labelsAt + (i < 2 ? 0 : 6);
         const lq = p(f, la, 3, ease.arrive);
         return (
           <React.Fragment key={i}>
             <RoundWindow at={la} {...s.chip} x={x} y={y} d={d} out={exitAt} phase={i * 1.7} />
-            {f >= la && <div style={{ position: "absolute", left: x + d / 2, top: y + d + 18, transform: `translateX(-50%) translateY(${(1 - lq) * 12}px)`, opacity: lq * (1 - ret), ...caps(17, C.ink), whiteSpace: "nowrap" }}>{s.label}</div>}
+            {f >= la && <div style={{ position: "absolute", left: x + d / 2, top: y + d + 18, transform: `translateX(-50%) translateY(${(1 - lq) * 12}px)`, opacity: lq * (1 - ret), ...caps(28, C.ink), whiteSpace: "nowrap" }}>{s.label}</div>}
           </React.Fragment>
         );
       })}
-      <div style={{ position: "absolute", left: cx - 200, top: cy - 70, width: 400, textAlign: "center" }}>
-        <TypeEntry entry="type-ghost-to-lit" start={start + 4} text={center.replace(" skin", "\nskin")} wordTimes={words} exitAt={exitAt} style={{ fontFamily: SERIF, fontWeight: 500, fontSize: 64, lineHeight: 1.02, color: C.ink }} />
+      <div style={{ position: "absolute", left: cx - 220, top: cy - 82, width: 440, textAlign: "center" }}>
+        <TypeEntry entry="type-ghost-to-lit" start={start + 4} text={center.replace(" skin", "\nskin")} wordTimes={words} exitAt={exitAt} style={{ fontFamily: SERIF, fontWeight: 500, fontSize: 78, lineHeight: 1.02, color: C.ink }} />
       </div>
-      <Disclaimer at={discAt} out={exitAt} text={SKIN_DISCLAIMER} style={{ left: cx - 400, top: cy + R + 210, width: 800, textAlign: "center" }} />
+      <Disclaimer at={discAt} out={exitAt} text={SKIN_DISCLAIMER} style={{ left: cx - 400, top: cy + R + 186, width: 800, textAlign: "center" }} />
     </div>
   );
 };

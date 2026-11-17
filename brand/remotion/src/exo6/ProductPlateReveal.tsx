@@ -46,10 +46,10 @@ export const ProductPlateReveal: React.FC<{
         </div>
         {chip && f >= chipAt && (
           <div style={{ position: "absolute", left: 34, bottom: 34 + drift(f, 2, 90), opacity: chipQ * (1 - o), transform: `translateY(${(1 - chipQ) * 16}px)`,
-            padding: "12px 20px", borderRadius: 999, background: C.navy, ...text(19, 500, "#fff"), whiteSpace: "nowrap", boxShadow: "0 10px 24px -10px rgba(32,37,50,.5)" }}>{chip}</div>
+            padding: "12px 20px", borderRadius: 999, background: C.navy, ...text(26, 500, "#fff"), whiteSpace: "nowrap", boxShadow: "0 10px 24px -10px rgba(32,37,50,.5)" }}>{chip}</div>
         )}
       </div>
-      {pointer && <Arrow variant="straight-pointer" from={pointer.from} to={pointer.to} start={pointer.at} end={pointer.end} color={C.ink} />}
+      {pointer && <Arrow variant="straight-pointer" from={pointer.from} to={pointer.to} start={pointer.at} end={pointer.end} color={C.blue} />}
     </>
   );
 };

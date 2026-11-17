@@ -40,7 +40,7 @@ export const ENTRY_SPEC: Record<EntryId, { ref: string; D: number }> = {
   "type-rise": { ref: "all refs: up 4.2 % H, settle 11.2 f (median), ease-out", D: 12 },
   "type-slide-side": { ref: "all refs: slide right 2.8 % H, 9 f", D: 9 },
   "type-scale-pop": { ref: "all refs: scale .95->1, 5 f", D: 5 },
-  "type-name-decode": { ref: "G4 FWfMMmC6mzE f960-1029: asterisks resolve over ~70 f", D: 70 },
+  "type-name-decode": { ref: "G4 FWfMMmC6mzE f960-1029: placeholders resolve over ~70 f (ours: ghost glyphs of the same font, never asterisks)", D: 70 },
 };
 export const TYPE_ENTRIES = Object.keys(ENTRY_SPEC) as EntryId[];
 
@@ -183,7 +183,26 @@ export const TypeEntry: React.FC<{
       const rank = new Map(order.map((ci, r) => [ci, r]));
       return wrap(chars.map((ch, i) => {
         const when = s0 + Math.round((span * ((rank.get(i) ?? 0) + 1)) / chars.length);
-        return ch === "\n" ? <br key={i} /> : <span key={i}>{ch === " " || frame >= when ? ch : "*"}</span>;
+        if (ch === "\n") return <br key={i} />;
+        if (ch === " ") return <span key={i}>{ch}</span>;
+        // v6 (asterisks read as broken type): each letter holds its own slot (the final glyph, hidden, keeps the width so nothing
+        // reflows) and, until it resolves, shows a defocused ghost glyph from the same font, drawn from the line's own letters,
+        // that cycles every 2 f and sharpens over the last 8 f; on `when` the real letter lands sharp from a 3 px defocus in 3 f.
+        const pool = chars.filter((c) => /[A-Za-z]/.test(c));
+        const left = when - frame;
+        if (left <= 0) {
+          const q = cl((frame - when) / F(3));
+          return <span key={i} style={{ display: "inline-block", filter: q < 1 ? `blur(${(1 - q) * 3}px)` : undefined, opacity: 0.55 + 0.45 * q }}>{ch}</span>;
+        }
+        const g = pool.length ? pool[Math.floor(random(`g-${text}-${i}-${Math.floor(frame / F(2))}`) * pool.length)] : ch;
+        const near = cl(1 - left / F(8));
+        const glyph = /[A-Z]/.test(ch) ? g.toUpperCase() : g.toLowerCase();
+        return (
+          <span key={i} style={{ position: "relative", display: "inline-block" }}>
+            <span style={{ visibility: "hidden" }}>{ch}</span>
+            <span style={{ position: "absolute", left: "50%", top: 0, transform: "translateX(-50%)", opacity: 0.14 + 0.3 * near, filter: `blur(${7 - 4 * near}px)` }}>{glyph}</span>
+          </span>
+        );
       }));
     }
     case "type-message-lines": {

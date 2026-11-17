@@ -34,8 +34,8 @@ export const TimelineMarkers: React.FC<{
         const on = f >= m.at;
         return (
           <React.Fragment key={i}>
-            <Arrow variant="marker-tick" from={{ x: mx, y: y - 46 }} to={{ x: mx, y: y - 8 }} start={m.at} end={end} color={i === 1 ? C.sky : ink} />
-            {on && <div style={{ position: "absolute", left: mx, top: y + 18, transform: "translateX(-50%)", ...caps(17, ink), textShadow: shadow, whiteSpace: "nowrap" }}>{m.label}</div>}
+            <Arrow variant="marker-tick" from={{ x: mx, y: y - 46 }} to={{ x: mx, y: y - 8 }} start={m.at} end={end} color={C.blue} />
+            {on && <div style={{ position: "absolute", left: mx, top: y + 18, transform: "translateX(-50%)", ...caps(28, ink), textShadow: shadow, whiteSpace: "nowrap" }}>{m.label}</div>}
           </React.Fragment>
         );
       })}
@@ -43,8 +43,8 @@ export const TimelineMarkers: React.FC<{
         const q = p(f, segment.at, 5, ease.arrive);
         const sx = x0 + ((segment.u0 + segment.u1) / 2) * L;
         return (
-          <div style={{ position: "absolute", left: sx, top: y - 104, transform: `translateX(-50%) scale(${0.95 + 0.05 * q})`, opacity: q, padding: "10px 18px", borderRadius: 999,
-            background: "rgba(255,255,255,.2)", backdropFilter: "blur(14px)", boxShadow: "inset 0 1px 0 rgba(255,255,255,.55), inset 0 0 0 1px rgba(255,255,255,.3)", ...text(22, 500, ink), textShadow: shadow, whiteSpace: "nowrap" }}>
+          <div style={{ position: "absolute", left: sx, top: y - 122, transform: `translateX(-50%) scale(${0.95 + 0.05 * q})`, opacity: q, padding: "10px 18px", borderRadius: 999,
+            background: "rgba(255,255,255,.2)", backdropFilter: "blur(14px)", boxShadow: "inset 0 1px 0 rgba(255,255,255,.55), inset 0 0 0 1px rgba(255,255,255,.3)", ...text(32, 500, ink), textShadow: shadow, whiteSpace: "nowrap" }}>
             {segment.label}
           </div>
         );

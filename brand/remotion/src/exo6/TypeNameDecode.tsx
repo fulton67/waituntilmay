@@ -4,7 +4,7 @@ import { TypeEntry } from "../devices/TypeEntry";
 import { C, SERIF, cl, ease, p } from "./look";
 
 // type-name-decode (B14 f1379-1448). Ref: G4 T22 (a name resolves from placeholder characters at ~40 f per line). 'The next
-// frontier' is set as dim asterisks that resolve in a seeded order (devices/TypeEntry type-name-decode, last letter on the onset of
+// frontier' is set as defocused ghost glyphs (same font) that resolve in a seeded order (devices/TypeEntry type-name-decode, last letter on the onset of
 // 'frontier' + 1). Under it a horizon hairline draws on `sweep` 26 f from the centre out, carrying a soft cool light that keeps
 // travelling along it while held; the type layer pushes 1.00 -> 1.04. Exit 7 f.
 export const TypeNameDecode: React.FC<{ start?: number; words?: number[]; exitAt?: number; text?: string; x?: number; y?: number; w?: number; size?: number }> = ({

@@ -16,7 +16,7 @@ export const ChecklistLedger: React.FC<{
   if (f < start) return null;
   const t = f - start;
   const n = rows.length + (open ? 1 : 0);
-  const RH = 104, H = 150 + n * RH + 30;
+  const RH = 118, TOP = 178, H = TOP + n * RH + 30;
   const s = 1 + 0.008 * ease.blank(cl(t / Math.max(1, (end ?? start + 80) - start)));
   const head = p(f, start, 14, ease.arrive);
   const leave = (k: number) => p(f, exitAt + (n - 1 - k), 7, ease.exit); // bottom-up
@@ -24,20 +24,20 @@ export const ChecklistLedger: React.FC<{
     <div style={{ position: "absolute", left: x, top: y, width: w, height: H, transform: `scale(${s})`, transformOrigin: "0% 0%", opacity: head * (1 - leave(0)) }}>
       <Glass r={26} t={t} style={{ inset: 0 }} />
       <div style={{ position: "absolute", left: 44, top: 40, display: "flex", alignItems: "baseline", gap: 16 }}>
-        <div style={{ ...caps(15, C.blue) }}>Covered tonight</div>
+        <div style={{ ...caps(26, C.blue) }}>Covered tonight</div>
       </div>
-      <div style={{ position: "absolute", left: 44, top: 68, ...text(40, 500) }}>{title}</div>
+      <div style={{ position: "absolute", left: 44, top: 78, ...text(58, 500) }}>{title}</div>
       {rows.map((r, k) => {
         const wipe = p(f, r.at, 14, ease.sweep);
         const lv = leave(k);
         return (
-          <div key={k} style={{ position: "absolute", left: 44, right: 44, top: 150 + k * RH, height: RH - 14, opacity: 1 - lv, transform: `translateY(${lv * 7}px)`,
+          <div key={k} style={{ position: "absolute", left: 44, right: 44, top: TOP + k * RH, height: RH - 14, opacity: 1 - lv, transform: `translateY(${lv * 7}px)`,
             clipPath: `inset(0 ${(1 - wipe) * 100}% 0 0)` }}>
             <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", gap: 20, borderBottom: `1.5px solid ${C.rule}` }}>
-              <div style={{ width: 70, height: 70, borderRadius: 16, overflow: "hidden", background: C.ice, flex: "0 0 auto", boxShadow: "0 6px 14px -6px rgba(32,37,50,.25)" }}>{r.thumb}</div>
-              <div style={{ ...text(28, 500), flex: 1 }}>{r.label}</div>
-              <div style={{ width: 38, height: 38, borderRadius: 19, background: f >= r.at + 15 ? "rgba(55,169,232,.12)" : "transparent", display: "grid", placeItems: "center" }}>
-                {f >= r.at + 15 && <Tick at={r.at + 15} size={24} />}
+              <div style={{ width: 84, height: 84, borderRadius: 18, overflow: "hidden", background: C.ice, flex: "0 0 auto", boxShadow: "0 6px 14px -6px rgba(32,37,50,.25)" }}>{r.thumb}</div>
+              <div style={{ ...text(36, 500), flex: 1 }}>{r.label}</div>
+              <div style={{ width: 46, height: 46, borderRadius: 23, background: f >= r.at + 15 ? "rgba(55,169,232,.12)" : "transparent", display: "grid", placeItems: "center" }}>
+                {f >= r.at + 15 && <Tick at={r.at + 15} size={30} />}
               </div>
             </div>
           </div>
@@ -49,10 +49,10 @@ export const ChecklistLedger: React.FC<{
         const sw = open.sweepAt != null ? cl((f - open.sweepAt) / 16) : 0;
         const k = rows.length;
         return (
-          <div style={{ position: "absolute", left: 44, right: 44, top: 150 + k * RH, height: RH - 18, opacity: q * (1 - lv), transform: `translateX(${-(1 - q) * 0.028 * 1080}px)`,
+          <div style={{ position: "absolute", left: 44, right: 44, top: TOP + k * RH, height: RH - 18, opacity: q * (1 - lv), transform: `translateX(${-(1 - q) * 0.028 * 1080}px)`,
             borderRadius: 18, border: `2px dashed ${C.blue}`, display: "flex", alignItems: "center", gap: 20, padding: "0 18px", overflow: "hidden" }}>
-            <div style={{ width: 54, height: 54, borderRadius: 14, border: `2px dashed rgba(55,169,232,.6)`, display: "grid", placeItems: "center", ...text(30, 500, C.blue) }}>+</div>
-            <div style={{ ...text(28, 500, C.blue) }}>{open.label}</div>
+            <div style={{ width: 64, height: 64, borderRadius: 16, border: `2px dashed rgba(55,169,232,.6)`, display: "grid", placeItems: "center", ...text(30, 500, C.blue) }}>+</div>
+            <div style={{ ...text(36, 500, C.blue) }}>{open.label}</div>
             {sw > 0 && sw < 1 && <div style={{ position: "absolute", top: 0, bottom: 0, width: 160, left: `${-20 + ease.sweep(sw) * 120}%`, background: "linear-gradient(90deg, transparent, rgba(255,255,255,.85), transparent)" }} />}
           </div>
         );

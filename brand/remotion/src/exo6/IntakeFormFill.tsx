@@ -29,7 +29,7 @@ export const IntakeFormFill: React.FC<{
   const focusY = ROW0 + act * ROWH + 40;
   const total = (end ?? start + 140) - start;
   const push = 1 + 0.06 * ease.blank(cl(t / total));
-  const W = 840, H = 800;
+  const W = 880, H = 820;
   return (
     <>
       {dimBackdrop && <div style={{ position: "absolute", inset: 0, background: "rgba(242,239,237,1)", opacity: 0.5 * dim, pointerEvents: "none" }} />}
@@ -40,17 +40,17 @@ export const IntakeFormFill: React.FC<{
         {/* paper tooth */}
         <div style={{ position: "absolute", inset: 0, borderRadius: 22, opacity: 0.35, background: "repeating-linear-gradient(0deg, rgba(33,27,21,.018) 0 2px, transparent 2px 5px)" }} />
         <div style={{ position: "absolute", left: 56, top: 48, right: 56, display: "flex", alignItems: "center", gap: 14 }}>
-          <div style={{ width: 46, height: 46, borderRadius: 12, background: C.ice, display: "grid", placeItems: "center", color: C.blue }}><IconClipboard size={26} color={C.blue} /></div>
+          <div style={{ width: 46, height: 46, borderRadius: 12, background: C.ice, display: "grid", placeItems: "center", color: C.blue }}><IconClipboard size={30} color={C.blue} /></div>
           <div style={{ flex: 1 }}>
-            <div style={{ ...text(30, 500) }}>{title}</div>
-            <div style={{ ...text(16, 400, C.ink2), marginTop: 2 }}>{org}</div>
+            <div style={{ ...text(38, 500) }}>{title}</div>
+            <div style={{ ...text(26, 400, C.ink2), marginTop: 2 }}>{org}</div>
           </div>
-          <div style={{ ...caps(13, C.mute) }}>Page 1 of 2</div>
+          <div style={{ ...caps(26, C.mute) }}>1 / 2</div>
         </div>
-        <div style={{ position: "absolute", left: 56, right: 56, top: 140, height: 1.5, background: C.rule }} />
+        <div style={{ position: "absolute", left: 56, right: 56, top: 150, height: 1.5, background: C.rule }} />
         {fields.map((fl, i) => <Field key={i} fl={fl} top={ROW0 + i * ROWH} active={i === act} />)}
         <Signature top={ROW0 + fields.length * ROWH + 4} at={firsts[firsts.length - 1] + 22} />
-        {note && <div style={{ position: "absolute", left: 56, right: 56, bottom: 30, ...text(15, 400, C.ink2) }}>{note}</div>}
+        {note && <div style={{ position: "absolute", left: 56, right: 56, bottom: 26, ...text(22, 400, C.ink2), lineHeight: 1.3 }}>{note}</div>}
       </div>
     </>
   );
@@ -64,7 +64,7 @@ const Field: React.FC<{ fl: FormField; top: number; active: boolean }> = ({ fl, 
     const n = Math.max(0, Math.min(fl.value.length, Math.floor((f - fl.at) * 2)));
     return (
       <div style={L}>
-        <div style={{ ...caps(14, labelC) }}>{fl.label}</div>
+        <div style={{ ...caps(26, labelC) }}>{fl.label}</div>
         <div style={{ marginTop: 14, height: 54, borderBottom: `1.5px solid ${C.rule}`, fontFamily: SERIF, fontWeight: 500, fontSize: 40, color: "#22406a", letterSpacing: "0.005em" }}>
           {fl.value.slice(0, n)}{n > 0 && n < fl.value.length && <span style={{ display: "inline-block", width: 2, height: 32, background: "#22406a", marginLeft: 2, verticalAlign: "-4px" }} />}
         </div>
@@ -74,15 +74,15 @@ const Field: React.FC<{ fl: FormField; top: number; active: boolean }> = ({ fl, 
   if (fl.kind === "check") {
     return (
       <div style={L}>
-        <div style={{ ...caps(14, labelC) }}>{fl.markAt != null ? <Sweep at={fl.markAt}>{fl.label}</Sweep> : fl.label}</div>
-        <div style={{ display: "flex", gap: 14, marginTop: 16 }}>
+        <div style={{ ...caps(26, labelC) }}>{fl.markAt != null ? <Sweep at={fl.markAt}>{fl.label}</Sweep> : fl.label}</div>
+        <div style={{ display: "flex", gap: 12, marginTop: 14 }}>
           {fl.rows.map((r, k) => {
             const on = p(f, r.at, 5, ease.arrive);
             return (
               <div key={k} style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", borderRadius: 12, whiteSpace: "nowrap",
-                background: `rgba(55,169,232,${0.1 * on})`, boxShadow: `inset 0 0 0 1.5px rgba(33,27,21,${lerp(0.12, 0, on)})`, ...text(18, 500, C.ink) }}>
-                <div style={{ width: 24, height: 24, borderRadius: 7, boxShadow: `inset 0 0 0 1.5px ${on > 0 ? C.blue : C.rule}`, background: "#fff", display: "grid", placeItems: "center" }}>
-                  {f >= r.at && <Tick at={r.at} size={18} />}
+                background: `rgba(55,169,232,${0.1 * on})`, boxShadow: `inset 0 0 0 1.5px rgba(33,27,21,${lerp(0.12, 0, on)})`, ...text(26, 500, C.ink) }}>
+                <div style={{ width: 30, height: 30, borderRadius: 8, boxShadow: `inset 0 0 0 1.5px ${on > 0 ? C.blue : C.rule}`, background: "#fff", display: "grid", placeItems: "center" }}>
+                  {f >= r.at && <Tick at={r.at} size={24} />}
                 </div>
                 {r.text}
               </div>
@@ -95,7 +95,7 @@ const Field: React.FC<{ fl: FormField; top: number; active: boolean }> = ({ fl, 
   const lit = p(f, fl.litAt, 6, ease.arrive);
   return (
     <div style={L}>
-      <div style={{ ...text(26, 500, lerp(0, 1, lit) > 0.5 ? C.ink : C.ink2), opacity: 0.55 + 0.45 * lit }}>{fl.label}</div>
+      <div style={{ ...text(32, 500, lerp(0, 1, lit) > 0.5 ? C.ink : C.ink2), opacity: 0.55 + 0.45 * lit }}>{fl.label}</div>
       <div style={{ position: "relative", display: "inline-block", marginTop: 16, padding: "6px 18px", fontFamily: SERIF, fontWeight: 500, fontSize: 36, color: "#22406a",
         opacity: p(f, fl.circleAt - 8, 8, ease.arrive) }}>
         {fl.value}
@@ -116,7 +116,7 @@ const Signature: React.FC<{ top: number; at: number }> = ({ top, at }) => {
           <path d="M10 44 C 30 10, 44 52, 60 30 S 92 8, 100 40 C 108 58, 128 18, 146 34 S 176 50, 196 26 C 210 12, 222 44, 240 38 S 290 30, 330 36" fill="none" stroke="#22406a" strokeWidth={2.2} strokeLinecap="round" pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - u} />
         </svg>
       </div>
-      <div style={{ ...caps(13, C.mute), paddingBottom: 6 }}>Signature · today</div>
+      <div style={{ ...caps(26, C.mute), paddingBottom: 6 }}>Signature</div>
     </div>
   );
 };

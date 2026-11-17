@@ -17,12 +17,15 @@ export const PortraitPipCircle: React.FC<{
     <div style={{ position: "absolute", left: x, top: y + drift(f, 3, 96), width: d, height: d, transform: `scale(${s})`, opacity: Math.min(1, q * 1.5) * (1 - o) }}>
       <div style={{ position: "absolute", inset: -10, borderRadius: "50%", background: "rgba(255,255,255,.35)", backdropFilter: "blur(14px)",
         boxShadow: "inset 0 1px 0 rgba(255,255,255,.9), 0 24px 50px -16px rgba(32,37,50,.45), 0 4px 10px rgba(32,37,50,.15)" }} />
-      <div style={{ position: "absolute", inset: 0, borderRadius: "50%", overflow: "hidden", background: bg, boxShadow: `inset 0 0 0 2px rgba(255,255,255,.95)` }}>
+      {/* a true circular mask (clip-path, not border-radius + overflow, which a composited video layer can escape: Naim saw a square
+          edge of his shoulders below the ring in v6), then the rim drawn over the mask edge */}
+      <div style={{ position: "absolute", inset: 0, clipPath: `circle(${d / 2}px at 50% 50%)`, background: bg }}>
         <div style={{ position: "absolute", ...inner }}>{children}</div>
       </div>
+      <div style={{ position: "absolute", inset: -1, borderRadius: "50%", boxShadow: "inset 0 0 0 3px rgba(255,255,255,.96), 0 0 0 1px rgba(32,37,50,.08)", pointerEvents: "none" }} />
       {/* live tag */}
-      <div style={{ position: "absolute", left: d * 0.5, bottom: -14, transform: "translateX(-50%)", padding: "6px 12px", borderRadius: 999, background: C.navy, color: "#fff",
-        font: "500 13px neue-haas-grotesk-text, Arial", letterSpacing: "0.16em", whiteSpace: "nowrap" }}>DR. OSTAD</div>
+      <div style={{ position: "absolute", left: d * 0.5, bottom: -22, transform: "translateX(-50%)", padding: "8px 18px", borderRadius: 999, background: C.navy, color: "#fff",
+        font: "500 26px neue-haas-grotesk-text, Arial", letterSpacing: "0.14em", whiteSpace: "nowrap" }}>DR. OSTAD</div>
     </div>
   );
 };

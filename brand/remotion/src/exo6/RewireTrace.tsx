@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, OffthreadVideo, useCurrentFrame } from "remotion";
 import { Arrow, type Pt } from "../devices/Arrow";
-import { cl, ease, lerp, p, text } from "./look";
+import { C, cl, ease, lerp, p, text } from "./look";
 import { MoaLabel, src } from "./parts";
 
 // ExoMind-only animation 2: rewire-trace (TRANSLATION.md 2.2; beat B18 f1811-1849). Also the `mechanism-on-real-image` device
@@ -53,7 +53,7 @@ export const RewireTrace: React.FC<RewireProps> = ({ start = 0, cutAt = 1, trace
       {/* travelling glow on the growing end */}
       {tracing && <div style={{ position: "absolute", left: g.x - 60, top: g.y - 60, width: 120, height: 120, borderRadius: "50%", mixBlendMode: "screen",
         background: "radial-gradient(circle, rgba(220,244,255,.95), rgba(120,200,250,0) 70%)" }} />}
-      <Arrow variant="route-trace" from={pt(0)} via={[pt(1), pt(2)]} to={pt(3)} start={traceAt} end={end} color="#ffffff" weight={5} />
+      <Arrow variant="route-trace" from={pt(0)} via={[pt(1), pt(2)]} to={pt(3)} start={traceAt} end={end} color={C.blue} />
       {f >= chipAt && (
         <div style={{ position: "absolute", left: 1180, top: 236, opacity: chipQ, transform: `scale(${0.95 + 0.05 * chipQ})`, transformOrigin: "0% 50%",
           padding: "16px 26px", borderRadius: 999, background: "rgba(255,255,255,.14)", backdropFilter: "blur(16px)", boxShadow: "inset 0 1px 0 rgba(255,255,255,.4), inset 0 0 0 1px rgba(255,255,255,.22)",

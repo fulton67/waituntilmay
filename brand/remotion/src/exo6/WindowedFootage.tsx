@@ -24,8 +24,8 @@ export const WindowedFootage: React.FC<{
         <div style={{ position: "absolute", inset: 0, borderRadius: 24, boxShadow: "inset 0 1px 0 rgba(255,255,255,.55)" }} />
         {f >= titleAt && (
           <div style={{ position: "absolute", left: 40, bottom: 44 }}>
-            <div style={{ fontFamily: SERIF, fontWeight: 500, fontSize: 84, lineHeight: 1, color: "#fff", opacity: tq, transform: `translateY(${(1 - tq) * 0.06 * 1080}px)`, textShadow: "0 2px 18px rgba(0,0,0,.3)" }}>{title}</div>
-            <div style={{ ...caps(17, "rgba(255,255,255,.85)"), marginTop: 14, opacity: cq }}>{credit}</div>
+            <div style={{ fontFamily: SERIF, fontWeight: 500, fontSize: 100, lineHeight: 1, color: "#fff", opacity: tq, transform: `translateY(${(1 - tq) * 0.06 * 1080}px)`, textShadow: "0 2px 18px rgba(0,0,0,.3)" }}>{title}</div>
+            <div style={{ ...caps(28, "rgba(255,255,255,.9)"), marginTop: 16, opacity: cq }}>{credit}</div>
           </div>
         )}
       </div>
