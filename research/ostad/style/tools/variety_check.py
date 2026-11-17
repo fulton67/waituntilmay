@@ -14,7 +14,9 @@ Rules (DESIGN_PER_BEAT section 3, plus the structure rules of EXOMIND_REDO secti
   R8  a title card at frame 0, a section card opening every section, an end card
   R9  one presentation of Ostad: keyed-left unless the beat is full-bleed; immersion is one of the five modes
   R10 beats are in order, do not overlap, and sit inside the edit
-  R11 compliance: MOA footage carries the MOA label; >= 1 beat carries the Exomind disclaimer; >= 3 ExoMind-only animations
+  R11 compliance: MOA footage carries the MOA label; >= 1 beat carries the Exomind disclaimer; >= 3 ExoMind-only animations.
+      With "compliance_profile": "injectable" (procedure reels): consent must be "yes" or the sheet marked not_for_posting;
+      illustration beats carry an on-screen "Illustration" label; no product brand without evidence; result claims carry "results vary"
   R12 every arrow variant is backed by an arrow-* device on that beat
 
 Usage: python -I variety_check.py research/ostad/style/exomind/beats.json [--library research/ostad/style/DEVICE_LIBRARY.md] [--selftest]
@@ -124,12 +126,21 @@ def check(sheet: dict, lib: dict[str, str]) -> list[tuple[str, bool, str]]:
     outside = [b["id"] for b in beats if b["start_f"] < 0 or b["end_f"] >= dur_f or b["end_f"] < b["start_f"]]
     add("R10 beats ordered, no overlap, inside the edit", not order and not outside, f"{len(beats)} beats" + (f"; overlap {order}; outside {outside}" if order or outside else ""))
 
-    # R11
-    moa = [b["id"] for b in beats if any(a.get("source") == "moa" for a in b.get("assets", [])) and not b.get("compliance", {}).get("moa_label")]
-    disc = [b["id"] for b in beats if b.get("compliance", {}).get("disclaimer")]
-    exo = sorted({b["exomind_only"] for b in beats if b.get("exomind_only")})
-    add("R11 compliance labels + >= 3 ExoMind-only animations", not moa and disc and len(exo) >= 3,
-        f"disclaimer on {disc}; MOA unlabelled {moa}; ExoMind-only {exo}")
+    # R11 (profile "exomind" by default; "injectable" for procedure reels, added 2026-11-17 for the under-eye filler reel)
+    if sheet.get("compliance_profile", "exomind") == "injectable":
+        cons = sheet.get("consent", "unknown")
+        posting_ok = cons == "yes" or sheet.get("not_for_posting") is True
+        illus = [b["id"] for b in beats if b.get("illustration") and not b.get("compliance", {}).get("illustration_label")]
+        brand = [b["id"] for b in beats if b.get("brand_named") and not b.get("brand_evidence")]
+        results = [b["id"] for b in beats if b.get("result_claim") and not b.get("compliance", {}).get("results_vary")]
+        add("R11 injectable compliance: consent / illustration / brand / results", posting_ok and not illus and not brand and not results,
+            f"consent {cons}, not_for_posting {sheet.get('not_for_posting')}; illustration unlabelled {illus}; brand without evidence {brand}; result claims without 'results vary' {results}")
+    else:
+        moa = [b["id"] for b in beats if any(a.get("source") == "moa" for a in b.get("assets", [])) and not b.get("compliance", {}).get("moa_label")]
+        disc = [b["id"] for b in beats if b.get("compliance", {}).get("disclaimer")]
+        exo = sorted({b["exomind_only"] for b in beats if b.get("exomind_only")})
+        add("R11 compliance labels + >= 3 ExoMind-only animations", not moa and disc and len(exo) >= 3,
+            f"disclaimer on {disc}; MOA unlabelled {moa}; ExoMind-only {exo}")
 
     # R12
     noarrow = [b["id"] for b in beats if b.get("arrow") and not any(d.startswith("arrow-") for d in b["devices"])]

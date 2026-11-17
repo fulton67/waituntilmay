@@ -1,0 +1,717 @@
+{
+ "edit": "Ostad - under-eye filler with a blunt cannula (reel)",
+ "fps": 24,
+ "width": 1080,
+ "height": 1920,
+ "speed": 1.1,
+ "duration_f": 2493,
+ "time_base": "composition frames at 24 fps on the 1.1x edit; reveals at word onset + 1 f",
+ "device_library": "research/ostad/style/DEVICE_LIBRARY.md",
+ "cut": "research/ostad/style/undereye/cut.json",
+ "compliance_profile": "injectable",
+ "consent": "unknown",
+ "not_for_posting": true,
+ "status": "NOT FOR POSTING until patient consent = yes",
+ "presentation": {
+  "ostad": "in his own footage throughout (handheld 9:16 session video); no keying"
+ },
+ "sections": [
+  {
+   "id": "S1",
+   "title": "The concern",
+   "start_f": 0
+  },
+  {
+   "id": "S2",
+   "title": "The procedure",
+   "start_f": 737
+  },
+  {
+   "id": "S3",
+   "title": "The decision",
+   "start_f": 1871
+  },
+  {
+   "id": "S4",
+   "title": "The result",
+   "start_f": 2099
+  }
+ ],
+ "cards": [
+  {
+   "kind": "title",
+   "device": "chapter-title-card",
+   "start_f": 0
+  },
+  {
+   "kind": "section",
+   "device": "chapter-title-card",
+   "start_f": 737,
+   "title": "The procedure"
+  },
+  {
+   "kind": "section",
+   "device": "chapter-title-card",
+   "start_f": 1871,
+   "title": "The decision"
+  },
+  {
+   "kind": "section",
+   "device": "chapter-title-card",
+   "start_f": 2099,
+   "title": "The result"
+  },
+  {
+   "kind": "end",
+   "device": "end-card",
+   "start_f": 2421
+  }
+ ],
+ "beats": [
+  {
+   "id": "B01",
+   "section": "S1",
+   "start_f": 0,
+   "end_f": 187,
+   "start_s": 0.0,
+   "end_s": 7.792,
+   "pieces": [
+    "P01",
+    "P02"
+   ],
+   "said": "We are here with our lovely, beautiful patient, who has just requested that we inject fillers for her lower eyelids.",
+   "noun": "who he is, and the request: fillers for her lower eyelids",
+   "cue": "fillers",
+   "cue_f": 121,
+   "reveal_f": 122,
+   "devices": [
+    "name-super"
+   ],
+   "entry": "type-word-fade-rise",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "name super G3 (13/13); title words rise 5 f, DDOS f3-13",
+   "text_only": false,
+   "compliance": {},
+   "keyframe": {
+    "f": 185,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   }
+  },
+  {
+   "id": "B02",
+   "section": "S1",
+   "start_f": 188,
+   "end_f": 341,
+   "start_s": 7.833,
+   "end_s": 14.208,
+   "pieces": [
+    "P03"
+   ],
+   "said": "She's a bit bothered by kind of the hollows under her eyes, which kind of creates this illusion of kind of being tired. She's not,",
+   "noun": "the hollow under her eye, magnified in a loupe",
+   "cue": "hollows",
+   "cue_f": 242,
+   "reveal_f": 243,
+   "devices": [
+    "loupe-zoom",
+    "arrow-curved-callout"
+   ],
+   "entry": "type-typewriter",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "loupe G4 T2 5J8M f1168; curved callout GMu3 f395-401; typed label DDOS B09",
+   "text_only": false,
+   "compliance": {},
+   "keyframe": {
+    "f": 262,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   }
+  },
+  {
+   "id": "B03",
+   "section": "S1",
+   "start_f": 342,
+   "end_f": 376,
+   "start_s": 14.25,
+   "end_s": 15.667,
+   "pieces": [
+    "P03"
+   ],
+   "said": "She's a bit bothered by kind of the hollows under her eyes, which kind of creates this illusion of kind of being tired. She's not,",
+   "noun": "'Tired?' struck and replaced by his word 'An illusion.'",
+   "cue": "tired",
+   "cue_f": 346,
+   "reveal_f": 347,
+   "devices": [
+    "type-strike-replace"
+   ],
+   "entry": "type-strike-replace",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "strike-replace G3 T13 D_bh f3350 (strike 6 f)",
+   "text_only": true,
+   "compliance": {},
+   "keyframe": {
+    "f": 376,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   }
+  },
+  {
+   "id": "B04",
+   "section": "S1",
+   "start_f": 377,
+   "end_f": 493,
+   "start_s": 15.708,
+   "end_s": 20.542,
+   "pieces": [
+    "P04"
+   ],
+   "said": "So we're gonna go ahead and use a filler. This is a hyaluronic acid filler, and we're gonna use a cannula. I like using cannulas because they're blunt. There's nothing sharp.",
+   "noun": "the actual syringe from the session, plate then picture",
+   "cue": "hyaluronic",
+   "cue_f": 452,
+   "reveal_f": 453,
+   "devices": [
+    "product-plate-reveal"
+   ],
+   "entry": "type-rise",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "plate-then-picture M04 M1-M2 (MOTION plate 18+18 f); ro yaFInenV3Eg f618-674",
+   "text_only": false,
+   "compliance": {},
+   "keyframe": {
+    "f": 479,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "assets": [
+    {
+     "kind": "image",
+     "src": "undereye-filler/syringe.jpg (a still of this session's syringe)",
+     "source": "clinic",
+     "consent": "P0001/P0002 unknown"
+    }
+   ],
+   "image_layers": [
+    {
+     "asset": "undereye-filler/syringe.jpg",
+     "box": [
+      98,
+      1000,
+      480,
+      480
+     ],
+     "from_f": 420,
+     "to_f": 490
+    }
+   ]
+  },
+  {
+   "id": "B05",
+   "section": "S1",
+   "start_f": 494,
+   "end_f": 649,
+   "start_s": 20.583,
+   "end_s": 27.042,
+   "pieces": [
+    "P04",
+    "P05"
+   ],
+   "said": "So we're gonna go ahead and use a filler. This is a hyaluronic acid filler, and we're gonna use a cannula. I like using cannulas because they're blunt. There's nothing sharp. we don't use needles because that can cause a lot of swelling, bruising.",
+   "noun": "a blunt cannula tip beside a sharp needle bevel; swelling and bruising land under the needle",
+   "cue": "cannula",
+   "cue_f": 498,
+   "reveal_f": 499,
+   "devices": [
+    "split-labelled"
+   ],
+   "entry": "type-highlight-sweep",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "labelled split G1 T11, G3 T6 (L23); highlighter DDOS Moment A",
+   "text_only": false,
+   "compliance": {},
+   "keyframe": {
+    "f": 649,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   }
+  },
+  {
+   "id": "B06",
+   "section": "S1",
+   "start_f": 650,
+   "end_f": 736,
+   "start_s": 27.083,
+   "end_s": 30.667,
+   "pieces": [
+    "P06"
+   ],
+   "said": "And these fillers typically last anywhere from a year to a year and a half.",
+   "noun": "a months rule with ticks at 12 and 18 months",
+   "cue": "last",
+   "cue_f": 679,
+   "reveal_f": 680,
+   "devices": [
+    "timeline-markers",
+    "arrow-marker-tick"
+   ],
+   "entry": "type-rise",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "timeline Are.na 16463981; marker ticks WZ f940/944",
+   "text_only": false,
+   "compliance": {},
+   "keyframe": {
+    "f": 736,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   }
+  },
+  {
+   "id": "B07",
+   "section": "S2",
+   "start_f": 737,
+   "end_f": 843,
+   "start_s": 30.708,
+   "end_s": 35.125,
+   "pieces": [
+    "P07"
+   ],
+   "said": "create a little insertion point using a using a little needle here.",
+   "noun": "a ring on the one entry point on her cheek, tracked on the footage",
+   "cue": "insertion",
+   "cue_f": 760,
+   "reveal_f": 761,
+   "devices": [
+    "tracking-ring"
+   ],
+   "entry": "type-typewriter",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "tracking ring G4 T20 tQkjtXJEtxY f851-1091",
+   "text_only": false,
+   "compliance": {},
+   "keyframe": {
+    "f": 782,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   }
+  },
+  {
+   "id": "B08",
+   "section": "S2",
+   "start_f": 844,
+   "end_f": 957,
+   "start_s": 35.167,
+   "end_s": 39.875,
+   "pieces": [
+    "P08"
+   ],
+   "said": "There is a bit of anesthetic already in the filler. It's what we call lidocaine.",
+   "noun": "'Lidocaine' slammed with an ice box over the injection",
+   "cue": "lidocaine",
+   "cue_f": 943,
+   "reveal_f": 944,
+   "devices": [
+    "type-box-slam"
+   ],
+   "entry": "type-box-slam",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "box slam GMu3 f1512-1522 (4 f + 4 f)",
+   "text_only": true,
+   "compliance": {},
+   "keyframe": {
+    "f": 957,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   }
+  },
+  {
+   "id": "B09",
+   "section": "S2",
+   "start_f": 958,
+   "end_f": 1163,
+   "start_s": 39.917,
+   "end_s": 48.458,
+   "pieces": [
+    "P09"
+   ],
+   "said": "inject the filler deep into the tissue. We basically go right underneath the muscle so that it looks super natural.",
+   "noun": "the cannula's route traced from the entry point along the under-eye on the real footage",
+   "cue": "deep",
+   "cue_f": 984,
+   "reveal_f": 985,
+   "devices": [
+    "arrow-route-trace",
+    "mechanism-on-real-image"
+   ],
+   "entry": "type-typewriter",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "route trace DDOS f216-250 (27 f); mechanism on real image G1 T8 IkrW f610-880",
+   "text_only": false,
+   "compliance": {},
+   "keyframe": {
+    "f": 1112,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "arrow": "route-trace"
+  },
+  {
+   "id": "B10",
+   "section": "S2",
+   "start_f": 1164,
+   "end_f": 1300,
+   "start_s": 48.5,
+   "end_s": 54.167,
+   "pieces": [
+    "P10"
+   ],
+   "said": "you can already see how her lower eyelid is fuller on the right versus here where it's kind of deeper.",
+   "noun": "boxes round both under-eyes: 'Fuller' (treated) vs 'Deeper' (not yet), the rest dimmed",
+   "cue": "fuller",
+   "cue_f": 1227,
+   "reveal_f": 1228,
+   "devices": [
+    "annotation-box-footage"
+   ],
+   "entry": "type-rise",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "numbered boxes G4 T2 5J8M f2293-2311; dim the rest G4 T6",
+   "text_only": false,
+   "compliance": {},
+   "keyframe": {
+    "f": 1300,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   }
+  },
+  {
+   "id": "B11",
+   "section": "S2",
+   "start_f": 1301,
+   "end_f": 1554,
+   "start_s": 54.208,
+   "end_s": 64.75,
+   "pieces": [
+    "P11"
+   ],
+   "said": "These fillers absorb water. And I try to use fillers that are not hydrophilic meaning they don't absorb too much water so that the area looks nice and natural. It's not pillowy.",
+   "noun": "two gel beads taking on water: one swells pillowy, the low-hydrophilic one barely changes",
+   "cue": "absorb",
+   "cue_f": 1320,
+   "reveal_f": 1321,
+   "devices": [
+    "topic-glass-panel"
+   ],
+   "entry": "type-highlight-sweep",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "topic glass panel: rosacea MicrobeCard method",
+   "text_only": false,
+   "compliance": {
+    "illustration_label": "Illustration"
+   },
+   "keyframe": {
+    "f": 1554,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "illustration": true
+  },
+  {
+   "id": "B12",
+   "section": "S2",
+   "start_f": 1555,
+   "end_f": 1870,
+   "start_s": 64.792,
+   "end_s": 77.917,
+   "pieces": [
+    "P12",
+    "P13"
+   ],
+   "said": "And I went ahead and just basically put half a syringe. So we went ahead and did one syringe.",
+   "noun": "the amount rolls from half a syringe (one side) to one syringe (both sides), with the syringe",
+   "cue": "halfsyringe",
+   "cue_f": 1797,
+   "reveal_f": 1798,
+   "devices": [
+    "rx-card"
+   ],
+   "entry": "type-rolling-swap",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "rolling label SU S2 / G2 T16 (L05, swap 16 f)",
+   "text_only": false,
+   "compliance": {},
+   "keyframe": {
+    "f": 1870,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "assets": [
+    {
+     "kind": "image",
+     "src": "undereye-filler/syringe.jpg (thumbnail)",
+     "source": "clinic",
+     "consent": "P0001/P0002 unknown"
+    }
+   ],
+   "image_layers": [
+    {
+     "asset": "undereye-filler/syringe.jpg",
+     "box": [
+      124,
+      1236,
+      150,
+      150
+     ],
+     "from_f": 1570,
+     "to_f": 1863
+    }
+   ]
+  },
+  {
+   "id": "B13",
+   "section": "S3",
+   "start_f": 1871,
+   "end_f": 1997,
+   "start_s": 77.958,
+   "end_s": 83.208,
+   "pieces": [
+    "P14"
+   ],
+   "said": "do we want to put another syringe in there? And I always take into account the fact that this is going to expand.",
+   "noun": "'Another syringe?' lit word by word, then an arrow up: it will expand",
+   "cue": "another",
+   "cue_f": 1889,
+   "reveal_f": 1890,
+   "devices": [
+    "arrow-straight-pointer"
+   ],
+   "entry": "type-ghost-to-lit",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "ghost-to-lit WZ f238-263 (L02); straight pointer WZ f926-933",
+   "text_only": false,
+   "compliance": {},
+   "keyframe": {
+    "f": 1997,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "arrow": "straight-pointer"
+  },
+  {
+   "id": "B14",
+   "section": "S3",
+   "start_f": 1998,
+   "end_f": 2098,
+   "start_s": 83.25,
+   "end_s": 87.417,
+   "pieces": [
+    "P15"
+   ],
+   "said": "the key is to inject deep, to avoid that bluish hue called the Tyndall effect.",
+   "noun": "a bluish hue appears under her eyes (illustration), named, then cleared: inject deep",
+   "cue": "bluish",
+   "cue_f": 2052,
+   "reveal_f": 2053,
+   "devices": [
+    "region-light-on-model"
+   ],
+   "entry": "type-typewriter",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "region light ig_DdrkdrYv-yW f600-660",
+   "text_only": false,
+   "compliance": {
+    "illustration_label": "Illustration"
+   },
+   "keyframe": {
+    "f": 2098,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "illustration": true
+  },
+  {
+   "id": "B15",
+   "section": "S4",
+   "start_f": 2099,
+   "end_f": 2148,
+   "start_s": 87.458,
+   "end_s": 89.5,
+   "pieces": [
+    "P16"
+   ],
+   "said": "she can go out here and nobody would know yet she had fillers done.",
+   "noun": "her face right after, in a card that grows to full frame on 'nobody would know'",
+   "cue": "nobody",
+   "cue_f": 2118,
+   "reveal_f": 2119,
+   "devices": [
+    "card-full-morph"
+   ],
+   "entry": "type-rise",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "card-full morph NAP \u00a73B (MOTION \u00a74.2, L09)",
+   "text_only": false,
+   "compliance": {
+    "results_vary": "Individual results vary."
+   },
+   "keyframe": {
+    "f": 2148,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "result_claim": true
+  },
+  {
+   "id": "B16",
+   "section": "S4",
+   "start_f": 2149,
+   "end_f": 2224,
+   "start_s": 89.542,
+   "end_s": 92.667,
+   "pieces": [
+    "P17"
+   ],
+   "said": "you can't tell other than that really one actual pinprick",
+   "noun": "a curved arrow to the single pinprick on her cheek",
+   "cue": "pinprick",
+   "cue_f": 2214,
+   "reveal_f": 2215,
+   "devices": [
+    "arrow-curved-callout"
+   ],
+   "entry": "type-typewriter",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "curved callout GMu3 f395-401",
+   "text_only": false,
+   "compliance": {
+    "results_vary": "Individual results vary."
+   },
+   "keyframe": {
+    "f": 2224,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "arrow": "curved-callout",
+   "result_claim": true
+  },
+  {
+   "id": "B17",
+   "section": "S4",
+   "start_f": 2225,
+   "end_f": 2420,
+   "start_s": 92.708,
+   "end_s": 100.833,
+   "pieces": [
+    "P18",
+    "P19"
+   ],
+   "said": "We're going to basically show her photo in about a week or two when really the filler is settled, But she won't have any bruising or swelling. Thank you.",
+   "noun": "a three-week strip with weeks 1-2 circled: the follow-up photo",
+   "cue": "week",
+   "cue_f": 2278,
+   "reveal_f": 2279,
+   "devices": [
+    "calendar-date-circle"
+   ],
+   "entry": "type-scale-pop",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "refs": "calendar circle Are.na 31223791; Ro Calendar",
+   "text_only": false,
+   "compliance": {
+    "results_vary": "Individual results vary."
+   },
+   "keyframe": {
+    "f": 2300,
+    "crop": [
+     0,
+     0,
+     1080,
+     1580
+    ]
+   },
+   "result_claim": true
+  }
+ ]
+}

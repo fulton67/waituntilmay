@@ -1,0 +1,52 @@
+{
+  "$comment": "Under-eye filler reel: the cut, as spoken phrases (start / end words, n = which occurrence in that clip). brand/scripts/undereye_prep.py resolves them against the word timings (whisper on the delivered footage; or the catalog's segment timestamps in --approx mode). No patient name appears here: piece P01 ends on the word before her name and P02 starts on the word after it, so the name is cut out of the audio. `picture` plays another shot under this audio (B-roll); `pictureFrom` is source seconds in that clip; omitted = the piece's own picture.",
+  "speed": 1.1,
+  "fps": 24,
+  "clips": {
+    "6816": "IMG_6816.MOV",
+    "6817": "IMG_6817.MOV",
+    "6818": "IMG_6818.MOV",
+    "6821": "IMG_6821.MOV"
+  },
+  "pieces": [
+    { "id": "P01", "clip": "6816", "start": "We are here", "end": "beautiful patient", "section": "S1" },
+    { "id": "P02", "clip": "6816", "start": "who has just requested", "end": "her lower eyelids", "section": "S1" },
+    { "id": "P03", "clip": "6816", "start": "She's a bit bothered", "end": "She's not", "section": "S1" },
+    { "id": "P04", "clip": "6816", "start": "So we're gonna go ahead", "end": "nothing sharp", "section": "S1" },
+    { "id": "P05", "clip": "6816", "start": "we don't use needles", "end": "swelling, bruising", "section": "S1" },
+    { "id": "P06", "clip": "6816", "start": "And these fillers typically", "end": "a year and a half", "section": "S1" },
+    { "id": "P07", "clip": "6817", "start": "create a little insertion point", "end": "little needle here", "section": "S2", "picture": "6817", "pictureFrom": 12.0 },
+    { "id": "P08", "clip": "6817", "start": "There is a bit of anesthetic", "end": "call lidocaine", "section": "S2" },
+    { "id": "P09", "clip": "6817", "start": "inject the filler deep", "end": "super natural", "section": "S2" },
+    { "id": "P10", "clip": "6817", "start": "you can already see how her lower", "end": "kind of deeper", "section": "S2" },
+    { "id": "P11", "clip": "6817", "start": "These fillers absorb water", "end": "not pillowy", "section": "S2" },
+    { "id": "P12", "clip": "6817", "start": "And I went ahead", "end": "half a syringe", "section": "S2" },
+    { "id": "P13", "clip": "6817", "start": "So we went ahead and did one syringe", "end": "did one syringe", "section": "S2" },
+    { "id": "P14", "clip": "6818", "start": "do we want to put another syringe", "end": "going to expand", "section": "S3" },
+    { "id": "P15", "clip": "6818", "start": "the key is to inject deep", "end": "Tyndall effect", "section": "S3", "picture": "6817", "pictureFrom": 138.0 },
+    { "id": "P16", "clip": "6821", "start": "she can go out", "end": "fillers done", "section": "S4", "picture": "6821", "pictureFrom": 18.0 },
+    { "id": "P17", "clip": "6821", "start": "you can't tell", "end": "actual pinprick", "section": "S4", "picture": "6821", "pictureFrom": "continue" },
+    { "id": "P18", "clip": "6821", "start": "We're going to basically show", "end": "filler is settled", "section": "S4" },
+    { "id": "P19", "clip": "6821", "start": "But she won't have", "end": "Thank you", "section": "S4" }
+  ],
+  "$cues": "trigger words: key -> [piece, word, occurrence in that piece]. A graphic reveal starts on the cue's onset frame + 1 (MOTION §3).",
+  "cues": {
+    "fillers": ["P02", "fillers", 1], "lower": ["P02", "lower", 1], "eyelids": ["P02", "eyelids", 1],
+    "hollows": ["P03", "hollows", 1], "tired": ["P03", "tired", 1], "not": ["P03", "not", 1],
+    "hyaluronic": ["P04", "hyaluronic", 1], "acid": ["P04", "acid", 1], "cannula": ["P04", "cannula", 1], "blunt": ["P04", "blunt", 1], "sharp": ["P04", "sharp", 1],
+    "needles": ["P05", "needles", 1], "swelling": ["P05", "swelling", 1], "bruising": ["P05", "bruising", 1],
+    "last": ["P06", "last", 1], "year": ["P06", "year", 1], "half": ["P06", "half", 1],
+    "insertion": ["P07", "insertion", 1], "needle": ["P07", "needle", 1],
+    "anesthetic": ["P08", "anesthetic", 1], "lidocaine": ["P08", "lidocaine", 1],
+    "deep": ["P09", "deep", 1], "underneath": ["P09", "underneath", 1], "muscle": ["P09", "muscle", 1],
+    "fuller": ["P10", "fuller", 1], "deeper": ["P10", "deeper", 1],
+    "absorb": ["P11", "absorb", 1], "hydrophilic": ["P11", "hydrophilic", 1], "pillowy": ["P11", "pillowy", 1],
+    "halfsyringe": ["P12", "half", 1], "onesyringe": ["P13", "one", 1],
+    "another": ["P14", "another", 1], "expand": ["P14", "expand", 1],
+    "deep2": ["P15", "deep", 1], "bluish": ["P15", "bluish", 1], "tyndall": ["P15", "tyndall", 1],
+    "out": ["P16", "out", 1], "nobody": ["P16", "nobody", 1],
+    "pinprick": ["P17", "pinprick", 1],
+    "week": ["P18", "week", 1], "two": ["P18", "two", 1],
+    "swelling2": ["P19", "swelling", 1], "thank": ["P19", "thank", 1]
+  }
+}
