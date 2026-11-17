@@ -301,6 +301,12 @@ B(id="B20", section="S4", start_f=1987, end_f=2091, said="help us just feel bett
   compliance={"disclaimer": DISC, "physician_check": ["'translate into better skin' (his closing line)"]},
   keyframe={"f": 2080, "crop": G}, sfx=[[1988, "card"], [2045, "swish"], [2061, "pop"]])
 
+HERO = {"B01": 3, "B02": 125, "B03": 188, "B04": 314, "B05": 460, "B06": 582, "B07": 733, "B08": 806, "B09": 933, "B10": 1022,
+        "B11": 1158, "B12": 1181, "B13": 1300, "B14": 1380, "B15": 1490, "B16": 1655, "B17": 1776, "B18": 1812, "B19": 1877, "B20": 2045}
+for b in beats:
+    # MOTION.md M19: per-graphic SFX is not evidenced (60 % vs 59 % chance); one typed sound per beat on its hero reveal, the rest optional at -12 dB
+    h = HERO[b["id"]]
+    b["sfx_hero"] = next(x for x in b["sfx"] if x[0] == h)
 import re
 def lib():
     st = {}

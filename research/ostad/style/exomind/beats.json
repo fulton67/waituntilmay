@@ -184,6 +184,10 @@
    "ostad": "keyed-left",
    "image_layers": [],
    "compliance": {},
+   "sfx_hero": [
+    3,
+    "swish"
+   ],
    "built_status": {
     "wordmark-depth-sandwich": "never",
     "name-super": "yes"
@@ -293,6 +297,10 @@
    "text_only": false,
    "ostad": "keyed-left",
    "track": null,
+   "sfx_hero": [
+    125,
+    "pop"
+   ],
    "built_status": {
     "product-plate-reveal": "partial",
     "arrow-straight-pointer": "never"
@@ -451,6 +459,10 @@
    "end_s": 10.917,
    "text_only": false,
    "ostad": "keyed-left",
+   "sfx_hero": [
+    188,
+    "swish"
+   ],
    "built_status": {
     "flow-diagram-build": "partial",
     "arrow-curved-callout": "partial"
@@ -542,6 +554,10 @@
    "image_layers": [],
    "compliance": {},
    "track": null,
+   "sfx_hero": [
+    314,
+    "swish"
+   ],
    "built_status": {
     "card-full-morph": "never"
    },
@@ -632,6 +648,10 @@
    "image_layers": [],
    "compliance": {},
    "track": null,
+   "sfx_hero": [
+    460,
+    "pop"
+   ],
    "built_status": {
     "spatial-glass-ui": "partial"
    },
@@ -735,6 +755,10 @@
    "image_layers": [],
    "compliance": {},
    "track": null,
+   "sfx_hero": [
+    582,
+    "pop"
+   ],
    "built_status": {
     "phone-message-arrives": "partial"
    },
@@ -834,6 +858,10 @@
    "image_layers": [],
    "compliance": {},
    "track": null,
+   "sfx_hero": [
+    733,
+    "yes"
+   ],
    "built_status": {
     "arrow-arc-connector": "partial",
     "calendar-date-circle": "partial"
@@ -941,6 +969,10 @@
    "ostad": "keyed-left",
    "image_layers": [],
    "track": null,
+   "sfx_hero": [
+    806,
+    "swish"
+   ],
    "built_status": {
     "intake-form-fill": "never"
    },
@@ -1037,6 +1069,10 @@
    "image_layers": [],
    "compliance": {},
    "track": null,
+   "sfx_hero": [
+    933,
+    "pop"
+   ],
    "built_status": {
     "quote-card-carousel": "never"
    },
@@ -1118,6 +1154,10 @@
    "image_layers": [],
    "compliance": {},
    "track": null,
+   "sfx_hero": [
+    1022,
+    "pop"
+   ],
    "built_status": {
     "checklist-ledger": "partial"
    },
@@ -1193,6 +1233,10 @@
    "image_layers": [],
    "compliance": {},
    "track": null,
+   "sfx_hero": [
+    1158,
+    "pop"
+   ],
    "built_status": {
     "windowed-footage": "yes"
    },
@@ -1305,6 +1349,10 @@
    "end_s": 51.708,
    "text_only": false,
    "track": null,
+   "sfx_hero": [
+    1181,
+    "swish"
+   ],
    "built_status": {
     "portrait-pip-circle": "never",
     "timeline-markers": "partial",
@@ -1463,6 +1511,10 @@
    "text_only": false,
    "ostad": "keyed-left",
    "track": null,
+   "sfx_hero": [
+    1300,
+    "swish"
+   ],
    "built_status": {
     "donut-ring-fill": "partial"
    },
@@ -1538,6 +1590,10 @@
    "image_layers": [],
    "compliance": {},
    "track": null,
+   "sfx_hero": [
+    1380,
+    "swish"
+   ],
    "built_status": {
     "type-name-decode": "never"
    },
@@ -1642,6 +1698,10 @@
    "ostad": "keyed-left",
    "compliance": {},
    "track": null,
+   "sfx_hero": [
+    1490,
+    "swish"
+   ],
    "built_status": {
     "split-labelled": "partial"
    },
@@ -1747,6 +1807,10 @@
    "end_s": 71.208,
    "text_only": false,
    "ostad": "keyed-left",
+   "sfx_hero": [
+    1655,
+    "swish"
+   ],
    "built_status": {
     "arrow-light-ribbon": "never"
    },
@@ -1885,6 +1949,10 @@
    "end_s": 75.417,
    "text_only": false,
    "track": null,
+   "sfx_hero": [
+    1776,
+    "pop"
+   ],
    "built_status": {
     "region-light-on-model": "never",
     "arrow-orbit-arc": "never"
@@ -1971,6 +2039,10 @@
    "text_only": false,
    "image_layers": [],
    "track": null,
+   "sfx_hero": [
+    1812,
+    "swish"
+   ],
    "built_status": {
     "mechanism-on-real-image": "partial",
     "arrow-route-trace": "partial"
@@ -2078,6 +2150,10 @@
    "ostad": "keyed-left",
    "image_layers": [],
    "track": null,
+   "sfx_hero": [
+    1877,
+    "pop"
+   ],
    "built_status": {
     "topic-glass-panel": "yes",
     "noise-clears": "partial"
@@ -2181,6 +2257,10 @@
    "text_only": false,
    "ostad": "keyed-left",
    "track": null,
+   "sfx_hero": [
+    2045,
+    "swish"
+   ],
    "built_status": {
     "zoom-box-inset": "never",
     "arrow-dashed-flow": "partial"
