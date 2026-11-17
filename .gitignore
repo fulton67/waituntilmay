@@ -252,3 +252,6 @@ research/ostad/style/exomind/v6_frames/
 /brand/intake/*
 !/brand/intake/README.md
 /brand/kit/templates/_grid_proof/private/
+
+# gap-check sheets hold practice / patient / BTL frames
+research/ostad/style/exomind/gap/*.jpg
