@@ -459,3 +459,51 @@ Probe notes:
   - chapter-title-card + wordmark-depth-sandwich
   - radial-leader-callouts
 - **Not done:** the Are.na connected channels stay context, not corpus (DEC 6). Not every one of the ~2,900 sheets was opened. Devices come from the read files' catalogues (which were read sheet by sheet), plus new looks at the GLP-1 ad, Ro, the three single posts, grove, drjc, colin and all 56 Are.na blocks.
+
+## 14i. ExoMind YouTube v6 design: beat sheet, translation table, usage audit, and the three check tools (2026-11-17)
+
+Design and tooling only; nothing is built or rendered here. Files: `exomind/BEATS.md`, `exomind/beats.json` (generator `tools/gen_beats_exomind.py`), `exomind/TRANSLATION.md`, `exomind/USAGE_AUDIT.md`, `tools/variety_check.py`, `tools/reuse_check.py`, `tools/lint_compositions.py` (+ `tools/lint_fixtures/`).
+
+- **Format:** 16:9 at 1920×1080, the reviewed edit, not EXOMIND_REDO's 9:16 (RUN_BRIEF). Pixel thresholds written for 1080×1920 keep their values on the 1080 short side, so they are stricter.
+- **Time base:** composition frames at 24 fps on the 1.15× edit (comp s = cut s ÷ 1.15, as `OstadYT.tsx` plays the cut; 2166 f). Every reveal sits on word onset + 1 f.
+- **Beats:** 20, plus a title card (B01), 4 section cards (01 Your questions f263, 02 Before you go f893, 03 Total skin health f1242, 04 The technology f1710) and an end card. The section turns follow the script: thanks/thesis, next steps, sign-off, the vision, the mechanism.
+- **Section cards are structural** (like captions): one look (`chapter-title-card`, 30 f beside keyed Ostad, who keeps talking). They are excluded from the device-repeat count, because "a card at every turn" and "no device more than twice" can't both hold otherwise. `variety_check` R8 checks they exist and share one look.
+- **Variety:** 30 distinct devices, each used once. 12 never built. 13 entries, none consecutive. Text-only 2/20 (B01 title, B14 "the next frontier"). The "1 in 5" rule is checked as both the share (≤ 20 %) and a rolling window (≤ 1 in any 5 consecutive beats). B10 was moved off text-only (ledger rows carry thumbnails) so B10 and B14 don't fall in one window.
+- **Redesigns made while writing:**
+  - B20 was first a second flow diagram (same tile as B03), then a ribbon on a model portrait (same as the first B16). Now B16 is a ribbon round *his* head (head-tracked, behind him via the matte) and B20 a zoom-box inset on a portrait.
+  - B14 was going to be a giant word behind him (same tile as the B01 title). It is now a decode.
+- **ExoMind-only animations (4):** field-through-skull (B17, after GOLD 53–59 s), rewire-trace (B18, MOA 59.0–60.6 s), pulse-train-synapse (B19, the gut-panel method by addition), session-timeline (B12, over IMG_3714).
+- **Gold pick:** k4lEDTVCb0U *does* exist locally (`refs/motion/exomind/`, topic file `refs/shots/exomind.md`). Read at 50–62 s (2 fps sheet, scratchpad): neurons with travelling orange signals 50–52.5 s, the glass-head silhouette 52.5 s, the applicator descends 53–56 s, the cyan field under the coil 56.5–59 s, motion-blur push 61.5 s. B17 rebuilds that sequence in our palette. The MOA film (151 s, 25 fps) was read on a 1 fps sheet: neurons 35–46 s, coil on head 47–55 s, pulses reactivating a neuron 56–63 s. Its burned-in subtitle band (mentions OCD) is hidden under our caption band.
+- **Compliance placement:**
+  - The disclaimer is on B03, B13 and B20, where the mind–skin link is drawn.
+  - The MOA label is on B17–B19.
+  - B02's chip says "FDA-cleared: major depressive disorder" ⚠.
+  - The brochure FAQ headings (not answers) fill B09's question box.
+  - Session length shows as "about 20–30 min" ⚠ until the client settles brochure "< 30" vs practice "≈ 20".
+  - v4.1's "+24 new connections" (no source) is dropped.
+- **SFX:** one typed sound per beat on its hero reveal (`sfx_hero`), per MOTION M19 (per-graphic SFX measured at chance: 60 % vs 59 %). The other listed events are optional at −12 dB.
+- **Presentation:** Ostad keyed on the cream canvas, left third, on 16 beats. He steps out only for full-bleed: B04 (he is in the consult footage), B12 (pip circle), B17 and B18 (out). The keyed source must cover the whole cut (`matte_*_cut.mp4`); v4.1's `presenter_k.webm` starts at cut 42.4 s.
+- **variety_check.py:** 12 rules (DESIGN_PER_BEAT §3 plus cards, presentation, overlap, compliance labels, arrow backing). It reads ids and built status from DEVICE_LIBRARY.md (79 ids), not from the sheet. `--selftest` breaks each rule once: 12/12 fire. On beats.json: PASS.
+- **lint_compositions.py, dot-and-line:**
+  - Built from the patterns we shipped: YT `Callout` (5 px dot + pulse ring + straight stroke), OstadYT `Lead` / `HeadNotes`, the v4.1 S2 bead on a bezier, kit `Thread` (bead) and `Lead` (dot), Markup `Ring` (riding tip dot + headless leader), `Pin` (div dot + leader) and `Callout` (headless leader), and v5 S11B (open ring + headless line).
+  - Imports are resolved, so a banned component fails where it's used.
+  - Arrowheads count only structurally (marker, polygon, `data-arrowhead`, 3-point chevron). A first version accepted the word "head" and let v5 pass on `head_final_anim.mp4`; fixed.
+  - **OstadYT.tsx (v4.1): FAIL, 10 violations** (DOT1 ×2, DOT2, DOT3, LEAD, USE ×5).
+  - Also failing: kit.tsx (4), Storyboard.tsx (36), Markup.tsx (5), OstadYT5.tsx (2), OstadReel.tsx (1, via SkinCard → Ring), TraceOnFootage.tsx (1). These are older files and are left as they are. The rule binds new compositions.
+  - Clean fixture: PASS. `// lint-ok: <reason>` waives non-callouts (e.g. vesicles) and prints the reason.
+- **No static image: frame diff on the render, chosen over a render-time helper.**
+  - A helper only proves the code *asked* for a transform. A frame diff proves the pixels moved, and it also catches a transform that is non-zero but invisible.
+  - Mode `--static-image RENDER --beats beats.json`:
+    - (a) every image asset in beats.json needs an `image_layers` box and span;
+    - (b) each layer's crop is sampled every 4 f between the end of its `arrive` and the start of its `exit`, and fails if the max mean-absolute grey change against the first sample is below the threshold.
+  - Calibrated at render settings (crf 16): a still re-encoded = 0.02 grey levels; a 1 % zoom over 48 f (the gentlest drift on the sheet) = 1.56; threshold = their geometric mean, **0.16**.
+  - Synthetic test: static half FAIL (0.00), 2 % zoom half PASS (5.61), image without a layer FAIL.
+  - Known limit: a moving overlay inside a static photo's box would mask it. Boxes in beats.json are the photo's own rect, so the builder keeps captions and chips out of them, or narrows the box.
+- **reuse_check.py:** pHash + dHash on each beat's graphic crop (never a face-dominated frame) against 106,225 window hashes of every earlier edit (rosacea v5, YouTube v2 / v3 / v4 / v4.1 / v5, the ExoMind reel, the storyboard stills), sampled every 0.25 s.
+  - Each sampled frame gives the full frame, three window grids, the v6 crops (`--build-bank --beats`), and same-geometry window matching.
+  - **Threshold 0.107 (distance 0–1), calibrated on the decision itself.** A first pair-based calibration (identical p99 0.125 vs different p1 0.344, threshold 0.226) was too loose. The check takes a *minimum* over ~100k windows, so unrelated content gets far closer than one pair suggests: known-new Ro frames reach a nearest of 0.10–0.13. Calibrated instead: earlier-edit frames off the sample grid, re-encoded at JPEG q35, have a nearest-distance p99 of 0.083 (max 0.156); 96 known-new frames from 8 Ro videos have p1 0.131 (median 0.258). Threshold = the midpoint.
+  - Known pairs:
+    - v4.1 key frames at the v6 beat times: **20/20 FAIL**, all at 0.000. An early version without same-geometry windows missed 2 of them (B12 and B16 crops at 0.25–0.29), now fixed.
+    - Gold-pick frames: 20/20 PASS. The nearest are 0.156–0.188, and these are true near-relatives: v2 / v3 / v5 used other frames of the same BTL films (checked side by side). A different frame of licensed footage isn't a reused graphic, so PASS is the intended call.
+  - The bank (`measure/_reuse/bank.npz`) is gitignored and rebuilt from local renders. `calibration.json` is committed.
+- **Not done here (builder's part):** Arrow.tsx, the type system, OstadYT6, stills and render; the confirmed column of USAGE_AUDIT; tracking error and face-overlap measures; evolution_sheet.jpg.
