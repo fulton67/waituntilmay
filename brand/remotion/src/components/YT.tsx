@@ -261,7 +261,7 @@ const SP = 2, SDOT = 8 * SP, SBAR = 36 * SP, SGAP = 8 * SP, SPAD = 14 * SP, SH =
 const spLay = (n: number, at: number) => { const o: [number, number][] = []; let x = 0; for (let i = 0; i < n; i++) { const w = i === at ? SBAR : SDOT; o.push([x, x + w]); x += w + SGAP; } return o; };
 const eOut3 = (u: number) => 1 - (1 - clamp(u)) ** 3;
 export const stepAt = (times: number[], t: number) => Math.max(0, times.filter((s) => t >= s).length - 1);
-export const StepPlayer: React.FC<{ times: number[]; end: number; ink?: string; labels?: string[]; labelSize?: number }> = ({ times, end, ink = BLUE, labels, labelSize = LAB }) => {
+export const StepPlayer: React.FC<{ times: number[]; end: number; ink?: string; labels?: string[]; labelSize?: number; bare?: boolean }> = ({ times, end, ink = BLUE, labels, labelSize = LAB, bare = false }) => {
   const t = useT();
   const n = times.length, cur = stepAt(times, t);
   const since = t - times[cur];
@@ -281,7 +281,8 @@ export const StepPlayer: React.FC<{ times: number[]; end: number; ink?: string; 
   const slab: React.CSSProperties = { background: "rgba(255,255,255,.86)", boxShadow: "inset 0 1px 0 rgba(255,255,255,.9), 0 10px 30px rgba(29,34,48,.10)", backdropFilter: "blur(20px)" };
   return (
     <div style={{ display: "flex", alignItems: "center", gap: SGAP }}>
-      <div style={{ ...slab, padding: SPAD, borderRadius: SH / 2, flex: "none" }}>
+      {/* bare (v4.1, client: no pause/play UI): the pill is not drawn, its space is kept so the labels stay where they were */}
+      <div style={{ ...(bare ? {} : slab), padding: SPAD, borderRadius: SH / 2, flex: "none", visibility: bare ? "hidden" : "visible" }}>
         <div style={{ position: "relative", width, height: SDOT }}>
           {lay.map(([l1, r1], i) => {
             const l = prev[i][0] + (l1 - prev[i][0]) * mv, r = prev[i][1] + (r1 - prev[i][1]) * mv, w = r - l;

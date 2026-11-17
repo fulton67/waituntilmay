@@ -108,7 +108,6 @@ const S2: React.FC = () => {
       <div style={{ position: "absolute", left: 380, top: 860 }}><Tag text="The mind" at={1.15} /></div>
       <div style={{ position: "absolute", left: 1290, top: 620 }}><Tag text="Your skin" at={1.8} /></div>
       <div style={{ position: "absolute", left: 1290, top: 700, width: 480 }}><Kinetic text="Total skin health" at={2.65} size={H1} key_={["total", "skin", "health"]} /></div>
-      <Cursor path={[{ at: 0.4, x: 700, y: 330 }, { at: 1.0, x: M + 46, y: TOP + 26 }, { at: 1.18, x: M + 46, y: TOP + 26, tap: true }, { at: 1.9, x: 520, y: 300 }]} show={[0.4, 2.4]} />
     </>
   );
 };
@@ -160,7 +159,6 @@ const S4: React.FC = () => {
           <div style={{ ...small(28), marginTop: 6, ...life(t, 7.9) }}>After the event, reply to schedule a consultation.</div>
         </div>
       </div>
-      <Cursor path={[{ at: 6.6, x: 1250, y: 780 }, { at: 7.3, x: X + 98, y: 588 }, { at: 7.55, x: X + 98, y: 588, tap: true }, { at: 8.4, x: 1150, y: 720 }]} show={[6.6, 9.0]} />
       <Sfx at={7.0} name="pop" gain={0.5} />
     </>
   );
@@ -213,9 +211,7 @@ const S5: React.FC = () => {
           {row("clipboard", "Your medical history", 5.8, 1)}
           {row("coil", "Is Exomind right for you?", 7.6, 2)}
         </div>
-        <div style={{ marginTop: 34, ...life(t, 4.2) }}><StepPlayer times={[4.2, 5.1, 5.8]} end={7.6} /></div>
       </div>
-      <Cursor path={[{ at: 0.9, x: 520, y: 700 }, { at: 1.35, x: 600, y: 340 }, { at: 1.5, x: 600, y: 340, tap: true }, { at: 2.6, x: 540, y: 640 }, { at: 3.0, x: P.x + 26 + 74 * 1 + 32, y: P.y + 450 + 62 + 26, tap: true }, { at: 3.6, x: 700, y: 760 }]} show={[0.9, 3.8]} />
       {[5.1, 5.8, 7.6].map((a, i) => <Sfx key={i} at={a} name="yes" gain={0.4} />)}
     </>
   );
@@ -261,7 +257,6 @@ const S6: React.FC<{ dur: number }> = () => {
           )}
         </div>
       </div>
-      <Cursor path={[{ at: 2.6, x: 1500, y: 800 }, { at: 3.4, x: 1680, y: TOP - 30 + 444 }, { at: 3.65, x: 1680, y: TOP - 30 + 444, tap: true }, { at: 4.4, x: 1560, y: 800 }]} show={[2.6, 5.0]} />
       <Sfx at={0.3} name="card" gain={0.5} />
       <Sfx at={7.8} name="card" gain={0.45} />
     </>
@@ -283,7 +278,6 @@ const S7: React.FC<{ dur: number }> = ({ dur }) => {
         <Icon name="calendar" size={48} draw={prog(t, 2.5, 0.7)} color={t > 3.3 ? BLUE : INK} />
         <span style={label(28)}>See you in the office</span>
       </div>
-      <Cursor path={[{ at: 2.7, x: 1600, y: 320 }, { at: 3.2, x: 1440, y: TOP - 10 }, { at: 3.35, x: 1440, y: TOP - 10, tap: true }, { at: 4.0, x: 1560, y: 260 }]} show={[2.7, dur]} />
     </>
   );
 };
@@ -338,7 +332,6 @@ const S9: React.FC = () => {
       <div style={{ position: "absolute", left: XF + 40, top: Y - 120, display: "flex", alignItems: "center", gap: 14, ...life(t, 5.0) }}>
         <Icon name="brain" size={56} draw={prog(t, 5.0, 0.7)} color={BLUE} /><span style={label(28, BLUE)}>Beyond: the mind</span>
       </div>
-      <Cursor path={[{ at: 4.0, x: 1500, y: 800 }, { at: 4.45, x: XF - 160, y: Y }, { at: 4.6, x: XF - 160, y: Y, tap: true }, { at: 5.6, x: XF + 170, y: Y }, { at: 6.4, x: 1700, y: 760 }]} show={[4.0, 7.2]} />
     </>
   );
 };
@@ -362,7 +355,6 @@ const S10: React.FC<{ dur: number }> = ({ dur }) => {
         </div>
       </div>
       <div style={{ position: "absolute", left: 0, right: 0, top: 640, textAlign: "center" }}><Tag text="Our emotions show in our skin" at={3.75} /></div>
-      <Cursor path={[{ at: 1.6, x: 820, y: 900 }, { at: 1.9, x: 704, y: 806 }, { at: 2.0, x: 704, y: 806, tap: true }, { at: 2.9, x: 1216, y: 806 }, { at: 3.6, x: 1300, y: 900 }]} show={[1.6, 3.9]} />
     </>
   );
 };
@@ -390,7 +382,7 @@ export const S11: React.FC<{ dur: number }> = ({ dur }) => {
       <Sequence from={Math.round(MECH.c * 24)} layout="none"><div style={{ position: "absolute", inset: 0, opacity: scene(MECH.c, 99) }}><BrainScene t={t - MECH.c} /></div></Sequence>
       {/* drawn after the scenes so the full-frame clips never cover it. the progress control: the step player (components/YT.tsx; replaces v2's rail of six 20 px labels): one pill per step, the
           current step named beside it at label size */}
-      <div style={{ position: "absolute", left: M, top: 40 }}><StepPlayer times={STEPS.map((x) => x.at)} end={dur - 0.4} labels={STEPS.map((x) => x.label)} /></div>
+      <div style={{ position: "absolute", left: M, top: 40 }}><StepPlayer bare times={STEPS.map((x) => x.at)} end={dur - 0.4} labels={STEPS.map((x) => x.label)} /></div>
       <div style={{ position: "absolute", right: M, top: 40 + 36 - 12, ...label(22, MUTE), whiteSpace: "nowrap" }}>{src}</div>
       {STEPS.slice(1).map((s, i) => <Sfx key={i} at={s.at} name={i === 3 ? "swish" : "pop"} gain={0.4} />)}
     </>
@@ -605,7 +597,6 @@ const S13: React.FC<{ dur: number }> = ({ dur }) => {
           <div style={{ ...small(26, 500), marginTop: 30 }}>@drarielostad</div>
         </div>
       </div>
-      <Cursor path={[{ at: 0.6, x: 1700, y: 900 }, { at: 1.15, x: 1260, y: 600 }, { at: 1.35, x: 1260, y: 600, tap: true }, { at: 2.2, x: 1500, y: 820 }]} show={[0.6, dur]} />
       <Sfx at={0.1} name="card" gain={0.5} />
     </>
   );
