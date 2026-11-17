@@ -35,3 +35,9 @@ ls -la "$OUT"
 # v3: s8 opener: the Flora coil clip (AI render: Nano Banana Pro still from a real BTL coil frame, animated with Kling; supplied in
 # public/exomind-skin/flora/, gitignored) slowed to 0.875x with frame blending for the 5.7 s section (never looped)
 ffmpeg -v error -y -i "$OUT/../flora/coil_anim.mp4" -vf "setpts=PTS/0.875,minterpolate=fps=24:mi_mode=blend" -an -c:v libx264 -crf 14 -pix_fmt yuv420p "$OUT/../flora/coil_s8.mp4"
+
+# v5 (style DECISIONS 14f): s10 runs 0.5 s longer (to 69.9 s, so the "emotions" highlighter lands and holds before the cut), so its two
+# halves are slowed with frame blending (never looped, no shot change inside): the restless night, one shot (stressed2 0.09-3.70 s)
+# over 4.95 s, and the first calm shot (smile 0.05-2.0 s) over 2.39 s; the hiker shot then plays at 1x
+ffmpeg -v error -y -ss 0.09 -to 3.70 -i "$OUT/stressed2.mp4" -vf "setpts=(PTS-STARTPTS)*1.401,minterpolate=fps=24:mi_mode=blend" -an -c:v libx264 -crf 14 -pix_fmt yuv420p "$OUT/stressed2_v5.mp4"
+ffmpeg -v error -y -ss 0.05 -to 2.0 -i "$OUT/smile.mp4" -vf "setpts=(PTS-STARTPTS)*1.261,minterpolate=fps=24:mi_mode=blend" -an -c:v libx264 -crf 14 -pix_fmt yuv420p "$OUT/smile_v5.mp4"

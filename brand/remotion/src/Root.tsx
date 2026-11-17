@@ -2,6 +2,7 @@ import { Composition, staticFile } from "remotion";
 import { OstadReel } from "./OstadReel";
 import { OstadWide, WIDE_H, WIDE_W } from "./OstadWide";
 import { OstadYT, type YTProps } from "./OstadYT";
+import { OstadYT5 } from "./OstadYT5";
 import { YTSystem } from "./compositions/YTSystem";
 import { IdeaStills, type IdeaProps } from "./IdeaStills";
 import { LibraryProof, type ProofProps } from "./library/LibraryProof";
@@ -53,6 +54,20 @@ export const RemotionRoot: React.FC = () => (
     fps={24}
     durationInFrames={24 * 10}
     defaultProps={{ spec: undefined, debugFonts: false } as YTProps}
+    calculateMetadata={async ({ props }) => {
+      const spec = props.spec ?? (await (await fetch(staticFile("exomind-skin/props_yt.json"))).json()).spec;
+      return { durationInFrames: Math.round(spec.durationInSeconds * 24), props: { ...props, spec } };
+    }}
+  />
+  {/* OstadYT5: YouTube v5 (style DECISIONS 14f): the v4 base with library graphics on his words; same props as OstadYT */}
+  <Composition
+    id="OstadYT5"
+    component={OstadYT5}
+    width={1920}
+    height={1080}
+    fps={24}
+    durationInFrames={24 * 10}
+    defaultProps={{ spec: undefined } as YTProps}
     calculateMetadata={async ({ props }) => {
       const spec = props.spec ?? (await (await fetch(staticFile("exomind-skin/props_yt.json"))).json()).spec;
       return { durationInFrames: Math.round(spec.durationInSeconds * 24), props: { ...props, spec } };
