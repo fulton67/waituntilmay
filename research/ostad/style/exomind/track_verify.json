@@ -1,0 +1,55 @@
+{
+ "method": "track_verify.py: measure head tracking and face overlap on the YouTube v6 render (OstadYT6).\n\n1. Tip-to-landmark error. The composition pins B03 callout #1's tracked end to follow(track, \"headTop\") + (0, -24) and B16's callout tail to\n   follow(track, \"templeR\") + (40, -6) (brand/remotion/src/OstadYT6.tsx), both through the keyed layer LAYER6 (0.7x at (-30, -150)) and the time map\n   srcFrame = compFrame / 24 * 1.15 * 30. Here the same points are computed twice:\n     - \"drawn\": from research/ostad/style/exomind/track.json exactly as the composition does (what the arrow was drawn at);\n     - \"measured\": from a fresh MediaPipe Face Landmarker pass on the RENDERED frames (his keyed layer as it appears in the output),\n       on the left 960 px only (his; the BTL model on B16's card is also a face),\n       with headTop = foreheadTop + k (foreheadTop - chin), k = track.head_top_k, the head box = mesh extent up to headTop.\n   Error = |drawn - measured| in output px. It contains the track's smoothing lag, the time map, the layer transform, the keyed\n   source's alignment and the detector's own frame-to-frame noise on the render, i.e. everything between the track and his pixels.\n   Also measured over every frame he is on screen (headTop, the registration of the whole edit), not only the two beats.\n2. Face overlap. A second render of the same composition with `plain` (room + presenter only, same encoder settings) is subtracted\n   from the delivered render inside his face box (mesh extent, from the track, per frame). A frame overlaps when > 0.5 % of the box's\n   pixels differ by > 24 grey levels (encode-noise calibration: identical content re-encoded at crf 16 differs by <= 6 levels at p99.9).\n   The same is reported for the head box (to the top of the head); head-box overlaps on B01 (the wordmark passes BEHIND him), B03\n   (the callout's anchor on the crown) and B16 (the callout leaving his temple) are intended and listed.\nOutput: research/ostad/style/exomind/track_verify.json.\nRun: C:/Users/naimj/tools/style-venv/Scripts/python.exe -I research/ostad/style/tools/track_verify.py RENDER.mp4 PLAIN.mp4",
+ "render": "v6.mp4",
+ "frames": 2166,
+ "presenter_frames": 2009,
+ "detected": 2006,
+ "missed_detections": 3,
+ "tip_error": {
+  "B03_callout1_anchor_headTop": {
+   "n": 75,
+   "median_px": 2.07,
+   "p95_px": 4.14,
+   "max_px": 4.57
+  },
+  "B16_callout_tail_templeR": {
+   "n": 55,
+   "median_px": 1.84,
+   "p95_px": 3.04,
+   "max_px": 3.66
+  },
+  "all_presenter_frames_headTop": {
+   "n": 2006,
+   "median_px": 1.77,
+   "p95_px": 4.74,
+   "max_px": 21.14
+  },
+  "spec": "median < 6 px, p95 < 15 px (EXOMIND_REDO head tracking; 1080 short side)"
+ },
+ "face_overlap": {
+  "face_box_frames": 13,
+  "face_box_spans": [
+   {
+    "from": 1741,
+    "to": 1753,
+    "beat": "B17"
+   }
+  ],
+  "head_box_frames": 13,
+  "head_box_spans": [
+   {
+    "from": 1741,
+    "to": 1753,
+    "beat": "B17"
+   }
+  ],
+  "head_box_unintended_frames": 0,
+  "intended": {
+   "B17": "full-bleed step-out: the room crossfades into the full-bleed glass skull (f1741-1753)",
+   "B01": "title wordmark passes behind him (depth sandwich): behind the keyed layer, never over his pixels",
+   "B03": "callout #1's anchor sits on his crown (track headTop - 24 px), above the hairline",
+   "B16": "the callout tail sits 40 px outside his temple (track templeR); its stroke crosses his hair/ear on the way out, never the face mesh"
+  },
+  "face_box_spans_explained": "expected only on B17 f1741-1753 (the room crossfades into the full-bleed glass skull while he steps out); B04 no longer goes full bleed (DECISIONS 14n). No overlay covers his face while he is on the canvas"
+ }
+}

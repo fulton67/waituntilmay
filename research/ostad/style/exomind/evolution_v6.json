@@ -1,0 +1,475 @@
+{
+ "method": "evolution.py V6 V41 ROSACEA PLAIN OUT.jpg OUT.json : v6 vs v4.1 at each beat key frame, rosacea + ref sheet header, per-beat numbers.\nPer beat (same composition frame in both edits; both are the 1.15x edit at 24 fps, 2166 vs 2165 f):\n  - graphic px: % of the frame right of x 640 that differs from the room (v6 only, from the plain render, > 20 grey levels; v4.1 has\n    his room behind every graphic, so no plain reference exists and the number is not comparable), i.e. how much of the frame the beat's graphic fills;\n  - motion: mean abs frame difference over the beat outside his box (graphic motion, grey levels/frame) -> 'images never still';\n  - edge detail: Laplacian variance right of x 640 (designed detail vs flat).",
+ "beats": [
+  {
+   "beat": "B01",
+   "key_f": 60,
+   "devices": [
+    "wordmark-depth-sandwich",
+    "name-super"
+   ],
+   "graphic_area_pct_v6": 4.2,
+   "reuse_nearest_v6": 0.242,
+   "min_text_px_v6": 28,
+   "min_compliance_px_v6": null,
+   "graphic_motion_grey_per_f": {
+    "v6": 0.22,
+    "v4.1": 1.43
+   },
+   "longest_still_run_f": {
+    "v6": 2,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 114.6,
+    "v4.1": 144.2
+   }
+  },
+  {
+   "beat": "B02",
+   "key_f": 152,
+   "devices": [
+    "product-plate-reveal",
+    "arrow-straight-pointer"
+   ],
+   "graphic_area_pct_v6": 21.6,
+   "reuse_nearest_v6": 0.227,
+   "min_text_px_v6": 29.6,
+   "min_compliance_px_v6": null,
+   "graphic_motion_grey_per_f": {
+    "v6": 1.31,
+    "v4.1": 2.26
+   },
+   "longest_still_run_f": {
+    "v6": 0,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 274.9,
+    "v4.1": 119.4
+   }
+  },
+  {
+   "beat": "B03",
+   "key_f": 245,
+   "devices": [
+    "flow-diagram-build",
+    "arrow-curved-callout"
+   ],
+   "graphic_area_pct_v6": 15.4,
+   "reuse_nearest_v6": 0.195,
+   "min_text_px_v6": 26,
+   "min_compliance_px_v6": 24,
+   "graphic_motion_grey_per_f": {
+    "v6": 0.81,
+    "v4.1": 0.38
+   },
+   "longest_still_run_f": {
+    "v6": 0,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 489.5,
+    "v4.1": 165.8
+   }
+  },
+  {
+   "beat": "B04",
+   "key_f": 360,
+   "devices": [
+    "card-full-morph"
+   ],
+   "graphic_area_pct_v6": 98.5,
+   "reuse_nearest_v6": 0.258,
+   "min_text_px_v6": 28,
+   "min_compliance_px_v6": null,
+   "graphic_motion_grey_per_f": {
+    "v6": 5.6,
+    "v4.1": 1.8
+   },
+   "longest_still_run_f": {
+    "v6": 0,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 81.0,
+    "v4.1": 60.1
+   }
+  },
+  {
+   "beat": "B05",
+   "key_f": 525,
+   "devices": [
+    "spatial-glass-ui"
+   ],
+   "graphic_area_pct_v6": 8.2,
+   "reuse_nearest_v6": 0.266,
+   "min_text_px_v6": 27.2,
+   "min_compliance_px_v6": null,
+   "graphic_motion_grey_per_f": {
+    "v6": 0.85,
+    "v4.1": 0.61
+   },
+   "longest_still_run_f": {
+    "v6": 1,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 498.9,
+    "v4.1": 157.0
+   }
+  },
+  {
+   "beat": "B06",
+   "key_f": 655,
+   "devices": [
+    "phone-message-arrives"
+   ],
+   "graphic_area_pct_v6": 34.8,
+   "reuse_nearest_v6": 0.242,
+   "min_text_px_v6": 36.4,
+   "min_compliance_px_v6": null,
+   "graphic_motion_grey_per_f": {
+    "v6": 0.62,
+    "v4.1": 0.54
+   },
+   "longest_still_run_f": {
+    "v6": 0,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 212.1,
+    "v4.1": 204.0
+   }
+  },
+  {
+   "beat": "B07",
+   "key_f": 746,
+   "devices": [
+    "arrow-arc-connector",
+    "calendar-date-circle"
+   ],
+   "graphic_area_pct_v6": 25.6,
+   "reuse_nearest_v6": 0.227,
+   "min_text_px_v6": 26,
+   "min_compliance_px_v6": null,
+   "graphic_motion_grey_per_f": {
+    "v6": 1.99,
+    "v4.1": 0.26
+   },
+   "longest_still_run_f": {
+    "v6": 0,
+    "v4.1": 1
+   },
+   "detail_laplacian_var": {
+    "v6": 235.2,
+    "v4.1": 68.8
+   }
+  },
+  {
+   "beat": "B08",
+   "key_f": 870,
+   "devices": [
+    "intake-form-fill"
+   ],
+   "graphic_area_pct_v6": 7.7,
+   "reuse_nearest_v6": 0.273,
+   "min_text_px_v6": 27.1,
+   "min_compliance_px_v6": 23.4,
+   "graphic_motion_grey_per_f": {
+    "v6": 1.05,
+    "v4.1": 0.26
+   },
+   "longest_still_run_f": {
+    "v6": 0,
+    "v4.1": 1
+   },
+   "detail_laplacian_var": {
+    "v6": 948.0,
+    "v4.1": 244.6
+   }
+  },
+  {
+   "beat": "B09",
+   "key_f": 985,
+   "devices": [
+    "quote-card-carousel"
+   ],
+   "graphic_area_pct_v6": 5.3,
+   "reuse_nearest_v6": 0.227,
+   "min_text_px_v6": 25.6,
+   "min_compliance_px_v6": null,
+   "graphic_motion_grey_per_f": {
+    "v6": 1.2,
+    "v4.1": 0.53
+   },
+   "longest_still_run_f": {
+    "v6": 1,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 460.4,
+    "v4.1": 104.5
+   }
+  },
+  {
+   "beat": "B10",
+   "key_f": 1060,
+   "devices": [
+    "checklist-ledger"
+   ],
+   "graphic_area_pct_v6": 6.0,
+   "reuse_nearest_v6": 0.219,
+   "min_text_px_v6": 26.2,
+   "min_compliance_px_v6": null,
+   "graphic_motion_grey_per_f": {
+    "v6": 0.49,
+    "v4.1": 0.38
+   },
+   "longest_still_run_f": {
+    "v6": 1,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 495.8,
+    "v4.1": 196.9
+   }
+  },
+  {
+   "beat": "B11",
+   "key_f": 1168,
+   "devices": [
+    "windowed-footage"
+   ],
+   "graphic_area_pct_v6": 49.9,
+   "reuse_nearest_v6": 0.234,
+   "min_text_px_v6": 28,
+   "min_compliance_px_v6": null,
+   "graphic_motion_grey_per_f": {
+    "v6": 1.83,
+    "v4.1": 4.55
+   },
+   "longest_still_run_f": {
+    "v6": 0,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 209.6,
+    "v4.1": 25.9
+   }
+  },
+  {
+   "beat": "B12",
+   "key_f": 1225,
+   "devices": [
+    "portrait-pip-circle",
+    "timeline-markers",
+    "arrow-marker-tick"
+   ],
+   "graphic_area_pct_v6": 99.2,
+   "reuse_nearest_v6": 0.234,
+   "min_text_px_v6": 26,
+   "min_compliance_px_v6": null,
+   "graphic_motion_grey_per_f": {
+    "v6": 2.52,
+    "v4.1": 5.3
+   },
+   "longest_still_run_f": {
+    "v6": 2,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 405.2,
+    "v4.1": 39.4
+   }
+  },
+  {
+   "beat": "B13",
+   "key_f": 1360,
+   "devices": [
+    "donut-ring-fill"
+   ],
+   "graphic_area_pct_v6": 10.5,
+   "reuse_nearest_v6": 0.258,
+   "min_text_px_v6": 28,
+   "min_compliance_px_v6": 24,
+   "graphic_motion_grey_per_f": {
+    "v6": 0.7,
+    "v4.1": 1.78
+   },
+   "longest_still_run_f": {
+    "v6": 0,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 423.0,
+    "v4.1": 53.1
+   }
+  },
+  {
+   "beat": "B14",
+   "key_f": 1435,
+   "devices": [
+    "type-name-decode"
+   ],
+   "graphic_area_pct_v6": 2.2,
+   "reuse_nearest_v6": 0.188,
+   "min_text_px_v6": 46,
+   "min_compliance_px_v6": null,
+   "graphic_motion_grey_per_f": {
+    "v6": 0.85,
+    "v4.1": 1.51
+   },
+   "longest_still_run_f": {
+    "v6": 0,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 337.8,
+    "v4.1": 130.5
+   }
+  },
+  {
+   "beat": "B15",
+   "key_f": 1580,
+   "devices": [
+    "split-labelled"
+   ],
+   "graphic_area_pct_v6": 53.0,
+   "reuse_nearest_v6": 0.289,
+   "min_text_px_v6": 46,
+   "min_compliance_px_v6": null,
+   "graphic_motion_grey_per_f": {
+    "v6": 1.88,
+    "v4.1": 3.17
+   },
+   "longest_still_run_f": {
+    "v6": 0,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 289.8,
+    "v4.1": 52.7
+   }
+  },
+  {
+   "beat": "B16",
+   "key_f": 1700,
+   "devices": [
+    "arrow-light-ribbon"
+   ],
+   "graphic_area_pct_v6": 27.3,
+   "reuse_nearest_v6": 0.273,
+   "min_text_px_v6": 46,
+   "min_compliance_px_v6": 25.6,
+   "graphic_motion_grey_per_f": {
+    "v6": 1.29,
+    "v4.1": 4.43
+   },
+   "longest_still_run_f": {
+    "v6": 0,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 205.6,
+    "v4.1": 155.8
+   }
+  },
+  {
+   "beat": "B17",
+   "key_f": 1795,
+   "devices": [
+    "region-light-on-model",
+    "arrow-orbit-arc"
+   ],
+   "graphic_area_pct_v6": 54.2,
+   "reuse_nearest_v6": 0.227,
+   "min_text_px_v6": 45.6,
+   "min_compliance_px_v6": 22.8,
+   "graphic_motion_grey_per_f": {
+    "v6": 0.99,
+    "v4.1": 1.32
+   },
+   "longest_still_run_f": {
+    "v6": 2,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 136.4,
+    "v4.1": 71.5
+   }
+  },
+  {
+   "beat": "B18",
+   "key_f": 1838,
+   "devices": [
+    "mechanism-on-real-image",
+    "arrow-route-trace"
+   ],
+   "graphic_area_pct_v6": 99.7,
+   "reuse_nearest_v6": 0.273,
+   "min_text_px_v6": 33.8,
+   "min_compliance_px_v6": 22.8,
+   "graphic_motion_grey_per_f": {
+    "v6": 5.85,
+    "v4.1": 1.25
+   },
+   "longest_still_run_f": {
+    "v6": 0,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 266.9,
+    "v4.1": 54.1
+   }
+  },
+  {
+   "beat": "B19",
+   "key_f": 1975,
+   "devices": [
+    "topic-glass-panel",
+    "noise-clears"
+   ],
+   "graphic_area_pct_v6": 7.7,
+   "reuse_nearest_v6": 0.195,
+   "min_text_px_v6": 27.6,
+   "min_compliance_px_v6": 26.2,
+   "graphic_motion_grey_per_f": {
+    "v6": 1.31,
+    "v4.1": 1.07
+   },
+   "longest_still_run_f": {
+    "v6": 0,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 597.0,
+    "v4.1": 207.8
+   }
+  },
+  {
+   "beat": "B20",
+   "key_f": 2080,
+   "devices": [
+    "zoom-box-inset",
+    "arrow-dashed-flow"
+   ],
+   "graphic_area_pct_v6": 37.9,
+   "reuse_nearest_v6": 0.227,
+   "min_text_px_v6": 46,
+   "min_compliance_px_v6": 24.1,
+   "graphic_motion_grey_per_f": {
+    "v6": 1.73,
+    "v4.1": 1.11
+   },
+   "longest_still_run_f": {
+    "v6": 2,
+    "v4.1": 0
+   },
+   "detail_laplacian_var": {
+    "v6": 395.7,
+    "v4.1": 191.2
+   }
+  }
+ ]
+}

@@ -1,0 +1,624 @@
+{
+ "method": "pip_verify.py: measure B12's portrait circle (OstadYT6) on the rendered video, every frame of the beat.\n\nNaim's review of v6 (DECISIONS 14m, note 9): the circle must be a true circular mask, his face-box centre (the track's mesh box) at the\ncircle's centre, head + top of shoulders filling about 75-80 % of the diameter, nothing of him outside the circle.\nPer frame of B12 (after the 5 f pop):\n  - circle (the mask edge): found on the render by a Hough circle fit on the pip's region (so the +-3 px float and the pop are measured, not assumed);\n  - face: MediaPipe Face Landmarker on the region upscaled 3x; face-box centre = mesh extent centre (what track.json's face box is);\n    offset = |face centre - circle centre| / diameter (spec < 4 %);\n  - fill: (circle bottom - head top) / diameter, head top = forehead + k (forehead - chin), k = track.head_top_k (spec ~75-80 %);\n  - outside: pixels in a 30 px annulus just outside the frosted ring (r + 24 .. r + 54, past the 10 px frosted ring), the tag and the timeline labels (x >= 360) excluded, that are darker than the cream\n    canvas by > 40 grey levels (his scrubs/hair would be; spec 0).\nRun: C:/Users/naimj/tools/style-venv/Scripts/python.exe -I research/ostad/style/tools/pip_verify.py RENDER.mp4 [FIRST_FRAME]\nOutput: research/ostad/style/exomind/pip_verify.json",
+ "frames": 55,
+ "measured": 55,
+ "offset_pct": {
+  "median": 0.55,
+  "max": 1.49,
+  "spec": "< 4 % of the diameter on every frame"
+ },
+ "fill_pct": {
+  "median": 78.5,
+  "min": 76.0,
+  "max": 80.0,
+  "spec": "about 75-80 %"
+ },
+ "outside_dark_px_max": 0,
+ "rows": [
+  {
+   "f": 1187,
+   "circle": [
+    219.5,
+    689.5,
+    127.7
+   ],
+   "offset_pct": 1.49,
+   "fill_pct": 76.0,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1188,
+   "circle": [
+    218.5,
+    692.5,
+    128.8
+   ],
+   "offset_pct": 0.74,
+   "fill_pct": 77.4,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1189,
+   "circle": [
+    219.5,
+    692.5,
+    127.6
+   ],
+   "offset_pct": 0.45,
+   "fill_pct": 77.5,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1190,
+   "circle": [
+    218.5,
+    692.5,
+    128.8
+   ],
+   "offset_pct": 0.57,
+   "fill_pct": 77.3,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1191,
+   "circle": [
+    219.5,
+    690.5,
+    127.7
+   ],
+   "offset_pct": 0.98,
+   "fill_pct": 77.0,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1192,
+   "circle": [
+    218.5,
+    692.5,
+    128.8
+   ],
+   "offset_pct": 0.69,
+   "fill_pct": 77.5,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1193,
+   "circle": [
+    219.5,
+    690.5,
+    127.7
+   ],
+   "offset_pct": 1.0,
+   "fill_pct": 77.0,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1194,
+   "circle": [
+    218.5,
+    690.5,
+    126.5
+   ],
+   "offset_pct": 1.16,
+   "fill_pct": 77.7,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1195,
+   "circle": [
+    218.5,
+    690.5,
+    126.5
+   ],
+   "offset_pct": 1.13,
+   "fill_pct": 77.7,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1196,
+   "circle": [
+    219.5,
+    693.5,
+    127.6
+   ],
+   "offset_pct": 0.34,
+   "fill_pct": 78.3,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1197,
+   "circle": [
+    217.5,
+    693.5,
+    129.9
+   ],
+   "offset_pct": 1.01,
+   "fill_pct": 77.7,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1198,
+   "circle": [
+    219.5,
+    693.5,
+    127.6
+   ],
+   "offset_pct": 0.16,
+   "fill_pct": 78.3,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1199,
+   "circle": [
+    219.5,
+    693.5,
+    127.6
+   ],
+   "offset_pct": 0.16,
+   "fill_pct": 78.3,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1200,
+   "circle": [
+    219.5,
+    693.5,
+    127.6
+   ],
+   "offset_pct": 0.32,
+   "fill_pct": 78.6,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1201,
+   "circle": [
+    219.5,
+    693.5,
+    127.6
+   ],
+   "offset_pct": 0.34,
+   "fill_pct": 78.4,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1202,
+   "circle": [
+    219.5,
+    693.5,
+    127.6
+   ],
+   "offset_pct": 0.38,
+   "fill_pct": 78.5,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1203,
+   "circle": [
+    219.5,
+    693.5,
+    127.6
+   ],
+   "offset_pct": 0.49,
+   "fill_pct": 78.7,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1204,
+   "circle": [
+    219.5,
+    693.5,
+    127.6
+   ],
+   "offset_pct": 0.56,
+   "fill_pct": 78.8,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1205,
+   "circle": [
+    219.5,
+    693.5,
+    127.6
+   ],
+   "offset_pct": 0.58,
+   "fill_pct": 78.7,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1206,
+   "circle": [
+    219.5,
+    693.5,
+    127.6
+   ],
+   "offset_pct": 0.6,
+   "fill_pct": 78.7,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1207,
+   "circle": [
+    219.5,
+    693.5,
+    127.6
+   ],
+   "offset_pct": 0.52,
+   "fill_pct": 78.4,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1208,
+   "circle": [
+    219.5,
+    693.5,
+    127.6
+   ],
+   "offset_pct": 0.46,
+   "fill_pct": 78.6,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1209,
+   "circle": [
+    219.5,
+    693.5,
+    127.6
+   ],
+   "offset_pct": 0.33,
+   "fill_pct": 78.7,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1210,
+   "circle": [
+    219.5,
+    693.5,
+    127.6
+   ],
+   "offset_pct": 0.25,
+   "fill_pct": 79.1,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1211,
+   "circle": [
+    219.5,
+    693.5,
+    127.6
+   ],
+   "offset_pct": 0.19,
+   "fill_pct": 79.0,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1212,
+   "circle": [
+    219.5,
+    693.5,
+    127.6
+   ],
+   "offset_pct": 0.53,
+   "fill_pct": 80.0,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1213,
+   "circle": [
+    219.5,
+    692.5,
+    127.6
+   ],
+   "offset_pct": 0.09,
+   "fill_pct": 79.4,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1214,
+   "circle": [
+    220.5,
+    691.5,
+    128.7
+   ],
+   "offset_pct": 0.4,
+   "fill_pct": 78.4,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1215,
+   "circle": [
+    219.5,
+    692.5,
+    127.6
+   ],
+   "offset_pct": 0.31,
+   "fill_pct": 78.7,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1216,
+   "circle": [
+    219.5,
+    692.5,
+    127.6
+   ],
+   "offset_pct": 0.13,
+   "fill_pct": 78.6,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1217,
+   "circle": [
+    219.5,
+    690.5,
+    127.7
+   ],
+   "offset_pct": 0.72,
+   "fill_pct": 77.8,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1218,
+   "circle": [
+    219.5,
+    690.5,
+    127.7
+   ],
+   "offset_pct": 0.77,
+   "fill_pct": 77.9,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1219,
+   "circle": [
+    219.5,
+    690.5,
+    127.7
+   ],
+   "offset_pct": 0.57,
+   "fill_pct": 78.1,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1220,
+   "circle": [
+    219.5,
+    690.5,
+    127.7
+   ],
+   "offset_pct": 0.48,
+   "fill_pct": 78.2,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1221,
+   "circle": [
+    218.5,
+    691.5,
+    128.8
+   ],
+   "offset_pct": 0.57,
+   "fill_pct": 78.5,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1222,
+   "circle": [
+    220.5,
+    689.5,
+    126.6
+   ],
+   "offset_pct": 0.59,
+   "fill_pct": 78.5,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1223,
+   "circle": [
+    220.5,
+    689.5,
+    126.6
+   ],
+   "offset_pct": 0.65,
+   "fill_pct": 78.9,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1224,
+   "circle": [
+    220.5,
+    689.5,
+    126.6
+   ],
+   "offset_pct": 0.49,
+   "fill_pct": 79.0,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1225,
+   "circle": [
+    219.5,
+    691.5,
+    127.6
+   ],
+   "offset_pct": 0.62,
+   "fill_pct": 79.5,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1226,
+   "circle": [
+    220.5,
+    688.5,
+    126.6
+   ],
+   "offset_pct": 1.06,
+   "fill_pct": 78.3,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1227,
+   "circle": [
+    220.5,
+    689.5,
+    128.7
+   ],
+   "offset_pct": 0.58,
+   "fill_pct": 78.1,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1228,
+   "circle": [
+    220.5,
+    689.5,
+    128.7
+   ],
+   "offset_pct": 0.56,
+   "fill_pct": 78.1,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1229,
+   "circle": [
+    220.5,
+    688.5,
+    126.6
+   ],
+   "offset_pct": 0.91,
+   "fill_pct": 78.2,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1230,
+   "circle": [
+    220.5,
+    688.5,
+    126.6
+   ],
+   "offset_pct": 0.77,
+   "fill_pct": 78.4,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1231,
+   "circle": [
+    219.5,
+    689.5,
+    127.6
+   ],
+   "offset_pct": 0.14,
+   "fill_pct": 78.5,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1232,
+   "circle": [
+    219.5,
+    689.5,
+    127.6
+   ],
+   "offset_pct": 0.15,
+   "fill_pct": 78.5,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1233,
+   "circle": [
+    219.5,
+    689.5,
+    127.6
+   ],
+   "offset_pct": 0.18,
+   "fill_pct": 78.7,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1234,
+   "circle": [
+    219.5,
+    689.5,
+    127.6
+   ],
+   "offset_pct": 0.37,
+   "fill_pct": 79.0,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1235,
+   "circle": [
+    219.5,
+    689.5,
+    127.6
+   ],
+   "offset_pct": 0.45,
+   "fill_pct": 79.0,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1236,
+   "circle": [
+    219.5,
+    689.5,
+    127.6
+   ],
+   "offset_pct": 0.57,
+   "fill_pct": 79.2,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1237,
+   "circle": [
+    219.5,
+    688.5,
+    127.6
+   ],
+   "offset_pct": 0.35,
+   "fill_pct": 79.0,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1238,
+   "circle": [
+    219.5,
+    688.5,
+    127.6
+   ],
+   "offset_pct": 0.32,
+   "fill_pct": 78.5,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1239,
+   "circle": [
+    219.5,
+    688.5,
+    127.6
+   ],
+   "offset_pct": 0.55,
+   "fill_pct": 78.8,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1240,
+   "circle": [
+    219.5,
+    688.5,
+    127.6
+   ],
+   "offset_pct": 0.63,
+   "fill_pct": 78.7,
+   "outside_dark_px": 0
+  },
+  {
+   "f": 1241,
+   "circle": [
+    219.5,
+    688.5,
+    127.6
+   ],
+   "offset_pct": 0.55,
+   "fill_pct": 78.1,
+   "outside_dark_px": 0
+  }
+ ]
+}

@@ -613,3 +613,104 @@ The brief: the Oct 14 (2026) session. The 4:44 PM intro ("we're here with our lo
 - **Arrows only where a change is visible.** The regions will come from `brand/scripts/oct14_pairs.py` (written when the footage lands): the after frame is aligned to the before frame, and a region needs his named target, a measured change above the same-clip noise floor, and a visible difference on the side-by-side check. Each choice is logged in `oct14/ARROWS.md`. "Right after" is labelled as immediate, with "Individual results vary."
 - **The lab used placeholder media** (`oct14_placeholder.py`: a synthetic mannequin face). No patient frame was used to build the devices.
 - **Measured (lab):** pips reveal at cue +0/+1 f with 0 px overshoot, and the point is never covered. Before/after pushes land on the word +1 and outlines start on their token. Static-image minimum 0.80 against 0.16. 0 flashes. Lint PASS.
+
+## 14l. ExoMind YouTube v6 built: OstadYT6, the required fixes, and how each was measured (2026-11-17)
+
+- **Composition.** `brand/remotion/src/OstadYT6.tsx`, registered in Root.tsx (2166 f, 24 fps, 1920x1080). It reads `exomind/beats.json` directly. v4.1 (`OstadYT.tsx`) and its render are untouched. Render: `Downloads/Ostad - Exomind and total skin health (YouTube v6).mp4` (crf 16, local only).
+- **Presenter.** One placement in every beat: the keyed layer (VP9 alpha webm from matte_fgr_cut + matte_pha_cut) at LAYER6 = 0.7x at (-30, -150). He steps out only on full-bleed beats (B04 morph, B12 photo, B17-B18).
+- **No LUT.** The rosacea edit had no grade (client rule `grade: false`, 14d).
+- **Arrows (fix 1).** `devices/Arrow.tsx`:
+  - stroke tapers 2 px (tail) to 8 px (near the head);
+  - filled swept barb head (`HEAD_K` 4.6), brand blue `#37a9e8`;
+  - soft shadow plus a 1.4 W glow;
+  - dashes are heavier (0.72 W).
+  - Timings are unchanged: arrow_type_proof re-run, draw 7 / 7 / 7 / 24 / 8 / 8 f against the references.
+  - Curved-callout ink-mass settle now reads 14 f because the glow adds mass after the head lands; the head still lands at +7 f.
+  - Light ribbon draws 37 f against 28.
+- **TypeNameDecode (fix 2).** No asterisks. Each letter shows a ghost glyph drawn from the line's own letters, cycling every 2 f, blurred 7 → 3 px, then lands sharp in 3 f on its frame.
+- **16:9 scale (fix 3).** A DOM text audit (`TEXTAUDIT` console lines through renderStill) on all 25 key frames:
+  - body and label text ≥ 26 px;
+  - compliance lines ≥ 22.8 px;
+  - section headlines 103–151 px;
+  - subject cards ≥ 38 % of the frame width (B04 / B11 740 px; B09 840 px; B16 800 px; B15 1150 px).
+- **Head tracking (fix 4).** `tools/track_verify.py` → `exomind/track_verify.json`. It runs a fresh MediaPipe pass on the rendered frames, left 960 px only, so other faces in the frame are ignored.
+  - B03 callout anchor on headTop: median 1.99 px, p95 4.18 px.
+  - Whole edit, headTop: median 1.78 px, p95 5.04 px.
+  - Face-box overlap: 23 frames, all in the two full-bleed step-out transitions (B04 f387–396, B17 f1741–1753), logged as intended.
+- **Images never still (fix 5).** `lint_compositions.py --static-image` PASS.
+  - B15's office clip ran out and froze at 0.85x. It is now at 0.64x.
+  - Every component exit now ends inside its beat. Single-frame flash scan: 0.
+- **Compliance (fix 6).** Disclaimers are 24 px (render 22.8–24.1). ⚠ items are in TODO.md.
+- **Checks.**
+  - variety_check and reuse_check: PASS; nearest earlier edit ≥ 0.188 against threshold 0.107.
+  - lint: 32 files, 0 violations.
+  - scdet cuts only at f1181, f1242, f1811, f1850 (intended).
+  - Loudness -14.1 LUFS; true peak -4.4 dBTP.
+- **Not done: publishing.** `app/brand/ostad` has no edits list or rosacea entry to sit beside. Its only video is the kit reel, so a v6 entry was not invented.
+- **Sheets (gitignored).** `exomind/v6_stills_sheet.jpg` and `exomind/evolution_sheet.jpg`. Per-beat numbers are in `exomind/evolution_v6.json`.
+
+## 14m. v6 after Naim's review (2026-11-17): every graphic must show what is said
+
+Naim watched v6. His notes, each fixed in OstadYT6 and re-rendered in place:
+
+1. **Arrow colour.** The first arrow, B02's product pointer, was ink. It is now blue. Every other arrow is also blue at the default weight 8 with the barb head:
+   - the B17 orbit arcs (were three tints and weights);
+   - the B18 route trace (was white);
+   - the B12 timeline ticks (were ink/sky).
+2. **B12 pip.** The keyed layer in the 260 px circle is placed per frame from the track. The mesh face-box centre sits on the circle centre. The scale is held for the beat so the head box is 62 % of the circle, which leaves a little shoulder.
+3. **B13 donut.** Each chip now shows its label, at 180 px (was 140):
+   - **Skin care:** his own CEG + Ferulic Complex serum (clinic catalog row 374, product shot).
+   - **Treatments:** a Clear + Brilliant laser handpiece on a forehead (clinic catalog row 451, needs_review 0, no patient code).
+   - **The mind:** the ExoMind coil on a patient's head in his office (IMG_3712). This replaces a generic brain render; it is how this practice treats the mind.
+4. **B15 split.**
+   - **Classic:** a Fraxel laser pass on a jaw, from the practice's clinic catalog (clinic-library row 1705, procedure-footage, no patient code, needs_review 0, face not identifiable). It drifts and pushes the whole span.
+     - The first pick (a series cover of him with an articulated laser, row 907) was dropped: the catalog has it as needs_review.
+     - The local frame is 432x768 and shows at 1.4x in the split card. ⚠ Pull the full-size original once iCloud's index recovers (HANDOFF: iCloud is not touched now).
+   - **Beyond:** the ExoMind session footage (office_treat.mp4). ExoMind no longer appears on both sides.
+5. **B16 and B20: no empty signifiers.**
+   - **B16** ("how our emotions improve our skin") is now a sourced bar-build: the National Rosacea Society survey of 1,066 rosacea patients, flare triggers sun exposure 81 %, emotional stress 79 %, hot weather 75 %.
+     - On "emotions" the stress row lights.
+     - A curved callout leaves his head (tail on track templeR + 40 px, measured median 1.95 px, p95 3.05 px) and lands on that row.
+     - ⚠ The figures need a physician / source check before publishing.
+   - **B20** is now the practice's own patient (P0001, consent unknown, on the approval list), sitting up on the treatment bed after her session.
+     - Source: the Nov 5 consult, raw 29.6–34.4 s, cropped to her, muted.
+     - A dashed flow leads to her exact words from that clip's transcript, in italic: "It quiets my brain." — Patient, Dr. Ostad's office.
+     - The skin disclaimer stays.
+     - Her sleep line ("truly my sleep is better") is not used: no sleep claim on screen.
+- **Clinic catalog (coordinator, per Naim).** Every new image is from `C:/Users/naimj/clinic-library`, read-only, local previews/frames only.
+  - HANDOFF rules followed: iCloud untouched, `tmp/` untouched, no names, no needs_review/SENSITIVE items, every patient item on the approval list.
+  - B16 is a sourced chart (no image). The B20 clip is catalog row 30 (P0001).
+- **beats.json.**
+  - B16 devices = bar-build + arrow-curved-callout.
+  - B20 = windowed-footage + type-italic-voice + arrow-dashed-flow.
+  - Assets, events, image layers and SFX are updated. variety_check: PASS.
+- **Coordinator's newapology motion polish (site.md §9): skipped.** The durations already match within one frame: `arrive` is 14 f = 583 ms against 600 ms, and the B04 morph is 26 f = 1083 ms against 1100 ms. The remaining differences are spread across ~20 component files as literals:
+  - the bezier;
+  - a 12 px rise against our 16 px;
+  - the chip width morph with a blur crossfade.
+  Changing them would invalidate the measured arrow/type proofs (14k) and need a full re-verification. Left for a separate, measured pass.
+
+## 14n. v6 after Naim's notes 7-9 (2026-11-17)
+Source: Naim's second review of the v6 render, relayed by the coordinator. All three fixed before the re-render, in v6's style.
+- **7. No full-frame blur anywhere.** He dislikes the blurred side-fill and likes Ostad keyed in front on the left with the footage beside him.
+  - B04 "In our office": the consult card no longer goes full bleed between blurred copies of itself. It grows into a large clean rounded window on the cream canvas (x 640-1880, y 36-936, r 18) and he stays keyed on the left the whole beat.
+    - The clip is a new 1080x784 crop of the Nov 5 raw take (catalog row 30: both of them waist-up, raw 1.0-8.0 s, no cuts), so the window shows it at 1.15x. It fills the window (cover) with a measured 1.00 -> 1.04 push.
+  - B12: IMG_3714 now sits in a clean rounded window right (640x853, the 768x1024 preview at 0.83x), two depth layers, 1.00 -> 1.06 push; no blurred side fill.
+  - B17: the full-frame blurred copy of the skull plate behind it is replaced by the cream canvas; the masked plate fades into it.
+  - Checked: no other `blur()` fill of footage or photos remains (the remaining blurs are glass backdrops, shadows and type transitions).
+- **8. The event is Tuesday, December 8 (2026-12-08 is a Tuesday).**
+  - B06 lock screen: "Tuesday, December 8", 7:48 (evening, the message says "tonight").
+  - B07 calendar: "Week of December 14", Mon 14 - Fri 18; the circled slot is Thu 17, 10:30, still labelled "Illustration".
+  - No other on-screen date exists (B12's timeline shows durations, not dates).
+- **9. B12 pip: a true circle, his face centred.**
+  - The mask is a `clip-path: circle()` (border-radius + overflow let the composited video escape as a square edge), with the rim drawn over the mask edge.
+  - His face-box centre (track.ts, per frame) sits on the circle centre. The scale is held for the beat: head box = 46 % of the diameter, so head + top of the shoulders fill ~77 %.
+  - His keyed take ends at the camera frame's left edge, which cuts his left shoulder. On the light backdrop that cut read as a square edge, so the backdrop is now studio-dark and reaches his scrubs' colour by the shoulder line.
+  - Measured on the render with the new `research/ostad/style/tools/pip_verify.py` (Hough circle fit + MediaPipe on every frame of B12): see `exomind/pip_verify.json` and the numbers below.
+- **Measured on the re-render** (2166 f, 90.261 s; -14.1 LUFS, peak -4.4 dB):
+  - B12 pip (`exomind/pip_verify.json`, 55 frames after the pop): face-centre offset median 0.55 %, max 1.49 % of the diameter (spec < 4 %); head + shoulders fill median 78.5 % (76.0-80.0 %); 0 dark pixels outside the circle.
+  - scdet cuts only at f1181, 1242, 1811, 1850 (intended); single-frame flash candidates 0.
+  - Static-image lint PASS; code lint PASS (32 files); variety PASS; reuse PASS (nearest 0.188 vs 0.107).
+  - Tracking (`track_verify.json`): B03 median 2.07 / p95 4.14 px; B16 tail 1.84 / 3.04 px; whole edit headTop 1.77 / 4.74 px. Face-box overlap: 13 frames, all B17 f1741-1753 (intended step-out); B04's 10 frames are gone because B04 no longer goes full bleed.
+  - Min text 26 px; compliance min 24 px (B03 disclaimer).
+  - `exomind/evolution_v6.json` is from the build before notes 7-9 and was not re-run.

@@ -238,7 +238,7 @@
     {
      "f": 150,
      "word": "and",
-     "what": "chip 'FDA-cleared: major depressive disorder' arrives (`arrive` 14 f) under the label ⚠"
+     "what": "chip 'FDA-cleared: major depressive disorder' arrives (`arrive` 14 f) under the label \u26a0"
     },
     {
      "f": 106,
@@ -492,7 +492,7 @@
    "assets": [
     {
      "kind": "video",
-     "src": "clinic: Nov 5 raw ExoMind consult (Ostad + P0001), via catalog.sqlite; v4.1 used clips/consult_q.mp4",
+     "src": "clinic: Nov 5 2026 raw ExoMind consult (Ostad + P0001), catalog row 30, a 1080x784 crop of the portrait take (consult_wide.mp4, raw 1.0-8.0 s)",
      "source": "clinic",
      "consent": "P0001 unknown"
     }
@@ -506,22 +506,22 @@
     {
      "f": 314,
      "word": "conversation,",
-     "what": "card -> full frame on `morph` 26 f (radius 24 -> 0); keyed Ostad + canvas fade out 5 f"
+     "what": "card grows on `morph` 26 f into a large clean rounded window on the cream canvas beside him (x 640-1880, y 36-936, r 18); he stays keyed in front on the left; no blur fill (Naim's review of v6, notes 7-9 (DECISIONS 14n))"
     },
     {
      "f": 341,
      "word": "and",
-     "what": "chip 'In our office' pops (`type-scale-pop` 5 f, 0.95->1)"
+     "what": "chip 'In our office' pops inside the window (`type-scale-pop` 5 f)"
     },
     {
      "f": 314,
      "word": "(hold)",
-     "what": "footage pushes 1.00->1.04 (in-out) over the full-bleed span"
+     "what": "footage fills the window (cover) and pushes 1.00->1.04 (in-out)"
     },
     {
      "f": 386,
      "word": "care.",
-     "what": "full frame -> card on `morph` 26 f, keyed Ostad fades back 5 f; card exits 7 f at f406"
+     "what": "window -> card on `morph` 26 f; card exits 7 f at f406"
     }
    ],
    "keyframe": {
@@ -564,7 +564,8 @@
    "never_built_devices": [
     "card-full-morph"
    ],
-   "never_built": true
+   "never_built": true,
+   "review": "Naim's review of v6, notes 7-9 (DECISIONS 14n): no full-frame blurred pillarbox; Ostad keyed in front on the left, the footage beside him in a clean window"
   },
   {
    "id": "B05",
@@ -594,7 +595,7 @@
     {
      "f": 460,
      "word": "email",
-     "what": "near panel: envelope icon + 'Email · from our team' slides in from the right 9 f, 3.4 % H (type-slide-side)"
+     "what": "near panel: envelope icon + 'Email \u00b7 from our team' slides in from the right 9 f, 3.4 % H (type-slide-side)"
     },
     {
      "f": 473,
@@ -673,7 +674,7 @@
    "assets": [
     {
      "kind": "ui",
-     "src": "glass phone object (3D tilt), lock screen, message card from 'Dr. Ostad's office', built",
+     "src": "glass phone object (3D tilt), lock screen, message card from 'Dr. Ostad's office', built; lock screen 'Tuesday, December 8', 7:48",
      "source": "built"
     }
    ],
@@ -691,7 +692,7 @@
     {
      "f": 588,
      "word": "your",
-     "what": "sender row 'Dr. Ostad's office · now' fades 4 f"
+     "what": "sender row 'Dr. Ostad's office \u00b7 now' fades 4 f"
     },
     {
      "f": 593,
@@ -763,7 +764,8 @@
     "phone-message-arrives": "partial"
    },
    "never_built_devices": [],
-   "never_built": false
+   "never_built": false,
+   "review": "Naim's review of v6, notes 7-9 (DECISIONS 14n): the lock screen reads 'Tuesday, December 8' (the event, 2026-12-08 is a Tuesday), 7:48 pm"
   },
   {
    "id": "B07",
@@ -867,7 +869,8 @@
     "calendar-date-circle": "partial"
    },
    "never_built_devices": [],
-   "never_built": false
+   "never_built": false,
+   "review": "Naim's review of v6, notes 7-9 (DECISIONS 14n): the booking week is the one after the event: 'Week of December 14', Mon 14 - Fri 18; the circled slot is Thu 17, 10:30"
   },
   {
    "id": "B08",
@@ -907,7 +910,7 @@
     {
      "f": 813,
      "word": "history,",
-     "what": "three rows tick +16/+20/+24 f: 'Current medications' f829, 'Implanted devices' f833, 'Medical conditions' f837 ⚠"
+     "what": "three rows tick +16/+20/+24 f: 'Current medications' f829, 'Implanted devices' f833, 'Medical conditions' f837 \u26a0"
     },
     {
      "f": 844,
@@ -1002,7 +1005,7 @@
    "assets": [
     {
      "kind": "ui",
-     "src": "Q&A panel 'Your questions · live' with question cards; the three questions are the brochure FAQ headings",
+     "src": "Q&A panel 'Your questions \u00b7 live' with question cards; the three questions are the brochure FAQ headings",
      "source": "built",
      "credit": "Questions: Exomind patient brochure FAQ"
     }
@@ -1272,12 +1275,12 @@
     {
      "f": 1181,
      "word": "We",
-     "what": "hard cut to IMG_3714 full frame; 3 depth layers (staff+console / patient+coil / wall) push at 1.0 / 0.6 / 0.3 rates, 1.00->1.06 over the beat"
+     "what": "hard cut: IMG_3714 in a clean rounded window right (640x853, never upscaled), 2 depth layers push at 1.0 / 0.6, 1.00->1.06 over the beat; no blur side fill (Naim's review of v6, notes 7-9 (DECISIONS 14n))"
     },
     {
      "f": 1181,
      "word": "We",
-     "what": "Ostad drops into a 260 px circle bottom-left (keyed footage inside), pops on the cut"
+     "what": "Ostad drops into a 260 px circle bottom-left: a clip-path circular mask, rim drawn over its edge, studio-dark backdrop; his face-box centre on the circle centre per frame (track.ts), head + top of shoulders ~77 % of the diameter (pip_verify.json)"
     },
     {
      "f": 1198,
@@ -1287,7 +1290,7 @@
     {
      "f": 1207,
      "word": "in",
-     "what": "marker 'Session' pops, segment label 'about 20-30 min' scale-pops 5 f ⚠"
+     "what": "marker 'Session' pops, segment label 'about 20-30 min' scale-pops 5 f \u26a0"
     },
     {
      "f": 1214,
@@ -1348,7 +1351,7 @@
    "start_s": 49.167,
    "end_s": 51.708,
    "text_only": false,
-   "track": null,
+   "track": "pip: the keyed layer inside the 260 px circle is placed per frame so the mesh face box centre sits on the circle centre; scale held for the beat so the head box is 62 % of the circle (Naim's review of v6 (DECISIONS 14m))",
    "sfx_hero": [
     1181,
     "swish"
@@ -1362,7 +1365,8 @@
     "portrait-pip-circle",
     "arrow-marker-tick"
    ],
-   "never_built": true
+   "never_built": true,
+   "review": "Naim's review of v6, notes 7-9 (DECISIONS 14n)"
   },
   {
    "id": "B13",
@@ -1390,21 +1394,20 @@
     },
     {
      "kind": "image",
-     "src": "btl/img/Exomind_PIC_Female-Model3_0249_ENNA100.jpg (skin chip)",
-     "source": "btl",
-     "credit": "Image: BTL Industries"
+     "src": "practice bank: Dr. Ariel Ostad CEG + Ferulic Complex serum product shot (skin care chip)",
+     "source": "clinic"
     },
     {
      "kind": "image",
-     "src": "clinic: IMG_3712 crop (treatment chip)",
+     "src": "practice bank: Clear + Brilliant handpiece on a forehead, IMG_1952 still (treatments chip)",
+     "source": "clinic",
+     "consent": "patient not identifiable"
+    },
+    {
+     "kind": "image",
+     "src": "clinic: IMG_3712 crop, the ExoMind coil on the patient's head (mind chip)",
      "source": "clinic",
      "consent": "P0006 unknown"
-    },
-    {
-     "kind": "image",
-     "src": "flora/head_A_glass_brain.png (mind chip)",
-     "source": "built",
-     "ai_generated": true
     }
    ],
    "events": [
@@ -1446,7 +1449,7 @@
    ],
    "image_layers": [
     {
-     "asset": "btl/Female-Model3_0249.jpg",
+     "asset": "clinic/ceg_ferulic.jpg",
      "box": [
       1500,
       180,
@@ -1457,7 +1460,7 @@
      "to_f": 1371
     },
     {
-     "asset": "clinic/IMG_3712.jpg",
+     "asset": "clinic/cb_00451.jpg",
      "box": [
       1560,
       560,
@@ -1468,7 +1471,7 @@
      "to_f": 1371
     },
     {
-     "asset": "flora/head_A_glass_brain.png",
+     "asset": "clinic/IMG_3712.jpg",
      "box": [
       960,
       380,
@@ -1519,7 +1522,8 @@
     "donut-ring-fill": "partial"
    },
    "never_built_devices": [],
-   "never_built": false
+   "never_built": false,
+   "review": "Naim's review of v6 (DECISIONS 14m): chips must show what the label says (his own skincare, a classic treatment, the mind as ExoMind on a head)"
   },
   {
    "id": "B14",
@@ -1616,28 +1620,28 @@
    "immersion": "split",
    "assets": [
     {
-     "kind": "video",
-     "src": "clips/office_treat.mp4 (practice treatment footage)",
+     "kind": "image",
+     "src": "clinic catalog row 1705 (Fraxel laser pass on a jaw, procedure-footage, 2024-02-26), local frame f0005 432x768; full-size original to pull when iCloud recovers",
      "source": "clinic",
-     "consent": "patient in frame: check"
+     "consent": "no patient code; face not identifiable"
     },
     {
-     "kind": "image",
-     "src": "flora/head_A_glass_brain.png (glass head, slow 2.5D turn)",
-     "source": "built",
-     "ai_generated": true
+     "kind": "video",
+     "src": "clips/office_treat.mp4 (ExoMind session in his office)",
+     "source": "clinic",
+     "consent": "patient in frame: check"
     }
    ],
    "events": [
     {
      "f": 1450,
      "word": "taking",
-     "what": "left panel arrives (`arrive` 14 f) with the treatment footage"
+     "what": "left panel arrives (`arrive` 14 f): a Fraxel laser pass from the practice catalog (drifts and pushes)"
     },
     {
      "f": 1490,
      "word": "beyond",
-     "what": "a vertical line wipes 14 f (`sweep`) and opens the right panel: glass head; label 'Beyond' rises 4.2 % H in 11 f"
+     "what": "a vertical line wipes 14 f (`sweep`) and opens the right panel: the ExoMind session footage; label 'Beyond' rises 4.2 % H in 11 f"
     },
     {
      "f": 1540,
@@ -1657,14 +1661,14 @@
    ],
    "image_layers": [
     {
-     "asset": "flora/head_A_glass_brain.png",
+     "asset": "clinic/classic_fraxel_1705.jpg",
      "box": [
-      1350,
-      100,
-      520,
-      740
+      720,
+      120,
+      575,
+      647
      ],
-     "from_f": 1490,
+     "from_f": 1450,
      "to_f": 1592
     }
    ],
@@ -1706,7 +1710,8 @@
     "split-labelled": "partial"
    },
    "never_built_devices": [],
-   "never_built": false
+   "never_built": false,
+   "review": "Naim's review of v6 (DECISIONS 14m): Classic must not show ExoMind; Beyond = ExoMind"
   },
   {
    "id": "B16",
@@ -1714,69 +1719,54 @@
    "start_f": 1600,
    "end_f": 1709,
    "said": "helping you become aware of how our emotions improve our skin,",
-   "noun": "emotions (the head) -> skin",
+   "noun": "emotions -> skin (a sourced example)",
    "devices": [
-    "arrow-light-ribbon"
+    "bar-build",
+    "arrow-curved-callout"
    ],
    "entry": "type-highlight-sweep",
    "immersion": "depth push",
-   "arrow": "light-ribbon",
+   "arrow": "curved-callout",
    "assets": [
     {
-     "kind": "matte",
-     "src": "keyed Ostad (matte), the ribbon passes behind his head via the matte",
-     "source": "ostad-footage"
-    },
-    {
-     "kind": "image",
-     "src": "btl/img/Exomind_PIC_Female-Model3_0081_ENNA100.jpg (skin close crop, right card)",
-     "source": "btl",
-     "credit": "Image: BTL Industries"
+     "kind": "ui",
+     "src": "glass card: rosacea flare triggers bar chart (sun 81 %, emotional stress 79 %, hot weather 75 %)",
+     "source": "built",
+     "citation": "National Rosacea Society patient survey, 1,066 respondents"
     }
    ],
    "events": [
     {
      "f": 1601,
      "word": "helping",
-     "what": "skin card arrives right (`plate` 18 f then picture 18 f)"
+     "what": "glass card arrives right (`arrive` 14 f): 'Rosacea flare triggers / What patients say sets off their skin'"
+    },
+    {
+     "f": 1614,
+     "word": "you",
+     "what": "bars grow one by one, 26 f each, 9 f apart (bar-build, DDOS f421-693); values count up with them"
+    },
+    {
+     "f": 1640,
+     "word": "aware",
+     "what": "source line fades in: National Rosacea Society survey of 1,066 patients"
     },
     {
      "f": 1655,
      "word": "emotions",
-     "what": "a glowing tapered ribbon draws on round Ostad's head above the brow (track headTop, orbit radius 1.15 x head width), 28 f per pass (glp1 f1100-1170); the back half passes behind him via the matte; label 'Emotions' with a highlighter sweep 16 f"
-    },
-    {
-     "f": 1696,
-     "word": "skin,",
-     "what": "the ribbon peels off its orbit and lands on the skin card (head on the last draw frame); label 'Skin'"
-    },
-    {
-     "f": 1655,
-     "word": "(hold)",
-     "what": "the ribbon never stops: it keeps travelling along its path; skin card pushes 1.00->1.03"
+     "what": "the 'Emotional stress' row lights blue (highlighter sweep 16 f) and a curved callout draws 7 f from his head (tail on track templeR + 40 px, outside the face mesh) to that row"
     },
     {
      "f": 1702,
      "word": "(exit)",
-     "what": "ribbon rides off along its path 7 f, card exits 7 f"
+     "what": "card and arrow exit 7 f"
     }
    ],
-   "image_layers": [
-    {
-     "asset": "btl/Female-Model3_0081.jpg",
-     "box": [
-      1380,
-      180,
-      420,
-      560
-     ],
-     "from_f": 1619,
-     "to_f": 1702
-    }
-   ],
+   "image_layers": [],
    "compliance": {
     "physician_check": [
-     "'how our emotions improve our skin' (his line: mind-skin link, not an Exomind claim)"
+     "'how our emotions improve our skin' (his line: mind-skin link, not an Exomind claim)",
+     "NRS survey figures (sun 81 %, emotional stress 79 %, hot weather 75 %, n = 1,066): confirm the source before publishing"
     ]
    },
    "keyframe": {
@@ -1796,13 +1786,9 @@
     [
      1655,
      "swish"
-    ],
-    [
-     1696,
-     "pop"
     ]
    ],
-   "track": "ribbon orbit centre = follow('headTop') + (0, +0.35 head height); orbit kept above the brow line (follow('glabella').y - 20 px) so it never crosses the face",
+   "track": "callout tail = follow('templeR') + (40, -6): beside his head at the temple, outside the face mesh box, followed per frame",
    "start_s": 66.667,
    "end_s": 71.208,
    "text_only": false,
@@ -1812,12 +1798,12 @@
     "swish"
    ],
    "built_status": {
-    "arrow-light-ribbon": "never"
+    "bar-build": "partial",
+    "arrow-curved-callout": "partial"
    },
-   "never_built_devices": [
-    "arrow-light-ribbon"
-   ],
-   "never_built": true
+   "never_built_devices": [],
+   "never_built": false,
+   "review": "Naim's review of v6 (DECISIONS 14m): the ring and 'Emotions' pointed at nothing; replaced by a sourced emotions -> skin fact with an arrow from his head to the stress row"
   },
   {
    "id": "B17",
@@ -1879,7 +1865,7 @@
     {
      "f": 1776,
      "word": "neuroplasticity,",
-     "what": "the prefrontal region under the coil lights (tint fades on 6 f); 'Prefrontal cortex' rises 4 f then a box wipes behind it 4 f ⚠"
+     "what": "the prefrontal region under the coil lights (tint fades on 6 f); 'Prefrontal cortex' rises 4 f then a box wipes behind it 4 f \u26a0"
     },
     {
      "f": 1740,
@@ -2085,7 +2071,7 @@
     {
      "f": 1877,
      "word": "neurotransmitter",
-     "what": "each tick now releases 6-9 vesicles that cross the cleft in 10 f and dock; chip 'SYNAPSE' pops ⚠"
+     "what": "each tick now releases 6-9 vesicles that cross the cleft in 10 f and dock; chip 'SYNAPSE' pops \u26a0"
     },
     {
      "f": 1900,
@@ -2167,42 +2153,49 @@
    "start_f": 1987,
    "end_f": 2091,
    "said": "help us just feel better and how that can actually translate into better skin. Thank you.",
-   "noun": "feeling better -> the skin (his closing link)",
+   "noun": "feeling better: the patient after her session, in her words",
    "devices": [
-    "zoom-box-inset",
+    "windowed-footage",
+    "type-italic-voice",
     "arrow-dashed-flow"
    ],
-   "entry": "type-line-accumulate",
+   "entry": "type-italic-voice",
    "immersion": "camera move",
    "arrow": "dashed-flow",
    "assets": [
     {
-     "kind": "image",
-     "src": "btl/img/Exomind_PIC_Female-Model5_0251_ENUS100.jpg (model, relaxed portrait)",
-     "source": "btl",
-     "credit": "Image: BTL Industries"
+     "kind": "video",
+     "src": "Nov 5 2026 consult (Video Nov 05 2026, 10 50 41 AM.mov) 29.6-34.4 s, cropped to the patient seated on the treatment bed after her session, muted -> clinic/p0001_quiet.mp4",
+     "source": "clinic",
+     "consent": "P0001 unknown (client approval list)"
+    },
+    {
+     "kind": "quote",
+     "src": "\u201cIt quiets my brain.\u201d (her words, raw transcript 30.5 s: 'It quiets my brain. Yeah, I would say in a good way.')",
+     "source": "clinic",
+     "credit": "Patient, Dr. Ostad\u2019s office"
     }
    ],
    "events": [
     {
      "f": 1988,
      "word": "help",
-     "what": "portrait card arrives (`arrive` 14 f) right; line 1 'Feel better' accumulates under it on 'feel' f2012"
+     "what": "clip card arrives left of centre (`arrive` 14 f): she sits up on the treatment bed and talks (muted); camera pulls 1.06 -> 1.00"
+    },
+    {
+     "f": 2037,
+     "word": "that",
+     "what": "dashed flow reveals 8 f from her clip to where her quote lands"
     },
     {
      "f": 2045,
      "word": "translate",
-     "what": "a zoom box draws round her cheek (hairline box 10 f), then the inset scales out from the box on a dashed flow arrow that reveals along its path 8 f; head lands last"
+     "what": "quote card arrives (`arrive` 14 f): \u201cIt quiets my brain.\u201d in italic (her voice), attribution 'Patient, Dr. Ostad\u2019s office'"
     },
     {
      "f": 2061,
      "word": "better",
-     "what": "line 2 'Better skin' accumulates (words lit +-1 f); disclaimer line under it"
-    },
-    {
-     "f": 1988,
-     "word": "(hold)",
-     "what": "camera pulls back 1.06->1.00 across the beat (in-out) so the inset has room; inset drifts 4 px"
+     "what": "disclaimer line fades in under the quote"
     },
     {
      "f": 2084,
@@ -2210,19 +2203,7 @@
      "what": "everything exits 7 f into the end card"
     }
    ],
-   "image_layers": [
-    {
-     "asset": "btl/Female-Model5_0251.jpg",
-     "box": [
-      900,
-      120,
-      520,
-      680
-     ],
-     "from_f": 1988,
-     "to_f": 2084
-    }
-   ],
+   "image_layers": [],
    "compliance": {
     "disclaimer": "Exomind does not directly treat skin conditions.",
     "physician_check": [
@@ -2246,10 +2227,6 @@
     [
      2045,
      "swish"
-    ],
-    [
-     2061,
-     "pop"
     ]
    ],
    "start_s": 82.792,
@@ -2262,13 +2239,13 @@
     "swish"
    ],
    "built_status": {
-    "zoom-box-inset": "never",
+    "windowed-footage": "yes",
+    "type-italic-voice": "partial",
     "arrow-dashed-flow": "partial"
    },
-   "never_built_devices": [
-    "zoom-box-inset"
-   ],
-   "never_built": true
+   "never_built_devices": [],
+   "never_built": false,
+   "review": "Naim's review of v6 (DECISIONS 14m): the BTL face and lip zoom box were an empty signifier; the real patient after her session and her exact words replace them"
   }
  ]
 }
