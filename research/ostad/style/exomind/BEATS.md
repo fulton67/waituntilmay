@@ -13,6 +13,42 @@ seconds. `v4.1 #n` = row n of exomind/TYPE_AUDIT.md §2.
 
 ---
 
+## Gap round 1 (2026-11-17, DECISIONS 14o, gap/ROUND1.md)
+
+The five gap reports in `gap/` measured v6 against the references. `gap/round1_beats.py` rewrote `beats.json` (layouts, subjects,
+re-timed events, SFX classes); this table is the new shape. Sections below keep the original reasoning; where they disagree, this table and
+`beats.json` win.
+
+| Seg | f | Layout | Him | What changed |
+|---|---|---|---|---|
+| B01 | 0-105 | LT | keyed left | none |
+| B02 | 106-159 | LC | keyed left | pointer rerouted off the FDA chip; barb head; weight 8/1.15 |
+| B03 | 160-262 | LC | keyed left | Flora glass head gone: real unit -> real treated skin (clinic row 741, after half, lower face); tail on templeR + 40 px (measured), not headTop |
+| S1 + B04 | 263-413 | FB | pip | consult full frame, S1 card on the picture, him in the circular pip (feathered left edge) |
+| B05 | 414-545 | LC | keyed left | timing only |
+| B06 | 546-666 | CO | out | phone close-up centred, him out (a frame change at 22.8 s) |
+| B07 | 667-750 | LC | keyed left | arc rerouted over the grid header, lands on the slot |
+| B08 | 751-892 | LW | keyed left | the practice treatment room (row 3601) in a window behind the form; form rise 16 px in 14 f; focus eased 12 f |
+| S2 + B09 | 893-996 | FB -> SPLIT | out | waiting room (row 3614) with S2, then consult left / question box right; no names (Maya, Jordan, Sam gone) |
+| B10 | 997-1080 | LC | keyed left | logo thumb for "What Exomind is" |
+| B11 | 1081-1179 | FB | pip | team / treatment diptych, full height |
+| B12 | 1180-1241 | FB | pip | session full frame; IMG_3714 card with a callout SESSION -> coil pad and a ring on the 24:30 timer |
+| S3 | 1242-1271 | FB | out | reception (row 3612) with S3 |
+| B13 | 1272-1378 | LC | keyed left | donut; mind chip is the BTL MOA lit brain (Flora head gone) |
+| B14 | 1379-1448 | LT | keyed left | exit by end - 8 |
+| B15 | 1449-1599 | SPLIT | out | full-height split: classic laser | the lit Exomind applicator (BTL 0108) |
+| B16 | 1600-1709 | LC | keyed left | rosacea trigger chart gone: "The mind-skin link", Emotions -> Skin, cited Kabat-Zinn 1998 ⚠ physician-check |
+| S4 + B17 | 1710-1810 | FB | out | BTL MOA film (applicator on the head, region lit) under S4; orbit ring; MOA label. Flora skull gone |
+| B18 | 1811-1849 | FB | out | dissolves in over B17 (8 f) |
+| B19 | 1850-1986 | LW | keyed left | the MOA synapse film in a window + the pulse-train panel |
+| B20 | 1987-2091 | SPLIT-L | keyed left | her footage full height on the right; her words build over it |
+| END | 2092-2165 | LC | keyed left | SFX added |
+
+Same subject on at most 2 beats (`variety_check` R14): coil-on-patient now B11 + B12 only (was 5). Layout runs at most 3 segments / 15 s (R13).
+SFX: one wav per event class through `beats.json sfx_map` (draw / card / chapter are new, `tools/make_exo_sfx.py`), hero 0.32, rest 0.16.
+
+---
+
 ## 0. v4.1's three weakest graphics problems, and how v6 fixes each
 
 Measured against the references (DEVICE_LIBRARY baseline, TYPE_AUDIT, ROSACEA_METHOD) and Naim's notes.
@@ -484,7 +520,15 @@ the arrow, the assets and any ⚠.
 - Applicator_0429 (B17)
 - MOA film 59.0–60.6 s (B18)
 
-**AI-generated shots (Flora):** `head_A_glass_brain.png` (B03, B13, B15) and `head_B_glass_skull.png` (B17).
+**AI-generated shots (Flora):** none after gap round 1 (the glass head and glass skull were replaced by real practice and BTL imagery).
+
+**Added in gap round 1 (client approval):**
+- clinic-library row 741: the "after" half of a cheek before/after, lower face only, no patient code (B03). Patient image: needs consent.
+- clinic-library rows 3601 (treatment room, B08), 3612 (reception, S3), 3614 (waiting room, S2): practice photos, no people.
+- `yt/session.mp4` full frame (B12) and IMG_3714 (B12): P0006, consent unknown.
+- `clinic/p0001_quiet.mp4` full height (B20): P0001, consent unknown.
+- BTL: Applicator_0108 (B15), MOA film 49.0 s (B17), 74.6 s (B19), the lit brain at 98 s (B13 chip).
+- Citation on screen (B16): Kabat-Zinn et al., Psychosomatic Medicine 1998 ⚠ physician-check the wording.
 
 **⚠ physician-check lines:** the FDA chip (B02), the mind–skin framing (B03), the TMS caveat (B08), session length (B12), "emotions improve our skin" (B16), the region name (B17), "rewire / neural connectivity" (B18), "neurotransmitter production / focused, in flow" (B19), "translate into better skin" (B20).
 
