@@ -66,7 +66,8 @@ def stream_diffs(f, scale=0.5):
 
 def audio_checks(final, props, res):
     sys.path.insert(0, str(ROOT / "research/ostad/style/tools"))
-    import common  # noqa: F401
+    import common
+    common.cuda_dlls()
     from faster_whisper import WhisperModel
     secrets = prep.secret_names()
     segs, _ = WhisperModel("medium", device="auto", compute_type="auto").transcribe(str(final), language="en", word_timestamps=True)

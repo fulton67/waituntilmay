@@ -29,10 +29,10 @@ const SRC = (clip: string) => `undereye-filler/${clip}.mp4`;
 // stills that switch on the source clock (the proxy, while iCloud holds the originals); "video" = the transcoded original
 // (public/undereye-filler/<clip>.mp4, brand/scripts/undereye_prep.py transcode). Swapping a clip to its real footage is this one line.
 export const FOOTAGE: Record<string, "stills" | "video"> = {
-  "6816": "stills",
-  "6817": "stills",
-  "6818": "stills",
-  "6821": "stills",
+  "6816": "video",
+  "6817": "video",
+  "6818": "video",
+  "6821": "video",
 };
 const STILLS: Record<string, number> = { "6816": 17, "6817": 93, "6818": 16, "6821": 12 }; // stills per clip (every 3 s from 0 s)
 export const isProxy = () => Object.values(FOOTAGE).some((m) => m === "stills");
@@ -123,7 +123,7 @@ export const UndereyeReel: React.FC<UEProps> = (P) => {
       {/* B03 "illusion of being tired. She's not." */}
       <StrikeReplace oldText="Tired?" newText="An illusion." s={c.tired} strikeS={c.not} newS={c.not + 6} out={E("P03")} y={1030} />
       {/* B04 the filler itself, plate then picture */}
-      <ProductPlate s={c.hyaluronic} out={c.cannula - 1} img="undereye-filler/syringe.jpg" crop={{ x: 300, y: 850, w: 520, h: 520 }} srcW={1080} srcH={1920} box={{ x: M, y: 1000, w: 480, h: 480 }}
+      <ProductPlate s={c.usefiller} out={c.cannula - 1} img="undereye-filler/syringe.jpg" crop={{ x: 250, y: 880, w: 520, h: 520 }} srcW={1080} srcH={1920} box={{ x: M, y: 1000, w: 480, h: 480 }}
         chip="Hyaluronic acid filler" chipS={c.acid} sub="with lidocaine" />
       {/* B05 needle vs cannula */}
       <TipCompare s={c.cannula} out={E("P05")} bluntS={c.blunt} needleS={c.sharp} sharpS={c.sharp + 4} chips={[{ text: "Swelling", s: c.swelling }, { text: "Bruising", s: c.bruising }]} y={1060} />
@@ -150,7 +150,7 @@ export const UndereyeReel: React.FC<UEProps> = (P) => {
       {frame >= S("P12") && frame < E("P13") + D.exit && (
         <div style={{ ...card(24), left: M, top: 1210, padding: "26px 30px", display: "flex", alignItems: "center", gap: 28, ...life(frame, S("P12") + 1, E("P13")) }}>
           <div style={{ width: 150, height: 150, borderRadius: 16, overflow: "hidden", position: "relative", flex: "none" }}>
-            <Img src={staticFile("undereye-filler/syringe.jpg")} style={{ position: "absolute", width: 1080 * 0.32, height: 1920 * 0.32, left: -150 * 0.32 * 1.6, top: -560 * 0.32, transform: `scale(${1 + 0.0004 * (frame - S("P12"))})` }} />
+            <Img src={staticFile("undereye-filler/syringe.jpg")} style={{ position: "absolute", width: 1080 * 0.32, height: 1920 * 0.32, left: -101, top: -293, transform: `scale(${1 + 0.0004 * (frame - S("P12"))})` }} />
           </div>
           <RollingLabel label="Filler so far" values={[{ text: "½ syringe · one side", at: (c.halfsyringe) / 24 }, { text: "1 syringe · both sides", at: c.onesyringe / 24 }]} size={56} labelSize={24} ink={INK} />
         </div>
@@ -178,7 +178,7 @@ export const UndereyeReel: React.FC<UEProps> = (P) => {
       </MorphCard>
       <HeadedArrow variant="curved" s={c.pinprick} out={E("P17")} from={{ x: 300, y: 1240 }} to={tp("P17", "entry", { x: 380, y: 1010 })} bend={0.28} />
       <TypedLabel text="One pinprick" s={c.pinprick} out={E("P17")} x={300} y={1262} align="center" size={48} />
-      <WeeksCircle s={S("P18")} circleS={c.week} out={E("P18")} y={300} />
+      <WeeksCircle s={S("P18")} circleS={c.week} out={E("P18")} y={1060} />
       <Note text="Individual results vary." s={S("P18")} out={end} y={1520} />
       <Sequence from={end} durationInFrames={TAIL} layout="none"><EndCard /></Sequence>
 

@@ -714,3 +714,23 @@ Source: Naim's second review of the v6 render, relayed by the coordinator. All t
   - Tracking (`track_verify.json`): B03 median 2.07 / p95 4.14 px; B16 tail 1.84 / 3.04 px; whole edit headTop 1.77 / 4.74 px. Face-box overlap: 13 frames, all B17 f1741-1753 (intended step-out); B04's 10 frames are gone because B04 no longer goes full bleed.
   - Min text 26 px; compliance min 24 px (B03 disclaimer).
   - `exomind/evolution_v6.json` is from the build before notes 7-9 and was not re-run.
+
+### 15b. Final on the original footage (2026-11-17, 12:10–13:20)
+
+The four MOVs arrived at 12:06–12:10 (HEVC, 1920×1080 stored with phone rotation, 59.94/60 fps). The watcher's listing caught IMG_6821 at 43 MB mid-write; the transcode ran at 12:19, after its last write (12:10, 58.3 MB), so it used the complete file. Swap: `FOOTAGE` in `Reel.tsx`, four lines "stills" → "video"; everything else unchanged.
+- **Transcode** (`undereye_prep.py transcode`): rotation applied → 1080×1920, 30 fps, H.264 crf 14; audio loudnorm I −14 / TP −1.5 per clip (the raw phone audio rendered at −29.5 LUFS).
+- **Words:** faster-whisper medium, word timestamps, on the transcodes. Redaction found the name once in IMG_6816 and four times in IMG_6817; the fuzzy rule alone missed whisper's IMG_6817 spellings, so it now also redacts the word after each catalog "[name]" context (3 words before it). A first try at fuzzy 0.6 caught "said", "meaning", "than" and was reverted to 0.75 plus the contexts. P09's end word is "supernatural" (whisper's spelling of "super natural").
+- **Face points** on the video: 7 pieces, every source frame detected (0 comp frames without a detection within 2 f).
+- **B04** now starts on his first "filler" ("use a filler"), because with real timing "hyaluronic" → "cannula" is 1.6 s, shorter than plate + picture (36 f); the static-image check caught it (empty hold window).
+- **B17**'s card moved to the chest band: at the top it covered his face in IMG_6821.
+- **Brand:** whisper hears the same unclear product word as the catalog; no label is readable in the full-size close-ups (6817 30–42 s). Not named.
+
+Measured (`undereye/verify.json`): 1080×1920, 24 fps, 2,418 f, 100.76 s. **Name-like words in the render audio: 0.** Words: 304 heard vs 309 cut (sequence ratio 0.972). Loudness −15.4 LUFS integrated, true peak −1.5 dBFS (1.4 LU under the −14 target, left so the peak stays under −1). Captions: 285/309 measured, median 0 f, 84.2 % at 0 f, 86.3 % within ±1 f. Reveals: median +1 f (first changed pixel), 10 of 15 within ±1 f; the exceptions are by design or invisible to the bare pass (B02 loupe opens 6 f early, B03 −2 f is B02's exit, B13 −8 f is the section pill, B09's thin route trace stays under the change threshold, B14's tint is a multiply layer). Flashes 0. variety_check PASS, lint PASS (0 dot-and-line), static-image PASS (B04 1.44, B12 17.21 grey levels vs 0.16), reuse_check PASS (nearest 0.227–0.312 vs 0.107).
+
+Render (local, gitignored): `brand/edits/undereye-filler/UndereyeReel_FINAL_NOT-FOR-POSTING_consent-unknown.mp4`. **NOT FOR POSTING until patient consent = yes.**
+
+Learning (after the piece):
+- Build the proxy first and measure it: every check except audio ran on it, and the swap to video changed only timings, B04 and B17.
+- Redact by context as well as spelling: a speech recogniser spells a name differently each time.
+- The static-image check doubles as a timing check: an image card needs its plate + picture time inside the beat.
+- Settle a download by its last write time, not by the first listing.

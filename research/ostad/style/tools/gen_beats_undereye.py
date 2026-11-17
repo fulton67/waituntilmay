@@ -20,7 +20,7 @@ BEATS = [
      "loupe G4 T2 5J8M f1168; curved callout GMu3 f395-401; typed label DDOS B09", {}),
     ("B03", ["P03"], "tired", "'Tired?' struck and replaced by his word 'An illusion.'", ["type-strike-replace"], "type-strike-replace",
      "strike-replace G3 T13 D_bh f3350 (strike 6 f)", {"text_only": True}),
-    ("B04", ["P04"], "hyaluronic", "the actual syringe from the session, plate then picture", ["product-plate-reveal"], "type-rise",
+    ("B04", ["P04"], "usefiller", "the actual syringe from the session, plate then picture", ["product-plate-reveal"], "type-rise",
      "plate-then-picture M04 M1-M2 (MOTION plate 18+18 f); ro yaFInenV3Eg f618-674", {}),
     ("B05", ["P04", "P05"], "cannula", "a blunt cannula tip beside a sharp needle bevel; swelling and bruising land under the needle", ["split-labelled"],
      "type-highlight-sweep", "labelled split G1 T11, G3 T6 (L23); highlighter DDOS Moment A", {}),
@@ -52,7 +52,7 @@ BEATS = [
 # keyframe per beat: the cue whose reveal completes the beat, + frames (the still checked, and the reuse-check crop)
 KEY = {"B01": ("eyelids", 10), "B02": ("hollows", 20), "B03": ("not", 20), "B04": ("acid", 20), "B05": ("bruising", 16), "B06": ("half", 22),
        "B07": ("insertion", 22), "B08": ("lidocaine", 14), "B09": ("underneath", 22), "B10": ("deeper", 16), "B11": ("pillowy", 12),
-       "B12": ("onesyringe", 20), "B13": ("expand", 16), "B14": ("tyndall", 24), "B15": ("nobody", 30), "B16": ("pinprick", 18), "B17": ("week", 22)}
+       "B12": ("onesyringe", 20), "B13": ("expand", 16), "B14": ("tyndall", 24), "B15": ("nobody", 30), "B16": ("pinprick", 30), "B17": ("week", 22)}
 SECTIONS = [("S1", "The concern"), ("S2", "The procedure"), ("S3", "The decision"), ("S4", "The result")]
 
 
@@ -80,7 +80,7 @@ def main():
         # photo layers for the static-image check (lint_compositions.py --static-image): the box is the photo's own rect
         if bid == "B04":
             b["assets"] = [{"kind": "image", "src": "undereye-filler/syringe.jpg (a still of this session's syringe)", "source": "clinic", "consent": "P0001/P0002 unknown"}]
-            b["image_layers"] = [{"asset": "undereye-filler/syringe.jpg", "box": [98, 1000, 480, 480], "from_f": P["cues"]["hyaluronic"] + 1 + 36, "to_f": P["cues"]["cannula"] - 8}]
+            b["image_layers"] = [{"asset": "undereye-filler/syringe.jpg", "box": [98, 1000, 480, 480], "from_f": P["cues"]["usefiller"] + 1 + 36, "to_f": P["cues"]["cannula"] - 8}]
         if bid == "B12":
             e13 = pc["P13"]["at"] + pc["P13"]["dur"] - 1
             b["assets"] = [{"kind": "image", "src": "undereye-filler/syringe.jpg (thumbnail)", "source": "clinic", "consent": "P0001/P0002 unknown"}]

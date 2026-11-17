@@ -40,12 +40,26 @@ def secret_names():
     return {norm(m.group(1))} if m else set()
 
 
-def redact(words, secrets):
-    out = []
-    for w in words:
+def name_contexts(clip):
+    """The 3 words before each "[name]" in the catalog's (already redacted) transcript of this clip."""
+    tr = re.sub(r"\[\d+:\d+\]", " ", catalog(clip)[0])
+    toks = tr.replace("[name]", " [name] ").split()
+    return [[norm(t) for t in toks[max(0, i - 3):i]] for i, t in enumerate(toks) if t == "[name]"]
+
+
+def redact(words, secrets, contexts=()):
+    """Redact (1) any word like the name (fuzzy ratio >= 0.75) and (2) the word right after each
+    catalog "[name]" context, whatever whisper heard there."""
+    out = [dict(w) for w in words]
+    for w in out:
         n = norm(w["w"])
-        hit = n and any(difflib.SequenceMatcher(None, n, s).ratio() >= 0.75 for s in secrets)
-        out.append({**w, "w": "[name]", "redacted": True} if hit or "[name]" in w["w"] else w)
+        if "[name]" in w["w"] or (n and any(difflib.SequenceMatcher(None, n, s).ratio() >= 0.75 for s in secrets)):
+            w.update(w="[name]", redacted=True)
+    for ctx in contexts:
+        k = len(ctx)
+        for i in range(k, len(out)):
+            if all(difflib.SequenceMatcher(None, norm(out[i - k + j]["w"]), ctx[j]).ratio() >= 0.8 for j in range(k)):
+                out[i].update(w="[name]", redacted=True)
     return out
 
 
@@ -76,15 +90,16 @@ def cmd_transcode():
         src, dst = SRC / name, PUB / f"{clip}.mp4"
         if dst.exists():
             continue
-        # transcode only: same picture size and frame rate, H.264 for the browser, AAC audio; no edit, no grade
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(src), "-map", "0:v:0", "-map", "0:a:0", "-c:v", "libx264", "-preset", "medium",
-                        "-crf", "14", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "256k", "-movflags", "+faststart", str(dst)], check=True)
+        # transcode only: same picture size (ffmpeg applies the phone rotation: 1920x1080 stored -> 1080x1920), 60 -> 30 fps, H.264 for the browser, AAC audio; no edit, no grade
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(src), "-map", "0:v:0", "-map", "0:a:0", "-r", "30", "-c:v", "libx264", "-preset", "fast",
+                        "-crf", "14", "-pix_fmt", "yuv420p", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "48000", "-c:a", "aac", "-b:a", "256k", "-movflags", "+faststart", str(dst)], check=True)
         print("transcoded", dst.name)
 
 
 def cmd_words():
     sys.path.insert(0, str(ROOT / "research/ostad/style/tools"))
-    import common  # noqa: F401  (adds the CUDA dlls that faster-whisper needs on Windows)
+    import common
+    common.cuda_dlls()  # the CUDA dlls that faster-whisper needs on Windows
     from faster_whisper import WhisperModel
     secrets = secret_names()
     EDIT.mkdir(parents=True, exist_ok=True)
@@ -95,7 +110,7 @@ def cmd_words():
             continue
         segs, _ = model.transcribe(str(PUB / f"{clip}.mp4"), language="en", word_timestamps=True, vad_filter=False, beam_size=5)
         words = [{"w": w.word.strip(), "s": round(w.start, 3), "e": round(w.end, 3), "p": round(w.probability, 3)} for s in segs for w in s.words]
-        words = redact(words, secrets)
+        words = redact(words, secrets, name_contexts(clip))
         dst.write_text(json.dumps({"clip": clip, "words": words}, indent=0), encoding="utf-8")
         print("words", clip, len(words), "redacted", sum(1 for w in words if w.get("redacted")))
 
@@ -118,7 +133,7 @@ def cmd_props(approx):
     W = {}
     for clip in cut["clips"]:
         if approx:
-            W[clip] = redact(approx_words(clip), secrets)
+            W[clip] = redact(approx_words(clip), secrets, name_contexts(clip))
         else:
             W[clip] = json.loads((EDIT / f"words_{clip}.json").read_text(encoding="utf-8"))["words"]
     pieces, words_out, at = [], [], 0
@@ -136,8 +151,8 @@ def cmd_props(approx):
         t1 = min(ws[i1]["e"] + 0.16, next_s - 0.03)
         for j in (i0 - 1, i1 + 1):  # a redacted neighbour gets a wider berth
             if 0 <= j < len(ws) and ws[j].get("redacted"):
-                t0 = max(t0, ws[j]["e"] + 0.08) if j < i0 else t0
-                t1 = min(t1, ws[j]["s"] - 0.08) if j > i1 else t1
+                t0 = max(t0, ws[j]["e"] + 0.15) if j < i0 else t0
+                t1 = min(t1, ws[j]["s"] - 0.15) if j > i1 else t1
         dur = round((t1 - t0) / speed * fps)
         pic = pc.get("picture", pc["clip"])
         pf = pc.get("pictureFrom", t0)

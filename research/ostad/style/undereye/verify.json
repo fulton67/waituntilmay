@@ -1,0 +1,168 @@
+{
+ "render": "UndereyeReel_FINAL_NOT-FOR-POSTING_consent-unknown.mp4",
+ "format": {
+  "width": 1080,
+  "height": 1920,
+  "fps": "24/1",
+  "frames": 2418,
+  "duration_s": 100.757
+ },
+ "bare_format": {
+  "width": 1080,
+  "height": 1920,
+  "fps": "24/1",
+  "frames": 2418,
+  "duration_s": 100.75
+ },
+ "mode": "final (original footage, whisper word timings)",
+ "name": {
+  "name_like_words_in_render_audio": 0,
+  "secret_tokens_checked": 1
+ },
+ "words": {
+  "cut_words": 309,
+  "heard_words": 304,
+  "sequence_ratio": 0.972
+ },
+ "loudness": {
+  "integrated_lufs": -15.4,
+  "true_peak_dbfs": -1.5
+ },
+ "captions": {
+  "words": 309,
+  "measured": 285,
+  "median_offset_f": 0.0,
+  "share_at_0f": 0.842,
+  "share_within_1f": 0.863
+ },
+ "reveals": {
+  "beats": [
+   {
+    "beat": "B01",
+    "cue": "fillers",
+    "target_f": 140,
+    "first_change_f": 141,
+    "offset_f": 1
+   },
+   {
+    "beat": "B02",
+    "cue": "hollows",
+    "target_f": 258,
+    "first_change_f": 253,
+    "offset_f": -5
+   },
+   {
+    "beat": "B03",
+    "cue": "tired",
+    "target_f": 339,
+    "first_change_f": 337,
+    "offset_f": -2
+   },
+   {
+    "beat": "B04",
+    "cue": "usefiller",
+    "target_f": 411,
+    "first_change_f": 412,
+    "offset_f": 1
+   },
+   {
+    "beat": "B05",
+    "cue": "cannula",
+    "target_f": 486,
+    "first_change_f": 485,
+    "offset_f": -1
+   },
+   {
+    "beat": "B06",
+    "cue": "last",
+    "target_f": 679,
+    "first_change_f": 680,
+    "offset_f": 1
+   },
+   {
+    "beat": "B07",
+    "cue": "insertion",
+    "target_f": 764,
+    "first_change_f": 765,
+    "offset_f": 1
+   },
+   {
+    "beat": "B08",
+    "cue": "lidocaine",
+    "target_f": 960,
+    "first_change_f": 961,
+    "offset_f": 1
+   },
+   {
+    "beat": "B09",
+    "cue": "deep",
+    "target_f": 1031,
+    "first_change_f": 1050,
+    "offset_f": 19
+   },
+   {
+    "beat": "B10",
+    "cue": "fuller",
+    "target_f": 1264,
+    "first_change_f": 1265,
+    "offset_f": 1
+   },
+   {
+    "beat": "B11",
+    "cue": "absorb",
+    "target_f": 1334,
+    "first_change_f": 1335,
+    "offset_f": 1
+   },
+   {
+    "beat": "B12",
+    "cue": "halfsyringe",
+    "target_f": 1701,
+    "first_change_f": null,
+    "offset_f": null
+   },
+   {
+    "beat": "B13",
+    "cue": "another",
+    "target_f": 1808,
+    "first_change_f": 1800,
+    "offset_f": -8
+   },
+   {
+    "beat": "B14",
+    "cue": "bluish",
+    "target_f": 1957,
+    "first_change_f": 1983,
+    "offset_f": 26
+   },
+   {
+    "beat": "B15",
+    "cue": "nobody",
+    "target_f": 2025,
+    "first_change_f": 2026,
+    "offset_f": 1
+   },
+   {
+    "beat": "B16",
+    "cue": "pinprick",
+    "target_f": 2130,
+    "first_change_f": 2130,
+    "offset_f": 0
+   },
+   {
+    "beat": "B17",
+    "cue": "week",
+    "target_f": 2198,
+    "first_change_f": null,
+    "offset_f": null
+   }
+  ],
+  "median_offset_f": 1.0,
+  "within_1f": 10,
+  "measured": 15
+ },
+ "flashes": {
+  "one_frame_luma_spikes": 0,
+  "frames": []
+ }
+}
