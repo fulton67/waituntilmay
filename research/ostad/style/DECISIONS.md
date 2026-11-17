@@ -320,3 +320,86 @@ This is **additive**. The calm glass (11–12), the YouTube system (14b–14c), 
 - **The Shorts' stutter edits** (9 cuts in 4.6 s, G1 qf_jdmTkPgg) and their −20 LUFS mixes (G2 §3, "do not copy").
 
 **Still pending:** M12/M17/M19 (`easing.json`, `pacing.json`, `sfx.json`) for the 53 Shorts: 0 of 53 on disk. Re-check the `sweep` and `arrive` peaks, and the SFX rule, when they land. Until then the Shorts numbers are board reads at about ±2 f (G1 §6).
+
+## 14f. YouTube v5: the v4 base, with graphics on his words (2026-11-16)
+
+Client notes on v4:
+- The pause/play and step-player animations had nothing to do with what he says. Remove them everywhere, along with cursor taps and press UI.
+- The lines weren't true to the brand bible and looked random. Remove decorative hairlines: every line must do a job.
+- Animations must be new, bespoke to what he's saying, non-repetitive, and help his identity and his point.
+
+**Kept from v4, unchanged:** the cut and his pauses, 1.15x, the audio chain, word-onset captions, the room canvas in brand blues, the calm glass, the Exomind/BTL footage, the Flora glass head and neurons, the 13 sections in his order with their v4 timings (`edit.json` `yt`; one change, s10, below), the A-roll panels and the one keyed shot. v5 is a new composition, `OstadYT5` (`brand/remotion/src/OstadYT5.tsx`). It reuses the v4 pieces (`ARoll`, `Full`, `Keyed`, `YTCaptions`) and the library (`library/`), so v4 still renders as it was. Additive hooks:
+- `YTCaptions` takes `hide` (the thesis karaoke is the caption there) and `override` (a canvas phase inside a footage section takes navy captions).
+- `Canvas` takes `strip={false}`, which drops the bottom four-colour strip. That was a decorative line.
+- `Highlighter` takes `other`, which sets the ink of the words outside the punch: white over footage, while the punch stays ink on ice.
+
+**Removed everywhere:**
+- the step player
+- every `Cursor`, tap ring and press scale
+- the toggle (s2), the unread badge (s4) and the calendar slot tap (s5)
+- the "Live" pill and the send button (s6)
+- the "Book now" press and "Booked" (s13)
+- the s1 coil pulse rings, the s2 drawn skin lines and dotted link, the s9 dashed frontier line, the s12 drawn arrow, the s5 phone outline and the bottom colour strip
+- the per-section swish and the per-tick and per-tag pops
+
+Words he doesn't say in this recording are gone from the screen: "Stress" (s10), "Magnetic pulses" (s11), "Prefrontal cortex" (s11) and v4's example question (s6). The v4 "+24 new connections" counter was an uncited number (rule 10). It's replaced by a literal count of the junctions ringed in the clip, labelled as such. BOARD ideas 1, 2 and 5 (stress chain, prefrontal label, sessions) are held back pending the client. Nothing from the reference sites ships literally: each device takes a measured technique only, under the MOTION tokens, with no cursor, hover, marquee, preloader, overshoot or blur entrance.
+
+**One timing change.** s10 runs to 69.9 s instead of 69.4 s, so the "emotions" highlighter (onset 68.94 s, then +1 f, then 16 f) lands and holds before the cut. s11 starts 0.5 s later, still inside "improve" (69.48–70.3 s), and its opening session beat is 0.5 s shorter. The s10 halves are slowed with frame blending to fill the time, and never loop: `stressed2_v5` is one shot (0.09–3.70 s) at 1.401x, and `smile_v5` is the first calm shot (0.05–2.0 s) at 1.261x (`yt_assets.sh`). Scene detection at 0.15 finds no shot change in either.
+
+### Sections, v4 → v5
+
+Offsets are measured on decoded frames of the final render (`edits/exomind-skin/v5/verify_v5.py` → `verify_v5.json`).
+- **start** is the frame where the graphic passes 10 % of its change, compared with the token curve started at onset + 1 f.
+- **span** is the 10→90 % time, compared with the same crossings of the token.
+- 0 means the graphic lands exactly on the word + 1 f and runs on its token.
+
+No two neighbouring sections share a device.
+
+| § | Spoken trigger | v4 device | v5 device (library) | Measured start / span vs token | References |
+|---|---|---|---|---|---|
+| s1 | "understand" → "Exomind" | name + coil pulse rings | name settles (not tied to a word); "Exomind" arrives on *understand*; **L01** highlighter sweeps on *Exomind*. Hero pop | highlighter 0 / 0 f (`sweep` 16) | Evident Moment A highlighter; newapology `--nap-control-ease` |
+| s2 | "mind" → "total skin health" | toggle, skin lines, dotted link, cursor tap | **L06** plate, then the Flora head through it on *mind*; **L05** rolling label "the mind" → "total skin health" on *total*. "Illustration" | plate 0 / +4 f, label 0 / −3 f (probe notes) | march2004 plate-then-picture; newapology §5J media tint; softunion S2 rolling label |
+| s3 | (names nothing in the picture) | session, clean | the session, full frame and clean, with a credit only | hard cut | bentleyrawle / lilyballif: let footage be the motion |
+| s4 | "giveaway", "email", "phone", "text", "check", "event" | email / phone light-up, unread badge, cursor tap | **L14** "Giveaway winners" typed from *giveaway* (1 char/frame, no caret); literal envelope / phone arrive on *email* / *phone*; chat icon draws on *text*; "Check your text messages" typed on *check*; "After the event" on *event* | typed −1 / +1 f (1 char/f), email 0 / +2 f (`arrive` 14) | Evident B09 typed callout |
+| s5 | "appointment", "during", "goals", "history", "appropriate" | phone outline, cursor tap, step player | thread bubbles on the canvas (2nd on *appointment*); **L08** ledger: three rows arrive dim on *during* (2 f stagger), and each gets an ice row wipe and ink on its own word | rows 0 / 0, 0 / 0, 0 / 0 f (`sweep` 14) | newapology §5A cascade; roko-g R8/R9 dim the rest; Evident B15 / Moment C row wipe |
+| s6 | "question", "sending", "covered", "love", "hear", "thank", "and" | card + "Live" pill, send, example question, cursor | keyed shot; the glass card holds his phrases, one per spoken phrase, swapped in place; **L01** on "hear about it" at *hear*; the thank-you lines arrive on *thank* / *and* | highlighter 0 / 0 f | newapology §5E copy swap; Evident Moment A |
+| s7 | "look", "seeing" | couch shot, card, cursor tap | stressed shot (one shot), then **L09**: the BTL trio film in a card on the room canvas morphs to full frame on *seeing* (`morph` 26 f, radius 24→0); blank-out into s8 | morph 0 / +1 f | newapology §3B View Transition morph; pavlolotnik M6 zoom-to-stage |
+| s8 | section start; "this … health" | coil clip + headline and three parts | **L13** blank crossfade (canvas holds 7 f, coil comes in under it over 11 f); **L02** karaoke of "this comprehensive approach to total skin health" on calm glass, word by word on onsets, with the punch ice. The karaoke replaces the captions there | blank 0 / +1 f; each word 0 / 0 f (cut); punch −1 / −3 f | softunion S5 blank crossfade; darkroom one in-out curve; Evident B26 karaoke |
+| s9 | "frontier", "care", "beyond", "classic" | dashed frontier line, cursor tap | **L17** ledger built in place: "The next frontier"; face icon + "Caring for the skin" on *care*; on *beyond* the left column dims to 0.6, the divider draws and the brain icon + "Beyond" highlight; "Classic treatments" on *classic* | divider 0 / −1 f (`sweep` 12), Beyond +1 / +2 f | roko-g R8 focus dim + 4 px nudge; georgedavies dimming; Evident R27 split |
+| s10 | section cut; "how", "emotions" | split + "Stress" tag, cursor tap | **L23** labelled split, native scale per half (restless night / calm, then the hiker), hard cuts; a centre hairline that divides the halves; "How our emotions" over a soft navy wash, **L01** on *emotions* | hairline +1 / 0 f (from cut + 2 f), highlighter 0 / −1 f | Evident R27 split; lilyballif cut, don't animate |
+| s11A | "technology" | leader + pulse rings, "Magnetic pulses", step player | **L07** dim the rest: scrim to 0.45 outside the coil, then the box, the leader and "Exomind coil" | dim 0 / 0 f (`sweep` 12) | kirillkozyrev sheet over dimmed backdrop; georgedavies 0.5 s dimming; Evident G4 T2 annotation |
+| s11B | "neuroplasticity" | "Prefrontal cortex" + hairline | **L03** trace on the Flora head: the path sweeps to the ring, which lands on *neuroplasticity*; the leader, then "Neuroplasticity" typed. Hero pop | ring +1 / 0 f (`arrive` 5) | Evident B03 trace |
+| s11C | "rewire", "neurotransmitter" | "+24 new connections" (uncited) | **L04** literal count: 7 junctions ringed on the neuro clip at their detected onsets (`junctions.py`), "N junctions ringed in this clip"; "Neurotransmitter production" typed on a frosted plate | typed −1 / −3 f (1 char/f) | rule 10 (cited or absent); Evident B09 |
+| s11E | "focused", "flow" | "Focused, in flow" + wave | **L19** words on their onsets; the busy line settles to one wave, ending on *focused* | Focused 0 / 0 f (`arrive` 14) | library L19 (Evident Moment C settle) |
+| s12 | "feel", "translate", "better" | drawn arrow | **L21** another voice: her window plate-then-picture (9 px radius), her quote in italic; "Feel better" on *feel*; "translates into better skin" with **L01** on *better*. Hero "yes" | Feel 0 / 0 f; highlighter 0 / +1 f | march2004; @doctor.grove rounded image cards; Evident R14 italic |
+| s13 | section start | "Book now" press, cursor, "Booked" | glass card, line-mask rise with a 2 f cascade capped at 10 f: name, "Book a consultation.", "Link in the description.", handle. One card sound | not word-tied | et-al line-mask reveal; newapology case-arrive order |
+
+Probe notes:
+- The s2 plate probe measures pixel change, so it counts the picture coming through in the second half too: the 18+18 f plate reads as +4 f.
+- The rolling-label probe sees the old word's masked exit, which is fast on outExpo, so it reads short.
+- The typed lines are linear at 1 char per frame, so they finish on their own character count rather than at 16 f.
+- The s8 punch block measures the karaoke's ice reaching each word in turn, so it is short of a single 17 f sweep.
+- Every other probe is within ±1 f on start and ±2 f on span.
+
+### Verify (PROCESS §5), final render
+
+- 90.208 s, 2165 frames, 1920x1080, 24 fps.
+- **Loudness:** −14.1 LUFS integrated, true peak −4.4 dBFS, LRA 1.3 LU. No denoise.
+- **SFX:** 5 in total, one per hero reveal (s1 pop, s8 swish, s11B pop, s12 yes, s13 card). Each peaks at −38.5 to −48.7 LUFS momentary, against a mix momentary median of −14.1, so the voice is ≥ 24 LU over every sound (rule ≥ 8).
+- **Words:** a fresh faster-whisper medium transcript of the render matches 267/268 caption words. The one difference is "in" heard as "and". Onsets differ from the caption onsets by a median of 0.000 s (p10 0.000, p90 0.000).
+- **Speed:** 1.1499x (0–36 s, 120 words) and 1.1507x (40–91 s, 133 words) against the cut source.
+- **Captions from decoded frames:** 208 of 258 words land at 0–1 f (201 at 0 f), median 0 f. The other 50 land at ±2–3 f. We read those as probe noise from footage motion and a neighbouring word inside the glyph mask, because the transcript check above shows no offset. The captions are hidden 53.80–56.66 s, where the karaoke replaces them, and are navy over the s7 card and s8 canvas phases.
+- **Canvas:** hue 215.2° / sat 0.059 (8 s), 215.2 / 0.047 (30 s), 212.3 / 0.047 (35 s), 215.2 / 0.047 (62 s), 215.2 / 0.055 (84 s).
+- **Flash scan:** 0 one-frame flashes.
+- **Faces:** no v5 graphic rect meets the face box (`faces_raw.json`) in s1, s4, s6 or s9.
+- **Stills:** checked for every new graphic. The contact sheet is `edits/exomind-skin/yt_v5_contact.jpg`.
+
+### Open
+
+- **Patient consent:** her window and quote (s12).
+- **BTL:** the manufacturer clips need sign-off.
+- **AI renders:** labelled "Illustration" on screen (s2, s8, s11B–C).
+- **Held back:** BOARD ideas 1, 2 and 5.
+- **Couch shot:** the patient-relaxing shot (couch.mp4) was dropped from s7, so the morph stays on one shot.
+- **Green curtain:** the Flora coil clip (s8) still has it. A blue Flora re-render is allowed, and was not done here.
+- **Type:** still NHG Display 500. Helvetica Neue LT Pro isn't in the kit (14c).
