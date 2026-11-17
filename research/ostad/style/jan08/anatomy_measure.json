@@ -1,0 +1,376 @@
+{
+ "source": "research/ostad/3d/base/face.glb",
+ "method": "silhouette render per structure (Blender, ortho, same view) -> traced paths -> re-rasterised -> IoU and outline distance vs the render",
+ "tolerance": {
+  "bone_muscle": {
+   "mean": 1.0,
+   "max": 3.0
+  },
+  "fat_approximated": {
+   "mean": 1.5,
+   "max": 4.0
+  },
+  "context": {
+   "mean": 1.5,
+   "max": 4.0
+  }
+ },
+ "views": {
+  "midface": {
+   "yaw_deg": -30,
+   "source": "research/ostad/3d/base/face.glb",
+   "structures": [
+    {
+     "structure": "skin_epidermis",
+     "members": [
+      "skin_epidermis"
+     ],
+     "kind": "context",
+     "iou": 0.9999,
+     "outline_mean_px": 0.014,
+     "outline_max_px": 1.0,
+     "tolerance": {
+      "mean": 1.5,
+      "max": 4.0
+     },
+     "pass": true,
+     "points": 264,
+     "ostad_check": null
+    },
+    {
+     "structure": "zygomatic_bone_r",
+     "members": [
+      "zygomatic_bone_r"
+     ],
+     "kind": "bone",
+     "iou": 0.9985,
+     "outline_mean_px": 0.056,
+     "outline_max_px": 1.0,
+     "tolerance": {
+      "mean": 1.0,
+      "max": 3.0
+     },
+     "pass": true,
+     "points": 207,
+     "ostad_check": "pending"
+    },
+    {
+     "structure": "maxilla_r",
+     "members": [
+      "maxilla_r"
+     ],
+     "kind": "bone",
+     "iou": 0.999,
+     "outline_mean_px": 0.047,
+     "outline_max_px": 1.0,
+     "tolerance": {
+      "mean": 1.0,
+      "max": 3.0
+     },
+     "pass": true,
+     "points": 338,
+     "ostad_check": "pending"
+    },
+    {
+     "structure": "mandible",
+     "members": [
+      "mandible"
+     ],
+     "kind": "context",
+     "iou": 0.9991,
+     "outline_mean_px": 0.046,
+     "outline_max_px": 1.0,
+     "tolerance": {
+      "mean": 1.5,
+      "max": 4.0
+     },
+     "pass": true,
+     "points": 610,
+     "ostad_check": null
+    },
+    {
+     "structure": "fat_cheek_r",
+     "members": [
+      "fat_sup_medial_cheek_r",
+      "fat_sup_middle_cheek_r",
+      "fat_sup_nasolabial_r"
+     ],
+     "kind": "fat",
+     "iou": 0.9983,
+     "outline_mean_px": 0.063,
+     "outline_max_px": 1.4,
+     "tolerance": {
+      "mean": 1.5,
+      "max": 4.0
+     },
+     "pass": true,
+     "points": 415,
+     "ostad_check": "pending"
+    },
+    {
+     "structure": "fat_sup_jowl_r",
+     "members": [
+      "fat_sup_jowl_r"
+     ],
+     "kind": "fat",
+     "iou": 0.9994,
+     "outline_mean_px": 0.044,
+     "outline_max_px": 1.0,
+     "tolerance": {
+      "mean": 1.5,
+      "max": 4.0
+     },
+     "pass": true,
+     "points": 320,
+     "ostad_check": "pending"
+    },
+    {
+     "structure": "orbicularis_oris_muscle_r",
+     "members": [
+      "orbicularis_oris_muscle_r"
+     ],
+     "kind": "muscle",
+     "iou": 0.999,
+     "outline_mean_px": 0.036,
+     "outline_max_px": 1.0,
+     "tolerance": {
+      "mean": 1.0,
+      "max": 3.0
+     },
+     "pass": true,
+     "points": 258,
+     "ostad_check": "pending"
+    }
+   ],
+   "all_pass": true
+  },
+  "profile": {
+   "yaw_deg": -90,
+   "source": "research/ostad/3d/base/face.glb",
+   "structures": [
+    {
+     "structure": "skin_epidermis",
+     "members": [
+      "skin_epidermis"
+     ],
+     "kind": "context",
+     "iou": 0.9993,
+     "outline_mean_px": 0.127,
+     "outline_max_px": 3.0,
+     "tolerance": {
+      "mean": 1.5,
+      "max": 4.0
+     },
+     "pass": true,
+     "points": 407,
+     "ostad_check": null
+    },
+    {
+     "structure": "zygomatic_bone_r",
+     "members": [
+      "zygomatic_bone_r"
+     ],
+     "kind": "bone",
+     "iou": 0.9985,
+     "outline_mean_px": 0.06,
+     "outline_max_px": 1.0,
+     "tolerance": {
+      "mean": 1.0,
+      "max": 3.0
+     },
+     "pass": true,
+     "points": 239,
+     "ostad_check": "pending"
+    },
+    {
+     "structure": "maxilla_r",
+     "members": [
+      "maxilla_r"
+     ],
+     "kind": "bone",
+     "iou": 0.9993,
+     "outline_mean_px": 0.043,
+     "outline_max_px": 1.0,
+     "tolerance": {
+      "mean": 1.0,
+      "max": 3.0
+     },
+     "pass": true,
+     "points": 376,
+     "ostad_check": "pending"
+    },
+    {
+     "structure": "mandible",
+     "members": [
+      "mandible"
+     ],
+     "kind": "context",
+     "iou": 0.9994,
+     "outline_mean_px": 0.043,
+     "outline_max_px": 1.0,
+     "tolerance": {
+      "mean": 1.5,
+      "max": 4.0
+     },
+     "pass": true,
+     "points": 444,
+     "ostad_check": null
+    },
+    {
+     "structure": "fat_cheek_r",
+     "members": [
+      "fat_sup_medial_cheek_r",
+      "fat_sup_middle_cheek_r",
+      "fat_sup_nasolabial_r",
+      "fat_deep_soof_r",
+      "fat_deep_medial_cheek_r"
+     ],
+     "kind": "fat",
+     "iou": 0.9979,
+     "outline_mean_px": 0.085,
+     "outline_max_px": 1.4,
+     "tolerance": {
+      "mean": 1.5,
+      "max": 4.0
+     },
+     "pass": true,
+     "points": 576,
+     "ostad_check": "pending"
+    },
+    {
+     "structure": "fat_sup_jowl_r",
+     "members": [
+      "fat_sup_jowl_r"
+     ],
+     "kind": "fat",
+     "iou": 0.9997,
+     "outline_mean_px": 0.031,
+     "outline_max_px": 1.0,
+     "tolerance": {
+      "mean": 1.5,
+      "max": 4.0
+     },
+     "pass": true,
+     "points": 392,
+     "ostad_check": "pending"
+    }
+   ],
+   "all_pass": true
+  },
+  "section": {
+   "yaw_deg": 90,
+   "source": "research/ostad/3d/base/skin_crosssection.glb",
+   "structures": [
+    {
+     "structure": "epidermis",
+     "members": [
+      "epidermis",
+      "papillary_dermis"
+     ],
+     "kind": "context",
+     "iou": 1.0,
+     "outline_mean_px": 0.0,
+     "outline_max_px": 0.0,
+     "tolerance": {
+      "mean": 1.5,
+      "max": 4.0
+     },
+     "pass": true,
+     "points": 4,
+     "ostad_check": null
+    },
+    {
+     "structure": "dermis",
+     "members": [
+      "reticular_dermis"
+     ],
+     "kind": "context",
+     "iou": 1.0,
+     "outline_mean_px": 0.0,
+     "outline_max_px": 0.0,
+     "tolerance": {
+      "mean": 1.5,
+      "max": 4.0
+     },
+     "pass": true,
+     "points": 4,
+     "ostad_check": null
+    },
+    {
+     "structure": "hypodermis",
+     "members": [
+      "hypodermis"
+     ],
+     "kind": "context",
+     "iou": 1.0,
+     "outline_mean_px": 0.0,
+     "outline_max_px": 0.0,
+     "tolerance": {
+      "mean": 1.5,
+      "max": 4.0
+     },
+     "pass": true,
+     "points": 4,
+     "ostad_check": null
+    },
+    {
+     "structure": "artery",
+     "members": [
+      "artery"
+     ],
+     "kind": "vessel",
+     "iou": 0.9933,
+     "outline_mean_px": 0.084,
+     "outline_max_px": 1.0,
+     "tolerance": {
+      "mean": 1.0,
+      "max": 3.0
+     },
+     "pass": true,
+     "points": 39,
+     "ostad_check": "pending"
+    },
+    {
+     "structure": "vein",
+     "members": [
+      "vein"
+     ],
+     "kind": "vessel",
+     "iou": 0.9934,
+     "outline_mean_px": 0.082,
+     "outline_max_px": 1.0,
+     "tolerance": {
+      "mean": 1.0,
+      "max": 3.0
+     },
+     "pass": true,
+     "points": 39,
+     "ostad_check": "pending"
+    },
+    {
+     "structure": "fat_lobules",
+     "members": [
+      "fat_lobule_27",
+      "fat_lobule_28",
+      "fat_lobule_29",
+      "fat_lobule_30",
+      "fat_lobule_31",
+      "fat_lobule_32"
+     ],
+     "kind": "fat",
+     "iou": 0.9986,
+     "outline_mean_px": 0.042,
+     "outline_max_px": 1.0,
+     "tolerance": {
+      "mean": 1.5,
+      "max": 4.0
+     },
+     "pass": true,
+     "points": 598,
+     "ostad_check": "pending"
+    }
+   ],
+   "all_pass": true
+  }
+ }
+}

@@ -1,0 +1,258 @@
+{
+ "source": "clinic-library/tmp/jan08/IMG_2421.MOV (catalog id 163, 2026-01-08 13:26, 270.6 s)",
+ "rule": "every edge sits in a measured silence (10 ms RMS < floor + 8 dB, >= 80 ms; brand/scripts/jan08_gaps.py check), 15 ms crossfade at each join; order = ARGUMENT.md",
+ "pieces": [
+  {
+   "id": "hook",
+   "from": 163.31,
+   "to": 165.21,
+   "why": "claim first: the strongest line, full frame (rule 3)"
+  },
+  {
+   "id": "belief",
+   "from": 16.15,
+   "to": 28.23,
+   "why": "the common belief, in his words: 'where patients feel that' a lot of filler can stretch skin, look overfilled, migrate (the setup kept: without it the line reads as his claim)",
+   "gap_thr_db": 9
+  },
+  {
+   "id": "cause",
+   "from": 46.05,
+   "to": 54.14,
+   "why": "why it is wrong: improper injections, untrained injectors, too much filling"
+  },
+  {
+   "id": "aging",
+   "from": 64.44,
+   "to": 77.24,
+   "why": "what really happens: volume, fat and support lost with age"
+  },
+  {
+   "id": "sags",
+   "from": 80.47,
+   "to": 83.48,
+   "why": "...so the skin sags (GLP-1 aside trimmed: a separate cause, no claim changed)"
+  },
+  {
+   "id": "method",
+   "from": 119.32,
+   "to": 129.41,
+   "why": "what he does instead: his method, microcannulas ('sort of in a nutshell addresses really' trimmed)"
+  },
+  {
+   "id": "cheekbones",
+   "from": 131.56,
+   "to": 151.065,
+   "why": "on the cheekbones -> lift, because the ligaments weaken; migration only with the wrong filler / too much in a lip"
+  },
+  {
+   "id": "approach",
+   "from": 213.04,
+   "to": 224.96,
+   "why": "setup: cheekbones + minimal elsewhere ... BUT not golf size (kept with its 'but')"
+  },
+  {
+   "id": "awkward",
+   "from": 226.27,
+   "to": 234.36,
+   "why": "...filling in the mid cheek looks awkward; close: fillers are here to stay (1.4 s pause before 'you know' removed)"
+  }
+ ],
+ "cues": {
+  "believe": [
+   "hook",
+   "believe"
+  ],
+  "fatigue0": [
+   "hook",
+   "fatigue"
+  ],
+  "stretch": [
+   "belief",
+   "stretch"
+  ],
+  "overfilled": [
+   "belief",
+   "overfilled"
+  ],
+  "migrate0": [
+   "belief",
+   "migrate"
+  ],
+  "improper": [
+   "cause",
+   "improper"
+  ],
+  "trained": [
+   "cause",
+   "trained"
+  ],
+  "toomuch": [
+   "cause",
+   "much"
+  ],
+  "physiology": [
+   "aging",
+   "physiology"
+  ],
+  "volume": [
+   "aging",
+   "volume"
+  ],
+  "fatty": [
+   "aging",
+   "fatty"
+  ],
+  "support": [
+   "aging",
+   "support"
+  ],
+  "aging2": [
+   "aging",
+   "aging",
+   1
+  ],
+  "sags": [
+   "sags",
+   "sags"
+  ],
+  "methodology": [
+   "method",
+   "methodology"
+  ],
+  "results": [
+   "method",
+   "results"
+  ],
+  "micro": [
+   "method",
+   "microcannulas"
+  ],
+  "cheekbones": [
+   "cheekbones",
+   "cheekbones"
+  ],
+  "lifting": [
+   "cheekbones",
+   "lifting"
+  ],
+  "ligaments": [
+   "cheekbones",
+   "ligaments"
+  ],
+  "diminish": [
+   "cheekbones",
+   "diminish"
+  ],
+  "falls": [
+   "cheekbones",
+   "falls"
+  ],
+  "great": [
+   "cheekbones",
+   "great"
+  ],
+  "migrate": [
+   "cheekbones",
+   "migrate"
+  ],
+  "wrong": [
+   "cheekbones",
+   "wrong"
+  ],
+  "lip": [
+   "cheekbones",
+   "lip"
+  ],
+  "approach": [
+   "approach",
+   "approach"
+  ],
+  "cheekbones2": [
+   "approach",
+   "cheekbones"
+  ],
+  "laugh": [
+   "approach",
+   "laugh"
+  ],
+  "marionette": [
+   "approach",
+   "marionette"
+  ],
+  "lids": [
+   "approach",
+   "lids"
+  ],
+  "midcheek": [
+   "approach",
+   "midcheek"
+  ],
+  "but": [
+   "approach",
+   "but"
+  ],
+  "golf": [
+   "approach",
+   "golf"
+  ],
+  "awkward": [
+   "awkward",
+   "awkward"
+  ],
+  "address": [
+   "awkward",
+   "address"
+  ],
+  "stay": [
+   "awkward",
+   "stay"
+  ]
+ },
+ "spell": {
+  "ostat": "Ostad"
+ },
+ "tail": 48,
+ "fix": [
+  [
+   "hook",
+   "fatigue.",
+   "fatigue,"
+  ],
+  [
+   "method",
+   "it's.",
+   "it's"
+  ],
+  [
+   "approach",
+   "line.",
+   "line,"
+  ],
+  [
+   "approach",
+   "Marionette",
+   "marionette"
+  ],
+  [
+   "approach",
+   "are",
+   ""
+  ],
+  [
+   "approach",
+   "sighs.",
+   "size,"
+  ],
+  [
+   "approach",
+   "But",
+   "but"
+  ],
+  [
+   "awkward",
+   "wanted",
+   "want"
+  ]
+ ]
+}

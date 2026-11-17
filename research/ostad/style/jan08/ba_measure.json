@@ -1,0 +1,227 @@
+{
+ "source": "clinic-library catalog ids 7681/7662 (frontal), 7680/7661 (left oblique), patient P0007, 2022-07-08, before and right after the session",
+ "method": "Jan 08 reel: register and measure the real cheek-filler before/after (clinic library, patient P0007, 2022-07-08, standardised\nclinical photos taken before and right after the session: catalog ids 7681 / 7662 frontal, 7680 / 7661 left oblique; pulled read-only\nwith clinic-library scripts/pull_direct.py; consent = yes; codes only). Never AI; nothing is drawn that was not measured.\n\n  $PY -I brand/scripts/jan08_ba.py      (style venv: mediapipe, cv2, pillow_heif)\n\n1. Landmarks: MediaPipe FaceLandmarker (local model) on each photo.\n2. Registration: similarity transform of the after onto the before on landmarks the filler does not move (eye corners, nose\n   bridge and tip, brow heads). Residual reported in px.\n3. Landmark widths (zygoma, mid-cheek, jaw) before vs registered after.\n4. Measure, per pair, on the patient's camera-side cheek: the submalar shadow (the hollow below the cheekbone that volume loss leaves).\n   Region = the polygon between cheekbone, nasolabial line and jaw landmarks. Shadow = pixels whose luma is >= 12 % under the\n   region's 80th percentile (the cheekbone highlight) in the BEFORE photo's own lighting; the same threshold rule is applied to the\n   registered after. Area change in % and the shadow outline (the contour drawn in the reel) for both.",
+ "verdict": "No volume change is measurable on these photos: every landmark width moves by the same amount (a pose/scale difference, front -2.6 to -3.0 %, oblique +0.9 to +1.6 %), and the submalar shadow area/luma changes are within lighting noise (front +4.0 %, oblique -4.5 %). The reel therefore shows the pair with the STANDARD white ring on the cheekbone landmark (where he places filler) and no change arrow or number (std-skin-window: arrows only where a change is measured; LESSONS L4). The photos were taken right after the session.",
+ "front": {
+  "pair": "front",
+  "landmark_widths": {
+   "zygoma_234_454": {
+    "before": 1224.8,
+    "after": 1201.4,
+    "change_pct": -9901.9
+   },
+   "midcheek_93_323": {
+    "before": 1205.6,
+    "after": 1179.5,
+    "change_pct": -9902.2
+   },
+   "jaw_172_397": {
+    "before": 969.6,
+    "after": 946.9,
+    "change_pct": -9902.3
+   }
+  },
+  "side": "patient's left cheek",
+  "size": [
+   3024,
+   4032
+  ],
+  "registration": {
+   "landmarks": [
+    33,
+    133,
+    362,
+    263,
+    168,
+    6,
+    197,
+    1,
+    4,
+    55,
+    285,
+    70,
+    300
+   ],
+   "residual_px_median": 9.32,
+   "residual_px_max": 20.27
+  },
+  "shadow_area_px": {
+   "before": 88469,
+   "after": 92003,
+   "change_pct": 4.0
+  },
+  "hollow_luma_rel_highlight": {
+   "before": 0.811,
+   "after": 0.682
+  },
+  "pts": {
+   "zygL": [
+    2087.300048828125,
+    1867.300048828125
+   ],
+   "zygR": [
+    938.5,
+    1916.4000244140625
+   ],
+   "cheekL": [
+    1893.0,
+    2124.300048828125
+   ],
+   "cheekR": [
+    1127.699951171875,
+    2150.699951171875
+   ],
+   "mouthL": [
+    1786.0999755859375,
+    2393.800048828125
+   ],
+   "mouthR": [
+    1252.9000244140625,
+    2391.699951171875
+   ],
+   "nlL": [
+    1813.699951171875,
+    2327.300048828125
+   ],
+   "nlR": [
+    1220.5999755859375,
+    2338.699951171875
+   ],
+   "marL": [
+    1842.4000244140625,
+    2386.60009765625
+   ],
+   "marR": [
+    1200.800048828125,
+    2399.300048828125
+   ],
+   "lidL": [
+    1802.5,
+    1780.4000244140625
+   ],
+   "lidR": [
+    1186.5,
+    1804.300048828125
+   ],
+   "chin": [
+    1540.699951171875,
+    2871.39990234375
+   ],
+   "nose": [
+    1494.0999755859375,
+    2106.39990234375
+   ]
+  }
+ },
+ "obl": {
+  "pair": "obl",
+  "landmark_widths": {
+   "zygoma_234_454": {
+    "before": 978.3,
+    "after": 1014.9,
+    "change_pct": -9896.3
+   },
+   "midcheek_93_323": {
+    "before": 970.5,
+    "after": 997.5,
+    "change_pct": -9897.2
+   },
+   "jaw_172_397": {
+    "before": 771.6,
+    "after": 781.3,
+    "change_pct": -9898.7
+   }
+  },
+  "side": "patient's left cheek",
+  "size": [
+   3024,
+   4032
+  ],
+  "registration": {
+   "landmarks": [
+    33,
+    133,
+    362,
+    263,
+    168,
+    6,
+    197,
+    1,
+    4,
+    55,
+    285,
+    70,
+    300
+   ],
+   "residual_px_median": 13.1,
+   "residual_px_max": 30.54
+  },
+  "shadow_area_px": {
+   "before": 205436,
+   "after": 196251,
+   "change_pct": -4.5
+  },
+  "hollow_luma_rel_highlight": {
+   "before": 0.818,
+   "after": 0.826
+  },
+  "pts": {
+   "zygL": [
+    1628.300048828125,
+    1895.5999755859375
+   ],
+   "zygR": [
+    759.5999755859375,
+    1898.0
+   ],
+   "cheekL": [
+    1217.199951171875,
+    2139.800048828125
+   ],
+   "cheekR": [
+    700.2000122070312,
+    2113.800048828125
+   ],
+   "mouthL": [
+    1076.4000244140625,
+    2402.300048828125
+   ],
+   "mouthR": [
+    735.7000122070312,
+    2379.0
+   ],
+   "nlL": [
+    1093.5999755859375,
+    2345.300048828125
+   ],
+   "nlR": [
+    707.4000244140625,
+    2314.699951171875
+   ],
+   "marL": [
+    1143.4000244140625,
+    2409.300048828125
+   ],
+   "marR": [
+    720.7000122070312,
+    2375.60009765625
+   ],
+   "lidL": [
+    1230.5999755859375,
+    1760.0
+   ],
+   "lidR": [
+    819.5,
+    1770.199951171875
+   ],
+   "chin": [
+    853.0,
+    2813.300048828125
+   ],
+   "nose": [
+    710.2000122070312,
+    2071.39990234375
+   ]
+  }
+ }
+}

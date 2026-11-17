@@ -1,0 +1,504 @@
+{
+ "edit": "Ostad - Filler fatigue (reel v1)",
+ "fps": 24,
+ "width": 1080,
+ "height": 1920,
+ "duration_f": 2147,
+ "time_base": "composition frames at 24 fps; reveals at word onset + 1 f",
+ "device_library": "research/ostad/style/DEVICE_LIBRARY.md",
+ "cut": "research/ostad/style/jan08/cut.json",
+ "compliance_profile": "injectable",
+ "consent": "yes",
+ "not_for_posting": false,
+ "status": "consent = yes (clinic-library rule 4, 2026-11-17); patients by code only; no injectable brand on screen (he names none in the cut)",
+ "presentation": {
+  "ostad": "his own talking-head footage; keyed in front on the left (RVM) over the two topic drawings B02, B04"
+ },
+ "sections": [
+  {
+   "id": "S0",
+   "title": "Opening",
+   "start_f": 0
+  },
+  {
+   "id": "S1",
+   "title": "The belief",
+   "start_f": 78
+  },
+  {
+   "id": "S2",
+   "title": "What aging does",
+   "start_f": 530
+  },
+  {
+   "id": "S3",
+   "title": "On the cheekbones",
+   "start_f": 909
+  },
+  {
+   "id": "S4",
+   "title": "Migration",
+   "start_f": 1470
+  }
+ ],
+ "cards": [
+  {
+   "kind": "title",
+   "device": "chapter-title-card",
+   "start_f": 0
+  },
+  {
+   "kind": "section",
+   "device": "chapter-title-card",
+   "start_f": 78,
+   "title": "The belief"
+  },
+  {
+   "kind": "section",
+   "device": "chapter-title-card",
+   "start_f": 530,
+   "title": "What aging does"
+  },
+  {
+   "kind": "section",
+   "device": "chapter-title-card",
+   "start_f": 909,
+   "title": "On the cheekbones"
+  },
+  {
+   "kind": "section",
+   "device": "chapter-title-card",
+   "start_f": 1470,
+   "title": "Migration"
+  },
+  {
+   "kind": "end",
+   "device": "end-card",
+   "start_f": 2099,
+   "end_f": 2146,
+   "layout": "CO"
+  }
+ ],
+ "sfx_map": {
+  "chapter": "exo_chapter",
+  "card": "exo_card",
+  "draw": "exo_draw",
+  "reveal": "swish",
+  "chip": "pop"
+ },
+ "beats": [
+  {
+   "id": "B01",
+   "section": "S0",
+   "start_f": 0,
+   "end_f": 77,
+   "said": "I don't really believe in filler fatigue,",
+   "noun": "the claim: 'Filler fatigue', struck through on 'fatigue'",
+   "devices": [
+    "type-strike-replace"
+   ],
+   "entry": "type-word-fade-rise",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "layout": "FB",
+   "assets": [
+    {
+     "kind": "video",
+     "src": "IMG_2421.MOV 163.31-165.21 s (catalog id 163)"
+    }
+   ],
+   "better": "hook in 0.08 s on his strongest line (oct14 v2: a lower third first)",
+   "text_only": false,
+   "start_s": 0.0,
+   "end_s": 3.21
+  },
+  {
+   "id": "B02",
+   "section": "S1",
+   "start_f": 78,
+   "end_f": 335,
+   "said": "where patients feel that a lot of filler can ... skin stretch, ... overfilled, or the fillers can migrate.",
+   "noun": "the belief, drawn: gel in the fat layer bulges the skin (stretch), sits as a lump (overfilled), beads drift away (migrates)",
+   "devices": [
+    "topic-glass-panel"
+   ],
+   "entry": "type-typewriter",
+   "immersion": "split",
+   "ostad": "keyed-left",
+   "layout": "LC",
+   "illustration": true,
+   "topic_only": "SkinBelief",
+   "compliance": {
+    "illustration_label": true
+   },
+   "ostad_check": "pending",
+   "assets": [
+    {
+     "kind": "drawing",
+     "src": "skin_crosssection.glb section view, traced (anatomy_measure.json: all_pass)"
+    },
+    {
+     "kind": "video",
+     "src": "RVM key of IMG_2421 16.15-28.23 s (video_matte.py --refine)"
+    }
+   ],
+   "search": "searched: catalog filler + cheek + before-after / result rows for an overfilled or migrated example (needs_review = 0): none of his own patients shows one, and his patients are never shown as a bad result; bank/filler-volume-loss, bank/ozempic-face: no overfill example. Drawn from the traced model instead.",
+   "better": "the belief has a picture, not a word (oct14 v2 'Deflation' label)",
+   "text_only": false,
+   "start_s": 3.25,
+   "end_s": 13.96
+  },
+  {
+   "id": "B03",
+   "section": "S1",
+   "start_f": 336,
+   "end_f": 529,
+   "said": "I find either happens from improper injections, from people who are not trained..., from doing too much filling.",
+   "noun": "the three causes, each lit on his word",
+   "devices": [
+    "checklist-ledger"
+   ],
+   "entry": "type-line-accumulate",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "layout": "FB",
+   "text_only": true,
+   "assets": [
+    {
+     "kind": "video",
+     "src": "IMG_2421.MOV 46.05-54.14 s"
+    }
+   ],
+   "search": "searched: catalog for footage of an improper / untrained injection (none, and none would be shown); the one text beat of the reel",
+   "start_s": 14.0,
+   "end_s": 22.04
+  },
+  {
+   "id": "B04",
+   "section": "S2",
+   "start_f": 530,
+   "end_f": 826,
+   "said": "the underlying physiology of aging is that we lose volume ... fatty tissue ... the support structure for our facial skin.",
+   "noun": "aging in profile: the cheek and jowl fat shrink on 'volume', the fat lights on 'fatty', the bone lights on 'support', the lower face drops (dashed: where it was)",
+   "devices": [
+    "anatomy-trace-card",
+    "region-light-on-model"
+   ],
+   "entry": "type-typewriter",
+   "immersion": "split",
+   "ostad": "keyed-left",
+   "layout": "LC",
+   "illustration": true,
+   "topic_only": "VolumeLoss",
+   "compliance": {
+    "illustration_label": true
+   },
+   "ostad_check": "pending",
+   "assets": [
+    {
+     "kind": "drawing",
+     "src": "face.glb profile view (Z-Anatomy bone; fat compartments are the model's approximation), traced"
+    },
+    {
+     "kind": "video",
+     "src": "RVM key of IMG_2421 64.44-77.24 s"
+    }
+   ],
+   "better": "every structure traced from the model and measured (outline mean <= 0.13 px), not drawn from memory",
+   "text_only": false,
+   "start_s": 22.08,
+   "end_s": 34.42
+  },
+  {
+   "id": "B05",
+   "section": "S2",
+   "start_f": 827,
+   "end_f": 908,
+   "said": "That happens from aging. And when you lose that support structure, the skin sags.",
+   "noun": "a real example of volume loss: a mid-cheek / under-eye hollow (journal photo, panel A only)",
+   "devices": [
+    "std-clip-card"
+   ],
+   "entry": "type-scale-pop",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "layout": "CO",
+   "assets": [
+    {
+     "kind": "image",
+     "src": "research/ostad/style/bank/filler-volume-loss/pmc_PMC12828540_fig_7.jpg panel A; Hong GW et al., JPRAS Open 2026, CC BY 4.0; bank use = on-air"
+    }
+   ],
+   "image_layers": [
+    {
+     "asset": "bank_midcheek.jpg",
+     "subject": "bank-midcheek",
+     "box": [
+      108,
+      1020,
+      420,
+      315
+     ],
+     "from_f": 827,
+     "to_f": 901
+    }
+   ],
+   "search": "GLOSSARY 'Deflation' -> bank example; catalog filler before photos are his patients' befores (kept for B11/B13)",
+   "text_only": false,
+   "start_s": 34.46,
+   "end_s": 37.83
+  },
+  {
+   "id": "B06",
+   "section": "S3",
+   "start_f": 909,
+   "end_f": 1104,
+   "said": "And I have my own sort of methodology that I find really gives us incredible results",
+   "noun": "his own cheekbone cannula session (two moments), his name",
+   "devices": [
+    "name-super"
+   ],
+   "entry": "type-typewriter",
+   "immersion": "full-bleed",
+   "ostad": "out",
+   "layout": "FB",
+   "assets": [
+    {
+     "kind": "video",
+     "src": "IMG_3453.MOV (catalog id 6990, 2022-08-31, cannula into the cheekbone from a lateral entry) 14 s and 27 s; clinic-library catalog.sqlite (read-only), pulled with scripts/pull_direct.py --out=tmp/jan08/pull"
+    }
+   ],
+   "text_only": false,
+   "start_s": 37.88,
+   "end_s": 46.0
+  },
+  {
+   "id": "B07",
+   "section": "S3",
+   "start_f": 1105,
+   "end_f": 1160,
+   "said": "utilizing micro-cannulas. And really, it's",
+   "noun": "the microcannula on the cheekbone (his own clip) in the STANDARD ClipCard",
+   "devices": [
+    "std-clip-card"
+   ],
+   "entry": "type-rise",
+   "immersion": "full-bleed",
+   "ostad": "in-footage",
+   "layout": "CO",
+   "ostad_check": "pending (depth line 'On the cheekbone')",
+   "assets": [
+    {
+     "kind": "video",
+     "src": "IMG_3470.MOV (catalog id 6973, 2022-08-31, lateral cheekbone HA by cannula, no label readable) from 13 s; clinic-library catalog.sqlite (read-only), pulled with scripts/pull_direct.py --out=tmp/jan08/pull"
+    }
+   ],
+   "text_only": false,
+   "start_s": 46.04,
+   "end_s": 48.33
+  },
+  {
+   "id": "B08",
+   "section": "S3",
+   "start_f": 1161,
+   "end_f": 1381,
+   "said": "injecting fillers on the cheekbones and that causes a lot of lifting because the ligaments ... diminish over time",
+   "noun": "his method: one entry, the cannula route along the traced cheekbone, gel on the bone, the cheek lifts; without support it falls (dashed)",
+   "devices": [
+    "anatomy-trace-card",
+    "arrow-route-trace",
+    "arrow-straight-pointer"
+   ],
+   "entry": "type-word-fade-rise",
+   "immersion": "full-bleed",
+   "ostad": "out",
+   "layout": "CO",
+   "illustration": true,
+   "topic_only": "CheekPlacement",
+   "compliance": {
+    "illustration_label": true
+   },
+   "ostad_check": "pending (deposit points and route are illustrative; ligaments are not in the model and are not drawn)",
+   "assets": [
+    {
+     "kind": "drawing",
+     "src": "face.glb midface view (-30 deg), traced"
+    }
+   ],
+   "text_only": false,
+   "start_s": 48.38,
+   "end_s": 57.54
+  },
+  {
+   "id": "B09",
+   "section": "S3",
+   "start_f": 1382,
+   "end_f": 1469,
+   "said": "the skin falls. I find fillers work really great.",
+   "noun": "his hands at the cheekbone, full frame",
+   "devices": [],
+   "entry": "type-caption-word",
+   "immersion": "full-bleed",
+   "ostad": "out",
+   "layout": "FB",
+   "assets": [
+    {
+     "kind": "video",
+     "src": "IMG_3470.MOV from 18 s (catalog id 6973)"
+    }
+   ],
+   "text_only": false,
+   "start_s": 57.58,
+   "end_s": 61.21
+  },
+  {
+   "id": "B10",
+   "section": "S4",
+   "start_f": 1470,
+   "end_f": 1618,
+   "said": "I don't see them migrate unless you're really using the wrong filler. It may migrate in a lip that too much is injected.",
+   "noun": "migration: gel on the cheekbone stays; too much in the lip spreads past its border",
+   "devices": [
+    "topic-glass-panel"
+   ],
+   "entry": "type-typewriter",
+   "immersion": "full-bleed",
+   "ostad": "out",
+   "layout": "CO",
+   "illustration": true,
+   "topic_only": "LipMigration",
+   "compliance": {
+    "illustration_label": true
+   },
+   "ostad_check": "pending",
+   "assets": [
+    {
+     "kind": "drawing",
+     "src": "face.glb midface view: zygoma + orbicularis oris, traced"
+    }
+   ],
+   "search": "searched: catalog filler + cheek + before-after / result rows for an overfilled or migrated example (needs_review = 0): none of his own patients shows one, and his patients are never shown as a bad result; bank/filler-volume-loss, bank/ozempic-face: no overfill example. Drawn from the traced model instead.",
+   "text_only": false,
+   "start_s": 61.25,
+   "end_s": 67.42
+  },
+  {
+   "id": "B11",
+   "section": "S4",
+   "start_f": 1619,
+   "end_f": 1871,
+   "said": "I have my approach of basically injecting the cheekbones, maybe minimal amounts in the laugh line, marionette lines, a little bit on the lower lids",
+   "noun": "his plan on a real face: white pen on her landmarks (cheekbones heavy; laugh lines, marionette lines, lower lids thin), each on its word",
+   "devices": [
+    "arrow-hand-drawn",
+    "std-skin-window"
+   ],
+   "entry": "type-scale-pop",
+   "immersion": "full-bleed",
+   "ostad": "out",
+   "layout": "FB",
+   "compliance": {
+    "results_vary": true
+   },
+   "ostad_check": "pending (placement lines)",
+   "assets": [
+    {
+     "kind": "image",
+     "src": "IMG_2316.HEIC (catalog id 7681, P0007, 2022-07-08 standardised frontal, before the session; consent yes); MediaPipe landmarks (jan08_ba.py); clinic-library catalog.sqlite (read-only), pulled with scripts/pull_direct.py --out=tmp/jan08/pull"
+    }
+   ],
+   "image_layers": [
+    {
+     "asset": "front_before.jpg",
+     "subject": "P0007-frontal",
+     "box": [
+      80,
+      250,
+      920,
+      1200
+     ],
+     "from_f": 1619,
+     "to_f": 1868
+    }
+   ],
+   "text_only": false,
+   "start_s": 67.46,
+   "end_s": 77.96
+  },
+  {
+   "id": "B12",
+   "section": "S4",
+   "start_f": 1872,
+   "end_f": 1964,
+   "said": "but I am not really a fan of creating golf size, you know, filling in the mid-cheek, that looks awkward.",
+   "noun": "the contrast: a golf-size lump grows in the mid cheek of the traced profile and is crossed out",
+   "devices": [
+    "type-strike-replace",
+    "region-light-on-model"
+   ],
+   "entry": "type-word-fade-rise",
+   "immersion": "full-bleed",
+   "ostad": "out",
+   "layout": "CO",
+   "illustration": true,
+   "topic_only": "PillowVsLift",
+   "compliance": {
+    "illustration_label": true
+   },
+   "ostad_check": "pending",
+   "assets": [
+    {
+     "kind": "drawing",
+     "src": "face.glb profile view, traced"
+    }
+   ],
+   "search": "searched: catalog filler + cheek + before-after / result rows for an overfilled or migrated example (needs_review = 0): none of his own patients shows one, and his patients are never shown as a bad result; bank/filler-volume-loss, bank/ozempic-face: no overfill example. Drawn from the traced model instead.",
+   "text_only": false,
+   "start_s": 78.0,
+   "end_s": 81.83
+  },
+  {
+   "id": "B13",
+   "section": "S4",
+   "start_f": 1965,
+   "end_f": 2098,
+   "said": "So I just want to address this issue of filler fatigue. I really think fillers are here to stay.",
+   "noun": "the result: her before -> after (registered on stable landmarks), the white ring on her cheekbone",
+   "devices": [
+    "std-skin-window"
+   ],
+   "entry": "type-rolling-swap",
+   "immersion": "masked card",
+   "ostad": "in-footage",
+   "layout": "CO",
+   "result_claim": true,
+   "compliance": {
+    "results_vary": true
+   },
+   "assets": [
+    {
+     "kind": "image",
+     "src": "IMG_2316.HEIC / IMG_2335.HEIC (catalog ids 7681 / 7662, P0007, 2022-07-08 before and right after; registered, jan08_ba.py); clinic-library catalog.sqlite (read-only), pulled with scripts/pull_direct.py --out=tmp/jan08/pull"
+    }
+   ],
+   "image_layers": [
+    {
+     "asset": "front_before/after_aligned.jpg",
+     "subject": "P0007-frontal",
+     "box": [
+      130,
+      820,
+      820,
+      640
+     ],
+     "from_f": 1965,
+     "to_f": 2095
+    }
+   ],
+   "search": "searched for a weeks-apart filler B/A without on-image text or brand names (catalog filler before-after, needs_review = 0): the P0011 / P0013 triptychs carry slide text and product names; P0007 is clean and standardised",
+   "text_only": false,
+   "start_s": 81.88,
+   "end_s": 87.42
+  }
+ ]
+}

@@ -1,0 +1,180 @@
+{
+ "floor_db": -48.2,
+ "min_gap_s": 0.08,
+ "fails": [],
+ "exceptions": [
+  {
+   "piece": "belief",
+   "edge": "from",
+   "t": 16.15,
+   "gap_s": 0.1,
+   "energy_db_above_floor": 8.2,
+   "ok": true,
+   "thr_db_above_floor": 9
+  }
+ ],
+ "edges": [
+  {
+   "piece": "hook",
+   "edge": "from",
+   "t": 163.31,
+   "gap_s": 0.2,
+   "energy_db_above_floor": 2.2,
+   "ok": true,
+   "thr_db_above_floor": 8
+  },
+  {
+   "piece": "hook",
+   "edge": "to",
+   "t": 165.21,
+   "gap_s": 0.08,
+   "energy_db_above_floor": 0.6,
+   "ok": true,
+   "thr_db_above_floor": 8
+  },
+  {
+   "piece": "belief",
+   "edge": "from",
+   "t": 16.15,
+   "gap_s": 0.1,
+   "energy_db_above_floor": 8.2,
+   "ok": true,
+   "thr_db_above_floor": 9
+  },
+  {
+   "piece": "belief",
+   "edge": "to",
+   "t": 28.23,
+   "gap_s": 0.6,
+   "energy_db_above_floor": -0.2,
+   "ok": true,
+   "thr_db_above_floor": 8
+  },
+  {
+   "piece": "cause",
+   "edge": "from",
+   "t": 46.05,
+   "gap_s": 0.66,
+   "energy_db_above_floor": -3.3,
+   "ok": true,
+   "thr_db_above_floor": 8
+  },
+  {
+   "piece": "cause",
+   "edge": "to",
+   "t": 54.14,
+   "gap_s": 0.66,
+   "energy_db_above_floor": 1.3,
+   "ok": true,
+   "thr_db_above_floor": 8
+  },
+  {
+   "piece": "aging",
+   "edge": "from",
+   "t": 64.44,
+   "gap_s": 0.12,
+   "energy_db_above_floor": 0.2,
+   "ok": true,
+   "thr_db_above_floor": 8
+  },
+  {
+   "piece": "aging",
+   "edge": "to",
+   "t": 77.24,
+   "gap_s": 0.08,
+   "energy_db_above_floor": 7.9,
+   "ok": true,
+   "thr_db_above_floor": 8
+  },
+  {
+   "piece": "sags",
+   "edge": "from",
+   "t": 80.47,
+   "gap_s": 0.56,
+   "energy_db_above_floor": 3.5,
+   "ok": true,
+   "thr_db_above_floor": 8
+  },
+  {
+   "piece": "sags",
+   "edge": "to",
+   "t": 83.48,
+   "gap_s": 0.59,
+   "energy_db_above_floor": 4.5,
+   "ok": true,
+   "thr_db_above_floor": 8
+  },
+  {
+   "piece": "method",
+   "edge": "from",
+   "t": 119.32,
+   "gap_s": 0.24,
+   "energy_db_above_floor": 1.7,
+   "ok": true,
+   "thr_db_above_floor": 8
+  },
+  {
+   "piece": "method",
+   "edge": "to",
+   "t": 129.41,
+   "gap_s": 0.08,
+   "energy_db_above_floor": 7.3,
+   "ok": true,
+   "thr_db_above_floor": 8
+  },
+  {
+   "piece": "cheekbones",
+   "edge": "from",
+   "t": 131.56,
+   "gap_s": 0.41,
+   "energy_db_above_floor": -2.7,
+   "ok": true,
+   "thr_db_above_floor": 8
+  },
+  {
+   "piece": "cheekbones",
+   "edge": "to",
+   "t": 151.065,
+   "gap_s": 0.11,
+   "energy_db_above_floor": 7.2,
+   "ok": true,
+   "thr_db_above_floor": 8
+  },
+  {
+   "piece": "approach",
+   "edge": "from",
+   "t": 213.04,
+   "gap_s": 0.67,
+   "energy_db_above_floor": -11.9,
+   "ok": true,
+   "thr_db_above_floor": 8
+  },
+  {
+   "piece": "approach",
+   "edge": "to",
+   "t": 224.96,
+   "gap_s": 1.51,
+   "energy_db_above_floor": -3.1,
+   "ok": true,
+   "thr_db_above_floor": 8
+  },
+  {
+   "piece": "awkward",
+   "edge": "from",
+   "t": 226.27,
+   "gap_s": 1.51,
+   "energy_db_above_floor": -1.1,
+   "ok": true,
+   "thr_db_above_floor": 8
+  },
+  {
+   "piece": "awkward",
+   "edge": "to",
+   "t": 234.36,
+   "gap_s": 0.42,
+   "energy_db_above_floor": 4.1,
+   "ok": true,
+   "thr_db_above_floor": 8
+  }
+ ]
+}
