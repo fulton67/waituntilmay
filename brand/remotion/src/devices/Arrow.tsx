@@ -15,6 +15,8 @@ import tokens from "../../../kit/tokens.json";
 //     tracked landmark keeps 0 px error); every point is a PtSrc, so `to: follow(track, "templeL", LAYERS.keyed)` keeps the tip on him;
 //   - exits along its path over the `exit` token (7 f, .4,0,1,1): the tail erases toward the tip (or the tip retracts for straight
 //     pointers, the ribbon rides on and thins, the tick fades and falls 7 px). Never a cut.
+// Gap round 1 (DECISIONS 14o): ONE head shape everywhere, the filled barb ("chevron" in the spec renders barbD); only marker-tick keeps its
+// small triangle. Callers inside a scaled Stage pass weight = 8 / k so the rendered weight stays 8 px.
 // Weights and colours come from brand/kit/tokens.json. v6: default colour brand blue, ink on light imagery. Lint: the head element carries data-arrowhead (tools/lint_compositions.py).
 
 export type Pt = { x: number; y: number };
@@ -45,11 +47,11 @@ type Spec = { draw: number; head: Head; bend: number; dashed: boolean; exit: Exi
 // draw = frames at 24 fps from the reference (M = frame-counted in DEVICE_LIBRARY §A)
 export const ARROW_SPEC: Record<ArrowVariant, Spec> = {
   "curved-callout": { draw: 7, head: "chevron", bend: 0.32, dashed: false, exit: "tail", label: "tail", ref: "GMu3 f395-401, 7 f, open V lands last" },
-  "straight-pointer": { draw: 7, head: "triangle", bend: 0, dashed: false, exit: "tip", label: "tail", ref: "WZ f926-933, 7 f, solid head pops at the end" },
+  "straight-pointer": { draw: 7, head: "chevron", bend: 0, dashed: false, exit: "tip", label: "tail", ref: "WZ f926-933, 7 f, solid head pops at the end" },
   "bracket-pointer": { draw: 7, head: "chevron", bend: 0, dashed: false, exit: "tail", label: "tail", ref: "built as curved-callout timing (no corpus bracket; EXOMIND_REDO variant list)" },
   "route-trace": { draw: 27, head: "chevron", bend: 0, dashed: false, exit: "tail", label: "tip", ref: "DDOS f216-250, 27 f sweep, tail erases" },
-  "arc-connector": { draw: 26, head: "triangle", bend: 0.5, dashed: true, exit: "tail", label: "tip", ref: "D_bh f1108-1140, 26 f, icon rides the end" },
-  "dashed-flow": { draw: 8, head: "triangle", bend: 0.3, dashed: true, exit: "tail", label: "tail", ref: "GMu3 f460-468, 8 f, dashes reveal, head at end" },
+  "arc-connector": { draw: 26, head: "chevron", bend: 0.5, dashed: true, exit: "tail", label: "tip", ref: "D_bh f1108-1140, 26 f, icon rides the end" },
+  "dashed-flow": { draw: 8, head: "chevron", bend: 0.3, dashed: true, exit: "tail", label: "tail", ref: "GMu3 f460-468, 8 f, dashes reveal, head at end" },
   "light-ribbon": { draw: 28, head: "chevron", bend: 0, dashed: false, exit: "ride", label: "tip", ref: "glp1 f1100-1170, 28 f per pass, keeps travelling" },
   "orbit-arc": { draw: 9, head: "chevron", bend: 0.3, dashed: false, exit: "tail", label: "tip", ref: "DYKh5yyPxxg f1200-1264, 8-10 f, drifts with the model" },
   "marker-tick": { draw: 1, head: "triangle", bend: 0, dashed: false, exit: "fade", label: "tip", ref: "WZ f940/944, pops in 1 f" },
@@ -298,7 +300,7 @@ export const Arrow: React.FC<{
   if (variant === "orbit-arc") {
     // the tilted ring the arc rides on: kit dotted-path proportions at rule weight
     const ring = mkLine(orbit(A, B, 1, 0.42, 0, 120));
-    parts.push(<path key="r" d={dashes(ring, 0, ring.L * Math.min(1, draw), () => W * 0.42, W * 1.6, W * 1.5)} fill={color} opacity={0.5 * (1 - q)} />);
+    parts.push(<path key="r" d={dashes(ring, 0, ring.L * Math.min(1, draw), () => W * 0.5, W * 1.6, W * 1.5)} fill={color} opacity={1 - q} />); // gap round 1: full brand blue (was 50 % alpha, a second blue)
   }
   if (shaftEnd - a > 0.5) {
     parts.push(
@@ -316,14 +318,16 @@ export const Arrow: React.FC<{
     if (S.label === "tip") { const P = pointAt(ln, b); lab = <Label at={add(P.p, perp(P.t), -22)} t={P.t} side="side" o={cl(draw * 4) * (1 - q)}>{label}</Label>; }
     else { const P = pointAt(ln, 0); lab = <Label at={P.p} t={P.t} side="back" o={arrive(cl(t / 14)) * (1 - q)}>{label}</Label>; }
   }
-  return <Frame w={width} h={height} fx={fx}>{parts}{lab}</Frame>;
+  // the drawn part of the centre line, for the arrow-crosses-text lint (OstadYT6 `audit`: tools/arrow_text_lint.py)
+  const drawn = slice(ln, a, b).filter((_, i, A) => i % 3 === 0 || i === A.length - 1).map((s) => [Math.round(s.p.x), Math.round(s.p.y)]);
+  return <Frame w={width} h={height} fx={fx} line={drawn}>{parts}{lab}</Frame>;
 };
 
-const Frame: React.FC<{ w: number; h: number; fx?: string; children: React.ReactNode }> = ({ w, h, fx, children }) => {
+const Frame: React.FC<{ w: number; h: number; fx?: string; line?: number[][]; children: React.ReactNode }> = ({ w, h, fx, line, children }) => {
   const svg: React.ReactNode[] = [], html: React.ReactNode[] = [];
   React.Children.forEach(children, (c) => { if (React.isValidElement(c) && c.type === Label) html.push(c); else if (c) svg.push(c); });
   return (
-    <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+    <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }} data-arrowline={line ? JSON.stringify(line) : undefined}>
       <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{ position: "absolute", inset: 0, overflow: "visible", filter: fx }}>{svg}</svg>
       {html}
     </div>
