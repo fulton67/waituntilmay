@@ -1,0 +1,64 @@
+{
+ "metric": "(hamming pHash + hamming dHash) / 128 on grey crops at 0.5x",
+ "step_s": 1.0,
+ "sources": [
+  "rosacea_v5",
+  "yt_v2",
+  "yt_v3",
+  "yt_v4",
+  "yt_v4.1",
+  "yt_v5",
+  "exomind_reel",
+  "storyboard"
+ ],
+ "identical_variants": {
+  "n": 1603,
+  "median": 0.015625,
+  "p99": 0.13265625000000014,
+  "max": 0.2578125
+ },
+ "identical_held_graphic": {
+  "n": 126,
+  "median": 0.0390625,
+  "p99": 0.228515625
+ },
+ "different": {
+  "n": 1600,
+  "min": 0.0078125,
+  "p01": 0.328046875,
+  "p05": 0.390625,
+  "median": 0.484375
+ },
+ "rule": "decision threshold from the nearest-neighbour calibration (nn); pairs_threshold kept for reference",
+ "fp_rate_on_different": 0.00125,
+ "recall_on_identical": 0.9987523393636931,
+ "pairs_threshold": 0.2304,
+ "nn": {
+  "known_new": {
+   "sources": [
+    "0zSy8ibDCj8.mp4",
+    "1ayyytBTRnw.mp4",
+    "_MAYscxxhDE.mp4",
+    "BBaDgCN3hRU.mp4",
+    "fRcpMjo6tBo.mp4",
+    "G6EEhPIYseY.mp4",
+    "iD9IXTYxE_Y.mp4",
+    "kXTumTiLp7E.mp4"
+   ],
+   "n": 96,
+   "min": 0.1015625,
+   "p01": 0.13125,
+   "p05": 0.15625,
+   "median": 0.2578125
+  },
+  "earlier_edit_offgrid_jpeg35": {
+   "n": 60,
+   "median": 0.0,
+   "p99": 0.08249999999999957,
+   "max": 0.15625
+  },
+  "threshold": 0.1069,
+  "rule": "midpoint of earlier-edit nearest p99 and known-new nearest p1"
+ },
+ "threshold": 0.1069
+}

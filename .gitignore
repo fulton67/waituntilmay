@@ -236,3 +236,5 @@ research/ostad/style/exomind/ref_*.jpg
 research/ostad/style/measure/_devices/*.jpg
 # rosacea method contact sheets (ROSACEA_METHOD.md) show his face and patient photos: local only
 research/ostad/style/exomind/rosacea_sheets/
+# reuse_check bank: hashes of earlier edits' frames (rebuild with tools/reuse_check.py --build-bank); calibration.json is committed
+research/ostad/style/measure/_reuse/bank.npz
