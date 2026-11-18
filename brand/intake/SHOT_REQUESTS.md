@@ -23,3 +23,9 @@ mode.
 | 12 | A sunscreen bottle half in shade on the window ledge, a strong window shadow | the reapply tile's photo version | — |
 
 Patient faces are not requested here. Before/afters come from the standardised clinical series.
+
+## Originals to request (2026-11-17)
+
+| # | What | Why | Catalog rows |
+|---|---|---|---|
+| 13 | The camera originals of the AviClear acne patient's four visit photos (before, 1 month after the 1st, 1 month after the 2nd, 3 months after the 3rd), straight from the clinic camera/iPhone, not the exported collages | iCloud only holds the clinic's 1080 px collages (each face about 500 px wide), so the AviClear post can't go full-bleed without enlarging her face about 2x. The post is built at native size until these arrive | P0010: 2965, 2975 |

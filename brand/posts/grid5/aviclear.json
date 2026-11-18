@@ -1,0 +1,28 @@
+{
+  "post": "grid5 AviClear carousel, v2",
+  "page": "public/brand/ostad/stills/g5/aviclear.html",
+  "patient": "P0010",
+  "consent": "yes (company iCloud, patient contracts)",
+  "sources": {
+    "before_and_3mo_after": "catalog 2975 (clinic side-by-side, 1080 px PNG original)",
+    "middle_visits": "catalog 2965 (clinic 4-panel, 1080 px PNG original)",
+    "full_resolution": "BLOCKED: no larger original in iCloud; camera originals requested (brand/intake/SHOT_REQUESTS.md #13). Every photo is shown at native size or smaller (loupe() throws if a window would enlarge)."
+  },
+  "registration": "brand/scripts/ba_align.py sets avi2/avit, rigid eye+nose landmarks; residual 1.66 % (3 months after), 1.67 % / 1.13 % (middle visits) of eye spacing. Middle visits are warped up 1.17x onto the before; the timeline windows show them at 0.83x, i.e. 0.97 source px per output px",
+  "loupe_patch": {"centre_px": [235, 175], "radius_px": 120, "frame": "500 x 698 registered"},
+  "papules": {
+    "method": "placed by eye on 3x close-ups of the registered frames; only clearly red, raised lesions are ringed",
+    "before": [[263, 119], [323, 199], [322, 225], [200, 203], [143, 200]],
+    "after_1st": [[311, 200]],
+    "after_2nd": [],
+    "after_3rd": [],
+    "counts": [5, 1, 0, 0],
+    "not_counted": "two faint pink spots at (205, 227) and (345, 153) in the before; a dark healing mark at (211, 214) after the 1st"
+  },
+  "for_dr_ostad_to_check": [
+    "the 5 -> 1 -> 0 -> 0 papule counts on the forehead patch",
+    "slide 3 wording: 1726 nm light is absorbed by sebum, heats and shrinks the oil gland",
+    "slide 3 model: skin_crosssection.glb is schematic (epidermis thickened ~8x for legibility)",
+    "chip '3 sessions' (from the clinic's 4-panel labels)"
+  ]
+}

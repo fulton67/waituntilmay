@@ -30,6 +30,11 @@ SETS = {
   # P0010 AviClear: the clinic's 4-panel composite (2965), each visit registered to the first
   "avi": ("lm", [("avi_0", 2965, (156, 0, 512, 458)), ("avi_1", 2965, (512, 0, 878, 470)),
                  ("avi_2", 2965, (146, 512, 512, 982)), ("avi_3", 2965, (512, 540, 868, 998))], (0.07, 0.07, 0.93, 0.97), (720, 900)),
+  # P0010 AviClear, the clinic's side-by-side (2975, 1080 px original): the larger halves, kept at NATIVE size (upscale 1.0)
+  "avi2": ("lm", [("avi2_0", 2975, (0, 0, 500, 698)), ("avi2_1", 2975, (528, 0, 1024, 698))], (0.0, 0.0, 1.0, 1.0), (500, 698)),
+  # the two middle visits (2965 panels, smaller) warped onto the 2975 before, so one loupe circle sits on the same skin at every visit
+  "avit": ("lm", [("avit_0", 2975, (0, 0, 500, 698)), ("avit_1", 2965, (512, 0, 878, 470)), ("avit_2", 2965, (146, 512, 512, 982)),
+                  ("avit_3", 2975, (528, 0, 1024, 698))], (0.0, 0.0, 1.0, 1.0), (500, 698)),
   # P0013 chin: the clinic's left-profile composite (6069), after registered on nasion + nose tip
   "chin": ("prof", [("chin_0", 6069, (0, 0, 512, 696)), ("chin_1", 6069, (512, 0, 1024, 696))], (0.0, 0.16, 1.0, 1.0), (720, 1132)),
 }
@@ -91,7 +96,14 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     det = None
     report = {}
+    only = sys.argv[1:]
+    old = {}
+    if only and os.path.exists("public/brand/ostad/stills/ba/align.js"):
+        old = json.loads(open("public/brand/ostad/stills/ba/align.js").read().split("=", 1)[1].rstrip().rstrip(";"))
+    report.update(old)
     for name, (mode, items, box, size) in SETS.items():
+        if only and name not in only:
+            continue
         imgs, pts = [], []
         for key, fid, crop in items:
             im = cv2.imread(f"{LIB}{fid:05d}.jpg")

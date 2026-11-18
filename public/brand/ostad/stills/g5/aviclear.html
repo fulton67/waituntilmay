@@ -1,154 +1,114 @@
 <!doctype html>
-<!-- Grid 5, AviClear carousel (P0010). Consent = yes (company iCloud, patient contracts); patient code only.
-     Every panel is the REGISTERED crop from brand/scripts/ba_align.py (eyes + nose fit, residual 1.15-1.68 % of eye spacing),
-     so a zone drawn at the same fractions sits on the same skin in every visit. Papules were located and counted BY EYE on the
-     2x close-ups (automatic counting is unreliable on these 1024 px previews) and are marked for Dr. Ostad to check.
-     Slide 3 is a render of research/ostad/3d/base/skin_crosssection.glb (section_lines.py), not a drawing from memory.
-     Marks follow LESSONS L5: white pen + glass, no blue. -->
+<!-- Grid 5, AviClear carousel, v2 (after brand/posts/CRITIQUE_grid5.md). Internal notes live in brand/posts/grid5/aviclear.json,
+     never on a slide. Photos: the clinic's own 1080 px composites (2975 before / 3 months after, 2965 middle visits), registered
+     by brand/scripts/ba_align.py (sets avi2 / avit) and shown at NATIVE size or smaller: no photo is enlarged. -->
 <meta charset="utf-8"><meta name="robots" content="noindex">
 <link rel="stylesheet" href="https://use.typekit.net/vzz0hgt.css">
 <link rel="stylesheet" href="../stills.css">
 <style>
-.tile.dark{background:var(--ink);color:#fff}
-.top{position:absolute;left:56px;right:56px;top:52px;display:flex;justify-content:space-between}
-.dark .meta{color:#fff}
-.pane{position:absolute;overflow:hidden;border-radius:4px;background:#000}
-.pane img{position:absolute;display:block;max-width:none}
+:root{--blue:#37a9e8}
+.kick{position:absolute;left:64px;top:64px;font:500 21px/1.2 var(--text);letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+.hl{position:absolute;left:64px;right:64px;font:500 116px/.98 var(--serif);font-style:italic;letter-spacing:-.018em}
+.photo{position:absolute;overflow:hidden;border-radius:6px;box-shadow:-14px 22px 44px -22px rgba(25,22,18,.45)}
+.photo img,.loupe img{position:absolute;display:block;max-width:none}
+.loupe{position:absolute;border-radius:50%;overflow:hidden;z-index:3;box-shadow:-12px 18px 34px -14px rgba(25,22,18,.5)}
+/* the glass rim sits ABOVE the photo: bright ring, lit edge upper right, a faint highlight sweep */
+.loupe::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;z-index:2;
+  box-shadow:inset 0 0 0 6px rgba(255,255,255,.9),inset -3px 4px 0 6px rgba(255,255,255,.45),inset 0 0 0 7.5px rgba(25,22,18,.12);
+  background:linear-gradient(222deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,0) 20%)}
 svg.ov{position:absolute;left:0;top:0;width:1080px;height:1350px;overflow:visible;pointer-events:none;z-index:5}
-.tag{position:absolute;padding:9px 14px;--r:12px;z-index:6}
-.tag .lab{font-size:20px}
-.num{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;z-index:7;display:grid;place-items:center;
-  font:600 16px/1 var(--text);color:var(--ink);background:rgba(255,255,255,.92);box-shadow:-2px 3px 8px rgba(0,0,0,.35)}
-.key{position:absolute;font:400 23px/1.3 var(--text)}
-.key b{font-weight:500}
-.key .n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--ink);
-  font:600 14px/1 var(--text);margin-right:10px;vertical-align:2px}
-.cap{position:absolute;font:500 19px/1.2 var(--text);letter-spacing:.05em;text-transform:uppercase;opacity:.75}
-.foot{position:absolute;left:56px;right:56px;bottom:44px;font:400 17px/1.35 var(--text);opacity:.55}
-.big{position:absolute;left:56px;right:56px;font:500 46px/1.06 var(--disp);letter-spacing:-.012em}
+.cap{position:absolute;font:400 25px/1.3 var(--text)}
+.cap b{font-weight:500}
+.lbl{position:absolute;font:500 21px/1.2 var(--text);letter-spacing:.06em;text-transform:uppercase;opacity:.7;text-align:center}
+.num{position:absolute;font:500 230px/.9 var(--disp);letter-spacing:-.04em;text-align:center}
+.plate{position:absolute;padding:14px 20px;--r:16px;z-index:6;color:var(--ink)}
+.plate b{display:block;font:500 24px/1.15 var(--disp)}
+.plate span{display:block;font:400 19px/1.3 var(--text);margin-top:4px;max-width:300px}
 </style>
 <div id="stage">
 
-<!-- 1 · cover: the registered pair -->
-<div class="tile dark" id="s1" data-name="avi_1_cover">
-  <div class="top"><div class="meta">AviClear · 1726 nm laser · acne</div><div class="meta">Patient P0010 · 1/4</div></div>
-  <div class="big" style="top:752px">Acne, before and 3 months after the third AviClear session</div>
-  <div class="rows" style="position:absolute;left:56px;right:56px;top:884px;color:#fff">
-    <div><b>Laser</b><span>1726 nm, absorbed by skin oil (sebum)</span></div>
-    <div><b>Sessions</b><span>3 · last photo 3 months after the third</span></div>
-    <div><b>Look at</b><span>A forehead · B cheek, same spot in both photos</span></div>
-  </div>
-  <div class="foot" style="bottom:30px">Same face position in both photos (aligned on eyes and nose). Swipe: the forehead up close →</div>
+<div class="tile" id="s1" data-name="avi_1_cover">
+  <div class="kick">AviClear · 1726 nm laser</div>
+  <div class="hl" style="top:112px">Clear skin,<br>3 months on.</div>
+  <div class="cap" style="left:64px;right:64px;top:1128px;text-align:center">Inside the circle: the same patch of forehead, <b>before treatment</b>.</div>
+  <div class="chips" style="position:absolute;left:0;right:0;top:1196px;justify-content:center"><span>Acne</span><span>3 sessions</span><span>Photo 3 months after the last</span></div>
 </div>
 
-<!-- 2 · the same patches up close -->
-<div class="tile dark" id="s2" data-name="avi_2_closeup">
-  <div class="top"><div class="meta">What changed, up close</div><div class="meta">P0010 · 2/4</div></div>
-  <div class="cap" style="left:56px;top:118px">A · Forehead, before</div><div class="cap" style="left:548px;top:118px">A · Forehead, 3 months after</div>
-  <div class="key" style="left:56px;top:512px;width:460px"><span class="n">1</span><b>Inflamed papules: 6.</b> Oil glands blocked, then red and swollen. A tick marks each one.</div>
-  <div class="key" style="left:548px;top:512px;width:476px"><span class="n">2</span><b>Closed comedones.</b> The skin-coloured bumps: oil plugged under the surface.</div>
-  <div class="cap" style="left:56px;top:690px">B · Cheek, before</div><div class="cap" style="left:548px;top:690px">B · Cheek, 3 months after</div>
-  <div class="key" style="left:56px;top:1100px;width:460px"><span class="n">3</span><b>Red papules and a pink mark</b> where a breakout is healing.</div>
-  <div class="key" style="left:548px;top:1100px;width:476px;opacity:.85">After: 0 papules, no plugs. The brown dots are freckles. Counted by eye on these close-ups.</div>
+<div class="tile" id="s2" data-name="avi_2_count" style="background:var(--paper)">
+  <div class="kick">The forehead, same spot</div>
+  <div class="hl" style="top:112px;font-size:92px">Five red papules.<br>Three months later, none.</div>
+  <div class="lbl" style="left:110px;width:380px;top:796px">Before</div>
+  <div class="lbl" style="left:590px;width:380px;top:796px">3 months after the 3rd session</div>
+  <div class="num" style="left:110px;width:380px;top:868px">5</div>
+  <div class="num" style="left:590px;width:380px;top:868px">0</div>
+  <div class="cap" style="left:64px;right:64px;top:1150px;text-align:center;opacity:.8">Each blue ring sits on one inflamed papule: a blocked oil gland gone red and swollen.</div>
 </div>
 
-<!-- 3 · where it works: the skin model -->
 <div class="tile" id="s3" data-name="avi_3_how" style="background:var(--paper)">
-  <div class="top" style="color:var(--navy)"><div class="meta">How AviClear works</div><div class="meta">P0010 · 3/4</div></div>
-  <div class="big" style="top:112px;color:var(--navy)">It heats the oil gland under the pore</div>
-  <img id="skin" src="anat/skin.png" style="position:absolute;left:30px;top:330px;width:760px">
-  <div class="foot" style="color:var(--ink)">3D section of the skin model (skin_crosssection.glb), epidermis drawn about 8× thicker to be readable. 1726 nm is a wavelength sebum absorbs strongly. For Dr. Ostad to check.</div>
+  <div class="kick">How AviClear works</div>
+  <div class="hl" style="top:112px;font-size:92px;color:var(--navy)">It heats the oil gland,<br>not the surface.</div>
+  <img id="pore" src="anat/pore_lit.png" style="position:absolute;left:90px;top:330px;width:900px;
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 18%,#000 82%,transparent 100%),linear-gradient(to bottom,#000 70%,transparent 96%);
+    -webkit-mask-composite:source-in;mask-composite:intersect">
 </div>
 
-<!-- 4 · every visit, same patch -->
-<div class="tile dark" id="s4" data-name="avi_4_visits">
-  <div class="top"><div class="meta">Every visit, the same patch</div><div class="meta">P0010 · 4/4</div></div>
-  <div class="big" style="top:800px">The red papules go first; the plugged pores follow</div>
-  <div class="rows" style="position:absolute;left:56px;right:56px;top:930px;color:#fff">
-    <div><b>Forehead patch A</b><span>6 → 1 → 0 → 0 papules</span></div>
-    <div><b>Counted</b><span>by eye, same patch, every visit</span></div>
-  </div>
-  <div class="foot">Photos aligned on eyes and nose (fit within 1.7 % of eye spacing). The 3-month photo was taken against a white wall, so its light is cooler.</div>
+<div class="tile" id="s4" data-name="avi_4_visits">
+  <div class="kick">Every visit, the same spot</div>
+  <div class="hl" style="top:112px;font-size:92px">Red papules,<br>visit by visit.</div>
+  <div class="cap" style="left:64px;right:64px;top:1180px;text-align:center;opacity:.8">The same patch of forehead at each visit. The red papules clear first; the skin keeps clearing after the last session.</div>
 </div>
 
 </div>
 <script>
-const A = "../ba/src/aligned/";
-const IW = 720, IH = 966;                         // registered crop size (ba_align.py)
-const ZA = [0.30, 0.12, 0.75, 0.36], ZB = [0.02, 0.60, 0.34, 0.84], ZF = [0, 0.075, 1, 1];   // ZF drops the warp border
-function el(tag, cls, parent, css) { const e = document.createElement(tag); if (cls) e.className = cls; if (css) e.style.cssText = css; parent.appendChild(e); return e; }
-function svg(tile) { const s = document.createElementNS("http://www.w3.org/2000/svg", "svg"); s.setAttribute("class", "ov"); s.setAttribute("viewBox", "0 0 1080 1350"); tile.appendChild(s);
-  s.innerHTML = '<defs><filter id="sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="-2" dy="3" stdDeviation="3" flood-color="#000" flood-opacity=".45"/></filter></defs>'; return s; }
-function line(s, pts, w = 3, dash = "") { const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  p.setAttribute("d", "M" + pts.map(q => q.join(" ")).join(" L")); p.setAttribute("fill", "none"); p.setAttribute("stroke", "#fff");
-  p.setAttribute("stroke-width", w); p.setAttribute("stroke-linecap", "round"); p.setAttribute("filter", "url(#sh)"); if (dash) p.setAttribute("stroke-dasharray", dash); s.appendChild(p); return p; }
-function rect(s, x, y, w, h) { line(s, [[x, y], [x + w, y], [x + w, y + h], [x, y + h], [x, y]], 2.5); }
-// a pane showing zone z (fractions of the registered crop) of image key, at x,y with width w; returns map frac-in-zone -> tile px
-function pane(tile, key, x, y, w, z = [0, 0, 1, 1]) {
-  const zw = (z[2] - z[0]) * IW, zh = (z[3] - z[1]) * IH, s = w / zw, h = Math.round(zh * s);
-  const p = el("div", "pane", tile, `left:${x}px;top:${y}px;width:${w}px;height:${h}px`);
-  const im = el("img", "", p, `width:${IW * s}px;height:${IH * s}px;left:${-z[0] * IW * s}px;top:${-z[1] * IH * s}px`); im.src = A + key + ".jpg";
-  return { h, pt: (fx, fy) => [x + fx * w, y + fy * h], zone: (zz) => [x + (zz[0] - z[0]) * IW * s, y + (zz[1] - z[1]) * IH * s, (zz[2] - zz[0]) * IW * s, (zz[3] - zz[1]) * IH * s] };
+const NS = "http://www.w3.org/2000/svg";
+const el = (tag, cls, parent, style) => { const e = document.createElement(tag); if (cls) e.className = cls; if (style) e.style.cssText = style; parent.appendChild(e); return e; };
+const svg = t => { const s = document.createElementNS(NS, "svg"); s.setAttribute("class", "ov"); s.setAttribute("viewBox", "0 0 1080 1350"); t.appendChild(s); return s; };
+const SRC = "../ba/src/aligned/";
+// registered frames are 500 x 698; the loupe patch is centred on the forehead at (235, 175), radius 108 px
+const C = [235, 175], R = 108;
+// inflamed papules, placed by eye on 3x close-ups of the registered frames (see aviclear.json)
+const PAP = { avit_0: [[263, 119], [323, 199], [322, 225], [200, 203], [143, 200]], avit_1: [[311, 200]], avit_2: [], avit_3: [] };
+function ring(s, x, y, r = 12) { const c = document.createElementNS(NS, "circle"); c.setAttribute("cx", x); c.setAttribute("cy", y); c.setAttribute("r", r);
+  c.setAttribute("fill", "none"); c.setAttribute("stroke", "var(--blue)"); c.setAttribute("stroke-width", 3); s.appendChild(c); }
+// a circular window of frame `key`, patch radius r (frame px) shown at diameter D, centred at (x, y) on the tile. D <= 2r: never enlarged.
+function loupe(t, s, key, x, y, D, r = R) {
+  const k = D / (2 * r); if (k > 1.0001) throw new Error("loupe would enlarge " + key);
+  const L = el("div", "loupe", t, `left:${x - D / 2}px;top:${y - D / 2}px;width:${D}px;height:${D}px`);
+  const im = el("img", "", L, `width:${500 * k}px;left:${-(C[0] - r) * k}px;top:${-(C[1] - r) * k}px`); im.src = SRC + key + ".jpg";
+  for (const [px, py] of PAP[key]) ring(s, x + (px - C[0]) * k, y + (py - C[1]) * k, Math.max(9, 12 * k));
+  return L;
 }
-function tag(tile, x, y, text, dark) { const t = el("div", "glass tag" + (dark ? " dark" : ""), tile, `left:${x}px;top:${y}px`); el("div", "lab", t).textContent = text; return t; }
-function num(tile, [x, y], n) { const d = el("div", "num", tile, `left:${x}px;top:${y}px`); d.textContent = n; }
-
-// 1 · cover
-{ const t = document.getElementById("s1"), s = svg(t);
-  const b = pane(t, "avi_0", 56, 120, 476, ZF), a = pane(t, "avi_3", 548, 120, 476, ZF);
-  for (const p of [b, a]) { const [x, y, w, h] = p.zone(ZA); rect(s, x, y, w, h); const [x2, y2, w2, h2] = p.zone(ZB); rect(s, x2, y2, w2, h2);
-    tag(t, x + w - 44, y + 8, "A", 1); tag(t, x2 + 8, y2 + 8, "B", 1); }
-  tag(t, 72, 120 + b.h - 62, "Before");  tag(t, 564, 120 + a.h - 62, "3 months after the 3rd");
-}
-// 2 · close-ups (zone A and B, 2x the cover); papule positions placed by eye on the before close-up
+// 1 · cover: the after photo at native size, the before showing through the loupe at the same spot
+{ const t = document.getElementById("s1"), s = svg(t), X = 290, Y = 400;
+  const p = el("div", "photo", t, `left:${X}px;top:${Y}px;width:500px;height:698px`); const im = el("img", "", p, "left:0;top:0;width:500px"); im.src = SRC + "avit_3.jpg";
+  loupe(t, s, "avit_0", X + C[0], Y + C[1], 240, 120); }
+// 2 · the count: one before / after pair of the patch, a wider window (radius 150) at native size
 { const t = document.getElementById("s2"), s = svg(t);
-  const bA = pane(t, "avi_0", 56, 150, 476, ZA), aA = pane(t, "avi_3", 548, 150, 476, ZA);
-  const bB = pane(t, "avi_0", 56, 722, 476, [0.02, 0.62, 0.34, 0.80]), aB = pane(t, "avi_3", 548, 722, 476, [0.02, 0.62, 0.34, 0.80]);
-  const small = [[0.09, 0.69], [0.23, 0.81], [0.49, 0.88], [0.83, 0.88], [0.14, 0.89]];
-  const big = [0.805, 0.64];
-  const [bx, by] = bA.pt(...big); line(s, [[bx + 16, by - 16], [bx + 54, by - 54]], 3); num(t, [bx + 66, by - 66], 1);
-  const tick = (x, y) => { line(s, [[x - 11, y - 11], [x - 22, y - 22]], 3.2); line(s, [[x + 11, y + 11], [x + 22, y + 22]], 3.2); };
-  for (const q of small) { const [x, y] = bA.pt(...q); tick(x, y); }
-  const [cx, cy] = bA.pt(0.42, 0.36); line(s, [[cx - 70, cy + 30], [cx + 70, cy + 30]], 2.5, "2 7"); num(t, [cx, cy + 60], 2);
-  // the same two places on the after: ticks only, nothing there now
-  const [ax, ay] = aA.pt(...big); line(s, [[ax + 16, ay - 16], [ax + 54, ay - 54]], 3, "4 6");
-  tag(t, 564, 150 + aA.h - 58, "Clear");
-  const cheek = [[0.40, 0.30], [0.47, 0.42], [0.55, 0.36], [0.30, 0.38]];
-  for (const q of cheek) { const [x, y] = bB.pt(...q); tick(x, y); }
-  const [mx, my] = bB.pt(0.58, 0.72); num(t, [mx + 70, my - 40], 3); line(s, [[mx + 18, my - 8], [mx + 54, my - 30]], 3);
-  tag(t, 564, 722 + aB.h - 58, "Clear");
-}
-// 3 · skin model section: labels land on the part boxes from skin.parts.json (fractions of the 1600x1100 render)
-{ const t = document.getElementById("s3"), s = svg(t);
-  const W = 760, H = 760 * 1100 / 1600, X = 30, Y = 330, P = (fx, fy) => [X + fx * W, Y + fy * H];
-  const gland = P(0.368, 0.266), pore = P(0.317, 0.095);
-  s.insertAdjacentHTML("afterbegin", '<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#152235" stop-opacity="0"/><stop offset="1" stop-color="#152235" stop-opacity=".30"/></linearGradient></defs>');
-  const beam = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  beam.setAttribute("d", `M${gland[0] - 90} ${Y - 60} L${gland[0] + 90} ${Y - 60} L${gland[0] + 20} ${gland[1]} L${gland[0] - 20} ${gland[1]} Z`); beam.setAttribute("fill", "url(#bg)"); s.appendChild(beam);
-  const ink = (pts, w = 2) => { const p = line(s, pts, w); p.setAttribute("stroke", "#152235"); p.removeAttribute("filter"); };
-  const right = 806;
-  const lab = (y, html, w = 218) => { const d = el("div", "key", t, `left:${right + 12}px;top:${y}px;width:${w}px;color:var(--navy);font-size:20px`); d.innerHTML = html; return d; };
-  for (const [name, y0, y1] of [["Epidermis", 0.094, 0.168], ["Dermis", 0.231, 0.503], ["Fat", 0.573, 0.837]]) {
-    const y = Y + (y0 + y1) / 2 * H; ink([[X + 0.97 * W + 4, y], [right, y]], 1.5); lab(y - 13, `<b>${name}</b>`); }
-  const ring = document.createElementNS("http://www.w3.org/2000/svg", "circle"); ring.setAttribute("cx", gland[0]); ring.setAttribute("cy", gland[1]);
-  ring.setAttribute("r", 30); ring.setAttribute("fill", "none"); ring.setAttribute("stroke", "#152235"); ring.setAttribute("stroke-width", 2.5); s.appendChild(ring);
-  const ly = Y + H + 34; ink([[gland[0] + 30, gland[1]], [gland[0] + 150, gland[1]], [gland[0] + 150, ly - 8]], 2);
-  const g = el("div", "key", t, `left:${gland[0] + 110}px;top:${ly}px;width:${1024 - gland[0] - 110}px;color:var(--navy);font-size:22px`);
-  g.innerHTML = "<b>Oil (sebaceous) gland.</b> Makes sebum. AviClear's 1726 nm light is absorbed by sebum, so it heats and shrinks this gland: less oil, fewer breakouts.";
-  ink([[pore[0], pore[1] - 4], [pore[0] - 40, 266]], 2);
-  const d = el("div", "key", t, `left:56px;top:226px;width:520px;color:var(--navy);font-size:21px`); d.innerHTML = "<b>Pore.</b> Where the oil gland empties. Plugged → comedone. Infected → papule.";
-  const b = el("div", "cap", t, `left:${gland[0] + 98}px;top:${Y - 60}px;color:var(--navy)`); b.textContent = "1726 nm laser";
-}
-// 4 · four visits + the same forehead patch under each
-{ const t = document.getElementById("s4"), s = svg(t);
-  const keys = ["avi_0", "avi_1", "avi_2", "avi_3"], labs = ["Before", "1 mo after 1st", "1 mo after 2nd", "3 mo after 3rd"];
-  const counts = ["6 papules · many plugs", "1 papule, fading · plugs", "0 papules · a few faint plugs", "0 papules · none visible"];
-  keys.forEach((k, i) => { const x = 56 + i * 245, f = pane(t, k, x, 140, 233, ZF), z = pane(t, k, x, 140 + f.h + 16, 233, ZA);
-    const n = el("div", "key", t, `left:${x}px;top:${140 + f.h + 16 + z.h + 52}px;width:233px;font-size:20px;opacity:.9`); n.textContent = counts[i];
-    const [zx, zy, zw, zh] = f.zone(ZA); rect(s, zx, zy, zw, zh);
-    const c = el("div", "cap", t, `left:${x}px;top:${140 + f.h + 16 + z.h + 14}px;width:233px;opacity:.85`); c.textContent = labs[i]; });
-
-}
-Promise.all([document.fonts.ready, ...[...document.images].map(i => i.complete ? 1 : new Promise(r => { i.onload = i.onerror = r; }))])
-  .then(() => { window.__fonts = [...document.fonts].filter(f => f.status === "loaded").map(f => f.family); window.__ready = true; });
+  loupe(t, s, "avit_0", 300, 560, 300, 150); loupe(t, s, "avit_3", 780, 560, 300, 150); }
+// 4 · timeline: four windows on one hairline, the count under each
+{ const t = document.getElementById("s4"), D = 200, y = 610, xs = [160, 413, 667, 920];
+  const s0 = svg(t), ln = document.createElementNS(NS, "line"); ln.setAttribute("x1", 64); ln.setAttribute("x2", 1016); ln.setAttribute("y1", y); ln.setAttribute("y2", y);
+  ln.setAttribute("stroke", "rgba(29,26,22,.28)"); ln.setAttribute("stroke-width", 1.5); s0.appendChild(ln); s0.style.zIndex = 1;
+  const s2 = svg(t), labs = ["Before", "1 month after<br>the 1st", "1 month after<br>the 2nd", "3 months after<br>the 3rd"], n = [5, 1, 0, 0];
+  ["avit_0", "avit_1", "avit_2", "avit_3"].forEach((k, i) => {
+    loupe(t, s2, k, xs[i], y, D, 120);
+    el("div", "lbl", t, `left:${xs[i] - 120}px;width:240px;top:${y + D / 2 + 30}px`).innerHTML = labs[i];
+    el("div", "num", t, `left:${xs[i] - 120}px;width:240px;top:${y + D / 2 + 120}px;font-size:200px`).textContent = n[i]; }); }
+// 3 · labels on glass plates, placed from pore_lit.parts.json (fractions of the render)
+fetch("anat/pore_lit.parts.json").then(r => r.json()).then(j => {
+  const t = document.getElementById("s3"), s = svg(t), W = 900, X = 90, Y = 330, P = j.parts;
+  const at = (name) => { const b = P[name].bbox; return [X + (b[0] + b[2]) / 2 * W, Y + (b[1] + b[3]) / 2 * W]; };
+  const plate = (x, y, h, sub) => { const d = el("div", "plate glass", t, `left:${x}px;top:${y}px`); d.innerHTML = `<b>${h}</b><span>${sub}</span>`; };
+  const dot = (x, y) => { const c = document.createElementNS(NS, "circle"); c.setAttribute("cx", x); c.setAttribute("cy", y); c.setAttribute("r", 8); c.setAttribute("fill", "var(--blue)"); s.appendChild(c); };
+  const g = at("gland"), f = at("follicle");
+  const glow = el("div", "", t, `position:absolute;left:${g[0] - 110}px;top:${g[1] - 110}px;width:220px;height:220px;border-radius:50%;z-index:4;
+    background:radial-gradient(circle,rgba(250,236,206,.95) 0%,rgba(236,214,172,.55) 28%,rgba(214,195,160,0) 70%);mix-blend-mode:screen`);
+  const pore = [X + 0.535 * W, Y + 0.385 * W];
+  dot(...g); plate(g[0] + 40, g[1] - 40, "Oil gland", "Makes sebum. The 1726 nm light is absorbed by sebum, so the gland heats and shrinks: less oil.");
+  plate(g[0] + 40, Y + 0.13 * W, "1726 nm laser", "Passes through the surface to reach the gland.");
+  dot(...pore); plate(pore[0] - 360, pore[1] - 46, "Pore", "Where the gland empties. Plugged, it becomes a breakout.");
+}).catch(() => {}).finally(() => {
+  Promise.all([document.fonts.ready, ...[...document.images].map(i => i.complete ? 1 : new Promise(r => { i.onload = i.onerror = r; }))])
+    .then(() => { window.__fonts = [...document.fonts].filter(f => f.status === "loaded").map(f => f.family); window.__ready = true; });
+});
 </script>

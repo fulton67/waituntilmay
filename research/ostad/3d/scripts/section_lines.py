@@ -138,5 +138,110 @@ def skin():
               open(os.path.join(OUT, "skin.parts.json"), "w"), indent=1)
 
 
+def lit_material(name, hexc, rough=0.55, sss=0.0, emit=None, emit_strength=0.0, alpha=1.0):
+    m = bpy.data.materials.new(name); m.use_nodes = True
+    b = m.node_tree.nodes.get("Principled BSDF")
+    b.inputs["Base Color"].default_value = hexrgb(hexc)
+    b.inputs["Roughness"].default_value = rough
+    if sss:
+        b.inputs["Subsurface Weight"].default_value = sss
+        b.inputs["Subsurface Radius"].default_value = (0.004, 0.002, 0.0015)
+        b.inputs["Subsurface Scale"].default_value = 0.6
+    if emit:
+        b.inputs["Emission Color"].default_value = hexrgb(emit)
+        b.inputs["Emission Strength"].default_value = emit_strength
+    if alpha < 1:
+        b.inputs["Alpha"].default_value = alpha
+    return m
+
+
+def pore():
+    """Lit cutaway of ONE follicle + its oil gland (grid 5 AviClear slide 3). Key light upper right; the 1726 nm laser is
+    shown as warm light: an emissive glow inside the gland plus a soft translucent beam from the surface."""
+    reset()
+    bpy.ops.import_scene.gltf(filepath=os.path.join(BASE, "skin_crosssection.glb"))
+    objs = [o for o in bpy.context.scene.objects if o.type == "MESH"]
+    lay = json.load(open(os.path.join(BASE, "skin_crosssection.layers.json")))
+    node_layer = {n: L["id"] for L in lay["layers"] for n in L["nodes"]}
+    fol = bpy.data.objects["hair_follicle"]
+    c = fol.matrix_world @ (sum((Vector(b) for b in fol.bound_box), Vector()) / 8)
+    # keep a block about 7 mm wide around the follicle; drop far structures (other loops, sweat gland, far fat)
+    half = 0.0035
+    for o in list(objs):
+        bb = [o.matrix_world @ Vector(b) for b in o.bound_box]
+        cx = sum(p.x for p in bb) / 8
+        lid = node_layer.get(o.name, o.name)
+        if lid in ("epidermis", "papillary_dermis", "reticular_dermis", "hypodermis"):
+            continue
+        if lid in ("melanocytes", "capillaries", "artery", "vein", "arrector_pili", "sweat_gland") or abs(cx - c.x) > half:
+            bpy.data.objects.remove(o); objs.remove(o)
+    pal = {"epidermis": ("#c9b48f", .5, .3), "papillary_dermis": ("#efe6d6", .6, .3), "reticular_dermis": ("#f5f2eb", .6, .3),
+           "hypodermis": ("#e4dccd", .6, .2), "fat_lobules": ("#d6c3a0", .45, .25), "hair_follicle": ("#bcb8b7", .4, .1),
+           "hair": ("#1d1a16", .35, 0), "artery": ("#bcb8b7", .4, 0), "vein": ("#bcb8b7", .4, 0), "capillaries": ("#bcb8b7", .4, 0),
+           "arrector_pili": ("#bcb8b7", .5, 0), "melanocytes": ("#3b3730", .5, 0)}
+    mats = {}
+    for o in objs:
+        lid = node_layer.get(o.name, o.name)
+        if lid.startswith("sebaceous_gland"):
+            m = mats.setdefault("gland", lit_material("gland", "#d6c3a0", .35, .3, emit="#d6c3a0", emit_strength=14.0))
+        else:
+            key = next((k for k in pal if lid.startswith(k)), "reticular_dermis")
+            hx, r, s_ = pal[key]
+            m = mats.setdefault(key, lit_material(key, hx, r, s_))
+        o.data.materials.clear(); o.data.materials.append(m)
+    # the layer meshes are open shells, so a boolean cutaway fails (renders an uncut block). Same trick as skin(): two
+    # passes from one camera, the opaque layer block, then the inner structures alone; composited inner-over-block, this
+    # reads as the block cut open at the follicle (pore_block.png + pore_inner.png -> pore_lit.png).
+    LAYERS = {"epidermis", "papillary_dermis", "reticular_dermis", "hypodermis"}
+    gland = [o for o in objs if node_layer.get(o.name, o.name).startswith("sebaceous_gland")]
+    gc = sum(((g.matrix_world @ (sum((Vector(b) for b in g.bound_box), Vector()) / 8)) for g in gland), Vector()) / max(len(gland), 1)
+    top = max((o.matrix_world @ Vector(b)).z for o in objs for b in o.bound_box if node_layer.get(o.name, o.name) == "epidermis")
+    # the laser: a soft translucent cone of warm light from the skin surface down onto the gland
+    depth = top - gc.z
+    bpy.ops.mesh.primitive_cone_add(vertices=64, radius1=0.0006, radius2=0.0016, depth=depth + 0.0025,
+                                    location=(gc.x, gc.y + 0.0004, gc.z + (depth + 0.0025) / 2))
+    beam = bpy.context.active_object
+    bm = bpy.data.materials.new("beam"); bm.use_nodes = True; nt = bm.node_tree; nt.nodes.clear()
+    em = nt.nodes.new("ShaderNodeEmission"); em.inputs["Color"].default_value = hexrgb("#f5f2eb"); em.inputs["Strength"].default_value = 2.5
+    tr = nt.nodes.new("ShaderNodeBsdfTransparent"); mix = nt.nodes.new("ShaderNodeMixShader"); mix.inputs[0].default_value = 0.22
+    out = nt.nodes.new("ShaderNodeOutputMaterial")
+    nt.links.new(tr.outputs[0], mix.inputs[1]); nt.links.new(em.outputs[0], mix.inputs[2]); nt.links.new(mix.outputs[0], out.inputs[0])
+    beam.data.materials.append(bm)
+    # warm point light inside the gland so the heat reads as light spilling into the dermis around it
+    pl = bpy.data.lights.new("heat", "POINT"); pl.energy = 0.02; pl.color = hexrgb("#d6c3a0")[:3]; pl.shadow_soft_size = 0.0006
+    plo = bpy.data.objects.new("heat", pl); plo.location = gc; bpy.context.scene.collection.objects.link(plo)
+    # key light upper right, soft fill from the left
+    for nm, loc, en, size in (("key", (c.x + 0.03, c.y - 0.03, top + 0.04), 0.14, 0.02), ("fill", (c.x - 0.04, c.y - 0.02, top + 0.01), 0.035, 0.04)):
+        L = bpy.data.lights.new(nm, "AREA"); L.energy = en; L.size = size
+        lo = bpy.data.objects.new(nm, L); lo.location = loc; bpy.context.scene.collection.objects.link(lo)
+        d = Vector((c.x, c.y, c.z)) - Vector(loc); lo.rotation_euler = d.to_track_quat("-Z", "Y").to_euler()
+    sc = bpy.context.scene
+    sc.render.engine = "CYCLES"; sc.cycles.samples = 64; sc.cycles.device = "CPU"; sc.cycles.use_denoising = True
+    sc.render.resolution_x, sc.render.resolution_y = 1400, 1400
+    sc.render.film_transparent = True; sc.view_settings.view_transform = "AgX"; sc.view_settings.look = "AgX - Medium High Contrast"
+    sc.render.image_settings.file_format = "PNG"; sc.render.image_settings.color_mode = "RGBA"
+    world = bpy.data.worlds.new("w"); sc.world = world; world.use_nodes = True
+    world.node_tree.nodes["Background"].inputs["Color"].default_value = hexrgb("#ece8e0"); world.node_tree.nodes["Background"].inputs["Strength"].default_value = 0.35
+    cam_data = bpy.data.cameras.new("cam"); cam_data.lens = 85; cam_data.clip_start = 0.0005; cam_data.clip_end = 1.0
+    cam = bpy.data.objects.new("cam", cam_data); sc.collection.objects.link(cam); sc.camera = cam
+    target = Vector((c.x, c.y, (top + gc.z) / 2 - 0.0012))
+    cam.location = target + Vector((0.012, -0.046, 0.010))
+    cam.rotation_euler = (target - cam.location).to_track_quat("-Z", "Y").to_euler()
+    extra = [beam, plo]
+    for o in objs:
+        o.hide_render = node_layer.get(o.name, o.name) not in LAYERS
+    beam.hide_render = True
+    sc.render.filepath = os.path.join(OUT, "pore_block.png"); bpy.ops.render.render(write_still=True)
+    for o in objs:
+        o.hide_render = node_layer.get(o.name, o.name) in LAYERS
+    beam.hide_render = False
+    sc.render.filepath = os.path.join(OUT, "pore_inner.png"); bpy.ops.render.render(write_still=True)
+    names = {"gland": gland, "follicle": [fol], "epidermis": [o for o in objs if node_layer.get(o.name, o.name) == "epidermis"],
+             "beam_top": [beam]}
+    json.dump({"camera": "perspective 85 mm, 3/4 from front-right above; cutaway through the follicle centre",
+               "model": "skin_crosssection.glb", "parts": parts_2d(cam, names, sc)},
+              open(os.path.join(OUT, "pore_lit.parts.json"), "w"), indent=1)
+
+
 if __name__ == "__main__":
-    {"skin": skin}[WHAT]()
+    {"skin": skin, "pore": pore}[WHAT]()
