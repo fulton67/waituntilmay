@@ -1,6 +1,6 @@
 """Face-locked full-frame footage for the "With me / Without me" VIDEO reel (src/bavideo/WithMeVideo.tsx).
 
-  python -I brand/scripts/ba_withme_video.py <before.MOV> <after.MOV> <pub_dir> <tag>
+  python -I brand/scripts/ba_withme_video.py <before.MOV> <after.MOV> <pub_dir> <tag> [zoom] [nose_y]
 
 Shots follow the reference's spoken word onsets (frames at 30 fps): 0-36 AFTER ("With me"), 36-84 BEFORE ("Without me"),
 84-164 AFTER, 164-225 BEFORE. Each clip plays one continuous stretch across its two shots (AFTER 116 frames, BEFORE 109 frames).
@@ -46,7 +46,9 @@ def pick(ya, yb, na, nb):
     return best
 
 
-def main(bpath, apath, pub, tag):
+def main(bpath, apath, pub, tag, zoom="1.3", ay=None):
+    zoom = float(zoom)
+    fmts = {k: (w, h, float(ay) if ay else a) for k, (w, h, a) in FMT.items()}
     os.makedirs(pub, exist_ok=True)
     B, A = track(bpath), track(apath)
     na, nb = NEED["after"], NEED["before"]
@@ -54,7 +56,7 @@ def main(bpath, apath, pub, tag):
     cost, a0, b0 = pick(A[4], B[4], na, nb)
     # one shared scale: the median native forehead->nose-tip length of both stretches (so neither is enlarged much)
     Ln = lambda T, s, n: np.median(np.hypot(*(T[2][s:s + n] - T[1][s:s + n]).T))
-    L0 = (Ln(A, a0, na) + Ln(B, b0, nb)) / 2 * 1.3   # 1.3x: a closer frame, so the source edge stays out of shot
+    L0 = (Ln(A, a0, na) + Ln(B, b0, nb)) / 2 * zoom   # default 1.3x: a closer frame, so the source edge stays out of shot
     seq = []                                    # (clip, frame) per output frame
     ai, bi = a0, b0
     for k in range(4):
@@ -68,7 +70,7 @@ def main(bpath, apath, pub, tag):
     for c, T in (("A", A), ("B", B)):
         img = T[0][0]; lum = img.mean(2); dark = img[lum < np.percentile(lum, 30)]
         bgc[c] = np.median(dark, 0)
-    for fmt, (W, H, ay) in FMT.items():
+    for fmt, (W, H, ay) in fmts.items():
         p = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", "30", "-i", "-",
                               "-c:v", "libx264", "-crf", "10", "-preset", "slow", "-pix_fmt", "yuv420p", "-colorspace", "bt709",
                               "-color_primaries", "bt709", "-color_trc", "bt709", os.path.join(pub, f"{tag}_{fmt}.mp4")], stdin=subprocess.PIPE)
@@ -92,4 +94,4 @@ def main(bpath, apath, pub, tag):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:5])
+    main(*sys.argv[1:7])   # optional: zoom, nose-bridge y share (e.g. 0.5 to push a name necklace out of the bottom)
