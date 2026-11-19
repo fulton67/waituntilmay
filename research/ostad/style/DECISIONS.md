@@ -912,3 +912,35 @@ Naim's notes on the filler-fatigue reel and the drawings in both reels, and what
   - Dr. Ostad signs off every drawing (placement, depth);
   - Naim's Ro/Serena reference for the room titles is not yet in hand, so the depth is the key-over-type method;
   - J3 freezes the eye region for 13 + 17 frames while patched.
+
+## 16f. All three reels after Naim's notes on colour, faces, tracking, markup and smoothness (2026-11-19)
+- **Raw footage only.** This supersedes 16e's colour item. The HLG -> bt709 tone map brightened the skin ("completely ruined these videos").
+  - Every clip is restored from hlg_backup.
+  - RVM keys are re-cut from the raw clips; Jan 08's key is now alpha-only, from grey matte videos.
+  - No grade, brightness or opacity change anywhere.
+- **Video model.** Flora has no Higgsfield models. The plates use Gemini Omni 1.2 Flash (`r2v-gemini-omni-1-2-flash`), the top no-audio image-to-video model on the Artificial Analysis arena that Flora carries.
+  - Frame-diff p99/median 2.0 vs Kling 5.4, and no blinks.
+  - 3 QA rounds (brand/edits/flora-anatomy/QA_omni.md); picks and usable ranges are in qa_omni.json.
+  - O2 is one 240 f clip through 3 keyframes. This removes the 104 px jump at the old O2a/O2b join.
+- **Brand palette and smoothness.**
+  - flora_frames.py re-inks every drawing: ink, warm grey, sand gel, deep-brown blood.
+  - It also autocrops each drawing and writes 3 in-betweens per frame. FloraPlate picks quarter frames, so slowed clips glide.
+- **Nothing over a face.** face_clear (faces detected on the footage-only render vs the graphics layer) now fails 0 frames:
+  - Jan 08: 337 -> 0
+  - under-eye: 617 -> 0
+  - Oct 14: 0 of 1154
+- **Technical, locked markup.** Surgeon marks are entry x's, cannula/needle paths with stops, product per zone, and measured before -> after changes only where measurable. Lock (median / p95 / max px):
+  - Jan 08: 1.4 / 2.0 / 7.2
+  - under-eye: 2.3 / 3.6 / 4.5
+  - Oct 14: 2.84 / 7.07 / 10.55, with a floor frame mapping fix (round was one frame late)
+- **Deliverables:**
+  - "Ostad - Filler fatigue v3.mp4" (-14.2 / -1.3)
+  - "UndereyeReel_v4b.mp4" (-14.0 / -2.6, oversampled limiter; v4 at -0.4 dBTP is kept, not shipped)
+  - "Ostad - Oct 14 injections v5b.mp4" (-14.2 / -1.3), with v5c to fill the empty cream-room beats
+- **Open:**
+  - Dr. Ostad signs off every drawing and mark.
+  - Gaps the Omni renders still have:
+    - J2 never draws the bone thinning, so the label carries it.
+    - U1 starts mid-growth.
+    - U4 is cut at f72, before the cannula enters the vein.
+  - Jan 08's before/after shows no measurable change, so no number is drawn.
