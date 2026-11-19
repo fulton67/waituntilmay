@@ -14,6 +14,9 @@ import { FlowingImage, type FlowPiece } from "../components/FlowingImage";
 const FONT = "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=block";
 const NAVY = "#0f1b33";
 const COLUMN: FlowPiece = { src: "sunshade/column.jpg", crop: [0, 0, 372, 796], anchor: [0.5, 0.8] };
+// white glass: the inside of the user's frosted tile (ref3), moving, desaturated and washed toward white
+const TILE: FlowPiece = { src: "sunshade/tile.jpg", crop: [200, 200, 860, 860], anchor: [0.55, 0.5] };
+type Bg = "blue" | "white";
 
 const useMontserrat = () => {
   const [h] = useState(() => delayRender("Montserrat"));
@@ -52,7 +55,8 @@ const blurSlide = (f: number, at: number, W: number): React.CSSProperties => {
   return { opacity: clamp(q * 3), transform: `translateX(${(1 - i) * 0.15 * W}px)`, filter: `blur(${Math.min(14, v * 4)}px)` };
 };
 
-export const SunShade: React.FC<{ fmt: Fmt }> = ({ fmt }) => {
+export const SunShade: React.FC<{ fmt: Fmt; bg?: Bg }> = ({ fmt, bg = "blue" }) => {
+  const ink = bg === "white" ? NAVY : "#fff";
   useMontserrat();
   const f = useCurrentFrame();
   const c = L[fmt];
@@ -71,12 +75,15 @@ export const SunShade: React.FC<{ fmt: Fmt }> = ({ fmt }) => {
   const botY = c.botTop + (1 - up) * (c.H - c.botTop + 40) + bob;
 
   const BIG: React.CSSProperties = { position: "absolute", right: c.textR, textAlign: "right", fontFamily: "Montserrat", fontWeight: 700, lineHeight: 1, margin: 0, letterSpacing: "-0.04em" };
-  const T: React.CSSProperties = { fontFamily: "Montserrat", color: "#fff", textAlign: "center", lineHeight: 1.15, margin: 0 };
+  const T: React.CSSProperties = { fontFamily: "Montserrat", color: ink, textAlign: "center", lineHeight: 1.15, margin: 0 };
   const I0 = 58; // info lines start once the bottles have landed
 
   return (
-    <AbsoluteFill style={{ background: "#7fb4dd", overflow: "hidden" }}>
-      <FlowingImage piece={COLUMN} width={W} height={c.H} fit="cover" />
+    <AbsoluteFill style={{ background: bg === "white" ? "#eef2f6" : "#7fb4dd", overflow: "hidden" }}>
+      {bg === "white" ? <>
+        <FlowingImage piece={TILE} width={W} height={c.H} fit="cover" sat={0.45} />
+        <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.35) 55%, rgba(255,255,255,.6))" }} />
+      </> : <FlowingImage piece={COLUMN} width={W} height={c.H} fit="cover" />}
 
       <Img src={staticFile("sunshade/logo.png")} style={{ position: "absolute", left: (W - c.logoW) / 2, top: c.logoY, width: c.logoW, ...enter(f, 0) }} />
 
@@ -92,7 +99,7 @@ export const SunShade: React.FC<{ fmt: Fmt }> = ({ fmt }) => {
         <p style={{ ...T, ...enter(f, I0), fontSize: 50 * k, fontWeight: 600 }}>The Black Friday Skincare Event</p>
         <p style={{ ...T, ...enter(f, I0 + 6), fontSize: 34 * k, fontWeight: 500, marginTop: 10 * k }}>The entire skincare collection</p>
         <p style={{ ...T, ...enter(f, I0 + 12), fontSize: 40 * k, fontWeight: 600, letterSpacing: 4 * k, marginTop: 16 * k }}>NOVEMBER 23–30</p>
-        <div style={{ ...enter(f, I0 + 18), marginTop: 26 * k, border: "2px solid #fff", borderRadius: 999, padding: `${12 * k}px ${48 * k}px` }}>
+        <div style={{ ...enter(f, I0 + 18), marginTop: 26 * k, border: `2px solid ${ink}`, borderRadius: 999, padding: `${12 * k}px ${48 * k}px` }}>
           <p style={{ ...T, fontSize: 30 * k, fontWeight: 600, letterSpacing: 2.5 * k }}>SHOP THE COLLECTION</p>
         </div>
         <p style={{ ...T, ...enter(f, I0 + 24), fontSize: 28 * k, fontWeight: 400, marginTop: 14 * k }}>drarielostadskincare.com</p>
