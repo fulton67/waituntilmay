@@ -77,3 +77,18 @@ is measured, and motion.
 - **Arrow and text check:** an in-page audit (same rule as `arrow_text_lint.py`) found 0 crossings on all 5 tiles.
   `arrow_text_lint.py` itself expects a Remotion TEXTAUDIT log, so it can't score stills.
 - **Sign-off:** Ostad and Naim to review. Red area is a colour measure and is sensitive to lighting differences between visits.
+
+## Video: v1 split as a slider animation (P0010, 2026-11-19)
+
+- **Compositions:** `brand/remotion/src/bastory` (own entry point): `BaStoryP0010` (Story, 1080×1920) and `BaFeedP0010` (feed, 1080×1350),
+  30 fps, 11.5 s. Same beats in both. Render: `npx remotion render src/bastory/index.ts BaStoryP0010 <out.mp4> --codec=h264`.
+- **Photos:** `brand/scripts/ba_story_p0010.py` warps the after into the before's frame with the measured M, then cuts ONE rectangle
+  that lies inside the clean area of both panels (no sheet caption, white margin, seam or rotated panel edge), eroded 6 px, with
+  the ring at least 20 px inside. Result: before-panel px x 37–364, y 145–496 (327×351), shown at 2.9×. Output goes to the
+  gitignored `brand/remotion/public/ba-story`. This fixes the v1 still's after-side caption strip and tilted edge.
+- **Beats (s):** 0–1.0 BEFORE · 1.0–3.5 sweep to AFTER (ease-in-out) · 3.5–4.5 hold · 4.5–5.7 scrub back to 62 % (past the ring) ·
+  5.7–6.1 pause · 6.1–7.3 return · 7.3–9.0 hold AFTER · 9.0–9.3 ring, line and handle fade · 9.32–9.82 end card in · hold to 11.5.
+- **Numbers:** the second red-area figure counts 2.9 → 0.0 as the line crosses the ring's horizontal extent.
+- **Guards:** the composition throws (fails the render) if a visible pill or the end card crosses the slider line or the ring.
+  `brand/scripts/ba_story_verify.py <mp4> <outdir> [story|feed]` checks flashes (one-frame luma spikes > 30), white sheet margin
+  along the window edges every 10th frame, and writes posters, a beat sheet and an edge/corner tile (outside the repo).
