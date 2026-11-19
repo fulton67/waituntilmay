@@ -87,15 +87,27 @@ is measured, and motion.
   that lies inside the clean area of both panels (no sheet caption, white margin, seam or rotated panel edge), eroded 6 px, with
   the ring at least 20 px inside. Result: before-panel px x 37–364, y 145–496 (327×351), shown at 2.9×. Output goes to the
   gitignored `brand/remotion/public/ba-story`. This fixes the v1 still's after-side caption strip and tilted edge.
-- **Beats (s), after the user's notes (round 2):** 0.2–0.9 the ring draws on (stroke from its top, clockwise, ease-out) · 0–1.0 BEFORE ·
-  1.0–3.5 the line sweeps LEFT → RIGHT (ease-in-out), revealing AFTER on its left · 3.5–4.5 hold · 4.5–5.7 scrub back right → left to
-  just left of the ring · 5.7–6.1 pause · 6.1–7.3 return left → right · 7.3–8.8 hold AFTER · 8.8–9.5 the ring retracts the same way
-  round · 9.0–9.3 line and handle fade · 9.52–10.02 end card in · hold to 11.5. The AFTER pill sits bottom-left, BEFORE bottom-right.
-- **Numbers:** the second red-area figure counts 2.9 → 0.0 as the line crosses the ring's horizontal extent.
+- **Rings in sequence (round 3, user: "one circle shouldn't be up for that long ... then another in another place where there is
+  acne"):** `brand/scripts/ba_story_regions.py` runs the v2 spot / red-area detection over landmark regions (forehead, both cheeks,
+  nose, chin, both jaws) on the before and the aligned after, with the v2 floor. Results on P0010:
+  | Region | Spots before → after | Red area before → after | Floor | Ringed |
+  |---|---|---|---|---|
+  | Forehead | 4 → 0 | 1.11 → 0.00 % | clears | no: above the eye (rule); `--allow-above-eye` turns it on |
+  | Right cheek | 0 → 0 | 2.88 → 0.00 % | clears | **yes**, tight to the red patch that went away (window px 188, 635; 53×34 at k = 1) |
+  | Nose | 4 → 2 | 2.81 → 2.08 % | clears (spots) | no: visual check, the vanished spot is the tip highlight, the others the nostril shadows |
+  | Left cheek | 1 → 0 | 0.15 → 0.00 % | below | no |
+  | Chin | 1 → 3 | 1.78 → 4.71 % | worse (lighting) | no |
+  | Right / left jaw | 0 → 1 / 0 → 3 | 0 → 0.52 / 0 → 1.31 % | worse | no |
+  So only one region qualifies below the eye. Each ring draws on 0.6 s (from its top, clockwise), holds 0.7 s, retracts 0.5 s; the
+  sequence plays on BEFORE, then the same ring(s) on AFTER. The caption follows the ring showing ("Right cheek · red area 2.9 % →
+  x %"; a spot region would read "<Region> · n spots → m").
+- **Beats (s), one ring:** 0.2–2.0 ring on BEFORE (draw, hold, retract) · 2.05–4.55 sweep LEFT → RIGHT (AFTER revealed on the left) ·
+  4.65–6.45 the ring on AFTER · 6.5–7.5 scrub back right → left past the ring · 7.5–7.75 pause · 7.75–8.75 return · 9.05–9.35 line
+  and handle fade · 9.37–9.87 end card in · hold to 11.47. The timeline scales with the number of rings (`timeline(n)` in Story.tsx).
 - **Story link sticker:** the Story keeps a plain 600×160 zone (x 240–840, y 1380–1540) empty for the whole video for Instagram's link
   sticker, which is the real booking button; the Story end card has no BOOK NOW pill, only "Tap the link below". The window is
   scaled to 0.85 (799×858) to make room. The feed keeps the BOOK NOW pill.
-- **Guards:** the composition throws (fails the render) if a visible pill or the end card crosses the slider line or the ring, or if any
+- **Guards:** the composition throws (fails the render) if a visible pill or the end card crosses the slider line, or if a visible ring touches the line, a pill, the handle, the end card or the sticker zone, or if any
   text row, the window or the end card enters the sticker zone.
   `brand/scripts/ba_story_verify.py <mp4> <outdir> [story|feed]` checks flashes (one-frame luma spikes > 30), white sheet margin
   along the window edges every 10th frame, that the sticker zone stays plain paper in every frame, and writes posters, a beat sheet and an edge/corner tile (outside the repo).
