@@ -1,0 +1,212 @@
+<!doctype html>
+<!-- Before/after v2 (research/ostad/style/beforeafter_v2/README.md). Four layouts, one family:
+     kept from the established slides: cream paper, navy, the serif name + TOTAL SKIN HEALTH header, a letterspaced serif procedure
+     name, matched photos; from the SkinCard STANDARD: glass windows (round and rounded), the BEFORE / AFTER glass pill, thin white
+     ellipse rings, the credit line "Patient of Dr. Ostad. Individual results vary."
+     Marks are white hairlines only (no blue: it breaks the glass), placed from ba/v2.js (brand/scripts/ba_v2_measure.py: MediaPipe
+     landmarks, the after aligned to the before on eyes + nose), and drawn only where the measurement clears its noise floor.
+     Patient codes only. Sources are gitignored (ba/src/v2). -->
+<meta charset="utf-8"><meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://use.typekit.net/vzz0hgt.css">
+<link rel="stylesheet" href="../stills.css">
+<script src="v2.js"></script>
+<style>
+.tile{background:var(--ivory);color:var(--navy)}
+.hd{position:absolute;left:0;right:0;top:58px;text-align:center}
+.hd .nm{font:500 34px/1 var(--serif);letter-spacing:.06em;text-transform:uppercase}
+.hd .rule{width:64px;height:1px;background:currentColor;opacity:.35;margin:14px auto 12px}
+.hd .sub{font:500 14px/1 var(--text);letter-spacing:.28em;text-transform:uppercase;opacity:.75}
+.proc{position:absolute;left:0;right:0;text-align:center;font:500 40px/1 var(--serif);letter-spacing:.32em;text-transform:uppercase;padding-left:.32em}
+.cap{position:absolute;left:0;right:0;text-align:center;font:500 15px/1.3 var(--text);letter-spacing:.22em;text-transform:uppercase;opacity:.72}
+.credit{position:absolute;left:0;right:0;bottom:44px;text-align:center;font:400 15px/1.2 var(--text);letter-spacing:.02em;opacity:.6}
+.win{position:absolute;overflow:hidden;background:#cfc9be}
+.win img{position:absolute;display:block;max-width:none;transform-origin:0 0}
+.frame{position:absolute;--r:34px}
+.pill{position:absolute;z-index:7;padding:9px 18px;--r:99px}
+.pill .lab{font:500 15px/1 var(--text);letter-spacing:.2em;text-transform:uppercase}
+.fig{position:absolute;z-index:7;text-align:left}
+.fig b{display:block;font:500 15px/1 var(--text);letter-spacing:.2em;text-transform:uppercase;opacity:.7;margin-bottom:8px}
+.fig span{font:400 64px/1 var(--disp);letter-spacing:-.02em}
+.fig i{font:500 32px/1 var(--serif);font-style:italic;opacity:.6;margin:0 14px}
+svg.ov{position:absolute;inset:0;overflow:visible;pointer-events:none;z-index:6}
+.rows{position:absolute;color:var(--navy)}
+.rows>div>span{opacity:.8}
+</style>
+<div id="stage">
+<div class="tile" id="v1" data-name="v1_split_P0010"></div>
+<div class="tile" id="v2" data-name="v2_loupe_P0013"></div>
+<div class="tile" id="v3" data-name="v3_hero_inset_P0013"></div>
+<div class="tile" id="v4a" data-name="v4a_carousel_cover_P0010"></div>
+<div class="tile" id="v4b" data-name="v4b_carousel_detail_P0010"></div>
+</div>
+<script>
+const V = window.V2, NS = "http://www.w3.org/2000/svg", audit = [];
+const SRC = { p0010: ["src/v2/p0010_grid.jpg", 1080, 1080], p0013: ["src/v2/p0013_ba.jpg", 1080, 1080] };
+// P0010 visit crops (source px), the same boxes ba_v2_measure.py measured
+const VIS = [[154, 0, 540, 496], [540, 0, 926, 496], [154, 540, 540, 1036], [540, 540, 926, 1053]];
+const div = (t, cls, css, html) => { const d = document.createElement("div"); if (cls) d.className = cls; Object.assign(d.style, css || {}); if (html != null) d.innerHTML = html; t.appendChild(d); return d; };
+const px = (o) => { const r = {}; for (const k in o) r[k] = typeof o[k] === "number" && k !== "zIndex" ? o[k] + "px" : o[k]; return r; };
+function header(t, top = 58) { div(t, "hd", { top: top + "px" }, `<div class="nm">Dr. Ariel Ostad</div><div class="rule"></div><div class="sub">Total skin health</div>`); }
+function credit(t) { div(t, "credit", {}, "Patient of Dr. Ostad. Individual results vary."); }
+function pill(t, text, x, y, dark) { const p = div(t, "glass pill" + (dark ? " dark" : ""), px({ left: x, top: y }), `<div class="lab">${text}</div>`); audit.push(p); return p; }
+function svg(t) { const s = document.createElementNS(NS, "svg"); s.setAttribute("class", "ov"); s.setAttribute("width", 1080); s.setAttribute("height", 1350); t.appendChild(s);
+  s.innerHTML = `<defs><filter id="sh${t.id}" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="-1" dy="1.5" stdDeviation="1.6" flood-color="#1d1a16" flood-opacity=".38"/></filter></defs>`; s.dataset.f = "sh" + t.id; return s; }
+function el(s, tag, at) { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); (s.querySelector("g.m") || s).appendChild(e); return e; }
+function marks(s) { const g = document.createElementNS(NS, "g"); g.setAttribute("class", "m"); g.setAttribute("filter", `url(#${s.dataset.f})`); s.appendChild(g); return s; }
+const W = { stroke: "#fff", fill: "none", "stroke-linecap": "round" };
+// a photo window: shows source rect `view` [x0,y0,x1,y1] of `src` inside box {x,y,w,h}; returns a source->tile mapper
+function win(t, key, view, box, r = 28, round) {
+  const [f, iw] = SRC[key], [x0, y0, x1, y1] = view, s = Math.max(box.w / (x1 - x0), box.h / (y1 - y0));
+  const ox = x0 + (x1 - x0) / 2 - box.w / s / 2, oy = y0 + (y1 - y0) / 2 - box.h / s / 2;
+  const d = div(t, "win", px({ left: box.x, top: box.y, width: box.w, height: box.h, borderRadius: round ? "50%" : r, zIndex: 3 }));
+  const im = document.createElement("img"); im.src = f; Object.assign(im.style, px({ width: iw * s, left: -ox * s, top: -oy * s })); d.appendChild(im);
+  return { d, s, map: (X, Y) => [box.x + (X - ox) * s, box.y + (Y - oy) * s] };
+}
+// the frame sits UNDER its photo window (z 2 vs 3): glass shows only as the rim around the photo, never over the face
+function glassFrame(t, box, pad, r, round) { const g = div(t, "glass frame", px({ left: box.x - pad, top: box.y - pad, width: box.w + 2 * pad, height: box.h + 2 * pad, zIndex: 2 })); g.style.setProperty("--r", round ? "50%" : r + "px"); return g; }
+// ellipse from v2.js fractions of a crop -> tile, via a mapper
+function ell(s, e, crop, map, k = 1, extra = {}) {
+  const [fx, fy, fw, fh, ang] = e, cw = crop[2] - crop[0], ch = crop[3] - crop[1];
+  const c = map(crop[0] + fx * cw, crop[1] + fy * ch), a = map(crop[0] + (fx + fw / 2) * cw, crop[1] + fy * ch), b = map(crop[0] + fx * cw, crop[1] + (fy + fh / 2) * ch);
+  // fitEllipse returns full axes (width, height) at `ang`; draw at 0.80 so the ring sits on the cheek, not the jaw edge
+  el(s, "ellipse", { ...W, cx: c[0], cy: c[1], rx: (a[0] - c[0]) * .8 * k, ry: (b[1] - c[1]) * .8 * k, transform: `rotate(${ang - 180} ${c[0]} ${c[1]})`, "stroke-width": 2, ...extra });
+  return c;
+}
+// thin white arrow with a small open head; logs its centreline for the arrow/text audit
+function arrow(s, t, p1, p2, gap = 10) {
+  const dx = p2[0] - p1[0], dy = p2[1] - p1[1], L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L, e = [p2[0] - ux * gap, p2[1] - uy * gap];
+  el(s, "path", { ...W, d: `M${p1[0]} ${p1[1]} L${e[0]} ${e[1]}`, "stroke-width": 2 });
+  el(s, "path", { ...W, d: `M${e[0] - ux * 14 - uy * 7} ${e[1] - uy * 14 + ux * 7} L${e[0]} ${e[1]} L${e[0] - ux * 14 + uy * 7} ${e[1] - uy * 14 - ux * 7}`, "stroke-width": 2, "stroke-linejoin": "round" });
+  (t.__arrows = t.__arrows || []).push([p1, e]);
+}
+// gap tick: hairline from his guide line to the chin, end ticks
+function tick(s, a, b, h = 10, w = 2) { el(s, "line", { ...W, x1: a[0], y1: a[1], x2: b[0], y2: b[1], "stroke-width": w }); for (const q of [a, b]) el(s, "line", { ...W, x1: q[0], y1: q[1] - h, x2: q[0], y2: q[1] + h, "stroke-width": w }); }
+const fig = (t, k, v, x, y, extra = "") => { const f = div(t, "fig", px({ left: x, top: y }), `<b>${k}</b><span>${v}</span>${extra}`); audit.push(f); return f; };
+
+const A10 = V.p0010, R10 = A10.regions.cheek_r, C13 = V.p0013.chin;
+
+// ---------- V1 split: before | after on one aligned face, the split line through the measured cheek ----------
+{
+  const t = document.getElementById("v1"); header(t);
+  const box = { x: 230, y: 236, w: 620, h: 796 }, vb = VIS[0], va = VIS[3];
+  const B = win(t, "p0010", vb, box, 30);
+  // after layer: the after crop warped into the before's frame with the measured similarity M (after crop px -> before crop px)
+  const M = A10.align.M, s = B.s, lay = div(B.d, "", px({ position: "absolute", left: 0, top: 0, width: box.w, height: box.h }));
+  const im = document.createElement("img"); im.src = SRC.p0010[0]; lay.appendChild(im);
+  const o = B.map(vb[0], vb[1]).map((v, i) => v - [box.x, box.y][i]);
+  // tile = o + s * (M2 * (p - oA) + m) for full-image p;  matrix(a,b,c,d,e,f) with origin 0 0
+  const a = s * M[0][0], b = s * M[1][0], c = s * M[0][1], d = s * M[1][1];
+  const e = o[0] + s * (M[0][2] - M[0][0] * va[0] - M[0][1] * va[1]), f = o[1] + s * (M[1][2] - M[1][0] * va[0] - M[1][1] * va[1]);
+  Object.assign(im.style, { width: "1080px", left: 0, top: 0, transform: `matrix(${a},${b},${c},${d},${e},${f})`,
+    clipPath: `inset(${va[1]}px ${1080 - va[2]}px ${1080 - va[3]}px ${va[0]}px)` });  // only the after's own panel, in source px (pre-transform)
+  glassFrame(t, box, 12, 40);
+  const sv = marks(svg(t));
+  const cc = B.map(vb[0] + R10.ellipse_b[0] * (vb[2] - vb[0]), 0)[0];
+  lay.style.clipPath = `inset(0 0 0 ${cc - box.x}px)`;
+  // the slider: one white hairline with a small glass round handle
+  el(sv, "line", { ...W, x1: cc, y1: box.y, x2: cc, y2: box.y + box.h, "stroke-width": 1.5 });
+  const hy = box.y + box.h * .30; const h = div(t, "glass", px({ left: cc - 26, top: hy - 26, width: 52, height: 52, zIndex: 7 })); h.style.setProperty("--r", "50%");
+  h.innerHTML = `<svg width="52" height="52" style="position:absolute;inset:0"><path d="M21 19 L14 26 L21 33 M31 19 L38 26 L31 33" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  ell(sv, R10.ellipse_b, vb, B.map);
+  pill(t, "Before", box.x + 24, box.y + box.h - 66); pill(t, "After", box.x + box.w - 140, box.y + box.h - 66);
+  div(t, "proc", { top: "1096px" }, "AviClear");
+  div(t, "cap", { top: "1160px" }, `Right cheek · red area ${R10.red_area_pct_before.toFixed(1)} % → ${R10.red_area_pct_after.toFixed(1)} %`);
+  credit(t);
+}
+
+// ---------- V2 loupe: matched profiles, a glass loupe on each chin with the measured gap to his guide line ----------
+{
+  const t = document.getElementById("v2"); header(t);
+  const vb = [0, 0, 525, 734], va = [527, 0, 1080, 734], bw = 440, bh = 616;
+  const B = win(t, "p0013", vb, { x: 80, y: 228, w: bw, h: bh }, 28), A = win(t, "p0013", va, { x: 560, y: 228, w: bw, h: bh }, 28);
+  const sv = marks(svg(t));
+  for (const [k, P, lx] of [["b", B, 80], ["a", A, 560]]) {
+    const m = C13[k], cx = m.chin_xy[0] * 1080, cy = m.chin_xy[1] * 1080, lx0 = m.line_xy[0] * 1080;
+    const R = 112, Z = 2.0, X = lx + bw - R - 30, Y = 228 + bh - R + 70;      // loupe centre, overlapping the window's lower edge
+    const L = win(t, "p0013", [(cx + lx0) / 2 - R / Z, cy - R / Z, (cx + lx0) / 2 + R / Z, cy + R / Z], { x: X - R, y: Y - R, w: 2 * R, h: 2 * R }, 0, true);
+    L.d.style.zIndex = 5; glassFrame(t, { x: X - R, y: Y - R, w: 2 * R, h: 2 * R }, 9, 0, true).style.zIndex = 4;
+    tick(sv, L.map(lx0, cy), L.map(cx, cy), 12, 2.5);
+    // leader from the chin in the photo to the loupe ring
+    const c = P.map(cx, cy), ang = Math.atan2(c[1] - Y, c[0] - X);
+    el(sv, "line", { ...W, x1: c[0] + 8, y1: c[1] + 6, x2: X + Math.cos(ang) * (R + 10), y2: Y + Math.sin(ang) * (R + 10), "stroke-width": 1.2, "stroke-opacity": .85 });
+    el(sv, "circle", { ...W, cx: c[0], cy: c[1], r: 7, "stroke-width": 1.5 });
+    fig(t, k === "b" ? "Gap to line" : "Gap to line", m.gap_pct_line.toFixed(1) + "<small style='font-size:30px'> %</small>", lx, 1006);
+  }
+  pill(t, "Before", 100, 248); pill(t, "After", 580, 248);
+  div(t, "proc", { top: "1150px", fontSize: "34px" }, "Chin filler");
+  div(t, "cap", { top: "1206px" }, "Measured against his guide line, nose to chin");
+  credit(t);
+}
+
+// ---------- V3 hero + inset: the after large, the before in a round glass window on the same chin ----------
+{
+  const t = document.getElementById("v3"); header(t);
+  const va = [527, 40, 1080, 734], box = { x: 230, y: 214, w: 560, h: 770 };
+  const A = win(t, "p0013", va, box, 30); glassFrame(t, box, 12, 42);
+  const m = C13.b, mb = C13.a, R = 150, X = 866, Y = 870;   // inset lower right: the after faces left, so its chin stays clear
+  const cx = m.chin_xy[0] * 1080, cy = m.chin_xy[1] * 1080, lx0 = m.line_xy[0] * 1080;
+  const Bw = win(t, "p0013", [cx - 120, cy - 150, cx + 120, cy + 90], { x: X - R, y: Y - R, w: 2 * R, h: 2 * R }, 0, true);
+  Bw.d.style.zIndex = 5; glassFrame(t, { x: X - R, y: Y - R, w: 2 * R, h: 2 * R }, 11, 0, true).style.zIndex = 4;
+  const sv = marks(svg(t));
+  tick(sv, Bw.map(lx0, cy), Bw.map(cx, cy), 10, 2);
+  const ac = A.map(mb.chin_xy[0] * 1080, mb.chin_xy[1] * 1080), al = A.map(mb.line_xy[0] * 1080, mb.line_xy[1] * 1080);
+  tick(sv, al, ac, 10, 2);
+  arrow(sv, t, [ac[0] + 170, ac[1] + 120], [ac[0] + 6, ac[1] + 4], 14);
+  pill(t, "Before", X - 58, Y + R + 26); pill(t, "After", box.x + 24, box.y + 24);
+  fig(t, "Gap to his line", `${m.gap_pct_line.toFixed(1)}<i>to</i>${mb.gap_pct_line.toFixed(1)}<small style='font-size:30px'> %</small>`, 110, 1060);
+  div(t, "cap", { top: "1196px", left: "110px", right: "auto", textAlign: "left" }, "Chin filler · right profile");
+  credit(t);
+}
+
+// ---------- V4 carousel cover: after in a tall window, the before in a round glass window on the measured cheek ----------
+{
+  const t = document.getElementById("v4a"); header(t);
+  const va = VIS[3], vb = VIS[0], box = { x: 300, y: 214, w: 600, h: 772 };
+  const A = win(t, "p0010", va, box, 30); glassFrame(t, box, 12, 42);
+  const eb = R10.ellipse_b, cw = vb[2] - vb[0], ch = vb[3] - vb[1], R = 158, X = 236, Y = 846;
+  const ccx = vb[0] + eb[0] * cw, ccy = vb[1] + eb[1] * ch;
+  const Bw = win(t, "p0010", [ccx - 105, ccy - 105, ccx + 105, ccy + 105], { x: X - R, y: Y - R, w: 2 * R, h: 2 * R }, 0, true);
+  Bw.d.style.zIndex = 5; glassFrame(t, { x: X - R, y: Y - R, w: 2 * R, h: 2 * R }, 11, 0, true).style.zIndex = 4;
+  const sv = marks(svg(t));
+  ell(sv, eb, vb, Bw.map, 0.86);
+  ell(sv, R10.ellipse_a, va, A.map, 1, { "stroke-dasharray": "2 7", "stroke-width": 2 });
+  pill(t, "Before", X - 58, Y + R + 26); pill(t, "After", box.x + box.w - 136, box.y + 24);
+  div(t, "proc", { top: "1104px" }, "AviClear");
+  div(t, "cap", { top: "1166px" }, "Acne · four visits · swipe for the measurements");
+  credit(t);
+}
+
+// ---------- V4 detail slide: the four visits, the right cheek measured on each ----------
+{
+  const t = document.getElementById("v4b"); header(t);
+  const names = ["Before", "1 mo after 1st", "1 mo after 2nd", "3 mo after 3rd"], sz = 214, gap = 26, x0 = (1080 - 4 * sz - 3 * gap) / 2, y = 300;
+  const sv = marks(svg(t));
+  el(sv, "line", { stroke: "#152235", "stroke-opacity": .25, "stroke-width": 1, x1: x0 + sz / 2, y1: y + sz + 70, x2: x0 + 3.5 * sz + 3 * gap, y2: y + sz + 70 });
+  VIS.forEach((vb, i) => {
+    const x = x0 + i * (sz + gap), cw = vb[2] - vb[0];
+    const P = win(t, "p0010", [vb[0], vb[1] + 40, vb[2], vb[1] + 40 + cw], { x, y, w: sz, h: sz }, 0, true);
+    glassFrame(t, { x, y, w: sz, h: sz }, 8, 0, true);
+    el(sv, "circle", { cx: x + sz / 2, cy: y + sz + 70, r: i === 3 ? 6 : 4, fill: "#152235", "fill-opacity": i === 3 ? 1 : .45 });
+    div(t, "cap", px({ top: y + sz + 96, left: x - 20, right: "auto", width: sz + 40, fontSize: 13, letterSpacing: ".14em" }), names[i]);
+  });
+  const vis = A10.visits, rows = vis.map((v, i) => `<div><b>${names[i]}</b><span>${v.red_area_pct.toFixed(2)} % red area · ${v.cheek_spots} ${v.cheek_spots === 1 ? "spot" : "spots"}</span></div>`).join("");
+  div(t, "rows", px({ left: 140, right: 140, top: 760 }), rows + `<div></div>`);
+  div(t, "proc", { top: "1090px", fontSize: "30px" }, "What we measured");
+  div(t, "cap", { top: "1140px" }, "Both cheeks, landmark-traced, on each photo");
+  credit(t);
+}
+
+// audit: arrow centrelines vs every text box (same rule as research/ostad/style/tools/arrow_text_lint.py)
+window.__audit = () => [...document.querySelectorAll(".tile")].map((t) => {
+  const tr = t.getBoundingClientRect(), boxes = [...t.querySelectorAll(".lab,.fig,.proc,.cap,.credit,.hd,.rows")].map((e) => [e, e.getBoundingClientRect()]);
+  const hits = [];
+  for (const [p1, p2] of t.__arrows || []) for (const [e, r] of boxes) {
+    let len = 0; for (let k = 0; k <= 100; k++) { const x = p1[0] + (p2[0] - p1[0]) * k / 100 + tr.left, y = p1[1] + (p2[1] - p1[1]) * k / 100 + tr.top;
+      if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) len += Math.hypot(p2[0] - p1[0], p2[1] - p1[1]) / 100; }
+    if (len > 0) hits.push({ t: e.textContent.slice(0, 40), len: Math.round(len) });
+  }
+  return `ARROWTEXT ${JSON.stringify({ f: t.dataset.name, hits })}`;
+});
+Promise.all([document.fonts.ready, ...[...document.images].map((i) => (i.complete ? 1 : new Promise((r) => { i.onload = i.onerror = r; })))])
+  .then(() => { window.__fonts = [...document.fonts].filter((f) => f.status === "loaded").map((f) => f.family); window.__ready = true; });
+</script>

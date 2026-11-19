@@ -1,0 +1,392 @@
+{
+ "p0005": {
+  "meta": {
+   "patient": "P0005",
+   "procedure": "acne",
+   "angle": "right profile",
+   "days": 137
+  },
+  "b_size": [
+   3024,
+   4032
+  ],
+  "a_size": [
+   3024,
+   4032
+  ],
+  "face": [
+   true,
+   false
+  ]
+ },
+ "p0028": {
+  "meta": {
+   "patient": "P0028",
+   "procedure": "acne scars",
+   "angle": "frontal",
+   "days": 15
+  },
+  "b_size": [
+   1013,
+   1396
+  ],
+  "a_size": [
+   1033,
+   1396
+  ],
+  "face": [
+   true,
+   true
+  ],
+  "align": {
+   "scale": 0.9941,
+   "rot_deg": 0.12,
+   "resid_pct_iod": 0.59,
+   "M": [
+    [
+     0.99414,
+     -0.00204,
+     41.54849
+    ],
+    [
+     0.00204,
+     0.99414,
+     -23.36064
+    ]
+   ]
+  },
+  "regions": {
+   "cheek_r": {
+    "spots_before": 1,
+    "spots_after": 0,
+    "red_area_pct_before": 0.26,
+    "red_area_pct_after": 0.0,
+    "drop_pct": 100.0,
+    "red_drop_pct": 100.0,
+    "marked": false,
+    "ellipse_b": [
+     0.3128,
+     0.5509,
+     0.2159,
+     0.2032,
+     174.7
+    ],
+    "ellipse_a": [
+     0.2697,
+     0.5705,
+     0.213,
+     0.2044,
+     174.6
+    ]
+   },
+   "cheek_l": {
+    "spots_before": 0,
+    "spots_after": 0,
+    "red_area_pct_before": 0.0,
+    "red_area_pct_after": 0.0,
+    "drop_pct": 0.0,
+    "red_drop_pct": 0.0,
+    "marked": false,
+    "ellipse_b": [
+     0.7676,
+     0.549,
+     0.2088,
+     0.202,
+     7.8
+    ],
+    "ellipse_a": [
+     0.7183,
+     0.568,
+     0.2059,
+     0.2032,
+     7.7
+    ]
+   }
+  },
+  "lm_b": {
+   "eye_r": [
+    0.3146,
+    0.4032
+   ],
+   "eye_l": [
+    0.7683,
+    0.4032
+   ],
+   "nose": [
+    0.5457,
+    0.5863
+   ],
+   "chin": [
+    0.5421,
+    0.8282
+   ],
+   "lid_r": [
+    0.3752,
+    0.4265
+   ],
+   "lid_l": [
+    0.7091,
+    0.4262
+   ],
+   "brow_mid": [
+    0.5442,
+    0.3257
+   ]
+  },
+  "lm_a": {
+   "eye_r": [
+    0.274,
+    0.4211
+   ],
+   "eye_l": [
+    0.7182,
+    0.4189
+   ],
+   "nose": [
+    0.4981,
+    0.6071
+   ],
+   "chin": [
+    0.504,
+    0.8351
+   ],
+   "lid_r": [
+    0.3342,
+    0.4453
+   ],
+   "lid_l": [
+    0.6591,
+    0.4437
+   ],
+   "brow_mid": [
+    0.4936,
+    0.3441
+   ]
+  }
+ },
+ "p0010": {
+  "meta": {
+   "patient": "P0010",
+   "procedure": "AviClear (1726 nm laser)",
+   "angle": "frontal",
+   "days": null
+  },
+  "b_size": [
+   386,
+   496
+  ],
+  "a_size": [
+   386,
+   513
+  ],
+  "face": [
+   true,
+   true
+  ],
+  "align": {
+   "scale": 1.0011,
+   "rot_deg": 4.87,
+   "resid_pct_iod": 1.32,
+   "M": [
+    [
+     0.99745,
+     -0.08496,
+     32.81468
+    ],
+    [
+     0.08496,
+     0.99745,
+     20.92053
+    ]
+   ]
+  },
+  "regions": {
+   "cheek_r": {
+    "spots_before": 0,
+    "spots_after": 0,
+    "red_area_pct_before": 2.88,
+    "red_area_pct_after": 0.0,
+    "drop_pct": 0.0,
+    "red_drop_pct": 100.0,
+    "marked": true,
+    "ellipse_b": [
+     0.2575,
+     0.6597,
+     0.2151,
+     0.2399,
+     171.8
+    ],
+    "ellipse_a": [
+     0.239,
+     0.5833,
+     0.2149,
+     0.2317,
+     166.9
+    ]
+   },
+   "cheek_l": {
+    "spots_before": 1,
+    "spots_after": 0,
+    "red_area_pct_before": 0.15,
+    "red_area_pct_after": 0.0,
+    "drop_pct": 100.0,
+    "red_drop_pct": 100.0,
+    "marked": false,
+    "ellipse_b": [
+     0.7306,
+     0.6691,
+     0.2101,
+     0.2398,
+     11.2
+    ],
+    "ellipse_a": [
+     0.7109,
+     0.5621,
+     0.2099,
+     0.2316,
+     6.3
+    ]
+   }
+  },
+  "lm_b": {
+   "eye_r": [
+    0.2585,
+    0.5104
+   ],
+   "eye_l": [
+    0.7475,
+    0.5167
+   ],
+   "nose": [
+    0.4953,
+    0.7182
+   ],
+   "chin": [
+    0.4856,
+    0.9899
+   ],
+   "lid_r": [
+    0.3254,
+    0.5367
+   ],
+   "lid_l": [
+    0.6787,
+    0.5414
+   ],
+   "brow_mid": [
+    0.5058,
+    0.4292
+   ]
+  },
+  "lm_a": {
+   "eye_r": [
+    0.2182,
+    0.4425
+   ],
+   "eye_l": [
+    0.7295,
+    0.4152
+   ],
+   "nose": [
+    0.4771,
+    0.6196
+   ],
+   "chin": [
+    0.514,
+    0.9345
+   ],
+   "lid_r": [
+    0.2894,
+    0.4598
+   ],
+   "lid_l": [
+    0.6585,
+    0.4408
+   ],
+   "brow_mid": [
+    0.4613,
+    0.3419
+   ]
+  },
+  "visits": [
+   {
+    "visit": 0,
+    "face": true,
+    "cheek_spots": 1,
+    "red_area_pct": 1.52
+   },
+   {
+    "visit": 1,
+    "face": true,
+    "cheek_spots": 5,
+    "red_area_pct": 1.77
+   },
+   {
+    "visit": 2,
+    "face": true,
+    "cheek_spots": 2,
+    "red_area_pct": 0.75
+   },
+   {
+    "visit": 3,
+    "face": true,
+    "cheek_spots": 0,
+    "red_area_pct": 0.0
+   }
+  ]
+ },
+ "p0013": {
+  "meta": {
+   "patient": "P0013",
+   "procedure": "chin filler",
+   "angle": "right profile",
+   "days": 0
+  },
+  "chin": {
+   "b": {
+    "chin_xy": [
+     0.1111,
+     0.5519
+    ],
+    "line_xy": [
+     0.0912,
+     0.5519
+    ],
+    "gap_px": 21.5,
+    "line_len_px": 216.6,
+    "gap_pct_line": 9.9,
+    "line_top": [
+     0.0491,
+     0.4389
+    ],
+    "line_bot": [
+     0.119,
+     0.6269
+    ],
+    "rows": 204
+   },
+   "a": {
+    "chin_xy": [
+     0.5556,
+     0.5519
+    ],
+    "line_xy": [
+     0.5519,
+     0.5519
+    ],
+    "gap_px": 4.0,
+    "line_len_px": 212.2,
+    "gap_pct_line": 1.9,
+    "line_top": [
+     0.5213,
+     0.438
+    ],
+    "line_bot": [
+     0.5722,
+     0.6278
+    ],
+    "rows": 206
+   }
+  }
+ }
+}
