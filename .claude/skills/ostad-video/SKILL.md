@@ -1,11 +1,93 @@
 ---
 name: ostad-video
-description: Build, fix or review a Dr. Ariel Ostad video edit (YouTube or reel, Remotion). Use for a new topic edit, a gap round on an existing one, or Naim's review notes on an Ostad video.
+description: Build, fix or review a Dr. Ariel Ostad video edit (YouTube or reel, Remotion). Use for a new topic edit, a gap round on an existing one, Naim's review notes on an Ostad video, or any reel rebuild (Jan 08 filler fatigue, Oct 14 injections, under-eye filler).
 ---
 
 # Ostad video
 
-The bar is YouTube v6 of "Exomind and total skin health" (`brand/remotion/src/OstadYT6.tsx`). Every new edit beats it by a stated measure.
+**Read "Standing rules" and "Reels: how we make them now" first. They are Naim's latest rulings and override anything older below or in the repo.**
+
+## Standing rules (Naim, every Ostad video)
+
+1. **Footage is raw, as in the camera roll.**
+   - Never grade, tone-map, brighten, change opacity or "fix" colour.
+   - Build from the 10-bit HLG camera-roll originals (`reel.py --hdr`), never from 8-bit transcodes.
+   - In Remotion, every OffthreadVideo gets `toneMapped={false}`.
+2. **No text, card, plate or label ever covers a face** (his or a patient's), in any frame.
+   - Titles go behind people (person key over the type) or into face-free space.
+   - Measure it with face_clear.
+3. **Face markup is technical**, like a surgeon marking a face:
+   - entry x's, cannula paths, product and amount, the measured before → after;
+   - locked to the face (median < 6, p95 and max ≤ 15 px) or put on a still;
+   - no decorative circles. The Jan 08 landmark plan is the accepted "happy medium".
+4. **Graphics explain what words can't.**
+   - Sourced and hyper-specific; no decoration and no generic devices.
+   - No graphic on the first passing mention of a thing; show it where he explains it.
+   - No strike-through text.
+   - A before/after example is labelled as "an example of his approach", never implying the patient has the condition.
+5. **Timing.**
+   - Every pop-up or example holds at least 2 s.
+   - The reel ends on a completed sentence, cut inside its pause.
+   - No picture freezes: a key or clip must never run past its source (frozen_picture check).
+6. **Real objects.**
+   - A named instrument or product becomes a real cut-out floating beside him: background removed, soft shadow, short label, clear of faces.
+   - It holds at least 2 s, and pairs are compared side by side at the same scale with tip loupes.
+   - Sources, in order: his iCloud/footage, then manufacturer images where licensed (credit them), then SHOT_REQUESTS.md.
+   - Never AI-generated or AI-upscaled instruments. If no photo exists, use a neutral "photo to come" ghost, never red placeholder text.
+7. **Anatomy drawings: brand palette only.** Ink #1d2230, warm grey #a2978d, one sand accent #bf8662, deep #8b5b3d (`brand/scripts/flora_frames.py`); no pastel textbook colours.
+   - Animation must be smooth: use in-betweens, no stepping.
+   - Flora models: Seedance 2.5 for video, Nano Banana 2.1 for images. No Higgsfield. Higgsfield and Krea need approval.
+   - A 3D anatomy-render style is under test (`brand/edits/flora-anatomy/style3d/STYLE3D.md`).
+8. **Privacy.**
+   - Patient footage never goes to Flora or any AI or online service.
+   - Patient codes only, never names. All clinic photos are consented (company iCloud, contracts).
+   - Dr. Ostad approves clinical drawings.
+9. **Process.**
+   - Never edit a delivered composition or overwrite a render: use new comp ids and new file names, and delete nothing.
+   - Multi-step work is split across parallel agents that message each other; agents don't commit, the coordinator does.
+   - Commit per change group and push main (`git push origin HEAD:main`).
+
+## Reels: how we make them now
+
+Every reel is rebuilt from its recipe and edited as a timeline. Nobody copies a `ReelVn.tsx` and patches it. Full recipe: `brand/remotion/REELS.md`.
+
+- **Timeline:** `brand/remotion/timelines/<reel>.json` is the working file. Beats are anchored to transcript words, and `<reel>.<version>.json` is frozen per delivered version. Edit it in the lanes page: `python brand/scripts/timeline_view.py` → http://127.0.0.1:8765.
+- **Build:** `python brand/scripts/reel.py <jan08|oct14|undereye> --hdr [--version vN] [--comp <CompId>] [--frames A-B]`.
+  - Footage is cut from `brand/remotion/public/originals/` (mapped in `public/originals.json`) in 10-bit with no colour filter.
+  - Graphics are Remotion alpha passes (the `pass` prop) converted sRGB → HLG at 75 % reference white.
+  - Person keys are RVM mattes applied to the original footage.
+  - Master: 10-bit HEVC tagged bt2020 / HLG, the same as the originals.
+- **Checks reel.py runs (all must pass):**
+  - tags equal the originals;
+  - footage vs original ≤ 2 ten-bit codes;
+  - graphics white 0.75 ± 0.03;
+  - frozen_picture;
+  - format;
+  - audio unchanged.
+  - Plus face_clear, tracking and -14 LUFS / ≤ -1 dBTP.
+  - A failed build is never delivered next to the good files.
+- **Current delivered versions:**
+
+  | Reel | Comp | Delivered files |
+  |---|---|---|
+  | Jan 08 | Jan08ReelV4 | `Ostad - Filler fatigue v4b(.mp4 / HDR.mp4)` |
+  | Oct 14 | Oct14ReelV6b | `Ostad - Oct 14 injections v6b(.mp4 / HDR.mp4)` |
+  | Under-eye | UndereyeReelV5b | `UndereyeReel_v5b.mp4` (HDR in progress) |
+
+- **Reel look:**
+  - calm glass, a visual about every 5 s, gentle cuts, then 1.1–1.2x;
+  - word-onset captions, real video over stock;
+  - no blue except the Tyndall effect.
+- **Delivery:** Naim judges colour on the iPhone next to the camera roll (AirDrop); Windows players show HDR flat.
+- **Still open:**
+  - photos of the cannula and the Evolysse Form/Smooth syringes (SHOT_REQUESTS #14–16);
+  - Dr. Ostad approval of the drawings;
+  - the needle photo's CC BY-SA credit in the caption.
+
+## YouTube edits
+
+
+For YouTube edits the bar is YouTube v6 of "Exomind and total skin health" (`brand/remotion/src/OstadYT6.tsx`). Every new edit beats it by a stated measure.
 
 ## Steps
 
