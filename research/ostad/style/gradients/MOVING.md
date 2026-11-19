@@ -27,3 +27,11 @@ npx remotion render src/flowimg/index.ts Compare check.mp4 --gl=angle --public-d
 ```
 
 Outputs are in `Downloads/Ostad gradients moving/`: `<piece>_loop|story-1080x1920|feed-1080x1350_original|soft.mp4`, plus `check_card-mint_still-vs-moving.mp4`.
+
+Delivery encode: Remotion writes full-range `yuvj420p`, so each file was re-encoded to limited-range `yuv420p`, keeping the same
+BT.601 matrix so the colours don't change (`ffmpeg -vf "scale=in_range=full:out_range=tv:in_color_matrix=bt601:out_color_matrix=bt601,format=yuv420p" -c:v libx264 -crf 14`).
+The sources are tagged Display P3. The browser converts them to sRGB, so the colour checks compare against the sRGB-converted source.
+
+Checks (loop files): the seam in the rendered PNGs equals one frame step (0.121 vs 0.122 mean abs). After H.264 the seam is about 1.1x the largest
+frame step, which is keyframe noise. There are no pops (largest step under 3.3x the median). Mean RGB is within 2.1 levels of the source. The grain stays
+put: the high-pass correlation between frame 0 and frame 180 is 0.63 (tile) and 0.35 (column), against about 0.01 if the grain moved by 3 px.
