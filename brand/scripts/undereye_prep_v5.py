@@ -15,6 +15,14 @@ for x in P["pieces"]:
             sync = round(x["from"] + (q["f0"] - x["at"]) / 24 * spd, 3)
             print(f"{x['id']} pic f{q['f0']}-{q['f1']}: src {q['src']} -> {sync} (lip-synced to its own audio)")
             q["src"] = sync; q.pop("from")
+# v5b: longer person keys for the "02" and "04" titles (the v5 keys ended 1.6-1.9 s of source early and froze), + every key's own length
+import subprocess
+P["keys"]["c02v5b"] = {"clip": "6817", "a": 32}
+P["keys"]["c04v5b"] = {"clip": "6821", "a": 2}
+for nm, k in P["keys"].items():
+    w = PUB / f"key_{nm}.webm"
+    if w.exists():
+        k["dur"] = round(float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(w)], capture_output=True, text=True).stdout), 3)
 P["dialogue"] = "undereye-filler/dialogue_v5.wav"
 P["tailRate"] = 0.5
 json.dump(P, open(PUB / "props_v5.json", "w"))

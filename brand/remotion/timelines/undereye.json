@@ -613,10 +613,10 @@
    },
    "source": {
     "clip": "undereye-filler/6821.mp4",
-    "in": 18.0,
+    "in": 15.621,
     "rate": 1.18
    },
-   "notes": "piece P17 (, audio 6821 2.69-33.2 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+   "notes": "piece P17 (, audio 6821 2.69-33.2 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check · v5: in = 15.621 (lip-synced; v4 used 18.0)"
   },
   {
    "id": "hook",
@@ -1624,7 +1624,7 @@
    "end": {
     "beat": "win",
     "edge": "start",
-    "offset": -4
+    "offset": -20
    },
    "text": {
     "label": "Blunt cannula",
@@ -1648,19 +1648,19 @@
    },
    "layout": {
     "tip": [
-     150,
-     905
+     200,
+     975
     ],
     "len": 900,
     "angle": 27,
     "loupe": [
-     500,
-     720
+     550,
+     760
     ],
     "d": 330,
     "labelAt": [
-     335,
-     462
+     375,
+     488
     ]
    },
    "sfx": [
@@ -1686,7 +1686,7 @@
    "end": {
     "beat": "win",
     "edge": "start",
-    "offset": -4
+    "offset": -20
    },
    "text": {
     "label": "Needle",
@@ -1711,26 +1711,26 @@
    },
    "layout": {
     "tip": [
-     150,
-     1105
+     200,
+     1175
     ],
     "len": 900,
     "angle": 27,
     "loupe": [
-     185,
-     1405
+     200,
+     1430
     ],
-    "d": 330,
+    "d": 310,
     "labelAt": [
-     380,
-     1440
+     395,
+     1452
     ],
     "creditAt": [
-     380,
-     1548
+     395,
+     1556
     ]
    },
-   "notes": "v5b: arrives beside the cannula at the same scale; the pair holds together through \"swelling, bruising ... bruised for over a week\"; both leave at win-4",
+   "notes": "v5b: arrives beside the cannula at the same scale; the pair holds together through \"swelling, bruising ... bruised for over a week\"; both leave at win-4 · v5b: leaves at win-20 (f1826): from f1832 she leans left into the loupe area",
    "sfx": [
     {
      "name": "exo_card",

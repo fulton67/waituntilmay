@@ -16,7 +16,7 @@ for b in tl["beats"]:
 F += [("tyndall", c["tyndall"] + 20), ("before marks", c["pinprick"] + 40), ("after wipe", c["two"] + 45), ("bars", c["settled"] + 20), ("end", P["durationInFrames"] + 40)]
 cs, ce = R["cannula"]; ns = R["needle"][0]; ct = T.resolve(tl["beats"][[b["id"] for b in tl["beats"]].index("cannula")]["events"]["tip"], tl, P)
 nt = T.resolve(tl["beats"][[b["id"] for b in tl["beats"]].index("needle")]["events"]["tip"], tl, P)
-STRIP = [("cannula in", cs + 6), ("cannula held", ns - 4), ("needle in", ns + 10), ("needle tip", nt + 12), ("cannula tip", ct + 12), ("leaving", max(ce, cs + 62) + 5)]
+STRIP = [("cannula in", cs + 6), ("cannula + loupe", ct + 14), ("cannula alone", ns - 2), ("needle in", ns + 10), ("pair: bruised", c["bruised"] + 4), ("leaving", ce + 4)]
 src, out = sys.argv[1], sys.argv[2]
 cols = int(sys.argv[3]) if len(sys.argv) > 3 else 8
 want = {f: n for n, f in F}; swant = {f: n for n, f in STRIP}
@@ -38,6 +38,6 @@ grid = np.vstack([np.hstack(ts[i:i + cols]) for i in range(0, len(ts), cols)])
 srow = np.hstack([strip[k] for k in sorted(strip)])
 srow = cv2.resize(srow, (grid.shape[1], int(srow.shape[0] * grid.shape[1] / srow.shape[1])))
 head = np.zeros((40, grid.shape[1], 3), np.uint8)
-cv2.putText(head, "REAL OBJECTS: blunt cannula (PLACEHOLDER, SHOT_REQUESTS #16) + needle (Commons, CC BY-SA 3.0)", (8, 28), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 255), 1, cv2.LINE_AA)
+cv2.putText(head, "OBJECTS (v5b): blunt cannula (ghost, photo to come: SHOT_REQUESTS #16) + needle (real photo, Commons CC BY-SA 3.0)", (8, 28), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 255), 1, cv2.LINE_AA)
 cv2.imwrite(out, np.vstack([grid, head, srow]), [cv2.IMWRITE_JPEG_QUALITY, 88])
 print(len(tiles), "stills +", len(strip), "strip ->", out)

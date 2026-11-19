@@ -1,4 +1,4 @@
-// UndereyeReelV5: v4b after Naim's 2026-11-19 notes. UndereyeReelV4 (ReelV4.tsx) is not edited. Every start, end, string, plate map, label, crop,
+// UndereyeReelV5 / V5b (v5b: when the cannula beat's device is "PairItem" the object beat is ObjectPairV5b, big, in the lower part of the frame): v4b after Naim's 2026-11-19 notes. UndereyeReelV4 (ReelV4.tsx) is not edited. Every start, end, string, plate map, label, crop,
 // layout rect and SFX comes from the timeline brand/remotion/timelines/undereye.json (src/timeline/timeline.ts resolves its anchors against
 // props_v5.json); the components stay here.
 //   - colour: every OffthreadVideo has toneMapped={false} (Remotion's default HDR tone map was the "weird filter": R +11, G -15, B -20 on 6821)
@@ -12,6 +12,7 @@ import { useElza } from "../Fonts";
 import { NameCard } from "../components/NameCard";
 import { Sfx } from "../components/Ro";
 import { RealObject } from "../devices/RealObject";
+import { ObjectPairV5b, type PairObject } from "./ObjectPairV5b";
 import { Lasts } from "./devices";
 import { DateLabels, Mark, type SketchData } from "./devices_v2";
 import { ClipCardStd } from "./standard";
@@ -24,7 +25,7 @@ import { beat, event, labels as tlLabels, plateMap, resolve, span, type Anchor, 
 type Pic = { f0: number; f1: number; clip?: string; still?: string; src?: number; scale?: number; ox?: number; oy?: number; run0?: number; rate?: number };
 type Piece = { id: string; clip: string; section: string; at: number; dur: number; from: number; to: number; pics: Pic[] };
 type Word = { w: string; f: number; f1: number; piece: string; voice: string };
-type KeySpec = { clip: string; a: number };
+type KeySpec = { clip: string; a: number; dur?: number }; // dur = the key webm's own length (s): past it the layer unmounts (v5b guard)
 export type V5Props = { bare?: boolean; fps: number; speed: number; durationInFrames: number; pieces: Piece[]; words: Word[]; cues: Record<string, number>;
   tailRate?: number; sketch?: SketchData; stat?: { before: number; after: number }; hook: number; keys: Record<string, KeySpec>; frames: FramesMeta; timeline?: Timeline };
 
@@ -56,6 +57,9 @@ const KeyLayer: React.FC<{ q: Pic; key4: KeySpec; name: string; speed: number; s
   const f = useCurrentFrame();
   const abs = f + q.f0;
   if (abs < s || abs > e) return null;
+  // v5b guard: never show a key past its own last frame (OffthreadVideo would hold that frame: the frozen figure under "04", v5 f1579-1611)
+  const srcT = (q.src ?? 0) + (f * (q.rate ?? speed)) / 24;
+  if (key4.dur !== undefined && (srcT < key4.a || srcT >= key4.a + key4.dur - 1 / 30)) return null;
   const { transformOrigin, transform } = transformOf(q, f);
   return (
     <AbsoluteFill style={{ transformOrigin, transform }}>
@@ -157,6 +161,12 @@ export const UndereyeReelV5: React.FC<V5Props> = (P) => {
   const [cS, cE] = sp("cannula"), [nS, nE] = sp("needle"), [stS, stE] = sp("stat"), [afS, afE] = sp("afterwards"), [laS, laE] = sp("lasts"), [nmS, nmE] = sp("name");
   const audio = (TL as unknown as { audio?: { dialogue?: string } }).audio?.dialogue ?? "undereye-filler/dialogue_v5.wav";
   const tW = tx("win");
+  // v5b: the object pair (src/undereye/ObjectPairV5b.tsx), every number from the timeline
+  const pair = (id: string): PairObject => {
+    const b = B(id), l = ly(id), so = b.source as any, t = tx(id), [s0, e0] = sp(id);
+    return { src: so.src, tipSrc: so.tip, tipAt: so.tipAt, aspect: so.aspect ?? 5, label: t.label, sub: t.sub, s: s0, loupeS: ev(id, "tip"), out: e0,
+      tip: l.tip, len: l.len, angle: l.angle, loupe: l.loupe, d: l.d, labelAt: l.labelAt, labelAlign: l.labelAlign };
+  };
 
   return (
     <AbsoluteFill style={{ background: "#000" }}>
@@ -212,7 +222,8 @@ export const UndereyeReelV5: React.FC<V5Props> = (P) => {
 
       {/* S4 the result: the REAL cannula and needle (v5), the one pinprick, the follow-up, measured */}
       {Sec("c04")}
-      {!P.bare || true ? <>
+      {B("cannula").device === "PairItem" ? <ObjectPairV5b a={pair("cannula")} b={pair("needle")} end={Math.max(cE, nE)} credit={tx("needle").credit} creditAt={ly("needle").creditAt} />
+      : <>
         <RealObject src={B("cannula").source!.src as string} label={tx("cannula").label} s={cS} out={cE} x={ly("cannula").x} y={ly("cannula").y} w={ly("cannula").w}
           aspect={(B("cannula").source as any).aspect ?? 4} enter={ly("cannula").enter}
           tip={{ src: (B("cannula").source as any).tip, label: tx("cannula").tip, s: ev("cannula", "tip"), d: ly("cannula").tipD, x: ly("cannula").tipX, y: ly("cannula").tipY, at: (B("cannula").source as any).tipAt }} />
@@ -223,7 +234,7 @@ export const UndereyeReelV5: React.FC<V5Props> = (P) => {
           <div style={{ position: "absolute", left: 0, right: 0, top: 1554, textAlign: "center", opacity: Math.min(1, (frame - nS) / 14) * (frame > Math.max(nE, nS + 62) ? Math.max(0, 1 - (frame - Math.max(nE, nS + 62)) / 10) : 1),
             font: `500 17px/1.2 ${FONT}`, color: "rgba(255,255,255,.82)", textShadow: "0 1px 6px rgba(0,0,0,.5)" }}>{tx("needle").credit}</div>
         )}
-      </> : null}
+      </>}
       <BAWindowV4 s={winS} out={winE} top={ly("win").top} maxw={ly("win").maxw} crop={CROP} before="undereye-filler/ba_wipe_before.jpg" after="undereye-filler/ba_wipe_after.jpg" swapS={ev("win", "swap")}
         data={P.sketch} marksS={ev("win", "marks")} pulse={ev("win", "pulse")} barsS={ev("win", "bars")} bare={P.bare} labels={{ before: tW.before, after: tW.after }}
         note={(f) => (f < ev("win", "swap") ? tW.note1 : tW.note2)} credit={tW.credit} />

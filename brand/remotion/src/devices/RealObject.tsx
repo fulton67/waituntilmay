@@ -26,13 +26,14 @@ export type RealObjectProps = {
   light?: string; // CSS filter that matches the cut-out to the room light (graphics only, never the footage)
   labelSide?: "below" | "above";
   rotate?: number; // deg
+  labelPx?: number; // label font size for the object and tip pills (default 25); padding scales with it
   tip?: { src: string; label: string; s?: number; d?: number; x?: number; y?: number; at?: [number, number] }; // loupe: diameter d, top-left x/y relative to the object box; at = the tip point on the object (fractions) for the leader line
 };
 
 export const holdOut = (s: number, out: number) => Math.max(out, s + IN + MIN_HOLD);
 
 export const RealObject: React.FC<RealObjectProps> = ({ src, label, s, out, x, y, w, aspect = 4, enter = "up", drift = 6, shadow = true,
-  light = "sepia(.12) saturate(.92) brightness(.98) contrast(1.02)", labelSide = "below", rotate = 0, tip }) => {
+  light = "sepia(.12) saturate(.92) brightness(.98) contrast(1.02)", labelSide = "below", rotate = 0, tip, labelPx = 25 }) => {
   const f = useCurrentFrame();
   const o2 = holdOut(s, out);
   if (f < s || f > o2 + OUT) return null;
@@ -45,9 +46,9 @@ export const RealObject: React.FC<RealObjectProps> = ({ src, label, s, out, x, y
   const h = w / aspect;
   const ph = /PLACEHOLDER/i.test(src);
   const pill = (text: string, o = 1): React.CSSProperties => ({
-    display: "inline-block", padding: "9px 16px 8px", borderRadius: 999, background: "rgba(255,255,255,.9)", color: INK, opacity: o,
-    font: `600 25px/1 ${FONTX}`, letterSpacing: "0.01em", boxShadow: "0 6px 20px rgba(8,12,22,.22)", whiteSpace: "nowrap" });
-  const lab = <div style={{ position: "absolute", left: 0, width: w, textAlign: "center", ...(labelSide === "below" ? { top: h + 22 } : { top: -64 }) }}><span style={pill(label)}>{label}</span></div>;
+    display: "inline-block", padding: `${Math.round(9 * labelPx / 25)}px ${Math.round(16 * labelPx / 25)}px ${Math.round(8 * labelPx / 25)}px`, borderRadius: 999, background: "rgba(255,255,255,.9)", color: INK, opacity: o,
+    font: `600 ${labelPx}px/1 ${FONTX}`, letterSpacing: "0.01em", boxShadow: "0 6px 20px rgba(8,12,22,.22)", whiteSpace: "nowrap" });
+  const lab = <div style={{ position: "absolute", left: 0, width: w, textAlign: "center", ...(labelSide === "below" ? { top: h + 22 } : { top: -(labelPx * 1.7 + 22) }) }}><span style={pill(label)}>{label}</span></div>;
   let loupe: React.ReactNode = null;
   if (tip) {
     const ts = tip.s ?? s + IN, d = tip.d ?? 190, tx = tip.x ?? w - d / 2, ty = tip.y ?? -d - 30;
@@ -63,7 +64,7 @@ export const RealObject: React.FC<RealObjectProps> = ({ src, label, s, out, x, y
           border: "4px solid rgba(255,255,255,.95)", boxShadow: "0 14px 34px rgba(8,12,22,.32)", transform: `scale(${0.7 + 0.3 * ta})`, opacity: ta }}>
           <Img src={staticFile(tip.src)} style={{ width: "100%", height: "100%", objectFit: "cover", filter: light }} />
         </div>
-        <div style={{ position: "absolute", left: tx - 60, width: d + 120, top: ty + d + 10, textAlign: "center", opacity: ta }}><span style={pill(tip.label)}>{tip.label}</span></div>
+        <div style={{ position: "absolute", left: tx - 60, width: d + 120, top: ty + d + Math.round(10 * labelPx / 25), textAlign: "center", opacity: ta }}><span style={pill(tip.label)}>{tip.label}</span></div>
       </>;
     }
   }
