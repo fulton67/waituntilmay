@@ -203,7 +203,7 @@ def fix(w, prev):
     return w
 
 
-def audio():
+def audio(out="mix.wav", join_fade=0.0, tail_fade=0.0):
     """v2: the voice track as ONE file (public/oct14/mix.wav), so every cut gets a 15 ms crossfade (Remotion can only fade per
     frame = 42 ms). Each piece: its clip's audio from..to, sped up (atempo, pitch kept), padded or trimmed to its exact frame length,
     a 15 ms fade in and out; consecutive pieces of one continuous span (audioJoin) join without a fade. The fades overlap the
@@ -213,8 +213,12 @@ def audio():
     pcs = pr["pieces"]
     for i, p in enumerate(pcs):
         d = p["dur"] / FPS
-        fin = 0 if p.get("audioJoin") else 0.015
-        fout = 0 if i + 1 < len(pcs) and pcs[i + 1].get("audioJoin") else 0.015
+        # v6 (audio check 2026-11-19): an audioJoin seam is not sample-continuous (atempo restarts per piece), so it clicked (step up to
+        # 8.4x the speech's own 99.5th pct); join_fade > 0 gives those seams a short fade too. tail_fade: the last piece fades out.
+        fin = join_fade if p.get("audioJoin") else 0.015
+        fout = join_fade if i + 1 < len(pcs) and pcs[i + 1].get("audioJoin") else 0.015
+        if i + 1 == len(pcs) and tail_fade:
+            fout = tail_fade
         f = f"atrim={p['from']}:{p['to']},asetpts=PTS-STARTPTS,atempo={sp},aresample=48000,apad,atrim=0:{d:.6f}"
         if fin:
             f += f",afade=t=in:st=0:d={fin}"
@@ -227,9 +231,11 @@ def audio():
         args += ["-i", str(PUB / f"{r}.mp4")]
     fc = ";".join(f"[{roles.index(r)}:a]{f},aformat=channel_layouts=stereo[a{i}]" for i, (r, f) in enumerate(segs))
     fc += ";" + "".join(f"[a{i}]" for i in range(len(segs))) + f"concat=n={len(segs)}:v=0:a=1[out]"
-    args += ["-filter_complex", fc, "-map", "[out]", "-c:a", "pcm_s16le", str(PUB / "mix.wav")]
+    if (PUB / out).exists() and out != "mix.wav":
+        raise SystemExit(f"{out} exists: never overwrite")
+    args += ["-filter_complex", fc, "-map", "[out]", "-c:a", "pcm_s16le", str(PUB / out)]
     subprocess.run(args, check=True)
-    print("mix.wav", len(segs), "pieces")
+    print(out, len(segs), "pieces")
 
 
 def props():
@@ -300,4 +306,7 @@ def master():
 
 
 if __name__ == "__main__":
-    {"master": master, "audio": audio, "select": select, "transcribe": transcribe, "words": words, "transcode": transcode, "props": props}[sys.argv[1]]()
+    if sys.argv[1] == "audio_v6":  # mix_v6.wav: 5 ms fades on audioJoin seams, 40 ms fade at the end (V6+)
+        audio("mix_v6.wav", join_fade=0.005, tail_fade=0.04)
+    else:
+        {"master": master, "audio": audio, "select": select, "transcribe": transcribe, "words": words, "transcode": transcode, "props": props}[sys.argv[1]]()

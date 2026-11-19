@@ -36,20 +36,24 @@ const Depth: React.FC<{ layer: number; label: string; q: number }> = ({ layer, l
 );
 
 export const CW = 440, CLIP_H = 315;
-export type ClipSpec = { src: string; from: number; rate?: number; caps: string; title: string; depth: [number, string] };
+export type ClipSpec = { src: string; from: number; rate?: number; caps: string; title: string; depth: [number, string];
+  /** V6+: decode raw (toneMapped off). Remotion's default HDR tone map warms iPhone HLG clips (R +11, G -15, B -20 levels) */
+  raw?: boolean };
 
-export const ClipCard: React.FC<{ c: ClipSpec; s: number; out: number; left: number; top: number; w?: number; dim?: number; strike?: number }> = ({ c, s, out, left, top, w = CW, dim = 0, strike = 0 }) => {
+export const ClipCard: React.FC<{ c: ClipSpec; s: number; out: number; left: number; top: number; w?: number; dim?: number; strike?: number;
+  /** V6+: dim the TEXT only (footage untouched) and a lit ring (0-1) round the card */
+  textDim?: number; ring?: number }> = ({ c, s, out, left, top, w = CW, dim = 0, strike = 0, textDim = 0, ring = 0 }) => {
   const frame = useCurrentFrame();
   if (frame < s || frame > out + 8) return null;
   return (
-    <div style={{ ...card(26), left, top, width: w, ...enterF(frame, s, out) }}>
+    <div style={{ ...card(26), left, top, width: w, ...enterF(frame, s, out), ...(ring ? { boxShadow: `0 0 0 ${3 * ring}px ${NAVY}, 0 18px 40px rgba(0,0,0,0.14)` } : {}) }}>
       <div style={{ margin: 10, height: CLIP_H, borderRadius: 18, overflow: "hidden", background: "#000" }}>
         <Sequence from={s} layout="none">
-          <OffthreadVideo src={staticFile(c.src)} trimBefore={Math.round(c.from * 24)} playbackRate={c.rate ?? 1} muted
+          <OffthreadVideo src={staticFile(c.src)} trimBefore={Math.round(c.from * 24)} playbackRate={c.rate ?? 1} muted toneMapped={c.raw ? false : undefined}
             style={{ width: "100%", height: "100%", objectFit: "cover", filter: dim ? `saturate(${1 - 0.6 * dim})` : undefined }} />
         </Sequence>
       </div>
-      <div style={{ padding: "6px 22px 20px", opacity: 1 - 0.45 * dim }}>
+      <div style={{ padding: "6px 22px 20px", opacity: (1 - 0.45 * dim) * (1 - 0.6 * textDim) }}>
         <Caps style={{ fontSize: 17 }}>{c.caps}</Caps>
         <div style={{ position: "relative", display: "inline-block", font: `600 38px/1.1 ${FONT}`, letterSpacing: "-0.01em", marginTop: 8 }}>
           {c.title}

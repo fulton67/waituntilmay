@@ -1,0 +1,37 @@
+{
+ "final": "brand/edits/oct14-injection/builds/oct14_v6__20261119-100640/raw.mp4",
+ "allowed": "brand/edits/oct14-injection/checks_v6/allowed.mp4",
+ "step": 2,
+ "expand": 0.1,
+ "min_px": 60,
+ "frames_checked": 1154,
+ "faces_seen": 1041,
+ "violating_frames": 1,
+ "runs": [
+  [
+   862,
+   862
+  ]
+ ],
+ "pass": false,
+ "violations": [
+  {
+   "f": 862,
+   "hits": [
+    {
+     "box": [
+      581,
+      1254,
+      267,
+      369
+     ],
+     "px": 256,
+     "share": 0.003
+    }
+   ]
+  }
+ ],
+ "review": {
+  "f862": "false positive: detector box 581,1254 267x369 is her hand holding the mirror (no face in frame; checked crop of raw vs allowed). True face overlap = 0."
+ }
+}
