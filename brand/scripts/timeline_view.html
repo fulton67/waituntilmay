@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reel timeline</title>
+<style>
+:root { --ink:#1d2230; --muted:#6f6a66; --paper:#f2efed; --card:#fbfaf9; --line:#dcd6d1; --blue:#37a9e8; --sand:#bf8662; --warn:#b3261e;
+  --footage:#8d95a6; --captions:#b9b2ab; --titles:#1d2230; --plates:#bf8662; --objects:#37a9e8; --markup:#5c7a5a; --sfx:#8b5b3d; }
+* { box-sizing:border-box; }
+html, body { height:100%; }
+body { margin:0; background:var(--paper); color:var(--ink); font:14px/1.4 "Helvetica Neue", "Inter", Arial, sans-serif; display:flex; flex-direction:column; }
+header { display:flex; flex-wrap:wrap; gap:10px 14px; align-items:center; padding:10px 16px; border-bottom:1px solid var(--line); background:var(--card); }
+header h1 { font-size:15px; font-weight:600; margin:0 6px 0 0; letter-spacing:.01em; }
+select, input, textarea, button { font:inherit; color:inherit; }
+select, input[type=text], input[type=number], textarea { background:#fff; border:1px solid var(--line); border-radius:6px; padding:5px 8px; }
+textarea { width:100%; resize:vertical; font:12px/1.45 ui-monospace, Consolas, monospace; }
+button { background:#fff; border:1px solid var(--line); border-radius:6px; padding:6px 12px; cursor:pointer; }
+button:hover { border-color:var(--ink); }
+button.primary { background:var(--ink); color:#fff; border-color:var(--ink); }
+button:disabled { opacity:.45; cursor:default; }
+.meta { color:var(--muted); font-size:12.5px; }
+.dirty { color:var(--warn); font-weight:600; }
+main { flex:1; display:flex; min-height:0; }
+#stage { flex:1; overflow:auto; position:relative; background:var(--paper); }
+#canvas { position:relative; }
+.lane { position:relative; border-bottom:1px solid var(--line); }
+.lane > .name { position:sticky; left:0; z-index:5; width:92px; height:100%; position:sticky; float:left; padding:6px 8px; font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); background:linear-gradient(90deg, var(--paper) 78%, transparent); pointer-events:none; }
+#ruler { position:sticky; top:0; z-index:8; height:24px; background:var(--card); border-bottom:1px solid var(--line); }
+#ruler span { position:absolute; top:4px; font-size:11px; color:var(--muted); border-left:1px solid var(--line); padding-left:4px; height:20px; }
+#words { height:30px; background:var(--card); }
+.word { position:absolute; top:5px; height:20px; padding:2px 3px; font-size:11.5px; white-space:nowrap; overflow:hidden; border-left:1px solid var(--line); cursor:pointer; border-radius:0 3px 3px 0; }
+.word:hover, .word.hit { background:#fff; outline:1px solid var(--blue); z-index:3; overflow:visible; }
+.word.picking { background:#e8f5fd; }
+.cut { position:absolute; top:0; bottom:0; width:0; border-left:1px dashed #c9c1ba; pointer-events:none; }
+.beat { position:absolute; height:22px; border-radius:5px; padding:3px 6px; font-size:11.5px; color:#fff; white-space:nowrap; overflow:hidden; cursor:grab; user-select:none; border:1px solid rgba(0,0,0,.08); }
+.beat.sel { outline:2px solid var(--ink); outline-offset:1px; z-index:4; }
+.beat .h { position:absolute; top:0; bottom:0; width:6px; cursor:ew-resize; }
+.beat .h.l { left:0; } .beat .h.r { right:0; }
+.beat.ro { cursor:pointer; }
+.tick { position:absolute; top:-3px; width:0; height:28px; border-left:1.5px solid rgba(255,255,255,.75); pointer-events:none; }
+#side { width:400px; flex:none; border-left:1px solid var(--line); background:var(--card); overflow:auto; padding:14px 16px 40px; }
+#side h2 { font-size:15px; margin:0 0 2px; }
+#side h3 { font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); margin:18px 0 6px; font-weight:600; }
+.row { display:flex; gap:6px; align-items:center; margin:5px 0; flex-wrap:wrap; }
+.row label { width:74px; flex:none; color:var(--muted); font-size:12.5px; }
+.row input[type=text] { flex:1; min-width:0; }
+.row input[type=number] { width:72px; }
+.anchor { border:1px solid var(--line); border-radius:8px; padding:6px 8px; background:#fff; margin:5px 0; }
+.anchor .res { color:var(--muted); font-size:12px; }
+.pill { font-size:11px; border:1px solid var(--line); border-radius:99px; padding:1px 8px; color:var(--muted); }
+#status { margin-left:auto; font-size:12.5px; color:var(--muted); max-width:46ch; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+#errs { color:var(--warn); font-size:12.5px; white-space:pre-wrap; }
+pre#log { font:11.5px/1.4 ui-monospace, Consolas, monospace; background:#fff; border:1px solid var(--line); border-radius:6px; padding:8px; max-height:220px; overflow:auto; white-space:pre-wrap; }
+@media (max-width: 900px) { main { flex-direction:column; } #side { width:auto; border-left:0; border-top:1px solid var(--line); max-height:48vh; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Reel timeline</h1>
+  <select id="file" title="timeline file"></select>
+  <span class="meta" id="info"></span>
+  <label class="meta">zoom <input id="zoom" type="range" min="1" max="14" step="0.5" value="4"></label>
+  <button id="save" class="primary" disabled>Save</button>
+  <button id="copy" hidden>Copy to working</button>
+  <button id="render" title="python brand/scripts/reel.py <reel>">Render reel</button>
+  <button id="renderSel" title="render only the selected beat, with 1 s either side" disabled>Render selected beat</button>
+  <span id="status"></span>
+</header>
+<main>
+  <div id="stage"><div id="canvas"></div></div>
+  <aside id="side"><h2>Pick a beat</h2><p class="meta">Each block is one beat. Its ends are tied to a word of the transcript (or a cut, another beat, a frame), so the edit survives a retime. Drag a block or its edges to shift it in frames; click it to change its words, text, plate frames and notes. Save writes the JSON; Render rebuilds the reel with reel.py.</p><div id="errs"></div><h3>Last build</h3><pre id="log">no build started from this page</pre></aside>
+</main>
+<script>
+const LANES = ["footage", "captions", "titles", "plates", "objects", "markup", "sfx"];
+const $ = (s, el = document) => el.querySelector(s);
+const el = (tag, attrs = {}, ...kids) => { const e = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) { if (k === "class") e.className = v; else if (k.startsWith("on")) e.addEventListener(k.slice(2), v); else if (v !== undefined && v !== null && v !== false) e.setAttribute(k, v); } for (const k of kids.flat()) e.append(k?.nodeType ? k : document.createTextNode(k ?? "")); return e; };
+let D = null, TL = null, P = null, sel = null, dirty = false, pick = null, zoom = 4;
+const norm = (s) => s.toLowerCase().replace(/[^a-z0-9']/g, "");
+
+// the same resolver as src/timeline/timeline.ts and timeline_lib.py
+function wordIndex(a) { if (!a.text) return a.word; const t = norm(a.text); if (P.words[a.word] && norm(P.words[a.word].w) === t) return a.word; let best = -1; P.words.forEach((w, i) => { if (norm(w.w) === t && (best < 0 || Math.abs(i - a.word) < Math.abs(best - a.word))) best = i; }); if (best < 0) throw new Error(`word "${a.text}" not in the transcript`); return best; }
+function resolve(a, seen = []) {
+  const off = a.offset ?? 0;
+  if ("frame" in a) return a.frame + off;
+  if ("word" in a) { const w = P.words[wordIndex(a)]; if (!w) throw new Error("word " + a.word + " missing"); return (a.edge === "end" ? w.f1 : w.f) + off; }
+  if ("cue" in a) { if (a.cue === "end") return P.durationInFrames + off; if (!(a.cue in P.cues)) throw new Error("cue " + a.cue + " missing"); return P.cues[a.cue] + off; }
+  if ("piece" in a) { const ps = P.pieces.filter((x) => a.exact ? x.id === a.piece : x.id === a.piece || x.line === a.piece || (x.id.length === a.piece.length + 1 && x.id.startsWith(a.piece) && /[xyz]$/.test(x.id))); if (!ps.length) throw new Error("piece " + a.piece + " missing"); const l = ps[ps.length - 1]; return (a.edge === "end" ? l.at + l.dur : ps[0].at) + off; }
+  if ("beat" in a) { const key = a.beat + ":" + (a.edge ?? "start"); if (seen.includes(key)) throw new Error("beat anchors loop through " + a.beat); const b = TL.beats.find((x) => x.id === a.beat); if (!b) throw new Error("beat " + a.beat + " missing"); return resolve(a.edge === "end" ? b.end : b.start, [...seen, key]) + off; }
+  throw new Error("not an anchor");
+}
+const safeRes = (a) => { try { return resolve(a); } catch (e) { return null; } };
+const kindOf = (a) => ["word", "cue", "piece", "beat", "frame"].find((k) => k in a);
+const sec = (f) => (f / TL.fps).toFixed(2) + " s";
+const describe = (a) => { const k = kindOf(a), o = a.offset ? (a.offset > 0 ? " + " : " − ") + Math.abs(a.offset) + " f" : ""; return (k === "word" ? `“${P.words[wordIndex(a)]?.w ?? a.text}”${a.edge === "end" ? " (end)" : ""}` : k === "frame" ? `frame ${a.frame}` : `${k} ${a[k]}${a.edge === "end" ? " (end)" : ""}`) + o; };
+
+async function api(path, body) { const r = await fetch(path, body === undefined ? {} : { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }); const j = await r.json(); if (!r.ok) throw new Error(j.error || r.statusText); return j; }
+const status = (s, bad) => { $("#status").textContent = s; $("#status").style.color = bad ? "var(--warn)" : ""; };
+function setDirty(v) { dirty = v; $("#save").disabled = !v || D.frozen; $("#info").innerHTML = `${TL.reel} · ${TL.version} · ${TL.comp.id} · ${TL.beats.length} beats · ${sec(P.total)}${D.frozen ? " · <b>delivered version, read-only</b>" : ""}${v ? ' · <span class="dirty">unsaved</span>' : ""}`; }
+
+async function load(file) {
+  D = await api("/api/timeline?file=" + encodeURIComponent(file)); TL = D.timeline; P = D.transcript; sel = null; pick = null;
+  $("#copy").hidden = !D.frozen; setDirty(false); draw(); side();
+  $("#errs").textContent = D.errors.join("\n"); history.replaceState(null, "", "?file=" + encodeURIComponent(file));
+}
+
+function rows(items) { // stack overlapping blocks in a lane
+  const ends = []; return items.map((it) => { let r = ends.findIndex((e) => e <= it.s); if (r < 0) { r = ends.length; ends.push(0); } ends[r] = it.e; return { ...it, r }; });
+}
+function draw() {
+  const c = $("#canvas"), X = (f) => 96 + f * zoom, W = X(P.total) + 80;
+  c.innerHTML = ""; c.style.width = W + "px";
+  const ruler = el("div", { id: "ruler", style: `width:${W}px` });
+  const stepS = zoom >= 8 ? 1 : zoom >= 3 ? 2 : 5;
+  for (let s = 0; s * TL.fps <= P.total; s += stepS) ruler.append(el("span", { style: `left:${X(s * TL.fps)}px` }, s + " s · f" + s * TL.fps));
+  c.append(ruler);
+  const wl = el("div", { class: "lane", id: "words", style: `width:${W}px` }, el("div", { class: "name" }, "words"));
+  P.words.forEach((w, i) => wl.append(el("div", { class: "word" + (pick ? " picking" : ""), style: `left:${X(w.f)}px; width:${Math.max(8, ((P.words[i + 1]?.f ?? w.f1 + 6) - w.f) * zoom - 1)}px`, title: `${i} · “${w.w}” · f${w.f}–${w.f1} · ${w.piece ?? ""}`, "data-i": i, onclick: () => wordClick(i) }, w.w)));
+  c.append(wl);
+  for (const lane of LANES) {
+    // the SFX lane also shows every hit that lives on a beat of another lane (click = that beat)
+    const hits = lane !== "sfx" ? [] : TL.beats.flatMap((b) => (b.sfx ?? []).map((x) => ({ b, name: x.name, s: safeRes(x.at ?? b.start) })).filter((x) => x.s !== null && b.lane !== "sfx"));
+    const items = rows(TL.beats.map((b) => ({ b, s: safeRes(b.start), e: safeRes(b.end) })).filter((x) => x.b.lane === lane).map((x) => ({ ...x, bad: x.s === null || x.e === null, s: x.s ?? 0, e: Math.max(x.e ?? 24, (x.s ?? 0) + 2) })).sort((a, b) => a.s - b.s));
+    const n = Math.max(1, ...items.map((x) => x.r + 1)) + (hits.length ? 1 : 0);
+    const L = el("div", { class: "lane", style: `width:${W}px; height:${n * 26 + 10}px` }, el("div", { class: "name" }, lane));
+    for (const it of items) {
+      const b = it.b, box = el("div", { class: "beat" + (sel === b.id ? " sel" : "") + (D.frozen ? " ro" : ""), "data-id": b.id, title: `${b.id} · ${b.device ?? ""} · f${it.s}–${it.e} (${sec(it.s)}–${sec(it.e)})`,
+        style: `left:${X(it.s)}px; width:${Math.max(6, (it.e - it.s) * zoom)}px; top:${5 + it.r * 26}px; background:${it.bad ? "var(--warn)" : `var(--${lane})`}` },
+        (b.text?.title ?? b.text?.caps ?? b.text?.head ?? b.id).toString().replace(/\n|\|/g, " ") + (b.text?.title || b.text?.caps ? "  ·  " + b.id : ""));
+      for (const ev of [...Object.values(b.events ?? {}), ...(b.text?.labels ?? []).map((l) => l.at).filter(Boolean), ...(b.plate?.map ?? []).map((m) => m[0])]) { const f = safeRes(ev); if (f !== null && f > it.s && f < it.e) box.append(el("div", { class: "tick", style: `left:${(f - it.s) * zoom}px` })); }
+      if (!D.frozen) box.append(el("div", { class: "h l" }), el("div", { class: "h r" }));
+      box.addEventListener("pointerdown", (e) => grab(e, b, box));
+      L.append(box);
+    }
+    for (const h of hits) L.append(el("div", { class: "beat ro", title: `${h.name} · f${h.s + 1} · on beat ${h.b.id}`, style: `left:${X(h.s)}px; width:${Math.max(46, 12 * zoom)}px; top:${5 + (n - 1) * 26}px; background:var(--sfx)`, onclick: () => selectBeat(h.b.id) }, h.name.replace("exo_", "")));
+    c.append(L);
+  }
+  for (const p of P.pieces) c.append(el("div", { class: "cut", style: `left:${X(p.at)}px` }));
+}
+
+function grab(e, b, box) {
+  selectBeat(b.id);
+  if (D.frozen) return;
+  const mode = e.target.classList.contains("l") ? "l" : e.target.classList.contains("r") ? "r" : "m", x0 = e.clientX, s0 = b.start.offset ?? 0, e0 = b.end.offset ?? 0;
+  let moved = false;
+  const endFollows = "beat" in b.end && b.end.beat === b.id; // an end written as "my start + n" already moves with the start
+  const mv = (ev) => { const d = Math.round((ev.clientX - x0) / zoom); if (!d && !moved) return; moved = true;
+    if (mode !== "r") b.start.offset = s0 + d; if (mode === "r" || (mode === "m" && !endFollows)) b.end.offset = e0 + d; if (mode === "l" && endFollows) b.end.offset = e0 - d;
+    for (const k of ["start", "end"]) if (!b[k].offset) delete b[k].offset;
+    const s = safeRes(b.start), en = safeRes(b.end); box.style.left = 96 + s * zoom + "px"; box.style.width = Math.max(6, (en - s) * zoom) + "px"; status(`${b.id}: f${s}–${en} (${sec(s)}–${sec(en)})`); };
+  const up = () => { removeEventListener("pointermove", mv); removeEventListener("pointerup", up); if (moved) { setDirty(true); draw(); side(); } };
+  addEventListener("pointermove", mv); addEventListener("pointerup", up);
+}
+function selectBeat(id) { sel = id; pick = null; document.querySelectorAll(".beat").forEach((x) => x.classList.toggle("sel", x.dataset.id === id)); $("#renderSel").disabled = false; side(); }
+function wordClick(i) {
+  if (pick) { const a = pick.get(); for (const k of ["cue", "piece", "beat", "frame", "exact"]) delete a[k]; a.word = i; a.text = P.words[i].w; pick = null; setDirty(true); draw(); side(); return; }
+  const w = P.words[i]; status(`word ${i} “${w.w}” · f${w.f}–${w.f1} (${sec(w.f)})`);
+}
+
+function anchorEditor(label, get, set) {
+  const a = get(); if (!a) return el("div", {});
+  const k = kindOf(a), ro = D.frozen, f = safeRes(a);
+  const change = (fn) => { fn(get()); setDirty(true); draw(); side(); };
+  const kind = el("select", { disabled: ro, onchange: (e) => change((x) => { const off = x.offset; for (const q of Object.keys(x)) delete x[q]; const v = e.target.value; if (v === "word") { const i = nearestWord(f ?? 0); x.word = i; x.text = P.words[i].w; } else if (v === "frame") x.frame = f ?? 0; else if (v === "cue") x.cue = Object.keys(P.cues)[0]; else if (v === "piece") x.piece = P.pieces[0].id; else x.beat = TL.beats[0].id; if (off && v !== "frame") x.offset = off; }) },
+    ["word", "cue", "piece", "beat", "frame"].map((q) => el("option", { value: q, selected: q === k }, q)));
+  let val;
+  if (k === "word") val = el("span", {}, el("input", { type: "number", value: a.word, disabled: ro, title: "word index", onchange: (e) => change((x) => { const i = Math.max(0, Math.min(P.words.length - 1, +e.target.value)); x.word = i; x.text = P.words[i].w; }) }), " ", el("b", {}, "“" + (P.words[wordIndex(a)]?.w ?? "?") + "” "),
+    el("button", { disabled: ro, onclick: () => { pick = { get }; draw(); status("click a word in the transcript row"); } }, "pick word"));
+  else if (k === "frame") val = el("input", { type: "number", value: a.frame, disabled: ro, onchange: (e) => change((x) => { x.frame = +e.target.value; }) });
+  else { const opts = k === "cue" ? ["end", ...Object.keys(P.cues)] : k === "piece" ? [...new Set(P.pieces.flatMap((p) => [p.id, p.line].filter(Boolean)))] : TL.beats.map((b) => b.id);
+    val = el("select", { disabled: ro, onchange: (e) => change((x) => { x[k] = e.target.value; }) }, opts.map((o) => el("option", { value: o, selected: o === a[k] }, o))); }
+  const edge = k === "frame" || k === "cue" ? "" : el("select", { disabled: ro, title: "which edge", onchange: (e) => change((x) => { if (e.target.value === "end") x.edge = "end"; else delete x.edge; }) }, ["start", "end"].map((q) => el("option", { value: q, selected: (a.edge ?? "start") === q }, q)));
+  const off = el("input", { type: "number", value: a.offset ?? 0, disabled: ro, title: "offset in frames", onchange: (e) => change((x) => { if (+e.target.value) x.offset = +e.target.value; else delete x.offset; }) });
+  return el("div", { class: "anchor" }, el("div", { class: "row" }, el("label", {}, label), kind, val, edge), el("div", { class: "row" }, el("label", {}, "offset"), off, el("span", { class: "meta" }, "frames"), el("span", { class: "res" }, f === null ? "does not resolve" : `→ f${f} · ${sec(f)}`)));
+}
+const nearestWord = (f) => P.words.reduce((best, w, i) => (Math.abs(w.f - f) < Math.abs(P.words[best].f - f) ? i : best), 0);
+const isAnchor = (v) => v && typeof v === "object" && !Array.isArray(v) && kindOf(v);
+
+function textFields(obj, path, out) { // every string leaf of text{}, editable; anchors inside (labels' at, rows' at) get anchor editors
+  for (const [k, v] of Object.entries(obj)) {
+    const name = path ? path + "." + k : k;
+    if (typeof v === "string" || typeof v === "number") out.push(el("div", { class: "row" }, el("label", { title: name }, name.replace(/^labels\.|^rows\./, "")), el("input", { type: "text", value: v, disabled: D.frozen, onchange: (e) => { obj[k] = typeof v === "number" && e.target.value !== "" && !isNaN(+e.target.value) ? +e.target.value : e.target.value; setDirty(true); draw(); } })));
+    else if (isAnchor(v)) out.push(anchorEditor(name.replace(/^labels\.|^rows\./, ""), () => obj[k], null));
+    else if (v && typeof v === "object") textFields(v, name, out);
+  }
+}
+function side() {
+  const s = $("#side"), b = TL.beats.find((x) => x.id === sel);
+  const tail = [el("div", { id: "errs" }, D.errors.join("\n")), el("h3", {}, "Last build"), el("pre", { id: "log" }, $("#log")?.textContent ?? "")];
+  if (!b) { s.replaceChildren(el("h2", {}, "Pick a beat"), el("p", { class: "meta" }, "Each block is one beat. Its ends are tied to a word of the transcript (or a cut, another beat, a frame), so the edit survives a retime. Drag a block or its edges to shift it in frames; click it to change its words, text, plate frames and notes. Save writes the JSON; Render rebuilds the reel with reel.py."), ...tail); return; }
+  const st = safeRes(b.start), en = safeRes(b.end), kids = [];
+  kids.push(el("h2", {}, b.id), el("div", { class: "row" }, el("span", { class: "pill" }, b.lane), el("span", { class: "pill" }, b.device ?? "no device"), el("span", { class: "meta" }, st !== null && en !== null ? `f${st}–${en} · ${sec(st)}–${sec(en)} · ${en - st} f` : "does not resolve")));
+  kids.push(el("h3", {}, "Timing"), anchorEditor("start", () => b.start), anchorEditor("end", () => b.end));
+  if (b.events) { kids.push(el("h3", {}, "Moments inside the beat")); for (const k of Object.keys(b.events)) kids.push(anchorEditor(k, () => b.events[k])); }
+  if (b.text) { kids.push(el("h3", {}, "On-screen text")); const out = []; textFields(b.text, "", out); kids.push(...out); }
+  if (b.plate) { kids.push(el("h3", {}, `Plate ${b.plate.id} · word → clip frame`));
+    (b.plate.map ?? []).forEach((m, i) => kids.push(anchorEditor("key " + (i + 1), () => b.plate.map[i][0]), el("div", { class: "row" }, el("label", {}, "clip frame"), el("input", { type: "number", value: m[1], disabled: D.frozen, onchange: (e) => { b.plate.map[i][1] = +e.target.value; setDirty(true); } }),
+      el("button", { disabled: D.frozen, onclick: () => { b.plate.map.splice(i, 1); setDirty(true); draw(); side(); } }, "remove"))));
+    kids.push(el("button", { disabled: D.frozen, onclick: () => { const last = b.plate.map[b.plate.map.length - 1]; b.plate.map.push([{ beat: b.id, edge: "end" }, last ? last[1] : 0]); setDirty(true); draw(); side(); } }, "add key")); }
+  if (b.sfx) { kids.push(el("h3", {}, "SFX")); b.sfx.forEach((x) => { kids.push(el("div", { class: "row" }, el("label", {}, "sound"), el("input", { type: "text", value: x.name, disabled: D.frozen, onchange: (e) => { x.name = e.target.value; setDirty(true); } }), el("input", { type: "number", step: "0.01", value: x.gain ?? "", placeholder: "gain", disabled: D.frozen, onchange: (e) => { if (e.target.value === "") delete x.gain; else x.gain = +e.target.value; setDirty(true); } }))); if (x.at) kids.push(anchorEditor("at", () => x.at)); }); }
+  kids.push(el("h3", {}, "Notes"), el("textarea", { rows: 3, disabled: D.frozen, onchange: (e) => { if (e.target.value) b.notes = e.target.value; else delete b.notes; setDirty(true); } }, b.notes ?? ""));
+  const rest = Object.fromEntries(Object.entries(b).filter(([k]) => ["source", "layout", "plate"].includes(k)).map(([k, v]) => [k, k === "plate" ? { ...v, map: undefined } : v]));
+  const ta = el("textarea", { rows: 9, disabled: D.frozen, spellcheck: "false", onchange: (e) => { try { const j = JSON.parse(e.target.value); for (const k of ["source", "layout"]) { if (k in j) b[k] = j[k]; else delete b[k]; } if (j.plate && b.plate) b.plate = { ...j.plate, map: b.plate.map }; setDirty(true); status("source / layout updated"); } catch (err) { status("not valid JSON: " + err.message, true); } } }, JSON.stringify(rest, null, 1));
+  kids.push(el("h3", {}, "Source clip, layout, plate options (JSON)"), ta);
+  s.replaceChildren(...kids, ...tail);
+}
+
+$("#zoom").addEventListener("input", (e) => { const st = $("#stage"), mid = (st.scrollLeft + st.clientWidth / 2 - 96) / zoom; zoom = +e.target.value; draw(); st.scrollLeft = 96 + mid * zoom - st.clientWidth / 2; });
+$("#file").addEventListener("change", (e) => { if (!dirty || confirm("Discard unsaved changes?")) load(e.target.value); else e.target.value = D.file; });
+$("#save").addEventListener("click", async () => { try { D = await api("/api/save?file=" + encodeURIComponent(D.file), TL); TL = D.timeline; P = D.transcript; setDirty(false); draw(); side(); status("saved " + D.file + " (previous copy in timelines/.history)"); } catch (e) { status(e.message, true); } });
+$("#copy").addEventListener("click", async () => { const v = prompt("Copy this delivered version to the working timeline (the current working file goes to timelines/.history). New version name:", TL.version + "-edit"); if (!v) return; try { const d = await api("/api/copy?file=" + encodeURIComponent(D.file), { version: v }); await files(); $("#file").value = d.file; load(d.file); } catch (e) { status(e.message, true); } });
+async function build(frames) { if (dirty && !confirm("There are unsaved changes; the build reads the saved file. Build anyway?")) return; try { const r = await api("/api/build?file=" + encodeURIComponent(D.file), frames ? { frames } : {}); status("build started: reel.py " + r.started.split("reel.py ")[1]); poll(); } catch (e) { status(e.message, true); } }
+$("#render").addEventListener("click", () => build());
+$("#renderSel").addEventListener("click", () => { const b = TL.beats.find((x) => x.id === sel); if (!b) return; build([Math.max(0, resolve(b.start) - 24), Math.min(P.total - 1, resolve(b.end) + 24)]); });
+async function poll() { const r = await api("/api/build"); if ($("#log")) $("#log").textContent = (r.cmd ? "$ " + r.cmd + "\n" : "") + (r.log || "no build started from this page"); if (r.running) { status("building…"); setTimeout(poll, 3000); } else if (r.cmd) status(r.exit === 0 ? "build finished: all checks passed" : "build finished: a check failed or the build stopped (see the log)", r.exit !== 0); }
+addEventListener("beforeunload", (e) => { if (dirty) e.preventDefault(); });
+addEventListener("keydown", (e) => { if ((e.ctrlKey || e.metaKey) && e.key === "s") { e.preventDefault(); $("#save").click(); } if (e.key === "Escape" && pick) { pick = null; draw(); } });
+async function files() { const fs = await api("/api/list"); $("#file").replaceChildren(...fs.map((f) => el("option", { value: f }, f + (f.split(".").length > 2 ? "  (delivered)" : "  (working)")))); return fs; }
+(async () => { const fs = await files(); const want = new URLSearchParams(location.search).get("file"); const f = fs.includes(want) ? want : fs.find((x) => x.split(".").length === 2) ?? fs[0]; $("#file").value = f; await load(f); poll(); })().catch((e) => status(e.message, true));
+</script>
+</body>
+</html>

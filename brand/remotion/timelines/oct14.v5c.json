@@ -1,0 +1,2198 @@
+{
+ "schema": 1,
+ "reel": "oct14",
+ "version": "v5c",
+ "comp": {
+  "entry": "src/oct14/index.ts",
+  "id": "Oct14ReelV5",
+  "props": {
+   "big": true
+  }
+ },
+ "fps": 24,
+ "transcript": "public/oct14/props.json",
+ "master": {
+  "lufs": -14,
+  "tp": -1.5,
+  "limiter": false
+ },
+ "beats": [
+  {
+   "id": "pic:intro-patient",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-patient",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-patient",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/inj3.mp4",
+    "in": 8.0,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 1.765,
+     "out": 3.48
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line intro-patient · section S1"
+  },
+  {
+   "id": "pic:intro-typical",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-typical",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-typical",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/intro.mp4",
+    "in": 11.845,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 11.845,
+     "out": 13.74
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line intro-typical · section S1"
+  },
+  {
+   "id": "pic:intro-typical/b",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-typical/b",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-typical/b",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/neuro.mp4",
+    "in": 33.6,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 13.74,
+     "out": 14.84
+    }
+   },
+   "layout": {
+    "punch": 2.4,
+    "origin": [
+     0.696,
+     0.402
+    ]
+   },
+   "notes": "line intro-typical · section S1"
+  },
+  {
+   "id": "pic:intro-typical/b/b",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-typical/b/b",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-typical/b/b",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/neuro.mp4",
+    "in": 4.6,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 14.84,
+     "out": 15.25
+    }
+   },
+   "layout": {
+    "punch": 2.4,
+    "origin": [
+     0.721,
+     0.416
+    ]
+   },
+   "notes": "line intro-typical · section S1"
+  },
+  {
+   "id": "pic:intro-dynamic",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-dynamic",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-dynamic",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/intro.mp4",
+    "in": 20.46,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 20.46,
+     "out": 21.36
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line intro-dynamic · section S1"
+  },
+  {
+   "id": "pic:intro-dynamic~2",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-dynamic~2",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-dynamic~2",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/intro.mp4",
+    "in": 22.405,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 22.405,
+     "out": 23.54
+    }
+   },
+   "layout": {
+    "punch": 1.1
+   },
+   "notes": "line intro-dynamic · section S1"
+  },
+  {
+   "id": "pic:intro-dynamic~2/b",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-dynamic~2/b",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-dynamic~2/b",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/intro.mp4",
+    "in": 23.54,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 23.54,
+     "out": 24.5
+    }
+   },
+   "layout": {
+    "punch": 2.0,
+    "origin": [
+     0.827,
+     0.463
+    ]
+   },
+   "notes": "line intro-dynamic · section S1"
+  },
+  {
+   "id": "pic:intro-dynamic~2/b/b",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-dynamic~2/b/b",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-dynamic~2/b/b",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/intro.mp4",
+    "in": 24.5,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 24.5,
+     "out": 33.14
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line intro-dynamic · section S1"
+  },
+  {
+   "id": "pic:neuro-more-less",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "neuro-more-less",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "neuro-more-less",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/neuro.mp4",
+    "in": 97.18,
+    "rate": 1.15,
+    "audio": {
+     "role": "neuro",
+     "in": 97.18,
+     "out": 105.5
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line neuro-more-less · section S1"
+  },
+  {
+   "id": "pic:intro-lasts",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-lasts",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-lasts",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/intro.mp4",
+    "in": 54.42,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 54.42,
+     "out": 56.46
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line intro-lasts · section S1"
+  },
+  {
+   "id": "pic:intro-onset-vs-filler",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-onset-vs-filler",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-onset-vs-filler",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/intro.mp4",
+    "in": 140.61,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 140.61,
+     "out": 145.84
+    }
+   },
+   "layout": {
+    "punch": 1.1
+   },
+   "notes": "line intro-onset-vs-filler · section S1"
+  },
+  {
+   "id": "pic:intro-onset-vs-filler/b",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-onset-vs-filler/b",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-onset-vs-filler/b",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/inj2.mp4",
+    "in": 25.0,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 145.84,
+     "out": 147.63
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line intro-onset-vs-filler · section S1"
+  },
+  {
+   "id": "pic:intro-midface",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-midface",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-midface",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/intro.mp4",
+    "in": 75.45,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 75.45,
+     "out": 77.715
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line intro-midface · section S2"
+  },
+  {
+   "id": "pic:intro-midface~2",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-midface~2",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-midface~2",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/intro.mp4",
+    "in": 78.48,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 78.48,
+     "out": 79.42
+    }
+   },
+   "layout": {
+    "punch": 1.1
+   },
+   "notes": "line intro-midface · section S2"
+  },
+  {
+   "id": "pic:intro-midface~2/b",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-midface~2/b",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-midface~2/b",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "still": "oct14/still_jowl.jpg",
+    "audio": {
+     "role": "intro",
+     "in": 79.42,
+     "out": 80.86
+    }
+   },
+   "layout": {
+    "punch": 2.0,
+    "origin": [
+     0.865,
+     0.498
+    ]
+   },
+   "notes": "line intro-midface · section S2"
+  },
+  {
+   "id": "pic:intro-deflation",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-deflation",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-deflation",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/intro.mp4",
+    "in": 80.86,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 80.86,
+     "out": 81.32
+    }
+   },
+   "layout": {
+    "punch": 2.0
+   },
+   "notes": "line intro-deflation · section S2"
+  },
+  {
+   "id": "pic:intro-deflation/b",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-deflation/b",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-deflation/b",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/pre2.mp4",
+    "in": 5.0,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 81.32,
+     "out": 83.74
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line intro-deflation · section S2"
+  },
+  {
+   "id": "pic:intro-deflation/b/b",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-deflation/b/b",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-deflation/b/b",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/pre2.mp4",
+    "in": 7.42,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 83.74,
+     "out": 87.76
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line intro-deflation · section S2"
+  },
+  {
+   "id": "pic:intro-deflation/b/b/b",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-deflation/b/b/b",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-deflation/b/b/b",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/pre1.mp4",
+    "in": 10.0,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 87.76,
+     "out": 89.695
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line intro-deflation · section S2"
+  },
+  {
+   "id": "pic:intro-deflation~2",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-deflation~2",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-deflation~2",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/intro.mp4",
+    "in": 90.395,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 90.395,
+     "out": 92.2
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line intro-deflation · section S2"
+  },
+  {
+   "id": "pic:intro-deflation~3",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-deflation~3",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-deflation~3",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/intro.mp4",
+    "in": 92.67,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 92.67,
+     "out": 94.68
+    }
+   },
+   "layout": {
+    "punch": 1.1
+   },
+   "notes": "line intro-deflation · section S2"
+  },
+  {
+   "id": "pic:intro-cheeks",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-cheeks",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-cheeks",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/intro.mp4",
+    "in": 97.405,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 97.405,
+     "out": 99.455
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line intro-cheeks · section S2"
+  },
+  {
+   "id": "pic:intro-cheekbones",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "intro-cheekbones",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "intro-cheekbones",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/intro.mp4",
+    "in": 106.96,
+    "rate": 1.15,
+    "audio": {
+     "role": "intro",
+     "in": 106.96,
+     "out": 109.5
+    }
+   },
+   "layout": {
+    "punch": 1.1
+   },
+   "notes": "line intro-cheekbones · section S2"
+  },
+  {
+   "id": "pic:inj2-syringe",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "inj2-syringe",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "inj2-syringe",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/inj2.mp4",
+    "in": 3.925,
+    "rate": 1.15,
+    "audio": {
+     "role": "inj2",
+     "in": 3.925,
+     "out": 7.31
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line inj2-syringe · section S2"
+  },
+  {
+   "id": "pic:inj5-less-needed",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "inj5-less-needed",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "inj5-less-needed",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/inj5.mp4",
+    "in": 34.02,
+    "rate": 1.15,
+    "audio": {
+     "role": "inj5",
+     "in": 34.02,
+     "out": 38.25
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line inj5-less-needed · section S3"
+  },
+  {
+   "id": "pic:after-smooth",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "after-smooth",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "after-smooth",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/inj5.mp4",
+    "in": 16.0,
+    "rate": 1.15,
+    "audio": {
+     "role": "after",
+     "in": 53.18,
+     "out": 64.06
+    }
+   },
+   "layout": {
+    "punch": 1.1
+   },
+   "notes": "line after-smooth · section S3"
+  },
+  {
+   "id": "pic:inj6-bruising",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "inj6-bruising",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "inj6-bruising",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/inj6.mp4",
+    "in": 35.31,
+    "rate": 1.15,
+    "audio": {
+     "role": "inj6",
+     "in": 35.31,
+     "out": 41.46
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line inj6-bruising · section S3"
+  },
+  {
+   "id": "pic:inj6-bruising/b",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "inj6-bruising/b",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "inj6-bruising/b",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/inj6.mp4",
+    "in": 41.46,
+    "rate": 1.15,
+    "audio": {
+     "role": "inj6",
+     "in": 41.46,
+     "out": 42.535
+    }
+   },
+   "layout": {
+    "punch": 1.12
+   },
+   "notes": "line inj6-bruising · section S3"
+  },
+  {
+   "id": "pic:after-summary",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "after-summary",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "after-summary",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/after.mp4",
+    "in": 1.6,
+    "rate": 1.15,
+    "audio": {
+     "role": "after",
+     "in": 1.6,
+     "out": 5.2
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line after-summary · section S4"
+  },
+  {
+   "id": "pic:after-summary/b",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "after-summary/b",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "after-summary/b",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/inj7.mp4",
+    "in": 28.0,
+    "rate": 1.15,
+    "audio": {
+     "role": "after",
+     "in": 5.2,
+     "out": 7.8
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line after-summary · section S4"
+  },
+  {
+   "id": "pic:after-summary/b/b",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "after-summary/b/b",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "after-summary/b/b",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/after.mp4",
+    "in": 24.6,
+    "rate": 1.15,
+    "audio": {
+     "role": "after",
+     "in": 7.8,
+     "out": 9.86
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line after-summary · section S4"
+  },
+  {
+   "id": "pic:after-summary/b/b/b",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "after-summary/b/b/b",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "after-summary/b/b/b",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/after.mp4",
+    "in": 40.0,
+    "rate": 1.15,
+    "audio": {
+     "role": "after",
+     "in": 9.86,
+     "out": 17.925
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line after-summary · section S4"
+  },
+  {
+   "id": "pic:after-15min",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "after-15min",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "after-15min",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/after.mp4",
+    "in": 18.58,
+    "rate": 1.15,
+    "audio": {
+     "role": "after",
+     "in": 18.58,
+     "out": 21.45
+    }
+   },
+   "layout": {
+    "punch": 1.1
+   },
+   "notes": "line after-15min · section S4"
+  },
+  {
+   "id": "pic:after-lasts",
+   "lane": "footage",
+   "device": "Picture",
+   "start": {
+    "piece": "after-lasts",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "after-lasts",
+    "edge": "end",
+    "exact": true
+   },
+   "source": {
+    "clip": "oct14/after.mp4",
+    "in": 64.25,
+    "rate": 1.15,
+    "audio": {
+     "role": "after",
+     "in": 64.25,
+     "out": 68.035
+    }
+   },
+   "layout": {
+    "punch": 1.0
+   },
+   "notes": "line after-lasts · section S4"
+  },
+  {
+   "id": "room:days",
+   "lane": "footage",
+   "device": "Room",
+   "start": {
+    "frame": 593
+   },
+   "end": {
+    "frame": 720
+   },
+   "notes": "cream room replaces the footage under days (oct14_layout_v5.py found no face-free spot); frames from layout_v5.json"
+  },
+  {
+   "id": "room:O2",
+   "lane": "footage",
+   "device": "Room",
+   "start": {
+    "frame": 956
+   },
+   "end": {
+    "frame": 1178
+   },
+   "notes": "cream room replaces the footage under O2 (oct14_layout_v5.py found no face-free spot); frames from layout_v5.json"
+  },
+  {
+   "id": "room:pip2",
+   "lane": "footage",
+   "device": "Room",
+   "start": {
+    "frame": 1176
+   },
+   "end": {
+    "frame": 1251
+   },
+   "notes": "cream room replaces the footage under pip2 (oct14_layout_v5.py found no face-free spot); frames from layout_v5.json"
+  },
+  {
+   "id": "room:O3",
+   "lane": "footage",
+   "device": "Room",
+   "start": {
+    "frame": 1367
+   },
+   "end": {
+    "frame": 1564
+   },
+   "notes": "cream room replaces the footage under O3 (oct14_layout_v5.py found no face-free spot); frames from layout_v5.json"
+  },
+  {
+   "id": "room:pip3",
+   "lane": "footage",
+   "device": "Room",
+   "start": {
+    "frame": 1347
+   },
+   "end": {
+    "frame": 1558
+   },
+   "notes": "cream room replaces the footage under pip3 (oct14_layout_v5.py found no face-free spot); frames from layout_v5.json"
+  },
+  {
+   "id": "room:O4",
+   "lane": "footage",
+   "device": "Room",
+   "start": {
+    "frame": 1558
+   },
+   "end": {
+    "frame": 1756
+   },
+   "notes": "cream room replaces the footage under O4 (oct14_layout_v5.py found no face-free spot); frames from layout_v5.json"
+  },
+  {
+   "id": "captions",
+   "lane": "captions",
+   "device": "WordCaptions",
+   "start": {
+    "frame": 0
+   },
+   "end": {
+    "cue": "end"
+   },
+   "events": {
+    "hide_from": {
+     "piece": "intro-typical",
+     "edge": "start"
+    },
+    "hide_to": {
+     "piece": "intro-typical",
+     "edge": "end"
+    }
+   },
+   "notes": "hidden under the title (hideCaps)"
+  },
+  {
+   "id": "hook",
+   "lane": "markup",
+   "device": "Hook",
+   "start": {
+    "frame": 0
+   },
+   "end": {
+    "frame": 38
+   },
+   "source": {
+    "still": "oct14/before.jpg",
+    "after": "oct14/after_aligned.jpg",
+    "crop": {
+     "x": 0.017,
+     "y": 0.3646,
+     "w": 0.327
+    }
+   },
+   "notes": "full-frame registered before -> after wipe with the measured cheek contour"
+  },
+  {
+   "id": "title",
+   "lane": "titles",
+   "device": "Chapter",
+   "start": {
+    "frame": 46
+   },
+   "end": {
+    "frame": 126
+   },
+   "text": {
+    "num": "",
+    "title": "Treat the source,|not the line",
+    "sub": "Dr. Ariel Ostad · injectables"
+   },
+   "layout": {
+    "mode": "overlay",
+    "x": 452,
+    "y": 270,
+    "scale": 0.6,
+    "solver": "layout_v5:title",
+    "px": 110
+   }
+  },
+  {
+   "id": "ch01",
+   "lane": "titles",
+   "device": "Chapter",
+   "start": {
+    "beat": "title",
+    "edge": "end",
+    "offset": 1
+   },
+   "end": {
+    "beat": "title",
+    "edge": "end",
+    "offset": 81
+   },
+   "text": {
+    "num": "01",
+    "title": "Upper face"
+   },
+   "layout": {
+    "mode": "overlay",
+    "x": 98,
+    "y": 1250,
+    "scale": 1.0,
+    "solver": "layout_v5:ch01"
+   }
+  },
+  {
+   "id": "name",
+   "lane": "titles",
+   "device": "NameCard",
+   "start": {
+    "frame": 208
+   },
+   "end": {
+    "frame": 309
+   },
+   "text": {
+    "title": "Dr. Ariel Ostad"
+   },
+   "layout": {
+    "mode": "overlay",
+    "x": 98,
+    "y": 1380,
+    "scale": 1.0,
+    "solver": "layout_v5:name"
+   }
+  },
+  {
+   "id": "crows",
+   "lane": "markup",
+   "device": "PenT x3",
+   "start": {
+    "word": 21,
+    "text": "crow's"
+   },
+   "end": {
+    "word": 23,
+    "text": "These",
+    "offset": -9
+   },
+   "layout": {
+    "track": {
+     "role": "intro",
+     "key": "crowR"
+    }
+   },
+   "notes": "three pen strokes on her tracked lateral canthus (tracks_v5.json), 3 f apart"
+  },
+  {
+   "id": "pip1",
+   "lane": "objects",
+   "device": "InjCard",
+   "start": {
+    "word": 28,
+    "text": "dynamic"
+   },
+   "end": {
+    "cue": "pip1out"
+   },
+   "text": {
+    "eyebrow": "Injection 1 · neuromodulator · used here",
+    "title": "Frown lines (dynamic)",
+    "depth": [
+     2,
+     "Into the muscle"
+    ]
+   },
+   "source": {
+    "clip": "oct14/neuro.mp4",
+    "in": 9.0,
+    "rate": 1
+   },
+   "layout": {
+    "mode": "overlay",
+    "x": 586,
+    "y": 250,
+    "scale": 0.9,
+    "solver": "layout_v5:pip1",
+    "arrow": {
+     "variant": "curved-callout",
+     "track": {
+      "role": "intro",
+      "key": "glabella"
+     }
+    }
+   },
+   "sfx": [
+    {
+     "name": "pop"
+    }
+   ],
+   "notes": "his injection clip in a card; overlay cards carry an arrow to the tracked point"
+  },
+  {
+   "id": "pip2",
+   "lane": "objects",
+   "device": "ClipCard",
+   "start": {
+    "word": 175,
+    "text": "literally"
+   },
+   "end": {
+    "cue": "pip2out"
+   },
+   "text": {
+    "eyebrow": "Injection 2 · Evolysse Form",
+    "title": "Outer cheekbone",
+    "depth": [
+     2,
+     "Deep, over the bone"
+    ]
+   },
+   "source": {
+    "clip": "oct14/inj1.mp4",
+    "in": 6.0,
+    "rate": 1
+   },
+   "layout": {
+    "mode": "takeover",
+    "x": 320,
+    "y": 640,
+    "scale": 1.0,
+    "solver": "layout_v5:pip2",
+    "big": {
+     "x": 90,
+     "y": 330,
+     "w": 900
+    }
+   },
+   "notes": "his injection clip in a card; overlay cards carry an arrow to the tracked point"
+  },
+  {
+   "id": "pip3",
+   "lane": "objects",
+   "device": "ClipCard",
+   "start": {
+    "word": 205,
+    "text": "we"
+   },
+   "end": {
+    "piece": "inj6-bruising",
+    "edge": "start"
+   },
+   "text": {
+    "eyebrow": "Injection 3 · Evolysse Smooth",
+    "title": "Laugh lines",
+    "depth": [
+     1,
+     "Under the skin, by cannula"
+    ]
+   },
+   "source": {
+    "clip": "oct14/inj6.mp4",
+    "morphTo": "inj6-bruising",
+    "rate": 1.15
+   },
+   "layout": {
+    "mode": "takeover",
+    "x": 320,
+    "y": 940,
+    "scale": 1.0,
+    "solver": "layout_v5:pip3",
+    "big": {
+     "x": 40,
+     "y": 800,
+     "w": 1000
+    }
+   },
+   "notes": "his injection clip in a card; overlay cards carry an arrow to the tracked point"
+  },
+  {
+   "id": "O1",
+   "lane": "plates",
+   "device": "FloraPlate",
+   "start": {
+    "frame": 310
+   },
+   "end": {
+    "piece": "neuro-more-less",
+    "edge": "end",
+    "offset": -2
+   },
+   "text": {
+    "eyebrow": "Dynamic lines",
+    "title": "Frown muscles",
+    "note": "Illustration",
+    "labels": [
+     {
+      "text": "Frontalis",
+      "at": {
+       "word": 45,
+       "text": "neuromodulator.",
+       "offset": 14
+      },
+      "x": 0.5,
+      "y": 0.05,
+      "anchor": "middle",
+      "size": 18
+     },
+     {
+      "text": "Corrugator",
+      "at": {
+       "word": 45,
+       "text": "neuromodulator.",
+       "offset": 22
+      },
+      "x": 0.02,
+      "y": 0.42,
+      "size": 18
+     },
+     {
+      "text": "Procerus",
+      "at": {
+       "word": 45,
+       "text": "neuromodulator.",
+       "offset": 26
+      },
+      "x": 0.5,
+      "y": 0.66,
+      "anchor": "middle",
+      "size": 18
+     },
+     {
+      "text": "Orbicularis oculi",
+      "at": {
+       "word": 45,
+       "text": "neuromodulator.",
+       "offset": 30
+      },
+      "x": 0.98,
+      "y": 0.86,
+      "anchor": "end",
+      "size": 18
+     }
+    ]
+   },
+   "plate": {
+    "id": "O1",
+    "map": [
+     [
+      {
+       "frame": 310
+      },
+      0
+     ],
+     [
+      {
+       "beat": "O1",
+       "edge": "start",
+       "offset": 30
+      },
+      66
+     ],
+     [
+      {
+       "beat": "O1",
+       "edge": "start",
+       "offset": 60
+      },
+      108
+     ],
+     [
+      {
+       "beat": "O1",
+       "edge": "start",
+       "offset": 70
+      },
+      126
+     ],
+     [
+      {
+       "beat": "O1",
+       "edge": "start",
+       "offset": 100
+      },
+      143
+     ]
+    ]
+   },
+   "layout": {
+    "mode": "overlay",
+    "x": 98,
+    "y": 1050,
+    "scale": 1.0,
+    "solver": "layout_v5:O1",
+    "w": 480,
+    "h": 540
+   },
+   "notes": "starts when section 01 and the name card clear (layout_v5 O1.s); map keys 4-5 = max(neuromod, start + 70) (+30): start + 70 wins in v5c"
+  },
+  {
+   "id": "months",
+   "lane": "objects",
+   "device": "MonthsRule",
+   "start": {
+    "piece": "intro-lasts",
+    "edge": "start"
+   },
+   "end": {
+    "piece": "intro-lasts",
+    "edge": "start",
+    "offset": 62
+   },
+   "text": {
+    "title": "Neuromodulator lasts",
+    "label": "4–5 months"
+   },
+   "events": {
+    "four": {
+     "word": 70,
+     "text": "four"
+    },
+    "five": {
+     "word": 72,
+     "text": "five"
+    }
+   },
+   "layout": {
+    "mode": "overlay",
+    "x": 98,
+    "y": 1180,
+    "scale": 1.0,
+    "solver": "layout_v5:months",
+    "max": 6,
+    "fill": [
+     4,
+     5
+    ]
+   }
+  },
+  {
+   "id": "days",
+   "lane": "objects",
+   "device": "DayLanes",
+   "start": {
+    "piece": "intro-lasts",
+    "edge": "start",
+    "offset": 68
+   },
+   "end": {
+    "piece": "intro-onset-vs-filler",
+    "edge": "end",
+    "offset": -2
+   },
+   "events": {
+    "neuro": {
+     "word": 83,
+     "text": "day"
+    },
+    "filler": {
+     "word": 95,
+     "text": "away."
+    }
+   },
+   "layout": {
+    "mode": "takeover",
+    "solver": "layout_v5:days",
+    "big": {
+     "x": 40,
+     "y": 410,
+     "w": 1000,
+     "h": 860,
+     "k": 1.45
+    }
+   },
+   "notes": "two lanes on one day axis: filler at day 0, neuromodulator over days 1-2"
+  },
+  {
+   "id": "ch02",
+   "lane": "titles",
+   "device": "Chapter",
+   "start": {
+    "piece": "intro-midface",
+    "edge": "start"
+   },
+   "end": {
+    "piece": "intro-midface",
+    "edge": "start",
+    "offset": 80
+   },
+   "text": {
+    "num": "02",
+    "title": "Mid face"
+   },
+   "layout": {
+    "mode": "overlay",
+    "x": 98,
+    "y": 1110,
+    "scale": 1.0,
+    "solver": "layout_v5:ch02"
+   }
+  },
+  {
+   "id": "jowl",
+   "lane": "markup",
+   "device": "PenT",
+   "start": {
+    "word": 108,
+    "text": "jowling."
+   },
+   "end": {
+    "piece": "intro-midface",
+    "edge": "end",
+    "offset": -8
+   },
+   "source": {
+    "still": "oct14/still_jowl.jpg"
+   },
+   "notes": "jaw contour on a STILL (oct14_still_v5.py): the mark could not be tracked to the bound on the 2x punch-in"
+  },
+  {
+   "id": "compare",
+   "lane": "objects",
+   "device": "CompareClips",
+   "start": {
+    "word": 130,
+    "text": "filled."
+   },
+   "end": {
+    "piece": "intro-cheekbones",
+    "edge": "end",
+    "offset": -2
+   },
+   "text": {
+    "chip": "Not first, here",
+    "left": {
+     "caps": "Patients usually ask",
+     "title": "Fill the lines first",
+     "depth": [
+      1,
+      "Into the lines"
+     ]
+    },
+    "right": {
+     "caps": "Here",
+     "title": "Cheekbones first",
+     "depth": [
+      2,
+      "Deep, over the bone"
+     ]
+    }
+   },
+   "source": {
+    "left": {
+     "clip": "oct14/inj7.mp4",
+     "in": 70
+    },
+    "right": {
+     "clip": "oct14/inj3.mp4",
+     "in": 20
+    }
+   },
+   "events": {
+    "right": {
+     "word": 166,
+     "text": "cheeks."
+    },
+    "strike": {
+     "word": 130,
+     "text": "filled.",
+     "offset": 40
+    }
+   },
+   "layout": {
+    "mode": "overlay",
+    "x": 98,
+    "y": 290,
+    "scale": 0.8,
+    "solver": "layout_v5:compare",
+    "big": {
+     "x": 40,
+     "y": 130,
+     "w": 1000,
+     "grow_at": 958
+    }
+   },
+   "notes": "strike = max(but, filled + 40)"
+  },
+  {
+   "id": "route",
+   "lane": "markup",
+   "device": "TrackedArrow",
+   "start": {
+    "word": 151,
+    "text": "moving",
+    "offset": -26
+   },
+   "end": {
+    "piece": "intro-deflation",
+    "edge": "end",
+    "offset": -2
+   },
+   "layout": {
+    "track": {
+     "role": "intro",
+     "keys": [
+      "malarR",
+      "cheekR",
+      "jawR"
+     ]
+    }
+   },
+   "notes": "white route cheekbone -> cheek -> below the jaw, tracked; hidden in the cream room"
+  },
+  {
+   "id": "O2",
+   "lane": "plates",
+   "device": "FloraPlate",
+   "start": {
+    "word": 144,
+    "text": "deflation"
+   },
+   "end": {
+    "piece": "intro-cheekbones",
+    "edge": "end",
+    "offset": -2
+   },
+   "text": {
+    "eyebrow": "The source",
+    "title": "Deflation",
+    "note": "Illustration",
+    "labels": [
+     {
+      "text": "Cheek fat",
+      "at": {
+       "word": 144,
+       "text": "deflation",
+       "offset": 16
+      },
+      "x": 0.2,
+      "y": 0.42,
+      "anchor": "end",
+      "size": 26
+     },
+     {
+      "text": "Jowl",
+      "at": {
+       "word": 151,
+       "text": "moving",
+       "offset": 10
+      },
+      "x": 0.6,
+      "y": 0.95,
+      "size": 26
+     },
+     {
+      "text": "Filler on the cheekbone",
+      "at": {
+       "word": 166,
+       "text": "cheeks.",
+       "offset": 12
+      },
+      "x": 0.02,
+      "y": 0.04,
+      "size": 26
+     }
+    ]
+   },
+   "plate": {
+    "id": "O2",
+    "map": [
+     [
+      {
+       "word": 144,
+       "text": "deflation"
+      },
+      0
+     ],
+     [
+      {
+       "word": 144,
+       "text": "deflation",
+       "offset": 54
+      },
+      30
+     ],
+     [
+      {
+       "word": 151,
+       "text": "moving"
+      },
+      54
+     ],
+     [
+      {
+       "word": 151,
+       "text": "moving",
+       "offset": 45
+      },
+      64
+     ],
+     [
+      {
+       "word": 166,
+       "text": "cheeks."
+      },
+      92
+     ],
+     [
+      {
+       "word": 166,
+       "text": "cheeks.",
+       "offset": 14
+      },
+      100
+     ],
+     [
+      {
+       "word": 166,
+       "text": "cheeks.",
+       "offset": 54
+      },
+      156
+     ]
+    ]
+   },
+   "layout": {
+    "mode": "takeover",
+    "x": 98,
+    "y": 740,
+    "scale": 1.0,
+    "solver": "layout_v5:O2",
+    "big": {
+     "x": 40,
+     "y": 730,
+     "w": 1000,
+     "h": 850,
+     "head": 130,
+     "pad": 30,
+     "titlePx": 46
+    }
+   }
+  },
+  {
+   "id": "laughlines",
+   "lane": "markup",
+   "device": "PenT x2",
+   "start": {
+    "word": 190,
+    "text": "laugh"
+   },
+   "end": {
+    "piece": "inj5-less-needed",
+    "edge": "end",
+    "offset": -9
+   },
+   "layout": {
+    "track": {
+     "role": "inj5",
+     "keys": [
+      "nasoL",
+      "lipCL",
+      "nasoR",
+      "lipCR"
+     ]
+    }
+   },
+   "notes": "a pen line along each fold, tracked on her close-up"
+  },
+  {
+   "id": "O3",
+   "lane": "plates",
+   "device": "FloraPlate",
+   "start": {
+    "word": 205,
+    "text": "we",
+    "offset": 20
+   },
+   "end": {
+    "piece": "inj6-bruising",
+    "edge": "start",
+    "offset": -2
+   },
+   "text": {
+    "eyebrow": "Two gels, two jobs",
+    "title": "Smooth is not as thick",
+    "note": "Illustration",
+    "labels": [
+     {
+      "text": "Evolysse Form · holds its shape",
+      "at": {
+       "word": 205,
+       "text": "we",
+       "offset": 40
+      },
+      "x": 0.25,
+      "y": 0.97,
+      "anchor": "middle",
+      "size": 22
+     },
+     {
+      "text": "Evolysse Smooth · spreads thin",
+      "at": {
+       "word": 205,
+       "text": "we",
+       "offset": 60
+      },
+      "x": 1.0,
+      "y": 0.97,
+      "anchor": "end",
+      "size": 22
+     }
+    ]
+   },
+   "plate": {
+    "id": "O3",
+    "map": [
+     [
+      {
+       "word": 205,
+       "text": "we",
+       "offset": 20
+      },
+      0
+     ],
+     [
+      {
+       "word": 205,
+       "text": "we",
+       "offset": 30
+      },
+      24
+     ],
+     [
+      {
+       "word": 205,
+       "text": "we",
+       "offset": 90
+      },
+      84
+     ],
+     [
+      {
+       "word": 205,
+       "text": "we",
+       "offset": 110
+      },
+      92
+     ],
+     [
+      {
+       "word": 205,
+       "text": "we",
+       "offset": 150
+      },
+      110
+     ]
+    ]
+   },
+   "layout": {
+    "mode": "takeover",
+    "x": 98,
+    "y": 270,
+    "scale": 1.0,
+    "solver": "layout_v5:O3",
+    "big": {
+     "x": 40,
+     "y": 150,
+     "w": 1000,
+     "h": 620,
+     "head": 124,
+     "pad": 28,
+     "titlePx": 44
+    }
+   }
+  },
+  {
+   "id": "O4",
+   "lane": "plates",
+   "device": "FloraPlate",
+   "start": {
+    "piece": "inj6-bruising",
+    "edge": "start"
+   },
+   "end": {
+    "piece": "inj6-bruising",
+    "edge": "end",
+    "offset": 40
+   },
+   "text": {
+    "eyebrow": "Why a cannula",
+    "title": "Less chance of a bruise",
+    "note": "Illustration",
+    "labels": [
+     {
+      "text": "Sharp needle: can nick a vessel",
+      "at": {
+       "piece": "inj6-bruising",
+       "edge": "start",
+       "offset": 30
+      },
+      "x": 0.3,
+      "y": 0.06,
+      "size": 24
+     },
+     {
+      "text": "Blunt cannula: glides in the fat layer",
+      "at": {
+       "word": 243,
+       "text": "cannula",
+       "offset": 6
+      },
+      "x": 0.03,
+      "y": 0.97,
+      "size": 24
+     }
+    ]
+   },
+   "plate": {
+    "id": "O4",
+    "map": [
+     [
+      {
+       "piece": "inj6-bruising",
+       "edge": "start"
+      },
+      0
+     ],
+     [
+      {
+       "piece": "inj6-bruising",
+       "edge": "start",
+       "offset": 14
+      },
+      6
+     ],
+     [
+      {
+       "piece": "inj6-bruising",
+       "edge": "start",
+       "offset": 60
+      },
+      56
+     ],
+     [
+      {
+       "word": 243,
+       "text": "cannula"
+      },
+      72
+     ],
+     [
+      {
+       "word": 243,
+       "text": "cannula",
+       "offset": 40
+      },
+      102
+     ],
+     [
+      {
+       "piece": "inj6-bruising",
+       "edge": "end",
+       "offset": 40
+      },
+      130
+     ]
+    ]
+   },
+   "layout": {
+    "mode": "takeover",
+    "x": 98,
+    "y": 270,
+    "scale": 1.0,
+    "solver": "layout_v5:O4",
+    "big": {
+     "x": 40,
+     "y": 400,
+     "w": 1000,
+     "h": 860,
+     "head": 140,
+     "pad": 30,
+     "titlePx": 50
+    }
+   }
+  },
+  {
+   "id": "ch03",
+   "lane": "titles",
+   "device": "Chapter",
+   "start": {
+    "piece": "inj6-bruising",
+    "edge": "end",
+    "offset": 42
+   },
+   "end": {
+    "piece": "inj6-bruising",
+    "edge": "end",
+    "offset": 122
+   },
+   "text": {
+    "num": "03",
+    "title": "The result"
+   },
+   "layout": {
+    "mode": "overlay",
+    "x": 98,
+    "y": 1140,
+    "scale": 1.0,
+    "solver": "layout_v5:ch03"
+   }
+  },
+  {
+   "id": "marionette",
+   "lane": "markup",
+   "device": "PenT x2",
+   "start": {
+    "word": 277,
+    "text": "marionette",
+    "offset": 5
+   },
+   "end": {
+    "word": 279,
+    "text": "And",
+    "offset": -9
+   },
+   "layout": {
+    "track": {
+     "role": "after",
+     "keys": [
+      "lipCL",
+      "marioL",
+      "lipCR",
+      "marioR"
+     ]
+    }
+   }
+  },
+  {
+   "id": "surgeon_plan",
+   "lane": "markup",
+   "device": "SurgeonPlan",
+   "start": {
+    "word": 279,
+    "text": "And"
+   },
+   "end": {
+    "cue": "end",
+    "offset": 45
+   },
+   "source": {
+    "still": "oct14/before.jpg",
+    "after": "oct14/after_aligned.jpg",
+    "markup": "oct14/markup_v5.json"
+   },
+   "events": {
+    "wipe": {
+     "word": 291,
+     "text": "jaw"
+    },
+    "fact_treatment": {
+     "word": 308,
+     "text": "15"
+    },
+    "fact_lasts": {
+     "word": 323,
+     "text": "year,"
+    }
+   },
+   "text": {
+    "subs": [
+     "Before · 4:42 PM",
+     "After · 4:55 PM"
+    ],
+    "facts": [
+     {
+      "k": "Treatment",
+      "v": "about 15 min"
+     },
+     {
+      "k": "Filler lasts",
+      "v": "1–1½ years"
+     }
+    ],
+    "legend": [
+     "Evolysse Form · 1 syringe, both cheeks · needle, deep on the cheekbone",
+     "Evolysse Smooth · cannula passes from 3 entries into the laugh and marionette lines",
+     "Treated fold",
+     "Neuromodulator · crow's feet point (plus forehead and frown lines)"
+    ]
+   },
+   "sfx": [
+    {
+     "name": "swish"
+    },
+    {
+     "name": "yes",
+     "at": {
+      "word": 305,
+      "text": "treatment"
+     }
+    }
+   ],
+   "notes": "full-frame technical plan on the registered before/after; every line from oct14_v5_markup.py; legend under her face"
+  },
+  {
+   "id": "endcard",
+   "lane": "titles",
+   "device": "EndCard",
+   "start": {
+    "cue": "end",
+    "offset": 46
+   },
+   "end": {
+    "cue": "end",
+    "offset": 120
+   },
+   "text": {
+    "title": "Book a consultation.",
+    "sub": "Link in bio.",
+    "handle": "@drarielostad"
+   },
+   "layout": {
+    "x": 98,
+    "y": 700,
+    "ground": "cream room"
+   }
+  }
+ ]
+}

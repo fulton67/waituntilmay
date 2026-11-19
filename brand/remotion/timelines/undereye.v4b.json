@@ -1,0 +1,2046 @@
+{
+ "schema": 1,
+ "reel": "undereye",
+ "version": "v4b",
+ "comp": {
+  "entry": "src/undereye/index.ts",
+  "id": "UndereyeReelV4",
+  "props": {}
+ },
+ "fps": 24,
+ "transcript": "public/undereye-filler/props_v4.json",
+ "master": {
+  "lufs": -14,
+  "tp": -1.5,
+  "limiter": true
+ },
+ "beats": [
+  {
+   "id": "pic01:H1",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "H1",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "H1",
+    "edge": "start",
+    "exact": true,
+    "offset": 127
+   },
+   "source": {
+    "clip": "undereye-filler/7044.mp4",
+    "in": 8.455,
+    "rate": 1.18
+   },
+   "notes": "piece H1 (patient, audio 7044 8.455-14.71 s)"
+  },
+  {
+   "id": "pic02:P03x",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P03x",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P03x",
+    "edge": "start",
+    "exact": true,
+    "offset": 28
+   },
+   "source": {
+    "clip": "undereye-filler/6816.mp4",
+    "in": 13.7,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.25,
+    "ox": 820,
+    "oy": 560
+   },
+   "notes": "piece P03x (, audio 6816 13.7-15.06 s)"
+  },
+  {
+   "id": "pic03:P03y",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P03y",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P03y",
+    "edge": "start",
+    "exact": true,
+    "offset": 40
+   },
+   "source": {
+    "clip": "undereye-filler/6816.mp4",
+    "in": 15.61,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.0,
+    "ox": 820,
+    "oy": 560
+   },
+   "notes": "piece P03y (, audio 6816 15.61-22.94 s)"
+  },
+  {
+   "id": "pic04:P03y",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P03y",
+    "edge": "start",
+    "exact": true,
+    "offset": 40
+   },
+   "end": {
+    "piece": "P03y",
+    "edge": "start",
+    "exact": true,
+    "offset": 68
+   },
+   "source": {
+    "clip": "undereye-filler/6816.mp4",
+    "in": 17.577,
+    "rate": 1.18
+   },
+   "notes": "piece P03y (, audio 6816 15.61-22.94 s)"
+  },
+  {
+   "id": "pic05:P03y",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P03y",
+    "edge": "start",
+    "exact": true,
+    "offset": 68
+   },
+   "end": {
+    "piece": "P03y",
+    "edge": "start",
+    "exact": true,
+    "offset": 120
+   },
+   "source": {
+    "clip": "undereye-filler/6815.mp4",
+    "in": 0.0,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.5,
+    "ox": 540,
+    "oy": 1920
+   },
+   "notes": "piece P03y (, audio 6816 15.61-22.94 s)"
+  },
+  {
+   "id": "pic06:P03y",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P03y",
+    "edge": "start",
+    "exact": true,
+    "offset": 120
+   },
+   "end": {
+    "piece": "P03y",
+    "edge": "start",
+    "exact": true,
+    "offset": 149
+   },
+   "source": {
+    "clip": "undereye-filler/6816.mp4",
+    "in": 21.51,
+    "rate": 1.18
+   },
+   "notes": "piece P03y (, audio 6816 15.61-22.94 s)"
+  },
+  {
+   "id": "pic07:P03b",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P03b",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P03b",
+    "edge": "start",
+    "exact": true,
+    "offset": 52
+   },
+   "source": {
+    "clip": "undereye-filler/6816.mp4",
+    "in": 23.59,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.12,
+    "ox": 540,
+    "oy": 700
+   },
+   "notes": "piece P03b (, audio 6816 23.59-27.54 s)"
+  },
+  {
+   "id": "pic08:P03b",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P03b",
+    "edge": "start",
+    "exact": true,
+    "offset": 52
+   },
+   "end": {
+    "piece": "P03b",
+    "edge": "start",
+    "exact": true,
+    "offset": 80
+   },
+   "source": {
+    "clip": "undereye-filler/6815.mp4",
+    "in": 0.0,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.5,
+    "ox": 540,
+    "oy": 1920
+   },
+   "notes": "piece P03b (, audio 6816 23.59-27.54 s)"
+  },
+  {
+   "id": "pic09:P04",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P04",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P04",
+    "edge": "start",
+    "exact": true,
+    "offset": 80
+   },
+   "source": {
+    "clip": "undereye-filler/6817.mp4",
+    "in": 33.0,
+    "rate": 1.18
+   },
+   "notes": "piece P04 (, audio 6816 29.76-35.38 s)"
+  },
+  {
+   "id": "pic10:P04",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P04",
+    "edge": "start",
+    "exact": true,
+    "offset": 80
+   },
+   "end": {
+    "piece": "P04",
+    "edge": "start",
+    "exact": true,
+    "offset": 114
+   },
+   "source": {
+    "clip": "undereye-filler/6816.mp4",
+    "in": 33.6937,
+    "rate": 1.18
+   },
+   "notes": "piece P04 (, audio 6816 29.76-35.38 s)"
+  },
+  {
+   "id": "pic11:P05",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P05",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P05",
+    "edge": "start",
+    "exact": true,
+    "offset": 112
+   },
+   "source": {
+    "clip": "undereye-filler/6816.mp4",
+    "in": 40.82,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.12,
+    "ox": 300,
+    "oy": 600
+   },
+   "notes": "piece P05 (, audio 6816 40.82-51.82 s)"
+  },
+  {
+   "id": "pic12:P05",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P05",
+    "edge": "start",
+    "exact": true,
+    "offset": 112
+   },
+   "end": {
+    "piece": "P05",
+    "edge": "start",
+    "exact": true,
+    "offset": 153
+   },
+   "source": {
+    "still": "after"
+   },
+   "layout": {
+    "scale": 0.85,
+    "ox": 540,
+    "oy": 1100
+   },
+   "notes": "piece P05 (, audio 6816 40.82-51.82 s)"
+  },
+  {
+   "id": "pic13:P05",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P05",
+    "edge": "start",
+    "exact": true,
+    "offset": 153
+   },
+   "end": {
+    "piece": "P05",
+    "edge": "start",
+    "exact": true,
+    "offset": 224
+   },
+   "source": {
+    "clip": "undereye-filler/6816.mp4",
+    "in": 48.343,
+    "rate": 1.18
+   },
+   "notes": "piece P05 (, audio 6816 40.82-51.82 s)"
+  },
+  {
+   "id": "pic14:P08",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P08",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P08",
+    "edge": "start",
+    "exact": true,
+    "offset": 109
+   },
+   "source": {
+    "clip": "undereye-filler/6817.mp4",
+    "in": 56.96,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.3,
+    "ox": 0,
+    "oy": 1300
+   },
+   "notes": "piece P08 (, audio 6817 56.96-62.33 s)"
+  },
+  {
+   "id": "pic15:P09",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P09",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P09",
+    "edge": "start",
+    "exact": true,
+    "offset": 48
+   },
+   "source": {
+    "clip": "undereye-filler/6817.mp4",
+    "in": 74.64,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.1,
+    "ox": 540,
+    "oy": 900
+   },
+   "notes": "piece P09 (, audio 6817 74.64-82.14 s)"
+  },
+  {
+   "id": "pic16:P09",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P09",
+    "edge": "start",
+    "exact": true,
+    "offset": 48
+   },
+   "end": {
+    "piece": "P09",
+    "edge": "start",
+    "exact": true,
+    "offset": 153
+   },
+   "source": {
+    "still": "plan"
+   },
+   "layout": {
+    "scale": 1.35,
+    "ox": 386,
+    "oy": 1989
+   },
+   "notes": "piece P09 (, audio 6817 74.64-82.14 s)"
+  },
+  {
+   "id": "pic17:P10",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P10",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P10",
+    "edge": "start",
+    "exact": true,
+    "offset": 99
+   },
+   "source": {
+    "still": "plan"
+   },
+   "layout": {
+    "scale": 1.35,
+    "ox": 386,
+    "oy": 1989
+   },
+   "notes": "piece P10 (, audio 6817 124.32-129.2 s)"
+  },
+  {
+   "id": "pic18:P14",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P14",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P14",
+    "edge": "start",
+    "exact": true,
+    "offset": 79
+   },
+   "source": {
+    "clip": "undereye-filler/6818.mp4",
+    "in": 3.31,
+    "rate": 1.18
+   },
+   "notes": "piece P14 (, audio 6818 3.31-16.97 s)"
+  },
+  {
+   "id": "pic19:P14",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P14",
+    "edge": "start",
+    "exact": true,
+    "offset": 79
+   },
+   "end": {
+    "piece": "P14",
+    "edge": "start",
+    "exact": true,
+    "offset": 153
+   },
+   "source": {
+    "clip": "undereye-filler/6818.mp4",
+    "in": 7.194,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.15,
+    "ox": 250,
+    "oy": 800
+   },
+   "notes": "piece P14 (, audio 6818 3.31-16.97 s)"
+  },
+  {
+   "id": "pic20:P14",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P14",
+    "edge": "start",
+    "exact": true,
+    "offset": 153
+   },
+   "end": {
+    "piece": "P14",
+    "edge": "start",
+    "exact": true,
+    "offset": 278
+   },
+   "source": {
+    "clip": "undereye-filler/6818.mp4",
+    "in": 10.832,
+    "rate": 1.18
+   },
+   "notes": "piece P14 (, audio 6818 3.31-16.97 s)"
+  },
+  {
+   "id": "pic21:P15",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P15",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P15",
+    "edge": "start",
+    "exact": true,
+    "offset": 66
+   },
+   "source": {
+    "clip": "undereye-filler/6818.mp4",
+    "in": 23.11,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.15,
+    "ox": 250,
+    "oy": 800
+   },
+   "notes": "piece P15 (, audio 6818 23.11-31.46 s)"
+  },
+  {
+   "id": "pic22:P15",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P15",
+    "edge": "start",
+    "exact": true,
+    "offset": 66
+   },
+   "end": {
+    "piece": "P15",
+    "edge": "start",
+    "exact": true,
+    "offset": 170
+   },
+   "source": {
+    "clip": "undereye-filler/6817.mp4",
+    "in": 138.0,
+    "rate": 1.18
+   },
+   "notes": "piece P15 (, audio 6818 23.11-31.46 s)"
+  },
+  {
+   "id": "pic23:P17",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P17",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P17",
+    "edge": "start",
+    "exact": true,
+    "offset": 263
+   },
+   "source": {
+    "clip": "undereye-filler/6821.mp4",
+    "in": 2.69,
+    "rate": 1.18
+   },
+   "notes": "piece P17 (, audio 6821 2.69-33.2 s)"
+  },
+  {
+   "id": "pic24:P17",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P17",
+    "edge": "start",
+    "exact": true,
+    "offset": 263
+   },
+   "end": {
+    "piece": "P17",
+    "edge": "start",
+    "exact": true,
+    "offset": 621
+   },
+   "source": {
+    "clip": "undereye-filler/6821.mp4",
+    "in": 18.0,
+    "rate": 1.18
+   },
+   "notes": "piece P17 (, audio 6821 2.69-33.2 s)"
+  },
+  {
+   "id": "captions",
+   "lane": "captions",
+   "device": "Captions",
+   "start": {
+    "frame": 40
+   },
+   "end": {
+    "cue": "end"
+   },
+   "notes": "word-onset; italic for the patient's voice; not over her face in the hook"
+  },
+  {
+   "id": "hook",
+   "lane": "markup",
+   "device": "HookWipe",
+   "start": {
+    "frame": 0
+   },
+   "end": {
+    "frame": 40
+   },
+   "source": {
+    "still": "undereye-filler/ba_wipe_before.jpg",
+    "after": "undereye-filler/ba_wipe_after.jpg"
+   },
+   "layout": {
+    "scale": 2.0,
+    "ox": 540,
+    "oy": 1050
+   },
+   "notes": "registered Sept 20 -> Oct 4 wipe (frames 6-28), then a hard cut"
+  },
+  {
+   "id": "title",
+   "lane": "titles",
+   "device": "RoomTitle",
+   "start": {
+    "frame": 40
+   },
+   "end": {
+    "beat": "title",
+    "edge": "start",
+    "offset": 80
+   },
+   "text": {
+    "num": "Dr. Ariel Ostad",
+    "title": "Under-eye filler"
+   },
+   "layout": {
+    "px": 96,
+    "y": 236,
+    "key": {
+     "file": "undereye-filler/key_title.webm",
+     "clip": "7044",
+     "a": 8
+    }
+   },
+   "sfx": [
+    {
+     "name": "exo_chapter",
+     "gain": 0.3
+    }
+   ],
+   "notes": "on the wall behind the people, their RVM key over the type (undereye_key.py)"
+  },
+  {
+   "id": "c01",
+   "lane": "titles",
+   "device": "RoomTitle",
+   "start": {
+    "piece": "P03",
+    "edge": "start"
+   },
+   "end": {
+    "beat": "c01",
+    "edge": "start",
+    "offset": 80
+   },
+   "text": {
+    "num": "01",
+    "title": "The concern"
+   },
+   "layout": {
+    "align": "right",
+    "x": 1000,
+    "px": 104,
+    "key": {
+     "file": "undereye-filler/key_c01.webm",
+     "clip": "6816",
+     "a": 11
+    }
+   },
+   "sfx": [
+    {
+     "name": "exo_chapter",
+     "gain": 0.3
+    }
+   ],
+   "notes": "on the wall behind the people, their RVM key over the type (undereye_key.py)"
+  },
+  {
+   "id": "c02",
+   "lane": "titles",
+   "device": "RoomTitle",
+   "start": {
+    "piece": "P04",
+    "edge": "start",
+    "offset": -1
+   },
+   "end": {
+    "beat": "c02",
+    "edge": "start",
+    "offset": 80
+   },
+   "text": {
+    "num": "02",
+    "title": "The\nprocedure"
+   },
+   "layout": {
+    "px": 92,
+    "key": {
+     "file": "undereye-filler/key_c02.webm",
+     "clip": "6817",
+     "a": 31
+    }
+   },
+   "sfx": [
+    {
+     "name": "exo_chapter",
+     "gain": 0.3
+    }
+   ],
+   "notes": "on the wall behind the people, their RVM key over the type (undereye_key.py)"
+  },
+  {
+   "id": "c03",
+   "lane": "titles",
+   "device": "RoomTitle",
+   "start": {
+    "piece": "P14",
+    "edge": "start"
+   },
+   "end": {
+    "beat": "c03",
+    "edge": "start",
+    "offset": 80
+   },
+   "text": {
+    "num": "03",
+    "title": "The decision"
+   },
+   "layout": {
+    "px": 104,
+    "key": {
+     "file": "undereye-filler/key_c03.webm",
+     "clip": "6818",
+     "a": 1
+    }
+   },
+   "sfx": [
+    {
+     "name": "exo_chapter",
+     "gain": 0.3
+    }
+   ],
+   "notes": "on the wall behind the people, their RVM key over the type (undereye_key.py)"
+  },
+  {
+   "id": "c04",
+   "lane": "titles",
+   "device": "RoomTitle",
+   "start": {
+    "piece": "P17",
+    "edge": "start"
+   },
+   "end": {
+    "beat": "c04",
+    "edge": "start",
+    "offset": 80
+   },
+   "text": {
+    "num": "04",
+    "title": "The result"
+   },
+   "layout": {
+    "align": "right",
+    "x": 1000,
+    "px": 104,
+    "key": {
+     "file": "undereye-filler/key_c04.webm",
+     "clip": "6821",
+     "a": 0
+    }
+   },
+   "sfx": [
+    {
+     "name": "exo_chapter",
+     "gain": 0.3
+    }
+   ],
+   "notes": "on the wall behind the people, their RVM key over the type (undereye_key.py)"
+  },
+  {
+   "id": "ba_hook",
+   "lane": "objects",
+   "device": "BAWindowV4",
+   "start": {
+    "frame": 40
+   },
+   "end": {
+    "piece": "H1",
+    "edge": "end",
+    "offset": -1
+   },
+   "source": {
+    "still": "undereye-filler/ba_wipe_before.jpg",
+    "after": "undereye-filler/ba_wipe_after.jpg",
+    "crop": {
+     "x": 250,
+     "y": 830,
+     "w": 580,
+     "h": 420
+    }
+   },
+   "events": {
+    "swap": {
+     "frame": 56
+    }
+   },
+   "text": {
+    "before": "Before · Sept 20",
+    "after": "After · Oct 4",
+    "note": "Our patient, Sept 2021"
+   },
+   "layout": {
+    "y": 1140
+   }
+  },
+  {
+   "id": "eye_card",
+   "lane": "objects",
+   "device": "ClipCardStd",
+   "start": {
+    "word": 29,
+    "text": "hollows",
+    "offset": -10
+   },
+   "end": {
+    "piece": "P03",
+    "edge": "end",
+    "offset": -3
+   },
+   "text": {
+    "caps": "Sept 20 · before",
+    "title": "Her under-eye"
+   },
+   "source": {
+    "clip": "undereye-filler/6814.mp4",
+    "in": 0.21,
+    "rate": 0.75
+   },
+   "layout": {
+    "x": 88,
+    "y": 1130,
+    "w": 420,
+    "h": 315
+   },
+   "notes": "rate = min(0.75, 1.5 s / the card's life)"
+  },
+  {
+   "id": "U1_trough",
+   "lane": "plates",
+   "device": "ClipCardStd+PlateMedia",
+   "start": {
+    "word": 29,
+    "text": "hollows",
+    "offset": -4
+   },
+   "end": {
+    "piece": "P03",
+    "edge": "end",
+    "offset": -3
+   },
+   "text": {
+    "caps": "Illustration",
+    "title": "The tear trough",
+    "labels": [
+     {
+      "text": "Tear trough",
+      "at": {
+       "word": 29,
+       "text": "hollows",
+       "offset": 4
+      },
+      "x": 0.05,
+      "y": 0.62
+     }
+    ]
+   },
+   "plate": {
+    "id": "U1",
+    "map": [
+     [
+      {
+       "word": 29,
+       "text": "hollows",
+       "offset": -4
+      },
+      0
+     ]
+    ],
+    "crop": {
+     "cx": 0.62,
+     "cy": 0.45,
+     "cw": 0.62
+    }
+   },
+   "layout": {
+    "x": 552,
+    "y": 1130,
+    "w": 420,
+    "h": 315
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22
+    }
+   ]
+  },
+  {
+   "id": "name",
+   "lane": "titles",
+   "device": "NameCard",
+   "start": {
+    "piece": "P03",
+    "edge": "end"
+   },
+   "end": {
+    "piece": "P03",
+    "edge": "end",
+    "offset": 101
+   },
+   "text": {
+    "title": "Dr. Ariel Ostad"
+   }
+  },
+  {
+   "id": "U4_cannula",
+   "lane": "plates",
+   "device": "ClipCardStd+PlateMedia",
+   "start": {
+    "word": 67,
+    "text": "cannula.",
+    "offset": 8
+   },
+   "end": {
+    "word": 91,
+    "text": "afterwards",
+    "offset": -12
+   },
+   "text": {
+    "caps": "Blunt cannula",
+    "title": "Around, not through",
+    "labels": [
+     {
+      "text": "Needle",
+      "at": {
+       "word": 67,
+       "text": "cannula.",
+       "offset": 12
+      },
+      "x": 0.36,
+      "y": 0.1
+     },
+     {
+      "text": "Cannula",
+      "at": {
+       "word": 74,
+       "text": "blunt."
+      },
+      "x": 0.04,
+      "y": 0.84
+     }
+    ]
+   },
+   "plate": {
+    "id": "U4",
+    "map": [
+     [
+      {
+       "word": 67,
+       "text": "cannula.",
+       "offset": 8
+      },
+      0
+     ],
+     [
+      {
+       "word": 74,
+       "text": "blunt."
+      },
+      50
+     ],
+     [
+      {
+       "word": 74,
+       "text": "blunt.",
+       "offset": 24
+      },
+      72
+     ]
+    ],
+    "crop": {
+     "cx": 0.42,
+     "cy": 0.5,
+     "cw": 0.75
+    }
+   },
+   "layout": {
+    "x": 88,
+    "y": 1130,
+    "w": 420,
+    "h": 315
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22
+    }
+   ],
+   "notes": "clip cut at f72, before the cannula enters the vein"
+  },
+  {
+   "id": "U5_entry",
+   "lane": "plates",
+   "device": "ClipCardStd+PlateMedia",
+   "start": {
+    "word": 80,
+    "text": "advanced"
+   },
+   "end": {
+    "word": 91,
+    "text": "afterwards",
+    "offset": -12
+   },
+   "text": {
+    "caps": "One entry point",
+    "title": "More delicate",
+    "labels": [
+     {
+      "text": "One entry",
+      "at": {
+       "word": 80,
+       "text": "advanced",
+       "offset": 4
+      },
+      "x": 0.32,
+      "y": 0.9
+     },
+     {
+      "text": "Threads, fanned",
+      "at": {
+       "word": 81,
+       "text": "delicate",
+       "offset": 14
+      },
+      "x": 0.95,
+      "y": 0.62,
+      "anchor": "end"
+     }
+    ]
+   },
+   "plate": {
+    "id": "U5",
+    "map": [
+     [
+      {
+       "word": 80,
+       "text": "advanced"
+      },
+      0
+     ],
+     [
+      {
+       "word": 80,
+       "text": "advanced",
+       "offset": 6
+      },
+      46
+     ],
+     [
+      {
+       "word": 81,
+       "text": "delicate"
+      },
+      54
+     ],
+     [
+      {
+       "word": 81,
+       "text": "delicate",
+       "offset": 14
+      },
+      66
+     ],
+     [
+      {
+       "word": 81,
+       "text": "delicate",
+       "offset": 30
+      },
+      90
+     ],
+     [
+      {
+       "word": 81,
+       "text": "delicate",
+       "offset": 40
+      },
+      110
+     ],
+     [
+      {
+       "word": 91,
+       "text": "afterwards",
+       "offset": -12
+      },
+      143
+     ]
+    ],
+    "crop": {
+     "cx": 0.68,
+     "cy": 0.455,
+     "cw": 0.75
+    }
+   },
+   "layout": {
+    "x": 552,
+    "y": 1130,
+    "w": 420,
+    "h": 315
+   }
+  },
+  {
+   "id": "afterwards",
+   "lane": "titles",
+   "device": "DateLabels",
+   "start": {
+    "word": 91,
+    "text": "afterwards"
+   },
+   "end": {
+    "word": 98,
+    "text": "typically",
+    "offset": -1
+   },
+   "text": {
+    "sub": "Oct 4, 2021",
+    "title": "Afterwards"
+   },
+   "layout": {
+    "x": 540,
+    "y": 262
+   }
+  },
+  {
+   "id": "lasts",
+   "lane": "objects",
+   "device": "Lasts",
+   "start": {
+    "word": 99,
+    "text": "last"
+   },
+   "end": {
+    "piece": "P05",
+    "edge": "end",
+    "offset": -1
+   },
+   "events": {
+    "year": {
+     "word": 103,
+     "text": "year"
+    },
+    "half": {
+     "word": 109,
+     "text": "half."
+    }
+   },
+   "layout": {
+    "y": 1120
+   },
+   "notes": "a year to a year and a half"
+  },
+  {
+   "id": "U6_syringe",
+   "lane": "plates",
+   "device": "TallPlateCard",
+   "start": {
+    "word": 113,
+    "text": "anesthetic",
+    "offset": -2
+   },
+   "end": {
+    "piece": "P08",
+    "edge": "end",
+    "offset": -17
+   },
+   "text": {
+    "eyebrow": "In the syringe",
+    "title": "HA filler + lidocaine",
+    "labels": [
+     {
+      "text": "HA gel",
+      "at": {
+       "word": 113,
+       "text": "anesthetic",
+       "offset": 4
+      },
+      "x": 0.6,
+      "y": 0.27
+     },
+     {
+      "text": "+ lidocaine",
+      "at": {
+       "word": 122,
+       "text": "lidocaine."
+      },
+      "x": 0.6,
+      "y": 0.36
+     }
+    ]
+   },
+   "plate": {
+    "id": "U6",
+    "map": [
+     [
+      {
+       "word": 113,
+       "text": "anesthetic"
+      },
+      0
+     ],
+     [
+      {
+       "word": 113,
+       "text": "anesthetic",
+       "offset": 20
+      },
+      48
+     ],
+     [
+      {
+       "word": 122,
+       "text": "lidocaine."
+      },
+      60
+     ],
+     [
+      {
+       "piece": "P08",
+       "edge": "end",
+       "offset": -1
+      },
+      119
+     ]
+    ],
+    "crop": {
+     "cx": 0.3,
+     "cy": 0.52,
+     "cw": 0.83
+    },
+    "rotate": -90
+   },
+   "layout": {
+    "x": 36,
+    "y": 520,
+    "w": 320
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22
+    }
+   ],
+   "notes": "in the face-free column left of her face"
+  },
+  {
+   "id": "plan",
+   "lane": "markup",
+   "device": "PlanMarks",
+   "start": {
+    "word": 126,
+    "text": "deep"
+   },
+   "end": {
+    "piece": "P10",
+    "edge": "end",
+    "offset": -1
+   },
+   "source": {
+    "still": "undereye-filler/ba_wipe_before.jpg"
+   },
+   "events": {
+    "rim": {
+     "word": 126,
+     "text": "deep"
+    },
+    "trough": {
+     "word": 126,
+     "text": "deep",
+     "offset": 6
+    },
+    "deposit": {
+     "word": 126,
+     "text": "deep",
+     "offset": 14
+    },
+    "entry": {
+     "word": 126,
+     "text": "deep",
+     "offset": 34
+    },
+    "paths": {
+     "word": 130,
+     "text": "We"
+    },
+    "fan": {
+     "word": 134,
+     "text": "underneath",
+     "offset": -10
+    },
+    "fuller": {
+     "word": 141,
+     "text": "fuller"
+    },
+    "deeper": {
+     "word": 151,
+     "text": "deeper."
+    }
+   },
+   "layout": {
+    "scale": 1.35,
+    "ox": 386,
+    "oy": 1989
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22
+    }
+   ],
+   "notes": "the plan board: her registered Sept 20 face full frame, technical marks locked to it (the still is a footage pic in props_v4: undereye_prep_v4.py PLAN)"
+  },
+  {
+   "id": "plan_legend",
+   "lane": "objects",
+   "device": "Legend",
+   "start": {
+    "word": 126,
+    "text": "deep"
+   },
+   "end": {
+    "piece": "P10",
+    "edge": "end",
+    "offset": -1
+   },
+   "text": {
+    "head": "His plan · Sept 20 · 1 syringe",
+    "rows": [
+     {
+      "glyph": "rim",
+      "text": "Orbital rim (bone)",
+      "at": {
+       "word": 126,
+       "text": "deep"
+      }
+     },
+     {
+      "glyph": "hatch",
+      "text": "The hollow · filled deep",
+      "at": {
+       "word": 126,
+       "text": "deep",
+       "offset": 14
+      }
+     },
+     {
+      "glyph": "x",
+      "text": "Entry · one per side",
+      "at": {
+       "word": 126,
+       "text": "deep",
+       "offset": 34
+      }
+     },
+     {
+      "glyph": "path",
+      "text": "Cannula path (read)",
+      "at": {
+       "word": 130,
+       "text": "We"
+      }
+     },
+     {
+      "glyph": "fan",
+      "text": "Fan to the trough",
+      "at": {
+       "word": 134,
+       "text": "underneath",
+       "offset": -10
+      }
+     },
+     {
+      "glyph": "trough",
+      "text": "Her right fuller · left deeper",
+      "at": {
+       "word": 141,
+       "text": "fuller"
+      }
+     }
+    ]
+   },
+   "layout": {
+    "x": 98,
+    "y": 1214,
+    "w": 430
+   }
+  },
+  {
+   "id": "U1_deep",
+   "lane": "plates",
+   "device": "ClipCardStd+PlateMedia",
+   "start": {
+    "word": 134,
+    "text": "underneath",
+    "offset": -4
+   },
+   "end": {
+    "piece": "P10",
+    "edge": "end",
+    "offset": -1
+   },
+   "text": {
+    "caps": "Illustration",
+    "title": "Deep, under the muscle",
+    "labels": [
+     {
+      "text": "Muscle",
+      "at": {
+       "word": 134,
+       "text": "underneath",
+       "offset": 8
+      },
+      "x": 0.66,
+      "y": 0.5
+     },
+     {
+      "text": "Filler, on the bone",
+      "at": {
+       "word": 134,
+       "text": "underneath",
+       "offset": 30
+      },
+      "x": 0.95,
+      "y": 0.92,
+      "anchor": "end"
+     }
+    ]
+   },
+   "plate": {
+    "id": "U1",
+    "map": [
+     [
+      {
+       "word": 134,
+       "text": "underneath",
+       "offset": -4
+      },
+      66
+     ],
+     [
+      {
+       "word": 134,
+       "text": "underneath",
+       "offset": 40
+      },
+      120
+     ],
+     [
+      {
+       "piece": "P10",
+       "edge": "end",
+       "offset": -1
+      },
+      143
+     ]
+    ],
+    "crop": {
+     "cx": 0.62,
+     "cy": 0.45,
+     "cw": 0.62
+    }
+   },
+   "layout": {
+    "x": 552,
+    "y": 1150,
+    "w": 420,
+    "h": 315
+   }
+  },
+  {
+   "id": "one_syringe",
+   "lane": "plates",
+   "device": "CardV4+PlateMedia",
+   "start": {
+    "word": 166,
+    "text": "another",
+    "offset": -2
+   },
+   "end": {
+    "word": 214,
+    "text": "Again,",
+    "offset": -1
+   },
+   "text": {
+    "caps": "Done today",
+    "title": "One syringe",
+    "tick": "Used here",
+    "labels": [
+     {
+      "text": "Smooth, deep",
+      "at": {
+       "word": 166,
+       "text": "another",
+       "offset": 6
+      },
+      "x": 0.63,
+      "y": 0.95,
+      "anchor": "middle"
+     }
+    ]
+   },
+   "plate": {
+    "id": "U7",
+    "map": [
+     [
+      {
+       "word": 166,
+       "text": "another",
+       "offset": -2
+      },
+      0
+     ]
+    ],
+    "crop": {
+     "cx": 0.43,
+     "cy": 0.67,
+     "cw": 0.52
+    }
+   },
+   "events": {
+    "tick": {
+     "word": 212,
+     "text": "beautiful"
+    }
+   },
+   "layout": {
+    "x": 88,
+    "y": 1130,
+    "w": 420,
+    "h": 315
+   }
+  },
+  {
+   "id": "another_syringe",
+   "lane": "plates",
+   "device": "CardV4+PlateMedia",
+   "start": {
+    "word": 166,
+    "text": "another",
+    "offset": 4
+   },
+   "end": {
+    "word": 214,
+    "text": "Again,",
+    "offset": -1
+   },
+   "text": {
+    "caps": "The question",
+    "title": "Another syringe",
+    "tick": "Not used: it expands",
+    "labels": [
+     {
+      "text": "Pillowy",
+      "at": {
+       "word": 194,
+       "text": "pillowy"
+      },
+      "x": 0.63,
+      "y": 0.95,
+      "anchor": "middle"
+     }
+    ]
+   },
+   "plate": {
+    "id": "U7",
+    "map": [
+     [
+      {
+       "word": 183,
+       "text": "expand."
+      },
+      0
+     ],
+     [
+      {
+       "word": 183,
+       "text": "expand.",
+       "offset": 50
+      },
+      84
+     ],
+     [
+      {
+       "word": 194,
+       "text": "pillowy"
+      },
+      96
+     ]
+    ],
+    "crop": {
+     "cx": 0.43,
+     "cy": 0.67,
+     "cw": 0.52
+    }
+   },
+   "events": {
+    "tick": {
+     "word": 212,
+     "text": "beautiful"
+    }
+   },
+   "layout": {
+    "x": 552,
+    "y": 1130,
+    "w": 420,
+    "h": 315
+   }
+  },
+  {
+   "id": "U3_tyndall",
+   "lane": "plates",
+   "device": "WidePlateCard",
+   "start": {
+    "word": 224,
+    "text": "bluish",
+    "offset": -4
+   },
+   "end": {
+    "piece": "P15",
+    "edge": "end",
+    "offset": -1
+   },
+   "text": {
+    "eyebrow": "Too close to the surface",
+    "title": "The Tyndall effect",
+    "labels": [
+     {
+      "text": "Filler too shallow",
+      "at": {
+       "word": 224,
+       "text": "bluish",
+       "offset": 2
+      },
+      "x": 0.5,
+      "y": 0.72,
+      "anchor": "end"
+     },
+     {
+      "text": "Light scatters back",
+      "at": {
+       "word": 228,
+       "text": "Tyndall"
+      },
+      "x": 0.3,
+      "y": 0.2,
+      "anchor": "end"
+     }
+    ]
+   },
+   "plate": {
+    "id": "U3",
+    "map": [
+     [
+      {
+       "word": 224,
+       "text": "bluish",
+       "offset": -4
+      },
+      0
+     ],
+     [
+      {
+       "word": 224,
+       "text": "bluish"
+      },
+      30
+     ],
+     [
+      {
+       "word": 228,
+       "text": "Tyndall"
+      },
+      66
+     ],
+     [
+      {
+       "word": 228,
+       "text": "Tyndall",
+       "offset": 1
+      },
+      114
+     ],
+     [
+      {
+       "piece": "P15",
+       "edge": "end",
+       "offset": -1
+      },
+      135
+     ]
+    ],
+    "crop": {
+     "cx": 0.55,
+     "cy": 0.33,
+     "cw": 0.95
+    }
+   },
+   "layout": {
+    "x": 98,
+    "y": 1270,
+    "w": 884,
+    "h": 300
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22
+    }
+   ]
+  },
+  {
+   "id": "needles",
+   "lane": "plates",
+   "device": "CardV4+PlateMedia",
+   "start": {
+    "word": 261,
+    "text": "conventional",
+    "offset": -2
+   },
+   "end": {
+    "word": 292,
+    "text": "pinprick",
+    "offset": -18
+   },
+   "text": {
+    "caps": "The conventional way",
+    "title": "Needles",
+    "tick": "Not used: bruising",
+    "labels": [
+     {
+      "text": "Bruise",
+      "at": {
+       "word": 276,
+       "text": "bruised"
+      },
+      "x": 0.3,
+      "y": 0.8,
+      "anchor": "end"
+     }
+    ]
+   },
+   "plate": {
+    "id": "U8",
+    "map": [
+     [
+      {
+       "word": 261,
+       "text": "conventional",
+       "offset": -2
+      },
+      0
+     ],
+     [
+      {
+       "word": 261,
+       "text": "conventional",
+       "offset": 32
+      },
+      32
+     ],
+     [
+      {
+       "word": 272,
+       "text": "swelling"
+      },
+      60
+     ],
+     [
+      {
+       "word": 276,
+       "text": "bruised"
+      },
+      108
+     ],
+     [
+      {
+       "word": 292,
+       "text": "pinprick",
+       "offset": -18
+      },
+      130
+     ]
+    ],
+    "crop": {
+     "cx": 0.55,
+     "cy": 0.59,
+     "cw": 0.65
+    }
+   },
+   "events": {
+    "tick": {
+     "word": 282,
+     "text": "here"
+    }
+   },
+   "layout": {
+    "x": 88,
+    "y": 1215,
+    "w": 420,
+    "h": 210
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22
+    }
+   ]
+  },
+  {
+   "id": "blunt_cannula",
+   "lane": "plates",
+   "device": "CardV4+PlateMedia",
+   "start": {
+    "word": 282,
+    "text": "here",
+    "offset": -2
+   },
+   "end": {
+    "word": 292,
+    "text": "pinprick",
+    "offset": -18
+   },
+   "text": {
+    "caps": "What he used",
+    "title": "Blunt cannula",
+    "note": "deep, under the muscle",
+    "tick": "One pinprick",
+    "labels": [
+     {
+      "text": "Blunt, rounded tip",
+      "at": {
+       "word": 282,
+       "text": "here",
+       "offset": 4
+      },
+      "x": 0.6,
+      "y": 0.18,
+      "anchor": "end"
+     }
+    ]
+   },
+   "plate": {
+    "id": "U9",
+    "map": [
+     [
+      {
+       "word": 282,
+       "text": "here",
+       "offset": -2
+      },
+      0
+     ],
+     [
+      {
+       "word": 292,
+       "text": "pinprick",
+       "offset": -14
+      },
+      120
+     ]
+    ],
+    "crop": {
+     "cx": 0.5,
+     "cy": 0.5,
+     "cw": 1
+    }
+   },
+   "events": {
+    "tick": {
+     "word": 282,
+     "text": "here"
+    }
+   },
+   "layout": {
+    "x": 552,
+    "y": 1215,
+    "w": 420,
+    "h": 210
+   }
+  },
+  {
+   "id": "ba_result",
+   "lane": "markup",
+   "device": "BAWindowV4",
+   "start": {
+    "word": 292,
+    "text": "pinprick",
+    "offset": -14
+   },
+   "end": {
+    "piece": "P17",
+    "edge": "end",
+    "offset": -1
+   },
+   "source": {
+    "still": "undereye-filler/ba_wipe_before.jpg",
+    "after": "undereye-filler/ba_wipe_after.jpg",
+    "crop": {
+     "x": 250,
+     "y": 830,
+     "w": 580,
+     "h": 420
+    }
+   },
+   "events": {
+    "marks": {
+     "word": 292,
+     "text": "pinprick",
+     "offset": -10
+    },
+    "pulse": {
+     "word": 292,
+     "text": "pinprick"
+    },
+    "swap": {
+     "word": 318,
+     "text": "two",
+     "offset": 30
+    },
+    "bars": {
+     "word": 324,
+     "text": "settled"
+    }
+   },
+   "text": {
+    "before": "Before · Sept 20",
+    "after": "After · Oct 4",
+    "notes": [
+     "x = the one pinprick · line = cannula",
+     "Same marks, Oct 4",
+     "Bars = lighter under-eye (L*, measured)"
+    ],
+    "credit": "Patient of Dr. Ostad. Individual results vary."
+   },
+   "layout": {
+    "y": 1212,
+    "maxw": 460
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22
+    }
+   ]
+  },
+  {
+   "id": "stat",
+   "lane": "objects",
+   "device": "Stat",
+   "start": {
+    "word": 324,
+    "text": "settled",
+    "offset": 6
+   },
+   "end": {
+    "piece": "P17",
+    "edge": "end",
+    "offset": -1
+   },
+   "text": {
+    "caps": "Under-eye shadow vs the cheek",
+    "value": "−31 %",
+    "sub": "32 → 22 L* · Sept 20 → Oct 4"
+   },
+   "layout": {
+    "x": 98,
+    "y": 880
+   },
+   "notes": "measured (research/ostad/style/undereye/measure_v4.json); counts up over 26 f"
+  },
+  {
+   "id": "endcard",
+   "lane": "titles",
+   "device": "EndCardLow",
+   "start": {
+    "cue": "end"
+   },
+   "end": {
+    "cue": "end",
+    "offset": 72
+   },
+   "layout": {
+    "y": 1110
+   }
+  }
+ ]
+}
