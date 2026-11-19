@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[4]
 PUB = ROOT / "brand/remotion/public/oct14"
 P = json.loads((PUB / "props.json").read_text(encoding="utf-8"))
 W, H = 1080, 1920
+FIX = {"intro-deflation/b/b": {"pictureRole": "pre1", "pictureFrom": 5.975}}  # = ReelV6b.tsx PIECE_FIX
 
 
 def plain(role, idx):
@@ -27,7 +28,7 @@ def plain(role, idx):
 
 def main():
     src, out = sys.argv[1], Path(sys.argv[2])
-    frames = [int(a) for a in sys.argv[3:]] or [160, 300, 450, 840, 1300, 1820, 2100]
+    frames = [int(a) for a in sys.argv[3:] if not a.startswith("--")] or [160, 300, 450, 840, 1300, 1820, 2100]
     cap = cv2.VideoCapture(src)
     rows = []
     want = sorted(frames)
@@ -41,6 +42,8 @@ def main():
             continue
         want.pop(0)
         pc = next(p for p in P["pieces"] if p["at"] <= i < p["at"] + p["dur"])
+        if "--fix" in sys.argv and pc["id"] in FIX:  # ReelV6b PIECE_FIX
+            pc = dict(pc, **FIX[pc["id"]])
         idx = int(np.floor(round(pc["pictureFrom"] * 24) + (i - pc["at"]) * P["speed"] + 1e-6))
         ref = plain(pc["pictureRole"], idx)
         s = pc.get("punch") or 1

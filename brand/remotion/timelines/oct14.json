@@ -1286,7 +1286,23 @@
     "enter": "up",
     "drift": 6
    },
-   "notes": "under the lone pip on the cream room; replace the still when SHOT_REQUESTS #14 arrives"
+   "notes": "under the lone pip on the cream room; replace the still when SHOT_REQUESTS #14 arrives",
+   "items": [
+    {
+     "src": "objects/evolysse-form.png",
+     "aspect": 3.97,
+     "label": "Evolysse Form",
+     "source": "his own footage: inj3.mp4 frame 516 (21.5 s), rembg birefnet-general cut, Lanczos x4; barrel print not legible, so the name is set in type",
+     "x": 160,
+     "y": 1300,
+     "w": 760,
+     "enter": "up",
+     "labelPx": 34,
+     "delay": -18,
+     "outOffset": -12,
+     "note": "v6b: in at 1178 (fully in 1192), out 1240, gone by 1250; the pip2 room ends 1251: never over her footage"
+    }
+   ]
   },
   {
    "id": "obj-pair",
@@ -1319,7 +1335,32 @@
     "enter": "left",
     "drift": 5
    },
-   "notes": "same scale, stacked; then O3 (the two gels) takes the slot"
+   "notes": "same scale, stacked; then O3 (the two gels) takes the slot",
+   "items": [
+    {
+     "src": "objects/evolysse-form.png",
+     "aspect": 3.97,
+     "label": "Evolysse Form",
+     "source": "his own footage: inj3.mp4 frame 516 (21.5 s), rembg birefnet-general cut, Lanczos x4; barrel print not legible, so the name is set in type",
+     "x": 100,
+     "y": 96,
+     "w": 880,
+     "enter": "left",
+     "labelPx": 36
+    },
+    {
+     "src": "objects/ghost_evolysse-smooth.png",
+     "aspect": 4.0,
+     "label": "Evolysse Smooth · photo to come",
+     "source": "ghost outline, photo to come: in inj6 the Smooth syringe is always inside his fist (SHOT_REQUESTS #15)",
+     "x": 100,
+     "y": 432,
+     "w": 880,
+     "enter": "left",
+     "labelPx": 36,
+     "delay": 6
+    }
+   ]
   },
   {
    "id": "O3",
@@ -1547,7 +1588,33 @@
     "enter": "scale",
     "drift": 4
    },
-   "notes": "shared cut-outs from the under-eye agent; same scale"
+   "notes": "shared cut-outs from the under-eye agent; same scale",
+   "items": [
+    {
+     "src": "objects/ghost_cannula.png",
+     "aspect": 5,
+     "label": "Blunt cannula · photo to come",
+     "x": 90,
+     "y": 960,
+     "w": 900,
+     "enter": "scale",
+     "labelPx": 36,
+     "source": "ghost outline, photo to come: no frame of his footage resolves the cannula (under-eye agent, SHOT_REQUESTS #16)"
+    },
+    {
+     "src": "objects/needle.png",
+     "aspect": 5,
+     "label": "Sharp needle",
+     "x": 90,
+     "y": 1250,
+     "w": 900,
+     "enter": "scale",
+     "labelPx": 36,
+     "delay": 6,
+     "source": "Wikimedia Commons, Politikaner, CC BY-SA 3.0 (objects/BANK.md)"
+    }
+   ],
+   "creditY": 1536
   },
   {
    "id": "hook",

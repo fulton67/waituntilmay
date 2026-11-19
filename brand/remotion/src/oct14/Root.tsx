@@ -3,6 +3,7 @@ import { LAB_DUR, Oct14Lab, type LabProps } from "./Lab";
 import { Oct14Reel, type Oct14Props } from "./Reel";
 import { Oct14ReelV5, type Oct14V5Props } from "./ReelV5";
 import { Oct14ReelV6, type Oct14V6Props } from "./ReelV6";
+import { Oct14ReelV6b, type Oct14V6bProps } from "./ReelV6b";
 
 // Oct14Lab: the devices on placeholder media (1080x1920, 24 fps: brand/motion/RULES.md). Points come from the placeholder's
 // points.json, the same schema as the real face track. NOT FOR POSTING until patient consent = yes.
@@ -42,6 +43,14 @@ export const Oct14Root: React.FC = () => (
         const j = async (f: string) => (await fetch(staticFile(f))).json();
         const p: Oct14V6Props = props.pieces ? props : { ...(await j("oct14/props.json")), layer: props.layer ?? "all", big: true, flora: await j("flora/frames.json"),
           tracks5: await j("oct14/tracks_v5.json"), lay: await j("oct14/layout_v5.json"), markup: await j("oct14/markup_v5.json"), stills: await j("oct14/stills_v5.json"), tl: (props as { timeline?: Oct14V6Props["tl"] }).timeline ?? props.tl };
+        return { durationInFrames: p.durationInFrames + p.tail, props: p };
+      }} />
+    {/* Oct14ReelV6b: V6 + objects from his own footage at full presence + the source-end freeze guard */}
+    <Composition id="Oct14ReelV6b" component={Oct14ReelV6b} width={1080} height={1920} fps={24} durationInFrames={240} defaultProps={{} as Oct14V6bProps}
+      calculateMetadata={async ({ props }) => {
+        const j = async (f: string) => (await fetch(staticFile(f))).json();
+        const p: Oct14V6bProps = props.pieces ? props : { ...(await j("oct14/props.json")), layer: props.layer ?? "all", big: true, flora: await j("flora/frames.json"),
+          tracks5: await j("oct14/tracks_v5.json"), lay: await j("oct14/layout_v5.json"), markup: await j("oct14/markup_v5.json"), stills: await j("oct14/stills_v5.json"), tl: (props as { timeline?: Oct14V6bProps["tl"] }).timeline ?? props.tl };
         return { durationInFrames: p.durationInFrames + p.tail, props: p };
       }} />
   </>

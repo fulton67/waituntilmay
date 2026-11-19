@@ -1,0 +1,49 @@
+{
+ "final": "brand/edits/oct14-injection/checks_v6/draft1_raw_mix_v6b.mp4",
+ "allowed": "brand/edits/oct14-injection/checks_v6/allowed_v6b.mp4",
+ "step": 2,
+ "expand": 0.1,
+ "min_px": 60,
+ "frames_checked": 1154,
+ "faces_seen": 1046,
+ "violating_frames": 2,
+ "runs": [
+  [
+   862,
+   864
+  ]
+ ],
+ "pass": false,
+ "violations": [
+  {
+   "f": 862,
+   "hits": [
+    {
+     "box": [
+      585,
+      1257,
+      265,
+      366
+     ],
+     "px": 256,
+     "share": 0.003
+    }
+   ]
+  },
+  {
+   "f": 864,
+   "hits": [
+    {
+     "box": [
+      574,
+      1262,
+      274,
+      366
+     ],
+     "px": 426,
+     "share": 0.004
+    }
+   ]
+  }
+ ]
+}
