@@ -29,3 +29,13 @@ Patient faces are not requested here. Before/afters come from the standardised c
 | # | What | Why | Catalog rows |
 |---|---|---|---|
 | 13 | The camera originals of the AviClear acne patient's four visit photos (before, 1 month after the 1st, 1 month after the 2nd, 3 months after the 3rd), straight from the clinic camera/iPhone, not the exported collages | iCloud only holds the clinic's 1080 px collages (each face about 500 px wide), so the AviClear post can't go full-bleed without enlarging her face about 2x. The post is built at native size until these arrive | P0010: 2965, 2975 |
+
+## Real objects for the reels (2026-11-19, Oct 14 injections v6)
+
+No usable source yet: the catalog has only Evolysse ads (rows 209-277), no product shot; Evolus publishes no media kit with a stated licence (contact media@evolus.com). The v6 reel shows a MARKED PLACEHOLDER (public/objects/evolysse-*.PLACEHOLDER.png) until these arrive.
+
+| # | What | Why | Catalog rows |
+|---|---|---|---|
+| 14 | One Evolysse Form syringe, capped, label readable, flat on a plain light surface, soft window light from above-left, shot square-on (no hand) | the real object when he says "a syringe of what I call Evolysse Form" (Oct 14 reel, f1196) | — (ads only: 209-277) |
+| 15 | One Evolysse Smooth syringe, same set-up, same distance and lens as #14, so the two cut-outs match in scale | Form vs Smooth side by side on "we used Evolysse Smooth here ... not as thick" (f1363) | — |
+| 16 | His own blunt filler microcannula (the 25G/27G one used for under-eye filler, with its purple hub) and one 27G/30G filler needle, laid side by side on a plain light surface, same light and lens as #14; plus a macro of each tip (the cannula's rounded end with its side port; the needle's bevel) | Under-eye reel v5 cannula-vs-needle beat ("The conventional way of using actually needles ... and here ... one actual pinprick", f1661-1866). Until these arrive the reel uses a licensed stand-in pair from Wikimedia Commons (CC BY-SA 3.0, Politikaner, 2009-07-14: a blunt dental cannula and a hypodermic needle bevel, shot the same day), labelled as such in brand/edits/undereye-filler/objects/BANK.md | none: the catalog has the cannula only in his hand in procedure videos (rows 610, 662, 728), never as a clean object |

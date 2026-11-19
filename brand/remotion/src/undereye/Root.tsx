@@ -2,11 +2,30 @@ import { Composition, staticFile } from "remotion";
 import { TAIL, UndereyeReel, type UEProps } from "./Reel";
 import { TAIL2, UndereyeReelV2, type V2Props } from "./ReelV2";
 import { TAIL4, UndereyeReelV4, type V4Props } from "./ReelV4";
+import { TAIL5, UndereyeReelV5, type V5Props } from "./ReelV5";
+import TL5 from "../../timelines/undereye.json";
+import type { Timeline } from "../timeline/timeline";
 
 // UndereyeReel: 1080x1920, 24 fps (brand/motion/RULES.md). Props are loaded from public/undereye-filler/props.json
 // (brand/scripts/undereye_prep.py). NOT FOR POSTING until patient consent = yes.
 export const UndereyeRoot: React.FC = () => (
   <>
+  {/* v5 after Naim's notes on v4b (2026-11-19): props_v5.json (brand/scripts/undereye_prep_v5.py), timeline timelines/undereye.json */}
+  <Composition
+    id="UndereyeReelV5"
+    component={UndereyeReelV5}
+    width={1080}
+    height={1920}
+    fps={24}
+    durationInFrames={240}
+    defaultProps={{} as V5Props}
+    calculateMetadata={async ({ props }) => {
+      const base: V5Props = props.pieces ? props : await (await fetch(staticFile("undereye-filler/props_v5.json"))).json();
+      const frames = props.frames ?? (await (await fetch(staticFile("flora/frames.json"))).json());
+      const p: V5Props = { ...base, frames, bare: !!props.bare, timeline: props.timeline ?? (TL5 as unknown as Timeline) };
+      return { durationInFrames: p.durationInFrames + TAIL5, props: p };
+    }}
+  />
   {/* v4 after the client's 2026-11-19 notes: props_v4.json (brand/scripts/undereye_prep_v4.py) + the Flora plates' frames.json */}
   <Composition
     id="UndereyeReelV4"

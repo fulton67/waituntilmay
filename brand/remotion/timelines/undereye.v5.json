@@ -1,0 +1,1802 @@
+{
+ "schema": 1,
+ "reel": "undereye",
+ "version": "v5",
+ "comp": {
+  "entry": "src/undereye/index.ts",
+  "id": "UndereyeReelV5",
+  "props": {}
+ },
+ "fps": 24,
+ "transcript": "public/undereye-filler/props_v5.json",
+ "master": {
+  "lufs": -14,
+  "tp": -1.5,
+  "limiter": true
+ },
+ "audio": {
+  "dialogue": "undereye-filler/dialogue_v5.wav",
+  "notes": "dialogue_v2.wav with the chopped word fragments at the joins replaced by room tone (brand/scripts/undereye_audio_v5.py fix; research/ostad/style/undereye/joins_v5.json)"
+ },
+ "beats": [
+  {
+   "id": "pic01:H1",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "H1",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "H1",
+    "edge": "start",
+    "exact": true,
+    "offset": 127
+   },
+   "source": {
+    "clip": "undereye-filler/7044.mp4",
+    "in": 8.455,
+    "rate": 1.18
+   },
+   "notes": "piece H1 (patient, audio 7044 8.455-14.71 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic02:P03x",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P03x",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P03x",
+    "edge": "start",
+    "exact": true,
+    "offset": 28
+   },
+   "source": {
+    "clip": "undereye-filler/6816.mp4",
+    "in": 13.7,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.25,
+    "ox": 820,
+    "oy": 560
+   },
+   "notes": "piece P03x (, audio 6816 13.7-15.06 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic03:P03y",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P03y",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P03y",
+    "edge": "start",
+    "exact": true,
+    "offset": 40
+   },
+   "source": {
+    "clip": "undereye-filler/6816.mp4",
+    "in": 15.61,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.0,
+    "ox": 820,
+    "oy": 560
+   },
+   "notes": "piece P03y (, audio 6816 15.61-22.94 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic04:P03y",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P03y",
+    "edge": "start",
+    "exact": true,
+    "offset": 40
+   },
+   "end": {
+    "piece": "P03y",
+    "edge": "start",
+    "exact": true,
+    "offset": 68
+   },
+   "source": {
+    "clip": "undereye-filler/6816.mp4",
+    "in": 17.577,
+    "rate": 1.18
+   },
+   "notes": "piece P03y (, audio 6816 15.61-22.94 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic05:P03y",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P03y",
+    "edge": "start",
+    "exact": true,
+    "offset": 68
+   },
+   "end": {
+    "piece": "P03y",
+    "edge": "start",
+    "exact": true,
+    "offset": 120
+   },
+   "source": {
+    "clip": "undereye-filler/6815.mp4",
+    "in": 0.0,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.5,
+    "ox": 540,
+    "oy": 1920
+   },
+   "notes": "piece P03y (, audio 6816 15.61-22.94 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic06:P03y",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P03y",
+    "edge": "start",
+    "exact": true,
+    "offset": 120
+   },
+   "end": {
+    "piece": "P03y",
+    "edge": "start",
+    "exact": true,
+    "offset": 149
+   },
+   "source": {
+    "clip": "undereye-filler/6816.mp4",
+    "in": 21.51,
+    "rate": 1.18
+   },
+   "notes": "piece P03y (, audio 6816 15.61-22.94 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic07:P03b",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P03b",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P03b",
+    "edge": "start",
+    "exact": true,
+    "offset": 52
+   },
+   "source": {
+    "clip": "undereye-filler/6816.mp4",
+    "in": 23.59,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.12,
+    "ox": 540,
+    "oy": 700
+   },
+   "notes": "piece P03b (, audio 6816 23.59-27.54 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic08:P03b",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P03b",
+    "edge": "start",
+    "exact": true,
+    "offset": 52
+   },
+   "end": {
+    "piece": "P03b",
+    "edge": "start",
+    "exact": true,
+    "offset": 80
+   },
+   "source": {
+    "clip": "undereye-filler/6815.mp4",
+    "in": 0.0,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.5,
+    "ox": 540,
+    "oy": 1920
+   },
+   "notes": "piece P03b (, audio 6816 23.59-27.54 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic09:P04",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P04",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P04",
+    "edge": "start",
+    "exact": true,
+    "offset": 80
+   },
+   "source": {
+    "clip": "undereye-filler/6817.mp4",
+    "in": 33.0,
+    "rate": 1.18
+   },
+   "notes": "piece P04 (, audio 6816 29.76-35.38 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic10:P04",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P04",
+    "edge": "start",
+    "exact": true,
+    "offset": 80
+   },
+   "end": {
+    "piece": "P04",
+    "edge": "start",
+    "exact": true,
+    "offset": 114
+   },
+   "source": {
+    "clip": "undereye-filler/6816.mp4",
+    "in": 33.6937,
+    "rate": 1.18
+   },
+   "notes": "piece P04 (, audio 6816 29.76-35.38 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic11:P05",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P05",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P05",
+    "edge": "start",
+    "exact": true,
+    "offset": 112
+   },
+   "source": {
+    "clip": "undereye-filler/6816.mp4",
+    "in": 40.82,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.12,
+    "ox": 300,
+    "oy": 600
+   },
+   "notes": "piece P05 (, audio 6816 40.82-51.82 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic12:P05",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P05",
+    "edge": "start",
+    "exact": true,
+    "offset": 112
+   },
+   "end": {
+    "piece": "P05",
+    "edge": "start",
+    "exact": true,
+    "offset": 153
+   },
+   "source": {
+    "still": "after"
+   },
+   "layout": {
+    "scale": 0.85,
+    "ox": 540,
+    "oy": 1100
+   },
+   "notes": "piece P05 (, audio 6816 40.82-51.82 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic13:P05",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P05",
+    "edge": "start",
+    "exact": true,
+    "offset": 153
+   },
+   "end": {
+    "piece": "P05",
+    "edge": "start",
+    "exact": true,
+    "offset": 224
+   },
+   "source": {
+    "clip": "undereye-filler/6816.mp4",
+    "in": 48.343,
+    "rate": 1.18
+   },
+   "notes": "piece P05 (, audio 6816 40.82-51.82 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic14:P08",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P08",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P08",
+    "edge": "start",
+    "exact": true,
+    "offset": 109
+   },
+   "source": {
+    "clip": "undereye-filler/6817.mp4",
+    "in": 56.96,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.3,
+    "ox": 0,
+    "oy": 1300
+   },
+   "notes": "piece P08 (, audio 6817 56.96-62.33 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic15:P09",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P09",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P09",
+    "edge": "start",
+    "exact": true,
+    "offset": 48
+   },
+   "source": {
+    "clip": "undereye-filler/6817.mp4",
+    "in": 74.64,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.1,
+    "ox": 540,
+    "oy": 900
+   },
+   "notes": "piece P09 (, audio 6817 74.64-82.14 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic16:P09",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P09",
+    "edge": "start",
+    "exact": true,
+    "offset": 48
+   },
+   "end": {
+    "piece": "P09",
+    "edge": "start",
+    "exact": true,
+    "offset": 153
+   },
+   "source": {
+    "still": "plan"
+   },
+   "layout": {
+    "scale": 1.35,
+    "ox": 386,
+    "oy": 1989
+   },
+   "notes": "piece P09 (, audio 6817 74.64-82.14 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic17:P10",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P10",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P10",
+    "edge": "start",
+    "exact": true,
+    "offset": 99
+   },
+   "source": {
+    "still": "plan"
+   },
+   "layout": {
+    "scale": 1.35,
+    "ox": 386,
+    "oy": 1989
+   },
+   "notes": "piece P10 (, audio 6817 124.32-129.2 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic18:P14",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P14",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P14",
+    "edge": "start",
+    "exact": true,
+    "offset": 79
+   },
+   "source": {
+    "clip": "undereye-filler/6818.mp4",
+    "in": 3.31,
+    "rate": 1.18
+   },
+   "notes": "piece P14 (, audio 6818 3.31-16.97 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic19:P14",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P14",
+    "edge": "start",
+    "exact": true,
+    "offset": 79
+   },
+   "end": {
+    "piece": "P14",
+    "edge": "start",
+    "exact": true,
+    "offset": 153
+   },
+   "source": {
+    "clip": "undereye-filler/6818.mp4",
+    "in": 7.194,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.15,
+    "ox": 250,
+    "oy": 800
+   },
+   "notes": "piece P14 (, audio 6818 3.31-16.97 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic20:P14",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P14",
+    "edge": "start",
+    "exact": true,
+    "offset": 153
+   },
+   "end": {
+    "piece": "P14",
+    "edge": "start",
+    "exact": true,
+    "offset": 278
+   },
+   "source": {
+    "clip": "undereye-filler/6818.mp4",
+    "in": 10.832,
+    "rate": 1.18
+   },
+   "notes": "piece P14 (, audio 6818 3.31-16.97 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic21:P15",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P15",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P15",
+    "edge": "start",
+    "exact": true,
+    "offset": 66
+   },
+   "source": {
+    "clip": "undereye-filler/6818.mp4",
+    "in": 23.11,
+    "rate": 1.18
+   },
+   "layout": {
+    "scale": 1.15,
+    "ox": 250,
+    "oy": 800
+   },
+   "notes": "piece P15 (, audio 6818 23.11-31.46 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic22:P15",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P15",
+    "edge": "start",
+    "exact": true,
+    "offset": 66
+   },
+   "end": {
+    "piece": "P15",
+    "edge": "start",
+    "exact": true,
+    "offset": 170
+   },
+   "source": {
+    "clip": "undereye-filler/6817.mp4",
+    "in": 138.0,
+    "rate": 1.18
+   },
+   "notes": "piece P15 (, audio 6818 23.11-31.46 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic23:P17",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P17",
+    "edge": "start",
+    "exact": true
+   },
+   "end": {
+    "piece": "P17",
+    "edge": "start",
+    "exact": true,
+    "offset": 263
+   },
+   "source": {
+    "clip": "undereye-filler/6821.mp4",
+    "in": 2.69,
+    "rate": 1.18
+   },
+   "notes": "piece P17 (, audio 6821 2.69-33.2 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "pic24:P17",
+   "lane": "footage",
+   "device": "PicLayer",
+   "start": {
+    "piece": "P17",
+    "edge": "start",
+    "exact": true,
+    "offset": 263
+   },
+   "end": {
+    "piece": "P17",
+    "edge": "start",
+    "exact": true,
+    "offset": 621
+   },
+   "source": {
+    "clip": "undereye-filler/6821.mp4",
+    "in": 18.0,
+    "rate": 1.18
+   },
+   "notes": "piece P17 (, audio 6821 2.69-33.2 s) · documents the picture (PicLayer reads props_v5 pics); used by reel.py colour check"
+  },
+  {
+   "id": "hook",
+   "lane": "footage",
+   "device": "Wipe",
+   "start": {
+    "frame": 0
+   },
+   "end": {
+    "frame": 40
+   },
+   "source": {
+    "still": "ba_wipe_before.jpg",
+    "after": "ba_wipe_after.jpg"
+   },
+   "events": {
+    "wipe": {
+     "frame": 6
+    }
+   },
+   "notes": "registered Sept 20 -> Oct 4 wipe across her eyes, then a hard cut"
+  },
+  {
+   "id": "title",
+   "lane": "titles",
+   "device": "RoomTitle",
+   "start": {
+    "frame": 40
+   },
+   "end": {
+    "frame": 120
+   },
+   "text": {
+    "num": "Dr. Ariel Ostad",
+    "title": "Under-eye filler"
+   },
+   "layout": {
+    "px": 96,
+    "top": 236,
+    "key": "title"
+   },
+   "sfx": [
+    {
+     "name": "exo_chapter",
+     "gain": 0.3,
+     "at": {
+      "frame": 40
+     }
+    }
+   ]
+  },
+  {
+   "id": "hookWin",
+   "lane": "markup",
+   "device": "BAWindowV4",
+   "start": {
+    "frame": 40
+   },
+   "end": {
+    "piece": "H1",
+    "edge": "end",
+    "offset": -1
+   },
+   "events": {
+    "swap": {
+     "frame": 40
+    }
+   },
+   "text": {
+    "before": "Before · Sept 20",
+    "after": "After · Oct 4",
+    "note": "Our patient, Sept 2021"
+   },
+   "layout": {
+    "top": 1140
+   },
+   "notes": "v5: shows the Oct 4 photo from its first frame (v4's Before chip held 16 f, under the 2 s hold rule; the wipe has just shown the before)"
+  },
+  {
+   "id": "c01",
+   "lane": "titles",
+   "device": "RoomTitle",
+   "start": {
+    "piece": "P03"
+   },
+   "end": {
+    "piece": "P03",
+    "offset": 80
+   },
+   "text": {
+    "num": "01",
+    "title": "The concern"
+   },
+   "layout": {
+    "align": "right",
+    "x": 1000,
+    "px": 104,
+    "key": "c01"
+   },
+   "sfx": [
+    {
+     "name": "exo_chapter",
+     "gain": 0.3,
+     "at": {
+      "piece": "P03"
+     }
+    }
+   ]
+  },
+  {
+   "id": "eye",
+   "lane": "plates",
+   "device": "ClipCardStd",
+   "start": {
+    "cue": "hollows",
+    "offset": -10
+   },
+   "end": {
+    "piece": "P03",
+    "edge": "end",
+    "offset": -3
+   },
+   "text": {
+    "caps": "Sept 20 · before",
+    "title": "Her under-eye"
+   },
+   "source": {
+    "clip": "6814",
+    "in": 5
+   },
+   "layout": {
+    "x": 88,
+    "y": 1130,
+    "w": 420,
+    "h": 315
+   }
+  },
+  {
+   "id": "U1a",
+   "lane": "plates",
+   "device": "ClipCardStd",
+   "start": {
+    "cue": "hollows",
+    "offset": -4
+   },
+   "end": {
+    "piece": "P03",
+    "edge": "end",
+    "offset": -3
+   },
+   "text": {
+    "caps": "Illustration",
+    "title": "The tear trough",
+    "labels": [
+     {
+      "text": "Tear trough",
+      "at": {
+       "cue": "hollows",
+       "offset": 4
+      },
+      "x": 0.05,
+      "y": 0.62
+     }
+    ]
+   },
+   "plate": {
+    "id": "U1",
+    "map": [
+     [
+      {
+       "cue": "hollows",
+       "offset": -4
+      },
+      0
+     ]
+    ],
+    "crop": {
+     "cx": 0.62,
+     "cy": 0.45,
+     "cw": 0.62
+    }
+   },
+   "layout": {
+    "x": 552,
+    "y": 1130,
+    "w": 420,
+    "h": 315
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22,
+     "at": {
+      "cue": "hollows",
+      "offset": -4
+     }
+    }
+   ]
+  },
+  {
+   "id": "name",
+   "lane": "titles",
+   "device": "NameCard",
+   "start": {
+    "piece": "P03",
+    "edge": "end",
+    "offset": -1
+   },
+   "end": {
+    "piece": "P03",
+    "edge": "end",
+    "offset": 100
+   }
+  },
+  {
+   "id": "c02",
+   "lane": "titles",
+   "device": "RoomTitle",
+   "start": {
+    "piece": "P04",
+    "offset": -1
+   },
+   "end": {
+    "piece": "P04",
+    "offset": 79
+   },
+   "text": {
+    "num": "02",
+    "title": "The\nprocedure"
+   },
+   "layout": {
+    "px": 92,
+    "key": "c02"
+   },
+   "sfx": [
+    {
+     "name": "exo_chapter",
+     "gain": 0.3,
+     "at": {
+      "piece": "P04",
+      "offset": -1
+     }
+    }
+   ]
+  },
+  {
+   "id": "U5",
+   "lane": "plates",
+   "device": "ClipCardStd",
+   "start": {
+    "cue": "advanced"
+   },
+   "end": {
+    "cue": "afterwards",
+    "offset": -12
+   },
+   "text": {
+    "caps": "One entry point",
+    "title": "More delicate",
+    "labels": [
+     {
+      "text": "One entry",
+      "at": {
+       "cue": "advanced",
+       "offset": 4
+      },
+      "x": 0.32,
+      "y": 0.9
+     },
+     {
+      "text": "Threads, fanned",
+      "at": {
+       "cue": "delicate",
+       "offset": 14
+      },
+      "x": 0.95,
+      "y": 0.62,
+      "anchor": "end"
+     }
+    ]
+   },
+   "plate": {
+    "id": "U5",
+    "map": [
+     [
+      {
+       "cue": "advanced"
+      },
+      0
+     ],
+     [
+      {
+       "cue": "advanced",
+       "offset": 6
+      },
+      46
+     ],
+     [
+      {
+       "cue": "delicate"
+      },
+      54
+     ],
+     [
+      {
+       "cue": "delicate",
+       "offset": 14
+      },
+      66
+     ],
+     [
+      {
+       "cue": "delicate",
+       "offset": 30
+      },
+      90
+     ],
+     [
+      {
+       "cue": "delicate",
+       "offset": 40
+      },
+      110
+     ],
+     [
+      {
+       "cue": "afterwards",
+       "offset": -12
+      },
+      143
+     ]
+    ],
+    "crop": {
+     "cx": 0.68,
+     "cy": 0.455,
+     "cw": 0.75
+    }
+   },
+   "layout": {
+    "x": 552,
+    "y": 1130,
+    "w": 420,
+    "h": 315
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22,
+     "at": {
+      "cue": "advanced"
+     }
+    }
+   ],
+   "notes": "v5: the U4 needle/cannula card at the first 'cannulas' is gone (Naim note a); the cannula is explained with the real objects in S4"
+  },
+  {
+   "id": "afterwards",
+   "lane": "titles",
+   "device": "DateLabels",
+   "start": {
+    "cue": "afterwards"
+   },
+   "end": {
+    "cue": "typically",
+    "offset": 7
+   },
+   "text": {
+    "sub": "Oct 4, 2021",
+    "title": "Afterwards"
+   },
+   "layout": {
+    "x": 540,
+    "y": 262
+   },
+   "notes": "v5: held to 48 f (v4 40 f)"
+  },
+  {
+   "id": "lasts",
+   "lane": "markup",
+   "device": "Lasts",
+   "start": {
+    "cue": "last"
+   },
+   "end": {
+    "piece": "P05",
+    "edge": "end",
+    "offset": -1
+   },
+   "events": {
+    "year": {
+     "cue": "last",
+     "offset": 2
+    },
+    "half": {
+     "cue": "last",
+     "offset": 13
+    }
+   },
+   "layout": {
+    "y": 1120
+   },
+   "notes": "v5: both marks build as the card lands (he says \"a year to a year and a half\" over f680-720); in v4 \"1½ years\" held 23 f. The card cannot outlast P05: the next shot is the injection close-up, her face under it"
+  },
+  {
+   "id": "U6",
+   "lane": "plates",
+   "device": "TallPlateCard",
+   "start": {
+    "cue": "anesthetic",
+    "offset": -2
+   },
+   "end": {
+    "piece": "P08",
+    "edge": "end",
+    "offset": -17
+   },
+   "text": {
+    "caps": "In the syringe",
+    "title": "HA filler + lidocaine",
+    "labels": [
+     {
+      "text": "HA gel",
+      "at": {
+       "cue": "anesthetic",
+       "offset": 4
+      },
+      "x": 0.6,
+      "y": 0.27
+     },
+     {
+      "text": "+ lidocaine",
+      "at": {
+       "cue": "anesthetic",
+       "offset": 8
+      },
+      "x": 0.6,
+      "y": 0.36
+     }
+    ]
+   },
+   "plate": {
+    "id": "U6",
+    "map": [
+     [
+      {
+       "cue": "anesthetic"
+      },
+      0
+     ],
+     [
+      {
+       "cue": "anesthetic",
+       "offset": 20
+      },
+      48
+     ],
+     [
+      {
+       "cue": "lidocaine"
+      },
+      60
+     ],
+     [
+      {
+       "piece": "P08",
+       "edge": "end",
+       "offset": -1
+      },
+      119
+     ]
+    ],
+    "crop": {
+     "cx": 0.3,
+     "cy": 0.52,
+     "cw": 0.83
+    },
+    "rotate": -90
+   },
+   "layout": {
+    "x": 36,
+    "y": 520,
+    "w": 320,
+    "mw": 300,
+    "mh": 560
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22,
+     "at": {
+      "cue": "anesthetic",
+      "offset": -2
+     }
+    }
+   ],
+   "notes": "v5: '+ lidocaine' with 'HA gel' (v4's appeared 8 f before the card left)"
+  },
+  {
+   "id": "plan",
+   "lane": "markup",
+   "device": "PlanMarks",
+   "start": {
+    "cue": "deep"
+   },
+   "end": {
+    "piece": "P10",
+    "edge": "end",
+    "offset": -1
+   },
+   "events": {
+    "rim": {
+     "cue": "deep"
+    },
+    "trough": {
+     "cue": "deep",
+     "offset": 6
+    },
+    "deposit": {
+     "cue": "deep",
+     "offset": 14
+    },
+    "entry": {
+     "cue": "deep",
+     "offset": 34
+    },
+    "paths": {
+     "cue": "we"
+    },
+    "fan": {
+     "cue": "underneath",
+     "offset": -10
+    },
+    "side1": {
+     "cue": "fuller"
+    },
+    "side2": {
+     "cue": "deeper"
+    }
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22,
+     "at": {
+      "cue": "deep"
+     }
+    }
+   ],
+   "notes": " · side1/side2 thicken lines already drawn (emphasis, not a pop-up)"
+  },
+  {
+   "id": "legend",
+   "lane": "markup",
+   "device": "Legend",
+   "start": {
+    "cue": "deep"
+   },
+   "end": {
+    "piece": "P10",
+    "edge": "end",
+    "offset": -1
+   },
+   "text": {
+    "head": "His plan · Sept 20 · 1 syringe",
+    "rows": [
+     {
+      "glyph": "rim",
+      "text": "Orbital rim (bone)",
+      "at": {
+       "cue": "deep"
+      }
+     },
+     {
+      "glyph": "hatch",
+      "text": "The hollow · filled deep",
+      "at": {
+       "cue": "deep",
+       "offset": 14
+      }
+     },
+     {
+      "glyph": "x",
+      "text": "Entry · one per side",
+      "at": {
+       "cue": "deep",
+       "offset": 34
+      }
+     },
+     {
+      "glyph": "path",
+      "text": "Cannula path (read)",
+      "at": {
+       "cue": "we"
+      }
+     },
+     {
+      "glyph": "fan",
+      "text": "Fan to the trough",
+      "at": {
+       "cue": "underneath",
+       "offset": -10
+      }
+     },
+     {
+      "glyph": "trough",
+      "text": "Her right fuller · left deeper",
+      "at": {
+       "cue": "fuller"
+      }
+     }
+    ]
+   },
+   "layout": {
+    "x": 98,
+    "y": 1214,
+    "w": 430,
+    "size": 20
+   }
+  },
+  {
+   "id": "U1b",
+   "lane": "plates",
+   "device": "ClipCardStd",
+   "start": {
+    "cue": "underneath",
+    "offset": -4
+   },
+   "end": {
+    "piece": "P10",
+    "edge": "end",
+    "offset": -1
+   },
+   "text": {
+    "caps": "Illustration",
+    "title": "Deep, under the muscle",
+    "labels": [
+     {
+      "text": "Muscle",
+      "at": {
+       "cue": "underneath",
+       "offset": 8
+      },
+      "x": 0.66,
+      "y": 0.5
+     },
+     {
+      "text": "Filler, on the bone",
+      "at": {
+       "cue": "underneath",
+       "offset": 30
+      },
+      "x": 0.95,
+      "y": 0.92,
+      "anchor": "end"
+     }
+    ]
+   },
+   "plate": {
+    "id": "U1",
+    "map": [
+     [
+      {
+       "cue": "underneath",
+       "offset": -4
+      },
+      66
+     ],
+     [
+      {
+       "cue": "underneath",
+       "offset": 40
+      },
+      120
+     ],
+     [
+      {
+       "piece": "P10",
+       "edge": "end",
+       "offset": -1
+      },
+      143
+     ]
+    ],
+    "crop": {
+     "cx": 0.62,
+     "cy": 0.45,
+     "cw": 0.62
+    }
+   },
+   "layout": {
+    "x": 552,
+    "y": 1150,
+    "w": 420,
+    "h": 315
+   }
+  },
+  {
+   "id": "c03",
+   "lane": "titles",
+   "device": "RoomTitle",
+   "start": {
+    "piece": "P14"
+   },
+   "end": {
+    "piece": "P14",
+    "offset": 80
+   },
+   "text": {
+    "num": "03",
+    "title": "The decision"
+   },
+   "layout": {
+    "px": 104,
+    "key": "c03"
+   },
+   "sfx": [
+    {
+     "name": "exo_chapter",
+     "gain": 0.3,
+     "at": {
+      "piece": "P14"
+     }
+    }
+   ]
+  },
+  {
+   "id": "U7a",
+   "lane": "plates",
+   "device": "CardV4",
+   "start": {
+    "cue": "another",
+    "offset": -2
+   },
+   "end": {
+    "cue": "again",
+    "offset": -1
+   },
+   "text": {
+    "caps": "Done today",
+    "title": "One syringe",
+    "tick": {
+     "used": true,
+     "text": "Used here",
+     "at": {
+      "cue": "situation"
+     }
+    },
+    "labels": [
+     {
+      "text": "Smooth, deep",
+      "at": {
+       "cue": "another",
+       "offset": 6
+      },
+      "x": 0.63,
+      "y": 0.95,
+      "anchor": "middle"
+     }
+    ]
+   },
+   "plate": {
+    "id": "U7",
+    "map": [
+     [
+      {
+       "cue": "another",
+       "offset": -2
+      },
+      0
+     ]
+    ],
+    "crop": {
+     "cx": 0.43,
+     "cy": 0.67,
+     "cw": 0.52
+    }
+   },
+   "layout": {
+    "x": 88,
+    "y": 1130,
+    "mh": 315,
+    "cutOut": true
+   },
+   "notes": "v5: the ticks on 'situation' (1373), held 53 f; v4's on 'beautiful' held 18 f"
+  },
+  {
+   "id": "U7b",
+   "lane": "plates",
+   "device": "CardV4",
+   "start": {
+    "cue": "another",
+    "offset": 4
+   },
+   "end": {
+    "cue": "again",
+    "offset": -1
+   },
+   "text": {
+    "caps": "The question",
+    "title": "Another syringe",
+    "tick": {
+     "used": false,
+     "text": "Not used: it expands",
+     "at": {
+      "cue": "situation"
+     }
+    },
+    "labels": [
+     {
+      "text": "Pillowy",
+      "at": {
+       "cue": "pillowy"
+      },
+      "x": 0.63,
+      "y": 0.95,
+      "anchor": "middle"
+     }
+    ]
+   },
+   "plate": {
+    "id": "U7",
+    "map": [
+     [
+      {
+       "cue": "expand"
+      },
+      0
+     ],
+     [
+      {
+       "cue": "expand",
+       "offset": 50
+      },
+      84
+     ],
+     [
+      {
+       "cue": "pillowy"
+      },
+      96
+     ]
+    ],
+    "crop": {
+     "cx": 0.43,
+     "cy": 0.67,
+     "cw": 0.52
+    }
+   },
+   "layout": {
+    "x": 552,
+    "y": 1130,
+    "mh": 315,
+    "cutOut": true
+   },
+   "events": {
+    "dim": {
+     "cue": "situation"
+    }
+   }
+  },
+  {
+   "id": "U3",
+   "lane": "plates",
+   "device": "WidePlateCard",
+   "start": {
+    "cue": "bluish",
+    "offset": -4
+   },
+   "end": {
+    "piece": "P15",
+    "edge": "end",
+    "offset": -1
+   },
+   "text": {
+    "caps": "Too close to the surface",
+    "title": "The Tyndall effect",
+    "labels": [
+     {
+      "text": "Filler too shallow",
+      "at": {
+       "cue": "bluish",
+       "offset": 2
+      },
+      "x": 0.5,
+      "y": 0.72,
+      "anchor": "end"
+     },
+     {
+      "text": "Light scatters back",
+      "at": {
+       "cue": "bluish",
+       "offset": 5
+      },
+      "x": 0.3,
+      "y": 0.2,
+      "anchor": "end"
+     }
+    ]
+   },
+   "plate": {
+    "id": "U3",
+    "map": [
+     [
+      {
+       "cue": "bluish",
+       "offset": -4
+      },
+      0
+     ],
+     [
+      {
+       "cue": "bluish"
+      },
+      30
+     ],
+     [
+      {
+       "cue": "tyndall"
+      },
+      66
+     ],
+     [
+      {
+       "cue": "tyndall",
+       "offset": 1
+      },
+      114
+     ],
+     [
+      {
+       "piece": "P15",
+       "edge": "end",
+       "offset": -1
+      },
+      135
+     ]
+    ],
+    "crop": {
+     "cx": 0.55,
+     "cy": 0.33,
+     "cw": 0.95
+    }
+   },
+   "layout": {
+    "x": 98,
+    "y": 1270,
+    "w": 884,
+    "h": 300,
+    "mw": 574,
+    "mh": 280
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22,
+     "at": {
+      "cue": "bluish",
+      "offset": -4
+     }
+    }
+   ],
+   "notes": "v5: 'Light scatters back' from bluish+5 (v4: on 'Tyndall', held 29 f)"
+  },
+  {
+   "id": "c04",
+   "lane": "titles",
+   "device": "RoomTitle",
+   "start": {
+    "piece": "P17"
+   },
+   "end": {
+    "piece": "P17",
+    "offset": 80
+   },
+   "text": {
+    "num": "04",
+    "title": "The result"
+   },
+   "layout": {
+    "align": "right",
+    "x": 1000,
+    "px": 104,
+    "key": "c04"
+   },
+   "sfx": [
+    {
+     "name": "exo_chapter",
+     "gain": 0.3,
+     "at": {
+      "piece": "P17",
+      "offset": -18
+     }
+    }
+   ],
+   "notes": "v5: the chime ends before \"she had a syringe put in\" (v4 played it over those words, f1532)"
+  },
+  {
+   "id": "cannula",
+   "lane": "objects",
+   "device": "RealObject",
+   "start": {
+    "cue": "conventional",
+    "offset": -4
+   },
+   "end": {
+    "beat": "win",
+    "edge": "start",
+    "offset": -4
+   },
+   "text": {
+    "label": "Blunt cannula",
+    "tip": "Rounded tip, side port"
+   },
+   "source": {
+    "src": "objects/cannula.PLACEHOLDER.png",
+    "tip": "objects/cannula_tip.PLACEHOLDER.png",
+    "aspect": 5,
+    "tipAt": [
+     0.97,
+     0.5
+    ],
+    "credit": "PLACEHOLDER: his own blunt microcannula requested (brand/intake/SHOT_REQUESTS.md #16); no licensed photo shows a rounded tip with a side port"
+   },
+   "events": {
+    "tip": {
+     "cue": "here"
+    }
+   },
+   "layout": {
+    "x": 110,
+    "y": 1180,
+    "w": 400,
+    "enter": "up",
+    "tipD": 160,
+    "tipX": 240,
+    "tipY": 150
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22,
+     "at": {
+      "cue": "conventional",
+      "offset": -4
+     }
+    }
+   ],
+   "notes": "real object (Naim note b): floats up below him first, then the needle beside it at the same scale and light · v5: loupes BELOW the objects (y 1330-1490) so nothing reaches her jaw/his hand at her cheek"
+  },
+  {
+   "id": "needle",
+   "lane": "objects",
+   "device": "RealObject",
+   "start": {
+    "word": 266,
+    "text": "needles"
+   },
+   "end": {
+    "beat": "win",
+    "edge": "start",
+    "offset": -4
+   },
+   "text": {
+    "label": "Needle",
+    "tip": "Sharp bevel",
+    "credit": "Needle photo: Politikaner / Wikimedia Commons, CC BY-SA 3.0 · cannula: placeholder"
+   },
+   "source": {
+    "src": "objects/needle.png",
+    "tip": "objects/needle_tip.png",
+    "aspect": 5,
+    "tipAt": [
+     0.03,
+     0.45
+    ],
+    "credit": "Wikimedia Commons, Politikaner, \"Beveled tip of a hypodermic needle 20090714 001.JPG\", CC BY-SA 3.0 (brand/edits/undereye-filler/objects/BANK.md)"
+   },
+   "events": {
+    "tip": {
+     "cue": "swelling0"
+    }
+   },
+   "layout": {
+    "x": 570,
+    "y": 1180,
+    "w": 400,
+    "enter": "up",
+    "tipD": 160,
+    "tipX": 0,
+    "tipY": 150
+   },
+   "notes": " · v5: loupes BELOW the objects (y 1330-1490) so nothing reaches her jaw/his hand at her cheek"
+  },
+  {
+   "id": "win",
+   "lane": "markup",
+   "device": "BAWindowV4",
+   "start": {
+    "cue": "pinprick",
+    "offset": -14
+   },
+   "end": {
+    "piece": "P17",
+    "edge": "end",
+    "offset": -1
+   },
+   "events": {
+    "swap": {
+     "cue": "two",
+     "offset": 30
+    },
+    "marks": {
+     "cue": "pinprick",
+     "offset": -10
+    },
+    "pulse": {
+     "cue": "pinprick"
+    },
+    "bars": {
+     "cue": "settled"
+    }
+   },
+   "text": {
+    "before": "Before · Sept 20",
+    "after": "After · Oct 4",
+    "note1": "x = the one pinprick · line = cannula",
+    "note2": "Same marks, Oct 4 · bars = lighter under-eye (L*, measured)",
+    "credit": "Patient of Dr. Ostad. Individual results vary."
+   },
+   "layout": {
+    "top": 1212,
+    "maxw": 460
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22,
+     "at": {
+      "cue": "pinprick",
+      "offset": -14
+     }
+    }
+   ],
+   "notes": "v5: two notes (v4's middle note 'Same marks, Oct 4' held 11 f)"
+  },
+  {
+   "id": "stat",
+   "lane": "markup",
+   "device": "Stat",
+   "start": {
+    "cue": "settled",
+    "offset": 6
+   },
+   "end": {
+    "piece": "P17",
+    "edge": "end",
+    "offset": -1
+   },
+   "text": {
+    "caps": "Under-eye shadow vs the cheek"
+   },
+   "layout": {
+    "x": 98,
+    "y": 880
+   }
+  },
+  {
+   "id": "endcard",
+   "lane": "titles",
+   "device": "EndCardLow",
+   "start": {
+    "cue": "end"
+   },
+   "end": {
+    "cue": "end",
+    "offset": 72
+   },
+   "layout": {
+    "top": 1110
+   }
+  }
+ ]
+}

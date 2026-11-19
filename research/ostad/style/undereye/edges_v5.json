@@ -1,0 +1,250 @@
+[
+ {
+  "piece": "H1",
+  "clip": "7044",
+  "from": 8.455,
+  "to": 14.71,
+  "first": "so",
+  "last": "procedure",
+  "first_heard_s": 7.6,
+  "last_heard_e": 14.5,
+  "next_word": {
+   "w": "i",
+   "s": 14.86,
+   "e": 14.86
+  },
+  "prev_word": null,
+  "out_fragment": false,
+  "in_fragment": false
+ },
+ {
+  "piece": "P03x",
+  "clip": "6816",
+  "from": 13.7,
+  "to": 15.06,
+  "first": "she's",
+  "last": "bit",
+  "first_heard_s": 14.14,
+  "last_heard_e": 15.02,
+  "next_word": {
+   "w": "bothered",
+   "s": 15.02,
+   "e": 15.4
+  },
+  "prev_word": {
+   "w": "eyelids",
+   "s": 12.379999999999999,
+   "e": 13.18
+  },
+  "out_fragment": true,
+  "in_fragment": false
+ },
+ {
+  "piece": "P03y",
+  "clip": "6816",
+  "from": 15.61,
+  "to": 22.94,
+  "first": "bothered",
+  "last": "not",
+  "first_heard_s": 15.39,
+  "last_heard_e": 22.75,
+  "next_word": {
+   "w": "and",
+   "s": 23.09,
+   "e": 23.19
+  },
+  "prev_word": {
+   "w": "bit",
+   "s": 14.870000000000001,
+   "e": 15.39
+  },
+  "out_fragment": false,
+  "in_fragment": false
+ },
+ {
+  "piece": "P03b",
+  "clip": "6816",
+  "from": 23.59,
+  "to": 27.54,
+  "first": "she",
+  "last": "eyelids",
+  "first_heard_s": 23.39,
+  "last_heard_e": 26.43,
+  "next_word": {
+   "w": "so",
+   "s": 27.45,
+   "e": 27.99
+  },
+  "prev_word": {
+   "w": "and",
+   "s": 23.09,
+   "e": 23.39
+  },
+  "out_fragment": true,
+  "in_fragment": false
+ },
+ {
+  "piece": "P04",
+  "clip": "6816",
+  "from": 29.76,
+  "to": 35.38,
+  "first": "this",
+  "last": "blunt",
+  "first_heard_s": 30.18,
+  "last_heard_e": 35.12,
+  "next_word": {
+   "w": "there's",
+   "s": 35.72,
+   "e": 35.88
+  },
+  "prev_word": {
+   "w": "filler",
+   "s": 29.22,
+   "e": 29.48
+  },
+  "out_fragment": false,
+  "in_fragment": false
+ },
+ {
+  "piece": "P05",
+  "clip": "6816",
+  "from": 40.82,
+  "to": 51.82,
+  "first": "cannulas",
+  "last": "half",
+  "first_heard_s": null,
+  "last_heard_e": 50.78,
+  "next_word": null,
+  "prev_word": {
+   "w": "cruising",
+   "s": 40.17999999999999,
+   "e": 40.66
+  },
+  "out_fragment": false,
+  "in_fragment": false
+ },
+ {
+  "piece": "P08",
+  "clip": "6817",
+  "from": 56.96,
+  "to": 62.33,
+  "first": "a",
+  "last": "lidocaine",
+  "first_heard_s": 56.54,
+  "last_heard_e": 61.7,
+  "next_word": {
+   "w": "so",
+   "s": 62.64,
+   "e": 62.7
+  },
+  "prev_word": {
+   "w": "is",
+   "s": 56.28,
+   "e": 56.54
+  },
+  "out_fragment": false,
+  "in_fragment": false
+ },
+ {
+  "piece": "P09",
+  "clip": "6817",
+  "from": 74.64,
+  "to": 82.14,
+  "first": "inject",
+  "last": "muscle",
+  "first_heard_s": 75.14,
+  "last_heard_e": 81.82,
+  "next_word": {
+   "w": "so",
+   "s": 81.82,
+   "e": 82.48
+  },
+  "prev_word": null,
+  "out_fragment": true,
+  "in_fragment": false
+ },
+ {
+  "piece": "P10",
+  "clip": "6817",
+  "from": 124.32,
+  "to": 129.2,
+  "first": "her",
+  "last": "deeper",
+  "first_heard_s": 124.04,
+  "last_heard_e": 129.0,
+  "next_word": {
+   "w": "i",
+   "s": 129.0,
+   "e": 129.74
+  },
+  "prev_word": {
+   "w": "how",
+   "s": 123.66,
+   "e": 124.04
+  },
+  "out_fragment": true,
+  "in_fragment": false
+ },
+ {
+  "piece": "P14",
+  "clip": "6818",
+  "from": 3.31,
+  "to": 16.97,
+  "first": "the",
+  "last": "right",
+  "first_heard_s": 3.25,
+  "last_heard_e": 15.97,
+  "next_word": {
+   "w": "she",
+   "s": 16.75,
+   "e": 17.19
+  },
+  "prev_word": {
+   "w": "know",
+   "s": 3.01,
+   "e": 3.13
+  },
+  "out_fragment": true,
+  "in_fragment": false
+ },
+ {
+  "piece": "P15",
+  "clip": "6818",
+  "from": 23.11,
+  "to": 31.46,
+  "first": "in",
+  "last": "effect",
+  "first_heard_s": 23.15,
+  "last_heard_e": 30.57,
+  "next_word": {
+   "w": "and",
+   "s": 31.83,
+   "e": 31.87
+  },
+  "prev_word": {
+   "w": "more",
+   "s": 22.31,
+   "e": 22.57
+  },
+  "out_fragment": false,
+  "in_fragment": false
+ },
+ {
+  "piece": "P17",
+  "clip": "6821",
+  "from": 2.69,
+  "to": 33.2,
+  "first": "she",
+  "last": "swelling",
+  "first_heard_s": 2.55,
+  "last_heard_e": 33.01,
+  "next_word": null,
+  "prev_word": {
+   "w": "her",
+   "s": 2.29,
+   "e": 2.43
+  },
+  "out_fragment": false,
+  "in_fragment": false
+ }
+]

@@ -1,0 +1,62 @@
+[
+ {
+  "join": "P03b->P04",
+  "side": "out (start of the next word)",
+  "replaced_s": [
+   15.67,
+   16.0
+  ],
+  "ms": 330,
+  "floor_db": -40.3
+ },
+ {
+  "join": "P03b->P04",
+  "side": "in (end of the previous word)",
+  "replaced_s": [
+   16.0,
+   16.28
+  ],
+  "ms": 280,
+  "floor_db": -31.3
+ },
+ {
+  "join": "P05->P08",
+  "side": "out (start of the next word)",
+  "replaced_s": [
+   29.773,
+   30.083
+  ],
+  "ms": 310,
+  "floor_db": -35.4
+ },
+ {
+  "join": "P08->P09",
+  "side": "in (end of the previous word)",
+  "replaced_s": [
+   34.625,
+   34.955
+  ],
+  "ms": 330,
+  "floor_db": -53.4
+ },
+ {
+  "join": "P14->P15",
+  "side": "out (start of the next word)",
+  "replaced_s": [
+   56.598,
+   56.708
+  ],
+  "ms": 110,
+  "floor_db": -37.1
+ },
+ {
+  "join": "P15->P17",
+  "side": "out (start of the next word)",
+  "replaced_s": [
+   63.612,
+   63.792
+  ],
+  "ms": 180,
+  "floor_db": -38.1
+ }
+]

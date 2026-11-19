@@ -65,7 +65,11 @@ def footage_frames(props, step):
         prev = pics[i - 1] if i else None
         q["run0"] = prev["run0"] if prev and prev.get("still") and prev.get("still") == q.get("still") and prev["f1"] == q["f0"] else q["f0"]
     end, sp = props["durationInFrames"], props["speed"]
-    last = dict(pics[-1]); last.update(f0=end, f1=end + TAIL, src=(last.get("src") or 0) + (props["pieces"][-1]["dur"] / 24) * sp)
+    last = dict(pics[-1])
+    if "tailRate" in props:  # v5: the tail continues from the last picture's own end at tailRate (UndereyeReelV5)
+        last.update(f0=end, f1=end + TAIL, src=(last.get("src") or 0) + ((last["f1"] - last["f0"]) / 24) * sp, rate=props["tailRate"])
+    else:
+        last.update(f0=end, f1=end + TAIL, src=(last.get("src") or 0) + (props["pieces"][-1]["dur"] / 24) * sp)
     pics.append(last)
     clips, stills = Clips(), {}
     hook = props.get("hook", 44)
@@ -78,7 +82,7 @@ def footage_frames(props, step):
             im = stills.setdefault(name, cv2.imread(str(PUB / name)))
             push = 1 + 0.035 * min(1, (f - q["run0"]) / 120)
         else:
-            t = round(q["src"] * 24) / 24 + (f - q["f0"]) * sp / 24
+            t = round(q["src"] * 24) / 24 + (f - q["f0"]) * q.get("rate", sp) / 24
             im = clips.frame(q["clip"], t); push = 1
             if im is None: continue
         im = scale_about(im, (q.get("scale") or 1) * push, q.get("ox", 540), q.get("oy", 960))

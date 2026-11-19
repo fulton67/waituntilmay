@@ -45,3 +45,15 @@ Sources:
 | Pillowy | "it's going to expand… pillowy" | lower-lid profile growing past the natural line (Another syringe, marked Not used) |
 | Tyndall effect | "that bluish hue called the Tyndall effect" | light scatter on the section: the shallow deposit scatters blue, the deep one none |
 | Bruising | "needles cause swelling, bruising" | bruise swatch in the Needles card, labelled illustration, marked Not used |
+
+## Objects
+
+Every instrument, device or product named in a reel, shown as a REAL OBJECT cut-out (src/devices/RealObject.tsx; memory ostad-real-objects). Sources and licences: the bank next to the cut-outs (brand/edits/undereye-filler/objects/BANK.md for the under-eye ones). Never AI-generated.
+
+| Object | Reel / beat | Cut-out file(s) | Label | Compared with |
+|---|---|---|---|---|
+| Blunt cannula | Under-eye v5, S4 "Just the cannula ... and here, you can't tell ... one actual pinprick" | public/objects/cannula.png, cannula_tip.png | "Blunt cannula" · tip: "Rounded tip" | the needle, same scale and light |
+| Hypodermic needle | Under-eye v5, S4 "The conventional way of using actually needles will cause a lot of swelling, bruising" | public/objects/needle.png, needle_tip.png | "Needle" · tip: "Sharp bevel" | the blunt cannula |
+| Evolysse Form syringe | Oct 14 v6, "we literally put a syringe of what I call Evolysse Form" (f1196, under the lone injection clip); again in the pair at f1363 | public/objects/evolysse-form.PLACEHOLDER.png (MARKED PLACEHOLDER: brand/intake/SHOT_REQUESTS.md #14) | "Evolysse Form" | Evolysse Smooth, same scale, stacked |
+| Evolysse Smooth syringe | Oct 14 v6, "And we used Evolysse Smooth here ... It's not as thick" (f1363, before the two-gels plate) | public/objects/evolysse-smooth.PLACEHOLDER.png (MARKED PLACEHOLDER: SHOT_REQUESTS #15) | "Evolysse Smooth" | Evolysse Form |
+| Blunt cannula vs needle | Oct 14 v6, "I like using a cannula because we can minimize bruising" (f1663, under the cannula plate) | the shared public/objects/cannula.png + needle.png (under-eye agent's bank) | "Blunt cannula" / "Sharp needle" | each other, same scale |
