@@ -10,5 +10,8 @@ export const PromoRoot: React.FC = () => (
     <Composition id="SunShadeFeed" component={SunShade} width={1080} height={1350} fps={30} durationInFrames={360} defaultProps={{ fmt: "feed" as const }} />
     <Composition id="SunShadeStoryWhite" component={SunShade} width={1080} height={1920} fps={30} durationInFrames={360} defaultProps={{ fmt: "story" as const, bg: "white" as const }} />
     <Composition id="SunShadeFeedWhite" component={SunShade} width={1080} height={1350} fps={30} durationInFrames={360} defaultProps={{ fmt: "feed" as const, bg: "white" as const }} />
+    {/* any product: --props='{"fmt":"story","bg":"white","product":"luma"}'  (products: pair | clear | luma | lineup) */}
+    <Composition id="PromoStory" component={SunShade} width={1080} height={1920} fps={30} durationInFrames={360} defaultProps={{ fmt: "story" as const, bg: "white" as const, product: "clear" }} />
+    <Composition id="PromoFeed" component={SunShade} width={1080} height={1350} fps={30} durationInFrames={360} defaultProps={{ fmt: "feed" as const, bg: "white" as const, product: "clear" }} />
   </>
 );
