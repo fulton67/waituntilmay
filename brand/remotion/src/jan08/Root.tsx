@@ -2,6 +2,7 @@ import { Composition, staticFile } from "remotion";
 import { Jan08Reel, type Jan08Props } from "./Reel";
 import { Jan08ReelV2, type Jan08V2Props } from "./ReelV2";
 import { Jan08ReelV3, type Jan08V3Props } from "./ReelV3";
+import { Jan08ReelV4, type Jan08V4Props } from "./ReelV4";
 
 // Jan08Reel: the filler-fatigue reel. Props: public/jan08/props.json (+ anatomy.json, ba.json); its own entry point so it renders
 // without the shared Root.tsx:  npx remotion render src/jan08/index.ts Jan08Reel <out.mp4>
@@ -27,6 +28,13 @@ export const Jan08Root: React.FC = () => (
       calculateMetadata={async ({ props }) => {
         const p: Jan08V3Props = props.pieces ? props : { ...(await get("jan08/props.json")), ba: await get("jan08/ba.json"), frames: await get("flora/frames.json"),
           web: await getOr("jan08/clinic/web/credits.json", []), mode: props.mode ?? "full", layoutV2: !!props.layoutV2 };
+        return { durationInFrames: p.durationInFrames + p.tail, props: p };
+      }} />
+    {/* Jan08ReelV4: round 4 (Naim's notes on v3). Beats from timelines/jan08.json, transcript public/jan08/props_v4.json; mode as V3 */}
+    <Composition id="Jan08ReelV4" component={Jan08ReelV4} width={1080} height={1920} fps={24} durationInFrames={240} defaultProps={{} as Jan08V4Props}
+      calculateMetadata={async ({ props }) => {
+        const p: Jan08V4Props = props.pieces ? props : { ...(await get("jan08/props_v4.json")), ba: await get("jan08/ba.json"), frames: await get("flora/frames.json"),
+          web: await getOr("jan08/clinic/web/credits.json", []), mode: props.mode ?? "full", timeline: props.timeline };
         return { durationInFrames: p.durationInFrames + p.tail, props: p };
       }} />
   </>

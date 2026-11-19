@@ -1,0 +1,14 @@
+{
+ "label": "v4b-tail-1960-2152",
+ "footage": "brand/edits/jan08-filler-fatigue/v4/check/footage_tail_b.mp4",
+ "graphics": "brand/edits/jan08-filler-fatigue/v4/check/check_tail_b.mp4",
+ "step": 1,
+ "frames_checked": 193,
+ "frames_with_face": 118,
+ "faces": 118,
+ "failing_frames": 0,
+ "runs": [],
+ "pass": true,
+ "rule": "graphics diff > 28 (3x3 open) inside a YuNet face box (score >= 0.75) expanded 10 %/side; fail if > 12 px at half size",
+ "fails": []
+}

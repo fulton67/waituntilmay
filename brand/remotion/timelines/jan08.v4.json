@@ -1,0 +1,1262 @@
+{
+ "schema": 1,
+ "reel": "jan08",
+ "version": "v4",
+ "comp": {
+  "entry": "src/jan08/index.ts",
+  "id": "Jan08ReelV4",
+  "props": {}
+ },
+ "fps": 24,
+ "transcript": "public/jan08/props_v4.json",
+ "voice": "public/jan08/voice_v4.wav",
+ "master": {
+  "lufs": -14,
+  "tp": -1.5,
+  "limiter": false
+ },
+ "beats": [
+  {
+   "id": "talk:hook",
+   "lane": "footage",
+   "device": "Talk",
+   "start": {
+    "piece": "hook",
+    "edge": "start"
+   },
+   "end": {
+    "piece": "hook",
+    "edge": "end"
+   },
+   "source": {
+    "clip": "jan08/talk.mp4",
+    "in": 163.31,
+    "out": 165.21,
+    "rate": 1
+   },
+   "notes": "claim first: the strongest line, full frame (rule 3)"
+  },
+  {
+   "id": "talk:belief",
+   "lane": "footage",
+   "device": "Talk",
+   "start": {
+    "piece": "belief",
+    "edge": "start"
+   },
+   "end": {
+    "piece": "belief",
+    "edge": "end"
+   },
+   "source": {
+    "clip": "jan08/talk.mp4",
+    "in": 16.15,
+    "out": 28.23,
+    "rate": 1
+   },
+   "notes": "the common belief, in his words: 'where patients feel that' a lot of filler can stretch skin, look overfilled, migrate (the setup kept: without it the line reads as his claim)"
+  },
+  {
+   "id": "talk:cause",
+   "lane": "footage",
+   "device": "Talk",
+   "start": {
+    "piece": "cause",
+    "edge": "start"
+   },
+   "end": {
+    "piece": "cause",
+    "edge": "end"
+   },
+   "source": {
+    "clip": "jan08/talk.mp4",
+    "in": 46.05,
+    "out": 54.14,
+    "rate": 1
+   },
+   "notes": "why it is wrong: improper injections, untrained injectors, too much filling"
+  },
+  {
+   "id": "talk:aging",
+   "lane": "footage",
+   "device": "Talk",
+   "start": {
+    "piece": "aging",
+    "edge": "start"
+   },
+   "end": {
+    "piece": "aging",
+    "edge": "end"
+   },
+   "source": {
+    "clip": "jan08/talk.mp4",
+    "in": 64.44,
+    "out": 77.24,
+    "rate": 1
+   },
+   "notes": "what really happens: volume, fat and support lost with age"
+  },
+  {
+   "id": "talk:sags",
+   "lane": "footage",
+   "device": "Talk",
+   "start": {
+    "piece": "sags",
+    "edge": "start"
+   },
+   "end": {
+    "piece": "sags",
+    "edge": "end"
+   },
+   "source": {
+    "clip": "jan08/talk.mp4",
+    "in": 80.47,
+    "out": 83.48,
+    "rate": 1
+   },
+   "notes": "...so the skin sags (GLP-1 aside trimmed: a separate cause, no claim changed)"
+  },
+  {
+   "id": "talk:method",
+   "lane": "footage",
+   "device": "Talk",
+   "start": {
+    "piece": "method",
+    "edge": "start"
+   },
+   "end": {
+    "piece": "method",
+    "edge": "end"
+   },
+   "source": {
+    "clip": "jan08/talk.mp4",
+    "in": 119.32,
+    "out": 129.41,
+    "rate": 1
+   },
+   "notes": "what he does instead: his method, microcannulas ('sort of in a nutshell addresses really' trimmed)"
+  },
+  {
+   "id": "talk:cheekbones",
+   "lane": "footage",
+   "device": "Talk",
+   "start": {
+    "piece": "cheekbones",
+    "edge": "start"
+   },
+   "end": {
+    "piece": "cheekbones",
+    "edge": "end"
+   },
+   "source": {
+    "clip": "jan08/talk.mp4",
+    "in": 131.56,
+    "out": 151.065,
+    "rate": 1
+   },
+   "notes": "on the cheekbones -> lift, because the ligaments weaken; migration only with the wrong filler / too much in a lip"
+  },
+  {
+   "id": "talk:approach",
+   "lane": "footage",
+   "device": "Talk",
+   "start": {
+    "piece": "approach",
+    "edge": "start"
+   },
+   "end": {
+    "piece": "approach",
+    "edge": "end"
+   },
+   "source": {
+    "clip": "jan08/talk.mp4",
+    "in": 213.04,
+    "out": 224.96,
+    "rate": 1
+   },
+   "notes": "setup: cheekbones + minimal elsewhere ... BUT not golf size (kept with its 'but')"
+  },
+  {
+   "id": "talk:awkward",
+   "lane": "footage",
+   "device": "Talk",
+   "start": {
+    "piece": "awkward",
+    "edge": "start"
+   },
+   "end": {
+    "piece": "awkward",
+    "edge": "end"
+   },
+   "source": {
+    "clip": "jan08/talk.mp4",
+    "in": 226.27,
+    "out": 234.62,
+    "rate": 1
+   },
+   "notes": "...filling in the mid cheek looks awkward; so I just want to address this issue of filler fatigue. I really think fillers are here to stay. (v4, Naim round 3: the v3 'close' piece ran straight into 'I have my approach' with no pause, so it sounded mid-sentence. The reel now ends on 'here to stay.' inside its 0.34 s pause (234.37-234.71, measured): 'stay' ends 234.0, the next word 'I' starts 234.71; whisper on 230.0-234.62 hears nothing after 'stay.')"
+  },
+  {
+   "id": "hook",
+   "lane": "titles",
+   "device": "HookRoom",
+   "start": {
+    "frame": 2
+   },
+   "end": {
+    "word": 6,
+    "text": "fatigue",
+    "edge": "start",
+    "offset": 52
+   },
+   "events": {
+    "dim": {
+     "word": 6,
+     "text": "fatigue",
+     "edge": "start"
+    }
+   },
+   "text": {
+    "eyebrow": "Dr. Ariel Ostad on",
+    "title": "Filler fatigue",
+    "pairCaps": "What he finds instead",
+    "pair": "Poor technique, and aging"
+   },
+   "layout": {
+    "keyed": [
+     "hook",
+     "belief"
+    ],
+    "top": 150
+   },
+   "notes": "v4: no strike (Naim d). The term dims on 'fatigue' and the contrast line lights under it; holds 2 s."
+  },
+  {
+   "id": "sec01",
+   "lane": "titles",
+   "device": "RoomTitle",
+   "start": {
+    "beat": "hook",
+    "edge": "end",
+    "offset": 8
+   },
+   "end": {
+    "beat": "sec01",
+    "edge": "start",
+    "offset": 80
+   },
+   "text": {
+    "num": "01",
+    "title": "The belief"
+   },
+   "layout": {
+    "keyed": "belief"
+   },
+   "sfx": [
+    {
+     "name": "exo_chapter",
+     "gain": 0.3
+    }
+   ]
+  },
+  {
+   "id": "J1",
+   "lane": "plates",
+   "device": "FloraPlate",
+   "start": {
+    "beat": "sec01",
+    "edge": "end"
+   },
+   "end": {
+    "cue": "end:belief"
+   },
+   "text": {
+    "eyebrow": "The belief",
+    "title": "Filler stretches skin?",
+    "labels": [
+     {
+      "text": "Stretch?",
+      "at": {
+       "cue": "stretch"
+      },
+      "x": 0.06,
+      "y": 0.2
+     },
+     {
+      "text": "Overfilled?",
+      "at": {
+       "cue": "overfilled"
+      },
+      "x": 0.46,
+      "y": 0.67,
+      "anchor": "middle"
+     },
+     {
+      "text": "Migrates?",
+      "at": {
+       "cue": "migrate0"
+      },
+      "x": 0.97,
+      "y": 0.88,
+      "anchor": "end"
+     }
+    ]
+   },
+   "plate": {
+    "id": "J1",
+    "map": [
+     [
+      {
+       "beat": "J1",
+       "edge": "start"
+      },
+      0
+     ],
+     [
+      {
+       "cue": "stretch",
+       "offset": -30
+      },
+      30
+     ],
+     [
+      {
+       "cue": "stretch"
+      },
+      60
+     ],
+     [
+      {
+       "cue": "stretch",
+       "offset": 30
+      },
+      78
+     ],
+     [
+      {
+       "cue": "overfilled"
+      },
+      84
+     ],
+     [
+      {
+       "cue": "overfilled",
+       "offset": 30
+      },
+      96
+     ],
+     [
+      {
+       "cue": "migrate0"
+      },
+      102
+     ],
+     [
+      {
+       "beat": "J1",
+       "edge": "end",
+       "offset": -7
+      },
+      128
+     ]
+    ]
+   },
+   "layout": {
+    "x": 450,
+    "y": 250,
+    "w": 590,
+    "h": 1000,
+    "keyed": "belief",
+    "place": {
+     "x": -250,
+     "scale": 0.8
+    }
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22
+    }
+   ],
+   "notes": "J1x continues it on the cut"
+  },
+  {
+   "id": "J1x",
+   "lane": "plates",
+   "device": "FloraPlate",
+   "start": {
+    "cue": "end:belief"
+   },
+   "end": {
+    "cue": "migrate0",
+    "offset": 56
+   },
+   "text": {
+    "eyebrow": "The belief",
+    "title": "Filler stretches skin?",
+    "labels": [
+     {
+      "text": "Stretch?",
+      "x": 0.06,
+      "y": 0.2
+     },
+     {
+      "text": "Overfilled?",
+      "x": 0.46,
+      "y": 0.67,
+      "anchor": "middle"
+     },
+     {
+      "text": "Migrates?",
+      "x": 0.97,
+      "y": 0.88,
+      "anchor": "end"
+     }
+    ]
+   },
+   "plate": {
+    "id": "J1",
+    "map": [
+     [
+      {
+       "beat": "J1x",
+       "edge": "start"
+      },
+      128
+     ]
+    ]
+   },
+   "layout": {
+    "x": 60,
+    "y": 250,
+    "w": 960,
+    "h": 1250
+   },
+   "notes": "v4 cutaway on the cut to 'cause' (no key there), so 'Migrates?' holds 2 s"
+  },
+  {
+   "id": "causes",
+   "lane": "objects",
+   "device": "CausesV3",
+   "start": {
+    "cue": "improper",
+    "offset": -12
+   },
+   "end": {
+    "cue": "toomuch",
+    "offset": 50
+   },
+   "text": {
+    "caps": "Where the bad results come from",
+    "rows": [
+     {
+      "text": "Improper injections",
+      "at": {
+       "cue": "improper"
+      }
+     },
+     {
+      "text": "Untrained injectors",
+      "at": {
+       "cue": "trained"
+      }
+     },
+     {
+      "text": "Overfilling",
+      "at": {
+       "cue": "toomuch"
+      }
+     }
+    ]
+   },
+   "source": {
+    "still": "s1_castelanich2025_fig1_patient1_pre_crop.jpg",
+    "pos": "50% 68%"
+   },
+   "events": {
+    "img": {
+     "cue": "toomuch",
+     "offset": 2
+    }
+   },
+   "layout": {
+    "top": 1322
+   }
+  },
+  {
+   "id": "sec02",
+   "lane": "titles",
+   "device": "RoomTitle",
+   "start": {
+    "cue": "toomuch",
+    "offset": 44
+   },
+   "end": {
+    "beat": "sec02",
+    "edge": "start",
+    "offset": 80
+   },
+   "text": {
+    "num": "02",
+    "title": "What aging does"
+   },
+   "layout": {
+    "keyed": "aging",
+    "px": 108
+   },
+   "sfx": [
+    {
+     "name": "exo_chapter",
+     "gain": 0.3
+    }
+   ]
+  },
+  {
+   "id": "J2",
+   "lane": "plates",
+   "device": "FloraPlate",
+   "start": {
+    "beat": "sec02",
+    "edge": "end"
+   },
+   "end": {
+    "cue": "aging2"
+   },
+   "text": {
+    "eyebrow": "What aging does",
+    "title": "Volume and support are lost",
+    "titlePx": 38,
+    "labels": [
+     {
+      "text": "Volume",
+      "at": {
+       "cue": "volume"
+      },
+      "x": 0.64,
+      "y": 0.6,
+      "anchor": "middle"
+     },
+     {
+      "text": "Fat",
+      "at": {
+       "cue": "fatty"
+      },
+      "x": 0.72,
+      "y": 0.79,
+      "anchor": "middle"
+     },
+     {
+      "text": "Support",
+      "at": {
+       "cue": "support"
+      },
+      "x": 0.33,
+      "y": 0.46,
+      "anchor": "middle"
+     }
+    ]
+   },
+   "plate": {
+    "id": "J2",
+    "map": [
+     [
+      {
+       "beat": "J2",
+       "edge": "start"
+      },
+      0
+     ],
+     [
+      {
+       "cue": "volume",
+       "offset": 12
+      },
+      24
+     ],
+     [
+      {
+       "cue": "volume",
+       "offset": 40
+      },
+      54
+     ],
+     [
+      {
+       "cue": "fatty"
+      },
+      60
+     ],
+     [
+      {
+       "cue": "fatty",
+       "offset": 40
+      },
+      84
+     ]
+    ]
+   },
+   "layout": {
+    "x": 450,
+    "y": 250,
+    "w": 590,
+    "h": 1040,
+    "keyed": "aging",
+    "place": {
+     "x": -250,
+     "scale": 0.8
+    }
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22
+    }
+   ]
+  },
+  {
+   "id": "bank",
+   "lane": "objects",
+   "device": "RowCard",
+   "start": {
+    "cue": "aging2"
+   },
+   "end": {
+    "cue": "end:sags",
+    "offset": -8
+   },
+   "text": {
+    "caps": "Volume loss · a real example",
+    "title": "We lose volume",
+    "credit": "Hong GW et al., JPRAS Open 2026, CC BY 4.0"
+   },
+   "source": {
+    "still": "jan08/clinic/bank_midcheek.jpg",
+    "pos": "50% 60%"
+   }
+  },
+  {
+   "id": "sec03",
+   "lane": "titles",
+   "device": "RoomTitle",
+   "start": {
+    "cue": "start:method"
+   },
+   "end": {
+    "beat": "sec03",
+    "edge": "start",
+    "offset": 80
+   },
+   "text": {
+    "num": "03",
+    "title": "On the cheekbones"
+   },
+   "layout": {
+    "keyed": "method",
+    "px": 108
+   },
+   "sfx": [
+    {
+     "name": "exo_chapter",
+     "gain": 0.3
+    }
+   ]
+  },
+  {
+   "id": "broll1",
+   "lane": "footage",
+   "device": "Clip",
+   "start": {
+    "beat": "sec03",
+    "edge": "end"
+   },
+   "end": {
+    "beat": "sec03",
+    "edge": "end",
+    "offset": 57
+   },
+   "source": {
+    "clip": "jan08/clinic/IMG_3453.mp4",
+    "in": 14
+   }
+  },
+  {
+   "id": "broll2",
+   "lane": "footage",
+   "device": "Clip",
+   "start": {
+    "beat": "broll1",
+    "edge": "end"
+   },
+   "end": {
+    "cue": "micro"
+   },
+   "source": {
+    "clip": "jan08/clinic/IMG_3453.mp4",
+    "in": 27
+   }
+  },
+  {
+   "id": "name",
+   "lane": "objects",
+   "device": "NameCard",
+   "start": {
+    "beat": "broll1",
+    "edge": "start",
+    "offset": 4
+   },
+   "end": {
+    "beat": "broll1",
+    "edge": "start",
+    "offset": 104
+   }
+  },
+  {
+   "id": "clip",
+   "lane": "objects",
+   "device": "RowCard",
+   "start": {
+    "cue": "micro"
+   },
+   "end": {
+    "cue": "start:cheekbones",
+    "offset": 2
+   },
+   "text": {
+    "caps": "His method",
+    "title": "Microcannula",
+    "note": "Filler placed on the cheekbone"
+   },
+   "source": {
+    "clip": "jan08/clinic/IMG_3470.mp4",
+    "in": 13
+   }
+  },
+  {
+   "id": "J3",
+   "lane": "plates",
+   "device": "FloraPlate",
+   "start": {
+    "cue": "start:cheekbones",
+    "offset": 10
+   },
+   "end": {
+    "cue": "falls"
+   },
+   "text": {
+    "eyebrow": "His method",
+    "title": "On the cheekbone, by microcannula",
+    "labels": [
+     {
+      "text": "Cheekbone",
+      "at": {
+       "cue": "cheekbones",
+       "offset": 36
+      },
+      "out": {
+       "cue": "diminish",
+       "offset": -2
+      },
+      "x": 0.34,
+      "y": 0.47,
+      "anchor": "end"
+     },
+     {
+      "text": "Microcannula",
+      "at": {
+       "cue": "cheekbones",
+       "offset": 10
+      },
+      "x": 0.66,
+      "y": 0.84
+     },
+     {
+      "text": "Lift",
+      "at": {
+       "cue": "lifting"
+      },
+      "out": {
+       "cue": "diminish",
+       "offset": -2
+      },
+      "x": 0.56,
+      "y": 0.5
+     },
+     {
+      "text": "Without support it falls",
+      "at": {
+       "cue": "diminish",
+       "offset": -3
+      },
+      "x": 0.5,
+      "y": 0.93,
+      "anchor": "middle"
+     }
+    ]
+   },
+   "plate": {
+    "id": "J3",
+    "map": [
+     [
+      {
+       "beat": "J3",
+       "edge": "start"
+      },
+      0
+     ],
+     [
+      {
+       "cue": "cheekbones"
+      },
+      14
+     ],
+     [
+      {
+       "cue": "cheekbones",
+       "offset": 36
+      },
+      63
+     ],
+     [
+      {
+       "cue": "cheekbones",
+       "offset": 60
+      },
+      92
+     ],
+     [
+      {
+       "cue": "lifting"
+      },
+      100
+     ],
+     [
+      {
+       "beat": "J3",
+       "edge": "end",
+       "offset": -7
+      },
+      143
+     ]
+    ],
+    "zoom": {
+     "keys": [
+      [
+       {
+        "cue": "cheekbones"
+       },
+       1.25
+      ],
+      [
+       {
+        "cue": "diminish"
+       },
+       1
+      ]
+     ],
+     "ox": 0.42,
+     "oy": 0.5
+    }
+   },
+   "layout": {
+    "x": 60,
+    "y": 250,
+    "w": 960,
+    "h": 1250
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22
+    }
+   ]
+  },
+  {
+   "id": "broll3",
+   "lane": "footage",
+   "device": "Clip",
+   "start": {
+    "cue": "falls"
+   },
+   "end": {
+    "cue": "great",
+    "offset": 9
+   },
+   "source": {
+    "clip": "jan08/clinic/IMG_3470.mp4",
+    "in": 18
+   }
+  },
+  {
+   "id": "sec04",
+   "lane": "titles",
+   "device": "RoomTitle",
+   "start": {
+    "cue": "great",
+    "offset": 9
+   },
+   "end": {
+    "beat": "sec04",
+    "edge": "start",
+    "offset": 80
+   },
+   "text": {
+    "num": "04",
+    "title": "Migration"
+   },
+   "layout": {
+    "keyed": "cheekbones",
+    "px": 124
+   },
+   "sfx": [
+    {
+     "name": "exo_chapter",
+     "gain": 0.3
+    }
+   ]
+  },
+  {
+   "id": "J4",
+   "lane": "plates",
+   "device": "FloraPlate",
+   "start": {
+    "beat": "sec04",
+    "edge": "end"
+   },
+   "end": {
+    "cue": "start:approach"
+   },
+   "text": {
+    "eyebrow": "Migration",
+    "title": "Wrong filler, or too much in a lip",
+    "labels": [
+     {
+      "text": "Stays on the bone",
+      "at": {
+       "beat": "J4",
+       "edge": "start",
+       "offset": 4
+      },
+      "x": 0.76,
+      "y": 0.32,
+      "anchor": "middle"
+     },
+     {
+      "text": "Too much: spreads",
+      "at": {
+       "word": 168,
+       "text": "migrate",
+       "edge": "start"
+      },
+      "x": 0.03,
+      "y": 0.78
+     }
+    ]
+   },
+   "plate": {
+    "id": "J4",
+    "map": [
+     [
+      {
+       "beat": "J4",
+       "edge": "start"
+      },
+      0
+     ],
+     [
+      {
+       "beat": "J4",
+       "edge": "start",
+       "offset": 15
+      },
+      6
+     ],
+     [
+      {
+       "cue": "lip"
+      },
+      30
+     ],
+     [
+      {
+       "cue": "lip",
+       "offset": 24
+      },
+      60
+     ],
+     [
+      {
+       "beat": "J4",
+       "edge": "end",
+       "offset": -7
+      },
+      72
+     ]
+    ]
+   },
+   "layout": {
+    "x": 60,
+    "y": 250,
+    "w": 960,
+    "h": 1250
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22
+    }
+   ]
+  },
+  {
+   "id": "lipcase",
+   "lane": "objects",
+   "device": "WebCard",
+   "start": {
+    "word": 166,
+    "text": "It",
+    "edge": "start"
+   },
+   "end": {
+    "beat": "J4",
+    "edge": "end",
+    "offset": -6
+   },
+   "text": {
+    "eyebrow": "Migration · a real case",
+    "title": "Lip filler spread"
+   },
+   "source": {
+    "still": "s2_jmir2024_fig2_panelA_crop.jpg",
+    "pos": "60% 50%"
+   },
+   "layout": {
+    "right": true,
+    "top": 1080,
+    "w": 400
+   },
+   "notes": "v4 (Naim a): was on screen 2 frames; now from 'It may migrate in a lip' to the cut, 2.5 s"
+  },
+  {
+   "id": "map",
+   "lane": "markup",
+   "device": "PhotoPanel",
+   "start": {
+    "cue": "start:approach"
+   },
+   "end": {
+    "cue": "golf",
+    "offset": -12
+   },
+   "text": {
+    "caps": "His plan · microcannula",
+    "key": "✕ entry · line: cannula path · dot: filler",
+    "rows": [
+     {
+      "text": "Cheekbones",
+      "amt": "the most",
+      "at": {
+       "cue": "cheekbones2"
+      },
+      "big": true
+     },
+     {
+      "text": "Laugh lines",
+      "amt": "minimal",
+      "at": {
+       "cue": "laugh"
+      }
+     },
+     {
+      "text": "Marionette lines",
+      "amt": "minimal",
+      "at": {
+       "cue": "marionette"
+      }
+     },
+     {
+      "text": "Lower lids",
+      "amt": "a little",
+      "at": {
+       "cue": "lids"
+      }
+     }
+    ]
+   },
+   "source": {
+    "still": "jan08/clinic/front_before.jpg"
+   },
+   "events": {
+    "fill": {
+     "cue": "midcheek"
+    }
+   },
+   "notes": "landmark face plan unchanged from v3 (Naim e: 'a happy medium')"
+  },
+  {
+   "id": "J5",
+   "lane": "plates",
+   "device": "FloraPlate",
+   "start": {
+    "cue": "golf",
+    "offset": -12
+   },
+   "end": {
+    "cue": "awkward",
+    "offset": 31
+   },
+   "text": {
+    "eyebrow": "Not this",
+    "title": "Golf-size filling, mid cheek",
+    "labels": [
+     {
+      "text": "Looks awkward",
+      "at": {
+       "word": 224,
+       "text": "mid-cheek",
+       "edge": "start",
+       "offset": -4
+      },
+      "x": 0.3,
+      "y": 0.9,
+      "anchor": "middle"
+     }
+    ]
+   },
+   "plate": {
+    "id": "J5",
+    "map": [
+     [
+      {
+       "beat": "J5",
+       "edge": "start"
+      },
+      0
+     ],
+     [
+      {
+       "cue": "golf"
+      },
+      30
+     ],
+     [
+      {
+       "cue": "golf",
+       "offset": 50
+      },
+      70
+     ],
+     [
+      {
+       "cue": "awkward"
+      },
+      86
+     ]
+    ]
+   },
+   "layout": {
+    "x": 60,
+    "y": 250,
+    "w": 960,
+    "h": 1250
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22
+    }
+   ],
+   "notes": "v4 (Naim d): no strike X; 'Not this' pairs with the B/A's 'This'"
+  },
+  {
+   "id": "overfilled",
+   "lane": "objects",
+   "device": "WebCard",
+   "start": {
+    "cue": "golf"
+   },
+   "end": {
+    "beat": "J5",
+    "edge": "end",
+    "offset": -6
+   },
+   "text": {
+    "eyebrow": "A real case",
+    "title": "Overfilled cheeks"
+   },
+   "source": {
+    "still": "s1_castelanich2025_fig1_patient2_pre_crop.jpg",
+    "pos": "50% 62%"
+   },
+   "layout": {
+    "right": true,
+    "top": 1060,
+    "w": 360
+   }
+  },
+  {
+   "id": "ba",
+   "lane": "markup",
+   "device": "BAPanel",
+   "start": {
+    "beat": "J5",
+    "edge": "end"
+   },
+   "end": {
+    "cue": "end:awkward",
+    "offset": -10
+   },
+   "text": {
+    "caps": "This · an example of his approach",
+    "before": "Before",
+    "after": "Right after",
+    "line": "Cheekbones, by microcannula",
+    "credit": "Patient of Dr. Ostad, the same day. Individual results vary."
+   },
+   "events": {
+    "sweep": {
+     "cue": "address",
+     "offset": 6
+    }
+   },
+   "sfx": [
+    {
+     "name": "exo_card",
+     "gain": 0.22
+    }
+   ],
+   "notes": "v4 (Naim c): an example of his approach, not her 'filler fatigue'; out 10 frames before the end so its 8-frame fade is done before the end card (face_clear)"
+  },
+  {
+   "id": "end",
+   "lane": "objects",
+   "device": "EndCard",
+   "start": {
+    "cue": "end"
+   },
+   "end": {
+    "cue": "end",
+    "offset": 48
+   }
+  },
+  {
+   "id": "captions",
+   "lane": "captions",
+   "device": "Captions",
+   "start": {
+    "frame": 0
+   },
+   "end": {
+    "cue": "end"
+   },
+   "layout": {
+    "ink": [
+     "J1x",
+     "J3",
+     "J4",
+     "map",
+     "J5",
+     "ba"
+    ]
+   }
+  }
+ ]
+}

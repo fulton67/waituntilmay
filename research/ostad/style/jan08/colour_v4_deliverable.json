@@ -1,0 +1,36 @@
+{
+ "frames": [
+  {
+   "frame": 450,
+   "piece": "cause",
+   "mean_rgb_region": [
+    1.17,
+    1.57,
+    1.35
+   ],
+   "mean_whole": 21.61,
+   "signed_rgb_whole": [
+    19.16,
+    20.46,
+    19.99
+   ]
+  },
+  {
+   "frame": 880,
+   "piece": "sags",
+   "mean_rgb_region": [
+    1.09,
+    1.47,
+    1.28
+   ],
+   "mean_whole": 19.16,
+   "signed_rgb_whole": [
+    14.71,
+    15.87,
+    15.26
+   ]
+  }
+ ],
+ "worst_region_mean": 1.57,
+ "pass": true
+}

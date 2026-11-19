@@ -62,11 +62,12 @@ export const SectionCard: React.FC<{ s: number; num: string; title: string }> = 
 export const SECTION_LEN = 12 + 60 + 8;
 
 /* ---------------------------------------------------------------- footage + keyed presenter ---------------------------------------- */
-export const Clip: React.FC<{ src: string; from: number; s: number; dur: number; style?: React.CSSProperties; z?: (f: number) => number }> = ({ src, from, s, dur, style, z }) => {
+/** toneMapped: undefined keeps Remotion's default (V1-V3 as delivered); Jan08ReelV4 passes false (raw colour, Naim round 3) */
+export const Clip: React.FC<{ src: string; from: number; s: number; dur: number; style?: React.CSSProperties; z?: (f: number) => number; toneMapped?: boolean }> = ({ src, from, s, dur, style, z, toneMapped }) => {
   const frame = useCurrentFrame();
   return (
     <Sequence from={s} durationInFrames={dur} layout="none">
-      <OffthreadVideo src={staticFile(src)} trimBefore={Math.round(from * 24)} muted
+      <OffthreadVideo src={staticFile(src)} trimBefore={Math.round(from * 24)} muted {...(toneMapped === undefined ? {} : { toneMapped })}
         style={{ position: "absolute", left: 0, top: 0, width: W, height: H, objectFit: "cover", transform: z ? `scale(${z(frame - s)})` : undefined, ...style }} />
     </Sequence>
   );

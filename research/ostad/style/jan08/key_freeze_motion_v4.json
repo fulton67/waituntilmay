@@ -1,0 +1,24 @@
+[
+ {
+  "piece": "belief",
+  "span": [
+   176,
+   336
+  ],
+  "corr_motion": 0.999,
+  "frozen_frames": [],
+  "render_motion_min": 0.388,
+  "source_motion_median": 1.752
+ },
+ {
+  "piece": "aging",
+  "span": [
+   638,
+   827
+  ],
+  "corr_motion": 0.998,
+  "frozen_frames": [],
+  "render_motion_min": 0.429,
+  "source_motion_median": 1.65
+ }
+]

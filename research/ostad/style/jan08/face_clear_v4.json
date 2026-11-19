@@ -1,0 +1,67 @@
+{
+ "label": "v4",
+ "footage": "brand/edits/jan08-filler-fatigue/v4/check/footage.mp4",
+ "graphics": "brand/edits/jan08-filler-fatigue/v4/check/check.mp4",
+ "step": 2,
+ "frames_checked": 1077,
+ "frames_with_face": 832,
+ "faces": 836,
+ "failing_frames": 3,
+ "runs": [
+  {
+   "from": 1136,
+   "to": 1136,
+   "t": 47.33,
+   "max_px": 64536
+  },
+  {
+   "from": 2106,
+   "to": 2108,
+   "t": 87.75,
+   "max_px": 965272
+  }
+ ],
+ "pass": false,
+ "rule": "graphics diff > 28 (3x3 open) inside a YuNet face box (score >= 0.75) expanded 10 %/side; fail if > 12 px at half size",
+ "fails": [
+  {
+   "frame": 1136,
+   "t": 47.33,
+   "box_full_px": [
+    764,
+    1288,
+    1074,
+    1734
+   ],
+   "score": 0.78,
+   "gfx_px_in_box_full": 64536,
+   "frac": 0.4668
+  },
+  {
+   "frame": 2106,
+   "t": 87.75,
+   "box_full_px": [
+    124,
+    0,
+    950,
+    1258
+   ],
+   "score": 0.91,
+   "gfx_px_in_box_full": 965272,
+   "frac": 0.9289
+  },
+  {
+   "frame": 2108,
+   "t": 87.83,
+   "box_full_px": [
+    122,
+    0,
+    950,
+    1246
+   ],
+   "score": 0.91,
+   "gfx_px_in_box_full": 796748,
+   "frac": 0.7723
+  }
+ ]
+}

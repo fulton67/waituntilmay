@@ -1,0 +1,220 @@
+{
+ "spans": [
+  {
+   "piece": "hook",
+   "span": [
+    0,
+    46
+   ],
+   "placed": false,
+   "frames": 46,
+   "frames_lag_nonzero": 0,
+   "lag_nonzero_at": [],
+   "max_err_at_lag0": 0.65,
+   "median_stale3_minus_lag0": 1.22
+  },
+  {
+   "piece": "belief",
+   "span": [
+    46,
+    96
+   ],
+   "placed": false,
+   "frames": 50,
+   "frames_lag_nonzero": 0,
+   "lag_nonzero_at": [],
+   "max_err_at_lag0": 0.64,
+   "median_stale3_minus_lag0": 2.48
+  },
+  {
+   "piece": "belief",
+   "span": [
+    96,
+    176
+   ],
+   "placed": false,
+   "frames": 80,
+   "frames_lag_nonzero": 0,
+   "lag_nonzero_at": [],
+   "max_err_at_lag0": 0.62,
+   "median_stale3_minus_lag0": 1.41
+  },
+  {
+   "piece": "belief",
+   "span": [
+    176,
+    336
+   ],
+   "placed": true,
+   "frames": 160,
+   "frames_lag_nonzero": 68,
+   "lag_nonzero_at": [
+    176,
+    177,
+    178,
+    179,
+    180,
+    182,
+    192,
+    193,
+    194,
+    195,
+    196,
+    198,
+    203,
+    204,
+    205,
+    206,
+    207,
+    209,
+    210,
+    211
+   ],
+   "max_err_at_lag0": 24.1,
+   "median_stale3_minus_lag0": 1.1
+  },
+  {
+   "piece": "aging",
+   "span": [
+    558,
+    638
+   ],
+   "placed": false,
+   "frames": 80,
+   "frames_lag_nonzero": 0,
+   "lag_nonzero_at": [],
+   "max_err_at_lag0": 0.63,
+   "median_stale3_minus_lag0": 2.39
+  },
+  {
+   "piece": "aging",
+   "span": [
+    638,
+    827
+   ],
+   "placed": true,
+   "frames": 189,
+   "frames_lag_nonzero": 81,
+   "lag_nonzero_at": [
+    639,
+    643,
+    648,
+    649,
+    650,
+    653,
+    654,
+    657,
+    665,
+    666,
+    667,
+    668,
+    676,
+    677,
+    679,
+    680,
+    682,
+    683,
+    684,
+    685
+   ],
+   "max_err_at_lag0": 22.69,
+   "median_stale3_minus_lag0": 0.83
+  },
+  {
+   "piece": "method",
+   "span": [
+    909,
+    989
+   ],
+   "placed": false,
+   "frames": 80,
+   "frames_lag_nonzero": 0,
+   "lag_nonzero_at": [],
+   "max_err_at_lag0": 0.61,
+   "median_stale3_minus_lag0": 2.0
+  },
+  {
+   "piece": "cheekbones",
+   "span": [
+    1470,
+    1550
+   ],
+   "placed": false,
+   "frames": 80,
+   "frames_lag_nonzero": 0,
+   "lag_nonzero_at": [],
+   "max_err_at_lag0": 0.62,
+   "median_stale3_minus_lag0": 1.92
+  }
+ ],
+ "frozen_spans": [
+  {
+   "piece": "belief",
+   "span": [
+    176,
+    336
+   ],
+   "placed": true,
+   "frames": 160,
+   "frames_lag_nonzero": 68,
+   "lag_nonzero_at": [
+    176,
+    177,
+    178,
+    179,
+    180,
+    182,
+    192,
+    193,
+    194,
+    195,
+    196,
+    198,
+    203,
+    204,
+    205,
+    206,
+    207,
+    209,
+    210,
+    211
+   ],
+   "max_err_at_lag0": 24.1,
+   "median_stale3_minus_lag0": 1.1
+  },
+  {
+   "piece": "aging",
+   "span": [
+    638,
+    827
+   ],
+   "placed": true,
+   "frames": 189,
+   "frames_lag_nonzero": 81,
+   "lag_nonzero_at": [
+    639,
+    643,
+    648,
+    649,
+    650,
+    653,
+    654,
+    657,
+    665,
+    666,
+    667,
+    668,
+    676,
+    677,
+    679,
+    680,
+    682,
+    683,
+    684,
+    685
+   ],
+   "max_err_at_lag0": 22.69,
+   "median_stale3_minus_lag0": 0.83
+  }
+ ]
+}
