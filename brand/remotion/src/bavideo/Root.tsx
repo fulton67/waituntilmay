@@ -1,6 +1,7 @@
 import { Composition } from "remotion";
 import { BaVideo, DUR, FPS } from "./Reel";
 import { WithMe, WM_DUR, WM_FPS } from "./WithMe";
+import { WithMeVideo } from "./WithMeVideo";
 
 export const BaVideoRoot: React.FC = () => (
   <>
@@ -9,5 +10,8 @@ export const BaVideoRoot: React.FC = () => (
     {/* "With me / Without me" full-screen version, P0053 rosacea (render with --public-dir=<pub from ba_video_p0053.py>) */}
     <Composition id="WithMeStoryP0053" component={WithMe} width={1080} height={1920} fps={WM_FPS} durationInFrames={WM_DUR} defaultProps={{ fmt: "story" as const }} />
     <Composition id="WithMeFeedP0053" component={WithMe} width={1080} height={1350} fps={WM_FPS} durationInFrames={WM_DUR} defaultProps={{ fmt: "feed" as const }} />
+    {/* VIDEO versions: pass --props='{"tag":"A"}' (footage <tag>_story.mp4 / <tag>_feed.mp4 from brand/scripts/ba_withme_video.py) */}
+    <Composition id="WithMeVideoStory" component={WithMeVideo} width={1080} height={1920} fps={WM_FPS} durationInFrames={WM_DUR} defaultProps={{ fmt: "story" as const, tag: "A" }} />
+    <Composition id="WithMeVideoFeed" component={WithMeVideo} width={1080} height={1350} fps={WM_FPS} durationInFrames={WM_DUR} defaultProps={{ fmt: "feed" as const, tag: "A" }} />
   </>
 );
