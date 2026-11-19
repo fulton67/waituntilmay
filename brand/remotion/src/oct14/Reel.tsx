@@ -16,6 +16,7 @@ import { DownTrace, FactCard, MonthsRule } from "./beats";
 import { CannulaSection, ChapterCard, DayLanes, FormVsSmooth, HookBA, OctEnd, SEC_LEN, TitleCard } from "./cards";
 import { Label, PenStroke, SurgeonBA, type SurgeonProps } from "./v3";
 import { AnatomyCard, type AnatomyData } from "./anatomy";
+import { FloraPlate } from "../flora/FloraPlate";
 import { CompareClips, InjectionCard } from "./std";
 import { D, H, M, W, type Pt } from "./look";
 
@@ -30,6 +31,8 @@ export type Oct14Props = {
   bare?: boolean; fps: number; speed: number; durationInFrames: number; pieces: Piece[]; words: (Word & { piece: string })[]; cues: Record<string, number>;
   tracks: Record<string, Track>; pips: PipPlan[]; ba?: BAPlan; hideCaps?: [string, string][]; sfx?: { cue: string; name: string }[]; tail: number;
   anatomy?: AnatomyData;
+  /** v4 (Naim 2026-11-19): Flora renders replace the traced drawings (public/flora/frames.json); absent = v3 exactly */
+  flora?: Record<string, { n: number; aspect: number }>;
   surgeon?: Omit<SurgeonProps, "s" | "wipeS" | "gainS" | "noteS" | "out" | "before" | "after" | "iw" | "ih" | "notes"> & { cue: string; wipe: string; out: string; notes: { text: string; cue: string }[] };
 };
 
@@ -51,6 +54,7 @@ export const Oct14Reel: React.FC<Oct14Props> = (P) => {
   const { pieces, cues: c, speed, tracks } = P;
   const cue = (k: string) => { if (!(k in c)) throw new Error(`cue ${k} missing`); return c[k]; };
   const end = P.durationInFrames;
+  const FL = P.flora, FR = (id: string) => ({ id, n: FL![id].n, aspect: FL![id].aspect });
   // a tracked point of the patient on the picture `role`, mapped from composition frame to that clip's frame
   const tp = (role: string, key: string) => (f: number): Pt => {
     const t = tracks[role]?.pts[key];
@@ -110,7 +114,12 @@ export const Oct14Reel: React.FC<Oct14Props> = (P) => {
           c={{ src: SRC(q.clip), from: clipFrom, rate: tgt ? speed : 1, caps: q.eyebrow ?? "", title: q.label ?? "", depth: (q.depth ?? [2, ""]) as [number, string] }} />;
       })}
       {/* anatomy (LESSONS P5): the muscles behind his three "dynamic lines", traced from face.glb; ostad_check pending */}
-      {P.anatomy && <AnatomyCard data={P.anatomy} view="upper" s={cue("dynamic") + 4} out={E("neuro-more-less") - 2} x={W - M - 440} y={1000} w={440} h={480}
+      {FL && <FloraPlate {...FR("O1")} s={cue("dynamic") + 4} out={E("neuro-more-less") - 2} x={W - M - 480} y={960} w={480} h={540} radius={24} head={104} pad={24} titlePx={36}
+        eyebrow="Dynamic lines" title="Frown muscles" note="Illustration"
+        map={[[cue("dynamic") + 4, 0], [cue("dynamic") + 30, 6], [cue("dynamic") + 70, 110], [cue("neuromod"), 116], [cue("neuromod") + 30, 10]]}
+        labels={[{ text: "Frontalis", x: 0.5, y: 0.12, s: cue("neuromod") + 14, anchor: "middle", size: 18 }, { text: "Corrugator", x: 0.03, y: 0.5, s: cue("neuromod") + 22, size: 18 },
+          { text: "Procerus", x: 0.5, y: 0.7, s: cue("neuromod") + 26, anchor: "middle", size: 18 }, { text: "Orbicularis oculi", x: 0.97, y: 0.9, s: cue("neuromod") + 30, anchor: "end", size: 18 }]} />}
+      {!FL && P.anatomy && <AnatomyCard data={P.anatomy} view="upper" s={cue("dynamic") + 4} out={E("neuro-more-less") - 2} x={W - M - 440} y={1000} w={440} h={480}
         eyebrow="Dynamic lines: muscles at work" title="Frown muscles"
         pulse={{ ids: ["corrugator_supercilii_l", "corrugator_supercilii_r", "procerus_muscle", "orbital_part_of_orbicularis_oculi_l", "orbital_part_of_orbicularis_oculi_r", "frontalis_muscle_l", "frontalis_muscle_r"], s: cue("dynamic") + 30, e: cue("neuromod") }}
         forces={[{ id: "frontalis_muscle_l", dir: "up", s: cue("lifted"), len: 300 }, { id: "frontalis_muscle_r", dir: "up", s: cue("lifted") + 3, len: 300 },
@@ -140,7 +149,12 @@ export const Oct14Reel: React.FC<Oct14Props> = (P) => {
           down from a dashed ghost (Illustration), on "cheekbones" the bone strengthens: where he puts the filler. ostad_check pending */}
       {/* the topic-only animation (CRITIQUE row 0:40): her profile traced from face.glb; "deflation": the cheek fat shrinks; "moving
           down": it slides down from a dashed ghost; "cheeks": filler restores volume on the cheekbone and the fat comes back up. */}
-      {P.anatomy && <AnatomyCard data={P.anatomy} view="profile" s={cue("deflation")} out={E("intro-cheekbones") - 2} x={W - M - 520} y={250} w={520} h={560}
+      {FL && <FloraPlate {...FR("O2")} s={cue("deflation")} out={E("intro-cheekbones") - 2} x={W - M - 540} y={250} w={540} h={560} radius={24} head={104} pad={24} titlePx={36}
+        eyebrow="The source" title="Deflation" note="Illustration"
+        map={[[cue("deflation"), 0], [cue("deflation") + 30, 50], [cue("moving"), 60], [cue("moving") + 30, 120], [cue("cheeks"), 121], [cue("cheeks") + 40, 192]]}
+        labels={[{ text: "Cheek fat", x: 0.42, y: 0.62, s: cue("deflation") + 16, anchor: "end", size: 18 }, { text: "Jowl", x: 0.55, y: 0.92, s: cue("moving") + 10, size: 18 },
+          { text: "Filler on the cheekbone", x: 0.35, y: 0.18, s: cue("cheeks") + 12, size: 18 }]} />}
+      {!FL && P.anatomy && <AnatomyCard data={P.anatomy} view="profile" s={cue("deflation")} out={E("intro-cheekbones") - 2} x={W - M - 520} y={250} w={520} h={560}
         eyebrow="The source" title="Deflation" focus={["fat_cheek_r", "fat_sup_jowl_r"]} context={["skin_epidermis", "zygomatic_bone_r", "maxilla_r", "mandible"]}
         shrink={{ ids: ["fat_cheek_r"], s: cue("deflation"), k: 0.8 }} drop={{ ids: ["fat_cheek_r", "fat_sup_jowl_r"], s: cue("moving"), px: 46 }}
         filler={{ on: "zygomatic_bone_r", s: cue("cheeks"), dx: 30, dy: 40, rx: 70, ry: 40, back: 0.6, label: "Filler" }} strong={{ ids: ["zygomatic_bone_r"], s: cue("cheeks") }}
@@ -153,9 +167,17 @@ export const Oct14Reel: React.FC<Oct14Props> = (P) => {
           s={cue("laugh3") + i * 4} out={E("inj5-less-needed") - 2} d={12} />
       ))}
       {/* thick vs thin (REELS_HOW_I_WOULD_BUILD 55.5-64.9 s, topic-only): "it's not as thick as what I put here" */}
-      <FormVsSmooth s={cue("used") + 20} spreadS={cue("used") + 60} out={S("inj6-bruising") - 2} x={M} y={290} w={W - 2 * M} />
+      {FL && <FloraPlate {...FR("O3")} s={cue("used") + 20} out={S("inj6-bruising") - 2} x={M} y={270} w={W - 2 * M} h={600} radius={24} head={100} pad={24} titlePx={34}
+        eyebrow="Two gels, two jobs" title="Smooth is not as thick" note="Illustration"
+        map={[[cue("used") + 20, 0], [cue("used") + 30, 4], [cue("used") + 70, 120]]}
+        labels={[{ text: "Evolysse Form · holds its shape", x: 0.25, y: 0.97, s: cue("used") + 40, anchor: "middle", size: 17 }, { text: "Evolysse Smooth · spreads thin", x: 1.0, y: 0.97, s: cue("used") + 60, anchor: "end", size: 17 }]} />}
+      {!FL && <FormVsSmooth s={cue("used") + 20} spreadS={cue("used") + 60} out={S("inj6-bruising") - 2} x={M} y={290} w={W - 2 * M} />}
       {/* needle vs cannula (CRITIQUE row 1:02): the skin section traced from skin_crosssection.glb; the hold runs into the next beat */}
-      {P.anatomy && <CannulaSection data={P.anatomy} s={S("inj6-bruising")} hiS={cue("cannula")} out={E("inj6-bruising") + 40} x={M} y={290} w={W - 2 * M} h={560} />}
+      {FL && <FloraPlate {...FR("O4")} s={S("inj6-bruising")} out={E("inj6-bruising") + 40} x={M} y={270} w={W - 2 * M} h={600} radius={24} head={100} pad={24} titlePx={34}
+        eyebrow="Why a cannula" title="Less chance of a bruise" note="Illustration"
+        map={[[S("inj6-bruising"), 0], [S("inj6-bruising") + 14, 4], [S("inj6-bruising") + 60, 72], [cue("cannula"), 80], [cue("cannula") + 40, 120]]}
+        labels={[{ text: "Sharp needle: can nick a vessel", x: 0.3, y: 0.06, s: S("inj6-bruising") + 30, size: 17 }, { text: "Blunt cannula: glides in the fat layer", x: 0.03, y: 0.97, s: cue("cannula") + 6, size: 17 }]} />}
+      {!FL && P.anatomy && <CannulaSection data={P.anatomy} s={S("inj6-bruising")} hiS={cue("cannula")} out={E("inj6-bruising") + 40} x={M} y={290} w={W - 2 * M} h={560} />}
 
       {/* ---------- S4 the result: marionette lines on her close-up, then the surgeon's before/after ---------- */}
       <ChapterCard num="03" title="The result" start={E("inj6-bruising") + 42} />

@@ -890,3 +890,25 @@ Every cut sits in measured silence: the gap is found on a 10 ms RMS envelope at 
   - runtime: 96 s against about 90 s.
   
   Both are open items for the next round, with no re-render in this time box. The "duplicate" flag (intro-midface~2 vs ~2/b) is one sentence split for a picture change, not a repeat. The name check loaded 0 secret tokens in this checkout, so it was not exercised.
+
+### 16e. Jan 08 v2 + Oct 14 v4: Flora anatomy renders, true colour, titles behind him (2026-11-19)
+
+Naim's notes on the filler-fatigue reel and the drawings in both reels, and what changed:
+- **Drawings → Flora renders (both reels).** "Same line-art style, higher detail, so you can see where it goes in the skin." Each traced-SVG plate is now a Flora render: Nano Banana Pro 2K stills (a start and an end state, the end made by an i2i edit of the start so the framing holds), then a Kling v4 first/last-frame clip between them. Flora RISD EDU workspace, project "Ostad – line-art anatomy renders". Flora has no Higgsfield model (searched), so Kling v4 is the strongest i2v Flora lists. Plates: J1 skin belief, J2 ageing, J3 cannula on the cheekbone, J4 lip migration, J5 golf ball; O1 frown muscles, O2 deflation → restore, O3 Form vs Smooth, O4 needle vs cannula. The frames are keyed white → alpha (`brand/scripts/flora_frames.py`), so the ink sits on the glass. A CSS multiply did not survive the card's backdrop-filter. `FloraPlate` ties each clip to his words through a comp → clip frame map: each change lands on its word and holds.
+- **QA pass (a separate agent, `brand/edits/flora-anatomy/QA.md`).** First round: 4 PASS / 6 FIX. Regenerated:
+  - J2: the end still had a skin face dissolving over the cutaway; it now keeps the cutaway at the same framing.
+  - J3 and O2b: the filler sat along the eye-socket rim, which reads as under-eye filler. It is now on the zygomatic body and arch.
+  - J5: the cheekbone beads slid into the ball, implying cheekbone filler migrates. Now there is no filler at the start and the ball grows on its own.
+  - O4: the needle started inserted. It now starts above the skin.
+  - O2a: blinked.
+  
+  Kling still blinks the drawn faces, so blinks are patched from the last open-eyed frame inside a feathered eyelid box (J3 2 runs, O2b 1). J4 is used to its f84, before its lip turns to skin.
+- **Colour (both reels).** The iPhone sources are HLG (arib-std-b67, bt2020). v1 transcoded them to 8-bit while keeping the HLG tags, which rendered green and flat ("weird filter colour"). talk.mp4, the clinic clips and all 12 Oct 14 clips are re-made with a libplacebo bt.2390 tone map to bt709 (frame counts unchanged; the HLG files are kept in `hlg_backup/`). The RVM keys were re-cut from the corrected footage so his key matches.
+- **Titles behind him (Jan 08).** No navy darkening. The title is ink type on the wall at 118 px, and his full-frame key (aligned, same piece) goes back over it for the card's life, so his head passes in front of the type, Ro-style. The same applies to the hook. New keys: hook, method, cheekbones.
+- **Sound (Jan 08).** v1 had 30 hits at 0.16–0.32 gain. v2 has 10: chapter 0.096 and card 0.07. The draw ticks, pops and swish are gone.
+- **Ending (Jan 08).** The last piece no longer stops on "fillers are here to stay". His next whole sentence closes the reel: "Regular hyaluronic acid fillers work so beautifully." (raw 250.03–253.62, both edges in measured gaps; `jan08_gaps.py check` ok). 2099 → 2185 frames.
+- **Real cases (Jan 08).** Open-access journal figures of overfilled cheeks and lip migration, credited on the card (`public/jan08/clinic/web/credits.json`; licences listed there; client-approval list).
+- **Open:**
+  - Dr. Ostad signs off every drawing (placement, depth);
+  - Naim's Ro/Serena reference for the room titles is not yet in hand, so the depth is the key-over-type method;
+  - J3 freezes the eye region for 13 + 17 frames while patched.

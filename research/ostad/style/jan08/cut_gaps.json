@@ -175,6 +175,24 @@
    "energy_db_above_floor": 4.1,
    "ok": true,
    "thr_db_above_floor": 8
+  },
+  {
+   "piece": "close",
+   "edge": "from",
+   "t": 250.03,
+   "gap_s": 0.4,
+   "energy_db_above_floor": -10.7,
+   "ok": true,
+   "thr_db_above_floor": 8
+  },
+  {
+   "piece": "close",
+   "edge": "to",
+   "t": 253.62,
+   "gap_s": 0.15,
+   "energy_db_above_floor": -2.5,
+   "ok": true,
+   "thr_db_above_floor": 8
   }
  ]
 }

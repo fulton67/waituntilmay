@@ -17,5 +17,12 @@ export const Oct14Root: React.FC = () => (
         const p: Oct14Props = props.pieces ? props : { ...(await (await fetch(staticFile("oct14/props.json"))).json()), bare: !!props.bare };
         return { durationInFrames: p.durationInFrames + p.tail, props: p };
       }} />
+    {/* Oct14ReelV4 (Naim 2026-11-19): v3 with the Flora renders in place of the traced drawings and the footage tone-mapped HLG -> bt709 */}
+    <Composition id="Oct14ReelV4" component={Oct14Reel} width={1080} height={1920} fps={24} durationInFrames={240} defaultProps={{} as Oct14Props}
+      calculateMetadata={async ({ props }) => {
+        const p: Oct14Props = props.pieces ? props : { ...(await (await fetch(staticFile("oct14/props.json"))).json()), bare: !!props.bare,
+          flora: await (await fetch(staticFile("flora/frames.json"))).json() };
+        return { durationInFrames: p.durationInFrames + p.tail, props: p };
+      }} />
   </>
 );
