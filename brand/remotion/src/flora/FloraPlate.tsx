@@ -30,7 +30,15 @@ export const FloraPlate: React.FC<{
 }> = ({ id, n, aspect, map, s, out, x, y, w, h, eyebrow, title, labels = [], strike, note = "Illustration", head = 128, pad = 32, titlePx = 44, radius = 28, zoom }) => {
   const f = useCurrentFrame();
   if (!vis(f, s, out)) return null;
-  const k = Math.max(1, Math.min(n, Math.round(clipAt(f, map)) + 1));
+  // smooth: flora_frames.py writes IX - 1 motion-interpolated in-betweens per source frame (NNNN_1.png ...), so a clip slowed onto his
+  // words advances in quarter frames instead of stepping (Naim 2026-11-19: "kinda choppy")
+  const IX = 4;
+  const c = Math.max(0, Math.min(n - 1, clipAt(f, map)));
+  let base = Math.floor(c), sub = Math.round((c - base) * IX);
+  if (sub >= IX) { base += 1; sub = 0; }
+  if (base >= n - 1) { base = n - 1; sub = 0; }
+  const k = base + 1;
+  const src = `flora/${id}/${String(k).padStart(4, "0")}${sub ? `_${sub}` : ""}.png`;
   // the drawing area under the title, the clip fitted (contain) and centred
   const aw = w - 2 * pad, ah = h - head - 50;
   const dw = Math.min(aw, ah * aspect), dh = dw / aspect;
@@ -45,7 +53,7 @@ export const FloraPlate: React.FC<{
   return (
     <div style={{ ...card(radius), left: x, top: y, width: w, height: h, ...life(f, s + 1, out) }}>
       <div style={{ position: "absolute", left: dx, top: dy, width: dw, height: dh, overflow: "hidden" }}>
-        <Img src={staticFile(`flora/${id}/${String(k).padStart(4, "0")}.png`)}
+        <Img src={staticFile(src)}
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%",
             transform: `scale(${z})`, transformOrigin: `${(zoom?.ox ?? 0.5) * 100}% ${(zoom?.oy ?? 0.5) * 100}%` }} />
       </div>

@@ -1,0 +1,712 @@
+{
+ "_meta": {
+  "reviewed": "2026-11-19",
+  "clips": "brand/edits/flora-anatomy/clips/<id>.mp4 (identical to omni/<id>.mp4); 24 fps; frames 0-based",
+  "blink_method": "eye-band ROI per clip: |f - f-3| spikes, a revert test (f differs from f-4 and f+4 while those agree), and the iris/lash ink fraction (<70 grey); plus eye strips every 4 f read by eye. No clip closes an eye.",
+  "diff_note": "d1 = mean |f - f-1| (grey, 1/4 res). The max at f128 in J2/J3/J4/O4/U3/U8 is an encoder grain refresh only: the blurred diff 127->128 is zero (checked on J2), no geometry moves.",
+  "camera_note": "ORB similarity fit f0 -> every 3rd frame. J1/O1 readings are tissue motion, not camera (block / skull edges fixed). Real drift: U8 (scale 0.979-1.010, 18 px), J3 (1.8 %, 15 px, returns), O2b (9 px pan). All slow, no cuts.",
+  "round2": "2026-11-19: 10 clips regenerated in omni2/ (J2 J3 J5 O2 O3 O4 U1 U4 U5 U7). Each id now has 'version' (which file to use: omni1 = round-1 Omni, omni2 = round-2 in omni2/, kling for U9). For regenerated ids the top-level fields describe the CHOSEN version; the other round is summarised under 'omni1' or 'omni2'. Round-1 copies of swapped clips are in clips/omni1/.",
+  "round3": "2026-11-19: J2, U1, U4 regenerated in omni3/. 'version' may now be omni3; the other rounds of an id are summarised under omni1/omni2/omni3."
+ },
+ "J1": {
+  "verdict": "PASS",
+  "n": 144,
+  "events": {
+   "gel_seed_visible": 0,
+   "gel_growth_visible": 30,
+   "skin_dome_visible": 60,
+   "gel_fills_fat_layer": 84,
+   "dome_max": 96,
+   "first_droplet_buds": 102,
+   "droplets_drift_end": 143
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   143
+  ],
+  "diff_max_over_median": 4.3,
+  "issues": [
+   "Stretch beat lands later than the Kling clip: dome first visible ~f60 (Kling ~f24); remap 'Stretch?' to f60-96, 'Overfilled?' to f84-100, 'Migrates?' to f102-143."
+  ],
+  "version": "omni1"
+ },
+ "J2": {
+  "verdict": "FIX",
+  "version": "omni3",
+  "n": 144,
+  "events": {
+   "fat_full": 0,
+   "cheek_fat_shrinks": 30,
+   "shrink_done": 54,
+   "pad_descends": 60,
+   "diff_spike_pad_slide": 75,
+   "jowl_at_jaw": 84,
+   "midcheek_refills": 78,
+   "jowl_full": 96,
+   "hold_end": 143
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   84
+  ],
+  "diff_max_over_median": 4.6,
+  "issues": [
+   "Best round: clear volume loss (the cheek fat mass shrinks f30-54) then the pad slides down to a jowl f60-96; muscles stay drawn the whole clip; no blink; camera locked (<0.1 %).",
+   "The f75 diff spike is the fat pad sliding; f73-79 are continuous (checked frame by frame).",
+   "f78-96 the mid-cheek fills with fat again behind the descending pad, so the end state reads as cheek fat plus jowl; hold no later than f84.",
+   "Bone thinning (Support) still not shown: carry it with the label."
+  ],
+  "omni1": {
+   "verdict": "FIX",
+   "usable_range": [
+    0,
+    143
+   ],
+   "events": {
+    "fat_descent_start": 54,
+    "jowl_visible": 72,
+    "jowl_max": 143
+   },
+   "issues": [
+    "Volume beat missing: the malar/buccal fat pads do not shrink f0-54 (change map shows only outline shimmer).",
+    "Support beat missing: zygoma/maxilla/mandible never thin; nothing to cue 'Support'.",
+    "Descent and jowl are good: fat drops below the mandible into a jowl/submental mass f54-143.",
+    "Top of head cropped by the 9:16 frame (not needed)."
+   ]
+  },
+  "omni2": {
+   "verdict": "FIX",
+   "usable_range": [
+    0,
+    86
+   ],
+   "events": {
+    "buccal_fat_reshapes": 0,
+    "buccal_fat_shrinks": 36,
+    "jowl_forms": 42,
+    "jowl_full": 72,
+    "cut_before": 86,
+    "blink": 89,
+    "tissue_dissolve_start": 90
+   },
+   "issues": [
+    "Better than omni1 for f0-86: the buccal fat reshapes then shrinks (f0-72) and the jowl/submental fat forms f42-72, so Volume and Fat both have something to show.",
+    "Blink f89-91 (the only blink in the Omni set).",
+    "f90-110 the cheek muscles and masseter dissolve and the maxilla/teeth are exposed (a morph, not bone thinning); muscles half return by f143. Cut at f86.",
+    "Support beat (bone thins) still absent in both rounds: carry it with the label."
+   ],
+   "blinks": [
+    [
+     89,
+     91
+    ]
+   ]
+  }
+ },
+ "J3": {
+  "verdict": "FIX",
+  "version": "omni2",
+  "n": 144,
+  "events": {
+   "cannula_enters_frame": 14,
+   "tip_at_lateral_rim": 63,
+   "deposit_1": 65,
+   "deposit_2": 76,
+   "deposit_3": 90,
+   "deposits_complete": 92,
+   "hold_end": 143
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   143
+  ],
+  "diff_max_over_median": 2.9,
+  "issues": [
+   "New still (skull cutaway on her right side). No soft-tissue dissolve; camera locked (<0.1 %).",
+   "Entry from below the jaw angle (lower outer) as asked; the shaft crosses the mandible/teeth of the cutaway f20-60.",
+   "The cannula pivots (entry drifts) f54-88 and a twin shaft shows f80-92 while it repositions.",
+   "Deposits on the zygomatic body, but the first/top bead sits on the lateral orbital rim (f65).",
+   "No cheek lift: the cutaway has no cheek soft tissue to lift."
+  ],
+  "omni1": {
+   "verdict": "FIX",
+   "usable_range": [
+    36,
+    66
+   ],
+   "events": {
+    "cannula_enters_frame": 10,
+    "soft_tissue_morph": 18,
+    "tip_at_zygoma": 40,
+    "deposit_1": 44,
+    "deposit_2": 50,
+    "deposit_3": 58,
+    "deposits_complete": 60,
+    "hub_glitch_start": 68
+   },
+   "issues": [
+    "Morph: the zygomaticus muscles and malar fat of the cutaway dissolve f18-36 (the cheek layer simply disappears).",
+    "Entry is lower-medial (the shaft comes up from beside the mouth corner, hub off the bottom-left), and the shaft is drawn over the teeth; intended entry is the lower OUTER cheek.",
+    "Deposits are correctly on the zygomatic body/arch below the lateral orbital rim (not on the rim).",
+    "No cheek lift.",
+    "Hub vanishes and the shaft breaks f68-76, then the cannula is back.",
+    "Slow zoom 1.8 % / 15 px f0-60 and back by f130."
+   ]
+  }
+ },
+ "J4": {
+  "verdict": "PASS",
+  "n": 144,
+  "events": {
+   "lip_gel_growth_start": 6,
+   "crosses_vermilion_border": 30,
+   "moustache_full": 60,
+   "hold_end": 143
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   143
+  ],
+  "diff_max_over_median": 7.0,
+  "issues": [
+   "Cheekbone beads static the whole clip (correct, 'stays on the bone').",
+   "Lip gel already present at f0 and reads as a blob on the lip surface rather than inside the lip body.",
+   "Lip colour fades dark red -> pink f0-72.",
+   "No small beads beyond the border (spread is one sheet). The muscle-to-skin-lips morph of the Kling clip is gone, so the full clip is usable (old map stopped at f84)."
+  ],
+  "version": "omni1"
+ },
+ "J5": {
+  "verdict": "FIX",
+  "version": "omni2",
+  "n": 144,
+  "events": {
+   "ball_appears": 30,
+   "ball_half_size": 66,
+   "bone_underlay_fading": 86,
+   "ball_max": 102,
+   "hold_end": 143
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   86
+  ],
+  "diff_max_over_median": 2.7,
+  "issues": [
+   "Same failure as omni1 but later: the skull/zygoma underlay stays visible through the translucent ball until ~f84, then dissolves f86-96.",
+   "Cheek outline still does not bulge; glass-sphere look; blush on the other cheek f90+.",
+   "Slow drift 1 % / 14 px down over the clip.",
+   "Ball at f102-143 centred ~(0.62, 0.55), diameter ~0.33 W (re-measure the strike)."
+  ],
+  "omni1": {
+   "verdict": "FIX",
+   "usable_range": [
+    0,
+    72
+   ],
+   "events": {
+    "ball_appears": 24,
+    "ball_half_size": 54,
+    "bone_underlay_fading": 60,
+    "ball_max": 108
+   },
+   "issues": [
+    "Story right: the ball grows from nothing mid-cheek, no cheekbone beads.",
+    "The skull/zygoma underlay dissolves f60-96 (layer morph); by f96 it is a plain face with a ball.",
+    "The cheek outline never bulges; the ball is a glossy glass sphere pasted over the face.",
+    "A blush appears on the other cheek f60+.",
+    "Ball at f108-143 centred ~(0.62, 0.53) of the frame, diameter ~0.35 W: re-measure the strike-out (old strike x 0.64, y 0.69 was for the Kling ball)."
+   ]
+  }
+ },
+ "O1": {
+  "verdict": "PASS",
+  "n": 144,
+  "events": {
+   "frown_onset": 66,
+   "procerus_corrugator_bunching": 78,
+   "forehead_creases_appear": 90,
+   "frown_peak": 108,
+   "hold_end": 143
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   143
+  ],
+  "diff_max_over_median": 6.8,
+  "issues": [
+   "f0-60 nearly still: use it for the label build.",
+   "Corrugator not drawn as a separate oblique belly (as in the Kling clip)."
+  ],
+  "version": "omni1"
+ },
+ "O2": {
+  "verdict": "FIX",
+  "version": "omni2",
+  "n": 240,
+  "events": {
+   "deflate_start": 0,
+   "malar_pad_slides": 30,
+   "descent": 42,
+   "jowl_visible": 54,
+   "jowl_dissolves": 66,
+   "jowl_gone": 80,
+   "deflated_state_O2B2": 92,
+   "gel_appears": 100,
+   "gel_grows": 120,
+   "gel_complete": 156,
+   "hold_end": 239
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   239
+  ],
+  "diff_max_over_median": 8.6,
+  "issues": [
+   "One continuous take O2A -> O2B2 -> O2C2: no join jump (replaces the O2a+O2b chain, whose join jumped 4.4 % / 104 px).",
+   "Slow camera push between keyframes: zoom to 6.2 % at f60, back to 1.8 %, and a 50 px pan left by f96, then locked (the keyframes are framed differently). Smooth, no cut.",
+   "Deflation reads as the malar pad sliding down the cheek like a slug f30-54; the jowl hangs below the jaw f54-66 then dissolves f66-80, so the jowl beat is only ~f54-70.",
+   "Restore half: gel on the zygomatic body/arch, not under the eye (good), but oversized (mid-cheek to the arch); the fat does not rise and the jowl pads do not shrink."
+  ]
+ },
+ "O2a": {
+  "verdict": "FIX",
+  "n": 120,
+  "events": {
+   "malar_fat_shrinks": 0,
+   "shrink_end": 36,
+   "descent_start": 42,
+   "nasolabial_blob_pops_in": 44,
+   "jowl_max": 96,
+   "jowl_ghosts_out": 102
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   96
+  ],
+  "diff_max_over_median": 5.5,
+  "issues": [
+   "Fat pads wander rather than deflate: a new fat blob pops in beside the nose at f44, partly outside the face contour, and fades by f90.",
+   "Jowl peaks f96 then turns to a ghost outline f102 and mostly fades by f114: the end state has less jowl than f96.",
+   "Chain join to O2b is a hard jump: O2b f0 is 4.4 % larger and 104 px left / 19 px up of O2a f119 (mean diff 17.6 vs 1.1 within the clip); the fat pads and lines differ too.",
+   "Forehead cropped by the 16:9 frame (not needed)."
+  ],
+  "superseded_by": "O2",
+  "version": "superseded"
+ },
+ "O2b": {
+  "verdict": "FIX",
+  "n": 120,
+  "events": {
+   "gel_appears": 28,
+   "gel_grows": 48,
+   "gel_complete": 84,
+   "hold_end": 119
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   119
+  ],
+  "diff_max_over_median": 1.5,
+  "issues": [
+   "Placement fixed: the gel is on the zygomatic body/arch, not under the eye.",
+   "Restoration missing: the fat pads do not rise and the jowl pads do not shrink (they are static).",
+   "Gel oversized: one long oval from the mid-cheek to the arch near the ear, over the masseter.",
+   "Slow 9 px pan.",
+   "Start frame does not match O2a f119 (see O2a)."
+  ],
+  "superseded_by": "O2",
+  "version": "superseded"
+ },
+ "O3": {
+  "verdict": "PASS",
+  "version": "omni2",
+  "n": 144,
+  "events": {
+   "form_seed": 24,
+   "smooth_seed": 30,
+   "form_dome_complete": 84,
+   "smooth_spread_complete": 90,
+   "crease_softened": 100,
+   "hold_end": 143
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   143
+  ],
+  "diff_max_over_median": 5.0,
+  "issues": [
+   "Fixed: Smooth spreads into a thin wide layer and stays; the crease softens slightly. Form holds its dome.",
+   "Slow drift 1.1 % / 8 px over the clip (harmless)."
+  ],
+  "omni1": {
+   "verdict": "FIX",
+   "usable_range": [
+    0,
+    82
+   ],
+   "events": {
+    "form_seed": 6,
+    "smooth_seed": 18,
+    "form_dome_complete": 78,
+    "smooth_spread_max": 80,
+    "smooth_morph_start": 84,
+    "smooth_morph_end": 100
+   },
+   "issues": [
+    "Form: seed on bone f6, firm dome through the fat to f78, holds to f143. Correct.",
+    "Smooth spreads thin in the dermis f18-80 (correct), then f84-100 it sinks into the deep dermis, splits into two bands and shrinks back to a thin strip (f102-143): the 'spreads' beat un-happens.",
+    "The crease over Smooth never softens."
+   ]
+  }
+ },
+ "O4": {
+  "verdict": "PASS",
+  "version": "omni2",
+  "n": 144,
+  "events": {
+   "needle_above_skin": 0,
+   "needle_touches_skin": 6,
+   "skin_pierced": 10,
+   "needle_pierces_vessel": 52,
+   "bleed_start": 54,
+   "bruise_spreading": 72,
+   "bruise_peak": 143,
+   "cannula_tip_stops": 102
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   143
+  ],
+  "diff_max_over_median": 2.8,
+  "issues": [
+   "Fixed: the needle starts above the skin; the cannula shaft stays continuous to the left edge.",
+   "Minor: the bruise spreads down over the cannula path f84+.",
+   "Slow zoom-out 2.7 % over the clip."
+  ],
+  "omni1": {
+   "verdict": "FIX",
+   "usable_range": [
+    0,
+    143
+   ],
+   "events": {
+    "needle_advancing": 0,
+    "needle_pierces_vessel": 52,
+    "bleed_start": 54,
+    "bruise_spreading": 84,
+    "bruise_peak": 143,
+    "cannula_tip_stops": 126
+   },
+   "issues": [
+    "Needle tip is already through the stratum corneum at f0 (required: start above the skin). It then advances visibly f0-52, so the nick is shown.",
+    "Cannula glides in the upper fat with no bleeding (correct), but from ~f90 its tail detaches from the frame edge (a floating rod in the fat).",
+    "The bruise spreads over the cannula's path f96+, so the 'no bleeding' half reads less cleanly late in the clip."
+   ]
+  }
+ },
+ "U1": {
+  "verdict": "FIX",
+  "n": 144,
+  "events": {
+   "superficial_ghost_grows": 24,
+   "deep_deposit_appears": 48,
+   "superficial_ghost_gone": 66,
+   "fill_complete": 100,
+   "hold_end": 143
+  },
+  "blinks": [],
+  "usable_range": [
+   66,
+   143
+  ],
+  "diff_max_over_median": 3.5,
+  "issues": [
+   "A bluish blob inflates at the lid-cheek junction just under the skin f24-54 and then dissolves f54-66: reads as a superficial deposit that vanishes (the opposite of the message).",
+   "The deep deposit under the orbicularis grows f48-100 and stays to the end (good), but it sits low on the anterior maxilla, well below the infraorbital rim, not on the rim.",
+   "No clear 'hollow' state before the fill; f0-24 only has a grey shadow."
+  ],
+  "version": "omni1",
+  "omni2": {
+   "verdict": "FIX",
+   "usable_range": [
+    30,
+    50
+   ],
+   "events": {
+    "deposit_at_rim": 30,
+    "deposit_moves_superficial": 48,
+    "deposit_fades_to_shadow": 84,
+    "gone": 100
+   },
+   "issues": [
+    "Worse than omni1: the deposit starts at the rim (f30-48) but migrates forward under the lid skin (f48-84) and then dissolves into a grey shadow (f84-100): no filler at the end.",
+    "Slow zoom-in 3 %."
+   ]
+  },
+  "omni3": {
+   "verdict": "FIX",
+   "usable_range": [
+    24,
+    60
+   ],
+   "events": {
+    "deep_deposit_appears": 24,
+    "deep_deposit_max": 60,
+    "migrates_superficial": 66,
+    "fades": 90,
+    "gone": 102
+   },
+   "issues": [
+    "Same failure as omni2: the deposit grows deep under the muscle f24-60, then moves forward to the lid skin f66-90 and fades by f102.",
+    "Slow 2.5 % zoom-in."
+   ]
+  }
+ },
+ "U3": {
+  "verdict": "PASS",
+  "n": 144,
+  "events": {
+   "glow_onset": 66,
+   "sparkle_peak": 90,
+   "blue_haze_settled": 114,
+   "hold_end": 143
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   143
+  ],
+  "diff_max_over_median": 4.7,
+  "issues": [
+   "Shallow deposit (just under the skin) turns blue; the deep deposit stays grey. Correct.",
+   "f72-108 the scatter is drawn as cyan glitter particles (decorative); hold on f114-143 where it is a soft blue haze.",
+   "No bone/orbit landmark in the section; it needs the 'Shallow' / 'Deep' labels to read.",
+   "Late drift ~11 px f120-143."
+  ],
+  "version": "omni1"
+ },
+ "U4": {
+  "verdict": "FIX",
+  "version": "omni2",
+  "n": 144,
+  "events": {
+   "needle_advancing": 0,
+   "needle_at_vessel": 48,
+   "bleed_start": 54,
+   "bleed_spreading": 72,
+   "bleed_peak": 120,
+   "cannula_meets_vein": 78
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   72
+  ],
+  "diff_max_over_median": 4.7,
+  "issues": [
+   "Marginally better than omni1: the cannula stays in the fat below the vessels until ~f72 (omni1 ~f60).",
+   "Still wrong after f78: the cannula tip ends coaxial with the blue vein (reads as entering it); the bruise drapes over the shaft.",
+   "Needle tip again already below the skin surface at f0.",
+   "Slow 10 px pan."
+  ],
+  "omni1": {
+   "verdict": "FIX",
+   "usable_range": [
+    0,
+    60
+   ],
+   "events": {
+    "needle_advancing": 0,
+    "needle_at_vein": 50,
+    "bleed_start": 52,
+    "bleed_spreading": 72,
+    "bleed_peak": 120,
+    "cannula_meets_vein": 90
+   },
+   "issues": [
+    "Needle half correct: advances, nicks the vein f50, bleed blooms f52-120.",
+    "Needle tip already below the skin surface at f0.",
+    "Cannula half wrong: from ~f72 the cannula runs along and into the blue vein (coaxial, tip in the lumen f90-143); it reads as the cannula entering the vessel, the opposite of 'slides past'.",
+    "The vein branch beside the cannula dissolves f0-30."
+   ]
+  },
+  "omni3": {
+   "verdict": "FIX",
+   "usable_range": [
+    0,
+    72
+   ],
+   "events": {
+    "needle_at_vessel": 60,
+    "bleed_start": 66,
+    "cannula_meets_vein": 78,
+    "bleed_peak": 130
+   },
+   "issues": [
+    "Same as omni2: the cannula runs parallel to and then coaxial with the vein from ~f78; it never crosses under at an angle.",
+    "Needle tip again already in the skin at f0.",
+    "No gain over omni2; bleed is 12 f later."
+   ]
+  }
+ },
+ "U5": {
+  "verdict": "FIX",
+  "n": 144,
+  "events": {
+   "cannula_enters_frame": 20,
+   "tip_at_entry_point": 46,
+   "thread_1": 54,
+   "thread_2": 66,
+   "thread_3": 90,
+   "trough_fill_start": 96,
+   "hold_end": 143
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   143
+  ],
+  "diff_max_over_median": 4.0,
+  "issues": [
+   "Story right: one entry point, three threads fan to the tear trough, then the trough fills.",
+   "Entry point jumps ~30 px up-right f84-96 and back by f104 (morph); avoid holding on f84-100.",
+   "A twin ghost shaft f24-60.",
+   "9:16 crop cuts the face at the nose (one eye only, acceptable)."
+  ],
+  "version": "omni1",
+  "omni2": {
+   "verdict": "FIX",
+   "usable_range": [
+    84,
+    143
+   ],
+   "events": {
+    "cannula_enters_frame": 24,
+    "tip_near_rim_not_entry": 60,
+    "cannula_shifts_to_entry": 78,
+    "thread_2": 90,
+    "thread_3": 98,
+    "fill": 108
+   },
+   "issues": [
+    "Worse than omni1: the cannula first runs to the orbit edge away from the entry mark (f42-66), then slides sideways onto it (f74-82); the entry mark moves ~25 px."
+   ]
+  }
+ },
+ "U6": {
+  "verdict": "PASS",
+  "n": 120,
+  "events": {
+   "lidocaine_appears": 6,
+   "swirl": 12,
+   "swirl_settled": 48,
+   "hold_end": 119
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   119
+  ],
+  "diff_max_over_median": 11.6,
+  "issues": [
+   "Syringe rock still (d1 median 0.13); the ratio is high only because the median is tiny.",
+   "The lidocaine stays a grey S-ribbon after f48 instead of dissolving, and is the same grey as the gel."
+  ],
+  "version": "omni1"
+ },
+ "U7": {
+  "verdict": "FIX",
+  "version": "omni2",
+  "n": 144,
+  "events": {
+   "deposit_swells": 30,
+   "second_lobe_grows": 48,
+   "pillowy_bag": 84,
+   "pillow_max": 102,
+   "hold_end": 143
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   96
+  ],
+  "diff_max_over_median": 2.7,
+  "issues": [
+   "Better than omni1: one continuous swell, no pop-in; the lid/cheek skin line follows the bulge.",
+   "Still oversized: by f102 a glossy kidney reaching the level of the nose base. Best hold f84-96."
+  ],
+  "omni1": {
+   "verdict": "FIX",
+   "usable_range": [
+    0,
+    74
+   ],
+   "events": {
+    "deposit_swells": 0,
+    "swell_end": 72,
+    "second_pillow_pops_in": 76,
+    "pillow_max": 102,
+    "hold_end": 143
+   },
+   "issues": [
+    "f0-72 the under-eye deposit swells modestly (usable).",
+    "f76 a second, much larger pillow appears as a pale outline and fills f78-96: a new object pops in rather than the deposit swelling.",
+    "End state is a huge glossy kidney over the whole upper cheek, replacing the cheek contour; reads as an object stuck on the face, not a pillowy bag."
+   ]
+  }
+ },
+ "U8": {
+  "verdict": "FIX",
+  "n": 144,
+  "events": {
+   "needle_contacts_lid": 28,
+   "pierce": 32,
+   "bruise_bloom": 42,
+   "bruise_purple": 84,
+   "bruise_peak": 108,
+   "hold_end": 143
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   143
+  ],
+  "diff_max_over_median": 2.2,
+  "issues": [
+   "The needle goes into the lower-lid margin at the lash line; an under-eye injection enters below the lid, at the tear trough / over the rim.",
+   "Bruise blooms well (red -> purple -> yellow edge).",
+   "Slow camera drift: scale 0.979 -> 1.010 and 18 px pan over the clip."
+  ],
+  "version": "omni1"
+ },
+ "U9": {
+  "verdict": "PASS",
+  "n": 121,
+  "events": {
+   "still": 0
+  },
+  "blinks": [],
+  "usable_range": [
+   0,
+   120
+  ],
+  "diff_max_over_median": 2.3,
+  "issues": [
+   "Kling, 1928x1076 (not 1920x1080): scale to fit.",
+   "Near-still (d1 median 0.08), blunt rounded tip with side port plus a loupe circle. Correct."
+  ],
+  "version": "kling"
+ }
+}
