@@ -1,10 +1,10 @@
 {
  "schema": 1,
  "reel": "oct14",
- "version": "v6",
+ "version": "v6c",
  "comp": {
   "entry": "src/oct14/index.ts",
-  "id": "Oct14ReelV6b",
+  "id": "Oct14ReelV6c",
   "props": {}
  },
  "fps": 24,
@@ -1272,7 +1272,8 @@
     "offset": 7
    },
    "text": {
-    "label": "Evolysse Form"
+    "label": "Evolysse Form",
+    "credit": "Images: Evolus, Inc."
    },
    "source": {
     "still": "objects/evolysse-form.PLACEHOLDER.png",
@@ -1289,20 +1290,20 @@
    "notes": "under the lone pip on the cream room; replace the still when SHOT_REQUESTS #14 arrives",
    "items": [
     {
-     "src": "objects/evolysse-form.png",
-     "aspect": 3.97,
+     "src": "objects/evolus/form_clean_h.png",
+     "aspect": 3.307,
      "label": "Evolysse Form",
-     "source": "his own footage: inj3.mp4 frame 516 (21.5 s), rembg birefnet-general cut, Lanczos x4; barrel print not legible, so the name is set in type",
-     "x": 160,
-     "y": 1300,
-     "w": 760,
+     "x": 240,
+     "y": 1318,
+     "w": 600,
      "enter": "up",
      "labelPx": 34,
      "delay": -18,
      "outOffset": -12,
-     "note": "v6b: in at 1178 (fully in 1192), out 1240, gone by 1250; the pip2 room ends 1251: never over her footage"
+     "source": "Evolus product photo (evolysse-form-side.png), white shadow removed; objects/BANK.md"
     }
-   ]
+   ],
+   "creditY": 290
   },
   {
    "id": "obj-pair",
@@ -1319,7 +1320,8 @@
    },
    "text": {
     "top": "Evolysse Form",
-    "bottom": "Evolysse Smooth"
+    "bottom": "Evolysse Smooth",
+    "credit": "Images: Evolus, Inc."
    },
    "source": {
     "top": "objects/evolysse-form.PLACEHOLDER.png",
@@ -1338,29 +1340,32 @@
    "notes": "same scale, stacked; then O3 (the two gels) takes the slot",
    "items": [
     {
-     "src": "objects/evolysse-form.png",
-     "aspect": 3.97,
+     "src": "objects/evolus/form_clean_v.png",
+     "aspect": 0.3024,
      "label": "Evolysse Form",
-     "source": "his own footage: inj3.mp4 frame 516 (21.5 s), rembg birefnet-general cut, Lanczos x4; barrel print not legible, so the name is set in type",
-     "x": 100,
-     "y": 96,
-     "w": 880,
-     "enter": "left",
-     "labelPx": 36
-    },
-    {
-     "src": "objects/ghost_evolysse-smooth.png",
-     "aspect": 4.0,
-     "label": "Evolysse Smooth · photo to come",
-     "source": "ghost outline, photo to come: in inj6 the Smooth syringe is always inside his fist (SHOT_REQUESTS #15)",
-     "x": 100,
-     "y": 432,
-     "w": 880,
+     "x": 236,
+     "y": 168,
+     "w": 187.5,
      "enter": "left",
      "labelPx": 36,
-     "delay": 6
+     "labelSide": "above",
+     "shadow": false
+    },
+    {
+     "src": "objects/evolus/smooth_clean_v.png",
+     "aspect": 0.2846,
+     "label": "Evolysse Smooth",
+     "x": 662,
+     "y": 168,
+     "w": 176.9,
+     "enter": "right",
+     "labelPx": 36,
+     "labelSide": "above",
+     "delay": 6,
+     "shadow": false
     }
-   ]
+   ],
+   "creditY": 1492
   },
   {
    "id": "O3",
@@ -1369,11 +1374,11 @@
    "start": {
     "beat": "obj-pair",
     "edge": "end",
-    "offset": 2
+    "offset": 10
    },
    "end": {
     "cue": "start:inj6-bruising",
-    "offset": -2
+    "offset": -8
    },
    "text": {
     "eyebrow": "Two gels, two jobs",
@@ -1459,7 +1464,52 @@
     "pad": 28,
     "titlePx": 44
    },
-   "notes": "v6: waits for the two real syringes; Form dome complete (84) lands a second before 'not as thick'"
+   "notes": "v6: waits for the two real syringes; Form dome complete (84) lands a second before 'not as thick' | v6c: off, the Evolus gel clips (beat \"gels\") show it",
+   "off": true,
+   "handover": "starts after obj-pair has fully left (RealObject OUT 10), ends so its 7 f exit clears O4"
+  },
+  {
+   "id": "gels",
+   "lane": "plates",
+   "device": "GelPair",
+   "start": {
+    "beat": "obj-pair",
+    "edge": "end",
+    "offset": 10
+   },
+   "end": {
+    "cue": "start:inj6-bruising",
+    "offset": -8
+   },
+   "text": {
+    "eyebrow": "Two gels, two jobs",
+    "title": "Smooth is not as thick",
+    "credit": "Images: Evolus, Inc."
+   },
+   "source": {
+    "left": {
+     "seq": "objects/evolus/gel125/form_",
+     "n": 124,
+     "label": "Evolysse Form"
+    },
+    "right": {
+     "seq": "objects/evolus/gel125/smooth_",
+     "n": 124,
+     "label": "Evolysse Smooth"
+    },
+    "origin": "Evolus lab clips (evolus.com/products/evolysse/healthcare-providers): EvolysseFormRed_Final.gif / EvolysseSmoothBlue_Final.gif, 1.5-9.5 s at 1.536x (124 f: the beat plus its 10 f exit), 24 fps blended; objects/BANK.md"
+   },
+   "layout": {
+    "x": 40,
+    "y": 150,
+    "w": 1000,
+    "cropX": [
+     140,
+     660
+    ]
+   },
+   "notes": "v6c: replaces the O3 drawing plate; the squeeze then the tweezer press, Form holds its shape, Smooth spreads flatter",
+   "handover": "starts after obj-pair has fully left (RealObject OUT 10), ends so its 7 f exit clears O4"
   },
   {
    "id": "O4",
@@ -1470,7 +1520,7 @@
    },
    "end": {
     "cue": "end:inj6-bruising",
-    "offset": 40
+    "offset": 34
    },
    "text": {
     "eyebrow": "Why a cannula",
@@ -1554,7 +1604,8 @@
     "pad": 30,
     "titlePx": 46
    },
-   "notes": "v6: moved up to make room for the real cannula and needle under it"
+   "notes": "v6: moved up to make room for the real cannula and needle under it",
+   "handover": "exit clears before chapter 03 at end:inj6-bruising +42"
   },
   {
    "id": "obj-cannula-needle",
@@ -1567,7 +1618,7 @@
    },
    "end": {
     "cue": "end:inj6-bruising",
-    "offset": 36
+    "offset": 30
    },
    "text": {
     "top": "Blunt cannula",
@@ -1614,7 +1665,8 @@
      "source": "Wikimedia Commons, Politikaner, CC BY-SA 3.0 (objects/BANK.md)"
     }
    ],
-   "creditY": 1536
+   "creditY": 1536,
+   "handover": "RealObject OUT 10 clears before chapter 03"
   },
   {
    "id": "hook",
@@ -1705,5 +1757,42 @@
    "notes": "full-frame technical plan on the registered before/after; every line from oct14_v5_markup.py; legend under her face"
   }
  ],
- "voice": "public/oct14/mix_v6.wav"
+ "voice": "public/oct14/mix_v6.wav",
+ "checks": {
+  "colour_skip": [
+   [
+    {
+     "frame": 46
+    },
+    {
+     "frame": 531
+    }
+   ],
+   [
+    {
+     "frame": 525
+    },
+    {
+     "frame": 595
+    }
+   ],
+   [
+    {
+     "frame": 714
+    },
+    {
+     "frame": 794
+    }
+   ],
+   [
+    {
+     "frame": 1750
+    },
+    {
+     "frame": 1830
+    }
+   ]
+  ],
+  "colour_skip_note": "layout_v5 overlay cards drawn in TSX with no beat: title/ch01/name/pip1/O1 46-531, months 525-595, ch02 714-794, ch03 1750-1830"
+ }
 }
