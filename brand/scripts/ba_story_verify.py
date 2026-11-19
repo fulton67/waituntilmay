@@ -19,7 +19,10 @@ import cv2
 import numpy as np
 
 # photo window in the frame (Story.tsx LAYOUTS): story k=1, feed k=0.92 (1080x1350)
-WINS = {"story": (940, 1010, 70, 384), "feed": (865, 929, 108, 180)}
+WINS = {"story": (799, 858, 141, 376), "feed": (865, 929, 108, 180)}
+# story only: the empty zone left for the Instagram link sticker (x0, y0, x1, y1); it must stay plain paper in every frame
+STICKER = (240, 1380, 840, 1540)
+IVORY_BGR = np.array([235, 242, 245])
 
 
 def main():
@@ -37,6 +40,11 @@ def main():
         frames.append(f)
         luma.append(float(cv2.cvtColor(f, cv2.COLOR_BGR2GRAY).mean()))
     n = len(frames)
+    zone = None
+    if sys.argv[3:4] == ["story"]:
+        x0, y0, x1, y1 = STICKER
+        dev = [float(np.abs(f[y0:y1, x0:x1].astype(int) - IVORY_BGR).max()) for f in frames]
+        zone = {"max_dev_from_paper": round(max(dev), 1), "frames_over_8": sum(d > 8 for d in dev)}
     probe = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=codec_name,width,height,pix_fmt",
                             "-of", "json", str(mp4)], capture_output=True, text=True)
     m = luma
@@ -61,11 +69,11 @@ def main():
     cv2.imwrite(str(out / "edges.png"), np.vstack(tiles))
     cv2.imwrite(str(out / "poster_first.png"), frames[0])
     cv2.imwrite(str(out / "poster_end.png"), frames[n - 15])
-    sheet = [cv2.resize(frames[min(n - 1, int(s * fps))], (270, frames[0].shape[0] * 270 // 1080)) for s in (0, 1.6, 2.4, 3.6, 5.0, 5.8, 6.8, 8.0, 9.5, 11.3)]
+    sheet = [cv2.resize(frames[min(n - 1, int(s * fps))], (270, frames[0].shape[0] * 270 // 1080)) for s in (0.5, 1.6, 2.4, 3.6, 5.0, 5.8, 6.8, 9.1, 9.4, 11.3)]
     cv2.imwrite(str(out / "sheet.png"), np.vstack([np.hstack(sheet[:5]), np.hstack(sheet[5:])]))
     print(json.dumps({"frames": n, "fps": fps, "duration_s": round(n / fps, 3), "probe": json.loads(probe.stdout or "{}").get("streams"),
                       "flashes": {"one_frame_luma_spikes": len(spikes), "frames": spikes, "max_frame_step": round(maxstep, 2)},
-                      "edge_white_runs": bad[:20], "edge_checked_frames": len(range(0, n, 10))}, indent=1))
+                      "edge_white_runs": bad[:20], "edge_checked_frames": len(range(0, n, 10)), "sticker_zone": zone}, indent=1))
 
 
 if __name__ == "__main__":
