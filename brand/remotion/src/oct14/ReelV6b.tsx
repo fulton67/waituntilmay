@@ -55,6 +55,13 @@ export type Oct14V5Props = Oct14Props & { layer?: "all" | "allowed" | "footage" 
 const SRC = (role: string) => `oct14/${role}.mp4`;
 const CREAM = "#f2efed";
 let LAYER: NonNullable<Oct14V5Props["layer"]> = "all";
+// pass (brand/scripts/reel.py --hdr, REELS.md "HDR master"): one layer of the reel on a transparent ground, without the footage:
+// "over" = every graphic and still | "media" = only the clips shown inside cards. Unset = the normal reel, unchanged.
+export type Pass = "over" | "media";
+let PASS: Pass | undefined;
+// at render an OffthreadVideo is an <img> served by Remotion's frame proxy: that is how a pass tells the card clips from the graphics
+const PASS_CSS: Record<Pass, string> = { over: `img[src*="/proxy?src="]{visibility:hidden !important}`,
+  media: `body *{visibility:hidden !important} body img[src*="/proxy?src="]{visibility:visible !important}` };
 let ROOMS: [number, number][] = []; // takeover spans: no footage, so no mark on her face
 const inRoom = (f: number) => ROOMS.some(([a, b]) => f >= a && f < b);
 const gfx = () => LAYER === "all"; // cards, plates, titles, labels, captions
@@ -62,7 +69,7 @@ const marks = () => LAYER === "all" || LAYER === "allowed"; // the pen markup on
 const PROBE = ["crowR", "marioR", "jawR", "chin", "malarR", "cheekR", "nasoL", "lipCL", "nasoR", "lipCR", "marioL", "glabella", "cheekL"];
 export const probeColour = (k: string) => `hsl(${Math.round((PROBE.indexOf(k) * 360) / PROBE.length)}, 100%, 50%)`;
 
-const Picture: React.FC<{ role: string; from: number; speed: number; punch?: number; o?: [number, number] }> = ({ role, from, speed, punch = 1, o }) => (
+const Picture: React.FC<{ role: string; from: number; speed: number; punch?: number; o?: [number, number] }> = ({ role, from, speed, punch = 1, o }) => PASS ? null : (
   <OffthreadVideo src={staticFile(SRC(role))} trimBefore={Math.round(from * 24)} playbackRate={speed} muted toneMapped={false}
     style={{ position: "absolute", left: 0, top: 0, width: W, height: H, objectFit: "cover",
       transformOrigin: `${(o ? o[0] : 0.4) * 100}% ${(o ? o[1] : 0.42) * 100}%`, transform: `scale(${punch})` }} />
@@ -318,6 +325,7 @@ const cl01 = (v: number) => Math.max(0, Math.min(1, v));
 export const Oct14ReelV6b: React.FC<Oct14V5Props & { tl?: Timeline }> = (P) => {
   useElza();
   LAYER = P.layer ?? "all";
+  PASS = (P as { pass?: Pass }).pass;
   const frame = useCurrentFrame();
   const { cues: c, speed } = P;
   const pieces = P.pieces.map((x) => (PIECE_FIX[x.id] ? { ...x, ...PIECE_FIX[x.id] } : x));
@@ -374,10 +382,11 @@ export const Oct14ReelV6b: React.FC<Oct14V5Props & { tl?: Timeline }> = (P) => {
   };
 
   return (
-    <AbsoluteFill style={{ background: "#000" }}>
+    <AbsoluteFill style={{ background: PASS ? undefined : "#000" }}>
+      {PASS && <style>{PASS_CSS[PASS]}</style>}
       {pieces.map((x) => (
         <Sequence key={x.id} from={x.at} durationInFrames={Math.max(1, Math.min(x.dur, live(x.pictureRole, x.pictureFrom, speed)))} layout="none">
-          {stillOf(x.id) ? <Img src={staticFile(`oct14/still_${stillOf(x.id)}.jpg`)} style={{ position: "absolute", left: 0, top: 0, width: W, height: H }} />
+          {stillOf(x.id) ? PASS ? null /* a held footage frame: the HDR build takes it from the original */ : <Img src={staticFile(`oct14/still_${stillOf(x.id)}.jpg`)} style={{ position: "absolute", left: 0, top: 0, width: W, height: H }} />
             : <Picture role={x.pictureRole} from={x.pictureFrom} speed={speed} punch={x.punch} o={x.punchO} />}
         </Sequence>
       ))}

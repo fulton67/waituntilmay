@@ -161,3 +161,28 @@ Edit folder `brand/edits/undereye-filler`, assets `public/undereye-filler`, entr
 | build | `python brand/scripts/reel.py undereye --version v4b` | the build folder |
 
 Face-clear layer: `{"bare":true}` at half scale. By hand: `brand/scripts/undereye_lock_check.py` (lock 2.3 / 3.6 / 4.5 px), `undereye_master_v4.py measure <master> <json>`.
+
+## HDR master (`reel.py <reel> --hdr`)
+
+The normal build is an 8-bit H.264 render labelled SDR; the camera roll plays the iPhone originals as 10-bit HLG (bt2020). `--hdr` builds
+the same reel as a 10-bit HEVC HLG master whose footage is cut from the original camera files, untouched (`brand/scripts/reel_hdr.py`).
+
+    python brand/scripts/reel.py undereye --hdr [--frames A-B]
+    python brand/scripts/reel.py oct14 --hdr --comp Oct14ReelV6b --audio "brand/edits/oct14-injection/Ostad - Oct 14 injections v6b.mp4"
+    python brand/scripts/reel.py jan08 --hdr --audio "brand/edits/jan08-filler-fatigue/Ostad - Filler fatigue v4b.mp4"
+
+1. Footage: every picture segment is cut from the original (`public/originals.json`: working file -> original, offset; the copies in
+   `public/originals/`) in yuv420p10le. Only cut, frame pick to 24 fps (the same frame the delivered cut shows, never blended), the
+   timeline's punch-in / placement, rotation. No colour filter. An original that is missing falls back to the working file and is named
+   in the manifest.
+2. Graphics: the composition renders without footage as transparent PNG passes, prop `pass`: `under` (behind the people: wall titles,
+   the cream room and plates he stands in front of), `matte` (the people's key, alpha or luma only), `over` (every other graphic),
+   `media` (clips inside cards). sRGB graphics go through a 3D LUT to bt2020 + HLG with white at HLG 75 % (203 nits, BT.2408).
+   `media` clips are already HLG-coded: matrix only.
+3. Layers: footage -> under -> the people (ORIGINAL footage through the matte) -> frosted glass -> over -> media.
+4. Encode: libx265 main10, crf 8, tags bt2020 / arib-std-b67 / bt2020nc / tv. Audio: stream-copied from the existing master (`--audio`).
+5. Checks (manifest.json): tags equal the original's; footage vs the original in graphics-free regions (mean |diff| <= 2 ten-bit codes);
+   graphics white at 75 % +-3 %; frozen picture; format; audio unchanged.
+
+Intermediate passes are deleted after the build (`--keep` keeps them). The originals are only read. A composition takes part by honouring
+`pass` (UndereyeReelV5, Oct14ReelV6b, Jan08ReelV4 do); without the prop their output is unchanged.

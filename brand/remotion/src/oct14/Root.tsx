@@ -49,7 +49,7 @@ export const Oct14Root: React.FC = () => (
     <Composition id="Oct14ReelV6b" component={Oct14ReelV6b} width={1080} height={1920} fps={24} durationInFrames={240} defaultProps={{} as Oct14V6bProps}
       calculateMetadata={async ({ props }) => {
         const j = async (f: string) => (await fetch(staticFile(f))).json();
-        const p: Oct14V6bProps = props.pieces ? props : { ...(await j("oct14/props.json")), layer: props.layer ?? "all", big: true, flora: await j("flora/frames.json"),
+        const p: Oct14V6bProps = props.pieces ? props : { ...(await j("oct14/props.json")), layer: props.layer ?? "all", ...((props as { pass?: string }).pass ? { pass: (props as { pass?: string }).pass } : {}), big: true, flora: await j("flora/frames.json"),
           tracks5: await j("oct14/tracks_v5.json"), lay: await j("oct14/layout_v5.json"), markup: await j("oct14/markup_v5.json"), stills: await j("oct14/stills_v5.json"), tl: (props as { timeline?: Oct14V6bProps["tl"] }).timeline ?? props.tl };
         return { durationInFrames: p.durationInFrames + p.tail, props: p };
       }} />

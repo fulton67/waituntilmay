@@ -417,6 +417,7 @@ def build(a):
     LOG = open(out / "build.log", "w", encoding="utf-8")
     say(f"build {out}")
     t0 = time.time()
+    if a.hdr: return build_hdr(a, reel, R, tl, tl_path, P, total, frames, out, version, errs, t0)
     man = {"reel": reel, "version": version, "built": datetime.datetime.now().isoformat(timespec="seconds"), "timeline_file": str(tl_path.relative_to(ROOT)).replace("\\", "/"),
            "comp": tl["comp"], "frames": list(frames) if frames else [0, total - 1], "segment": bool(frames), "notes": [e for e in errs if ": note:" in e]}
     # 1 prep
@@ -473,6 +474,55 @@ def build(a):
     fails = [k for k, v in C.items() if v.get("pass") is False]
     return 1 if fails else 0
 
+def build_hdr(a, reel, R, tl, tl_path, P, total, frames, out, version, errs, t0):
+    """--hdr: the 10-bit HLG master with the footage cut from the original camera files (brand/scripts/reel_hdr.py)"""
+    import reel_hdr
+    if a.comp: tl = {**tl, "comp": {**tl["comp"], "id": a.comp}}  # e.g. Oct14ReelV6b while timelines/oct14.json still names Oct14ReelV6
+    if not a.audio:  # the existing delivered master's sound, unchanged
+        hit = sorted(q for q in (ROOT / R["edit"]).glob(f"*{version}.mp4") if not q.name.lower().startswith("raw") and q.name[-len(version) - 5] in "_ ")
+        a.audio = str(hit[0]) if hit else None
+    def render_cmd(entry, comp, d, props_file, fr, conc):
+        return subprocess.list2cmdline(["npx", "remotion", "render", entry, comp, str(d), f"--props={props_file}", "--sequence", "--image-format=png", "--log=error",
+                                        f"--concurrency={conc}", "--timeout=240000", f"--frames={fr[0]}-{fr[1]}"])
+    shutil.copy2(tl_path, out / "timeline.json")
+    f0, f1 = frames or (0, total - 1)
+    man = {"reel": reel, "version": version, "built": datetime.datetime.now().isoformat(timespec="seconds"), "timeline_file": str(tl_path.relative_to(ROOT)).replace("\\", "/"),
+           "comp": tl["comp"], "frames": [f0, f1], "segment": bool(frames), "notes": [e for e in errs if ": note:" in e]}
+    more, final = reel_hdr.build(a, reel, R, tl, P, total, frames, out, run, say, render_cmd, lambda f: frozen_check(tl, P, f, f0, f1))
+    man.update(more)
+    C = man["checks"]
+    pr = probe(final)
+    C["format"] = {"pass": (pr["width"], pr["height"], pr["fps"]) == (1080, 1920, "24/1") and pr["frames"] == f1 - f0 + 1, **pr, "frames_expected": f1 - f0 + 1}
+    if a.audio: C["audio_unchanged"] = audio_same(final, a.audio, f0 / 24 if frames else 0, (f1 - f0 + 1) / 24)
+    if a.name:  # a copy beside the delivered masters, under the given name; an existing file is never overwritten
+        dst = ROOT / R["edit"] / a.name
+        if dst.exists(): dst = dst.with_name(f"{dst.stem} ({out.name.split('__')[-1]}){dst.suffix}")
+        shutil.copy2(final, dst); man["delivered_copy"] = str(dst.relative_to(ROOT)).replace("\\", "/")
+    man["total_s"] = round(time.time() - t0, 1)
+    (out / "manifest.json").write_text(json.dumps(man, indent=1, ensure_ascii=False), encoding="utf-8")
+    say("")
+    for k, v in C.items():
+        say(f"  {k:20s} {'PASS' if v.get('pass') else ('n/a ' if v.get('pass') is None else 'FAIL')}  " + json.dumps({q: w for q, w in v.items() if q not in ('pass', 'frames', 'note') and not isinstance(w, (dict, list))}) + ("  stalls: " + json.dumps(v["stalls"]) if v.get("stalls") else ""))
+    say(f"master   {final}\nmanifest {out / 'manifest.json'}   ({man['total_s']} s)")
+    return 1 if [k for k, v in C.items() if v.get("pass") is False] else 0
+
+def audio_same(final, src, ss, t):
+    """the HDR master's sound is the existing master's, stream-copied: decode both and compare the samples"""
+    import numpy as np
+    def pcm(p, pre):
+        return np.frombuffer(subprocess.run(["ffmpeg", "-v", "error", *pre, "-i", str(p), "-vn", "-ac", "2", "-ar", "48000", "-f", "s16le", "-"], capture_output=True).stdout, "<i2").astype(np.int32).reshape(-1, 2)
+    x, y = pcm(final, []), pcm(src, ["-ss", f"{ss:.5f}", "-t", f"{t:.5f}"])
+    n = min(len(x), len(y)) - 4096
+    if n < 24000: return {"pass": False, "note": "no audio to compare"}
+    # a segment's copy starts on an AAC packet (1024 samples), so the same samples may sit up to 2 packets later in the copy
+    d = {k: float(np.abs(x[k: k + n] - y[:n]).mean()) for k in (range(0, 2049) if ss else [0])}
+    k = min(d, key=d.get)
+    level = float(np.abs(y[:n]).mean()) or 1.0
+    # whole reel: the stream is copied whole, so the samples are identical. A segment's copy starts mid-stream on an AAC packet: the decoder
+    # has no history there, so the samples are near, not identical; that is reported, not passed
+    ok = True if d[k] <= 1.0 else (None if ss and d[k] / level <= 0.02 else False)
+    return {"pass": ok, "source": str(src), "mean_abs_sample_diff_16bit": round(d[k], 3), "relative_to_signal": round(d[k] / level, 4), "offset_samples": k, "samples": n}
+
 def face_clear(reel, tl, out, final, frames, conc, version):
     FC = REELS[reel]["face_clear"]
     paths = {"out": str(out / "face_clear.json"), "version": version, "final": str(final), "faces": str(out / "faces.json"), "props": str(REM / tl["transcript"])}
@@ -499,4 +549,9 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("reel", choices=sorted(REELS)); ap.add_argument("--version"); ap.add_argument("--frames"); ap.add_argument("--prep", choices=["auto", "skip", "force"], default="auto")
     ap.add_argument("--plan", action="store_true"); ap.add_argument("--face-clear", action="store_true"); ap.add_argument("--compare"); ap.add_argument("--concurrency", type=int, default=4)
+    ap.add_argument("--hdr", action="store_true", help="10-bit HEVC HLG master, footage cut from the original camera files (reel_hdr.py)")
+    ap.add_argument("--audio", help="--hdr: the existing master whose audio is copied (default: the delivered <edit>/*_<version>.mp4)")
+    ap.add_argument("--passes", help="--hdr: graphics passes to render (default under,matte,over,media)"); ap.add_argument("--crf", type=int, default=8, help="--hdr: x265 crf (8 keeps the footage within 2 ten-bit codes of the original on the noisiest clip; 14 measured 1.7-2.7)"); ap.add_argument("--keep", action="store_true", help="--hdr: keep the intermediate passes")
+    ap.add_argument("--name", help="--hdr: also copy the master into the edit folder under this file name")
+    ap.add_argument("--comp", help="--hdr: composition id to render the passes from, when it is not the timeline's (it must take the `pass` prop)")
     sys.exit(build(ap.parse_args()))

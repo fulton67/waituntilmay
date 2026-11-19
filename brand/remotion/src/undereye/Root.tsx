@@ -23,7 +23,7 @@ export const UndereyeRoot: React.FC = () => (
     calculateMetadata={async ({ props }) => {
       const base: V5Props = props.pieces ? props : await (await fetch(staticFile("undereye-filler/props_v5.json"))).json();
       const frames = props.frames ?? (await (await fetch(staticFile("flora/frames.json"))).json());
-      const p: V5Props = { ...base, frames, bare: !!props.bare, timeline: props.timeline ?? (TL5b as unknown as Timeline) };
+      const p: V5Props = { ...base, frames, bare: !!props.bare, pass: props.pass, timeline: props.timeline ?? (TL5b as unknown as Timeline) };
       return { durationInFrames: p.durationInFrames + TAIL5, props: p };
     }}
   />
@@ -39,7 +39,7 @@ export const UndereyeRoot: React.FC = () => (
     calculateMetadata={async ({ props }) => {
       const base: V5Props = props.pieces ? props : await (await fetch(staticFile("undereye-filler/props_v5.json"))).json();
       const frames = props.frames ?? (await (await fetch(staticFile("flora/frames.json"))).json());
-      const p: V5Props = { ...base, frames, bare: !!props.bare, timeline: props.timeline ?? (TL5 as unknown as Timeline) };
+      const p: V5Props = { ...base, frames, bare: !!props.bare, pass: props.pass, timeline: props.timeline ?? (TL5 as unknown as Timeline) };
       return { durationInFrames: p.durationInFrames + TAIL5, props: p };
     }}
   />

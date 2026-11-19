@@ -26,12 +26,19 @@ type Pic = { f0: number; f1: number; clip?: string; still?: string; src?: number
 type Piece = { id: string; clip: string; section: string; at: number; dur: number; from: number; to: number; pics: Pic[] };
 type Word = { w: string; f: number; f1: number; piece: string; voice: string };
 type KeySpec = { clip: string; a: number; dur?: number }; // dur = the key webm's own length (s): past it the layer unmounts (v5b guard)
-export type V5Props = { bare?: boolean; fps: number; speed: number; durationInFrames: number; pieces: Piece[]; words: Word[]; cues: Record<string, number>;
+// pass (brand/scripts/reel.py --hdr, REELS.md "HDR master"): one layer of the reel on a transparent ground, no footage, no sound.
+//   "under" = what sits behind the people (wall titles, full-frame stills) | "matte" = the people's RVM key as a white silhouette (alpha only)
+//   "over" = every other graphic | "media" = only the clips shown inside cards. Unset = the normal reel, unchanged.
+export type Pass = "under" | "matte" | "over" | "media";
+export type V5Props = { bare?: boolean; pass?: Pass; fps: number; speed: number; durationInFrames: number; pieces: Piece[]; words: Word[]; cues: Record<string, number>;
   tailRate?: number; sketch?: SketchData; stat?: { before: number; after: number }; hook: number; keys: Record<string, KeySpec>; frames: FramesMeta; timeline?: Timeline };
 
 export const TAIL5 = 72;
 const STILL: Record<string, string> = { after: "ba_after.jpg", before_ref: "ba_before_ref.jpg", plan: "ba_wipe_before.jpg" };
 let BARE = false;
+let PASS: Pass | undefined;
+/** visible in the normal reel, and in a pass only when it is this layer's pass */
+const vis = (kind: Pass): "visible" | "hidden" => (!PASS || PASS === kind ? "visible" : "hidden");
 let PLAN: { data?: SketchData; ev: Parameters<typeof PlanMarks>[0]["ev"] } = { ev: { rim: 0, trough: 0, entry: 0, paths: 0, fan: 0, deposit: 0 } };
 
 const transformOf = (q: Pic, f: number) => {
@@ -44,13 +51,14 @@ const PicLayer: React.FC<{ q: Pic; speed: number }> = ({ q, speed }) => {
   const f = useCurrentFrame();
   const { transformOrigin, transform, k } = transformOf(q, f);
   let body: React.ReactNode = null;
+  if (PASS && !q.still) return null; // the footage itself comes from the original files, never from this render
   if (q.still === "plan") body = <>{!BARE && <Img src={staticFile(`undereye-filler/${STILL.plan}`)} style={{ position: "absolute", left: 0, top: 0, width: W, height: H }} />}
     {!BARE && PLAN.data && <PlanMarks data={PLAN.data} f={f + q.f0} ev={PLAN.ev} sw={k} />}</>;
   else if (BARE) body = null;
   else if (q.still) body = <Img src={staticFile(`undereye-filler/${STILL[q.still]}`)} style={{ position: "absolute", left: 0, top: 0, width: W, height: H }} />;
   else body = <OffthreadVideo src={staticFile(`undereye-filler/${q.clip}.mp4`)} trimBefore={Math.round(q.src! * 24)} playbackRate={q.rate ?? speed} muted toneMapped={false}
     style={{ position: "absolute", left: 0, top: 0, width: W, height: H, objectFit: "cover" }} />;
-  return <AbsoluteFill style={{ transformOrigin, transform, background: BARE ? undefined : "#000" }}>{body}</AbsoluteFill>;
+  return <AbsoluteFill style={{ transformOrigin, transform, background: BARE || PASS ? undefined : "#000", visibility: vis("under") }}>{body}</AbsoluteFill>;
 };
 
 const KeyLayer: React.FC<{ q: Pic; key4: KeySpec; name: string; speed: number; s: number; e: number }> = ({ q, key4, name, speed, s, e }) => {
@@ -61,10 +69,11 @@ const KeyLayer: React.FC<{ q: Pic; key4: KeySpec; name: string; speed: number; s
   const srcT = (q.src ?? 0) + (f * (q.rate ?? speed)) / 24;
   if (key4.dur !== undefined && (srcT < key4.a || srcT >= key4.a + key4.dur - 1 / 30)) return null;
   const { transformOrigin, transform } = transformOf(q, f);
+  if (PASS && PASS !== "matte") return null;
   return (
-    <AbsoluteFill style={{ transformOrigin, transform }}>
+    <AbsoluteFill style={{ transformOrigin, transform, visibility: "visible" }}>
       <OffthreadVideo src={staticFile(`undereye-filler/key_${name}.webm`)} transparent toneMapped={false} trimBefore={Math.round(q.src! * 24) - 24 * key4.a} playbackRate={speed} muted
-        style={{ position: "absolute", left: 0, top: 0, width: W, height: H, filter: BARE ? "brightness(0)" : undefined }} />
+        style={{ position: "absolute", left: 0, top: 0, width: W, height: H, filter: PASS === "matte" ? "brightness(0) invert(1)" : BARE ? "brightness(0)" : undefined }} />
     </AbsoluteFill>
   );
 };
@@ -84,7 +93,7 @@ const lines = (ws: Word[]) => {
 const Captions: React.FC<{ words: Word[]; from?: number }> = ({ words, from = 0 }) => {
   const frame = useCurrentFrame();
   const ls = React.useMemo(() => lines(words), [words]);
-  if (frame < from) return null;
+  if (frame < from || (PASS && PASS !== "over")) return null;
   const i = ls.findIndex((l, k) => frame >= l[0].f && frame < Math.min(ls[k + 1]?.[0].f ?? Infinity, l[l.length - 1].f1 + 10));
   if (i < 0) return null;
   const it = ls[i][0].voice === "patient";
@@ -99,6 +108,7 @@ const Captions: React.FC<{ words: Word[]; from?: number }> = ({ words, from = 0 
 export const UndereyeReelV5: React.FC<V5Props> = (P) => {
   useElza();
   BARE = !!P.bare;
+  PASS = P.pass;
   const frame = useCurrentFrame();
   const TL = (P.timeline ?? (TL0 as unknown as Timeline));
   const TP = P as unknown as Transcript;
@@ -143,7 +153,7 @@ export const UndereyeReelV5: React.FC<V5Props> = (P) => {
     const [s] = sp(id), e = s + SECTION_LEN, t = tx(id), l = ly(id), name = l.key as string;
     const k = P.keys?.[name];
     return <>
-      <RoomTitle s={s} num={t.num} title={t.title} px={l.px} top={l.top} align={l.align} x={l.x} />
+      <div style={{ display: "contents", visibility: vis("under") }}><RoomTitle s={s} num={t.num} title={t.title} px={l.px} top={l.top} align={l.align} x={l.x} /></div>
       {k && pics.filter((q) => q.clip === k.clip && q.f1 > s && q.f0 <= e).map((q, i) => (
         <Sequence key={`${name}${i}`} from={q.f0} durationInFrames={q.f1 - q.f0} layout="none"><KeyLayer q={q} key4={k} name={name} speed={speed} s={s} e={e} /></Sequence>
       ))}
@@ -169,15 +179,15 @@ export const UndereyeReelV5: React.FC<V5Props> = (P) => {
   };
 
   return (
-    <AbsoluteFill style={{ background: "#000" }}>
+    <AbsoluteFill style={{ background: PASS ? undefined : "#000", visibility: vis("over") }}>
       {pics.map((q, k) => (
         <Sequence key={k} from={q.f0} durationInFrames={q.f1 - q.f0} layout="none"><PicLayer q={q} speed={speed} /></Sequence>
       ))}
-      {!P.bare && <Audio src={staticFile(audio)} />}
+      {!P.bare && !PASS && <Audio src={staticFile(audio)} />}
 
       {/* HOOK: the registered Sept 20 -> Oct 4 wipe, full frame, then a hard cut */}
       {frame < sp("hook")[1] && !P.bare && (
-        <AbsoluteFill>
+        <AbsoluteFill style={{ visibility: vis("under") }}>
           <Img src={staticFile("undereye-filler/ba_wipe_before.jpg")} style={{ position: "absolute", width: W, height: H, transform: `scale(${2.0 + frame * 0.002})`, transformOrigin: "540px 1050px" }} />
           <div style={{ position: "absolute", inset: 0, clipPath: `inset(0 ${100 - Math.min(1, Math.max(0, (frame - ev("hook", "wipe")) / 22)) * 100}% 0 0)` }}>
             <Img src={staticFile("undereye-filler/ba_wipe_after.jpg")} style={{ position: "absolute", width: W, height: H, transform: `scale(${2.0 + frame * 0.002})`, transformOrigin: "540px 1050px" }} />
@@ -191,7 +201,7 @@ export const UndereyeReelV5: React.FC<V5Props> = (P) => {
       {/* S1 the concern */}
       {Sec("c01")}
       <ClipCardStd s={eyeS} out={eyeE} left={ly("eye").x} top={ly("eye").y} caps={tx("eye").caps} title={tx("eye").title}
-        media={P.bare ? null : <div style={{ position: "relative", width: 420, height: 315 }}>
+        media={P.bare ? null : <div style={{ position: "relative", width: 420, height: 315, visibility: vis("media") }}>
           <Sequence from={eyeS} layout="none"><OffthreadVideo src={staticFile(`undereye-filler/${B("eye").source!.clip}.mp4`)} trimBefore={B("eye").source!.in} playbackRate={eyeRate} muted toneMapped={false}
             style={{ position: "absolute", left: -70, top: 0, width: 560, height: 315 }} /></Sequence>
         </div>} />
@@ -250,7 +260,7 @@ export const UndereyeReelV5: React.FC<V5Props> = (P) => {
       <Sequence from={sp("endcard")[0]} durationInFrames={TAIL5} layout="none"><EndCardLow s={0} top={ly("endcard").top} /></Sequence>
 
       <Captions words={P.words} from={P.hook} />
-      {!P.bare && TL.beats.flatMap((b) => (b.sfx ?? []).map((s, i) => <Sfx key={`${b.id}${i}`} at={(at(s.at ?? b.start) + 1) / 24} name={s.name} gain={s.gain} />))}
+      {!P.bare && !PASS && TL.beats.flatMap((b) => (b.sfx ?? []).map((s, i) => <Sfx key={`${b.id}${i}`} at={(at(s.at ?? b.start) + 1) / 24} name={s.name} gain={s.gain} />))}
     </AbsoluteFill>
   );
 };

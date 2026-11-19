@@ -34,7 +34,7 @@ export const Jan08Root: React.FC = () => (
     <Composition id="Jan08ReelV4" component={Jan08ReelV4} width={1080} height={1920} fps={24} durationInFrames={240} defaultProps={{} as Jan08V4Props}
       calculateMetadata={async ({ props }) => {
         const p: Jan08V4Props = props.pieces ? props : { ...(await get("jan08/props_v4.json")), ba: await get("jan08/ba.json"), frames: await get("flora/frames.json"),
-          web: await getOr("jan08/clinic/web/credits.json", []), mode: props.mode ?? "full", timeline: props.timeline };
+          web: await getOr("jan08/clinic/web/credits.json", []), mode: props.mode ?? "full", pass: props.pass, timeline: props.timeline };
         return { durationInFrames: p.durationInFrames + p.tail, props: p };
       }} />
   </>

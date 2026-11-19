@@ -29,11 +29,21 @@ import { PLAN, type Side } from "./planV3";
 import type { Jan08V2Props, WebImg } from "./ReelV2";
 
 export type Mode = "full" | "footage" | "check";
-export type Jan08V4Props = Jan08V2Props & { mode?: Mode; timeline?: Timeline };
+// pass (brand/scripts/reel.py --hdr, REELS.md "HDR master"): one layer of the reel on a transparent ground, without the footage:
+// "under" = what sits behind him inside a key (wall titles, the cream room and plate he stands in front of) | "matte" = his matte, white
+// on black, placed and feathered as the key places it | "over" = every other graphic | "media" = the clips inside cards.
+// Unset = the normal reel, unchanged.
+export type Pass = "under" | "matte" | "over" | "media";
+let PASS: Pass | undefined;
+// at render an OffthreadVideo is an <img> served by Remotion's frame proxy: that is how a pass tells the card clips from the graphics
+const HIDE_CLIPS = `img[src*="/proxy?src="]{visibility:hidden !important}`;
+const PASS_CSS: Record<Pass, string> = { under: HIDE_CLIPS, over: HIDE_CLIPS, matte: "",
+  media: `body *{visibility:hidden !important} body img[src*="/proxy?src="]{visibility:visible !important}` };
+export type Jan08V4Props = Jan08V2Props & { mode?: Mode; timeline?: Timeline; pass?: Pass };
 const ModeCtx = createContext<Mode>("full");
 const TALK = staticFile("jan08/talk.mp4");
 /** a graphic: hidden in the footage-only render */
-const G: React.FC<{ children: React.ReactNode }> = ({ children }) => (useContext(ModeCtx) === "footage" ? null : <>{children}</>);
+const G: React.FC<{ children: React.ReactNode }> = ({ children }) => (useContext(ModeCtx) === "footage" || PASS === "matte" ? null : <>{children}</>);
 /** an exempt mark on the patient's face: only in the deliverable */
 const Ex: React.FC<{ children: React.ReactNode }> = ({ children }) => (useContext(ModeCtx) === "full" ? <>{children}</> : null);
 /** shown only before frame e (a hard cut, no exit fade) */
@@ -46,7 +56,7 @@ const box = (place?: Place): React.CSSProperties => {
   return { position: "absolute", left: place?.x ?? 0, top: H - H * sc, width: W * sc, height: H * sc };
 };
 /** the raw talk.mp4 at this piece's frame, placed */
-const TalkAt: React.FC<{ piece: PieceT; s: number; e: number; place?: Place }> = ({ piece, s, e, place }) => (
+const TalkAt: React.FC<{ piece: PieceT; s: number; e: number; place?: Place }> = ({ piece, s, e, place }) => PASS ? null : (
   <div style={box(place)}>
     <Sequence from={s} durationInFrames={e - s} layout="none">
       <OffthreadVideo src={TALK} toneMapped={false} trimBefore={Math.round(piece.from * 24) + (s - piece.at)} muted style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} />
@@ -71,6 +81,9 @@ const KeyComposite: React.FC<{ piece: PieceT; s: number; e: number; place?: Plac
   // OffthreadVideo past its last frame holds that frame: a frozen key over moving footage, the under-eye v5 glitch)
   const e = Math.min(e0, piece.at + piece.dur);
   if (f < s || f >= e) return null;
+  if (PASS === "under") return <div style={{ position: "absolute", inset: 0, visibility: "visible" }}>{children}</div>;
+  if (PASS === "matte") return <div style={{ position: "absolute", inset: 0, visibility: "visible" }}><MatteLayer piece={piece} s={s} e={e} place={place} /></div>;
+  if (PASS) return null;
   return (
     <div style={{ position: "absolute", inset: 0, isolation: "isolate" }}>
       <div style={{ position: "absolute", inset: 0, isolation: "isolate", background: "#000" }}>
@@ -301,6 +314,7 @@ const Legend: React.FC<{ s: number; out: number; caption: string; keyText: strin
 export const Jan08ReelV4: React.FC<Jan08V4Props> = (P) => {
   useElza();
   const mode: Mode = P.mode ?? "full";
+  PASS = P.pass;
   const tl = (P.timeline ?? (TL0 as unknown as Timeline));
   const R = (a: Anchor) => resolve(a, tl, P);
   const sp = (id: string) => span(tl, id, P);
@@ -326,7 +340,7 @@ export const Jan08ReelV4: React.FC<Jan08V4Props> = (P) => {
     const [s] = sp(id), e = s + SEC.T + SEC.HOLD + SEC.OUT, L = lay(id), T = tx(id);
     return <KeyComposite key={id} piece={pc(L.keyed)} s={s} e={e + 1}><TalkAt piece={pc(L.keyed)} s={s} e={e + 1} /><G><RoomTitle s={s} num={T.num} title={T.title} px={L.px} /></G></KeyComposite>;
   };
-  const clip = (id: string) => { const [s, e] = sp(id), S = b(id).source!; return <Clip key={id} src={S.clip!} from={S.in ?? 0} s={s} dur={e - s} toneMapped={false} />; };
+  const clip = (id: string) => { if (PASS) return null; const [s, e] = sp(id), S = b(id).source!; return <Clip key={id} src={S.clip!} from={S.in ?? 0} s={s} dur={e - s} toneMapped={false} />; };
   const webCard = (id: string) => {
     const [s, e] = sp(id), T = tx(id), L = lay(id), S = b(id).source!, img = web(S.still!, S.pos as string);
     return img ? <WebCard key={id} img={img} s={s} out={e} left={L.right ? W - M - L.w : L.left} top={L.top} w={L.w} eyebrow={T.eyebrow} title={T.title} /> : null;
@@ -346,8 +360,9 @@ export const Jan08ReelV4: React.FC<Jan08V4Props> = (P) => {
 
   return (
     <ModeCtx.Provider value={mode}>
-      <AbsoluteFill style={{ background: "#000" }}>
-        {P.pieces.map((x) => (
+      <AbsoluteFill style={{ background: PASS ? undefined : "#000", visibility: PASS === "under" || PASS === "matte" ? "hidden" : "visible" }}>
+        {PASS && <style>{PASS_CSS[PASS]}</style>}
+        {!PASS && P.pieces.map((x) => (
           <Sequence key={x.id} from={x.at} durationInFrames={x.dur} layout="none">
             <OffthreadVideo src={TALK} toneMapped={false} trimBefore={Math.round(x.from * 24)} muted style={{ position: "absolute", left: 0, top: 0, width: W, height: H, objectFit: "cover" }} />
           </Sequence>
