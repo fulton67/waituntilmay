@@ -1,0 +1,13 @@
+{
+ "final": "edits/oct14-injection/raw_mix_v5b.mp4",
+ "allowed": "edits/oct14-injection/checks_v5/allowed4.mp4",
+ "step": 2,
+ "expand": 0.1,
+ "min_px": 60,
+ "frames_checked": 1154,
+ "faces_seen": 1051,
+ "violating_frames": 0,
+ "runs": [],
+ "pass": true,
+ "violations": []
+}
