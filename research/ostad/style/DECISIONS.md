@@ -913,7 +913,7 @@ Naim's notes on the filler-fatigue reel and the drawings in both reels, and what
   - Naim's Ro/Serena reference for the room titles is not yet in hand, so the depth is the key-over-type method;
   - J3 freezes the eye region for 13 + 17 frames while patched.
 
-## 16f. All three reels after Naim's notes on colour, faces, tracking, markup and smoothness (2026-11-19)
+### 16f. All three reels after Naim's notes on colour, faces, tracking, markup and smoothness (2026-11-19)
 - **Raw footage only.** This supersedes 16e's colour item. The HLG -> bt709 tone map brightened the skin ("completely ruined these videos").
   - Every clip is restored from hlg_backup.
   - RVM keys are re-cut from the raw clips; Jan 08's key is now alpha-only, from grey matte videos.
