@@ -99,38 +99,41 @@ export const OctEnd: React.FC<{ start: number }> = ({ start }) => {
  * DayLanes: a real day axis (0-7 days). Filler: a full bar from day 0 on "right away". Neuromodulator: starts at day 1-2 on "a day
  * or two" and ramps; beyond that his words give no figure, so the ramp ends in a dotted fade (no invented peak day).
  */
-export const DayLanes: React.FC<{ s: number; neuroS: number; fillerS: number; out: number; y: number }> = ({ s, neuroS, fillerS, out, y }) => {
+export const DayLanes: React.FC<{ s: number; neuroS: number; fillerS: number; out: number; y: number;
+  /** v5c cream beat: left edge, card width / height and a type scale (defaults = the v3/v4 card, unchanged) */
+  x?: number; cw?: number; ch?: number; k?: number }> = ({ s, neuroS, fillerS, out, y, x = 98, cw = W - 196, ch = 360, k = 1 }) => {
   const f = useCurrentFrame();
   if (!vis(f, s + 1, out)) return null;
-  const cw = W - 196, x0 = 290, x1 = cw - 50, days = 7, u = (d: number) => x0 + ((x1 - x0) * d) / days;
+  const v = ch / 360; // vertical stretch of the lane rows
+  const x0 = 40 + 250 * k, x1 = cw - 50, days = 7, u = (d: number) => x0 + ((x1 - x0) * d) / days;
   const axis = p(f, s + 1, 18, "sweep");
   const fb = p(f, fillerS + 1, 16, "sweep"), nb = p(f, neuroS + 1, 24, "sweep");
-  const laneY = [118, 222];
+  const laneY = [118 * v, 222 * v], ay = ch - 60 * k, sw = 10 * k;
   return (
-    <div style={{ ...card(24), left: 98, top: y, width: cw, height: 360, ...life(f, s + 1, out) }}>
-      <div style={{ position: "absolute", left: 40, top: 28, ...disp(38, INK) }}>When you see it</div>
-      {["Neuromodulator", "Filler"].map((k, i) => (
-        <div key={k} style={{ position: "absolute", left: 40, top: laneY[i] + 14, ...disp(30, INK, 500) }}>{k}</div>
+    <div style={{ ...card(24), left: x, top: y, width: cw, height: ch, ...life(f, s + 1, out) }}>
+      <div style={{ position: "absolute", left: 40, top: 28 * v, ...disp(38 * k, INK) }}>When you see it</div>
+      {["Neuromodulator", "Filler"].map((key, i) => (
+        <div key={key} style={{ position: "absolute", left: 40, top: laneY[i] + 14 * k, ...disp(30 * k, INK, 500) }}>{key}</div>
       ))}
-      <svg width={cw} height={360} style={{ position: "absolute", left: 0, top: 0 }}>
+      <svg width={cw} height={ch} style={{ position: "absolute", left: 0, top: 0 }}>
         {/* axis + day ticks */}
-        <path d={`M${x0},300 L${x0 + (x1 - x0) * axis},300`} stroke={INK} strokeWidth={2.5} />
+        <path d={`M${x0},${ay} L${x0 + (x1 - x0) * axis},${ay}`} stroke={INK} strokeWidth={2.5 * k} />
         {Array.from({ length: days + 1 }, (_, d) => d).map((d) => (
           <g key={d} opacity={axis >= d / days ? 1 : 0}>
-            <path d={`M${u(d)},292 L${u(d)},308`} stroke={INK} strokeWidth={2} />
-            <text x={u(d)} y={338} textAnchor="middle" style={{ font: `500 22px ${FONT}`, fill: MUTED }}>{d === 0 ? "day 0" : d}</text>
+            <path d={`M${u(d)},${ay - 8 * k} L${u(d)},${ay + 8 * k}`} stroke={INK} strokeWidth={2 * k} />
+            <text x={u(d)} y={ay + 38 * k} textAnchor="middle" style={{ font: `500 ${22 * k}px ${FONT}`, fill: MUTED }}>{d === 0 ? "day 0" : d}</text>
           </g>
         ))}
         {/* neuromodulator: nothing until day 1-2, then it ramps; dotted past what he said */}
-        <path d={`M${u(0)},${laneY[0] + 30} L${u(1)},${laneY[0] + 30}`} stroke={INK} strokeOpacity={0.25} strokeWidth={3} strokeDasharray="2 8" strokeLinecap="round" opacity={nb > 0 ? 1 : 0} />
-        <path d={`M${u(1)},${laneY[0] + 44} C${u(1.6)},${laneY[0] + 44} ${u(2)},${laneY[0] + 22} ${u(2.6)},${laneY[0] + 16} L${u(4)},${laneY[0] + 14}`} fill="none" stroke={INK}
-          strokeWidth={10} strokeLinecap="round" pathLength={1} strokeDasharray={`${nb} 1`} />
-        <path d={`M${u(4)},${laneY[0] + 14} L${u(7)},${laneY[0] + 14}`} stroke={INK} strokeOpacity={0.35} strokeWidth={4} strokeDasharray="2 10" strokeLinecap="round" opacity={nb >= 1 ? 1 : 0} />
+        <path d={`M${u(0)},${laneY[0] + 30 * k} L${u(1)},${laneY[0] + 30 * k}`} stroke={INK} strokeOpacity={0.25} strokeWidth={3 * k} strokeDasharray={`${2 * k} ${8 * k}`} strokeLinecap="round" opacity={nb > 0 ? 1 : 0} />
+        <path d={`M${u(1)},${laneY[0] + 44 * k} C${u(1.6)},${laneY[0] + 44 * k} ${u(2)},${laneY[0] + 22 * k} ${u(2.6)},${laneY[0] + 16 * k} L${u(4)},${laneY[0] + 14 * k}`} fill="none" stroke={INK}
+          strokeWidth={sw} strokeLinecap="round" pathLength={1} strokeDasharray={`${nb} 1`} />
+        <path d={`M${u(4)},${laneY[0] + 14 * k} L${u(7)},${laneY[0] + 14 * k}`} stroke={INK} strokeOpacity={0.35} strokeWidth={4 * k} strokeDasharray={`${2 * k} ${10 * k}`} strokeLinecap="round" opacity={nb >= 1 ? 1 : 0} />
         {/* filler: right away, from day 0 */}
-        <path d={`M${u(0)},${laneY[1] + 30} L${u(0) + (u(7) - u(0)) * fb},${laneY[1] + 30}`} stroke={INK} strokeWidth={10} strokeLinecap="round" />
+        <path d={`M${u(0)},${laneY[1] + 30 * k} L${u(0) + (u(7) - u(0)) * fb},${laneY[1] + 30 * k}`} stroke={INK} strokeWidth={sw} strokeLinecap="round" />
       </svg>
-      <div style={{ position: "absolute", left: u(1.15), top: laneY[0] - 22, ...caps(20, INK), ...life(f, neuroS + 6, out, 8) }}>a day or two</div>
-      <div style={{ position: "absolute", left: u(0.1), top: laneY[1] - 22, ...caps(20, INK), ...life(f, fillerS + 4, out, 8) }}>right away</div>
+      <div style={{ position: "absolute", left: u(1.15), top: laneY[0] - 22 * k, ...caps(20 * k, INK), ...life(f, neuroS + 6, out, 8) }}>a day or two</div>
+      <div style={{ position: "absolute", left: u(0.1), top: laneY[1] - 22 * k, ...caps(20 * k, INK), ...life(f, fillerS + 4, out, 8) }}>right away</div>
     </div>
   );
 };

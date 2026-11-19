@@ -34,7 +34,9 @@ type Markup = {
   passes: { id: string; from: string; pts: [number, number][] }[]; contour: { before: [number, number][]; after: [number, number][]; shift_px: number; shift_pct_face_width: number };
   fold_depth: Record<string, { before: number; after: number; change_pct_points: number; relative_change_pct: number; same_sign_share: number; reported: boolean }>;
 };
-export type Oct14V5Props = Oct14Props & { layer?: "all" | "allowed" | "footage" | "probe"; tracks5: Record<string, Track5>; lay: Record<string, Lay>; markup: Markup;
+export type Oct14V5Props = Oct14Props & { layer?: "all" | "allowed" | "footage" | "probe";
+  /** v5c (coordinator 2026-11-19): the cream-room beats use the frame: plates ~1000 px wide, stacked pips full width, lone pip ~900 px */
+  big?: boolean; tracks5: Record<string, Track5>; lay: Record<string, Lay>; markup: Markup;
   /** pieces shown as a still (oct14_still_v5.py): the mark on them uses the points detected on that very image */
   stills: Record<string, { piece: string; src_frame: number; pts: Record<string, [number, number]>; line?: [number, number][] }> };
 
@@ -292,6 +294,7 @@ const InjCard: React.FC<{ c: React.ComponentProps<typeof ClipCard>["c"]; s: numb
 export const Oct14ReelV5: React.FC<Oct14V5Props> = (P) => {
   useElza();
   LAYER = P.layer ?? "all";
+  const frame = useCurrentFrame();
   const { pieces, cues: c, speed } = P;
   const cue = (k: string) => { if (!(k in c)) throw new Error(`cue ${k} missing`); return c[k]; };
   const end = P.durationInFrames;
@@ -300,6 +303,9 @@ export const Oct14ReelV5: React.FC<Oct14V5Props> = (P) => {
   const FL = P.flora!, FR = (id: string) => ({ id, n: FL[id].n, aspect: FL[id].aspect });
   const Lo = (id: string) => P.lay[id];
   const stillOf = (pieceId: string) => Object.keys(P.stills ?? {}).find((k) => P.stills[k].piece === pieceId);
+  const BIG = !!P.big;
+  // v5c cream beats: content 1000 px wide (40 px side margins), centred in y 100-1580 (above the caption band)
+  const CX = 40, CWB = 1000;
   const o1s = P.lay.O1.s; // O1 waits for section 01 and the name card to clear (layout_v5)
   // plate maps: Omni clips (brand/edits/flora-anatomy/qa_omni.json events; every key inside usable_range)
   // a tracked point of the patient on the picture `role` at composition frame f: the SAME source frame the video shows
@@ -365,6 +371,12 @@ export const Oct14ReelV5: React.FC<Oct14V5Props> = (P) => {
         const host = pieces.find((x) => s >= x.at && s < x.at + x.dur);
         const arrowOut = host ? Math.min(out, host.at + host.dur - 2) : out;
         const L = Lo(`pip${q.n}`);
+        if (L.mode === "takeover" && BIG) {
+          // v5c: a lone pip (2) is a ~900 px clip window centred above the captions; pip 3 stacks under O3 at full width
+          const cc = { src: SRC(q.clip), from: clipFrom, rate: tgt ? speed : 1, caps: q.eyebrow ?? "", title: q.label ?? "", depth: (q.depth ?? [2, ""]) as [number, string] };
+          const g = q.n === 3 ? { k: 1.4, w: 714, left: CX, top: 800 } : { k: 900 / CW, w: CW, left: 90, top: 330 };
+          return gfx() ? <div key={q.n} style={{ position: "absolute", inset: 0, transform: `scale(${g.k})`, transformOrigin: `${g.left}px ${g.top}px` }}><ClipCard c={cc} s={s} out={out} left={g.left} top={g.top} w={g.w} /></div> : null;
+        }
         if (L.mode === "takeover") return gfx() ? <div key={q.n} style={{ position: "absolute", inset: 0, transform: `scale(${q.n === 3 ? 1.15 : 1.6})`, transformOrigin: `${L.x! + CW / 2}px ${L.y!}px` }}><ClipCard c={{ src: SRC(q.clip), from: clipFrom, rate: tgt ? speed : 1, caps: q.eyebrow ?? "", title: q.label ?? "", depth: (q.depth ?? [2, ""]) as [number, string] }} s={s} out={out} left={L.x!} top={L.y!} /></div> : null;
         return <InjCard key={q.n} s={s} out={out} arrowOut={arrowOut} anchor={tp(q.anchorRole, q.key)} probeKey={q.key} L={L} variant={q.arrow === "straight-pointer" ? "straight-pointer" : "curved-callout"}
           c={{ src: SRC(q.clip), from: clipFrom, rate: tgt ? speed : 1, caps: q.eyebrow ?? "", title: q.label ?? "", depth: (q.depth ?? [2, ""]) as [number, string] }} />;
@@ -376,7 +388,9 @@ export const Oct14ReelV5: React.FC<Oct14V5Props> = (P) => {
           { text: "Procerus", x: 0.5, y: 0.66, s: cue("neuromod") + 26, anchor: "middle", size: 18 }, { text: "Orbicularis oculi", x: 0.98, y: 0.86, s: cue("neuromod") + 30, anchor: "end", size: 18 }]} />)}
       {plate("months", (_x, y) => <MonthsRule s={S("intro-lasts")} out={S("intro-lasts") + 62} title="Neuromodulator lasts" max={6} y={y} fill={[4, 5]}
         marks={[{ m: 4, s: cue("four"), label: "" }, { m: 5, s: cue("five"), label: "4–5 months" }]} />)}
-      {plate("days", (_x, y) => <DayLanes s={S("intro-lasts") + 68} neuroS={cue("day")} fillerS={cue("away")} out={E("intro-onset-vs-filler") - 2} y={y} />)}
+      {plate("days", (_x, y) => BIG && Lo("days").mode === "takeover"
+        ? <DayLanes s={S("intro-lasts") + 68} neuroS={cue("day")} fillerS={cue("away")} out={E("intro-onset-vs-filler") - 2} x={CX} cw={CWB} ch={860} k={1.45} y={410} />
+        : <DayLanes s={S("intro-lasts") + 68} neuroS={cue("day")} fillerS={cue("away")} out={E("intro-onset-vs-filler") - 2} y={y} />)}
 
       {/* ---------- S2 mid face ---------- */}
       {gfx() && <Chapter num="02" title="Mid face" start={S("intro-midface")} L={Lo("ch02")} />}
@@ -384,9 +398,14 @@ export const Oct14ReelV5: React.FC<Oct14V5Props> = (P) => {
       {/* on a still (oct14_still_v5.py): the jaw-line contour detected on that very picture, chin -> jaw angle, 7 px under the edge */}
       {LAYER !== "probe" && <PenT map={map} pts={(P.stills.jowl.line ?? []).map((q) => () => ({ x: q[0], y: q[1] + 7 }))} s={cue("jowling")} out={E("intro-midface") - 8} d={12} />}
       {LAYER === "probe" && <PenT map={map} pts={[{ role: "intro", key: "marioR" }, { role: "intro", key: "jawR" }, { role: "intro", key: "chin" }]} s={cue("jowling")} out={E("intro-midface") - 1} />}
-      {plate("compare", (x, y, sc) => <div style={{ position: "absolute", inset: 0, transform: `scale(${sc})`, transformOrigin: `${x}px ${y}px` }}><CompareClips s={cue("filled")} rightS={cue("cheeks")} strikeS={Math.max(cue("but"), cue("filled") + 40)} out={E("intro-cheekbones") - 2} top={y} chip="Not first, here"
+      {plate("compare", (x, y, sc) => {
+        // v5c: once the O2 room is up, the two cards grow from the overlay spot to full width at the top of the room
+        const g = BIG ? p(frame, Lo("O2").s + 2, 14, "arrive") : 0;
+        const k2 = sc + (CWB / (W - 196) - sc) * g, X = x + (CX - x) * g, Y = y + (130 - y) * g;
+        return <div style={{ position: "absolute", inset: 0, transform: `translate(${X - x * k2}px, ${Y - y * k2}px) scale(${k2})`, transformOrigin: "0 0" }}><CompareClips s={cue("filled")} rightS={cue("cheeks")} strikeS={Math.max(cue("but"), cue("filled") + 40)} out={E("intro-cheekbones") - 2} top={y} chip="Not first, here"
         left={{ src: SRC("inj7"), from: 70, caps: "Patients usually ask", title: "Fill the lines first", depth: [1, "Into the lines"] }}
-        right={{ src: SRC("inj3"), from: 20, caps: "Here", title: "Cheekbones first", depth: [2, "Deep, over the bone"] }} /></div>)}
+        right={{ src: SRC("inj3"), from: 20, caps: "Here", title: "Cheekbones first", depth: [2, "Deep, over the bone"] }} /></div>;
+      })}
       {/* the soft tissue moving down: a white route on her face, cheekbone -> cheek -> below the jaw (tracked) */}
       {marks() && LAYER !== "probe" && (() => {
         const via = tp("intro", "cheekR"), a0 = tp("intro", "malarR"), j = tp("intro", "jawR");
@@ -394,25 +413,28 @@ export const Oct14ReelV5: React.FC<Oct14V5Props> = (P) => {
         return <TrackedArrow s={cue("moving") + 1 - 27} out={E("intro-deflation") - 2} pts={[a0, via, to]} />;
       })()}
       {LAYER === "probe" && <PenT map={map} pts={[{ role: "intro", key: "malarR" }, { role: "intro", key: "cheekR" }, { role: "intro", key: "jawR" }]} s={cue("moving") + 1 - 27} out={E("intro-deflation") - 2} />}
-      {plate("O2", (x, y, sc) => <FloraPlate {...FR("O2")} s={cue("deflation")} out={E("intro-cheekbones") - 2} x={x} y={y} w={(Lo("O2").mode === "takeover" ? 884 : 540) * sc} h={(Lo("O2").mode === "takeover" ? 800 : 560) * sc} radius={24} head={104 * sc} pad={24 * sc} titlePx={36 * sc}
+      {plate("O2", (x, y, sc) => <FloraPlate {...FR("O2")} s={cue("deflation")} out={E("intro-cheekbones") - 2} {...(BIG ? { x: CX, y: 730, w: CWB, h: 850, head: 130, pad: 30, titlePx: 46 }
+          : { x, y, w: (Lo("O2").mode === "takeover" ? 884 : 540) * sc, h: (Lo("O2").mode === "takeover" ? 800 : 560) * sc, head: 104 * sc, pad: 24 * sc, titlePx: 36 * sc })} radius={24}
         eyebrow="The source" title="Deflation" note="Illustration"
         map={[[cue("deflation"), 0], [cue("deflation") + 54, 30], [cue("moving"), 54], [cue("moving") + 45, 64], [cue("cheeks"), 92], [cue("cheeks") + 14, 100], [cue("cheeks") + 54, 156]]}
-        labels={[{ text: "Cheek fat", x: 0.2, y: 0.42, s: cue("deflation") + 16, anchor: "end", size: 18 }, { text: "Jowl", x: 0.6, y: 0.95, s: cue("moving") + 10, size: 18 },
-          { text: "Filler on the cheekbone", x: 0.02, y: 0.04, s: cue("cheeks") + 12, size: 18 }]} />)}
+        labels={[{ text: "Cheek fat", x: 0.2, y: 0.42, s: cue("deflation") + 16, anchor: "end", size: BIG ? 26 : 18 }, { text: "Jowl", x: 0.6, y: 0.95, s: cue("moving") + 10, size: BIG ? 26 : 18 },
+          { text: "Filler on the cheekbone", x: 0.02, y: 0.04, s: cue("cheeks") + 12, size: BIG ? 26 : 18 }]} />)}
 
       {/* laugh lines: a pen line along each fold, tracked on her close-up */}
       {[["nasoL", "lipCL"], ["nasoR", "lipCR"]].map(([a, b], i) => (
         <PenT key={i} map={map} pts={[{ role: "inj5", key: a }, (f: number) => { const q = map("inj5", a, f), r0 = map("inj5", b, f); return q && r0 ? { x: (q.x + r0.x) / 2 + (i ? 6 : -6), y: (q.y + r0.y) / 2 } : null; }, { role: "inj5", key: b }]}
           s={cue("laugh3") + i * 4} out={E("inj5-less-needed") - 1 - D.exit} d={12} />
       ))}
-      {plate("O3", (x, y, sc) => <FloraPlate {...FR("O3")} s={cue("used") + 20} out={S("inj6-bruising") - 2} x={x} y={y} w={884 * sc} h={600 * sc} radius={24} head={100 * sc} pad={24 * sc} titlePx={34 * sc}
+      {plate("O3", (x, y, sc) => <FloraPlate {...FR("O3")} s={cue("used") + 20} out={S("inj6-bruising") - 2} {...(BIG ? { x: CX, y: 150, w: CWB, h: 620, head: 124, pad: 28, titlePx: 44 }
+          : { x, y, w: 884 * sc, h: 600 * sc, head: 100 * sc, pad: 24 * sc, titlePx: 34 * sc })} radius={24}
         eyebrow="Two gels, two jobs" title="Smooth is not as thick" note="Illustration"
         map={[[cue("used") + 20, 0], [cue("used") + 30, 24], [cue("used") + 90, 84], [cue("used") + 110, 92], [cue("used") + 150, 110]]}
-        labels={[{ text: "Evolysse Form · holds its shape", x: 0.25, y: 0.97, s: cue("used") + 40, anchor: "middle", size: 17 }, { text: "Evolysse Smooth · spreads thin", x: 1.0, y: 0.97, s: cue("used") + 60, anchor: "end", size: 17 }]} />)}
-      {plate("O4", (x, y, sc) => <FloraPlate {...FR("O4")} s={S("inj6-bruising")} out={E("inj6-bruising") + 40} x={x} y={y} w={884 * sc} h={600 * sc} radius={24} head={100 * sc} pad={24 * sc} titlePx={34 * sc}
+        labels={[{ text: "Evolysse Form · holds its shape", x: 0.25, y: 0.97, s: cue("used") + 40, anchor: "middle", size: BIG ? 22 : 17 }, { text: "Evolysse Smooth · spreads thin", x: 1.0, y: 0.97, s: cue("used") + 60, anchor: "end", size: BIG ? 22 : 17 }]} />)}
+      {plate("O4", (x, y, sc) => <FloraPlate {...FR("O4")} s={S("inj6-bruising")} out={E("inj6-bruising") + 40} {...(BIG ? { x: CX, y: 400, w: CWB, h: 860, head: 140, pad: 30, titlePx: 50 }
+          : { x, y, w: 884 * sc, h: 600 * sc, head: 100 * sc, pad: 24 * sc, titlePx: 34 * sc })} radius={24}
         eyebrow="Why a cannula" title="Less chance of a bruise" note="Illustration"
         map={[[S("inj6-bruising"), 0], [S("inj6-bruising") + 14, 6], [S("inj6-bruising") + 60, 56], [cue("cannula"), 72], [cue("cannula") + 40, 102], [E("inj6-bruising") + 40, 130]]}
-        labels={[{ text: "Sharp needle: can nick a vessel", x: 0.3, y: 0.06, s: S("inj6-bruising") + 30, size: 17 }, { text: "Blunt cannula: glides in the fat layer", x: 0.03, y: 0.97, s: cue("cannula") + 6, size: 17 }]} />)}
+        labels={[{ text: "Sharp needle: can nick a vessel", x: 0.3, y: 0.06, s: S("inj6-bruising") + 30, size: BIG ? 24 : 17 }, { text: "Blunt cannula: glides in the fat layer", x: 0.03, y: 0.97, s: cue("cannula") + 6, size: BIG ? 24 : 17 }]} />)}
 
       {/* ---------- S4 the result ---------- */}
       {gfx() && <Chapter num="03" title="The result" start={E("inj6-bruising") + 42} L={Lo("ch03")} />}
