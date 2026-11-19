@@ -1,0 +1,11 @@
+{
+ "bare": "brand/edits/undereye-filler/v4/bare_v4f_half.mp4",
+ "faces": "brand/edits/undereye-filler/v4/faces_v4e.json",
+ "grow": 0.1,
+ "min_px": 60,
+ "frames_checked": 1073,
+ "frames_failing": 0,
+ "pass": true,
+ "runs": [],
+ "fails": []
+}

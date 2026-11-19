@@ -1,0 +1,89 @@
+{
+ "render": "brand/edits/undereye-filler/raw_v4.mp4",
+ "master": "brand/edits/undereye-filler/UndereyeReel_v4b.mp4",
+ "note_master": "UndereyeReel_v4.mp4 (linear loudnorm only) measured -14.1 LUFS / -0.4 dBTP = FAIL; kept, not overwritten. v4b adds a 4x-oversampled peak limiter before the same loudnorm.",
+ "loudness": {
+  "v3": [
+   -14.5,
+   -1.2
+  ],
+  "v4b": [
+   -14.0,
+   -2.6
+  ],
+  "pass": true
+ },
+ "scdet_v4": [
+  40,
+  127,
+  155,
+  223,
+  356,
+  384,
+  464,
+  498,
+  610,
+  651,
+  722,
+  831,
+  879,
+  1083,
+  1162,
+  1236,
+  1427,
+  1531,
+  1794
+ ],
+ "scdet_v3": [
+  127,
+  223,
+  275,
+  356,
+  384,
+  454,
+  498,
+  610,
+  651,
+  722,
+  831,
+  984,
+  1083,
+  1427,
+  1531,
+  1794
+ ],
+ "face_clear": {
+  "v3_failing": 617,
+  "v3_checked": 1084,
+  "v4_failing": 0,
+  "v4_checked": 1073,
+  "pass": true
+ },
+ "lock": {
+  "v3_fanmap": {
+   "median_px": 9.55,
+   "p95_px": 15.165,
+   "max_px": 17.33,
+   "pass": false
+  },
+  "v4": {
+   "median_px": 2.285,
+   "p95_px": 3.587999999999997,
+   "max_px": 4.49,
+   "measured": 572,
+   "missing": 6,
+   "pass": true
+  },
+  "v4_missing_note": "915-919: the x's are still drawing on (entry event 913)"
+ },
+ "sfx": {
+  "exo_chapter": 5,
+  "exo_card": 7,
+  "gains": [
+   0.3,
+   0.22
+  ],
+  "pops_swishes_ticks": 0
+ },
+ "sheet": "brand/edits/undereye-filler/v4/sheet_v4.jpg"
+}
