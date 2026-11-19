@@ -69,7 +69,7 @@ def main():
     cv2.imwrite(str(out / "edges.png"), np.vstack(tiles))
     cv2.imwrite(str(out / "poster_first.png"), frames[0])
     cv2.imwrite(str(out / "poster_end.png"), frames[n - 15])
-    sheet = [cv2.resize(frames[min(n - 1, int(s * fps))], (270, frames[0].shape[0] * 270 // 1080)) for s in (0.5, 1.2, 2.6, 3.2, 5.0, 6.9, 8.2, 9.9, 12.0, 13.7)]
+    sheet = [cv2.resize(frames[min(n - 1, int(s * fps))], (270, frames[0].shape[0] * 270 // 1080)) for s in (0.6, 1.3, 2.7, 3.3, 4.6, 6.8, 8.6, 9.2, 10.4, 13.9)]
     cv2.imwrite(str(out / "sheet.png"), np.vstack([np.hstack(sheet[:5]), np.hstack(sheet[5:])]))
     print(json.dumps({"frames": n, "fps": fps, "duration_s": round(n / fps, 3), "probe": json.loads(probe.stdout or "{}").get("streams"),
                       "flashes": {"one_frame_luma_spikes": len(spikes), "frames": spikes, "max_frame_step": round(maxstep, 2)},

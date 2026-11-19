@@ -103,15 +103,27 @@ is measured, and motion.
   under-eye change, so forehead acne is marked; the script needs `--allow-above-eye` for it. On BEFORE each ring draws on 0.6 s
   (from its top, clockwise), holds 0.7 s and retracts 0.5 s; on AFTER the same rings come back briefly (0.45 / 0.45 / 0.4 s). The caption follows the ring showing ("Right cheek · red area 2.9 % →
   x %"; a spot region would read "<Region> · n spots → m").
-- **Beats (s), two rings (13.87 s, 416 frames):** 0.2–2.05 right-cheek ring on BEFORE · 2.05–3.9 forehead ring on BEFORE · 3.9–6.4
-  sweep LEFT → RIGHT (AFTER revealed on the left) · 6.5–7.85 cheek ring on AFTER · 7.85–9.2 forehead ring on AFTER · 9.2–10.1 scrub
-  back right → left past both rings · 10.1–10.3 pause · 10.3–11.2 return · 11.45–11.75 line and handle fade · 11.77–12.27 end card
-  in · hold to 13.87. The timeline scales with the ring count (`timeline(n)` in Story.tsx). The caption follows the ring showing:
-  "Right cheek · red area 2.9 % → x %", then "Forehead · 4 spots → n".
+- **Outlines from the user's markup (round 5, 2026-11-19):** the user marked 8 regions on a Story screenshot ("this many,
+  skinny-ish lines, better circles"); their regions override the measurement filter above for WHERE to mark.
+  `brand/scripts/ba_story_outlines.py <markup.png> <story_frame.png> <overlay.png>` registers the screenshot to a rendered frame
+  (SIFT + RANSAC similarity: 583 / 603 inliers, scale 1.427, median residual 0.16 px), lifts the white strokes out of the photo
+  window, fills each into a region, and inside it thresholds the before's red map; the lesion blobs are joined, dilated and
+  Chaikin-smoothed into a thin closed outline. A large drawn area with no compact blob (both cheeks, the chin, the centre-left
+  forehead patch) keeps the smoothed user outline. Saved as `outlines` in the gitignored `public/ba-story/p0010.json`.
+  | Group | Outlines (window px at k = 1, bbox) | Source | Caption |
+  |---|---|---|---|
+  | Forehead | 166–196 × 20–52 · 293–391 × 16–128 · 598–647 × 16–52 · 609–641 × 83–118 | lesion, user, lesion, lesion | "Forehead · 4 spots → n" (measured 4 → 0) |
+  | Nose and cheeks | nose bridge 419–460 × 319–363 · right cheek 81–264 × 476–698 · left cheek 669–812 × 514–680 | lesion, user, user | "Nose and cheeks · right cheek red area 2.9 % → x %" (measured on the right cheek) |
+  | Chin | 328–588 × 842–993 | user | "Chin" (no clean measured drop, so no number) |
+  The ellipse rings of rounds 3–4 are retired; `ba_story_regions.py` remains the source of the measured numbers.
+- **Beats (s), 14.1 s (423 frames):** forehead group 0.2–2.25 (4 outlines staggered 0.15 s; each draws 0.5, holds 0.6, retracts
+  0.4) · nose + cheeks 2.25–4.15 · chin 4.15–5.75 · sweep LEFT → RIGHT 5.75–7.95 · all 8 outlines replay on AFTER 8.05–9.8 (staggered
+  0.1 s; 0.35 / 0.35 / 0.3) · scrub back 9.8–10.6 · pause · return 10.75–11.55 · line and handle fade 11.8–12.1 · end card in
+  12.12–12.62 · hold to 14.1. The caption follows the group on BEFORE, then reads the cheek line from the sweep on.
 - **Story link sticker:** the Story keeps a plain 600×160 zone (x 240–840, y 1380–1540) empty for the whole video for Instagram's link
   sticker, which is the real booking button; the Story end card has no BOOK NOW pill, only "Tap the link below". The window is
   scaled to 0.85 (799×858) to make room. The feed keeps the BOOK NOW pill.
-- **Guards:** the composition throws (fails the render) if a visible pill or the end card crosses the slider line, or if a visible ring touches the line, a pill, the handle, the end card or the sticker zone, leaves the photo window (so it
+- **Guards:** the composition throws (fails the render) if a visible pill or the end card crosses the slider line, or if a visible mark touches the line, a pill, the handle, the end card or the sticker zone, leaves the photo window (so it
   clears the header) or enters the Story's top 250 px, or if any
   text row, the window or the end card enters the sticker zone.
   `brand/scripts/ba_story_verify.py <mp4> <outdir> [story|feed]` checks flashes (one-frame luma spikes > 30), white sheet margin

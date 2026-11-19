@@ -8,29 +8,39 @@ import { glass } from "../devices/Markup";
 // glass window, a slider line with a glass handle sweeps from BEFORE to AFTER, scrubs back once, holds on AFTER, then an end card.
 // Photos: public/ba-story (brand/scripts/ba_story_p0010.py): both cut to the same rectangle inside the clean area of both panels,
 // so no sheet caption, margin, seam or rotated edge shows at any slider position. Crop, scale and align only.
-// Marks are white (no blue). Rings come from brand/scripts/ba_story_regions.py: one per measured acne region that clears the v2
-// noise floor, below the lower eyelids, sized tight to what went away. They play in sequence, one at a time (user note: "one circle
-// shouldn't be up for that long"): each draws on, holds, retracts; first on BEFORE, then the same spots briefly on AFTER.
+// Marks are white (no blue): thin smooth outlines that trace each lesion area, from brand/scripts/ba_story_outlines.py (the user's
+// own markup of 8 regions, 2026-11-19, registered to this frame; inside each region the before's red map gives the lesion blob,
+// dilated and smoothed; a large drawn area with no compact blob keeps the smoothed user outline). Groups play in sequence on BEFORE
+// (forehead, then nose + both cheeks, then chin): each outline draws on along its path, holds, retracts. On AFTER all replay quickly.
 // Safe zones (Instagram Story): all text and key content between y 250 and y 1580.
-export type Ring = { id: string; label: string; cx: number; cy: number; rx: number; ry: number;
-  spots_before: number; spots_after: number; red_before: number; red_after: number };
-export type BaGeo = { win: [number, number]; rings: Ring[] };
+export type Outline = { pts: [number, number][]; cx: number; cy: number; region: string; group: number; bbox: [number, number, number, number] };
+export type BaGeo = { win: [number, number]; outlines: Outline[] };
 
 export const FPS = 30;
-// one ring: draw on (clockwise from the top, ease-out), hold, retract the same way round (ease-in), short gap
-export const RING = { draw: 0.6, hold: 0.7, out: 0.5, gap: 0.05 };
-// on AFTER the same rings come back briefly, just to show the spots are clear
-export const RING_A = { draw: 0.45, hold: 0.45, out: 0.4, gap: 0.05 };
-const len = (r: typeof RING) => r.draw + r.hold + r.out + r.gap;
-const RING_LEN = len(RING), RING_A_LEN = len(RING_A);
-// beats (s) for n rings: rings on BEFORE (line at the left edge), sweep left -> right to AFTER, the same rings on AFTER (line at the
-// right edge), scrub back right -> left past the rings, pause, return, short hold, end card (line + handle fade, then the panel).
-export const timeline = (n: number) => {
-  const b0 = 0.2, sweep = [b0 + n * RING_LEN, b0 + n * RING_LEN + 2.5];
-  const a0 = sweep[1] + 0.1, back = [a0 + n * RING_A_LEN, a0 + n * RING_A_LEN + 0.9];
-  const ret = [back[1] + 0.2, back[1] + 1.1], end = ret[1] + 0.25;
-  return { b0, sweep, a0, back, ret, end, panel: [end + 0.32, end + 0.82], dur: Math.round((end + 2.4) * FPS) / FPS };
+// BEFORE: per group, outlines staggered 0.15 s; each draws on 0.5 s (ease-out), holds 0.6 s, retracts 0.4 s (ease-in)
+export const MARK = { draw: 0.5, hold: 0.6, out: 0.4, stagger: 0.15, gap: 0.1 };
+// AFTER: every outline replays quickly, staggered 0.1 s
+export const MARK_A = { draw: 0.35, hold: 0.35, out: 0.3, stagger: 0.1, gap: 0.05 };
+// captions per group: measured numbers only where the measurement shows a clean drop (ba_story_regions.py / measure.json):
+// forehead 4 -> 0 spots; right cheek red area 2.88 -> 0.00 %. The nose and the chin get the area name only.
+export const GROUPS = [
+  { name: "Forehead", num: { kind: "spots" as const, before: 4, after: 0, at: "forehead" } },
+  { name: "Nose and cheeks", num: { kind: "red" as const, before: 2.9, after: 0.0, at: "right cheek", lead: "right cheek red area" } },
+  { name: "Chin", num: null },
+];
+const groupLen = (n: number, G: typeof MARK) => (n - 1) * G.stagger + G.draw + G.hold + G.out + G.gap;
+// beats (s): groups on BEFORE (line at the left edge), sweep left -> right to AFTER, all outlines on AFTER (line at the right edge),
+// scrub back right -> left past the marks, pause, return, short hold, end card (line + handle fade, then the panel)
+export const timeline = (counts: number[]) => {
+  const starts: number[] = [];
+  let t = 0.2;
+  for (const n of counts) { starts.push(t); t += groupLen(n, MARK); }
+  const sweep = [t, t + 2.2], a0 = sweep[1] + 0.1, total = counts.reduce((x, y) => x + y, 0);
+  const back = [a0 + groupLen(total, MARK_A), a0 + groupLen(total, MARK_A) + 0.8];
+  const ret = [back[1] + 0.15, back[1] + 0.95], end = ret[1] + 0.25;
+  return { starts, sweep, a0, back, ret, end, panel: [end + 0.32, end + 0.82], dur: Math.round((end + 2.3) * FPS) / FPS };
 };
+export const groupCounts = (geo: BaGeo) => GROUPS.map((_, g) => geo.outlines.filter((o) => o.group === g).length);
 
 const IVORY = "#f5f2eb", NAVY = "#152235";
 const SERIF = '"cormorant-garamond", "Cormorant Garamond", Georgia, serif';
@@ -73,23 +83,34 @@ export const BaStory: React.FC<{ geo: BaGeo; fmt?: Fmt }> = ({ geo, fmt = "story
   const t = frame / fps;
   const L = LAYOUTS[fmt], k = L.k;
   const W = geo.win[0] * k, H = geo.win[1] * k, X0 = (1080 - W) / 2, Y0 = L.Y0, PAD = 12;
-  const T = timeline(geo.rings.length);
-  const RS = geo.rings.map((r) => ({ ...r, cx: r.cx * k, cy: r.cy * k, rx: r.rx * k, ry: r.ry * k }));
-  const x = sliderX(t, W, Math.max(0, Math.min(...RS.map((r) => r.cx - r.rx)) - 24 * k), T);
+  const T = timeline(groupCounts(geo));
+  // outlines in frame px: window px at k = 1, scaled
+  const OS = geo.outlines.map((o) => ({ ...o, pts: o.pts.map(([a, b]) => [X0 + a * k, Y0 + b * k]), box: { x0: X0 + o.bbox[0] * k, y0: Y0 + o.bbox[1] * k, x1: X0 + o.bbox[2] * k, y1: Y0 + o.bbox[3] * k } }));
+  const x = sliderX(t, W, Math.max(0, Math.min(...geo.outlines.map((o) => o.bbox[0])) * k - 24 * k), T);
   const endFade = 1 - clamp((t - T.end) / 0.3);                     // line and handle leave before the end card comes in
-  // each ring instance: drawn on from the top, clockwise (ease-out), held, retracted the same way round (ease-in)
-  const inst = RS.flatMap((r, i) => ([[T.b0, RING], [T.a0, RING_A]] as const).map(([p0, G]) => {
-    const s0 = p0 + i * len(G), q = easeOut(clamp((t - s0) / G.draw)), out = clamp((t - s0 - G.draw - G.hold) / G.out) ** 3;
-    return { r, i, s0, vis: q - out, out };
-  }));
-  const panelQ = easeOut(clamp((t - T.panel[0]) / (T.panel[1] - T.panel[0]))); // starts once the rings and line are gone
-  // the caption follows the ring showing now (or the last one shown); its number counts down as the line crosses that ring
-  const cur = [...inst].filter((m) => t >= m.s0).sort((a, b) => b.s0 - a.s0)[0]?.r ?? RS[0];
-  const f = clamp((cur.cx + cur.rx - x) / (2 * cur.rx));
-  const spotsMode = cur.spots_before > 0;
-  const capText = spotsMode
-    ? `${cur.label} · ${cur.spots_before} spots → ${Math.round(cur.spots_after + (cur.spots_before - cur.spots_after) * f)}`
-    : `${cur.label} · red area ${cur.red_before.toFixed(1)} % → ${(cur.red_after + (cur.red_before - cur.red_after) * f).toFixed(1)} %`;
+  // each outline instance: drawn on along its path from the top, clockwise (ease-out), held, retracted the same way round (ease-in)
+  let ai = 0;
+  const inst = OS.flatMap((o) => {
+    const gi = OS.filter((q) => q.group === o.group).indexOf(o);
+    const sB = T.starts[o.group] + gi * MARK.stagger, sA = T.a0 + ai++ * MARK_A.stagger;
+    return ([[sB, MARK, o.group], [sA, MARK_A, 1]] as const).map(([s0, G, cap]) => {
+      const q = easeOut(clamp((t - s0) / G.draw)), out = clamp((t - s0 - G.draw - G.hold) / G.out) ** 3;
+      return { o, s0, cap, vis: q - out, out };
+    });
+  });
+  const panelQ = easeOut(clamp((t - T.panel[0]) / (T.panel[1] - T.panel[0]))); // starts once the marks and line are gone
+  // the caption follows the group showing on BEFORE; from the sweep on it reads the cheek line. A number counts as the line crosses
+  // the outline it was measured on.
+  const g = t < T.sweep[0] ? Math.max(0, T.starts.filter((s0) => t >= s0).length - 1) : 1;
+  const G = GROUPS[g];
+  let capText = G.name;
+  if (G.num) {
+    const ref = OS.filter((o) => o.region === G.num.at), rx0 = Math.min(...ref.map((o) => o.box.x0)), rx1 = Math.max(...ref.map((o) => o.box.x1));
+    const f = clamp((rx1 - (X0 + x)) / Math.max(1, rx1 - rx0));
+    const v = G.num.after + (G.num.before - G.num.after) * f;
+    capText = G.num.kind === "spots" ? `${G.name} · ${G.num.before} spots → ${Math.round(v)}`
+      : `${G.name} · ${G.num.lead} ${G.num.before.toFixed(1)} % → ${v.toFixed(1)} %`;
+  }
   // pills fade with the side that is showing, so neither ever sits under the line: AFTER on the left, BEFORE on the right
   const PW = 150, PH = 44, PM = 24;
   const aOp = clamp((x - (PM + PW + 16)) / 60), bOp = clamp((W - (PM + PW + 16) - x) / 60);
@@ -108,11 +129,11 @@ export const BaStory: React.FC<{ geo: BaGeo; fmt?: Fmt }> = ({ geo, fmt = "story
     if (b.o <= 0.01) continue;
     if (endFade > 0.01 && X0 + x > b.x0 && X0 + x < b.x1) throw new Error(`TEXTAUDIT ${b.name} crosses the slider line at frame ${frame}`);
   }
-  // rings: never under the slider line, a pill, the end card, the handle or the sticker zone while any part of them shows
+  // marks: never under the slider line, a pill, the end card, the handle or the sticker zone while any part of them shows
   const handle = { x0: X0 + x - 28, x1: X0 + x + 28, y0: Y0 + H * 0.3 - 28, y1: Y0 + H * 0.3 + 28 };
   for (const m of inst) {
     if (m.vis <= 0.001) continue;
-    const r = m.r, e = { x0: X0 + r.cx - r.rx - 3, x1: X0 + r.cx + r.rx + 3, y0: Y0 + r.cy - r.ry - 3, y1: Y0 + r.cy + r.ry + 3 };
+    const r = { id: m.o.region }, e = { x0: m.o.box.x0 - 3, x1: m.o.box.x1 + 3, y0: m.o.box.y0 - 3, y1: m.o.box.y1 + 3 };
     if (endFade > 0.01 && X0 + x > e.x0 && X0 + x < e.x1) throw new Error(`RINGAUDIT ${r.id} crosses the slider line at frame ${frame}`);
     // inside the photo window (so clear of the header), and in the Story below the top safe zone (y 250)
     if (e.x0 < X0 || e.x1 > X0 + W || e.y0 < Y0 || e.y1 > Y0 + H) throw new Error(`RINGAUDIT ${r.id} leaves the photo window at frame ${frame}`);
@@ -148,12 +169,12 @@ export const BaStory: React.FC<{ geo: BaGeo; fmt?: Fmt }> = ({ geo, fmt = "story
       </div>
       {/* marks: white hairlines with a soft down-left shadow */}
       <svg width={1080} height={L.h} style={{ position: "absolute", inset: 0, overflow: "visible" }}>
-        <defs><filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="-1" dy="1.5" stdDeviation="1.6" floodColor="#1d1a16" floodOpacity=".38" /></filter></defs>
+        <defs><filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="-1" dy="1.5" stdDeviation="1.6" floodColor="#1d1a16" floodOpacity=".26" /></filter></defs>
         <g filter="url(#sh)" stroke="#fff" fill="none" strokeLinecap="round">
-          {/* the ellipse as a path from its top, clockwise (two sweep-1 arcs), so the dash draws on from the top */}
-          {inst.filter((m) => m.vis > 0.001).map(({ r, vis, out, s0 }) => (
-            <path key={`${r.id}${s0}`} d={`M ${X0 + r.cx} ${Y0 + r.cy - r.ry} A ${r.rx} ${r.ry} 0 1 1 ${X0 + r.cx} ${Y0 + r.cy + r.ry} A ${r.rx} ${r.ry} 0 1 1 ${X0 + r.cx} ${Y0 + r.cy - r.ry}`}
-              strokeWidth={2.5} pathLength={1000} strokeDasharray={`${vis * 1000} 2000`} strokeDashoffset={-out * 1000} />
+          {/* each outline: a closed path from its top, clockwise, drawn on and retracted with the dash */}
+          {inst.filter((m) => m.vis > 0.001).map(({ o, vis, out, s0 }) => (
+            <path key={`${o.region}${o.cx}${s0}`} d={`M ${o.pts.map(([a, b]) => `${a.toFixed(1)} ${b.toFixed(1)}`).join(" L ")} Z`}
+              strokeWidth={2.2} strokeLinejoin="round" pathLength={1000} strokeDasharray={`${vis * 1000} 2000`} strokeDashoffset={-out * 1000} />
           ))}
           <line x1={X0 + x} y1={Y0} x2={X0 + x} y2={Y0 + H} strokeWidth={2} opacity={endFade} />
         </g>
