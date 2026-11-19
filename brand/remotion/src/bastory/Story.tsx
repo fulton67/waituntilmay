@@ -19,13 +19,16 @@ export type BaGeo = { win: [number, number]; rings: Ring[] };
 export const FPS = 30;
 // one ring: draw on (clockwise from the top, ease-out), hold, retract the same way round (ease-in), short gap
 export const RING = { draw: 0.6, hold: 0.7, out: 0.5, gap: 0.05 };
-const RING_LEN = RING.draw + RING.hold + RING.out + RING.gap;
+// on AFTER the same rings come back briefly, just to show the spots are clear
+export const RING_A = { draw: 0.45, hold: 0.45, out: 0.4, gap: 0.05 };
+const len = (r: typeof RING) => r.draw + r.hold + r.out + r.gap;
+const RING_LEN = len(RING), RING_A_LEN = len(RING_A);
 // beats (s) for n rings: rings on BEFORE (line at the left edge), sweep left -> right to AFTER, the same rings on AFTER (line at the
 // right edge), scrub back right -> left past the rings, pause, return, short hold, end card (line + handle fade, then the panel).
 export const timeline = (n: number) => {
   const b0 = 0.2, sweep = [b0 + n * RING_LEN, b0 + n * RING_LEN + 2.5];
-  const a0 = sweep[1] + 0.1, back = [a0 + n * RING_LEN, a0 + n * RING_LEN + 1.0];
-  const ret = [back[1] + 0.25, back[1] + 1.25], end = ret[1] + 0.3;
+  const a0 = sweep[1] + 0.1, back = [a0 + n * RING_A_LEN, a0 + n * RING_A_LEN + 0.9];
+  const ret = [back[1] + 0.2, back[1] + 1.1], end = ret[1] + 0.25;
   return { b0, sweep, a0, back, ret, end, panel: [end + 0.32, end + 0.82], dur: Math.round((end + 2.4) * FPS) / FPS };
 };
 
@@ -75,8 +78,8 @@ export const BaStory: React.FC<{ geo: BaGeo; fmt?: Fmt }> = ({ geo, fmt = "story
   const x = sliderX(t, W, Math.max(0, Math.min(...RS.map((r) => r.cx - r.rx)) - 24 * k), T);
   const endFade = 1 - clamp((t - T.end) / 0.3);                     // line and handle leave before the end card comes in
   // each ring instance: drawn on from the top, clockwise (ease-out), held, retracted the same way round (ease-in)
-  const inst = RS.flatMap((r, i) => [T.b0, T.a0].map((p0) => {
-    const s0 = p0 + i * RING_LEN, q = easeOut(clamp((t - s0) / RING.draw)), out = clamp((t - s0 - RING.draw - RING.hold) / RING.out) ** 3;
+  const inst = RS.flatMap((r, i) => ([[T.b0, RING], [T.a0, RING_A]] as const).map(([p0, G]) => {
+    const s0 = p0 + i * len(G), q = easeOut(clamp((t - s0) / G.draw)), out = clamp((t - s0 - G.draw - G.hold) / G.out) ** 3;
     return { r, i, s0, vis: q - out, out };
   }));
   const panelQ = easeOut(clamp((t - T.panel[0]) / (T.panel[1] - T.panel[0]))); // starts once the rings and line are gone
@@ -111,6 +114,9 @@ export const BaStory: React.FC<{ geo: BaGeo; fmt?: Fmt }> = ({ geo, fmt = "story
     if (m.vis <= 0.001) continue;
     const r = m.r, e = { x0: X0 + r.cx - r.rx - 3, x1: X0 + r.cx + r.rx + 3, y0: Y0 + r.cy - r.ry - 3, y1: Y0 + r.cy + r.ry + 3 };
     if (endFade > 0.01 && X0 + x > e.x0 && X0 + x < e.x1) throw new Error(`RINGAUDIT ${r.id} crosses the slider line at frame ${frame}`);
+    // inside the photo window (so clear of the header), and in the Story below the top safe zone (y 250)
+    if (e.x0 < X0 || e.x1 > X0 + W || e.y0 < Y0 || e.y1 > Y0 + H) throw new Error(`RINGAUDIT ${r.id} leaves the photo window at frame ${frame}`);
+    if (L.sticker && e.y0 < 250) throw new Error(`RINGAUDIT ${r.id} enters the Story top safe zone at frame ${frame}`);
     const hits = [...boxes.filter((b) => b.o > 0.01), ...(endFade > 0.01 ? [{ ...handle, name: "handle" }] : []), ...(L.sticker ? [{ ...L.sticker, name: "sticker zone" }] : [])];
     for (const b of hits) if (b.x0 < e.x1 && b.x1 > e.x0 && b.y0 < e.y1 && b.y1 > e.y0) throw new Error(`RINGAUDIT ${r.id} crosses ${b.name} at frame ${frame}`);
   }

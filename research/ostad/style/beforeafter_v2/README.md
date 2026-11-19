@@ -31,7 +31,8 @@ These come from the established 1920×1080 cream slides and the SkinCard STANDAR
   MediaPipe landmarks after the after photo is aligned to the before on the eye corners, nose bridge and nose tip (similarity fit,
   residual reported). A region is marked only when its change clears a noise floor: red area ≥ 0.5 % before and down ≥ 40 %, or ≥ 4
   spots and down ≥ 40 %.
-- **Cheek regions start below the lower lid.** Nothing is drawn from above the eye.
+- **Cheek regions start below the lower lid.** A mark for an under-eye or cheek change never starts above the eye. This does not
+  ban marking a change that is itself above the eye (forehead acne).
 - **Profiles are measured against his own drawn guide line.** For each row, the first skin column is compared with the white line.
 - **Layout variety.** There are four layouts, so no two neighbouring grid tiles share a look.
 
@@ -92,22 +93,26 @@ is measured, and motion.
   nose, chin, both jaws) on the before and the aligned after, with the v2 floor. Results on P0010:
   | Region | Spots before → after | Red area before → after | Floor | Ringed |
   |---|---|---|---|---|
-  | Forehead | 4 → 0 | 1.11 → 0.00 % | clears | no: above the eye (rule); `--allow-above-eye` turns it on |
+  | Forehead | 4 → 0 | 1.11 → 0.00 % | clears | **yes** (run with `--allow-above-eye`), tight to its largest cluster (2 spots; window px 600, 65; 41×49 at k = 1) |
   | Right cheek | 0 → 0 | 2.88 → 0.00 % | clears | **yes**, tight to the red patch that went away (window px 188, 635; 53×34 at k = 1) |
   | Nose | 4 → 2 | 2.81 → 2.08 % | clears (spots) | no: visual check, the vanished spot is the tip highlight, the others the nostril shadows |
   | Left cheek | 1 → 0 | 0.15 → 0.00 % | below | no |
   | Chin | 1 → 3 | 1.78 → 4.71 % | worse (lighting) | no |
   | Right / left jaw | 0 → 1 / 0 → 3 | 0 → 0.52 / 0 → 1.31 % | worse | no |
-  So only one region qualifies below the eye. Each ring draws on 0.6 s (from its top, clockwise), holds 0.7 s, retracts 0.5 s; the
-  sequence plays on BEFORE, then the same ring(s) on AFTER. The caption follows the ring showing ("Right cheek · red area 2.9 % →
+  Two regions are ringed: the right cheek, then the forehead. The rule against marks above the eye only covers marks for an
+  under-eye change, so forehead acne is marked; the script needs `--allow-above-eye` for it. On BEFORE each ring draws on 0.6 s
+  (from its top, clockwise), holds 0.7 s and retracts 0.5 s; on AFTER the same rings come back briefly (0.45 / 0.45 / 0.4 s). The caption follows the ring showing ("Right cheek · red area 2.9 % →
   x %"; a spot region would read "<Region> · n spots → m").
-- **Beats (s), one ring:** 0.2–2.0 ring on BEFORE (draw, hold, retract) · 2.05–4.55 sweep LEFT → RIGHT (AFTER revealed on the left) ·
-  4.65–6.45 the ring on AFTER · 6.5–7.5 scrub back right → left past the ring · 7.5–7.75 pause · 7.75–8.75 return · 9.05–9.35 line
-  and handle fade · 9.37–9.87 end card in · hold to 11.47. The timeline scales with the number of rings (`timeline(n)` in Story.tsx).
+- **Beats (s), two rings (13.87 s, 416 frames):** 0.2–2.05 right-cheek ring on BEFORE · 2.05–3.9 forehead ring on BEFORE · 3.9–6.4
+  sweep LEFT → RIGHT (AFTER revealed on the left) · 6.5–7.85 cheek ring on AFTER · 7.85–9.2 forehead ring on AFTER · 9.2–10.1 scrub
+  back right → left past both rings · 10.1–10.3 pause · 10.3–11.2 return · 11.45–11.75 line and handle fade · 11.77–12.27 end card
+  in · hold to 13.87. The timeline scales with the ring count (`timeline(n)` in Story.tsx). The caption follows the ring showing:
+  "Right cheek · red area 2.9 % → x %", then "Forehead · 4 spots → n".
 - **Story link sticker:** the Story keeps a plain 600×160 zone (x 240–840, y 1380–1540) empty for the whole video for Instagram's link
   sticker, which is the real booking button; the Story end card has no BOOK NOW pill, only "Tap the link below". The window is
   scaled to 0.85 (799×858) to make room. The feed keeps the BOOK NOW pill.
-- **Guards:** the composition throws (fails the render) if a visible pill or the end card crosses the slider line, or if a visible ring touches the line, a pill, the handle, the end card or the sticker zone, or if any
+- **Guards:** the composition throws (fails the render) if a visible pill or the end card crosses the slider line, or if a visible ring touches the line, a pill, the handle, the end card or the sticker zone, leaves the photo window (so it
+  clears the header) or enters the Story's top 250 px, or if any
   text row, the window or the end card enters the sticker zone.
   `brand/scripts/ba_story_verify.py <mp4> <outdir> [story|feed]` checks flashes (one-frame luma spikes > 30), white sheet margin
   along the window edges every 10th frame, that the sticker zone stays plain paper in every frame, and writes posters, a beat sheet and an edge/corner tile (outside the repo).

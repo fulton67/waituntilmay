@@ -62,14 +62,14 @@ def main():
             white = float((b.min(axis=2) > 245).mean())
             if white > 0.02:
                 bad.append({"frame": k, "side": side, "white_frac": round(white, 3)})
-        if k % 30 == 0 and k < 280:
+        if k % 30 == 0:
             c = 110
             corners = [win[:c, :c], win[:c, -c:], win[-c:, :c], win[-c:, -c:], win[:c, W // 2 - c // 2:W // 2 + c // 2], win[H // 2 - c // 2:H // 2 + c // 2, -c:]]
             tiles.append(np.hstack(corners))
     cv2.imwrite(str(out / "edges.png"), np.vstack(tiles))
     cv2.imwrite(str(out / "poster_first.png"), frames[0])
     cv2.imwrite(str(out / "poster_end.png"), frames[n - 15])
-    sheet = [cv2.resize(frames[min(n - 1, int(s * fps))], (270, frames[0].shape[0] * 270 // 1080)) for s in (0.5, 1.2, 1.9, 3.3, 5.2, 6.1, 7.6, 8.3, 9.6, 11.3)]
+    sheet = [cv2.resize(frames[min(n - 1, int(s * fps))], (270, frames[0].shape[0] * 270 // 1080)) for s in (0.5, 1.2, 2.6, 3.2, 5.0, 6.9, 8.2, 9.9, 12.0, 13.7)]
     cv2.imwrite(str(out / "sheet.png"), np.vstack([np.hstack(sheet[:5]), np.hstack(sheet[5:])]))
     print(json.dumps({"frames": n, "fps": fps, "duration_s": round(n / fps, 3), "probe": json.loads(probe.stdout or "{}").get("streams"),
                       "flashes": {"one_frame_luma_spikes": len(spikes), "frames": spikes, "max_frame_step": round(maxstep, 2)},

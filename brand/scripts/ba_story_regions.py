@@ -9,7 +9,8 @@ the 31 px median by >= 3.5). Each landmark region is measured on the before and 
 The ring is sized tight to the region's before-spot cluster, not the whole region. Results are added to public/ba-story/p0010.json
 ("rings", window px) and printed; --debug DIR writes the before/after crops with the detected spots for a visual check.
 usage: style-venv python -I brand/scripts/ba_story_regions.py [--debug DIR] [--allow-above-eye]
-  --allow-above-eye  also ring regions above the lower eyelids (the forehead: 4 -> 0 spots); off by default per the rule
+  --allow-above-eye  also ring regions above the lower eyelids (the forehead). The v2 rule only says a mark for an UNDER-eye change
+                     must not start above the eye; forehead acne may be marked. P0010 is rendered with this flag.
 """
 import json
 import os
@@ -122,7 +123,9 @@ def main():
                 cv2.line(v, (0, int(lid)), (v.shape[1], int(lid)), (255, 0, 255), 1)
                 v = v[cy0:cy1, cx0:cx1]
                 cv2.imwrite(os.path.join(DBG, f"{rn}_{tag}.png"), cv2.resize(v, None, fx=2, fy=2, interpolation=cv2.INTER_NEAREST))
-    geo["rings"] = rings
+    # play order: the treated cheek first, then the rest top to bottom
+    ORDER = ["cheek_r", "forehead", "cheek_l", "nose", "chin", "jaw_r", "jaw_l"]
+    geo["rings"] = sorted(rings, key=lambda r: ORDER.index(r["id"]))
     geo["regions"] = out
     geo["lid_y_window"] = (lid - cy0) * s
     json.dump(geo, open(GEO, "w"), indent=1)
