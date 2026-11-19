@@ -1,0 +1,145 @@
+{
+ "spans": [
+  {
+   "span": [
+    1619,
+    1868
+   ],
+   "ref_frame": 1867,
+   "mark_px_in_ref": 15648,
+   "samples": 184,
+   "median": 1.4,
+   "p95": 2.0,
+   "max": 7.24,
+   "max_photo_motion_px": 15.33,
+   "worst_frames": [
+    {
+     "frame": 1688,
+     "mark_px": 278,
+     "p99": 7.24,
+     "photo_shift_px": 14.99
+    },
+    {
+     "frame": 1689,
+     "mark_px": 382,
+     "p99": 2.54,
+     "photo_shift_px": 14.92
+    },
+    {
+     "frame": 1690,
+     "mark_px": 419,
+     "p99": 2.2,
+     "photo_shift_px": 14.83
+    },
+    {
+     "frame": 1691,
+     "mark_px": 480,
+     "p99": 2.2,
+     "photo_shift_px": 14.74
+    },
+    {
+     "frame": 1684,
+     "mark_px": 78,
+     "p99": 2.05,
+     "photo_shift_px": 15.33
+    }
+   ]
+  },
+  {
+   "span": [
+    1966,
+    2017
+   ],
+   "ref_frame": 2016,
+   "mark_px_in_ref": 10057,
+   "samples": 42,
+   "median": 1.74,
+   "p95": 2.0,
+   "max": 2.0,
+   "max_photo_motion_px": 6.59,
+   "worst_frames": [
+    {
+     "frame": 1982,
+     "mark_px": 713,
+     "p99": 2.0,
+     "photo_shift_px": 5.46
+    },
+    {
+     "frame": 1983,
+     "mark_px": 876,
+     "p99": 2.0,
+     "photo_shift_px": 5.3
+    },
+    {
+     "frame": 1984,
+     "mark_px": 1129,
+     "p99": 2.0,
+     "photo_shift_px": 5.14
+    },
+    {
+     "frame": 1985,
+     "mark_px": 1592,
+     "p99": 2.0,
+     "photo_shift_px": 4.98
+    },
+    {
+     "frame": 1986,
+     "mark_px": 1932,
+     "p99": 2.0,
+     "photo_shift_px": 4.82
+    }
+   ]
+  },
+  {
+   "span": [
+    2032,
+    2097
+   ],
+   "ref_frame": 2096,
+   "mark_px_in_ref": 10297,
+   "samples": 56,
+   "median": 1.4,
+   "p95": 2.0,
+   "max": 2.0,
+   "max_photo_motion_px": 8.7,
+   "worst_frames": [
+    {
+     "frame": 2047,
+     "mark_px": 9967,
+     "p99": 2.0,
+     "photo_shift_px": 7.75
+    },
+    {
+     "frame": 2048,
+     "mark_px": 10153,
+     "p99": 2.0,
+     "photo_shift_px": 7.59
+    },
+    {
+     "frame": 2049,
+     "mark_px": 10055,
+     "p99": 2.0,
+     "photo_shift_px": 7.43
+    },
+    {
+     "frame": 2050,
+     "mark_px": 10103,
+     "p99": 2.0,
+     "photo_shift_px": 7.27
+    },
+    {
+     "frame": 2051,
+     "mark_px": 10150,
+     "p99": 2.0,
+     "photo_shift_px": 7.12
+    }
+   ]
+  }
+ ],
+ "median": 1.4,
+ "p95": 2.0,
+ "max": 7.24,
+ "pass": true,
+ "full": "brand/edits/jan08-filler-fatigue/jan08_raw_v3.mp4",
+ "footage": "brand/edits/jan08-filler-fatigue/v3/check/footage_photo_final.mp4"
+}

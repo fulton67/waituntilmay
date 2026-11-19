@@ -1,0 +1,14 @@
+{
+ "label": "v3-final",
+ "footage": "brand/edits/jan08-filler-fatigue/v3/check/footage_final.mp4",
+ "graphics": "brand/edits/jan08-filler-fatigue/v3/check/check_final.mp4",
+ "step": 2,
+ "frames_checked": 1117,
+ "frames_with_face": 900,
+ "faces": 903,
+ "failing_frames": 0,
+ "runs": [],
+ "pass": true,
+ "rule": "graphics diff > 28 (3x3 open) inside a YuNet face box (score >= 0.75) expanded 10 %/side; fail if > 12 px at half size",
+ "fails": []
+}
