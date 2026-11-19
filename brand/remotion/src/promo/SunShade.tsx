@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { AbsoluteFill, Img, cancelRender, continueRender, delayRender, staticFile, useCurrentFrame } from "remotion";
 import { FlowingImage, type FlowPiece } from "../components/FlowingImage";
 
-// Black Friday Sun Shade post, Ro layout ("healthier / on ro": giant type above and below a floating product).
+// Black Friday Sun Shade post, bottles large on the left, giant "15% / off" on the right (round 2: the bottles must not cover the 15% off).
 // Layers, back to front: the user's blue column gradient moving (research/ostad/style/gradients/MOVING.md, 12 s loop), logo
 // (lifted from the Black Friday reference), giant "15%", the cut-out bottles (scripts/sunshade_cutout.py), giant "off" over the
 // bottles' cropped bases, then the reference's copy. Type: Montserrat, the closest Google face to both references.
@@ -36,8 +36,9 @@ const useMontserrat = () => {
 type Fmt = "story" | "feed";
 // px. Story keeps everything above IG's bottom reply bar (~250 px) and below the top bar (~120 px).
 const L = {
-  story: { H: 1920, logoY: 140, logoW: 330, bigTop: 250, big: 350, botTop: 420, botH: 900, offTop: 1050, off: 400, infoTop: 1450, k: 1 },
-  feed: { H: 1350, logoY: 40, logoW: 240, bigTop: 150, big: 240, botTop: 225, botH: 640, offTop: 690, off: 290, infoTop: 1010, k: 0.8 },
+  // bottles large on the left (bleeding off the left edge), "15%" over "off" right-aligned in the right column, never overlapped
+  story: { H: 1920, logoY: 140, logoW: 330, botX: -110, botTop: 330, botH: 920, bigTop: 560, big: 225, offTop: 770, off: 260, textR: 50, infoTop: 1440, k: 1 },
+  feed: { H: 1350, logoY: 40, logoW: 240, botX: -60, botTop: 150, botH: 816, bigTop: 360, big: 190, offTop: 535, off: 220, textR: 50, infoTop: 1015, k: 0.8 },
 };
 
 const FPS = 30;
@@ -69,7 +70,7 @@ export const SunShade: React.FC<{ fmt: Fmt }> = ({ fmt }) => {
   const botW = c.botH * (1520 / 2000);
   const botY = c.botTop + (1 - up) * (c.H - c.botTop + 40) + bob;
 
-  const BIG: React.CSSProperties = { position: "absolute", left: 0, width: W, textAlign: "center", fontFamily: "Montserrat", fontWeight: 700, lineHeight: 1, margin: 0, letterSpacing: "-0.04em" };
+  const BIG: React.CSSProperties = { position: "absolute", right: c.textR, textAlign: "right", fontFamily: "Montserrat", fontWeight: 700, lineHeight: 1, margin: 0, letterSpacing: "-0.04em" };
   const T: React.CSSProperties = { fontFamily: "Montserrat", color: "#fff", textAlign: "center", lineHeight: 1.15, margin: 0 };
   const I0 = 58; // info lines start once the bottles have landed
 
@@ -81,11 +82,11 @@ export const SunShade: React.FC<{ fmt: Fmt }> = ({ fmt }) => {
 
       <p style={{ ...BIG, top: c.bigTop, fontSize: c.big, color: NAVY, ...blurSlide(f, 8, W) }}>15%</p>
 
-      <Img src={staticFile("sunshade/bottles.png")} style={{ position: "absolute", left: (W - botW) / 2, top: botY, width: botW, height: c.botH,
+      <Img src={staticFile("sunshade/bottles.png")} style={{ position: "absolute", left: c.botX, top: botY, width: botW, height: c.botH,
         transform: `rotate(${sway}deg)`, transformOrigin: "50% 85%", opacity: clamp((f - B0) / 10),
         filter: `blur(${(1 - sharp) * 16}px) drop-shadow(0 34px 40px rgba(15,27,51,${0.25 * up}))` }} />
 
-      <p style={{ ...BIG, top: c.offTop, fontSize: c.off, color: "#fff", ...blurSlide(f, 40, W) }}>off</p>
+      <p style={{ ...BIG, top: c.offTop, fontSize: c.off, color: NAVY, ...blurSlide(f, 40, W) }}>off</p>
 
       <div style={{ position: "absolute", left: 0, width: W, top: c.infoTop, display: "flex", flexDirection: "column", alignItems: "center" }}>
         <p style={{ ...T, ...enter(f, I0), fontSize: 50 * k, fontWeight: 600 }}>The Black Friday Skincare Event</p>
