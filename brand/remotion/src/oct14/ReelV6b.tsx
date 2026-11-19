@@ -57,11 +57,12 @@ const CREAM = "#f2efed";
 let LAYER: NonNullable<Oct14V5Props["layer"]> = "all";
 // pass (brand/scripts/reel.py --hdr, REELS.md "HDR master"): one layer of the reel on a transparent ground, without the footage:
 // "over" = every graphic and still | "media" = only the clips shown inside cards. Unset = the normal reel, unchanged.
-export type Pass = "over" | "media";
+export type Pass = "over" | "media" | "frost"; // frost = white where a card has a backdrop blur (the frosted glass)
 let PASS: Pass | undefined;
 // at render an OffthreadVideo is an <img> served by Remotion's frame proxy: that is how a pass tells the card clips from the graphics
 const PASS_CSS: Record<Pass, string> = { over: `img[src*="/proxy?src="]{visibility:hidden !important}`,
-  media: `body *{visibility:hidden !important} body img[src*="/proxy?src="]{visibility:visible !important}` };
+  media: `body *{visibility:hidden !important} body img[src*="/proxy?src="]{visibility:visible !important}`,
+  frost: `body *{visibility:hidden !important} body [style*="backdrop-filter"]{visibility:visible !important;background:#fff !important;box-shadow:none !important;border-color:#fff !important}` };
 let ROOMS: [number, number][] = []; // takeover spans: no footage, so no mark on her face
 const inRoom = (f: number) => ROOMS.some(([a, b]) => f >= a && f < b);
 const gfx = () => LAYER === "all"; // cards, plates, titles, labels, captions

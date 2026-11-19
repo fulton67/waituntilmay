@@ -494,8 +494,11 @@ def build_hdr(a, reel, R, tl, tl_path, P, total, frames, out, version, errs, t0)
     pr = probe(final)
     C["format"] = {"pass": (pr["width"], pr["height"], pr["fps"]) == (1080, 1920, "24/1") and pr["frames"] == f1 - f0 + 1, **pr, "frames_expected": f1 - f0 + 1}
     if a.audio: C["audio_unchanged"] = audio_same(final, a.audio, f0 / 24 if frames else 0, (f1 - f0 + 1) / 24)
+    if a.audio and not frames:  # the whole picture against the delivered SDR master: same layers, same frames, nothing blurred
+        C["picture_vs_delivered"] = reel_hdr.against_delivered(final, a.audio)
     if a.name:  # a copy beside the delivered masters, under the given name; an existing file is never overwritten
         dst = ROOT / R["edit"] / a.name
+        if [k for k, v in C.items() if v.get("pass") is False]: dst = dst.with_name(f"{dst.stem} (FAILED){dst.suffix}")  # a failed build is never delivered under the clean name
         if dst.exists(): dst = dst.with_name(f"{dst.stem} ({out.name.split('__')[-1]}){dst.suffix}")
         shutil.copy2(final, dst); man["delivered_copy"] = str(dst.relative_to(ROOT)).replace("\\", "/")
     man["total_s"] = round(time.time() - t0, 1)
@@ -552,6 +555,8 @@ if __name__ == "__main__":
     ap.add_argument("--hdr", action="store_true", help="10-bit HEVC HLG master, footage cut from the original camera files (reel_hdr.py)")
     ap.add_argument("--audio", help="--hdr: the existing master whose audio is copied (default: the delivered <edit>/*_<version>.mp4)")
     ap.add_argument("--passes", help="--hdr: graphics passes to render (default under,matte,over,media)"); ap.add_argument("--crf", type=int, default=8, help="--hdr: x265 crf (8 keeps the footage within 2 ten-bit codes of the original on the noisiest clip; 14 measured 1.7-2.7)"); ap.add_argument("--keep", action="store_true", help="--hdr: keep the intermediate passes")
+    ap.add_argument("--recut", action="store_true", help="--hdr --reuse: cut the footage again from the originals, reuse only the rendered passes")
+    ap.add_argument("--reuse", help="--hdr: composite again from this build folder's kept intermediates (--keep), without cutting or rendering")
     ap.add_argument("--name", help="--hdr: also copy the master into the edit folder under this file name")
     ap.add_argument("--comp", help="--hdr: composition id to render the passes from, when it is not the timeline's (it must take the `pass` prop)")
     sys.exit(build(ap.parse_args()))

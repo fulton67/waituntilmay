@@ -29,7 +29,9 @@ type KeySpec = { clip: string; a: number; dur?: number }; // dur = the key webm'
 // pass (brand/scripts/reel.py --hdr, REELS.md "HDR master"): one layer of the reel on a transparent ground, no footage, no sound.
 //   "under" = what sits behind the people (wall titles, full-frame stills) | "matte" = the people's RVM key as a white silhouette (alpha only)
 //   "over" = every other graphic | "media" = only the clips shown inside cards. Unset = the normal reel, unchanged.
-export type Pass = "under" | "matte" | "over" | "media";
+// "frost" = white where a card has a backdrop blur (the frosted glass), so the build blurs the footage there and nowhere else
+export type Pass = "under" | "matte" | "over" | "media" | "frost";
+const FROST_CSS = `body *{visibility:hidden !important} body [style*="backdrop-filter"]{visibility:visible !important;background:#fff !important;box-shadow:none !important;border-color:#fff !important}`;
 export type V5Props = { bare?: boolean; pass?: Pass; fps: number; speed: number; durationInFrames: number; pieces: Piece[]; words: Word[]; cues: Record<string, number>;
   tailRate?: number; sketch?: SketchData; stat?: { before: number; after: number }; hook: number; keys: Record<string, KeySpec>; frames: FramesMeta; timeline?: Timeline };
 
@@ -180,6 +182,7 @@ export const UndereyeReelV5: React.FC<V5Props> = (P) => {
 
   return (
     <AbsoluteFill style={{ background: PASS ? undefined : "#000", visibility: vis("over") }}>
+      {PASS === "frost" && <style>{FROST_CSS}</style>}
       {pics.map((q, k) => (
         <Sequence key={k} from={q.f0} durationInFrames={q.f1 - q.f0} layout="none"><PicLayer q={q} speed={speed} /></Sequence>
       ))}

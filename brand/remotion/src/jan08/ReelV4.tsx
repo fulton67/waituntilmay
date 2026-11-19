@@ -33,12 +33,13 @@ export type Mode = "full" | "footage" | "check";
 // "under" = what sits behind him inside a key (wall titles, the cream room and plate he stands in front of) | "matte" = his matte, white
 // on black, placed and feathered as the key places it | "over" = every other graphic | "media" = the clips inside cards.
 // Unset = the normal reel, unchanged.
-export type Pass = "under" | "matte" | "over" | "media";
+export type Pass = "under" | "matte" | "over" | "media" | "frost"; // frost = white where a card has a backdrop blur (the frosted glass)
 let PASS: Pass | undefined;
 // at render an OffthreadVideo is an <img> served by Remotion's frame proxy: that is how a pass tells the card clips from the graphics
 const HIDE_CLIPS = `img[src*="/proxy?src="]{visibility:hidden !important}`;
 const PASS_CSS: Record<Pass, string> = { under: HIDE_CLIPS, over: HIDE_CLIPS, matte: "",
-  media: `body *{visibility:hidden !important} body img[src*="/proxy?src="]{visibility:visible !important}` };
+  media: `body *{visibility:hidden !important} body img[src*="/proxy?src="]{visibility:visible !important}`,
+  frost: `body *{visibility:hidden !important} body [style*="backdrop-filter"]{visibility:visible !important;background:#fff !important;box-shadow:none !important;border-color:#fff !important}` };
 export type Jan08V4Props = Jan08V2Props & { mode?: Mode; timeline?: Timeline; pass?: Pass };
 const ModeCtx = createContext<Mode>("full");
 const TALK = staticFile("jan08/talk.mp4");

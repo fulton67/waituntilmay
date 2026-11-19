@@ -165,6 +165,20 @@ def geometry(q):
     return f"crop={cw}:{ch}:{x}:{y},scale={W}:{H}:flags=bicubic,"
 
 WFPS = {}
+FRAMING = {}
+def framing(src, o):
+    """The filters that bring a source to the 1080x1920 frame before the timeline's own crop: the map's crop, then cover-fit (landscape
+    clips, e.g. undereye 6813/6814). Used by the cut and by the checks' reference decode, so both see the same picture."""
+    if src not in FRAMING:
+        size = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height:stream_side_data=rotation", "-of", "json", src], capture_output=True, text=True).stdout
+        st = json.loads(size)["streams"][0]
+        rot = any(abs(int(float(d.get("rotation", 0)))) % 180 == 90 for d in st.get("side_data_list") or [])
+        sw, sh = (st["height"], st["width"]) if rot else (st["width"], st["height"])
+        fit = "" if (sw, sh) == (W, H) else f"scale={W}:{H}:force_original_aspect_ratio=increase:flags=bicubic,crop={W}:{H},"
+        crop = (o or {}).get("crop")
+        FRAMING[src] = (f"crop={crop[2]}:{crop[3]}:{crop[0]}:{crop[1]}," if crop else "", fit)
+    return FRAMING[src]
+
 def cut_segment(q, omap, dst, run):
     n = q["f1"] - q["f0"]
     if not q["clip"]:  # a full-frame still or the cream room is on screen: the picture comes from the `under` / `over` pass
@@ -174,13 +188,7 @@ def cut_segment(q, omap, dst, run):
     orig = o.get("original")
     if orig and Path(orig).exists(): src, how = orig, "original"
     else: src, how = str(PUB / q["clip"]), "FALLBACK: 8-bit working file (original not on disk)"
-    size = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height:stream_side_data=rotation", "-of", "json", src], capture_output=True, text=True).stdout
-    j = json.loads(size); st = j["streams"][0]
-    rot = any(abs(int(float(d.get("rotation", 0)))) % 180 == 90 for d in st.get("side_data_list") or [])
-    sw, sh = (st["height"], st["width"]) if rot else (st["width"], st["height"])
-    fit = "" if (sw, sh) == (W, H) else f"scale={W}:{H}:force_original_aspect_ratio=increase:flags=bicubic,crop={W}:{H},"
-    crop = o.get("crop")
-    pre = f"crop={crop[2]}:{crop[3]}:{crop[0]}:{crop[1]}," if crop else ""
+    pre, fit = framing(src, o)
     # The frame on screen is the one the delivered cut shows, so tracked marks and mattes stay on their picture: Remotion shows working-file
     # frame floor((t0 + n * rate / 24) * wfps); that frame is a pick from the original at its time + offset. So: seek to the first working
     # frame's instant, take the original on the working file's frame grid (nearest frame), then count frames as Remotion does.
@@ -202,7 +210,12 @@ def cut_segment(q, omap, dst, run):
         # step >= 1; the fps filter is one slot late unless shifted by one (and then exact for frac > 0)
         if step >= 1: pick = f"select='eq(floor({frac:.6f}+ceil((n-{frac:.6f})/{step:.6f}-0.000001)*{step:.6f}+0.000001)\,n)',setpts=N/24/TB"
         else: pick = f"setpts=((N-{max(frac, 0.001):.6f})/{step:.6f}+1)/24/TB,fps=24:round=up"
-        vf = f"fps={wf:.6f}:round=near,{pick},{tail}"
+        # a working file can begin before its original does (offset < 0, e.g. undereye 6815 from 0 s): its first frames are then the
+        # original's first frame held. Seeking can't go below 0, so shift the original later and let the grid start at 0 (first frame held)
+        # (measured on 6815: working frames 0 1 2 3 4 5 = original frames 0 1 2 3 5 7; three held frames in front give 0 0 1 3 5 7)
+        lead = -(idx0 / wf + off)
+        grid = (f"tpad=start={round(lead * float(o.get('fps') or 60))}:start_mode=clone," if lead > 0.004 else "") + f"fps={wf:.6f}:round=near"
+        vf = f"{grid},{pick},{tail}"
         run(["ffmpeg", "-n", "-v", "error", "-ss", f"{max(0.0, t - 0.004):.5f}", "-t", f"{n * q['rate'] / 24 + 0.5:.5f}", "-i", src, "-an", "-vf", vf, "-frames:v", str(n), *TAGS, "-c:v", "ffv1", "-level", "3", str(dst)])
     return {"source": how, "file": src, "at_s": round(t, 4), "vf": vf}
 
@@ -237,7 +250,7 @@ def seq_input(d):
     return ["-framerate", "24", "-start_number", str(int(m.group(2))), "-i", f"{Path(d).name}/{pat}"], fs
 
 # ------------------------------------------------------------------------------------------------ the build
-PASSES = {"undereye": "under,matte,over,media", "oct14": "over,media", "jan08": "under,matte,over,media"}
+PASSES = {"undereye": "under,matte,frost,over,media", "oct14": "frost,over,media", "jan08": "under,matte,frost,over,media"}
 MATTE_FROM = {"jan08": "luma"}  # jan08's matte pass is his grey matte on black (white = him); under-eye's is the key's alpha
 
 def cut_track(segs, omap, out, name, run, man):
@@ -260,31 +273,59 @@ def build(a, reel, R, tl, P, total, frames, out, run, say, render_cmd, checks_fr
     # 1 footage from the originals
     omap = originals()
     segs = segments(reel, tl, P, f0, f1)
-    cut_track(segs, omap, out, "footage", run, man["footage"])
+    # --reuse <build folder>: composite again from that build's kept intermediates (cut footage + passes), into this new folder
+    work = Path(a.reuse).resolve() if getattr(a, "reuse", None) else out
     psegs = person_segments(reel, tl, P, f0, f1)
-    if psegs:
-        man["person"] = []
-        cut_track(psegs, omap, out, "person", run, man["person"])
+    # --recut (with --reuse): cut the footage again into this folder, reuse only the rendered passes
+    tw = out if getattr(a, "recut", False) else work
+    if tw != out:
+        old = json.loads((work / "manifest.json").read_text(encoding="utf-8")) if (work / "manifest.json").exists() else {}
+        man["footage"] = old.get("footage", []); man["reused_intermediates_of"] = str(work)
+        if psegs: man["person"] = old.get("person", [])
+    else:
+        cut_track(segs, omap, out, "footage", run, man["footage"])
+        if psegs:
+            man["person"] = []
+            cut_track(psegs, omap, out, "person", run, man["person"])
+    def count(f):
+        return int(subprocess.run(["ffprobe", "-v", "error", "-count_packets", "-select_streams", "v:0", "-show_entries", "stream=nb_read_packets", "-of", "csv=p=0", str(f)], capture_output=True, text=True).stdout.strip().strip(",") or 0)
+    # The joined pieces carry their sources' timing (under-eye pieces are tagged 30 fps and the join drifted about 8 ms per piece against
+    # the 24 fps passes). So each track is written once more, losslessly, as a plain 24 fps stream numbered by frame count. Retiming
+    # inside the big composite graph instead (setpts on every input) made ffmpeg drop frames, differently on each run.
+    for f in ["footage", "person"] if psegs else ["footage"]:
+        if count(tw / f"{f}.mkv") != n: raise SystemExit(f"{f}.mkv: {count(tw / f'{f}.mkv')} frames, expected {n}")
+        # .nut keeps the exact 1/24 timebase (an .mkv rounds to 1 ms: every third frame then sits 0.33 ms BEFORE its graphics frame and
+        # the overlay showed the previous graphics frame there: under-eye f1850's caption one word late, fourth build)
+        if not (tw / f"{f}24.nut").exists():
+            run(["ffmpeg", "-n", "-v", "error", "-i", f"{f}.mkv", "-vf", "settb=1/24,setpts=N", "-r", "24", "-pix_fmt", "yuv420p10le", *TAGS, "-c:v", "ffv1", "-level", "3", f"{f}24.nut"], cwd=tw)
+        if count(tw / f"{f}24.nut") != n: raise SystemExit(f"{f}24.nut: {count(tw / f'{f}24.nut')} frames, expected {n}")
     say("  footage:", ", ".join(sorted({m["source"].split(":")[0] for m in man["footage"]})))
     # 2 graphics passes (no footage, transparent)
     seqs = {}
     for name in want:
         pf = out / f"props_{name}.json"
         pf.write_text(json.dumps({**(tl["comp"].get("props") or {}), "timeline": tl, "pass": name}), encoding="utf-8")
-        d = out / f"pass_{name}"
-        run(render_cmd(tl["comp"]["entry"], tl["comp"]["id"], d, pf, (f0, f1), a.concurrency), cwd=REM)
+        d = work / f"pass_{name}"
+        if work == out or not d.exists() or len(list(d.glob("*.png"))) != n: run(render_cmd(tl["comp"]["entry"], tl["comp"]["id"], d, pf, (f0, f1), a.concurrency), cwd=REM)
         si = seq_input(d)
         if not si or len(si[1]) != n: raise SystemExit(f"pass {name}: {len(si[1]) if si else 0} frames, expected {n}")
+        # Chrome writes a fully opaque frame as RGB and any other as RGBA, so a pass changes pixel format at cuts. Fed straight into the
+        # composite, each change made ffmpeg rebuild the filter graph and lose the frames waiting in it (Jan08: 29 of 2153, at the cuts
+        # f336-339, f558-559, f1470-1472, f1549-1551 ...; the encoder then repeated frames to fill, so the picture ran late there).
+        # So each pass is first written as one constant-format lossless RGBA track, counted, and only that goes into the composite.
+        if not (work / f"pass_{name}.nut").exists():
+            run(["ffmpeg", "-n", "-v", "error", *si[0], "-vf", "format=rgba", "-r", "24", "-c:v", "ffv1", "-level", "3", f"pass_{name}.nut"], cwd=work)
+        if count(work / f"pass_{name}.nut") != n: raise SystemExit(f"pass_{name}.nut: {count(work / f'pass_{name}.nut')} frames, expected {n}")
         seqs[name] = si
         man["passes"][name] = {"frames": len(si[1]), "bytes": sum(p.stat().st_size for p in si[1])}
-    write_lut(out / "gfx.cube")
+    write_lut(work / "gfx.cube")
     # 3 layers + 4 encode
     idx = {}
-    inputs = ["-i", "footage.mkv"]
+    inputs = ["-i", str(tw / "footage24.nut")]
     k = 1
-    if psegs: inputs += ["-i", "person.mkv"]; k = 2
+    if psegs: inputs += ["-i", str(tw / "person24.nut")]; k = 2
     for name in want:
-        inputs += seqs[name][0]; idx[name] = k; k += 1
+        inputs += ["-i", f"pass_{name}.nut"]; idx[name] = k; k += 1
     # colour and alpha go separate ways and meet again (alphamerge): converting an RGBA frame in one piece left a little alpha where
     # there was none, and the footage under it came out 3-6 codes darker (measured on the first proof build)
     SRGB = "format=gbrp10le,lut3d=file=gfx.cube:interp=tetrahedral,scale=out_color_matrix=bt2020nc:out_range=tv,format=yuv420p10le"  # sRGB -> HLG bt2020
@@ -292,17 +333,25 @@ def build(a, reel, R, tl, P, total, frames, out, run, say, render_cmd, checks_fr
     def layer(i, how, out):
         return f"[{i}:v]format=rgba,split[{out}c][{out}a];[{out}c]{how}[{out}cc];[{out}a]alphaextract,format=gray10le[{out}aa];[{out}cc][{out}aa]alphamerge[{out}]"
     # 4:2:0 10-bit all the way: a footage pixel no graphic touches is never resampled, in luma or chroma
-    g, cur = ["[0:v]format=yuv420p10le[base];[1:v]format=yuv420p10le[pf]" if psegs else "[0:v]format=yuv420p10le,split[base][pf]"], "base"
+    # every input is laid on the 24 fps grid by FRAME COUNT (settb=1/24,setpts=N: exact, where setpts=N/24/TB in the mkv's 1 ms
+    # timebase rounded and the encoder dropped 38 frames of 2224), never by its own timestamps: the cut pieces carry their
+    # source's frame-rate tag (30 fps under-eye) and, joined, drifted about 8 ms per piece against the passes (first full under-eye build)
+    # .nut carries no colour tags: untagged, ffmpeg converted the footage to the output's bt2020nc as if from another matrix (fifth
+    # under-eye build: every footage frame 2-4 codes off, U +1.6 V -1.9). So the tags are stated here; the pixels are untouched.
+    TAG = "setparams=colorspace=bt2020nc:color_primaries=bt2020:color_trc=arib-std-b67:range=tv,format=yuv420p10le"
+    g, cur = [f"[0:v]{TAG}[base];[1:v]{TAG}[pf]" if psegs else f"[0:v]{TAG},split[base][pf]"], "base"
     mat = "format=gbrp,extractplanes=g,format=gray10le" if MATTE_FROM.get(reel) == "luma" else "format=rgba,alphaextract,format=gray10le"
     if "under" in idx:
         g.append(layer(idx["under"], SRGB, "u") + f";[{cur}][u]overlay=format=yuv420p10[b1]"); cur = "b1"
     if "matte" in idx:  # the people again: the ORIGINAL footage through the RVM matte
         g.append(f"[{idx['matte']}:v]{mat}[m];[pf][m]alphamerge[person];[{cur}][person]overlay=format=yuv420p10[b2]"); cur = "b2"
     else: g.append("[pf]nullsink")
-    if "over" in idx:  # the cards' frosted glass (CSS backdrop blur 26 px): the picture under them blurred, where the pass is mostly opaque
-        g.append(f"[{idx['over']}:v]format=rgba,alphaextract,lut=y='if(gte(val,150),255,0)',gblur=sigma=2,format=gray10le[fm];"
-                 f"[{cur}]split[c1][c2];[c2]gblur=sigma=26[bl];[bl][fm]alphamerge[frost];[c1][frost]overlay=format=yuv420p10[b3];"
-                 + layer(idx["over"], SRGB, "o") + ";[b3][o]overlay=format=yuv420p10[b4]"); cur = "b4"
+    if "frost" in idx:  # the cards' frosted glass (CSS backdrop blur 26 px): the picture blurred exactly where the `frost` pass is white.
+        # (The first builds blurred wherever `over` was mostly opaque: a full-frame room or photo fading out blurred the footage under it.)
+        g.append(f"[{idx['frost']}:v]format=rgba,alphaextract,format=gray10le[fm];"
+                 f"[{cur}]split[c1][c2];[c2]gblur=sigma=26[bl];[bl][fm]alphamerge[frost];[c1][frost]overlay=format=yuv420p10[b3]"); cur = "b3"
+    if "over" in idx:
+        g.append(layer(idx["over"], SRGB, "o") + f";[{cur}][o]overlay=format=yuv420p10[b4]"); cur = "b4"
     if "media" in idx:
         g.append(layer(idx["media"], HLG, "md") + f";[{cur}][md]overlay=format=yuv420p10[b5]"); cur = "b5"
     g.append(f"[{cur}]format=yuv420p10le[v]")
@@ -313,8 +362,9 @@ def build(a, reel, R, tl, P, total, frames, out, run, say, render_cmd, checks_fr
         audio = (["-ss", f"{f0 / 24:.5f}", "-t", f"{n / 24:.5f}"] if frames else []) + ["-i", str(Path(a.audio).resolve())]
         amap = ["-map", f"{k}:a:0", "-c:a", "copy"]
     x265 = "colorprim=bt2020:transfer=arib-std-b67:colormatrix=bt2020nc:range=limited:log-level=error"
-    run(["ffmpeg", "-n", "-v", "error", *inputs, *audio, "-filter_complex", ";".join(g), "-map", "[v]", *amap, "-frames:v", str(n), "-r", "24",
-         "-c:v", "libx265", "-profile:v", "main10", "-preset", "medium", "-crf", str(a.crf), "-pix_fmt", "yuv420p10le", "-x265-params", x265, *TAGS, "-tag:v", "hvc1", "-movflags", "+faststart", final.name], cwd=out)
+    run(["ffmpeg", "-n", "-v", "error", *inputs, *audio, "-filter_complex", ";".join(g), "-map", "[v]", *amap, "-frames:v", str(n), "-fps_mode", "passthrough",
+         "-c:v", "libx265", "-profile:v", "main10", "-preset", "medium", "-crf", str(a.crf), "-pix_fmt", "yuv420p10le", "-x265-params", x265, *TAGS, "-tag:v", "hvc1", "-movflags", "+faststart", str(final)], cwd=work)
+    if count(final) != n: say(f"  WARNING: the master has {count(final)} frames, expected {n}")
     man["encode"] = {"codec": "libx265 main10", "crf": a.crf, "audio": f"copied from {a.audio}" if a.audio else "none (pass --audio <existing master>)"}
 
     # 5 checks
@@ -343,35 +393,44 @@ def build(a, reel, R, tl, P, total, frames, out, run, say, render_cmd, checks_fr
         return cv2.dilate(mask.astype(np.uint8), np.ones((2 * r + 1, 2 * r + 1), np.uint8)) > 0
     # footage exactness: the master vs the ORIGINAL decoded at the same source time, where no graphic is
     rows = []
-    cands = [(q, f) for q in segs if q["clip"] and q["rate"] and (omap.get(q["clip"]) or {}).get("original") and Path(omap[q["clip"]]["original"]).exists() for f in range(q["f0"] + 2, q["f1"] - 2, 7)]
-    for q, f in [cands[round(i * (len(cands) - 1) / 7)] for i in range(min(8, len(cands)))] if cands else []:
-        j = f - f0
-        got = yuv(final, ["-ss", f"{(j - 0.25) / 24:.5f}"])
-        if got is None: continue
-        gfx = np.zeros((H, W), bool)
-        for name in ("under", "over", "media"):
-            im = png(name, j)
-            if im is not None: gfx |= im[..., 3] > 0
-        free = ~grow(gfx, 40)  # 40 px clear of any graphic pixel (and of the frosted-glass blur)
-        share = float(free.mean())
-        if share < 0.05: continue
-        o = omap[q["clip"]]
-        wf = WFPS.get(q["clip"], 24.0)
-        t = max(0.0, math.floor((q["t"] + (f - q["f0"]) * q["rate"] / 24) * wf + 1e-6) / wf + float(o.get("offset") or 0))
-        best = None
-        for dt in (0.0, -1 / 60, 1 / 60, -2 / 60, 2 / 60, -3 / 60):  # the picked frame is the last one at or before t: try it and its neighbours
-            ref_ = yuv(o["original"], ["-ss", f"{max(0, t + dt - 0.004):.5f}"], geometry(q).rstrip(","))
-            if ref_ is None: continue
-            dy = float(np.abs(got[0] - ref_[0])[free].mean())
-            if best is None or dy < best["mean_abs_diff_Y"]:
-                fc = free[::2, ::2]
-                best = {"frame": f, "clip": q["clip"], "original_s": round(t + dt, 4), "graphics_free_share": round(share, 3), "mean_abs_diff_Y": round(dy, 3),
-                        "mean_abs_diff_U": round(float(np.abs(got[1] - ref_[1])[fc].mean()), 3), "mean_abs_diff_V": round(float(np.abs(got[2] - ref_[2])[fc].mean()), 3),
-                        "mean_shift_YUV": [round(float((got[i] - ref_[i])[free if i == 0 else fc].mean()), 3) for i in range(3)]}
-        if best: rows.append(best)
+    ok_src = lambda q: q["clip"] and q["rate"] and (omap.get(q["clip"]) or {}).get("original") and Path(omap[q["clip"]]["original"]).exists()
+    pieces = [q for q in segs if ok_src(q) and q["f1"] - q["f0"] >= 6]
+    pieces = sorted(pieces, key=lambda q: -(q["f1"] - q["f0"]))                       # long pieces first: a drift shows at their far end
+    by_clip = {}
+    for q in pieces: by_clip.setdefault(q["clip"], q)
+    pick = list(by_clip.values()) + [q for q in pieces if q not in by_clip.values()]  # one piece of every clip first
+    skipped = {"covered_by_graphics": 0, "decode": 0}
+    tried = 0
+    for q in pick[:24]:
+      for f in (q["f1"] - 3, (q["f0"] + q["f1"]) // 2, q["f0"] + 2):                  # the far end first; the next spot if graphics cover it
+          tried += 1
+          j = f - f0
+          got = yuv(final, ["-ss", f"{(j - 0.25) / 24:.5f}"])
+          if got is None: skipped['decode'] += 1; continue
+          gfx = np.zeros((H, W), bool)
+          for name in ("under", "over", "media"):
+              im = png(name, j)
+              if im is not None: gfx |= im[..., 3] > 0
+          free = ~grow(gfx, 40)  # 40 px clear of any graphic pixel (and of the frosted-glass blur)
+          share = float(free.mean())
+          if share < 0.05: skipped['covered_by_graphics'] += 1; continue
+          o = omap[q["clip"]]
+          wf = WFPS.get(q["clip"], 24.0)
+          t = max(0.0, math.floor((q["t"] + (f - q["f0"]) * q["rate"] / 24) * wf + 1e-6) / wf + float(o.get("offset") or 0))
+          best = None
+          for dt in (0.0, -1 / 60, 1 / 60, -2 / 60, 2 / 60, -3 / 60):  # the picked frame is the last one at or before t: try it and its neighbours
+              ref_ = yuv(o["original"], ["-ss", f"{max(0, t + dt - 0.004):.5f}"], ("".join(framing(o["original"], o)) + geometry(q)).rstrip(","))
+              if ref_ is None: continue
+              dy = float(np.abs(got[0] - ref_[0])[free].mean())
+              if best is None or dy < best["mean_abs_diff_Y"]:
+                  fc = free[::2, ::2]
+                  best = {"frame": f, "clip": q["clip"], "original_s": round(t + dt, 4), "graphics_free_share": round(share, 3), "mean_abs_diff_Y": round(dy, 3),
+                          "mean_abs_diff_U": round(float(np.abs(got[1] - ref_[1])[fc].mean()), 3), "mean_abs_diff_V": round(float(np.abs(got[2] - ref_[2])[fc].mean()), 3),
+                          "mean_shift_YUV": [round(float((got[i] - ref_[i])[free if i == 0 else fc].mean()), 3) for i in range(3)]}
+          if best: rows.append(best); break
     if rows:
         worst = max(r["mean_abs_diff_Y"] for r in rows)
-        C["footage_vs_original"] = {"pass": worst <= 2.0, "limit_10bit_codes": 2.0, "worst_mean_abs_diff_Y": worst, "worst_chroma": max(max(r["mean_abs_diff_U"], r["mean_abs_diff_V"]) for r in rows), "frames": rows}
+        C["footage_vs_original"] = {"pass": worst <= 2.0, "frames_measured": len(rows), "pieces_with_footage": len(pieces), "clips_measured": len({r["clip"] for r in rows}), "clips_in_reel": len(by_clip), "skipped": skipped, "limit_10bit_codes": 2.0, "worst_mean_abs_diff_Y": worst, "worst_chroma": max(max(r["mean_abs_diff_U"], r["mean_abs_diff_V"]) for r in rows), "frames": rows}
     else: C["footage_vs_original"] = {"pass": None, "note": "no frame in this range has footage from an original with a graphics-free region"}
     # graphics white: opaque pure-white graphic pixels must sit at HLG 75 % (Y' = 64 + 0.75 * 876 = 721 in 10-bit tv range)
     vals = []
@@ -396,9 +455,93 @@ def build(a, reel, R, tl, P, total, frames, out, run, say, render_cmd, checks_fr
     # clean up this build's own intermediates
     if not a.keep:
         freed = 0
-        for d in [out / "footage", out / "person", *[out / f"pass_{x}" for x in want]]:
+        for d in [work / "footage", work / "person", tw / "footage", tw / "person", *[work / f"pass_{x}" for x in want]]:
             if d.exists(): freed += sum(p.stat().st_size for p in d.rglob("*") if p.is_file()); shutil.rmtree(d)
-        for p in (out / "footage.mkv", out / "footage.txt", out / "person.mkv", out / "person.txt"):
+        for p in (work / "footage.mkv", work / "footage.txt", work / "person.mkv", work / "person.txt", work / "footage24.mkv", work / "person24.mkv", work / "footage24.nut", work / "person24.nut",
+                  *[tw / x for x in ("footage.mkv", "footage.txt", "person.mkv", "person.txt", "footage24.nut", "person24.nut")], *[work / f"pass_{x}.nut" for x in want]):
             if p.exists(): freed += p.stat().st_size; p.unlink()
         man["intermediates_removed_bytes"] = freed
     return man, final
+
+
+def verify(reel, master, limit=24):
+    """A finished full HDR master against the originals, without its graphics passes: for the far end of every footage piece (one
+    piece of every clip first), the median |Y difference| over the whole frame (graphics cover the minority of it; a piece under a
+    full-frame graphic reads high and is listed as covered) and the share of pixels within 4 codes.
+      python brand/scripts/reel_hdr.py verify <reel> <master.mp4>"""
+    import numpy as np
+    tl = T.load(T.path_for(reel, None)); P = T.transcript(tl)
+    total = P["durationInFrames"] + {"jan08": P.get("tail", 0), "oct14": P.get("tail", 0), "undereye": 72}[reel]
+    omap = originals(); segs = segments(reel, tl, P, 0, total - 1)
+    def y(src, pre, vf=""):
+        r = subprocess.run(["ffmpeg", "-v", "error", *pre, "-i", str(src), "-vf", (vf + "," if vf else "") + "format=yuv420p10le", "-frames:v", "1", "-f", "rawvideo", "-"], capture_output=True).stdout
+        return np.frombuffer(r[: W * H * 2], "<u2").reshape(H, W).astype(np.int32) if len(r) >= W * H * 2 else None
+    pieces = sorted((q for q in segs if q["clip"] and q["rate"] and (omap.get(q["clip"]) or {}).get("original") and q["f1"] - q["f0"] >= 6), key=lambda q: -(q["f1"] - q["f0"]))
+    first = {}
+    for q in pieces: first.setdefault(q["clip"], q)
+    rows = []
+    for q in (list(first.values()) + [q for q in pieces if q not in first.values()])[:limit]:
+        keep = None
+        for f in (q["f1"] - 3, (q["f0"] + q["f1"]) // 2, q["f0"] + 2):  # the far end first; elsewhere in the piece if a graphic covers it
+            got = y(master, ["-ss", f"{(f - 0.25) / 24:.5f}"])
+            if got is None: continue
+            o = omap[q["clip"]]
+            if q["clip"] not in WFPS:
+                r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=r_frame_rate", "-of", "csv=p=0", str(PUB / q["clip"])], capture_output=True, text=True).stdout.strip().strip(",")
+                a_, b_ = r.split("/"); WFPS[q["clip"]] = float(a_) / float(b_)
+            wf = WFPS[q["clip"]]
+            t = max(0.0, math.floor((q["t"] + (f - q["f0"]) * q["rate"] / 24) * wf + 1e-6) / wf + float(o.get("offset") or 0))
+            best = None
+            for dt in (0.0, -1 / 60, 1 / 60, -2 / 60, 2 / 60, -3 / 60):
+                ref = y(o["original"], ["-ss", f"{max(0, t + dt - 0.004):.5f}"], ("".join(framing(o["original"], o)) + geometry(q)).rstrip(","))
+                if ref is None: continue
+                d = np.abs(got - ref)
+                m = float(np.median(d))
+                if best is None or m < best["median_abs_diff_Y"]:
+                    best = {"frame": f, "piece": [q["f0"], q["f1"] - 1], "clip": q["clip"], "median_abs_diff_Y": m, "within_4_codes": round(float((d <= 4).mean()), 3)}
+            if best and (keep is None or best["within_4_codes"] > keep["within_4_codes"]): keep = best
+            if keep and keep["within_4_codes"] >= 0.5: break
+        best = keep
+        if best: rows.append(best)
+    ok = [r for r in rows if r["within_4_codes"] >= 0.5]
+    return {"master": str(master), "pieces_measured": len(rows), "clips_measured": sorted({r["clip"] for r in ok}), "clips_in_reel": sorted(first),
+            "worst_median_abs_diff_Y": max((r["median_abs_diff_Y"] for r in ok), default=None), "covered_or_mismatched": [r for r in rows if r["within_4_codes"] < 0.5], "rows": rows}
+
+if __name__ == "__main__" and len(sys.argv) > 3 and sys.argv[1] == "verify":
+    sys.stdout.reconfigure(encoding="utf-8")
+    print(json.dumps(verify(sys.argv[2], sys.argv[3]), indent=1))
+
+
+def against_delivered(master, delivered, step=6):
+    """The HDR master's PICTURE against the delivered SDR master's, frame for frame (every `step`-th): same layers, same frames, same
+    sharpness. Grey 270x480, zero-mean correlation r and the ratio of fine detail (Laplacian energy). A missing or extra layer, a wrong
+    frame or a blurred picture shows as low r or a low detail ratio; levels are NOT compared (graphics white sits lower in HLG).
+      python brand/scripts/reel_hdr.py delivered <master.mp4> <delivered.mp4>"""
+    import numpy as np, cv2
+    def grey(p):
+        r = subprocess.run(["ffmpeg", "-v", "error", "-i", str(p), "-an", "-vf", f"select='not(mod(n\,{step}))',scale=270:480:flags=area,format=gray", "-fps_mode", "passthrough", "-f", "rawvideo", "-"], capture_output=True)
+        if not r.stdout: raise SystemExit(f"could not decode {p}: {r.stderr.decode(errors='replace')[-300:]}")
+        return np.frombuffer(r.stdout[: len(r.stdout) // (480 * 270) * 480 * 270], np.uint8).reshape(-1, 480, 270).astype(np.float32)
+    A, B = grey(master), grey(delivered)
+    n = min(len(A), len(B))
+    rows = []
+    for i in range(n):
+        a, b = A[i] - A[i].mean(), B[i] - B[i].mean()
+        r = float((a * b).sum() / (np.sqrt((a * a).sum() * (b * b).sum()) + 1e-6))
+        da, db = float(cv2.Laplacian(A[i], cv2.CV_32F).var()), float(cv2.Laplacian(B[i], cv2.CV_32F).var())
+        rows.append((i * step, round(r, 4), round(da / (db + 1e-6), 3)))
+    def spans(bad):
+        out = []
+        for f in bad:
+            if out and f - out[-1][1] <= step: out[-1][1] = f
+            else: out.append([f, f])
+        return out
+    low_r = [f for f, r, d in rows if r < 0.90]; soft = [f for f, r, d in rows if d < 0.3]  # graphics sit at 75 % white, so a frame full of cards reads about 0.56; a blurred picture reads far lower
+    rs = sorted(r for _, r, _ in rows); ds = sorted(d for _, _, d in rows)
+    return {"pass": not low_r and not soft, "frames_compared": n, "frames_in_master": len(A), "frames_in_delivered": len(B), "step": step,
+            "correlation": {"min": rs[0], "p01": rs[len(rs) // 100], "median": rs[len(rs) // 2]}, "detail_ratio": {"min": ds[0], "p01": ds[len(ds) // 100], "median": ds[len(ds) // 2]},
+            "low_correlation_spans": spans(low_r), "soft_spans": spans(soft), "worst": sorted(rows, key=lambda x: x[1])[:6]}
+
+if __name__ == "__main__" and len(sys.argv) > 3 and sys.argv[1] == "delivered":
+    sys.stdout.reconfigure(encoding="utf-8")
+    print(json.dumps(against_delivered(sys.argv[2], sys.argv[3]), indent=1))
