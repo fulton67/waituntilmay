@@ -177,12 +177,22 @@ the same reel as a 10-bit HEVC HLG master whose footage is cut from the original
    in the manifest.
 2. Graphics: the composition renders without footage as transparent PNG passes, prop `pass`: `under` (behind the people: wall titles,
    the cream room and plates he stands in front of), `matte` (the people's key, alpha or luma only), `over` (every other graphic),
-   `media` (clips inside cards). sRGB graphics go through a 3D LUT to bt2020 + HLG with white at HLG 75 % (203 nits, BT.2408).
+   `media` (clips inside cards), `frost` (white exactly where a card has a CSS backdrop blur). sRGB graphics go through a 3D LUT to bt2020 + HLG with white at HLG 75 % (203 nits, BT.2408).
    `media` clips are already HLG-coded: matrix only.
-3. Layers: footage -> under -> the people (ORIGINAL footage through the matte) -> frosted glass -> over -> media.
+3. Layers: footage -> under -> the people (ORIGINAL footage through the matte) -> frosted glass (the picture blurred where the `frost`
+   pass is white) -> over -> media.
+   Before the composite every input is written once more as a lossless `.nut` track and its frames are counted: the cut footage on an
+   exact 1/24 timebase (an .mkv rounds to 1 ms and every third frame then took the previous graphics frame), and each PNG pass as
+   constant RGBA (Chrome writes opaque frames as RGB and the rest as RGBA; a format change mid-stream makes ffmpeg rebuild the filter
+   graph and drop frames at the cuts). `.nut` carries no colour tags, so the composite states them on the footage inputs (`setparams`);
+   without that the footage came out 2-4 codes off. The encode never repeats frames: a short master fails the format check.
 4. Encode: libx265 main10, crf 8, tags bt2020 / arib-std-b67 / bt2020nc / tv. Audio: stream-copied from the existing master (`--audio`).
 5. Checks (manifest.json): tags equal the original's; footage vs the original in graphics-free regions (mean |diff| <= 2 ten-bit codes);
-   graphics white at 75 % +-3 %; frozen picture; format; audio unchanged.
+   graphics white at 75 % +-3 %; frozen picture; format; audio unchanged; picture vs the delivered master (every 6th frame, grey
+   correlation >= 0.9: catches a picture that runs early or late). A build with a failed check is copied out as "... (FAILED).mp4".
 
-Intermediate passes are deleted after the build (`--keep` keeps them). The originals are only read. A composition takes part by honouring
+Intermediate passes are deleted after the build (`--keep` keeps them). `--reuse <build folder>` composites again from a kept build's
+cut footage and passes without cutting or rendering (use `--keep` with it, or that folder's passes are removed); add `--recut` to cut
+the footage again and reuse only the passes. `--threads N` limits filter and x265 threads (less memory). `--name "<file>"` copies the
+master beside the delivered ones. The originals are only read. A composition takes part by honouring
 `pass` (UndereyeReelV5, Oct14ReelV6b, Jan08ReelV4 do); without the prop their output is unchanged.

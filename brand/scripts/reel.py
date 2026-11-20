@@ -479,7 +479,7 @@ def build_hdr(a, reel, R, tl, tl_path, P, total, frames, out, version, errs, t0)
     import reel_hdr
     if a.comp: tl = {**tl, "comp": {**tl["comp"], "id": a.comp}}  # e.g. Oct14ReelV6b while timelines/oct14.json still names Oct14ReelV6
     if not a.audio:  # the existing delivered master's sound, unchanged
-        hit = sorted(q for q in (ROOT / R["edit"]).glob(f"*{version}.mp4") if not q.name.lower().startswith("raw") and q.name[-len(version) - 5] in "_ ")
+        hit = sorted(q for q in (ROOT / R["edit"]).glob(f"*{version}.mp4") if "raw" not in q.name.lower() and "hdr" not in q.name.lower() and q.name[-len(version) - 5] in "_ ")
         a.audio = str(hit[0]) if hit else None
     def render_cmd(entry, comp, d, props_file, fr, conc):
         return subprocess.list2cmdline(["npx", "remotion", "render", entry, comp, str(d), f"--props={props_file}", "--sequence", "--image-format=png", "--log=error",
@@ -555,6 +555,7 @@ if __name__ == "__main__":
     ap.add_argument("--hdr", action="store_true", help="10-bit HEVC HLG master, footage cut from the original camera files (reel_hdr.py)")
     ap.add_argument("--audio", help="--hdr: the existing master whose audio is copied (default: the delivered <edit>/*_<version>.mp4)")
     ap.add_argument("--passes", help="--hdr: graphics passes to render (default under,matte,over,media)"); ap.add_argument("--crf", type=int, default=8, help="--hdr: x265 crf (8 keeps the footage within 2 ten-bit codes of the original on the noisiest clip; 14 measured 1.7-2.7)"); ap.add_argument("--keep", action="store_true", help="--hdr: keep the intermediate passes")
+    ap.add_argument("--threads", type=int, help="--hdr: limit the composite's filter and x265 threads (less memory)")
     ap.add_argument("--recut", action="store_true", help="--hdr --reuse: cut the footage again from the originals, reuse only the rendered passes")
     ap.add_argument("--reuse", help="--hdr: composite again from this build folder's kept intermediates (--keep), without cutting or rendering")
     ap.add_argument("--name", help="--hdr: also copy the master into the edit folder under this file name")

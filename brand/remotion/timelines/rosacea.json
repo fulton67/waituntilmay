@@ -1,0 +1,879 @@
+{
+ "schema": 1,
+ "reel": "rosacea-mar12",
+ "version": "v2",
+ "comp": {
+  "entry": "src/rosacea/index.ts",
+  "id": "RosaceaReelV1",
+  "props": {}
+ },
+ "fps": 24,
+ "transcript": "public/rosacea-mar12/props.json",
+ "voice": "public/rosacea-mar12/voice.wav",
+ "master": {
+  "lufs": -14,
+  "tp": -1.5,
+  "limiter": false
+ },
+ "_draft": "DRAFT. Word indices into brand/edits/rosacea-mar12/transcript.json (flattened). Whisper word starts drift up to ~0.6 s on this file; re-anchor on the measured words in props.json. Sources are 10-bit HLG camera originals (60 fps, rotation -90): reel.py --hdr applies; picture picked to 24 fps, never graded, toneMapped={false}.",
+ "beats": [
+  {
+   "id": "talk:s1-what",
+   "lane": "footage",
+   "device": "Talk",
+   "start": {
+    "piece": "s1-what",
+    "edge": "start"
+   },
+   "end": {
+    "piece": "s1-what",
+    "edge": "end"
+   },
+   "source": {
+    "clip": "rosacea-mar12/talk.mp4",
+    "in": 5.4859,
+    "out": 17.6859,
+    "rate": 1.1,
+    "orig": {
+     "clip": "rosacea-mar12/IMG_1796.MOV",
+     "in": 5.55,
+     "out": 17.75,
+     "offset": 0.0641
+    }
+   },
+   "piece": "s1-what"
+  },
+  {
+   "id": "talk:s2-why-triggers",
+   "lane": "footage",
+   "device": "Talk",
+   "start": {
+    "piece": "s2-why-triggers",
+    "edge": "start"
+   },
+   "end": {
+    "piece": "s2-why-triggers",
+    "edge": "end"
+   },
+   "source": {
+    "clip": "rosacea-mar12/talk.mp4",
+    "in": 25.2059,
+    "out": 50.3359,
+    "rate": 1.1,
+    "orig": {
+     "clip": "rosacea-mar12/IMG_1796.MOV",
+     "in": 25.27,
+     "out": 50.4,
+     "offset": 0.0641
+    }
+   },
+   "piece": "s2-why-triggers"
+  },
+  {
+   "id": "talk:s3-laser",
+   "lane": "footage",
+   "device": "Talk",
+   "start": {
+    "piece": "s3-laser",
+    "edge": "start"
+   },
+   "end": {
+    "piece": "s3-laser",
+    "edge": "end"
+   },
+   "source": {
+    "clip": "rosacea-mar12/talk.mp4",
+    "in": 89.0659,
+    "out": 118.9359,
+    "rate": 1.1,
+    "orig": {
+     "clip": "rosacea-mar12/IMG_1796.MOV",
+     "in": 89.13,
+     "out": 119.0,
+     "offset": 0.0641
+    }
+   },
+   "piece": "s3-laser"
+  },
+  {
+   "id": "B01",
+   "lane": "titles",
+   "device": "HookRoom",
+   "start": {
+    "frame": 2
+   },
+   "end": {
+    "word": 29,
+    "text": "And",
+    "edge": "start",
+    "offset": 4
+   },
+   "text": {
+    "eyebrow": "Dr. Ariel Ostad on",
+    "title": "Rosacea",
+    "pairCaps": "In his practice",
+    "pair": "Redness, vessels, and the laser he uses"
+   },
+   "layout": {
+    "note": "titles lane, person key over the type, all text inside y 300-1620, face-free",
+    "top": 250,
+    "px": 104,
+    "rule": false,
+    "pairTop": 1300
+   },
+   "notes": " | motion M15",
+   "events": {
+    "pair": {
+     "frame": 30
+    }
+   }
+  },
+  {
+   "id": "B02",
+   "lane": "plates",
+   "device": "FloraInset",
+   "start": {
+    "word": 36,
+    "text": "redness",
+    "edge": "start",
+    "offset": 0
+   },
+   "end": {
+    "piece": "s1-what",
+    "edge": "end",
+    "offset": 22
+   },
+   "text": {
+    "labels": [
+     {
+      "text": "Cheeks",
+      "x": 0.287,
+      "y": 0.555,
+      "anchor": "middle",
+      "size": 22,
+      "at": {
+       "word": 41,
+       "text": "cheeks,",
+       "edge": "start",
+       "offset": 0
+      }
+     },
+     {
+      "text": "Nose",
+      "x": 0.463,
+      "y": 0.447,
+      "anchor": "middle",
+      "size": 22,
+      "at": {
+       "word": 43,
+       "text": "nose,",
+       "edge": "start",
+       "offset": 0
+      }
+     },
+     {
+      "text": "Chin",
+      "x": 0.463,
+      "y": 0.725,
+      "anchor": "middle",
+      "size": 22,
+      "at": {
+       "word": 45,
+       "text": "chin,",
+       "edge": "start",
+       "offset": 0
+      }
+     },
+     {
+      "text": "Between the brows",
+      "x": 0.463,
+      "y": 0.3,
+      "anchor": "middle",
+      "size": 22,
+      "at": {
+       "word": 46,
+       "text": "between",
+       "edge": "start",
+       "offset": 0
+      }
+     }
+    ],
+    "tag": "Illustration",
+    "labelsDraft": [
+     "Cheeks",
+     "Nose",
+     "Chin",
+     "Between the brows"
+    ],
+    "eyebrow": "Where it shows",
+    "title": ""
+   },
+   "events": {
+    "cheeks": {
+     "word": 41,
+     "text": "cheeks,",
+     "edge": "start",
+     "offset": 0
+    },
+    "nose": {
+     "word": 43,
+     "text": "nose,",
+     "edge": "start",
+     "offset": 0
+    },
+    "chin": {
+     "word": 45,
+     "text": "chin,",
+     "edge": "start",
+     "offset": 0
+    },
+    "brows": {
+     "word": 46,
+     "text": "between",
+     "edge": "start",
+     "offset": 0
+    }
+   },
+   "layout": {
+    "note": "4:5 rounded box in the right column (x >= 760) or chest band; zones are on the AI face only",
+    "keyed": true,
+    "x": 430,
+    "y": 150,
+    "w": 610,
+    "h": 900,
+    "head": 92
+   },
+   "notes": "brand/edits/flora-anatomy/rosacea/clips/R1_cephra_1080_10s_t1.mp4 frames f0-60 (red hold; measured: redness 5 % progress only at f64), played at 0.5x or held on f30 with M5 drift | motion M5, M14 x4",
+   "plate": {
+    "id": "R1",
+    "map": [
+     [
+      {
+       "word": 36,
+       "text": "redness",
+       "edge": "start",
+       "offset": 0
+      },
+      0
+     ],
+     [
+      {
+       "piece": "s1-what",
+       "edge": "end"
+      },
+      60
+     ]
+    ]
+   },
+   "rings": [
+    {
+     "at": {
+      "word": 41,
+      "text": "cheeks,",
+      "edge": "start",
+      "offset": 0
+     },
+     "x": 0.287,
+     "y": 0.49,
+     "r": 0.06
+    },
+    {
+     "at": {
+      "word": 41,
+      "text": "cheeks,",
+      "edge": "start",
+      "offset": 0
+     },
+     "x": 0.639,
+     "y": 0.49,
+     "r": 0.06
+    },
+    {
+     "at": {
+      "word": 43,
+      "text": "nose,",
+      "edge": "start",
+      "offset": 0
+     },
+     "x": 0.463,
+     "y": 0.502,
+     "r": 0.06
+    },
+    {
+     "at": {
+      "word": 45,
+      "text": "chin,",
+      "edge": "start",
+      "offset": 0
+     },
+     "x": 0.463,
+     "y": 0.667,
+     "r": 0.06
+    },
+    {
+     "at": {
+      "word": 46,
+      "text": "between",
+      "edge": "start",
+      "offset": 0
+     },
+     "x": 0.463,
+     "y": 0.365,
+     "r": 0.06
+    }
+   ]
+  },
+  {
+   "id": "B03",
+   "lane": "plates",
+   "device": "FloraLoupe",
+   "start": {
+    "word": 81,
+    "text": "inflamed",
+    "edge": "start",
+    "offset": 0
+   },
+   "end": {
+    "word": 95,
+    "text": "Common",
+    "edge": "start",
+    "offset": 0
+   },
+   "text": {
+    "pill": "Dilated blood vessels",
+    "tag": "Illustration"
+   },
+   "events": {
+    "open": {
+     "word": 81,
+     "text": "inflamed",
+     "edge": "start",
+     "offset": 0
+    },
+    "pill": {
+     "word": 85,
+     "text": "blood",
+     "edge": "start",
+     "offset": 0
+    }
+   },
+   "layout": {
+    "note": "circular loupe ~520 px in the chest band",
+    "keyed": true,
+    "x": 470,
+    "y": 250,
+    "d": 540
+   },
+   "notes": "brand/edits/flora-anatomy/rosacea/clips/R2_cephra_4k10_t1.mp4 frames f0-40 (red hold before the glow; 5 % progress at f42), or the still brand/edits/flora-anatomy/rosacea/stills/R2A_cephra_s2102_r2.png | motion M10, M5",
+   "plate": {
+    "id": "R2c",
+    "map": [
+     [
+      {
+       "word": 81,
+       "text": "inflamed",
+       "edge": "start",
+       "offset": 0
+      },
+      0
+     ],
+     [
+      {
+       "word": 95,
+       "text": "Common",
+       "edge": "start",
+       "offset": 0
+      },
+      40
+     ]
+    ]
+   }
+  },
+  {
+   "id": "B04",
+   "lane": "objects",
+   "device": "TriggerCard",
+   "start": {
+    "word": 95,
+    "text": "Common",
+    "edge": "start",
+    "offset": 0
+   },
+   "end": {
+    "piece": "s2-why-triggers",
+    "edge": "end"
+   },
+   "text": {
+    "caps": "Common triggers",
+    "rows": [
+     "Anything that raises body temperature",
+     "Exercise",
+     "Heat, humidity",
+     "Hot showers",
+     "A glass of wine",
+     "Dry skin",
+     "Stress: the most common"
+    ]
+   },
+   "events": {
+    "r1": {
+     "word": 98,
+     "text": "anything",
+     "edge": "start",
+     "offset": 0
+    },
+    "r2": {
+     "word": 108,
+     "text": "exercise,",
+     "edge": "start",
+     "offset": 0
+    },
+    "r3": {
+     "word": 109,
+     "text": "heat,",
+     "edge": "start",
+     "offset": 0
+    },
+    "r4": {
+     "word": 111,
+     "text": "hot",
+     "edge": "start",
+     "offset": 0
+    },
+    "r5": {
+     "word": 120,
+     "text": "glass",
+     "edge": "start",
+     "offset": 0
+    },
+    "r6": {
+     "word": 123,
+     "text": "Dry",
+     "edge": "start",
+     "offset": 0
+    },
+    "r7": {
+     "word": 132,
+     "text": "stress",
+     "edge": "start",
+     "offset": 0
+    }
+   },
+   "layout": {
+    "note": "card x 80-1000, y 1180-1620; never over his face",
+    "x": 80,
+    "y": 1330,
+    "w": 920,
+    "h": 210,
+    "show": 2
+   },
+   "notes": " | motion M15, M11 rows"
+  },
+  {
+   "id": "B05",
+   "lane": "objects",
+   "device": "RealObject",
+   "start": {
+    "word": 245,
+    "text": "vascular",
+    "edge": "start",
+    "offset": 0
+   },
+   "end": {
+    "word": 263,
+    "text": "close",
+    "edge": "start",
+    "offset": 0
+   },
+   "text": {
+    "label": "Excel V · Cutera",
+    "maker": "Cutera",
+    "credit": "Vascular laser · image: Cutera"
+   },
+   "layout": {
+    "note": "cut-out right column x 760-1040, y 1150-1600, >= 2 s, clear of his face",
+    "x": 750,
+    "y": 620,
+    "w": 326,
+    "enter": "right",
+    "labelPx": 30,
+    "creditY": 1160,
+    "creditX": 740,
+    "creditW": 336
+   },
+   "notes": "brand/kit/devices/img/excel-v.png (credit Cutera) | alt: brand/remotion/public/rosacea/clinic/excelv_console/f0001-f0006.jpg (catalog 7732) | motion M11",
+   "source": {
+    "src": "rosacea-mar12/devices/excel-v.png",
+    "aspect": 0.7312
+   }
+  },
+  {
+   "id": "B06",
+   "lane": "plates",
+   "device": "LaserWindow",
+   "start": {
+    "word": 263,
+    "text": "close",
+    "edge": "start",
+    "offset": 0
+   },
+   "end": {
+    "word": 276,
+    "text": "does",
+    "edge": "start",
+    "offset": 0
+   },
+   "text": {
+    "loupePill": "The vessel closes",
+    "caps": "In his practice",
+    "zone": "Treated area",
+    "title": ""
+   },
+   "events": {
+    "footage": {
+     "word": 263,
+     "text": "close",
+     "edge": "start",
+     "offset": 0
+    },
+    "zone": {
+     "word": 264,
+     "text": "blood",
+     "edge": "start",
+     "offset": 0
+    },
+    "loupe": {
+     "word": 268,
+     "text": "veins",
+     "edge": "start",
+     "offset": 0
+    },
+    "collapse_end": {
+     "word": 274,
+     "text": "reduced.",
+     "edge": "start",
+     "offset": 0
+    }
+   },
+   "layout": {
+    "note": "footage window x 60-700, y 1120-1680 (patient face inside the window, nothing on it but the zone outline); R2 loupe ~300 px right column x 740-1040, y 1150-1450",
+    "x": 770,
+    "y": 300,
+    "w": 290,
+    "h": 640,
+    "textH": 44,
+    "cx": 800,
+    "cy": 830,
+    "zoom": 0.5,
+    "zoneLabel": false
+   },
+   "notes": "C:/Users/naimj/clinic-library/tmp/rosacea/IMG_9702.MOV src 29.2-33.0 s (= public/rosacea-mar12/b9702.mp4 work f701-792; gold tip on the lower cheek beside the mouth, gel; measured flash-free 28.9-38.8 s, laser pulses flash at 27.3-28.8 and from 38.8); audio muted; M14 zone follows the tip (cheek.json b9702 tracking covers 0.8 % only: re-track this window) | brand/edits/flora-anatomy/rosacea/clips/R2_cephra_4k10_t1.mp4 frames f42-220 (measured 5 %->95 % of the vessel change) retimed to ~44 f easeInOutQuad; skip f144-180 if the dark 'coagulated' phase is rejected (QA.md) | motion M8 window in, M14 tracked zone, M10, M1 (R2)",
+   "source": {
+    "clip": "rosacea-mar12/b9702.mp4",
+    "in": 29.1308,
+    "rate": 1,
+    "orig": {
+     "clip": "C:/Users/naimj/clinic-library/tmp/rosacea/IMG_9702.MOV",
+     "in": 29.2,
+     "out": 33.0,
+     "flashFree": [
+      28.9,
+      38.8
+     ]
+    }
+   },
+   "loupe": {
+    "id": "R2c",
+    "at": {
+     "word": 268,
+     "text": "veins",
+     "edge": "start",
+     "offset": 0
+    },
+    "f0": 42,
+    "f1": 220,
+    "dur": 44,
+    "x": 780,
+    "y": 975,
+    "d": 270,
+    "pill": "The vessel closes"
+   }
+  },
+  {
+   "id": "B07",
+   "lane": "plates",
+   "device": "LaserWindow",
+   "start": {
+    "word": 276,
+    "text": "does",
+    "edge": "start",
+    "offset": 0
+   },
+   "end": {
+    "word": 276,
+    "text": "does",
+    "edge": "start",
+    "offset": 70
+   },
+   "text": {
+    "caps": "In his practice",
+    "title": ""
+   },
+   "events": {
+    "swap": {
+     "word": 276,
+     "text": "does",
+     "edge": "start",
+     "offset": 0
+    }
+   },
+   "layout": {
+    "note": "same window as B06",
+    "x": 770,
+    "y": 300,
+    "w": 290,
+    "h": 640,
+    "textH": 44,
+    "cx": 560,
+    "cy": 1060,
+    "zoom": 0.5
+   },
+   "notes": "C:/Users/naimj/clinic-library/tmp/rosacea/IMG_0815.MOV src 35.8-38.7 s (= b0815.mp4 f859-929, inside the tracked span f833-930 of cheek.json; measured flash-free 35.7-39.1 s, pulses every 0.5 s outside it; handpiece occludes the face from 39.0); audio muted; window exits after 2.9 s, at about 'associated' | motion M8 cut inside the window",
+   "source": {
+    "clip": "rosacea-mar12/b0815.mp4",
+    "in": 35.7358,
+    "rate": 1,
+    "orig": {
+     "clip": "C:/Users/naimj/clinic-library/tmp/rosacea/IMG_0815.MOV",
+     "in": 35.8,
+     "out": 38.7,
+     "flashFree": [
+      35.7,
+      39.1
+     ]
+    }
+   }
+  },
+  {
+   "id": "B08",
+   "lane": "plates",
+   "device": "FloraInset",
+   "start": {
+    "word": 293,
+    "text": "And",
+    "edge": "start",
+    "offset": 0
+   },
+   "end": {
+    "word": 298,
+    "text": "Generally,",
+    "edge": "start",
+    "offset": 0
+   },
+   "text": {
+    "tag": "Illustration",
+    "eyebrow": "Calmer, less inflamed skin",
+    "title": ""
+   },
+   "events": {
+    "morph": {
+     "word": 296,
+     "text": "reduces",
+     "edge": "start",
+     "offset": 0
+    }
+   },
+   "layout": {
+    "note": "4:5 box in the chest band, padded (R4 is 3:4 with the block near the left edge, QA.md)",
+    "x": 752,
+    "y": 620,
+    "w": 308,
+    "h": 372,
+    "head": 76,
+    "pad": 15
+   },
+   "notes": "brand/edits/flora-anatomy/rosacea/clips/R4_cephra_1080_6s_t1.mp4 frames f13-107 (measured 5 %->95 %) retimed to 24 f easeInOutSine, then hold f107; or a Remotion crossfade of f0 and f144 | motion M1 (R4 retimed)",
+   "plate": {
+    "id": "R4",
+    "map": [
+     [
+      {
+       "word": 293,
+       "text": "And",
+       "edge": "start",
+       "offset": 0
+      },
+      13
+     ],
+     [
+      {
+       "word": 296,
+       "text": "reduces",
+       "edge": "start",
+       "offset": 0
+      },
+      13
+     ],
+     [
+      {
+       "word": 296,
+       "text": "reduces",
+       "edge": "start",
+       "offset": 24
+      },
+      107
+     ]
+    ]
+   }
+  },
+  {
+   "id": "B09",
+   "lane": "objects",
+   "device": "SessionTrack",
+   "start": {
+    "word": 298,
+    "text": "Generally,",
+    "edge": "start",
+    "offset": 0
+   },
+   "end": {
+    "word": 311,
+    "text": "But",
+    "edge": "start",
+    "offset": 0
+   },
+   "text": {
+    "track": [
+     "1",
+     "2",
+     "3"
+    ],
+    "label": "3 sessions · about a month apart"
+   },
+   "events": {
+    "ticks": {
+     "word": 304,
+     "text": "three",
+     "edge": "start",
+     "offset": 0
+    },
+    "label": {
+     "word": 304,
+     "text": "three",
+     "edge": "start",
+     "offset": 0
+    }
+   },
+   "layout": {
+    "note": "track card x 120-960, y 1300-1500",
+    "x": 120,
+    "y": 1290,
+    "w": 840,
+    "h": 200
+   },
+   "notes": " | motion M15"
+  },
+  {
+   "id": "B10",
+   "lane": "objects",
+   "device": "BAWipe",
+   "start": {
+    "word": 311,
+    "text": "But",
+    "edge": "start",
+    "offset": 0
+   },
+   "end": {
+    "piece": "s3-laser",
+    "edge": "end"
+   },
+   "text": {
+    "caps": "An example of his approach",
+    "before": "Before",
+    "after": "After",
+    "line": "Cheek redness, measured",
+    "credit": "Consented patient. Results vary."
+   },
+   "events": {
+    "wipe": {
+     "word": 319,
+     "text": "pushed",
+     "edge": "start",
+     "offset": 0
+    },
+    "ring": {
+     "word": 320,
+     "text": "back",
+     "edge": "start",
+     "offset": 6
+    },
+    "sweep": {
+     "word": 311,
+     "text": "But",
+     "edge": "start",
+     "offset": 20
+    },
+    "marks": {
+     "word": 311,
+     "text": "But",
+     "edge": "start",
+     "offset": 40
+    }
+   },
+   "layout": {
+    "note": "rounded window in the chest band, labels outside the image; the @DRARIELOSTAD watermark band stays inside",
+    "keyed": true,
+    "x": 440,
+    "y": 170,
+    "w": 600
+   },
+   "notes": "brand/remotion/public/rosacea/clinic/ba_a.jpg + redness_measure.json key 01219 | motion M14 split wipe, M14 ring",
+   "source": {
+    "ba": "ba_a"
+   }
+  },
+  {
+   "id": "end",
+   "lane": "titles",
+   "device": "EndCard",
+   "start": {
+    "piece": "s3-laser",
+    "edge": "end"
+   },
+   "end": {
+    "piece": "s3-laser",
+    "edge": "end",
+    "offset": 60
+   },
+   "notes": "end card: 'Questions? Call us.' (his own close, 131.5 s, not in the cut) + handle",
+   "text": {
+    "lines": [
+     "Questions? Call us."
+    ]
+   }
+  },
+  {
+   "id": "captions",
+   "lane": "captions",
+   "device": "WordOnsetCaptions",
+   "start": {
+    "frame": 0
+   },
+   "end": {
+    "cue": "end"
+   },
+   "notes": "word-onset captions; fix Qutera->Cutera; never over a face (incl. the patient in the B06/B07 window)"
+  }
+ ],
+ "_wired": {
+  "from": "research/ostad/style/rosacea-mar12/rosacea-mar12.timeline.draft.json",
+  "by": "brand/scripts/rosacea_build.py wire",
+  "overrides": [
+   "B02 end +22 f into s2 so the last zone label ('Between the brows') holds >= 2 s",
+   "B06/B07 lane footage -> plates: a window over the talk, its clip in the media pass (not a full-frame cut)",
+   "B07 ends after 2.9 s of source (35.8-38.7, inside the flash-free 35.7-39.1), not on 'And'",
+   "B09 label shown with the ticks ('three'), not on 'month' (would hold 0.8 s)",
+   "B10 wipe at start+20 f and rings at +40 f (the draft's 'pushed'/'back' leave the rings 1.0 s before the end card)"
+  ]
+ }
+}

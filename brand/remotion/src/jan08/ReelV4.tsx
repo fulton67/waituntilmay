@@ -40,6 +40,9 @@ const HIDE_CLIPS = `img[src*="/proxy?src="]{visibility:hidden !important}`;
 const PASS_CSS: Record<Pass, string> = { under: HIDE_CLIPS, over: HIDE_CLIPS, matte: "",
   media: `body *{visibility:hidden !important} body img[src*="/proxy?src="]{visibility:visible !important}`,
   frost: `body *{visibility:hidden !important} body [style*="backdrop-filter"]{visibility:visible !important;background:#fff !important;box-shadow:none !important;border-color:#fff !important}` };
+const COVER_CSS = `body *:has(~ [data-cover]):not(#_),body *:has(~ [data-cover]) *:not(#_){visibility:hidden !important}`;
+/** pass mode: a full-frame b-roll clip covers what is drawn before it, like a key composite (v4b f989: b-roll 1 cuts off section 03's key) */
+const Cover: React.FC<{ s: number; e: number }> = ({ s, e }) => { const f = useCurrentFrame(); return f >= s && f < e ? <div data-cover="" /> : null; };
 export type Jan08V4Props = Jan08V2Props & { mode?: Mode; timeline?: Timeline; pass?: Pass };
 const ModeCtx = createContext<Mode>("full");
 const TALK = staticFile("jan08/talk.mp4");
@@ -82,9 +85,11 @@ const KeyComposite: React.FC<{ piece: PieceT; s: number; e: number; place?: Plac
   // OffthreadVideo past its last frame holds that frame: a frozen key over moving footage, the under-eye v5 glitch)
   const e = Math.min(e0, piece.at + piece.dur);
   if (f < s || f >= e) return null;
-  if (PASS === "under") return <div style={{ position: "absolute", inset: 0, visibility: "visible" }}>{children}</div>;
-  if (PASS === "matte") return <div style={{ position: "absolute", inset: 0, visibility: "visible" }}><MatteLayer piece={piece} s={s} e={e} place={place} /></div>;
-  if (PASS) return null;
+  // In the normal reel this composite is an opaque full frame: while it is up it covers everything drawn before it (v4b: the causes card
+  // disappears the frame section 02 starts, f558). A pass has no such frame, so it leaves a marker and COVER_CSS hides what it would cover.
+  if (PASS === "under") return <><div data-cover="" /><div style={{ position: "absolute", inset: 0, visibility: "visible" }}>{children}</div></>;
+  if (PASS === "matte") return <><div data-cover="" /><div style={{ position: "absolute", inset: 0, visibility: "visible" }}><MatteLayer piece={piece} s={s} e={e} place={place} /></div></>;
+  if (PASS) return <div data-cover="" />;
   return (
     <div style={{ position: "absolute", inset: 0, isolation: "isolate" }}>
       <div style={{ position: "absolute", inset: 0, isolation: "isolate", background: "#000" }}>
@@ -341,7 +346,7 @@ export const Jan08ReelV4: React.FC<Jan08V4Props> = (P) => {
     const [s] = sp(id), e = s + SEC.T + SEC.HOLD + SEC.OUT, L = lay(id), T = tx(id);
     return <KeyComposite key={id} piece={pc(L.keyed)} s={s} e={e + 1}><TalkAt piece={pc(L.keyed)} s={s} e={e + 1} /><G><RoomTitle s={s} num={T.num} title={T.title} px={L.px} /></G></KeyComposite>;
   };
-  const clip = (id: string) => { if (PASS) return null; const [s, e] = sp(id), S = b(id).source!; return <Clip key={id} src={S.clip!} from={S.in ?? 0} s={s} dur={e - s} toneMapped={false} />; };
+  const clip = (id: string) => { const [s, e] = sp(id), S = b(id).source!; if (PASS) return <Cover key={id} s={s} e={e} />; return <Clip key={id} src={S.clip!} from={S.in ?? 0} s={s} dur={e - s} toneMapped={false} />; };
   const webCard = (id: string) => {
     const [s, e] = sp(id), T = tx(id), L = lay(id), S = b(id).source!, img = web(S.still!, S.pos as string);
     return img ? <WebCard key={id} img={img} s={s} out={e} left={L.right ? W - M - L.w : L.left} top={L.top} w={L.w} eyebrow={T.eyebrow} title={T.title} /> : null;
@@ -362,7 +367,7 @@ export const Jan08ReelV4: React.FC<Jan08V4Props> = (P) => {
   return (
     <ModeCtx.Provider value={mode}>
       <AbsoluteFill style={{ background: PASS ? undefined : "#000", visibility: PASS === "under" || PASS === "matte" ? "hidden" : "visible" }}>
-        {PASS && <style>{PASS_CSS[PASS]}</style>}
+        {PASS && <style>{PASS_CSS[PASS] + COVER_CSS}</style>}
         {!PASS && P.pieces.map((x) => (
           <Sequence key={x.id} from={x.at} durationInFrames={x.dur} layout="none">
             <OffthreadVideo src={TALK} toneMapped={false} trimBefore={Math.round(x.from * 24)} muted style={{ position: "absolute", left: 0, top: 0, width: W, height: H, objectFit: "cover" }} />

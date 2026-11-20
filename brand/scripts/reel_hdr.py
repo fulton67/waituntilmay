@@ -69,7 +69,8 @@ def segments(reel, tl, P, f0, f1):
         for x in pcs:
             st = still_of.get(x["id"])
             o = x.get("punchO") or [0.4, 0.42]
-            base = {"clip": f"oct14/{x['pictureRole']}.mp4", "k": 1 if st else x.get("punch", 1) or 1, "ox": o[0] * W, "oy": o[1] * H}
+            base = {"clip": f"oct14/{x['pictureRole']}.mp4", "k": x.get("punch", 1) or 1,  # a still too: still_<k>.jpg is the source frame WITH the piece's punch-in (oct14_still_v5.py), so the original frame needs the same crop
+                    "ox": o[0] * W, "oy": o[1] * H}
             if st:  # a held frame of the footage (public/oct14/still_<k>.jpg is that frame as a JPEG): the same frame from the original
                 segs.append({**base, "f0": x["at"], "f1": x["at"] + x["dur"], "t": st["src_frame"] / 24, "rate": 0}); continue
             n = max(1, min(x["dur"], live(x["pictureRole"], x["pictureFrom"])))
@@ -142,7 +143,15 @@ def person_segments(reel, tl, P, f0, f1):
         add(lay["keyed"], s0, e0, lay.get("place"))
     out, pos = [], f0
     blank = lambda a, z: {"f0": a, "f1": z, "clip": None, "t": 0, "rate": 1, "k": 1, "ox": 540, "oy": 960}
-    for q in sorted(keys, key=lambda q: q["f0"]):
+    # where two keys overlap the later one wins from its first frame, as in the reel (it is drawn after and covers the earlier one:
+    # v4b f176 and f638, a plate's first frame is section 01/02's last); a b-roll clip ends a key the same way (f989)
+    cuts = sorted(T.resolve(b["start"], tl, P) for b in tl["beats"] if b["id"].startswith("broll"))
+    keys = sorted(keys, key=lambda q: q["f0"])
+    for i, q in enumerate(keys):
+        if i + 1 < len(keys): q["f1"] = min(q["f1"], keys[i + 1]["f0"])
+        for c in cuts:
+            if q["f0"] < c < q["f1"]: q["f1"] = c
+    for q in keys:
         a, z = max(q["f0"], pos), min(q["f1"], f1 + 1)
         if z <= a: continue
         if a > pos: out.append(blank(pos, a))
@@ -362,7 +371,10 @@ def build(a, reel, R, tl, P, total, frames, out, run, say, render_cmd, checks_fr
         audio = (["-ss", f"{f0 / 24:.5f}", "-t", f"{n / 24:.5f}"] if frames else []) + ["-i", str(Path(a.audio).resolve())]
         amap = ["-map", f"{k}:a:0", "-c:a", "copy"]
     x265 = "colorprim=bt2020:transfer=arib-std-b67:colormatrix=bt2020nc:range=limited:log-level=error"
-    run(["ffmpeg", "-n", "-v", "error", *inputs, *audio, "-filter_complex", ";".join(g), "-map", "[v]", *amap, "-frames:v", str(n), "-fps_mode", "passthrough",
+    th = getattr(a, "threads", None)  # --threads N: fewer filter and encoder threads (less memory on a busy machine; same picture)
+    lim = ["-filter_complex_threads", str(th), "-filter_threads", str(th)] if th else []
+    if th: x265 += f":pools={th}:frame-threads=2"
+    run(["ffmpeg", "-n", "-v", "error", *lim, *inputs, *audio, "-filter_complex", ";".join(g), "-map", "[v]", *amap, "-frames:v", str(n), "-fps_mode", "passthrough",
          "-c:v", "libx265", "-profile:v", "main10", "-preset", "medium", "-crf", str(a.crf), "-pix_fmt", "yuv420p10le", "-x265-params", x265, *TAGS, "-tag:v", "hvc1", "-movflags", "+faststart", str(final)], cwd=work)
     if count(final) != n: say(f"  WARNING: the master has {count(final)} frames, expected {n}")
     man["encode"] = {"codec": "libx265 main10", "crf": a.crf, "audio": f"copied from {a.audio}" if a.audio else "none (pass --audio <existing master>)"}
@@ -529,18 +541,22 @@ def against_delivered(master, delivered, step=6):
         a, b = A[i] - A[i].mean(), B[i] - B[i].mean()
         r = float((a * b).sum() / (np.sqrt((a * a).sum() * (b * b).sum()) + 1e-6))
         da, db = float(cv2.Laplacian(A[i], cv2.CV_32F).var()), float(cv2.Laplacian(B[i], cv2.CV_32F).var())
-        rows.append((i * step, round(r, 4), round(da / (db + 1e-6), 3)))
+        rows.append((i * step, round(r, 4), round(da / (db + 1e-6), 3), db))
     def spans(bad):
         out = []
         for f in bad:
             if out and f - out[-1][1] <= step: out[-1][1] = f
             else: out.append([f, f])
         return out
-    low_r = [f for f, r, d in rows if r < 0.90]; soft = [f for f, r, d in rows if d < 0.3]  # graphics sit at 75 % white, so a frame full of cards reads about 0.56; a blurred picture reads far lower
-    rs = sorted(r for _, r, _ in rows); ds = sorted(d for _, _, d in rows)
+    # a near-empty delivered frame (the cream room and a caption: detail 12-117 against about 1500 on a normal frame) has no sharpness to
+    # compare: the ratio of two tiny numbers read 0.07-0.29 there (Jan08 f2100, Oct14 handovers). Such frames are counted, not judged soft.
+    FLAT = 150.0
+    flat = [f for f, r, d, db in rows if db < FLAT]; rows = [(f, r, d if db >= FLAT else None) for f, r, d, db in rows]
+    low_r = [f for f, r, d in rows if r < 0.90]; soft = [f for f, r, d in rows if d is not None and d < 0.3]  # graphics sit at 75 % white, so a frame full of cards reads about 0.56; a blurred picture reads far lower
+    rs = sorted(r for _, r, _ in rows); ds = sorted(d for _, _, d in rows if d is not None) or [1.0]
     return {"pass": not low_r and not soft, "frames_compared": n, "frames_in_master": len(A), "frames_in_delivered": len(B), "step": step,
             "correlation": {"min": rs[0], "p01": rs[len(rs) // 100], "median": rs[len(rs) // 2]}, "detail_ratio": {"min": ds[0], "p01": ds[len(ds) // 100], "median": ds[len(ds) // 2]},
-            "low_correlation_spans": spans(low_r), "soft_spans": spans(soft), "worst": sorted(rows, key=lambda x: x[1])[:6]}
+            "low_correlation_spans": spans(low_r), "soft_spans": spans(soft), "flat_frames_not_judged_for_sharpness": len(flat), "worst": sorted(rows, key=lambda x: x[1])[:6]}
 
 if __name__ == "__main__" and len(sys.argv) > 3 and sys.argv[1] == "delivered":
     sys.stdout.reconfigure(encoding="utf-8")
