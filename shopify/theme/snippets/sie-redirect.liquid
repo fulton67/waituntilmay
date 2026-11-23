@@ -1,0 +1,39 @@
+{%- comment -%}
+  sie-redirect — the Shopify storefront is not the store. sie.market is.
+
+  Checkout's logo ("Navigate to Online Store") links to the shop's root, its
+  cart icon to /cart, the order page's "Continue shopping" and the
+  notification emails' "visit our store" to the root again. All of those
+  land on this theme, which showed a second, unbranded sie. Every page this
+  theme would draw now sends the visitor to https://sie.market/ instead.
+
+  Left alone, because Shopify needs them or a shopper might:
+    - the theme editor and its previews        (design_mode / visual_preview_mode)
+    - /policies/*                              (checkout links its policies here)
+    - the password and captcha pages
+    - customer account pages                   (customers/*)
+  Checkout itself, /cart/<variant>:<qty> permalinks, /checkouts and order
+  status pages are not drawn by the theme at all, so this never touches them.
+
+  Rendered first thing in <head> of layout/theme.liquid:
+    {% render 'sie-redirect' %}
+{%- endcomment -%}
+{%- liquid
+  assign sie_keep = false
+  if request.design_mode or request.visual_preview_mode
+    assign sie_keep = true
+  endif
+  case request.page_type
+    when 'policy', 'password', 'captcha'
+      assign sie_keep = true
+  endcase
+  if request.page_type contains 'customers/'
+    assign sie_keep = true
+  endif
+-%}
+{%- unless sie_keep -%}
+  <meta http-equiv="refresh" content="0; url=https://sie.market/">
+  <link rel="canonical" href="https://sie.market/">
+  <meta name="robots" content="noindex">
+  <script>location.replace('https://sie.market/');</script>
+{%- endunless -%}
