@@ -46,3 +46,14 @@ Spec cap $20. Real ceiling: account limit $10/month with $2.73 already used befo
 | youtube__search-4-glass-skin | streamers/youtube-scraper | ZvFHiVnWCEvdhqxKX | 42 | 0.1640 | SUCCEEDED |
 | bench__tiktok__nyc | clockworks/tiktok-scraper | TGW6QChbyWkuD7yXd | 48 | 0.1786 | SUCCEEDED |
 | questions__tiktok-comments | clockworks/tiktok-comments-scraper | L5oMLP1vPftggrOsm | 600 | 0.7250 | SUCCEEDED |
+
+# Reel generation spend (FAST LANE, from 2026-11-25)
+
+Rule: check the asset library first. Any paid generation gets its cost and reason stated, one attempt, then stop and show it. No automatic retries. Hard cap $5 a reel without Naim's OK. Each session ends with the day's total.
+`make-reel` itself is free: local whisper, MediaPipe and Remotion, plus two `claude -p` text readers on the Claude Code plan (no media generation).
+
+| date | reel | service / model | what | usd | approved by |
+|---|---|---|---|---|---|
+| 2026-11-25 | (setup session) | none | FAST LANE setup + test run | 0.00 | n/a |
+
+**2026-11-25 total: $0.00**

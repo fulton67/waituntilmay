@@ -1,0 +1,123 @@
+{
+ "title": "Sculptra vs hyaluronic acid",
+ "fields": {
+  "product": "Sculptra is polylactic acid, a powdered suture material injected under the skin.",
+  "does": "It triggers a tissue response that makes collagen, a type that can lead to scarring.",
+  "versus": "Hyaluronic acid filler does not cause the nodules, inflammatory reactions and scarring seen with bio-stimulators like Sculptra.",
+  "for": "Hyaluronic acid used strategically suits people who want to sculpt the face with a long-term plan."
+ },
+ "keep": [
+  4,
+  5,
+  6,
+  7,
+  14,
+  17,
+  18,
+  19,
+  20
+ ],
+ "beats": [
+  {
+   "sentence": 4,
+   "role": "product",
+   "title": "Sculptra: powdered suture",
+   "line": "Polylactic acid, a powdered suture",
+   "key_word": "suture"
+  },
+  {
+   "sentence": 5,
+   "role": "does",
+   "title": "Stimulates collagen that can scar",
+   "line": "A tissue response that produces collagen",
+   "key_word": "collagen"
+  },
+  {
+   "sentence": 6,
+   "role": "product",
+   "title": "A conservative approach",
+   "key_word": "conservative"
+  },
+  {
+   "sentence": 7,
+   "role": "versus",
+   "title": "Nodules with Sculptra, not HA",
+   "line": "Inflammatory reactions, nodules, scarring with bio-stimulators",
+   "key_word": "nodules"
+  },
+  {
+   "sentence": 14,
+   "role": "for",
+   "title": "Think long term",
+   "key_word": "long"
+  },
+  {
+   "sentence": 17,
+   "role": "versus",
+   "title": "Hyaluronic acid: no such issue",
+   "key_word": "hyaluronic"
+  },
+  {
+   "sentence": 19,
+   "role": "does",
+   "title": "Repeated use can scar",
+   "line": "Powdered suture placed under the skin repeatedly",
+   "key_word": "scarring"
+  },
+  {
+   "sentence": 20,
+   "role": "for",
+   "title": "Hyaluronic acid sculpts strategically",
+   "line": "Sculptra rounds out; hyaluronic acid sculpts",
+   "key_word": "sculpt"
+  }
+ ],
+ "terms": [
+  {
+   "sentence": 5,
+   "term": "scarring",
+   "region": "none"
+  },
+  {
+   "sentence": 7,
+   "term": "nodules",
+   "region": "none"
+  },
+  {
+   "sentence": 7,
+   "term": "inflammatory reactions",
+   "region": "none"
+  },
+  {
+   "sentence": 20,
+   "term": "rounded face",
+   "region": "cheeks"
+  }
+ ],
+ "objects": [
+  {
+   "sentence": 4,
+   "name": "Sculptra"
+  },
+  {
+   "sentence": 5,
+   "name": "hyaluronic acid filler"
+  },
+  {
+   "sentence": 17,
+   "name": "hyaluronic acid injectables"
+  }
+ ],
+ "keywords": [
+  "Sculptra",
+  "polylactic acid",
+  "powdered suture",
+  "collagen",
+  "bio-stimulators",
+  "hyaluronic acid",
+  "nodules",
+  "scarring",
+  "long term"
+ ],
+ "reader": "claude -p (26 s)"
+}

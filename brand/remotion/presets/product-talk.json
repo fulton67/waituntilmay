@@ -1,0 +1,82 @@
+{
+ "$schema": "fast/preset/1",
+ "preset": "product-talk",
+ "from_golden": "Oct14ReelV6c Evolysse section (Form vs Smooth side by side): what a product is, what it does, how it differs",
+ "fps": 24,
+ "rate": 1.0,
+ "target_s": [
+  30,
+  75
+ ],
+ "roles": {
+  "product": "The product",
+  "does": "What it does",
+  "versus": "Compared",
+  "for": "Best for"
+ },
+ "brief": "A product talk: what the product is, what it does, how it differs from its neighbour, who it is for. Every named product gets its real cut-out; two compared products appear side by side.",
+ "rules": {
+  "cut_on": "sentence end, mid-gap >= 80 ms",
+  "visual_every_s": 5,
+  "text_hold_min_f": 60,
+  "object_hold_min_f": 48,
+  "sfx": "on the spring's first-reach frame (sfxAtSettle)",
+  "faces": "no slot box over a tracked face box"
+ },
+ "slots": [
+  {
+   "slot": "title",
+   "kind": "title",
+   "spring": "heavy",
+   "hold_f": 60,
+   "sfx": "exo_chapter",
+   "caps": "The product",
+   "note": "within 1.5 s (hook rule L8); placed in the face-free band"
+  },
+  {
+   "slot": "argument",
+   "kind": "argument",
+   "spring": "settle",
+   "repeat": true,
+   "hold_f": 60,
+   "sfx": "exo_card",
+   "max": 7,
+   "roles": [
+    "product",
+    "does",
+    "versus",
+    "for"
+   ],
+   "note": "one card per argument beat, on its key word +1 f; sequential handover, one card on screen"
+  },
+  {
+   "slot": "term",
+   "kind": "term",
+   "spring": "heavy",
+   "hold_f": 60,
+   "sfx": "swish",
+   "note": "a named condition gets a real example: the face region punched in a glass window (L6)"
+  },
+  {
+   "slot": "object",
+   "kind": "object",
+   "spring": "heavy",
+   "hold_f": 48,
+   "sfx": "pop",
+   "note": "a named instrument/product: the real cut-out from public/objects (never AI); missing -> WISHLIST + argument card"
+  },
+  {
+   "slot": "captions",
+   "kind": "captions",
+   "note": "word onsets, 1-3 words, cut on"
+  },
+  {
+   "slot": "end",
+   "kind": "end",
+   "spring": "settle",
+   "sfx": "card",
+   "tail_s": 2.5,
+   "note": "after the last completed sentence"
+  }
+ ]
+}

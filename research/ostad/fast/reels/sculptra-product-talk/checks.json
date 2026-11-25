@@ -1,0 +1,100 @@
+{
+ "motion_lint": {
+  "pass": true,
+  "tail": "motion_lint: PASS (0 violations)"
+ },
+ "banned_lint": {
+  "pass": true,
+  "tail": "banned_lint: PASS (0 violations in 6 files)"
+ },
+ "sfx_check": {
+  "pass": true,
+  "tail": "sfx_check: PASS"
+ },
+ "cuts_on_sentence_end": {
+  "pass": true,
+  "pieces": [
+   {
+    "piece": "p0",
+    "ends_on_sentence": true,
+    "cuts_a_word": false,
+    "quiet_in": false,
+    "quiet_out": true
+   },
+   {
+    "piece": "p1",
+    "ends_on_sentence": true,
+    "cuts_a_word": false,
+    "quiet_in": true,
+    "quiet_out": true
+   },
+   {
+    "piece": "p2",
+    "ends_on_sentence": true,
+    "cuts_a_word": false,
+    "quiet_in": true,
+    "quiet_out": true
+   },
+   {
+    "piece": "p3",
+    "ends_on_sentence": true,
+    "cuts_a_word": false,
+    "quiet_in": true,
+    "quiet_out": true
+   },
+   {
+    "piece": "p4",
+    "ends_on_sentence": true,
+    "cuts_a_word": false,
+    "quiet_in": true,
+    "quiet_out": true
+   }
+  ]
+ },
+ "faces_clear": {
+  "pass": true,
+  "overlaps": [],
+  "n": 0
+ },
+ "hold_min": {
+  "pass": true,
+  "short": []
+ },
+ "audio_levels": {
+  "pass": true,
+  "integrated_lufs": -36.8,
+  "true_peak_dbtp": -10.9,
+  "gain_to_-14": 22.8,
+  "peak_after_gain": 11.9,
+  "limiter_needed": true,
+  "note": "the render masters to -14 LUFS / -1 dBTP (limiter when peak_after_gain > -1)"
+ },
+ "comprehension": {
+  "pass": false,
+  "answers": {
+   "product": "The video describes Sculptra as polylactic acid, which it calls \"powdered suture,\" and says it works differently from a traditional hyaluronic acid filler.",
+   "does": "The video says Sculptra triggers a tissue response that makes the body produce collagen, but a type of collagen that leads to scarring, and that facial surgeons are now discussing whether repeated treatments cause problems if a facelift is needed later.",
+   "versus": "The video says inflammatory reactions, nodules and scarring happen with bio-stimulators like Sculptra but not with hyaluronic acid.",
+   "for": "The video doesn't name anyone Sculptra is best for; instead it tells viewers to think long term, ask what a treatment does, what its complications are, whether there's an alternative and whether they need it at all, and to rely on an experienced, trusted provider."
+  },
+  "confusing": [
+   "\"Best for / Think long term\" and \"Best for / Ask before you inject\" are labeled 'Best for' but give general advice and don't say who or what the product is best for.",
+   "\"A dermatologist's view\" appears on screen, but the speaker never says in the transcript that they are a dermatologist.",
+   "\"Nodules and scarring, not with hyaluronic acid\" is an absolute claim that the video doesn't support with any evidence beyond \"We now know.\"",
+   "\"stimulates your body to produce collagen, but that's really a type of collagen that leads to scarring\" is not explained, so the video doesn't say how this collagen differs from normal collagen."
+  ],
+  "match": {
+   "product": true,
+   "does": true,
+   "versus": true,
+   "for": true
+  },
+  "notes": "All four answers match what the editor intended. The viewer adds a few details (the contrast with hyaluronic acid filler under product, the facelift debate under does, the trusted-provider advice under for), and none of them change the main point.",
+  "s": 64.1
+ },
+ "dead_frames": {
+  "pass": false,
+  "tail": "dead_frames: FAIL (1 runs, 144.4 s)",
+  "s": 144.8
+ }
+}

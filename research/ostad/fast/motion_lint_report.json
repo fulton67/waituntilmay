@@ -1,0 +1,184 @@
+{
+ "_colourtest": {
+  "files": 2,
+  "violations": 0,
+  "by_rule": {}
+ },
+ "bastory": {
+  "files": 3,
+  "violations": 5,
+  "by_rule": {
+   "LINEAR-RAMP": 3,
+   "CURVE-HELPER": 2
+  }
+ },
+ "bavideo": {
+  "files": 5,
+  "violations": 2,
+  "by_rule": {
+   "LINEAR-RAMP": 2
+  }
+ },
+ "components": {
+  "files": 15,
+  "violations": 177,
+  "by_rule": {
+   "LINEAR-RAMP": 35,
+   "CURVE-HELPER": 71,
+   "RAW-SINE": 29,
+   "HAND-EASING": 8,
+   "LEGACY-CURVE": 34
+  }
+ },
+ "compositions": {
+  "files": 2,
+  "violations": 1,
+  "by_rule": {
+   "CURVE-HELPER": 1
+  }
+ },
+ "devices": {
+  "files": 6,
+  "violations": 30,
+  "by_rule": {
+   "BEZIER": 7,
+   "LEGACY-CURVE": 2,
+   "HAND-EASING": 4,
+   "RAW-SINE": 14,
+   "CURVE-HELPER": 3
+  }
+ },
+ "exo6": {
+  "files": 31,
+  "violations": 110,
+  "by_rule": {
+   "LEGACY-CURVE": 94,
+   "RAW-SINE": 12,
+   "CSS-TRANSITION": 1,
+   "CURVE-HELPER": 1,
+   "BEZIER": 2
+  }
+ },
+ "fast": {
+  "files": 6,
+  "violations": 0,
+  "by_rule": {}
+ },
+ "flora": {
+  "files": 1,
+  "violations": 3,
+  "by_rule": {
+   "LEGACY-CURVE": 3
+  }
+ },
+ "flowimg": {
+  "files": 2,
+  "violations": 0,
+  "by_rule": {}
+ },
+ "fluid": {
+  "files": 3,
+  "violations": 9,
+  "by_rule": {
+   "RAW-SINE": 3,
+   "STOCK-EASING": 3,
+   "LINEAR-RAMP": 3
+  }
+ },
+ "gradients": {
+  "files": 3,
+  "violations": 0,
+  "by_rule": {}
+ },
+ "jan08": {
+  "files": 10,
+  "violations": 72,
+  "by_rule": {
+   "LEGACY-CURVE": 60,
+   "RAW-SINE": 2,
+   "HAND-EASING": 1,
+   "CURVE-HELPER": 8,
+   "LINEAR-RAMP": 1
+  }
+ },
+ "library": {
+  "files": 5,
+  "violations": 20,
+  "by_rule": {
+   "CURVE-HELPER": 11,
+   "BEZIER": 8,
+   "LINEAR-RAMP": 1
+  }
+ },
+ "oct14": {
+  "files": 16,
+  "violations": 205,
+  "by_rule": {
+   "LEGACY-CURVE": 191,
+   "RAW-SINE": 7,
+   "CURVE-HELPER": 5,
+   "LINEAR-RAMP": 1,
+   "HAND-EASING": 1
+  }
+ },
+ "posts": {
+  "files": 8,
+  "violations": 65,
+  "by_rule": {
+   "CURVE-HELPER": 5,
+   "LEGACY-CURVE": 52,
+   "RAW-SINE": 8
+  }
+ },
+ "promo": {
+  "files": 3,
+  "violations": 18,
+  "by_rule": {
+   "HAND-EASING": 2,
+   "CURVE-HELPER": 3,
+   "LINEAR-RAMP": 5,
+   "RAW-SINE": 2,
+   "LEGACY-CURVE": 6
+  }
+ },
+ "rosacea": {
+  "files": 4,
+  "violations": 24,
+  "by_rule": {
+   "RAW-SINE": 2,
+   "LEGACY-CURVE": 22
+  }
+ },
+ "storyboard": {
+  "files": 2,
+  "violations": 0,
+  "by_rule": {}
+ },
+ "timeline": {
+  "files": 1,
+  "violations": 0,
+  "by_rule": {}
+ },
+ "undereye": {
+  "files": 13,
+  "violations": 138,
+  "by_rule": {
+   "LEGACY-CURVE": 116,
+   "RAW-SINE": 5,
+   "CURVE-HELPER": 7,
+   "LINEAR-RAMP": 7,
+   "HAND-EASING": 3
+  }
+ },
+ "(src root)": {
+  "files": 11,
+  "violations": 111,
+  "by_rule": {
+   "HAND-EASING": 3,
+   "LINEAR-RAMP": 5,
+   "RAW-SINE": 13,
+   "CURVE-HELPER": 45,
+   "LEGACY-CURVE": 45
+  }
+ }
+}

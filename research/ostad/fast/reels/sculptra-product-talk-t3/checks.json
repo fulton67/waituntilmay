@@ -1,0 +1,86 @@
+{
+ "motion_lint": {
+  "pass": true,
+  "tail": "motion_lint: PASS (0 violations)"
+ },
+ "banned_lint": {
+  "pass": true,
+  "tail": "banned_lint: PASS (0 violations in 6 files)"
+ },
+ "sfx_check": {
+  "pass": true,
+  "tail": "sfx_check: PASS"
+ },
+ "cuts_on_sentence_end": {
+  "pass": false,
+  "pieces": [
+   {
+    "piece": "p0",
+    "ends_on_sentence": true,
+    "cuts_a_word": false,
+    "quiet_in": true,
+    "quiet_out": false
+   },
+   {
+    "piece": "p1",
+    "ends_on_sentence": true,
+    "cuts_a_word": false,
+    "quiet_in": true,
+    "quiet_out": true
+   },
+   {
+    "piece": "p2",
+    "ends_on_sentence": true,
+    "cuts_a_word": false,
+    "quiet_in": true,
+    "quiet_out": true
+   }
+  ]
+ },
+ "faces_clear": {
+  "pass": true,
+  "overlaps": [],
+  "n": 0
+ },
+ "hold_min": {
+  "pass": true,
+  "short": []
+ },
+ "audio_levels": {
+  "pass": true,
+  "integrated_lufs": -38.2,
+  "true_peak_dbtp": -15.7,
+  "gain_to_-14": 24.2,
+  "peak_after_gain": 8.5,
+  "limiter_needed": true,
+  "note": "the render masters to -14 LUFS / -1 dBTP (limiter when peak_after_gain > -1)"
+ },
+ "comprehension": {
+  "pass": false,
+  "answers": {
+   "product": "The video says Sculptra is polylactic acid, which it calls a powdered suture material, and the speaker takes a very conservative approach to using it.",
+   "does": "The video says Sculptra causes a tissue response that makes the body produce collagen, which the speaker describes as a type of collagen that leads to scarring, and that repeated injections under the skin can cause scarring, nodules and inflammatory reactions.",
+   "versus": "The video says inflammatory reactions, nodules and scarring happen with bio-stimulators like Sculptra but not with hyaluronic acid, and that Sculptra rounds out the face while hyaluronic acid can be used strategically to sculpt it.",
+   "for": "The video says aesthetic medicine should be about thinking long term, which is why the speaker prefers hyaluronic acid and is cautious about Sculptra."
+  },
+  "confusing": [
+   "\"they are what collagen is naturally made of\": hyaluronic acid is described as what collagen is made of, but collagen and hyaluronic acid are presented elsewhere as different substances, so this claim is unclear and doesn't hold together.",
+   "\"it works by creating a tissue response that stimulates your body to produce collagen, but that's really a type of collagen that leads to scarring\": the video presents collagen stimulation as how the product works, then calls that same collagen scarring, without explaining the difference.",
+   "\"We now know that inflammatory reactions, nodules, scarring, occur with these bio -stimulators like Sculptra, but not with hyaluronic acid\": this is an absolute claim with no source given, and the on-screen text 'Hyaluronic acid: no such issue' repeats it without support.",
+   "\"Sculptra: powdered suture\": the video calls the product 'powdered suture' but never explains what that means or why it matters for safety."
+  ],
+  "match": {
+   "product": true,
+   "does": true,
+   "versus": true,
+   "for": false
+  },
+  "notes": "The 'for' answer links long-term thinking to preferring hyaluronic acid. It never says hyaluronic acid suits people who want to sculpt the face; sculpting only shows up in the 'versus' answer.",
+  "s": 38.4
+ },
+ "dead_frames": {
+  "pass": true,
+  "tail": "dead_frames: PASS (0 runs, 176.5 s)",
+  "s": 178.2
+ }
+}

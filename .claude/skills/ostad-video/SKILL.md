@@ -5,6 +5,17 @@ description: Build, fix or review a Dr. Ariel Ostad video edit (YouTube or reel,
 
 # Ostad video
 
+**NEW REELS: the FAST LANE (2026-11-25) replaces the per-reel process below.** One fresh session per reel:
+1. Read `research/ostad/PLAYBOOK.md` (2 pages), and nothing else, unless a specific question needs it.
+2. Run `bash tools/make-reel <clip> <preset>`. The presets are procedure-explainer, myth-buster, product-talk and patient-walkthrough.
+3. Stop at the Remotion Studio link. Don't render.
+4. Self-grade only what the checks flag.
+5. Apply Naim's notes as `public/fast/<reel>/timeline.json` edits in one pass.
+6. Render once after approval.
+7. Missing graphics go to `research/ostad/WISHLIST.md`. Paid generation: $5 cap per reel, logged in `research/ostad/COSTS.md`.
+
+The sections below still apply to the three delivered reels (rebuilds, HDR masters) and to YouTube edits.
+
 **Read "Standing rules" and "Reels: how we make them now" first. They are Naim's latest rulings and override anything older below or in the repo.**
 
 ## Standing rules (Naim, every Ostad video)

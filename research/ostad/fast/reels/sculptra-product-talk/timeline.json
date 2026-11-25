@@ -1,0 +1,707 @@
+{
+ "schema": "fast/1",
+ "reel": "sculptra-product-talk",
+ "preset": "product-talk",
+ "fps": 24,
+ "durationInFrames": 1619,
+ "clip": "fast/sculptra-product-talk/talk.mp4",
+ "pieces": [
+  {
+   "id": "p0",
+   "in": 1.24,
+   "out": 5.573,
+   "at": 0,
+   "sentences": [
+    1
+   ],
+   "reason": "sentences 1-1 whole"
+  },
+  {
+   "id": "p1",
+   "in": 19.565,
+   "out": 35.982,
+   "at": 104,
+   "sentences": [
+    4,
+    5
+   ],
+   "reason": "sentences 4-5 whole"
+  },
+  {
+   "id": "p2",
+   "in": 40.92,
+   "out": 63.003,
+   "at": 498,
+   "sentences": [
+    7,
+    8
+   ],
+   "reason": "sentences 7-8 whole"
+  },
+  {
+   "id": "p3",
+   "in": 112.98,
+   "out": 116.98,
+   "at": 1028,
+   "sentences": [
+    14
+   ],
+   "reason": "sentences 14-14 whole"
+  },
+  {
+   "id": "p4",
+   "in": 121.24,
+   "out": 139.365,
+   "at": 1124,
+   "sentences": [
+    16
+   ],
+   "reason": "sentences 16-16 whole"
+  },
+  {
+   "id": "tail",
+   "in": 139.365,
+   "out": 141.865,
+   "at": 1559,
+   "muted": true,
+   "reason": "end card over his silence"
+  }
+ ],
+ "captions": [
+  {
+   "from": 2,
+   "text": "I wanted to",
+   "to": 20
+  },
+  {
+   "from": 20,
+   "text": "address really my",
+   "to": 57
+  },
+  {
+   "from": 57,
+   "text": "opinion about use",
+   "to": 81
+  },
+  {
+   "from": 81,
+   "text": "of Sculptra",
+   "to": 103
+  },
+  {
+   "from": 110,
+   "text": "Sculptra is polylactic",
+   "to": 159
+  },
+  {
+   "from": 159,
+   "text": "acid",
+   "to": 172
+  },
+  {
+   "from": 172,
+   "text": "which is powdered",
+   "to": 197
+  },
+  {
+   "from": 197,
+   "text": "suture",
+   "to": 221
+  },
+  {
+   "from": 221,
+   "text": "Unlike a traditional",
+   "to": 260
+  },
+  {
+   "from": 260,
+   "text": "hyaluronic acid filler",
+   "to": 297
+  },
+  {
+   "from": 297,
+   "text": "it works by",
+   "to": 317
+  },
+  {
+   "from": 317,
+   "text": "creating a tissue",
+   "to": 339
+  },
+  {
+   "from": 339,
+   "text": "response that stimulates",
+   "to": 370
+  },
+  {
+   "from": 370,
+   "text": "your body to",
+   "to": 402
+  },
+  {
+   "from": 402,
+   "text": "produce collagen",
+   "to": 426
+  },
+  {
+   "from": 426,
+   "text": "but that's really",
+   "to": 445
+  },
+  {
+   "from": 445,
+   "text": "a type of",
+   "to": 459
+  },
+  {
+   "from": 459,
+   "text": "collagen that leads",
+   "to": 474
+  },
+  {
+   "from": 474,
+   "text": "to scarring",
+   "to": 500
+  },
+  {
+   "from": 500,
+   "text": "We now know",
+   "to": 516
+  },
+  {
+   "from": 516,
+   "text": "that inflammatory reactions",
+   "to": 560
+  },
+  {
+   "from": 561,
+   "text": "nodules",
+   "to": 587
+  },
+  {
+   "from": 588,
+   "text": "scarring",
+   "to": 606
+  },
+  {
+   "from": 606,
+   "text": "occur with these",
+   "to": 634
+  },
+  {
+   "from": 634,
+   "text": "bio -stimulators like",
+   "to": 681
+  },
+  {
+   "from": 681,
+   "text": "Sculptra",
+   "to": 696
+  },
+  {
+   "from": 696,
+   "text": "but not with",
+   "to": 709
+  },
+  {
+   "from": 709,
+   "text": "hyaluronic acid",
+   "to": 735
+  },
+  {
+   "from": 735,
+   "text": "And we're now",
+   "to": 748
+  },
+  {
+   "from": 748,
+   "text": "having an interesting",
+   "to": 775
+  },
+  {
+   "from": 775,
+   "text": "conversation with facial",
+   "to": 810
+  },
+  {
+   "from": 810,
+   "text": "surgery about why",
+   "to": 847
+  },
+  {
+   "from": 847,
+   "text": "repeated bio -stimulatory",
+   "to": 885
+  },
+  {
+   "from": 885,
+   "text": "treatments with Sculptra",
+   "to": 913
+  },
+  {
+   "from": 913,
+   "text": "can really eventually",
+   "to": 951
+  },
+  {
+   "from": 951,
+   "text": "lead to issues",
+   "to": 971
+  },
+  {
+   "from": 971,
+   "text": "when someone needs",
+   "to": 989
+  },
+  {
+   "from": 989,
+   "text": "a facelift down",
+   "to": 1011
+  },
+  {
+   "from": 1011,
+   "text": "the line",
+   "to": 1030
+  },
+  {
+   "from": 1034,
+   "text": "So for me",
+   "to": 1052
+  },
+  {
+   "from": 1052,
+   "text": "aesthetic medicine is",
+   "to": 1068
+  },
+  {
+   "from": 1068,
+   "text": "really about thinking",
+   "to": 1087
+  },
+  {
+   "from": 1087,
+   "text": "long term down",
+   "to": 1111
+  },
+  {
+   "from": 1111,
+   "text": "the line",
+   "to": 1124
+  },
+  {
+   "from": 1124,
+   "text": "Ask what it",
+   "to": 1151
+  },
+  {
+   "from": 1151,
+   "text": "does",
+   "to": 1161
+  },
+  {
+   "from": 1161,
+   "text": "ask what the",
+   "to": 1181
+  },
+  {
+   "from": 1181,
+   "text": "potential complications are",
+   "to": 1227
+  },
+  {
+   "from": 1227,
+   "text": "ask whether there's",
+   "to": 1245
+  },
+  {
+   "from": 1245,
+   "text": "an alternative",
+   "to": 1273
+  },
+  {
+   "from": 1273,
+   "text": "and most importantly",
+   "to": 1301
+  },
+  {
+   "from": 1301,
+   "text": "ask whether you",
+   "to": 1325
+  },
+  {
+   "from": 1325,
+   "text": "actually need it",
+   "to": 1350
+  },
+  {
+   "from": 1350,
+   "text": "rely on a",
+   "to": 1367
+  },
+  {
+   "from": 1367,
+   "text": "trusted provider who's",
+   "to": 1417
+  },
+  {
+   "from": 1417,
+   "text": "had years of",
+   "to": 1438
+  },
+  {
+   "from": 1438,
+   "text": "experience",
+   "to": 1450
+  },
+  {
+   "from": 1450,
+   "text": "trends really come",
+   "to": 1476
+  },
+  {
+   "from": 1476,
+   "text": "and go",
+   "to": 1497
+  },
+  {
+   "from": 1503,
+   "text": "but your face",
+   "to": 1516
+  },
+  {
+   "from": 1516,
+   "text": "deserves a long",
+   "to": 1536
+  },
+  {
+   "from": 1536,
+   "text": "term plan",
+   "to": 1559
+  }
+ ],
+ "keywords": [
+  "Sculptra",
+  "polylactic acid",
+  "powdered suture",
+  "hyaluronic acid",
+  "collagen",
+  "scarring",
+  "nodules",
+  "bio-stimulators",
+  "facelift",
+  "long-term plan"
+ ],
+ "slots": [
+  {
+   "id": "title0",
+   "kind": "title",
+   "start": 6,
+   "end": 89,
+   "spring": "heavy",
+   "sfx": {
+    "name": "exo_chapter",
+    "frame": 29,
+    "gain": 0.32
+   },
+   "top": 1267,
+   "text": {
+    "caps": "The product",
+    "title": "Sculptra: A Cautious View"
+   },
+   "box": {
+    "left": 98,
+    "top": 1227,
+    "w": 884
+   }
+  },
+  {
+   "id": "argument1",
+   "kind": "argument",
+   "start": 97,
+   "end": 171,
+   "spring": "settle",
+   "sfx": {
+    "name": "exo_card",
+    "frame": 111,
+    "gain": 0.16
+   },
+   "text": {
+    "caps": "The product",
+    "title": "My opinion on Sculptra",
+    "line": "A dermatologist's view"
+   },
+   "box": {
+    "left": 98,
+    "top": 1209,
+    "w": 884
+   }
+  },
+  {
+   "id": "argument2",
+   "kind": "argument",
+   "start": 179,
+   "end": 253,
+   "spring": "settle",
+   "sfx": {
+    "name": "exo_card",
+    "frame": 193,
+    "gain": 0.16
+   },
+   "text": {
+    "caps": "Named",
+    "title": "Sculptra"
+   },
+   "box": {
+    "left": 98,
+    "top": 1191,
+    "w": 884
+   },
+   "wish": "cut-out Sculptra"
+  },
+  {
+   "id": "argument3",
+   "kind": "argument",
+   "start": 261,
+   "end": 335,
+   "spring": "settle",
+   "sfx": {
+    "name": "exo_card",
+    "frame": 275,
+    "gain": 0.16
+   },
+   "text": {
+    "caps": "Named",
+    "title": "polylactic acid"
+   },
+   "box": {
+    "left": 98,
+    "top": 1177,
+    "w": 884
+   },
+   "wish": "cut-out polylactic acid"
+  },
+  {
+   "id": "argument4",
+   "kind": "argument",
+   "start": 343,
+   "end": 417,
+   "spring": "settle",
+   "sfx": {
+    "name": "exo_card",
+    "frame": 357,
+    "gain": 0.16
+   },
+   "text": {
+    "caps": "The product",
+    "title": "Polylactic acid: powdered suture",
+    "line": "What Sculptra actually is"
+   },
+   "box": {
+    "left": 98,
+    "top": 1201,
+    "w": 884
+   }
+  },
+  {
+   "id": "argument5",
+   "kind": "argument",
+   "start": 425,
+   "end": 499,
+   "spring": "settle",
+   "sfx": {
+    "name": "exo_card",
+    "frame": 439,
+    "gain": 0.16
+   },
+   "text": {
+    "caps": "Named",
+    "title": "hyaluronic acid filler"
+   },
+   "box": {
+    "left": 98,
+    "top": 1203,
+    "w": 884
+   },
+   "wish": "cut-out hyaluronic acid filler"
+  },
+  {
+   "id": "argument6",
+   "kind": "argument",
+   "start": 507,
+   "end": 581,
+   "spring": "settle",
+   "sfx": {
+    "name": "exo_card",
+    "frame": 521,
+    "gain": 0.16
+   },
+   "text": {
+    "caps": "What it does",
+    "title": "Stimulates collagen that can scar",
+    "line": "Unlike a hyaluronic acid filler"
+   },
+   "box": {
+    "left": 98,
+    "top": 1189,
+    "w": 884
+   }
+  },
+  {
+   "id": "argument7",
+   "kind": "argument",
+   "start": 589,
+   "end": 663,
+   "spring": "settle",
+   "sfx": {
+    "name": "exo_card",
+    "frame": 603,
+    "gain": 0.16
+   },
+   "text": {
+    "caps": "Compared",
+    "title": "Sculptra versus hyaluronic acid",
+    "line": "Nodules and scarring, not with hyaluronic acid"
+   },
+   "box": {
+    "left": 98,
+    "top": 1191,
+    "w": 884
+   }
+  },
+  {
+   "id": "argument8",
+   "kind": "argument",
+   "start": 682,
+   "end": 756,
+   "spring": "settle",
+   "sfx": {
+    "name": "exo_card",
+    "frame": 696,
+    "gain": 0.16
+   },
+   "text": {
+    "caps": "Named",
+    "title": "Sculptra"
+   },
+   "box": {
+    "left": 98,
+    "top": 1198,
+    "w": 884
+   },
+   "wish": "cut-out Sculptra"
+  },
+  {
+   "id": "argument9",
+   "kind": "argument",
+   "start": 764,
+   "end": 838,
+   "spring": "settle",
+   "sfx": {
+    "name": "exo_card",
+    "frame": 778,
+    "gain": 0.16
+   },
+   "text": {
+    "caps": "Named",
+    "title": "hyaluronic acid"
+   },
+   "box": {
+    "left": 98,
+    "top": 1181,
+    "w": 884
+   },
+   "wish": "cut-out hyaluronic acid"
+  },
+  {
+   "id": "argument10",
+   "kind": "argument",
+   "start": 996,
+   "end": 1070,
+   "spring": "settle",
+   "sfx": {
+    "name": "exo_card",
+    "frame": 1010,
+    "gain": 0.16
+   },
+   "text": {
+    "caps": "What it does",
+    "title": "Repeated use and future facelifts",
+    "line": "Facial surgeons are discussing it"
+   },
+   "box": {
+    "left": 98,
+    "top": 1182,
+    "w": 884
+   }
+  },
+  {
+   "id": "argument11",
+   "kind": "argument",
+   "start": 1088,
+   "end": 1162,
+   "spring": "settle",
+   "sfx": {
+    "name": "exo_card",
+    "frame": 1102,
+    "gain": 0.16
+   },
+   "text": {
+    "caps": "Best for",
+    "title": "Think long term"
+   },
+   "box": {
+    "left": 98,
+    "top": 1205,
+    "w": 884
+   }
+  },
+  {
+   "id": "argument12",
+   "kind": "argument",
+   "start": 1252,
+   "end": 1326,
+   "spring": "settle",
+   "sfx": {
+    "name": "exo_card",
+    "frame": 1266,
+    "gain": 0.16
+   },
+   "text": {
+    "caps": "Best for",
+    "title": "Ask before you inject",
+    "line": "Your face deserves a long-term plan"
+   },
+   "box": {
+    "left": 98,
+    "top": 1199,
+    "w": 884
+   }
+  },
+  {
+   "id": "end",
+   "kind": "end",
+   "start": 1559,
+   "end": 1619,
+   "spring": "settle",
+   "hold": true,
+   "sfx": {
+    "name": "card",
+    "frame": 1573,
+    "gain": 0.16
+   },
+   "box": {
+    "left": 119,
+    "top": 691,
+    "w": 842
+   }
+  }
+ ],
+ "warnings": [
+  "piece 0: no 80 ms gap before sentence 1",
+  "piece 4: no 80 ms gap before sentence 16",
+  "term at f589: no face-free band; dropped",
+  "term at f589: no face-free band; dropped",
+  "term at f671: no face-free band; dropped",
+  "term at f1078: no face-free band; dropped"
+ ]
+}

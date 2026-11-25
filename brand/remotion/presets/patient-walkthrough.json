@@ -1,0 +1,82 @@
+{
+ "$schema": "fast/preset/1",
+ "preset": "patient-walkthrough",
+ "from_golden": "UndereyeReelV5b (UndereyeReel_v5b): the patient's concern, the usual approach, his approach, the result",
+ "fps": 24,
+ "rate": 1.0,
+ "target_s": [
+  45,
+  90
+ ],
+ "roles": {
+  "concern": "Her concern",
+  "usual": "Usually",
+  "instead": "His approach",
+  "result": "The result"
+ },
+ "brief": "A patient walkthrough: hook on the result and the patient's own setup-and-but (U3), the usual approach, what he does instead and why, the result. Before/after is labelled as an example of his approach, never as a diagnosis.",
+ "rules": {
+  "cut_on": "sentence end, mid-gap >= 80 ms",
+  "visual_every_s": 5,
+  "text_hold_min_f": 60,
+  "object_hold_min_f": 48,
+  "sfx": "on the spring's first-reach frame (sfxAtSettle)",
+  "faces": "no slot box over a tracked face box"
+ },
+ "slots": [
+  {
+   "slot": "title",
+   "kind": "title",
+   "spring": "heavy",
+   "hold_f": 60,
+   "sfx": "exo_chapter",
+   "caps": "Patient story",
+   "note": "within 1.5 s (hook rule L8); placed in the face-free band"
+  },
+  {
+   "slot": "argument",
+   "kind": "argument",
+   "spring": "settle",
+   "repeat": true,
+   "hold_f": 60,
+   "sfx": "exo_card",
+   "max": 7,
+   "roles": [
+    "concern",
+    "usual",
+    "instead",
+    "result"
+   ],
+   "note": "one card per argument beat, on its key word +1 f; sequential handover, one card on screen"
+  },
+  {
+   "slot": "term",
+   "kind": "term",
+   "spring": "heavy",
+   "hold_f": 60,
+   "sfx": "swish",
+   "note": "a named condition gets a real example: the face region punched in a glass window (L6)"
+  },
+  {
+   "slot": "object",
+   "kind": "object",
+   "spring": "heavy",
+   "hold_f": 48,
+   "sfx": "pop",
+   "note": "a named instrument/product: the real cut-out from public/objects (never AI); missing -> WISHLIST + argument card"
+  },
+  {
+   "slot": "captions",
+   "kind": "captions",
+   "note": "word onsets, 1-3 words, cut on"
+  },
+  {
+   "slot": "end",
+   "kind": "end",
+   "spring": "settle",
+   "sfx": "card",
+   "tail_s": 2.5,
+   "note": "after the last completed sentence"
+  }
+ ]
+}

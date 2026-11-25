@@ -1,0 +1,125 @@
+{
+ "title": "Sculptra: A Cautious View",
+ "fields": {
+  "product": "Sculptra is polylactic acid, which is powdered suture.",
+  "does": "It triggers a tissue response that makes your body produce collagen, and that type of collagen leads to scarring.",
+  "versus": "Inflammatory reactions, nodules and scarring happen with bio-stimulators like Sculptra but not with hyaluronic acid filler.",
+  "for": "Anyone considering it should think long term and ask about complications, alternatives and whether they actually need it."
+ },
+ "keep": [
+  1,
+  4,
+  5,
+  7,
+  8,
+  14,
+  16
+ ],
+ "beats": [
+  {
+   "sentence": 1,
+   "role": "product",
+   "title": "My opinion on Sculptra",
+   "line": "A dermatologist's view",
+   "key_word": "Sculptra"
+  },
+  {
+   "sentence": 4,
+   "role": "product",
+   "title": "Polylactic acid: powdered suture",
+   "line": "What Sculptra actually is",
+   "key_word": "suture"
+  },
+  {
+   "sentence": 5,
+   "role": "does",
+   "title": "Stimulates collagen that can scar",
+   "line": "Unlike a hyaluronic acid filler",
+   "key_word": "collagen"
+  },
+  {
+   "sentence": 7,
+   "role": "versus",
+   "title": "Sculptra versus hyaluronic acid",
+   "line": "Nodules and scarring, not with hyaluronic acid",
+   "key_word": "nodules"
+  },
+  {
+   "sentence": 8,
+   "role": "does",
+   "title": "Repeated use and future facelifts",
+   "line": "Facial surgeons are discussing it",
+   "key_word": "facelift"
+  },
+  {
+   "sentence": 14,
+   "role": "for",
+   "title": "Think long term",
+   "key_word": "long"
+  },
+  {
+   "sentence": 16,
+   "role": "for",
+   "title": "Ask before you inject",
+   "line": "Your face deserves a long-term plan",
+   "key_word": "alternative"
+  }
+ ],
+ "terms": [
+  {
+   "sentence": 5,
+   "term": "scarring",
+   "region": "none"
+  },
+  {
+   "sentence": 7,
+   "term": "inflammatory reactions",
+   "region": "none"
+  },
+  {
+   "sentence": 7,
+   "term": "nodules",
+   "region": "none"
+  },
+  {
+   "sentence": 8,
+   "term": "facelift",
+   "region": "none"
+  }
+ ],
+ "objects": [
+  {
+   "sentence": 1,
+   "name": "Sculptra"
+  },
+  {
+   "sentence": 4,
+   "name": "polylactic acid"
+  },
+  {
+   "sentence": 5,
+   "name": "hyaluronic acid filler"
+  },
+  {
+   "sentence": 7,
+   "name": "Sculptra"
+  },
+  {
+   "sentence": 7,
+   "name": "hyaluronic acid"
+  }
+ ],
+ "keywords": [
+  "Sculptra",
+  "polylactic acid",
+  "powdered suture",
+  "hyaluronic acid",
+  "collagen",
+  "scarring",
+  "nodules",
+  "bio-stimulators",
+  "facelift",
+  "long-term plan"
+ ],
+ "reader": "claude -p (32 s)"
+}
