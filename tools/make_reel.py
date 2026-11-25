@@ -285,6 +285,43 @@ def free_band(trk, src_frames, h_need):
     return None
 
 
+def visuals_library():
+    p = ROOT / "research/ostad/fast/visuals.json"
+    return json.loads(p.read_text(encoding="utf-8"))["entries"] if p.exists() else []
+
+
+def resolve_props(v, start, end, word_at):
+    """fill '@start', '@start+N', '@word:<prefix>' and '@ramp:<prefix>:v0,v1,..:step' in a visuals.json props template"""
+    miss = [0]
+
+    def word(prefix):
+        f = word_at(prefix, start - 6, end)
+        if f is None:
+            miss[0] += 1
+            return start + 12 * miss[0]
+        return f
+
+    def r(x):
+        if isinstance(x, dict):
+            return {k: r(y) for k, y in x.items()}
+        if isinstance(x, list):
+            return [r(y) for y in x]
+        if isinstance(x, str) and x.startswith("@"):
+            if x == "@start":
+                return start
+            if x.startswith("@start+"):
+                return start + int(x[7:])
+            if x.startswith("@word:"):
+                return word(x[6:])
+            if x.startswith("@ramp:"):
+                _, pre, vals, step = x.split(":")
+                t0 = word(pre)
+                vs = [float(q) for q in vals.split(",")]
+                return [[0, vs[0]], [t0, vs[0]]] + [[t0 + int(step) * i, q] for i, q in enumerate(vs) if i]
+        return x
+    return r(v), miss[0]
+
+
 def fill(preset, sents, words, m, db, floor, trk, d: Path, reel_id: str):
     keep = sorted(set(m["keep"]))
     S = {s["id"]: s for s in sents}
@@ -363,7 +400,7 @@ def fill(preset, sents, words, m, db, floor, trk, d: Path, reel_id: str):
             return None
         busy.append((start, end))
         sl = {"id": f"{kind}{len(slots)}", "kind": kind, "start": start, "end": end, "spring": sp,
-              "sfx": {"name": spec[kind]["sfx"], "frame": start + first_reach(sp), "gain": 0.32 if kind == "title" else 0.16}, **extra(top)}
+              "sfx": {"name": spec[kind]["sfx"], "frame": start + first_reach(sp), "gain": 0.32} if kind == "title" else None, **extra(top)}  # sound on heroes only (round 2)
         slots.append(sl)
         return sl
 
@@ -380,6 +417,43 @@ def fill(preset, sents, words, m, db, floor, trk, d: Path, reel_id: str):
         return None if c is None else c + 1
 
     lib = objects_library()
+    vis, used_vis = visuals_library(), set()
+    kept_words = [(comp_frame(words[i]["s"]), re.sub(r"[^a-z]", "", words[i]["w"].lower())) for k in keep for i in S[k]["w"]]
+
+    def word_at(prefix, lo, hi):
+        pre = re.sub(r"[^a-z]", "", prefix.lower())
+        hit = [c for c, w in kept_words if c is not None and lo <= c <= hi and w.startswith(pre)]
+        return min(hit) + 1 if hit else None
+
+    def place_tech(v, f0, sid):
+        spg = v.get("spring", "settle")
+        start = f0
+        for (a, b) in busy:
+            if a <= start <= b + 6:
+                start = b + 8
+        end = min(start + v.get("max_f", 200), total - nt - 2)
+        if end - start < 60:
+            return None
+        top = None
+        if not v.get("full_frame"):
+            top = free_band(trk, src_frames(start, end), v.get("h", 410))
+            if top is None:
+                warn.append(f"tech {v['id']} at f{start}: no face-free band; card instead")
+                return None
+        props, miss = resolve_props(v["props"], start, end, word_at)
+        box = None
+        if top is not None:
+            props["top"] = max(top, 1150)
+            box = {"left": M, "top": props["top"], "w": W - 2 * M, "h": v.get("h", 410)}
+        if miss:
+            warn.append(f"tech {v['id']}: {miss} word anchor(s) not found; timed from the start")
+        busy.append((start, end))
+        sl = {"id": f"{v['view']}{len(slots)}", "kind": "tech", "view": v["view"], "start": start, "end": end, "spring": spg, "visual": v["id"], **({"box": box} if box else {}),
+              "sfx": {"name": v["hero"], "frame": start + first_reach(spg), "gain": 0.24} if v.get("hero") else None, "props": props}
+        slots.append(sl)
+        used_vis.add(v["id"])
+        return sl
+
     events = []
     for b in m.get("beats", []):
         events.append(("argument", b["sentence"], b.get("key_word"), b))
@@ -387,11 +461,21 @@ def fill(preset, sents, words, m, db, floor, trk, d: Path, reel_id: str):
         events.append(("term", t["sentence"], t.get("term", "").split()[-1] if t.get("term") else None, t))
     for o in m.get("objects", []):
         events.append(("object", o["sentence"], (o.get("name") or "").split()[-1], o))
+    def S_on(sid):  # the sentence's first word onset
+        c = comp_frame(S[sid]["s"])
+        return c + 1 if c is not None else None
+
     for kind, sid, key, e in sorted(events, key=lambda e: (onset(e[1], e[2]) or 1e9)):
         f0 = onset(sid, key)
         if f0 is None:
             continue
         if kind == "argument":
+            txt = S[sid]["text"]
+            v = next((v for v in vis if v["id"] not in used_vis and re.search(v["match"], txt, re.I)), None)
+            if v and place_tech(v, f0 if v.get("full_frame") else S_on(sid), sid):
+                continue
+            if not v:
+                wish.append({"reel": reel_id, "want": f"technical visual for: {txt[:90]}", "at_frame": f0, "used_instead": "argument card"})
             role = preset["roles"].get(e.get("role"), e.get("role", ""))
             place("argument", f0, spec["argument"]["hold_f"], 230,
                   lambda top, e=e, role=role: {"text": {"caps": role, "title": e.get("title", ""), **({"line": e["line"]} if e.get("line") else {})}, "box": {"left": M, "top": top, "w": W - 2 * M}})
@@ -424,6 +508,8 @@ def fill(preset, sents, words, m, db, floor, trk, d: Path, reel_id: str):
     es = total - nt
     slots.append({"id": "end", "kind": "end", "start": es, "end": total, "spring": spec["end"]["spring"], "hold": True,
                   "sfx": {"name": spec["end"]["sfx"], "frame": es + first_reach(spec["end"]["spring"]), "gain": 0.16}, "box": {"left": 119, "top": 691, "w": 842}})
+    slots = [s for s in slots if s.get("sfx") is not None] + [{k: v for k, v in s.items() if k != "sfx"} for s in slots if s.get("sfx") is None]
+    slots.sort(key=lambda s: s["start"])
     tl = {"schema": "fast/1", "reel": reel_id, "preset": preset["preset"], "fps": FPS, "durationInFrames": total, "clip": f"fast/{reel_id}/talk.mp4",
           "pieces": pieces, "captions": caps, "keywords": m.get("keywords", []), "slots": slots, "warnings": warn}
     (d / "timeline.json").write_text(json.dumps(tl, indent=1), encoding="utf-8")
@@ -456,7 +542,7 @@ def check_faces(tl, trk):
         b = s.get("box")
         if not b or s["kind"] in ("end",):
             continue
-        hh = {"title": 260, "argument": 230, "term": 400, "object": 360}.get(s["kind"], 300)
+        hh = b.get("h") or {"title": 260, "argument": 230, "term": 400, "object": 360}.get(s["kind"], 300)
         for c in range(s["start"], s["end"] + 1, 6):
             p = max((p for p in tl["pieces"] if p["at"] <= c), key=lambda p: p["at"])
             sf = int(round((p["in"] + (c - p["at"]) / FPS) * FPS))

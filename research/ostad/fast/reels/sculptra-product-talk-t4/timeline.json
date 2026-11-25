@@ -1,0 +1,627 @@
+{
+ "schema": "fast/1",
+ "reel": "sculptra-product-talk-t4",
+ "preset": "product-talk",
+ "fps": 24,
+ "durationInFrames": 1718,
+ "clip": "fast/sculptra-product-talk-t3/talk.mp4",
+ "keywords": [
+  "Sculptra",
+  "polylactic acid",
+  "powdered suture",
+  "collagen",
+  "bio-stimulators",
+  "hyaluronic acid",
+  "nodules",
+  "scarring",
+  "long term"
+ ],
+ "pieces": [
+  {
+   "id": "p0",
+   "in": 19.565,
+   "out": 50.773,
+   "at": 0,
+   "sentences": [
+    4,
+    5,
+    6,
+    7
+   ],
+   "reason": "sentences 4-7 whole"
+  },
+  {
+   "id": "p1",
+   "in": 112.98,
+   "out": 116.98,
+   "at": 749,
+   "sentences": [
+    14
+   ],
+   "reason": "sentences 14-14 whole"
+  },
+  {
+   "id": "p2a",
+   "in": 139.495,
+   "out": 144.785,
+   "at": 845,
+   "sentences": [
+    17
+   ],
+   "reason": "sentence 17 to 'injectables' (the wrong 'because' clause cut)"
+  },
+  {
+   "id": "p2b",
+   "in": 148.3,
+   "out": 176.87,
+   "at": 972,
+   "sentences": [
+    18,
+    19,
+    20
+   ],
+   "reason": "sentences 18-20 whole"
+  },
+  {
+   "id": "tail",
+   "in": 176.87,
+   "out": 179.37,
+   "at": 1658,
+   "muted": true,
+   "reason": "end card over his silence"
+  }
+ ],
+ "captions": [
+  {
+   "from": 6,
+   "text": "Sculptra is polylactic",
+   "to": 55
+  },
+  {
+   "from": 55,
+   "text": "acid",
+   "to": 68
+  },
+  {
+   "from": 68,
+   "text": "which is powdered",
+   "to": 93
+  },
+  {
+   "from": 93,
+   "text": "suture",
+   "to": 117
+  },
+  {
+   "from": 117,
+   "text": "Unlike a traditional",
+   "to": 156
+  },
+  {
+   "from": 156,
+   "text": "hyaluronic acid filler",
+   "to": 193
+  },
+  {
+   "from": 193,
+   "text": "it works by",
+   "to": 213
+  },
+  {
+   "from": 213,
+   "text": "creating a tissue",
+   "to": 235
+  },
+  {
+   "from": 235,
+   "text": "response that stimulates",
+   "to": 266
+  },
+  {
+   "from": 266,
+   "text": "your body to",
+   "to": 298
+  },
+  {
+   "from": 298,
+   "text": "produce collagen",
+   "to": 322
+  },
+  {
+   "from": 322,
+   "text": "but that's really",
+   "to": 341
+  },
+  {
+   "from": 341,
+   "text": "a type of",
+   "to": 355
+  },
+  {
+   "from": 355,
+   "text": "collagen that leads",
+   "to": 370
+  },
+  {
+   "from": 370,
+   "text": "to scarring",
+   "to": 399
+  },
+  {
+   "from": 400,
+   "text": "And that is",
+   "to": 409
+  },
+  {
+   "from": 409,
+   "text": "why precisely I",
+   "to": 433
+  },
+  {
+   "from": 433,
+   "text": "personally take a",
+   "to": 451
+  },
+  {
+   "from": 451,
+   "text": "very conservative approach",
+   "to": 486
+  },
+  {
+   "from": 486,
+   "text": "to using Sculptra",
+   "to": 514
+  },
+  {
+   "from": 514,
+   "text": "We now know",
+   "to": 530
+  },
+  {
+   "from": 530,
+   "text": "that inflammatory reactions",
+   "to": 574
+  },
+  {
+   "from": 576,
+   "text": "nodules",
+   "to": 601
+  },
+  {
+   "from": 603,
+   "text": "scarring",
+   "to": 621
+  },
+  {
+   "from": 621,
+   "text": "occur with these",
+   "to": 648
+  },
+  {
+   "from": 648,
+   "text": "bio -stimulators like",
+   "to": 696
+  },
+  {
+   "from": 696,
+   "text": "Sculptra",
+   "to": 711
+  },
+  {
+   "from": 711,
+   "text": "but not with",
+   "to": 724
+  },
+  {
+   "from": 724,
+   "text": "hyaluronic acid",
+   "to": 755
+  },
+  {
+   "from": 755,
+   "text": "So for me",
+   "to": 773
+  },
+  {
+   "from": 773,
+   "text": "aesthetic medicine is",
+   "to": 789
+  },
+  {
+   "from": 789,
+   "text": "really about thinking",
+   "to": 808
+  },
+  {
+   "from": 808,
+   "text": "long term down",
+   "to": 832
+  },
+  {
+   "from": 832,
+   "text": "the line",
+   "to": 852
+  },
+  {
+   "from": 854,
+   "text": "So again",
+   "to": 878
+  },
+  {
+   "from": 878,
+   "text": "I don't have",
+   "to": 894
+  },
+  {
+   "from": 894,
+   "text": "this issue with",
+   "to": 916
+  },
+  {
+   "from": 916,
+   "text": "hyaluronic acid injectables",
+   "to": 972
+  },
+  {
+   "from": 972,
+   "text": "I have an",
+   "to": 985
+  },
+  {
+   "from": 985,
+   "text": "issue with bio",
+   "to": 1007
+  },
+  {
+   "from": 1007,
+   "text": "-stimulators",
+   "to": 1030
+  },
+  {
+   "from": 1035,
+   "text": "Such a Sculptra",
+   "to": 1067
+  },
+  {
+   "from": 1067,
+   "text": "because they are",
+   "to": 1085
+  },
+  {
+   "from": 1085,
+   "text": "powdered suture material",
+   "to": 1124
+  },
+  {
+   "from": 1124,
+   "text": "and when you",
+   "to": 1132
+  },
+  {
+   "from": 1132,
+   "text": "put that underneath",
+   "to": 1149
+  },
+  {
+   "from": 1149,
+   "text": "your skin repeatedly",
+   "to": 1201
+  },
+  {
+   "from": 1201,
+   "text": "it can really",
+   "to": 1232
+  },
+  {
+   "from": 1232,
+   "text": "lead to",
+   "to": 1262
+  },
+  {
+   "from": 1277,
+   "text": "scarring underneath",
+   "to": 1314
+  },
+  {
+   "from": 1326,
+   "text": "It can lead",
+   "to": 1340
+  },
+  {
+   "from": 1340,
+   "text": "to potentially nodules",
+   "to": 1375
+  },
+  {
+   "from": 1375,
+   "text": "and inflammatory reactions",
+   "to": 1412
+  },
+  {
+   "from": 1412,
+   "text": "later",
+   "to": 1443
+  },
+  {
+   "from": 1443,
+   "text": "and more importantly",
+   "to": 1467
+  },
+  {
+   "from": 1467,
+   "text": "it also just",
+   "to": 1483
+  },
+  {
+   "from": 1483,
+   "text": "rounds out your",
+   "to": 1505
+  },
+  {
+   "from": 1505,
+   "text": "face as opposed",
+   "to": 1530
+  },
+  {
+   "from": 1530,
+   "text": "to using hyaluronic",
+   "to": 1561
+  },
+  {
+   "from": 1561,
+   "text": "acid strategically where",
+   "to": 1593
+  },
+  {
+   "from": 1593,
+   "text": "you can really",
+   "to": 1615
+  },
+  {
+   "from": 1619,
+   "text": "properly sculpt the",
+   "to": 1648
+  },
+  {
+   "from": 1648,
+   "text": "face",
+   "to": 1662
+  }
+ ],
+ "slots": [
+  {
+   "id": "title0",
+   "kind": "title",
+   "start": 6,
+   "end": 89,
+   "spring": "heavy",
+   "top": 1249,
+   "hold": true,
+   "text": {
+    "caps": "Dr. Ariel Ostad on",
+    "title": "Sculptra vs hyaluronic acid"
+   },
+   "sfx": {
+    "name": "exo_chapter",
+    "frame": 29,
+    "gain": 0.32
+   }
+  },
+  {
+   "id": "compare1",
+   "kind": "tech",
+   "view": "compare",
+   "start": 93,
+   "end": 200,
+   "spring": "settle",
+   "props": {
+    "a": {
+     "src": "fast/assets/sculptra/splla_a.png",
+     "label": "Sculptra: PLLA particles",
+     "at": 93
+    },
+    "b": {
+     "src": "fast/assets/sculptra/sha.png",
+     "src2": "fast/assets/sculptra/sha_swell.png",
+     "label": "HA filler: a gel",
+     "at": 156
+    }
+   }
+  },
+  {
+   "id": "mechanism",
+   "kind": "tech",
+   "view": "mechanism",
+   "start": 200,
+   "end": 340,
+   "spring": "heavy",
+   "sfx": {
+    "name": "swish",
+    "frame": 223,
+    "gain": 0.24
+   },
+   "props": {
+    "caps": "How Sculptra works",
+    "title": "A tissue response that makes collagen",
+    "rows": [
+     {
+      "text": "PLLA particles, deep in the skin",
+      "at": 204
+     },
+     {
+      "text": "A tissue response around them",
+      "at": 235
+     },
+     {
+      "text": "Your body makes new collagen",
+      "at": 298
+     }
+    ],
+    "still": "fast/assets/sculptra/splla_a.png",
+    "clip": {
+     "src": "fast/assets/sculptra/splla.mp4",
+     "from": 238,
+     "len": 121
+    },
+    "months": [
+     [
+      0,
+      0
+     ],
+     [
+      238,
+      0
+     ],
+     [
+      262,
+      1
+     ],
+     [
+      286,
+      2
+     ],
+     [
+      310,
+      3
+     ]
+    ],
+    "monthsNote": "Builds gradually"
+   }
+  },
+  {
+   "id": "fibers",
+   "kind": "tech",
+   "view": "fibers",
+   "start": 341,
+   "end": 450,
+   "spring": "settle",
+   "props": {
+    "left": {
+     "caps": "Organised collagen",
+     "title": "Woven, flexible",
+     "at": 345
+    },
+    "right": {
+     "caps": "Scar-type collagen",
+     "title": "Dense, parallel",
+     "at": 368
+    }
+   }
+  },
+  {
+   "id": "risks",
+   "kind": "tech",
+   "view": "risks",
+   "start": 514,
+   "end": 752,
+   "spring": "settle",
+   "props": {
+    "still": "fast/assets/sculptra/splla_b.png",
+    "caps": "With biostimulators like Sculptra",
+    "nodule": 576,
+    "rows": [
+     {
+      "text": "Inflammatory reactions",
+      "at": 530
+     },
+     {
+      "text": "Nodules",
+      "at": 576
+     },
+     {
+      "text": "Scarring",
+      "at": 603
+     },
+     {
+      "text": "Not with hyaluronic acid",
+      "at": 724
+     }
+    ]
+   }
+  },
+  {
+   "id": "compare2",
+   "kind": "tech",
+   "view": "compare",
+   "start": 858,
+   "end": 978,
+   "spring": "settle",
+   "props": {
+    "a": {
+     "src": "fast/assets/sculptra/splla_b.png",
+     "label": "Biostimulator: new collagen",
+     "at": 858
+    },
+    "b": {
+     "src": "fast/assets/sculptra/sha.png",
+     "src2": "fast/assets/sculptra/sha_swell.png",
+     "label": "Hyaluronic acid: no such issue",
+     "at": 896
+    }
+   }
+  },
+  {
+   "id": "sessions",
+   "kind": "tech",
+   "view": "sessions",
+   "start": 1000,
+   "end": 1447,
+   "spring": "settle",
+   "props": {
+    "caps": "Repeated treatments",
+    "sessions": [
+     1085,
+     1132,
+     1160
+    ],
+    "scar": 1277,
+    "nodule": 1340,
+    "halo": 1375,
+    "later": 1412
+   }
+  },
+  {
+   "id": "contour",
+   "kind": "tech",
+   "view": "contour",
+   "start": 1475,
+   "end": 1652,
+   "spring": "settle",
+   "props": {
+    "left": {
+     "caps": "Biostimulator",
+     "title": "Rounds out the face",
+     "at": 1479
+    },
+    "right": {
+     "caps": "Hyaluronic acid, placed",
+     "title": "Sculpts the face",
+     "at": 1528,
+     "points": 1615
+    }
+   }
+  },
+  {
+   "id": "end",
+   "kind": "end",
+   "start": 1658,
+   "end": 1718,
+   "spring": "settle",
+   "hold": true,
+   "sfx": {
+    "name": "card",
+    "frame": 1672,
+    "gain": 0.16
+   },
+   "box": {
+    "left": 119,
+    "top": 691,
+    "w": 842
+   }
+  }
+ ],
+ "notes": [
+  "round 2: technical visual per beat; 3 sounds",
+  "clean face (his opinion) 450-514 and 752-852"
+ ]
+}

@@ -1,0 +1,26 @@
+{
+ "$description": "FAST LANE visual library (round 2, 2026-11-25). make-reel gives an argument beat the first unused entry whose `match` regex hits the beat's sentence, instead of a text card. Views are tech.tsx components. In props: '@start' = the slot start, '@start+N', and '@word:<prefix>' = his onset (+1 f) of the first kept word starting with <prefix> in the slot window (fallback: start + 12 f per unresolved key). New entries (a new topic's renders, anatomy) are made in the weekly system session; assets must be generic (no face, product or result) or real cut-outs.",
+ "entries": [
+  {"id": "plla-vs-ha", "match": "powdered suture|poly-?l?-?lactic|polylactic", "view": "compare", "spring": "settle", "max_f": 110, "h": 400,
+   "props": {"a": {"src": "fast/assets/sculptra/splla_a.png", "label": "Sculptra: PLLA particles", "at": "@start"},
+             "b": {"src": "fast/assets/sculptra/sha.png", "src2": "fast/assets/sculptra/sha_swell.png", "label": "HA filler: a gel", "at": "@word:hyaluronic"}}},
+  {"id": "plla-mechanism", "match": "tissue response|produce collagen|stimulat\\w* .*collagen", "view": "mechanism", "spring": "heavy", "hero": "swish", "max_f": 140, "full_frame": true,
+   "props": {"caps": "How Sculptra works", "title": "A tissue response that makes collagen",
+             "rows": [{"text": "PLLA particles, deep in the skin", "at": "@start+4"}, {"text": "A tissue response around them", "at": "@word:response"}, {"text": "Your body makes new collagen", "at": "@word:produce"}],
+             "still": "fast/assets/sculptra/splla_a.png", "clip": {"src": "fast/assets/sculptra/splla.mp4", "from": "@word:response", "len": 121},
+             "months": "@ramp:response:0,1,2,3:24", "monthsNote": "Builds gradually"}},
+  {"id": "scar-collagen", "match": "collagen that (leads|can lead) to scar|type of collagen", "view": "fibers", "spring": "settle", "max_f": 110, "h": 410,
+   "props": {"left": {"caps": "Organised collagen", "title": "Woven, flexible", "at": "@start+4"}, "right": {"caps": "Scar-type collagen", "title": "Dense, parallel", "at": "@word:scar"}}},
+  {"id": "biostim-risks", "match": "nodule", "view": "risks", "spring": "settle", "max_f": 240, "h": 400,
+   "props": {"still": "fast/assets/sculptra/splla_b.png", "caps": "With biostimulators like Sculptra", "nodule": "@word:nodule",
+             "rows": [{"text": "Inflammatory reactions", "at": "@word:inflammatory"}, {"text": "Nodules", "at": "@word:nodule"}, {"text": "Scarring", "at": "@word:scar"}, {"text": "Not with hyaluronic acid", "at": "@word:hyaluronic"}]}},
+  {"id": "ha-no-issue", "match": "(don't|do not) have this issue|issue with hyaluronic", "view": "compare", "spring": "settle", "max_f": 120, "h": 400,
+   "props": {"a": {"src": "fast/assets/sculptra/splla_b.png", "label": "Biostimulator: new collagen", "at": "@start"},
+             "b": {"src": "fast/assets/sculptra/sha.png", "src2": "fast/assets/sculptra/sha_swell.png", "label": "Hyaluronic acid: no such issue", "at": "@word:hyaluronic"}}},
+  {"id": "repeated-sessions", "match": "repeated(ly)?|bio-?\\s?-?stimulators", "view": "sessions", "spring": "settle", "max_f": 450, "h": 404,
+   "props": {"caps": "Repeated treatments", "sessions": ["@word:powdered", "@word:underneath", "@word:repeatedly"], "scar": "@word:scarring", "nodule": "@word:nodules", "halo": "@word:inflammatory", "later": "@word:later"}},
+  {"id": "round-vs-sculpt", "match": "rounds? out|sculpt the face", "view": "contour", "spring": "settle", "max_f": 200, "h": 410,
+   "props": {"left": {"caps": "Biostimulator", "title": "Rounds out the face", "at": "@word:rounds"},
+             "right": {"caps": "Hyaluronic acid, placed", "title": "Sculpts the face", "at": "@word:hyaluronic", "points": "@word:sculpt"}}}
+ ]
+}

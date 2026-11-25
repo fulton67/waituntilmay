@@ -130,17 +130,18 @@ export const TermWindow: React.FC<{ s: number; out: number; spring: SpringName; 
 };
 
 export type Caption = { from: number; to: number; text: string }; // frames
-export const Captions: React.FC<{ captions: Caption[]; keywords?: string[] }> = ({ captions, keywords = [] }) => {
+export const Captions: React.FC<{ captions: Caption[]; keywords?: string[]; ink?: [number, number][] }> = ({ captions, keywords = [], ink = [] }) => {
   const f = useCurrentFrame();
   const line = captions.find((c) => f >= c.from && f < c.to);
   if (!line) return null;
   const q = sp(f, line.from, "snap"); // cut on: full opacity on the onset frame, the scale settles on snap
   const norm = (w: string) => w.toLowerCase().replace(/[^a-z0-9]/g, "");
   const keys = new Set(keywords.map(norm));
+  const dark = ink.some(([a, b]) => f >= a && f <= b); // over a full-frame cream plate: ink, no shadow
   const px = Math.min(62.6, ((W - 2 * M - 16) / Math.max(1, line.text.length)) * 1.9);
   return (
     <div style={{ position: "absolute", left: M, width: W - 2 * M, top: CAP_T, textAlign: "center" }}>
-      <p style={{ margin: 0, font: `600 ${px}px/1.2 ${FONT}`, letterSpacing: "0.01em", color: WHITE, whiteSpace: "nowrap", textShadow: "0 2px 10px rgba(0,0,0,.38), 0 0 2px rgba(0,0,0,.25)", transform: `scale(${0.95 + 0.05 * q})` }}>
+      <p style={{ margin: 0, font: `600 ${px}px/1.2 ${FONT}`, letterSpacing: "0.01em", color: dark ? INK : WHITE, whiteSpace: "nowrap", textShadow: dark ? "none" : "0 2px 10px rgba(0,0,0,.38), 0 0 2px rgba(0,0,0,.25)", transform: `scale(${0.95 + 0.05 * q})` }}>
         {line.text.split(" ").map((w, i) => <span key={i} style={keys.has(norm(w)) ? { fontWeight: 700 } : undefined}>{(i ? " " : "") + w}</span>)}
       </p>
     </div>

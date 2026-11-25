@@ -22,7 +22,7 @@ A production session reads only this page, the reel's timeline and its transcrip
   - `heavy` 74 / 25.5 / 3 → 23 f / 32 f / 0.55 %. Plates, full-frame titles, cut-outs, morphs.
 - **Text** holds fully lit ≥ 60 f (2.5 s). Objects hold ≥ 48 f (2 s).
 - **Reveals** start on the key word's onset + 1 f. A long build may start early but lands on the word.
-- **Sound** lands on the spring's first reach of its target (`sfxAtSettle`), not its release. Hero sounds at 0.32, the rest at 0.16. Master −14 LUFS, ≤ −1 dBTP.
+- **Sound** only on heroes: the title, the one mechanism cutaway and the end card (3 a reel; Naim 2026-11-25: a sound on every card is "tacky"). It lands on the spring's first reach (`sfxAtSettle`), not the release. Title 0.32, hero 0.24, end 0.16. Master −14 LUFS, ≤ −1 dBTP.
 - **Audio-driven motion** sets a spring's target (`useAudioSpring`), never a size or position directly.
 - **Cuts** happen only at sentence ends, mid-gap in a silence ≥ 80 ms (noise floor + 8 dB), keeping ≥ 25 ms of the gap on the speech side.
 - **Dead frames:** no graphic holds still for more than 12 f. The fix is `drift()` on `float`. Captions, and slots marked `hold`, are exempt.
@@ -39,7 +39,12 @@ A production session reads only this page, the reel's timeline and its transcrip
 ## 4. Components (`brand/remotion/src/fast/`)
 - `spring.ts`: `sp`, `life`, `chase`/`to`, `drift`, `firstReach`, `settled`. The four named springs.
 - `audio.ts`: `sfxAtSettle(start, spring)` and `useAudioSpring(values, spring)`.
-- `GlassCard`: argument beat, caps + title (+ line), breathing on `float`.
+- **Every argument beat gets a technical visual** (`tech.tsx`), picked by make-reel from `research/ostad/fast/visuals.json` (regex on his sentence, props timed to his word onsets). A text card is only the fallback, and logs a WISHLIST row.
+  - `Mechanism`: full-frame cutaway, tissue loupe + stage rows lit on his words + a counter on a spring.
+  - `CompareLoupes`: two tissue loupes at one scale. `FiberCompare`: woven vs scar collagen, drawn on.
+  - `RiskRows`: loupe + a nodule drawn on its word + rows per risk. `SessionStack`: cross-section over sessions, a live thickness bracket.
+  - `ContourCompare`: diffuse rounding vs volume placed at three points, ink arrows and entry x's.
+- `GlassCard`: the fallback argument card, caps + title (+ line), breathing on `float`.
 - `TitleCard`: the title in the face-free band, typed on by a spring.
 - `ObjectCut`: a real cut-out with a shadow and a label, ≥ 2 s.
 - `TermWindow`: a named term's example, the footage punched in a glass window.
