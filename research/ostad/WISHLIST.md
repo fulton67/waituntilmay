@@ -33,3 +33,21 @@ The weekly system session builds them. `make-reel` appends a row automatically w
 | 2026-11-25 | sculptra-product-talk-t3 | real cut-out: Sculptra | f7 | argument card |
 | 2026-11-25 | sculptra-product-talk-t3 | real cut-out: hyaluronic acid filler | f184 | argument card |
 | 2026-11-25 | sculptra-product-talk-t3 | real cut-out: hyaluronic acid injectables | f956 | argument card |
+| 2026-11-25 | sculptra-product-talk-t5 | real cut-out: Sculptra | f11 | argument card |
+| 2026-11-25 | sculptra-product-talk-t5 | technical visual for: Sculptra is having a major moment on social media right now, and whenever I see an aesthet | f153 | argument card |
+| 2026-11-25 | sculptra-product-talk-t5 | real cut-out: polylactic acid | f254 | argument card |
+| 2026-11-25 | sculptra-product-talk-t5 | real cut-out: hyaluronic acid filler | f382 | argument card |
+| 2026-11-25 | sculptra-product-talk-t5 | real cut-out: Sculptra | f776 | argument card |
+| 2026-11-25 | sculptra-product-talk-t5 | real cut-out: hyaluronic acid injectables | f940 | argument card |
+| 2026-11-25 | sculptra-product-talk-t5 | real cut-out: Sculptra | f1124 | argument card |
+| 2026-11-25 | sculptra-product-talk-t6 | technical visual for: I wanted to address really my opinion about use of Sculptra. | f88 | argument card |
+| 2026-11-25 | sculptra-product-talk-t6 | real cut-out: Sculptra | f88 | argument card |
+| 2026-11-25 | sculptra-product-talk-t6 | real cut-out: Sculptra | f111 | argument card |
+| 2026-11-25 | sculptra-product-talk-t6 | real cut-out: hyaluronic acid filler | f288 | argument card |
+| 2026-11-25 | sculptra-product-talk-t6 | technical visual for: And that is why precisely I personally take a very conservative approach to using Sculptra | f563 | argument card |
+| 2026-11-25 | sculptra-product-talk-t6 | real cut-out: Sculptra | f801 | argument card |
+| 2026-11-25 | sculptra-product-talk-t6 | real cut-out: hyaluronic acid | f842 | argument card |
+| 2026-11-25 | sculptra-product-talk-t6 | real cut-out: Sculptra | f1020 | argument card |
+| 2026-11-25 | sculptra-product-talk-t6 | technical visual for: It doesn't mean that everyone who has Sculptra is going to have a surgical complication, b | f1358 | argument card |
+| 2026-11-25 | sculptra-product-talk-t6 | technical visual for: So for me, aesthetic medicine is really about thinking long term down the line. | f1429 | argument card |
+| 2026-11-25 | sculptra-product-talk-t6 | technical visual for: Don't choose something that's being injected into your face simply because it's viral. | f1556 | argument card |

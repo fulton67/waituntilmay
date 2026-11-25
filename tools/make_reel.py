@@ -285,6 +285,14 @@ def free_band(trk, src_frames, h_need):
     return None
 
 
+def tech_band(trk, src_frames, h_need):
+    """chest band for a technical panel: it may start at the padded face box's bottom (the pad is 8 % below the chin), never above
+    y 1150, and must end 8 px above the captions"""
+    boxes = [b for f in src_frames for b in faces_at(trk, f)]
+    top = max(1150, max((b[1] + b[3] for b in boxes), default=0))
+    return top if top + h_need <= CAP_T - 8 else None
+
+
 def visuals_library():
     p = ROOT / "research/ostad/fast/visuals.json"
     return json.loads(p.read_text(encoding="utf-8"))["entries"] if p.exists() else []
@@ -436,7 +444,7 @@ def fill(preset, sents, words, m, db, floor, trk, d: Path, reel_id: str):
             return None
         top = None
         if not v.get("full_frame"):
-            top = free_band(trk, src_frames(start, end), v.get("h", 410))
+            top = tech_band(trk, src_frames(start, end), v.get("h", 410))
             if top is None:
                 warn.append(f"tech {v['id']} at f{start}: no face-free band; card instead")
                 return None
@@ -472,7 +480,7 @@ def fill(preset, sents, words, m, db, floor, trk, d: Path, reel_id: str):
         if kind == "argument":
             txt = S[sid]["text"]
             v = next((v for v in vis if v["id"] not in used_vis and re.search(v["match"], txt, re.I)), None)
-            if v and place_tech(v, f0 if v.get("full_frame") else S_on(sid), sid):
+            if v and place_tech(v, S_on(sid) or f0, sid):
                 continue
             if not v:
                 wish.append({"reel": reel_id, "want": f"technical visual for: {txt[:90]}", "at_frame": f0, "used_instead": "argument card"})
